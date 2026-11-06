@@ -70,7 +70,7 @@ namespace Models
     shared_ptr<string> fieldKey_ {};
     // The JSONPath expression of the template field in the request or response message, such as usage.prompt_tokens.
     shared_ptr<string> jsonPath_ {};
-    // The value source of the field, which indicates the part of the message from which the field is read, such as response_body.
+    // The value source of the field, which identifies the part of the message from which the field is read, such as response_body.
     shared_ptr<string> source_ {};
     // The statistical category to which the field belongs.
     shared_ptr<string> category_ {};

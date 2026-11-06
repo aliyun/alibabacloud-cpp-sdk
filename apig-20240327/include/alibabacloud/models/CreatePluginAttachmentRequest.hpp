@@ -99,17 +99,17 @@ namespace Models
   protected:
     // The list of mount point IDs.
     shared_ptr<vector<string>> attachResourceIds_ {};
-    // The resource type to which the plug-in is mounted. Valid values: GatewayRoute, Gateway, GatewayDomain, HttpApi, and Operation.
+    // The type of the resource to which the plugin is mounted. Valid values: GatewayRoute, Gateway, GatewayDomain, HttpApi, and Operation.
     shared_ptr<string> attachResourceType_ {};
-    // Specifies whether to enable the plug-in. Default value: false.
+    // Specifies whether to enable the plugin. Default value: false.
     shared_ptr<bool> enable_ {};
     // The environment ID.
     shared_ptr<string> environmentId_ {};
     // The gateway instance ID.
     shared_ptr<string> gatewayId_ {};
-    // The Base64-encoded content of the original plug-in configuration.
+    // The Base64-encoded content of the original plugin configuration.
     shared_ptr<string> pluginConfig_ {};
-    // The plug-in ID.
+    // The plugin ID.
     shared_ptr<string> pluginId_ {};
   };
 

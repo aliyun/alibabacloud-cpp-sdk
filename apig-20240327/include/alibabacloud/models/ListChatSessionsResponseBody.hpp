@@ -129,7 +129,7 @@ namespace Models
         shared_ptr<vector<string>> products_ {};
         // The ID of the chat session. You can use this ID to locate the session in API operations such as UpdateChatSession, DeleteChatSession, and ListConversations.
         shared_ptr<string> sessionId_ {};
-        // The conversation type of the session. Valid values: MODEL and AGENT. These values are defined in the talkType enumeration of the CreateChatSession request parameter, and this response parameter does not have the @enums annotation.
+        // The conversation type of the session. Valid values: MODEL and AGENT. These values are defined in the talkType request parameter of the CreateChatSession operation. This response parameter does not include the @enums annotation.
         shared_ptr<string> talkType_ {};
       };
 
@@ -170,7 +170,7 @@ namespace Models
       shared_ptr<vector<Data::Content>> content_ {};
       // The page number.
       shared_ptr<int32_t> pageNumber_ {};
-      // The page size.
+      // The number of entries per page.
       shared_ptr<int32_t> pageSize_ {};
       // The total number of entries.
       shared_ptr<int64_t> totalCount_ {};
@@ -233,7 +233,7 @@ namespace Models
     shared_ptr<string> message_ {};
     // The pagination token for the next page. An empty value indicates that the last page has been reached.
     shared_ptr<string> nextToken_ {};
-    // The request ID.
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
   };
 

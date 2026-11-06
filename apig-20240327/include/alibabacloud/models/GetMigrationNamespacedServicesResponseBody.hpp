@@ -114,7 +114,7 @@ namespace Models
 
 
         protected:
-          // The service name. After you select a Server Load Balancer (SLB) instance, the frontend populates this value into the serviceName field.
+          // The name of the service. After an SLB instance is selected, the frontend populates this value into the serviceName field.
           shared_ptr<string> name_ {};
           // The ID of the load balancing instance associated with the service.
           shared_ptr<string> slbId_ {};
@@ -193,13 +193,13 @@ namespace Models
 
 
   protected:
-    // The response status code.
+    // The status code of the response.
     shared_ptr<string> code_ {};
     // The response data.
     shared_ptr<GetMigrationNamespacedServicesResponseBody::Data> data_ {};
     // The response message.
     shared_ptr<string> message_ {};
-    // The request ID.
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
   };
 

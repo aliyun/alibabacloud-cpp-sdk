@@ -211,7 +211,7 @@ namespace Models
       protected:
         // The API information.
         shared_ptr<HttpApiApiInfo> apiInfo_ {};
-        // The consumer authorization rule ID.
+        // The ID of the consumer authorization rule.
         shared_ptr<string> consumerAuthorizationRuleId_ {};
         // The consumer ID.
         shared_ptr<string> consumerId_ {};
@@ -221,9 +221,7 @@ namespace Models
         shared_ptr<string> deployStatus_ {};
         // The environment context.
         shared_ptr<EnvironmentInfo> environmentInfo_ {};
-        // The expiration mode. Valid values:
-        // - LongTerm: long-term
-        // - ShortTerm: short-term
+        // The expiration mode. Valid values: LongTerm and ShortTerm.
         shared_ptr<string> expireMode_ {};
         // The expiration status.
         shared_ptr<string> expireStatus_ {};
@@ -276,7 +274,7 @@ namespace Models
       shared_ptr<vector<Data::Items>> items_ {};
       // The page number.
       shared_ptr<int32_t> pageNumber_ {};
-      // The page size.
+      // The number of entries per page.
       shared_ptr<int32_t> pageSize_ {};
       // The total number of entries.
       shared_ptr<string> totalSize_ {};

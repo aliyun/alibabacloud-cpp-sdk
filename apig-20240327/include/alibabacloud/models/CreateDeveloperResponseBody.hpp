@@ -63,7 +63,7 @@ namespace Models
 
 
     protected:
-      // The developer ID. You can use this ID to locate the developer in API operations such as SetHiMarketDeveloperStatus and DeleteHiMarketDeveloper.
+      // The developer ID. This ID can be used to identify the developer in API operations such as SetHiMarketDeveloperStatus and DeleteHiMarketDeveloper.
       shared_ptr<string> developerId_ {};
     };
 

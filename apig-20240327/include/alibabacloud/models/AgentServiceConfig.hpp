@@ -22,6 +22,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(enableOutlierDetection, enableOutlierDetection_);
       DARABONBA_PTR_TO_JSON(protocols, protocols_);
       DARABONBA_PTR_TO_JSON(provider, provider_);
+      DARABONBA_PTR_TO_JSON(upstreamAuthMode, upstreamAuthMode_);
     };
     friend void from_json(const Darabonba::Json& j, AgentServiceConfig& obj) { 
       DARABONBA_PTR_FROM_JSON(address, address_);
@@ -32,6 +33,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(enableOutlierDetection, enableOutlierDetection_);
       DARABONBA_PTR_FROM_JSON(protocols, protocols_);
       DARABONBA_PTR_FROM_JSON(provider, provider_);
+      DARABONBA_PTR_FROM_JSON(upstreamAuthMode, upstreamAuthMode_);
     };
     AgentServiceConfig() = default ;
     AgentServiceConfig(const AgentServiceConfig &) = default ;
@@ -212,7 +214,7 @@ namespace Models
 
     virtual bool empty() const override { return this->address_ == nullptr
         && this->customConfig_ == nullptr && this->dashScopeConfig_ == nullptr && this->difyConfig_ == nullptr && this->enableHealthCheck_ == nullptr && this->enableOutlierDetection_ == nullptr
-        && this->protocols_ == nullptr && this->provider_ == nullptr; };
+        && this->protocols_ == nullptr && this->provider_ == nullptr && this->upstreamAuthMode_ == nullptr; };
     // address Field Functions 
     bool hasAddress() const { return this->address_ != nullptr;};
     void deleteAddress() { this->address_ = nullptr;};
@@ -277,18 +279,25 @@ namespace Models
     inline AgentServiceConfig& setProvider(string provider) { DARABONBA_PTR_SET_VALUE(provider_, provider) };
 
 
+    // upstreamAuthMode Field Functions 
+    bool hasUpstreamAuthMode() const { return this->upstreamAuthMode_ != nullptr;};
+    void deleteUpstreamAuthMode() { this->upstreamAuthMode_ = nullptr;};
+    inline string getUpstreamAuthMode() const { DARABONBA_PTR_GET_DEFAULT(upstreamAuthMode_, "") };
+    inline AgentServiceConfig& setUpstreamAuthMode(string upstreamAuthMode) { DARABONBA_PTR_SET_VALUE(upstreamAuthMode_, upstreamAuthMode) };
+
+
   protected:
     // The address.
     // 
     // This parameter is required.
     shared_ptr<string> address_ {};
-    // The custom configuration. This parameter is required when provider is set to custom.
+    // The custom configuration. Specify this parameter when provider is set to custom.
     shared_ptr<AgentServiceConfig::CustomConfig> customConfig_ {};
-    // The DashScope service configuration. This parameter is required when provider is set to qwen. The appCredentials parameter cannot be empty, and each entry must have non-empty appId and apiKey values.
+    // The DashScope service configuration. Specify this parameter when provider is set to qwen. The appCredentials parameter cannot be empty, and both appId and apiKey must be specified for each item.
     shared_ptr<AgentServiceConfig::DashScopeConfig> dashScopeConfig_ {};
-    // The Dify service configuration. This parameter is required when provider is set to dify. The botType and apiKey parameters cannot be empty.
+    // The Dify service configuration. Specify this parameter when provider is set to dify. Both botType and apiKey must be specified.
     shared_ptr<AgentServiceConfig::DifyConfig> difyConfig_ {};
-    // Specifies whether to enable health check.
+    // Specifies whether to enable the health check.
     shared_ptr<bool> enableHealthCheck_ {};
     // Specifies whether to enable outlier detection.
     shared_ptr<bool> enableOutlierDetection_ {};
@@ -298,6 +307,8 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> provider_ {};
+    // Supported only for custom agents. The value api-key indicates a managed API key, and downstream-auth indicates passing through the complete client Authorization header. If this parameter is omitted or left empty during creation, the historical rule applies. If this parameter is omitted or left empty during an update, the existing mode is retained. When passing through the authorization, you can omit customConfig, and you cannot submit a non-empty key.
+    shared_ptr<string> upstreamAuthMode_ {};
   };
 
   } // namespace Models

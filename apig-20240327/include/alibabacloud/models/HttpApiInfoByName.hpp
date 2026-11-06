@@ -87,7 +87,7 @@ namespace Models
     shared_ptr<string> type_ {};
     // Indicates whether version management is enabled.
     shared_ptr<bool> versionEnabled_ {};
-    // The versioned API version information.
+    // The version information of the versioned APIs.
     shared_ptr<vector<HttpApiApiInfo>> versionedHttpApis_ {};
   };
 

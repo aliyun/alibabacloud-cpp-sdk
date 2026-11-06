@@ -130,11 +130,11 @@ namespace Models
       shared_ptr<string> environmentId_ {};
       // The Ingress class to listen on.
       shared_ptr<string> ingressClass_ {};
-      // Specifies whether to update the address in the Ingress status.
+      // Specifies whether to update the IP address in the Ingress status.
       shared_ptr<bool> overrideIngressIp_ {};
       // The source ID.
       shared_ptr<string> sourceId_ {};
-      // The namespace to listen on.
+      // The namespace to watch.
       shared_ptr<string> watchNamespace_ {};
     };
 
@@ -268,31 +268,29 @@ namespace Models
     shared_ptr<vector<string>> aiProtocols_ {};
     // The authentication configuration.
     shared_ptr<AuthConfig> authConfig_ {};
-    // The base path of the API. The value must start with a forward slash (/).
-    // 
-    // This parameter is required.
+    // The base path of the API. It must start with a forward slash (/).
     shared_ptr<string> basePath_ {};
     // The list of API deployment configurations.
     shared_ptr<vector<HttpApiDeployConfig>> deployConfigs_ {};
-    // The API description.
+    // The description of the API.
     shared_ptr<string> description_ {};
     // Specifies whether to enable authentication.
     shared_ptr<bool> enableAuth_ {};
-    // The first byte timeout period. Unit: seconds.
+    // The first byte timeout period, in seconds.
     shared_ptr<int32_t> firstByteTimeout_ {};
-    // The configuration of the HTTP Ingress API.
+    // The configuration information of the HTTP Ingress API.
     shared_ptr<UpdateHttpApiRequest::IngressConfig> ingressConfig_ {};
-    // Specifies whether to only modify the configuration. If this parameter is set to true, only the configuration is modified without triggering redeployment.
+    // Specifies whether to only modify the configuration. A value of true indicates that only the configuration is modified without triggering a redeployment.
     shared_ptr<bool> onlyChangeConfig_ {};
     // The list of API access protocols.
     shared_ptr<vector<string>> protocols_ {};
-    // Specifies whether to remove the base path when forwarding requests.
+    // Specifies whether to remove the base path during forwarding.
     shared_ptr<bool> removeBasePathOnForward_ {};
-    // The API versioning configuration.
+    // The versioning configuration of the API.
     shared_ptr<HttpApiVersionConfig> versionConfig_ {};
-    // The idempotency token. If you call this operation for the same HTTP API by using the same clientToken value and request parameters, the result of the first successful call is returned.
+    // The idempotent request token. If you call the same HTTP API with the same client token and request parameters, the result of the first successful call is returned.
     shared_ptr<string> clientToken_ {};
-    // Specifies whether to perform only a dry run. If this parameter is set to true, all synchronous validations identical to an actual update are performed, but no configurations are updated and no side effects are produced. If this parameter is not specified or is set to false, the behavior is the same as the existing version.
+    // Specifies whether to perform a dry run. If you set this parameter to true, all synchronization checks consistent with a real update are performed, but no configurations are updated and no side effects are generated. If this parameter is left empty or set to false, the behavior remains the same as the existing version.
     shared_ptr<bool> dryRun_ {};
   };
 

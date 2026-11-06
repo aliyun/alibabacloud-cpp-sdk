@@ -59,9 +59,9 @@ namespace Models
   protected:
     // The keyword for the category name. This parameter is used to search for product categories by name.
     shared_ptr<string> name_ {};
-    // The page number. The value starts from 1.
+    // The page number. Pages start from 1.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries to return on each page. The minimum value is 1.
+    // The number of entries per page. The minimum value is 1.
     shared_ptr<int32_t> pageSize_ {};
   };
 

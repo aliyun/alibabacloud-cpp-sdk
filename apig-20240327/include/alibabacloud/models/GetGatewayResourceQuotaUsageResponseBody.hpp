@@ -133,17 +133,17 @@ namespace Models
 
 
       protected:
-        // Indicates whether quota numerical values are provided.
+        // Specifies whether the quota value is provided.
         shared_ptr<bool> applicable_ {};
         // The effective limit.
         shared_ptr<int64_t> limit_ {};
-        // The scope to which the limit applies.
+        // The applicable scope of the limit.
         shared_ptr<string> limitScope_ {};
         // The quota metric.
         shared_ptr<string> quotaKey_ {};
         // The current usage.
         shared_ptr<int64_t> used_ {};
-        // The scope for usage statistics.
+        // The scope of usage statistics.
         shared_ptr<string> usedScope_ {};
       };
 

@@ -91,9 +91,9 @@ namespace Models
     protected:
       // The list of consumer IDs that failed to be added.
       shared_ptr<vector<string>> failedConsumerIds_ {};
-      // The list of consumer IDs that already exist in the consumer group and were skipped.
+      // The list of consumer IDs that are already in the consumer group and are skipped in this operation.
       shared_ptr<vector<string>> skippedConsumerIds_ {};
-      // The list of consumer IDs that were successfully added to the consumer group.
+      // The list of consumer IDs successfully added to the consumer group.
       shared_ptr<vector<string>> successConsumerIds_ {};
     };
 
@@ -130,7 +130,7 @@ namespace Models
 
 
   protected:
-    // The response status code. Ok is returned if the request is successful.
+    // The response status code. The value is Ok if the request succeeds.
     shared_ptr<string> code_ {};
     // The response data.
     shared_ptr<BatchAddConsumerGroupConsumersResponseBody::Data> data_ {};

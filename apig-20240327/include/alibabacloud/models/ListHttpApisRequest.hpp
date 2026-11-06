@@ -188,41 +188,39 @@ namespace Models
   protected:
     // The ID of the cloud-native API gateway.
     shared_ptr<string> gatewayId_ {};
-    // The type of gateway associated with the HTTP API. Valid values:
-    // - API: cloud-native API gateway.
-    // - AI: AI gateway.
+    // The type of the gateway associated with the HTTP API. Valid values: API (cloud-native API gateway) and AI (AI gateway).
     shared_ptr<string> gatewayType_ {};
     // The search keyword. Supports fuzzy match by API name or exact search by API ID.
     shared_ptr<string> keyword_ {};
-    // Searches for an exact match by name.
+    // The name for exact search.
     shared_ptr<string> name_ {};
-    // The page number, starting from 1. Default value: 1.
+    // The page number. Pages start from 1. Default value: 1.
     shared_ptr<int32_t> pageNumber_ {};
-    // The page size. Valid values: 1 to 100. Default value: 10.
+    // The number of entries per page. Valid values: 1 to 500. Default value: 10.
     shared_ptr<int32_t> pageSize_ {};
-    // The resource group ID.
+    // The ID of the resource group.
     shared_ptr<string> resourceGroupId_ {};
-    // The type of the HTTP API. You can specify multiple types separated by commas (,). Valid values:
+    // The types of the HTTP API. You can specify multiple types separated by commas (,). Valid values:
     // - Http
     // - Rest
-    // - WebSocket
+    // - Websocket
     // - HttpIngress
     shared_ptr<string> types_ {};
-    // Specifies whether to return information about APIs published to the specified environment.
+    // Specifies whether to return the information about APIs published to the specified environment.
     shared_ptr<bool> withAPIsPublishedToEnvironment_ {};
-    // The environment ID. If specified, the response includes consumer authentication policy information for each API in the specified environment.
+    // The ID of the environment. If specified, the response includes the consumer authentication policy information for each API in the specified environment.
     shared_ptr<string> withAuthPolicyInEnvironmentId_ {};
     // Specifies whether the permission authentication policy is enabled.
     shared_ptr<bool> withAuthPolicyList_ {};
-    // The consumer ID. If specified, the response includes the authorization rule list for the specified consumer for each API.
+    // The ID of the consumer. If specified, the response includes the list of authorization rules for the specified consumer in each API information.
     shared_ptr<string> withConsumerInfoById_ {};
     // The environment context.
     shared_ptr<bool> withEnvironmentInfo_ {};
-    // The environment ID.
+    // The ID of the environment.
     shared_ptr<string> withEnvironmentInfoById_ {};
-    // Specifies whether to include ingress information.
+    // Specifies whether to include Ingress information.
     shared_ptr<bool> withIngressInfo_ {};
-    // The plug-in ID. If specified, the response includes plug-in publishing information based on this plug-in ID.
+    // The ID of the plug-in. If specified, the plug-in release information is retrieved based on this plug-in ID.
     shared_ptr<string> withPluginAttachmentByPluginId_ {};
     // Specifies whether to include policy information.
     shared_ptr<bool> withPolicyConfigs_ {};

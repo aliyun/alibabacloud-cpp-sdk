@@ -2,12 +2,14 @@
 #include <alibabacloud/APIG20240327.hpp>
 #include <alibabacloud/Utils.hpp>
 #include <alibabacloud/Openapi.hpp>
+#include <alibabacloud/gateway/POP.hpp>
 #include <map>
 #include <darabonba/Runtime.hpp>
 #include <darabonba/encode/Encoder.hpp>
 using namespace std;
 using namespace Darabonba;
 using json = nlohmann::json;
+using namespace AlibabaCloud::Gateway;
 using namespace AlibabaCloud::OpenApi;
 using namespace AlibabaCloud::OpenApi::Models;
 using namespace AlibabaCloud::APIG20240327::Models;
@@ -19,6 +21,9 @@ namespace APIG20240327
 {
 
 AlibabaCloud::APIG20240327::Client::Client(Config &config): OpenApiClient(config){
+  this->_productId = "APIG";
+  shared_ptr<POP> gatewayClient = make_shared<POP>();
+  this->_spi = gatewayClient;
   this->_endpointRule = "regional";
   checkConfig(config);
   this->_endpoint = getEndpoint("apig", _regionId, _endpointRule, _network, _suffix, _endpointMap, _endpoint);
@@ -40,15 +45,15 @@ string Client::getEndpoint(const string &productId, const string &regionId, cons
 /**
  * @summary Creates a gateway quota throttling rule.
  *
- * @description Creates a consumer-based or consumer group-based quota rule for an AI gateway. This operation takes effect only on AI gateways of version 2.1.21 or later.
+ * @description This operation adds a quota rule based on consumers or consumer groups for an AI gateway. Note that this operation takes effect only for AI gateways of a version later than 2.1.21.
  * > 
- * >  Recommended call sequence:
- * > - Step 1: Perform a dry run to check for rule conflicts.
+ * >  Recommended call logic:
+ * > - 1. Perform a dry run to check for rule conflicts.
  * > - - Set dryRun to true.
- * > - - The response returns a conflict preview that contains the conflictHash value.
- * > - Step 2: Submit the request after confirmation.
- * > - - No conflicts: Set dryRun to false and overwrite to false.
- * > - - Conflicts exist and you confirm the overwrite: Set dryRun to false, overwrite to true, and conflictHash to the value returned in the previous step.
+ * > - - The response returns a conflict preview that contains conflictHash.
+ * > - 2. Submit the request after confirmation.
+ * > - - If no conflicts exist: Set dryRun to false and overwrite to false.
+ * > - - If conflicts exist and you confirm to overwrite: Set dryRun to false, overwrite to true, and conflictHash to the value returned in the previous step.
  *
  * @param request AddGatewayQuotaRuleRequest
  * @param headers map
@@ -131,15 +136,15 @@ AddGatewayQuotaRuleResponse Client::addGatewayQuotaRuleWithOptions(const string 
 /**
  * @summary Creates a gateway quota throttling rule.
  *
- * @description Creates a consumer-based or consumer group-based quota rule for an AI gateway. This operation takes effect only on AI gateways of version 2.1.21 or later.
+ * @description This operation adds a quota rule based on consumers or consumer groups for an AI gateway. Note that this operation takes effect only for AI gateways of a version later than 2.1.21.
  * > 
- * >  Recommended call sequence:
- * > - Step 1: Perform a dry run to check for rule conflicts.
+ * >  Recommended call logic:
+ * > - 1. Perform a dry run to check for rule conflicts.
  * > - - Set dryRun to true.
- * > - - The response returns a conflict preview that contains the conflictHash value.
- * > - Step 2: Submit the request after confirmation.
- * > - - No conflicts: Set dryRun to false and overwrite to false.
- * > - - Conflicts exist and you confirm the overwrite: Set dryRun to false, overwrite to true, and conflictHash to the value returned in the previous step.
+ * > - - The response returns a conflict preview that contains conflictHash.
+ * > - 2. Submit the request after confirmation.
+ * > - - If no conflicts exist: Set dryRun to false and overwrite to false.
+ * > - - If conflicts exist and you confirm to overwrite: Set dryRun to false, overwrite to true, and conflictHash to the value returned in the previous step.
  *
  * @param request AddGatewayQuotaRuleRequest
  * @return AddGatewayQuotaRuleResponse
@@ -204,7 +209,7 @@ AddGatewaySecurityGroupRuleResponse Client::addGatewaySecurityGroupRule(const st
 }
 
 /**
- * @summary Adds members to a consumer group in batches.
+ * @summary Adds consumer group members in batches.
  *
  * @param request BatchAddConsumerGroupConsumersRequest
  * @param headers map
@@ -237,7 +242,7 @@ BatchAddConsumerGroupConsumersResponse Client::batchAddConsumerGroupConsumersWit
 }
 
 /**
- * @summary Adds members to a consumer group in batches.
+ * @summary Adds consumer group members in batches.
  *
  * @param request BatchAddConsumerGroupConsumersRequest
  * @return BatchAddConsumerGroupConsumersResponse
@@ -436,7 +441,7 @@ BatchImportHttpApisResponse Client::batchImportHttpApis(const BatchImportHttpApi
 }
 
 /**
- * @summary Removes consumer group members in batches.
+ * @summary Removes multiple members from a consumer group.
  *
  * @param request BatchRemoveConsumerGroupConsumersRequest
  * @param headers map
@@ -469,7 +474,7 @@ BatchRemoveConsumerGroupConsumersResponse Client::batchRemoveConsumerGroupConsum
 }
 
 /**
- * @summary Removes consumer group members in batches.
+ * @summary Removes multiple members from a consumer group.
  *
  * @param request BatchRemoveConsumerGroupConsumersRequest
  * @return BatchRemoveConsumerGroupConsumersResponse
@@ -591,7 +596,7 @@ ChangeResourceGroupResponse Client::changeResourceGroup(const ChangeResourceGrou
 }
 
 /**
- * @summary Queries the activation status of the API management service.
+ * @summary Retrieves the activation status of the API Management service.
  *
  * @param request CheckCommodityStatusRequest
  * @param headers map
@@ -618,7 +623,7 @@ CheckCommodityStatusResponse Client::checkCommodityStatusWithOptions(const Check
 }
 
 /**
- * @summary Queries the activation status of the API management service.
+ * @summary Retrieves the activation status of the API Management service.
  *
  * @param request CheckCommodityStatusRequest
  * @return CheckCommodityStatusResponse
@@ -632,8 +637,7 @@ CheckCommodityStatusResponse Client::checkCommodityStatus(const CheckCommoditySt
 /**
  * @summary Creates an AI model card.
  *
- * @description Performs model creation for a model card under an existing model provider in a specified AI gateway instance. The target gateway must exist, belong to the current account, and be of the AI gateway type. The modelProvider must reference a model provider that already exists in the gateway.
- * The modelName must be unique within the same AI gateway instance and the same model provider. A maximum of 1,000 model cards can be created for a single gateway instance. The credit parameter currently supports only the fixed type, and the cost unit is Credits per million tokens. If this parameter is not specified, type defaults to fixed and all cost values default to 0. Each entry in availablePaths must include both path and type.
+ * @description Creates a model card for model creation under an existing model provider of a specified AI gateway instance. The target gateway must exist, belong to the current account, and be of the AI gateway type. The modelProvider parameter must reference an existing model provider in the gateway. The modelName must be unique within the same AI gateway instance and model provider. You can create up to 1,000 model cards per gateway instance. The credit parameter currently supports only the fixed type, and the billing unit is Credits per million tokens. If this parameter is not specified, the type defaults to fixed and all costs default to 0. Each item in availablePaths must include both path and type.
  *
  * @param request CreateAiModelCardRequest
  * @param headers map
@@ -692,8 +696,7 @@ CreateAiModelCardResponse Client::createAiModelCardWithOptions(const CreateAiMod
 /**
  * @summary Creates an AI model card.
  *
- * @description Performs model creation for a model card under an existing model provider in a specified AI gateway instance. The target gateway must exist, belong to the current account, and be of the AI gateway type. The modelProvider must reference a model provider that already exists in the gateway.
- * The modelName must be unique within the same AI gateway instance and the same model provider. A maximum of 1,000 model cards can be created for a single gateway instance. The credit parameter currently supports only the fixed type, and the cost unit is Credits per million tokens. If this parameter is not specified, type defaults to fixed and all cost values default to 0. Each entry in availablePaths must include both path and type.
+ * @description Creates a model card for model creation under an existing model provider of a specified AI gateway instance. The target gateway must exist, belong to the current account, and be of the AI gateway type. The modelProvider parameter must reference an existing model provider in the gateway. The modelName must be unique within the same AI gateway instance and model provider. You can create up to 1,000 model cards per gateway instance. The credit parameter currently supports only the fixed type, and the billing unit is Credits per million tokens. If this parameter is not specified, the type defaults to fixed and all costs default to 0. Each item in availablePaths must include both path and type.
  *
  * @param request CreateAiModelCardRequest
  * @return CreateAiModelCardResponse
@@ -894,7 +897,7 @@ CreateChatSessionResponse Client::createChatSession(const CreateChatSessionReque
 }
 
 /**
- * @summary Creates an API consumer.
+ * @summary Creates a consumer.
  *
  * @param request CreateConsumerRequest
  * @param headers map
@@ -961,7 +964,7 @@ CreateConsumerResponse Client::createConsumerWithOptions(const CreateConsumerReq
 }
 
 /**
- * @summary Creates an API consumer.
+ * @summary Creates a consumer.
  *
  * @param request CreateConsumerRequest
  * @return CreateConsumerResponse
@@ -1034,14 +1037,14 @@ CreateConsumerAuthorizationRuleResponse Client::createConsumerAuthorizationRule(
 }
 
 /**
- * @summary Creates consumer authorization rules.
+ * @summary Creates a consumer authorization rule.
  *
- * @description Prerequisites: Before creating consumer authorization rules, prepare resources in the following dependency chain (the corresponding creation API and ID passing relationships are shown in parentheses):
- * Gateway instance (CreateGateway → gatewayId, gw- prefix)
- * Environment (A default environment is automatically created with the gateway. You can also call CreateEnvironment → environmentId, env- prefix. The gatewayId from step 1 must be associated.)
- * HTTP API (CreateHttpApi → httpApiId, api- prefix)
- * Route and publish (CreateHttpApiRoute → routeId, hr- prefix, which belongs to the API in step 3. Then call DeployHttpApi to publish the route to the environment in step 2. Unpublished routes cannot be authorized.)
- * Consumer (CreateConsumer → consumerId, cs- prefix; or consumer group consumerGroupId, csg- prefix. Specify either consumerId or consumerGroupId.)
+ * @description Prerequisites: Before creating a consumer authorization rule, prepare resources according to the following dependency chain (the corresponding creation APIs and ID passing relationships are in parentheses):
+ * Gateway instance (CreateGateway → gatewayId, with the gw- prefix)
+ * Environment (A default environment is automatically created after the gateway is created. You can also call CreateEnvironment → environmentId, with the env- prefix. The gatewayId from Step 1 is required.)
+ * HTTP API (CreateHttpApi → httpApiId, with the api- prefix)
+ * Route and publish (CreateHttpApiRoute → routeId, with the hr- prefix, which belongs to the API in Step 3. Then, call DeployHttpApi to publish it to the environment in Step 2. Unpublished routes cannot be authorized.)
+ * Consumer (CreateConsumer → consumerId, with the cs- prefix, or consumerGroupId, with the csg- prefix. Choose either consumerId or consumerGroupId.)
  *
  * @param request CreateConsumerAuthorizationRulesRequest
  * @param headers map
@@ -1074,14 +1077,14 @@ CreateConsumerAuthorizationRulesResponse Client::createConsumerAuthorizationRule
 }
 
 /**
- * @summary Creates consumer authorization rules.
+ * @summary Creates a consumer authorization rule.
  *
- * @description Prerequisites: Before creating consumer authorization rules, prepare resources in the following dependency chain (the corresponding creation API and ID passing relationships are shown in parentheses):
- * Gateway instance (CreateGateway → gatewayId, gw- prefix)
- * Environment (A default environment is automatically created with the gateway. You can also call CreateEnvironment → environmentId, env- prefix. The gatewayId from step 1 must be associated.)
- * HTTP API (CreateHttpApi → httpApiId, api- prefix)
- * Route and publish (CreateHttpApiRoute → routeId, hr- prefix, which belongs to the API in step 3. Then call DeployHttpApi to publish the route to the environment in step 2. Unpublished routes cannot be authorized.)
- * Consumer (CreateConsumer → consumerId, cs- prefix; or consumer group consumerGroupId, csg- prefix. Specify either consumerId or consumerGroupId.)
+ * @description Prerequisites: Before creating a consumer authorization rule, prepare resources according to the following dependency chain (the corresponding creation APIs and ID passing relationships are in parentheses):
+ * Gateway instance (CreateGateway → gatewayId, with the gw- prefix)
+ * Environment (A default environment is automatically created after the gateway is created. You can also call CreateEnvironment → environmentId, with the env- prefix. The gatewayId from Step 1 is required.)
+ * HTTP API (CreateHttpApi → httpApiId, with the api- prefix)
+ * Route and publish (CreateHttpApiRoute → routeId, with the hr- prefix, which belongs to the API in Step 3. Then, call DeployHttpApi to publish it to the environment in Step 2. Unpublished routes cannot be authorized.)
+ * Consumer (CreateConsumer → consumerId, with the cs- prefix, or consumerGroupId, with the csg- prefix. Choose either consumerId or consumerGroupId.)
  *
  * @param request CreateConsumerAuthorizationRulesRequest
  * @return CreateConsumerAuthorizationRulesResponse
@@ -1150,7 +1153,7 @@ CreateConsumerGroupResponse Client::createConsumerGroup(const CreateConsumerGrou
 }
 
 /**
- * @summary Registers a HiMarket developer account and returns the ID of the new developer.
+ * @summary Registers a HiMarket developer account and returns the ID of the newly created developer upon successful creation.
  *
  * @param request CreateDeveloperRequest
  * @param headers map
@@ -1187,7 +1190,7 @@ CreateDeveloperResponse Client::createDeveloperWithOptions(const CreateDeveloper
 }
 
 /**
- * @summary Registers a HiMarket developer account and returns the ID of the new developer.
+ * @summary Registers a HiMarket developer account and returns the ID of the newly created developer upon successful creation.
  *
  * @param request CreateDeveloperRequest
  * @return CreateDeveloperResponse
@@ -1583,7 +1586,7 @@ CreateHttpApiResponse Client::createHttpApi(const CreateHttpApiRequest &request)
 }
 
 /**
- * @summary Creates operations for an HTTP API.
+ * @summary Creates an API operation for an HTTP API.
  *
  * @param request CreateHttpApiOperationRequest
  * @param headers map
@@ -1616,7 +1619,7 @@ CreateHttpApiOperationResponse Client::createHttpApiOperationWithOptions(const s
 }
 
 /**
- * @summary Creates operations for an HTTP API.
+ * @summary Creates an API operation for an HTTP API.
  *
  * @param request CreateHttpApiOperationRequest
  * @return CreateHttpApiOperationResponse
@@ -1648,6 +1651,10 @@ CreateHttpApiRouteResponse Client::createHttpApiRouteWithOptions(const string &h
 
   if (!!request.hasDescription()) {
     body["description"] = request.getDescription();
+  }
+
+  if (!!request.hasDfpConfig()) {
+    body["dfpConfig"] = request.getDfpConfig();
   }
 
   if (!!request.hasDomainIds()) {
@@ -1924,7 +1931,7 @@ CreateMigrationTaskResponse Client::createMigrationTask(const CreateMigrationTas
 }
 
 /**
- * @summary Mounts a plug-in.
+ * @summary Mounts a plugin.
  *
  * @param request CreatePluginAttachmentRequest
  * @param headers map
@@ -1981,7 +1988,7 @@ CreatePluginAttachmentResponse Client::createPluginAttachmentWithOptions(const C
 }
 
 /**
- * @summary Mounts a plug-in.
+ * @summary Mounts a plugin.
  *
  * @param request CreatePluginAttachmentRequest
  * @return CreatePluginAttachmentResponse
@@ -1993,7 +2000,7 @@ CreatePluginAttachmentResponse Client::createPluginAttachment(const CreatePlugin
 }
 
 /**
- * @summary Creates a custom plugin class.
+ * @summary Creates a custom plug-in class.
  *
  * @param request CreatePluginClassRequest
  * @param headers map
@@ -2062,7 +2069,7 @@ CreatePluginClassResponse Client::createPluginClassWithOptions(const CreatePlugi
 }
 
 /**
- * @summary Creates a custom plugin class.
+ * @summary Creates a custom plug-in class.
  *
  * @param request CreatePluginClassRequest
  * @return CreatePluginClassResponse
@@ -2074,7 +2081,7 @@ CreatePluginClassResponse Client::createPluginClass(const CreatePluginClassReque
 }
 
 /**
- * @summary Creates a WebIDE workspace for a plugin.
+ * @summary Creates a plugin WebIDE workspace.
  *
  * @param request CreatePluginWorkspaceRequest
  * @param headers map
@@ -2119,7 +2126,7 @@ CreatePluginWorkspaceResponse Client::createPluginWorkspaceWithOptions(const Cre
 }
 
 /**
- * @summary Creates a WebIDE workspace for a plugin.
+ * @summary Creates a plugin WebIDE workspace.
  *
  * @param request CreatePluginWorkspaceRequest
  * @return CreatePluginWorkspaceResponse
@@ -2188,7 +2195,7 @@ CreatePolicyResponse Client::createPolicy(const CreatePolicyRequest &request) {
 }
 
 /**
- * @summary Creates a policy attachment to a resource.
+ * @summary Creates a policy resource attachment.
  *
  * @param request CreatePolicyAttachmentRequest
  * @param headers map
@@ -2237,7 +2244,7 @@ CreatePolicyAttachmentResponse Client::createPolicyAttachmentWithOptions(const C
 }
 
 /**
- * @summary Creates a policy attachment to a resource.
+ * @summary Creates a policy resource attachment.
  *
  * @param request CreatePolicyAttachmentRequest
  * @return CreatePolicyAttachmentResponse
@@ -2436,7 +2443,7 @@ CreateProductCategoryResponse Client::createProductCategory(const CreateProductC
 }
 
 /**
- * @summary Associates an API configuration with a specified API product by submitting the gatewayId and apigRefConfig parameters to the /himarket/v1/products/{productId}/ref endpoint. The association result can be queried by GetProductRef and removed by DeleteProductRef at the same path.
+ * @summary Associates an API configuration with a specified API product by submitting the gatewayId and apigRefConfig parameters to the /himarket/v1/products/{productId}/ref endpoint. You can query the association result by calling GetProductRef on the same path or remove the association by calling DeleteProductRef.
  *
  * @param request CreateProductRefRequest
  * @param headers map
@@ -2473,7 +2480,7 @@ CreateProductRefResponse Client::createProductRefWithOptions(const string &produ
 }
 
 /**
- * @summary Associates an API configuration with a specified API product by submitting the gatewayId and apigRefConfig parameters to the /himarket/v1/products/{productId}/ref endpoint. The association result can be queried by GetProductRef and removed by DeleteProductRef at the same path.
+ * @summary Associates an API configuration with a specified API product by submitting the gatewayId and apigRefConfig parameters to the /himarket/v1/products/{productId}/ref endpoint. You can query the association result by calling GetProductRef on the same path or remove the association by calling DeleteProductRef.
  *
  * @param request CreateProductRefRequest
  * @return CreateProductRefResponse
@@ -2589,9 +2596,9 @@ CreateSecretResponse Client::createSecret(const CreateSecretRequest &request) {
 }
 
 /**
- * @summary Creates services.
+ * @summary Creates a service.
  *
- * @description This operation supports creating multiple services.
+ * @description Creates multiple services.
  *
  * @param request CreateServiceRequest
  * @param headers map
@@ -2642,9 +2649,9 @@ CreateServiceResponse Client::createServiceWithOptions(const CreateServiceReques
 }
 
 /**
- * @summary Creates services.
+ * @summary Creates a service.
  *
- * @description This operation supports creating multiple services.
+ * @description Creates multiple services.
  *
  * @param request CreateServiceRequest
  * @return CreateServiceResponse
@@ -2707,7 +2714,7 @@ CreateServiceVersionResponse Client::createServiceVersion(const string &serviceI
 /**
  * @summary Creates a source.
  *
- * @description Before creating a source, prepare the required dependency resources. For the K8S type, an existing ACK container service cluster is required. You can invoke ListK8sClusterSources to query active clusters. For the MSE_NACOS type, an existing MSE Nacos instance is required. You can invoke ListMseNacosSources to query active instances.
+ * @description Before creating a source, you must prepare the dependent resources for the source. For the K8S type, an existing ACK container service cluster is required. You can invoke ListK8sClusterSources to query active clusters. For the MSE_NACOS type, an existing MSE Nacos instance is required. You can invoke ListMseNacosSources to query active instances.
  *
  * @param request CreateSourceRequest
  * @param headers map
@@ -2758,7 +2765,7 @@ CreateSourceResponse Client::createSourceWithOptions(const CreateSourceRequest &
 /**
  * @summary Creates a source.
  *
- * @description Before creating a source, prepare the required dependency resources. For the K8S type, an existing ACK container service cluster is required. You can invoke ListK8sClusterSources to query active clusters. For the MSE_NACOS type, an existing MSE Nacos instance is required. You can invoke ListMseNacosSources to query active instances.
+ * @description Before creating a source, you must prepare the dependent resources for the source. For the K8S type, an existing ACK container service cluster is required. You can invoke ListK8sClusterSources to query active clusters. For the MSE_NACOS type, an existing MSE Nacos instance is required. You can invoke ListMseNacosSources to query active instances.
  *
  * @param request CreateSourceRequest
  * @return CreateSourceResponse
@@ -3071,9 +3078,9 @@ DeleteGatewayResponse Client::deleteGateway(const string &gatewayId) {
 }
 
 /**
- * @summary Deletes a quota throttling rule from a gateway.
+ * @summary Deletes a quota throttling rule for a gateway.
  *
- * @description This operation deletes a consumer-based or consumer group-based quota rule from an AI gateway. This operation takes effect only on AI gateways of version 2.1.19 or later.
+ * @description Deletes a quota rule based on a consumer or consumer group for an AI gateway. Note that this operation takes effect only for AI gateways whose version is later than 2.1.19.
  *
  * @param request DeleteGatewayQuotaRuleRequest
  * @param headers map
@@ -3100,9 +3107,9 @@ DeleteGatewayQuotaRuleResponse Client::deleteGatewayQuotaRuleWithOptions(const s
 }
 
 /**
- * @summary Deletes a quota throttling rule from a gateway.
+ * @summary Deletes a quota throttling rule for a gateway.
  *
- * @description This operation deletes a consumer-based or consumer group-based quota rule from an AI gateway. This operation takes effect only on AI gateways of version 2.1.19 or later.
+ * @description Deletes a quota rule based on a consumer or consumer group for an AI gateway. Note that this operation takes effect only for AI gateways whose version is later than 2.1.19.
  *
  * @param request DeleteGatewayQuotaRuleRequest
  * @return DeleteGatewayQuotaRuleResponse
@@ -3619,7 +3626,7 @@ DeleteProductCategoryResponse Client::deleteProductCategory(const string &catego
 }
 
 /**
- * @summary Dissociates an API product from an API by API product ID. This association is established by CreateProductRef on the same resource path and can be queried by GetProductRef.
+ * @summary Dissociates an API from an API product by API product ID. The association is established by CreateProductRef on the same resource path and can be queried by using GetProductRef.
  *
  * @param request DeleteProductRefRequest
  * @param headers map
@@ -3646,7 +3653,7 @@ DeleteProductRefResponse Client::deleteProductRefWithOptions(const string &produ
 }
 
 /**
- * @summary Dissociates an API product from an API by API product ID. This association is established by CreateProductRef on the same resource path and can be queried by GetProductRef.
+ * @summary Dissociates an API from an API product by API product ID. The association is established by CreateProductRef on the same resource path and can be queried by using GetProductRef.
  *
  * @param request DeleteProductRefRequest
  * @return DeleteProductRefResponse
@@ -3806,9 +3813,9 @@ DeleteSourceResponse Client::deleteSource(const string &sourceId) {
 }
 
 /**
- * @summary Publishes an HTTP API. This includes REST APIs and routes within HTTP APIs.
+ * @summary Publishes an HTTP API, including routes in REST APIs and HTTP APIs.
  *
- * @description Before deployment, the following prerequisites must be met in order: (1) A gateway has been created. (2) An HTTP API has been created and associated with a gateway (belongGatewayId). (3) A route has been created and associated with an environment (environmentId). (4) The route has been associated with the default subdomain of the environment. Associating only a custom Dedicated domain name is not sufficient to trigger deployment. Call UpdateHttpApiRoute first to add the default subdomain of the environment to the route.
+ * @description Before deployment, the following prerequisites must be met in order: (1) A gateway is created. (2) An HTTP API is created and associated with the gateway by using belongGatewayId. (3) A route is created and associated with an environment by using environmentId. (4) The route is associated with the default subdomain of the environment. Associating only a custom dedicated domain name is insufficient to trigger deployment. You must first call UpdateHttpApiRoute to add the default subdomain of the environment to the route.
  *
  * @param request DeployHttpApiRequest
  * @param headers map
@@ -3849,9 +3856,9 @@ DeployHttpApiResponse Client::deployHttpApiWithOptions(const string &httpApiId, 
 }
 
 /**
- * @summary Publishes an HTTP API. This includes REST APIs and routes within HTTP APIs.
+ * @summary Publishes an HTTP API, including routes in REST APIs and HTTP APIs.
  *
- * @description Before deployment, the following prerequisites must be met in order: (1) A gateway has been created. (2) An HTTP API has been created and associated with a gateway (belongGatewayId). (3) A route has been created and associated with an environment (environmentId). (4) The route has been associated with the default subdomain of the environment. Associating only a custom Dedicated domain name is not sufficient to trigger deployment. Call UpdateHttpApiRoute first to add the default subdomain of the environment to the route.
+ * @description Before deployment, the following prerequisites must be met in order: (1) A gateway is created. (2) An HTTP API is created and associated with the gateway by using belongGatewayId. (3) A route is created and associated with an environment by using environmentId. (4) The route is associated with the default subdomain of the environment. Associating only a custom dedicated domain name is insufficient to trigger deployment. You must first call UpdateHttpApiRoute to add the default subdomain of the environment to the route.
  *
  * @param request DeployHttpApiRequest
  * @return DeployHttpApiResponse
@@ -4124,7 +4131,7 @@ GetAiModelProviderResponse Client::getAiModelProvider(const string &modelProvide
 }
 
 /**
- * @summary Queries the effective field collection configurations for an HTTP API across each URI of the request in a specified cloud-native API gateway, including the field source, JSONPath, collection status, switch permission, and whether the configuration is derived from a field template.
+ * @summary Queries the effective field collection configurations for each request path of an HTTP API under a specified cloud-native API gateway, including the field source, JSONPath, collection status, switch permission, and template origin.
  *
  * @param request GetApiPathFieldConfigRequest
  * @param headers map
@@ -4161,7 +4168,7 @@ GetApiPathFieldConfigResponse Client::getApiPathFieldConfigWithOptions(const Get
 }
 
 /**
- * @summary Queries the effective field collection configurations for an HTTP API across each URI of the request in a specified cloud-native API gateway, including the field source, JSONPath, collection status, switch permission, and whether the configuration is derived from a field template.
+ * @summary Queries the effective field collection configurations for each request path of an HTTP API under a specified cloud-native API gateway, including the field source, JSONPath, collection status, switch permission, and template origin.
  *
  * @param request GetApiPathFieldConfigRequest
  * @return GetApiPathFieldConfigResponse
@@ -4173,7 +4180,7 @@ GetApiPathFieldConfigResponse Client::getApiPathFieldConfig(const GetApiPathFiel
 }
 
 /**
- * @summary Queries the field template corresponding to the API request path and returns the template name, applicable protocol, template description, and the set of fields defined by the template, including field keys, JSONPaths, value sources, and statistical categories.
+ * @summary Queries the field template corresponding to a URI of the request and returns the template name, applicable protocol, template description, and the set of fields defined by the template, including field keys, JSONPaths, value sources, and statistical categories.
  *
  * @param request GetApiPathFieldTemplateRequest
  * @param headers map
@@ -4206,7 +4213,7 @@ GetApiPathFieldTemplateResponse Client::getApiPathFieldTemplateWithOptions(const
 }
 
 /**
- * @summary Queries the field template corresponding to the API request path and returns the template name, applicable protocol, template description, and the set of fields defined by the template, including field keys, JSONPaths, value sources, and statistical categories.
+ * @summary Queries the field template corresponding to a URI of the request and returns the template name, applicable protocol, template description, and the set of fields defined by the template, including field keys, JSONPaths, value sources, and statistical categories.
  *
  * @param request GetApiPathFieldTemplateRequest
  * @return GetApiPathFieldTemplateResponse
@@ -4627,7 +4634,7 @@ GetEnvironmentResponse Client::getEnvironment(const string &environmentId, const
 }
 
 /**
- * @summary Retrieves basic information about a gateway, including the VPC, vSwitch, and gateway ingress.
+ * @summary Retrieves the basic information of a gateway, such as the associated VPC, vSwitch, and gateway ingress.
  *
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
@@ -4652,7 +4659,7 @@ GetGatewayResponse Client::getGatewayWithOptions(const string &gatewayId, const 
 }
 
 /**
- * @summary Retrieves basic information about a gateway, including the VPC, vSwitch, and gateway ingress.
+ * @summary Retrieves the basic information of a gateway, such as the associated VPC, vSwitch, and gateway ingress.
  *
  * @return GetGatewayResponse
  */
@@ -4660,6 +4667,49 @@ GetGatewayResponse Client::getGateway(const string &gatewayId) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   map<string, string> headers = {};
   return getGatewayWithOptions(gatewayId, headers, runtime);
+}
+
+/**
+ * @summary Retrieves the dynamic forwarding ExtProc service bound to a gateway.
+ *
+ * @description Queries the dynamic forwarding ExtProc gRPC service and port currently bound to the specified gateway. If no service is bound, bound=false is returned.
+ *
+ * @param request GetGatewayDfpExtProcServiceRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetGatewayDfpExtProcServiceResponse
+ */
+GetGatewayDfpExtProcServiceResponse Client::getGatewayDfpExtProcServiceWithOptions(const string &gatewayId, const GetGatewayDfpExtProcServiceRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "GetGatewayDfpExtProcService"},
+    {"version" , "2024-03-27"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/v1/gateways/" , Darabonba::Encode::Encoder::percentEncode(gatewayId) , "/dfp-ext-proc-service")},
+    {"method" , "GET"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetGatewayDfpExtProcServiceResponse>();
+}
+
+/**
+ * @summary Retrieves the dynamic forwarding ExtProc service bound to a gateway.
+ *
+ * @description Queries the dynamic forwarding ExtProc gRPC service and port currently bound to the specified gateway. If no service is bound, bound=false is returned.
+ *
+ * @param request GetGatewayDfpExtProcServiceRequest
+ * @return GetGatewayDfpExtProcServiceResponse
+ */
+GetGatewayDfpExtProcServiceResponse Client::getGatewayDfpExtProcService(const string &gatewayId, const GetGatewayDfpExtProcServiceRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return getGatewayDfpExtProcServiceWithOptions(gatewayId, request, headers, runtime);
 }
 
 /**
@@ -4704,7 +4754,7 @@ GetGatewayElasticPolicyResponse Client::getGatewayElasticPolicy(const string &ga
 /**
  * @summary Queries the details of a gateway quota throttling rule.
  *
- * @description Queries a specific API consumer quota rule on an AI gateway.
+ * @description This operation queries a specific consumer quota rule on an AI gateway.
  *
  * @param request GetGatewayQuotaRuleRequest
  * @param headers map
@@ -4751,7 +4801,7 @@ GetGatewayQuotaRuleResponse Client::getGatewayQuotaRuleWithOptions(const string 
 /**
  * @summary Queries the details of a gateway quota throttling rule.
  *
- * @description Queries a specific API consumer quota rule on an AI gateway.
+ * @description This operation queries a specific consumer quota rule on an AI gateway.
  *
  * @param request GetGatewayQuotaRuleRequest
  * @return GetGatewayQuotaRuleResponse
@@ -4763,10 +4813,9 @@ GetGatewayQuotaRuleResponse Client::getGatewayQuotaRule(const string &gatewayId,
 }
 
 /**
- * @summary Queries the usage details of a subject for a gateway quota throttling rule, including the used quota, total quota, over-limit status, usage details, and consumption records.
+ * @summary Queries the usage details of a subject under a gateway quota throttling rule, including the used quota, total quota, whether the limit is exceeded, usage details, and consumption records.
  *
- * @description This operation retrieves the usage details of a consumer subject under a quota rule. Note that this operation applies only to AI gateways whose version is later than 2.1.19.
- * Before you begin: Before calling this operation, ensure that the Simple Log Service (SLS) log delivery feature is enabled for the target gateway by using UpdateGatewayFeature(name=log-config, value={"enable":true}). Otherwise, the CloudProductInactive.LogDeliveryNotEnabled error is returned.
+ * @description This operation retrieves the usage details of a specific consumption subject under a quota rule. Note that this operation takes effect only for AI gateways of a version later than 2.1.19. Prerequisites: Before calling this operation, make sure that Simple Log Service (SLS) log delivery is enabled for the target gateway by calling UpdateGatewayFeature(name=log-config, value={"enable":true}). Otherwise, the CloudProductInactive.LogDeliveryNotEnabled error is returned.
  *
  * @param request GetGatewayQuotaRuleSubjectUsageRequest
  * @param headers map
@@ -4815,10 +4864,9 @@ GetGatewayQuotaRuleSubjectUsageResponse Client::getGatewayQuotaRuleSubjectUsageW
 }
 
 /**
- * @summary Queries the usage details of a subject for a gateway quota throttling rule, including the used quota, total quota, over-limit status, usage details, and consumption records.
+ * @summary Queries the usage details of a subject under a gateway quota throttling rule, including the used quota, total quota, whether the limit is exceeded, usage details, and consumption records.
  *
- * @description This operation retrieves the usage details of a consumer subject under a quota rule. Note that this operation applies only to AI gateways whose version is later than 2.1.19.
- * Before you begin: Before calling this operation, ensure that the Simple Log Service (SLS) log delivery feature is enabled for the target gateway by using UpdateGatewayFeature(name=log-config, value={"enable":true}). Otherwise, the CloudProductInactive.LogDeliveryNotEnabled error is returned.
+ * @description This operation retrieves the usage details of a specific consumption subject under a quota rule. Note that this operation takes effect only for AI gateways of a version later than 2.1.19. Prerequisites: Before calling this operation, make sure that Simple Log Service (SLS) log delivery is enabled for the target gateway by calling UpdateGatewayFeature(name=log-config, value={"enable":true}). Otherwise, the CloudProductInactive.LogDeliveryNotEnabled error is returned.
  *
  * @param request GetGatewayQuotaRuleSubjectUsageRequest
  * @return GetGatewayQuotaRuleSubjectUsageResponse
@@ -4832,7 +4880,7 @@ GetGatewayQuotaRuleSubjectUsageResponse Client::getGatewayQuotaRuleSubjectUsage(
 /**
  * @summary Queries the resource quotas and usage of a gateway.
  *
- * @description Queries the usage, effective limits, and statistical scopes of nine resource quota items for a specified API gateway or AI gateway. This operation is read-only. A successful response contains all nine items. Custom plugin quotas do not display numerical values. The result represents the current observation read independently from each source and does not guarantee that new resources can be created successfully.
+ * @description Queries the usage, effective limits, and statistical scopes of nine resource quotas for a specified API gateway or AI gateway. This operation is read-only. A successful response includes all nine items. Quota values for custom plug-ins are not displayed. The result is a current observation read independently from various sources and does not guarantee the success of subsequent resource creation.
  *
  * @param request GetGatewayResourceQuotaUsageRequest
  * @param headers map
@@ -4861,7 +4909,7 @@ GetGatewayResourceQuotaUsageResponse Client::getGatewayResourceQuotaUsageWithOpt
 /**
  * @summary Queries the resource quotas and usage of a gateway.
  *
- * @description Queries the usage, effective limits, and statistical scopes of nine resource quota items for a specified API gateway or AI gateway. This operation is read-only. A successful response contains all nine items. Custom plugin quotas do not display numerical values. The result represents the current observation read independently from each source and does not guarantee that new resources can be created successfully.
+ * @description Queries the usage, effective limits, and statistical scopes of nine resource quotas for a specified API gateway or AI gateway. This operation is read-only. A successful response includes all nine items. Quota values for custom plug-ins are not displayed. The result is a current observation read independently from various sources and does not guarantee the success of subsequent resource creation.
  *
  * @param request GetGatewayResourceQuotaUsageRequest
  * @return GetGatewayResourceQuotaUsageResponse
@@ -4873,7 +4921,7 @@ GetGatewayResourceQuotaUsageResponse Client::getGatewayResourceQuotaUsage(const 
 }
 
 /**
- * @summary Queries the details of a single HiMarket consumer by consumer ID and returns the consumer ID, name, description, and whether the consumer is the primary consumer.
+ * @summary Queries the details of a single HiMarket consumer by consumer ID, including the consumer ID, name, description, and whether the consumer is a primary consumer.
  *
  * @param request GetHiMarketConsumerRequest
  * @param headers map
@@ -4900,7 +4948,7 @@ GetHiMarketConsumerResponse Client::getHiMarketConsumerWithOptions(const string 
 }
 
 /**
- * @summary Queries the details of a single HiMarket consumer by consumer ID and returns the consumer ID, name, description, and whether the consumer is the primary consumer.
+ * @summary Queries the details of a single HiMarket consumer by consumer ID, including the consumer ID, name, description, and whether the consumer is a primary consumer.
  *
  * @param request GetHiMarketConsumerRequest
  * @return GetHiMarketConsumerResponse
@@ -4912,7 +4960,7 @@ GetHiMarketConsumerResponse Client::getHiMarketConsumer(const string &consumerId
 }
 
 /**
- * @summary Queries the credential information of a HiMarket consumer by consumer ID. The response includes API key and HMAC credential configurations. The credential members are defined by the common data structures HiMarketApiKeyConfig and HiMarketHmacConfig.
+ * @summary Queries the credential information of a HiMarket consumer by consumer ID. The response returns two types of containers: API key credential configuration and HMAC credential configuration. The credential members are defined by the common data structures HiMarketApiKeyConfig and HiMarketHmacConfig.
  *
  * @param request GetHiMarketConsumerCredentialRequest
  * @param headers map
@@ -4939,7 +4987,7 @@ GetHiMarketConsumerCredentialResponse Client::getHiMarketConsumerCredentialWithO
 }
 
 /**
- * @summary Queries the credential information of a HiMarket consumer by consumer ID. The response includes API key and HMAC credential configurations. The credential members are defined by the common data structures HiMarketApiKeyConfig and HiMarketHmacConfig.
+ * @summary Queries the credential information of a HiMarket consumer by consumer ID. The response returns two types of containers: API key credential configuration and HMAC credential configuration. The credential members are defined by the common data structures HiMarketApiKeyConfig and HiMarketHmacConfig.
  *
  * @param request GetHiMarketConsumerCredentialRequest
  * @return GetHiMarketConsumerCredentialResponse
@@ -4951,7 +4999,7 @@ GetHiMarketConsumerCredentialResponse Client::getHiMarketConsumerCredential(cons
 }
 
 /**
- * @summary Retrieves HTTP API information.
+ * @summary Retrieves the HTTP API information.
  *
  * @param request GetHttpApiRequest
  * @param headers map
@@ -4984,7 +5032,7 @@ GetHttpApiResponse Client::getHttpApiWithOptions(const string &httpApiId, const 
 }
 
 /**
- * @summary Retrieves HTTP API information.
+ * @summary Retrieves the HTTP API information.
  *
  * @param request GetHttpApiRequest
  * @return GetHttpApiResponse
@@ -4996,7 +5044,7 @@ GetHttpApiResponse Client::getHttpApi(const string &httpApiId, const GetHttpApiR
 }
 
 /**
- * @summary Retrieves operation information.
+ * @summary Retrieves API operation information.
  *
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
@@ -5021,7 +5069,7 @@ GetHttpApiOperationResponse Client::getHttpApiOperationWithOptions(const string 
 }
 
 /**
- * @summary Retrieves operation information.
+ * @summary Retrieves API operation information.
  *
  * @return GetHttpApiOperationResponse
  */
@@ -5032,7 +5080,7 @@ GetHttpApiOperationResponse Client::getHttpApiOperation(const string &httpApiId,
 }
 
 /**
- * @summary Retrieves the route details of an HTTP API.
+ * @summary Retrieves the details of a route for an HTTP API.
  *
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
@@ -5057,7 +5105,7 @@ GetHttpApiRouteResponse Client::getHttpApiRouteWithOptions(const string &httpApi
 }
 
 /**
- * @summary Retrieves the route details of an HTTP API.
+ * @summary Retrieves the details of a route for an HTTP API.
  *
  * @return GetHttpApiRouteResponse
  */
@@ -5070,7 +5118,7 @@ GetHttpApiRouteResponse Client::getHttpApiRoute(const string &httpApiId, const s
 /**
  * @summary Retrieves an MCP server.
  *
- * @description The operation supports creating multiple services.
+ * @description This operation supports creating multiple services.
  *
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
@@ -5097,7 +5145,7 @@ GetMcpServerResponse Client::getMcpServerWithOptions(const string &mcpServerId, 
 /**
  * @summary Retrieves an MCP server.
  *
- * @description The operation supports creating multiple services.
+ * @description This operation supports creating multiple services.
  *
  * @return GetMcpServerResponse
  */
@@ -5108,7 +5156,7 @@ GetMcpServerResponse Client::getMcpServer(const string &mcpServerId) {
 }
 
 /**
- * @summary Retrieves the namespaced services for a migration task.
+ * @summary Retrieves the namespaced services for migration.
  *
  * @param request GetMigrationNamespacedServicesRequest
  * @param headers map
@@ -5135,7 +5183,7 @@ GetMigrationNamespacedServicesResponse Client::getMigrationNamespacedServicesWit
 }
 
 /**
- * @summary Retrieves the namespaced services for a migration task.
+ * @summary Retrieves the namespaced services for migration.
  *
  * @param request GetMigrationNamespacedServicesRequest
  * @return GetMigrationNamespacedServicesResponse
@@ -5186,7 +5234,7 @@ GetMigrationTaskResponse Client::getMigrationTask(const string &taskId, const Ge
 }
 
 /**
- * @summary Queries a plugin mount.
+ * @summary Queries a plugin attachment.
  *
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
@@ -5211,7 +5259,7 @@ GetPluginAttachmentResponse Client::getPluginAttachmentWithOptions(const string 
 }
 
 /**
- * @summary Queries a plugin mount.
+ * @summary Queries a plugin attachment.
  *
  * @return GetPluginAttachmentResponse
  */
@@ -5372,7 +5420,7 @@ GetPolicyAttachmentResponse Client::getPolicyAttachment(const string &policyAtta
 }
 
 /**
- * @summary Queries the details of a single HiMarket developer portal by portal ID and returns the portal name, description, region ID, portal settings, and portal domain name configurations.
+ * @summary Queries the details of a single HiMarket developer portal by portal ID, including the portal name, description, region ID, portal settings, and portal domain name configurations.
  *
  * @param request GetPortalRequest
  * @param headers map
@@ -5399,7 +5447,7 @@ GetPortalResponse Client::getPortalWithOptions(const string &portalId, const Get
 }
 
 /**
- * @summary Queries the details of a single HiMarket developer portal by portal ID and returns the portal name, description, region ID, portal settings, and portal domain name configurations.
+ * @summary Queries the details of a single HiMarket developer portal by portal ID, including the portal name, description, region ID, portal settings, and portal domain name configurations.
  *
  * @param request GetPortalRequest
  * @return GetPortalResponse
@@ -5411,7 +5459,7 @@ GetPortalResponse Client::getPortal(const string &portalId, const GetPortalReque
 }
 
 /**
- * @summary Queries the details of a single API product by API product ID and returns information such as the name, description, status, type, documentation, icon, automatic subscription approval setting, MCP, Agent, and model configurations, product capability configurations, and region.
+ * @summary Queries the details of a single API product by API product ID, and returns information such as the name, description, status, type, documentation, icon, whether subscription requests are automatically approved, MCP, agent, and model configurations, product capability configurations, and the region to which the product belongs.
  *
  * @param request GetProductRequest
  * @param headers map
@@ -5438,7 +5486,7 @@ GetProductResponse Client::getProductWithOptions(const string &productId, const 
 }
 
 /**
- * @summary Queries the details of a single API product by API product ID and returns information such as the name, description, status, type, documentation, icon, automatic subscription approval setting, MCP, Agent, and model configurations, product capability configurations, and region.
+ * @summary Queries the details of a single API product by API product ID, and returns information such as the name, description, status, type, documentation, icon, whether subscription requests are automatically approved, MCP, agent, and model configurations, product capability configurations, and the region to which the product belongs.
  *
  * @param request GetProductRequest
  * @return GetProductResponse
@@ -5450,7 +5498,7 @@ GetProductResponse Client::getProduct(const string &productId, const GetProductR
 }
 
 /**
- * @summary Queries the details of a product category by ID and returns the ID, name, description, and icon of the category.
+ * @summary Queries the details of a product category by category ID and returns the ID, name, description, and icon of the category.
  *
  * @param request GetProductCategoryRequest
  * @param headers map
@@ -5477,7 +5525,7 @@ GetProductCategoryResponse Client::getProductCategoryWithOptions(const string &c
 }
 
 /**
- * @summary Queries the details of a product category by ID and returns the ID, name, description, and icon of the category.
+ * @summary Queries the details of a product category by category ID and returns the ID, name, description, and icon of the category.
  *
  * @param request GetProductCategoryRequest
  * @return GetProductCategoryResponse
@@ -5815,7 +5863,7 @@ GetTraceConfigResponse Client::getTraceConfig(const string &gatewayId, const Get
 }
 
 /**
- * @summary Executes the callback step in the OIDC logon flow by submitting the code and state query parameters via a GET request, and returns the accessToken, tokenType, and expiresIn fields in the response data.
+ * @summary Submits the code and state query parameters via a GET request during the callback step of the OIDC logon process. The response data includes the accessToken, tokenType, and expiresIn fields.
  *
  * @param request HandleOidcCallbackRequest
  * @param headers map
@@ -5852,7 +5900,7 @@ HandleOidcCallbackResponse Client::handleOidcCallbackWithOptions(const HandleOid
 }
 
 /**
- * @summary Executes the callback step in the OIDC logon flow by submitting the code and state query parameters via a GET request, and returns the accessToken, tokenType, and expiresIn fields in the response data.
+ * @summary Submits the code and state query parameters via a GET request during the callback step of the OIDC logon process. The response data includes the accessToken, tokenType, and expiresIn fields.
  *
  * @param request HandleOidcCallbackRequest
  * @return HandleOidcCallbackResponse
@@ -5864,7 +5912,7 @@ HandleOidcCallbackResponse Client::handleOidcCallback(const HandleOidcCallbackRe
 }
 
 /**
- * @summary Imports an HTTP API. You can import an OpenAPI 2.0 or OpenAPI 3.0.x definition file as a REST API.
+ * @summary Imports an HTTP API and supports importing OpenAPI 2.0 and OpenAPI 3.0.x definition files as REST APIs.
  *
  * @param request ImportHttpApiRequest
  * @param headers map
@@ -5949,7 +5997,7 @@ ImportHttpApiResponse Client::importHttpApiWithOptions(const ImportHttpApiReques
 }
 
 /**
- * @summary Imports an HTTP API. You can import an OpenAPI 2.0 or OpenAPI 3.0.x definition file as a REST API.
+ * @summary Imports an HTTP API and supports importing OpenAPI 2.0 and OpenAPI 3.0.x definition files as REST APIs.
  *
  * @param request ImportHttpApiRequest
  * @return ImportHttpApiResponse
@@ -5961,7 +6009,7 @@ ImportHttpApiResponse Client::importHttpApi(const ImportHttpApiRequest &request)
 }
 
 /**
- * @summary Initiates the Authorize step in the OIDC logon process based on the OIDC provider identifier. The response body defined by the API operation contains only the requestId, code, and message fields, and does not declare the business response parameter data.
+ * @summary Initiates the Authorize step in the OIDC logon process based on the OIDC provider identifier. The response body defined by the API operation contains only the requestId, code, and message fields, and does not declare the data business output parameter.
  *
  * @param request InitiateOidcAuthRequest
  * @param headers map
@@ -5994,7 +6042,7 @@ InitiateOidcAuthResponse Client::initiateOidcAuthWithOptions(const InitiateOidcA
 }
 
 /**
- * @summary Initiates the Authorize step in the OIDC logon process based on the OIDC provider identifier. The response body defined by the API operation contains only the requestId, code, and message fields, and does not declare the business response parameter data.
+ * @summary Initiates the Authorize step in the OIDC logon process based on the OIDC provider identifier. The response body defined by the API operation contains only the requestId, code, and message fields, and does not declare the data business output parameter.
  *
  * @param request InitiateOidcAuthRequest
  * @return InitiateOidcAuthResponse
@@ -6293,7 +6341,7 @@ ListAiModelProvidersResponse Client::listAiModelProviders(const ListAiModelProvi
 }
 
 /**
- * @summary Performs a paging query on the field template list and returns the template ID, request path, and applicable protocol for each template record.
+ * @summary Performs a paging query on the list of field templates and returns the template ID, API request path, and applicable protocol for each template record.
  *
  * @param request ListApiPathFieldTemplatesRequest
  * @param headers map
@@ -6330,7 +6378,7 @@ ListApiPathFieldTemplatesResponse Client::listApiPathFieldTemplatesWithOptions(c
 }
 
 /**
- * @summary Performs a paging query on the field template list and returns the template ID, request path, and applicable protocol for each template record.
+ * @summary Performs a paging query on the list of field templates and returns the template ID, API request path, and applicable protocol for each template record.
  *
  * @param request ListApiPathFieldTemplatesRequest
  * @return ListApiPathFieldTemplatesResponse
@@ -6415,7 +6463,7 @@ ListBatchExportTasksResponse Client::listBatchExportTasks(const ListBatchExportT
 }
 
 /**
- * @summary Performs a paged query on the list of HiMarket chat sessions, returning the session ID, name, conversation type, and associated API products for each session. The response also includes the paging page number, paging size, and total count.
+ * @summary Performs a paged query on the list of HiMarket chat sessions. For each session, the response returns the session ID, name, conversation type, and associated API products. The response also returns the paging page number, paging size, and total count.
  *
  * @param request ListChatSessionsRequest
  * @param headers map
@@ -6460,7 +6508,7 @@ ListChatSessionsResponse Client::listChatSessionsWithOptions(const ListChatSessi
 }
 
 /**
- * @summary Performs a paged query on the list of HiMarket chat sessions, returning the session ID, name, conversation type, and associated API products for each session. The response also includes the paging page number, paging size, and total count.
+ * @summary Performs a paged query on the list of HiMarket chat sessions. For each session, the response returns the session ID, name, conversation type, and associated API products. The response also returns the paging page number, paging size, and total count.
  *
  * @param request ListChatSessionsRequest
  * @return ListChatSessionsResponse
@@ -6472,7 +6520,7 @@ ListChatSessionsResponse Client::listChatSessions(const ListChatSessionsRequest 
 }
 
 /**
- * @summary Retrieves the list of consumer authorization rules.
+ * @summary Retrieves a list of consumer authorization rules.
  *
  * @param request ListConsumerAuthorizationRulesRequest
  * @param headers map
@@ -6513,7 +6561,7 @@ ListConsumerAuthorizationRulesResponse Client::listConsumerAuthorizationRulesWit
 }
 
 /**
- * @summary Retrieves the list of consumer authorization rules.
+ * @summary Retrieves a list of consumer authorization rules.
  *
  * @param request ListConsumerAuthorizationRulesRequest
  * @return ListConsumerAuthorizationRulesResponse
@@ -6578,9 +6626,9 @@ ListConsumerGroupConsumersResponse Client::listConsumerGroupConsumers(const stri
 }
 
 /**
- * @summary Queries the list of quota throttling rules for a consumer group.
+ * @summary Queries the quota throttling rules for a consumer group.
  *
- * @description Queries the quota rules directly bound to a specified consumer group. Rules individually bound to consumers within the group are not included. An empty list is returned if no rules are directly bound.
+ * @description Queries the quota rules directly bound to the specified consumer group without expanding the rules bound to individual consumers within the group. Returns an empty list if no direct binding exists.
  *
  * @param request ListConsumerGroupQuotaRulesRequest
  * @param headers map
@@ -6625,9 +6673,9 @@ ListConsumerGroupQuotaRulesResponse Client::listConsumerGroupQuotaRulesWithOptio
 }
 
 /**
- * @summary Queries the list of quota throttling rules for a consumer group.
+ * @summary Queries the quota throttling rules for a consumer group.
  *
- * @description Queries the quota rules directly bound to a specified consumer group. Rules individually bound to consumers within the group are not included. An empty list is returned if no rules are directly bound.
+ * @description Queries the quota rules directly bound to the specified consumer group without expanding the rules bound to individual consumers within the group. Returns an empty list if no direct binding exists.
  *
  * @param request ListConsumerGroupQuotaRulesRequest
  * @return ListConsumerGroupQuotaRulesResponse
@@ -6810,7 +6858,7 @@ ListConsumersResponse Client::listConsumers(const ListConsumersRequest &request)
 }
 
 /**
- * @summary Performs a paged query on the HiMarket developer list. You can filter the paging results by portal ID, username, and developer status. The response includes the developer ID, portal ID, username, and status.
+ * @summary Queries the HiMarket developer list by using paging. You can filter developers by portal ID, username, and developer status. The response includes the developer ID, portal ID, username, and status.
  *
  * @param request ListDevelopersRequest
  * @param headers map
@@ -6867,7 +6915,7 @@ ListDevelopersResponse Client::listDevelopersWithOptions(const ListDevelopersReq
 }
 
 /**
- * @summary Performs a paged query on the HiMarket developer list. You can filter the paging results by portal ID, username, and developer status. The response includes the developer ID, portal ID, username, and status.
+ * @summary Queries the HiMarket developer list by using paging. You can filter developers by portal ID, username, and developer status. The response includes the developer ID, portal ID, username, and status.
  *
  * @param request ListDevelopersRequest
  * @return ListDevelopersResponse
@@ -7344,9 +7392,9 @@ ListGatewayLoadBalancersResponse Client::listGatewayLoadBalancers(const string &
 }
 
 /**
- * @summary Queries the list of FinOps quota rules bound to a gateway.
+ * @summary Queries the FinOps quota rules associated with a gateway.
  *
- * @description Queries the list of FinOps quota rules bound to a gateway.
+ * @description This operation queries the FinOps quota rules associated with a gateway.
  *
  * @param request ListGatewayQuotaRulesRequest
  * @param headers map
@@ -7395,9 +7443,9 @@ ListGatewayQuotaRulesResponse Client::listGatewayQuotaRulesWithOptions(const str
 }
 
 /**
- * @summary Queries the list of FinOps quota rules bound to a gateway.
+ * @summary Queries the FinOps quota rules associated with a gateway.
  *
- * @description Queries the list of FinOps quota rules bound to a gateway.
+ * @description This operation queries the FinOps quota rules associated with a gateway.
  *
  * @param request ListGatewayQuotaRulesRequest
  * @return ListGatewayQuotaRulesResponse
@@ -7585,7 +7633,7 @@ ListGlobalPoliciesResponse Client::listGlobalPolicies(const ListGlobalPoliciesRe
 }
 
 /**
- * @summary Performs a paged query to retrieve the API product subscriptions of a specified HiMarket consumer. The paging process allows you to filter subscriptions by status. Each subscription record includes the subscription ID, the ID, name, and type of the subscribed API product, the consumer ID and name, and the subscription status.
+ * @summary Performs a paging query for the API product subscriptions of a specified HiMarket consumer. You can filter the subscriptions by status. Each subscription record includes the subscription ID, the ID, name, and type of the subscribed API product, the consumer ID and name, and the subscription status.
  *
  * @param request ListHiMarketConsumerSubscriptionsRequest
  * @param headers map
@@ -7634,7 +7682,7 @@ ListHiMarketConsumerSubscriptionsResponse Client::listHiMarketConsumerSubscripti
 }
 
 /**
- * @summary Performs a paged query to retrieve the API product subscriptions of a specified HiMarket consumer. The paging process allows you to filter subscriptions by status. Each subscription record includes the subscription ID, the ID, name, and type of the subscribed API product, the consumer ID and name, and the subscription status.
+ * @summary Performs a paging query for the API product subscriptions of a specified HiMarket consumer. You can filter the subscriptions by status. Each subscription record includes the subscription ID, the ID, name, and type of the subscribed API product, the consumer ID and name, and the subscription status.
  *
  * @param request ListHiMarketConsumerSubscriptionsRequest
  * @return ListHiMarketConsumerSubscriptionsResponse
@@ -7646,7 +7694,7 @@ ListHiMarketConsumerSubscriptionsResponse Client::listHiMarketConsumerSubscripti
 }
 
 /**
- * @summary Performs a paging query on the HiMarket consumer list. You can filter consumers by name keywords, portal ID, and developer ID. The response includes the ID, name, description, and primary status of each consumer.
+ * @summary Performs a paging query on the HiMarket consumer list. You can filter the results by consumer name keyword, portal ID, or developer ID. The response includes the consumer ID, name, description, and primary consumer status for each consumer.
  *
  * @param request ListHiMarketConsumersRequest
  * @param headers map
@@ -7703,7 +7751,7 @@ ListHiMarketConsumersResponse Client::listHiMarketConsumersWithOptions(const Lis
 }
 
 /**
- * @summary Performs a paging query on the HiMarket consumer list. You can filter consumers by name keywords, portal ID, and developer ID. The response includes the ID, name, description, and primary status of each consumer.
+ * @summary Performs a paging query on the HiMarket consumer list. You can filter the results by consumer name keyword, portal ID, or developer ID. The response includes the consumer ID, name, description, and primary consumer status for each consumer.
  *
  * @param request ListHiMarketConsumersRequest
  * @return ListHiMarketConsumersResponse
@@ -7715,7 +7763,7 @@ ListHiMarketConsumersResponse Client::listHiMarketConsumers(const ListHiMarketCo
 }
 
 /**
- * @summary Retrieves a list of API operations.
+ * @summary Retrieves the list of API operations.
  *
  * @param request ListHttpApiOperationsRequest
  * @param headers map
@@ -7796,7 +7844,7 @@ ListHttpApiOperationsResponse Client::listHttpApiOperationsWithOptions(const str
 }
 
 /**
- * @summary Retrieves a list of API operations.
+ * @summary Retrieves the list of API operations.
  *
  * @param request ListHttpApiOperationsRequest
  * @return ListHttpApiOperationsResponse
@@ -8116,7 +8164,7 @@ ListK8sClusterSourcesResponse Client::listK8sClusterSources(const string &gatewa
 }
 
 /**
- * @summary Queries the details of Model Context Protocol (MCP) tools in an MCP Server API product and returns a list of tools. Each tool includes three text fields (name, title, and description) and four map structures (inputSchema, outputSchema, annotations, and meta).
+ * @summary Queries the details of Model Context Protocol (MCP) tools in an API product of the MCP Server type. The response returns a list of tools. Each tool includes three text members (name, title, and description) and four map members (inputSchema, outputSchema, annotations, and meta).
  *
  * @param request ListMcpProductToolsRequest
  * @param headers map
@@ -8143,7 +8191,7 @@ ListMcpProductToolsResponse Client::listMcpProductToolsWithOptions(const string 
 }
 
 /**
- * @summary Queries the details of Model Context Protocol (MCP) tools in an MCP Server API product and returns a list of tools. Each tool includes three text fields (name, title, and description) and four map structures (inputSchema, outputSchema, annotations, and meta).
+ * @summary Queries the details of Model Context Protocol (MCP) tools in an API product of the MCP Server type. The response returns a list of tools. Each tool includes three text members (name, title, and description) and four map members (inputSchema, outputSchema, annotations, and meta).
  *
  * @param request ListMcpProductToolsRequest
  * @return ListMcpProductToolsResponse
@@ -8277,7 +8325,7 @@ ListMigrationTasksResponse Client::listMigrationTasks(const ListMigrationTasksRe
 }
 
 /**
- * @summary Queries a list of model cards and returns the model name, provider, and source identifier for each card, along with the features, pricing, meta, availablePaths, and snapshots structures. The only business request parameter is the provider identifier.
+ * @summary Queries a list of model cards and returns the model name, provider, and source identifier for each card, along with the features, pricing, meta, availablePaths, and snapshots structures. The only request parameter is the provider identifier.
  *
  * @param request ListModelCardsRequest
  * @param headers map
@@ -8310,7 +8358,7 @@ ListModelCardsResponse Client::listModelCardsWithOptions(const ListModelCardsReq
 }
 
 /**
- * @summary Queries a list of model cards and returns the model name, provider, and source identifier for each card, along with the features, pricing, meta, availablePaths, and snapshots structures. The only business request parameter is the provider identifier.
+ * @summary Queries a list of model cards and returns the model name, provider, and source identifier for each card, along with the features, pricing, meta, availablePaths, and snapshots structures. The only request parameter is the provider identifier.
  *
  * @param request ListModelCardsRequest
  * @return ListModelCardsResponse
@@ -8361,7 +8409,7 @@ ListMseNacosSourcesResponse Client::listMseNacosSources(const string &gatewayId,
 }
 
 /**
- * @summary Retrieves the list of plug-in mounts.
+ * @summary Retrieves the list of plugin mounts.
  *
  * @param request ListPluginAttachmentsRequest
  * @param headers map
@@ -8426,7 +8474,7 @@ ListPluginAttachmentsResponse Client::listPluginAttachmentsWithOptions(const Lis
 }
 
 /**
- * @summary Retrieves the list of plug-in mounts.
+ * @summary Retrieves the list of plugin mounts.
  *
  * @param request ListPluginAttachmentsRequest
  * @return ListPluginAttachmentsResponse
@@ -8527,7 +8575,7 @@ ListPluginClassesResponse Client::listPluginClasses(const ListPluginClassesReque
 }
 
 /**
- * @summary Queries the list of repositories and organization information for custom plugins hosted on Codeup. Before calling this operation, enable code hosting on Codeup, create organizations and repositories, and authorize API Gateway to access the Codeup account.
+ * @summary Queries the repositories and organization information for custom plug-ins hosted on Codeup. Before calling this operation, enable code hosting on Codeup, create an organization and repositories, and authorize APIG to access your Codeup account.
  *
  * @param request ListPluginRepositoriesRequest
  * @param headers map
@@ -8554,7 +8602,7 @@ ListPluginRepositoriesResponse Client::listPluginRepositoriesWithOptions(const L
 }
 
 /**
- * @summary Queries the list of repositories and organization information for custom plugins hosted on Codeup. Before calling this operation, enable code hosting on Codeup, create organizations and repositories, and authorize API Gateway to access the Codeup account.
+ * @summary Queries the repositories and organization information for custom plug-ins hosted on Codeup. Before calling this operation, enable code hosting on Codeup, create an organization and repositories, and authorize APIG to access your Codeup account.
  *
  * @param request ListPluginRepositoriesRequest
  * @return ListPluginRepositoriesResponse
@@ -8826,7 +8874,7 @@ ListPolicyClassesResponse Client::listPolicyClasses(const ListPolicyClassesReque
 }
 
 /**
- * @summary Performs a paged query for the list of published API products on a specified HiMarket developer portal. The paging result contains list items, each returning the publication record ID, API product ID, API product name, and API product type.
+ * @summary Queries the list of published API products on a specified HiMarket developer portal with paging. Each list item returns the publication record ID, API product ID, API product name, and API product type.
  *
  * @param request ListPortalPublicationsRequest
  * @param headers map
@@ -8867,7 +8915,7 @@ ListPortalPublicationsResponse Client::listPortalPublicationsWithOptions(const s
 }
 
 /**
- * @summary Performs a paged query for the list of published API products on a specified HiMarket developer portal. The paging result contains list items, each returning the publication record ID, API product ID, API product name, and API product type.
+ * @summary Queries the list of published API products on a specified HiMarket developer portal with paging. Each list item returns the publication record ID, API product ID, API product name, and API product type.
  *
  * @param request ListPortalPublicationsRequest
  * @return ListPortalPublicationsResponse
@@ -8879,7 +8927,7 @@ ListPortalPublicationsResponse Client::listPortalPublications(const string &port
 }
 
 /**
- * @summary Performs a paged query for the list of HiMarket developer portals under the current tenant. Each list item in the paging result returns the portal ID, portal name, portal description, region ID, portal settings, and portal domain configurations.
+ * @summary Performs a paged query to retrieve the list of HiMarket developer portals under the current tenant. Each list item in the paging result returns the portal ID, portal name, portal description, region ID, portal settings, and portal domain configurations.
  *
  * @param request ListPortalsRequest
  * @param headers map
@@ -8928,7 +8976,7 @@ ListPortalsResponse Client::listPortalsWithOptions(const ListPortalsRequest &req
 }
 
 /**
- * @summary Performs a paged query for the list of HiMarket developer portals under the current tenant. Each list item in the paging result returns the portal ID, portal name, portal description, region ID, portal settings, and portal domain configurations.
+ * @summary Performs a paged query to retrieve the list of HiMarket developer portals under the current tenant. Each list item in the paging result returns the portal ID, portal name, portal description, region ID, portal settings, and portal domain configurations.
  *
  * @param request ListPortalsRequest
  * @return ListPortalsResponse
@@ -8940,7 +8988,64 @@ ListPortalsResponse Client::listPortals(const ListPortalsRequest &request) {
 }
 
 /**
- * @summary Queries the list of product categories for the current tenant with paging. You can search by category name keywords. Each item in the list includes the category ID, category name, category description, and category icon.
+ * @summary Queries the list of unmanaged security groups available for a private endpoint.
+ *
+ * @description This operation supports creating multiple services.
+ *
+ * @param request ListPrivateLinkSecurityGroupsRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListPrivateLinkSecurityGroupsResponse
+ */
+ListPrivateLinkSecurityGroupsResponse Client::listPrivateLinkSecurityGroupsWithOptions(const ListPrivateLinkSecurityGroupsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasMaxResults()) {
+    query["maxResults"] = request.getMaxResults();
+  }
+
+  if (!!request.hasNextToken()) {
+    query["nextToken"] = request.getNextToken();
+  }
+
+  if (!!request.hasVpcId()) {
+    query["vpcId"] = request.getVpcId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ListPrivateLinkSecurityGroups"},
+    {"version" , "2024-03-27"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/v1/private-link-security-groups")},
+    {"method" , "GET"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListPrivateLinkSecurityGroupsResponse>();
+}
+
+/**
+ * @summary Queries the list of unmanaged security groups available for a private endpoint.
+ *
+ * @description This operation supports creating multiple services.
+ *
+ * @param request ListPrivateLinkSecurityGroupsRequest
+ * @return ListPrivateLinkSecurityGroupsResponse
+ */
+ListPrivateLinkSecurityGroupsResponse Client::listPrivateLinkSecurityGroups(const ListPrivateLinkSecurityGroupsRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return listPrivateLinkSecurityGroupsWithOptions(request, headers, runtime);
+}
+
+/**
+ * @summary Queries the list of product categories under the current tenant by using paging. You can search by category name keywords. Each item in the list returns the category ID, category name, category description, and category icon.
  *
  * @param request ListProductCategoriesRequest
  * @param headers map
@@ -8981,7 +9086,7 @@ ListProductCategoriesResponse Client::listProductCategoriesWithOptions(const Lis
 }
 
 /**
- * @summary Queries the list of product categories for the current tenant with paging. You can search by category name keywords. Each item in the list includes the category ID, category name, category description, and category icon.
+ * @summary Queries the list of product categories under the current tenant by using paging. You can search by category name keywords. Each item in the list returns the category ID, category name, category description, and category icon.
  *
  * @param request ListProductCategoriesRequest
  * @return ListProductCategoriesResponse
@@ -8993,7 +9098,7 @@ ListProductCategoriesResponse Client::listProductCategories(const ListProductCat
 }
 
 /**
- * @summary Performs a paged query on the publication information of a specified API product, which is the list of portal records to which the product is published. The list items include the publication record ID, portal ID, portal name, API product ID, API product name, and API product type. You can perform a parameter query by portal name and paging parameters.
+ * @summary Performs a paged query to retrieve the publication information of a specified API product, which is a list of portal records to which the product is published. Each list item includes the publication record ID, portal ID, portal name, API product ID, API product name, and API product type. You can perform a parameter query by portal name and paging parameters.
  *
  * @param request ListProductPublicationsRequest
  * @param headers map
@@ -9034,7 +9139,7 @@ ListProductPublicationsResponse Client::listProductPublicationsWithOptions(const
 }
 
 /**
- * @summary Performs a paged query on the publication information of a specified API product, which is the list of portal records to which the product is published. The list items include the publication record ID, portal ID, portal name, API product ID, API product name, and API product type. You can perform a parameter query by portal name and paging parameters.
+ * @summary Performs a paged query to retrieve the publication information of a specified API product, which is a list of portal records to which the product is published. Each list item includes the publication record ID, portal ID, portal name, API product ID, API product name, and API product type. You can perform a parameter query by portal name and paging parameters.
  *
  * @param request ListProductPublicationsRequest
  * @return ListProductPublicationsResponse
@@ -9046,7 +9151,7 @@ ListProductPublicationsResponse Client::listProductPublications(const string &pr
 }
 
 /**
- * @summary Performs a paged query to retrieve the paging list of subscribe records for a specified API product. The records can be filtered by subscribe status and searched by consumer name keywords. Each record includes the subscribe ID, API product ID and name, API product type, consumer ID and name, and subscribe status.
+ * @summary Performs a paged query to retrieve the subscribe records for a specified API product. You can use paging to filter the records by subscribe status or search for them by using consumer name keywords. Each record returns the subscribe ID, API product ID and name, API product type, consumer ID and name, and subscribe status.
  *
  * @param request ListProductSubscriptionsRequest
  * @param headers map
@@ -9091,7 +9196,7 @@ ListProductSubscriptionsResponse Client::listProductSubscriptionsWithOptions(con
 }
 
 /**
- * @summary Performs a paged query to retrieve the paging list of subscribe records for a specified API product. The records can be filtered by subscribe status and searched by consumer name keywords. Each record includes the subscribe ID, API product ID and name, API product type, consumer ID and name, and subscribe status.
+ * @summary Performs a paged query to retrieve the subscribe records for a specified API product. You can use paging to filter the records by subscribe status or search for them by using consumer name keywords. Each record returns the subscribe ID, API product ID and name, API product type, consumer ID and name, and subscribe status.
  *
  * @param request ListProductSubscriptionsRequest
  * @return ListProductSubscriptionsResponse
@@ -9103,7 +9208,7 @@ ListProductSubscriptionsResponse Client::listProductSubscriptions(const string &
 }
 
 /**
- * @summary Queries a paginated list of API products under the current tenant. You can specify the product name, product type, product status, product category, and the portal where the product is published in the request parameters. The response includes the product ID, name, description, status, type, documentation, icon, product category, automatic subscription approval status, and the MCP, agent, model, and product capability configurations.
+ * @summary Queries the API product list under the current tenant by using paging. Request parameters can specify the product name, product type, product status, product category, and the portal where the product is published. List items return the product ID, name, product description, status, type, documentation, icon, product categorization, whether automatic approval is enabled for subscription requests, and MCP, agent, model, and product capability configurations.
  *
  * @param request ListProductsRequest
  * @param headers map
@@ -9168,7 +9273,7 @@ ListProductsResponse Client::listProductsWithOptions(const ListProductsRequest &
 }
 
 /**
- * @summary Queries a paginated list of API products under the current tenant. You can specify the product name, product type, product status, product category, and the portal where the product is published in the request parameters. The response includes the product ID, name, description, status, type, documentation, icon, product category, automatic subscription approval status, and the MCP, agent, model, and product capability configurations.
+ * @summary Queries the API product list under the current tenant by using paging. Request parameters can specify the product name, product type, product status, product category, and the portal where the product is published. List items return the product ID, name, product description, status, type, documentation, icon, product categorization, whether automatic approval is enabled for subscription requests, and MCP, agent, model, and product capability configurations.
  *
  * @param request ListProductsRequest
  * @return ListProductsResponse
@@ -9180,7 +9285,7 @@ ListProductsResponse Client::listProducts(const ListProductsRequest &request) {
 }
 
 /**
- * @summary Performs a paged query to retrieve the list of API products that can be published to a specified HiMarket developer portal. The request accepts the portal ID, API product name, and paging parameters. Each item in the response includes the API product ID, name, and description.
+ * @summary Queries the list of API products that can be published to a specified HiMarket developer portal. This paged query accepts the portal ID, API product name, and paging parameters. Each item in the response includes the API product ID, name, and description.
  *
  * @param request ListPublishableProductsRequest
  * @param headers map
@@ -9221,7 +9326,7 @@ ListPublishableProductsResponse Client::listPublishableProductsWithOptions(const
 }
 
 /**
- * @summary Performs a paged query to retrieve the list of API products that can be published to a specified HiMarket developer portal. The request accepts the portal ID, API product name, and paging parameters. Each item in the response includes the API product ID, name, and description.
+ * @summary Queries the list of API products that can be published to a specified HiMarket developer portal. This paged query accepts the portal ID, API product name, and paging parameters. Each item in the response includes the API product ID, name, and description.
  *
  * @param request ListPublishableProductsRequest
  * @return ListPublishableProductsResponse
@@ -9591,7 +9696,7 @@ ListSslCertsResponse Client::listSslCerts(const ListSslCertsRequest &request) {
 }
 
 /**
- * @summary Lists MCP servers that are pending synchronization.
+ * @summary Lists the MCP servers to be synchronized.
  *
  * @param request ListSyncMCPServerRequest
  * @param headers map
@@ -9632,7 +9737,7 @@ ListSyncMCPServerResponse Client::listSyncMCPServerWithOptions(const ListSyncMCP
 }
 
 /**
- * @summary Lists MCP servers that are pending synchronization.
+ * @summary Lists the MCP servers to be synchronized.
  *
  * @param request ListSyncMCPServerRequest
  * @return ListSyncMCPServerResponse
@@ -9756,7 +9861,7 @@ ListZonesResponse Client::listZones(const ListZonesRequest &request) {
 }
 
 /**
- * @summary Logs in to a HiMarket developer account by using a developer username and password, and returns the accessToken and expiresIn fields in the data object of a successful response.
+ * @summary Logs in to a HiMarket developer account with a developer username and password, and returns the accessToken and expiresIn fields in the data object of a successful response.
  *
  * @param request LoginDeveloperRequest
  * @param headers map
@@ -9793,7 +9898,7 @@ LoginDeveloperResponse Client::loginDeveloperWithOptions(const LoginDeveloperReq
 }
 
 /**
- * @summary Logs in to a HiMarket developer account by using a developer username and password, and returns the accessToken and expiresIn fields in the data object of a successful response.
+ * @summary Logs in to a HiMarket developer account with a developer username and password, and returns the accessToken and expiresIn fields in the data object of a successful response.
  *
  * @param request LoginDeveloperRequest
  * @return LoginDeveloperResponse
@@ -9805,7 +9910,7 @@ LoginDeveloperResponse Client::loginDeveloper(const LoginDeveloperRequest &reque
 }
 
 /**
- * @summary Logs a developer out of a HiMarket developer account. This operation takes no business request parameters. A successful response returns only the requestId, code, and message fields.
+ * @summary Logs a developer out of a HiMarket developer account. This operation has no business request parameters, and a successful response returns only the requestId, code, and message fields.
  *
  * @param request LogoutDeveloperRequest
  * @param headers map
@@ -9832,7 +9937,7 @@ LogoutDeveloperResponse Client::logoutDeveloperWithOptions(const LogoutDeveloper
 }
 
 /**
- * @summary Logs a developer out of a HiMarket developer account. This operation takes no business request parameters. A successful response returns only the requestId, code, and message fields.
+ * @summary Logs a developer out of a HiMarket developer account. This operation has no business request parameters, and a successful response returns only the requestId, code, and message fields.
  *
  * @param request LogoutDeveloperRequest
  * @return LogoutDeveloperResponse
@@ -9844,7 +9949,7 @@ LogoutDeveloperResponse Client::logoutDeveloper(const LogoutDeveloperRequest &re
 }
 
 /**
- * @summary Publishes a specified API product to a specified HiMarket portal. The path parameter specifies the API product ID, and the request body specifies the target portal ID. This operation returns the publication record ID for the publication. You can query the publication record by calling ListProductPublications and unpublish the product by calling UnpublishProduct at /himarket/v1/products/{productId}/publications/{publicationId}.
+ * @summary Publishes a specified API product to a specified HiMarket portal. The path parameter specifies the API product ID, and the request body specifies the target portal ID. This operation returns the publication record ID for the current publication. You can query the publication record by calling ListProductPublications and unpublish the API product by calling UnpublishProduct at /himarket/v1/products/{productId}/publications/{publicationId}.
  *
  * @param request PublishProductRequest
  * @param headers map
@@ -9877,7 +9982,7 @@ PublishProductResponse Client::publishProductWithOptions(const string &productId
 }
 
 /**
- * @summary Publishes a specified API product to a specified HiMarket portal. The path parameter specifies the API product ID, and the request body specifies the target portal ID. This operation returns the publication record ID for the publication. You can query the publication record by calling ListProductPublications and unpublish the product by calling UnpublishProduct at /himarket/v1/products/{productId}/publications/{publicationId}.
+ * @summary Publishes a specified API product to a specified HiMarket portal. The path parameter specifies the API product ID, and the request body specifies the target portal ID. This operation returns the publication record ID for the current publication. You can query the publication record by calling ListProductPublications and unpublish the API product by calling UnpublishProduct at /himarket/v1/products/{productId}/publications/{publicationId}.
  *
  * @param request PublishProductRequest
  * @return PublishProductResponse
@@ -10069,15 +10174,15 @@ RemoveConsumerAuthorizationRuleResponse Client::removeConsumerAuthorizationRule(
 /**
  * @summary Resets a quota throttling rule on a gateway.
  *
- * @description Resets a quota throttling rule on a gateway. This operation takes effect only on AI gateways of version 2.1.21 or later. Resetting clears the historical usage of consumption subjects on the rule.
+ * @description This operation resets a quota throttling rule on a gateway. Note that this operation takes effect only on AI gateways of a version later than 2.1.21. The reset clears the historical usage of the consumption subjects on the rule.
  * > 
- * >  Recommended call logic:
+ * > Recommended call logic:
  * > - 1. Perform a dry run to check for rule conflicts.
- * > - - Set dryRun to true.
- * > - - The response contains a conflict preview with conflictHash.
- * > - 2. Submit the request after confirmation.
- * > - - No conflicts: Set dryRun to false and overwrite to false.
- * > - - Conflicts exist and you confirm the overwrite: Set dryRun to false, overwrite to true, and conflictHash to the value returned in the previous step.
+ * > - - Set dryRun=true.
+ * > - - The response returns a conflict preview containing a conflictHash.
+ * > - 2. Formally submit the request after confirmation.
+ * > - - No conflicts: Set dryRun=false and overwrite=false.
+ * > - - Conflicts exist and overwrite is confirmed: Set dryRun=false, overwrite=true, and conflictHash=<value returned in the previous step>.
  *
  * @param request ResetGatewayQuotaRuleRequest
  * @param headers map
@@ -10140,15 +10245,15 @@ ResetGatewayQuotaRuleResponse Client::resetGatewayQuotaRuleWithOptions(const str
 /**
  * @summary Resets a quota throttling rule on a gateway.
  *
- * @description Resets a quota throttling rule on a gateway. This operation takes effect only on AI gateways of version 2.1.21 or later. Resetting clears the historical usage of consumption subjects on the rule.
+ * @description This operation resets a quota throttling rule on a gateway. Note that this operation takes effect only on AI gateways of a version later than 2.1.21. The reset clears the historical usage of the consumption subjects on the rule.
  * > 
- * >  Recommended call logic:
+ * > Recommended call logic:
  * > - 1. Perform a dry run to check for rule conflicts.
- * > - - Set dryRun to true.
- * > - - The response contains a conflict preview with conflictHash.
- * > - 2. Submit the request after confirmation.
- * > - - No conflicts: Set dryRun to false and overwrite to false.
- * > - - Conflicts exist and you confirm the overwrite: Set dryRun to false, overwrite to true, and conflictHash to the value returned in the previous step.
+ * > - - Set dryRun=true.
+ * > - - The response returns a conflict preview containing a conflictHash.
+ * > - 2. Formally submit the request after confirmation.
+ * > - - No conflicts: Set dryRun=false and overwrite=false.
+ * > - - Conflicts exist and overwrite is confirmed: Set dryRun=false, overwrite=true, and conflictHash=<value returned in the previous step>.
  *
  * @param request ResetGatewayQuotaRuleRequest
  * @return ResetGatewayQuotaRuleResponse
@@ -10196,6 +10301,49 @@ RestartGatewayResponse Client::restartGateway(const string &gatewayId) {
 }
 
 /**
+ * @summary Queries the currently active credentials for an AI service.
+ *
+ * @description Queries the currently active credentials for an AI service.
+ *
+ * @param request RevealServiceCredentialRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return RevealServiceCredentialResponse
+ */
+RevealServiceCredentialResponse Client::revealServiceCredentialWithOptions(const string &serviceId, const RevealServiceCredentialRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "RevealServiceCredential"},
+    {"version" , "2024-03-27"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/v1/services/" , Darabonba::Encode::Encoder::percentEncode(serviceId) , "/reveal-credential")},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<RevealServiceCredentialResponse>();
+}
+
+/**
+ * @summary Queries the currently active credentials for an AI service.
+ *
+ * @description Queries the currently active credentials for an AI service.
+ *
+ * @param request RevealServiceCredentialRequest
+ * @return RevealServiceCredentialResponse
+ */
+RevealServiceCredentialResponse Client::revealServiceCredential(const string &serviceId, const RevealServiceCredentialRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return revealServiceCredentialWithOptions(serviceId, request, headers, runtime);
+}
+
+/**
  * @summary Runs a pipeline in a plug-in workspace.
  *
  * @param request RunPluginPipelineRequest
@@ -10235,7 +10383,7 @@ RunPluginPipelineResponse Client::runPluginPipeline(const string &workspaceId, c
 }
 
 /**
- * @summary Subscribes to an API product on a specified HiMarket consumer. The path parameter specifies the consumer ID, and the request body specifies the ID of the API product to subscribe to. The response returns the subscription ID, API product ID and name, API product type, consumer ID and name, and subscription status of the subscription record.
+ * @summary Subscribes to an API product for a specified HiMarket Consumer. The path parameter specifies the consumer ID, the request body specifies the ID of the API product to subscribe to, and the response returns the subscription ID, API product ID and name, API product type, consumer ID and name, and subscription status.
  *
  * @param request SubscribeProductRequest
  * @param headers map
@@ -10268,7 +10416,7 @@ SubscribeProductResponse Client::subscribeProductWithOptions(const string &consu
 }
 
 /**
- * @summary Subscribes to an API product on a specified HiMarket consumer. The path parameter specifies the consumer ID, and the request body specifies the ID of the API product to subscribe to. The response returns the subscription ID, API product ID and name, API product type, consumer ID and name, and subscription status of the subscription record.
+ * @summary Subscribes to an API product for a specified HiMarket Consumer. The path parameter specifies the consumer ID, the request body specifies the ID of the API product to subscribe to, and the response returns the subscription ID, API product ID and name, API product type, consumer ID and name, and subscription status.
  *
  * @param request SubscribeProductRequest
  * @return SubscribeProductResponse
@@ -10523,7 +10671,7 @@ UninstallPluginResponse Client::uninstallPlugin(const string &pluginId) {
 }
 
 /**
- * @summary Unpublishes a publication record of an API product based on the API product ID and the publication record ID. Both identifiers are parameters in the /himarket/v1/products/{productId}/publications/{publicationId} path. The publication record is created by the PublishProduct operation and can be queried by the ListProductPublications operation. This operation only manages the publication record and does not delete the API product itself. To delete a product, use DeleteProduct. The response returns only the requestId, code, and message.
+ * @summary Takes a publication record of an API product offline based on the API product ID and publication record ID. Both identifiers are parameters in the /himarket/v1/products/{productId}/publications/{publicationId} path. The publication record is created by the PublishProduct operation and can be queried by using the ListProductPublications operation. This operation only affects the publication record and does not delete the API product itself. To delete a product, use the DeleteProduct operation. The response returns only the requestId, code, and message.
  *
  * @param request UnpublishProductRequest
  * @param headers map
@@ -10550,7 +10698,7 @@ UnpublishProductResponse Client::unpublishProductWithOptions(const string &produ
 }
 
 /**
- * @summary Unpublishes a publication record of an API product based on the API product ID and the publication record ID. Both identifiers are parameters in the /himarket/v1/products/{productId}/publications/{publicationId} path. The publication record is created by the PublishProduct operation and can be queried by the ListProductPublications operation. This operation only manages the publication record and does not delete the API product itself. To delete a product, use DeleteProduct. The response returns only the requestId, code, and message.
+ * @summary Takes a publication record of an API product offline based on the API product ID and publication record ID. Both identifiers are parameters in the /himarket/v1/products/{productId}/publications/{publicationId} path. The publication record is created by the PublishProduct operation and can be queried by using the ListProductPublications operation. This operation only affects the publication record and does not delete the API product itself. To delete a product, use the DeleteProduct operation. The response returns only the requestId, code, and message.
  *
  * @param request UnpublishProductRequest
  * @return UnpublishProductResponse
@@ -10857,7 +11005,7 @@ UpdateAuthorizationRuleResponse Client::updateAuthorizationRule(const string &co
 }
 
 /**
- * @summary Adds or removes API products in bulk under a specified product category. The path parameter specifies the category ID, the action in the request body specifies the operation direction, and productIds specifies the list of API product IDs to process. The response returns only the requestId, code, and message, and does not return item-by-item processing results.
+ * @summary Adds or removes API products from a specified product category in bulk. The path parameter specifies the category ID. The action field in the request body specifies the operation type, and the productIds field specifies the list of API product IDs to be processed. The response returns only the request ID, status code, and message, and does not return the processing result for each item.
  *
  * @param request UpdateCategoryProductsRequest
  * @param headers map
@@ -10894,7 +11042,7 @@ UpdateCategoryProductsResponse Client::updateCategoryProductsWithOptions(const s
 }
 
 /**
- * @summary Adds or removes API products in bulk under a specified product category. The path parameter specifies the category ID, the action in the request body specifies the operation direction, and productIds specifies the list of API product IDs to process. The response returns only the requestId, code, and message, and does not return item-by-item processing results.
+ * @summary Adds or removes API products from a specified product category in bulk. The path parameter specifies the category ID. The action field in the request body specifies the operation type, and the productIds field specifies the list of API product IDs to be processed. The response returns only the request ID, status code, and message, and does not return the processing result for each item.
  *
  * @param request UpdateCategoryProductsRequest
  * @return UpdateCategoryProductsResponse
@@ -10967,7 +11115,7 @@ UpdateConsumerResponse Client::updateConsumer(const string &consumerId, const Up
 }
 
 /**
- * @summary Updates a consumer authorization rule.
+ * @summary Updates consumer authorization rules.
  *
  * @description This API operation is replaced by UpdateAuthorizationRule. The new API path is /v1/authorization-rules/{consumerAuthorizationRuleId}. When you call the new API operation, you only need to provide consumerAuthorizationRuleId in the path and the resources array in the request body. The consumerId parameter is no longer required.
  *
@@ -11010,7 +11158,7 @@ UpdateConsumerAuthorizationRuleResponse Client::updateConsumerAuthorizationRuleW
 }
 
 /**
- * @summary Updates a consumer authorization rule.
+ * @summary Updates consumer authorization rules.
  *
  * @description This API operation is replaced by UpdateAuthorizationRule. The new API path is /v1/authorization-rules/{consumerAuthorizationRuleId}. When you call the new API operation, you only need to provide consumerAuthorizationRuleId in the path and the resources array in the request body. The consumerId parameter is no longer required.
  *
@@ -11505,16 +11653,16 @@ UpdateGatewayNameResponse Client::updateGatewayName(const string &gatewayId, con
 }
 
 /**
- * @summary Edits a quota throttling rule on a gateway.
+ * @summary Modifies a quota throttling rule on a gateway.
  *
- * @description Edits a quota rule on a gateway. This operation takes effect only on AI gateways running version 2.1.21 or later. Editing a rule preserves the historical usage of consumer subjects bound to the rule.
- * >  Recommended call logic:
- * > - Step 1: Perform a dry run to check for rule conflicts.
- * > - - Set dryRun to true.
- * > - - The response contains a conflict preview with a conflictHash value.
- * > - Step 2: Confirm and submit the request.
- * > - - No conflict: Set dryRun to false and overwrite to false.
- * > - - Conflict exists and you confirm the overwrite: Set dryRun to false, overwrite to true, and conflictHash to the value returned in the previous step.
+ * @description This operation modifies a quota rule on a gateway. Note that this operation takes effect only on AI gateways of a version later than 2.1.21. The modification retains the historical usage of the consumers associated with the rule.
+ * > Recommended call logic:
+ * > - 1. Perform a dry run to check for rule conflicts.
+ * > - - Set dryRun=true.
+ * > - - The response returns a conflict preview that contains a conflictHash.
+ * > - 2. Submit the request after confirmation.
+ * > - - If no conflicts exist: Set dryRun=false and overwrite=false.
+ * > - - If conflicts exist and you confirm to overwrite: Set dryRun=false, overwrite=true, and conflictHash=<the value returned in the previous step>.
  *
  * @param request UpdateGatewayQuotaRuleRequest
  * @param headers map
@@ -11575,16 +11723,16 @@ UpdateGatewayQuotaRuleResponse Client::updateGatewayQuotaRuleWithOptions(const s
 }
 
 /**
- * @summary Edits a quota throttling rule on a gateway.
+ * @summary Modifies a quota throttling rule on a gateway.
  *
- * @description Edits a quota rule on a gateway. This operation takes effect only on AI gateways running version 2.1.21 or later. Editing a rule preserves the historical usage of consumer subjects bound to the rule.
- * >  Recommended call logic:
- * > - Step 1: Perform a dry run to check for rule conflicts.
- * > - - Set dryRun to true.
- * > - - The response contains a conflict preview with a conflictHash value.
- * > - Step 2: Confirm and submit the request.
- * > - - No conflict: Set dryRun to false and overwrite to false.
- * > - - Conflict exists and you confirm the overwrite: Set dryRun to false, overwrite to true, and conflictHash to the value returned in the previous step.
+ * @description This operation modifies a quota rule on a gateway. Note that this operation takes effect only on AI gateways of a version later than 2.1.21. The modification retains the historical usage of the consumers associated with the rule.
+ * > Recommended call logic:
+ * > - 1. Perform a dry run to check for rule conflicts.
+ * > - - Set dryRun=true.
+ * > - - The response returns a conflict preview that contains a conflictHash.
+ * > - 2. Submit the request after confirmation.
+ * > - - If no conflicts exist: Set dryRun=false and overwrite=false.
+ * > - - If conflicts exist and you confirm to overwrite: Set dryRun=false, overwrite=true, and conflictHash=<the value returned in the previous step>.
  *
  * @param request UpdateGatewayQuotaRuleRequest
  * @return UpdateGatewayQuotaRuleResponse
@@ -11598,7 +11746,7 @@ UpdateGatewayQuotaRuleResponse Client::updateGatewayQuotaRule(const string &gate
 /**
  * @summary Enables or disables a quota throttling rule for a gateway.
  *
- * @description Enables or disables a quota rule on a gateway. This operation takes effect only on AI gateways with a version later than 2.1.21.
+ * @description This operation enables or disables a quota rule on a gateway. Note that this operation applies only to AI gateways of a version later than 2.1.21.
  *
  * @param request UpdateGatewayQuotaRuleStatusRequest
  * @param headers map
@@ -11637,7 +11785,7 @@ UpdateGatewayQuotaRuleStatusResponse Client::updateGatewayQuotaRuleStatusWithOpt
 /**
  * @summary Enables or disables a quota throttling rule for a gateway.
  *
- * @description Enables or disables a quota rule on a gateway. This operation takes effect only on AI gateways with a version later than 2.1.21.
+ * @description This operation enables or disables a quota rule on a gateway. Note that this operation applies only to AI gateways of a version later than 2.1.21.
  *
  * @param request UpdateGatewayQuotaRuleStatusRequest
  * @return UpdateGatewayQuotaRuleStatusResponse
@@ -11797,7 +11945,7 @@ UpdateHttpApiOperationResponse Client::updateHttpApiOperation(const string &http
 }
 
 /**
- * @summary Updates a route of an HTTP API.
+ * @summary Updates the route of an HTTP API.
  *
  * @param request UpdateHttpApiRouteRequest
  * @param headers map
@@ -11813,6 +11961,10 @@ UpdateHttpApiRouteResponse Client::updateHttpApiRouteWithOptions(const string &h
 
   if (!!request.hasDescription()) {
     body["description"] = request.getDescription();
+  }
+
+  if (!!request.hasDfpConfig()) {
+    body["dfpConfig"] = request.getDfpConfig();
   }
 
   if (!!request.hasDomainIds()) {
@@ -11854,7 +12006,7 @@ UpdateHttpApiRouteResponse Client::updateHttpApiRouteWithOptions(const string &h
 }
 
 /**
- * @summary Updates a route of an HTTP API.
+ * @summary Updates the route of an HTTP API.
  *
  * @param request UpdateHttpApiRouteRequest
  * @return UpdateHttpApiRouteResponse
@@ -11868,7 +12020,7 @@ UpdateHttpApiRouteResponse Client::updateHttpApiRoute(const string &httpApiId, c
 /**
  * @summary Updates an MCP server.
  *
- * @description Only sources of the **Container Service** type can update the Ingress listener configuration.
+ * @description Only sources of the **Container Service** type are allowed to update the Ingress listener configurations.
  *
  * @param request UpdateMcpServerRequest
  * @param headers map
@@ -11947,7 +12099,7 @@ UpdateMcpServerResponse Client::updateMcpServerWithOptions(const string &mcpServ
 /**
  * @summary Updates an MCP server.
  *
- * @description Only sources of the **Container Service** type can update the Ingress listener configuration.
+ * @description Only sources of the **Container Service** type are allowed to update the Ingress listener configurations.
  *
  * @param request UpdateMcpServerRequest
  * @return UpdateMcpServerResponse
@@ -12183,7 +12335,7 @@ UpdatePolicyResponse Client::updatePolicy(const string &policyId, const UpdatePo
 }
 
 /**
- * @summary Updates the name, description, and portal configurations of a HiMarket developer portal by portal ID. The request body is in JSON format. A successful response returns the ID of the updated portal.
+ * @summary Updates the name, description, and portal configuration of a HiMarket developer portal by portal ID. The request body is in JSON format, and a successful response returns the ID of the updated portal.
  *
  * @param request UpdatePortalRequest
  * @param headers map
@@ -12230,7 +12382,7 @@ UpdatePortalResponse Client::updatePortalWithOptions(const string &portalId, con
 }
 
 /**
- * @summary Updates the name, description, and portal configurations of a HiMarket developer portal by portal ID. The request body is in JSON format. A successful response returns the ID of the updated portal.
+ * @summary Updates the name, description, and portal configuration of a HiMarket developer portal by portal ID. The request body is in JSON format, and a successful response returns the ID of the updated portal.
  *
  * @param request UpdatePortalRequest
  * @return UpdatePortalResponse
@@ -12242,7 +12394,7 @@ UpdatePortalResponse Client::updatePortal(const string &portalId, const UpdatePo
 }
 
 /**
- * @summary Updates the name, description, type, documentation, icon, automatic subscription approval setting, product categories, and capabilities of an API product by API product ID. The request body is in JSON format. A successful response returns only the requestId, code, and message, and does not return the updated product information.
+ * @summary Updates the name, description, type, documentation, icon, automatic subscription approval, product category, and product capabilities of an API product by API product ID. The request body is in JSON format. A successful response returns only the requestId, code, and message, and does not return the updated product information.
  *
  * @param request UpdateProductRequest
  * @param headers map
@@ -12309,7 +12461,7 @@ UpdateProductResponse Client::updateProductWithOptions(const string &productId, 
 }
 
 /**
- * @summary Updates the name, description, type, documentation, icon, automatic subscription approval setting, product categories, and capabilities of an API product by API product ID. The request body is in JSON format. A successful response returns only the requestId, code, and message, and does not return the updated product information.
+ * @summary Updates the name, description, type, documentation, icon, automatic subscription approval, product category, and product capabilities of an API product by API product ID. The request body is in JSON format. A successful response returns only the requestId, code, and message, and does not return the updated product information.
  *
  * @param request UpdateProductRequest
  * @return UpdateProductResponse
@@ -12321,7 +12473,7 @@ UpdateProductResponse Client::updateProduct(const string &productId, const Updat
 }
 
 /**
- * @summary Updates the name, description, and icon of a product category by category ID. The request body is in JSON format. The response returns only the request ID, response status code, and response message.
+ * @summary Updates the name, description, and icon of a product category by category ID. The request body is in JSON format, and the response returns only the request ID, response status code, and response message.
  *
  * @param request UpdateProductCategoryRequest
  * @param headers map
@@ -12362,7 +12514,7 @@ UpdateProductCategoryResponse Client::updateProductCategoryWithOptions(const str
 }
 
 /**
- * @summary Updates the name, description, and icon of a product category by category ID. The request body is in JSON format. The response returns only the request ID, response status code, and response message.
+ * @summary Updates the name, description, and icon of a product category by category ID. The request body is in JSON format, and the response returns only the request ID, response status code, and response message.
  *
  * @param request UpdateProductCategoryRequest
  * @return UpdateProductCategoryResponse
@@ -12472,7 +12624,7 @@ UpdateSecretResponse Client::updateSecret(const string &secretId, const UpdateSe
 }
 
 /**
- * @summary Updates a service. You can update the health check configuration, DNS domain name, and address configuration of fixed addresses for the service.
+ * @summary Updates a service. Supports updating the health check configuration, DNS domain names, and static address configurations of the service.
  *
  * @param request UpdateServiceRequest
  * @param headers map
@@ -12492,6 +12644,14 @@ UpdateServiceResponse Client::updateServiceWithOptions(const string &serviceId, 
 
   if (!!request.hasAiServiceConfig()) {
     body["aiServiceConfig"] = request.getAiServiceConfig();
+  }
+
+  if (!!request.hasApiKeyReferencesToAdd()) {
+    body["apiKeyReferencesToAdd"] = request.getApiKeyReferencesToAdd();
+  }
+
+  if (!!request.hasApiKeysToAdd()) {
+    body["apiKeysToAdd"] = request.getApiKeysToAdd();
   }
 
   if (!!request.hasDnsServers()) {
@@ -12541,7 +12701,7 @@ UpdateServiceResponse Client::updateServiceWithOptions(const string &serviceId, 
 }
 
 /**
- * @summary Updates a service. You can update the health check configuration, DNS domain name, and address configuration of fixed addresses for the service.
+ * @summary Updates a service. Supports updating the health check configuration, DNS domain names, and static address configurations of the service.
  *
  * @param request UpdateServiceRequest
  * @return UpdateServiceResponse

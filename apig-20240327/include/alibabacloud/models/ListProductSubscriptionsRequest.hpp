@@ -66,13 +66,13 @@ namespace Models
 
 
   protected:
-    // The keyword of the consumer name used to search the subscription records of the API product by consumer name.
+    // The keyword of the consumer name. This parameter is used to search for subscription records of the API product by consumer name.
     shared_ptr<string> consumerName_ {};
     // The page number. Pages start from 1.
     shared_ptr<int32_t> pageNumber_ {};
     // The number of entries per page.
     shared_ptr<int32_t> pageSize_ {};
-    // The subscription status used to filter subscriptions. Valid values: PENDING and APPROVED.
+    // The subscription status. This parameter is used to filter subscriptions by status. Valid values: PENDING and APPROVED.
     shared_ptr<string> status_ {};
   };
 

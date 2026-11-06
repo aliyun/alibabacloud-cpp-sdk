@@ -73,7 +73,7 @@ namespace Models
 
 
     protected:
-      // The ID of the newly created product category. It can be used as the categoryId path parameter in GetProductCategory, UpdateProductCategory, and DeleteProductCategory, or as an element in the category ID array for SetProductCategories.
+      // The ID of the newly created product category. It can be used as the categoryId path parameter for GetProductCategory, UpdateProductCategory, and DeleteProductCategory, or as an element in the category ID array for SetProductCategories.
       shared_ptr<string> categoryId_ {};
       // The name of the product category.
       shared_ptr<string> name_ {};

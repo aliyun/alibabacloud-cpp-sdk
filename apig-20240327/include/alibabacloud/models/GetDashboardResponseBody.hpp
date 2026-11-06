@@ -95,13 +95,13 @@ namespace Models
 
 
     protected:
-      // The unique ID of the gateway.
+      // The unique identifier of the gateway.
       shared_ptr<string> gatewayId_ {};
-      // The name of the dashboard.
+      // The dashboard name.
       shared_ptr<string> name_ {};
-      // The title of the dashboard.
+      // The dashboard title.
       shared_ptr<string> title_ {};
-      // The URL of the dashboard.
+      // The dashboard URL.
       shared_ptr<string> url_ {};
     };
 
@@ -162,7 +162,7 @@ namespace Models
     shared_ptr<string> message_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request was successful.
+    // Indicates whether the request is successful.
     shared_ptr<bool> success_ {};
   };
 

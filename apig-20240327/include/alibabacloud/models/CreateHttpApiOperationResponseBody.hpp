@@ -83,7 +83,7 @@ namespace Models
 
 
       protected:
-        // The operation ID.
+        // The API operation ID.
         shared_ptr<string> operationId_ {};
       };
 
@@ -98,7 +98,7 @@ namespace Models
 
 
     protected:
-      // The operation information.
+      // The API operation information.
       shared_ptr<vector<Data::Operations>> operations_ {};
     };
 
@@ -137,7 +137,7 @@ namespace Models
   protected:
     // The response status code.
     shared_ptr<string> code_ {};
-    // The operation information.
+    // The API operation information.
     shared_ptr<CreateHttpApiOperationResponseBody::Data> data_ {};
     // The response message.
     shared_ptr<string> message_ {};

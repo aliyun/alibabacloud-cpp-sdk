@@ -121,9 +121,9 @@ namespace Models
 
 
       protected:
-        // The developer ID. You can use this ID to locate the developer in API operations such as SetHiMarketDeveloperStatus and DeleteHiMarketDeveloper.
+        // The ID of the developer. You can use this ID to identify the developer in API operations such as SetHiMarketDeveloperStatus and DeleteHiMarketDeveloper.
         shared_ptr<string> developerId_ {};
-        // The ID of the portal to which the developer belongs. You can use this ID to locate the portal in API operations such as GetPortal, UpdatePortal, and DeletePortal.
+        // The ID of the portal to which the developer belongs. You can use this ID to identify the portal in API operations such as GetPortal, UpdatePortal, and DeletePortal.
         shared_ptr<string> portalId_ {};
         // The status of the developer. Valid values: PENDING, APPROVED, and REJECTED.
         shared_ptr<string> status_ {};
@@ -229,7 +229,7 @@ namespace Models
     shared_ptr<int32_t> maxResults_ {};
     // The response message.
     shared_ptr<string> message_ {};
-    // The cursor for the next page. An empty value indicates that the last page has been reached.
+    // The pagination token for the next page. An empty value indicates that the last page has been reached.
     shared_ptr<string> nextToken_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

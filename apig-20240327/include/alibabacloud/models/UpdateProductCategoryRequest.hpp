@@ -62,7 +62,7 @@ namespace Models
   protected:
     // The description of the product category. The description can be up to 500 characters in length.
     shared_ptr<string> description_ {};
-    // The icon of the product category. The icon consists of two fields: icon type (type) and icon information (value).
+    // The icon of the product category. It consists of two fields: icon type (type) and icon information (value).
     shared_ptr<HiMarketIcon> icon_ {};
     // The name of the product category. The name can be up to 100 characters in length.
     shared_ptr<string> name_ {};

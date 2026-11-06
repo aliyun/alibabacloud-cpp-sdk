@@ -76,7 +76,7 @@ namespace Models
 
 
     protected:
-      // The attachment information.
+      // The attachment relationship information.
       shared_ptr<Attachment> attachment_ {};
       // The ID of the newly created policy.
       shared_ptr<string> policyId_ {};
@@ -117,7 +117,7 @@ namespace Models
   protected:
     // The response status code.
     shared_ptr<string> code_ {};
-    // The response struct.
+    // The response structure.
     shared_ptr<CreateAndAttachPolicyResponseBody::Data> data_ {};
     // The response message.
     shared_ptr<string> message_ {};

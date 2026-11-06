@@ -92,7 +92,7 @@ namespace Models
     shared_ptr<string> provider_ {};
     // The list of service IDs to bind to the provider.
     shared_ptr<vector<string>> serviceIds_ {};
-    // The client token that is used to ensure the idempotence of the request.
+    // The client token that ensures the idempotence of the request.
     shared_ptr<string> clientToken_ {};
   };
 

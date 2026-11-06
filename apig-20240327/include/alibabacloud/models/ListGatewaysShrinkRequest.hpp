@@ -112,23 +112,23 @@ namespace Models
 
 
   protected:
-    // The gateway ID for exact match query.
+    // The gateway ID for exact match.
     shared_ptr<string> gatewayId_ {};
     // The gateway type.
     shared_ptr<string> gatewayType_ {};
     // The keyword for full match search. The search is case-insensitive.
     shared_ptr<string> keyword_ {};
-    // The gateway name for exact match query.
+    // The gateway name for exact match.
     shared_ptr<string> name_ {};
     // The page number.
     shared_ptr<int32_t> pageNumber_ {};
     // The page size.
     shared_ptr<int32_t> pageSize_ {};
-    // The resource group ID.
+    // The resource group.
     shared_ptr<string> resourceGroupId_ {};
     // The list of tags.
     shared_ptr<string> tagShrink_ {};
-    // The virtual private cloud (VPC) ID.
+    // The VPC ID.
     shared_ptr<string> vpcId_ {};
   };
 

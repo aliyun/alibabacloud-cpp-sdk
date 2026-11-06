@@ -160,27 +160,27 @@ namespace Models
   protected:
     // The API name.
     shared_ptr<string> apiNameLike_ {};
-    // The consumer group ID. If specified, the authorization rules of the consumer group are queried. At least one of the following parameters must be specified: resourceId, parentResourceId, consumerId, and consumerGroupId.
+    // The consumer group ID. If specified, the authorization rules of the consumer group are queried. At least one of the resourceId, parentResourceId, consumerId, and consumerGroupId parameters must be specified as a query condition.
     shared_ptr<string> consumerGroupId_ {};
     // The consumer group name for fuzzy match.
     shared_ptr<string> consumerGroupNameLike_ {};
-    // The consumer ID. At least one of the following parameters must be specified: resourceId, parentResourceId, consumerId, and consumerGroupId.
+    // The consumer ID. At least one of the resourceId, parentResourceId, consumerId, and consumerGroupId parameters must be specified as a query condition.
     shared_ptr<string> consumerId_ {};
-    // The consumer name for fuzzy match.
+    // The consumer name.
     shared_ptr<string> consumerNameLike_ {};
     // The environment ID.
     shared_ptr<string> environmentId_ {};
-    // Specifies whether to group results by API.
+    // Specifies whether to group by API.
     shared_ptr<bool> groupByApi_ {};
     // The page number.
     shared_ptr<int32_t> pageNumber_ {};
     // The page size.
     shared_ptr<int32_t> pageSize_ {};
-    // The parent resource ID. At least one of the following parameters must be specified: resourceId, parentResourceId, consumerId, and consumerGroupId.
+    // The parent resource ID. At least one of the resourceId, parentResourceId, consumerId, and consumerGroupId parameters must be specified as a query condition.
     shared_ptr<string> parentResourceId_ {};
     // The principal type. Valid values: Consumer and ConsumerGroup.
     shared_ptr<string> principalType_ {};
-    // The resource ID. At least one of the following parameters must be specified: resourceId, parentResourceId, consumerId, and consumerGroupId.
+    // The resource ID. At least one of the resourceId, parentResourceId, consumerId, and consumerGroupId parameters must be specified as a query condition.
     shared_ptr<string> resourceId_ {};
     // The resource type.
     shared_ptr<string> resourceType_ {};

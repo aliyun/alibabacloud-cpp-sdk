@@ -41,7 +41,7 @@ namespace Models
 
 
   protected:
-    // The list of consumer IDs to remove from the consumer group.
+    // The list of consumer IDs to be removed from the consumer group.
     shared_ptr<vector<string>> consumerIds_ {};
   };
 

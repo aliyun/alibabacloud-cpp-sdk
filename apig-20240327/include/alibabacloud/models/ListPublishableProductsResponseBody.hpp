@@ -108,11 +108,11 @@ namespace Models
 
 
       protected:
-        // The description of the API product. This corresponds to the Description property of the Product resource.
+        // The description of the API product, which is the Description property of the Product resource.
         shared_ptr<string> description_ {};
-        // The name of the API product. This corresponds to the Name property of the Product resource.
+        // The name of the API product, which is the Name property of the Product resource.
         shared_ptr<string> name_ {};
-        // The ID of the API product. This is the primary ID of the Product resource. You can use this ID in the PublishProduct operation at /himarket/v1/products/{productId}/publications to publish the product to the portal. You can also use it to locate the product in operations such as GetProduct and ListProductPublications.
+        // The ID of the API product, which is the primary ID of the Product resource. You can use this ID in the PublishProduct operation at /himarket/v1/products/{productId}/publications to publish the product to the portal. You can also use it to locate the product in operations such as GetProduct and ListProductPublications.
         shared_ptr<string> productId_ {};
       };
 
@@ -155,7 +155,7 @@ namespace Models
       shared_ptr<int32_t> pageNumber_ {};
       // The page size.
       shared_ptr<int32_t> pageSize_ {};
-      // The total number of entries.
+      // The total count.
       shared_ptr<int32_t> totalCount_ {};
     };
 

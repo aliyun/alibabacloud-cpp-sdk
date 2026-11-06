@@ -73,9 +73,9 @@ namespace Models
 
 
     protected:
-      // The access token returned for the current developer logon. This field is marked as sensitive in the API definition.
+      // The access token returned for the developer logon. This field is marked as sensitive in the API definition.
       shared_ptr<string> accessToken_ {};
-      // The int64 numeric field associated with the access token. The unit and exact meaning are not declared in the API definition.
+      // The int64 numeric value associated with the access token. The unit and exact meaning are not specified in the API definition.
       shared_ptr<int64_t> expiresIn_ {};
     };
 

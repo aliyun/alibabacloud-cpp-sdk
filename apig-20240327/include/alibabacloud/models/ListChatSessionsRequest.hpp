@@ -66,13 +66,13 @@ namespace Models
 
 
   protected:
-    // The maximum number of entries per page. The default value and value range are not specified in the API definition.
+    // The maximum number of entries per page. The default value and valid values are not specified in the API definition.
     shared_ptr<int32_t> maxResults_ {};
-    // The pagination token. Pass the nextToken returned in the previous response to obtain the next page. Do not specify this parameter for the first query.
+    // The pagination token. Pass the nextToken returned in the previous response to retrieve the next page. Do not specify this parameter for the first query.
     shared_ptr<string> nextToken_ {};
     // The page number. Pages start from 1.
     shared_ptr<int32_t> pageNumber_ {};
-    // The page size.
+    // The number of entries per page.
     shared_ptr<int32_t> pageSize_ {};
   };
 

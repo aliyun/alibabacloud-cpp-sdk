@@ -113,7 +113,7 @@ namespace Models
 
 
       protected:
-        // The vSwitch ID.
+        // The ID of the vSwitch.
         shared_ptr<string> vSwitchId_ {};
         // The zone ID.
         shared_ptr<string> zoneId_ {};
@@ -145,9 +145,9 @@ namespace Models
 
 
     protected:
-      // The zone selection option.
+      // The zone option.
       shared_ptr<string> selectOption_ {};
-      // The vSwitch ID.
+      // The ID of the vSwitch.
       shared_ptr<string> vSwitchId_ {};
       // The list of supported zones. At least two zones are required.
       shared_ptr<vector<ZoneConfig::Zones>> zones_ {};
@@ -200,9 +200,11 @@ namespace Models
     class NetworkAccessConfig : public Darabonba::Model {
     public:
       friend void to_json(Darabonba::Json& j, const NetworkAccessConfig& obj) { 
+        DARABONBA_PTR_TO_JSON(endpointSecurityGroupId, endpointSecurityGroupId_);
         DARABONBA_PTR_TO_JSON(type, type_);
       };
       friend void from_json(const Darabonba::Json& j, NetworkAccessConfig& obj) { 
+        DARABONBA_PTR_FROM_JSON(endpointSecurityGroupId, endpointSecurityGroupId_);
         DARABONBA_PTR_FROM_JSON(type, type_);
       };
       NetworkAccessConfig() = default ;
@@ -216,7 +218,15 @@ namespace Models
       };
       virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
       virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-      virtual bool empty() const override { return this->type_ == nullptr; };
+      virtual bool empty() const override { return this->endpointSecurityGroupId_ == nullptr
+        && this->type_ == nullptr; };
+      // endpointSecurityGroupId Field Functions 
+      bool hasEndpointSecurityGroupId() const { return this->endpointSecurityGroupId_ != nullptr;};
+      void deleteEndpointSecurityGroupId() { this->endpointSecurityGroupId_ = nullptr;};
+      inline string getEndpointSecurityGroupId() const { DARABONBA_PTR_GET_DEFAULT(endpointSecurityGroupId_, "") };
+      inline NetworkAccessConfig& setEndpointSecurityGroupId(string endpointSecurityGroupId) { DARABONBA_PTR_SET_VALUE(endpointSecurityGroupId_, endpointSecurityGroupId) };
+
+
       // type Field Functions 
       bool hasType() const { return this->type_ != nullptr;};
       void deleteType() { this->type_ = nullptr;};
@@ -225,6 +235,8 @@ namespace Models
 
 
     protected:
+      // The ID of the endpoint security group. This parameter is required when a multi-tenant API gateway or multi-tenant AI gateway Enterprise Edition selects private network or dual-entry access. It must be an unmanaged security group in the user VPC. Do not pass this parameter for public network requests.
+      shared_ptr<string> endpointSecurityGroupId_ {};
       // The network access type.
       shared_ptr<string> type_ {};
     };
@@ -276,7 +288,7 @@ namespace Models
 
 
       protected:
-        // Specifies whether to enable SLS log collection.
+        // Specifies whether to enable SLS.
         shared_ptr<bool> enable_ {};
       };
 
@@ -291,7 +303,7 @@ namespace Models
 
 
     protected:
-      // The Simple Log Service (SLS) configuration that controls gateway log collection.
+      // The Simple Log Service (SLS) configuration used to control gateway log collection.
       shared_ptr<LogConfig::Sls> sls_ {};
     };
 
@@ -394,33 +406,33 @@ namespace Models
   protected:
     // The billing method. This parameter is required for the Serverless edition and must be set to POSTPAY.
     shared_ptr<string> chargeType_ {};
-    // The gateway instance edition. Valid values:
+    // The gateway instance edition:
     // 
-    // - Professional: standard instance.
+    // - Standard instance: Professional
     // 
-    // - Serverless: Serverless instance.
+    // - Serverless: Serverless
     // 
-    // - MultiTenantServerless: multi-tenant Serverless instance.
+    // - Multi-tenant Serverless: MultiTenantServerless
     // 
-    // - Unknown: unknown.
+    // - Unknown: Unknown
     shared_ptr<string> gatewayEdition_ {};
-    // The running mode for AI multi-tenant V2. Default value: ENTERPRISE. This parameter can be specified only when gatewayType is set to AI and gatewayEdition is set to MultiTenantServerless.
+    // The operation mode for AI multi-tenant V2. The default value is ENTERPRISE. This parameter is only allowed for AI and MultiTenantServerless.
     shared_ptr<string> gatewayMode_ {};
-    // The gateway type. This parameter must be explicitly set to AI for AI Serverless or multi-tenant editions.
+    // The gateway type. This parameter must be explicitly set to AI for AI Serverless or multi-tenant gateways.
     shared_ptr<string> gatewayType_ {};
-    // The gateway log configuration.
+    // The log configuration for the gateway.
     shared_ptr<CreateGatewayRequest::LogConfig> logConfig_ {};
-    // The gateway name. This parameter is required for all editions.
+    // The name of the gateway. This parameter is required for all editions.
     shared_ptr<string> name_ {};
-    // The network access configuration. This parameter is required. If this parameter is not specified, the service returns an InvalidParameter.IsEmpty (400) error.
+    // The network access configuration. This parameter is actually required. If it is not provided, the service returns InvalidParameter.IsEmpty (400).
     shared_ptr<CreateGatewayRequest::NetworkAccessConfig> networkAccessConfig_ {};
-    // The resource group ID.
+    // The ID of the resource group.
     shared_ptr<string> resourceGroupId_ {};
     // The node specifications. This parameter is required for the Serverless edition.
     shared_ptr<string> spec_ {};
     // The list of tags.
     shared_ptr<vector<CreateGatewayRequest::Tag>> tag_ {};
-    // The virtual private cloud (VPC) ID. This parameter is required for all editions.
+    // The ID of the VPC. This parameter is required for all editions.
     shared_ptr<string> vpcId_ {};
     // The zone configuration. This parameter is required for all editions.
     shared_ptr<CreateGatewayRequest::ZoneConfig> zoneConfig_ {};

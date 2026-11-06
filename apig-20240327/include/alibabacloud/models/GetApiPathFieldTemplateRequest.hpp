@@ -38,7 +38,7 @@ namespace Models
 
 
   protected:
-    // The gateway type.
+    // The URI of the request, used to query the field template corresponding to the URI.
     shared_ptr<string> path_ {};
   };
 

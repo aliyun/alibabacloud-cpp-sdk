@@ -22,6 +22,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(createTimestamp, createTimestamp_);
       DARABONBA_PTR_TO_JSON(deployStatus, deployStatus_);
       DARABONBA_PTR_TO_JSON(description, description_);
+      DARABONBA_PTR_TO_JSON(dfpConfig, dfpConfig_);
       DARABONBA_PTR_TO_JSON(domainInfos, domainInfos_);
       DARABONBA_PTR_TO_JSON(environmentInfo, environmentInfo_);
       DARABONBA_PTR_TO_JSON(gatewayStatus, gatewayStatus_);
@@ -37,6 +38,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(createTimestamp, createTimestamp_);
       DARABONBA_PTR_FROM_JSON(deployStatus, deployStatus_);
       DARABONBA_PTR_FROM_JSON(description, description_);
+      DARABONBA_PTR_FROM_JSON(dfpConfig, dfpConfig_);
       DARABONBA_PTR_FROM_JSON(domainInfos, domainInfos_);
       DARABONBA_PTR_FROM_JSON(environmentInfo, environmentInfo_);
       DARABONBA_PTR_FROM_JSON(gatewayStatus, gatewayStatus_);
@@ -185,7 +187,7 @@ namespace Models
       shared_ptr<string> importMcpServerId_ {};
       // The Nacos namespace.
       shared_ptr<string> importNamespace_ {};
-      // The MCP route information.
+      // The MCP routing information.
       shared_ptr<McpServerInfo::McpRouteConfig> mcpRouteConfig_ {};
       // The MCP server metadata configuration.
       shared_ptr<string> mcpServerConfig_ {};
@@ -274,7 +276,7 @@ namespace Models
 
 
       protected:
-        // The domain name ID.
+        // The domain ID.
         shared_ptr<string> domainId_ {};
         // The domain name.
         shared_ptr<string> name_ {};
@@ -331,7 +333,7 @@ namespace Models
 
 
       protected:
-        // The gateway instance edition. Valid values: Professional, Serverless, MultiTenantServerless, Unknown.
+        // The gateway instance edition. Valid values: Professional, Serverless, MultiTenantServerless, and Unknown.
         shared_ptr<string> gatewayEdition_ {};
         // The gateway ID.
         shared_ptr<string> gatewayId_ {};
@@ -381,7 +383,7 @@ namespace Models
 
 
     protected:
-      // The environment name alias.
+      // The alias of the environment name.
       shared_ptr<string> alias_ {};
       // The environment ID.
       shared_ptr<string> environmentId_ {};
@@ -389,7 +391,7 @@ namespace Models
       shared_ptr<EnvironmentInfo::GatewayInfo> gatewayInfo_ {};
       // The environment name.
       shared_ptr<string> name_ {};
-      // The list of default subdomain names for the environment.
+      // The list of default subdomains for the environment.
       shared_ptr<vector<EnvironmentInfo::SubDomains>> subDomains_ {};
     };
 
@@ -440,7 +442,7 @@ namespace Models
 
 
     protected:
-      // The domain name ID.
+      // The domain ID.
       shared_ptr<string> domainId_ {};
       // The domain name.
       shared_ptr<string> name_ {};
@@ -448,10 +450,42 @@ namespace Models
       shared_ptr<string> protocol_ {};
     };
 
+    class DfpConfig : public Darabonba::Model {
+    public:
+      friend void to_json(Darabonba::Json& j, const DfpConfig& obj) { 
+        DARABONBA_PTR_TO_JSON(serviceId, serviceId_);
+      };
+      friend void from_json(const Darabonba::Json& j, DfpConfig& obj) { 
+        DARABONBA_PTR_FROM_JSON(serviceId, serviceId_);
+      };
+      DfpConfig() = default ;
+      DfpConfig(const DfpConfig &) = default ;
+      DfpConfig(DfpConfig &&) = default ;
+      DfpConfig(const Darabonba::Json & obj) { from_json(obj, *this); };
+      virtual ~DfpConfig() = default ;
+      DfpConfig& operator=(const DfpConfig &) = default ;
+      DfpConfig& operator=(DfpConfig &&) = default ;
+      virtual void validate() const override {
+      };
+      virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+      virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+      virtual bool empty() const override { return this->serviceId_ == nullptr; };
+      // serviceId Field Functions 
+      bool hasServiceId() const { return this->serviceId_ != nullptr;};
+      void deleteServiceId() { this->serviceId_ = nullptr;};
+      inline string getServiceId() const { DARABONBA_PTR_GET_DEFAULT(serviceId_, "") };
+      inline DfpConfig& setServiceId(string serviceId) { DARABONBA_PTR_SET_VALUE(serviceId_, serviceId) };
+
+
+    protected:
+      // The ExtProc gRPC service ID.
+      shared_ptr<string> serviceId_ {};
+    };
+
     virtual bool empty() const override { return this->backend_ == nullptr
-        && this->builtin_ == nullptr && this->createTimestamp_ == nullptr && this->deployStatus_ == nullptr && this->description_ == nullptr && this->domainInfos_ == nullptr
-        && this->environmentInfo_ == nullptr && this->gatewayStatus_ == nullptr && this->match_ == nullptr && this->mcpServerInfo_ == nullptr && this->name_ == nullptr
-        && this->routeId_ == nullptr && this->updateTimestamp_ == nullptr; };
+        && this->builtin_ == nullptr && this->createTimestamp_ == nullptr && this->deployStatus_ == nullptr && this->description_ == nullptr && this->dfpConfig_ == nullptr
+        && this->domainInfos_ == nullptr && this->environmentInfo_ == nullptr && this->gatewayStatus_ == nullptr && this->match_ == nullptr && this->mcpServerInfo_ == nullptr
+        && this->name_ == nullptr && this->routeId_ == nullptr && this->updateTimestamp_ == nullptr; };
     // backend Field Functions 
     bool hasBackend() const { return this->backend_ != nullptr;};
     void deleteBackend() { this->backend_ = nullptr;};
@@ -487,6 +521,15 @@ namespace Models
     void deleteDescription() { this->description_ = nullptr;};
     inline string getDescription() const { DARABONBA_PTR_GET_DEFAULT(description_, "") };
     inline HttpRoute& setDescription(string description) { DARABONBA_PTR_SET_VALUE(description_, description) };
+
+
+    // dfpConfig Field Functions 
+    bool hasDfpConfig() const { return this->dfpConfig_ != nullptr;};
+    void deleteDfpConfig() { this->dfpConfig_ = nullptr;};
+    inline const HttpRoute::DfpConfig & getDfpConfig() const { DARABONBA_PTR_GET_CONST(dfpConfig_, HttpRoute::DfpConfig) };
+    inline HttpRoute::DfpConfig getDfpConfig() { DARABONBA_PTR_GET(dfpConfig_, HttpRoute::DfpConfig) };
+    inline HttpRoute& setDfpConfig(const HttpRoute::DfpConfig & dfpConfig) { DARABONBA_PTR_SET_VALUE(dfpConfig_, dfpConfig) };
+    inline HttpRoute& setDfpConfig(HttpRoute::DfpConfig && dfpConfig) { DARABONBA_PTR_SET_RVALUE(dfpConfig_, dfpConfig) };
 
 
     // domainInfos Field Functions 
@@ -558,7 +601,7 @@ namespace Models
   protected:
     // The backend service.
     shared_ptr<Backend> backend_ {};
-    // Indicates whether the route is a system built-in route.
+    // Indicates whether the route is a built-in system route.
     shared_ptr<string> builtin_ {};
     // The creation time, in milliseconds.
     shared_ptr<int64_t> createTimestamp_ {};
@@ -566,7 +609,9 @@ namespace Models
     shared_ptr<string> deployStatus_ {};
     // The route description.
     shared_ptr<string> description_ {};
-    // The list of domain name information.
+    // The ExtProc service selected for the fixed dynamic forwarding route. This field is not returned when no matching binding exists.
+    shared_ptr<HttpRoute::DfpConfig> dfpConfig_ {};
+    // The list of domain information.
     shared_ptr<vector<HttpRoute::DomainInfos>> domainInfos_ {};
     // The environment context of the routing.
     shared_ptr<HttpRoute::EnvironmentInfo> environmentInfo_ {};
@@ -574,11 +619,11 @@ namespace Models
     shared_ptr<map<string, string>> gatewayStatus_ {};
     // The route matching rules.
     shared_ptr<HttpRouteMatch> match_ {};
-    // The MCP server information.
+    // The MCP service information.
     shared_ptr<HttpRoute::McpServerInfo> mcpServerInfo_ {};
     // The route name.
     shared_ptr<string> name_ {};
-    // The HttpApi route ID.
+    // The HTTP API route ID.
     shared_ptr<string> routeId_ {};
     // The update time, in milliseconds.
     shared_ptr<int64_t> updateTimestamp_ {};

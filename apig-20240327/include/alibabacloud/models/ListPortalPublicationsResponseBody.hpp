@@ -135,17 +135,17 @@ namespace Models
 
 
       protected:
-        // The creation time in ISO 8601 (RFC 3339) format in the UTC time zone, such as 2026-05-15T10:00:00Z.
+        // The creation time. The time is in ISO 8601 (RFC 3339) format in the UTC time zone, such as 2026-05-15T10:00:00Z.
         shared_ptr<string> createdAt_ {};
         // The description of the API product.
         shared_ptr<string> description_ {};
-        // The API product ID. This is the primary ID of the Product resource, which identifies the API product associated with this publication record.
+        // The API product ID. This is the primary ID of the API product resource and identifies the API product corresponding to this publication record.
         shared_ptr<string> productId_ {};
-        // The API product name. This is the Name property of the Product resource.
+        // The API product name. This is the Name property of the API product resource.
         shared_ptr<string> productName_ {};
         // The API product type. The valid values are not defined in the API specification. Refer to the types displayed in the console.
         shared_ptr<string> productType_ {};
-        // The publication record ID of the API product. This ID is returned when the PublishProduct operation publishes the API product to the portal. You can use it in the /himarket/v1/products/{productId}/publications/{publicationId} path to locate the publication record for the UnpublishProduct operation.
+        // The publication record ID of the API product. This ID is returned when an API product is published to a portal by using the PublishProduct operation. You can use this ID in the /himarket/v1/products/{productId}/publications/{publicationId} path to locate the publication record for the UnpublishProduct operation.
         shared_ptr<string> publicationId_ {};
       };
 

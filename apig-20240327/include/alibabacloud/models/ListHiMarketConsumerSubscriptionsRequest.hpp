@@ -75,15 +75,15 @@ namespace Models
 
 
   protected:
-    // The maximum number of entries per page. The default value and valid values are not specified in the API definition.
+    // The maximum number of entries per page. The default value and valid values are not declared in the API definition.
     shared_ptr<int32_t> maxResults_ {};
-    // The pagination cursor. Pass the nextToken returned in the previous response to retrieve the next page. Do not pass this parameter for the first query.
+    // The pagination token. Pass the token returned in the previous response to retrieve the next page. Do not specify this parameter for the first request.
     shared_ptr<string> nextToken_ {};
     // The page number. Pages start from 1.
     shared_ptr<int32_t> pageNumber_ {};
     // The number of entries per page.
     shared_ptr<int32_t> pageSize_ {};
-    // The subscription status used to filter subscriptions. Valid values: PENDING and APPROVED.
+    // The subscription status. Filters subscriptions by status. Valid values: PENDING and APPROVED.
     shared_ptr<string> status_ {};
   };
 

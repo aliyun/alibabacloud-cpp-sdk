@@ -82,11 +82,11 @@ namespace Models
 
 
     protected:
-      // The access token returned for the current OIDC logon. The API definition marks this field as sensitive.
+      // The access token returned for the OIDC logon. This field is marked as sensitive in the API definition.
       shared_ptr<string> accessToken_ {};
-      // The validity period value of the access token. The unit is not specified in the API definition.
+      // The numeric value for the validity period of the access token. The unit is not declared in the API definition.
       shared_ptr<int64_t> expiresIn_ {};
-      // The type identifier of the access token. The valid values are not specified in the API definition.
+      // The type identifier of the access token. The valid values are not declared in the API definition.
       shared_ptr<string> tokenType_ {};
     };
 

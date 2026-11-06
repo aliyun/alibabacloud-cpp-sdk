@@ -20,9 +20,12 @@ namespace Models
       DARABONBA_PTR_TO_JSON(checkRequestImage, checkRequestImage_);
       DARABONBA_PTR_TO_JSON(checkResponse, checkResponse_);
       DARABONBA_PTR_TO_JSON(checkResponseImage, checkResponseImage_);
+      DARABONBA_PTR_TO_JSON(consumerConfigBindings, consumerConfigBindings_);
       DARABONBA_PTR_TO_JSON(consumerRequestCheckService, consumerRequestCheckService_);
       DARABONBA_PTR_TO_JSON(consumerResponseCheckService, consumerResponseCheckService_);
       DARABONBA_PTR_TO_JSON(consumerRiskLevel, consumerRiskLevel_);
+      DARABONBA_PTR_TO_JSON(defaultGenerated, defaultGenerated_);
+      DARABONBA_PTR_TO_JSON(longTermEnabled, longTermEnabled_);
       DARABONBA_PTR_TO_JSON(pluginStatus, pluginStatus_);
       DARABONBA_PTR_TO_JSON(requestCheckService, requestCheckService_);
       DARABONBA_PTR_TO_JSON(requestImageCheckService, requestImageCheckService_);
@@ -38,9 +41,12 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(checkRequestImage, checkRequestImage_);
       DARABONBA_PTR_FROM_JSON(checkResponse, checkResponse_);
       DARABONBA_PTR_FROM_JSON(checkResponseImage, checkResponseImage_);
+      DARABONBA_PTR_FROM_JSON(consumerConfigBindings, consumerConfigBindings_);
       DARABONBA_PTR_FROM_JSON(consumerRequestCheckService, consumerRequestCheckService_);
       DARABONBA_PTR_FROM_JSON(consumerResponseCheckService, consumerResponseCheckService_);
       DARABONBA_PTR_FROM_JSON(consumerRiskLevel, consumerRiskLevel_);
+      DARABONBA_PTR_FROM_JSON(defaultGenerated, defaultGenerated_);
+      DARABONBA_PTR_FROM_JSON(longTermEnabled, longTermEnabled_);
       DARABONBA_PTR_FROM_JSON(pluginStatus, pluginStatus_);
       DARABONBA_PTR_FROM_JSON(requestCheckService, requestCheckService_);
       DARABONBA_PTR_FROM_JSON(requestImageCheckService, requestImageCheckService_);
@@ -122,9 +128,9 @@ namespace Models
 
 
       protected:
-        // The matching method.
+        // The match type.
         shared_ptr<string> matchType_ {};
-        // The consumer matching pattern value.
+        // The consumer match pattern value.
         shared_ptr<string> pattern_ {};
       };
 
@@ -154,7 +160,7 @@ namespace Models
 
 
     protected:
-      // The consumer-level matching rules.
+      // The consumer-level match rules.
       shared_ptr<RiskConfig::ConsumerRules> consumerRules_ {};
       // The risk level.
       shared_ptr<string> level_ {};
@@ -220,7 +226,7 @@ namespace Models
     protected:
       // The risk level.
       shared_ptr<string> level_ {};
-      // The consumer matching method.
+      // The consumer match type.
       shared_ptr<string> matchType_ {};
       // The consumer name.
       shared_ptr<string> name_ {};
@@ -293,15 +299,15 @@ namespace Models
 
 
     protected:
-      // The consumer matching method.
+      // The consumer match type.
       shared_ptr<string> matchType_ {};
       // The modality type.
       shared_ptr<string> modalityType_ {};
       // The consumer name.
       shared_ptr<string> name_ {};
-      // The detection service.
+      // The check service.
       shared_ptr<string> responseCheckService_ {};
-      // The image detection service.
+      // The image check service.
       shared_ptr<string> responseImageCheckService_ {};
     };
 
@@ -370,22 +376,78 @@ namespace Models
 
 
     protected:
-      // The consumer matching method.
+      // The consumer match type.
       shared_ptr<string> matchType_ {};
       // The modality type.
       shared_ptr<string> modalityType_ {};
       // The consumer name.
       shared_ptr<string> name_ {};
-      // The detection service.
+      // The check service.
       shared_ptr<string> requestCheckService_ {};
-      // The image detection service.
+      // The image check service.
       shared_ptr<string> requestImageCheckService_ {};
     };
 
+    class ConsumerConfigBindings : public Darabonba::Model {
+    public:
+      friend void to_json(Darabonba::Json& j, const ConsumerConfigBindings& obj) { 
+        DARABONBA_PTR_TO_JSON(matchType, matchType_);
+        DARABONBA_PTR_TO_JSON(name, name_);
+        DARABONBA_PTR_TO_JSON(templateId, templateId_);
+      };
+      friend void from_json(const Darabonba::Json& j, ConsumerConfigBindings& obj) { 
+        DARABONBA_PTR_FROM_JSON(matchType, matchType_);
+        DARABONBA_PTR_FROM_JSON(name, name_);
+        DARABONBA_PTR_FROM_JSON(templateId, templateId_);
+      };
+      ConsumerConfigBindings() = default ;
+      ConsumerConfigBindings(const ConsumerConfigBindings &) = default ;
+      ConsumerConfigBindings(ConsumerConfigBindings &&) = default ;
+      ConsumerConfigBindings(const Darabonba::Json & obj) { from_json(obj, *this); };
+      virtual ~ConsumerConfigBindings() = default ;
+      ConsumerConfigBindings& operator=(const ConsumerConfigBindings &) = default ;
+      ConsumerConfigBindings& operator=(ConsumerConfigBindings &&) = default ;
+      virtual void validate() const override {
+      };
+      virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+      virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+      virtual bool empty() const override { return this->matchType_ == nullptr
+        && this->name_ == nullptr && this->templateId_ == nullptr; };
+      // matchType Field Functions 
+      bool hasMatchType() const { return this->matchType_ != nullptr;};
+      void deleteMatchType() { this->matchType_ = nullptr;};
+      inline string getMatchType() const { DARABONBA_PTR_GET_DEFAULT(matchType_, "") };
+      inline ConsumerConfigBindings& setMatchType(string matchType) { DARABONBA_PTR_SET_VALUE(matchType_, matchType) };
+
+
+      // name Field Functions 
+      bool hasName() const { return this->name_ != nullptr;};
+      void deleteName() { this->name_ = nullptr;};
+      inline string getName() const { DARABONBA_PTR_GET_DEFAULT(name_, "") };
+      inline ConsumerConfigBindings& setName(string name) { DARABONBA_PTR_SET_VALUE(name_, name) };
+
+
+      // templateId Field Functions 
+      bool hasTemplateId() const { return this->templateId_ != nullptr;};
+      void deleteTemplateId() { this->templateId_ = nullptr;};
+      inline string getTemplateId() const { DARABONBA_PTR_GET_DEFAULT(templateId_, "") };
+      inline ConsumerConfigBindings& setTemplateId(string templateId) { DARABONBA_PTR_SET_VALUE(templateId_, templateId) };
+
+
+    protected:
+      // The match type for consumer names. Valid values: exact (exact match), prefix (prefix match), regexp (regular expression match), and all (matches any consumer). Rules of the all type must be placed at the end of the binding list.
+      shared_ptr<string> matchType_ {};
+      // The match condition for the consumer name. If matchType is exact, enter the full consumer name. If matchType is prefix, enter the name prefix. If matchType is regexp, enter a regular expression. The value cannot be empty for these three types. If matchType is all, the value must be an empty string.
+      shared_ptr<string> name_ {};
+      // The ID of the bound security guardrail configuration. This parameter cannot be empty. You can query the ID by calling the ListAiSecurityGuardConfigs operation and use the returned templateId.
+      shared_ptr<string> templateId_ {};
+    };
+
     virtual bool empty() const override { return this->bufferLimit_ == nullptr
-        && this->checkRequest_ == nullptr && this->checkRequestImage_ == nullptr && this->checkResponse_ == nullptr && this->checkResponseImage_ == nullptr && this->consumerRequestCheckService_ == nullptr
-        && this->consumerResponseCheckService_ == nullptr && this->consumerRiskLevel_ == nullptr && this->pluginStatus_ == nullptr && this->requestCheckService_ == nullptr && this->requestImageCheckService_ == nullptr
-        && this->responseCheckService_ == nullptr && this->responseImageCheckService_ == nullptr && this->riskAlertLevel_ == nullptr && this->riskConfig_ == nullptr && this->serviceAddress_ == nullptr; };
+        && this->checkRequest_ == nullptr && this->checkRequestImage_ == nullptr && this->checkResponse_ == nullptr && this->checkResponseImage_ == nullptr && this->consumerConfigBindings_ == nullptr
+        && this->consumerRequestCheckService_ == nullptr && this->consumerResponseCheckService_ == nullptr && this->consumerRiskLevel_ == nullptr && this->defaultGenerated_ == nullptr && this->longTermEnabled_ == nullptr
+        && this->pluginStatus_ == nullptr && this->requestCheckService_ == nullptr && this->requestImageCheckService_ == nullptr && this->responseCheckService_ == nullptr && this->responseImageCheckService_ == nullptr
+        && this->riskAlertLevel_ == nullptr && this->riskConfig_ == nullptr && this->serviceAddress_ == nullptr; };
     // bufferLimit Field Functions 
     bool hasBufferLimit() const { return this->bufferLimit_ != nullptr;};
     void deleteBufferLimit() { this->bufferLimit_ = nullptr;};
@@ -421,6 +483,15 @@ namespace Models
     inline AiSecurityGuardConfig& setCheckResponseImage(bool checkResponseImage) { DARABONBA_PTR_SET_VALUE(checkResponseImage_, checkResponseImage) };
 
 
+    // consumerConfigBindings Field Functions 
+    bool hasConsumerConfigBindings() const { return this->consumerConfigBindings_ != nullptr;};
+    void deleteConsumerConfigBindings() { this->consumerConfigBindings_ = nullptr;};
+    inline const vector<AiSecurityGuardConfig::ConsumerConfigBindings> & getConsumerConfigBindings() const { DARABONBA_PTR_GET_CONST(consumerConfigBindings_, vector<AiSecurityGuardConfig::ConsumerConfigBindings>) };
+    inline vector<AiSecurityGuardConfig::ConsumerConfigBindings> getConsumerConfigBindings() { DARABONBA_PTR_GET(consumerConfigBindings_, vector<AiSecurityGuardConfig::ConsumerConfigBindings>) };
+    inline AiSecurityGuardConfig& setConsumerConfigBindings(const vector<AiSecurityGuardConfig::ConsumerConfigBindings> & consumerConfigBindings) { DARABONBA_PTR_SET_VALUE(consumerConfigBindings_, consumerConfigBindings) };
+    inline AiSecurityGuardConfig& setConsumerConfigBindings(vector<AiSecurityGuardConfig::ConsumerConfigBindings> && consumerConfigBindings) { DARABONBA_PTR_SET_RVALUE(consumerConfigBindings_, consumerConfigBindings) };
+
+
     // consumerRequestCheckService Field Functions 
     bool hasConsumerRequestCheckService() const { return this->consumerRequestCheckService_ != nullptr;};
     void deleteConsumerRequestCheckService() { this->consumerRequestCheckService_ = nullptr;};
@@ -446,6 +517,20 @@ namespace Models
     inline vector<AiSecurityGuardConfig::ConsumerRiskLevel> getConsumerRiskLevel() { DARABONBA_PTR_GET(consumerRiskLevel_, vector<AiSecurityGuardConfig::ConsumerRiskLevel>) };
     inline AiSecurityGuardConfig& setConsumerRiskLevel(const vector<AiSecurityGuardConfig::ConsumerRiskLevel> & consumerRiskLevel) { DARABONBA_PTR_SET_VALUE(consumerRiskLevel_, consumerRiskLevel) };
     inline AiSecurityGuardConfig& setConsumerRiskLevel(vector<AiSecurityGuardConfig::ConsumerRiskLevel> && consumerRiskLevel) { DARABONBA_PTR_SET_RVALUE(consumerRiskLevel_, consumerRiskLevel) };
+
+
+    // defaultGenerated Field Functions 
+    bool hasDefaultGenerated() const { return this->defaultGenerated_ != nullptr;};
+    void deleteDefaultGenerated() { this->defaultGenerated_ = nullptr;};
+    inline bool getDefaultGenerated() const { DARABONBA_PTR_GET_DEFAULT(defaultGenerated_, false) };
+    inline AiSecurityGuardConfig& setDefaultGenerated(bool defaultGenerated) { DARABONBA_PTR_SET_VALUE(defaultGenerated_, defaultGenerated) };
+
+
+    // longTermEnabled Field Functions 
+    bool hasLongTermEnabled() const { return this->longTermEnabled_ != nullptr;};
+    void deleteLongTermEnabled() { this->longTermEnabled_ = nullptr;};
+    inline bool getLongTermEnabled() const { DARABONBA_PTR_GET_DEFAULT(longTermEnabled_, false) };
+    inline AiSecurityGuardConfig& setLongTermEnabled(bool longTermEnabled) { DARABONBA_PTR_SET_VALUE(longTermEnabled_, longTermEnabled) };
 
 
     // pluginStatus Field Functions 
@@ -509,37 +594,43 @@ namespace Models
 
 
   protected:
-    // The response buffer size in KB. Default value: 1000. Valid values: 1 to 1500.
+    // The size of the response buffer in KB. Default value: 1000. Valid values: 1 to 1500.
     shared_ptr<int32_t> bufferLimit_ {};
-    // Specifies whether to check request content.
+    // Specifies whether to check the request content.
     shared_ptr<bool> checkRequest_ {};
-    // Specifies whether to check request images.
+    // Specifies whether to check the request images.
     shared_ptr<bool> checkRequestImage_ {};
-    // Specifies whether to check response content.
+    // Specifies whether to check the response content.
     shared_ptr<bool> checkResponse_ {};
-    // Specifies whether to check response images.
+    // Specifies whether to check the response images.
     shared_ptr<bool> checkResponseImage_ {};
-    // The consumer-level request detection service configurations.
+    // The bindings between consumers and security guardrail configurations. An empty array explicitly clears the pending configurations.
+    shared_ptr<vector<AiSecurityGuardConfig::ConsumerConfigBindings>> consumerConfigBindings_ {};
+    // The consumer-level request check service configuration.
     shared_ptr<vector<AiSecurityGuardConfig::ConsumerRequestCheckService>> consumerRequestCheckService_ {};
-    // The consumer-level response detection service configurations.
+    // The consumer-level response check service configuration.
     shared_ptr<vector<AiSecurityGuardConfig::ConsumerResponseCheckService>> consumerResponseCheckService_ {};
-    // The consumer-level risk level configurations.
+    // The consumer-level risk level configuration.
     shared_ptr<vector<AiSecurityGuardConfig::ConsumerRiskLevel>> consumerRiskLevel_ {};
-    // The plugin running status.
+    // Specifies whether the entire security guardrail policy is populated by default for this query. Returns true only for synthesized policies. For existing policies, returns false or is not returned. This is a read-only field. It is ignored upon submission, is not saved, and does not affect the start or stop status.
+    shared_ptr<bool> defaultGenerated_ {};
+    // Specifies whether to use the long-term solution. If omitted or set to null, the original value is retained during an update.
+    shared_ptr<bool> longTermEnabled_ {};
+    // The running status of the plug-in.
     shared_ptr<AiPluginStatus> pluginStatus_ {};
-    // The ServiceCode of the request text detection service. The default value is injected by the system.
+    // The ServiceCode of the request text check service. The system injects the default value.
     shared_ptr<string> requestCheckService_ {};
-    // The ServiceCode of the request image detection service. The default value is injected by the system.
+    // The ServiceCode of the request image check service. The system injects the default value.
     shared_ptr<string> requestImageCheckService_ {};
-    // The ServiceCode of the response text detection service. The default value is injected by the system.
+    // The ServiceCode of the response text check service. The system injects the default value.
     shared_ptr<string> responseCheckService_ {};
-    // The ServiceCode of the response image detection service. The default value is injected by the system.
+    // The ServiceCode of the response image check service. The system injects the default value.
     shared_ptr<string> responseImageCheckService_ {};
     // The global risk alert level.
     shared_ptr<string> riskAlertLevel_ {};
-    // The list of risk dimension configurations. The values are injected by the system and generated by normalizing ConsumerRiskLevel.
+    // The list of risk dimension configurations. The system injects this list, which is generated by normalizing ConsumerRiskLevel.
     shared_ptr<vector<AiSecurityGuardConfig::RiskConfig>> riskConfig_ {};
-    // The security guardrail service address (green-cip endpoint). Use the VPC internal network address when the gateway and the security guardrail are in the same region.
+    // The address of the security guardrail service, which is the green-cip endpoint. If the gateway and the security guardrail are in the same region, use the VPC internal network address.
     shared_ptr<string> serviceAddress_ {};
   };
 

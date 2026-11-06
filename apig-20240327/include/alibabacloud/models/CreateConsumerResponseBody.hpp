@@ -63,7 +63,7 @@ namespace Models
 
 
     protected:
-      // The API consumer ID.
+      // The consumer ID.
       shared_ptr<string> consumerId_ {};
     };
 

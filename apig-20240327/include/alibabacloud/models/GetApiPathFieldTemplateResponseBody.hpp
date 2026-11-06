@@ -107,9 +107,9 @@ namespace Models
     protected:
       // The description text of the field template.
       shared_ptr<string> description_ {};
-      // The set of fields defined by the field template, grouped by mapping key. Each group contains a set of template field items.
+      // The set of fields defined by the field template, grouped by mapping key, where each group contains a set of template field items.
       shared_ptr<map<string, vector<DataFieldPathsValue>>> fieldPaths_ {};
-      // The API request path corresponding to the field template.
+      // The URI of the request corresponding to the field template.
       shared_ptr<string> path_ {};
       // The API protocol applicable to the field template, such as openai.
       shared_ptr<string> protocol_ {};

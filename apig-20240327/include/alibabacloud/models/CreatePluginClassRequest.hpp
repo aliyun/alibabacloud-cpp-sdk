@@ -121,25 +121,25 @@ namespace Models
 
 
   protected:
-    // The alias of the plugin class. This parameter is required. If this parameter is not specified, the service returns an InvalidParameter.WithValue error.
+    // The alias of the plug-in. This parameter is required. If it is not provided, the service returns InvalidParameter.WithValue.
     shared_ptr<string> alias_ {};
-    // The description of the plugin.
+    // The description of the plug-in.
     // 
     // This parameter is required.
     shared_ptr<string> description_ {};
-    // The execution priority of the plugin. This parameter is required when executeStage is specified. The default value 0 is invalid. We recommend that you set this parameter to 200.
+    // The execution priority of the plug-in. This parameter is required when executeStage is specified. The default value 0 is invalid. Set this parameter to 200.
     shared_ptr<int32_t> executePriority_ {};
-    // The execution stage of the plugin.
+    // The execution stage of the plug-in.
     // 
     // This parameter is required.
     shared_ptr<string> executeStage_ {};
-    // The name of the plugin class.
+    // The name of the plug-in class.
     // 
     // This parameter is required.
     shared_ptr<string> name_ {};
-    // The minimum gateway version that the plugin is compatible with.
+    // The minimum supported gateway version.
     shared_ptr<string> supportedMinGatewayVersion_ {};
-    // The version number of the plugin.
+    // The version number of the plug-in.
     // 
     // This parameter is required.
     shared_ptr<string> version_ {};
@@ -147,11 +147,11 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> versionDescription_ {};
-    // The development language of the WASM plugin. Valid values: TinyGo.
+    // The development language of the WASM plug-in. Valid values: TinyGo.
     // 
     // This parameter is required.
     shared_ptr<string> wasmLanguage_ {};
-    // The download URL of the WASM plugin binary file.
+    // The download URL of the WASM plug-in binary file.
     // 
     // This parameter is required.
     shared_ptr<string> wasmUrl_ {};

@@ -42,6 +42,8 @@ namespace Models
         DARABONBA_PTR_TO_JSON(baseTimestamp, baseTimestamp_);
         DARABONBA_PTR_TO_JSON(consumerCount, consumerCount_);
         DARABONBA_PTR_TO_JSON(consumers, consumers_);
+        DARABONBA_PTR_TO_JSON(currentCycleResetAt, currentCycleResetAt_);
+        DARABONBA_PTR_TO_JSON(periodMultiplier, periodMultiplier_);
         DARABONBA_PTR_TO_JSON(periodType, periodType_);
         DARABONBA_PTR_TO_JSON(quotaDimension, quotaDimension_);
         DARABONBA_PTR_TO_JSON(quotaLimit, quotaLimit_);
@@ -58,6 +60,8 @@ namespace Models
         DARABONBA_PTR_FROM_JSON(baseTimestamp, baseTimestamp_);
         DARABONBA_PTR_FROM_JSON(consumerCount, consumerCount_);
         DARABONBA_PTR_FROM_JSON(consumers, consumers_);
+        DARABONBA_PTR_FROM_JSON(currentCycleResetAt, currentCycleResetAt_);
+        DARABONBA_PTR_FROM_JSON(periodMultiplier, periodMultiplier_);
         DARABONBA_PTR_FROM_JSON(periodType, periodType_);
         DARABONBA_PTR_FROM_JSON(quotaDimension, quotaDimension_);
         DARABONBA_PTR_FROM_JSON(quotaLimit, quotaLimit_);
@@ -174,16 +178,16 @@ namespace Models
 
 
       protected:
-        // The subject (API consumer) ID.
+        // The subject (consumer) ID.
         shared_ptr<string> id_ {};
-        // The subject (API consumer) name.
+        // The subject (consumer) name.
         shared_ptr<string> name_ {};
       };
 
       virtual bool empty() const override { return this->baseTimestamp_ == nullptr
-        && this->consumerCount_ == nullptr && this->consumers_ == nullptr && this->periodType_ == nullptr && this->quotaDimension_ == nullptr && this->quotaLimit_ == nullptr
-        && this->ruleId_ == nullptr && this->ruleName_ == nullptr && this->ruleStatus_ == nullptr && this->subjectCount_ == nullptr && this->subjectType_ == nullptr
-        && this->subjects_ == nullptr && this->timezone_ == nullptr && this->windowAlignment_ == nullptr; };
+        && this->consumerCount_ == nullptr && this->consumers_ == nullptr && this->currentCycleResetAt_ == nullptr && this->periodMultiplier_ == nullptr && this->periodType_ == nullptr
+        && this->quotaDimension_ == nullptr && this->quotaLimit_ == nullptr && this->ruleId_ == nullptr && this->ruleName_ == nullptr && this->ruleStatus_ == nullptr
+        && this->subjectCount_ == nullptr && this->subjectType_ == nullptr && this->subjects_ == nullptr && this->timezone_ == nullptr && this->windowAlignment_ == nullptr; };
       // baseTimestamp Field Functions 
       bool hasBaseTimestamp() const { return this->baseTimestamp_ != nullptr;};
       void deleteBaseTimestamp() { this->baseTimestamp_ = nullptr;};
@@ -205,6 +209,20 @@ namespace Models
       inline vector<Data::Consumers> getConsumers() { DARABONBA_PTR_GET(consumers_, vector<Data::Consumers>) };
       inline Data& setConsumers(const vector<Data::Consumers> & consumers) { DARABONBA_PTR_SET_VALUE(consumers_, consumers) };
       inline Data& setConsumers(vector<Data::Consumers> && consumers) { DARABONBA_PTR_SET_RVALUE(consumers_, consumers) };
+
+
+      // currentCycleResetAt Field Functions 
+      bool hasCurrentCycleResetAt() const { return this->currentCycleResetAt_ != nullptr;};
+      void deleteCurrentCycleResetAt() { this->currentCycleResetAt_ = nullptr;};
+      inline string getCurrentCycleResetAt() const { DARABONBA_PTR_GET_DEFAULT(currentCycleResetAt_, "") };
+      inline Data& setCurrentCycleResetAt(string currentCycleResetAt) { DARABONBA_PTR_SET_VALUE(currentCycleResetAt_, currentCycleResetAt) };
+
+
+      // periodMultiplier Field Functions 
+      bool hasPeriodMultiplier() const { return this->periodMultiplier_ != nullptr;};
+      void deletePeriodMultiplier() { this->periodMultiplier_ = nullptr;};
+      inline int64_t getPeriodMultiplier() const { DARABONBA_PTR_GET_DEFAULT(periodMultiplier_, 0L) };
+      inline Data& setPeriodMultiplier(int64_t periodMultiplier) { DARABONBA_PTR_SET_VALUE(periodMultiplier_, periodMultiplier) };
 
 
       // periodType Field Functions 
@@ -287,12 +305,16 @@ namespace Models
 
 
     protected:
-      // The period base timestamp.
+      // The base timestamp of the period.
       shared_ptr<int64_t> baseTimestamp_ {};
-      // The number of API consumers associated with the rule.
+      // The number of consumers associated with the rule.
       shared_ptr<int64_t> consumerCount_ {};
-      // The list of subjects (API consumers) bound to this rule.
+      // The list of subjects (consumers) bound to this rule.
       shared_ptr<vector<Data::Consumers>> consumers_ {};
+      // The reset time of the current cycle, in RFC 3339 format.
+      shared_ptr<string> currentCycleResetAt_ {};
+      // The number of days in a custom period. This parameter is returned only when windowAlignment is set to epoch. Valid values: 1 to 106751. This parameter is not returned for natural periods.
+      shared_ptr<int64_t> periodMultiplier_ {};
       // The quota period type.
       shared_ptr<string> periodType_ {};
       // The quota dimension.
@@ -307,11 +329,11 @@ namespace Models
       shared_ptr<string> ruleStatus_ {};
       // The number of associated subjects.
       shared_ptr<int64_t> subjectCount_ {};
-      // The rule subject type. Valid values: consumer and consumer_group.
+      // The subject type of the rule. Valid values: consumer and consumer_group.
       shared_ptr<string> subjectType_ {};
-      // The list of general subjects bound to this rule. Returned only when withSubjects is set to true.
+      // The list of general subjects bound to this rule. This parameter is returned only when withSubjects is set to true.
       shared_ptr<vector<Data::Subjects>> subjects_ {};
-      // The time zone corresponding to the calendar period, in UTC+x format.
+      // The time zone corresponding to the natural period, in UTC+x format.
       shared_ptr<string> timezone_ {};
       // The reset period type.
       shared_ptr<string> windowAlignment_ {};

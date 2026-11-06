@@ -189,7 +189,7 @@ namespace Models
 
 
     protected:
-      // The Agent-related configurations of the API product. The agentAPIConfig member includes agentProtocols, which is a list of protocols supported by the agent, and routes, which is a list of routes.
+      // The agent-related configurations of the API product. The agentAPIConfig member includes agentProtocols (the list of protocols supported by the agent) and routes (the list of routes).
       shared_ptr<HiMarketAgentConfig> agentConfig_ {};
       // Indicates whether subscription requests for the product are automatically approved.
       shared_ptr<bool> autoApprove_ {};
@@ -197,13 +197,13 @@ namespace Models
       shared_ptr<string> description_ {};
       // The documentation content of the API product.
       shared_ptr<string> document_ {};
-      // The capability configurations of the API product. Currently, this includes only the modelFeature member for model capabilities, which contains model, maxTokens, temperature, streaming, webSearch, enableThinking, and enableMultiModal.
+      // The capability configurations of the API product. Currently, this includes only the modelFeature (model capabilities) member, which contains model, maxTokens, temperature, streaming, webSearch, enableThinking, and enableMultiModal.
       shared_ptr<HiMarketProductFeature> feature_ {};
-      // The icon configurations of the API product, which consist of two fields: type for the icon type and value for the icon information.
+      // The icon configuration of the API product, which consists of two fields: icon type (type) and icon information (value).
       shared_ptr<HiMarketIcon> icon_ {};
-      // The MCP-related configurations of the API product. The members include mcpServerName for the MCP server name, tools, mcpServerConfig for the path and domains, and meta for the protocol.
+      // The MCP-related configurations of the API product. The members include mcpServerName (the name of the MCP server), tools, mcpServerConfig (path and domains), and meta (protocol).
       shared_ptr<HiMarketMcpConfig> mcpConfig_ {};
-      // The model API-related configurations of the API product. The modelAPIConfig member includes modelCategory for the AI model category, aiProtocols for the list of AI API protocols, and routes for the list of routes.
+      // The model API-related configurations of the API product. The modelAPIConfig member includes modelCategory (the AI model category), aiProtocols (the list of AI API protocols), and routes (the list of routes).
       shared_ptr<HiMarketModelConfig> modelConfig_ {};
       // The name of the API product.
       shared_ptr<string> name_ {};
@@ -213,7 +213,7 @@ namespace Models
       shared_ptr<string> regionId_ {};
       // The status of the API product. Valid values: Pending, Ready, and Published.
       shared_ptr<string> status_ {};
-      // The type of the API product. The set of valid values is not declared in the API definition. Refer to the types displayed in the console.
+      // The type of the API product. The valid values are not declared in the API definition. Refer to the types displayed in the console.
       shared_ptr<string> type_ {};
     };
 

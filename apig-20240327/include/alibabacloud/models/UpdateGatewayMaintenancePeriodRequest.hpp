@@ -67,9 +67,9 @@ namespace Models
 
 
     protected:
-      // The O&M end time (HH:mm).
+      // The end time of the O&M window (HH:mm).
       shared_ptr<string> endTime_ {};
-      // The O&M start time (HH:mm).
+      // The start time of the O&M window (HH:mm).
       shared_ptr<string> startTime_ {};
     };
 

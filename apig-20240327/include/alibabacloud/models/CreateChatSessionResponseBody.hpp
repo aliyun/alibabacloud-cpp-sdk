@@ -63,7 +63,7 @@ namespace Models
 
 
     protected:
-      // The chat session ID. You can use this ID to locate the session in API operations such as UpdateChatSession and DeleteChatSession.
+      // The ID of the chat session. You can use this ID to locate the session in API operations such as UpdateChatSession and DeleteChatSession.
       shared_ptr<string> sessionId_ {};
     };
 

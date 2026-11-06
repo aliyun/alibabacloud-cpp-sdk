@@ -123,11 +123,11 @@ namespace Models
       protected:
         // The consumer ID. You can use this ID to locate the consumer in operations such as GetHiMarketConsumer, DeleteHiMarketConsumer, GetHiMarketConsumerCredential, and ListHiMarketConsumerSubscriptions.
         shared_ptr<string> consumerId_ {};
-        // The description of the consumer.
+        // The consumer description.
         shared_ptr<string> description_ {};
         // Indicates whether the consumer is a primary consumer.
         shared_ptr<bool> isPrimary_ {};
-        // The name of the consumer.
+        // The consumer name.
         shared_ptr<string> name_ {};
       };
 
@@ -168,7 +168,7 @@ namespace Models
       shared_ptr<vector<Data::Content>> content_ {};
       // The page number.
       shared_ptr<int32_t> pageNumber_ {};
-      // The number of entries per page.
+      // The page size.
       shared_ptr<int32_t> pageSize_ {};
       // The total number of entries.
       shared_ptr<int64_t> totalCount_ {};
@@ -229,7 +229,7 @@ namespace Models
     shared_ptr<int32_t> maxResults_ {};
     // The response message.
     shared_ptr<string> message_ {};
-    // The pagination token for the next page. An empty value indicates that the last page has been reached.
+    // The cursor for the next page. An empty value indicates that the last page has been reached.
     shared_ptr<string> nextToken_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

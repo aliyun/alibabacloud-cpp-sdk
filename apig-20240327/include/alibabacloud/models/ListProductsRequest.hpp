@@ -116,9 +116,9 @@ namespace Models
     shared_ptr<string> categoryIds_ {};
     // The maximum number of entries to return per request.
     shared_ptr<int32_t> maxResults_ {};
-    // The name of the API product, which is the Name property of the API product resource. This is the same field as name in the response list items.
+    // The name of the API product, which corresponds to the Name property of the API product resource. This is the same field as name in the response list items.
     shared_ptr<string> name_ {};
-    // The cursor token for the next page.
+    // The pagination token for the next page.
     shared_ptr<string> nextToken_ {};
     // The page number.
     shared_ptr<int32_t> pageNumber_ {};

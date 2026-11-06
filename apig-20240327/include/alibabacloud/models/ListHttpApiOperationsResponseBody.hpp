@@ -99,7 +99,7 @@ namespace Models
       shared_ptr<vector<HttpApiOperationInfo>> items_ {};
       // The page number.
       shared_ptr<int32_t> pageNumber_ {};
-      // The page size.
+      // The number of entries per page.
       shared_ptr<int32_t> pageSize_ {};
       // The total number of entries.
       shared_ptr<int32_t> totalSize_ {};
@@ -144,7 +144,7 @@ namespace Models
     shared_ptr<ListHttpApiOperationsResponseBody::Data> data_ {};
     // The response message.
     shared_ptr<string> message_ {};
-    // The request ID.
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
   };
 

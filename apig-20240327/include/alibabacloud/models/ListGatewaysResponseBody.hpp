@@ -68,6 +68,7 @@ namespace Models
           DARABONBA_PTR_TO_JSON(chargeType, chargeType_);
           DARABONBA_PTR_TO_JSON(createFrom, createFrom_);
           DARABONBA_PTR_TO_JSON(createTimestamp, createTimestamp_);
+          DARABONBA_PTR_TO_JSON(elasticEnabled, elasticEnabled_);
           DARABONBA_PTR_TO_JSON(expireTimestamp, expireTimestamp_);
           DARABONBA_PTR_TO_JSON(gatewayEdition, gatewayEdition_);
           DARABONBA_PTR_TO_JSON(gatewayId, gatewayId_);
@@ -76,6 +77,8 @@ namespace Models
           DARABONBA_PTR_TO_JSON(legacy, legacy_);
           DARABONBA_PTR_TO_JSON(loadBalancers, loadBalancers_);
           DARABONBA_PTR_TO_JSON(name, name_);
+          DARABONBA_PTR_TO_JSON(networkAccessConfig, networkAccessConfig_);
+          DARABONBA_PTR_TO_JSON(privateLink, privateLink_);
           DARABONBA_PTR_TO_JSON(replicas, replicas_);
           DARABONBA_PTR_TO_JSON(resourceGroupId, resourceGroupId_);
           DARABONBA_PTR_TO_JSON(securityGroup, securityGroup_);
@@ -94,6 +97,7 @@ namespace Models
           DARABONBA_PTR_FROM_JSON(chargeType, chargeType_);
           DARABONBA_PTR_FROM_JSON(createFrom, createFrom_);
           DARABONBA_PTR_FROM_JSON(createTimestamp, createTimestamp_);
+          DARABONBA_PTR_FROM_JSON(elasticEnabled, elasticEnabled_);
           DARABONBA_PTR_FROM_JSON(expireTimestamp, expireTimestamp_);
           DARABONBA_PTR_FROM_JSON(gatewayEdition, gatewayEdition_);
           DARABONBA_PTR_FROM_JSON(gatewayId, gatewayId_);
@@ -102,6 +106,8 @@ namespace Models
           DARABONBA_PTR_FROM_JSON(legacy, legacy_);
           DARABONBA_PTR_FROM_JSON(loadBalancers, loadBalancers_);
           DARABONBA_PTR_FROM_JSON(name, name_);
+          DARABONBA_PTR_FROM_JSON(networkAccessConfig, networkAccessConfig_);
+          DARABONBA_PTR_FROM_JSON(privateLink, privateLink_);
           DARABONBA_PTR_FROM_JSON(replicas, replicas_);
           DARABONBA_PTR_FROM_JSON(resourceGroupId, resourceGroupId_);
           DARABONBA_PTR_FROM_JSON(securityGroup, securityGroup_);
@@ -345,6 +351,240 @@ namespace Models
           shared_ptr<string> securityGroupId_ {};
         };
 
+        class PrivateLink : public Darabonba::Model {
+        public:
+          friend void to_json(Darabonba::Json& j, const PrivateLink& obj) { 
+            DARABONBA_PTR_TO_JSON(connectionStatus, connectionStatus_);
+            DARABONBA_PTR_TO_JSON(endpointDomain, endpointDomain_);
+            DARABONBA_PTR_TO_JSON(endpointId, endpointId_);
+            DARABONBA_PTR_TO_JSON(endpointSecurityGroupId, endpointSecurityGroupId_);
+            DARABONBA_PTR_TO_JSON(endpointStatus, endpointStatus_);
+            DARABONBA_PTR_TO_JSON(lastErrorCode, lastErrorCode_);
+            DARABONBA_PTR_TO_JSON(lastErrorMessage, lastErrorMessage_);
+            DARABONBA_PTR_TO_JSON(observedAt, observedAt_);
+            DARABONBA_PTR_TO_JSON(resourceMayBeCharged, resourceMayBeCharged_);
+            DARABONBA_PTR_TO_JSON(stage, stage_);
+            DARABONBA_PTR_TO_JSON(zones, zones_);
+          };
+          friend void from_json(const Darabonba::Json& j, PrivateLink& obj) { 
+            DARABONBA_PTR_FROM_JSON(connectionStatus, connectionStatus_);
+            DARABONBA_PTR_FROM_JSON(endpointDomain, endpointDomain_);
+            DARABONBA_PTR_FROM_JSON(endpointId, endpointId_);
+            DARABONBA_PTR_FROM_JSON(endpointSecurityGroupId, endpointSecurityGroupId_);
+            DARABONBA_PTR_FROM_JSON(endpointStatus, endpointStatus_);
+            DARABONBA_PTR_FROM_JSON(lastErrorCode, lastErrorCode_);
+            DARABONBA_PTR_FROM_JSON(lastErrorMessage, lastErrorMessage_);
+            DARABONBA_PTR_FROM_JSON(observedAt, observedAt_);
+            DARABONBA_PTR_FROM_JSON(resourceMayBeCharged, resourceMayBeCharged_);
+            DARABONBA_PTR_FROM_JSON(stage, stage_);
+            DARABONBA_PTR_FROM_JSON(zones, zones_);
+          };
+          PrivateLink() = default ;
+          PrivateLink(const PrivateLink &) = default ;
+          PrivateLink(PrivateLink &&) = default ;
+          PrivateLink(const Darabonba::Json & obj) { from_json(obj, *this); };
+          virtual ~PrivateLink() = default ;
+          PrivateLink& operator=(const PrivateLink &) = default ;
+          PrivateLink& operator=(PrivateLink &&) = default ;
+          virtual void validate() const override {
+          };
+          virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+          virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+          class Zones : public Darabonba::Model {
+          public:
+            friend void to_json(Darabonba::Json& j, const Zones& obj) { 
+              DARABONBA_PTR_TO_JSON(status, status_);
+              DARABONBA_PTR_TO_JSON(zoneId, zoneId_);
+            };
+            friend void from_json(const Darabonba::Json& j, Zones& obj) { 
+              DARABONBA_PTR_FROM_JSON(status, status_);
+              DARABONBA_PTR_FROM_JSON(zoneId, zoneId_);
+            };
+            Zones() = default ;
+            Zones(const Zones &) = default ;
+            Zones(Zones &&) = default ;
+            Zones(const Darabonba::Json & obj) { from_json(obj, *this); };
+            virtual ~Zones() = default ;
+            Zones& operator=(const Zones &) = default ;
+            Zones& operator=(Zones &&) = default ;
+            virtual void validate() const override {
+            };
+            virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+            virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+            virtual bool empty() const override { return this->status_ == nullptr
+        && this->zoneId_ == nullptr; };
+            // status Field Functions 
+            bool hasStatus() const { return this->status_ != nullptr;};
+            void deleteStatus() { this->status_ = nullptr;};
+            inline string getStatus() const { DARABONBA_PTR_GET_DEFAULT(status_, "") };
+            inline Zones& setStatus(string status) { DARABONBA_PTR_SET_VALUE(status_, status) };
+
+
+            // zoneId Field Functions 
+            bool hasZoneId() const { return this->zoneId_ != nullptr;};
+            void deleteZoneId() { this->zoneId_ = nullptr;};
+            inline string getZoneId() const { DARABONBA_PTR_GET_DEFAULT(zoneId_, "") };
+            inline Zones& setZoneId(string zoneId) { DARABONBA_PTR_SET_VALUE(zoneId_, zoneId) };
+
+
+          protected:
+            // The status of the endpoint in the zone.
+            shared_ptr<string> status_ {};
+            // The zone ID.
+            shared_ptr<string> zoneId_ {};
+          };
+
+          virtual bool empty() const override { return this->connectionStatus_ == nullptr
+        && this->endpointDomain_ == nullptr && this->endpointId_ == nullptr && this->endpointSecurityGroupId_ == nullptr && this->endpointStatus_ == nullptr && this->lastErrorCode_ == nullptr
+        && this->lastErrorMessage_ == nullptr && this->observedAt_ == nullptr && this->resourceMayBeCharged_ == nullptr && this->stage_ == nullptr && this->zones_ == nullptr; };
+          // connectionStatus Field Functions 
+          bool hasConnectionStatus() const { return this->connectionStatus_ != nullptr;};
+          void deleteConnectionStatus() { this->connectionStatus_ = nullptr;};
+          inline string getConnectionStatus() const { DARABONBA_PTR_GET_DEFAULT(connectionStatus_, "") };
+          inline PrivateLink& setConnectionStatus(string connectionStatus) { DARABONBA_PTR_SET_VALUE(connectionStatus_, connectionStatus) };
+
+
+          // endpointDomain Field Functions 
+          bool hasEndpointDomain() const { return this->endpointDomain_ != nullptr;};
+          void deleteEndpointDomain() { this->endpointDomain_ = nullptr;};
+          inline string getEndpointDomain() const { DARABONBA_PTR_GET_DEFAULT(endpointDomain_, "") };
+          inline PrivateLink& setEndpointDomain(string endpointDomain) { DARABONBA_PTR_SET_VALUE(endpointDomain_, endpointDomain) };
+
+
+          // endpointId Field Functions 
+          bool hasEndpointId() const { return this->endpointId_ != nullptr;};
+          void deleteEndpointId() { this->endpointId_ = nullptr;};
+          inline string getEndpointId() const { DARABONBA_PTR_GET_DEFAULT(endpointId_, "") };
+          inline PrivateLink& setEndpointId(string endpointId) { DARABONBA_PTR_SET_VALUE(endpointId_, endpointId) };
+
+
+          // endpointSecurityGroupId Field Functions 
+          bool hasEndpointSecurityGroupId() const { return this->endpointSecurityGroupId_ != nullptr;};
+          void deleteEndpointSecurityGroupId() { this->endpointSecurityGroupId_ = nullptr;};
+          inline string getEndpointSecurityGroupId() const { DARABONBA_PTR_GET_DEFAULT(endpointSecurityGroupId_, "") };
+          inline PrivateLink& setEndpointSecurityGroupId(string endpointSecurityGroupId) { DARABONBA_PTR_SET_VALUE(endpointSecurityGroupId_, endpointSecurityGroupId) };
+
+
+          // endpointStatus Field Functions 
+          bool hasEndpointStatus() const { return this->endpointStatus_ != nullptr;};
+          void deleteEndpointStatus() { this->endpointStatus_ = nullptr;};
+          inline string getEndpointStatus() const { DARABONBA_PTR_GET_DEFAULT(endpointStatus_, "") };
+          inline PrivateLink& setEndpointStatus(string endpointStatus) { DARABONBA_PTR_SET_VALUE(endpointStatus_, endpointStatus) };
+
+
+          // lastErrorCode Field Functions 
+          bool hasLastErrorCode() const { return this->lastErrorCode_ != nullptr;};
+          void deleteLastErrorCode() { this->lastErrorCode_ = nullptr;};
+          inline string getLastErrorCode() const { DARABONBA_PTR_GET_DEFAULT(lastErrorCode_, "") };
+          inline PrivateLink& setLastErrorCode(string lastErrorCode) { DARABONBA_PTR_SET_VALUE(lastErrorCode_, lastErrorCode) };
+
+
+          // lastErrorMessage Field Functions 
+          bool hasLastErrorMessage() const { return this->lastErrorMessage_ != nullptr;};
+          void deleteLastErrorMessage() { this->lastErrorMessage_ = nullptr;};
+          inline string getLastErrorMessage() const { DARABONBA_PTR_GET_DEFAULT(lastErrorMessage_, "") };
+          inline PrivateLink& setLastErrorMessage(string lastErrorMessage) { DARABONBA_PTR_SET_VALUE(lastErrorMessage_, lastErrorMessage) };
+
+
+          // observedAt Field Functions 
+          bool hasObservedAt() const { return this->observedAt_ != nullptr;};
+          void deleteObservedAt() { this->observedAt_ = nullptr;};
+          inline string getObservedAt() const { DARABONBA_PTR_GET_DEFAULT(observedAt_, "") };
+          inline PrivateLink& setObservedAt(string observedAt) { DARABONBA_PTR_SET_VALUE(observedAt_, observedAt) };
+
+
+          // resourceMayBeCharged Field Functions 
+          bool hasResourceMayBeCharged() const { return this->resourceMayBeCharged_ != nullptr;};
+          void deleteResourceMayBeCharged() { this->resourceMayBeCharged_ = nullptr;};
+          inline bool getResourceMayBeCharged() const { DARABONBA_PTR_GET_DEFAULT(resourceMayBeCharged_, false) };
+          inline PrivateLink& setResourceMayBeCharged(bool resourceMayBeCharged) { DARABONBA_PTR_SET_VALUE(resourceMayBeCharged_, resourceMayBeCharged) };
+
+
+          // stage Field Functions 
+          bool hasStage() const { return this->stage_ != nullptr;};
+          void deleteStage() { this->stage_ = nullptr;};
+          inline string getStage() const { DARABONBA_PTR_GET_DEFAULT(stage_, "") };
+          inline PrivateLink& setStage(string stage) { DARABONBA_PTR_SET_VALUE(stage_, stage) };
+
+
+          // zones Field Functions 
+          bool hasZones() const { return this->zones_ != nullptr;};
+          void deleteZones() { this->zones_ = nullptr;};
+          inline const vector<PrivateLink::Zones> & getZones() const { DARABONBA_PTR_GET_CONST(zones_, vector<PrivateLink::Zones>) };
+          inline vector<PrivateLink::Zones> getZones() { DARABONBA_PTR_GET(zones_, vector<PrivateLink::Zones>) };
+          inline PrivateLink& setZones(const vector<PrivateLink::Zones> & zones) { DARABONBA_PTR_SET_VALUE(zones_, zones) };
+          inline PrivateLink& setZones(vector<PrivateLink::Zones> && zones) { DARABONBA_PTR_SET_RVALUE(zones_, zones) };
+
+
+        protected:
+          // The connection status between the private endpoint and the endpoint service.
+          shared_ptr<string> connectionStatus_ {};
+          // The endpoint domain name used for connection configuration.
+          shared_ptr<string> endpointDomain_ {};
+          // The endpoint ID.
+          shared_ptr<string> endpointId_ {};
+          // The ID of the security group configured for the private endpoint.
+          shared_ptr<string> endpointSecurityGroupId_ {};
+          // The status of the private endpoint.
+          shared_ptr<string> endpointStatus_ {};
+          // The error code of the most recent fault that occurred during the private network ingress creation or delete procedure. This parameter is not returned if no error message is available.
+          shared_ptr<string> lastErrorCode_ {};
+          // The description of the most recent fault that occurred during the private network ingress creation or delete procedure. You can use this description along with the error code to troubleshoot the issue. This parameter is not returned if no error message is available.
+          shared_ptr<string> lastErrorMessage_ {};
+          // The time when the system last obtained the status of the private endpoint. The time is in RFC 3339 format, such as 2026-11-02T10:00:00Z. This parameter is not returned if the status has not been obtained.
+          shared_ptr<string> observedAt_ {};
+          // Indicates whether the private endpoint may continue to incur charges. A value of true indicates that the endpoint has been created and its release has not been confirmed. A value of false indicates that there is no charge prompt. Actual charges are subject to the bill.
+          shared_ptr<bool> resourceMayBeCharged_ {};
+          // The current processing stage of the private ingress. A value of Ready indicates that the private ingress is ready.
+          shared_ptr<string> stage_ {};
+          // The zone names.
+          shared_ptr<vector<PrivateLink::Zones>> zones_ {};
+        };
+
+        class NetworkAccessConfig : public Darabonba::Model {
+        public:
+          friend void to_json(Darabonba::Json& j, const NetworkAccessConfig& obj) { 
+            DARABONBA_PTR_TO_JSON(endpointSecurityGroupId, endpointSecurityGroupId_);
+            DARABONBA_PTR_TO_JSON(type, type_);
+          };
+          friend void from_json(const Darabonba::Json& j, NetworkAccessConfig& obj) { 
+            DARABONBA_PTR_FROM_JSON(endpointSecurityGroupId, endpointSecurityGroupId_);
+            DARABONBA_PTR_FROM_JSON(type, type_);
+          };
+          NetworkAccessConfig() = default ;
+          NetworkAccessConfig(const NetworkAccessConfig &) = default ;
+          NetworkAccessConfig(NetworkAccessConfig &&) = default ;
+          NetworkAccessConfig(const Darabonba::Json & obj) { from_json(obj, *this); };
+          virtual ~NetworkAccessConfig() = default ;
+          NetworkAccessConfig& operator=(const NetworkAccessConfig &) = default ;
+          NetworkAccessConfig& operator=(NetworkAccessConfig &&) = default ;
+          virtual void validate() const override {
+          };
+          virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+          virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+          virtual bool empty() const override { return this->endpointSecurityGroupId_ == nullptr
+        && this->type_ == nullptr; };
+          // endpointSecurityGroupId Field Functions 
+          bool hasEndpointSecurityGroupId() const { return this->endpointSecurityGroupId_ != nullptr;};
+          void deleteEndpointSecurityGroupId() { this->endpointSecurityGroupId_ = nullptr;};
+          inline string getEndpointSecurityGroupId() const { DARABONBA_PTR_GET_DEFAULT(endpointSecurityGroupId_, "") };
+          inline NetworkAccessConfig& setEndpointSecurityGroupId(string endpointSecurityGroupId) { DARABONBA_PTR_SET_VALUE(endpointSecurityGroupId_, endpointSecurityGroupId) };
+
+
+          // type Field Functions 
+          bool hasType() const { return this->type_ != nullptr;};
+          void deleteType() { this->type_ = nullptr;};
+          inline string getType() const { DARABONBA_PTR_GET_DEFAULT(type_, "") };
+          inline NetworkAccessConfig& setType(string type) { DARABONBA_PTR_SET_VALUE(type_, type) };
+
+
+        protected:
+          // The ID of the security group configured for the private endpoint. The security group belongs to the VPC selected by the user and is a non-managed security group.
+          shared_ptr<string> endpointSecurityGroupId_ {};
+          // The gateway access ingress type.
+          shared_ptr<string> type_ {};
+        };
+
         class LoadBalancers : public Darabonba::Model {
         public:
           friend void to_json(Darabonba::Json& j, const LoadBalancers& obj) { 
@@ -425,8 +665,8 @@ namespace Models
             // The port number.
             shared_ptr<int32_t> port_ {};
             // The protocol. Valid values:
-            // - TCP.
-            // - UDP.
+            // - TCP: TCP.
+            // - UDP: UDP.
             shared_ptr<string> protocol_ {};
           };
 
@@ -519,43 +759,44 @@ namespace Models
         protected:
           // The load balancing address.
           shared_ptr<string> address_ {};
-          // The protocol version. Valid values:
+          // The IP version. Valid values:
           // - ipv4: IPv4.
           // - ipv6: IPv6.
           shared_ptr<string> addressIpVersion_ {};
           // The load balancing address type. Valid values:
-          // - Internet: public network.
-          // - Intranet: private network.
+          // - Internet: Internet.
+          // - Intranet: Private network.
           shared_ptr<string> addressType_ {};
-          // Indicates whether this is the default ingress address of the gateway.
+          // Indicates whether the address is the default ingress address of the gateway.
           shared_ptr<bool> gatewayDefault_ {};
           // The list of IPv4 addresses.
           shared_ptr<vector<string>> ipv4Addresses_ {};
           // The list of IPv6 addresses.
           shared_ptr<vector<string>> ipv6Addresses_ {};
-          // The load balancing instance ID.
+          // The load balancing ID.
           shared_ptr<string> loadBalancerId_ {};
           // The load balancing provisioning pattern of the gateway. Valid values:
-          // - Managed: managed by the cloud-native API gateway.
+          // - Managed: Managed by Cloud-native API Gateway.
           shared_ptr<string> mode_ {};
-          // The list of listening ports.
+          // The list of listened ports.
           shared_ptr<vector<LoadBalancers::Ports>> ports_ {};
-          // The status of the load balancing instance. Valid values:
-          // - Ready: active.
-          // - NotCreate: No instance is associated.
+          // The load balancing status. Valid values:
+          // - Ready: Active.
+          // - NotCreate: Not associated with an instance.
           shared_ptr<string> status_ {};
           // The load balancing type of the gateway. Valid values:
-          // - NLB: Network Load Balancer (NLB).
-          // - CLB: Classic Load Balancer (CLB).
+          // - NLB: Network Load Balancer (NLB) load balancing.
+          // - CLB: Classic load balancing.
           shared_ptr<string> type_ {};
         };
 
         virtual bool empty() const override { return this->chargeType_ == nullptr
-        && this->createFrom_ == nullptr && this->createTimestamp_ == nullptr && this->expireTimestamp_ == nullptr && this->gatewayEdition_ == nullptr && this->gatewayId_ == nullptr
-        && this->gatewayMode_ == nullptr && this->gatewayType_ == nullptr && this->legacy_ == nullptr && this->loadBalancers_ == nullptr && this->name_ == nullptr
-        && this->replicas_ == nullptr && this->resourceGroupId_ == nullptr && this->securityGroup_ == nullptr && this->spec_ == nullptr && this->status_ == nullptr
-        && this->subDomainInfos_ == nullptr && this->tags_ == nullptr && this->targetVersion_ == nullptr && this->updateTimestamp_ == nullptr && this->vSwitch_ == nullptr
-        && this->version_ == nullptr && this->vpc_ == nullptr && this->zones_ == nullptr; };
+        && this->createFrom_ == nullptr && this->createTimestamp_ == nullptr && this->elasticEnabled_ == nullptr && this->expireTimestamp_ == nullptr && this->gatewayEdition_ == nullptr
+        && this->gatewayId_ == nullptr && this->gatewayMode_ == nullptr && this->gatewayType_ == nullptr && this->legacy_ == nullptr && this->loadBalancers_ == nullptr
+        && this->name_ == nullptr && this->networkAccessConfig_ == nullptr && this->privateLink_ == nullptr && this->replicas_ == nullptr && this->resourceGroupId_ == nullptr
+        && this->securityGroup_ == nullptr && this->spec_ == nullptr && this->status_ == nullptr && this->subDomainInfos_ == nullptr && this->tags_ == nullptr
+        && this->targetVersion_ == nullptr && this->updateTimestamp_ == nullptr && this->vSwitch_ == nullptr && this->version_ == nullptr && this->vpc_ == nullptr
+        && this->zones_ == nullptr; };
         // chargeType Field Functions 
         bool hasChargeType() const { return this->chargeType_ != nullptr;};
         void deleteChargeType() { this->chargeType_ = nullptr;};
@@ -575,6 +816,13 @@ namespace Models
         void deleteCreateTimestamp() { this->createTimestamp_ = nullptr;};
         inline int64_t getCreateTimestamp() const { DARABONBA_PTR_GET_DEFAULT(createTimestamp_, 0L) };
         inline Items& setCreateTimestamp(int64_t createTimestamp) { DARABONBA_PTR_SET_VALUE(createTimestamp_, createTimestamp) };
+
+
+        // elasticEnabled Field Functions 
+        bool hasElasticEnabled() const { return this->elasticEnabled_ != nullptr;};
+        void deleteElasticEnabled() { this->elasticEnabled_ = nullptr;};
+        inline bool getElasticEnabled() const { DARABONBA_PTR_GET_DEFAULT(elasticEnabled_, false) };
+        inline Items& setElasticEnabled(bool elasticEnabled) { DARABONBA_PTR_SET_VALUE(elasticEnabled_, elasticEnabled) };
 
 
         // expireTimestamp Field Functions 
@@ -633,6 +881,24 @@ namespace Models
         void deleteName() { this->name_ = nullptr;};
         inline string getName() const { DARABONBA_PTR_GET_DEFAULT(name_, "") };
         inline Items& setName(string name) { DARABONBA_PTR_SET_VALUE(name_, name) };
+
+
+        // networkAccessConfig Field Functions 
+        bool hasNetworkAccessConfig() const { return this->networkAccessConfig_ != nullptr;};
+        void deleteNetworkAccessConfig() { this->networkAccessConfig_ = nullptr;};
+        inline const Items::NetworkAccessConfig & getNetworkAccessConfig() const { DARABONBA_PTR_GET_CONST(networkAccessConfig_, Items::NetworkAccessConfig) };
+        inline Items::NetworkAccessConfig getNetworkAccessConfig() { DARABONBA_PTR_GET(networkAccessConfig_, Items::NetworkAccessConfig) };
+        inline Items& setNetworkAccessConfig(const Items::NetworkAccessConfig & networkAccessConfig) { DARABONBA_PTR_SET_VALUE(networkAccessConfig_, networkAccessConfig) };
+        inline Items& setNetworkAccessConfig(Items::NetworkAccessConfig && networkAccessConfig) { DARABONBA_PTR_SET_RVALUE(networkAccessConfig_, networkAccessConfig) };
+
+
+        // privateLink Field Functions 
+        bool hasPrivateLink() const { return this->privateLink_ != nullptr;};
+        void deletePrivateLink() { this->privateLink_ = nullptr;};
+        inline const Items::PrivateLink & getPrivateLink() const { DARABONBA_PTR_GET_CONST(privateLink_, Items::PrivateLink) };
+        inline Items::PrivateLink getPrivateLink() { DARABONBA_PTR_GET(privateLink_, Items::PrivateLink) };
+        inline Items& setPrivateLink(const Items::PrivateLink & privateLink) { DARABONBA_PTR_SET_VALUE(privateLink_, privateLink) };
+        inline Items& setPrivateLink(Items::PrivateLink && privateLink) { DARABONBA_PTR_SET_RVALUE(privateLink_, privateLink) };
 
 
         // replicas Field Functions 
@@ -740,21 +1006,20 @@ namespace Models
 
       protected:
         // The billing method. Valid values:
-        // 
-        // - POSTPAY: pay-as-you-go.
-        // - PREPAY: subscription.
+        // - POSTPAY: Pay-as-you-go.
+        // - PREPAY: Subscription.
         shared_ptr<string> chargeType_ {};
         // The source from which the gateway was created. Valid values:
-        // - Console: the console.
+        // - Console: The console.
         shared_ptr<string> createFrom_ {};
         // The creation timestamp. Unit: milliseconds.
         shared_ptr<int64_t> createTimestamp_ {};
+        // Indicates whether elastic scaling is enabled. A value of true indicates that elastic scaling is enabled. A value of false indicates that elastic scaling is disabled. A value of null or an empty value indicates that the status is unknown. This parameter is for query and display purposes only.
+        shared_ptr<bool> elasticEnabled_ {};
         // The expiration timestamp for subscription instances. Unit: milliseconds.
         shared_ptr<int64_t> expireTimestamp_ {};
-        // The gateway instance edition. Valid values:
-        // 
-        // - Professional: standard instance.
-        // 
+        // The edition of the gateway instance. Valid values:
+        // - Professional: Regular instance.
         // - Serverless: Serverless instance.
         shared_ptr<string> gatewayEdition_ {};
         // The gateway ID.
@@ -762,42 +1027,45 @@ namespace Models
         // The running mode of the AI MultiTenantServerless gateway. Valid values:
         // - ENTERPRISE: Enterprise Edition.
         // - STANDARD: Standard Edition.
-        // 
         // This parameter is returned only for AI MultiTenantServerless gateways.
         shared_ptr<string> gatewayMode_ {};
         // The gateway type.
         shared_ptr<string> gatewayType_ {};
         // Indicates whether the gateway instance was created before the AI gateway feature was released.
         shared_ptr<bool> legacy_ {};
-        // The list of gateway ingress addresses.
+        // The list of ingress addresses for the gateway.
         shared_ptr<vector<Items::LoadBalancers>> loadBalancers_ {};
         // The gateway name.
         shared_ptr<string> name_ {};
-        // The number of gateway instance nodes.
+        // The network access configuration of the gateway, including the access ingress type and the security group used by the private endpoint. This parameter is returned only when the gateway is configured with a private ingress.
+        shared_ptr<Items::NetworkAccessConfig> networkAccessConfig_ {};
+        // The private connection information of the gateway, including the endpoint ID, access domain name, connection status, and zone information.
+        shared_ptr<Items::PrivateLink> privateLink_ {};
+        // The number of nodes in the gateway instance.
         shared_ptr<string> replicas_ {};
         // The resource group ID.
         shared_ptr<string> resourceGroupId_ {};
         // The security group information of the gateway.
         shared_ptr<Items::SecurityGroup> securityGroup_ {};
         // The gateway specification. Valid values:
-        // - apigw.small.x1: small specification.
+        // - apigw.small.x1: Small specification.
         shared_ptr<string> spec_ {};
         // The gateway status. Valid values:
-        // - Running: The gateway is running.
-        // - Creating: The gateway is being created.
-        // - CreateFailed: The gateway failed to be created.
-        // - Upgrading: The gateway is being upgraded.
-        // - UpgradeFailed: The gateway failed to be upgraded.
-        // - Restarting: The gateway is being restarted.
-        // - RestartFailed: The gateway failed to be restarted.
-        // - Deleting: The gateway is being released.
-        // - DeleteFailed: The gateway failed to be released.
+        // - Running: Running.
+        // - Creating: Creating.
+        // - CreateFailed: Creation failed.
+        // - Upgrading: Upgrading.
+        // - UpgradeFailed: Upgrade failed.
+        // - Restarting: Restarting.
+        // - RestartFailed: Restart failed.
+        // - Deleting: Releasing.
+        // - DeleteFailed: Release failed.
         shared_ptr<string> status_ {};
-        // The list of second-level domain names.
+        // The list of subdomains.
         shared_ptr<vector<SubDomainInfo>> subDomainInfos_ {};
         // The list of tags.
         shared_ptr<vector<Items::Tags>> tags_ {};
-        // The target version of the gateway. When this value differs from version, a version upgrade can be performed.
+        // The target version of the gateway. If this value differs from the current version, you can upgrade the gateway.
         shared_ptr<string> targetVersion_ {};
         // The update timestamp. Unit: milliseconds.
         shared_ptr<int64_t> updateTimestamp_ {};
@@ -850,7 +1118,7 @@ namespace Models
       shared_ptr<int32_t> pageNumber_ {};
       // The page size.
       shared_ptr<int32_t> pageSize_ {};
-      // The total number of gateways.
+      // The total count.
       shared_ptr<int64_t> totalSize_ {};
     };
 
@@ -889,7 +1157,7 @@ namespace Models
   protected:
     // The response status code.
     shared_ptr<string> code_ {};
-    // The query result of the gateway list.
+    // The gateway list query results.
     shared_ptr<ListGatewaysResponseBody::Data> data_ {};
     // The response message.
     shared_ptr<string> message_ {};

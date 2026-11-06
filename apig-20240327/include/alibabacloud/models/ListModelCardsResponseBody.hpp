@@ -141,7 +141,7 @@ namespace Models
       protected:
         // The request path of the API.
         shared_ptr<string> path_ {};
-        // The type identifier of the available path record. The valid values are not specified in the API definition.
+        // The type identifier of the available path record. The set of valid values is not declared in the API definition.
         shared_ptr<string> type_ {};
       };
 
@@ -215,21 +215,21 @@ namespace Models
 
 
     protected:
-      // The list of available paths for the model card. Each element consists of a path and a type member. The API definition does not specify the criteria for determining availability.
+      // The list of available paths for the model card. Each element consists of the path and type members. The criteria for availability are not specified in the API definition.
       shared_ptr<vector<Data::AvailablePaths>> availablePaths_ {};
-      // The feature configuration of the model card in a key-value pair map structure. The set of keys is not specified in the API definition.
+      // The feature configuration of the model card, structured as a key-value pair mapping. The set of keys is not declared in the API definition.
       Darabonba::Json features_ {};
       // The metadata container of the model card. Only the description member is declared in the API definition.
       shared_ptr<Data::Meta> meta_ {};
-      // The name of the model.
+      // The model name.
       shared_ptr<string> modelName_ {};
-      // The pricing information of the model card in a key-value pair map structure. The set of keys and billing criteria are not specified in the API definition.
+      // The pricing information of the model card, structured as a key-value pair mapping. The set of keys and billing metrics are not declared in the API definition.
       Darabonba::Json pricing_ {};
-      // The identifier of the model provider for the model card.
+      // The model provider identifier corresponding to the model card.
       shared_ptr<string> provider_ {};
-      // The list of snapshots for the model card. Array items are map structures with unspecified members. The API definition does not specify the snapshot content or generation rules.
+      // The list of snapshots for the model card. Array items are mapping structures with undeclared members. The snapshot content and generation rules are not specified in the API definition.
       shared_ptr<vector<Darabonba::Json>> snapshots_ {};
-      // The source identifier of the model card. The valid values are not specified in the API definition.
+      // The source identifier of the model card. The set of valid values is not declared in the API definition.
       shared_ptr<string> source_ {};
     };
 

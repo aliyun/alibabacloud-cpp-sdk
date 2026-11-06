@@ -155,7 +155,7 @@ namespace Models
       shared_ptr<bool> overrideIngressIp_ {};
       // The source ID.
       shared_ptr<string> sourceId_ {};
-      // The namespace to listen on.
+      // The namespace to watch.
       shared_ptr<string> watchNamespace_ {};
     };
 
@@ -319,40 +319,31 @@ namespace Models
 
 
   protected:
-    // The list of protocols supported by the agent. This parameter is required when type is set to Agent. You do not need to specify this parameter for other types.
+    // The list of protocols supported by the agent. This parameter is required when type is set to Agent. It is not required for other types.
     shared_ptr<vector<string>> agentProtocols_ {};
-    // The list of AI API protocols. This parameter is required when type is set to LLM, and only one protocol can be specified. This parameter is required when type is set to Ai, and multiple protocols can be specified. You do not need to specify this parameter for other types. Example protocol entry: OpenAI/v1.
+    // The list of AI API protocols. This parameter is required and only one protocol can be passed when type is set to LLM. It is required and multiple protocols can be passed when type is set to Ai. It is not required for other types. Example: OpenAI/v1.
     shared_ptr<vector<string>> aiProtocols_ {};
-    // The authentication configuration. This parameter is required when enableAuth is set to true.
+    // The permission authentication configuration. This parameter is required when enableAuth is set to true.
     shared_ptr<AuthConfig> authConfig_ {};
-    // The base path of the API. The path must start with a forward slash (/), cannot exceed 256 bytes in length, and cannot contain spaces. This parameter is required when type is set to Rest. When type is set to LLM, Ai, or Agent, this parameter is optional and defaults to /.
+    // The base path of the API. It must start with a forward slash (/), be up to 256 bytes in length, and contain no spaces. This parameter is required when type is set to Rest. When type is set to LLM, Ai, or Agent, this parameter is optional and defaults to /.
     shared_ptr<string> basePath_ {};
     // The ID of the gateway to which the API belongs.
     shared_ptr<string> belongGatewayId_ {};
-    // The list of deployment configurations for the HTTP API. This parameter is required when type is set to LLM or Ai, and only one deployment configuration can be specified. This parameter is not validated at the request level for other types.
+    // The list of deployment configurations for the HTTP API. This parameter is required and only one deployment configuration can be passed when type is set to LLM or Ai. Request-layer validation is not performed for other types.
     shared_ptr<vector<HttpApiDeployConfig>> deployConfigs_ {};
     // The description of the API.
     shared_ptr<string> description_ {};
     // Specifies whether to perform a dry run without executing the operation.
     shared_ptr<bool> dryRun_ {};
-    // Specifies whether to enable authentication. This parameter is validated when type is set to LLM, Ai, or Agent. This parameter is not validated at the request level when type is set to Rest.
+    // Specifies whether to enable permission authentication. This parameter is validated when type is set to LLM, Ai, or Agent. It is not validated at the request layer when type is set to Rest.
     shared_ptr<bool> enableAuth_ {};
-    // The timeout period for waiting for the first byte from the backend.
+    // The timeout period for waiting for the backend to return the first byte.
     shared_ptr<int32_t> firstByteTimeout_ {};
-    // The HTTP Ingress API configuration. This parameter is required and cannot be nil when type is set to HttpIngress. You do not need to specify this parameter for other types.
+    // The configuration information of the HTTP Ingress API. This parameter is required and cannot be nil when type is set to HttpIngress. It is not required for other types.
     shared_ptr<CreateHttpApiRequest::IngressConfig> ingressConfig_ {};
-    // The AI model category. This parameter is optional when type is set to LLM or Ai. You do not need to specify this parameter for other types. Valid values:
-    // 
-    // - Text: text generation.
-    // - Image: image generation.
-    // - Audio: audio processing.
-    // - Video: AI video generation.
-    // - MultiModal: multimodal.
-    // - Embedding: embedding.
-    // - Rerank: reranking.
-    // - Others: other.
+    // The AI model category. This parameter is optional when type is set to LLM or Ai, and is not required for other types. Valid values: Text (text generation), Image (image generation), Audio (audio processing), Video (video generation), MultiModal (multimodal), Embedding (vector embedding), Rerank (reranking), and Others (others).
     shared_ptr<string> modelCategory_ {};
-    // The name of the HTTP API, which is used to identify the API resource. Example: test-api.
+    // The name of the HTTP API, which is used to identify the API resource, such as test-api.
     // 
     // This parameter is required.
     shared_ptr<string> name_ {};
@@ -362,22 +353,15 @@ namespace Models
     shared_ptr<bool> removeBasePathOnForward_ {};
     // The resource group ID.
     shared_ptr<string> resourceGroupId_ {};
-    // The conflict merge strategy for import.
+    // The conflict merging strategy for import.
     shared_ptr<string> strategy_ {};
-    // The type of the HTTP API. Valid values:
-    // 
-    // - Http: standard HTTP API.
-    // - Rest: RESTful API.
-    // - WebSocket: WebSocket API.
-    // - HttpIngress: HTTP API connected through Ingress.
-    // - LLM: large language model API.
-    // - Agent: agent proxy API.
+    // The type of the HTTP API. Valid values: Http (common HTTP API), Rest (RESTful API), WebSocket (WebSocket API), HttpIngress (HTTP API accessed through Ingress), LLM (large language model API), and Agent (agent API).
     // 
     // This parameter is required.
     shared_ptr<string> type_ {};
-    // The API versioning configuration.
+    // The versioning configuration of the API.
     shared_ptr<HttpApiVersionConfig> versionConfig_ {};
-    // The idempotency token, which is a globally unique value generated by the caller. We recommend that you use a UUID. The token cannot exceed 64 characters in length. Within approximately 24 hours after the first successful request, a duplicate request that carries the same ClientToken and identical request parameters directly returns the httpApiId created by the first request without creating a duplicate HTTP API. If the same ClientToken is carried but the request parameters differ, an IdempotentParameterMismatch error is returned. If the first request is still being processed, an IdempotentProcessing error is returned. If this parameter is not specified, idempotency control is not enabled, and the behavior is consistent with the existing version.
+    // The idempotency token. It is a globally unique value generated by the caller. Use a UUID. The token can be up to 64 characters in length. Within about 24 hours after the first request succeeds, a repeated request with the same ClientToken and identical request parameters directly returns the httpApiId created by the first request without creating the HTTP API again. If the request parameters are different, the IdempotentParameterMismatch error is returned. If the first request is still being processed, the IdempotentProcessing error is returned. If this parameter is not specified, idempotency control is disabled, and the behavior is consistent with the existing version.
     shared_ptr<string> clientToken_ {};
   };
 

@@ -59,9 +59,9 @@ namespace Models
   protected:
     // The status code or error code.
     shared_ptr<string> code_ {};
-    // The message content.
+    // The message.
     shared_ptr<string> message_ {};
-    // The unique request ID.
+    // The unique ID of the request.
     shared_ptr<string> requestId_ {};
   };
 

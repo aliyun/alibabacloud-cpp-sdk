@@ -57,11 +57,11 @@ namespace Models
 
 
   protected:
-    // The fuzzy match parameter for the API name.
+    // The fuzzy search parameter for the API name.
     shared_ptr<string> apiNameLike_ {};
     // The page number.
     shared_ptr<int32_t> pageNumber_ {};
-    // The page size. Default value: 10.
+    // The number of entries per page. Default value: 10.
     shared_ptr<int32_t> pageSize_ {};
   };
 

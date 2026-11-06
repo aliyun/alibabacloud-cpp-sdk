@@ -348,6 +348,9 @@
 #include <alibabacloud/models/GetEnvironmentResponse.hpp>
 #include <alibabacloud/models/GetGatewayResponseBody.hpp>
 #include <alibabacloud/models/GetGatewayResponse.hpp>
+#include <alibabacloud/models/GetGatewayDfpExtProcServiceRequest.hpp>
+#include <alibabacloud/models/GetGatewayDfpExtProcServiceResponseBody.hpp>
+#include <alibabacloud/models/GetGatewayDfpExtProcServiceResponse.hpp>
 #include <alibabacloud/models/GetGatewayElasticPolicyRequest.hpp>
 #include <alibabacloud/models/GetGatewayElasticPolicyResponseBody.hpp>
 #include <alibabacloud/models/GetGatewayElasticPolicyResponse.hpp>
@@ -569,6 +572,9 @@
 #include <alibabacloud/models/ListPortalsRequest.hpp>
 #include <alibabacloud/models/ListPortalsResponseBody.hpp>
 #include <alibabacloud/models/ListPortalsResponse.hpp>
+#include <alibabacloud/models/ListPrivateLinkSecurityGroupsRequest.hpp>
+#include <alibabacloud/models/ListPrivateLinkSecurityGroupsResponseBody.hpp>
+#include <alibabacloud/models/ListPrivateLinkSecurityGroupsResponse.hpp>
 #include <alibabacloud/models/ListProductCategoriesRequest.hpp>
 #include <alibabacloud/models/ListProductCategoriesResponseBody.hpp>
 #include <alibabacloud/models/ListProductCategoriesResponse.hpp>
@@ -634,6 +640,9 @@
 #include <alibabacloud/models/ResetGatewayQuotaRuleResponse.hpp>
 #include <alibabacloud/models/RestartGatewayResponseBody.hpp>
 #include <alibabacloud/models/RestartGatewayResponse.hpp>
+#include <alibabacloud/models/RevealServiceCredentialRequest.hpp>
+#include <alibabacloud/models/RevealServiceCredentialResponseBody.hpp>
+#include <alibabacloud/models/RevealServiceCredentialResponse.hpp>
 #include <alibabacloud/models/RunPluginPipelineRequest.hpp>
 #include <alibabacloud/models/RunPluginPipelineResponseBody.hpp>
 #include <alibabacloud/models/RunPluginPipelineResponse.hpp>

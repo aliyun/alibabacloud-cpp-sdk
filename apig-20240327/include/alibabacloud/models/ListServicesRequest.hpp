@@ -96,21 +96,20 @@ namespace Models
   protected:
     // The ID of the cloud-native API gateway.
     shared_ptr<string> gatewayId_ {};
-    // The service name for exact match query.
+    // The exact name of the service to query.
     shared_ptr<string> name_ {};
     // The page number. Pages start from 1. Default value: 1.
     shared_ptr<int32_t> pageNumber_ {};
     // The number of entries per page. Valid values: 1 to 100. Default value: 10.
     shared_ptr<int32_t> pageSize_ {};
-    // The resource group ID.
+    // The ID of the resource group.
     shared_ptr<string> resourceGroupId_ {};
     // The source type of the service. Valid values:
-    // 
-    // - MSE_NACOS: The service originates from MSE Nacos.
-    // - K8S: The service originates from a Kubernetes cluster in Container Service.
-    // - FC3: The service originates from Function Compute.
-    // - VIP: The service originates from a fixed address.
-    // - DNS: The service originates from a domain name.
+    // - MSE_NACOS: Services from MSE Nacos.
+    // - K8S: Services from Kubernetes clusters in Container Service.
+    // - FC3: Services from Function Compute.
+    // - VIP: Services from fixed addresses.
+    // - DNS: Services from domain names.
     shared_ptr<string> sourceType_ {};
     // The list of service source types.
     shared_ptr<string> sourceTypes_ {};

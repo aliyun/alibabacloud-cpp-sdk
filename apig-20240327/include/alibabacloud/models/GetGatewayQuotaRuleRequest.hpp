@@ -70,9 +70,9 @@ namespace Models
     shared_ptr<string> consumerPageNumber_ {};
     // The page size.
     shared_ptr<string> consumerPageSize_ {};
-    // Specifies whether to return the API consumer list.
+    // Specifies whether to output the consumer list.
     shared_ptr<bool> withConsumers_ {};
-    // Specifies whether to return the general subject list. This parameter applies to both API consumer and API consumer group rules.
+    // Specifies whether to output the general subject list. This parameter takes effect for both consumer and consumer group rules.
     shared_ptr<bool> withSubjects_ {};
   };
 

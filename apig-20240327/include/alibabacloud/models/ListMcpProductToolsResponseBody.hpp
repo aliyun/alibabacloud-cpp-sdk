@@ -147,17 +147,17 @@ namespace Models
 
 
       protected:
-        // The annotation information of the tool, which is a map structure. The API definition declares it only as map<any> without specifying its members or purposes.
+        // The annotations of the tool. This is a map structure. The API definition declares it only as map<any> without specifying its members and usage.
         Darabonba::Json annotations_ {};
         // The description of the tool.
         shared_ptr<string> description_ {};
-        // The input parameter structure definition of the tool, which is a map structure. The API definition declares it only as map<any> without specifying its members or constraints.
+        // The input parameter schema of the tool. This is a map structure. The API definition declares it only as map<any> without specifying its members and constraints.
         Darabonba::Json inputSchema_ {};
-        // The metadata information of the tool, which is a map structure. The API definition declares it only as map<any> without specifying its members or purposes.
+        // The metadata of the tool. This is a map structure. The API definition declares it only as map<any> without specifying its members and usage.
         Darabonba::Json meta_ {};
         // The name of the tool.
         shared_ptr<string> name_ {};
-        // The output result structure definition of the tool, which is a map structure. The API definition declares it only as map<any> without specifying its members or constraints.
+        // The output schema of the tool. This is a map structure. The API definition declares it only as map<any> without specifying its members and constraints.
         Darabonba::Json outputSchema_ {};
         // The title of the tool.
         shared_ptr<string> title_ {};
@@ -174,7 +174,7 @@ namespace Models
 
 
     protected:
-      // The list of MCP tools. Each element in the list represents an MCP tool.
+      // The list of MCP tools. Each element in the list is named tool and represents an MCP tool.
       shared_ptr<vector<Data::Tools>> tools_ {};
     };
 

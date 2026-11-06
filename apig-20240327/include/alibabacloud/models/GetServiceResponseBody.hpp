@@ -71,7 +71,7 @@ namespace Models
   protected:
     // The response status code.
     shared_ptr<string> code_ {};
-    // The service details.
+    // The service details data.
     shared_ptr<Service> data_ {};
     // The response message.
     shared_ptr<string> message_ {};

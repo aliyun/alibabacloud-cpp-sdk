@@ -66,9 +66,9 @@ namespace Models
 
 
   protected:
-    // The ID of the gateway. This parameter is optional. If specified, the results are filtered by the exact gateway ID.
+    // The gateway ID. This parameter is optional. If specified, the results are filtered by the exact gateway ID.
     shared_ptr<string> gatewayId_ {};
-    // The keyword for the rule name. This parameter is optional. If specified, the results are filtered by fuzzy match on the rule name.
+    // The keyword for the rule name. This parameter is optional. If specified, fuzzy matching is performed on the rule name.
     shared_ptr<string> keyword_ {};
     // The page number. Default value: 1.
     shared_ptr<int32_t> pageNumber_ {};

@@ -313,9 +313,9 @@ namespace Models
 
 
       protected:
-        // The API information.
+        // The API information details.
         shared_ptr<HttpApiApiInfo> apiInfo_ {};
-        // The consumer authorization rule ID.
+        // The ID of the consumer authorization rule.
         shared_ptr<string> consumerAuthorizationRuleId_ {};
         // The consumer group ID. This field is returned for consumer group authorization rules.
         shared_ptr<string> consumerGroupId_ {};
@@ -323,11 +323,11 @@ namespace Models
         shared_ptr<ConsumerGroupInfo> consumerGroupInfo_ {};
         // The consumer ID.
         shared_ptr<string> consumerId_ {};
-        // The consumer information.
+        // The consumer information details.
         shared_ptr<ConsumerInfo> consumerInfo_ {};
         // The creation timestamp. Unit: milliseconds.
         shared_ptr<int64_t> createTimestamp_ {};
-        // The deployment status of the API in the current environment.
+        // The publish status of the API in the current environment.
         shared_ptr<string> deployStatus_ {};
         // The environment context.
         shared_ptr<EnvironmentInfo> environmentInfo_ {};
@@ -343,7 +343,7 @@ namespace Models
         shared_ptr<string> principalType_ {};
         // The resource ID.
         shared_ptr<string> resourceId_ {};
-        // The resource information.
+        // The resource information details.
         shared_ptr<Items::ResourceInfo> resourceInfo_ {};
         // The resource type.
         shared_ptr<string> resourceType_ {};
@@ -384,7 +384,7 @@ namespace Models
 
 
     protected:
-      // The list of consumer authorization rules.
+      // The list of consumer rules.
       shared_ptr<vector<Data::Items>> items_ {};
       // The page number.
       shared_ptr<int32_t> pageNumber_ {};

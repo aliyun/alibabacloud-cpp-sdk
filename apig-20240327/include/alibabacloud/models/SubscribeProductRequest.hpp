@@ -38,7 +38,7 @@ namespace Models
 
 
   protected:
-    // The ID of the API product to subscribe to. This is the primary ID of the API product resource. You can obtain this ID from the productId field in the response of the ListProducts operation.
+    // The ID of the API product to subscribe to. This is the primary ID of the Product resource. You can obtain this ID from the productId field of a list item returned by ListProducts.
     shared_ptr<string> productId_ {};
   };
 

@@ -79,7 +79,7 @@ namespace Models
     shared_ptr<int32_t> maxResults_ {};
     // The portal name, which is the Name property of the portal resource. This corresponds to the name field in the response list items.
     shared_ptr<string> name_ {};
-    // The pagination token for the next page.
+    // The cursor token for querying the next page.
     shared_ptr<string> nextToken_ {};
     // The page number.
     shared_ptr<int32_t> pageNumber_ {};

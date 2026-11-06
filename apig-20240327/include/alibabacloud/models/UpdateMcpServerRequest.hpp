@@ -91,9 +91,9 @@ namespace Models
 
 
     protected:
-      // The MCP server configuration. This parameter is mutually exclusive with swaggerConfig.
+      // The MCP server configurations. This parameter is mutually exclusive with the swaggerConfig parameter.
       shared_ptr<string> mcpServerSpec_ {};
-      // The Swagger document for HTTP-to-MCP conversion. The document must comply with the OpenAPI 3.0 specification.
+      // The Swagger document for HTTP-to-MCP. The document must comply with the OpenAPI 3.0 specification.
       shared_ptr<string> swaggerConfig_ {};
     };
 
@@ -208,7 +208,7 @@ namespace Models
         protected:
           // The service port.
           shared_ptr<int32_t> port_ {};
-          // The Terms of Service.
+          // The service protocol.
           shared_ptr<string> protocol_ {};
           // The service ID.
           shared_ptr<string> serviceId_ {};
@@ -271,9 +271,9 @@ namespace Models
 
 
     protected:
-      // The backend configuration.
+      // The backend configurations.
       shared_ptr<GrayMcpServerConfigs::BackendConfig> backendConfig_ {};
-      // The route match rule.
+      // The route match rules.
       shared_ptr<HttpRouteMatch> match_ {};
       // The route ID.
       shared_ptr<string> routeId_ {};
@@ -367,7 +367,7 @@ namespace Models
       protected:
         // The service port. Do not specify this parameter for dynamic ports.
         shared_ptr<int32_t> port_ {};
-        // The Terms of Service. Valid values:
+        // The service protocol. Valid values:
         // - TCP.
         // - HTTP.
         // - DUBBO.
@@ -376,7 +376,7 @@ namespace Models
         shared_ptr<string> serviceId_ {};
         // The service version.
         shared_ptr<string> version_ {};
-        // The percentage value of the traffic ratio.
+        // The percentage value of the traffic proportion.
         shared_ptr<int32_t> weight_ {};
       };
 
@@ -456,7 +456,7 @@ namespace Models
     protected:
       // MCP Server ID
       shared_ptr<string> mcpServerId_ {};
-      // The MCP server name.
+      // The name of the MCP server.
       shared_ptr<string> mcpServerName_ {};
       // The list of MCP tools.
       shared_ptr<vector<string>> tools_ {};
@@ -563,40 +563,40 @@ namespace Models
 
 
   protected:
-    // The list of assembled sources. This parameter is required when type is set to AssemblyMCP.
+    // The list of assembly sources. This parameter is required when type is set to AssemblyMCP.
     shared_ptr<vector<UpdateMcpServerRequest::AssembledSources>> assembledSources_ {};
-    // The backend service configuration of the route. This parameter is conditionally required. If this parameter is not specified, the API returns InvalidParameter.WithValue(400).
+    // The backend service configurations of the route. This parameter is conditionally required. If it is not provided, the API returns InvalidParameter.WithValue(400).
     shared_ptr<UpdateMcpServerRequest::BackendConfig> backendConfig_ {};
     // The creation source type. Valid values:
-    // - ApiGatewayHttpToMCP: Gateway-managed HTTP-to-MCP conversion.
-    // - ApiGatewayProxyMcpHosting: Gateway-managed MCP direct proxy.
-    // - ApiGatewayAssembly: Gateway MCP assembly.
-    // - NacosHttpToMCP: Gateway-managed Nacos-synced HTTP-to-MCP conversion.
-    // - NacosMcpHosting: Gateway-managed Nacos-synced MCP direct proxy.
+    // - ApiGatewayHttpToMCP: API gateway-hosted HTTP-to-MCP.
+    // - ApiGatewayProxyMcpHosting: API gateway-hosted MCP direct proxy.
+    // - ApiGatewayAssembly: API gateway MCP assembly.
+    // - NacosHttpToMCP: API gateway-hosted Nacos-synchronized HTTP-to-MCP.
+    // - NacosMcpHosting: API gateway-hosted Nacos-synchronized MCP direct proxy.
     shared_ptr<string> createFromType_ {};
     // The description.
     shared_ptr<string> description_ {};
-    // The domain name ID.
+    // The domain name IDs.
     shared_ptr<vector<string>> domainIds_ {};
     // The exposed URI path. This parameter is required when protocol is set to SSE or StreamableHTTP and type is set to RealMCP.
     shared_ptr<string> exposedUriPath_ {};
-    // The list of canary release MCP server route configurations.
+    // The list of canary MCP server route configurations.
     shared_ptr<vector<UpdateMcpServerRequest::GrayMcpServerConfigs>> grayMcpServerConfigs_ {};
-    // The route match rule. This parameter is conditionally required. If this parameter is not specified, the API returns InvalidParameter.IsEmpty(400).
+    // The route match rules. This parameter is conditionally required. If it is not provided, the API returns InvalidParameter.IsEmpty(400).
     shared_ptr<HttpRouteMatch> match_ {};
-    // The HTTP-to-MCP configuration.
+    // The HTTP-to-MCP configurations.
     shared_ptr<UpdateMcpServerRequest::McpServerConfig> mcpServerConfig_ {};
     // Specifies whether to enable MCP observability. Default value: false.
     shared_ptr<bool> mcpStatisticsEnable_ {};
     // The protocol type. Valid values:
-    // - HTTP: HTTP protocol.
-    // - HTTPS: HTTPS protocol.
-    // - SSE: Server-Sent Events protocol.
-    // - StreamableHTTP: Streamable HTTP protocol.
+    // - HTTP: HTTP.
+    // - HTTPS: HTTPS.
+    // - SSE: Server-Sent Events.
+    // - StreamableHTTP: Streaming HTTP.
     // 
     // This parameter is required.
     shared_ptr<string> protocol_ {};
-    // The MCP server type filter. Valid values: RealMCP, AssemblyMCP.
+    // The MCP server type filter. Valid values: RealMCP and AssemblyMCP.
     // 
     // This parameter is required.
     shared_ptr<string> type_ {};

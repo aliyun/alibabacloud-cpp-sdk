@@ -117,9 +117,9 @@ namespace Models
       shared_ptr<int64_t> maxOutputTokens_ {};
       // The maximum total number of context tokens supported by the model. The value must be greater than or equal to 0.
       shared_ptr<int64_t> maxTokens_ {};
-      // The list of input modalities supported by the model. The list can contain up to 16 entries, and each entry must not be empty.
+      // The list of input modalities supported by the model. The list can contain up to 16 items, and each item cannot be empty.
       shared_ptr<vector<string>> supportedInputModalities_ {};
-      // The list of output modalities supported by the model. The list can contain up to 16 entries, and each entry must not be empty.
+      // The list of output modalities supported by the model. The list can contain up to 16 items, and each item cannot be empty.
       shared_ptr<vector<string>> supportedOutputModalities_ {};
     };
 
@@ -179,11 +179,11 @@ namespace Models
 
 
     protected:
-      // The cache hit token cost, in Credits per million tokens. The value must be greater than or equal to 0. Default value: 0.
+      // The cost of cache hit tokens, in Credits per million tokens. The value must be greater than or equal to 0. If this parameter is not specified, the default value is 0.
       shared_ptr<float> cacheCost_ {};
-      // The input token cost, in Credits per million tokens. The value must be greater than or equal to 0. Default value: 0.
+      // The cost of input tokens, in Credits per million tokens. The value must be greater than or equal to 0. If this parameter is not specified, the default value is 0.
       shared_ptr<float> inputCost_ {};
-      // The output token cost, in Credits per million tokens. The value must be greater than or equal to 0. Default value: 0.
+      // The cost of output tokens, in Credits per million tokens. The value must be greater than or equal to 0. If this parameter is not specified, the default value is 0.
       shared_ptr<float> outputCost_ {};
       // The billing type. Currently, only fixed is supported. If this parameter is not specified, the default value is fixed.
       shared_ptr<string> type_ {};
@@ -227,9 +227,9 @@ namespace Models
 
 
     protected:
-      // The model invocation path. The value can be up to 2,048 characters in length.
+      // The path. The model call path, which can be up to 2,048 characters in length.
       shared_ptr<string> path_ {};
-      // The protocol type of the path. The value can be up to 64 characters in length.
+      // The protocol type corresponding to the path, which can be up to 64 characters in length.
       shared_ptr<string> type_ {};
     };
 
@@ -294,23 +294,23 @@ namespace Models
 
 
   protected:
-    // The list of API paths supported by the model. Each entry must include both path and type.
+    // The list of API call paths supported by the model. Each item must include both path and type.
     shared_ptr<vector<CreateAiModelCardRequest::AvailablePaths>> availablePaths_ {};
-    // The credit billing information of the model. Currently, only the fixed type is supported, and the cost unit is Credits per million tokens. If this parameter is not specified, all cost values default to 0.
+    // The credit billing information of the model. Currently, only the fixed type is supported, and the billing unit is Credits per million tokens. If this parameter is not specified, all costs default to 0.
     shared_ptr<CreateAiModelCardRequest::Credit> credit_ {};
-    // The model capability switches. Keys must be model capability names supported by API Gateway, and values must be Boolean values.
+    // The model capability switches. The key must be the name of a model capability supported by the API gateway, and the value must be a Boolean value.
     Darabonba::Json features_ {};
     // The AI gateway instance ID. The target instance must exist, belong to the current account, and be of the AI gateway type.
     // 
     // This parameter is required.
     shared_ptr<string> gatewayId_ {};
-    // The token limits and input/output modality information of the model.
+    // The token limits and input and output modality information of the model.
     shared_ptr<CreateAiModelCardRequest::Meta> meta_ {};
-    // The model name. The model name must be unique within the same AI gateway instance and the same model provider. The value can be up to 256 characters in length.
+    // The name of the model. The model name must be unique within the same AI gateway instance and model provider, and can be up to 256 characters in length.
     // 
     // This parameter is required.
     shared_ptr<string> modelName_ {};
-    // The model provider identifier. The value must reference a model provider that already exists in the target AI gateway instance. The value can be up to 128 characters in length.
+    // The identifier of the model provider. It must reference an existing model provider in the target AI gateway instance and can be up to 128 characters in length.
     // 
     // This parameter is required.
     shared_ptr<string> modelProvider_ {};

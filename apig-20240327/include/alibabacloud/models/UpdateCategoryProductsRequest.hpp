@@ -51,9 +51,9 @@ namespace Models
 
 
   protected:
-    // The direction of this bulk operation: adds the API products specified in productIds to the category, or removes these API products from the category. The set of valid values is not declared in the API definition.
+    // The operation type for the bulk operation. This parameter specifies whether to add the API products specified by productIds to the category or remove them from the category. The valid values are not declared in the API definition.
     shared_ptr<string> action_ {};
-    // The list of API product IDs to process. Each element is a primary ID of the API product resource.
+    // The list of API product IDs to be processed. Each element is the primary ID of an API product resource.
     shared_ptr<vector<string>> productIds_ {};
   };
 

@@ -110,25 +110,25 @@ namespace Models
 
 
   protected:
-    // The list of consumer subject IDs to bind.
+    // The list of subject (consumer) IDs to associate.
     shared_ptr<vector<string>> addIds_ {};
-    // The conflict snapshot hash, used to prevent concurrent dirty overwrites when confirming an overwrite. Obtain this value from the response of a dry run request with dryRun set to true.
+    // The conflict snapshot hash, which is used to prevent concurrent dirty overwrites when you confirm an overwrite. You can obtain this value by first executing a request with dryRun=true and extracting it from the response.
     // 
-    // This parameter is not required in the following cases: no conflict exists, the request is a dry run with dryRun set to true, or overwrite is set to false (no overwrite confirmation).
+    // You do not need to specify this parameter in the following scenarios: no conflicts exist; the request is a dry run with dryRun=true; or overwrite=false, which means overwriting is not confirmed.
     // 
-    // When dryRun is set to false and overwrite is set to true, if this parameter is not provided or the value has expired and no longer matches, the backend returns accepted=false with a new conflict preview. Perform a new dry run to confirm the updated conflicts.
+    // If dryRun=false and overwrite=true, but this parameter is not provided or has expired and does not match, the backend returns accepted=false along with a new conflict preview. In this case, you must perform a dry run again to confirm the new conflicts.
     shared_ptr<string> conflictHash_ {};
     // **[Deprecated]** The list of consumer group IDs.
     shared_ptr<vector<string>> consumerGroupIds_ {};
-    // Specifies whether to perform only a dry run without persisting or applying the configuration. A dry run checks whether conflicting rules exist on the bound consumer subjects. The same consumer subject cannot have two calendar-period quotas with the same period. For example, a consumer subject that already has a daily calendar quota cannot be assigned another daily calendar quota rule.
+    // Specifies whether to perform a dry run only without saving the configuration to the database or delivering the actual configuration. This parameter is used to check whether conflicting rules exist on the associated consumers. A single consumer cannot be configured with two natural period quotas of the same period. For example, a consumer that already has a natural daily quota cannot be assigned another natural daily quota rule.
     shared_ptr<bool> dryRun_ {};
-    // Specifies whether to allow overwriting when a conflict exists. If overwriting is allowed, conflicting subjects (consumers or consumer groups) are unbound from the old rule and bound to the new rule.
+    // Specifies whether to allow overwriting when conflicts occur. Note that if overwriting is allowed, the conflicting subjects (consumers or consumer groups) will be disassociated from the old rule and associated with the new rule.
     shared_ptr<bool> overwrite_ {};
-    // The updated total available quota per period.
+    // The updated total available quota.
     shared_ptr<int64_t> quotaLimit_ {};
-    // The list of consumer subject IDs to unbind.
+    // The list of subject (consumer) IDs to disassociate.
     shared_ptr<vector<string>> removeIds_ {};
-    // The updated rule name.
+    // The updated name of the rule.
     shared_ptr<string> ruleName_ {};
   };
 

@@ -109,7 +109,7 @@ namespace Models
 
 
       protected:
-        // Specifies whether to skip AI chat completion verification.
+        // Specifies whether to skip the AI chat completion validation.
         shared_ptr<bool> skipVerifyAIChatCompletion_ {};
       };
 
@@ -214,32 +214,30 @@ namespace Models
     protected:
       // The list of domain names or fixed addresses.
       shared_ptr<vector<string>> addresses_ {};
-      // The Agent service configuration. This parameter is required when sourceType is set to AGENT.
+      // The agent service configuration. This parameter is required when the sourceType is AGENT.
       shared_ptr<AgentServiceConfig> agentServiceConfig_ {};
-      // The AI service configuration. This parameter is required when sourceType is set to AI.
+      // The AI service configuration. This parameter is required when the sourceType is AI.
       shared_ptr<AiServiceConfig> aiServiceConfig_ {};
       // The list of DNS server addresses.
       shared_ptr<vector<string>> dnsServers_ {};
-      // The service expression type that identifies the special type or mode of the service.
+      // The service expression type, which identifies the special type or mode of the service.
       shared_ptr<string> expressType_ {};
-      // The service group name. This parameter is required when sourceType is set to MSE_NACOS.
+      // The name of the service group. This parameter is required when the sourceType is MSE_NACOS.
       shared_ptr<string> groupName_ {};
-      // The model provider ID. This parameter is applicable only to AI services.
+      // The ID of the model provider. This parameter is applicable only to AI services.
       shared_ptr<string> modelProviderId_ {};
-      // The service name. This parameter is required when sourceType is set to FC3.
+      // The name of the service. This parameter is required when the sourceType is FC3.
       shared_ptr<string> name_ {};
-      // The namespace of the service.
-      // 
-      // - If sourceType is set to K8S, this parameter specifies the namespace of the Kubernetes service.
-      // - If sourceType is set to MSE_NACOS, this parameter specifies the namespace in Nacos.
-      // 
-      // This parameter is required when sourceType is set to K8S or MSE_NACOS.
+      // The namespace of the service:
+      // - When the sourceType is K8S, this parameter specifies the namespace where the Kubernetes service resides.
+      // - When the sourceType is MSE_NACOS, this parameter specifies the namespace in Nacos.
+      // This parameter is required when the sourceType is K8S or MSE_NACOS.
       shared_ptr<string> namespace_ {};
       // The function version or alias.
       shared_ptr<string> qualifier_ {};
-      // The service source ID. This parameter is required in multi-Nacos instance scenarios.
+      // The ID of the service source. This parameter is required in scenarios with multiple Nacos instances.
       shared_ptr<string> sourceId_ {};
-      // The validation options for service verification configuration.
+      // The validation options, which are configuration options related to service validation.
       shared_ptr<ServiceConfigs::ValidationOptions> validationOptions_ {};
     };
 
@@ -283,21 +281,21 @@ namespace Models
 
 
   protected:
-    // The gateway ID.
+    // The ID of the gateway.
     shared_ptr<string> gatewayId_ {};
-    // The resource group ID.
+    // The ID of the resource group.
     shared_ptr<string> resourceGroupId_ {};
-    // The list of service configurations. At least one service configuration is required.
+    // The list of service configurations. At least one service configuration must be included.
     shared_ptr<vector<CreateServiceRequest::ServiceConfigs>> serviceConfigs_ {};
-    // The service source. Valid values:
-    // - MSE_NACOS: a service in MSE Nacos.
-    // - K8S: a service in a Kubernetes cluster of Container Service.
-    // - VIP: a fixed address service.
-    // - DNS: a DNS domain name service.
-    // - FC3: a service in Function Compute.
-    // - SAE_K8S_SERVICE: an SAE Kubernetes service.
-    // - AI: an AI service.
-    // - AGENT: an Agent service.
+    // The source of the service. Valid values:
+    // - MSE_NACOS: services in MSE Nacos.
+    // - K8S: services in Container Service for Kubernetes clusters.
+    // - VIP: fixed address services.
+    // - DNS: DNS domain name services.
+    // - FC3: services in Function Compute.
+    // - SAE_K8S_SERVICE: SAE Kubernetes services.
+    // - AI: AI services.
+    // - AGENT: agent services.
     shared_ptr<string> sourceType_ {};
     // The client token.
     shared_ptr<string> clientToken_ {};

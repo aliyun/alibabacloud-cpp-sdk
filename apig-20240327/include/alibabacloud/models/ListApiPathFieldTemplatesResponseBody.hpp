@@ -108,11 +108,11 @@ namespace Models
 
 
       protected:
-        // The request path corresponding to the field template.
+        // The API request path corresponding to the field template.
         shared_ptr<string> path_ {};
         // The API protocol applicable to the field template.
         shared_ptr<string> protocol_ {};
-        // The ID of the field template.
+        // The field template ID.
         shared_ptr<string> templateId_ {};
       };
 
@@ -149,13 +149,13 @@ namespace Models
 
 
     protected:
-      // The list of field templates. Each element in the items list is a field template record that contains the templateId, path, and protocol.
+      // The list of field templates. The list element is named items, and each element is a field template record that contains the templateId, path, and protocol.
       shared_ptr<vector<Data::Items>> items_ {};
       // The page number.
       shared_ptr<int32_t> pageNumber_ {};
       // The page size.
       shared_ptr<int32_t> pageSize_ {};
-      // The total number of records.
+      // The total number of items.
       shared_ptr<int32_t> totalSize_ {};
     };
 

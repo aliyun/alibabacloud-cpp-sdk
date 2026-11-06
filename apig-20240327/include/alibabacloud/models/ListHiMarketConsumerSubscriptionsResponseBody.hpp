@@ -149,19 +149,19 @@ namespace Models
 
 
       protected:
-        // The ID of the consumer to which the subscription belongs. This is the same identifier as the consumerId path parameter of this API operation.
+        // The ID of the consumer to which the subscription belongs. This is the same as the consumerId path parameter of this operation.
         shared_ptr<string> consumerId_ {};
         // The name of the consumer to which the subscription belongs.
         shared_ptr<string> consumerName_ {};
-        // The ID of the subscribed API product, which is the primary ID of the API product resource.
+        // The ID of the subscribed API product. This is the primary ID of the API product resource.
         shared_ptr<string> productId_ {};
         // The name of the subscribed API product.
         shared_ptr<string> productName_ {};
-        // The type of the subscribed API product. This response parameter does not declare enums. The related ListProductSubscriptions API operation declares the following valid values for the parameter with the same name: REST_API, HTTP_API, MCP_SERVER, AGENT_API, and MODEL_API.
+        // The type of the subscribed API product. This response parameter does not have an enum annotation. For the response parameter with the same name in the related ListProductSubscriptions operation, the valid values are REST_API, HTTP_API, MCP_SERVER, AGENT_API, and MODEL_API.
         shared_ptr<string> productType_ {};
-        // The subscription status. Valid values: PENDING and APPROVED. This set of valid values is declared in the enums of the status request parameter in this API operation, and this response parameter does not declare enums.
+        // The subscription status. Valid values: PENDING and APPROVED. These valid values are declared in the enum of the status request parameter. This response parameter does not have an enum annotation.
         shared_ptr<string> status_ {};
-        // The subscription ID. You can use this ID to unsubscribe from the product by calling UnsubscribeHiMarketProduct or approve the subscription by calling ApproveProductSubscription. Both operations locate the subscription by using the /himarket/v1/consumers/{consumerId}/subscriptions/{subscriptionId} path.
+        // The subscription ID. You can use this ID to cancel a subscription by calling UnsubscribeHiMarketProduct or approve a subscription by calling ApproveProductSubscription. Both operations use the /himarket/v1/consumers/{consumerId}/subscriptions/{subscriptionId} path to locate the subscription.
         shared_ptr<string> subscriptionId_ {};
       };
 
@@ -198,11 +198,11 @@ namespace Models
 
 
     protected:
-      // The list of API product subscriptions for the consumer. The list element is named subscription, and each element represents an API product subscription record.
+      // The API product subscriptions of the consumer. Each element in the list is named subscription and represents an API product subscription record.
       shared_ptr<vector<Data::Content>> content_ {};
       // The page number.
       shared_ptr<int32_t> pageNumber_ {};
-      // The page size.
+      // The number of entries per page.
       shared_ptr<int32_t> pageSize_ {};
       // The total number of entries.
       shared_ptr<int64_t> totalCount_ {};
@@ -255,15 +255,15 @@ namespace Models
 
 
   protected:
-    // The response status code.
+    // The response code.
     shared_ptr<string> code_ {};
     // The response data.
     shared_ptr<ListHiMarketConsumerSubscriptionsResponseBody::Data> data_ {};
-    // The maximum number of entries on the current page.
+    // The maximum number of entries returned on the current page.
     shared_ptr<int32_t> maxResults_ {};
     // The response message.
     shared_ptr<string> message_ {};
-    // The cursor for the next page. An empty value indicates that the last page is reached.
+    // The pagination token for the next page. An empty value indicates that the last page has been reached.
     shared_ptr<string> nextToken_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

@@ -94,13 +94,13 @@ namespace Models
 
 
     protected:
-      // The ID of the product category. This ID can be used as the categoryId path parameter for GetProductCategory, UpdateProductCategory, and DeleteProductCategory, or as an element in the categories array for SetProductCategories and CreateProduct.
+      // The product category ID. This ID can be used as the categoryId path parameter for GetProductCategory, UpdateProductCategory, and DeleteProductCategory, or as an element in the categories array for SetProductCategories and CreateProduct.
       shared_ptr<string> categoryId_ {};
-      // The description of the product category.
+      // The product category description.
       shared_ptr<string> description_ {};
-      // The icon of the product category. It consists of two fields: icon type (type) and icon value (value).
+      // The product category icon, which consists of two fields: icon type (type) and icon information (value).
       shared_ptr<HiMarketIcon> icon_ {};
-      // The name of the product category.
+      // The product category name.
       shared_ptr<string> name_ {};
     };
 

@@ -365,13 +365,13 @@ namespace Models
 
 
     protected:
-      // The encryption algorithm name.
+      // The name of the encryption algorithm.
       shared_ptr<string> algorithm_ {};
       // The CA certificate identifier.
       shared_ptr<string> caCertIdentifier_ {};
-      // The certificate detail error code.
+      // The error code for the certificate details.
       shared_ptr<string> certDetailErrorCode_ {};
-      // The certificate detail error message.
+      // The error message for the certificate details.
       shared_ptr<string> certDetailErrorMessage_ {};
       // The certificate detail status.
       shared_ptr<string> certDetailStatus_ {};
@@ -385,28 +385,27 @@ namespace Models
       shared_ptr<string> createFrom_ {};
       // The creation timestamp.
       shared_ptr<int64_t> createTimestamp_ {};
-      // Indicates whether this is the default domain name.
+      // Indicates whether the domain name is the default domain name.
       shared_ptr<bool> default_ {};
       // The domain name ID.
       shared_ptr<string> domainId_ {};
       // The domain name scope.
       shared_ptr<string> domainScope_ {};
-      // Specifies whether to enable forced HTTPS redirect when the HTTPS protocol type is configured.
+      // The HTTPS protocol type settings. Specifies whether forced HTTPS redirection is enabled.
       shared_ptr<bool> forceHttps_ {};
-      // The HTTP/2 setting.
+      // The HTTP/2 settings.
       shared_ptr<string> http2Option_ {};
-      // The certification authority.
+      // The certificate issuer.
       shared_ptr<string> issuer_ {};
-      // Indicates whether mutual TLS (mTLS) authentication is enabled.
+      // Indicates whether mTLS mutual authentication is enabled.
       shared_ptr<bool> mTLSEnabled_ {};
       // The domain name.
       shared_ptr<string> name_ {};
-      // The certificate expiration time.
+      // The expiration time of the certificate.
       shared_ptr<int64_t> notAfterTimstamp_ {};
-      // The certificate effective period.
+      // The effective period of the certificate.
       shared_ptr<int64_t> notBeforeTimestamp_ {};
-      // The protocol type supported by the domain name.
-      // 
+      // The protocol types supported by the domain name. Valid values:
       // - HTTP: Only the HTTP protocol is supported.
       // - HTTPS: Only the HTTPS protocol is supported.
       shared_ptr<string> protocol_ {};
@@ -414,13 +413,13 @@ namespace Models
       shared_ptr<string> resourceGroupId_ {};
       // All domain names bound to the certificate.
       shared_ptr<string> sans_ {};
-      // The online resource information.
+      // The production resource information.
       shared_ptr<Data::StatisticsInfo> statisticsInfo_ {};
       // The cipher suite configuration.
       shared_ptr<TlsCipherSuitesConfig> tlsCipherSuitesConfig_ {};
-      // The maximum TLS protocol version. TLS 1.3 is the maximum supported version.
+      // The maximum TLS protocol version. The maximum supported version is TLS 1.3.
       shared_ptr<string> tlsMax_ {};
-      // The minimum TLS protocol version. TLS 1.0 is the minimum supported version.
+      // The minimum TLS protocol version. The minimum supported version is TLS 1.0.
       shared_ptr<string> tlsMin_ {};
       // The update timestamp.
       shared_ptr<int64_t> updatetimestamp_ {};

@@ -210,13 +210,13 @@ namespace Models
 
 
       protected:
-        // The cache hit token cost, in Credits per million tokens.
+        // The cost of cache hit tokens, in Credits per million tokens.
         shared_ptr<float> cacheCost_ {};
-        // The input token cost, in Credits per million tokens.
+        // The cost of input tokens, in Credits per million tokens.
         shared_ptr<float> inputCost_ {};
-        // The output token cost, in Credits per million tokens.
+        // The cost of output tokens, in Credits per million tokens.
         shared_ptr<float> outputCost_ {};
-        // The billing type. The current value is fixed.
+        // The billing type. Currently, fixed is returned.
         shared_ptr<string> type_ {};
       };
 
@@ -258,9 +258,9 @@ namespace Models
 
 
       protected:
-        // The model invocation path.
+        // The model call path.
         shared_ptr<string> path_ {};
-        // The protocol type of the path.
+        // The protocol type corresponding to the path.
         shared_ptr<string> type_ {};
       };
 
@@ -346,7 +346,7 @@ namespace Models
 
 
     protected:
-      // The list of invocation paths supported by the model.
+      // The list of call paths supported by the model.
       shared_ptr<vector<Data::AvailablePaths>> availablePaths_ {};
       // The credit billing information of the model.
       shared_ptr<Data::Credit> credit_ {};
@@ -354,15 +354,15 @@ namespace Models
       Darabonba::Json features_ {};
       // The AI gateway instance ID to which the model card belongs.
       shared_ptr<string> gatewayId_ {};
-      // The token limits and input/output modality information of the model.
+      // The token limits and input and output modality information of the model.
       shared_ptr<Data::Meta> meta_ {};
-      // The model card ID.
+      // The ID of the model card.
       shared_ptr<string> modelCardId_ {};
-      // The model name.
+      // The name of the model.
       shared_ptr<string> modelName_ {};
-      // The model provider identifier.
+      // The identifier of the model provider.
       shared_ptr<string> modelProvider_ {};
-      // The source of the model card. The current value is user.
+      // The source of the model card. Currently, user is returned.
       shared_ptr<string> source_ {};
       // The last update time of the model card, in the yyyy-MM-dd HH:mm:ss format.
       shared_ptr<string> updateTime_ {};
@@ -403,11 +403,11 @@ namespace Models
   protected:
     // The response status code.
     shared_ptr<string> code_ {};
-    // The model card information returned after successful creation.
+    // The model card information returned after the model card is created.
     shared_ptr<CreateAiModelCardResponseBody::Data> data_ {};
     // The response message.
     shared_ptr<string> message_ {};
-    // The request ID.
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
   };
 

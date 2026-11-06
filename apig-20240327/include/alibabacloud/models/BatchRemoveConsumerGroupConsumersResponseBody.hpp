@@ -91,9 +91,9 @@ namespace Models
     protected:
       // The list of consumer IDs that failed to be removed.
       shared_ptr<vector<string>> failedConsumerIds_ {};
-      // The list of consumer IDs that were skipped because they are not in the consumer group.
+      // The list of consumer IDs that are skipped because they are not in the consumer group.
       shared_ptr<vector<string>> skippedConsumerIds_ {};
-      // The list of consumer IDs that were successfully removed from the consumer group.
+      // The list of consumer IDs that are successfully removed from the consumer group.
       shared_ptr<vector<string>> successConsumerIds_ {};
     };
 
@@ -130,7 +130,7 @@ namespace Models
 
 
   protected:
-    // The response status code. Ok is returned if the request is successful.
+    // The response status code. Returns Ok if the request succeeds.
     shared_ptr<string> code_ {};
     // The response data.
     shared_ptr<BatchRemoveConsumerGroupConsumersResponseBody::Data> data_ {};

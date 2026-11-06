@@ -19,6 +19,7 @@ namespace Models
     friend void to_json(Darabonba::Json& j, const UpdateHttpApiRouteRequest& obj) { 
       DARABONBA_PTR_TO_JSON(backendConfig, backendConfig_);
       DARABONBA_PTR_TO_JSON(description, description_);
+      DARABONBA_PTR_TO_JSON(dfpConfig, dfpConfig_);
       DARABONBA_PTR_TO_JSON(domainIds, domainIds_);
       DARABONBA_PTR_TO_JSON(environmentId, environmentId_);
       DARABONBA_PTR_TO_JSON(match, match_);
@@ -28,6 +29,7 @@ namespace Models
     friend void from_json(const Darabonba::Json& j, UpdateHttpApiRouteRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(backendConfig, backendConfig_);
       DARABONBA_PTR_FROM_JSON(description, description_);
+      DARABONBA_PTR_FROM_JSON(dfpConfig, dfpConfig_);
       DARABONBA_PTR_FROM_JSON(domainIds, domainIds_);
       DARABONBA_PTR_FROM_JSON(environmentId, environmentId_);
       DARABONBA_PTR_FROM_JSON(match, match_);
@@ -98,6 +100,38 @@ namespace Models
       shared_ptr<bool> mcpStatisticsEnable_ {};
       // The MCP protocol.
       shared_ptr<string> protocol_ {};
+    };
+
+    class DfpConfig : public Darabonba::Model {
+    public:
+      friend void to_json(Darabonba::Json& j, const DfpConfig& obj) { 
+        DARABONBA_PTR_TO_JSON(serviceId, serviceId_);
+      };
+      friend void from_json(const Darabonba::Json& j, DfpConfig& obj) { 
+        DARABONBA_PTR_FROM_JSON(serviceId, serviceId_);
+      };
+      DfpConfig() = default ;
+      DfpConfig(const DfpConfig &) = default ;
+      DfpConfig(DfpConfig &&) = default ;
+      DfpConfig(const Darabonba::Json & obj) { from_json(obj, *this); };
+      virtual ~DfpConfig() = default ;
+      DfpConfig& operator=(const DfpConfig &) = default ;
+      DfpConfig& operator=(DfpConfig &&) = default ;
+      virtual void validate() const override {
+      };
+      virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+      virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+      virtual bool empty() const override { return this->serviceId_ == nullptr; };
+      // serviceId Field Functions 
+      bool hasServiceId() const { return this->serviceId_ != nullptr;};
+      void deleteServiceId() { this->serviceId_ = nullptr;};
+      inline string getServiceId() const { DARABONBA_PTR_GET_DEFAULT(serviceId_, "") };
+      inline DfpConfig& setServiceId(string serviceId) { DARABONBA_PTR_SET_VALUE(serviceId_, serviceId) };
+
+
+    protected:
+      // The ID of the ExtProc service mounted to the current route. When updating a fixed DFP route, this ID must match the existing service. Service switching is not supported.
+      shared_ptr<string> serviceId_ {};
     };
 
     class BackendConfig : public Darabonba::Model {
@@ -236,17 +270,17 @@ namespace Models
       protected:
         // The service group. Used in HTTP-to-Dubbo conversion scenarios.
         shared_ptr<string> groupName_ {};
-        // The HTTP-to-Dubbo protocol conversion configuration. Only supported for SingleService MSE_NACOS DUBBO backends of HTTP APIs.
+        // The HTTP-to-Dubbo protocol conversion configuration. This configuration is only supported for SingleService MSE_NACOS DUBBO backends of HTTP APIs.
         shared_ptr<HttpDubboTranscoder> httpDubboTranscoder_ {};
-        // The target model name. This field is shared by multiple existing model backend scenarios. The specific routing or model rewrite semantics are determined by backendConfig.scene. This field is required for the SemanticRouter scenario. If this field is not specified for the AiAutoRouter scenario, the default model of the AI service is used.
+        // The name of the target model. This field is shared by multiple existing model backend scenarios. The specific routing or model rewriting semantics are determined by backendConfig.scene. This field is required for the SemanticRouter scenario. If it is not configured for the AiAutoRouter scenario, the default model of the AI service is used.
         shared_ptr<string> modelName_ {};
         // The service namespace. Used in HTTP-to-Dubbo conversion scenarios.
         shared_ptr<string> namespace_ {};
         // The service port. Do not specify this parameter for dynamic ports.
         shared_ptr<int32_t> port_ {};
         // The service protocol. Valid values:
-        // - HTTP
-        // - HTTPS
+        // - HTTP.
+        // - HTTPS.
         shared_ptr<string> protocol_ {};
         // The service ID.
         shared_ptr<string> serviceId_ {};
@@ -284,8 +318,8 @@ namespace Models
     };
 
     virtual bool empty() const override { return this->backendConfig_ == nullptr
-        && this->description_ == nullptr && this->domainIds_ == nullptr && this->environmentId_ == nullptr && this->match_ == nullptr && this->mcpRouteConfig_ == nullptr
-        && this->policyConfigs_ == nullptr; };
+        && this->description_ == nullptr && this->dfpConfig_ == nullptr && this->domainIds_ == nullptr && this->environmentId_ == nullptr && this->match_ == nullptr
+        && this->mcpRouteConfig_ == nullptr && this->policyConfigs_ == nullptr; };
     // backendConfig Field Functions 
     bool hasBackendConfig() const { return this->backendConfig_ != nullptr;};
     void deleteBackendConfig() { this->backendConfig_ = nullptr;};
@@ -300,6 +334,15 @@ namespace Models
     void deleteDescription() { this->description_ = nullptr;};
     inline string getDescription() const { DARABONBA_PTR_GET_DEFAULT(description_, "") };
     inline UpdateHttpApiRouteRequest& setDescription(string description) { DARABONBA_PTR_SET_VALUE(description_, description) };
+
+
+    // dfpConfig Field Functions 
+    bool hasDfpConfig() const { return this->dfpConfig_ != nullptr;};
+    void deleteDfpConfig() { this->dfpConfig_ = nullptr;};
+    inline const UpdateHttpApiRouteRequest::DfpConfig & getDfpConfig() const { DARABONBA_PTR_GET_CONST(dfpConfig_, UpdateHttpApiRouteRequest::DfpConfig) };
+    inline UpdateHttpApiRouteRequest::DfpConfig getDfpConfig() { DARABONBA_PTR_GET(dfpConfig_, UpdateHttpApiRouteRequest::DfpConfig) };
+    inline UpdateHttpApiRouteRequest& setDfpConfig(const UpdateHttpApiRouteRequest::DfpConfig & dfpConfig) { DARABONBA_PTR_SET_VALUE(dfpConfig_, dfpConfig) };
+    inline UpdateHttpApiRouteRequest& setDfpConfig(UpdateHttpApiRouteRequest::DfpConfig && dfpConfig) { DARABONBA_PTR_SET_RVALUE(dfpConfig_, dfpConfig) };
 
 
     // domainIds Field Functions 
@@ -350,6 +393,8 @@ namespace Models
     shared_ptr<UpdateHttpApiRouteRequest::BackendConfig> backendConfig_ {};
     // The route description.
     shared_ptr<string> description_ {};
+    // The current ExtProc service selection for fixed DFP routes. You can only edit mounted routes. This parameter cannot be submitted together with backendConfig, mcpRouteConfig, or policyConfigs.
+    shared_ptr<UpdateHttpApiRouteRequest::DfpConfig> dfpConfig_ {};
     // The list of domain name IDs.
     shared_ptr<vector<string>> domainIds_ {};
     // The environment ID.
@@ -358,7 +403,7 @@ namespace Models
     shared_ptr<HttpRouteMatch> match_ {};
     // The MCP route configuration.
     shared_ptr<UpdateHttpApiRouteRequest::McpRouteConfig> mcpRouteConfig_ {};
-    // The route-level policy configurations.
+    // The route-level policy configuration.
     shared_ptr<vector<HttpApiPolicyConfigs>> policyConfigs_ {};
   };
 

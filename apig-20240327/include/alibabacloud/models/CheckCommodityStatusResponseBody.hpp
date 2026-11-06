@@ -95,7 +95,7 @@ namespace Models
 
 
   protected:
-    // The commodity status list. Each item contains the commodity code and indicates whether the commodity capability is enabled for the current account.
+    // The list of commodity statuses. Each item includes the commodity code and indicates whether the commodity capability is enabled for the current account.
     shared_ptr<vector<CheckCommodityStatusResponseBody::Commodities>> commodities_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

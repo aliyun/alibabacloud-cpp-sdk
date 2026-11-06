@@ -42,6 +42,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(runtimeDetailErrorCode, runtimeDetailErrorCode_);
       DARABONBA_PTR_TO_JSON(runtimeDetailStatus, runtimeDetailStatus_);
       DARABONBA_PTR_TO_JSON(serviceId, serviceId_);
+      DARABONBA_PTR_TO_JSON(serviceMetaData, serviceMetaData_);
       DARABONBA_PTR_TO_JSON(sourceType, sourceType_);
       DARABONBA_PTR_TO_JSON(unhealthyEndpoints, unhealthyEndpoints_);
       DARABONBA_PTR_TO_JSON(updateTimestamp, updateTimestamp_);
@@ -72,6 +73,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(runtimeDetailErrorCode, runtimeDetailErrorCode_);
       DARABONBA_PTR_FROM_JSON(runtimeDetailStatus, runtimeDetailStatus_);
       DARABONBA_PTR_FROM_JSON(serviceId, serviceId_);
+      DARABONBA_PTR_FROM_JSON(serviceMetaData, serviceMetaData_);
       DARABONBA_PTR_FROM_JSON(sourceType, sourceType_);
       DARABONBA_PTR_FROM_JSON(unhealthyEndpoints, unhealthyEndpoints_);
       DARABONBA_PTR_FROM_JSON(updateTimestamp, updateTimestamp_);
@@ -178,6 +180,50 @@ namespace Models
       shared_ptr<string> name_ {};
     };
 
+    class ServiceMetaData : public Darabonba::Model {
+    public:
+      friend void to_json(Darabonba::Json& j, const ServiceMetaData& obj) { 
+        DARABONBA_PTR_TO_JSON(dfpReferenced, dfpReferenced_);
+        DARABONBA_PTR_TO_JSON(extProc, extProc_);
+      };
+      friend void from_json(const Darabonba::Json& j, ServiceMetaData& obj) { 
+        DARABONBA_PTR_FROM_JSON(dfpReferenced, dfpReferenced_);
+        DARABONBA_PTR_FROM_JSON(extProc, extProc_);
+      };
+      ServiceMetaData() = default ;
+      ServiceMetaData(const ServiceMetaData &) = default ;
+      ServiceMetaData(ServiceMetaData &&) = default ;
+      ServiceMetaData(const Darabonba::Json & obj) { from_json(obj, *this); };
+      virtual ~ServiceMetaData() = default ;
+      ServiceMetaData& operator=(const ServiceMetaData &) = default ;
+      ServiceMetaData& operator=(ServiceMetaData &&) = default ;
+      virtual void validate() const override {
+      };
+      virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+      virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+      virtual bool empty() const override { return this->dfpReferenced_ == nullptr
+        && this->extProc_ == nullptr; };
+      // dfpReferenced Field Functions 
+      bool hasDfpReferenced() const { return this->dfpReferenced_ != nullptr;};
+      void deleteDfpReferenced() { this->dfpReferenced_ = nullptr;};
+      inline bool getDfpReferenced() const { DARABONBA_PTR_GET_DEFAULT(dfpReferenced_, false) };
+      inline ServiceMetaData& setDfpReferenced(bool dfpReferenced) { DARABONBA_PTR_SET_VALUE(dfpReferenced_, dfpReferenced) };
+
+
+      // extProc Field Functions 
+      bool hasExtProc() const { return this->extProc_ != nullptr;};
+      void deleteExtProc() { this->extProc_ = nullptr;};
+      inline bool getExtProc() const { DARABONBA_PTR_GET_DEFAULT(extProc_, false) };
+      inline ServiceMetaData& setExtProc(bool extProc) { DARABONBA_PTR_SET_VALUE(extProc_, extProc) };
+
+
+    protected:
+      // Specifies whether the current service is referenced by an explicit DFP ExtProc binding of the gateway.
+      shared_ptr<bool> dfpReferenced_ {};
+      // Specifies whether the current service is referenced by an ExtProc configuration of the same user and gateway.
+      shared_ptr<bool> extProc_ {};
+    };
+
     class Ports : public Darabonba::Model {
     public:
       friend void to_json(Darabonba::Json& j, const Ports& obj) { 
@@ -229,7 +275,7 @@ namespace Models
       shared_ptr<string> name_ {};
       // The port number.
       shared_ptr<int32_t> port_ {};
-      // The protocol. Valid values: TCP and UDP.
+      // The protocol.
       shared_ptr<string> protocol_ {};
     };
 
@@ -298,13 +344,13 @@ namespace Models
 
 
     protected:
-      // The base ejection duration in seconds. Valid values: 1 to 3600.
+      // The base ejection time in seconds. Valid values: 1 to 3600.
       shared_ptr<int32_t> baseEjectionTime_ {};
-      // Specifies whether to enable outlier detection.
+      // Specifies whether to enable the feature.
       shared_ptr<bool> enable_ {};
-      // The minimum number of hosts. The value must be greater than or equal to 0.
+      // The minimum number of hosts. Valid values: 0 or greater.
       shared_ptr<int32_t> failurePercentageMinimumHosts_ {};
-      // The failure rate threshold in percentage. Valid values: 1 to 100.
+      // The failure percentage threshold. Valid values: 1 to 100.
       shared_ptr<int32_t> failurePercentageThreshold_ {};
       // The detection interval in seconds. Valid values: 1 to 3600.
       shared_ptr<int32_t> interval_ {};
@@ -315,8 +361,8 @@ namespace Models
         && this->gatewayId_ == nullptr && this->groupName_ == nullptr && this->healthCheck_ == nullptr && this->healthStatus_ == nullptr && this->healthyPanicThreshold_ == nullptr
         && this->labelDetails_ == nullptr && this->modelProviderId_ == nullptr && this->name_ == nullptr && this->namespace_ == nullptr && this->outlierDetection_ == nullptr
         && this->outlierEndpoints_ == nullptr && this->ports_ == nullptr && this->protocol_ == nullptr && this->qualifier_ == nullptr && this->resourceGroupId_ == nullptr
-        && this->runtimeDetailErrorCode_ == nullptr && this->runtimeDetailStatus_ == nullptr && this->serviceId_ == nullptr && this->sourceType_ == nullptr && this->unhealthyEndpoints_ == nullptr
-        && this->updateTimestamp_ == nullptr && this->versions_ == nullptr; };
+        && this->runtimeDetailErrorCode_ == nullptr && this->runtimeDetailStatus_ == nullptr && this->serviceId_ == nullptr && this->serviceMetaData_ == nullptr && this->sourceType_ == nullptr
+        && this->unhealthyEndpoints_ == nullptr && this->updateTimestamp_ == nullptr && this->versions_ == nullptr; };
     // addresses Field Functions 
     bool hasAddresses() const { return this->addresses_ != nullptr;};
     void deleteAddresses() { this->addresses_ = nullptr;};
@@ -503,6 +549,15 @@ namespace Models
     inline Service& setServiceId(string serviceId) { DARABONBA_PTR_SET_VALUE(serviceId_, serviceId) };
 
 
+    // serviceMetaData Field Functions 
+    bool hasServiceMetaData() const { return this->serviceMetaData_ != nullptr;};
+    void deleteServiceMetaData() { this->serviceMetaData_ = nullptr;};
+    inline const Service::ServiceMetaData & getServiceMetaData() const { DARABONBA_PTR_GET_CONST(serviceMetaData_, Service::ServiceMetaData) };
+    inline Service::ServiceMetaData getServiceMetaData() { DARABONBA_PTR_GET(serviceMetaData_, Service::ServiceMetaData) };
+    inline Service& setServiceMetaData(const Service::ServiceMetaData & serviceMetaData) { DARABONBA_PTR_SET_VALUE(serviceMetaData_, serviceMetaData) };
+    inline Service& setServiceMetaData(Service::ServiceMetaData && serviceMetaData) { DARABONBA_PTR_SET_RVALUE(serviceMetaData_, serviceMetaData) };
+
+
     // sourceType Field Functions 
     bool hasSourceType() const { return this->sourceType_ != nullptr;};
     void deleteSourceType() { this->sourceType_ = nullptr;};
@@ -536,25 +591,25 @@ namespace Models
 
 
   protected:
-    // The address information, which is a list of IP addresses or domain names.
+    // The address information, such as IP addresses or domain names.
     shared_ptr<vector<string>> addresses_ {};
     // The agent service configuration.
     shared_ptr<AgentServiceConfig> agentServiceConfig_ {};
     // The AI service configuration.
     shared_ptr<AiServiceConfig> aiServiceConfig_ {};
-    // The time when the service was created.
+    // The creation time.
     shared_ptr<int64_t> createTimestamp_ {};
     // The list of DNS servers.
     shared_ptr<vector<string>> dnsServers_ {};
-    // The execution mode of CloudFlow.
+    // The execution method of CloudFlow.
     shared_ptr<string> expressType_ {};
-    // The instance ID of the gateway.
+    // The gateway instance ID.
     shared_ptr<string> gatewayId_ {};
     // The name of the service group.
     shared_ptr<string> groupName_ {};
     // The health check configuration.
     shared_ptr<ServiceHealthCheck> healthCheck_ {};
-    // The health check status. Valid values: Healthy and Unhealthy.
+    // The monitoring check status.
     shared_ptr<string> healthStatus_ {};
     // The healthy panic threshold.
     shared_ptr<float> healthyPanicThreshold_ {};
@@ -566,9 +621,9 @@ namespace Models
     shared_ptr<string> name_ {};
     // The namespace.
     shared_ptr<string> namespace_ {};
-    // The outlier detection configuration for removing abnormal instances.
+    // The outlier detection configuration.
     shared_ptr<Service::OutlierDetection> outlierDetection_ {};
-    // The circuit-broken endpoints.
+    // The ejected endpoints.
     shared_ptr<vector<string>> outlierEndpoints_ {};
     // The list of port information.
     shared_ptr<vector<Service::Ports>> ports_ {};
@@ -578,17 +633,19 @@ namespace Models
     shared_ptr<string> qualifier_ {};
     // The ID of the resource group.
     shared_ptr<string> resourceGroupId_ {};
-    // The masked error code of the runtime details.
+    // The masked error code in the runtime details.
     shared_ptr<string> runtimeDetailErrorCode_ {};
     // The runtime detail status.
     shared_ptr<string> runtimeDetailStatus_ {};
     // The unique ID of the service.
     shared_ptr<string> serviceId_ {};
+    // The ExtProc reference status in the service list. This field is not returned if the relationship read fails.
+    shared_ptr<Service::ServiceMetaData> serviceMetaData_ {};
     // The source type of the service.
     shared_ptr<string> sourceType_ {};
     // The unhealthy endpoints.
     shared_ptr<vector<string>> unhealthyEndpoints_ {};
-    // The time when the service was updated.
+    // The update time.
     shared_ptr<int64_t> updateTimestamp_ {};
     // The list of service versions.
     shared_ptr<vector<Service::Versions>> versions_ {};

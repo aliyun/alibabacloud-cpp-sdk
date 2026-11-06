@@ -224,34 +224,33 @@ namespace Models
   protected:
     // The API deployment configurations.
     shared_ptr<vector<HttpApiDeployConfig>> deployConfigs_ {};
-    // The description of the imported API. If this parameter is not specified, the description is extracted from the API definition file. Maximum length: 255 bytes.
+    // The description of the imported API. If you do not specify this parameter, the description is extracted from the API definition. The maximum length is 255 bytes.
     shared_ptr<string> description_ {};
-    // Specifies whether to enable dry run mode. If enabled, only validation is performed without actually importing the API.
+    // Specifies whether to perform a dry run. If this feature is enabled, the system only checks the Swagger definition and does not perform the import operation.
     shared_ptr<bool> dryRun_ {};
     // The gateway ID.
     shared_ptr<string> gatewayId_ {};
     // The MCP route ID.
     shared_ptr<string> mcpRouteId_ {};
-    // The name of the imported API. If this parameter is not specified, the name is extracted from the API definition file. If an API with the same name and version configuration already exists, the import updates the existing API definition based on the strategy parameter.
+    // The name of the imported API. If you do not specify this parameter, the name is extracted from the API definition file. If an API with the same name and versioning configuration already exists, the import operation updates the existing API definition based on the strategy parameter.
     shared_ptr<string> name_ {};
     // The [resource group ID](https://help.aliyun.com/document_detail/151181.html).
     shared_ptr<string> resourceGroupId_ {};
-    // The Base64-encoded API definition. Supports OAS 2.0 and OAS 3.0 specifications in YAML or JSON format. This parameter takes priority over the specFileUrl parameter. If the file size exceeds 10 MB, use the specFileUrl parameter instead.
+    // The Base64-encoded API definition. Supports OAS 2.0 and OAS 3.0 specifications in YAML and JSON formats. This parameter has a higher priority than the specFileUrl parameter. If the file size exceeds 10 MB, use the specFileUrl parameter instead.
     shared_ptr<string> specContentBase64_ {};
-    // The download URL of the API definition file. The URL must be accessible over the Internet or be an internal network OSS download URL in the same region. The URL must have download permissions. For OSS files that are not publicly readable, see References [Download objects by using presigned URLs](https://help.aliyun.com/document_detail/39607.html) to generate a URL with download permissions. Currently, only API definition files stored in OSS are supported.
+    // The download URL of the API definition file. The file must be downloadable over the Internet or through the internal network of OSS in the same region. The URL must have download permissions. For OSS file links that are not publicly readable, see References: [Download objects by using presigned URLs](https://help.aliyun.com/document_detail/39607.html) and provide a URL with download permissions. Currently, only API definition files stored in OSS are supported.
     shared_ptr<string> specFileUrl_ {};
     // The OSS configuration.
     shared_ptr<ImportHttpApiRequest::SpecOssConfig> specOssConfig_ {};
-    // The update policy to use when the imported API has the same name and version management configuration as an existing API. Valid values:
-    // - SpecOnly: Uses the imported file as the sole source of truth.
-    // - SpecFirst: Prioritizes the imported file. New operations are added and existing operations are updated. Operations not mentioned in the file remain unchanged.
-    // - ExistFirst: Prioritizes the existing API. Only new operations are added. Existing operations are not updated.
-    // 
-    // Default value: ExistFirst.
+    // Specifies the update policy when the name and version management of the imported API are the same as those of an existing API. Valid values:
+    // - SpecOnly: The imported file completely overwrites the existing API.
+    // - SpecFirst: The imported file takes precedence. New operations are added and existing operations are updated. Operations not mentioned in the file remain unchanged.
+    // - ExistFirst: The existing API takes precedence. Only new operations are added, and existing operations are not updated.
+    // Default policy: ExistFirst.
     shared_ptr<string> strategy_ {};
-    // If this parameter is specified, the import updates the specified API instead of creating a new one or searching for an existing API by name and version management configuration. The target API must be of the REST type.
+    // If you specify this parameter, the import operation updates the specified API instead of importing a new API or searching for an existing API based on the API name and version management configuration. The target API must be of the REST type.
     shared_ptr<string> targetHttpApiId_ {};
-    // The API version configuration. If version configuration is enabled, the import is treated as an update when the version number and API name match an existing API. If version configuration is not enabled, the import is treated as an update when only the API name matches an existing API.
+    // The API versioning configuration. If versioning is enabled and an API with the same name and version number already exists, the import operation is treated as an update. If versioning is disabled and an API with the same name already exists, the import operation is also treated as an update.
     shared_ptr<HttpApiVersionConfig> versionConfig_ {};
     // Specifies whether to import gateway extension information.
     shared_ptr<bool> withGatewayExtension_ {};

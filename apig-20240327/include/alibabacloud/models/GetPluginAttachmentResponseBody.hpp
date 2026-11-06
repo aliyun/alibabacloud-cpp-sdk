@@ -153,23 +153,23 @@ namespace Models
 
 
     protected:
-      // Indicates whether the plugin mount is enabled.
+      // Indicates whether the plugin is enabled.
       shared_ptr<bool> enable_ {};
       // The environment context.
       shared_ptr<EnvironmentInfo> environmentInfo_ {};
       // The gateway information.
       shared_ptr<GatewayInfo> gatewayInfo_ {};
-      // The parent mount resource information.
+      // The parent mounted resource information.
       shared_ptr<ParentResourceInfo> parentResourceInfo_ {};
-      // The plugin mount ID.
+      // The plugin attachment ID.
       shared_ptr<string> pluginAttachmentId_ {};
-      // The plugin type information.
+      // The plugin class information.
       shared_ptr<PluginClassInfo> pluginClassInfo_ {};
       // The Base64-encoded content of the original plugin configuration.
       shared_ptr<string> pluginConfig_ {};
       // The plugin ID.
       shared_ptr<string> pluginId_ {};
-      // The list of mount resource information.
+      // The list of mounted resource information.
       shared_ptr<vector<ResourceInfo>> resourceInfos_ {};
     };
 

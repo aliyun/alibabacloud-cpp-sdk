@@ -94,19 +94,19 @@ namespace Models
 
 
   protected:
-    // The developer ID. This parameter is used to filter consumers by developer.
+    // The developer ID used to filter consumers.
     shared_ptr<string> developerId_ {};
     // The maximum number of entries per page. The default value and valid values are not specified in the API definition.
     shared_ptr<int32_t> maxResults_ {};
     // The search keyword for the consumer name.
     shared_ptr<string> name_ {};
-    // The pagination token. To retrieve the next page, pass the nextToken value returned in the previous response. Do not specify this parameter for the first query.
+    // The pagination cursor. Pass the nextToken value returned in the previous response to retrieve the next page. Do not specify this parameter for the first query.
     shared_ptr<string> nextToken_ {};
     // The page number. Pages start from 1.
     shared_ptr<int32_t> pageNumber_ {};
     // The number of entries per page.
     shared_ptr<int32_t> pageSize_ {};
-    // The portal ID. This parameter is used to filter consumers by portal.
+    // The portal ID used to filter consumers.
     shared_ptr<string> portalId_ {};
   };
 

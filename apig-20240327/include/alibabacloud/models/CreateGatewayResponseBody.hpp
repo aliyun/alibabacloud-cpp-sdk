@@ -63,7 +63,7 @@ namespace Models
 
 
     protected:
-      // The gateway ID.
+      // The ID of the gateway.
       shared_ptr<string> gatewayId_ {};
     };
 

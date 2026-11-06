@@ -48,7 +48,7 @@ namespace Models
 
 
   protected:
-    // The ID of the portal to which the developer belongs, which is the primary ID of the portal resource. You can obtain this ID from the portalId field in the CreatePortal response or from the portalId field of an item in the ListPortals response.
+    // The ID of the portal to which the developer belongs. This is the primary ID of the portal resource. You can obtain this ID from the portalId field in the response of CreatePortal or the portalId field of an item in the ListPortals response.
     shared_ptr<string> portalId_ {};
     // The target status of the developer. Valid values: PENDING, APPROVED, and REJECTED.
     shared_ptr<string> status_ {};

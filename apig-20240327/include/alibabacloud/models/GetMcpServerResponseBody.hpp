@@ -150,7 +150,7 @@ namespace Models
       protected:
         // The Nacos instance.
         shared_ptr<string> importInstanceId_ {};
-        // The synced MCP server ID.
+        // The ID of the synchronized MCP server.
         shared_ptr<string> importMcpServerId_ {};
         // The Nacos namespace.
         shared_ptr<string> importNamespace_ {};
@@ -269,7 +269,7 @@ namespace Models
             shared_ptr<int32_t> port_ {};
             // The service protocol.
             shared_ptr<string> protocol_ {};
-            // The service ID.
+            // The ID of the service.
             shared_ptr<string> serviceId_ {};
             // The service version.
             shared_ptr<string> version_ {};
@@ -296,7 +296,7 @@ namespace Models
 
 
         protected:
-          // The backend scene.
+          // The backend scenario.
           shared_ptr<string> scene_ {};
           // The list of service configurations.
           shared_ptr<vector<BackendConfig::Services>> services_ {};
@@ -330,11 +330,11 @@ namespace Models
 
 
       protected:
-        // The canary release route backend configuration.
+        // The backend configuration of the canary route.
         shared_ptr<GrayMcpServerConfigs::BackendConfig> backendConfig_ {};
-        // The canary release route match rule.
+        // The match rules of the canary route.
         shared_ptr<HttpRouteMatch> match_ {};
-        // The canary release route ID.
+        // The ID of the canary route.
         shared_ptr<string> routeId_ {};
       };
 
@@ -444,7 +444,7 @@ namespace Models
       protected:
         // MCP Server ID
         shared_ptr<string> mcpServerId_ {};
-        // The MCP server name.
+        // The name of the MCP server.
         shared_ptr<string> mcpServerName_ {};
         // The list of MCP tools.
         shared_ptr<vector<string>> tools_ {};
@@ -632,19 +632,19 @@ namespace Models
 
 
     protected:
-      // API ID。
+      // The API ID.
       shared_ptr<string> apiId_ {};
-      // The list of assembled sources. This parameter is required when type is AssemblyMCP.
+      // The list of assembly sources. This parameter is required when type is set to AssemblyMCP.
       shared_ptr<vector<Data::AssembledSources>> assembledSources_ {};
       // The backend service of the route.
       shared_ptr<Backend> backend_ {};
-      // The creation source type. Valid values:
+      // The creation source type.
       // 
-      // - ApiGatewayHttpToMCP: gateway-managed HTTP-to-MCP conversion.
-      // - ApiGatewayMcpHosting: gateway-managed MCP direct proxy.
-      // - ApiGatewayAssembly: gateway MCP assembly.
-      // - NacosHttpToMCP: gateway-managed Nacos-synced HTTP-to-MCP conversion.
-      // - NacosMcpHosting: gateway-managed Nacos-synced MCP direct proxy.
+      // ApiGatewayHttpToMCP: Gateway-hosted HTTP-to-MCP conversion
+      // ApiGatewayMcpHosting: Gateway-hosted direct MCP proxy
+      // ApiGatewayAssembly: Gateway MCP assembly
+      // NacosHttpToMCP: Gateway-hosted Nacos-synchronized HTTP-to-MCP conversion
+      // NacosMcpHosting: Gateway-hosted Nacos-synchronized direct MCP proxy
       shared_ptr<string> createFromType_ {};
       // The publish status of the API in the current environment.
       shared_ptr<string> deployStatus_ {};
@@ -654,35 +654,35 @@ namespace Models
       shared_ptr<vector<string>> domainIds_ {};
       // The list of domain name information.
       shared_ptr<vector<Data::DomainInfos>> domainInfos_ {};
-      // The environment ID.
+      // The ID of the environment.
       shared_ptr<string> environmentId_ {};
-      // The exposed URI path. This parameter is required when protocol is SSE or StreamableHTTP and type is RealMCP.
+      // The exposed URI path. This parameter is required when protocol is set to SSE or StreamableHTTP and type is set to RealMCP.
       shared_ptr<string> exposedUriPath_ {};
       // The gateway instance ID.
       shared_ptr<string> gatewayId_ {};
-      // The canary release route configurations.
+      // The canary route configurations.
       shared_ptr<vector<Data::GrayMcpServerConfigs>> grayMcpServerConfigs_ {};
-      // The route match rule.
+      // The route match rules.
       shared_ptr<HttpRouteMatch> match_ {};
       // The HTTP-to-MCP configuration.
       shared_ptr<string> mcpServerConfig_ {};
-      // The MCP server plugin configuration attachment ID.
+      // The attachment ID of the MCP server plug-in configuration.
       shared_ptr<string> mcpServerConfigPluginAttachmentId_ {};
       // MCP Server ID
       shared_ptr<string> mcpServerId_ {};
-      // The MCP server access path provided by the gateway.
+      // The access path of the MCP server provided by the gateway.
       shared_ptr<string> mcpServerPath_ {};
-      // Specifies whether MCP observability is enabled. Default value: false.
+      // Specifies whether to enable MCP observability. Default value: false.
       shared_ptr<bool> mcpStatisticsEnable_ {};
-      // The Nacos-synced managed MCP information.
+      // The information about the Nacos-synchronized managed MCP.
       shared_ptr<Data::NacosMcpSyncInfo> nacosMcpSyncInfo_ {};
-      // The MCP server name.
+      // The name of the MCP server.
       shared_ptr<string> name_ {};
       // The service protocol.
       shared_ptr<string> protocol_ {};
-      // The route ID.
+      // The ID of the route.
       shared_ptr<string> routeId_ {};
-      // The MCP server type.
+      // The type of the MCP server.
       shared_ptr<string> type_ {};
     };
 

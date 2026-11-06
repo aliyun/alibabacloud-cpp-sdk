@@ -68,6 +68,7 @@ namespace Models
       class Items : public Darabonba::Model {
       public:
         friend void to_json(Darabonba::Json& j, const Items& obj) { 
+          DARABONBA_PTR_TO_JSON(periodMultiplier, periodMultiplier_);
           DARABONBA_PTR_TO_JSON(periodType, periodType_);
           DARABONBA_PTR_TO_JSON(quotaDimension, quotaDimension_);
           DARABONBA_PTR_TO_JSON(quotaLimit, quotaLimit_);
@@ -78,6 +79,7 @@ namespace Models
           DARABONBA_PTR_TO_JSON(windowAlignment, windowAlignment_);
         };
         friend void from_json(const Darabonba::Json& j, Items& obj) { 
+          DARABONBA_PTR_FROM_JSON(periodMultiplier, periodMultiplier_);
           DARABONBA_PTR_FROM_JSON(periodType, periodType_);
           DARABONBA_PTR_FROM_JSON(quotaDimension, quotaDimension_);
           DARABONBA_PTR_FROM_JSON(quotaLimit, quotaLimit_);
@@ -98,9 +100,16 @@ namespace Models
         };
         virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
         virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-        virtual bool empty() const override { return this->periodType_ == nullptr
-        && this->quotaDimension_ == nullptr && this->quotaLimit_ == nullptr && this->ruleId_ == nullptr && this->ruleName_ == nullptr && this->ruleStatus_ == nullptr
-        && this->timezone_ == nullptr && this->windowAlignment_ == nullptr; };
+        virtual bool empty() const override { return this->periodMultiplier_ == nullptr
+        && this->periodType_ == nullptr && this->quotaDimension_ == nullptr && this->quotaLimit_ == nullptr && this->ruleId_ == nullptr && this->ruleName_ == nullptr
+        && this->ruleStatus_ == nullptr && this->timezone_ == nullptr && this->windowAlignment_ == nullptr; };
+        // periodMultiplier Field Functions 
+        bool hasPeriodMultiplier() const { return this->periodMultiplier_ != nullptr;};
+        void deletePeriodMultiplier() { this->periodMultiplier_ = nullptr;};
+        inline int64_t getPeriodMultiplier() const { DARABONBA_PTR_GET_DEFAULT(periodMultiplier_, 0L) };
+        inline Items& setPeriodMultiplier(int64_t periodMultiplier) { DARABONBA_PTR_SET_VALUE(periodMultiplier_, periodMultiplier) };
+
+
         // periodType Field Functions 
         bool hasPeriodType() const { return this->periodType_ != nullptr;};
         void deletePeriodType() { this->periodType_ = nullptr;};
@@ -158,6 +167,8 @@ namespace Models
 
 
       protected:
+        // The number of days in a custom period. This parameter is returned only when windowAlignment is set to epoch. Valid values: 1 to 106751. This parameter is not returned for natural periods.
+        shared_ptr<int64_t> periodMultiplier_ {};
         // The period type.
         shared_ptr<string> periodType_ {};
         // The quota dimension.
@@ -170,7 +181,7 @@ namespace Models
         shared_ptr<string> ruleName_ {};
         // The rule status.
         shared_ptr<string> ruleStatus_ {};
-        // The time zone for the natural period, in UTC+x format.
+        // The time zone corresponding to the natural period, in UTC+x format.
         shared_ptr<string> timezone_ {};
         // The reset period type.
         shared_ptr<string> windowAlignment_ {};
@@ -270,7 +281,7 @@ namespace Models
     shared_ptr<string> code_ {};
     // The response data.
     shared_ptr<ListGatewayQuotaRulesResponseBody::Data> data_ {};
-    // The maximum number of records to retrieve at a time. This parameter is not supported.
+    // The maximum number of records to return in a single request. This parameter is not supported.
     shared_ptr<int32_t> maxResults_ {};
     // The response message.
     shared_ptr<string> message_ {};

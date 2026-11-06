@@ -120,11 +120,11 @@ namespace Models
 
 
       protected:
-        // The product category ID. You can use this ID as the categoryId path parameter for GetProductCategory, UpdateProductCategory, and DeleteProductCategory. You can also use it as an element in the categories parameter, which is a set of category IDs, for SetProductCategories and CreateProduct.
+        // The product category ID. You can use this ID as the categoryId path parameter for GetProductCategory, UpdateProductCategory, and DeleteProductCategory. You can also use it as an element in the categories parameter (a set of category IDs) for SetProductCategories and CreateProduct.
         shared_ptr<string> categoryId_ {};
         // The product category description.
         shared_ptr<string> description_ {};
-        // The product category icon, which consists of the icon type (type) and icon information (value) fields.
+        // The product category icon. It consists of two fields: icon type (type) and icon information (value).
         shared_ptr<HiMarketIcon> icon_ {};
         // The product category name.
         shared_ptr<string> name_ {};
@@ -167,9 +167,9 @@ namespace Models
       shared_ptr<vector<Data::Content>> content_ {};
       // The page number.
       shared_ptr<int32_t> pageNumber_ {};
-      // The page size.
+      // The number of entries per page.
       shared_ptr<int32_t> pageSize_ {};
-      // The total count.
+      // The total number of entries.
       shared_ptr<int64_t> totalCount_ {};
     };
 

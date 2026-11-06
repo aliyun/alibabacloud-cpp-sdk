@@ -79,9 +79,9 @@ namespace Models
     shared_ptr<int64_t> endTime_ {};
     // Specifies whether to filter out zero values.
     shared_ptr<bool> filterFailedRequests_ {};
-    // The page number of the detailed consumption (request) records for the consumer subject within the period.
+    // The page number of the detailed consumption (request) records for the consumption subject within the period.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries per page for the detailed consumption (request) records of the consumer subject within the period. Maximum value: 10.
+    // The number of entries per page for the detailed consumption (request) records of the consumption subject within the period. Maximum value: 10.
     shared_ptr<int32_t> pageSize_ {};
     // The start time for querying detailed consumption records. The time is a UNIX timestamp in seconds. If only this parameter is specified, the system automatically calculates the end time based on the rule period.
     shared_ptr<int64_t> startTime_ {};

@@ -108,11 +108,11 @@ namespace Models
 
 
     protected:
-      // The list of static addresses.
+      // The list of fixed addresses.
       shared_ptr<vector<string>> endpoints_ {};
-      // The match condition. This parameter is valid only in the by-content scenario.
+      // The match condition. This parameter takes effect only in the by content scenario.
       shared_ptr<HttpApiBackendMatchConditions> match_ {};
-      // The weight. Valid values: 1 to 100. This parameter is valid only in the by-ratio scenario.
+      // The weight. Valid values: 1 to 100. This parameter takes effect only in the by ratio scenario.
       shared_ptr<int32_t> weight_ {};
     };
 
@@ -371,9 +371,9 @@ namespace Models
     protected:
       // The list of DNS domain names.
       shared_ptr<vector<string>> dnsList_ {};
-      // The match condition. This parameter is valid only in the by-content scenario.
+      // The match condition. This parameter takes effect only in the by content scenario.
       shared_ptr<HttpApiBackendMatchConditions> match_ {};
-      // The weight. Valid values: 1 to 100. This parameter is valid only in the by-ratio scenario.
+      // The weight. Valid values: 1 to 100. This parameter takes effect only in the by ratio scenario.
       shared_ptr<int32_t> weight_ {};
     };
 
@@ -478,7 +478,7 @@ namespace Models
 
 
       protected:
-        // The ID of the associated service.
+        // The associated service ID.
         shared_ptr<string> gatewayServiceId_ {};
         // The service group.
         shared_ptr<string> groupName_ {};
@@ -559,7 +559,7 @@ namespace Models
 
 
       protected:
-        // The ID of the associated service.
+        // The associated service ID.
         shared_ptr<string> gatewayServiceId_ {};
         // The match condition.
         shared_ptr<HttpApiBackendMatchConditions> match_ {};
@@ -657,7 +657,7 @@ namespace Models
 
 
       protected:
-        // The ID of the associated service.
+        // The associated service ID.
         shared_ptr<string> gatewayServiceId_ {};
         // The match condition.
         shared_ptr<HttpApiBackendMatchConditions> match_ {};
@@ -667,7 +667,7 @@ namespace Models
         shared_ptr<string> namespace_ {};
         // The service port.
         shared_ptr<int32_t> port_ {};
-        // The service protocol.
+        // The terms of service.
         shared_ptr<string> protocol_ {};
         // The service weight.
         shared_ptr<string> weight_ {};
@@ -714,7 +714,7 @@ namespace Models
       shared_ptr<string> cloudProductType_ {};
       // The container service configuration.
       shared_ptr<vector<CloudProductConfig::ContainerServiceConfigs>> containerServiceConfigs_ {};
-      // The Function Compute (FC) configuration.
+      // The FC configuration.
       shared_ptr<vector<CloudProductConfig::FunctionConfigs>> functionConfigs_ {};
       // The MSE Nacos configuration.
       shared_ptr<vector<CloudProductConfig::MseNacosConfigs>> mseNacosConfigs_ {};
@@ -832,7 +832,7 @@ namespace Models
 
 
   protected:
-    // The API publish scenario.
+    // The API release scenario.
     shared_ptr<string> backendScene_ {};
     // The backend type.
     shared_ptr<string> backendType_ {};
@@ -842,21 +842,21 @@ namespace Models
     shared_ptr<int64_t> createTimestamp_ {};
     // The list of custom domain names.
     shared_ptr<vector<HttpApiDomainInfo>> customDomains_ {};
-    // The DNS domain name configuration. In the single-service scenario, only one entry can be configured. In the by-ratio or by-content scenario, multiple entries can be configured.
+    // The DNS domain name configuration. Only one entry can be configured in the single service scenario, and multiple entries can be configured in the by ratio and by content scenarios.
     shared_ptr<vector<HttpApiPublishRevisionInfo::DnsConfigs>> dnsConfigs_ {};
     // The environment context.
     shared_ptr<HttpApiPublishRevisionInfo::EnvironmentInfo> environmentInfo_ {};
     // Indicates whether this is the current version.
     shared_ptr<bool> isCurrentVersion_ {};
-    // The list of API operations.
+    // The API operation list.
     shared_ptr<vector<HttpApiOperationInfo>> operations_ {};
-    // The version number of the published API.
+    // The version number of the API release.
     shared_ptr<string> revisionId_ {};
-    // The existing service configurations. In a single-service scenario, only one entry can be configured. In proportion-based, content-based, or tag-based scenarios, multiple entries can be configured.
+    // The existing service configuration. Only one entry can be configured in the single service scenario, and multiple entries can be configured in the by ratio, by content, and by tag scenarios.
     shared_ptr<vector<HttpApiPublishRevisionInfo::ServiceConfigs>> serviceConfigs_ {};
     // The list of default domain names for the environment.
     shared_ptr<vector<HttpApiDomainInfo>> subDomains_ {};
-    // The static address configurations. In a single-service scenario, only one entry can be configured. In proportion-based or content-based scenarios, multiple entries can be configured.
+    // The fixed address configuration. Only one entry can be configured in the single service scenario, and multiple entries can be configured in the by ratio and by content scenarios.
     shared_ptr<vector<HttpApiPublishRevisionInfo::VipConfigs>> vipConfigs_ {};
   };
 

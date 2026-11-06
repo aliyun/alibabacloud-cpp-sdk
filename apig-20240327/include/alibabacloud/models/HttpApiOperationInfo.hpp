@@ -165,31 +165,31 @@ namespace Models
 
 
   protected:
-    // The authentication configuration.
+    // The permission authentication configuration.
     shared_ptr<AuthConfig> authConfig_ {};
     // The creation timestamp.
     shared_ptr<int64_t> createTimestamp_ {};
-    // The backend service deployment information for the API operation.
+    // The API operation backend service deployment information.
     shared_ptr<vector<HttpApiDeployConfig>> deployConfigs_ {};
     // The description.
     shared_ptr<string> description_ {};
-    // Indicates whether authentication is enabled.
+    // Specifies whether authentication is enabled.
     shared_ptr<bool> enableAuth_ {};
-    // The HTTP method of the API operation.
+    // The API operation method.
     shared_ptr<string> method_ {};
-    // The mock parameter settings for the API operation.
+    // The API operation mock parameter settings.
     shared_ptr<HttpApiMockContract> mock_ {};
-    // The name of the API operation.
+    // The API operation name.
     shared_ptr<string> name_ {};
-    // The ID of the API operation.
+    // The API operation ID.
     shared_ptr<string> operationId_ {};
-    // The path of the API operation.
+    // The API operation path.
     shared_ptr<string> path_ {};
-    // The request parameter definition of the API operation.
+    // The API operation request parameter definition.
     shared_ptr<HttpApiRequestContract> request_ {};
-    // The response parameter definition of the API operation.
+    // The API operation response parameter definition.
     shared_ptr<HttpApiResponseContract> response_ {};
-    // The publish status of the API operation on the gateway.
+    // The publication status of the API operation on the gateway.
     shared_ptr<string> status_ {};
   };
 

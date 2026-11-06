@@ -63,7 +63,7 @@ namespace Models
 
 
     protected:
-      // The plugin class ID.
+      // The ID of the plug-in class.
       shared_ptr<string> pluginClassId_ {};
     };
 

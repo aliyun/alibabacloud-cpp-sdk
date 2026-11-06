@@ -93,11 +93,11 @@ namespace Models
     protected:
       // The consumer ID.
       shared_ptr<string> consumerId_ {};
-      // The description of the consumer.
+      // The consumer description.
       shared_ptr<string> description_ {};
-      // Indicates whether the consumer is the primary consumer.
+      // Indicates whether the consumer is a primary consumer.
       shared_ptr<bool> isPrimary_ {};
-      // The name of the consumer.
+      // The consumer name.
       shared_ptr<string> name_ {};
     };
 

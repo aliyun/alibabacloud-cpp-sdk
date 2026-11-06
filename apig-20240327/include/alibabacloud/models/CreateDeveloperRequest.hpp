@@ -50,7 +50,7 @@ namespace Models
   protected:
     // The password of the developer account. The length must be 6 to 32 characters.
     shared_ptr<string> password_ {};
-    // The logon username of the developer. The length must not exceed 64 characters.
+    // The logon username of the developer. The length cannot exceed 64 characters.
     shared_ptr<string> username_ {};
   };
 

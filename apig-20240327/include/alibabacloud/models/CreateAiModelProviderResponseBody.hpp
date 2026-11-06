@@ -248,13 +248,13 @@ namespace Models
 
 
         protected:
-          // The credits consumption coefficient for cached tokens.
+          // The credit consumption coefficient for cached tokens.
           shared_ptr<float> cacheCost_ {};
-          // The credits consumption coefficient for input tokens.
+          // The credit consumption coefficient for input tokens.
           shared_ptr<float> inputCost_ {};
-          // The credits consumption coefficient for output tokens.
+          // The credit consumption coefficient for output tokens.
           shared_ptr<float> outputCost_ {};
-          // The credits billing type.
+          // The billing type for credits.
           shared_ptr<string> type_ {};
         };
 
@@ -393,23 +393,23 @@ namespace Models
       protected:
         // The list of available paths for the model.
         shared_ptr<vector<ModelCards::AvailablePaths>> availablePaths_ {};
-        // The credits consumption configuration of the model.
+        // The credits consumption configuration for the model.
         shared_ptr<ModelCards::Credit> credit_ {};
         // The capability features of the model.
         Darabonba::Json features_ {};
-        // The instance ID of the gateway to which the model card belongs.
+        // The associated gateway instance ID.
         shared_ptr<string> gatewayId_ {};
-        // The model metadata.
+        // The metadata of the model.
         shared_ptr<ModelCards::Meta> meta_ {};
-        // The model card ID.
+        // The ID of the model card.
         shared_ptr<string> modelCardId_ {};
-        // The model name.
+        // The name of the model.
         shared_ptr<string> modelName_ {};
-        // The identifier of the model provider to which the model card belongs.
+        // The identifier of the associated model provider.
         shared_ptr<string> modelProvider_ {};
-        // The model source.
+        // The source of the model.
         shared_ptr<string> source_ {};
-        // The URL of the model metadata.
+        // The URL for the model metadata.
         shared_ptr<string> sourceURL_ {};
         // The last update time in the yyyy-MM-ddTHH:mm:ssZ format.
         shared_ptr<string> updateTime_ {};
@@ -496,7 +496,7 @@ namespace Models
       shared_ptr<vector<Data::ModelCards>> modelCards_ {};
       // The number of models under the provider.
       shared_ptr<int32_t> modelCount_ {};
-      // The model provider ID.
+      // The ID of the model provider.
       shared_ptr<string> modelProviderId_ {};
       // The identifier of the model provider.
       shared_ptr<string> provider_ {};
@@ -541,7 +541,7 @@ namespace Models
   protected:
     // The response status code.
     shared_ptr<string> code_ {};
-    // The response struct.
+    // The response structure.
     shared_ptr<CreateAiModelProviderResponseBody::Data> data_ {};
     // The response message.
     shared_ptr<string> message_ {};

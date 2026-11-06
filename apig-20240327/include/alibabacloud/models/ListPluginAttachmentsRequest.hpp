@@ -112,11 +112,11 @@ namespace Models
 
 
   protected:
-    // The mount resource ID.
+    // The ID of the mounted resource.
     shared_ptr<string> attachResourceId_ {};
-    // The plug-in mount point type. This parameter is not yet enabled.
+    // The type of the plugin mount point. This parameter is not yet enabled.
     shared_ptr<string> attachResourceType_ {};
-    // The mount point types. Separate multiple types with commas.
+    // The types of mount points. Separate multiple values with commas.
     shared_ptr<string> attachResourceTypes_ {};
     // The environment ID.
     shared_ptr<string> environmentId_ {};
@@ -126,9 +126,9 @@ namespace Models
     shared_ptr<int32_t> pageNumber_ {};
     // The number of entries per page.
     shared_ptr<int32_t> pageSize_ {};
-    // The plug-in ID.
+    // The plugin ID.
     shared_ptr<string> pluginId_ {};
-    // Specifies whether to return parent resource mounts.
+    // Specifies whether to return the mounts of parent resources. <notice>If this parameter is set to true, it must be used together with a single value of attachResourceTypes. Valid values: GatewayRoute and Operation.</notice>
     shared_ptr<bool> withParentResource_ {};
   };
 

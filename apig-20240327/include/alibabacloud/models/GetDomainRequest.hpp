@@ -38,7 +38,7 @@ namespace Models
 
 
   protected:
-    // Specifies whether to return online resource information.
+    // Specifies whether to return production resource information.
     shared_ptr<bool> withStatistics_ {};
   };
 
