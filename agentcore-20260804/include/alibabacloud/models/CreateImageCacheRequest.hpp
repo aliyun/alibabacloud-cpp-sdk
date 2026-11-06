@@ -109,11 +109,11 @@ namespace Models
 
 
     protected:
-      // Specifies whether to allow the current source reading and transfer to use the public network. At least one of this parameter and accessVpc must be set to true. The server verifies the access conditions of the current workspace.
+      // Specifies whether to allow public network access for the current source reading and transfer. At least one of this parameter and `accessVpc` must be set to true. The server validates the access conditions of the current workspace.
       // 
       // This parameter is required.
       shared_ptr<bool> accessInternet_ {};
-      // Specifies whether to allow the current source reading and transfer to use a VPC. At least one of this parameter and accessInternet must be set to true. The server parses the trusted network of the current workspace and does not modify the agent runtime network.
+      // Specifies whether to allow the use of a VPC for the current source reading and transfer. At least one of this parameter and `accessInternet` must be set to true. The server resolves the trusted network of the current workspace and does not modify the runtime network of the agent.
       // 
       // This parameter is required.
       shared_ptr<bool> accessVpc_ {};
@@ -125,7 +125,7 @@ namespace Models
       // 
       // This parameter is required.
       shared_ptr<string> namespace_ {};
-      // The name of the repository under the namespace. Do not include the namespace repeatedly.
+      // The name of the repository under the namespace. Do not include the namespace in the repository name.
       // 
       // This parameter is required.
       shared_ptr<string> repository_ {};
@@ -168,19 +168,19 @@ namespace Models
 
 
   protected:
-    // The business parameters for creating an image cache.
+    // The request body for creating an image cache.
     // 
     // This parameter is required.
     shared_ptr<CreateImageCacheRequest::Body> body_ {};
-    // This parameter is required and cannot be empty. It is reserved to be compatible with the API. Currently, it does not provide the ability to deduplicate requests or recover the original result based on this field. If a timeout occurs or the result is unconfirmed, query the query cache status first before deciding whether to recommit.
+    // The non-empty request token passed as a query parameter. The current implementation does not guarantee deduplication by this token or recovery of the original acceptance result.
     // 
     // This parameter is required.
     shared_ptr<string> clientToken_ {};
-    // The product entry region, which is determined by the selected region endpoint.
+    // The product entry region, passed as a query parameter. It must match the selected region endpoint and the workspace region.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
-    // The current routed workspace. The server verifies the account, region, and resource ownership. This parameter cannot be omitted or used to access other workspaces.
+    // The workspace ID.
     // 
     // This parameter is required.
     shared_ptr<string> workspaceId_ {};

@@ -286,15 +286,15 @@ namespace Models
       shared_ptr<string> createTime_ {};
       // The channel credential summary. Only non-sensitive fields and configured secret field names are returned. Secret values are not returned.
       shared_ptr<Data::CredentialSummary> credentialSummary_ {};
-      // Specifies whether the IM channel is enabled. The default value is true upon creation.
+      // Indicates whether the IM channel is enabled. Default value: true.
       shared_ptr<bool> enabled_ {};
-      // The public network access URL of the attached service endpoint.
+      // The public network access URL of the attached ServiceEndpoint.
       shared_ptr<string> endpointUrl_ {};
       // The IM channel ID.
       shared_ptr<string> imChannelId_ {};
-      // The ID of the bound service endpoint. The endpoint must belong to the specified agent and its current version, be in the ready state, and have a public endpoint URL.
+      // The ID of the bound service endpoint. The endpoint must belong to the specified agent and its current version, be in the ready state, and have a public address.
       shared_ptr<string> serviceEndpointId_ {};
-      // The IM channel status. Valid values: CREATING (Creating), READY (Ready), UPDATING (Updating), FAILED (Failed), DELETING (Deleting), and DELETE_FAILED (Deletion failed).
+      // The IM channel status. Valid values: CREATING (creating), READY (ready), UPDATING (updating), FAILED (failed), DELETING (deleting), and DELETE_FAILED (deletion failed).
       shared_ptr<string> status_ {};
       // The reason for the current status of the IM channel.
       shared_ptr<string> statusReason_ {};
@@ -351,13 +351,13 @@ namespace Models
 
 
   protected:
-    // The business status code. The value is SUCCESS if the request succeeds.
+    // The business status code. The value is SUCCESS if the request is successful.
     shared_ptr<string> code_ {};
     // The IM channel details.
     shared_ptr<GetAgentIMChannelResponseBody::Data> data_ {};
-    // The HTTP status code. The value is 200 if the request succeeds.
+    // The HTTP status code. The value is 200 if the request is successful.
     shared_ptr<int32_t> httpStatusCode_ {};
-    // The result message of the request.
+    // The request processing result message.
     shared_ptr<string> message_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

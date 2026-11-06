@@ -134,7 +134,7 @@ namespace Models
     protected:
       // The CRC64 value of the code package object.
       shared_ptr<string> crc64_ {};
-      // The time-limited, read-only download URL for the code package.
+      // The time-limited read-only download URL for the code package.
       shared_ptr<string> downloadUrl_ {};
       // The ETag of the code package object.
       shared_ptr<string> etag_ {};
@@ -142,7 +142,7 @@ namespace Models
       shared_ptr<string> expiresAt_ {};
       // The original file name of the code package.
       shared_ptr<string> fileName_ {};
-      // The compressed size of the code package.
+      // The compressed file size of the code package, in bytes.
       shared_ptr<int64_t> fileSize_ {};
       // The format of the code package.
       shared_ptr<string> format_ {};

@@ -213,9 +213,9 @@ namespace Models
       shared_ptr<string> description_ {};
       // The absolute HTTP or HTTPS URL of the upstream model service. The URL can be up to 1,024 characters in length.
       shared_ptr<string> endpoint_ {};
-      // The name of the model connection. The name must be 1 to 128 non-whitespace characters in length.
+      // The name of the model connection. The name is 1 to 128 non-whitespace characters in length.
       shared_ptr<string> name_ {};
-      // The protocol used to invoke the model. Currently, only OpenAI/v1 is supported. If no Settings are specified during model creation, this default value is used.
+      // The protocol to invoke the model. Currently, only OpenAI/v1 is supported. If the Settings are not specified during model creation, this default value is used.
       shared_ptr<string> protocol_ {};
       // The type of the model provider.
       shared_ptr<string> providerType_ {};
@@ -223,7 +223,7 @@ namespace Models
       shared_ptr<string> regionId_ {};
       // The status of the resource.
       shared_ptr<string> status_ {};
-      // The failure summary returned when the model connection fails to be published, or when deletion fails but the resource remains in the deleting state. This field is empty in other states.
+      // The failure summary returned when the model connection fails to be published, or when deletion fails but the connection remains in the deleting state. This field is empty in other states.
       shared_ptr<string> statusReason_ {};
       // The time when the resource was last updated. The time is in RFC 3339 UTC format.
       shared_ptr<string> updatedAt_ {};
@@ -278,11 +278,11 @@ namespace Models
 
 
   protected:
-    // The business status code. The value is SUCCESS when the request is successful.
+    // The business status code. The value is SUCCESS when the operation is successful.
     shared_ptr<string> code_ {};
     // The detailed information about the model connection.
     shared_ptr<GetModelConnectionResponseBody::Data> data_ {};
-    // The HTTP status code. The value is 200 when the request is successful.
+    // The HTTP status code. The value is 200 if the request is successful.
     shared_ptr<int32_t> httpStatusCode_ {};
     // The message about the request processing result.
     shared_ptr<string> message_ {};

@@ -111,11 +111,11 @@ namespace Models
 
 
     protected:
-      // Indicates whether the department has child departments. A value of true indicates that the department has child departments and an expansion entry can be displayed accordingly. A value of false indicates a leaf node. If this field is not returned, the status is unknown. You must use the ID of the current node to make another query to obtain the details of the child departments.
+      // Indicates whether the department has child departments. A value of true indicates that the department has child departments, and an expansion entry can be displayed based on this value. A value of false indicates a leaf node. If this parameter is not returned, the value is unknown. To obtain details about the child departments, use the ID of the current node to query them separately.
       shared_ptr<bool> hasChildren_ {};
-      // The unique identifier of the department returned by the identity provider. When querying the child departments of this node, use this value as the parentDepartmentId.
+      // The unique identifier of the department returned by the identity provider. When querying the child departments of this node, use this value as parentDepartmentId.
       shared_ptr<string> id_ {};
-      // The number of members in the department returned by the identity provider. This field is not returned when the number is unknown. Do not treat a missing value as 0.
+      // The number of department members returned by the identity provider. This parameter is not returned when the value is unknown. Do not treat a missing value as 0.
       shared_ptr<int64_t> memberCount_ {};
       // The name of the department returned by the identity provider.
       shared_ptr<string> name_ {};
@@ -192,23 +192,23 @@ namespace Models
 
 
   protected:
-    // The business status code of the API request. SUCCESS indicates that the request is successful, but does not indicate that the asynchronous synchronization task is completed.
+    // The business status code of the API request. SUCCESS indicates that the current request is successful, but does not indicate that the asynchronous synchronization task is completed.
     shared_ptr<string> code_ {};
-    // The HTTP status code of the API request, which does not indicate the execution result of the asynchronous task.
+    // The HTTP status code of the API request. This does not indicate the execution result of an asynchronous task.
     shared_ptr<int32_t> httpStatusCode_ {};
-    // The direct child departments on the current page under the current parent department. You must make another query to obtain the details of the child departments.
+    // The direct child departments on the current page under the current parent department. For details about the child departments, query them separately.
     shared_ptr<vector<ListIdentityProviderDepartmentsResponseBody::Items>> items_ {};
-    // The number of items per page used for this query.
+    // The number of entries per page used for the current query.
     shared_ptr<int32_t> maxResults_ {};
     // The response message of the API request.
     shared_ptr<string> message_ {};
-    // The token for the next page. An empty or missing value indicates that there are no subsequent pages at the current hierarchy level of the parent department, but does not indicate that the entire department tree has been returned.
+    // The token for the next page. An empty value or no return value indicates that there are no subsequent pages at the current level of the parent department, which does not mean that the entire department tree has been returned.
     shared_ptr<string> nextToken_ {};
     // The unique identifier of the request. Provide this value when troubleshooting issues.
     shared_ptr<string> requestId_ {};
     // Indicates whether the API request is successful. To check whether an asynchronous task is completed, query the task status.
     shared_ptr<bool> success_ {};
-    // The total number of departments. This operation does not provide this statistic and may not return this field. Do not treat a missing value as 0.
+    // The total number of departments. This operation does not calculate the total number of departments. Currently, JSON null is actually returned. To determine whether pagination has ended, check whether nextToken is an empty string.
     shared_ptr<int64_t> totalCount_ {};
   };
 

@@ -116,7 +116,7 @@ namespace Models
       // 
       // This parameter is required.
       shared_ptr<string> roleName_ {};
-      // The source of the shared role. This does not indicate that authorization is complete.
+      // The source of the shared role. This does not indicate that the authorization is complete.
       // 
       // This parameter is required.
       shared_ptr<string> roleSource_ {};

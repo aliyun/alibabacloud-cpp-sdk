@@ -48,9 +48,9 @@ namespace Models
 
 
   protected:
-    // The page size. The current version does not support this parameter.
+    // The page size. This parameter is not supported in the current version.
     shared_ptr<int32_t> maxResults_ {};
-    // The next page token. The current version does not support this parameter.
+    // The next token. This parameter is not supported in the current version.
     shared_ptr<string> nextToken_ {};
   };
 

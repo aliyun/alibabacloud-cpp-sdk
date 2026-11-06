@@ -104,9 +104,9 @@ namespace Models
 
 
       protected:
-        // The business error code for image preparation. This code is used to identify the failure type. For the specific cause, refer to the message.
+        // The business error code for image preparation. It is used to identify the failure type. For the specific cause, see message.
         shared_ptr<string> code_ {};
-        // The specific cause of the failure. This may include underlying errors such as image not found, authentication failure, network timeout, or certificate verification error. Passwords, tokens, or authentication headers are not returned. If the underlying system does not provide a cause, a general description is returned.
+        // The specific cause of the failure. It may include underlying errors such as image not found, authentication failure, network timeout, or certificate verification error. Passwords, tokens, or authentication headers are not returned. If the underlying system does not provide a cause, a general description is returned.
         shared_ptr<string> message_ {};
       };
 
@@ -152,13 +152,13 @@ namespace Models
     protected:
       // The target agent ID.
       shared_ptr<string> agentId_ {};
-      // The error information. This field is returned only when the task fails. Otherwise, the value is null.
+      // The error. This parameter is returned only when the task fails. Otherwise, the value is null.
       shared_ptr<Data::Error> error_ {};
-      // The failed phase. This field is returned only when the status is FAILED. Otherwise, the value is null.
+      // The phase where the failure occurred. This parameter is returned only when the phase is FAILED. Otherwise, the value is null.
       shared_ptr<string> failedPhase_ {};
-      // The current phase. Only SUCCEEDED indicates that the deployment of the target version is successful.
+      // The current phase. Only SUCCEEDED indicates that the target version is deployed successfully.
       shared_ptr<string> phase_ {};
-      // The console submission task ID.
+      // The Console task ID for the current submission.
       shared_ptr<string> preparationId_ {};
     };
 
@@ -211,7 +211,7 @@ namespace Models
   protected:
     // The business status code.
     shared_ptr<string> code_ {};
-    // The preparation query result. Refer to the phase for the asynchronous execution status.
+    // The preparation query result. For the asynchronous execution status, see phase.
     shared_ptr<GetCustomAgentImagePreparationResponseBody::Data> data_ {};
     // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};

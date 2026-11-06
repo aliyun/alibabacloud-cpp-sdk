@@ -161,7 +161,7 @@ namespace Models
         shared_ptr<bool> multiToolCall_ {};
         // Specifies whether the model supports reasoning capabilities.
         shared_ptr<bool> reasoning_ {};
-        // Specifies whether the model is able to invoke tool calling in a streaming manner.
+        // Specifies whether the model is able to invoke streaming tool calling.
         shared_ptr<bool> streamToolCall_ {};
         // Specifies whether the model supports tool calling.
         shared_ptr<bool> toolCall_ {};
@@ -224,11 +224,11 @@ namespace Models
       // 
       // This parameter is required.
       shared_ptr<string> connectionId_ {};
-      // The context window size of the model, in tokens. It must be a positive integer.
+      // The context window size of the model, in tokens. The value must be a positive integer.
       shared_ptr<int64_t> contextSize_ {};
-      // The model description. Maximum length: 255 characters.
+      // The model description, up to 255 characters in length.
       shared_ptr<string> description_ {};
-      // The maximum number of output tokens supported per generation.
+      // The maximum number of output tokens supported by the model per generation.
       shared_ptr<int64_t> maxTokens_ {};
       // The upstream model name.
       // 
@@ -257,7 +257,7 @@ namespace Models
   protected:
     // The request body.
     shared_ptr<CreateModelRequest::Body> body_ {};
-    // The client token used for idempotence. This parameter is not supported.
+    // The client token used for idempotence. This parameter is currently not supported.
     shared_ptr<string> clientToken_ {};
   };
 

@@ -178,11 +178,11 @@ namespace Models
 
 
     protected:
-      // API_KEY 表示使用 API Key；USER 表示使用用户身份。
+      // The inbound access mode.
       shared_ptr<string> accessMode_ {};
-      // 仅 accessMode 为 USER 时返回：ALL 表示全部用户，SPECIFIED 表示指定用户。
+      // The user access scope.
       shared_ptr<string> accessScope_ {};
-      // The managed agent ID.
+      // The ID of the managed Harness agent.
       shared_ptr<string> agentId_ {};
       // The creation mode.
       shared_ptr<string> createMode_ {};
@@ -190,15 +190,15 @@ namespace Models
       shared_ptr<string> createdAt_ {};
       // The deployment type.
       shared_ptr<string> deployType_ {};
-      // The description of the managed agent.
+      // The description of the managed Harness agent.
       shared_ptr<string> description_ {};
-      // The latest specification version.
+      // The latest specification version number.
       shared_ptr<int64_t> latestSpecVersion_ {};
-      // The name of the managed agent.
+      // The name of the managed Harness agent.
       shared_ptr<string> name_ {};
       // The runtime type.
       shared_ptr<string> runtime_ {};
-      // The status of the managed agent.
+      // The status of the managed Harness agent.
       shared_ptr<string> status_ {};
       // The update time in RFC 3339 format.
       shared_ptr<string> updatedAt_ {};
@@ -255,11 +255,11 @@ namespace Models
   protected:
     // The business status code. The value is SUCCESS if the request is successful.
     shared_ptr<string> code_ {};
-    // The summary information of the deleted managed agent.
+    // The summary information of the managed Harness agent after deletion.
     shared_ptr<DeleteManagedAgentResponseBody::Data> data_ {};
     // The HTTP status code. The value is 200 if the request is successful.
     shared_ptr<int32_t> httpStatusCode_ {};
-    // The request processing result message.
+    // The message about the request processing result.
     shared_ptr<string> message_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

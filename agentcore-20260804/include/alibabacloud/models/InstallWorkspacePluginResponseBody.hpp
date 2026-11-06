@@ -95,11 +95,11 @@ namespace Models
 
 
     protected:
-      // Indicates whether the plugin is enabled.
+      // Indicates whether the component is enabled.
       shared_ptr<bool> enabled_ {};
-      // The plugin name.
+      // The component name.
       shared_ptr<string> pluginName_ {};
-      // The plugin status. Valid values: DISABLED, ENABLING, ENABLED, ENABLE_FAILED, DISABLING, and DISABLE_FAILED.
+      // The component status. Valid values: DISABLED, ENABLING, ENABLED, ENABLE_FAILED, DISABLING, and DISABLE_FAILED.
       shared_ptr<string> status_ {};
       // The workspace ID.
       shared_ptr<string> workspaceId_ {};
@@ -154,11 +154,11 @@ namespace Models
   protected:
     // The business status code.
     shared_ptr<string> code_ {};
-    // The details of the plugin installation operation.
+    // The details of the component installation operation.
     shared_ptr<InstallWorkspacePluginResponseBody::Data> data_ {};
     // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
-    // The response message. Returns an error description when the request fails.
+    // The response message. An error description is returned if the request fails.
     shared_ptr<string> message_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

@@ -215,7 +215,7 @@ namespace Models
       shared_ptr<string> description_ {};
       // The display metadata of the template.
       Darabonba::Json displayMetadata_ {};
-      // The multilingual display content organized by BCP-47 language tags. Falls back to default fields if the specified language is not matched.
+      // The multilingual display content organized by BCP-47 language tags. If a language is not matched, the system falls back to the default fields.
       shared_ptr<map<string, ItemsI18nValue>> i18n_ {};
       // The icon URL of the MCP marketplace template.
       shared_ptr<string> iconUrl_ {};
@@ -235,7 +235,7 @@ namespace Models
       shared_ptr<string> readme_ {};
       // The schema version of the template.
       shared_ptr<string> schemaVersion_ {};
-      // The template input schema, represented as a JSON Schema string.
+      // The input schema of the template, represented as a JSON Schema string.
       shared_ptr<string> templateInputSchema_ {};
       // The version of the MCP marketplace template.
       shared_ptr<string> templateVersion_ {};
@@ -316,17 +316,17 @@ namespace Models
     shared_ptr<int32_t> httpStatusCode_ {};
     // The list of query results.
     shared_ptr<vector<ListMcpMarketItemsResponseBody::Items>> items_ {};
-    // The maximum number of records to return in this query.
+    // The maximum number of records to return for this query.
     shared_ptr<int32_t> maxResults_ {};
     // The response message.
     shared_ptr<string> message_ {};
-    // The pagination token used to retrieve the next page of results.
+    // The pagination token used to query the next page.
     shared_ptr<string> nextToken_ {};
-    // The request ID, which is used to locate and troubleshoot issues.
+    // The request ID used to locate and troubleshoot the request.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request was successful.
+    // Indicates whether the request is successful.
     shared_ptr<bool> success_ {};
-    // The total number of records that match the specified conditions.
+    // The total number of records that meet the conditions.
     shared_ptr<int64_t> totalCount_ {};
   };
 

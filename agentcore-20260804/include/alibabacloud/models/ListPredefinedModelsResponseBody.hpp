@@ -164,7 +164,7 @@ namespace Models
         shared_ptr<bool> audio_ {};
         // Indicates whether the model supports document input.
         shared_ptr<bool> document_ {};
-        // Specifies whether the model is able to invoke multiple tool calling in a single response.
+        // Specifies whether the model is able to invoke multiple tool calling operations in a single response.
         shared_ptr<bool> multiToolCall_ {};
         // Indicates whether the model supports reasoning capabilities.
         shared_ptr<bool> reasoning_ {};
@@ -222,11 +222,11 @@ namespace Models
       shared_ptr<Data::Capabilities> capabilities_ {};
       // The context window size of the model, in tokens. The value must be a positive integer.
       shared_ptr<int64_t> contextSize_ {};
-      // The maximum number of output tokens supported by the model in a single generation.
+      // The maximum number of output tokens supported by the model per generation.
       shared_ptr<int64_t> maxTokens_ {};
       // The upstream model name.
       shared_ptr<string> modelName_ {};
-      // The release date of the model. The format is YYYY-MM-DD.
+      // The release date of the model, in the YYYY-MM-DD format.
       shared_ptr<string> releaseDate_ {};
     };
 
@@ -277,13 +277,13 @@ namespace Models
 
 
   protected:
-    // The business status code. The value is SUCCESS if the request is successful.
+    // The business status code. The value is SUCCESS if the request succeeds.
     shared_ptr<string> code_ {};
     // The list of predefined models.
     shared_ptr<vector<ListPredefinedModelsResponseBody::Data>> data_ {};
-    // The HTTP status code. The value is 200 if the request is successful.
+    // The HTTP status code. The value is 200 if the request succeeds.
     shared_ptr<int32_t> httpStatusCode_ {};
-    // The message indicating the request processing result.
+    // The message about the request processing result.
     shared_ptr<string> message_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

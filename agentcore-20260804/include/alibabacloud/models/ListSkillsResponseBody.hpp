@@ -69,6 +69,7 @@ namespace Models
           DARABONBA_PTR_TO_JSON(description, description_);
           DARABONBA_PTR_TO_JSON(downloadCount, downloadCount_);
           DARABONBA_PTR_TO_JSON(draftMode, draftMode_);
+          DARABONBA_PTR_TO_JSON(editable, editable_);
           DARABONBA_PTR_TO_JSON(editingVersion, editingVersion_);
           DARABONBA_PTR_TO_JSON(enable, enable_);
           DARABONBA_PTR_TO_JSON(from, from_);
@@ -87,6 +88,7 @@ namespace Models
           DARABONBA_PTR_FROM_JSON(description, description_);
           DARABONBA_PTR_FROM_JSON(downloadCount, downloadCount_);
           DARABONBA_PTR_FROM_JSON(draftMode, draftMode_);
+          DARABONBA_PTR_FROM_JSON(editable, editable_);
           DARABONBA_PTR_FROM_JSON(editingVersion, editingVersion_);
           DARABONBA_PTR_FROM_JSON(enable, enable_);
           DARABONBA_PTR_FROM_JSON(from, from_);
@@ -112,9 +114,10 @@ namespace Models
         virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
         virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
         virtual bool empty() const override { return this->bizTags_ == nullptr
-        && this->description_ == nullptr && this->downloadCount_ == nullptr && this->draftMode_ == nullptr && this->editingVersion_ == nullptr && this->enable_ == nullptr
-        && this->from_ == nullptr && this->labels_ == nullptr && this->name_ == nullptr && this->onlineCnt_ == nullptr && this->owner_ == nullptr
-        && this->reviewingVersion_ == nullptr && this->scope_ == nullptr && this->updateTime_ == nullptr && this->workspaceId_ == nullptr && this->writeable_ == nullptr; };
+        && this->description_ == nullptr && this->downloadCount_ == nullptr && this->draftMode_ == nullptr && this->editable_ == nullptr && this->editingVersion_ == nullptr
+        && this->enable_ == nullptr && this->from_ == nullptr && this->labels_ == nullptr && this->name_ == nullptr && this->onlineCnt_ == nullptr
+        && this->owner_ == nullptr && this->reviewingVersion_ == nullptr && this->scope_ == nullptr && this->updateTime_ == nullptr && this->workspaceId_ == nullptr
+        && this->writeable_ == nullptr; };
         // bizTags Field Functions 
         bool hasBizTags() const { return this->bizTags_ != nullptr;};
         void deleteBizTags() { this->bizTags_ = nullptr;};
@@ -141,6 +144,13 @@ namespace Models
         void deleteDraftMode() { this->draftMode_ = nullptr;};
         inline string getDraftMode() const { DARABONBA_PTR_GET_DEFAULT(draftMode_, "") };
         inline PageItems& setDraftMode(string draftMode) { DARABONBA_PTR_SET_VALUE(draftMode_, draftMode) };
+
+
+        // editable Field Functions 
+        bool hasEditable() const { return this->editable_ != nullptr;};
+        void deleteEditable() { this->editable_ = nullptr;};
+        inline bool getEditable() const { DARABONBA_PTR_GET_DEFAULT(editable_, false) };
+        inline PageItems& setEditable(bool editable) { DARABONBA_PTR_SET_VALUE(editable_, editable) };
 
 
         // editingVersion Field Functions 
@@ -230,21 +240,19 @@ namespace Models
 
 
       protected:
-        // The business tags as a JSON array string.
+        // The business tags in a JSON array string.
         shared_ptr<string> bizTags_ {};
         // The description.
         shared_ptr<string> description_ {};
         // The total number of downloads.
         shared_ptr<int64_t> downloadCount_ {};
-        // The draft mode. Valid values:
-        // - HEAD: The Skill has a persistent draft.
-        // - VERSIONED: Each edit creates a versioned draft.
-        // 
-        // The value is determined by the server. The caller uses this value to render the status column.
+        // The draft mode. Valid values: HEAD (the skill has a persistent draft) and VERSIONED (each edit creates a versioned draft). This is determined by the server and used by the caller to render the status column.
         shared_ptr<string> draftMode_ {};
-        // The version that is being edited. In HEAD draft mode, the value is HEAD.
+        // Indicates whether the page item is editable.
+        shared_ptr<bool> editable_ {};
+        // The version being edited. The value is HEAD in HEAD draft mode.
         shared_ptr<string> editingVersion_ {};
-        // Indicates whether the Skill is enabled.
+        // Indicates whether the skill is enabled.
         shared_ptr<bool> enable_ {};
         // The source tag.
         shared_ptr<string> from_ {};
@@ -256,11 +264,11 @@ namespace Models
         shared_ptr<int32_t> onlineCnt_ {};
         // The resource owner.
         shared_ptr<string> owner_ {};
-        // The version that is under review. In HEAD draft mode, the value is HEAD.
+        // The version under review. The value is HEAD in HEAD draft mode.
         shared_ptr<string> reviewingVersion_ {};
         // The visibility scope.
         shared_ptr<string> scope_ {};
-        // The update time. This value is a UNIX timestamp in milliseconds.
+        // The update time. It is a UNIX timestamp in milliseconds.
         shared_ptr<int64_t> updateTime_ {};
         // The workspace ID.
         shared_ptr<string> workspaceId_ {};
@@ -346,9 +354,9 @@ namespace Models
   protected:
     // The returned data.
     shared_ptr<ListSkillsResponseBody::Data> data_ {};
-    // The maximum number of entries per page.
+    // The maximum number of items to return per page.
     shared_ptr<int32_t> maxResults_ {};
-    // The pagination token for the next page.
+    // The token for the next page.
     shared_ptr<string> nextToken_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

@@ -38,7 +38,7 @@ namespace Models
 
 
   protected:
-    // The network type for onboarding. Valid values: INTRANET (internal network) and INTERNET (Internet).
+    // The access network type. Valid values: INTRANET (internal network) and INTERNET (Internet).
     // 
     // This parameter is required.
     shared_ptr<string> networkType_ {};

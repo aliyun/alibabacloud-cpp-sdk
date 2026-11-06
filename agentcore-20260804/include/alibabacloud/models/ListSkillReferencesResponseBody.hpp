@@ -141,7 +141,7 @@ namespace Models
 
 
       protected:
-        // The ID of the referencing entity, which is the identifier of the agent or agent spec.
+        // The ID of the referencing entity, which is the identifier of the agent or AgentSpec.
         shared_ptr<string> ownerId_ {};
         // The type of the referencing entity. Valid values: AGENT and AGENTSPEC.
         shared_ptr<string> ownerType_ {};
@@ -192,11 +192,11 @@ namespace Models
     protected:
       // The list of skill reference relationships on the current page.
       shared_ptr<vector<Data::PageItems>> pageItems_ {};
-      // The current page number, starting from 1.
+      // The current page number. Pages start from 1.
       shared_ptr<int32_t> pageNumber_ {};
-      // The total number of available pages.
+      // The total number of pages.
       shared_ptr<int32_t> pagesAvailable_ {};
-      // The total number of reference relationships that meet the conditions.
+      // The total number of reference relationships that meet the specified conditions.
       shared_ptr<int32_t> totalCount_ {};
     };
 
@@ -219,7 +219,7 @@ namespace Models
 
 
   protected:
-    // The skill reference relationship data returned by the paging query.
+    // The skill reference data returned in the paging query.
     shared_ptr<ListSkillReferencesResponseBody::Data> data_ {};
     // The request ID used for troubleshooting.
     shared_ptr<string> requestId_ {};

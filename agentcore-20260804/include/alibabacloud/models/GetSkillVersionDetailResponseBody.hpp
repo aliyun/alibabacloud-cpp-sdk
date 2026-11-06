@@ -104,9 +104,9 @@ namespace Models
       shared_ptr<string> description_ {};
       // The name.
       shared_ptr<string> name_ {};
-      // The resource mapping in which the key is the resource name.
+      // The resource mapping, where the key is the resource name.
       shared_ptr<map<string, DataResourceValue>> resource_ {};
-      // The Skill card content (SKILL.md).
+      // The skill card content (SKILL.md).
       shared_ptr<string> skillMd_ {};
       // The workspace ID.
       shared_ptr<string> workspaceId_ {};
@@ -131,7 +131,7 @@ namespace Models
 
 
   protected:
-    // The response data.
+    // The returned data.
     shared_ptr<GetSkillVersionDetailResponseBody::Data> data_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

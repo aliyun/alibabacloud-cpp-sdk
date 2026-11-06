@@ -173,7 +173,7 @@ namespace Models
         shared_ptr<bool> audio_ {};
         // Indicates whether the model supports document input.
         shared_ptr<bool> document_ {};
-        // Indicates whether the model is able to invoke tool calling multiple times in a single response.
+        // Indicates whether the model is able to invoke multiple tool calling in a single response.
         shared_ptr<bool> multiToolCall_ {};
         // Indicates whether the model supports reasoning capabilities.
         shared_ptr<bool> reasoning_ {};
@@ -269,17 +269,17 @@ namespace Models
       shared_ptr<string> connectionId_ {};
       // The context window size of the model, in tokens. The value must be a positive integer.
       shared_ptr<int64_t> contextSize_ {};
-      // The time when the resource was created. The time is in RFC 3339 UTC format.
+      // The time when the resource was created. The time is displayed in the RFC 3339 UTC format.
       shared_ptr<string> createdAt_ {};
       // The model description. The maximum length is 255 characters.
       shared_ptr<string> description_ {};
-      // The maximum number of output tokens supported for a single generation of the model.
+      // The maximum number of output tokens supported by the model in a single generation.
       shared_ptr<int64_t> maxTokens_ {};
       // The model ID.
       shared_ptr<string> modelId_ {};
       // The upstream model name.
       shared_ptr<string> modelName_ {};
-      // The time when the resource was last updated. The time is in RFC 3339 UTC format.
+      // The time when the resource was last updated. The time is displayed in the RFC 3339 UTC format.
       shared_ptr<string> updatedAt_ {};
       // The workspace ID.
       shared_ptr<string> workspaceId_ {};
@@ -332,11 +332,11 @@ namespace Models
 
 
   protected:
-    // The business status code. The value is SUCCESS when the request is successful.
+    // The business status code. The value is SUCCESS if the request is successful.
     shared_ptr<string> code_ {};
     // The updated model information.
     shared_ptr<UpdateModelResponseBody::Data> data_ {};
-    // The HTTP status code. The value is 200 when the request is successful.
+    // The HTTP status code. The value is 200 if the request is successful.
     shared_ptr<int32_t> httpStatusCode_ {};
     // The message about the request processing result.
     shared_ptr<string> message_ {};

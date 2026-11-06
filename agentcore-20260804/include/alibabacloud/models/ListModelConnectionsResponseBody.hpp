@@ -131,7 +131,7 @@ namespace Models
       protected:
         // The model ID.
         shared_ptr<string> modelId_ {};
-        // The upstream model name.
+        // The name of the upstream model.
         shared_ptr<string> modelName_ {};
       };
 
@@ -240,31 +240,31 @@ namespace Models
 
 
     protected:
-      // The number of API keys configured for the model connection.
+      // The number of API keys configured in the model connection.
       shared_ptr<int32_t> apiKeyCount_ {};
       // The model connection ID.
       shared_ptr<string> connectionId_ {};
-      // The time when the resource was created, in RFC 3339 UTC format.
+      // The time when the resource was created. The time is displayed in the RFC 3339 UTC format.
       shared_ptr<string> createdAt_ {};
-      // Indicates whether access credentials have been configured for the model connection.
+      // Indicates whether access credentials are configured for the model connection.
       shared_ptr<bool> credentialConfigured_ {};
-      // The description of the model connection. Maximum length: 255 characters.
+      // The description of the model connection. The description can be up to 255 characters in length.
       shared_ptr<string> description_ {};
-      // The absolute HTTP or HTTPS address of the upstream model service. Maximum length: 1024 characters.
+      // The absolute HTTP or HTTPS URL of the upstream model service. The URL can be up to 1,024 characters in length.
       shared_ptr<string> endpoint_ {};
-      // The list of model summaries associated with the model connection.
+      // The list of summaries of models associated with the model connection.
       shared_ptr<vector<Items::Models>> models_ {};
-      // The model connection name. The name must be 1 to 128 non-whitespace characters in length.
+      // The name of the model connection. The name must be 1 to 128 characters in length and cannot contain whitespace characters.
       shared_ptr<string> name_ {};
-      // The model invocation protocol. Currently only OpenAI/v1 is supported. If not configured in Settings when the model connection is created, this default value is used.
+      // The model invocation protocol. Currently, only OpenAI/v1 is supported. If this parameter is not specified during model connection creation, this default value is used.
       shared_ptr<string> protocol_ {};
       // The model provider type.
       shared_ptr<string> providerType_ {};
       // The resource status.
       shared_ptr<string> status_ {};
-      // The failure summary returned when the model connection fails to be published or fails to be deleted but remains in the Deleting state. This value is empty for other states.
+      // The failure summary returned when the model connection fails to be published, or when deletion fails but the connection remains in the deleting state. This field is empty in other states.
       shared_ptr<string> statusReason_ {};
-      // The time when the resource was last updated, in RFC 3339 UTC format.
+      // The time when the resource was last updated. The time is displayed in the RFC 3339 UTC format.
       shared_ptr<string> updatedAt_ {};
       // The workspace ID.
       shared_ptr<string> workspaceId_ {};
@@ -345,17 +345,17 @@ namespace Models
     shared_ptr<int32_t> httpStatusCode_ {};
     // The list of model connections.
     shared_ptr<vector<ListModelConnectionsResponseBody::Items>> items_ {};
-    // The number of records per page. Valid values: 0 to 100. If this parameter is not set or is set to 0, the default value 10 is used.
+    // The maximum number of entries to return on each page. Valid values: 0 to 100. Default value: 10. If this parameter is not specified or is set to 0, the default value is used.
     shared_ptr<int32_t> maxResults_ {};
-    // The request processing result message.
+    // The message about the request processing result.
     shared_ptr<string> message_ {};
-    // The pagination token. Pass the token returned in the previous query. An empty response indicates that no more pages are available.
+    // The pagination token. Pass the token returned in the previous query for the current request. An empty response indicates that no more pages are available.
     shared_ptr<string> nextToken_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request was successful.
+    // Indicates whether the request is successful.
     shared_ptr<bool> success_ {};
-    // The total number of resources that match the query conditions.
+    // The total number of resources that meet the query conditions.
     shared_ptr<int64_t> totalCount_ {};
   };
 

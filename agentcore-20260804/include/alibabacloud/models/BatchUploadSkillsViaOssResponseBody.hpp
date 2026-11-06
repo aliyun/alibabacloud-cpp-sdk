@@ -162,7 +162,7 @@ namespace Models
 
 
   protected:
-    // The returned data.
+    // The response data.
     shared_ptr<BatchUploadSkillsViaOssResponseBody::Data> data_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

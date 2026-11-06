@@ -50,7 +50,7 @@ namespace Models
   protected:
     // The request body for updating a workspace.
     shared_ptr<string> bodyShrink_ {};
-    // The client token used to ensure idempotence.
+    // The client idempotency token.
     shared_ptr<string> clientToken_ {};
   };
 

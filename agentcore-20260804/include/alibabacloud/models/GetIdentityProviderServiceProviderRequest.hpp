@@ -38,7 +38,7 @@ namespace Models
 
 
   protected:
-    // The query parameter is required and only supports the exact value SAML. The response returns SAML.
+    // Required. The query parameter. Only the exact value SAML is supported. The response returns SAML.
     // 
     // This parameter is required.
     shared_ptr<string> protocol_ {};

@@ -38,7 +38,7 @@ namespace Models
 
 
   protected:
-    // The validation request body.
+    // The verification request body.
     // 
     // This parameter is required.
     shared_ptr<string> bodyShrink_ {};

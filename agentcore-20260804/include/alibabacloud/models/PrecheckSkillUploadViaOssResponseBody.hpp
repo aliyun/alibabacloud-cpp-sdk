@@ -189,17 +189,17 @@ namespace Models
 
 
     protected:
-      // The draft mode: HEAD or VERSIONED, determined by the server.
+      // The draft mode. Valid values: HEAD and VERSIONED. The value is determined by the server.
       shared_ptr<string> draftMode_ {};
       // The version currently being edited.
       shared_ptr<string> editingVersion_ {};
-      // The entry path of the Skill package.
+      // The entry path of the skill package.
       shared_ptr<string> entryPath_ {};
-      // Indicates whether the Skill already exists.
+      // Indicates whether the skill already exists.
       shared_ptr<bool> exists_ {};
-      // The content revision identifier of the persistent draft, used to determine whether the local cache has expired. Returned only in HEAD draft mode.
+      // The content revision identifier of the persistent draft, which is used to determine whether the local cache has expired. This parameter is returned only in HEAD draft mode.
       shared_ptr<string> headRevision_ {};
-      // The status of the persistent draft: draft, reviewing, or reviewed. Returned only in HEAD draft mode.
+      // The status of the persistent draft. Valid values: draft, reviewing, and reviewed. This parameter is returned only in HEAD draft mode.
       shared_ptr<string> headStatus_ {};
       // The highest published version.
       shared_ptr<string> maxPublishedVersion_ {};
@@ -207,13 +207,13 @@ namespace Models
       shared_ptr<string> owner_ {};
       // The version parsed from the uploaded content.
       shared_ptr<string> parsedVersion_ {};
-      // The dry run result code.
+      // The precheck result code. HEAD_EXISTS indicates that the upload will overwrite the existing persistent draft and requires secondary confirmation. HEAD_LOCKED indicates that the draft is under review and cannot be overwritten. You must withdraw the review first.
       shared_ptr<string> precheckCode_ {};
       // The reason description.
       shared_ptr<string> reason_ {};
       // The version currently under review.
       shared_ptr<string> reviewingVersion_ {};
-      // The Skill name.
+      // The skill name.
       shared_ptr<string> skillName_ {};
       // The target version.
       shared_ptr<string> targetVersion_ {};
@@ -240,7 +240,7 @@ namespace Models
 
 
   protected:
-    // The response data.
+    // The returned data.
     shared_ptr<vector<PrecheckSkillUploadViaOssResponseBody::Data>> data_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

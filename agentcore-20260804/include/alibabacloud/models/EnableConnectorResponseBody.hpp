@@ -106,13 +106,13 @@ namespace Models
     protected:
       // The number of bound agents.
       shared_ptr<int64_t> boundAgentCount_ {};
-      // The time when the Connector was enabled.
+      // The time when the connector was enabled.
       shared_ptr<string> enabledAt_ {};
-      // The Connector configuration JSON string. This is sensitive information.
+      // The JSON string for the connector configuration. This is sensitive information.
       shared_ptr<string> metadata_ {};
-      // The Connector name. The current value is qodercli.
+      // The connector name. Currently, the value is qodercli.
       shared_ptr<string> name_ {};
-      // The Connector status.
+      // The connector status.
       shared_ptr<string> status_ {};
     };
 
@@ -165,7 +165,7 @@ namespace Models
   protected:
     // The business status code.
     shared_ptr<string> code_ {};
-    // The Connector details.
+    // The connector details.
     shared_ptr<EnableConnectorResponseBody::Data> data_ {};
     // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
@@ -173,7 +173,7 @@ namespace Models
     shared_ptr<string> message_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request was successful.
+    // Indicates whether the request is successful.
     shared_ptr<bool> success_ {};
   };
 

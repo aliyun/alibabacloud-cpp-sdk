@@ -134,11 +134,9 @@ namespace Models
 
 
         protected:
-          // The version selector type. Valid values:
-          // - LABEL: selects by label.
-          // - VERSION: selects by specific version.
+          // The type of the version selector.
           shared_ptr<string> type_ {};
-          // The selector value. If the type is LABEL, this value is a label name such as latest. If the type is VERSION, this value is a specific version number.
+          // The value of the selector. If the type is LABEL, the value is the label name, such as latest. If the type is VERSION, the value is the specific version number.
           shared_ptr<string> value_ {};
         };
 
@@ -170,11 +168,9 @@ namespace Models
       protected:
         // The name.
         shared_ptr<string> name_ {};
-        // The Skill source type. Valid values:
-        // - REFERENCE: references AI Registry.
-        // - STATIC: statically bundled with the package.
+        // The source type of the skill.
         shared_ptr<string> sourceType_ {};
-        // The version selector for the reference. Defaults to LABEL/latest if omitted.
+        // The referenced version selector. If omitted, the default is LABEL/latest.
         shared_ptr<Skills::VersionSelector> versionSelector_ {};
       };
 
@@ -305,9 +301,9 @@ namespace Models
       shared_ptr<string> description_ {};
       // The number of downloads.
       shared_ptr<int64_t> downloadCount_ {};
-      // Indicates whether the AgentSpec is enabled.
+      // Indicates whether it is enabled.
       shared_ptr<bool> enable_ {};
-      // The list of MCP server references.
+      // The list of MCP service references.
       shared_ptr<vector<Data::McpServers>> mcpServers_ {};
       // The name.
       shared_ptr<string> name_ {};
@@ -315,9 +311,9 @@ namespace Models
       shared_ptr<map<string, DataResourceValue>> resource_ {};
       // The visibility scope.
       shared_ptr<string> scope_ {};
-      // The list of Skill references.
+      // The list of skill references.
       shared_ptr<vector<Data::Skills>> skills_ {};
-      // The update time. This value is a UNIX timestamp in milliseconds.
+      // The update time. It is a UNIX timestamp in milliseconds.
       shared_ptr<int64_t> updateTime_ {};
     };
 

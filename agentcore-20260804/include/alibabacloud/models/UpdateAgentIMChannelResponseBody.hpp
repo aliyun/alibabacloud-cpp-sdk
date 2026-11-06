@@ -288,13 +288,13 @@ namespace Models
       shared_ptr<Data::CredentialSummary> credentialSummary_ {};
       // Specifies whether to enable the IM channel. Default value: true.
       shared_ptr<bool> enabled_ {};
-      // The public network access URL of the attached ServiceEndpoint.
+      // The public network access URL of the bound ServiceEndpoint.
       shared_ptr<string> endpointUrl_ {};
       // The IM channel ID.
       shared_ptr<string> imChannelId_ {};
       // The ID of the bound ServiceEndpoint. The endpoint must belong to the specified agent and its current version, and must be ready and have a public endpoint.
       shared_ptr<string> serviceEndpointId_ {};
-      // The IM channel status. Valid values: CREATING (Creating), READY (Ready), UPDATING (Updating), FAILED (Failed), DELETING (Deleting), and DELETE_FAILED (Deletion failed).
+      // The IM channel status. Valid values: CREATING (Creating), READY (Ready), UPDATING (Updating), FAILED (Failed), DELETING (Deleting), and DELETE_FAILED (Delete failed).
       shared_ptr<string> status_ {};
       // The reason for the current status of the IM channel.
       shared_ptr<string> statusReason_ {};
@@ -351,11 +351,11 @@ namespace Models
 
 
   protected:
-    // The business status code. The value is SUCCESS if the request is successful.
+    // The business status code. The value is SUCCESS when the request is successful.
     shared_ptr<string> code_ {};
     // The updated IM channel information.
     shared_ptr<UpdateAgentIMChannelResponseBody::Data> data_ {};
-    // The HTTP status code. The value is 200 if the request is successful.
+    // The HTTP status code. The value is 200 when the request is successful.
     shared_ptr<int32_t> httpStatusCode_ {};
     // The request processing result message.
     shared_ptr<string> message_ {};

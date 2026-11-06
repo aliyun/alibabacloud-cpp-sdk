@@ -122,11 +122,11 @@ namespace Models
 
 
       protected:
-        // The secure and non-empty error code for the current creation failure.
+        // The error code for the creation failure.
         // 
         // This parameter is required.
         shared_ptr<string> code_ {};
-        // The secure and non-empty display message for the creation failure, excluding credentials, internal addresses, or stack traces.
+        // The description of the creation failure.
         // 
         // This parameter is required.
         shared_ptr<string> message_ {};
@@ -237,63 +237,59 @@ namespace Models
 
 
     protected:
-      // The source ACR Enterprise instance ID.
+      // The source ACR instance ID.
       // 
       // This parameter is required.
       shared_ptr<string> acrInstanceId_ {};
-      // The number of unique agents in the current workspace that have useImageCache set to true and are associated with this logical resource. The value is greater than or equal to 0. This uses the same collection as the imageCacheId filter in ListAllAgents. Disabled agents are not counted, regardless of the number of occupied instances.
+      // The number of agents using the cache.
       // 
       // This parameter is required.
       shared_ptr<int64_t> agentCount_ {};
-      // The actual cache size in bytes. The known value is greater than or equal to 0. If unknown, the value is null. The compressed size of the source image cannot be used as a substitute.
+      // The cache size in bytes.
       // 
       // This parameter is required.
       shared_ptr<int64_t> cacheSizeBytes_ {};
-      // Indicates whether deletion is allowed. The value is true if there are no configuration references with the switch enabled, no valid instances occupying the resource, and the resource is not being deleted in the current workspace. If the reference status is unknown, the query fails instead of allowing deletion by default.
+      // Indicates whether deletion is allowed.
       // 
       // This parameter is required.
       shared_ptr<bool> canDelete_ {};
-      // The creation time of the logical resource in the current workspace, in RFC3339 format with time zone. Content updates for the latest tag do not refresh this time.
+      // The resource creation time. It uses the RFC 3339 format. The Z at the end of the example indicates the UTC time zone.
       // 
       // This parameter is required.
       shared_ptr<string> createdAt_ {};
-      // The reason why deletion is blocked. The value is null if canDelete is true. Otherwise, the value is returned based on the priority of DELETING, AGENT_ENABLED, and INSTANCES_RELEASING. Even if the agent count is 0, old instances may still occupy the resource.
+      // The reason why deletion is blocked.
       // 
       // This parameter is required.
       shared_ptr<string> deleteBlockReason_ {};
-      // The current content digest in the sha256: format followed by a 64-character lowercase hexadecimal string. It only describes the currently registered content and does not prove that old instances have been switched.
+      // The current content digest.
       // 
       // This parameter is required.
       shared_ptr<string> digest_ {};
-      // The cache failure reason. This must be a non-null object when the status is FAILED, and null for other statuses. It only describes the current content and the current creation round.
+      // The reason for the cache failure.
       // 
       // This parameter is required.
       shared_ptr<Data::Error> error_ {};
-      // The logical resource ID manageable by the current workspace, not the shared physical cache ID.
+      // The image cache ID.
       // 
       // This parameter is required.
       shared_ptr<string> imageId_ {};
-      // The source image domain name, excluding the protocol, path, and credentials.
+      // The source image domain name.
       // 
       // This parameter is required.
       shared_ptr<string> registry_ {};
-      // The source image repository path in the namespace/repository format, which includes the namespace.
+      // The source image repository path.
       // 
       // This parameter is required.
       shared_ptr<string> repository_ {};
-      // The image cache status. Valid values:
-      // - PENDING: Creating.
-      // - READY: Available.
-      // - FAILED: Abnormal.
-      // - DELETING: Deleting in the current workspace.
+      // The image cache status.
       // 
       // This parameter is required.
       shared_ptr<string> status_ {};
-      // The source image tag with case preserved. Regular tags cannot be registered with different digests, except for the exact lowercase latest tag.
+      // The source image tag.
       // 
       // This parameter is required.
       shared_ptr<string> tag_ {};
-      // The workspace ID, which must match the requested workspace. Resources with the same content from other workspaces are not returned.
+      // The workspace ID.
       // 
       // This parameter is required.
       shared_ptr<string> workspaceId_ {};
@@ -350,7 +346,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> code_ {};
-    // The query result of the image cache details.
+    // The query result for the image cache details.
     // 
     // This parameter is required.
     shared_ptr<GetImageCacheResponseBody::Data> data_ {};
@@ -366,7 +362,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request is successful. This does not indicate that the cache creation is complete.
+    // Indicates whether the request is successful. This does not mean that the cache creation is completed.
     // 
     // This parameter is required.
     shared_ptr<bool> success_ {};

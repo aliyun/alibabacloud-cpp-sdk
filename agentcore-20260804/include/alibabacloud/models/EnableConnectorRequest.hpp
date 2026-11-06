@@ -57,7 +57,7 @@ namespace Models
 
 
     protected:
-      // The Connector configuration JSON string. Set site to global or cn. apiKey is required. serviceAccountKeys must contain at least one named service account key. organizationId is optional.
+      // The JSON string for the connector configuration. The site parameter must be global or cn. The apiKey parameter is required. The serviceAccountKeys parameter must contain at least one named service account key. The organizationId parameter is optional.
       // 
       // This parameter is required.
       shared_ptr<string> metadata_ {};
@@ -74,7 +74,7 @@ namespace Models
 
 
   protected:
-    // The enable request body.
+    // The request body for enabling the connector.
     // 
     // This parameter is required.
     shared_ptr<EnableConnectorRequest::Body> body_ {};

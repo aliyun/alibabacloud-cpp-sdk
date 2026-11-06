@@ -77,13 +77,13 @@ namespace Models
   protected:
     // The filter condition for exact match on the email address.
     shared_ptr<string> email_ {};
-    // The maximum number of records to return per page. Valid values: 1 to 100. If this parameter is not specified, 10 records are returned by default.
+    // The maximum number of records to return per page. Valid values: 1 to 100. If you do not specify this parameter, 10 records are returned by default.
     shared_ptr<int32_t> maxResults_ {};
-    // The filter condition for exact match on the user name.
+    // The filter condition for exact match on the username.
     shared_ptr<string> name_ {};
-    // The filter condition for fuzzy match on the user name. The value can be up to 128 characters in length.
+    // The filter condition for fuzzy match on the username. The value can be up to 128 characters in length.
     shared_ptr<string> nameLike_ {};
-    // The cursor for querying the next page. Do not specify this parameter in the first call. In subsequent calls, specify the nextToken value returned in the previous call.
+    // The cursor for querying the next page. Do not specify this parameter in the first call. Specify the nextToken value returned in the previous call for subsequent calls.
     shared_ptr<string> nextToken_ {};
   };
 

@@ -89,7 +89,7 @@ namespace Models
 
 
       protected:
-        // The ID of the long-term memory.
+        // The long-term memory ID.
         shared_ptr<string> memoryId_ {};
       };
 
@@ -112,9 +112,9 @@ namespace Models
 
 
     protected:
-      // The memory references returned only when sync is set to true. An empty array is allowed. This parameter is not returned together with taskId.
+      // The memory references. This parameter is returned only when sync is set to true. An empty array is allowed. This parameter is not returned together with taskId.
       shared_ptr<vector<Data::Memories>> memories_ {};
-      // The ID of the task returned only when sync is set to false. This parameter is not returned together with memories.
+      // The task ID. This parameter is returned only when sync is set to false. This parameter is not returned together with memories.
       shared_ptr<string> taskId_ {};
     };
 
@@ -167,13 +167,13 @@ namespace Models
   protected:
     // The business status code.
     shared_ptr<string> code_ {};
-    // The result of the write operation.
+    // The write result.
     shared_ptr<AddMemoriesResponseBody::Data> data_ {};
     // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
     // The response message.
     shared_ptr<string> message_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
     // Indicates whether the request is successful.
     shared_ptr<bool> success_ {};

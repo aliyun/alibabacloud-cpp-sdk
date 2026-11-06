@@ -117,9 +117,9 @@ namespace Models
       protected:
         // The CMS reporting endpoint.
         shared_ptr<string> endpoint_ {};
-        // The license key used for CMS connection.
+        // The license key used for CMS access.
         shared_ptr<string> licenseKey_ {};
-        // The CMS workspace name.
+        // The name of the CMS workspace.
         shared_ptr<string> workspace_ {};
       };
 
@@ -170,15 +170,15 @@ namespace Models
 
 
     protected:
-      // The external agent ID.
+      // The ID of the managed agent.
       shared_ptr<string> agentId_ {};
-      // The Bootstrap token used to onboard the external agent.
+      // The bootstrap token used for the managed agent onboarding.
       shared_ptr<string> bootstrapToken_ {};
-      // The CMS configuration used to onboard the external agent.
+      // The CMS configuration used for the managed agent onboarding.
       shared_ptr<Data::Cms> cms_ {};
-      // The network type for onboarding. Valid values: INTRANET (internal network) and INTERNET (Internet).
+      // The access network type. Valid values: INTRANET (internal network) and INTERNET (Internet).
       shared_ptr<string> networkType_ {};
-      // The fingerprint of the Bootstrap token.
+      // The fingerprint of the bootstrap token.
       shared_ptr<string> tokenFingerprint_ {};
       // The workspace ID.
       shared_ptr<string> workspaceId_ {};
@@ -231,13 +231,13 @@ namespace Models
 
 
   protected:
-    // The business status code. The value is SUCCESS when the operation is successful.
+    // The business status code. The value is SUCCESS if the request is successful.
     shared_ptr<string> code_ {};
-    // The Bootstrap token and CMS configuration required to onboard the external agent.
+    // The bootstrap token and CMS configuration required for the managed agent onboarding.
     shared_ptr<CreateExternalAgentBootstrapTokenResponseBody::Data> data_ {};
-    // The HTTP status code. The value is 200 when the operation is successful.
+    // The HTTP status code. The value is 200 if the request is successful.
     shared_ptr<int32_t> httpStatusCode_ {};
-    // The result message of the request.
+    // The request processing result message.
     shared_ptr<string> message_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

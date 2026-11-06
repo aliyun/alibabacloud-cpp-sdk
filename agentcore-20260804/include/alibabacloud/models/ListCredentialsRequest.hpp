@@ -75,15 +75,15 @@ namespace Models
 
 
   protected:
-    // Filters by credential type. Currently, only apiKey is supported.
+    // The credential type used for filtering. Valid values: apiKey and mcpHeader.
     shared_ptr<string> credentialType_ {};
     // The maximum number of records to return per page. Valid values: 1 to 100. If this parameter is not specified, 10 records are returned by default.
     shared_ptr<int32_t> maxResults_ {};
-    // Filters by credential name.
+    // The credential name used for filtering.
     shared_ptr<string> name_ {};
     // The filter condition for fuzzy matching by credential name.
     shared_ptr<string> nameLike_ {};
-    // The cursor used to query the next page. Do not specify this parameter in the first call. For subsequent calls, specify the nextToken returned in the previous response.
+    // The cursor for querying the next page. Do not specify this parameter for the first call. For subsequent calls, specify the nextToken value returned in the previous response.
     shared_ptr<string> nextToken_ {};
   };
 

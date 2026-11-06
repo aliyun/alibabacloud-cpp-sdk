@@ -134,11 +134,11 @@ namespace Models
 
 
       protected:
-        // The unique identifier of the resource.
+        // The ID of the applicable MCP service.
         shared_ptr<string> resourceId_ {};
-        // The resource name. It is empty if the resource has been deleted.
+        // The resource name. This parameter is empty if the resource is deleted.
         shared_ptr<string> resourceName_ {};
-        // The resource type, such as agent.
+        // The resource type. Currently, the value is mcpServer, which indicates an MCP service.
         shared_ptr<string> resourceType_ {};
       };
 
@@ -239,19 +239,19 @@ namespace Models
       shared_ptr<string> createdAt_ {};
       // The credential ID.
       shared_ptr<string> credentialId_ {};
-      // The masked credential content. When credentialType is apiKey, the apiKey value is returned as asterisks (*) of the same length.
+      // The desensitized credential content. For the apiKey type, a key mask is returned. For the mcpHeader type, only the header name is returned, and the value is not returned.
       shared_ptr<string> credentialMetadata_ {};
-      // The credential type. Currently, only apiKey is supported.
+      // The credential type. Valid values: apiKey (API key) and mcpHeader (MCP request header).
       shared_ptr<string> credentialType_ {};
-      // The credential description, which cannot exceed 256 characters in length.
+      // The credential description. The description can be up to 256 characters in length.
       shared_ptr<string> description_ {};
-      // The credential name. It must be unique within the workspace, contain only letters, digits, periods, underscores, and hyphens, and be 3 to 128 characters in length. Runtime reserved names cannot be used.
+      // The credential name. The name must be unique within the workspace, can contain only letters, digits, periods, underscores, and hyphens, and must be 3 to 99 characters in length. Runtime reserved names cannot be used.
       shared_ptr<string> name_ {};
       // The region ID of the resource.
       shared_ptr<string> regionId_ {};
-      // The list of resources to which the credential can be applied.
+      // The list of MCP services to which the credential applies.
       shared_ptr<vector<Items::ResourceRefs>> resourceRefs_ {};
-      // The application scope of the credential resource.
+      // The application scope of the credential. ALL indicates all scopes. SPECIFIED indicates specified MCP services.
       shared_ptr<string> resourceScope_ {};
       // The time of the last modification in UTC format compliant with RFC 3339.
       shared_ptr<string> updatedAt_ {};
@@ -334,11 +334,11 @@ namespace Models
     shared_ptr<int32_t> httpStatusCode_ {};
     // The credential list.
     shared_ptr<vector<ListCredentialsResponseBody::Items>> items_ {};
-    // The maximum number of records per page that takes effect in this query.
+    // The maximum number of records per page that takes effect in the current query.
     shared_ptr<int32_t> maxResults_ {};
     // The response message. An error description is returned if the request fails.
     shared_ptr<string> message_ {};
-    // The cursor for the next page. It is empty if there is no next page.
+    // The cursor for the next page. This parameter is empty if no next page exists.
     shared_ptr<string> nextToken_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

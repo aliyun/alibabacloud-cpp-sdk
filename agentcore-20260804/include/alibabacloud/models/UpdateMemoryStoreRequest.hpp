@@ -69,9 +69,9 @@ namespace Models
 
 
     protected:
-      // The MemoryStore description, up to 1,024 characters.
+      // The MemoryStore description. The maximum length is 1,024 characters.
       shared_ptr<string> description_ {};
-      // The custom memory extraction instructions, up to 4,096 characters.
+      // The custom memory extraction instructions. The maximum length is 4,096 characters.
       shared_ptr<string> extractInstructions_ {};
     };
 

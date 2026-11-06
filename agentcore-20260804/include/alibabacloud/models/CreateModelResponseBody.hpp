@@ -177,7 +177,7 @@ namespace Models
         shared_ptr<bool> multiToolCall_ {};
         // Specifies whether the model supports reasoning capabilities.
         shared_ptr<bool> reasoning_ {};
-        // Specifies whether the model is able to invoke tool calling in a streaming manner.
+        // Specifies whether the model is able to invoke streaming tool calling.
         shared_ptr<bool> streamToolCall_ {};
         // Specifies whether the model supports tool calling.
         shared_ptr<bool> toolCall_ {};
@@ -267,19 +267,19 @@ namespace Models
       shared_ptr<Data::Capabilities> capabilities_ {};
       // The model connection ID.
       shared_ptr<string> connectionId_ {};
-      // The context window size of the model, in tokens. It must be a positive integer.
+      // The context window size of the model, in tokens. The value must be a positive integer.
       shared_ptr<int64_t> contextSize_ {};
-      // The time when the resource was created, in RFC 3339 UTC format.
+      // The time when the resource was created. The time is in RFC 3339 UTC format.
       shared_ptr<string> createdAt_ {};
-      // The model description. Maximum length: 255 characters.
+      // The model description, up to 255 characters in length.
       shared_ptr<string> description_ {};
-      // The maximum number of output tokens supported per generation.
+      // The maximum number of output tokens supported by the model per generation.
       shared_ptr<int64_t> maxTokens_ {};
       // The model ID.
       shared_ptr<string> modelId_ {};
       // The upstream model name.
       shared_ptr<string> modelName_ {};
-      // The time when the resource was last updated, in RFC 3339 UTC format.
+      // The time when the resource was last updated. The time is in RFC 3339 UTC format.
       shared_ptr<string> updatedAt_ {};
       // The workspace ID.
       shared_ptr<string> workspaceId_ {};
@@ -332,11 +332,11 @@ namespace Models
 
 
   protected:
-    // The business status code. A value of SUCCESS indicates a successful request.
+    // The business status code. The value is SUCCESS if the request is successful.
     shared_ptr<string> code_ {};
     // The model information after creation.
     shared_ptr<CreateModelResponseBody::Data> data_ {};
-    // The HTTP status code. A value of 200 indicates success.
+    // The HTTP status code. The value is 200 if the request is successful.
     shared_ptr<int32_t> httpStatusCode_ {};
     // The message about the request processing result.
     shared_ptr<string> message_ {};

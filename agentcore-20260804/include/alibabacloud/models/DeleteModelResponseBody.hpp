@@ -130,17 +130,17 @@ namespace Models
 
 
   protected:
-    // The business status code. The value SUCCESS indicates success.
+    // The business status code. The value is SUCCESS if the request succeeds.
     shared_ptr<string> code_ {};
-    // The identifier of the model that has been accepted for deletion.
+    // The identifier of the model accepted for deletion.
     shared_ptr<DeleteModelResponseBody::Data> data_ {};
-    // The HTTP status code. The value 200 indicates success.
+    // The HTTP status code. The value is 200 if the request succeeds.
     shared_ptr<int32_t> httpStatusCode_ {};
-    // The request processing result message.
+    // The message about the request processing result.
     shared_ptr<string> message_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request was successful.
+    // Indicates whether the request is successful.
     shared_ptr<bool> success_ {};
   };
 

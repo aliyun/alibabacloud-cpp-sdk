@@ -46,8 +46,11 @@ namespace Models
         DARABONBA_PTR_TO_JSON(accessUrls, accessUrls_);
         DARABONBA_PTR_TO_JSON(authentication, authentication_);
         DARABONBA_PTR_TO_JSON(createdAt, createdAt_);
+        DARABONBA_PTR_TO_JSON(effectivePublicAccessEnabled, effectivePublicAccessEnabled_);
+        DARABONBA_PTR_TO_JSON(elasticityPolicy, elasticityPolicy_);
         DARABONBA_PTR_TO_JSON(endpointType, endpointType_);
         DARABONBA_PTR_TO_JSON(name, name_);
+        DARABONBA_PTR_TO_JSON(publicAccessEnabled, publicAccessEnabled_);
         DARABONBA_PTR_TO_JSON(regionId, regionId_);
         DARABONBA_PTR_TO_JSON(serviceEndpointId, serviceEndpointId_);
         DARABONBA_PTR_TO_JSON(status, status_);
@@ -60,8 +63,11 @@ namespace Models
         DARABONBA_PTR_FROM_JSON(accessUrls, accessUrls_);
         DARABONBA_PTR_FROM_JSON(authentication, authentication_);
         DARABONBA_PTR_FROM_JSON(createdAt, createdAt_);
+        DARABONBA_PTR_FROM_JSON(effectivePublicAccessEnabled, effectivePublicAccessEnabled_);
+        DARABONBA_PTR_FROM_JSON(elasticityPolicy, elasticityPolicy_);
         DARABONBA_PTR_FROM_JSON(endpointType, endpointType_);
         DARABONBA_PTR_FROM_JSON(name, name_);
+        DARABONBA_PTR_FROM_JSON(publicAccessEnabled, publicAccessEnabled_);
         DARABONBA_PTR_FROM_JSON(regionId, regionId_);
         DARABONBA_PTR_FROM_JSON(serviceEndpointId, serviceEndpointId_);
         DARABONBA_PTR_FROM_JSON(status, status_);
@@ -154,8 +160,63 @@ namespace Models
         shared_ptr<string> collaborationComponent_ {};
         // The workspace resource binding ID associated with the target collaboration component. This parameter is returned when the target type is TEAM_COLLABORATION.
         shared_ptr<string> resourceBindingId_ {};
-        // The target type. Valid values: AGENT_VERSION, TEAM_COLLABORATION.
+        // The target type. Valid values: AGENT_VERSION and TEAM_COLLABORATION.
         shared_ptr<string> targetType_ {};
+      };
+
+      class ElasticityPolicy : public Darabonba::Model {
+      public:
+        friend void to_json(Darabonba::Json& j, const ElasticityPolicy& obj) { 
+          DARABONBA_PTR_TO_JSON(enabled, enabled_);
+          DARABONBA_PTR_TO_JSON(maxSandboxCount, maxSandboxCount_);
+          DARABONBA_PTR_TO_JSON(minSandboxCount, minSandboxCount_);
+        };
+        friend void from_json(const Darabonba::Json& j, ElasticityPolicy& obj) { 
+          DARABONBA_PTR_FROM_JSON(enabled, enabled_);
+          DARABONBA_PTR_FROM_JSON(maxSandboxCount, maxSandboxCount_);
+          DARABONBA_PTR_FROM_JSON(minSandboxCount, minSandboxCount_);
+        };
+        ElasticityPolicy() = default ;
+        ElasticityPolicy(const ElasticityPolicy &) = default ;
+        ElasticityPolicy(ElasticityPolicy &&) = default ;
+        ElasticityPolicy(const Darabonba::Json & obj) { from_json(obj, *this); };
+        virtual ~ElasticityPolicy() = default ;
+        ElasticityPolicy& operator=(const ElasticityPolicy &) = default ;
+        ElasticityPolicy& operator=(ElasticityPolicy &&) = default ;
+        virtual void validate() const override {
+        };
+        virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+        virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+        virtual bool empty() const override { return this->enabled_ == nullptr
+        && this->maxSandboxCount_ == nullptr && this->minSandboxCount_ == nullptr; };
+        // enabled Field Functions 
+        bool hasEnabled() const { return this->enabled_ != nullptr;};
+        void deleteEnabled() { this->enabled_ = nullptr;};
+        inline bool getEnabled() const { DARABONBA_PTR_GET_DEFAULT(enabled_, false) };
+        inline ElasticityPolicy& setEnabled(bool enabled) { DARABONBA_PTR_SET_VALUE(enabled_, enabled) };
+
+
+        // maxSandboxCount Field Functions 
+        bool hasMaxSandboxCount() const { return this->maxSandboxCount_ != nullptr;};
+        void deleteMaxSandboxCount() { this->maxSandboxCount_ = nullptr;};
+        inline int32_t getMaxSandboxCount() const { DARABONBA_PTR_GET_DEFAULT(maxSandboxCount_, 0) };
+        inline ElasticityPolicy& setMaxSandboxCount(int32_t maxSandboxCount) { DARABONBA_PTR_SET_VALUE(maxSandboxCount_, maxSandboxCount) };
+
+
+        // minSandboxCount Field Functions 
+        bool hasMinSandboxCount() const { return this->minSandboxCount_ != nullptr;};
+        void deleteMinSandboxCount() { this->minSandboxCount_ = nullptr;};
+        inline int32_t getMinSandboxCount() const { DARABONBA_PTR_GET_DEFAULT(minSandboxCount_, 0) };
+        inline ElasticityPolicy& setMinSandboxCount(int32_t minSandboxCount) { DARABONBA_PTR_SET_VALUE(minSandboxCount_, minSandboxCount) };
+
+
+      protected:
+        // 是否开启弹性。
+        shared_ptr<bool> enabled_ {};
+        // 最大实例数，不小于 1。
+        shared_ptr<int32_t> maxSandboxCount_ {};
+        // 最小实例数，不小于 0 且不大于 maxSandboxCount。
+        shared_ptr<int32_t> minSandboxCount_ {};
       };
 
       class Authentication : public Darabonba::Model {
@@ -186,7 +247,7 @@ namespace Models
 
 
       protected:
-        // The authentication method. NONE indicates that no authentication is required. API_KEY indicates that an API key is passed through the x-api-key request header for authentication.
+        // The authentication method. NONE indicates that no authentication is required. API_KEY indicates that authentication is performed by passing an API key in the x-api-key request header.
         shared_ptr<string> type_ {};
       };
 
@@ -246,20 +307,20 @@ namespace Models
 
 
       protected:
-        // The access URL type. Valid values: INTERNET, VPC.
+        // The access address type. Valid values: INTERNET and VPC.
         shared_ptr<string> accessType_ {};
-        // The access URL status. Valid values: CREATING, READY, DEGRADED.
+        // The access address status. Valid values: CREATING, READY, and DEGRADED.
         shared_ptr<string> status_ {};
-        // The reason for the access URL status. A specific reason is returned when the status is abnormal.
+        // The reason for the access address status. A specific reason is returned when the status is abnormal.
         shared_ptr<string> statusReason_ {};
-        // The access URL.
+        // The access address.
         shared_ptr<string> url_ {};
       };
 
       virtual bool empty() const override { return this->accessUrls_ == nullptr
-        && this->authentication_ == nullptr && this->createdAt_ == nullptr && this->endpointType_ == nullptr && this->name_ == nullptr && this->regionId_ == nullptr
-        && this->serviceEndpointId_ == nullptr && this->status_ == nullptr && this->statusReason_ == nullptr && this->target_ == nullptr && this->updatedAt_ == nullptr
-        && this->workspaceId_ == nullptr; };
+        && this->authentication_ == nullptr && this->createdAt_ == nullptr && this->effectivePublicAccessEnabled_ == nullptr && this->elasticityPolicy_ == nullptr && this->endpointType_ == nullptr
+        && this->name_ == nullptr && this->publicAccessEnabled_ == nullptr && this->regionId_ == nullptr && this->serviceEndpointId_ == nullptr && this->status_ == nullptr
+        && this->statusReason_ == nullptr && this->target_ == nullptr && this->updatedAt_ == nullptr && this->workspaceId_ == nullptr; };
       // accessUrls Field Functions 
       bool hasAccessUrls() const { return this->accessUrls_ != nullptr;};
       void deleteAccessUrls() { this->accessUrls_ = nullptr;};
@@ -285,6 +346,22 @@ namespace Models
       inline Data& setCreatedAt(string createdAt) { DARABONBA_PTR_SET_VALUE(createdAt_, createdAt) };
 
 
+      // effectivePublicAccessEnabled Field Functions 
+      bool hasEffectivePublicAccessEnabled() const { return this->effectivePublicAccessEnabled_ != nullptr;};
+      void deleteEffectivePublicAccessEnabled() { this->effectivePublicAccessEnabled_ = nullptr;};
+      inline bool getEffectivePublicAccessEnabled() const { DARABONBA_PTR_GET_DEFAULT(effectivePublicAccessEnabled_, false) };
+      inline Data& setEffectivePublicAccessEnabled(bool effectivePublicAccessEnabled) { DARABONBA_PTR_SET_VALUE(effectivePublicAccessEnabled_, effectivePublicAccessEnabled) };
+
+
+      // elasticityPolicy Field Functions 
+      bool hasElasticityPolicy() const { return this->elasticityPolicy_ != nullptr;};
+      void deleteElasticityPolicy() { this->elasticityPolicy_ = nullptr;};
+      inline const Data::ElasticityPolicy & getElasticityPolicy() const { DARABONBA_PTR_GET_CONST(elasticityPolicy_, Data::ElasticityPolicy) };
+      inline Data::ElasticityPolicy getElasticityPolicy() { DARABONBA_PTR_GET(elasticityPolicy_, Data::ElasticityPolicy) };
+      inline Data& setElasticityPolicy(const Data::ElasticityPolicy & elasticityPolicy) { DARABONBA_PTR_SET_VALUE(elasticityPolicy_, elasticityPolicy) };
+      inline Data& setElasticityPolicy(Data::ElasticityPolicy && elasticityPolicy) { DARABONBA_PTR_SET_RVALUE(elasticityPolicy_, elasticityPolicy) };
+
+
       // endpointType Field Functions 
       bool hasEndpointType() const { return this->endpointType_ != nullptr;};
       void deleteEndpointType() { this->endpointType_ = nullptr;};
@@ -297,6 +374,13 @@ namespace Models
       void deleteName() { this->name_ = nullptr;};
       inline string getName() const { DARABONBA_PTR_GET_DEFAULT(name_, "") };
       inline Data& setName(string name) { DARABONBA_PTR_SET_VALUE(name_, name) };
+
+
+      // publicAccessEnabled Field Functions 
+      bool hasPublicAccessEnabled() const { return this->publicAccessEnabled_ != nullptr;};
+      void deletePublicAccessEnabled() { this->publicAccessEnabled_ = nullptr;};
+      inline bool getPublicAccessEnabled() const { DARABONBA_PTR_GET_DEFAULT(publicAccessEnabled_, false) };
+      inline Data& setPublicAccessEnabled(bool publicAccessEnabled) { DARABONBA_PTR_SET_VALUE(publicAccessEnabled_, publicAccessEnabled) };
 
 
       // regionId Field Functions 
@@ -351,27 +435,33 @@ namespace Models
 
 
     protected:
-      // The list of access URLs for the service endpoint.
+      // The list of access addresses for the service endpoint.
       shared_ptr<vector<Data::AccessUrls>> accessUrls_ {};
       // The authentication configuration of the service endpoint.
       shared_ptr<Data::Authentication> authentication_ {};
-      // The creation time in UTC, formatted in RFC 3339.
+      // The creation time in UTC format compliant with RFC 3339.
       shared_ptr<string> createdAt_ {};
-      // The service endpoint type. DEFAULT indicates a default endpoint created and maintained by the platform. NAMED indicates a named endpoint explicitly created by the user.
+      // publicAccessEnabled 与工作空间公网入向上限叠加后的结果：二者均允许时为 true。仅表示策略目标，不代表公网入口已发布完成，实际状态以 accessUrls 与 status 为准。
+      shared_ptr<bool> effectivePublicAccessEnabled_ {};
+      // 仅在服务端点设置过弹性覆盖值时返回，可设置的为 Router 类型服务端点与 GATEWAY_API_WITH_VPC_INGRESS 类型的 DEFAULT 服务端点；未设置覆盖值时不返回该对象，表示继承智能体源配置，不得当作空对象或默认策略。返回时三个字段必全。
+      shared_ptr<Data::ElasticityPolicy> elasticityPolicy_ {};
+      // The service endpoint type. DEFAULT indicates a default endpoint created and maintained by the platform. NAMED indicates a named endpoint explicitly created by a user.
       shared_ptr<string> endpointType_ {};
-      // The service endpoint name. The name must be unique within the workspace and can be 1 to 128 characters in length.
+      // The service endpoint name. It must be unique within the workspace and is 1 to 128 characters in length.
       shared_ptr<string> name_ {};
+      // 用户在服务端点上设置的公网入向期望；未设置过的历史服务端点按 true 返回。仅表示配置期望，实际公网地址是否可用以 accessUrls 与 status 为准。
+      shared_ptr<bool> publicAccessEnabled_ {};
       // The region ID of the service endpoint.
       shared_ptr<string> regionId_ {};
       // The service endpoint ID.
       shared_ptr<string> serviceEndpointId_ {};
-      // The service endpoint status. Valid values: CREATING, READY, UPDATING, DEGRADED, DISABLED, DELETING.
+      // The service endpoint status. Valid values: CREATING, READY, UPDATING, DEGRADED, DISABLED, and DELETING.
       shared_ptr<string> status_ {};
       // The reason for the service endpoint status. A specific reason is returned when the status is abnormal.
       shared_ptr<string> statusReason_ {};
-      // The target routing configuration of the service endpoint.
+      // The target route configuration of the service endpoint.
       shared_ptr<Data::Target> target_ {};
-      // The time of the last modification in UTC, formatted in RFC 3339.
+      // The last modification time in UTC format compliant with RFC 3339.
       shared_ptr<string> updatedAt_ {};
       // The workspace ID.
       shared_ptr<string> workspaceId_ {};
@@ -434,7 +524,7 @@ namespace Models
     shared_ptr<string> message_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request was successful.
+    // Indicates whether the request is successful.
     shared_ptr<bool> success_ {};
   };
 

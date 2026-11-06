@@ -240,7 +240,7 @@ namespace Models
       shared_ptr<string> createdAt_ {};
       // The team description.
       shared_ptr<string> description_ {};
-      // The team name. The name can contain only lowercase letters, digits, and hyphens. It must start and end with a lowercase letter or a digit, and must be 1 to 128 characters in length.
+      // The team name. It can contain only lowercase letters, digits, and hyphens. It must start and end with a lowercase letter or a digit, and must be 1 to 128 characters in length.
       shared_ptr<string> name_ {};
       // The team status. Valid values: Creating, Active, Updating, Deleting, Failed, Deleted.
       shared_ptr<string> status_ {};

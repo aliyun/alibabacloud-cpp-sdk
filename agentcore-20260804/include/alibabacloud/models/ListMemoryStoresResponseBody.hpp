@@ -139,19 +139,19 @@ namespace Models
 
 
     protected:
-      // The creation time.
+      // The creation time. The time is in RFC 3339 format. The Z at the end of the example indicates the UTC time zone.
       shared_ptr<string> createdAt_ {};
-      // The MemoryStore description.
+      // The description of the MemoryStore.
       shared_ptr<string> description_ {};
       // The custom extraction instructions.
       shared_ptr<string> extractInstructions_ {};
       // The MemoryStore ID.
       shared_ptr<string> memoryStoreId_ {};
-      // The MemoryStore name. It cannot be modified after creation.
+      // The name of the MemoryStore. It cannot be modified after creation.
       shared_ptr<string> memoryStoreName_ {};
       // The lifecycle state of the MemoryStore.
       shared_ptr<string> status_ {};
-      // The last update time.
+      // The last update time. The time is in RFC 3339 format. The Z at the end of the example indicates the UTC time zone.
       shared_ptr<string> updatedAt_ {};
       // The AgentCore workspace ID.
       shared_ptr<string> workspaceId_ {};

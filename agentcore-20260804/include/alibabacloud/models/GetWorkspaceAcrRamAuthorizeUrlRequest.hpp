@@ -61,11 +61,11 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> acrInstanceId_ {};
-    // The target ACR namespace, which corresponds to artifact.container.namespace of the agent. This is not a Kubernetes namespace. It determines the authorization scope together with the instance and repository.
+    // The ACR namespace.
     // 
     // This parameter is required.
     shared_ptr<string> namespace_ {};
-    // The target repository name, which corresponds to artifact.container.repo of the agent. It does not include tags, namespaces, or path separators. Wildcards are not supported.
+    // The name of the ACR image repository.
     // 
     // This parameter is required.
     shared_ptr<string> repository_ {};

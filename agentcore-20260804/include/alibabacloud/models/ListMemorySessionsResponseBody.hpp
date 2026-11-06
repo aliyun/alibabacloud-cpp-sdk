@@ -93,7 +93,7 @@ namespace Models
     protected:
       // The agent ID. This field is not returned if the session is not associated with an agent ID.
       shared_ptr<string> agentId_ {};
-      // Session ID
+      // The session ID.
       shared_ptr<string> sessionId_ {};
       // The user ID. This field is not returned if the session is not associated with a user ID.
       shared_ptr<string> userId_ {};
@@ -165,7 +165,7 @@ namespace Models
     shared_ptr<string> code_ {};
     // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
-    // The list of sessions.
+    // The session list.
     shared_ptr<vector<ListMemorySessionsResponseBody::Items>> items_ {};
     // The maximum number of records per page.
     shared_ptr<int32_t> maxResults_ {};

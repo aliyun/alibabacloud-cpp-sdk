@@ -133,7 +133,7 @@ namespace Models
 
 
     protected:
-      // The external agent ID.
+      // The ID of the managed agent.
       shared_ptr<string> agentId_ {};
       // The list of available access networks.
       shared_ptr<vector<Data::NetworkOptions>> networkOptions_ {};
@@ -188,11 +188,11 @@ namespace Models
 
 
   protected:
-    // The business status code. The value is SUCCESS when the request is successful.
+    // The business status code. The value is SUCCESS if the request is successful.
     shared_ptr<string> code_ {};
-    // The access network information available for the external agent.
+    // The available access network information for the managed agent.
     shared_ptr<GetExternalAgentBootstrapOptionsResponseBody::Data> data_ {};
-    // The HTTP status code. The value is 200 when the request is successful.
+    // The HTTP status code. The value is 200 if the request is successful.
     shared_ptr<int32_t> httpStatusCode_ {};
     // The request processing result message.
     shared_ptr<string> message_ {};

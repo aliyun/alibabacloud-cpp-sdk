@@ -57,11 +57,11 @@ namespace Models
 
 
   protected:
-    // The MCP configuration submitted during template installation. The configuration must conform to the input schema of the template.
+    // The MCP configuration submitted when installing the template. The configuration must comply with the input schema of the template.
     shared_ptr<string> bodyShrink_ {};
-    // The client token that is used to ensure the idempotence of the request.
+    // The reserved query request identifier. The console backend does not read this parameter and does not provide idempotency guarantees, such as deduplication or recovery of the original processing result, based on this identifier.
     shared_ptr<string> clientToken_ {};
-    // The template version to install. You can call GetMcpMarketItem to query available versions.
+    // The template version to install. You can query available versions by calling GetMcpMarketItem.
     // 
     // This parameter is required.
     shared_ptr<string> templateVersion_ {};

@@ -95,15 +95,9 @@ namespace Models
 
 
     protected:
-      // The team name. The name can contain only lowercase letters, digits, and hyphens (-). It must start and end with a lowercase letter or digit and must be 1 to 128 characters in length.
+      // The team name. The name can contain only lowercase letters, digits, and hyphens, must start and end with a lowercase letter or a digit, and must be 1 to 128 characters in length.
       shared_ptr<string> name_ {};
-      // The team status. Valid values:
-      // - Creating
-      // - Active
-      // - Updating
-      // - Deleting
-      // - Failed
-      // - Deleted
+      // The team status. Valid values: Creating, Active, Updating, Deleting, Failed, and Deleted.
       shared_ptr<string> status_ {};
       // The team ID.
       shared_ptr<string> teamId_ {};
@@ -164,11 +158,11 @@ namespace Models
     shared_ptr<DeleteTeamResponseBody::Data> data_ {};
     // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
-    // The response message. An error description is returned if the request failed.
+    // The response message. An error description is returned when the request fails.
     shared_ptr<string> message_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request was successful.
+    // Indicates whether the request is successful.
     shared_ptr<bool> success_ {};
   };
 

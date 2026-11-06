@@ -182,21 +182,21 @@ namespace Models
       shared_ptr<string> accessMode_ {};
       // The user access scope.
       shared_ptr<string> accessScope_ {};
-      // The unique identifier of the custom agent. You can obtain it from the response of CreateCustomAgent or ListCustomAgents.
+      // The unique identifier of the custom code or image agent. You can obtain this value from the response of CreateCustomAgent or ListCustomAgents.
       shared_ptr<string> agentId_ {};
-      // The creation mode of the agent. The value is CUSTOM for custom agents.
+      // The creation mode of the agent. The value is CUSTOM for custom code or image agents.
       shared_ptr<string> createMode_ {};
-      // The time when the agent was created. The time is in ISO 8601 format. A trailing Z indicates the UTC time zone. Fractional seconds may be included.
+      // The time when the agent was created. The time is in ISO 8601 format, with a trailing Z indicating the UTC time zone. Fractional seconds may be included.
       shared_ptr<string> createdAt_ {};
-      // The deployment mode of the agent. Custom agents are deployed and managed by the platform, so the value is MANAGED.
+      // The deployment mode of the agent. The value is MANAGED for custom code or image agents because they are deployed and managed by the platform.
       shared_ptr<string> deployType_ {};
-      // The description of the agent.
+      // The description of the agent\\"s purpose.
       shared_ptr<string> description_ {};
       // The latest configuration version number. Updates with the same configuration may retain the original version number. This field does not indicate that the configuration has taken effect.
       shared_ptr<int64_t> latestSpecVersion_ {};
-      // The name of the custom agent.
+      // The name of the custom code or image agent.
       shared_ptr<string> name_ {};
-      // The compute specifications of the agent. Valid values: INTERACTIVE, STANDARD, and HEAVY.
+      // The compute specification of the agent. Valid values: INTERACTIVE, STANDARD, and HEAVY.
       shared_ptr<string> runtime_ {};
       // The overall status of the agent. Valid values:
       // - Creating: The agent is being created.
@@ -205,11 +205,12 @@ namespace Models
       // - Updating: The agent is being updated.
       // - Deleting: The agent is being deleted.
       // - Deleted: The agent is deleted.
+      // 
       // Call GetCustomAgent to query the execution progress of the latest configuration.
       shared_ptr<string> status_ {};
-      // The time when the agent was last updated. The time is in ISO 8601 format. A trailing Z indicates the UTC time zone. Fractional seconds may be included.
+      // The time when the agent was last updated. The time is in ISO 8601 format, with a trailing Z indicating the UTC time zone. Fractional seconds may be included.
       shared_ptr<string> updatedAt_ {};
-      // The ID of the workspace to which the custom agent belongs.
+      // The ID of the workspace to which the custom code or image agent belongs.
       shared_ptr<string> workspaceId_ {};
     };
 
@@ -262,15 +263,15 @@ namespace Models
   protected:
     // The result code of the request. The value is SUCCESS if the request is successful.
     shared_ptr<string> code_ {};
-    // The summary of the custom agent whose deletion is accepted. The runtime resources are subsequently cleaned up in the background.
+    // The summary of the custom code or image agent whose deletion is accepted. Runtime resources are subsequently cleaned up in the background.
     shared_ptr<DeleteCustomAgentResponseBody::Data> data_ {};
     // The HTTP status code of the request. The value is 200 if the request is successful.
     shared_ptr<int32_t> httpStatusCode_ {};
     // The processing result message of the request. The value is success if the request is successful.
     shared_ptr<string> message_ {};
-    // The unique identifier of the request. You can use this ID to locate and troubleshoot issues.
+    // The unique identifier of the request, which is used to locate and troubleshoot issues.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request was processed successfully. A value of true indicates success. A successful creation, update, or deletion does not mean that the background operations are complete.
+    // Indicates whether the request was successful. A value of true indicates that the request was successful. A successful creation, update, or deletion does not mean that the background operations are complete.
     shared_ptr<bool> success_ {};
   };
 

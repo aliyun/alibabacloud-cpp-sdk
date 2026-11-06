@@ -136,23 +136,23 @@ namespace Models
       // 
       // This parameter is required.
       shared_ptr<string> acrInstanceId_ {};
-      // The current attachment status of the policy for the target repository.
+      // The mount status of the policy for the current target repository.
       // 
       // This parameter is required.
       shared_ptr<string> authorizationStatus_ {};
-      // The access prerequisite status, which does not indicate Secret Ready.
+      // The onboarding prerequisite, which is not Secret Ready.
       // 
       // This parameter is required.
       shared_ptr<string> eligibilityStatus_ {};
-      // The stable reason code for unauthorized or unmet conditions. This field is omitted if no reason exists.
+      // The stable reason code for unauthorized or unmet conditions. This field is omitted when no reason is available.
       shared_ptr<string> reasonCode_ {};
-      // The user-readable reason. This field is omitted if no reason exists.
+      // The user-readable reason. This field is omitted when no reason is available.
       shared_ptr<string> reasonMessage_ {};
       // The name of the shared role selected by the backend. This field is not editable on the frontend.
       // 
       // This parameter is required.
       shared_ptr<string> roleName_ {};
-      // The source of the shared role. This does not indicate that authorization is complete.
+      // The source of the shared role. This does not indicate that the authorization is complete.
       // 
       // This parameter is required.
       shared_ptr<string> roleSource_ {};

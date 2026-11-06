@@ -80,9 +80,9 @@ namespace Models
 
 
     protected:
-      // The list of Service Account Key labels that failed validation or returned indeterminate results.
+      // The list of service account key labels that failed the verification or have uncertain verification results.
       shared_ptr<vector<string>> invalidServiceAccountKeys_ {};
-      // Indicates whether all validated Service Account Keys are valid.
+      // Indicates whether all verified service account keys are valid.
       shared_ptr<bool> valid_ {};
     };
 
@@ -135,7 +135,7 @@ namespace Models
   protected:
     // The business status code.
     shared_ptr<string> code_ {};
-    // The validation result.
+    // The verification result.
     shared_ptr<VerifyConnectorResponseBody::Data> data_ {};
     // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
@@ -143,7 +143,7 @@ namespace Models
     shared_ptr<string> message_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request was successful.
+    // Indicates whether the request is successful.
     shared_ptr<bool> success_ {};
   };
 

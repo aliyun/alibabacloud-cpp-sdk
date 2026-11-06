@@ -52,7 +52,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> bodyShrink_ {};
-    // The client token.
+    // The client request token.
     shared_ptr<string> clientToken_ {};
   };
 

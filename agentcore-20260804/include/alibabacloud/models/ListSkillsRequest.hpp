@@ -112,25 +112,21 @@ namespace Models
 
 
   protected:
-    // The maximum number of entries per page.
+    // The maximum number of items to return per page.
     shared_ptr<int32_t> maxResults_ {};
-    // The pagination token for the next page.
+    // The token for the next page.
     shared_ptr<string> nextToken_ {};
-    // The field by which to sort results. The value download_count is supported. Default value: gmt_modified.
+    // The sort field. Valid value: download_count. Default value: gmt_modified.
     shared_ptr<string> orderBy_ {};
-    // Filters results by owner.
+    // Filters the skills by owner.
     shared_ptr<string> owner_ {};
     // The page number. Default value: 1.
     shared_ptr<int32_t> pageNo_ {};
-    // The number of entries per page. Default value: 10. Maximum value: 50.
+    // The number of items per page. Default value: 10. Maximum value: 50.
     shared_ptr<int32_t> pageSize_ {};
-    // Filters results by visibility. Valid values:
-    // - PUBLIC
-    // - PRIVATE
+    // Filters the skills by visibility. Valid values: PUBLIC and PRIVATE.
     shared_ptr<string> scope_ {};
-    // The search mode. Valid values:
-    // - accurate: exact match.
-    // - blur: fuzzy match.
+    // The search mode. Valid values: accurate (exact match) and blur (fuzzy match).
     shared_ptr<string> search_ {};
     // The filter keyword.
     shared_ptr<string> skillName_ {};

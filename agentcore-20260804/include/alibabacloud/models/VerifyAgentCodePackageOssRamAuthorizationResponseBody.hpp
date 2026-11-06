@@ -154,7 +154,7 @@ namespace Models
   protected:
     // The business status code.
     shared_ptr<string> code_ {};
-    // The response data.
+    // The returned result.
     shared_ptr<VerifyAgentCodePackageOssRamAuthorizationResponseBody::Data> data_ {};
     // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};

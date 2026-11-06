@@ -80,9 +80,7 @@ namespace Models
       shared_ptr<string> bizTags_ {};
       // The label mapping as a JSON-formatted string.
       shared_ptr<string> labels_ {};
-      // The visibility scope. Valid values:
-      // - PUBLIC
-      // - PRIVATE
+      // The visibility scope. Valid values: PUBLIC and PRIVATE.
       shared_ptr<string> scope_ {};
     };
 

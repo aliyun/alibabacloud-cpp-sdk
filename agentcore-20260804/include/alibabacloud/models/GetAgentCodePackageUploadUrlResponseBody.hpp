@@ -118,11 +118,11 @@ namespace Models
     protected:
       // The expiration time of the upload URL.
       shared_ptr<string> expiresAt_ {};
-      // The HTTP headers that must be included in the direct upload request.
+      // The required HTTP request headers for direct upload.
       shared_ptr<map<string, string>> headers_ {};
       // The maximum compressed size of the code package.
       shared_ptr<int64_t> maxSize_ {};
-      // The temporary Object Storage Service (OSS) URI of the code package.
+      // The OSS URI of the temporary code package.
       shared_ptr<string> sourceUri_ {};
       // The HTTP method for direct upload.
       shared_ptr<string> uploadMethod_ {};
@@ -179,7 +179,7 @@ namespace Models
   protected:
     // The business status code.
     shared_ptr<string> code_ {};
-    // The response data.
+    // The returned result.
     shared_ptr<GetAgentCodePackageUploadUrlResponseBody::Data> data_ {};
     // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};

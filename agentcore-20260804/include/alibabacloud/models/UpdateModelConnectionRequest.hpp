@@ -110,11 +110,11 @@ namespace Models
     protected:
       // The list of API keys used to access the upstream model service. The list must contain at least one non-empty value.
       shared_ptr<vector<string>> apiKeys_ {};
-      // The description of the model connection. The description can be up to 255 characters in length.
+      // The description of the model connection, which can be up to 255 characters in length.
       shared_ptr<string> description_ {};
-      // The absolute HTTP or HTTPS URL of the upstream model service. The URL can be up to 1,024 characters in length.
+      // The absolute HTTP or HTTPS URL of the upstream model service, which can be up to 1,024 characters in length.
       shared_ptr<string> endpoint_ {};
-      // The name of the model connection. The name must be 1 to 128 non-whitespace characters in length.
+      // The name of the model connection, which must be 1 to 128 non-whitespace characters in length.
       shared_ptr<string> name_ {};
       // The model invoke protocol. Currently, only OpenAI/v1 is supported. If the Settings are not specified during model creation, this default value is used.
       shared_ptr<string> protocol_ {};

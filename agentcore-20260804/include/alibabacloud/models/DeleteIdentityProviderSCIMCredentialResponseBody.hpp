@@ -75,15 +75,15 @@ namespace Models
 
 
   protected:
-    // The result code. Handle failures based on the HTTP status code and message.
+    // The business result code. If the call fails, use this code in combination with the HTTP status code and message for troubleshooting.
     shared_ptr<string> code_ {};
-    // The HTTP status code of the request. This does not indicate the final result of the background task.
+    // The processing status of this request. This does not indicate the final result of the background task.
     shared_ptr<int32_t> httpStatusCode_ {};
-    // The message returned for the request. For asynchronous tasks, query the task result by calling the corresponding API operation.
+    // The request acceptance or error message. Check the asynchronous task result by calling the corresponding query operation.
     shared_ptr<string> message_ {};
-    // The request ID. You can use this ID to troubleshoot issues. Keep the ID if the request fails.
+    // The request ID. Used to associate this call with troubleshooting. Retain this ID if the call fails.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request was successful. A value of true indicates that the request was successful. For asynchronous write operations, you must still query the task result.
+    // Indicates whether the request was successful. A value of true indicates that the request was processed successfully. For asynchronous writes, you must continue to query the task result.
     shared_ptr<bool> success_ {};
   };
 

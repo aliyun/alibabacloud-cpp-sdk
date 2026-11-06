@@ -87,13 +87,13 @@ namespace Models
     protected:
       // The commit message. This parameter is optional.
       shared_ptr<string> commitMsg_ {};
-      // The OSS object name (path).
+      // The name or path of the OSS object.
       // 
       // This parameter is required.
       shared_ptr<string> ossObjectName_ {};
-      // Specifies whether to overwrite an existing Skill. Default value: false.
+      // Specifies whether to overwrite an existing skill. Default value: false.
       shared_ptr<bool> overwrite_ {};
-      // The target upload version number. This parameter is optional and serves as a fallback when the ZIP package does not contain version information.
+      // The target version to upload. This parameter is optional and serves as a fallback when no version information is included in the ZIP package.
       shared_ptr<string> targetVersion_ {};
     };
 

@@ -38,7 +38,7 @@ namespace Models
 
 
   protected:
-    // The reserved idempotence token. The backend does not provide persistent idempotence guarantee in the current version.
+    // The reserved idempotence token. The backend does not provide persistent idempotence guarantees in the current phase.
     shared_ptr<string> clientToken_ {};
   };
 

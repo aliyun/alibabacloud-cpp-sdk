@@ -209,7 +209,7 @@ namespace Models
     protected:
       // The memory content.
       shared_ptr<Data::Content> content_ {};
-      // The creation time.
+      // The creation time. The time is in RFC 3339 format. The Z at the end of the example indicates the UTC time zone.
       shared_ptr<string> createdAt_ {};
       // The long-term memory ID.
       shared_ptr<string> memoryId_ {};
@@ -217,7 +217,7 @@ namespace Models
       shared_ptr<map<string, string>> metadata_ {};
       // The memory scope.
       shared_ptr<Data::Scope> scope_ {};
-      // The last update time.
+      // The last update time. The time is in RFC 3339 format. The Z at the end of the example indicates the UTC time zone.
       shared_ptr<string> updatedAt_ {};
     };
 

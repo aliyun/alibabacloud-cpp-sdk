@@ -67,11 +67,9 @@ namespace Models
 
 
     protected:
-      // The operation scope. Valid values:
-      // - skill: the entire Skill.
-      // - version: a specified version.
+      // The scope of the operation. Valid values: skill (the entire skill) and version (a specified version).
       shared_ptr<string> scope_ {};
-      // The Skill version number.
+      // The skill version number.
       shared_ptr<string> skillVersion_ {};
     };
 

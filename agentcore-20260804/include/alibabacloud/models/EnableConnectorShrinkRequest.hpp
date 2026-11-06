@@ -38,7 +38,7 @@ namespace Models
 
 
   protected:
-    // The enable request body.
+    // The request body for enabling the connector.
     // 
     // This parameter is required.
     shared_ptr<string> bodyShrink_ {};

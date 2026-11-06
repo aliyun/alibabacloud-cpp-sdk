@@ -1,3 +1,21 @@
+2026-11-06 Version: 3.2.0
+- Support API CreateAgentVersion.
+- Support API DeleteAgentVersion.
+- Support API GetAgentVersion.
+- Support API GetMcpCodePackageUploadUrl.
+- Support API ListAgentVersions.
+- Update API GetServiceEndpoint: add response parameters Body.data.effectivePublicAccessEnabled.
+- Update API GetServiceEndpoint: add response parameters Body.data.elasticityPolicy.
+- Update API GetServiceEndpoint: add response parameters Body.data.publicAccessEnabled.
+- Update API GetSkillDetail: add response parameters Body.data.editable.
+- Update API ListSandboxSessions: add request parameters serviceEndpointId.
+- Update API ListSandboxes: add request parameters serviceEndpointId.
+- Update API ListServiceEndpoints: add response parameters Body.items.$.effectivePublicAccessEnabled.
+- Update API ListServiceEndpoints: add response parameters Body.items.$.elasticityPolicy.
+- Update API ListServiceEndpoints: add response parameters Body.items.$.publicAccessEnabled.
+- Update API ListSkills: add response parameters Body.data.pageItems.$.editable.
+
+
 2026-11-01 Version: 3.1.0
 - Support API CreatePermissionRules.
 - Support API DeleteAccessApplication.

@@ -241,7 +241,7 @@ namespace Models
 
 
       protected:
-        // Returns the target configuration value. Updating indicates that the change is still in progress, and UpdateFailed indicates that the current change failed. This parameter only controls whether the latest versions of managed and custom agents use the public egress of the platform. It does not control fixed historical versions, model or MCP proxy egress, or the public egress of the user VPC.
+        // Returns the target configuration value. Updating indicates that the change is still being executed, and UpdateFailed indicates that the current change failed. This parameter only controls whether the latest versions of managed and custom agents use the public egress of the platform. It does not control fixed historical versions, model or MCP proxy egress, or the public egress of the user VPC.
         shared_ptr<bool> publicEgressEnabled_ {};
         // Returns the target configuration value. Updating indicates that the change is in progress, and UpdateFailed indicates that the change failed. If disabled, the public ingress for all agent endpoints in the workspace is closed, and the original public ingress is restored when re-enabled. INNER_DIRECT and user VPC ingress are not affected. Collaboration and Element Web ingress are not controlled by this parameter.
         shared_ptr<bool> publicIngressEnabled_ {};
@@ -363,15 +363,15 @@ namespace Models
 
 
     protected:
-      // The AI Registry namespace ID. This value is returned after related resources are bound and may be empty during initialization.
+      // The AI Registry namespace ID. This value is returned after the related resources are bound and may be empty during initialization.
       shared_ptr<string> aiRegistryNamespaceId_ {};
       // The OSS storage authorization status.
       shared_ptr<string> authorizationStatus_ {};
       // The name of the private OSS bucket.
       shared_ptr<string> bucketName_ {};
-      // The CloudMonitor workspace ID. This value is returned after related resources are bound and may be empty during initialization.
+      // The CloudMonitor workspace ID. This value is returned after the related resources are bound and may be empty during initialization.
       shared_ptr<string> cmsWorkspaceId_ {};
-      // The time when the workspace was created. The time follows the ISO 8601 standard.
+      // The time when the workspace was created. The time is displayed in the ISO 8601 format.
       // 
       // This parameter is required.
       shared_ptr<string> createTime_ {};
@@ -379,7 +379,7 @@ namespace Models
       shared_ptr<string> name_ {};
       // The network configuration of the workspace.
       shared_ptr<Data::NetworkConfiguration> networkConfiguration_ {};
-      // The ID of the region where the workspace resides.
+      // The ID of the region where the workspace is located.
       shared_ptr<string> regionId_ {};
       // The ID of the resource group to which the workspace belongs. This value may be empty if no resource group is specified.
       shared_ptr<string> resourceGroupId_ {};
@@ -395,7 +395,7 @@ namespace Models
       shared_ptr<vector<Data::Tags>> tags_ {};
       // The ID of the tenant to which the workspace belongs.
       shared_ptr<string> tenantId_ {};
-      // The ID of the workspace.
+      // The workspace ID.
       shared_ptr<string> workspaceId_ {};
     };
 

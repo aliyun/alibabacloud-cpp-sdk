@@ -166,7 +166,7 @@ namespace Models
 
 
     protected:
-      // The ID of the external agent.
+      // The ID of the managed agent.
       shared_ptr<string> agentId_ {};
       // The creation mode.
       shared_ptr<string> createMode_ {};
@@ -174,15 +174,15 @@ namespace Models
       shared_ptr<string> createdAt_ {};
       // The deployment type.
       shared_ptr<string> deployType_ {};
-      // The description of the external agent.
+      // The description of the managed agent.
       shared_ptr<string> description_ {};
       // The latest specification version number.
       shared_ptr<int64_t> latestSpecVersion_ {};
-      // The name of the external agent.
+      // The name of the managed agent.
       shared_ptr<string> name_ {};
-      // The runtime type reported by the external agent.
+      // The runtime type reported by the managed agent.
       shared_ptr<string> runtime_ {};
-      // The status of the external agent. Valid values: Creating, Running, Failed, Updating, Deleting, and Deleted.
+      // The status of the managed agent. Valid values: Creating, Running, Failed, Updating, Deleting, and Deleted.
       shared_ptr<string> status_ {};
       // The update time in RFC 3339 format.
       shared_ptr<string> updatedAt_ {};
@@ -263,7 +263,7 @@ namespace Models
     shared_ptr<string> code_ {};
     // The HTTP status code. The value is 200 if the request is successful.
     shared_ptr<int32_t> httpStatusCode_ {};
-    // The list of external agents.
+    // The list of managed agents.
     shared_ptr<vector<ListExternalAgentsResponseBody::Items>> items_ {};
     // The maximum number of entries returned per page for this request.
     shared_ptr<int32_t> maxResults_ {};

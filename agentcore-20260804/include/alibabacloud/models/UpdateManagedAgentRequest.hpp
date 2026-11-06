@@ -121,11 +121,11 @@ namespace Models
 
 
       protected:
-        // The tool name.
+        // The name of the tool.
         // 
         // This parameter is required.
         shared_ptr<string> name_ {};
-        // The tool type.
+        // The type of the tool.
         // 
         // This parameter is required.
         shared_ptr<string> type_ {};
@@ -188,11 +188,11 @@ namespace Models
 
 
         protected:
-          // The name of the template in the AI registry.
+          // The name of the template in the AI Registry.
           // 
           // This parameter is required.
           shared_ptr<string> name_ {};
-          // The version of the template in the AI registry.
+          // The version of the template in the AI Registry.
           shared_ptr<string> version_ {};
         };
 
@@ -207,7 +207,7 @@ namespace Models
 
 
       protected:
-        // The AI registry template configuration.
+        // The AI Registry template configuration.
         shared_ptr<Template::AiRegistry> aiRegistry_ {};
       };
 
@@ -272,9 +272,9 @@ namespace Models
 
 
         protected:
-          // The skill name.
+          // The name of the skill.
           shared_ptr<string> name_ {};
-          // The skill version.
+          // The version of the skill.
           shared_ptr<string> version_ {};
         };
 
@@ -304,15 +304,15 @@ namespace Models
 
 
       protected:
-        // The sub-agent instruction.
+        // The instruction for the sub-agent.
         // 
         // This parameter is required.
         shared_ptr<string> instruction_ {};
-        // The sub-agent name.
+        // The name of the sub-agent.
         // 
         // This parameter is required.
         shared_ptr<string> name_ {};
-        // The list of sub-agent skills.
+        // The list of skills for the sub-agent.
         shared_ptr<vector<SubAgents::Skills>> skills_ {};
       };
 
@@ -379,9 +379,9 @@ namespace Models
 
 
         protected:
-          // The type of the version selector. Valid values: LABEL (by tag) and VERSION (by specific version).
+          // The type of the version selector. Valid values: LABEL (selects by tag) and VERSION (selects by specific version).
           shared_ptr<string> type_ {};
-          // The value of the selector. If the type is LABEL, this value is the tag name, such as latest. If the type is VERSION, this value is the specific version number.
+          // The value of the selector. If the type is LABEL, specify a tag name such as latest. If the type is VERSION, specify a specific version number.
           shared_ptr<string> value_ {};
         };
 
@@ -418,15 +418,15 @@ namespace Models
 
 
       protected:
-        // The skill name.
+        // The name of the skill.
         // 
         // This parameter is required.
         shared_ptr<string> name_ {};
-        // The source type of the skill. Valid values: REFERENCE (references the AI registry) and STATIC (provided statically within the package).
+        // The source type of the skill. REFERENCE indicates that the skill references an AI Registry asset. STATIC indicates that the skill is statically provided with the deployment package.
         shared_ptr<string> sourceType_ {};
-        // The skill version.
+        // The skill version field for backward compatibility with legacy requests. For new requests, use sourceType and versionSelector. Do not submit this parameter together with sourceType.
         shared_ptr<string> version_ {};
-        // The referenced version selector. If omitted, the default value is LABEL/latest. Currently, only LABEL/latest is supported.
+        // The version selector for the skill reference. Supports LABEL for tag-based selection and VERSION for specific version selection. If omitted, LABEL/latest is used. Do not specify a selector for STATIC sources.
         shared_ptr<Skills::VersionSelector> versionSelector_ {};
       };
 
@@ -491,7 +491,7 @@ namespace Models
 
 
         protected:
-          // The name of the HTTP header used for session affinity. This parameter takes effect when sessionPolicy.type is set to ISOLATED_HEADER_FIELD.
+          // The name of the request header used to identify the session. This parameter is required when type is set to ISOLATED_HEADER_FIELD and must be a valid HTTP request header name. Do not specify this parameter for other policy types.
           shared_ptr<string> headerName_ {};
           // The session policy type.
           // 
@@ -564,15 +564,15 @@ namespace Models
 
 
         protected:
-          // Specifies whether to enable auto scaling. This parameter is required and validated by the backend when HPA is present.
+          // Specifies whether to enable elastic scaling. Default value: false.
           shared_ptr<bool> enabled_ {};
-          // The maximum number of active sessions per sandbox. This parameter is required and validated by the backend when HPA is present.
+          // The maximum number of concurrent sessions allowed per instance. Valid values: 1 to 20. Default value: 20.
           shared_ptr<int32_t> maxConcurrentSessionsPerSandbox_ {};
-          // The maximum number of sandboxes. This parameter is required and must be greater than or equal to the minimum value when HPA is enabled.
+          // The maximum number of instances. Valid values: 0 to 100. Default value: 10. This value cannot be less than minSandboxCount.
           shared_ptr<int32_t> maxSandboxCount_ {};
-          // The minimum number of sandboxes. This parameter is required when HPA is enabled.
+          // The minimum number of instances. Valid values: 0 to 100. Default value: 1. This value cannot be greater than maxSandboxCount.
           shared_ptr<int32_t> minSandboxCount_ {};
-          // The idle timeout in seconds before an inactive session is reclaimed. This parameter is required and validated by the backend when HPA is present.
+          // The maximum idle time for a session, in seconds. Valid values: 60 to 86400. Default value: 600.
           shared_ptr<int32_t> sessionTtlSeconds_ {};
         };
 
@@ -604,7 +604,7 @@ namespace Models
 
 
         protected:
-          // The compute class.
+          // The compute specifications.
           // 
           // This parameter is required.
           shared_ptr<string> computeClass_ {};
@@ -644,7 +644,7 @@ namespace Models
         // 
         // This parameter is required.
         shared_ptr<Runtime::Compute> compute_ {};
-        // The sandbox auto scaling and session configuration.
+        // The elastic scaling and session configuration. Omitted fields use default values. To retain the original policy during an update, submit the complete hpa object or omit the entire runtime object.
         shared_ptr<Runtime::Hpa> hpa_ {};
         // The session policy configuration.
         // 
@@ -763,13 +763,13 @@ namespace Models
 
 
       protected:
-        // The name of the OSS bucket. This field is required for each mount item and validated by the backend.
+        // The name of the OSS bucket. This parameter is required and validated by the backend for each mount item.
         shared_ptr<string> bucketName_ {};
-        // The absolute mount path in the container. This field is required for each mount item and validated by the backend.
+        // The absolute mount path in the container, such as /data/train. Mount targets cannot be duplicated or form parent-child overwrites, and must avoid platform reserved directories.
         shared_ptr<string> mountPath_ {};
-        // The relative object prefix in the bucket. If not specified, the entire bucket is mounted.
+        // The non-empty relative object directory prefix in the bucket. This parameter is required for each mount item.
         shared_ptr<string> path_ {};
-        // Specifies whether to mount the bucket in read-only mode. If not specified, the default value is false.
+        // Specifies whether the mount is read-only. Default value: false.
         shared_ptr<bool> readOnly_ {};
       };
 
@@ -822,7 +822,7 @@ namespace Models
 
 
         protected:
-          // Specifies whether to allow VPC access.
+          // Specifies whether to allow access to the VPC.
           shared_ptr<bool> enabled_ {};
         };
 
@@ -854,7 +854,7 @@ namespace Models
 
 
         protected:
-          // Specifies whether to allow Internet access.
+          // Specifies whether to allow access to the Internet.
           shared_ptr<bool> enabled_ {};
         };
 
@@ -964,13 +964,13 @@ namespace Models
 
 
         protected:
-          // Specifies whether to enable the token quota. If not specified, the default value is true. A value of false disables the quota and deletes existing quota rules.
+          // Specifies whether to enable the token quota. The default value is true if not specified. Passing false disables the quota and deletes existing quota rules.
           shared_ptr<bool> enabled_ {};
           // The quota limit type. This field is required and validated by the backend when the quota is enabled. Fixed value: token.
           shared_ptr<string> limitType_ {};
-          // The statistical period for the quota. This field is required and validated by the backend when the quota is enabled. Valid values: day (daily) and month (monthly).
+          // The quota statistical period. This field is required and validated by the backend when the quota is enabled. Valid values: day (daily) and month (monthly).
           shared_ptr<string> periodType_ {};
-          // The maximum number of tokens allowed to be consumed within a single period. This field is required and validated by the backend when the quota is enabled. The value must be greater than 0.
+          // The maximum number of tokens allowed to be consumed in a single period. This field is required and validated by the backend when the quota is enabled, and must be greater than 0.
           shared_ptr<int64_t> usageLimit_ {};
         };
 
@@ -1000,13 +1000,13 @@ namespace Models
 
 
       protected:
-        // The model connection ID.
+        // For qwenpaw, use the workspace model connection ID. For qodercli, use the available model identifier returned by ListConnectorModels.
         // 
         // This parameter is required.
         shared_ptr<string> modelConnectionId_ {};
-        // The upstream model name.
+        // For qwenpaw, use the name of the upstream model created under the model connection. This field is required. For qodercli, this field can be omitted.
         shared_ptr<string> modelName_ {};
-        // The model token quota configuration. If not specified, no quota is configured.
+        // The model token quota configuration. If this field is not passed, no quota is configured.
         shared_ptr<Model::Quota> quota_ {};
       };
 
@@ -1069,9 +1069,9 @@ namespace Models
 
 
         protected:
-          // The connector service account key.
+          // The account key record ID in the qodercli Connector. You can query it through ListConnectors. It is not the original key. This field can be omitted if there is only one record, but must be specified if there are multiple records. Do not specify this field for qwenpaw.
           shared_ptr<string> connectorServiceAccountKey_ {};
-          // The connector service account name.
+          // The connector account name bound to qodercli. Do not specify this field for qwenpaw.
           shared_ptr<string> connectorServiceAccountName_ {};
         };
 
@@ -1096,7 +1096,7 @@ namespace Models
       protected:
         // The runtime framework configuration.
         shared_ptr<Harness::Configuration> configuration_ {};
-        // The type of the runtime framework.
+        // The runtime framework type. This field is required when harness is provided, and must be consistent with that specified during creation.
         shared_ptr<string> type_ {};
       };
 
@@ -1286,13 +1286,13 @@ namespace Models
 
 
       protected:
-        // The subdirectory under /mnt/agenticfs/ in the container. This field is required for each mount item and validated by the backend. Mount targets must not overlap or have parent-child overrides.
+        // The absolute mount path in the container, such as /data/train. Mount targets cannot be duplicated or form parent-child overwrites, and must avoid platform reserved directories.
         shared_ptr<string> mountPath_ {};
-        // The existing non-empty relative directory under the access point. This field is required for each mount item and validated by the backend. Root directories, absolute paths, and parent directory segments are not allowed.
+        // The existing non-empty relative directory under the AccessPoint. This field is required and validated by the backend for each mount item. The root directory, absolute paths, or parent directory segments are not allowed.
         shared_ptr<string> path_ {};
-        // Specifies whether to mount the file system in read-only mode. If omitted, the default value is false. This does not apply the read-only policy of the RAM role.
+        // Specifies whether to mount as read-only. The default value is false if omitted. This is not a RAM role read-only policy.
         shared_ptr<bool> readOnly_ {};
-        // The domain name of the access point. This field is required for each mount item and validated by the backend. Do not include the protocol, port, or path. Use the DomainName value from the NAS ListAccessPoints response.
+        // The AccessPoint domain name. This field is required and validated by the backend for each mount item. It does not contain a protocol, port, or path, and takes the DomainName from the NAS ListAccessPoints response.
         shared_ptr<string> server_ {};
       };
 
@@ -1445,31 +1445,31 @@ namespace Models
 
 
     protected:
-      // 省略时保持不变；API_KEY 会清空 accessScope，USER 必须设置访问范围。
+      // The inbound access mode.
       shared_ptr<string> accessMode_ {};
-      // 省略时保持不变；仅 accessMode 为 USER 时使用。
+      // The user access scope.
       shared_ptr<string> accessScope_ {};
-      // If omitted, the existing mounts are retained. An empty array clears the mounts. A non-empty array replaces all existing mounts. Null is rejected. The total number of AgenticFS and OSS mounts cannot exceed 10.
+      // The NAS storage mount configuration. Currently, the AgenticFS type is supported to mount file directories in access points to agent runtime instances. The AgenticFS directory mount list can contain up to 10 items in total with ossMounts. Omitting this field or passing [] during creation indicates no mounts. During an update, omitting this field retains the original configuration, passing [] clears the list, and null is not accepted.
       shared_ptr<vector<Body::AgenticFsMounts>> agenticFsMounts_ {};
-      // The description of the managed agent.
+      // The description of the managed Harness agent.
       shared_ptr<string> description_ {};
       // The environment configuration.
       shared_ptr<Body::Environment> environment_ {};
-      // The agent runtime framework.
+      // The runtime framework object. If omitted, the original framework is retained. If provided, the type must be the same as that specified during creation. You can update the account binding for a framework of the same type.
       shared_ptr<Body::Harness> harness_ {};
-      // The agent instruction, which is used to guide the behavior of the agent.
+      // The agent instructions used to guide the behavior of the agent.
       shared_ptr<string> instruction_ {};
       // The model configuration.
       shared_ptr<Body::Model> model_ {};
-      // The name of the managed agent.
+      // The name of the managed Harness agent.
       shared_ptr<string> name_ {};
-      // The network configuration.
+      // The runtime network configuration. If provided, it must include both accessInternet.enabled and accessVpc.enabled. Actual access is restricted by the workspace network.
       shared_ptr<Body::Network> network_ {};
-      // The list of OSS mounts. A maximum of 10 items are allowed. Pass an empty array to clear existing mounts.
+      // The list of OSS directory mounts. The total number of OSS mounts and agenticFsMounts cannot exceed 10. When you update this list, the entire list is replaced. Pass an empty array [] to clear existing mounts.
       shared_ptr<vector<Body::OssMounts>> ossMounts_ {};
       // The prompt variable declarations.
       shared_ptr<vector<Body::PromptVariables>> promptVariables_ {};
-      // The runtime configuration.
+      // The runtime configuration. If you omit the entire object, the original configuration is retained. If you provide this object, you must specify both compute and sessionPolicy. Omitted fields in hpa use default values.
       shared_ptr<Body::Runtime> runtime_ {};
       // The list of skill configurations.
       shared_ptr<vector<Body::Skills>> skills_ {};
@@ -1502,7 +1502,7 @@ namespace Models
   protected:
     // The request body.
     shared_ptr<UpdateManagedAgentRequest::Body> body_ {};
-    // The reserved idempotency token. The backend does not provide idempotency guarantees in the current phase.
+    // The reserved query parameter. The backend currently does not provide idempotency guarantees, such as deduplication or returning the original processing result, based on this token.
     shared_ptr<string> clientToken_ {};
   };
 

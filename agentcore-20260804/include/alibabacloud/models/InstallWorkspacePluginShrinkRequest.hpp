@@ -48,7 +48,7 @@ namespace Models
 
 
   protected:
-    // The request body for installing a plugin.
+    // The request body for installing the component.
     shared_ptr<string> bodyShrink_ {};
     // The client idempotency token.
     shared_ptr<string> clientToken_ {};

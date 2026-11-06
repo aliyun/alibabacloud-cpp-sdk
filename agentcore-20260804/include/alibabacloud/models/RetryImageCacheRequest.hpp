@@ -90,17 +90,17 @@ namespace Models
 
 
   protected:
-    // The request body is a fixed empty object {}. WorkspaceId is passed as a query parameter. Do not pass the Pool, role, Digest, or network parameters.
+    // The request body for retrying image cache creation.
     shared_ptr<RetryImageCacheRequest::Body> body_ {};
-    // This parameter is required and cannot be empty. It is reserved to keep the API compatible. This field does not currently deduplicate requests or recover the original result. If a timeout occurs or the result is not confirmed, query the query cache status first before deciding whether to commit again.
+    // The non-empty request token passed as a query parameter. The current implementation does not guarantee deduplication or recovery of the original acceptance result based on this token.
     // 
     // This parameter is required.
     shared_ptr<string> clientToken_ {};
-    // The product entry region, which is determined by the selected region endpoint.
+    // The product entry region. This parameter is passed as a query parameter and must be consistent with the selected region endpoint and the workspace region.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
-    // The current routed workspace. The server verifies the account, region, and resource ownership. You cannot omit this parameter or use it to access other workspaces.
+    // The workspace ID.
     // 
     // This parameter is required.
     shared_ptr<string> workspaceId_ {};

@@ -208,11 +208,11 @@ namespace Models
       shared_ptr<string> description_ {};
       // The template display metadata.
       Darabonba::Json displayMetadata_ {};
-      // The multilingual display content, organized by BCP-47 language tags. Falls back to default fields when the specified language is not matched.
+      // The multilingual display content organized by BCP-47 language tags. If a language is not matched, the default fields are used.
       shared_ptr<map<string, DataI18nValue>> i18n_ {};
       // The icon URL of the MCP marketplace template.
       shared_ptr<string> iconUrl_ {};
-      // The number of times the template has been installed.
+      // The template installation count.
       shared_ptr<int64_t> installCount_ {};
       // The MCP marketplace template ID.
       shared_ptr<string> marketItemId_ {};
@@ -224,7 +224,7 @@ namespace Models
       shared_ptr<string> officialTag_ {};
       // The MCP protocol.
       shared_ptr<string> protocol_ {};
-      // The usage instructions for the MCP marketplace template.
+      // The MCP marketplace template instructions.
       shared_ptr<string> readme_ {};
       // The template schema version.
       shared_ptr<string> schemaVersion_ {};
@@ -289,9 +289,9 @@ namespace Models
     shared_ptr<int32_t> httpStatusCode_ {};
     // The response message.
     shared_ptr<string> message_ {};
-    // The request ID, which is used to locate and troubleshoot issues.
+    // The request ID used to locate and troubleshoot the request.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request was successful.
+    // Indicates whether the request is successful.
     shared_ptr<bool> success_ {};
   };
 

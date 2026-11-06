@@ -158,11 +158,11 @@ namespace Models
 
 
           protected:
-            // Indicates whether VPC networking is currently enabled for the collaboration plugin.
+            // Indicates whether VPC network access is currently enabled for the collaboration component.
             shared_ptr<bool> enabled_ {};
-            // The list of vSwitch IDs used for plugin deployment.
+            // The list of vSwitch IDs used for component deployment.
             shared_ptr<vector<string>> vSwitchIds_ {};
-            // The VPC ID used for plugin deployment.
+            // The VPC ID used for component deployment.
             shared_ptr<string> vpcId_ {};
           };
 
@@ -272,11 +272,11 @@ namespace Models
 
 
         protected:
-          // The name of the AgentSpace associated with the AgentLoop plugin.
+          // The name of the AgentSpace associated with the AgentLoop component.
           shared_ptr<string> agentSpaceName_ {};
           // The creation time of the AgentSpace, in UTC format compliant with RFC 3339.
           shared_ptr<string> createdAt_ {};
-          // The region ID of the AgentSpace.
+          // The region ID where the AgentSpace resides.
           shared_ptr<string> regionId_ {};
         };
 
@@ -301,9 +301,9 @@ namespace Models
 
 
       protected:
-        // The AgentLoop plugin configuration.
+        // The AgentLoop component configuration.
         shared_ptr<Config::AgentLoop> agentLoop_ {};
-        // The network configuration of the plugin, including the public network access configuration and VPC configuration.
+        // The network configuration of the component, including the public network access configuration and VPC configuration.
         shared_ptr<Config::Network> network_ {};
       };
 
@@ -347,13 +347,13 @@ namespace Models
 
 
     protected:
-      // The user-configurable properties that are currently in effect for the plugin. This field is empty if the plugin is not installed.
+      // The user-configurable properties that currently take effect for the component. This field is empty when the component is not installed.
       shared_ptr<Data::Config> config_ {};
-      // Indicates whether the plugin is enabled. The value is true if the status is ENABLED.
+      // Indicates whether the component is enabled. The value is true when the status is ENABLED.
       shared_ptr<bool> enabled_ {};
-      // The plugin name.
+      // The component name.
       shared_ptr<string> pluginName_ {};
-      // The plugin status. Valid values: DISABLED, ENABLING, ENABLED, ENABLE_FAILED, DISABLING, and DISABLE_FAILED.
+      // The component status. Valid values: DISABLED, ENABLING, ENABLED, ENABLE_FAILED, DISABLING, and DISABLE_FAILED.
       shared_ptr<string> status_ {};
       // The workspace ID.
       shared_ptr<string> workspaceId_ {};
@@ -408,11 +408,11 @@ namespace Models
   protected:
     // The business status code.
     shared_ptr<string> code_ {};
-    // The plugin details.
+    // The component details.
     shared_ptr<GetWorkspacePluginResponseBody::Data> data_ {};
     // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
-    // The response message. An error description is returned if the request fails.
+    // The response message. An error description is returned when the request fails.
     shared_ptr<string> message_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

@@ -159,11 +159,11 @@ namespace Models
 
 
           protected:
-            // The agent ID. The ID must be 1 to 128 bytes in length and encoded in UTF-8. The ID cannot contain a forward slash (/) or an asterisk (*). If the memory is not associated with an agent ID, this field is not returned.
+            // The agent ID. The ID must be 1 to 128 bytes in length and encoded in UTF-8. The ID cannot contain forward slashes (/) or asterisks (*). If the memory is not associated with an agent ID, this field is not returned.
             shared_ptr<string> agentId_ {};
-            // The session ID. The ID must be 1 to 128 bytes in length and encoded in UTF-8. The ID cannot contain a forward slash (/) or an asterisk (*). If the memory is not associated with a session ID, this field is not returned.
+            // The session ID. The ID must be 1 to 128 bytes in length and encoded in UTF-8. The ID cannot contain forward slashes (/) or asterisks (*). If the memory is not associated with a session ID, this field is not returned.
             shared_ptr<string> sessionId_ {};
-            // The user ID. The ID must be 1 to 128 bytes in length and encoded in UTF-8. The ID cannot contain a forward slash (/) or an asterisk (*). If the memory is not associated with a user ID, this field is not returned.
+            // The user ID. The ID must be 1 to 128 bytes in length and encoded in UTF-8. The ID cannot contain forward slashes (/) or asterisks (*). If the memory is not associated with a user ID, this field is not returned.
             shared_ptr<string> userId_ {};
           };
 
@@ -252,7 +252,7 @@ namespace Models
         protected:
           // The memory content.
           shared_ptr<Memory::Content> content_ {};
-          // The time when the memory was created.
+          // The creation time. The time is in RFC 3339 format. The Z at the end of the example indicates the UTC time zone.
           shared_ptr<string> createdAt_ {};
           // The long-term memory ID.
           shared_ptr<string> memoryId_ {};
@@ -260,7 +260,7 @@ namespace Models
           shared_ptr<map<string, string>> metadata_ {};
           // The memory scope.
           shared_ptr<Memory::Scope> scope_ {};
-          // The time when the memory was last updated.
+          // The last update time. The time is in RFC 3339 format. The Z at the end of the example indicates the UTC time zone.
           shared_ptr<string> updatedAt_ {};
         };
 

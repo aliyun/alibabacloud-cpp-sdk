@@ -77,11 +77,11 @@ namespace Models
   protected:
     // The keyword used to filter MCP marketplace templates.
     shared_ptr<string> keyword_ {};
-    // The maximum number of records to return in this query.
+    // The maximum number of records to return for this query.
     shared_ptr<int32_t> maxResults_ {};
     // The MCP type.
     shared_ptr<string> mcpType_ {};
-    // The pagination token used to retrieve the next page of results.
+    // The pagination token used to query the next page.
     shared_ptr<string> nextToken_ {};
     // The official usage tag.
     shared_ptr<string> officialTag_ {};

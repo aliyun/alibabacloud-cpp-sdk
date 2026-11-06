@@ -189,15 +189,15 @@ namespace Models
     shared_ptr<vector<ListAgentTeamsResponseBody::Items>> items_ {};
     // The number of records returned on the current page.
     shared_ptr<int32_t> maxResults_ {};
-    // The response message. Returns an error description when the request fails.
+    // The response message. Returns an error description if the request fails.
     shared_ptr<string> message_ {};
-    // The cursor used to retrieve the next page. An empty value indicates that no more data is available.
+    // The cursor used to obtain the next page. An empty value indicates that no more data is available.
     shared_ptr<string> nextToken_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
     // Indicates whether the request is successful.
     shared_ptr<bool> success_ {};
-    // The total number of records that match the query conditions.
+    // The total number of records that meet the conditions.
     shared_ptr<int64_t> totalCount_ {};
   };
 

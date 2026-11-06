@@ -78,7 +78,7 @@ namespace Models
 
 
     protected:
-      // The display name of the user. The name must be 1 to 32 characters in length. You must specify at least one of the displayName, email, and note parameters.
+      // The display name of the user. The name must be 1 to 32 characters in length. At least one of displayName, email, and note must be specified.
       shared_ptr<string> displayName_ {};
       // The email address of the user. The email address can be up to 256 characters in length.
       shared_ptr<string> email_ {};
@@ -105,7 +105,7 @@ namespace Models
 
 
   protected:
-    // The request body for updating a user.
+    // The request body for updating the user.
     shared_ptr<UpdateUserRequest::Body> body_ {};
     // Not supported.
     shared_ptr<string> clientToken_ {};

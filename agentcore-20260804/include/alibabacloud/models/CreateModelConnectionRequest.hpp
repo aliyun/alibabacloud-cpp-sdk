@@ -118,11 +118,11 @@ namespace Models
       // 
       // This parameter is required.
       shared_ptr<string> endpoint_ {};
-      // The name of the model connection. The name must be 1 to 128 non-whitespace characters in length.
+      // The name of the model connection. It must be 1 to 128 non-whitespace characters in length.
       // 
       // This parameter is required.
       shared_ptr<string> name_ {};
-      // The model invoke protocol. Currently, only OpenAI/v1 is supported. If the Settings are not specified during model creation, this default value is used.
+      // The model invoke protocol. Currently, only OpenAI/v1 is supported. If this parameter is not specified in Settings during model creation, this default value is used.
       shared_ptr<string> protocol_ {};
       // The model provider type.
       // 

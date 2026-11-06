@@ -140,13 +140,13 @@ namespace Models
 
 
           protected:
-            // Explicitly controls whether the collaboration plugin uses the VPC network. If set to false, vpcId and vSwitchIds are ignored. If set to true, you must provide both vpcId and at least two vSwitchIds.
+            // Explicitly controls whether the collaboration component uses a VPC network. If this parameter is set to false, vpcId and vSwitchIds are ignored. If this parameter is set to true, you must provide a vpcId and at least two vSwitchIds.
             shared_ptr<bool> enabled_ {};
-            // The list of vSwitch IDs. The collaboration plugin requires that the vSwitches cover at least two different zones, and all vSwitches must belong to the VPC specified by vpcId.
+            // The list of vSwitch IDs. The collaboration component requires that the vSwitches cover at least two different zones, and all vSwitches must belong to the VPC specified by vpcId.
             // 
             // This parameter is required.
             shared_ptr<vector<string>> vSwitchIds_ {};
-            // The user VPC ID.
+            // The ID of the user VPC.
             // 
             // This parameter is required.
             shared_ptr<string> vpcId_ {};
@@ -180,7 +180,7 @@ namespace Models
 
 
           protected:
-            // Specifies whether to enable Internet access. If set to true and no VPC is specified, PUB_NET is used. If set to true and a VPC is specified, PRIVATE_PUBNET is used. If only a VPC is specified, PRIVATE_NET is used. At least one of Internet access and VPC must be configured.
+            // Specifies whether to enable Internet access. If this parameter is set to true and no VPC is specified, PUB_NET is used. If this parameter is set to true and a VPC is specified, PRIVATE_PUBNET is used. If only a VPC is specified, PRIVATE_NET is used. You must configure at least one of Internet access and VPC access.
             shared_ptr<bool> enabled_ {};
           };
 
@@ -205,9 +205,9 @@ namespace Models
 
 
         protected:
-          // Specifies whether to allow public network access for collaboration components. This configuration only controls public network access capabilities and does not expose component services to the public network.
+          // Specifies whether the collaboration component is allowed to access the public network. This configuration only controls the public network access capability and does not expose the component service to the public network.
           shared_ptr<Network::Internet> internet_ {};
-          // The user VPC and vSwitch list used for deploying the collaboration plugin. The zones corresponding to the vSwitches are queried by the server, and users do not need to pass in Zones.
+          // The user VPC and the list of vSwitches used to deploy the collaboration component. The zones corresponding to the vSwitches are queried by the server. You do not need to pass the Zones parameter.
           shared_ptr<Network::Vpc> vpc_ {};
         };
 
@@ -222,7 +222,7 @@ namespace Models
 
 
       protected:
-        // The network configuration used by the collaboration plugin. If not specified, the server uses the existing network configuration of the workspace.
+        // The network configuration used by the collaboration component. If not specified, the server uses the existing network configuration of the workspace.
         shared_ptr<Config::Network> network_ {};
       };
 
@@ -237,7 +237,7 @@ namespace Models
 
 
     protected:
-      // The plugin-specific configuration. The configuration structure is determined by pluginName. Currently, the collaboration plugin supports network.
+      // The component-specific configuration. The configuration structure is determined by the pluginName parameter. Currently, the collaboration component supports the network configuration.
       shared_ptr<Body::Config> config_ {};
     };
 
@@ -260,7 +260,7 @@ namespace Models
 
 
   protected:
-    // The request body for installing a plugin.
+    // The request body for installing the component.
     shared_ptr<InstallWorkspacePluginRequest::Body> body_ {};
     // The client idempotency token.
     shared_ptr<string> clientToken_ {};

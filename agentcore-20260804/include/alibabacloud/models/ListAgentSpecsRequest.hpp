@@ -112,31 +112,23 @@ namespace Models
 
 
   protected:
-    // The AgentSpec name used as a search keyword. This parameter is used together with the search parameter.
+    // The name of the AgentSpec, used as a search keyword in combination with the search parameter.
     shared_ptr<string> agentSpecName_ {};
     // The business tag used for fuzzy filtering.
     shared_ptr<string> bizTag_ {};
-    // The field by which to sort the results. Set the value to download_count to sort by download count. By default, results are sorted by update time.
+    // The field by which to sort the results. Supports download_count. By default, the results are sorted by update time.
     shared_ptr<string> orderBy_ {};
-    // The owner used to filter the results.
+    // The owner filter.
     shared_ptr<string> owner_ {};
     // The page number. Pages start from 1. Default value: 1.
     shared_ptr<int32_t> pageNo_ {};
     // The number of entries per page. Default value: 10. Maximum value: 50.
     shared_ptr<int32_t> pageSize_ {};
-    // The visibility scope used to filter the results. Valid values:
-    // 
-    // - PUBLIC
-    // - PRIVATE
+    // The visibility scope filter. Valid values: PUBLIC and PRIVATE.
     shared_ptr<string> scope_ {};
-    // The search mode. Valid values:
-    // 
-    // - accurate: exact match.
-    // - blur: fuzzy match.
-    // 
-    // Default value: blur.
+    // The search mode. Valid values: accurate (exact match) and blur (fuzzy match). Default value: blur.
     shared_ptr<string> search_ {};
-    // Specifies whether to return the Skills and McpServers lists. Default value: false.
+    // Specifies whether to return the lists of skills and MCP servers. Default value: false.
     shared_ptr<bool> withCapabilities_ {};
   };
 

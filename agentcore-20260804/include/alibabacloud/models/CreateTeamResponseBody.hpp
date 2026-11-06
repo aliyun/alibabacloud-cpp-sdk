@@ -240,13 +240,13 @@ namespace Models
       shared_ptr<string> createdAt_ {};
       // The team description.
       shared_ptr<string> description_ {};
-      // The team name. The name can only contain lowercase letters, digits, and hyphens. It must start and end with a lowercase letter or a digit, and must be 1 to 128 characters in length.
+      // The team name. It can only contain lowercase letters, digits, and hyphens, must start and end with a lowercase letter or a digit, and must be 1 to 128 characters in length.
       shared_ptr<string> name_ {};
       // The team status. Valid values: Creating, Active, Updating, Deleting, Failed, and Deleted.
       shared_ptr<string> status_ {};
       // The team ID.
       shared_ptr<string> teamId_ {};
-      // The time of the last update in RFC 3339 UTC format.
+      // The last update time in RFC 3339 UTC format.
       shared_ptr<string> updatedAt_ {};
       // The list of user members in the team.
       shared_ptr<vector<Data::Users>> users_ {};

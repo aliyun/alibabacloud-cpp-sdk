@@ -104,11 +104,11 @@ namespace Models
 
 
       protected:
-        // The unique identifier of the resource.
+        // The ID of the applicable MCP service.
         shared_ptr<string> resourceId_ {};
-        // The resource name. This parameter is empty if the resource is deleted.
+        // The resource name. This field is empty if the resource has been deleted.
         shared_ptr<string> resourceName_ {};
-        // The resource type, such as agent.
+        // The resource type. Currently, the value is mcpServer, which indicates an MCP service.
         shared_ptr<string> resourceType_ {};
       };
 
@@ -145,13 +145,13 @@ namespace Models
 
 
     protected:
-      // The new credential content, which is a JSON string. If credentialType is apiKey, this parameter can only contain the apiKey field, and the value cannot be empty. You must specify at least one of credentialMetadata and description.
+      // The credential content, submitted as a JSON string. For the apiKey type, it contains only a non-empty apiKey. For the mcpHeader type, it contains a non-empty headers array, where each item includes a name and a value.
       shared_ptr<string> credentialMetadata_ {};
-      // The new credential description, which can be up to 256 characters in length. You must specify at least one of credentialMetadata and description.
+      // The new credential description. The description can be up to 256 characters in length. If omitted, the original description is retained. It can be updated independently of the credential content or application scope.
       shared_ptr<string> description_ {};
-      // If resourceScope is SPECIFIED, this parameter must be a non-empty array. Each item must include resourceType and resourceId. resourceName is optional.
+      // The list of applicable resources for the MCP header credential. If submitted, resourceScope must also be submitted. An empty array [] is allowed when the scope is SPECIFIED. Omit this field when the scope is ALL.
       shared_ptr<vector<Body::ResourceRefs>> resourceRefs_ {};
-      // The application scope of the credential resources. A value of ALL indicates all resources. A value of SPECIFIED indicates only the resources specified by resourceRefs.
+      // The application scope of the MCP header credential. This field is supported only for the mcpHeader type. ALL indicates all MCP services, and SPECIFIED indicates the MCP services specified in resourceRefs. Do not submit this field for the apiKey type.
       shared_ptr<string> resourceScope_ {};
     };
 

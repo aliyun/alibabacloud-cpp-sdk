@@ -95,9 +95,9 @@ namespace Models
 
 
     protected:
-      // The original file name of the code package.
+      // The file name of the original code package.
       shared_ptr<string> fileName_ {};
-      // The compressed size of the code package.
+      // The compressed file size of the code package, in bytes.
       shared_ptr<int64_t> fileSize_ {};
       // The format of the code package.
       shared_ptr<string> format_ {};

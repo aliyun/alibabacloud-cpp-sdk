@@ -107,9 +107,9 @@ namespace Models
 
 
       protected:
-        // When the mode is SelectedDepartments, this parameter contains at least one non-empty department ID, which should be obtained from ListIdentityProviderDepartments. When the mode is AllAuthorized, pass an empty array or omit this parameter.
+        // When the mode is SelectedDepartments, the list must contain at least one non-empty department ID, which should be obtained from ListIdentityProviderDepartments. When the mode is AllAuthorized, pass an empty array or omit this parameter.
         shared_ptr<vector<string>> departmentIds_ {};
-        // The scope mode. Valid values: AllAuthorized (the entire authorized scope, limited by the application\\"s address book authorization) and SelectedDepartments (the selected departments and all their sub-departments). When explicitly submitting syncScope, a valid mode must be provided and verified by the backend.
+        // AllAuthorized: the full authorized scope, which is restricted by the application\\"s address book authorization. SelectedDepartments: the selected departments and all their child departments. When explicitly submitting syncScope, you must provide a valid mode, which is verified by the backend.
         shared_ptr<string> mode_ {};
       };
 
@@ -162,7 +162,7 @@ namespace Models
       protected:
         // Indicates whether the selected department still exists. A value of false indicates that the selection is invalid and the synchronization scope must be reconfirmed.
         shared_ptr<bool> exists_ {};
-        // The unique identifier of the department returned by the identity provider. When querying the sub-departments of this node, use this value as parentDepartmentId.
+        // The unique identifier of the department returned by the identity provider. When querying the child departments of this node, use this value as parentDepartmentId.
         shared_ptr<string> id_ {};
         // The name of the department returned by the identity provider.
         shared_ptr<string> name_ {};
@@ -210,15 +210,15 @@ namespace Models
 
 
     protected:
-      // The estimation status of the user count for the synchronization scope. The count is available only when the status is Ready. A missing count in other states cannot be considered as 0.
+      // The estimation status of the user count for the synchronization scope. The counts are available only when the status is Ready. Missing counts in other states must not be treated as 0.
       shared_ptr<string> estimateStatus_ {};
-      // The estimated number of users in the saved synchronization scope. This parameter is returned only when estimateStatus is Ready and the downstream system provides the value. It does not represent the number of users that have been synchronized.
+      // The estimated number of users in the saved synchronization scope. This value is returned only when estimateStatus is Ready and the downstream system provides the value. It does not represent the number of users that have already been synchronized.
       shared_ptr<int64_t> estimatedUserCount_ {};
-      // The estimated number of departments including sub-departments. This parameter is returned only when estimateStatus is Ready and the downstream system provides the value.
+      // The estimated number of departments, including child departments. This value is returned only when estimateStatus is Ready and the downstream system provides the value.
       shared_ptr<int64_t> expandedDepartmentCount_ {};
-      // The names and validity of the saved selected departments. This parameter can be an empty array when the mode is AllAuthorized. An empty array does not indicate that the organization has no departments.
+      // The names and validity of the saved selected departments. This can be an empty array when the mode is AllAuthorized. An empty array does not indicate that the organization has no departments.
       shared_ptr<vector<Data::SelectedDepartments>> selectedDepartments_ {};
-      // The saved synchronization scope downstream. AllAuthorized indicates the address book scope authorized for the application.
+      // The saved synchronization scope of the downstream system. AllAuthorized indicates the address book scope authorized for the application.
       shared_ptr<Data::SyncScope> syncScope_ {};
     };
 
@@ -271,9 +271,9 @@ namespace Models
   protected:
     // The business status code of the API request. SUCCESS indicates that the request is successful, but does not indicate that the asynchronous synchronization task is completed.
     shared_ptr<string> code_ {};
-    // The business data returned by the request.
+    // The business data returned in the response.
     shared_ptr<GetIdentityProviderSyncScopeResponseBody::Data> data_ {};
-    // The HTTP status code of the API request. It does not indicate the execution result of the asynchronous task.
+    // The HTTP status code of the API request. This code does not indicate the execution result of the asynchronous task.
     shared_ptr<int32_t> httpStatusCode_ {};
     // The response message of the API request.
     shared_ptr<string> message_ {};

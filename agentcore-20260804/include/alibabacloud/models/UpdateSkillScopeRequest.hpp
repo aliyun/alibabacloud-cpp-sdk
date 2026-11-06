@@ -57,7 +57,7 @@ namespace Models
 
 
     protected:
-      // The visibility.
+      // The visibility scope.
       // 
       // This parameter is required.
       shared_ptr<string> scope_ {};

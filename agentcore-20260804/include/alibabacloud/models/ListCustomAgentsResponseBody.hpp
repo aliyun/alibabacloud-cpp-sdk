@@ -157,7 +157,7 @@ namespace Models
 
 
         protected:
-          // The description of the purpose for the current API path.
+          // The purpose description of the current API path.
           shared_ptr<string> description_ {};
           // The API path corresponding to the current protocol.
           // 
@@ -197,10 +197,7 @@ namespace Models
         shared_ptr<map<string, string>> headers_ {};
         // The list of API paths corresponding to the current protocol.
         shared_ptr<vector<Protocol::Paths>> paths_ {};
-        // The invoke Protocol Type. Valid values:
-        // - agui: AG-UI protocol.
-        // - openai-chat-completion: OpenAI Chat Completions compatible protocol.
-        // - custom: Custom protocol.
+        // The invocation protocol type. agui indicates the AG-UI protocol. openai-chat-completion indicates the OpenAI Chat Completions compatible protocol. custom indicates a custom protocol.
         // 
         // This parameter is required.
         shared_ptr<string> type_ {};
@@ -382,15 +379,15 @@ namespace Models
         protected:
           // The custom container startup command and parameters. If this parameter is not configured, the default startup method of the image is used.
           shared_ptr<string> entrypoint_ {};
-          // The ID of the ACR Enterprise instance.
+          // The ID of the ACR Enterprise Edition instance.
           shared_ptr<string> instanceId_ {};
-          // The namespace of Container Registry.
+          // The Container Registry namespace.
           shared_ptr<string> namespace_ {};
           // The name of the Container Registry image repository.
           shared_ptr<string> repo_ {};
           // The image tag.
           shared_ptr<string> tag_ {};
-          // The source type of the container image.
+          // The image source type. A value of acr indicates a Container Registry image. A value of custom indicates a custom image source. For the corresponding source configurations, refer to the descriptions of artifact.container and customImage.
           // 
           // This parameter is required.
           shared_ptr<string> type_ {};
@@ -447,7 +444,7 @@ namespace Models
           // 
           // This parameter is required.
           shared_ptr<string> entrypoint_ {};
-          // The identifier of the code runtime environment in the currently saved configuration. The runtime image uses the saved snapshot. Adding a new version to the directory does not automatically change the existing configuration.
+          // The identifier of the code runtime environment in the currently saved configuration. The runtime image uses the saved snapshot. Adding a new version to the catalog does not automatically change the existing configuration.
           // 
           // This parameter is required.
           shared_ptr<string> languageRuntime_ {};
@@ -618,44 +615,37 @@ namespace Models
 
 
     protected:
-      // The inbound access mode.
+      // The inbound access method.
       shared_ptr<string> accessMode_ {};
       // The user access scope.
       shared_ptr<string> accessScope_ {};
-      // The unique identifier of the custom agent. You can obtain this ID from the response of the CreateCustomAgent or ListCustomAgents operation.
+      // The unique identifier of the custom code or image agent. You can obtain this ID from the response of the CreateCustomAgent or ListCustomAgents operation.
       shared_ptr<string> agentId_ {};
       // The agent artifact.
       shared_ptr<Items::Artifact> artifact_ {};
       // The currently saved code package information.
       shared_ptr<Items::CodePackageInfo> codePackageInfo_ {};
-      // The creation mode of the agent. The value is CUSTOM for custom agents.
+      // The creation method of the agent. The value is CUSTOM for custom code or image agents.
       shared_ptr<string> createMode_ {};
-      // The time when the agent was created. The time is in ISO 8601 format. A trailing Z indicates the UTC time zone. Fractional seconds may be included.
+      // The time when the agent was created. The time is in ISO 8601 format. The trailing Z indicates the UTC time zone. Fractional seconds may be included.
       shared_ptr<string> createdAt_ {};
-      // The deployment mode of the agent. Custom agents are deployed and managed by the platform. The value is MANAGED for custom agents.
+      // The deployment method of the agent. Custom code or image agents are deployed and managed by the platform. The value is MANAGED.
       shared_ptr<string> deployType_ {};
       // The description of the agent\\"s purpose.
       shared_ptr<string> description_ {};
       // The latest configuration version number. Updates with the same configuration may retain the original version number. This field does not indicate that the configuration has taken effect.
       shared_ptr<int64_t> latestSpecVersion_ {};
-      // The name of the custom agent.
+      // The name of the custom code or image agent.
       shared_ptr<string> name_ {};
       // The list of invocation protocol configurations for the agent.
       shared_ptr<vector<Items::Protocol>> protocol_ {};
       // The compute specifications of the agent. Valid values: INTERACTIVE, STANDARD, and HEAVY.
       shared_ptr<string> runtime_ {};
-      // The overall status of the agent. Valid values:
-      // - Creating: The agent is being created.
-      // - Running: The agent is running.
-      // - Failed: The agent failed.
-      // - Updating: The agent is being updated.
-      // - Deleting: The agent is being deleted.
-      // - Deleted: The agent is deleted.
-      // To query the execution progress of the latest configuration, call the GetCustomAgent operation.
+      // The overall status of the agent. Valid values: Creating, Running, Failed, Updating, Deleting, and Deleted. To query the latest configuration execution progress, call GetCustomAgent.
       shared_ptr<string> status_ {};
-      // The time when the agent was last updated. The time follows the ISO 8601 format. The trailing Z indicates the UTC time zone. Fractional seconds are supported.
+      // The time when the agent was last updated. The time is in the ISO 8601 format, with a trailing Z indicating the UTC time zone. Fractional seconds are supported.
       shared_ptr<string> updatedAt_ {};
-      // The ID of the workspace to which the custom agent belongs.
+      // The ID of the workspace to which the custom code or image agents belong.
       shared_ptr<string> workspaceId_ {};
     };
 
@@ -730,21 +720,21 @@ namespace Models
   protected:
     // The request result code. The value is SUCCESS if the request is successful.
     shared_ptr<string> code_ {};
-    // The HTTP status code of the current request. The value is 200 if the request is successful.
+    // The HTTP status code of the request. The value is 200 if the request is successful.
     shared_ptr<int32_t> httpStatusCode_ {};
-    // The list of custom agent summaries on the current page. To query the complete configuration and the execution result of the latest version, call the GetCustomAgent operation.
+    // The list of summaries for custom code or image agents on the current page. To query the complete configuration and the execution results of the latest version, call the GetCustomAgent operation.
     shared_ptr<vector<ListCustomAgentsResponseBody::Items>> items_ {};
-    // The maximum number of items to return per page in this query.
+    // The maximum number of results to return per page for the current query.
     shared_ptr<int32_t> maxResults_ {};
-    // The processing result message for this request. The value is success if the request succeeds.
+    // The message that describes the processing result of the request. The value is success if the request is successful.
     shared_ptr<string> message_ {};
-    // The opaque token used to query the next page. An empty value indicates that no more pages are available. Pass this token as is in subsequent requests.
+    // The opaque token used to retrieve the next page of results. An empty value indicates that there are no more pages. Pass this token as-is in subsequent requests.
     shared_ptr<string> nextToken_ {};
-    // The unique identifier of the request, used to locate and troubleshoot issues.
+    // The unique identifier of the request, which is used to locate and troubleshoot issues.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request was processed successfully. A value of true indicates success. A successful creation, update, or deletion does not mean that the background operation is complete.
+    // Indicates whether the request was processed successfully. true indicates that the request was successful. A successful creation, update, or deletion response does not mean that the background operation is complete.
     shared_ptr<bool> success_ {};
-    // The total number of custom agents that meet the query conditions in the specified workspace.
+    // The total number of custom code or image agents that match the query conditions in the specified workspace.
     shared_ptr<int64_t> totalCount_ {};
   };
 

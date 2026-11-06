@@ -94,17 +94,17 @@ namespace Models
 
 
     protected:
-      // The version from which to fork the draft. If not specified, a new Skill is created.
+      // The version to fork from. If you do not specify this parameter, a new skill is created.
       shared_ptr<string> basedOnVersion_ {};
       // The commit message.
       shared_ptr<string> commitMsg_ {};
-      // The Skill card JSON string that contains the complete Skill information.
+      // The JSON string of the skill card, which contains the complete skill information.
       shared_ptr<string> skillCard_ {};
-      // The Skill name.
+      // The skill name.
       // 
       // This parameter is required.
       shared_ptr<string> skillName_ {};
-      // The draft version number. If not specified, the version number is automatically incremented.
+      // Specifies the draft version number. If not specified, the version number automatically increments.
       shared_ptr<string> targetVersion_ {};
     };
 

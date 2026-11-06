@@ -61,7 +61,7 @@ namespace Models
     shared_ptr<int32_t> maxResults_ {};
     // The filter condition for fuzzy matching the team name.
     shared_ptr<string> nameLike_ {};
-    // The pagination token for querying the next page. Do not specify this parameter for the first call. For subsequent calls, specify the nextToken value returned from the previous call.
+    // The cursor for querying the next page. Do not specify this parameter for the first call. For subsequent calls, specify the nextToken value returned in the previous response.
     shared_ptr<string> nextToken_ {};
   };
 

@@ -125,9 +125,9 @@ namespace Models
 
 
         protected:
-          // Specifies whether to enable the VPC network.
+          // Specifies whether to enable VPC networking.
           shared_ptr<bool> enabled_ {};
-          // The list of vSwitch IDs. When the VPC network is enabled, the list must contain at least one vSwitch, and all vSwitches must belong to the VPC specified by VpcId.
+          // The list of vSwitch IDs. When VPC networking is enabled, the list must contain at least one vSwitch, and all vSwitches must belong to the VPC specified by VpcId.
           shared_ptr<vector<string>> vSwitchIds_ {};
           // The ID of the user VPC.
           shared_ptr<string> vpcId_ {};
@@ -159,9 +159,9 @@ namespace Models
 
 
       protected:
-        // Specifies whether to allow public egress access from the platform. If this parameter is not specified, the original value is retained. Disabling this feature asynchronously cascades to disable the public network switch for agents. Re-enabling this feature does not automatically restore the agent switch. This parameter only controls whether the latest versions of managed and custom agents use the public egress of the platform. It does not control fixed historical versions, model or MCP proxy egress, or the public egress of the user VPC.
+        // Specifies whether to allow public outbound access from the platform. If this parameter is not specified, the original value is retained. Disabling this feature asynchronously cascades to disable the public network switch for agents. Re-enabling it does not automatically restore the agent switch. This parameter only controls whether the latest versions of managed and custom agents use the public outbound endpoint of the platform. It does not control fixed historical versions, model or MCP proxy endpoints, or the public outbound endpoint of the user VPC.
         shared_ptr<bool> publicEgressEnabled_ {};
-        // Specifies whether to allow public ingress access. If this parameter is not specified, the original value is retained. This parameter can be modified together with PublicEgressEnabled and takes effect asynchronously through a unified task. After this feature is disabled, the public ingress for all agent endpoints in the workspace is closed. After this feature is re-enabled, the original public ingress is restored. INNER_DIRECT and user VPC ingress are not affected. Collaboration and Element Web ingress are not controlled by this parameter.
+        // Specifies whether to allow public inbound access. If this parameter is not specified, the original value is retained. This parameter can be modified together with PublicEgressEnabled and takes effect asynchronously through a unified task. Disabling this feature closes the public inbound endpoints for all agent endpoints in the workspace. Re-enabling it restores the original public inbound endpoints. INNER_DIRECT and user VPC endpoints are not affected. Collaboration and Element Web endpoints are not controlled by this parameter.
         shared_ptr<bool> publicIngressEnabled_ {};
         // The VPC network configuration of the user.
         shared_ptr<NetworkConfiguration::Vpc> vpc_ {};
@@ -213,7 +213,7 @@ namespace Models
   protected:
     // The request body for updating a workspace.
     shared_ptr<UpdateWorkspaceRequest::Body> body_ {};
-    // The client token used to ensure idempotence.
+    // The client idempotency token.
     shared_ptr<string> clientToken_ {};
   };
 

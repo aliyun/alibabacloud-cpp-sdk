@@ -99,9 +99,9 @@ namespace Models
 
 
       protected:
-        // When the mode is SelectedDepartments, the list must contain at least one non-empty department ID, which should be obtained from ListIdentityProviderDepartments. When the mode is AllAuthorized, pass an empty array or omit this parameter.
+        // When the mode is SelectedDepartments, this parameter must contain at least one non-empty department ID, which should be obtained from ListIdentityProviderDepartments. When the mode is AllAuthorized, pass an empty array or omit this parameter.
         shared_ptr<vector<string>> departmentIds_ {};
-        // AllAuthorized: the full authorization scope, which is limited by the application address book authorization. SelectedDepartments: the selected departments and all their sub-departments. When explicitly submitting syncScope, you must provide a valid mode, which is verified by the backend.
+        // AllAuthorized: the entire authorized scope, which is limited by the application address book authorization. SelectedDepartments: the selected departments and all their sub-departments. When you explicitly submit syncScope, you must provide a valid mode, which is verified by the backend.
         shared_ptr<string> mode_ {};
       };
 
@@ -183,13 +183,13 @@ namespace Models
         shared_ptr<string> appId_ {};
         // The AppKey of the DingTalk application. This parameter is required when the binding type is DingTalk.
         shared_ptr<string> appKey_ {};
-        // Required. The secret of the external identity provider application. This parameter is used only for writing and is not returned by query API operations.
+        // Required. The secret of the external identity provider application. This parameter is used only for write operations and is not returned by query operations.
         shared_ptr<string> appSecret_ {};
         // The CorpId of the DingTalk enterprise. This parameter is required when the binding type is DingTalk.
         shared_ptr<string> corpId_ {};
-        // The data encryption key for event subscription. The value must be the same as the one configured in the external identity provider application. This parameter is used only for writing and is not returned by query API operations.
+        // The data encryption key for event subscription. The value must be the same as the one configured in the external identity provider application. This parameter is used only for write operations and is not returned by query operations.
         shared_ptr<string> encryptKey_ {};
-        // The verification token for event subscription. The value must be the same as the one configured in the external identity provider application. This parameter is used only for writing and is not returned by query API operations.
+        // The verification token for event subscription. The value must be the same as the one configured in the external identity provider application. This parameter is used only for write operations and is not returned by query operations.
         shared_ptr<string> verificationToken_ {};
       };
 
@@ -250,11 +250,11 @@ namespace Models
       shared_ptr<bool> loginEnabled_ {};
       // The application configuration of the external identity provider. When you bind DingTalk, you must provide appKey, appSecret, and corpId. When you bind Lark, you must provide appId and appSecret.
       shared_ptr<Body::Metadata> metadata_ {};
-      // Specifies whether to enable organization member synchronization. If enabled, the external identity provider synchronizes organization members as workspace users.
+      // Specifies whether to enable organization member synchronization. When enabled, organization members are synchronized as workspace users by the external identity provider.
       shared_ptr<bool> syncEnabled_ {};
-      // Controls the first synchronization when DingTalk or Lark is bound. If omitted or set to null, the default value is true. If set to false, only the configuration is saved, and synchronization is explicitly triggered later. CustomSSO does not use the vendor pull link.
+      // Controls the initial synchronization when DingTalk or Feishu is bound. If this parameter is omitted or set to null, the default value is true. If this parameter is set to false, only the configuration is saved, and synchronization must be explicitly triggered later. CustomSSO does not use the provider pull channel.
       shared_ptr<bool> syncOnBind_ {};
-      // Retains the department-based synchronization scope definition. If omitted during creation, the default value is AllAuthorized. The first vendor synchronization is determined by syncOnBind. If omitted or set to null during an update, the original value is retained. Updating and saving the scope does not automatically perform full synchronization.
+      // Uses the department-based synchronization scope definition. If this parameter is omitted during creation, the default value is AllAuthorized. The initial provider synchronization is determined by syncOnBind. If this parameter is omitted or set to null during an update, the original value is retained. Updating and saving the scope does not automatically trigger full synchronization.
       shared_ptr<Body::SyncScope> syncScope_ {};
     };
 
@@ -269,7 +269,7 @@ namespace Models
 
 
   protected:
-    // The request content for binding an external identity provider.
+    // The request body for binding an external identity provider.
     shared_ptr<CreateIdentityProviderRequest::Body> body_ {};
   };
 

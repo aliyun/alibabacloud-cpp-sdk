@@ -136,13 +136,13 @@ namespace Models
 
 
   protected:
-    // The business status code. The value is SUCCESS when the request is successful.
+    // The business status code. The value is SUCCESS if the request is successful.
     shared_ptr<string> code_ {};
     // The summary of the updated IM channel credentials.
     shared_ptr<UpdateAgentIMChannelCredentialResponseBody::Data> data_ {};
-    // The HTTP status code. The value is 200 when the request is successful.
+    // The HTTP status code. The value is 200 if the request is successful.
     shared_ptr<int32_t> httpStatusCode_ {};
-    // The message indicating the request processing result.
+    // The message about the request processing result.
     shared_ptr<string> message_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

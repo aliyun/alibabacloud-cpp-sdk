@@ -32,6 +32,10 @@
 #include <alibabacloud/models/CreateAgentSpecVersionShrinkRequest.hpp>
 #include <alibabacloud/models/CreateAgentSpecVersionResponseBody.hpp>
 #include <alibabacloud/models/CreateAgentSpecVersionResponse.hpp>
+#include <alibabacloud/models/CreateAgentVersionRequest.hpp>
+#include <alibabacloud/models/CreateAgentVersionShrinkRequest.hpp>
+#include <alibabacloud/models/CreateAgentVersionResponseBody.hpp>
+#include <alibabacloud/models/CreateAgentVersionResponse.hpp>
 #include <alibabacloud/models/CreateCredentialRequest.hpp>
 #include <alibabacloud/models/CreateCredentialShrinkRequest.hpp>
 #include <alibabacloud/models/CreateCredentialResponseBody.hpp>
@@ -117,6 +121,9 @@
 #include <alibabacloud/models/DeleteAgentSpecVersionRequest.hpp>
 #include <alibabacloud/models/DeleteAgentSpecVersionResponseBody.hpp>
 #include <alibabacloud/models/DeleteAgentSpecVersionResponse.hpp>
+#include <alibabacloud/models/DeleteAgentVersionRequest.hpp>
+#include <alibabacloud/models/DeleteAgentVersionResponseBody.hpp>
+#include <alibabacloud/models/DeleteAgentVersionResponse.hpp>
 #include <alibabacloud/models/DeleteCredentialRequest.hpp>
 #include <alibabacloud/models/DeleteCredentialResponseBody.hpp>
 #include <alibabacloud/models/DeleteCredentialResponse.hpp>
@@ -219,6 +226,9 @@
 #include <alibabacloud/models/GetAgentSpecVersionRequest.hpp>
 #include <alibabacloud/models/GetAgentSpecVersionResponseBody.hpp>
 #include <alibabacloud/models/GetAgentSpecVersionResponse.hpp>
+#include <alibabacloud/models/GetAgentVersionRequest.hpp>
+#include <alibabacloud/models/GetAgentVersionResponseBody.hpp>
+#include <alibabacloud/models/GetAgentVersionResponse.hpp>
 #include <alibabacloud/models/GetCredentialRequest.hpp>
 #include <alibabacloud/models/GetCredentialResponseBody.hpp>
 #include <alibabacloud/models/GetCredentialResponse.hpp>
@@ -258,6 +268,10 @@
 #include <alibabacloud/models/GetMcpRequest.hpp>
 #include <alibabacloud/models/GetMcpResponseBody.hpp>
 #include <alibabacloud/models/GetMcpResponse.hpp>
+#include <alibabacloud/models/GetMcpCodePackageUploadUrlRequest.hpp>
+#include <alibabacloud/models/GetMcpCodePackageUploadUrlShrinkRequest.hpp>
+#include <alibabacloud/models/GetMcpCodePackageUploadUrlResponseBody.hpp>
+#include <alibabacloud/models/GetMcpCodePackageUploadUrlResponse.hpp>
 #include <alibabacloud/models/GetMcpMarketItemRequest.hpp>
 #include <alibabacloud/models/GetMcpMarketItemResponseBody.hpp>
 #include <alibabacloud/models/GetMcpMarketItemResponse.hpp>
@@ -330,6 +344,9 @@
 #include <alibabacloud/models/ListAgentTeamsShrinkRequest.hpp>
 #include <alibabacloud/models/ListAgentTeamsResponseBody.hpp>
 #include <alibabacloud/models/ListAgentTeamsResponse.hpp>
+#include <alibabacloud/models/ListAgentVersionsRequest.hpp>
+#include <alibabacloud/models/ListAgentVersionsResponseBody.hpp>
+#include <alibabacloud/models/ListAgentVersionsResponse.hpp>
 #include <alibabacloud/models/ListConnectorModelsRequest.hpp>
 #include <alibabacloud/models/ListConnectorModelsResponseBody.hpp>
 #include <alibabacloud/models/ListConnectorModelsResponse.hpp>

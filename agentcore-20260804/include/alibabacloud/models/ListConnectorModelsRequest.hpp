@@ -57,11 +57,11 @@ namespace Models
 
 
   protected:
-    // The Connector Key ID. This parameter is not supported in the current version.
+    // The connector key ID. This parameter is not supported in the current version.
     shared_ptr<string> connectorKeyId_ {};
     // The page size. This parameter is not supported in the current version.
     shared_ptr<int32_t> maxResults_ {};
-    // The next page token. This parameter is not supported in the current version.
+    // The next token. This parameter is not supported in the current version.
     shared_ptr<string> nextToken_ {};
   };
 

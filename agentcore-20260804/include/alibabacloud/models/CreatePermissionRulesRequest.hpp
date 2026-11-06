@@ -202,7 +202,7 @@ namespace Models
 
 
     protected:
-      // The list of permission rules to create.
+      // The list of permission rules to be created.
       // 
       // This parameter is required.
       shared_ptr<vector<Body::Rules>> rules_ {};

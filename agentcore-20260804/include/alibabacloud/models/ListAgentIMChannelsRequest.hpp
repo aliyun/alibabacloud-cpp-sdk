@@ -66,22 +66,13 @@ namespace Models
 
 
   protected:
-    // The IM channel type. Valid values:
-    // - DINGTALK: DingTalk.
-    // - FEISHU: Lark.
-    // - WECOM: WeCom.
+    // The IM channel type. Valid values: DINGTALK (DingTalk), FEISHU (Lark), and WECOM (WeCom).
     shared_ptr<string> channelType_ {};
     // The maximum number of entries to return per page. Default value: 20. Valid values: 1 to 100.
     shared_ptr<int32_t> maxResults_ {};
-    // The pagination token. You do not need to specify this parameter for the first request. For subsequent requests, use the nextToken value returned in the previous response.
+    // The pagination token. This parameter is not required for the first call. For subsequent calls, use the nextToken value returned in the previous response.
     shared_ptr<string> nextToken_ {};
-    // The IM channel status. Valid values:
-    // - CREATING: The channel is being created.
-    // - READY: The channel is ready.
-    // - UPDATING: The channel is being updated.
-    // - FAILED: The channel creation or update failed.
-    // - DELETING: The channel is being deleted.
-    // - DELETE_FAILED: The channel deletion failed.
+    // The IM channel status. Valid values: CREATING (Creating), READY (Ready), UPDATING (Updating), FAILED (Failed), DELETING (Deleting), and DELETE_FAILED (Delete failed).
     shared_ptr<string> status_ {};
   };
 

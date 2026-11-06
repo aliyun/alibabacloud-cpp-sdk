@@ -178,11 +178,11 @@ namespace Models
 
 
     protected:
-      // The number of API keys configured for the model connection.
+      // The number of API keys configured in the model connection.
       shared_ptr<int32_t> apiKeyCount_ {};
       // The model connection ID.
       shared_ptr<string> connectionId_ {};
-      // The time when the resource was created. The time is in RFC 3339 UTC format.
+      // The time when the resource was created. The time is in the RFC 3339 UTC format.
       shared_ptr<string> createdAt_ {};
       // Indicates whether access credentials are configured for the model connection.
       shared_ptr<bool> credentialConfigured_ {};
@@ -190,17 +190,17 @@ namespace Models
       shared_ptr<string> description_ {};
       // The absolute HTTP or HTTPS URL of the upstream model service. The URL can be up to 1,024 characters in length.
       shared_ptr<string> endpoint_ {};
-      // The name of the model connection. The name must be 1 to 128 non-whitespace characters in length.
+      // The name of the model connection. It must be 1 to 128 non-whitespace characters in length.
       shared_ptr<string> name_ {};
-      // The model invoke protocol. Currently, only OpenAI/v1 is supported. If the Settings are not specified during model creation, this default value is used.
+      // The model invoke protocol. Currently, only OpenAI/v1 is supported. If this parameter is not specified in Settings during model creation, this default value is used.
       shared_ptr<string> protocol_ {};
       // The model provider type.
       shared_ptr<string> providerType_ {};
       // The resource status.
       shared_ptr<string> status_ {};
-      // The failure summary returned when the model connection fails to be published, or when deletion fails but the connection remains in the Deleting state. This field is empty in other states.
+      // The failure summary returned when the model connection fails to be published, or when the deletion fails but the connection remains in the Deleting state. This field is empty in other states.
       shared_ptr<string> statusReason_ {};
-      // The time when the resource was last updated. The time is in RFC 3339 UTC format.
+      // The time when the resource was last updated. The time is in the RFC 3339 UTC format.
       shared_ptr<string> updatedAt_ {};
       // The workspace ID.
       shared_ptr<string> workspaceId_ {};

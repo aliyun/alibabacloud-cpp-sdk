@@ -171,9 +171,9 @@ namespace Models
     protected:
       // The user ID.
       shared_ptr<string> agentCoreUserId_ {};
-      // The authentication method of the user. A value of password indicates that local password authentication in the workspace is used. A value of dingtalk or feishu indicates that the user is synchronized and authenticated by the corresponding external identity provider.
+      // The authentication method of the user. A value of password indicates that local password authentication in the workspace is used. A value of dingtalk or feishu indicates that the user is synchronized and authenticated by the corresponding external identity provider (IdP).
       shared_ptr<string> authMethod_ {};
-      // The time when the user was created. The time is displayed in UTC and follows the RFC 3339 format.
+      // The creation time. The time is displayed in UTC and follows the RFC 3339 format.
       shared_ptr<string> createdAt_ {};
       // The display name of the user. The name must be 1 to 32 characters in length.
       shared_ptr<string> displayName_ {};
@@ -183,13 +183,13 @@ namespace Models
       shared_ptr<string> initialPassword_ {};
       // The username. The username must be unique within the workspace, can contain only lowercase letters, digits, and hyphens, must start and end with a lowercase letter or a digit, and must be 1 to 32 characters in length.
       shared_ptr<string> name_ {};
-      // The note for the user. The note can be up to 1,024 characters in length.
+      // The remarks for the user. The remarks can be up to 1,024 characters in length.
       shared_ptr<string> note_ {};
       // The region ID of the resource.
       shared_ptr<string> regionId_ {};
       // The status of the user. Valid values: Creating, Active, Updating, Deleting, Failed, and DeleteFailed.
       shared_ptr<string> status_ {};
-      // The time when the user was last modified. The time is displayed in UTC and follows the RFC 3339 format.
+      // The time of the last update. The time is displayed in UTC and follows the RFC 3339 format.
       shared_ptr<string> updatedAt_ {};
       // The workspace ID.
       shared_ptr<string> workspaceId_ {};

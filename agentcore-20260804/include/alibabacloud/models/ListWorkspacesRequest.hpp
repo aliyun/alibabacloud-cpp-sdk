@@ -59,7 +59,7 @@ namespace Models
   protected:
     // The maximum number of records to return per page.
     shared_ptr<int32_t> maxResults_ {};
-    // The cursor used to query the next page.
+    // The cursor for querying the next page.
     shared_ptr<string> nextToken_ {};
     // The number of workspaces to skip.
     shared_ptr<int32_t> skip_ {};

@@ -132,7 +132,7 @@ namespace Models
     shared_ptr<string> resourceType_ {};
     // The rule source.
     shared_ptr<string> source_ {};
-    // The rule target.
+    // The target of the rule.
     shared_ptr<string> target_ {};
   };
 

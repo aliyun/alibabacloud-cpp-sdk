@@ -182,7 +182,7 @@ namespace Models
       shared_ptr<string> accessMode_ {};
       // The user access scope.
       shared_ptr<string> accessScope_ {};
-      // The external agent ID.
+      // The managed agent ID.
       shared_ptr<string> agentId_ {};
       // The creation mode.
       shared_ptr<string> createMode_ {};
@@ -190,15 +190,15 @@ namespace Models
       shared_ptr<string> createdAt_ {};
       // The deployment type.
       shared_ptr<string> deployType_ {};
-      // The description of the external agent.
+      // The description of the managed agent.
       shared_ptr<string> description_ {};
       // The latest specification version number.
       shared_ptr<int64_t> latestSpecVersion_ {};
-      // The name of the external agent.
+      // The name of the managed agent.
       shared_ptr<string> name_ {};
-      // The runtime type reported by the external agent.
+      // The runtime type reported by the managed agent.
       shared_ptr<string> runtime_ {};
-      // The status of the external agent. Valid values: Creating, Running, Failed, Updating, Deleting, and Deleted.
+      // The status of the managed agent. Valid values: Creating, Running, Failed, Updating, Deleting, and Deleted.
       shared_ptr<string> status_ {};
       // The update time in RFC 3339 format.
       shared_ptr<string> updatedAt_ {};
@@ -255,11 +255,11 @@ namespace Models
   protected:
     // The business status code. The value is SUCCESS when the request is successful.
     shared_ptr<string> code_ {};
-    // The summary information of the deleted external agent.
+    // The summary information of the deleted managed agent.
     shared_ptr<DeleteExternalAgentResponseBody::Data> data_ {};
     // The HTTP status code. The value is 200 when the request is successful.
     shared_ptr<int32_t> httpStatusCode_ {};
-    // The request processing result message.
+    // The message about the request processing result.
     shared_ptr<string> message_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

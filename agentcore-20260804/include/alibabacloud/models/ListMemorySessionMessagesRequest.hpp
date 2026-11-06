@@ -75,17 +75,17 @@ namespace Models
 
 
   protected:
-    // The agent ID. You must specify at least one of AgentId and UserId. The length is limited to 1 to 128 UTF-8 bytes. The forward slash (/) and asterisk (*) are not allowed.
+    // The agent ID. At least one of Agent ID and User ID must be provided. The length limit is 1 to 128 UTF-8 bytes. The value cannot contain / or *.
     shared_ptr<string> agentId_ {};
     // The maximum number of records per page. Default value: 200. Valid values: 1 to 500.
     shared_ptr<int32_t> maxResults_ {};
     // The pagination token for the next page.
     shared_ptr<string> nextToken_ {};
-    // The session ID. The length is limited to 1 to 128 UTF-8 bytes. The forward slash (/) and asterisk (*) are not allowed.
+    // The session ID. The length limit is 1 to 128 UTF-8 bytes. The value cannot contain / or *.
     // 
     // This parameter is required.
     shared_ptr<string> sessionId_ {};
-    // The user ID. You must specify at least one of UserId and AgentId. The length is limited to 1 to 128 UTF-8 bytes. The forward slash (/) and asterisk (*) are not allowed.
+    // The user ID. At least one of User ID and Agent ID must be provided. The length limit is 1 to 128 UTF-8 bytes. The value cannot contain / or *.
     shared_ptr<string> userId_ {};
   };
 

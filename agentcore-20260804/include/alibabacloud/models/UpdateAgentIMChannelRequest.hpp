@@ -124,7 +124,7 @@ namespace Models
 
 
     protected:
-      // The channel behavior configuration. This configuration is fully replaced when passed. An empty object indicates that the default values are restored.
+      // The channel behavior configuration. A full replacement is applied when this parameter is passed. An empty object restores the default values.
       shared_ptr<Body::ChannelConfig> channelConfig_ {};
       // Specifies whether to enable the IM channel. Default value: true.
       shared_ptr<bool> enabled_ {};
@@ -153,7 +153,7 @@ namespace Models
   protected:
     // The request body.
     shared_ptr<UpdateAgentIMChannelRequest::Body> body_ {};
-    // The reserved idempotence token. The backend does not provide persistent idempotence guarantees in the current phase.
+    // The reserved idempotence token. Persistent idempotence guarantees are not provided by the backend in the current phase.
     shared_ptr<string> clientToken_ {};
   };
 

@@ -113,9 +113,9 @@ namespace Models
     protected:
       // The number of bound agents.
       shared_ptr<int64_t> boundAgentCount_ {};
-      // The time when the connector was enabled.
+      // The activation time.
       shared_ptr<string> enabledAt_ {};
-      // The connector configuration JSON string. After the connector is enabled, this string may contain sensitive credentials.
+      // The JSON string of the connector configuration. It may contain sensitive credentials after being enabled.
       shared_ptr<string> metadata_ {};
       // The connector name. The current value is qodercli.
       shared_ptr<string> name_ {};
@@ -196,17 +196,17 @@ namespace Models
     shared_ptr<string> code_ {};
     // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
-    // The list of connectors.
+    // The connector list.
     shared_ptr<vector<ListConnectorsResponseBody::Items>> items_ {};
     // The number of connectors returned in this request.
     shared_ptr<int32_t> maxResults_ {};
     // The response message.
     shared_ptr<string> message_ {};
-    // The next page token. The current version does not return this field.
+    // The next token. This field is not returned in the current version.
     shared_ptr<string> nextToken_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request was successful.
+    // Indicates whether the request is successful.
     shared_ptr<bool> success_ {};
     // The total number of connectors returned.
     shared_ptr<int64_t> totalCount_ {};

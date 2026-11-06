@@ -67,7 +67,7 @@ namespace Models
 
 
     protected:
-      // The RAM authorization URL. After you open the URL and complete the authorization, call the verification API.
+      // The RAM authorization URL. After you open the URL and complete the authorization, call the verification operation.
       shared_ptr<string> authorizeUrl_ {};
     };
 

@@ -126,11 +126,11 @@ namespace Models
 
 
       protected:
-        // The unique identifier of the resource.
+        // The ID of the applicable MCP service.
         shared_ptr<string> resourceId_ {};
         // The name of the resource. This parameter is empty if the resource is deleted.
         shared_ptr<string> resourceName_ {};
-        // The type of the resource, such as agent.
+        // The type of the resource. Set the value to mcpServer, which indicates an MCP service.
         shared_ptr<string> resourceType_ {};
       };
 
@@ -217,25 +217,25 @@ namespace Models
 
 
     protected:
-      // The time when the credential was created. The time is displayed in UTC and follows the RFC 3339 format.
+      // The time when the credential was created. The time is in UTC and follows the RFC 3339 format.
       shared_ptr<string> createdAt_ {};
       // The credential ID.
       shared_ptr<string> credentialId_ {};
-      // The desensitized result of the credential content. If credentialType is apiKey, the value of apiKey is returned as asterisks (*) of the same length.
+      // The masked result of the credential content. For the apiKey type, a masked key is returned. For the mcpHeader type, only header names are returned, and values are not returned.
       shared_ptr<string> credentialMetadata_ {};
-      // The credential type. Currently, only apiKey is supported.
+      // The credential type. Valid values: apiKey (API key) and mcpHeader (MCP request header).
       shared_ptr<string> credentialType_ {};
       // The description of the credential. The description can be up to 256 characters in length.
       shared_ptr<string> description_ {};
-      // The name of the credential. The name must be unique within the workspace, can only contain letters, digits, periods, underscores, and hyphens, and must be 3 to 128 characters in length. Runtime reserved names cannot be used.
+      // The name of the credential. The name must be unique within the workspace, contain only letters, digits, periods, underscores, and hyphens, and be 3 to 99 characters in length. Runtime reserved names cannot be used.
       shared_ptr<string> name_ {};
-      // The region ID of the resource.
+      // The ID of the region where the resource resides.
       shared_ptr<string> regionId_ {};
-      // Each item contains resourceType, resourceId, and resourceName. If the resource is deleted, resourceName is empty.
+      // The list of MCP services to which the credential applies.
       shared_ptr<vector<Data::ResourceRefs>> resourceRefs_ {};
-      // The application scope of the credential resource.
+      // The application scope of the credential. ALL indicates all scopes, and SPECIFIED indicates the specified MCP services.
       shared_ptr<string> resourceScope_ {};
-      // The time when the credential was last modified. The time is displayed in UTC and follows the RFC 3339 format.
+      // The time when the credential was last modified. The time is in UTC and follows the RFC 3339 format.
       shared_ptr<string> updatedAt_ {};
       // The workspace ID.
       shared_ptr<string> workspaceId_ {};
