@@ -21,10 +21,10 @@ namespace PaiDlc20201203
       string getEndpoint(const string &productId, const string &regionId, const string &endpointRule, const string &network, const string &suffix, const map<string, string> &endpointMap, const string &endpoint);
 
       /**
-       * @summary Creates a job to run in a cluster. You can specify configurations such as datasource config, code sources, startup commands, and compute resources for each node where the job runs.
+       * @summary Creates a job to run in a cluster. You can specify the data source configuration, code source configuration, startup command, and compute resource configuration for each node where the job runs.
        *
-       * @description Before you call this operation, make sure that you fully understand the billing methods and [pricing](https://help.aliyun.com/document_detail/171758.html) of PAI-DLC.
-       * >Notice: The total length of the CreateJob operation parameters, including system-generated parameters, cannot exceed 65,536 bytes.
+       * @description Make sure that you fully understand the billing methods and [pricing](https://help.aliyun.com/document_detail/171758.html) of PAI-DLC before you call this operation.
+       * >Notice: The total length of the parameters for the CreateJob operation, including system-generated parameters, cannot exceed 65,536 bytes.
        *
        * @param request CreateJobRequest
        * @param headers map
@@ -34,10 +34,10 @@ namespace PaiDlc20201203
       Models::CreateJobResponse createJobWithOptions(const Models::CreateJobRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Creates a job to run in a cluster. You can specify configurations such as datasource config, code sources, startup commands, and compute resources for each node where the job runs.
+       * @summary Creates a job to run in a cluster. You can specify the data source configuration, code source configuration, startup command, and compute resource configuration for each node where the job runs.
        *
-       * @description Before you call this operation, make sure that you fully understand the billing methods and [pricing](https://help.aliyun.com/document_detail/171758.html) of PAI-DLC.
-       * >Notice: The total length of the CreateJob operation parameters, including system-generated parameters, cannot exceed 65,536 bytes.
+       * @description Make sure that you fully understand the billing methods and [pricing](https://help.aliyun.com/document_detail/171758.html) of PAI-DLC before you call this operation.
+       * >Notice: The total length of the parameters for the CreateJob operation, including system-generated parameters, cannot exceed 65,536 bytes.
        *
        * @param request CreateJobRequest
        * @return CreateJobResponse
@@ -115,7 +115,7 @@ namespace PaiDlc20201203
       Models::CreateSignalResponse createSignal(const string &JobId, const Models::CreateSignalRequest &request);
 
       /**
-       * @summary Creates a TensorBoard instance by using a node or a specified datasource config.
+       * @summary Creates a TensorBoard instance by using a node or specifying a datasource config.
        *
        * @param request CreateTensorboardRequest
        * @param headers map
@@ -125,7 +125,7 @@ namespace PaiDlc20201203
       Models::CreateTensorboardResponse createTensorboardWithOptions(const Models::CreateTensorboardRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Creates a TensorBoard instance by using a node or a specified datasource config.
+       * @summary Creates a TensorBoard instance by using a node or specifying a datasource config.
        *
        * @param request CreateTensorboardRequest
        * @return CreateTensorboardResponse
@@ -189,7 +189,7 @@ namespace PaiDlc20201203
       Models::DeleteRayHistoryServerResponse deleteRayHistoryServer(const string &RayHistoryServerId, const Models::DeleteRayHistoryServerRequest &request);
 
       /**
-       * @summary Deletes a stopped TensorBoard.
+       * @summary Deletes a stopped Tensorboard.
        *
        * @param request DeleteTensorboardRequest
        * @param headers map
@@ -199,7 +199,7 @@ namespace PaiDlc20201203
       Models::DeleteTensorboardResponse deleteTensorboardWithOptions(const string &TensorboardId, const Models::DeleteTensorboardRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Deletes a stopped TensorBoard.
+       * @summary Deletes a stopped Tensorboard.
        *
        * @param request DeleteTensorboardRequest
        * @return DeleteTensorboardResponse
@@ -285,7 +285,7 @@ namespace PaiDlc20201203
       Models::GetJobMetricsResponse getJobMetrics(const string &JobId, const Models::GetJobMetricsRequest &request);
 
       /**
-       * @summary Retrieves a specific computing power health check result for a DLC job.
+       * @summary Retrieves the results of a specific computing power health check for a DLC job.
        *
        * @param request GetJobSanityCheckResultRequest
        * @param headers map
@@ -295,7 +295,7 @@ namespace PaiDlc20201203
       Models::GetJobSanityCheckResultResponse getJobSanityCheckResultWithOptions(const string &JobId, const Models::GetJobSanityCheckResultRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Retrieves a specific computing power health check result for a DLC job.
+       * @summary Retrieves the results of a specific computing power health check for a DLC job.
        *
        * @param request GetJobSanityCheckResultRequest
        * @return GetJobSanityCheckResultResponse
@@ -461,7 +461,7 @@ namespace PaiDlc20201203
       Models::GetSignalResponse getSignal(const string &JobId, const string &SignalId, const Models::GetSignalRequest &request);
 
       /**
-       * @summary Retrieves the details of a TensorBoard.
+       * @summary Retrieves the details of a Tensorboard.
        *
        * @param request GetTensorboardRequest
        * @param headers map
@@ -471,7 +471,7 @@ namespace PaiDlc20201203
       Models::GetTensorboardResponse getTensorboardWithOptions(const string &TensorboardId, const Models::GetTensorboardRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Retrieves the details of a TensorBoard.
+       * @summary Retrieves the details of a Tensorboard.
        *
        * @param request GetTensorboardRequest
        * @return GetTensorboardResponse
@@ -515,7 +515,7 @@ namespace PaiDlc20201203
       Models::GetTokenResponse getToken(const Models::GetTokenRequest &request);
 
       /**
-       * @summary Provides the method and steps to obtain an HTTP link for accessing a container.
+       * @summary Provides the methods and steps to obtain the HTTP link for container access.
        *
        * @param request GetWebTerminalRequest
        * @param headers map
@@ -525,7 +525,7 @@ namespace PaiDlc20201203
       Models::GetWebTerminalResponse getWebTerminalWithOptions(const string &JobId, const string &PodId, const Models::GetWebTerminalRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Provides the method and steps to obtain an HTTP link for accessing a container.
+       * @summary Provides the methods and steps to obtain the HTTP link for container access.
        *
        * @param request GetWebTerminalRequest
        * @return GetWebTerminalResponse
@@ -587,7 +587,7 @@ namespace PaiDlc20201203
       Models::ListJobTemplatesResponse listJobTemplates(const Models::ListJobTemplatesRequest &request);
 
       /**
-       * @summary Queries a list of jobs with support for pagination, sorting, and conditional filtering.
+       * @summary Queries a list of jobs, with support for pagination, sorting, and conditional filtering.
        *
        * @param tmpReq ListJobsRequest
        * @param headers map
@@ -597,7 +597,7 @@ namespace PaiDlc20201203
       Models::ListJobsResponse listJobsWithOptions(const Models::ListJobsRequest &tmpReq, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries a list of jobs with support for pagination, sorting, and conditional filtering.
+       * @summary Queries a list of jobs, with support for pagination, sorting, and conditional filtering.
        *
        * @param request ListJobsRequest
        * @return ListJobsResponse
@@ -845,7 +845,7 @@ namespace PaiDlc20201203
       Models::UpdateJobResponse updateJob(const string &JobId, const Models::UpdateJobRequest &request);
 
       /**
-       * @summary Updates a task template.
+       * @summary Updates a job template.
        *
        * @param request UpdateJobTemplateRequest
        * @param headers map
@@ -855,7 +855,7 @@ namespace PaiDlc20201203
       Models::UpdateJobTemplateResponse updateJobTemplateWithOptions(const string &TemplateId, const Models::UpdateJobTemplateRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Updates a task template.
+       * @summary Updates a job template.
        *
        * @param request UpdateJobTemplateRequest
        * @return UpdateJobTemplateResponse

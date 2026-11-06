@@ -336,7 +336,7 @@ namespace Models
     shared_ptr<int64_t> maxRunningTimeMinutes_ {};
     // The memory size in GB.
     shared_ptr<int64_t> memory_ {};
-    // The extended fields of the dataset in JSON format. Currently, MountPath is supported, which specifies the mount path for a custom dataset.
+    // The extended fields of the dataset in JSON format. Currently, MountPath is supported to specify the mount path for a custom dataset.
     shared_ptr<string> options_ {};
     // The priority of the Tensorboard job.
     shared_ptr<string> priority_ {};
@@ -370,7 +370,7 @@ namespace Models
     shared_ptr<string> userId_ {};
     // The username of the creator.
     shared_ptr<string> username_ {};
-    // The workspace ID.
+    // The workspace.
     shared_ptr<string> workspaceId_ {};
   };
 

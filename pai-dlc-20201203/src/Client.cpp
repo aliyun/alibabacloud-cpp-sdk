@@ -2,12 +2,14 @@
 #include <alibabacloud/PaiDlc20201203.hpp>
 #include <alibabacloud/Utils.hpp>
 #include <alibabacloud/Openapi.hpp>
+#include <alibabacloud/gateway/POP.hpp>
 #include <map>
 #include <darabonba/Runtime.hpp>
 #include <darabonba/encode/Encoder.hpp>
 using namespace std;
 using namespace Darabonba;
 using json = nlohmann::json;
+using namespace AlibabaCloud::Gateway;
 using namespace AlibabaCloud::OpenApi;
 using OpenApiClient = AlibabaCloud::OpenApi::Client;
 using namespace AlibabaCloud::OpenApi::Utils::Models;
@@ -18,6 +20,9 @@ namespace PaiDlc20201203
 {
 
 AlibabaCloud::PaiDlc20201203::Client::Client(Config &config): OpenApiClient(config){
+  this->_productId = "pai-dlc";
+  shared_ptr<POP> gatewayClient = make_shared<POP>();
+  this->_spi = gatewayClient;
   this->_endpointRule = "regional";
   this->_endpointMap = json({
     {"ap-northeast-2-pop" , "pai-dlc.aliyuncs.com"},
@@ -82,10 +87,10 @@ string Client::getEndpoint(const string &productId, const string &regionId, cons
 }
 
 /**
- * @summary Creates a job to run in a cluster. You can specify configurations such as datasource config, code sources, startup commands, and compute resources for each node where the job runs.
+ * @summary Creates a job to run in a cluster. You can specify the data source configuration, code source configuration, startup command, and compute resource configuration for each node where the job runs.
  *
- * @description Before you call this operation, make sure that you fully understand the billing methods and [pricing](https://help.aliyun.com/document_detail/171758.html) of PAI-DLC.
- * >Notice: The total length of the CreateJob operation parameters, including system-generated parameters, cannot exceed 65,536 bytes.
+ * @description Make sure that you fully understand the billing methods and [pricing](https://help.aliyun.com/document_detail/171758.html) of PAI-DLC before you call this operation.
+ * >Notice: The total length of the parameters for the CreateJob operation, including system-generated parameters, cannot exceed 65,536 bytes.
  *
  * @param request CreateJobRequest
  * @param headers map
@@ -222,10 +227,10 @@ CreateJobResponse Client::createJobWithOptions(const CreateJobRequest &request, 
 }
 
 /**
- * @summary Creates a job to run in a cluster. You can specify configurations such as datasource config, code sources, startup commands, and compute resources for each node where the job runs.
+ * @summary Creates a job to run in a cluster. You can specify the data source configuration, code source configuration, startup command, and compute resource configuration for each node where the job runs.
  *
- * @description Before you call this operation, make sure that you fully understand the billing methods and [pricing](https://help.aliyun.com/document_detail/171758.html) of PAI-DLC.
- * >Notice: The total length of the CreateJob operation parameters, including system-generated parameters, cannot exceed 65,536 bytes.
+ * @description Make sure that you fully understand the billing methods and [pricing](https://help.aliyun.com/document_detail/171758.html) of PAI-DLC before you call this operation.
+ * >Notice: The total length of the parameters for the CreateJob operation, including system-generated parameters, cannot exceed 65,536 bytes.
  *
  * @param request CreateJobRequest
  * @return CreateJobResponse
@@ -436,7 +441,7 @@ CreateSignalResponse Client::createSignal(const string &JobId, const CreateSigna
 }
 
 /**
- * @summary Creates a TensorBoard instance by using a node or a specified datasource config.
+ * @summary Creates a TensorBoard instance by using a node or specifying a datasource config.
  *
  * @param request CreateTensorboardRequest
  * @param headers map
@@ -545,7 +550,7 @@ CreateTensorboardResponse Client::createTensorboardWithOptions(const CreateTenso
 }
 
 /**
- * @summary Creates a TensorBoard instance by using a node or a specified datasource config.
+ * @summary Creates a TensorBoard instance by using a node or specifying a datasource config.
  *
  * @param request CreateTensorboardRequest
  * @return CreateTensorboardResponse
@@ -675,7 +680,7 @@ DeleteRayHistoryServerResponse Client::deleteRayHistoryServer(const string &RayH
 }
 
 /**
- * @summary Deletes a stopped TensorBoard.
+ * @summary Deletes a stopped Tensorboard.
  *
  * @param request DeleteTensorboardRequest
  * @param headers map
@@ -708,7 +713,7 @@ DeleteTensorboardResponse Client::deleteTensorboardWithOptions(const string &Ten
 }
 
 /**
- * @summary Deletes a stopped TensorBoard.
+ * @summary Deletes a stopped Tensorboard.
  *
  * @param request DeleteTensorboardRequest
  * @return DeleteTensorboardResponse
@@ -934,7 +939,7 @@ GetJobMetricsResponse Client::getJobMetrics(const string &JobId, const GetJobMet
 }
 
 /**
- * @summary Retrieves a specific computing power health check result for a DLC job.
+ * @summary Retrieves the results of a specific computing power health check for a DLC job.
  *
  * @param request GetJobSanityCheckResultRequest
  * @param headers map
@@ -975,7 +980,7 @@ GetJobSanityCheckResultResponse Client::getJobSanityCheckResultWithOptions(const
 }
 
 /**
- * @summary Retrieves a specific computing power health check result for a DLC job.
+ * @summary Retrieves the results of a specific computing power health check for a DLC job.
  *
  * @param request GetJobSanityCheckResultRequest
  * @return GetJobSanityCheckResultResponse
@@ -1400,7 +1405,7 @@ GetSignalResponse Client::getSignal(const string &JobId, const string &SignalId,
 }
 
 /**
- * @summary Retrieves the details of a TensorBoard.
+ * @summary Retrieves the details of a Tensorboard.
  *
  * @param request GetTensorboardRequest
  * @param headers map
@@ -1441,7 +1446,7 @@ GetTensorboardResponse Client::getTensorboardWithOptions(const string &Tensorboa
 }
 
 /**
- * @summary Retrieves the details of a TensorBoard.
+ * @summary Retrieves the details of a Tensorboard.
  *
  * @param request GetTensorboardRequest
  * @return GetTensorboardResponse
@@ -1555,7 +1560,7 @@ GetTokenResponse Client::getToken(const GetTokenRequest &request) {
 }
 
 /**
- * @summary Provides the method and steps to obtain an HTTP link for accessing a container.
+ * @summary Provides the methods and steps to obtain the HTTP link for container access.
  *
  * @param request GetWebTerminalRequest
  * @param headers map
@@ -1565,6 +1570,10 @@ GetTokenResponse Client::getToken(const GetTokenRequest &request) {
 GetWebTerminalResponse Client::getWebTerminalWithOptions(const string &JobId, const string &PodId, const GetWebTerminalRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
   request.validate();
   json query = {};
+  if (!!request.hasContainerName()) {
+    query["ContainerName"] = request.getContainerName();
+  }
+
   if (!!request.hasIsShared()) {
     query["IsShared"] = request.getIsShared();
   }
@@ -1592,7 +1601,7 @@ GetWebTerminalResponse Client::getWebTerminalWithOptions(const string &JobId, co
 }
 
 /**
- * @summary Provides the method and steps to obtain an HTTP link for accessing a container.
+ * @summary Provides the methods and steps to obtain the HTTP link for container access.
  *
  * @param request GetWebTerminalRequest
  * @return GetWebTerminalResponse
@@ -1795,7 +1804,7 @@ ListJobTemplatesResponse Client::listJobTemplates(const ListJobTemplatesRequest 
 }
 
 /**
- * @summary Queries a list of jobs with support for pagination, sorting, and conditional filtering.
+ * @summary Queries a list of jobs, with support for pagination, sorting, and conditional filtering.
  *
  * @param tmpReq ListJobsRequest
  * @param headers map
@@ -1978,7 +1987,7 @@ ListJobsResponse Client::listJobsWithOptions(const ListJobsRequest &tmpReq, cons
 }
 
 /**
- * @summary Queries a list of jobs with support for pagination, sorting, and conditional filtering.
+ * @summary Queries a list of jobs, with support for pagination, sorting, and conditional filtering.
  *
  * @param request ListJobsRequest
  * @return ListJobsResponse
@@ -2745,7 +2754,7 @@ UpdateJobResponse Client::updateJob(const string &JobId, const UpdateJobRequest 
 }
 
 /**
- * @summary Updates a task template.
+ * @summary Updates a job template.
  *
  * @param request UpdateJobTemplateRequest
  * @param headers map
@@ -2802,7 +2811,7 @@ UpdateJobTemplateResponse Client::updateJobTemplateWithOptions(const string &Tem
 }
 
 /**
- * @summary Updates a task template.
+ * @summary Updates a job template.
  *
  * @param request UpdateJobTemplateRequest
  * @return UpdateJobTemplateResponse

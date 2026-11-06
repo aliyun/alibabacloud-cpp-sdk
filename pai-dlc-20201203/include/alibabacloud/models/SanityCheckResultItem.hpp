@@ -84,17 +84,17 @@ namespace Models
 
 
   protected:
-    // The sequence number of the check.
+    // The check number.
     shared_ptr<int32_t> checkNumber_ {};
-    // The end time of the check.
+    // The check end time.
     shared_ptr<string> finishedAt_ {};
-    // The details of the check result.
+    // The check result details.
     shared_ptr<string> message_ {};
-    // The phase of the check.
+    // The check phase.
     shared_ptr<string> phase_ {};
-    // The start time of the check.
+    // The check start time.
     shared_ptr<string> startedAt_ {};
-    // The status of the check.
+    // The check status.
     shared_ptr<string> status_ {};
   };
 

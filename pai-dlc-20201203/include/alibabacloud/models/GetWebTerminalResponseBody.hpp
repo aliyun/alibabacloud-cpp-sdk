@@ -48,9 +48,9 @@ namespace Models
 
 
   protected:
-    // The request ID for this call, used for diagnostics and troubleshooting.
+    // The ID of the request. This ID is used for diagnostics and troubleshooting.
     shared_ptr<string> requestId_ {};
-    // The WebSocket link for accessing the container. You need to build a WebSocket client. For the detailed communication format, refer to the following code:
+    // The WebSocket link for accessing the container. You must build a WebSocket client. For the detailed communication format, refer to the following code:
     //   ```
     //   ws = new WebSocket(
     //     `wss://xxxxx`,
@@ -65,7 +65,7 @@ namespace Models
     //     term.write(\\"Connection closed\\");
     //   };
     // 
-    //   // Receive response from the backend
+    //   // Receive a response from the backend
     //   ws.onmessage = function incoming(event) {
     //     const msg = JSON.parse(event.data);
     //     console.warn(msg);

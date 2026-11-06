@@ -81,11 +81,11 @@ namespace Models
     // 
     // Use the UTC time format: yyyy-MM-ddTHH:mmZ
     shared_ptr<string> gmtModifyTime_ {};
-    // The ID of the request, used for diagnostics and troubleshooting.
+    // The ID of the request, which is used for diagnostics and troubleshooting.
     shared_ptr<string> requestId_ {};
     // The version number.
     shared_ptr<int32_t> version_ {};
-    // Indicates whether a new version was created.
+    // Indicates whether a new version is created.
     shared_ptr<bool> versionCreated_ {};
   };
 

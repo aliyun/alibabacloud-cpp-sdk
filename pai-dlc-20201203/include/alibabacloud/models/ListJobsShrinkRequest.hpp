@@ -380,17 +380,17 @@ namespace Models
     shared_ptr<string> caller_ {};
     // The keyword used for full text search in the node description.
     shared_ptr<string> description_ {};
-    // The job name. Fuzzy match is supported. The match is case-insensitive and does not support wildcards. For example, if you enter test, it can match test-job1, job-test, job-test2, or job-Test, but cannot match job-t1. Default value: empty, which indicates any job name.
+    // The job name. Supports fuzzy match. The match is case-insensitive and does not support wildcards. For example, if you enter test, it can match test-job1, job-test, job-test2, or job-Test, but it cannot match job-t1. Default value: empty, which indicates any job name.
     shared_ptr<string> displayName_ {};
     // The search mode for DisplayName. Default value: wildcard match.
     shared_ptr<string> displayNameSearchMode_ {};
-    // Specifies whether to filter jobs that run on specified nodes.
+    // Specifies whether to filter jobs that are configured to run on specified nodes.
     shared_ptr<string> enableAssignNode_ {};
     // The end time of the query interval. The creation time of the job is used for filtering. Default value: the current time.
     shared_ptr<string> endTime_ {};
-    // Specifies whether to retrieve jobs across workspaces. This parameter must be used together with ShowOwn=true to query the jobs recently submitted by the current user.
+    // Specifies whether to retrieve the job list across workspaces. This parameter must be used together with the ShowOwn=true parameter to query the jobs recently submitted by the current user.
     shared_ptr<bool> fromAllWorkspaces_ {};
-    // Uses the full-text index to retrieve data in the images field. Chinese and English tokenization are supported.
+    // Retrieves data from the full-text index in the image (images) field. Chinese and English tokenization is supported.
     shared_ptr<string> imageSearch_ {};
     // The job ID. Fuzzy match is not supported. The match is case-insensitive and does not support wildcards. Default value: empty, which indicates any job ID.
     shared_ptr<string> jobId_ {};
@@ -403,34 +403,34 @@ namespace Models
     // - OneFlowJob
     // - ElasticBatchJob
     shared_ptr<string> jobType_ {};
-    // The field name for numeric range filtering. This parameter must be used together with NumericRangeMin and NumericRangeMax.
+    // The field name used for numeric range filtering. This parameter must be used together with NumericRangeMin and NumericRangeMax.
     shared_ptr<string> numericRangeField_ {};
-    // The maximum value for numeric range filtering, inclusive. This parameter must be used together with NumericRangeField.
+    // The maximum value (inclusive) for numeric range filtering. This parameter must be used together with NumericRangeField.
     shared_ptr<int64_t> numericRangeMax_ {};
-    // The minimum value for numeric range filtering, inclusive. This parameter must be used together with NumericRangeField.
+    // The minimum value (inclusive) for numeric range filtering. This parameter must be used together with NumericRangeField.
     shared_ptr<int64_t> numericRangeMin_ {};
     // The sort order. Valid values:
     // - desc: descending order. This is the default value.
     // - asc: ascending order.
     shared_ptr<string> order_ {};
-    // The idle resource information. Valid values:
+    // The off-peak resource information. Valid values:
     // - ForbiddenQuotaOverSold
     // - ForceQuotaOverSold
-    // - AcceptQuotaOverSold-true: true indicates that the job actually used idle resources.
+    // - AcceptQuotaOverSold-true: true indicates that the job actually used off-peak resources.
     // - AcceptQuotaOverSold-false: false indicates that the job actually used guaranteed resources.
     shared_ptr<string> oversoldInfo_ {};
-    // The page number for paging in a paged query. The start value is 1. Default value: 1.
+    // The page number for paging in a paged query. The starting value is 1. Default value: 1.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of jobs to return on each page.
+    // The number of jobs to return per page.
     shared_ptr<int32_t> pageSize_ {};
     // The resource type. Valid values:
     // - PrePaid: resource quota
     // - Spot: preemptible resources
     // - PostPaid: public resources
     shared_ptr<string> paymentType_ {};
-    // The pipeline ID used to filter jobs.
+    // The pipeline ID. Only jobs created by this pipeline are returned.
     shared_ptr<string> pipelineId_ {};
-    // Uses the full-text index to retrieve data in the reason field of the failed node. Chinese and English tokenization are supported.
+    // Retrieves data from the full-text index in the failed node reason field. Chinese and English tokenization is supported.
     shared_ptr<string> reasonSearch_ {};
     // The resource group ID. For more information about how to query the ID of a dedicated resource group, see [Manage resource quotas](https://help.aliyun.com/document_detail/2651299.html).
     shared_ptr<string> resourceId_ {};
@@ -440,7 +440,7 @@ namespace Models
     shared_ptr<string> resourceQuotaName_ {};
     // Specifies whether to query only the jobs submitted by the current user.
     shared_ptr<bool> showOwn_ {};
-    // The field by which to sort. Valid values:
+    // The field used for sorting. Valid values:
     // - DisplayName
     // - JobType
     // - Status
@@ -452,7 +452,7 @@ namespace Models
     // The running status of the job. Valid values:
     // - Creating
     // - Queuing
-    // - Bidding (currently limited to Lingjun spot jobs)
+    // - Bidding (currently only available for Lingjun spot jobs)
     // - EnvPreparing
     // - SanityChecking
     // - Running
@@ -466,11 +466,11 @@ namespace Models
     shared_ptr<string> status_ {};
     // The tags used for filtering.
     shared_ptr<string> tagsShrink_ {};
-    // The template ID used to filter jobs created by the specified template.
+    // The template ID used to filter jobs created by a specified template.
     shared_ptr<string> templateId_ {};
     // The time field used for StartTime and EndTime filtering. Default value: creation time.
     shared_ptr<string> timeRangeField_ {};
-    // Uses the full-text index to retrieve data in the user_command field. Chinese and English tokenization are supported.
+    // Retrieves data from the full-text index in the user command (user_command) field. Chinese and English tokenization is supported.
     shared_ptr<string> userCommandSearch_ {};
     // The user ID of the job submitter used to filter the job list.
     shared_ptr<string> userIdForFilter_ {};

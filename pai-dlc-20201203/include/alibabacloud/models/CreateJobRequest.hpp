@@ -155,17 +155,17 @@ namespace Models
 
     protected:
       // The default routing. Valid values:
-      // - eth0: Uses the default network interface controller (NIC) to access external networks through the public gateway.
-      // - eth1: Uses the user elastic network interfaces (ENIs) to access external networks through the private gateway. For the specific configuration method, see [Configure a DSW instance to access the Internet through a dedicated public gateway](https://help.aliyun.com/document_detail/2525343.html).
+      // - eth0: uses the default network interface controller (NIC) to access external networks through the public gateway.
+      // - eth1: uses the user elastic network interface (ENI) to access external networks through the private gateway. For more information about the configuration method, see [Configure a DSW instance to access the Internet through a dedicated public gateway](https://help.aliyun.com/document_detail/2525343.html).
       shared_ptr<string> defaultRoute_ {};
       // The extended CIDR blocks.
-      // - If the vSwitch ID is empty, this parameter is optional. The system automatically retrieves all CIDR blocks in the VPC.
-      // - If the vSwitch ID is not empty, this parameter is required. Specify all CIDR blocks in the VPC.
+      // - If the vSwitch ID is empty, this parameter is optional and the system automatically obtains all CIDR blocks under the VPC.
+      // - If the vSwitch ID is not empty, this parameter is required. We recommend that you specify all CIDR blocks under the VPC.
       shared_ptr<vector<string>> extendedCIDRs_ {};
       // The ID of the user security group.
       shared_ptr<string> securityGroupId_ {};
       // The ID of the user vSwitch. This parameter is optional.
-      // - If this parameter is empty, the system automatically selects an appropriate vSwitch based on inventory.
+      // - If this parameter is left empty, the system automatically selects an appropriate vSwitch based on inventory.
       // - You can also specify a vSwitch ID.
       shared_ptr<string> switchId_ {};
       // The ID of the user VPC.
@@ -283,25 +283,25 @@ namespace Models
 
 
     protected:
-      // The ID of the access point. Currently, only access points of AI CPFS are supported.
+      // The ID of the access point. Currently, only access points of CPFS for AI are supported.
       shared_ptr<string> accessPointId_ {};
       // The ID of the data source. <props="china">For more information about how to view the data source ID, see [ListDatasets](https://help.aliyun.com/document_detail/457222.html).
       shared_ptr<string> dataSourceId_ {};
       // The version of the dataset.
       shared_ptr<string> dataSourceVersion_ {};
-      // Specifies whether to enable the cache service for the data source. This parameter takes effect only when the cluster supports the cache service and a resource group is configured.
+      // Specifies whether to enable the cache service for the data source. This parameter takes effect only when the cluster supports it and a resource group is configured.
       shared_ptr<bool> enableCache_ {};
       // The permissions when the dataset is mounted. Valid values:
-      // - RO: Read-only mount.
-      // - RW: Read/write mount.
+      // - RO: read-only mount.
+      // - RW: read-write mount.
       shared_ptr<string> mountAccess_ {};
-      // The path to be mounted for the job. This parameter is optional. By default, the mount path configured in the data source is used.
+      // The path to be mounted for the job. This parameter is optional. By default, the mount path in the data source is used.
       shared_ptr<string> mountPath_ {};
       // The mount property of the custom dataset. Currently, only OSS is supported.
       shared_ptr<string> options_ {};
       // The ARN of the data source role. This parameter is required when OSS and CPFS access point authentication are enabled.
       shared_ptr<string> roleArn_ {};
-      // The role chain, which is a JSON-formatted string. Example: [{"roleType":"service","roleArn":"acs:ram::cloud_product_resource_account_uid:role/xxxtodlcrole","assumeRoleFor":"cloud_product_resource_account_uid"},{"roleType":"user","roleArn":"acs:ram::cloud_product_service_account_uid:role/roletoassumecustomerrole"},{"roleType":"service","roleArn":"acs:ram::end_user_uid:role/use-bmcpfs-access-ap-role","assumeRoleFor":"end_user_uid"}].
+      // The role chain, which is a JSON-formatted string. Example: [{"roleType":"service","roleArn":"acs:ram::Cloud service resource account UID:role/xxxtodlcrole","assumeRoleFor":"Cloud service resource account UID"},{"roleType":"user","roleArn":"acs:ram::Cloud service account UID:role/roletoassumecustomerrole"},{"roleType":"service","roleArn":"acs:ram::End user UID:role/use-bmcpfs-access-ap-role","assumeRoleFor":"End user UID"}]
       shared_ptr<string> roleChain_ {};
       // The path of the data source.
       shared_ptr<string> uri_ {};
@@ -358,7 +358,7 @@ namespace Models
       shared_ptr<string> key_ {};
       // The value of the environment variable.
       shared_ptr<string> value_ {};
-      // The visibility of the environment variable. A value of public indicates that the variable is public, and a value of private indicates that the variable is private.
+      // The visibility of the environment variable. Valid values: public and private.
       shared_ptr<string> visible_ {};
     };
 
@@ -427,13 +427,13 @@ namespace Models
 
 
     protected:
-      // The branch of the code repository referenced when the job runs. This parameter is optional. By default, the branch configured in the code source is used.
+      // The branch of the referenced code repository when the job runs. This parameter is optional. By default, the branch configured in the code source is used.
       shared_ptr<string> branch_ {};
       // The ID of the code source. <props="china">For more information about how to obtain the code source ID, see [ListCodeSources](https://help.aliyun.com/document_detail/459922.html).
       shared_ptr<string> codeSourceId_ {};
       // The commit ID of the code to be downloaded for the job. This parameter is optional. By default, the commit ID configured in the code source is used.
       shared_ptr<string> commit_ {};
-      // Specifies whether the mount path configured for access code source is a shared cloud storage path. If this parameter is set to true, the system enables code clone optimization. In a multi-node job scenario, the clone operation is performed on only one node, and other nodes can directly access access code through the shared cloud storage path.
+      // Specifies whether the mount path configured in access code source is a shared cloud storage path. If this parameter is set to true, code clone optimization is enabled in the background. In multi-node job scenarios, the clone operation is performed on only one node, and other nodes can directly access access code through the shared cloud storage path.
       shared_ptr<bool> isSharedMountPath_ {};
       // The path to be mounted for the job. This parameter is optional. By default, the mount path configured in the code source is used.
       shared_ptr<string> mountPath_ {};
@@ -660,35 +660,35 @@ namespace Models
     // - PUBLIC: Visible to all users in the workspace.
     // - PRIVATE: Visible only to you and administrators in the workspace.
     shared_ptr<string> accessibility_ {};
-    // The code source used by the job. Before the nodes of the job start, DLC automatically downloads the code configured in the code source and mounts it to a local directory in the container.
+    // The code source used by the job. Before the nodes of the job start, DLC automatically downloads the code configured in the code source and mounts it to the local directory of the container.
     shared_ptr<CreateJobRequest::CodeSource> codeSource_ {};
     // The access credential configuration.
     shared_ptr<CredentialConfig> credentialConfig_ {};
     // The list of custom environment variables.
     shared_ptr<vector<CreateJobRequest::CustomEnvs>> customEnvs_ {};
-    // The list of data sources used to run the job.
+    // The list of data sources used for running the job.
     shared_ptr<vector<CreateJobRequest::DataSources>> dataSources_ {};
-    // This parameter is not supported. You can ignore it.
+    // This parameter is not supported. Ignore this parameter.
     shared_ptr<string> debuggerConfigContent_ {};
     // The description of the job.
     shared_ptr<string> description_ {};
     // The name of the job. The name must meet the following requirements:
-    // - The name can be up to 256 characters in length.
+    // - The name cannot exceed 256 characters in length.
     // - The name can contain digits, letters, underscores (_), periods (.), and hyphens (-).
     // 
     // This parameter is required.
     shared_ptr<string> displayName_ {};
-    // Specifies whether to enable the dry run mode.
+    // Specifies whether to enable dry run mode.
     shared_ptr<bool> dryRun_ {};
-    // This parameter is not supported. You can ignore it.
+    // This parameter is not supported. Ignore this parameter.
     shared_ptr<JobElasticSpec> elasticSpec_ {};
     // The environment variable configuration.
     shared_ptr<map<string, string>> envs_ {};
     // The maximum running duration of the job, in minutes.
     shared_ptr<int64_t> jobMaxRunningTimeMinutes_ {};
-    // **JobSpecs** describes various configurations when the job runs, such as the image address, startup command, node resource declaration, and number of replicas.
+    // **JobSpecs** describes various configurations for the job at runtime, such as the image address, startup command, node resource declaration, and number of replicas.
     // 
-    // A DLC job consists of different types of nodes. Nodes of the same type have identical configurations, which are called a JobSpec. **JobSpecs** describes the configurations of all types of nodes and is an array of JobSpecs.
+    // A DLC job consists of different types of nodes. Nodes of the same type have identical configurations, which are referred to as a JobSpec. **JobSpecs** describes the configurations for all types of nodes and is an array of JobSpec objects.
     // 
     // This parameter is required.
     shared_ptr<vector<JobSpec>> jobSpecs_ {};
@@ -705,15 +705,15 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> jobType_ {};
-    // The additional configurations for the job. You can use this parameter to adjust the behavior of mounted data sources. For example, if the node has an OSS data source mounted, you can set this parameter to `fs.oss.download.thread.concurrency=4,fs.oss.download.queue.size=16` to overwrite the default parameter settings of JindoFS.
+    // The additional configuration for the job. You can use this parameter to adjust the behavior of mounted data sources. For example, if the job mounts an OSS data source, you can set this parameter to `fs.oss.download.thread.concurrency=4,fs.oss.download.queue.size=16` to overwrite the default parameter settings of JindoFS.
     shared_ptr<string> options_ {};
     // The priority of the job. This parameter is optional. Default value: 1. Valid values: 1 to 9.
-    // - 1: The lowest priority.
-    // - 9: The highest priority.
+    // - 1: the lowest priority.
+    // - 9: the highest priority.
     shared_ptr<int32_t> priority_ {};
     // The ID of the resource group. This parameter is optional.
-    // - If this parameter is left empty, the job is submitted to a public resource group.
-    // - If you attach a resource quota to the current workspace, you can specify the corresponding resource quota ID here. For details about how to query the resource quota ID, see [Manage resource quotas](https://help.aliyun.com/document_detail/2651299.html).
+    // - If this parameter is left empty, the job is submitted to the public resource group.
+    // - If the current workspace is attached to a resource quota, you can specify the corresponding resource quota ID here. For details about how to query the resource quota ID, see [Manage resource quotas](https://help.aliyun.com/document_detail/2651299.html).
     shared_ptr<string> resourceId_ {};
     // The scheduling strategy.
     shared_ptr<string> schedulingStrategy_ {};
@@ -721,13 +721,13 @@ namespace Models
     shared_ptr<JobSettings> settings_ {};
     // The success policy for distributed multi-node jobs. Currently, only multi-node TensorFlow jobs are supported. Valid values:
     // - ChiefWorker: If this value is specified, the entire job is considered successful as long as the chief pod ends successfully.
-    // - AllWorkers: This is the default value. The entire job is considered successful only when all worker pods end successfully.
+    // - AllWorkers (default): The entire job is considered successful only when all worker pods end successfully.
     shared_ptr<string> successPolicy_ {};
     // The ID of the job template.
     shared_ptr<string> templateId_ {};
     // The version of the job template.
     shared_ptr<int32_t> templateVersion_ {};
-    // The name of the folder where the Python third-party library (requirements.txt) file is located. Before each node runs the specified user command, PAI-DLC retrieves the requirements.txt file from the specified folder and runs the `pip install -r` command to install the libraries.
+    // The name of the folder where the Python third-party library file (requirements.txt) is located. Before each node runs the specified UserCommand, PAI-DLC retrieves the requirements.txt file from the specified folder and runs the `pip install -r` command to install the libraries.
     shared_ptr<string> thirdpartyLibDir_ {};
     // The list of Python third-party libraries to be installed.
     shared_ptr<vector<string>> thirdpartyLibs_ {};
@@ -735,9 +735,9 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> userCommand_ {};
-    // The user VPC configuration.
+    // The VPC configuration of the user.
     shared_ptr<CreateJobRequest::UserVpc> userVpc_ {};
-    // The workspace ID. <props="china">For information about how to obtain the workspace ID, see [ListWorkspaces](https://help.aliyun.com/document_detail/449124.html).
+    // The ID of the workspace. <props="china">For more information about how to obtain the workspace ID, see [ListWorkspaces](https://help.aliyun.com/document_detail/449124.html).
     shared_ptr<string> workspaceId_ {};
   };
 

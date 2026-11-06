@@ -28,6 +28,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(EnableCPUAffinity, enableCPUAffinity_);
       DARABONBA_PTR_TO_JSON(EnableDSWDev, enableDSWDev_);
       DARABONBA_PTR_TO_JSON(EnableErrorMonitoringInAIMaster, enableErrorMonitoringInAIMaster_);
+      DARABONBA_PTR_TO_JSON(EnableIntraJobSSH, enableIntraJobSSH_);
       DARABONBA_PTR_TO_JSON(EnableOssAppend, enableOssAppend_);
       DARABONBA_PTR_TO_JSON(EnableRDMA, enableRDMA_);
       DARABONBA_PTR_TO_JSON(EnableSanityCheck, enableSanityCheck_);
@@ -56,6 +57,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(EnableCPUAffinity, enableCPUAffinity_);
       DARABONBA_PTR_FROM_JSON(EnableDSWDev, enableDSWDev_);
       DARABONBA_PTR_FROM_JSON(EnableErrorMonitoringInAIMaster, enableErrorMonitoringInAIMaster_);
+      DARABONBA_PTR_FROM_JSON(EnableIntraJobSSH, enableIntraJobSSH_);
       DARABONBA_PTR_FROM_JSON(EnableOssAppend, enableOssAppend_);
       DARABONBA_PTR_FROM_JSON(EnableRDMA, enableRDMA_);
       DARABONBA_PTR_FROM_JSON(EnableSanityCheck, enableSanityCheck_);
@@ -85,9 +87,10 @@ namespace Models
     virtual bool empty() const override { return this->advancedSettings_ == nullptr
         && this->allocateAllRDMADevices_ == nullptr && this->allowUnschedulableNodes_ == nullptr && this->businessUserId_ == nullptr && this->caller_ == nullptr && this->dataJuicerConfig_ == nullptr
         && this->disableEcsStockCheck_ == nullptr && this->driver_ == nullptr && this->elasticSpotJobMaxRestartTimes_ == nullptr && this->enableCPUAffinity_ == nullptr && this->enableDSWDev_ == nullptr
-        && this->enableErrorMonitoringInAIMaster_ == nullptr && this->enableOssAppend_ == nullptr && this->enableRDMA_ == nullptr && this->enableSanityCheck_ == nullptr && this->enableTideResource_ == nullptr
-        && this->errorMonitoringArgs_ == nullptr && this->jobReservedMinutes_ == nullptr && this->jobReservedPolicy_ == nullptr && this->modelConfig_ == nullptr && this->oversoldType_ == nullptr
-        && this->pipelineId_ == nullptr && this->sanityCheckArgs_ == nullptr && this->shell_ == nullptr && this->tags_ == nullptr && this->terminationGracePeriodSeconds_ == nullptr; };
+        && this->enableErrorMonitoringInAIMaster_ == nullptr && this->enableIntraJobSSH_ == nullptr && this->enableOssAppend_ == nullptr && this->enableRDMA_ == nullptr && this->enableSanityCheck_ == nullptr
+        && this->enableTideResource_ == nullptr && this->errorMonitoringArgs_ == nullptr && this->jobReservedMinutes_ == nullptr && this->jobReservedPolicy_ == nullptr && this->modelConfig_ == nullptr
+        && this->oversoldType_ == nullptr && this->pipelineId_ == nullptr && this->sanityCheckArgs_ == nullptr && this->shell_ == nullptr && this->tags_ == nullptr
+        && this->terminationGracePeriodSeconds_ == nullptr; };
     // advancedSettings Field Functions 
     bool hasAdvancedSettings() const { return this->advancedSettings_ != nullptr;};
     void deleteAdvancedSettings() { this->advancedSettings_ = nullptr;};
@@ -174,6 +177,13 @@ namespace Models
     void deleteEnableErrorMonitoringInAIMaster() { this->enableErrorMonitoringInAIMaster_ = nullptr;};
     inline bool getEnableErrorMonitoringInAIMaster() const { DARABONBA_PTR_GET_DEFAULT(enableErrorMonitoringInAIMaster_, false) };
     inline JobSettings& setEnableErrorMonitoringInAIMaster(bool enableErrorMonitoringInAIMaster) { DARABONBA_PTR_SET_VALUE(enableErrorMonitoringInAIMaster_, enableErrorMonitoringInAIMaster) };
+
+
+    // enableIntraJobSSH Field Functions 
+    bool hasEnableIntraJobSSH() const { return this->enableIntraJobSSH_ != nullptr;};
+    void deleteEnableIntraJobSSH() { this->enableIntraJobSSH_ = nullptr;};
+    inline bool getEnableIntraJobSSH() const { DARABONBA_PTR_GET_DEFAULT(enableIntraJobSSH_, false) };
+    inline JobSettings& setEnableIntraJobSSH(bool enableIntraJobSSH) { DARABONBA_PTR_SET_VALUE(enableIntraJobSSH_, enableIntraJobSSH) };
 
 
     // enableOssAppend Field Functions 
@@ -281,9 +291,9 @@ namespace Models
   protected:
     // The additional advanced parameter settings.
     Darabonba::Json advancedSettings_ {};
-    // Specifies whether to allocate all RDMA NICs.
+    // Specifies whether to mount all RDMA NICs.
     shared_ptr<bool> allocateAllRDMADevices_ {};
-    // Specifies whether to allow jobs to be scheduled to nodes that are marked as unschedulable or are in the workspace blacklist. If enabled, node status checks are skipped and the corresponding bypass configurations are applied.
+    // Specifies whether to allow the job to be scheduled to nodes that are marked as unschedulable or included in the workspace blacklist. If enabled, node status checks are skipped and corresponding bypass configurations are applied.
     shared_ptr<bool> allowUnschedulableNodes_ {};
     // The ID of the user associated with the job.
     shared_ptr<string> businessUserId_ {};
@@ -291,7 +301,7 @@ namespace Models
     shared_ptr<string> caller_ {};
     // The DataJuicer job configuration.
     shared_ptr<DataJuicerConfig> dataJuicerConfig_ {};
-    // Specifies whether to skip the ECS inventory check. Valid values:
+    // Specifies whether to skip the inventory check. Valid values:
     // - true
     // - false
     shared_ptr<bool> disableEcsStockCheck_ {};
@@ -299,7 +309,7 @@ namespace Models
     shared_ptr<string> driver_ {};
     // The maximum number of restarts for an elastic spot job.
     shared_ptr<int32_t> elasticSpotJobMaxRestartTimes_ {};
-    // The CPU affinity settings. These settings take effect only when general-purpose computing subscription resources are used.
+    // The CPU affinity settings. This setting takes effect only when general-purpose computing subscription resources are used.
     shared_ptr<bool> enableCPUAffinity_ {};
     // Specifies whether to enable the DSW development mode for the job. If enabled, a sidecar container is injected into the pod.
     shared_ptr<bool> enableDSWDev_ {};
@@ -307,7 +317,11 @@ namespace Models
     // - true
     // - false
     shared_ptr<bool> enableErrorMonitoringInAIMaster_ {};
-    // Specifies whether to allow OSS append writes. Valid values:
+    // Specifies whether to allow job nodes to communicate with each other over SSH. The image must have SSHD built-in. This parameter takes effect only for PyTorch jobs that use self-managed computing resources. Valid values:
+    // - true
+    // - false
+    shared_ptr<bool> enableIntraJobSSH_ {};
+    // Specifies whether to allow OSS append operations. Valid values:
     // - true
     // - false
     shared_ptr<bool> enableOssAppend_ {};
@@ -315,15 +329,15 @@ namespace Models
     // - true
     // - false
     shared_ptr<bool> enableRDMA_ {};
-    // Specifies whether to enable computing power health checks for the job. Valid values:
+    // Specifies whether to enable the computing power health check for the job. Valid values:
     // - true
     // - false
     shared_ptr<bool> enableSanityCheck_ {};
-    // Specifies whether to allow the job to use tide resources. Valid values:
+    // Specifies whether to allow the job to use tidal resources. Valid values:
     // - true
     // - false
     shared_ptr<bool> enableTideResource_ {};
-    // The configuration parameters for fault tolerance monitoring when it is enabled, such as specifying whether to enable log hang-based detection.
+    // The configuration parameters for fault tolerance monitoring after it is enabled, such as specifying whether to enable log hang-based detection.
     shared_ptr<string> errorMonitoringArgs_ {};
     // The retention duration after the job ends, in minutes.
     shared_ptr<int32_t> jobReservedMinutes_ {};
@@ -333,11 +347,11 @@ namespace Models
     shared_ptr<ModelConfig> modelConfig_ {};
     // The oversold resource usage mode for the job, which can be not accepted, accepted, or only accepted.
     shared_ptr<string> oversoldType_ {};
-    // The workflow ID.
+    // The pipeline ID.
     shared_ptr<string> pipelineId_ {};
-    // The configuration parameters for computing power health checks.
+    // The configuration parameters for the computing power health check.
     shared_ptr<string> sanityCheckArgs_ {};
-    // The shell used to execute job commands. Valid values: /bin/sh and /bin/bash.
+    // The shell used to execute job commands, such as /bin/sh or /bin/bash.
     shared_ptr<string> shell_ {};
     // The custom tags.
     shared_ptr<map<string, string>> tags_ {};
