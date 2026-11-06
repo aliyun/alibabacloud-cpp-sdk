@@ -360,15 +360,15 @@ namespace Models
       // - `ack.pro.small`: Pro Edition.
       // - `ack.pro.xlarge`: Pro XL.
       // - `ack.pro.2xlarge`: Pro 2XL.
-      // - `ack.pro.4xlarge`: Pro 4XL. To use this specification, submit a ticket to contact customer service and apply for whitelist access.
+      // - `ack.pro.4xlarge`: Pro 4XL. To use this specification, you must contact customer service to apply for whitelist access.
       // 
-      // Pro XL, Pro 2XL, and Pro 4XL are the three tiers provided by the <props="china">[ACK Pro provisioned control plane](https://help.aliyun.com/ack/ack-managed-and-ack-dedicated/user-guide/ack-pro-provisioned-control-plane)<props="intl">[ACK Pro provisioned control plane](https://www.alibabacloud.com/help/ack/ack-managed-and-ack-dedicated/user-guide/ack-pro-provisioned-control-plane). By pre-allocating and reserving control plane resources, these tiers ensure that API concurrency and pod scheduling capabilities remain consistently at a high level. They are suitable for AI training and inference, ultra-large-scale clusters, and mission-critical workloads.
+      // Pro XL, Pro 2XL, and Pro 4XL are the three tiers provided by the <props="china">[ACK Pro provisioned control plane](https://help.aliyun.com/ack/ack-managed-and-ack-dedicated/user-guide/ack-pro-provisioned-control-plane)<props="intl">[ACK Pro provisioned control plane](https://www.alibabacloud.com/help/ack/ack-managed-and-ack-dedicated/user-guide/ack-pro-provisioned-control-plane). These tiers pre-allocate and reserve control plane resources to ensure that API concurrency and pod scheduling capabilities remain consistently high. They are suitable for AI training and inference, ultra-large-scale clusters, and mission-critical workloads.
       // 
       // For more information about the cluster management fees for the Pro Edition and provisioned control plane editions, see <props="china">[Cluster management fees](https://help.aliyun.com/ack/ack-managed-and-ack-dedicated/product-overview/cluster-management-fee)<props="intl">[Cluster management fees](https://www.alibabacloud.com/help/ack/ack-managed-and-ack-dedicated/product-overview/cluster-management-fee).
       shared_ptr<string> clusterSpec_ {};
-      // The cluster type. Valid values:
+      // The type of the cluster. Valid values:
       // - Kubernetes: ACK dedicated cluster.
-      // - ManagedKubernetes: ACK managed clusters, including ACK managed clusters (ACK Pro and ACK Basic), ACK Serverless clusters (Pro and Basic), ACK Edge clusters (Pro and Basic), and ACK Lingjun clusters (Pro).
+      // - ManagedKubernetes: ACK managed cluster, including ACK managed clusters (Pro Edition and Basic Edition), ACK Serverless clusters (Pro Edition and Basic Edition), ACK Edge clusters (Pro Edition and Basic Edition), and ACK Lingjun clusters (Pro Edition).
       // - ExternalKubernetes: registered cluster.
       shared_ptr<string> clusterType_ {};
       // The CIDR block for pods in the cluster.
@@ -390,12 +390,12 @@ namespace Models
       // The version to which the cluster can be upgraded.
       shared_ptr<string> nextVersion_ {};
       // The subtype of the cluster. Valid values:
-      // - Default: ACK managed clusters, including ACK Pro and ACK Basic.
-      // - Edge: ACK Edge clusters, including ACK Edge Pro and ACK Edge Basic.
-      // - Serverless: ACK Serverless clusters, including ACK Serverless Pro and ACK Serverless Basic.
-      // - LingJun: ACK Lingjun clusters, which provide the Pro edition.
+      // - Default: ACK managed cluster, including ACK managed cluster Pro Edition and Basic Edition.
+      // - Edge: ACK Edge cluster, including ACK Edge cluster Pro Edition and Basic Edition.
+      // - Serverless: ACK Serverless cluster, including ACK Serverless cluster Pro Edition and Basic Edition.
+      // - LingJun: ACK Lingjun cluster, which provides only the Pro Edition.
       shared_ptr<string> profile_ {};
-      // The proxy mode of kube-proxy in the cluster.
+      // The kube-proxy mode of the cluster.
       shared_ptr<string> proxyMode_ {};
       // The region ID.
       shared_ptr<string> regionId_ {};
@@ -403,7 +403,7 @@ namespace Models
       shared_ptr<string> resourceGroupId_ {};
       // The ID of the security group to which the cluster belongs.
       shared_ptr<string> securityGroupId_ {};
-      // The CIDR block for services.
+      // The CIDR block for services in the cluster.
       // 
       // This parameter is required.
       shared_ptr<string> serviceCidr_ {};
@@ -416,7 +416,7 @@ namespace Models
       // - `running`: The cluster is running.
       // - `updating`: The cluster is being updated.
       // - `upgrading`: The cluster is being upgraded.
-      // - `removing`: Nodes are being removed.
+      // - `removing`: Nodes are being removed from the cluster.
       // - `draining`: Nodes are being drained.
       // - `scaling`: The cluster is being scaled.
       // - `inactive`: The cluster is inactive.
@@ -424,9 +424,13 @@ namespace Models
       // - `deleting`: The cluster is being deleted.
       // - `deleted`: The cluster is deleted.
       // - `delete_failed`: The cluster failed to be deleted.
-      // - `waiting`: The cluster is waiting to be accessed.
+      // - `waiting`: The cluster is waiting for the accessed state.
       // - `disconnected`: The cluster is disconnected.
       shared_ptr<string> state_ {};
+      // The version support policy of the cluster. The values are case-sensitive. Valid values:
+      // - Standard: standard support.
+      // - Extended: extended support. After the standard support period ends, the cluster enters the extended support period and continues to receive CVE patch updates.
+      // If this policy is not configured for an existing cluster, Standard is returned.
       shared_ptr<string> supportPolicy_ {};
       // The list of tags for the cluster.
       shared_ptr<vector<Tag>> tags_ {};

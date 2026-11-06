@@ -215,17 +215,17 @@ namespace Models
 
 
     protected:
-      // The default audience of the OIDC token. If multiple values are included, they are separated by commas (,). These values form an array for the `aud` field in the OIDC token.
+      // The default audience of the OpenID Connect (OIDC) token. If multiple values are specified, they are separated by commas (,). The values are used as an array for the `aud` field in the OIDC token.
       shared_ptr<string> audience_ {};
-      // Specifies whether RRSA is enabled.
+      // Specifies whether to enable RRSA.
       shared_ptr<bool> enabled_ {};
-      // The issuer of the OIDC token. If multiple values are included, they are separated by commas (,). The first value is used as the `iss` field in the OIDC token and the issuer URL of the OIDC identity provider (IdP).
+      // The issuer of the OIDC token. If multiple values are specified, they are separated by commas (,). The first value is used as the `iss` field in the OIDC token and the issuer URL of the OIDC identity provider (IdP).
       shared_ptr<string> issuer_ {};
       // The URL of the OIDC public key.
       shared_ptr<string> jwksUrl_ {};
-      // The maximum configurable validity period of the OIDC token.
+      // The maximum validity period that can be configured for the OIDC token.
       shared_ptr<string> maxOidcTokenExpiration_ {};
-      // The ARN of the OIDC IdP.
+      // The Alibaba Cloud Resource Name (ARN) of the OIDC IdP.
       shared_ptr<string> oidcArn_ {};
       // The name of the OIDC IdP.
       shared_ptr<string> oidcName_ {};
@@ -291,11 +291,11 @@ namespace Models
 
       protected:
         // The automatic upgrade channel of the cluster. For more information, see [Upgrade channels](https://help.aliyun.com/document_detail/2712866.html). Valid values:
-        // - patch: The latest patch version.
-        // - stable: The second latest minor version.
-        // - rapid: The latest minor version.
+        // - patch: the latest patch version.
+        // - stable: the second latest minor version.
+        // - rapid: the latest minor version.
         shared_ptr<string> channel_ {};
-        // Specifies whether automatic cluster upgrade is enabled.
+        // Specifies whether to enable automatic cluster upgrade.
         shared_ptr<bool> enabled_ {};
       };
 
@@ -382,11 +382,11 @@ namespace Models
 
 
       protected:
-        // The endpoint.
+        // The endpoint address.
         shared_ptr<string> endpoint_ {};
         // The endpoint type.
         shared_ptr<string> endpointType_ {};
-        // The SLB instance associated with the endpoint.
+        // The Server Load Balancer (SLB) instance associated with the endpoint.
         shared_ptr<string> loadBalancerId_ {};
       };
 
@@ -430,10 +430,10 @@ namespace Models
 
 
       protected:
-        // The VPC scope where the internal DNS records of the cluster take effect. By default, this includes the VPC where the cluster is deployed.
+        // The VPCs where the resolution of the internal domain name records takes effect. By default, this includes the VPC where the cluster is deployed.
         shared_ptr<vector<string>> bindVpcs_ {};
-        // Indicates whether internal DNS access is enabled for the cluster. Valid values: 
-        // - true: Internal DNS access is enabled. Node-side components such as kubelet and kube-proxy access the API server by using the internal domain name.
+        // Specifies whether internal domain name access is enabled for the cluster. Valid values: 
+        // - true: Internal domain name access is enabled. Node-side components such as kubelet and kube-proxy access the API server by using the internal domain name.
         shared_ptr<bool> enabled_ {};
       };
 
@@ -458,7 +458,7 @@ namespace Models
 
 
     protected:
-      // The internal DNS configuration of the cluster, applicable to ACK managed clusters. The internal domain name is used by node-side system components such as kubelet and kube-proxy to access the API server. If internal domain name access is not enabled, node-side system components access the API server by using the IP address of the Classic Load Balancer (CLB) instance.
+      // The internal DNS configuration of the cluster, which applies to ACK managed clusters. The internal domain name is used by node-side system components such as kubelet and kube-proxy to access the API server. If internal domain name access is not enabled, node-side system components access the API server by using the CLB IP address.
       shared_ptr<ControlPlaneEndpointsConfig::InternalDnsConfig> internalDnsConfig_ {};
       // The load balancing configuration for cluster access.
       shared_ptr<vector<ControlPlaneEndpointsConfig::LoadBalancersConfig>> loadBalancersConfig_ {};
@@ -708,15 +708,15 @@ namespace Models
 
 
     protected:
-      // Indicates whether auto-renewal is enabled for the nodes.
+      // Specifies whether auto-renewal is enabled for the node.
       shared_ptr<bool> autoRenew_ {};
-      // The auto-renewal period for the nodes.
+      // The auto-renewal period for the node.
       shared_ptr<int64_t> autoRenewPeriod_ {};
-      // The billing method for the control plane nodes.
+      // The billing method for the control plane node.
       shared_ptr<string> chargeType_ {};
-      // Indicates whether CloudMonitor is installed on the nodes.
+      // Specifies whether CloudMonitor is installed on the node.
       shared_ptr<bool> cloudMonitorFlags_ {};
-      // The CPU management policy for the nodes.
+      // The CPU management policy for the node.
       shared_ptr<string> cpuPolicy_ {};
       // The ID of the deployment set.
       shared_ptr<string> deploymentsetId_ {};
@@ -724,37 +724,37 @@ namespace Models
       shared_ptr<string> imageId_ {};
       // The type of the operating system image.
       shared_ptr<string> imageType_ {};
-      // The metadata access configuration for the ECS instances.
+      // The metadata access configuration for the ECS instance.
       shared_ptr<InstanceMetadataOptions> instanceMetadataOptions_ {};
-      // The instance type of the nodes.
+      // The instance types of the node.
       shared_ptr<vector<string>> instanceTypes_ {};
-      // The name of the key pair. You must specify either this parameter or `login_password`.
+      // The name of the key pair. You must specify either this parameter or login_password.
       shared_ptr<string> keyPair_ {};
       // The service port range for nodes.
       shared_ptr<string> nodePortRange_ {};
-      // The subscription period for the nodes.
+      // The subscription period for the node.
       shared_ptr<int64_t> period_ {};
-      // The unit of the subscription period for the nodes.
+      // The unit of the subscription period for the node.
       shared_ptr<string> periodUnit_ {};
       // The name of the container runtime.
       shared_ptr<string> runtime_ {};
-      // Indicates whether Alibaba Cloud OS security hardening is enabled.
+      // Specifies whether Alibaba Cloud OS security hardening is enabled.
       shared_ptr<bool> securityHardeningOs_ {};
       // The number of control plane nodes.
       shared_ptr<int64_t> size_ {};
-      // Indicates whether classified protection security hardening is enabled.
+      // Specifies whether MLPS 2.0 security hardening is enabled.
       shared_ptr<bool> socEnabled_ {};
-      // Indicates whether bursting is enabled for the system cloud disks of the nodes.
+      // Specifies whether performance bursting is enabled for the system cloud disk of the node.
       shared_ptr<bool> systemDiskBurstingEnabled_ {};
-      // The type of the system cloud disks for the nodes.
+      // The category of the system cloud disk for the node.
       shared_ptr<string> systemDiskCategory_ {};
-      // The performance level of the system cloud disks for the nodes. This parameter takes effect only for ESSDs.
+      // The performance level of the system cloud disk for the node. This parameter takes effect only for ESSDs.
       shared_ptr<string> systemDiskPerformanceLevel_ {};
-      // The provisioned read and write IOPS for the system cloud disks of the nodes.
+      // The provisioned read and write IOPS for the system cloud disk of the node.
       shared_ptr<int64_t> systemDiskProvisionedIops_ {};
-      // The size of the system cloud disks for the nodes. The minimum value is 40.
+      // The size of the system cloud disk for the node. The minimum value is 40.
       shared_ptr<int64_t> systemDiskSize_ {};
-      // The ID of the automatic snapshot policy for the nodes.
+      // The ID of the automatic snapshot policy for the node.
       shared_ptr<string> systemDiskSnapshotPolicyId_ {};
     };
 
@@ -786,7 +786,7 @@ namespace Models
 
 
     protected:
-      // Indicates whether the intelligent management mode is enabled.
+      // Specifies whether auto mode is enabled.
       shared_ptr<bool> enable_ {};
     };
 
@@ -1136,35 +1136,33 @@ namespace Models
 
 
   protected:
-    // The intelligent management mode configuration.
+    // The auto mode configuration.
     shared_ptr<DescribeClusterDetailResponseBody::AutoMode> autoMode_ {};
     // The local domain name of the cluster.
     shared_ptr<string> clusterDomain_ {};
     // The cluster ID.
     shared_ptr<string> clusterId_ {};
-    // The specification of the cluster when `cluster_type` is set to `ManagedKubernetes` and `profile` is configured. Valid values:
+    // The specifications of the cluster when cluster_type is set to ManagedKubernetes and profile is configured. Valid values:
     // 
-    // - `ack.standard`: Basic Edition (selected by default if the value is empty).
-    // - `ack.pro.small`: Pro Edition.
-    // - `ack.pro.xlarge`: Pro XL.
-    // - `ack.pro.2xlarge`: Pro 2XL.
-    // - `ack.pro.4xlarge`: Pro 4XL (requires contacting customer service to apply for whitelist access).
+    // - ack.standard: Basic Edition. This is the default value if this parameter is left empty.
+    // - ack.pro.small: Pro Edition.
+    // - ack.pro.xlarge: Pro XL.
+    // - ack.pro.2xlarge: Pro 2XL.
+    // - ack.pro.4xlarge: Pro 4XL. You must contact customer service to apply for whitelist access.
     // 
-    // Pro XL, Pro 2XL, and Pro 4XL are the three tiers provided by the <props="china">[ACK Pro provisioned control plane](https://help.aliyun.com/ack/ack-managed-and-ack-dedicated/user-guide/ack-pro-provisioned-control-plane)<props="intl">[ACK Pro provisioned control plane](https://www.alibabacloud.com/help/ack/ack-managed-and-ack-dedicated/user-guide/ack-pro-provisioned-control-plane). By pre-allocating and fixing control plane resources, these tiers ensure that API concurrency and pod scheduling capabilities are always maintained at a consistently high level. They are suitable for AI training and inference, ultra-large-scale clusters, and mission-critical workloads.
+    // Pro XL, Pro 2XL, and Pro 4XL are the three tiers provided by the <props="china">[ACK Pro provisioned control plane](https://help.aliyun.com/ack/ack-managed-and-ack-dedicated/user-guide/ack-pro-provisioned-control-plane)<props="intl">[ACK Pro provisioned control plane](https://www.alibabacloud.com/help/ack/ack-managed-and-ack-dedicated/user-guide/ack-pro-provisioned-control-plane). By pre-allocating and dedicating control plane resources, these tiers ensure consistently high levels of API concurrency and pod scheduling capabilities. They are suitable for AI training and inference, ultra-large-scale clusters, and mission-critical workloads.
     // 
-    // For the cluster management fees of the Pro Edition and provisioned control plane editions, see <props="china">[Cluster management fees](https://help.aliyun.com/ack/ack-managed-and-ack-dedicated/product-overview/cluster-management-fee)<props="intl">[Cluster management fees](https://www.alibabacloud.com/help/ack/ack-managed-and-ack-dedicated/product-overview/cluster-management-fee).
+    // For more information about the cluster management fees for Pro Edition and provisioned control plane editions, see <props="china">[Cluster management fees](https://help.aliyun.com/ack/ack-managed-and-ack-dedicated/product-overview/cluster-management-fee)<props="intl">[Cluster management fees](https://www.alibabacloud.com/help/ack/ack-managed-and-ack-dedicated/product-overview/cluster-management-fee).
     shared_ptr<string> clusterSpec_ {};
     // The cluster type. Valid values:
     // 
-    // - `Kubernetes`: ACK dedicated cluster.
-    //  
-    // - `ManagedKubernetes`: ACK ACK clusters, including ACK ACK clusters (ACK Pro Edition and ACK Basic Edition), ACK Serverless clusters (Pro Edition and Basic Edition), ACK Edge clusters (Pro Edition and Basic Edition), and ACK Lingjun clusters (Pro Edition).
-    //  
-    // - `ExternalKubernetes`: Registered cluster.
+    // - Kubernetes: ACK dedicated cluster.
+    // - ManagedKubernetes: ACK ACK cluster, including ACK ACK clusters (Pro Edition and Basic Edition), ACK Serverless clusters (Pro Edition and Basic Edition), ACK Edge clusters (Pro Edition and Basic Edition), and ACK Lingjun clusters (Pro Edition).
+    // - ExternalKubernetes: registered cluster.
     shared_ptr<string> clusterType_ {};
-    // The Pod CIDR block for the Flannel network configuration.
+    // The Pod CIDR block for Flannel network configuration.
     shared_ptr<string> containerCidr_ {};
-    // The control plane configuration for dedicated clusters.
+    // The control plane configuration for an ACK dedicated cluster.
     shared_ptr<DescribeClusterDetailResponseBody::ControlPlaneConfig> controlPlaneConfig_ {};
     // The connection configuration of the cluster.
     shared_ptr<DescribeClusterDetailResponseBody::ControlPlaneEndpointsConfig> controlPlaneEndpointsConfig_ {};
@@ -1172,26 +1170,26 @@ namespace Models
     shared_ptr<string> created_ {};
     // The current version of the cluster. For more information about the Kubernetes versions supported by ACK, see [Overview of Kubernetes versions](https://help.aliyun.com/document_detail/185269.html).
     shared_ptr<string> currentVersion_ {};
-    // Specifies whether deletion protection is enabled for the cluster. This prevents the cluster from being accidentally deleted through the console or API calls. Valid values:
+    // Specifies whether deletion protection is enabled for the cluster to prevent accidental deletion through the console or API calls. Valid values:
     // 
     // - `true`: Deletion protection is enabled. The cluster cannot be deleted through the console or API calls.
     // - `false`: Deletion protection is disabled. The cluster can be deleted through the console or API calls.
     shared_ptr<bool> deletionProtection_ {};
     // The Docker version in the cluster.
     shared_ptr<string> dockerVersion_ {};
-    // The instance ID of the Ingress load balancer for the cluster.
+    // The instance ID of the Ingress LB for the cluster.
     shared_ptr<string> externalLoadbalancerId_ {};
     // The custom Subject Alternative Names (SANs) for the API server certificate.
     shared_ptr<vector<string>> extraSans_ {};
     // The initial version of the cluster.
     shared_ptr<string> initVersion_ {};
-    // The IP stack of the cluster. Valid values:
-    // - ipv4: The cluster supports only the IPv4 stack.
-    // - dual: The cluster supports both IPv4 and IPv6 stacks.
+    // The IP protocol stack of the cluster. Valid values:
+    // - ipv4: The cluster supports only the IPv4 protocol stack.
+    // - dual: The cluster supports both IPv4 and IPv6 protocol stacks.
     shared_ptr<string> ipStack_ {};
-    // The maintenance window configuration of the cluster. This configuration takes effect only for managed clusters, namely ACK Pro clusters.
+    // The maintenance window configuration of the cluster. This parameter takes effect only for managed clusters, namely ACK Pro clusters.
     shared_ptr<MaintenanceWindow> maintenanceWindow_ {};
-    // The access endpoints of the cluster, including the internal network and public network access endpoints.
+    // The access endpoint of the cluster, including the internal network access endpoint and the public network access endpoint.
     shared_ptr<string> masterUrl_ {};
     // The metadata of the cluster.
     shared_ptr<string> metaData_ {};
@@ -1201,35 +1199,33 @@ namespace Models
     shared_ptr<string> networkMode_ {};
     // The version to which the cluster can be upgraded.
     shared_ptr<string> nextVersion_ {};
-    // Applicable only to the Flannel network plugin. 
-    // 
-    // The size of the subnet mask allocated to nodes, which controls the number of IP addresses that can be allocated to each node.
+    // The size of the subnet mask allocated to nodes, which determines the number of IP addresses that can be allocated to each node. This parameter applies only to the Flannel network plugin.
     shared_ptr<string> nodeCidrMask_ {};
     // The automatic O&M policy of the cluster.
     shared_ptr<DescribeClusterDetailResponseBody::OperationPolicy> operationPolicy_ {};
     // The collection of Resource Orchestration Service (ROS) parameters for the cluster.
     shared_ptr<map<string, string>> parameters_ {};
-    // Specifies whether PrivateZone is enabled for the cluster. Valid values:  
+    // Specifies whether to enable PrivateZone for the cluster. Valid values:  
     // 
-    // - `true`: Enabled.
-    // - `false`: Disabled.
+    // - `true`: enabled.
+    // - `false`: disabled.
     // 
     // Default value: false.
     shared_ptr<bool> privateZone_ {};
-    // The cluster subtype.
+    // The subtype of the cluster. Valid values:
     // 
-    // - `Default`: ACK managed clusters, including ACK Cluster Pro Edition and ACK Cluster Basic Edition.
+    // - `Default`: ACK managed cluster, including ACK cluster Pro and ACK cluster Basic.
     //  
-    // - `Edge`: ACK Edge clusters, including ACK Edge Cluster Pro Edition and ACK Edge Cluster Basic Edition.
+    // - `Edge`: ACK Edge cluster, including ACK Edge cluster Pro and ACK Edge cluster Basic.
     //  
-    // - `Serverless`: ACK Serverless clusters, including ACK Serverless Cluster Pro Edition and ACK Serverless Cluster Basic Edition.
+    // - `Serverless`: ACK Serverless cluster, including ACK Serverless cluster Pro and ACK Serverless cluster Basic.
     //  
-    // - `Lingjun`: ACK Lingjun clusters, available only in the Pro Edition.
+    // - `Lingjun`: ACK Lingjun cluster, which provides only the Pro edition.
     shared_ptr<string> profile_ {};
     // The kube-proxy mode. Valid values:
     // 
-    // - `iptables`: The mature and stable kube-proxy mode. Service discovery and load balancing for Kubernetes Services are configured by using iptables rules. However, the performance is average and heavily affected by the scale. This mode is suitable for clusters with a small number of Services.
-    // - `ipvs`: The high-performance kube-proxy mode. Service discovery and load balancing for Kubernetes Services are configured by using the Linux IPVS module. This mode is suitable for clusters with a large number of Services and scenarios that require high-performance load balancing.
+    // - `iptables`: the mature and stable kube-proxy mode. Service discovery and load balancing for Kubernetes Services are configured by using iptables rules. This mode provides average performance and is significantly affected by the cluster scale. It is suitable for clusters with a small number of Services.
+    // - `ipvs`: the high-performance kube-proxy mode. Service discovery and load balancing for Kubernetes Services are configured by using the Linux IPVS module. This mode is suitable for clusters with a large number of Services and scenarios that require high-performance load balancing.
     shared_ptr<string> proxyMode_ {};
     // The ID of the region where the cluster is deployed.
     shared_ptr<string> regionId_ {};
@@ -1246,8 +1242,9 @@ namespace Models
     // The number of nodes in the cluster, including master nodes and worker nodes.
     shared_ptr<int64_t> size_ {};
     // The cluster status. Valid values:
+    // 
     // - `initial`: The cluster is being created.
-    // - `failed`: Cluster creation failed.
+    // - `failed`: The cluster creation failed.
     // - `running`: The cluster is running.
     // - `updating`: The cluster is being updated.
     // - `upgrading`: The cluster is being upgraded.
@@ -1257,13 +1254,17 @@ namespace Models
     // - `inactive`: The cluster is inactive.
     // - `unavailable`: The cluster is unavailable.
     // - `deleting`: The cluster is being deleted.
-    // - `deleted`: The cluster has been deleted.
-    // - `delete_failed`: Cluster deletion failed.
-    // - `waiting`: The cluster is waiting for access.
+    // - `deleted`: The cluster is deleted.
+    // - `delete_failed`: The cluster deletion failed.
+    // - `waiting`: The cluster is waiting for the accessed state.
     // - `disconnected`: The cluster is disconnected.
     shared_ptr<string> state_ {};
-    // The Pod CIDR block.
+    // **[Deprecated]** Use container_cidr to obtain the Pod CIDR block. The Pod CIDR block. It must be a valid private CIDR block, specifically one of the following CIDR blocks or their subnets: 10.0.0.0/8, 172.16.0.0/12 to 172.31.0.0/16, and 192.168.0.0/16. It cannot overlap with the CIDR block of the VPC or the CIDR blocks used by existing Kubernetes clusters in the VPC. It cannot be modified after the cluster is created. For more information about cluster network planning, see [Plan CIDR blocks for Kubernetes clusters in a VPC](https://help.aliyun.com/document_detail/~~86500~~).
     shared_ptr<string> subnetCidr_ {};
+    // The cluster version support policy. The value is case-sensitive. Valid values:
+    // - Standard: Standard support.
+    // - Extended: Extended support. After the standard support period ends, the cluster enters the extended support period and continues to receive CVE patch updates.
+    // If this policy is not set for an existing cluster, Standard is returned.
     shared_ptr<string> supportPolicy_ {};
     // The cluster resource tags.
     shared_ptr<vector<Tag>> tags_ {};
@@ -1273,11 +1274,11 @@ namespace Models
     shared_ptr<string> updated_ {};
     // The ID of the virtual private cloud (VPC) where the cluster is deployed. This parameter is required when you create a cluster.
     shared_ptr<string> vpcId_ {};
-    // The vSwitch ID. **[Deprecated]** To query the vSwitches for the control plane, use vswitch_ids. To query the vSwitches for the data plane, query the vswitch_ids of the node pool.
+    // **[Deprecated]** To query the vSwitches for the control plane, use vswitch_ids. To query the vSwitches for the data plane, use the vswitch_ids of the node pool. The vSwitch ID.
     shared_ptr<string> vswitchId_ {};
     // The vSwitches for the cluster control plane.
     shared_ptr<vector<string>> vswitchIds_ {};
-    // The name of the RAM role for worker nodes. This role authorizes ECS instances to act as worker nodes in the cluster.
+    // The name of the RAM role for worker nodes. It is used to authorize ECS instances as worker nodes in the cluster.
     shared_ptr<string> workerRamRoleName_ {};
     // The ID of the zone where the cluster is deployed.
     shared_ptr<string> zoneId_ {};

@@ -48,13 +48,13 @@ namespace Models
 
 
   protected:
-    // The page number.
+    // The current page number.
     // 
-    // - Valid values: greater than or equal to 1.
+    // - Valid values: an integer greater than or equal to 1.
     // 
     // - Default value: 1.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries to return on each page.
+    // The number of results to return per page.
     // 
     // - Valid values: 1 to 100.
     // 

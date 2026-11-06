@@ -106,41 +106,42 @@ namespace Models
 
 
     protected:
-      // The ID of the target cluster.
+      // The ID of the target cluster for authorization.
       // 
-      // This parameter is not required when the role_type parameter is set to all-clusters.
+      // This parameter is not required when the role_type parameter is set to `all-clusters`.
       shared_ptr<string> cluster_ {};
-      // Specifies whether the authorization is custom. A custom authorization uses a custom ClusterRole name for the role_name parameter.
+      // Specifies whether the authorization is a custom authorization, which means the role_name parameter uses a custom ClusterRole name.
       // 
-      // Valid values:
       // - true: The authorized role is a custom cluster role.
+      // 
       // - false: The authorized role is a preset cluster role.
       shared_ptr<bool> isCustom_ {};
-      // Specifies whether the authorized entity is a RAM role.
+      // Specifies whether the authorization is for a RAM role.
       // 
-      // Valid values:
       // - true: The authorization is for a RAM role.
+      // 
       // - false: The authorization is for a Resource Access Management (RAM) user.
       shared_ptr<bool> isRamRole_ {};
-      // The namespace name. This parameter is empty by default for cluster-level authorization.
+      // The name of the namespace. This parameter is empty by default when the authorization is at the cluster level.
       shared_ptr<string> namespace_ {};
       // The preset role name. Valid values:
       // 
-      // - admin: administrator.
-      // - admin-view: read-only administrator.
-      // - ops: O&M engineer.
-      // - dev: developer.
-      // - restricted: restricted user.
+      // - `admin`: administrator.
+      // - `admin-view`: read-only administrator.
+      // - `ops`: O&M engineer.
+      // - `dev`: developer.
+      // - `restricted`: restricted user.
       // - A custom ClusterRole name.
       // 
-      // > - The admin, admin-view, and ops roles do not support authorization at the **namespace level**.
-      // > - The admin-view role does not support authorization at the **all-clusters level**.
+      // 
+      // > - `admin`, `admin-view`, and `ops`: Authorization at the **namespace level** is not supported.
+      // > - `admin-view`: Authorization at the **all-clusters level** is not supported.
       shared_ptr<string> roleName_ {};
       // The authorization type. Valid values:
       // 
-      // - cluster: cluster level.
-      // - namespace: namespace level.
-      // - all-clusters: all-clusters level.
+      // - `cluster`: cluster level.
+      // - `namespace`: namespace level.
+      // - `all-clusters`: all-clusters level.
       shared_ptr<string> roleType_ {};
     };
 
@@ -165,11 +166,10 @@ namespace Models
   protected:
     // The request body parameters.
     shared_ptr<vector<UpdateUserPermissionsRequest::Body>> body_ {};
-    // The authorization method. Valid values:
-    // 
-    // - `apply`: Fully updates permissions. This operation overwrites the existing cluster permissions of the target RAM user or RAM role. The request must include all permission configurations to be granted to the target RAM user or RAM role.
-    // - `delete`: Deletes permissions. This operation deletes only the cluster authorization information specified in the request and does not affect other cluster permissions of the RAM user or RAM role.
-    // - `patch`: Adds permissions. This operation adds only the cluster authorization information specified in the request and does not affect other cluster permissions of the RAM user or RAM role.
+    // The authorization mode. Valid values:
+    // - `apply`: Fully updates permissions. The operation to fully update the cluster authorization information of a RAM user or RAM role overwrites the existing cluster permissions of the target RAM user or RAM role. The request must include all permission configurations that you want to grant to the target RAM user or RAM role.
+    // - `delete`: Deletes permissions. Only the cluster authorization information specified in the request is deleted. Other cluster permissions of the RAM user or RAM role are not affected.
+    // - `patch`: Adds permissions. Only the cluster authorization information specified in the request is added. Other cluster permissions of the RAM user or RAM role are not affected.
     // 
     // Default value: `apply`.
     shared_ptr<string> mode_ {};

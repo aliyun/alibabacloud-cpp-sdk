@@ -114,31 +114,23 @@ namespace Models
     shared_ptr<string> arch_ {};
     // The expiration time of the generated token. The time is in the UNIX timestamp format. For example, 1739980800 indicates 2025-02-20 00:00:00.
     shared_ptr<int64_t> expired_ {};
-    // Specifies whether to mount a data cloud disk to the instance when manually adding an existing instance to the cluster, and store containers and images on the data cloud disk. Valid values:
-    // 
-    // - `true`: Mounts a data cloud disk to the instance. The existing data on the data cloud disk will be lost. Back up your data first.
-    // - `false`: Does not mount a data cloud disk to the instance.
-    // 
-    // Default value: `false`.
-    // 
-    // Data mounting rules:
-    // 
-    // - If the ECS instance has a data cloud disk mounted and the file system of the last data cloud disk is not initialized, the system automatically formats the data cloud disk to ext4 to store the /var/lib/docker and /var/lib/kubelet directories.
-    // - If the ECS instance does not have a data cloud disk mounted, no new data cloud disk is mounted.
+    // **[Deprecated]** Use `format_disk_option` instead.
+    // - `true`: equivalent to setting `format_disk_option` to `DataDisk`.
+    // - `false`: equivalent to setting `format_disk_option` to `SystemDisk`.
     shared_ptr<bool> formatDisk_ {};
-    // Specifies whether to retain the instance name when adding an existing instance to the cluster. If you do not retain the instance name, the instance name format is `worker-k8s-for-cs-<clusterid>`. Valid values:
+    // Specifies whether to retain the instance name when adding an existing instance to the cluster. If the instance name is not retained, the instance name format is `worker-k8s-for-cs-<clusterid>`. Valid values:
     // 
-    // - `true`: Retains the instance name.
-    // - `false`: Does not retain the instance name. The instance name is replaced based on system rules.
+    // - `true`: retains the instance name.
+    // - `false`: does not retain the instance name. The instance name is replaced based on system rules.
     // 
     // Default value: `true`.
     shared_ptr<bool> keepInstanceName_ {};
-    // The node pool ID. You can add the node to a specified node pool when adding nodes.
+    // The node pool ID. When you add a node, you can add the node to a specified node pool.
     // 
-    // > If you do not specify a node pool ID, the node is added to the default node pool.
+    // > If you do not specify a node pool ID, the node is added to the default node pool by default.
     shared_ptr<string> nodepoolId_ {};
     shared_ptr<bool> oneTimeToken_ {};
-    // The access configuration parameters for the node.
+    // The onboarding configuration parameters for the node.
     // 
     // > This parameter is required when the cluster type is ACK Edge.
     shared_ptr<string> options_ {};

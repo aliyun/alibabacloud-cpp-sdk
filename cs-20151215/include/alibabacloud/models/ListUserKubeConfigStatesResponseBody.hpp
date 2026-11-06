@@ -97,21 +97,20 @@ namespace Models
 
 
     protected:
-      // The expiration time of the KubeConfig certificate. The time is displayed in UTC and follows the RFC 3339 standard.
+      // The expiration time of the KubeConfig certificate. The time is in UTC and follows the RFC 3339 format.
       shared_ptr<string> certExpireTime_ {};
       // The current status of the KubeConfig certificate. Valid values:
       // - Expired: The certificate has expired.
       // - Unexpired: The certificate has not expired.
       // - Unissued: The certificate has not been issued.
       // - Unknown: The status is unknown.
-      // - Removed: The certificate has been removed (the certificate has an issuance record).
+      // - Removed: The certificate has been removed, but an issuance record exists.
       shared_ptr<string> certState_ {};
       // The cluster ID.
       shared_ptr<string> clusterId_ {};
       // The cluster name.
       shared_ptr<string> clusterName_ {};
       // The running status of the cluster. Valid values:
-      // 
       // - `initial`: The cluster is being created.
       // - `failed`: The cluster failed to be created.
       // - `running`: The cluster is running.
@@ -176,7 +175,7 @@ namespace Models
       shared_ptr<int32_t> pageNumber_ {};
       // The number of entries returned per page.
       shared_ptr<int32_t> pageSize_ {};
-      // The total number of entries.
+      // The total number of results.
       shared_ptr<int32_t> totalCount_ {};
     };
 
@@ -203,7 +202,7 @@ namespace Models
   protected:
     // The pagination parameters.
     shared_ptr<ListUserKubeConfigStatesResponseBody::Page> page_ {};
-    // The KubeConfig status details of the user.
+    // The KubeConfig status details for the user.
     shared_ptr<vector<ListUserKubeConfigStatesResponseBody::States>> states_ {};
   };
 
