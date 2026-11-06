@@ -72,7 +72,7 @@ namespace Models
 
 
     protected:
-      // The unique ID of the investigation record.
+      // The unique ID of the analysis record.
       shared_ptr<string> autoDisposeRecordId_ {};
       // The UUID of the entity.
       shared_ptr<string> entityUuid_ {};
@@ -116,7 +116,7 @@ namespace Models
 
 
     protected:
-      // The unique ID of the investigation record.
+      // The unique ID of the analysis record.
       shared_ptr<string> autoDisposeRecordId_ {};
       // The UUID of the entity.
       shared_ptr<string> entityUuid_ {};
@@ -150,7 +150,7 @@ namespace Models
 
 
   protected:
-    // The language of the response. Valid values:
+    // The language of the response message. Valid values:
     // - **zh** (default): Chinese.
     // - **en**: English.
     // 

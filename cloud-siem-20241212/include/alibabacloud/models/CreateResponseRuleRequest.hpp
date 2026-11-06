@@ -149,46 +149,49 @@ namespace Models
 
 
   protected:
-    // The language of the response messages. Valid values:
+    // The language of the response message. Valid values:
     // - **zh** (default): Chinese.
     // - **en**: English.
     shared_ptr<string> lang_ {};
-    // The maximum number of data records to read in this request.
+    // The maximum number of data records to return in the current read operation.
     shared_ptr<int32_t> maxResults_ {};
-    // The token that marks the start position of the current read. Leave this parameter empty to start from the beginning.
+    // The token that marks the position from which the current read operation starts. If you leave this parameter empty, the read operation starts from the beginning.
     shared_ptr<string> nextToken_ {};
-    // The region where the data management center for Cloud Threat Detection and Response (CTDR) is located. Select the management center region based on the region where your assets reside. Valid values:
-    // - cn-hangzhou: Assets are located in the Chinese mainland or Hong Kong (China).
-    // - ap-southeast-1: Assets are located in regions outside China.
+    // The region where the data management center of Threat Analysis is located. You must select the region of the management center based on the region where your assets are located. Valid values:
+    // - cn-hangzhou: Assets are located in the Chinese mainland and Hong Kong (China).
+    // - ap-southeast-1: Assets are located outside China.
     shared_ptr<string> regionId_ {};
-    // The action configuration of the automatic response rule.
+    // The action configuration of the automated response rule.
     shared_ptr<string> responseActionConfig_ {};
-    // The action type of the automatic response rule. Valid values:
-    // - doPlaybook: runs a playbook.
-    // - changeEventStatus: updates the event status.
-    // - changeThreatLevel: updates the threat level of an event.
-    // - addEventTag: adds a tag to an event.
-    // - deleteEventTag: deletes a tag from an event.
-    // - alertWhitelist: adds an alert to the whitelist.
+    // The action type of the automated response rule. Valid values:
+    // 
+    // - doPlaybook: Executes a playbook.
+    // - changeEventStatus: Updates the event status.
+    // - changeThreatLevel: Updates the threat level of the event.
+    // - addEventTag: Adds an event tag.
+    // - deleteEventTag: Deletes an event tag.
+    // - alertWhitelist: Adds an alert to the whitelist.
     shared_ptr<string> responseActionType_ {};
     // The trigger condition configuration of the rule.
     shared_ptr<string> responseExecutionCondition_ {};
-    // The name of the automatic response rule.
+    // The name of the automated response rule.
     shared_ptr<string> responseRuleName_ {};
-    // The execution priority of the automatic response rule.
+    // The execution priority of the automated response rule.
     shared_ptr<string> responseRulePriority_ {};
-    // The remarks for the response rule.
+    // The remarks of the response rule.
     shared_ptr<string> responseRuleRemark_ {};
-    // The trigger type of the automatic response rule. Valid values:
-    // - event: an event occurs.
-    // - event_update: an event is updated.
-    // - alert: an alert occurs.
+    // The trigger type of the automated response rule. Valid values:
+    // 
+    // - event: An event occurs.
+    // - event_update: An event is updated.
+    // - alert: An alert is triggered.
     shared_ptr<string> responseTriggerType_ {};
-    // The user ID that the administrator uses to switch to the view of another member account.
+    // The ID of the user whose perspective the administrator switches to.
     shared_ptr<int64_t> roleFor_ {};
     // The view type. Valid values:
-    // - 0: the view of the current Alibaba Cloud account.
-    // - 1: the view of all accounts in the enterprise.
+    // 
+    // - 0: The view of the current Alibaba Cloud account.
+    // - 1: The view of all accounts in the enterprise.
     shared_ptr<int32_t> roleType_ {};
   };
 

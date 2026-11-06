@@ -103,15 +103,10 @@ namespace Models
 
 
     protected:
-      // The creation time.
       shared_ptr<int64_t> createTime_ {};
-      // The normalization rule expression.
       shared_ptr<string> normalizationRuleExpression_ {};
-      // The normalization rule ID.
       shared_ptr<string> normalizationRuleId_ {};
-      // The normalization rule version.
       shared_ptr<int32_t> normalizationRuleVersion_ {};
-      // The update time.
       shared_ptr<int64_t> updateTime_ {};
     };
 
@@ -155,15 +150,10 @@ namespace Models
 
 
   protected:
-    // The maximum number of entries to return.
     shared_ptr<int32_t> maxResults_ {};
-    // The pagination token. You do not need to specify this parameter for the first request or if no more results exist. If more results exist, set this parameter to the NextToken value returned by the previous API call.
     shared_ptr<string> nextToken_ {};
-    // The list of normalization rule versions.
     shared_ptr<vector<ListNormalizationRuleVersionsResponseBody::NormalizationRuleVersions>> normalizationRuleVersions_ {};
-    // The request ID.
     shared_ptr<string> requestId_ {};
-    // The total number of records.
     shared_ptr<int32_t> totalCount_ {};
   };
 

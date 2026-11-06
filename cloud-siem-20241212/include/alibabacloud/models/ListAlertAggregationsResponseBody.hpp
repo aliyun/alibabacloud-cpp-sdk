@@ -125,9 +125,9 @@ namespace Models
 
 
       protected:
-        // The display name of the entity attribute field that can be added to the whitelist.
+        // The display name of the entity property field that can be added to the whitelist.
         shared_ptr<string> name_ {};
-        // The right-hand value.
+        // The right value.
         shared_ptr<int64_t> value_ {};
       };
 
@@ -169,9 +169,9 @@ namespace Models
 
 
       protected:
-        // The display name of the entity attribute field that can be added to the whitelist.
+        // The display name of the entity property field that can be added to the whitelist.
         shared_ptr<string> name_ {};
-        // The default right-hand value displayed for the whitelist rule.
+        // The default right value displayed for the whitelist rule.
         shared_ptr<int64_t> value_ {};
       };
 
@@ -290,25 +290,25 @@ namespace Models
 
 
     protected:
-      // The list of account display values associated with the aggregation group, in one-to-one correspondence with AccountIds. When the username is valid and differs from the account ID, the format is "username/account ID". Otherwise, only the account ID is returned.
+      // The list of account display values involved in the aggregation group, which corresponds one-to-one with the order of AccountIds. If the username is valid and different from the account ID, the format is "Username/Account ID". Otherwise, only the account ID is returned.
       shared_ptr<vector<string>> accountDisplayValues_ {};
-      // The list of member accounts IDs for which the report is generated. You need to specify this parameter only when you generate a multi-account report and want to limit the report to specific member accounts.
+      // The list of IDs of the member accounts for which the report is generated. Note: You only need to specify this parameter when you generate a multi-account report and want to generate a report for a specified range of accounts.
       shared_ptr<vector<string>> accountIds_ {};
-      // The unique identifier of the aggregation group, which is a concatenation of AggregationType, PrimaryValue, and SecondaryValue joined by colons (:). The last segment is empty if no secondary aggregation value exists.
+      // The unique identifier of the aggregation group. It is concatenated by AggregationType, PrimaryValue, and SecondaryValue with colons (:). If there is no secondary aggregation value, the last segment is empty.
       shared_ptr<string> aggregationKey_ {};
       // The aggregation method.
       shared_ptr<string> aggregationType_ {};
       // The number of consecutive failures. This parameter is optional.
       shared_ptr<int64_t> alertCount_ {};
-      // The collection of MITRE ATT&CK attack techniques associated with alerts in the aggregation group. Each element is a JSON array string.
+      // The collection of MITRE ATT&CK attack techniques associated with the alerts in the aggregation group. Each element is a JSON array string.
       shared_ptr<vector<string>> attackStages_ {};
-      // The quantity distribution by defense action within the aggregation group. Name is the action field value, and Value is the corresponding alert count.
+      // The distribution of alert counts by defense action in the aggregation group. Name is the value of the action field, and Value is the corresponding alert count.
       shared_ptr<vector<AlertAggregations::DefenseActionCounts>> defenseActionCounts_ {};
-      // The time of the first access, represented as a UNIX timestamp in seconds.
+      // The time of the first access. The value is a UNIX timestamp accurate to seconds.
       shared_ptr<int64_t> firstTime_ {};
-      // The most recent time when the attack event occurred.
+      // The time when the attack event last occurred.
       shared_ptr<int64_t> latestTime_ {};
-      // The display text of the primary aggregation value. For account aggregation, the format is "username/account ID". If no valid username exists, only the account ID is returned. For event summaries, the event name is returned based on the Lang parameter. If the name is missing, the event UUID is returned.
+      // The display text of the primary aggregation value. For account aggregation, it returns "Username/Account ID". If there is no valid username, only the account ID is returned. For event summaries, it returns the event name based on Lang. If the name is missing, the event UUID is returned.
       shared_ptr<string> primaryDisplayValue_ {};
       // The value corresponding to the primary query condition.
       shared_ptr<string> primaryValue_ {};
@@ -316,9 +316,9 @@ namespace Models
       shared_ptr<string> secondaryValue_ {};
       // The collection of event source codes.
       // 
-      // > Example: [\\\\\\"MRM\\\\\\"]
+      // > Example: [\\"MRM\\"]
       shared_ptr<vector<string>> sourceCodes_ {};
-      // The quantity distribution by alert status within the aggregation group. Name is the alert status value, and Value is the corresponding alert count.
+      // The distribution of alert counts by alert status in the aggregation group. Name is the alert status value, and Value is the corresponding alert count.
       shared_ptr<vector<AlertAggregations::StatusCounts>> statusCounts_ {};
     };
 
@@ -383,13 +383,13 @@ namespace Models
     shared_ptr<int32_t> maxResults_ {};
     // The token for the next query.
     shared_ptr<string> nextToken_ {};
-    // The page number.
+    // The current page number.
     shared_ptr<int32_t> pageNumber_ {};
     // The number of entries per page.
     shared_ptr<int32_t> pageSize_ {};
-    // The request ID.
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
-    // The total number of records.
+    // The total number of entries.
     shared_ptr<int32_t> totalCount_ {};
   };
 

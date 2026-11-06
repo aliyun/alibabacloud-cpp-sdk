@@ -87,7 +87,7 @@ namespace Models
 
 
   protected:
-    // The conversation ID. This parameter is required for the second and subsequent turns in a multi-turn conversation.
+    // The conversation ID. This parameter is required for the second and subsequent turns in a multi-turn conversation scenario.
     // 
     // This parameter is required.
     shared_ptr<string> conversationId_ {};
@@ -95,13 +95,13 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<map<string, int64_t>> cursorByRun_ {};
-    // The language of the response. Valid values:
+    // The language of the returned message. Valid values:
     // - **zh** (default): Chinese.
     // - **en**: English.
     shared_ptr<string> lang_ {};
-    // The region where the data management center for threat analysis is located. You need to select the management center based on the region of your assets. Valid values:
-    // - cn-hangzhou: The asset belongs to the Chinese mainland and China (Hong Kong).
-    // - ap-southeast-1: The asset belongs to a region outside the Chinese mainland.
+    // The region where the data management center for threat analysis is located. Select the region of the management center based on the region where your assets are located. Valid values:
+    // - cn-hangzhou: Assets are located in the Chinese mainland and Hong Kong (China).
+    // - ap-southeast-1: Assets are located outside China.
     shared_ptr<string> regionId_ {};
     // The trace ID.
     shared_ptr<string> traceId_ {};

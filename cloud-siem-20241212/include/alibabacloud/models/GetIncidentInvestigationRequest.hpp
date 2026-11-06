@@ -84,23 +84,23 @@ namespace Models
 
 
   protected:
-    // The display ID of the AI investigation report. You can obtain this value from the IncidentInvestigationDisplayId field returned by ListIncidentInvestigations. This parameter takes effect only when IncidentInvestigationId is not specified. If neither identifier is specified, the most recent successfully completed investigation result for the specified incident is returned.
+    // The display ID of the AI investigation report. You can obtain it from the IncidentInvestigationDisplayId parameter returned by ListIncidentInvestigations. This parameter takes effect only when IncidentInvestigationId is not specified. If neither identifier is specified, the most recent successfully completed investigation result for the specified event is queried.
     shared_ptr<string> incidentInvestigationDisplayId_ {};
-    // The AI investigation report ID. You can obtain this value from the IncidentInvestigationId field returned by ListIncidentInvestigations. If both this parameter and IncidentInvestigationDisplayId are specified, this parameter takes precedence.
+    // The ID of the AI investigation report. You can obtain it from the IncidentInvestigationId parameter returned by ListIncidentInvestigations. If both this parameter and IncidentInvestigationDisplayId are specified, this parameter takes precedence.
     shared_ptr<string> incidentInvestigationId_ {};
-    // The globally unique identity of the event. If neither the report ID nor the display ID is specified, the most recent successfully completed investigation result for this event is returned via event query.
+    // The globally unique identity of the event. If neither the report ID nor the display ID is specified, an event query is performed to retrieve the most recent successfully completed investigation result.
     // 
     // This parameter is required.
     shared_ptr<string> incidentUuid_ {};
-    // The language of the response. Valid values:
+    // The language of the response message. Valid values:
     // - **zh** (default): Chinese.
     // - **en**: English.
     shared_ptr<string> lang_ {};
-    // The region where the threat analysis data management center resides. Specify the management center based on the region of your assets. Valid values:
-    // - cn-hangzhou: Chinese mainland.
-    // - ap-southeast-1: Outside the Chinese mainland.
+    // The region where the data management center of Threat Analysis is located. You must select the region of the management center based on the region where your assets are located. Valid values:
+    // - cn-hangzhou: Assets are located in the Chinese mainland.
+    // - ap-southeast-1: Assets are located outside the Chinese mainland.
     shared_ptr<string> regionId_ {};
-    // The user ID that the administrator uses to switch to the view of another member.
+    // The ID of the user whose perspective the administrator switches to.
     shared_ptr<int64_t> roleFor_ {};
   };
 

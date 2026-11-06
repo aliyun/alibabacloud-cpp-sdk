@@ -213,46 +213,46 @@ namespace Models
 
 
   protected:
-    // The data source origin. Valid values:
+    // The source of the data source. Valid values:
     // - center
     // - custom
     shared_ptr<string> dataSourceFrom_ {};
     // The list of data source IDs.
     shared_ptr<string> dataSourceIdsShrink_ {};
-    // The data source name.
+    // The name of the data source.
     shared_ptr<string> dataSourceName_ {};
-    // The data source status. Valid values:
+    // The status of the data source. Valid values:
     // - unconfigured
     // - normal
     // - abnormal
     shared_ptr<string> dataSourceStatus_ {};
-    // The Logstore status. Valid values:
+    // The status of the Logstore. Valid values:
     // - normal
     // - abnormal
     shared_ptr<string> dataSourceStoreStatus_ {};
     // The list of data source template IDs.
     shared_ptr<string> dataSourceTemplateIdsShrink_ {};
-    // The data source type. Valid values:
-    //  - preset
-    //  - custom
+    // The type of the data source. Valid values:
+    // - preset
+    // - custom
     shared_ptr<string> dataSourceType_ {};
-    // The language of the response. Valid values:
+    // The language of the response message. Valid values:
     // - **zh** (default): Chinese.
     // - **en**: English.
     // 
-    // Note: This parameter is required. If you do not specify this parameter, the service returns a 400 error: "The specified Lang can not be empty." Explicitly pass a language code.
+    // Note: This parameter is required in actual API calls. If you do not specify this parameter, the service returns a 400 error "The specified Lang can not be empty.". Explicitly specify the language code.
     shared_ptr<string> lang_ {};
-    // The Simple Log Service project name.
+    // The name of the Simple Log Service project.
     shared_ptr<string> logProjectName_ {};
-    // The log storage region ID.
+    // The ID of the log storage region.
     shared_ptr<string> logRegionId_ {};
-    // The Simple Log Service Logstore name.
+    // The name of the Simple Log Service Logstore.
     shared_ptr<string> logStoreName_ {};
-    // The list of data ingestion user IDs.
+    // The list of user IDs for data ingestion.
     shared_ptr<string> logUserIdsShrink_ {};
-    // The maximum number of entries to return in this request.
+    // The maximum number of results to return in the current request.
     shared_ptr<int32_t> maxResults_ {};
-    // The pagination token for the next query. Leave this parameter empty for the first query or if no more results exist. If more results exist, set this parameter to the NextToken value returned by the previous API call.
+    // The token used to retrieve the next page of results. If this is the first request or no subsequent requests are required, leave this parameter empty. If a subsequent request is required, set this parameter to the value of NextToken returned in the previous API call.
     shared_ptr<string> nextToken_ {};
     // The sort order. Valid values:
     // - desc
@@ -260,15 +260,15 @@ namespace Models
     shared_ptr<string> order_ {};
     // The field used for sorting.
     shared_ptr<string> orderField_ {};
-    // The page number.
+    // The current page number.
     shared_ptr<string> pageNumber_ {};
     // The number of entries per page.
     shared_ptr<string> pageSize_ {};
-    // The region where the threat analysis data management center is located. Specify the management center based on the region of your assets. Valid values:
-    // - cn-hangzhou: The assets are located in the Chinese mainland.
-    // - ap-southeast-1: The assets are located outside China.
+    // The region where the data management center for threat analysis is located. Select the region of the management center based on the region where your assets are located. Valid values:
+    // - cn-hangzhou: Assets are located in the Chinese mainland.
+    // - ap-southeast-1: Assets are located outside China.
     shared_ptr<string> regionId_ {};
-    // The user ID of the member to which the administrator switches the view.
+    // The ID of the user whose perspective the administrator switches to.
     shared_ptr<int64_t> roleFor_ {};
   };
 

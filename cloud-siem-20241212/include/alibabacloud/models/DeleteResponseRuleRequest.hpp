@@ -76,22 +76,18 @@ namespace Models
 
   protected:
     // The language of the response message. Valid values:
-    // 
     // - **zh** (default): Chinese.
-    // 
     // - **en**: English.
     shared_ptr<string> lang_ {};
-    // The maximum number of entries to return on each page.
+    // The maximum number of data records to return in the current request.
     shared_ptr<int32_t> maxResults_ {};
-    // The token used to retrieve the next page of results. If you do not specify this parameter, the service returns the first page of results.
+    // The token that specifies the position to start reading. If this parameter is left empty, the reading starts from the beginning.
     shared_ptr<string> nextToken_ {};
-    // The region ID of the data management center for threat analysis. This must be the region where your assets are located. Valid values:
-    // 
-    // - `cn-hangzhou`: for assets in the Chinese mainland or Hong Kong (China).
-    // 
-    // - `ap-southeast-1`: for assets in international regions.
+    // The region where the data management center for threat analysis is located. You must select the region of the management center based on the region where your assets are located. Valid values:
+    // - cn-hangzhou: Assets are located in the Chinese mainland and Hong Kong (China).
+    // - ap-southeast-1: Assets are located outside China.
     shared_ptr<string> regionId_ {};
-    // The ID of the automatic response rule to delete.
+    // The ID of the automated response rule.
     shared_ptr<string> responseRuleId_ {};
   };
 

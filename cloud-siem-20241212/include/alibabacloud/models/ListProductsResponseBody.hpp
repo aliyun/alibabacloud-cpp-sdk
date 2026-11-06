@@ -186,37 +186,19 @@ namespace Models
 
 
     protected:
-      // The number of abnormal data ingestion entries.
       shared_ptr<int32_t> abnormalDataIngestionCount_ {};
-      // The activation time.
       shared_ptr<int64_t> activeTime_ {};
-      // Indicates whether data collection can be added.
       shared_ptr<bool> allowAddDataIngestion_ {};
-      // The creation time.
       shared_ptr<int64_t> createTime_ {};
-      // The accessed state of data ingestion. Valid values:
-      // - enabled: Enabled.
-      // - disabled: Disabled.
       shared_ptr<bool> dataIngestionStatus_ {};
-      // The number of enabled data ingestion entries.
       shared_ptr<int32_t> enabledDataIngestionCount_ {};
-      // The product alias.
       shared_ptr<string> productAlias_ {};
-      // The product ID.
       shared_ptr<string> productId_ {};
-      // **[Deprecated]** This parameter is deprecated and does not need to be specified.
       shared_ptr<string> productName_ {};
-      // The product type. Valid values:
-      // - preset
-      // - custom
       shared_ptr<string> productType_ {};
-      // The total number of data ingestion entries.
       shared_ptr<int32_t> totalDataIngestionCount_ {};
-      // The update time.
       shared_ptr<int64_t> updateTime_ {};
-      // The vendor ID.
       shared_ptr<string> vendorId_ {};
-      // The vendor name.
       shared_ptr<string> vendorName_ {};
     };
 
@@ -260,15 +242,10 @@ namespace Models
 
 
   protected:
-    // The maximum number of entries to return in this request.
     shared_ptr<int32_t> maxResults_ {};
-    // The pagination token. You do not need to specify this parameter for the first request or if no more results exist. If more results exist, set this parameter to the NextToken value returned by the previous API call.
     shared_ptr<string> nextToken_ {};
-    // The list of products.
     shared_ptr<vector<ListProductsResponseBody::Products>> products_ {};
-    // The request ID.
     shared_ptr<string> requestId_ {};
-    // The total number of records.
     shared_ptr<int32_t> totalCount_ {};
   };
 

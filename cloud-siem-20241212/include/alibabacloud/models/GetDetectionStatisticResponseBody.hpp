@@ -150,7 +150,7 @@ namespace Models
 
 
   protected:
-    // The count results of detection rules.
+    // The detection rule counts.
     shared_ptr<GetDetectionStatisticResponseBody::DetectionStatistic> detectionStatistic_ {};
     // The ID of the request.
     shared_ptr<string> requestId_ {};

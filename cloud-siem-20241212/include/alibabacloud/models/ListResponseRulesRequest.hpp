@@ -149,59 +149,56 @@ namespace Models
 
 
   protected:
-    // The language of the response. Valid values:
+    // The language of the response message. Valid values:
     // - **zh** (default): Chinese.
     // - **en**: English.
+    // 
+    // Note: This parameter is required in actual API calls. If it is not provided, the service returns a 400 error "The specified Lang can not be empty.". Explicitly pass the language code.
     shared_ptr<string> lang_ {};
-    // The maximum number of data records to read in this request.
+    // The maximum number of data records to return for the current request.
     shared_ptr<int32_t> maxResults_ {};
-    // The pagination token that marks the current reading position. Leave this parameter empty to read from the beginning.
+    // The position from which to start reading. If you leave this parameter empty, the reading starts from the beginning.
     shared_ptr<string> nextToken_ {};
-    // The page number.
+    // The page number of the current page.
     // 
     // This parameter is required.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries per page.
+    // The number of entries to return on each page.
     // 
     // This parameter is required.
     shared_ptr<int32_t> pageSize_ {};
-    // The region where the threat analysis data management center resides. Select the management center based on the region of your assets. Valid values:
-    // - cn-hangzhou: Your assets belong to the Chinese mainland or Hong Kong (China).
-    // - ap-southeast-1: Your assets belong to regions outside China.
+    // The region where the data management center for threat analysis is located. You must select the region of the management center based on the region where your assets are located. Valid values:
+    // - cn-hangzhou: Assets are located in the Chinese mainland and Hong Kong (China).
+    // - ap-southeast-1: Assets are located outside the Chinese mainland.
     shared_ptr<string> regionId_ {};
     // The action type of the automatic response rule. Valid values:
-    // 
-    // - doPlaybook: execute a playbook
-    // - changeEventStatus: update event status
-    // - changeThreatLevel: update event threat level
-    // - addEventTag: add an event label
-    // - deleteEventTag: delete an event label
-    // - alertWhitelist: add alert to whitelist
+    // - doPlaybook: Execute a playbook.
+    // - changeEventStatus: Update the event status.
+    // - changeThreatLevel: Update the event threat level.
+    // - addEventTag: Add an event tag.
+    // - deleteEventTag: Delete an event tag.
+    // - alertWhitelist: Add an alert to the whitelist.
     shared_ptr<string> responseActionType_ {};
     // The name of the automatic response rule.
     shared_ptr<string> responseRuleName_ {};
     // The status of the automatic response rule. Valid values:
-    // 
-    // - 0: disabled
-    // - 100: enabled
+    // - 0: Disabled.
+    // - 100: Enabled.
     shared_ptr<int32_t> responseRuleStatus_ {};
     // The type of the response rule. Valid values:
-    // 
-    // - preset: predefined
-    // - custom: custom
+    // - preset: Preset.
+    // - custom: Custom.
     shared_ptr<string> responseRuleType_ {};
     // The trigger type of the automatic response rule. Valid values:
-    // 
-    // - event: event occurred
-    // - event_update: event updated
-    // - alert: alert occurred
+    // - event: Event occurrence.
+    // - event_update: Event update.
+    // - alert: Alert occurrence.
     shared_ptr<string> responseTriggerType_ {};
-    // The user ID that the administrator switches to when viewing from another member\\"s perspective.
+    // The ID of the user whose perspective the administrator switches to.
     shared_ptr<int64_t> roleFor_ {};
     // The view type. Valid values:
-    // 
-    // - 0: the current Alibaba Cloud account view.
-    // - 1: the view of all accounts in the enterprise.
+    // - 0: The view of the current Alibaba Cloud account.
+    // - 1: The view of all accounts in the enterprise.
     shared_ptr<int32_t> roleType_ {};
   };
 

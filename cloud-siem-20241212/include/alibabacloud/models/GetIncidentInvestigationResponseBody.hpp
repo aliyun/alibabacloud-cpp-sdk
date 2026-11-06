@@ -153,29 +153,29 @@ namespace Models
     protected:
       // The name of the alert that triggered this AI investigation.
       shared_ptr<string> incidentInvestigationAlertName_ {};
-      // The judgment conclusion of the AI investigation, corresponding to ai_judgement_conclusion in the report.
+      // The judgment conclusion of the AI investigation, which corresponds to ai_judgement_conclusion in the report.
       shared_ptr<string> incidentInvestigationConclusion_ {};
-      // The display ID of the AI investigation report. You can use this value as the IncidentInvestigationDisplayId parameter of this operation to query the report.
+      // The display ID of the AI investigation report. You can use it as the IncidentInvestigationDisplayId request parameter of this operation to query the report.
       shared_ptr<string> incidentInvestigationDisplayId_ {};
-      // The end time of the AI investigation, in seconds (UNIX timestamp). If the execution end time is not recorded, the last update time of the investigation record is used. This field is empty if neither time exists.
+      // The end time of the AI investigation. The value is a UNIX timestamp in seconds. If the execution end time is not recorded, the last update time of the investigation record is used. If neither is available, this parameter is empty.
       shared_ptr<int64_t> incidentInvestigationEndTime_ {};
-      // The unique ID of the AI investigation report. You can use this value as the IncidentInvestigationId parameter of this operation to query the report.
+      // The unique ID of the AI investigation report. You can use it as the IncidentInvestigationId request parameter of this operation to query the report.
       shared_ptr<string> incidentInvestigationId_ {};
-      // The output content of the AI investigation, in JSON-formatted string. This field can contain fields such as investigation_report (the investigation process and evidence body, which may use Markdown format). This field is empty if the corresponding output is not generated. Internal fields may change across report versions.
+      // The output content of the AI investigation, which is a JSON-formatted string. It may contain fields such as investigation_report (the investigation process and evidence body, which can be in Markdown format). This parameter is empty if no corresponding output is generated. Internal fields may change with report versions.
       shared_ptr<string> incidentInvestigationOutput_ {};
-      // The AI investigation report content, in JSON-formatted string. This field can contain fields such as judgement_category (judgment category), ai_judgement_conclusion (judgment conclusion), ai_summary (summary), attack process, and attack graph. The specific content may change across report versions.
+      // The content of the AI investigation report, which is a JSON-formatted string. It may contain fields such as judgement_category (judgment category), ai_judgement_conclusion (judgment conclusion), ai_summary (summary), attack process, and attack graph. The specific content may change with report versions.
       shared_ptr<string> incidentInvestigationReport_ {};
-      // The start time of the AI investigation, in seconds (UNIX timestamp). If the execution start time is not recorded, the creation time of the investigation record is used. This field is empty if neither time exists.
+      // The start time of the AI investigation. The value is a UNIX timestamp in seconds. If the execution start time is not recorded, the creation time of the investigation record is used. If neither is available, this parameter is empty.
       shared_ptr<int64_t> incidentInvestigationStartTime_ {};
-      // The judgment category of the AI investigation report, corresponding to judgement_category in the report. This field does not indicate the execution status of the asynchronous task. Valid values:
+      // The judgment category of the AI investigation report, which corresponds to judgement_category in the report. It does not indicate the execution status of the asynchronous task. Valid values:
       // - real_attack: Real attack.
       // - blocked: Risk blocked.
       // - false_positive: Suspected false positive.
-      // - insufficient_information_to_evaluate: Unable to determine.
+      // - insufficient_information_to_evaluate: Insufficient information to evaluate.
       shared_ptr<string> incidentInvestigationStatus_ {};
-      // The summary of the AI investigation report, corresponding to ai_summary in the investigation results.
+      // The summary of the AI investigation report, which corresponds to ai_summary in the investigation results.
       shared_ptr<string> incidentInvestigationSummary_ {};
-      // The globally unique UUID of the incident.
+      // The globally unique UUID of the event.
       shared_ptr<string> incidentUuid_ {};
     };
 
@@ -198,7 +198,7 @@ namespace Models
 
 
   protected:
-    // The AI investigation details of the incident. This field is empty if no matching investigation record is found.
+    // The AI investigation details of the event. This parameter is empty if no matching investigation record is found.
     shared_ptr<GetIncidentInvestigationResponseBody::IncidentInvestigation> incidentInvestigation_ {};
     // The request ID, which is used to locate and troubleshoot this call.
     shared_ptr<string> requestId_ {};

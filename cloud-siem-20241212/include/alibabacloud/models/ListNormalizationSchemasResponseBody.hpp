@@ -206,40 +206,39 @@ namespace Models
 
 
     protected:
-      // The creation time.
+      // The time when the normalization schema was created. The value is a UNIX timestamp in milliseconds.
       shared_ptr<int64_t> createTime_ {};
-      // The normalization rule category ID.
+      // The ID of the normalization rule category.
       shared_ptr<string> normalizationCategoryId_ {};
-      // The field source. Valid values:
-      // - normalized: normalized field.
-      // - native: native field.
+      // The source of the field. Valid values:
+      // - normalized: Normalized field.
+      // - native: Native field.
       shared_ptr<string> normalizationFieldSource_ {};
-      // The normalization schema description.
+      // The description of the normalization schema.
       shared_ptr<string> normalizationSchemaDescription_ {};
-      // The normalization schema source. Valid values:
-      // - preset: predefined.
-      // - custom: custom.
+      // The source of the normalization schema. Valid values: preset and custom.
       shared_ptr<string> normalizationSchemaFrom_ {};
-      // The normalization schema ID.
+      // The ID of the normalization schema.
       shared_ptr<string> normalizationSchemaId_ {};
-      // The normalization schema name.
+      // The name of the normalization schema.
       shared_ptr<string> normalizationSchemaName_ {};
-      // The LogStore to which the normalization output is written.
+      // The Logstore for normalized output.
       shared_ptr<string> normalizationSchemaTargetLogStore_ {};
-      // The normalization schema type.
+      // The type of the normalization schema.
       shared_ptr<string> normalizationSchemaType_ {};
-      // The security domain ID.
+      // The ID of the security domain.
       shared_ptr<string> normalizationSecurityDomainId_ {};
-      // The product ID.
+      // The ID of the product.
       shared_ptr<string> productId_ {};
+      // The list of recommended entities.
       shared_ptr<vector<string>> recommendEntities_ {};
-      // The Simple Log Service LogStore.
+      // The Logstore of Simple Log Service.
       shared_ptr<string> targetLogStore_ {};
-      // The Simple Log Service StoreView.
+      // The StoreView of Simple Log Service.
       shared_ptr<string> targetStoreView_ {};
-      // The update time.
+      // The time when the normalization schema was updated. The value is a UNIX timestamp in milliseconds.
       shared_ptr<int64_t> updateTime_ {};
-      // The vendor ID.
+      // The ID of the vendor.
       shared_ptr<string> vendorId_ {};
     };
 
@@ -283,13 +282,13 @@ namespace Models
 
 
   protected:
-    // The maximum number of entries to return in this request.
+    // The maximum number of entries to return in the current request.
     shared_ptr<int32_t> maxResults_ {};
-    // The pagination token for the next query. You do not need to specify this parameter for the first query or if no more results exist. If more results exist, set this parameter to the NextToken value returned by the previous API call.
+    // The token used to retrieve the next page of results. Leave this parameter empty for the first request or when no more results are available. For subsequent requests, set this parameter to the NextToken value returned in the previous API call.
     shared_ptr<string> nextToken_ {};
     // The list of normalization schemas.
     shared_ptr<vector<ListNormalizationSchemasResponseBody::NormalizationSchemas>> normalizationSchemas_ {};
-    // The request ID.
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
     // The total number of records.
     shared_ptr<int32_t> totalCount_ {};

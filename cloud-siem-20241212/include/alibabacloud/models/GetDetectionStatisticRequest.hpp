@@ -61,13 +61,13 @@ namespace Models
     // - **zh** (default): Chinese.
     // - **en**: English.
     // 
-    // Note: This parameter is required in actual API calls. If it is not provided, the service returns a 400 error with the message "The specified Lang can not be empty.". Explicitly specify the language code.
+    // Note: This parameter is required. If you do not specify this parameter, the service returns a 400 error "The specified Lang can not be empty.". Specify a language code explicitly.
     shared_ptr<string> lang_ {};
-    // The region of the data management center for threat analysis. Select the region of the management center based on the region where your assets are located. Valid values:
-    // - cn-hangzhou: Assets are located in the Chinese mainland.
-    // - ap-southeast-1: Assets are located outside the Chinese mainland.
+    // The region where the data management center of Threat Analysis is located. Select the region of the management center based on the region where your assets are located. Valid values:
+    // - cn-hangzhou: The assets are located in the Chinese mainland.
+    // - ap-southeast-1: The assets are located outside the Chinese mainland.
     shared_ptr<string> regionId_ {};
-    // The ID of the user whose view the administrator assumes.
+    // The ID of the user whose perspective the administrator switches to.
     shared_ptr<int64_t> roleFor_ {};
   };
 

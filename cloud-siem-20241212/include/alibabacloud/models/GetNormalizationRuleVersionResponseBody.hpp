@@ -197,41 +197,21 @@ namespace Models
 
 
     protected:
-      // The creation time. The value is a UNIX timestamp in milliseconds.
       shared_ptr<int64_t> createTime_ {};
-      // The category ID of the normalization rule.
       shared_ptr<string> normalizationCategoryId_ {};
-      // The description of the normalization rule.
       shared_ptr<string> normalizationRuleDescription_ {};
-      // The expression of the normalization rule.
       shared_ptr<string> normalizationRuleExpression_ {};
-      // The format of the normalization rule.
       shared_ptr<string> normalizationRuleFormat_ {};
-      // The ID of the normalization rule.
       shared_ptr<string> normalizationRuleId_ {};
-      // The name of the normalization rule.
       shared_ptr<string> normalizationRuleName_ {};
-      // The status of the normalization rule.
       shared_ptr<string> normalizationRuleStatus_ {};
-      // The type of the normalization rule. Valid values:
-      // - predefined: predefined normalization rule.
-      // - custom: custom normalization rule.
       shared_ptr<string> normalizationRuleType_ {};
-      // The version of the normalization rule.
       shared_ptr<int32_t> normalizationRuleVersion_ {};
-      // The version name of the normalization rule.
       shared_ptr<string> normalizationRuleVersionName_ {};
-      // The ID of the normalization schema.
       shared_ptr<string> normalizationSchemaId_ {};
-      // The ID of the product.
       shared_ptr<string> productId_ {};
-      // The region where the data management center of Threat Analysis is located. Select the region of the management center based on the region where your assets are located. Valid values:
-      // - cn-hangzhou: Assets are located in the Chinese mainland.
-      // - ap-southeast-1: Assets are located outside the Chinese mainland.
       shared_ptr<string> regionId_ {};
-      // The update time. The value is a UNIX timestamp in milliseconds.
       shared_ptr<int64_t> updateTime_ {};
-      // The ID of the vendor that corresponds to the normalization rule.
       shared_ptr<string> vendorId_ {};
     };
 
@@ -254,9 +234,7 @@ namespace Models
 
 
   protected:
-    // The version of the normalization rule.
     shared_ptr<GetNormalizationRuleVersionResponseBody::NormalizationRuleVersion> normalizationRuleVersion_ {};
-    // The ID of the request.
     shared_ptr<string> requestId_ {};
   };
 

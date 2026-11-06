@@ -63,9 +63,9 @@ namespace CloudSiem20241212
       Models::CheckUpgradeItemResponse checkUpgradeItem(const Models::CheckUpgradeItemRequest &request);
 
       /**
-       * @summary Creates an auto-dispose configuration.
+       * @summary Creates the automatic disposition configuration for users.
        *
-       * @description The JsonConfig input parameter is a complex JSON configuration. Refer to the helper class in the [Demo](https://github.com/aliyun/cloud-siem-client/blob/master/src/main/java/com/aliyun/security/cloudsiem/client/sample/JobBuilderSample.java) for configuration examples.
+       * @description The request parameter JsonConfig is a complex JSON configuration. A utility class is provided to help with specific configuration examples. For more information, refer to [Demo](https://github.com/aliyun/cloud-siem-client/blob/master/src/main/java/com/aliyun/security/cloudsiem/client/sample/JobBuilderSample.java).
        *
        * @param request CreateAutoDisposeConfigRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -74,9 +74,9 @@ namespace CloudSiem20241212
       Models::CreateAutoDisposeConfigResponse createAutoDisposeConfigWithOptions(const Models::CreateAutoDisposeConfigRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Creates an auto-dispose configuration.
+       * @summary Creates the automatic disposition configuration for users.
        *
-       * @description The JsonConfig input parameter is a complex JSON configuration. Refer to the helper class in the [Demo](https://github.com/aliyun/cloud-siem-client/blob/master/src/main/java/com/aliyun/security/cloudsiem/client/sample/JobBuilderSample.java) for configuration examples.
+       * @description The request parameter JsonConfig is a complex JSON configuration. A utility class is provided to help with specific configuration examples. For more information, refer to [Demo](https://github.com/aliyun/cloud-siem-client/blob/master/src/main/java/com/aliyun/security/cloudsiem/client/sample/JobBuilderSample.java).
        *
        * @param request CreateAutoDisposeConfigRequest
        * @return CreateAutoDisposeConfigResponse
@@ -84,9 +84,9 @@ namespace CloudSiem20241212
       Models::CreateAutoDisposeConfigResponse createAutoDisposeConfig(const Models::CreateAutoDisposeConfigRequest &request);
 
       /**
-       * @summary Sends a message to the security operations Agent and returns an event stream through SSE. The first request can implicitly create a conversation.
+       * @summary Sends a security operations agent message and returns an event stream through Server-Sent Events (SSE). A session can be implicitly created in the same request during the first turn.
        *
-       * @description Sends a message to a security operations Agent conversation and returns results as an SSE event stream.
+       * @description Sends a message to a security operations agent session and returns the result as an SSE event stream.
        *
        * @param tmpReq CreateCopilotChatRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -95,9 +95,9 @@ namespace CloudSiem20241212
       FutureGenerator<Models::CreateCopilotChatResponse> createCopilotChatWithSSE(const Models::CreateCopilotChatRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Sends a message to the security operations Agent and returns an event stream through SSE. The first request can implicitly create a conversation.
+       * @summary Sends a security operations agent message and returns an event stream through Server-Sent Events (SSE). A session can be implicitly created in the same request during the first turn.
        *
-       * @description Sends a message to a security operations Agent conversation and returns results as an SSE event stream.
+       * @description Sends a message to a security operations agent session and returns the result as an SSE event stream.
        *
        * @param tmpReq CreateCopilotChatRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -106,9 +106,9 @@ namespace CloudSiem20241212
       Models::CreateCopilotChatResponse createCopilotChatWithOptions(const Models::CreateCopilotChatRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Sends a message to the security operations Agent and returns an event stream through SSE. The first request can implicitly create a conversation.
+       * @summary Sends a security operations agent message and returns an event stream through Server-Sent Events (SSE). A session can be implicitly created in the same request during the first turn.
        *
-       * @description Sends a message to a security operations Agent conversation and returns results as an SSE event stream.
+       * @description Sends a message to a security operations agent session and returns the result as an SSE event stream.
        *
        * @param request CreateCopilotChatRequest
        * @return CreateCopilotChatResponse
@@ -137,12 +137,7 @@ namespace CloudSiem20241212
       Models::CreateCopilotConversationResponse createCopilotConversation(const Models::CreateCopilotConversationRequest &request);
 
       /**
-       * @summary Creates an access policy.
-       *
-       * @description Creates an access policy to ingest log data from a data source into threat analysis.
-       * Before you begin:
-       * 1. Call the CreateDataSource operation to create a data source and obtain the data source ID (DataSourceId).
-       * 2. Call the CreateNormalizationRule operation to create a normalization rule and obtain the normalization rule ID (NormalizationRuleId).
+       * @summary 创建数据源
        *
        * @param request CreateDataIngestionRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -151,12 +146,7 @@ namespace CloudSiem20241212
       Models::CreateDataIngestionResponse createDataIngestionWithOptions(const Models::CreateDataIngestionRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Creates an access policy.
-       *
-       * @description Creates an access policy to ingest log data from a data source into threat analysis.
-       * Before you begin:
-       * 1. Call the CreateDataSource operation to create a data source and obtain the data source ID (DataSourceId).
-       * 2. Call the CreateNormalizationRule operation to create a normalization rule and obtain the normalization rule ID (NormalizationRuleId).
+       * @summary 创建数据源
        *
        * @param request CreateDataIngestionRequest
        * @return CreateDataIngestionResponse
@@ -164,7 +154,7 @@ namespace CloudSiem20241212
       Models::CreateDataIngestionResponse createDataIngestion(const Models::CreateDataIngestionRequest &request);
 
       /**
-       * @summary Creates a dataset.
+       * @summary 创建数据集
        *
        * @param request CreateDataSetRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -173,7 +163,7 @@ namespace CloudSiem20241212
       Models::CreateDataSetResponse createDataSetWithOptions(const Models::CreateDataSetRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Creates a dataset.
+       * @summary 创建数据集
        *
        * @param request CreateDataSetRequest
        * @return CreateDataSetResponse
@@ -183,7 +173,7 @@ namespace CloudSiem20241212
       /**
        * @summary Creates a data source.
        *
-       * @description The JsonConfig input parameter is a complex JSON object. For a configuration example, see the supporting tool class in the [demo](https://github.com/aliyun/cloud-siem-client/blob/master/src/main/java/com/aliyun/security/cloudsiem/client/sample/JobBuilderSample.java).
+       * @description The JSON Configurations input parameter is a complex JSON configuration. A supporting tool is provided to assist with specific configuration examples. For more information, see [Demo](https://github.com/aliyun/cloud-siem-client/blob/master/src/main/java/com/aliyun/security/cloudsiem/client/sample/JobBuilderSample.java).
        *
        * @param tmpReq CreateDataSourceRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -194,7 +184,7 @@ namespace CloudSiem20241212
       /**
        * @summary Creates a data source.
        *
-       * @description The JsonConfig input parameter is a complex JSON object. For a configuration example, see the supporting tool class in the [demo](https://github.com/aliyun/cloud-siem-client/blob/master/src/main/java/com/aliyun/security/cloudsiem/client/sample/JobBuilderSample.java).
+       * @description The JSON Configurations input parameter is a complex JSON configuration. A supporting tool is provided to assist with specific configuration examples. For more information, see [Demo](https://github.com/aliyun/cloud-siem-client/blob/master/src/main/java/com/aliyun/security/cloudsiem/client/sample/JobBuilderSample.java).
        *
        * @param request CreateDataSourceRequest
        * @return CreateDataSourceResponse
@@ -320,9 +310,9 @@ namespace CloudSiem20241212
       Models::CreateProductResponse createProduct(const Models::CreateProductRequest &request);
 
       /**
-       * @summary Creates an automatic response rule.
+       * @summary Creates an automated response rule.
        *
-       * @description The input parameter JsonConfig is a complex JSON configuration. To help you configure it, we provide a supporting tool with specific configuration examples. Refer to [Demo](https://github.com/aliyun/cloud-siem-client/blob/master/src/main/java/com/aliyun/security/cloudsiem/client/sample/JobBuilderSample.java).
+       * @description The JsonConfig request parameter is a complex JSON configuration. A utility class is provided to assist with specific configuration examples. For more information, see [Demo](https://github.com/aliyun/cloud-siem-client/blob/master/src/main/java/com/aliyun/security/cloudsiem/client/sample/JobBuilderSample.java).
        *
        * @param request CreateResponseRuleRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -331,9 +321,9 @@ namespace CloudSiem20241212
       Models::CreateResponseRuleResponse createResponseRuleWithOptions(const Models::CreateResponseRuleRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Creates an automatic response rule.
+       * @summary Creates an automated response rule.
        *
-       * @description The input parameter JsonConfig is a complex JSON configuration. To help you configure it, we provide a supporting tool with specific configuration examples. Refer to [Demo](https://github.com/aliyun/cloud-siem-client/blob/master/src/main/java/com/aliyun/security/cloudsiem/client/sample/JobBuilderSample.java).
+       * @description The JsonConfig request parameter is a complex JSON configuration. A utility class is provided to assist with specific configuration examples. For more information, see [Demo](https://github.com/aliyun/cloud-siem-client/blob/master/src/main/java/com/aliyun/security/cloudsiem/client/sample/JobBuilderSample.java).
        *
        * @param request CreateResponseRuleRequest
        * @return CreateResponseRuleResponse
@@ -341,10 +331,7 @@ namespace CloudSiem20241212
       Models::CreateResponseRuleResponse createResponseRule(const Models::CreateResponseRuleRequest &request);
 
       /**
-       * @summary Creates a vendor.
-       *
-       * @description Creates a vendor.
-       * Before you begin: You must have purchased the cloud-siem service and have a valid order before calling this operation. If you have not purchased the service or your order has expired, the API returns "The order doesn\\"t exist or is expired." Purchase or renew the service before calling this operation.
+       * @summary 创建厂商
        *
        * @param request CreateVendorRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -353,10 +340,7 @@ namespace CloudSiem20241212
       Models::CreateVendorResponse createVendorWithOptions(const Models::CreateVendorRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Creates a vendor.
-       *
-       * @description Creates a vendor.
-       * Before you begin: You must have purchased the cloud-siem service and have a valid order before calling this operation. If you have not purchased the service or your order has expired, the API returns "The order doesn\\"t exist or is expired." Purchase or renew the service before calling this operation.
+       * @summary 创建厂商
        *
        * @param request CreateVendorRequest
        * @return CreateVendorResponse
@@ -364,9 +348,7 @@ namespace CloudSiem20241212
       Models::CreateVendorResponse createVendor(const Models::CreateVendorRequest &request);
 
       /**
-       * @summary Deletes a data ingestion policy.
-       *
-       * @description Notifications are sent only between 08:00 and 20:00. Each user can receive a maximum of two notifications per day.
+       * @summary 删除数据接入
        *
        * @param request DeleteDataIngestionRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -375,9 +357,7 @@ namespace CloudSiem20241212
       Models::DeleteDataIngestionResponse deleteDataIngestionWithOptions(const Models::DeleteDataIngestionRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Deletes a data ingestion policy.
-       *
-       * @description Notifications are sent only between 08:00 and 20:00. Each user can receive a maximum of two notifications per day.
+       * @summary 删除数据接入
        *
        * @param request DeleteDataIngestionRequest
        * @return DeleteDataIngestionResponse
@@ -385,7 +365,7 @@ namespace CloudSiem20241212
       Models::DeleteDataIngestionResponse deleteDataIngestion(const Models::DeleteDataIngestionRequest &request);
 
       /**
-       * @summary Deletes a dataset.
+       * @summary 删除数据集
        *
        * @param request DeleteDataSetRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -394,7 +374,7 @@ namespace CloudSiem20241212
       Models::DeleteDataSetResponse deleteDataSetWithOptions(const Models::DeleteDataSetRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Deletes a dataset.
+       * @summary 删除数据集
        *
        * @param request DeleteDataSetRequest
        * @return DeleteDataSetResponse
@@ -419,10 +399,7 @@ namespace CloudSiem20241212
       Models::DeleteDataSetRecordResponse deleteDataSetRecord(const Models::DeleteDataSetRecordRequest &request);
 
       /**
-       * @summary Deletes a data source.
-       *
-       * @description Deletes a specified data source.
-       * Before you begin: The calling account must have a valid SIEM data source management value-added feature subscription.
+       * @summary 删除数据源
        *
        * @param request DeleteDataSourceRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -431,10 +408,7 @@ namespace CloudSiem20241212
       Models::DeleteDataSourceResponse deleteDataSourceWithOptions(const Models::DeleteDataSourceRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Deletes a data source.
-       *
-       * @description Deletes a specified data source.
-       * Before you begin: The calling account must have a valid SIEM data source management value-added feature subscription.
+       * @summary 删除数据源
        *
        * @param request DeleteDataSourceRequest
        * @return DeleteDataSourceResponse
@@ -442,7 +416,7 @@ namespace CloudSiem20241212
       Models::DeleteDataSourceResponse deleteDataSource(const Models::DeleteDataSourceRequest &request);
 
       /**
-       * @summary Deletes a detection rule.
+       * @summary 删除检测规则
        *
        * @param request DeleteDetectionRuleRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -451,7 +425,7 @@ namespace CloudSiem20241212
       Models::DeleteDetectionRuleResponse deleteDetectionRuleWithOptions(const Models::DeleteDetectionRuleRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Deletes a detection rule.
+       * @summary 删除检测规则
        *
        * @param request DeleteDetectionRuleRequest
        * @return DeleteDetectionRuleResponse
@@ -480,9 +454,7 @@ namespace CloudSiem20241212
       Models::DeleteLogStoreResponse deleteLogStore(const Models::DeleteLogStoreRequest &request);
 
       /**
-       * @summary Deletes a normalization rule.
-       *
-       * @description The JsonConfig request parameter is a complex JSON configuration. A supporting tool class that contains configuration examples is provided. For more information, see the [Demo](https://github.com/aliyun/cloud-siem-client/blob/master/src/main/java/com/aliyun/security/cloudsiem/client/sample/JobBuilderSample.java).
+       * @summary 删除标准化规则
        *
        * @param request DeleteNormalizationRuleRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -491,9 +463,7 @@ namespace CloudSiem20241212
       Models::DeleteNormalizationRuleResponse deleteNormalizationRuleWithOptions(const Models::DeleteNormalizationRuleRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Deletes a normalization rule.
-       *
-       * @description The JsonConfig request parameter is a complex JSON configuration. A supporting tool class that contains configuration examples is provided. For more information, see the [Demo](https://github.com/aliyun/cloud-siem-client/blob/master/src/main/java/com/aliyun/security/cloudsiem/client/sample/JobBuilderSample.java).
+       * @summary 删除标准化规则
        *
        * @param request DeleteNormalizationRuleRequest
        * @return DeleteNormalizationRuleResponse
@@ -501,9 +471,7 @@ namespace CloudSiem20241212
       Models::DeleteNormalizationRuleResponse deleteNormalizationRule(const Models::DeleteNormalizationRuleRequest &request);
 
       /**
-       * @summary Deletes a normalization rule version.
-       *
-       * @description The JsonConfig request parameter is a complex JSON configuration. A supporting tool class with configuration examples is provided. For more information, see the [Demo](https://github.com/aliyun/cloud-siem-client/blob/master/src/main/java/com/aliyun/security/cloudsiem/client/sample/JobBuilderSample.java).
+       * @summary 删除标准化规则版本
        *
        * @param request DeleteNormalizationRuleVersionRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -512,9 +480,7 @@ namespace CloudSiem20241212
       Models::DeleteNormalizationRuleVersionResponse deleteNormalizationRuleVersionWithOptions(const Models::DeleteNormalizationRuleVersionRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Deletes a normalization rule version.
-       *
-       * @description The JsonConfig request parameter is a complex JSON configuration. A supporting tool class with configuration examples is provided. For more information, see the [Demo](https://github.com/aliyun/cloud-siem-client/blob/master/src/main/java/com/aliyun/security/cloudsiem/client/sample/JobBuilderSample.java).
+       * @summary 删除标准化规则版本
        *
        * @param request DeleteNormalizationRuleVersionRequest
        * @return DeleteNormalizationRuleVersionResponse
@@ -524,7 +490,7 @@ namespace CloudSiem20241212
       /**
        * @summary Deletes a normalization schema.
        *
-       * @description The input parameter JsonConfig is a complex JSON configuration. We provide a utility class to help with specific configuration examples. For more information, see [Demo](https://github.com/aliyun/cloud-siem-client/blob/master/src/main/java/com/aliyun/security/cloudsiem/client/sample/JobBuilderSample.java).
+       * @description The JsonConfig request parameter is a complex JSON configuration. A utility class is provided to assist with specific configuration examples. For more information, refer to [Demo](https://github.com/aliyun/cloud-siem-client/blob/master/src/main/java/com/aliyun/security/cloudsiem/client/sample/JobBuilderSample.java).
        *
        * @param request DeleteNormalizationSchemaRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -535,7 +501,7 @@ namespace CloudSiem20241212
       /**
        * @summary Deletes a normalization schema.
        *
-       * @description The input parameter JsonConfig is a complex JSON configuration. We provide a utility class to help with specific configuration examples. For more information, see [Demo](https://github.com/aliyun/cloud-siem-client/blob/master/src/main/java/com/aliyun/security/cloudsiem/client/sample/JobBuilderSample.java).
+       * @description The JsonConfig request parameter is a complex JSON configuration. A utility class is provided to assist with specific configuration examples. For more information, refer to [Demo](https://github.com/aliyun/cloud-siem-client/blob/master/src/main/java/com/aliyun/security/cloudsiem/client/sample/JobBuilderSample.java).
        *
        * @param request DeleteNormalizationSchemaRequest
        * @return DeleteNormalizationSchemaResponse
@@ -543,9 +509,7 @@ namespace CloudSiem20241212
       Models::DeleteNormalizationSchemaResponse deleteNormalizationSchema(const Models::DeleteNormalizationSchemaRequest &request);
 
       /**
-       * @summary Deletes a product.
-       *
-       * @description The JsonConfig request parameter is a complex JSON configuration. A supporting tool class is provided to help you create the configuration. For an example, see the [Demo](https://github.com/aliyun/cloud-siem-client/blob/master/src/main/java/com/aliyun/security/cloudsiem/client/sample/JobBuilderSample.java).
+       * @summary 删除产品
        *
        * @param request DeleteProductRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -554,9 +518,7 @@ namespace CloudSiem20241212
       Models::DeleteProductResponse deleteProductWithOptions(const Models::DeleteProductRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Deletes a product.
-       *
-       * @description The JsonConfig request parameter is a complex JSON configuration. A supporting tool class is provided to help you create the configuration. For an example, see the [Demo](https://github.com/aliyun/cloud-siem-client/blob/master/src/main/java/com/aliyun/security/cloudsiem/client/sample/JobBuilderSample.java).
+       * @summary 删除产品
        *
        * @param request DeleteProductRequest
        * @return DeleteProductResponse
@@ -564,9 +526,9 @@ namespace CloudSiem20241212
       Models::DeleteProductResponse deleteProduct(const Models::DeleteProductRequest &request);
 
       /**
-       * @summary Deletes an automatic response rule.
+       * @summary Deletes an automated response rule.
        *
-       * @description Notifications are subject to frequency and time limits. Each user can receive a maximum of two notifications per day between 08:00 and 20:00.
+       * @description Notifications are subject to frequency and time limits. Each user can receive a maximum of two notifications per day between 08:00 and 20:00. No notifications are sent at other times.
        *
        * @param request DeleteResponseRuleRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -575,9 +537,9 @@ namespace CloudSiem20241212
       Models::DeleteResponseRuleResponse deleteResponseRuleWithOptions(const Models::DeleteResponseRuleRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Deletes an automatic response rule.
+       * @summary Deletes an automated response rule.
        *
-       * @description Notifications are subject to frequency and time limits. Each user can receive a maximum of two notifications per day between 08:00 and 20:00.
+       * @description Notifications are subject to frequency and time limits. Each user can receive a maximum of two notifications per day between 08:00 and 20:00. No notifications are sent at other times.
        *
        * @param request DeleteResponseRuleRequest
        * @return DeleteResponseRuleResponse
@@ -585,9 +547,7 @@ namespace CloudSiem20241212
       Models::DeleteResponseRuleResponse deleteResponseRule(const Models::DeleteResponseRuleRequest &request);
 
       /**
-       * @summary Deletes a vendor.
-       *
-       * @description Notifications are subject to frequency and time limits. Each user can receive a maximum of two notifications per day. These notifications are sent only between 08:00 and 20:00.
+       * @summary 删除厂商
        *
        * @param request DeleteVendorRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -596,9 +556,7 @@ namespace CloudSiem20241212
       Models::DeleteVendorResponse deleteVendorWithOptions(const Models::DeleteVendorRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Deletes a vendor.
-       *
-       * @description Notifications are subject to frequency and time limits. Each user can receive a maximum of two notifications per day. These notifications are sent only between 08:00 and 20:00.
+       * @summary 删除厂商
        *
        * @param request DeleteVendorRequest
        * @return DeleteVendorResponse
@@ -606,10 +564,7 @@ namespace CloudSiem20241212
       Models::DeleteVendorResponse deleteVendor(const Models::DeleteVendorRequest &request);
 
       /**
-       * @summary Stops a collection policy.
-       *
-       * @description Notifications are subject to frequency and time restrictions.
-       * Each user can receive a maximum of two notifications per day between 08:00 and 20:00. No notifications are sent outside this time range.
+       * @summary 停止数据接入
        *
        * @param request DisableDataIngestionRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -618,10 +573,7 @@ namespace CloudSiem20241212
       Models::DisableDataIngestionResponse disableDataIngestionWithOptions(const Models::DisableDataIngestionRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Stops a collection policy.
-       *
-       * @description Notifications are subject to frequency and time restrictions.
-       * Each user can receive a maximum of two notifications per day between 08:00 and 20:00. No notifications are sent outside this time range.
+       * @summary 停止数据接入
        *
        * @param request DisableDataIngestionRequest
        * @return DisableDataIngestionResponse
@@ -629,9 +581,7 @@ namespace CloudSiem20241212
       Models::DisableDataIngestionResponse disableDataIngestion(const Models::DisableDataIngestionRequest &request);
 
       /**
-       * @summary Enables the data ingestion policy.
-       *
-       * @description Notification frequency is limited to a maximum of two per user per day. Notifications are sent only between 08:00 and 20:00.
+       * @summary 启动数据接入
        *
        * @param request EnableDataIngestionRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -640,9 +590,7 @@ namespace CloudSiem20241212
       Models::EnableDataIngestionResponse enableDataIngestionWithOptions(const Models::EnableDataIngestionRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Enables the data ingestion policy.
-       *
-       * @description Notification frequency is limited to a maximum of two per user per day. Notifications are sent only between 08:00 and 20:00.
+       * @summary 启动数据接入
        *
        * @param request EnableDataIngestionRequest
        * @return EnableDataIngestionResponse
@@ -650,9 +598,9 @@ namespace CloudSiem20241212
       Models::EnableDataIngestionResponse enableDataIngestion(const Models::EnableDataIngestionRequest &request);
 
       /**
-       * @summary Manually handles alerts. Batch operations are supported.
+       * @summary Manually handles alerts in batches.
        *
-       * @description The JsonConfig input parameter is a complex JSON configuration. A utility class is provided to help with specific configuration examples. For more information, refer to [Demo](https://github.com/aliyun/cloud-siem-client/blob/master/src/main/java/com/aliyun/security/cloudsiem/client/sample/JobBuilderSample.java).
+       * @description The JsonConfig request parameter is a highly complex JSON configuration. A supporting utility class is provided to help with specific configuration examples. For more information, see [Demo](https://github.com/aliyun/cloud-siem-client/blob/master/src/main/java/com/aliyun/security/cloudsiem/client/sample/JobBuilderSample.java).
        *
        * @param request ExecuteAutoDisposeRecordsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -661,9 +609,9 @@ namespace CloudSiem20241212
       Models::ExecuteAutoDisposeRecordsResponse executeAutoDisposeRecordsWithOptions(const Models::ExecuteAutoDisposeRecordsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Manually handles alerts. Batch operations are supported.
+       * @summary Manually handles alerts in batches.
        *
-       * @description The JsonConfig input parameter is a complex JSON configuration. A utility class is provided to help with specific configuration examples. For more information, refer to [Demo](https://github.com/aliyun/cloud-siem-client/blob/master/src/main/java/com/aliyun/security/cloudsiem/client/sample/JobBuilderSample.java).
+       * @description The JsonConfig request parameter is a highly complex JSON configuration. A supporting utility class is provided to help with specific configuration examples. For more information, see [Demo](https://github.com/aliyun/cloud-siem-client/blob/master/src/main/java/com/aliyun/security/cloudsiem/client/sample/JobBuilderSample.java).
        *
        * @param request ExecuteAutoDisposeRecordsRequest
        * @return ExecuteAutoDisposeRecordsResponse
@@ -742,9 +690,9 @@ namespace CloudSiem20241212
       Models::GetAlertResponse getAlert(const Models::GetAlertRequest &request);
 
       /**
-       * @summary Retrieves the automatic response configuration.
+       * @summary Retrieves the automatic disposal configuration for users.
        *
-       * @description The `JsonConfig` input parameter uses a complex JSON structure. Refer to the [Demo](https://github.com/aliyun/cloud-siem-client/blob/master/src/main/java/com/aliyun/security/cloudsiem/client/sample/JobBuilderSample.java) for a helper utility and configuration examples.
+       * @description The request parameter JsonConfig is a highly complex JSON configuration. To simplify this, we provide a utility class for specific configuration examples. For more information, refer to [Demo](https://github.com/aliyun/cloud-siem-client/blob/master/src/main/java/com/aliyun/security/cloudsiem/client/sample/JobBuilderSample.java).
        *
        * @param request GetAutoDisposeConfigRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -753,9 +701,9 @@ namespace CloudSiem20241212
       Models::GetAutoDisposeConfigResponse getAutoDisposeConfigWithOptions(const Models::GetAutoDisposeConfigRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Retrieves the automatic response configuration.
+       * @summary Retrieves the automatic disposal configuration for users.
        *
-       * @description The `JsonConfig` input parameter uses a complex JSON structure. Refer to the [Demo](https://github.com/aliyun/cloud-siem-client/blob/master/src/main/java/com/aliyun/security/cloudsiem/client/sample/JobBuilderSample.java) for a helper utility and configuration examples.
+       * @description The request parameter JsonConfig is a highly complex JSON configuration. To simplify this, we provide a utility class for specific configuration examples. For more information, refer to [Demo](https://github.com/aliyun/cloud-siem-client/blob/master/src/main/java/com/aliyun/security/cloudsiem/client/sample/JobBuilderSample.java).
        *
        * @param request GetAutoDisposeConfigRequest
        * @return GetAutoDisposeConfigResponse
@@ -923,15 +871,15 @@ namespace CloudSiem20241212
       Models::GetIncidentResponse getIncident(const Models::GetIncidentRequest &request);
 
       /**
-       * @summary Queries the AI investigation details of a specified incident, including the report ID, investigation time, judgment category, summary, conclusion, and report content.
+       * @summary Queries the AI investigation details of a specified event, including the report identifiers, investigation time, judgment category, summary, conclusion, and report content.
        *
-       * @description Queries the AI investigation results that have been generated for a specified incident. You can call ListIncidentInvestigations to obtain the report ID or display ID first, and then call this operation to query the details.
+       * @description Queries the generated AI investigation results for a specified event. You can first call ListIncidentInvestigations to obtain the report ID or display ID, and then call this operation to query the details.
        * The query priority is as follows:
        * 1. If IncidentInvestigationId is specified, the query is performed by report ID.
        * 2. If the report ID is not specified but IncidentInvestigationDisplayId is specified, the query is performed by display ID.
-       * 3. If neither identifier is specified, the most recent successfully completed investigation result for the incident corresponding to IncidentUuid is returned, selected in descending order of investigation end time.
+       * 3. If neither identifier is specified, the most recent successfully completed investigation result for the event corresponding to IncidentUuid is returned, sorted in descending order by investigation end time.
        * If no matching investigation record is found, IncidentInvestigation is empty.
-       * IncidentInvestigationStatus indicates the judgment category in the report. Both IncidentInvestigationReport and IncidentInvestigationOutput are JSON-formatted strings that must be parsed before their fields can be used. Internal fields may change across report versions, and callers should handle missing fields gracefully. The examples show only partial report content.
+       * IncidentInvestigationStatus indicates the judgment category in the report. Both IncidentInvestigationReport and IncidentInvestigationOutput are JSON-formatted strings. You must parse them in JSON format before using their fields. Internal fields may change with report versions, and callers must be compatible with missing fields. The examples show only part of the report content.
        *
        * @param request GetIncidentInvestigationRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -940,15 +888,15 @@ namespace CloudSiem20241212
       Models::GetIncidentInvestigationResponse getIncidentInvestigationWithOptions(const Models::GetIncidentInvestigationRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the AI investigation details of a specified incident, including the report ID, investigation time, judgment category, summary, conclusion, and report content.
+       * @summary Queries the AI investigation details of a specified event, including the report identifiers, investigation time, judgment category, summary, conclusion, and report content.
        *
-       * @description Queries the AI investigation results that have been generated for a specified incident. You can call ListIncidentInvestigations to obtain the report ID or display ID first, and then call this operation to query the details.
+       * @description Queries the generated AI investigation results for a specified event. You can first call ListIncidentInvestigations to obtain the report ID or display ID, and then call this operation to query the details.
        * The query priority is as follows:
        * 1. If IncidentInvestigationId is specified, the query is performed by report ID.
        * 2. If the report ID is not specified but IncidentInvestigationDisplayId is specified, the query is performed by display ID.
-       * 3. If neither identifier is specified, the most recent successfully completed investigation result for the incident corresponding to IncidentUuid is returned, selected in descending order of investigation end time.
+       * 3. If neither identifier is specified, the most recent successfully completed investigation result for the event corresponding to IncidentUuid is returned, sorted in descending order by investigation end time.
        * If no matching investigation record is found, IncidentInvestigation is empty.
-       * IncidentInvestigationStatus indicates the judgment category in the report. Both IncidentInvestigationReport and IncidentInvestigationOutput are JSON-formatted strings that must be parsed before their fields can be used. Internal fields may change across report versions, and callers should handle missing fields gracefully. The examples show only partial report content.
+       * IncidentInvestigationStatus indicates the judgment category in the report. Both IncidentInvestigationReport and IncidentInvestigationOutput are JSON-formatted strings. You must parse them in JSON format before using their fields. Internal fields may change with report versions, and callers must be compatible with missing fields. The examples show only part of the report content.
        *
        * @param request GetIncidentInvestigationRequest
        * @return GetIncidentInvestigationResponse
@@ -998,9 +946,7 @@ namespace CloudSiem20241212
       Models::GetNormalizationRuleResponse getNormalizationRule(const Models::GetNormalizationRuleRequest &request);
 
       /**
-       * @summary Retrieves normalization rule version information.
-       *
-       * @description The JsonConfig request parameter is a highly complex JSON configuration. To help you configure it, we provide a supporting utility class with specific configuration examples. For more information, see [Demo](https://github.com/aliyun/cloud-siem-client/blob/master/src/main/java/com/aliyun/security/cloudsiem/client/sample/JobBuilderSample.java).
+       * @summary 获取标准化规则指定版本信息
        *
        * @param request GetNormalizationRuleVersionRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1009,9 +955,7 @@ namespace CloudSiem20241212
       Models::GetNormalizationRuleVersionResponse getNormalizationRuleVersionWithOptions(const Models::GetNormalizationRuleVersionRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Retrieves normalization rule version information.
-       *
-       * @description The JsonConfig request parameter is a highly complex JSON configuration. To help you configure it, we provide a supporting utility class with specific configuration examples. For more information, see [Demo](https://github.com/aliyun/cloud-siem-client/blob/master/src/main/java/com/aliyun/security/cloudsiem/client/sample/JobBuilderSample.java).
+       * @summary 获取标准化规则指定版本信息
        *
        * @param request GetNormalizationRuleVersionRequest
        * @return GetNormalizationRuleVersionResponse
@@ -1084,9 +1028,9 @@ namespace CloudSiem20241212
       Models::GetUserConfigResponse getUserConfig(const Models::GetUserConfigRequest &request);
 
       /**
-       * @summary Retrieves the list of alert groups.
+       * @summary Queries a list of alert groups.
        *
-       * @description The input parameter JsonConfig is a complex JSON configuration. We provide a utility class and configuration examples. For more information, refer to [Demo](https://github.com/aliyun/cloud-siem-client/blob/master/src/main/java/com/aliyun/security/cloudsiem/client/sample/JobBuilderSample.java).
+       * @description The JsonConfig request parameter is a complex JSON configuration. To help you configure it, we provide a utility class with specific configuration examples. For more information, see [Demo](https://github.com/aliyun/cloud-siem-client/blob/master/src/main/java/com/aliyun/security/cloudsiem/client/sample/JobBuilderSample.java).
        *
        * @param request ListAlertAggregationsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1095,9 +1039,9 @@ namespace CloudSiem20241212
       Models::ListAlertAggregationsResponse listAlertAggregationsWithOptions(const Models::ListAlertAggregationsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Retrieves the list of alert groups.
+       * @summary Queries a list of alert groups.
        *
-       * @description The input parameter JsonConfig is a complex JSON configuration. We provide a utility class and configuration examples. For more information, refer to [Demo](https://github.com/aliyun/cloud-siem-client/blob/master/src/main/java/com/aliyun/security/cloudsiem/client/sample/JobBuilderSample.java).
+       * @description The JsonConfig request parameter is a complex JSON configuration. To help you configure it, we provide a utility class with specific configuration examples. For more information, see [Demo](https://github.com/aliyun/cloud-siem-client/blob/master/src/main/java/com/aliyun/security/cloudsiem/client/sample/JobBuilderSample.java).
        *
        * @param request ListAlertAggregationsRequest
        * @return ListAlertAggregationsResponse
@@ -1189,10 +1133,7 @@ namespace CloudSiem20241212
       Models::ListDataConnectorsResponse listDataConnectors(const Models::ListDataConnectorsRequest &request);
 
       /**
-       * @summary Queries data ingestion templates.
-       *
-       * @description Notifications are subject to frequency and time restrictions.
-       * Each user can receive a maximum of two notifications per day between 08:00 and 20:00. No notifications are sent outside this time range.
+       * @summary 查询接入模板
        *
        * @param request ListDataIngestionTemplatesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1201,10 +1142,7 @@ namespace CloudSiem20241212
       Models::ListDataIngestionTemplatesResponse listDataIngestionTemplatesWithOptions(const Models::ListDataIngestionTemplatesRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries data ingestion templates.
-       *
-       * @description Notifications are subject to frequency and time restrictions.
-       * Each user can receive a maximum of two notifications per day between 08:00 and 20:00. No notifications are sent outside this time range.
+       * @summary 查询接入模板
        *
        * @param request ListDataIngestionTemplatesRequest
        * @return ListDataIngestionTemplatesResponse
@@ -1252,7 +1190,7 @@ namespace CloudSiem20241212
       Models::ListDataSetRecordsResponse listDataSetRecords(const Models::ListDataSetRecordsRequest &request);
 
       /**
-       * @summary Retrieves a list of datasets.
+       * @summary 获取数据集列表
        *
        * @param tmpReq ListDataSetsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1261,7 +1199,7 @@ namespace CloudSiem20241212
       Models::ListDataSetsResponse listDataSetsWithOptions(const Models::ListDataSetsRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Retrieves a list of datasets.
+       * @summary 获取数据集列表
        *
        * @param request ListDataSetsRequest
        * @return ListDataSetsResponse
@@ -1269,10 +1207,7 @@ namespace CloudSiem20241212
       Models::ListDataSetsResponse listDataSets(const Models::ListDataSetsRequest &request);
 
       /**
-       * @summary Queries data source templates.
-       *
-       * @description Notifications are subject to frequency and time restrictions.
-       * Each user can receive a maximum of two notifications per day between 08:00 and 20:00. No notifications are sent at other times.
+       * @summary 查询数据源模板
        *
        * @param tmpReq ListDataSourceTemplatesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1281,10 +1216,7 @@ namespace CloudSiem20241212
       Models::ListDataSourceTemplatesResponse listDataSourceTemplatesWithOptions(const Models::ListDataSourceTemplatesRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries data source templates.
-       *
-       * @description Notifications are subject to frequency and time restrictions.
-       * Each user can receive a maximum of two notifications per day between 08:00 and 20:00. No notifications are sent at other times.
+       * @summary 查询数据源模板
        *
        * @param request ListDataSourceTemplatesRequest
        * @return ListDataSourceTemplatesResponse
@@ -1294,8 +1226,7 @@ namespace CloudSiem20241212
       /**
        * @summary Retrieves a list of data sources.
        *
-       * @description Notifications are subject to frequency and time restrictions.
-       * Each user can receive a maximum of two notifications per day between 08:00 and 20:00. No notifications are sent outside this time window.
+       * @description Notification delivery is subject to frequency and time limits. Each user can receive a maximum of two notifications per day between 08:00 and 20:00. No notifications are sent outside this time frame.
        *
        * @param tmpReq ListDataSourcesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1306,8 +1237,7 @@ namespace CloudSiem20241212
       /**
        * @summary Retrieves a list of data sources.
        *
-       * @description Notifications are subject to frequency and time restrictions.
-       * Each user can receive a maximum of two notifications per day between 08:00 and 20:00. No notifications are sent outside this time window.
+       * @description Notification delivery is subject to frequency and time limits. Each user can receive a maximum of two notifications per day between 08:00 and 20:00. No notifications are sent outside this time frame.
        *
        * @param request ListDataSourcesRequest
        * @return ListDataSourcesResponse
@@ -1315,10 +1245,10 @@ namespace CloudSiem20241212
       Models::ListDataSourcesResponse listDataSources(const Models::ListDataSourcesRequest &request);
 
       /**
-       * @summary Retrieves a list of detection rules.
+       * @summary Queries the list of detection rules.
        *
-       * @description Notifications are subject to frequency and time restrictions.
-       * Each user can receive a maximum of two notifications per day between 08:00 and 20:00. No notifications are sent outside this time range.
+       * @description Notifications are subject to frequency and time limits.
+       * Each user can receive a maximum of two notifications per day between 08:00 and 20:00. No notifications are sent at other times.
        *
        * @param tmpReq ListDetectionRulesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1327,10 +1257,10 @@ namespace CloudSiem20241212
       Models::ListDetectionRulesResponse listDetectionRulesWithOptions(const Models::ListDetectionRulesRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Retrieves a list of detection rules.
+       * @summary Queries the list of detection rules.
        *
-       * @description Notifications are subject to frequency and time restrictions.
-       * Each user can receive a maximum of two notifications per day between 08:00 and 20:00. No notifications are sent outside this time range.
+       * @description Notifications are subject to frequency and time limits.
+       * Each user can receive a maximum of two notifications per day between 08:00 and 20:00. No notifications are sent at other times.
        *
        * @param request ListDetectionRulesRequest
        * @return ListDetectionRulesResponse
@@ -1338,10 +1268,9 @@ namespace CloudSiem20241212
       Models::ListDetectionRulesResponse listDetectionRules(const Models::ListDetectionRulesRequest &request);
 
       /**
-       * @summary Retrieves a list of events.
+       * @summary Retrieves a list of incidents.
        *
-       * @description Notifications are subject to frequency and time restrictions.
-       * Each user can receive a maximum of two notifications per day between 08:00 and 20:00. No notifications are sent outside this time window.
+       * @description Notification delivery is subject to frequency and time limits. Each user can receive a maximum of two notifications per day between 08:00 and 20:00. No notifications are sent outside this time frame.
        *
        * @param tmpReq ListIncidentsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1350,10 +1279,9 @@ namespace CloudSiem20241212
       Models::ListIncidentsResponse listIncidentsWithOptions(const Models::ListIncidentsRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Retrieves a list of events.
+       * @summary Retrieves a list of incidents.
        *
-       * @description Notifications are subject to frequency and time restrictions.
-       * Each user can receive a maximum of two notifications per day between 08:00 and 20:00. No notifications are sent outside this time window.
+       * @description Notification delivery is subject to frequency and time limits. Each user can receive a maximum of two notifications per day between 08:00 and 20:00. No notifications are sent outside this time frame.
        *
        * @param request ListIncidentsRequest
        * @return ListIncidentsResponse
@@ -1384,7 +1312,7 @@ namespace CloudSiem20241212
       /**
        * @summary Retrieves all regions.
        *
-       * @description The \\`JsonConfig\\` request parameter is a complex JSON configuration. A supporting tool class provides configuration examples. For more information, see the [Demo](https://github.com/aliyun/cloud-siem-client/blob/master/src/main/java/com/aliyun/security/cloudsiem/client/sample/JobBuilderSample.java).
+       * @description The request parameter JsonConfig involves complex JSON configurations. We provide a supporting utility class to help with specific configuration examples. For more information, refer to [Demo](https://github.com/aliyun/cloud-siem-client/blob/master/src/main/java/com/aliyun/security/cloudsiem/client/sample/JobBuilderSample.java).
        *
        * @param request ListLogRegionsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1395,7 +1323,7 @@ namespace CloudSiem20241212
       /**
        * @summary Retrieves all regions.
        *
-       * @description The \\`JsonConfig\\` request parameter is a complex JSON configuration. A supporting tool class provides configuration examples. For more information, see the [Demo](https://github.com/aliyun/cloud-siem-client/blob/master/src/main/java/com/aliyun/security/cloudsiem/client/sample/JobBuilderSample.java).
+       * @description The request parameter JsonConfig involves complex JSON configurations. We provide a supporting utility class to help with specific configuration examples. For more information, refer to [Demo](https://github.com/aliyun/cloud-siem-client/blob/master/src/main/java/com/aliyun/security/cloudsiem/client/sample/JobBuilderSample.java).
        *
        * @param request ListLogRegionsRequest
        * @return ListLogRegionsResponse
@@ -1403,10 +1331,9 @@ namespace CloudSiem20241212
       Models::ListLogRegionsResponse listLogRegions(const Models::ListLogRegionsRequest &request);
 
       /**
-       * @summary Retrieves the list of log stores.
+       * @summary Retrieves a list of log stores.
        *
-       * @description Notifications are subject to frequency and time restrictions.
-       * Each user can receive a maximum of two notifications per day between 08:00 and 20:00. No notifications are sent outside this time window.
+       * @description Notification delivery is subject to frequency and time limits. Each user can receive a maximum of two notifications per day between 08:00 and 20:00, and no notifications are sent at other times.
        *
        * @param request ListLogStoresRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1415,10 +1342,9 @@ namespace CloudSiem20241212
       Models::ListLogStoresResponse listLogStoresWithOptions(const Models::ListLogStoresRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Retrieves the list of log stores.
+       * @summary Retrieves a list of log stores.
        *
-       * @description Notifications are subject to frequency and time restrictions.
-       * Each user can receive a maximum of two notifications per day between 08:00 and 20:00. No notifications are sent outside this time window.
+       * @description Notification delivery is subject to frequency and time limits. Each user can receive a maximum of two notifications per day between 08:00 and 20:00, and no notifications are sent at other times.
        *
        * @param request ListLogStoresRequest
        * @return ListLogStoresResponse
@@ -1491,9 +1417,7 @@ namespace CloudSiem20241212
       Models::ListNormalizationRuleCapacitiesResponse listNormalizationRuleCapacities(const Models::ListNormalizationRuleCapacitiesRequest &request);
 
       /**
-       * @summary Retrieves a list of normalization rule versions.
-       *
-       * @description The JsonConfig input parameter is a complex JSON configuration. We provide a utility class to help with specific configuration examples. For more information, refer to [Demo](https://github.com/aliyun/cloud-siem-client/blob/master/src/main/java/com/aliyun/security/cloudsiem/client/sample/JobBuilderSample.java).
+       * @summary 获取标准化规则版本列表
        *
        * @param request ListNormalizationRuleVersionsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1502,9 +1426,7 @@ namespace CloudSiem20241212
       Models::ListNormalizationRuleVersionsResponse listNormalizationRuleVersionsWithOptions(const Models::ListNormalizationRuleVersionsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Retrieves a list of normalization rule versions.
-       *
-       * @description The JsonConfig input parameter is a complex JSON configuration. We provide a utility class to help with specific configuration examples. For more information, refer to [Demo](https://github.com/aliyun/cloud-siem-client/blob/master/src/main/java/com/aliyun/security/cloudsiem/client/sample/JobBuilderSample.java).
+       * @summary 获取标准化规则版本列表
        *
        * @param request ListNormalizationRuleVersionsRequest
        * @return ListNormalizationRuleVersionsResponse
@@ -1537,7 +1459,7 @@ namespace CloudSiem20241212
       /**
        * @summary Retrieves a list of normalization schemas.
        *
-       * @description The input parameter JsonConfig is a complex JSON configuration string. A utility class is provided with specific configuration examples. For more information, refer to [Demo](https://github.com/aliyun/cloud-siem-client/blob/master/src/main/java/com/aliyun/security/cloudsiem/client/sample/JobBuilderSample.java).
+       * @description The request parameter JsonConfig is a complex JSON configuration. To help with specific configuration examples, we provide a utility class. For more information, refer to [Demo](https://github.com/aliyun/cloud-siem-client/blob/master/src/main/java/com/aliyun/security/cloudsiem/client/sample/JobBuilderSample.java).
        *
        * @param request ListNormalizationSchemasRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1548,7 +1470,7 @@ namespace CloudSiem20241212
       /**
        * @summary Retrieves a list of normalization schemas.
        *
-       * @description The input parameter JsonConfig is a complex JSON configuration string. A utility class is provided with specific configuration examples. For more information, refer to [Demo](https://github.com/aliyun/cloud-siem-client/blob/master/src/main/java/com/aliyun/security/cloudsiem/client/sample/JobBuilderSample.java).
+       * @description The request parameter JsonConfig is a complex JSON configuration. To help with specific configuration examples, we provide a utility class. For more information, refer to [Demo](https://github.com/aliyun/cloud-siem-client/blob/master/src/main/java/com/aliyun/security/cloudsiem/client/sample/JobBuilderSample.java).
        *
        * @param request ListNormalizationSchemasRequest
        * @return ListNormalizationSchemasResponse
@@ -1577,9 +1499,7 @@ namespace CloudSiem20241212
       Models::ListNormalizationSecurityDomainsResponse listNormalizationSecurityDomains(const Models::ListNormalizationSecurityDomainsRequest &request);
 
       /**
-       * @summary Retrieves a list of products.
-       *
-       * @description The input parameter JsonConfig is a highly complex JSON configuration. A utility class with specific configuration examples is provided. For more information, refer to [Demo](https://github.com/aliyun/cloud-siem-client/blob/master/src/main/java/com/aliyun/security/cloudsiem/client/sample/JobBuilderSample.java).
+       * @summary 获取产品列表
        *
        * @param tmpReq ListProductsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1588,9 +1508,7 @@ namespace CloudSiem20241212
       Models::ListProductsResponse listProductsWithOptions(const Models::ListProductsRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Retrieves a list of products.
-       *
-       * @description The input parameter JsonConfig is a highly complex JSON configuration. A utility class with specific configuration examples is provided. For more information, refer to [Demo](https://github.com/aliyun/cloud-siem-client/blob/master/src/main/java/com/aliyun/security/cloudsiem/client/sample/JobBuilderSample.java).
+       * @summary 获取产品列表
        *
        * @param request ListProductsRequest
        * @return ListProductsResponse
@@ -1642,10 +1560,9 @@ namespace CloudSiem20241212
       Models::ListResponseRuleFieldsResponse listResponseRuleFields(const Models::ListResponseRuleFieldsRequest &request);
 
       /**
-       * @summary Queries automatic response rules by paging.
+       * @summary Queries automatic response rules by page.
        *
-       * @description Notifications are subject to frequency and time restrictions.
-       * Each user receives a maximum of two notifications per day between 08:00 and 20:00. No notifications are sent outside this time range.
+       * @description Notification sending is limited by frequency and time. Each user can receive a maximum of two notifications per day between 08:00 and 20:00, and no notifications are sent at other times.
        *
        * @param request ListResponseRulesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1654,10 +1571,9 @@ namespace CloudSiem20241212
       Models::ListResponseRulesResponse listResponseRulesWithOptions(const Models::ListResponseRulesRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries automatic response rules by paging.
+       * @summary Queries automatic response rules by page.
        *
-       * @description Notifications are subject to frequency and time restrictions.
-       * Each user receives a maximum of two notifications per day between 08:00 and 20:00. No notifications are sent outside this time range.
+       * @description Notification sending is limited by frequency and time. Each user can receive a maximum of two notifications per day between 08:00 and 20:00, and no notifications are sent at other times.
        *
        * @param request ListResponseRulesRequest
        * @return ListResponseRulesResponse
@@ -1728,10 +1644,7 @@ namespace CloudSiem20241212
       Models::ListUpgradeItemsResponse listUpgradeItems(const Models::ListUpgradeItemsRequest &request);
 
       /**
-       * @summary Retrieves the list of vendors.
-       *
-       * @description Notifications are subject to frequency and time restrictions.
-       * Each user can receive a maximum of two notifications per day between 08:00 and 20:00. No notifications are sent outside this time range.
+       * @summary 获取厂商列表
        *
        * @param tmpReq ListVendorsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1740,10 +1653,7 @@ namespace CloudSiem20241212
       Models::ListVendorsResponse listVendorsWithOptions(const Models::ListVendorsRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Retrieves the list of vendors.
-       *
-       * @description Notifications are subject to frequency and time restrictions.
-       * Each user can receive a maximum of two notifications per day between 08:00 and 20:00. No notifications are sent outside this time range.
+       * @summary 获取厂商列表
        *
        * @param request ListVendorsRequest
        * @return ListVendorsResponse
@@ -1791,9 +1701,9 @@ namespace CloudSiem20241212
       Models::ResetDataStorageResponse resetDataStorage(const Models::ResetDataStorageRequest &request);
 
       /**
-       * @summary Incrementally resumes the SSE event stream for a specified security operations Agent turn based on the run cursor.
+       * @summary Resumes the Server-Sent Events (SSE) event stream for a specified security operations agent turn incrementally based on the run cursor.
        *
-       * @description Resumes the SSE event stream for a security operations Agent conversation turn from a specified cursor.
+       * @description Resumes the event stream for a security operations agent conversation turn from a specified cursor.
        *
        * @param tmpReq ResumeCopilotTurnStreamRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1802,9 +1712,9 @@ namespace CloudSiem20241212
       FutureGenerator<Models::ResumeCopilotTurnStreamResponse> resumeCopilotTurnStreamWithSSE(const Models::ResumeCopilotTurnStreamRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Incrementally resumes the SSE event stream for a specified security operations Agent turn based on the run cursor.
+       * @summary Resumes the Server-Sent Events (SSE) event stream for a specified security operations agent turn incrementally based on the run cursor.
        *
-       * @description Resumes the SSE event stream for a security operations Agent conversation turn from a specified cursor.
+       * @description Resumes the event stream for a security operations agent conversation turn from a specified cursor.
        *
        * @param tmpReq ResumeCopilotTurnStreamRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1813,9 +1723,9 @@ namespace CloudSiem20241212
       Models::ResumeCopilotTurnStreamResponse resumeCopilotTurnStreamWithOptions(const Models::ResumeCopilotTurnStreamRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Incrementally resumes the SSE event stream for a specified security operations Agent turn based on the run cursor.
+       * @summary Resumes the Server-Sent Events (SSE) event stream for a specified security operations agent turn incrementally based on the run cursor.
        *
-       * @description Resumes the SSE event stream for a security operations Agent conversation turn from a specified cursor.
+       * @description Resumes the event stream for a security operations agent conversation turn from a specified cursor.
        *
        * @param request ResumeCopilotTurnStreamRequest
        * @return ResumeCopilotTurnStreamResponse
@@ -1848,8 +1758,7 @@ namespace CloudSiem20241212
       /**
        * @summary Updates an alert.
        *
-       * @description Notifications are subject to frequency and time restrictions.
-       * Each user receives a maximum of two notifications per day between 08:00 and 20:00. No notifications are sent outside this time range.
+       * @description Notification delivery is subject to frequency and time limits. Each user can receive up to two notifications per day between 08:00 and 20:00, and no notifications are sent outside this time frame.
        *
        * @param request UpdateAlertRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1860,8 +1769,7 @@ namespace CloudSiem20241212
       /**
        * @summary Updates an alert.
        *
-       * @description Notifications are subject to frequency and time restrictions.
-       * Each user receives a maximum of two notifications per day between 08:00 and 20:00. No notifications are sent outside this time range.
+       * @description Notification delivery is subject to frequency and time limits. Each user can receive up to two notifications per day between 08:00 and 20:00, and no notifications are sent outside this time frame.
        *
        * @param request UpdateAlertRequest
        * @return UpdateAlertResponse
@@ -1955,9 +1863,7 @@ namespace CloudSiem20241212
       Models::UpdateDataConnectorResponse updateDataConnector(const Models::UpdateDataConnectorRequest &request);
 
       /**
-       * @summary Updates a data ingestion policy.
-       *
-       * @description Notifications are subject to frequency and time limits. A maximum of two notifications are sent to each user per day between 08:00 and 20:00.
+       * @summary 更新数据接入信息
        *
        * @param request UpdateDataIngestionRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1966,9 +1872,7 @@ namespace CloudSiem20241212
       Models::UpdateDataIngestionResponse updateDataIngestionWithOptions(const Models::UpdateDataIngestionRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Updates a data ingestion policy.
-       *
-       * @description Notifications are subject to frequency and time limits. A maximum of two notifications are sent to each user per day between 08:00 and 20:00.
+       * @summary 更新数据接入信息
        *
        * @param request UpdateDataIngestionRequest
        * @return UpdateDataIngestionResponse
@@ -1976,9 +1880,7 @@ namespace CloudSiem20241212
       Models::UpdateDataIngestionResponse updateDataIngestion(const Models::UpdateDataIngestionRequest &request);
 
       /**
-       * @summary Updates a data ingestion template.
-       *
-       * @description Frequency and time limits apply to notifications. Each user can receive a maximum of two notifications per day between 08:00 and 20:00. Notifications are not sent outside of this time period.
+       * @summary 更新接入模板
        *
        * @param request UpdateDataIngestionTemplateRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1987,9 +1889,7 @@ namespace CloudSiem20241212
       Models::UpdateDataIngestionTemplateResponse updateDataIngestionTemplateWithOptions(const Models::UpdateDataIngestionTemplateRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Updates a data ingestion template.
-       *
-       * @description Frequency and time limits apply to notifications. Each user can receive a maximum of two notifications per day between 08:00 and 20:00. Notifications are not sent outside of this time period.
+       * @summary 更新接入模板
        *
        * @param request UpdateDataIngestionTemplateRequest
        * @return UpdateDataIngestionTemplateResponse
@@ -1997,9 +1897,7 @@ namespace CloudSiem20241212
       Models::UpdateDataIngestionTemplateResponse updateDataIngestionTemplate(const Models::UpdateDataIngestionTemplateRequest &request);
 
       /**
-       * @summary Updates a dataset.
-       *
-       * @description Notifications are limited by frequency and time. Each user can receive a maximum of two notifications per day between 08:00 and 20:00. Notifications are not sent outside this time range.
+       * @summary 更新数据集
        *
        * @param request UpdateDataSetRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2008,9 +1906,7 @@ namespace CloudSiem20241212
       Models::UpdateDataSetResponse updateDataSetWithOptions(const Models::UpdateDataSetRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Updates a dataset.
-       *
-       * @description Notifications are limited by frequency and time. Each user can receive a maximum of two notifications per day between 08:00 and 20:00. Notifications are not sent outside this time range.
+       * @summary 更新数据集
        *
        * @param request UpdateDataSetRequest
        * @return UpdateDataSetResponse
@@ -2039,9 +1935,7 @@ namespace CloudSiem20241212
       Models::UpdateDataSetRecordResponse updateDataSetRecord(const Models::UpdateDataSetRecordRequest &request);
 
       /**
-       * @summary Updates a data source.
-       *
-       * @description The input parameter JsonConfig is a complex JSON configuration. To help you configure it, we provide a utility class with specific configuration examples. Refer to [Demo](https://github.com/aliyun/cloud-siem-client/blob/master/src/main/java/com/aliyun/security/cloudsiem/client/sample/JobBuilderSample.java).
+       * @summary 更新数据源
        *
        * @param request UpdateDataSourceRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2050,9 +1944,7 @@ namespace CloudSiem20241212
       Models::UpdateDataSourceResponse updateDataSourceWithOptions(const Models::UpdateDataSourceRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Updates a data source.
-       *
-       * @description The input parameter JsonConfig is a complex JSON configuration. To help you configure it, we provide a utility class with specific configuration examples. Refer to [Demo](https://github.com/aliyun/cloud-siem-client/blob/master/src/main/java/com/aliyun/security/cloudsiem/client/sample/JobBuilderSample.java).
+       * @summary 更新数据源
        *
        * @param request UpdateDataSourceRequest
        * @return UpdateDataSourceResponse
@@ -2060,9 +1952,7 @@ namespace CloudSiem20241212
       Models::UpdateDataSourceResponse updateDataSource(const Models::UpdateDataSourceRequest &request);
 
       /**
-       * @summary Modifies a data source template.
-       *
-       * @description The JsonConfig input parameter accepts a complex JSON configuration. To simplify this process, a supporting tool class is available. For more information, see the [Demo](https://github.com/aliyun/cloud-siem-client/blob/master/src/main/java/com/aliyun/security/cloudsiem/client/sample/JobBuilderSample.java).
+       * @summary 修改数据源模板
        *
        * @param tmpReq UpdateDataSourceTemplateRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2071,9 +1961,7 @@ namespace CloudSiem20241212
       Models::UpdateDataSourceTemplateResponse updateDataSourceTemplateWithOptions(const Models::UpdateDataSourceTemplateRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Modifies a data source template.
-       *
-       * @description The JsonConfig input parameter accepts a complex JSON configuration. To simplify this process, a supporting tool class is available. For more information, see the [Demo](https://github.com/aliyun/cloud-siem-client/blob/master/src/main/java/com/aliyun/security/cloudsiem/client/sample/JobBuilderSample.java).
+       * @summary 修改数据源模板
        *
        * @param request UpdateDataSourceTemplateRequest
        * @return UpdateDataSourceTemplateResponse
@@ -2081,9 +1969,9 @@ namespace CloudSiem20241212
       Models::UpdateDataSourceTemplateResponse updateDataSourceTemplate(const Models::UpdateDataSourceTemplateRequest &request);
 
       /**
-       * @summary Modifies the log storage region in log management.
+       * @summary Updates the log storage region in log management.
        *
-       * @description Updates the log storage region or the global switch for multi-account centralized delivery. Submit these two types of operations separately. Before modifying the global switch, query GetDataStorage first and use the returned ConfigurationVersion and TargetProject. Do not copy the fixed version and account from the examples. The current V2 version does not support the legacy DeliveryStatus global switch. After writing, re-query GetDataStorage to obtain the latest configuration.
+       * @description Updates the log storage region or the global switch for multi-account centralized delivery. Submit these two operations separately. Before modifying the global switch, call GetDataStorage and use the returned ConfigurationVersion and TargetProject values. Do not copy the fixed version and account from the examples. The current V2 version does not support the legacy DeliveryStatus global switch. After the update, call GetDataStorage again to obtain the latest configuration.
        *
        * @param request UpdateDataStorageRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2092,9 +1980,9 @@ namespace CloudSiem20241212
       Models::UpdateDataStorageResponse updateDataStorageWithOptions(const Models::UpdateDataStorageRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Modifies the log storage region in log management.
+       * @summary Updates the log storage region in log management.
        *
-       * @description Updates the log storage region or the global switch for multi-account centralized delivery. Submit these two types of operations separately. Before modifying the global switch, query GetDataStorage first and use the returned ConfigurationVersion and TargetProject. Do not copy the fixed version and account from the examples. The current V2 version does not support the legacy DeliveryStatus global switch. After writing, re-query GetDataStorage to obtain the latest configuration.
+       * @description Updates the log storage region or the global switch for multi-account centralized delivery. Submit these two operations separately. Before modifying the global switch, call GetDataStorage and use the returned ConfigurationVersion and TargetProject values. Do not copy the fixed version and account from the examples. The current V2 version does not support the legacy DeliveryStatus global switch. After the update, call GetDataStorage again to obtain the latest configuration.
        *
        * @param request UpdateDataStorageRequest
        * @return UpdateDataStorageResponse
@@ -2104,7 +1992,7 @@ namespace CloudSiem20241212
       /**
        * @summary Modifies the log delivery status.
        *
-       * @description Before calling this operation, make sure that the Cloud Threat Detection and Response (CTDR) data storage service is activated for your account and that the data storage order has not expired. Call the GetDataStorage operation to check the data storage order status.
+       * @description Before you call this operation, make sure that the Cloud Security Center (Cloud SIEM) data storage service is activated for your account and the data storage order has not expired. You can call the GetDataStorage operation to check the status of the data storage order.
        *
        * @param tmpReq UpdateDataStorageDeliveryRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2115,7 +2003,7 @@ namespace CloudSiem20241212
       /**
        * @summary Modifies the log delivery status.
        *
-       * @description Before calling this operation, make sure that the Cloud Threat Detection and Response (CTDR) data storage service is activated for your account and that the data storage order has not expired. Call the GetDataStorage operation to check the data storage order status.
+       * @description Before you call this operation, make sure that the Cloud Security Center (Cloud SIEM) data storage service is activated for your account and the data storage order has not expired. You can call the GetDataStorage operation to check the status of the data storage order.
        *
        * @param request UpdateDataStorageDeliveryRequest
        * @return UpdateDataStorageDeliveryResponse
@@ -2203,9 +2091,7 @@ namespace CloudSiem20241212
       Models::UpdateNormalizationSchemaResponse updateNormalizationSchema(const Models::UpdateNormalizationSchemaRequest &request);
 
       /**
-       * @summary Updates a product.
-       *
-       * @description The input parameter JsonConfig is a complex JSON configuration. To help with specific configuration examples, a utility class is provided. Refer to the [Demo](https://github.com/aliyun/cloud-siem-client/blob/master/src/main/java/com/aliyun/security/cloudsiem/client/sample/JobBuilderSample.java).
+       * @summary 更新产品品
        *
        * @param request UpdateProductRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2214,9 +2100,7 @@ namespace CloudSiem20241212
       Models::UpdateProductResponse updateProductWithOptions(const Models::UpdateProductRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Updates a product.
-       *
-       * @description The input parameter JsonConfig is a complex JSON configuration. To help with specific configuration examples, a utility class is provided. Refer to the [Demo](https://github.com/aliyun/cloud-siem-client/blob/master/src/main/java/com/aliyun/security/cloudsiem/client/sample/JobBuilderSample.java).
+       * @summary 更新产品品
        *
        * @param request UpdateProductRequest
        * @return UpdateProductResponse
@@ -2226,7 +2110,7 @@ namespace CloudSiem20241212
       /**
        * @summary Updates an automated response rule.
        *
-       * @description The JsonConfig input parameter is a complex JSON configuration. To help you configure it, a supporting utility class with examples is provided. Refer to the [Demo](https://github.com/aliyun/cloud-siem-client/blob/master/src/main/java/com/aliyun/security/cloudsiem/client/sample/JobBuilderSample.java).
+       * @description The JsonConfig request parameter is a very complex JSON configuration. Therefore, we provide a utility class to help with specific configuration examples. Refer to [Demo](https://github.com/aliyun/cloud-siem-client/blob/master/src/main/java/com/aliyun/security/cloudsiem/client/sample/JobBuilderSample.java).
        *
        * @param request UpdateResponseRuleRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2237,7 +2121,7 @@ namespace CloudSiem20241212
       /**
        * @summary Updates an automated response rule.
        *
-       * @description The JsonConfig input parameter is a complex JSON configuration. To help you configure it, a supporting utility class with examples is provided. Refer to the [Demo](https://github.com/aliyun/cloud-siem-client/blob/master/src/main/java/com/aliyun/security/cloudsiem/client/sample/JobBuilderSample.java).
+       * @description The JsonConfig request parameter is a very complex JSON configuration. Therefore, we provide a utility class to help with specific configuration examples. Refer to [Demo](https://github.com/aliyun/cloud-siem-client/blob/master/src/main/java/com/aliyun/security/cloudsiem/client/sample/JobBuilderSample.java).
        *
        * @param request UpdateResponseRuleRequest
        * @return UpdateResponseRuleResponse
@@ -2245,9 +2129,7 @@ namespace CloudSiem20241212
       Models::UpdateResponseRuleResponse updateResponseRule(const Models::UpdateResponseRuleRequest &request);
 
       /**
-       * @summary Updates a vendor.
-       *
-       * @description The delivery of notifications is limited by frequency and time. A user can receive a maximum of two notifications per day between 08:00 and 20:00. Notifications are not sent outside this time period.
+       * @summary 更新厂商
        *
        * @param request UpdateVendorRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2256,9 +2138,7 @@ namespace CloudSiem20241212
       Models::UpdateVendorResponse updateVendorWithOptions(const Models::UpdateVendorRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Updates a vendor.
-       *
-       * @description The delivery of notifications is limited by frequency and time. A user can receive a maximum of two notifications per day between 08:00 and 20:00. Notifications are not sent outside this time period.
+       * @summary 更新厂商
        *
        * @param request UpdateVendorRequest
        * @return UpdateVendorResponse

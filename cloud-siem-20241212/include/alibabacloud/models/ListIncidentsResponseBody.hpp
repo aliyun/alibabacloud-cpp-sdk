@@ -274,21 +274,21 @@ namespace Models
       shared_ptr<string> entityInfos_ {};
       // The description of the incident.
       shared_ptr<string> incidentDescription_ {};
-      // The event name.
+      // The name of the incident.
       shared_ptr<string> incidentName_ {};
       // The remark for the incident.
       shared_ptr<string> incidentRemark_ {};
-      // The event status. Valid values:
-      // - 0: Unhandled.
-      // - 1: Handling.
-      // - 5: Handling failed.
-      // - 10: Handled.
+      // The status of the incident. Valid values:
+      // - 0: Unprocessed.
+      // - 1: Processing.
+      // - 5: Processing failed.
+      // - 10: Processed.
       shared_ptr<int32_t> incidentStatus_ {};
-      // The event tags.
+      // The tags of the incident.
       shared_ptr<string> incidentTags_ {};
       // The UUID of the incident.
       shared_ptr<string> incidentUuid_ {};
-      // The UID of the account responsible for the event.
+      // The UIDs of the accounts of the incident owners.
       shared_ptr<string> owner_ {};
       // The display name of the incident owner.
       shared_ptr<string> ownerName_ {};
@@ -296,9 +296,9 @@ namespace Models
       shared_ptr<int32_t> relateAlertCount_ {};
       // The number of assets associated with the incident.
       shared_ptr<int32_t> relateAssetCount_ {};
-      // The response time, in milliseconds (ms).
+      // The response time in milliseconds.
       shared_ptr<int64_t> responseTime_ {};
-      // The list of response types. Valid values: auto, manual, ai.
+      // The list of response types. Valid values: auto, manual, and ai.
       shared_ptr<vector<string>> responseTypes_ {};
       // The threat level. Valid values:
       // - 5: Critical.
@@ -368,15 +368,15 @@ namespace Models
   protected:
     // The list of incidents.
     shared_ptr<vector<ListIncidentsResponseBody::Incidents>> incidents_ {};
-    // The maximum number of entries to read in this request.
+    // The maximum number of entries to return in this call.
     shared_ptr<int32_t> maxResults_ {};
-    // The pagination token used to retrieve the next page of results. Leave this parameter empty for the first request or when there are no more pages. If more pages exist, set this parameter to the NextToken value returned by the previous API call.
+    // The token for the next query. You do not need to specify this parameter for the first query or when no subsequent query is required. If a subsequent query is required, set this parameter to the value of NextToken returned from the previous API call.
     shared_ptr<string> nextToken_ {};
-    // The current page number for pagination.
+    // The current page number.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries to display per page.
+    // The number of entries to return on each page.
     shared_ptr<int32_t> pageSize_ {};
-    // The request ID.
+    // The request message ID.
     shared_ptr<string> requestId_ {};
     // The total number of records.
     shared_ptr<int32_t> totalCount_ {};

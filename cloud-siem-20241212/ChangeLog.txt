@@ -1,3 +1,7 @@
+2026-11-06 Version: 2.6.1
+- Update API ListDetectionRules: add request parameters LogSchemaIds.
+
+
 2026-10-21 Version: 2.6.0
 - Support API CancelCopilotTurn.
 - Support API CreateCopilotChat.

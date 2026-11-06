@@ -172,18 +172,17 @@ namespace Models
 
 
     protected:
-      // The time when the rule was created.
+      // The creation time. The value is a UNIX timestamp in milliseconds.
       shared_ptr<int64_t> createTime_ {};
       // The action configuration of the automatic response rule.
       shared_ptr<string> responseActionConfig_ {};
       // The action type of the automatic response rule. Valid values:
-      // 
-      // - doPlaybook: execute a playbook
-      // - changeEventStatus: update event status
-      // - changeThreatLevel: update event threat level
-      // - addEventTag: add an event label
-      // - deleteEventTag: delete an event label
-      // - alertWhitelist: add alert to whitelist
+      // - doPlaybook: Execute a playbook.
+      // - changeEventStatus: Update the event status.
+      // - changeThreatLevel: Update the event threat level.
+      // - addEventTag: Add an event tag.
+      // - deleteEventTag: Delete an event tag.
+      // - alertWhitelist: Add an alert to the whitelist.
       shared_ptr<string> responseActionType_ {};
       // The trigger condition configuration of the rule.
       shared_ptr<string> responseExecutionCondition_ {};
@@ -193,24 +192,22 @@ namespace Models
       shared_ptr<string> responseRuleName_ {};
       // The execution priority of the automatic response rule.
       shared_ptr<int32_t> responseRulePriority_ {};
+      // The remarks of the response rule.
       shared_ptr<string> responseRuleRemark_ {};
       // The status of the automatic response rule. Valid values:
-      // 
-      // - 0: disabled
-      // - 100: enabled
+      // - 0: Disabled.
+      // - 100: Enabled.
       shared_ptr<int32_t> responseRuleStatus_ {};
       // The type of the response rule. Valid values:
-      // 
-      // - preset: predefined
-      // - custom: custom
+      // - preset: Preset.
+      // - custom: Custom.
       shared_ptr<string> responseRuleType_ {};
       // The trigger type of the automatic response rule. Valid values:
-      // 
-      // - event: event occurred
-      // - event_update: event updated
-      // - alert: alert occurred
+      // - event: Event occurrence.
+      // - event_update: Event update.
+      // - alert: Alert occurrence.
       shared_ptr<string> responseTriggerType_ {};
-      // The time when the rule was last updated.
+      // The update time. The value is a UNIX timestamp in milliseconds.
       shared_ptr<int64_t> updateTime_ {};
     };
 
@@ -269,21 +266,21 @@ namespace Models
 
 
   protected:
-    // The maximum number of records returned in this request.
+    // The maximum number of records returned for the current request.
     shared_ptr<int32_t> maxResults_ {};
-    // The position from which the current call starts reading. An empty value indicates that all data has been read.
+    // The position to which the current call has read. An empty value indicates that all data has been read.
     // 
     // This parameter is required.
     shared_ptr<string> nextToken_ {};
-    // The page number.
+    // The page number of the current page.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries per page.
+    // The number of entries to return on each page.
     shared_ptr<int32_t> pageSize_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};
     // The list of automatic response rules.
     shared_ptr<vector<ListResponseRulesResponseBody::ResponseRules>> responseRules_ {};
-    // The total number of records that match the request conditions. This parameter is optional and is not returned by default.
+    // The total number of data records that meet the request conditions. This parameter is optional and is not returned by default.
     shared_ptr<int32_t> totalCount_ {};
   };
 

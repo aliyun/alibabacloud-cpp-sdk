@@ -48,13 +48,11 @@ namespace Models
 
 
   protected:
-    // The language of the response message. Valid values:
-    // 
+    // The language of the returned message. Valid values:
     // - **zh** (default): Chinese.
-    // 
     // - **en**: English.
     shared_ptr<string> lang_ {};
-    // The user ID of the member whose perspective the administrator wants to use.
+    // The ID of the user whose perspective the administrator switches to.
     shared_ptr<int64_t> roleFor_ {};
   };
 

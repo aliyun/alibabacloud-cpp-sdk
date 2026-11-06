@@ -84,22 +84,11 @@ namespace Models
 
 
   protected:
-    // The list of data source template IDs.
     shared_ptr<string> dataSourceTemplateIdsShrink_ {};
-    // The language of the response. Valid values:
-    // - **zh** (default): Chinese.
-    // - **en**: English.
-    // This parameter is required in practice. If you do not specify this parameter, the API returns a 400 error (The specified Lang can not be empty.). Valid values: zh and en.
     shared_ptr<string> lang_ {};
-    // The page number.
     shared_ptr<string> pageNumber_ {};
-    // The number of entries per page.
     shared_ptr<string> pageSize_ {};
-    // The region where the data management center of the threat analysis feature resides. Specify this parameter based on the region where your assets reside. Valid values:
-    // - cn-hangzhou: Chinese mainland. Your assets reside in the Chinese mainland.
-    // - ap-southeast-1: Outside China. Your assets reside outside China.
     shared_ptr<string> regionId_ {};
-    // The ID of the member to which the administrator switches the view.
     shared_ptr<int64_t> roleFor_ {};
   };
 

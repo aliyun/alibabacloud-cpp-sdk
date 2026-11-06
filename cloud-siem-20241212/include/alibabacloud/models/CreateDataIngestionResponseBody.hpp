@@ -48,9 +48,7 @@ namespace Models
 
 
   protected:
-    // The data ingestion ID.
     shared_ptr<string> dataIngestionId_ {};
-    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

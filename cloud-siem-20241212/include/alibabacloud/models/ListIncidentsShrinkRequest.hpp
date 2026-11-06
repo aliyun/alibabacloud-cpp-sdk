@@ -250,69 +250,69 @@ namespace Models
 
 
   protected:
-    // The alert ID.
+    // The ID of the alert.
     shared_ptr<string> alertUuid_ {};
     // The list of detection rule IDs.
     shared_ptr<vector<string>> detectionRuleIds_ {};
-    // The end time timestamp, in milliseconds (ms).
+    // The timestamp of the end time, accurate to milliseconds.
     shared_ptr<int64_t> endTime_ {};
-    // The event name.
+    // The name of the incident.
     shared_ptr<string> incidentName_ {};
-    // The event status. Valid values:
-    // - 0: Unhandled.
-    // - 1: Handling.
-    // - 5: Handling failed.
-    // - 10: Handled.
+    // The status of the incident. Valid values:
+    // - 0: Unprocessed.
+    // - 1: Processing.
+    // - 5: Processing failed.
+    // - 10: Processed.
     shared_ptr<int32_t> incidentStatus_ {};
-    // The list of event statuses.
+    // The list of incident statuses.
     shared_ptr<vector<string>> incidentStatusList_ {};
-    // The event tags.
+    // The tags of the incident.
     shared_ptr<string> incidentTags_ {};
-    // The list of event UUIDs, separated by commas (half-width).
+    // The list of incident UUIDs. Separate multiple UUIDs with commas.
     shared_ptr<string> incidentUuidsShrink_ {};
-    // The language of the response messages. Valid values:
+    // The language of the response message. Valid values:
     // - **zh** (default): Chinese.
     // - **en**: English.
     // 
-    // Note: This parameter is required in actual API calls. If it is not provided, the service returns a 400 error: "The specified Lang can not be empty." Pass the language code explicitly.
+    // Note: This parameter is required in actual API calls. If it is not provided, the service returns a 400 error "The specified Lang can not be empty.". Explicitly pass the language code.
     shared_ptr<string> lang_ {};
-    // The maximum number of entries to read in this request.
+    // The maximum number of entries to return in this call.
     shared_ptr<int32_t> maxResults_ {};
-    // The pagination token used to retrieve the next page of results. Leave this parameter empty for the first request or when there are no more pages. If more pages exist, set this parameter to the NextToken value returned by the previous API call.
+    // The token for the next query. You do not need to specify this parameter for the first query or when no subsequent query is required. If a subsequent query is required, set this parameter to the value of NextToken returned from the previous API call.
     shared_ptr<string> nextToken_ {};
     // The sort direction. Valid values:
     // - **desc** (default): Descending order.
     // - **asc**: Ascending order.
     shared_ptr<string> orderDirection_ {};
-    // The field used to sort the list. Valid values:
-    // - GmtModified: The event update time (default).
+    // The name of the field used to sort the list. Valid values:
+    // - GmtModified: The time when the incident was updated. This is the default value.
     // - ThreatScore: The threat score.
     shared_ptr<string> orderFieldName_ {};
-    // The UID of the account responsible for the event.
+    // The UIDs of the accounts of the incident owners.
     shared_ptr<vector<string>> owners_ {};
-    // The current page number for pagination.
+    // The current page number.
     // 
     // This parameter is required.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries to display per page.
+    // The number of entries to return on each page.
     // 
     // This parameter is required.
     shared_ptr<int32_t> pageSize_ {};
-    // The location of the data management center for Cloud Threat Detection and Response (CTDR). Select the management center location based on the region where your assets reside. Valid values:
-    // - cn-hangzhou: Assets are located in the Chinese mainland.
-    // - ap-southeast-1: Assets are located outside China.
+    // The region of the data management center for Threat Analysis. Select the region of the management center based on the region where your assets are located. Valid values:
+    // - cn-hangzhou: The assets are located in the Chinese mainland.
+    // - ap-southeast-1: The assets are located outside China.
     shared_ptr<string> regionId_ {};
-    // The ID of the asset associated with the event.
+    // The ID of the asset associated with the incident.
     shared_ptr<string> relateAssetId_ {};
-    // The ID of the entity associated with the event.
+    // The ID of the entity associated with the incident.
     shared_ptr<string> relateEntityId_ {};
-    // The user ID that the administrator uses to switch to another member\\"s view.
+    // The ID of the user whose view the administrator switches to.
     shared_ptr<int64_t> roleFor_ {};
-    // The view type. Valid values:
-    // - 0: The current Alibaba Cloud account view.
+    // The type of the view. Valid values:
+    // - 0: The view of the current Alibaba Cloud account.
     // - 1: The view of all accounts in the enterprise.
     shared_ptr<int32_t> roleType_ {};
-    // The start time timestamp, in milliseconds (ms).
+    // The timestamp of the start time, accurate to milliseconds.
     shared_ptr<int64_t> startTime_ {};
     // The threat level. Valid values:
     // - 5: Critical.

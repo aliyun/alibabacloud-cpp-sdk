@@ -57,23 +57,19 @@ namespace Models
 
 
   protected:
-    // Specifies whether to enable automated analysis. Valid values:
-    // 
-    // - enabled: Enables automated analysis.
-    // 
-    // - disabled: Disables automated analysis.
+    // Specifies whether automatic analysis is enabled for the user. Valid values:
+    // - enabled: Enabled.
+    // - disabled: Disabled.
     // 
     // This parameter is required.
     shared_ptr<string> autoDecisionStatus_ {};
-    // The language of the response. Valid values:
-    // 
+    // The language of the response message. Valid values:
     // - **zh** (default): Chinese.
-    // 
     // - **en**: English.
     // 
     // This parameter is required.
     shared_ptr<string> lang_ {};
-    // The code of the cloud product.
+    // The code of the cloud service.
     // 
     // This parameter is required.
     shared_ptr<string> productCode_ {};

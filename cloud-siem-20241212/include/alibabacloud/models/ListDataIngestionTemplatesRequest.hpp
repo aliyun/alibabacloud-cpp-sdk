@@ -103,31 +103,13 @@ namespace Models
 
 
   protected:
-    // The status of the data ingestion template. Valid values:
-    // - pending
-    // - running
-    // - success
-    // - failed
     shared_ptr<string> dataIngestionTemplateStatus_ {};
-    // The list of data source template IDs.
     shared_ptr<string> dataSourceTemplateIds_ {};
-    // The language of the response. Valid values:
-    // - **zh** (default): Chinese.
-    // - **en**: English.
-    // 
-    // Note: This parameter is required. If you do not specify this parameter, the service returns a 400 error: "The specified Lang can not be empty." Explicitly pass in a language code.
     shared_ptr<string> lang_ {};
-    // The page number.
     shared_ptr<string> pageNumber_ {};
-    // The number of entries per page.
     shared_ptr<string> pageSize_ {};
-    // The product ID.
     shared_ptr<string> productId_ {};
-    // The region where the data management center of threat detection and response resides. Specify the management center based on the region of your assets. Valid values:
-    // - cn-hangzhou: Your assets reside in the Chinese mainland.
-    // - ap-southeast-1: Your assets reside outside the Chinese mainland.
     shared_ptr<string> regionId_ {};
-    // The user ID used by an administrator to assume the view of another member.
     shared_ptr<int64_t> roleFor_ {};
   };
 

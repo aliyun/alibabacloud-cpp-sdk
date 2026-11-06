@@ -98,9 +98,9 @@ namespace Models
 
 
     protected:
-      // The message content.
+      // The content of the message.
       shared_ptr<string> content_ {};
-      // The message role.
+      // The role of the message.
       shared_ptr<string> role_ {};
     };
 
@@ -177,7 +177,7 @@ namespace Models
       shared_ptr<string> projectId_ {};
       // The deep thinking configuration.
       shared_ptr<string> thinkingMode_ {};
-      // The conversation title.
+      // The session title.
       shared_ptr<string> title_ {};
     };
 
@@ -302,17 +302,17 @@ namespace Models
 
 
   protected:
-    // The client conversation ID.
+    // The client session ID.
     shared_ptr<string> clientConversationId_ {};
     // The client message ID.
     // 
     // This parameter is required.
     shared_ptr<string> clientMessageId_ {};
-    // The conversation ID.
+    // The session ID.
     shared_ptr<string> conversationId_ {};
-    // The conversation creation configuration.
+    // The session creation configuration.
     shared_ptr<CreateCopilotChatRequest::CreateConversation> createConversation_ {};
-    // The language of the returned messages. Valid values:
+    // The language of the returned message. Valid values:
     // - **zh** (default): Chinese.
     // - **en**: English.
     shared_ptr<string> lang_ {};
@@ -326,21 +326,21 @@ namespace Models
     shared_ptr<string> planMode_ {};
     // The security project ID.
     shared_ptr<string> projectId_ {};
-    // The region of the data management center for threat analysis. Specify the management center based on the region where your assets reside. Valid values:
-    // - cn-hangzhou: Your assets reside in the Chinese mainland.
-    // - ap-southeast-1: Your assets reside in regions outside the Chinese mainland.
+    // The region of the data management center for threat analysis. Select the region of the management center based on the region where your assets reside. Valid values:
+    // - cn-hangzhou: Assets reside in the Chinese mainland.
+    // - ap-southeast-1: Assets reside outside the Chinese mainland.
     shared_ptr<string> regionId_ {};
-    // The ID of the conversation turn to replace.
+    // The ID of the replaced conversation turn.
     shared_ptr<string> replaceTurnId_ {};
-    // The route target identifier.
+    // The target route identifier for execution.
     shared_ptr<string> routeTarget_ {};
-    // The request source.
+    // The source of the request.
     shared_ptr<string> source_ {};
     // Specifies whether to enable streaming responses.
     shared_ptr<bool> stream_ {};
     // The deep thinking configuration.
     shared_ptr<string> thinkingMode_ {};
-    // The trace ID, which is used to query specific call information.
+    // The trace ID used to accurately query call information.
     shared_ptr<string> traceId_ {};
   };
 

@@ -86,21 +86,20 @@ namespace Models
   protected:
     // The alert status.
     shared_ptr<string> alertStatus_ {};
-    // The alert ID associated with the event.
+    // The ID of the alert associated with the event.
     shared_ptr<string> alertUuid_ {};
-    // The language of the response. Valid values:
+    // The language of the response message. Valid values:
     // - **zh** (default): Chinese.
     // - **en**: English.
     shared_ptr<string> lang_ {};
-    // The data management center of the threat analysis feature. Specify this parameter based on the region where your assets reside. Valid values:
-    // - cn-hangzhou: the Chinese mainland and Hong Kong (China).
-    // - ap-southeast-1: regions outside China.
+    // The region where the data management center for threat analysis is located. You must select the region of the management center based on the region where your assets are located. Valid values:
+    // - cn-hangzhou: Select this value if your assets are located in the Chinese mainland and Hong Kong (China).
+    // - ap-southeast-1: Select this value if your assets are located outside China.
     shared_ptr<string> regionId_ {};
-    // The ID of the user to which the administrator switches the view.
+    // The ID of the user whose perspective the administrator switches to.
     shared_ptr<int64_t> roleFor_ {};
     // The view type. Valid values:
-    // 
-    // - 0: the current Alibaba Cloud account view.
+    // - 0: the view of the current Alibaba Cloud account.
     // - 1: the view of all accounts in the enterprise.
     shared_ptr<int64_t> roleType_ {};
   };
