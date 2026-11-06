@@ -72,7 +72,7 @@ namespace Models
     shared_ptr<string> errorTaskId_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The number of tasks that were successfully updated.
+    // The number of successfully updated tasks.
     shared_ptr<string> successCount_ {};
   };
 

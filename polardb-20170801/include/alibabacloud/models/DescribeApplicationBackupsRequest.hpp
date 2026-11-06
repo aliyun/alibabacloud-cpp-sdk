@@ -103,21 +103,21 @@ namespace Models
 
 
   protected:
-    // The application ID.
+    // The ID of the application.
     // 
     // This parameter is required.
     shared_ptr<string> applicationId_ {};
     // The application type, such as polarclaw.
     shared_ptr<string> applicationType_ {};
-    // The filter condition for the backup status. A value of Success indicates that the backup is completed, and a value of Failed indicates that the backup failed.
+    // The backup status filter. Valid values: Success: The backup is completed. Failed: The backup failed.
     shared_ptr<string> backupStatus_ {};
     // The end time of the query. This parameter is required and cannot be earlier than the start time. Specify the time in the ISO 8601 standard in the YYYY-MM-DDTHH:mmZ format. The time must be in UTC.
     shared_ptr<string> endTime_ {};
-    // The page number. The value must be an integer greater than 0 and less than or equal to 2147483647. Default value: 1.
+    // The page number. The value must be a positive integer up to 2147483647. Default value: 1.
     shared_ptr<int32_t> pageNumber_ {};
     // The number of entries to return on each page. Valid values: 30, 50, and 100. Default value: 30.
     shared_ptr<int32_t> pageSize_ {};
-    // The region ID of the application.
+    // The ID of the region where the application resides.
     shared_ptr<string> regionId_ {};
     // The start time of the query. This parameter is required. Specify the time in the ISO 8601 standard in the YYYY-MM-DDTHH:mmZ format. The time must be in UTC and cannot be later than the current time.
     shared_ptr<string> startTime_ {};

@@ -129,9 +129,9 @@ namespace Models
     shared_ptr<bool> fromTimeService_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
-    // The latest time to start the proxy specification upgrade, in the YYYY-MM-DDThh:mm:ssZ format (UTC).
+    // The latest time to execute the proxy specification upgrade. Specify the time in the YYYY-MM-DDThh:mm:ssZ format. The time must be in UTC.
     shared_ptr<string> plannedEndTime_ {};
-    // The earliest time to start the proxy specification upgrade, in the YYYY-MM-DDThh:mm:ssZ format (UTC).
+    // The earliest time to execute the proxy specification upgrade. Specify the time in the YYYY-MM-DDThh:mm:ssZ format. The time must be in UTC.
     shared_ptr<string> plannedStartTime_ {};
     // The target proxy performance level. Valid values: ProxyStandard, ProxyStandardx2, and ProxyStandardx4.
     // 

@@ -94,7 +94,7 @@ namespace Models
     protected:
       // The specifications of the application subcomponent.
       shared_ptr<string> componentClass_ {};
-      // The maximum number of application subcomponents of the same specifications. Default value: the value of ComponentReplica. This parameter is supported only by raycluster applications.
+      // The maximum number of application subcomponents of the same specifications. Default value: the value of ComponentReplica. This parameter is supported only for raycluster applications.
       shared_ptr<int64_t> componentMaxReplica_ {};
       // The number of replicas for the application subcomponent. Default value: 1.
       shared_ptr<int64_t> componentReplica_ {};

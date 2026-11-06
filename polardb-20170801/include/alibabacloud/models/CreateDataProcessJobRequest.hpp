@@ -151,7 +151,7 @@ namespace Models
   protected:
     // The description of the data processing task.
     shared_ptr<string> description_ {};
-    // The JSON string for the destination database connection configuration, including Account and Password.
+    // The JSON string for the destination database connection configuration, which includes the account and password.
     shared_ptr<string> destinationConfig_ {};
     // The ID of the destination PolarDB cluster.
     // 
@@ -161,7 +161,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> destinationPath_ {};
-    // The type of the destination. Only PolarDB is supported.
+    // The destination type. Currently, only PolarDB is supported.
     // 
     // This parameter is required.
     shared_ptr<string> destinationType_ {};
@@ -175,7 +175,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
-    // The additional configuration for the data source in JSON string format. This parameter can be left empty.
+    // The additional configuration for the data source in JSON string format. You can leave this parameter empty.
     shared_ptr<string> sourceConfig_ {};
     // The ID of the PolarFS instance that serves as the data source.
     // 
@@ -185,7 +185,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> sourcePath_ {};
-    // The type of the data source. Only PolarFS is supported.
+    // The data source type. Currently, only PolarFS is supported.
     // 
     // This parameter is required.
     shared_ptr<string> sourceType_ {};

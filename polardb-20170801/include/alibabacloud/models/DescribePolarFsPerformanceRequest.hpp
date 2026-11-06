@@ -97,7 +97,7 @@ namespace Models
     // The cluster ID.
     // > You can call the [DescribeDBClusters](https://help.aliyun.com/document_detail/129857.html) operation to query the IDs of all Data Warehouse Edition clusters in the specified region.
     shared_ptr<string> DBClusterId_ {};
-    // The end time of the query. Specify the time in the ISO 8601 standard in the YYYY-MM-DDTHH:mm:ssZ format. The time must be in UTC and must not be earlier than the start time.
+    // The end time of the query. Specify the time in the YYYY-MM-DDTHH:mm:ssZ format. The time must be in UTC. The end time must not be earlier than the start time.
     // 
     // This parameter is required.
     shared_ptr<string> endTime_ {};
@@ -113,7 +113,7 @@ namespace Models
     shared_ptr<string> polarFsInstanceId_ {};
     // The region ID.
     shared_ptr<string> regionId_ {};
-    // The start time of the query. Specify the time in the ISO 8601 standard in the YYYY-MM-DDTHH:mm:ssZ format. The time must be in UTC.
+    // The start time of the query. Specify the time in the YYYY-MM-DDTHH:mm:ssZ format. The time must be in UTC.
     // 
     // This parameter is required.
     shared_ptr<string> startTime_ {};

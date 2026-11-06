@@ -102,13 +102,13 @@ namespace Models
 
 
     protected:
-      // The risk level of the check item.
+      // The risk level of the inspection item.
       shared_ptr<string> riskLevel_ {};
-      // The score of the check item.
+      // The score of the inspection item.
       shared_ptr<int64_t> score_ {};
-      // The name of the inspection skill that generated the check result.
+      // The name of the inspection skill that generated the result.
       shared_ptr<string> skillName_ {};
-      // The result summary of the check item.
+      // The result summary of the inspection item.
       shared_ptr<string> summary_ {};
     };
 
@@ -191,7 +191,7 @@ namespace Models
     shared_ptr<int64_t> reportScore_ {};
     // The generation status of the inspection report.
     shared_ptr<string> reportStatus_ {};
-    // The check results in the report.
+    // The inspection results for each item in the report.
     shared_ptr<vector<DescribeInstanceReportAttributeResponseBody::ReportSubItems>> reportSubItems_ {};
     // The overall summary of the inspection report.
     shared_ptr<string> reportSummary_ {};

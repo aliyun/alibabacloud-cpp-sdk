@@ -114,15 +114,15 @@ namespace Models
     protected:
       // The end time of the backup. The time is displayed in UTC in the YYYY-MM-DDTHH:mm:ssZ format.
       shared_ptr<string> backupEndTime_ {};
-      // The backup set ID.
+      // The ID of the backup set.
       shared_ptr<string> backupId_ {};
       // The start time of the backup. The time is displayed in UTC in the YYYY-MM-DDTHH:mm:ssZ format.
       shared_ptr<string> backupStartTime_ {};
-      // The backup status. A value of Success indicates that the backup is completed, and a value of Failed indicates that the backup failed.
+      // The backup status. Valid values: Success: The backup is completed. Failed: The backup failed.
       shared_ptr<string> backupStatus_ {};
-      // The backup type. A value of FullBackup indicates a full backup, and a value of IncrementalBackup indicates an incremental backup.
+      // The backup type. Valid values: FullBackup: full backup. IncrementalBackup: incremental backup.
       shared_ptr<string> backupType_ {};
-      // The backup mode. A value of Automated indicates an automatic backup, and a value of Manual indicates a manual backup.
+      // The backup mode. Valid values: Automated: automatic backup. Manual: manual backup.
       shared_ptr<string> jobMode_ {};
     };
 
@@ -172,7 +172,7 @@ namespace Models
     shared_ptr<string> pageNumbers_ {};
     // The number of backup sets returned on the current page.
     shared_ptr<string> pageRecordCount_ {};
-    // The request ID.
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
     // The total number of backup sets that meet the query conditions.
     shared_ptr<string> totalRecordCount_ {};

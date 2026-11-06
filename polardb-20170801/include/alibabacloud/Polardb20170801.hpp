@@ -518,10 +518,10 @@ namespace Polardb20170801
       Models::CheckKMSAuthorizedResponse checkKMSAuthorized(const Models::CheckKMSAuthorizedRequest &request);
 
       /**
-       * @summary Prechecks a skill.
+       * @summary Pre-checks a skill.
        *
        * @description ## Request description
-       * This operation prechecks a skill before it is uploaded to a PolarClaw instance.
+       * This operation pre-validates a skill before uploading it to a PolarClaw instance.
        *
        * @param request CheckPolarClawSkillRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -530,10 +530,10 @@ namespace Polardb20170801
       Models::CheckPolarClawSkillResponse checkPolarClawSkillWithOptions(const Models::CheckPolarClawSkillRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Prechecks a skill.
+       * @summary Pre-checks a skill.
        *
        * @description ## Request description
-       * This operation prechecks a skill before it is uploaded to a PolarClaw instance.
+       * This operation pre-validates a skill before uploading it to a PolarClaw instance.
        *
        * @param request CheckPolarClawSkillRequest
        * @return CheckPolarClawSkillResponse
@@ -1261,7 +1261,7 @@ namespace Polardb20170801
       Models::CreateDBNodesResponse createDBNodes(const Models::CreateDBNodesRequest &request);
 
       /**
-       * @summary Creates a task to process data in PolarFS based on a specified template and write it to a PolarDB database.
+       * @summary Creates a task to process data in PolarFS based on a specified template and write the data to a PolarDB database.
        *
        * @param request CreateDataProcessJobRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1270,7 +1270,7 @@ namespace Polardb20170801
       Models::CreateDataProcessJobResponse createDataProcessJobWithOptions(const Models::CreateDataProcessJobRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Creates a task to process data in PolarFS based on a specified template and write it to a PolarDB database.
+       * @summary Creates a task to process data in PolarFS based on a specified template and write the data to a PolarDB database.
        *
        * @param request CreateDataProcessJobRequest
        * @return CreateDataProcessJobResponse
@@ -1711,7 +1711,7 @@ namespace Polardb20170801
       Models::CreatePolarClawCronJobResponse createPolarClawCronJob(const Models::CreatePolarClawCronJobRequest &request);
 
       /**
-       * @summary 上传skill
+       * @summary Uploads a skill.
        *
        * @param request CreatePolarClawSkillRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1720,7 +1720,7 @@ namespace Polardb20170801
       Models::CreatePolarClawSkillResponse createPolarClawSkillWithOptions(const Models::CreatePolarClawSkillRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 上传skill
+       * @summary Uploads a skill.
        *
        * @param request CreatePolarClawSkillRequest
        * @return CreatePolarClawSkillResponse
@@ -3581,7 +3581,7 @@ namespace Polardb20170801
       Models::DescribeApplicationAvailableModelsResponse describeApplicationAvailableModels(const Models::DescribeApplicationAvailableModelsRequest &request);
 
       /**
-       * @summary Queries the list of versions to which a specified application type can be upgraded.
+       * @summary Queries the upgradable versions for a specified application type.
        *
        * @param tmpReq DescribeApplicationAvailableVersionRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3590,7 +3590,7 @@ namespace Polardb20170801
       Models::DescribeApplicationAvailableVersionResponse describeApplicationAvailableVersionWithOptions(const Models::DescribeApplicationAvailableVersionRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the list of versions to which a specified application type can be upgraded.
+       * @summary Queries the upgradable versions for a specified application type.
        *
        * @param request DescribeApplicationAvailableVersionRequest
        * @return DescribeApplicationAvailableVersionResponse
@@ -3615,7 +3615,7 @@ namespace Polardb20170801
       Models::DescribeApplicationBackupPolicyResponse describeApplicationBackupPolicy(const Models::DescribeApplicationBackupPolicyRequest &request);
 
       /**
-       * @summary Queries the backup sets of a specified application by time range and backup status, and returns the backup details in a paginated list.
+       * @summary Queries the backup sets of a specified application by time range and backup status, and returns paginated backup details.
        *
        * @param request DescribeApplicationBackupsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3624,7 +3624,7 @@ namespace Polardb20170801
       Models::DescribeApplicationBackupsResponse describeApplicationBackupsWithOptions(const Models::DescribeApplicationBackupsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the backup sets of a specified application by time range and backup status, and returns the backup details in a paginated list.
+       * @summary Queries the backup sets of a specified application by time range and backup status, and returns paginated backup details.
        *
        * @param request DescribeApplicationBackupsRequest
        * @return DescribeApplicationBackupsResponse
@@ -3774,7 +3774,7 @@ namespace Polardb20170801
       /**
        * @summary Queries the session logs of a specified application, supports filtering by agent, session, and role, and returns paginated log records.
        *
-       * @description Logs for different roles may contain different fields. User messages may include Content. Assistant messages may include the model, token usage, and cost statistics. Tool execution results may include the tool name and execution status. Cost statistics are returned exactly as provided by the log source, and this API operation does not perform currency conversion.
+       * @description The fields included in logs may vary by role. User messages may include content. Assistant messages may include the model, token usage, and cost statistics. Tool execution results may include the tool name and execution status. Cost statistics are returned as-is from the log source, and this operation does not perform currency conversion.
        *
        * @param request DescribeApplicationSessionLogsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3785,7 +3785,7 @@ namespace Polardb20170801
       /**
        * @summary Queries the session logs of a specified application, supports filtering by agent, session, and role, and returns paginated log records.
        *
-       * @description Logs for different roles may contain different fields. User messages may include Content. Assistant messages may include the model, token usage, and cost statistics. Tool execution results may include the tool name and execution status. Cost statistics are returned exactly as provided by the log source, and this API operation does not perform currency conversion.
+       * @description The fields included in logs may vary by role. User messages may include content. Assistant messages may include the model, token usage, and cost statistics. Tool execution results may include the tool name and execution status. Cost statistics are returned as-is from the log source, and this operation does not perform currency conversion.
        *
        * @param request DescribeApplicationSessionLogsRequest
        * @return DescribeApplicationSessionLogsResponse
@@ -4876,7 +4876,7 @@ namespace Polardb20170801
       Models::DescribeDasConfigResponse describeDasConfig(const Models::DescribeDasConfigRequest &request);
 
       /**
-       * @summary Queries the status, data source, destination database, and processing configuration of a specified data processing job.
+       * @summary Queries the status, data source, destination database, and processing configuration of a specified data processing task.
        *
        * @param request DescribeDataProcessJobAttributeRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -4885,7 +4885,7 @@ namespace Polardb20170801
       Models::DescribeDataProcessJobAttributeResponse describeDataProcessJobAttributeWithOptions(const Models::DescribeDataProcessJobAttributeRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the status, data source, destination database, and processing configuration of a specified data processing job.
+       * @summary Queries the status, data source, destination database, and processing configuration of a specified data processing task.
        *
        * @param request DescribeDataProcessJobAttributeRequest
        * @return DescribeDataProcessJobAttributeResponse
@@ -4910,7 +4910,7 @@ namespace Polardb20170801
       Models::DescribeDataProcessJobTemplatesResponse describeDataProcessJobTemplates(const Models::DescribeDataProcessJobTemplatesRequest &request);
 
       /**
-       * @summary Queries the data processing jobs of a specified PolarFS instance, with support for filtering by job ID and pagination.
+       * @summary Queries the data processing jobs of a specified PolarFS instance. You can filter the jobs by job ID and paginate the results.
        *
        * @param request DescribeDataProcessJobsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -4919,7 +4919,7 @@ namespace Polardb20170801
       Models::DescribeDataProcessJobsResponse describeDataProcessJobsWithOptions(const Models::DescribeDataProcessJobsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the data processing jobs of a specified PolarFS instance, with support for filtering by job ID and pagination.
+       * @summary Queries the data processing jobs of a specified PolarFS instance. You can filter the jobs by job ID and paginate the results.
        *
        * @param request DescribeDataProcessJobsRequest
        * @return DescribeDataProcessJobsResponse
@@ -5328,7 +5328,7 @@ namespace Polardb20170801
       Models::DescribeHistoryTasksStatResponse describeHistoryTasksStat(const Models::DescribeHistoryTasksStatRequest &request);
 
       /**
-       * @summary Queries a list of reports for a specified inspection task. Supports time-based filtering and pagination.
+       * @summary Queries the reports of a specified inspection task. You can filter the reports by time and return the report details in a paginated format.
        *
        * @param request DescribeInspectionReportListRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -5337,7 +5337,7 @@ namespace Polardb20170801
       Models::DescribeInspectionReportListResponse describeInspectionReportListWithOptions(const Models::DescribeInspectionReportListRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries a list of reports for a specified inspection task. Supports time-based filtering and pagination.
+       * @summary Queries the reports of a specified inspection task. You can filter the reports by time and return the report details in a paginated format.
        *
        * @param request DescribeInspectionReportListRequest
        * @return DescribeInspectionReportListResponse
@@ -5362,7 +5362,7 @@ namespace Polardb20170801
       Models::DescribeInspectionTaskAttributeResponse describeInspectionTaskAttribute(const Models::DescribeInspectionTaskAttributeRequest &request);
 
       /**
-       * @summary Queries inspection tasks, their execution plans, and associated clusters by paging based on the inspection space.
+       * @summary Queries inspection tasks, their execution plans, and associated clusters by paging based on the inspection workspace.
        *
        * @param request DescribeInspectionTaskListRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -5371,7 +5371,7 @@ namespace Polardb20170801
       Models::DescribeInspectionTaskListResponse describeInspectionTaskListWithOptions(const Models::DescribeInspectionTaskListRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries inspection tasks, their execution plans, and associated clusters by paging based on the inspection space.
+       * @summary Queries inspection tasks, their execution plans, and associated clusters by paging based on the inspection workspace.
        *
        * @param request DescribeInspectionTaskListRequest
        * @return DescribeInspectionTaskListResponse
@@ -5379,7 +5379,7 @@ namespace Polardb20170801
       Models::DescribeInspectionTaskListResponse describeInspectionTaskList(const Models::DescribeInspectionTaskListRequest &request);
 
       /**
-       * @summary Queries the overall score, status, and check results of an instance inspection report based on the report ID.
+       * @summary Queries the overall score, status, and inspection results of an instance inspection report based on the report ID.
        *
        * @param request DescribeInstanceReportAttributeRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -5388,7 +5388,7 @@ namespace Polardb20170801
       Models::DescribeInstanceReportAttributeResponse describeInstanceReportAttributeWithOptions(const Models::DescribeInstanceReportAttributeRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the overall score, status, and check results of an instance inspection report based on the report ID.
+       * @summary Queries the overall score, status, and inspection results of an instance inspection report based on the report ID.
        *
        * @param request DescribeInstanceReportAttributeRequest
        * @return DescribeInstanceReportAttributeResponse
@@ -6165,7 +6165,7 @@ namespace Polardb20170801
       Models::DescribePolarClawSkillTemplateResponse describePolarClawSkillTemplate(const Models::DescribePolarClawSkillTemplateRequest &request);
 
       /**
-       * @summary Queries PolarClaw skill templates. You can filter the templates by template ID and time range, and the results are paginated.
+       * @summary Queries a list of PolarClaw skill templates. You can filter the results by template ID and time range, and the results are returned in pages.
        *
        * @param request DescribePolarClawSkillTemplatesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -6174,7 +6174,7 @@ namespace Polardb20170801
       Models::DescribePolarClawSkillTemplatesResponse describePolarClawSkillTemplatesWithOptions(const Models::DescribePolarClawSkillTemplatesRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries PolarClaw skill templates. You can filter the templates by template ID and time range, and the results are paginated.
+       * @summary Queries a list of PolarClaw skill templates. You can filter the results by template ID and time range, and the results are returned in pages.
        *
        * @param request DescribePolarClawSkillTemplatesRequest
        * @return DescribePolarClawSkillTemplatesResponse
@@ -9207,7 +9207,7 @@ namespace Polardb20170801
       Models::RefreshDBClusterStorageUsageResponse refreshDBClusterStorageUsage(const Models::RefreshDBClusterStorageUsageRequest &request);
 
       /**
-       * @summary Modifies the proxy performance level of a specified PolarDB cluster and supports scheduled execution.
+       * @summary Modifies the proxy performance level of a specified PolarDB cluster. You can schedule the execution time.
        *
        * @param request RefreshProxyLevelRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -9216,7 +9216,7 @@ namespace Polardb20170801
       Models::RefreshProxyLevelResponse refreshProxyLevelWithOptions(const Models::RefreshProxyLevelRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Modifies the proxy performance level of a specified PolarDB cluster and supports scheduled execution.
+       * @summary Modifies the proxy performance level of a specified PolarDB cluster. You can schedule the execution time.
        *
        * @param request RefreshProxyLevelRequest
        * @return RefreshProxyLevelResponse

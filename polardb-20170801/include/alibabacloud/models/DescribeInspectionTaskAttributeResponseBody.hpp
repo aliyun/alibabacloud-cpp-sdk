@@ -105,7 +105,7 @@ namespace Models
   protected:
     // The creation date of the inspection task.
     shared_ptr<string> createTime_ {};
-    // The cron expression for scheduling periodic inspections.
+    // The cron expression for periodic inspections.
     shared_ptr<string> cronExpression_ {};
     // The IDs of the PolarDB clusters to be inspected. Separate multiple IDs with commas.
     shared_ptr<string> DBClusterIds_ {};

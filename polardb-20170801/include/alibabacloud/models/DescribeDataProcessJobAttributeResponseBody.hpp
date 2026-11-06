@@ -176,7 +176,7 @@ namespace Models
 
 
   protected:
-    // The time when the job was created, in RFC 3339 format.
+    // The time when the task was created, in RFC 3339 format.
     shared_ptr<string> creationTime_ {};
     // The JSON string of the destination database connection configuration.
     shared_ptr<string> destinationConfig_ {};
@@ -184,15 +184,15 @@ namespace Models
     shared_ptr<string> destinationId_ {};
     // The name of the destination database.
     shared_ptr<string> destinationPath_ {};
-    // The destination type. Currently, only PolarDB is supported.
+    // The type of the destination. Currently, only PolarDB is supported.
     shared_ptr<string> destinationType_ {};
-    // The ID of the data processing job.
+    // The ID of the data processing task.
     shared_ptr<string> jobId_ {};
     // The name of the model used for feature extraction.
     shared_ptr<string> modelName_ {};
     // The data processing mode. Valid values: Full, Incremental, and Both.
     shared_ptr<string> processingMode_ {};
-    // The ID of the region where the data processing job is located.
+    // The region ID of the region where the data processing task is located.
     shared_ptr<string> regionId_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
@@ -200,11 +200,11 @@ namespace Models
     shared_ptr<string> sourceId_ {};
     // The source data path in PolarFS.
     shared_ptr<string> sourcePath_ {};
-    // The data source type. Currently, only PolarFS is supported.
+    // The type of the data source. Currently, only PolarFS is supported.
     shared_ptr<string> sourceType_ {};
-    // The status of the data processing job.
+    // The status of the data processing task.
     shared_ptr<string> status_ {};
-    // The ID of the template used by the job.
+    // The ID of the template used by the task.
     shared_ptr<string> templateId_ {};
     // The node templatetype. Currently, only image is supported.
     shared_ptr<string> templateType_ {};

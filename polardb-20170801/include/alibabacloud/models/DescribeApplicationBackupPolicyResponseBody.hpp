@@ -84,7 +84,7 @@ namespace Models
 
 
   protected:
-    // The ID of the application.
+    // The application ID.
     shared_ptr<string> applicationId_ {};
     // The application type, such as polarclaw.
     shared_ptr<string> applicationType_ {};
@@ -92,7 +92,7 @@ namespace Models
     shared_ptr<string> preferredBackupPeriod_ {};
     // The retention period of level-1 backups, in days.
     shared_ptr<int32_t> preferredBackupRetentionPeriod_ {};
-    // The time window when automatic backups are performed. The time follows the HH:mmZ-HH:mmZ format in UTC.
+    // The time period when automatic backups are performed. The time is in the HH:mmZ-HH:mmZ format and in UTC.
     shared_ptr<string> preferredBackupTime_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

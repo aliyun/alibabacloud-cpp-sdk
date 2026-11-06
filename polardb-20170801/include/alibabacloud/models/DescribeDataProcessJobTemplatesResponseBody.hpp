@@ -149,15 +149,15 @@ namespace Models
 
 
     protected:
-      // Specifies whether it is required to fetch the summary or video synopsis.
+      // Specifies whether it is to fetch the image summary or video synopsis.
       shared_ptr<bool> captioning_ {};
       // The prompt used when extracting captions.
       shared_ptr<string> captioningPrompt_ {};
       // The time when the task template was created, in RFC 3339 format.
       shared_ptr<string> creationTime_ {};
-      // Specifies whether to convert content into vectors.
+      // Indicates whether content is converted into vectors.
       shared_ptr<bool> embedding_ {};
-      // The output dimension of the vector.
+      // The vector output dimensions.
       shared_ptr<int32_t> embeddingDimension_ {};
       // The task template status.
       shared_ptr<string> status_ {};

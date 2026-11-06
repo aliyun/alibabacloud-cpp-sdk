@@ -1661,10 +1661,10 @@ CheckKMSAuthorizedResponse Client::checkKMSAuthorized(const CheckKMSAuthorizedRe
 }
 
 /**
- * @summary Prechecks a skill.
+ * @summary Pre-checks a skill.
  *
  * @description ## Request description
- * This operation prechecks a skill before it is uploaded to a PolarClaw instance.
+ * This operation pre-validates a skill before uploading it to a PolarClaw instance.
  *
  * @param request CheckPolarClawSkillRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1727,10 +1727,10 @@ CheckPolarClawSkillResponse Client::checkPolarClawSkillWithOptions(const CheckPo
 }
 
 /**
- * @summary Prechecks a skill.
+ * @summary Pre-checks a skill.
  *
  * @description ## Request description
- * This operation prechecks a skill before it is uploaded to a PolarClaw instance.
+ * This operation pre-validates a skill before uploading it to a PolarClaw instance.
  *
  * @param request CheckPolarClawSkillRequest
  * @return CheckPolarClawSkillResponse
@@ -5107,7 +5107,7 @@ CreateDBNodesResponse Client::createDBNodes(const CreateDBNodesRequest &request)
 }
 
 /**
- * @summary Creates a task to process data in PolarFS based on a specified template and write it to a PolarDB database.
+ * @summary Creates a task to process data in PolarFS based on a specified template and write the data to a PolarDB database.
  *
  * @param request CreateDataProcessJobRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -5186,7 +5186,7 @@ CreateDataProcessJobResponse Client::createDataProcessJobWithOptions(const Creat
 }
 
 /**
- * @summary Creates a task to process data in PolarFS based on a specified template and write it to a PolarDB database.
+ * @summary Creates a task to process data in PolarFS based on a specified template and write the data to a PolarDB database.
  *
  * @param request CreateDataProcessJobRequest
  * @return CreateDataProcessJobResponse
@@ -7057,7 +7057,7 @@ CreatePolarClawCronJobResponse Client::createPolarClawCronJob(const CreatePolarC
 }
 
 /**
- * @summary 上传skill
+ * @summary Uploads a skill.
  *
  * @param request CreatePolarClawSkillRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -7124,7 +7124,7 @@ CreatePolarClawSkillResponse Client::createPolarClawSkillWithOptions(const Creat
 }
 
 /**
- * @summary 上传skill
+ * @summary Uploads a skill.
  *
  * @param request CreatePolarClawSkillRequest
  * @return CreatePolarClawSkillResponse
@@ -13210,7 +13210,7 @@ DescribeApplicationAvailableModelsResponse Client::describeApplicationAvailableM
 }
 
 /**
- * @summary Queries the list of versions to which a specified application type can be upgraded.
+ * @summary Queries the upgradable versions for a specified application type.
  *
  * @param tmpReq DescribeApplicationAvailableVersionRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -13259,7 +13259,7 @@ DescribeApplicationAvailableVersionResponse Client::describeApplicationAvailable
 }
 
 /**
- * @summary Queries the list of versions to which a specified application type can be upgraded.
+ * @summary Queries the upgradable versions for a specified application type.
  *
  * @param request DescribeApplicationAvailableVersionRequest
  * @return DescribeApplicationAvailableVersionResponse
@@ -13320,7 +13320,7 @@ DescribeApplicationBackupPolicyResponse Client::describeApplicationBackupPolicy(
 }
 
 /**
- * @summary Queries the backup sets of a specified application by time range and backup status, and returns the backup details in a paginated list.
+ * @summary Queries the backup sets of a specified application by time range and backup status, and returns paginated backup details.
  *
  * @param request DescribeApplicationBackupsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -13379,7 +13379,7 @@ DescribeApplicationBackupsResponse Client::describeApplicationBackupsWithOptions
 }
 
 /**
- * @summary Queries the backup sets of a specified application by time range and backup status, and returns the backup details in a paginated list.
+ * @summary Queries the backup sets of a specified application by time range and backup status, and returns paginated backup details.
  *
  * @param request DescribeApplicationBackupsRequest
  * @return DescribeApplicationBackupsResponse
@@ -13912,7 +13912,7 @@ DescribeApplicationSessionIdsResponse Client::describeApplicationSessionIds(cons
 /**
  * @summary Queries the session logs of a specified application, supports filtering by agent, session, and role, and returns paginated log records.
  *
- * @description Logs for different roles may contain different fields. User messages may include Content. Assistant messages may include the model, token usage, and cost statistics. Tool execution results may include the tool name and execution status. Cost statistics are returned exactly as provided by the log source, and this API operation does not perform currency conversion.
+ * @description The fields included in logs may vary by role. User messages may include content. Assistant messages may include the model, token usage, and cost statistics. Tool execution results may include the tool name and execution status. Cost statistics are returned as-is from the log source, and this operation does not perform currency conversion.
  *
  * @param request DescribeApplicationSessionLogsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -13993,7 +13993,7 @@ DescribeApplicationSessionLogsResponse Client::describeApplicationSessionLogsWit
 /**
  * @summary Queries the session logs of a specified application, supports filtering by agent, session, and role, and returns paginated log records.
  *
- * @description Logs for different roles may contain different fields. User messages may include Content. Assistant messages may include the model, token usage, and cost statistics. Tool execution results may include the tool name and execution status. Cost statistics are returned exactly as provided by the log source, and this API operation does not perform currency conversion.
+ * @description The fields included in logs may vary by role. User messages may include content. Assistant messages may include the model, token usage, and cost statistics. Tool execution results may include the tool name and execution status. Cost statistics are returned as-is from the log source, and this operation does not perform currency conversion.
  *
  * @param request DescribeApplicationSessionLogsRequest
  * @return DescribeApplicationSessionLogsResponse
@@ -18074,7 +18074,7 @@ DescribeDasConfigResponse Client::describeDasConfig(const DescribeDasConfigReque
 }
 
 /**
- * @summary Queries the status, data source, destination database, and processing configuration of a specified data processing job.
+ * @summary Queries the status, data source, destination database, and processing configuration of a specified data processing task.
  *
  * @param request DescribeDataProcessJobAttributeRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -18109,7 +18109,7 @@ DescribeDataProcessJobAttributeResponse Client::describeDataProcessJobAttributeW
 }
 
 /**
- * @summary Queries the status, data source, destination database, and processing configuration of a specified data processing job.
+ * @summary Queries the status, data source, destination database, and processing configuration of a specified data processing task.
  *
  * @param request DescribeDataProcessJobAttributeRequest
  * @return DescribeDataProcessJobAttributeResponse
@@ -18178,7 +18178,7 @@ DescribeDataProcessJobTemplatesResponse Client::describeDataProcessJobTemplates(
 }
 
 /**
- * @summary Queries the data processing jobs of a specified PolarFS instance, with support for filtering by job ID and pagination.
+ * @summary Queries the data processing jobs of a specified PolarFS instance. You can filter the jobs by job ID and paginate the results.
  *
  * @param request DescribeDataProcessJobsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -18225,7 +18225,7 @@ DescribeDataProcessJobsResponse Client::describeDataProcessJobsWithOptions(const
 }
 
 /**
- * @summary Queries the data processing jobs of a specified PolarFS instance, with support for filtering by job ID and pagination.
+ * @summary Queries the data processing jobs of a specified PolarFS instance. You can filter the jobs by job ID and paginate the results.
  *
  * @param request DescribeDataProcessJobsRequest
  * @return DescribeDataProcessJobsResponse
@@ -19777,7 +19777,7 @@ DescribeHistoryTasksStatResponse Client::describeHistoryTasksStat(const Describe
 }
 
 /**
- * @summary Queries a list of reports for a specified inspection task. Supports time-based filtering and pagination.
+ * @summary Queries the reports of a specified inspection task. You can filter the reports by time and return the report details in a paginated format.
  *
  * @param request DescribeInspectionReportListRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -19828,7 +19828,7 @@ DescribeInspectionReportListResponse Client::describeInspectionReportListWithOpt
 }
 
 /**
- * @summary Queries a list of reports for a specified inspection task. Supports time-based filtering and pagination.
+ * @summary Queries the reports of a specified inspection task. You can filter the reports by time and return the report details in a paginated format.
  *
  * @param request DescribeInspectionReportListRequest
  * @return DescribeInspectionReportListResponse
@@ -19885,7 +19885,7 @@ DescribeInspectionTaskAttributeResponse Client::describeInspectionTaskAttribute(
 }
 
 /**
- * @summary Queries inspection tasks, their execution plans, and associated clusters by paging based on the inspection space.
+ * @summary Queries inspection tasks, their execution plans, and associated clusters by paging based on the inspection workspace.
  *
  * @param request DescribeInspectionTaskListRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -19928,7 +19928,7 @@ DescribeInspectionTaskListResponse Client::describeInspectionTaskListWithOptions
 }
 
 /**
- * @summary Queries inspection tasks, their execution plans, and associated clusters by paging based on the inspection space.
+ * @summary Queries inspection tasks, their execution plans, and associated clusters by paging based on the inspection workspace.
  *
  * @param request DescribeInspectionTaskListRequest
  * @return DescribeInspectionTaskListResponse
@@ -19939,7 +19939,7 @@ DescribeInspectionTaskListResponse Client::describeInspectionTaskList(const Desc
 }
 
 /**
- * @summary Queries the overall score, status, and check results of an instance inspection report based on the report ID.
+ * @summary Queries the overall score, status, and inspection results of an instance inspection report based on the report ID.
  *
  * @param request DescribeInstanceReportAttributeRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -19974,7 +19974,7 @@ DescribeInstanceReportAttributeResponse Client::describeInstanceReportAttributeW
 }
 
 /**
- * @summary Queries the overall score, status, and check results of an instance inspection report based on the report ID.
+ * @summary Queries the overall score, status, and inspection results of an instance inspection report based on the report ID.
  *
  * @param request DescribeInstanceReportAttributeRequest
  * @return DescribeInstanceReportAttributeResponse
@@ -22535,7 +22535,7 @@ DescribePolarClawSkillTemplateResponse Client::describePolarClawSkillTemplate(co
 }
 
 /**
- * @summary Queries PolarClaw skill templates. You can filter the templates by template ID and time range, and the results are paginated.
+ * @summary Queries a list of PolarClaw skill templates. You can filter the results by template ID and time range, and the results are returned in pages.
  *
  * @param request DescribePolarClawSkillTemplatesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -22594,7 +22594,7 @@ DescribePolarClawSkillTemplatesResponse Client::describePolarClawSkillTemplatesW
 }
 
 /**
- * @summary Queries PolarClaw skill templates. You can filter the templates by template ID and time range, and the results are paginated.
+ * @summary Queries a list of PolarClaw skill templates. You can filter the results by template ID and time range, and the results are returned in pages.
  *
  * @param request DescribePolarClawSkillTemplatesRequest
  * @return DescribePolarClawSkillTemplatesResponse
@@ -33928,7 +33928,7 @@ RefreshDBClusterStorageUsageResponse Client::refreshDBClusterStorageUsage(const 
 }
 
 /**
- * @summary Modifies the proxy performance level of a specified PolarDB cluster and supports scheduled execution.
+ * @summary Modifies the proxy performance level of a specified PolarDB cluster. You can schedule the execution time.
  *
  * @param request RefreshProxyLevelRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -33995,7 +33995,7 @@ RefreshProxyLevelResponse Client::refreshProxyLevelWithOptions(const RefreshProx
 }
 
 /**
- * @summary Modifies the proxy performance level of a specified PolarDB cluster and supports scheduled execution.
+ * @summary Modifies the proxy performance level of a specified PolarDB cluster. You can schedule the execution time.
  *
  * @param request RefreshProxyLevelRequest
  * @return RefreshProxyLevelResponse

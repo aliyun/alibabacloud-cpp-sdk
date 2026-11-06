@@ -153,13 +153,13 @@ namespace Models
       shared_ptr<string> budgetDimensionType_ {};
       // The number of budget points set by the policy.
       shared_ptr<string> budgetPoints_ {};
-      // The ID of the budget policy.
+      // The budget policy ID.
       shared_ptr<string> budgetPolicyId_ {};
       // The budget type.
       shared_ptr<string> budgetType_ {};
       // The day of the month when the budget is reset. For example, 1 indicates the first day of each month.
       shared_ptr<string> resetDayOfMonth_ {};
-      // The status of the budget policy.
+      // The budget policy status.
       shared_ptr<string> status_ {};
     };
 
@@ -266,7 +266,7 @@ namespace Models
     shared_ptr<string> gmtCreated_ {};
     // The last modification time of the budget usage record in RFC 3339 UTC format.
     shared_ptr<string> gmtModified_ {};
-    // The ID of the gateway instance.
+    // The gateway instance ID.
     shared_ptr<string> gwClusterId_ {};
     // The list of associated budget policies.
     shared_ptr<vector<DescribeBudgetUsageResponseBody::Policies>> policies_ {};

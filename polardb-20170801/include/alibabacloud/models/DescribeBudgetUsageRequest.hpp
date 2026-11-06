@@ -70,7 +70,7 @@ namespace Models
     shared_ptr<string> budgetDimensionRefId_ {};
     // The budget dimension type.
     shared_ptr<string> budgetDimensionType_ {};
-    // The ID of the gateway instance to query.
+    // The ID of the gateway instance.
     shared_ptr<string> gwClusterId_ {};
     // The region ID of the gateway instance.
     shared_ptr<string> regionId_ {};

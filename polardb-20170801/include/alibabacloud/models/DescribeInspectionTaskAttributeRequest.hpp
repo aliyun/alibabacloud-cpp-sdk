@@ -48,7 +48,7 @@ namespace Models
 
 
   protected:
-    // The ID of the region where the task is located.
+    // The ID of the region where the task resides.
     shared_ptr<string> regionId_ {};
     // The ID of the inspection task to query. This parameter is required.
     shared_ptr<string> taskId_ {};

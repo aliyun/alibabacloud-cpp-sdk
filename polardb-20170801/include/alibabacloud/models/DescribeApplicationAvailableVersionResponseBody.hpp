@@ -101,7 +101,7 @@ namespace Models
     protected:
       // The release date.
       shared_ptr<string> releaseDate_ {};
-      // The release notes of the version.
+      // The release notes.
       shared_ptr<string> releaseNote_ {};
       // The release type.
       shared_ptr<string> releaseType_ {};

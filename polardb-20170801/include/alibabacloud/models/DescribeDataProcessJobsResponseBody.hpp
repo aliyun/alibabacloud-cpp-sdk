@@ -185,7 +185,7 @@ namespace Models
       shared_ptr<string> destinationId_ {};
       // The name of the destination database.
       shared_ptr<string> destinationPath_ {};
-      // The destination type. Currently, only PolarDB is supported.
+      // The type of the destination. Currently, only PolarDB is supported.
       shared_ptr<string> destinationType_ {};
       // The ID of the data processing job.
       shared_ptr<string> jobId_ {};
@@ -253,7 +253,7 @@ namespace Models
     shared_ptr<string> pageRecordCount_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The total number of jobs that meet the query conditions.
+    // The total number of jobs that match the query conditions.
     shared_ptr<string> totalRecordCount_ {};
   };
 

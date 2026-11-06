@@ -70,7 +70,7 @@ namespace Models
 
 
     protected:
-      // The category of the system event. For example, Exception indicates an exception event.
+      // The system event category. For example, Exception indicates an exception event.
       shared_ptr<string> eventCategory_ {};
       // The number of events in the event category.
       shared_ptr<int32_t> totalCount_ {};

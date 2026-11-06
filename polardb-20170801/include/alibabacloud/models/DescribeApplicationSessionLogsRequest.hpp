@@ -149,7 +149,7 @@ namespace Models
 
 
   protected:
-    // The agent name. This parameter must be specified together with the SessionId parameter, or neither of them is specified.
+    // The agent name. This parameter must be specified together with the SessionId parameter, or neither is specified.
     shared_ptr<string> agent_ {};
     // The application ID.
     // 
@@ -170,15 +170,15 @@ namespace Models
     // This parameter is required.
     shared_ptr<string> regionId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
-    // The role filter for logs. Valid values: user, assistant, and toolResult.
+    // The role filter for logs. A value of user indicates a user, assistant indicates an assistant, and toolResult indicates a tool execution result.
     shared_ptr<string> role_ {};
-    // The session ID. This parameter must be specified together with the Agent parameter, or neither of them is specified.
+    // The session ID. This parameter must be specified together with the Agent parameter, or neither is specified.
     shared_ptr<string> sessionId_ {};
     // The start time of the query. Specify the time in the ISO 8601 standard in the YYYY-MM-DDTHH:mmZ format. The time must be in UTC. The start time cannot be later than the current time, and the interval between the start time and the current time cannot exceed 31 days.
     // 
     // This parameter is required.
     shared_ptr<string> startTime_ {};
-    // The log type. This API operation only queries session logs. Set the value to session.
+    // The log type. This operation only queries session logs.
     shared_ptr<string> type_ {};
   };
 

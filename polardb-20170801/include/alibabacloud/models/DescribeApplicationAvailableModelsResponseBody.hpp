@@ -869,7 +869,7 @@ namespace Models
     shared_ptr<string> defaultMemoryType_ {};
     // The default reranking model.
     shared_ptr<DescribeApplicationAvailableModelsResponseBody::DefaultRerankModel> defaultRerankModel_ {};
-    // The default vision-language model.
+    // The default visual language model.
     shared_ptr<DescribeApplicationAvailableModelsResponseBody::DefaultVLModel> defaultVLModel_ {};
     // The default VisualEmbedder model.
     shared_ptr<DescribeApplicationAvailableModelsResponseBody::DefaultVisualEmbedderModel> defaultVisualEmbedderModel_ {};
@@ -889,7 +889,7 @@ namespace Models
     shared_ptr<string> requestId_ {};
     // The list of available reranking models.
     shared_ptr<vector<DescribeApplicationAvailableModelsResponseBody::RerankModels>> rerankModels_ {};
-    // The list of available vision-language models.
+    // The list of available visual language models.
     shared_ptr<vector<DescribeApplicationAvailableModelsResponseBody::VLModels>> VLModels_ {};
     // The list of available VisualEmbedder models.
     shared_ptr<vector<DescribeApplicationAvailableModelsResponseBody::VisualEmbedderModels>> visualEmbedderModels_ {};

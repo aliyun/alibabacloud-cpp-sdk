@@ -212,7 +212,7 @@ namespace Models
     shared_ptr<string> pageSize_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The skill templates.
+    // The skill template group.
     shared_ptr<vector<DescribePolarClawSkillTemplatesResponseBody::SkillTemplates>> skillTemplates_ {};
     // The total number of entries. This parameter is returned only when you query a list.
     shared_ptr<string> totalCount_ {};

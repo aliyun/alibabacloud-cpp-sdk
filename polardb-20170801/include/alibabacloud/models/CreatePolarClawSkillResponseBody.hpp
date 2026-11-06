@@ -57,8 +57,11 @@ namespace Models
 
 
   protected:
+    // Used for system scheduled task checks. Modifications are not supported for the current scheduled task.
     shared_ptr<string> isUpdate_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // The name of the skill.
     shared_ptr<string> skillName_ {};
   };
 

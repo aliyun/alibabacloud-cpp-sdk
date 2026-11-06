@@ -70,9 +70,9 @@ namespace Models
     shared_ptr<int64_t> pageNumber_ {};
     // The number of entries to return on each page. Default value: 30.
     shared_ptr<int64_t> pageSize_ {};
-    // The ID of the region where the task is located.
+    // The region ID of the region where the task is located.
     shared_ptr<string> regionId_ {};
-    // The ID of the inspection space used to filter tasks.
+    // The ID of the inspection workspace, which is used to filter tasks.
     shared_ptr<string> spaceId_ {};
   };
 

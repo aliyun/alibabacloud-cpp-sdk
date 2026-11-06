@@ -112,19 +112,19 @@ namespace Models
 
 
   protected:
-    // The region ID of the OSS bucket where the skill files are stored.
+    // The region ID of the OSS bucket that stores the skill files.
     shared_ptr<string> bucketRegionId_ {};
     // The type of the bucket used for skill files. UserOwned indicates a user-owned bucket. Hosted indicates a hosted bucket. You must have the required permissions to use a hosted bucket.
     shared_ptr<string> bucketType_ {};
-    // The name of the OSS bucket to be unbound.
+    // The name of the OSS bucket to be disassociated.
     shared_ptr<string> OSSBucket_ {};
     // The region ID.
     shared_ptr<string> regionId_ {};
-    // The name of the skill.
+    // The skill name.
     // 
     // This parameter is required.
     shared_ptr<string> skillName_ {};
-    // The version number of the skill.
+    // The skill version number.
     // 
     // This parameter is required.
     shared_ptr<string> skillVersion_ {};

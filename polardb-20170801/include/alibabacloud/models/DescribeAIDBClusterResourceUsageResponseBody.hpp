@@ -159,9 +159,9 @@ namespace Models
         shared_ptr<string> nameSpace_ {};
         // The IP address of the pod.
         shared_ptr<string> podIP_ {};
-        // The requested resources of the pod.
+        // The resource configuration requested by the pod.
         shared_ptr<string> resourceRequest_ {};
-        // The status of the pod.
+        // The running status of the pod.
         shared_ptr<string> status_ {};
       };
 
@@ -241,25 +241,25 @@ namespace Models
 
 
     protected:
-      // The total CPU capacity of the node.
+      // The total CPU resources of the node.
       shared_ptr<string> CPU_ {};
-      // The used CPU capacity of the node.
+      // The amount of CPU resources used on the node.
       shared_ptr<string> CPUUsed_ {};
       // The ID of the database node.
       shared_ptr<string> DBNodeId_ {};
-      // The total GPU capacity of the node.
+      // The total GPU resources of the node.
       shared_ptr<string> GPU_ {};
       // The GPU model of the node.
       shared_ptr<string> GPUModel_ {};
-      // The used GPU capacity of the node.
+      // The amount of GPU resources used on the node.
       shared_ptr<string> GPUUsed_ {};
-      // The total memory capacity of the node.
+      // The total memory of the node.
       shared_ptr<string> memory_ {};
-      // The used memory capacity of the node.
+      // The amount of memory used on the node.
       shared_ptr<string> memoryUsed_ {};
-      // The resource information of the pods on the node.
+      // The list of resource information for the pods on the node.
       shared_ptr<vector<NodeItems::PodItems>> podItems_ {};
-      // The ID of the virtual node associated with the database node.
+      // The ID of the virtual node corresponding to the database node.
       shared_ptr<string> VNodeId_ {};
     };
 
@@ -316,9 +316,9 @@ namespace Models
     shared_ptr<string> DBClusterId_ {};
     // The database engine of the cluster.
     shared_ptr<string> engine_ {};
-    // The DPI engine version of the cluster.
+    // The database engine version of the cluster.
     shared_ptr<string> engineVersion_ {};
-    // The resource usage information of the nodes in the cluster.
+    // The list of resource usage details for the nodes in the cluster.
     shared_ptr<vector<DescribeAIDBClusterResourceUsageResponseBody::NodeItems>> nodeItems_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

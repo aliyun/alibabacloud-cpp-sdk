@@ -121,19 +121,36 @@ namespace Models
 
 
   protected:
+    // The ID of the region where the OSS bucket that stores the skill files resides.
     shared_ptr<string> bucketRegionId_ {};
+    // The type of the bucket used for skill files. UserOwned indicates a user-owned bucket. Hosted indicates a hosted bucket. You must have the required permissions to use a hosted bucket.
     shared_ptr<string> bucketType_ {};
+    // The name of the OSS bucket that resides in the same region as the current project.
+    // 
     // This parameter is required.
     shared_ptr<string> OSSBucket_ {};
+    // The prefix of the OSS object. The prefix can contain digits and letters and must be 1 to 30 characters in length.
+    // 
     // This parameter is required.
     shared_ptr<string> OSSPrefix_ {};
+    // The ID of the region where the parameter template resides.
+    // 
+    // > You can call the [DescribeRegions](https://help.aliyun.com/document_detail/98041.html) operation to query region IDs.
     shared_ptr<string> regionId_ {};
+    // The name of the skill.
+    // 
     // This parameter is required.
     shared_ptr<string> skillName_ {};
+    // The version of the skill.
+    // 
     // This parameter is required.
     shared_ptr<string> skillVersion_ {};
+    // The brief description of the skill.
     shared_ptr<string> summary_ {};
+    // The tag details.
     shared_ptr<string> tags_ {};
+    // The title.
+    // 
     // This parameter is required.
     shared_ptr<string> title_ {};
   };

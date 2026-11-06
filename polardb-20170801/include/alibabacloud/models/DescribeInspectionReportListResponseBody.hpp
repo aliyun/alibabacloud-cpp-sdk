@@ -135,13 +135,13 @@ namespace Models
 
 
       protected:
-        // The number of check items at the Critical level.
+        // The number of check items at the critical level.
         shared_ptr<int64_t> critical_ {};
-        // The number of check items at the Info level.
+        // The number of check items at the info level.
         shared_ptr<int64_t> info_ {};
-        // The number of check items at the Normal level.
+        // The number of normal check items.
         shared_ptr<int64_t> normal_ {};
-        // The number of check items at the Warning level.
+        // The number of check items at the warning level.
         shared_ptr<int64_t> warning_ {};
       };
 
@@ -230,7 +230,7 @@ namespace Models
     protected:
       // The ID of the inspected PolarDB cluster.
       shared_ptr<string> DBClusterId_ {};
-      // Indicates whether this is the latest inspection report. The value is returned as a string.
+      // Indicates whether the inspection report is the latest report. The value is returned as a string.
       shared_ptr<string> latest_ {};
       // The region ID of the inspected cluster.
       shared_ptr<string> regionId_ {};
@@ -301,7 +301,7 @@ namespace Models
   protected:
     // The current page number.
     shared_ptr<int64_t> pageNumber_ {};
-    // The number of entries per page.
+    // The number of entries returned per page.
     shared_ptr<int64_t> pageSize_ {};
     // The list of inspection reports.
     shared_ptr<vector<DescribeInspectionReportListResponseBody::ReportItems>> reportItems_ {};

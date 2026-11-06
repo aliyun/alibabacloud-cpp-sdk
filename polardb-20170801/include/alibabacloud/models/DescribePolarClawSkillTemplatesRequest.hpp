@@ -107,17 +107,17 @@ namespace Models
     shared_ptr<string> applicationId_ {};
     // The application type.
     // 
-    // > If this is your first time calling this operation, you do not need to specify this parameter.
+    // > If you are calling this operation for the first time, you do not need to specify this parameter.
     shared_ptr<string> applicationType_ {};
     // The end time of the query in UTC.
     shared_ptr<string> endTime_ {};
-    // The page number.
+    // The current page number.
     shared_ptr<int32_t> pageNumber_ {};
     // The number of entries per page.
     shared_ptr<int32_t> pageSize_ {};
     // The region ID.
     // 
-    // > You can call the [DescribeRegions](https://help.aliyun.com/document_detail/98041.html) operation to view all available regions for the current account, including region IDs.
+    // > You can call the [DescribeRegions](https://help.aliyun.com/document_detail/98041.html) operation to query all available regions for the current account, including region IDs.
     shared_ptr<string> regionId_ {};
     // The skill template ID.
     shared_ptr<string> skillTemplateId_ {};

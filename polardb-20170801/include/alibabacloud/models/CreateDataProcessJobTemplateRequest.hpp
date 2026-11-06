@@ -103,9 +103,9 @@ namespace Models
 
 
   protected:
-    // Specifies whether to fetch the image summary or video synopsis. When Settings is set to true, CaptioningPrompt must be specified.
+    // Specifies whether to fetch the image summary or video synopsis. When Settings is true, CaptioningPrompt must be provided.
     shared_ptr<bool> captioning_ {};
-    // The prompt used for extracting summaries. This parameter takes effect only when Captioning is set to true.
+    // The prompt used for extracting captions. This parameter takes effect only when Captioning is set to true.
     shared_ptr<string> captioningPrompt_ {};
     // Specifies whether to convert the content into vectors.
     shared_ptr<bool> embedding_ {};
@@ -121,7 +121,7 @@ namespace Models
     shared_ptr<string> templateConfig_ {};
     // The name of the task template.
     shared_ptr<string> templateName_ {};
-    // The templatetype of the node. Valid values: image.
+    // The templatetype of the node template. Valid value: image.
     // 
     // This parameter is required.
     shared_ptr<string> templateType_ {};

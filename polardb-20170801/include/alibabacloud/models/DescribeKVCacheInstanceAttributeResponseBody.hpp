@@ -162,7 +162,7 @@ namespace Models
     shared_ptr<string> connectionString_ {};
     // The time when the instance was created, in ISO 8601 format.
     shared_ptr<string> creationTime_ {};
-    // The time when the instance expires, in ISO 8601 format. An empty character string is returned for pay-as-you-go instances.
+    // The time when the instance expires, in ISO 8601 format. An empty string is returned for pay-as-you-go instances.
     shared_ptr<string> expireTime_ {};
     // Indicates whether the instance has expired.
     shared_ptr<string> expired_ {};

@@ -100,11 +100,11 @@ namespace Models
 
 
     protected:
-      // The capacity of the file.
+      // The file capacity.
       shared_ptr<string> capacity_ {};
-      // The name of the file.
+      // The file name.
       shared_ptr<string> fileName_ {};
-      // The time when the file was last modified. The time is in the RFC 3339 UTC format.
+      // The last modified time of the file, in RFC 3339 UTC format.
       shared_ptr<string> lastModified_ {};
       // The storage type of the file.
       shared_ptr<string> storageType_ {};
@@ -172,21 +172,21 @@ namespace Models
 
 
   protected:
-    // The ID of the bucket.
+    // The bucket ID.
     shared_ptr<string> bucketId_ {};
-    // The total number of files that meet the specified conditions.
+    // The total number of files that match the conditions.
     shared_ptr<int32_t> fileCount_ {};
-    // The ID of the file system.
+    // The file system ID.
     shared_ptr<string> fileSystemId_ {};
     // The list of files.
     shared_ptr<vector<DescribeFileSystemsResponseBody::FileSystems>> fileSystems_ {};
-    // Indicates whether the results are truncated. If the value is true, you can use NextToken to query subsequent results.
+    // Indicates whether the results are truncated. If true, you can use NextToken to retrieve subsequent results.
     shared_ptr<bool> isTruncated_ {};
     // The maximum number of records returned for this request.
     shared_ptr<int32_t> maxResults_ {};
     // The pagination token for the next page.
     shared_ptr<string> nextToken_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

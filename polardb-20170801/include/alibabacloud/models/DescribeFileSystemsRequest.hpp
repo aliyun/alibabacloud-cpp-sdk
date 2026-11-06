@@ -66,9 +66,9 @@ namespace Models
 
 
   protected:
-    // The absolute path of the directory to query. If you do not specify this parameter, the default path is used.
+    // The absolute path of the directory to query. If not specified, the default path is used.
     shared_ptr<string> fileSystemId_ {};
-    // The maximum number of records to return for each request.
+    // The maximum number of records to return per request.
     shared_ptr<int32_t> maxResults_ {};
     // The pagination token returned from the previous query to retrieve the next page.
     shared_ptr<string> nextToken_ {};

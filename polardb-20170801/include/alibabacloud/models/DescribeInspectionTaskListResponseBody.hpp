@@ -106,11 +106,11 @@ namespace Models
 
 
     protected:
-      // The date when the task was last modified.
+      // The last modification date of the task.
       shared_ptr<string> createTime_ {};
-      // The cron expression for periodic inspections.
+      // The cron expression for periodically executing the inspection.
       shared_ptr<string> cronExpression_ {};
-      // The IDs of the PolarDB clusters to be inspected. Separate multiple IDs with commas.
+      // The IDs of the PolarDB clusters to be inspected. Multiple IDs are separated by commas.
       shared_ptr<string> DBClusterIds_ {};
       // The expiration date of the inspection task.
       shared_ptr<string> expireTime_ {};
