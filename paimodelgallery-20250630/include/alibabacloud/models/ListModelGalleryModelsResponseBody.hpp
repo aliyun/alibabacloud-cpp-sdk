@@ -60,11 +60,8 @@ namespace Models
 
 
   protected:
-    // The list of models.
     shared_ptr<ModelGalleryModel> models_ {};
-    // Id of the request
     shared_ptr<string> requestId_ {};
-    // The total number of models.
     shared_ptr<string> totalCount_ {};
   };
 

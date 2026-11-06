@@ -139,9 +139,7 @@ namespace Models
 
 
     protected:
-      // The tag key.
       shared_ptr<string> key_ {};
-      // The tag value.
       shared_ptr<string> value_ {};
     };
 
@@ -428,79 +426,42 @@ namespace Models
 
 
   protected:
-    // The collection to which the model belongs.
     shared_ptr<string> collection_ {};
-    // Indicates whether compression is supported.
     shared_ptr<bool> compressible_ {};
-    // Indicates whether deep thinking is supported.
     shared_ptr<bool> deepThink_ {};
-    // Indicates whether online experience is supported.
     shared_ptr<bool> demonstrable_ {};
-    // Indicates whether deployment is supported.
     shared_ptr<bool> deployable_ {};
-    // Indicates whether distillation is supported.
     shared_ptr<bool> distillable_ {};
-    // The domain. For example, aigc (generative AI), nlp (natural language processing), or cv (computer vision).
     shared_ptr<string> domain_ {};
-    // Indicates whether evaluation is supported.
     shared_ptr<bool> evaluable_ {};
-    // The additional information.
     Darabonba::Json extraInfo_ {};
-    // Indicates whether FunctionCall is supported.
     shared_ptr<bool> functionCall_ {};
-    // The creation time.
     shared_ptr<string> gmtCreateTime_ {};
-    // The update time of the latest model version.
     shared_ptr<string> gmtLatestVersionModified_ {};
-    // The update time.
     shared_ptr<string> gmtModifiedTime_ {};
-    // The latest model version.
     shared_ptr<string> latestVersionName_ {};
-    // The model description.
     shared_ptr<string> modelDescription_ {};
-    // The model documentation.
     shared_ptr<string> modelDoc_ {};
-    // The model ID.
     shared_ptr<string> modelId_ {};
-    // The model name.
     shared_ptr<string> modelName_ {};
-    // The model series.
     shared_ptr<string> modelSeries_ {};
-    // The model type.
     shared_ptr<string> modelType_ {};
-    // The ordinal number.
     shared_ptr<int64_t> orderNumber_ {};
-    // The model source, used to filter the list of models that belong to a specific community or organization. For example, ModelScope, PAI, or NIM.
     shared_ptr<string> origin_ {};
-    // The number of parameters, in millions (M).
     shared_ptr<int64_t> parameterSize_ {};
-    // The search keywords.
     shared_ptr<string> searchWords_ {};
-    // The supported compression methods.
     Darabonba::Json supportedCompressionMethods_ {};
-    // The resources supported for compression.
     shared_ptr<string> supportedCompressionResources_ {};
-    // The supported distillation methods.
     Darabonba::Json supportedDistillationMethods_ {};
-    // The resources supported for distillation.
     shared_ptr<string> supportedDistillationResources_ {};
-    // The supported evaluation methods.
     Darabonba::Json supportedEvaluationMethods_ {};
-    // The resources supported for evaluation.
     shared_ptr<string> supportedEvaluationResources_ {};
-    // The supported deployment methods.
     Darabonba::Json supportedInferenceMethods_ {};
-    // The resources supported for deployment.
     shared_ptr<string> supportedInferenceResources_ {};
-    // The supported training methods.
     Darabonba::Json supportedTrainingMethods_ {};
-    // The resources supported for training.
     shared_ptr<string> supportedTrainingResources_ {};
-    // The list of tags.
     shared_ptr<ModelGalleryModel::Tags> tags_ {};
-    // The task. For example, large-language-model (large language model), image-classification (image classification), or embedding.
     shared_ptr<string> task_ {};
-    // Indicates whether training is supported.
     shared_ptr<bool> trainable_ {};
   };
 

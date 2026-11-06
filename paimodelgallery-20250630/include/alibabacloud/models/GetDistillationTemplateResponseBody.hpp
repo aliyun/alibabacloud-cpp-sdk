@@ -51,9 +51,7 @@ namespace Models
 
 
   protected:
-    // The distillation template details.
     shared_ptr<DistillationTemplate> distillationTemplate_ {};
-    // **Request ID**
     shared_ptr<string> requestId_ {};
   };
 

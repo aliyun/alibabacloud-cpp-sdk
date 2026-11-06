@@ -94,9 +94,7 @@ namespace Models
 
 
     protected:
-      // The tag key.
       shared_ptr<string> key_ {};
-      // The tag value.
       shared_ptr<string> value_ {};
     };
 
@@ -158,13 +156,9 @@ namespace Models
 
 
     protected:
-      // The generated PAIFlow PipelineRunId.
       shared_ptr<string> jobPlanStepId_ {};
-      // The job plan step name.
       shared_ptr<string> jobPlanStepName_ {};
-      // The job plan step configuration.
       Darabonba::Json jobPlanStepSpec_ {};
-      // The job plan step type.
       shared_ptr<string> jobPlanStepType_ {};
     };
 
@@ -275,33 +269,19 @@ namespace Models
 
 
   protected:
-    // The creation time of the job plan.
     shared_ptr<string> gmtCreateTime_ {};
-    // The last modified time of the job plan.
     shared_ptr<string> gmtModifiedTime_ {};
-    // The current step.
     shared_ptr<string> jobPlanCurrentStep_ {};
-    // The job plan ID.
     shared_ptr<string> jobPlanId_ {};
-    // The job plan name, which is unique within the workspace.
     shared_ptr<string> jobPlanName_ {};
-    // The job plan steps.
     shared_ptr<vector<GetJobPlanResponseBody::JobPlanSteps>> jobPlanSteps_ {};
-    // The job plan type.
     shared_ptr<string> jobPlanType_ {};
-    // The Alibaba Cloud account ID that owns the job plan.
     shared_ptr<string> ownerId_ {};
-    // The request ID.
     shared_ptr<string> requestId_ {};
-    // The list of tags.
     shared_ptr<vector<GetJobPlanResponseBody::Tags>> tags_ {};
-    // The distillation template ID used to create the job plan. An empty value indicates that this is not a scenario-based distillation task.
     shared_ptr<string> templateId_ {};
-    // The display name of the distillation template, localized based on the requested language.
     shared_ptr<string> templateName_ {};
-    // The Alibaba Cloud account ID that created the job plan.
     shared_ptr<string> userId_ {};
-    // The workspace ID.
     shared_ptr<string> workspaceId_ {};
   };
 

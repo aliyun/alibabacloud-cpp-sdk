@@ -278,69 +278,32 @@ namespace Models
 
 
   protected:
-    // The collection to which the model belongs. The collection for ModelGallery models is QuickStart.
     shared_ptr<string> collections_ {};
-    // Specifies whether model compression is supported.
     shared_ptr<bool> compressible_ {};
-    // The list of conditions.
     shared_ptr<string> conditionsShrink_ {};
-    // Specifies whether deep thinking is supported.
     shared_ptr<bool> deepThink_ {};
-    // Specifies whether online experience is supported.
     shared_ptr<bool> demonstrable_ {};
-    // Specifies whether deployment is supported.
     shared_ptr<bool> deployable_ {};
-    // Specifies whether distillation is supported.
     shared_ptr<bool> distillable_ {};
-    // The domain used to filter the model list. For example, aigc (generative AI), nlp (natural language processing), or cv (computer vision).
     shared_ptr<string> domain_ {};
-    // Specifies whether evaluation is supported.
     shared_ptr<bool> evaluable_ {};
-    // Specifies whether FunctionCall is supported.
     shared_ptr<bool> functionCall_ {};
-    // The model name. By default, fuzzy match is used to filter the model list. Enclose the name in double quotation marks for exact match. For example, "DeepSeek-V3.2" exactly matches the model DeepSeek-V3.2.
     shared_ptr<string> modelName_ {};
-    // The model series. For example, PAI Optimized Model, Qwen, Wan-AI, GLM, Baichuan, DeepSeek, Kimi, MiniMax, Yi, InternLM, InternVL, OpenAI, NVIDIA, Gemma, Phi, dots_vlm, Llama, Mistral, Stable Diffusion, FLUX, Byte Dance, StepFun AI, ERNIE Bot, Tencent Hunyuan, or YOLO.
     shared_ptr<string> modelSeries_ {};
-    // The model type.
     shared_ptr<string> modelType_ {};
-    // The sort order for the specified sort field in a paged query. Default value: ASC.
-    // 
-    // Valid values:
-    // - ASC: ascending order.
-    // - DESC: descending order.
     shared_ptr<string> order_ {};
-    // The model source used to filter models that belong to a specific community or organization. For example, ModelScope, PAI, or NIM.
     shared_ptr<string> origin_ {};
-    // The page number of the model list. Minimum value: 1. Default value: 1.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of models to display on each page in a paged query. Default value: 10.
     shared_ptr<int32_t> pageSize_ {};
-    // The query condition. Fuzzy match is performed across multiple fields such as ModelName, Domain, and Task.
     shared_ptr<string> query_ {};
-    // The sort field for a paged query. Currently, the GmtCreateTime field is used for sorting. Valid values:
-    // 
-    // - GmtCreateTime: the model creation time.
-    // 
-    // - GmtLatestVersionModified: the time when the latest model version was updated.
-    // 
-    // - OrderNumber: the ordinal number.
     shared_ptr<string> sortBy_ {};
-    // The supported compression resources, such as CPU, GPU, or GP7V. For example, if you specify GP7V, only models that support compression on GP7V resources are returned.
     shared_ptr<string> supportedCompressionResource_ {};
-    // The supported distillation resources, such as CPU, GPU, or GP7V. For example, if you specify GP7V, only models that support distillation on GP7V resources are returned.
     shared_ptr<string> supportedDistillationResource_ {};
-    // The supported evaluation resources, such as CPU, GPU, or GP7V. For example, if you specify GP7V, only models that support evaluation on GP7V resources are returned.
     shared_ptr<string> supportedEvaluationResource_ {};
-    // The supported deployment resources, such as CPU, GPU, or GP7V. For example, if you specify GP7V, only models that support deployment on GP7V resources are returned.
     shared_ptr<string> supportedInferenceResource_ {};
-    // The supported training resources, such as CPU, GPU, or GP7V. For example, if you specify GP7V, only models that support training on GP7V resources are returned.
     shared_ptr<string> supportedTrainingResource_ {};
-    // The list of labels.
     shared_ptr<string> tagShrink_ {};
-    // The task. For example, large-language-model (large language model), image-classification (image classification), or embedding.
     shared_ptr<string> task_ {};
-    // Specifies whether training is supported.
     shared_ptr<bool> trainable_ {};
   };
 

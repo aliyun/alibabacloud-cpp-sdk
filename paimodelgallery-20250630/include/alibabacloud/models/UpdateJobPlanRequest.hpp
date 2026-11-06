@@ -70,9 +70,7 @@ namespace Models
 
 
     protected:
-      // The tag key. If the tag key already exists, the tag is updated. Otherwise, a new tag is added.
       shared_ptr<string> key_ {};
-      // The tag key. If the tag key already exists, the tag is updated. Otherwise, a new tag is added.
       shared_ptr<string> value_ {};
     };
 
@@ -95,9 +93,7 @@ namespace Models
 
 
   protected:
-    // The current step of the task plan. Set this parameter to `DatasetSynthesisAndModelTrain` for the full process or `DatasetSynthesisModelTrain` for step-by-step execution.
     shared_ptr<string> jobPlanCurrentStep_ {};
-    // The list of tags.
     shared_ptr<vector<UpdateJobPlanRequest::Tag>> tag_ {};
   };
 

@@ -121,29 +121,15 @@ namespace Models
 
 
   protected:
-    // Specifies whether to filter by template association. Valid values:
-    // - true: Returns only scenario-specific job plans that have a template.
-    // - false: Returns only general-purpose job plans that do not have a template.
-    // 
-    // If this parameter is not specified, no filtering is applied. If both this parameter and TemplateId are specified, the value of TemplateId takes precedence.
     shared_ptr<bool> hasTemplate_ {};
-    // The name of the job plan.
     shared_ptr<string> jobPlanName_ {};
-    // The type of the job plan.
     shared_ptr<string> jobPlanType_ {};
-    // The sort order.
     shared_ptr<string> order_ {};
-    // The page number.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries per page.
     shared_ptr<int32_t> pageSize_ {};
-    // The field by which to sort the results.
     shared_ptr<string> sortBy_ {};
-    // The list of tags.
     shared_ptr<string> tagShrink_ {};
-    // The distillation template ID. Filters results to return only scenario-specific tasks that use the specified template.
     shared_ptr<string> templateId_ {};
-    // The workspace ID.
     shared_ptr<string> workspaceId_ {};
   };
 

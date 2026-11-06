@@ -2,12 +2,14 @@
 #include <alibabacloud/PAIModelGallery20250630.hpp>
 #include <alibabacloud/Utils.hpp>
 #include <alibabacloud/Openapi.hpp>
+#include <alibabacloud/gateway/POP.hpp>
 #include <map>
 #include <darabonba/Runtime.hpp>
 #include <darabonba/encode/Encoder.hpp>
 using namespace std;
 using namespace Darabonba;
 using json = nlohmann::json;
+using namespace AlibabaCloud::Gateway;
 using namespace AlibabaCloud::OpenApi;
 using OpenApiClient = AlibabaCloud::OpenApi::Client;
 using namespace AlibabaCloud::OpenApi::Utils::Models;
@@ -18,6 +20,9 @@ namespace PAIModelGallery20250630
 {
 
 AlibabaCloud::PAIModelGallery20250630::Client::Client(Config &config): OpenApiClient(config){
+  this->_productId = "PAIModelGallery";
+  shared_ptr<POP> gatewayClient = make_shared<POP>();
+  this->_spi = gatewayClient;
   this->_endpointRule = "regional";
   checkConfig(config);
   this->_endpoint = getEndpoint("paimodelgallery", _regionId, _endpointRule, _network, _suffix, _endpointMap, _endpoint);
@@ -37,12 +42,7 @@ string Client::getEndpoint(const string &productId, const string &regionId, cons
 }
 
 /**
- * @summary Creates a new job plan that supports task types such as distillation.
- *
- * @description ## Operation description
- * - This API operation creates a new node plan. You can specify the workspace ID, node plan type, name, and steps.
- * - If you use a scenario-specific distillation template, provide the `TemplateId` parameter and make sure that `JobPlanSteps` contains distillation configurations that match the template.
- * - The `Tag` parameter follows the Alibaba Cloud label system specification and is used to add additional identity information to the node plan.
+ * @summary 创建任务计划。
  *
  * @param request CreateJobPlanRequest
  * @param headers map
@@ -95,12 +95,7 @@ CreateJobPlanResponse Client::createJobPlanWithOptions(const CreateJobPlanReques
 }
 
 /**
- * @summary Creates a new job plan that supports task types such as distillation.
- *
- * @description ## Operation description
- * - This API operation creates a new node plan. You can specify the workspace ID, node plan type, name, and steps.
- * - If you use a scenario-specific distillation template, provide the `TemplateId` parameter and make sure that `JobPlanSteps` contains distillation configurations that match the template.
- * - The `Tag` parameter follows the Alibaba Cloud label system specification and is used to add additional identity information to the node plan.
+ * @summary 创建任务计划。
  *
  * @param request CreateJobPlanRequest
  * @return CreateJobPlanResponse
@@ -112,9 +107,7 @@ CreateJobPlanResponse Client::createJobPlan(const CreateJobPlanRequest &request)
 }
 
 /**
- * @summary Deletes a specified task plan by task plan ID.
- *
- * @description ## Operation description.
+ * @summary 删除任务计划。
  *
  * @param request DeleteJobPlanRequest
  * @param headers map
@@ -141,9 +134,7 @@ DeleteJobPlanResponse Client::deleteJobPlanWithOptions(const string &JobPlanId, 
 }
 
 /**
- * @summary Deletes a specified task plan by task plan ID.
- *
- * @description ## Operation description.
+ * @summary 删除任务计划。
  *
  * @param request DeleteJobPlanRequest
  * @return DeleteJobPlanResponse
@@ -155,14 +146,7 @@ DeleteJobPlanResponse Client::deleteJobPlan(const string &JobPlanId, const Delet
 }
 
 /**
- * @summary Retrieves the details of a specified distillation template, including preset configurations and default YAML.
- *
- * @description ## Operation description
- * - This API operation queries the full details of a specific distillation template to facilitate rendering the creation form.
- * - The template ID is a required parameter, obtained from the `ListDistillationTemplates` operation.
- * - The `DefaultConfig` field provides the complete EasyDistill configuration YAML (with comments). All paths in the YAML are relative paths, and callers do not need to perform absolute path conversion or string replacement.
- * - All translatable fields are automatically parsed into the corresponding language version based on the `x-acs-accept-language` request header.
- * - If the `TrainingOptions` field is missing, the template supports only the first stage of processing. Attempts to use such a template to create a task that includes the second stage will fail.
+ * @summary 查询蒸馏模板详情。
  *
  * @param request GetDistillationTemplateRequest
  * @param headers map
@@ -189,14 +173,7 @@ GetDistillationTemplateResponse Client::getDistillationTemplateWithOptions(const
 }
 
 /**
- * @summary Retrieves the details of a specified distillation template, including preset configurations and default YAML.
- *
- * @description ## Operation description
- * - This API operation queries the full details of a specific distillation template to facilitate rendering the creation form.
- * - The template ID is a required parameter, obtained from the `ListDistillationTemplates` operation.
- * - The `DefaultConfig` field provides the complete EasyDistill configuration YAML (with comments). All paths in the YAML are relative paths, and callers do not need to perform absolute path conversion or string replacement.
- * - All translatable fields are automatically parsed into the corresponding language version based on the `x-acs-accept-language` request header.
- * - If the `TrainingOptions` field is missing, the template supports only the first stage of processing. Attempts to use such a template to create a task that includes the second stage will fail.
+ * @summary 查询蒸馏模板详情。
  *
  * @param request GetDistillationTemplateRequest
  * @return GetDistillationTemplateResponse
@@ -208,10 +185,7 @@ GetDistillationTemplateResponse Client::getDistillationTemplate(const string &Te
 }
 
 /**
- * @summary Queries the details of a specified job plan by job plan ID.
- *
- * @description ## Description
- * This API operation retrieves the details of a job plan based on the specified job plan ID (`JobPlanId`), including but not limited to the name, type, and current step status of the job plan. Make sure the `JobPlanId` provided in the request is valid and belongs to your workspace.
+ * @summary 获取任务计划。
  *
  * @param request GetJobPlanRequest
  * @param headers map
@@ -238,10 +212,7 @@ GetJobPlanResponse Client::getJobPlanWithOptions(const string &JobPlanId, const 
 }
 
 /**
- * @summary Queries the details of a specified job plan by job plan ID.
- *
- * @description ## Description
- * This API operation retrieves the details of a job plan based on the specified job plan ID (`JobPlanId`), including but not limited to the name, type, and current step status of the job plan. Make sure the `JobPlanId` provided in the request is valid and belongs to your workspace.
+ * @summary 获取任务计划。
  *
  * @param request GetJobPlanRequest
  * @return GetJobPlanResponse
@@ -253,13 +224,7 @@ GetJobPlanResponse Client::getJobPlan(const string &JobPlanId, const GetJobPlanR
 }
 
 /**
- * @summary Retrieves summary information of distillation templates for rendering the template card list.
- *
- * @description ## Operation description
- * - This operation supports filtered queries by using the TemplateId, Category, and Keyword parameters.
- * - Pagination is controlled by the PageNumber and PageSize parameters, consistent with other paginated operations of the same service.
- * - Templates are public resources that do not belong to any workspace. Therefore, you do not need to specify WorkspaceId.
- * - All translatable fields such as TemplateName and Description are automatically parsed into the corresponding language version based on the x-acs-accept-language request header.
+ * @summary 查询蒸馏模板列表。
  *
  * @param request ListDistillationTemplatesRequest
  * @param headers map
@@ -289,6 +254,10 @@ ListDistillationTemplatesResponse Client::listDistillationTemplatesWithOptions(c
     query["TemplateId"] = request.getTemplateId();
   }
 
+  if (!!request.hasTemplateKind()) {
+    query["TemplateKind"] = request.getTemplateKind();
+  }
+
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , headers},
     {"query" , Utils::Utils::query(query)}
@@ -308,13 +277,7 @@ ListDistillationTemplatesResponse Client::listDistillationTemplatesWithOptions(c
 }
 
 /**
- * @summary Retrieves summary information of distillation templates for rendering the template card list.
- *
- * @description ## Operation description
- * - This operation supports filtered queries by using the TemplateId, Category, and Keyword parameters.
- * - Pagination is controlled by the PageNumber and PageSize parameters, consistent with other paginated operations of the same service.
- * - Templates are public resources that do not belong to any workspace. Therefore, you do not need to specify WorkspaceId.
- * - All translatable fields such as TemplateName and Description are automatically parsed into the corresponding language version based on the x-acs-accept-language request header.
+ * @summary 查询蒸馏模板列表。
  *
  * @param request ListDistillationTemplatesRequest
  * @return ListDistillationTemplatesResponse
@@ -326,14 +289,7 @@ ListDistillationTemplatesResponse Client::listDistillationTemplates(const ListDi
 }
 
 /**
- * @summary Retrieves the list of job plans in a specified workspace.
- *
- * @description ## Operation description
- * - `WorkspaceId` is a required parameter that specifies the workspace to which the job plans belong.
- * - The `Tag` parameter must be encoded by using `EncodeURI` before being passed.
- * - If both `TemplateId` and `HasTemplate` are specified, the value of `TemplateId` takes precedence for filtering.
- * - `JobPlanName` supports exact match. Enclose the specific name in quotation marks.
- * - By default, results are sorted in descending order by creation time (`GmtCreateTime`). Set the `Order` parameter to `ASC` to change the sort order.
+ * @summary 获取任务计划列表。
  *
  * @param tmpReq ListJobPlansRequest
  * @param headers map
@@ -408,14 +364,7 @@ ListJobPlansResponse Client::listJobPlansWithOptions(const ListJobPlansRequest &
 }
 
 /**
- * @summary Retrieves the list of job plans in a specified workspace.
- *
- * @description ## Operation description
- * - `WorkspaceId` is a required parameter that specifies the workspace to which the job plans belong.
- * - The `Tag` parameter must be encoded by using `EncodeURI` before being passed.
- * - If both `TemplateId` and `HasTemplate` are specified, the value of `TemplateId` takes precedence for filtering.
- * - `JobPlanName` supports exact match. Enclose the specific name in quotation marks.
- * - By default, results are sorted in descending order by creation time (`GmtCreateTime`). Set the `Order` parameter to `ASC` to change the sort order.
+ * @summary 获取任务计划列表。
  *
  * @param request ListJobPlansRequest
  * @return ListJobPlansResponse
@@ -427,7 +376,7 @@ ListJobPlansResponse Client::listJobPlans(const ListJobPlansRequest &request) {
 }
 
 /**
- * @summary Retrieves the list of models from ModelGallery (deprecated, use the 2026-06-03 version instead).
+ * @summary 获取ModelGallery模型列表
  *
  * @param tmpReq ListModelGalleryModelsRequest
  * @param headers map
@@ -574,7 +523,7 @@ ListModelGalleryModelsResponse Client::listModelGalleryModelsWithOptions(const L
 }
 
 /**
- * @summary Retrieves the list of models from ModelGallery (deprecated, use the 2026-06-03 version instead).
+ * @summary 获取ModelGallery模型列表
  *
  * @param request ListModelGalleryModelsRequest
  * @return ListModelGalleryModelsResponse
@@ -586,14 +535,7 @@ ListModelGalleryModelsResponse Client::listModelGalleryModels(const ListModelGal
 }
 
 /**
- * @summary Updates the current step and tag information of a specified task plan.
- *
- * @description ## Request description
- * You can use this API operation to update the current execution step (`JobPlanCurrentStep`) and related tags (`Tag`) of a specific task plan identified by `JobPlanId`. If the request contains tag information, tags are updated or added based on the provided key-value pairs.
- * - **JobPlanId** is a path parameter. You must provide a valid task plan ID.
- * - **JobPlanCurrentStep** is an optional parameter that specifies the new current step of the task.
- * - **Tag** is an optional parameter that specifies a list of key-value pairs used to label the task plan. Each tag consists of a `Key` and a `Value`.
- * Note: Ensure that the `JobPlanId` you provide exists and that you have the permissions to modify it.
+ * @summary 更新任务计划。
  *
  * @param request UpdateJobPlanRequest
  * @param headers map
@@ -630,14 +572,7 @@ UpdateJobPlanResponse Client::updateJobPlanWithOptions(const string &JobPlanId, 
 }
 
 /**
- * @summary Updates the current step and tag information of a specified task plan.
- *
- * @description ## Request description
- * You can use this API operation to update the current execution step (`JobPlanCurrentStep`) and related tags (`Tag`) of a specific task plan identified by `JobPlanId`. If the request contains tag information, tags are updated or added based on the provided key-value pairs.
- * - **JobPlanId** is a path parameter. You must provide a valid task plan ID.
- * - **JobPlanCurrentStep** is an optional parameter that specifies the new current step of the task.
- * - **Tag** is an optional parameter that specifies a list of key-value pairs used to label the task plan. Each tag consists of a `Key` and a `Value`.
- * Note: Ensure that the `JobPlanId` you provide exists and that you have the permissions to modify it.
+ * @summary 更新任务计划。
  *
  * @param request UpdateJobPlanRequest
  * @return UpdateJobPlanResponse

@@ -61,11 +61,8 @@ namespace Models
 
 
   protected:
-    // The list of job plans.
     shared_ptr<vector<JobPlan>> jobPlans_ {};
-    // The request ID.
     shared_ptr<string> requestId_ {};
-    // The total number of entries.
     shared_ptr<int32_t> totalCount_ {};
   };
 

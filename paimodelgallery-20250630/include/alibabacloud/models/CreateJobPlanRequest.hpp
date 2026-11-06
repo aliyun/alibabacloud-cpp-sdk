@@ -78,9 +78,7 @@ namespace Models
 
 
     protected:
-      // **Key**
       shared_ptr<string> key_ {};
-      // **Value**
       shared_ptr<string> value_ {};
     };
 
@@ -133,11 +131,8 @@ namespace Models
 
 
     protected:
-      // The name of the job plan step.
       shared_ptr<string> jobPlanStepName_ {};
-      // The detailed configuration of the job plan step.
       Darabonba::Json jobPlanStepSpec_ {};
-      // The type of the job plan step.
       shared_ptr<string> jobPlanStepType_ {};
     };
 
@@ -190,17 +185,11 @@ namespace Models
 
 
   protected:
-    // The name of the job plan.
     shared_ptr<string> jobPlanName_ {};
-    // The steps of the job plan.
     shared_ptr<vector<CreateJobPlanRequest::JobPlanSteps>> jobPlanSteps_ {};
-    // The type of the job plan.
     shared_ptr<string> jobPlanType_ {};
-    // Note: According to the Alibaba Cloud tag system specification, this parameter name is in singular form.
     shared_ptr<vector<CreateJobPlanRequest::Tag>> tag_ {};
-    // The ID of the scenario-specific distillation template, obtained from ListDistillationTemplates. If this parameter is not specified, a general-purpose job plan is created.
     shared_ptr<string> templateId_ {};
-    // The workspace ID.
     shared_ptr<string> workspaceId_ {};
   };
 

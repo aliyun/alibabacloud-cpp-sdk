@@ -79,15 +79,10 @@ namespace Models
 
 
   protected:
-    // The list of distillation template summaries, sorted by OrderNumber in ascending order.
     shared_ptr<vector<DistillationTemplateSummary>> distillationTemplates_ {};
-    // The page number, which echoes the PageNumber value in the request.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries per page, which echoes the PageSize value in the request.
     shared_ptr<int32_t> pageSize_ {};
-    // The request ID.
     shared_ptr<string> requestId_ {};
-    // The total number of templates that match the filter conditions.
     shared_ptr<int32_t> totalCount_ {};
   };
 

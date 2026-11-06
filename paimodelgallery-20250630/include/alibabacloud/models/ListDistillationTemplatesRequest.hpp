@@ -18,6 +18,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(PageNumber, pageNumber_);
       DARABONBA_PTR_TO_JSON(PageSize, pageSize_);
       DARABONBA_PTR_TO_JSON(TemplateId, templateId_);
+      DARABONBA_PTR_TO_JSON(TemplateKind, templateKind_);
     };
     friend void from_json(const Darabonba::Json& j, ListDistillationTemplatesRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(Category, category_);
@@ -25,6 +26,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(PageNumber, pageNumber_);
       DARABONBA_PTR_FROM_JSON(PageSize, pageSize_);
       DARABONBA_PTR_FROM_JSON(TemplateId, templateId_);
+      DARABONBA_PTR_FROM_JSON(TemplateKind, templateKind_);
     };
     ListDistillationTemplatesRequest() = default ;
     ListDistillationTemplatesRequest(const ListDistillationTemplatesRequest &) = default ;
@@ -38,7 +40,7 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->category_ == nullptr
-        && this->keyword_ == nullptr && this->pageNumber_ == nullptr && this->pageSize_ == nullptr && this->templateId_ == nullptr; };
+        && this->keyword_ == nullptr && this->pageNumber_ == nullptr && this->pageSize_ == nullptr && this->templateId_ == nullptr && this->templateKind_ == nullptr; };
     // category Field Functions 
     bool hasCategory() const { return this->category_ != nullptr;};
     void deleteCategory() { this->category_ = nullptr;};
@@ -74,17 +76,20 @@ namespace Models
     inline ListDistillationTemplatesRequest& setTemplateId(string templateId) { DARABONBA_PTR_SET_VALUE(templateId_, templateId) };
 
 
+    // templateKind Field Functions 
+    bool hasTemplateKind() const { return this->templateKind_ != nullptr;};
+    void deleteTemplateKind() { this->templateKind_ = nullptr;};
+    inline string getTemplateKind() const { DARABONBA_PTR_GET_DEFAULT(templateKind_, "") };
+    inline ListDistillationTemplatesRequest& setTemplateKind(string templateKind) { DARABONBA_PTR_SET_VALUE(templateKind_, templateKind) };
+
+
   protected:
-    // The template category for scenario-specific template filtering.
     shared_ptr<string> category_ {};
-    // The search keyword for cross-language substring matching against template names, descriptions, and other text fields. If this parameter is left empty, no keyword filtering is applied.
     shared_ptr<string> keyword_ {};
-    // The page number, starting from 1. If this parameter is not specified or is invalid, the default value 1 is used.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries per page. If this parameter is not specified or is invalid, the default value is used. If the value exceeds the upper limit, the upper limit is used.
     shared_ptr<int32_t> pageSize_ {};
-    // The template ID for exact filtering. If this parameter is left empty, no filtering by ID is applied.
     shared_ptr<string> templateId_ {};
+    shared_ptr<string> templateKind_ {};
   };
 
   } // namespace Models

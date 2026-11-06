@@ -21,6 +21,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(OrderNumber, orderNumber_);
       DARABONBA_PTR_TO_JSON(PipelineStages, pipelineStages_);
       DARABONBA_PTR_TO_JSON(TemplateId, templateId_);
+      DARABONBA_PTR_TO_JSON(TemplateKind, templateKind_);
       DARABONBA_PTR_TO_JSON(TemplateName, templateName_);
       DARABONBA_PTR_TO_JSON(TrainingOptions, trainingOptions_);
     };
@@ -32,6 +33,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(OrderNumber, orderNumber_);
       DARABONBA_PTR_FROM_JSON(PipelineStages, pipelineStages_);
       DARABONBA_PTR_FROM_JSON(TemplateId, templateId_);
+      DARABONBA_PTR_FROM_JSON(TemplateKind, templateKind_);
       DARABONBA_PTR_FROM_JSON(TemplateName, templateName_);
       DARABONBA_PTR_FROM_JSON(TrainingOptions, trainingOptions_);
     };
@@ -97,11 +99,8 @@ namespace Models
 
 
     protected:
-      // The available Model Gallery Task values for the student model.
       shared_ptr<vector<string>> modelTasks_ {};
-      // The list of supported training method families.
       shared_ptr<vector<string>> trainingMethods_ {};
-      // The training type. The frontend uses this value to select the training workflow and display text.
       shared_ptr<string> trainingType_ {};
     };
 
@@ -152,17 +151,14 @@ namespace Models
 
 
     protected:
-      // The stage description, localized based on the language specified in the request.
       shared_ptr<string> description_ {};
-      // The stage identifier, which corresponds to the pipeline[].stage value in the algorithm configuration.
       shared_ptr<string> key_ {};
-      // The stage display name, localized based on the language specified in the request.
       shared_ptr<string> name_ {};
     };
 
     virtual bool empty() const override { return this->capabilityTags_ == nullptr
         && this->category_ == nullptr && this->description_ == nullptr && this->jobType_ == nullptr && this->orderNumber_ == nullptr && this->pipelineStages_ == nullptr
-        && this->templateId_ == nullptr && this->templateName_ == nullptr && this->trainingOptions_ == nullptr; };
+        && this->templateId_ == nullptr && this->templateKind_ == nullptr && this->templateName_ == nullptr && this->trainingOptions_ == nullptr; };
     // capabilityTags Field Functions 
     bool hasCapabilityTags() const { return this->capabilityTags_ != nullptr;};
     void deleteCapabilityTags() { this->capabilityTags_ = nullptr;};
@@ -216,6 +212,13 @@ namespace Models
     inline DistillationTemplateSummary& setTemplateId(string templateId) { DARABONBA_PTR_SET_VALUE(templateId_, templateId) };
 
 
+    // templateKind Field Functions 
+    bool hasTemplateKind() const { return this->templateKind_ != nullptr;};
+    void deleteTemplateKind() { this->templateKind_ = nullptr;};
+    inline string getTemplateKind() const { DARABONBA_PTR_GET_DEFAULT(templateKind_, "") };
+    inline DistillationTemplateSummary& setTemplateKind(string templateKind) { DARABONBA_PTR_SET_VALUE(templateKind_, templateKind) };
+
+
     // templateName Field Functions 
     bool hasTemplateName() const { return this->templateName_ != nullptr;};
     void deleteTemplateName() { this->templateName_ = nullptr;};
@@ -233,23 +236,15 @@ namespace Models
 
 
   protected:
-    // The list of capability tags, used for scenario card display.
     shared_ptr<vector<string>> capabilityTags_ {};
-    // The template category. The frontend uses this value to filter scenario cards.
     shared_ptr<string> category_ {};
-    // The template description, localized based on the language specified in the request. The description specifies applicable scenarios and outputs.
     shared_ptr<string> description_ {};
-    // The algorithm job type. The value is the same as TemplateId.
     shared_ptr<string> jobType_ {};
-    // The display order. A smaller value indicates a higher position.
     shared_ptr<int32_t> orderNumber_ {};
-    // The list of pipeline stages. The order of the stages represents the execution order.
     shared_ptr<vector<DistillationTemplateSummary::PipelineStages>> pipelineStages_ {};
-    // The distillation template ID, which is the same as the algorithm job_type. Pass this value as TemplateId when creating a task plan.
     shared_ptr<string> templateId_ {};
-    // The template display name, localized based on the language specified in the request.
+    shared_ptr<string> templateKind_ {};
     shared_ptr<string> templateName_ {};
-    // The capability declaration for the second stage, in which the distilled data is used to train the student model. An empty value indicates that the template supports only the distillation stage.
     shared_ptr<vector<DistillationTemplateSummary::TrainingOptions>> trainingOptions_ {};
   };
 

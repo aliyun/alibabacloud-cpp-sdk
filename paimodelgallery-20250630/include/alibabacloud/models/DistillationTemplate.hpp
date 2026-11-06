@@ -28,7 +28,9 @@ namespace Models
       DARABONBA_PTR_TO_JSON(OrderNumber, orderNumber_);
       DARABONBA_PTR_TO_JSON(PipelineStages, pipelineStages_);
       DARABONBA_PTR_TO_JSON(PresetConfig, presetConfig_);
+      DARABONBA_PTR_TO_JSON(ProcessorExampleUri, processorExampleUri_);
       DARABONBA_PTR_TO_JSON(TemplateId, templateId_);
+      DARABONBA_PTR_TO_JSON(TemplateKind, templateKind_);
       DARABONBA_PTR_TO_JSON(TemplateName, templateName_);
       DARABONBA_PTR_TO_JSON(TrainingOptions, trainingOptions_);
     };
@@ -47,7 +49,9 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(OrderNumber, orderNumber_);
       DARABONBA_PTR_FROM_JSON(PipelineStages, pipelineStages_);
       DARABONBA_PTR_FROM_JSON(PresetConfig, presetConfig_);
+      DARABONBA_PTR_FROM_JSON(ProcessorExampleUri, processorExampleUri_);
       DARABONBA_PTR_FROM_JSON(TemplateId, templateId_);
+      DARABONBA_PTR_FROM_JSON(TemplateKind, templateKind_);
       DARABONBA_PTR_FROM_JSON(TemplateName, templateName_);
       DARABONBA_PTR_FROM_JSON(TrainingOptions, trainingOptions_);
     };
@@ -113,11 +117,8 @@ namespace Models
 
 
     protected:
-      // The range of Model Gallery tasks available for the student model.
       shared_ptr<vector<string>> modelTasks_ {};
-      // The list of supported training method families.
       shared_ptr<vector<string>> trainingMethods_ {};
-      // The training type. The frontend uses this value to select the training workflow and display text.
       shared_ptr<string> trainingType_ {};
     };
 
@@ -159,9 +160,7 @@ namespace Models
 
 
     protected:
-      // The configuration item name, localized based on the requested language. Names are matched by position across languages, so the same row can have different names in different languages.
       shared_ptr<string> label_ {};
-      // The configuration item value, localized based on the requested language.
       shared_ptr<string> value_ {};
     };
 
@@ -212,11 +211,8 @@ namespace Models
 
 
     protected:
-      // The stage description, localized based on the requested language.
       shared_ptr<string> description_ {};
-      // The stage identifier, which corresponds to the value of pipeline[].stage in the algorithm configuration.
       shared_ptr<string> key_ {};
-      // The stage display name, localized based on the requested language.
       shared_ptr<string> name_ {};
     };
 
@@ -285,9 +281,7 @@ namespace Models
 
 
       protected:
-        // The channel name of the PAI-Token gateway. The frontend uses this value to retrieve the list of available models for the channel. This value must be passed back as-is upon submission. This parameter is returned only when Type is pai_token.
         shared_ptr<string> channel_ {};
-        // The model access method. pai_token indicates the PAI-Token gateway, where the user selects from the list of available models for the channel. pai_eas indicates the user\\"s own PAI-EAS service instance, which requires the service address and token.
         shared_ptr<string> type_ {};
       };
 
@@ -331,23 +325,18 @@ namespace Models
 
 
     protected:
-      // The list of model access methods supported by this slot.
       shared_ptr<vector<ModelSlots::Backends>> backends_ {};
-      // The slot description, localized based on the requested language.
       shared_ptr<string> description_ {};
-      // The slot identifier, which corresponds to the backend section name in the submitted configuration.
       shared_ptr<string> key_ {};
-      // The slot display name, localized based on the requested language.
       shared_ptr<string> name_ {};
-      // Specifies whether this slot is required. If this parameter is set to false, the user can skip the selection, and the algorithm falls back to other slots.
       shared_ptr<bool> required_ {};
     };
 
     virtual bool empty() const override { return this->algorithmName_ == nullptr
         && this->algorithmProvider_ == nullptr && this->algorithmVersion_ == nullptr && this->capabilityTags_ == nullptr && this->category_ == nullptr && this->defaultConfig_ == nullptr
         && this->description_ == nullptr && this->inputDatasetMustBeDirectory_ == nullptr && this->inputExampleUri_ == nullptr && this->jobType_ == nullptr && this->modelSlots_ == nullptr
-        && this->orderNumber_ == nullptr && this->pipelineStages_ == nullptr && this->presetConfig_ == nullptr && this->templateId_ == nullptr && this->templateName_ == nullptr
-        && this->trainingOptions_ == nullptr; };
+        && this->orderNumber_ == nullptr && this->pipelineStages_ == nullptr && this->presetConfig_ == nullptr && this->processorExampleUri_ == nullptr && this->templateId_ == nullptr
+        && this->templateKind_ == nullptr && this->templateName_ == nullptr && this->trainingOptions_ == nullptr; };
     // algorithmName Field Functions 
     bool hasAlgorithmName() const { return this->algorithmName_ != nullptr;};
     void deleteAlgorithmName() { this->algorithmName_ = nullptr;};
@@ -454,11 +443,25 @@ namespace Models
     inline DistillationTemplate& setPresetConfig(vector<DistillationTemplate::PresetConfig> && presetConfig) { DARABONBA_PTR_SET_RVALUE(presetConfig_, presetConfig) };
 
 
+    // processorExampleUri Field Functions 
+    bool hasProcessorExampleUri() const { return this->processorExampleUri_ != nullptr;};
+    void deleteProcessorExampleUri() { this->processorExampleUri_ = nullptr;};
+    inline string getProcessorExampleUri() const { DARABONBA_PTR_GET_DEFAULT(processorExampleUri_, "") };
+    inline DistillationTemplate& setProcessorExampleUri(string processorExampleUri) { DARABONBA_PTR_SET_VALUE(processorExampleUri_, processorExampleUri) };
+
+
     // templateId Field Functions 
     bool hasTemplateId() const { return this->templateId_ != nullptr;};
     void deleteTemplateId() { this->templateId_ = nullptr;};
     inline string getTemplateId() const { DARABONBA_PTR_GET_DEFAULT(templateId_, "") };
     inline DistillationTemplate& setTemplateId(string templateId) { DARABONBA_PTR_SET_VALUE(templateId_, templateId) };
+
+
+    // templateKind Field Functions 
+    bool hasTemplateKind() const { return this->templateKind_ != nullptr;};
+    void deleteTemplateKind() { this->templateKind_ = nullptr;};
+    inline string getTemplateKind() const { DARABONBA_PTR_GET_DEFAULT(templateKind_, "") };
+    inline DistillationTemplate& setTemplateKind(string templateKind) { DARABONBA_PTR_SET_VALUE(templateKind_, templateKind) };
 
 
     // templateName Field Functions 
@@ -478,39 +481,24 @@ namespace Models
 
 
   protected:
-    // The algorithm name.
     shared_ptr<string> algorithmName_ {};
-    // The algorithm provider.
     shared_ptr<string> algorithmProvider_ {};
-    // The algorithm version.
     shared_ptr<string> algorithmVersion_ {};
-    // The list of capability tags used for displaying scenario cards.
     shared_ptr<vector<string>> capabilityTags_ {};
-    // The template category. The frontend uses this value to filter scenario cards.
     shared_ptr<string> category_ {};
-    // The raw YAML content of the EasyDistill default configurations. The frontend uses this content for rendering the configuration form and supports recovering to default configurations. The model and credential fields are intentionally left empty and are populated by the user in the form upon commit.
     shared_ptr<string> defaultConfig_ {};
-    // The template description, localized based on the requested language. The description specifies the applicable scenarios and outputs.
     shared_ptr<string> description_ {};
-    // Specifies whether the input data must be an entire directory. If this parameter is set to true, only a directory can be selected on the form, not a single file. If this parameter is absent or set to false, either a file or a directory can be selected. This value is true when seed files reference other files in the same directory by relative path.
     shared_ptr<bool> inputDatasetMustBeDirectory_ {};
-    // The OSS address of the sample input data, rendered based on the region. Users can download the sample and prepare their own data in the same format. An empty value indicates that the template does not provide a sample.
     shared_ptr<string> inputExampleUri_ {};
-    // The algorithm job type. The value is the same as TemplateId.
     shared_ptr<string> jobType_ {};
-    // The list of model slots that require user selection. The frontend uses this list to render the model selection form.
     shared_ptr<vector<DistillationTemplate::ModelSlots>> modelSlots_ {};
-    // The display order. A smaller value indicates a higher priority.
     shared_ptr<int32_t> orderNumber_ {};
-    // The list of pipeline stages. The order of the stages represents the execution order.
     shared_ptr<vector<DistillationTemplate::PipelineStages>> pipelineStages_ {};
-    // The content of the preset configuration card, displayed in order to show the key default configurations of the template.
     shared_ptr<vector<DistillationTemplate::PresetConfig>> presetConfig_ {};
-    // The distillation template ID, which is the same as the algorithm job_type. Pass this value as TemplateId when creating a task plan.
+    shared_ptr<string> processorExampleUri_ {};
     shared_ptr<string> templateId_ {};
-    // The template display name, localized based on the requested language.
+    shared_ptr<string> templateKind_ {};
     shared_ptr<string> templateName_ {};
-    // The capability declaration for the second stage (training the student model with the distilled data). An empty value indicates that the template supports only the distillation stage.
     shared_ptr<vector<DistillationTemplate::TrainingOptions>> trainingOptions_ {};
   };
 

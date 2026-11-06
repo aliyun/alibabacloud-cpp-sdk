@@ -269,9 +269,7 @@ namespace Models
     shared_ptr<string> jobPlanType_ {};
     shared_ptr<string> ownerId_ {};
     shared_ptr<vector<JobPlan::Tags>> tags_ {};
-    // The distillation template ID used when creating the task plan. An empty value indicates that this is not a scenario-specific distillation task.
     shared_ptr<string> templateId_ {};
-    // The display name of the distillation template used, localized based on the language specified in the request.
     shared_ptr<string> templateName_ {};
     shared_ptr<string> userId_ {};
     shared_ptr<string> workspaceId_ {};
