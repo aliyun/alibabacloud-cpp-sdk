@@ -142,11 +142,11 @@ namespace Models
 
 
       protected:
-        // Indicates whether the agent has been uninstalled.
+        // Indicates whether the agent is uninstalled.
         shared_ptr<bool> agentUninstalled_ {};
-        // Indicates whether the third-party channel configuration has been modified (inconsistent with the configuration distributed by the administrator).
+        // Indicates whether the third-party channel configuration is modified and inconsistent with the configuration delivered by the administrator.
         shared_ptr<bool> channelModified_ {};
-        // Indicates whether the model configuration has been modified (inconsistent with the configuration distributed by the administrator).
+        // Indicates whether the model configuration is modified and inconsistent with the configuration delivered by the administrator.
         shared_ptr<bool> modelModified_ {};
       };
 
@@ -190,7 +190,7 @@ namespace Models
       protected:
         // The resource group ID.
         shared_ptr<string> resourceGroupId_ {};
-        // The resource group name.
+        // The name of the resource group.
         shared_ptr<string> resourceGroupName_ {};
       };
 
@@ -204,6 +204,7 @@ namespace Models
           DARABONBA_PTR_TO_JSON(ChannelConfigure, channelConfigure_);
           DARABONBA_PTR_TO_JSON(ChannelConfiguredList, channelConfiguredList_);
           DARABONBA_PTR_TO_JSON(DeploymentSource, deploymentSource_);
+          DARABONBA_PTR_TO_JSON(MindCenterVersion, mindCenterVersion_);
           DARABONBA_PTR_TO_JSON(ModelConfigure, modelConfigure_);
           DARABONBA_PTR_TO_JSON(ModelTemplateId, modelTemplateId_);
         };
@@ -215,6 +216,7 @@ namespace Models
           DARABONBA_PTR_FROM_JSON(ChannelConfigure, channelConfigure_);
           DARABONBA_PTR_FROM_JSON(ChannelConfiguredList, channelConfiguredList_);
           DARABONBA_PTR_FROM_JSON(DeploymentSource, deploymentSource_);
+          DARABONBA_PTR_FROM_JSON(MindCenterVersion, mindCenterVersion_);
           DARABONBA_PTR_FROM_JSON(ModelConfigure, modelConfigure_);
           DARABONBA_PTR_FROM_JSON(ModelTemplateId, modelTemplateId_);
         };
@@ -231,7 +233,7 @@ namespace Models
         virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
         virtual bool empty() const override { return this->agentInstanceStatus_ == nullptr
         && this->agentInstanceVersion_ == nullptr && this->agentPlatform_ == nullptr && this->agentProvider_ == nullptr && this->channelConfigure_ == nullptr && this->channelConfiguredList_ == nullptr
-        && this->deploymentSource_ == nullptr && this->modelConfigure_ == nullptr && this->modelTemplateId_ == nullptr; };
+        && this->deploymentSource_ == nullptr && this->mindCenterVersion_ == nullptr && this->modelConfigure_ == nullptr && this->modelTemplateId_ == nullptr; };
         // agentInstanceStatus Field Functions 
         bool hasAgentInstanceStatus() const { return this->agentInstanceStatus_ != nullptr;};
         void deleteAgentInstanceStatus() { this->agentInstanceStatus_ = nullptr;};
@@ -283,6 +285,13 @@ namespace Models
         inline AgentInstanceInfoList& setDeploymentSource(string deploymentSource) { DARABONBA_PTR_SET_VALUE(deploymentSource_, deploymentSource) };
 
 
+        // mindCenterVersion Field Functions 
+        bool hasMindCenterVersion() const { return this->mindCenterVersion_ != nullptr;};
+        void deleteMindCenterVersion() { this->mindCenterVersion_ = nullptr;};
+        inline string getMindCenterVersion() const { DARABONBA_PTR_GET_DEFAULT(mindCenterVersion_, "") };
+        inline AgentInstanceInfoList& setMindCenterVersion(string mindCenterVersion) { DARABONBA_PTR_SET_VALUE(mindCenterVersion_, mindCenterVersion) };
+
+
         // modelConfigure Field Functions 
         bool hasModelConfigure() const { return this->modelConfigure_ != nullptr;};
         void deleteModelConfigure() { this->modelConfigure_ = nullptr;};
@@ -302,19 +311,21 @@ namespace Models
         shared_ptr<string> agentInstanceStatus_ {};
         // The agent instance version.
         shared_ptr<string> agentInstanceVersion_ {};
-        // The agent platform.
+        // The Agent platform.
         shared_ptr<string> agentPlatform_ {};
         // The agent provider.
         shared_ptr<string> agentProvider_ {};
-        // Indicates whether the agent instance has a third-party channel configured.
+        // Indicates whether a third-party channel is configured for the agent instance.
         shared_ptr<bool> channelConfigure_ {};
         // The list of third-party channels configured for the agent instance.
         shared_ptr<vector<string>> channelConfiguredList_ {};
         // The deployment source.
         shared_ptr<string> deploymentSource_ {};
-        // Indicates whether the agent instance has a model configured.
+        // The latest reported MindCenter version in the instance properties. This value is null if the version is not reported.
+        shared_ptr<string> mindCenterVersion_ {};
+        // Indicates whether a model is configured for the agent instance.
         shared_ptr<bool> modelConfigure_ {};
-        // The configured model group ID.
+        // The ID of the configured model group.
         shared_ptr<string> modelTemplateId_ {};
       };
 
@@ -365,7 +376,7 @@ namespace Models
 
 
       protected:
-        // The agent IM online status (Online/Offline). Default value: Offline.
+        // The online status of the agent IM. Valid values: Online and Offline. Default value: Offline.
         shared_ptr<string> agentImOnlineStatus_ {};
         // The agent IM status.
         shared_ptr<string> agentImStatus_ {};
@@ -547,33 +558,33 @@ namespace Models
       shared_ptr<vector<string>> channelConfiguredList_ {};
       // The agent runtime ID.
       shared_ptr<string> desktopId_ {};
-      // The agent runtime name.
+      // The Agent runtime name.
       shared_ptr<string> desktopName_ {};
-      // The Cloud Desktop status.
+      // The cloud desktop status.
       shared_ptr<string> desktopStatus_ {};
-      // Indicates whether there is an authorized user with authorization.
+      // Indicates whether users are authorized.
       shared_ptr<bool> hasAuthUser_ {};
-      // The management status list, parsed from the managementStatus combined value.
+      // The list of management statuses parsed from the aggregated managementStatus value.
       shared_ptr<vector<string>> managementStatuses_ {};
       // Indicates whether a model is configured for the agent runtime.
       shared_ptr<bool> modelConfigure_ {};
-      // The active model template ID. This parameter is returned only when modelConfigure is set to true.
+      // The ID of the effective model template. This parameter is returned only when modelConfigure is set to true.
       shared_ptr<string> modelTemplateId_ {};
-      // The active model template name. This parameter is returned only when modelConfigure is set to true.
+      // The name of the effective model template. This parameter is returned only when modelConfigure is set to true.
       shared_ptr<string> modelTemplateName_ {};
       // The operating system type.
       shared_ptr<string> osType_ {};
-      // The list of channel codes in QR code configuration.
+      // The list of channel codes in the QR code configuration.
       shared_ptr<vector<string>> qrCodeConfiguringList_ {};
       // The region ID.
       shared_ptr<string> regionId_ {};
-      // The region location (the Chinese mainland or outside the Chinese mainland).
+      // The region location (mainland China or overseas).
       shared_ptr<string> regionLocation_ {};
       // The resource group information.
       shared_ptr<Data::ResourceGroup> resourceGroup_ {};
-      // The resource ID, which is the Cloud Desktop ID.
+      // The resource ID, which is the cloud desktop ID.
       shared_ptr<string> resourceId_ {};
-      // The risk information. This parameter is returned only when the request parameter IncludeRiskInfo is set to true. Otherwise, null is returned.
+      // The risk information. This parameter is returned only when the IncludeRiskInfo request parameter is set to true. Otherwise, null is returned.
       shared_ptr<Data::RiskInfo> riskInfo_ {};
     };
 
@@ -621,11 +632,11 @@ namespace Models
     shared_ptr<vector<ListDesktopAgentRuntimeResponseBody::Data>> data_ {};
     // The page number.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries per page.
+    // The page size.
     shared_ptr<int32_t> pageSize_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The total number of entries returned.
+    // The total count.
     shared_ptr<int32_t> totalCount_ {};
   };
 

@@ -299,21 +299,21 @@ namespace Models
 
 
   protected:
-    // The agent IM online status filter.
+    // The Agent IM online status filter.
     shared_ptr<string> agentImOnlineStatus_ {};
-    // The list of agent instance statuses.
+    // The list of Agent instance statuses.
     shared_ptr<vector<string>> agentInstanceStatuses_ {};
-    // The list of agent instance versions.
+    // The list of Agent instance versions.
     shared_ptr<vector<string>> agentInstanceVersions_ {};
-    // The agent platform.
+    // The Agent platform.
     shared_ptr<string> agentPlatform_ {};
-    // The list of agent platforms. If both AgentPlatformList and AgentPlatform are specified, AgentPlatform takes precedence and this list is ignored.
+    // The list of Agent platforms. If both AgentPlatform and AgentPlatformList are specified, AgentPlatform takes precedence and this list is ignored.
     shared_ptr<vector<string>> agentPlatformList_ {};
-    // The agent provider name.
+    // The name of the Agent provider.
     shared_ptr<string> agentProvider_ {};
-    // The list of agent providers. If both AgentProviderList and AgentProvider are specified, AgentProvider takes precedence and this list is ignored.
+    // The list of Agent providers. If both AgentProvider and AgentProviderList are specified, AgentProvider takes precedence and this list is ignored.
     shared_ptr<vector<string>> agentProviderList_ {};
-    // The list of agent template IDs. A match occurs only when all valid templates are assigned.
+    // The list of Agent template IDs. A match occurs only when all valid templates are assigned.
     shared_ptr<vector<string>> agentTemplateIds_ {};
     // The list of authorized users.
     shared_ptr<vector<string>> authUsers_ {};
@@ -325,19 +325,17 @@ namespace Models
     shared_ptr<bool> channelConfigure_ {};
     // The deployment source.
     shared_ptr<string> deploymentSource_ {};
-    // The list of agent runtime IDs.
+    // The list of Agent runtime IDs.
     shared_ptr<vector<string>> desktopIds_ {};
-    // The list of agent runtime names.
+    // The list of Agent runtime names.
     shared_ptr<vector<string>> desktopNames_ {};
-    // The list of Cloud Desktop statuses.
+    // The list of cloud desktop statuses.
     shared_ptr<vector<string>> desktopStatuses_ {};
-    // Indicates whether authorization is granted to an authorized user.
+    // Specifies whether authorization is granted to an authorized user.
     shared_ptr<bool> hasAuthUser_ {};
-    // Specifies whether risks exist. This parameter is used to filter Cloud Desktops with or without risks. It takes effect only when IncludeRiskInfo is set to true.
-    // 
-    // Set this parameter to true to return only records with risks. Set this parameter to false to return only records without risks. If this parameter is not specified, no filtering is applied.
+    // Specifies whether a risk exists. This parameter is used to filter cloud desktops with or without risks and takes effect only when IncludeRiskInfo is set to true. If set to true, only records with risks are returned. If set to false, only records without risks are returned. If this parameter is not specified, no filtering is applied.
     shared_ptr<bool> hasRisk_ {};
-    // Specifies whether to query and return risk information. Default value: false. If this parameter is set to true, the RiskInfo field is included in the response, and the HasRisk filter takes effect.
+    // Specifies whether to query and return risk information. Default value: false. If set to true, the response includes the RiskInfo field, and the HasRisk filter takes effect.
     shared_ptr<bool> includeRiskInfo_ {};
     // The management status filter, such as Hibernated.
     shared_ptr<string> managementStatus_ {};
@@ -347,13 +345,13 @@ namespace Models
     shared_ptr<string> modelTemplateId_ {};
     // The office network ID.
     shared_ptr<string> officeSiteId_ {};
-    // The page number, starting from 1. Values 0 and 1 return the same result.
+    // The page number, starting from 1. Entering 0 or 1 returns the same result.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries per page.
+    // The page size.
     shared_ptr<int32_t> pageSize_ {};
     // The resource group ID.
     shared_ptr<string> resourceGroupId_ {};
-    // The list of resource IDs (underlying actual resource IDs).
+    // The list of resource IDs, which are the underlying actual resource IDs.
     shared_ptr<vector<string>> resourceIds_ {};
   };
 

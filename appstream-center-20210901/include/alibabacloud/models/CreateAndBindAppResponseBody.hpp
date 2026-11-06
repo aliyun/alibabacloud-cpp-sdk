@@ -1,0 +1,161 @@
+// This file is auto-generated, don't edit it. Thanks.
+#ifndef ALIBABACLOUD_MODELS_CREATEANDBINDAPPRESPONSEBODY_HPP_
+#define ALIBABACLOUD_MODELS_CREATEANDBINDAPPRESPONSEBODY_HPP_
+#include <darabonba/Core.hpp>
+using namespace std;
+using json = nlohmann::json;
+namespace AlibabaCloud
+{
+namespace AppstreamCenter20210901
+{
+namespace Models
+{
+  class CreateAndBindAppResponseBody : public Darabonba::Model {
+  public:
+    friend void to_json(Darabonba::Json& j, const CreateAndBindAppResponseBody& obj) { 
+      DARABONBA_PTR_TO_JSON(Code, code_);
+      DARABONBA_PTR_TO_JSON(Data, data_);
+      DARABONBA_PTR_TO_JSON(Message, message_);
+      DARABONBA_PTR_TO_JSON(RequestId, requestId_);
+      DARABONBA_PTR_TO_JSON(Success, success_);
+    };
+    friend void from_json(const Darabonba::Json& j, CreateAndBindAppResponseBody& obj) { 
+      DARABONBA_PTR_FROM_JSON(Code, code_);
+      DARABONBA_PTR_FROM_JSON(Data, data_);
+      DARABONBA_PTR_FROM_JSON(Message, message_);
+      DARABONBA_PTR_FROM_JSON(RequestId, requestId_);
+      DARABONBA_PTR_FROM_JSON(Success, success_);
+    };
+    CreateAndBindAppResponseBody() = default ;
+    CreateAndBindAppResponseBody(const CreateAndBindAppResponseBody &) = default ;
+    CreateAndBindAppResponseBody(CreateAndBindAppResponseBody &&) = default ;
+    CreateAndBindAppResponseBody(const Darabonba::Json & obj) { from_json(obj, *this); };
+    virtual ~CreateAndBindAppResponseBody() = default ;
+    CreateAndBindAppResponseBody& operator=(const CreateAndBindAppResponseBody &) = default ;
+    CreateAndBindAppResponseBody& operator=(CreateAndBindAppResponseBody &&) = default ;
+    virtual void validate() const override {
+    };
+    virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+    virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+    class Data : public Darabonba::Model {
+    public:
+      friend void to_json(Darabonba::Json& j, const Data& obj) { 
+        DARABONBA_PTR_TO_JSON(AppId, appId_);
+        DARABONBA_PTR_TO_JSON(AppVersionId, appVersionId_);
+        DARABONBA_PTR_TO_JSON(ImageId, imageId_);
+        DARABONBA_PTR_TO_JSON(VersionId, versionId_);
+      };
+      friend void from_json(const Darabonba::Json& j, Data& obj) { 
+        DARABONBA_PTR_FROM_JSON(AppId, appId_);
+        DARABONBA_PTR_FROM_JSON(AppVersionId, appVersionId_);
+        DARABONBA_PTR_FROM_JSON(ImageId, imageId_);
+        DARABONBA_PTR_FROM_JSON(VersionId, versionId_);
+      };
+      Data() = default ;
+      Data(const Data &) = default ;
+      Data(Data &&) = default ;
+      Data(const Darabonba::Json & obj) { from_json(obj, *this); };
+      virtual ~Data() = default ;
+      Data& operator=(const Data &) = default ;
+      Data& operator=(Data &&) = default ;
+      virtual void validate() const override {
+      };
+      virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+      virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+      virtual bool empty() const override { return this->appId_ == nullptr
+        && this->appVersionId_ == nullptr && this->imageId_ == nullptr && this->versionId_ == nullptr; };
+      // appId Field Functions 
+      bool hasAppId() const { return this->appId_ != nullptr;};
+      void deleteAppId() { this->appId_ = nullptr;};
+      inline string getAppId() const { DARABONBA_PTR_GET_DEFAULT(appId_, "") };
+      inline Data& setAppId(string appId) { DARABONBA_PTR_SET_VALUE(appId_, appId) };
+
+
+      // appVersionId Field Functions 
+      bool hasAppVersionId() const { return this->appVersionId_ != nullptr;};
+      void deleteAppVersionId() { this->appVersionId_ = nullptr;};
+      inline string getAppVersionId() const { DARABONBA_PTR_GET_DEFAULT(appVersionId_, "") };
+      inline Data& setAppVersionId(string appVersionId) { DARABONBA_PTR_SET_VALUE(appVersionId_, appVersionId) };
+
+
+      // imageId Field Functions 
+      bool hasImageId() const { return this->imageId_ != nullptr;};
+      void deleteImageId() { this->imageId_ = nullptr;};
+      inline string getImageId() const { DARABONBA_PTR_GET_DEFAULT(imageId_, "") };
+      inline Data& setImageId(string imageId) { DARABONBA_PTR_SET_VALUE(imageId_, imageId) };
+
+
+      // versionId Field Functions 
+      bool hasVersionId() const { return this->versionId_ != nullptr;};
+      void deleteVersionId() { this->versionId_ = nullptr;};
+      inline string getVersionId() const { DARABONBA_PTR_GET_DEFAULT(versionId_, "") };
+      inline Data& setVersionId(string versionId) { DARABONBA_PTR_SET_VALUE(versionId_, versionId) };
+
+
+    protected:
+      // The application ID, which is used to query the application or dissociate the image later.
+      shared_ptr<string> appId_ {};
+      // The application version ID, which is used to locate a specified version of the application. This field is not the image version ID.
+      shared_ptr<string> appVersionId_ {};
+      // The image ID, which is used to query or modify the image later.
+      shared_ptr<string> imageId_ {};
+      // The image version ID, which is used to query or manage a specified version of the image.
+      shared_ptr<string> versionId_ {};
+    };
+
+    virtual bool empty() const override { return this->code_ == nullptr
+        && this->data_ == nullptr && this->message_ == nullptr && this->requestId_ == nullptr && this->success_ == nullptr; };
+    // code Field Functions 
+    bool hasCode() const { return this->code_ != nullptr;};
+    void deleteCode() { this->code_ = nullptr;};
+    inline string getCode() const { DARABONBA_PTR_GET_DEFAULT(code_, "") };
+    inline CreateAndBindAppResponseBody& setCode(string code) { DARABONBA_PTR_SET_VALUE(code_, code) };
+
+
+    // data Field Functions 
+    bool hasData() const { return this->data_ != nullptr;};
+    void deleteData() { this->data_ = nullptr;};
+    inline const CreateAndBindAppResponseBody::Data & getData() const { DARABONBA_PTR_GET_CONST(data_, CreateAndBindAppResponseBody::Data) };
+    inline CreateAndBindAppResponseBody::Data getData() { DARABONBA_PTR_GET(data_, CreateAndBindAppResponseBody::Data) };
+    inline CreateAndBindAppResponseBody& setData(const CreateAndBindAppResponseBody::Data & data) { DARABONBA_PTR_SET_VALUE(data_, data) };
+    inline CreateAndBindAppResponseBody& setData(CreateAndBindAppResponseBody::Data && data) { DARABONBA_PTR_SET_RVALUE(data_, data) };
+
+
+    // message Field Functions 
+    bool hasMessage() const { return this->message_ != nullptr;};
+    void deleteMessage() { this->message_ = nullptr;};
+    inline string getMessage() const { DARABONBA_PTR_GET_DEFAULT(message_, "") };
+    inline CreateAndBindAppResponseBody& setMessage(string message) { DARABONBA_PTR_SET_VALUE(message_, message) };
+
+
+    // requestId Field Functions 
+    bool hasRequestId() const { return this->requestId_ != nullptr;};
+    void deleteRequestId() { this->requestId_ = nullptr;};
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline CreateAndBindAppResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
+
+
+    // success Field Functions 
+    bool hasSuccess() const { return this->success_ != nullptr;};
+    void deleteSuccess() { this->success_ = nullptr;};
+    inline bool getSuccess() const { DARABONBA_PTR_GET_DEFAULT(success_, false) };
+    inline CreateAndBindAppResponseBody& setSuccess(bool success) { DARABONBA_PTR_SET_VALUE(success_, success) };
+
+
+  protected:
+    // The error code. This field is returned when the request fails. A successful response may not contain this field.
+    shared_ptr<string> code_ {};
+    // The business data returned by the operation.
+    shared_ptr<CreateAndBindAppResponseBody::Data> data_ {};
+    // The error or result message. This field describes the cause when the request fails. A successful response may not contain this field.
+    shared_ptr<string> message_ {};
+    // The unique identifier of the request. Provide this value when you troubleshoot issues.
+    shared_ptr<string> requestId_ {};
+    // Indicates whether the request is processed successfully. A value of true indicates that the request is processed successfully. To determine whether an asynchronous task is completed, query the task status separately.
+    shared_ptr<bool> success_ {};
+  };
+
+  } // namespace Models
+} // namespace AlibabaCloud
+} // namespace AppstreamCenter20210901
+#endif

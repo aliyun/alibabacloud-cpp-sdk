@@ -148,6 +148,35 @@ namespace AppstreamCenter20210901
       Models::BatchCreateLlmTemplatesResponse batchCreateLlmTemplates(const Models::BatchCreateLlmTemplatesRequest &request);
 
       /**
+       * @summary Creates a custom image based on an existing image and starts an image creation task.
+       *
+       * @description Before you call this operation, make sure that the parent image is available and an available image distribution record exists in the region where the image is created.
+       * 1. Call ListImage to obtain the parent image ID.
+       * 2. Specify the creation mode, disk capacity, and resource type, and then call this operation.
+       * 3. Save the returned ImageId, VersionId, and TaskId.
+       * 4. Call GetTask to query the creation progress. **A successful request does not indicate that the image creation is complete.**
+       *
+       * @param tmpReq BuilderImageByParentRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return BuilderImageByParentResponse
+       */
+      Models::BuilderImageByParentResponse builderImageByParentWithOptions(const Models::BuilderImageByParentRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Creates a custom image based on an existing image and starts an image creation task.
+       *
+       * @description Before you call this operation, make sure that the parent image is available and an available image distribution record exists in the region where the image is created.
+       * 1. Call ListImage to obtain the parent image ID.
+       * 2. Specify the creation mode, disk capacity, and resource type, and then call this operation.
+       * 3. Save the returned ImageId, VersionId, and TaskId.
+       * 4. Call GetTask to query the creation progress. **A successful request does not indicate that the image creation is complete.**
+       *
+       * @param request BuilderImageByParentRequest
+       * @return BuilderImageByParentResponse
+       */
+      Models::BuilderImageByParentResponse builderImageByParent(const Models::BuilderImageByParentRequest &request);
+
+      /**
        * @summary Configures the model group for a resource group.
        *
        * @description You can authorize a model group for the resources to which agent runtimes such as JVS Computer, OpenClaw, and Hermes Agent belong in the Wuying Agent Management Center. The model group serves as the inference engine for agents in the resource group to execute tasks.
@@ -217,6 +246,29 @@ namespace AppstreamCenter20210901
        * @return ConfigRuntimeModelTemplateResponse
        */
       Models::ConfigRuntimeModelTemplateResponse configRuntimeModelTemplate(const Models::ConfigRuntimeModelTemplateRequest &request);
+
+      /**
+       * @summary Creates an application and binds it to a specified image version.
+       *
+       * @description Only custom images and community images that can be managed by the current account are supported. If VersionId is omitted, the current active version of the image is used. If specified, the version must belong to the image specified by ImageId.
+       * Call ListImage to select an image first. After the application is created, save the returned AppId, AppVersionId, ImageId, and VersionId. To dissociate the application, call UnbindApp.
+       *
+       * @param request CreateAndBindAppRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CreateAndBindAppResponse
+       */
+      Models::CreateAndBindAppResponse createAndBindAppWithOptions(const Models::CreateAndBindAppRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Creates an application and binds it to a specified image version.
+       *
+       * @description Only custom images and community images that can be managed by the current account are supported. If VersionId is omitted, the current active version of the image is used. If specified, the version must belong to the image specified by ImageId.
+       * Call ListImage to select an image first. After the application is created, save the returned AppId, AppVersionId, ImageId, and VersionId. To dissociate the application, call UnbindApp.
+       *
+       * @param request CreateAndBindAppRequest
+       * @return CreateAndBindAppResponse
+       */
+      Models::CreateAndBindAppResponse createAndBindApp(const Models::CreateAndBindAppRequest &request);
 
       /**
        * @summary Creates a delivery group.
@@ -291,6 +343,33 @@ namespace AppstreamCenter20210901
        * @return CreateBrowserInstanceGroupResponse
        */
       Models::CreateBrowserInstanceGroupResponse createBrowserInstanceGroup(const Models::CreateBrowserInstanceGroupRequest &request);
+
+      /**
+       * @summary Creates an asynchronous export task to export the WUYING server list, user usage report, cloud browser bookmarks, or URL whitelist.
+       *
+       * @description Creates an export task and returns the task ID and initial status. The exported file is not returned synchronously.
+       * After the task is created, save the TaskId and call DescribeExportTasks to query the task status and progress. A polling interval of 5 to 10 seconds is recommended. When the status is FINISHED, use the DownloadUrl in the latest query result to download the XLSX file. When the status is FAILED, check the ErrorMsg and stop polling.
+       * The task is valid for 24 hours after creation. The download URL has an independent signature validity period of up to 1 hour, which does not exceed the remaining validity period of the task. Query the latest URL before downloading. You cannot obtain a valid download URL after the task expires.
+       * Exporting the WUYING server list only accepts the filter fields listed in QueryParamJson. Pagination is controlled by the server, and a single task can export up to 100,000 records. Exporting cloud browser bookmarks and the URL whitelist exports the complete list of the target delivery group, regardless of list search terms or the current page. The system verifies the delivery group ownership and product type before execution. Data is paginated during execution, and no consistent snapshot is provided. A successful creation does not guarantee that subsequent verification, querying, or file generation will succeed.
+       *
+       * @param request CreateExportTaskRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CreateExportTaskResponse
+       */
+      Models::CreateExportTaskResponse createExportTaskWithOptions(const Models::CreateExportTaskRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Creates an asynchronous export task to export the WUYING server list, user usage report, cloud browser bookmarks, or URL whitelist.
+       *
+       * @description Creates an export task and returns the task ID and initial status. The exported file is not returned synchronously.
+       * After the task is created, save the TaskId and call DescribeExportTasks to query the task status and progress. A polling interval of 5 to 10 seconds is recommended. When the status is FINISHED, use the DownloadUrl in the latest query result to download the XLSX file. When the status is FAILED, check the ErrorMsg and stop polling.
+       * The task is valid for 24 hours after creation. The download URL has an independent signature validity period of up to 1 hour, which does not exceed the remaining validity period of the task. Query the latest URL before downloading. You cannot obtain a valid download URL after the task expires.
+       * Exporting the WUYING server list only accepts the filter fields listed in QueryParamJson. Pagination is controlled by the server, and a single task can export up to 100,000 records. Exporting cloud browser bookmarks and the URL whitelist exports the complete list of the target delivery group, regardless of list search terms or the current page. The system verifies the delivery group ownership and product type before execution. Data is paginated during execution, and no consistent snapshot is provided. A successful creation does not guarantee that subsequent verification, querying, or file generation will succeed.
+       *
+       * @param request CreateExportTaskRequest
+       * @return CreateExportTaskResponse
+       */
+      Models::CreateExportTaskResponse createExportTask(const Models::CreateExportTaskRequest &request);
 
       /**
        * @summary Creates a custom image from a deployed WUYING instance. You can use the custom image to quickly create more WUYING instances with the same configurations, without having to repeatedly configure the instance environment each time.
@@ -396,6 +475,62 @@ namespace AppstreamCenter20210901
        * @return CreateWuyingServerResponse
        */
       Models::CreateWuyingServerResponse createWuyingServer(const Models::CreateWuyingServerRequest &request);
+
+      /**
+       * @summary Deletes a specified application adaptation, or dissociates the adaptation from a specified image version.
+       *
+       * @description **Confirm the deletion scope first.**
+       * - If both ImageId and VersionId are specified: only the association between the adaptation and the specified image version is dissociated.
+       * - If ImageId and VersionId are not both specified: the adaptation deletion process starts. The adaptation cannot be deleted if it is still referenced by multiple images. If the application still has other adaptations, the application cannot be deleted along with it.
+       * **AdaptorId, AppVersionId, and AppId must be provided together and correspond to the same application adaptation.** Verify these identifiers by querying the application and image first.
+       *
+       * @param request DeleteAdaptorRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DeleteAdaptorResponse
+       */
+      Models::DeleteAdaptorResponse deleteAdaptorWithOptions(const Models::DeleteAdaptorRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Deletes a specified application adaptation, or dissociates the adaptation from a specified image version.
+       *
+       * @description **Confirm the deletion scope first.**
+       * - If both ImageId and VersionId are specified: only the association between the adaptation and the specified image version is dissociated.
+       * - If ImageId and VersionId are not both specified: the adaptation deletion process starts. The adaptation cannot be deleted if it is still referenced by multiple images. If the application still has other adaptations, the application cannot be deleted along with it.
+       * **AdaptorId, AppVersionId, and AppId must be provided together and correspond to the same application adaptation.** Verify these identifiers by querying the application and image first.
+       *
+       * @param request DeleteAdaptorRequest
+       * @return DeleteAdaptorResponse
+       */
+      Models::DeleteAdaptorResponse deleteAdaptor(const Models::DeleteAdaptorRequest &request);
+
+      /**
+       * @summary Deletes a specified application version, or deletes the entire application and its adapters if the version ID is omitted.
+       *
+       * @description **You must dissociate all image associations from the target application or version before deletion.**
+       * 1. Call ListApp to obtain the AppId and confirm whether the application can be deleted.
+       * 2. Use UnbindApp or DeleteAdaptor to dissociate the related image associations.
+       * 3. Specify AppVersionId to delete a single application version, or omit this parameter to delete the entire application.
+       * After an application version is deleted, if the application has no other valid adapters, the application record is also deleted.
+       *
+       * @param request DeleteAppRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DeleteAppResponse
+       */
+      Models::DeleteAppResponse deleteAppWithOptions(const Models::DeleteAppRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Deletes a specified application version, or deletes the entire application and its adapters if the version ID is omitted.
+       *
+       * @description **You must dissociate all image associations from the target application or version before deletion.**
+       * 1. Call ListApp to obtain the AppId and confirm whether the application can be deleted.
+       * 2. Use UnbindApp or DeleteAdaptor to dissociate the related image associations.
+       * 3. Specify AppVersionId to delete a single application version, or omit this parameter to delete the entire application.
+       * After an application version is deleted, if the application has no other valid adapters, the application record is also deleted.
+       *
+       * @param request DeleteAppRequest
+       * @return DeleteAppResponse
+       */
+      Models::DeleteAppResponse deleteApp(const Models::DeleteAppRequest &request);
 
       /**
        * @summary Deletes a resource-based pay-as-you-go delivery group.
@@ -572,6 +707,58 @@ namespace AppstreamCenter20210901
       Models::DeliverToUserSlsResponse deliverToUserSls(const Models::DeliverToUserSlsRequest &request);
 
       /**
+       * @summary Performs a paged query for the resource and session events of the current account within the last 30 days. Paging is supported.
+       *
+       * @description Queries the resource and session events of the current account. Both StartTime and EndTime must be specified, and the time range is inclusive. The service only retrieves logs from 30 days before the call time to the current time, so events outside this window are not returned. If multiple filter parameters are specified, the intersection of the conditions is applied. The results are returned in descending order of the event log time. For pagination, specify PageSize and PageNumber. The current version does not use MaxResults and NextToken.
+       *
+       * @param request DescribeEventsRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DescribeEventsResponse
+       */
+      Models::DescribeEventsResponse describeEventsWithOptions(const Models::DescribeEventsRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Performs a paged query for the resource and session events of the current account within the last 30 days. Paging is supported.
+       *
+       * @description Queries the resource and session events of the current account. Both StartTime and EndTime must be specified, and the time range is inclusive. The service only retrieves logs from 30 days before the call time to the current time, so events outside this window are not returned. If multiple filter parameters are specified, the intersection of the conditions is applied. The results are returned in descending order of the event log time. For pagination, specify PageSize and PageNumber. The current version does not use MaxResults and NextToken.
+       *
+       * @param request DescribeEventsRequest
+       * @return DescribeEventsResponse
+       */
+      Models::DescribeEventsResponse describeEvents(const Models::DescribeEventsRequest &request);
+
+      /**
+       * @summary Queries the execution status, progress, and download URLs of export tasks by using paging.
+       *
+       * @description Calls this operation to use paging to query the export tasks under the current Alibaba Cloud account to obtain the task status, execution progress, export file names, and download URLs. Export tasks are created by calling CreateExportTask. This operation only reads task information and does not create, modify, or retry tasks.
+       * The query results are returned in descending order of task creation time, with the most recently created tasks listed first. Only tasks in the INIT, RUNNING, FINISHED, and FAILED states are returned. Tasks marked as EXPIRED are not included in the results.
+       * When polling a single task by TaskId, set PageNumber to 1 and PageSize to 1, set the polling interval to 5 to 10 seconds, and stop polling after the task enters the FINISHED or FAILED state.
+       * A task is valid for 24 hours after creation and is marked as expired by a background task after 25 hours. Therefore, within the 24- to 25-hour window, a FINISHED task may still be queried, but its DownloadUrl is empty. After a task is marked as expired, the query result is an empty array.
+       * If the query result is an empty array, it may be because there are no visible tasks under the current account, the task type does not match, the page number is out of bounds, or the tasks have expired. This operation always returns an array structure and does not return an error when the query result is empty.
+       * DownloadUrl is an OSS pre-signed URL. The default maximum validity period is 1 hour and does not exceed the remaining validity period of the task. The server automatically refreshes the URL when it is about to expire. Use the URL returned by the most recent query for downloading and do not cache the initially returned URL for a long time.
+       *
+       * @param request DescribeExportTasksRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DescribeExportTasksResponse
+       */
+      Models::DescribeExportTasksResponse describeExportTasksWithOptions(const Models::DescribeExportTasksRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Queries the execution status, progress, and download URLs of export tasks by using paging.
+       *
+       * @description Calls this operation to use paging to query the export tasks under the current Alibaba Cloud account to obtain the task status, execution progress, export file names, and download URLs. Export tasks are created by calling CreateExportTask. This operation only reads task information and does not create, modify, or retry tasks.
+       * The query results are returned in descending order of task creation time, with the most recently created tasks listed first. Only tasks in the INIT, RUNNING, FINISHED, and FAILED states are returned. Tasks marked as EXPIRED are not included in the results.
+       * When polling a single task by TaskId, set PageNumber to 1 and PageSize to 1, set the polling interval to 5 to 10 seconds, and stop polling after the task enters the FINISHED or FAILED state.
+       * A task is valid for 24 hours after creation and is marked as expired by a background task after 25 hours. Therefore, within the 24- to 25-hour window, a FINISHED task may still be queried, but its DownloadUrl is empty. After a task is marked as expired, the query result is an empty array.
+       * If the query result is an empty array, it may be because there are no visible tasks under the current account, the task type does not match, the page number is out of bounds, or the tasks have expired. This operation always returns an array structure and does not return an error when the query result is empty.
+       * DownloadUrl is an OSS pre-signed URL. The default maximum validity period is 1 hour and does not exceed the remaining validity period of the task. The server automatically refreshes the URL when it is about to expire. Use the URL returned by the most recent query for downloading and do not cache the initially returned URL for a long time.
+       *
+       * @param request DescribeExportTasksRequest
+       * @return DescribeExportTasksResponse
+       */
+      Models::DescribeExportTasksResponse describeExportTasks(const Models::DescribeExportTasksRequest &request);
+
+      /**
        * @summary Queries the details of a development host.
        *
        * @param request DescribeWuyingServerRequest
@@ -606,6 +793,23 @@ namespace AppstreamCenter20210901
       Models::DescribeWuyingServerEipInfoResponse describeWuyingServerEipInfo(const Models::DescribeWuyingServerEipInfoRequest &request);
 
       /**
+       * @summary Queries the statistics of runtimes of a specified type under the current Alibaba Cloud account, grouped by agent platform and agent provider, including the total number of runtimes, the number of runtimes without model configurations, the number of runtimes without channel configurations, the number of risky runtimes, and the number of expired runtimes.
+       *
+       * @param request GetAgentRuntimeStatisticRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetAgentRuntimeStatisticResponse
+       */
+      Models::GetAgentRuntimeStatisticResponse getAgentRuntimeStatisticWithOptions(const Models::GetAgentRuntimeStatisticRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Queries the statistics of runtimes of a specified type under the current Alibaba Cloud account, grouped by agent platform and agent provider, including the total number of runtimes, the number of runtimes without model configurations, the number of runtimes without channel configurations, the number of risky runtimes, and the number of expired runtimes.
+       *
+       * @param request GetAgentRuntimeStatisticRequest
+       * @return GetAgentRuntimeStatisticResponse
+       */
+      Models::GetAgentRuntimeStatisticResponse getAgentRuntimeStatistic(const Models::GetAgentRuntimeStatisticRequest &request);
+
+      /**
        * @summary Queries the details of a specified delivery group.
        *
        * @param request GetAppInstanceGroupRequest
@@ -621,6 +825,35 @@ namespace AppstreamCenter20210901
        * @return GetAppInstanceGroupResponse
        */
       Models::GetAppInstanceGroupResponse getAppInstanceGroup(const Models::GetAppInstanceGroupRequest &request);
+
+      /**
+       * @summary Retrieves the connection authorization code and required resource information for an existing image or application creation task.
+       *
+       * @description Before calling this operation, you must create a task, and the creation or validation resources corresponding to the task must be available.
+       * 1. Obtain the TaskId and actual TaskType from the response of the task creation operation or GetTask.
+       * 2. Specify ResourceType to obtain the connection information for the creation or validation environment.
+       * 3. Use the returned authorization code along with the user, resource group, and application identifiers in the same response for connection.
+       * The authorization code is a sensitive connection credential. Do not record it in public documents or logs. When specifying AppId, you must also specify the matching AppVersionId.
+       *
+       * @param request GetAuthCodeRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetAuthCodeResponse
+       */
+      Models::GetAuthCodeResponse getAuthCodeWithOptions(const Models::GetAuthCodeRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Retrieves the connection authorization code and required resource information for an existing image or application creation task.
+       *
+       * @description Before calling this operation, you must create a task, and the creation or validation resources corresponding to the task must be available.
+       * 1. Obtain the TaskId and actual TaskType from the response of the task creation operation or GetTask.
+       * 2. Specify ResourceType to obtain the connection information for the creation or validation environment.
+       * 3. Use the returned authorization code along with the user, resource group, and application identifiers in the same response for connection.
+       * The authorization code is a sensitive connection credential. Do not record it in public documents or logs. When specifying AppId, you must also specify the matching AppVersionId.
+       *
+       * @param request GetAuthCodeRequest
+       * @return GetAuthCodeResponse
+       */
+      Models::GetAuthCodeResponse getAuthCode(const Models::GetAuthCodeRequest &request);
 
       /**
        * @summary Queries the configuration, status, and authorization statistics of a specified cloud browser group.
@@ -775,6 +1008,74 @@ namespace AppstreamCenter20210901
       Models::GetOtaTaskByTaskIdResponse getOtaTaskByTaskId(const Models::GetOtaTaskByTaskIdRequest &request);
 
       /**
+       * @summary Queries the model settings of resource groups.
+       *
+       * @param request GetResourceGroupAgentModelSettingsRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetResourceGroupAgentModelSettingsResponse
+       */
+      Models::GetResourceGroupAgentModelSettingsResponse getResourceGroupAgentModelSettingsWithOptions(const Models::GetResourceGroupAgentModelSettingsRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Queries the model settings of resource groups.
+       *
+       * @param request GetResourceGroupAgentModelSettingsRequest
+       * @return GetResourceGroupAgentModelSettingsResponse
+       */
+      Models::GetResourceGroupAgentModelSettingsResponse getResourceGroupAgentModelSettings(const Models::GetResourceGroupAgentModelSettingsRequest &request);
+
+      /**
+       * @summary Queries the pricing and discount information required to scale out a subscription delivery group to a specified total number of nodes.
+       *
+       * @description This operation queries the resource scale-out price of an existing delivery group. A successful call returns only a quote and does not create an order or add nodes.
+       * **Verify the following conditions before you call this operation:**
+       * - The delivery group belongs to the current account and is located in a supported region in the Chinese mainland.
+       * - The product type is WUYING Cloud App or Cloud Browser, and the billing method is subscription and billed by node. Pay-as-you-go or browser groups billed by monthly active user (MAU) are not supported.
+       * - The order status of the delivery group is normal, a resource node pool is associated, and no paid but ineffective renewal or scale-in orders exist.
+       * - The target total number of nodes is greater than the current number of purchased nodes and does not exceed the node quota for the account in the corresponding region, product, and billing method.
+       * **Parameter relationships:**
+       * - ProductType, AppInstanceGroupId, and Amount are all required and must be specified together.
+       * - ProductType must match the product corresponding to AppInstanceGroupId.
+       * - **Amount is the total number of nodes after the scale-out, not the number of nodes added in this operation.** The region, node specifications, and billing method are determined by the existing delivery group and do not need to be specified.
+       * **Procedure:**
+       * 1. Confirm the target delivery group and the current number of purchased nodes. For common scenarios of cloud apps, you can first invoke [ListAppInstanceGroup](https://api.aliyun.com/document/appstream-center/2021-09-01/ListAppInstanceGroup) to obtain the identity, and then invoke [GetAppInstanceGroup](https://api.aliyun.com/document/appstream-center/2021-09-01/GetAppInstanceGroup) to query the configuration and `NodePool.NodeAmount`.
+       * 2. Invoke this operation with the same product type, delivery group identity, and target total number of nodes to read the price, coupons, and pricing rules.
+       * 3. After confirming the quote, if you want to execute the scale-out, you can invoke [ModifyNodePoolAmount](https://api.aliyun.com/document/appstream-center/2021-09-01/ModifyNodePoolAmount) and specify the target total number in `NodePool.NodeAmount` as required by the operation. **A successful price inquiry does not mean that an order is created or the scale-out is completed.**
+       * **Example scenario:**
+       * If a cloud app delivery group currently has 1 purchased subscription node and you want to scale out to 2 nodes, specify ProductType=CloudApp, the AppInstanceGroupId of the delivery group, and Amount=2. Replace the masked resource IDs with the actual values under the current account. The example quantities do not represent default values or quota limits. The price examples only illustrate the relationship among the original price, discount amount, and final price, and do not represent the fixed selling price of the specifications.
+       *
+       * @param request GetResourceModifyPriceRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetResourceModifyPriceResponse
+       */
+      Models::GetResourceModifyPriceResponse getResourceModifyPriceWithOptions(const Models::GetResourceModifyPriceRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Queries the pricing and discount information required to scale out a subscription delivery group to a specified total number of nodes.
+       *
+       * @description This operation queries the resource scale-out price of an existing delivery group. A successful call returns only a quote and does not create an order or add nodes.
+       * **Verify the following conditions before you call this operation:**
+       * - The delivery group belongs to the current account and is located in a supported region in the Chinese mainland.
+       * - The product type is WUYING Cloud App or Cloud Browser, and the billing method is subscription and billed by node. Pay-as-you-go or browser groups billed by monthly active user (MAU) are not supported.
+       * - The order status of the delivery group is normal, a resource node pool is associated, and no paid but ineffective renewal or scale-in orders exist.
+       * - The target total number of nodes is greater than the current number of purchased nodes and does not exceed the node quota for the account in the corresponding region, product, and billing method.
+       * **Parameter relationships:**
+       * - ProductType, AppInstanceGroupId, and Amount are all required and must be specified together.
+       * - ProductType must match the product corresponding to AppInstanceGroupId.
+       * - **Amount is the total number of nodes after the scale-out, not the number of nodes added in this operation.** The region, node specifications, and billing method are determined by the existing delivery group and do not need to be specified.
+       * **Procedure:**
+       * 1. Confirm the target delivery group and the current number of purchased nodes. For common scenarios of cloud apps, you can first invoke [ListAppInstanceGroup](https://api.aliyun.com/document/appstream-center/2021-09-01/ListAppInstanceGroup) to obtain the identity, and then invoke [GetAppInstanceGroup](https://api.aliyun.com/document/appstream-center/2021-09-01/GetAppInstanceGroup) to query the configuration and `NodePool.NodeAmount`.
+       * 2. Invoke this operation with the same product type, delivery group identity, and target total number of nodes to read the price, coupons, and pricing rules.
+       * 3. After confirming the quote, if you want to execute the scale-out, you can invoke [ModifyNodePoolAmount](https://api.aliyun.com/document/appstream-center/2021-09-01/ModifyNodePoolAmount) and specify the target total number in `NodePool.NodeAmount` as required by the operation. **A successful price inquiry does not mean that an order is created or the scale-out is completed.**
+       * **Example scenario:**
+       * If a cloud app delivery group currently has 1 purchased subscription node and you want to scale out to 2 nodes, specify ProductType=CloudApp, the AppInstanceGroupId of the delivery group, and Amount=2. Replace the masked resource IDs with the actual values under the current account. The example quantities do not represent default values or quota limits. The price examples only illustrate the relationship among the original price, discount amount, and final price, and do not represent the fixed selling price of the specifications.
+       *
+       * @param request GetResourceModifyPriceRequest
+       * @return GetResourceModifyPriceResponse
+       */
+      Models::GetResourceModifyPriceResponse getResourceModifyPrice(const Models::GetResourceModifyPriceRequest &request);
+
+      /**
        * @summary Queries the price information of a resource.
        *
        * @param request GetResourcePriceRequest
@@ -790,6 +1091,47 @@ namespace AppstreamCenter20210901
        * @return GetResourcePriceResponse
        */
       Models::GetResourcePriceResponse getResourcePrice(const Models::GetResourcePriceRequest &request);
+
+      /**
+       * @summary Queries the maximum quantity quota applicable to the current account for a specified product, resource type, business region, and billing method.
+       *
+       * @description This operation queries the maximum quantity quota. It does not query the used quota, remaining quota, or real-time resource inventory.
+       * **Parameter relationships:**
+       * - ResourceType and ProductType are required.
+       * - BizRegionId and ChargeType are optional query conditions and can be specified at the same time. They must be consistent with subsequent purchase or authorization operations.
+       * - If the region or billing method is omitted, the general quota for the corresponding dimension is queried. The quotas of different regions or billing methods are not added together.
+       * - If multiple quotas apply at the same time, the larger limit is returned.
+       * **Call sequence:**
+       * 1. Select the resource type, product, business region, and billing method for the payer based on subsequent business needs.
+       * 2. Invoke this operation to read `Data`. Query `AppInstanceGroup` before creating a delivery group, query `AppAuthUser` before authorizing an authorized user, and query `PoolNodeAmount` before purchasing or scaling out nodes.
+       * 3. Query the current usage in combination with the resources, and then verify the current operation through subsequent creation, authorization, or scale-out operations. **This query does not reserve quotas or guarantee the success of subsequent purchases.**
+       * Data=2147483647 indicates that no smaller quota limit is obtained in this query. It does not mean that the physical inventory is unlimited.
+       *
+       * @param request GetResourceQuotaRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetResourceQuotaResponse
+       */
+      Models::GetResourceQuotaResponse getResourceQuotaWithOptions(const Models::GetResourceQuotaRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Queries the maximum quantity quota applicable to the current account for a specified product, resource type, business region, and billing method.
+       *
+       * @description This operation queries the maximum quantity quota. It does not query the used quota, remaining quota, or real-time resource inventory.
+       * **Parameter relationships:**
+       * - ResourceType and ProductType are required.
+       * - BizRegionId and ChargeType are optional query conditions and can be specified at the same time. They must be consistent with subsequent purchase or authorization operations.
+       * - If the region or billing method is omitted, the general quota for the corresponding dimension is queried. The quotas of different regions or billing methods are not added together.
+       * - If multiple quotas apply at the same time, the larger limit is returned.
+       * **Call sequence:**
+       * 1. Select the resource type, product, business region, and billing method for the payer based on subsequent business needs.
+       * 2. Invoke this operation to read `Data`. Query `AppInstanceGroup` before creating a delivery group, query `AppAuthUser` before authorizing an authorized user, and query `PoolNodeAmount` before purchasing or scaling out nodes.
+       * 3. Query the current usage in combination with the resources, and then verify the current operation through subsequent creation, authorization, or scale-out operations. **This query does not reserve quotas or guarantee the success of subsequent purchases.**
+       * Data=2147483647 indicates that no smaller quota limit is obtained in this query. It does not mean that the physical inventory is unlimited.
+       *
+       * @param request GetResourceQuotaRequest
+       * @return GetResourceQuotaResponse
+       */
+      Models::GetResourceQuotaResponse getResourceQuota(const Models::GetResourceQuotaRequest &request);
 
       /**
        * @summary Queries the renewal price of WUYING Cloud Application resources.
@@ -853,6 +1195,56 @@ namespace AppstreamCenter20210901
       Models::GetRuntimeModelConfigResponse getRuntimeModelConfig(const Models::GetRuntimeModelConfigRequest &request);
 
       /**
+       * @summary Queries the details of a task by task ID, or by resource information and task category.
+       *
+       * @description Supports two query methods:
+       * - **By task ID**: Pass the TaskId parameter. This method takes precedence over querying by resource information.
+       * - **By resource**: Omit the TaskId parameter, and pass the EntityId, EntityType, and TaskCategory parameters at the same time. You can use the EntityVersionId parameter to specify the resource version.
+       * The API returns the current task status and recorded step information. Determine the overall task result based on the Status parameter. The success of a single step does not mean the entire task is successful. You can call the ListTaskStep operation to query the names and categories of image creation and application adaptation steps.
+       *
+       * @param request GetTaskRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetTaskResponse
+       */
+      Models::GetTaskResponse getTaskWithOptions(const Models::GetTaskRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Queries the details of a task by task ID, or by resource information and task category.
+       *
+       * @description Supports two query methods:
+       * - **By task ID**: Pass the TaskId parameter. This method takes precedence over querying by resource information.
+       * - **By resource**: Omit the TaskId parameter, and pass the EntityId, EntityType, and TaskCategory parameters at the same time. You can use the EntityVersionId parameter to specify the resource version.
+       * The API returns the current task status and recorded step information. Determine the overall task result based on the Status parameter. The success of a single step does not mean the entire task is successful. You can call the ListTaskStep operation to query the names and categories of image creation and application adaptation steps.
+       *
+       * @param request GetTaskRequest
+       * @return GetTaskResponse
+       */
+      Models::GetTaskResponse getTask(const Models::GetTaskRequest &request);
+
+      /**
+       * @summary Queries the valid applications of the current account by paging based on conditions such as the application ID, name, type, and associated product.
+       *
+       * @description When multiple filter conditions are specified at the same time, they take effect together. AppName supports contains matching. When a single-value filter and the corresponding list filter are specified at the same time, the intersection is used. To avoid empty results, specify only one of the forms.
+       * If PageSize is omitted, the value is 10. Start from 1 for PageNumber and query page by page until the number of retrieved records reaches Count. Before deleting an application, check Deletable.
+       *
+       * @param tmpReq ListAppRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListAppResponse
+       */
+      Models::ListAppResponse listAppWithOptions(const Models::ListAppRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Queries the valid applications of the current account by paging based on conditions such as the application ID, name, type, and associated product.
+       *
+       * @description When multiple filter conditions are specified at the same time, they take effect together. AppName supports contains matching. When a single-value filter and the corresponding list filter are specified at the same time, the intersection is used. To avoid empty results, specify only one of the forms.
+       * If PageSize is omitted, the value is 10. Start from 1 for PageNumber and query page by page until the number of retrieved records reaches Count. Before deleting an application, check Deletable.
+       *
+       * @param request ListAppRequest
+       * @return ListAppResponse
+       */
+      Models::ListAppResponse listApp(const Models::ListAppRequest &request);
+
+      /**
        * @summary Queries the details of multiple delivery groups. This operation queries all delivery groups that meet the specified conditions instead of a specific delivery group.
        *
        * @param request ListAppInstanceGroupRequest
@@ -868,6 +1260,51 @@ namespace AppstreamCenter20210901
        * @return ListAppInstanceGroupResponse
        */
       Models::ListAppInstanceGroupResponse listAppInstanceGroup(const Models::ListAppInstanceGroupRequest &request);
+
+      /**
+       * @summary Queries the available session instance types for the current account by paging based on the product, region, operating system, and instance type conditions.
+       *
+       * @description This operation is used to select session instance types and does not create resources. The returned results are affected by the available instance types for the account and the business region. An empty result does not indicate a request failure.
+       * **Filtering and pagination:**
+       * - `ProductType` is required. Explicitly specify `BizRegionId`, `PageNumber`, and `PageSize`.
+       * - If `BizRegionId` is not provided, the region of the current request is used. You can call the [ListRegions](https://api.aliyun.com/document/appstream-center/2021-09-01/ListRegions) operation to obtain the business region.
+       * - You can specify both `AppInstanceType` and `AppInstanceTypeList`. In this case, only the instance types that meet both conditions are returned. Neither parameter overrides the other. The list can contain up to 100 items.
+       * - The instance type family, CPU, memory, GPU memory, operating system, and category conditions are filtered by intersection. The union is not automatically applied.
+       * - Pass `PageNumber` starting from 1. Use `TotalCount`, `PageSize`, and `PageNumber` to continue pagination until all matching results are read.
+       * **Inventory and subsequent calls:**
+       * - Inventory is queried only when `QueryInventory` is set to `true`. If inventory information is not obtained, do not assume that the inventory is 0.
+       * - The inventory reflects the current query result and does not indicate a successful reservation.
+       * - After obtaining the `AppInstanceType`, you can query the price based on the session instance type parameter requirements of [GetResourcePrice](https://api.aliyun.com/document/appstream-center/2021-09-01/GetResourcePrice).
+       * - The current query does not use `AppCenterImageId` to filter instance types. Do not use this parameter to determine the compatibility between images and instance types.
+       * Field examples are used to demonstrate how to fill in the fields and do not guarantee that the example instance types exist in the selected region or account. The GPU count field currently does not provide a value. Use the GPU memory field to understand the instance type.
+       *
+       * @param request ListAppInstanceTypeRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListAppInstanceTypeResponse
+       */
+      Models::ListAppInstanceTypeResponse listAppInstanceTypeWithOptions(const Models::ListAppInstanceTypeRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Queries the available session instance types for the current account by paging based on the product, region, operating system, and instance type conditions.
+       *
+       * @description This operation is used to select session instance types and does not create resources. The returned results are affected by the available instance types for the account and the business region. An empty result does not indicate a request failure.
+       * **Filtering and pagination:**
+       * - `ProductType` is required. Explicitly specify `BizRegionId`, `PageNumber`, and `PageSize`.
+       * - If `BizRegionId` is not provided, the region of the current request is used. You can call the [ListRegions](https://api.aliyun.com/document/appstream-center/2021-09-01/ListRegions) operation to obtain the business region.
+       * - You can specify both `AppInstanceType` and `AppInstanceTypeList`. In this case, only the instance types that meet both conditions are returned. Neither parameter overrides the other. The list can contain up to 100 items.
+       * - The instance type family, CPU, memory, GPU memory, operating system, and category conditions are filtered by intersection. The union is not automatically applied.
+       * - Pass `PageNumber` starting from 1. Use `TotalCount`, `PageSize`, and `PageNumber` to continue pagination until all matching results are read.
+       * **Inventory and subsequent calls:**
+       * - Inventory is queried only when `QueryInventory` is set to `true`. If inventory information is not obtained, do not assume that the inventory is 0.
+       * - The inventory reflects the current query result and does not indicate a successful reservation.
+       * - After obtaining the `AppInstanceType`, you can query the price based on the session instance type parameter requirements of [GetResourcePrice](https://api.aliyun.com/document/appstream-center/2021-09-01/GetResourcePrice).
+       * - The current query does not use `AppCenterImageId` to filter instance types. Do not use this parameter to determine the compatibility between images and instance types.
+       * Field examples are used to demonstrate how to fill in the fields and do not guarantee that the example instance types exist in the selected region or account. The GPU count field currently does not provide a value. Use the GPU memory field to understand the instance type.
+       *
+       * @param request ListAppInstanceTypeRequest
+       * @return ListAppInstanceTypeResponse
+       */
+      Models::ListAppInstanceTypeResponse listAppInstanceType(const Models::ListAppInstanceTypeRequest &request);
 
       /**
        * @summary Queries the details of session instances in a delivery group, including instance IDs, instance statuses, creation time, update time, session statuses, and public IP addresses of primary network interface controllers (NICs).
@@ -1186,7 +1623,7 @@ namespace AppstreamCenter20210901
       Models::ListBrowserInstanceGroupResponse listBrowserInstanceGroup(const Models::ListBrowserInstanceGroupRequest &request);
 
       /**
-       * @summary Queries the list of desktop agent runtimes.
+       * @summary Queries a list of desktop Agent runtimes.
        *
        * @param request ListDesktopAgentRuntimeRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1195,7 +1632,7 @@ namespace AppstreamCenter20210901
       Models::ListDesktopAgentRuntimeResponse listDesktopAgentRuntimeWithOptions(const Models::ListDesktopAgentRuntimeRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the list of desktop agent runtimes.
+       * @summary Queries a list of desktop Agent runtimes.
        *
        * @param request ListDesktopAgentRuntimeRequest
        * @return ListDesktopAgentRuntimeResponse
@@ -1258,6 +1695,23 @@ namespace AppstreamCenter20210901
        * @return ListModelProviderEndpointsResponse
        */
       Models::ListModelProviderEndpointsResponse listModelProviderEndpoints(const Models::ListModelProviderEndpointsRequest &request);
+
+      /**
+       * @summary Queries the list of available large language model (LLM) codes for a specified model provider. Supports filtering by LLM code, model brand, recommendation level, and recommendation status, and returns model information such as the model name, description, release time, features, inference modality, pricing, credit multiplier, and risk type.
+       *
+       * @param request ListModelProviderLlmCodesRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListModelProviderLlmCodesResponse
+       */
+      Models::ListModelProviderLlmCodesResponse listModelProviderLlmCodesWithOptions(const Models::ListModelProviderLlmCodesRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Queries the list of available large language model (LLM) codes for a specified model provider. Supports filtering by LLM code, model brand, recommendation level, and recommendation status, and returns model information such as the model name, description, release time, features, inference modality, pricing, credit multiplier, and risk type.
+       *
+       * @param request ListModelProviderLlmCodesRequest
+       * @return ListModelProviderLlmCodesResponse
+       */
+      Models::ListModelProviderLlmCodesResponse listModelProviderLlmCodes(const Models::ListModelProviderLlmCodesRequest &request);
 
       /**
        * @summary Queries the list of model provider templates.
@@ -1493,6 +1947,29 @@ namespace AppstreamCenter20210901
       Models::ListPublishedAppsResponse listPublishedApps(const Models::ListPublishedAppsRequest &request);
 
       /**
+       * @summary Queries the list of region IDs available for image services under a specified product for the current account.
+       *
+       * @description The returned results are affected by the available region configurations of the account and the product type. If ProductType is omitted, the query is performed based on CloudApp.
+       * This operation returns the regions available for image services. You cannot use this information to determine whether a specific image has been distributed to these regions. Before you create or distribute an image based on a parent image, you must also check the region information of the destination image.
+       *
+       * @param request ListRegionIdRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListRegionIdResponse
+       */
+      Models::ListRegionIdResponse listRegionIdWithOptions(const Models::ListRegionIdRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Queries the list of region IDs available for image services under a specified product for the current account.
+       *
+       * @description The returned results are affected by the available region configurations of the account and the product type. If ProductType is omitted, the query is performed based on CloudApp.
+       * This operation returns the regions available for image services. You cannot use this information to determine whether a specific image has been distributed to these regions. Before you create or distribute an image based on a parent image, you must also check the region information of the destination image.
+       *
+       * @param request ListRegionIdRequest
+       * @return ListRegionIdResponse
+       */
+      Models::ListRegionIdResponse listRegionId(const Models::ListRegionIdRequest &request);
+
+      /**
        * @summary Queries the regions supported by WUYING Cloud Application.
        *
        * @description > The regions returned by this operation are not all available regions. For information about available regions, see [Supported regions](https://help.aliyun.com/document_detail/426036.html).
@@ -1590,6 +2067,29 @@ namespace AppstreamCenter20210901
       Models::ListTagResourcesResponse listTagResources(const Models::ListTagResourcesRequest &request);
 
       /**
+       * @summary Queries the step identifiers, step categories, and interaction methods for application adaptation or image creation tasks.
+       *
+       * @description Returns application adaptation steps when Type is set to ADAPTOR, and image creation steps when Type is set to IMAGE.
+       * This operation returns step definitions, not the actual progress of a specific task. Read the step definitions first, and then combine them with the current step and step status returned by GetTask to display the task progress. The step sets vary across different task types. Do not use the step index as the completion percentage.
+       *
+       * @param request ListTaskStepRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListTaskStepResponse
+       */
+      Models::ListTaskStepResponse listTaskStepWithOptions(const Models::ListTaskStepRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Queries the step identifiers, step categories, and interaction methods for application adaptation or image creation tasks.
+       *
+       * @description Returns application adaptation steps when Type is set to ADAPTOR, and image creation steps when Type is set to IMAGE.
+       * This operation returns step definitions, not the actual progress of a specific task. Read the step definitions first, and then combine them with the current step and step status returned by GetTask to display the task progress. The step sets vary across different task types. Do not use the step index as the completion percentage.
+       *
+       * @param request ListTaskStepRequest
+       * @return ListTaskStepResponse
+       */
+      Models::ListTaskStepResponse listTaskStep(const Models::ListTaskStepRequest &request);
+
+      /**
        * @summary Queries the configuration information of an administrator account, such as whether resource expiration reminders are enabled.
        *
        * @param runtime runtime options for this request RuntimeOptions
@@ -1624,6 +2124,27 @@ namespace AppstreamCenter20210901
        * @return ListWuyingServerResponse
        */
       Models::ListWuyingServerResponse listWuyingServer(const Models::ListWuyingServerRequest &request);
+
+      /**
+       * @summary Queries the Wuying Workstation workload templates available for a specified virtual node pool.
+       *
+       * @description Queries the workload templates available for a specified virtual node pool. Before calling this operation, call [ListWuyingServer](~~ListWuyingServer~~) to obtain the `VirtualNodePoolId` of the current account. The operation verifies the ownership of the node pool and returns up to 100 records sorted by template configuration order. The template content is Base64-encoded after being encoded in UTF-8. You must decode the Base64 string before use. The current version does not use `MaxResults` and `NextToken` for pagination.
+       *
+       * @param request ListWuyingServerWorkloadTemplateRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListWuyingServerWorkloadTemplateResponse
+       */
+      Models::ListWuyingServerWorkloadTemplateResponse listWuyingServerWorkloadTemplateWithOptions(const Models::ListWuyingServerWorkloadTemplateRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Queries the Wuying Workstation workload templates available for a specified virtual node pool.
+       *
+       * @description Queries the workload templates available for a specified virtual node pool. Before calling this operation, call [ListWuyingServer](~~ListWuyingServer~~) to obtain the `VirtualNodePoolId` of the current account. The operation verifies the ownership of the node pool and returns up to 100 records sorted by template configuration order. The template content is Base64-encoded after being encoded in UTF-8. You must decode the Base64 string before use. The current version does not use `MaxResults` and `NextToken` for pagination.
+       *
+       * @param request ListWuyingServerWorkloadTemplateRequest
+       * @return ListWuyingServerWorkloadTemplateResponse
+       */
+      Models::ListWuyingServerWorkloadTemplateResponse listWuyingServerWorkloadTemplate(const Models::ListWuyingServerWorkloadTemplateRequest &request);
 
       /**
        * @summary Queries the list of available zone IDs for a specified region, product type, and operating system type.
@@ -1705,6 +2226,49 @@ namespace AppstreamCenter20210901
        * @return ModifyAppInstanceGroupAttributeResponse
        */
       Models::ModifyAppInstanceGroupAttributeResponse modifyAppInstanceGroupAttribute(const Models::ModifyAppInstanceGroupAttributeRequest &request);
+
+      /**
+       * @summary Changes the billing method of a specified delivery group to a target billing method and returns the ID of the billing conversion task to be created.
+       *
+       * @description This operation performs billing method conversion, which may create orders and trigger subsequent billing changes. **A successful response or a returned task ID does not indicate that the new billing method has taken effect.**
+       * **Prerequisites:**
+       * - The resources belong to the current account, and the product and business region match the request. Only one delivery group can be specified per request.
+       * - The target billing method must be different from the current billing method, and the target resource specifications must support the corresponding sales and Billable methods.
+       * - Delivery groups that have been added to a valid collection cannot have their Billable methods converted individually.
+       * - Multiple delivery groups created in the same batch of orders cannot have their Billable methods converted separately.
+       * **Parameter relationships and call sequence:**
+       * 1. Query the resource details first to confirm the product, business region, and current ChargeType. You can use [GetAppInstanceGroup](https://api.aliyun.com/document/appstream-center/2021-09-01/GetAppInstanceGroup) to query cloud application delivery groups.
+       * 2. Explicitly specify the target ChargeType. If you need to purchase a subscription, specify the purchase duration by combining Period and PeriodUnit. The period combination must comply with the sales rules currently supported by the resource.
+       * 3. Set AutoPay based on whether automatic payment is allowed. If auto-renewal is involved, explicitly set AutoRenew.
+       * 4. After the call, save the returned AppInstanceGroupModel.TaskId. If there are unpaid orders, complete the payment first, and then query the resource details again to confirm that the billing method has been changed.
+       * This operation does not accept an expiration time parameter. Do not pass the expiration time from other operations into this request. The task examples only illustrate the purpose of the ID and do not define a fixed prefix or length for real task IDs.
+       *
+       * @param tmpReq ModifyAppInstanceGroupChargeTypeRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ModifyAppInstanceGroupChargeTypeResponse
+       */
+      Models::ModifyAppInstanceGroupChargeTypeResponse modifyAppInstanceGroupChargeTypeWithOptions(const Models::ModifyAppInstanceGroupChargeTypeRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Changes the billing method of a specified delivery group to a target billing method and returns the ID of the billing conversion task to be created.
+       *
+       * @description This operation performs billing method conversion, which may create orders and trigger subsequent billing changes. **A successful response or a returned task ID does not indicate that the new billing method has taken effect.**
+       * **Prerequisites:**
+       * - The resources belong to the current account, and the product and business region match the request. Only one delivery group can be specified per request.
+       * - The target billing method must be different from the current billing method, and the target resource specifications must support the corresponding sales and Billable methods.
+       * - Delivery groups that have been added to a valid collection cannot have their Billable methods converted individually.
+       * - Multiple delivery groups created in the same batch of orders cannot have their Billable methods converted separately.
+       * **Parameter relationships and call sequence:**
+       * 1. Query the resource details first to confirm the product, business region, and current ChargeType. You can use [GetAppInstanceGroup](https://api.aliyun.com/document/appstream-center/2021-09-01/GetAppInstanceGroup) to query cloud application delivery groups.
+       * 2. Explicitly specify the target ChargeType. If you need to purchase a subscription, specify the purchase duration by combining Period and PeriodUnit. The period combination must comply with the sales rules currently supported by the resource.
+       * 3. Set AutoPay based on whether automatic payment is allowed. If auto-renewal is involved, explicitly set AutoRenew.
+       * 4. After the call, save the returned AppInstanceGroupModel.TaskId. If there are unpaid orders, complete the payment first, and then query the resource details again to confirm that the billing method has been changed.
+       * This operation does not accept an expiration time parameter. Do not pass the expiration time from other operations into this request. The task examples only illustrate the purpose of the ID and do not define a fixed prefix or length for real task IDs.
+       *
+       * @param request ModifyAppInstanceGroupChargeTypeRequest
+       * @return ModifyAppInstanceGroupChargeTypeResponse
+       */
+      Models::ModifyAppInstanceGroupChargeTypeResponse modifyAppInstanceGroupChargeType(const Models::ModifyAppInstanceGroupChargeTypeRequest &request);
 
       /**
        * @summary Modifies the display policy of a delivery group, including settings such as frame rate, resolution, and protocol type.
@@ -1791,7 +2355,7 @@ namespace AppstreamCenter20210901
       Models::ModifyNodePoolAttributeResponse modifyNodePoolAttribute(const Models::ModifyNodePoolAttributeRequest &request);
 
       /**
-       * @summary Shares an image with other WUYING users or cancels the sharing of a shared image.
+       * @summary Shares an image with other WUYING users or unshares a shared image.
        *
        * @param request ModifyShareImageRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1800,7 +2364,7 @@ namespace AppstreamCenter20210901
       Models::ModifyShareImageResponse modifyShareImageWithOptions(const Models::ModifyShareImageRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Shares an image with other WUYING users or cancels the sharing of a shared image.
+       * @summary Shares an image with other WUYING users or unshares a shared image.
        *
        * @param request ModifyShareImageRequest
        * @return ModifyShareImageResponse
@@ -1857,6 +2421,216 @@ namespace AppstreamCenter20210901
        * @return PageListAppInstanceGroupUserResponse
        */
       Models::PageListAppInstanceGroupUserResponse pageListAppInstanceGroupUser(const Models::PageListAppInstanceGroupUserRequest &request);
+
+      /**
+       * @summary Queries app instance group reports by region, app instance group, status, user authorization relationship, or statistical date.
+       *
+       * @description Queries the IDs, names, and statuses of app instance groups in app instance group reports. You can call [ListRegions](~~ListRegions~~) to obtain the business regions and then call [ListAppInstanceGroup](~~ListAppInstanceGroup~~) to obtain the app instance groups. `AppInstanceGroupId` matches the exact ID, and `AppInstanceGroupName` filters by inclusion. If multiple filter conditions are specified at the same time, the intersection is used. When filtering by date, `StatDate` specifies a single day, and `StartDate` and `EndDate` must be specified in pairs to represent a closed interval. If both a single day and an interval are specified, the results must meet both conditions. Before using `EndUserId`, make sure that the user has a valid authorization relationship.
+       *
+       * @param request QueryAppInstanceGroupReportListRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return QueryAppInstanceGroupReportListResponse
+       */
+      Models::QueryAppInstanceGroupReportListResponse queryAppInstanceGroupReportListWithOptions(const Models::QueryAppInstanceGroupReportListRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Queries app instance group reports by region, app instance group, status, user authorization relationship, or statistical date.
+       *
+       * @description Queries the IDs, names, and statuses of app instance groups in app instance group reports. You can call [ListRegions](~~ListRegions~~) to obtain the business regions and then call [ListAppInstanceGroup](~~ListAppInstanceGroup~~) to obtain the app instance groups. `AppInstanceGroupId` matches the exact ID, and `AppInstanceGroupName` filters by inclusion. If multiple filter conditions are specified at the same time, the intersection is used. When filtering by date, `StatDate` specifies a single day, and `StartDate` and `EndDate` must be specified in pairs to represent a closed interval. If both a single day and an interval are specified, the results must meet both conditions. Before using `EndUserId`, make sure that the user has a valid authorization relationship.
+       *
+       * @param request QueryAppInstanceGroupReportListRequest
+       * @return QueryAppInstanceGroupReportListResponse
+       */
+      Models::QueryAppInstanceGroupReportListResponse queryAppInstanceGroupReportList(const Models::QueryAppInstanceGroupReportListRequest &request);
+
+      /**
+       * @summary Queries the number of successful connections, the number of failed connections, the success rate, and the average connection duration within a specified time range.
+       *
+       * @description Queries connection statistical reports. Before you invoke this operation, you can invoke [ListRegions](~~ListRegions~~) and [ListAppInstanceGroup](~~ListAppInstanceGroup~~) to obtain the `BizRegionId` and `AppInstanceGroupId` parameters. The `ProductType`, `StartDate`, and `EndDate` parameters are required for server-side validation. The statistical interval is `[StartDate, EndDate)`, which includes the start time but excludes the end time. Results are returned by page, with a maximum of 1,500 entries per page.
+       *
+       * @param request QueryConnectionReportRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return QueryConnectionReportResponse
+       */
+      Models::QueryConnectionReportResponse queryConnectionReportWithOptions(const Models::QueryConnectionReportRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Queries the number of successful connections, the number of failed connections, the success rate, and the average connection duration within a specified time range.
+       *
+       * @description Queries connection statistical reports. Before you invoke this operation, you can invoke [ListRegions](~~ListRegions~~) and [ListAppInstanceGroup](~~ListAppInstanceGroup~~) to obtain the `BizRegionId` and `AppInstanceGroupId` parameters. The `ProductType`, `StartDate`, and `EndDate` parameters are required for server-side validation. The statistical interval is `[StartDate, EndDate)`, which includes the start time but excludes the end time. Results are returned by page, with a maximum of 1,500 entries per page.
+       *
+       * @param request QueryConnectionReportRequest
+       * @return QueryConnectionReportResponse
+       */
+      Models::QueryConnectionReportResponse queryConnectionReport(const Models::QueryConnectionReportRequest &request);
+
+      /**
+       * @summary Queries the number of daily active users and streaming daily active users by date.
+       *
+       * @description Queries the daily active user (DAU) report. StartDate and EndDate are required. The date range is inclusive and cannot exceed 180 days. If ProductType is not specified or is unrecognized, the query defaults to CloudApp. You can use BizRegionId and AppInstanceGroupId to narrow down the scope. If neither is specified, the query returns aggregated data for all business regions. Results are returned in pages, with a maximum of 1,500 records per page.
+       *
+       * @param request QueryDauReportDataRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return QueryDauReportDataResponse
+       */
+      Models::QueryDauReportDataResponse queryDauReportDataWithOptions(const Models::QueryDauReportDataRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Queries the number of daily active users and streaming daily active users by date.
+       *
+       * @description Queries the daily active user (DAU) report. StartDate and EndDate are required. The date range is inclusive and cannot exceed 180 days. If ProductType is not specified or is unrecognized, the query defaults to CloudApp. You can use BizRegionId and AppInstanceGroupId to narrow down the scope. If neither is specified, the query returns aggregated data for all business regions. Results are returned in pages, with a maximum of 1,500 records per page.
+       *
+       * @param request QueryDauReportDataRequest
+       * @return QueryDauReportDataResponse
+       */
+      Models::QueryDauReportDataResponse queryDauReportData(const Models::QueryDauReportDataRequest &request);
+
+      /**
+       * @summary Queries the number of monthly active users for each month within a specified time range.
+       *
+       * @description Queries the monthly active user (MAU) report. `ProductType`, `StartDate`, and `EndDate` are required for server-side validation, and the time span cannot exceed 60 months. The API returns statistical values by month. To adapt to offline data generated on the next day, the last month in the query range uses the day before `EndDate` as the statistical cutoff date. Results are returned in pages, with a maximum of 1,500 entries per page.
+       *
+       * @param request QueryMauReportDataRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return QueryMauReportDataResponse
+       */
+      Models::QueryMauReportDataResponse queryMauReportDataWithOptions(const Models::QueryMauReportDataRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Queries the number of monthly active users for each month within a specified time range.
+       *
+       * @description Queries the monthly active user (MAU) report. `ProductType`, `StartDate`, and `EndDate` are required for server-side validation, and the time span cannot exceed 60 months. The API returns statistical values by month. To adapt to offline data generated on the next day, the last month in the query range uses the day before `EndDate` as the statistical cutoff date. Results are returned in pages, with a maximum of 1,500 entries per page.
+       *
+       * @param request QueryMauReportDataRequest
+       * @return QueryMauReportDataResponse
+       */
+      Models::QueryMauReportDataResponse queryMauReportData(const Models::QueryMauReportDataRequest &request);
+
+      /**
+       * @summary Queries the network RTT and low-RTT user statistics within a specified time range.
+       *
+       * @description Queries network round-trip time (RTT) reports. `ProductType`, `StartDate`, and `EndDate` are required for server-side validation. The statistical interval is `[StartDate, EndDate)`. The minimum, maximum, and average RTT values are measured in milliseconds. The low-RTT threshold is determined by the report statistical caliber, and the current API operation does not return this threshold. Results are returned in pages, with a maximum of 1,500 entries per page.
+       *
+       * @param request QueryNetworkRttReportRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return QueryNetworkRttReportResponse
+       */
+      Models::QueryNetworkRttReportResponse queryNetworkRttReportWithOptions(const Models::QueryNetworkRttReportRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Queries the network RTT and low-RTT user statistics within a specified time range.
+       *
+       * @description Queries network round-trip time (RTT) reports. `ProductType`, `StartDate`, and `EndDate` are required for server-side validation. The statistical interval is `[StartDate, EndDate)`. The minimum, maximum, and average RTT values are measured in milliseconds. The low-RTT threshold is determined by the report statistical caliber, and the current API operation does not return this threshold. Results are returned in pages, with a maximum of 1,500 entries per page.
+       *
+       * @param request QueryNetworkRttReportRequest
+       * @return QueryNetworkRttReportResponse
+       */
+      Models::QueryNetworkRttReportResponse queryNetworkRttReport(const Models::QueryNetworkRttReportRequest &request);
+
+      /**
+       * @summary Queries the total number of nodes, the number of subscription nodes, and the number of pay-as-you-go nodes by statistical granularity.
+       *
+       * @description Queries node quantity reports. StartDate, EndDate, and StatDateType are required. The query span limit is determined by the statistical granularity: up to 1 day for 1m and 30m, up to 15 days for 6h, and up to 180 days for 1d. Both the start and end boundaries are included in the query range. Results are returned in pages, with a maximum of 1,500 entries per page.
+       *
+       * @param request QueryNodeReportDataRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return QueryNodeReportDataResponse
+       */
+      Models::QueryNodeReportDataResponse queryNodeReportDataWithOptions(const Models::QueryNodeReportDataRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Queries the total number of nodes, the number of subscription nodes, and the number of pay-as-you-go nodes by statistical granularity.
+       *
+       * @description Queries node quantity reports. StartDate, EndDate, and StatDateType are required. The query span limit is determined by the statistical granularity: up to 1 day for 1m and 30m, up to 15 days for 6h, and up to 180 days for 1d. Both the start and end boundaries are included in the query range. Results are returned in pages, with a maximum of 1,500 entries per page.
+       *
+       * @param request QueryNodeReportDataRequest
+       * @return QueryNodeReportDataResponse
+       */
+      Models::QueryNodeReportDataResponse queryNodeReportData(const Models::QueryNodeReportDataRequest &request);
+
+      /**
+       * @summary Queries the total number of sessions, connected sessions, and streaming sessions by statistical granularity.
+       *
+       * @description Queries session quantity reports. `StartDate`, `EndDate`, and `StatDateType` are required. The query span limit is determined by the statistical granularity: up to 1 day for `1m` and `30m`, up to 15 days for `6h`, and up to 180 days for `1d`. Both the start and end boundaries are included in the query range. Results are returned in pages, with a maximum of 1,500 records per page.
+       *
+       * @param request QuerySessionReportDataRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return QuerySessionReportDataResponse
+       */
+      Models::QuerySessionReportDataResponse querySessionReportDataWithOptions(const Models::QuerySessionReportDataRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Queries the total number of sessions, connected sessions, and streaming sessions by statistical granularity.
+       *
+       * @description Queries session quantity reports. `StartDate`, `EndDate`, and `StatDateType` are required. The query span limit is determined by the statistical granularity: up to 1 day for `1m` and `30m`, up to 15 days for `6h`, and up to 180 days for `1d`. Both the start and end boundaries are included in the query range. Results are returned in pages, with a maximum of 1,500 records per page.
+       *
+       * @param request QuerySessionReportDataRequest
+       * @return QuerySessionReportDataResponse
+       */
+      Models::QuerySessionReportDataResponse querySessionReportData(const Models::QuerySessionReportDataRequest &request);
+
+      /**
+       * @summary Queries the cumulative duration of application usage by a specified user on an hourly basis and returns the top five applications for each hour.
+       *
+       * @description Queries the application usage of a specified user on an hourly basis. StartDate and EndDate use the yyyyMMdd format. If either parameter is not provided, it defaults to yesterday. Both dates must be within the last 90 days, and the start date cannot be later than the end date. The query range includes the start and end dates. UserId must be set to the ID of the user to query. A maximum of the top five applications by usage duration are returned for each hour.
+       *
+       * @param request QueryUserAppUsageAggregateByHourRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return QueryUserAppUsageAggregateByHourResponse
+       */
+      Models::QueryUserAppUsageAggregateByHourResponse queryUserAppUsageAggregateByHourWithOptions(const Models::QueryUserAppUsageAggregateByHourRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Queries the cumulative duration of application usage by a specified user on an hourly basis and returns the top five applications for each hour.
+       *
+       * @description Queries the application usage of a specified user on an hourly basis. StartDate and EndDate use the yyyyMMdd format. If either parameter is not provided, it defaults to yesterday. Both dates must be within the last 90 days, and the start date cannot be later than the end date. The query range includes the start and end dates. UserId must be set to the ID of the user to query. A maximum of the top five applications by usage duration are returned for each hour.
+       *
+       * @param request QueryUserAppUsageAggregateByHourRequest
+       * @return QueryUserAppUsageAggregateByHourResponse
+       */
+      Models::QueryUserAppUsageAggregateByHourResponse queryUserAppUsageAggregateByHour(const Models::QueryUserAppUsageAggregateByHourRequest &request);
+
+      /**
+       * @summary Queries the ranking of cumulative application usage duration for a specified user within a date range.
+       *
+       * @description Queries the ranking of application usage duration for a specified user within a statistical range. `StartDate` and `EndDate` use the `yyyyMMdd` format. If either parameter is not provided, it defaults to yesterday. Both dates must be within the last 90 days, and the start date cannot be later than the end date. The query range includes the start and end dates. `UserId` must be set to the ID of the user to be queried. The results are sorted in descending order of cumulative application usage duration.
+       *
+       * @param request QueryUserAppUsageTimeRankRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return QueryUserAppUsageTimeRankResponse
+       */
+      Models::QueryUserAppUsageTimeRankResponse queryUserAppUsageTimeRankWithOptions(const Models::QueryUserAppUsageTimeRankRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Queries the ranking of cumulative application usage duration for a specified user within a date range.
+       *
+       * @description Queries the ranking of application usage duration for a specified user within a statistical range. `StartDate` and `EndDate` use the `yyyyMMdd` format. If either parameter is not provided, it defaults to yesterday. Both dates must be within the last 90 days, and the start date cannot be later than the end date. The query range includes the start and end dates. `UserId` must be set to the ID of the user to be queried. The results are sorted in descending order of cumulative application usage duration.
+       *
+       * @param request QueryUserAppUsageTimeRankRequest
+       * @return QueryUserAppUsageTimeRankResponse
+       */
+      Models::QueryUserAppUsageTimeRankResponse queryUserAppUsageTimeRank(const Models::QueryUserAppUsageTimeRankRequest &request);
+
+      /**
+       * @summary Queries the connection status, last connection time, cumulative usage duration, and session persistence duration of users.
+       *
+       * @description Queries user usage reports. ProductType, StartDate, and EndDate are required for server-side validation, and the time span cannot exceed 60 months. During the query, the start and end times are converted to `yyyyMMdd` and aggregated by natural days in a closed interval. The results are paginated in descending order of cumulative usage duration, with a maximum of 1,500 records per page. You can combine ConnectionStatus, UserId, BizRegionId, and AppInstanceGroupId for filtering.
+       *
+       * @param request QueryUserUsageReportRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return QueryUserUsageReportResponse
+       */
+      Models::QueryUserUsageReportResponse queryUserUsageReportWithOptions(const Models::QueryUserUsageReportRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Queries the connection status, last connection time, cumulative usage duration, and session persistence duration of users.
+       *
+       * @description Queries user usage reports. ProductType, StartDate, and EndDate are required for server-side validation, and the time span cannot exceed 60 months. During the query, the start and end times are converted to `yyyyMMdd` and aggregated by natural days in a closed interval. The results are paginated in descending order of cumulative usage duration, with a maximum of 1,500 records per page. You can combine ConnectionStatus, UserId, BizRegionId, and AppInstanceGroupId for filtering.
+       *
+       * @param request QueryUserUsageReportRequest
+       * @return QueryUserUsageReportResponse
+       */
+      Models::QueryUserUsageReportResponse queryUserUsageReport(const Models::QueryUserUsageReportRequest &request);
 
       /**
        * @summary Removes model groups from a resource group.
@@ -2150,6 +2924,27 @@ namespace AppstreamCenter20210901
       Models::UnbindResponse unbind(const Models::UnbindRequest &request);
 
       /**
+       * @summary Dissociates applications from a specified image version in batches.
+       *
+       * @description Only custom images and community images manageable by the current account are supported. If VersionId is omitted, the current active version is used. If specified, the version must belong to the image specified by ImageId. Verify the association between the applications and the version through the image query results before submitting AppIdList. **Dissociating applications does not directly delete application records.** To delete applications, call DeleteApp separately.
+       *
+       * @param request UnbindAppRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return UnbindAppResponse
+       */
+      Models::UnbindAppResponse unbindAppWithOptions(const Models::UnbindAppRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Dissociates applications from a specified image version in batches.
+       *
+       * @description Only custom images and community images manageable by the current account are supported. If VersionId is omitted, the current active version is used. If specified, the version must belong to the image specified by ImageId. Verify the association between the applications and the version through the image query results before submitting AppIdList. **Dissociating applications does not directly delete application records.** To delete applications, call DeleteApp separately.
+       *
+       * @param request UnbindAppRequest
+       * @return UnbindAppResponse
+       */
+      Models::UnbindAppResponse unbindApp(const Models::UnbindAppRequest &request);
+
+      /**
        * @summary Unbinds tags from cloud resources in a unified manner.
        *
        * @param request UntagCloudResourcesRequest
@@ -2224,6 +3019,29 @@ namespace AppstreamCenter20210901
       Models::UntagResourcesResponse untagResources(const Models::UntagResourcesRequest &request);
 
       /**
+       * @summary Modifies the runtime parameters, optimization configurations, and user configurations of a specified application adapter.
+       *
+       * @description The AdaptorId must correspond to a valid application adapter manageable by the current account. Pass only the configurations that need to be modified in this request.
+       * SilenceParam is used for application startup parameters. UserConfig is used for application runtime configurations. **This operation does not support modifying application scripts or executable file paths through AppScript or ExecuteFileAddress. Do not pass these two parameters.**
+       *
+       * @param tmpReq UpdateAdaptorRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return UpdateAdaptorResponse
+       */
+      Models::UpdateAdaptorResponse updateAdaptorWithOptions(const Models::UpdateAdaptorRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Modifies the runtime parameters, optimization configurations, and user configurations of a specified application adapter.
+       *
+       * @description The AdaptorId must correspond to a valid application adapter manageable by the current account. Pass only the configurations that need to be modified in this request.
+       * SilenceParam is used for application startup parameters. UserConfig is used for application runtime configurations. **This operation does not support modifying application scripts or executable file paths through AppScript or ExecuteFileAddress. Do not pass these two parameters.**
+       *
+       * @param request UpdateAdaptorRequest
+       * @return UpdateAdaptorResponse
+       */
+      Models::UpdateAdaptorResponse updateAdaptor(const Models::UpdateAdaptorRequest &request);
+
+      /**
        * @summary Updates the image of a delivery group.
        *
        * @description >Warning: After the image update starts, sessions of end users who are accessing cloud applications will be disconnected. Proceed with caution to avoid data loss for end users.
@@ -2247,6 +3065,52 @@ namespace AppstreamCenter20210901
        * @return UpdateAppInstanceGroupImageResponse
        */
       Models::UpdateAppInstanceGroupImageResponse updateAppInstanceGroupImage(const Models::UpdateAppInstanceGroupImageRequest &request);
+
+      /**
+       * @summary Modifies the name, description, version information, and associated application adapters of an image.
+       *
+       * @description You can only modify images that are owned by the current account and allow modifications. Images shared with the current account cannot be modified.
+       * You must provide at least one of ImageId and VersionId. If both are provided, they must point to the same image. If VersionId is omitted, the current effective version of the image is used. Passing a non-empty AdaptorIdList updates the application adapter associations for the selected version based on the complete list. Make sure to include the adapters that you still want to retain.
+       *
+       * @param request UpdateImageRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return UpdateImageResponse
+       */
+      Models::UpdateImageResponse updateImageWithOptions(const Models::UpdateImageRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Modifies the name, description, version information, and associated application adapters of an image.
+       *
+       * @description You can only modify images that are owned by the current account and allow modifications. Images shared with the current account cannot be modified.
+       * You must provide at least one of ImageId and VersionId. If both are provided, they must point to the same image. If VersionId is omitted, the current effective version of the image is used. Passing a non-empty AdaptorIdList updates the application adapter associations for the selected version based on the complete list. Make sure to include the adapters that you still want to retain.
+       *
+       * @param request UpdateImageRequest
+       * @return UpdateImageResponse
+       */
+      Models::UpdateImageResponse updateImage(const Models::UpdateImageRequest &request);
+
+      /**
+       * @summary Sends a status update request for an existing image creation task to the corresponding creation resource.
+       *
+       * @description The task must exist before you call this operation, and the corresponding creation resource and resource node must be available. The TaskType must match the actual type of the task.
+       * **This operation does not support modifying the task step, image version, or destination region by using TaskStep, VersionId, or BizRegionId. Do not pass these three parameters.** A successful request only indicates that the status update call is completed. To query the final status of the task, call GetTask.
+       *
+       * @param request UpdateImageTaskRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return UpdateImageTaskResponse
+       */
+      Models::UpdateImageTaskResponse updateImageTaskWithOptions(const Models::UpdateImageTaskRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Sends a status update request for an existing image creation task to the corresponding creation resource.
+       *
+       * @description The task must exist before you call this operation, and the corresponding creation resource and resource node must be available. The TaskType must match the actual type of the task.
+       * **This operation does not support modifying the task step, image version, or destination region by using TaskStep, VersionId, or BizRegionId. Do not pass these three parameters.** A successful request only indicates that the status update call is completed. To query the final status of the task, call GetTask.
+       *
+       * @param request UpdateImageTaskRequest
+       * @return UpdateImageTaskResponse
+       */
+      Models::UpdateImageTaskResponse updateImageTask(const Models::UpdateImageTaskRequest &request);
 
       /**
        * @summary Updates a model provider template.

@@ -80,15 +80,15 @@ namespace Models
 
 
   protected:
-    // The IDs of the Alibaba Cloud accounts to share the image with.
+    // The Alibaba Cloud account IDs to add for sharing.
     shared_ptr<vector<int64_t>> addAccount_ {};
     // The business line. Only the Enterprise Edition scenario is supported. Default value: 1.
     shared_ptr<int32_t> bizType_ {};
-    // The ID of the source image.
+    // The source image ID.
     shared_ptr<string> imageId_ {};
-    // The product type, such as Cloud Desktop, cloud application, or workstation.
+    // The product type, such as cloud desktop, cloud application, or workstation.
     shared_ptr<string> productType_ {};
-    // The IDs of the Alibaba Cloud accounts to remove from the image sharing list.
+    // The Alibaba Cloud account IDs to remove from the share list.
     shared_ptr<vector<int64_t>> removeAccount_ {};
   };
 
