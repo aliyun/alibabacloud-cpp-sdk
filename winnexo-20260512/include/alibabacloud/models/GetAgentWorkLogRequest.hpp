@@ -77,7 +77,7 @@ namespace Models
   protected:
     // The optional node key.
     shared_ptr<string> nodeId_ {};
-    // The page number. Pages start from 1.
+    // The page number, starting from 1.
     shared_ptr<int64_t> page_ {};
     // The number of entries per page. Maximum value: 100.
     shared_ptr<int64_t> pageSize_ {};

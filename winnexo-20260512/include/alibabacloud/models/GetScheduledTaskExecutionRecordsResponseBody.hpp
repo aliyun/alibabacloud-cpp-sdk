@@ -174,7 +174,7 @@ namespace Models
 
 
       protected:
-        // The actual hours spent, in hours.
+        // The actual working hours in hours.
         shared_ptr<string> actualTime_ {};
         // The name of the schedule location.
         shared_ptr<string> displayName_ {};
@@ -182,9 +182,9 @@ namespace Models
         shared_ptr<string> errorMessage_ {};
         // The execution record ID.
         shared_ptr<string> executionId_ {};
-        // Indicates whether the execution record has been archived due to expiration.
+        // The time zone.
         shared_ptr<bool> isExpired_ {};
-        // The execution output content (historical records only).
+        // The execution output content (history records only).
         shared_ptr<string> outputContent_ {};
         // The timed scheduling time.
         shared_ptr<string> scheduledTime_ {};
@@ -268,7 +268,7 @@ namespace Models
 
 
     protected:
-      // The ID of the collaboration group to which the task belongs. An empty value indicates a personal task.
+      // The pre-filter for a single task. If you do not specify this parameter, the execution records of all visible tasks are returned.
       shared_ptr<string> collaborationGroupId_ {};
       // The cron expression.
       shared_ptr<string> cronExpression_ {};
@@ -276,10 +276,7 @@ namespace Models
       shared_ptr<string> description_ {};
       // Indicates whether public access is enabled.
       shared_ptr<bool> isOpen_ {};
-      // The execution model tier. Valid values:
-      // - flagship: Flagship.
-      // - standard: Standard.
-      // - quick: Lightweight.
+      // The execution model tier. Valid values: flagship (flagship), standard (standard), and quick (lightweight).
       shared_ptr<string> model_ {};
       // The name.
       shared_ptr<string> name_ {};
@@ -292,8 +289,8 @@ namespace Models
       // > Default value: UTC+8.
       shared_ptr<string> timezone_ {};
       // The trigger type. Valid values:
-      // - Manual: Manual execution.
-      // - Cron: Timed scheduling.
+      // - Manual: manual execution.
+      // - Cron: scheduled trigger.
       shared_ptr<string> triggerType_ {};
     };
 
@@ -361,13 +358,13 @@ namespace Models
   protected:
     // The status code.
     shared_ptr<string> code_ {};
-    // Indicates whether more data is available.
+    // Indicates whether more data exists.
     shared_ptr<bool> hasMore_ {};
     // The description of the status code.
     shared_ptr<string> message_ {};
-    // The current page number.
+    // The page number, starting from 1.
     shared_ptr<int32_t> page_ {};
-    // The number of tasks per page.
+    // The ID of the collaboration group, such as cg_101. If you specify this parameter, the data is returned by group dimension, and the caller must be a valid group member. If you do not specify this parameter, the data is returned by personal dimension, excluding group tasks.
     shared_ptr<int32_t> pageSize_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

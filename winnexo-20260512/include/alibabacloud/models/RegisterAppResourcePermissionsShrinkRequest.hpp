@@ -57,13 +57,13 @@ namespace Models
 
 
   protected:
-    // The batch authorization items.
+    // The batch authorization item.
     // 
     // This parameter is required.
     shared_ptr<string> itemsShrink_ {};
-    // The ID of the tenant to which the resource belongs. If not specified, the current tenant of the caller is used.
+    // The batch authorization item.
     shared_ptr<string> resourceTenantId_ {};
-    // The tenant ID. This is a common parameter. If not specified, the default tenant of the caller is used.
+    // The ID of the tenant to which the resource belongs. If omitted, the current tenant of the caller is used.
     shared_ptr<string> tenantId_ {};
   };
 

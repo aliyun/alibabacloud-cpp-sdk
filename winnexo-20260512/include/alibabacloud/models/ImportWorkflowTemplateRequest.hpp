@@ -59,15 +59,15 @@ namespace Models
 
 
   protected:
-    // The collaboration workspace ID.
+    // The ID of the collaboration workspace.
     // 
     // This parameter is required.
     shared_ptr<string> collaborationGroupId_ {};
-    // The portable template JSON. The stepId and sortOrder fields can be omitted.
+    // The portable template in JSON format. The stepId and sortOrder fields can be omitted.
     // 
     // This parameter is required.
     Darabonba::Json template_ {};
-    // The tenant ID. This is a common parameter. If omitted, the default tenant of the caller is used.
+    // The tenant ID. This is a common parameter. If not specified, the default tenant of the caller is used.
     shared_ptr<string> tenantId_ {};
   };
 

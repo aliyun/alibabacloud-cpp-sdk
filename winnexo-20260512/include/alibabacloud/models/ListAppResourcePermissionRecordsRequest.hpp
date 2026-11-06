@@ -124,29 +124,29 @@ namespace Models
 
 
   protected:
-    // The grantee ID filter.
+    // The tenant filter for cross-tenant users.
     shared_ptr<string> granteeId_ {};
-    // The tenant ID filter for cross-tenant users.
+    // The permission filter.
     shared_ptr<string> granteeTenantId_ {};
-    // The grantee type filter.
+    // The principal ID filter.
     shared_ptr<string> granteeType_ {};
-    // The page number.
+    // The number of items per page.
     shared_ptr<int64_t> page_ {};
-    // The number of entries per page.
+    // The principal type filter.
     shared_ptr<int64_t> pageSize_ {};
     // The permission filter.
     shared_ptr<vector<string>> permissions_ {};
-    // The application key or its subpath.
+    // The page number.
     // 
     // This parameter is required.
     shared_ptr<string> resourceKeyPrefix_ {};
-    // The ID of the tenant to which the resource belongs. If not specified, the current tenant of the caller is used.
+    // The resource tenant ID. This parameter is fixed to APP_RESOURCE.
     shared_ptr<string> resourceTenantId_ {};
-    // The resource type. Set this parameter to APP_RESOURCE.
+    // The application key or its subpath.
     // 
     // This parameter is required.
     shared_ptr<string> resourceType_ {};
-    // The tenant ID. This is a common parameter. If not specified, the default tenant of the caller is used.
+    // The ID of the tenant to which the resource belongs. If omitted, the current tenant of the caller is used.
     shared_ptr<string> tenantId_ {};
   };
 

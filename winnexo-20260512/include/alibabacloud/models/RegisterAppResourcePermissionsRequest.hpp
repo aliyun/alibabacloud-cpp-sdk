@@ -160,7 +160,7 @@ namespace Models
 
 
     protected:
-      // The expiration time with the time zone. If not specified, the permissions never expire.
+      // The expiration time with a time zone. If omitted, the permissions never expire.
       shared_ptr<string> expireAt_ {};
       // The authorized principals.
       // 
@@ -170,11 +170,11 @@ namespace Models
       // 
       // This parameter is required.
       shared_ptr<vector<string>> permissions_ {};
-      // The dot-separated resource key, where the first segment is the APP application key.
+      // The dot-separated resource key with the first segment as the APP application key.
       // 
       // This parameter is required.
       shared_ptr<string> resourceKey_ {};
-      // The resource type. Set the value to APP_RESOURCE.
+      // The resource type. Fixed to APP_RESOURCE.
       // 
       // This parameter is required.
       shared_ptr<string> resourceType_ {};
@@ -206,13 +206,13 @@ namespace Models
 
 
   protected:
-    // The batch authorization items.
+    // The batch authorization item.
     // 
     // This parameter is required.
     shared_ptr<vector<RegisterAppResourcePermissionsRequest::Items>> items_ {};
-    // The ID of the tenant to which the resource belongs. If not specified, the current tenant of the caller is used.
+    // The batch authorization item.
     shared_ptr<string> resourceTenantId_ {};
-    // The tenant ID. This is a common parameter. If not specified, the default tenant of the caller is used.
+    // The ID of the tenant to which the resource belongs. If omitted, the current tenant of the caller is used.
     shared_ptr<string> tenantId_ {};
   };
 

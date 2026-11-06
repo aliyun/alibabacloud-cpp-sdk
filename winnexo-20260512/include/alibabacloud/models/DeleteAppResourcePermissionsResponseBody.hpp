@@ -66,11 +66,11 @@ namespace Models
 
 
   protected:
-    // The business status code. The value 200 indicates success.
+    // The business status code. A value of 200 indicates success.
     shared_ptr<string> code_ {};
     // The number of deleted permission records.
     shared_ptr<int64_t> deletedCount_ {};
-    // The error message. This field is empty if the request is successful.
+    // The error message. Empty if the request is successful.
     shared_ptr<string> message_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

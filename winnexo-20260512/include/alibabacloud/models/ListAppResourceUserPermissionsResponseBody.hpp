@@ -91,11 +91,11 @@ namespace Models
 
 
     protected:
-      // The stored and valid permission points.
+      // The permission filter.
       shared_ptr<vector<string>> permissions_ {};
       // The resource key.
       shared_ptr<string> resourceKey_ {};
-      // The resource type.
+      // The application key or its subpath.
       shared_ptr<string> resourceType_ {};
     };
 
@@ -158,13 +158,13 @@ namespace Models
     shared_ptr<string> code_ {};
     // The resources and permissions on the current page.
     shared_ptr<vector<ListAppResourceUserPermissionsResponseBody::Items>> items_ {};
-    // The error description. This parameter is empty if the request is successful.
+    // The error description. This field is empty when the request is successful.
     shared_ptr<string> message_ {};
-    // The page number.
-    shared_ptr<int64_t> page_ {};
     // The number of entries per page.
+    shared_ptr<int64_t> page_ {};
+    // The permission filter.
     shared_ptr<int64_t> pageSize_ {};
-    // The request ID.
+    // The request tracking ID.
     shared_ptr<string> requestId_ {};
     // The total number of resources.
     shared_ptr<int64_t> total_ {};

@@ -66,15 +66,15 @@ namespace Models
 
 
   protected:
-    // The handover description.
+    // The handover note.
     shared_ptr<string> comment_ {};
-    // The list of target user IDs to whom the task is reassigned. You can specify 1 to 100 user IDs.
+    // The list of target user IDs for the transfer (1 to 100).
     // 
     // This parameter is required.
     shared_ptr<string> targetUserIdsShrink_ {};
-    // The tenant ID. This is a common parameter. If not specified, the default tenant of the caller is used.
+    // The to-do item ID.
     shared_ptr<string> tenantId_ {};
-    // The ID of the to-do task.
+    // The list of target user IDs for the transfer (1 to 100).
     // 
     // This parameter is required.
     shared_ptr<string> todoId_ {};

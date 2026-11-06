@@ -94,19 +94,19 @@ namespace Models
 
 
   protected:
-    // The business status code. A value of 200 indicates success.
+    // The array of answer values.
     shared_ptr<string> code_ {};
-    // The completion time in ISO 8601 UTC format. Note that this format differs from other time fields formatted in UTC+8.
+    // The completion time in ISO 8601 UTC format. This format differs from other fields formatted in UTC+8.
     shared_ptr<string> completedAt_ {};
-    // The user ID of the user who completed the item.
+    // The user ID of the user who completed the task.
     shared_ptr<string> completedByUserId_ {};
     // The error description.
     shared_ptr<string> message_ {};
     // The request tracking ID.
     shared_ptr<string> requestId_ {};
-    // The status after submission. This value is always COMPLETED.
+    // The status after submission. The value is always COMPLETED.
     shared_ptr<string> status_ {};
-    // The ID of the to-do item.
+    // The answer array. The original text of the question must align with the to-do question.
     shared_ptr<string> todoId_ {};
   };
 

@@ -78,7 +78,7 @@ namespace Models
       // 
       // This parameter is required.
       shared_ptr<vector<string>> answer_ {};
-      // The original text that corresponds to questions[].question.
+      // The original text corresponding to questions[].question.
       // 
       // This parameter is required.
       shared_ptr<string> question_ {};
@@ -110,13 +110,13 @@ namespace Models
 
 
   protected:
-    // The array of answers. The original text of the question must match the to-do question.
+    // The answer array. The original text of the question must align with the to-do question.
     // 
     // This parameter is required.
     shared_ptr<vector<SubmitTodoRequest::Answers>> answers_ {};
-    // The tenant ID. This is a common parameter. If this parameter is not specified, the default tenant of the caller is used.
+    // The to-do task ID.
     shared_ptr<string> tenantId_ {};
-    // The ID of the to-do item.
+    // The answer array. The original text of the question must align with the to-do question.
     // 
     // This parameter is required.
     shared_ptr<string> todoId_ {};

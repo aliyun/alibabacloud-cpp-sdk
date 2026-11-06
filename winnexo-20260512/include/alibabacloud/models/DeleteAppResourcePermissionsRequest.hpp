@@ -122,17 +122,17 @@ namespace Models
     protected:
       // The list of grantee principal IDs.
       shared_ptr<vector<string>> granteeIds_ {};
-      // The ID of the tenant to which the grantee user belongs. This parameter is optional if the user and the resource belong to the same tenant, and is required for cross-tenant users.
+      // The tenant to which the grantee user belongs. This parameter can be omitted if the user belongs to the same tenant as the resource, and is required for cross-tenant users.
       shared_ptr<string> granteeTenantId_ {};
-      // The grantee principal type.
+      // The type of the grantee principal.
       shared_ptr<string> granteeType_ {};
-      // Specifies whether to include dot-separated descendant resources for the RESOURCE. Default value: false.
+      // Specifies whether the resource includes dot-separated descendant resources. Default value: false.
       shared_ptr<bool> includeDescendants_ {};
-      // The dot-separated resource key whose first segment is the application key of the APP.
+      // The dot-separated resource key whose first segment is the APP application key.
       // 
       // This parameter is required.
       shared_ptr<string> resourceKey_ {};
-      // The resource type. Set the value to APP_RESOURCE.
+      // The resource type. Fixed to APP_RESOURCE.
       // 
       // This parameter is required.
       shared_ptr<string> resourceType_ {};
@@ -168,13 +168,13 @@ namespace Models
 
 
   protected:
-    // The scope of the permissions to be revoked.
+    // The scope of permission revocation.
     // 
     // This parameter is required.
     shared_ptr<vector<DeleteAppResourcePermissionsRequest::Items>> items_ {};
-    // The ID of the tenant to which the resource belongs. If not specified, the current tenant of the caller is used.
+    // The scope of permission revocation.
     shared_ptr<string> resourceTenantId_ {};
-    // The tenant ID. This is a common parameter. If not specified, the default tenant of the caller is used.
+    // The ID of the tenant to which the resource belongs. If omitted, the current tenant of the caller is used.
     shared_ptr<string> tenantId_ {};
   };
 

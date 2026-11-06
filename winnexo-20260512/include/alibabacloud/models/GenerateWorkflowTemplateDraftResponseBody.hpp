@@ -40,12 +40,18 @@ namespace Models
     public:
       friend void to_json(Darabonba::Json& j, const Draft& obj) { 
         DARABONBA_PTR_TO_JSON(description, description_);
+        DARABONBA_PTR_TO_JSON(edges, edges_);
+        DARABONBA_ANY_TO_JSON(layout, layout_);
         DARABONBA_PTR_TO_JSON(name, name_);
+        DARABONBA_PTR_TO_JSON(schemaVersion, schemaVersion_);
         DARABONBA_PTR_TO_JSON(steps, steps_);
       };
       friend void from_json(const Darabonba::Json& j, Draft& obj) { 
         DARABONBA_PTR_FROM_JSON(description, description_);
+        DARABONBA_PTR_FROM_JSON(edges, edges_);
+        DARABONBA_ANY_FROM_JSON(layout, layout_);
         DARABONBA_PTR_FROM_JSON(name, name_);
+        DARABONBA_PTR_FROM_JSON(schemaVersion, schemaVersion_);
         DARABONBA_PTR_FROM_JSON(steps, steps_);
       };
       Draft() = default ;
@@ -67,6 +73,7 @@ namespace Models
           DARABONBA_PTR_TO_JSON(ownerAgentName, ownerAgentName_);
           DARABONBA_PTR_TO_JSON(ownerType, ownerType_);
           DARABONBA_PTR_TO_JSON(ownerUserId, ownerUserId_);
+          DARABONBA_PTR_TO_JSON(reviewOutput, reviewOutput_);
           DARABONBA_PTR_TO_JSON(reviewerUserIds, reviewerUserIds_);
           DARABONBA_PTR_TO_JSON(sortOrder, sortOrder_);
           DARABONBA_PTR_TO_JSON(specification, specification_);
@@ -79,6 +86,7 @@ namespace Models
           DARABONBA_PTR_FROM_JSON(ownerAgentName, ownerAgentName_);
           DARABONBA_PTR_FROM_JSON(ownerType, ownerType_);
           DARABONBA_PTR_FROM_JSON(ownerUserId, ownerUserId_);
+          DARABONBA_PTR_FROM_JSON(reviewOutput, reviewOutput_);
           DARABONBA_PTR_FROM_JSON(reviewerUserIds, reviewerUserIds_);
           DARABONBA_PTR_FROM_JSON(sortOrder, sortOrder_);
           DARABONBA_PTR_FROM_JSON(specification, specification_);
@@ -97,8 +105,8 @@ namespace Models
         virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
         virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
         virtual bool empty() const override { return this->modelMode_ == nullptr
-        && this->name_ == nullptr && this->ownerAgentName_ == nullptr && this->ownerType_ == nullptr && this->ownerUserId_ == nullptr && this->reviewerUserIds_ == nullptr
-        && this->sortOrder_ == nullptr && this->specification_ == nullptr && this->specificationJson_ == nullptr && this->stepId_ == nullptr; };
+        && this->name_ == nullptr && this->ownerAgentName_ == nullptr && this->ownerType_ == nullptr && this->ownerUserId_ == nullptr && this->reviewOutput_ == nullptr
+        && this->reviewerUserIds_ == nullptr && this->sortOrder_ == nullptr && this->specification_ == nullptr && this->specificationJson_ == nullptr && this->stepId_ == nullptr; };
         // modelMode Field Functions 
         bool hasModelMode() const { return this->modelMode_ != nullptr;};
         void deleteModelMode() { this->modelMode_ = nullptr;};
@@ -132,6 +140,13 @@ namespace Models
         void deleteOwnerUserId() { this->ownerUserId_ = nullptr;};
         inline int64_t getOwnerUserId() const { DARABONBA_PTR_GET_DEFAULT(ownerUserId_, 0L) };
         inline Steps& setOwnerUserId(int64_t ownerUserId) { DARABONBA_PTR_SET_VALUE(ownerUserId_, ownerUserId) };
+
+
+        // reviewOutput Field Functions 
+        bool hasReviewOutput() const { return this->reviewOutput_ != nullptr;};
+        void deleteReviewOutput() { this->reviewOutput_ = nullptr;};
+        inline bool getReviewOutput() const { DARABONBA_PTR_GET_DEFAULT(reviewOutput_, false) };
+        inline Steps& setReviewOutput(bool reviewOutput) { DARABONBA_PTR_SET_VALUE(reviewOutput_, reviewOutput) };
 
 
         // reviewerUserIds Field Functions 
@@ -178,26 +193,30 @@ namespace Models
         shared_ptr<string> modelMode_ {};
         // The name of the step.
         shared_ptr<string> name_ {};
-        // The name of the responsible agent.
+        // The name of the agent owner.
         shared_ptr<string> ownerAgentName_ {};
-        // The type of the owner. Valid values: MEMBER: Human. AGENT: Agent.
+        // The type of the owner. Valid values:
+        // - MEMBER: human
+        // - AGENT: agent
         shared_ptr<string> ownerType_ {};
         // The user ID of the human owner.
         shared_ptr<int64_t> ownerUserId_ {};
+        // 是否人工审核产出物，默认关闭；仅数字员工可开启，审核待办自动发负责人
+        shared_ptr<bool> reviewOutput_ {};
         // The list of user IDs of the reviewers.
         shared_ptr<vector<int64_t>> reviewerUserIds_ {};
-        // The order of the step.
+        // The sort order of the step.
         shared_ptr<int64_t> sortOrder_ {};
-        // The processing instructions for the step.
+        // The processing instructions of the step.
         shared_ptr<string> specification_ {};
-        // The array of structured segments for the step instructions. Supported types include text, mention, skill, app, files, and web_search. The fields and nested attachments of each segment are retained as returned by the backend.
+        // The ordered array of fragments. Supported types include text, mention, skill, app, files, and web_search. The referenced identities and order are preserved.
         shared_ptr<vector<Darabonba::Json>> specificationJson_ {};
         // The ID of the step.
         shared_ptr<string> stepId_ {};
       };
 
       virtual bool empty() const override { return this->description_ == nullptr
-        && this->name_ == nullptr && this->steps_ == nullptr; };
+        && this->edges_ == nullptr && this->layout_ == nullptr && this->name_ == nullptr && this->schemaVersion_ == nullptr && this->steps_ == nullptr; };
       // description Field Functions 
       bool hasDescription() const { return this->description_ != nullptr;};
       void deleteDescription() { this->description_ = nullptr;};
@@ -205,11 +224,36 @@ namespace Models
       inline Draft& setDescription(string description) { DARABONBA_PTR_SET_VALUE(description_, description) };
 
 
+      // edges Field Functions 
+      bool hasEdges() const { return this->edges_ != nullptr;};
+      void deleteEdges() { this->edges_ = nullptr;};
+      inline const vector<Darabonba::Json> & getEdges() const { DARABONBA_PTR_GET_CONST(edges_, vector<Darabonba::Json>) };
+      inline vector<Darabonba::Json> getEdges() { DARABONBA_PTR_GET(edges_, vector<Darabonba::Json>) };
+      inline Draft& setEdges(const vector<Darabonba::Json> & edges) { DARABONBA_PTR_SET_VALUE(edges_, edges) };
+      inline Draft& setEdges(vector<Darabonba::Json> && edges) { DARABONBA_PTR_SET_RVALUE(edges_, edges) };
+
+
+      // layout Field Functions 
+      bool hasLayout() const { return this->layout_ != nullptr;};
+      void deleteLayout() { this->layout_ = nullptr;};
+      inline       const Darabonba::Json & getLayout() const { DARABONBA_GET(layout_) };
+      Darabonba::Json & getLayout() { DARABONBA_GET(layout_) };
+      inline Draft& setLayout(const Darabonba::Json & layout) { DARABONBA_SET_VALUE(layout_, layout) };
+      inline Draft& setLayout(Darabonba::Json && layout) { DARABONBA_SET_RVALUE(layout_, layout) };
+
+
       // name Field Functions 
       bool hasName() const { return this->name_ != nullptr;};
       void deleteName() { this->name_ = nullptr;};
       inline string getName() const { DARABONBA_PTR_GET_DEFAULT(name_, "") };
       inline Draft& setName(string name) { DARABONBA_PTR_SET_VALUE(name_, name) };
+
+
+      // schemaVersion Field Functions 
+      bool hasSchemaVersion() const { return this->schemaVersion_ != nullptr;};
+      void deleteSchemaVersion() { this->schemaVersion_ = nullptr;};
+      inline int64_t getSchemaVersion() const { DARABONBA_PTR_GET_DEFAULT(schemaVersion_, 0L) };
+      inline Draft& setSchemaVersion(int64_t schemaVersion) { DARABONBA_PTR_SET_VALUE(schemaVersion_, schemaVersion) };
 
 
       // steps Field Functions 
@@ -224,8 +268,14 @@ namespace Models
     protected:
       // The description of the template.
       shared_ptr<string> description_ {};
+      // 节点依赖边；每项包含from/to，引用稳定stepId
+      shared_ptr<vector<Darabonba::Json>> edges_ {};
+      // 可选画布布局，按stepId索引；只影响展示，不决定依赖
+      Darabonba::Json layout_ {};
       // The name of the template.
       shared_ptr<string> name_ {};
+      // 模板结构版本，当前为2，与业务版本vN独立
+      shared_ptr<int64_t> schemaVersion_ {};
       // The ordered steps.
       shared_ptr<vector<Draft::Steps>> steps_ {};
     };
@@ -267,9 +317,9 @@ namespace Models
     shared_ptr<string> code_ {};
     // The generated non-persistent template draft.
     shared_ptr<GenerateWorkflowTemplateDraftResponseBody::Draft> draft_ {};
-    // The error description.
+    // The error message.
     shared_ptr<string> message_ {};
-    // The request tracking ID.
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

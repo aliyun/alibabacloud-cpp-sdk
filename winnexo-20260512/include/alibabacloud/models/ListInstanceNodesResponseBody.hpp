@@ -183,15 +183,15 @@ namespace Models
       shared_ptr<string> conclusion_ {};
       // The total number of seconds from the first run to the desired state. This field is empty if the time is missing.
       shared_ptr<int64_t> duration_ {};
-      // The time when the node was first run. This field is empty for historical or unrun nodes.
+      // The time when the node was first run. This field is empty for historical nodes or nodes that have not run.
       shared_ptr<string> enteredAt_ {};
       // The time when the node actually entered the desired state. This field is empty if the node has not finished.
       shared_ptr<string> finishedAt_ {};
       // The display name of the node assignee. This field is empty if the assignee is unknown.
       shared_ptr<string> handler_ {};
-      // The lane position of the node in the workflow graph.
+      // The lane of the node in the workflow graph.
       shared_ptr<int64_t> lane_ {};
-      // The key of the node (nodeKey). This is not the session ID.
+      // The visible nodes arranged in topological order. The number of nodes is determined by the actual dynamic graph.
       shared_ptr<string> nodeId_ {};
       // The display name of the node.
       shared_ptr<string> nodeName_ {};
@@ -201,9 +201,9 @@ namespace Models
       shared_ptr<string> nodeType_ {};
       // The level of the node in the workflow graph, starting from 0.
       shared_ptr<int64_t> rank_ {};
-      // The original running status of the node, such as READY, RUNNING, WAITING, SUCCEEDED, or FAILED.
+      // The original node running status, such as READY, RUNNING, WAITING, SUCCEEDED, or FAILED.
       shared_ptr<string> status_ {};
-      // The reason for waiting, such as HUMAN_INPUT, HUMAN_STEP, REVIEW, MANUAL_PAUSE, or UNBLOCK. This field is empty if the node is not waiting.
+      // The wait reason: HUMAN_INPUT, HUMAN_STEP, REVIEW, MANUAL_PAUSE, or UNBLOCK. This field is empty when the node is not waiting.
       shared_ptr<string> waitType_ {};
     };
 
@@ -254,15 +254,15 @@ namespace Models
 
 
   protected:
-    // The business status code. A value of 200 indicates success.
+    // The business status code. The value 200 indicates success.
     shared_ptr<string> code_ {};
-    // The physical instance ID.
+    // The physical workflow instance ID (planId).
     shared_ptr<string> instanceId_ {};
-    // The error description.
+    // The error message.
     shared_ptr<string> message_ {};
     // The visible nodes arranged in topological order. The number of nodes is determined by the actual dynamic graph.
     shared_ptr<vector<ListInstanceNodesResponseBody::Nodes>> nodes_ {};
-    // The request tracking ID.
+    // The request trace ID.
     shared_ptr<string> requestId_ {};
     // The state version.
     shared_ptr<int64_t> stateVersion_ {};

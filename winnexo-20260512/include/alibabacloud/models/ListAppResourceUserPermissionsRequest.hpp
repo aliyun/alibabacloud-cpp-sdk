@@ -115,27 +115,27 @@ namespace Models
 
 
   protected:
-    // The page number.
-    shared_ptr<int64_t> page_ {};
     // The number of entries per page.
+    shared_ptr<int64_t> page_ {};
+    // The permission filter.
     shared_ptr<int64_t> pageSize_ {};
-    // The permission points to filter.
+    // The permission filter.
     shared_ptr<vector<string>> permissions_ {};
-    // The application key or its subpath.
+    // The page number.
     // 
     // This parameter is required.
     shared_ptr<string> resourceKeyPrefix_ {};
-    // The ID of the tenant to which the resource belongs. If you do not specify this parameter, the current tenant of the caller is used.
+    // The ID of the target platform user.
     shared_ptr<string> resourceTenantId_ {};
-    // The resource type. Set the value to APP_RESOURCE.
+    // The application key or its subpath.
     // 
     // This parameter is required.
     shared_ptr<string> resourceType_ {};
-    // The ID of the target platform user.
-    shared_ptr<int64_t> targetUserId_ {};
     // The tenant to which the target user belongs. This parameter is required for cross-tenant targets.
+    shared_ptr<int64_t> targetUserId_ {};
+    // The fixed value APP_RESOURCE.
     shared_ptr<string> targetUserTenantId_ {};
-    // The tenant ID. This is a common parameter. If you do not specify this parameter, the default tenant of the caller is used.
+    // The ID of the tenant to which the resource belongs. If omitted, the current tenant of the caller is used.
     shared_ptr<string> tenantId_ {};
   };
 

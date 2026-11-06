@@ -163,17 +163,17 @@ namespace Models
       shared_ptr<string> description_ {};
       // The current effective version number. An empty value indicates that only a draft exists and the template cannot be used for work items.
       shared_ptr<string> effectiveVersion_ {};
-      // The time when the template was last modified. The time is in the ISO 8601 standard.
+      // The time of the last modification. The time follows the ISO 8601 standard.
       shared_ptr<string> gmtModified_ {};
       // The latest version number.
       shared_ptr<string> latestVersion_ {};
       // The status of the latest version. Valid values:
-      // - DRAFT: Draft. The version contains uncommitted edits.
+      // - DRAFT: Draft. Unsubmitted edits exist.
       // - SUBMITTED: Submitted.
       shared_ptr<string> latestVersionStatus_ {};
       // The name of the template.
       shared_ptr<string> name_ {};
-      // The number of unique owners.
+      // The number of owners.
       shared_ptr<int64_t> ownerCount_ {};
       // The number of steps configured with reviewers.
       shared_ptr<int64_t> reviewStepCount_ {};
@@ -261,23 +261,23 @@ namespace Models
   protected:
     // The business status code. A value of 200 indicates success.
     shared_ptr<string> code_ {};
-    // Indicates whether more data is available.
+    // Indicates whether more data exists.
     shared_ptr<bool> hasMore_ {};
     // The list of template summaries on the current page.
     shared_ptr<vector<ListWorkflowTemplatesResponseBody::Items>> items_ {};
-    // The maximum number of entries returned per page in the current request.
+    // The effective maximum number of entries to return per page for the current request.
     shared_ptr<int64_t> maxResults_ {};
     // The error message.
     shared_ptr<string> message_ {};
-    // The pagination token for the next page. An empty string indicates that no more data is available.
+    // The pagination token for the next page. An empty string indicates that no more data exists.
     shared_ptr<string> nextToken_ {};
     // The current page number.
     shared_ptr<int64_t> page_ {};
-    // The number of entries per page in the current request.
+    // The effective number of entries per page.
     shared_ptr<int64_t> pageSize_ {};
-    // The request ID.
+    // The request tracking ID.
     shared_ptr<string> requestId_ {};
-    // The total number of visible entries that match the filter conditions.
+    // The total number of visible items under the filter conditions.
     shared_ptr<int64_t> total_ {};
   };
 

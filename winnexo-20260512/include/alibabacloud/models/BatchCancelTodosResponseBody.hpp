@@ -70,7 +70,7 @@ namespace Models
     shared_ptr<int64_t> cancelledCount_ {};
     // The business status code. A value of 200 indicates success.
     shared_ptr<string> code_ {};
-    // The error description.
+    // The error message.
     shared_ptr<string> message_ {};
     // The request tracking ID.
     shared_ptr<string> requestId_ {};

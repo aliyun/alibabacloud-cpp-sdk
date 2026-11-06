@@ -75,17 +75,17 @@ namespace Models
 
 
   protected:
-    // The check items.
+    // The check item.
     // 
     // This parameter is required.
     shared_ptr<string> checksShrink_ {};
-    // The ID of the tenant to which the resource belongs. If not specified, the current tenant of the caller is used.
-    shared_ptr<string> resourceTenantId_ {};
     // The ID of the target platform user.
-    shared_ptr<int64_t> targetUserId_ {};
+    shared_ptr<string> resourceTenantId_ {};
     // The tenant to which the target user belongs. This parameter is required for cross-tenant targets.
+    shared_ptr<int64_t> targetUserId_ {};
+    // The check item.
     shared_ptr<string> targetUserTenantId_ {};
-    // The tenant ID. This is a common parameter. If not specified, the default tenant of the caller is used.
+    // The ID of the tenant to which the resource belongs. If this parameter is not specified, the current tenant of the caller is used.
     shared_ptr<string> tenantId_ {};
   };
 

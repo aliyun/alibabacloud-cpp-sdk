@@ -48,9 +48,9 @@ namespace Models
 
 
   protected:
-    // The tenant ID. This is a common parameter. If not specified, the default tenant of the caller is used.
+    // The list of to-do item IDs. You can specify 1 to 100 IDs.
     shared_ptr<string> tenantId_ {};
-    // The list of to-do IDs. You can specify 1 to 100 IDs.
+    // The list of to-do item IDs. You can specify 1 to 100 IDs.
     // 
     // This parameter is required.
     shared_ptr<string> todoIdsShrink_ {};

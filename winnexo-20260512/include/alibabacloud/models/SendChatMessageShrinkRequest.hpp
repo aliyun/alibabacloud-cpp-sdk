@@ -149,38 +149,33 @@ namespace Models
 
 
   protected:
-    // The message body from the user.
+    // The body of the user message.
     // 
     // This parameter is required.
     shared_ptr<string> content_ {};
     // The message type. Valid values: Text and Markdown.
     shared_ptr<string> contentType_ {};
-    // The list of digital employee names. A single string can be passed for backward compatibility with the legacy format.
+    // The list of digital employee names. For compatibility with the legacy format, a single string can be passed.
     shared_ptr<string> digitalEmployeeNameShrink_ {};
-    // Specifies whether to enable direct connection mode. If set to true, the standard scenario routing is skipped and the direct conversation scenario is entered directly.
+    // Specifies whether to enable the direct connection mode. If this parameter is set to true, the regular scenario routing is skipped and the direct connection conversation scenario is directly entered.
     shared_ptr<bool> directChat_ {};
-    // Specifies whether to enable web search. Default value: False. In task execution scenarios (when taskExecution is provided), the task configuration takes precedence.
+    // Specifies whether to enable web search. Default value: false. In the task execution scenario where taskExecution is passed, the task configuration prevails.
     shared_ptr<bool> enableWebSearch_ {};
-    // The list of file references. Each item is an object, and fileId is required (returned by uploadChatFile).
+    // The list of file references. Each item is an object, and the fileId parameter is required, which is returned by uploadChatFile.
     shared_ptr<string> filesShrink_ {};
-    // The abstract model tier. Valid values: quick, standard, and flagship. If not specified, new sessions use standard, and existing sessions retain the current session tier.
+    // The abstract model tier. Valid values: quick, standard, and flagship. If this parameter is not specified, standard is used for new sessions, and the current tier is used for existing sessions.
     shared_ptr<string> model_ {};
-    // Specifies whether to reuse the most recent session of the digital employee when sessionId is not provided (CLI scenario). Default value: false, which creates a new session.
+    // Specifies whether to reuse the most recent session under the digital employee when sessionId is not passed, which applies to CLI scenarios. Default value: false, which indicates that a new session is created.
     shared_ptr<bool> reuseLastSession_ {};
     // The session ID.
     shared_ptr<string> sessionId_ {};
     // Specifies whether to enable streaming output.
     shared_ptr<bool> stream_ {};
-    // The task execution metadata returned by executeScheduledTask. When provided, the request is processed through the task execution pipeline.
+    // The task execution metadata returned by executeScheduledTask. If this parameter is passed, the request is processed according to the task execution link.
     shared_ptr<string> taskExecutionShrink_ {};
     // The effective tenant ID.
     shared_ptr<string> tenantId_ {};
-    // The session work mode. Valid values:
-    // - ask: Quick Q&A. Tools, skills, and connectors are trimmed, and single-turn direct answers are provided.
-    // - work: Deep work. This is the default value.
-    // - direct: Direct connection mode (request-level). The sandbox is not started and no context pollution occurs. This is equivalent to directChat=true.
-    // 
-    // The ask and work modes are session-level: the mode is selected and fixed when a session is created. By default, follow-up messages inherit the session mode. If an explicitly provided value is inconsistent with the session mode, a parameter error is returned. To switch modes, create a new session or fork the existing one. In multi-digital-employee or task execution scenarios, if ask is provided, work takes effect instead. When directChat=true, this parameter is ignored.
+    // The session work mode. Valid values: ask (quick Q&A, which trims tools, skills, and connectors for single-turn direct answers), work (deep work, which is the default value), and direct (direct connection mode at the request level, which does not start the sandbox and prevents context pollution, equivalent to directChat=true). The ask and work modes are at the session level. The mode is fixed when a new session is created. Subsequent chats inherit the session mode by default. If the explicitly passed value is inconsistent with the session mode, a parameter error is returned. To switch the mode, create a new session or fork the session. If ask is passed in the multi-digital employee or task execution scenario, it takes effect as work. If directChat is set to true, this parameter is ignored.
     shared_ptr<string> workMode_ {};
   };
 

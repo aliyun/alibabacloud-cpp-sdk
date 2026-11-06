@@ -66,7 +66,10 @@ namespace Models
 
 
   protected:
-    // The write action. Valid values: SAVE: Saves the template as a draft without taking effect. SUBMIT: Saves and submits the template and sets it as the only effective version. Default value: SUBMIT.
+    // The write action. Valid values:
+    // - SAVE: Saves the template as a draft. The draft does not take effect. Node names and assignees can be left empty.
+    // - SUBMIT: Requires complete nodes. The template is saved and submitted as the only effective version.
+    // Default value: SUBMIT.
     shared_ptr<string> action_ {};
     // The ID of the collaboration workspace.
     // 
@@ -76,7 +79,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> definitionShrink_ {};
-    // The tenant ID. This is a common parameter. If not specified, the default tenant of the caller is used.
+    // The tenant ID. This is a common parameter. If this parameter is not specified, the default tenant of the caller is used.
     shared_ptr<string> tenantId_ {};
   };
 

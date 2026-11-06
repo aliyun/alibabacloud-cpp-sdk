@@ -178,21 +178,21 @@ namespace Models
       shared_ptr<string> expireAt_ {};
       // The platform user ID of the grantor.
       shared_ptr<string> grantedBy_ {};
-      // The grantee ID.
+      // The tenant filter for cross-tenant users.
       shared_ptr<string> granteeId_ {};
-      // The grantee name.
+      // The principal name.
       shared_ptr<string> granteeName_ {};
-      // The ID of the tenant to which the cross-tenant user belongs.
+      // The permission filter.
       shared_ptr<string> granteeTenantId_ {};
-      // The grantee type.
+      // The principal ID filter.
       shared_ptr<string> granteeType_ {};
       // The permission.
       shared_ptr<string> permission_ {};
-      // The ID of the permission record.
+      // The permission record ID.
       shared_ptr<int64_t> permissionId_ {};
       // The resource key.
       shared_ptr<string> resourceKey_ {};
-      // The resource type.
+      // The application key or its subpath.
       shared_ptr<string> resourceType_ {};
       // The update time.
       shared_ptr<string> updatedAt_ {};
@@ -259,11 +259,11 @@ namespace Models
     shared_ptr<vector<ListAppResourcePermissionRecordsResponseBody::Items>> items_ {};
     // The error message. This parameter is empty if the request is successful.
     shared_ptr<string> message_ {};
-    // The page number.
+    // The number of items per page.
     shared_ptr<int64_t> page_ {};
-    // The number of entries per page.
+    // The principal type filter.
     shared_ptr<int64_t> pageSize_ {};
-    // The request ID.
+    // The request tracking ID.
     shared_ptr<string> requestId_ {};
     // The total number of records.
     shared_ptr<int64_t> total_ {};

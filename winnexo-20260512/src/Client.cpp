@@ -2,6 +2,7 @@
 #include <alibabacloud/WinNexo20260512.hpp>
 #include <alibabacloud/Utils.hpp>
 #include <alibabacloud/Openapi.hpp>
+#include <alibabacloud/gateway/POP.hpp>
 #include <map>
 #include <darabonba/Runtime.hpp>
 #include <darabonba/Convert.hpp>
@@ -12,6 +13,7 @@ using namespace std;
 using namespace Darabonba;
 using json = nlohmann::json;
 using namespace Darabonba::Http;
+using namespace AlibabaCloud::Gateway;
 using namespace AlibabaCloud::OpenApi;
 using namespace AlibabaCloud::OpenApi::Models;
 using namespace AlibabaCloud::OpenApi::Exceptions;
@@ -25,6 +27,9 @@ namespace WinNexo20260512
 {
 
 AlibabaCloud::WinNexo20260512::Client::Client(AlibabaCloud::OpenApi::Utils::Models::Config &config): OpenApiClient(config){
+  this->_productId = "WinNexo";
+  shared_ptr<POP> gatewayClient = make_shared<POP>();
+  this->_spi = gatewayClient;
   this->_endpointRule = "regional";
   checkConfig(config);
   this->_endpoint = getEndpoint("winnexo", _regionId, _endpointRule, _network, _suffix, _endpointMap, _endpoint);
@@ -118,9 +123,9 @@ AddUserGroupMembersResponse Client::addUserGroupMembers(const AddUserGroupMember
 }
 
 /**
- * @summary Cancels to-do items in batches.
+ * @summary Cancels multiple to-do items.
  *
- * @description Cancels to-do items in batches based on a set of to-do IDs. No error is reported for completed or non-existent items, ensuring idempotence.
+ * @description Cancels multiple to-do items based on a list of IDs. This operation is idempotent and does not return errors for completed or non-existent items.
  *
  * @param tmpReq BatchCancelTodosRequest
  * @param headers map
@@ -165,9 +170,9 @@ BatchCancelTodosResponse Client::batchCancelTodosWithOptions(const BatchCancelTo
 }
 
 /**
- * @summary Cancels to-do items in batches.
+ * @summary Cancels multiple to-do items.
  *
- * @description Cancels to-do items in batches based on a set of to-do IDs. No error is reported for completed or non-existent items, ensuring idempotence.
+ * @description Cancels multiple to-do items based on a list of IDs. This operation is idempotent and does not return errors for completed or non-existent items.
  *
  * @param request BatchCancelTodosRequest
  * @return BatchCancelTodosResponse
@@ -459,9 +464,9 @@ CheckAppResourcePermissionResponse Client::checkAppResourcePermission(const Chec
 }
 
 /**
- * @summary Checks resource permissions within applications in batches.
+ * @summary Checks the permissions of resources within applications in batches.
  *
- * @description After authenticating each application in the batch, reuses the constant-time query of the service.
+ * @description Authenticates applications in batches and reuses constant-time service queries.
  *
  * @param tmpReq CheckAppResourcePermissionsBatchRequest
  * @param headers map
@@ -518,9 +523,9 @@ CheckAppResourcePermissionsBatchResponse Client::checkAppResourcePermissionsBatc
 }
 
 /**
- * @summary Checks resource permissions within applications in batches.
+ * @summary Checks the permissions of resources within applications in batches.
  *
- * @description After authenticating each application in the batch, reuses the constant-time query of the service.
+ * @description Authenticates applications in batches and reuses constant-time service queries.
  *
  * @param request CheckAppResourcePermissionsBatchRequest
  * @return CheckAppResourcePermissionsBatchResponse
@@ -1067,6 +1072,87 @@ CreateCustomOrgResponse Client::createCustomOrg(const CreateCustomOrgRequest &re
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   map<string, string> headers = {};
   return createCustomOrgWithOptions(request, headers, runtime);
+}
+
+/**
+ * @summary CreateFreeExplorationWorkItem
+ *
+ * @description 创建与页面一致的自由探索工作项及群话题，配置数字员工和可见范围；不发送消息，不自动执行；非幂等，超时先查询 queryWorkItemFeed
+ *
+ * @param tmpReq CreateFreeExplorationWorkItemRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CreateFreeExplorationWorkItemResponse
+ */
+CreateFreeExplorationWorkItemResponse Client::createFreeExplorationWorkItemWithOptions(const CreateFreeExplorationWorkItemRequest &tmpReq, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  CreateFreeExplorationWorkItemShrinkRequest request = CreateFreeExplorationWorkItemShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasAgentNames()) {
+    request.setAgentNamesShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getAgentNames(), "agentNames", "json"));
+  }
+
+  if (!!tmpReq.hasMemberUserIds()) {
+    request.setMemberUserIdsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getMemberUserIds(), "memberUserIds", "json"));
+  }
+
+  json query = {};
+  if (!!request.hasTenantId()) {
+    query["tenantId"] = request.getTenantId();
+  }
+
+  json body = {};
+  if (!!request.hasAgentNamesShrink()) {
+    body["agentNames"] = request.getAgentNamesShrink();
+  }
+
+  if (!!request.hasCollaborationGroupId()) {
+    body["collaborationGroupId"] = request.getCollaborationGroupId();
+  }
+
+  if (!!request.hasMemberUserIdsShrink()) {
+    body["memberUserIds"] = request.getMemberUserIdsShrink();
+  }
+
+  if (!!request.hasTitle()) {
+    body["title"] = request.getTitle();
+  }
+
+  if (!!request.hasVisibility()) {
+    body["visibility"] = request.getVisibility();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "CreateFreeExplorationWorkItem"},
+    {"version" , "2026-05-12"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/openapi/createFreeExplorationWorkItem")},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CreateFreeExplorationWorkItemResponse>();
+}
+
+/**
+ * @summary CreateFreeExplorationWorkItem
+ *
+ * @description 创建与页面一致的自由探索工作项及群话题，配置数字员工和可见范围；不发送消息，不自动执行；非幂等，超时先查询 queryWorkItemFeed
+ *
+ * @param request CreateFreeExplorationWorkItemRequest
+ * @return CreateFreeExplorationWorkItemResponse
+ */
+CreateFreeExplorationWorkItemResponse Client::createFreeExplorationWorkItem(const CreateFreeExplorationWorkItemRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return createFreeExplorationWorkItemWithOptions(request, headers, runtime);
 }
 
 /**
@@ -4727,7 +4813,7 @@ CreateWorkflowTemplateResponse Client::createWorkflowTemplate(const CreateWorkfl
 /**
  * @summary Creates a draft of a workflow template.
  *
- * @description Generates a draft version of a workflow template for editing by a storage management administrator. If the selected version is a draft, it is returned as-is (idempotent, no new version is created). If the selected version is committed, replication of its content is performed for content generation of a v(maximum version number + 1) draft. The effective version remains unchanged. You can subsequently use UpdateWorkflowTemplate and pass the returned version to save or commit the draft.
+ * @description Generates a draft version for editing a workflow template as a storage management administrator. If the selected version is a draft, it is returned as-is (idempotent, no new version is created). If the selected version is committed, replication of its content generation is performed to produce a v(maximum version number + 1) draft. The effective version remains unchanged. You can subsequently call UpdateWorkflowTemplate and pass the returned version to save or commit the draft.
  *
  * @param request CreateWorkflowTemplateDraftVersionRequest
  * @param headers map
@@ -4776,7 +4862,7 @@ CreateWorkflowTemplateDraftVersionResponse Client::createWorkflowTemplateDraftVe
 /**
  * @summary Creates a draft of a workflow template.
  *
- * @description Generates a draft version of a workflow template for editing by a storage management administrator. If the selected version is a draft, it is returned as-is (idempotent, no new version is created). If the selected version is committed, replication of its content is performed for content generation of a v(maximum version number + 1) draft. The effective version remains unchanged. You can subsequently use UpdateWorkflowTemplate and pass the returned version to save or commit the draft.
+ * @description Generates a draft version for editing a workflow template as a storage management administrator. If the selected version is a draft, it is returned as-is (idempotent, no new version is created). If the selected version is committed, replication of its content generation is performed to produce a v(maximum version number + 1) draft. The effective version remains unchanged. You can subsequently call UpdateWorkflowTemplate and pass the returned version to save or commit the draft.
  *
  * @param request CreateWorkflowTemplateDraftVersionRequest
  * @return CreateWorkflowTemplateDraftVersionResponse
@@ -4788,9 +4874,9 @@ CreateWorkflowTemplateDraftVersionResponse Client::createWorkflowTemplateDraftVe
 }
 
 /**
- * @summary Deletes multiple resource permissions within an application.
+ * @summary Deletes resource permissions within applications in batches.
  *
- * @description Verifies MANAGE permissions for each application and then calls the original atomic deletion capability.
+ * @description Invokes the original atomic deletion capability after passing MANAGE verification for each application.
  *
  * @param tmpReq DeleteAppResourcePermissionsRequest
  * @param headers map
@@ -4839,9 +4925,9 @@ DeleteAppResourcePermissionsResponse Client::deleteAppResourcePermissionsWithOpt
 }
 
 /**
- * @summary Deletes multiple resource permissions within an application.
+ * @summary Deletes resource permissions within applications in batches.
  *
- * @description Verifies MANAGE permissions for each application and then calls the original atomic deletion capability.
+ * @description Invokes the original atomic deletion capability after passing MANAGE verification for each application.
  *
  * @param request DeleteAppResourcePermissionsRequest
  * @return DeleteAppResourcePermissionsResponse
@@ -5365,9 +5451,9 @@ EnableTokenResponse Client::enableToken(const EnableTokenRequest &request) {
 }
 
 /**
- * @summary Exports a simplified template definition that can be re-imported by valid members.
+ * @summary Exports a simplified template definition that can be re-imported.
  *
- * @description Exports a simplified template definition that can be re-imported by valid members.
+ * @description Exports a simplified template definition that can be re-imported.
  *
  * @param request ExportWorkflowTemplateRequest
  * @param headers map
@@ -5414,9 +5500,9 @@ ExportWorkflowTemplateResponse Client::exportWorkflowTemplateWithOptions(const E
 }
 
 /**
- * @summary Exports a simplified template definition that can be re-imported by valid members.
+ * @summary Exports a simplified template definition that can be re-imported.
  *
- * @description Exports a simplified template definition that can be re-imported by valid members.
+ * @description Exports a simplified template definition that can be re-imported.
  *
  * @param request ExportWorkflowTemplateRequest
  * @return ExportWorkflowTemplateResponse
@@ -5691,6 +5777,65 @@ GetChatSessionResponse Client::getChatSession(const GetChatSessionRequest &reque
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   map<string, string> headers = {};
   return getChatSessionWithOptions(request, headers, runtime);
+}
+
+/**
+ * @summary 预览和下载协作空间对话文件
+ *
+ * @description 获取数字员工对话生成文件的正文、预览地址或短期下载地址，支持工作流节点中的USER_OUTPUT_ITEM文件引用。调用者需通过租户、空间成员和文件来源权限校验。无需将文件登记为工作项产物；本接口不接受artifactId。
+ *
+ * @param request GetCollaborationGroupOutputItemPreviewRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetCollaborationGroupOutputItemPreviewResponse
+ */
+GetCollaborationGroupOutputItemPreviewResponse Client::getCollaborationGroupOutputItemPreviewWithOptions(const GetCollaborationGroupOutputItemPreviewRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasTenantId()) {
+    query["tenantId"] = request.getTenantId();
+  }
+
+  json body = {};
+  if (!!request.hasCollaborationGroupId()) {
+    body["collaborationGroupId"] = request.getCollaborationGroupId();
+  }
+
+  if (!!request.hasItemId()) {
+    body["itemId"] = request.getItemId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "GetCollaborationGroupOutputItemPreview"},
+    {"version" , "2026-05-12"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/openapi/getCollaborationGroupOutputItemPreview")},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetCollaborationGroupOutputItemPreviewResponse>();
+}
+
+/**
+ * @summary 预览和下载协作空间对话文件
+ *
+ * @description 获取数字员工对话生成文件的正文、预览地址或短期下载地址，支持工作流节点中的USER_OUTPUT_ITEM文件引用。调用者需通过租户、空间成员和文件来源权限校验。无需将文件登记为工作项产物；本接口不接受artifactId。
+ *
+ * @param request GetCollaborationGroupOutputItemPreviewRequest
+ * @return GetCollaborationGroupOutputItemPreviewResponse
+ */
+GetCollaborationGroupOutputItemPreviewResponse Client::getCollaborationGroupOutputItemPreview(const GetCollaborationGroupOutputItemPreviewRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return getCollaborationGroupOutputItemPreviewWithOptions(request, headers, runtime);
 }
 
 /**
@@ -6316,16 +6461,16 @@ GetScheduledTaskExecutionDetailResponse Client::getScheduledTaskExecutionDetail(
 }
 
 /**
- * @summary Retrieves execution records of scheduled tasks.
+ * @summary Retrieves the execution records of scheduled tasks.
  *
- * @description ## Operation description
- * - This operation uploads files to an enterprise knowledge base.
- * - You must have the `DEVELOPMENT_KB_MANAGE` feature permission to call this operation.
- * - You must provide the OSS persistent address (`filePath`) of the file when uploading.
- * - Optional parameters include the public access URL and original file name to enhance the completeness of file information.
- * - If `directoryId` is specified, the file is placed in the corresponding enterprise knowledge base folder. Otherwise, the file is bound to the default root folder of the current digital employee.
- * - You can add tags to resources by using `sourceTags` for subsequent management and retrieval.
- * - This operation initiates a billing item (UNSTRUCTURED_PARSE). Make sure that your account balance is sufficient.
+ * @description ## Request description
+ * - This API operation uploads files to the enterprise knowledge base.
+ * - You must have the `DEVELOPMENT_KB_MANAGE` feature permission to call this API operation.
+ * - When uploading a file, you must provide the OSS persistence address (`filePath`) of the file.
+ * - Optional parameters include the public access URL and original file name of the file to enhance the completeness of the file information.
+ * - If `directoryId` is specified, the file is placed in the corresponding enterprise knowledge base directory. Otherwise, the file is bound to the default root directory of the current digital employee.
+ * - You can use `sourceTags` to add tags to resources for subsequent management and retrieval.
+ * - This operation generates a bill (UNSTRUCTURED_PARSE). Make sure that your account balance is sufficient.
  *
  * @param request GetScheduledTaskExecutionRecordsRequest
  * @param headers map
@@ -6382,16 +6527,16 @@ GetScheduledTaskExecutionRecordsResponse Client::getScheduledTaskExecutionRecord
 }
 
 /**
- * @summary Retrieves execution records of scheduled tasks.
+ * @summary Retrieves the execution records of scheduled tasks.
  *
- * @description ## Operation description
- * - This operation uploads files to an enterprise knowledge base.
- * - You must have the `DEVELOPMENT_KB_MANAGE` feature permission to call this operation.
- * - You must provide the OSS persistent address (`filePath`) of the file when uploading.
- * - Optional parameters include the public access URL and original file name to enhance the completeness of file information.
- * - If `directoryId` is specified, the file is placed in the corresponding enterprise knowledge base folder. Otherwise, the file is bound to the default root folder of the current digital employee.
- * - You can add tags to resources by using `sourceTags` for subsequent management and retrieval.
- * - This operation initiates a billing item (UNSTRUCTURED_PARSE). Make sure that your account balance is sufficient.
+ * @description ## Request description
+ * - This API operation uploads files to the enterprise knowledge base.
+ * - You must have the `DEVELOPMENT_KB_MANAGE` feature permission to call this API operation.
+ * - When uploading a file, you must provide the OSS persistence address (`filePath`) of the file.
+ * - Optional parameters include the public access URL and original file name of the file to enhance the completeness of the file information.
+ * - If `directoryId` is specified, the file is placed in the corresponding enterprise knowledge base directory. Otherwise, the file is bound to the default root directory of the current digital employee.
+ * - You can use `sourceTags` to add tags to resources for subsequent management and retrieval.
+ * - This operation generates a bill (UNSTRUCTURED_PARSE). Make sure that your account balance is sufficient.
  *
  * @param request GetScheduledTaskExecutionRecordsRequest
  * @return GetScheduledTaskExecutionRecordsResponse
@@ -7550,6 +7695,120 @@ GetWorkItemAttachmentAccessResponse Client::getWorkItemAttachmentAccess(const Ge
 }
 
 /**
+ * @summary 查询工作项审计记录
+ *
+ * @param request GetWorkItemAuditRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetWorkItemAuditResponse
+ */
+GetWorkItemAuditResponse Client::getWorkItemAuditWithOptions(const GetWorkItemAuditRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasTenantId()) {
+    query["tenantId"] = request.getTenantId();
+  }
+
+  json body = {};
+  if (!!request.hasCollaborationGroupId()) {
+    body["collaborationGroupId"] = request.getCollaborationGroupId();
+  }
+
+  if (!!request.hasWorkItemId()) {
+    body["workItemId"] = request.getWorkItemId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "GetWorkItemAudit"},
+    {"version" , "2026-05-12"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/openapi/getWorkItemAudit")},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetWorkItemAuditResponse>();
+}
+
+/**
+ * @summary 查询工作项审计记录
+ *
+ * @param request GetWorkItemAuditRequest
+ * @return GetWorkItemAuditResponse
+ */
+GetWorkItemAuditResponse Client::getWorkItemAudit(const GetWorkItemAuditRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return getWorkItemAuditWithOptions(request, headers, runtime);
+}
+
+/**
+ * @summary 查询工作项运行总结
+ *
+ * @param request GetWorkItemRunSummariesRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetWorkItemRunSummariesResponse
+ */
+GetWorkItemRunSummariesResponse Client::getWorkItemRunSummariesWithOptions(const GetWorkItemRunSummariesRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasTenantId()) {
+    query["tenantId"] = request.getTenantId();
+  }
+
+  json body = {};
+  if (!!request.hasCollaborationGroupId()) {
+    body["collaborationGroupId"] = request.getCollaborationGroupId();
+  }
+
+  if (!!request.hasNodeKey()) {
+    body["nodeKey"] = request.getNodeKey();
+  }
+
+  if (!!request.hasWorkItemId()) {
+    body["workItemId"] = request.getWorkItemId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "GetWorkItemRunSummaries"},
+    {"version" , "2026-05-12"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/openapi/getWorkItemRunSummaries")},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetWorkItemRunSummariesResponse>();
+}
+
+/**
+ * @summary 查询工作项运行总结
+ *
+ * @param request GetWorkItemRunSummariesRequest
+ * @return GetWorkItemRunSummariesResponse
+ */
+GetWorkItemRunSummariesResponse Client::getWorkItemRunSummaries(const GetWorkItemRunSummariesRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return getWorkItemRunSummariesWithOptions(request, headers, runtime);
+}
+
+/**
  * @summary Queries the current running, review, and pause statuses of a work item, along with the actual active nodes and execution progress, by using a stable logical instance ID.
  *
  * @description Retrieves the instance based on the current member and work item visibility.
@@ -7602,6 +7861,65 @@ GetWorkflowInstanceResponse Client::getWorkflowInstance(const GetWorkflowInstanc
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   map<string, string> headers = {};
   return getWorkflowInstanceWithOptions(request, headers, runtime);
+}
+
+/**
+ * @summary 读取工作流节点配置
+ *
+ * @param request GetWorkflowNodeConfigurationRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetWorkflowNodeConfigurationResponse
+ */
+GetWorkflowNodeConfigurationResponse Client::getWorkflowNodeConfigurationWithOptions(const GetWorkflowNodeConfigurationRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasTenantId()) {
+    query["tenantId"] = request.getTenantId();
+  }
+
+  json body = {};
+  if (!!request.hasCollaborationGroupId()) {
+    body["collaborationGroupId"] = request.getCollaborationGroupId();
+  }
+
+  if (!!request.hasInstanceId()) {
+    body["instanceId"] = request.getInstanceId();
+  }
+
+  if (!!request.hasNodeId()) {
+    body["nodeId"] = request.getNodeId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "GetWorkflowNodeConfiguration"},
+    {"version" , "2026-05-12"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/openapi/getWorkflowNodeConfiguration")},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetWorkflowNodeConfigurationResponse>();
+}
+
+/**
+ * @summary 读取工作流节点配置
+ *
+ * @param request GetWorkflowNodeConfigurationRequest
+ * @return GetWorkflowNodeConfigurationResponse
+ */
+GetWorkflowNodeConfigurationResponse Client::getWorkflowNodeConfiguration(const GetWorkflowNodeConfigurationRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return getWorkflowNodeConfigurationWithOptions(request, headers, runtime);
 }
 
 /**
@@ -7765,9 +8083,9 @@ GrantAgentUsersResponse Client::grantAgentUsers(const GrantAgentUsersRequest &re
 }
 
 /**
- * @summary Imports a portable template JSON and creates a new template. A new template is created regardless of whether the name is identical.
+ * @summary Imports a portable template in JSON format and creates a new template regardless of the template name.
  *
- * @description Imports a portable template JSON and creates a new template. A new template is created regardless of whether the name is identical.
+ * @description Imports a portable template in JSON format and creates a new template regardless of the template name.
  *
  * @param tmpReq ImportWorkflowTemplateRequest
  * @param headers map
@@ -7816,9 +8134,9 @@ ImportWorkflowTemplateResponse Client::importWorkflowTemplateWithOptions(const I
 }
 
 /**
- * @summary Imports a portable template JSON and creates a new template. A new template is created regardless of whether the name is identical.
+ * @summary Imports a portable template in JSON format and creates a new template regardless of the template name.
  *
- * @description Imports a portable template JSON and creates a new template. A new template is created regardless of whether the name is identical.
+ * @description Imports a portable template in JSON format and creates a new template regardless of the template name.
  *
  * @param request ImportWorkflowTemplateRequest
  * @return ImportWorkflowTemplateResponse
@@ -8197,7 +8515,7 @@ ListAliDingMinutesResponse Client::listAliDingMinutes(const ListAliDingMinutesRe
 /**
  * @summary Queries the resource authorization records within an application.
  *
- * @description Pages results by secure application prefix after APP/MANAGE authorization.
+ * @description Pages the resource authorization records by secure application prefix after APP/MANAGE authorization.
  *
  * @param tmpReq ListAppResourcePermissionRecordsRequest
  * @param headers map
@@ -8276,7 +8594,7 @@ ListAppResourcePermissionRecordsResponse Client::listAppResourcePermissionRecord
 /**
  * @summary Queries the resource authorization records within an application.
  *
- * @description Pages results by secure application prefix after APP/MANAGE authorization.
+ * @description Pages the resource authorization records by secure application prefix after APP/MANAGE authorization.
  *
  * @param request ListAppResourcePermissionRecordsRequest
  * @return ListAppResourcePermissionRecordsResponse
@@ -8288,9 +8606,9 @@ ListAppResourcePermissionRecordsResponse Client::listAppResourcePermissionRecord
 }
 
 /**
- * @summary Queries the valid resource permissions of a user within an application.
+ * @summary Queries the effective resource permissions of a user within an application.
  *
- * @description An application prefix is required. The VIEW permission is required to query your own permissions, and the MANAGE permission is required to query permissions on behalf of others.
+ * @description Enforces the application prefix. The VIEW permission is required for querying your own resources, and the MANAGE permission is required for querying resources on behalf of others.
  *
  * @param tmpReq ListAppResourceUserPermissionsRequest
  * @param headers map
@@ -8363,9 +8681,9 @@ ListAppResourceUserPermissionsResponse Client::listAppResourceUserPermissionsWit
 }
 
 /**
- * @summary Queries the valid resource permissions of a user within an application.
+ * @summary Queries the effective resource permissions of a user within an application.
  *
- * @description An application prefix is required. The VIEW permission is required to query your own permissions, and the MANAGE permission is required to query permissions on behalf of others.
+ * @description Enforces the application prefix. The VIEW permission is required for querying your own resources, and the MANAGE permission is required for querying resources on behalf of others.
  *
  * @param request ListAppResourceUserPermissionsRequest
  * @return ListAppResourceUserPermissionsResponse
@@ -8755,6 +9073,136 @@ ListChatSessionsResponse Client::listChatSessions(const ListChatSessionsRequest 
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   map<string, string> headers = {};
   return listChatSessionsWithOptions(request, headers, runtime);
+}
+
+/**
+ * @summary 查询协作空间成员
+ *
+ * @description 分页查询指定空间的有效成员，支持按成员显示名称搜索。调用者必须是当前租户内该空间的有效成员。isActive表示租户账号启用状态，不表示人事在职状态。
+ *
+ * @param request ListCollaborationGroupMembersRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListCollaborationGroupMembersResponse
+ */
+ListCollaborationGroupMembersResponse Client::listCollaborationGroupMembersWithOptions(const ListCollaborationGroupMembersRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasTenantId()) {
+    query["tenantId"] = request.getTenantId();
+  }
+
+  json body = {};
+  if (!!request.hasCollaborationGroupId()) {
+    body["collaborationGroupId"] = request.getCollaborationGroupId();
+  }
+
+  if (!!request.hasKeyword()) {
+    body["keyword"] = request.getKeyword();
+  }
+
+  if (!!request.hasPage()) {
+    body["page"] = request.getPage();
+  }
+
+  if (!!request.hasPageSize()) {
+    body["pageSize"] = request.getPageSize();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "ListCollaborationGroupMembers"},
+    {"version" , "2026-05-12"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/openapi/listCollaborationGroupMembers")},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListCollaborationGroupMembersResponse>();
+}
+
+/**
+ * @summary 查询协作空间成员
+ *
+ * @description 分页查询指定空间的有效成员，支持按成员显示名称搜索。调用者必须是当前租户内该空间的有效成员。isActive表示租户账号启用状态，不表示人事在职状态。
+ *
+ * @param request ListCollaborationGroupMembersRequest
+ * @return ListCollaborationGroupMembersResponse
+ */
+ListCollaborationGroupMembersResponse Client::listCollaborationGroupMembers(const ListCollaborationGroupMembersRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return listCollaborationGroupMembersWithOptions(request, headers, runtime);
+}
+
+/**
+ * @summary 查询当前用户可见的协作空间
+ *
+ * @description 分页查询当前调用用户在当前租户中有效加入的协作空间，支持按空间名称搜索。仅返回ACTIVE空间；需要关联平台用户的调用身份，不支持无用户身份的部署凭证。
+ *
+ * @param request ListCollaborationGroupsRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListCollaborationGroupsResponse
+ */
+ListCollaborationGroupsResponse Client::listCollaborationGroupsWithOptions(const ListCollaborationGroupsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasTenantId()) {
+    query["tenantId"] = request.getTenantId();
+  }
+
+  json body = {};
+  if (!!request.hasKeyword()) {
+    body["keyword"] = request.getKeyword();
+  }
+
+  if (!!request.hasPage()) {
+    body["page"] = request.getPage();
+  }
+
+  if (!!request.hasPageSize()) {
+    body["pageSize"] = request.getPageSize();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "ListCollaborationGroups"},
+    {"version" , "2026-05-12"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/openapi/listCollaborationGroups")},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListCollaborationGroupsResponse>();
+}
+
+/**
+ * @summary 查询当前用户可见的协作空间
+ *
+ * @description 分页查询当前调用用户在当前租户中有效加入的协作空间，支持按空间名称搜索。仅返回ACTIVE空间；需要关联平台用户的调用身份，不支持无用户身份的部署凭证。
+ *
+ * @param request ListCollaborationGroupsRequest
+ * @return ListCollaborationGroupsResponse
+ */
+ListCollaborationGroupsResponse Client::listCollaborationGroups(const ListCollaborationGroupsRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return listCollaborationGroupsWithOptions(request, headers, runtime);
 }
 
 /**
@@ -9314,11 +9762,13 @@ ListOperatingObjectFavoritesResponse Client::listOperatingObjectFavorites(const 
 }
 
 /**
- * @summary Performs a paged query to retrieve the visible outputs of the current user or a specified collaboration workspace. Supports paging and filtering by session, labels, business ID, and existing output filter conditions.
+ * @summary Performs a paged query of the visible outputs and the latest published file versions for the current user or a specified collaboration workspace. Supports filtering by session, label, and business ID. The paging and total count are calculated based on the primary output records.
  *
- * @description If collaborationGroupId is not provided, queries the personal outputs of the current invoker. If provided, queries the outputs of the specified collaboration workspace and verifies the real-time access permissions of the current workspace members and source resources. The invoker identity and tenant permissions are determined by the authentication context.
- * sessionId requires an exact match for a regular session, skill session, or node execution session. tags requires all labels to match simultaneously. bizId requires an exact match for the business ID of the file registration or associated workflow instance. The new conditions are combined with the existing operatingObjectName, itemType, keyword, and sharedOnly conditions using AND, and are executed before counting and paging.
- * Labels and business IDs are derived from file registrations or workflow instance associations. Unregistered labels or business IDs are not inferred from titles. Paging defaults to page 1 with 20 items per page, up to a maximum of 100 items, sorted in descending order by update time. The response structure remains compatible with the original API.
+ * @description If collaborationGroupId is not provided, queries the personal outputs of the current caller. If provided, queries the outputs of the specified collaboration workspace and verifies the real-time access permissions of the current workspace members and source resources. The caller identity and tenant permissions are determined by the authentication context.
+ * The sessionId parameter performs an exact match on a regular session, skill session, or node execution session. The tags parameter requires all specified labels to match simultaneously. The bizId parameter performs an exact match on the business ID of the file registration or associated workflow instance. The new conditions are combined with the existing operatingObjectName, itemType, keyword, and sharedOnly conditions using the AND operator, and are executed before counting and paging.
+ * Tags and business IDs are derived from file registrations or workflow instance associations. Unregistered tags or business IDs are not inferred from titles. Pagination defaults to page 1 with 20 items per page, up to a maximum of 100 items, sorted in descending order by update time. The response structure remains compatible with the original API.
+ * For versioned files, the latest published version is returned by default without expanding historical versions. This API does not currently support querying specific versions. Pagination and the total count are still based on the primary output records, deduplicated by outputId, and are not counted by the number of files or historical versions.
+ * For versioned files, fileInfo.path is a time-sensitive download link attached to the published version and content revisions selected during the query. Downloads do not perform an automatic switchover to other versions published later. Invoke this API again to obtain a new link after the current one expires. Historical files that have not yet formed a published version may not return download information.
  *
  * @param tmpReq ListOutputFilesRequest
  * @param headers map
@@ -9399,11 +9849,13 @@ ListOutputFilesResponse Client::listOutputFilesWithOptions(const ListOutputFiles
 }
 
 /**
- * @summary Performs a paged query to retrieve the visible outputs of the current user or a specified collaboration workspace. Supports paging and filtering by session, labels, business ID, and existing output filter conditions.
+ * @summary Performs a paged query of the visible outputs and the latest published file versions for the current user or a specified collaboration workspace. Supports filtering by session, label, and business ID. The paging and total count are calculated based on the primary output records.
  *
- * @description If collaborationGroupId is not provided, queries the personal outputs of the current invoker. If provided, queries the outputs of the specified collaboration workspace and verifies the real-time access permissions of the current workspace members and source resources. The invoker identity and tenant permissions are determined by the authentication context.
- * sessionId requires an exact match for a regular session, skill session, or node execution session. tags requires all labels to match simultaneously. bizId requires an exact match for the business ID of the file registration or associated workflow instance. The new conditions are combined with the existing operatingObjectName, itemType, keyword, and sharedOnly conditions using AND, and are executed before counting and paging.
- * Labels and business IDs are derived from file registrations or workflow instance associations. Unregistered labels or business IDs are not inferred from titles. Paging defaults to page 1 with 20 items per page, up to a maximum of 100 items, sorted in descending order by update time. The response structure remains compatible with the original API.
+ * @description If collaborationGroupId is not provided, queries the personal outputs of the current caller. If provided, queries the outputs of the specified collaboration workspace and verifies the real-time access permissions of the current workspace members and source resources. The caller identity and tenant permissions are determined by the authentication context.
+ * The sessionId parameter performs an exact match on a regular session, skill session, or node execution session. The tags parameter requires all specified labels to match simultaneously. The bizId parameter performs an exact match on the business ID of the file registration or associated workflow instance. The new conditions are combined with the existing operatingObjectName, itemType, keyword, and sharedOnly conditions using the AND operator, and are executed before counting and paging.
+ * Tags and business IDs are derived from file registrations or workflow instance associations. Unregistered tags or business IDs are not inferred from titles. Pagination defaults to page 1 with 20 items per page, up to a maximum of 100 items, sorted in descending order by update time. The response structure remains compatible with the original API.
+ * For versioned files, the latest published version is returned by default without expanding historical versions. This API does not currently support querying specific versions. Pagination and the total count are still based on the primary output records, deduplicated by outputId, and are not counted by the number of files or historical versions.
+ * For versioned files, fileInfo.path is a time-sensitive download link attached to the published version and content revisions selected during the query. Downloads do not perform an automatic switchover to other versions published later. Invoke this API again to obtain a new link after the current one expires. Historical files that have not yet formed a published version may not return download information.
  *
  * @param request ListOutputFilesRequest
  * @return ListOutputFilesResponse
@@ -10754,9 +11206,9 @@ ListWorkflowTemplateVersionsResponse Client::listWorkflowTemplateVersions(const 
 }
 
 /**
- * @summary Queries valid templates in the current collaboration space with pagination. Supports both page/pageSize and nextToken/maxResults parameters, with token-based pagination taking precedence.
+ * @summary Queries valid templates in the current collaboration space with pagination. If both page/pageSize and nextToken/maxResults are specified, the token takes precedence.
  *
- * @description Searches for valid templates in the current collaboration space with pagination. Supports both page/pageSize and nextToken/maxResults parameters, with token-based pagination taking precedence.
+ * @description Queries valid templates in the current collaboration space with pagination. If both page/pageSize and nextToken/maxResults are specified, the token takes precedence.
  *
  * @param request ListWorkflowTemplatesRequest
  * @param headers map
@@ -10815,9 +11267,9 @@ ListWorkflowTemplatesResponse Client::listWorkflowTemplatesWithOptions(const Lis
 }
 
 /**
- * @summary Queries valid templates in the current collaboration space with pagination. Supports both page/pageSize and nextToken/maxResults parameters, with token-based pagination taking precedence.
+ * @summary Queries valid templates in the current collaboration space with pagination. If both page/pageSize and nextToken/maxResults are specified, the token takes precedence.
  *
- * @description Searches for valid templates in the current collaboration space with pagination. Supports both page/pageSize and nextToken/maxResults parameters, with token-based pagination taking precedence.
+ * @description Queries valid templates in the current collaboration space with pagination. If both page/pageSize and nextToken/maxResults are specified, the token takes precedence.
  *
  * @param request ListWorkflowTemplatesRequest
  * @return ListWorkflowTemplatesResponse
@@ -10831,7 +11283,7 @@ ListWorkflowTemplatesResponse Client::listWorkflowTemplates(const ListWorkflowTe
 /**
  * @summary Marks to-do items as read.
  *
- * @description Marks the to-do items of the current user as read. The markAllRead parameter takes precedence over the todoIds parameter. If both parameters are empty, no error is returned.
+ * @description Marks the to-do items of the current user as read. The markAllRead parameter takes precedence over todoIds. No error is reported if both are empty.
  *
  * @param tmpReq MarkTodosReadRequest
  * @param headers map
@@ -10882,7 +11334,7 @@ MarkTodosReadResponse Client::markTodosReadWithOptions(const MarkTodosReadReques
 /**
  * @summary Marks to-do items as read.
  *
- * @description Marks the to-do items of the current user as read. The markAllRead parameter takes precedence over the todoIds parameter. If both parameters are empty, no error is returned.
+ * @description Marks the to-do items of the current user as read. The markAllRead parameter takes precedence over todoIds. No error is reported if both are empty.
  *
  * @param request MarkTodosReadRequest
  * @return MarkTodosReadResponse
@@ -11838,9 +12290,9 @@ RecommendNextActionsResponse Client::recommendNextActions(const RecommendNextAct
 }
 
 /**
- * @summary Registers in-app resource permissions in bulk.
+ * @summary Registers permissions for in-app resources in batches.
  *
- * @description Checks the MANAGE permission for all applications first, and then performs an atomic batch registration.
+ * @description Checks the MANAGE permissions for all applications and then performs an atomic batch registration.
  *
  * @param tmpReq RegisterAppResourcePermissionsRequest
  * @param headers map
@@ -11889,9 +12341,9 @@ RegisterAppResourcePermissionsResponse Client::registerAppResourcePermissionsWit
 }
 
 /**
- * @summary Registers in-app resource permissions in bulk.
+ * @summary Registers permissions for in-app resources in batches.
  *
- * @description Checks the MANAGE permission for all applications first, and then performs an atomic batch registration.
+ * @description Checks the MANAGE permissions for all applications and then performs an atomic batch registration.
  *
  * @param request RegisterAppResourcePermissionsRequest
  * @return RegisterAppResourcePermissionsResponse
@@ -12763,6 +13215,69 @@ RerunNodeAIResponse Client::rerunNodeAI(const RerunNodeAIRequest &request) {
 }
 
 /**
+ * @summary RerunWorkflowNode
+ *
+ * @description 从工作项指定节点重跑；沿用业务权限和状态校验，命令接受不代表异步执行完成
+ *
+ * @param request RerunWorkflowNodeRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return RerunWorkflowNodeResponse
+ */
+RerunWorkflowNodeResponse Client::rerunWorkflowNodeWithOptions(const RerunWorkflowNodeRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasTenantId()) {
+    query["tenantId"] = request.getTenantId();
+  }
+
+  json body = {};
+  if (!!request.hasCollaborationGroupId()) {
+    body["collaborationGroupId"] = request.getCollaborationGroupId();
+  }
+
+  if (!!request.hasNodeKey()) {
+    body["nodeKey"] = request.getNodeKey();
+  }
+
+  if (!!request.hasPlanId()) {
+    body["planId"] = request.getPlanId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "RerunWorkflowNode"},
+    {"version" , "2026-05-12"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/openapi/rerunWorkflowNode")},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<RerunWorkflowNodeResponse>();
+}
+
+/**
+ * @summary RerunWorkflowNode
+ *
+ * @description 从工作项指定节点重跑；沿用业务权限和状态校验，命令接受不代表异步执行完成
+ *
+ * @param request RerunWorkflowNodeRequest
+ * @return RerunWorkflowNodeResponse
+ */
+RerunWorkflowNodeResponse Client::rerunWorkflowNode(const RerunWorkflowNodeRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return rerunWorkflowNodeWithOptions(request, headers, runtime);
+}
+
+/**
  * @summary Resets the password of a user.
  *
  * @description Resets the password of a user through OpenAPI.
@@ -12906,6 +13421,69 @@ ResetTokenResponse Client::resetToken(const ResetTokenRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   map<string, string> headers = {};
   return resetTokenWithOptions(request, headers, runtime);
+}
+
+/**
+ * @summary 恢复工作流节点默认配置
+ *
+ * @param request ResetWorkflowNodeConfigurationRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ResetWorkflowNodeConfigurationResponse
+ */
+ResetWorkflowNodeConfigurationResponse Client::resetWorkflowNodeConfigurationWithOptions(const ResetWorkflowNodeConfigurationRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasTenantId()) {
+    query["tenantId"] = request.getTenantId();
+  }
+
+  json body = {};
+  if (!!request.hasCollaborationGroupId()) {
+    body["collaborationGroupId"] = request.getCollaborationGroupId();
+  }
+
+  if (!!request.hasExpectedVersion()) {
+    body["expectedVersion"] = request.getExpectedVersion();
+  }
+
+  if (!!request.hasInstanceId()) {
+    body["instanceId"] = request.getInstanceId();
+  }
+
+  if (!!request.hasNodeId()) {
+    body["nodeId"] = request.getNodeId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "ResetWorkflowNodeConfiguration"},
+    {"version" , "2026-05-12"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/openapi/resetWorkflowNodeConfiguration")},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ResetWorkflowNodeConfigurationResponse>();
+}
+
+/**
+ * @summary 恢复工作流节点默认配置
+ *
+ * @param request ResetWorkflowNodeConfigurationRequest
+ * @return ResetWorkflowNodeConfigurationResponse
+ */
+ResetWorkflowNodeConfigurationResponse Client::resetWorkflowNodeConfiguration(const ResetWorkflowNodeConfigurationRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return resetWorkflowNodeConfigurationWithOptions(request, headers, runtime);
 }
 
 /**
@@ -14183,12 +14761,12 @@ SendAsyncChatMessageResponse Client::sendAsyncChatMessage(const SendAsyncChatMes
 /**
  * @summary Sends a message.
  *
- * @description ## Operation description
- * - This API is used to upload a file to the "My Resources" section of a specified digital employee.
- * - `source_type` is fixed to `FILE`, `scope` is fixed to `PERSONAL`, and `platform` is fixed to `LOCAL`.
- * - You must provide an OSS persistent address (`filePath`) for the file. Other information such as the public access URL and original file name is optional.
- * - If you do not specify a target folder ID (`directoryId`), the file is automatically attached to the default root folder of the current digital employee. If you specify a folder ID, make sure the folder belongs to the invoker\\"s personal folder.
- * - Multiple authentication methods (AK, BearerToken, and APP) are supported for security authentication.
+ * @description ## Request description
+ * - This API is used to upload a file to My Resources of a specified digital employee.
+ * - The source_type is fixed to FILE, the scope is fixed to PERSONAL, and the platform is fixed to LOCAL.
+ * - The file must be provided with an OSS persistence address (filePath). Other information, such as the public access URL and original file name, is optional.
+ * - If the destination folder ID (directoryId) is not specified, the file is automatically attached to the default root folder of the current digital employee. If it is specified, ensure that the folder belongs to the personal folder of the invoker.
+ * - Multiple methods to authenticate (such as AK, BearerToken, and APP) are supported for security authentication.
  * - The operation type is write, and operation logs are recorded for subsequent auditing.
  *
  * @param tmpReq SendChatMessageRequest
@@ -14302,12 +14880,12 @@ return Darabonba::FutureGenerator<json>(__retrun);
 /**
  * @summary Sends a message.
  *
- * @description ## Operation description
- * - This API is used to upload a file to the "My Resources" section of a specified digital employee.
- * - `source_type` is fixed to `FILE`, `scope` is fixed to `PERSONAL`, and `platform` is fixed to `LOCAL`.
- * - You must provide an OSS persistent address (`filePath`) for the file. Other information such as the public access URL and original file name is optional.
- * - If you do not specify a target folder ID (`directoryId`), the file is automatically attached to the default root folder of the current digital employee. If you specify a folder ID, make sure the folder belongs to the invoker\\"s personal folder.
- * - Multiple authentication methods (AK, BearerToken, and APP) are supported for security authentication.
+ * @description ## Request description
+ * - This API is used to upload a file to My Resources of a specified digital employee.
+ * - The source_type is fixed to FILE, the scope is fixed to PERSONAL, and the platform is fixed to LOCAL.
+ * - The file must be provided with an OSS persistence address (filePath). Other information, such as the public access URL and original file name, is optional.
+ * - If the destination folder ID (directoryId) is not specified, the file is automatically attached to the default root folder of the current digital employee. If it is specified, ensure that the folder belongs to the personal folder of the invoker.
+ * - Multiple methods to authenticate (such as AK, BearerToken, and APP) are supported for security authentication.
  * - The operation type is write, and operation logs are recorded for subsequent auditing.
  *
  * @param tmpReq SendChatMessageRequest
@@ -14407,12 +14985,12 @@ SendChatMessageResponse Client::sendChatMessageWithOptions(const SendChatMessage
 /**
  * @summary Sends a message.
  *
- * @description ## Operation description
- * - This API is used to upload a file to the "My Resources" section of a specified digital employee.
- * - `source_type` is fixed to `FILE`, `scope` is fixed to `PERSONAL`, and `platform` is fixed to `LOCAL`.
- * - You must provide an OSS persistent address (`filePath`) for the file. Other information such as the public access URL and original file name is optional.
- * - If you do not specify a target folder ID (`directoryId`), the file is automatically attached to the default root folder of the current digital employee. If you specify a folder ID, make sure the folder belongs to the invoker\\"s personal folder.
- * - Multiple authentication methods (AK, BearerToken, and APP) are supported for security authentication.
+ * @description ## Request description
+ * - This API is used to upload a file to My Resources of a specified digital employee.
+ * - The source_type is fixed to FILE, the scope is fixed to PERSONAL, and the platform is fixed to LOCAL.
+ * - The file must be provided with an OSS persistence address (filePath). Other information, such as the public access URL and original file name, is optional.
+ * - If the destination folder ID (directoryId) is not specified, the file is automatically attached to the default root folder of the current digital employee. If it is specified, ensure that the folder belongs to the personal folder of the invoker.
+ * - Multiple methods to authenticate (such as AK, BearerToken, and APP) are supported for security authentication.
  * - The operation type is write, and operation logs are recorded for subsequent auditing.
  *
  * @param request SendChatMessageRequest
@@ -14422,6 +15000,73 @@ SendChatMessageResponse Client::sendChatMessage(const SendChatMessageRequest &re
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   map<string, string> headers = {};
   return sendChatMessageWithOptions(request, headers, runtime);
+}
+
+/**
+ * @summary 向自由探索工作项发送消息
+ *
+ * @description 向当前租户、指定协作空间内的已有自由探索会话发送文本消息，立即返回消息提交回执，AI回复在后台异步生成。调用者需关联平台用户并具有话题发送权限。workItemId与conversationId至少传一个，同时传入时必须指向同一会话。不创建新会话，不支持工作流节点话题或Master话题。
+ *
+ * @param request SendWorkItemMessageRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return SendWorkItemMessageResponse
+ */
+SendWorkItemMessageResponse Client::sendWorkItemMessageWithOptions(const SendWorkItemMessageRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasTenantId()) {
+    query["tenantId"] = request.getTenantId();
+  }
+
+  json body = {};
+  if (!!request.hasCollaborationGroupId()) {
+    body["collaborationGroupId"] = request.getCollaborationGroupId();
+  }
+
+  if (!!request.hasContent()) {
+    body["content"] = request.getContent();
+  }
+
+  if (!!request.hasConversationId()) {
+    body["conversationId"] = request.getConversationId();
+  }
+
+  if (!!request.hasWorkItemId()) {
+    body["workItemId"] = request.getWorkItemId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "SendWorkItemMessage"},
+    {"version" , "2026-05-12"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/openapi/sendWorkItemMessage")},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<SendWorkItemMessageResponse>();
+}
+
+/**
+ * @summary 向自由探索工作项发送消息
+ *
+ * @description 向当前租户、指定协作空间内的已有自由探索会话发送文本消息，立即返回消息提交回执，AI回复在后台异步生成。调用者需关联平台用户并具有话题发送权限。workItemId与conversationId至少传一个，同时传入时必须指向同一会话。不创建新会话，不支持工作流节点话题或Master话题。
+ *
+ * @param request SendWorkItemMessageRequest
+ * @return SendWorkItemMessageResponse
+ */
+SendWorkItemMessageResponse Client::sendWorkItemMessage(const SendWorkItemMessageRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return sendWorkItemMessageWithOptions(request, headers, runtime);
 }
 
 /**
@@ -14488,9 +15133,9 @@ SetWorkItemPinnedResponse Client::setWorkItemPinned(const SetWorkItemPinnedReque
 }
 
 /**
- * @summary Sets the effective version of a workflow.
+ * @summary Sets the Settings of the effective version of a workflow template for the storage management administrator. Only versions with a commit are allowed, and each template can have only one effective version. Before the version takes effect, it is revalidated against the current workspace members, digital employees, and capabilities. Existing work items use their own execute snapshots and remain unaffected.
  *
- * @description The workspace administrator configures the Settings for the effective version of a workflow template. Only versions with a commit are allowed, and each template can have only one effective version. Before taking effect, the version is re-verified based on the current workspace members, digital workers, capabilities, and storage management. Existing work items use their own execute snapshots and are not affected.
+ * @description The storage management administrator configures the Settings for the effective version of a workflow template. Only versions with a commit are allowed, and each template can have only one effective version. Before the version takes effect, it is revalidated against the current workspace members, digital employees, and capabilities. Existing work items use their own execute snapshots and remain unaffected.
  *
  * @param request SetWorkflowTemplateEffectiveVersionRequest
  * @param headers map
@@ -14537,9 +15182,9 @@ SetWorkflowTemplateEffectiveVersionResponse Client::setWorkflowTemplateEffective
 }
 
 /**
- * @summary Sets the effective version of a workflow.
+ * @summary Sets the Settings of the effective version of a workflow template for the storage management administrator. Only versions with a commit are allowed, and each template can have only one effective version. Before the version takes effect, it is revalidated against the current workspace members, digital employees, and capabilities. Existing work items use their own execute snapshots and remain unaffected.
  *
- * @description The workspace administrator configures the Settings for the effective version of a workflow template. Only versions with a commit are allowed, and each template can have only one effective version. Before taking effect, the version is re-verified based on the current workspace members, digital workers, capabilities, and storage management. Existing work items use their own execute snapshots and are not affected.
+ * @description The storage management administrator configures the Settings for the effective version of a workflow template. Only versions with a commit are allowed, and each template can have only one effective version. Before the version takes effect, it is revalidated against the current workspace members, digital employees, and capabilities. Existing work items use their own execute snapshots and remain unaffected.
  *
  * @param request SetWorkflowTemplateEffectiveVersionRequest
  * @return SetWorkflowTemplateEffectiveVersionResponse
@@ -14706,9 +15351,9 @@ StreamChatMessageResponse Client::streamChatMessage(const string &messageId, con
 }
 
 /**
- * @summary Submits answers for a to-do item.
+ * @summary Submits the answers for a to-do task.
  *
- * @description Submits the answers for a to-do item. Repeated submissions by the same user are idempotent and return the initial result. If another user completes the item first, a 409 AlreadyCompleted error is returned.
+ * @description Submits the answers for a to-do task. If the same user submits the answers repeatedly, the operation is idempotent and returns the first result. If another user completes the task first, a 409 AlreadyCompleted error is returned.
  *
  * @param tmpReq SubmitTodoRequest
  * @param headers map
@@ -14757,9 +15402,9 @@ SubmitTodoResponse Client::submitTodoWithOptions(const SubmitTodoRequest &tmpReq
 }
 
 /**
- * @summary Submits answers for a to-do item.
+ * @summary Submits the answers for a to-do task.
  *
- * @description Submits the answers for a to-do item. Repeated submissions by the same user are idempotent and return the initial result. If another user completes the item first, a 409 AlreadyCompleted error is returned.
+ * @description Submits the answers for a to-do task. If the same user submits the answers repeatedly, the operation is idempotent and returns the first result. If another user completes the task first, a 409 AlreadyCompleted error is returned.
  *
  * @param request SubmitTodoRequest
  * @return SubmitTodoResponse
@@ -15201,9 +15846,9 @@ TranscribeChatVoiceResponse Client::transcribeChatVoiceAdvance(const TranscribeC
 }
 
 /**
- * @summary Reassigns a to-do task.
+ * @summary Transfers a to-do item.
  *
- * @description Reassigns a to-do task to specified users. The operator is excluded from the target list, and atomic validation is performed for the entire task.
+ * @description Transfers a to-do item to specified users, excludes the operator from the targets, and performs atomic validation for the entire task.
  *
  * @param tmpReq TransferTodoRequest
  * @param headers map
@@ -15256,9 +15901,9 @@ TransferTodoResponse Client::transferTodoWithOptions(const TransferTodoRequest &
 }
 
 /**
- * @summary Reassigns a to-do task.
+ * @summary Transfers a to-do item.
  *
- * @description Reassigns a to-do task to specified users. The operator is excluded from the target list, and atomic validation is performed for the entire task.
+ * @description Transfers a to-do item to specified users, excludes the operator from the targets, and performs atomic validation for the entire task.
  *
  * @param request TransferTodoRequest
  * @return TransferTodoResponse
@@ -16625,9 +17270,94 @@ UpdateWorkItemResponse Client::updateWorkItem(const UpdateWorkItemRequest &reque
 }
 
 /**
- * @summary Overwrites and updates a workflow template. The last save takes effect.
+ * @summary 编辑工作流节点配置
  *
- * @description Overwrites and updates a workflow template. The last save takes effect.
+ * @param tmpReq UpdateWorkflowNodeConfigurationRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return UpdateWorkflowNodeConfigurationResponse
+ */
+UpdateWorkflowNodeConfigurationResponse Client::updateWorkflowNodeConfigurationWithOptions(const UpdateWorkflowNodeConfigurationRequest &tmpReq, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  UpdateWorkflowNodeConfigurationShrinkRequest request = UpdateWorkflowNodeConfigurationShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasExecutor()) {
+    request.setExecutorShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getExecutor(), "executor", "json"));
+  }
+
+  if (!!tmpReq.hasResponsibleUserIds()) {
+    request.setResponsibleUserIdsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getResponsibleUserIds(), "responsibleUserIds", "json"));
+  }
+
+  json query = {};
+  if (!!request.hasTenantId()) {
+    query["tenantId"] = request.getTenantId();
+  }
+
+  json body = {};
+  if (!!request.hasCollaborationGroupId()) {
+    body["collaborationGroupId"] = request.getCollaborationGroupId();
+  }
+
+  if (!!request.hasExecutorShrink()) {
+    body["executor"] = request.getExecutorShrink();
+  }
+
+  if (!!request.hasExpectedVersion()) {
+    body["expectedVersion"] = request.getExpectedVersion();
+  }
+
+  if (!!request.hasInstanceId()) {
+    body["instanceId"] = request.getInstanceId();
+  }
+
+  if (!!request.hasModel()) {
+    body["model"] = request.getModel();
+  }
+
+  if (!!request.hasNodeId()) {
+    body["nodeId"] = request.getNodeId();
+  }
+
+  if (!!request.hasResponsibleUserIdsShrink()) {
+    body["responsibleUserIds"] = request.getResponsibleUserIdsShrink();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "UpdateWorkflowNodeConfiguration"},
+    {"version" , "2026-05-12"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/openapi/updateWorkflowNodeConfiguration")},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<UpdateWorkflowNodeConfigurationResponse>();
+}
+
+/**
+ * @summary 编辑工作流节点配置
+ *
+ * @param request UpdateWorkflowNodeConfigurationRequest
+ * @return UpdateWorkflowNodeConfigurationResponse
+ */
+UpdateWorkflowNodeConfigurationResponse Client::updateWorkflowNodeConfiguration(const UpdateWorkflowNodeConfigurationRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return updateWorkflowNodeConfigurationWithOptions(request, headers, runtime);
+}
+
+/**
+ * @summary Updates a workflow template by overwriting it with valid members. The last save takes effect.
+ *
+ * @description Updates a workflow template by overwriting it with valid members. The last save takes effect.
  *
  * @param tmpReq UpdateWorkflowTemplateRequest
  * @param headers map
@@ -16696,9 +17426,9 @@ UpdateWorkflowTemplateResponse Client::updateWorkflowTemplateWithOptions(const U
 }
 
 /**
- * @summary Overwrites and updates a workflow template. The last save takes effect.
+ * @summary Updates a workflow template by overwriting it with valid members. The last save takes effect.
  *
- * @description Overwrites and updates a workflow template. The last save takes effect.
+ * @description Updates a workflow template by overwriting it with valid members. The last save takes effect.
  *
  * @param request UpdateWorkflowTemplateRequest
  * @return UpdateWorkflowTemplateResponse

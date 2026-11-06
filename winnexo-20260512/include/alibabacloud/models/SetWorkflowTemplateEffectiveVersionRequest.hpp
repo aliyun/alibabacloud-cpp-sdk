@@ -66,17 +66,17 @@ namespace Models
 
 
   protected:
-    // The ID of the collaboration workspace.
+    // The collaboration workspace ID.
     // 
     // This parameter is required.
     shared_ptr<string> collaborationGroupId_ {};
-    // The ID of the template.
+    // The template ID.
     // 
     // This parameter is required.
     shared_ptr<string> templateId_ {};
-    // The tenant ID. This is a common parameter. If this parameter is not specified, the default tenant of the caller is used.
+    // The tenant ID. This is a common parameter. If not specified, the default tenant of the caller is used.
     shared_ptr<string> tenantId_ {};
-    // The submitted template version number to be set as effective. The format is a lowercase v followed by a positive integer, such as v1.
+    // The version number of the returned content.
     // 
     // This parameter is required.
     shared_ptr<string> version_ {};

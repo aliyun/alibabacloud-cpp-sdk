@@ -17,12 +17,15 @@ namespace Models
       DARABONBA_PTR_TO_JSON(code, code_);
       DARABONBA_PTR_TO_JSON(createdByUserId, createdByUserId_);
       DARABONBA_PTR_TO_JSON(description, description_);
+      DARABONBA_PTR_TO_JSON(edges, edges_);
       DARABONBA_PTR_TO_JSON(effectiveVersion, effectiveVersion_);
       DARABONBA_PTR_TO_JSON(gmtCreate, gmtCreate_);
       DARABONBA_PTR_TO_JSON(gmtModified, gmtModified_);
+      DARABONBA_ANY_TO_JSON(layout, layout_);
       DARABONBA_PTR_TO_JSON(message, message_);
       DARABONBA_PTR_TO_JSON(name, name_);
       DARABONBA_PTR_TO_JSON(requestId, requestId_);
+      DARABONBA_PTR_TO_JSON(schemaVersion, schemaVersion_);
       DARABONBA_PTR_TO_JSON(steps, steps_);
       DARABONBA_PTR_TO_JSON(templateId, templateId_);
       DARABONBA_PTR_TO_JSON(version, version_);
@@ -33,12 +36,15 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(code, code_);
       DARABONBA_PTR_FROM_JSON(createdByUserId, createdByUserId_);
       DARABONBA_PTR_FROM_JSON(description, description_);
+      DARABONBA_PTR_FROM_JSON(edges, edges_);
       DARABONBA_PTR_FROM_JSON(effectiveVersion, effectiveVersion_);
       DARABONBA_PTR_FROM_JSON(gmtCreate, gmtCreate_);
       DARABONBA_PTR_FROM_JSON(gmtModified, gmtModified_);
+      DARABONBA_ANY_FROM_JSON(layout, layout_);
       DARABONBA_PTR_FROM_JSON(message, message_);
       DARABONBA_PTR_FROM_JSON(name, name_);
       DARABONBA_PTR_FROM_JSON(requestId, requestId_);
+      DARABONBA_PTR_FROM_JSON(schemaVersion, schemaVersion_);
       DARABONBA_PTR_FROM_JSON(steps, steps_);
       DARABONBA_PTR_FROM_JSON(templateId, templateId_);
       DARABONBA_PTR_FROM_JSON(version, version_);
@@ -64,6 +70,7 @@ namespace Models
         DARABONBA_PTR_TO_JSON(ownerAgentName, ownerAgentName_);
         DARABONBA_PTR_TO_JSON(ownerType, ownerType_);
         DARABONBA_PTR_TO_JSON(ownerUserId, ownerUserId_);
+        DARABONBA_PTR_TO_JSON(reviewOutput, reviewOutput_);
         DARABONBA_PTR_TO_JSON(reviewerUserIds, reviewerUserIds_);
         DARABONBA_PTR_TO_JSON(sortOrder, sortOrder_);
         DARABONBA_PTR_TO_JSON(specification, specification_);
@@ -76,6 +83,7 @@ namespace Models
         DARABONBA_PTR_FROM_JSON(ownerAgentName, ownerAgentName_);
         DARABONBA_PTR_FROM_JSON(ownerType, ownerType_);
         DARABONBA_PTR_FROM_JSON(ownerUserId, ownerUserId_);
+        DARABONBA_PTR_FROM_JSON(reviewOutput, reviewOutput_);
         DARABONBA_PTR_FROM_JSON(reviewerUserIds, reviewerUserIds_);
         DARABONBA_PTR_FROM_JSON(sortOrder, sortOrder_);
         DARABONBA_PTR_FROM_JSON(specification, specification_);
@@ -94,8 +102,8 @@ namespace Models
       virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
       virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
       virtual bool empty() const override { return this->modelMode_ == nullptr
-        && this->name_ == nullptr && this->ownerAgentName_ == nullptr && this->ownerType_ == nullptr && this->ownerUserId_ == nullptr && this->reviewerUserIds_ == nullptr
-        && this->sortOrder_ == nullptr && this->specification_ == nullptr && this->specificationJson_ == nullptr && this->stepId_ == nullptr; };
+        && this->name_ == nullptr && this->ownerAgentName_ == nullptr && this->ownerType_ == nullptr && this->ownerUserId_ == nullptr && this->reviewOutput_ == nullptr
+        && this->reviewerUserIds_ == nullptr && this->sortOrder_ == nullptr && this->specification_ == nullptr && this->specificationJson_ == nullptr && this->stepId_ == nullptr; };
       // modelMode Field Functions 
       bool hasModelMode() const { return this->modelMode_ != nullptr;};
       void deleteModelMode() { this->modelMode_ = nullptr;};
@@ -129,6 +137,13 @@ namespace Models
       void deleteOwnerUserId() { this->ownerUserId_ = nullptr;};
       inline int64_t getOwnerUserId() const { DARABONBA_PTR_GET_DEFAULT(ownerUserId_, 0L) };
       inline Steps& setOwnerUserId(int64_t ownerUserId) { DARABONBA_PTR_SET_VALUE(ownerUserId_, ownerUserId) };
+
+
+      // reviewOutput Field Functions 
+      bool hasReviewOutput() const { return this->reviewOutput_ != nullptr;};
+      void deleteReviewOutput() { this->reviewOutput_ = nullptr;};
+      inline bool getReviewOutput() const { DARABONBA_PTR_GET_DEFAULT(reviewOutput_, false) };
+      inline Steps& setReviewOutput(bool reviewOutput) { DARABONBA_PTR_SET_VALUE(reviewOutput_, reviewOutput) };
 
 
       // reviewerUserIds Field Functions 
@@ -173,32 +188,35 @@ namespace Models
     protected:
       // The model tier.
       shared_ptr<string> modelMode_ {};
-      // The name of the step.
+      // The step name. This field can be empty for drafts but is required upon submission.
       shared_ptr<string> name_ {};
-      // The name of the digital worker executor. This parameter is required when ownerType is set to AGENT.
+      // The name of the agent owner.
       shared_ptr<string> ownerAgentName_ {};
-      // The type of the executor. Valid values:
-      // - MEMBER: Workspace member.
-      // - AGENT: Digital worker.
+      // The owner type. Valid values:
+      // - MEMBER: Human.
+      // - AGENT: Agent.
       shared_ptr<string> ownerType_ {};
-      // The user ID of the member executor. This parameter is required when ownerType is set to MEMBER.
+      // The user ID of the human owner.
       shared_ptr<int64_t> ownerUserId_ {};
-      // The list of user IDs of the owners (formerly reviewers). This parameter is valid only for steps with a digital worker executor and is always empty for steps with a member executor.
+      // 是否人工审核产出物，默认关闭；仅数字员工可开启，审核待办自动发负责人
+      shared_ptr<bool> reviewOutput_ {};
+      // The list of user IDs of the reviewers.
       shared_ptr<vector<int64_t>> reviewerUserIds_ {};
-      // The order of the step.
+      // The step order.
       shared_ptr<int64_t> sortOrder_ {};
-      // The array of ordered step description segments. Supported types include text, mention, skill, app, files, and web_search. When plain text is entered, a single text segment is returned. The fields and nested attachments of each segment are retained as-is by the backend.
+      // The display text derived from ordered segments. Fixed titles are not added, and the text is not stored independently.
       shared_ptr<string> specification_ {};
-      // The array of structured step description segments. Supported types include text, mention, skill, app, files, and web_search. The fields and nested attachments of each segment are retained as-is by the backend.
+      // The array of ordered segments. Supports text, mention, skill, app, files, and web_search. Retains reference identities and order.
       shared_ptr<vector<Darabonba::Json>> specificationJson_ {};
-      // The ID of the step.
+      // The step ID.
       shared_ptr<string> stepId_ {};
     };
 
     virtual bool empty() const override { return this->code_ == nullptr
-        && this->createdByUserId_ == nullptr && this->description_ == nullptr && this->effectiveVersion_ == nullptr && this->gmtCreate_ == nullptr && this->gmtModified_ == nullptr
-        && this->message_ == nullptr && this->name_ == nullptr && this->requestId_ == nullptr && this->steps_ == nullptr && this->templateId_ == nullptr
-        && this->version_ == nullptr && this->versionDescription_ == nullptr && this->versionStatus_ == nullptr; };
+        && this->createdByUserId_ == nullptr && this->description_ == nullptr && this->edges_ == nullptr && this->effectiveVersion_ == nullptr && this->gmtCreate_ == nullptr
+        && this->gmtModified_ == nullptr && this->layout_ == nullptr && this->message_ == nullptr && this->name_ == nullptr && this->requestId_ == nullptr
+        && this->schemaVersion_ == nullptr && this->steps_ == nullptr && this->templateId_ == nullptr && this->version_ == nullptr && this->versionDescription_ == nullptr
+        && this->versionStatus_ == nullptr; };
     // code Field Functions 
     bool hasCode() const { return this->code_ != nullptr;};
     void deleteCode() { this->code_ = nullptr;};
@@ -218,6 +236,15 @@ namespace Models
     void deleteDescription() { this->description_ = nullptr;};
     inline string getDescription() const { DARABONBA_PTR_GET_DEFAULT(description_, "") };
     inline SetWorkflowTemplateEffectiveVersionResponseBody& setDescription(string description) { DARABONBA_PTR_SET_VALUE(description_, description) };
+
+
+    // edges Field Functions 
+    bool hasEdges() const { return this->edges_ != nullptr;};
+    void deleteEdges() { this->edges_ = nullptr;};
+    inline const vector<Darabonba::Json> & getEdges() const { DARABONBA_PTR_GET_CONST(edges_, vector<Darabonba::Json>) };
+    inline vector<Darabonba::Json> getEdges() { DARABONBA_PTR_GET(edges_, vector<Darabonba::Json>) };
+    inline SetWorkflowTemplateEffectiveVersionResponseBody& setEdges(const vector<Darabonba::Json> & edges) { DARABONBA_PTR_SET_VALUE(edges_, edges) };
+    inline SetWorkflowTemplateEffectiveVersionResponseBody& setEdges(vector<Darabonba::Json> && edges) { DARABONBA_PTR_SET_RVALUE(edges_, edges) };
 
 
     // effectiveVersion Field Functions 
@@ -241,6 +268,15 @@ namespace Models
     inline SetWorkflowTemplateEffectiveVersionResponseBody& setGmtModified(string gmtModified) { DARABONBA_PTR_SET_VALUE(gmtModified_, gmtModified) };
 
 
+    // layout Field Functions 
+    bool hasLayout() const { return this->layout_ != nullptr;};
+    void deleteLayout() { this->layout_ = nullptr;};
+    inline     const Darabonba::Json & getLayout() const { DARABONBA_GET(layout_) };
+    Darabonba::Json & getLayout() { DARABONBA_GET(layout_) };
+    inline SetWorkflowTemplateEffectiveVersionResponseBody& setLayout(const Darabonba::Json & layout) { DARABONBA_SET_VALUE(layout_, layout) };
+    inline SetWorkflowTemplateEffectiveVersionResponseBody& setLayout(Darabonba::Json && layout) { DARABONBA_SET_RVALUE(layout_, layout) };
+
+
     // message Field Functions 
     bool hasMessage() const { return this->message_ != nullptr;};
     void deleteMessage() { this->message_ = nullptr;};
@@ -260,6 +296,13 @@ namespace Models
     void deleteRequestId() { this->requestId_ = nullptr;};
     inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline SetWorkflowTemplateEffectiveVersionResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
+
+
+    // schemaVersion Field Functions 
+    bool hasSchemaVersion() const { return this->schemaVersion_ != nullptr;};
+    void deleteSchemaVersion() { this->schemaVersion_ = nullptr;};
+    inline int64_t getSchemaVersion() const { DARABONBA_PTR_GET_DEFAULT(schemaVersion_, 0L) };
+    inline SetWorkflowTemplateEffectiveVersionResponseBody& setSchemaVersion(int64_t schemaVersion) { DARABONBA_PTR_SET_VALUE(schemaVersion_, schemaVersion) };
 
 
     // steps Field Functions 
@@ -304,27 +347,33 @@ namespace Models
     shared_ptr<string> code_ {};
     // The user ID of the creator.
     shared_ptr<int64_t> createdByUserId_ {};
-    // The description of the template.
+    // The template description.
     shared_ptr<string> description_ {};
-    // The current effective version number of the template. An empty value indicates that only a draft exists and the template cannot be used for work items.
+    // 节点依赖边；每项包含from/to，引用稳定stepId
+    shared_ptr<vector<Darabonba::Json>> edges_ {};
+    // The current effective version number of the template. An empty value indicates that only a draft exists and it cannot be used for work items.
     shared_ptr<string> effectiveVersion_ {};
     // The creation time in ISO 8601 format.
     shared_ptr<string> gmtCreate_ {};
     // The modification time in ISO 8601 format.
     shared_ptr<string> gmtModified_ {};
+    // 可选画布布局，按stepId索引；只影响展示，不决定依赖
+    Darabonba::Json layout_ {};
     // The error description.
     shared_ptr<string> message_ {};
-    // The name of the template.
+    // The step name. This field can be empty for drafts but is required upon submission.
     shared_ptr<string> name_ {};
     // The request tracking ID.
     shared_ptr<string> requestId_ {};
+    // 模板结构版本，当前为2，与业务版本vN独立
+    shared_ptr<int64_t> schemaVersion_ {};
     // The ordered steps.
     shared_ptr<vector<SetWorkflowTemplateEffectiveVersionResponseBody::Steps>> steps_ {};
-    // The ID of the template.
+    // The template ID.
     shared_ptr<string> templateId_ {};
-    // The version number to which the returned content belongs.
+    // The version number of the returned content.
     shared_ptr<string> version_ {};
-    // The change description of the version. An empty value indicates that no description is provided.
+    // The change description for this version. An empty value indicates that no description is provided.
     shared_ptr<string> versionDescription_ {};
     // The version status. Valid values:
     // - DRAFT: Draft.

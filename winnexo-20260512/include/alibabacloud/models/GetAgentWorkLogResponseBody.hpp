@@ -109,13 +109,13 @@ namespace Models
     protected:
       // The record type. Valid values: THINK, REPLY, TOOL_CALL, SKILL_CALL, and ARTIFACT.
       shared_ptr<string> action_ {};
-      // The saved raw record content. Tool invocations and artifact metadata are represented as JSON strings.
+      // The saved original record content. Tool invocations and artifact metadata are JSON strings.
       shared_ptr<string> detail_ {};
-      // The duration of this operation record, in milliseconds. The value is 0 for artifact records.
+      // The time consumed by the operation record, in milliseconds. The value is 0 for artifact records.
       shared_ptr<int64_t> duration_ {};
-      // The key of the node to which the record belongs. This is not the session ID.
+      // The optional node key.
       shared_ptr<string> nodeId_ {};
-      // The time when the event was recorded, in ISO 8601 format. If the source record has no time, an empty string is returned.
+      // The event time of the record in ISO 8601 format. If the source record has no time, an empty string is returned.
       shared_ptr<string> timestamp_ {};
     };
 
@@ -180,13 +180,13 @@ namespace Models
     shared_ptr<vector<GetAgentWorkLogResponseBody::Logs>> logs_ {};
     // The error message.
     shared_ptr<string> message_ {};
-    // The current page number, starting from 1.
+    // The page number, starting from 1.
     shared_ptr<int64_t> page_ {};
-    // The number of entries per page. Valid values: 1 to 100.
+    // The number of entries per page. Maximum value: 100.
     shared_ptr<int64_t> pageSize_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The total number of filtered operation log entries.
+    // The total number of filtered operation logs.
     shared_ptr<int64_t> total_ {};
   };
 

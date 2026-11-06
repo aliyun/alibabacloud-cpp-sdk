@@ -57,7 +57,7 @@ namespace Models
 
 
   protected:
-    // The collaboration workspace ID.
+    // The ID of the collaboration workspace.
     // 
     // This parameter is required.
     shared_ptr<string> collaborationGroupId_ {};

@@ -106,19 +106,19 @@ namespace Models
 
   protected:
     // The write action. Valid values:
-    // - SAVE: Saves the template as a draft without taking effect.
-    // - SUBMIT: Saves and submits the template, setting it as the only effective version.
+    // - SAVE: Saves the template as a draft. The changes do not take effect. Node names and assignees can be left empty.
+    // - SUBMIT: Requires complete nodes. Saves and submits the template as the only effective version.
     // Default value: SUBMIT.
     shared_ptr<string> action_ {};
     // The ID of the collaboration workspace.
     // 
     // This parameter is required.
     shared_ptr<string> collaborationGroupId_ {};
-    // The complete JSON definition of the template to overwrite the existing one.
+    // The complete JSON definition of the template. This overwrites the existing definition.
     // 
     // This parameter is required.
     Darabonba::Json definition_ {};
-    // The submitted version number on which the new version is based. This parameter is mutually exclusive with the version parameter. If not specified, the current effective version is used as the fallback.
+    // The submitted version number on which the new version is based. This parameter is mutually exclusive with version. If you do not specify this parameter, the current effective version is used.
     shared_ptr<string> sourceVersion_ {};
     // The ID of the template.
     // 
@@ -126,9 +126,9 @@ namespace Models
     shared_ptr<string> templateId_ {};
     // The tenant ID. This is a common parameter. If not specified, the default tenant of the caller is used.
     shared_ptr<string> tenantId_ {};
-    // The draft template version number to write. The format is a lowercase v followed by a positive integer, such as v1. Submitted versions cannot be written. If not specified, a new version is generated.
+    // The version number to which the content belongs.
     shared_ptr<string> version_ {};
-    // The version description. The maximum length is 500 characters. When writing a draft, if this parameter is not specified or is null, the original value is retained. An empty string clears the value.
+    // The change description for this version. An empty value indicates that no description is provided.
     shared_ptr<string> versionDescription_ {};
   };
 

@@ -168,11 +168,11 @@ namespace Models
     protected:
       // The creation time.
       shared_ptr<string> createdAt_ {};
-      // The expiration time.
+      // The expiration time with a time zone. If omitted, the permissions never expire.
       shared_ptr<string> expireAt_ {};
       // The platform user ID of the grantor.
       shared_ptr<string> grantedBy_ {};
-      // The principal ID.
+      // The principal ID. Omit this parameter for ALL_USERS.
       shared_ptr<string> granteeId_ {};
       // The principal name.
       shared_ptr<string> granteeName_ {};
@@ -184,9 +184,9 @@ namespace Models
       shared_ptr<string> permission_ {};
       // The permission record ID.
       shared_ptr<int64_t> permissionId_ {};
-      // The resource key.
+      // The dot-separated resource key with the first segment as the APP application key.
       shared_ptr<string> resourceKey_ {};
-      // The resource type.
+      // The resource type. Fixed to APP_RESOURCE.
       shared_ptr<string> resourceType_ {};
       // The update time.
       shared_ptr<string> updatedAt_ {};
@@ -227,11 +227,11 @@ namespace Models
   protected:
     // The business status code. A value of 200 indicates success.
     shared_ptr<string> code_ {};
-    // The error message. This parameter is empty if the request is successful.
+    // The error description. Empty if the request is successful.
     shared_ptr<string> message_ {};
-    // The newly created or idempotently matched permission records.
+    // The created or idempotently matched permission records.
     shared_ptr<vector<RegisterAppResourcePermissionsResponseBody::Records>> records_ {};
-    // The request tracking ID.
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

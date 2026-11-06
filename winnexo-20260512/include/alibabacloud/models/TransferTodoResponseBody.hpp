@@ -78,7 +78,7 @@ namespace Models
     protected:
       // The processing result. Valid values: CREATED, REVIVED, and ALREADY_PENDING.
       shared_ptr<string> result_ {};
-      // The ID of the target user.
+      // The target user ID.
       shared_ptr<string> userId_ {};
     };
 
@@ -130,7 +130,7 @@ namespace Models
     shared_ptr<string> requestId_ {};
     // The processing results for each target.
     shared_ptr<vector<TransferTodoResponseBody::Targets>> targets_ {};
-    // The ID of the to-do task.
+    // The list of target user IDs for the transfer (1 to 100).
     shared_ptr<string> todoId_ {};
   };
 
