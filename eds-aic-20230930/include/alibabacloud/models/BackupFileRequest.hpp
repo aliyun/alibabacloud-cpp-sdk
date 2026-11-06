@@ -18,6 +18,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(BackupAll, backupAll_);
       DARABONBA_PTR_TO_JSON(BackupFileName, backupFileName_);
       DARABONBA_PTR_TO_JSON(BackupFilePath, backupFilePath_);
+      DARABONBA_PTR_TO_JSON(CustomScripts, customScripts_);
       DARABONBA_PTR_TO_JSON(Description, description_);
       DARABONBA_PTR_TO_JSON(ExcludeAppList, excludeAppList_);
       DARABONBA_PTR_TO_JSON(ExcludeSourceFilePathList, excludeSourceFilePathList_);
@@ -31,6 +32,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(BackupAll, backupAll_);
       DARABONBA_PTR_FROM_JSON(BackupFileName, backupFileName_);
       DARABONBA_PTR_FROM_JSON(BackupFilePath, backupFilePath_);
+      DARABONBA_PTR_FROM_JSON(CustomScripts, customScripts_);
       DARABONBA_PTR_FROM_JSON(Description, description_);
       DARABONBA_PTR_FROM_JSON(ExcludeAppList, excludeAppList_);
       DARABONBA_PTR_FROM_JSON(ExcludeSourceFilePathList, excludeSourceFilePathList_);
@@ -50,9 +52,84 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+    class CustomScripts : public Darabonba::Model {
+    public:
+      friend void to_json(Darabonba::Json& j, const CustomScripts& obj) { 
+        DARABONBA_PTR_TO_JSON(OssBucket, ossBucket_);
+        DARABONBA_PTR_TO_JSON(OssEndpoint, ossEndpoint_);
+        DARABONBA_PTR_TO_JSON(OssObjectKey, ossObjectKey_);
+        DARABONBA_PTR_TO_JSON(OssRegion, ossRegion_);
+        DARABONBA_PTR_TO_JSON(TestInstanceIds, testInstanceIds_);
+      };
+      friend void from_json(const Darabonba::Json& j, CustomScripts& obj) { 
+        DARABONBA_PTR_FROM_JSON(OssBucket, ossBucket_);
+        DARABONBA_PTR_FROM_JSON(OssEndpoint, ossEndpoint_);
+        DARABONBA_PTR_FROM_JSON(OssObjectKey, ossObjectKey_);
+        DARABONBA_PTR_FROM_JSON(OssRegion, ossRegion_);
+        DARABONBA_PTR_FROM_JSON(TestInstanceIds, testInstanceIds_);
+      };
+      CustomScripts() = default ;
+      CustomScripts(const CustomScripts &) = default ;
+      CustomScripts(CustomScripts &&) = default ;
+      CustomScripts(const Darabonba::Json & obj) { from_json(obj, *this); };
+      virtual ~CustomScripts() = default ;
+      CustomScripts& operator=(const CustomScripts &) = default ;
+      CustomScripts& operator=(CustomScripts &&) = default ;
+      virtual void validate() const override {
+      };
+      virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+      virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+      virtual bool empty() const override { return this->ossBucket_ == nullptr
+        && this->ossEndpoint_ == nullptr && this->ossObjectKey_ == nullptr && this->ossRegion_ == nullptr && this->testInstanceIds_ == nullptr; };
+      // ossBucket Field Functions 
+      bool hasOssBucket() const { return this->ossBucket_ != nullptr;};
+      void deleteOssBucket() { this->ossBucket_ = nullptr;};
+      inline string getOssBucket() const { DARABONBA_PTR_GET_DEFAULT(ossBucket_, "") };
+      inline CustomScripts& setOssBucket(string ossBucket) { DARABONBA_PTR_SET_VALUE(ossBucket_, ossBucket) };
+
+
+      // ossEndpoint Field Functions 
+      bool hasOssEndpoint() const { return this->ossEndpoint_ != nullptr;};
+      void deleteOssEndpoint() { this->ossEndpoint_ = nullptr;};
+      inline string getOssEndpoint() const { DARABONBA_PTR_GET_DEFAULT(ossEndpoint_, "") };
+      inline CustomScripts& setOssEndpoint(string ossEndpoint) { DARABONBA_PTR_SET_VALUE(ossEndpoint_, ossEndpoint) };
+
+
+      // ossObjectKey Field Functions 
+      bool hasOssObjectKey() const { return this->ossObjectKey_ != nullptr;};
+      void deleteOssObjectKey() { this->ossObjectKey_ = nullptr;};
+      inline string getOssObjectKey() const { DARABONBA_PTR_GET_DEFAULT(ossObjectKey_, "") };
+      inline CustomScripts& setOssObjectKey(string ossObjectKey) { DARABONBA_PTR_SET_VALUE(ossObjectKey_, ossObjectKey) };
+
+
+      // ossRegion Field Functions 
+      bool hasOssRegion() const { return this->ossRegion_ != nullptr;};
+      void deleteOssRegion() { this->ossRegion_ = nullptr;};
+      inline string getOssRegion() const { DARABONBA_PTR_GET_DEFAULT(ossRegion_, "") };
+      inline CustomScripts& setOssRegion(string ossRegion) { DARABONBA_PTR_SET_VALUE(ossRegion_, ossRegion) };
+
+
+      // testInstanceIds Field Functions 
+      bool hasTestInstanceIds() const { return this->testInstanceIds_ != nullptr;};
+      void deleteTestInstanceIds() { this->testInstanceIds_ = nullptr;};
+      inline const vector<string> & getTestInstanceIds() const { DARABONBA_PTR_GET_CONST(testInstanceIds_, vector<string>) };
+      inline vector<string> getTestInstanceIds() { DARABONBA_PTR_GET(testInstanceIds_, vector<string>) };
+      inline CustomScripts& setTestInstanceIds(const vector<string> & testInstanceIds) { DARABONBA_PTR_SET_VALUE(testInstanceIds_, testInstanceIds) };
+      inline CustomScripts& setTestInstanceIds(vector<string> && testInstanceIds) { DARABONBA_PTR_SET_RVALUE(testInstanceIds_, testInstanceIds) };
+
+
+    protected:
+      shared_ptr<string> ossBucket_ {};
+      shared_ptr<string> ossEndpoint_ {};
+      shared_ptr<string> ossObjectKey_ {};
+      shared_ptr<string> ossRegion_ {};
+      shared_ptr<vector<string>> testInstanceIds_ {};
+    };
+
     virtual bool empty() const override { return this->androidInstanceIdList_ == nullptr
-        && this->backupAll_ == nullptr && this->backupFileName_ == nullptr && this->backupFilePath_ == nullptr && this->description_ == nullptr && this->excludeAppList_ == nullptr
-        && this->excludeSourceFilePathList_ == nullptr && this->sourceAppList_ == nullptr && this->sourceFilePathList_ == nullptr && this->uploadEndpoint_ == nullptr && this->uploadType_ == nullptr; };
+        && this->backupAll_ == nullptr && this->backupFileName_ == nullptr && this->backupFilePath_ == nullptr && this->customScripts_ == nullptr && this->description_ == nullptr
+        && this->excludeAppList_ == nullptr && this->excludeSourceFilePathList_ == nullptr && this->sourceAppList_ == nullptr && this->sourceFilePathList_ == nullptr && this->uploadEndpoint_ == nullptr
+        && this->uploadType_ == nullptr; };
     // androidInstanceIdList Field Functions 
     bool hasAndroidInstanceIdList() const { return this->androidInstanceIdList_ != nullptr;};
     void deleteAndroidInstanceIdList() { this->androidInstanceIdList_ = nullptr;};
@@ -81,6 +158,15 @@ namespace Models
     void deleteBackupFilePath() { this->backupFilePath_ = nullptr;};
     inline string getBackupFilePath() const { DARABONBA_PTR_GET_DEFAULT(backupFilePath_, "") };
     inline BackupFileRequest& setBackupFilePath(string backupFilePath) { DARABONBA_PTR_SET_VALUE(backupFilePath_, backupFilePath) };
+
+
+    // customScripts Field Functions 
+    bool hasCustomScripts() const { return this->customScripts_ != nullptr;};
+    void deleteCustomScripts() { this->customScripts_ = nullptr;};
+    inline const vector<BackupFileRequest::CustomScripts> & getCustomScripts() const { DARABONBA_PTR_GET_CONST(customScripts_, vector<BackupFileRequest::CustomScripts>) };
+    inline vector<BackupFileRequest::CustomScripts> getCustomScripts() { DARABONBA_PTR_GET(customScripts_, vector<BackupFileRequest::CustomScripts>) };
+    inline BackupFileRequest& setCustomScripts(const vector<BackupFileRequest::CustomScripts> & customScripts) { DARABONBA_PTR_SET_VALUE(customScripts_, customScripts) };
+    inline BackupFileRequest& setCustomScripts(vector<BackupFileRequest::CustomScripts> && customScripts) { DARABONBA_PTR_SET_RVALUE(customScripts_, customScripts) };
 
 
     // description Field Functions 
@@ -154,6 +240,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> backupFilePath_ {};
+    shared_ptr<vector<BackupFileRequest::CustomScripts>> customScripts_ {};
     // The description of the backup file.
     shared_ptr<string> description_ {};
     // The list of application package names excluded from full instance backup. Matched applications only skip APK collection, and user data is backed up as usual. If this parameter is not specified, no applications are excluded.

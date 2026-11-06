@@ -62,7 +62,7 @@ namespace Models
   protected:
     // The list of instance IDs.
     shared_ptr<vector<string>> instanceIds_ {};
-    // The page size.
+    // The maximum number of results per page.
     shared_ptr<int32_t> maxResults_ {};
     // The pagination token.
     shared_ptr<string> nextToken_ {};

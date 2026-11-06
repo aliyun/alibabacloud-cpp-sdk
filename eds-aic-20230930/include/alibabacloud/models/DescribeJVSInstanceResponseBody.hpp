@@ -49,6 +49,7 @@ namespace Models
         DARABONBA_PTR_TO_JSON(ExpireTime, expireTime_);
         DARABONBA_PTR_TO_JSON(InstalledSkills, installedSkills_);
         DARABONBA_PTR_TO_JSON(InstanceId, instanceId_);
+        DARABONBA_PTR_TO_JSON(InstanceName, instanceName_);
         DARABONBA_PTR_TO_JSON(JvsPackageId, jvsPackageId_);
         DARABONBA_PTR_TO_JSON(ModifyTime, modifyTime_);
         DARABONBA_PTR_TO_JSON(Status, status_);
@@ -61,6 +62,7 @@ namespace Models
         DARABONBA_PTR_FROM_JSON(ExpireTime, expireTime_);
         DARABONBA_PTR_FROM_JSON(InstalledSkills, installedSkills_);
         DARABONBA_PTR_FROM_JSON(InstanceId, instanceId_);
+        DARABONBA_PTR_FROM_JSON(InstanceName, instanceName_);
         DARABONBA_PTR_FROM_JSON(JvsPackageId, jvsPackageId_);
         DARABONBA_PTR_FROM_JSON(ModifyTime, modifyTime_);
         DARABONBA_PTR_FROM_JSON(Status, status_);
@@ -117,7 +119,7 @@ namespace Models
       protected:
         // The credit amount.
         shared_ptr<int64_t> credit_ {};
-        // The dimension of the current credit.
+        // The period of the current credit.
         shared_ptr<string> limitPeriod_ {};
       };
 
@@ -249,7 +251,7 @@ namespace Models
       protected:
         // The credit limit.
         shared_ptr<int64_t> creditLimit_ {};
-        // The credit limit period.
+        // The limit period.
         shared_ptr<string> limitPeriod_ {};
       };
 
@@ -299,7 +301,7 @@ namespace Models
 
       virtual bool empty() const override { return this->agentVersion_ == nullptr
         && this->createTime_ == nullptr && this->creditConfig_ == nullptr && this->expireTime_ == nullptr && this->installedSkills_ == nullptr && this->instanceId_ == nullptr
-        && this->jvsPackageId_ == nullptr && this->modifyTime_ == nullptr && this->status_ == nullptr && this->usedCredit_ == nullptr; };
+        && this->instanceName_ == nullptr && this->jvsPackageId_ == nullptr && this->modifyTime_ == nullptr && this->status_ == nullptr && this->usedCredit_ == nullptr; };
       // agentVersion Field Functions 
       bool hasAgentVersion() const { return this->agentVersion_ != nullptr;};
       void deleteAgentVersion() { this->agentVersion_ = nullptr;};
@@ -348,6 +350,13 @@ namespace Models
       inline Data& setInstanceId(string instanceId) { DARABONBA_PTR_SET_VALUE(instanceId_, instanceId) };
 
 
+      // instanceName Field Functions 
+      bool hasInstanceName() const { return this->instanceName_ != nullptr;};
+      void deleteInstanceName() { this->instanceName_ = nullptr;};
+      inline string getInstanceName() const { DARABONBA_PTR_GET_DEFAULT(instanceName_, "") };
+      inline Data& setInstanceName(string instanceName) { DARABONBA_PTR_SET_VALUE(instanceName_, instanceName) };
+
+
       // jvsPackageId Field Functions 
       bool hasJvsPackageId() const { return this->jvsPackageId_ != nullptr;};
       void deleteJvsPackageId() { this->jvsPackageId_ = nullptr;};
@@ -381,19 +390,21 @@ namespace Models
     protected:
       // The AI Engine version and upgrade status.
       shared_ptr<Data::AgentVersion> agentVersion_ {};
-      // The creation time. The time is displayed in UTC and follows the ISO 8601 standard.
+      // The creation time. The time is in UTC and follows the ISO 8601 standard.
       shared_ptr<string> createTime_ {};
-      // The credit limit configuration. Subsequent quota configurations overwrite previous configurations.
+      // The credit limit configuration. Subsequent quota configurations overwrite previous ones.
       shared_ptr<vector<Data::CreditConfig>> creditConfig_ {};
-      // The expiration time. The time is displayed in UTC and follows the ISO 8601 standard.
+      // The expiration time. The time is in UTC and follows the ISO 8601 standard.
       shared_ptr<string> expireTime_ {};
       // The list of skills installed on the instance.
       shared_ptr<vector<Data::InstalledSkills>> installedSkills_ {};
       // The instance ID.
       shared_ptr<string> instanceId_ {};
+      // The instance name.
+      shared_ptr<string> instanceName_ {};
       // This parameter is not supported.
       shared_ptr<string> jvsPackageId_ {};
-      // The modification time. The time is displayed in UTC and follows the ISO 8601 standard.
+      // The modification time. The time is in UTC and follows the ISO 8601 standard.
       shared_ptr<string> modifyTime_ {};
       // The instance status.
       shared_ptr<string> status_ {};
@@ -448,11 +459,11 @@ namespace Models
 
 
   protected:
-    // The returned result object.
+    // The response object.
     shared_ptr<vector<DescribeJVSInstanceResponseBody::Data>> data_ {};
-    // The maximum number of results returned in the current request.
+    // The maximum number of data entries returned in the current request.
     shared_ptr<int32_t> maxResults_ {};
-    // The token that specifies the starting position for the query. An empty value indicates that the query starts from the beginning.
+    // The token that specifies the starting position for the current query. If this parameter is left empty, the query starts from the beginning.
     shared_ptr<string> nextToken_ {};
     // The number of pending upgrades.
     shared_ptr<int32_t> pendingUpgradeCount_ {};
