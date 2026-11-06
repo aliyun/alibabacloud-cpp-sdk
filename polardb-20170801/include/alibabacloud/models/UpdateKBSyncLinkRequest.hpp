@@ -149,11 +149,11 @@ namespace Models
 
 
   protected:
-    // The client ID.
+    // The client identifier.
     shared_ptr<string> clientId_ {};
     // The client secret.
     shared_ptr<string> clientSecret_ {};
-    // The validity period of the successful Lark group member snapshot for fallback reuse, in seconds. This parameter can only be explicitly set for FEISHU synchronization links. A value of -1 indicates that the snapshot never expires. A value of 0 disables snapshot fallback reuse. A positive integer indicates the maximum age of the snapshot allowed for reuse. If this parameter is omitted, the original value is retained. Explicitly passing -1 restores the default behavior.
+    // The validity period of the successful snapshot of Lark group members for fallback reuse, in seconds. This parameter can be explicitly set only for FEISHU synchronization links. A value of -1 indicates that the snapshot never expires. A value of 0 disables snapshot fallback reuse. A positive integer indicates the maximum age of the snapshot allowed for reuse. If this parameter is omitted, the original value is retained. Explicitly passing -1 restores the default behavior.
     shared_ptr<int32_t> feishuChatMemberStaleTtlSeconds_ {};
     // The unique identifier of the knowledge base.
     // 
@@ -163,23 +163,23 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> linkId_ {};
-    // The endpoint of the DingTalk document MCP server.
+    // The endpoint of the DingTalk Docs MCP server.
     shared_ptr<string> mcpEndpoint_ {};
     // The region ID.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
-    // The endpoint of the DingTalk sheet MCP server.
+    // The endpoint of the DingTalk Sheets MCP server.
     shared_ptr<string> sheetMcpEndpoint_ {};
-    // Specifies whether to enable automatic synchronization. This parameter can only be modified individually and cannot be changed together with other configurations.
+    // Specifies whether to enable automatic synchronization. This parameter can only be modified individually and cannot be changed along with other configurations.
     shared_ptr<bool> syncEnabled_ {};
-    // 20
+    // The automatic synchronization interval, in minutes.
     shared_ptr<int32_t> syncIntervalMinutes_ {};
     // The new Lark user access token.
     shared_ptr<string> userAccessToken_ {};
     // The ID of the DingTalk user who performs the operation.
     shared_ptr<string> userId_ {};
-    // The new Lark user refresh token. This parameter must be passed together with UserAccessToken. Passing empty strings for both parameters deletes the tokens.
+    // The new Lark user refresh token. Pass this parameter together with UserAccessToken. Passing empty strings for both parameters deletes the tokens.
     shared_ptr<string> userRefreshToken_ {};
   };
 

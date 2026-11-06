@@ -83,7 +83,7 @@ namespace Models
     shared_ptr<string> applicationId_ {};
     // Specifies whether the skill is enabled.
     shared_ptr<bool> enabled_ {};
-    // The environment variables. This is a map of key-value pairs. An empty value indicates that the variable is deleted.
+    // The environment variables. This is a key-value pair map. An empty value indicates that the variable is deleted.
     shared_ptr<string> envShrink_ {};
     // The skill identifier key.
     // 

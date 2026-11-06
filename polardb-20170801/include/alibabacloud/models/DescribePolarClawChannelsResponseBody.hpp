@@ -159,11 +159,11 @@ namespace Models
         shared_ptr<bool> connected_ {};
         // Indicates whether the account is enabled.
         shared_ptr<bool> enabled_ {};
-        // A list of issues related to the account.
+        // The list of account issues.
         shared_ptr<vector<string>> issues_ {};
-        // The timestamp (in milliseconds) of the last inbound message.
+        // The timestamp of the last inbound message in milliseconds.
         shared_ptr<int64_t> lastInboundAt_ {};
-        // The timestamp (in milliseconds) of the last outbound message.
+        // The timestamp of the last outbound message in milliseconds.
         shared_ptr<int64_t> lastOutboundAt_ {};
       };
 
@@ -207,13 +207,13 @@ namespace Models
 
 
     protected:
-      // A list of account objects for the channel.
+      // The list of channel accounts.
       shared_ptr<vector<Channels::Accounts>> accounts_ {};
       // The channel ID.
       shared_ptr<string> channelId_ {};
       // Indicates whether the channel is configured.
       shared_ptr<bool> configured_ {};
-      // The default account ID for the channel.
+      // The default account ID.
       shared_ptr<string> defaultAccountId_ {};
       // Indicates whether the channel is enabled.
       shared_ptr<bool> enabled_ {};
@@ -261,11 +261,11 @@ namespace Models
   protected:
     // The application ID.
     shared_ptr<string> applicationId_ {};
-    // A list of PolarClaw channel objects.
+    // The list of channels.
     shared_ptr<vector<DescribePolarClawChannelsResponseBody::Channels>> channels_ {};
     // The returned status code.
     shared_ptr<int32_t> code_ {};
-    // The response message. A value of `successful` indicates that the request succeeded.
+    // The returned message.
     shared_ptr<string> message_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

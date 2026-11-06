@@ -109,9 +109,9 @@ namespace Models
 
 
       protected:
-        // The specific time point of the monitoring metric. The format is a UNIX timestamp, and the unit is milliseconds.
+        // The specific time point of the monitoring metric. The format is a UNIX timestamp in milliseconds.
         shared_ptr<int64_t> timestamp_ {};
-        // The value of the monitoring metric.
+        // The data value of the monitoring metric.
         shared_ptr<string> value_ {};
       };
 
@@ -150,9 +150,9 @@ namespace Models
     protected:
       // The ID of the database cluster node.
       shared_ptr<string> DBNodeId_ {};
-      // The performance metrics.
+      // The performance metric.
       shared_ptr<string> measurement_ {};
-      // The specific measurement name of the performance metrics.
+      // The name of the specific performance metric.
       shared_ptr<string> metricName_ {};
       // The array of performance data.
       shared_ptr<vector<PerformanceKeys::Points>> points_ {};
@@ -233,14 +233,14 @@ namespace Models
     shared_ptr<string> DBClusterId_ {};
     // The type of the database engine. Only **polardb_ai** is supported.
     shared_ptr<string> DBType_ {};
-    // The version number of the database AI DPI engine.
+    // The version number of the database AI engine.
     // 
     // 
     //   -3.0
     shared_ptr<string> DBVersion_ {};
-    // The end time of the query. The end time must be later than the start time. Specify the time in the `YYYY-MM-DDThh:mmZ` format. The time must be in UTC.
+    // The end time of the query. The end time must be later than the start time. The format is YYYY-MM-DDThh:mmZ (UTC).
     shared_ptr<string> endTime_ {};
-    // The data granularity of performance. Valid values:
+    // The data granularity of the performance data. Valid values:
     // 
     // - 60
     // - 3600
@@ -249,7 +249,7 @@ namespace Models
     shared_ptr<vector<DescribeAIDBClusterPerformanceResponseBody::PerformanceKeys>> performanceKeys_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The start time of the query. Specify the time in the `yyyy-MM-ddTHH:mm:ssZ` format. The time must be in UTC.
+    // The start time of the query. The format is yyyy-MM-ddTHH:mm:ssZ (UTC).
     shared_ptr<string> startTime_ {};
   };
 

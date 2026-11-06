@@ -86,7 +86,7 @@ namespace Models
   protected:
     // The associated PolarDB instance ID.
     shared_ptr<string> DBClusterId_ {};
-    // Id of the request
+    // The request ID.
     shared_ptr<string> requestId_ {};
     // The status.
     shared_ptr<string> status_ {};

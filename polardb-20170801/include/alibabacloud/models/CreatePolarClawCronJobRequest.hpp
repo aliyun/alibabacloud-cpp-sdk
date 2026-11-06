@@ -150,11 +150,11 @@ namespace Models
       shared_ptr<int64_t> everyMs_ {};
       // The cron expression.
       shared_ptr<string> expr_ {};
-      // The schedule type. Valid values: cron, every, at.
+      // The schedule type. Valid values: cron, every, and at.
       shared_ptr<string> kind_ {};
       // The deterministic jitter window in milliseconds.
       shared_ptr<int32_t> staggerMs_ {};
-      // The IANA time zone.
+      // The time zone.
       shared_ptr<string> tz_ {};
     };
 
@@ -298,7 +298,7 @@ namespace Models
       shared_ptr<bool> deliver_ {};
       // The list of fallback models.
       shared_ptr<vector<string>> fallbacks_ {};
-      // The payload type. Valid values: agentTurn, systemEvent.
+      // The payload type. Valid values: agentTurn and systemEvent.
       shared_ptr<string> kind_ {};
       // Specifies whether to use a lightweight context.
       shared_ptr<bool> lightContext_ {};
@@ -308,7 +308,7 @@ namespace Models
       shared_ptr<string> model_ {};
       // The system event text.
       shared_ptr<string> text_ {};
-      // The thinking level. Valid values: off, minimal, low, medium, high, xhigh.
+      // The thinking level. Valid values: off, minimal, low, medium, high, and xhigh.
       shared_ptr<string> thinking_ {};
       // The execution timeout in seconds.
       shared_ptr<int32_t> timeoutSeconds_ {};
@@ -390,9 +390,9 @@ namespace Models
 
 
     protected:
-      // The channel account ID.
+      // The ID of the channel account.
       shared_ptr<string> accountId_ {};
-      // The number of consecutive failures before an alert is triggered.
+      // The number of consecutive failures after which an alert is triggered.
       shared_ptr<int32_t> after_ {};
       // The alert channel.
       shared_ptr<string> channel_ {};
@@ -469,13 +469,13 @@ namespace Models
 
 
     protected:
-      // The channel account ID.
+      // The ID of the channel account.
       shared_ptr<string> accountId_ {};
       // Specifies whether to ignore delivery failures.
       shared_ptr<bool> bestEffort_ {};
       // The delivery channel.
       shared_ptr<string> channel_ {};
-      // The delivery mode. Valid values: none, announce, webhook.
+      // The delivery mode. Valid values: none, announce, and webhook.
       shared_ptr<string> mode_ {};
       // The delivery target.
       shared_ptr<string> to_ {};
@@ -599,7 +599,7 @@ namespace Models
 
 
   protected:
-    // The ID of the specified execution agent.
+    // The specified execution agent.
     shared_ptr<string> agentId_ {};
     // The application ID.
     // 
@@ -625,7 +625,7 @@ namespace Models
     shared_ptr<CreatePolarClawCronJobRequest::Payload> payload_ {};
     // Specifies whether to restart the gateway after creation. Default value: true.
     shared_ptr<bool> restart_ {};
-    // Specifies whether to run it once immediately after creation. Default value: false.
+    // Specifies whether to run the task immediately after creation. Default value: false.
     shared_ptr<bool> runImmediately_ {};
     // The schedule configuration.
     // 
@@ -633,11 +633,11 @@ namespace Models
     shared_ptr<CreatePolarClawCronJobRequest::Schedule> schedule_ {};
     // The session routing key.
     shared_ptr<string> sessionKey_ {};
-    // The session target. Valid values: main, isolated, current.
+    // The execution session target. If set to main, it indicates the main session, and Payload.Kind must be systemEvent. If set to isolated or current, it supports agentTurn or systemEvent.
     // 
     // This parameter is required.
     shared_ptr<string> sessionTarget_ {};
-    // The wake mode. Valid values: now, next-heartbeat.
+    // The wake mode. Valid values: now and next-heartbeat.
     // 
     // This parameter is required.
     shared_ptr<string> wakeMode_ {};

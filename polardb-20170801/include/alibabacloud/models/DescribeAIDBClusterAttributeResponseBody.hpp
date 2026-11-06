@@ -482,12 +482,12 @@ namespace Models
 
 
       protected:
-        // The database connection address.
+        // The database endpoint.
         shared_ptr<string> connectionString_ {};
         // The network type of the connection string. Valid values:
-        // * **Public**: Public network address.
-        // * **Private**: Private network address.
-        // * **Inner**: Private network address (classic network).
+        // - **Public**: Public endpoint.
+        // - **Private**: Private endpoint.
+        // - **Inner**: Private endpoint in the classic network.
         shared_ptr<string> netType_ {};
         // The port number.
         shared_ptr<string> port_ {};
@@ -504,7 +504,7 @@ namespace Models
 
 
     protected:
-      // The list of network information of the instance.
+      // The list of network information for the instance.
       shared_ptr<vector<EndpointList::NetInfoItems>> netInfoItems_ {};
     };
 
@@ -700,7 +700,7 @@ namespace Models
         shared_ptr<string> mountPath_ {};
         // The disk name.
         shared_ptr<string> name_ {};
-        // The size of the cloud disk.
+        // The size of the storage disk.
         shared_ptr<string> sizeGB_ {};
         // The storage type.
         shared_ptr<string> storageCategory_ {};
@@ -866,25 +866,25 @@ namespace Models
       shared_ptr<string> cpuCores_ {};
       // The time when the node was created.
       // 
-      // The time follows the ISO 8601 standard in UTC (format: YYYY-MM-DDTHH:mm:ssZ).
+      // The time is displayed in ISO 8601 format in UTC (YYYY-MM-DDTHH:mm:ssZ).
       shared_ptr<string> creationTime_ {};
-      // The cluster specifications.
+      // The node specifications.
       shared_ptr<string> DBNodeClass_ {};
       // The description of the node.
       shared_ptr<string> DBNodeDescription_ {};
       // The node ID.
       shared_ptr<string> DBNodeId_ {};
       // The status of the node. Valid values:
-      // * **Creating**: The node is being created. 
-      // * **Running**: The node is running. 
-      // * **Deleting**: The node is being deleted.  
-      // * **Rebooting**: The node is being restarted.  
-      // * **DBNodeCreating**: Nodes are being added.  
-      // * **DBNodeDeleting**: Nodes are being deleted. 
-      // * **ClassChanging**: The node specifications are being changed.  
-      // * **MinorVersionUpgrading**: The minor version is being upgraded.
-      // * **Maintaining**: The instance is being maintained.  
-      // * **Switching**: A switchover is in progress.
+      // - **Creating**: The node is being created. 
+      // - **Running**: The node is running. 
+      // - **Deleting**: The node is being deleted.  
+      // - **Rebooting**: The node is restarting.  
+      // - **DBNodeCreating**: Nodes are being added.  
+      // - **DBNodeDeleting**: Nodes are being deleted. 
+      // - **ClassChanging**: The node specifications are being changed.  
+      // - **MinorVersionUpgrading**: The minor version is being upgraded.
+      // - **Maintaining**: The instance is being maintained.  
+      // - **Switching**: A switchover is in progress.
       shared_ptr<string> DBNodeStatus_ {};
       // The number of GPUs.
       shared_ptr<string> GPU_ {};
@@ -1235,9 +1235,9 @@ namespace Models
 
   protected:
     // The node type. Valid values:
-    // - vnode: ACK-managed node.
-    // - container: container that supports logon.
-    // - maas: model service.
+    // - vnode: ACK-managed.
+    // - container: Logon-enabled container.
+    // - maas: Model service.
     shared_ptr<string> aiNodeType_ {};
     // The API key.
     shared_ptr<string> apiKey_ {};
@@ -1245,55 +1245,49 @@ namespace Models
     shared_ptr<string> command_ {};
     // The time when the cluster was created.
     // 
-    // The time follows the ISO 8601 standard in UTC (format: YYYY-MM-DDTHH:mm:ssZ).
+    // The time is displayed in ISO 8601 format in UTC (YYYY-MM-DDTHH:mm:ssZ).
     shared_ptr<string> creationTime_ {};
     // The current measured model capacity of the instance. The abstract capacity unit is 1000, which is equivalent to one L20N card.
     shared_ptr<int64_t> currentCapacity_ {};
-    // The custom Object Storage Service (OSS) path of the model currently used by the instance.
+    // The custom OSS path currently used by the instance.
     shared_ptr<string> customOssPath_ {};
     // The description of the cluster. Fuzzy match is supported.
     shared_ptr<string> DBClusterDescription_ {};
     // The cluster ID.
     shared_ptr<string> DBClusterId_ {};
     // The status of the cluster. Valid values:
-    // 
     // - **Creating**: The cluster is being created.
     // - **Running**: The cluster is running.
     // - **Deleting**: The cluster is being released.
     // - **DBNodeCreating**: Nodes are being added.
     // - **DBNodeDeleting**: Nodes are being deleted.
-    // - **ClassChanging**: The node specifications are being changed. 
+    // - **ClassChanging**: The node specifications are being changed.
     // - **Deleted**: The cluster is released.
     shared_ptr<string> DBClusterStatus_ {};
-    // The database instance status description. A value of ACTIVATION indicates that the database instance is running.
+    // The description of the database instance status. A value of ACTIVATION indicates that the database instance is running.
     shared_ptr<string> DBInstanceStatusDesc_ {};
-    // The details of the node information.
+    // The detailed node information.
     shared_ptr<vector<DescribeAIDBClusterAttributeResponseBody::DBNodes>> DBNodes_ {};
     // The cluster version. Valid values:
-    // 
-    // **1.0**
-    // 
-    // **2.0**
-    // 
-    // **3.0**
+    // - **1.0**
+    // - **2.0**
+    // - **3.0**
     shared_ptr<string> DBVersion_ {};
     // Specifies whether the dedicated host mode is used.
     shared_ptr<bool> dedicatedHostModel_ {};
     // The security group ID.
     shared_ptr<string> ecsSecurityGroupId_ {};
-    // The list of network endpoint addresses of the instance.
+    // The list of network endpoints for the instance.
     shared_ptr<vector<DescribeAIDBClusterAttributeResponseBody::EndpointList>> endpointList_ {};
     // The expiration time of the cluster.
     // 
     // > A specific value is returned only for clusters whose billing method is **Prepaid** (subscription). For clusters whose billing method is **Postpaid** (pay-as-you-go), an empty value is returned.
     // 
-    // The time follows the ISO 8601 standard in UTC (format: YYYY-MM-DDTHH:mm:ssZ).
+    // The time is displayed in ISO 8601 format in UTC (YYYY-MM-DDTHH:mm:ssZ).
     shared_ptr<string> expireTime_ {};
-    // Indicates whether the cluster has expired. Valid values:
-    // 
-    // - **true**
-    // 
-    // - **false**
+    // Specifies whether the cluster has expired. Valid values:
+    // - **true**: The cluster has expired.
+    // - **false**: The cluster has not expired.
     shared_ptr<bool> expired_ {};
     // The ID of the AI gateway instance.
     shared_ptr<string> gatewayId_ {};
@@ -1305,7 +1299,7 @@ namespace Models
     shared_ptr<string> KVCacheInstanceId_ {};
     // The ACK cluster ID.
     shared_ptr<string> kubeClusterId_ {};
-    // The lock mode of the instance. A value of **lock** indicates that the instance has expired or has an overdue payment.
+    // The instance lock mode. A value of **lock** indicates that the instance has automatically expired or has an overdue payment.
     shared_ptr<string> lockMode_ {};
     // The maximum number of requests per minute.
     shared_ptr<string> maxQPM_ {};
@@ -1319,8 +1313,8 @@ namespace Models
     shared_ptr<string> modelType_ {};
     // The billing method. Valid values:
     // 
-    // - **Postpaid**: pay-as-you-go
-    // - **Prepaid**: subscription
+    // - **Postpaid**: pay-as-you-go.
+    // - **Prepaid**: subscription.
     shared_ptr<string> payType_ {};
     // The custom model OSS path before the last change.
     shared_ptr<string> previousCustomOssPath_ {};
@@ -1328,11 +1322,11 @@ namespace Models
     shared_ptr<string> publicIp_ {};
     // The region ID.
     shared_ptr<string> regionId_ {};
-    // Id of the request
+    // The request ID.
     shared_ptr<string> requestId_ {};
     // The architecture type. Valid values:
-    // - container: AI container
-    // - ainode: AI node
+    // - container: AI container.
+    // - ainode: AI node.
     shared_ptr<string> runType_ {};
     // The storage type. Valid values for Enterprise Edition:
     // - **PSL5**
@@ -1345,11 +1339,11 @@ namespace Models
     // - **ESSDPL3**
     // - **ESSDAUTOPL**
     shared_ptr<string> storageType_ {};
-    // The time slice configuration for pay-as-you-go billing.
+    // The configuration of time slices for pay-as-you-go billing.
     shared_ptr<DescribeAIDBClusterAttributeResponseBody::TimeSlicesInfo> timeSlicesInfo_ {};
-    // The cycle type of the time slice configuration.
+    // The cycle type of the time slice configuration, such as daily. This field represents the name of the cycle type, not a date or timestamp, and is not subject to time zones or time formats.
     shared_ptr<string> timeSlicesType_ {};
-    // The VPC ID specified for zone switching.
+    // The ID of the virtual private cloud (VPC) specified for zone switchover.
     shared_ptr<string> VPCId_ {};
     // The vSwitch ID.
     // 

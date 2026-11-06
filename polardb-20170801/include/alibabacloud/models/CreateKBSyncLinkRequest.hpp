@@ -176,7 +176,7 @@ namespace Models
 
 
   protected:
-    // The client identifier.
+    // The client ID.
     // 
     // This parameter is required.
     shared_ptr<string> clientId_ {};
@@ -186,7 +186,7 @@ namespace Models
     shared_ptr<string> clientSecret_ {};
     // The description of the synchronization link.
     shared_ptr<string> description_ {};
-    // The validity period of the successful snapshot of Lark group members for fallback reuse, in seconds. This parameter can be explicitly set only for FEISHU synchronization links. A value of -1 indicates that the snapshot never expires. A value of 0 disables snapshot fallback reuse. A positive integer indicates the maximum age of the snapshot allowed for reuse. Default value: -1. If this parameter is omitted, the default value -1 takes effect.
+    // The time-to-live (TTL) of the successful snapshot of Lark chat members for fallback reuse, in seconds. This parameter can be explicitly set only for FEISHU synchronization links. A value of -1 indicates that the snapshot never expires. A value of 0 disables snapshot fallback reuse. A positive integer indicates the maximum age of the snapshot allowed for reuse. Default value: -1. If this parameter is not specified, the default value -1 is used.
     shared_ptr<int32_t> feishuChatMemberStaleTtlSeconds_ {};
     // The unique identifier of the knowledge base.
     // 
@@ -208,7 +208,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> sourceDir_ {};
-    // The data source type. Valid values: FEISHU and SHAREPOINT.
+    // The data source type. Valid values: FEISHU, SHAREPOINT.
     // 
     // This parameter is required.
     shared_ptr<string> sourceType_ {};
@@ -216,11 +216,11 @@ namespace Models
     shared_ptr<int32_t> syncIntervalMinutes_ {};
     // The tenant ID. This parameter is required when SourceType is set to SHAREPOINT.
     shared_ptr<string> tenantId_ {};
-    // The Lark user access token. This token is used only when the application identity cannot expand group members because the bot is not in the group chat.
+    // The Lark user access token. This token is used only when the application identity cannot expand chat members because the bot is not in the chat.
     shared_ptr<string> userAccessToken_ {};
     // The ID of the DingTalk user who performs the operation.
     shared_ptr<string> userId_ {};
-    // The Lark user refresh token. This token must be provided together with UserAccessToken to automatically rotate the fallback identity for expanding group members.
+    // The Lark user refresh token. This token must be provided together with UserAccessToken to automatically rotate the fallback identity for expanding chat members.
     shared_ptr<string> userRefreshToken_ {};
   };
 

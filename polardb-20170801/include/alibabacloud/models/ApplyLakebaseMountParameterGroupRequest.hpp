@@ -57,7 +57,7 @@ namespace Models
 
 
   protected:
-    // The parameter template ID. The ID starts with pagp-.
+    // The parameter template ID, which starts with pagp-.
     // 
     // This parameter is required.
     shared_ptr<string> parameterGroupId_ {};

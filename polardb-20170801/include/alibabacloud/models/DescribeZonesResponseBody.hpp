@@ -88,23 +88,19 @@ namespace Models
 
 
     protected:
-      // The enumeration of statuses. Valid values:
+      // The enumeration values for various availability states. Valid values:
       // 
-      // - **UnSet**: The zone is not open for use.
-      // 
-      // - **SoldOut**: The resources in the zone are sold out.
-      // 
-      // - **WithStock**: The zone has available resources.
+      // - **UnSet**: not available
+      // - **SoldOut**: sold out
+      // - **WithStock**: in stock
       shared_ptr<string> modeCode_ {};
       // The priority.
       shared_ptr<string> priority_ {};
-      // The status of the zone. Valid values:
-      // 
-      // - **ON**: The zone is available.
-      // 
-      // - **OFF**: The zone is unavailable.
+      // The zone status. Valid values:
+      // - **ON**: available
+      // - **OFF**: unavailable
       shared_ptr<string> status_ {};
-      // The ID of the zone.
+      // The zone ID.
       shared_ptr<string> zoneId_ {};
     };
 
@@ -129,7 +125,7 @@ namespace Models
   protected:
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // A list of zones.
+    // The list of zones.
     shared_ptr<vector<DescribeZonesResponseBody::Zones>> zones_ {};
   };
 

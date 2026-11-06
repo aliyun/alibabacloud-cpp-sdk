@@ -68,11 +68,11 @@ namespace Models
   protected:
     // The associated PolarDB instance ID.
     shared_ptr<string> DBClusterId_ {};
-    // The PolarFS instance ID.
+    // The PolarFS instance ID. The CreationCategory of the instance must be basic (Basic Edition). Other categories are not supported by this operation.
     // 
     // This parameter is required.
     shared_ptr<string> polarFsInstanceId_ {};
-    // The mount subdirectory. Specify an absolute path.
+    // The absolute path of the mount subdirectory.
     // 
     // This parameter is required.
     shared_ptr<string> subdir_ {};

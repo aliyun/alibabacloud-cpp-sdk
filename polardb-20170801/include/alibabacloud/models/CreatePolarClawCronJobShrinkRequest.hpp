@@ -167,7 +167,7 @@ namespace Models
 
 
   protected:
-    // The ID of the specified execution agent.
+    // The specified execution agent.
     shared_ptr<string> agentId_ {};
     // The application ID.
     // 
@@ -193,7 +193,7 @@ namespace Models
     shared_ptr<string> payloadShrink_ {};
     // Specifies whether to restart the gateway after creation. Default value: true.
     shared_ptr<bool> restart_ {};
-    // Specifies whether to run it once immediately after creation. Default value: false.
+    // Specifies whether to run the task immediately after creation. Default value: false.
     shared_ptr<bool> runImmediately_ {};
     // The schedule configuration.
     // 
@@ -201,11 +201,11 @@ namespace Models
     shared_ptr<string> scheduleShrink_ {};
     // The session routing key.
     shared_ptr<string> sessionKey_ {};
-    // The session target. Valid values: main, isolated, current.
+    // The execution session target. If set to main, it indicates the main session, and Payload.Kind must be systemEvent. If set to isolated or current, it supports agentTurn or systemEvent.
     // 
     // This parameter is required.
     shared_ptr<string> sessionTarget_ {};
-    // The wake mode. Valid values: now, next-heartbeat.
+    // The wake mode. Valid values: now and next-heartbeat.
     // 
     // This parameter is required.
     shared_ptr<string> wakeMode_ {};

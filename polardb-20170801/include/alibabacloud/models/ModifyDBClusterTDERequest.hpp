@@ -125,21 +125,19 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> DBClusterId_ {};
-    // Specifies whether to automatically rotate the TDE key of the instance during the next O\\&M window after a new version of the KMS key is available. This parameter is valid only for custom keys.
+    // Specifies whether to allow the TDE key of the instance to automatically rotate at the nearest maintenance window after the rotation period when a KMS key version change is detected. This parameter is supported only for custom keys. Valid values:
+    // - **true**: Allows automatic rotation.
+    // - **false**: Does not allow automatic rotation.
     // 
-    // - **true**
-    // 
-    // - **false**
-    // 
-    // > This parameter is supported only when the database engine is compatible with PostgreSQL or Oracle.
+    // > This parameter is supported only when the database engine is PostgreSQL-compatible or Oracle-compatible.
     shared_ptr<string> enableAutomaticRotation_ {};
-    // Specifies whether to automatically encrypt all new tables. Valid values:
+    // Specifies whether to automatically encrypt all newly created tables. Valid values:
     // 
-    // - **ON**
+    // - **ON**: Enables automatic encryption.
     // 
-    // - **OFF**
+    // - **OFF**: Disables automatic encryption.
     // 
-    // > This parameter is valid only when the database engine is compatible with MySQL.
+    // > This parameter takes effect only when the database engine is MySQL-compatible.
     shared_ptr<string> encryptNewTables_ {};
     // The ID of the custom key.
     shared_ptr<string> encryptionKey_ {};
@@ -147,7 +145,7 @@ namespace Models
     shared_ptr<int64_t> ownerId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
-    // The Global Resource Descriptor of the role. You can use this parameter to specify a role. For more information, see [Overview of RAM roles](https://help.aliyun.com/document_detail/93689.html).
+    // The global resource descriptor of the role, used to specify a specific role. For details, see [RAM role overview](https://help.aliyun.com/document_detail/93689.html).
     shared_ptr<string> roleArn_ {};
     // The TDE status. Set the value to **Enable**.
     // 

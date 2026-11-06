@@ -61,7 +61,7 @@ namespace Models
     shared_ptr<string> modelServiceId_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The status of the model service.
+    // The model status.
     shared_ptr<string> status_ {};
   };
 

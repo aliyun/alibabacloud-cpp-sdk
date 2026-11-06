@@ -72,11 +72,11 @@ namespace Models
     shared_ptr<string> DBClusterId_ {};
     // Specifies whether to perform a read-only capacity dry run.
     shared_ptr<bool> dryRun_ {};
-    // The region ID. Requests are routed based on the region to which the instance belongs.
+    // The region ID. Requests are routed to the region where the instance resides.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
-    // The target total capacity. The abstract capacity unit is 1000, which equals one L20N equivalent card. The value must be a positive integer.
+    // The target total capacity. An abstract capacity unit of 1000 is equivalent to one L20N equivalent card. The value must be a positive integer.
     // 
     // This parameter is required.
     shared_ptr<int64_t> targetCapacity_ {};

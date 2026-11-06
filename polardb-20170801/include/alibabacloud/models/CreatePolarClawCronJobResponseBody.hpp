@@ -239,7 +239,7 @@ namespace Models
         shared_ptr<int64_t> everyMs_ {};
         // The cron expression.
         shared_ptr<string> expr_ {};
-        // The schedule type: cron, every, or at.
+        // The schedule type. Valid values: cron, every, and at.
         shared_ptr<string> kind_ {};
         // The IANA time zone.
         shared_ptr<string> tz_ {};
@@ -461,7 +461,7 @@ namespace Models
       protected:
         // The action. Valid values: finished, error, and skipped.
         shared_ptr<string> action_ {};
-        // Indicates whether the run was delivered.
+        // Indicates whether the job run has been delivered.
         shared_ptr<bool> delivered_ {};
         // The delivery status.
         shared_ptr<string> deliveryStatus_ {};
@@ -471,11 +471,11 @@ namespace Models
         shared_ptr<string> jobId_ {};
         // The job name.
         shared_ptr<string> jobName_ {};
-        // The model used.
+        // The model used for the execution.
         shared_ptr<string> model_ {};
         // The timestamp of the next execution in milliseconds.
         shared_ptr<int64_t> nextRunAtMs_ {};
-        // The model provider.
+        // The provider of the model.
         shared_ptr<string> provider_ {};
         // The actual execution timestamp in milliseconds.
         shared_ptr<int64_t> runAtMs_ {};
@@ -483,11 +483,11 @@ namespace Models
         shared_ptr<string> sessionId_ {};
         // The status. Valid values: ok, error, and skipped.
         shared_ptr<string> status_ {};
-        // The execution summary text.
+        // The text of the execution summary.
         shared_ptr<string> summary_ {};
         // The execution timestamp in milliseconds.
         shared_ptr<int64_t> ts_ {};
-        // The token usage details.
+        // The details of token usage.
         shared_ptr<Runs::Usage> usage_ {};
       };
 
@@ -608,7 +608,7 @@ namespace Models
         shared_ptr<string> channel_ {};
         // Specifies whether to deliver the output to a channel.
         shared_ptr<bool> deliver_ {};
-        // The payload type. Valid values: agentTurn, systemEvent.
+        // The payload type. Valid values: agentTurn and systemEvent.
         shared_ptr<string> kind_ {};
         // Specifies whether to use a lightweight context.
         shared_ptr<bool> lightContext_ {};
@@ -689,13 +689,13 @@ namespace Models
 
 
       protected:
-        // The channel account ID.
+        // The ID of the channel account.
         shared_ptr<string> accountId_ {};
         // Specifies whether to ignore delivery failures.
         shared_ptr<bool> bestEffort_ {};
         // The delivery channel.
         shared_ptr<string> channel_ {};
-        // The delivery mode. Valid values: none, announce, webhook.
+        // The delivery mode. Valid values: none, announce, and webhook.
         shared_ptr<string> mode_ {};
         // The delivery target.
         shared_ptr<string> to_ {};
@@ -852,13 +852,13 @@ namespace Models
       shared_ptr<Job::Schedule> schedule_ {};
       // The session routing key.
       shared_ptr<string> sessionKey_ {};
-      // The session target. Valid values: main, isolated, current.
+      // The session target. Valid values: main, isolated, and current.
       shared_ptr<string> sessionTarget_ {};
-      // The execution status.
+      // The execution state.
       shared_ptr<Job::State> state_ {};
       // The update timestamp in milliseconds.
       shared_ptr<int64_t> updatedAtMs_ {};
-      // The wake mode. Valid values: now, next-heartbeat.
+      // The wake mode. Valid values: now and next-heartbeat.
       shared_ptr<string> wakeMode_ {};
     };
 
@@ -927,9 +927,9 @@ namespace Models
     shared_ptr<string> message_ {};
     // Indicates whether the operation is successful.
     shared_ptr<bool> ok_ {};
-    // Indicates whether the job was executed immediately and successfully.
+    // Indicates whether the job was executed immediately and succeeded.
     shared_ptr<bool> ranImmediately_ {};
-    // Id of the request
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

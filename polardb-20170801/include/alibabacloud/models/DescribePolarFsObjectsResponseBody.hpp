@@ -146,17 +146,17 @@ namespace Models
     protected:
       // The capacity.
       shared_ptr<string> capacity_ {};
-      // The creation time.
+      // The creation time. The value is a UNIX timestamp in seconds, and the time zone is UTC.
       shared_ptr<int64_t> creationTime_ {};
-      // The last modified time.
+      // The last modified time. The value is a UNIX timestamp in seconds, and the time zone is UTC.
       shared_ptr<int64_t> lastModified_ {};
       // The real path of the symbolic link.
       shared_ptr<string> linkTarget_ {};
       // The file system permissions.
       shared_ptr<string> mode_ {};
-      // The number of links.
+      // The number of hard links. The value is an integer. This field may not be returned for some entries.
       shared_ptr<int32_t> nlink_ {};
-      // Owner
+      // The owner of the file or directory.
       shared_ptr<string> owner_ {};
       // The absolute path of the directory.
       shared_ptr<string> path_ {};
@@ -227,7 +227,7 @@ namespace Models
     shared_ptr<string> pageSize_ {};
     // The absolute path of the directory.
     shared_ptr<string> path_ {};
-    // The PolarFs instance ID.
+    // The PolarFS instance ID.
     shared_ptr<string> polarFsInstanceId_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

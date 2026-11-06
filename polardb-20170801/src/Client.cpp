@@ -2,11 +2,13 @@
 #include <alibabacloud/Polardb20170801.hpp>
 #include <alibabacloud/Utils.hpp>
 #include <alibabacloud/Openapi.hpp>
+#include <alibabacloud/gateway/POP.hpp>
 #include <map>
 #include <darabonba/Runtime.hpp>
 using namespace std;
 using namespace Darabonba;
 using json = nlohmann::json;
+using namespace AlibabaCloud::Gateway;
 using namespace AlibabaCloud::OpenApi;
 using namespace AlibabaCloud::OpenApi::Models;
 using OpenApiClient = AlibabaCloud::OpenApi::Client;
@@ -18,6 +20,9 @@ namespace Polardb20170801
 {
 
 AlibabaCloud::Polardb20170801::Client::Client(Config &config): OpenApiClient(config){
+  this->_productId = "polardb";
+  shared_ptr<POP> gatewayClient = make_shared<POP>();
+  this->_spi = gatewayClient;
   this->_endpointRule = "regional";
   this->_endpointMap = json({
     {"cn-qingdao" , "polardb.aliyuncs.com"},
@@ -358,6 +363,8 @@ AddPolarClawMCPServerResponse Client::addPolarClawMCPServer(const AddPolarClawMC
 /**
  * @summary Adds a transparent acceleration path.
  *
+ * @description Adds a transparent acceleration path for a PolarFS instance. Before you call this operation, make sure that you have a running PolarDB cluster, a valid OSS bucket in the same region, and a PolarFS instance of the basic type with acceleration enabled. The bucket endpoint format is {bucket-name}.oss-{regionId}-internal.aliyuncs.com. This operation is not applicable to instances of the cold type or instances with acceleration disabled. You can call the DescribePolarFs and DescribePolarFsAttribute operations to verify the instance type and acceleration status.
+ *
  * @param request AddPolarFsPathMappingRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return AddPolarFsPathMappingResponse
@@ -396,6 +403,8 @@ AddPolarFsPathMappingResponse Client::addPolarFsPathMappingWithOptions(const Add
 
 /**
  * @summary Adds a transparent acceleration path.
+ *
+ * @description Adds a transparent acceleration path for a PolarFS instance. Before you call this operation, make sure that you have a running PolarDB cluster, a valid OSS bucket in the same region, and a PolarFS instance of the basic type with acceleration enabled. The bucket endpoint format is {bucket-name}.oss-{regionId}-internal.aliyuncs.com. This operation is not applicable to instances of the cold type or instances with acceleration disabled. You can call the DescribePolarFs and DescribePolarFsAttribute operations to verify the instance type and acceleration status.
  *
  * @param request AddPolarFsPathMappingRequest
  * @return AddPolarFsPathMappingResponse
@@ -674,10 +683,9 @@ AnswerKnowledgeBaseResponse Client::answerKnowledgeBase(const AnswerKnowledgeBas
 }
 
 /**
- * @summary Applies prompts to an application instance.
+ * @summary Applies a prompt policy to an instance.
  *
- * @description ## Request
- * - Applies prompts to a specified application instance.
+ * @description Before you begin: This operation applies only to mem0 applications created by calling CreateApplication with MemApplicationSpec specified. Create a mem0 application, call CreateApplicationPrompt to create a prompt, and then call this operation to apply the prompt policy.
  *
  * @param tmpReq ApplyApplicationPromptsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -726,10 +734,9 @@ ApplyApplicationPromptsResponse Client::applyApplicationPromptsWithOptions(const
 }
 
 /**
- * @summary Applies prompts to an application instance.
+ * @summary Applies a prompt policy to an instance.
  *
- * @description ## Request
- * - Applies prompts to a specified application instance.
+ * @description Before you begin: This operation applies only to mem0 applications created by calling CreateApplication with MemApplicationSpec specified. Create a mem0 application, call CreateApplicationPrompt to create a prompt, and then call this operation to apply the prompt policy.
  *
  * @param request ApplyApplicationPromptsRequest
  * @return ApplyApplicationPromptsResponse
@@ -1654,6 +1661,86 @@ CheckKMSAuthorizedResponse Client::checkKMSAuthorized(const CheckKMSAuthorizedRe
 }
 
 /**
+ * @summary Prechecks a skill.
+ *
+ * @description ## Request description
+ * This operation prechecks a skill before it is uploaded to a PolarClaw instance.
+ *
+ * @param request CheckPolarClawSkillRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CheckPolarClawSkillResponse
+ */
+CheckPolarClawSkillResponse Client::checkPolarClawSkillWithOptions(const CheckPolarClawSkillRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasBucketRegionId()) {
+    query["BucketRegionId"] = request.getBucketRegionId();
+  }
+
+  if (!!request.hasBucketType()) {
+    query["BucketType"] = request.getBucketType();
+  }
+
+  if (!!request.hasOSSBucket()) {
+    query["OSSBucket"] = request.getOSSBucket();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.getRegionId();
+  }
+
+  if (!!request.hasSkillName()) {
+    query["SkillName"] = request.getSkillName();
+  }
+
+  if (!!request.hasSkillVersion()) {
+    query["SkillVersion"] = request.getSkillVersion();
+  }
+
+  if (!!request.hasSummary()) {
+    query["Summary"] = request.getSummary();
+  }
+
+  if (!!request.hasTags()) {
+    query["Tags"] = request.getTags();
+  }
+
+  if (!!request.hasTitle()) {
+    query["Title"] = request.getTitle();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "CheckPolarClawSkill"},
+    {"version" , "2017-08-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CheckPolarClawSkillResponse>();
+}
+
+/**
+ * @summary Prechecks a skill.
+ *
+ * @description ## Request description
+ * This operation prechecks a skill before it is uploaded to a PolarClaw instance.
+ *
+ * @param request CheckPolarClawSkillRequest
+ * @return CheckPolarClawSkillResponse
+ */
+CheckPolarClawSkillResponse Client::checkPolarClawSkill(const CheckPolarClawSkillRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return checkPolarClawSkillWithOptions(request, runtime);
+}
+
+/**
  * @summary Checks the consistency of quota settings in a PolarFS instance.
  *
  * @description ## Description
@@ -2226,7 +2313,7 @@ CreateAIDBClusterResponse Client::createAIDBCluster(const CreateAIDBClusterReque
 }
 
 /**
- * @summary Creates a model creation service API key.
+ * @summary Creates an API key for the model creation service.
  *
  * @param request CreateAIDBClusterApiKeyRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2265,7 +2352,7 @@ CreateAIDBClusterApiKeyResponse Client::createAIDBClusterApiKeyWithOptions(const
 }
 
 /**
- * @summary Creates a model creation service API key.
+ * @summary Creates an API key for the model creation service.
  *
  * @param request CreateAIDBClusterApiKeyRequest
  * @return CreateAIDBClusterApiKeyResponse
@@ -3346,6 +3433,60 @@ CreateApplicationAgentRelationResponse Client::createApplicationAgentRelation(co
 }
 
 /**
+ * @summary Creates a backup for a specified PolarDB application and returns the backup job ID and workflow task ID.
+ *
+ * @param request CreateApplicationBackupRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CreateApplicationBackupResponse
+ */
+CreateApplicationBackupResponse Client::createApplicationBackupWithOptions(const CreateApplicationBackupRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasApplicationId()) {
+    query["ApplicationId"] = request.getApplicationId();
+  }
+
+  if (!!request.hasApplicationType()) {
+    query["ApplicationType"] = request.getApplicationType();
+  }
+
+  if (!!request.hasJobMode()) {
+    query["JobMode"] = request.getJobMode();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.getRegionId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "CreateApplicationBackup"},
+    {"version" , "2017-08-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CreateApplicationBackupResponse>();
+}
+
+/**
+ * @summary Creates a backup for a specified PolarDB application and returns the backup job ID and workflow task ID.
+ *
+ * @param request CreateApplicationBackupRequest
+ * @return CreateApplicationBackupResponse
+ */
+CreateApplicationBackupResponse Client::createApplicationBackup(const CreateApplicationBackupRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return createApplicationBackupWithOptions(request, runtime);
+}
+
+/**
  * @summary Creates a connection address for a specified application.
  *
  * @param request CreateApplicationEndpointAddressRequest
@@ -3524,11 +3665,9 @@ CreateBackupResponse Client::createBackup(const CreateBackupRequest &request) {
 }
 
 /**
- * @summary Creates multiple API keys.
+ * @summary Creates API keys in batches.
  *
- * @description > * A maximum of three manually created backups can exist for each cluster at the same time.
- * > * If the error message `Exceeding the daily backup times of this DB cluster` is returned, it indicates that three manually created backups already exist in your cluster. [Delete a backup](https://help.aliyun.com/document_detail/98101.html) before you call this operation.
- * > * After you call this operation, a backup task is created in the background. If the data volume is large, the task may take a long time to complete.
+ * @description Prerequisites: Call CreateGwConsumerOrder first, providing GatewayId, PackageSpec, KeyCount, RegionId, and ExpireTime to obtain a CreditToken, and then call this operation to create consumers in batches. Before the call, you must also obtain a valid ConsumerGroupId by calling DescribeConsumerGroups with GwClusterId and RegionId, and explicitly pass it in.
  *
  * @param request CreateBatchConsumerRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3583,11 +3722,9 @@ CreateBatchConsumerResponse Client::createBatchConsumerWithOptions(const CreateB
 }
 
 /**
- * @summary Creates multiple API keys.
+ * @summary Creates API keys in batches.
  *
- * @description > * A maximum of three manually created backups can exist for each cluster at the same time.
- * > * If the error message `Exceeding the daily backup times of this DB cluster` is returned, it indicates that three manually created backups already exist in your cluster. [Delete a backup](https://help.aliyun.com/document_detail/98101.html) before you call this operation.
- * > * After you call this operation, a backup task is created in the background. If the data volume is large, the task may take a long time to complete.
+ * @description Prerequisites: Call CreateGwConsumerOrder first, providing GatewayId, PackageSpec, KeyCount, RegionId, and ExpireTime to obtain a CreditToken, and then call this operation to create consumers in batches. Before the call, you must also obtain a valid ConsumerGroupId by calling DescribeConsumerGroups with GwClusterId and RegionId, and explicitly pass it in.
  *
  * @param request CreateBatchConsumerRequest
  * @return CreateBatchConsumerResponse
@@ -4970,6 +5107,166 @@ CreateDBNodesResponse Client::createDBNodes(const CreateDBNodesRequest &request)
 }
 
 /**
+ * @summary Creates a task to process data in PolarFS based on a specified template and write it to a PolarDB database.
+ *
+ * @param request CreateDataProcessJobRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CreateDataProcessJobResponse
+ */
+CreateDataProcessJobResponse Client::createDataProcessJobWithOptions(const CreateDataProcessJobRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasDescription()) {
+    query["Description"] = request.getDescription();
+  }
+
+  if (!!request.hasDestinationConfig()) {
+    query["DestinationConfig"] = request.getDestinationConfig();
+  }
+
+  if (!!request.hasDestinationId()) {
+    query["DestinationId"] = request.getDestinationId();
+  }
+
+  if (!!request.hasDestinationPath()) {
+    query["DestinationPath"] = request.getDestinationPath();
+  }
+
+  if (!!request.hasDestinationType()) {
+    query["DestinationType"] = request.getDestinationType();
+  }
+
+  if (!!request.hasModelName()) {
+    query["ModelName"] = request.getModelName();
+  }
+
+  if (!!request.hasProcessingMode()) {
+    query["ProcessingMode"] = request.getProcessingMode();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.getRegionId();
+  }
+
+  if (!!request.hasSourceConfig()) {
+    query["SourceConfig"] = request.getSourceConfig();
+  }
+
+  if (!!request.hasSourceId()) {
+    query["SourceId"] = request.getSourceId();
+  }
+
+  if (!!request.hasSourcePath()) {
+    query["SourcePath"] = request.getSourcePath();
+  }
+
+  if (!!request.hasSourceType()) {
+    query["SourceType"] = request.getSourceType();
+  }
+
+  if (!!request.hasTemplateId()) {
+    query["TemplateId"] = request.getTemplateId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "CreateDataProcessJob"},
+    {"version" , "2017-08-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CreateDataProcessJobResponse>();
+}
+
+/**
+ * @summary Creates a task to process data in PolarFS based on a specified template and write it to a PolarDB database.
+ *
+ * @param request CreateDataProcessJobRequest
+ * @return CreateDataProcessJobResponse
+ */
+CreateDataProcessJobResponse Client::createDataProcessJob(const CreateDataProcessJobRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return createDataProcessJobWithOptions(request, runtime);
+}
+
+/**
+ * @summary Creates a task template for image data processing in a specified region.
+ *
+ * @param request CreateDataProcessJobTemplateRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CreateDataProcessJobTemplateResponse
+ */
+CreateDataProcessJobTemplateResponse Client::createDataProcessJobTemplateWithOptions(const CreateDataProcessJobTemplateRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasCaptioning()) {
+    query["Captioning"] = request.getCaptioning();
+  }
+
+  if (!!request.hasCaptioningPrompt()) {
+    query["CaptioningPrompt"] = request.getCaptioningPrompt();
+  }
+
+  if (!!request.hasEmbedding()) {
+    query["Embedding"] = request.getEmbedding();
+  }
+
+  if (!!request.hasEmbeddingDimension()) {
+    query["EmbeddingDimension"] = request.getEmbeddingDimension();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.getRegionId();
+  }
+
+  if (!!request.hasTemplateConfig()) {
+    query["TemplateConfig"] = request.getTemplateConfig();
+  }
+
+  if (!!request.hasTemplateName()) {
+    query["TemplateName"] = request.getTemplateName();
+  }
+
+  if (!!request.hasTemplateType()) {
+    query["TemplateType"] = request.getTemplateType();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "CreateDataProcessJobTemplate"},
+    {"version" , "2017-08-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CreateDataProcessJobTemplateResponse>();
+}
+
+/**
+ * @summary Creates a task template for image data processing in a specified region.
+ *
+ * @param request CreateDataProcessJobTemplateRequest
+ * @return CreateDataProcessJobTemplateResponse
+ */
+CreateDataProcessJobTemplateResponse Client::createDataProcessJobTemplate(const CreateDataProcessJobTemplateRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return createDataProcessJobTemplateWithOptions(request, runtime);
+}
+
+/**
  * @summary Creates a database for a PolarDB cluster.
  *
  * @description Before you call this operation, make sure that the following requirements are met:
@@ -5630,6 +5927,68 @@ CreateGwConsumerOrderResponse Client::createGwConsumerOrder(const CreateGwConsum
 }
 
 /**
+ * @summary Creates a periodic inspection task for specified PolarDB clusters.
+ *
+ * @param request CreateInspectionTaskRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CreateInspectionTaskResponse
+ */
+CreateInspectionTaskResponse Client::createInspectionTaskWithOptions(const CreateInspectionTaskRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasCronExpression()) {
+    query["CronExpression"] = request.getCronExpression();
+  }
+
+  if (!!request.hasDBClusterList()) {
+    query["DBClusterList"] = request.getDBClusterList();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.getRegionId();
+  }
+
+  if (!!request.hasResourceGroupId()) {
+    query["ResourceGroupId"] = request.getResourceGroupId();
+  }
+
+  if (!!request.hasSpaceId()) {
+    query["SpaceId"] = request.getSpaceId();
+  }
+
+  if (!!request.hasTaskDescription()) {
+    query["TaskDescription"] = request.getTaskDescription();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "CreateInspectionTask"},
+    {"version" , "2017-08-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CreateInspectionTaskResponse>();
+}
+
+/**
+ * @summary Creates a periodic inspection task for specified PolarDB clusters.
+ *
+ * @param request CreateInspectionTaskRequest
+ * @return CreateInspectionTaskResponse
+ */
+CreateInspectionTaskResponse Client::createInspectionTask(const CreateInspectionTaskRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return createInspectionTaskWithOptions(request, runtime);
+}
+
+/**
  * @summary Creates a knowledge base synchronization link.
  *
  * @param request CreateKBSyncLinkRequest
@@ -5796,6 +6155,8 @@ CreateKnowledgeBaseResponse Client::createKnowledgeBase(const CreateKnowledgeBas
 /**
  * @summary Creates a knowledge space.
  *
+ * @description Prerequisites: Before you call this operation, you must activate the PrivateLink service in your current account. If the service is not activated, the API returns the PrivateLinkService.NotOpen (400) error. You can check the activation status of the service in the PrivateLink console. Before creating a knowledge space, you must also prepare the VpcId, VSwitchId, SecurityGroupId, and OSSBucket parameters. You can query VPCs and vSwitches by calling the DescribeVpcs and DescribeVSwitches operations of VPC, query security groups by calling the DescribeSecurityGroups operation of ECS, and query buckets by calling the ListBuckets operation of OSS. If the resources do not exist, create them in the corresponding services first.
+ *
  * @param request CreateKnowledgeSpaceRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return CreateKnowledgeSpaceResponse
@@ -5895,12 +6256,76 @@ CreateKnowledgeSpaceResponse Client::createKnowledgeSpaceWithOptions(const Creat
 /**
  * @summary Creates a knowledge space.
  *
+ * @description Prerequisites: Before you call this operation, you must activate the PrivateLink service in your current account. If the service is not activated, the API returns the PrivateLinkService.NotOpen (400) error. You can check the activation status of the service in the PrivateLink console. Before creating a knowledge space, you must also prepare the VpcId, VSwitchId, SecurityGroupId, and OSSBucket parameters. You can query VPCs and vSwitches by calling the DescribeVpcs and DescribeVSwitches operations of VPC, query security groups by calling the DescribeSecurityGroups operation of ECS, and query buckets by calling the ListBuckets operation of OSS. If the resources do not exist, create them in the corresponding services first.
+ *
  * @param request CreateKnowledgeSpaceRequest
  * @return CreateKnowledgeSpaceResponse
  */
 CreateKnowledgeSpaceResponse Client::createKnowledgeSpace(const CreateKnowledgeSpaceRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return createKnowledgeSpaceWithOptions(request, runtime);
+}
+
+/**
+ * @summary Creates a Lakebase parameter template.
+ *
+ * @param request CreateLakebaseMountParameterGroupRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CreateLakebaseMountParameterGroupResponse
+ */
+CreateLakebaseMountParameterGroupResponse Client::createLakebaseMountParameterGroupWithOptions(const CreateLakebaseMountParameterGroupRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasParamGroupCategory()) {
+    query["ParamGroupCategory"] = request.getParamGroupCategory();
+  }
+
+  if (!!request.hasParameterGroupDesc()) {
+    query["ParameterGroupDesc"] = request.getParameterGroupDesc();
+  }
+
+  if (!!request.hasParameterGroupName()) {
+    query["ParameterGroupName"] = request.getParameterGroupName();
+  }
+
+  if (!!request.hasParameters()) {
+    query["Parameters"] = request.getParameters();
+  }
+
+  if (!!request.hasPolarFsInstanceId()) {
+    query["PolarFsInstanceId"] = request.getPolarFsInstanceId();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.getRegionId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "CreateLakebaseMountParameterGroup"},
+    {"version" , "2017-08-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CreateLakebaseMountParameterGroupResponse>();
+}
+
+/**
+ * @summary Creates a Lakebase parameter template.
+ *
+ * @param request CreateLakebaseMountParameterGroupRequest
+ * @return CreateLakebaseMountParameterGroupResponse
+ */
+CreateLakebaseMountParameterGroupResponse Client::createLakebaseMountParameterGroup(const CreateLakebaseMountParameterGroupRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return createLakebaseMountParameterGroupWithOptions(request, runtime);
 }
 
 /**
@@ -6044,7 +6469,7 @@ CreateModelApiResponse Client::createModelApi(const CreateModelApiRequest &reque
 }
 
 /**
- * @summary Creates a model service.
+ * @summary Creates a model creation service.
  *
  * @param request CreateModelServiceRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -6115,7 +6540,7 @@ CreateModelServiceResponse Client::createModelServiceWithOptions(const CreateMod
 }
 
 /**
- * @summary Creates a model service.
+ * @summary Creates a model creation service.
  *
  * @param request CreateModelServiceRequest
  * @return CreateModelServiceResponse
@@ -6513,7 +6938,7 @@ CreatePolarClawChannelResponse Client::createPolarClawChannel(const CreatePolarC
  * @summary Creates a PolarClaw scheduled task.
  *
  * @description ## Request description
- * You can use this API to define and create a scheduled task. The task is triggered periodically based on a specified schedule and carries specific messages or instructions. This API supports advanced options such as custom execution frequency, time zone settings, and failure alert mechanisms. You can also configure details such as message content, target channels, and recipients.
+ * This API allows you to define and create a new scheduled task (cron job). The task is triggered periodically based on a given schedule and carries specific messages or instructions. It supports advanced options such as customizing the execution frequency, time zone settings, and alert mechanisms for failures. In addition, you can configure detailed information such as the message content, destination channel, and recipients.
  *
  * @param tmpReq CreatePolarClawCronJobRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -6621,7 +7046,7 @@ CreatePolarClawCronJobResponse Client::createPolarClawCronJobWithOptions(const C
  * @summary Creates a PolarClaw scheduled task.
  *
  * @description ## Request description
- * You can use this API to define and create a scheduled task. The task is triggered periodically based on a specified schedule and carries specific messages or instructions. This API supports advanced options such as custom execution frequency, time zone settings, and failure alert mechanisms. You can also configure details such as message content, target channels, and recipients.
+ * This API allows you to define and create a new scheduled task (cron job). The task is triggered periodically based on a given schedule and carries specific messages or instructions. It supports advanced options such as customizing the execution frequency, time zone settings, and alert mechanisms for failures. In addition, you can configure detailed information such as the message content, destination channel, and recipients.
  *
  * @param request CreatePolarClawCronJobRequest
  * @return CreatePolarClawCronJobResponse
@@ -6629,6 +7054,146 @@ CreatePolarClawCronJobResponse Client::createPolarClawCronJobWithOptions(const C
 CreatePolarClawCronJobResponse Client::createPolarClawCronJob(const CreatePolarClawCronJobRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return createPolarClawCronJobWithOptions(request, runtime);
+}
+
+/**
+ * @summary 上传skill
+ *
+ * @param request CreatePolarClawSkillRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CreatePolarClawSkillResponse
+ */
+CreatePolarClawSkillResponse Client::createPolarClawSkillWithOptions(const CreatePolarClawSkillRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasBucketRegionId()) {
+    query["BucketRegionId"] = request.getBucketRegionId();
+  }
+
+  if (!!request.hasBucketType()) {
+    query["BucketType"] = request.getBucketType();
+  }
+
+  if (!!request.hasOSSBucket()) {
+    query["OSSBucket"] = request.getOSSBucket();
+  }
+
+  if (!!request.hasOSSPrefix()) {
+    query["OSSPrefix"] = request.getOSSPrefix();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.getRegionId();
+  }
+
+  if (!!request.hasSkillName()) {
+    query["SkillName"] = request.getSkillName();
+  }
+
+  if (!!request.hasSkillVersion()) {
+    query["SkillVersion"] = request.getSkillVersion();
+  }
+
+  if (!!request.hasSummary()) {
+    query["Summary"] = request.getSummary();
+  }
+
+  if (!!request.hasTags()) {
+    query["Tags"] = request.getTags();
+  }
+
+  if (!!request.hasTitle()) {
+    query["Title"] = request.getTitle();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "CreatePolarClawSkill"},
+    {"version" , "2017-08-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CreatePolarClawSkillResponse>();
+}
+
+/**
+ * @summary 上传skill
+ *
+ * @param request CreatePolarClawSkillRequest
+ * @return CreatePolarClawSkillResponse
+ */
+CreatePolarClawSkillResponse Client::createPolarClawSkill(const CreatePolarClawSkillRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return createPolarClawSkillWithOptions(request, runtime);
+}
+
+/**
+ * @summary Creates a PolarClaw skill template.
+ *
+ * @param request CreatePolarClawSkillTemplateRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CreatePolarClawSkillTemplateResponse
+ */
+CreatePolarClawSkillTemplateResponse Client::createPolarClawSkillTemplateWithOptions(const CreatePolarClawSkillTemplateRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasApplicationId()) {
+    query["ApplicationId"] = request.getApplicationId();
+  }
+
+  if (!!request.hasApplicationType()) {
+    query["ApplicationType"] = request.getApplicationType();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.getRegionId();
+  }
+
+  if (!!request.hasSkillTemplateDesc()) {
+    query["SkillTemplateDesc"] = request.getSkillTemplateDesc();
+  }
+
+  if (!!request.hasSkillTemplateName()) {
+    query["SkillTemplateName"] = request.getSkillTemplateName();
+  }
+
+  if (!!request.hasSkillTemplateParam()) {
+    query["SkillTemplateParam"] = request.getSkillTemplateParam();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "CreatePolarClawSkillTemplate"},
+    {"version" , "2017-08-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CreatePolarClawSkillTemplateResponse>();
+}
+
+/**
+ * @summary Creates a PolarClaw skill template.
+ *
+ * @param request CreatePolarClawSkillTemplateRequest
+ * @return CreatePolarClawSkillTemplateResponse
+ */
+CreatePolarClawSkillTemplateResponse Client::createPolarClawSkillTemplate(const CreatePolarClawSkillTemplateRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return createPolarClawSkillTemplateWithOptions(request, runtime);
 }
 
 /**
@@ -7148,7 +7713,7 @@ DeleteAIDBClusterResponse Client::deleteAIDBCluster(const DeleteAIDBClusterReque
 }
 
 /**
- * @summary Deletes an API key for a model service.
+ * @summary Deletes an API key for the model service.
  *
  * @param request DeleteAIDBClusterApiKeyRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -7187,7 +7752,7 @@ DeleteAIDBClusterApiKeyResponse Client::deleteAIDBClusterApiKeyWithOptions(const
 }
 
 /**
- * @summary Deletes an API key for a model service.
+ * @summary Deletes an API key for the model service.
  *
  * @param request DeleteAIDBClusterApiKeyRequest
  * @return DeleteAIDBClusterApiKeyResponse
@@ -7726,7 +8291,7 @@ DeleteAgenticDBProjectResponse Client::deleteAgenticDBProject(const DeleteAgenti
 /**
  * @summary Deletes an AgenticDB tenant.
  *
- * @description Only tenants whose projects and branches have been completely cleaned up can be deleted. After a successful deletion, all API keys associated with the tenant become invalid. This operation does not automatically clean up projects, branches, or storage.
+ * @description You can only delete a tenant whose projects and branches have been cleaned up. After the tenant is deleted, all its API keys become invalid. This operation does not automatically clean up projects, branches, or storage.
  *
  * @param request DeleteAgenticDBTenantRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -7767,7 +8332,7 @@ DeleteAgenticDBTenantResponse Client::deleteAgenticDBTenantWithOptions(const Del
 /**
  * @summary Deletes an AgenticDB tenant.
  *
- * @description Only tenants whose projects and branches have been completely cleaned up can be deleted. After a successful deletion, all API keys associated with the tenant become invalid. This operation does not automatically clean up projects, branches, or storage.
+ * @description You can only delete a tenant whose projects and branches have been cleaned up. After the tenant is deleted, all its API keys become invalid. This operation does not automatically clean up projects, branches, or storage.
  *
  * @param request DeleteAgenticDBTenantRequest
  * @return DeleteAgenticDBTenantResponse
@@ -8584,7 +9149,9 @@ DeleteDBLinkResponse Client::deleteDBLink(const DeleteDBLinkRequest &request) {
 }
 
 /**
- * @summary Deletes read-only nodes from a PolarDB cluster.
+ * @summary Deletes a read-only node from a PolarDB cluster.
+ *
+ * @description Deletes a read-only node from a PolarDB cluster. Before you call this operation, the cluster must be in the Running state. You can call the DescribeDBClusters operation to query the DBClusterStatus parameter and check the cluster state. If the cluster is in a transitional state such as DBNodeCreating or DBNodeDeleting, wait until the cluster returns to the Running state before you call this operation.
  *
  * @param request DeleteDBNodesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -8647,7 +9214,9 @@ DeleteDBNodesResponse Client::deleteDBNodesWithOptions(const DeleteDBNodesReques
 }
 
 /**
- * @summary Deletes read-only nodes from a PolarDB cluster.
+ * @summary Deletes a read-only node from a PolarDB cluster.
+ *
+ * @description Deletes a read-only node from a PolarDB cluster. Before you call this operation, the cluster must be in the Running state. You can call the DescribeDBClusters operation to query the DBClusterStatus parameter and check the cluster state. If the cluster is in a transitional state such as DBNodeCreating or DBNodeDeleting, wait until the cluster returns to the Running state before you call this operation.
  *
  * @param request DeleteDBNodesRequest
  * @return DeleteDBNodesResponse
@@ -8655,6 +9224,52 @@ DeleteDBNodesResponse Client::deleteDBNodesWithOptions(const DeleteDBNodesReques
 DeleteDBNodesResponse Client::deleteDBNodes(const DeleteDBNodesRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return deleteDBNodesWithOptions(request, runtime);
+}
+
+/**
+ * @summary Deletes a data processing task template in a specified region.
+ *
+ * @param request DeleteDataProcessJobTemplateRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DeleteDataProcessJobTemplateResponse
+ */
+DeleteDataProcessJobTemplateResponse Client::deleteDataProcessJobTemplateWithOptions(const DeleteDataProcessJobTemplateRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.getRegionId();
+  }
+
+  if (!!request.hasTemplateId()) {
+    query["TemplateId"] = request.getTemplateId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DeleteDataProcessJobTemplate"},
+    {"version" , "2017-08-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DeleteDataProcessJobTemplateResponse>();
+}
+
+/**
+ * @summary Deletes a data processing task template in a specified region.
+ *
+ * @param request DeleteDataProcessJobTemplateRequest
+ * @return DeleteDataProcessJobTemplateResponse
+ */
+DeleteDataProcessJobTemplateResponse Client::deleteDataProcessJobTemplate(const DeleteDataProcessJobTemplateRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return deleteDataProcessJobTemplateWithOptions(request, runtime);
 }
 
 /**
@@ -9376,6 +9991,56 @@ DeleteKnowledgeBaseFileResponse Client::deleteKnowledgeBaseFile(const DeleteKnow
 }
 
 /**
+ * @summary Deletes a parameter template mounted to Lakebase.
+ *
+ * @param request DeleteLakebaseMountParameterGroupRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DeleteLakebaseMountParameterGroupResponse
+ */
+DeleteLakebaseMountParameterGroupResponse Client::deleteLakebaseMountParameterGroupWithOptions(const DeleteLakebaseMountParameterGroupRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasParameterGroupId()) {
+    query["ParameterGroupId"] = request.getParameterGroupId();
+  }
+
+  if (!!request.hasPolarFsInstanceId()) {
+    query["PolarFsInstanceId"] = request.getPolarFsInstanceId();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.getRegionId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DeleteLakebaseMountParameterGroup"},
+    {"version" , "2017-08-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DeleteLakebaseMountParameterGroupResponse>();
+}
+
+/**
+ * @summary Deletes a parameter template mounted to Lakebase.
+ *
+ * @param request DeleteLakebaseMountParameterGroupRequest
+ * @return DeleteLakebaseMountParameterGroupResponse
+ */
+DeleteLakebaseMountParameterGroupResponse Client::deleteLakebaseMountParameterGroup(const DeleteLakebaseMountParameterGroupRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return deleteLakebaseMountParameterGroupWithOptions(request, runtime);
+}
+
+/**
  * @summary Deletes a PolarFS S3 account.
  *
  * @param request DeleteLakebaseS3AccountRequest
@@ -9906,6 +10571,52 @@ DeletePolarClawCronJobResponse Client::deletePolarClawCronJob(const DeletePolarC
 }
 
 /**
+ * @summary Deletes a PolarClaw skill.
+ *
+ * @param request DeletePolarClawSkillRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DeletePolarClawSkillResponse
+ */
+DeletePolarClawSkillResponse Client::deletePolarClawSkillWithOptions(const DeletePolarClawSkillRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.getRegionId();
+  }
+
+  if (!!request.hasSkillName()) {
+    query["SkillName"] = request.getSkillName();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DeletePolarClawSkill"},
+    {"version" , "2017-08-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DeletePolarClawSkillResponse>();
+}
+
+/**
+ * @summary Deletes a PolarClaw skill.
+ *
+ * @param request DeletePolarClawSkillRequest
+ * @return DeletePolarClawSkillResponse
+ */
+DeletePolarClawSkillResponse Client::deletePolarClawSkill(const DeletePolarClawSkillRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return deletePolarClawSkillWithOptions(request, runtime);
+}
+
+/**
  * @summary Releases a pay-as-you-go PolarFs instance.
  *
  * @param request DeletePolarFsRequest
@@ -10356,6 +11067,41 @@ DeleteSQLRateLimitingRulesResponse Client::deleteSQLRateLimitingRules(const Dele
 }
 
 /**
+ * @summary Queries the AI assistant order information for the current account, including the order status, version, capacity package, and expiration time.
+ *
+ * @param request DescribeAIAgentOrderRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DescribeAIAgentOrderResponse
+ */
+DescribeAIAgentOrderResponse Client::describeAIAgentOrderWithOptions(const DescribeAIAgentOrderRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  OpenApiRequest req = OpenApiRequest();
+  Params params = Params(json({
+    {"action" , "DescribeAIAgentOrder"},
+    {"version" , "2017-08-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DescribeAIAgentOrderResponse>();
+}
+
+/**
+ * @summary Queries the AI assistant order information for the current account, including the order status, version, capacity package, and expiration time.
+ *
+ * @param request DescribeAIAgentOrderRequest
+ * @return DescribeAIAgentOrderResponse
+ */
+DescribeAIAgentOrderResponse Client::describeAIAgentOrder(const DescribeAIAgentOrderRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return describeAIAgentOrderWithOptions(request, runtime);
+}
+
+/**
  * @summary Queries the API keys for the model service.
  *
  * @param request DescribeAIDBClusterApiKeysRequest
@@ -10546,7 +11292,7 @@ DescribeAIDBClusterDatasetsResponse Client::describeAIDBClusterDatasets(const De
 }
 
 /**
- * @summary Retrieves the performance metrics of an AI container.
+ * @summary Retrieves AI container performance metrics.
  *
  * @param request DescribeAIDBClusterPerformanceRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -10593,7 +11339,7 @@ DescribeAIDBClusterPerformanceResponse Client::describeAIDBClusterPerformanceWit
 }
 
 /**
- * @summary Retrieves the performance metrics of an AI container.
+ * @summary Retrieves AI container performance metrics.
  *
  * @param request DescribeAIDBClusterPerformanceRequest
  * @return DescribeAIDBClusterPerformanceResponse
@@ -10601,6 +11347,68 @@ DescribeAIDBClusterPerformanceResponse Client::describeAIDBClusterPerformanceWit
 DescribeAIDBClusterPerformanceResponse Client::describeAIDBClusterPerformance(const DescribeAIDBClusterPerformanceRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return describeAIDBClusterPerformanceWithOptions(request, runtime);
+}
+
+/**
+ * @summary Queries the node resource usage and pod resource requests in an AI database cluster.
+ *
+ * @param request DescribeAIDBClusterResourceUsageRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DescribeAIDBClusterResourceUsageResponse
+ */
+DescribeAIDBClusterResourceUsageResponse Client::describeAIDBClusterResourceUsageWithOptions(const DescribeAIDBClusterResourceUsageRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasDBClusterId()) {
+    query["DBClusterId"] = request.getDBClusterId();
+  }
+
+  if (!!request.hasOwnerAccount()) {
+    query["OwnerAccount"] = request.getOwnerAccount();
+  }
+
+  if (!!request.hasOwnerId()) {
+    query["OwnerId"] = request.getOwnerId();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.getRegionId();
+  }
+
+  if (!!request.hasResourceOwnerAccount()) {
+    query["ResourceOwnerAccount"] = request.getResourceOwnerAccount();
+  }
+
+  if (!!request.hasResourceOwnerId()) {
+    query["ResourceOwnerId"] = request.getResourceOwnerId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DescribeAIDBClusterResourceUsage"},
+    {"version" , "2017-08-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DescribeAIDBClusterResourceUsageResponse>();
+}
+
+/**
+ * @summary Queries the node resource usage and pod resource requests in an AI database cluster.
+ *
+ * @param request DescribeAIDBClusterResourceUsageRequest
+ * @return DescribeAIDBClusterResourceUsageResponse
+ */
+DescribeAIDBClusterResourceUsageResponse Client::describeAIDBClusterResourceUsage(const DescribeAIDBClusterResourceUsageRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return describeAIDBClusterResourceUsageWithOptions(request, runtime);
 }
 
 /**
@@ -11382,6 +12190,88 @@ DescribeActiveOperationMaintainConfResponse Client::describeActiveOperationMaint
 }
 
 /**
+ * @summary Queries the details of pending tasks.
+ *
+ * @param request DescribeActiveOperationTaskRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DescribeActiveOperationTaskResponse
+ */
+DescribeActiveOperationTaskResponse Client::describeActiveOperationTaskWithOptions(const DescribeActiveOperationTaskRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasIsHistory()) {
+    query["IsHistory"] = request.getIsHistory();
+  }
+
+  if (!!request.hasOwnerAccount()) {
+    query["OwnerAccount"] = request.getOwnerAccount();
+  }
+
+  if (!!request.hasOwnerId()) {
+    query["OwnerId"] = request.getOwnerId();
+  }
+
+  if (!!request.hasPageNumber()) {
+    query["PageNumber"] = request.getPageNumber();
+  }
+
+  if (!!request.hasPageSize()) {
+    query["PageSize"] = request.getPageSize();
+  }
+
+  if (!!request.hasProductId()) {
+    query["ProductId"] = request.getProductId();
+  }
+
+  if (!!request.hasRegion()) {
+    query["Region"] = request.getRegion();
+  }
+
+  if (!!request.hasResourceOwnerAccount()) {
+    query["ResourceOwnerAccount"] = request.getResourceOwnerAccount();
+  }
+
+  if (!!request.hasResourceOwnerId()) {
+    query["ResourceOwnerId"] = request.getResourceOwnerId();
+  }
+
+  if (!!request.hasSecurityToken()) {
+    query["SecurityToken"] = request.getSecurityToken();
+  }
+
+  if (!!request.hasTaskType()) {
+    query["TaskType"] = request.getTaskType();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DescribeActiveOperationTask"},
+    {"version" , "2017-08-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DescribeActiveOperationTaskResponse>();
+}
+
+/**
+ * @summary Queries the details of pending tasks.
+ *
+ * @param request DescribeActiveOperationTaskRequest
+ * @return DescribeActiveOperationTaskResponse
+ */
+DescribeActiveOperationTaskResponse Client::describeActiveOperationTask(const DescribeActiveOperationTaskRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return describeActiveOperationTaskWithOptions(request, runtime);
+}
+
+/**
  * @summary Queries operation and maintenance events for instances.
  *
  * @param request DescribeActiveOperationTasksRequest
@@ -11538,7 +12428,7 @@ DescribeAgenticDBBranchResponse Client::describeAgenticDBBranch(const DescribeAg
 }
 
 /**
- * @summary Queries the branch connection information of an AgenticDB cluster.
+ * @summary Queries the connection information of an AgenticDB branch.
  *
  * @param request DescribeAgenticDBBranchEndpointsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -11585,7 +12475,7 @@ DescribeAgenticDBBranchEndpointsResponse Client::describeAgenticDBBranchEndpoint
 }
 
 /**
- * @summary Queries the branch connection information of an AgenticDB cluster.
+ * @summary Queries the connection information of an AgenticDB branch.
  *
  * @param request DescribeAgenticDBBranchEndpointsRequest
  * @return DescribeAgenticDBBranchEndpointsResponse
@@ -12274,6 +13164,298 @@ DescribeApplicationAttributeResponse Client::describeApplicationAttribute(const 
 }
 
 /**
+ * @summary Queries the available models, default models, and memory capability configurations for a specified region and application type.
+ *
+ * @param request DescribeApplicationAvailableModelsRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DescribeApplicationAvailableModelsResponse
+ */
+DescribeApplicationAvailableModelsResponse Client::describeApplicationAvailableModelsWithOptions(const DescribeApplicationAvailableModelsRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasApplicationType()) {
+    query["ApplicationType"] = request.getApplicationType();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.getRegionId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DescribeApplicationAvailableModels"},
+    {"version" , "2017-08-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DescribeApplicationAvailableModelsResponse>();
+}
+
+/**
+ * @summary Queries the available models, default models, and memory capability configurations for a specified region and application type.
+ *
+ * @param request DescribeApplicationAvailableModelsRequest
+ * @return DescribeApplicationAvailableModelsResponse
+ */
+DescribeApplicationAvailableModelsResponse Client::describeApplicationAvailableModels(const DescribeApplicationAvailableModelsRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return describeApplicationAvailableModelsWithOptions(request, runtime);
+}
+
+/**
+ * @summary Queries the list of versions to which a specified application type can be upgraded.
+ *
+ * @param tmpReq DescribeApplicationAvailableVersionRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DescribeApplicationAvailableVersionResponse
+ */
+DescribeApplicationAvailableVersionResponse Client::describeApplicationAvailableVersionWithOptions(const DescribeApplicationAvailableVersionRequest &tmpReq, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  DescribeApplicationAvailableVersionShrinkRequest request = DescribeApplicationAvailableVersionShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasComponents()) {
+    request.setComponentsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getComponents(), "Components", "json"));
+  }
+
+  json query = {};
+  if (!!request.hasApplicationId()) {
+    query["ApplicationId"] = request.getApplicationId();
+  }
+
+  if (!!request.hasApplicationType()) {
+    query["ApplicationType"] = request.getApplicationType();
+  }
+
+  if (!!request.hasComponentsShrink()) {
+    query["Components"] = request.getComponentsShrink();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.getRegionId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DescribeApplicationAvailableVersion"},
+    {"version" , "2017-08-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DescribeApplicationAvailableVersionResponse>();
+}
+
+/**
+ * @summary Queries the list of versions to which a specified application type can be upgraded.
+ *
+ * @param request DescribeApplicationAvailableVersionRequest
+ * @return DescribeApplicationAvailableVersionResponse
+ */
+DescribeApplicationAvailableVersionResponse Client::describeApplicationAvailableVersion(const DescribeApplicationAvailableVersionRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return describeApplicationAvailableVersionWithOptions(request, runtime);
+}
+
+/**
+ * @summary Queries the automatic backup cycle, backup time window, and level-1 backup retention period of a specified application.
+ *
+ * @param request DescribeApplicationBackupPolicyRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DescribeApplicationBackupPolicyResponse
+ */
+DescribeApplicationBackupPolicyResponse Client::describeApplicationBackupPolicyWithOptions(const DescribeApplicationBackupPolicyRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasApplicationId()) {
+    query["ApplicationId"] = request.getApplicationId();
+  }
+
+  if (!!request.hasApplicationType()) {
+    query["ApplicationType"] = request.getApplicationType();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.getRegionId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DescribeApplicationBackupPolicy"},
+    {"version" , "2017-08-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DescribeApplicationBackupPolicyResponse>();
+}
+
+/**
+ * @summary Queries the automatic backup cycle, backup time window, and level-1 backup retention period of a specified application.
+ *
+ * @param request DescribeApplicationBackupPolicyRequest
+ * @return DescribeApplicationBackupPolicyResponse
+ */
+DescribeApplicationBackupPolicyResponse Client::describeApplicationBackupPolicy(const DescribeApplicationBackupPolicyRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return describeApplicationBackupPolicyWithOptions(request, runtime);
+}
+
+/**
+ * @summary Queries the backup sets of a specified application by time range and backup status, and returns the backup details in a paginated list.
+ *
+ * @param request DescribeApplicationBackupsRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DescribeApplicationBackupsResponse
+ */
+DescribeApplicationBackupsResponse Client::describeApplicationBackupsWithOptions(const DescribeApplicationBackupsRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasApplicationId()) {
+    query["ApplicationId"] = request.getApplicationId();
+  }
+
+  if (!!request.hasApplicationType()) {
+    query["ApplicationType"] = request.getApplicationType();
+  }
+
+  if (!!request.hasBackupStatus()) {
+    query["BackupStatus"] = request.getBackupStatus();
+  }
+
+  if (!!request.hasEndTime()) {
+    query["EndTime"] = request.getEndTime();
+  }
+
+  if (!!request.hasPageNumber()) {
+    query["PageNumber"] = request.getPageNumber();
+  }
+
+  if (!!request.hasPageSize()) {
+    query["PageSize"] = request.getPageSize();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.getRegionId();
+  }
+
+  if (!!request.hasStartTime()) {
+    query["StartTime"] = request.getStartTime();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DescribeApplicationBackups"},
+    {"version" , "2017-08-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DescribeApplicationBackupsResponse>();
+}
+
+/**
+ * @summary Queries the backup sets of a specified application by time range and backup status, and returns the backup details in a paginated list.
+ *
+ * @param request DescribeApplicationBackupsRequest
+ * @return DescribeApplicationBackupsResponse
+ */
+DescribeApplicationBackupsResponse Client::describeApplicationBackups(const DescribeApplicationBackupsRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return describeApplicationBackupsWithOptions(request, runtime);
+}
+
+/**
+ * @summary Queries the performance metrics and sample data of a specified application component within a specified time range.
+ *
+ * @param request DescribeApplicationComponentPerformanceRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DescribeApplicationComponentPerformanceResponse
+ */
+DescribeApplicationComponentPerformanceResponse Client::describeApplicationComponentPerformanceWithOptions(const DescribeApplicationComponentPerformanceRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasApplicationId()) {
+    query["ApplicationId"] = request.getApplicationId();
+  }
+
+  if (!!request.hasComponentId()) {
+    query["ComponentId"] = request.getComponentId();
+  }
+
+  if (!!request.hasEndTime()) {
+    query["EndTime"] = request.getEndTime();
+  }
+
+  if (!!request.hasInterval()) {
+    query["Interval"] = request.getInterval();
+  }
+
+  if (!!request.hasKey()) {
+    query["Key"] = request.getKey();
+  }
+
+  if (!!request.hasStartTime()) {
+    query["StartTime"] = request.getStartTime();
+  }
+
+  if (!!request.hasType()) {
+    query["Type"] = request.getType();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DescribeApplicationComponentPerformance"},
+    {"version" , "2017-08-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DescribeApplicationComponentPerformanceResponse>();
+}
+
+/**
+ * @summary Queries the performance metrics and sample data of a specified application component within a specified time range.
+ *
+ * @param request DescribeApplicationComponentPerformanceRequest
+ * @return DescribeApplicationComponentPerformanceResponse
+ */
+DescribeApplicationComponentPerformanceResponse Client::describeApplicationComponentPerformance(const DescribeApplicationComponentPerformanceRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return describeApplicationComponentPerformanceWithOptions(request, runtime);
+}
+
+/**
  * @summary Queries the details of AI application logs.
  *
  * @param request DescribeApplicationLogsRequest
@@ -12420,7 +13602,7 @@ DescribeApplicationParametersResponse Client::describeApplicationParameters(cons
 }
 
 /**
- * @summary Queries the performance of a PolarDB AI application.
+ * @summary Queries the performance of PolarDB AI applications.
  *
  * @param tmpReq DescribeApplicationPerformanceRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -12505,7 +13687,7 @@ DescribeApplicationPerformanceResponse Client::describeApplicationPerformanceWit
 }
 
 /**
- * @summary Queries the performance of a PolarDB AI application.
+ * @summary Queries the performance of PolarDB AI applications.
  *
  * @param request DescribeApplicationPerformanceRequest
  * @return DescribeApplicationPerformanceResponse
@@ -12516,7 +13698,9 @@ DescribeApplicationPerformanceResponse Client::describeApplicationPerformance(co
 }
 
 /**
- * @summary Lists the Application Prompts for a specific Application.
+ * @summary Queries all application prompt policies for the current application.
+ *
+ * @description Prerequisites: First, create a PostgreSQL cluster, and then call the CreateApplication operation to create an application with ApplicationType set to mem0. When creating the application, you must prepare a VPC, a vSwitch, and a security group. After obtaining the ApplicationId, call this operation to query application prompts. Call sequence: CreateDBCluster → CreateApplication → DescribeApplicationPrompts.
  *
  * @param request DescribeApplicationPromptsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -12555,7 +13739,9 @@ DescribeApplicationPromptsResponse Client::describeApplicationPromptsWithOptions
 }
 
 /**
- * @summary Lists the Application Prompts for a specific Application.
+ * @summary Queries all application prompt policies for the current application.
+ *
+ * @description Prerequisites: First, create a PostgreSQL cluster, and then call the CreateApplication operation to create an application with ApplicationType set to mem0. When creating the application, you must prepare a VPC, a vSwitch, and a security group. After obtaining the ApplicationId, call this operation to query application prompts. Call sequence: CreateDBCluster → CreateApplication → DescribeApplicationPrompts.
  *
  * @param request DescribeApplicationPromptsRequest
  * @return DescribeApplicationPromptsResponse
@@ -12721,6 +13907,100 @@ DescribeApplicationSessionIdsResponse Client::describeApplicationSessionIdsWithO
 DescribeApplicationSessionIdsResponse Client::describeApplicationSessionIds(const DescribeApplicationSessionIdsRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return describeApplicationSessionIdsWithOptions(request, runtime);
+}
+
+/**
+ * @summary Queries the session logs of a specified application, supports filtering by agent, session, and role, and returns paginated log records.
+ *
+ * @description Logs for different roles may contain different fields. User messages may include Content. Assistant messages may include the model, token usage, and cost statistics. Tool execution results may include the tool name and execution status. Cost statistics are returned exactly as provided by the log source, and this API operation does not perform currency conversion.
+ *
+ * @param request DescribeApplicationSessionLogsRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DescribeApplicationSessionLogsResponse
+ */
+DescribeApplicationSessionLogsResponse Client::describeApplicationSessionLogsWithOptions(const DescribeApplicationSessionLogsRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasAgent()) {
+    query["Agent"] = request.getAgent();
+  }
+
+  if (!!request.hasApplicationId()) {
+    query["ApplicationId"] = request.getApplicationId();
+  }
+
+  if (!!request.hasEndTime()) {
+    query["EndTime"] = request.getEndTime();
+  }
+
+  if (!!request.hasOwnerAccount()) {
+    query["OwnerAccount"] = request.getOwnerAccount();
+  }
+
+  if (!!request.hasOwnerId()) {
+    query["OwnerId"] = request.getOwnerId();
+  }
+
+  if (!!request.hasPageNumber()) {
+    query["PageNumber"] = request.getPageNumber();
+  }
+
+  if (!!request.hasPageSize()) {
+    query["PageSize"] = request.getPageSize();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.getRegionId();
+  }
+
+  if (!!request.hasResourceOwnerAccount()) {
+    query["ResourceOwnerAccount"] = request.getResourceOwnerAccount();
+  }
+
+  if (!!request.hasRole()) {
+    query["Role"] = request.getRole();
+  }
+
+  if (!!request.hasSessionId()) {
+    query["SessionId"] = request.getSessionId();
+  }
+
+  if (!!request.hasStartTime()) {
+    query["StartTime"] = request.getStartTime();
+  }
+
+  if (!!request.hasType()) {
+    query["Type"] = request.getType();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DescribeApplicationSessionLogs"},
+    {"version" , "2017-08-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DescribeApplicationSessionLogsResponse>();
+}
+
+/**
+ * @summary Queries the session logs of a specified application, supports filtering by agent, session, and role, and returns paginated log records.
+ *
+ * @description Logs for different roles may contain different fields. User messages may include Content. Assistant messages may include the model, token usage, and cost statistics. Tool execution results may include the tool name and execution status. Cost statistics are returned exactly as provided by the log source, and this API operation does not perform currency conversion.
+ *
+ * @param request DescribeApplicationSessionLogsRequest
+ * @return DescribeApplicationSessionLogsResponse
+ */
+DescribeApplicationSessionLogsResponse Client::describeApplicationSessionLogs(const DescribeApplicationSessionLogsRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return describeApplicationSessionLogsWithOptions(request, runtime);
 }
 
 /**
@@ -13603,6 +14883,60 @@ DescribeBudgetPoliciesResponse Client::describeBudgetPoliciesWithOptions(const D
 DescribeBudgetPoliciesResponse Client::describeBudgetPolicies(const DescribeBudgetPoliciesRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return describeBudgetPoliciesWithOptions(request, runtime);
+}
+
+/**
+ * @summary Queries the used quota, statistical window, and associated budget policies for a PolarDB gateway instance by budget dimension.
+ *
+ * @param request DescribeBudgetUsageRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DescribeBudgetUsageResponse
+ */
+DescribeBudgetUsageResponse Client::describeBudgetUsageWithOptions(const DescribeBudgetUsageRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasBudgetDimensionRefId()) {
+    query["BudgetDimensionRefId"] = request.getBudgetDimensionRefId();
+  }
+
+  if (!!request.hasBudgetDimensionType()) {
+    query["BudgetDimensionType"] = request.getBudgetDimensionType();
+  }
+
+  if (!!request.hasGwClusterId()) {
+    query["GwClusterId"] = request.getGwClusterId();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.getRegionId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DescribeBudgetUsage"},
+    {"version" , "2017-08-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DescribeBudgetUsageResponse>();
+}
+
+/**
+ * @summary Queries the used quota, statistical window, and associated budget policies for a PolarDB gateway instance by budget dimension.
+ *
+ * @param request DescribeBudgetUsageRequest
+ * @return DescribeBudgetUsageResponse
+ */
+DescribeBudgetUsageResponse Client::describeBudgetUsage(const DescribeBudgetUsageRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return describeBudgetUsageWithOptions(request, runtime);
 }
 
 /**
@@ -14860,6 +16194,48 @@ DescribeDBClusterMigrationResponse Client::describeDBClusterMigration(const Desc
 }
 
 /**
+ * @summary Queries the model enhancement status and the list of API keys for a specified PolarDB cluster.
+ *
+ * @param request DescribeDBClusterModelEnhancementRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DescribeDBClusterModelEnhancementResponse
+ */
+DescribeDBClusterModelEnhancementResponse Client::describeDBClusterModelEnhancementWithOptions(const DescribeDBClusterModelEnhancementRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasDBClusterId()) {
+    query["DBClusterId"] = request.getDBClusterId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DescribeDBClusterModelEnhancement"},
+    {"version" , "2017-08-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DescribeDBClusterModelEnhancementResponse>();
+}
+
+/**
+ * @summary Queries the model enhancement status and the list of API keys for a specified PolarDB cluster.
+ *
+ * @param request DescribeDBClusterModelEnhancementRequest
+ * @return DescribeDBClusterModelEnhancementResponse
+ */
+DescribeDBClusterModelEnhancementResponse Client::describeDBClusterModelEnhancement(const DescribeDBClusterModelEnhancementRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return describeDBClusterModelEnhancementWithOptions(request, runtime);
+}
+
+/**
  * @summary Queries the interval at which the monitoring data of a PolarDB cluster is collected.
  *
  * @param request DescribeDBClusterMonitorRequest
@@ -15044,18 +16420,18 @@ DescribeDBClusterParametersResponse Client::describeDBClusterParameters(const De
 /**
  * @summary Queries the performance data of a PolarDB cluster.
  *
- * @description - If the monitoring frequency is once every 5 seconds:
- *   - If the query time range is 1 hour or less, the data granularity is 5 seconds.
- *   - If the query time range is 1 day or less, the data granularity is 1 minute.
- *   - If the query time range is 7 days or less, the data granularity is 10 minutes.
- *   - If the query time range is 30 days or less, the data granularity is 1 hour.
- *   - If the query time range is more than 30 days, the data granularity is 1 day.
- * - If the monitoring frequency is once every 60 seconds:
- *   - If the query time range is 1 day or less, the data granularity is 1 minute.
- *   - If the query time range is 7 days or less, the data granularity is 10 minutes.
- *   - If the query time range is 30 days or less, the data granularity is 1 hour.
- *   - If the query time range is more than 30 days, the data granularity is 1 day.
- * > The default monitoring frequency is once every 60 seconds. You can call the [ModifyDBClusterMonitor](https://help.aliyun.com/document_detail/159557.html) operation to set the frequency to once every 5 seconds.
+ * @description * If the monitoring frequency is 5 seconds:
+ *     - When the query time range is less than or equal to 1 hour, the display granularity is 5 seconds.
+ *     - When the query time range is less than or equal to 1 day, the display granularity is 1 minute.
+ *     - When the query time range is less than or equal to 7 days, the display granularity is 10 minutes.
+ *     - When the query time range is less than or equal to 30 days, the display granularity is 1 hour.
+ *     - When the query time range is greater than 30 days, the display granularity is 1 day.
+ * * If the monitoring frequency is 60 seconds:
+ *     - When the query time range is less than or equal to 1 day, the display granularity is 1 minute.
+ *     - When the query time range is less than or equal to 7 days, the display granularity is 10 minutes.
+ *     - When the query time range is less than or equal to 30 days, the display granularity is 1 hour.
+ *     - When the query time range is greater than 30 days, the display granularity is 1 day.
+ * > The default monitoring frequency is 60 seconds. You can call the [ModifyDBClusterMonitor](https://help.aliyun.com/document_detail/159557.html) operation to set it to 5 seconds.
  *
  * @param request DescribeDBClusterPerformanceRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -15112,18 +16488,18 @@ DescribeDBClusterPerformanceResponse Client::describeDBClusterPerformanceWithOpt
 /**
  * @summary Queries the performance data of a PolarDB cluster.
  *
- * @description - If the monitoring frequency is once every 5 seconds:
- *   - If the query time range is 1 hour or less, the data granularity is 5 seconds.
- *   - If the query time range is 1 day or less, the data granularity is 1 minute.
- *   - If the query time range is 7 days or less, the data granularity is 10 minutes.
- *   - If the query time range is 30 days or less, the data granularity is 1 hour.
- *   - If the query time range is more than 30 days, the data granularity is 1 day.
- * - If the monitoring frequency is once every 60 seconds:
- *   - If the query time range is 1 day or less, the data granularity is 1 minute.
- *   - If the query time range is 7 days or less, the data granularity is 10 minutes.
- *   - If the query time range is 30 days or less, the data granularity is 1 hour.
- *   - If the query time range is more than 30 days, the data granularity is 1 day.
- * > The default monitoring frequency is once every 60 seconds. You can call the [ModifyDBClusterMonitor](https://help.aliyun.com/document_detail/159557.html) operation to set the frequency to once every 5 seconds.
+ * @description * If the monitoring frequency is 5 seconds:
+ *     - When the query time range is less than or equal to 1 hour, the display granularity is 5 seconds.
+ *     - When the query time range is less than or equal to 1 day, the display granularity is 1 minute.
+ *     - When the query time range is less than or equal to 7 days, the display granularity is 10 minutes.
+ *     - When the query time range is less than or equal to 30 days, the display granularity is 1 hour.
+ *     - When the query time range is greater than 30 days, the display granularity is 1 day.
+ * * If the monitoring frequency is 60 seconds:
+ *     - When the query time range is less than or equal to 1 day, the display granularity is 1 minute.
+ *     - When the query time range is less than or equal to 7 days, the display granularity is 10 minutes.
+ *     - When the query time range is less than or equal to 30 days, the display granularity is 1 hour.
+ *     - When the query time range is greater than 30 days, the display granularity is 1 day.
+ * > The default monitoring frequency is 60 seconds. You can call the [ModifyDBClusterMonitor](https://help.aliyun.com/document_detail/159557.html) operation to set it to 5 seconds.
  *
  * @param request DescribeDBClusterPerformanceRequest
  * @return DescribeDBClusterPerformanceResponse
@@ -16108,6 +17484,80 @@ DescribeDBInstancePerformanceResponse Client::describeDBInstancePerformance(cons
 }
 
 /**
+ * @summary Queries the list of instances.
+ *
+ * @param request DescribeDBInstancesRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DescribeDBInstancesResponse
+ */
+DescribeDBInstancesResponse Client::describeDBInstancesWithOptions(const DescribeDBInstancesRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasDBClusterId()) {
+    query["DBClusterId"] = request.getDBClusterId();
+  }
+
+  if (!!request.hasInstanceNetworkType()) {
+    query["InstanceNetworkType"] = request.getInstanceNetworkType();
+  }
+
+  if (!!request.hasOwnerAccount()) {
+    query["OwnerAccount"] = request.getOwnerAccount();
+  }
+
+  if (!!request.hasOwnerId()) {
+    query["OwnerId"] = request.getOwnerId();
+  }
+
+  if (!!request.hasPageNumber()) {
+    query["PageNumber"] = request.getPageNumber();
+  }
+
+  if (!!request.hasPageSize()) {
+    query["PageSize"] = request.getPageSize();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.getRegionId();
+  }
+
+  if (!!request.hasResourceOwnerAccount()) {
+    query["ResourceOwnerAccount"] = request.getResourceOwnerAccount();
+  }
+
+  if (!!request.hasResourceOwnerId()) {
+    query["ResourceOwnerId"] = request.getResourceOwnerId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DescribeDBInstances"},
+    {"version" , "2017-08-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DescribeDBInstancesResponse>();
+}
+
+/**
+ * @summary Queries the list of instances.
+ *
+ * @param request DescribeDBInstancesRequest
+ * @return DescribeDBInstancesResponse
+ */
+DescribeDBInstancesResponse Client::describeDBInstances(const DescribeDBInstancesRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return describeDBInstancesWithOptions(request, runtime);
+}
+
+/**
  * @summary Queries the database links of a PolarDB for Oracle cluster.
  *
  * @description > You can query only the database links that use a PolarDB for Oracle cluster as the source.
@@ -16624,6 +18074,168 @@ DescribeDasConfigResponse Client::describeDasConfig(const DescribeDasConfigReque
 }
 
 /**
+ * @summary Queries the status, data source, destination database, and processing configuration of a specified data processing job.
+ *
+ * @param request DescribeDataProcessJobAttributeRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DescribeDataProcessJobAttributeResponse
+ */
+DescribeDataProcessJobAttributeResponse Client::describeDataProcessJobAttributeWithOptions(const DescribeDataProcessJobAttributeRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasJobId()) {
+    query["JobId"] = request.getJobId();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.getRegionId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DescribeDataProcessJobAttribute"},
+    {"version" , "2017-08-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DescribeDataProcessJobAttributeResponse>();
+}
+
+/**
+ * @summary Queries the status, data source, destination database, and processing configuration of a specified data processing job.
+ *
+ * @param request DescribeDataProcessJobAttributeRequest
+ * @return DescribeDataProcessJobAttributeResponse
+ */
+DescribeDataProcessJobAttributeResponse Client::describeDataProcessJobAttribute(const DescribeDataProcessJobAttributeRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return describeDataProcessJobAttributeWithOptions(request, runtime);
+}
+
+/**
+ * @summary Queries data processing task templates by region, template ID, or type, and returns paginated template configurations.
+ *
+ * @param request DescribeDataProcessJobTemplatesRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DescribeDataProcessJobTemplatesResponse
+ */
+DescribeDataProcessJobTemplatesResponse Client::describeDataProcessJobTemplatesWithOptions(const DescribeDataProcessJobTemplatesRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasPageNumber()) {
+    query["PageNumber"] = request.getPageNumber();
+  }
+
+  if (!!request.hasPageSize()) {
+    query["PageSize"] = request.getPageSize();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.getRegionId();
+  }
+
+  if (!!request.hasTemplateId()) {
+    query["TemplateId"] = request.getTemplateId();
+  }
+
+  if (!!request.hasTemplateType()) {
+    query["TemplateType"] = request.getTemplateType();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DescribeDataProcessJobTemplates"},
+    {"version" , "2017-08-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DescribeDataProcessJobTemplatesResponse>();
+}
+
+/**
+ * @summary Queries data processing task templates by region, template ID, or type, and returns paginated template configurations.
+ *
+ * @param request DescribeDataProcessJobTemplatesRequest
+ * @return DescribeDataProcessJobTemplatesResponse
+ */
+DescribeDataProcessJobTemplatesResponse Client::describeDataProcessJobTemplates(const DescribeDataProcessJobTemplatesRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return describeDataProcessJobTemplatesWithOptions(request, runtime);
+}
+
+/**
+ * @summary Queries the data processing jobs of a specified PolarFS instance, with support for filtering by job ID and pagination.
+ *
+ * @param request DescribeDataProcessJobsRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DescribeDataProcessJobsResponse
+ */
+DescribeDataProcessJobsResponse Client::describeDataProcessJobsWithOptions(const DescribeDataProcessJobsRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasJobId()) {
+    query["JobId"] = request.getJobId();
+  }
+
+  if (!!request.hasPageNumber()) {
+    query["PageNumber"] = request.getPageNumber();
+  }
+
+  if (!!request.hasPageSize()) {
+    query["PageSize"] = request.getPageSize();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.getRegionId();
+  }
+
+  if (!!request.hasSourceId()) {
+    query["SourceId"] = request.getSourceId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DescribeDataProcessJobs"},
+    {"version" , "2017-08-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DescribeDataProcessJobsResponse>();
+}
+
+/**
+ * @summary Queries the data processing jobs of a specified PolarFS instance, with support for filtering by job ID and pagination.
+ *
+ * @param request DescribeDataProcessJobsRequest
+ * @return DescribeDataProcessJobsResponse
+ */
+DescribeDataProcessJobsResponse Client::describeDataProcessJobs(const DescribeDataProcessJobsRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return describeDataProcessJobsWithOptions(request, runtime);
+}
+
+/**
  * @summary Queries for the details of databases in a specified PolarDB cluster.
  *
  * @param request DescribeDatabasesRequest
@@ -16930,6 +18542,41 @@ DescribeDetachedBackupsResponse Client::describeDetachedBackups(const DescribeDe
 }
 
 /**
+ * @summary Queries the available edge cloud regions for the current account, including their central control regions and standby edge cloud regions.
+ *
+ * @param request DescribeEdgeCloudRegionRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DescribeEdgeCloudRegionResponse
+ */
+DescribeEdgeCloudRegionResponse Client::describeEdgeCloudRegionWithOptions(const DescribeEdgeCloudRegionRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  OpenApiRequest req = OpenApiRequest();
+  Params params = Params(json({
+    {"action" , "DescribeEdgeCloudRegion"},
+    {"version" , "2017-08-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DescribeEdgeCloudRegionResponse>();
+}
+
+/**
+ * @summary Queries the available edge cloud regions for the current account, including their central control regions and standby edge cloud regions.
+ *
+ * @param request DescribeEdgeCloudRegionRequest
+ * @return DescribeEdgeCloudRegionResponse
+ */
+DescribeEdgeCloudRegionResponse Client::describeEdgeCloudRegion(const DescribeEdgeCloudRegionRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return describeEdgeCloudRegionWithOptions(request, runtime);
+}
+
+/**
  * @summary Queries a list of permissions for a database role.
  *
  * @param request DescribeEncryptionDBRolePrivilegeRequest
@@ -17100,6 +18747,60 @@ DescribeExtensionsResponse Client::describeExtensions(const DescribeExtensionsRe
 }
 
 /**
+ * @summary Queries the file information under a specified path of a PolarFS instance and uses a pagination token to retrieve subsequent results.
+ *
+ * @param request DescribeFileSystemsRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DescribeFileSystemsResponse
+ */
+DescribeFileSystemsResponse Client::describeFileSystemsWithOptions(const DescribeFileSystemsRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasFileSystemId()) {
+    query["FileSystemId"] = request.getFileSystemId();
+  }
+
+  if (!!request.hasMaxResults()) {
+    query["MaxResults"] = request.getMaxResults();
+  }
+
+  if (!!request.hasNextToken()) {
+    query["NextToken"] = request.getNextToken();
+  }
+
+  if (!!request.hasPolarFsInstanceId()) {
+    query["PolarFsInstanceId"] = request.getPolarFsInstanceId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DescribeFileSystems"},
+    {"version" , "2017-08-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DescribeFileSystemsResponse>();
+}
+
+/**
+ * @summary Queries the file information under a specified path of a PolarFS instance and uses a pagination token to retrieve subsequent results.
+ *
+ * @param request DescribeFileSystemsRequest
+ * @return DescribeFileSystemsResponse
+ */
+DescribeFileSystemsResponse Client::describeFileSystems(const DescribeFileSystemsRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return describeFileSystemsWithOptions(request, runtime);
+}
+
+/**
  * @summary Describes SQL firewall rules.
  *
  * @param request DescribeFirewallRulesRequest
@@ -17162,7 +18863,7 @@ DescribeFirewallRulesResponse Client::describeFirewallRules(const DescribeFirewa
 }
 
 /**
- * @summary Queries all API keys under the current UID.
+ * @summary Queries all API keys for the specified UID.
  *
  * @param request DescribeGatewayApikeyListRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -17201,7 +18902,7 @@ DescribeGatewayApikeyListResponse Client::describeGatewayApikeyListWithOptions(c
 }
 
 /**
- * @summary Queries all API keys under the current UID.
+ * @summary Queries all API keys for the specified UID.
  *
  * @param request DescribeGatewayApikeyListRequest
  * @return DescribeGatewayApikeyListResponse
@@ -17724,7 +19425,7 @@ DescribeHALogsResponse Client::describeHALogs(const DescribeHALogsRequest &reque
 }
 
 /**
- * @summary Lists the historical events in Event Center.
+ * @summary Queries the list of events in Event Center.
  *
  * @param request DescribeHistoryEventsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -17811,7 +19512,7 @@ DescribeHistoryEventsResponse Client::describeHistoryEventsWithOptions(const Des
 }
 
 /**
- * @summary Lists the historical events in Event Center.
+ * @summary Queries the list of events in Event Center.
  *
  * @param request DescribeHistoryEventsRequest
  * @return DescribeHistoryEventsResponse
@@ -17819,6 +19520,60 @@ DescribeHistoryEventsResponse Client::describeHistoryEventsWithOptions(const Des
 DescribeHistoryEventsResponse Client::describeHistoryEvents(const DescribeHistoryEventsRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return describeHistoryEventsWithOptions(request, runtime);
+}
+
+/**
+ * @summary Queries the number of events in the Event Center by event category.
+ *
+ * @param request DescribeHistoryEventsStatRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DescribeHistoryEventsStatResponse
+ */
+DescribeHistoryEventsStatResponse Client::describeHistoryEventsStatWithOptions(const DescribeHistoryEventsStatRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasArchiveStatus()) {
+    query["ArchiveStatus"] = request.getArchiveStatus();
+  }
+
+  if (!!request.hasFromStartTime()) {
+    query["FromStartTime"] = request.getFromStartTime();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.getRegionId();
+  }
+
+  if (!!request.hasToStartTime()) {
+    query["ToStartTime"] = request.getToStartTime();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DescribeHistoryEventsStat"},
+    {"version" , "2017-08-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DescribeHistoryEventsStatResponse>();
+}
+
+/**
+ * @summary Queries the number of events in the Event Center by event category.
+ *
+ * @param request DescribeHistoryEventsStatRequest
+ * @return DescribeHistoryEventsStatResponse
+ */
+DescribeHistoryEventsStatResponse Client::describeHistoryEventsStat(const DescribeHistoryEventsStatRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return describeHistoryEventsStatWithOptions(request, runtime);
 }
 
 /**
@@ -18022,6 +19777,214 @@ DescribeHistoryTasksStatResponse Client::describeHistoryTasksStat(const Describe
 }
 
 /**
+ * @summary Queries a list of reports for a specified inspection task. Supports time-based filtering and pagination.
+ *
+ * @param request DescribeInspectionReportListRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DescribeInspectionReportListResponse
+ */
+DescribeInspectionReportListResponse Client::describeInspectionReportListWithOptions(const DescribeInspectionReportListRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasEndTime()) {
+    query["EndTime"] = request.getEndTime();
+  }
+
+  if (!!request.hasPageNumber()) {
+    query["PageNumber"] = request.getPageNumber();
+  }
+
+  if (!!request.hasPageSize()) {
+    query["PageSize"] = request.getPageSize();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.getRegionId();
+  }
+
+  if (!!request.hasStartTime()) {
+    query["StartTime"] = request.getStartTime();
+  }
+
+  if (!!request.hasTaskId()) {
+    query["TaskId"] = request.getTaskId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DescribeInspectionReportList"},
+    {"version" , "2017-08-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DescribeInspectionReportListResponse>();
+}
+
+/**
+ * @summary Queries a list of reports for a specified inspection task. Supports time-based filtering and pagination.
+ *
+ * @param request DescribeInspectionReportListRequest
+ * @return DescribeInspectionReportListResponse
+ */
+DescribeInspectionReportListResponse Client::describeInspectionReportList(const DescribeInspectionReportListRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return describeInspectionReportListWithOptions(request, runtime);
+}
+
+/**
+ * @summary Queries the execution plan, associated clusters, and validity period of a specified inspection task.
+ *
+ * @param request DescribeInspectionTaskAttributeRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DescribeInspectionTaskAttributeResponse
+ */
+DescribeInspectionTaskAttributeResponse Client::describeInspectionTaskAttributeWithOptions(const DescribeInspectionTaskAttributeRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.getRegionId();
+  }
+
+  if (!!request.hasTaskId()) {
+    query["TaskId"] = request.getTaskId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DescribeInspectionTaskAttribute"},
+    {"version" , "2017-08-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DescribeInspectionTaskAttributeResponse>();
+}
+
+/**
+ * @summary Queries the execution plan, associated clusters, and validity period of a specified inspection task.
+ *
+ * @param request DescribeInspectionTaskAttributeRequest
+ * @return DescribeInspectionTaskAttributeResponse
+ */
+DescribeInspectionTaskAttributeResponse Client::describeInspectionTaskAttribute(const DescribeInspectionTaskAttributeRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return describeInspectionTaskAttributeWithOptions(request, runtime);
+}
+
+/**
+ * @summary Queries inspection tasks, their execution plans, and associated clusters by paging based on the inspection space.
+ *
+ * @param request DescribeInspectionTaskListRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DescribeInspectionTaskListResponse
+ */
+DescribeInspectionTaskListResponse Client::describeInspectionTaskListWithOptions(const DescribeInspectionTaskListRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasPageNumber()) {
+    query["PageNumber"] = request.getPageNumber();
+  }
+
+  if (!!request.hasPageSize()) {
+    query["PageSize"] = request.getPageSize();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.getRegionId();
+  }
+
+  if (!!request.hasSpaceId()) {
+    query["SpaceId"] = request.getSpaceId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DescribeInspectionTaskList"},
+    {"version" , "2017-08-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DescribeInspectionTaskListResponse>();
+}
+
+/**
+ * @summary Queries inspection tasks, their execution plans, and associated clusters by paging based on the inspection space.
+ *
+ * @param request DescribeInspectionTaskListRequest
+ * @return DescribeInspectionTaskListResponse
+ */
+DescribeInspectionTaskListResponse Client::describeInspectionTaskList(const DescribeInspectionTaskListRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return describeInspectionTaskListWithOptions(request, runtime);
+}
+
+/**
+ * @summary Queries the overall score, status, and check results of an instance inspection report based on the report ID.
+ *
+ * @param request DescribeInstanceReportAttributeRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DescribeInstanceReportAttributeResponse
+ */
+DescribeInstanceReportAttributeResponse Client::describeInstanceReportAttributeWithOptions(const DescribeInstanceReportAttributeRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.getRegionId();
+  }
+
+  if (!!request.hasReportId()) {
+    query["ReportId"] = request.getReportId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DescribeInstanceReportAttribute"},
+    {"version" , "2017-08-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DescribeInstanceReportAttributeResponse>();
+}
+
+/**
+ * @summary Queries the overall score, status, and check results of an instance inspection report based on the report ID.
+ *
+ * @param request DescribeInstanceReportAttributeRequest
+ * @return DescribeInstanceReportAttributeResponse
+ */
+DescribeInstanceReportAttributeResponse Client::describeInstanceReportAttribute(const DescribeInstanceReportAttributeRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return describeInstanceReportAttributeWithOptions(request, runtime);
+}
+
+/**
  * @summary Queries the details of a knowledge base synchronization link.
  *
  * @param request DescribeKBSyncLinkAttributeRequest
@@ -18127,6 +20090,110 @@ DescribeKBSyncLinksResponse Client::describeKBSyncLinksWithOptions(const Describ
 DescribeKBSyncLinksResponse Client::describeKBSyncLinks(const DescribeKBSyncLinksRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return describeKBSyncLinksWithOptions(request, runtime);
+}
+
+/**
+ * @summary Queries the region, status, capacity, network, billing method, and expiration information of a specified KVCache instance.
+ *
+ * @param request DescribeKVCacheInstanceAttributeRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DescribeKVCacheInstanceAttributeResponse
+ */
+DescribeKVCacheInstanceAttributeResponse Client::describeKVCacheInstanceAttributeWithOptions(const DescribeKVCacheInstanceAttributeRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasKVCacheInstanceId()) {
+    query["KVCacheInstanceId"] = request.getKVCacheInstanceId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DescribeKVCacheInstanceAttribute"},
+    {"version" , "2017-08-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DescribeKVCacheInstanceAttributeResponse>();
+}
+
+/**
+ * @summary Queries the region, status, capacity, network, billing method, and expiration information of a specified KVCache instance.
+ *
+ * @param request DescribeKVCacheInstanceAttributeRequest
+ * @return DescribeKVCacheInstanceAttributeResponse
+ */
+DescribeKVCacheInstanceAttributeResponse Client::describeKVCacheInstanceAttribute(const DescribeKVCacheInstanceAttributeRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return describeKVCacheInstanceAttributeWithOptions(request, runtime);
+}
+
+/**
+ * @summary Queries KVCache instances filtered by region, associated cluster, or instance ID, and returns paginated instance details.
+ *
+ * @param request DescribeKVCacheInstancesRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DescribeKVCacheInstancesResponse
+ */
+DescribeKVCacheInstancesResponse Client::describeKVCacheInstancesWithOptions(const DescribeKVCacheInstancesRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasKVCacheInstanceDescription()) {
+    query["KVCacheInstanceDescription"] = request.getKVCacheInstanceDescription();
+  }
+
+  if (!!request.hasKVCacheInstanceIds()) {
+    query["KVCacheInstanceIds"] = request.getKVCacheInstanceIds();
+  }
+
+  if (!!request.hasPageNumber()) {
+    query["PageNumber"] = request.getPageNumber();
+  }
+
+  if (!!request.hasPageSize()) {
+    query["PageSize"] = request.getPageSize();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.getRegionId();
+  }
+
+  if (!!request.hasRelativeDBClusterId()) {
+    query["RelativeDBClusterId"] = request.getRelativeDBClusterId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DescribeKVCacheInstances"},
+    {"version" , "2017-08-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DescribeKVCacheInstancesResponse>();
+}
+
+/**
+ * @summary Queries KVCache instances filtered by region, associated cluster, or instance ID, and returns paginated instance details.
+ *
+ * @param request DescribeKVCacheInstancesRequest
+ * @return DescribeKVCacheInstancesResponse
+ */
+DescribeKVCacheInstancesResponse Client::describeKVCacheInstances(const DescribeKVCacheInstancesRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return describeKVCacheInstancesWithOptions(request, runtime);
 }
 
 /**
@@ -18459,6 +20526,222 @@ DescribeKnowledgeSpaceAttributeResponse Client::describeKnowledgeSpaceAttributeW
 DescribeKnowledgeSpaceAttributeResponse Client::describeKnowledgeSpaceAttribute(const DescribeKnowledgeSpaceAttributeRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return describeKnowledgeSpaceAttributeWithOptions(request, runtime);
+}
+
+/**
+ * @summary Queries the details of a parameter template attached to Lakebase.
+ *
+ * @param request DescribeLakebaseMountParameterGroupRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DescribeLakebaseMountParameterGroupResponse
+ */
+DescribeLakebaseMountParameterGroupResponse Client::describeLakebaseMountParameterGroupWithOptions(const DescribeLakebaseMountParameterGroupRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasParameterGroupId()) {
+    query["ParameterGroupId"] = request.getParameterGroupId();
+  }
+
+  if (!!request.hasPolarFsInstanceId()) {
+    query["PolarFsInstanceId"] = request.getPolarFsInstanceId();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.getRegionId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DescribeLakebaseMountParameterGroup"},
+    {"version" , "2017-08-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DescribeLakebaseMountParameterGroupResponse>();
+}
+
+/**
+ * @summary Queries the details of a parameter template attached to Lakebase.
+ *
+ * @param request DescribeLakebaseMountParameterGroupRequest
+ * @return DescribeLakebaseMountParameterGroupResponse
+ */
+DescribeLakebaseMountParameterGroupResponse Client::describeLakebaseMountParameterGroup(const DescribeLakebaseMountParameterGroupRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return describeLakebaseMountParameterGroupWithOptions(request, runtime);
+}
+
+/**
+ * @summary Queries the change history of parameter templates mounted to Lakebase.
+ *
+ * @param request DescribeLakebaseMountParameterGroupChangeLogsRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DescribeLakebaseMountParameterGroupChangeLogsResponse
+ */
+DescribeLakebaseMountParameterGroupChangeLogsResponse Client::describeLakebaseMountParameterGroupChangeLogsWithOptions(const DescribeLakebaseMountParameterGroupChangeLogsRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasEndTime()) {
+    query["EndTime"] = request.getEndTime();
+  }
+
+  if (!!request.hasName()) {
+    query["Name"] = request.getName();
+  }
+
+  if (!!request.hasParameterGroupId()) {
+    query["ParameterGroupId"] = request.getParameterGroupId();
+  }
+
+  if (!!request.hasPolarFsInstanceId()) {
+    query["PolarFsInstanceId"] = request.getPolarFsInstanceId();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.getRegionId();
+  }
+
+  if (!!request.hasStartTime()) {
+    query["StartTime"] = request.getStartTime();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DescribeLakebaseMountParameterGroupChangeLogs"},
+    {"version" , "2017-08-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DescribeLakebaseMountParameterGroupChangeLogsResponse>();
+}
+
+/**
+ * @summary Queries the change history of parameter templates mounted to Lakebase.
+ *
+ * @param request DescribeLakebaseMountParameterGroupChangeLogsRequest
+ * @return DescribeLakebaseMountParameterGroupChangeLogsResponse
+ */
+DescribeLakebaseMountParameterGroupChangeLogsResponse Client::describeLakebaseMountParameterGroupChangeLogs(const DescribeLakebaseMountParameterGroupChangeLogsRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return describeLakebaseMountParameterGroupChangeLogsWithOptions(request, runtime);
+}
+
+/**
+ * @summary Queries the list of parameter templates associated with Lakebase.
+ *
+ * @param request DescribeLakebaseMountParameterGroupsRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DescribeLakebaseMountParameterGroupsResponse
+ */
+DescribeLakebaseMountParameterGroupsResponse Client::describeLakebaseMountParameterGroupsWithOptions(const DescribeLakebaseMountParameterGroupsRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasParamGroupCategory()) {
+    query["ParamGroupCategory"] = request.getParamGroupCategory();
+  }
+
+  if (!!request.hasPolarFsInstanceId()) {
+    query["PolarFsInstanceId"] = request.getPolarFsInstanceId();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.getRegionId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DescribeLakebaseMountParameterGroups"},
+    {"version" , "2017-08-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DescribeLakebaseMountParameterGroupsResponse>();
+}
+
+/**
+ * @summary Queries the list of parameter templates associated with Lakebase.
+ *
+ * @param request DescribeLakebaseMountParameterGroupsRequest
+ * @return DescribeLakebaseMountParameterGroupsResponse
+ */
+DescribeLakebaseMountParameterGroupsResponse Client::describeLakebaseMountParameterGroups(const DescribeLakebaseMountParameterGroupsRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return describeLakebaseMountParameterGroupsWithOptions(request, runtime);
+}
+
+/**
+ * @summary Queries the parameter dictionary supported by Lakebase mounted parameter templates.
+ *
+ * @param request DescribeLakebaseMountParameterTemplateListRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DescribeLakebaseMountParameterTemplateListResponse
+ */
+DescribeLakebaseMountParameterTemplateListResponse Client::describeLakebaseMountParameterTemplateListWithOptions(const DescribeLakebaseMountParameterTemplateListRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasEngine()) {
+    query["Engine"] = request.getEngine();
+  }
+
+  if (!!request.hasParamGroupCategory()) {
+    query["ParamGroupCategory"] = request.getParamGroupCategory();
+  }
+
+  if (!!request.hasPolarFsInstanceId()) {
+    query["PolarFsInstanceId"] = request.getPolarFsInstanceId();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.getRegionId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DescribeLakebaseMountParameterTemplateList"},
+    {"version" , "2017-08-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DescribeLakebaseMountParameterTemplateListResponse>();
+}
+
+/**
+ * @summary Queries the parameter dictionary supported by Lakebase mounted parameter templates.
+ *
+ * @param request DescribeLakebaseMountParameterTemplateListRequest
+ * @return DescribeLakebaseMountParameterTemplateListResponse
+ */
+DescribeLakebaseMountParameterTemplateListResponse Client::describeLakebaseMountParameterTemplateList(const DescribeLakebaseMountParameterTemplateListRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return describeLakebaseMountParameterTemplateListWithOptions(request, runtime);
 }
 
 /**
@@ -18982,7 +21265,7 @@ DescribeModelApisResponse Client::describeModelApis(const DescribeModelApisReque
 }
 
 /**
- * @summary Queries the model service list.
+ * @summary Queries the list of model services.
  *
  * @param request DescribeModelServicesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -19045,7 +21328,7 @@ DescribeModelServicesResponse Client::describeModelServicesWithOptions(const Des
 }
 
 /**
- * @summary Queries the model service list.
+ * @summary Queries the list of model services.
  *
  * @param request DescribeModelServicesRequest
  * @return DescribeModelServicesResponse
@@ -19574,7 +21857,9 @@ DescribePendingMaintenanceActionsResponse Client::describePendingMaintenanceActi
 }
 
 /**
- * @summary Queries the chat records of a specified session.
+ * @summary Queries the details of a specified session.
+ *
+ * @description Prerequisites: Use Signature Version 3.0 to call GetPolarAgent to initiate a conversation and obtain the SessionId from the returned stream. Then, call this operation to query the chat history of the session.
  *
  * @param request DescribePolarAgentChatRecordsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -19609,7 +21894,9 @@ DescribePolarAgentChatRecordsResponse Client::describePolarAgentChatRecordsWithO
 }
 
 /**
- * @summary Queries the chat records of a specified session.
+ * @summary Queries the details of a specified session.
+ *
+ * @description Prerequisites: Use Signature Version 3.0 to call GetPolarAgent to initiate a conversation and obtain the SessionId from the returned stream. Then, call this operation to query the chat history of the session.
  *
  * @param request DescribePolarAgentChatRecordsRequest
  * @return DescribePolarAgentChatRecordsResponse
@@ -19912,11 +22199,12 @@ DescribePolarClawChannelsResponse Client::describePolarClawChannels(const Descri
 }
 
 /**
- * @summary Query all or specific scheduled tasks in PolarClaw and their details.
+ * @summary Queries all or specified scheduled jobs and their details in PolarClaw.
  *
  * @description ## Request description
- * - You can use this API to retrieve all scheduled tasks in a PolarClaw application or filter specific tasks using the `JobIdList` parameter.
- * - If you do not specify the `JobIdList` parameter, the API returns all scheduled tasks in the application.
+ * - You can use this API operation to retrieve all scheduled jobs in a PolarClaw application, or filter specific jobs by using the JobIdList parameter.
+ * - If the JobIdList parameter is not provided, all scheduled jobs in the application are returned.
+ * Before you begin: Call DescribeApplications to filter applications where ApplicationType is polardb_polarclaw, obtain the ApplicationId, and then call this operation to query scheduled jobs.
  *
  * @param tmpReq DescribePolarClawCronJobsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -19969,11 +22257,12 @@ DescribePolarClawCronJobsResponse Client::describePolarClawCronJobsWithOptions(c
 }
 
 /**
- * @summary Query all or specific scheduled tasks in PolarClaw and their details.
+ * @summary Queries all or specified scheduled jobs and their details in PolarClaw.
  *
  * @description ## Request description
- * - You can use this API to retrieve all scheduled tasks in a PolarClaw application or filter specific tasks using the `JobIdList` parameter.
- * - If you do not specify the `JobIdList` parameter, the API returns all scheduled tasks in the application.
+ * - You can use this API operation to retrieve all scheduled jobs in a PolarClaw application, or filter specific jobs by using the JobIdList parameter.
+ * - If the JobIdList parameter is not provided, all scheduled jobs in the application are returned.
+ * Before you begin: Call DescribeApplications to filter applications where ApplicationType is polardb_polarclaw, obtain the ApplicationId, and then call this operation to query scheduled jobs.
  *
  * @param request DescribePolarClawCronJobsRequest
  * @return DescribePolarClawCronJobsResponse
@@ -20030,11 +22319,11 @@ DescribePolarClawMCPServersResponse Client::describePolarClawMCPServers(const De
 }
 
 /**
- * @summary Lists all installed PolarClaw plugins and their status.
+ * @summary Lists all installed PolarClaw plugins and their status information.
  *
- * @description ## Request
- * - This API gets information about all plugins for a given application, including built-in and user-installed plugins.
- * - Use the `PluginList` parameter to request information for specific plugins. If you omit this parameter, the API returns details for all plugins.
+ * @description ## Request description
+ * - Retrieves information about all plugins in a specified application, including built-in and user-installed plugins.
+ * - You can use the PluginList parameter to request information about specific plugins. If this parameter is not provided, details of all plugins are returned.
  *
  * @param request DescribePolarClawPluginsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -20069,11 +22358,11 @@ DescribePolarClawPluginsResponse Client::describePolarClawPluginsWithOptions(con
 }
 
 /**
- * @summary Lists all installed PolarClaw plugins and their status.
+ * @summary Lists all installed PolarClaw plugins and their status information.
  *
- * @description ## Request
- * - This API gets information about all plugins for a given application, including built-in and user-installed plugins.
- * - Use the `PluginList` parameter to request information for specific plugins. If you omit this parameter, the API returns details for all plugins.
+ * @description ## Request description
+ * - Retrieves information about all plugins in a specified application, including built-in and user-installed plugins.
+ * - You can use the PluginList parameter to request information about specific plugins. If this parameter is not provided, details of all plugins are returned.
  *
  * @param request DescribePolarClawPluginsRequest
  * @return DescribePolarClawPluginsResponse
@@ -20081,6 +22370,64 @@ DescribePolarClawPluginsResponse Client::describePolarClawPluginsWithOptions(con
 DescribePolarClawPluginsResponse Client::describePolarClawPlugins(const DescribePolarClawPluginsRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return describePolarClawPluginsWithOptions(request, runtime);
+}
+
+/**
+ * @summary Retrieves the details of a PolarClaw skill security assessment.
+ *
+ * @param request DescribePolarClawSkillAssessmentRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DescribePolarClawSkillAssessmentResponse
+ */
+DescribePolarClawSkillAssessmentResponse Client::describePolarClawSkillAssessmentWithOptions(const DescribePolarClawSkillAssessmentRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasApplicationId()) {
+    query["ApplicationId"] = request.getApplicationId();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.getRegionId();
+  }
+
+  if (!!request.hasSkillName()) {
+    query["SkillName"] = request.getSkillName();
+  }
+
+  if (!!request.hasSkillVersion()) {
+    query["SkillVersion"] = request.getSkillVersion();
+  }
+
+  if (!!request.hasSource()) {
+    query["Source"] = request.getSource();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DescribePolarClawSkillAssessment"},
+    {"version" , "2017-08-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DescribePolarClawSkillAssessmentResponse>();
+}
+
+/**
+ * @summary Retrieves the details of a PolarClaw skill security assessment.
+ *
+ * @param request DescribePolarClawSkillAssessmentRequest
+ * @return DescribePolarClawSkillAssessmentResponse
+ */
+DescribePolarClawSkillAssessmentResponse Client::describePolarClawSkillAssessment(const DescribePolarClawSkillAssessmentRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return describePolarClawSkillAssessmentWithOptions(request, runtime);
 }
 
 /**
@@ -20130,6 +22477,258 @@ DescribePolarClawSkillDetailResponse Client::describePolarClawSkillDetail(const 
 }
 
 /**
+ * @summary Queries the details of a PolarClaw skill template.
+ *
+ * @description Queries the PolarClaw skill templates associated with a specified application. You must provide ApplicationId when calling this operation. If this parameter is not specified, InvalidApplicationId.Malformed is returned. The SkillTemplates field in the response is a list of templates, and Skills is a map of keys to strings. Each string can be parsed into an array of skill details, where each array element contains skillName and version.
+ *
+ * @param request DescribePolarClawSkillTemplateRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DescribePolarClawSkillTemplateResponse
+ */
+DescribePolarClawSkillTemplateResponse Client::describePolarClawSkillTemplateWithOptions(const DescribePolarClawSkillTemplateRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasApplicationId()) {
+    query["ApplicationId"] = request.getApplicationId();
+  }
+
+  if (!!request.hasApplicationType()) {
+    query["ApplicationType"] = request.getApplicationType();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.getRegionId();
+  }
+
+  if (!!request.hasSkillTemplateId()) {
+    query["SkillTemplateId"] = request.getSkillTemplateId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DescribePolarClawSkillTemplate"},
+    {"version" , "2017-08-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DescribePolarClawSkillTemplateResponse>();
+}
+
+/**
+ * @summary Queries the details of a PolarClaw skill template.
+ *
+ * @description Queries the PolarClaw skill templates associated with a specified application. You must provide ApplicationId when calling this operation. If this parameter is not specified, InvalidApplicationId.Malformed is returned. The SkillTemplates field in the response is a list of templates, and Skills is a map of keys to strings. Each string can be parsed into an array of skill details, where each array element contains skillName and version.
+ *
+ * @param request DescribePolarClawSkillTemplateRequest
+ * @return DescribePolarClawSkillTemplateResponse
+ */
+DescribePolarClawSkillTemplateResponse Client::describePolarClawSkillTemplate(const DescribePolarClawSkillTemplateRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return describePolarClawSkillTemplateWithOptions(request, runtime);
+}
+
+/**
+ * @summary Queries PolarClaw skill templates. You can filter the templates by template ID and time range, and the results are paginated.
+ *
+ * @param request DescribePolarClawSkillTemplatesRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DescribePolarClawSkillTemplatesResponse
+ */
+DescribePolarClawSkillTemplatesResponse Client::describePolarClawSkillTemplatesWithOptions(const DescribePolarClawSkillTemplatesRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasApplicationId()) {
+    query["ApplicationId"] = request.getApplicationId();
+  }
+
+  if (!!request.hasApplicationType()) {
+    query["ApplicationType"] = request.getApplicationType();
+  }
+
+  if (!!request.hasEndTime()) {
+    query["EndTime"] = request.getEndTime();
+  }
+
+  if (!!request.hasPageNumber()) {
+    query["PageNumber"] = request.getPageNumber();
+  }
+
+  if (!!request.hasPageSize()) {
+    query["PageSize"] = request.getPageSize();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.getRegionId();
+  }
+
+  if (!!request.hasSkillTemplateId()) {
+    query["SkillTemplateId"] = request.getSkillTemplateId();
+  }
+
+  if (!!request.hasStartTime()) {
+    query["StartTime"] = request.getStartTime();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DescribePolarClawSkillTemplates"},
+    {"version" , "2017-08-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DescribePolarClawSkillTemplatesResponse>();
+}
+
+/**
+ * @summary Queries PolarClaw skill templates. You can filter the templates by template ID and time range, and the results are paginated.
+ *
+ * @param request DescribePolarClawSkillTemplatesRequest
+ * @return DescribePolarClawSkillTemplatesResponse
+ */
+DescribePolarClawSkillTemplatesResponse Client::describePolarClawSkillTemplates(const DescribePolarClawSkillTemplatesRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return describePolarClawSkillTemplatesWithOptions(request, runtime);
+}
+
+/**
+ * @summary Queries PolarClaw skills.
+ *
+ * @param request DescribePolarClawSkillsRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DescribePolarClawSkillsResponse
+ */
+DescribePolarClawSkillsResponse Client::describePolarClawSkillsWithOptions(const DescribePolarClawSkillsRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasAgentId()) {
+    query["AgentId"] = request.getAgentId();
+  }
+
+  if (!!request.hasApplicationId()) {
+    query["ApplicationId"] = request.getApplicationId();
+  }
+
+  if (!!request.hasPageNumber()) {
+    query["PageNumber"] = request.getPageNumber();
+  }
+
+  if (!!request.hasPageSize()) {
+    query["PageSize"] = request.getPageSize();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.getRegionId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DescribePolarClawSkills"},
+    {"version" , "2017-08-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DescribePolarClawSkillsResponse>();
+}
+
+/**
+ * @summary Queries PolarClaw skills.
+ *
+ * @param request DescribePolarClawSkillsRequest
+ * @return DescribePolarClawSkillsResponse
+ */
+DescribePolarClawSkillsResponse Client::describePolarClawSkills(const DescribePolarClawSkillsRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return describePolarClawSkillsWithOptions(request, runtime);
+}
+
+/**
+ * @summary Queries the PolarClaw skills marketplace.
+ *
+ * @param request DescribePolarClawSkillsMarketRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DescribePolarClawSkillsMarketResponse
+ */
+DescribePolarClawSkillsMarketResponse Client::describePolarClawSkillsMarketWithOptions(const DescribePolarClawSkillsMarketRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasOrderBy()) {
+    query["OrderBy"] = request.getOrderBy();
+  }
+
+  if (!!request.hasPageNumber()) {
+    query["PageNumber"] = request.getPageNumber();
+  }
+
+  if (!!request.hasPageSize()) {
+    query["PageSize"] = request.getPageSize();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.getRegionId();
+  }
+
+  if (!!request.hasSearchBySkillName()) {
+    query["SearchBySkillName"] = request.getSearchBySkillName();
+  }
+
+  if (!!request.hasSearchByTagName()) {
+    query["SearchByTagName"] = request.getSearchByTagName();
+  }
+
+  if (!!request.hasSource()) {
+    query["Source"] = request.getSource();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DescribePolarClawSkillsMarket"},
+    {"version" , "2017-08-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DescribePolarClawSkillsMarketResponse>();
+}
+
+/**
+ * @summary Queries the PolarClaw skills marketplace.
+ *
+ * @param request DescribePolarClawSkillsMarketRequest
+ * @return DescribePolarClawSkillsMarketResponse
+ */
+DescribePolarClawSkillsMarketResponse Client::describePolarClawSkillsMarket(const DescribePolarClawSkillsMarketRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return describePolarClawSkillsMarketWithOptions(request, runtime);
+}
+
+/**
  * @summary Queries the status of a PolarClaw asynchronous task.
  *
  * @param request DescribePolarClawTaskRequest
@@ -20176,7 +22775,7 @@ DescribePolarClawTaskResponse Client::describePolarClawTask(const DescribePolarC
 }
 
 /**
- * @summary Queries the PolarFS information.
+ * @summary Queries PolarFS information.
  *
  * @param request DescribePolarFsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -20243,7 +22842,7 @@ DescribePolarFsResponse Client::describePolarFsWithOptions(const DescribePolarFs
 }
 
 /**
- * @summary Queries the PolarFS information.
+ * @summary Queries PolarFS information.
  *
  * @param request DescribePolarFsRequest
  * @return DescribePolarFsResponse
@@ -20358,13 +22957,13 @@ DescribePolarFsMappingResponse Client::describePolarFsMapping(const DescribePola
 }
 
 /**
- * @summary Lists the files and subdirectories under a specified path.
+ * @summary Lists the files and subdirectories in a specified path.
  *
- * @description ## 请求说明
- * - **Path** 参数必须提供一个绝对路径。
- * - **Recursive** 参数默认为 `false`，如果设置为 `true`，则会递归列出所有子目录的内容。
- * - **Depth** 参数用于限制递归深度，默认值为 `1`。
- * - **Filter** 参数支持通配符或正则表达式过滤结果。
+ * @description ## Request description
+ * - The **Path** parameter must be an absolute path.
+ * - The **Recursive** parameter defaults to `false`. If set to `true`, the contents of all subdirectories are listed recursively.
+ * - The **Depth** parameter limits the recursion depth. Default value: `1`.
+ * - The **Filter** parameter supports wildcards or regular expressions to filter results.
  *
  * @param request DescribePolarFsObjectsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -20399,13 +22998,13 @@ DescribePolarFsObjectsResponse Client::describePolarFsObjectsWithOptions(const D
 }
 
 /**
- * @summary Lists the files and subdirectories under a specified path.
+ * @summary Lists the files and subdirectories in a specified path.
  *
- * @description ## 请求说明
- * - **Path** 参数必须提供一个绝对路径。
- * - **Recursive** 参数默认为 `false`，如果设置为 `true`，则会递归列出所有子目录的内容。
- * - **Depth** 参数用于限制递归深度，默认值为 `1`。
- * - **Filter** 参数支持通配符或正则表达式过滤结果。
+ * @description ## Request description
+ * - The **Path** parameter must be an absolute path.
+ * - The **Recursive** parameter defaults to `false`. If set to `true`, the contents of all subdirectories are listed recursively.
+ * - The **Depth** parameter limits the recursion depth. Default value: `1`.
+ * - The **Filter** parameter supports wildcards or regular expressions to filter results.
  *
  * @param request DescribePolarFsObjectsRequest
  * @return DescribePolarFsObjectsResponse
@@ -20413,6 +23012,76 @@ DescribePolarFsObjectsResponse Client::describePolarFsObjectsWithOptions(const D
 DescribePolarFsObjectsResponse Client::describePolarFsObjects(const DescribePolarFsObjectsRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return describePolarFsObjectsWithOptions(request, runtime);
+}
+
+/**
+ * @summary Queries the performance metrics and sampling data of a specified PolarFS instance within a specified time range.
+ *
+ * @description Use Key to specify the metric group to query and Interval to specify the sampling granularity. The end time of the query must not be earlier than the start time, and the start time must not be later than the current time.
+ *
+ * @param request DescribePolarFsPerformanceRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DescribePolarFsPerformanceResponse
+ */
+DescribePolarFsPerformanceResponse Client::describePolarFsPerformanceWithOptions(const DescribePolarFsPerformanceRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasDBClusterId()) {
+    query["DBClusterId"] = request.getDBClusterId();
+  }
+
+  if (!!request.hasEndTime()) {
+    query["EndTime"] = request.getEndTime();
+  }
+
+  if (!!request.hasInterval()) {
+    query["Interval"] = request.getInterval();
+  }
+
+  if (!!request.hasKey()) {
+    query["Key"] = request.getKey();
+  }
+
+  if (!!request.hasPolarFsInstanceId()) {
+    query["PolarFsInstanceId"] = request.getPolarFsInstanceId();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.getRegionId();
+  }
+
+  if (!!request.hasStartTime()) {
+    query["StartTime"] = request.getStartTime();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DescribePolarFsPerformance"},
+    {"version" , "2017-08-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DescribePolarFsPerformanceResponse>();
+}
+
+/**
+ * @summary Queries the performance metrics and sampling data of a specified PolarFS instance within a specified time range.
+ *
+ * @description Use Key to specify the metric group to query and Interval to specify the sampling granularity. The end time of the query must not be earlier than the start time, and the start time must not be later than the current time.
+ *
+ * @param request DescribePolarFsPerformanceRequest
+ * @return DescribePolarFsPerformanceResponse
+ */
+DescribePolarFsPerformanceResponse Client::describePolarFsPerformance(const DescribePolarFsPerformanceRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return describePolarFsPerformanceWithOptions(request, runtime);
 }
 
 /**
@@ -20488,7 +23157,7 @@ DescribePolarFsQuotaResponse Client::describePolarFsQuota(const DescribePolarFsQ
 }
 
 /**
- * @summary Queries the quota list.
+ * @summary Queries the list of quotas.
  *
  * @param request DescribePolarFsQuotaListRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -20539,7 +23208,7 @@ DescribePolarFsQuotaListResponse Client::describePolarFsQuotaListWithOptions(con
 }
 
 /**
- * @summary Queries the quota list.
+ * @summary Queries the list of quotas.
  *
  * @param request DescribePolarFsQuotaListRequest
  * @return DescribePolarFsQuotaListResponse
@@ -20854,6 +23523,52 @@ DescribeRegionsResponse Client::describeRegions(const DescribeRegionsRequest &re
 }
 
 /**
+ * @summary Queries the replication slots of a specified PolarDB cluster. You can filter the results by the child node name of a distributed instance.
+ *
+ * @param request DescribeReplicationSlotsRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DescribeReplicationSlotsResponse
+ */
+DescribeReplicationSlotsResponse Client::describeReplicationSlotsWithOptions(const DescribeReplicationSlotsRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasDBClusterId()) {
+    query["DBClusterId"] = request.getDBClusterId();
+  }
+
+  if (!!request.hasSubGroupName()) {
+    query["SubGroupName"] = request.getSubGroupName();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DescribeReplicationSlots"},
+    {"version" , "2017-08-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DescribeReplicationSlotsResponse>();
+}
+
+/**
+ * @summary Queries the replication slots of a specified PolarDB cluster. You can filter the results by the child node name of a distributed instance.
+ *
+ * @param request DescribeReplicationSlotsRequest
+ * @return DescribeReplicationSlotsResponse
+ */
+DescribeReplicationSlotsResponse Client::describeReplicationSlots(const DescribeReplicationSlotsRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return describeReplicationSlotsWithOptions(request, runtime);
+}
+
+/**
  * @summary Describes cross-cloud resource plans.
  *
  * @param runtime runtime options for this request RuntimeOptions
@@ -20883,6 +23598,130 @@ DescribeResourcePackagesResponse Client::describeResourcePackagesWithOptions(con
 DescribeResourcePackagesResponse Client::describeResourcePackages() {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return describeResourcePackagesWithOptions(runtime);
+}
+
+/**
+ * @summary Checks whether the SQL Explorer feature is enabled for the specified cluster.
+ *
+ * @param request DescribeSQLExplorerPolicyRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DescribeSQLExplorerPolicyResponse
+ */
+DescribeSQLExplorerPolicyResponse Client::describeSQLExplorerPolicyWithOptions(const DescribeSQLExplorerPolicyRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasDBInstanceId()) {
+    query["DBInstanceId"] = request.getDBInstanceId();
+  }
+
+  if (!!request.hasOwnerAccount()) {
+    query["OwnerAccount"] = request.getOwnerAccount();
+  }
+
+  if (!!request.hasOwnerId()) {
+    query["OwnerId"] = request.getOwnerId();
+  }
+
+  if (!!request.hasResourceOwnerAccount()) {
+    query["ResourceOwnerAccount"] = request.getResourceOwnerAccount();
+  }
+
+  if (!!request.hasResourceOwnerId()) {
+    query["ResourceOwnerId"] = request.getResourceOwnerId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DescribeSQLExplorerPolicy"},
+    {"version" , "2017-08-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DescribeSQLExplorerPolicyResponse>();
+}
+
+/**
+ * @summary Checks whether the SQL Explorer feature is enabled for the specified cluster.
+ *
+ * @param request DescribeSQLExplorerPolicyRequest
+ * @return DescribeSQLExplorerPolicyResponse
+ */
+DescribeSQLExplorerPolicyResponse Client::describeSQLExplorerPolicy(const DescribeSQLExplorerPolicyRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return describeSQLExplorerPolicyWithOptions(request, runtime);
+}
+
+/**
+ * @summary Queries the SQL Explorer log retention period for a PolarDB cluster.
+ *
+ * @param request DescribeSQLExplorerRetentionRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DescribeSQLExplorerRetentionResponse
+ */
+DescribeSQLExplorerRetentionResponse Client::describeSQLExplorerRetentionWithOptions(const DescribeSQLExplorerRetentionRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasDBInstanceId()) {
+    query["DBInstanceId"] = request.getDBInstanceId();
+  }
+
+  if (!!request.hasOwnerAccount()) {
+    query["OwnerAccount"] = request.getOwnerAccount();
+  }
+
+  if (!!request.hasOwnerId()) {
+    query["OwnerId"] = request.getOwnerId();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.getRegionId();
+  }
+
+  if (!!request.hasResourceOwnerAccount()) {
+    query["ResourceOwnerAccount"] = request.getResourceOwnerAccount();
+  }
+
+  if (!!request.hasResourceOwnerId()) {
+    query["ResourceOwnerId"] = request.getResourceOwnerId();
+  }
+
+  if (!!request.hasSecurityToken()) {
+    query["SecurityToken"] = request.getSecurityToken();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DescribeSQLExplorerRetention"},
+    {"version" , "2017-08-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DescribeSQLExplorerRetentionResponse>();
+}
+
+/**
+ * @summary Queries the SQL Explorer log retention period for a PolarDB cluster.
+ *
+ * @param request DescribeSQLExplorerRetentionRequest
+ * @return DescribeSQLExplorerRetentionResponse
+ */
+DescribeSQLExplorerRetentionResponse Client::describeSQLExplorerRetention(const DescribeSQLExplorerRetentionRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return describeSQLExplorerRetentionWithOptions(request, runtime);
 }
 
 /**
@@ -21051,6 +23890,98 @@ DescribeScheduleTasksResponse Client::describeScheduleTasksWithOptions(const Des
 DescribeScheduleTasksResponse Client::describeScheduleTasks(const DescribeScheduleTasksRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return describeScheduleTasksWithOptions(request, runtime);
+}
+
+/**
+ * @summary Queries the parameter modification history of PolarDB Search.
+ *
+ * @param request DescribeSearchModifyParameterLogRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DescribeSearchModifyParameterLogResponse
+ */
+DescribeSearchModifyParameterLogResponse Client::describeSearchModifyParameterLogWithOptions(const DescribeSearchModifyParameterLogRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasDBClusterId()) {
+    query["DBClusterId"] = request.getDBClusterId();
+  }
+
+  if (!!request.hasEndTime()) {
+    query["EndTime"] = request.getEndTime();
+  }
+
+  if (!!request.hasStartTime()) {
+    query["StartTime"] = request.getStartTime();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DescribeSearchModifyParameterLog"},
+    {"version" , "2017-08-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DescribeSearchModifyParameterLogResponse>();
+}
+
+/**
+ * @summary Queries the parameter modification history of PolarDB Search.
+ *
+ * @param request DescribeSearchModifyParameterLogRequest
+ * @return DescribeSearchModifyParameterLogResponse
+ */
+DescribeSearchModifyParameterLogResponse Client::describeSearchModifyParameterLog(const DescribeSearchModifyParameterLogRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return describeSearchModifyParameterLogWithOptions(request, runtime);
+}
+
+/**
+ * @summary Queries the parameters of a PolarDB Search cluster.
+ *
+ * @param request DescribeSearchParametersRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DescribeSearchParametersResponse
+ */
+DescribeSearchParametersResponse Client::describeSearchParametersWithOptions(const DescribeSearchParametersRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasDBClusterId()) {
+    query["DBClusterId"] = request.getDBClusterId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DescribeSearchParameters"},
+    {"version" , "2017-08-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DescribeSearchParametersResponse>();
+}
+
+/**
+ * @summary Queries the parameters of a PolarDB Search cluster.
+ *
+ * @param request DescribeSearchParametersRequest
+ * @return DescribeSearchParametersResponse
+ */
+DescribeSearchParametersResponse Client::describeSearchParameters(const DescribeSearchParametersRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return describeSearchParametersWithOptions(request, runtime);
 }
 
 /**
@@ -21327,6 +24258,76 @@ DescribeSlowLogsResponse Client::describeSlowLogsWithOptions(const DescribeSlowL
 DescribeSlowLogsResponse Client::describeSlowLogs(const DescribeSlowLogsRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return describeSlowLogsWithOptions(request, runtime);
+}
+
+/**
+ * @summary Queries the list of storage plans.
+ *
+ * @description > This operation is supported only in regions where the endpoint is polardb.aliyuncs.com.
+ *
+ * @param request DescribeStoragePlanRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DescribeStoragePlanResponse
+ */
+DescribeStoragePlanResponse Client::describeStoragePlanWithOptions(const DescribeStoragePlanRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasOwnerAccount()) {
+    query["OwnerAccount"] = request.getOwnerAccount();
+  }
+
+  if (!!request.hasOwnerId()) {
+    query["OwnerId"] = request.getOwnerId();
+  }
+
+  if (!!request.hasPageNumber()) {
+    query["PageNumber"] = request.getPageNumber();
+  }
+
+  if (!!request.hasPageSize()) {
+    query["PageSize"] = request.getPageSize();
+  }
+
+  if (!!request.hasResourceGroupId()) {
+    query["ResourceGroupId"] = request.getResourceGroupId();
+  }
+
+  if (!!request.hasResourceOwnerAccount()) {
+    query["ResourceOwnerAccount"] = request.getResourceOwnerAccount();
+  }
+
+  if (!!request.hasResourceOwnerId()) {
+    query["ResourceOwnerId"] = request.getResourceOwnerId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DescribeStoragePlan"},
+    {"version" , "2017-08-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DescribeStoragePlanResponse>();
+}
+
+/**
+ * @summary Queries the list of storage plans.
+ *
+ * @description > This operation is supported only in regions where the endpoint is polardb.aliyuncs.com.
+ *
+ * @param request DescribeStoragePlanRequest
+ * @return DescribeStoragePlanResponse
+ */
+DescribeStoragePlanResponse Client::describeStoragePlan(const DescribeStoragePlanRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return describeStoragePlanWithOptions(request, runtime);
 }
 
 /**
@@ -21836,7 +24837,7 @@ DescribeVpcsResponse Client::describeVpcs(const DescribeVpcsRequest &request) {
 }
 
 /**
- * @summary Queries the available zones.
+ * @summary Queries zones.
  *
  * @param request DescribeZonesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -21879,7 +24880,7 @@ DescribeZonesResponse Client::describeZonesWithOptions(const DescribeZonesReques
 }
 
 /**
- * @summary Queries the available zones.
+ * @summary Queries zones.
  *
  * @param request DescribeZonesRequest
  * @return DescribeZonesResponse
@@ -21887,6 +24888,90 @@ DescribeZonesResponse Client::describeZonesWithOptions(const DescribeZonesReques
 DescribeZonesResponse Client::describeZones(const DescribeZonesRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return describeZonesWithOptions(request, runtime);
+}
+
+/**
+ * @summary Disables the column store table feature for a specified PolarDB cluster.
+ *
+ * @param request DisableDBClusterCTableRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DisableDBClusterCTableResponse
+ */
+DisableDBClusterCTableResponse Client::disableDBClusterCTableWithOptions(const DisableDBClusterCTableRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasDBClusterId()) {
+    query["DBClusterId"] = request.getDBClusterId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DisableDBClusterCTable"},
+    {"version" , "2017-08-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DisableDBClusterCTableResponse>();
+}
+
+/**
+ * @summary Disables the column store table feature for a specified PolarDB cluster.
+ *
+ * @param request DisableDBClusterCTableRequest
+ * @return DisableDBClusterCTableResponse
+ */
+DisableDBClusterCTableResponse Client::disableDBClusterCTable(const DisableDBClusterCTableRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return disableDBClusterCTableWithOptions(request, runtime);
+}
+
+/**
+ * @summary Disables document database support for a specified PolarDB cluster.
+ *
+ * @param request DisableDBClusterDocumentDBRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DisableDBClusterDocumentDBResponse
+ */
+DisableDBClusterDocumentDBResponse Client::disableDBClusterDocumentDBWithOptions(const DisableDBClusterDocumentDBRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasDBClusterId()) {
+    query["DBClusterId"] = request.getDBClusterId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DisableDBClusterDocumentDB"},
+    {"version" , "2017-08-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DisableDBClusterDocumentDBResponse>();
+}
+
+/**
+ * @summary Disables document database support for a specified PolarDB cluster.
+ *
+ * @param request DisableDBClusterDocumentDBRequest
+ * @return DisableDBClusterDocumentDBResponse
+ */
+DisableDBClusterDocumentDBResponse Client::disableDBClusterDocumentDB(const DisableDBClusterDocumentDBRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return disableDBClusterDocumentDBWithOptions(request, runtime);
 }
 
 /**
@@ -22217,6 +25302,156 @@ DisablePolarClawPluginResponse Client::disablePolarClawPluginWithOptions(const D
 DisablePolarClawPluginResponse Client::disablePolarClawPlugin(const DisablePolarClawPluginRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return disablePolarClawPluginWithOptions(request, runtime);
+}
+
+/**
+ * @summary Enables the dataset service for a cold storage instance.
+ *
+ * @param request EnableAIDBClusterDatasetServiceRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return EnableAIDBClusterDatasetServiceResponse
+ */
+EnableAIDBClusterDatasetServiceResponse Client::enableAIDBClusterDatasetServiceWithOptions(const EnableAIDBClusterDatasetServiceRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasDBClusterId()) {
+    query["DBClusterId"] = request.getDBClusterId();
+  }
+
+  if (!!request.hasOwnerAccount()) {
+    query["OwnerAccount"] = request.getOwnerAccount();
+  }
+
+  if (!!request.hasOwnerId()) {
+    query["OwnerId"] = request.getOwnerId();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.getRegionId();
+  }
+
+  if (!!request.hasRelativeDBClusterId()) {
+    query["RelativeDBClusterId"] = request.getRelativeDBClusterId();
+  }
+
+  if (!!request.hasResourceOwnerAccount()) {
+    query["ResourceOwnerAccount"] = request.getResourceOwnerAccount();
+  }
+
+  if (!!request.hasResourceOwnerId()) {
+    query["ResourceOwnerId"] = request.getResourceOwnerId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "EnableAIDBClusterDatasetService"},
+    {"version" , "2017-08-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<EnableAIDBClusterDatasetServiceResponse>();
+}
+
+/**
+ * @summary Enables the dataset service for a cold storage instance.
+ *
+ * @param request EnableAIDBClusterDatasetServiceRequest
+ * @return EnableAIDBClusterDatasetServiceResponse
+ */
+EnableAIDBClusterDatasetServiceResponse Client::enableAIDBClusterDatasetService(const EnableAIDBClusterDatasetServiceRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return enableAIDBClusterDatasetServiceWithOptions(request, runtime);
+}
+
+/**
+ * @summary Enables the column store table feature for the specified PolarDB cluster.
+ *
+ * @param request EnableDBClusterCTableRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return EnableDBClusterCTableResponse
+ */
+EnableDBClusterCTableResponse Client::enableDBClusterCTableWithOptions(const EnableDBClusterCTableRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasDBClusterId()) {
+    query["DBClusterId"] = request.getDBClusterId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "EnableDBClusterCTable"},
+    {"version" , "2017-08-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<EnableDBClusterCTableResponse>();
+}
+
+/**
+ * @summary Enables the column store table feature for the specified PolarDB cluster.
+ *
+ * @param request EnableDBClusterCTableRequest
+ * @return EnableDBClusterCTableResponse
+ */
+EnableDBClusterCTableResponse Client::enableDBClusterCTable(const EnableDBClusterCTableRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return enableDBClusterCTableWithOptions(request, runtime);
+}
+
+/**
+ * @summary Enables document database support for an instance.
+ *
+ * @param request EnableDBClusterDocumentDBRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return EnableDBClusterDocumentDBResponse
+ */
+EnableDBClusterDocumentDBResponse Client::enableDBClusterDocumentDBWithOptions(const EnableDBClusterDocumentDBRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasDBClusterId()) {
+    query["DBClusterId"] = request.getDBClusterId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "EnableDBClusterDocumentDB"},
+    {"version" , "2017-08-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<EnableDBClusterDocumentDBResponse>();
+}
+
+/**
+ * @summary Enables document database support for an instance.
+ *
+ * @param request EnableDBClusterDocumentDBRequest
+ * @return EnableDBClusterDocumentDBResponse
+ */
+EnableDBClusterDocumentDBResponse Client::enableDBClusterDocumentDB(const EnableDBClusterDocumentDBRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return enableDBClusterDocumentDBWithOptions(request, runtime);
 }
 
 /**
@@ -23074,6 +26309,8 @@ GenerateUpgradeReportForSyncCloneResponse Client::generateUpgradeReportForSyncCl
 /**
  * @summary Retrieves the Lakebase tenant token (SPG tenant mount URL).
  *
+ * @description Retrieves the token required for mounting a Lakebase tenant. Only PolarFS instances whose CreationCategory is basic (Basic Edition) are supported. The server verifies the instance category before calling the backend, and returns OperationDenied.PolarFsCategory for other categories. Before calling this operation, provide PolarFsInstanceId and specify the associated DBClusterId, mount subdirectory, and tenant identifier as needed.
+ *
  * @param request GetLakebaseTenantTokenRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return GetLakebaseTenantTokenResponse
@@ -23116,6 +26353,8 @@ GetLakebaseTenantTokenResponse Client::getLakebaseTenantTokenWithOptions(const G
 
 /**
  * @summary Retrieves the Lakebase tenant token (SPG tenant mount URL).
+ *
+ * @description Retrieves the token required for mounting a Lakebase tenant. Only PolarFS instances whose CreationCategory is basic (Basic Edition) are supported. The server verifies the instance category before calling the backend, and returns OperationDenied.PolarFsCategory for other categories. Before calling this operation, provide PolarFsInstanceId and specify the associated DBClusterId, mount subdirectory, and tenant identifier as needed.
  *
  * @param request GetLakebaseTenantTokenRequest
  * @return GetLakebaseTenantTokenResponse
@@ -23280,6 +26519,60 @@ GetPolarClawConfigResponse Client::getPolarClawConfigWithOptions(const GetPolarC
 GetPolarClawConfigResponse Client::getPolarClawConfig(const GetPolarClawConfigRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return getPolarClawConfigWithOptions(request, runtime);
+}
+
+/**
+ * @summary Retrieves the central bucket for polarClawSkill.
+ *
+ * @description ## Request description
+ * This operation sets file quota rules for specific directories in a Polarlakebase instance. By configuring the `FilePathQuotas` parameter, you can specify the directories to which the quota rules apply and their related attributes. Note that when you use `FilePathId` to specify a directory, ensure that the path is an absolute path starting from the root directory rather than a mount point path. Additionally, you can use the `Strategy` parameter to control how the rules take effect on existing files. By default, the rules take effect only when no rules exist.
+ * ### Important notes
+ * - The maximum length of the `FilePathQuotas` list is 21.
+ * - To apply rules to multi-level subdirectories under `FilePathId`, set the `MaxDepth` parameter. To traverse to the deepest level, set this value to 0.
+ *
+ * @param request GetPolarClawSkillRegionRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetPolarClawSkillRegionResponse
+ */
+GetPolarClawSkillRegionResponse Client::getPolarClawSkillRegionWithOptions(const GetPolarClawSkillRegionRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.getRegionId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "GetPolarClawSkillRegion"},
+    {"version" , "2017-08-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetPolarClawSkillRegionResponse>();
+}
+
+/**
+ * @summary Retrieves the central bucket for polarClawSkill.
+ *
+ * @description ## Request description
+ * This operation sets file quota rules for specific directories in a Polarlakebase instance. By configuring the `FilePathQuotas` parameter, you can specify the directories to which the quota rules apply and their related attributes. Note that when you use `FilePathId` to specify a directory, ensure that the path is an absolute path starting from the root directory rather than a mount point path. Additionally, you can use the `Strategy` parameter to control how the rules take effect on existing files. By default, the rules take effect only when no rules exist.
+ * ### Important notes
+ * - The maximum length of the `FilePathQuotas` list is 21.
+ * - To apply rules to multi-level subdirectories under `FilePathId`, set the `MaxDepth` parameter. To traverse to the deepest level, set this value to 0.
+ *
+ * @param request GetPolarClawSkillRegionRequest
+ * @return GetPolarClawSkillRegionResponse
+ */
+GetPolarClawSkillRegionResponse Client::getPolarClawSkillRegion(const GetPolarClawSkillRegionRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return getPolarClawSkillRegionWithOptions(request, runtime);
 }
 
 /**
@@ -23797,7 +27090,7 @@ ListPolarClawDevicePairsResponse Client::listPolarClawDevicePairs(const ListPola
 }
 
 /**
- * @summary Queries the tags that are attached to one or more PolarDB clusters, or the PolarDB clusters that are attached to one or more tags.
+ * @summary Queries the tags bound to one or more PolarDB clusters, or the PolarDB clusters bound to one or more tags.
  *
  * @param request ListTagResourcesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -23860,7 +27153,7 @@ ListTagResourcesResponse Client::listTagResourcesWithOptions(const ListTagResour
 }
 
 /**
- * @summary Queries the tags that are attached to one or more PolarDB clusters, or the PolarDB clusters that are attached to one or more tags.
+ * @summary Queries the tags bound to one or more PolarDB clusters, or the PolarDB clusters bound to one or more tags.
  *
  * @param request ListTagResourcesRequest
  * @return ListTagResourcesResponse
@@ -23871,7 +27164,7 @@ ListTagResourcesResponse Client::listTagResources(const ListTagResourcesRequest 
 }
 
 /**
- * @summary Queries the tags that are attached to resources in a specified region.
+ * @summary Queries the resource tags in a region.
  *
  * @param request ListTagResourcesForRegionRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -23926,7 +27219,7 @@ ListTagResourcesForRegionResponse Client::listTagResourcesForRegionWithOptions(c
 }
 
 /**
- * @summary Queries the tags that are attached to resources in a specified region.
+ * @summary Queries the resource tags in a region.
  *
  * @param request ListTagResourcesForRegionRequest
  * @return ListTagResourcesForRegionResponse
@@ -24170,6 +27463,76 @@ ModifyAIDBClusterModelResponse Client::modifyAIDBClusterModelWithOptions(const M
 ModifyAIDBClusterModelResponse Client::modifyAIDBClusterModel(const ModifyAIDBClusterModelRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return modifyAIDBClusterModelWithOptions(request, runtime);
+}
+
+/**
+ * @summary Modifies a task.
+ *
+ * @param request ModifyAIDBClusterTaskRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ModifyAIDBClusterTaskResponse
+ */
+ModifyAIDBClusterTaskResponse Client::modifyAIDBClusterTaskWithOptions(const ModifyAIDBClusterTaskRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasDBClusterId()) {
+    query["DBClusterId"] = request.getDBClusterId();
+  }
+
+  if (!!request.hasModifyMode()) {
+    query["ModifyMode"] = request.getModifyMode();
+  }
+
+  if (!!request.hasOwnerAccount()) {
+    query["OwnerAccount"] = request.getOwnerAccount();
+  }
+
+  if (!!request.hasOwnerId()) {
+    query["OwnerId"] = request.getOwnerId();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.getRegionId();
+  }
+
+  if (!!request.hasRelativeDBClusterId()) {
+    query["RelativeDBClusterId"] = request.getRelativeDBClusterId();
+  }
+
+  if (!!request.hasResourceOwnerAccount()) {
+    query["ResourceOwnerAccount"] = request.getResourceOwnerAccount();
+  }
+
+  if (!!request.hasResourceOwnerId()) {
+    query["ResourceOwnerId"] = request.getResourceOwnerId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ModifyAIDBClusterTask"},
+    {"version" , "2017-08-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ModifyAIDBClusterTaskResponse>();
+}
+
+/**
+ * @summary Modifies a task.
+ *
+ * @param request ModifyAIDBClusterTaskRequest
+ * @return ModifyAIDBClusterTaskResponse
+ */
+ModifyAIDBClusterTaskResponse Client::modifyAIDBClusterTask(const ModifyAIDBClusterTaskRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return modifyAIDBClusterTaskWithOptions(request, runtime);
 }
 
 /**
@@ -24687,7 +28050,7 @@ ModifyActiveOperationTasksResponse Client::modifyActiveOperationTasks(const Modi
 }
 
 /**
- * @summary Modifies the history retention window of an AgenticDB project.
+ * @summary Modifies the history retention window for an AgenticDB project.
  *
  * @param request ModifyAgenticDBProjectHistoryRetentionRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -24734,7 +28097,7 @@ ModifyAgenticDBProjectHistoryRetentionResponse Client::modifyAgenticDBProjectHis
 }
 
 /**
- * @summary Modifies the history retention window of an AgenticDB project.
+ * @summary Modifies the history retention window for an AgenticDB project.
  *
  * @param request ModifyAgenticDBProjectHistoryRetentionRequest
  * @return ModifyAgenticDBProjectHistoryRetentionResponse
@@ -24742,6 +28105,68 @@ ModifyAgenticDBProjectHistoryRetentionResponse Client::modifyAgenticDBProjectHis
 ModifyAgenticDBProjectHistoryRetentionResponse Client::modifyAgenticDBProjectHistoryRetention(const ModifyAgenticDBProjectHistoryRetentionRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return modifyAgenticDBProjectHistoryRetentionWithOptions(request, runtime);
+}
+
+/**
+ * @summary Modifies the automatic backup cycle, backup time window, and level-1 backup retention period of a specified application.
+ *
+ * @param request ModifyApplicationBackupPolicyRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ModifyApplicationBackupPolicyResponse
+ */
+ModifyApplicationBackupPolicyResponse Client::modifyApplicationBackupPolicyWithOptions(const ModifyApplicationBackupPolicyRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasApplicationId()) {
+    query["ApplicationId"] = request.getApplicationId();
+  }
+
+  if (!!request.hasApplicationType()) {
+    query["ApplicationType"] = request.getApplicationType();
+  }
+
+  if (!!request.hasPreferredBackupPeriod()) {
+    query["PreferredBackupPeriod"] = request.getPreferredBackupPeriod();
+  }
+
+  if (!!request.hasPreferredBackupRetentionPeriod()) {
+    query["PreferredBackupRetentionPeriod"] = request.getPreferredBackupRetentionPeriod();
+  }
+
+  if (!!request.hasPreferredBackupTime()) {
+    query["PreferredBackupTime"] = request.getPreferredBackupTime();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.getRegionId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ModifyApplicationBackupPolicy"},
+    {"version" , "2017-08-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ModifyApplicationBackupPolicyResponse>();
+}
+
+/**
+ * @summary Modifies the automatic backup cycle, backup time window, and level-1 backup retention period of a specified application.
+ *
+ * @param request ModifyApplicationBackupPolicyRequest
+ * @return ModifyApplicationBackupPolicyResponse
+ */
+ModifyApplicationBackupPolicyResponse Client::modifyApplicationBackupPolicy(const ModifyApplicationBackupPolicyRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return modifyApplicationBackupPolicyWithOptions(request, runtime);
 }
 
 /**
@@ -26089,6 +29514,52 @@ ModifyDBClusterAuditLogCollectorResponse Client::modifyDBClusterAuditLogCollecto
 }
 
 /**
+ * @summary Modifies the minor engine version update policy for a specified PolarDB cluster.
+ *
+ * @param request ModifyDBClusterAutoUpgradeMinorVersionRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ModifyDBClusterAutoUpgradeMinorVersionResponse
+ */
+ModifyDBClusterAutoUpgradeMinorVersionResponse Client::modifyDBClusterAutoUpgradeMinorVersionWithOptions(const ModifyDBClusterAutoUpgradeMinorVersionRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasAutoUpgradeMinorVersion()) {
+    query["AutoUpgradeMinorVersion"] = request.getAutoUpgradeMinorVersion();
+  }
+
+  if (!!request.hasDBClusterId()) {
+    query["DBClusterId"] = request.getDBClusterId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ModifyDBClusterAutoUpgradeMinorVersion"},
+    {"version" , "2017-08-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ModifyDBClusterAutoUpgradeMinorVersionResponse>();
+}
+
+/**
+ * @summary Modifies the minor engine version update policy for a specified PolarDB cluster.
+ *
+ * @param request ModifyDBClusterAutoUpgradeMinorVersionRequest
+ * @return ModifyDBClusterAutoUpgradeMinorVersionResponse
+ */
+ModifyDBClusterAutoUpgradeMinorVersionResponse Client::modifyDBClusterAutoUpgradeMinorVersion(const ModifyDBClusterAutoUpgradeMinorVersionRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return modifyDBClusterAutoUpgradeMinorVersionWithOptions(request, runtime);
+}
+
+/**
  * @summary Enables or disables the cluster lock.
  *
  * @param request ModifyDBClusterDeletionRequest
@@ -27015,7 +30486,7 @@ ModifyDBClusterResourceGroupResponse Client::modifyDBClusterResourceGroup(const 
 }
 
 /**
- * @summary Enables or shuts down the Secure Sockets Layer (SSL) encryption feature for a PolarDB cluster, or updates the CA certificate of a PolarDB cluster.
+ * @summary Enables or performs a shutdown of the Secure Sockets Layer (SSL) encryption feature for a PolarDB cluster, or updates the CA certificate of a PolarDB cluster.
  *
  * @param request ModifyDBClusterSSLRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -27090,7 +30561,7 @@ ModifyDBClusterSSLResponse Client::modifyDBClusterSSLWithOptions(const ModifyDBC
 }
 
 /**
- * @summary Enables or shuts down the Secure Sockets Layer (SSL) encryption feature for a PolarDB cluster, or updates the CA certificate of a PolarDB cluster.
+ * @summary Enables or performs a shutdown of the Secure Sockets Layer (SSL) encryption feature for a PolarDB cluster, or updates the CA certificate of a PolarDB cluster.
  *
  * @param request ModifyDBClusterSSLRequest
  * @return ModifyDBClusterSSLResponse
@@ -27391,11 +30862,11 @@ ModifyDBClusterStorageSpaceResponse Client::modifyDBClusterStorageSpace(const Mo
 }
 
 /**
- * @summary ModifyDBClusterTDE
+ * @summary Enables Transparent Data Encryption (TDE) for a specified PolarDB cluster. You must activate Key Management Service (KMS) before you enable TDE. TDE cannot be disabled after it is enabled.
  *
- * @description > - You must activate Key Management Service (KMS) before you perform this operation. For more information, see [Purchase a dedicated KMS instance](https://help.aliyun.com/document_detail/153781.html).
- * >
- * > - You cannot disable transparent data encryption (TDE) after you enable it.
+ * @description >* You must activate KMS before you perform this operation. For more information, see [Purchase a dedicated KMS instance](https://help.aliyun.com/document_detail/153781.html).
+ * >* TDE cannot be disabled after it is enabled.
+ * Before you call this operation, call the OpenKmsService operation of KMS (version 2016-01-20) to activate KMS, and then call this operation to enable TDE for the cluster.
  *
  * @param request ModifyDBClusterTDERequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -27462,11 +30933,11 @@ ModifyDBClusterTDEResponse Client::modifyDBClusterTDEWithOptions(const ModifyDBC
 }
 
 /**
- * @summary ModifyDBClusterTDE
+ * @summary Enables Transparent Data Encryption (TDE) for a specified PolarDB cluster. You must activate Key Management Service (KMS) before you enable TDE. TDE cannot be disabled after it is enabled.
  *
- * @description > - You must activate Key Management Service (KMS) before you perform this operation. For more information, see [Purchase a dedicated KMS instance](https://help.aliyun.com/document_detail/153781.html).
- * >
- * > - You cannot disable transparent data encryption (TDE) after you enable it.
+ * @description >* You must activate KMS before you perform this operation. For more information, see [Purchase a dedicated KMS instance](https://help.aliyun.com/document_detail/153781.html).
+ * >* TDE cannot be disabled after it is enabled.
+ * Before you call this operation, call the OpenKmsService operation of KMS (version 2016-01-20) to activate KMS, and then call this operation to enable TDE for the cluster.
  *
  * @param request ModifyDBClusterTDERequest
  * @return ModifyDBClusterTDEResponse
@@ -28070,6 +31541,72 @@ ModifyDBNodeHotReplicaModeResponse Client::modifyDBNodeHotReplicaModeWithOptions
 ModifyDBNodeHotReplicaModeResponse Client::modifyDBNodeHotReplicaMode(const ModifyDBNodeHotReplicaModeRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return modifyDBNodeHotReplicaModeWithOptions(request, runtime);
+}
+
+/**
+ * @summary Modifies the routing access weights of nodes.
+ *
+ * @param request ModifyDBNodeRouterWeightRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ModifyDBNodeRouterWeightResponse
+ */
+ModifyDBNodeRouterWeightResponse Client::modifyDBNodeRouterWeightWithOptions(const ModifyDBNodeRouterWeightRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasDBClusterId()) {
+    query["DBClusterId"] = request.getDBClusterId();
+  }
+
+  if (!!request.hasDBNodeWeights()) {
+    query["DBNodeWeights"] = request.getDBNodeWeights();
+  }
+
+  if (!!request.hasOwnerAccount()) {
+    query["OwnerAccount"] = request.getOwnerAccount();
+  }
+
+  if (!!request.hasOwnerId()) {
+    query["OwnerId"] = request.getOwnerId();
+  }
+
+  if (!!request.hasResourceOwnerAccount()) {
+    query["ResourceOwnerAccount"] = request.getResourceOwnerAccount();
+  }
+
+  if (!!request.hasResourceOwnerId()) {
+    query["ResourceOwnerId"] = request.getResourceOwnerId();
+  }
+
+  if (!!request.hasSecurityToken()) {
+    query["SecurityToken"] = request.getSecurityToken();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ModifyDBNodeRouterWeight"},
+    {"version" , "2017-08-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ModifyDBNodeRouterWeightResponse>();
+}
+
+/**
+ * @summary Modifies the routing access weights of nodes.
+ *
+ * @param request ModifyDBNodeRouterWeightRequest
+ * @return ModifyDBNodeRouterWeightResponse
+ */
+ModifyDBNodeRouterWeightResponse Client::modifyDBNodeRouterWeight(const ModifyDBNodeRouterWeightRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return modifyDBNodeRouterWeightWithOptions(request, runtime);
 }
 
 /**
@@ -28821,6 +32358,122 @@ ModifyGlobalSecurityIPGroupRelationResponse Client::modifyGlobalSecurityIPGroupR
 }
 
 /**
+ * @summary Modifies a mounted parameter template for Lakebase.
+ *
+ * @param request ModifyLakebaseMountParameterGroupRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ModifyLakebaseMountParameterGroupResponse
+ */
+ModifyLakebaseMountParameterGroupResponse Client::modifyLakebaseMountParameterGroupWithOptions(const ModifyLakebaseMountParameterGroupRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasDeleteParameters()) {
+    query["DeleteParameters"] = request.getDeleteParameters();
+  }
+
+  if (!!request.hasParameterGroupId()) {
+    query["ParameterGroupId"] = request.getParameterGroupId();
+  }
+
+  if (!!request.hasParameterGroupName()) {
+    query["ParameterGroupName"] = request.getParameterGroupName();
+  }
+
+  if (!!request.hasParameters()) {
+    query["Parameters"] = request.getParameters();
+  }
+
+  if (!!request.hasPolarFsInstanceId()) {
+    query["PolarFsInstanceId"] = request.getPolarFsInstanceId();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.getRegionId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ModifyLakebaseMountParameterGroup"},
+    {"version" , "2017-08-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ModifyLakebaseMountParameterGroupResponse>();
+}
+
+/**
+ * @summary Modifies a mounted parameter template for Lakebase.
+ *
+ * @param request ModifyLakebaseMountParameterGroupRequest
+ * @return ModifyLakebaseMountParameterGroupResponse
+ */
+ModifyLakebaseMountParameterGroupResponse Client::modifyLakebaseMountParameterGroup(const ModifyLakebaseMountParameterGroupRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return modifyLakebaseMountParameterGroupWithOptions(request, runtime);
+}
+
+/**
+ * @summary Modifies the PolarFS S3 account policy.
+ *
+ * @param request ModifyLakebaseS3AccountPolicyRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ModifyLakebaseS3AccountPolicyResponse
+ */
+ModifyLakebaseS3AccountPolicyResponse Client::modifyLakebaseS3AccountPolicyWithOptions(const ModifyLakebaseS3AccountPolicyRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasPfsInstanceId()) {
+    query["PfsInstanceId"] = request.getPfsInstanceId();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.getRegionId();
+  }
+
+  if (!!request.hasUserAccAk()) {
+    query["UserAccAk"] = request.getUserAccAk();
+  }
+
+  if (!!request.hasUserAccPolicy()) {
+    query["UserAccPolicy"] = request.getUserAccPolicy();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ModifyLakebaseS3AccountPolicy"},
+    {"version" , "2017-08-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ModifyLakebaseS3AccountPolicyResponse>();
+}
+
+/**
+ * @summary Modifies the PolarFS S3 account policy.
+ *
+ * @param request ModifyLakebaseS3AccountPolicyRequest
+ * @return ModifyLakebaseS3AccountPolicyResponse
+ */
+ModifyLakebaseS3AccountPolicyResponse Client::modifyLakebaseS3AccountPolicy(const ModifyLakebaseS3AccountPolicyRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return modifyLakebaseS3AccountPolicyWithOptions(request, runtime);
+}
+
+/**
  * @summary Modifies the log backup retention policy of a PolarDB cluster.
  *
  * @param tmpReq ModifyLogBackupPolicyRequest
@@ -29209,6 +32862,180 @@ ModifyPendingMaintenanceActionResponse Client::modifyPendingMaintenanceAction(co
 }
 
 /**
+ * @summary Modifies a PolarClaw skill.
+ *
+ * @description > You can also modify the automatic backup policy of a PolarDB cluster in the console. For more information, see [Backup settings](https://help.aliyun.com/document_detail/280422.html).
+ *
+ * @param request ModifyPolarClawSkillRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ModifyPolarClawSkillResponse
+ */
+ModifyPolarClawSkillResponse Client::modifyPolarClawSkillWithOptions(const ModifyPolarClawSkillRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasApplicationId()) {
+    query["ApplicationId"] = request.getApplicationId();
+  }
+
+  if (!!request.hasModifyType()) {
+    query["ModifyType"] = request.getModifyType();
+  }
+
+  if (!!request.hasPath()) {
+    query["Path"] = request.getPath();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.getRegionId();
+  }
+
+  if (!!request.hasSkillName()) {
+    query["SkillName"] = request.getSkillName();
+  }
+
+  if (!!request.hasSkillVersion()) {
+    query["SkillVersion"] = request.getSkillVersion();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ModifyPolarClawSkill"},
+    {"version" , "2017-08-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ModifyPolarClawSkillResponse>();
+}
+
+/**
+ * @summary Modifies a PolarClaw skill.
+ *
+ * @description > You can also modify the automatic backup policy of a PolarDB cluster in the console. For more information, see [Backup settings](https://help.aliyun.com/document_detail/280422.html).
+ *
+ * @param request ModifyPolarClawSkillRequest
+ * @return ModifyPolarClawSkillResponse
+ */
+ModifyPolarClawSkillResponse Client::modifyPolarClawSkill(const ModifyPolarClawSkillRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return modifyPolarClawSkillWithOptions(request, runtime);
+}
+
+/**
+ * @summary Modifies the PolarFs configuration.
+ *
+ * @param request ModifyPolarFsRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ModifyPolarFsResponse
+ */
+ModifyPolarFsResponse Client::modifyPolarFsWithOptions(const ModifyPolarFsRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasCustomOssAk()) {
+    query["CustomOssAk"] = request.getCustomOssAk();
+  }
+
+  if (!!request.hasCustomOssSk()) {
+    query["CustomOssSk"] = request.getCustomOssSk();
+  }
+
+  if (!!request.hasDBClusterId()) {
+    query["DBClusterId"] = request.getDBClusterId();
+  }
+
+  if (!!request.hasPolarFsInstanceId()) {
+    query["PolarFsInstanceId"] = request.getPolarFsInstanceId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ModifyPolarFs"},
+    {"version" , "2017-08-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ModifyPolarFsResponse>();
+}
+
+/**
+ * @summary Modifies the PolarFs configuration.
+ *
+ * @param request ModifyPolarFsRequest
+ * @return ModifyPolarFsResponse
+ */
+ModifyPolarFsResponse Client::modifyPolarFs(const ModifyPolarFsRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return modifyPolarFsWithOptions(request, runtime);
+}
+
+/**
+ * @summary Modifies the description of a PolarFS instance.
+ *
+ * @param request ModifyPolarFsInstanceDescriptionRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ModifyPolarFsInstanceDescriptionResponse
+ */
+ModifyPolarFsInstanceDescriptionResponse Client::modifyPolarFsInstanceDescriptionWithOptions(const ModifyPolarFsInstanceDescriptionRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasDBClusterId()) {
+    query["DBClusterId"] = request.getDBClusterId();
+  }
+
+  if (!!request.hasPolarFsInstanceDescription()) {
+    query["PolarFsInstanceDescription"] = request.getPolarFsInstanceDescription();
+  }
+
+  if (!!request.hasPolarFsInstanceId()) {
+    query["PolarFsInstanceId"] = request.getPolarFsInstanceId();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.getRegionId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ModifyPolarFsInstanceDescription"},
+    {"version" , "2017-08-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ModifyPolarFsInstanceDescriptionResponse>();
+}
+
+/**
+ * @summary Modifies the description of a PolarFS instance.
+ *
+ * @param request ModifyPolarFsInstanceDescriptionRequest
+ * @return ModifyPolarFsInstanceDescriptionResponse
+ */
+ModifyPolarFsInstanceDescriptionResponse Client::modifyPolarFsInstanceDescription(const ModifyPolarFsInstanceDescriptionRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return modifyPolarFsInstanceDescriptionWithOptions(request, runtime);
+}
+
+/**
  * @summary Modifies the bucket credentials for a PolarFS path mapping.
  *
  * @param request ModifyPolarFsMappingAuthRequest
@@ -29589,6 +33416,192 @@ ModifyScheduleTaskResponse Client::modifyScheduleTask(const ModifyScheduleTaskRe
 }
 
 /**
+ * @summary Modifies the parameters of a PolarDB Search cluster.
+ *
+ * @param request ModifySearchParametersRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ModifySearchParametersResponse
+ */
+ModifySearchParametersResponse Client::modifySearchParametersWithOptions(const ModifySearchParametersRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasDBClusterId()) {
+    query["DBClusterId"] = request.getDBClusterId();
+  }
+
+  if (!!request.hasParameters()) {
+    query["Parameters"] = request.getParameters();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ModifySearchParameters"},
+    {"version" , "2017-08-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ModifySearchParametersResponse>();
+}
+
+/**
+ * @summary Modifies the parameters of a PolarDB Search cluster.
+ *
+ * @param request ModifySearchParametersRequest
+ * @return ModifySearchParametersResponse
+ */
+ModifySearchParametersResponse Client::modifySearchParameters(const ModifySearchParametersRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return modifySearchParametersWithOptions(request, runtime);
+}
+
+/**
+ * @summary Modifies the IP address whitelist of a specified PolarDB cluster.
+ *
+ * @param request ModifySecurityIpsRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ModifySecurityIpsResponse
+ */
+ModifySecurityIpsResponse Client::modifySecurityIpsWithOptions(const ModifySecurityIpsRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasDBClusterIPArrayAttribute()) {
+    query["DBClusterIPArrayAttribute"] = request.getDBClusterIPArrayAttribute();
+  }
+
+  if (!!request.hasDBClusterIPArrayName()) {
+    query["DBClusterIPArrayName"] = request.getDBClusterIPArrayName();
+  }
+
+  if (!!request.hasDBClusterId()) {
+    query["DBClusterId"] = request.getDBClusterId();
+  }
+
+  if (!!request.hasOwnerAccount()) {
+    query["OwnerAccount"] = request.getOwnerAccount();
+  }
+
+  if (!!request.hasOwnerId()) {
+    query["OwnerId"] = request.getOwnerId();
+  }
+
+  if (!!request.hasResourceOwnerAccount()) {
+    query["ResourceOwnerAccount"] = request.getResourceOwnerAccount();
+  }
+
+  if (!!request.hasResourceOwnerId()) {
+    query["ResourceOwnerId"] = request.getResourceOwnerId();
+  }
+
+  if (!!request.hasSecurityIps()) {
+    query["SecurityIps"] = request.getSecurityIps();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ModifySecurityIps"},
+    {"version" , "2017-08-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ModifySecurityIpsResponse>();
+}
+
+/**
+ * @summary Modifies the IP address whitelist of a specified PolarDB cluster.
+ *
+ * @param request ModifySecurityIpsRequest
+ * @return ModifySecurityIpsResponse
+ */
+ModifySecurityIpsResponse Client::modifySecurityIps(const ModifySecurityIpsRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return modifySecurityIpsWithOptions(request, runtime);
+}
+
+/**
+ * @summary Updates task information in the task center.
+ *
+ * @param request ModifyTaskInfoRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ModifyTaskInfoResponse
+ */
+ModifyTaskInfoResponse Client::modifyTaskInfoWithOptions(const ModifyTaskInfoRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasActionParams()) {
+    query["ActionParams"] = request.getActionParams();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.getRegionId();
+  }
+
+  if (!!request.hasResourceOwnerAccount()) {
+    query["ResourceOwnerAccount"] = request.getResourceOwnerAccount();
+  }
+
+  if (!!request.hasResourceOwnerId()) {
+    query["ResourceOwnerId"] = request.getResourceOwnerId();
+  }
+
+  if (!!request.hasSecurityToken()) {
+    query["SecurityToken"] = request.getSecurityToken();
+  }
+
+  if (!!request.hasStepName()) {
+    query["StepName"] = request.getStepName();
+  }
+
+  if (!!request.hasTaskAction()) {
+    query["TaskAction"] = request.getTaskAction();
+  }
+
+  if (!!request.hasTaskId()) {
+    query["TaskId"] = request.getTaskId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ModifyTaskInfo"},
+    {"version" , "2017-08-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ModifyTaskInfoResponse>();
+}
+
+/**
+ * @summary Updates task information in the task center.
+ *
+ * @param request ModifyTaskInfoRequest
+ * @return ModifyTaskInfoResponse
+ */
+ModifyTaskInfoResponse Client::modifyTaskInfo(const ModifyTaskInfoRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return modifyTaskInfoWithOptions(request, runtime);
+}
+
+/**
  * @summary Renames or moves files in a PolarFs instance.
  *
  * @param request MovePolarFsObjectsRequest
@@ -29912,6 +33925,84 @@ RefreshDBClusterStorageUsageResponse Client::refreshDBClusterStorageUsageWithOpt
 RefreshDBClusterStorageUsageResponse Client::refreshDBClusterStorageUsage(const RefreshDBClusterStorageUsageRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return refreshDBClusterStorageUsageWithOptions(request, runtime);
+}
+
+/**
+ * @summary Modifies the proxy performance level of a specified PolarDB cluster and supports scheduled execution.
+ *
+ * @param request RefreshProxyLevelRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return RefreshProxyLevelResponse
+ */
+RefreshProxyLevelResponse Client::refreshProxyLevelWithOptions(const RefreshProxyLevelRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasDBClusterId()) {
+    query["DBClusterId"] = request.getDBClusterId();
+  }
+
+  if (!!request.hasFromTimeService()) {
+    query["FromTimeService"] = request.getFromTimeService();
+  }
+
+  if (!!request.hasOwnerAccount()) {
+    query["OwnerAccount"] = request.getOwnerAccount();
+  }
+
+  if (!!request.hasOwnerId()) {
+    query["OwnerId"] = request.getOwnerId();
+  }
+
+  if (!!request.hasPlannedEndTime()) {
+    query["PlannedEndTime"] = request.getPlannedEndTime();
+  }
+
+  if (!!request.hasPlannedStartTime()) {
+    query["PlannedStartTime"] = request.getPlannedStartTime();
+  }
+
+  if (!!request.hasProxyTargetClass()) {
+    query["ProxyTargetClass"] = request.getProxyTargetClass();
+  }
+
+  if (!!request.hasResourceGroupId()) {
+    query["ResourceGroupId"] = request.getResourceGroupId();
+  }
+
+  if (!!request.hasResourceOwnerAccount()) {
+    query["ResourceOwnerAccount"] = request.getResourceOwnerAccount();
+  }
+
+  if (!!request.hasResourceOwnerId()) {
+    query["ResourceOwnerId"] = request.getResourceOwnerId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "RefreshProxyLevel"},
+    {"version" , "2017-08-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<RefreshProxyLevelResponse>();
+}
+
+/**
+ * @summary Modifies the proxy performance level of a specified PolarDB cluster and supports scheduled execution.
+ *
+ * @param request RefreshProxyLevelRequest
+ * @return RefreshProxyLevelResponse
+ */
+RefreshProxyLevelResponse Client::refreshProxyLevel(const RefreshProxyLevelRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return refreshProxyLevelWithOptions(request, runtime);
 }
 
 /**
@@ -30601,6 +34692,62 @@ ResetAgenticDBTenantApiKeyResponse Client::resetAgenticDBTenantApiKey(const Rese
 }
 
 /**
+ * @summary Resets the password of an application account.
+ *
+ * @description > * Only privileged accounts of PolarDB for MySQL clusters can be reset.
+ * > * If the privileged account encounters issues, such as unexpected permission revocation (REVOKE), you can reset the permissions of the privileged account to restore normal access.
+ *
+ * @param request ResetApplicationAccountPasswordRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ResetApplicationAccountPasswordResponse
+ */
+ResetApplicationAccountPasswordResponse Client::resetApplicationAccountPasswordWithOptions(const ResetApplicationAccountPasswordRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasAccountName()) {
+    query["AccountName"] = request.getAccountName();
+  }
+
+  if (!!request.hasApplicationId()) {
+    query["ApplicationId"] = request.getApplicationId();
+  }
+
+  if (!!request.hasNewAccountPassword()) {
+    query["NewAccountPassword"] = request.getNewAccountPassword();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ResetApplicationAccountPassword"},
+    {"version" , "2017-08-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ResetApplicationAccountPasswordResponse>();
+}
+
+/**
+ * @summary Resets the password of an application account.
+ *
+ * @description > * Only privileged accounts of PolarDB for MySQL clusters can be reset.
+ * > * If the privileged account encounters issues, such as unexpected permission revocation (REVOKE), you can reset the permissions of the privileged account to restore normal access.
+ *
+ * @param request ResetApplicationAccountPasswordRequest
+ * @return ResetApplicationAccountPasswordResponse
+ */
+ResetApplicationAccountPasswordResponse Client::resetApplicationAccountPassword(const ResetApplicationAccountPasswordRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return resetApplicationAccountPasswordWithOptions(request, runtime);
+}
+
+/**
  * @summary Resets an API key.
  *
  * @param request ResetConsumerApiKeyRequest
@@ -30814,6 +34961,72 @@ RestartAIDBClusterResponse Client::restartAIDBClusterWithOptions(const RestartAI
 RestartAIDBClusterResponse Client::restartAIDBCluster(const RestartAIDBClusterRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return restartAIDBClusterWithOptions(request, runtime);
+}
+
+/**
+ * @summary Restarts a specified PolarDB cluster.
+ *
+ * @param request RestartDBClusterRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return RestartDBClusterResponse
+ */
+RestartDBClusterResponse Client::restartDBClusterWithOptions(const RestartDBClusterRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasClientToken()) {
+    query["ClientToken"] = request.getClientToken();
+  }
+
+  if (!!request.hasDBClusterId()) {
+    query["DBClusterId"] = request.getDBClusterId();
+  }
+
+  if (!!request.hasOwnerAccount()) {
+    query["OwnerAccount"] = request.getOwnerAccount();
+  }
+
+  if (!!request.hasOwnerId()) {
+    query["OwnerId"] = request.getOwnerId();
+  }
+
+  if (!!request.hasResourceGroupId()) {
+    query["ResourceGroupId"] = request.getResourceGroupId();
+  }
+
+  if (!!request.hasResourceOwnerAccount()) {
+    query["ResourceOwnerAccount"] = request.getResourceOwnerAccount();
+  }
+
+  if (!!request.hasResourceOwnerId()) {
+    query["ResourceOwnerId"] = request.getResourceOwnerId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "RestartDBCluster"},
+    {"version" , "2017-08-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<RestartDBClusterResponse>();
+}
+
+/**
+ * @summary Restarts a specified PolarDB cluster.
+ *
+ * @param request RestartDBClusterRequest
+ * @return RestartDBClusterResponse
+ */
+RestartDBClusterResponse Client::restartDBCluster(const RestartDBClusterRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return restartDBClusterWithOptions(request, runtime);
 }
 
 /**
@@ -31062,6 +35275,60 @@ RestartPolarClawGatewayResponse Client::restartPolarClawGatewayWithOptions(const
 RestartPolarClawGatewayResponse Client::restartPolarClawGateway(const RestartPolarClawGatewayRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return restartPolarClawGatewayWithOptions(request, runtime);
+}
+
+/**
+ * @summary Restores a PolarDB application from a specified backup set.
+ *
+ * @param request RestoreApplicationByBackupSetRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return RestoreApplicationByBackupSetResponse
+ */
+RestoreApplicationByBackupSetResponse Client::restoreApplicationByBackupSetWithOptions(const RestoreApplicationByBackupSetRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasApplicationId()) {
+    query["ApplicationId"] = request.getApplicationId();
+  }
+
+  if (!!request.hasApplicationType()) {
+    query["ApplicationType"] = request.getApplicationType();
+  }
+
+  if (!!request.hasBackupSetId()) {
+    query["BackupSetId"] = request.getBackupSetId();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.getRegionId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "RestoreApplicationByBackupSet"},
+    {"version" , "2017-08-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<RestoreApplicationByBackupSetResponse>();
+}
+
+/**
+ * @summary Restores a PolarDB application from a specified backup set.
+ *
+ * @param request RestoreApplicationByBackupSetRequest
+ * @return RestoreApplicationByBackupSetResponse
+ */
+RestoreApplicationByBackupSetResponse Client::restoreApplicationByBackupSet(const RestoreApplicationByBackupSetRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return restoreApplicationByBackupSetWithOptions(request, runtime);
 }
 
 /**
@@ -31717,7 +35984,7 @@ SwitchOverGlobalDatabaseNetworkResponse Client::switchOverGlobalDatabaseNetwork(
 }
 
 /**
- * @summary Adds tags to PolarDB clusters.
+ * @summary Adds tags to an instance.
  *
  * @param request TagResourcesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -31776,7 +36043,7 @@ TagResourcesResponse Client::tagResourcesWithOptions(const TagResourcesRequest &
 }
 
 /**
- * @summary Adds tags to PolarDB clusters.
+ * @summary Adds tags to an instance.
  *
  * @param request TagResourcesRequest
  * @return TagResourcesResponse
@@ -32201,7 +36468,75 @@ UninstallPolarClawPluginResponse Client::uninstallPolarClawPlugin(const Uninstal
 }
 
 /**
- * @summary Detaches tags from a PolarDB cluster.
+ * @summary Uninstalls a PolarClaw skill.
+ *
+ * @description ## Request description
+ * - PolarFsInstanceId is required to identify the Polarlakebase instance to operate.
+ * - The FilePathIds parameter is also required. It accepts a list of file path IDs in string format, which correspond to the specific file paths whose quota rules are to be deleted. Ensure that each provided ID is valid and belongs to the specified Polarlakebase instance.
+ * - A single API call can process quota deletion requests for multiple file paths. However, control the request size to avoid performance issues.
+ *
+ * @param request UninstallPolarClawSkillsRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return UninstallPolarClawSkillsResponse
+ */
+UninstallPolarClawSkillsResponse Client::uninstallPolarClawSkillsWithOptions(const UninstallPolarClawSkillsRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasAgentId()) {
+    query["AgentId"] = request.getAgentId();
+  }
+
+  if (!!request.hasApplicationId()) {
+    query["ApplicationId"] = request.getApplicationId();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.getRegionId();
+  }
+
+  if (!!request.hasScope()) {
+    query["Scope"] = request.getScope();
+  }
+
+  if (!!request.hasUninstallSkillNames()) {
+    query["UninstallSkillNames"] = request.getUninstallSkillNames();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "UninstallPolarClawSkills"},
+    {"version" , "2017-08-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<UninstallPolarClawSkillsResponse>();
+}
+
+/**
+ * @summary Uninstalls a PolarClaw skill.
+ *
+ * @description ## Request description
+ * - PolarFsInstanceId is required to identify the Polarlakebase instance to operate.
+ * - The FilePathIds parameter is also required. It accepts a list of file path IDs in string format, which correspond to the specific file paths whose quota rules are to be deleted. Ensure that each provided ID is valid and belongs to the specified Polarlakebase instance.
+ * - A single API call can process quota deletion requests for multiple file paths. However, control the request size to avoid performance issues.
+ *
+ * @param request UninstallPolarClawSkillsRequest
+ * @return UninstallPolarClawSkillsResponse
+ */
+UninstallPolarClawSkillsResponse Client::uninstallPolarClawSkills(const UninstallPolarClawSkillsRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return uninstallPolarClawSkillsWithOptions(request, runtime);
+}
+
+/**
+ * @summary Removes tags from one or more PolarDB clusters.
  *
  * @param request UntagResourcesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -32264,7 +36599,7 @@ UntagResourcesResponse Client::untagResourcesWithOptions(const UntagResourcesReq
 }
 
 /**
- * @summary Detaches tags from a PolarDB cluster.
+ * @summary Removes tags from one or more PolarDB clusters.
  *
  * @param request UntagResourcesRequest
  * @return UntagResourcesResponse
@@ -32417,7 +36752,7 @@ UpdateExtensionsResponse Client::updateExtensions(const UpdateExtensionsRequest 
 }
 
 /**
- * @summary Updates a knowledge base synchronization link.
+ * @summary Updates the synchronization link for a knowledge base.
  *
  * @param request UpdateKBSyncLinkRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -32496,7 +36831,7 @@ UpdateKBSyncLinkResponse Client::updateKBSyncLinkWithOptions(const UpdateKBSyncL
 }
 
 /**
- * @summary Updates a knowledge base synchronization link.
+ * @summary Updates the synchronization link for a knowledge base.
  *
  * @param request UpdateKBSyncLinkRequest
  * @return UpdateKBSyncLinkResponse

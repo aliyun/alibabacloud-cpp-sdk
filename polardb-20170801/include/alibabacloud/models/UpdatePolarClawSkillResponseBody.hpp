@@ -153,7 +153,7 @@ namespace Models
     shared_ptr<string> message_ {};
     // Indicates whether the operation is successful.
     shared_ptr<bool> ok_ {};
-    // Id of the request
+    // The request ID.
     shared_ptr<string> requestId_ {};
     // The skill identifier key.
     shared_ptr<string> skillKey_ {};

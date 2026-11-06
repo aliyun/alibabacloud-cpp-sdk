@@ -48,9 +48,9 @@ namespace Models
 
 
   protected:
-    // The API key of the model service.
+    // The API key for the model service.
     shared_ptr<string> apiKey_ {};
-    // Id of the request
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

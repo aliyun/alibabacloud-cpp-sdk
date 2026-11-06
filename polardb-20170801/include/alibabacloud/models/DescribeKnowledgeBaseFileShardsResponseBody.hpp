@@ -222,9 +222,9 @@ namespace Models
     protected:
       // The list of figure or table captions associated with the shard.
       shared_ptr<vector<string>> captions_ {};
-      // The list of structured element references of the source document associated with the shard, which can be used to precisely locate the original elements.
+      // The list of structured element references in the source document associated with the shard, which can be used to precisely locate the original elements.
       shared_ptr<vector<string>> docItems_ {};
-      // The section heading chain to which the shard belongs.
+      // The chain of section headings to which the shard belongs.
       shared_ptr<vector<string>> headings_ {};
       // The list of image resources referenced by the shard.
       shared_ptr<vector<Shards::ImageResources>> imageResources_ {};
@@ -291,7 +291,7 @@ namespace Models
     shared_ptr<int32_t> pageRecordCount_ {};
     // The number of entries per page in a paging query.
     shared_ptr<int32_t> pageSize_ {};
-    // Id of the request
+    // The request ID.
     shared_ptr<string> requestId_ {};
     // The shard information.
     shared_ptr<vector<DescribeKnowledgeBaseFileShardsResponseBody::Shards>> shards_ {};

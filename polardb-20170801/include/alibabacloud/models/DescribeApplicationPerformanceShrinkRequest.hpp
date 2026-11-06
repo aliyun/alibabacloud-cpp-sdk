@@ -149,24 +149,25 @@ namespace Models
 
 
   protected:
-    // The application cluster ID.
+    // The ID of the application cluster.
     // 
     // This parameter is required.
     shared_ptr<string> applicationId_ {};
-    // The user.
+    // The consumer.
     shared_ptr<string> consumer_ {};
-    // The user group.
+    // The consumer group.
     shared_ptr<string> consumerGroup_ {};
-    // The downsampling policy.
+    // The downsampling strategy.
     shared_ptr<string> downsample_ {};
-    // The end step number.
+    // The end step.
     shared_ptr<int64_t> endStep_ {};
-    // The end of the time range to query. Specify the time in the yyyy-MM-ddTHH:mmZ format (UTC).
+    // The end time of the query. Specify the time in the yyyy-MM-ddTHH:mmZ format (UTC).
     // 
     // This parameter is required.
     shared_ptr<string> endTime_ {};
+    // The optional filter conditions for performance data, represented as a JSON object. If this parameter is not specified, no filtering is applied based on this condition.
     shared_ptr<string> filterShrink_ {};
-    // The data granularity of performance data. Valid values:
+    // The performance data granularity. Valid values:
     // - 5
     // - 30
     // - 60
@@ -176,18 +177,18 @@ namespace Models
     // - 86400
     shared_ptr<string> interval_ {};
     // The performance metrics to query. Separate multiple values with commas (,).
-    // 
-    // >  You can specify up to 5 performance metrics.
+    // Note
+    // You can specify up to 5 performance metrics.
     // 
     // This parameter is required.
     shared_ptr<string> key_ {};
-    // The maximum number of data points to return.
+    // The maximum number of points to return.
     shared_ptr<int32_t> maxPoints_ {};
     // The model service.
     shared_ptr<string> modelService_ {};
-    // The start step number.
+    // The start step.
     shared_ptr<int64_t> startStep_ {};
-    // The beginning of the time range to query. Specify the time in the yyyy-MM-ddTHH:mmZ format (UTC).
+    // The start time of the query. Specify the time in the yyyy-MM-ddTHH:mmZ format (UTC).
     // 
     // This parameter is required.
     shared_ptr<string> startTime_ {};

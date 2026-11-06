@@ -30,6 +30,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(RequestId, requestId_);
       DARABONBA_PTR_TO_JSON(RunningVersion, runningVersion_);
       DARABONBA_PTR_TO_JSON(SecurityIPArrays, securityIPArrays_);
+      DARABONBA_PTR_TO_JSON(SemanticCacheEnabled, semanticCacheEnabled_);
       DARABONBA_PTR_TO_JSON(Status, status_);
       DARABONBA_PTR_TO_JSON(VSwitchId, vSwitchId_);
       DARABONBA_PTR_TO_JSON(VpcId, vpcId_);
@@ -51,6 +52,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(RequestId, requestId_);
       DARABONBA_PTR_FROM_JSON(RunningVersion, runningVersion_);
       DARABONBA_PTR_FROM_JSON(SecurityIPArrays, securityIPArrays_);
+      DARABONBA_PTR_FROM_JSON(SemanticCacheEnabled, semanticCacheEnabled_);
       DARABONBA_PTR_FROM_JSON(Status, status_);
       DARABONBA_PTR_FROM_JSON(VSwitchId, vSwitchId_);
       DARABONBA_PTR_FROM_JSON(VpcId, vpcId_);
@@ -113,9 +115,9 @@ namespace Models
 
 
     protected:
-      // The name of the IP address whitelist. Default value: `default`.
+      // The name of the IP address group. Default value: `default`.
       shared_ptr<string> securityIPArrayName_ {};
-      // The tag of the IP address whitelist.
+      // The tag of the IP address group.
       shared_ptr<string> securityIPArrayTag_ {};
       // The IP addresses in the whitelist, separated by commas.
       shared_ptr<string> securityIPList_ {};
@@ -207,13 +209,13 @@ namespace Models
     protected:
       // The endpoint address.
       shared_ptr<string> address_ {};
-      // The endpoint ID.
+      // The ID of the endpoint node.
       shared_ptr<string> endpointId_ {};
       // The gateway instance ID.
       shared_ptr<string> gwClusterId_ {};
-      // The endpoint type. Valid values:
-      // - Private: VPC address.
-      // - Public: Internet address.
+      // The type of the endpoint address. Valid values:
+      // - Private: VPC address
+      // - Public: Internet address
       shared_ptr<string> netType_ {};
       // The port.
       shared_ptr<string> port_ {};
@@ -227,7 +229,7 @@ namespace Models
         && this->createTime_ == nullptr && this->currentVersion_ == nullptr && this->dbType_ == nullptr && this->endpoints_ == nullptr && this->expireTime_ == nullptr
         && this->expired_ == nullptr && this->gwClusterId_ == nullptr && this->gwDescription_ == nullptr && this->latestVersion_ == nullptr && this->modifyTime_ == nullptr
         && this->payType_ == nullptr && this->regionId_ == nullptr && this->requestId_ == nullptr && this->runningVersion_ == nullptr && this->securityIPArrays_ == nullptr
-        && this->status_ == nullptr && this->vSwitchId_ == nullptr && this->vpcId_ == nullptr; };
+        && this->semanticCacheEnabled_ == nullptr && this->status_ == nullptr && this->vSwitchId_ == nullptr && this->vpcId_ == nullptr; };
     // classCode Field Functions 
     bool hasClassCode() const { return this->classCode_ != nullptr;};
     void deleteClassCode() { this->classCode_ = nullptr;};
@@ -344,6 +346,13 @@ namespace Models
     inline DescribeGatewayAttributeResponseBody& setSecurityIPArrays(vector<DescribeGatewayAttributeResponseBody::SecurityIPArrays> && securityIPArrays) { DARABONBA_PTR_SET_RVALUE(securityIPArrays_, securityIPArrays) };
 
 
+    // semanticCacheEnabled Field Functions 
+    bool hasSemanticCacheEnabled() const { return this->semanticCacheEnabled_ != nullptr;};
+    void deleteSemanticCacheEnabled() { this->semanticCacheEnabled_ = nullptr;};
+    inline bool getSemanticCacheEnabled() const { DARABONBA_PTR_GET_DEFAULT(semanticCacheEnabled_, false) };
+    inline DescribeGatewayAttributeResponseBody& setSemanticCacheEnabled(bool semanticCacheEnabled) { DARABONBA_PTR_SET_VALUE(semanticCacheEnabled_, semanticCacheEnabled) };
+
+
     // status Field Functions 
     bool hasStatus() const { return this->status_ != nullptr;};
     void deleteStatus() { this->status_ = nullptr;};
@@ -368,7 +377,9 @@ namespace Models
   protected:
     // The specification code.
     shared_ptr<string> classCode_ {};
-    // The creation time. The time is in ISO 8601 format and the UTC time zone (YYYY-MM-DDTHH:mm:ssZ).
+    // The creation time.
+    // 
+    // The time is in ISO 8601 format and the UTC time zone (YYYY-MM-DDTHH:mm:ssZ).
     shared_ptr<string> createTime_ {};
     // The current version number.
     shared_ptr<string> currentVersion_ {};
@@ -376,7 +387,11 @@ namespace Models
     shared_ptr<string> dbType_ {};
     // The list of endpoints.
     shared_ptr<vector<DescribeGatewayAttributeResponseBody::Endpoints>> endpoints_ {};
-    // The expiration time. This parameter is empty when the billing method is pay-as-you-go. The time is in ISO 8601 format and the UTC time zone (YYYY-MM-DDTHH:mm:ssZ).
+    // The expiration time.
+    // 
+    // This parameter is empty when the billing method is Postpaid.
+    // 
+    // The time is in ISO 8601 format and the UTC time zone (YYYY-MM-DDTHH:mm:ssZ).
     shared_ptr<string> expireTime_ {};
     // Indicates whether the cluster has expired. Valid values:
     // 
@@ -390,12 +405,14 @@ namespace Models
     shared_ptr<string> gwDescription_ {};
     // The latest version number.
     shared_ptr<string> latestVersion_ {};
-    // The last modification time. The time is in ISO 8601 format and the UTC time zone (YYYY-MM-DDTHH:mm:ssZ).
+    // The last modification time.
+    // 
+    // The time is in ISO 8601 format and the UTC time zone (YYYY-MM-DDTHH:mm:ssZ).
     shared_ptr<string> modifyTime_ {};
     // The billing method. Valid values:
     // 
-    // - **Postpaid**: pay-as-you-go.
-    // - **Prepaid**: subscription.
+    // - **Postpaid**: pay-as-you-go
+    // - **Prepaid**: subscription
     shared_ptr<string> payType_ {};
     // The region ID.
     shared_ptr<string> regionId_ {};
@@ -405,12 +422,14 @@ namespace Models
     shared_ptr<string> runningVersion_ {};
     // The application-level whitelist.
     shared_ptr<vector<DescribeGatewayAttributeResponseBody::SecurityIPArrays>> securityIPArrays_ {};
+    // Indicates whether the semantic cache is enabled. If the semantic cache is disabled or has never been enabled, the value is false.
+    shared_ptr<bool> semanticCacheEnabled_ {};
     // The application status. Valid values:
     // 
-    // - CREATE: Creating.
-    // - ACTIVATION: Running.
+    // - CREATE: creating
+    // - ACTIVATION: running
     shared_ptr<string> status_ {};
-    // The vSwitch ID.
+    // The ID of the vSwitch.
     shared_ptr<string> vSwitchId_ {};
     // The ID of the VPC to which the vSwitch belongs.
     shared_ptr<string> vpcId_ {};

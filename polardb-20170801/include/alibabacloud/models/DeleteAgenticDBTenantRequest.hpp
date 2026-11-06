@@ -57,7 +57,7 @@ namespace Models
 
 
   protected:
-    // The ID of the AgenticDB cluster.
+    // The AgenticDB cluster ID.
     // 
     // This parameter is required.
     shared_ptr<string> DBClusterId_ {};
@@ -65,7 +65,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
-    // The ID of the tenant.
+    // The tenant ID.
     // 
     // This parameter is required.
     shared_ptr<string> tenantId_ {};

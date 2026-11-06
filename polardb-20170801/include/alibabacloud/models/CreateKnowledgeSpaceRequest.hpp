@@ -195,7 +195,7 @@ namespace Models
 
 
   protected:
-    // The database engine type.
+    // The type of the database engine.
     shared_ptr<string> DBType_ {};
     // The description of the knowledge space. The description can be up to 512 characters in length.
     shared_ptr<string> description_ {};
@@ -207,7 +207,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> embeddingModel_ {};
-    // Specifies whether to enable ACL-based authentication for the knowledge space.
+    // Specifies whether to enforce access control list (ACL) authentication for the knowledge space.
     shared_ptr<bool> enforceAcl_ {};
     // The name of the large language model.
     shared_ptr<string> LLMModel_ {};
@@ -215,7 +215,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> name_ {};
-    // OSS AK
+    // The AccessKey ID used to access OSS.
     // 
     // This parameter is required.
     shared_ptr<string> OSSAccessKey_ {};
@@ -223,7 +223,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> OSSBucket_ {};
-    // OSS SK
+    // The AccessKey secret used to access OSS.
     // 
     // This parameter is required.
     shared_ptr<string> OSSSecretKey_ {};
@@ -231,9 +231,9 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
-    // The name of the reranking model.
+    // The name of the rerank model.
     shared_ptr<string> rerankModel_ {};
-    // The security group ID.
+    // The ID of the security group.
     // 
     // This parameter is required.
     shared_ptr<string> securityGroupId_ {};
@@ -242,9 +242,8 @@ namespace Models
     // This parameter is required.
     shared_ptr<int32_t> shardingSize_ {};
     // The sharding strategy. Valid values:
-    // 
-    // - hierarchical (default)
-    // - hybrid
+    // - hierarchical: hierarchical sharding. This is the default value.
+    // - hybrid: hybrid sharding.
     // 
     // This parameter is required.
     shared_ptr<string> shardingStrategy_ {};

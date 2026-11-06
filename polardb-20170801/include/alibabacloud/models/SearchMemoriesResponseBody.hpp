@@ -135,7 +135,7 @@ namespace Models
     protected:
       // The creation time.
       // 
-      // The time follows the ISO 8601 standard in UTC (format: YYYY-MM-DDTHH:mm:ssZ).
+      // The time follows the ISO 8601 standard and is displayed in UTC (format: YYYY-MM-DDTHH:mm:ssZ).
       shared_ptr<string> createTime_ {};
       // The memory ID.
       shared_ptr<string> id_ {};
@@ -151,7 +151,7 @@ namespace Models
       shared_ptr<string> score_ {};
       // The update time.
       // 
-      // The time follows the ISO 8601 standard in UTC (format: YYYY-MM-DDTHH:mm:ssZ).
+      // The time follows the ISO 8601 standard and is displayed in UTC (format: YYYY-MM-DDTHH:mm:ssZ).
       shared_ptr<string> updateTime_ {};
     };
 
@@ -204,13 +204,13 @@ namespace Models
   protected:
     // The current page number.
     shared_ptr<string> page_ {};
-    // The number of records per page.
+    // The number of entries per page.
     shared_ptr<string> pageSize_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
     // The list of results.
     shared_ptr<vector<SearchMemoriesResponseBody::Results>> results_ {};
-    // The total number of matching records.
+    // The total number of entries that meet the conditions.
     shared_ptr<string> total_ {};
     // The total number of pages.
     shared_ptr<string> totalPages_ {};

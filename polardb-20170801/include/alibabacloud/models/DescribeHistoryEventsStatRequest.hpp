@@ -1,0 +1,85 @@
+// This file is auto-generated, don't edit it. Thanks.
+#ifndef ALIBABACLOUD_MODELS_DESCRIBEHISTORYEVENTSSTATREQUEST_HPP_
+#define ALIBABACLOUD_MODELS_DESCRIBEHISTORYEVENTSSTATREQUEST_HPP_
+#include <darabonba/Core.hpp>
+using namespace std;
+using json = nlohmann::json;
+namespace AlibabaCloud
+{
+namespace Polardb20170801
+{
+namespace Models
+{
+  class DescribeHistoryEventsStatRequest : public Darabonba::Model {
+  public:
+    friend void to_json(Darabonba::Json& j, const DescribeHistoryEventsStatRequest& obj) { 
+      DARABONBA_PTR_TO_JSON(ArchiveStatus, archiveStatus_);
+      DARABONBA_PTR_TO_JSON(FromStartTime, fromStartTime_);
+      DARABONBA_PTR_TO_JSON(RegionId, regionId_);
+      DARABONBA_PTR_TO_JSON(ToStartTime, toStartTime_);
+    };
+    friend void from_json(const Darabonba::Json& j, DescribeHistoryEventsStatRequest& obj) { 
+      DARABONBA_PTR_FROM_JSON(ArchiveStatus, archiveStatus_);
+      DARABONBA_PTR_FROM_JSON(FromStartTime, fromStartTime_);
+      DARABONBA_PTR_FROM_JSON(RegionId, regionId_);
+      DARABONBA_PTR_FROM_JSON(ToStartTime, toStartTime_);
+    };
+    DescribeHistoryEventsStatRequest() = default ;
+    DescribeHistoryEventsStatRequest(const DescribeHistoryEventsStatRequest &) = default ;
+    DescribeHistoryEventsStatRequest(DescribeHistoryEventsStatRequest &&) = default ;
+    DescribeHistoryEventsStatRequest(const Darabonba::Json & obj) { from_json(obj, *this); };
+    virtual ~DescribeHistoryEventsStatRequest() = default ;
+    DescribeHistoryEventsStatRequest& operator=(const DescribeHistoryEventsStatRequest &) = default ;
+    DescribeHistoryEventsStatRequest& operator=(DescribeHistoryEventsStatRequest &&) = default ;
+    virtual void validate() const override {
+    };
+    virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+    virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+    virtual bool empty() const override { return this->archiveStatus_ == nullptr
+        && this->fromStartTime_ == nullptr && this->regionId_ == nullptr && this->toStartTime_ == nullptr; };
+    // archiveStatus Field Functions 
+    bool hasArchiveStatus() const { return this->archiveStatus_ != nullptr;};
+    void deleteArchiveStatus() { this->archiveStatus_ = nullptr;};
+    inline string getArchiveStatus() const { DARABONBA_PTR_GET_DEFAULT(archiveStatus_, "") };
+    inline DescribeHistoryEventsStatRequest& setArchiveStatus(string archiveStatus) { DARABONBA_PTR_SET_VALUE(archiveStatus_, archiveStatus) };
+
+
+    // fromStartTime Field Functions 
+    bool hasFromStartTime() const { return this->fromStartTime_ != nullptr;};
+    void deleteFromStartTime() { this->fromStartTime_ = nullptr;};
+    inline string getFromStartTime() const { DARABONBA_PTR_GET_DEFAULT(fromStartTime_, "") };
+    inline DescribeHistoryEventsStatRequest& setFromStartTime(string fromStartTime) { DARABONBA_PTR_SET_VALUE(fromStartTime_, fromStartTime) };
+
+
+    // regionId Field Functions 
+    bool hasRegionId() const { return this->regionId_ != nullptr;};
+    void deleteRegionId() { this->regionId_ = nullptr;};
+    inline string getRegionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
+    inline DescribeHistoryEventsStatRequest& setRegionId(string regionId) { DARABONBA_PTR_SET_VALUE(regionId_, regionId) };
+
+
+    // toStartTime Field Functions 
+    bool hasToStartTime() const { return this->toStartTime_ != nullptr;};
+    void deleteToStartTime() { this->toStartTime_ = nullptr;};
+    inline string getToStartTime() const { DARABONBA_PTR_GET_DEFAULT(toStartTime_, "") };
+    inline DescribeHistoryEventsStatRequest& setToStartTime(string toStartTime) { DARABONBA_PTR_SET_VALUE(toStartTime_, toStartTime) };
+
+
+  protected:
+    // The archive status of the events. Valid values:
+    // - Archived: Archived.
+    // - UnArchived: Unarchived.
+    // - All: All.
+    shared_ptr<string> archiveStatus_ {};
+    // The start time of the time range for the task start time. Specify the time in the YYYY-MM-DDThh:mm:ssZ format. The time must be in UTC.
+    shared_ptr<string> fromStartTime_ {};
+    // The ID of the region where the events are located.
+    shared_ptr<string> regionId_ {};
+    // The end time of the time range for the task start time. Specify the time in the YYYY-MM-DDThh:mm:ssZ format. The time must be in UTC.
+    shared_ptr<string> toStartTime_ {};
+  };
+
+  } // namespace Models
+} // namespace AlibabaCloud
+} // namespace Polardb20170801
+#endif

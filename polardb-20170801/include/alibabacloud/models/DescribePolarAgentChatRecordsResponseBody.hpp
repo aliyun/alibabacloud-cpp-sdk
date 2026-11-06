@@ -97,11 +97,11 @@ namespace Models
 
 
     protected:
-      // The answer.
+      // The reply.
       shared_ptr<string> answer_ {};
       // The feedback type.
       shared_ptr<string> feedbackType_ {};
-      // The session query. Obtain this value from the response of the API call to start a digital human.
+      // The session query. You can obtain this value from the response of the API operation that starts a digital human.
       shared_ptr<string> query_ {};
       // The query ID.
       shared_ptr<string> queryId_ {};

@@ -127,9 +127,7 @@ namespace Models
         shared_ptr<string> address_ {};
         // The full PostgreSQL connection string.
         shared_ptr<string> connectionString_ {};
-        // The network type. Valid values:
-        // - Private: private network.
-        // - Public: public network.
+        // The network type. Valid values: Private and Public.
         shared_ptr<string> netType_ {};
         // The port.
         shared_ptr<int32_t> port_ {};
@@ -204,15 +202,15 @@ namespace Models
 
 
     protected:
-      // The account name.
+      // The name of the account.
       shared_ptr<string> account_ {};
-      // The compatible connection address. A public endpoint is returned first. If no public endpoint is available, a private endpoint is returned.
+      // The compatible endpoint. The public endpoint is returned preferentially. If no public endpoint is available, the private network endpoint is returned.
       shared_ptr<string> address_ {};
       // The list of public and private network endpoints.
       shared_ptr<vector<Items::AddressItems>> addressItems_ {};
-      // The compatible connection string. A public connection string is returned first. If no public connection string is available, a private connection string is returned.
+      // The compatible connection string. The public connection string is returned preferentially. If no public connection string is available, the private connection string is returned.
       shared_ptr<string> connectionString_ {};
-      // The database name.
+      // The name of the database.
       shared_ptr<string> database_ {};
       // The endpoint ID.
       shared_ptr<string> endpointId_ {};
@@ -220,7 +218,7 @@ namespace Models
       shared_ptr<string> endpointType_ {};
       // The password.
       shared_ptr<string> password_ {};
-      // The compatible connection port that corresponds to the Address parameter.
+      // The compatible connection port corresponding to the address.
       shared_ptr<int32_t> port_ {};
     };
 

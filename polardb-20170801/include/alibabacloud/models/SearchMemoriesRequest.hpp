@@ -112,7 +112,7 @@ namespace Models
 
 
   protected:
-    // The ID of the application. Example value: pa-**************.
+    // The application ID. Example: pa-**************. The application must be of the mem0 type. When creating the application by using CreateApplication, set ApplicationType to mem0. Calling this operation on a non-mem0 application returns the IncorrectDBInstanceEngine (403) error.
     // 
     // This parameter is required.
     shared_ptr<string> applicationId_ {};
@@ -128,11 +128,11 @@ namespace Models
     shared_ptr<string> memoryUserId_ {};
     // The page number.
     shared_ptr<int32_t> page_ {};
-    // The number of records to display on each page.
+    // The number of entries per page.
     shared_ptr<int32_t> pageSize_ {};
     // The search query.
     shared_ptr<string> query_ {};
-    // Specifies the number of top results to return.
+    // The number of top results to return.
     shared_ptr<string> topK_ {};
   };
 

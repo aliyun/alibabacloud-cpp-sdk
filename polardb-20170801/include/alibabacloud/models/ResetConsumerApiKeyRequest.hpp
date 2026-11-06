@@ -57,11 +57,11 @@ namespace Models
 
 
   protected:
-    // The user ID.
+    // The ID of the consumer. You can obtain the ID by calling the DescribeConsumers operation. Call sequence: CreateGateway, CreateConsumer, and then ResetConsumerApiKey.
     // 
     // This parameter is required.
     shared_ptr<string> consumerId_ {};
-    // The gateway instance ID.
+    // Instance ID of the gateway instance. You can obtain instance ID by calling the DescribeGatewayAttribute operation. Before calling this operation, create a gateway and confirm its VPC, vSwitch, and zone configurations.
     // 
     // This parameter is required.
     shared_ptr<string> gwClusterId_ {};

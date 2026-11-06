@@ -118,7 +118,7 @@ namespace Models
     shared_ptr<string> gwClusterId_ {};
     // The model category.
     shared_ptr<string> modelCategory_ {};
-    // The model service IDs.
+    // The IDs of the model services.
     shared_ptr<string> modelServiceIds_ {};
     // The model service name.
     shared_ptr<string> name_ {};

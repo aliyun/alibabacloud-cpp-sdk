@@ -134,7 +134,7 @@ namespace Models
     shared_ptr<string> config_ {};
     // The forced model.
     shared_ptr<string> forceModel_ {};
-    // The gateway instance ID. You can obtain the ID from the GwClusterId returned by CreateGateway.
+    // The gateway instance ID. You can obtain this ID from the GwClusterId parameter returned by the CreateGateway operation.
     // 
     // This parameter is required.
     shared_ptr<string> gwClusterId_ {};
@@ -162,13 +162,13 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> protocol_ {};
-    // The number of input tokens.
+    // The number of input points.
     shared_ptr<string> recordInput_ {};
-    // The number of output tokens.
+    // The number of output points.
     shared_ptr<string> recordOutput_ {};
     // The region ID.
     shared_ptr<string> regionId_ {};
-    // The list of routing rules, which is a JSON array string.
+    // The list of routing rules, specified as a JSON array string.
     // 
     // This parameter is required.
     shared_ptr<string> routeRules_ {};

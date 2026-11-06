@@ -57,7 +57,7 @@ namespace Models
 
 
   protected:
-    // aideploy
+    // The Kubernetes cluster type, such as aideploy.
     shared_ptr<string> kubeType_ {};
     // The model type. Valid values: custom and public. If you do not specify this parameter, all models are returned.
     shared_ptr<string> modelType_ {};

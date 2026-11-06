@@ -135,7 +135,7 @@ namespace Models
 
 
     protected:
-      // The API key in use.
+      // The API key used.
       shared_ptr<string> apiKey_ {};
       // The user group ID.
       shared_ptr<string> consumerGroupId_ {};
@@ -143,11 +143,11 @@ namespace Models
       shared_ptr<string> consumerId_ {};
       // The consumer tag.
       shared_ptr<string> consumerTag_ {};
-      // The creation time.
+      // The creation time. The time follows the ISO 8601 standard in UTC (YYYY-MM-DDTHH:mm:ssZ).
       shared_ptr<string> createTime_ {};
       // The gateway instance ID.
       shared_ptr<string> gwClusterId_ {};
-      // The last modification time.
+      // The last modification time. The time follows the ISO 8601 standard in UTC (YYYY-MM-DDTHH:mm:ssZ).
       shared_ptr<string> modifyTime_ {};
       // The username.
       shared_ptr<string> name_ {};
@@ -221,7 +221,7 @@ namespace Models
     // 
     // Default value: 30.
     shared_ptr<int32_t> pageSize_ {};
-    // Id of the request
+    // The request ID.
     shared_ptr<string> requestId_ {};
     // The total number of pages.
     shared_ptr<int32_t> totalPages_ {};

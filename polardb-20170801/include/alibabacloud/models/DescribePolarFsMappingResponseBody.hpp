@@ -93,7 +93,7 @@ namespace Models
       shared_ptr<string> bucket_ {};
       // The AccessKey ID of the storage bucket.
       shared_ptr<string> bucketAccessKeyId_ {};
-      // The mapping path.
+      // The mapped path.
       shared_ptr<string> path_ {};
     };
 
@@ -152,11 +152,11 @@ namespace Models
 
 
   protected:
-    // The default AccessKey ID at the instance level.
+    // The instance-level default AccessKey ID.
     shared_ptr<string> defaultAccessKeyId_ {};
     // The page number.
     shared_ptr<string> pageNumber_ {};
-    // The number of records on the current page.
+    // The number of entries on the current page.
     shared_ptr<string> pageRecordCount_ {};
     // The number of entries per page. Valid values:
     // 
@@ -170,7 +170,7 @@ namespace Models
     shared_ptr<vector<DescribePolarFsMappingResponseBody::PathMappingItems>> pathMappingItems_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The total number of records.
+    // The total number of entries.
     shared_ptr<string> totalRecordCount_ {};
   };
 

@@ -96,17 +96,17 @@ namespace Models
 
 
     protected:
-      // The API key for model serving.
+      // The API key for the model service.
       shared_ptr<string> apiKey_ {};
-      // The time when the API key was created.
+      // The creation time.
       // 
-      // The time is in the ISO 8601 format in UTC (format: YYYY-MM-DDTHH:mm:ssZ).
+      // The time is displayed in ISO 8601 format in the UTC time zone (format: YYYY-MM-DDTHH:mm:ssZ).
       shared_ptr<string> createTime_ {};
       // The description.
       shared_ptr<string> description_ {};
-      // id
+      // The API key ID.
       shared_ptr<string> id_ {};
-      // The API key status.
+      // The status of the API key.
       shared_ptr<string> status_ {};
     };
 
@@ -131,7 +131,7 @@ namespace Models
   protected:
     // The API key.
     shared_ptr<CreateAIDBClusterApiKeyResponseBody::ApiKey> apiKey_ {};
-    // Id of the request
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

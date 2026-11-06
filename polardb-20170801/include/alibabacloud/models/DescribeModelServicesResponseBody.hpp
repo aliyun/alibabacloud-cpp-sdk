@@ -172,19 +172,19 @@ namespace Models
     protected:
       // The API key of the model service.
       shared_ptr<string> apiKey_ {};
-      // The upstream service endpoint.
+      // The upstream service URL.
       shared_ptr<string> baseUrl_ {};
-      // The creation date of the model.
+      // The creation time of the model.
       shared_ptr<string> gmtCreated_ {};
-      // The input points.
+      // The input cost in points per million.
       shared_ptr<string> inputCostPointsPerMillion_ {};
       // The category.
       shared_ptr<string> modelCategory_ {};
-      // The model service IDs.
+      // The IDs of the model services.
       shared_ptr<string> modelServiceId_ {};
       // The model service name.
       shared_ptr<string> name_ {};
-      // The output points.
+      // The output cost in points per million.
       shared_ptr<string> outputCostPointsPerMillion_ {};
       // The protocol type. Valid values:
       // * **openai**
@@ -192,7 +192,7 @@ namespace Models
       // * **bailian**
       // * **vllm**
       shared_ptr<string> protocol_ {};
-      // The number of requests.
+      // The request cost in points.
       shared_ptr<string> requestCostPoints_ {};
       // The status.
       shared_ptr<string> status_ {};
@@ -260,7 +260,7 @@ namespace Models
     // 
     // Default value: **30**.
     shared_ptr<int32_t> pageSize_ {};
-    // Id of the request
+    // The request ID.
     shared_ptr<string> requestId_ {};
     // The total number of entries.
     shared_ptr<int32_t> totalRecordCount_ {};

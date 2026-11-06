@@ -66,7 +66,7 @@ namespace Models
     shared_ptr<string> polarFsInstanceId_ {};
     // Specifies whether to query FUSE mount information. Valid values:
     // - **true**: Yes.
-    // - **false**: No. Default value.
+    // - **false**: No. Default value: false.
     shared_ptr<bool> queryFuseMountInfo_ {};
   };
 

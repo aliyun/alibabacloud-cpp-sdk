@@ -62,13 +62,13 @@ namespace Models
 
 
   protected:
-    // The ID of the application.
+    // The application ID.
     // 
     // This parameter is required.
     shared_ptr<string> applicationId_ {};
-    // An array of prompt IDs to disable.
+    // The list of prompt IDs to disable. You must provide a non-empty list for at least one of EnabledPromptIds and DisabledPromptIds. Otherwise, the InvalidApplicationPromptId.Malformed error is returned.
     shared_ptr<vector<string>> disabledPromptIds_ {};
-    // An array of prompt IDs to enable.
+    // The list of prompt IDs to enable. You must provide a non-empty list for at least one of EnabledPromptIds and DisabledPromptIds. Otherwise, the InvalidApplicationPromptId.Malformed error is returned.
     shared_ptr<vector<string>> enabledPromptIds_ {};
   };
 

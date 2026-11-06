@@ -55,7 +55,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> applicationId_ {};
-    // A list of plugin IDs. If omitted, all plugins are returned.
+    // The list of plugin IDs to query. If this parameter is empty, all plugins are returned.
     shared_ptr<vector<string>> pluginList_ {};
   };
 

@@ -194,7 +194,7 @@ namespace Models
       protected:
         // The dimension reference ID, which is the consumer ID.
         shared_ptr<string> dimensionRefId_ {};
-        // The statistical dimension. The value is typically Consumer.
+        // The statistical dimension. Typically, the value is Consumer.
         shared_ptr<string> dimensionType_ {};
         // The gateway instance ID.
         shared_ptr<string> gwClusterId_ {};
@@ -330,11 +330,11 @@ namespace Models
         shared_ptr<string> consumerId_ {};
         // The consumer tag.
         shared_ptr<string> consumerTag_ {};
-        // The creation time. The format is YYYY-MM-DDTHH:mm:ssZ (UTC time).
+        // The creation time. The format is YYYY-MM-DDTHH:mm:ssZ (UTC).
         shared_ptr<string> createTime_ {};
         // The gateway instance ID.
         shared_ptr<string> gwClusterId_ {};
-        // The last modification time. The format is YYYY-MM-DDTHH:mm:ssZ (UTC time).
+        // The last modification time. The format is YYYY-MM-DDTHH:mm:ssZ (UTC).
         shared_ptr<string> modifyTime_ {};
         // The consumer name.
         shared_ptr<string> name_ {};
@@ -390,7 +390,7 @@ namespace Models
   protected:
     // The list of consumer objects.
     shared_ptr<vector<DescribeApikeyAttributeResponseBody::Items>> items_ {};
-    // Id of the request
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

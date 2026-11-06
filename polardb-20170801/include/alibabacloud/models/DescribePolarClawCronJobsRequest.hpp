@@ -78,17 +78,17 @@ namespace Models
 
 
   protected:
-    // Application ID
+    // The application ID.
     // 
     // This parameter is required.
     shared_ptr<string> applicationId_ {};
-    // Include disabled tasks. Default is true.
+    // Specifies whether to include disabled jobs. Default value: true.
     shared_ptr<bool> includeDisabled_ {};
-    // Include run history. Default is false.
+    // Specifies whether to include the run history. Default value: false.
     shared_ptr<bool> includeRuns_ {};
-    // Filter by Job ID list
+    // Filters the results by a list of job IDs.
     shared_ptr<vector<string>> jobIdList_ {};
-    // Maximum number of run history entries per task. Default is 10.
+    // The maximum number of run history records per job. Default value: 10.
     shared_ptr<int32_t> runLimit_ {};
   };
 

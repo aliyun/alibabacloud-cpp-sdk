@@ -289,18 +289,18 @@ namespace Models
 
 
   protected:
-    // The application cluster ID.
+    // The ID of the application cluster.
     shared_ptr<string> applicationId_ {};
     // The application type.
     shared_ptr<string> applicationType_ {};
-    // The end of the time range to query. The time is in the `yyyy-MM-ddTHH:mm:ssZ` format (UTC).
+    // The end time of the query. The time is in the `yyyy-MM-ddTHH:mm:ssZ` format and must be in UTC.
     shared_ptr<string> endTime_ {};
     // The data granularity.
     shared_ptr<string> interval_ {};
     shared_ptr<DescribeApplicationPerformanceResponseBody::PerformanceKeys> performanceKeys_ {};
-    // The request ID.
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
-    // The beginning of the time range to query. The time is in the `yyyy-MM-ddTHH:mm:ssZ` format (UTC).
+    // The start time of the query. The time is in the `yyyy-MM-ddTHH:mm:ssZ` format and must be in UTC.
     shared_ptr<string> startTime_ {};
   };
 

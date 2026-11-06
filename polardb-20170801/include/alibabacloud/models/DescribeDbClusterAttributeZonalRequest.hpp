@@ -84,11 +84,11 @@ namespace Models
 
 
   protected:
-    // The cluster ID.
+    // The ID of the edge cluster. You can call the DescribeDBClustersZonal operation to list available edge clusters and then use the returned DBClusterId to query the attributes. IDs of common clusters are not applicable to this operation.
     // 
     // This parameter is required.
     shared_ptr<string> DBClusterId_ {};
-    // Specifies whether to retrieve AI-related node information.
+    // Specifies whether to retrieve information about AI nodes.
     shared_ptr<string> describeType_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};

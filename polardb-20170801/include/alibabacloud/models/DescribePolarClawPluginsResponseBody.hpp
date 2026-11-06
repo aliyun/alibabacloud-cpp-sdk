@@ -164,27 +164,27 @@ namespace Models
 
 
     protected:
-      // A list of channel IDs, which can be empty.
+      // The list of provided channel IDs. An empty array indicates that no channel IDs are available.
       shared_ptr<vector<string>> channelIds_ {};
       // The description of the plugin.
       shared_ptr<string> description_ {};
-      // The error message, or `null` if no error occurred.
+      // The error message. If this field is missing, no error occurred.
       shared_ptr<string> error_ {};
-      // The format of the plugin, which can be an empty string.
+      // The format of the plugin. This field can be an empty string.
       shared_ptr<string> format_ {};
       // The plugin ID.
       shared_ptr<string> id_ {};
       // The display name of the plugin.
       shared_ptr<string> name_ {};
-      // The origin of the plugin. Valid values: `bundled`, `global`, and `user-install`.
+      // The origin of the plugin. Valid values: `bundled` (built-in), `global` (global), and `user-install` (user-installed).
       shared_ptr<string> origin_ {};
-      // A list of provider IDs, which can be empty.
+      // The list of provided provider IDs. An empty array indicates that no provider IDs are available.
       shared_ptr<vector<string>> providerIds_ {};
-      // The file path to the plugin\\"s entry point.
+      // The path to the plugin entry file.
       shared_ptr<string> source_ {};
-      // The status of the plugin. Valid values: `loaded`, `disabled`, and `error`.
+      // The status of the plugin. Valid values: `loaded` (loaded), `disabled` (disabled), and `error` (failed to load).
       shared_ptr<string> status_ {};
-      // The version number of the plugin.
+      // The version number.
       shared_ptr<string> version_ {};
     };
 
@@ -244,13 +244,13 @@ namespace Models
 
 
     protected:
-      // The severity level. Valid values: `error` and `warn`.
+      // The diagnostic level. Valid values: `error` and `warn`.
       shared_ptr<string> level_ {};
-      // The detailed diagnostic message.
+      // The details of the diagnostic message.
       shared_ptr<string> message_ {};
       // The ID of the associated plugin.
       shared_ptr<string> pluginId_ {};
-      // The source file path associated with the diagnostic.
+      // The path to the source file of the associated plugin.
       shared_ptr<string> source_ {};
     };
 
@@ -307,11 +307,11 @@ namespace Models
     shared_ptr<string> applicationId_ {};
     // The response status code.
     shared_ptr<int32_t> code_ {};
-    // An array of diagnostic objects.
+    // The list of diagnostic information.
     shared_ptr<vector<DescribePolarClawPluginsResponseBody::Diagnostics>> diagnostics_ {};
     // The response message.
     shared_ptr<string> message_ {};
-    // An array of plugin objects.
+    // The list of plugins.
     shared_ptr<vector<DescribePolarClawPluginsResponseBody::Plugins>> plugins_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

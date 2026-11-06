@@ -90,11 +90,11 @@ namespace Models
 
 
     protected:
-      // The bucket name.
+      // The name of the bucket.
       shared_ptr<string> bucket_ {};
-      // The AccessKey ID of the storage bucket.
+      // The AccessKey ID for the bucket.
       shared_ptr<string> bucketAccessKeyId_ {};
-      // The AccessKey secret of the storage bucket.
+      // The AccessKey secret for the bucket.
       shared_ptr<string> bucketAccessKeySecret_ {};
       // The custom storage path.
       shared_ptr<string> path_ {};
@@ -128,7 +128,7 @@ namespace Models
   protected:
     // The bucket and corresponding path information.
     shared_ptr<vector<AddPolarFsPathMappingRequest::CustomBucketPathList>> customBucketPathList_ {};
-    // The cluster ID.
+    // The ID of the cluster.
     // 
     // This parameter is required.
     shared_ptr<string> DBClusterId_ {};

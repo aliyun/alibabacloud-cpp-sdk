@@ -121,11 +121,11 @@ namespace Models
 
 
   protected:
-    // The client identifier.
+    // The client ID.
     shared_ptr<string> clientId_ {};
     // The creation time.
     // 
-    // The time follows the ISO 8601 standard in the UTC time zone (format: YYYY-MM-DDTHH:mm:ssZ).
+    // The time is displayed in ISO 8601 format in the UTC time zone (format: YYYY-MM-DDTHH:mm:ssZ).
     shared_ptr<string> creationTime_ {};
     // The description of the synchronization link.
     shared_ptr<string> description_ {};
@@ -137,7 +137,7 @@ namespace Models
     shared_ptr<string> linkId_ {};
     // The name of the synchronization link.
     shared_ptr<string> linkName_ {};
-    // Id of the request
+    // The request ID.
     shared_ptr<string> requestId_ {};
     // The address of the source directory for synchronization.
     shared_ptr<string> sourceDir_ {};

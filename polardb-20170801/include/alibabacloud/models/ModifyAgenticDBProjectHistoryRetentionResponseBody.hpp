@@ -77,7 +77,7 @@ namespace Models
   protected:
     // DBClusterId
     shared_ptr<string> DBClusterId_ {};
-    // The current effective history retention period of the project. To check the actual recoverable range, query the branch recovery window.
+    // The current effective history retention period for the project. For the actual recoverable range, query the branch recovery window.
     shared_ptr<int64_t> historyRetentionSeconds_ {};
     // ProjectId
     shared_ptr<string> projectId_ {};

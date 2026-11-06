@@ -83,7 +83,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> DBClusterId_ {};
-    // The ID of the project to which the branch belongs.
+    // The project ID.
     // 
     // This parameter is required.
     shared_ptr<string> projectId_ {};
@@ -91,7 +91,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
-    // The ID of the tenant to which the branch belongs.
+    // The tenant ID.
     // 
     // This parameter is required.
     shared_ptr<string> tenantId_ {};

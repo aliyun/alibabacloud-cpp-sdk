@@ -274,7 +274,7 @@ namespace Models
 
 
       protected:
-        // The protocol endpoint.
+        // The protocol connection address.
         shared_ptr<string> connectionString_ {};
         // The IP address.
         shared_ptr<string> IPAddress_ {};
@@ -735,17 +735,13 @@ namespace Models
     // The bucket ID.
     shared_ptr<string> bucketId_ {};
     // The Polarlakebase edition. Valid values:
-    // 
     // - **high_performance**: High-performance Edition.
-    // 
     // - **basic**: Basic Edition.
-    // 
     // - **cold**: Cold Storage Edition.
     shared_ptr<string> category_ {};
     // The client download URL.
     shared_ptr<string> clientDownloadPath_ {};
     // The creation time.
-    // 
     // The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
     shared_ptr<string> createTime_ {};
     // The custom bucket path.
@@ -758,24 +754,21 @@ namespace Models
     // * **MySQL**
     // * **PostgreSQL**
     shared_ptr<string> DBType_ {};
-    // The list of endpoints, including endpoint information for types such as NAS and S3 Gateway.
+    // The list of endpoints, including endpoint information such as NAS and S3 Gateway.
     shared_ptr<vector<DescribePolarFsAttributeResponseBody::EndpointItems>> endpointItems_ {};
     // The expiration time of the cluster.
-    // 
-    // > This parameter is returned only for clusters whose billing method is **Prepaid** (subscription). For clusters whose billing method is **Postpaid** (pay-as-you-go), an empty value is returned.
-    // 
+    // > This parameter is returned only for subscription clusters whose billing method is **Prepaid**. For pay-as-you-go clusters whose billing method is **Postpaid**, an empty value is returned.
     // The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
     shared_ptr<string> expireTime_ {};
     // Indicates whether the cluster has expired.
-    // > This parameter is returned only for clusters whose billing method is **Prepaid** (subscription).
+    // > This parameter is returned only for subscription clusters whose billing method is **Prepaid**.
     shared_ptr<string> expired_ {};
     // The file system ID.
     shared_ptr<string> fileSystemId_ {};
-    // The lock mode. Valid values: 
-    // 
+    // The lock mode. Valid values:
     // - **Unlock**: Unlocked.
-    // - **ManualLock**: Manually locked. 
-    // - **LockByExpiration**: Automatically locked due to cluster expiration.
+    // - **ManualLock**: Manually locked.
+    // - **LockByExpiration**: Automatically locked due to expiration.
     shared_ptr<string> lockMode_ {};
     // The proxy endpoint ID.
     shared_ptr<string> maxscaleEndpointId_ {};
@@ -787,20 +780,19 @@ namespace Models
     shared_ptr<string> metaMxsConnString_ {};
     // The metadata address for FUSE mounting (encrypted).
     shared_ptr<string> metaUrl_ {};
-    // The minor version number of the instance.
+    // The minor version of the instance.
     shared_ptr<string> minorVersion_ {};
     // The mount configuration.
     shared_ptr<DescribePolarFsAttributeResponseBody::MountInfo> mountInfo_ {};
     // The billing method. Valid values:
-    // 
     // - **Postpaid**: Pay-as-you-go.
     // - **Prepaid**: Subscription.
     shared_ptr<string> payType_ {};
-    // The Polarlakebase instance description.
+    // The description of the Polarlakebase instance.
     shared_ptr<string> polarFsInstanceDescription_ {};
     // The Polarlakebase instance ID.
     shared_ptr<string> polarFsInstanceId_ {};
-    // The Polarlakebase instance status.
+    // The status of the Polarlakebase instance.
     shared_ptr<string> polarFsStatus_ {};
     // The instance version. Valid values:
     // - **PolarFS 2.0**: 2.0.
@@ -812,9 +804,9 @@ namespace Models
     shared_ptr<string> regionId_ {};
     // The ID of the associated PolarDB cluster.
     shared_ptr<string> relativeDbClusterId_ {};
-    // The associated Polarlakebase instance ID.
+    // The ID of the associated Polarlakebase instance.
     shared_ptr<string> relativePfsClusterId_ {};
-    // Id of the request
+    // The request ID.
     shared_ptr<string> requestId_ {};
     // The resource group ID.
     shared_ptr<string> resourceGroupId_ {};
@@ -822,12 +814,10 @@ namespace Models
     shared_ptr<string> securityGroupId_ {};
     // The storage space. Unit: GB.
     shared_ptr<double> storageSpace_ {};
-    // The storage type. 
-    // For High-performance Edition, valid values are:
+    // The storage type. Valid values for High-performance Edition:
     // * **ESSDPL1**
     // * **ESSDPL0**
-    // 
-    // For Basic Edition, valid values are:
+    // Valid values for Basic Edition:
     // * **city_redundancy**: Zone-redundant storage.
     shared_ptr<string> storageType_ {};
     // The used storage space. Unit: bytes.

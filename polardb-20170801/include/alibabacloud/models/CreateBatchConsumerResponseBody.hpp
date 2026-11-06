@@ -238,7 +238,7 @@ namespace Models
     protected:
       // Indicates whether the consumer is active.
       shared_ptr<bool> active_ {};
-      // The complete API key. This value is returned only in the current response.
+      // The complete API key. This value is returned only in this response.
       shared_ptr<string> apiKey_ {};
       // The MD5 hash of the API key.
       shared_ptr<string> apiKeyMd5_ {};
@@ -250,7 +250,7 @@ namespace Models
       shared_ptr<int64_t> budgetLimit_ {};
       // The ID of the budget policy. Each key has an independent budget policy.
       shared_ptr<string> budgetPolicyId_ {};
-      // The used quota.
+      // The used budget.
       shared_ptr<int64_t> budgetUsed_ {};
       // The ID of the consumer group.
       shared_ptr<string> consumerGroupId_ {};
@@ -262,7 +262,7 @@ namespace Models
       shared_ptr<string> description_ {};
       // The expiration time.
       // 
-      // The time is in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
+      // The time is in ISO 8601 format and UTC time zone (format: YYYY-MM-DDTHH:mm:ssZ).
       shared_ptr<string> expireTime_ {};
       // Indicates whether the consumer has expired.
       shared_ptr<bool> expired_ {};
@@ -346,7 +346,7 @@ namespace Models
     // 
     // Default value: 30.
     shared_ptr<int32_t> pageSize_ {};
-    // Id of the request
+    // The request ID.
     shared_ptr<string> requestId_ {};
     // The total number of pages.
     shared_ptr<int32_t> totalPages_ {};

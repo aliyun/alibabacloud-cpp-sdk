@@ -308,7 +308,7 @@ namespace Models
       shared_ptr<string> directCommand_ {};
       // The display name of the model.
       shared_ptr<string> displayModelName_ {};
-      // The time when the registration was last modified.
+      // The last modification time of the registration.
       shared_ptr<string> gmtModified_ {};
       // The supported GPU models.
       shared_ptr<vector<Items::GpuRequired>> gpuRequired_ {};
@@ -393,7 +393,7 @@ namespace Models
     shared_ptr<vector<DescribeAvailableModelsResponseBody::Items>> items_ {};
     // The model type corresponding to the request.
     shared_ptr<string> modelType_ {};
-    // Id of the request
+    // The request ID.
     shared_ptr<string> requestId_ {};
     // The model fine-tuning architecture.
     shared_ptr<string> tuneArch_ {};
