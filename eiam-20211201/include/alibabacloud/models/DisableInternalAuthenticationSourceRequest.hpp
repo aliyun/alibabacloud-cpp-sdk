@@ -48,7 +48,7 @@ namespace Models
 
 
   protected:
-    // The ID of the internal authentication source.
+    // The internal authentication source ID.
     shared_ptr<string> authenticationSourceId_ {};
     // The instance ID.
     // 

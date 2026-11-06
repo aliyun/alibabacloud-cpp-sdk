@@ -126,7 +126,7 @@ namespace Models
         protected:
           // The name of the custom privacy policy item.
           shared_ptr<string> customPrivacyPolicyItemName_ {};
-          // The URL of the custom privacy policy item. The URL must start with https://.
+          // The access URL of the custom privacy policy item. The URL must start with https://.
           shared_ptr<string> customPrivacyPolicyItemUrl_ {};
         };
 
@@ -158,9 +158,9 @@ namespace Models
       protected:
         // The custom privacy policy items.
         shared_ptr<vector<CustomPrivacyPolicyContents::CustomPrivacyPolicyItems>> customPrivacyPolicyItems_ {};
-        // The tip for the custom privacy policy content.
+        // The prompt for the custom privacy policy content.
         shared_ptr<string> customPrivacyPolicyTip_ {};
-        // The language of the custom privacy policy. The value is obtained from the LanguageCode parameter returned by the ListLanguages operation.
+        // The language of the custom privacy policy. The value is the LanguageCode returned by the ListLanguages operation.
         shared_ptr<string> languageCode_ {};
       };
 
@@ -219,17 +219,17 @@ namespace Models
 
 
     protected:
-      // The content details of the custom privacy policy.
+      // The details of the custom privacy policy content.
       shared_ptr<vector<CustomPrivacyPolicy::CustomPrivacyPolicyContents>> customPrivacyPolicyContents_ {};
       // The custom privacy policy ID.
       shared_ptr<string> customPrivacyPolicyId_ {};
       // The custom privacy policy name.
       shared_ptr<string> customPrivacyPolicyName_ {};
-      // The language of the custom privacy policy. The value is obtained from the LanguageCode parameter returned by the ListLanguages operation.
+      // The language of the custom privacy policy. The value is the LanguageCode returned by the ListLanguages operation.
       shared_ptr<string> defaultLanguageCode_ {};
       // The instance ID.
       shared_ptr<string> instanceId_ {};
-      // The status of the custom privacy policy. Valid values:
+      // The account status. Valid values:
       // - enabled: Enabled.
       // - disabled: Disabled.
       shared_ptr<string> status_ {};

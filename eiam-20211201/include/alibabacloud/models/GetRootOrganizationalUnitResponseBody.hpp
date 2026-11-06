@@ -105,7 +105,7 @@ namespace Models
 
 
     protected:
-      // The time when the organizational unit was created, in UNIX timestamp format. Unit: milliseconds.
+      // The time when the organizational unit was created. The value is a UNIX timestamp in milliseconds.
       shared_ptr<int64_t> createTime_ {};
       // The description of the organizational unit.
       shared_ptr<string> description_ {};
@@ -115,7 +115,7 @@ namespace Models
       shared_ptr<string> organizationalUnitId_ {};
       // The organizational unit name.
       shared_ptr<string> organizationalUnitName_ {};
-      // The time when the organizational unit was last updated, in UNIX timestamp format. Unit: milliseconds.
+      // The time when the organizational unit was last updated. The value is a UNIX timestamp in milliseconds.
       shared_ptr<int64_t> updateTime_ {};
     };
 

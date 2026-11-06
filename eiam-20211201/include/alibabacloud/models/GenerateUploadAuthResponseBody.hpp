@@ -130,27 +130,27 @@ namespace Models
 
 
   protected:
-    // Authentication Access ID.
+    // The Access ID for authentication.
     shared_ptr<string> accessId_ {};
-    // Pre-download URL.
+    // The presigned download URL.
     shared_ptr<string> downLoadUrl_ {};
-    // Encrypted file encryption configuration key of the instance.
+    // The encrypted file encryption configuration key for the instance.
     shared_ptr<string> encryptedKey_ {};
-    // Expiration time.
+    // The expiration time.
     shared_ptr<int64_t> expire_ {};
-    // Bucket address host.
+    // The host address of the bucket.
     shared_ptr<string> host_ {};
-    // Authentication key.
+    // The key for authentication.
     shared_ptr<string> key_ {};
-    // Plaintext key for encryption configuration.
+    // The plaintext key for the encryption configuration.
     shared_ptr<string> plaintextKey_ {};
-    // Authentication policy.
+    // The policy for authentication.
     shared_ptr<string> policy_ {};
-    // Request ID.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // STS authentication access credential.
+    // The STS access credential.
     shared_ptr<string> securityToken_ {};
-    // Authentication signature.
+    // The signature for authentication.
     shared_ptr<string> signature_ {};
   };
 

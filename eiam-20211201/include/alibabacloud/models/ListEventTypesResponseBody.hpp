@@ -96,7 +96,7 @@ namespace Models
     shared_ptr<vector<ListEventTypesResponseBody::EventTypes>> eventTypes_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The total number of entries in the list.
+    // The total number of entries.
     shared_ptr<int64_t> totalCount_ {};
   };
 

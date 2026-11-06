@@ -83,7 +83,7 @@ namespace Models
 
 
       protected:
-        // The application role ID.
+        // The application role identifier.
         shared_ptr<string> applicationRoleId_ {};
       };
 
@@ -108,7 +108,7 @@ namespace Models
     protected:
       // The application ID.
       shared_ptr<string> applicationId_ {};
-      // The list of application roles.
+      // The list of application roles. No roles are returned for SAML applications.
       shared_ptr<vector<Applications::ApplicationRoles>> applicationRoles_ {};
     };
 
@@ -138,11 +138,11 @@ namespace Models
 
 
   protected:
-    // The list of applications that are authorized for access.
+    // The list of applications that the organization is authorized to access.
     shared_ptr<vector<ListApplicationsForOrganizationalUnitResponseBody::Applications>> applications_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The total number of entries returned.
+    // The total number of entries.
     shared_ptr<int64_t> totalCount_ {};
   };
 

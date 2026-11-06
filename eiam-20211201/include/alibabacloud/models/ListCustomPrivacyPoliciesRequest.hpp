@@ -75,17 +75,17 @@ namespace Models
 
 
   protected:
-    // The custom term name. Left fuzzy match is supported.
+    // The prefix of the custom privacy policy name for fuzzy matching.
     shared_ptr<string> customPrivacyPolicyNameStartsWith_ {};
     // The instance ID.
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
-    // The number of entries per page in a paged query.
+    // The maximum number of entries to return per page in a paging query.
     shared_ptr<int64_t> maxResults_ {};
     // The pagination token.
     shared_ptr<string> nextToken_ {};
-    // The token for the previous page.
+    // The pagination token for the previous page.
     shared_ptr<string> previousToken_ {};
   };
 

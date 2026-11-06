@@ -80,9 +80,9 @@ namespace Models
     protected:
       // The name of the filter field. Valid values:
       // 
-      // - ApplicationId: the application ID.
+      // - ApplicationId: the application ID
       shared_ptr<string> name_ {};
-      // The values of the filter field.
+      // The list of filter field values.
       shared_ptr<vector<string>> value_ {};
     };
 
@@ -136,15 +136,9 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
-    // The maximum number of entries per page.
-    // 
-    // - Default value: 20.
-    // 
-    // - Maximum value: 100.
+    // The maximum number of entries per page. Default value: 20. Maximum value: 100.
     shared_ptr<int32_t> maxResults_ {};
-    // The pagination token that indicates the start position of the next page.
-    // 
-    // - If this parameter is not specified, the query starts from the first page.
+    // The pagination token that specifies the starting position for the next page. If you do not specify this parameter, the query starts from the first page by default.
     shared_ptr<string> nextToken_ {};
   };
 

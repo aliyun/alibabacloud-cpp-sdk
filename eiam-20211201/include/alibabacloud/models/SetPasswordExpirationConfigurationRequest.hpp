@@ -123,28 +123,28 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
-    // The action to take when a password expires. This parameter is required when PasswordExpirationStatus is set to enabled. Valid values:
-    // - forbid_login: Prohibit logon.
-    // - force_update_password: Force password change.
-    // - remind_update_password: Remind to change password.
+    // The action to take when the password expires. This parameter is required when PasswordExpirationStatus is set to enabled. Valid values:
+    // - forbid_login: Forbid logon.
+    // - force_update_password: Force password update.
+    // - remind_update_password: Remind to update password.
     shared_ptr<string> passwordExpirationAction_ {};
     // The list of password expiration notification channels. This parameter is required when PasswordExpirationNotificationStatus is set to enabled.
     shared_ptr<vector<string>> passwordExpirationNotificationChannels_ {};
-    // The password expiration notification time, in days. This parameter is required when PasswordExpirationNotificationStatus is set to enabled.
+    // The password expiration notification duration, in days. This parameter is required when PasswordExpirationNotificationStatus is set to enabled.
     shared_ptr<int32_t> passwordExpirationNotificationDuration_ {};
     // The password expiration notification status. Valid values:
     // - enabled: Enabled.
     // - disabled: Disabled.
     shared_ptr<string> passwordExpirationNotificationStatus_ {};
-    // The password expiration configuration status. Valid values:
+    // The password expiration status. Valid values:
     // - enabled: Enabled.
     // - disabled: Disabled.
     // 
     // This parameter is required.
     shared_ptr<string> passwordExpirationStatus_ {};
-    // The forced password change time, in days. The value of this parameter must be greater than the value of PasswordExpirationNotificationDuration.
+    // The password forced update duration, in days. The value of this parameter must be greater than the value of PasswordExpirationNotificationDuration.
     shared_ptr<int32_t> passwordForcedUpdateDuration_ {};
-    // The validity period of a password, in days. This parameter is required when PasswordExpirationStatus is set to enabled.
+    // The maximum validity period of the password, in days. This parameter is required when PasswordExpirationStatus is set to enabled.
     shared_ptr<int32_t> passwordValidMaxDay_ {};
   };
 

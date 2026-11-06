@@ -52,7 +52,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
-    // The account ID.
+    // The user ID.
     // 
     // This parameter is required.
     shared_ptr<string> userId_ {};

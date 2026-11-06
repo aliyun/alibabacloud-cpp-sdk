@@ -52,7 +52,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
-    // The organizational unit ID.
+    // The organization ID.
     // 
     // This parameter is required.
     shared_ptr<string> organizationalUnitId_ {};

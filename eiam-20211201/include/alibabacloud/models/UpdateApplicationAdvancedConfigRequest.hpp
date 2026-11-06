@@ -76,7 +76,7 @@ namespace Models
     protected:
       // The list of supported user custom field IDs.
       shared_ptr<vector<string>> supportedUserCustomFieldIds_ {};
-      // The namespace of user extended fields.
+      // The namespace of user extension fields.
       shared_ptr<string> userCustomFieldNamespace_ {};
     };
 
@@ -114,7 +114,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
-    // The SCIM server advanced configuration.
+    // The advanced configurations of the SCIM server.
     shared_ptr<UpdateApplicationAdvancedConfigRequest::ScimServerAdvancedConfig> scimServerAdvancedConfig_ {};
   };
 

@@ -83,7 +83,7 @@ namespace Models
 
 
       protected:
-        // The ID of the application role.
+        // The application role ID.
         shared_ptr<string> applicationRoleId_ {};
       };
 
@@ -106,9 +106,9 @@ namespace Models
 
 
     protected:
-      // The list of application roles.
+      // The application roles.
       shared_ptr<vector<OrganizationalUnits::ApplicationRoles>> applicationRoles_ {};
-      // The organization ID.
+      // The organizational unit ID.
       shared_ptr<string> organizationalUnitId_ {};
     };
 
@@ -138,7 +138,7 @@ namespace Models
 
 
   protected:
-    // The list of organizations.
+    // The list of organizational unit IDs.
     shared_ptr<vector<ListOrganizationalUnitsForApplicationResponseBody::OrganizationalUnits>> organizationalUnits_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

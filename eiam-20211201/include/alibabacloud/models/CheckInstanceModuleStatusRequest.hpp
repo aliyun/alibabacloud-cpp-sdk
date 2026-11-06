@@ -94,9 +94,9 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> moduleKey_ {};
-    // The resource label URN key.
+    // The URN key of the resource label.
     shared_ptr<string> resourceLabelKey_ {};
-    // The resource label name.
+    // The name of the resource label.
     shared_ptr<string> resourceLabelValue_ {};
     // The level-3 module identifier.
     shared_ptr<string> subFeatureKey_ {};

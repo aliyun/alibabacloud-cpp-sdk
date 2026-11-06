@@ -139,9 +139,9 @@ namespace Models
       shared_ptr<string> description_ {};
       // The instance ID.
       shared_ptr<string> instanceId_ {};
-      // The IPv4 CIDR blocks of the network zone.
+      // The IPv4 CIDR blocks.
       shared_ptr<vector<string>> ipv4Cidrs_ {};
-      // The IPv6 CIDR blocks of the network zone.
+      // The IPv6 CIDR blocks.
       shared_ptr<vector<string>> ipv6Cidrs_ {};
       // The network zone ID.
       shared_ptr<string> networkZoneId_ {};
@@ -193,15 +193,15 @@ namespace Models
 
 
   protected:
-    // The list of network zones.
+    // The network zones.
     shared_ptr<vector<ListNetworkZonesResponseBody::NetworkZones>> networkZones_ {};
-    // The pagination token returned by this call.
+    // The pagination token returned for this call.
     shared_ptr<string> nextToken_ {};
     // The pagination token for the previous page.
     shared_ptr<string> previousToken_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The total number of entries in the list.
+    // The total number of entries.
     shared_ptr<int64_t> totalCount_ {};
   };
 

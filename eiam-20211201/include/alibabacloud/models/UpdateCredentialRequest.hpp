@@ -96,9 +96,9 @@ namespace Models
 
 
       protected:
-        // The client_id in the OAuth protocol.
+        // The client_id of the OAuth protocol.
         shared_ptr<string> clientId_ {};
-        // The client_secret in the OAuth protocol.
+        // The client_secret of the OAuth protocol.
         shared_ptr<string> clientSecret_ {};
       };
 
@@ -130,7 +130,7 @@ namespace Models
 
 
       protected:
-        // The API key value.
+        // The API key content.
         shared_ptr<string> apiKey_ {};
       };
 
@@ -155,9 +155,9 @@ namespace Models
 
 
     protected:
-      // The credential content for an API key credential type.
+      // The credential content for the API key credential type.
       shared_ptr<CredentialContent::ApiKeyContent> apiKeyContent_ {};
-      // The credential content for an OAuth client authentication credential type.
+      // The credential content for the OAuth client credential type.
       shared_ptr<CredentialContent::OAuthClientContent> OAuthClientContent_ {};
     };
 
@@ -201,7 +201,7 @@ namespace Models
 
 
   protected:
-    // Ensures idempotence. Generate a unique value on your client for each request. The ClientToken value must contain only ASCII characters and cannot exceed 64 characters. For more information, see [How to ensure idempotence](https://www.alibabacloud.com/help/zh/ecs/developer-reference/how-to-ensure-idempotence).
+    // Ensures the idempotence of the request. You can generate a parameter value on your client to ensure that the value is unique across different requests. The ClientToken parameter supports only ASCII characters and can be up to 64 characters in length. For more information, see References: [How to ensure idempotence](https://www.alibabacloud.com/help/zh/ecs/developer-reference/how-to-ensure-idempotence).
     // 
     // This parameter is required.
     shared_ptr<string> clientToken_ {};

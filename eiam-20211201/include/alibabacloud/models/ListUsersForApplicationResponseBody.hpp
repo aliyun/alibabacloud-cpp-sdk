@@ -106,7 +106,7 @@ namespace Models
 
 
     protected:
-      // The list of application roles.
+      // The list of application roles. No roles are returned for SAML applications.
       shared_ptr<vector<Users::ApplicationRoles>> applicationRoles_ {};
       // The account ID.
       shared_ptr<string> userId_ {};
@@ -142,7 +142,7 @@ namespace Models
     shared_ptr<string> requestId_ {};
     // The total number of entries.
     shared_ptr<int64_t> totalCount_ {};
-    // The list of accounts.
+    // The list of account IDs.
     shared_ptr<vector<ListUsersForApplicationResponseBody::Users>> users_ {};
   };
 

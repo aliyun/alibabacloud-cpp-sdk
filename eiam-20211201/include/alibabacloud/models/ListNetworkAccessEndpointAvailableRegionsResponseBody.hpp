@@ -95,7 +95,7 @@ namespace Models
 
 
   protected:
-    // The collection of available regions.
+    // The list of available regions.
     shared_ptr<vector<ListNetworkAccessEndpointAvailableRegionsResponseBody::Regions>> regions_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

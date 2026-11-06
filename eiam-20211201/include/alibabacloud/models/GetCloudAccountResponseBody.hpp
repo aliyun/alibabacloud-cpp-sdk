@@ -121,9 +121,9 @@ namespace Models
 
 
       protected:
-        // The error code of the failure.
+        // The failure error code.
         shared_ptr<string> errorCode_ {};
-        // The error message of the failure.
+        // The failure message.
         shared_ptr<string> errorMessage_ {};
       };
 
@@ -185,7 +185,7 @@ namespace Models
       protected:
         // The audience identifier.
         shared_ptr<string> audience_ {};
-        // The ID of the authorization server.
+        // The authorization server ID.
         shared_ptr<string> authorizationServerId_ {};
         // The issuer.
         shared_ptr<string> issuer_ {};
@@ -288,11 +288,12 @@ namespace Models
       protected:
         // The error reason. This field returns a value when the health check status is unhealthy.
         shared_ptr<CloudAccountHealthCheckResult::ErrorReason> errorReason_ {};
-        // The time of the last check. The value is a UNIX timestamp in milliseconds.
+        // The last check time. The value is a UNIX timestamp in milliseconds.
         shared_ptr<int64_t> lastCheckTime_ {};
-        // The health check result of the cloud account. Valid values:
-        // - success: The check succeeded.
-        // - failed: The check failed.
+        // The cloud account health check result. Valid values:
+        // 
+        // - success: Success.
+        // - failed: Failure.
         shared_ptr<string> result_ {};
       };
 
@@ -431,49 +432,50 @@ namespace Models
     protected:
       // The external unique identifier of the cloud account.
       shared_ptr<string> cloudAccountExternalId_ {};
-      // The health status of the cloud account. Valid values:
-      // - healthy: The cloud account is healthy.
-      // - unhealthy: The cloud account is unhealthy.
-      // - unknown: The health status is unknown.
+      // The cloud account health status. Valid values:
+      // - healthy: Healthy.
+      // - unhealthy: Unhealthy.
+      // - unknown: Unknown.
       shared_ptr<string> cloudAccountHealth_ {};
-      // The health check result of the cloud account.
+      // The cloud account health check result.
       shared_ptr<CloudAccount::CloudAccountHealthCheckResult> cloudAccountHealthCheckResult_ {};
       // The cloud account ID.
       shared_ptr<string> cloudAccountId_ {};
-      // The name of the cloud account.
+      // The cloud account name.
       shared_ptr<string> cloudAccountName_ {};
-      // The configuration information of the identity provider.
+      // The identity provider configuration information.
       shared_ptr<CloudAccount::CloudAccountProviderConfig> cloudAccountProviderConfig_ {};
-      // The name of the identity provider.
+      // The identity provider name.
       shared_ptr<string> cloudAccountProviderName_ {};
-      // The site of the cloud account. Valid values:
+      // The cloud account site. Valid values:
       // - china_mainland: The Chinese mainland.
       // - global: Global.
       shared_ptr<string> cloudAccountSite_ {};
-      // The type of the cloud account. Valid values:
+      // The cloud account type. Valid values:
+      // 
       // - alibaba_cloud: Alibaba Cloud.
       shared_ptr<string> cloudAccountVendorType_ {};
       // The creation time. The value is a UNIX timestamp in milliseconds.
       shared_ptr<int64_t> createTime_ {};
-      // The description of the cloud account.
+      // The cloud account description.
       shared_ptr<string> description_ {};
       // The instance ID.
       shared_ptr<string> instanceId_ {};
-      // The list of associated privileged application IDs.
+      // The list of associated privilege application IDs.
       shared_ptr<vector<string>> privilegeApplicationIds_ {};
       // The cause of the privilege hosting or removal failure.
       shared_ptr<CloudAccount::PrivilegeHostingError> privilegeHostingError_ {};
-      // The hosting status of the cloud account. Default value: hosting_unmanaged. Valid values:
+      // The cloud account hosting status. Default value: hosting_unmanaged. Valid values:
       // - hosting_unmanaged: Unmanaged. The cloud account has not initiated hosting and is in the initial state.
-      // - hosting_pending: Hosting. The hosting task has been submitted and is being executed asynchronously. Wait for the hosting process to complete to enter the final state.
-      // - hosting_completed: Hosting completed. The cloud account hosting process is executed successfully, and the relevant permission templates and hosting bindings have taken effect.
-      // - hosting_failed: Hosting failed. The hosting process encounters an exception. You can view the cause of the failure and initiate hosting again.
-      // - hosting_removing: Removing. The removal task has been submitted and is being executed asynchronously. Wait for the removal process to complete to enter the final state.
-      // - hosting_remove_failed: Removal failed. The removal process encounters an exception. You can view the cause of the failure and initiate removal again.
+      // - hosting_pending: Hosting. The hosting task is submitted and executed asynchronously. You must wait for the hosting process to complete to enter the final state.
+      // - hosting_completed: Hosting completed. The hosting process is executed successfully, and the relevant permission templates and hosting bindings take effect.
+      // - hosting_failed: Hosting failed. An exception occurs during the hosting process. You can view the failure cause and initiate hosting again.
+      // - hosting_removing: Removing. The removal task is submitted and executed asynchronously. You must wait for the removal process to complete to enter the final state.
+      // - hosting_remove_failed: Removal failed. An exception occurs during the removal process. You can view the failure cause and initiate removal again.
       shared_ptr<string> privilegeHostingState_ {};
-      // The status of the privilege switch. Valid values:
-      // - enabled: Enabled. The resource is in the effective state and can be used normally.
-      // - disabled: Disabled. The resource is in the stopped state and no longer takes effect. You can enable it again to restore it.
+      // The privilege switch status. Valid values:
+      // - enabled: Enabled. The resource is active and can be used normally.
+      // - disabled: Disabled. The resource is deactivated and no longer takes effect. You can re-enable it to restore the resource.
       shared_ptr<string> privilegeStatus_ {};
       // The last update time. The value is a UNIX timestamp in milliseconds.
       shared_ptr<int64_t> updateTime_ {};

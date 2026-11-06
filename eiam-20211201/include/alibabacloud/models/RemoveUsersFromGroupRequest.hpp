@@ -68,7 +68,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
-    // The account IDs. A maximum of 100 accounts can be removed from a group.
+    // The list of account IDs. The list can contain up to 100 elements.
     // 
     // This parameter is required.
     shared_ptr<vector<string>> userIds_ {};

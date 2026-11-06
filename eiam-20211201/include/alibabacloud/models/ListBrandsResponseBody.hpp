@@ -187,17 +187,17 @@ namespace Models
 
 
   protected:
-    // The list of brand data.
+    // The list of brands.
     shared_ptr<vector<ListBrandsResponseBody::Brands>> brands_ {};
-    // The number of entries per page in a paged query.
+    // The maximum number of entries per page in a paging query.
     shared_ptr<int64_t> maxResults_ {};
-    // The pagination token returned by this call.
+    // The next token returned by this call.
     shared_ptr<string> nextToken_ {};
-    // The pagination token returned by this call.
+    // The next token returned by this call.
     shared_ptr<string> previousToken_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The total number of entries in the list.
+    // The total number of entries.
     shared_ptr<int64_t> totalCount_ {};
   };
 

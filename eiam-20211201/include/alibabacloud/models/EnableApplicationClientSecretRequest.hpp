@@ -57,15 +57,15 @@ namespace Models
 
 
   protected:
-    // The ID of the application.
+    // The application ID.
     // 
     // This parameter is required.
     shared_ptr<string> applicationId_ {};
-    // The ID of the instance.
+    // The instance ID.
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
-    // The client key ID of the application.
+    // The ID of the client secret for the application.
     // 
     // This parameter is required.
     shared_ptr<string> secretId_ {};

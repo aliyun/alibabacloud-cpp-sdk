@@ -133,11 +133,11 @@ namespace Models
 
 
     protected:
-      // The authentication source type of the source IdP.
+      // The source IdP authentication source type.
       shared_ptr<string> authnSourceType_ {};
       // The creation time. The value is a UNIX timestamp in milliseconds.
       shared_ptr<int64_t> createTime_ {};
-      // The association information of the third-party account.
+      // The third-party account association information.
       shared_ptr<string> externalData_ {};
       // The source IdP ID.
       shared_ptr<string> identityProviderId_ {};
@@ -198,17 +198,17 @@ namespace Models
 
 
   protected:
-    // The maximum number of rows per page in a paged query.
+    // The maximum number of entries to return per page in a paging query.
     shared_ptr<int32_t> maxResults_ {};
-    // The pagination token returned by this call.
+    // The pagination token returned by the current call.
     shared_ptr<string> nextToken_ {};
-    // The pagination token returned by this call.
+    // The pagination token returned by the current call.
     shared_ptr<string> previousToken_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
     // The total number of entries in the list.
     shared_ptr<int32_t> totalCount_ {};
-    // The list of third-party account login bindings.
+    // The list of third-party account logon bindings.
     shared_ptr<vector<ListUserAuthnSourceMappingsResponseBody::UserAuthnSourceMappings>> userAuthnSourceMappings_ {};
   };
 

@@ -55,7 +55,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
-    // A list of account IDs.
+    // The list of account IDs.
     // 
     // This parameter is required.
     shared_ptr<vector<string>> userIds_ {};

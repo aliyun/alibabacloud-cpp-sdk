@@ -91,17 +91,17 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> applicationId_ {};
-    // 应用角色ID。
+    // The application role ID.
     shared_ptr<string> applicationRoleId_ {};
     // The instance ID.
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
-    // The list of organization IDs. A single request can contain up to 100 organization IDs.
+    // The organizational unit IDs. A maximum of 100 organizational unit IDs can be specified in a single operation.
     shared_ptr<vector<string>> organizationalUnitIds_ {};
     // The page number.
     shared_ptr<int64_t> pageNumber_ {};
-    // The number of entries per page.
+    // The page size.
     shared_ptr<int64_t> pageSize_ {};
   };
 

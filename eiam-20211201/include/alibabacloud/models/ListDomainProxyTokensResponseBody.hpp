@@ -125,9 +125,9 @@ namespace Models
 
 
     protected:
-      // The creation time of the domain proxy token, in Unix timestamp format, in milliseconds.
+      // The creation time of the domain proxy token. The value is a UNIX timestamp in milliseconds.
       shared_ptr<int64_t> createTime_ {};
-      // The domain ID.
+      // The domain name ID.
       shared_ptr<string> domainId_ {};
       // The domain proxy token.
       shared_ptr<string> domainProxyToken_ {};
@@ -135,14 +135,14 @@ namespace Models
       shared_ptr<string> domainProxyTokenId_ {};
       // The instance ID.
       shared_ptr<string> instanceId_ {};
-      // The most recent usage time of the domain proxy token, in Unix timestamp format, in milliseconds.
+      // The last used time of the domain proxy token. The value is a UNIX timestamp in milliseconds.
       shared_ptr<int64_t> lastUsedTime_ {};
       // The token status. Valid values:
-      // - enabled: The token is enabled.
+      // - enabled: Enabled.
       // 
-      // - disabled: The token is disabled.
+      // - disabled: Disabled.
       shared_ptr<string> status_ {};
-      // The most recent update time of the domain proxy token, in Unix timestamp format, in milliseconds.
+      // The last update time of the domain proxy token. The value is a UNIX timestamp in milliseconds.
       shared_ptr<int64_t> updateTime_ {};
     };
 
@@ -165,7 +165,7 @@ namespace Models
 
 
   protected:
-    // A list of domain proxy token objects.
+    // The list of proxy tokens for the domain name.
     shared_ptr<vector<ListDomainProxyTokensResponseBody::DomainProxyTokens>> domainProxyTokens_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

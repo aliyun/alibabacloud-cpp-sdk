@@ -66,7 +66,7 @@ namespace Models
 
 
   protected:
-    // The ID of the source identity provider.
+    // The source IdP ID.
     // 
     // This parameter is required.
     shared_ptr<string> identityProviderId_ {};
@@ -74,7 +74,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
-    // The external ID associated with the user.
+    // The external association ID.
     // 
     // This parameter is required.
     shared_ptr<string> userExternalId_ {};

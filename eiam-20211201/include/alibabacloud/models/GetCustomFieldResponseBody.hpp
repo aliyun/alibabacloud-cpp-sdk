@@ -299,7 +299,7 @@ namespace Models
 
 
     protected:
-      // The time when the extended field was created, in UNIX timestamp format. Unit: milliseconds.
+      // The creation time of the extended field. The value is a UNIX timestamp in milliseconds.
       shared_ptr<int64_t> createTime_ {};
       // The default value of the field.
       shared_ptr<string> defaultValue_ {};
@@ -307,9 +307,9 @@ namespace Models
       shared_ptr<string> description_ {};
       // Indicates whether the field is encrypted.
       shared_ptr<bool> encrypted_ {};
-      // The entity type to which the field belongs.
+      // The entity type of the field.
       shared_ptr<string> entityType_ {};
-      // The field value configuration items.
+      // The configuration items for the field values.
       shared_ptr<CustomField::FieldDataConfig> fieldDataConfig_ {};
       // The data type.
       shared_ptr<string> fieldDataType_ {};
@@ -329,9 +329,9 @@ namespace Models
       shared_ptr<string> status_ {};
       // Indicates whether the field is unique.
       shared_ptr<bool> unique_ {};
-      // The time when the extended field was last updated, in UNIX timestamp format. Unit: milliseconds.
+      // The last update time of the extended field. The value is a UNIX timestamp in milliseconds.
       shared_ptr<int64_t> updateTime_ {};
-      // The user-side (portal-side) permission.
+      // The permissions on the user portal side.
       shared_ptr<string> userPermission_ {};
     };
 

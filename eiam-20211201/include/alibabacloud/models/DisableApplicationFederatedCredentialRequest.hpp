@@ -57,7 +57,7 @@ namespace Models
 
 
   protected:
-    // The application federated identity credential ID.
+    // The application federated credential ID.
     // 
     // This parameter is required.
     shared_ptr<string> applicationFederatedCredentialId_ {};

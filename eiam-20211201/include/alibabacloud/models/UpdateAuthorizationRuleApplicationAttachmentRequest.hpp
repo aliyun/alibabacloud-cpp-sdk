@@ -77,9 +77,9 @@ namespace Models
 
 
     protected:
-      // The end time of the validity period. This is a UNIX timestamp. Unit: milliseconds.
+      // The end time of the validity period. The value is a UNIX timestamp in milliseconds.
       shared_ptr<int64_t> endTime_ {};
-      // The start time of the validity period. This is a UNIX timestamp. Unit: milliseconds.
+      // The start time of the validity period. The value is a UNIX timestamp in milliseconds.
       shared_ptr<int64_t> startTime_ {};
     };
 
@@ -138,7 +138,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> authorizationRuleId_ {};
-    // A client token to ensure the idempotence of the request. Generate a unique value from your client for this parameter. The ClientToken can contain only ASCII characters and cannot exceed 64 characters in length. For more information, see [How to ensure idempotence](https://www.alibabacloud.com/help/zh/ecs/developer-reference/how-to-ensure-idempotence).
+    // Ensures the idempotence of the request. You can generate a parameter value from your client to ensure that the parameter value is unique among different requests. The ClientToken can contain only ASCII characters and cannot exceed 64 characters in length. References: [How to ensure idempotence](https://www.alibabacloud.com/help/zh/ecs/developer-reference/how-to-ensure-idempotence).
     // 
     // This parameter is required.
     shared_ptr<string> clientToken_ {};
@@ -149,10 +149,8 @@ namespace Models
     // The time range of the validity period. This parameter takes effect only when **ValidityType** is set to **time_bound**.
     shared_ptr<UpdateAuthorizationRuleApplicationAttachmentRequest::ValidityPeriod> validityPeriod_ {};
     // The validity type of the relationship. Valid values:
-    // 
-    // - permanent: The relationship is permanent.
-    // 
-    // - time_bound: The relationship is valid for a custom time range.
+    // - permanent: permanent
+    // - time_bound: custom time range
     // 
     // This parameter is required.
     shared_ptr<string> validityType_ {};

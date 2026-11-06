@@ -57,13 +57,13 @@ namespace Models
 
 
   protected:
-    // The ID of the application that you want to modify.
+    // The application ID.
     // 
     // This parameter is required.
     shared_ptr<string> applicationId_ {};
     // The description of the application.
     shared_ptr<string> description_ {};
-    // The ID of the instance.
+    // The instance ID.
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};

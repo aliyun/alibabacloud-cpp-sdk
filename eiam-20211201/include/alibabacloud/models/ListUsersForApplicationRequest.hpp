@@ -91,7 +91,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> applicationId_ {};
-    // 应用角色ID。
+    // The application role ID.
     shared_ptr<string> applicationRoleId_ {};
     // The instance ID.
     // 
@@ -99,9 +99,9 @@ namespace Models
     shared_ptr<string> instanceId_ {};
     // The page number.
     shared_ptr<int64_t> pageNumber_ {};
-    // The number of entries per page.
+    // The page size.
     shared_ptr<int64_t> pageSize_ {};
-    // The list of account IDs. A maximum of 100 account IDs are supported in a single request.
+    // The list of account IDs. You can specify up to 100 account IDs in a single operation.
     shared_ptr<vector<string>> userIds_ {};
   };
 

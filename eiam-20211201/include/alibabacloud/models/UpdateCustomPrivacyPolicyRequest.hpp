@@ -103,7 +103,7 @@ namespace Models
       protected:
         // The name of the custom privacy policy item.
         shared_ptr<string> customPrivacyPolicyItemName_ {};
-        // The endpoint of the custom privacy policy item. The value must start with https\\://.
+        // The access URL of the custom privacy policy item. The URL must start with https://.
         shared_ptr<string> customPrivacyPolicyItemUrl_ {};
       };
 
@@ -135,9 +135,9 @@ namespace Models
     protected:
       // The items of the custom privacy policy.
       shared_ptr<vector<CustomPrivacyPolicyContents::CustomPrivacyPolicyItems>> customPrivacyPolicyItems_ {};
-      // The prompt for the custom privacy policy content.
+      // The tip for the custom privacy policy content.
       shared_ptr<string> customPrivacyPolicyTip_ {};
-      // The language of the custom privacy policy. The value is the LanguageCode returned by the ListLanguages operation.
+      // The language of the custom privacy policy. The value is the LanguageCode returned by the ListLanguages API operation.
       shared_ptr<string> languageCode_ {};
     };
 
@@ -196,7 +196,7 @@ namespace Models
     shared_ptr<string> customPrivacyPolicyId_ {};
     // The name of the custom privacy policy.
     shared_ptr<string> customPrivacyPolicyName_ {};
-    // The default language of the policy. The value is the LanguageCode returned by the ListLanguages operation.
+    // The default language code for the privacy policy items. The value is the LanguageCode returned by the ListLanguages API operation.
     shared_ptr<string> defaultLanguageCode_ {};
     // The instance ID.
     // 

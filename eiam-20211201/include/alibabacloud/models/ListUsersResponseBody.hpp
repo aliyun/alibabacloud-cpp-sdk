@@ -250,55 +250,53 @@ namespace Models
 
 
     protected:
-      // The account expiration time, in UNIX timestamp format. Unit: milliseconds.
+      // The expiration time of the account. The value is a UNIX timestamp in milliseconds.
       shared_ptr<int64_t> accountExpireTime_ {};
-      // The account creation time, in UNIX timestamp format. Unit: milliseconds.
+      // The creation time of the account. The value is a UNIX timestamp in milliseconds.
       shared_ptr<int64_t> createTime_ {};
       // The description of the account.
       shared_ptr<string> description_ {};
-      // The display name of the account.
+      // The display name.
       shared_ptr<string> displayName_ {};
       // The email address of the account.
       shared_ptr<string> email_ {};
-      // Indicates whether the email address has been verified. A value of true indicates that the email address has been verified by the user or set as verified by the administrator. A value of false indicates that the email address has not been verified.
+      // Indicates whether the email address is verified. A value of true indicates that the email address has been verified by the user or set as verified by the administrator. A value of false indicates that the email address is not verified.
       shared_ptr<bool> emailVerified_ {};
       // The instance ID.
       shared_ptr<string> instanceId_ {};
-      // The account lock expiration time, in UNIX timestamp format. Unit: milliseconds.
+      // The expiration time of the account lock. The value is a UNIX timestamp in milliseconds.
       shared_ptr<int64_t> lockExpireTime_ {};
-      // The password expiration time, in UNIX timestamp format. Unit: milliseconds.
+      // The expiration time of the password. The value is a UNIX timestamp in milliseconds.
       shared_ptr<int64_t> passwordExpireTime_ {};
-      // Indicates whether a password has been set.
+      // Indicates whether the password is set.
       shared_ptr<bool> passwordSet_ {};
-      // The phone number of the account.
+      // The phone number.
       shared_ptr<string> phoneNumber_ {};
-      // Indicates whether the phone number has been verified. A value of true indicates that the phone number has been verified by the user or set as verified by the administrator. A value of false indicates that the phone number has not been verified.
+      // Indicates whether the phone number is verified. A value of true indicates that the phone number has been verified by the user or set as verified by the administrator. A value of false indicates that the phone number is not verified.
       shared_ptr<bool> phoneNumberVerified_ {};
-      // The phone region code. Example: The region code for the Chinese mainland is 86, without the 00 or + prefix.
+      // The phone region code. Example: 86 for the Chinese mainland, without 00 or +.
       shared_ptr<string> phoneRegion_ {};
-      // The account registration time, in UNIX timestamp format. Unit: milliseconds.
+      // The registration time of the account. The value is a UNIX timestamp in milliseconds.
       shared_ptr<int64_t> registerTime_ {};
-      // The account status. Valid values:
-      // - enabled: Enabled.
-      // - disabled: Disabled.
+      // The status of the account. Valid values:
+      // - enabled: enabled
+      // - disabled: disabled
       shared_ptr<string> status_ {};
-      // The time when the account was last updated, in UNIX timestamp format. Unit: milliseconds.
+      // The last update time of the account. The value is a UNIX timestamp in milliseconds.
       shared_ptr<int64_t> updateTime_ {};
-      // The external ID of the account, which is used to associate external data with IDaaS accounts. The default value is the IDaaS account ID.
-      // 
-      // Note: The external ID must be unique within the same source type and source ID.
+      // The external ID of the account. This ID is used to map external data to IDaaS accounts. The default value is the IDaaS account ID. Note: The external ID must be unique within the same source type and source ID.
       shared_ptr<string> userExternalId_ {};
       // The account ID.
       shared_ptr<string> userId_ {};
       // The source ID of the account.
       // 
-      // For self-built accounts, the default value is the instance ID. For other types, the value corresponds to the enterprise ID of the respective source. For example, for a DingTalk source, the value corresponds to the corpId of the DingTalk enterprise.
+      // For the build-in type, the default value is the instance ID. For other types, the value corresponds to the enterprise ID of the source. For example, for the DingTalk source, the value is the corpId of the DingTalk enterprise.
       shared_ptr<string> userSourceId_ {};
       // The source type of the account. Valid values:
-      // - build_in: self-built.
-      // - ding_talk: imported from DingTalk.
-      // - ad: imported from AD.
-      // - ldap: imported from LDAP.
+      // - build_in: self-managed
+      // - ding_talk: imported from DingTalk
+      // - ad: imported from AD
+      // - ldap: imported from LDAP
       shared_ptr<string> userSourceType_ {};
       // The username.
       shared_ptr<string> username_ {};
@@ -344,15 +342,15 @@ namespace Models
 
 
   protected:
-    // The number of entries per page for paging.
+    // The maximum number of entries per page in a paging query.
     shared_ptr<int32_t> maxResults_ {};
-    // The pagination token.
+    // The query token.
     shared_ptr<string> nextToken_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The total number of entries returned.
+    // The total number of entries.
     shared_ptr<int64_t> totalCount_ {};
-    // The list of account data.
+    // The list of accounts.
     shared_ptr<vector<ListUsersResponseBody::Users>> users_ {};
   };
 

@@ -61,11 +61,11 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
-    // The ID of the private network access endpoint.
+    // The ID of the dedicated network access endpoint.
     // 
     // This parameter is required.
     shared_ptr<string> networkAccessEndpointId_ {};
-    // The name of the private network access endpoint. The endpoint type must be private.
+    // The name of the dedicated network access endpoint. You can only update the name of a network access endpoint whose NetworkEndpointType is dedicated (private). xx business VPC access endpoint.
     // 
     // This parameter is required.
     shared_ptr<string> networkAccessEndpointName_ {};

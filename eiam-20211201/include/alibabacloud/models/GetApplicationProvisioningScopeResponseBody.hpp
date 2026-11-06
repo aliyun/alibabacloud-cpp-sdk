@@ -92,13 +92,13 @@ namespace Models
 
 
     protected:
-      // Synchronize the list of authorized groups.
+      // The list of groups authorized for synchronization.
       shared_ptr<vector<string>> groupIds_ {};
-      // Instance Indicates the maximum quota number of authorized agents.
+      // The maximum quota of authorized principals for the tenant.
       shared_ptr<int32_t> maxQuota_ {};
-      // The list of organizational units that are authorized for account synchronization.
+      // The list of organizational unit scopes authorized for account synchronization.
       shared_ptr<vector<string>> organizationalUnitIds_ {};
-      // Indicates the quota number of used authorized agents.
+      // The used quota of authorized principals.
       shared_ptr<int32_t> usedQuota_ {};
     };
 
@@ -121,9 +121,9 @@ namespace Models
 
 
   protected:
-    // The scope of account synchronization.
+    // The account synchronization scope.
     shared_ptr<GetApplicationProvisioningScopeResponseBody::ApplicationProvisioningScope> applicationProvisioningScope_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

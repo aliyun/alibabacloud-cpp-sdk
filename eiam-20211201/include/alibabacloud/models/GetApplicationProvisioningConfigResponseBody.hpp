@@ -182,13 +182,11 @@ namespace Models
 
 
           protected:
-            // The access token. This parameter is required when GrantType is set to bearer_token.
+            // The access token. This field is required when the bearer_token mode is used.
             shared_ptr<string> accessToken_ {};
-            // The authentication mode for the SCIM protocol. Valid values:
-            // 
-            // - client_secret_basic: The key is passed in the request header.
-            // 
-            // - client_secret_post: The key is passed in the request body.
+            // The authentication pattern for the System for Cross-domain Identity Management protocol. Valid values:
+            // - client_secret_basic: Pass the secret in the request header.
+            // - client_secret_post: Pass the secret in the request body.
             shared_ptr<string> authnMethod_ {};
             // The client ID of the application.
             shared_ptr<string> clientId_ {};
@@ -224,21 +222,16 @@ namespace Models
 
 
         protected:
-          // The authorization mode for the SCIM protocol interface. Valid values:
-          // 
-          // - oauth2: OAuth2 mode.
+          // The authorization pattern for System for Cross-domain Identity Management protocol APIs. Valid values:
+          // - oauth2: OAuth2 pattern.
           shared_ptr<string> authnMode_ {};
           // The authorization configuration parameters. Usage:
-          // 
           // - If GrantType is set to client_credentials, you must specify ClientId, ClientSecret, and AuthnMethod.
-          // 
           // - If GrantType is set to bearer_token, you must specify AccessToken.
           shared_ptr<AuthnConfiguration::AuthnParam> authnParam_ {};
-          // The authorization mode for the SCIM protocol. Valid values:
-          // 
-          // - client_credentials: client credentials mode.
-          // 
-          // - bearer_token: bearer token mode.
+          // The authorization pattern for the System for Cross-domain Identity Management protocol. Valid values:
+          // - client_credentials: Client credentials pattern.
+          // - bearer_token: Bearer token pattern.
           shared_ptr<string> grantType_ {};
         };
 
@@ -279,21 +272,17 @@ namespace Models
 
 
       protected:
-        // The configuration parameters for SCIM protocol synchronization.
+        // The configuration parameters related to System for Cross-domain Identity Management protocol synchronization.
         shared_ptr<ScimProvisioningConfig::AuthnConfiguration> authnConfiguration_ {};
-        // The scope of a full push for the SCIM protocol. Valid values:
-        // 
-        // - urn:alibaba:idaas:app:scim:User:PUSH: performs a full synchronization of users.
+        // The full push scope for the System for Cross-domain Identity Management protocol. Valid values:
+        // - urn:alibaba:idaas:app:scim:User:PUSH: Full user synchronization.
         shared_ptr<vector<string>> fullPushScopes_ {};
-        // The operations on the target resource for the SCIM protocol. Valid values:
-        // 
-        // - urn:alibaba:idaas:app:scim:User:CREATE: creates an account.
-        // 
-        // - urn:alibaba:idaas:app:scim:User:UPDATE: updates an account.
-        // 
-        // - urn:alibaba:idaas:app:scim:User:DELETE: deletes an account.
+        // The operations on target resources for the System for Cross-domain Identity Management protocol. Valid values:
+        // - urn:alibaba:idaas:app:scim:User:CREATE: Create an account.
+        // - urn:alibaba:idaas:app:scim:User:UPDATE: Update an account.
+        // - urn:alibaba:idaas:app:scim:User:DELETE: Delete an account.
         shared_ptr<vector<string>> provisioningActions_ {};
-        // The base URL where the application receives IDaaS SCIM protocol synchronization.
+        // The base URL for the application to receive IDaaS System for Cross-domain Identity Management protocol synchronization.
         shared_ptr<string> scimBaseUrl_ {};
       };
 
@@ -355,17 +344,15 @@ namespace Models
 
 
       protected:
-        // The destination address where the application receives IDaaS event callbacks.
+        // The destination address for the application to receive IDaaS event callbacks.
         shared_ptr<string> callbackUrl_ {};
-        // The symmetric key for encrypting and decrypting IDaaS event callbacks. This key uses the AES-256 algorithm and is in hexadecimal format.
+        // The symmetric encryption and decryption key for IDaaS event callbacks. The key uses the AES256 algorithm and is encoded in Hex format.
         shared_ptr<string> encryptKey_ {};
-        // Indicates whether to encrypt IDaaS event callback messages. Valid values:
-        // 
-        // - true: The messages are encrypted.
-        // 
-        // - false: The messages are not encrypted and are transmitted in plaintext.
+        // Specifies whether IDaaS event callback messages are encrypted. Valid values:
+        // - true: Encrypted.
+        // - false: Not encrypted. Messages are transmitted in plaintext.
         shared_ptr<bool> encryptRequired_ {};
-        // The list of message types for the IDaaS event callback listener.
+        // The list of message types listened to by IDaaS event callbacks.
         shared_ptr<vector<string>> listenEventScopes_ {};
       };
 
@@ -449,39 +436,31 @@ namespace Models
     protected:
       // The application ID.
       shared_ptr<string> applicationId_ {};
-      // The configuration parameters for the custom event callback protocol of IDaaS.
+      // The configuration parameters for the IDaaS custom event callback protocol.
       shared_ptr<ApplicationProvisioningConfig::CallbackProvisioningConfig> callbackProvisioningConfig_ {};
       // The rendering mode of the account synchronization page. Valid values:
-      // 
-      // - standard: standard mode.
-      // 
-      // - template: template mode.
+      // - standard: Standard mode.
+      // - template: Template mode.
       shared_ptr<string> configOperateMode_ {};
       // The instance ID.
       shared_ptr<string> instanceId_ {};
       // The network endpoint ID.
       shared_ptr<string> networkAccessEndpointId_ {};
-      // The public key endpoint for signature verification of application synchronization callback messages.
+      // The public key endpoint for verifying the signature of application synchronization callback information.
       shared_ptr<string> provisionJwksEndpoint_ {};
-      // Indicates whether to synchronize passwords in IDaaS user event callbacks. Valid values:
-      // 
-      // - true: Passwords are synchronized.
-      // 
-      // - false: Passwords are not synchronized.
+      // Specifies whether to synchronize passwords in IDaaS user event callbacks. Valid values:
+      // - true: Synchronize passwords.
+      // - false: Do not synchronize passwords.
       shared_ptr<bool> provisionPassword_ {};
-      // The protocol type for application synchronization. Valid values:
-      // 
-      // - idaas_callback: the custom event callback protocol of IDaaS.
-      // 
-      // - scim2: the System for Cross-domain Identity Management (SCIM) protocol.
+      // The application synchronization protocol type. Valid values:
+      // - idaas_callback: IDaaS custom event callback protocol.
+      // - scim2: System for Cross-domain Identity Management protocol.
       shared_ptr<string> provisionProtocolType_ {};
-      // The configuration parameters for IDaaS SCIM protocol synchronization.
+      // The configuration parameters for IDaaS System for Cross-domain Identity Management protocol synchronization.
       shared_ptr<ApplicationProvisioningConfig::ScimProvisioningConfig> scimProvisioningConfig_ {};
-      // The status of the IDaaS account synchronization feature. Valid values:
-      // 
-      // - enabled: The feature is enabled.
-      // 
-      // - disabled: The feature is disabled.
+      // The enabling status of the IDaaS account synchronization feature. Valid values:
+      // - enabled: Enabled.
+      // - disabled: Disabled.
       shared_ptr<string> status_ {};
     };
 

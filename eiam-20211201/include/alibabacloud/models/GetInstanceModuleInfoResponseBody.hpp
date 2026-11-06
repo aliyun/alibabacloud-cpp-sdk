@@ -93,9 +93,9 @@ namespace Models
 
 
       protected:
-        // The identifier of the second-level module.
+        // The level-2 module identifier.
         shared_ptr<string> featureKey_ {};
-        // The status of the second-level module.
+        // The level-2 module status.
         shared_ptr<string> featureStatus_ {};
       };
 
@@ -125,11 +125,11 @@ namespace Models
 
 
     protected:
-      // The second-level module information.
+      // The level-2 module information.
       shared_ptr<vector<Module::Features>> features_ {};
-      // The identifier of the first-level module.
+      // The level-1 module identifier.
       shared_ptr<string> moduleKey_ {};
-      // The status of the first-level module.
+      // The level-1 module status.
       shared_ptr<string> moduleStatus_ {};
     };
 

@@ -157,7 +157,7 @@ namespace Models
 
 
       protected:
-        // The private egress IP addresses of the backup network access endpoint.
+        // The list of private egress IP addresses of the backup network access endpoint.
         shared_ptr<vector<string>> backupEgressPrivateIpAddresses_ {};
         // The public egress IP address ranges of the backup network access endpoint.
         shared_ptr<vector<string>> backupEgressPublicIpAddresses_ {};
@@ -167,7 +167,7 @@ namespace Models
         shared_ptr<vector<string>> backupVSwitchIds_ {};
         // The ID of the backup VPC.
         shared_ptr<string> backupVpcId_ {};
-        // The region ID of the backup VPC.
+        // The region of the backup VPC.
         shared_ptr<string> backupVpcRegionId_ {};
       };
 
@@ -286,13 +286,13 @@ namespace Models
       shared_ptr<NetworkAccessEndpoint::BackupVpcEndpoint> backupVpcEndpoint_ {};
       // The time when the network access endpoint was created. The value is a UNIX timestamp in milliseconds.
       shared_ptr<int64_t> createTime_ {};
-      // The private egress IP address ranges of the dedicated network access endpoint. This parameter is returned only when NetworkAccessEndpointType is set to private.
+      // The private egress IP address ranges of the dedicated network access endpoint. A value is returned only when NetworkEndpointType is set to private.
       shared_ptr<vector<string>> egressPrivateIpAddresses_ {};
-      // The public egress IP address ranges of the shared network access endpoint. This parameter is returned only when NetworkAccessEndpointType is set to shared.
+      // The public egress IP address ranges of the shared network access endpoint. A value is returned only when NetworkEndpointType is set to shared.
       shared_ptr<vector<string>> egressPublicIpAddresses_ {};
       // The instance ID.
       shared_ptr<string> instanceId_ {};
-      // The ID of the network access endpoint.
+      // The dedicated network access endpoint ID.
       shared_ptr<string> networkAccessEndpointId_ {};
       // The name of the network access endpoint.
       shared_ptr<string> networkAccessEndpointName_ {};
@@ -316,7 +316,7 @@ namespace Models
       shared_ptr<vector<string>> vSwitchIds_ {};
       // The ID of the VPC to which the network access endpoint is connected.
       shared_ptr<string> vpcId_ {};
-      // The region ID of the VPC to which the network access endpoint is connected.
+      // The region of the VPC to which the network access endpoint is connected.
       shared_ptr<string> vpcRegionId_ {};
     };
 
@@ -339,7 +339,7 @@ namespace Models
 
 
   protected:
-    // The network access endpoint details.
+    // The network access endpoint information.
     shared_ptr<GetNetworkAccessEndpointResponseBody::NetworkAccessEndpoint> networkAccessEndpoint_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

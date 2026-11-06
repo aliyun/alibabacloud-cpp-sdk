@@ -48,11 +48,11 @@ namespace Models
 
 
   protected:
-    // Instance ID.
+    // The instance ID.
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
-    // Organizational unit ID.
+    // The organizational unit ID.
     // 
     // This parameter is required.
     shared_ptr<string> organizationalUnitId_ {};

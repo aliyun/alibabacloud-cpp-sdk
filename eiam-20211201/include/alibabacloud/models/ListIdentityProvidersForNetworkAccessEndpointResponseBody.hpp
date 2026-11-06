@@ -83,9 +83,9 @@ namespace Models
 
 
     protected:
-      // The ID of the IdP.
+      // The IdP ID.
       shared_ptr<string> identityProviderId_ {};
-      // The name of the IdP.
+      // The IdP name.
       shared_ptr<string> identityProviderName_ {};
       // The instance ID.
       shared_ptr<string> instanceId_ {};
@@ -124,9 +124,9 @@ namespace Models
 
 
   protected:
-    // The collection of IdPs for the network endpoint.
+    // The IdPs under the network access endpoint.
     shared_ptr<vector<ListIdentityProvidersForNetworkAccessEndpointResponseBody::IdentityProvidersForNetworkAccessEndpoint>> identityProvidersForNetworkAccessEndpoint_ {};
-    // The token that is returned from the call.
+    // The pagination token returned by this call.
     shared_ptr<string> nextToken_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

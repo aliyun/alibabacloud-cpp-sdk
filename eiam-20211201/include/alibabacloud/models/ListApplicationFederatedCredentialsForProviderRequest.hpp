@@ -81,11 +81,11 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
-    // The maximum number of entries per page in a paged query.
+    // The maximum number of results per page in a paging query.
     shared_ptr<int32_t> maxResults_ {};
-    // The pagination token for the next page.
+    // The next token.
     shared_ptr<string> nextToken_ {};
-    // The pagination token for the previous page.
+    // The previous token.
     shared_ptr<string> previousToken_ {};
   };
 

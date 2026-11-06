@@ -68,7 +68,7 @@ namespace Models
 
 
     protected:
-      // The privacy policy ID.
+      // The custom privacy policy ID.
       shared_ptr<string> customPrivacyPolicyId_ {};
     };
 
@@ -121,11 +121,11 @@ namespace Models
   protected:
     // The list of custom privacy policies associated with the brand.
     shared_ptr<vector<ListCustomPrivacyPoliciesForBrandResponseBody::BrandCustomPrivacyPolicies>> brandCustomPrivacyPolicies_ {};
-    // The number of entries returned on each page.
+    // The maximum number of entries to return per page for paging in a paged query.
     shared_ptr<int64_t> maxResults_ {};
-    // The token to retrieve the next page of results.
+    // The pagination token returned for this call.
     shared_ptr<string> nextToken_ {};
-    // The token to retrieve the previous page of results.
+    // The pagination token returned for this call.
     shared_ptr<string> previousToken_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

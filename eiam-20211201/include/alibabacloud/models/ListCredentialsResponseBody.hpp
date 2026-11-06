@@ -151,7 +151,7 @@ namespace Models
 
 
       protected:
-        // The credential content for the OAuth client authentication credential type.
+        // The content of an OAuth client credential.
         shared_ptr<CredentialContent::OAuthClientContent> OAuthClientContent_ {};
       };
 
@@ -288,7 +288,7 @@ namespace Models
       shared_ptr<Credentials::CredentialContent> credentialContent_ {};
       // The creation type of the credential. Valid values:
       // - system_init: Created by the system.
-      // - user_custom: Created by the user.
+      // - user_custom: Created by a user.
       shared_ptr<string> credentialCreationType_ {};
       // The external unique identifiers of the credentials.
       shared_ptr<string> credentialExternalId_ {};
@@ -298,26 +298,26 @@ namespace Models
       shared_ptr<string> credentialIdentifier_ {};
       // The credential name.
       shared_ptr<string> credentialName_ {};
-      // The usage scenario label of the credential. Valid values:
-      // - llm: Large language model.
+      // The Scenarios label of the credential. Valid values:
+      // - llm: Large model.
       // - saas: Third-party SaaS service.
       shared_ptr<string> credentialScenarioLabel_ {};
       // The credential sharing scope. Valid values:
-      // - common: common
-      // - user_exclusive: account-exclusive
+      // - common: General.
+      // - user_exclusive: Account-specific.
       shared_ptr<string> credentialSharingScope_ {};
-      // The subject ID of the credential.
+      // The ID of the subject to which the credential belongs.
       shared_ptr<string> credentialSubjectId_ {};
-      // The subject type of the credential. Valid values:
+      // The subject type to which the credential belongs. Valid values:
       // - authentication_token_provider: Authentication token provider.
       shared_ptr<string> credentialSubjectType_ {};
       // The credential type. Valid values:
-      // - api_key: API key authentication credential.
-      // - oauth_client: OAuth client authentication credential.
+      // - api_key: API key credential.
+      // - oauth_client: OAuth client credential.
       shared_ptr<string> credentialType_ {};
       // The credential description.
       shared_ptr<string> description_ {};
-      // The exclusive user ID of the credential.
+      // The ID of the exclusive user for the credential.
       shared_ptr<string> exclusiveUserId_ {};
       // The EIAM instance ID.
       shared_ptr<string> instanceId_ {};
@@ -371,9 +371,9 @@ namespace Models
   protected:
     // The list of credentials.
     shared_ptr<vector<ListCredentialsResponseBody::Credentials>> credentials_ {};
-    // The maximum number of rows per page in a paging query.
+    // The number of entries per page for paging in a paged query.
     shared_ptr<int32_t> maxResults_ {};
-    // The pagination token returned by this call.
+    // The pagination token returned by the current request.
     shared_ptr<string> nextToken_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

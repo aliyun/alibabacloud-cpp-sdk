@@ -64,7 +64,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> brandId_ {};
-    // The list of term IDs.
+    // The IDs of the custom privacy policies.
     // 
     // This parameter is required.
     shared_ptr<vector<string>> customPrivacyPolicyIds_ {};

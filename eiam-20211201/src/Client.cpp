@@ -2,11 +2,13 @@
 #include <alibabacloud/Eiam20211201.hpp>
 #include <alibabacloud/Utils.hpp>
 #include <alibabacloud/Openapi.hpp>
+#include <alibabacloud/gateway/POP.hpp>
 #include <map>
 #include <darabonba/Runtime.hpp>
 using namespace std;
 using namespace Darabonba;
 using json = nlohmann::json;
+using namespace AlibabaCloud::Gateway;
 using namespace AlibabaCloud::OpenApi;
 using namespace AlibabaCloud::Eiam20211201::Models;
 using OpenApiClient = AlibabaCloud::OpenApi::Client;
@@ -17,6 +19,9 @@ namespace Eiam20211201
 {
 
 AlibabaCloud::Eiam20211201::Client::Client(Config &config): OpenApiClient(config){
+  this->_productId = "Eiam";
+  shared_ptr<POP> gatewayClient = make_shared<POP>();
+  this->_spi = gatewayClient;
   this->_endpointRule = "regional";
   checkConfig(config);
   this->_endpoint = getEndpoint("eiam", _regionId, _endpointRule, _network, _suffix, _endpointMap, _endpoint);
@@ -36,7 +41,57 @@ string Client::getEndpoint(const string &productId, const string &regionId, cons
 }
 
 /**
- * @summary Adds an application account for a specified employee under the current application.
+ * @summary Activates privileged hosting for a cloud account.
+ *
+ * @param request ActivateCloudAccountPrivilegeRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ActivateCloudAccountPrivilegeResponse
+ */
+ActivateCloudAccountPrivilegeResponse Client::activateCloudAccountPrivilegeWithOptions(const ActivateCloudAccountPrivilegeRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasClientToken()) {
+    query["ClientToken"] = request.getClientToken();
+  }
+
+  if (!!request.hasCloudAccountId()) {
+    query["CloudAccountId"] = request.getCloudAccountId();
+  }
+
+  if (!!request.hasInstanceId()) {
+    query["InstanceId"] = request.getInstanceId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ActivateCloudAccountPrivilege"},
+    {"version" , "2021-12-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ActivateCloudAccountPrivilegeResponse>();
+}
+
+/**
+ * @summary Activates privileged hosting for a cloud account.
+ *
+ * @param request ActivateCloudAccountPrivilegeRequest
+ * @return ActivateCloudAccountPrivilegeResponse
+ */
+ActivateCloudAccountPrivilegeResponse Client::activateCloudAccountPrivilege(const ActivateCloudAccountPrivilegeRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return activateCloudAccountPrivilegeWithOptions(request, runtime);
+}
+
+/**
+ * @summary Adds an application account for a specified employee in the current application.
  *
  * @param request AddApplicationAccountToUserRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -79,7 +134,7 @@ AddApplicationAccountToUserResponse Client::addApplicationAccountToUserWithOptio
 }
 
 /**
- * @summary Adds an application account for a specified employee under the current application.
+ * @summary Adds an application account for a specified employee in the current application.
  *
  * @param request AddApplicationAccountToUserRequest
  * @return AddApplicationAccountToUserResponse
@@ -154,7 +209,7 @@ AddApplicationToAuthorizationRuleResponse Client::addApplicationToAuthorizationR
 }
 
 /**
- * @summary Adds terms to a brand.
+ * @summary Adds custom privacy policies to a brand.
  *
  * @param request AddCustomPrivacyPoliciesToBrandRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -193,7 +248,7 @@ AddCustomPrivacyPoliciesToBrandResponse Client::addCustomPrivacyPoliciesToBrandW
 }
 
 /**
- * @summary Adds terms to a brand.
+ * @summary Adds custom privacy policies to a brand.
  *
  * @param request AddCustomPrivacyPoliciesToBrandRequest
  * @return AddCustomPrivacyPoliciesToBrandResponse
@@ -332,7 +387,7 @@ AddUserToAuthorizationRuleResponse Client::addUserToAuthorizationRule(const AddU
 }
 
 /**
- * @summary Adds a specified EIAM account to multiple EIAM organizations. If the account already exists in an organization, the operation returns a success response directly.
+ * @summary Adds a specified EIAM account to multiple EIAM organizations. If the account already belongs to an organization, the operation returns a success response.
  *
  * @param request AddUserToOrganizationalUnitsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -371,7 +426,7 @@ AddUserToOrganizationalUnitsResponse Client::addUserToOrganizationalUnitsWithOpt
 }
 
 /**
- * @summary Adds a specified EIAM account to multiple EIAM organizations. If the account already exists in an organization, the operation returns a success response directly.
+ * @summary Adds a specified EIAM account to multiple EIAM organizations. If the account already belongs to an organization, the operation returns a success response.
  *
  * @param request AddUserToOrganizationalUnitsRequest
  * @return AddUserToOrganizationalUnitsResponse
@@ -382,7 +437,7 @@ AddUserToOrganizationalUnitsResponse Client::addUserToOrganizationalUnits(const 
 }
 
 /**
- * @summary Adds multiple Employee Identity and Access Management (EIAM) accounts to a specified EIAM account group.
+ * @summary Adds multiple EIAM accounts to a specified EIAM account group.
  *
  * @param request AddUsersToGroupRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -421,7 +476,7 @@ AddUsersToGroupResponse Client::addUsersToGroupWithOptions(const AddUsersToGroup
 }
 
 /**
- * @summary Adds multiple Employee Identity and Access Management (EIAM) accounts to a specified EIAM account group.
+ * @summary Adds multiple EIAM accounts to a specified EIAM account group.
  *
  * @param request AddUsersToGroupRequest
  * @return AddUsersToGroupResponse
@@ -432,7 +487,7 @@ AddUsersToGroupResponse Client::addUsersToGroup(const AddUsersToGroupRequest &re
 }
 
 /**
- * @summary Grants multiple EIAM groups access to an application in a batch.
+ * @summary Grants multiple EIAM groups access to an application.
  *
  * @param request AuthorizeApplicationToGroupsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -475,7 +530,7 @@ AuthorizeApplicationToGroupsResponse Client::authorizeApplicationToGroupsWithOpt
 }
 
 /**
- * @summary Grants multiple EIAM groups access to an application in a batch.
+ * @summary Grants multiple EIAM groups access to an application.
  *
  * @param request AuthorizeApplicationToGroupsRequest
  * @return AuthorizeApplicationToGroupsResponse
@@ -486,7 +541,7 @@ AuthorizeApplicationToGroupsResponse Client::authorizeApplicationToGroups(const 
 }
 
 /**
- * @summary Grants access to an application for multiple EIAM organizations in a batch operation.
+ * @summary Grants multiple EIAM organizations access to an application.
  *
  * @param request AuthorizeApplicationToOrganizationalUnitsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -529,7 +584,7 @@ AuthorizeApplicationToOrganizationalUnitsResponse Client::authorizeApplicationTo
 }
 
 /**
- * @summary Grants access to an application for multiple EIAM organizations in a batch operation.
+ * @summary Grants multiple EIAM organizations access to an application.
  *
  * @param request AuthorizeApplicationToOrganizationalUnitsRequest
  * @return AuthorizeApplicationToOrganizationalUnitsResponse
@@ -540,7 +595,7 @@ AuthorizeApplicationToOrganizationalUnitsResponse Client::authorizeApplicationTo
 }
 
 /**
- * @summary Grants multiple EIAM accounts access to an application in a batch.
+ * @summary Grants multiple EIAM accounts access to an application in batches.
  *
  * @param request AuthorizeApplicationToUsersRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -583,7 +638,7 @@ AuthorizeApplicationToUsersResponse Client::authorizeApplicationToUsersWithOptio
 }
 
 /**
- * @summary Grants multiple EIAM accounts access to an application in a batch.
+ * @summary Grants multiple EIAM accounts access to an application in batches.
  *
  * @param request AuthorizeApplicationToUsersRequest
  * @return AuthorizeApplicationToUsersResponse
@@ -594,7 +649,7 @@ AuthorizeApplicationToUsersResponse Client::authorizeApplicationToUsers(const Au
 }
 
 /**
- * @summary Grants Scope permissions under a specified ResourceServer to a Client application.
+ * @summary Grants the scope permissions under a specified resource server to a client application.
  *
  * @param request AuthorizeResourceServerScopesToClientRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -637,7 +692,7 @@ AuthorizeResourceServerScopesToClientResponse Client::authorizeResourceServerSco
 }
 
 /**
- * @summary Grants Scope permissions under a specified ResourceServer to a Client application.
+ * @summary Grants the scope permissions under a specified resource server to a client application.
  *
  * @param request AuthorizeResourceServerScopesToClientRequest
  * @return AuthorizeResourceServerScopesToClientResponse
@@ -648,7 +703,7 @@ AuthorizeResourceServerScopesToClientResponse Client::authorizeResourceServerSco
 }
 
 /**
- * @summary Grants Scope permissions under a specified ResourceServer to a group.
+ * @summary Grants the scope permissions under a specified resource server to a group.
  *
  * @param request AuthorizeResourceServerScopesToGroupRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -695,7 +750,7 @@ AuthorizeResourceServerScopesToGroupResponse Client::authorizeResourceServerScop
 }
 
 /**
- * @summary Grants Scope permissions under a specified ResourceServer to a group.
+ * @summary Grants the scope permissions under a specified resource server to a group.
  *
  * @param request AuthorizeResourceServerScopesToGroupRequest
  * @return AuthorizeResourceServerScopesToGroupResponse
@@ -706,7 +761,7 @@ AuthorizeResourceServerScopesToGroupResponse Client::authorizeResourceServerScop
 }
 
 /**
- * @summary Grants scope permissions under a specified ResourceServer to an organizational unit.
+ * @summary Grants the scope permissions of a specified resource server to an organizational unit.
  *
  * @param request AuthorizeResourceServerScopesToOrganizationalUnitRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -753,7 +808,7 @@ AuthorizeResourceServerScopesToOrganizationalUnitResponse Client::authorizeResou
 }
 
 /**
- * @summary Grants scope permissions under a specified ResourceServer to an organizational unit.
+ * @summary Grants the scope permissions of a specified resource server to an organizational unit.
  *
  * @param request AuthorizeResourceServerScopesToOrganizationalUnitRequest
  * @return AuthorizeResourceServerScopesToOrganizationalUnitResponse
@@ -764,7 +819,7 @@ AuthorizeResourceServerScopesToOrganizationalUnitResponse Client::authorizeResou
 }
 
 /**
- * @summary Grants Scope permissions under a specified ResourceServer to an account.
+ * @summary Grants scope permissions of a specified resource server to an account.
  *
  * @param request AuthorizeResourceServerScopesToUserRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -811,7 +866,7 @@ AuthorizeResourceServerScopesToUserResponse Client::authorizeResourceServerScope
 }
 
 /**
- * @summary Grants Scope permissions under a specified ResourceServer to an account.
+ * @summary Grants scope permissions of a specified resource server to an account.
  *
  * @param request AuthorizeResourceServerScopesToUserRequest
  * @return AuthorizeResourceServerScopesToUserResponse
@@ -872,7 +927,7 @@ AuthorizeResourceServerToClientResponse Client::authorizeResourceServerToClient(
 }
 
 /**
- * @summary Associates a third-party logon account.
+ * @summary Binds a third-party logon account.
  *
  * @param request BindUserAuthnSourceMappingRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -915,7 +970,7 @@ BindUserAuthnSourceMappingResponse Client::bindUserAuthnSourceMappingWithOptions
 }
 
 /**
- * @summary Associates a third-party logon account.
+ * @summary Binds a third-party logon account.
  *
  * @param request BindUserAuthnSourceMappingRequest
  * @return BindUserAuthnSourceMappingResponse
@@ -1018,7 +1073,7 @@ CheckInstanceForDeleteResponse Client::checkInstanceForDelete(const CheckInstanc
 }
 
 /**
- * @summary Checks whether an instance has the feature of a specific module.
+ * @summary Checks whether an instance has a specific module feature.
  *
  * @param request CheckInstanceModuleStatusRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1069,7 +1124,7 @@ CheckInstanceModuleStatusResponse Client::checkInstanceModuleStatusWithOptions(c
 }
 
 /**
- * @summary Checks whether an instance has the feature of a specific module.
+ * @summary Checks whether an instance has a specific module feature.
  *
  * @param request CheckInstanceModuleStatusRequest
  * @return CheckInstanceModuleStatusResponse
@@ -1162,7 +1217,7 @@ CreateApplicationResponse Client::createApplication(const CreateApplicationReque
 }
 
 /**
- * @summary Creates a client secret for an EIAM application. You can create a maximum of two client secrets for each EIAM application.
+ * @summary Creates a client secret for an EIAM application. You can create a maximum of two client secrets for a single EIAM application.
  *
  * @param request CreateApplicationClientSecretRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1201,7 +1256,7 @@ CreateApplicationClientSecretResponse Client::createApplicationClientSecretWithO
 }
 
 /**
- * @summary Creates a client secret for an EIAM application. You can create a maximum of two client secrets for each EIAM application.
+ * @summary Creates a client secret for an EIAM application. You can create a maximum of two client secrets for a single EIAM application.
  *
  * @param request CreateApplicationClientSecretRequest
  * @return CreateApplicationClientSecretResponse
@@ -1777,6 +1832,80 @@ CreateCloudAccountRoleResponse Client::createCloudAccountRoleWithOptions(const C
 CreateCloudAccountRoleResponse Client::createCloudAccountRole(const CreateCloudAccountRoleRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return createCloudAccountRoleWithOptions(request, runtime);
+}
+
+/**
+ * @summary Creates a permission template.
+ *
+ * @param request CreateCloudPermissionTemplateRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CreateCloudPermissionTemplateResponse
+ */
+CreateCloudPermissionTemplateResponse Client::createCloudPermissionTemplateWithOptions(const CreateCloudPermissionTemplateRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasAllowRequest()) {
+    query["AllowRequest"] = request.getAllowRequest();
+  }
+
+  if (!!request.hasApplicableScope()) {
+    query["ApplicableScope"] = request.getApplicableScope();
+  }
+
+  if (!!request.hasClientToken()) {
+    query["ClientToken"] = request.getClientToken();
+  }
+
+  if (!!request.hasCloudAccountId()) {
+    query["CloudAccountId"] = request.getCloudAccountId();
+  }
+
+  if (!!request.hasCloudAccountResources()) {
+    query["CloudAccountResources"] = request.getCloudAccountResources();
+  }
+
+  if (!!request.hasCloudPermissionTemplateName()) {
+    query["CloudPermissionTemplateName"] = request.getCloudPermissionTemplateName();
+  }
+
+  if (!!request.hasCloudPermissionTemplateUsageType()) {
+    query["CloudPermissionTemplateUsageType"] = request.getCloudPermissionTemplateUsageType();
+  }
+
+  if (!!request.hasDescription()) {
+    query["Description"] = request.getDescription();
+  }
+
+  if (!!request.hasInstanceId()) {
+    query["InstanceId"] = request.getInstanceId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "CreateCloudPermissionTemplate"},
+    {"version" , "2021-12-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CreateCloudPermissionTemplateResponse>();
+}
+
+/**
+ * @summary Creates a permission template.
+ *
+ * @param request CreateCloudPermissionTemplateRequest
+ * @return CreateCloudPermissionTemplateResponse
+ */
+CreateCloudPermissionTemplateResponse Client::createCloudPermissionTemplate(const CreateCloudPermissionTemplateRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return createCloudPermissionTemplateWithOptions(request, runtime);
 }
 
 /**
@@ -2952,7 +3081,7 @@ CreateTrustedOriginResponse Client::createTrustedOrigin(const CreateTrustedOrigi
 }
 
 /**
- * @summary Creates an EIAM account in a specified EIAM instance.
+ * @summary Creates an EIAM account under a specified EIAM instance.
  *
  * @param request CreateUserRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3043,7 +3172,7 @@ CreateUserResponse Client::createUserWithOptions(const CreateUserRequest &reques
 }
 
 /**
- * @summary Creates an EIAM account in a specified EIAM instance.
+ * @summary Creates an EIAM account under a specified EIAM instance.
  *
  * @param request CreateUserRequest
  * @return CreateUserResponse
@@ -3051,6 +3180,56 @@ CreateUserResponse Client::createUserWithOptions(const CreateUserRequest &reques
 CreateUserResponse Client::createUser(const CreateUserRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return createUserWithOptions(request, runtime);
+}
+
+/**
+ * @summary Removes privileged access for a cloud account.
+ *
+ * @param request DeactivateCloudAccountPrivilegeRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DeactivateCloudAccountPrivilegeResponse
+ */
+DeactivateCloudAccountPrivilegeResponse Client::deactivateCloudAccountPrivilegeWithOptions(const DeactivateCloudAccountPrivilegeRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasClientToken()) {
+    query["ClientToken"] = request.getClientToken();
+  }
+
+  if (!!request.hasCloudAccountId()) {
+    query["CloudAccountId"] = request.getCloudAccountId();
+  }
+
+  if (!!request.hasInstanceId()) {
+    query["InstanceId"] = request.getInstanceId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DeactivateCloudAccountPrivilege"},
+    {"version" , "2021-12-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DeactivateCloudAccountPrivilegeResponse>();
+}
+
+/**
+ * @summary Removes privileged access for a cloud account.
+ *
+ * @param request DeactivateCloudAccountPrivilegeRequest
+ * @return DeactivateCloudAccountPrivilegeResponse
+ */
+DeactivateCloudAccountPrivilegeResponse Client::deactivateCloudAccountPrivilege(const DeactivateCloudAccountPrivilegeRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return deactivateCloudAccountPrivilegeWithOptions(request, runtime);
 }
 
 /**
@@ -3104,7 +3283,7 @@ DeleteApplicationResponse Client::deleteApplication(const DeleteApplicationReque
 }
 
 /**
- * @summary Deletes a client secret of an EIAM application.
+ * @summary Deletes a client secret for an EIAM application.
  *
  * @param request DeleteApplicationClientSecretRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3143,7 +3322,7 @@ DeleteApplicationClientSecretResponse Client::deleteApplicationClientSecretWithO
 }
 
 /**
- * @summary Deletes a client secret of an EIAM application.
+ * @summary Deletes a client secret for an EIAM application.
  *
  * @param request DeleteApplicationClientSecretRequest
  * @return DeleteApplicationClientSecretResponse
@@ -3596,9 +3775,59 @@ DeleteCloudAccountRoleResponse Client::deleteCloudAccountRole(const DeleteCloudA
 }
 
 /**
+ * @summary Deletes a permission template.
+ *
+ * @param request DeleteCloudPermissionTemplateRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DeleteCloudPermissionTemplateResponse
+ */
+DeleteCloudPermissionTemplateResponse Client::deleteCloudPermissionTemplateWithOptions(const DeleteCloudPermissionTemplateRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasCloudAccountId()) {
+    query["CloudAccountId"] = request.getCloudAccountId();
+  }
+
+  if (!!request.hasCloudPermissionTemplateId()) {
+    query["CloudPermissionTemplateId"] = request.getCloudPermissionTemplateId();
+  }
+
+  if (!!request.hasInstanceId()) {
+    query["InstanceId"] = request.getInstanceId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DeleteCloudPermissionTemplate"},
+    {"version" , "2021-12-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DeleteCloudPermissionTemplateResponse>();
+}
+
+/**
+ * @summary Deletes a permission template.
+ *
+ * @param request DeleteCloudPermissionTemplateRequest
+ * @return DeleteCloudPermissionTemplateResponse
+ */
+DeleteCloudPermissionTemplateResponse Client::deleteCloudPermissionTemplate(const DeleteCloudPermissionTemplateRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return deleteCloudPermissionTemplateWithOptions(request, runtime);
+}
+
+/**
  * @summary Deletes a conditional access policy.
  *
- * @description Before you delete a conditional access policy, make sure that the policy is no longer in use. After the policy is deleted, all configuration data is permanently removed and cannot be recovered.
+ * @description Before deleting a specified conditional access policy, ensure that the policy is no longer in use. After the policy is deleted, all configuration data is deleted and cannot be recovered.
  *
  * @param request DeleteConditionalAccessPolicyRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3635,7 +3864,7 @@ DeleteConditionalAccessPolicyResponse Client::deleteConditionalAccessPolicyWithO
 /**
  * @summary Deletes a conditional access policy.
  *
- * @description Before you delete a conditional access policy, make sure that the policy is no longer in use. After the policy is deleted, all configuration data is permanently removed and cannot be recovered.
+ * @description Before deleting a specified conditional access policy, ensure that the policy is no longer in use. After the policy is deleted, all configuration data is deleted and cannot be recovered.
  *
  * @param request DeleteConditionalAccessPolicyRequest
  * @return DeleteConditionalAccessPolicyResponse
@@ -3830,7 +4059,7 @@ DeleteCustomPrivacyPolicyResponse Client::deleteCustomPrivacyPolicy(const Delete
 }
 
 /**
- * @summary Deletes a custom domain name of a specified Employee Identity and Access Management (EIAM) instance. Deletion of the instance initialization domain name or default domain name is rejected.
+ * @summary Deletes a custom domain name of a specified EIAM instance. Deletion of the initial domain name and default domain name of the instance is rejected.
  *
  * @param request DeleteDomainRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3865,7 +4094,7 @@ DeleteDomainResponse Client::deleteDomainWithOptions(const DeleteDomainRequest &
 }
 
 /**
- * @summary Deletes a custom domain name of a specified Employee Identity and Access Management (EIAM) instance. Deletion of the instance initialization domain name or default domain name is rejected.
+ * @summary Deletes a custom domain name of a specified EIAM instance. Deletion of the initial domain name and default domain name of the instance is rejected.
  *
  * @param request DeleteDomainRequest
  * @return DeleteDomainResponse
@@ -3876,7 +4105,7 @@ DeleteDomainResponse Client::deleteDomain(const DeleteDomainRequest &request) {
 }
 
 /**
- * @summary Deletes a proxy token for a specified domain name of an EIAM instance. Only proxy tokens in the disabled state can be deleted.
+ * @summary Deletes the proxy token for a specified domain name of an EIAM instance. Only disabled proxy tokens can be deleted.
  *
  * @param request DeleteDomainProxyTokenRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3915,7 +4144,7 @@ DeleteDomainProxyTokenResponse Client::deleteDomainProxyTokenWithOptions(const D
 }
 
 /**
- * @summary Deletes a proxy token for a specified domain name of an EIAM instance. Only proxy tokens in the disabled state can be deleted.
+ * @summary Deletes the proxy token for a specified domain name of an EIAM instance. Only disabled proxy tokens can be deleted.
  *
  * @param request DeleteDomainProxyTokenRequest
  * @return DeleteDomainProxyTokenResponse
@@ -4064,9 +4293,9 @@ DeleteIdentityProviderResponse Client::deleteIdentityProvider(const DeleteIdenti
 }
 
 /**
- * @summary Deletes an Employee Identity and Access Management (EIAM) instance that you no longer use.
+ * @summary Deletes an EIAM instance that is no longer in use.
  *
- * @description Make sure that the instance is no longer in use. After an EIAM instance is deleted, all related data is deleted.
+ * @description Ensure that the instance is no longer in use. After an EIAM instance is deleted, all related data is deleted.
  *
  * @param request DeleteInstanceRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4097,9 +4326,9 @@ DeleteInstanceResponse Client::deleteInstanceWithOptions(const DeleteInstanceReq
 }
 
 /**
- * @summary Deletes an Employee Identity and Access Management (EIAM) instance that you no longer use.
+ * @summary Deletes an EIAM instance that is no longer in use.
  *
- * @description Make sure that the instance is no longer in use. After an EIAM instance is deleted, all related data is deleted.
+ * @description Ensure that the instance is no longer in use. After an EIAM instance is deleted, all related data is deleted.
  *
  * @param request DeleteInstanceRequest
  * @return DeleteInstanceResponse
@@ -4202,7 +4431,7 @@ DeleteNetworkZoneResponse Client::deleteNetworkZone(const DeleteNetworkZoneReque
 }
 
 /**
- * @summary Deletes a specified EIAM organizational unit. The deletion fails if the organizational unit contains EIAM accounts or child organizational units.
+ * @summary Deletes a specified EIAM organization. The deletion fails if the organization contains EIAM accounts or sub-organizations.
  *
  * @param request DeleteOrganizationalUnitRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4237,7 +4466,7 @@ DeleteOrganizationalUnitResponse Client::deleteOrganizationalUnitWithOptions(con
 }
 
 /**
- * @summary Deletes a specified EIAM organizational unit. The deletion fails if the organizational unit contains EIAM accounts or child organizational units.
+ * @summary Deletes a specified EIAM organization. The deletion fails if the organization contains EIAM accounts or sub-organizations.
  *
  * @param request DeleteOrganizationalUnitRequest
  * @return DeleteOrganizationalUnitResponse
@@ -4248,7 +4477,7 @@ DeleteOrganizationalUnitResponse Client::deleteOrganizationalUnit(const DeleteOr
 }
 
 /**
- * @summary Deletes all data of a specified organization. This operation can force delete all accounts and sub-organizations under the specified organization.
+ * @summary Deletes all data of a specified organization and can force delete all accounts and sub-organizations under the organization.
  *
  * @param request DeleteOrganizationalUnitChildrenRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4283,7 +4512,7 @@ DeleteOrganizationalUnitChildrenResponse Client::deleteOrganizationalUnitChildre
 }
 
 /**
- * @summary Deletes all data of a specified organization. This operation can force delete all accounts and sub-organizations under the specified organization.
+ * @summary Deletes all data of a specified organization and can force delete all accounts and sub-organizations under the organization.
  *
  * @param request DeleteOrganizationalUnitChildrenRequest
  * @return DeleteOrganizationalUnitChildrenResponse
@@ -4398,7 +4627,7 @@ DeleteTrustedOriginResponse Client::deleteTrustedOrigin(const DeleteTrustedOrigi
 }
 
 /**
- * @summary Deletes a specified EIAM account and purges all information associated with the account.
+ * @summary Deletes a specified EIAM account and clears all information related to the account.
  *
  * @param request DeleteUserRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4433,7 +4662,7 @@ DeleteUserResponse Client::deleteUserWithOptions(const DeleteUserRequest &reques
 }
 
 /**
- * @summary Deletes a specified EIAM account and purges all information associated with the account.
+ * @summary Deletes a specified EIAM account and clears all information related to the account.
  *
  * @param request DeleteUserRequest
  * @return DeleteUserResponse
@@ -4444,7 +4673,7 @@ DeleteUserResponse Client::deleteUser(const DeleteUserRequest &request) {
 }
 
 /**
- * @summary Deletes multiple accounts in a batch.
+ * @summary Deletes multiple accounts.
  *
  * @param request DeleteUsersRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4479,7 +4708,7 @@ DeleteUsersResponse Client::deleteUsersWithOptions(const DeleteUsersRequest &req
 }
 
 /**
- * @summary Deletes multiple accounts in a batch.
+ * @summary Deletes multiple accounts.
  *
  * @param request DeleteUsersRequest
  * @return DeleteUsersResponse
@@ -4490,7 +4719,7 @@ DeleteUsersResponse Client::deleteUsers(const DeleteUsersRequest &request) {
 }
 
 /**
- * @summary Deletes the specified WebAuthn authenticator.
+ * @summary Deletes a specified WebAuthn authenticator name.
  *
  * @param request DeleteWebAuthnAuthenticatorRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4529,7 +4758,7 @@ DeleteWebAuthnAuthenticatorResponse Client::deleteWebAuthnAuthenticatorWithOptio
 }
 
 /**
- * @summary Deletes the specified WebAuthn authenticator.
+ * @summary Deletes a specified WebAuthn authenticator name.
  *
  * @param request DeleteWebAuthnAuthenticatorRequest
  * @return DeleteWebAuthnAuthenticatorResponse
@@ -4590,7 +4819,7 @@ DisableApplicationResponse Client::disableApplication(const DisableApplicationRe
 }
 
 /**
- * @summary Disables the Developer API feature for an Employee Identity and Access Management (EIAM) application.
+ * @summary Disables the Developer API call feature for an EIAM application.
  *
  * @param request DisableApplicationApiInvokeRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4625,7 +4854,7 @@ DisableApplicationApiInvokeResponse Client::disableApplicationApiInvokeWithOptio
 }
 
 /**
- * @summary Disables the Developer API feature for an Employee Identity and Access Management (EIAM) application.
+ * @summary Disables the Developer API call feature for an EIAM application.
  *
  * @param request DisableApplicationApiInvokeRequest
  * @return DisableApplicationApiInvokeResponse
@@ -4686,7 +4915,7 @@ DisableApplicationClientSecretResponse Client::disableApplicationClientSecret(co
 }
 
 /**
- * @summary Disables a federated identity credential for an application.
+ * @summary Disables an application federated credential.
  *
  * @param request DisableApplicationFederatedCredentialRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4725,7 +4954,7 @@ DisableApplicationFederatedCredentialResponse Client::disableApplicationFederate
 }
 
 /**
- * @summary Disables a federated identity credential for an application.
+ * @summary Disables an application federated credential.
  *
  * @param request DisableApplicationFederatedCredentialRequest
  * @return DisableApplicationFederatedCredentialResponse
@@ -4874,7 +5103,7 @@ DisableApplicationResourceServerResponse Client::disableApplicationResourceServe
 }
 
 /**
- * @summary Disables the single sign-on (SSO) feature for an Employee Identity and Access Management (EIAM) application. This way, employees cannot log on to the application by using SSO.
+ * @summary Disables the single sign-on (SSO) feature for an EIAM application. After this feature is disabled, employees cannot use SSO to log on to the application.
  *
  * @param request DisableApplicationSsoRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4909,7 +5138,7 @@ DisableApplicationSsoResponse Client::disableApplicationSsoWithOptions(const Dis
 }
 
 /**
- * @summary Disables the single sign-on (SSO) feature for an Employee Identity and Access Management (EIAM) application. This way, employees cannot log on to the application by using SSO.
+ * @summary Disables the single sign-on (SSO) feature for an EIAM application. After this feature is disabled, employees cannot use SSO to log on to the application.
  *
  * @param request DisableApplicationSsoRequest
  * @return DisableApplicationSsoResponse
@@ -4922,7 +5151,7 @@ DisableApplicationSsoResponse Client::disableApplicationSso(const DisableApplica
 /**
  * @summary Disables an application token.
  *
- * @description When you change an application from the enabled state to the disabled state, all features of the application become unavailable, such as SSO and account synchronization. Make sure that you are aware of the risks that this operation may cause.
+ * @description When you disable an application, all features of the application, such as SSO and account synchronization, become unavailable. Make sure that you are aware of the risks associated with this operation.
  *
  * @param request DisableApplicationTokenRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4963,7 +5192,7 @@ DisableApplicationTokenResponse Client::disableApplicationTokenWithOptions(const
 /**
  * @summary Disables an application token.
  *
- * @description When you change an application from the enabled state to the disabled state, all features of the application become unavailable, such as SSO and account synchronization. Make sure that you are aware of the risks that this operation may cause.
+ * @description When you disable an application, all features of the application, such as SSO and account synchronization, become unavailable. Make sure that you are aware of the risks associated with this operation.
  *
  * @param request DisableApplicationTokenRequest
  * @return DisableApplicationTokenResponse
@@ -5126,7 +5355,57 @@ DisableClientPublicKeyResponse Client::disableClientPublicKey(const DisableClien
 }
 
 /**
- * @summary Disables a cloud role for a specified Alibaba Cloud account.
+ * @summary Disables cloud account privileges.
+ *
+ * @param request DisableCloudAccountPrivilegeRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DisableCloudAccountPrivilegeResponse
+ */
+DisableCloudAccountPrivilegeResponse Client::disableCloudAccountPrivilegeWithOptions(const DisableCloudAccountPrivilegeRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasClientToken()) {
+    query["ClientToken"] = request.getClientToken();
+  }
+
+  if (!!request.hasCloudAccountId()) {
+    query["CloudAccountId"] = request.getCloudAccountId();
+  }
+
+  if (!!request.hasInstanceId()) {
+    query["InstanceId"] = request.getInstanceId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DisableCloudAccountPrivilege"},
+    {"version" , "2021-12-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DisableCloudAccountPrivilegeResponse>();
+}
+
+/**
+ * @summary Disables cloud account privileges.
+ *
+ * @param request DisableCloudAccountPrivilegeRequest
+ * @return DisableCloudAccountPrivilegeResponse
+ */
+DisableCloudAccountPrivilegeResponse Client::disableCloudAccountPrivilege(const DisableCloudAccountPrivilegeRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return disableCloudAccountPrivilegeWithOptions(request, runtime);
+}
+
+/**
+ * @summary Disables a cloud role under a specified cloud account.
  *
  * @param request DisableCloudAccountRoleRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -5169,7 +5448,7 @@ DisableCloudAccountRoleResponse Client::disableCloudAccountRoleWithOptions(const
 }
 
 /**
- * @summary Disables a cloud role for a specified Alibaba Cloud account.
+ * @summary Disables a cloud role under a specified cloud account.
  *
  * @param request DisableCloudAccountRoleRequest
  * @return DisableCloudAccountRoleResponse
@@ -5177,6 +5456,56 @@ DisableCloudAccountRoleResponse Client::disableCloudAccountRoleWithOptions(const
 DisableCloudAccountRoleResponse Client::disableCloudAccountRole(const DisableCloudAccountRoleRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return disableCloudAccountRoleWithOptions(request, runtime);
+}
+
+/**
+ * @summary Disables a permission template.
+ *
+ * @param request DisableCloudPermissionTemplateRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DisableCloudPermissionTemplateResponse
+ */
+DisableCloudPermissionTemplateResponse Client::disableCloudPermissionTemplateWithOptions(const DisableCloudPermissionTemplateRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasCloudAccountId()) {
+    query["CloudAccountId"] = request.getCloudAccountId();
+  }
+
+  if (!!request.hasCloudPermissionTemplateId()) {
+    query["CloudPermissionTemplateId"] = request.getCloudPermissionTemplateId();
+  }
+
+  if (!!request.hasInstanceId()) {
+    query["InstanceId"] = request.getInstanceId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DisableCloudPermissionTemplate"},
+    {"version" , "2021-12-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DisableCloudPermissionTemplateResponse>();
+}
+
+/**
+ * @summary Disables a permission template.
+ *
+ * @param request DisableCloudPermissionTemplateRequest
+ * @return DisableCloudPermissionTemplateResponse
+ */
+DisableCloudPermissionTemplateResponse Client::disableCloudPermissionTemplate(const DisableCloudPermissionTemplateRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return disableCloudPermissionTemplateWithOptions(request, runtime);
 }
 
 /**
@@ -5468,7 +5797,7 @@ DisableDomainProxyTokenResponse Client::disableDomainProxyToken(const DisableDom
 }
 
 /**
- * @summary Disables a federated credential provider.
+ * @summary Disables a federated trust source.
  *
  * @param request DisableFederatedCredentialProviderRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -5503,7 +5832,7 @@ DisableFederatedCredentialProviderResponse Client::disableFederatedCredentialPro
 }
 
 /**
- * @summary Disables a federated credential provider.
+ * @summary Disables a federated trust source.
  *
  * @param request DisableFederatedCredentialProviderRequest
  * @return DisableFederatedCredentialProviderResponse
@@ -5698,7 +6027,7 @@ DisableInitDomainAutoRedirectResponse Client::disableInitDomainAutoRedirect(cons
 }
 
 /**
- * @summary Disables an internal authentication source.
+ * @summary Disables the internal authentication source.
  *
  * @param request DisableInternalAuthenticationSourceRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -5733,7 +6062,7 @@ DisableInternalAuthenticationSourceResponse Client::disableInternalAuthenticatio
 }
 
 /**
- * @summary Disables an internal authentication source.
+ * @summary Disables the internal authentication source.
  *
  * @param request DisableInternalAuthenticationSourceRequest
  * @return DisableInternalAuthenticationSourceResponse
@@ -5840,7 +6169,7 @@ DisableTrustedOriginResponse Client::disableTrustedOrigin(const DisableTrustedOr
 }
 
 /**
- * @summary Sets an account status to disabled. If the account is already disabled, the operation returns success directly.
+ * @summary Sets the status of an account to disabled. If the account is already disabled, the operation returns a success response.
  *
  * @param request DisableUserRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -5875,7 +6204,7 @@ DisableUserResponse Client::disableUserWithOptions(const DisableUserRequest &req
 }
 
 /**
- * @summary Sets an account status to disabled. If the account is already disabled, the operation returns success directly.
+ * @summary Sets the status of an account to disabled. If the account is already disabled, the operation returns a success response.
  *
  * @param request DisableUserRequest
  * @return DisableUserResponse
@@ -5932,7 +6261,7 @@ EnableApplicationResponse Client::enableApplication(const EnableApplicationReque
 }
 
 /**
- * @summary You can call the EnableApplicationApiInvoke operation to enable Developer API calls for an EIAM application.
+ * @summary Enables the Developer API invocation feature for an EIAM application.
  *
  * @param request EnableApplicationApiInvokeRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -5967,7 +6296,7 @@ EnableApplicationApiInvokeResponse Client::enableApplicationApiInvokeWithOptions
 }
 
 /**
- * @summary You can call the EnableApplicationApiInvoke operation to enable Developer API calls for an EIAM application.
+ * @summary Enables the Developer API invocation feature for an EIAM application.
  *
  * @param request EnableApplicationApiInvokeRequest
  * @return EnableApplicationApiInvokeResponse
@@ -5978,7 +6307,7 @@ EnableApplicationApiInvokeResponse Client::enableApplicationApiInvoke(const Enab
 }
 
 /**
- * @summary Enables the client key of an application in Identity as a Service (IDaaS) Employee Identity and Access Management (EIAM).
+ * @summary Enables a client secret for an EIAM application.
  *
  * @param request EnableApplicationClientSecretRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -6017,7 +6346,7 @@ EnableApplicationClientSecretResponse Client::enableApplicationClientSecretWithO
 }
 
 /**
- * @summary Enables the client key of an application in Identity as a Service (IDaaS) Employee Identity and Access Management (EIAM).
+ * @summary Enables a client secret for an EIAM application.
  *
  * @param request EnableApplicationClientSecretRequest
  * @return EnableApplicationClientSecretResponse
@@ -6410,7 +6739,7 @@ EnableBrandResponse Client::enableBrand(const EnableBrandRequest &request) {
 }
 
 /**
- * @summary Enables a specified application ClientPublicKey.
+ * @summary Enables the specified application ClientPublicKey.
  *
  * @param request EnableClientPublicKeyRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -6453,7 +6782,7 @@ EnableClientPublicKeyResponse Client::enableClientPublicKeyWithOptions(const Ena
 }
 
 /**
- * @summary Enables a specified application ClientPublicKey.
+ * @summary Enables the specified application ClientPublicKey.
  *
  * @param request EnableClientPublicKeyRequest
  * @return EnableClientPublicKeyResponse
@@ -6464,7 +6793,57 @@ EnableClientPublicKeyResponse Client::enableClientPublicKey(const EnableClientPu
 }
 
 /**
- * @summary Enables a cloud role for a specified Alibaba Cloud account.
+ * @summary Enables privileges for a cloud account.
+ *
+ * @param request EnableCloudAccountPrivilegeRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return EnableCloudAccountPrivilegeResponse
+ */
+EnableCloudAccountPrivilegeResponse Client::enableCloudAccountPrivilegeWithOptions(const EnableCloudAccountPrivilegeRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasClientToken()) {
+    query["ClientToken"] = request.getClientToken();
+  }
+
+  if (!!request.hasCloudAccountId()) {
+    query["CloudAccountId"] = request.getCloudAccountId();
+  }
+
+  if (!!request.hasInstanceId()) {
+    query["InstanceId"] = request.getInstanceId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "EnableCloudAccountPrivilege"},
+    {"version" , "2021-12-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<EnableCloudAccountPrivilegeResponse>();
+}
+
+/**
+ * @summary Enables privileges for a cloud account.
+ *
+ * @param request EnableCloudAccountPrivilegeRequest
+ * @return EnableCloudAccountPrivilegeResponse
+ */
+EnableCloudAccountPrivilegeResponse Client::enableCloudAccountPrivilege(const EnableCloudAccountPrivilegeRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return enableCloudAccountPrivilegeWithOptions(request, runtime);
+}
+
+/**
+ * @summary Enables a cloud role under a specified cloud account.
  *
  * @param request EnableCloudAccountRoleRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -6507,7 +6886,7 @@ EnableCloudAccountRoleResponse Client::enableCloudAccountRoleWithOptions(const E
 }
 
 /**
- * @summary Enables a cloud role for a specified Alibaba Cloud account.
+ * @summary Enables a cloud role under a specified cloud account.
  *
  * @param request EnableCloudAccountRoleRequest
  * @return EnableCloudAccountRoleResponse
@@ -6518,9 +6897,59 @@ EnableCloudAccountRoleResponse Client::enableCloudAccountRole(const EnableCloudA
 }
 
 /**
+ * @summary Enables a permission template.
+ *
+ * @param request EnableCloudPermissionTemplateRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return EnableCloudPermissionTemplateResponse
+ */
+EnableCloudPermissionTemplateResponse Client::enableCloudPermissionTemplateWithOptions(const EnableCloudPermissionTemplateRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasCloudAccountId()) {
+    query["CloudAccountId"] = request.getCloudAccountId();
+  }
+
+  if (!!request.hasCloudPermissionTemplateId()) {
+    query["CloudPermissionTemplateId"] = request.getCloudPermissionTemplateId();
+  }
+
+  if (!!request.hasInstanceId()) {
+    query["InstanceId"] = request.getInstanceId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "EnableCloudPermissionTemplate"},
+    {"version" , "2021-12-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<EnableCloudPermissionTemplateResponse>();
+}
+
+/**
+ * @summary Enables a permission template.
+ *
+ * @param request EnableCloudPermissionTemplateRequest
+ * @return EnableCloudPermissionTemplateResponse
+ */
+EnableCloudPermissionTemplateResponse Client::enableCloudPermissionTemplate(const EnableCloudPermissionTemplateRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return enableCloudPermissionTemplateWithOptions(request, runtime);
+}
+
+/**
  * @summary Enables a conditional access policy.
  *
- * @description When you change a conditional access policy from enabled to disabled, the policy no longer intercepts requests. Confirm that you are aware of the risks that this operation may cause.
+ * @description When a conditional access policy is changed from the enabled state to the disabled state, it no longer intercepts requests. Make sure that you are aware of the potential risks of this operation.
  *
  * @param request EnableConditionalAccessPolicyRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -6557,7 +6986,7 @@ EnableConditionalAccessPolicyResponse Client::enableConditionalAccessPolicyWithO
 /**
  * @summary Enables a conditional access policy.
  *
- * @description When you change a conditional access policy from enabled to disabled, the policy no longer intercepts requests. Confirm that you are aware of the risks that this operation may cause.
+ * @description When a conditional access policy is changed from the enabled state to the disabled state, it no longer intercepts requests. Make sure that you are aware of the potential risks of this operation.
  *
  * @param request EnableConditionalAccessPolicyRequest
  * @return EnableConditionalAccessPolicyResponse
@@ -6716,7 +7145,7 @@ EnableCustomFieldResponse Client::enableCustomField(const EnableCustomFieldReque
 }
 
 /**
- * @summary Enables a custom clause.
+ * @summary Enables custom terms.
  *
  * @param request EnableCustomPrivacyPolicyRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -6751,7 +7180,7 @@ EnableCustomPrivacyPolicyResponse Client::enableCustomPrivacyPolicyWithOptions(c
 }
 
 /**
- * @summary Enables a custom clause.
+ * @summary Enables custom terms.
  *
  * @param request EnableCustomPrivacyPolicyRequest
  * @return EnableCustomPrivacyPolicyResponse
@@ -6762,7 +7191,7 @@ EnableCustomPrivacyPolicyResponse Client::enableCustomPrivacyPolicy(const Enable
 }
 
 /**
- * @summary Enables a domain proxy token for a specified EIAM instance domain name to verify domain security.
+ * @summary Enables the domain proxy token of a specified EIAM instance to verify domain security.
  *
  * @param request EnableDomainProxyTokenRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -6801,7 +7230,7 @@ EnableDomainProxyTokenResponse Client::enableDomainProxyTokenWithOptions(const E
 }
 
 /**
- * @summary Enables a domain proxy token for a specified EIAM instance domain name to verify domain security.
+ * @summary Enables the domain proxy token of a specified EIAM instance to verify domain security.
  *
  * @param request EnableDomainProxyTokenRequest
  * @return EnableDomainProxyTokenResponse
@@ -6906,7 +7335,7 @@ EnableIdentityProviderAdvancedAbilityResponse Client::enableIdentityProviderAdva
 /**
  * @summary Enables authentication.
  *
- * @description When you change a conditional access policy from enabled to disabled, the policy no longer intercepts requests. Make sure that you are aware of the risks that this operation may cause.
+ * @description When you change a conditional access policy from enabled to disabled, the policy no longer intercepts requests. Make sure that you are aware of the potential risks of this operation.
  *
  * @param request EnableIdentityProviderAuthnRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -6943,7 +7372,7 @@ EnableIdentityProviderAuthnResponse Client::enableIdentityProviderAuthnWithOptio
 /**
  * @summary Enables authentication.
  *
- * @description When you change a conditional access policy from enabled to disabled, the policy no longer intercepts requests. Make sure that you are aware of the risks that this operation may cause.
+ * @description When you change a conditional access policy from enabled to disabled, the policy no longer intercepts requests. Make sure that you are aware of the potential risks of this operation.
  *
  * @param request EnableIdentityProviderAuthnRequest
  * @return EnableIdentityProviderAuthnResponse
@@ -7088,7 +7517,7 @@ EnableInternalAuthenticationSourceResponse Client::enableInternalAuthenticationS
 }
 
 /**
- * @summary Enables the custom subject feature for a specified resource server. After this feature is enabled, the subject of an issued access token changes from <clientId> to <clientId>:<client.activeSubjectUrn>. The `client.activeSubjectUrn` is set in the attribute mapping of the application\\"s federated identity provider.
+ * @summary Enables the custom subject capability for a specified resource server. After the custom subject is enabled, the issued access token changes from <clientId> to <clientId>:<client.activeSubjectUrn>, where client.activeSubjectUrn is configured in the attribute mapping of the federated identity credential for the application.
  *
  * @param request EnableResourceServerCustomSubjectRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -7123,7 +7552,7 @@ EnableResourceServerCustomSubjectResponse Client::enableResourceServerCustomSubj
 }
 
 /**
- * @summary Enables the custom subject feature for a specified resource server. After this feature is enabled, the subject of an issued access token changes from <clientId> to <clientId>:<client.activeSubjectUrn>. The `client.activeSubjectUrn` is set in the attribute mapping of the application\\"s federated identity provider.
+ * @summary Enables the custom subject capability for a specified resource server. After the custom subject is enabled, the issued access token changes from <clientId> to <clientId>:<client.activeSubjectUrn>, where client.activeSubjectUrn is configured in the attribute mapping of the federated identity credential for the application.
  *
  * @param request EnableResourceServerCustomSubjectRequest
  * @return EnableResourceServerCustomSubjectResponse
@@ -7230,7 +7659,7 @@ EnableUserResponse Client::enableUser(const EnableUserRequest &request) {
 }
 
 /**
- * @summary Parses IdP metadata information.
+ * @summary Parses IdP metadata.
  *
  * @param request ExecIdentityProviderMetadataUrlResolutionRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -7277,7 +7706,7 @@ ExecIdentityProviderMetadataUrlResolutionResponse Client::execIdentityProviderMe
 }
 
 /**
- * @summary Parses IdP metadata information.
+ * @summary Parses IdP metadata.
  *
  * @param request ExecIdentityProviderMetadataUrlResolutionRequest
  * @return ExecIdentityProviderMetadataUrlResolutionResponse
@@ -7504,7 +7933,7 @@ GenerateOauthTokenResponse Client::generateOauthToken(const GenerateOauthTokenRe
 }
 
 /**
- * @summary Get Upload Authentication
+ * @summary Retrieves upload authentication.
  *
  * @param request GenerateUploadAuthRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -7543,7 +7972,7 @@ GenerateUploadAuthResponse Client::generateUploadAuthWithOptions(const GenerateU
 }
 
 /**
- * @summary Get Upload Authentication
+ * @summary Retrieves upload authentication.
  *
  * @param request GenerateUploadAuthRequest
  * @return GenerateUploadAuthResponse
@@ -7750,7 +8179,7 @@ GetApplicationFederatedCredentialResponse Client::getApplicationFederatedCredent
 }
 
 /**
- * @summary Queries the Developer API authorization scope of an EIAM application.
+ * @summary Queries the Developer API authorization scopes of an EIAM application.
  *
  * @param request GetApplicationGrantScopeRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -7785,7 +8214,7 @@ GetApplicationGrantScopeResponse Client::getApplicationGrantScopeWithOptions(con
 }
 
 /**
- * @summary Queries the Developer API authorization scope of an EIAM application.
+ * @summary Queries the Developer API authorization scopes of an EIAM application.
  *
  * @param request GetApplicationGrantScopeRequest
  * @return GetApplicationGrantScopeResponse
@@ -7796,7 +8225,7 @@ GetApplicationGrantScopeResponse Client::getApplicationGrantScope(const GetAppli
 }
 
 /**
- * @summary Retrieves the account synchronization configuration for an Entity Identity and Access Management (EIAM) application.
+ * @summary Queries the account synchronization configuration of an EIAM application.
  *
  * @param request GetApplicationProvisioningConfigRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -7831,7 +8260,7 @@ GetApplicationProvisioningConfigResponse Client::getApplicationProvisioningConfi
 }
 
 /**
- * @summary Retrieves the account synchronization configuration for an Entity Identity and Access Management (EIAM) application.
+ * @summary Queries the account synchronization configuration of an EIAM application.
  *
  * @param request GetApplicationProvisioningConfigRequest
  * @return GetApplicationProvisioningConfigResponse
@@ -7842,7 +8271,7 @@ GetApplicationProvisioningConfigResponse Client::getApplicationProvisioningConfi
 }
 
 /**
- * @summary Queries the account synchronization scope of applications in Identity as a Service (IDaaS) Employee IAM (EIAM). This scope is the same as the scope within which developers can call the DeveloperAPI to query and manage accounts.
+ * @summary Queries the account synchronization scope of an EIAM application. This scope also defines the accounts that can be queried and managed by the Developer API.
  *
  * @param request GetApplicationProvisioningScopeRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -7877,7 +8306,7 @@ GetApplicationProvisioningScopeResponse Client::getApplicationProvisioningScopeW
 }
 
 /**
- * @summary Queries the account synchronization scope of applications in Identity as a Service (IDaaS) Employee IAM (EIAM). This scope is the same as the scope within which developers can call the DeveloperAPI to query and manage accounts.
+ * @summary Queries the account synchronization scope of an EIAM application. This scope also defines the accounts that can be queried and managed by the Developer API.
  *
  * @param request GetApplicationProvisioningScopeRequest
  * @return GetApplicationProvisioningScopeResponse
@@ -7934,7 +8363,7 @@ GetApplicationProvisioningUserPrimaryOrganizationalUnitResponse Client::getAppli
 }
 
 /**
- * @summary Retrieves application role information.
+ * @summary Retrieves the application role information.
  *
  * @param request GetApplicationRoleRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -7973,7 +8402,7 @@ GetApplicationRoleResponse Client::getApplicationRoleWithOptions(const GetApplic
 }
 
 /**
- * @summary Retrieves application role information.
+ * @summary Retrieves the application role information.
  *
  * @param request GetApplicationRoleRequest
  * @return GetApplicationRoleResponse
@@ -8406,6 +8835,56 @@ GetCloudAccountRoleResponse Client::getCloudAccountRole(const GetCloudAccountRol
 }
 
 /**
+ * @summary Queries a permission template.
+ *
+ * @param request GetCloudPermissionTemplateRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetCloudPermissionTemplateResponse
+ */
+GetCloudPermissionTemplateResponse Client::getCloudPermissionTemplateWithOptions(const GetCloudPermissionTemplateRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasCloudAccountId()) {
+    query["CloudAccountId"] = request.getCloudAccountId();
+  }
+
+  if (!!request.hasCloudPermissionTemplateId()) {
+    query["CloudPermissionTemplateId"] = request.getCloudPermissionTemplateId();
+  }
+
+  if (!!request.hasInstanceId()) {
+    query["InstanceId"] = request.getInstanceId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "GetCloudPermissionTemplate"},
+    {"version" , "2021-12-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetCloudPermissionTemplateResponse>();
+}
+
+/**
+ * @summary Queries a permission template.
+ *
+ * @param request GetCloudPermissionTemplateRequest
+ * @return GetCloudPermissionTemplateResponse
+ */
+GetCloudPermissionTemplateResponse Client::getCloudPermissionTemplate(const GetCloudPermissionTemplateRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return getCloudPermissionTemplateWithOptions(request, runtime);
+}
+
+/**
  * @summary Retrieves a conditional access policy.
  *
  * @description Queries a conditional access policy.
@@ -8548,7 +9027,7 @@ GetCredentialProviderResponse Client::getCredentialProvider(const GetCredentialP
 }
 
 /**
- * @summary Retrieves the information about an extended field.
+ * @summary Retrieves the extended field information.
  *
  * @param request GetCustomFieldRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -8583,7 +9062,7 @@ GetCustomFieldResponse Client::getCustomFieldWithOptions(const GetCustomFieldReq
 }
 
 /**
- * @summary Retrieves the information about an extended field.
+ * @summary Retrieves the extended field information.
  *
  * @param request GetCustomFieldRequest
  * @return GetCustomFieldResponse
@@ -8594,7 +9073,7 @@ GetCustomFieldResponse Client::getCustomField(const GetCustomFieldRequest &reque
 }
 
 /**
- * @summary Retrieves a custom privacy policy.
+ * @summary Retrieves the custom privacy policy.
  *
  * @param request GetCustomPrivacyPolicyRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -8629,7 +9108,7 @@ GetCustomPrivacyPolicyResponse Client::getCustomPrivacyPolicyWithOptions(const G
 }
 
 /**
- * @summary Retrieves a custom privacy policy.
+ * @summary Retrieves the custom privacy policy.
  *
  * @param request GetCustomPrivacyPolicyRequest
  * @return GetCustomPrivacyPolicyResponse
@@ -8686,7 +9165,7 @@ GetDomainResponse Client::getDomain(const GetDomainRequest &request) {
 }
 
 /**
- * @summary Queries the DNS Challenge record for a specified EIAM domain name. This record is used to verify domain ownership.
+ * @summary Queries the DNS challenge records of a specified EIAM domain name. The generated records are used to verify the ownership of the domain name.
  *
  * @param request GetDomainDnsChallengeRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -8721,7 +9200,7 @@ GetDomainDnsChallengeResponse Client::getDomainDnsChallengeWithOptions(const Get
 }
 
 /**
- * @summary Queries the DNS Challenge record for a specified EIAM domain name. This record is used to verify domain ownership.
+ * @summary Queries the DNS challenge records of a specified EIAM domain name. The generated records are used to verify the ownership of the domain name.
  *
  * @param request GetDomainDnsChallengeRequest
  * @return GetDomainDnsChallengeResponse
@@ -8817,6 +9296,41 @@ GetForgetPasswordConfigurationResponse Client::getForgetPasswordConfigurationWit
 GetForgetPasswordConfigurationResponse Client::getForgetPasswordConfiguration(const GetForgetPasswordConfigurationRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return getForgetPasswordConfigurationWithOptions(request, runtime);
+}
+
+/**
+ * @summary 查询全局云账号系统角色权限模板
+ *
+ * @param request GetGlobalCloudAccountSystemRolePolicyRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetGlobalCloudAccountSystemRolePolicyResponse
+ */
+GetGlobalCloudAccountSystemRolePolicyResponse Client::getGlobalCloudAccountSystemRolePolicyWithOptions(const GetGlobalCloudAccountSystemRolePolicyRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  OpenApiRequest req = OpenApiRequest();
+  Params params = Params(json({
+    {"action" , "GetGlobalCloudAccountSystemRolePolicy"},
+    {"version" , "2021-12-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetGlobalCloudAccountSystemRolePolicyResponse>();
+}
+
+/**
+ * @summary 查询全局云账号系统角色权限模板
+ *
+ * @param request GetGlobalCloudAccountSystemRolePolicyRequest
+ * @return GetGlobalCloudAccountSystemRolePolicyResponse
+ */
+GetGlobalCloudAccountSystemRolePolicyResponse Client::getGlobalCloudAccountSystemRolePolicy(const GetGlobalCloudAccountSystemRolePolicyRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return getGlobalCloudAccountSystemRolePolicyWithOptions(request, runtime);
 }
 
 /**
@@ -9276,7 +9790,7 @@ GetInstanceLicenseResponse Client::getInstanceLicense(const GetInstanceLicenseRe
 }
 
 /**
- * @summary Retrieves all module information under a first-level module.
+ * @summary Retrieves information about all modules under a level-1 module.
  *
  * @param request GetInstanceModuleInfoRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -9311,7 +9825,7 @@ GetInstanceModuleInfoResponse Client::getInstanceModuleInfoWithOptions(const Get
 }
 
 /**
- * @summary Retrieves all module information under a first-level module.
+ * @summary Retrieves information about all modules under a level-1 module.
  *
  * @param request GetInstanceModuleInfoRequest
  * @return GetInstanceModuleInfoResponse
@@ -9456,7 +9970,7 @@ GetLoginRedirectApplicationForBrandResponse Client::getLoginRedirectApplicationF
 }
 
 /**
- * @summary Queries the details of a specified network access endpoint.
+ * @summary Queries the details of a specified network endpoint.
  *
  * @param request GetNetworkAccessEndpointRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -9491,7 +10005,7 @@ GetNetworkAccessEndpointResponse Client::getNetworkAccessEndpointWithOptions(con
 }
 
 /**
- * @summary Queries the details of a specified network access endpoint.
+ * @summary Queries the details of a specified network endpoint.
  *
  * @param request GetNetworkAccessEndpointRequest
  * @return GetNetworkAccessEndpointResponse
@@ -9548,7 +10062,7 @@ GetNetworkZoneResponse Client::getNetworkZone(const GetNetworkZoneRequest &reque
 }
 
 /**
- * @summary Queries the information of an EIAM organizational unit.
+ * @summary Queries the information of an EIAM organization.
  *
  * @param request GetOrganizationalUnitRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -9583,7 +10097,7 @@ GetOrganizationalUnitResponse Client::getOrganizationalUnitWithOptions(const Get
 }
 
 /**
- * @summary Queries the information of an EIAM organizational unit.
+ * @summary Queries the information of an EIAM organization.
  *
  * @param request GetOrganizationalUnitRequest
  * @return GetOrganizationalUnitResponse
@@ -9812,7 +10326,7 @@ GetResourceServerScopeResponse Client::getResourceServerScope(const GetResourceS
 }
 
 /**
- * @summary Queries the root organizational unit information of EIAM.
+ * @summary Queries the root organization information of EIAM.
  *
  * @param request GetRootOrganizationalUnitRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -9843,7 +10357,7 @@ GetRootOrganizationalUnitResponse Client::getRootOrganizationalUnitWithOptions(c
 }
 
 /**
- * @summary Queries the root organizational unit information of EIAM.
+ * @summary Queries the root organization information of EIAM.
  *
  * @param request GetRootOrganizationalUnitRequest
  * @return GetRootOrganizationalUnitResponse
@@ -10308,7 +10822,7 @@ ListApplicationFederatedCredentialsResponse Client::listApplicationFederatedCred
 }
 
 /**
- * @summary Queries the list of application federated credentials by federated trust source ID.
+ * @summary Queries a list of application federated credentials based on the federated trust source ID.
  *
  * @param request ListApplicationFederatedCredentialsForProviderRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -10355,7 +10869,7 @@ ListApplicationFederatedCredentialsForProviderResponse Client::listApplicationFe
 }
 
 /**
- * @summary Queries the list of application federated credentials by federated trust source ID.
+ * @summary Queries a list of application federated credentials based on the federated trust source ID.
  *
  * @param request ListApplicationFederatedCredentialsForProviderRequest
  * @return ListApplicationFederatedCredentialsForProviderResponse
@@ -10792,7 +11306,7 @@ ListApplicationsForNetworkAccessEndpointResponse Client::listApplicationsForNetw
 }
 
 /**
- * @summary Retrieves the list of applications associated with a network domain.
+ * @summary Queries the applications associated with a network zone.
  *
  * @param request ListApplicationsForNetworkZoneRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -10839,7 +11353,7 @@ ListApplicationsForNetworkZoneResponse Client::listApplicationsForNetworkZoneWit
 }
 
 /**
- * @summary Retrieves the list of applications associated with a network domain.
+ * @summary Queries the applications associated with a network zone.
  *
  * @param request ListApplicationsForNetworkZoneRequest
  * @return ListApplicationsForNetworkZoneResponse
@@ -10850,9 +11364,9 @@ ListApplicationsForNetworkZoneResponse Client::listApplicationsForNetworkZone(co
 }
 
 /**
- * @summary Queries the list of applications accessible to an EIAM organizational unit by paging. The response includes application IDs. To obtain detailed application information, call the GetApplication operation.
+ * @summary Performs a paging query for the list of applications accessible to an EIAM organization. The returned results include application IDs. To obtain detailed application information, call the GetApplication operation.
  *
- * @description This operation queries only the direct permissions of the organizational unit, that is, applications directly assigned to the organizational unit. When you call this operation, you can use the **ApplicationIds** parameter to filter applications.
+ * @description This operation queries only the direct permissions of the organization, which are applications directly assigned to the organization. When you call this operation, you can filter applications by using the **ApplicationIds** parameter.
  *
  * @param request ListApplicationsForOrganizationalUnitRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -10899,9 +11413,9 @@ ListApplicationsForOrganizationalUnitResponse Client::listApplicationsForOrganiz
 }
 
 /**
- * @summary Queries the list of applications accessible to an EIAM organizational unit by paging. The response includes application IDs. To obtain detailed application information, call the GetApplication operation.
+ * @summary Performs a paging query for the list of applications accessible to an EIAM organization. The returned results include application IDs. To obtain detailed application information, call the GetApplication operation.
  *
- * @description This operation queries only the direct permissions of the organizational unit, that is, applications directly assigned to the organizational unit. When you call this operation, you can use the **ApplicationIds** parameter to filter applications.
+ * @description This operation queries only the direct permissions of the organization, which are applications directly assigned to the organization. When you call this operation, you can filter applications by using the **ApplicationIds** parameter.
  *
  * @param request ListApplicationsForOrganizationalUnitRequest
  * @return ListApplicationsForOrganizationalUnitResponse
@@ -10974,9 +11488,9 @@ ListApplicationsForUserResponse Client::listApplicationsForUser(const ListApplic
 }
 
 /**
- * @summary Lists authorized resource information.
+ * @summary Lists the authorization resources.
  *
- * @description This operation queries only the direct permissions of an organization, that is, applications directly assigned to the organization. When you call this operation, you can use the **ApplicationIds** parameter to filter applications.
+ * @description This operation queries only the direct permissions of an organization, which are applications directly assigned to the organization. When you call this operation, you can use the **ApplicationIds** parameter to filter applications.
  *
  * @param request ListAuthorizationResourcesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -11023,9 +11537,9 @@ ListAuthorizationResourcesResponse Client::listAuthorizationResourcesWithOptions
 }
 
 /**
- * @summary Lists authorized resource information.
+ * @summary Lists the authorization resources.
  *
- * @description This operation queries only the direct permissions of an organization, that is, applications directly assigned to the organization. When you call this operation, you can use the **ApplicationIds** parameter to filter applications.
+ * @description This operation queries only the direct permissions of an organization, which are applications directly assigned to the organization. When you call this operation, you can use the **ApplicationIds** parameter to filter applications.
  *
  * @param request ListAuthorizationResourcesRequest
  * @return ListAuthorizationResourcesResponse
@@ -11252,7 +11766,7 @@ ListAuthorizationRulesForUserResponse Client::listAuthorizationRulesForUser(cons
 }
 
 /**
- * @summary Retrieves a list of all authorization servers under an instance.
+ * @summary Retrieves a list of all authorization servers for an instance.
  *
  * @param request ListAuthorizationServersRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -11291,7 +11805,7 @@ ListAuthorizationServersResponse Client::listAuthorizationServersWithOptions(con
 }
 
 /**
- * @summary Retrieves a list of all authorization servers under an instance.
+ * @summary Retrieves a list of all authorization servers for an instance.
  *
  * @param request ListAuthorizationServersRequest
  * @return ListAuthorizationServersResponse
@@ -11519,6 +12033,76 @@ ListCloudAccountsResponse Client::listCloudAccountsWithOptions(const ListCloudAc
 ListCloudAccountsResponse Client::listCloudAccounts(const ListCloudAccountsRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return listCloudAccountsWithOptions(request, runtime);
+}
+
+/**
+ * @summary Queries the information of one or more permission templates by using a paging query.
+ *
+ * @param request ListCloudPermissionTemplatesRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListCloudPermissionTemplatesResponse
+ */
+ListCloudPermissionTemplatesResponse Client::listCloudPermissionTemplatesWithOptions(const ListCloudPermissionTemplatesRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasCloudAccountId()) {
+    query["CloudAccountId"] = request.getCloudAccountId();
+  }
+
+  if (!!request.hasCloudPermissionTemplateNamePrefix()) {
+    query["CloudPermissionTemplateNamePrefix"] = request.getCloudPermissionTemplateNamePrefix();
+  }
+
+  if (!!request.hasCloudPermissionTemplateSharingMode()) {
+    query["CloudPermissionTemplateSharingMode"] = request.getCloudPermissionTemplateSharingMode();
+  }
+
+  if (!!request.hasCloudPermissionTemplateUsageType()) {
+    query["CloudPermissionTemplateUsageType"] = request.getCloudPermissionTemplateUsageType();
+  }
+
+  if (!!request.hasCreatorType()) {
+    query["CreatorType"] = request.getCreatorType();
+  }
+
+  if (!!request.hasInstanceId()) {
+    query["InstanceId"] = request.getInstanceId();
+  }
+
+  if (!!request.hasMaxResults()) {
+    query["MaxResults"] = request.getMaxResults();
+  }
+
+  if (!!request.hasNextToken()) {
+    query["NextToken"] = request.getNextToken();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ListCloudPermissionTemplates"},
+    {"version" , "2021-12-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListCloudPermissionTemplatesResponse>();
+}
+
+/**
+ * @summary Queries the information of one or more permission templates by using a paging query.
+ *
+ * @param request ListCloudPermissionTemplatesRequest
+ * @return ListCloudPermissionTemplatesResponse
+ */
+ListCloudPermissionTemplatesResponse Client::listCloudPermissionTemplates(const ListCloudPermissionTemplatesRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return listCloudPermissionTemplatesWithOptions(request, runtime);
 }
 
 /**
@@ -11788,7 +12372,7 @@ ListCredentialProvidersResponse Client::listCredentialProviders(const ListCreden
 }
 
 /**
- * @summary Performs a paging query to retrieve the information of one or more credentials.
+ * @summary Queries the information of one or more credentials by using paging.
  *
  * @param request ListCredentialsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -11851,7 +12435,7 @@ ListCredentialsResponse Client::listCredentialsWithOptions(const ListCredentials
 }
 
 /**
- * @summary Performs a paging query to retrieve the information of one or more credentials.
+ * @summary Queries the information of one or more credentials by using paging.
  *
  * @param request ListCredentialsRequest
  * @return ListCredentialsResponse
@@ -11862,7 +12446,7 @@ ListCredentialsResponse Client::listCredentials(const ListCredentialsRequest &re
 }
 
 /**
- * @summary Queries the list of custom terms.
+ * @summary Queries custom privacy policies.
  *
  * @param request ListCustomPrivacyPoliciesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -11909,7 +12493,7 @@ ListCustomPrivacyPoliciesResponse Client::listCustomPrivacyPoliciesWithOptions(c
 }
 
 /**
- * @summary Queries the list of custom terms.
+ * @summary Queries custom privacy policies.
  *
  * @param request ListCustomPrivacyPoliciesRequest
  * @return ListCustomPrivacyPoliciesResponse
@@ -11920,7 +12504,7 @@ ListCustomPrivacyPoliciesResponse Client::listCustomPrivacyPolicies(const ListCu
 }
 
 /**
- * @summary Retrieves the resources of brand-linked instances.
+ * @summary Retrieves the resources associated with a brand.
  *
  * @param request ListCustomPrivacyPoliciesForBrandRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -11967,7 +12551,7 @@ ListCustomPrivacyPoliciesForBrandResponse Client::listCustomPrivacyPoliciesForBr
 }
 
 /**
- * @summary Retrieves the resources of brand-linked instances.
+ * @summary Retrieves the resources associated with a brand.
  *
  * @param request ListCustomPrivacyPoliciesForBrandRequest
  * @return ListCustomPrivacyPoliciesForBrandResponse
@@ -11978,7 +12562,7 @@ ListCustomPrivacyPoliciesForBrandResponse Client::listCustomPrivacyPoliciesForBr
 }
 
 /**
- * @summary Queries a list of domain proxy tokens of an EIAM instance.
+ * @summary Lists the proxy tokens for the domain name of an EIAM instance.
  *
  * @param request ListDomainProxyTokensRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -12013,7 +12597,7 @@ ListDomainProxyTokensResponse Client::listDomainProxyTokensWithOptions(const Lis
 }
 
 /**
- * @summary Queries a list of domain proxy tokens of an EIAM instance.
+ * @summary Lists the proxy tokens for the domain name of an EIAM instance.
  *
  * @param request ListDomainProxyTokensRequest
  * @return ListDomainProxyTokensResponse
@@ -12148,7 +12732,7 @@ ListEiamRegionsResponse Client::listEiamRegions() {
 }
 
 /**
- * @summary Queries the event list.
+ * @summary Lists events.
  *
  * @param request ListEventTypesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -12183,7 +12767,7 @@ ListEventTypesResponse Client::listEventTypesWithOptions(const ListEventTypesReq
 }
 
 /**
- * @summary Queries the event list.
+ * @summary Lists events.
  *
  * @param request ListEventTypesRequest
  * @return ListEventTypesResponse
@@ -12322,7 +12906,7 @@ ListGroupsResponse Client::listGroups(const ListGroupsRequest &request) {
 }
 
 /**
- * @summary Performs a paged query to list the groups authorized to access an application. The response returns the group IDs. To obtain detailed information for a group, you can call the GetGroup operation.
+ * @summary Performs a paged query on the list of groups with authorization to access an application. The response includes group IDs and supports paging. To obtain detailed group information, invoke the GetGroup operation.
  *
  * @param request ListGroupsForApplicationRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -12373,7 +12957,7 @@ ListGroupsForApplicationResponse Client::listGroupsForApplicationWithOptions(con
 }
 
 /**
- * @summary Performs a paged query to list the groups authorized to access an application. The response returns the group IDs. To obtain detailed information for a group, you can call the GetGroup operation.
+ * @summary Performs a paged query on the list of groups with authorization to access an application. The response includes group IDs and supports paging. To obtain detailed group information, invoke the GetGroup operation.
  *
  * @param request ListGroupsForApplicationRequest
  * @return ListGroupsForApplicationResponse
@@ -12504,7 +13088,7 @@ ListGroupsForResourceServerResponse Client::listGroupsForResourceServer(const Li
 }
 
 /**
- * @summary Queries the list of account groups to which a specified EIAM account belongs.
+ * @summary Queries the groups to which a specified EIAM account belongs.
  *
  * @param request ListGroupsForUserRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -12547,7 +13131,7 @@ ListGroupsForUserResponse Client::listGroupsForUserWithOptions(const ListGroupsF
 }
 
 /**
- * @summary Queries the list of account groups to which a specified EIAM account belongs.
+ * @summary Queries the groups to which a specified EIAM account belongs.
  *
  * @param request ListGroupsForUserRequest
  * @return ListGroupsForUserResponse
@@ -12612,7 +13196,7 @@ ListIdentityProvidersResponse Client::listIdentityProviders(const ListIdentityPr
 }
 
 /**
- * @summary Retrieves information about Identity Providers (IdPs) for a network endpoint.
+ * @summary Retrieves the IdP information for a network access endpoint.
  *
  * @param request ListIdentityProvidersForNetworkAccessEndpointRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -12655,7 +13239,7 @@ ListIdentityProvidersForNetworkAccessEndpointResponse Client::listIdentityProvid
 }
 
 /**
- * @summary Retrieves information about Identity Providers (IdPs) for a network endpoint.
+ * @summary Retrieves the IdP information for a network access endpoint.
  *
  * @param request ListIdentityProvidersForNetworkAccessEndpointRequest
  * @return ListIdentityProvidersForNetworkAccessEndpointResponse
@@ -12736,7 +13320,7 @@ ListInstancesResponse Client::listInstances(const ListInstancesRequest &request)
 }
 
 /**
- * @summary Lists the available regions for creating network access endpoints in IDaaS EIAM.
+ * @summary Queries the list of regions where IDaaS EIAM supports creating network endpoints.
  *
  * @param runtime runtime options for this request RuntimeOptions
  * @return ListNetworkAccessEndpointAvailableRegionsResponse
@@ -12758,7 +13342,7 @@ ListNetworkAccessEndpointAvailableRegionsResponse Client::listNetworkAccessEndpo
 }
 
 /**
- * @summary Lists the available regions for creating network access endpoints in IDaaS EIAM.
+ * @summary Queries the list of regions where IDaaS EIAM supports creating network endpoints.
  *
  * @return ListNetworkAccessEndpointAvailableRegionsResponse
  */
@@ -12810,7 +13394,7 @@ ListNetworkAccessEndpointAvailableZonesResponse Client::listNetworkAccessEndpoin
 }
 
 /**
- * @summary Queries the list of network access endpoints under an IDaaS EIAM instance.
+ * @summary Queries the network access endpoints of an IDaaS EIAM instance.
  *
  * @param request ListNetworkAccessEndpointsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -12865,7 +13449,7 @@ ListNetworkAccessEndpointsResponse Client::listNetworkAccessEndpointsWithOptions
 }
 
 /**
- * @summary Queries the list of network access endpoints under an IDaaS EIAM instance.
+ * @summary Queries the network access endpoints of an IDaaS EIAM instance.
  *
  * @param request ListNetworkAccessEndpointsRequest
  * @return ListNetworkAccessEndpointsResponse
@@ -12922,7 +13506,7 @@ ListNetworkAccessPathsResponse Client::listNetworkAccessPaths(const ListNetworkA
 }
 
 /**
- * @summary Queries the list of network zone objects.
+ * @summary Queries network zone objects.
  *
  * @param request ListNetworkZonesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -12969,7 +13553,7 @@ ListNetworkZonesResponse Client::listNetworkZonesWithOptions(const ListNetworkZo
 }
 
 /**
- * @summary Queries the list of network zone objects.
+ * @summary Queries network zone objects.
  *
  * @param request ListNetworkZonesRequest
  * @return ListNetworkZonesResponse
@@ -12980,7 +13564,7 @@ ListNetworkZonesResponse Client::listNetworkZones(const ListNetworkZonesRequest 
 }
 
 /**
- * @summary Queries all ancestor organizations of a specified EIAM organization. The organizations in the result list are sorted in hierarchical order from the top level to the bottom level.
+ * @summary Lists all ancestor organizations of a specified EIAM organization. The returned organization list is sorted in hierarchical order from the top level to the bottom level.
  *
  * @param request ListOrganizationalUnitParentsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -13015,7 +13599,7 @@ ListOrganizationalUnitParentsResponse Client::listOrganizationalUnitParentsWithO
 }
 
 /**
- * @summary Queries all ancestor organizations of a specified EIAM organization. The organizations in the result list are sorted in hierarchical order from the top level to the bottom level.
+ * @summary Lists all ancestor organizations of a specified EIAM organization. The returned organization list is sorted in hierarchical order from the top level to the bottom level.
  *
  * @param request ListOrganizationalUnitParentsRequest
  * @return ListOrganizationalUnitParentsResponse
@@ -13092,7 +13676,7 @@ ListOrganizationalUnitsResponse Client::listOrganizationalUnits(const ListOrgani
 }
 
 /**
- * @summary Performs a paged query to list the organizations that are granted access to an application. The response returns the IDs of the organizations. To obtain detailed information about a specific organization, call the GetOrganizationalUnit operation.
+ * @summary Performs a paging query for the list of organizational units that an application is authorized to access. The returned result includes the organizational unit IDs. To obtain detailed information about an organizational unit, call the GetOrganizationalUnit operation.
  *
  * @param request ListOrganizationalUnitsForApplicationRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -13143,7 +13727,7 @@ ListOrganizationalUnitsForApplicationResponse Client::listOrganizationalUnitsFor
 }
 
 /**
- * @summary Performs a paged query to list the organizations that are granted access to an application. The response returns the IDs of the organizations. To obtain detailed information about a specific organization, call the GetOrganizationalUnit operation.
+ * @summary Performs a paging query for the list of organizational units that an application is authorized to access. The returned result includes the organizational unit IDs. To obtain detailed information about an organizational unit, call the GetOrganizationalUnit operation.
  *
  * @param request ListOrganizationalUnitsForApplicationRequest
  * @return ListOrganizationalUnitsForApplicationResponse
@@ -13550,9 +14134,9 @@ ListTrustedOriginsResponse Client::listTrustedOrigins(const ListTrustedOriginsRe
 }
 
 /**
- * @summary Queries the binding relationships of third-party login accounts.
+ * @summary Queries the binding relationships of third-party logon accounts.
  *
- * @description This operation queries only the direct permissions of an organization, that is, applications directly assigned to the organization. When you call this operation, you can use the **ApplicationIds** parameter to filter applications.
+ * @description This operation queries only the direct permissions of an organization, namely the applications directly assigned to the organization. When you call this operation, you can filter applications by using the **ApplicationIds** parameter.
  *
  * @param request ListUserAuthnSourceMappingsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -13607,9 +14191,9 @@ ListUserAuthnSourceMappingsResponse Client::listUserAuthnSourceMappingsWithOptio
 }
 
 /**
- * @summary Queries the binding relationships of third-party login accounts.
+ * @summary Queries the binding relationships of third-party logon accounts.
  *
- * @description This operation queries only the direct permissions of an organization, that is, applications directly assigned to the organization. When you call this operation, you can use the **ApplicationIds** parameter to filter applications.
+ * @description This operation queries only the direct permissions of an organization, namely the applications directly assigned to the organization. When you call this operation, you can filter applications by using the **ApplicationIds** parameter.
  *
  * @param request ListUserAuthnSourceMappingsRequest
  * @return ListUserAuthnSourceMappingsResponse
@@ -13620,9 +14204,9 @@ ListUserAuthnSourceMappingsResponse Client::listUserAuthnSourceMappings(const Li
 }
 
 /**
- * @summary Queries EIAM account information by using paging.
+ * @summary Performs a paging query of EIAM account information.
  *
- * @description This operation queries only the direct permissions of an organizational unit, which are the applications directly assigned to the organizational unit. When you call this operation, you can use the **ApplicationIds** parameter to filter applications.
+ * @description This operation queries only the direct permissions of an organization, which are the applications directly assigned to the organization. When you call this operation, you can filter applications by using the **ApplicationIds** parameter.
  *
  * @param request ListUsersRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -13713,9 +14297,9 @@ ListUsersResponse Client::listUsersWithOptions(const ListUsersRequest &request, 
 }
 
 /**
- * @summary Queries EIAM account information by using paging.
+ * @summary Performs a paging query of EIAM account information.
  *
- * @description This operation queries only the direct permissions of an organizational unit, which are the applications directly assigned to the organizational unit. When you call this operation, you can use the **ApplicationIds** parameter to filter applications.
+ * @description This operation queries only the direct permissions of an organization, which are the applications directly assigned to the organization. When you call this operation, you can filter applications by using the **ApplicationIds** parameter.
  *
  * @param request ListUsersRequest
  * @return ListUsersResponse
@@ -13726,7 +14310,7 @@ ListUsersResponse Client::listUsers(const ListUsersRequest &request) {
 }
 
 /**
- * @summary Performs a paged query to list the accounts that have been granted access to an application. The response includes account IDs. To retrieve detailed information about an account, call the GetUser operation.
+ * @summary Performs a paging query to retrieve the list of accounts authorized to access an application. The response includes account IDs. To obtain detailed account information, call the GetUser operation.
  *
  * @param request ListUsersForApplicationRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -13777,7 +14361,7 @@ ListUsersForApplicationResponse Client::listUsersForApplicationWithOptions(const
 }
 
 /**
- * @summary Performs a paged query to list the accounts that have been granted access to an application. The response includes account IDs. To retrieve detailed information about an account, call the GetUser operation.
+ * @summary Performs a paging query to retrieve the list of accounts authorized to access an application. The response includes account IDs. To obtain detailed account information, call the GetUser operation.
  *
  * @param request ListUsersForApplicationRequest
  * @return ListUsersForApplicationResponse
@@ -14474,7 +15058,7 @@ RemoveUserFromOrganizationalUnitsResponse Client::removeUserFromOrganizationalUn
 }
 
 /**
- * @summary Removes Employee Identity and Access Management (EIAM) accounts from an EIAM group of Identity as a Service (IDaaS).
+ * @summary Removes multiple EIAM accounts from a specified EIAM account group.
  *
  * @param request RemoveUsersFromGroupRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -14513,7 +15097,7 @@ RemoveUsersFromGroupResponse Client::removeUsersFromGroupWithOptions(const Remov
 }
 
 /**
- * @summary Removes Employee Identity and Access Management (EIAM) accounts from an EIAM group of Identity as a Service (IDaaS).
+ * @summary Removes multiple EIAM accounts from a specified EIAM account group.
  *
  * @param request RemoveUsersFromGroupRequest
  * @return RemoveUsersFromGroupResponse
@@ -14566,7 +15150,7 @@ RenewFreeLicenseEndTimeResponse Client::renewFreeLicenseEndTime(const RenewFreeL
 }
 
 /**
- * @summary Revokes the permissions of multiple Employee Identity and Access Management (EIAM) groups to access an application in a batch.
+ * @summary Revokes application access permissions for multiple EIAM groups.
  *
  * @param request RevokeApplicationFromGroupsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -14609,7 +15193,7 @@ RevokeApplicationFromGroupsResponse Client::revokeApplicationFromGroupsWithOptio
 }
 
 /**
- * @summary Revokes the permissions of multiple Employee Identity and Access Management (EIAM) groups to access an application in a batch.
+ * @summary Revokes application access permissions for multiple EIAM groups.
  *
  * @param request RevokeApplicationFromGroupsRequest
  * @return RevokeApplicationFromGroupsResponse
@@ -14620,7 +15204,7 @@ RevokeApplicationFromGroupsResponse Client::revokeApplicationFromGroups(const Re
 }
 
 /**
- * @summary Revokes application access from multiple EIAM organizations in a batch operation.
+ * @summary Revokes access to an application for multiple EIAM organizational units in batches.
  *
  * @param request RevokeApplicationFromOrganizationalUnitsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -14663,7 +15247,7 @@ RevokeApplicationFromOrganizationalUnitsResponse Client::revokeApplicationFromOr
 }
 
 /**
- * @summary Revokes application access from multiple EIAM organizations in a batch operation.
+ * @summary Revokes access to an application for multiple EIAM organizational units in batches.
  *
  * @param request RevokeApplicationFromOrganizationalUnitsRequest
  * @return RevokeApplicationFromOrganizationalUnitsResponse
@@ -14674,7 +15258,7 @@ RevokeApplicationFromOrganizationalUnitsResponse Client::revokeApplicationFromOr
 }
 
 /**
- * @summary Revokes the permissions of multiple Enterprise Identity Access Management (EIAM) accounts to access an application in a batch.
+ * @summary Revokes access to an application for multiple EIAM accounts.
  *
  * @param request RevokeApplicationFromUsersRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -14717,7 +15301,7 @@ RevokeApplicationFromUsersResponse Client::revokeApplicationFromUsersWithOptions
 }
 
 /**
- * @summary Revokes the permissions of multiple Enterprise Identity Access Management (EIAM) accounts to access an application in a batch.
+ * @summary Revokes access to an application for multiple EIAM accounts.
  *
  * @param request RevokeApplicationFromUsersRequest
  * @return RevokeApplicationFromUsersResponse
@@ -15412,7 +15996,7 @@ SetApplicationSsoConfigResponse Client::setApplicationSsoConfig(const SetApplica
 }
 
 /**
- * @summary Sets a specified domain name of an EIAM instance as the default domain name.
+ * @summary Sets the specified domain name of an EIAM instance as the default domain name.
  *
  * @param request SetDefaultDomainRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -15447,7 +16031,7 @@ SetDefaultDomainResponse Client::setDefaultDomainWithOptions(const SetDefaultDom
 }
 
 /**
- * @summary Sets a specified domain name of an EIAM instance as the default domain name.
+ * @summary Sets the specified domain name of an EIAM instance as the default domain name.
  *
  * @param request SetDefaultDomainRequest
  * @return SetDefaultDomainResponse
@@ -15458,7 +16042,7 @@ SetDefaultDomainResponse Client::setDefaultDomain(const SetDefaultDomainRequest 
 }
 
 /**
- * @summary Sets the forgot password policy for an EIAM instance.
+ * @summary Configures the forgot password policy for EIAM.
  *
  * @param request SetForgetPasswordConfigurationRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -15497,7 +16081,7 @@ SetForgetPasswordConfigurationResponse Client::setForgetPasswordConfigurationWit
 }
 
 /**
- * @summary Sets the forgot password policy for an EIAM instance.
+ * @summary Configures the forgot password policy for EIAM.
  *
  * @param request SetForgetPasswordConfigurationRequest
  * @return SetForgetPasswordConfigurationResponse
@@ -15910,7 +16494,7 @@ SetPasswordComplexityConfigurationResponse Client::setPasswordComplexityConfigur
 }
 
 /**
- * @summary Sets the password expiration policy for a specified Enterprise Identity and Access Management (EIAM) instance.
+ * @summary Sets the password expiration policy for a specified EIAM instance.
  *
  * @param request SetPasswordExpirationConfigurationRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -15973,7 +16557,7 @@ SetPasswordExpirationConfigurationResponse Client::setPasswordExpirationConfigur
 }
 
 /**
- * @summary Sets the password expiration policy for a specified Enterprise Identity and Access Management (EIAM) instance.
+ * @summary Sets the password expiration policy for a specified EIAM instance.
  *
  * @param request SetPasswordExpirationConfigurationRequest
  * @return SetPasswordExpirationConfigurationResponse
@@ -15984,7 +16568,7 @@ SetPasswordExpirationConfigurationResponse Client::setPasswordExpirationConfigur
 }
 
 /**
- * @summary Sets the password history policy for a specified Enterprise Identity and Access Management (EIAM) instance.
+ * @summary Sets the password history policy for a specified EIAM instance.
  *
  * @param request SetPasswordHistoryConfigurationRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -16023,7 +16607,7 @@ SetPasswordHistoryConfigurationResponse Client::setPasswordHistoryConfigurationW
 }
 
 /**
- * @summary Sets the password history policy for a specified Enterprise Identity and Access Management (EIAM) instance.
+ * @summary Sets the password history policy for a specified EIAM instance.
  *
  * @param request SetPasswordHistoryConfigurationRequest
  * @return SetPasswordHistoryConfigurationResponse
@@ -16034,7 +16618,7 @@ SetPasswordHistoryConfigurationResponse Client::setPasswordHistoryConfiguration(
 }
 
 /**
- * @summary Sets the password initialization policy for a specified EIAM instance.
+ * @summary Configures the password initialization policy for a specified EIAM instance.
  *
  * @param request SetPasswordInitializationConfigurationRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -16081,7 +16665,7 @@ SetPasswordInitializationConfigurationResponse Client::setPasswordInitialization
 }
 
 /**
- * @summary Sets the password initialization policy for a specified EIAM instance.
+ * @summary Configures the password initialization policy for a specified EIAM instance.
  *
  * @param request SetPasswordInitializationConfigurationRequest
  * @return SetPasswordInitializationConfigurationResponse
@@ -16092,7 +16676,7 @@ SetPasswordInitializationConfigurationResponse Client::setPasswordInitialization
 }
 
 /**
- * @summary Sets the specified client public key as the primary key for an application.
+ * @summary Sets the specified application ClientPublicKey as preferred.
  *
  * @param request SetPrimaryClientPublicKeyRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -16135,7 +16719,7 @@ SetPrimaryClientPublicKeyResponse Client::setPrimaryClientPublicKeyWithOptions(c
 }
 
 /**
- * @summary Sets the specified client public key as the primary key for an application.
+ * @summary Sets the specified application ClientPublicKey as preferred.
  *
  * @param request SetPrimaryClientPublicKeyRequest
  * @return SetPrimaryClientPublicKeyResponse
@@ -16300,7 +16884,7 @@ UnbindTotpAuthenticatorResponse Client::unbindTotpAuthenticator(const UnbindTotp
 }
 
 /**
- * @summary Unbinds a third-party logon account from a user.
+ * @summary Disassociates a third-party logon account.
  *
  * @param request UnbindUserAuthnSourceMappingRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -16343,7 +16927,7 @@ UnbindUserAuthnSourceMappingResponse Client::unbindUserAuthnSourceMappingWithOpt
 }
 
 /**
- * @summary Unbinds a third-party logon account from a user.
+ * @summary Disassociates a third-party logon account.
  *
  * @param request UnbindUserAuthnSourceMappingRequest
  * @return UnbindUserAuthnSourceMappingResponse
@@ -16400,7 +16984,7 @@ UnlockUserResponse Client::unlockUser(const UnlockUserRequest &request) {
 }
 
 /**
- * @summary Modifies the advanced configuration of an application.
+ * @summary Updates the advanced configurations of an application.
  *
  * @param request UpdateApplicationAdvancedConfigRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -16439,7 +17023,7 @@ UpdateApplicationAdvancedConfigResponse Client::updateApplicationAdvancedConfigW
 }
 
 /**
- * @summary Modifies the advanced configuration of an application.
+ * @summary Updates the advanced configurations of an application.
  *
  * @param request UpdateApplicationAdvancedConfigRequest
  * @return UpdateApplicationAdvancedConfigResponse
@@ -16450,7 +17034,7 @@ UpdateApplicationAdvancedConfigResponse Client::updateApplicationAdvancedConfig(
 }
 
 /**
- * @summary Modifies the authorization type of an Employee Identity and Access Management (EIAM) application.
+ * @summary Updates the access authorization type of a specified EIAM application.
  *
  * @param request UpdateApplicationAuthorizationTypeRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -16489,7 +17073,7 @@ UpdateApplicationAuthorizationTypeResponse Client::updateApplicationAuthorizatio
 }
 
 /**
- * @summary Modifies the authorization type of an Employee Identity and Access Management (EIAM) application.
+ * @summary Updates the access authorization type of a specified EIAM application.
  *
  * @param request UpdateApplicationAuthorizationTypeRequest
  * @return UpdateApplicationAuthorizationTypeResponse
@@ -16500,7 +17084,7 @@ UpdateApplicationAuthorizationTypeResponse Client::updateApplicationAuthorizatio
 }
 
 /**
- * @summary Updates the expiration time of a specified ClientSecret for an application.
+ * @summary Updates the expiration time of a specified client secret for an application.
  *
  * @param request UpdateApplicationClientSecretExpirationTimeRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -16543,7 +17127,7 @@ UpdateApplicationClientSecretExpirationTimeResponse Client::updateApplicationCli
 }
 
 /**
- * @summary Updates the expiration time of a specified ClientSecret for an application.
+ * @summary Updates the expiration time of a specified client secret for an application.
  *
  * @param request UpdateApplicationClientSecretExpirationTimeRequest
  * @return UpdateApplicationClientSecretExpirationTimeResponse
@@ -16554,7 +17138,7 @@ UpdateApplicationClientSecretExpirationTimeResponse Client::updateApplicationCli
 }
 
 /**
- * @summary Modifies the description of an Employee Identity and Access Management (EIAM) application.
+ * @summary Updates the description of an EIAM application.
  *
  * @param request UpdateApplicationDescriptionRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -16593,7 +17177,7 @@ UpdateApplicationDescriptionResponse Client::updateApplicationDescriptionWithOpt
 }
 
 /**
- * @summary Modifies the description of an Employee Identity and Access Management (EIAM) application.
+ * @summary Updates the description of an EIAM application.
  *
  * @param request UpdateApplicationDescriptionRequest
  * @return UpdateApplicationDescriptionResponse
@@ -17014,7 +17598,7 @@ UpdateApplicationTokenExpirationTimeResponse Client::updateApplicationTokenExpir
 }
 
 /**
- * @summary Updates the basic properties of an authorization rule.
+ * @summary Updates the basic information of an authorization rule.
  *
  * @param request UpdateAuthorizationRuleRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -17063,7 +17647,7 @@ UpdateAuthorizationRuleResponse Client::updateAuthorizationRuleWithOptions(const
 }
 
 /**
- * @summary Updates the basic properties of an authorization rule.
+ * @summary Updates the basic information of an authorization rule.
  *
  * @param request UpdateAuthorizationRuleRequest
  * @return UpdateAuthorizationRuleResponse
@@ -17074,7 +17658,7 @@ UpdateAuthorizationRuleResponse Client::updateAuthorizationRule(const UpdateAuth
 }
 
 /**
- * @summary Updates the properties of the relationship between an authorization rule and an application.
+ * @summary Updates the relationship properties between an authorization rule and an application.
  *
  * @param request UpdateAuthorizationRuleApplicationAttachmentRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -17127,7 +17711,7 @@ UpdateAuthorizationRuleApplicationAttachmentResponse Client::updateAuthorization
 }
 
 /**
- * @summary Updates the properties of the relationship between an authorization rule and an application.
+ * @summary Updates the relationship properties between an authorization rule and an application.
  *
  * @param request UpdateAuthorizationRuleApplicationAttachmentRequest
  * @return UpdateAuthorizationRuleApplicationAttachmentResponse
@@ -17258,7 +17842,7 @@ UpdateAuthorizationRuleGroupAttachmentResponse Client::updateAuthorizationRuleGr
 }
 
 /**
- * @summary Updates the relationship properties between an authorization rule and an account.
+ * @summary Updates the relationship attributes between an authorization rule and an account.
  *
  * @param request UpdateAuthorizationRuleUserAttachmentRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -17311,7 +17895,7 @@ UpdateAuthorizationRuleUserAttachmentResponse Client::updateAuthorizationRuleUse
 }
 
 /**
- * @summary Updates the relationship properties between an authorization rule and an account.
+ * @summary Updates the relationship attributes between an authorization rule and an account.
  *
  * @param request UpdateAuthorizationRuleUserAttachmentRequest
  * @return UpdateAuthorizationRuleUserAttachmentResponse
@@ -17658,6 +18242,84 @@ UpdateCloudAccountRoleDescriptionResponse Client::updateCloudAccountRoleDescript
 }
 
 /**
+ * @summary Updates a permission template.
+ *
+ * @description Retrieves the list of application templates.
+ *
+ * @param request UpdateCloudPermissionTemplateRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return UpdateCloudPermissionTemplateResponse
+ */
+UpdateCloudPermissionTemplateResponse Client::updateCloudPermissionTemplateWithOptions(const UpdateCloudPermissionTemplateRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasAllowRequest()) {
+    query["AllowRequest"] = request.getAllowRequest();
+  }
+
+  if (!!request.hasApplicableScope()) {
+    query["ApplicableScope"] = request.getApplicableScope();
+  }
+
+  if (!!request.hasClientToken()) {
+    query["ClientToken"] = request.getClientToken();
+  }
+
+  if (!!request.hasCloudAccountId()) {
+    query["CloudAccountId"] = request.getCloudAccountId();
+  }
+
+  if (!!request.hasCloudAccountResources()) {
+    query["CloudAccountResources"] = request.getCloudAccountResources();
+  }
+
+  if (!!request.hasCloudPermissionTemplateId()) {
+    query["CloudPermissionTemplateId"] = request.getCloudPermissionTemplateId();
+  }
+
+  if (!!request.hasCloudPermissionTemplateName()) {
+    query["CloudPermissionTemplateName"] = request.getCloudPermissionTemplateName();
+  }
+
+  if (!!request.hasDescription()) {
+    query["Description"] = request.getDescription();
+  }
+
+  if (!!request.hasInstanceId()) {
+    query["InstanceId"] = request.getInstanceId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "UpdateCloudPermissionTemplate"},
+    {"version" , "2021-12-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<UpdateCloudPermissionTemplateResponse>();
+}
+
+/**
+ * @summary Updates a permission template.
+ *
+ * @description Retrieves the list of application templates.
+ *
+ * @param request UpdateCloudPermissionTemplateRequest
+ * @return UpdateCloudPermissionTemplateResponse
+ */
+UpdateCloudPermissionTemplateResponse Client::updateCloudPermissionTemplate(const UpdateCloudPermissionTemplateRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return updateCloudPermissionTemplateWithOptions(request, runtime);
+}
+
+/**
  * @summary Updates a conditional access policy.
  *
  * @description Updates a conditional access policy.
@@ -17790,7 +18452,7 @@ UpdateConditionalAccessPolicyDescriptionResponse Client::updateConditionalAccess
 }
 
 /**
- * @summary Update basic information for a credential.
+ * @summary Updates the basic information of a credential.
  *
  * @param request UpdateCredentialRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -17837,7 +18499,7 @@ UpdateCredentialResponse Client::updateCredentialWithOptions(const UpdateCredent
 }
 
 /**
- * @summary Update basic information for a credential.
+ * @summary Updates the basic information of a credential.
  *
  * @param request UpdateCredentialRequest
  * @return UpdateCredentialResponse
@@ -18524,7 +19186,7 @@ UpdateInstanceDescriptionResponse Client::updateInstanceDescription(const Update
 }
 
 /**
- * @summary Modifies the name of a private network access endpoint.
+ * @summary Updates the name of a dedicated network access endpoint.
  *
  * @param request UpdateNetworkAccessEndpointNameRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -18563,7 +19225,7 @@ UpdateNetworkAccessEndpointNameResponse Client::updateNetworkAccessEndpointNameW
 }
 
 /**
- * @summary Modifies the name of a private network access endpoint.
+ * @summary Updates the name of a dedicated network access endpoint.
  *
  * @param request UpdateNetworkAccessEndpointNameRequest
  * @return UpdateNetworkAccessEndpointNameResponse
@@ -18640,7 +19302,7 @@ UpdateNetworkZoneResponse Client::updateNetworkZone(const UpdateNetworkZoneReque
 }
 
 /**
- * @summary Updates the description of a network zone.
+ * @summary Updates the description of a network zone object.
  *
  * @param request UpdateNetworkZoneDescriptionRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -18683,7 +19345,7 @@ UpdateNetworkZoneDescriptionResponse Client::updateNetworkZoneDescriptionWithOpt
 }
 
 /**
- * @summary Updates the description of a network zone.
+ * @summary Updates the description of a network zone object.
  *
  * @param request UpdateNetworkZoneDescriptionRequest
  * @return UpdateNetworkZoneDescriptionResponse

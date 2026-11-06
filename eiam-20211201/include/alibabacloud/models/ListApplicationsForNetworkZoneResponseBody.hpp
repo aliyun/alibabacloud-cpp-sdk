@@ -144,15 +144,15 @@ namespace Models
   protected:
     // The list of applications.
     shared_ptr<vector<ListApplicationsForNetworkZoneResponseBody::Applications>> applications_ {};
-    // The number of entries per page in a paged query.
+    // The number of entries to return per page for paging in a paged query.
     shared_ptr<int32_t> maxResults_ {};
-    // The pagination token returned by this call.
+    // The next token returned by this call.
     shared_ptr<string> nextToken_ {};
-    // The pagination token returned by this call.
+    // The next token returned by this call.
     shared_ptr<string> previousToken_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The total number of entries in the list.
+    // The total number of entries.
     shared_ptr<int64_t> totalCount_ {};
   };
 

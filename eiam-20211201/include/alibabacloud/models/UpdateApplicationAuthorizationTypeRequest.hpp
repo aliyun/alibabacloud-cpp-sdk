@@ -57,18 +57,17 @@ namespace Models
 
 
   protected:
-    // The ID of the application that you want to modify.
+    // The application ID.
     // 
     // This parameter is required.
     shared_ptr<string> applicationId_ {};
-    // The authorization type of the application. Valid values:
-    // 
-    // *   authorize_required: Only the user with explicit authorization can access the application.
-    // *   default_all: By default, all users can access the application.
+    // The access authorization type of the application. Valid values:
+    // - authorize_required: Explicit authorization is required for access.
+    // - default_all: All members have access permissions by default.
     // 
     // This parameter is required.
     shared_ptr<string> authorizationType_ {};
-    // The ID of the instance.
+    // The instance ID.
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};

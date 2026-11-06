@@ -133,24 +133,24 @@ namespace Models
 
 
     protected:
-      // The time when the group was created. The value is a UNIX timestamp in milliseconds.
+      // The creation time of the group. The value is a UNIX timestamp in milliseconds.
       shared_ptr<int64_t> createTime_ {};
       // The group description.
       shared_ptr<string> description_ {};
-      // The external ID of the group, which is used to associate the group with an external system. The default value is the account group ID.
+      // The external identifier of the group. It is used to associate with external systems. Default value: the group ID.
       shared_ptr<string> groupExternalId_ {};
       // The group ID.
       shared_ptr<string> groupId_ {};
       // The group name.
       shared_ptr<string> groupName_ {};
-      // The source ID of the group. The default value is the instance ID.
+      // The source ID of the group. Default value: the instance ID.
       shared_ptr<string> groupSourceId_ {};
-      // The source type of the group. Currently, only built-in groups are supported. Valid values:
+      // The source type of the group. Only built-in groups are supported. Valid values:
       // - build_in: built-in.
       shared_ptr<string> groupSourceType_ {};
       // The instance ID.
       shared_ptr<string> instanceId_ {};
-      // The time when the group was last updated. The value is a UNIX timestamp in milliseconds.
+      // The last update time of the group. The value is a UNIX timestamp in milliseconds.
       shared_ptr<int64_t> updateTime_ {};
     };
 

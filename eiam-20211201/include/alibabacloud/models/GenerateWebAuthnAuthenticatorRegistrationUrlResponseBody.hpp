@@ -71,7 +71,7 @@ namespace Models
     protected:
       // The WebAuthn authenticator registration URL.
       shared_ptr<string> registrationUrl_ {};
-      // The parameters for the WebAuthn authenticator registration URL.
+      // The WebAuthn authenticator registration URL parameters.
       shared_ptr<string> registrationUrlParameters_ {};
     };
 
@@ -96,7 +96,7 @@ namespace Models
   protected:
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // Information about the WebAuthn authenticator registration URL.
+    // The WebAuthn authenticator registration URL information.
     shared_ptr<GenerateWebAuthnAuthenticatorRegistrationUrlResponseBody::WebAuthnAuthenticatorRegistrationUrl> webAuthnAuthenticatorRegistrationUrl_ {};
   };
 

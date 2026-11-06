@@ -98,7 +98,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
-    // The number of rows per page in a paged query. Maximum value: 100.
+    // The number of entries to return per page in a paging query. Maximum value: 100.
     shared_ptr<int64_t> maxResults_ {};
     // The status of the network access endpoint. Valid values:
     //  
@@ -112,15 +112,15 @@ namespace Models
     // The type of the network access endpoint. Valid values:
     // 
     // - shared: shared network access endpoint.
-    // - private: dedicated network access endpoint.
+    // - private: private network access endpoint.
     // 
     // Default value: private.
     shared_ptr<string> networkAccessEndpointType_ {};
-    // The pagination token. Set this parameter to the NextToken value returned in the previous API call. Leave this parameter empty for the first query.
+    // The pagination token. Set the value to the NextToken value returned from the previous API call. Leave this parameter empty for the first call.
     shared_ptr<string> nextToken_ {};
-    // The VPC ID of the dedicated network access endpoint. This parameter does not take effect when NetworkAccessEndpointType is set to shared.
+    // The ID of the VPC to which the private network access endpoint is connected. This parameter does not take effect when NetworkAccessEndpointType is set to shared.
     shared_ptr<string> vpcId_ {};
-    // The region of the VPC for the dedicated network access endpoint. The region must be one of the regions returned by the ListNetworkAccessEndpointAvailableRegions operation. This parameter does not take effect when NetworkAccessEndpointType is set to shared.
+    // The region of the VPC to which the private network access endpoint is connected. The region must be returned by the ListNetworkAccessEndpointAvailableRegions operation. This parameter does not take effect when NetworkAccessEndpointType is set to shared.
     shared_ptr<string> vpcRegionId_ {};
   };
 

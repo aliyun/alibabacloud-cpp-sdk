@@ -101,9 +101,9 @@ namespace Models
 
 
       protected:
-        // The end time of the validity period, in UNIX timestamp format. Unit: milliseconds.
+        // The end time of the validity period. The value is a UNIX timestamp in milliseconds.
         shared_ptr<int64_t> endTime_ {};
-        // The start time of the validity period, in UNIX timestamp format. Unit: milliseconds.
+        // The start time of the validity period. The value is a UNIX timestamp in milliseconds.
         shared_ptr<int64_t> startTime_ {};
       };
 
@@ -144,11 +144,11 @@ namespace Models
       shared_ptr<string> applicationId_ {};
       // The instance ID.
       shared_ptr<string> instanceId_ {};
-      // The time range of the validity period. This parameter takes effect only when ValidityType is set to time_bound.
+      // The time range of the validity period. This parameter takes effect only when **ValidityType** is set to **time_bound**.
       shared_ptr<Applications::ValidityPeriod> validityPeriod_ {};
       // The validity type of the association. Valid values:
       // - permanent: permanent
-      // - time_bound: custom time range.
+      // - time_bound: custom time range
       shared_ptr<string> validityType_ {};
     };
 
@@ -196,11 +196,11 @@ namespace Models
     shared_ptr<vector<ListApplicationsForAuthorizationRuleResponseBody::Applications>> applications_ {};
     // The number of entries per page in a paging query.
     shared_ptr<int32_t> maxResults_ {};
-    // The pagination token returned in this call. Use this token for the next paged query.
+    // The pagination token returned in the response, which is used to query the next page.
     shared_ptr<string> nextToken_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The total number of entries in the list.
+    // The total number of entries.
     shared_ptr<int64_t> totalCount_ {};
   };
 

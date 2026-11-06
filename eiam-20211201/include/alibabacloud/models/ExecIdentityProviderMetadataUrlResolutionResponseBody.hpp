@@ -134,11 +134,11 @@ namespace Models
 
 
       protected:
-        // The list of IdP certificates.
+        // The IdP certificate list.
         shared_ptr<vector<SamlMetadataConfiguration::Certificates>> certificates_ {};
-        // The entity ID of the IdP.
+        // The IdP entity ID.
         shared_ptr<string> idPEntityId_ {};
-        // The single sign-on URL of the IdP.
+        // The IdP logon URL.
         shared_ptr<string> idPSsoUrl_ {};
       };
 
@@ -207,15 +207,15 @@ namespace Models
 
 
       protected:
-        // The OAuth2 authorization endpoint.
+        // The OAuth 2.0 authorization endpoint.
         shared_ptr<string> authorizationEndpoint_ {};
         // The OIDC issuer information.
         shared_ptr<string> issuer_ {};
         // The OIDC JWKS URI.
         shared_ptr<string> jwksUri_ {};
-        // The OAuth2 token endpoint.
+        // The OAuth 2.0 token endpoint.
         shared_ptr<string> tokenEndpoint_ {};
-        // The OIDC UserInfo endpoint.
+        // The OIDC userinfo endpoint.
         shared_ptr<string> userinfoEndpoint_ {};
       };
 
@@ -240,9 +240,9 @@ namespace Models
 
 
     protected:
-      // The metadata of the OIDC IdP.
+      // The OIDC IdP metadata.
       shared_ptr<IdentityProviderMetadata::OidcOpenIdConfiguration> oidcOpenIdConfiguration_ {};
-      // The metadata of the SAML IdP.
+      // The SAML IdP metadata.
       shared_ptr<IdentityProviderMetadata::SamlMetadataConfiguration> samlMetadataConfiguration_ {};
     };
 
@@ -265,7 +265,7 @@ namespace Models
 
 
   protected:
-    // The metadata of the identity provider.
+    // The identity provider metadata.
     shared_ptr<ExecIdentityProviderMetadataUrlResolutionResponseBody::IdentityProviderMetadata> identityProviderMetadata_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

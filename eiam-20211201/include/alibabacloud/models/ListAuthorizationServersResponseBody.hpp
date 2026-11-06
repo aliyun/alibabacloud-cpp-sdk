@@ -224,9 +224,9 @@ namespace Models
   protected:
     // The list of authorization servers.
     shared_ptr<vector<ListAuthorizationServersResponseBody::AuthorizationServers>> authorizationServers_ {};
-    // The maximum number of entries per page for a paged query.
+    // The number of entries to return per page in a paging query.
     shared_ptr<int32_t> maxResults_ {};
-    // The pagination token returned by this call.
+    // The next token returned in the current call.
     shared_ptr<string> nextToken_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

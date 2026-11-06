@@ -101,9 +101,9 @@ namespace Models
 
 
       protected:
-        // The end time of the validity period, in UNIX timestamp format. Unit: milliseconds.
+        // The end time when the authorization expires. The value is a UNIX timestamp in milliseconds.
         shared_ptr<int64_t> endTime_ {};
-        // The start time of the validity period, in UNIX timestamp format. Unit: milliseconds.
+        // The start time when the authorization takes effect. The value is a UNIX timestamp in milliseconds.
         shared_ptr<int64_t> startTime_ {};
       };
 
@@ -147,8 +147,8 @@ namespace Models
       // The time range of the validity period. This parameter takes effect only when **ValidityType** is set to **time_bound**.
       shared_ptr<AuthorizationRules::ValidityPeriod> validityPeriod_ {};
       // The validity type of the relationship. Valid values:
-      // - permanent: permanent
-      // - time_bound: custom time range.
+      // - permanent: Permanent.
+      // - time_bound: Custom time range.
       shared_ptr<string> validityType_ {};
     };
 
@@ -194,13 +194,13 @@ namespace Models
   protected:
     // The list of authorization rules.
     shared_ptr<vector<ListAuthorizationRulesForGroupResponseBody::AuthorizationRules>> authorizationRules_ {};
-    // The number of entries per page in a paged query. This parameter specifies the paging size.
+    // The number of entries per page for paging.
     shared_ptr<int32_t> maxResults_ {};
-    // The pagination token returned in this call. Use this token to query the next page.
+    // The pagination token returned by the current call for the next query.
     shared_ptr<string> nextToken_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The total number of entries returned.
+    // The total number of entries.
     shared_ptr<int64_t> totalCount_ {};
   };
 

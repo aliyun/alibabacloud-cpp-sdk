@@ -74,7 +74,7 @@ namespace Models
     shared_ptr<int64_t> pageNumber_ {};
     // The page size. Default value: 20. Maximum value: 100.
     shared_ptr<int64_t> pageSize_ {};
-    // The account ID.
+    // The user ID.
     // 
     // This parameter is required.
     shared_ptr<string> userId_ {};

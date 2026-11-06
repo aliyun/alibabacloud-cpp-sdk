@@ -38,7 +38,7 @@ namespace Models
 
 
   protected:
-    // The instance ID of the instance to delete.
+    // The instance ID to delete.
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};

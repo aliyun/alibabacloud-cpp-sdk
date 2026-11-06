@@ -52,7 +52,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
-    // The identifier of the first-level module.
+    // The level-1 module identifier.
     // 
     // This parameter is required.
     shared_ptr<string> moduleKey_ {};

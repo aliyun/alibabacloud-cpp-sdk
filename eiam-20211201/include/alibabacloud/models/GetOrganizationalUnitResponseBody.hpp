@@ -151,36 +151,32 @@ namespace Models
 
 
     protected:
-      // The time when the organizational unit was created, in Unix timestamp format, in milliseconds.
+      // The time when the organizational unit was created. The value is a UNIX timestamp in milliseconds.
       shared_ptr<int64_t> createTime_ {};
-      // Description of the organizational unit.
+      // The description of the organizational unit.
       shared_ptr<string> description_ {};
-      // Instance ID.
+      // The instance ID.
       shared_ptr<string> instanceId_ {};
-      // Indicates whether the organizational unit is a leaf node. A value of true indicates that the organizational unit has no child nodes, and a value of false indicates that the organizational unit has child nodes.
+      // Specifies whether the organizational unit is a leaf node. A value of true indicates that the organizational unit has no child nodes. A value of false indicates that the organizational unit has child nodes.
       shared_ptr<bool> leaf_ {};
-      // Organizational unit external ID, used for mapping between external data and IDaaS organizational units. The default value is the IDaaS organizational unit ID.
-      // 
-      // Note: The external ID is unique within the same source type and source ID.
+      // The external ID of the organizational unit. It is used to map external data to IDaaS organizational units. The default value is the IDaaS organizational unit ID. Note: The external ID must be unique within the same source type and source ID.
       shared_ptr<string> organizationalUnitExternalId_ {};
-      // Organizational unit ID.
+      // The organizational unit ID.
       shared_ptr<string> organizationalUnitId_ {};
-      // Organizational unit name.
+      // The name of the organizational unit.
       shared_ptr<string> organizationalUnitName_ {};
-      // Organizational unit source ID.
-      // 
-      // The default value for the self-built type is the instance ID. For other types, the value corresponds to the enterprise ID of the respective source. For example, the DingTalk source corresponds to the corpId of the DingTalk enterprise.
+      // The source ID of the organizational unit. For self-managed organizational units, the default value is the instance ID. For other types, the value corresponds to the enterprise ID of the respective source. For example, for DingTalk, the value is the corpId of the DingTalk enterprise.
       shared_ptr<string> organizationalUnitSourceId_ {};
-      // Account source type. Valid values:
-      // - build_in: self-built.
-      // - ding_talk: imported from DingTalk.
-      // - ad: imported from AD.
-      // - ldap: imported from LDAP.
-      // - we_com: imported from WeCom.
+      // The account source type. Valid values:
+      // - build_in: Self-managed.
+      // - ding_talk: Imported from DingTalk.
+      // - ad: Imported from AD.
+      // - ldap: Imported from LDAP.
+      // - we_com: Imported from WeCom.
       shared_ptr<string> organizationalUnitSourceType_ {};
-      // Parent organizational unit ID.
+      // The ID of the parent organizational unit.
       shared_ptr<string> parentId_ {};
-      // The time when the organizational unit was last updated, in Unix timestamp format, in milliseconds.
+      // The time when the organizational unit was last updated. The value is a UNIX timestamp in milliseconds.
       shared_ptr<int64_t> updateTime_ {};
     };
 
@@ -203,9 +199,9 @@ namespace Models
 
 
   protected:
-    // Organizational unit data object.
+    // The organizational unit data object.
     shared_ptr<GetOrganizationalUnitResponseBody::OrganizationalUnit> organizationalUnit_ {};
-    // Request ID.
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

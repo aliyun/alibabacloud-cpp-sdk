@@ -87,9 +87,9 @@ namespace Models
 
     protected:
       // The name of the filter field. Valid values:
-      // - CredentialIdentifier: credential identifier
+      // - CredentialIdentifier: The credential identifier.
       shared_ptr<string> name_ {};
-      // The list of filter field values.
+      // The values for the filter field.
       shared_ptr<vector<string>> value_ {};
     };
 
@@ -174,11 +174,11 @@ namespace Models
   protected:
     // The external unique identifiers of the credentials.
     shared_ptr<vector<string>> credentialExternalIds_ {};
-    // The list of credential IDs.
+    // The credential IDs.
     shared_ptr<vector<string>> credentialIds_ {};
-    // The list of credential sharing scopes.
+    // The credential sharing scopes.
     shared_ptr<vector<string>> credentialSharingScopes_ {};
-    // The list of credential types.
+    // The credential types.
     shared_ptr<vector<string>> credentialTypes_ {};
     // The filter conditions.
     shared_ptr<vector<ListCredentialsRequest::Filter>> filter_ {};
@@ -186,13 +186,11 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
-    // The maximum number of entries to return on each page.
-    // - If you do not specify this parameter, the default value is 20.
-    // - The maximum value is 100.
+    // The maximum number of records per page. Default value: 20. Maximum value: 100.
     shared_ptr<int32_t> maxResults_ {};
     // The pagination token.
     shared_ptr<string> nextToken_ {};
-    // The list of credential statuses.
+    // The credential statuses.
     shared_ptr<vector<string>> statuses_ {};
   };
 
