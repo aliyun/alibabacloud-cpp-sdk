@@ -40,6 +40,7 @@ namespace Models
     class Data : public Darabonba::Model {
     public:
       friend void to_json(Darabonba::Json& j, const Data& obj) { 
+        DARABONBA_PTR_TO_JSON(AdbSparkResourceGroup, adbSparkResourceGroup_);
         DARABONBA_PTR_TO_JSON(Alias, alias_);
         DARABONBA_PTR_TO_JSON(AuthAccount, authAccount_);
         DARABONBA_PTR_TO_JSON(AuthPassword, authPassword_);
@@ -66,6 +67,7 @@ namespace Models
         DARABONBA_PTR_TO_JSON(UseSsl, useSsl_);
       };
       friend void from_json(const Darabonba::Json& j, Data& obj) { 
+        DARABONBA_PTR_FROM_JSON(AdbSparkResourceGroup, adbSparkResourceGroup_);
         DARABONBA_PTR_FROM_JSON(Alias, alias_);
         DARABONBA_PTR_FROM_JSON(AuthAccount, authAccount_);
         DARABONBA_PTR_FROM_JSON(AuthPassword, authPassword_);
@@ -102,12 +104,19 @@ namespace Models
       };
       virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
       virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-      virtual bool empty() const override { return this->alias_ == nullptr
-        && this->authAccount_ == nullptr && this->authPassword_ == nullptr && this->authType_ == nullptr && this->catalogName_ == nullptr && this->createMode_ == nullptr
-        && this->dataSourceUuid_ == nullptr && this->dbType_ == nullptr && this->envType_ == nullptr && this->gmtCreate_ == nullptr && this->gmtModified_ == nullptr
-        && this->host_ == nullptr && this->instanceResourceId_ == nullptr && this->instanceSource_ == nullptr && this->kmsSecret_ == nullptr && this->policyId_ == nullptr
-        && this->port_ == nullptr && this->regionId_ == nullptr && this->resourceAccountId_ == nullptr && this->roleArn_ == nullptr && this->schema_ == nullptr
-        && this->state_ == nullptr && this->syncAlias_ == nullptr && this->useSsl_ == nullptr; };
+      virtual bool empty() const override { return this->adbSparkResourceGroup_ == nullptr
+        && this->alias_ == nullptr && this->authAccount_ == nullptr && this->authPassword_ == nullptr && this->authType_ == nullptr && this->catalogName_ == nullptr
+        && this->createMode_ == nullptr && this->dataSourceUuid_ == nullptr && this->dbType_ == nullptr && this->envType_ == nullptr && this->gmtCreate_ == nullptr
+        && this->gmtModified_ == nullptr && this->host_ == nullptr && this->instanceResourceId_ == nullptr && this->instanceSource_ == nullptr && this->kmsSecret_ == nullptr
+        && this->policyId_ == nullptr && this->port_ == nullptr && this->regionId_ == nullptr && this->resourceAccountId_ == nullptr && this->roleArn_ == nullptr
+        && this->schema_ == nullptr && this->state_ == nullptr && this->syncAlias_ == nullptr && this->useSsl_ == nullptr; };
+      // adbSparkResourceGroup Field Functions 
+      bool hasAdbSparkResourceGroup() const { return this->adbSparkResourceGroup_ != nullptr;};
+      void deleteAdbSparkResourceGroup() { this->adbSparkResourceGroup_ = nullptr;};
+      inline string getAdbSparkResourceGroup() const { DARABONBA_PTR_GET_DEFAULT(adbSparkResourceGroup_, "") };
+      inline Data& setAdbSparkResourceGroup(string adbSparkResourceGroup) { DARABONBA_PTR_SET_VALUE(adbSparkResourceGroup_, adbSparkResourceGroup) };
+
+
       // alias Field Functions 
       bool hasAlias() const { return this->alias_ != nullptr;};
       void deleteAlias() { this->alias_ = nullptr;};
@@ -277,9 +286,11 @@ namespace Models
 
 
     protected:
+      // The name of the ADB MySQL Spark resource group. This field is returned only for data sources whose DbType is ADB_MYSQL_SPARK. It is independent of the Schema (database name).
+      shared_ptr<string> adbSparkResourceGroup_ {};
       // The display name of the data source.
       shared_ptr<string> alias_ {};
-      // The logon username for the data source. This parameter is empty if username authentication is not used.
+      // The logon username for the data source. This field is empty if username authentication is not used.
       shared_ptr<string> authAccount_ {};
       // The masked value of the password or token. The actual value is not returned.
       shared_ptr<string> authPassword_ {};
@@ -301,41 +312,36 @@ namespace Models
       shared_ptr<string> dbType_ {};
       // The environment type. Valid values: product, pre, dev, test, sit, uat, pet, and stag.
       shared_ptr<string> envType_ {};
-      // The time when the data source was created. The time is in the yyyy-MM-dd HH:mm:ss format.
+      // The time when the data source was created. The format is yyyy-MM-dd HH:mm:ss.
       shared_ptr<string> gmtCreate_ {};
-      // The time when the data source was last modified. The time is in the yyyy-MM-dd HH:mm:ss format.
+      // The time when the data source was last modified. The format is yyyy-MM-dd HH:mm:ss.
       shared_ptr<string> gmtModified_ {};
       // The endpoint of the data source. A masked value may be returned in sensitive scenarios.
       shared_ptr<string> host_ {};
-      // The ID of the cloud resource instance. This parameter may be empty for data sources registered by endpoint.
+      // The ID of the cloud resource instance. This field may be empty for data sources registered by endpoint.
       shared_ptr<string> instanceResourceId_ {};
-      // The source of the data source. Valid values:
-      // - RDS: An ApsaraDB instance.
-      // - PUBLIC_OWN: A self-managed database on the Internet.
-      // - ECS_OWN: A self-managed database on an ECS instance.
-      // - GATEWAY: A database accessed through Database Gateway.
-      // - VPC_IDC: A database accessed through a VPC or data center.
+      // The source of the data source. Valid values: RDS: ApsaraDB instance, PUBLIC_OWN: self-managed database connected over the Internet, ECS_OWN: self-managed database hosted on an ECS instance, GATEWAY: database connected through Database Gateway, and VPC_IDC: database connected through a VPC or IDC.
       shared_ptr<string> instanceSource_ {};
-      // The name of the KMS-managed credential. This parameter is empty if KMS is not used. This is sensitive information.
+      // The name of the Key Management Service (KMS) managed credential. This field is empty if KMS is not used and is considered sensitive information.
       shared_ptr<string> kmsSecret_ {};
-      // The ID of the data access security policy in use. This parameter is empty if no policy is configured.
+      // The ID of the data access security policy currently in use. This field is empty if no policy is configured.
       shared_ptr<string> policyId_ {};
       // The connection port of the data source.
       shared_ptr<int32_t> port_ {};
-      // The region where the data source resides.
+      // The region where the data source is located.
       shared_ptr<string> regionId_ {};
       // The ID of the Alibaba Cloud account to which the resource belongs.
       shared_ptr<string> resourceAccountId_ {};
-      // The ARN of the RAM role used to access the data source. This parameter is empty if role authorization is not used.
+      // The Alibaba Cloud Resource Name (ARN) of the Resource Access Management (RAM) role used to access the data source. This field is empty if role-based authorization is not used.
       shared_ptr<string> roleArn_ {};
-      // The name of the connection target. For ADB_POSTGRESQL, DRDS, POSTGRESQL, and POLARDB_POSTGRESQL, this indicates the database name. For ORACLE, this indicates the SID or service name. For POLARDB_ORACLE, this indicates the SID. For MAXCOMPUTE, this indicates the project. For other types, this parameter is usually empty.
+      // The name of the connection target. For ADB_POSTGRESQL, DRDS, POSTGRESQL, and POLARDB_POSTGRESQL, this indicates the database name. For ORACLE, this indicates the SID or service name. For POLARDB_ORACLE, this indicates the SID. For MAXCOMPUTE, this indicates the project. For other types, this field is usually empty.
       shared_ptr<string> schema_ {};
       // The status of the data source. Valid values:
       // - 0: normal
       // - -1: deleted
       // - -2: disabled
       shared_ptr<int32_t> state_ {};
-      // Indicates whether the cloud instance name is used as the data source name. Valid values:
+      // Specifies whether to use the cloud instance name as the data source name. Valid values:
       // - 1: yes
       // - 0: no
       shared_ptr<int32_t> syncAlias_ {};
@@ -388,13 +394,13 @@ namespace Models
   protected:
     // The details of the created data source.
     shared_ptr<AddAgenticDataSourceResponseBody::Data> data_ {};
-    // The error code returned when the call fails. This parameter is empty if the call is successful.
+    // The error code returned when the call fails. This field is empty when the call is successful.
     shared_ptr<string> errorCode_ {};
-    // The error message returned when the call fails. This parameter is empty if the call is successful.
+    // The error message returned when the call fails. This field is empty when the call is successful.
     shared_ptr<string> errorMessage_ {};
-    // The request ID, which is used to trace the call.
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the call was successful.
+    // Indicates whether the call is successful.
     shared_ptr<bool> success_ {};
   };
 

@@ -75,15 +75,15 @@ namespace Models
 
 
   protected:
-    // Indicates whether the deletion was successful.
+    // Indicates whether the deletion is successful.
     shared_ptr<bool> data_ {};
-    // The error code returned when the call fails. This field is empty when the call succeeds.
+    // The error code returned if the call fails. This parameter is empty if the call succeeds.
     shared_ptr<string> errorCode_ {};
-    // The error message returned when the call fails. This field is empty when the call succeeds.
+    // The error message returned if the call fails. This parameter is empty if the call succeeds.
     shared_ptr<string> errorMessage_ {};
-    // The ID of the request. You can use this ID to trace the call.
+    // The request ID used to trace the call.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the call was successful.
+    // Indicates whether the call is successful.
     shared_ptr<bool> success_ {};
   };
 

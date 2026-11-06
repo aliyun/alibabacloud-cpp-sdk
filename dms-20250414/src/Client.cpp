@@ -2,11 +2,13 @@
 #include <alibabacloud/Dms20250414.hpp>
 #include <alibabacloud/Utils.hpp>
 #include <alibabacloud/Openapi.hpp>
+#include <alibabacloud/gateway/POP.hpp>
 #include <map>
 #include <darabonba/Runtime.hpp>
 using namespace std;
 using namespace Darabonba;
 using json = nlohmann::json;
+using namespace AlibabaCloud::Gateway;
 using namespace AlibabaCloud::OpenApi;
 using namespace AlibabaCloud::OpenApi::Models;
 using namespace AlibabaCloud::Dms20250414::Models;
@@ -18,6 +20,9 @@ namespace Dms20250414
 {
 
 AlibabaCloud::Dms20250414::Client::Client(Config &config): OpenApiClient(config){
+  this->_productId = "Dms";
+  shared_ptr<POP> gatewayClient = make_shared<POP>();
+  this->_spi = gatewayClient;
   this->_endpointRule = "regional";
   checkConfig(config);
   this->_endpoint = getEndpoint("dms", _regionId, _endpointRule, _network, _suffix, _endpointMap, _endpoint);
@@ -37,7 +42,7 @@ string Client::getEndpoint(const string &productId, const string &regionId, cons
 }
 
 /**
- * @summary Creates a data source accessible by the Agent data gateway.
+ * @summary Creates a data source that can be accessed by the Agent data gateway.
  *
  * @description Enter the connection and authentication information for the data source. The connection is automatically tested before saving. If the test succeeds, the data source is created and metadata synchronization starts.
  *
@@ -48,6 +53,10 @@ string Client::getEndpoint(const string &productId, const string &regionId, cons
 AddAgenticDataSourceResponse Client::addAgenticDataSourceWithOptions(const AddAgenticDataSourceRequest &request, const Darabonba::RuntimeOptions &runtime) {
   request.validate();
   json query = {};
+  if (!!request.hasAdbSparkResourceGroup()) {
+    query["AdbSparkResourceGroup"] = request.getAdbSparkResourceGroup();
+  }
+
   if (!!request.hasAlias()) {
     query["Alias"] = request.getAlias();
   }
@@ -158,7 +167,7 @@ AddAgenticDataSourceResponse Client::addAgenticDataSourceWithOptions(const AddAg
 }
 
 /**
- * @summary Creates a data source accessible by the Agent data gateway.
+ * @summary Creates a data source that can be accessed by the Agent data gateway.
  *
  * @description Enter the connection and authentication information for the data source. The connection is automatically tested before saving. If the test succeeds, the data source is created and metadata synchronization starts.
  *
@@ -774,6 +783,10 @@ CreateCustomAgentResponse Client::createCustomAgentWithOptions(const CreateCusto
     query["CallbackConfig"] = request.getCallbackConfigShrink();
   }
 
+  if (!!request.hasCreateFrom()) {
+    query["CreateFrom"] = request.getCreateFrom();
+  }
+
   if (!!request.hasDMSUnit()) {
     query["DMSUnit"] = request.getDMSUnit();
   }
@@ -1281,7 +1294,7 @@ CreateDataAgentThemeResponse Client::createDataAgentTheme(const CreateDataAgentT
 }
 
 /**
- * @summary Creates a DataAgent workspace.
+ * @summary Creates a DataAgent collaborative workspace.
  *
  * @param request CreateDataAgentWorkspaceRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1290,6 +1303,10 @@ CreateDataAgentThemeResponse Client::createDataAgentTheme(const CreateDataAgentT
 CreateDataAgentWorkspaceResponse Client::createDataAgentWorkspaceWithOptions(const CreateDataAgentWorkspaceRequest &request, const Darabonba::RuntimeOptions &runtime) {
   request.validate();
   json query = {};
+  if (!!request.hasConfig()) {
+    query["Config"] = request.getConfig();
+  }
+
   if (!!request.hasDMSUnit()) {
     query["DMSUnit"] = request.getDMSUnit();
   }
@@ -1324,7 +1341,7 @@ CreateDataAgentWorkspaceResponse Client::createDataAgentWorkspaceWithOptions(con
 }
 
 /**
- * @summary Creates a DataAgent workspace.
+ * @summary Creates a DataAgent collaborative workspace.
  *
  * @param request CreateDataAgentWorkspaceRequest
  * @return CreateDataAgentWorkspaceResponse
@@ -1407,7 +1424,7 @@ CreateOneMetaSqlTemplateResponse Client::createOneMetaSqlTemplate(const CreateOn
 /**
  * @summary Deletes a data source and its associated metadata catalog.
  *
- * @description After deletion, the data source cannot establish connections and cannot be restored by calling the enable API operation.
+ * @description After deletion, the data source can no longer establish connections and cannot be recovered by calling the enable API operation.
  *
  * @param request DeleteAgenticDataSourceRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1440,7 +1457,7 @@ DeleteAgenticDataSourceResponse Client::deleteAgenticDataSourceWithOptions(const
 /**
  * @summary Deletes a data source and its associated metadata catalog.
  *
- * @description After deletion, the data source cannot establish connections and cannot be restored by calling the enable API operation.
+ * @description After deletion, the data source can no longer establish connections and cannot be recovered by calling the enable API operation.
  *
  * @param request DeleteAgenticDataSourceRequest
  * @return DeleteAgenticDataSourceResponse
@@ -1448,6 +1465,52 @@ DeleteAgenticDataSourceResponse Client::deleteAgenticDataSourceWithOptions(const
 DeleteAgenticDataSourceResponse Client::deleteAgenticDataSource(const DeleteAgenticDataSourceRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return deleteAgenticDataSourceWithOptions(request, runtime);
+}
+
+/**
+ * @summary Submits an asynchronous deletion request for a VPC endpoint and returns the acceptance result.
+ *
+ * @description After the reverse endpoint is deleted, the data source can no longer establish connections and cannot be restored by calling the enable API.
+ *
+ * @param request DeleteAgenticVpcEndpointRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DeleteAgenticVpcEndpointResponse
+ */
+DeleteAgenticVpcEndpointResponse Client::deleteAgenticVpcEndpointWithOptions(const DeleteAgenticVpcEndpointRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasEndpointId()) {
+    query["EndpointId"] = request.getEndpointId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DeleteAgenticVpcEndpoint"},
+    {"version" , "2025-04-14"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DeleteAgenticVpcEndpointResponse>();
+}
+
+/**
+ * @summary Submits an asynchronous deletion request for a VPC endpoint and returns the acceptance result.
+ *
+ * @description After the reverse endpoint is deleted, the data source can no longer establish connections and cannot be restored by calling the enable API.
+ *
+ * @param request DeleteAgenticVpcEndpointRequest
+ * @return DeleteAgenticVpcEndpointResponse
+ */
+DeleteAgenticVpcEndpointResponse Client::deleteAgenticVpcEndpoint(const DeleteAgenticVpcEndpointRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return deleteAgenticVpcEndpointWithOptions(request, runtime);
 }
 
 /**
@@ -2393,6 +2456,52 @@ DescribeDataAgentSessionResponse Client::describeDataAgentSession(const Describe
 }
 
 /**
+ * @summary Retrieves the download link for a DataAgent skill.
+ *
+ * @param request DescribeDataAgentSkillDownloadRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DescribeDataAgentSkillDownloadResponse
+ */
+DescribeDataAgentSkillDownloadResponse Client::describeDataAgentSkillDownloadWithOptions(const DescribeDataAgentSkillDownloadRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasSkillId()) {
+    query["SkillId"] = request.getSkillId();
+  }
+
+  if (!!request.hasWorkspaceId()) {
+    query["WorkspaceId"] = request.getWorkspaceId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DescribeDataAgentSkillDownload"},
+    {"version" , "2025-04-14"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DescribeDataAgentSkillDownloadResponse>();
+}
+
+/**
+ * @summary Retrieves the download link for a DataAgent skill.
+ *
+ * @param request DescribeDataAgentSkillDownloadRequest
+ * @return DescribeDataAgentSkillDownloadResponse
+ */
+DescribeDataAgentSkillDownloadResponse Client::describeDataAgentSkillDownload(const DescribeDataAgentSkillDownloadRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return describeDataAgentSkillDownloadWithOptions(request, runtime);
+}
+
+/**
  * @summary Invokes the DescribeDataAgentTheme operation to query the details of a specific DataAgent theme, including the theme name, stage, source, common scenarios, description, and creation and modification time.
  *
  * @param request DescribeDataAgentThemeRequest
@@ -2811,7 +2920,7 @@ GetAgenticCatalogResponse Client::getAgenticCatalog(const GetAgenticCatalogReque
 }
 
 /**
- * @summary Queries the details of a data source by its UUID.
+ * @summary Queries the details of a data source by UUID.
  *
  * @description Queries the connection, authentication, status, and metadata catalog information of a specified data source under the current account. Only masked values are returned for passwords.
  *
@@ -2844,7 +2953,7 @@ GetAgenticDataSourceResponse Client::getAgenticDataSourceWithOptions(const GetAg
 }
 
 /**
- * @summary Queries the details of a data source by its UUID.
+ * @summary Queries the details of a data source by UUID.
  *
  * @description Queries the connection, authentication, status, and metadata catalog information of a specified data source under the current account. Only masked values are returned for passwords.
  *
@@ -3440,7 +3549,7 @@ GetDataAgentThemeUploadSignatureResponse Client::getDataAgentThemeUploadSignatur
 }
 
 /**
- * @summary Queries the details of a workspace.
+ * @summary Retrieves the details of a collaborative workspace.
  *
  * @param request GetDataAgentWorkspaceInfoRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3475,7 +3584,7 @@ GetDataAgentWorkspaceInfoResponse Client::getDataAgentWorkspaceInfoWithOptions(c
 }
 
 /**
- * @summary Queries the details of a workspace.
+ * @summary Retrieves the details of a collaborative workspace.
  *
  * @param request GetDataAgentWorkspaceInfoRequest
  * @return GetDataAgentWorkspaceInfoResponse
@@ -3486,7 +3595,7 @@ GetDataAgentWorkspaceInfoResponse Client::getDataAgentWorkspaceInfo(const GetDat
 }
 
 /**
- * @summary Queries the MCP Server connectivity and tool list results by the Session ID returned when the detection was started.
+ * @summary Queries the connectivity and tool list results of an MCP server based on the session ID returned when the detection was started.
  *
  * @param request GetListMcpServerToolsResultRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3525,7 +3634,7 @@ GetListMcpServerToolsResultResponse Client::getListMcpServerToolsResultWithOptio
 }
 
 /**
- * @summary Queries the MCP Server connectivity and tool list results by the Session ID returned when the detection was started.
+ * @summary Queries the connectivity and tool list results of an MCP server based on the session ID returned when the detection was started.
  *
  * @param request GetListMcpServerToolsResultRequest
  * @return GetListMcpServerToolsResultResponse
@@ -4304,7 +4413,7 @@ ListAgenticDatabaseResponse Client::listAgenticDatabase(const ListAgenticDatabas
 }
 
 /**
- * @summary Queries the SQL execution history within the current tenant and returns the results in descending order of execution start time. Only AGENT_QUERY and WORKFLOW_QUERY are included.
+ * @summary Queries the SQL execution history within the current tenant, sorted in descending order by execution start time. Only includes AGENT_QUERY and WORKFLOW_QUERY.
  *
  * @param request ListAgenticGlobalSqlExecutionHistoriesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4379,7 +4488,7 @@ ListAgenticGlobalSqlExecutionHistoriesResponse Client::listAgenticGlobalSqlExecu
 }
 
 /**
- * @summary Queries the SQL execution history within the current tenant and returns the results in descending order of execution start time. Only AGENT_QUERY and WORKFLOW_QUERY are included.
+ * @summary Queries the SQL execution history within the current tenant, sorted in descending order by execution start time. Only includes AGENT_QUERY and WORKFLOW_QUERY.
  *
  * @param request ListAgenticGlobalSqlExecutionHistoriesRequest
  * @return ListAgenticGlobalSqlExecutionHistoriesResponse
@@ -4390,11 +4499,11 @@ ListAgenticGlobalSqlExecutionHistoriesResponse Client::listAgenticGlobalSqlExecu
 }
 
 /**
- * @summary Queries the user security policy of the current Alibaba Cloud account by page and returns the enabled system default security policy.
+ * @summary Queries the user security policy of the current Alibaba Cloud account by using paging and returns the enabled system default security policy.
  *
  * @description This operation returns the enabled system default policies and the user policies of the current Alibaba Cloud account.
- * - System default policies are placed at the beginning of the list. Only policies in the ON (enabled) state are returned. They are not filtered by PolicyStatus or IncludeArchived.
- * - Page and Size are used to paginate user policies. Each call also returns up to Size enabled system default policies. Therefore, the number of items in Data may be greater than Size, and the same system default policies may be repeatedly returned during pagination.
+ * - System default policies are placed at the beginning of the list. Only policies in the ON (enabled) state are returned, and they are not filtered by PolicyStatus or IncludeArchived.
+ * - Page and Size are used to paginate user policies. Each call also returns up to Size enabled system default policies. Therefore, the number of entries in Data may be greater than Size, and the same system default policies may be repeatedly returned during pagination.
  * - TotalCount is the sum of the number of all enabled system default policies and the number of user policies that meet the filter conditions.
  * - You can use Readonly to distinguish between the two types of policies: true indicates a system default policy, and false indicates a user policy.
  *
@@ -4439,11 +4548,11 @@ ListAgenticSecurityPoliciesResponse Client::listAgenticSecurityPoliciesWithOptio
 }
 
 /**
- * @summary Queries the user security policy of the current Alibaba Cloud account by page and returns the enabled system default security policy.
+ * @summary Queries the user security policy of the current Alibaba Cloud account by using paging and returns the enabled system default security policy.
  *
  * @description This operation returns the enabled system default policies and the user policies of the current Alibaba Cloud account.
- * - System default policies are placed at the beginning of the list. Only policies in the ON (enabled) state are returned. They are not filtered by PolicyStatus or IncludeArchived.
- * - Page and Size are used to paginate user policies. Each call also returns up to Size enabled system default policies. Therefore, the number of items in Data may be greater than Size, and the same system default policies may be repeatedly returned during pagination.
+ * - System default policies are placed at the beginning of the list. Only policies in the ON (enabled) state are returned, and they are not filtered by PolicyStatus or IncludeArchived.
+ * - Page and Size are used to paginate user policies. Each call also returns up to Size enabled system default policies. Therefore, the number of entries in Data may be greater than Size, and the same system default policies may be repeatedly returned during pagination.
  * - TotalCount is the sum of the number of all enabled system default policies and the number of user policies that meet the filter conditions.
  * - You can use Readonly to distinguish between the two types of policies: true indicates a system default policy, and false indicates a user policy.
  *
@@ -4456,7 +4565,7 @@ ListAgenticSecurityPoliciesResponse Client::listAgenticSecurityPolicies(const Li
 }
 
 /**
- * @summary Queries the SQL execution history visible to the current caller, sorted in descending order by execution start time. Only AGENT_QUERY and WORKFLOW_QUERY are included.
+ * @summary Queries the SQL execution history visible to the current caller, sorted in descending order by execution start time. Only includes AGENT_QUERY and WORKFLOW_QUERY.
  *
  * @param request ListAgenticSqlExecutionHistoriesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4531,7 +4640,7 @@ ListAgenticSqlExecutionHistoriesResponse Client::listAgenticSqlExecutionHistorie
 }
 
 /**
- * @summary Queries the SQL execution history visible to the current caller, sorted in descending order by execution start time. Only AGENT_QUERY and WORKFLOW_QUERY are included.
+ * @summary Queries the SQL execution history visible to the current caller, sorted in descending order by execution start time. Only includes AGENT_QUERY and WORKFLOW_QUERY.
  *
  * @param request ListAgenticSqlExecutionHistoriesRequest
  * @return ListAgenticSqlExecutionHistoriesResponse
@@ -6935,10 +7044,10 @@ SearchAgenticDatabaseResponse Client::searchAgenticDatabase(const SearchAgenticD
  * @summary Sends a user message to a specified session or cancels the session.
  *
  * @description ## Request description
- * - `message_type` defaults to `primary`. When you need to append information or cancel a session, set it to `additional` or `cancel`.
- * - The `reply_to` field indicates which agent message this message is responding to. The default value is `0`.
- * - When `message_type` is `additional`, the `question` field is required.
- * - `quoted_message` can be used to quote previous user messages.
+ * - The default value of message_type is primary. Set this parameter to additional or cancel when you need to append information or cancel the session.
+ * - The reply_to field specifies the agent message to which this message responds. The default value is 0.
+ * - When message_type is set to additional, the question field is required.
+ * - You can use quoted_message to quote previous user messages.
  *
  * @param tmpReq SendChatMessageRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -7046,10 +7155,10 @@ SendChatMessageResponse Client::sendChatMessageWithOptions(const SendChatMessage
  * @summary Sends a user message to a specified session or cancels the session.
  *
  * @description ## Request description
- * - `message_type` defaults to `primary`. When you need to append information or cancel a session, set it to `additional` or `cancel`.
- * - The `reply_to` field indicates which agent message this message is responding to. The default value is `0`.
- * - When `message_type` is `additional`, the `question` field is required.
- * - `quoted_message` can be used to quote previous user messages.
+ * - The default value of message_type is primary. Set this parameter to additional or cancel when you need to append information or cancel the session.
+ * - The reply_to field specifies the agent message to which this message responds. The default value is 0.
+ * - When message_type is set to additional, the question field is required.
+ * - You can use quoted_message to quote previous user messages.
  *
  * @param request SendChatMessageRequest
  * @return SendChatMessageResponse
@@ -7351,6 +7460,10 @@ StopDataAgentAccuracyTestTaskResponse Client::stopDataAgentAccuracyTestTask(cons
 TestAgenticDataSourceConnectionResponse Client::testAgenticDataSourceConnectionWithOptions(const TestAgenticDataSourceConnectionRequest &request, const Darabonba::RuntimeOptions &runtime) {
   request.validate();
   json query = {};
+  if (!!request.hasAdbSparkResourceGroup()) {
+    query["AdbSparkResourceGroup"] = request.getAdbSparkResourceGroup();
+  }
+
   if (!!request.hasAlias()) {
     query["Alias"] = request.getAlias();
   }
@@ -7472,7 +7585,7 @@ TestAgenticDataSourceConnectionResponse Client::testAgenticDataSourceConnection(
 /**
  * @summary Updates the connection, authentication, or display information of an existing data source.
  *
- * @description Only the parameters passed in the current request are modified. Unspecified parameters remain unchanged. The data source type cannot be modified.
+ * @description Only the parameters passed in the current request are modified. Unpassed parameters remain unchanged. The data source type cannot be modified.
  *
  * @param request UpdateAgenticDataSourceRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -7481,6 +7594,10 @@ TestAgenticDataSourceConnectionResponse Client::testAgenticDataSourceConnection(
 UpdateAgenticDataSourceResponse Client::updateAgenticDataSourceWithOptions(const UpdateAgenticDataSourceRequest &request, const Darabonba::RuntimeOptions &runtime) {
   request.validate();
   json query = {};
+  if (!!request.hasAdbSparkResourceGroup()) {
+    query["AdbSparkResourceGroup"] = request.getAdbSparkResourceGroup();
+  }
+
   if (!!request.hasAlias()) {
     query["Alias"] = request.getAlias();
   }
@@ -7561,6 +7678,18 @@ UpdateAgenticDataSourceResponse Client::updateAgenticDataSourceWithOptions(const
     query["UseSsl"] = request.getUseSsl();
   }
 
+  if (!!request.hasVSwitchId()) {
+    query["VSwitchId"] = request.getVSwitchId();
+  }
+
+  if (!!request.hasVpcId()) {
+    query["VpcId"] = request.getVpcId();
+  }
+
+  if (!!request.hasZoneId()) {
+    query["ZoneId"] = request.getZoneId();
+  }
+
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
   }).get<map<string, map<string, string>>>());
@@ -7581,7 +7710,7 @@ UpdateAgenticDataSourceResponse Client::updateAgenticDataSourceWithOptions(const
 /**
  * @summary Updates the connection, authentication, or display information of an existing data source.
  *
- * @description Only the parameters passed in the current request are modified. Unspecified parameters remain unchanged. The data source type cannot be modified.
+ * @description Only the parameters passed in the current request are modified. Unpassed parameters remain unchanged. The data source type cannot be modified.
  *
  * @param request UpdateAgenticDataSourceRequest
  * @return UpdateAgenticDataSourceResponse
@@ -7852,7 +7981,7 @@ UpdateDataAgentMemoryResponse Client::updateDataAgentMemory(const UpdateDataAgen
 }
 
 /**
- * @summary Updates workspace information.
+ * @summary Updates the information of a workspace.
  *
  * @param request UpdateDataAgentSpaceInfoRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -7861,6 +7990,10 @@ UpdateDataAgentMemoryResponse Client::updateDataAgentMemory(const UpdateDataAgen
 UpdateDataAgentSpaceInfoResponse Client::updateDataAgentSpaceInfoWithOptions(const UpdateDataAgentSpaceInfoRequest &request, const Darabonba::RuntimeOptions &runtime) {
   request.validate();
   json query = {};
+  if (!!request.hasConfig()) {
+    query["Config"] = request.getConfig();
+  }
+
   if (!!request.hasDMSUnit()) {
     query["DMSUnit"] = request.getDMSUnit();
   }
@@ -7899,7 +8032,7 @@ UpdateDataAgentSpaceInfoResponse Client::updateDataAgentSpaceInfoWithOptions(con
 }
 
 /**
- * @summary Updates workspace information.
+ * @summary Updates the information of a workspace.
  *
  * @param request UpdateDataAgentSpaceInfoRequest
  * @return UpdateDataAgentSpaceInfoResponse

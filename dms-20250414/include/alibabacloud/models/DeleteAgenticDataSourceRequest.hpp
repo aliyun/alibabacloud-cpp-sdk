@@ -38,7 +38,7 @@ namespace Models
 
 
   protected:
-    // The UUID of the data source to delete. Ensure that no workloads are using the data source before deletion.
+    // The UUID of the data source to delete. Ensure that the data source is no longer in use before deletion.
     // 
     // This parameter is required.
     shared_ptr<string> dataSourceUuid_ {};

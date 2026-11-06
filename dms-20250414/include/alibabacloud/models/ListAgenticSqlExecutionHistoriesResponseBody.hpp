@@ -247,25 +247,27 @@ namespace Models
       shared_ptr<string> actorId_ {};
       // The name of the actor.
       shared_ptr<string> actorName_ {};
-      // The type of the actor. HUMAN indicates a user, and AGENT indicates an agent.
+      // The type of the actor. Valid values:
+      // - HUMAN: User.
+      // - AGENT: Agent.
       shared_ptr<string> actorType_ {};
       // The number of affected rows.
       shared_ptr<int64_t> affectedRows_ {};
-      // The ID of the user to which the agent belongs. The ID starts with usr_.
+      // The ID of the user to whom the agent belongs, starting with usr_.
       shared_ptr<string> agentOwnerId_ {};
-      // The catalog UUID to which the execution belongs.
+      // The catalog UUID to which this execution belongs.
       shared_ptr<string> catalogUuid_ {};
-      // The IP address of the client that initiated the execution, excluding the port. This parameter is empty in workflow scenarios or when the IP address is not recorded.
+      // The IP address of the client that initiated the execution, excluding the port. This field is empty in workflow scenarios or when not recorded.
       shared_ptr<string> clientIp_ {};
       // The execution duration of the SQL statement.
       shared_ptr<int64_t> cost_ {};
       // The search name of the database.
       shared_ptr<string> databaseSearchName_ {};
-      // The database UUID to which the execution belongs.
+      // The database UUID to which this execution belongs.
       shared_ptr<string> databaseUuid_ {};
-      // The error message returned when the execution fails.
+      // The error message when the execution fails.
       shared_ptr<string> error_ {};
-      // The actual SQL statement that was executed.
+      // The actually executed SQL statement.
       shared_ptr<string> executedSql_ {};
       // The execution status. Valid values:
       // - SUCCESS: The execution succeeded.
@@ -274,19 +276,19 @@ namespace Models
       shared_ptr<string> executionStatus_ {};
       // The original SQL statement.
       shared_ptr<string> originalSql_ {};
-      // The query ID of the execution.
+      // The query ID of this execution.
       shared_ptr<string> queryId_ {};
       // The number of returned rows.
       shared_ptr<int64_t> returnedRows_ {};
       // The execution scenario. Valid values:
       // - AGENT_QUERY: The agent directly executes the SQL statement.
-      // - WORKFLOW_QUERY: The SQL statement is asynchronously executed through a workflow.
+      // - WORKFLOW_QUERY: The SQL statement is executed asynchronously through a workflow.
       shared_ptr<string> scenario_ {};
       // The SQL type.
       shared_ptr<string> sqlType_ {};
-      // The start time of the execution. The time is in the yyyy-MM-dd HH:mm:ss format.
+      // The execution start time, in the yyyy-MM-dd HH:mm:ss format.
       shared_ptr<string> startTime_ {};
-      // The workflow ID. This parameter may be empty in non-workflow scenarios.
+      // The workflow ID. This field may be empty in non-workflow scenarios.
       shared_ptr<string> workflowId_ {};
     };
 
@@ -339,17 +341,17 @@ namespace Models
   protected:
     // The list of SQL execution history.
     shared_ptr<vector<ListAgenticSqlExecutionHistoriesResponseBody::Data>> data_ {};
-    // The error code. This parameter is empty when the request is successful.
+    // The error code. This field is empty when the request is successful.
     shared_ptr<string> errorCode_ {};
     // The error message returned when the call fails.
     shared_ptr<string> errorMessage_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request was successful. Valid values:
-    // - true: The request was successful.
-    // - false: The request failed.
+    // Indicates whether the request is successful. Valid values:
+    // - true: The request is successful.
+    // - false: The request fails.
     shared_ptr<bool> success_ {};
-    // The total number of entries that meet the query conditions.
+    // The total number of entries that meet the conditions.
     shared_ptr<int64_t> totalCount_ {};
   };
 

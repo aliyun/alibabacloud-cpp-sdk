@@ -243,48 +243,43 @@ namespace Models
 
 
     protected:
-      // The ID of the actor. A user ID starts with usr_, and an agent ID starts with agt_.
+      // The ID of the executor. User IDs start with usr_, and agent IDs start with agt_.
       shared_ptr<string> actorId_ {};
-      // The name of the actor.
+      // The name of the executor.
       shared_ptr<string> actorName_ {};
-      // The type of the actor. A value of HUMAN indicates a user, and a value of AGENT indicates an agent.
+      // The type of the executor. Valid values: HUMAN (user) and AGENT (agent).
       shared_ptr<string> actorType_ {};
       // The number of affected rows.
       shared_ptr<int64_t> affectedRows_ {};
       // The ID of the user to which the agent belongs. The ID starts with usr_.
       shared_ptr<string> agentOwnerId_ {};
-      // The catalog UUID to which the execution belongs.
+      // The Catalog UUID to which the current execution belongs.
       shared_ptr<string> catalogUuid_ {};
-      // The IP address of the client that initiates the execution, excluding the port. This parameter is empty in workflow scenarios or when the IP address is not recorded.
+      // The IP address of the client that initiates the execution, excluding the port. This parameter is empty in workflow scenarios or when not recorded.
       shared_ptr<string> clientIp_ {};
       // The execution duration of the SQL statement.
       shared_ptr<int64_t> cost_ {};
       // The search name of the database.
       shared_ptr<string> databaseSearchName_ {};
-      // The database UUID to which the execution belongs.
+      // The Database UUID to which the current execution belongs.
       shared_ptr<string> databaseUuid_ {};
-      // The error message returned when the execution fails.
+      // The error message when the execution fails.
       shared_ptr<string> error_ {};
-      // The actual SQL statement that is executed.
+      // The actually executed SQL statement.
       shared_ptr<string> executedSql_ {};
-      // The execution status. Valid values:
-      // - SUCCESS: The execution is successful.
-      // - FAILED: The execution fails.
-      // - BLOCKED: The execution is blocked or not actually executed.
+      // The execution status. Valid values: SUCCESS, FAILED, and BLOCKED (intercepted or not actually executed).
       shared_ptr<string> executionStatus_ {};
       // The original SQL statement.
       shared_ptr<string> originalSql_ {};
-      // The query ID of the execution.
+      // The query ID of the current execution.
       shared_ptr<string> queryId_ {};
       // The number of returned rows.
       shared_ptr<int64_t> returnedRows_ {};
-      // The execution scenario. Valid values:
-      // - AGENT_QUERY: The agent directly executes the SQL statement.
-      // - WORKFLOW_QUERY: The SQL statement is asynchronously executed through a workflow.
+      // The execution scenario. Valid values: AGENT_QUERY (the agent directly executes the SQL statement) and WORKFLOW_QUERY (the SQL statement is asynchronously executed through a workflow).
       shared_ptr<string> scenario_ {};
       // The SQL type.
       shared_ptr<string> sqlType_ {};
-      // The start time of the execution. The time is in the yyyy-MM-dd HH:mm:ss format.
+      // The execution start time. Format: yyyy-MM-dd HH:mm:ss.
       shared_ptr<string> startTime_ {};
       // The workflow ID. This parameter may be empty in non-workflow scenarios.
       shared_ptr<string> workflowId_ {};
@@ -345,9 +340,7 @@ namespace Models
     shared_ptr<string> errorMessage_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request is successful. Valid values:
-    // - true: The request is successful.
-    // - false: The request fails.
+    // Indicates whether the request is successful. Valid values: true and false.
     shared_ptr<bool> success_ {};
     // The total number of entries that meet the conditions.
     shared_ptr<int64_t> totalCount_ {};

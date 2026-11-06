@@ -21,7 +21,7 @@ namespace Dms20250414
       string getEndpoint(const string &productId, const string &regionId, const string &endpointRule, const string &network, const string &suffix, const map<string, string> &endpointMap, const string &endpoint);
 
       /**
-       * @summary Creates a data source accessible by the Agent data gateway.
+       * @summary Creates a data source that can be accessed by the Agent data gateway.
        *
        * @description Enter the connection and authentication information for the data source. The connection is automatically tested before saving. If the test succeeds, the data source is created and metadata synchronization starts.
        *
@@ -32,7 +32,7 @@ namespace Dms20250414
       Models::AddAgenticDataSourceResponse addAgenticDataSourceWithOptions(const Models::AddAgenticDataSourceRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Creates a data source accessible by the Agent data gateway.
+       * @summary Creates a data source that can be accessed by the Agent data gateway.
        *
        * @description Enter the connection and authentication information for the data source. The connection is automatically tested before saving. If the test succeeds, the data source is created and metadata synchronization starts.
        *
@@ -332,7 +332,7 @@ namespace Dms20250414
       Models::CreateDataAgentThemeResponse createDataAgentTheme(const Models::CreateDataAgentThemeRequest &request);
 
       /**
-       * @summary Creates a DataAgent workspace.
+       * @summary Creates a DataAgent collaborative workspace.
        *
        * @param request CreateDataAgentWorkspaceRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -341,7 +341,7 @@ namespace Dms20250414
       Models::CreateDataAgentWorkspaceResponse createDataAgentWorkspaceWithOptions(const Models::CreateDataAgentWorkspaceRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Creates a DataAgent workspace.
+       * @summary Creates a DataAgent collaborative workspace.
        *
        * @param request CreateDataAgentWorkspaceRequest
        * @return CreateDataAgentWorkspaceResponse
@@ -368,7 +368,7 @@ namespace Dms20250414
       /**
        * @summary Deletes a data source and its associated metadata catalog.
        *
-       * @description After deletion, the data source cannot establish connections and cannot be restored by calling the enable API operation.
+       * @description After deletion, the data source can no longer establish connections and cannot be recovered by calling the enable API operation.
        *
        * @param request DeleteAgenticDataSourceRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -379,12 +379,33 @@ namespace Dms20250414
       /**
        * @summary Deletes a data source and its associated metadata catalog.
        *
-       * @description After deletion, the data source cannot establish connections and cannot be restored by calling the enable API operation.
+       * @description After deletion, the data source can no longer establish connections and cannot be recovered by calling the enable API operation.
        *
        * @param request DeleteAgenticDataSourceRequest
        * @return DeleteAgenticDataSourceResponse
        */
       Models::DeleteAgenticDataSourceResponse deleteAgenticDataSource(const Models::DeleteAgenticDataSourceRequest &request);
+
+      /**
+       * @summary Submits an asynchronous deletion request for a VPC endpoint and returns the acceptance result.
+       *
+       * @description After the reverse endpoint is deleted, the data source can no longer establish connections and cannot be restored by calling the enable API.
+       *
+       * @param request DeleteAgenticVpcEndpointRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DeleteAgenticVpcEndpointResponse
+       */
+      Models::DeleteAgenticVpcEndpointResponse deleteAgenticVpcEndpointWithOptions(const Models::DeleteAgenticVpcEndpointRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Submits an asynchronous deletion request for a VPC endpoint and returns the acceptance result.
+       *
+       * @description After the reverse endpoint is deleted, the data source can no longer establish connections and cannot be restored by calling the enable API.
+       *
+       * @param request DeleteAgenticVpcEndpointRequest
+       * @return DeleteAgenticVpcEndpointResponse
+       */
+      Models::DeleteAgenticVpcEndpointResponse deleteAgenticVpcEndpoint(const Models::DeleteAgenticVpcEndpointRequest &request);
 
       /**
        * @summary Deletes an Airflow instance.
@@ -718,6 +739,23 @@ namespace Dms20250414
       Models::DescribeDataAgentSessionResponse describeDataAgentSession(const Models::DescribeDataAgentSessionRequest &request);
 
       /**
+       * @summary Retrieves the download link for a DataAgent skill.
+       *
+       * @param request DescribeDataAgentSkillDownloadRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DescribeDataAgentSkillDownloadResponse
+       */
+      Models::DescribeDataAgentSkillDownloadResponse describeDataAgentSkillDownloadWithOptions(const Models::DescribeDataAgentSkillDownloadRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Retrieves the download link for a DataAgent skill.
+       *
+       * @param request DescribeDataAgentSkillDownloadRequest
+       * @return DescribeDataAgentSkillDownloadResponse
+       */
+      Models::DescribeDataAgentSkillDownloadResponse describeDataAgentSkillDownload(const Models::DescribeDataAgentSkillDownloadRequest &request);
+
+      /**
        * @summary Invokes the DescribeDataAgentTheme operation to query the details of a specific DataAgent theme, including the theme name, stage, source, common scenarios, description, and creation and modification time.
        *
        * @param request DescribeDataAgentThemeRequest
@@ -875,7 +913,7 @@ namespace Dms20250414
       Models::GetAgenticCatalogResponse getAgenticCatalog(const Models::GetAgenticCatalogRequest &request);
 
       /**
-       * @summary Queries the details of a data source by its UUID.
+       * @summary Queries the details of a data source by UUID.
        *
        * @description Queries the connection, authentication, status, and metadata catalog information of a specified data source under the current account. Only masked values are returned for passwords.
        *
@@ -886,7 +924,7 @@ namespace Dms20250414
       Models::GetAgenticDataSourceResponse getAgenticDataSourceWithOptions(const Models::GetAgenticDataSourceRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the details of a data source by its UUID.
+       * @summary Queries the details of a data source by UUID.
        *
        * @description Queries the connection, authentication, status, and metadata catalog information of a specified data source under the current account. Only masked values are returned for passwords.
        *
@@ -1097,7 +1135,7 @@ namespace Dms20250414
       Models::GetDataAgentThemeUploadSignatureResponse getDataAgentThemeUploadSignature(const Models::GetDataAgentThemeUploadSignatureRequest &request);
 
       /**
-       * @summary Queries the details of a workspace.
+       * @summary Retrieves the details of a collaborative workspace.
        *
        * @param request GetDataAgentWorkspaceInfoRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1106,7 +1144,7 @@ namespace Dms20250414
       Models::GetDataAgentWorkspaceInfoResponse getDataAgentWorkspaceInfoWithOptions(const Models::GetDataAgentWorkspaceInfoRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the details of a workspace.
+       * @summary Retrieves the details of a collaborative workspace.
        *
        * @param request GetDataAgentWorkspaceInfoRequest
        * @return GetDataAgentWorkspaceInfoResponse
@@ -1114,7 +1152,7 @@ namespace Dms20250414
       Models::GetDataAgentWorkspaceInfoResponse getDataAgentWorkspaceInfo(const Models::GetDataAgentWorkspaceInfoRequest &request);
 
       /**
-       * @summary Queries the MCP Server connectivity and tool list results by the Session ID returned when the detection was started.
+       * @summary Queries the connectivity and tool list results of an MCP server based on the session ID returned when the detection was started.
        *
        * @param request GetListMcpServerToolsResultRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1123,7 +1161,7 @@ namespace Dms20250414
       Models::GetListMcpServerToolsResultResponse getListMcpServerToolsResultWithOptions(const Models::GetListMcpServerToolsResultRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the MCP Server connectivity and tool list results by the Session ID returned when the detection was started.
+       * @summary Queries the connectivity and tool list results of an MCP server based on the session ID returned when the detection was started.
        *
        * @param request GetListMcpServerToolsResultRequest
        * @return GetListMcpServerToolsResultResponse
@@ -1376,7 +1414,7 @@ namespace Dms20250414
       Models::ListAgenticDatabaseResponse listAgenticDatabase(const Models::ListAgenticDatabaseRequest &request);
 
       /**
-       * @summary Queries the SQL execution history within the current tenant and returns the results in descending order of execution start time. Only AGENT_QUERY and WORKFLOW_QUERY are included.
+       * @summary Queries the SQL execution history within the current tenant, sorted in descending order by execution start time. Only includes AGENT_QUERY and WORKFLOW_QUERY.
        *
        * @param request ListAgenticGlobalSqlExecutionHistoriesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1385,7 +1423,7 @@ namespace Dms20250414
       Models::ListAgenticGlobalSqlExecutionHistoriesResponse listAgenticGlobalSqlExecutionHistoriesWithOptions(const Models::ListAgenticGlobalSqlExecutionHistoriesRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the SQL execution history within the current tenant and returns the results in descending order of execution start time. Only AGENT_QUERY and WORKFLOW_QUERY are included.
+       * @summary Queries the SQL execution history within the current tenant, sorted in descending order by execution start time. Only includes AGENT_QUERY and WORKFLOW_QUERY.
        *
        * @param request ListAgenticGlobalSqlExecutionHistoriesRequest
        * @return ListAgenticGlobalSqlExecutionHistoriesResponse
@@ -1393,11 +1431,11 @@ namespace Dms20250414
       Models::ListAgenticGlobalSqlExecutionHistoriesResponse listAgenticGlobalSqlExecutionHistories(const Models::ListAgenticGlobalSqlExecutionHistoriesRequest &request);
 
       /**
-       * @summary Queries the user security policy of the current Alibaba Cloud account by page and returns the enabled system default security policy.
+       * @summary Queries the user security policy of the current Alibaba Cloud account by using paging and returns the enabled system default security policy.
        *
        * @description This operation returns the enabled system default policies and the user policies of the current Alibaba Cloud account.
-       * - System default policies are placed at the beginning of the list. Only policies in the ON (enabled) state are returned. They are not filtered by PolicyStatus or IncludeArchived.
-       * - Page and Size are used to paginate user policies. Each call also returns up to Size enabled system default policies. Therefore, the number of items in Data may be greater than Size, and the same system default policies may be repeatedly returned during pagination.
+       * - System default policies are placed at the beginning of the list. Only policies in the ON (enabled) state are returned, and they are not filtered by PolicyStatus or IncludeArchived.
+       * - Page and Size are used to paginate user policies. Each call also returns up to Size enabled system default policies. Therefore, the number of entries in Data may be greater than Size, and the same system default policies may be repeatedly returned during pagination.
        * - TotalCount is the sum of the number of all enabled system default policies and the number of user policies that meet the filter conditions.
        * - You can use Readonly to distinguish between the two types of policies: true indicates a system default policy, and false indicates a user policy.
        *
@@ -1408,11 +1446,11 @@ namespace Dms20250414
       Models::ListAgenticSecurityPoliciesResponse listAgenticSecurityPoliciesWithOptions(const Models::ListAgenticSecurityPoliciesRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the user security policy of the current Alibaba Cloud account by page and returns the enabled system default security policy.
+       * @summary Queries the user security policy of the current Alibaba Cloud account by using paging and returns the enabled system default security policy.
        *
        * @description This operation returns the enabled system default policies and the user policies of the current Alibaba Cloud account.
-       * - System default policies are placed at the beginning of the list. Only policies in the ON (enabled) state are returned. They are not filtered by PolicyStatus or IncludeArchived.
-       * - Page and Size are used to paginate user policies. Each call also returns up to Size enabled system default policies. Therefore, the number of items in Data may be greater than Size, and the same system default policies may be repeatedly returned during pagination.
+       * - System default policies are placed at the beginning of the list. Only policies in the ON (enabled) state are returned, and they are not filtered by PolicyStatus or IncludeArchived.
+       * - Page and Size are used to paginate user policies. Each call also returns up to Size enabled system default policies. Therefore, the number of entries in Data may be greater than Size, and the same system default policies may be repeatedly returned during pagination.
        * - TotalCount is the sum of the number of all enabled system default policies and the number of user policies that meet the filter conditions.
        * - You can use Readonly to distinguish between the two types of policies: true indicates a system default policy, and false indicates a user policy.
        *
@@ -1422,7 +1460,7 @@ namespace Dms20250414
       Models::ListAgenticSecurityPoliciesResponse listAgenticSecurityPolicies(const Models::ListAgenticSecurityPoliciesRequest &request);
 
       /**
-       * @summary Queries the SQL execution history visible to the current caller, sorted in descending order by execution start time. Only AGENT_QUERY and WORKFLOW_QUERY are included.
+       * @summary Queries the SQL execution history visible to the current caller, sorted in descending order by execution start time. Only includes AGENT_QUERY and WORKFLOW_QUERY.
        *
        * @param request ListAgenticSqlExecutionHistoriesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1431,7 +1469,7 @@ namespace Dms20250414
       Models::ListAgenticSqlExecutionHistoriesResponse listAgenticSqlExecutionHistoriesWithOptions(const Models::ListAgenticSqlExecutionHistoriesRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the SQL execution history visible to the current caller, sorted in descending order by execution start time. Only AGENT_QUERY and WORKFLOW_QUERY are included.
+       * @summary Queries the SQL execution history visible to the current caller, sorted in descending order by execution start time. Only includes AGENT_QUERY and WORKFLOW_QUERY.
        *
        * @param request ListAgenticSqlExecutionHistoriesRequest
        * @return ListAgenticSqlExecutionHistoriesResponse
@@ -2069,10 +2107,10 @@ namespace Dms20250414
        * @summary Sends a user message to a specified session or cancels the session.
        *
        * @description ## Request description
-       * - `message_type` defaults to `primary`. When you need to append information or cancel a session, set it to `additional` or `cancel`.
-       * - The `reply_to` field indicates which agent message this message is responding to. The default value is `0`.
-       * - When `message_type` is `additional`, the `question` field is required.
-       * - `quoted_message` can be used to quote previous user messages.
+       * - The default value of message_type is primary. Set this parameter to additional or cancel when you need to append information or cancel the session.
+       * - The reply_to field specifies the agent message to which this message responds. The default value is 0.
+       * - When message_type is set to additional, the question field is required.
+       * - You can use quoted_message to quote previous user messages.
        *
        * @param tmpReq SendChatMessageRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2084,10 +2122,10 @@ namespace Dms20250414
        * @summary Sends a user message to a specified session or cancels the session.
        *
        * @description ## Request description
-       * - `message_type` defaults to `primary`. When you need to append information or cancel a session, set it to `additional` or `cancel`.
-       * - The `reply_to` field indicates which agent message this message is responding to. The default value is `0`.
-       * - When `message_type` is `additional`, the `question` field is required.
-       * - `quoted_message` can be used to quote previous user messages.
+       * - The default value of message_type is primary. Set this parameter to additional or cancel when you need to append information or cancel the session.
+       * - The reply_to field specifies the agent message to which this message responds. The default value is 0.
+       * - When message_type is set to additional, the question field is required.
+       * - You can use quoted_message to quote previous user messages.
        *
        * @param request SendChatMessageRequest
        * @return SendChatMessageResponse
@@ -2219,7 +2257,7 @@ namespace Dms20250414
       /**
        * @summary Updates the connection, authentication, or display information of an existing data source.
        *
-       * @description Only the parameters passed in the current request are modified. Unspecified parameters remain unchanged. The data source type cannot be modified.
+       * @description Only the parameters passed in the current request are modified. Unpassed parameters remain unchanged. The data source type cannot be modified.
        *
        * @param request UpdateAgenticDataSourceRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2230,7 +2268,7 @@ namespace Dms20250414
       /**
        * @summary Updates the connection, authentication, or display information of an existing data source.
        *
-       * @description Only the parameters passed in the current request are modified. Unspecified parameters remain unchanged. The data source type cannot be modified.
+       * @description Only the parameters passed in the current request are modified. Unpassed parameters remain unchanged. The data source type cannot be modified.
        *
        * @param request UpdateAgenticDataSourceRequest
        * @return UpdateAgenticDataSourceResponse
@@ -2297,7 +2335,7 @@ namespace Dms20250414
       Models::UpdateDataAgentMemoryResponse updateDataAgentMemory(const Models::UpdateDataAgentMemoryRequest &request);
 
       /**
-       * @summary Updates workspace information.
+       * @summary Updates the information of a workspace.
        *
        * @param request UpdateDataAgentSpaceInfoRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2306,7 +2344,7 @@ namespace Dms20250414
       Models::UpdateDataAgentSpaceInfoResponse updateDataAgentSpaceInfoWithOptions(const Models::UpdateDataAgentSpaceInfoRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Updates workspace information.
+       * @summary Updates the information of a workspace.
        *
        * @param request UpdateDataAgentSpaceInfoRequest
        * @return UpdateDataAgentSpaceInfoResponse

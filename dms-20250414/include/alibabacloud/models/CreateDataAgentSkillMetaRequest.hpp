@@ -75,14 +75,17 @@ namespace Models
 
 
   protected:
-    // The skill description. This parameter is optional. If not specified, the backend parses the ZIP package specified by UploadLocation to obtain the skill description.
+    // The skill description.
+    // - Optional by default. The backend parses the ZIP package specified by UploadLocation to obtain the skill description.
     shared_ptr<string> description_ {};
-    // The skill ID. If you specify this parameter, the uploaded skill overwrites the existing skill and replaces the original skill content. Note: The name of the original skill and the newly uploaded skill must be identical.
+    // The skill ID. If you specify this parameter, the uploaded skill overwrites the existing skill, and the original skill content is replaced.
+    // - Note: The original skill name and the newly uploaded skill name must match.
     shared_ptr<string> skillId_ {};
-    // The skill name. This parameter is optional. If not specified, the backend parses the ZIP package specified by UploadLocation to obtain the skill name.
+    // The skill name.
+    // - Optional by default. The backend parses the ZIP package specified by UploadLocation to obtain the skill name.
     shared_ptr<string> skillName_ {};
-    // The full path for the skill ZIP file upload.
-    // - Format: The UploadDir field returned by the DescribeSkillFileUploadSignature operation concatenated with the file name.
+    // The full path for uploading the skill ZIP file.
+    // - Format: Concatenate the UploadDir field returned by the DescribeSkillFileUploadSignature operation with the file name.
     // - Example: ${UploadDir}/${Filename}
     shared_ptr<string> uploadLocation_ {};
     // The workspace ID.

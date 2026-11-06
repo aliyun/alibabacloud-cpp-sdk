@@ -38,7 +38,7 @@ namespace Models
 
 
   protected:
-    // The UUID of the database. You can obtain this value by calling ListAgenticDatabase or SearchAgenticDatabase.
+    // The UUID of the database. You can obtain the UUID by calling ListAgenticDatabase or SearchAgenticDatabase.
     // 
     // This parameter is required.
     shared_ptr<string> databaseUuid_ {};

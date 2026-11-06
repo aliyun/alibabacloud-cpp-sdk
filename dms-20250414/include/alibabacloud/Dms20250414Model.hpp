@@ -123,6 +123,9 @@
 #include <alibabacloud/models/DeleteAgenticDataSourceRequest.hpp>
 #include <alibabacloud/models/DeleteAgenticDataSourceResponseBody.hpp>
 #include <alibabacloud/models/DeleteAgenticDataSourceResponse.hpp>
+#include <alibabacloud/models/DeleteAgenticVpcEndpointRequest.hpp>
+#include <alibabacloud/models/DeleteAgenticVpcEndpointResponseBody.hpp>
+#include <alibabacloud/models/DeleteAgenticVpcEndpointResponse.hpp>
 #include <alibabacloud/models/DeleteAirflowRequest.hpp>
 #include <alibabacloud/models/DeleteAirflowResponseBody.hpp>
 #include <alibabacloud/models/DeleteAirflowResponse.hpp>
@@ -182,6 +185,9 @@
 #include <alibabacloud/models/DescribeDataAgentSessionRequest.hpp>
 #include <alibabacloud/models/DescribeDataAgentSessionResponseBody.hpp>
 #include <alibabacloud/models/DescribeDataAgentSessionResponse.hpp>
+#include <alibabacloud/models/DescribeDataAgentSkillDownloadRequest.hpp>
+#include <alibabacloud/models/DescribeDataAgentSkillDownloadResponseBody.hpp>
+#include <alibabacloud/models/DescribeDataAgentSkillDownloadResponse.hpp>
 #include <alibabacloud/models/DescribeDataAgentThemeRequest.hpp>
 #include <alibabacloud/models/DescribeDataAgentThemeResponseBody.hpp>
 #include <alibabacloud/models/DescribeDataAgentThemeResponse.hpp>

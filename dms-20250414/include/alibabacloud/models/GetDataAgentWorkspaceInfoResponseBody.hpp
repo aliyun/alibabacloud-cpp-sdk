@@ -40,6 +40,7 @@ namespace Models
     class Data : public Darabonba::Model {
     public:
       friend void to_json(Darabonba::Json& j, const Data& obj) { 
+        DARABONBA_PTR_TO_JSON(Config, config_);
         DARABONBA_PTR_TO_JSON(CreateTime, createTime_);
         DARABONBA_PTR_TO_JSON(Creator, creator_);
         DARABONBA_PTR_TO_JSON(IsSessionShareEnabled, isSessionShareEnabled_);
@@ -53,6 +54,7 @@ namespace Models
         DARABONBA_PTR_TO_JSON(WorkspaceStatus, workspaceStatus_);
       };
       friend void from_json(const Darabonba::Json& j, Data& obj) { 
+        DARABONBA_PTR_FROM_JSON(Config, config_);
         DARABONBA_PTR_FROM_JSON(CreateTime, createTime_);
         DARABONBA_PTR_FROM_JSON(Creator, creator_);
         DARABONBA_PTR_FROM_JSON(IsSessionShareEnabled, isSessionShareEnabled_);
@@ -76,9 +78,17 @@ namespace Models
       };
       virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
       virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-      virtual bool empty() const override { return this->createTime_ == nullptr
-        && this->creator_ == nullptr && this->isSessionShareEnabled_ == nullptr && this->modifyTime_ == nullptr && this->roleName_ == nullptr && this->totalMember_ == nullptr
-        && this->type_ == nullptr && this->workspaceDesc_ == nullptr && this->workspaceId_ == nullptr && this->workspaceName_ == nullptr && this->workspaceStatus_ == nullptr; };
+      virtual bool empty() const override { return this->config_ == nullptr
+        && this->createTime_ == nullptr && this->creator_ == nullptr && this->isSessionShareEnabled_ == nullptr && this->modifyTime_ == nullptr && this->roleName_ == nullptr
+        && this->totalMember_ == nullptr && this->type_ == nullptr && this->workspaceDesc_ == nullptr && this->workspaceId_ == nullptr && this->workspaceName_ == nullptr
+        && this->workspaceStatus_ == nullptr; };
+      // config Field Functions 
+      bool hasConfig() const { return this->config_ != nullptr;};
+      void deleteConfig() { this->config_ = nullptr;};
+      inline string getConfig() const { DARABONBA_PTR_GET_DEFAULT(config_, "") };
+      inline Data& setConfig(string config) { DARABONBA_PTR_SET_VALUE(config_, config) };
+
+
       // createTime Field Functions 
       bool hasCreateTime() const { return this->createTime_ != nullptr;};
       void deleteCreateTime() { this->createTime_ = nullptr;};
@@ -157,11 +167,13 @@ namespace Models
 
 
     protected:
-      // The creation time of the workspace. The value is a UNIX timestamp in seconds.
+      // The configuration items of the workspace.
+      shared_ptr<string> config_ {};
+      // The creation time of the session. The value is a UNIX timestamp in seconds.
       shared_ptr<string> createTime_ {};
       // The UID of the workspace creator.
       shared_ptr<string> creator_ {};
-      // Indicates whether sessions are shared within the workspace.
+      // Indicates whether sessions in the workspace are shared.
       shared_ptr<bool> isSessionShareEnabled_ {};
       // The last modification time of the workspace. The value is a UNIX timestamp in seconds.
       shared_ptr<string> modifyTime_ {};
@@ -171,9 +183,9 @@ namespace Models
       shared_ptr<string> totalMember_ {};
       // The type of the workspace.
       shared_ptr<string> type_ {};
-      // The description of the workspace.
+      // The description of the collaborative workspace.
       shared_ptr<string> workspaceDesc_ {};
-      // The ID of the workspace.
+      // The ID of the collaborative workspace.
       shared_ptr<string> workspaceId_ {};
       // The name of the workspace.
       shared_ptr<string> workspaceName_ {};
@@ -227,7 +239,7 @@ namespace Models
     shared_ptr<string> errorCode_ {};
     // The error message.
     shared_ptr<string> errorMessage_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
     // Indicates whether the request is successful.
     shared_ptr<bool> success_ {};

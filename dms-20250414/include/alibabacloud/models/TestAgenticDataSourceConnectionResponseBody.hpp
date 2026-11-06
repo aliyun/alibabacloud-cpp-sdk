@@ -77,7 +77,7 @@ namespace Models
     protected:
       // The description of the connection test result. This parameter is usually empty when the connection is successful, and returns the cause when the connection fails.
       shared_ptr<string> message_ {};
-      // Indicates whether the data source is connected.
+      // Indicates whether the data source is connected successfully.
       shared_ptr<bool> success_ {};
     };
 
@@ -127,9 +127,9 @@ namespace Models
     shared_ptr<string> errorCode_ {};
     // The error message returned when the call fails. This parameter is empty when the call is successful.
     shared_ptr<string> errorMessage_ {};
-    // The request ID, which is used to locate the current call.
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the current call is successful.
+    // Indicates whether the call is successful.
     shared_ptr<bool> success_ {};
   };
 

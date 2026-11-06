@@ -13,6 +13,7 @@ namespace Models
   class UpdateDataAgentSpaceInfoRequest : public Darabonba::Model {
   public:
     friend void to_json(Darabonba::Json& j, const UpdateDataAgentSpaceInfoRequest& obj) { 
+      DARABONBA_PTR_TO_JSON(Config, config_);
       DARABONBA_PTR_TO_JSON(DMSUnit, DMSUnit_);
       DARABONBA_PTR_TO_JSON(IsSessionShareEnabled, isSessionShareEnabled_);
       DARABONBA_PTR_TO_JSON(WorkspaceDesc, workspaceDesc_);
@@ -20,6 +21,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(WorkspaceName, workspaceName_);
     };
     friend void from_json(const Darabonba::Json& j, UpdateDataAgentSpaceInfoRequest& obj) { 
+      DARABONBA_PTR_FROM_JSON(Config, config_);
       DARABONBA_PTR_FROM_JSON(DMSUnit, DMSUnit_);
       DARABONBA_PTR_FROM_JSON(IsSessionShareEnabled, isSessionShareEnabled_);
       DARABONBA_PTR_FROM_JSON(WorkspaceDesc, workspaceDesc_);
@@ -37,8 +39,15 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { return this->DMSUnit_ == nullptr
-        && this->isSessionShareEnabled_ == nullptr && this->workspaceDesc_ == nullptr && this->workspaceId_ == nullptr && this->workspaceName_ == nullptr; };
+    virtual bool empty() const override { return this->config_ == nullptr
+        && this->DMSUnit_ == nullptr && this->isSessionShareEnabled_ == nullptr && this->workspaceDesc_ == nullptr && this->workspaceId_ == nullptr && this->workspaceName_ == nullptr; };
+    // config Field Functions 
+    bool hasConfig() const { return this->config_ != nullptr;};
+    void deleteConfig() { this->config_ = nullptr;};
+    inline string getConfig() const { DARABONBA_PTR_GET_DEFAULT(config_, "") };
+    inline UpdateDataAgentSpaceInfoRequest& setConfig(string config) { DARABONBA_PTR_SET_VALUE(config_, config) };
+
+
     // DMSUnit Field Functions 
     bool hasDMSUnit() const { return this->DMSUnit_ != nullptr;};
     void deleteDMSUnit() { this->DMSUnit_ = nullptr;};
@@ -75,15 +84,17 @@ namespace Models
 
 
   protected:
+    // The workspace configuration items.
+    shared_ptr<string> config_ {};
     // The current DMS unit.
     shared_ptr<string> DMSUnit_ {};
-    // Specifies whether to enable session sharing for the workspace. Valid values: true and false.
+    // Specifies whether to enable the session sharing feature for the workspace.
     shared_ptr<bool> isSessionShareEnabled_ {};
-    // The new description for the workspace.
+    // The new description of the workspace.
     shared_ptr<string> workspaceDesc_ {};
-    // The ID of the workspace.
+    // The workspace ID.
     shared_ptr<string> workspaceId_ {};
-    // The new name for the workspace.
+    // The new name of the workspace.
     shared_ptr<string> workspaceName_ {};
   };
 

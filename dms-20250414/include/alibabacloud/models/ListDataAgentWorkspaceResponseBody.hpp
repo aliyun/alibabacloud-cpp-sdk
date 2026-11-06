@@ -72,6 +72,7 @@ namespace Models
       class Content : public Darabonba::Model {
       public:
         friend void to_json(Darabonba::Json& j, const Content& obj) { 
+          DARABONBA_PTR_TO_JSON(Config, config_);
           DARABONBA_PTR_TO_JSON(CreateTime, createTime_);
           DARABONBA_PTR_TO_JSON(Creator, creator_);
           DARABONBA_PTR_TO_JSON(CreatorName, creatorName_);
@@ -89,6 +90,7 @@ namespace Models
           DARABONBA_PTR_TO_JSON(WorkspaceStatus, workspaceStatus_);
         };
         friend void from_json(const Darabonba::Json& j, Content& obj) { 
+          DARABONBA_PTR_FROM_JSON(Config, config_);
           DARABONBA_PTR_FROM_JSON(CreateTime, createTime_);
           DARABONBA_PTR_FROM_JSON(Creator, creator_);
           DARABONBA_PTR_FROM_JSON(CreatorName, creatorName_);
@@ -116,10 +118,17 @@ namespace Models
         };
         virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
         virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-        virtual bool empty() const override { return this->createTime_ == nullptr
-        && this->creator_ == nullptr && this->creatorName_ == nullptr && this->customAgentCount_ == nullptr && this->description_ == nullptr && this->isSessionShareEnabled_ == nullptr
-        && this->modifyTime_ == nullptr && this->roleName_ == nullptr && this->runningSessionCount_ == nullptr && this->totalMember_ == nullptr && this->totalSessionCount_ == nullptr
-        && this->type_ == nullptr && this->workspaceId_ == nullptr && this->workspaceName_ == nullptr && this->workspaceStatus_ == nullptr; };
+        virtual bool empty() const override { return this->config_ == nullptr
+        && this->createTime_ == nullptr && this->creator_ == nullptr && this->creatorName_ == nullptr && this->customAgentCount_ == nullptr && this->description_ == nullptr
+        && this->isSessionShareEnabled_ == nullptr && this->modifyTime_ == nullptr && this->roleName_ == nullptr && this->runningSessionCount_ == nullptr && this->totalMember_ == nullptr
+        && this->totalSessionCount_ == nullptr && this->type_ == nullptr && this->workspaceId_ == nullptr && this->workspaceName_ == nullptr && this->workspaceStatus_ == nullptr; };
+        // config Field Functions 
+        bool hasConfig() const { return this->config_ != nullptr;};
+        void deleteConfig() { this->config_ = nullptr;};
+        inline string getConfig() const { DARABONBA_PTR_GET_DEFAULT(config_, "") };
+        inline Content& setConfig(string config) { DARABONBA_PTR_SET_VALUE(config_, config) };
+
+
         // createTime Field Functions 
         bool hasCreateTime() const { return this->createTime_ != nullptr;};
         void deleteCreateTime() { this->createTime_ = nullptr;};
@@ -226,7 +235,9 @@ namespace Models
 
 
       protected:
-        // The creation time of the workspace. The value is a timestamp in milliseconds.
+        // The workspace configuration items.
+        shared_ptr<string> config_ {};
+        // The time when the workspace was created. The value is a timestamp in milliseconds.
         shared_ptr<int64_t> createTime_ {};
         // The UID of the workspace creator.
         shared_ptr<string> creator_ {};
@@ -236,11 +247,11 @@ namespace Models
         shared_ptr<int32_t> customAgentCount_ {};
         // The description of the workspace.
         shared_ptr<string> description_ {};
-        // Indicates whether session sharing is enabled for the workspace.
+        // Indicates whether workspace sessions are shared.
         shared_ptr<bool> isSessionShareEnabled_ {};
-        // The last modification time of the workspace. The value is a timestamp in milliseconds.
+        // The time when the workspace was last modified. The value is a timestamp in milliseconds.
         shared_ptr<int64_t> modifyTime_ {};
-        // The role name of the user in the workspace.
+        // The name of the user\\"s role in the workspace.
         shared_ptr<string> roleName_ {};
         // The number of running sessions in the workspace.
         shared_ptr<int32_t> runningSessionCount_ {};
@@ -371,11 +382,11 @@ namespace Models
     shared_ptr<string> errorCode_ {};
     // The error message returned when the call fails.
     shared_ptr<string> errorMessage_ {};
-    // The maximum number of results per page.
+    // The page size.
     shared_ptr<int32_t> maxResults_ {};
     // The next token.
     shared_ptr<string> nextToken_ {};
-    // The request ID.
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
     // Indicates whether the request is successful.
     shared_ptr<string> success_ {};

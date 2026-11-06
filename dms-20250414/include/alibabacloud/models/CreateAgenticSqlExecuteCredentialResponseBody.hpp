@@ -132,7 +132,7 @@ namespace Models
     protected:
       // The AccessKey of the credential.
       shared_ptr<string> accessKey_ {};
-      // The AccessKey secret of the credential. This value is returned only once when the credential is created. Keep it secure.
+      // The AccessSecret of the credential. This value is returned only once when the credential is created. Keep it secure.
       shared_ptr<string> accessSecret_ {};
       // The name of the instance.
       shared_ptr<string> catalogName_ {};
@@ -194,7 +194,7 @@ namespace Models
     shared_ptr<string> errorCode_ {};
     // The error message returned if the call fails.
     shared_ptr<string> errorMessage_ {};
-    // The request ID.
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
     // Indicates whether the request is successful. Valid values:
     // 

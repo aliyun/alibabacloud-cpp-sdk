@@ -125,7 +125,7 @@ namespace Models
     shared_ptr<string> creator_ {};
     // The current DMS unit.
     shared_ptr<string> DMSUnit_ {};
-    // The maximum number of results per page.
+    // The page size.
     shared_ptr<int32_t> maxResults_ {};
     // The next token.
     shared_ptr<string> nextToken_ {};
@@ -137,13 +137,13 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> pageNumber_ {};
-    // The number of entries per page.
+    // The number of records per page.
     // 
     // This parameter is required.
     shared_ptr<string> pageSize_ {};
     // The name of the workspace.
     shared_ptr<string> workspaceName_ {};
-    // The workspace type to query.
+    // The workspace type.
     // 
     // This parameter is required.
     shared_ptr<string> workspaceType_ {};

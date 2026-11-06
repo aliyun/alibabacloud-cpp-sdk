@@ -13,6 +13,7 @@ namespace Models
   class TestAgenticDataSourceConnectionRequest : public Darabonba::Model {
   public:
     friend void to_json(Darabonba::Json& j, const TestAgenticDataSourceConnectionRequest& obj) { 
+      DARABONBA_PTR_TO_JSON(AdbSparkResourceGroup, adbSparkResourceGroup_);
       DARABONBA_PTR_TO_JSON(Alias, alias_);
       DARABONBA_PTR_TO_JSON(AuthAccount, authAccount_);
       DARABONBA_PTR_TO_JSON(AuthPassword, authPassword_);
@@ -37,6 +38,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(ZoneId, zoneId_);
     };
     friend void from_json(const Darabonba::Json& j, TestAgenticDataSourceConnectionRequest& obj) { 
+      DARABONBA_PTR_FROM_JSON(AdbSparkResourceGroup, adbSparkResourceGroup_);
       DARABONBA_PTR_FROM_JSON(Alias, alias_);
       DARABONBA_PTR_FROM_JSON(AuthAccount, authAccount_);
       DARABONBA_PTR_FROM_JSON(AuthPassword, authPassword_);
@@ -71,12 +73,19 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { return this->alias_ == nullptr
-        && this->authAccount_ == nullptr && this->authPassword_ == nullptr && this->authType_ == nullptr && this->catalogName_ == nullptr && this->dataSourceUuid_ == nullptr
-        && this->dbType_ == nullptr && this->envType_ == nullptr && this->host_ == nullptr && this->instanceResourceId_ == nullptr && this->instanceSource_ == nullptr
-        && this->kmsSecret_ == nullptr && this->port_ == nullptr && this->roleArn_ == nullptr && this->schema_ == nullptr && this->snowflakeRole_ == nullptr
-        && this->snowflakeWarehouse_ == nullptr && this->syncAlias_ == nullptr && this->useSsl_ == nullptr && this->vSwitchId_ == nullptr && this->vpcId_ == nullptr
-        && this->zoneId_ == nullptr; };
+    virtual bool empty() const override { return this->adbSparkResourceGroup_ == nullptr
+        && this->alias_ == nullptr && this->authAccount_ == nullptr && this->authPassword_ == nullptr && this->authType_ == nullptr && this->catalogName_ == nullptr
+        && this->dataSourceUuid_ == nullptr && this->dbType_ == nullptr && this->envType_ == nullptr && this->host_ == nullptr && this->instanceResourceId_ == nullptr
+        && this->instanceSource_ == nullptr && this->kmsSecret_ == nullptr && this->port_ == nullptr && this->roleArn_ == nullptr && this->schema_ == nullptr
+        && this->snowflakeRole_ == nullptr && this->snowflakeWarehouse_ == nullptr && this->syncAlias_ == nullptr && this->useSsl_ == nullptr && this->vSwitchId_ == nullptr
+        && this->vpcId_ == nullptr && this->zoneId_ == nullptr; };
+    // adbSparkResourceGroup Field Functions 
+    bool hasAdbSparkResourceGroup() const { return this->adbSparkResourceGroup_ != nullptr;};
+    void deleteAdbSparkResourceGroup() { this->adbSparkResourceGroup_ = nullptr;};
+    inline string getAdbSparkResourceGroup() const { DARABONBA_PTR_GET_DEFAULT(adbSparkResourceGroup_, "") };
+    inline TestAgenticDataSourceConnectionRequest& setAdbSparkResourceGroup(string adbSparkResourceGroup) { DARABONBA_PTR_SET_VALUE(adbSparkResourceGroup_, adbSparkResourceGroup) };
+
+
     // alias Field Functions 
     bool hasAlias() const { return this->alias_ != nullptr;};
     void deleteAlias() { this->alias_ = nullptr;};
@@ -232,62 +241,68 @@ namespace Models
 
 
   protected:
-    // The alias. You can leave this parameter empty when testing a connection. This parameter does not create or modify a data source.
+    // The name of the AnalyticDB for MySQL Spark resource group. This parameter takes effect only when DbType is set to ADB_MYSQL_SPARK. You must specify a resource group when connecting to this type of data source. This parameter is independent of Schema (database name) and they cannot replace each other.
+    shared_ptr<string> adbSparkResourceGroup_ {};
+    // The alias. You can leave this parameter empty when testing a connection. This operation does not create or modify a data source.
     shared_ptr<string> alias_ {};
     // The logon username. You can leave this parameter empty for authentication methods that do not require a username.
     shared_ptr<string> authAccount_ {};
     // The logon password. When testing an existing data source, you can leave this parameter empty to reuse the saved password. If a new value is passed, the new value takes precedence.
     shared_ptr<string> authPassword_ {};
-    // The authentication type. This parameter is optional. Valid values: -1 (no authentication required), 0 (username and password), 1 (password only), and 2 (password-free).
+    // The authentication type. This parameter is optional. Valid values:
+    // - -1: No authentication required.
+    // - 0: Username and password.
+    // - 1: Password only.
+    // - 2: Password-free.
     shared_ptr<int32_t> authType_ {};
-    // The catalog name. You can leave this parameter empty when testing a connection. This parameter does not create a metadata catalog.
+    // The catalog name. You can leave this parameter empty when testing a connection. This operation does not create a metadata catalog.
     shared_ptr<string> catalogName_ {};
-    // The UUID of the data source. This parameter is required when testing an existing data source. If no new password is passed, the saved password is reused. Leave this parameter empty when testing a new data source.
+    // The UUID of the data source. Specify this parameter when testing an existing data source. If no new password is passed, the saved password is reused. Leave this parameter empty when testing a new data source.
     shared_ptr<string> dataSourceUuid_ {};
-    // The type of the data source. Use uppercase letters. Do not pass numbers. Valid values: MYSQL, POSTGRESQL, ORACLE, SQLSERVER, MARIADB, POLARDB, POLARDB_POSTGRESQL, POLARDB_ORACLE, OCEANBASEX, DRDS, ADB_MYSQL, ADB_POSTGRESQL, CLICKHOUSE, SELECTDB, STARROCKS, HOLOGRES, MAXCOMPUTE, ES_REST, and TRINO.
+    // The type of the data source. Use uppercase letters for the identifier. Do not pass numbers. Valid values: MYSQL, POSTGRESQL, ORACLE, SQLSERVER, MARIADB, POLARDB, POLARDB_POSTGRESQL, POLARDB_ORACLE, OCEANBASEX, DRDS, ADB_MYSQL, ADB_POSTGRESQL, CLICKHOUSE, SELECTDB, STARROCKS, HOLOGRES, MAXCOMPUTE, ES_REST, and TRINO.
     // 
     // This parameter is required.
     shared_ptr<string> dbType_ {};
     // The environment type. This parameter is optional when testing a connection. Valid values: product, pre, dev, test, sit, uat, pet, and stag.
     shared_ptr<string> envType_ {};
-    // The domain name or IP address of the database. Do not include the protocol, path, or port. This parameter is optional. You can leave this parameter empty when you select an existing cloud instance and the endpoint is automatically populated.
+    // The domain name or IP address of the database. Do not include the protocol, path, or port. This parameter is optional. You can leave this parameter empty if you select an existing cloud instance and the address is automatically populated.
     shared_ptr<string> host_ {};
-    // The ID of the cloud resource instance. This parameter is required when you select an existing cloud instance. You can leave this parameter empty when you enter a connection endpoint.
+    // The ID of the cloud resource instance. Specify this parameter when you select an existing cloud instance. You can leave this parameter empty when you enter an endpoint.
     shared_ptr<string> instanceResourceId_ {};
     // The source of the data source. Valid values:
     // - RDS: ApsaraDB instance.
-    // - PUBLIC_OWN: self-managed database connected over the Internet.
-    // - ECS_OWN: self-managed database hosted on an ECS instance.
-    // - GATEWAY: database connected through Database Gateway.
-    // - VPC_IDC: database connected over a VPC or data center.
+    // - PUBLIC_OWN: Self-managed database connected over the Internet.
+    // - ECS_OWN: Self-managed database hosted on an ECS instance.
+    // - GATEWAY: Database connected through Database Gateway.
+    // - VPC_IDC: Database connected through a VPC or data center.
     // 
     // This parameter is required.
     shared_ptr<string> instanceSource_ {};
-    // The name of the KMS secret. This parameter is required when you use KMS to manage database credentials. Leave this parameter empty in other scenarios.
+    // The name of the credential managed by Key Management Service (KMS). Specify this parameter when you use KMS to manage database credentials. Leave this parameter empty in other scenarios.
     shared_ptr<string> kmsSecret_ {};
-    // The service port of the database. This parameter is optional. You can leave this parameter empty when you select an existing cloud instance and the port is automatically populated.
+    // The service port of the database. This parameter is optional. You can leave this parameter empty if you select an existing cloud instance and the port is automatically populated.
     shared_ptr<int32_t> port_ {};
-    // The complete ARN of the RAM role. This parameter is required when you use an Alibaba Cloud RAM role to access the data source. Leave this parameter empty in other scenarios.
+    // The complete ARN of the Resource Access Management (RAM) role. Specify this parameter when you use an Alibaba Cloud RAM role to access the data source. Leave this parameter empty in other scenarios.
     shared_ptr<string> roleArn_ {};
-    // The schema name. This parameter is optional. For ADB_POSTGRESQL, DRDS, POSTGRESQL, and POLARDB_POSTGRESQL, enter the database name. For ORACLE, enter the SID or service name, and prefix the service name with a forward slash (/). For POLARDB_ORACLE, enter the SID. For MAXCOMPUTE, enter the project name. Leave this parameter empty for other types.
+    // The schema name. This parameter is optional. For ADB_POSTGRESQL, DRDS, POSTGRESQL, and POLARDB_POSTGRESQL, specify the database name. For ORACLE, specify the SID or service name, and prefix the service name with a forward slash (/). For POLARDB_ORACLE, specify the SID. For MAXCOMPUTE, specify the project name. Leave this parameter empty for other types.
     shared_ptr<string> schema_ {};
     // The name of the Snowflake role. This parameter takes effect only when DbType is set to SNOWFLAKE.
     shared_ptr<string> snowflakeRole_ {};
     // The name of the Snowflake compute warehouse. This parameter takes effect only when DbType is set to SNOWFLAKE.
     shared_ptr<string> snowflakeWarehouse_ {};
-    // Specifies whether to synchronize the alias. This parameter is optional when testing a connection. This parameter does not modify the data source name.
+    // Specifies whether to synchronize the alias. This parameter is optional when testing a connection. This operation does not modify the data source name.
     shared_ptr<int32_t> syncAlias_ {};
     // Specifies whether to enable SSL. Valid values:
     // - 1: Enable.
     // - 0: Disable.
-    // - -1: Use the default setting.
+    // - -1: Use default settings.
     // SSL is supported only for ADB_MYSQL, CLICKHOUSE, MARIADB, MYSQL, OCEANBASEX, POLARDB, SELECTDB, and STARROCKS. Leave this parameter empty for other types.
     shared_ptr<int32_t> useSsl_ {};
-    // The ID of the vSwitch. This parameter is required when you access MaxCompute over a VPC. Leave this parameter empty in other scenarios.
+    // The ID of the vSwitch. Specify this parameter when you access MaxCompute through a VPC. Leave this parameter empty in other scenarios.
     shared_ptr<string> vSwitchId_ {};
-    // The ID of the VPC. This parameter is required when you access MaxCompute over a VPC. Leave this parameter empty in other scenarios.
+    // The ID of the VPC. Specify this parameter when you access MaxCompute through a VPC. Leave this parameter empty in other scenarios.
     shared_ptr<string> vpcId_ {};
-    // The zone ID. This parameter is required when you access MaxCompute over a VPC. Leave this parameter empty in other scenarios.
+    // The ID of the zone. Specify this parameter when you access MaxCompute through a VPC. Leave this parameter empty in other scenarios.
     shared_ptr<string> zoneId_ {};
   };
 

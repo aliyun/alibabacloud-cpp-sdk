@@ -15,6 +15,7 @@ namespace Models
     friend void to_json(Darabonba::Json& j, const CreateCustomAgentShrinkRequest& obj) { 
       DARABONBA_PTR_TO_JSON(AgentType, agentType_);
       DARABONBA_PTR_TO_JSON(CallbackConfig, callbackConfigShrink_);
+      DARABONBA_PTR_TO_JSON(CreateFrom, createFrom_);
       DARABONBA_PTR_TO_JSON(DMSUnit, DMSUnit_);
       DARABONBA_PTR_TO_JSON(DataJson, dataJson_);
       DARABONBA_PTR_TO_JSON(Description, description_);
@@ -36,6 +37,7 @@ namespace Models
     friend void from_json(const Darabonba::Json& j, CreateCustomAgentShrinkRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(AgentType, agentType_);
       DARABONBA_PTR_FROM_JSON(CallbackConfig, callbackConfigShrink_);
+      DARABONBA_PTR_FROM_JSON(CreateFrom, createFrom_);
       DARABONBA_PTR_FROM_JSON(DMSUnit, DMSUnit_);
       DARABONBA_PTR_FROM_JSON(DataJson, dataJson_);
       DARABONBA_PTR_FROM_JSON(Description, description_);
@@ -66,10 +68,10 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->agentType_ == nullptr
-        && this->callbackConfigShrink_ == nullptr && this->DMSUnit_ == nullptr && this->dataJson_ == nullptr && this->description_ == nullptr && this->executionConfigShrink_ == nullptr
-        && this->instruction_ == nullptr && this->knowledge_ == nullptr && this->knowledgeConfigListShrink_ == nullptr && this->knowledgeSemanticConfigListShrink_ == nullptr && this->name_ == nullptr
-        && this->recommendQuestionListShrink_ == nullptr && this->relatedSessionId_ == nullptr && this->scheduleTaskConfigShrink_ == nullptr && this->textReportConfig_ == nullptr && this->userSpecifiedSkillListShrink_ == nullptr
-        && this->webReportConfig_ == nullptr && this->webReportTheme_ == nullptr && this->workspaceId_ == nullptr; };
+        && this->callbackConfigShrink_ == nullptr && this->createFrom_ == nullptr && this->DMSUnit_ == nullptr && this->dataJson_ == nullptr && this->description_ == nullptr
+        && this->executionConfigShrink_ == nullptr && this->instruction_ == nullptr && this->knowledge_ == nullptr && this->knowledgeConfigListShrink_ == nullptr && this->knowledgeSemanticConfigListShrink_ == nullptr
+        && this->name_ == nullptr && this->recommendQuestionListShrink_ == nullptr && this->relatedSessionId_ == nullptr && this->scheduleTaskConfigShrink_ == nullptr && this->textReportConfig_ == nullptr
+        && this->userSpecifiedSkillListShrink_ == nullptr && this->webReportConfig_ == nullptr && this->webReportTheme_ == nullptr && this->workspaceId_ == nullptr; };
     // agentType Field Functions 
     bool hasAgentType() const { return this->agentType_ != nullptr;};
     void deleteAgentType() { this->agentType_ = nullptr;};
@@ -82,6 +84,13 @@ namespace Models
     void deleteCallbackConfigShrink() { this->callbackConfigShrink_ = nullptr;};
     inline string getCallbackConfigShrink() const { DARABONBA_PTR_GET_DEFAULT(callbackConfigShrink_, "") };
     inline CreateCustomAgentShrinkRequest& setCallbackConfigShrink(string callbackConfigShrink) { DARABONBA_PTR_SET_VALUE(callbackConfigShrink_, callbackConfigShrink) };
+
+
+    // createFrom Field Functions 
+    bool hasCreateFrom() const { return this->createFrom_ != nullptr;};
+    void deleteCreateFrom() { this->createFrom_ = nullptr;};
+    inline string getCreateFrom() const { DARABONBA_PTR_GET_DEFAULT(createFrom_, "") };
+    inline CreateCustomAgentShrinkRequest& setCreateFrom(string createFrom) { DARABONBA_PTR_SET_VALUE(createFrom_, createFrom) };
 
 
     // DMSUnit Field Functions 
@@ -205,26 +214,30 @@ namespace Models
 
   protected:
     // The type of the custom agent. Valid values:
-    // - Default: the system-built-in custom agent. Each workspace can have at most one Default agent, and it cannot be deleted.
-    // - Common: a regular custom agent.
+    // - Default: The system-built-in custom agent. Each workspace can have at most one Default agent, and it cannot be deleted.
+    // - Common: A common custom agent.
     shared_ptr<string> agentType_ {};
-    // The callback feature configuration.
+    // The callback feature configuration items.
     shared_ptr<string> callbackConfigShrink_ {};
+    // The creation source. Valid values:
+    // - Empty (default): Create the agent by using a form.
+    // - SmartNew: Create the agent by using intelligent development.
+    shared_ptr<string> createFrom_ {};
     // The current DMS unit.
     shared_ptr<string> DMSUnit_ {};
-    // The specified data scope, in **JSON character string format**.
-    // - General parameter descriptions
-    //   - tableFlag: true specifies the data scope.
-    //   - scope: personal is a fixed value.
-    //   - personal: the parameters for file and database types.
+    // The specified data scope in **JSON character string format**.
+    // - General parameter description:
+    //   - tableFlag: Set to true to specify the data scope.
+    //   - scope: Set to personal as a fixed value.
+    //   - personal: The parameters for file and database types.
     // 
-    // **File type**: pass parameters in the following format:
-    // - DataSourceType: remote_data_center is a fixed value.
-    // - FileId: the file ID.
-    // - Database: the database name returned by the ListDataCenterTable operation, which is usually the file name.
-    // - Tables: the table names returned by the ListDataCenterTable operation.
-    // - TableIds: the table IDs returned by the ListDataCenterTable operation.
-    // - RegionId: the current region.
+    // **File type**. Pass parameters in the following format:
+    // - DataSourceType: Set to remote_data_center as a fixed value.
+    // - FileId: The file ID.
+    // - Database: The database name returned by the ListDataCenterTable operation, which is usually the file name.
+    // - Tables: The table names returned by the ListDataCenterTable operation.
+    // - TableIds: The table IDs returned by the ListDataCenterTable operation.
+    // - RegionId: The current region.
     // ```
     // {
     //   "tableFlag": true,
@@ -244,17 +257,17 @@ namespace Models
     // }
     // ```
     // 
-    // **Database type**: pass parameters in the following format:
-    // - DataSourceType: database is a fixed value.
-    // - DmsInstanceId: the DMS instance ID returned by the data center API.
-    // - DmsDatabaseId: the DMS database ID returned by the data center API.
-    // - FileId: the instance name (**[Deprecated]**).
-    // - DbName: the database name returned by the data center API.
-    // - Database: the database name returned by the data center API.
-    // - Tables: the table names returned by the data center API.
-    // - TableIds: the table IDs returned by the data center API.
-    // - Engine: the database engine type, such as mysql or postgresql.
-    // - RegionId: the current region.
+    // **Database type**. Pass parameters in the following format:
+    // - DataSourceType: Set to database as a fixed value.
+    // - DmsInstanceId: The DMS instance ID returned by the data center operation.
+    // - DmsDatabaseId: The DMS database ID returned by the data center operation.
+    // - FileId: The instance name. **[Deprecated]**
+    // - DbName: The database name returned by the data center operation.
+    // - Database: The database name returned by the data center operation.
+    // - Tables: The table names returned by the data center operation.
+    // - TableIds: The table IDs returned by the data center operation.
+    // - Engine: The database engine type, such as mysql or postgresql.
+    // - RegionId: The current region.
     // ```
     // {
     //   "tableFlag": true,
@@ -282,11 +295,11 @@ namespace Models
     shared_ptr<string> description_ {};
     // The execution configuration.
     shared_ptr<string> executionConfigShrink_ {};
-    // The instructions.
-    // - Input limit: up to 10,000 characters.
+    // The instruction.
+    // - Input limit: Up to 10,000 characters.
     shared_ptr<string> instruction_ {};
     // The knowledge.
-    // - Input limit: up to 10,000 characters.
+    // - Input limit: Up to 10,000 characters.
     shared_ptr<string> knowledge_ {};
     // The external knowledge bases.
     shared_ptr<string> knowledgeConfigListShrink_ {};

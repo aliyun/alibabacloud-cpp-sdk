@@ -172,7 +172,7 @@ namespace Models
       protected:
         // The cron expression for time-based scheduling.
         shared_ptr<string> cronExpression_ {};
-        // The query for the scheduled task.
+        // The question for the scheduled task.
         shared_ptr<string> query_ {};
         // The ID of the referenced historical session.
         shared_ptr<string> relatedSessionId_ {};
@@ -294,12 +294,12 @@ namespace Models
 
       protected:
         // The access type. Valid values:
-        // - mcp: MCP access.
-        // - dms_kb: DMS knowledge base access.
+        // - mcp: Accessed through MCP.
+        // - dms_kb: Accessed through the DMS knowledge base.
         shared_ptr<string> accessType_ {};
         // The knowledge base ID.
         shared_ptr<string> kbUuid_ {};
-        // The MCP server ID.
+        // The ID of the MCP server.
         shared_ptr<string> mcpServerId_ {};
       };
 
@@ -445,11 +445,11 @@ namespace Models
 
 
       protected:
-        // The callback tool invocation parameters.
+        // The parameters to invoke the callback tool.
         shared_ptr<string> callbackArgs_ {};
-        // The prompt for generating callback tool invocation parameters.
+        // The prompt for generating parameters to invoke the callback tool.
         shared_ptr<string> callbackPrompt_ {};
-        // The callback tool invocation timing.
+        // The timing to invoke the callback tool.
         shared_ptr<int32_t> callbackTime_ {};
         // The callback tool identifier.
         shared_ptr<string> toolId_ {};
@@ -722,15 +722,15 @@ namespace Models
       // - Default: The system-built-in custom agent.
       // - Common: The common custom agent.
       shared_ptr<string> agentType_ {};
-      // The Alibaba Cloud main account ID.
+      // The ID of the Alibaba Cloud main account.
       shared_ptr<string> aliyunParentUid_ {};
       // The Alibaba Cloud account ID.
       shared_ptr<string> aliyunUid_ {};
-      // The callback feature configuration.
+      // The callback feature configuration items.
       shared_ptr<Data::CallbackConfig> callbackConfig_ {};
       // The name of the creator.
       shared_ptr<string> creatorUserName_ {};
-      // The custom agent ID.
+      // The ID of the custom agent.
       shared_ptr<string> customAgentId_ {};
       // The current DMS unit.
       shared_ptr<string> DMSUnit_ {};
@@ -746,9 +746,9 @@ namespace Models
       shared_ptr<string> gmtCreated_ {};
       // The modification time.
       shared_ptr<string> gmtModified_ {};
-      // The instructions.
+      // The instruction.
       shared_ptr<string> instruction_ {};
-      // Indicates whether a scheduled task is configured.
+      // Indicates whether a periodic task is configured.
       shared_ptr<bool> isScheduleTask_ {};
       // The knowledge.
       shared_ptr<string> knowledge_ {};
@@ -762,7 +762,7 @@ namespace Models
       shared_ptr<string> modifierUserName_ {};
       // The name of the custom agent.
       shared_ptr<string> name_ {};
-      // The next run time of the scheduled task.
+      // The next execution time of the periodic task.
       // - Timestamp format.
       shared_ptr<int64_t> nextRuntime_ {};
       // The offline time.
@@ -776,7 +776,7 @@ namespace Models
       shared_ptr<string> relatedSessionId_ {};
       // The release time.
       shared_ptr<string> releaseTime_ {};
-      // The scheduled task configuration.
+      // The periodic task configuration.
       shared_ptr<Data::ScheduleTaskConfig> scheduleTaskConfig_ {};
       // The custom agent status.
       shared_ptr<string> status_ {};
@@ -789,7 +789,7 @@ namespace Models
       // The web report theme. Valid values:
       // - default: Default.
       // - journal: Journal.
-      // - legacy: Classic.
+      // - legacy: Legacy.
       // - neobrutalism: Neobrutalism.
       // - infographic: Infographic.
       shared_ptr<string> webReportTheme_ {};

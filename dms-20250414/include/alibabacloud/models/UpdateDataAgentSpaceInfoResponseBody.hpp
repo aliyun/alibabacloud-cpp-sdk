@@ -40,6 +40,7 @@ namespace Models
     class Data : public Darabonba::Model {
     public:
       friend void to_json(Darabonba::Json& j, const Data& obj) { 
+        DARABONBA_PTR_TO_JSON(Config, config_);
         DARABONBA_PTR_TO_JSON(CreateTime, createTime_);
         DARABONBA_PTR_TO_JSON(Creator, creator_);
         DARABONBA_PTR_TO_JSON(Description, description_);
@@ -52,6 +53,7 @@ namespace Models
         DARABONBA_PTR_TO_JSON(WorkspaceStatus, workspaceStatus_);
       };
       friend void from_json(const Darabonba::Json& j, Data& obj) { 
+        DARABONBA_PTR_FROM_JSON(Config, config_);
         DARABONBA_PTR_FROM_JSON(CreateTime, createTime_);
         DARABONBA_PTR_FROM_JSON(Creator, creator_);
         DARABONBA_PTR_FROM_JSON(Description, description_);
@@ -74,9 +76,16 @@ namespace Models
       };
       virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
       virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-      virtual bool empty() const override { return this->createTime_ == nullptr
-        && this->creator_ == nullptr && this->description_ == nullptr && this->isSessionShareEnabled_ == nullptr && this->modifyTime_ == nullptr && this->roleName_ == nullptr
-        && this->totalMember_ == nullptr && this->workspaceId_ == nullptr && this->workspaceName_ == nullptr && this->workspaceStatus_ == nullptr; };
+      virtual bool empty() const override { return this->config_ == nullptr
+        && this->createTime_ == nullptr && this->creator_ == nullptr && this->description_ == nullptr && this->isSessionShareEnabled_ == nullptr && this->modifyTime_ == nullptr
+        && this->roleName_ == nullptr && this->totalMember_ == nullptr && this->workspaceId_ == nullptr && this->workspaceName_ == nullptr && this->workspaceStatus_ == nullptr; };
+      // config Field Functions 
+      bool hasConfig() const { return this->config_ != nullptr;};
+      void deleteConfig() { this->config_ = nullptr;};
+      inline string getConfig() const { DARABONBA_PTR_GET_DEFAULT(config_, "") };
+      inline Data& setConfig(string config) { DARABONBA_PTR_SET_VALUE(config_, config) };
+
+
       // createTime Field Functions 
       bool hasCreateTime() const { return this->createTime_ != nullptr;};
       void deleteCreateTime() { this->createTime_ = nullptr;};
@@ -148,21 +157,23 @@ namespace Models
 
 
     protected:
-      // The time when the workspace was created, specified as a UNIX timestamp in seconds.
+      // The workspace configuration items.
+      shared_ptr<string> config_ {};
+      // The creation time of the session (UNIX timestamp in seconds).
       shared_ptr<string> createTime_ {};
-      // The user ID (UID) of the workspace creator.
+      // The UID of the workspace creator.
       shared_ptr<string> creator_ {};
-      // The description of the workspace.
+      // The description of the table.
       shared_ptr<string> description_ {};
-      // Indicates whether session sharing is enabled in the workspace.
+      // Indicates whether session sharing within the workspace is supported.
       shared_ptr<bool> isSessionShareEnabled_ {};
-      // The time when the workspace was last modified, specified as a UNIX timestamp in seconds.
+      // The last modification time of the workspace (UNIX timestamp in seconds).
       shared_ptr<string> modifyTime_ {};
-      // The user role in the workspace.
+      // The name of the removed user role.
       shared_ptr<string> roleName_ {};
       // The total number of members in the workspace.
       shared_ptr<string> totalMember_ {};
-      // The ID of the workspace.
+      // The workspace ID.
       shared_ptr<string> workspaceId_ {};
       // The updated name of the workspace.
       shared_ptr<string> workspaceName_ {};
@@ -210,15 +221,15 @@ namespace Models
 
 
   protected:
-    // The returned data.
+    // The response struct.
     shared_ptr<UpdateDataAgentSpaceInfoResponseBody::Data> data_ {};
-    // The error code returned if the request fails.
+    // The error code returned when a request exception occurs.
     shared_ptr<string> errorCode_ {};
-    // The error message returned if the request fails.
+    // The error message returned when the call fails.
     shared_ptr<string> errorMessage_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request was successful.
+    // Indicates whether the request is successful.
     shared_ptr<string> success_ {};
   };
 

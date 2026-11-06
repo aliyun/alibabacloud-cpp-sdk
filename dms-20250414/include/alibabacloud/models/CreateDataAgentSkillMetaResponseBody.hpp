@@ -197,9 +197,10 @@ namespace Models
       shared_ptr<int32_t> enabled_ {};
       // The creation time.
       shared_ptr<string> gmtCreated_ {};
-      // The modification time.
+      // The update time.
       shared_ptr<string> gmtModified_ {};
-      // The error message for skill parsing. This message is returned when the skill status is INVALID.
+      // The skill parsing error message.
+      // - This error message is returned when the skill status is INVALID.
       shared_ptr<string> parseError_ {};
       // The region.
       shared_ptr<string> region_ {};
@@ -210,9 +211,9 @@ namespace Models
       // The skill name.
       shared_ptr<string> skillName_ {};
       // The skill status. Valid values:
-      // - INIT: The skill is not ready.
-      // - ACTIVE: The skill is active.
-      // - INVALID: The skill is invalid.
+      // - INIT: Not ready.
+      // - ACTIVE: Active.
+      // - INVALID: Invalid.
       shared_ptr<string> skillStatus_ {};
       // The workspace ID.
       shared_ptr<string> workspaceId_ {};
@@ -267,8 +268,7 @@ namespace Models
     // Id of the request
     shared_ptr<string> requestId_ {};
     // Indicates whether the request is successful. Valid values:
-    // 
-    // - **true**: The request is successful.                                 
+    // - **true**: The request is successful.
     // - **false**: The request fails.
     shared_ptr<bool> success_ {};
   };

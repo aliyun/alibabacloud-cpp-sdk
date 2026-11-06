@@ -162,31 +162,31 @@ namespace Models
     protected:
       // The UID of the Alibaba Cloud account to which the user policy belongs. This value is not returned for system default policies.
       shared_ptr<string> aliyunAccountUid_ {};
-      // The ID of the system default policy inherited by the user policy. This value is empty if no inheritance relationship is configured. This value is not returned for system default policies.
+      // The ID of the system default policy inherited by the user policy. This parameter is empty when no inheritance relationship is configured. This value is not returned for system default policies.
       shared_ptr<string> basePolicyId_ {};
-      // The description of the security policy. The description of a system default policy is returned in the language of the request context.
+      // The description of the security policy. The description of a system default policy is returned in the language of the call context.
       shared_ptr<string> description_ {};
-      // The time when the security policy was created. The time is in the yyyy-MM-dd HH:mm:ss format and does not contain a time zone offset.
+      // The time when the security policy was created. The time is in the yyyy-MM-dd HH:mm:ss format and does not include a time zone offset.
       shared_ptr<string> gmtCreate_ {};
-      // The time when the security policy was last modified. The time is in the yyyy-MM-dd HH:mm:ss format and does not contain a time zone offset.
+      // The time when the security policy was last modified. The time is in the yyyy-MM-dd HH:mm:ss format and does not include a time zone offset.
       shared_ptr<string> gmtModified_ {};
-      // The business ID of the security policy. A system default policy ID starts with sp-sys-, and a user policy ID starts with sp-usr-.
+      // The business ID of the security policy. The ID of a system default policy starts with sp-sys-, and the ID of a user policy starts with sp-usr-.
       shared_ptr<string> policyId_ {};
-      // The Policy Name of the security policy. The Policy Name of a system default policy is returned in the language of the request context.
+      // The policy name. The name of a system default policy is returned in the language of the call context.
       shared_ptr<string> policyName_ {};
       // The current state of the security policy. Valid values:
-      // - ON: Enabled.
-      // - OFF: Disabled.
-      // - ARCHIVED: Archived.
+      // - ON: The policy is enabled.
+      // - OFF: The policy is disabled.
+      // - ARCHIVED: The policy is archived.
       // All system default policies returned by this operation are in the ON state.
       shared_ptr<string> policyStatus_ {};
-      // Specifies whether the policy is read-only. Valid values:
+      // Indicates whether the policy is read-only. Valid values:
       // - true: The policy is a system default policy.
       // - false: The policy is a user policy of the current account.
       shared_ptr<bool> readonly_ {};
       // The tags of the system default policy. Multiple tags are separated by commas (,). This value is not returned for user policies.
       shared_ptr<string> tags_ {};
-      // The identifier of the operator that last modified the policy. For a user policy, the operator ID is recorded first. If no operator ID is available, the UID of the current Alibaba Cloud account is recorded.
+      // The identifier of the operator who last modified the policy. For user policies, the operator ID is recorded first. If no operator ID is available, the UID of the current Alibaba Cloud account is recorded.
       shared_ptr<string> updatedBy_ {};
     };
 
@@ -237,13 +237,13 @@ namespace Models
 
 
   protected:
-    // The list of security policies returned by this query. Enabled system default policies are placed at the beginning, followed by the user policies on the current page. You can use Readonly to distinguish between the two types of policies.
+    // The list of security policies returned by the current query. Enabled system default policies are placed at the beginning, followed by the user policies on the current page. You can use Readonly to distinguish between the two types of policies.
     shared_ptr<vector<ListAgenticSecurityPoliciesResponseBody::Data>> data_ {};
     // The error code returned when the request fails. This parameter is empty when the request is successful.
     shared_ptr<string> errorCode_ {};
     // The error message returned when the request fails. This parameter is empty when the request is successful.
     shared_ptr<string> errorMessage_ {};
-    // The request ID, which is used to locate and trace this call.
+    // The request ID, which is used to locate and trace the call.
     shared_ptr<string> requestId_ {};
     // Indicates whether the request is successful. Valid values:
     // - true: The request is successful.

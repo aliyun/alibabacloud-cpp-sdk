@@ -140,32 +140,29 @@ namespace Models
 
 
   protected:
-    // The ID of the actor. A user ID starts with usr_, and an agent ID starts with agt_. If you do not specify this parameter, all records within the current tenant are queried. If you specify a user ID, the records of the user and the agents under the user are included. If you specify an agent ID, only the records of the agent are matched. The actor must belong to the current tenant.
+    // The ID of the executor. User IDs start with usr_, and agent IDs start with agt_. If you do not specify this parameter, all records within the current tenant are queried. If you specify a user ID, the records of the user and their agents are included. If you specify an agent ID, only the records of the agent are matched. The executor must belong to the current tenant.
     shared_ptr<string> actorId_ {};
-    // The name of the actor for exact match.
+    // The name of the executor for exact match.
     shared_ptr<string> actorName_ {};
-    // The type of the actor for exact match. Valid values: HUMAN and AGENT.
+    // The type of the executor for exact match. Valid values: HUMAN and AGENT.
     shared_ptr<string> actorType_ {};
-    // The catalog UUID for exact match. You can obtain this value by calling ListAgenticCatalog or SearchAgenticCatalog.
+    // The Catalog UUID for exact match. You can obtain this value by calling ListAgenticCatalog or SearchAgenticCatalog.
     shared_ptr<string> catalogUuid_ {};
-    // The database UUID for exact match. You can obtain this value by calling ListAgenticDatabase or SearchAgenticDatabase.
+    // The Database UUID for exact match. You can obtain this value by calling ListAgenticDatabase or SearchAgenticDatabase.
     shared_ptr<string> databaseUuid_ {};
-    // The end time of the query. Specify the time in the yyyy-MM-dd HH:mm:ss format. If you do not specify this parameter, the default end time is the current time. If the format cannot be parsed or the end time is earlier than the start time, the request fails.
+    // The end time of the query. Format: yyyy-MM-dd HH:mm:ss. Default value: the current time. If the format cannot be parsed or the end time is earlier than the start time, the request fails.
     shared_ptr<string> endTime_ {};
     // The page number. Pages start from 1. Default value: 1.
     shared_ptr<int32_t> page_ {};
-    // The execution scenario for exact match. Valid values:
-    // - AGENT_QUERY: The agent directly executes the SQL statement.
-    // - WORKFLOW_QUERY: The SQL statement is asynchronously executed through a workflow.
-    // If you do not specify this parameter, both scenarios are queried.
+    // The execution scenario for exact match. Valid values: AGENT_QUERY (the agent directly executes the SQL statement) and WORKFLOW_QUERY (the SQL statement is asynchronously executed through a workflow). If you do not specify this parameter, both scenarios are queried.
     shared_ptr<string> scenario_ {};
     // The number of entries per page. Default value: 20. Maximum value: 100.
     shared_ptr<int32_t> size_ {};
-    // The keyword for fuzzy match based on the original SQL statement.
+    // The keyword for fuzzy match against the original SQL statement.
     shared_ptr<string> sqlKeyword_ {};
     // The SQL type for exact match.
     shared_ptr<string> sqlType_ {};
-    // The start time of the query. Specify the time in the yyyy-MM-dd HH:mm:ss format. If you do not specify this parameter, the default time range is the last 7 days. If the specified time is earlier than 730 days ago or the format cannot be parsed, the query starts from 730 days ago.
+    // The start time of the query. Format: yyyy-MM-dd HH:mm:ss. Default value: the last 7 days. If the specified time is earlier than 730 days ago or the format cannot be parsed, the query starts from 730 days ago.
     shared_ptr<string> startTime_ {};
   };
 

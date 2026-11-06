@@ -80,11 +80,11 @@ namespace Models
   protected:
     // The database details.
     shared_ptr<AgenticDatabase> data_ {};
-    // The error code returned when an exception occurs.
+    // The error code returned when an exception occurs during the request.
     shared_ptr<string> errorCode_ {};
-    // The error message returned when the call fails.
+    // The error message returned when the API call fails.
     shared_ptr<string> errorMessage_ {};
-    // The request ID.
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
     // Indicates whether the request was successful. Valid values:
     // 

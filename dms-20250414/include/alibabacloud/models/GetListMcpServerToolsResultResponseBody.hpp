@@ -108,11 +108,11 @@ namespace Models
 
 
       protected:
-        // The description of the MCP tool functionality.
+        // The description of the MCP tool.
         shared_ptr<string> description_ {};
-        // The JSON Schema string of the tool input parameters.
+        // The JSON schema string for the input parameters of the tool.
         shared_ptr<string> inputSchema_ {};
-        // The MCP tool name.
+        // The name of the MCP tool.
         shared_ptr<string> name_ {};
       };
 
@@ -142,14 +142,9 @@ namespace Models
 
 
     protected:
-      // Indicates whether the MCP Server is accessible. The value is true only when State is success.
+      // Indicates whether the MCP server is accessible. The value is true only when State is success.
       shared_ptr<bool> accessible_ {};
-      // The detection status. Valid values:
-      // - pending: The detection is in progress.
-      // - success: The detection succeeded.
-      // - failed: The detection failed or timed out.
-      // 
-      // The top-level Success field can be true in all three business states.
+      // The detection status. Valid values: pending: The detection is in progress. success: The detection succeeded. failed: The detection failed or timed out. The top-level Success field can be true in all three business statuses.
       shared_ptr<string> state_ {};
       // The list of detected MCP tools. A non-empty list is returned only when State is success.
       shared_ptr<vector<Data::Tools>> tools_ {};
@@ -195,15 +190,15 @@ namespace Models
 
 
   protected:
-    // The MCP Server connectivity detection result. The business status is distinguished by the State field.
+    // The connectivity detection results of the MCP server. The business status is indicated by State.
     shared_ptr<GetListMcpServerToolsResultResponseBody::Data> data_ {};
-    // The return code. The value success is returned if the request succeeds. An error code is returned if the request fails.
+    // The error code. The value is success if the request succeeds, or the corresponding error code if the request fails.
     shared_ptr<string> errorCode_ {};
-    // The error message returned when a system-level request failure occurs.
+    // The error message returned when the request fails at the system level.
     shared_ptr<string> errorMessage_ {};
-    // The request ID, which is used to locate this API call.
+    // The request ID, which is used to locate the call.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request was successful. Valid values: true and false.
+    // Indicates whether the request was successful. A value of true indicates success. A value of false indicates failure.
     shared_ptr<string> success_ {};
   };
 
