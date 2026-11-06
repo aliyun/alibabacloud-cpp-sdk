@@ -2,11 +2,13 @@
 #include <alibabacloud/Ecd20200930.hpp>
 #include <alibabacloud/Utils.hpp>
 #include <alibabacloud/Openapi.hpp>
+#include <alibabacloud/gateway/POP.hpp>
 #include <map>
 #include <darabonba/Runtime.hpp>
 using namespace std;
 using namespace Darabonba;
 using json = nlohmann::json;
+using namespace AlibabaCloud::Gateway;
 using namespace AlibabaCloud::OpenApi;
 using namespace AlibabaCloud::Ecd20200930::Models;
 using OpenApiClient = AlibabaCloud::OpenApi::Client;
@@ -17,6 +19,9 @@ namespace Ecd20200930
 {
 
 AlibabaCloud::Ecd20200930::Client::Client(Config &config): OpenApiClient(config){
+  this->_productId = "ecd";
+  shared_ptr<POP> gatewayClient = make_shared<POP>();
+  this->_spi = gatewayClient;
   this->_endpointRule = "regional";
   checkConfig(config);
   this->_endpoint = getEndpoint("ecd", _regionId, _endpointRule, _network, _suffix, _endpointMap, _endpoint);
@@ -14109,6 +14114,60 @@ ExportDesktopListInfoResponse Client::exportDesktopListInfoWithOptions(const Exp
 ExportDesktopListInfoResponse Client::exportDesktopListInfo(const ExportDesktopListInfoRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return exportDesktopListInfoWithOptions(request, runtime);
+}
+
+/**
+ * @summary Generates an access key for a scenario.
+ *
+ * @param request GenerateSceneKeyRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GenerateSceneKeyResponse
+ */
+GenerateSceneKeyResponse Client::generateSceneKeyWithOptions(const GenerateSceneKeyRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasDesktopId()) {
+    query["DesktopId"] = request.getDesktopId();
+  }
+
+  if (!!request.hasExpireTime()) {
+    query["ExpireTime"] = request.getExpireTime();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.getRegionId();
+  }
+
+  if (!!request.hasScene()) {
+    query["Scene"] = request.getScene();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "GenerateSceneKey"},
+    {"version" , "2020-09-30"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GenerateSceneKeyResponse>();
+}
+
+/**
+ * @summary Generates an access key for a scenario.
+ *
+ * @param request GenerateSceneKeyRequest
+ * @return GenerateSceneKeyResponse
+ */
+GenerateSceneKeyResponse Client::generateSceneKey(const GenerateSceneKeyRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return generateSceneKeyWithOptions(request, runtime);
 }
 
 /**

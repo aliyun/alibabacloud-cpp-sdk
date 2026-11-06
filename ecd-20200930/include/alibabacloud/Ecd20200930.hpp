@@ -3825,6 +3825,23 @@ namespace Ecd20200930
       Models::ExportDesktopListInfoResponse exportDesktopListInfo(const Models::ExportDesktopListInfoRequest &request);
 
       /**
+       * @summary Generates an access key for a scenario.
+       *
+       * @param request GenerateSceneKeyRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GenerateSceneKeyResponse
+       */
+      Models::GenerateSceneKeyResponse generateSceneKeyWithOptions(const Models::GenerateSceneKeyRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Generates an access key for a scenario.
+       *
+       * @param request GenerateSceneKeyRequest
+       * @return GenerateSceneKeyResponse
+       */
+      Models::GenerateSceneKeyResponse generateSceneKey(const Models::GenerateSceneKeyRequest &request);
+
+      /**
        * @summary Queries desktop statistics by different dimensions.
        *
        * @param request GetAggregatedDesktopsRequest

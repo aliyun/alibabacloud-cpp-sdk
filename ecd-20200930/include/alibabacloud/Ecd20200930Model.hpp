@@ -571,6 +571,9 @@
 #include <alibabacloud/models/ExportDesktopListInfoRequest.hpp>
 #include <alibabacloud/models/ExportDesktopListInfoResponseBody.hpp>
 #include <alibabacloud/models/ExportDesktopListInfoResponse.hpp>
+#include <alibabacloud/models/GenerateSceneKeyRequest.hpp>
+#include <alibabacloud/models/GenerateSceneKeyResponseBody.hpp>
+#include <alibabacloud/models/GenerateSceneKeyResponse.hpp>
 #include <alibabacloud/models/GetAggregatedDesktopsRequest.hpp>
 #include <alibabacloud/models/GetAggregatedDesktopsResponseBody.hpp>
 #include <alibabacloud/models/GetAggregatedDesktopsResponse.hpp>
