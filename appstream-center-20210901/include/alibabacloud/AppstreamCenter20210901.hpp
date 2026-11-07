@@ -1222,6 +1222,23 @@ namespace AppstreamCenter20210901
       Models::GetTaskResponse getTask(const Models::GetTaskRequest &request);
 
       /**
+       * @summary 查询Agent实例版本列表
+       *
+       * @param request ListAgentInstanceVersionsRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListAgentInstanceVersionsResponse
+       */
+      Models::ListAgentInstanceVersionsResponse listAgentInstanceVersionsWithOptions(const Models::ListAgentInstanceVersionsRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查询Agent实例版本列表
+       *
+       * @param request ListAgentInstanceVersionsRequest
+       * @return ListAgentInstanceVersionsResponse
+       */
+      Models::ListAgentInstanceVersionsResponse listAgentInstanceVersions(const Models::ListAgentInstanceVersionsRequest &request);
+
+      /**
        * @summary Queries the valid applications of the current account by paging based on conditions such as the application ID, name, type, and associated product.
        *
        * @description When multiple filter conditions are specified at the same time, they take effect together. AppName supports contains matching. When a single-value filter and the corresponding list filter are specified at the same time, the intersection is used. To avoid empty results, specify only one of the forms.
@@ -1586,6 +1603,23 @@ namespace AppstreamCenter20210901
       Models::ListBindInfoResponse listBindInfo(const Models::ListBindInfoRequest &request);
 
       /**
+       * @summary 分页查询浏览器书签列表
+       *
+       * @param request ListBrowserBookmarksRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListBrowserBookmarksResponse
+       */
+      Models::ListBrowserBookmarksResponse listBrowserBookmarksWithOptions(const Models::ListBrowserBookmarksRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 分页查询浏览器书签列表
+       *
+       * @param request ListBrowserBookmarksRequest
+       * @return ListBrowserBookmarksResponse
+       */
+      Models::ListBrowserBookmarksResponse listBrowserBookmarks(const Models::ListBrowserBookmarksRequest &request);
+
+      /**
        * @summary Performs a paging query of cloud browser groups and their current statuses.
        *
        * @description This topic describes how paged query cloud browser groups in the monthly active user (MAU) billing scenario.
@@ -1621,6 +1655,31 @@ namespace AppstreamCenter20210901
        * @return ListBrowserInstanceGroupResponse
        */
       Models::ListBrowserInstanceGroupResponse listBrowserInstanceGroup(const Models::ListBrowserInstanceGroupRequest &request);
+
+      /**
+       * @summary 分页查询浏览器白名单列表
+       *
+       * @description 调用本接口分页查询云浏览器交付组或交付组集合下配置的访问限制 URL（Restricted URL）列表，用于查看当前访问控制策略中已配置的 URL 明细。
+       * BrowserInstanceGroupId 与 BrowserInstanceGroupSetId 必须且只能指定一个：指定 BrowserInstanceGroupId 时查询该交付组的访问限制 URL；指定 BrowserInstanceGroupSetId 时查询该交付组集合的访问限制 URL。两者同时指定或同时不指定都会返回参数错误。
+       * 可通过 Keyword 对访问限制 URL 做包含匹配筛选（英文不区分大小写），不传时返回全部。分页由 PageNumber 和 PageSize 控制：PageSize 取值范围 1~200，默认 200；PageNumber 默认 0，传入值小于 1 时按第 1 页处理。响应中的 TotalCount 为满足筛选条件的总记录数，Data 为当前页记录，没有数据时返回空数组。
+       *
+       * @param request ListBrowserRestrictedURLsRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListBrowserRestrictedURLsResponse
+       */
+      Models::ListBrowserRestrictedURLsResponse listBrowserRestrictedURLsWithOptions(const Models::ListBrowserRestrictedURLsRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 分页查询浏览器白名单列表
+       *
+       * @description 调用本接口分页查询云浏览器交付组或交付组集合下配置的访问限制 URL（Restricted URL）列表，用于查看当前访问控制策略中已配置的 URL 明细。
+       * BrowserInstanceGroupId 与 BrowserInstanceGroupSetId 必须且只能指定一个：指定 BrowserInstanceGroupId 时查询该交付组的访问限制 URL；指定 BrowserInstanceGroupSetId 时查询该交付组集合的访问限制 URL。两者同时指定或同时不指定都会返回参数错误。
+       * 可通过 Keyword 对访问限制 URL 做包含匹配筛选（英文不区分大小写），不传时返回全部。分页由 PageNumber 和 PageSize 控制：PageSize 取值范围 1~200，默认 200；PageNumber 默认 0，传入值小于 1 时按第 1 页处理。响应中的 TotalCount 为满足筛选条件的总记录数，Data 为当前页记录，没有数据时返回空数组。
+       *
+       * @param request ListBrowserRestrictedURLsRequest
+       * @return ListBrowserRestrictedURLsResponse
+       */
+      Models::ListBrowserRestrictedURLsResponse listBrowserRestrictedURLs(const Models::ListBrowserRestrictedURLsRequest &request);
 
       /**
        * @summary Queries a list of desktop Agent runtimes.
@@ -2549,6 +2608,33 @@ namespace AppstreamCenter20210901
       Models::QueryNodeReportDataResponse queryNodeReportData(const Models::QueryNodeReportDataRequest &request);
 
       /**
+       * @summary 离线每天会话趋势图
+       *
+       * @description 调用本接口查询当前阿里云账号在指定日期的会话数量趋势数据。数据为离线统计结果，按天组织，返回该日期内各时间点的会话数量。
+       * 返回结果按 10 分钟粒度聚合：每条数据由小时（Hh，取值 00-23）和分钟（Mi，取值 00、10、20、30、40、50）标识一个时间点，SessionCntMi 为该时间点所在 10 分钟区间内的会话数量汇总值。结果按小时、分钟升序排列。
+       * 可通过 BizRegionId 指定业务地域、通过 AppInstanceGroupId 指定交付组进行过滤；两者均不传时，返回当前账号下所有地域、所有交付组的会话数据汇总。实际用于过滤会话数据的地域以 BizRegionId 为准。
+       * StatDate 为统计日期，格式 yyyyMMdd，不传时默认查询昨天，仅支持查询最近 90 天内的日期。当指定日期没有会话数据时返回空列表，且返回码为 NO_DATA。
+       *
+       * @param request QuerySessionDataRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return QuerySessionDataResponse
+       */
+      Models::QuerySessionDataResponse querySessionDataWithOptions(const Models::QuerySessionDataRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 离线每天会话趋势图
+       *
+       * @description 调用本接口查询当前阿里云账号在指定日期的会话数量趋势数据。数据为离线统计结果，按天组织，返回该日期内各时间点的会话数量。
+       * 返回结果按 10 分钟粒度聚合：每条数据由小时（Hh，取值 00-23）和分钟（Mi，取值 00、10、20、30、40、50）标识一个时间点，SessionCntMi 为该时间点所在 10 分钟区间内的会话数量汇总值。结果按小时、分钟升序排列。
+       * 可通过 BizRegionId 指定业务地域、通过 AppInstanceGroupId 指定交付组进行过滤；两者均不传时，返回当前账号下所有地域、所有交付组的会话数据汇总。实际用于过滤会话数据的地域以 BizRegionId 为准。
+       * StatDate 为统计日期，格式 yyyyMMdd，不传时默认查询昨天，仅支持查询最近 90 天内的日期。当指定日期没有会话数据时返回空列表，且返回码为 NO_DATA。
+       *
+       * @param request QuerySessionDataRequest
+       * @return QuerySessionDataResponse
+       */
+      Models::QuerySessionDataResponse querySessionData(const Models::QuerySessionDataRequest &request);
+
+      /**
        * @summary Queries the total number of sessions, connected sessions, and streaming sessions by statistical granularity.
        *
        * @description Queries session quantity reports. `StartDate`, `EndDate`, and `StatDateType` are required. The query span limit is determined by the statistical granularity: up to 1 day for `1m` and `30m`, up to 15 days for `6h`, and up to 180 days for `1d`. Both the start and end boundaries are included in the query range. Results are returned in pages, with a maximum of 1,500 records per page.
@@ -3174,6 +3260,23 @@ namespace AppstreamCenter20210901
        * @return UpdateWuyingServerImageResponse
        */
       Models::UpdateWuyingServerImageResponse updateWuyingServerImage(const Models::UpdateWuyingServerImageRequest &request);
+
+      /**
+       * @summary 校验LLM模板配置有效性
+       *
+       * @param request ValidateLlmTemplateConfigRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ValidateLlmTemplateConfigResponse
+       */
+      Models::ValidateLlmTemplateConfigResponse validateLlmTemplateConfigWithOptions(const Models::ValidateLlmTemplateConfigRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 校验LLM模板配置有效性
+       *
+       * @param request ValidateLlmTemplateConfigRequest
+       * @return ValidateLlmTemplateConfigResponse
+       */
+      Models::ValidateLlmTemplateConfigResponse validateLlmTemplateConfig(const Models::ValidateLlmTemplateConfigRequest &request);
   };
 } // namespace AlibabaCloud
 } // namespace AppstreamCenter20210901

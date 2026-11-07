@@ -154,6 +154,9 @@
 #include <alibabacloud/models/GetTaskRequest.hpp>
 #include <alibabacloud/models/GetTaskResponseBody.hpp>
 #include <alibabacloud/models/GetTaskResponse.hpp>
+#include <alibabacloud/models/ListAgentInstanceVersionsRequest.hpp>
+#include <alibabacloud/models/ListAgentInstanceVersionsResponseBody.hpp>
+#include <alibabacloud/models/ListAgentInstanceVersionsResponse.hpp>
 #include <alibabacloud/models/ListAppRequest.hpp>
 #include <alibabacloud/models/ListAppShrinkRequest.hpp>
 #include <alibabacloud/models/ListAppResponseBody.hpp>
@@ -185,9 +188,15 @@
 #include <alibabacloud/models/ListBindInfoRequest.hpp>
 #include <alibabacloud/models/ListBindInfoResponseBody.hpp>
 #include <alibabacloud/models/ListBindInfoResponse.hpp>
+#include <alibabacloud/models/ListBrowserBookmarksRequest.hpp>
+#include <alibabacloud/models/ListBrowserBookmarksResponseBody.hpp>
+#include <alibabacloud/models/ListBrowserBookmarksResponse.hpp>
 #include <alibabacloud/models/ListBrowserInstanceGroupRequest.hpp>
 #include <alibabacloud/models/ListBrowserInstanceGroupResponseBody.hpp>
 #include <alibabacloud/models/ListBrowserInstanceGroupResponse.hpp>
+#include <alibabacloud/models/ListBrowserRestrictedURLsRequest.hpp>
+#include <alibabacloud/models/ListBrowserRestrictedURLsResponseBody.hpp>
+#include <alibabacloud/models/ListBrowserRestrictedURLsResponse.hpp>
 #include <alibabacloud/models/ListDesktopAgentRuntimeRequest.hpp>
 #include <alibabacloud/models/ListDesktopAgentRuntimeResponseBody.hpp>
 #include <alibabacloud/models/ListDesktopAgentRuntimeResponse.hpp>
@@ -316,6 +325,9 @@
 #include <alibabacloud/models/QueryNodeReportDataRequest.hpp>
 #include <alibabacloud/models/QueryNodeReportDataResponseBody.hpp>
 #include <alibabacloud/models/QueryNodeReportDataResponse.hpp>
+#include <alibabacloud/models/QuerySessionDataRequest.hpp>
+#include <alibabacloud/models/QuerySessionDataResponseBody.hpp>
+#include <alibabacloud/models/QuerySessionDataResponse.hpp>
 #include <alibabacloud/models/QuerySessionReportDataRequest.hpp>
 #include <alibabacloud/models/QuerySessionReportDataResponseBody.hpp>
 #include <alibabacloud/models/QuerySessionReportDataResponse.hpp>
@@ -400,5 +412,8 @@
 #include <alibabacloud/models/UpdateWuyingServerImageRequest.hpp>
 #include <alibabacloud/models/UpdateWuyingServerImageResponseBody.hpp>
 #include <alibabacloud/models/UpdateWuyingServerImageResponse.hpp>
+#include <alibabacloud/models/ValidateLlmTemplateConfigRequest.hpp>
+#include <alibabacloud/models/ValidateLlmTemplateConfigResponseBody.hpp>
+#include <alibabacloud/models/ValidateLlmTemplateConfigResponse.hpp>
 
 #endif
