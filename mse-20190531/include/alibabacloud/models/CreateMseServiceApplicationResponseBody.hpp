@@ -165,25 +165,25 @@ namespace Models
 
 
     protected:
-      // The application ID.
+      // The ID of the application.
       shared_ptr<string> appId_ {};
       // The name of the application.
       shared_ptr<string> appName_ {};
-      // The creation time.
+      // The creation time. The value is a UNIX timestamp in milliseconds.
       shared_ptr<int64_t> createTime_ {};
       // The additional information.
       shared_ptr<string> extraInfo_ {};
       // The programming language of the application.
       shared_ptr<string> language_ {};
-      // The license key in use.
+      // The license key of the user.
       shared_ptr<string> licenseKey_ {};
-      // The ID of the region.
+      // The region ID.
       shared_ptr<string> regionId_ {};
       // The source type.
       shared_ptr<string> source_ {};
-      // The status. Valid values: 1: available; 2: deleted.
+      // The status. A value of 1 indicates the available state, and a value of 2 indicates the deleted state.
       shared_ptr<int32_t> status_ {};
-      // The last modification time.
+      // The last update time. The value is a UNIX timestamp in milliseconds.
       shared_ptr<int64_t> updateTime_ {};
       // The ID of the user.
       shared_ptr<string> userId_ {};
@@ -226,14 +226,14 @@ namespace Models
   protected:
     // The data structure.
     shared_ptr<CreateMseServiceApplicationResponseBody::Data> data_ {};
-    // The message returned.
+    // The message.
     shared_ptr<string> message_ {};
     // The ID of the request.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request was successful. Valid values:
+    // The request result. Valid values:
     // 
-    // *   `true`: The request was successful.
-    // *   `false`: The request failed.
+    // - `true`: The request is successful.
+    // - `false`: The request fails.
     shared_ptr<string> success_ {};
   };
 

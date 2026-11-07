@@ -80,15 +80,15 @@ namespace Models
 
 
   protected:
-    // The returned data.
+    // The data returned in the response.
     shared_ptr<map<string, vector<DataValue>>> data_ {};
     // The error code.
     shared_ptr<string> errorCode_ {};
-    // The additional request information.
+    // The additional information about the request.
     shared_ptr<string> message_ {};
-    // The request ID.
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request was successful. Valid values:
+    // Indicates whether the request is successful.
     shared_ptr<bool> success_ {};
   };
 

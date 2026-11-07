@@ -95,16 +95,15 @@ namespace Models
 
 
     protected:
-      // The data of the node.
+      // The list of node data.
       shared_ptr<string> data_ {};
-      // Indicates whether the node information was returned. Valid values:
-      // 
-      // *   `true`: The node information was returned.
-      // *   `false`: The node information failed to be returned.
+      // The node list information. Valid values:
+      // - `true`: The information is returned successfully.
+      // - `false`: The information fails to be returned.
       shared_ptr<bool> dir_ {};
-      // The name of the node.
+      // The node name.
       shared_ptr<string> name_ {};
-      // The path of the node.
+      // The node path.
       shared_ptr<string> path_ {};
     };
 
@@ -155,20 +154,19 @@ namespace Models
 
 
   protected:
-    // The details of the data.
+    // The data overview.
     shared_ptr<DeleteZnodeResponseBody::Data> data_ {};
-    // The error code returned if the request failed.
+    // The error code.
     shared_ptr<string> errorCode_ {};
-    // The HTTP status code returned.
+    // The HTTP status code.
     shared_ptr<string> httpCode_ {};
-    // The message returned.
+    // The message.
     shared_ptr<string> message_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request was successful. Valid values:
-    // 
-    // *   `true`: The request was successful.
-    // *   `false`: The request failed.
+    // The request result. Valid values:
+    // - `true`: The request succeeded.
+    // - `false`: The request failed.
     shared_ptr<bool> success_ {};
   };
 

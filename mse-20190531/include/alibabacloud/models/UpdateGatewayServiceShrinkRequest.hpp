@@ -121,15 +121,45 @@ namespace Models
 
 
   protected:
+    // The language in which you want the results to be displayed. Valid values: zh (default): Chinese. en: English.
     shared_ptr<string> acceptLanguage_ {};
+    // The list of Domain Name System (DNS) servers (for DNS domain name services only).
     shared_ptr<string> dnsServerListShrink_ {};
+    // The gateway ID.
     shared_ptr<int64_t> gatewayId_ {};
+    // The unique ID of the gateway.
     shared_ptr<string> gatewayUniqueId_ {};
+    // The service ID.
     shared_ptr<string> id_ {};
+    // The address list of fixed address services or domain name list of Domain Name System (DNS) services.
     shared_ptr<string> ipListShrink_ {};
+    // The service name. This parameter is deprecated and cannot be modified. The value of this parameter must be the same as the current service name.
     shared_ptr<string> name_ {};
+    // The service port. Specify this parameter for DNS services.
     shared_ptr<string> servicePort_ {};
+    // The service protocol.
+    // 
+    // - HTTP
+    // 
+    // - HTTPS
+    // 
+    // - HTTP2
+    // 
+    // - GRPC
+    // 
+    // - DUBBO
     shared_ptr<string> serviceProtocol_ {};
+    // The Transport Layer Security (TLS) settings. Valid values:
+    // 
+    // - mode: TLS mode
+    // 
+    // - certId: certificate ID
+    // 
+    // - caCertId: CA certificate ID
+    // 
+    // - caCertContent: CA certificate public key
+    // 
+    // - sni: service name identification
     shared_ptr<string> tlsSetting_ {};
   };
 

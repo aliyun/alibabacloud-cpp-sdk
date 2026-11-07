@@ -145,7 +145,9 @@ namespace Models
 
 
       protected:
+        // The end time of the O&M time window.
         shared_ptr<string> endTime_ {};
+        // The start time of the O&M time window.
         shared_ptr<string> startTime_ {};
       };
 
@@ -316,44 +318,47 @@ namespace Models
     protected:
       // The application version.
       shared_ptr<string> appVersion_ {};
-      // Indicates whether the instance can be upgraded.
+      // Indicates whether the cluster can be upgraded.
       shared_ptr<bool> canUpdate_ {};
-      // The billing method, such as subscription or pay-as-you-go.
+      // The billing method, including subscription and pay-as-you-go.
       shared_ptr<string> chargeType_ {};
       // The alias of the cluster.
       shared_ptr<string> clusterAliasName_ {};
       // The name of the cluster.
       shared_ptr<string> clusterName_ {};
-      // The type of the cluster. Valid values: ZooKeeper, Nacos-Ans, and Eureka.
+      // The cluster type, including ZooKeeper, Nacos-Ans, and Eureka.
       shared_ptr<string> clusterType_ {};
       // The time when the cluster was created.
       shared_ptr<string> createTime_ {};
-      // The time when the cluster expires.
+      // The expiration time of the cluster.
       shared_ptr<string> endDate_ {};
-      // The initialization status of the instance.
+      // The initialization status.
       shared_ptr<string> initStatus_ {};
       // The number of clusters.
       shared_ptr<int64_t> instanceCount_ {};
       // The instance ID.
       shared_ptr<string> instanceId_ {};
-      // The public IP address.
+      // The public address.
       shared_ptr<string> internetAddress_ {};
-      // The public endpoint.
+      // The public domain name.
       shared_ptr<string> internetDomain_ {};
-      // The internal IP address.
+      // The private network address.
       shared_ptr<string> intranetAddress_ {};
-      // The internal endpoint.
+      // The internal domain name.
       shared_ptr<string> intranetDomain_ {};
+      // The O&M time window.
       shared_ptr<Data::MaintenancePeriod> maintenancePeriod_ {};
       // The edition of the cluster.
       shared_ptr<string> mseVersion_ {};
       // The ID of the resource group to which the instance belongs.
       shared_ptr<string> resourceGroupId_ {};
-      // The tags that are attached to the instance.
+      // The tags bound to the instance.
       Darabonba::Json tags_ {};
       // The version information.
       shared_ptr<string> versionCode_ {};
+      // The version lifecycle.
       shared_ptr<string> versionLifecycle_ {};
+      // The ID of the VPC where the cluster is deployed.
       shared_ptr<string> vpcId_ {};
     };
 
@@ -426,26 +431,25 @@ namespace Models
 
 
   protected:
-    // The details of the data.
+    // The data overview.
     shared_ptr<vector<ListClustersResponseBody::Data>> data_ {};
-    // The error code returned if the request failed.
+    // The error code.
     shared_ptr<string> errorCode_ {};
-    // The HTTP status code returned.
+    // The HTTP status code.
     shared_ptr<string> httpCode_ {};
-    // The message returned.
+    // The message.
     shared_ptr<string> message_ {};
-    // The page number of the returned page.
+    // The page number.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries returned per page.
+    // The number of instances returned on each page.
     shared_ptr<int32_t> pageSize_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request was successful. Valid values:
-    // 
-    // *   `true`: The request was successful.
-    // *   `false`: The request failed.
+    // Indicates whether the request is successful. Valid values:
+    // - `true`: The request is successful.
+    // - `false`: The request fails.
     shared_ptr<bool> success_ {};
-    // The total number of returned instances.
+    // The total number of instances.
     shared_ptr<int32_t> totalCount_ {};
   };
 

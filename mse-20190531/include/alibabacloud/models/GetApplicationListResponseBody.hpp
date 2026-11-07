@@ -183,13 +183,13 @@ namespace Models
 
 
       protected:
-        // The ID of the application.
+        // The application ID.
         shared_ptr<string> appId_ {};
-        // The name of the application.
+        // The application name.
         shared_ptr<string> appName_ {};
         // The additional information.
         shared_ptr<string> extraInfo_ {};
-        // The number of instances.
+        // The total number of instances.
         shared_ptr<int32_t> instancesNumber_ {};
         // The programming language of the application.
         shared_ptr<string> language_ {};
@@ -201,6 +201,7 @@ namespace Models
         shared_ptr<string> source_ {};
         // The status.
         shared_ptr<int64_t> status_ {};
+        // The Alibaba Cloud tags.
         Darabonba::Json tags_ {};
         // The user ID.
         shared_ptr<string> userId_ {};
@@ -239,13 +240,13 @@ namespace Models
 
 
     protected:
-      // The page number of the returned page.
+      // The page number.
       shared_ptr<int32_t> pageNumber_ {};
-      // The number of entries returned per page.
+      // The number of entries per page.
       shared_ptr<int32_t> pageSize_ {};
-      // The data returned.
+      // The information about the applications.
       shared_ptr<vector<Data::Result>> result_ {};
-      // The total number of entries returned.
+      // The total number of entries.
       shared_ptr<int32_t> totalSize_ {};
     };
 
@@ -282,16 +283,17 @@ namespace Models
 
 
   protected:
-    // The details of the data.
+    // The data structure.
     shared_ptr<GetApplicationListResponseBody::Data> data_ {};
-    // The message returned.
+    // The message.
     shared_ptr<string> message_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
     // Indicates whether the request was successful. Valid values:
     // 
-    // *   `true`: The request was successful.
-    // *   `false`: The request failed.
+    // - `true`: The request was successful.
+    // 
+    // - `false`: The request failed.
     shared_ptr<bool> success_ {};
   };
 

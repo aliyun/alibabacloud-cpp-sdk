@@ -94,19 +94,20 @@ namespace Models
 
 
   protected:
-    // The language in which you want to display the results. Valid values: zh and en. zh indicates Chinese, which is the default value. en indicates English.
+    // The language in which the response is displayed. Valid values:
+    // - zh: Chinese. This is the default value.
+    // - en: English.
     shared_ptr<string> acceptLanguage_ {};
-    // The plug-in configuration. The configuration content of the WebAssembly (Wasm) plug-in is in the YAML format. The configuration content of the Lua plug-in is Lua code.
+    // The plug-in configuration. The configuration content of a Wasm plug-in is in YAML format, and the configuration content of a Lua plug-in is Lua code.
     shared_ptr<string> config_ {};
     // The application scope of the plug-in. Valid values:
-    // 
-    // *   0: global
-    // *   1: route
-    // *   2: domain name
+    // - 0: Global.
+    // - 1: Route.
+    // - 2: Domain name.
     // 
     // This parameter is required.
     shared_ptr<int32_t> configLevel_ {};
-    // Indicates whether the plug-in is enabled.
+    // Specifies whether to enable the plug-in.
     // 
     // This parameter is required.
     shared_ptr<bool> enable_ {};
@@ -114,11 +115,11 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> gatewayUniqueId_ {};
-    // The gateway plug-in ID.
+    // The ID of the gateway plug-in.
     // 
     // This parameter is required.
     shared_ptr<int64_t> pluginId_ {};
-    // The domain IDs or route IDs. They are distinguished based on ConfigLevel.
+    // The list of domain name IDs or route IDs. The specific type depends on the value of ConfigLevel.
     shared_ptr<string> resourceIdListShrink_ {};
   };
 

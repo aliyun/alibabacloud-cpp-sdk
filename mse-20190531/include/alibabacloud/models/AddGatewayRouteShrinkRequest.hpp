@@ -195,51 +195,49 @@ namespace Models
 
 
   protected:
-    // The language of the response. Valid values:
-    // 
-    // *   zh: Chinese
-    // *   en: English
+    // The language of the returned information. Valid values:
+    // - zh: Chinese
+    // - en: English
     shared_ptr<string> acceptLanguage_ {};
+    // The route description.
     shared_ptr<string> description_ {};
-    // The type of the destination service. Valid values:
-    // 
-    // *   Single
-    // *   Multiple
-    // *   VersionOriented
-    // *   Mock
-    // *   Redirect
+    // The destination service type. Valid values:
+    // - Single: single service
+    // - Multiple: multiple services
+    // - VersionOriented: tag-based routing
+    // - Mock: mock
+    // - Redirect: redirect
     shared_ptr<string> destinationType_ {};
     // The mock response configuration.
     shared_ptr<string> directResponseJSONShrink_ {};
-    // The domain ID.
+    // The domain name ID.
     shared_ptr<int64_t> domainId_ {};
-    // The domain IDs.
+    // The domain name list.
     shared_ptr<string> domainIdListJSON_ {};
-    // Specifies whether to activate Web Application Firewall (WAF).
+    // **[Deprecated]** Use UpdateGatewayRouteWafStatus to update the WAF status of the route.
     shared_ptr<bool> enableWaf_ {};
-    // Specifies whether to enable the Fallback service.
+    // Specifies whether to enable the fallback service.
     shared_ptr<bool> fallback_ {};
-    // The information about the Fallback service.
+    // The fallback service.
     shared_ptr<string> fallbackServicesShrink_ {};
-    // The ID of the gateway.
+    // The gateway ID.
     shared_ptr<int64_t> gatewayId_ {};
     // The unique ID of the gateway.
     shared_ptr<string> gatewayUniqueId_ {};
-    // The name of the route.
+    // The route name.
     shared_ptr<string> name_ {};
-    // The routing policy in a JSON string.
+    // The JSON string of the route policy.
     shared_ptr<string> policies_ {};
-    // The matching rule.
+    // The matching rules.
     shared_ptr<string> predicatesShrink_ {};
-    // The configuration of the redirection.
+    // The redirect configuration.
     shared_ptr<string> redirectJSONShrink_ {};
-    // The sequence number of the route. (A small value indicates a high priority.)
+    // The route order. A smaller value indicates a higher priority.
     shared_ptr<int32_t> routeOrder_ {};
     // The route type. Valid values:
-    // 
-    // Op: Manage routes.
+    // - Op: management and control route
     shared_ptr<string> routeType_ {};
-    // The list of services.
+    // The service list. This parameter is required when the route points to a single service, multiple services, or tag-based routing.
     shared_ptr<string> servicesShrink_ {};
   };
 

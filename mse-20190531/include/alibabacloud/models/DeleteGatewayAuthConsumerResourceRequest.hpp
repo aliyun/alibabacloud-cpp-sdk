@@ -68,10 +68,10 @@ namespace Models
   protected:
     // The language of the response. Valid values:
     // 
-    // *   zh: Chinese
-    // *   en: English
+    // - zh: Chinese
+    // - en: English
     shared_ptr<string> acceptLanguage_ {};
-    // The consumer ID.
+    // The ID of the gateway authentication consumer.
     // 
     // This parameter is required.
     shared_ptr<int64_t> consumerId_ {};
@@ -79,7 +79,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> gatewayUniqueId_ {};
-    // The IDs of the authorized resources that you want to delete.
+    // The list of authorization IDs to delete.
     // 
     // This parameter is required.
     shared_ptr<string> idList_ {};

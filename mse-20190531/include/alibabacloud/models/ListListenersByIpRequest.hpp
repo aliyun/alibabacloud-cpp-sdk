@@ -75,22 +75,23 @@ namespace Models
 
 
   protected:
-    // The language of the response. Valid values:
+    // Language type of the returned information:
     // 
-    // *   zh: Chinese
-    // *   en: English
+    // - zh: Chinese
+    // 
+    // - en: English
     shared_ptr<string> acceptLanguage_ {};
-    // The ID of the instance.
+    // Instance ID.
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
-    // The IP address of the listener.
+    // Listener IP address.
     // 
     // This parameter is required.
     shared_ptr<string> ip_ {};
-    // The ID of the namespace.
+    // Namespace ID, default is public
     shared_ptr<string> namespaceId_ {};
-    // The extended request parameters in the JSON format.
+    // Extended request parameters in JSON format.
     shared_ptr<string> requestPars_ {};
   };
 

@@ -57,8 +57,13 @@ namespace Models
 
 
   protected:
+    // The language of the response. Valid values:
+    // - zh: Chinese. This is the default value.
+    // - en: English.
     shared_ptr<string> acceptLanguage_ {};
+    // The unique ID of the gateway.
     shared_ptr<string> gatewayUniqueId_ {};
+    // The authentication ID.
     shared_ptr<int64_t> id_ {};
   };
 

@@ -114,30 +114,31 @@ namespace Models
   protected:
     // The language of the response. Valid values:
     // 
-    // *   zh: Chinese
-    // *   en: English
+    // - zh: Chinese
+    // 
+    // - en: English
     shared_ptr<string> acceptLanguage_ {};
     // The ID of the data.
     shared_ptr<string> dataId_ {};
     // The name of the configuration group.
     shared_ptr<string> group_ {};
-    // The ID of the instance.
+    // The instance ID.
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
-    // The ID of the namespace.
+    // The namespace ID. Default value: public
     shared_ptr<string> namespaceId_ {};
-    // The number of the page to return.
+    // The page number.
     // 
     // This parameter is required.
     shared_ptr<int32_t> pageNum_ {};
-    // The number of entries to return on each page.
+    // The number of entries to return per page.
     // 
     // This parameter is required.
     shared_ptr<int32_t> pageSize_ {};
-    // The ID of the region in which the instance resides. The region is supported by MSE.
+    // The region where the cluster is located. MSE supports specific regions.
     shared_ptr<string> regionId_ {};
-    // The extended request parameters in the JSON format.
+    // The extended request parameter in the JSON format.
     shared_ptr<string> requestPars_ {};
   };
 

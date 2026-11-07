@@ -86,16 +86,17 @@ namespace Models
   protected:
     // The language of the response. Valid values:
     // 
-    // *   zh: Chinese
-    // *   en: English
+    // - zh: Chinese
+    // 
+    // - en: English
     shared_ptr<string> acceptLanguage_ {};
     // The ID of the cluster.
     shared_ptr<string> clusterId_ {};
-    // A reserved parameter.
+    // A reserved field.
     shared_ptr<string> configType_ {};
     // The ID of the instance.
     shared_ptr<string> instanceId_ {};
-    // Specifies whether runtime configurations are required.
+    // Specifies whether to query the runtime configuration.
     shared_ptr<bool> needRunningConf_ {};
     // The extended request parameters in the JSON format.
     shared_ptr<string> requestPars_ {};

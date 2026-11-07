@@ -57,14 +57,15 @@ namespace Models
 
 
   protected:
-    // The language of the response. Valid values:
+    // Language type of the returned information:
     // 
-    // *   zh: Chinese
-    // *   en: English
+    // - zh: Chinese
+    // 
+    // - en: English
     shared_ptr<string> acceptLanguage_ {};
-    // The unique ID of the gateway.
+    // Gateway unique identifier ID.
     shared_ptr<string> gatewayUniqueId_ {};
-    // The ID of the route.
+    // Route ID.
     shared_ptr<int64_t> routeId_ {};
   };
 

@@ -112,16 +112,27 @@ namespace Models
 
 
   protected:
+    // The language of the response. Valid values: zh (default): Chinese. en: English.
     shared_ptr<string> acceptLanguage_ {};
+    // The ID of the application.
     shared_ptr<string> appId_ {};
+    // The name of the application.
     shared_ptr<string> appName_ {};
+    // Specifies whether to enable zone affinity.
+    // 
     // This parameter is required.
     shared_ptr<bool> enable_ {};
+    // The name of the MSE namespace.
     shared_ptr<string> namespace_ {};
+    // The region.
+    // 
     // This parameter is required.
     shared_ptr<string> region_ {};
+    // The reserved parameter. This parameter is not used.
     shared_ptr<string> rules_ {};
+    // The source of the rule.
     shared_ptr<string> source_ {};
+    // The threshold for zone affinity to take effect. The zone affinity routing feature is enabled for a zone only when the proportion of instances of the current application deployed in the zone exceeds this threshold. That is, when a consumer sends a request to the application, the request is preferentially routed to an instance in the same zone as the consumer.
     shared_ptr<double> threshold_ {};
   };
 

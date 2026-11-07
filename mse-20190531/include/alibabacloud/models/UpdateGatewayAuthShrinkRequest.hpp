@@ -259,30 +259,82 @@ namespace Models
 
 
   protected:
+    // The language of the response. Valid values: zh (default): Chinese. en: English.
     shared_ptr<string> acceptLanguage_ {};
+    // The YAML configuration for complex mode.
     shared_ptr<string> authResourceConfig_ {};
+    // The list of authorization rules for authentication. Multiple rule conditions have an OR relationship. Multiple matching items within a rule condition have an AND relationship.
     shared_ptr<string> authResourceListShrink_ {};
+    // The authorization resource mode. Valid values:
+    // 
+    // - 0: simple mode.
+    // - 1: complex mode.
     shared_ptr<int32_t> authResourceMode_ {};
+    // The application ID registered with the service. This parameter is used for OIDC/IDaaS.
     shared_ptr<string> clientId_ {};
+    // The application secret registered with the OIDC authentication service.
     shared_ptr<string> clientSecret_ {};
+    // The cookie domain name. After authentication succeeds, the cookie is sent to the specified domain name to maintain the logon state.
+    // 
+    // Example: If you set `Cookie-domain=a.example.com`, the cookie is sent to the domain name `a.example.com`. If you set `Cookie-domain=.example.com`, the cookie is sent to all subdomains of `example.com`.
     shared_ptr<string> cookieDomain_ {};
+    // The list of resource record IDs to delete.
     shared_ptr<string> deleteResourceIdListShrink_ {};
+    // The custom authentication information.
     shared_ptr<string> externalAuthZJSONShrink_ {};
+    // The unique ID of the gateway.
     shared_ptr<string> gatewayUniqueId_ {};
+    // The authentication rule ID.
     shared_ptr<int64_t> id_ {};
+    // The authorization blacklist/whitelist mode. Valid values:
+    // 
+    // - true: whitelist mode. Hosts and paths in the list can be accessed without verification. All others require verification.
+    // - false: blacklist mode. Hosts and paths in the list require verification. All others can be accessed directly.
     shared_ptr<bool> isWhite_ {};
+    // Used when the authentication type is JWT or OIDC:
+    // 
+    // - JWT: the iss (issuer) in JWT claims, which specifies the token issuer.
+    // - OIDC: the iss (issuer) in OIDC claims, which specifies the token issuer.
     shared_ptr<string> issuer_ {};
+    // The JWT public key. JSON format is supported.
     shared_ptr<string> jwks_ {};
+    // The user logon page URL of the IDaaS instance. This parameter is used for IDaaS.
     shared_ptr<string> loginUrl_ {};
+    // The authentication name.
     shared_ptr<string> name_ {};
+    // The redirect URL after successful authorization. This parameter is used for OIDC/IDaaS and must be consistent with the redirect URL configured in OIDC/IDaaS.
     shared_ptr<string> redirectUrl_ {};
+    // The OIDC authorization scopes. This parameter is used for OIDC.
     shared_ptr<string> scopesListShrink_ {};
+    // The enabled status. Valid values:
+    // 
+    // - false: disabled.
+    // - true: enabled.
     shared_ptr<bool> status_ {};
+    // Used when the authentication type is JWT. The sub (subject) in JWT claims, which specifies the principal. Make sure that the value of the sub field in the JWT payload is consistent with the value configured here. If this parameter is not set or is empty, the value defaults to the value of the Issuer parameter.
     shared_ptr<string> sub_ {};
+    // The location where the JWT token is stored.
+    // 
+    // The token parameter information to be verified. By default, the token is placed in the Authorization header with the Bearer prefix. Example: `Authorization: Bearer token`.
     shared_ptr<string> tokenName_ {};
+    // The prefix of the JWT token.
+    // 
+    // The token parameter information to be verified. By default, the token is placed in the Authorization header with the Bearer prefix. Example: `Authorization: Bearer token`.
     shared_ptr<string> tokenNamePrefix_ {};
+    // Specifies whether to pass through the token.
     shared_ptr<bool> tokenPass_ {};
+    // The JWT token type. Valid values:
+    // 
+    // - HEADER: transmitted through a header.
+    // 
+    // The token parameter information to be verified. By default, the token is placed in the Authorization header with the Bearer prefix. Example: Authorization: Bearer token.
     shared_ptr<string> tokenPosition_ {};
+    // The authentication type. Valid values:
+    // 
+    // - JWT
+    // - OIDC
+    // - IDaaS
+    // - ExternalAuthZ: a self-managed authentication service.
     shared_ptr<string> type_ {};
   };
 

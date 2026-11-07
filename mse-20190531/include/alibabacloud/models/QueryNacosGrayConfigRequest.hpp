@@ -103,15 +103,25 @@ namespace Models
 
 
   protected:
+    // The language of the response. Valid values: zh (default): Chinese. en: English.
     shared_ptr<string> acceptLanguage_ {};
+    // The DataId of the configuration.
+    // 
     // This parameter is required.
     shared_ptr<string> dataId_ {};
+    // The name of the canary release rule.
     shared_ptr<string> grayName_ {};
+    // The configuration group.
     shared_ptr<string> group_ {};
+    // The instance ID.
+    // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
+    // The namespace ID.
     shared_ptr<string> namespaceId_ {};
+    // The region where the cluster resides.
     shared_ptr<string> regionId_ {};
+    // This field is deprecated.
     shared_ptr<string> requestPars_ {};
   };
 

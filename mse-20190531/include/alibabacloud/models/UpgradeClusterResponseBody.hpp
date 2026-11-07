@@ -75,21 +75,20 @@ namespace Models
 
 
   protected:
-    // The error code returned if the request failed.
+    // The error code.
     shared_ptr<string> errorCode_ {};
-    // The response code returned.
+    // The HTTP status code.
     shared_ptr<string> httpCode_ {};
-    // The message returned.
+    // The returned message.
     // 
-    // *   If the request is successful, a success message is returned.
-    // *   If the request fails, an error message is returned.
+    // - If the request succeeds, a success message is returned.
+    // - If the request fails, the cause of the failure is returned.
     shared_ptr<string> message_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request was successful. Valid values:
-    // 
-    // *   `true`: The request was successful.
-    // *   `false`: The request failed.
+    // Indicates whether the request succeeded. Valid values:
+    // - `true`: The request succeeded.
+    // - `false`: The request failed.
     shared_ptr<bool> success_ {};
   };
 

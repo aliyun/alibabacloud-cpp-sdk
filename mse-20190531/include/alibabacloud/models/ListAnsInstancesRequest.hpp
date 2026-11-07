@@ -121,36 +121,32 @@ namespace Models
 
 
   protected:
-    // The language of the response. Valid values:
+    // The language of the returned information. Valid values:
     // 
-    // *   zh: Chinese
-    // *   en: English
+    // - zh: Chinese
+    // - en: English
     shared_ptr<string> acceptLanguage_ {};
-    // The ID of the Nacos instance.
-    // 
-    // > This operation contains both the InstanceId and ClusterId parameters. You must specify one of them.
+    // The cluster ID.>Notice: If this operation includes both InstanceId and ClusterId, you must specify at least one of them.
     shared_ptr<string> clusterId_ {};
-    // The alias of the Nacos instance.
+    // The cluster alias.
     shared_ptr<string> clusterName_ {};
-    // The name of the contact group.
+    // The contact group name.
     shared_ptr<string> groupName_ {};
-    // The ID of the instance.
-    // 
-    // > This operation contains both the InstanceId and ClusterId parameters. You must specify one of them.
+    // The instance ID.>Notice: If this operation includes both InstanceId and ClusterId, you must specify at least one of them.
     shared_ptr<string> instanceId_ {};
-    // The ID of the namespace.
+    // The namespace ID.
     shared_ptr<string> namespaceId_ {};
-    // The number of the page to return.
+    // The page number.
     // 
     // This parameter is required.
     shared_ptr<int32_t> pageNum_ {};
-    // The number of entries to return on each page.
+    // The number of instances to return on each page.
     // 
     // This parameter is required.
     shared_ptr<int32_t> pageSize_ {};
-    // The extended request parameters in the JSON format.
+    // The extended request parameters in JSON format.
     shared_ptr<string> requestPars_ {};
-    // The name of the service.
+    // The service name.
     // 
     // This parameter is required.
     shared_ptr<string> serviceName_ {};

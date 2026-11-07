@@ -75,10 +75,17 @@ namespace Models
 
 
   protected:
+    // The language of the returned results. Valid values:
+    // - zh: Chinese. This is the default value.
+    // - en: English.
     shared_ptr<string> acceptLanguage_ {};
+    // The ID of the application to delete.
     shared_ptr<string> appId_ {};
+    // The name of the application to delete.
     shared_ptr<string> appName_ {};
+    // The microservice namespace.
     shared_ptr<string> namespace_ {};
+    // The region.
     shared_ptr<string> region_ {};
   };
 

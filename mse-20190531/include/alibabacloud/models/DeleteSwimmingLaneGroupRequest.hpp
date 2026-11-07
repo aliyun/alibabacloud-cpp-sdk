@@ -66,16 +66,16 @@ namespace Models
 
 
   protected:
-    // The language of the response. Valid values:
+    // The language of the returned information. Valid values:
     // 
-    // *   zh: Chinese
-    // *   en: English
+    // - zh: Chinese.
+    // - en: English.
     shared_ptr<string> acceptLanguage_ {};
-    // The ID of the lane group.
+    // The ID of the end-to-end traffic lane group.
     shared_ptr<int64_t> groupId_ {};
     // The name.
     shared_ptr<string> name_ {};
-    // The name of the Microservices Engine (MSE) namespace.
+    // The name of the MSE namespace.
     shared_ptr<string> namespace_ {};
   };
 

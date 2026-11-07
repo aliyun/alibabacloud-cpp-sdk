@@ -38,7 +38,7 @@ namespace Models
 
 
   protected:
-    // The language in which you want to display the results. Valid values: zh and en. zh indicates Chinese, which is the default value. en indicates English.
+    // The language of the response. Valid values: `zh` (Chinese) and `en` (English). Default value: `zh`.
     shared_ptr<string> acceptLanguage_ {};
   };
 

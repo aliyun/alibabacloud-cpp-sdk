@@ -69,10 +69,16 @@ namespace Models
 
 
   protected:
+    // The language of the returned results. Valid values: zh (default): Chinese, en: English.
     shared_ptr<string> acceptLanguage_ {};
+    // The instance ID.
+    // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
+    // Specifies whether the changes take effect immediately.
     shared_ptr<bool> reload_ {};
+    // The list of usernames to remove.
+    // 
     // This parameter is required.
     shared_ptr<vector<string>> userNames_ {};
   };

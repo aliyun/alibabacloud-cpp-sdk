@@ -185,26 +185,29 @@ namespace Models
 
 
     protected:
-      // The type of the instance.
+      // The type of the cluster. Valid values:
       // 
-      // *   Nacos-Ans
-      // *   ZooKeeper
-      // *   Eureka
+      // - Nacos-Ans
+      // 
+      // - ZooKeeper
+      // 
+      // - Eureka
       shared_ptr<string> clusterType_ {};
-      // The creation time.
+      // The time when the task was created.
       shared_ptr<string> gmtCreate_ {};
-      // The update time.
+      // The time when the task was updated.
       shared_ptr<string> gmtModified_ {};
-      // The ID of the job.
+      // The ID of the task.
       shared_ptr<int64_t> id_ {};
-      // The address of the source instance node.
+      // The endpoint of the source instance.
       shared_ptr<string> originInstanceAddress_ {};
       // The name of the source instance.
       shared_ptr<string> originInstanceName_ {};
-      // The list of namespaces. This parameter is optional if applications are migrated from a Nacos instance.
+      // The list of namespaces. This parameter is optional when the source instance is a Nacos instance.
       shared_ptr<string> originInstanceNamespace_ {};
       // The description.
       shared_ptr<string> projectDesc_ {};
+      // The synchronization type.
       shared_ptr<string> syncType_ {};
       // The name of the destination instance.
       shared_ptr<string> targetClusterName_ {};
@@ -285,24 +288,25 @@ namespace Models
 
 
   protected:
-    // The array structure.
+    // The data array.
     shared_ptr<vector<ListMigrationTaskResponseBody::Data>> data_ {};
-    // The error code returned if the request failed.
+    // The error code.
     shared_ptr<string> errorCode_ {};
-    // The HTTP status code returned.
+    // The HTTP status code.
     shared_ptr<string> httpCode_ {};
-    // The message returned.
+    // The returned message.
     shared_ptr<string> message_ {};
-    // The number of the returned page.
+    // The page number.
     shared_ptr<int64_t> pageNumber_ {};
-    // The number of entries returned per page.
+    // The number of entries per page.
     shared_ptr<int64_t> pageSize_ {};
     // The ID of the request.
     shared_ptr<string> requestId_ {};
     // Indicates whether the request was successful. Valid values:
     // 
-    // *   `true`: The request was successful.
-    // *   `false`: The request failed.
+    // - `true`: The request was successful.
+    // 
+    // - `false`: The request failed.
     shared_ptr<bool> success_ {};
     // The total number of entries.
     shared_ptr<int64_t> totalCount_ {};

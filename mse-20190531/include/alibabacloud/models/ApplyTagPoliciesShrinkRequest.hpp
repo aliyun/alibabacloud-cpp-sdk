@@ -105,8 +105,8 @@ namespace Models
   protected:
     // The language of the response. Valid values:
     // 
-    // *   zh: Chinese
-    // *   en: English
+    // - zh: Chinese.
+    // - en: English.
     shared_ptr<string> acceptLanguage_ {};
     // The ID of the application.
     // 
@@ -114,15 +114,15 @@ namespace Models
     shared_ptr<string> appId_ {};
     // The name of the application.
     shared_ptr<string> appName_ {};
-    // Specifies whether to enable the routing rule.
+    // Specifies whether the rule is enabled.
     shared_ptr<bool> enable_ {};
-    // The Microservices Engine (MSE) namespace to which the application belongs.
+    // The MSE namespace to which the application belongs.
     shared_ptr<string> namespace_ {};
-    // Optional. The ID of the namespace.
+    // The namespace ID. This parameter is optional.
     shared_ptr<string> namespaceId_ {};
-    // The region ID.
+    // The region.
     shared_ptr<string> region_ {};
-    // The details of the routing rule.
+    // The routing rules.
     shared_ptr<string> rulesShrink_ {};
   };
 

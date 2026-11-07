@@ -149,9 +149,9 @@ namespace Models
 
 
       protected:
-        // The sampling rate of Tracing Analysis.
+        // The XTrace sampling rate.
         shared_ptr<int32_t> sample_ {};
-        // Indicates whether sampling by using Tracing Analysis is enabled.
+        // Specifies whether XTrace sampling is enabled.
         shared_ptr<bool> traceOn_ {};
       };
 
@@ -202,11 +202,11 @@ namespace Models
 
 
       protected:
-        // Indicates whether Log Service is activated.
+        // Specifies whether log delivery is enabled.
         shared_ptr<bool> logEnabled_ {};
-        // The name of the Logstore.
+        // The Logstore name.
         shared_ptr<string> logStoreName_ {};
-        // The name of the project.
+        // The project name.
         shared_ptr<string> projectName_ {};
       };
 
@@ -280,11 +280,11 @@ namespace Models
 
 
         protected:
-          // The number of expected replicas.
+          // The expected number of replicas.
           shared_ptr<int32_t> desiredReplica_ {};
-          // The end time of auto scale-out.
+          // The end time in the HH:mm format (24-hour clock).
           shared_ptr<string> endTime_ {};
-          // The start time of auto scale-out.
+          // The start time in the HH:mm format (24-hour clock).
           shared_ptr<string> startTime_ {};
         };
 
@@ -314,13 +314,13 @@ namespace Models
 
 
       protected:
-        // The type of auto scale-out. Valid value:
+        // The auto-scaling type. Valid values:
         // 
-        // *   CronHPA: scale-out by time
+        // - CronHPA: Time-based scaling.
         shared_ptr<string> elasticType_ {};
-        // The maximum number of instances that are automatically scaled out. This parameter is used for horizontal scale-out.
+        // The maximum number of instances for auto-scaling, which is used for horizontal scaling.
         shared_ptr<int32_t> maxReplica_ {};
-        // The policy of scale-out by time.
+        // The time-based scaling policy.
         shared_ptr<vector<ElasticPolicy::TimePolicyList>> timePolicyList_ {};
       };
 
@@ -527,73 +527,72 @@ namespace Models
 
 
     protected:
-      // The billing method, such as subscription or pay-as-you-go.
+      // The billing method. Valid values: subscription and pay-as-you-go.
       shared_ptr<string> chargeType_ {};
-      // Indicates whether auto scale-out is enabled.
+      // Specifies whether auto-scaling is enabled.
       shared_ptr<bool> elastic_ {};
-      // The auto scale-out policy.
+      // The auto-scaling policy.
       shared_ptr<Data::ElasticPolicy> elasticPolicy_ {};
-      // The number of replicas that are automatically scaled out.
+      // The number of auto-scaling replicas.
       shared_ptr<int32_t> elasticReplica_ {};
-      // The type of auto scale-out. Valid value:
+      // The auto-scaling type. Valid values:
       // 
-      // *   CronHPA: scale-out by time
+      // * CronHPA: Time-based scaling.
       shared_ptr<string> elasticType_ {};
-      // The time when the gateway expires.
+      // The expiration time of the gateway.
       shared_ptr<string> endDate_ {};
       // The unique ID of the gateway.
       shared_ptr<string> gatewayUniqueId_ {};
-      // The time when the gateway was created. The time is displayed in GMT. The time is the local time of the region in which the gateway resides.
+      // The time when the gateway was created. The time is in GMT and represents the local time of the user.
       shared_ptr<string> gmtCreate_ {};
-      // The time when the gateway was last modified.
+      // The time when the instance was last updated.
       shared_ptr<string> gmtModified_ {};
-      // The ID of the gateway.
+      // The gateway ID.
       shared_ptr<int64_t> id_ {};
-      // The ID of the instance.
+      // The instance ID.
       shared_ptr<string> instanceId_ {};
       // The log configuration.
       shared_ptr<Data::LogConfigDetails> logConfigDetails_ {};
-      // The tag of the resource.
+      // The resource tags.
       shared_ptr<string> mseTag_ {};
-      // The name of the gateway.
+      // The gateway name.
       shared_ptr<string> name_ {};
-      // The Alibaba Cloud account ID of the user who created the gateway.
+      // The ID of the primary user who created the gateway.
       shared_ptr<string> primaryUser_ {};
-      // The region ID.
+      // The region.
       shared_ptr<string> region_ {};
       // The number of gateway replicas.
       shared_ptr<int32_t> replica_ {};
-      // The ID of the resource group.
+      // The resource group ID.
       shared_ptr<string> resourceGroupId_ {};
-      // The ID of the security group.
+      // The security group.
       shared_ptr<string> securityGroup_ {};
-      // The specifications of the gateway.
+      // The gateway specifications.
       shared_ptr<string> spec_ {};
-      // The status of the gateway. Valid values:
-      // 
-      // *   0: The gateway is being created.
-      // *   1: The gateway fails to be created.
-      // *   2: The gateway is running.
-      // *   3: The gateway is changing.
-      // *   4: The gateway is scaling in.
-      // *   6: The gateway is scaling out.
-      // *   8: The gateway is being deleted.
-      // *   10: The gateway is restarting.
-      // *   11: The gateway is being rebuilt.
-      // *   12: The gateway is updating.
-      // *   13: The gateway fails to be updated.
+      // The result status of the data integration synchronization node. Valid values:
+      // * 0: Creating.
+      // * 1: Creation failed.
+      // * 2: Running.
+      // * 3: Modifying.
+      // * 4: Scaling in.
+      // * 6: Scaling out.
+      // * 8: delete.
+      // * 10: Restarting.
+      // * 11: Rebuilding.
+      // * 12: Upgrading.
+      // * 13: Upgrade failed.
       shared_ptr<int32_t> status_ {};
-      // The description of the status.
+      // The status description.
       shared_ptr<string> statusDesc_ {};
-      // The total number of replicas, including the number of replicas that are automatically scaled out.
+      // The total number of replicas, including auto-scaling replicas.
       shared_ptr<int32_t> totalReplica_ {};
-      // The ID of the VPC.
+      // The VPC ID.
       shared_ptr<string> vpc_ {};
-      // The ID of the vSwitch.
+      // The vSwitch.
       shared_ptr<string> vswitch_ {};
-      // The ID of the secondary vSwitch.
+      // The secondary vSwitch.
       shared_ptr<string> vswitch2_ {};
-      // The details of Tracing Analysis.
+      // The XTrace details.
       shared_ptr<Data::XtraceDetails> xtraceDetails_ {};
     };
 
@@ -644,20 +643,19 @@ namespace Models
 
 
   protected:
-    // The status code returned. A value of 200 indicates that the request is successful.
+    // The status code. A value of 200 indicates success.
     shared_ptr<int32_t> code_ {};
-    // The information about the gateway.
+    // The gateway information.
     shared_ptr<GetGatewayResponseBody::Data> data_ {};
-    // The HTTP status code returned.
+    // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
-    // The message returned.
+    // The message that indicates whether the request is successful.
     shared_ptr<string> message_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request was successful. Valid values:
-    // 
-    // *   `true`: The request was successful.
-    // *   `false`: The request failed.
+    // Indicates whether the request is successful. Valid values:
+    // - `true`: The request is successful.
+    // - `false`: The request fails.
     shared_ptr<bool> success_ {};
   };
 

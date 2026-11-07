@@ -95,11 +95,11 @@ namespace Models
 
 
     protected:
-      // The details of the instance.
+      // The instance information.
       shared_ptr<vector<string>> instancesId_ {};
-      // The name of the service.
+      // The service name.
       shared_ptr<string> name_ {};
-      // The number of service providers. The value is in the following format: Number of healthy instances/Total number of instances.
+      // The number of service providers, in the format of healthy instances/total instances.
       shared_ptr<string> upStatus_ {};
     };
 
@@ -172,26 +172,25 @@ namespace Models
 
 
   protected:
-    // The details of the data.
+    // The data overview.
     shared_ptr<vector<ListEurekaServicesResponseBody::Data>> data_ {};
-    // The error code returned if the request failed.
+    // The error code.
     shared_ptr<string> errorCode_ {};
-    // The HTTP status code returned.
+    // The HTTP status code.
     shared_ptr<string> httpCode_ {};
-    // The message returned.
+    // The message.
     shared_ptr<string> message_ {};
-    // The page number of the returned page.
+    // The page number.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries returned per page.
+    // The number of instances to return per page.
     shared_ptr<int32_t> pageSize_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request was successful. Valid values:
-    // 
-    // *   `true`: The request was successful.
-    // *   `false`: The request failed.
+    // Indicates whether the request is successful. Valid values:
+    // - `true`: The request succeeded.
+    // - `false`: The request failed.
     shared_ptr<bool> success_ {};
-    // The total number of returned instances.
+    // The total number of instances.
     shared_ptr<int32_t> totalCount_ {};
   };
 

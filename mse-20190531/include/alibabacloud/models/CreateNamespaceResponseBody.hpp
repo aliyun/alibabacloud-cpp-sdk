@@ -75,7 +75,9 @@ namespace Models
 
 
     protected:
+      // The name of the namespace.
       shared_ptr<string> namespace_ {};
+      // The region to which the namespace belongs.
       shared_ptr<string> region_ {};
     };
 
@@ -119,10 +121,15 @@ namespace Models
 
 
   protected:
+    // The response data.
     shared_ptr<CreateNamespaceResponseBody::Data> data_ {};
+    // The error code.
     shared_ptr<string> errorCode_ {};
+    // The error message returned.
     shared_ptr<string> message_ {};
+    // The request ID
     shared_ptr<string> requestId_ {};
+    // Indicates whether the request was successful
     shared_ptr<bool> success_ {};
   };
 

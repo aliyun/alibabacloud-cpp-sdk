@@ -142,8 +142,9 @@ namespace Models
   protected:
     // The language of the response. Valid values:
     // 
-    // *   zh: Chinese
-    // *   en: English
+    // - zh: Chinese
+    // 
+    // - en: English
     shared_ptr<string> acceptLanguage_ {};
     // The application ID.
     shared_ptr<string> appId_ {};
@@ -152,47 +153,26 @@ namespace Models
     // This parameter is required.
     shared_ptr<string> appName_ {};
     // The throttling effect.
-    // 
-    // Valid values:
-    // 
-    // *   0: fast failure
-    // *   2: in queue
     shared_ptr<int32_t> controlBehavior_ {};
     // Specifies whether to enable the rule.
     // 
-    // Valid values:
-    // 
-    // *   true
-    // 
-    //     <!-- -->
-    // 
-    //     <!-- -->
-    // 
-    //     <!-- -->
-    // 
-    // *   false
-    // 
-    //     <!-- -->
-    // 
-    //     <!-- -->
-    // 
-    //     <!-- -->
-    // 
     // This parameter is required.
     shared_ptr<bool> enable_ {};
+    // The source application of the request.
     shared_ptr<string> limitApp_ {};
-    // The timeout period. Unit: milliseconds. This value is required if the ControlBehavior parameter is set to 2.
+    // The timeout period. Unit: milliseconds. This parameter is required if the ControlBehavior parameter is set to 2.
     shared_ptr<int32_t> maxQueueingTimeMs_ {};
     // The namespace.
     // 
     // This parameter is required.
     shared_ptr<string> namespace_ {};
-    // The region in which the instance resides.
+    // The region in which the cluster resides.
     shared_ptr<string> regionId_ {};
-    // The name of the API resource.
+    // The interface resource name.
     // 
     // This parameter is required.
     shared_ptr<string> resource_ {};
+    // The interface resource type.
     shared_ptr<int32_t> resourceType_ {};
     // The throttling threshold.
     // 

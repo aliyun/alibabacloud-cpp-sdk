@@ -75,12 +75,12 @@ namespace Models
 
 
   protected:
-    // The language of the response. Valid values:
+    // The language of the returned information. Valid values:
     // 
-    // *   zh: Chinese
-    // *   en: English
+    // - zh: Chinese.
+    // - en: English.
     shared_ptr<string> acceptLanguage_ {};
-    // The ID of the consumer.
+    // The ID of the gateway authentication consumer.
     // 
     // This parameter is required.
     shared_ptr<int64_t> consumerId_ {};
@@ -88,14 +88,15 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> gatewayUniqueId_ {};
-    // The list of IDs of the authorized resources that a user wants to update.
+    // The list of authorization IDs to update.
     // 
     // This parameter is required.
     shared_ptr<string> idList_ {};
-    // The resource authorization status. Valid values:
+    // The resource status. Valid values:
     // 
-    // *   true: enabled
-    // *   false: disabled
+    // - true: Enabled.
+    // 
+    // - false: Disabled.
     // 
     // This parameter is required.
     shared_ptr<bool> resourceStatus_ {};

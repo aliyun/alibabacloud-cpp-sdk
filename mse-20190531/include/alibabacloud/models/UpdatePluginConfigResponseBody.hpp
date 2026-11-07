@@ -103,17 +103,17 @@ namespace Models
 
 
   protected:
-    // The status code returned.
+    // The code.
     shared_ptr<int32_t> code_ {};
-    // The ID of the plug-in configuration.
+    // The ID value.
     shared_ptr<int64_t> data_ {};
-    // The dynamic part in the error message.
+    // The placeholder in the dynamic error message.
     shared_ptr<string> dynamicMessage_ {};
-    // The error code that is returned.
+    // The error code.
     shared_ptr<string> errorCode_ {};
-    // The HTTP status code returned.
+    // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
-    // The message returned.
+    // The returned message.
     shared_ptr<string> message_ {};
     // The ID of the request.
     shared_ptr<string> requestId_ {};

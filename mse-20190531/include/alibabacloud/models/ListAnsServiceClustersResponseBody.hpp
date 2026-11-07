@@ -291,9 +291,11 @@ namespace Models
         shared_ptr<int32_t> checkTimeout_ {};
         // The type of the health check. Valid values:
         // 
-        // *   connection: connection status check
-        // *   tcp: TCP connection check
-        // *   http: HTTP connection check
+        // - connection: connection status check
+        // 
+        // - tcp: TCP connection check
+        // 
+        // - http: HTTP connection check
         shared_ptr<string> checkType_ {};
         // The maximum number of health check retries when the instance state changes from unhealthy to healthy.
         shared_ptr<int32_t> healthyCheckTimes_ {};
@@ -382,8 +384,9 @@ namespace Models
       shared_ptr<vector<Data::Clusters>> clusters_ {};
       // Indicates whether the service is a temporary service. Valid values:
       // 
-      // *   `true`: yes
-      // *   `false`: no
+      // - `true`: yes
+      // 
+      // - `false`: no
       shared_ptr<bool> ephemeral_ {};
       // The service group to which the service belongs.
       shared_ptr<string> groupName_ {};
@@ -397,9 +400,11 @@ namespace Models
       shared_ptr<string> selectorType_ {};
       // The source type of the service. Valid values:
       // 
-      // *   console: The service was registered in the console.
-      // *   sdk: The service was registered by using the SDK.
-      // *   governance: The service was registered on Microservices Governance.
+      // - console: The service was registered in the console.
+      // 
+      // - sdk: The service was registered by using the SDK.
+      // 
+      // - governance: The service was registered on Microservices Governance.
       shared_ptr<string> source_ {};
     };
 
@@ -462,8 +467,9 @@ namespace Models
     shared_ptr<string> requestId_ {};
     // Indicates whether the request was successful. Valid values:
     // 
-    // *   `true`: The request was successful.
-    // *   `false`: The request failed.
+    // - `true`: The request was successful.
+    // 
+    // - `false`: The request failed.
     shared_ptr<bool> success_ {};
   };
 

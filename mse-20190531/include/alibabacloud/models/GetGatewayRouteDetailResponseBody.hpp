@@ -170,11 +170,11 @@ namespace Models
 
 
       protected:
-        // The status.
+        // Status.
         shared_ptr<string> status_ {};
-        // The time unit.
+        // Time unit.
         shared_ptr<string> timeUnit_ {};
-        // The unit number.
+        // Unit number.
         shared_ptr<int32_t> unitNum_ {};
       };
 
@@ -322,8 +322,21 @@ namespace Models
 
 
             protected:
+              // Input parameter extraction Key.
               shared_ptr<string> extractKey_ {};
+              // Input parameter position.
+              // 
+              // > Input parameter position enumeration values.
+              // >
+              // > - Request parameter: `ALL_QUERY_PARAMETER`
+              // >
+              // > - Request header: `ALL_HEADER`
+              // >
+              // > - URI of the request: `ALL_PATH`
+              // >
+              // > - Request body: `ALL_BODY`
               shared_ptr<string> extractKeySpec_ {};
+              // Backend parameter type.
               shared_ptr<string> mappingType_ {};
             };
 
@@ -376,11 +389,37 @@ namespace Models
 
 
           protected:
+            // Dubbo method name.
             shared_ptr<string> dubboMothedName_ {};
+            // Http method.
+            // 
+            // > Supported http method parameter values.
+            // >
+            // > - ALL_GET
+            // >
+            // > - ALL_POST
+            // >
+            // > - ALL_PUT
+            // >
+            // > - ALL_DELETE
+            // >
+            // > - ALL_PATCH
             shared_ptr<string> httpMothed_ {};
+            // Method matching path.
             shared_ptr<string> mothedpath_ {};
+            // Parameter mapping list.
             shared_ptr<vector<MothedMapList::ParamMapsList>> paramMapsList_ {};
+            // Header pass-through type.
+            // 
+            // > Pass-through type enumeration values.
+            // >
+            // > - Pass through all: PASS_ALL
+            // >
+            // > - No pass-through: PASS_NOT
+            // >
+            // > - Specified parameters: PASS_ASSIGN
             shared_ptr<string> passThroughAllHeaders_ {};
+            // Specified Header pass-through list.
             shared_ptr<vector<string>> passThroughList_ {};
           };
 
@@ -417,9 +456,13 @@ namespace Models
 
 
         protected:
+          // Dubbo service group.
           shared_ptr<string> dubboServiceGroup_ {};
+          // Dubbo service name.
           shared_ptr<string> dubboServiceName_ {};
+          // Dubbo service version.
           shared_ptr<string> dubboServiceVersion_ {};
+          // Dubbo forwarding rule list.
           shared_ptr<vector<HttpDubboTranscoder::MothedMapList>> mothedMapList_ {};
         };
 
@@ -523,28 +566,39 @@ namespace Models
 
 
       protected:
-        // The protocol type.
+        // Protocol Type.
         shared_ptr<string> agreementType_ {};
-        // The name of the group to which the service belongs.
+        // Service group name.
         shared_ptr<string> groupName_ {};
+        // Health status
+        // 
+        // - Health
+        // 
+        // - Unhealthy
+        // 
+        // - Checking
+        // 
+        // - Unknown
         shared_ptr<string> healthStatus_ {};
+        // Dubbo protocol conversion body.
         shared_ptr<RouteServices::HttpDubboTranscoder> httpDubboTranscoder_ {};
-        // The service name.
+        // Service name.
         shared_ptr<string> name_ {};
-        // The namespace.
+        // Namespace.
         shared_ptr<string> namespace_ {};
-        // The weight.
+        // Weight.
         shared_ptr<int32_t> percent_ {};
-        // The service ID.
+        // Service ID.
         shared_ptr<int64_t> serviceId_ {};
-        // The service name.
+        // Service name.
         shared_ptr<string> serviceName_ {};
-        // The port number of the service.
+        // Service port.
         shared_ptr<int32_t> servicePort_ {};
-        // The source type of the service.
+        // Service source.
         shared_ptr<string> sourceType_ {};
+        // Unhealthy Endpoint list
         shared_ptr<vector<string>> unhealthyEndpoints_ {};
-        // The service version.
+        // Service version.
         shared_ptr<string> version_ {};
       };
 
@@ -620,11 +674,11 @@ namespace Models
 
 
         protected:
-          // The parameter name.
+          // Parameter name.
           shared_ptr<string> key_ {};
-          // The route type.
+          // Type.
           shared_ptr<string> type_ {};
-          // The value of the parameter.
+          // Matching value.
           shared_ptr<string> value_ {};
         };
 
@@ -675,11 +729,11 @@ namespace Models
 
 
         protected:
-          // Indicates whether case sensitivity is ignored.
+          // Whether to ignore case.
           shared_ptr<bool> ignoreCase_ {};
-          // The path.
+          // Path.
           shared_ptr<string> path_ {};
-          // The matching type.
+          // Matching type.
           shared_ptr<string> type_ {};
         };
 
@@ -730,11 +784,11 @@ namespace Models
 
 
         protected:
-          // The key of the request header.
+          // Request header KEY.
           shared_ptr<string> key_ {};
-          // The route type.
+          // Type.
           shared_ptr<string> type_ {};
-          // The value of the request header.
+          // Matching value.
           shared_ptr<string> value_ {};
         };
 
@@ -777,13 +831,13 @@ namespace Models
 
 
       protected:
-        // The information about header matching.
+        // Header matching.
         shared_ptr<vector<RoutePredicates::HeaderPredicates>> headerPredicates_ {};
-        // The information about method matching.
+        // Method matching.
         shared_ptr<vector<string>> methodPredicates_ {};
-        // The information about route matching.
+        // Route matching.
         shared_ptr<RoutePredicates::PathPredicates> pathPredicates_ {};
-        // The information about parameter matching.
+        // Parameter matching.
         shared_ptr<vector<RoutePredicates::QueryPredicates>> queryPredicates_ {};
       };
 
@@ -847,13 +901,13 @@ namespace Models
 
 
       protected:
-        // The number of retries allowed.
+        // Number of retry attempts.
         shared_ptr<int32_t> attempts_ {};
-        // The HTTP status codes.
+        // HTTP status codes.
         shared_ptr<vector<string>> httpCodes_ {};
-        // The retry condition.
+        // Retry conditions.
         shared_ptr<vector<string>> retryOn_ {};
-        // The retry status.
+        // Retry status.
         shared_ptr<string> status_ {};
       };
 
@@ -904,11 +958,11 @@ namespace Models
 
 
       protected:
-        // The response code returned.
+        // Response code.
         shared_ptr<int32_t> code_ {};
-        // The hostname.
+        // Host.
         shared_ptr<string> host_ {};
-        // The path.
+        // Path.
         shared_ptr<string> path_ {};
       };
 
@@ -989,13 +1043,13 @@ namespace Models
 
 
         protected:
-          // The request or response.
+          // Request or response.
           shared_ptr<string> directionType_ {};
-          // The header key.
+          // Header Key.
           shared_ptr<string> key_ {};
-          // The type of the operation.
+          // Operation type.
           shared_ptr<string> opType_ {};
-          // The header value.
+          // Setting value.
           shared_ptr<string> value_ {};
         };
 
@@ -1018,9 +1072,9 @@ namespace Models
 
 
       protected:
-        // The information about headers.
+        // Header field objects.
         shared_ptr<vector<HeaderOp::HeaderOpItems>> headerOpItems_ {};
-        // The status.
+        // Status.
         shared_ptr<string> status_ {};
       };
 
@@ -1098,17 +1152,17 @@ namespace Models
 
 
       protected:
-        // The hostname of the gateway.
+        // Instance address.
         shared_ptr<string> host_ {};
-        // The path of the node.
+        // Node path.
         shared_ptr<string> path_ {};
-        // The rewrite type.
+        // Rewrite type.
         shared_ptr<string> pathType_ {};
-        // The matching pattern.
+        // Matching Pattern.
         shared_ptr<string> pattern_ {};
-        // The status of the policy.
+        // Enabling status.
         shared_ptr<string> status_ {};
-        // The replacement.
+        // Replacement.
         shared_ptr<string> substitution_ {};
       };
 
@@ -1177,18 +1231,19 @@ namespace Models
 
 
       protected:
-        // 流量复制比例（%），取值0-100。
+        // Traffic replication percentage (%), value range 0-100.
         shared_ptr<int32_t> percentage_ {};
-        // 目标服务端口。
+        // Target service port.
         shared_ptr<int32_t> port_ {};
-        // 开启状态，取值：
+        // Enabling status, values:
         // 
-        // - on：开启
-        // - off：关闭
+        // - on: enabled
+        // 
+        // - off: disabled
         shared_ptr<string> status_ {};
-        // 目标服务ID。
+        // Target service ID.
         shared_ptr<int64_t> targetServiceId_ {};
-        // 目标服务名称。
+        // Target service name.
         shared_ptr<string> targetServiceName_ {};
       };
 
@@ -1303,25 +1358,25 @@ namespace Models
 
 
       protected:
-        // The protocol type.
+        // Protocol Type.
         shared_ptr<string> agreementType_ {};
-        // The name of the group to which the service belongs.
+        // Service group name.
         shared_ptr<string> groupName_ {};
-        // The name.
+        // Name.
         shared_ptr<string> name_ {};
-        // The namespace to which the service belongs.
+        // Service namespace.
         shared_ptr<string> namespace_ {};
-        // The weight in the form of a percentage value.
+        // Weight percentage.
         shared_ptr<int32_t> percent_ {};
-        // The service ID.
+        // Service ID.
         shared_ptr<int64_t> serviceId_ {};
-        // The service name.
+        // Service name.
         shared_ptr<string> serviceName_ {};
-        // The port number of the service.
+        // Service port.
         shared_ptr<int32_t> servicePort_ {};
-        // The source type of the service.
+        // Source type.
         shared_ptr<string> sourceType_ {};
-        // The service version.
+        // Service version.
         shared_ptr<string> version_ {};
       };
 
@@ -1363,9 +1418,9 @@ namespace Models
 
 
       protected:
-        // The mock return value.
+        // Mock return value.
         shared_ptr<string> body_ {};
-        // The response code returned.
+        // Response code.
         shared_ptr<int32_t> code_ {};
       };
 
@@ -1462,21 +1517,21 @@ namespace Models
 
 
       protected:
-        // The credentials allowed.
+        // Allow credentials.
         shared_ptr<bool> allowCredentials_ {};
-        // The headers allowed.
+        // Cross-domain Header.
         shared_ptr<string> allowHeaders_ {};
-        // The methods allowed.
+        // Cross-domain methods.
         shared_ptr<string> allowMethods_ {};
-        // The origins allowed.
+        // Cross-domain.
         shared_ptr<string> allowOrigins_ {};
-        // The response headers.
+        // Response header.
         shared_ptr<string> exposeHeaders_ {};
-        // The status.
+        // Status.
         shared_ptr<string> status_ {};
-        // The time unit.
+        // Time unit.
         shared_ptr<string> timeUnit_ {};
-        // The unit number.
+        // Time number.
         shared_ptr<int64_t> unitNum_ {};
       };
 
@@ -1746,77 +1801,83 @@ namespace Models
 
 
     protected:
-      // The status of Application High Availability Service (AHAS).
+      // Ahas status.
       shared_ptr<int32_t> ahasStatus_ {};
-      // The configuration for cross-origin resource sharing (CORS).
+      // Cross-domain configuration.
       shared_ptr<Data::Cors> cors_ {};
-      // The default service ID.
+      // Default service ID.
       shared_ptr<int64_t> defaultServiceId_ {};
-      // The default service name.
+      // Default service name.
       shared_ptr<string> defaultServiceName_ {};
+      // Route description
       shared_ptr<string> description_ {};
-      // The destination service type.
+      // Target service type.
       shared_ptr<string> destinationType_ {};
-      // The information about service mocking.
+      // Mock information.
       shared_ptr<Data::DirectResponse> directResponse_ {};
-      // The domain ID.
+      // Domain ID.
       shared_ptr<int64_t> domainId_ {};
-      // The IDs of domains.
+      // Domain list
       shared_ptr<vector<int64_t>> domainIdList_ {};
-      // The domain name.
+      // Domain name.
       shared_ptr<string> domainName_ {};
-      // The list of domain names.
+      // Domain name list
       shared_ptr<vector<string>> domainNameList_ {};
-      // Indicates whether Web Application Firewall (WAF) is activated.
+      // Whether to enable Waf.
       shared_ptr<bool> enableWaf_ {};
-      // Indicates whether the Fallback service is enabled.
+      // Whether to enable Fallback service.
       shared_ptr<bool> fallback_ {};
-      // The information of the Fallback service.
+      // Fallback services.
       shared_ptr<vector<Data::FallbackServices>> fallbackServices_ {};
-      // 流量镜像配置。
+      // Traffic mirroring configuration.
       shared_ptr<Data::FlowMirror> flowMirror_ {};
-      // The ID of the gateway.
+      // Gateway ID.
       shared_ptr<int64_t> gatewayId_ {};
-      // The unique ID of the gateway.
+      // Gateway unique identifier ID.
       shared_ptr<string> gatewayUniqueId_ {};
-      // The creation time.
+      // Creation time.
       shared_ptr<string> gmtCreate_ {};
-      // The last modification time.
+      // Last modification time.
       shared_ptr<string> gmtModified_ {};
-      // The information about the rewrite policy.
+      // Rewrite policy information.
       shared_ptr<Data::HTTPRewrite> HTTPRewrite_ {};
-      // The header settings.
+      // Header settings information.
       shared_ptr<Data::HeaderOp> headerOp_ {};
-      // The ID.
+      // ID.
       shared_ptr<int64_t> id_ {};
-      // The name.
+      // Name.
       shared_ptr<string> name_ {};
-      // The routing policy in a JSON string.
+      // Routing policy Json string.
       shared_ptr<string> policies_ {};
-      // The matching conditions.
+      // Matching conditions.
       shared_ptr<string> predicates_ {};
-      // The configuration of the redirection.
+      // Redirection configuration
       shared_ptr<Data::Redirect> redirect_ {};
-      // The retry configuration.
+      // Retry configuration.
       shared_ptr<Data::Retry> retry_ {};
-      // The sequence number of the route.
+      // Route order.
       shared_ptr<int32_t> routeOrder_ {};
-      // The information about route matching.
+      // Route matching.
       shared_ptr<Data::RoutePredicates> routePredicates_ {};
-      // The services.
+      // Services.
       shared_ptr<vector<Data::RouteServices>> routeServices_ {};
-      // The configurations of services.
+      // Service configuration information.
       shared_ptr<string> services_ {};
-      // The status of the route. Valid values:
+      // Route status.
       // 
-      // *   0: unpublished
-      // *   2: publishing
-      // *   3: published
-      // *   4: editing (updated but not published)
-      // *   5: unpublishing
-      // *   6: unavailable
+      // - Not published: 0
+      // 
+      // - Publishing: 2
+      // 
+      // - Published: 3
+      // 
+      // - Editing (updates not published): 4
+      // 
+      // - Unpublishing: 5
+      // 
+      // - Unavailable: 6
       shared_ptr<int32_t> status_ {};
-      // The timeout configuration.
+      // Timeout configuration.
       shared_ptr<Data::Timeout> timeout_ {};
     };
 
@@ -1867,20 +1928,21 @@ namespace Models
 
 
   protected:
-    // The status code returned. A value of 200 indicates that the request is successful.
+    // Status code. Note that 200 indicates success.
     shared_ptr<int32_t> code_ {};
-    // The data returned.
+    // Returned data.
     shared_ptr<GetGatewayRouteDetailResponseBody::Data> data_ {};
-    // The HTTP status code returned.
+    // HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
-    // The error message returned if the request failed.
+    // Error message.
     shared_ptr<string> message_ {};
-    // The ID of the request.
+    // Request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request was successful. Valid values:
+    // Request result, with the following values:
     // 
-    // *   `true`: The request was successful.
-    // *   `false`: The request failed.
+    // - `true`: The request is successful.
+    // 
+    // - `false`: The request failed.
     shared_ptr<bool> success_ {};
   };
 

@@ -66,16 +66,15 @@ namespace Models
 
 
   protected:
-    // The language of the response. Valid values:
-    // 
-    // *   zh: Chinese
-    // *   en: English
+    // The language of the returned information. Valid values:
+    // - zh: Chinese.
+    // - en: English.
     shared_ptr<string> acceptLanguage_ {};
-    // Specifies whether to query access control lists (ACLs).
+    // Specifies whether to query the access control list (ACL).
     shared_ptr<bool> aclSwitch_ {};
-    // The ID of the instance.
+    // The instance ID.
     shared_ptr<string> instanceId_ {};
-    // The ID of the order.
+    // The order ID.
     shared_ptr<string> orderId_ {};
   };
 

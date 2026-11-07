@@ -181,9 +181,9 @@ namespace Models
 
 
       protected:
-        // The start time of the O\\&M time window.
+        // The start time of the O&M time window.
         shared_ptr<string> endTime_ {};
-        // The end time of the O\\&M time window.
+        // The end time of the O&M time window.
         shared_ptr<string> startTime_ {};
       };
 
@@ -280,21 +280,21 @@ namespace Models
 
 
       protected:
-        // A reserved parameter.
+        // The reserved field.
         shared_ptr<string> creationTimestamp_ {};
-        // A reserved parameter.
+        // The reserved field.
         shared_ptr<string> healthStatus_ {};
-        // A reserved parameter.
+        // The reserved field.
         shared_ptr<string> internetIp_ {};
-        // A reserved parameter.
+        // The reserved field.
         shared_ptr<string> ip_ {};
-        // A reserved parameter.
+        // The reserved field.
         shared_ptr<string> podName_ {};
-        // A reserved parameter.
+        // The reserved field.
         shared_ptr<string> role_ {};
-        // A reserved parameter.
+        // The reserved field.
         shared_ptr<string> singleTunnelVip_ {};
-        // A reserved parameter.
+        // The reserved field.
         shared_ptr<string> zone_ {};
       };
 
@@ -625,91 +625,93 @@ namespace Models
 
 
     protected:
-      // The public IP address whitelist.
+      // The public network whitelist.
       shared_ptr<string> aclEntryList_ {};
-      // The ID of the instance in the public IP address whitelist.
+      // The instance ID of the Internet whitelist.
       shared_ptr<string> aclId_ {};
-      // The version of the instance.
+      // The cluster version number.
       shared_ptr<string> appVersion_ {};
+      // Indicates whether the cluster has a minor version available for upgrade.
       shared_ptr<bool> canUpdate_ {};
-      // The billing method, such as subscription or pay-as-you-go.
+      // The billing method. Valid values: subscription and pay-as-you-go.
       shared_ptr<string> chargeType_ {};
-      // The alias of the instance.
+      // The alias of the cluster.
       shared_ptr<string> clusterAliasName_ {};
-      // The full name of the instance.
+      // The full name of the cluster.
       shared_ptr<string> clusterName_ {};
       // The engine specifications.
       shared_ptr<string> clusterSpecification_ {};
-      // The type of the instance. Valid values: ZooKeeper, Nacos-Ans, and Eureka.
+      // The cluster type. Valid values: ZooKeeper, Nacos-Ans, and Eureka.
       shared_ptr<string> clusterType_ {};
-      // The version of the order.
+      // The order version.
       shared_ptr<string> clusterVersion_ {};
-      // A deprecated parameter.
+      // The deprecated field.
       shared_ptr<string> connectionType_ {};
-      // A deprecated parameter.
+      // The deprecated field.
       shared_ptr<int32_t> cpu_ {};
-      // The time when the instance was created.
+      // The time when the cluster was created.
       shared_ptr<string> createTime_ {};
-      // A deprecated parameter.
+      // The deprecated field.
       shared_ptr<int64_t> diskCapacity_ {};
-      // A deprecated parameter.
+      // The deprecated field.
       shared_ptr<string> diskType_ {};
-      // The ID of the instance that is associated with the Elastic IP Address (EIP).
+      // The instance ID of the elastic IP address (EIP).
       shared_ptr<string> eipInstanceId_ {};
-      // The time when the subscription instance expires.
+      // The expiration time for subscription instances.
       shared_ptr<string> endDate_ {};
-      // The zones to which the current cluster can be distributed.
+      // The list of zones to which the current cluster can be distributed.
       shared_ptr<vector<string>> expectZones_ {};
-      // The status of the instance.
+      // The cluster status.
       shared_ptr<string> healthStatus_ {};
-      // The time that is required to initialize the instance. Unit: milliseconds.
+      // The time taken to initialize the cluster, in milliseconds.
       shared_ptr<int64_t> initCostTime_ {};
-      // The initial status of the instance.
+      // The initialization status.
       shared_ptr<string> initStatus_ {};
-      // The number of instance nodes.
+      // The number of instances in the cluster.
       shared_ptr<int32_t> instanceCount_ {};
-      // The ID of the instance
+      // The instance ID.
       shared_ptr<string> instanceId_ {};
       // The reserved structure.
       shared_ptr<vector<Data::InstanceModels>> instanceModels_ {};
-      // A reserved parameter.
+      // The reserved field.
       shared_ptr<string> internetAddress_ {};
-      // The public endpoint.
+      // The public domain name.
       shared_ptr<string> internetDomain_ {};
-      // The instance ports that are accessible over the Internet.
+      // The open ports for the Internet cluster.
       shared_ptr<string> internetPort_ {};
-      // A reserved parameter.
+      // The reserved field.
       shared_ptr<string> intranetAddress_ {};
-      // The internal endpoint.
+      // The internal domain name.
       shared_ptr<string> intranetDomain_ {};
-      // The instance ports that are accessible over an internal network.
+      // The internal network port opened for the cluster.
       shared_ptr<string> intranetPort_ {};
-      // The O\\&M time window.
+      // The O&M time window.
       shared_ptr<Data::MaintenancePeriod> maintenancePeriod_ {};
-      // A deprecated parameter.
+      // The deprecated field.
       shared_ptr<int64_t> memoryCapacity_ {};
-      // The version of the instance.
+      // The cluster version.
       shared_ptr<string> mseVersion_ {};
-      // The network connection type of the instance.
+      // The network connectivity type of the cluster.
       shared_ptr<string> netType_ {};
       // The billing method.
       shared_ptr<string> payInfo_ {};
-      // The public bandwidth. Unit: Mbit/s.\\
-      // Valid values: 0 to 5000. The value 0 indicates no access to the Internet.
+      // The Internet bandwidth. Unit: Mbit/s. Valid values: 0 to 5000. A value of 0 indicates that the cluster is not connected to the Internet.
       shared_ptr<string> pubNetworkFlow_ {};
-      // The ID of the region.
+      // The region ID.
       shared_ptr<string> regionId_ {};
-      // The ID of the security group to which the elastic network interface (ENI) is connected.
+      // The ID of the security group for ENI network access.
       shared_ptr<string> securityGroupId_ {};
-      // The type of the security group to which the ENI is connected.
+      // The type of the security group for ENI network access.
       shared_ptr<string> securityGroupType_ {};
-      // The tag.
+      // The tags.
       Darabonba::Json tags_ {};
-      // The ID of the vSwitch.
+      // The vSwitch ID.
       shared_ptr<string> vSwitchId_ {};
+      // The current version code of the cluster.
       shared_ptr<string> versionCode_ {};
+      // The version lifecycle.
       shared_ptr<string> versionLifecycle_ {};
-      // The ID of the VPC where the instance resides.
+      // The ID of the VPC where the cluster is deployed.
       shared_ptr<string> vpcId_ {};
     };
 
@@ -753,21 +755,20 @@ namespace Models
 
 
   protected:
-    // The details of the data.
+    // The data overview.
     shared_ptr<QueryClusterInfoResponseBody::Data> data_ {};
-    // The error code returned if the request failed.
+    // The error code.
     shared_ptr<string> errorCode_ {};
-    // The message returned.
+    // The returned message.
     // 
-    // *   If the request is successful, a success message is returned.
-    // *   If the request fails, an error message is returned.
+    // - If the request is successful, a success message is returned.
+    // - If the request fails, the cause of the failure is returned.
     shared_ptr<string> message_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request was successful. Valid values:
-    // 
-    // *   `true`: The request was successful.
-    // *   `false`: The request failed.
+    // The request result. Valid values:
+    // - `true`: The request is successful.
+    // - `false`: The request fails.
     shared_ptr<bool> success_ {};
   };
 

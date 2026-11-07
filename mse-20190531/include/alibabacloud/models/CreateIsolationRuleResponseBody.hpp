@@ -139,14 +139,23 @@ namespace Models
 
 
     protected:
+      // The ID of the application.
       shared_ptr<string> appId_ {};
+      // The name of the application.
       shared_ptr<string> appName_ {};
+      // The enabling status of the rule.
       shared_ptr<bool> enable_ {};
+      // The ID of the rule.
       shared_ptr<int64_t> id_ {};
+      // The source application of the request.
       shared_ptr<string> limitApp_ {};
+      // The microservice namespace to which the application belongs.
       shared_ptr<string> namespace_ {};
+      // The region where the cluster is deployed.
       shared_ptr<string> regionId_ {};
+      // The name of the interface to which the rule applies. The name must be the same as the interface name displayed in the interface details on the console.
       shared_ptr<string> resource_ {};
+      // The concurrency threshold of the isolation rule.
       shared_ptr<float> threshold_ {};
     };
 
@@ -190,10 +199,15 @@ namespace Models
 
 
   protected:
+    // The response code.
     shared_ptr<string> code_ {};
+    // The rule information.
     shared_ptr<CreateIsolationRuleResponseBody::Data> data_ {};
+    // The response message.
     shared_ptr<string> message_ {};
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the request is successful.
     shared_ptr<bool> success_ {};
   };
 

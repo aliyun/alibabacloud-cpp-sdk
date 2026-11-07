@@ -105,22 +105,25 @@ namespace Models
   protected:
     // The language of the response. Valid values:
     // 
-    // *   zh: Chinese
-    // *   en: English
+    // - zh: Chinese
+    // 
+    // - en: English
     shared_ptr<string> acceptLanguage_ {};
+    // Specifies whether to automatically pay after placing an order. If this value is false, this interface will return a payment URL for the order, which you can manually confirm to pay
     shared_ptr<bool> autoPay_ {};
-    // The ID of the cluster.
+    // The cluster ID.
     shared_ptr<string> clusterId_ {};
     // The destination engine specifications.
     shared_ptr<string> clusterSpecification_ {};
     // The number of destination nodes.
     shared_ptr<int32_t> instanceCount_ {};
-    // The ID of the instance.
+    // The instance ID.
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
     // The MSE version.
     shared_ptr<string> mseVersion_ {};
+    // Internet bandwidth
     shared_ptr<int32_t> pubNetworkFlow_ {};
   };
 

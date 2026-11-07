@@ -107,9 +107,9 @@ namespace Models
 
 
       protected:
-        // Data ID.
+        // The data ID.
         shared_ptr<string> dataId_ {};
-        // Group ID.
+        // The group ID.
         shared_ptr<string> group_ {};
       };
 
@@ -160,11 +160,11 @@ namespace Models
 
 
       protected:
-        // Data ID.
+        // The data ID.
         shared_ptr<string> dataId_ {};
-        // Group ID.
+        // The group ID.
         shared_ptr<string> group_ {};
-        // The reason for the current operation.
+        // The error reason.
         shared_ptr<string> reason_ {};
       };
 
@@ -203,13 +203,13 @@ namespace Models
 
 
     protected:
-      // Failed configuration information.
+      // The failed configuration information.
       shared_ptr<vector<Data::FailData>> failData_ {};
-      // Number of skips.
+      // The number of skipped configurations.
       shared_ptr<int32_t> skipCount_ {};
-      // Skipped configuration information.
+      // The skipped configuration information.
       shared_ptr<vector<Data::SkipData>> skipData_ {};
-      // Number of successes.
+      // The number of successful configurations.
       shared_ptr<int32_t> succCount_ {};
     };
 
@@ -275,24 +275,24 @@ namespace Models
 
 
   protected:
-    // Response code.
+    // The response code.
     shared_ptr<int32_t> code_ {};
-    // Data overview.
+    // The data overview.
     shared_ptr<CloneNacosConfigResponseBody::Data> data_ {};
-    // Dynamic error message, used to replace the **%s** in the **ErrMessage** error message.
-    // > If **ErrMessage** returns **The Value of Input Parameter %s is not valid**, and **DynamicMessage** returns **DtsJobId**, it indicates that the input request parameter **DtsJobId** is invalid.
+    // The dynamic error message, which is used to replace the **%s** placeholder in the **ErrMessage** error message.
+    // > If **ErrMessage** returns **The Value of Input Parameter %s is not valid** and **DynamicMessage** returns **DtsJobId**, the request parameter **DtsJobId** is invalid.
     shared_ptr<string> dynamicMessage_ {};
-    // Error code.
+    // The error code.
     shared_ptr<string> errorCode_ {};
-    // HTTP status code.
+    // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
-    // Response message.
+    // The response message.
     shared_ptr<string> message_ {};
-    // Request ID.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // Request result, with the following values:
-    // - `true`: Request succeeded.
-    // - `false`: Request failed.
+    // The request result. Valid values:
+    // - `true`: The request was successful.
+    // - `false`: The request failed.
     shared_ptr<bool> success_ {};
   };
 

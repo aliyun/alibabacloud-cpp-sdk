@@ -185,24 +185,31 @@ namespace Models
     protected:
       // The application IDs.
       shared_ptr<string> appIds_ {};
+      // The routing mode for end-to-end canary release:
+      // 
+      // - 0: routing based on request content
+      // 
+      // - 1: routing based on percentages
       shared_ptr<int32_t> canaryModel_ {};
-      // The type and ID of the ingress application.
+      // The type of the ingress application and the ID of the ingress application.
       shared_ptr<string> entryApp_ {};
       // The ID of the lane group.
       shared_ptr<int64_t> id_ {};
-      // The side at which canary release for messaging was enabled.
+      // The side at which canary release for messaging is enabled.
       shared_ptr<string> messageQueueFilterSide_ {};
       // Indicates whether canary release for messaging is enabled.
       shared_ptr<bool> messageQueueGrayEnable_ {};
-      // The name of the lane group.
+      // The name of a lane group.
       shared_ptr<string> name_ {};
       // The MSE namespace to which the lane belongs.
       shared_ptr<string> namespace_ {};
+      // This parameter is deprecated
       shared_ptr<string> paths_ {};
-      // Indicates whether the request details (metrics of end-to-end canary release) were recorded.
+      // Indicates whether to record the request details (metrics of end-to-end canary release).
       shared_ptr<bool> recordCanaryDetail_ {};
       // The region ID.
       shared_ptr<string> region_ {};
+      // The canary version. Valid values: 0 and 2. Recommended value: 2.
       shared_ptr<int32_t> swimVersion_ {};
       // The ID of the user to which the lane belongs.
       shared_ptr<string> userId_ {};
@@ -270,27 +277,29 @@ namespace Models
 
 
   protected:
-    // The status code. A value of 200 is returned if the request is successful.
+    // The code is used only to synchronize with success.
     shared_ptr<int32_t> code_ {};
-    // The details of the data.
+    // The data returned.
     shared_ptr<vector<QueryAllSwimmingLaneGroupResponseBody::Data>> data_ {};
     // The dynamic part in the error message.
     shared_ptr<string> dynamicMessage_ {};
-    // The error code returned if the request failed.
+    // The error code.
     shared_ptr<string> errorCode_ {};
-    // The HTTP status code returned.
+    // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
-    // The returned message.
+    // The message that is returned for the request.
     // 
-    // *   If the request is successful, a success message is returned.
-    // *   If the request fails, an error message is returned.
+    // - If the request is successful, a success message is returned.
+    // 
+    // - If the request fails, an error message is returned.
     shared_ptr<string> message_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
     // Indicates whether the request was successful. Valid values:
     // 
-    // *   `true`: The request was successful.
-    // *   `false`: The request failed.
+    // - `true`: The request was successful.
+    // 
+    // - `false`: The request failed.
     shared_ptr<bool> success_ {};
   };
 

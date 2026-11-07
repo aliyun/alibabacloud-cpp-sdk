@@ -66,9 +66,13 @@ namespace Models
 
 
   protected:
+    // The language in which you want the results to be displayed. Valid values: zh (default): Chinese. en: English
     shared_ptr<string> acceptLanguage_ {};
+    // The description of the namespace that you want to create for Microservices Governance.
     shared_ptr<string> describe_ {};
+    // The name of the namespace that you want to create for Microservices Governance.
     shared_ptr<string> name_ {};
+    // The tag.
     shared_ptr<string> tagShrink_ {};
   };
 

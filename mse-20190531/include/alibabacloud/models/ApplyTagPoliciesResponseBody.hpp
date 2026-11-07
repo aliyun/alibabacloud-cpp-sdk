@@ -147,26 +147,26 @@ namespace Models
 
 
     protected:
-      // Indicates whether the field is the primary key.
+      // Indicates whether it is a primary key.
       shared_ptr<bool> carryData_ {};
-      // Indicates whether the rule is enabled. Valid values:
+      // Indicates whether the feature is enabled. Valid values:
       // 
-      // *   `true`: The rule is enabled.
-      // *   `false`: The rule is disabled.
+      // - `true`: Enabled.
+      // - `false`: Disabled.
       shared_ptr<bool> enable_ {};
-      // The ID of the primary key.
+      // The primary key ID.
       shared_ptr<int64_t> id_ {};
       // The number of instances.
       shared_ptr<int32_t> instanceNum_ {};
       // The policy name.
       shared_ptr<string> name_ {};
-      // The rate.
+      // The ratio.
       shared_ptr<int32_t> rate_ {};
-      // Indicates whether the routing rule was deleted.
+      // Indicates whether the deletion is successful.
       shared_ptr<bool> remove_ {};
-      // The details of the routing rule.
+      // The tag rules.
       shared_ptr<string> rules_ {};
-      // The status.
+      // The effective status.
       shared_ptr<int32_t> status_ {};
       // The tag.
       shared_ptr<string> tag_ {};
@@ -205,13 +205,13 @@ namespace Models
 
 
   protected:
-    // The details of the data.
+    // The data overview.
     shared_ptr<vector<ApplyTagPoliciesResponseBody::Data>> data_ {};
-    // The message returned.
+    // The response message.
     shared_ptr<string> message_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request is successful.
+    // The request result.
     shared_ptr<bool> success_ {};
   };
 

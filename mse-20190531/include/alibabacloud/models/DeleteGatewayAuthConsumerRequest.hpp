@@ -57,16 +57,16 @@ namespace Models
 
 
   protected:
-    // The language of the response. Valid values:
+    // The language of the returned information. Valid values:
     // 
-    // *   zh: Chinese
-    // *   en: English
+    // - zh: Chinese.
+    // - en: English.
     shared_ptr<string> acceptLanguage_ {};
     // The unique ID of the gateway.
     // 
     // This parameter is required.
     shared_ptr<string> gatewayUniqueId_ {};
-    // The ID of the consumer on which the gateway performs authentication operations.
+    // The ID of the gateway authentication consumer.
     // 
     // This parameter is required.
     shared_ptr<int64_t> id_ {};

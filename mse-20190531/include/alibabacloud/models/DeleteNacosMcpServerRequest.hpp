@@ -66,9 +66,13 @@ namespace Models
 
 
   protected:
+    // The language of the returned results. Valid values: zh (default): Chinese. en: English.
     shared_ptr<string> acceptLanguage_ {};
+    // The instance ID.
     shared_ptr<string> instanceId_ {};
+    // The ID of the MCP Server.
     shared_ptr<string> mcpServerId_ {};
+    // The namespace ID.
     shared_ptr<string> namespaceId_ {};
   };
 

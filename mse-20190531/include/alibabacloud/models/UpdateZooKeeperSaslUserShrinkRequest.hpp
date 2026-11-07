@@ -66,10 +66,16 @@ namespace Models
 
 
   protected:
+    // The language of the response. Valid values: zh (default): Chinese. en: English.
     shared_ptr<string> acceptLanguage_ {};
+    // The instance ID.
+    // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
+    // Specifies whether the changes take effect immediately.
     shared_ptr<bool> reload_ {};
+    // The list of SASL users to update.
+    // 
     // This parameter is required.
     shared_ptr<string> saslUserShrink_ {};
   };

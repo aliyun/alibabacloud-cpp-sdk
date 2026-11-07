@@ -115,21 +115,20 @@ namespace Models
     protected:
       // The unique ID of the gateway.
       shared_ptr<string> gatewayUniqueId_ {};
-      // The group.
+      // The group name.
       shared_ptr<string> groupName_ {};
-      // The name of the service.
+      // The service name.
       shared_ptr<string> name_ {};
-      // The namespace to which the service belongs.
+      // The namespace.
       shared_ptr<string> namespace_ {};
-      // The protocol of the service.
-      // 
-      // *   HTTP
-      // *   HTTPS
-      // *   HTTP2
-      // *   GRPC
-      // *   DUBBO
+      // The Terms of Service. Valid values:
+      // - HTTP
+      // - HTTPS
+      // - HTTP2
+      // - GRPC
+      // - DUBBO
       shared_ptr<string> serviceProtocol_ {};
-      // The type of the source.
+      // The source type.
       shared_ptr<string> sourceType_ {};
     };
 
@@ -181,19 +180,18 @@ namespace Models
 
   protected:
     // The language of the response. Valid values:
-    // 
-    // *   zh: Chinese
-    // *   en: English
+    // - zh: Chinese.
+    // - en: English.
     shared_ptr<string> acceptLanguage_ {};
-    // Specifies whether to enable sorting.
+    // The sort order.
     shared_ptr<bool> descSort_ {};
-    // The parameters that are used to specify filter conditions. The values of the parameters are in the format of {"key1":"value1"}.
+    // The filter conditions in the format of {"key1":"value1"}.
     shared_ptr<ListGatewayServiceRequest::FilterParams> filterParams_ {};
-    // The item based on which entries are sorted.
+    // The sort attribute.
     shared_ptr<string> orderItem_ {};
-    // The number of the page to return.
+    // The page number.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries to return on each page.
+    // The page size.
     shared_ptr<int32_t> pageSize_ {};
   };
 

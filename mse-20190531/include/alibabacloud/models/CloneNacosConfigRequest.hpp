@@ -94,30 +94,30 @@ namespace Models
 
 
   protected:
-    // Language type of the returned message:
+    // The language of the response. Valid values:
     // 
-    // - zh: Chinese
-    // - en: English
+    // - zh: Chinese.
+    // - en: English.
     shared_ptr<string> acceptLanguage_ {};
-    // Configuration items to be cloned, in the format of dataId+group, with multiple items separated by commas.
+    // The configuration items to clone, in the format of dataId+group. Separate multiple configuration items with commas (,).
     shared_ptr<string> dataIds_ {};
-    // List of configuration IDs.
+    // The list of configuration IDs.
     shared_ptr<string> ids_ {};
-    // Instance ID.
+    // The instance ID.
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
-    // Source namespace ID.
+    // The source namespace ID.
     shared_ptr<string> originNamespaceId_ {};
-    // The strategy used when a write conflict occurs.
+    // The policy used when a write conflict occurs. Valid values:
     // 
     // - ABORT
     // - SKIP
-    // - OVERWRITE
+    // - OVERWRITE.
     // 
     // This parameter is required.
     shared_ptr<string> policy_ {};
-    // Target namespace ID.
+    // The destination namespace ID.
     shared_ptr<string> targetNamespaceId_ {};
   };
 

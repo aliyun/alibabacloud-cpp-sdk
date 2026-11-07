@@ -186,7 +186,9 @@ namespace Models
 
 
         protected:
+          // The resource ID.
           shared_ptr<int64_t> id_ {};
+          // The resource name, which is the domain name or route name.
           shared_ptr<string> name_ {};
         };
 
@@ -268,17 +270,15 @@ namespace Models
       protected:
         // The plug-in configuration.
         shared_ptr<string> config_ {};
-        // The application scope of the plug-in. Valid values:
+        // The plug-in application scope. Valid values:
         // 
-        // 0: global
-        // 
-        // 1: domain names
-        // 
-        // 2: routes
+        // - 0: Global.
+        // - 1: Domain name.
+        // - 2: Route.
         shared_ptr<int32_t> configLevel_ {};
         // Indicates whether the plug-in is enabled.
         shared_ptr<bool> enable_ {};
-        // The ID of the gateway.
+        // The gateway ID.
         shared_ptr<int64_t> gatewayId_ {};
         // The unique ID of the gateway.
         shared_ptr<string> gatewayUniqueId_ {};
@@ -286,10 +286,11 @@ namespace Models
         shared_ptr<string> gmtCreate_ {};
         // The update time.
         shared_ptr<string> gmtModified_ {};
-        // The ID of the plug-in configuration.
+        // The plug-in configuration ID.
         shared_ptr<int64_t> id_ {};
         // The ID of the gateway plug-in.
         shared_ptr<int64_t> pluginId_ {};
+        // The list of domain name and route resources, distinguished by ConfigLevel.
         shared_ptr<vector<GatewayConfigList::ResourceList>> resourceList_ {};
       };
 
@@ -470,81 +471,76 @@ namespace Models
 
 
     protected:
-      // The category of the plug-in. Valid values:
+      // The plug-in category. Valid values:
       // 
-      // 0: user-defined
-      // 
-      // 1: permission authentication
-      // 
-      // 2: security protection
-      // 
-      // 3: transmission protocol
-      // 
-      // 4: traffic control
-      // 
-      // 5: traffic observation
+      // - 0: Custom.
+      // - 1: Authentication and authorization.
+      // - 2: Security protection.
+      // - 3: Transport protocol.
+      // - 4: Traffic control.
+      // - 5: Traffic observation.
       shared_ptr<int32_t> category_ {};
-      // The information about the plug-in configuration used for checking.
+      // The configuration validation.
       shared_ptr<string> configCheck_ {};
+      // The plug-in configuration example.
       shared_ptr<string> configExample_ {};
+      // The start index of domain-level rules in GatewayConfigList. If no domain-level rules exist, the value is -1.
       shared_ptr<int32_t> domainConfigStartIndex_ {};
       // The list of gateway plug-in configurations.
       shared_ptr<vector<Data::GatewayConfigList>> gatewayConfigList_ {};
+      // The index of instance-level rules in GatewayConfigList. If no instance-level rules exist, the value is -1.
       shared_ptr<int32_t> gatewayConfigStartIndex_ {};
-      // The ID of the plug-in.
+      // The plug-in ID.
       shared_ptr<int64_t> id_ {};
-      // The name of the image.
+      // The image name.
       shared_ptr<string> imageName_ {};
       // The mode.
       shared_ptr<int32_t> mode_ {};
-      // The name of the plug-in.
+      // The plug-in name.
       shared_ptr<string> name_ {};
-      // The execution stage of the plug-in. Valid values:
+      // The plug-in execution phase. Valid values:
       // 
-      // 0: default stage
-      // 
-      // 1: authorization stage
-      // 
-      // 2: authentication stage
-      // 
-      // 3: statistics stage
+      // - 0: Default phase.
+      // - 1: Authentication phase.
+      // - 2: Authorization phase.
+      // - 3: Statistics phase.
       shared_ptr<int32_t> phase_ {};
       // The ID of the creator.
       shared_ptr<string> primaryUser_ {};
-      // The execution priority of the plug-in. A larger value indicates a higher priority.
+      // The plug-in execution priority. A larger value indicates a higher priority.
       shared_ptr<int32_t> priority_ {};
       // The publish status.
       shared_ptr<int32_t> publishState_ {};
-      // The description of the README file.
+      // The README description.
       shared_ptr<string> readme_ {};
-      // The description of the README file that is edited in English.
+      // The README description in English.
       shared_ptr<string> readmeEn_ {};
+      // The start index of route-level rules in GatewayConfigList. If no route-level rules exist, the value is -1.
       shared_ptr<int32_t> routeConfigStartIndex_ {};
-      // Indicates whether the plug-in is enabled. Valid values:
+      // The enabling status. Valid values:
       // 
-      // 0: disabled
-      // 
-      // 1: enabled
+      // - 0: Disabled.
+      // - 1: Enabled.
       shared_ptr<string> status_ {};
-      // The summary of the plug-in.
+      // The plug-in summary.
       shared_ptr<string> summary_ {};
+      // The plug-in summary in English.
       shared_ptr<string> summaryEn_ {};
-      // The type.
+      // The plug-in type. Valid values:
+      // - 0: HTTP filter.
+      // - 1: Network filter.
       shared_ptr<int32_t> type_ {};
-      // The version of the plug-in.
+      // The plug-in version.
       shared_ptr<string> version_ {};
+      // The list of gateway plug-in version information.
       shared_ptr<string> versionJson_ {};
-      // The WebAssembly language. Valid values:
+      // The WebAssembly (Wasm) implementation language. Valid values:
       // 
-      // 0: C++
-      // 
-      // 1: TinyGo
-      // 
-      // 2: Rust
-      // 
-      // 3: AssemblyScript
-      // 
-      // 4: Zig
+      // - 0: C++.
+      // - 1: TinyGo.
+      // - 2: Rust.
+      // - 3: AssemblyScript.
+      // - 4: Zig.
       shared_ptr<int32_t> wasmLang_ {};
     };
 
@@ -617,7 +613,7 @@ namespace Models
 
 
   protected:
-    // The status code returned.
+    // The code.
     shared_ptr<int32_t> code_ {};
     // The returned data.
     shared_ptr<GetPluginConfigResponseBody::Data> data_ {};
@@ -625,13 +621,13 @@ namespace Models
     shared_ptr<string> dynamicCode_ {};
     // The dynamic error message.
     shared_ptr<string> dynamicMessage_ {};
-    // The error code returned if the request failed.
+    // The error code.
     shared_ptr<string> errorCode_ {};
-    // The HTTP status code returned.
+    // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
-    // The message returned.
+    // The API message.
     shared_ptr<string> message_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
     // Indicates whether the request is successful.
     shared_ptr<bool> success_ {};

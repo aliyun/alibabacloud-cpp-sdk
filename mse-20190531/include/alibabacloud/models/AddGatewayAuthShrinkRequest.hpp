@@ -241,48 +241,72 @@ namespace Models
 
 
   protected:
+    // The language of the returned result. Valid values:
+    // - zh: Chinese. This is the default value.
+    // - en: English.
     shared_ptr<string> acceptLanguage_ {};
+    // The YAML configuration for the complex mode.
     shared_ptr<string> authResourceConfig_ {};
-    // The information about the resource to be authorized.
+    // The list of authorization rules for authentication. Multiple rule conditions use the OR operator, and multiple matching items within a rule condition use the AND operator.
     shared_ptr<string> authResourceListShrink_ {};
+    // The authorization resource mode. Valid values:
+    // - 0: simple mode.
+    // - 1: complex mode.
     shared_ptr<int32_t> authResourceMode_ {};
-    // The application ID registered with the OIDC authentication service.
+    // The application ID registered in the service. This parameter is used for OIDC and IDaaS.
     shared_ptr<string> clientId_ {};
-    // The application secret registered with the OIDC authentication service.
+    // The application secret registered in the service. This parameter is used for OIDC and IDaaS.
     shared_ptr<string> clientSecret_ {};
-    // The domain name of the cookie. After the authentication is passed, the cookie is sent to the specified domain name to maintain the logon status. For example, if you set `Cookie-domain` to a.example.com, the cookie is sent to the domain name `a.example.com`. If you set `Cookie-domain` to .example.com, the cookie is sent to all subdomains of `example.com`.
+    // The domain name of the cookie. After authentication, the cookie is sent to the specified domain name to maintain the logon state.
+    // 
+    // For example, if you set the value to `Cookie-domain=a.example.com`, the cookie is sent to the `a.example.com` domain name. If you set the value to `Cookie-domain=.example.com`, the cookie is sent to all subdomains of `example.com`.
     shared_ptr<string> cookieDomain_ {};
-    // The information about the custom authentication service.
+    // The custom authentication information.
     shared_ptr<string> externalAuthZJSONShrink_ {};
     // The unique ID of the gateway.
     shared_ptr<string> gatewayUniqueId_ {};
-    // Specifies whether to enable the whitelist feature.
+    // The authorization blacklist and whitelist mode. Valid values:
+    // - true: whitelist mode. Hosts and paths in the list can be accessed without verification, while all others require verification.
+    // - false: blacklist mode. Hosts and paths in the list require verification, while all others can be accessed directly.
     shared_ptr<bool> isWhite_ {};
-    // The iss value of JWT claims, which indicates the issuer. You must make sure that the value of this parameter is the same as the iss value in the payload of JWT claims.
+    // Used when the authentication type is JWT or OIDC:
+    // - JWT: specifies the `iss` (issuer) claim of the JWT.
+    // - OIDC: specifies the `iss` (issuer) claim of the OIDC token.
     shared_ptr<string> issuer_ {};
-    // The JWT public key. The JSON format is supported.
+    // The JWT public key. JSON format is supported.
     shared_ptr<string> jwks_ {};
-    // The URL that is used to log on to the IDaaS instance.
+    // The URL of the user logon page for the IDaaS instance. This parameter is used for IDaaS.
     shared_ptr<string> loginUrl_ {};
-    // The name.
+    // The name of the authentication.
     shared_ptr<string> name_ {};
-    // The redirect URL.
+    // The redirect URL after successful authorization. This parameter is used for OIDC and IDaaS. The value must be the same as the redirect URL configured in OIDC or IDaaS.
     shared_ptr<string> redirectUrl_ {};
-    // The OIDC scope.
+    // The OIDC authorization scopes. This parameter is used for OIDC.
     shared_ptr<string> scopesListShrink_ {};
-    // The status.
+    // An unavailable parameter. You do not need to specify this parameter. By default, authentication is disabled after it is created.
     shared_ptr<bool> status_ {};
-    // The sub value of JWT claims, which indicates the subject. You must make sure that the value of this parameter is the same as the sub value in the payload of JWT claims. If you do not set this parameter or leave it empty, the default value, which is the value of the Issuer parameter, is used.
+    // Used when the authentication type is JWT. Specifies the `sub` (subject) claim of the JWT. Make sure that the value of the `sub` field in the JWT payload is the same as the value configured here. If this parameter is not specified or is empty, the default value is the same as the value of the Issuer parameter.
     shared_ptr<string> sub_ {};
-    // The name of the parameter that is required to verify a token. By default, a token is prefixed with Bearer and stored in the authorization header. Example: `Authorization: Bearer token`.
+    // The location where the JWT token is stored.
+    // 
+    // By default, the token to be verified is placed in the Authorization header with the Bearer prefix, such as `Authorization: Bearer token`.
     shared_ptr<string> tokenName_ {};
-    // The name prefix of the parameter that is required to verify a token. By default, a token is prefixed with Bearer and stored in the authorization header. Example: `Authorization: Bearer token`
+    // The prefix of the JWT token.
+    // 
+    // By default, the token to be verified is placed in the Authorization header with the Bearer prefix, such as `Authorization: Bearer token`.
     shared_ptr<string> tokenNamePrefix_ {};
-    // Specifies whether to enable pass-through.
+    // Specifies whether to pass through the token.
     shared_ptr<bool> tokenPass_ {};
-    // The position of the parameter that is required to verify a token. By default, a token is prefixed with Bearer and stored in the authorization header. Example: `Authorization: Bearer token`.
+    // The position of the JWT token. Valid values:
+    // - HEADER: transmitted in the HTTP header.
+    // 
+    // By default, the token to be verified is placed in the Authorization header with the Bearer prefix, such as Authorization: Bearer token.
     shared_ptr<string> tokenPosition_ {};
-    // The authentication type. JSON Web Token (JWT) authentication, OpenID Connect (OIDC) authentication, Identity as a Service (IDaaS) authentication, or custom authentication are supported.
+    // The authentication type. Valid values:
+    // - JWT
+    // - OIDC
+    // - IDaaS
+    // - ExternalAuthZ (custom authentication service)
     shared_ptr<string> type_ {};
   };
 

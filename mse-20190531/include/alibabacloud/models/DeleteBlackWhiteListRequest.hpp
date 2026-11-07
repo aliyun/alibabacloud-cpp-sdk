@@ -66,9 +66,13 @@ namespace Models
 
 
   protected:
+    // The language of the response. Valid values: zh (default): Chinese, en: English.
     shared_ptr<string> acceptLanguage_ {};
+    // The ID of the gateway.
     shared_ptr<int64_t> gatewayId_ {};
+    // The unique ID of the gateway.
     shared_ptr<string> gatewayUniqueId_ {};
+    // The ID of the blacklists and whitelists entry.
     shared_ptr<int64_t> id_ {};
   };
 

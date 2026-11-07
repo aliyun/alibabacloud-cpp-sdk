@@ -75,22 +75,21 @@ namespace Models
 
 
   protected:
-    // The language of the response. Valid values:
-    // 
-    // zh: Chinese en: English
+    // The language of the returned information. Valid values:
+    // - zh: Chinese.
+    // - en: English.
     shared_ptr<string> acceptLanguage_ {};
-    // The type of the plug-in. Valid values:
-    // 
-    // *   0: custom
-    // *   1: permission authorization
-    // *   2: security protection
-    // *   3: transmission protocol
-    // *   4: traffic control
-    // *   5: traffic observation
+    // The plug-in type. Valid values:
+    // - 0: Custom.
+    // - 1: Authentication and authorization.
+    // - 2: Security protection.
+    // - 3: Transport protocol.
+    // - 4: Traffic control.
+    // - 5: Traffic observability.
     shared_ptr<int32_t> category_ {};
-    // Specifies whether to enable the plug-in.
+    // Specifies whether the plug-in is enabled.
     shared_ptr<bool> enableOnly_ {};
-    // The ID of the gateway.
+    // The gateway ID.
     // 
     // This parameter is required.
     shared_ptr<string> gatewayUniqueId_ {};

@@ -103,16 +103,27 @@ namespace Models
 
 
   protected:
+    // The language in which the response is displayed. Valid values: zh (default): Chinese. en: English.
     shared_ptr<string> acceptLanguage_ {};
+    // The ID of the application.
     shared_ptr<string> appId_ {};
+    // The name of the application.
+    // 
     // This parameter is required.
     shared_ptr<string> appName_ {};
+    // Specifies whether the rule is enabled.
     shared_ptr<bool> enable_ {};
+    // The source application of the request.
     shared_ptr<string> limitApp_ {};
+    // The microservice namespace to which the application belongs.
+    // 
     // This parameter is required.
     shared_ptr<string> namespace_ {};
+    // The ID of the rule.
+    // 
     // This parameter is required.
     shared_ptr<int64_t> ruleId_ {};
+    // The concurrency threshold of the isolation rule.
     shared_ptr<float> threshold_ {};
   };
 

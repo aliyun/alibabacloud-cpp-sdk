@@ -161,14 +161,23 @@ namespace Models
 
 
       protected:
+        // Number of applications.
         shared_ptr<int32_t> appCount_ {};
+        // Creation time.
         shared_ptr<int64_t> createTime_ {};
+        // Namespace description.
         shared_ptr<string> describe_ {};
+        // Number of online nodes.
         shared_ptr<int64_t> instanceCount_ {};
+        // Namespace.
         shared_ptr<string> namespace_ {};
+        // Region.
         shared_ptr<string> region_ {};
+        // Update time.
         shared_ptr<int64_t> updateTime_ {};
+        // User ID.
         shared_ptr<string> userId_ {};
+        // Version. Basic Edition 0, Professional Edition 1, Enterprise Edition 2.
         shared_ptr<int32_t> version_ {};
       };
 
@@ -285,15 +294,25 @@ namespace Models
 
 
       protected:
+        // Number of applications.
         shared_ptr<int32_t> appCount_ {};
+        // Creation time.
         shared_ptr<int64_t> createTime_ {};
+        // Namespace description.
         shared_ptr<string> describe_ {};
+        // Number of online nodes.
         shared_ptr<int64_t> instanceCount_ {};
+        // Namespace.
         shared_ptr<string> namespace_ {};
+        // Region.
         shared_ptr<string> region_ {};
+        // Alibaba Cloud tags.
         Darabonba::Json tags_ {};
+        // Update time.
         shared_ptr<int64_t> updateTime_ {};
+        // User ID.
         shared_ptr<string> userId_ {};
+        // Version. Basic Edition 0, Professional Edition 1, Enterprise Edition 2.
         shared_ptr<int32_t> version_ {};
       };
 
@@ -339,10 +358,15 @@ namespace Models
 
 
     protected:
+      // Result page number.
       shared_ptr<int32_t> pageNumber_ {};
+      // Page size for the query.
       shared_ptr<int32_t> pageSize_ {};
+      // Return results.
       shared_ptr<vector<Data::Result>> result_ {};
+      // Result set.
       shared_ptr<vector<Data::Results>> results_ {};
+      // Total number of query results.
       shared_ptr<int32_t> totalSize_ {};
     };
 
@@ -365,7 +389,9 @@ namespace Models
 
 
   protected:
+    // Return results.
     shared_ptr<ListNamespacesResponseBody::Data> data_ {};
+    // Request ID.
     shared_ptr<string> requestId_ {};
   };
 

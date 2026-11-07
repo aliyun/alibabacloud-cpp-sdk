@@ -75,10 +75,15 @@ namespace Models
 
 
   protected:
+    // The deletion result.
     shared_ptr<string> data_ {};
+    // The error code.
     shared_ptr<string> errorCode_ {};
+    // The error message.
     shared_ptr<string> message_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the request is successful.
     shared_ptr<bool> success_ {};
   };
 

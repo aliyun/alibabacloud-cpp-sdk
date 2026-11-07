@@ -77,18 +77,17 @@ namespace Models
 
 
   protected:
-    // The error code returned if the request failed.
+    // The error code.
     shared_ptr<string> errorCode_ {};
-    // The message returned.
+    // The response message.
     shared_ptr<string> message_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // The returned result.
+    // The response result.
     Darabonba::Json result_ {};
-    // Indicates whether the request was successful. Valid values:
-    // 
-    // *   `true`: The request was successful.
-    // *   `false`: The request failed.
+    // Indicates whether the request is successful. Valid values:
+    // - `true`: The request is successful.
+    // - `false`: The request failed.
     shared_ptr<bool> success_ {};
   };
 

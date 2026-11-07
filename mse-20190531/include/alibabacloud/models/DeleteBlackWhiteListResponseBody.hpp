@@ -159,16 +159,37 @@ namespace Models
 
 
     protected:
+      // The configuration content.
       shared_ptr<string> content_ {};
+      // The ID of the gateway.
       shared_ptr<int64_t> gatewayId_ {};
+      // The unique ID of the gateway.
       shared_ptr<string> gatewayUniqueId_ {};
+      // The creation time.
       shared_ptr<string> gmtCreate_ {};
+      // The update time.
       shared_ptr<string> gmtModified_ {};
+      // The ID of the blacklists and whitelists entry.
       shared_ptr<int64_t> id_ {};
+      // Indicates whether the entry is a whitelist.
       shared_ptr<bool> isWhite_ {};
+      // Deprecated.
       shared_ptr<int64_t> resourceId_ {};
+      // The granularity at which the blacklist or whitelist takes effect. Valid values:
+      // 
+      // - GATEWAY: gateway-wide
+      // 
+      // - DOMAIN: domain name
+      // 
+      // - ROUTE: route
       shared_ptr<string> resourceType_ {};
+      // The enabling status. Valid values:
+      // 
+      // - 0: disabled
+      // 
+      // - 1: enabled
       shared_ptr<bool> status_ {};
+      // Deprecated. A fixed value.
       shared_ptr<string> type_ {};
     };
 
@@ -219,12 +240,19 @@ namespace Models
 
 
   protected:
+    // The response code, which is used only to indicate whether the request is successful, similar to the Success parameter.
     shared_ptr<int32_t> code_ {};
+    // The data structure.
     shared_ptr<DeleteBlackWhiteListResponseBody::Data> data_ {};
+    // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
+    // The response message.
     shared_ptr<string> message_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};
+    // Indicates whether the request was successful. Valid values:
+    // - `true`: The request was successful.
+    // - `false`: The request failed.
     shared_ptr<bool> success_ {};
   };
 

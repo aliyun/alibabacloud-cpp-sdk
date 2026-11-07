@@ -57,14 +57,14 @@ namespace Models
 
 
   protected:
-    // The language of the response. Valid values:
+    // The language of the returned information. Valid values:
     // 
-    // *   zh: Chinese
-    // *   en: English
+    // - zh: Chinese
+    // - en: English
     shared_ptr<string> acceptLanguage_ {};
-    // The query time. Unit: days. For example, if you set this parameter to 30, the governance rules within the last 30 days are queried.
+    // The query period. Unit: days. For example, if you set this parameter to 30, the governance rules within the last 30 days are queried.
     shared_ptr<int32_t> period_ {};
-    // The ID of the region.
+    // The region.
     shared_ptr<string> region_ {};
   };
 

@@ -221,25 +221,25 @@ namespace Models
 
 
         protected:
-          // 匹配符
+          // The matching character.
           shared_ptr<string> cond_ {};
-          // 数值
+          // The number.
           shared_ptr<string> datum_ {};
-          // 除数
+          // The divisor.
           shared_ptr<int32_t> divisor_ {};
-          // 名称
+          // The name.
           shared_ptr<string> name_ {};
-          // 名称列表
+          // The names.
           shared_ptr<vector<string>> nameList_ {};
-          // 操作符
+          // The filter operator.
           shared_ptr<string> operator_ {};
-          // 百分比
+          // The percentage.
           shared_ptr<int32_t> rate_ {};
-          // 余数
+          // The remainder.
           shared_ptr<int32_t> remainder_ {};
-          // 匹配类型
+          // The matching type.
           shared_ptr<string> type_ {};
-          // 值
+          // The value.
           shared_ptr<string> value_ {};
         };
 
@@ -278,13 +278,13 @@ namespace Models
 
 
       protected:
-        // 条件
+        // The condition.
         shared_ptr<string> condition_ {};
-        // 路径
+        // The path.
         shared_ptr<string> path_ {};
-        // 路径列表
+        // The list of paths.
         shared_ptr<vector<string>> paths_ {};
-        // Rest匹配规则列表
+        // The Restful matching rules.
         shared_ptr<vector<EntryRules::RestItems>> restItems_ {};
       };
 
@@ -393,32 +393,33 @@ namespace Models
 
 
     protected:
+      // This parameter is discontinued. This parameter is used to specify whether to enable grayscale by path when Java gateway is used as the entry for the swimming lane group.
       shared_ptr<bool> pathIndependentPercentageEnable_ {};
-      // 泳道开关
+      // The swimming lane switch.
       shared_ptr<bool> enable_ {};
-      // 是否开启规则。
+      // Specifies whether to enable the rule. Valid values:
       shared_ptr<bool> enableRules_ {};
-      // 入口应用规则
+      // The entry application rule.
       shared_ptr<string> entryRule_ {};
-      // 入口应用规则详情
+      // The details of the entry application rules.
       shared_ptr<vector<Data::EntryRules>> entryRules_ {};
-      // MSE网关路由规则
+      // The MSE gateway routing rule.
       shared_ptr<string> gatewaySwimmingLaneRouteJson_ {};
-      // 规则创建时间
+      // Rule Created At
       shared_ptr<string> gmtCreate_ {};
-      // 规则修改时间
+      // Rule Modified At
       shared_ptr<string> gmtModified_ {};
-      // 泳道组Id。
+      // The swimming lane group ID.
       shared_ptr<int64_t> groupId_ {};
-      // 泳道ID
+      // The swimming lane ID.
       shared_ptr<int64_t> id_ {};
-      // 泳道名称
+      // The swimming lane name.
       shared_ptr<string> name_ {};
-      // 区域ID。
+      // The region ID.
       shared_ptr<string> regionId_ {};
-      // 泳道状态
+      // The swimming lane status.
       shared_ptr<int32_t> status_ {};
-      // 泳道对应的标签。
+      // The tag corresponding to the swimming lane.
       shared_ptr<string> tag_ {};
     };
 
@@ -462,18 +463,19 @@ namespace Models
 
 
   protected:
-    // The details of the data.
+    // The returned data.
     shared_ptr<QuerySwimmingLaneByIdResponseBody::Data> data_ {};
-    // The error code returned if the request failed.
+    // The error code.
     shared_ptr<string> errorCode_ {};
-    // The message returned.
+    // The message.
     shared_ptr<string> message_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request was successful. Valid values:
+    // Indicates whether the call was successful. Valid values:
     // 
-    // *   `true`: The request was successful.
-    // *   `false`: The request failed.
+    // - `true`: The request was successful.
+    // 
+    // - `false`: The request failed.
     shared_ptr<bool> success_ {};
   };
 

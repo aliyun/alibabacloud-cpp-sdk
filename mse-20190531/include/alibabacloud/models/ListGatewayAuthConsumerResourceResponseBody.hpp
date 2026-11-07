@@ -164,22 +164,23 @@ namespace Models
 
 
       protected:
-        // The ID of the consumer.
+        // The ID of the gateway authentication consumer.
         shared_ptr<int64_t> consumerId_ {};
         // The unique ID of the gateway.
         shared_ptr<string> gatewayUniqueId_ {};
         // The creation time.
         shared_ptr<string> gmtCreate_ {};
-        // The modification time.
+        // The update time.
         shared_ptr<string> gmtModified_ {};
-        // The ID of the authorized resource for the consumer.
+        // The authorization ID of the gateway authentication consumer.
         shared_ptr<int64_t> id_ {};
         // The resource authorization status. Valid values:
         // 
-        // *   true: enabled
-        // *   false: disabled
+        // - true: Enabled.
+        // 
+        // - false: Disabled.
         shared_ptr<bool> resourceStatus_ {};
-        // The ID of the route.
+        // The route ID.
         shared_ptr<int64_t> routeId_ {};
         // The name of the route.
         shared_ptr<string> routeName_ {};
@@ -218,13 +219,13 @@ namespace Models
 
 
     protected:
-      // The page number of the returned page.
+      // The page number.
       shared_ptr<int32_t> pageNumber_ {};
-      // The number of entries returned per page.
+      // The number of entries per page.
       shared_ptr<int32_t> pageSize_ {};
       // The data structure.
       shared_ptr<vector<Data::Result>> result_ {};
-      // The total number of entries returned.
+      // The total number of entries.
       shared_ptr<int64_t> totalSize_ {};
     };
 
@@ -297,28 +298,26 @@ namespace Models
 
 
   protected:
-    // The status code. A value of 200 is returned if the request is successful.
+    // The code used only to synchronize with the success field.
     shared_ptr<int32_t> code_ {};
-    // The returned result.
+    // The returned data.
     shared_ptr<ListGatewayAuthConsumerResourceResponseBody::Data> data_ {};
-    // The dynamic part in the error message.
+    // The placeholder in the dynamic error message.
     shared_ptr<string> dynamicCode_ {};
-    // The dynamic part in the error message. This parameter is used to replace the \\*\\*%s\\*\\* variable in the **ErrMessage** parameter.
-    // 
-    // >  If the return value of the **ErrMessage** parameter is **The Value of Input Parameter %s is not valid** and the return value of the **DynamicMessage** parameter is **DtsJobId**, the specified **DtsJobId** parameter is invalid.
+    // The dynamic error message, which is used to replace the **%s** placeholder in the error message of the **ErrMessage** response parameter.
+    // > If **ErrMessage** returns **The Value of Input Parameter %s is not valid** and **DynamicMessage** returns **DtsJobId**, it indicates that the **DtsJobId** request parameter is invalid.
     shared_ptr<string> dynamicMessage_ {};
-    // The error code that is returned.
+    // The error code.
     shared_ptr<string> errorCode_ {};
-    // The HTTP status code returned.
+    // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
-    // The error message returned.
+    // The response message.
     shared_ptr<string> message_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request was successful. Valid values:
-    // 
-    // *   `true`: The request was successful.
-    // *   `false`: The request failed.
+    // Indicates whether the request is successful. Valid values:
+    // - true: The request is successful.
+    // - false: The request fails.
     shared_ptr<bool> success_ {};
   };
 

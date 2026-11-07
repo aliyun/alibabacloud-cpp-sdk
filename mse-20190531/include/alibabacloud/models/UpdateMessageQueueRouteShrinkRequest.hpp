@@ -112,30 +112,33 @@ namespace Models
 
 
   protected:
-    // The language of the response. Valid values:
+    // The language of the returned information. Valid values:
     // 
-    // *   zh: Chinese
-    // *   en: English
+    // - zh: Chinese.
+    // - en: English.
     shared_ptr<string> acceptLanguage_ {};
-    // The ID of the application.
+    // The application ID.
     // 
     // This parameter is required.
     shared_ptr<string> appId_ {};
+    // The application name.
     shared_ptr<string> appName_ {};
-    // Specifies whether the canary release for messaging feature is enabled for the application. Valid values:
+    // Specifies whether message canary release is enabled. Valid values:
     // 
-    // *   `true`: enabled
-    // *   `false`: disabled
+    // - `true`: Enabled.
+    // - `false`: Disabled.
     shared_ptr<bool> enable_ {};
-    // The side for message filtering when the canary release for messaging feature is enabled.
+    // The filtering side for message canary release.
     shared_ptr<string> filterSide_ {};
+    // The list of baseline environment labels for MSMQ grayscale rules.
     shared_ptr<string> grayBaseTagsShrink_ {};
+    // The MSE namespace name.
     shared_ptr<string> namespace_ {};
-    // The region ID.
+    // The region.
     // 
     // This parameter is required.
     shared_ptr<string> region_ {};
-    // The tag that is negligible for the untagged environment of the application.
+    // The ignored tags for the untagged environments of the application.
     shared_ptr<string> tagsShrink_ {};
   };
 

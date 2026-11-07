@@ -68,13 +68,15 @@ namespace Models
   protected:
     // The language of the response. Valid values:
     // 
-    // *   zh: Chinese
-    // *   en: English
+    // - zh: Chinese
+    // 
+    // - en: English
     shared_ptr<string> acceptLanguage_ {};
+    // Specifies whether to perform a cascading delete.
     shared_ptr<bool> cascadingDelete_ {};
     // The unique ID of the gateway.
     shared_ptr<string> gatewayUniqueId_ {};
-    // The destination ID.
+    // The ID of the security group rule.
     shared_ptr<int64_t> id_ {};
   };
 

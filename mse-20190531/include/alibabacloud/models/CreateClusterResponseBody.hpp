@@ -84,19 +84,19 @@ namespace Models
 
 
   protected:
-    // Error code.
+    // The error code.
     shared_ptr<string> errorCode_ {};
-    // Instance ID.
+    // The instance ID.
     shared_ptr<string> instanceId_ {};
-    // Return message.
+    // The returned message.
     shared_ptr<string> message_ {};
-    // Order ID.
+    // The order ID.
     shared_ptr<string> orderId_ {};
-    // Request ID.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // Request result, with the following values:
-    // - `true`: Request succeeded.
-    // - `false`: Request failed.
+    // Indicates whether the request is successful. Valid values:
+    // - `true`: The request is successful.
+    // - `false`: The request fails.
     shared_ptr<bool> success_ {};
   };
 

@@ -198,21 +198,16 @@ namespace Models
 
 
           protected:
-            // The key extracted from the input parameter.
+            // The key extracted from the input parameter position.
             shared_ptr<string> extractKey_ {};
             // The position of the input parameter.
-            // 
-            // > Valid values:
-            // 
-            // *   `ALL_QUERY_PARAMETER`: request parameter
-            // 
-            // *   `ALL_HEADER`: request header
-            // 
-            // *   `ALL_PATH`: request path
-            // 
-            // *   `ALL_BODY`: request body
+            // > Valid values for the position of the input parameter:
+            // > - Request parameter: `ALL_QUERY_PARAMETER`
+            // > - Request header: `ALL_HEADER`
+            // > - Request path: `ALL_PATH`
+            // > - Request body: `ALL_BODY`
             shared_ptr<string> extractKeySpec_ {};
-            // The type of the backend service parameter.
+            // The backend parameter type.
             shared_ptr<string> mappingType_ {};
           };
 
@@ -265,37 +260,27 @@ namespace Models
 
 
         protected:
-          // The method name of the Dubbo service.
+          // The name of the Dubbo method.
           shared_ptr<string> dubboMothedName_ {};
           // The HTTP method.
-          // 
-          // > Valid values:
-          // 
-          // *   ALL_GET
-          // 
-          // *   ALL_POST
-          // 
-          // *   ALL_PUT
-          // 
-          // *   ALL_DELETE
-          // 
-          // *   ALL_PATCH
+          // > Supported HTTP method parameter values:
+          // > - ALL_GET
+          // > - ALL_POST
+          // > - ALL_PUT
+          // > - ALL_DELETE
+          // > - ALL_PATCH
           shared_ptr<string> httpMothed_ {};
-          // The path that is used to match a method.
+          // The matching path of the method.
           shared_ptr<string> mothedpath_ {};
-          // The information of parameter mappings.
+          // The list of parameter mappings.
           shared_ptr<vector<MothedMapList::ParamMapsList>> paramMapsList_ {};
-          // The pass-through type of the header.
-          // 
-          // > Valid values:
-          // 
-          // *   PASS_ALL: All headers are passed through.
-          // 
-          // *   PASS_NOT: All headers are not passed through.
-          // 
-          // *   PASS_ASSIGN: Specified headers are passed through.
+          // The header pass-through type.
+          // > Valid values for the pass-through type:
+          // > - PASS_ALL: Passes through all headers.
+          // > - PASS_NOT: Does not pass through any headers.
+          // > - PASS_ASSIGN: Passes through specified headers.
           shared_ptr<string> passThroughAllHeaders_ {};
-          // The list of headers to be passed through.
+          // The list of specified headers to pass through.
           shared_ptr<vector<string>> passThroughList_ {};
         };
 
@@ -334,11 +319,11 @@ namespace Models
       protected:
         // The Dubbo service group.
         shared_ptr<string> dubboServiceGroup_ {};
-        // The name of the Dubbo service.
+        // The Dubbo service name.
         shared_ptr<string> dubboServiceName_ {};
         // The version of the Dubbo service.
         shared_ptr<string> dubboServiceVersion_ {};
-        // The forwarding rules of the Dubbo service.
+        // The list of Dubbo forwarding rules.
         shared_ptr<vector<HttpDubboTranscoder::MothedMapList>> mothedMapList_ {};
       };
 
@@ -418,25 +403,25 @@ namespace Models
 
 
     protected:
-      // The type of the protocol. Valid values:
+      // The protocol type.
       shared_ptr<string> agreementType_ {};
-      // The name of the group to which the service belongs.
+      // The name of the service group.
       shared_ptr<string> groupName_ {};
-      // The transcoder of the Dubbo protocol.
+      // The Dubbo protocol transcoding configuration.
       shared_ptr<Services::HttpDubboTranscoder> httpDubboTranscoder_ {};
       // The name.
       shared_ptr<string> name_ {};
-      // The namespace in which the service resides.
+      // The namespace where the service resides.
       shared_ptr<string> namespace_ {};
-      // The percentage.
+      // The traffic distribution percentage of the current service or service version. Specify this parameter only when multiple services or tag-based routing is used.
       shared_ptr<int32_t> percent_ {};
       // The ID of the service.
       shared_ptr<int64_t> serviceId_ {};
-      // The Dubbo port number.
+      // The Dubbo port.
       shared_ptr<int32_t> servicePort_ {};
       // The source type.
       shared_ptr<string> sourceType_ {};
-      // The version of the service.
+      // The service version. Specify this parameter only when tag-based routing is used.
       shared_ptr<string> version_ {};
     };
 
@@ -487,11 +472,11 @@ namespace Models
 
 
     protected:
-      // The status code returned.
+      // The status code.
       shared_ptr<int32_t> code_ {};
-      // The hostname to be redirected to.
+      // The redirect hostname.
       shared_ptr<string> host_ {};
-      // The path to be redirected to.
+      // The redirect path.
       shared_ptr<string> path_ {};
     };
 
@@ -571,7 +556,7 @@ namespace Models
         shared_ptr<string> key_ {};
         // The matching type.
         shared_ptr<string> type_ {};
-        // The value of the parameter.
+        // The matching value.
         shared_ptr<string> value_ {};
       };
 
@@ -622,9 +607,9 @@ namespace Models
 
 
       protected:
-        // Specifies whether to perform case-insensitive matching.
+        // Specifies whether to ignore case.
         shared_ptr<bool> ignoreCase_ {};
-        // The path used for route matching.
+        // The path of the route.
         shared_ptr<string> path_ {};
         // The matching type.
         shared_ptr<string> type_ {};
@@ -724,13 +709,13 @@ namespace Models
 
 
     protected:
-      // The information about header matching.
+      // The request header matching conditions.
       shared_ptr<vector<Predicates::HeaderPredicates>> headerPredicates_ {};
-      // The information about method matching.
+      // The method matching conditions.
       shared_ptr<vector<string>> methodPredicates_ {};
-      // The information about path matching.
+      // The path matching conditions.
       shared_ptr<Predicates::PathPredicates> pathPredicates_ {};
-      // The information about parameter matching.
+      // The query parameter matching conditions.
       shared_ptr<vector<Predicates::QueryPredicates>> queryPredicates_ {};
     };
 
@@ -836,23 +821,23 @@ namespace Models
 
 
     protected:
-      // The type of the protocol. Valid values:
+      // The protocol type.
       shared_ptr<string> agreementType_ {};
-      // The name of the group to which the service belongs.
+      // The name of the service group.
       shared_ptr<string> groupName_ {};
       // The name.
       shared_ptr<string> name_ {};
-      // The namespace in which the service resides.
+      // The namespace where the service resides.
       shared_ptr<string> namespace_ {};
-      // The weight in the form of a percentage value.
+      // The weight percentage.
       shared_ptr<int32_t> percent_ {};
       // The ID of the service.
       shared_ptr<int64_t> serviceId_ {};
-      // The service port number.
+      // The service port.
       shared_ptr<int32_t> servicePort_ {};
       // The source type.
       shared_ptr<string> sourceType_ {};
-      // The version of the service.
+      // The service version.
       shared_ptr<string> version_ {};
     };
 
@@ -894,9 +879,9 @@ namespace Models
 
 
     protected:
-      // The mock return value.
+      // The mock response body.
       shared_ptr<string> body_ {};
-      // The mock return code.
+      // The mock response code.
       shared_ptr<int64_t> code_ {};
     };
 
@@ -1027,23 +1012,24 @@ namespace Models
 
 
   protected:
-    // The language of the response. Valid values:
+    // The language of the returned information. Valid values:
     // 
-    // *   zh: Chinese
-    // *   en: English
+    // - zh: Chinese
+    // - en: English
     shared_ptr<string> acceptLanguage_ {};
+    // The description of the route.
     shared_ptr<string> description_ {};
-    // The destination service type.
+    // The type of the destination service.
     shared_ptr<string> destinationType_ {};
-    // The information about service mocking.
+    // The mock content.
     shared_ptr<UpdateGatewayRouteRequest::DirectResponseJSON> directResponseJSON_ {};
-    // The associated domain name.
+    // The associated domain names.
     shared_ptr<string> domainIdListJSON_ {};
-    // Specifies whether to activate Web Application Firewall (WAF).
+    // **[Deprecated]** Use UpdateGatewayRouteWafStatus to update the WAF status of the route.
     shared_ptr<bool> enableWaf_ {};
-    // Specifies whether to enable the Fallback service.
+    // Specifies whether to enable the fallback service.
     shared_ptr<bool> fallback_ {};
-    // The information about the Fallback service.
+    // The fallback services.
     shared_ptr<vector<UpdateGatewayRouteRequest::FallbackServices>> fallbackServices_ {};
     // The ID of the gateway.
     shared_ptr<int64_t> gatewayId_ {};
@@ -1053,13 +1039,13 @@ namespace Models
     shared_ptr<int64_t> id_ {};
     // The name of the route.
     shared_ptr<string> name_ {};
-    // The route matching conditions.
+    // The matching conditions of the route.
     shared_ptr<UpdateGatewayRouteRequest::Predicates> predicates_ {};
-    // The information about redirection.
+    // The redirect configuration.
     shared_ptr<UpdateGatewayRouteRequest::RedirectJSON> redirectJSON_ {};
-    // The sequence number of the route.
+    // The order of the route.
     shared_ptr<int32_t> routeOrder_ {};
-    // The information about destination services.
+    // The destination services. Specify this parameter when the route points to a single service, multiple services, or tag-based routing.
     shared_ptr<vector<UpdateGatewayRouteRequest::Services>> services_ {};
   };
 

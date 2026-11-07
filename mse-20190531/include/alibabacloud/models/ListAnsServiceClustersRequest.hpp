@@ -114,12 +114,13 @@ namespace Models
   protected:
     // The language of the response. Valid values:
     // 
-    // *   zh: Chinese
-    // *   en: English
+    // - zh: Chinese
+    // 
+    // - en: English
     shared_ptr<string> acceptLanguage_ {};
     // The ID of the MSE cluster.
     // 
-    // >  The MSE cluster is different from the cluster of the Nacos service.
+    // > The MSE cluster is different from the cluster of the Nacos service.
     shared_ptr<string> clusterId_ {};
     // The alias of the cluster.
     shared_ptr<string> clusterName_ {};

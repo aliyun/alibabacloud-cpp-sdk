@@ -57,8 +57,11 @@ namespace Models
 
 
   protected:
+    // The language in which the returned results are displayed. Valid values: zh (default): Chinese. en: English.
     shared_ptr<string> acceptLanguage_ {};
+    // The name of the server-linked role. Set this parameter to AliyunServiceRoleForMSE
     shared_ptr<string> roleName_ {};
+    // This parameter is reserved and not in use.
     shared_ptr<string> token_ {};
   };
 

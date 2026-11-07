@@ -2,11 +2,13 @@
 #include <alibabacloud/Mse20190531.hpp>
 #include <alibabacloud/Utils.hpp>
 #include <alibabacloud/Openapi.hpp>
+#include <alibabacloud/gateway/POP.hpp>
 #include <map>
 #include <darabonba/Runtime.hpp>
 using namespace std;
 using namespace Darabonba;
 using json = nlohmann::json;
+using namespace AlibabaCloud::Gateway;
 using namespace AlibabaCloud::OpenApi;
 using namespace AlibabaCloud::Mse20190531::Models;
 using OpenApiClient = AlibabaCloud::OpenApi::Client;
@@ -17,6 +19,9 @@ namespace Mse20190531
 {
 
 AlibabaCloud::Mse20190531::Client::Client(Config &config): OpenApiClient(config){
+  this->_productId = "mse";
+  shared_ptr<POP> gatewayClient = make_shared<POP>();
+  this->_spi = gatewayClient;
   this->_endpointRule = "regional";
   checkConfig(config);
   this->_endpoint = getEndpoint("mse", _regionId, _endpointRule, _network, _suffix, _endpointMap, _endpoint);
@@ -118,7 +123,7 @@ AddAuthPolicyResponse Client::addAuthPolicy(const AddAuthPolicyRequest &request)
 }
 
 /**
- * @summary Adds authorization information for a gateway.
+ * @summary Creates authorization information for gateway authentication.
  *
  * @param tmpReq AddAuthResourceRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -183,7 +188,7 @@ AddAuthResourceResponse Client::addAuthResourceWithOptions(const AddAuthResource
 }
 
 /**
- * @summary Adds authorization information for a gateway.
+ * @summary Creates authorization information for gateway authentication.
  *
  * @param request AddAuthResourceRequest
  * @return AddAuthResourceResponse
@@ -194,7 +199,7 @@ AddAuthResourceResponse Client::addAuthResource(const AddAuthResourceRequest &re
 }
 
 /**
- * @summary Creates a blacklist or a whitelist.
+ * @summary Adds blacklists and whitelists.
  *
  * @param request AddBlackWhiteListRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -261,7 +266,7 @@ AddBlackWhiteListResponse Client::addBlackWhiteListWithOptions(const AddBlackWhi
 }
 
 /**
- * @summary Creates a blacklist or a whitelist.
+ * @summary Adds blacklists and whitelists.
  *
  * @param request AddBlackWhiteListRequest
  * @return AddBlackWhiteListResponse
@@ -272,7 +277,7 @@ AddBlackWhiteListResponse Client::addBlackWhiteList(const AddBlackWhiteListReque
 }
 
 /**
- * @summary Adds a gateway.
+ * @summary Creates a gateway.
  *
  * @param tmpReq AddGatewayRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -401,7 +406,7 @@ AddGatewayResponse Client::addGatewayWithOptions(const AddGatewayRequest &tmpReq
 }
 
 /**
- * @summary Adds a gateway.
+ * @summary Creates a gateway.
  *
  * @param request AddGatewayRequest
  * @return AddGatewayResponse
@@ -412,7 +417,7 @@ AddGatewayResponse Client::addGateway(const AddGatewayRequest &request) {
 }
 
 /**
- * @summary Adds an authentication configuration for a gateway.
+ * @summary Creates gateway authentication.
  *
  * @param tmpReq AddGatewayAuthRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -545,7 +550,7 @@ AddGatewayAuthResponse Client::addGatewayAuthWithOptions(const AddGatewayAuthReq
 }
 
 /**
- * @summary Adds an authentication configuration for a gateway.
+ * @summary Creates gateway authentication.
  *
  * @param request AddGatewayAuthRequest
  * @return AddGatewayAuthResponse
@@ -556,7 +561,7 @@ AddGatewayAuthResponse Client::addGatewayAuth(const AddGatewayAuthRequest &reque
 }
 
 /**
- * @summary Adds a consumer on which a gateway performs authentication operations.
+ * @summary Creates a gateway authentication consumer.
  *
  * @param request AddGatewayAuthConsumerRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -635,7 +640,7 @@ AddGatewayAuthConsumerResponse Client::addGatewayAuthConsumerWithOptions(const A
 }
 
 /**
- * @summary Adds a consumer on which a gateway performs authentication operations.
+ * @summary Creates a gateway authentication consumer.
  *
  * @param request AddGatewayAuthConsumerRequest
  * @return AddGatewayAuthConsumerResponse
@@ -646,7 +651,7 @@ AddGatewayAuthConsumerResponse Client::addGatewayAuthConsumer(const AddGatewayAu
 }
 
 /**
- * @summary Associates a domain name with a gateway.
+ * @summary Adds an associated domain to a gateway.
  *
  * @param tmpReq AddGatewayDomainRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -727,7 +732,7 @@ AddGatewayDomainResponse Client::addGatewayDomainWithOptions(const AddGatewayDom
 }
 
 /**
- * @summary Associates a domain name with a gateway.
+ * @summary Adds an associated domain to a gateway.
  *
  * @param request AddGatewayDomainRequest
  * @return AddGatewayDomainResponse
@@ -870,7 +875,7 @@ AddGatewayRouteResponse Client::addGatewayRoute(const AddGatewayRouteRequest &re
 }
 
 /**
- * @summary Adds a service version for a gateway.
+ * @summary Adds a service version.
  *
  * @param request AddGatewayServiceVersionRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -913,7 +918,7 @@ AddGatewayServiceVersionResponse Client::addGatewayServiceVersionWithOptions(con
 }
 
 /**
- * @summary Adds a service version for a gateway.
+ * @summary Adds a service version.
  *
  * @param request AddGatewayServiceVersionRequest
  * @return AddGatewayServiceVersionResponse
@@ -924,7 +929,7 @@ AddGatewayServiceVersionResponse Client::addGatewayServiceVersion(const AddGatew
 }
 
 /**
- * @summary Associates a Server Load Balancer (SLB) instance with a gateway.
+ * @summary Associates an SLB instance with a gateway.
  *
  * @param tmpReq AddGatewaySlbRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -997,7 +1002,7 @@ AddGatewaySlbResponse Client::addGatewaySlbWithOptions(const AddGatewaySlbReques
 }
 
 /**
- * @summary Associates a Server Load Balancer (SLB) instance with a gateway.
+ * @summary Associates an SLB instance with a gateway.
  *
  * @param request AddGatewaySlbRequest
  * @return AddGatewaySlbResponse
@@ -1008,7 +1013,7 @@ AddGatewaySlbResponse Client::addGatewaySlb(const AddGatewaySlbRequest &request)
 }
 
 /**
- * @summary Create a new migration task
+ * @summary Creates a migration task.
  *
  * @param request AddMigrationTaskRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1079,7 +1084,7 @@ AddMigrationTaskResponse Client::addMigrationTaskWithOptions(const AddMigrationT
 }
 
 /**
- * @summary Create a new migration task
+ * @summary Creates a migration task.
  *
  * @param request AddMigrationTaskRequest
  * @return AddMigrationTaskResponse
@@ -1090,7 +1095,7 @@ AddMigrationTaskResponse Client::addMigrationTask(const AddMigrationTaskRequest 
 }
 
 /**
- * @summary Creates a service mocking rule.
+ * @summary Creates a mock rule.
  *
  * @param request AddMockRuleRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1165,7 +1170,7 @@ AddMockRuleResponse Client::addMockRuleWithOptions(const AddMockRuleRequest &req
 }
 
 /**
- * @summary Creates a service mocking rule.
+ * @summary Creates a mock rule.
  *
  * @param request AddMockRuleRequest
  * @return AddMockRuleResponse
@@ -1176,7 +1181,7 @@ AddMockRuleResponse Client::addMockRule(const AddMockRuleRequest &request) {
 }
 
 /**
- * @summary Associates a certificate with a domain name of a gateway. You can specify a certificate that is hosted in Alibaba Cloud Security.
+ * @summary Associates a certificate with a gateway domain name. The certificate can be hosted in SSL Certificates Service.
  *
  * @param request AddSSLCertRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1219,7 +1224,7 @@ AddSSLCertResponse Client::addSSLCertWithOptions(const AddSSLCertRequest &reques
 }
 
 /**
- * @summary Associates a certificate with a domain name of a gateway. You can specify a certificate that is hosted in Alibaba Cloud Security.
+ * @summary Associates a certificate with a gateway domain name. The certificate can be hosted in SSL Certificates Service.
  *
  * @param request AddSSLCertRequest
  * @return AddSSLCertResponse
@@ -1230,7 +1235,7 @@ AddSSLCertResponse Client::addSSLCert(const AddSSLCertRequest &request) {
 }
 
 /**
- * @summary Creates a security group rule for a gateway.
+ * @summary Adds a security group rule for a gateway.
  *
  * @param request AddSecurityGroupRuleRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1277,7 +1282,7 @@ AddSecurityGroupRuleResponse Client::addSecurityGroupRuleWithOptions(const AddSe
 }
 
 /**
- * @summary Creates a security group rule for a gateway.
+ * @summary Adds a security group rule for a gateway.
  *
  * @param request AddSecurityGroupRuleRequest
  * @return AddSecurityGroupRuleResponse
@@ -1288,7 +1293,7 @@ AddSecurityGroupRuleResponse Client::addSecurityGroupRule(const AddSecurityGroup
 }
 
 /**
- * @summary Adds a Nacos service source.
+ * @summary Creates a Nacos service source.
  *
  * @param tmpReq AddServiceSourceRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1373,7 +1378,7 @@ AddServiceSourceResponse Client::addServiceSourceWithOptions(const AddServiceSou
 }
 
 /**
- * @summary Adds a Nacos service source.
+ * @summary Creates a Nacos service source.
  *
  * @param request AddServiceSourceRequest
  * @return AddServiceSourceResponse
@@ -1384,7 +1389,7 @@ AddServiceSourceResponse Client::addServiceSource(const AddServiceSourceRequest 
 }
 
 /**
- * @summary 增加ZooKeeper Sasl 用户
+ * @summary Adds ZooKeeper SASL users.
  *
  * @param tmpReq AddZooKeeperSaslUserRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1433,7 +1438,7 @@ AddZooKeeperSaslUserResponse Client::addZooKeeperSaslUserWithOptions(const AddZo
 }
 
 /**
- * @summary 增加ZooKeeper Sasl 用户
+ * @summary Adds ZooKeeper SASL users.
  *
  * @param request AddZooKeeperSaslUserRequest
  * @return AddZooKeeperSaslUserResponse
@@ -1494,7 +1499,7 @@ ApplyGatewayRouteResponse Client::applyGatewayRoute(const ApplyGatewayRouteReque
 }
 
 /**
- * @summary Modifies a tag-based routing rule.
+ * @summary Modifies tag-based routing rules.
  *
  * @param tmpReq ApplyTagPoliciesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1559,7 +1564,7 @@ ApplyTagPoliciesResponse Client::applyTagPoliciesWithOptions(const ApplyTagPolic
 }
 
 /**
- * @summary Modifies a tag-based routing rule.
+ * @summary Modifies tag-based routing rules.
  *
  * @param request ApplyTagPoliciesRequest
  * @return ApplyTagPoliciesResponse
@@ -1690,9 +1695,9 @@ ChangeResourceGroupResponse Client::changeResourceGroup(const ChangeResourceGrou
 }
 
 /**
- * @summary Copy Nacos Configuration
+ * @summary Clones existing Nacos configurations to another namespace.
  *
- * @description > This OpenAPI is not the Nacos-SDK API. For information related to the Nacos-SDK API, please refer to the [official documentation](https://nacos.io/zh-cn/docs/sdk.html).
+ * @description > The current OpenAPI is not a Nacos-SDK API. For information about Nacos-SDK APIs, see the [official documentation](https://nacos.io/zh-cn/docs/sdk.html).
  *
  * @param request CloneNacosConfigRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1747,9 +1752,9 @@ CloneNacosConfigResponse Client::cloneNacosConfigWithOptions(const CloneNacosCon
 }
 
 /**
- * @summary Copy Nacos Configuration
+ * @summary Clones existing Nacos configurations to another namespace.
  *
- * @description > This OpenAPI is not the Nacos-SDK API. For information related to the Nacos-SDK API, please refer to the [official documentation](https://nacos.io/zh-cn/docs/sdk.html).
+ * @description > The current OpenAPI is not a Nacos-SDK API. For information about Nacos-SDK APIs, see the [official documentation](https://nacos.io/zh-cn/docs/sdk.html).
  *
  * @param request CloneNacosConfigRequest
  * @return CloneNacosConfigResponse
@@ -2004,9 +2009,9 @@ CreateCircuitBreakerRuleResponse Client::createCircuitBreakerRule(const CreateCi
 }
 
 /**
- * @summary Create an MSE registration and configuration center instance
+ * @summary Creates a registry and configuration center cluster, such as ZooKeeper or Nacos.
  *
- * @description Please ensure that you fully understand the billing method and pricing of the MSE (Microservice Engine) product before using this interface.
+ * @description Make sure that you fully understand the billing methods and pricing of Microservices Engine (MSE) before you call this operation.
  *
  * @param request CreateClusterRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2121,9 +2126,9 @@ CreateClusterResponse Client::createClusterWithOptions(const CreateClusterReques
 }
 
 /**
- * @summary Create an MSE registration and configuration center instance
+ * @summary Creates a registry and configuration center cluster, such as ZooKeeper or Nacos.
  *
- * @description Please ensure that you fully understand the billing method and pricing of the MSE (Microservice Engine) product before using this interface.
+ * @description Make sure that you fully understand the billing methods and pricing of Microservices Engine (MSE) before you call this operation.
  *
  * @param request CreateClusterRequest
  * @return CreateClusterResponse
@@ -2896,7 +2901,7 @@ CreateNacosInstanceResponse Client::createNacosInstance(const CreateNacosInstanc
 }
 
 /**
- * @summary 创建一个MCP Server
+ * @summary Creates an MCP server.
  *
  * @param request CreateNacosMcpServerRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2961,7 +2966,7 @@ CreateNacosMcpServerResponse Client::createNacosMcpServerWithOptions(const Creat
 }
 
 /**
- * @summary 创建一个MCP Server
+ * @summary Creates an MCP server.
  *
  * @param request CreateNacosMcpServerRequest
  * @return CreateNacosMcpServerResponse
@@ -3106,7 +3111,7 @@ CreateNamespaceResponse Client::createNamespace(const CreateNamespaceRequest &re
 }
 
 /**
- * @summary Creates or updates a lane for end-to-end canary release.
+ * @summary Creates or updates an end-to-end canary release lane.
  *
  * @param tmpReq CreateOrUpdateSwimmingLaneRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3193,7 +3198,7 @@ CreateOrUpdateSwimmingLaneResponse Client::createOrUpdateSwimmingLaneWithOptions
 }
 
 /**
- * @summary Creates or updates a lane for end-to-end canary release.
+ * @summary Creates or updates an end-to-end canary release lane.
  *
  * @param request CreateOrUpdateSwimmingLaneRequest
  * @return CreateOrUpdateSwimmingLaneResponse
@@ -3204,7 +3209,7 @@ CreateOrUpdateSwimmingLaneResponse Client::createOrUpdateSwimmingLane(const Crea
 }
 
 /**
- * @summary Creates or updates a lane group for end-to-end canary release.
+ * @summary Creates or updates an end-to-end canary release swimlane group.
  *
  * @param tmpReq CreateOrUpdateSwimmingLaneGroupRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3305,7 +3310,7 @@ CreateOrUpdateSwimmingLaneGroupResponse Client::createOrUpdateSwimmingLaneGroupW
 }
 
 /**
- * @summary Creates or updates a lane group for end-to-end canary release.
+ * @summary Creates or updates an end-to-end canary release swimlane group.
  *
  * @param request CreateOrUpdateSwimmingLaneGroupRequest
  * @return CreateOrUpdateSwimmingLaneGroupResponse
@@ -3390,7 +3395,7 @@ CreatePluginConfigResponse Client::createPluginConfig(const CreatePluginConfigRe
 }
 
 /**
- * @summary 创建行为管理
+ * @summary Creates behavior management definitions
  *
  * @param request CreateSentinelBlockFallbackDefinitionRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3461,7 +3466,7 @@ CreateSentinelBlockFallbackDefinitionResponse Client::createSentinelBlockFallbac
 }
 
 /**
- * @summary 创建行为管理
+ * @summary Creates behavior management definitions
  *
  * @param request CreateSentinelBlockFallbackDefinitionRequest
  * @return CreateSentinelBlockFallbackDefinitionResponse
@@ -3472,7 +3477,7 @@ CreateSentinelBlockFallbackDefinitionResponse Client::createSentinelBlockFallbac
 }
 
 /**
- * @summary Creates a hot parameter protection rule for HTTP requests.
+ * @summary Creates a hotspot parameter protection rule for HTTP requests.
  *
  * @param request CreateWebFlowRuleRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3563,7 +3568,7 @@ CreateWebFlowRuleResponse Client::createWebFlowRuleWithOptions(const CreateWebFl
 }
 
 /**
- * @summary Creates a hot parameter protection rule for HTTP requests.
+ * @summary Creates a hotspot parameter protection rule for HTTP requests.
  *
  * @param request CreateWebFlowRuleRequest
  * @return CreateWebFlowRuleResponse
@@ -3678,7 +3683,7 @@ DeleteAuthResourceResponse Client::deleteAuthResource(const DeleteAuthResourceRe
 }
 
 /**
- * @summary 删除黑白名单
+ * @summary Deletes a blacklists and whitelists entry.
  *
  * @param request DeleteBlackWhiteListRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3721,7 +3726,7 @@ DeleteBlackWhiteListResponse Client::deleteBlackWhiteListWithOptions(const Delet
 }
 
 /**
- * @summary 删除黑白名单
+ * @summary Deletes a blacklists and whitelists entry.
  *
  * @param request DeleteBlackWhiteListRequest
  * @return DeleteBlackWhiteListResponse
@@ -3838,7 +3843,7 @@ DeleteClusterResponse Client::deleteCluster(const DeleteClusterRequest &request)
 }
 
 /**
- * @summary Deletes a namespace from a Nacos instance.
+ * @summary Deletes a Nacos namespace.
  *
  * @param request DeleteEngineNamespaceRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3881,7 +3886,7 @@ DeleteEngineNamespaceResponse Client::deleteEngineNamespaceWithOptions(const Del
 }
 
 /**
- * @summary Deletes a namespace from a Nacos instance.
+ * @summary Deletes a Nacos namespace.
  *
  * @param request DeleteEngineNamespaceRequest
  * @return DeleteEngineNamespaceResponse
@@ -4002,7 +4007,7 @@ DeleteGatewayResponse Client::deleteGateway(const DeleteGatewayRequest &request)
 }
 
 /**
- * @summary 删除网关认证
+ * @summary Deletes gateway authentication.
  *
  * @param request DeleteGatewayAuthRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4041,7 +4046,7 @@ DeleteGatewayAuthResponse Client::deleteGatewayAuthWithOptions(const DeleteGatew
 }
 
 /**
- * @summary 删除网关认证
+ * @summary Deletes gateway authentication.
  *
  * @param request DeleteGatewayAuthRequest
  * @return DeleteGatewayAuthResponse
@@ -4052,7 +4057,7 @@ DeleteGatewayAuthResponse Client::deleteGatewayAuth(const DeleteGatewayAuthReque
 }
 
 /**
- * @summary Deletes a consumer on which a gateway performs authentication operations.
+ * @summary Deletes a gateway authentication consumer.
  *
  * @param request DeleteGatewayAuthConsumerRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4091,7 +4096,7 @@ DeleteGatewayAuthConsumerResponse Client::deleteGatewayAuthConsumerWithOptions(c
 }
 
 /**
- * @summary Deletes a consumer on which a gateway performs authentication operations.
+ * @summary Deletes a gateway authentication consumer.
  *
  * @param request DeleteGatewayAuthConsumerRequest
  * @return DeleteGatewayAuthConsumerResponse
@@ -4102,7 +4107,7 @@ DeleteGatewayAuthConsumerResponse Client::deleteGatewayAuthConsumer(const Delete
 }
 
 /**
- * @summary Deletes resource permissions from the consumer on which a gateway performs authentication operations.
+ * @summary Deletes the authorization for a gateway authentication consumer.
  *
  * @param request DeleteGatewayAuthConsumerResourceRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4145,7 +4150,7 @@ DeleteGatewayAuthConsumerResourceResponse Client::deleteGatewayAuthConsumerResou
 }
 
 /**
- * @summary Deletes resource permissions from the consumer on which a gateway performs authentication operations.
+ * @summary Deletes the authorization for a gateway authentication consumer.
  *
  * @param request DeleteGatewayAuthConsumerResourceRequest
  * @return DeleteGatewayAuthConsumerResourceResponse
@@ -4314,7 +4319,7 @@ DeleteGatewayFlowRuleResponse Client::deleteGatewayFlowRule(const DeleteGatewayF
 }
 
 /**
- * @summary Deletes the gateway concurrency rule.
+ * @summary Deletes a gateway concurrency rule.
  *
  * @param request DeleteGatewayIsolationRuleRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4357,7 +4362,7 @@ DeleteGatewayIsolationRuleResponse Client::deleteGatewayIsolationRuleWithOptions
 }
 
 /**
- * @summary Deletes the gateway concurrency rule.
+ * @summary Deletes a gateway concurrency rule.
  *
  * @param request DeleteGatewayIsolationRuleRequest
  * @return DeleteGatewayIsolationRuleResponse
@@ -4368,7 +4373,7 @@ DeleteGatewayIsolationRuleResponse Client::deleteGatewayIsolationRule(const Dele
 }
 
 /**
- * @summary Deletes a route from a gateway.
+ * @summary Deletes a gateway route.
  *
  * @param request DeleteGatewayRouteRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4407,7 +4412,7 @@ DeleteGatewayRouteResponse Client::deleteGatewayRouteWithOptions(const DeleteGat
 }
 
 /**
- * @summary Deletes a route from a gateway.
+ * @summary Deletes a gateway route.
  *
  * @param request DeleteGatewayRouteRequest
  * @return DeleteGatewayRouteResponse
@@ -4584,7 +4589,7 @@ DeleteGatewaySlbResponse Client::deleteGatewaySlb(const DeleteGatewaySlbRequest 
 }
 
 /**
- * @summary Deletes isolation rules.
+ * @summary Deletes fencing rules.
  *
  * @param tmpReq DeleteIsolationRulesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4633,7 +4638,7 @@ DeleteIsolationRulesResponse Client::deleteIsolationRulesWithOptions(const Delet
 }
 
 /**
- * @summary Deletes isolation rules.
+ * @summary Deletes fencing rules.
  *
  * @param request DeleteIsolationRulesRequest
  * @return DeleteIsolationRulesResponse
@@ -4760,9 +4765,9 @@ DeleteNacosConfigResponse Client::deleteNacosConfig(const DeleteNacosConfigReque
 }
 
 /**
- * @summary Deletes multiple Nacos configurations at a time.
+ * @summary Deletes multiple Nacos configurations.
  *
- * @description >  The current API operation is not provided in Nacos SDK. For more information about the Nacos-SDK API, see the [official documentation](https://nacos.io/zh-cn/docs/sdk.html).
+ * @description > The current OpenAPI is not the Nacos SDK API. For information about the Nacos SDK API, see the [official documentation](https://nacos.io/zh-cn/docs/sdk.html).
  *
  * @param request DeleteNacosConfigsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4805,9 +4810,9 @@ DeleteNacosConfigsResponse Client::deleteNacosConfigsWithOptions(const DeleteNac
 }
 
 /**
- * @summary Deletes multiple Nacos configurations at a time.
+ * @summary Deletes multiple Nacos configurations.
  *
- * @description >  The current API operation is not provided in Nacos SDK. For more information about the Nacos-SDK API, see the [official documentation](https://nacos.io/zh-cn/docs/sdk.html).
+ * @description > The current OpenAPI is not the Nacos SDK API. For information about the Nacos SDK API, see the [official documentation](https://nacos.io/zh-cn/docs/sdk.html).
  *
  * @param request DeleteNacosConfigsRequest
  * @return DeleteNacosConfigsResponse
@@ -4896,7 +4901,7 @@ DeleteNacosInstanceResponse Client::deleteNacosInstance(const DeleteNacosInstanc
 }
 
 /**
- * @summary 删除一个MCP Server
+ * @summary Deletes an MCP Server.
  *
  * @param request DeleteNacosMcpServerRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4939,7 +4944,7 @@ DeleteNacosMcpServerResponse Client::deleteNacosMcpServerWithOptions(const Delet
 }
 
 /**
- * @summary 删除一个MCP Server
+ * @summary Deletes an MCP Server.
  *
  * @param request DeleteNacosMcpServerRequest
  * @return DeleteNacosMcpServerResponse
@@ -5012,7 +5017,7 @@ DeleteNacosServiceResponse Client::deleteNacosService(const DeleteNacosServiceRe
 }
 
 /**
- * @summary 删除MSE命名空间
+ * @summary Deletes an MSE namespace.
  *
  * @param request DeleteNamespaceRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -5051,7 +5056,7 @@ DeleteNamespaceResponse Client::deleteNamespaceWithOptions(const DeleteNamespace
 }
 
 /**
- * @summary 删除MSE命名空间
+ * @summary Deletes an MSE namespace.
  *
  * @param request DeleteNamespaceRequest
  * @return DeleteNamespaceResponse
@@ -5216,7 +5221,7 @@ DeleteServiceSourceResponse Client::deleteServiceSource(const DeleteServiceSourc
 }
 
 /**
- * @summary Deletes a lane.
+ * @summary Deletes an end-to-end traffic lane.
  *
  * @param request DeleteSwimmingLaneRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -5255,7 +5260,7 @@ DeleteSwimmingLaneResponse Client::deleteSwimmingLaneWithOptions(const DeleteSwi
 }
 
 /**
- * @summary Deletes a lane.
+ * @summary Deletes an end-to-end traffic lane.
  *
  * @param request DeleteSwimmingLaneRequest
  * @return DeleteSwimmingLaneResponse
@@ -5266,7 +5271,7 @@ DeleteSwimmingLaneResponse Client::deleteSwimmingLane(const DeleteSwimmingLaneRe
 }
 
 /**
- * @summary Deletes a lane group.
+ * @summary Deletes an end-to-end traffic lane group.
  *
  * @param request DeleteSwimmingLaneGroupRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -5309,7 +5314,7 @@ DeleteSwimmingLaneGroupResponse Client::deleteSwimmingLaneGroupWithOptions(const
 }
 
 /**
- * @summary Deletes a lane group.
+ * @summary Deletes an end-to-end traffic lane group.
  *
  * @param request DeleteSwimmingLaneGroupRequest
  * @return DeleteSwimmingLaneGroupResponse
@@ -5320,7 +5325,7 @@ DeleteSwimmingLaneGroupResponse Client::deleteSwimmingLaneGroup(const DeleteSwim
 }
 
 /**
- * @summary Deletes a hot parameter protection rule for HTTP requests.
+ * @summary Deletes hot spot parameter protection rules for HTTP requests.
  *
  * @param request DeleteWebFlowRulesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -5363,7 +5368,7 @@ DeleteWebFlowRulesResponse Client::deleteWebFlowRulesWithOptions(const DeleteWeb
 }
 
 /**
- * @summary Deletes a hot parameter protection rule for HTTP requests.
+ * @summary Deletes hot spot parameter protection rules for HTTP requests.
  *
  * @param request DeleteWebFlowRulesRequest
  * @return DeleteWebFlowRulesResponse
@@ -5374,7 +5379,7 @@ DeleteWebFlowRulesResponse Client::deleteWebFlowRules(const DeleteWebFlowRulesRe
 }
 
 /**
- * @summary Deletes a ZooKeeper node.
+ * @summary Deletes a ZooKeeper data node.
  *
  * @param request DeleteZnodeRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -5417,7 +5422,7 @@ DeleteZnodeResponse Client::deleteZnodeWithOptions(const DeleteZnodeRequest &req
 }
 
 /**
- * @summary Deletes a ZooKeeper node.
+ * @summary Deletes a ZooKeeper data node.
  *
  * @param request DeleteZnodeRequest
  * @return DeleteZnodeResponse
@@ -5478,7 +5483,7 @@ EnableHttp2Response Client::enableHttp2(const EnableHttp2Request &request) {
 }
 
 /**
- * @summary Enables the proxy protocol. When an NLB instance is used as an ingress, you cannot obtain the real IP address of the client if you do not enable the proxy protocol. After you enable the proxy protocol, non-proxy requests are not adversely affected.
+ * @summary Enables the PROXY protocol. If the gateway ingress traffic is connected through NLB, the real IP address of the client cannot be obtained unless this feature is enabled. Enabling this feature does not affect non-PROXY protocol requests.
  *
  * @param request EnableProxyProtocolRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -5517,7 +5522,7 @@ EnableProxyProtocolResponse Client::enableProxyProtocolWithOptions(const EnableP
 }
 
 /**
- * @summary Enables the proxy protocol. When an NLB instance is used as an ingress, you cannot obtain the real IP address of the client if you do not enable the proxy protocol. After you enable the proxy protocol, non-proxy requests are not adversely affected.
+ * @summary Enables the PROXY protocol. If the gateway ingress traffic is connected through NLB, the real IP address of the client cannot be obtained unless this feature is enabled. Enabling this feature does not affect non-PROXY protocol requests.
  *
  * @param request EnableProxyProtocolRequest
  * @return EnableProxyProtocolResponse
@@ -5602,7 +5607,7 @@ ExportNacosConfigResponse Client::exportNacosConfig(const ExportNacosConfigReque
 }
 
 /**
- * @summary Initiates a task to export ZooKeeper data.
+ * @summary Initiates a ZooKeeper data export task.
  *
  * @description Only one task can run at a time.
  *
@@ -5651,7 +5656,7 @@ ExportZookeeperDataResponse Client::exportZookeeperDataWithOptions(const ExportZ
 }
 
 /**
- * @summary Initiates a task to export ZooKeeper data.
+ * @summary Initiates a ZooKeeper data export task.
  *
  * @description Only one task can run at a time.
  *
@@ -5664,9 +5669,9 @@ ExportZookeeperDataResponse Client::exportZookeeperData(const ExportZookeeperDat
 }
 
 /**
- * @summary Obtains the rules for graceful start and shutdown.
+ * @summary Queries the list of graceful start and shutdown rules.
  *
- * @description You can call this operation to query the rules for graceful start and shutdown.
+ * @description Calls the FetchLosslessRuleList operation to retrieve the list of configuration rules for graceful start and shutdown.
  *
  * @param request FetchLosslessRuleListRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -5721,9 +5726,9 @@ FetchLosslessRuleListResponse Client::fetchLosslessRuleListWithOptions(const Fet
 }
 
 /**
- * @summary Obtains the rules for graceful start and shutdown.
+ * @summary Queries the list of graceful start and shutdown rules.
  *
- * @description You can call this operation to query the rules for graceful start and shutdown.
+ * @description Calls the FetchLosslessRuleList operation to retrieve the list of configuration rules for graceful start and shutdown.
  *
  * @param request FetchLosslessRuleListRequest
  * @return FetchLosslessRuleListResponse
@@ -5734,7 +5739,7 @@ FetchLosslessRuleListResponse Client::fetchLosslessRuleList(const FetchLosslessR
 }
 
 /**
- * @summary Queries a list of blacklists and whitelists of a gateway.
+ * @summary Retrieves the list of gateway blacklists and whitelists.
  *
  * @param tmpReq GatewayBlackWhiteListRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -5791,7 +5796,7 @@ GatewayBlackWhiteListResponse Client::gatewayBlackWhiteListWithOptions(const Gat
 }
 
 /**
- * @summary Queries a list of blacklists and whitelists of a gateway.
+ * @summary Retrieves the list of gateway blacklists and whitelists.
  *
  * @param request GatewayBlackWhiteListRequest
  * @return GatewayBlackWhiteListResponse
@@ -5802,7 +5807,7 @@ GatewayBlackWhiteListResponse Client::gatewayBlackWhiteList(const GatewayBlackWh
 }
 
 /**
- * @summary Queries information about canary release for messaging of an application.
+ * @summary Retrieves information related to application message canary release.
  *
  * @param request GetAppMessageQueueRouteRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -5849,7 +5854,7 @@ GetAppMessageQueueRouteResponse Client::getAppMessageQueueRouteWithOptions(const
 }
 
 /**
- * @summary Queries information about canary release for messaging of an application.
+ * @summary Retrieves information related to application message canary release.
  *
  * @param request GetAppMessageQueueRouteRequest
  * @return GetAppMessageQueueRouteResponse
@@ -5930,7 +5935,7 @@ GetApplicationInstanceListResponse Client::getApplicationInstanceList(const GetA
 }
 
 /**
- * @summary Obtains the list of applications.
+ * @summary Retrieves the list of applications.
  *
  * @param tmpReq GetApplicationListRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -6011,7 +6016,7 @@ GetApplicationListResponse Client::getApplicationListWithOptions(const GetApplic
 }
 
 /**
- * @summary Obtains the list of applications.
+ * @summary Retrieves the list of applications.
  *
  * @param request GetApplicationListRequest
  * @return GetApplicationListResponse
@@ -6138,7 +6143,7 @@ GetEngineNamepaceResponse Client::getEngineNamepace(const GetEngineNamepaceReque
 }
 
 /**
- * @summary Obtains the basic information about a gateway, such as the virtual private cloud (VPC) and vSwitch to which the gateway belongs.
+ * @summary Retrieves basic information about a gateway, such as the VPC and vSwitch to which the gateway belongs.
  *
  * @param request GetGatewayRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -6173,7 +6178,7 @@ GetGatewayResponse Client::getGatewayWithOptions(const GetGatewayRequest &reques
 }
 
 /**
- * @summary Obtains the basic information about a gateway, such as the virtual private cloud (VPC) and vSwitch to which the gateway belongs.
+ * @summary Retrieves basic information about a gateway, such as the VPC and vSwitch to which the gateway belongs.
  *
  * @param request GetGatewayRequest
  * @return GetGatewayResponse
@@ -6234,7 +6239,7 @@ GetGatewayAuthConsumerDetailResponse Client::getGatewayAuthConsumerDetail(const 
 }
 
 /**
- * @summary Obtains the authentication details of a gateway.
+ * @summary Retrieves the details of gateway authentication.
  *
  * @param request GetGatewayAuthDetailRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -6277,7 +6282,7 @@ GetGatewayAuthDetailResponse Client::getGatewayAuthDetailWithOptions(const GetGa
 }
 
 /**
- * @summary Obtains the authentication details of a gateway.
+ * @summary Retrieves the details of gateway authentication.
  *
  * @param request GetGatewayAuthDetailRequest
  * @return GetGatewayAuthDetailResponse
@@ -6288,7 +6293,7 @@ GetGatewayAuthDetailResponse Client::getGatewayAuthDetail(const GetGatewayAuthDe
 }
 
 /**
- * @summary Obtains the parameter configurations of a gateway.
+ * @summary Retrieves the parameter settings of a gateway.
  *
  * @param request GetGatewayConfigRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -6323,7 +6328,7 @@ GetGatewayConfigResponse Client::getGatewayConfigWithOptions(const GetGatewayCon
 }
 
 /**
- * @summary Obtains the parameter configurations of a gateway.
+ * @summary Retrieves the parameter settings of a gateway.
  *
  * @param request GetGatewayConfigRequest
  * @return GetGatewayConfigResponse
@@ -6334,7 +6339,7 @@ GetGatewayConfigResponse Client::getGatewayConfig(const GetGatewayConfigRequest 
 }
 
 /**
- * @summary Queries the details of a domain name associated with a gateway.
+ * @summary Queries the details of a gateway domain name.
  *
  * @param request GetGatewayDomainDetailRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -6373,7 +6378,7 @@ GetGatewayDomainDetailResponse Client::getGatewayDomainDetailWithOptions(const G
 }
 
 /**
- * @summary Queries the details of a domain name associated with a gateway.
+ * @summary Queries the details of a gateway domain name.
  *
  * @param request GetGatewayDomainDetailRequest
  * @return GetGatewayDomainDetailResponse
@@ -6384,7 +6389,7 @@ GetGatewayDomainDetailResponse Client::getGatewayDomainDetail(const GetGatewayDo
 }
 
 /**
- * @summary Obtains the global parameters of a gateway.
+ * @summary Retrieves the global parameters of a gateway.
  *
  * @param request GetGatewayOptionRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -6423,7 +6428,7 @@ GetGatewayOptionResponse Client::getGatewayOptionWithOptions(const GetGatewayOpt
 }
 
 /**
- * @summary Obtains the global parameters of a gateway.
+ * @summary Retrieves the global parameters of a gateway.
  *
  * @param request GetGatewayOptionRequest
  * @return GetGatewayOptionResponse
@@ -6434,7 +6439,7 @@ GetGatewayOptionResponse Client::getGatewayOption(const GetGatewayOptionRequest 
 }
 
 /**
- * @summary Queries the details of a route for a gateway.
+ * @summary Queries the details of a gateway route.
  *
  * @param request GetGatewayRouteDetailRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -6473,7 +6478,7 @@ GetGatewayRouteDetailResponse Client::getGatewayRouteDetailWithOptions(const Get
 }
 
 /**
- * @summary Queries the details of a route for a gateway.
+ * @summary Queries the details of a gateway route.
  *
  * @param request GetGatewayRouteDetailRequest
  * @return GetGatewayRouteDetailResponse
@@ -6534,7 +6539,7 @@ GetGatewayServiceDetailResponse Client::getGatewayServiceDetail(const GetGateway
 }
 
 /**
- * @summary Queries the information about a Container Service for Kubernetes (ACK) cluster for which Microservices Governance is enabled.
+ * @summary Queries information about a Container Service for Kubernetes (ACK) cluster that has Microservices Governance enabled.
  *
  * @param request GetGovernanceKubernetesClusterRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -6573,7 +6578,7 @@ GetGovernanceKubernetesClusterResponse Client::getGovernanceKubernetesClusterWit
 }
 
 /**
- * @summary Queries the information about a Container Service for Kubernetes (ACK) cluster for which Microservices Governance is enabled.
+ * @summary Queries information about a Container Service for Kubernetes (ACK) cluster that has Microservices Governance enabled.
  *
  * @param request GetGovernanceKubernetesClusterRequest
  * @return GetGovernanceKubernetesClusterResponse
@@ -6742,7 +6747,7 @@ GetKubernetesSourceResponse Client::getKubernetesSource(const GetKubernetesSourc
 }
 
 /**
- * @summary Obtains the Intra-zone Provider First rules.
+ * @summary Retrieves the Intra-zone Provider First rules.
  *
  * @param request GetLocalityRuleRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -6793,7 +6798,7 @@ GetLocalityRuleResponse Client::getLocalityRuleWithOptions(const GetLocalityRule
 }
 
 /**
- * @summary Obtains the Intra-zone Provider First rules.
+ * @summary Retrieves the Intra-zone Provider First rules.
  *
  * @param request GetLocalityRuleRequest
  * @return GetLocalityRuleResponse
@@ -6804,11 +6809,9 @@ GetLocalityRuleResponse Client::getLocalityRule(const GetLocalityRuleRequest &re
 }
 
 /**
- * @summary Queries the rules for graceful start and shutdown of an application.
+ * @summary Retrieves the graceful start and shutdown rules for a specified application.
  *
- * @description You can call this operation to query the rules for graceful start and shutdown of an application.
- * You can query the rules for graceful start and shutdown of an application preferentially by using the AppId parameter.
- * If the AppId parameter is left empty, you can use the RegionId, Namespace, and AppName parameters to query the rules for graceful start and shutdown of an application.
+ * @description Calls the GetLosslessRuleByApp operation to retrieve the graceful start and shutdown configuration rules for a specified application. The query prioritizes the AppId parameter. If AppId is not specified, the system queries by using RegionId, Namespace, and AppName.
  *
  * @param request GetLosslessRuleByAppRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -6855,11 +6858,9 @@ GetLosslessRuleByAppResponse Client::getLosslessRuleByAppWithOptions(const GetLo
 }
 
 /**
- * @summary Queries the rules for graceful start and shutdown of an application.
+ * @summary Retrieves the graceful start and shutdown rules for a specified application.
  *
- * @description You can call this operation to query the rules for graceful start and shutdown of an application.
- * You can query the rules for graceful start and shutdown of an application preferentially by using the AppId parameter.
- * If the AppId parameter is left empty, you can use the RegionId, Namespace, and AppName parameters to query the rules for graceful start and shutdown of an application.
+ * @description Calls the GetLosslessRuleByApp operation to retrieve the graceful start and shutdown configuration rules for a specified application. The query prioritizes the AppId parameter. If AppId is not specified, the system queries by using RegionId, Namespace, and AppName.
  *
  * @param request GetLosslessRuleByAppRequest
  * @return GetLosslessRuleByAppResponse
@@ -6870,7 +6871,7 @@ GetLosslessRuleByAppResponse Client::getLosslessRuleByApp(const GetLosslessRuleB
 }
 
 /**
- * @summary Queries the information about the MSE feature switch.
+ * @summary Retrieves the MSE feature toggles.
  *
  * @param request GetMseFeatureSwitchRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -6901,7 +6902,7 @@ GetMseFeatureSwitchResponse Client::getMseFeatureSwitchWithOptions(const GetMseF
 }
 
 /**
- * @summary Queries the information about the MSE feature switch.
+ * @summary Retrieves the MSE feature toggles.
  *
  * @param request GetMseFeatureSwitchRequest
  * @return GetMseFeatureSwitchResponse
@@ -7098,7 +7099,7 @@ GetNacosHistoryConfigResponse Client::getNacosHistoryConfig(const GetNacosHistor
 }
 
 /**
- * @summary 获取MCP Server的详情
+ * @summary Retrieves the details of an MCP server.
  *
  * @param request GetNacosMcpServerRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -7145,7 +7146,7 @@ GetNacosMcpServerResponse Client::getNacosMcpServerWithOptions(const GetNacosMcp
 }
 
 /**
- * @summary 获取MCP Server的详情
+ * @summary Retrieves the details of an MCP server.
  *
  * @param request GetNacosMcpServerRequest
  * @return GetNacosMcpServerResponse
@@ -7156,9 +7157,9 @@ GetNacosMcpServerResponse Client::getNacosMcpServer(const GetNacosMcpServerReque
 }
 
 /**
- * @summary Queries overview information about Microservices Governance.
+ * @summary Queries the Query Governance overview information.
  *
- * @description You can call this operation to query overview information about service governance.
+ * @description Queries the service governance overview information.
  *
  * @param request GetOverviewRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -7197,9 +7198,9 @@ GetOverviewResponse Client::getOverviewWithOptions(const GetOverviewRequest &req
 }
 
 /**
- * @summary Queries overview information about Microservices Governance.
+ * @summary Queries the Query Governance overview information.
  *
- * @description You can call this operation to query overview information about service governance.
+ * @description Queries the service governance overview information.
  *
  * @param request GetOverviewRequest
  * @return GetOverviewResponse
@@ -7210,7 +7211,7 @@ GetOverviewResponse Client::getOverview(const GetOverviewRequest &request) {
 }
 
 /**
- * @summary Obtains plug-in configurations.
+ * @summary Retrieves the plug-in configuration.
  *
  * @param request GetPluginConfigRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -7249,7 +7250,7 @@ GetPluginConfigResponse Client::getPluginConfigWithOptions(const GetPluginConfig
 }
 
 /**
- * @summary Obtains plug-in configurations.
+ * @summary Retrieves the plug-in configuration.
  *
  * @param request GetPluginConfigRequest
  * @return GetPluginConfigResponse
@@ -7260,7 +7261,7 @@ GetPluginConfigResponse Client::getPluginConfig(const GetPluginConfigRequest &re
 }
 
 /**
- * @summary Obtains plug-ins.
+ * @summary Queries plugins from the plug-in marketplace.
  *
  * @param request GetPluginsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -7307,7 +7308,7 @@ GetPluginsResponse Client::getPluginsWithOptions(const GetPluginsRequest &reques
 }
 
 /**
- * @summary Obtains plug-ins.
+ * @summary Queries plugins from the plug-in marketplace.
  *
  * @param request GetPluginsRequest
  * @return GetPluginsResponse
@@ -7380,7 +7381,7 @@ GetServiceListResponse Client::getServiceList(const GetServiceListRequest &reque
 }
 
 /**
- * @summary Queries the version of a microservices application.
+ * @summary Retrieves the service list.
  *
  * @param request GetServiceListPageRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -7447,7 +7448,7 @@ GetServiceListPageResponse Client::getServiceListPageWithOptions(const GetServic
 }
 
 /**
- * @summary Queries the version of a microservices application.
+ * @summary Retrieves the service list.
  *
  * @param request GetServiceListPageRequest
  * @return GetServiceListPageResponse
@@ -7642,7 +7643,7 @@ GetServiceMethodPageResponse Client::getServiceMethodPage(const GetServiceMethod
 }
 
 /**
- * @summary Obtains all tags in the current lane group.
+ * @summary Retrieves all tags in the current traffic lane group.
  *
  * @param request GetTagsBySwimmingLaneGroupIdRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -7681,7 +7682,7 @@ GetTagsBySwimmingLaneGroupIdResponse Client::getTagsBySwimmingLaneGroupIdWithOpt
 }
 
 /**
- * @summary Obtains all tags in the current lane group.
+ * @summary Retrieves all tags in the current traffic lane group.
  *
  * @param request GetTagsBySwimmingLaneGroupIdRequest
  * @return GetTagsBySwimmingLaneGroupIdResponse
@@ -7742,9 +7743,9 @@ GetZookeeperDataImportUrlResponse Client::getZookeeperDataImportUrl(const GetZoo
 }
 
 /**
- * @summary Imports Nacos configurations as a file.
+ * @summary Imports Nacos configurations by using a configuration file.
  *
- * @description > The operation is not provided in Nacos SDKs. For information about Nacos SDKs, see the [official documentation](https://nacos.io/zh-cn/docs/sdk.html).
+ * @description > The current OpenAPI is not the Nacos-SDK API. For information about the Nacos-SDK API, see the [official documentation](https://nacos.io/zh-cn/docs/sdk.html).
  *
  * @param request ImportNacosConfigRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -7791,9 +7792,9 @@ ImportNacosConfigResponse Client::importNacosConfigWithOptions(const ImportNacos
 }
 
 /**
- * @summary Imports Nacos configurations as a file.
+ * @summary Imports Nacos configurations by using a configuration file.
  *
- * @description > The operation is not provided in Nacos SDKs. For information about Nacos SDKs, see the [official documentation](https://nacos.io/zh-cn/docs/sdk.html).
+ * @description > The current OpenAPI is not the Nacos-SDK API. For information about the Nacos-SDK API, see the [official documentation](https://nacos.io/zh-cn/docs/sdk.html).
  *
  * @param request ImportNacosConfigRequest
  * @return ImportNacosConfigResponse
@@ -7804,7 +7805,7 @@ ImportNacosConfigResponse Client::importNacosConfig(const ImportNacosConfigReque
 }
 
 /**
- * @summary Imports services to a gateway.
+ * @summary Subscribes to the services imported to the gateway.
  *
  * @param tmpReq ImportServicesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -7873,7 +7874,7 @@ ImportServicesResponse Client::importServicesWithOptions(const ImportServicesReq
 }
 
 /**
- * @summary Imports services to a gateway.
+ * @summary Subscribes to the services imported to the gateway.
  *
  * @param request ImportServicesRequest
  * @return ImportServicesResponse
@@ -7884,9 +7885,9 @@ ImportServicesResponse Client::importServices(const ImportServicesRequest &reque
 }
 
 /**
- * @summary Initiates a task to import data from a destination URL to a Microservices Engine (MSE) ZooKeeper instance.
+ * @summary Initiates a ZooKeeper data import task to import data from the specified URL into the ZooKeeper cluster.
  *
- * @description **Danger** This operation clears existing data. Exercise caution when you call this API operation.
+ * @description >Danger: This operation clears all existing data. Proceed with caution.
  *
  * @param request ImportZookeeperDataRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -7937,9 +7938,9 @@ ImportZookeeperDataResponse Client::importZookeeperDataWithOptions(const ImportZ
 }
 
 /**
- * @summary Initiates a task to import data from a destination URL to a Microservices Engine (MSE) ZooKeeper instance.
+ * @summary Initiates a ZooKeeper data import task to import data from the specified URL into the ZooKeeper cluster.
  *
- * @description **Danger** This operation clears existing data. Exercise caution when you call this API operation.
+ * @description >Danger: This operation clears all existing data. Proceed with caution.
  *
  * @param request ImportZookeeperDataRequest
  * @return ImportZookeeperDataResponse
@@ -8000,9 +8001,9 @@ InitializeServiceLinkRoleResponse Client::initializeServiceLinkRole(const Initia
 }
 
 /**
- * @summary Queries application instances that are registered with a Microservices Engine (MSE) Nacos instance.
+ * @summary Queries the list of Nacos service instances.
  *
- * @description > The operation is not provided in Nacos SDKs. For information about Nacos SDKs, see the [official documentation](https://nacos.io/zh-cn/docs/sdk.html).
+ * @description > The current OpenAPI is not the Nacos-SDK API. For information about the Nacos-SDK API, refer to the [official documentation](https://nacos.io/zh-cn/docs/sdk.html).
  *
  * @param request ListAnsInstancesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -8069,9 +8070,9 @@ ListAnsInstancesResponse Client::listAnsInstancesWithOptions(const ListAnsInstan
 }
 
 /**
- * @summary Queries application instances that are registered with a Microservices Engine (MSE) Nacos instance.
+ * @summary Queries the list of Nacos service instances.
  *
- * @description > The operation is not provided in Nacos SDKs. For information about Nacos SDKs, see the [official documentation](https://nacos.io/zh-cn/docs/sdk.html).
+ * @description > The current OpenAPI is not the Nacos-SDK API. For information about the Nacos-SDK API, refer to the [official documentation](https://nacos.io/zh-cn/docs/sdk.html).
  *
  * @param request ListAnsInstancesRequest
  * @return ListAnsInstancesResponse
@@ -8160,9 +8161,9 @@ ListAnsServiceClustersResponse Client::listAnsServiceClusters(const ListAnsServi
 }
 
 /**
- * @summary Queries Nacos services.
+ * @summary Queries the details of Nacos services.
  *
- * @description > The operation is not provided in Nacos SDKs. For information about Nacos SDKs, see the [official documentation](https://nacos.io/zh-cn/docs/sdk.html).
+ * @description > This OpenAPI is not a Nacos SDK API. For more information about Nacos SDK APIs, see [the official documentation](https://nacos.io/zh-cn/docs/sdk.html).
  *
  * @param request ListAnsServicesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -8237,9 +8238,9 @@ ListAnsServicesResponse Client::listAnsServicesWithOptions(const ListAnsServices
 }
 
 /**
- * @summary Queries Nacos services.
+ * @summary Queries the details of Nacos services.
  *
- * @description > The operation is not provided in Nacos SDKs. For information about Nacos SDKs, see the [official documentation](https://nacos.io/zh-cn/docs/sdk.html).
+ * @description > This OpenAPI is not a Nacos SDK API. For more information about Nacos SDK APIs, see [the official documentation](https://nacos.io/zh-cn/docs/sdk.html).
  *
  * @param request ListAnsServicesRequest
  * @return ListAnsServicesResponse
@@ -8308,7 +8309,7 @@ ListAppBySwimmingLaneGroupTagResponse Client::listAppBySwimmingLaneGroupTag(cons
 }
 
 /**
- * @summary Lists applications by tag in a specified lane group.
+ * @summary Retrieves the list of applications with a specified tag in a specified lane group.
  *
  * @param tmpReq ListAppBySwimmingLaneGroupTagsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -8357,7 +8358,7 @@ ListAppBySwimmingLaneGroupTagsResponse Client::listAppBySwimmingLaneGroupTagsWit
 }
 
 /**
- * @summary Lists applications by tag in a specified lane group.
+ * @summary Retrieves the list of applications with a specified tag in a specified lane group.
  *
  * @param request ListAppBySwimmingLaneGroupTagsRequest
  * @return ListAppBySwimmingLaneGroupTagsResponse
@@ -8406,7 +8407,7 @@ ListApplicationsWithTagRulesResponse Client::listApplicationsWithTagRules(const 
 }
 
 /**
- * @summary Queries a list of service authentication rules.
+ * @summary Call the ListAuthPolicy API to query the list of service authentication rules.
  *
  * @param request ListAuthPolicyRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -8469,7 +8470,7 @@ ListAuthPolicyResponse Client::listAuthPolicyWithOptions(const ListAuthPolicyReq
 }
 
 /**
- * @summary Queries a list of service authentication rules.
+ * @summary Call the ListAuthPolicy API to query the list of service authentication rules.
  *
  * @param request ListAuthPolicyRequest
  * @return ListAuthPolicyResponse
@@ -8480,7 +8481,7 @@ ListAuthPolicyResponse Client::listAuthPolicy(const ListAuthPolicyRequest &reque
 }
 
 /**
- * @summary Queries a list of circuit breaking rules.
+ * @summary Queries circuit breaker rules.
  *
  * @param request ListCircuitBreakerRulesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -8539,7 +8540,7 @@ ListCircuitBreakerRulesResponse Client::listCircuitBreakerRulesWithOptions(const
 }
 
 /**
- * @summary Queries a list of circuit breaking rules.
+ * @summary Queries circuit breaker rules.
  *
  * @param request ListCircuitBreakerRulesRequest
  * @return ListCircuitBreakerRulesResponse
@@ -8550,7 +8551,7 @@ ListCircuitBreakerRulesResponse Client::listCircuitBreakerRules(const ListCircui
 }
 
 /**
- * @summary Queries available cluster connection types.
+ * @summary Queries the supported cluster connection types.
  *
  * @param request ListClusterConnectionTypesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -8581,7 +8582,7 @@ ListClusterConnectionTypesResponse Client::listClusterConnectionTypesWithOptions
 }
 
 /**
- * @summary Queries available cluster connection types.
+ * @summary Queries the supported cluster connection types.
  *
  * @param request ListClusterConnectionTypesRequest
  * @return ListClusterConnectionTypesResponse
@@ -8592,7 +8593,7 @@ ListClusterConnectionTypesResponse Client::listClusterConnectionTypes(const List
 }
 
 /**
- * @summary Obtains information about historical health check tasks.
+ * @summary Retrieves information about historical health check tasks.
  *
  * @param request ListClusterHealthCheckTaskRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -8643,7 +8644,7 @@ ListClusterHealthCheckTaskResponse Client::listClusterHealthCheckTaskWithOptions
 }
 
 /**
- * @summary Obtains information about historical health check tasks.
+ * @summary Retrieves information about historical health check tasks.
  *
  * @param request ListClusterHealthCheckTaskRequest
  * @return ListClusterHealthCheckTaskResponse
@@ -8654,7 +8655,7 @@ ListClusterHealthCheckTaskResponse Client::listClusterHealthCheckTask(const List
 }
 
 /**
- * @summary Queries the engine types that can be activated.
+ * @summary Queries the supported engine types.
  *
  * @param request ListClusterTypesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -8697,7 +8698,7 @@ ListClusterTypesResponse Client::listClusterTypesWithOptions(const ListClusterTy
 }
 
 /**
- * @summary Queries the engine types that can be activated.
+ * @summary Queries the supported engine types.
  *
  * @param request ListClusterTypesRequest
  * @return ListClusterTypesResponse
@@ -8708,7 +8709,7 @@ ListClusterTypesResponse Client::listClusterTypes(const ListClusterTypesRequest 
 }
 
 /**
- * @summary Queries the information about supported instance versions.
+ * @summary Queries information about supported cluster versions.
  *
  * @param request ListClusterVersionsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -8747,7 +8748,7 @@ ListClusterVersionsResponse Client::listClusterVersionsWithOptions(const ListClu
 }
 
 /**
- * @summary Queries the information about supported instance versions.
+ * @summary Queries information about supported cluster versions.
  *
  * @param request ListClusterVersionsRequest
  * @return ListClusterVersionsResponse
@@ -8758,7 +8759,7 @@ ListClusterVersionsResponse Client::listClusterVersions(const ListClusterVersion
 }
 
 /**
- * @summary Queries Microservices Engine (MSE) instances.
+ * @summary Queries a list of Microservices Registry clusters.
  *
  * @param request ListClustersRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -8825,7 +8826,7 @@ ListClustersResponse Client::listClustersWithOptions(const ListClustersRequest &
 }
 
 /**
- * @summary Queries Microservices Engine (MSE) instances.
+ * @summary Queries a list of Microservices Registry clusters.
  *
  * @param request ListClustersRequest
  * @return ListClustersResponse
@@ -9006,7 +9007,7 @@ ListEurekaInstancesResponse Client::listEurekaInstances(const ListEurekaInstance
 }
 
 /**
- * @summary Queries Eureka services.
+ * @summary Queries the Eureka service list.
  *
  * @param request ListEurekaServicesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -9033,7 +9034,7 @@ ListEurekaServicesResponse Client::listEurekaServicesWithOptions(const ListEurek
 }
 
 /**
- * @summary Queries Eureka services.
+ * @summary Queries the Eureka service list.
  *
  * @param request ListEurekaServicesRequest
  * @return ListEurekaServicesResponse
@@ -9098,7 +9099,7 @@ ListExportZookeeperDataResponse Client::listExportZookeeperData(const ListExport
 }
 
 /**
- * @summary Obtains a list of throttling rules.
+ * @summary Queries the list of flow control rules.
  *
  * @param request ListFlowRulesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -9157,7 +9158,7 @@ ListFlowRulesResponse Client::listFlowRulesWithOptions(const ListFlowRulesReques
 }
 
 /**
- * @summary Obtains a list of throttling rules.
+ * @summary Queries the list of flow control rules.
  *
  * @param request ListFlowRulesRequest
  * @return ListFlowRulesResponse
@@ -9168,7 +9169,7 @@ ListFlowRulesResponse Client::listFlowRules(const ListFlowRulesRequest &request)
 }
 
 /**
- * @summary Queries a list of gateways.
+ * @summary Queries the list of gateways.
  *
  * @param tmpReq ListGatewayRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -9225,7 +9226,7 @@ ListGatewayResponse Client::listGatewayWithOptions(const ListGatewayRequest &tmp
 }
 
 /**
- * @summary Queries a list of gateways.
+ * @summary Queries the list of gateways.
  *
  * @param request ListGatewayRequest
  * @return ListGatewayResponse
@@ -9236,7 +9237,7 @@ ListGatewayResponse Client::listGateway(const ListGatewayRequest &request) {
 }
 
 /**
- * @summary 查询网关认证
+ * @summary Queries the list of gateway authentication rules.
  *
  * @param tmpReq ListGatewayAuthRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -9293,7 +9294,7 @@ ListGatewayAuthResponse Client::listGatewayAuthWithOptions(const ListGatewayAuth
 }
 
 /**
- * @summary 查询网关认证
+ * @summary Queries the list of gateway authentication rules.
  *
  * @param request ListGatewayAuthRequest
  * @return ListGatewayAuthResponse
@@ -9370,7 +9371,7 @@ ListGatewayAuthConsumerResponse Client::listGatewayAuthConsumer(const ListGatewa
 }
 
 /**
- * @summary Queries the list of authorized resources for the consumer on which a gateway performs authentication operations.
+ * @summary Queries the authorization list for gateway authentication consumers.
  *
  * @param request ListGatewayAuthConsumerResourceRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -9425,7 +9426,7 @@ ListGatewayAuthConsumerResourceResponse Client::listGatewayAuthConsumerResourceW
 }
 
 /**
- * @summary Queries the list of authorized resources for the consumer on which a gateway performs authentication operations.
+ * @summary Queries the authorization list for gateway authentication consumers.
  *
  * @param request ListGatewayAuthConsumerResourceRequest
  * @return ListGatewayAuthConsumerResourceResponse
@@ -9436,7 +9437,7 @@ ListGatewayAuthConsumerResourceResponse Client::listGatewayAuthConsumerResource(
 }
 
 /**
- * @summary Queries a gateway circuit breaking rule.
+ * @summary Queries the circuit breaker rules of the gateway.
  *
  * @param request ListGatewayCircuitBreakerRuleRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -9471,7 +9472,7 @@ ListGatewayCircuitBreakerRuleResponse Client::listGatewayCircuitBreakerRuleWithO
 }
 
 /**
- * @summary Queries a gateway circuit breaking rule.
+ * @summary Queries the circuit breaker rules of the gateway.
  *
  * @param request ListGatewayCircuitBreakerRuleRequest
  * @return ListGatewayCircuitBreakerRuleResponse
@@ -9482,7 +9483,7 @@ ListGatewayCircuitBreakerRuleResponse Client::listGatewayCircuitBreakerRule(cons
 }
 
 /**
- * @summary Queries the domain names that are associated with a gateway.
+ * @summary Queries the list of associated domains for a gateway.
  *
  * @param request ListGatewayDomainRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -9525,7 +9526,7 @@ ListGatewayDomainResponse Client::listGatewayDomainWithOptions(const ListGateway
 }
 
 /**
- * @summary Queries the domain names that are associated with a gateway.
+ * @summary Queries the list of associated domains for a gateway.
  *
  * @param request ListGatewayDomainRequest
  * @return ListGatewayDomainResponse
@@ -9536,7 +9537,7 @@ ListGatewayDomainResponse Client::listGatewayDomain(const ListGatewayDomainReque
 }
 
 /**
- * @summary Queries throttling rules of a gateway.
+ * @summary Queries the gateway throttle rules.
  *
  * @param request ListGatewayFlowRuleRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -9571,7 +9572,7 @@ ListGatewayFlowRuleResponse Client::listGatewayFlowRuleWithOptions(const ListGat
 }
 
 /**
- * @summary Queries throttling rules of a gateway.
+ * @summary Queries the gateway throttle rules.
  *
  * @param request ListGatewayFlowRuleRequest
  * @return ListGatewayFlowRuleResponse
@@ -9582,7 +9583,7 @@ ListGatewayFlowRuleResponse Client::listGatewayFlowRule(const ListGatewayFlowRul
 }
 
 /**
- * @summary Queries the concurrency rule of a gateway.
+ * @summary Queries the concurrency rules of the gateway.
  *
  * @param request ListGatewayIsolationRuleRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -9617,7 +9618,7 @@ ListGatewayIsolationRuleResponse Client::listGatewayIsolationRuleWithOptions(con
 }
 
 /**
- * @summary Queries the concurrency rule of a gateway.
+ * @summary Queries the concurrency rules of the gateway.
  *
  * @param request ListGatewayIsolationRuleRequest
  * @return ListGatewayIsolationRuleResponse
@@ -9628,7 +9629,7 @@ ListGatewayIsolationRuleResponse Client::listGatewayIsolationRule(const ListGate
 }
 
 /**
- * @summary Queries the routes of a gateway.
+ * @summary Queries the gateway route list.
  *
  * @param tmpReq ListGatewayRouteRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -9685,7 +9686,7 @@ ListGatewayRouteResponse Client::listGatewayRouteWithOptions(const ListGatewayRo
 }
 
 /**
- * @summary Queries the routes of a gateway.
+ * @summary Queries the gateway route list.
  *
  * @param request ListGatewayRouteRequest
  * @return ListGatewayRouteResponse
@@ -9746,7 +9747,7 @@ ListGatewayRouteOnAuthResponse Client::listGatewayRouteOnAuth(const ListGatewayR
 }
 
 /**
- * @summary Queries a list of services that are subscribed to by a gateway.
+ * @summary Queries the list of services subscribed to by a gateway.
  *
  * @param tmpReq ListGatewayServiceRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -9803,7 +9804,7 @@ ListGatewayServiceResponse Client::listGatewayServiceWithOptions(const ListGatew
 }
 
 /**
- * @summary Queries a list of services that are subscribed to by a gateway.
+ * @summary Queries the list of services subscribed to by a gateway.
  *
  * @param request ListGatewayServiceRequest
  * @return ListGatewayServiceResponse
@@ -9814,7 +9815,7 @@ ListGatewayServiceResponse Client::listGatewayService(const ListGatewayServiceRe
 }
 
 /**
- * @summary Queries the Server Load Balancer (SLB) instances that are associated with a gateway.
+ * @summary Queries the gateway ingress SLB.
  *
  * @param request ListGatewaySlbRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -9849,7 +9850,7 @@ ListGatewaySlbResponse Client::listGatewaySlbWithOptions(const ListGatewaySlbReq
 }
 
 /**
- * @summary Queries the Server Load Balancer (SLB) instances that are associated with a gateway.
+ * @summary Queries the gateway ingress SLB.
  *
  * @param request ListGatewaySlbRequest
  * @return ListGatewaySlbResponse
@@ -9860,7 +9861,7 @@ ListGatewaySlbResponse Client::listGatewaySlb(const ListGatewaySlbRequest &reque
 }
 
 /**
- * @summary Obtains a list of zones where a gateway is available.
+ * @summary Queries the available zones for gateways.
  *
  * @param request ListGatewayZoneRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -9891,7 +9892,7 @@ ListGatewayZoneResponse Client::listGatewayZoneWithOptions(const ListGatewayZone
 }
 
 /**
- * @summary Obtains a list of zones where a gateway is available.
+ * @summary Queries the available zones for gateways.
  *
  * @param request ListGatewayZoneRequest
  * @return ListGatewayZoneResponse
@@ -9960,7 +9961,7 @@ ListInstanceCountResponse Client::listInstanceCount(const ListInstanceCountReque
 }
 
 /**
- * @summary Queries isolation rules.
+ * @summary Query isolation rules.
  *
  * @param request ListIsolationRulesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -10019,7 +10020,7 @@ ListIsolationRulesResponse Client::listIsolationRulesWithOptions(const ListIsola
 }
 
 /**
- * @summary Queries isolation rules.
+ * @summary Query isolation rules.
  *
  * @param request ListIsolationRulesRequest
  * @return ListIsolationRulesResponse
@@ -10032,7 +10033,7 @@ ListIsolationRulesResponse Client::listIsolationRules(const ListIsolationRulesRe
 /**
  * @summary Queries listeners based on configuration information.
  *
- * @description > The operation is not provided in Nacos SDKs. For information about Nacos SDKs, see the [official documentation](https://nacos.io/zh-cn/docs/sdk.html).
+ * @description > The current OpenAPI is not a Nacos-SDK API. For information about Nacos-SDK APIs, refer to the [official documentation](https://nacos.io/zh-cn/docs/sdk.html).
  *
  * @param tmpReq ListListenersByConfigRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -10095,7 +10096,7 @@ ListListenersByConfigResponse Client::listListenersByConfigWithOptions(const Lis
 /**
  * @summary Queries listeners based on configuration information.
  *
- * @description > The operation is not provided in Nacos SDKs. For information about Nacos SDKs, see the [official documentation](https://nacos.io/zh-cn/docs/sdk.html).
+ * @description > The current OpenAPI is not a Nacos-SDK API. For information about Nacos-SDK APIs, refer to the [official documentation](https://nacos.io/zh-cn/docs/sdk.html).
  *
  * @param request ListListenersByConfigRequest
  * @return ListListenersByConfigResponse
@@ -10106,9 +10107,9 @@ ListListenersByConfigResponse Client::listListenersByConfig(const ListListenersB
 }
 
 /**
- * @summary Queries the information about listeners based on IP addresses.
+ * @summary Queries the listener list based on an IP address.
  *
- * @description > The operation is not provided in Nacos SDKs. For information about Nacos SDKs, see the [official documentation](https://nacos.io/zh-cn/docs/sdk.html).
+ * @description > The current OpenAPI is not a Nacos-SDK API. For more information about the Nacos-SDK API, see [Official Documentation](https://nacos.io/zh-cn/docs/sdk.html).
  *
  * @param request ListListenersByIpRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -10155,9 +10156,9 @@ ListListenersByIpResponse Client::listListenersByIpWithOptions(const ListListene
 }
 
 /**
- * @summary Queries the information about listeners based on IP addresses.
+ * @summary Queries the listener list based on an IP address.
  *
- * @description > The operation is not provided in Nacos SDKs. For information about Nacos SDKs, see the [official documentation](https://nacos.io/zh-cn/docs/sdk.html).
+ * @description > The current OpenAPI is not a Nacos-SDK API. For more information about the Nacos-SDK API, see [Official Documentation](https://nacos.io/zh-cn/docs/sdk.html).
  *
  * @param request ListListenersByIpRequest
  * @return ListListenersByIpResponse
@@ -10168,7 +10169,7 @@ ListListenersByIpResponse Client::listListenersByIp(const ListListenersByIpReque
 }
 
 /**
- * @summary Queries information about a migration task.
+ * @summary This operation queries cloud migration tasks.
  *
  * @param request ListMigrationTaskRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -10215,7 +10216,7 @@ ListMigrationTaskResponse Client::listMigrationTaskWithOptions(const ListMigrati
 }
 
 /**
- * @summary Queries information about a migration task.
+ * @summary This operation queries cloud migration tasks.
  *
  * @param request ListMigrationTaskRequest
  * @return ListMigrationTaskResponse
@@ -10226,9 +10227,9 @@ ListMigrationTaskResponse Client::listMigrationTask(const ListMigrationTaskReque
 }
 
 /**
- * @summary Queries Nacos configurations.
+ * @summary Queries the list of Nacos configurations.
  *
- * @description > The operation is not provided in Nacos SDKs. For information about Nacos SDKs, see the [official documentation](https://nacos.io/zh-cn/docs/sdk.html).
+ * @description > The current OpenAPI is not the Nacos SDK API. For information about the Nacos SDK API, refer to the [official documentation](https://nacos.io/zh-cn/docs/sdk.html).
  *
  * @param request ListNacosConfigsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -10299,9 +10300,9 @@ ListNacosConfigsResponse Client::listNacosConfigsWithOptions(const ListNacosConf
 }
 
 /**
- * @summary Queries Nacos configurations.
+ * @summary Queries the list of Nacos configurations.
  *
- * @description > The operation is not provided in Nacos SDKs. For information about Nacos SDKs, see the [official documentation](https://nacos.io/zh-cn/docs/sdk.html).
+ * @description > The current OpenAPI is not the Nacos SDK API. For information about the Nacos SDK API, refer to the [official documentation](https://nacos.io/zh-cn/docs/sdk.html).
  *
  * @param request ListNacosConfigsRequest
  * @return ListNacosConfigsResponse
@@ -10312,9 +10313,9 @@ ListNacosConfigsResponse Client::listNacosConfigs(const ListNacosConfigsRequest 
 }
 
 /**
- * @summary Queries the configuration history of a Microservices Engine (MSE) Nacos instance.
+ * @summary Queries the configuration history of a Nacos instance.
  *
- * @description > The operation is not provided in Nacos SDKs. For information about Nacos SDKs, see the [official documentation](https://nacos.io/zh-cn/docs/sdk.html).
+ * @description > The current OpenAPI is not the Nacos-SDK API. For information about the Nacos-SDK API, see [official documentation](https://nacos.io/zh-cn/docs/sdk.html).
  *
  * @param request ListNacosHistoryConfigsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -10377,9 +10378,9 @@ ListNacosHistoryConfigsResponse Client::listNacosHistoryConfigsWithOptions(const
 }
 
 /**
- * @summary Queries the configuration history of a Microservices Engine (MSE) Nacos instance.
+ * @summary Queries the configuration history of a Nacos instance.
  *
- * @description > The operation is not provided in Nacos SDKs. For information about Nacos SDKs, see the [official documentation](https://nacos.io/zh-cn/docs/sdk.html).
+ * @description > The current OpenAPI is not the Nacos-SDK API. For information about the Nacos-SDK API, see [official documentation](https://nacos.io/zh-cn/docs/sdk.html).
  *
  * @param request ListNacosHistoryConfigsRequest
  * @return ListNacosHistoryConfigsResponse
@@ -10390,7 +10391,7 @@ ListNacosHistoryConfigsResponse Client::listNacosHistoryConfigs(const ListNacosH
 }
 
 /**
- * @summary 获取McpServer列表
+ * @summary Retrieves a list of MCP servers.
  *
  * @param request ListNacosMcpServersRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -10445,7 +10446,7 @@ ListNacosMcpServersResponse Client::listNacosMcpServersWithOptions(const ListNac
 }
 
 /**
- * @summary 获取McpServer列表
+ * @summary Retrieves a list of MCP servers.
  *
  * @param request ListNacosMcpServersRequest
  * @return ListNacosMcpServersResponse
@@ -10456,7 +10457,7 @@ ListNacosMcpServersResponse Client::listNacosMcpServers(const ListNacosMcpServer
 }
 
 /**
- * @summary Displays the list of namespaces, the number of online nodes in each namespace, and the total number of applications in each namespace. You can also call this operation to perform fuzzy queries based on the namespace name.
+ * @summary Displays the namespace list, showing the number of online nodes and total applications in each namespace. This interface also supports fuzzy queries based on namespace names.
  *
  * @param tmpReq ListNamespacesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -10513,7 +10514,7 @@ ListNamespacesResponse Client::listNamespacesWithOptions(const ListNamespacesReq
 }
 
 /**
- * @summary Displays the list of namespaces, the number of online nodes in each namespace, and the total number of applications in each namespace. You can also call this operation to perform fuzzy queries based on the namespace name.
+ * @summary Displays the namespace list, showing the number of online nodes and total applications in each namespace. This interface also supports fuzzy queries based on namespace names.
  *
  * @param request ListNamespacesRequest
  * @return ListNamespacesResponse
@@ -10562,7 +10563,7 @@ ListNamingTrackResponse Client::listNamingTrack(const ListNamingTrackRequest &re
 }
 
 /**
- * @summary Obtains a list of gateway certificates.
+ * @summary Retrieves a list of gateway certificates.
  *
  * @param request ListSSLCertRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -10601,7 +10602,7 @@ ListSSLCertResponse Client::listSSLCertWithOptions(const ListSSLCertRequest &req
 }
 
 /**
- * @summary Obtains a list of gateway certificates.
+ * @summary Retrieves a list of gateway certificates.
  *
  * @param request ListSSLCertRequest
  * @return ListSSLCertResponse
@@ -10658,7 +10659,7 @@ ListSecurityGroupResponse Client::listSecurityGroup(const ListSecurityGroupReque
 }
 
 /**
- * @summary Queries the security group rules of a gateway.
+ * @summary Queries the list of gateway security groups.
  *
  * @param request ListSecurityGroupRuleRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -10693,7 +10694,7 @@ ListSecurityGroupRuleResponse Client::listSecurityGroupRuleWithOptions(const Lis
 }
 
 /**
- * @summary Queries the security group rules of a gateway.
+ * @summary Queries the list of gateway security groups.
  *
  * @param request ListSecurityGroupRuleRequest
  * @return ListSecurityGroupRuleResponse
@@ -10764,7 +10765,7 @@ ListSentinelBlockFallbackDefinitionsResponse Client::listSentinelBlockFallbackDe
 }
 
 /**
- * @summary Queries a list of associated sources.
+ * @summary Queries the list of associated sources.
  *
  * @param request ListServiceSourceRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -10803,7 +10804,7 @@ ListServiceSourceResponse Client::listServiceSourceWithOptions(const ListService
 }
 
 /**
- * @summary Queries a list of associated sources.
+ * @summary Queries the list of associated sources.
  *
  * @param request ListServiceSourceRequest
  * @return ListServiceSourceResponse
@@ -10814,7 +10815,7 @@ ListServiceSourceResponse Client::listServiceSource(const ListServiceSourceReque
 }
 
 /**
- * @summary Queries tagged resources.
+ * @summary Queries resource tags.
  *
  * @param request ListTagResourcesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -10865,7 +10866,7 @@ ListTagResourcesResponse Client::listTagResourcesWithOptions(const ListTagResour
 }
 
 /**
- * @summary Queries tagged resources.
+ * @summary Queries resource tags.
  *
  * @param request ListTagResourcesRequest
  * @return ListTagResourcesResponse
@@ -11074,7 +11075,7 @@ ListZnodeChildrenResponse Client::listZnodeChildren(const ListZnodeChildrenReque
 }
 
 /**
- * @summary 列出所有ZooKeeper sasl用户
+ * @summary Lists all ZooKeeper SASL users.
  *
  * @param request ListZooKeeperSaslUserRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -11109,7 +11110,7 @@ ListZooKeeperSaslUserResponse Client::listZooKeeperSaslUserWithOptions(const Lis
 }
 
 /**
- * @summary 列出所有ZooKeeper sasl用户
+ * @summary Lists all ZooKeeper SASL users.
  *
  * @param request ListZooKeeperSaslUserRequest
  * @return ListZooKeeperSaslUserResponse
@@ -11272,7 +11273,7 @@ ModifyLosslessRuleResponse Client::modifyLosslessRule(const ModifyLosslessRuleRe
 }
 
 /**
- * @summary Disables a route for a gateway.
+ * @summary Takes a gateway route offline.
  *
  * @param request OfflineGatewayRouteRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -11311,7 +11312,7 @@ OfflineGatewayRouteResponse Client::offlineGatewayRouteWithOptions(const Offline
 }
 
 /**
- * @summary Disables a route for a gateway.
+ * @summary Takes a gateway route offline.
  *
  * @param request OfflineGatewayRouteRequest
  * @return OfflineGatewayRouteResponse
@@ -11438,7 +11439,7 @@ PreserveHeaderFormatResponse Client::preserveHeaderFormat(const PreserveHeaderFo
 }
 
 /**
- * @summary Queries all the microservices of a service source.
+ * @summary Queries the information about importable services from a specified source.
  *
  * @param request PullServicesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -11485,7 +11486,7 @@ PullServicesResponse Client::pullServicesWithOptions(const PullServicesRequest &
 }
 
 /**
- * @summary Queries all the microservices of a service source.
+ * @summary Queries the information about importable services from a specified source.
  *
  * @param request PullServicesRequest
  * @return PullServicesResponse
@@ -11496,7 +11497,7 @@ PullServicesResponse Client::pullServices(const PullServicesRequest &request) {
 }
 
 /**
- * @summary Initiates a task to check risk evaluation for an instance.
+ * @summary Initiates a risk assessment check task for the current cluster.
  *
  * @param request PutClusterHealthCheckTaskRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -11531,7 +11532,7 @@ PutClusterHealthCheckTaskResponse Client::putClusterHealthCheckTaskWithOptions(c
 }
 
 /**
- * @summary Initiates a task to check risk evaluation for an instance.
+ * @summary Initiates a risk assessment check task for the current cluster.
  *
  * @param request PutClusterHealthCheckTaskRequest
  * @return PutClusterHealthCheckTaskResponse
@@ -11542,7 +11543,7 @@ PutClusterHealthCheckTaskResponse Client::putClusterHealthCheckTask(const PutClu
 }
 
 /**
- * @summary Queries all the lanes in a lane group.
+ * @summary Queries information about all lanes.
  *
  * @param request QueryAllSwimmingLaneRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -11581,7 +11582,7 @@ QueryAllSwimmingLaneResponse Client::queryAllSwimmingLaneWithOptions(const Query
 }
 
 /**
- * @summary Queries all the lanes in a lane group.
+ * @summary Queries information about all lanes.
  *
  * @param request QueryAllSwimmingLaneRequest
  * @return QueryAllSwimmingLaneResponse
@@ -11676,7 +11677,7 @@ QueryBusinessLocationsResponse Client::queryBusinessLocations(const QueryBusines
 }
 
 /**
- * @summary Queries the details of an instance.
+ * @summary Queries the details of a cluster.
  *
  * @param request QueryClusterDetailRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -11719,7 +11720,7 @@ QueryClusterDetailResponse Client::queryClusterDetailWithOptions(const QueryClus
 }
 
 /**
- * @summary Queries the details of an instance.
+ * @summary Queries the details of a cluster.
  *
  * @param request QueryClusterDetailRequest
  * @return QueryClusterDetailResponse
@@ -11776,7 +11777,7 @@ QueryClusterDiskSpecificationResponse Client::queryClusterDiskSpecification(cons
 }
 
 /**
- * @summary Queries the static information of an instance.
+ * @summary Queries the static information of a cluster.
  *
  * @param request QueryClusterInfoRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -11831,7 +11832,7 @@ QueryClusterInfoResponse Client::queryClusterInfoWithOptions(const QueryClusterI
 }
 
 /**
- * @summary Queries the static information of an instance.
+ * @summary Queries the static information of a cluster.
  *
  * @param request QueryClusterInfoRequest
  * @return QueryClusterInfoResponse
@@ -11842,7 +11843,7 @@ QueryClusterInfoResponse Client::queryClusterInfo(const QueryClusterInfoRequest 
 }
 
 /**
- * @summary Queries the information of supported instance specifications.
+ * @summary Queries the list of supported cluster specifications.
  *
  * @param request QueryClusterSpecificationRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -11881,7 +11882,7 @@ QueryClusterSpecificationResponse Client::queryClusterSpecificationWithOptions(c
 }
 
 /**
- * @summary Queries the information of supported instance specifications.
+ * @summary Queries the list of supported cluster specifications.
  *
  * @param request QueryClusterSpecificationRequest
  * @return QueryClusterSpecificationResponse
@@ -11892,7 +11893,7 @@ QueryClusterSpecificationResponse Client::queryClusterSpecification(const QueryC
 }
 
 /**
- * @summary Queries configuration information of an instance.
+ * @summary Queries the configuration of a cluster.
  *
  * @param request QueryConfigRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -11943,7 +11944,7 @@ QueryConfigResponse Client::queryConfigWithOptions(const QueryConfigRequest &req
 }
 
 /**
- * @summary Queries configuration information of an instance.
+ * @summary Queries the configuration of a cluster.
  *
  * @param request QueryConfigRequest
  * @return QueryConfigResponse
@@ -11954,7 +11955,7 @@ QueryConfigResponse Client::queryConfig(const QueryConfigRequest &request) {
 }
 
 /**
- * @summary Queries the regions supported by a gateway.
+ * @summary Queries the regions supported by the gateway.
  *
  * @param request QueryGatewayRegionRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -11985,7 +11986,7 @@ QueryGatewayRegionResponse Client::queryGatewayRegionWithOptions(const QueryGate
 }
 
 /**
- * @summary Queries the regions supported by a gateway.
+ * @summary Queries the regions supported by the gateway.
  *
  * @param request QueryGatewayRegionRequest
  * @return QueryGatewayRegionResponse
@@ -12038,7 +12039,7 @@ QueryGatewayTypeResponse Client::queryGatewayType(const QueryGatewayTypeRequest 
 }
 
 /**
- * @summary Queries the Kubernetes clusters for which Microservices Governance is activated.
+ * @summary Queries a list of Kubernetes clusters for microservice governance.
  *
  * @param request QueryGovernanceKubernetesClusterRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -12085,7 +12086,7 @@ QueryGovernanceKubernetesClusterResponse Client::queryGovernanceKubernetesCluste
 }
 
 /**
- * @summary Queries the Kubernetes clusters for which Microservices Governance is activated.
+ * @summary Queries a list of Kubernetes clusters for microservice governance.
  *
  * @param request QueryGovernanceKubernetesClusterRequest
  * @return QueryGovernanceKubernetesClusterResponse
@@ -12224,7 +12225,7 @@ QueryMonitorResponse Client::queryMonitor(const QueryMonitorRequest &request) {
 }
 
 /**
- * @summary Queries canary configurations of a Nacos instance.
+ * @summary Queries the grayscale configuration of a Nacos canary release environment.
  *
  * @param request QueryNacosGrayConfigRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -12283,7 +12284,7 @@ QueryNacosGrayConfigResponse Client::queryNacosGrayConfigWithOptions(const Query
 }
 
 /**
- * @summary Queries canary configurations of a Nacos instance.
+ * @summary Queries the grayscale configuration of a Nacos canary release environment.
  *
  * @param request QueryNacosGrayConfigRequest
  * @return QueryNacosGrayConfigResponse
@@ -12294,7 +12295,7 @@ QueryNacosGrayConfigResponse Client::queryNacosGrayConfig(const QueryNacosGrayCo
 }
 
 /**
- * @summary 查询MSE命名空间
+ * @summary Queries the namespace to which Microservices Governance belongs.
  *
  * @param request QueryNamespaceRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -12333,7 +12334,7 @@ QueryNamespaceResponse Client::queryNamespaceWithOptions(const QueryNamespaceReq
 }
 
 /**
- * @summary 查询MSE命名空间
+ * @summary Queries the namespace to which Microservices Governance belongs.
  *
  * @param request QueryNamespaceRequest
  * @return QueryNamespaceResponse
@@ -12382,7 +12383,7 @@ QuerySlbSpecResponse Client::querySlbSpec(const QuerySlbSpecRequest &request) {
 }
 
 /**
- * @summary Queries the information about a lane based on the lane ID.
+ * @summary Queries swimming lane information by swimming lane ID.
  *
  * @param request QuerySwimmingLaneByIdRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -12421,7 +12422,7 @@ QuerySwimmingLaneByIdResponse Client::querySwimmingLaneByIdWithOptions(const Que
 }
 
 /**
- * @summary Queries the information about a lane based on the lane ID.
+ * @summary Queries swimming lane information by swimming lane ID.
  *
  * @param request QuerySwimmingLaneByIdRequest
  * @return QuerySwimmingLaneByIdResponse
@@ -12548,7 +12549,7 @@ RemoveApplicationResponse Client::removeApplication(const RemoveApplicationReque
 }
 
 /**
- * @summary Deletes a service authentication rule.
+ * @summary Delete service authentication rules using the RemoveAuthPolicy interface.
  *
  * @param request RemoveAuthPolicyRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -12583,7 +12584,7 @@ RemoveAuthPolicyResponse Client::removeAuthPolicyWithOptions(const RemoveAuthPol
 }
 
 /**
- * @summary Deletes a service authentication rule.
+ * @summary Delete service authentication rules using the RemoveAuthPolicy interface.
  *
  * @param request RemoveAuthPolicyRequest
  * @return RemoveAuthPolicyResponse
@@ -12594,7 +12595,7 @@ RemoveAuthPolicyResponse Client::removeAuthPolicy(const RemoveAuthPolicyRequest 
 }
 
 /**
- * @summary 删除ZooKeeper sasl用户
+ * @summary Deletes ZooKeeper SASL users.
  *
  * @param tmpReq RemoveZooKeeperSaslUserRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -12643,7 +12644,7 @@ RemoveZooKeeperSaslUserResponse Client::removeZooKeeperSaslUserWithOptions(const
 }
 
 /**
- * @summary 删除ZooKeeper sasl用户
+ * @summary Deletes ZooKeeper SASL users.
  *
  * @param request RemoveZooKeeperSaslUserRequest
  * @return RemoveZooKeeperSaslUserResponse
@@ -12816,7 +12817,7 @@ SelectGatewaySlbResponse Client::selectGatewaySlb(const SelectGatewaySlbRequest 
 }
 
 /**
- * @summary Tags a specified resource.
+ * @summary Adds tags to specified resources.
  *
  * @param request TagResourcesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -12863,7 +12864,7 @@ TagResourcesResponse Client::tagResourcesWithOptions(const TagResourcesRequest &
 }
 
 /**
- * @summary Tags a specified resource.
+ * @summary Adds tags to specified resources.
  *
  * @param request TagResourcesRequest
  * @return TagResourcesResponse
@@ -12874,7 +12875,7 @@ TagResourcesResponse Client::tagResources(const TagResourcesRequest &request) {
 }
 
 /**
- * @summary Untags resources.
+ * @summary Deletes tags.
  *
  * @param request UntagResourcesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -12925,7 +12926,7 @@ UntagResourcesResponse Client::untagResourcesWithOptions(const UntagResourcesReq
 }
 
 /**
- * @summary Untags resources.
+ * @summary Deletes tags.
  *
  * @param request UntagResourcesRequest
  * @return UntagResourcesResponse
@@ -12936,7 +12937,7 @@ UntagResourcesResponse Client::untagResources(const UntagResourcesRequest &reque
 }
 
 /**
- * @summary Modifies an IP address whitelist.
+ * @summary Modifies the whitelist.
  *
  * @param request UpdateAclRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -12979,7 +12980,7 @@ UpdateAclResponse Client::updateAclWithOptions(const UpdateAclRequest &request, 
 }
 
 /**
- * @summary Modifies an IP address whitelist.
+ * @summary Modifies the whitelist.
  *
  * @param request UpdateAclRequest
  * @return UpdateAclResponse
@@ -12990,7 +12991,7 @@ UpdateAclResponse Client::updateAcl(const UpdateAclRequest &request) {
 }
 
 /**
- * @summary Updates a service authentication rule.
+ * @summary Updates service authentication rules through the UpdateAuthPolicy operation.
  *
  * @param request UpdateAuthPolicyRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -13057,7 +13058,7 @@ UpdateAuthPolicyResponse Client::updateAuthPolicyWithOptions(const UpdateAuthPol
 }
 
 /**
- * @summary Updates a service authentication rule.
+ * @summary Updates service authentication rules through the UpdateAuthPolicy operation.
  *
  * @param request UpdateAuthPolicyRequest
  * @return UpdateAuthPolicyResponse
@@ -13068,7 +13069,7 @@ UpdateAuthPolicyResponse Client::updateAuthPolicy(const UpdateAuthPolicyRequest 
 }
 
 /**
- * @summary Modifies the blacklist or whitelist of a gateway.
+ * @summary Updates the blacklists and whitelists of a gateway.
  *
  * @param request UpdateBlackWhiteListRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -13139,7 +13140,7 @@ UpdateBlackWhiteListResponse Client::updateBlackWhiteListWithOptions(const Updat
 }
 
 /**
- * @summary Modifies the blacklist or whitelist of a gateway.
+ * @summary Updates the blacklists and whitelists of a gateway.
  *
  * @param request UpdateBlackWhiteListRequest
  * @return UpdateBlackWhiteListResponse
@@ -13244,7 +13245,7 @@ UpdateCircuitBreakerRuleResponse Client::updateCircuitBreakerRule(const UpdateCi
 }
 
 /**
- * @summary Modifies the information about an instance.
+ * @summary Modifies the cluster information.
  *
  * @param request UpdateClusterRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -13295,7 +13296,7 @@ UpdateClusterResponse Client::updateClusterWithOptions(const UpdateClusterReques
 }
 
 /**
- * @summary Modifies the information about an instance.
+ * @summary Modifies the cluster information.
  *
  * @param request UpdateClusterRequest
  * @return UpdateClusterResponse
@@ -13306,9 +13307,9 @@ UpdateClusterResponse Client::updateCluster(const UpdateClusterRequest &request)
 }
 
 /**
- * @summary Updates the number or specifications of nodes in a pay-as-you-go Microservices Engine (MSE) instance.
+ * @summary Updates the number of nodes or specifications of a registry and configuration center cluster (supports both pay-as-you-go and subscription).
  *
- * @description You can call this operation to update the number or specifications of nodes in a pay-as-you-go MSE instance. You are charged when you add nodes or upgrade node specifications. For more information, see [Pricing] (`~~1806469~~`).
+ * @description Updates the number of nodes or specifications of a registry and configuration center cluster (supports both pay-as-you-go and subscription). Adding nodes or upgrading specifications will incur corresponding fees. For more information, see [Pricing]\\(`~~1806469~~`).
  *
  * @param request UpdateClusterSpecRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -13367,9 +13368,9 @@ UpdateClusterSpecResponse Client::updateClusterSpecWithOptions(const UpdateClust
 }
 
 /**
- * @summary Updates the number or specifications of nodes in a pay-as-you-go Microservices Engine (MSE) instance.
+ * @summary Updates the number of nodes or specifications of a registry and configuration center cluster (supports both pay-as-you-go and subscription).
  *
- * @description You can call this operation to update the number or specifications of nodes in a pay-as-you-go MSE instance. You are charged when you add nodes or upgrade node specifications. For more information, see [Pricing] (`~~1806469~~`).
+ * @description Updates the number of nodes or specifications of a registry and configuration center cluster (supports both pay-as-you-go and subscription). Adding nodes or upgrading specifications will incur corresponding fees. For more information, see [Pricing]\\(`~~1806469~~`).
  *
  * @param request UpdateClusterSpecRequest
  * @return UpdateClusterSpecResponse
@@ -13676,7 +13677,7 @@ UpdateFlowRuleResponse Client::updateFlowRule(const UpdateFlowRuleRequest &reque
 }
 
 /**
- * @summary 更新网关认证
+ * @summary Updates gateway authentication.
  *
  * @param tmpReq UpdateGatewayAuthRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -13821,7 +13822,7 @@ UpdateGatewayAuthResponse Client::updateGatewayAuthWithOptions(const UpdateGatew
 }
 
 /**
- * @summary 更新网关认证
+ * @summary Updates gateway authentication.
  *
  * @param request UpdateGatewayAuthRequest
  * @return UpdateGatewayAuthResponse
@@ -13832,7 +13833,7 @@ UpdateGatewayAuthResponse Client::updateGatewayAuth(const UpdateGatewayAuthReque
 }
 
 /**
- * @summary Updates the consumer on which a gateway performs authentication operations.
+ * @summary Updates a gateway authentication consumer.
  *
  * @param request UpdateGatewayAuthConsumerRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -13907,7 +13908,7 @@ UpdateGatewayAuthConsumerResponse Client::updateGatewayAuthConsumerWithOptions(c
 }
 
 /**
- * @summary Updates the consumer on which a gateway performs authentication operations.
+ * @summary Updates a gateway authentication consumer.
  *
  * @param request UpdateGatewayAuthConsumerRequest
  * @return UpdateGatewayAuthConsumerResponse
@@ -13918,7 +13919,7 @@ UpdateGatewayAuthConsumerResponse Client::updateGatewayAuthConsumer(const Update
 }
 
 /**
- * @summary Updates a list of resources on which permissions are granted to a gateway authentication consumer.
+ * @summary Updates the authorization list of a gateway authentication consumer.
  *
  * @param tmpReq UpdateGatewayAuthConsumerResourceRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -13967,7 +13968,7 @@ UpdateGatewayAuthConsumerResourceResponse Client::updateGatewayAuthConsumerResou
 }
 
 /**
- * @summary Updates a list of resources on which permissions are granted to a gateway authentication consumer.
+ * @summary Updates the authorization list of a gateway authentication consumer.
  *
  * @param request UpdateGatewayAuthConsumerResourceRequest
  * @return UpdateGatewayAuthConsumerResourceResponse
@@ -13978,7 +13979,7 @@ UpdateGatewayAuthConsumerResourceResponse Client::updateGatewayAuthConsumerResou
 }
 
 /**
- * @summary Updates the resource authorization status for the consumer on which a gateway performs authentication operations.
+ * @summary Updates the authorization status of a gateway authentication consumer.
  *
  * @param request UpdateGatewayAuthConsumerResourceStatusRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -14025,7 +14026,7 @@ UpdateGatewayAuthConsumerResourceStatusResponse Client::updateGatewayAuthConsume
 }
 
 /**
- * @summary Updates the resource authorization status for the consumer on which a gateway performs authentication operations.
+ * @summary Updates the authorization status of a gateway authentication consumer.
  *
  * @param request UpdateGatewayAuthConsumerResourceStatusRequest
  * @return UpdateGatewayAuthConsumerResourceStatusResponse
@@ -14036,7 +14037,7 @@ UpdateGatewayAuthConsumerResourceStatusResponse Client::updateGatewayAuthConsume
 }
 
 /**
- * @summary Updates the status of the consumer on which a gateway performs authentication operations.
+ * @summary Updates the status of a gateway authentication consumer.
  *
  * @param request UpdateGatewayAuthConsumerStatusRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -14079,7 +14080,7 @@ UpdateGatewayAuthConsumerStatusResponse Client::updateGatewayAuthConsumerStatusW
 }
 
 /**
- * @summary Updates the status of the consumer on which a gateway performs authentication operations.
+ * @summary Updates the status of a gateway authentication consumer.
  *
  * @param request UpdateGatewayAuthConsumerStatusRequest
  * @return UpdateGatewayAuthConsumerStatusResponse
@@ -14090,7 +14091,7 @@ UpdateGatewayAuthConsumerStatusResponse Client::updateGatewayAuthConsumerStatus(
 }
 
 /**
- * @summary Updates a gateway circuit breaking rule.
+ * @summary Updates the circuit breaker rule for the gateway.
  *
  * @param request UpdateGatewayCircuitBreakerRuleRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -14189,7 +14190,7 @@ UpdateGatewayCircuitBreakerRuleResponse Client::updateGatewayCircuitBreakerRuleW
 }
 
 /**
- * @summary Updates a gateway circuit breaking rule.
+ * @summary Updates the circuit breaker rule for the gateway.
  *
  * @param request UpdateGatewayCircuitBreakerRuleRequest
  * @return UpdateGatewayCircuitBreakerRuleResponse
@@ -14254,7 +14255,7 @@ UpdateGatewayConfigResponse Client::updateGatewayConfig(const UpdateGatewayConfi
 }
 
 /**
- * @summary Modifies the information about the domain name associated with a gateway.
+ * @summary Modifies the associated domain name information.
  *
  * @param tmpReq UpdateGatewayDomainRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -14279,6 +14280,10 @@ UpdateGatewayDomainResponse Client::updateGatewayDomainWithOptions(const UpdateG
 
   if (!!request.hasCertIdentifier()) {
     query["CertIdentifier"] = request.getCertIdentifier();
+  }
+
+  if (!!request.hasEnableWaf()) {
+    query["EnableWaf"] = request.getEnableWaf();
   }
 
   if (!!request.hasGatewayUniqueId()) {
@@ -14335,7 +14340,7 @@ UpdateGatewayDomainResponse Client::updateGatewayDomainWithOptions(const UpdateG
 }
 
 /**
- * @summary Modifies the information about the domain name associated with a gateway.
+ * @summary Modifies the associated domain name information.
  *
  * @param request UpdateGatewayDomainRequest
  * @return UpdateGatewayDomainResponse
@@ -14346,7 +14351,7 @@ UpdateGatewayDomainResponse Client::updateGatewayDomain(const UpdateGatewayDomai
 }
 
 /**
- * @summary Queries throttling rules of a gateway.
+ * @summary Updates a throttling rule of a gateway.
  *
  * @param request UpdateGatewayFlowRuleRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -14425,7 +14430,7 @@ UpdateGatewayFlowRuleResponse Client::updateGatewayFlowRuleWithOptions(const Upd
 }
 
 /**
- * @summary Queries throttling rules of a gateway.
+ * @summary Updates a throttling rule of a gateway.
  *
  * @param request UpdateGatewayFlowRuleRequest
  * @return UpdateGatewayFlowRuleResponse
@@ -14636,7 +14641,7 @@ UpdateGatewayOptionResponse Client::updateGatewayOption(const UpdateGatewayOptio
 }
 
 /**
- * @summary Updates a route for a gateway.
+ * @summary Updates a gateway route.
  *
  * @param tmpReq UpdateGatewayRouteRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -14749,7 +14754,7 @@ UpdateGatewayRouteResponse Client::updateGatewayRouteWithOptions(const UpdateGat
 }
 
 /**
- * @summary Updates a route for a gateway.
+ * @summary Updates a gateway route.
  *
  * @param request UpdateGatewayRouteRequest
  * @return UpdateGatewayRouteResponse
@@ -14760,7 +14765,7 @@ UpdateGatewayRouteResponse Client::updateGatewayRoute(const UpdateGatewayRouteRe
 }
 
 /**
- * @summary Updates the authentication configurations of a route.
+ * @summary Updates the route authentication configuration.
  *
  * @param tmpReq UpdateGatewayRouteAuthRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -14813,7 +14818,7 @@ UpdateGatewayRouteAuthResponse Client::updateGatewayRouteAuthWithOptions(const U
 }
 
 /**
- * @summary Updates the authentication configurations of a route.
+ * @summary Updates the route authentication configuration.
  *
  * @param request UpdateGatewayRouteAuthRequest
  * @return UpdateGatewayRouteAuthResponse
@@ -15004,7 +15009,7 @@ UpdateGatewayRouteHeaderOpResponse Client::updateGatewayRouteHeaderOp(const Upda
 }
 
 /**
- * @summary Modifies the retry policy of a route.
+ * @summary Modifies the retry policy for a gateway route.
  *
  * @param tmpReq UpdateGatewayRouteRetryRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -15057,7 +15062,7 @@ UpdateGatewayRouteRetryResponse Client::updateGatewayRouteRetryWithOptions(const
 }
 
 /**
- * @summary Modifies the retry policy of a route.
+ * @summary Modifies the retry policy for a gateway route.
  *
  * @param request UpdateGatewayRouteRetryRequest
  * @return UpdateGatewayRouteRetryResponse
@@ -15186,7 +15191,7 @@ UpdateGatewayRouteWafStatusResponse Client::updateGatewayRouteWafStatus(const Up
 }
 
 /**
- * @summary Updates gateways for fixed address services or DNS services.
+ * @summary Edit a gateway service (applicable only to fixed address services or DNS domain name services)
  *
  * @param tmpReq UpdateGatewayServiceRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -15263,7 +15268,7 @@ UpdateGatewayServiceResponse Client::updateGatewayServiceWithOptions(const Updat
 }
 
 /**
- * @summary Updates gateways for fixed address services or DNS services.
+ * @summary Edit a gateway service (applicable only to fixed address services or DNS domain name services)
  *
  * @param request UpdateGatewayServiceRequest
  * @return UpdateGatewayServiceResponse
@@ -15662,7 +15667,7 @@ UpdateIsolationRuleResponse Client::updateIsolationRule(const UpdateIsolationRul
 }
 
 /**
- * @summary Updates the Intra-zone Provider First rules.
+ * @summary Updates zone affinity routing rules.
  *
  * @param request UpdateLocalityRuleRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -15725,7 +15730,7 @@ UpdateLocalityRuleResponse Client::updateLocalityRuleWithOptions(const UpdateLoc
 }
 
 /**
- * @summary Updates the Intra-zone Provider First rules.
+ * @summary Updates zone affinity routing rules.
  *
  * @param request UpdateLocalityRuleRequest
  * @return UpdateLocalityRuleResponse
@@ -15736,7 +15741,7 @@ UpdateLocalityRuleResponse Client::updateLocalityRule(const UpdateLocalityRuleRe
 }
 
 /**
- * @summary Updates the configuration of a canary release for messaging of an application.
+ * @summary Updates the message canary release configuration for an application.
  *
  * @param tmpReq UpdateMessageQueueRouteRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -15809,7 +15814,7 @@ UpdateMessageQueueRouteResponse Client::updateMessageQueueRouteWithOptions(const
 }
 
 /**
- * @summary Updates the configuration of a canary release for messaging of an application.
+ * @summary Updates the message canary release configuration for an application.
  *
  * @param request UpdateMessageQueueRouteRequest
  * @return UpdateMessageQueueRouteResponse
@@ -16076,7 +16081,7 @@ UpdateNacosConfigResponse Client::updateNacosConfig(const UpdateNacosConfigReque
 }
 
 /**
- * @summary Updates the canary release settings, which include beta release and tag-based canary release.
+ * @summary Updates the canary release settings, including beta release and tag-based canary release.
  *
  * @param request UpdateNacosGrayConfigRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -16163,7 +16168,7 @@ UpdateNacosGrayConfigResponse Client::updateNacosGrayConfigWithOptions(const Upd
 }
 
 /**
- * @summary Updates the canary release settings, which include beta release and tag-based canary release.
+ * @summary Updates the canary release settings, including beta release and tag-based canary release.
  *
  * @param request UpdateNacosGrayConfigRequest
  * @return UpdateNacosGrayConfigResponse
@@ -16336,7 +16341,7 @@ UpdateNacosServiceResponse Client::updateNacosService(const UpdateNacosServiceRe
 }
 
 /**
- * @summary Updates plug-in configurations.
+ * @summary Updates the configuration of a plug-in.
  *
  * @param tmpReq UpdatePluginConfigRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -16415,7 +16420,7 @@ UpdatePluginConfigResponse Client::updatePluginConfigWithOptions(const UpdatePlu
 }
 
 /**
- * @summary Updates plug-in configurations.
+ * @summary Updates the configuration of a plug-in.
  *
  * @param request UpdatePluginConfigRequest
  * @return UpdatePluginConfigResponse
@@ -16724,7 +16729,7 @@ UpdateZnodeResponse Client::updateZnode(const UpdateZnodeRequest &request) {
 }
 
 /**
- * @summary 修改ZooKeeper sasl 用户信息
+ * @summary Updates the SASL user information for ZooKeeper.
  *
  * @param tmpReq UpdateZooKeeperSaslUserRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -16773,7 +16778,7 @@ UpdateZooKeeperSaslUserResponse Client::updateZooKeeperSaslUserWithOptions(const
 }
 
 /**
- * @summary 修改ZooKeeper sasl 用户信息
+ * @summary Updates the SASL user information for ZooKeeper.
  *
  * @param request UpdateZooKeeperSaslUserRequest
  * @return UpdateZooKeeperSaslUserResponse
@@ -16784,7 +16789,7 @@ UpdateZooKeeperSaslUserResponse Client::updateZooKeeperSaslUser(const UpdateZooK
 }
 
 /**
- * @summary Upgrades the version of a cluster.
+ * @summary Upgrades the cluster version.
  *
  * @param request UpgradeClusterRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -16827,7 +16832,7 @@ UpgradeClusterResponse Client::upgradeClusterWithOptions(const UpgradeClusterReq
 }
 
 /**
- * @summary Upgrades the version of a cluster.
+ * @summary Upgrades the cluster version.
  *
  * @param request UpgradeClusterRequest
  * @return UpgradeClusterResponse

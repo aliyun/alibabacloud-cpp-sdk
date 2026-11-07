@@ -94,22 +94,22 @@ namespace Models
 
 
   protected:
-    // The language of the response. Valid values:
+    // The language type of the returned information. Valid values:
     // 
-    // *   zh: Chinese
-    // *   en: English
+    // - zh: Chinese.
+    // - en: English.
     shared_ptr<string> acceptLanguage_ {};
-    // Specifies whether to query the configuration of a public IP address whitelist.
+    // Specifies whether to query the public network whitelist configuration.
     shared_ptr<bool> aclSwitch_ {};
-    // The ID of the instance.
+    // The cluster ID.
     shared_ptr<string> clusterId_ {};
-    // The ID of the instance.
+    // The instance ID.
     shared_ptr<string> instanceId_ {};
-    // The ID of the order.
+    // The order ID.
     shared_ptr<string> orderId_ {};
-    // The ID of the region.
+    // The region ID.
     shared_ptr<string> regionId_ {};
-    // The extended request parameters in the JSON format.
+    // The extended request parameters in JSON format.
     shared_ptr<string> requestPars_ {};
   };
 

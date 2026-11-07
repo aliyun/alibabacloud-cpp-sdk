@@ -141,34 +141,41 @@ namespace Models
 
 
     protected:
-      // The description.
+      // The description of the rule.
       shared_ptr<string> description_ {};
-      // The ID of the gateway.
+      // The gateway ID.
       shared_ptr<int64_t> gatewayId_ {};
       // The unique ID of the gateway.
       shared_ptr<string> gatewayUniqueId_ {};
-      // The creation time.
+      // The time when the rule was created.
       shared_ptr<string> gmtCreate_ {};
-      // The modification time.
+      // The time when the rule was last modified.
       shared_ptr<string> gmtModified_ {};
-      // The ID.
+      // The rule ID.
       shared_ptr<int64_t> id_ {};
-      // The transport layer protocol. The value of this parameter is case-insensitive. Valid values:
+      // The transport-layer protocol. The value is not case-sensitive. Valid values:
       // 
-      // *   icmp
-      // *   gre
-      // *   tcp
-      // *   udp
-      // *   all: All protocols are supported.
+      // - icmp
+      // 
+      // - gre
+      // 
+      // - tcp
+      // 
+      // - udp
+      // 
+      // - all: The rule applies to all protocols.
       shared_ptr<string> ipProtocol_ {};
-      // The range of ports for the transport layer protocol in the destination security group. Valid values:
+      // The transport-layer port range. Valid values:
       // 
-      // *   When the IpProtocol parameter is set to tcp or udp, the port number range is 1 to 65535. The start port number and the end port number are separated by a forward slash (/). Example: 1/200.
-      // *   If the IpProtocol parameter is set to icmp, the port number range is -1/-1, which indicates all ports.
-      // *   If the IpProtocol parameter is set to gre, the port number range is -1/-1, which indicates all ports.
-      // *   If the IpProtocol parameter is set to all, the port number range is -1/-1, which indicates all ports.
+      // - For TCP or UDP, the port range is 1 to 65535. Use a forward slash (/) to separate the start port from the end port. For example: `1/200`.
+      // 
+      // - For ICMP, the value is `-1/-1`.
+      // 
+      // - For GRE, the value is `-1/-1`.
+      // 
+      // - For all protocols, the value is `-1/-1`.
       shared_ptr<string> portRange_ {};
-      // The ID of the security group.
+      // The security group ID.
       shared_ptr<string> securityGroupId_ {};
     };
 
@@ -219,20 +226,21 @@ namespace Models
 
 
   protected:
-    // The status code returned.
+    // The status code.
     shared_ptr<int32_t> code_ {};
     // The returned data.
     shared_ptr<DeleteSecurityGroupRuleResponseBody::Data> data_ {};
-    // The HTTP status code returned.
+    // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
-    // The message returned.
+    // The response message.
     shared_ptr<string> message_ {};
     // The ID of the request.
     shared_ptr<string> requestId_ {};
     // Indicates whether the request was successful. Valid values:
     // 
-    // *   `true`: The request was successful.
-    // *   `false`: The request failed.
+    // - `true`: The request was successful.
+    // 
+    // - `false`: The request failed.
     shared_ptr<bool> success_ {};
   };
 

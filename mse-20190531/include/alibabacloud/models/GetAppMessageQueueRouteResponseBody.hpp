@@ -118,19 +118,20 @@ namespace Models
 
 
     protected:
-      // The ID of the application.
+      // The application ID.
       shared_ptr<string> appId_ {};
-      // Indicates whether the canary release for messaging feature is enabled.
+      // Indicates whether the feature is enabled. Valid values:
       // 
-      // *   `true`: enabled
-      // *   `false`: disabled
+      // - `true`: Enabled.
+      // - `false`: Disabled.
       shared_ptr<bool> enable_ {};
-      // The side for message filtering when the canary release for messaging feature is enabled.
+      // The filtering side for message canary release.
       shared_ptr<string> filterSide_ {};
+      // The list of baseline environment labels for MSMQ grayscale rules.
       shared_ptr<vector<string>> grayBaseTags_ {};
-      // The region ID.
+      // The region.
       shared_ptr<string> region_ {};
-      // The tags used to ignore message consumption for nodes in untagged environments.
+      // The tags that are not consumed by the untagged environments of the application.
       shared_ptr<vector<string>> tags_ {};
     };
 
@@ -181,20 +182,23 @@ namespace Models
 
 
   protected:
-    // The response code returned.
+    // The response code.
     shared_ptr<int32_t> code_ {};
-    // The data returned.
+    // The data.
     shared_ptr<GetAppMessageQueueRouteResponseBody::Data> data_ {};
-    // The HTTP status code returned.
+    // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
-    // The message returned.
+    // The returned message.
     // 
-    // *   If the request is successful, a success message is returned.
-    // *   If the request fails, an error message is returned.
+    // - If the request is successful, a success message is returned.
+    // - If the request fails, the cause of the failure is returned.
     shared_ptr<string> message_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request was successful. Valid values: true and false. The value true indicates that the request was successful. The value false indicates that the request failed.
+    // The request result. Valid values:
+    // 
+    // - true: The request is successful.
+    // - false: The request fails.
     shared_ptr<bool> success_ {};
   };
 

@@ -245,7 +245,7 @@ namespace Models
         shared_ptr<string> appId_ {};
         // The name of the application.
         shared_ptr<string> appName_ {};
-        // Indicates whether the rule was enabled.
+        // Indicates whether the rule is enabled.
         shared_ptr<bool> enable_ {};
         // The behavior that was bound to the rule.
         shared_ptr<string> fallbackObject_ {};
@@ -259,44 +259,19 @@ namespace Models
         shared_ptr<int32_t> minRequestAmount_ {};
         // The microservice namespace to which the application belongs.
         shared_ptr<string> namespace_ {};
-        // The region in which the instance resides.
+        // The region in which the cluster resides.
         shared_ptr<string> regionId_ {};
-        // The name of the interface to which the rule is applicable. The interface name must be the same as the name on the interface details page in the console.
+        // The name of the interface to which the rule applies. The interface name must be the same as that displayed on the API Details page in the console.
         shared_ptr<string> resource_ {};
+        // The interface resource type.
         shared_ptr<int32_t> resourceType_ {};
-        // The period in which circuit breaking is implemented. Unit: milliseconds. If circuit breaking is implemented on the requests for the route, the calls to all the requests for the route fail in the configured circuit breaking period.
+        // The period in which circuit breaking is implemented. Unit: milliseconds. If circuit breaking is implemented on the resources, all requests quickly fail in the configured duration.
         shared_ptr<int32_t> retryTimeoutMs_ {};
         // The ID of the rule.
         shared_ptr<int64_t> ruleId_ {};
         // The length of the time window. Unit: milliseconds. The valid range is from 1 second to 120 minutes.
         shared_ptr<int32_t> statIntervalMs_ {};
         // The threshold type.
-        // 
-        // Valid values:
-        // 
-        // *   0
-        // 
-        //     <!-- -->
-        // 
-        //     :
-        // 
-        //     <!-- -->
-        // 
-        //     slow call proportion
-        // 
-        //     <!-- -->
-        // 
-        // *   1
-        // 
-        //     <!-- -->
-        // 
-        //     :
-        // 
-        //     <!-- -->
-        // 
-        //     abnormal proportion
-        // 
-        //     <!-- -->
         shared_ptr<int32_t> strategy_ {};
         // A percentage threshold for triggering circuit breaking. Valid values: 0-1. These values represent 0% to 100%.
         shared_ptr<float> threshold_ {};
@@ -335,7 +310,7 @@ namespace Models
 
 
     protected:
-      // The page number.
+      // The first page number.
       shared_ptr<int32_t> pageNumber_ {};
       // The number of entries per page.
       shared_ptr<int32_t> pageSize_ {};
@@ -394,15 +369,15 @@ namespace Models
   protected:
     // The response code.
     shared_ptr<int32_t> code_ {};
-    // The details of the rule.
+    // The rules.
     shared_ptr<ListCircuitBreakerRulesResponseBody::Data> data_ {};
     // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
-    // The returned message.
+    // The response message.
     shared_ptr<string> message_ {};
-    // The request ID.
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request was successful.
+    // The result of the request.
     shared_ptr<bool> success_ {};
   };
 

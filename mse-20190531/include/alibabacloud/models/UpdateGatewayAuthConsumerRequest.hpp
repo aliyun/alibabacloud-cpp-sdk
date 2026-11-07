@@ -140,39 +140,40 @@ namespace Models
 
 
   protected:
-    // The language of the response. Valid values:
+    // The language of the returned information. Valid values:
     // 
-    // *   zh: Chinese
-    // *   en: English
+    // - zh: Chinese
+    // - en: English
     shared_ptr<string> acceptLanguage_ {};
-    // The description of the consumer.
+    // The description of the authentication consumer.
     shared_ptr<string> description_ {};
     // The encryption type. Valid values:
     // 
-    // *   RSA
-    // *   OCT
+    // - RSA
+    // 
+    // - OCT
     shared_ptr<string> encodeType_ {};
     // The unique ID of the gateway.
     // 
     // This parameter is required.
     shared_ptr<string> gatewayUniqueId_ {};
-    // The ID of the consumer.
+    // The ID of the authentication consumer.
     // 
     // This parameter is required.
     shared_ptr<int64_t> id_ {};
-    // The JWT public key. The JSON format is supported.
+    // The JWT public key in JSON format.
     shared_ptr<string> jwks_ {};
-    // The name of the key used for JWT-based identity authentication.
+    // The KeyName identity identifier in the JWT.
     shared_ptr<string> keyName_ {};
-    // The value of the key used for JWT-based identity authentication.
+    // The KeyValue identity identifier in the JWT.
     shared_ptr<string> keyValue_ {};
-    // The names of the parameters that are required to verify each token. By default, each token is prefixed with Bearer and stored in the Authorization header, such as `Authorization: Bearer <Content of a token>`.
+    // The name of the token parameter to be verified. By default, the token is prefixed with Bearer and placed in the Authorization header, such as `Authorization: Bearer token`.
     shared_ptr<string> tokenName_ {};
-    // Specifies whether to enable pass-through.
+    // Specifies whether to pass through the token.
     shared_ptr<bool> tokenPass_ {};
-    // The positions of the parameters that are required to verify each token. By default, each token is prefixed with Bearer and stored in the Authorization header, such as `Authorization: Bearer <Content of a token>`.
+    // The position of the token parameter to be verified. By default, the token is prefixed with Bearer and placed in the Authorization header, such as `Authorization: Bearer token`.
     shared_ptr<string> tokenPosition_ {};
-    // The prefixes of the parameters that are required to verify each token. By default, each token is prefixed with Bearer and stored in the Authorization header, such as `Authorization: Bearer <Content of a token>`.
+    // The prefix of the token parameter to be verified. By default, the token is prefixed with Bearer and placed in the Authorization header, such as `Authorization: Bearer token`.
     shared_ptr<string> tokenPrefix_ {};
   };
 

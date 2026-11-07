@@ -254,26 +254,59 @@ namespace Models
 
 
     protected:
+      // The application ID registered for the service. This parameter is used for OIDC or IDaaS.
       shared_ptr<string> clientId_ {};
+      // The application secret registered for the service. This parameter is used for OIDC or IDaaS.
       shared_ptr<string> clientSecret_ {};
+      // The domain name of the cookie. After authentication, the cookie is sent to the specified domain name to maintain the logon status. This parameter is used for OIDC or IDaaS.
       shared_ptr<string> cookieDomain_ {};
+      // The gateway ID.
       shared_ptr<int64_t> gatewayId_ {};
+      // The unique ID of the gateway.
       shared_ptr<string> gatewayUniqueId_ {};
+      // The creation time.
       shared_ptr<string> gmtCreate_ {};
+      // The update time.
       shared_ptr<string> gmtModified_ {};
+      // The authentication ID.
       shared_ptr<int64_t> id_ {};
+      // The authorization blacklist and whitelist mode. Valid values:
+      // - true: whitelist mode. Hosts and paths in the whitelist can be accessed without verification, while all other hosts and paths require verification.
+      // - false: blacklist mode. Hosts and paths in the blacklist require verification, while all other hosts and paths can be accessed directly.
       shared_ptr<bool> isWhite_ {};
+      // The issuer used when the authentication type is JWT or OIDC:
+      // - JWT: the iss (issuer) claim of the JWT, which represents the issuer.
+      // - OIDC: the iss (issuer) claim of the OIDC, which represents the issuer.
       shared_ptr<string> issuer_ {};
+      // The JWT public key in JSON format.
       shared_ptr<string> jwks_ {};
+      // The URL of the user logon page for the IDaaS instance. This parameter is used for IDaaS.
       shared_ptr<string> loginUrl_ {};
+      // The authentication name.
       shared_ptr<string> name_ {};
+      // The redirect URL after successful authorization. This parameter is used for OIDC or IDaaS and must be consistent with the redirect URL configured in OIDC or IDaaS.
       shared_ptr<string> redirectUrl_ {};
+      // The OIDC scopes. This parameter is used for OIDC.
       shared_ptr<vector<string>> scopesList_ {};
+      // The enabling status. Valid values:
+      // - true: enabled.
+      // - false: disabled.
       shared_ptr<bool> status_ {};
+      // The name of the token parameter to be verified. By default, the token is prefixed with Bearer and placed in the Authorization header. Example: `Authorization: Bearer token`.
       shared_ptr<string> tokenName_ {};
+      // The prefix of the JWT token.
       shared_ptr<string> tokenNamePrefix_ {};
+      // Specifies whether to pass through the token.
       shared_ptr<bool> tokenPass_ {};
+      // The position of the JWT token. Valid values:
+      // - HEADER: transmitted through the header.
+      // The token parameter to be verified. By default, the token is prefixed with Bearer and placed in the Authorization header. Example: `Authorization: Bearer token`.
       shared_ptr<string> tokenPosition_ {};
+      // The authentication type. Valid values:
+      // - JWT
+      // - OIDC
+      // - IDaaS
+      // - ExternalAuthZ: custom authentication service.
       shared_ptr<string> type_ {};
     };
 
@@ -324,11 +357,19 @@ namespace Models
 
 
   protected:
+    // The code returned in synchronization with the Success parameter. When Success is true, the value is 200.
     shared_ptr<int32_t> code_ {};
+    // The returned data.
     shared_ptr<DeleteGatewayAuthResponseBody::Data> data_ {};
+    // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
+    // The returned message.
     shared_ptr<string> message_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the request is successful. Valid values:
+    // - true: The request is successful.
+    // - false: The request fails.
     shared_ptr<bool> success_ {};
   };
 

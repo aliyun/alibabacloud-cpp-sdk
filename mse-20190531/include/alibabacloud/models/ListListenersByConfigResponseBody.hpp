@@ -133,17 +133,19 @@ namespace Models
 
 
     protected:
-      // The IP address.
+      // IP。
       shared_ptr<string> ip_ {};
-      // The label of the listener.
+      // The labels of the listener.
       shared_ptr<map<string, string>> labels_ {};
+      // The name of the canary release rule matched by the current listener.
       shared_ptr<string> matchRuleName_ {};
+      // The type of the matched canary release rule.
       shared_ptr<string> matchRuleType_ {};
-      // The verification string.
+      // The checksum string.
       shared_ptr<string> md5_ {};
-      // The status.
+      // Indicates whether the push is successful.
       shared_ptr<string> status_ {};
-      // The current version of the listener. Valid values: gray and normal.
+      // The current version of the listener. Valid values: gray (canary release version) or normal (production version).
       shared_ptr<string> version_ {};
     };
 
@@ -216,26 +218,25 @@ namespace Models
 
 
   protected:
-    // The error code returned if the request failed.
+    // The error code.
     shared_ptr<string> errorCode_ {};
-    // The HTTP status code returned.
+    // The HTTP status code.
     shared_ptr<string> httpCode_ {};
-    // The information about listeners.
+    // The listener information.
     shared_ptr<vector<ListListenersByConfigResponseBody::Listeners>> listeners_ {};
-    // The message returned.
+    // The response message.
     shared_ptr<string> message_ {};
-    // The page number of the returned page.
+    // The current page number.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries returned per page.
+    // The size of the current page.
     shared_ptr<int32_t> pageSize_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request was successful. Valid values:
-    // 
-    // *   `true`: The request was successful.
-    // *   `false`: The request failed.
+    // The request result. Valid values:
+    // - `true`: The request was successful.
+    // - `false`: The request failed.
     shared_ptr<bool> success_ {};
-    // The total number of entries returned.
+    // The total count.
     shared_ptr<int32_t> totalCount_ {};
   };
 

@@ -94,12 +94,19 @@ namespace Models
 
 
   protected:
+    // The language of the response. Valid values: zh (default): Chinese, en: English.
     shared_ptr<string> acceptLanguage_ {};
+    // The instance ID.
     shared_ptr<string> instanceId_ {};
+    // The MCP server name.
     shared_ptr<string> name_ {};
+    // The namespace ID.
     shared_ptr<string> namespaceId_ {};
+    // The page number.
     shared_ptr<int32_t> pageNum_ {};
+    // The page size.
     shared_ptr<int32_t> pageSize_ {};
+    // The query pattern.
     shared_ptr<string> search_ {};
   };
 

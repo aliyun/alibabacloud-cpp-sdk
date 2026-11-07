@@ -112,10 +112,10 @@ namespace Models
 
 
   protected:
-    // The language of the response. Valid values:
+    // The language of the returned information. Valid values:
     // 
-    // *   zh: Chinese
-    // *   en: English
+    // - zh: Chinese
+    // - en: English
     shared_ptr<string> acceptLanguage_ {};
     // The name of the application.
     // 
@@ -125,26 +125,26 @@ namespace Models
     shared_ptr<string> extraInfo_ {};
     // The programming language of the application.
     shared_ptr<string> language_ {};
-    // The edition of the MSE instance that you want to purchase.
+    // The version of the Microservices Engine (MSE) cluster to be activated. Valid values:
     // 
-    // *   mse_pro: Professional Edition.
-    // *   mse_dev: Developer Edition.
+    // - mse_pro: Professional Edition.
+    // - mse_dev: Developer Edition.
     shared_ptr<string> mseVersion_ {};
-    // The ID of the region where the instance resides. Examples:
+    // The region where the cluster is located, including but not limited to:
     // 
-    // *   cn-hangzhou: China (Hangzhou)
-    // *   cn-beijing: China (Beijing)
-    // *   cn-shanghai: China (Shanghai)
-    // *   cn-zhangjiakou: China (Zhangjiakou)
-    // *   cn-shenzhen: China (Shenzhen)
+    // - cn-hangzhou: Hangzhou
+    // - cn-beijing: Beijing
+    // - cn-shanghai: Shanghai
+    // - cn-zhangjiakou: Zhangjiakou
+    // - cn-shenzhen: Shenzhen
     // 
     // This parameter is required.
     shared_ptr<string> region_ {};
-    // Specifies whether to enable the Sentinel-compatible mode.
+    // Specifies whether to enable Sentinel.
     shared_ptr<string> sentinelEnable_ {};
-    // The service source.
+    // The source.
     shared_ptr<string> source_ {};
-    // Specifies whether to enable switching.
+    // Specifies whether to enable Switch.
     shared_ptr<string> switchEnable_ {};
   };
 

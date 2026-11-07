@@ -224,79 +224,35 @@ namespace Models
 
 
       protected:
-        // The ID of the application.
+        // The application ID.
         shared_ptr<string> appId_ {};
         // The application name.
         shared_ptr<string> appName_ {};
-        // The throttling effect.
-        // 
-        // Valid values:
-        // 
-        // *   0
-        // 
-        //     <!-- -->
-        // 
-        //     :
-        // 
-        //     <!-- -->
-        // 
-        //     fast failure
-        // 
-        //     <!-- -->
-        // 
-        // *   2
-        // 
-        //     <!-- -->
-        // 
-        //     :
-        // 
-        //     <!-- -->
-        // 
-        //     in queue
-        // 
-        //     <!-- -->
+        // The flow control behavior.
         shared_ptr<int32_t> controlBehavior_ {};
-        // Indicates whether the throttling rule was enabled.
-        // 
-        // Valid values:
-        // 
-        // *   true
-        // 
-        //     <!-- -->
-        // 
-        //     <!-- -->
-        // 
-        //     <!-- -->
-        // 
-        // *   false
-        // 
-        //     <!-- -->
-        // 
-        //     <!-- -->
-        // 
-        //     <!-- -->
+        // Indicates whether the rule is enabled.
         shared_ptr<bool> enable_ {};
-        // The throttling behavior.
+        // The fallback behavior.
         shared_ptr<string> fallbackObject_ {};
-        // Requests source application.
+        // The source application of the request.
         shared_ptr<string> limitApp_ {};
-        // The timeout period for queuing when the value of ControlBehavior is set to 2. Unit: milliseconds.
+        // The timeout period in milliseconds when the flow control behavior is set to queuing.
         shared_ptr<int32_t> maxQueueingTimeMs_ {};
-        // The statistical dimension. The value 1 indicates that the number of accepted requests is used for statistics.
+        // The statistical dimension. A value of 1 indicates the number of passed requests.
         shared_ptr<int32_t> metricType_ {};
         // The namespace.
         shared_ptr<string> namespace_ {};
-        // The ID of the region in which the instance resides.
+        // The region ID.
         shared_ptr<string> regionId_ {};
-        // The name of the interface resource.
+        // The API resource name.
         shared_ptr<string> resource_ {};
-        // Interface resource type.
+        // The API resource category.
         shared_ptr<int32_t> resourceType_ {};
         // The rule ID.
         shared_ptr<int64_t> ruleId_ {};
-        // The throttling threshold.
+        // The threshold of the flow control rule.
         shared_ptr<float> threshold_ {};
-        // A reserved parameter.
+        // The reserved field.
         Darabonba::Json trafficTags_ {};
       };
 
@@ -337,7 +293,7 @@ namespace Models
       shared_ptr<int32_t> pageNumber_ {};
       // The number of entries per page.
       shared_ptr<int32_t> pageSize_ {};
-      // The data returned.
+      // The returned collection.
       shared_ptr<vector<Data::Result>> result_ {};
       // The total number of entries.
       shared_ptr<int32_t> totalSize_ {};
@@ -390,43 +346,17 @@ namespace Models
 
 
   protected:
-    // The HTTP status code.
+    // The status code.
     shared_ptr<int32_t> code_ {};
-    // The details of the data.
+    // The node data.
     shared_ptr<ListFlowRulesResponseBody::Data> data_ {};
     // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
-    // The returned message.
+    // The response message.
     shared_ptr<string> message_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request was successful.
-    // 
-    // Valid values:
-    // 
-    // *   true
-    // 
-    //     <!-- -->
-    // 
-    //     :
-    // 
-    //     <!-- -->
-    // 
-    //     The request was successful.
-    // 
-    //     <!-- -->
-    // 
-    // *   false
-    // 
-    //     <!-- -->
-    // 
-    //     :
-    // 
-    //     <!-- -->
-    // 
-    //     The request failed.
-    // 
-    //     <!-- -->
+    // Indicates whether the request is successful.
     shared_ptr<bool> success_ {};
   };
 

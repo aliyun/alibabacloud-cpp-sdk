@@ -77,15 +77,16 @@ namespace Models
   protected:
     // The language of the response. Valid values:
     // 
-    // *   zh: Chinese
-    // *   en: English
+    // - zh: Chinese.
+    // - en: English.
     shared_ptr<string> acceptLanguage_ {};
     // The unique ID of the gateway.
     shared_ptr<string> gatewayUniqueId_ {};
     // The namespace.
     shared_ptr<string> namespace_ {};
+    // The service source ID.
     shared_ptr<int64_t> sourceId_ {};
-    // The type of the service source.
+    // The service source type.
     shared_ptr<string> sourceType_ {};
   };
 

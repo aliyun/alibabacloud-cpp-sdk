@@ -151,23 +151,23 @@ namespace Models
 
 
     protected:
-      // The time when the certificate expires. This value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
+      // The time when the certificate expired. The time was formatted as a UNIX timestamp in milliseconds.
       shared_ptr<string> afterDate_ {};
       // The algorithm.
       shared_ptr<string> algorithm_ {};
-      // The time when the certificate took effect. This value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
+      // The time when the certificate took effect. The time was formatted as a UNIX timestamp in milliseconds.
       shared_ptr<string> beforeDate_ {};
-      // The ID of the certificate.
+      // The certificate ID.
       shared_ptr<string> certIdentifier_ {};
-      // The name of the certificate.
+      // The certificate name.
       shared_ptr<string> certName_ {};
       // The domain name with which the certificate is associated.
       shared_ptr<string> commonName_ {};
-      // The time when the certificate expires. This value is a GMT timestamp.
+      // The time when the certificate expired. The time was formatted as a GMT timestamp.
       shared_ptr<string> gmtAfter_ {};
-      // The time when the certificate took effect. This value is a GMT timestamp.
+      // The time when the certificate took effect. The time was formatted as a GMT timestamp.
       shared_ptr<string> gmtBefore_ {};
-      // The issuer of the certificate.
+      // The issuer.
       shared_ptr<string> issuer_ {};
       // The SSL certificate.
       shared_ptr<string> sans_ {};
@@ -220,20 +220,21 @@ namespace Models
 
 
   protected:
-    // The status code returned. A value of 200 indicates that the request is successful.
+    // The status code. A value of 200 indicates that the request is successful.
     shared_ptr<int32_t> code_ {};
-    // The returned data.
+    // The response data.
     shared_ptr<vector<ListSSLCertResponseBody::Data>> data_ {};
-    // The HTTP status code returned.
+    // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
-    // The error message returned.
+    // The error message.
     shared_ptr<string> message_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request was successful. Valid values:
+    // Indicates whether the call was successful. Valid values:
     // 
-    // *   `true`: The request was successful.
-    // *   `false`: The request failed.
+    // - `true`: The request was successful.
+    // 
+    // - `false`: The request failed.
     shared_ptr<bool> success_ {};
   };
 

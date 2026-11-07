@@ -121,21 +121,21 @@ namespace Models
 
 
   protected:
-    // The language of the response. Valid values: zh and en. Default value: zh. The value zh indicates Chinese, and the value en indicates English.
+    // The language of the response. Valid values: zh: Chinese, en: English. Default value: zh.
     shared_ptr<string> acceptLanguage_ {};
     // The application ID.
     shared_ptr<string> appId_ {};
     // The application name.
     shared_ptr<string> appName_ {};
-    // The IP address from which the query is initiated.
+    // The IP address to query.
     shared_ptr<string> ip_ {};
-    // The name of the MSE namespace.
+    // The MSE namespace name.
     shared_ptr<string> namespace_ {};
     // The page number.
     shared_ptr<int32_t> pageNumber_ {};
     // The number of entries per page.
     shared_ptr<int32_t> pageSize_ {};
-    // The region ID.
+    // The region.
     shared_ptr<string> region_ {};
     // The service name.
     shared_ptr<string> serviceName_ {};

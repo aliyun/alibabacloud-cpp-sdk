@@ -176,15 +176,25 @@ namespace Models
 
 
       protected:
+        // The application ID.
         shared_ptr<string> appId_ {};
+        // The application name.
         shared_ptr<string> appName_ {};
+        // Indicates whether the rule is enabled.
         shared_ptr<bool> enable_ {};
+        // The behavior that was bound to the rule.
         shared_ptr<string> fallbackObject_ {};
+        // The source application of the request.
         shared_ptr<string> limitApp_ {};
+        // The microservice namespace to which the application belongs.
         shared_ptr<string> namespace_ {};
+        // The region in which the cluster resides.
         shared_ptr<string> regionId_ {};
+        // The name of the interface to which the rule applies. The interface name must be the same as the name on the interface details page in the console.
         shared_ptr<string> resource_ {};
+        // The rule ID.
         shared_ptr<int64_t> ruleId_ {};
+        // The concurrency threshold for isolation rules.
         shared_ptr<int32_t> threshold_ {};
       };
 
@@ -221,9 +231,13 @@ namespace Models
 
 
     protected:
+      // The first page number.
       shared_ptr<int32_t> pageNumber_ {};
+      // The page size.
       shared_ptr<int32_t> pageSize_ {};
+      // The returned results.
       shared_ptr<vector<Data::Result>> result_ {};
+      // The total number of rules.
       shared_ptr<int32_t> totalSize_ {};
     };
 
@@ -274,11 +288,17 @@ namespace Models
 
 
   protected:
+    // The response code.
     shared_ptr<int32_t> code_ {};
+    // The details of the rule.
     shared_ptr<ListIsolationRulesResponseBody::Data> data_ {};
+    // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
+    // The response message.
     shared_ptr<string> message_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // The result of the request.
     shared_ptr<bool> success_ {};
   };
 

@@ -195,33 +195,70 @@ namespace Models
 
 
   protected:
+    // The language of the returned results. Valid values: zh (default): Chinese, en: English.
     shared_ptr<string> acceptLanguage_ {};
+    // The web fallback behavior type. Valid values:
+    // - 0: Return specified text.
+    // - 1: Redirect to a specified page.
+    // 
     // This parameter is required.
     shared_ptr<int32_t> behaviorType_ {};
+    // The encoding type. Valid values:
+    // - 0: Plain text.
+    // - 1: JSON.
     shared_ptr<int32_t> bodyEncoding_ {};
+    // Specifies whether to enable the rule. Valid values:
+    // - 0: Disabled.
+    // - 1: Enabled.
+    // 
     // This parameter is required.
     shared_ptr<int32_t> enable_ {};
+    // The ID of the gateway.
     shared_ptr<int64_t> gatewayId_ {};
+    // The unique ID of the gateway.
+    // 
     // This parameter is required.
     shared_ptr<string> gatewayUniqueId_ {};
+    // The ID of the circuit breaker rule.
+    // 
     // This parameter is required.
     shared_ptr<int64_t> id_ {};
+    // The slow call threshold in slow call mode.
     shared_ptr<int32_t> maxAllowedMs_ {};
+    // The minimum number of requests that triggers circuit breaking.
+    // 
     // This parameter is required.
     shared_ptr<int32_t> minRequestAmount_ {};
+    // The recovery duration for circuit breaking.
+    // 
     // This parameter is required.
     shared_ptr<int32_t> recoveryTimeoutSec_ {};
+    // The HTTP response text.
     shared_ptr<string> responseContentBody_ {};
+    // The redirect URL.
     shared_ptr<string> responseRedirectUrl_ {};
+    // The HTTP status code.
     shared_ptr<int32_t> responseStatusCode_ {};
+    // The ID of the route.
+    // 
     // This parameter is required.
     shared_ptr<int64_t> routeId_ {};
+    // The name of the route.
+    // 
     // This parameter is required.
     shared_ptr<string> routeName_ {};
+    // The statistical duration for circuit breaking.
+    // 
     // This parameter is required.
     shared_ptr<int32_t> statDurationSec_ {};
+    // The threshold type. Valid values:
+    // - 0: Slow call.
+    // - 1: Exception.
+    // 
     // This parameter is required.
     shared_ptr<int32_t> strategy_ {};
+    // The percentage that triggers circuit breaking.
+    // 
     // This parameter is required.
     shared_ptr<int32_t> triggerRatio_ {};
   };

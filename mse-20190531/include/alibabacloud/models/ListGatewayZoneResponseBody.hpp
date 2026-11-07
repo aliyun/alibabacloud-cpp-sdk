@@ -93,8 +93,9 @@ namespace Models
 
 
     protected:
-      // The local name of the zone.
+      // The name of the zone.
       shared_ptr<string> localName_ {};
+      // Indicates whether the zone supports QAT.
       shared_ptr<bool> supportQat_ {};
       // The zone ID.
       shared_ptr<string> zoneId_ {};
@@ -169,26 +170,27 @@ namespace Models
 
 
   protected:
-    // The response code. The status code 200 indicates that the request was successful.
+    // The status code. A value of `200` is returned when `Success` is `true`.
     shared_ptr<int32_t> code_ {};
-    // The queried zones.
+    // A list of zones.
     shared_ptr<vector<ListGatewayZoneResponseBody::Data>> data_ {};
-    // The dynamic part in the error message.
+    // The placeholder in the dynamic error message.
     shared_ptr<string> dynamicCode_ {};
-    // The dynamic part in the error message. This parameter is used to replace %s in **ErrMessage**.
+    // The dynamic error message that is used to replace the **%s** placeholder in the ErrMessage parameter.
     shared_ptr<string> dynamicMessage_ {};
-    // The status code.
+    // The error code returned if the request fails.
     shared_ptr<string> errorCode_ {};
     // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
-    // The message returned.
+    // The response message.
     shared_ptr<string> message_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
     // Indicates whether the request was successful. Valid values:
     // 
-    // *   `true`: The request was successful.
-    // *   `false`: The request failed.
+    // - `true`
+    // 
+    // - `false`
     shared_ptr<bool> success_ {};
   };
 

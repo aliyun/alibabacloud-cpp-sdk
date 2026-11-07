@@ -84,11 +84,17 @@ namespace Models
 
 
   protected:
+    // The language of the response. Valid values: zh (default): Chinese, en: English.
     shared_ptr<string> acceptLanguage_ {};
+    // The sort order.
     shared_ptr<bool> descSort_ {};
+    // The filter conditions. Refer to the examples.
     shared_ptr<string> filterParamsShrink_ {};
+    // This parameter is not available.
     shared_ptr<string> orderItem_ {};
+    // The page number.
     shared_ptr<int32_t> pageNumber_ {};
+    // The number of items per page.
     shared_ptr<int32_t> pageSize_ {};
   };
 

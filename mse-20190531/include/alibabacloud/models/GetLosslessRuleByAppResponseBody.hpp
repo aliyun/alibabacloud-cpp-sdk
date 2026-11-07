@@ -161,30 +161,29 @@ namespace Models
 
 
     protected:
-      // Indicates whether service registration is complete before readiness probe.
+      // Indicates whether service registration is completed before the readiness check is passed.
       shared_ptr<bool> aligned_ {};
-      // The ID of the application.
+      // The application ID.
       shared_ptr<string> appId_ {};
-      // The name of the application.
+      // The application name.
       shared_ptr<string> appName_ {};
       // The number of instances.
       shared_ptr<int32_t> count_ {};
-      // The registration latency. Unit: seconds.
+      // The delayed registration time in seconds.
       shared_ptr<int32_t> delayTime_ {};
-      // Indicates whether graceful start is enabled. Valid values:
-      // 
-      // *   `true`: enabled
-      // *   `false`: disabled
+      // The enabling status of graceful start. Valid values:
+      // - `true`: Enabled.
+      // - `false`: Disabled.
       shared_ptr<bool> enable_ {};
-      // The slope of the prefetching curve.
+      // The slope of the warm-up curve.
       shared_ptr<int32_t> funcType_ {};
-      // Indicates whether online and offline processing details are displayed.
+      // Indicates whether the processing details for graceful start and shutdown are enabled.
       shared_ptr<bool> lossLessDetail_ {};
-      // Indicates whether notification is enabled.
+      // Indicates whether proactive notification is enabled.
       shared_ptr<bool> notice_ {};
-      // Indicates whether service prefetching is complete before readiness probe.
+      // Indicates whether service warm-up is completed before the readiness check is passed.
       shared_ptr<bool> related_ {};
-      // The prefetching duration. Unit: seconds.
+      // The warm-up duration in seconds.
       shared_ptr<int32_t> warmupTime_ {};
     };
 
@@ -245,20 +244,19 @@ namespace Models
   protected:
     // The response code.
     shared_ptr<int32_t> code_ {};
-    // The data returned.
+    // The returned data.
     shared_ptr<GetLosslessRuleByAppResponseBody::Data> data_ {};
-    // The error code returned.
+    // The error code.
     shared_ptr<string> errorCode_ {};
-    // The HTTP status code returned.
+    // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
-    // The message returned.
+    // The response message.
     shared_ptr<string> message_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request was successful. Valid values:
-    // 
-    // *   true: The request was successful.
-    // *   false: The request failed.
+    // Indicates whether the request is successful. Valid values:
+    // - true: The request succeeded.
+    // - false: The request failed.
     shared_ptr<bool> success_ {};
   };
 

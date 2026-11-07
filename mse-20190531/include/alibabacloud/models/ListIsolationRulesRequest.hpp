@@ -103,15 +103,25 @@ namespace Models
 
 
   protected:
+    // The language in which you want the results to be displayed. Valid values: zh (default): Chinese. en: English.
     shared_ptr<string> acceptLanguage_ {};
+    // The application ID.
     shared_ptr<string> appId_ {};
+    // The application name.
+    // 
     // This parameter is required.
     shared_ptr<string> appName_ {};
+    // The microservice namespace to which the application belongs.
+    // 
     // This parameter is required.
     shared_ptr<string> namespace_ {};
+    // The first page. Default value: 1.
     shared_ptr<int32_t> pageIndex_ {};
+    // The page size. Default value: 6.
     shared_ptr<int32_t> pageSize_ {};
+    // Find protection rules for specified interface.
     shared_ptr<string> resource_ {};
+    // Find protection rules that contain the interface keyword.
     shared_ptr<string> resourceSearchKey_ {};
   };
 

@@ -225,7 +225,7 @@ namespace Models
 
 
         protected:
-          // The matching character.
+          // The match operator.
           shared_ptr<string> cond_ {};
           // The value.
           shared_ptr<string> datum_ {};
@@ -233,7 +233,7 @@ namespace Models
           shared_ptr<int32_t> divisor_ {};
           // The name.
           shared_ptr<string> name_ {};
-          // The names.
+          // The list of names.
           shared_ptr<vector<string>> nameList_ {};
           // The operator.
           shared_ptr<string> operator_ {};
@@ -241,7 +241,7 @@ namespace Models
           shared_ptr<int32_t> rate_ {};
           // The remainder.
           shared_ptr<int32_t> remainder_ {};
-          // The matching type.
+          // The match type.
           shared_ptr<string> type_ {};
           // The value.
           shared_ptr<string> value_ {};
@@ -284,11 +284,11 @@ namespace Models
       protected:
         // The condition.
         shared_ptr<string> condition_ {};
-        // The path of the code group.
+        // The code group path.
         shared_ptr<string> path_ {};
-        // The paths.
+        // The list of paths.
         shared_ptr<vector<string>> paths_ {};
-        // The conditions to be met.
+        // The list of REST matching rules.
         shared_ptr<vector<EntryRules::RestItems>> restItems_ {};
       };
 
@@ -397,32 +397,33 @@ namespace Models
 
 
     protected:
-      // Indicates whether the lane was enabled.
+      // The swimlane switch.
       shared_ptr<bool> enable_ {};
-      // Indicates whether the rule is enabled.
+      // Specifies whether the rules are enabled.
       shared_ptr<bool> enableRules_ {};
-      // The rule for the ingress application.
+      // The entry application rule.
       shared_ptr<string> entryRule_ {};
       // The name.
       shared_ptr<vector<Data::EntryRules>> entryRules_ {};
-      // The routing rule for the MSE gateway.
+      // The MSE gateway routing rules.
       shared_ptr<string> gatewaySwimmingLaneRouteJson_ {};
-      // The time when the lane was created.
+      // The time when the swimlane was created.
       shared_ptr<string> gmtCreate_ {};
-      // The time when the lane was updated.
+      // The time when the swimlane was updated.
       shared_ptr<string> gmtModified_ {};
-      // The ID of the lane group.
+      // The swimlane group ID.
       shared_ptr<int64_t> groupId_ {};
-      // The ID of the lane.
+      // The swimlane ID.
       shared_ptr<int64_t> id_ {};
-      // The name of the lane.
+      // The swimlane name.
       shared_ptr<string> name_ {};
+      // **[Deprecated]** Specifies whether to enable percentage-based canary releases by path when a Java gateway is used as the entry point.
       shared_ptr<bool> pathIndependentPercentageEnable_ {};
-      // The ID of the region where the application is deployed.
+      // The region where the application is located.
       shared_ptr<string> regionId_ {};
-      // The status of the lane.
+      // The swimlane status.
       shared_ptr<int32_t> status_ {};
-      // The tag of the lane.
+      // The tag corresponding to the swimlane.
       shared_ptr<string> tag_ {};
     };
 
@@ -481,22 +482,21 @@ namespace Models
 
 
   protected:
-    // The status code. The value 200 is returned if the request is successful.
+    // The code used only to synchronize with the Success parameter.
     shared_ptr<int32_t> code_ {};
-    // The details of the data.
+    // The data overview.
     shared_ptr<CreateOrUpdateSwimmingLaneResponseBody::Data> data_ {};
-    // The error code returned if the request failed.
+    // The error code.
     shared_ptr<string> errorCode_ {};
-    // The HTTP status code returned.
+    // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
-    // The message returned.
+    // The returned message.
     shared_ptr<string> message_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request was successful. Valid values:
-    // 
-    // *   `true`: The request was successful.
-    // *   `false`: The request failed.
+    // Indicates whether the request is successful. Valid values:
+    // - `true`: The request is successful.
+    // - `false`: The request fails.
     shared_ptr<bool> success_ {};
   };
 

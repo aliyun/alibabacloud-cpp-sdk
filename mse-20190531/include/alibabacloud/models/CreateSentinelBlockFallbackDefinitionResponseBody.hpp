@@ -123,12 +123,19 @@ namespace Models
 
 
     protected:
+      // The name of the application.
       shared_ptr<string> appName_ {};
+      // The behavior details.
       shared_ptr<string> fallbackBehavior_ {};
+      // The behavior ID.
       shared_ptr<int64_t> id_ {};
+      // The behavior name.
       shared_ptr<string> name_ {};
+      // The microservice namespace to which the application belongs.
       shared_ptr<string> namespace_ {};
+      // The target resource type.
       shared_ptr<int32_t> resourceClassification_ {};
+      // The user ID.
       shared_ptr<string> userId_ {};
     };
 
@@ -179,11 +186,21 @@ namespace Models
 
 
   protected:
+    // The response code.
     shared_ptr<int32_t> code_ {};
+    // The data returned.
     shared_ptr<CreateSentinelBlockFallbackDefinitionResponseBody::Data> data_ {};
+    // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
+    // The returned message.
     shared_ptr<string> message_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the request was successful. Valid values:
+    // 
+    // - `true`: The request was successful.
+    // 
+    // - `false`: The request failed.
     shared_ptr<string> success_ {};
   };
 

@@ -178,34 +178,34 @@ namespace Models
 
 
     protected:
-      // The ID of the application.
+      // The application ID.
       shared_ptr<string> appId_ {};
-      // The name of the application.
+      // The application name.
       shared_ptr<string> appName_ {};
-      // The creation time.
+      // The creation time. The value is a UNIX timestamp in milliseconds.
       shared_ptr<int64_t> createTime_ {};
-      // The additional information.
+      // The extra information.
       shared_ptr<string> extraInfo_ {};
       // The programming language of the application.
       shared_ptr<string> language_ {};
-      // The license key in use.
+      // The license key corresponding to the user.
       shared_ptr<string> licenseKey_ {};
-      // MSE命名空间名字。
+      // The name of the MSE namespace.
       shared_ptr<string> namespace_ {};
       // The region ID.
       shared_ptr<string> regionId_ {};
-      // The service where the application is deployed. Valid values:
+      // The deployment method of the application. Valid values:
       // 
-      // *   \\- ACK: Container Service for Kubernetes
-      // *   \\- Normal: another service
+      // - ACK: Container Service for Kubernetes (ACK).
+      // - Normal: Other access methods.
       shared_ptr<string> source_ {};
-      // The status of the application. A value of 1 indicates that the application is in a normal state.
+      // The application status. A value of 1 indicates normal.
       shared_ptr<int32_t> status_ {};
-      // The update time.
+      // The last update time. The value is a UNIX timestamp in milliseconds.
       shared_ptr<int64_t> updateTime_ {};
-      // The ID of the Alibaba Cloud account.
+      // The Alibaba Cloud user ID.
       shared_ptr<string> userId_ {};
-      // 版本号。
+      // The version number.
       shared_ptr<string> version_ {};
     };
 
@@ -256,20 +256,20 @@ namespace Models
 
 
   protected:
-    // The response code returned.
+    // The response code.
     shared_ptr<int32_t> code_ {};
-    // The data of the node.
+    // The data.
     shared_ptr<CreateApplicationResponseBody::Data> data_ {};
-    // The HTTP status code returned.
+    // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
-    // The message returned.
+    // The returned message.
     shared_ptr<string> message_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request was successful. Valid values:
+    // The request result. Valid values:
     // 
-    // *   `true`: The request was successful.
-    // *   `false`: The request failed.
+    // - `true`: The request is successful.
+    // - `false`: The request fails.
     shared_ptr<string> success_ {};
   };
 

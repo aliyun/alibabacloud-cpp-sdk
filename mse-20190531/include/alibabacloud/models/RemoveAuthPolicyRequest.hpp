@@ -48,7 +48,10 @@ namespace Models
 
 
   protected:
+    // The language in which the returned results are displayed. Values: zh-CN (default): Chinese, en-US: English
     shared_ptr<string> acceptLanguage_ {};
+    // Policy ID.
+    // 
     // This parameter is required.
     shared_ptr<string> policyId_ {};
   };

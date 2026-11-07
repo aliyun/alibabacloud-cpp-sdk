@@ -112,13 +112,13 @@ namespace Models
 
 
   protected:
-    // The language of the response. Valid values: zh-CN and en-US. Default value: zh-CN. The value zh-CN indicates Chinese and the value en-US indicates English.
+    // The language in which the response is displayed. Valid values: zh-CN (default): Chinese, en-US: English
     shared_ptr<string> acceptLanguage_ {};
     // The application ID.
     shared_ptr<string> appId_ {};
-    // The name of the authentication rule.
+    // The authentication rule name.
     shared_ptr<string> name_ {};
-    // The name of the Microservices Engine (MSE) namespace.
+    // The MSE namespace name.
     shared_ptr<string> namespace_ {};
     // The page number.
     // 
@@ -128,17 +128,19 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> pageSize_ {};
-    // The protocol type. Valid values:
+    // The Protocol Type. Valid values:
     // 
-    // *   **SPRING_CLOUD**
-    // *   **DUBBO**
-    // *   **istio**
+    // - **SPRING_CLOUD**.
+    // 
+    // - **DUBBO**.
+    // 
+    // - **istio**.
     shared_ptr<string> protocol_ {};
-    // The region ID.
+    // Region ID.
     // 
     // This parameter is required.
     shared_ptr<string> region_ {};
-    // The service source.
+    // The source.
     // 
     // This parameter is required.
     shared_ptr<string> source_ {};

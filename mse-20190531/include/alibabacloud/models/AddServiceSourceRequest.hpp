@@ -97,7 +97,7 @@ namespace Models
     protected:
       // The description of the authorization record.
       shared_ptr<string> description_ {};
-      // The authorized port range of the security group. You can select multiple port ranges. Separate each port range with a comma (,).
+      // The authorized port range of the security group. You can specify multiple port ranges separated by commas (,).
       shared_ptr<string> portRange_ {};
       // The ID of the security group.
       shared_ptr<string> securityGroupId_ {};
@@ -159,17 +159,13 @@ namespace Models
 
 
     protected:
-      // The group to which the service belongs.
+      // Specifies whether to enable Ingress.
       shared_ptr<bool> enableIngress_ {};
-      // The language of the response. Valid values:
-      // 
-      // *   zh-CN: Chinese. This is the default value.
-      // *   en-US: English.
-      // *   ja: Japanese.
+      // Specifies whether to update the Ingress status.
       shared_ptr<bool> enableStatus_ {};
-      // An array of service root paths.
+      // The Ingress class to listen on.
       shared_ptr<string> ingressClass_ {};
-      // The root path of the service.
+      // The target namespace to watch.
       shared_ptr<string> watchNamespace_ {};
     };
 
@@ -255,35 +251,49 @@ namespace Models
 
 
   protected:
-    // The language of the response. Valid values:
+    // The supported languages. Valid values:
     // 
-    // *   zh-CN (default): Chinese
-    // *   en-US: English
-    // *   ja: Japanese
+    // - zh-CN: Chinese. This is the default value.
+    // - en-US: English.
+    // - ja: Japanese.
     shared_ptr<string> acceptLanguage_ {};
-    // Specifies whether to monitor Ingress classes.
+    // The access address. This parameter is required.
+    // * Container Service: the ID of the Container Service cluster.
+    // * MSE Nacos: the internal endpoint of the instance.
+    // * MSE ZooKeeper: the internal endpoint of the instance.
+    // * SAE registry: the namespace TID.
+    // * EDAS registry: the microservice namespace.
     shared_ptr<string> address_ {};
-    // Specifies whether to update the Ingress status.
+    // The unique ID of the gateway.
     shared_ptr<string> gatewayUniqueId_ {};
-    // The data structure.
-    shared_ptr<vector<string>> groupList_ {};
     // The list of service groups.
+    shared_ptr<vector<string>> groupList_ {};
+    // The Ingress configurations. This parameter is used when the service source type is K8s.
     shared_ptr<AddServiceSourceRequest::IngressOptionsRequest> ingressOptionsRequest_ {};
-    // The namespace whose resources you want to monitor.
+    // The name.
+    // 
+    // 
+    // > Descriptions for different source types.
+    // - When the type is K8s, the input parameter is the name.
+    // - When the type is NACOS, the input parameter is the instance ID.
     shared_ptr<string> name_ {};
-    // The HTTP status code returned.
+    // The array of service root paths.
     shared_ptr<vector<string>> pathList_ {};
-    // The service source.
-    // 
-    // *   K8s: ACK cluster
-    // *   NACOS: MSE Nacos instance
+    // The service source type:
+    // - Container Service: K8S
+    // - MSE Nacos: MSE
+    // - MSE ZooKeeper: MSE_ZK
+    // - SAE registry: SAE
+    // - EDAS registry: EDAS
     shared_ptr<string> source_ {};
-    // The list of security groups to be authorized. You can specify security groups to allow backend services to access data sources that you create.
+    // The list of security groups to be authorized. This parameter is used to remove security group restrictions for backend services when creating a source.
     shared_ptr<vector<AddServiceSourceRequest::ToAuthorizeSecurityGroups>> toAuthorizeSecurityGroups_ {};
-    // The type of the service source.
-    // 
-    // *   K8s: Container Service for Kubernetes (ACK) cluster
-    // *   NACOS: Nacos instance
+    // The service registration type. Specify the corresponding value based on the source type:
+    // - Container Service: K8S
+    // - MSE Nacos: NACOS
+    // - MSE ZooKeeper: ZOOKEEPER
+    // - SAE registry: NACOS
+    // - EDAS registry: NACOS
     shared_ptr<string> type_ {};
   };
 

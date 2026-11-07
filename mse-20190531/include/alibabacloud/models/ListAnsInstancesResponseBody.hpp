@@ -251,55 +251,51 @@ namespace Models
 
 
     protected:
-      // The name of the application.
+      // The application name.
       shared_ptr<string> app_ {};
-      // The name of the cluster.
+      // The cluster name.
       shared_ptr<string> clusterName_ {};
-      // The reference key.
+      // The datum key.
       shared_ptr<string> datumKey_ {};
       // The default key.
       shared_ptr<string> defaultKey_ {};
-      // The effective status of the instance. Valid values:
-      // 
-      // *   `true`: The instance takes effect.
-      // *   `false`: The instance does not take effect.
+      // Indicates whether the instance is enabled. Valid values:
+      // - `true`: Enabled.
+      // - `false`: Disabled.
       shared_ptr<bool> enabled_ {};
-      // Indicates whether the information about the ephemeral node is obtained. Valid values:
-      // 
-      // *   `true`: yes
-      // *   `false`: no
+      // Indicates whether the node is ephemeral. Valid values:
+      // - `true`: Obtained successfully.
+      // - `false`: Failed to obtain.
       shared_ptr<bool> ephemeral_ {};
-      // The number of counted failures.
+      // The failure count.
       shared_ptr<int32_t> failCount_ {};
       // The health status of the instance. Valid values:
-      // 
-      // *   `true`: The instance is healthy.
-      // *   `false`: The instance is unhealthy.
+      // - `true`: The instance is healthy.
+      // - `false`: The instance is unhealthy.
       shared_ptr<bool> healthy_ {};
       // The heartbeat interval of the instance. Unit: seconds.
       shared_ptr<int32_t> instanceHeartBeatInterval_ {};
-      // The timeout period of the instance heartbeat.
+      // The instance heartbeat timeout.
       shared_ptr<int32_t> instanceHeartBeatTimeOut_ {};
-      // The ID of the instance.
+      // The instance ID.
       shared_ptr<string> instanceId_ {};
       // The public IP address.
       shared_ptr<string> ip_ {};
-      // The timeout period for removing an IP address.
+      // The IP address deletion timeout.
       shared_ptr<int32_t> ipDeleteTimeout_ {};
-      // The last heartbeat time.
+      // The time of the last heartbeat.
       shared_ptr<int64_t> lastBeat_ {};
-      // Indicates whether the instance was marked. Valid values:
-      // 
-      // *   `true`: The instance marking was successful.
-      // *   `false`: The instance marking failed.
+      // Indicates whether the instance is marked. Valid values:
+      // - `true`: Marked successfully.
+      // - `false`: Failed to mark.
       shared_ptr<bool> marked_ {};
       // The metadata.
       Darabonba::Json metadata_ {};
-      // The number of counted successes.
+      // The success count.
       shared_ptr<int32_t> okCount_ {};
       // The port number.
       shared_ptr<int32_t> port_ {};
-      // The name of the service.
+      // The service name.
       shared_ptr<string> serviceName_ {};
       // The weight.
       shared_ptr<int32_t> weight_ {};
@@ -374,26 +370,25 @@ namespace Models
 
 
   protected:
-    // The details of the data.
+    // The data overview.
     shared_ptr<vector<ListAnsInstancesResponseBody::Data>> data_ {};
-    // The error code returned if the request failed.
+    // The error code.
     shared_ptr<string> errorCode_ {};
-    // The HTTP status code returned.
+    // The HTTP status code.
     shared_ptr<string> httpCode_ {};
-    // The message returned.
+    // The message.
     shared_ptr<string> message_ {};
-    // The number of the page to return.
+    // The page number.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries returned per page.
+    // The number of instances to return on each page.
     shared_ptr<int32_t> pageSize_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request was successful. Valid values:
-    // 
-    // *   `true`: The request was successful.
-    // *   `false`: The request failed.
+    // Indicates whether the request is successful. Valid values:
+    // - `true`: The request is successful.
+    // - `false`: The request fails.
     shared_ptr<bool> success_ {};
-    // The total number of returned instances.
+    // The total number of instances.
     shared_ptr<int32_t> totalCount_ {};
   };
 

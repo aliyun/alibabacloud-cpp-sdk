@@ -124,12 +124,19 @@ namespace Models
       shared_ptr<int32_t> clusterCount_ {};
       // The name of the contact group.
       shared_ptr<string> groupName_ {};
-      // The total number of instances with healthy heartbeats.
+      // The total number of service instances with healthy heartbeats.
       shared_ptr<int32_t> healthyInstanceCount_ {};
-      // The total number of instances that are used for the current service.
+      // The total number of instances of the current service.
       shared_ptr<int32_t> ipCount_ {};
       // The name of the service.
       shared_ptr<string> name_ {};
+      // The type of the service. Valid values:
+      // 
+      // - console: registered on the console.
+      // 
+      // - sdk: registered using an SDK.
+      // 
+      // - governance: registered using service administration.
       shared_ptr<string> source_ {};
     };
 
@@ -202,26 +209,27 @@ namespace Models
 
 
   protected:
-    // The details of the data.
+    // The data overview.
     shared_ptr<vector<ListAnsServicesResponseBody::Data>> data_ {};
-    // The error code returned if the request failed.
+    // The error code.
     shared_ptr<string> errorCode_ {};
-    // The HTTP status code returned.
+    // The HTTP status code.
     shared_ptr<string> httpCode_ {};
     // The message returned.
     shared_ptr<string> message_ {};
-    // The number of the returned page.
+    // The page number.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries returned per page.
+    // The number of instances displayed per page.
     shared_ptr<int32_t> pageSize_ {};
     // The ID of the request.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request was successful. Valid values:
+    // The result of the request. Valid values:
     // 
-    // *   `true`: The request was successful.
-    // *   `false`: The request failed.
+    // - `true`: The request was successful.
+    // 
+    // - `false`: The request failed.
     shared_ptr<bool> success_ {};
-    // The total number of instances returned.
+    // The total number of instances.
     shared_ptr<int32_t> totalCount_ {};
   };
 

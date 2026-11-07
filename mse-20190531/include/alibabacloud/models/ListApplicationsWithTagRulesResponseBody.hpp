@@ -292,15 +292,25 @@ namespace Models
 
 
               protected:
+                // The comparison operator. Valid values: >=, <=, >, <, and ==.
                 shared_ptr<string> cond_ {};
+                // The value to be compared for operators such as rawvalue.
                 shared_ptr<string> datum_ {};
+                // The field required for the mod operator, which is the divisor.
                 shared_ptr<int32_t> divisor_ {};
+                // The name.
                 shared_ptr<string> name_ {};
+                // The field required for the list operator.
                 shared_ptr<vector<string>> nameList_ {};
+                // The operator. A value of rawvalue indicates direct comparison, mode indicates modulo operation, and list indicates a whitelist.
                 shared_ptr<string> operator_ {};
+                // The proportion rule, where 20% of traffic is routed to the node corresponding to this tag.
                 shared_ptr<int32_t> rate_ {};
+                // The field required for the percentage operation, which is the percentage value.
                 shared_ptr<int32_t> remainder_ {};
+                // The type.
                 shared_ptr<string> type_ {};
+                // The value.
                 shared_ptr<string> value_ {};
               };
 
@@ -377,14 +387,23 @@ namespace Models
 
 
             protected:
+              // The ID of the application.
               shared_ptr<string> appId_ {};
+              // The logical relationship among the following items. Valid values: AND and OR.
               shared_ptr<string> condition_ {};
+              // Specifies whether the feature is enabled.
               shared_ptr<bool> enable_ {};
+              // The path.
               shared_ptr<string> path_ {};
+              // The list of paths.
               shared_ptr<vector<string>> paths_ {};
+              // The priority.
               shared_ptr<int32_t> priority_ {};
+              // The list of matching conditions for REST requests.
               shared_ptr<vector<Springcloud::RestItems>> restItems_ {};
+              // The list of tags.
               shared_ptr<vector<string>> tags_ {};
+              // The policy type.
               shared_ptr<string> triggerPolicy_ {};
             };
 
@@ -538,15 +557,25 @@ namespace Models
 
 
               protected:
+                // The comparison operator. Valid values: >=, <=, >, <, and ==.
                 shared_ptr<string> cond_ {};
+                // The value to be compared for operators such as rawvalue.
                 shared_ptr<string> datum_ {};
+                // The field required for the mod operator, which is the divisor.
                 shared_ptr<int32_t> divisor_ {};
+                // The expression. For more information, see the descriptions of other fields.
                 shared_ptr<string> expr_ {};
+                // The parameter position, starting from 0.
                 shared_ptr<int32_t> index_ {};
+                // The list of names.
                 shared_ptr<vector<string>> nameList_ {};
+                // The operator. A value of rawvalue indicates direct comparison, mode indicates modulo operation, and list indicates a whitelist.
                 shared_ptr<string> operator_ {};
+                // The proportion rule, where 20% of traffic is routed to the node corresponding to this tag.
                 shared_ptr<int32_t> rate_ {};
+                // The field required for the percentage operation, which is the percentage value.
                 shared_ptr<int32_t> remainder_ {};
+                // The value used for comparison. The value obtained from the expression is compared with this value. If the operator is a list whitelist, separate multiple values with commas (,), such as 1,2,3.
                 shared_ptr<string> value_ {};
               };
 
@@ -630,15 +659,25 @@ namespace Models
 
 
             protected:
+              // The ID of the application.
               shared_ptr<string> appId_ {};
+              // The list of parameter arguments.
               shared_ptr<vector<Dubbo::ArgumentItems>> argumentItems_ {};
+              // The logical relationship among the following items. Valid values: AND and OR.
               shared_ptr<string> condition_ {};
+              // The Dubbo service group.
               shared_ptr<string> group_ {};
+              // The Dubbo service method name.
               shared_ptr<string> methodName_ {};
+              // The list of parameter types.
               shared_ptr<vector<string>> paramTypes_ {};
+              // The service name (interface).
               shared_ptr<string> serviceName_ {};
+              // The list of tags.
               shared_ptr<vector<string>> tags_ {};
+              // The policy type.
               shared_ptr<string> triggerPolicy_ {};
+              // The Dubbo service version.
               shared_ptr<string> version_ {};
             };
 
@@ -663,7 +702,9 @@ namespace Models
 
 
           protected:
+            // The Dubbo rule.
             shared_ptr<vector<Rules::Dubbo>> dubbo_ {};
+            // The Spring Cloud rule.
             shared_ptr<vector<Rules::Springcloud>> springcloud_ {};
           };
 
@@ -729,10 +770,10 @@ namespace Models
 
 
         protected:
-          // Indicates whether the alert rule is enabled. Valid values:
+          // The enabling status of the alert rule. Valid values:
           // 
-          // *   `true`
-          // *   `false`
+          // - `true`: Enabled.
+          // - `false`: Disabled.
           shared_ptr<bool> enable_ {};
           // The rule ID.
           shared_ptr<int64_t> id_ {};
@@ -740,9 +781,9 @@ namespace Models
           shared_ptr<int32_t> instanceNum_ {};
           // The rule name.
           shared_ptr<string> name_ {};
-          // The rate.
+          // The proportion.
           shared_ptr<int32_t> rate_ {};
-          // The details of the routing rule.
+          // The applicable routes of the rule.
           shared_ptr<RouteRules::Rules> rules_ {};
           // The status.
           shared_ptr<int32_t> status_ {};
@@ -790,18 +831,19 @@ namespace Models
 
 
       protected:
-        // The application ID.
+        // The ID of the application.
         shared_ptr<string> appId_ {};
         // The application name.
         shared_ptr<string> appName_ {};
         // The MSE namespace to which the application belongs.
         shared_ptr<string> namespace_ {};
-        // The queried rules.
+        // The list of rules.
         shared_ptr<vector<Result::RouteRules>> routeRules_ {};
-        // The route state. Valid values:
+        // The routing status. Valid values:
         // 
-        // *   0: disabled
-        // *   1: enabled
+        // - 0: Disabled.
+        // 
+        // - 1: Enabled.
         shared_ptr<int64_t> routeStatus_ {};
       };
 
@@ -838,13 +880,13 @@ namespace Models
 
 
     protected:
-      // The page number of the returned page.
+      // The page number.
       shared_ptr<int32_t> pageNumber_ {};
-      // The number of entries returned per page.
+      // The page size.
       shared_ptr<int32_t> pageSize_ {};
-      // The returned data.
+      // The data structure.
       shared_ptr<vector<Data::Result>> result_ {};
-      // The total number of entries returned.
+      // The total number of entries.
       shared_ptr<int32_t> totalSize_ {};
     };
 
@@ -888,21 +930,21 @@ namespace Models
 
 
   protected:
-    // The response parameters.
+    // The data overview.
     shared_ptr<ListApplicationsWithTagRulesResponseBody::Data> data_ {};
-    // The HTTP status code returned.
+    // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
     // The returned message.
     // 
-    // *   If the request is successful, a success message is returned.
-    // *   If the request fails, an error message is returned.
+    // - If the request is successful, a success message is returned.
+    // - If the request fails, the cause of the failure is returned.
     shared_ptr<string> message_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request was successful. Valid values:
+    // Indicates whether the request is successful. Valid values:
     // 
-    // *   `true`: The request was successful.
-    // *   `false`: The request failed.
+    // - `true`: The request is successful.
+    // - `false`: The request fails.
     shared_ptr<bool> success_ {};
   };
 

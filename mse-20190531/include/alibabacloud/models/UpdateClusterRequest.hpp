@@ -84,20 +84,19 @@ namespace Models
 
 
   protected:
-    // The language of the response. Valid values:
-    // 
-    // *   zh: Chinese
-    // *   en: English
+    // The language of the returned information. Valid values:
+    // - zh: Chinese.
+    // - en: English.
     shared_ptr<string> acceptLanguage_ {};
-    // The alias of the instance.
+    // The alias of the cluster.
     shared_ptr<string> clusterAliasName_ {};
-    // The ID of the instance.
+    // The instance ID.
     shared_ptr<string> instanceId_ {};
-    // The end time of the O\\&M window.
+    // The end time of the O&M window.
     shared_ptr<string> maintenanceEndTime_ {};
-    // The start time of the O\\&M window.
+    // The start time of the O&M window.
     shared_ptr<string> maintenanceStartTime_ {};
-    // The extended request parameters in the JSON format.
+    // The extended request parameters in JSON format.
     shared_ptr<string> requestPars_ {};
   };
 

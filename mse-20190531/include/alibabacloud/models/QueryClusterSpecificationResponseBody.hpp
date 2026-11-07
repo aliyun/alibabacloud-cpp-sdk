@@ -89,11 +89,11 @@ namespace Models
 
 
     protected:
-      // The engine specifications that can be used.
+      // The available engine specifications.
       shared_ptr<string> clusterSpecificationName_ {};
-      // The number of vCPUs in the specifications.
+      // The number of CPU cores for this specification.
       shared_ptr<string> cpuCapacity_ {};
-      // The memory size in the specifications. Unit: GB.
+      // The memory size for this specification. Unit: GB.
       shared_ptr<string> memoryCapacity_ {};
     };
 
@@ -154,20 +154,19 @@ namespace Models
   protected:
     // The return value.
     shared_ptr<int32_t> code_ {};
-    // The details of the data.
+    // The data overview.
     shared_ptr<vector<QueryClusterSpecificationResponseBody::Data>> data_ {};
-    // The error code returned if the request failed.
+    // The error code.
     shared_ptr<string> errorCode_ {};
-    // The HTTP status code returned.
+    // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
-    // The message returned.
+    // The message.
     shared_ptr<string> message_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
     // Indicates whether the request was successful. Valid values:
-    // 
-    // *   `true`: The request was successful.
-    // *   `false`: The request failed.
+    // - `true`: The request was successful.
+    // - `false`: The request failed.
     shared_ptr<bool> success_ {};
   };
 

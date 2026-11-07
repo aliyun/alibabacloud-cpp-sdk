@@ -190,9 +190,11 @@ namespace Models
   protected:
     // The language of the response. In compliance with [RFC 7231](https://tools.ietf.org/html/rfc7231), the backend service must return a response based on the language used by the user.
     // 
-    // *   No default value.
-    // *   zh-CN: Chinese
-    // *   en-US: English
+    // - No default value.
+    // 
+    // - zh-CN: Chinese
+    // 
+    // - en-US: English
     shared_ptr<string> acceptLanguage_ {};
     // The information about the CORS policy.
     shared_ptr<UpdateGatewayRouteCORSRequest::CorsJSON> corsJSON_ {};

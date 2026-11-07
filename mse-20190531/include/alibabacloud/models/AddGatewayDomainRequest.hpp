@@ -92,7 +92,9 @@ namespace Models
 
 
     protected:
+      // The cipher suite configuration type.
       shared_ptr<string> configType_ {};
+      // The list of cipher suite names.
       shared_ptr<vector<string>> tlsCipherSuites_ {};
     };
 
@@ -188,35 +190,35 @@ namespace Models
 
   protected:
     // The language of the response. Valid values:
-    // 
-    // *   zh: Chinese
-    // *   en: English
+    // - zh: Chinese. This is the default value.
+    // - en: English.
     shared_ptr<string> acceptLanguage_ {};
+    // The content of the CA certificate.
     shared_ptr<string> caCertIdentifier_ {};
-    // The ID of the certificate.
+    // The certificate ID.
     shared_ptr<string> certIdentifier_ {};
     // The unique ID of the gateway.
     shared_ptr<string> gatewayUniqueId_ {};
-    // Specifies whether to enable `HTTP/2`.
-    // 
-    // *   `open`: enables `HTTP/2`
-    // *   `close`: disables `HTTP/2`
-    // *   `globalConfig`: uses global configurations
+    // Specifies whether to enable HTTP/2. Valid values:
+    // - `open`: Enables HTTP/2.
+    // - `close`: Disables HTTP/2.
+    // - `globalConfig`: Uses the global configuration.
     shared_ptr<string> http2_ {};
+    // Specifies whether to enable mTLS.
     shared_ptr<bool> mtlsEnabled_ {};
     // Specifies whether to enable HTTPS.
     shared_ptr<bool> mustHttps_ {};
     // The domain name.
     shared_ptr<string> name_ {};
-    // The type of the protocol. Valid values:
-    // 
-    // *   `HTTP`
-    // *   `HTTPS`
+    // The protocol type. Valid values:
+    // - `HTTP`
+    // - `HTTPS`
     shared_ptr<string> protocol_ {};
+    // The TLS cipher suite configuration.
     shared_ptr<AddGatewayDomainRequest::TlsCipherSuitesConfigJSON> tlsCipherSuitesConfigJSON_ {};
-    // The maximum version of Transport Layer Security (TLS).
+    // The maximum TLS version.
     shared_ptr<string> tlsMax_ {};
-    // The minimum version of TLS.
+    // The minimum TLS version.
     shared_ptr<string> tlsMin_ {};
   };
 

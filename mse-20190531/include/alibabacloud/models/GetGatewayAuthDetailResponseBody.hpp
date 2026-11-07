@@ -199,8 +199,20 @@ namespace Models
 
 
         protected:
+          // The name of the request header.
           shared_ptr<string> headerKey_ {};
+          // The matching condition. Valid values:
+          // - EQUAL: Equal to.
+          // - NOT_EQUAL: Not equal to.
+          // - EXIST: Exists.
+          // - NOT_EXIST: Does not exist.
+          // - INCLUDE: Includes.
+          // - EXCLUDE: Excludes.
+          // - PREFIX: Prefix.
+          // - SUFFIX: Suffix.
+          // - REGREX: Regular expression.
           shared_ptr<string> headerMethod_ {};
+          // The value of the request header.
           shared_ptr<string> headerValue_ {};
         };
 
@@ -302,18 +314,38 @@ namespace Models
 
 
       protected:
+        // The ID of the authentication to which the rule belongs.
         shared_ptr<int64_t> authId_ {};
+        // The request headers of the rule. This parameter is currently only used for custom authentication.
         shared_ptr<vector<ResourceList::AuthResourceHeaderList>> authResourceHeaderList_ {};
+        // The ID of the domain name in the rule.
         shared_ptr<int64_t> domainId_ {};
+        // The domain name in the rule.
         shared_ptr<string> domainName_ {};
+        // The ID of the gateway to which the rule belongs.
         shared_ptr<int64_t> gatewayId_ {};
+        // The unique ID of the gateway to which the rule belongs.
         shared_ptr<string> gatewayUniqueId_ {};
+        // The GMT time when the authorization rule was created.
         shared_ptr<string> gmtCreate_ {};
+        // The GMT time when the authorization rule was last modified.
         shared_ptr<string> gmtModified_ {};
+        // The ID of the authorization rule.
         shared_ptr<int64_t> id_ {};
+        // Specifies whether case sensitivity is enabled for the path. Valid values:
+        // - true: Case sensitivity is enabled.
+        // - false: Case sensitivity is disabled.
         shared_ptr<bool> ignoreCase_ {};
+        // The authorization blacklist and whitelist mode. Valid values:
+        // - true: Whitelist mode. Hosts and paths in the list can be accessed without verification, while all others require verification.
+        // - false: Blacklist mode. Hosts and paths in the list require verification, while all others can be accessed directly.
         shared_ptr<bool> isWhite_ {};
+        // The matching type for the request path. Valid values:
+        // - EQUAL: Exact match.
+        // - PRE: Prefix match.
+        // - ERGULAR: Regular expression match.
         shared_ptr<string> matchType_ {};
+        // The matching path of the rule.
         shared_ptr<string> path_ {};
       };
 
@@ -412,9 +444,13 @@ namespace Models
 
 
         protected:
+          // The group to which the authentication service belongs.
           shared_ptr<string> groupName_ {};
+          // The authentication service name.
           shared_ptr<string> name_ {};
+          // The namespace of the authentication service.
           shared_ptr<string> namespace_ {};
+          // The source type of the authentication service.
           shared_ptr<string> sourceType_ {};
         };
 
@@ -505,16 +541,29 @@ namespace Models
 
 
       protected:
+        // The allowed request headers.
         shared_ptr<vector<string>> allowRequestHeaders_ {};
+        // The allowed response headers.
         shared_ptr<vector<string>> allowUpstreamHeaders_ {};
+        // The maximum size of the request body in bytes.
         shared_ptr<int32_t> bodyMaxBytes_ {};
+        // Specifies the custom authentication mode. Valid values:
+        // - true: Strict mode. If the authentication service is unavailable (for example, the connection fails or a 5xx status code is returned), the gateway rejects the client request.
+        // - false: Loose mode. If the authentication service is unavailable (for example, the connection fails or a 5xx status code is returned), the gateway allows the client request.
         shared_ptr<bool> isRestrict_ {};
+        // The path of the authentication API.
         shared_ptr<string> prefixPath_ {};
+        // The authentication service information.
         shared_ptr<ExternalAuthZ::Service> service_ {};
+        // The ID of the authentication service.
         shared_ptr<int64_t> serviceId_ {};
+        // The timeout period of the authentication service, in seconds.
         shared_ptr<int32_t> timeout_ {};
+        // The position of the token, which indicates the HTTP header that contains the token in the request. Common values include Authorization and Cookie.
         shared_ptr<string> tokenKey_ {};
+        // Specifies whether to rematch the route after authentication is completed.
         shared_ptr<bool> withRematchRoute_ {};
+        // Specifies whether the request body is allowed.
         shared_ptr<bool> withRequestBody_ {};
       };
 
@@ -711,31 +760,67 @@ namespace Models
 
 
     protected:
+      // The YAML configuration for the complex mode.
       shared_ptr<string> authResourceConfig_ {};
+      // The authorization resource mode. Valid values:
+      // - 0: Simple mode.
+      // - 1: Complex mode.
       shared_ptr<int32_t> authResourceMode_ {};
+      // The application ID registered for the service. This parameter is used for OIDC and IDaaS.
       shared_ptr<string> clientId_ {};
+      // The application secret registered for the service. This parameter is used for OIDC and IDaaS.
       shared_ptr<string> clientSecret_ {};
+      // The domain name of the cookie. After authentication, the cookie is sent to the specified domain name to maintain the logon state. This parameter is used for OIDC and IDaaS.
       shared_ptr<string> cookieDomain_ {};
+      // The custom authentication information.
       shared_ptr<Data::ExternalAuthZ> externalAuthZ_ {};
+      // The ID of the gateway to which the authentication belongs.
       shared_ptr<int64_t> gatewayId_ {};
+      // The unique ID of the gateway to which the authentication belongs.
       shared_ptr<string> gatewayUniqueId_ {};
+      // The GMT time when the authentication was created.
       shared_ptr<string> gmtCreate_ {};
+      // The GMT time when the authentication was modified.
       shared_ptr<string> gmtModified_ {};
+      // The authentication ID.
       shared_ptr<int64_t> id_ {};
+      // Authorization blacklist and whitelist mode:
+      // 
+      // - true: whitelist mode (hosts and paths in the list can be accessed without authentication, while all others require authentication).
+      // - false: blacklist mode (hosts and paths in the list require authentication, while all others can be accessed directly).
       shared_ptr<bool> isWhite_ {};
+      // Used when the authentication type is JWT or OIDC. For JWT, it represents the iss (issuer) claim in the JWT. For OIDC, it represents the iss (issuer) claim in the OIDC token.
       shared_ptr<string> issuer_ {};
+      // The JWT public key in JSON format.
       shared_ptr<string> jwks_ {};
+      // The URL of the user logon page for the IDaaS instance. This parameter is used for IDaaS.
       shared_ptr<string> loginUrl_ {};
+      // The authentication name.
       shared_ptr<string> name_ {};
+      // The redirect URL after successful authorization. This parameter is used for OIDC and IDaaS, and must be consistent with the redirect URL configured in OIDC or IDaaS.
       shared_ptr<string> redirectUrl_ {};
+      // The list of authorization rules for authentication. Multiple rule conditions have an OR relationship, and multiple matching items within a rule condition have an AND relationship.
       shared_ptr<vector<Data::ResourceList>> resourceList_ {};
+      // The OIDC scopes. This parameter is used for OIDC.
       shared_ptr<string> scopesList_ {};
+      // Indicates whether authentication is enabled.
       shared_ptr<bool> status_ {};
+      // Used when the authentication type is JWT. It represents the sub (subject) claim in the JWT.
       shared_ptr<string> sub_ {};
+      // The location where the JWT token is stored.
       shared_ptr<string> tokenName_ {};
+      // The prefix of the JWT token.
       shared_ptr<string> tokenNamePrefix_ {};
+      // Specifies whether to pass through the token.
       shared_ptr<bool> tokenPass_ {};
+      // The position of the JWT token. Valid values:
+      // - HEADER: Transmitted through the HTTP header.
       shared_ptr<string> tokenPosition_ {};
+      // The authentication type. Valid values:
+      // - JWT
+      // - OIDC
+      // - IDaaS
+      // - ExternalAuthZ (self-managed authentication service)
       shared_ptr<string> type_ {};
     };
 
@@ -786,11 +871,17 @@ namespace Models
 
 
   protected:
+    // The response code. It synchronizes with the Success parameter. If Success is true, the code is 200.
     shared_ptr<int32_t> code_ {};
+    // The authentication details.
     shared_ptr<GetGatewayAuthDetailResponseBody::Data> data_ {};
+    // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
+    // The message.
     shared_ptr<string> message_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the request is successful.
     shared_ptr<bool> success_ {};
   };
 

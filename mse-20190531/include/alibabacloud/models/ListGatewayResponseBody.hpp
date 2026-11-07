@@ -261,24 +261,24 @@ namespace Models
 
 
         protected:
-          // The mode of the SLB instance.
+          // The gateway SLB mode.
           shared_ptr<string> gatewaySlbMode_ {};
-          // The state of the SLB instance.
+          // The gateway SLB status.
           shared_ptr<string> gatewaySlbStatus_ {};
-          // The ID of the SLB instance.
+          // The SLB ID.
           shared_ptr<string> slbId_ {};
-          // The IP address of the SLB instance.
+          // The SLB IP address.
           shared_ptr<string> slbIp_ {};
-          // The port number of the SLB instance.
+          // The SLB port.
           shared_ptr<string> slbPort_ {};
-          // The specifications of the SLB instance.
+          // The SLB specification.
           shared_ptr<string> slbSpec_ {};
-          // The description of the state.
+          // The status description.
           shared_ptr<string> statusDesc_ {};
           // The network type. Valid values:
           // 
-          // *   PUB_NET
-          // *   PRIVATE_NET
+          // - PUB_NET: public network
+          // - PRIVATE_NET: private network
           shared_ptr<string> type_ {};
         };
 
@@ -329,8 +329,11 @@ namespace Models
 
 
         protected:
+          // The end time.
           shared_ptr<string> endTime_ {};
+          // The start time.
           shared_ptr<string> startTime_ {};
+          // The time zone.
           shared_ptr<string> timeZone_ {};
         };
 
@@ -436,23 +439,23 @@ namespace Models
 
 
         protected:
-          // The mode of the SLB instance.
+          // The gateway SLB mode.
           shared_ptr<string> gatewaySlbMode_ {};
-          // The state of the SLB instance.
+          // The gateway SLB status.
           shared_ptr<string> gatewaySlbStatus_ {};
-          // The traffic of the gateway.
+          // The gateway traffic.
           shared_ptr<string> internetNetworkFlow_ {};
-          // The ID of the SLB instance.
+          // The SLB ID.
           shared_ptr<string> slbId_ {};
-          // The IP address of the SLB instance.
+          // The SLB IP address.
           shared_ptr<string> slbIp_ {};
-          // The port number of the SLB instance.
+          // The SLB port.
           shared_ptr<string> slbPort_ {};
-          // The specifications of the SLB instance.
+          // The SLB specification.
           shared_ptr<string> slbSpec_ {};
-          // The description of the state.
+          // The status description.
           shared_ptr<string> statusDesc_ {};
-          // The type of the SLB instance.
+          // The type.
           shared_ptr<string> type_ {};
         };
 
@@ -494,7 +497,7 @@ namespace Models
 
 
         protected:
-          // Indicates whether Web Application Firewall (WAF) is enabled.
+          // Indicates whether WAF is enabled.
           shared_ptr<bool> enableWaf_ {};
           // Indicates whether WAF is supported.
           shared_ptr<bool> supportWaf_ {};
@@ -592,12 +595,21 @@ namespace Models
 
 
         protected:
+          // The entry domain name.
           shared_ptr<string> entryDomain_ {};
+          // The list of HTTP listener ports.
           shared_ptr<vector<int32_t>> httpPorts_ {};
+          // The list of HTTPS listener ports.
           shared_ptr<vector<int32_t>> httpsPorts_ {};
+          // The list of entry IP addresses.
           shared_ptr<vector<string>> ipList_ {};
+          // The IPv6 address.
           shared_ptr<vector<string>> ipv6List_ {};
+          // The entry network type. Valid values:
+          // - PRIVATE_NET: private network
+          // - PUB_NET: public network
           shared_ptr<string> netType_ {};
+          // The readiness status of the gateway entry.
           shared_ptr<string> status_ {};
         };
 
@@ -677,11 +689,11 @@ namespace Models
 
 
           protected:
-            // The expected number of replicas for auto scale-out.
+            // The expected number of replicas for auto-scaling.
             shared_ptr<int32_t> desiredReplica_ {};
-            // The end time of auto scale-out.
+            // The end time for auto-scaling.
             shared_ptr<string> endTime_ {};
-            // The start time of auto scale-out.
+            // The start time for auto-scaling.
             shared_ptr<string> startTime_ {};
           };
 
@@ -723,7 +735,9 @@ namespace Models
 
 
           protected:
+            // The end time.
             shared_ptr<string> endTime_ {};
+            // The start time.
             shared_ptr<string> startTime_ {};
           };
 
@@ -776,17 +790,19 @@ namespace Models
 
 
         protected:
-          // Indicates whether auto scale-out is enabled.
+          // Indicates whether auto-scaling is enabled.
           shared_ptr<bool> elastic_ {};
-          // The type of auto scale-out. Valid value:
+          // The auto-scaling type. Valid values:
           // 
-          // *   CronHPA: scale-out by time
+          // * CronHPA: time-based scaling
           shared_ptr<string> elasticType_ {};
+          // The allowed time periods for scaling in.
           shared_ptr<vector<ElasticPolicy::EnableScaleTimePolicyList>> enableScaleTimePolicyList_ {};
+          // Specifies the load-based elastic scaling watermark settings for the gateway. true indicates that the warning watermark is enabled, and false indicates that the safe watermark is enabled.
           shared_ptr<bool> loadWarningThreshold_ {};
-          // The maximum number of instances that are automatically scaled out. This parameter is used for horizontal scale-out.
+          // The maximum number of instances for auto-scaling, used for horizontal scaling.
           shared_ptr<int32_t> maxReplica_ {};
-          // The time policy list for auto scale-out.
+          // The list of time-based auto-scaling policies.
           shared_ptr<vector<ElasticPolicy::TimePolicyList>> timePolicyList_ {};
         };
 
@@ -1114,102 +1130,106 @@ namespace Models
 
 
       protected:
-        // Indicates whether Application High Availability Service (AHAS) is activated.
+        // Indicates whether AHAS is enabled.
         shared_ptr<bool> ahasOn_ {};
-        // The version of the application.
+        // The application version.
         shared_ptr<string> appVersion_ {};
-        // Indicates whether Application Real-Time Monitoring Service (ARMS) is activated.
+        // Indicates whether ARMS is enabled.
         shared_ptr<bool> armsOn_ {};
         // The billing method.
         shared_ptr<string> chargeType_ {};
-        // The current version of the gateway.
+        // The current version.
         shared_ptr<string> currentVersion_ {};
-        // Indicates whether auto scale-out is enabled.
+        // Indicates whether auto-scaling is enabled.
         shared_ptr<bool> elastic_ {};
-        // The ID of the elastic gateway. This parameter is returned if auto scale-out is used.
+        // The gateway elastic instance ID. This parameter is returned when auto-scaling is used.
         shared_ptr<string> elasticInstanceId_ {};
-        // The auto scale-out policy.
+        // The auto-scaling policy.
         shared_ptr<Result::ElasticPolicy> elasticPolicy_ {};
-        // The number of replicas that are automatically scaled out.
+        // The number of auto-scaling replicas.
         shared_ptr<int32_t> elasticReplica_ {};
-        // The type of auto scale-out. Valid value:
+        // The auto-scaling type. Valid values:
         // 
-        // *   CronHPA: scale-out by time
+        // - CronHPA: time-based scaling
         shared_ptr<string> elasticType_ {};
-        // The time when the instance expires.
+        // The expiration date.
         shared_ptr<string> endDate_ {};
+        // The gateway entry address. This parameter is applicable to standard Professional Edition instances.
         shared_ptr<vector<Result::GatewayEntry>> gatewayEntry_ {};
         // The gateway type.
         shared_ptr<string> gatewayType_ {};
         // The unique ID of the gateway.
         shared_ptr<string> gatewayUniqueId_ {};
-        // The version of the gateway.
+        // The gateway version.
         shared_ptr<string> gatewayVersion_ {};
-        // The time when the gateway was created.
+        // The creation time.
         shared_ptr<string> gmtCreate_ {};
-        // The time when the gateway was modified.
+        // The modification time.
         shared_ptr<string> gmtModified_ {};
         // The gateway ID.
         shared_ptr<int64_t> id_ {};
-        // The configurations.
+        // The configuration information.
         shared_ptr<Result::InitConfig> initConfig_ {};
         // The instance ID.
         shared_ptr<string> instanceId_ {};
-        // The details of the Internet-facing SLB instances.
+        // The Internet SLB.
         shared_ptr<vector<Result::InternetSlb>> internetSlb_ {};
-        // The latest version of the gateway.
+        // The latest version.
         shared_ptr<string> latestVersion_ {};
+        // The O&M time window.
         shared_ptr<Result::MaintenancePeriod> maintenancePeriod_ {};
         // The resource tag.
         shared_ptr<string> mseTag_ {};
+        // The cluster version.
         shared_ptr<string> mseVersion_ {};
-        // Indicates whether the instance was forcefully upgraded.
+        // The forced upgrade.
         shared_ptr<bool> mustUpgrade_ {};
         // The gateway name.
         shared_ptr<string> name_ {};
         // The user information.
         shared_ptr<string> primaryUser_ {};
-        // The region ID.
+        // The region.
         shared_ptr<string> region_ {};
-        // The number of replicas.
+        // The backup.
         shared_ptr<int32_t> replica_ {};
         // The resource group ID.
         shared_ptr<string> resourceGroupId_ {};
-        // Indicates whether rollbacks are allowed.
+        // Indicates whether rollback is supported.
         shared_ptr<bool> rollBack_ {};
-        // The details of Server Load Balancer (SLB) instances.
+        // The SLB list.
         shared_ptr<vector<Result::Slb>> slb_ {};
-        // The specifications of the gateway.
+        // The specification.
         shared_ptr<string> spec_ {};
-        // The gateway state. Valid values:
+        // The gateway status. Valid values:
         // 
-        // *   0: The gateway is being created.
-        // *   1: The gateway failed to be created.
-        // *   2: The gateway is running.
-        // *   3: The gateway is being changed.
-        // *   4: The gateway is scaling in.
-        // *   6: The gateway is scaling out.
-        // *   8: The gateway is being deleted.
-        // *   9: The gateway is suspended and is to be released.
-        // *   10: The gateway is restarting.
-        // *   11: The gateway is being rebuilt.
-        // *   12: The gateway is being upgraded.
-        // *   13: The gateway failed to be upgraded.
+        // - 0: creating
+        // - 1: creation failed
+        // - 2: running
+        // - 3: modifying
+        // - 4: scaling in
+        // - 6: scaling out
+        // - 8: deleting
+        // - 9: stopped and pending release
+        // - 10: restarting
+        // - 11: rebuilding
+        // - 12: upgrading
+        // - 13: upgrade failed
         shared_ptr<int32_t> status_ {};
-        // The description of the gateway state.
+        // The status description.
         shared_ptr<string> statusDesc_ {};
-        // Indicates whether WebAssembly (Wasm) is supported.
+        // Indicates whether WASM is supported.
         shared_ptr<bool> supportWasm_ {};
         // The tag.
         shared_ptr<string> tag_ {};
-        // The total number of replicas, including the number of replicas that are automatically scaled out.
+        // The total number of replicas, including the number of auto-scaling replicas.
         shared_ptr<int32_t> totalReplica_ {};
-        // Indicates whether the instance was upgraded.
+        // The upgrade.
         shared_ptr<bool> upgrade_ {};
+        // The version lifecycle.
         shared_ptr<string> versionLifecycle_ {};
-        // The ID of the virtual private cloud (VPC) to which the gateway belongs.
+        // The VPC ID of the gateway.
         shared_ptr<string> vpcId_ {};
-        // The ID of the secondary vSwitch.
+        // The second vSwitch.
         shared_ptr<string> vswitch2_ {};
       };
 
@@ -1246,13 +1266,13 @@ namespace Models
 
 
     protected:
-      // The page number of the returned page.
+      // The page number.
       shared_ptr<int32_t> pageNumber_ {};
-      // The number of entries returned per page.
+      // The number of entries per page.
       shared_ptr<int32_t> pageSize_ {};
-      // The data returned.
+      // The returned data.
       shared_ptr<vector<Data::Result>> result_ {};
-      // The total number of entries returned.
+      // The total number of entries.
       shared_ptr<int64_t> totalSize_ {};
     };
 
@@ -1303,20 +1323,19 @@ namespace Models
 
 
   protected:
-    // The return value.
+    // The return code.
     shared_ptr<int32_t> code_ {};
-    // The data returned.
+    // The returned metadata.
     shared_ptr<ListGatewayResponseBody::Data> data_ {};
-    // The HTTP status code returned.
+    // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
-    // The message returned.
+    // The returned message.
     shared_ptr<string> message_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request was successful. Valid values:
-    // 
-    // *   `true`: The request was successful.
-    // *   `false`: The request failed.
+    // Indicates whether the request is successful. Valid values:
+    // - `true`: The request is successful.
+    // - `false`: The request fails.
     shared_ptr<bool> success_ {};
   };
 

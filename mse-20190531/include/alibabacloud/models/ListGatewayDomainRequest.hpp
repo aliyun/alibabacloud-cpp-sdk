@@ -66,15 +66,16 @@ namespace Models
 
 
   protected:
-    // The language of the response. Valid values:
+    // The language of the returned information. Valid values:
     // 
-    // *   zh: Chinese
-    // *   en: English
+    // - zh: Chinese
+    // - en: English
     shared_ptr<string> acceptLanguage_ {};
+    // The domain name used for fuzzy search.
     shared_ptr<string> domainName_ {};
     // The unique ID of the gateway.
     shared_ptr<string> gatewayUniqueId_ {};
-    // The type of the domain name.
+    // The domain name type.
     shared_ptr<string> type_ {};
   };
 

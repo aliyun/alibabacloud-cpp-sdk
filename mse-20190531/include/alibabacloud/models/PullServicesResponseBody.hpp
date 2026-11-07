@@ -151,17 +151,19 @@ namespace Models
 
 
       protected:
-        // The name of the group.
+        // The group.
         shared_ptr<string> groupName_ {};
-        // The name of the service.
+        // The service name.
         shared_ptr<string> name_ {};
         // The namespace.
         shared_ptr<string> namespace_ {};
+        // The SAE application ID.
         shared_ptr<string> saeAppId_ {};
-        // The ID of the service source.
+        // The source ID.
         shared_ptr<string> sourceId_ {};
+        // The list of associated service source IDs.
         shared_ptr<vector<int64_t>> sourceIdList_ {};
-        // The type of the service source.
+        // The source type.
         shared_ptr<string> sourceType_ {};
       };
 
@@ -198,13 +200,13 @@ namespace Models
 
 
     protected:
-      // The name of the group.
+      // The group.
       shared_ptr<string> groupName_ {};
       // The namespace.
       shared_ptr<string> namespace_ {};
-      // The alias of the namespace.
+      // The namespace alias.
       shared_ptr<string> namespaceShowName_ {};
-      // The information about services.
+      // The list of services.
       shared_ptr<vector<Data::Services>> services_ {};
     };
 
@@ -255,20 +257,19 @@ namespace Models
 
 
   protected:
-    // The status code returned.
+    // The response code.
     shared_ptr<int32_t> code_ {};
     // The returned data.
     shared_ptr<vector<PullServicesResponseBody::Data>> data_ {};
-    // The HTTP status code returned.
+    // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
-    // The message returned.
+    // The returned message.
     shared_ptr<string> message_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request was successful. Valid values:
-    // 
-    // *   `true`: The request was successful.
-    // *   `false`: The request failed.
+    // Indicates whether the request is successful. Valid values:
+    // - `true`: The request is successful.
+    // - `false`: The request fails.
     shared_ptr<bool> success_ {};
   };
 

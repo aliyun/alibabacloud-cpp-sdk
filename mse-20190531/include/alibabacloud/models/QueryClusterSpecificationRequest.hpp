@@ -57,20 +57,20 @@ namespace Models
 
 
   protected:
-    // The language of the response. Valid values:
+    // The language of the returned information. Valid values:
     // 
-    // *   zh: Chinese
-    // *   en: English
+    // - zh: Chinese.
+    // - en: English.
     shared_ptr<string> acceptLanguage_ {};
     // The network type. Valid values:
     // 
-    // *   slb
-    // *   eni
+    // - slb
+    // - eni
     shared_ptr<string> connectType_ {};
-    // The edition of the MSE instance that you want to purchase.
+    // The Microservices Engine (MSE) cluster version to be activated. Valid values:
     // 
-    // *   mse_pro: Professional Edition
-    // *   mse_dev: Developer Edition
+    // - mse_pro: Professional Edition.
+    // - mse_dev: Developer Edition.
     shared_ptr<string> mseVersion_ {};
   };
 

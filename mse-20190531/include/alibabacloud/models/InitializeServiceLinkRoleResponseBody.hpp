@@ -84,8 +84,11 @@ namespace Models
 
 
     protected:
+      // The permission that is granted to the RAM user to call the API operation.
       shared_ptr<string> requiredPermission_ {};
+      // The name of the created service-linked role.
       shared_ptr<string> roleName_ {};
+      // The service to which the service-linked role belongs.
       shared_ptr<string> serviceName_ {};
     };
 
@@ -129,10 +132,19 @@ namespace Models
 
 
   protected:
+    // The error code.
     shared_ptr<string> code_ {};
+    // The response parameters.
     shared_ptr<InitializeServiceLinkRoleResponseBody::Data> data_ {};
+    // The message.
     shared_ptr<string> message_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the request was successful. Valid values:
+    // 
+    // - `true`: The request was successful.
+    // 
+    // - `false`: The request failed.
     shared_ptr<bool> success_ {};
   };
 

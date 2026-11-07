@@ -84,26 +84,26 @@ namespace Models
 
 
   protected:
-    // The language of the response. Valid values:
+    // The language of the returned information. Valid values:
     // 
-    // *   zh: Chinese
-    // *   en: English
+    // - zh: Chinese.
+    // - en: English.
     shared_ptr<string> acceptLanguage_ {};
-    // The ID of the instance.
+    // The cluster ID.
     // 
     // This parameter is required.
     shared_ptr<string> clusterId_ {};
-    // The number of the page to return.
+    // The page number.
     // 
     // This parameter is required.
     shared_ptr<int32_t> pageNum_ {};
-    // The number of entries to return on each page.
+    // The number of instances to return per page.
     // 
     // This parameter is required.
     shared_ptr<int32_t> pageSize_ {};
     // The region ID.
     shared_ptr<string> regionId_ {};
-    // The extended request parameters in the JSON format.
+    // The extended request parameters in JSON format.
     shared_ptr<string> requestPars_ {};
   };
 

@@ -127,7 +127,9 @@ namespace Models
 
 
       protected:
+        // The traffic percentage. This parameter is used for percentage-based routing. Valid values: 0 to 100.
         shared_ptr<int32_t> percentage_ {};
+        // The route ID.
         shared_ptr<int64_t> routeId_ {};
       };
 
@@ -187,18 +189,26 @@ namespace Models
 
 
       protected:
-        // The matching condition. Valid values:
+        // If you use the legacy version of end-to-end canary release (swimversion is 0, which uses tag-based routing and canary routing), the following values are supported:
+        // - PRE: prefix match
+        // - ERGULAR: regular expression match
+        // - EQUAL: exact match
         // 
-        // *   PRE: prefix matching
-        // *   EQUAL: exact matching
-        // *   ERGULAR: regular expression matching
+        // If you use the new version of end-to-end canary release (swimversion is 1 or 2, which uses single-service routing), the following values are supported:
+        // - PRE: prefix match
+        // - regexp: regular expression match
+        // - ==: equal to
+        // - !=: not equal to
+        // - list: in
+        // - %: percentage
+        // 
+        // The new version of end-to-end canary release provides the same features as the legacy version but delivers better performance and simpler configuration. Migrate to the new version of end-to-end canary release.
         shared_ptr<string> cond_ {};
         // The name of the parameter.
         shared_ptr<string> name_ {};
         // The type of the parameter. Valid values:
-        // 
-        // *   header
-        // *   param
+        // - header: header
+        // - param: parameter
         shared_ptr<string> type_ {};
         // The value of the parameter.
         shared_ptr<string> value_ {};
@@ -277,18 +287,27 @@ namespace Models
 
 
     protected:
+      // The end-to-end canary release mode. Valid values:
+      // 
+      // - 0: route by request content
+      // 
+      // - 1: route by percentage
       shared_ptr<int32_t> canaryModel_ {};
+      // The canary release condition. Valid values: AND (all conditions must be met) and OR (any condition must be met).
       shared_ptr<string> condition_ {};
-      // The matching conditions.
+      // The list of matching conditions.
       shared_ptr<vector<GatewaySwimmingLaneRouteJson::Conditions>> conditions_ {};
       // The ID of the gateway.
       shared_ptr<int64_t> gatewayId_ {};
       // The unique ID of the gateway.
       shared_ptr<string> gatewayUniqueId_ {};
+      // The traffic percentage. This parameter is used for percentage-based routing. Valid values: 0 to 100.
       shared_ptr<int32_t> percentage_ {};
-      // The route IDs.
+      // The list of route IDs.
       shared_ptr<vector<int64_t>> routeIdList_ {};
+      // **[Deprecated]** This parameter is used to specify the percentage-based routing setting by route when an MSE cloud-native gateway is used as the ingress.
       shared_ptr<bool> routeIndependentPercentageEnable_ {};
+      // **[Deprecated]** The list of routes for independent percentage-based canary releases by route.
       shared_ptr<vector<GatewaySwimmingLaneRouteJson::RouteIndependentPercentageList>> routeIndependentPercentageList_ {};
     };
 
@@ -430,7 +449,7 @@ namespace Models
 
 
       protected:
-        // The matching character.
+        // The match operator.
         shared_ptr<string> cond_ {};
         // The value.
         shared_ptr<string> datum_ {};
@@ -438,7 +457,7 @@ namespace Models
         shared_ptr<int32_t> divisor_ {};
         // The name.
         shared_ptr<string> name_ {};
-        // The matching list.
+        // The list of matching items.
         shared_ptr<vector<string>> nameList_ {};
         // The operator.
         shared_ptr<string> operator_ {};
@@ -446,7 +465,7 @@ namespace Models
         shared_ptr<int32_t> rate_ {};
         // The remainder.
         shared_ptr<int32_t> remainder_ {};
-        // The matching type.
+        // The match type.
         shared_ptr<string> type_ {};
         // The value.
         shared_ptr<string> value_ {};
@@ -487,13 +506,13 @@ namespace Models
 
 
     protected:
-      // Specifies how RESTful items are combined into the final condition.
+      // Specifies how RestItems are combined to form the final condition.
       shared_ptr<string> condition_ {};
-      // The paths.
+      // The list of paths.
       shared_ptr<vector<string>> paths_ {};
       // The priority.
       shared_ptr<int32_t> priority_ {};
-      // The matching list.
+      // The list of matching items.
       shared_ptr<vector<EntryRules::RestItems>> restItems_ {};
     };
 
@@ -597,36 +616,33 @@ namespace Models
 
 
   protected:
-    // The language of the response. Valid values: zh and en. Default value: zh. The value zh indicates Chinese, and the value en indicates English.
+    // The language in which the results are returned. Valid values: zh (Chinese, default) and en (English).
     shared_ptr<string> acceptLanguage_ {};
-    // Specifies whether to enable the lane.
+    // Specifies whether the lane is enabled.
     shared_ptr<bool> enable_ {};
-    // Specifies whether to configure a routing rule for the lane. If an Ingress gateway is used, this parameter is not required.
+    // Specifies whether to configure routing rules for the lane. Configuration is not required if the ingress is a gateway.
     shared_ptr<bool> enableRules_ {};
     // The JSON string.
     shared_ptr<string> entryRule_ {};
-    // The lane.
+    // The collection of lane rules.
     shared_ptr<vector<CreateOrUpdateSwimmingLaneRequest::EntryRules>> entryRules_ {};
-    // The information about the routing rule for the gateway. This parameter is required when a cloud-native gateway is used as the ingress.
+    // The gateway routing information. This parameter is used when a cloud-native gateway is used as the ingress.
     shared_ptr<CreateOrUpdateSwimmingLaneRequest::GatewaySwimmingLaneRouteJson> gatewaySwimmingLaneRouteJson_ {};
-    // The language of the response. Valid values:****
-    // 
-    // *   **zh-CN**: Chinese
-    // *   **en-US**: English
-    // 
-    // > Default value: **zh-CN**.
+    // The ID of the lane group to which the lane belongs.
     shared_ptr<int64_t> groupId_ {};
-    // The ID of the primary key. The value -1 indicates a request that is used to create a lane. A value greater than 0 indicates a request that is used to modify a lane.
+    // The primary key ID. A value of -1 indicates that a lane is created. A value greater than 0 indicates that a specified lane is updated.
     shared_ptr<int64_t> id_ {};
     // The name of the lane.
     // 
     // This parameter is required.
     shared_ptr<string> name_ {};
+    // The name of the MSE namespace.
     shared_ptr<string> namespace_ {};
+    // **[Deprecated]** The Java gateway-related configuration for percentage-based routing by path.
     shared_ptr<bool> pathIndependentPercentageEnable_ {};
-    // The ID of the region.
+    // The region ID.
     shared_ptr<string> regionId_ {};
-    // The tag.
+    // The identifier.
     shared_ptr<string> tag_ {};
   };
 

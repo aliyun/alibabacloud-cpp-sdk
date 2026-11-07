@@ -167,23 +167,41 @@ namespace Models
 
 
   protected:
+    // The language in which you want the results to be displayed. Valid values: zh (default): Chinese. en: English.
     shared_ptr<string> acceptLanguage_ {};
+    // The application name.
     shared_ptr<string> appName_ {};
+    // The configuration content.
     shared_ptr<string> content_ {};
+    // The data ID.
+    // 
     // This parameter is required.
     shared_ptr<string> dataId_ {};
+    // The canary release rule. For a beta release, you can specify one or more client IP addresses for this parameter. You must separate multiple IP addresses with commas (,). For a tag-based canary release, the value is in the format of Tag name=Tag value. You must separate multiple tag values with commas (,).
     shared_ptr<string> grayRule_ {};
+    // The canary version name.
     shared_ptr<string> grayRuleName_ {};
+    // The canary version priority.
     shared_ptr<int32_t> grayRulePriority_ {};
+    // The canary release type. Beta release (IP address-based canary release) and tag-based canary release are supported.
+    // 
     // This parameter is required.
     shared_ptr<string> grayType_ {};
+    // The group name. Default value: DEFAULT_GROUP.
     shared_ptr<string> group_ {};
+    // The instance ID.
+    // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
+    // The namespace ID. Default value: public.
     shared_ptr<string> namespaceId_ {};
+    // The operation type. Valid values: Create (create a canary release configuration) and Update (update an existing canary release configuration).
     shared_ptr<string> opType_ {};
+    // The region.
     shared_ptr<string> regionId_ {};
+    // The extended request parameter in the JSON format.
     shared_ptr<string> requestPars_ {};
+    // Specifies whether to stop the canary release.
     shared_ptr<bool> stopGray_ {};
   };
 

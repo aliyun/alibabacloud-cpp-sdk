@@ -70,6 +70,7 @@ namespace Models
         DARABONBA_PTR_TO_JSON(KeepaliveHeaderTimeout, keepaliveHeaderTimeout_);
         DARABONBA_PTR_TO_JSON(LiteMetrics, liteMetrics_);
         DARABONBA_PTR_TO_JSON(LogFilterConfig, logFilterConfig_);
+        DARABONBA_PTR_TO_JSON(LogRequestResponseConfig, logRequestResponseConfig_);
         DARABONBA_PTR_TO_JSON(NoSupportedConfigList, noSupportedConfigList_);
         DARABONBA_PTR_TO_JSON(PathWithEscapedSlashes, pathWithEscapedSlashes_);
         DARABONBA_PTR_TO_JSON(PreserveExternalRequestID, preserveExternalRequestID_);
@@ -105,6 +106,7 @@ namespace Models
         DARABONBA_PTR_FROM_JSON(KeepaliveHeaderTimeout, keepaliveHeaderTimeout_);
         DARABONBA_PTR_FROM_JSON(LiteMetrics, liteMetrics_);
         DARABONBA_PTR_FROM_JSON(LogFilterConfig, logFilterConfig_);
+        DARABONBA_PTR_FROM_JSON(LogRequestResponseConfig, logRequestResponseConfig_);
         DARABONBA_PTR_FROM_JSON(NoSupportedConfigList, noSupportedConfigList_);
         DARABONBA_PTR_FROM_JSON(PathWithEscapedSlashes, pathWithEscapedSlashes_);
         DARABONBA_PTR_FROM_JSON(PreserveExternalRequestID, preserveExternalRequestID_);
@@ -239,15 +241,33 @@ namespace Models
 
 
       protected:
+        // The gateway ID.
         shared_ptr<int64_t> gatewayId_ {};
+        // The unique ID of the gateway.
         shared_ptr<string> gatewayUniqueId_ {};
+        // The time when the Tracing Analysis information was created.
         shared_ptr<string> gmtCreate_ {};
+        // The time when the Tracing Analysis information was modified.
         shared_ptr<string> gmtModified_ {};
+        // The ID of the Tracing Analysis information.
         shared_ptr<int64_t> id_ {};
+        // The sampling rate (%).
         shared_ptr<int32_t> sample_ {};
+        // The SkyWalking service ID for self-managed SkyWalking.
         shared_ptr<int64_t> serviceId_ {};
+        // The SkyWalking service port for self-managed SkyWalking.
         shared_ptr<string> servicePort_ {};
+        // Specifies whether Tracing Analysis is enabled.
         shared_ptr<bool> traceOn_ {};
+        // The Tracing Analysis type. Valid values:
+        // 
+        // - XTRACE: Managed Service for OpenTelemetry with the Zipkin Tracing Analysis protocol.
+        // 
+        // - SKYWALKING: Self-managed SkyWalking.
+        // 
+        // - OPENTELEMETRY: Managed Service for OpenTelemetry with the OpenTelemetry Tracing Analysis protocol.
+        // 
+        // - OTSKYWALKING: Managed Service for OpenTelemetry with the SkyWalking Tracing Analysis protocol.
         shared_ptr<string> traceType_ {};
       };
 
@@ -353,14 +373,27 @@ namespace Models
 
 
       protected:
+        // The gateway ID.
         shared_ptr<int64_t> gatewayId_ {};
+        // The unique ID of the gateway.
         shared_ptr<string> gatewayUniqueId_ {};
+        // Not available for use.
         shared_ptr<string> gmtCreate_ {};
+        // Not available for use.
         shared_ptr<string> gmtModified_ {};
+        // Not available for use.
         shared_ptr<int64_t> id_ {};
+        // Specifies whether log delivery is enabled.
         shared_ptr<bool> logOn_ {};
+        // The destination Logstore for log delivery. Valid values:
+        // 
+        // - mse_gw_access_log: Nginx Ingress compatibility is disabled.
+        // 
+        // - nginx-ingress: Nginx Ingress compatibility is enabled.
         shared_ptr<string> logStoreName_ {};
+        // Specifies whether Nginx Ingress compatibility is enabled.
         shared_ptr<bool> nginxCompatible_ {};
+        // The destination Simple Log Service project for log delivery.
         shared_ptr<string> projectName_ {};
       };
 
@@ -402,7 +435,9 @@ namespace Models
 
 
       protected:
+        // Specifies whether to enable the configuration for trusted X-Forwarded-For source CIDR blocks.
         shared_ptr<bool> enable_ {};
+        // The list of trusted source IP addresses or CIDR blocks.
         shared_ptr<string> ipListContent_ {};
       };
 
@@ -462,9 +497,13 @@ namespace Models
 
 
       protected:
+        // Specifies whether to enable tag filtering for Kubernetes service source workloads.
         shared_ptr<bool> enable_ {};
+        // The tag filtering method. Valid values: EQUAL (matches the specified tag) and NOT_EQUAL (excludes the specified tag).
         shared_ptr<string> filterOpt_ {};
+        // The tag key used to filter Kubernetes workloads.
         shared_ptr<string> labelKey_ {};
+        // The tag value used to filter Kubernetes workloads.
         shared_ptr<string> labelValue_ {};
       };
 
@@ -473,9 +512,9 @@ namespace Models
         && this->enableGzip_ == nullptr && this->enableGzipHardwareAccelerate_ == nullptr && this->enableHardwareAccelerate_ == nullptr && this->enableHttp2_ == nullptr && this->enableHttp3_ == nullptr
         && this->enableK8sSourceWorkloadFilter_ == nullptr && this->enableProxyProtocol_ == nullptr && this->enableSlashMerge_ == nullptr && this->enableWaf_ == nullptr && this->enableXffTrustedCidrs_ == nullptr
         && this->gatewayUniqueId_ == nullptr && this->initialConnectionWindowSize_ == nullptr && this->initialStreamWindowSize_ == nullptr && this->keepaliveHeaderTimeout_ == nullptr && this->liteMetrics_ == nullptr
-        && this->logFilterConfig_ == nullptr && this->noSupportedConfigList_ == nullptr && this->pathWithEscapedSlashes_ == nullptr && this->preserveExternalRequestID_ == nullptr && this->preserveHeaderFormat_ == nullptr
-        && this->slsConfigDetails_ == nullptr && this->supportWaf_ == nullptr && this->upstreamIdleTimeout_ == nullptr && this->websocketTermGracePeriod_ == nullptr && this->xffTrustedNum_ == nullptr
-        && this->xtraceDetails_ == nullptr && this->zipAlgorithm_ == nullptr; };
+        && this->logFilterConfig_ == nullptr && this->logRequestResponseConfig_ == nullptr && this->noSupportedConfigList_ == nullptr && this->pathWithEscapedSlashes_ == nullptr && this->preserveExternalRequestID_ == nullptr
+        && this->preserveHeaderFormat_ == nullptr && this->slsConfigDetails_ == nullptr && this->supportWaf_ == nullptr && this->upstreamIdleTimeout_ == nullptr && this->websocketTermGracePeriod_ == nullptr
+        && this->xffTrustedNum_ == nullptr && this->xtraceDetails_ == nullptr && this->zipAlgorithm_ == nullptr; };
       // accessLogHeader Field Functions 
       bool hasAccessLogHeader() const { return this->accessLogHeader_ != nullptr;};
       void deleteAccessLogHeader() { this->accessLogHeader_ = nullptr;};
@@ -634,6 +673,13 @@ namespace Models
       inline Data& setLogFilterConfig(string logFilterConfig) { DARABONBA_PTR_SET_VALUE(logFilterConfig_, logFilterConfig) };
 
 
+      // logRequestResponseConfig Field Functions 
+      bool hasLogRequestResponseConfig() const { return this->logRequestResponseConfig_ != nullptr;};
+      void deleteLogRequestResponseConfig() { this->logRequestResponseConfig_ = nullptr;};
+      inline string getLogRequestResponseConfig() const { DARABONBA_PTR_GET_DEFAULT(logRequestResponseConfig_, "") };
+      inline Data& setLogRequestResponseConfig(string logRequestResponseConfig) { DARABONBA_PTR_SET_VALUE(logRequestResponseConfig_, logRequestResponseConfig) };
+
+
       // noSupportedConfigList Field Functions 
       bool hasNoSupportedConfigList() const { return this->noSupportedConfigList_ != nullptr;};
       void deleteNoSupportedConfigList() { this->noSupportedConfigList_ = nullptr;};
@@ -716,38 +762,81 @@ namespace Models
 
 
     protected:
+      // The custom log format.
       shared_ptr<string> accessLogHeader_ {};
+      // The buffer size for a single gateway connection. Configuring this parameter affects throughput and gateway memory usage. Unit: bytes.
       shared_ptr<int32_t> downstreamConnectionBufferLimits_ {};
+      // The maximum number of concurrent streams on a single connection when the client uses HTTP/2. This parameter takes effect at the request level.
       shared_ptr<int32_t> downstreamHttp2MaxConcurrentStream_ {};
+      // The idle timeout period for connections from the client to the gateway. Unit: seconds. If no request is received within the specified period, the gateway disconnects the connection. Valid values: 0 to 600.
       shared_ptr<int32_t> downstreamIdleTime_ {};
+      // Specifies whether to enable custom authentication configuration push for self-managed authentication services. When enabled, changes to authentication rules do not cause connection interruptions. This feature is applicable to WebSocket and online business scenarios.
       shared_ptr<string> enableCustomAuthConfigPush_ {};
+      // Specifies whether to generate a request ID in the request header for request tracking. This parameter takes effect at the request level.
       shared_ptr<bool> enableGenerateRequestId_ {};
+      // Specifies whether to enable Gzip compression for requests and responses. Enabling this feature reduces gateway traffic but increases gateway CPU consumption.
       shared_ptr<bool> enableGzip_ {};
+      // Specifies whether to enable Gzip hardware acceleration.
       shared_ptr<bool> enableGzipHardwareAccelerate_ {};
+      // Specifies whether to enable hardware acceleration. This configuration fails if the region does not support hardware acceleration at the underlying layer or if hardware acceleration was not specified during purchase.
       shared_ptr<bool> enableHardwareAccelerate_ {};
+      // Specifies whether to use HTTP/2 during negotiation between the server and the client. This parameter takes effect at the request level. Changes take effect after 1 to 2 minutes.
       shared_ptr<bool> enableHttp2_ {};
+      // Specifies whether the HTTP/3 protocol is supported.
       shared_ptr<bool> enableHttp3_ {};
+      // The tag filtering configuration for Kubernetes service source workloads.
       shared_ptr<Data::EnableK8sSourceWorkloadFilter> enableK8sSourceWorkloadFilter_ {};
+      // Specifies whether to enable the PROXY protocol. If the gateway ingress traffic is routed through a Network Load Balancer (NLB) and this feature is disabled, the real IP address of the client cannot be obtained. Enabling this feature does not affect non-PROXY protocol requests.
       shared_ptr<bool> enableProxyProtocol_ {};
+      // Specifies whether to merge consecutive slashes in a request URL. For example, if this feature is enabled, the extra slash in `www.a.com//b` is merged, making it equivalent to `www.a.com/b`. This parameter takes effect at the request level.
       shared_ptr<bool> enableSlashMerge_ {};
+      // Specifies whether WAF is enabled.
       shared_ptr<bool> enableWaf_ {};
+      // The configuration for trusted X-Forwarded-For source CIDR blocks.
       shared_ptr<Data::EnableXffTrustedCidrs> enableXffTrustedCidrs_ {};
+      // The unique ID of the gateway.
       shared_ptr<string> gatewayUniqueId_ {};
+      // The initial connection-level window size negotiated between the gateway and the client when HTTP/2 is used. Unit: bytes. This parameter takes effect at the request level.
       shared_ptr<int32_t> initialConnectionWindowSize_ {};
+      // The initial stream window size negotiated between the gateway and the client when HTTP/2 is used. Unit: bytes. This parameter takes effect at the request level.
       shared_ptr<int32_t> initialStreamWindowSize_ {};
+      // The keep-alive time in the Keep-Alive response header. Unit: seconds. If this parameter is set to 0, the response header is not returned.
       shared_ptr<int32_t> keepaliveHeaderTimeout_ {};
+      // Indicates whether lightweight metric collection is enabled.
       shared_ptr<bool> liteMetrics_ {};
+      // Not available for use.
       shared_ptr<string> logFilterConfig_ {};
+      // The log collection configuration for request and response headers and bodies. The content is a JSON string.
+      shared_ptr<string> logRequestResponseConfig_ {};
+      // The list of unsupported configurations.
       shared_ptr<string> noSupportedConfigList_ {};
+      // The action to take when a URI path contains escaped slashes such as %2F, %2f, %5C, or %5c. Default value: KEEP_UNCHANGED. Valid values:
+      // 
+      // - KEEP_UNCHANGED
+      // 
+      // - REJECT_REQUEST
+      // 
+      // - UNESCAPE_AND_REDIRECT
+      // 
+      // - UNESCAPE_AND_FORWARD
       shared_ptr<string> pathWithEscapedSlashes_ {};
+      // Specifies whether to preserve the request ID passed by the client.
       shared_ptr<bool> preserveExternalRequestID_ {};
+      // Specifies whether to preserve the original case of request and response headers. In HTTP/1.1, headers are case-insensitive. To ensure compatibility with HTTP/2, headers are converted to lowercase by default.
       shared_ptr<bool> preserveHeaderFormat_ {};
+      // The log delivery information.
       shared_ptr<Data::SlsConfigDetails> slsConfigDetails_ {};
+      // Indicates whether the gateway supports Web Application Firewall (WAF).
       shared_ptr<bool> supportWaf_ {};
+      // The default idle timeout period for upstream connections.
       shared_ptr<int32_t> upstreamIdleTimeout_ {};
+      // The keep-alive time maintained for WebSocket connections when connections must be closed during gateway instance upgrades or restarts. Unit: seconds.
       shared_ptr<int32_t> websocketTermGracePeriod_ {};
+      // The number of trusted proxies in front of the gateway. This parameter affects whether the gateway uses request headers such as X-Forwarded-For and X-Request-ID generated by the client. This parameter takes effect at the request level.
       shared_ptr<int32_t> xffTrustedNum_ {};
+      // The Tracing Analysis information.
       shared_ptr<Data::XtraceDetails> xtraceDetails_ {};
+      // The compression algorithm used when compression is enabled. Valid values: brotli and gzip. If this parameter is set and EnableGzip is disabled, EnableGzip is automatically enabled.
       shared_ptr<string> zipAlgorithm_ {};
     };
 
@@ -820,14 +909,25 @@ namespace Models
 
 
   protected:
+    // The code used to synchronize with the success field.
     shared_ptr<int32_t> code_ {};
+    // The data overview.
     shared_ptr<GetGatewayConfigResponseBody::Data> data_ {};
+    // This field is not used. Ignore this field.
     shared_ptr<string> dynamicCode_ {};
+    // This field is not used. Ignore this field.
     shared_ptr<string> dynamicMessage_ {};
+    // The error code.
     shared_ptr<string> errorCode_ {};
+    // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
+    // The response message.
     shared_ptr<string> message_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // The request result. Valid values:
+    // - `true`: The request is successful.
+    // - `false`: The request fails.
     shared_ptr<bool> success_ {};
   };
 

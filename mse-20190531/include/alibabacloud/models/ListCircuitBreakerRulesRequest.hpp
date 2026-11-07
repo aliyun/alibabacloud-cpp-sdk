@@ -103,7 +103,7 @@ namespace Models
 
 
   protected:
-    // The language of the response. Valid values: zh-CN and en-US. Default value: zh-CN. The value zh-CN indicates Chinese, and the value en-US indicates English.
+    // The language in which you want the results to be displayed. Valid values: zh-CN (default value): Chinese. en-US: English
     shared_ptr<string> acceptLanguage_ {};
     // The ID of the application.
     shared_ptr<string> appId_ {};
@@ -115,13 +115,13 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> namespace_ {};
-    // The start page of the returned pages. Default value: 1.
+    // The first page number. Default value: 1.
     shared_ptr<int32_t> pageIndex_ {};
     // The number of entries per page. Default value: 6.
     shared_ptr<int32_t> pageSize_ {};
-    // This parameter is used for exact match of circuit breaking rules.
+    // The interface for which the protection rule is configured.
     shared_ptr<string> resource_ {};
-    // This parameter is used for fuzzy match of circuit breaking rules.
+    // The interface keyword in the protection rule.
     shared_ptr<string> resourceSearchKey_ {};
   };
 

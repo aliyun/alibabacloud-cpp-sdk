@@ -125,21 +125,23 @@ namespace Models
     protected:
       // The gateway ID.
       shared_ptr<int64_t> gatewayId_ {};
-      // The unique ID of the gateway. If this parameter is used together with the GatewayId parameter, the value of the GatewayId parameter is used.
+      // The unique identifier of the gateway. If both GatewayUniqueId and GatewayId are specified, GatewayId takes precedence.
       shared_ptr<string> gatewayUniqueId_ {};
-      // This parameter is unavailable for public use.
+      // This parameter is not available.
       shared_ptr<bool> isWhite_ {};
-      // This parameter is unavailable for public use.
+      // This parameter is not available.
       shared_ptr<string> resourceType_ {};
-      // The content that you want to query.
+      // The search content.
       shared_ptr<string> searchContent_ {};
       // The query type. Valid values:
       // 
-      // *   ROUTE: The list is queried by route. If the value of this parameter is ROUTE, set the SearchContent parameter to the route name.
-      // *   DOMAIN: The list is queried by domain name. If the value of this parameter is DOMAIN, set the SearchContent parameter to the domain name.
-      // *   IP: The list is queried by specified IP address. If the value of this parameter is IP, set the SearchContent parameter to the IP address.
+      // - ROUTE: searches by route. Set SearchContent to the route name.
+      // 
+      // - DOMAIN: searches by domain name. Set SearchContent to the domain name.
+      // 
+      // - IP: searches by specified IP address. Set SearchContent to the IP address.
       shared_ptr<string> searchType_ {};
-      // This parameter is unavailable for public use.
+      // This parameter is not available.
       shared_ptr<string> type_ {};
     };
 
@@ -190,15 +192,15 @@ namespace Models
 
 
   protected:
-    // The language in which you want to display the results. Valid values: zh and en. zh indicates Chinese, which is the default value. en indicates English.
+    // The language of the response. Valid values: zh (Chinese, default) and en (English).
     shared_ptr<string> acceptLanguage_ {};
-    // This parameter is unavailable for public use.
+    // This parameter is not available.
     shared_ptr<bool> descSort_ {};
-    // The filter parameters.
+    // parse from filterParams
     shared_ptr<GatewayBlackWhiteListRequest::FilterParams> filterParams_ {};
-    // This parameter is unavailable for public use.
+    // This parameter is not available.
     shared_ptr<string> orderItem_ {};
-    // The page number. Pages start from page 1. Default value: 1.
+    // The page number. Valid values: integers greater than 0. Default value: 1.
     shared_ptr<int32_t> pageNumber_ {};
     // The number of entries per page. Default value: 1.
     shared_ptr<int32_t> pageSize_ {};

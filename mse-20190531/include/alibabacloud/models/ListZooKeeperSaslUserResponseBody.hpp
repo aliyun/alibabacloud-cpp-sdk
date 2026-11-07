@@ -88,9 +88,13 @@ namespace Models
 
 
     protected:
+      // The creation time.
       shared_ptr<string> createTime_ {};
+      // The description of the SASL user.
       shared_ptr<string> description_ {};
+      // The current status of the SASL user.
       shared_ptr<string> status_ {};
+      // The SASL username.
       shared_ptr<string> userName_ {};
     };
 
@@ -113,7 +117,9 @@ namespace Models
 
 
   protected:
+    // The returned data.
     shared_ptr<vector<ListZooKeeperSaslUserResponseBody::Data>> data_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

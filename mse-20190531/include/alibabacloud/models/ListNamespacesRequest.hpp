@@ -78,7 +78,9 @@ namespace Models
 
 
     protected:
+      // Tag key.
       shared_ptr<string> key_ {};
+      // Tag value.
       shared_ptr<string> value_ {};
     };
 
@@ -129,12 +131,19 @@ namespace Models
 
 
   protected:
+    // Language for displaying results. Values: zh (default): Chinese, en: English
     shared_ptr<string> acceptLanguage_ {};
+    // Namespace name for fuzzy query. If not specified, all namespaces are queried by default.
     shared_ptr<string> name_ {};
+    // Page number for paged query.
     shared_ptr<int32_t> pageNumber_ {};
+    // Number of entries per page for paged queries. The default is 5. To return more data, increase this value.
     shared_ptr<int32_t> pageSize_ {};
+    // Region.
+    // 
     // This parameter is required.
     shared_ptr<string> region_ {};
+    // Alibaba Cloud tags.
     shared_ptr<vector<ListNamespacesRequest::Tag>> tag_ {};
   };
 

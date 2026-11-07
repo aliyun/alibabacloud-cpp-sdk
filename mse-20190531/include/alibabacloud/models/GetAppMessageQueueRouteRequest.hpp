@@ -77,24 +77,23 @@ namespace Models
   protected:
     // The language of the response. Valid values:
     // 
-    // *   zh: Chinese
-    // *   en: English
+    // - zh: Chinese
+    // - en: English
     shared_ptr<string> acceptLanguage_ {};
-    // The ID of the application.
+    // The application ID.
     // 
     // This parameter is required.
     shared_ptr<string> appId_ {};
-    // The name of the application.
+    // The application name.
     shared_ptr<string> appName_ {};
-    // The name of the Microservices Engine (MSE) namespace.
+    // The MSE namespace name.
     shared_ptr<string> namespace_ {};
-    // The region where the instance resides. Examples:
-    // 
-    // *   `cn-hangzhou`: China (Hangzhou)
-    // *   `cn-beijing`: China (Beijing)
-    // *   `cn-shanghai`: China (Shanghai)
-    // *   `cn-zhangjiakou`: China (Zhangjiakou)
-    // *   `cn-shenzhen`: China (Shenzhen)
+    // The region where the cluster is deployed, including but not limited to:
+    // - `cn-hangzhou`: Hangzhou
+    // - `cn-beijing`: Beijing
+    // - `cn-shanghai`: Shanghai
+    // - `cn-zhangjiakou`: Zhangjiakou
+    // - `cn-shenzhen`: Shenzhen
     // 
     // This parameter is required.
     shared_ptr<string> region_ {};

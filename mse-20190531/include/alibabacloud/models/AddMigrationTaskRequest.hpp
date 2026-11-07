@@ -130,34 +130,32 @@ namespace Models
 
 
   protected:
-    // Language type of the returned information:
-    // 
-    // - zh: Chinese
-    // - en: English
+    // The language of the response. Valid values:
+    // - zh: Chinese.
+    // - en: English.
     shared_ptr<string> acceptLanguage_ {};
-    // Cluster type.
-    // 
+    // The cluster type. Valid values:
     // - Nacos-Ans
     // - ZooKeeper
     // - Eureka
     shared_ptr<string> clusterType_ {};
-    // Source instance node address.
+    // The address of the source instance node.
     shared_ptr<string> originInstanceAddress_ {};
-    // Source instance name.
+    // The name of the source instance.
     shared_ptr<string> originInstanceName_ {};
-    // Namespace list, required when the source cluster is Nacos.
+    // The list of namespaces. This parameter is optional when the source cluster is Nacos.
     shared_ptr<string> originInstanceNamespace_ {};
-    // Description.
+    // The description.
     shared_ptr<string> projectDesc_ {};
-    // Extended request parameters, in JSON format.
+    // The extended request parameters in JSON format.
     shared_ptr<string> requestPars_ {};
-    // SyncType
+    // The synchronization type. Valid values: configuration synchronization, service synchronization, or full synchronization.
     shared_ptr<string> syncType_ {};
-    // Target instance name.
+    // The name of the target instance.
     shared_ptr<string> targetClusterName_ {};
-    // Target instance URL.
+    // The URL of the target instance.
     shared_ptr<string> targetClusterUrl_ {};
-    // Target instance ID.
+    // The instance ID of the target instance.
     shared_ptr<string> targetInstanceId_ {};
   };
 

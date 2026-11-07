@@ -130,16 +130,27 @@ namespace Models
 
 
   protected:
+    // The language in which you want to display the results. Valid values: zh and en. zh is the default value, which indicates Chinese. en indicates English.
     shared_ptr<string> acceptLanguage_ {};
+    // The application ID, which can be omitted.
     shared_ptr<string> appId_ {};
+    // The application name.
     shared_ptr<string> appName_ {};
+    // The behavior details.
     shared_ptr<string> fallbackBehavior_ {};
+    // The programming language, such as Java or Go.
     shared_ptr<string> language_ {};
+    // The behavior name.
     shared_ptr<string> name_ {};
+    // The name of the Microservices Engine (MSE) namespace.
     shared_ptr<string> namespace_ {};
+    // The region.
     shared_ptr<string> regionId_ {};
+    // The target resource type.
     shared_ptr<int32_t> resourceClassification_ {};
+    // The scenario, uniformly fill in default.
     shared_ptr<string> scenario_ {};
+    // Redundant parameter, currently ignored.
     shared_ptr<string> source_ {};
   };
 

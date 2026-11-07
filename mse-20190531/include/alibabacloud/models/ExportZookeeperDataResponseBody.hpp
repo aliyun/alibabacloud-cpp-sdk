@@ -145,32 +145,30 @@ namespace Models
 
 
     protected:
-      // The content of a task.
+      // The task content.
       Darabonba::Json contentMap_ {};
-      // The creation time.
+      // The time when the task was created. The value is a UNIX timestamp in milliseconds.
       shared_ptr<int64_t> createTime_ {};
-      // The type of the object that is exported. Valid values:
-      // 
-      // *   transactionLog: transaction logs
-      // *   snapshot: snapshots
+      // The export type. Valid values:
+      // - transactionLog: transaction log
+      // - snapshot: snapshot file
       shared_ptr<string> exportType_ {};
       // The extended information.
       shared_ptr<string> extend_ {};
-      // The ID of the task.
+      // The task ID.
       shared_ptr<int32_t> id_ {};
-      // The ID of the instance
+      // The instance ID.
       shared_ptr<string> instanceId_ {};
-      // The ID of the associated task at the underlying layer. This parameter is used only to troubleshoot failures.
+      // The associated underlying task ID. This parameter is used only for troubleshooting when a task fails.
       shared_ptr<string> kubeoneTaskIds_ {};
-      // The status of the task. Valid values:
-      // 
-      // *   CREATE: The object is being created.
-      // *   RUNNING: The task is running.
-      // *   FINISH: The task is completed.
-      // *   FAILED: The task fails.
-      // *   EXPIRE: The task has expired.
+      // The task status. Valid values:
+      // - CREATE: creating
+      // - RUNNING: running
+      // - FINISH: completed
+      // - FAILED: failed
+      // - EXPIRE: expired
       shared_ptr<string> status_ {};
-      // The last update time.
+      // The time when the task was updated. The value is a UNIX timestamp in milliseconds.
       shared_ptr<int64_t> updateTime_ {};
     };
 
@@ -229,27 +227,24 @@ namespace Models
 
 
   protected:
-    // The details of the data.
+    // The data overview.
     shared_ptr<ExportZookeeperDataResponseBody::Data> data_ {};
-    // The dynamic part in the error message. This parameter is used to replace the \\*\\*%s\\*\\* variable in the **ErrMessage** parameter.
-    // 
-    // > If the return value of the **ErrMessage** parameter is **The Value of Input Parameter %s is not valid** and the return value of the **DynamicMessage** parameter is **DtsJobId**, the specified **DtsJobId** parameter is invalid.
+    // The dynamic error message, which is used to replace the **%s** placeholder in the **ErrMessage** response parameter.
+    // > If **ErrMessage** returns **The Value of Input Parameter %s is not valid** and **DynamicMessage** returns **DtsJobId**, the specified **DtsJobId** request parameter is invalid.
     shared_ptr<string> dynamicMessage_ {};
-    // The error code returned if the request failed.
+    // The error code.
     shared_ptr<string> errorCode_ {};
-    // The HTTP status code returned.
+    // The HTTP status code.
     shared_ptr<string> httpStatusCode_ {};
-    // The message returned.
-    // 
-    // *   If the request is successful, a success message is returned.
-    // *   If the request fails, an error message is returned.
+    // The returned message.
+    // - If the request succeeds, a success message is returned.
+    // - If the request fails, the cause of the failure is returned.
     shared_ptr<string> message_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request was successful. Valid values:
-    // 
-    // *   `true`: The request was successful.
-    // *   `false`: The request failed.
+    // The request result. Valid values:
+    // - `true`: The request succeeded.
+    // - `false`: The request failed.
     shared_ptr<bool> success_ {};
   };
 

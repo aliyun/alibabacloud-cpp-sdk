@@ -107,9 +107,9 @@ namespace Models
 
 
       protected:
-        // The ID of the group.
+        // The data ID.
         shared_ptr<string> dataId_ {};
-        // The information about configurations that are failed to be imported.
+        // The group ID.
         shared_ptr<string> group_ {};
       };
 
@@ -160,9 +160,11 @@ namespace Models
 
 
       protected:
-        // The ID of the group.
+        // The data ID.
         shared_ptr<string> dataId_ {};
+        // The group ID.
         shared_ptr<string> group_ {};
+        // The cause of the failure.
         shared_ptr<string> reason_ {};
       };
 
@@ -201,13 +203,13 @@ namespace Models
 
 
     protected:
-      // The data structure.
+      // The list of failed imports.
       shared_ptr<vector<Data::FailData>> failData_ {};
-      // The information about skipped configurations.
+      // The number of skipped messages.
       shared_ptr<int32_t> skipCount_ {};
-      // The data structure.
+      // The list of skipped configurations.
       shared_ptr<vector<Data::SkipData>> skipData_ {};
-      // The number of configurations that are skipped.
+      // The number of successfully imported instances.
       shared_ptr<int32_t> succCount_ {};
     };
 
@@ -273,24 +275,24 @@ namespace Models
 
 
   protected:
-    // The error message returned.
+    // The code.
     shared_ptr<int32_t> code_ {};
-    // The number of configurations that are imported.
+    // The data overview.
     shared_ptr<ImportNacosConfigResponseBody::Data> data_ {};
-    // The details of the data.
+    // The dynamic error message, which is used to replace **%s** in the **ErrMessage** response parameter.
+    // > If **ErrMessage** returns **The Value of Input Parameter %s is not valid** and **DynamicMessage** returns **DtsJobId**, the **DtsJobId** request parameter is invalid.
     shared_ptr<string> dynamicMessage_ {};
-    // The code returned.
+    // The error code.
     shared_ptr<string> errorCode_ {};
-    // The ID of the request.
+    // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
-    // The request is successfully processed.
+    // The returned message.
     shared_ptr<string> message_ {};
-    // Indicates whether the request was successful. Valid values:
-    // 
-    // *   `true`: The request was successful.
-    // *   `false`: The request failed.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // The error code that is returned.
+    // Indicates whether the request was successful. Valid values:
+    // - `true`: The request was successful.
+    // - `false`: The request failed.
     shared_ptr<bool> success_ {};
   };
 

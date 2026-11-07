@@ -59,9 +59,11 @@ namespace Models
   protected:
     // The language of the response. Valid values:
     // 
-    // *   zh: Chinese
-    // *   en: English
+    // - zh: Chinese.
+    // 
+    // - en: English.
     shared_ptr<string> acceptLanguage_ {};
+    // The certificate name that is used for fuzzy search.
     shared_ptr<string> certName_ {};
     // The unique ID of the gateway.
     shared_ptr<string> gatewayUniqueId_ {};

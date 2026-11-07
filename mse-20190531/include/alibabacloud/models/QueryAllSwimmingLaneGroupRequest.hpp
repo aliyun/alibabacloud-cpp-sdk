@@ -50,10 +50,11 @@ namespace Models
   protected:
     // The language of the response. Valid values:
     // 
-    // *   zh: Chinese
-    // *   en: English
+    // - zh: Chinese
+    // 
+    // - en: English
     shared_ptr<string> acceptLanguage_ {};
-    // The name of the Microservices Engine (MSE) namespace that you want to query.
+    // The name of the MSE namespace to query.
     shared_ptr<string> namespace_ {};
   };
 

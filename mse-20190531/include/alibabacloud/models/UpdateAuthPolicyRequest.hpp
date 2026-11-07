@@ -121,7 +121,7 @@ namespace Models
 
 
   protected:
-    // The language of the response. Valid values: zh-CN and en-US. Default value: zh-CN. The value zh-CN indicates Chinese, and the value en-US indicates English.
+    // The language in which you want the results to be displayed. Valid values: zh-CN and en-US. Default value: zh-CN. The value zh-CN indicates Chinese, and the value en-US indicates English.
     shared_ptr<string> acceptLanguage_ {};
     // The application ID.
     shared_ptr<string> appId_ {};
@@ -133,19 +133,21 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> id_ {};
-    // The ID of the ACK cluster namespace.
+    // The namespace ID of the Kubernetes cluster.
     shared_ptr<string> k8sNamespace_ {};
-    // The name of the rule.
+    // The rule name.
     shared_ptr<string> name_ {};
-    // The protocol type. Valid values:
+    // The Protocol Type. Valid values:
     // 
-    // *   **SPRING_CLOUD**
-    // *   **DUBBO**
-    // *   **istio**
+    // - **SPRING_CLOUD**.
+    // 
+    // - **DUBBO**.
+    // 
+    // - **istio**.
     shared_ptr<string> protocol_ {};
-    // The region ID.
+    // The region.
     shared_ptr<string> region_ {};
-    // The source for application access.
+    // The service source that the application accesses.
     shared_ptr<string> source_ {};
   };
 

@@ -320,44 +320,51 @@ namespace Models
         protected:
           // The description.
           shared_ptr<string> description_ {};
+          // The English description of the risk.
           shared_ptr<string> descriptionEn_ {};
           // The ID.
           shared_ptr<int32_t> id_ {};
-          // A redundant parameter.
+          // Redundant field.
           shared_ptr<string> module_ {};
-          // Indicates whether the risk item notification feature is disabled.
+          // Specifies whether to disable the notification feature if the risk item occurs.
           // 
-          // *   true: disabled
-          // *   false: enabled
+          // - true: Disables risk item notifications
+          // 
+          // - false: Enables risk item notifications
           shared_ptr<bool> mute_ {};
-          // A redundant parameter.
+          // Redundant field.
           shared_ptr<bool> noticeFeature_ {};
           // The ID of the user to which the cluster belongs.
           shared_ptr<string> primaryUser_ {};
           // The risk code.
           shared_ptr<string> riskCode_ {};
-          // The severity of the risk. Valid values:
+          // The risk level. Valid values:
           // 
-          // *   HIGH: high risk
-          // *   MID: medium risk
-          // *   LOW: low risk
+          // - HIGH: High risk
+          // 
+          // - MID: Medium risk
+          // 
+          // - LOW: Low risk
           shared_ptr<string> riskLevel_ {};
-          // The name of the risk.
+          // The risk name.
           shared_ptr<string> riskName_ {};
+          // The English name of the risk.
           shared_ptr<string> riskNameEn_ {};
           // The type of the risk.
           shared_ptr<string> riskType_ {};
-          // The situation.
+          // The current situation.
           shared_ptr<string> situation_ {};
+          // The English description of the current situation.
           shared_ptr<string> situationEn_ {};
           // The suggestion.
           shared_ptr<string> suggestion_ {};
+          // The English description of the suggestion.
           shared_ptr<string> suggestionEn_ {};
           // The ID of the associated parent task.
           shared_ptr<int64_t> taskId_ {};
-          // A redundant parameter.
+          // Redundant field.
           shared_ptr<int32_t> type_ {};
-          // A redundant parameter.
+          // Redundant field.
           shared_ptr<string> values_ {};
         };
 
@@ -499,19 +506,19 @@ namespace Models
         shared_ptr<string> appVersion_ {};
         // The billing method.
         shared_ptr<string> chargeType_ {};
-        // The type of the cluster.
+        // The type of the instance.
         shared_ptr<string> clusterType_ {};
         // The time when the task was created.
         shared_ptr<string> createTime_ {};
         // The ID.
         shared_ptr<int32_t> id_ {};
-        // A redundant parameter.
+        // Redundant field.
         shared_ptr<string> imageVersion_ {};
-        // The ID of the instance.
+        // The instance ID.
         shared_ptr<string> instanceId_ {};
-        // The ID of the user to which the instance belongs.
+        // The ID of the user to which the cluster belongs.
         shared_ptr<string> primaryUser_ {};
-        // The number of nodes in the instance.
+        // The number of nodes in the cluster.
         shared_ptr<string> replica_ {};
         // The list of risk items.
         shared_ptr<vector<Result::RiskList>> riskList_ {};
@@ -519,15 +526,15 @@ namespace Models
         shared_ptr<int32_t> score_ {};
         // The specifications.
         shared_ptr<string> spec_ {};
-        // The status of the task.
+        // The job states.
         shared_ptr<string> status_ {};
-        // The total number of check items.
+        // The total number of inspection items.
         shared_ptr<int32_t> totalItem_ {};
         // The total number of risk items.
         shared_ptr<int32_t> totalRisk_ {};
-        // A redundant parameter.
+        // Redundant field.
         shared_ptr<string> type_ {};
-        // The last update time.
+        // The time when the instance was last updated.
         shared_ptr<string> updateTime_ {};
         // The version number.
         shared_ptr<string> versionCode_ {};
@@ -566,13 +573,13 @@ namespace Models
 
 
     protected:
-      // The page number of the returned page.
+      // The page number of the list.
       shared_ptr<int32_t> pageNumber_ {};
-      // The number of entries returned per page.
+      // The number of entries per page.
       shared_ptr<int32_t> pageSize_ {};
       // The list of health check tasks.
       shared_ptr<vector<Data::Result>> result_ {};
-      // The total number of returned entries.
+      // The total number of queried rules.
       shared_ptr<int32_t> totalSize_ {};
     };
 
@@ -645,31 +652,33 @@ namespace Models
 
 
   protected:
-    // The status code. A value of 200 is returned if the request was successful.
+    // Code is only used to synchronize with success
     shared_ptr<int32_t> code_ {};
-    // The details of the data.
+    // The data returned.
     shared_ptr<ListClusterHealthCheckTaskResponseBody::Data> data_ {};
     // The dynamic part in the error message.
     shared_ptr<string> dynamicCode_ {};
-    // The dynamic part in the error message. This parameter is used to replace the \\*\\*%s\\*\\* variable in the **ErrMessage** parameter.
+    // The dynamic error message used to replace \\*\\*%s\\*\\* in the **ErrMessage** parameter.
     // 
-    // > If the return value of the **ErrMessage** parameter is **The Value of Input Parameter %s is not valid** and the return value of the **DynamicMessage** parameter is **DtsJobId**, the specified **DtsJobId** parameter is invalid.
+    // > If **ErrMessage** returns **The Value of Input Parameter %s is not valid**, and **DynamicMessage** returns **DtsJobId**, it indicates that the **DtsJobId** request parameter is invalid.
     shared_ptr<string> dynamicMessage_ {};
-    // The error code returned if the request failed. Take note of the following rules:
+    // The error code. Take note of the following items:
     // 
-    // *   The **ErrorCode** parameter is not returned if the request is successful.
-    // *   The **ErrorCode** parameter is returned if the request fails. For more information, see the **Error codes** section in this topic.
+    // - Successful request: The **ErrorCode** field is not returned.
+    // 
+    // - Failed request: The **ErrorCode** field is returned. For more information, see the **Error codes** section in this topic.
     shared_ptr<string> errorCode_ {};
-    // The HTTP status code returned.
+    // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
-    // The message returned.
+    // The returned message.
     shared_ptr<string> message_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request was successful. Valid values:
+    // Indicates whether the call was successful. Valid values:
     // 
-    // *   `true`: The request was successful.
-    // *   `false`: The request failed.
+    // - `true`: The request was successful.
+    // 
+    // - `false`: The request failed.
     shared_ptr<bool> success_ {};
   };
 

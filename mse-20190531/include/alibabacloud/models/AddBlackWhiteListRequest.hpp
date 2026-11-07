@@ -122,34 +122,31 @@ namespace Models
 
   protected:
     // The language of the response. Valid values:
-    // 
-    // *   zh: Chinese
-    // *   en: English
+    // - zh: Chinese.
+    // - en: English.
     shared_ptr<string> acceptLanguage_ {};
     // The content of the blacklist.
     shared_ptr<string> content_ {};
     // The unique ID of the gateway.
     shared_ptr<string> gatewayUniqueId_ {};
-    // The whitelist. Default value: No.
+    // Specifies whether the list is a whitelist. Default value: false.
     shared_ptr<bool> isWhite_ {};
     // The name.
     shared_ptr<string> name_ {};
-    // The description.
+    // The note.
     shared_ptr<string> note_ {};
-    // The resource IDs in the JSON format.
+    // The JSON string of the resource ID list.
     shared_ptr<string> resourceIdJsonList_ {};
-    // The effective scope of the blacklist or whitelist. Valid values:
-    // 
-    // *   GATEWAY
-    // *   DOMAIN
-    // *   ROUTE
+    // The effective granularity. Valid values:
+    // - GATEWAY: the entire gateway.
+    // - DOMAIN: the domain name.
+    // - ROUTE: the route.
     shared_ptr<string> resourceType_ {};
-    // The status of the blacklist.
-    // 
-    // *   on: enabled
-    // *   off: disabled
+    // The status of the blacklist. Valid values:
+    // - on: enabled.
+    // - off: disabled.
     shared_ptr<string> status_ {};
-    // The type of object in the blacklist or whitelist.
+    // The type of blacklists and whitelists.
     shared_ptr<string> type_ {};
   };
 

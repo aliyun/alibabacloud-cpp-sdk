@@ -232,41 +232,42 @@ namespace Models
         shared_ptr<string> content_ {};
         // The gateway ID.
         shared_ptr<int64_t> gatewayId_ {};
-        // The unique ID of the gateway.
+        // The unique identifier of the gateway.
         shared_ptr<string> gatewayUniqueId_ {};
-        // The time when the blacklist or whitelist was created.
+        // The creation time.
         shared_ptr<string> gmtCreate_ {};
-        // The time when the rule was modified.
+        // The update time.
         shared_ptr<string> gmtModified_ {};
-        // The ID of the blacklist and whitelist.
+        // The ID of the blacklists and whitelists.
         shared_ptr<int64_t> id_ {};
-        // Specifies whether to enable the whitelist feature.
+        // Indicates whether it is a whitelist.
         shared_ptr<bool> isWhite_ {};
         // The name of the blacklist.
         shared_ptr<string> name_ {};
-        // The comment.
+        // The note.
         shared_ptr<string> note_ {};
         // The resource ID.
         shared_ptr<int64_t> resourceId_ {};
-        // The list of resource IDs in the JSON format.
+        // The JSON string of the resource ID list.
         // 
-        // *   If the value of the ResourceType parameter is ROUTE, the value of this parameter is the list of route IDs.
-        // *   If the value of the ResourceType parameter is DOMAIN, the value of this parameter is the list of domain names.
+        // - If ResourceType is set to ROUTE, this parameter is a list of route IDs.
+        // 
+        // - If ResourceType is set to DOMAIN, this parameter is a list of domain name IDs.
         shared_ptr<string> resourceIdJsonList_ {};
-        // The description of the resource name.
+        // The resource name description.
         shared_ptr<string> resourceIdNameJson_ {};
-        // The effective scope of the blacklist or whitelist. Valid values:
-        // 
-        // *   GATEWAY
-        // *   DOMAIN
-        // *   ROUTE
+        // The effective granularity. Valid values:
+        // - GATEWAY: global gateway level.
+        // - DOMAIN: domain name level.
+        // - ROUTE: route level.
         shared_ptr<string> resourceType_ {};
-        // The status of the blacklist or whitelist.
+        // The status of the blacklists and whitelists. Valid values:
         // 
-        // *   on
-        // *   off
+        // - on: enabled.
+        // 
+        // - off: shutdown.
         shared_ptr<string> status_ {};
-        // The type of the blacklist and whitelist. The value is fixed to IP address blacklist and whitelist.
+        // The type of the blacklists and whitelists. The value is fixed to IP blacklists and whitelists.
         shared_ptr<string> type_ {};
       };
 
@@ -303,13 +304,13 @@ namespace Models
 
 
     protected:
-      // The page number.
+      // The page number of the instance list.
       shared_ptr<int32_t> pageNumber_ {};
-      // The number of entries returned per page.
+      // The number of entries per page specified in the request.
       shared_ptr<int32_t> pageSize_ {};
-      // The returned information.
+      // The returned result set.
       shared_ptr<vector<Data::Result>> result_ {};
-      // The total number of instances returned.
+      // The total number of queried instances.
       shared_ptr<int32_t> totalSize_ {};
     };
 
@@ -382,13 +383,13 @@ namespace Models
 
 
   protected:
-    // The status code. A value of 200 is returned if the request is successful.
+    // The code that synchronizes with the Success parameter.
     shared_ptr<int32_t> code_ {};
-    // The data returned.
+    // The returned data.
     shared_ptr<GatewayBlackWhiteListResponseBody::Data> data_ {};
-    // The placeholder in the dynamic error message. This parameter is not returned.
+    // The placeholder in the dynamic error message. This parameter is not used and can be ignored.
     shared_ptr<string> dynamicCode_ {};
-    // The dynamic message. This parameter is not returned.
+    // The dynamic message. This parameter is not used and can be ignored.
     shared_ptr<string> dynamicMessage_ {};
     // The error code.
     shared_ptr<string> errorCode_ {};
@@ -398,10 +399,9 @@ namespace Models
     shared_ptr<string> message_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request was successful. Valid values:
-    // 
-    // *   `true`
-    // *   `false`
+    // Indicates whether the request is successful. Valid values:
+    // - `true`: The request is successful.
+    // - `false`: The request fails.
     shared_ptr<bool> success_ {};
   };
 

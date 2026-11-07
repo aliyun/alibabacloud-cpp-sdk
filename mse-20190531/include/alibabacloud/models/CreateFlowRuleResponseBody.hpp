@@ -159,66 +159,23 @@ namespace Models
     protected:
       // The application ID.
       shared_ptr<string> appId_ {};
-      // The application name.
+      // The name of the application.
       shared_ptr<string> appName_ {};
       // The throttling effect.
-      // 
-      // Valid values:
-      // 
-      // *   0
-      // 
-      //     <!-- -->
-      // 
-      //     :
-      // 
-      //     <!-- -->
-      // 
-      //     fast failure
-      // 
-      //     <!-- -->
-      // 
-      // *   2
-      // 
-      //     <!-- -->
-      // 
-      //     :
-      // 
-      //     <!-- -->
-      // 
-      //     in queue
-      // 
-      //     <!-- -->
       shared_ptr<int32_t> controlBehavior_ {};
       // Indicates whether the rule is enabled.
-      // 
-      // Valid values:
-      // 
-      // *   true
-      // 
-      //     <!-- -->
-      // 
-      //     <!-- -->
-      // 
-      //     <!-- -->
-      // 
-      // *   false
-      // 
-      //     <!-- -->
-      // 
-      //     <!-- -->
-      // 
-      //     <!-- -->
       shared_ptr<bool> enable_ {};
       // The ID.
       shared_ptr<int64_t> id_ {};
+      // The source application of the request.
       shared_ptr<string> limitApp_ {};
-      // The timeout period for queuing when the value of ControlBehavior is set to 2. Unit: milliseconds.
+      // The timeout period for queuing when the ControlBehavior parameter is set to 2. Unit: milliseconds.
       shared_ptr<int32_t> maxQueueingTimeMs_ {};
       // The namespace.
       shared_ptr<string> namespace_ {};
-      // The region ID.
+      // The region of the gateway.
       shared_ptr<string> regionId_ {};
-      // The name of the API resource.
+      // The interface resource name.
       shared_ptr<string> resource_ {};
       // The throttling threshold.
       shared_ptr<float> threshold_ {};
@@ -268,29 +225,11 @@ namespace Models
     shared_ptr<string> code_ {};
     // The data returned.
     shared_ptr<CreateFlowRuleResponseBody::Data> data_ {};
-    // The error message returned.
+    // The returned message.
     shared_ptr<string> message_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request was successful.
-    // 
-    // Valid values:
-    // 
-    // *   true
-    // 
-    //     <!-- -->
-    // 
-    //     <!-- -->
-    // 
-    //     <!-- -->
-    // 
-    // *   false
-    // 
-    //     <!-- -->
-    // 
-    //     <!-- -->
-    // 
-    //     <!-- -->
+    // The result of the request.
     shared_ptr<bool> success_ {};
   };
 

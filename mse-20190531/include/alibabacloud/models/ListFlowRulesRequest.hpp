@@ -103,14 +103,13 @@ namespace Models
 
 
   protected:
-    // The language of the response. Valid values:
-    // 
-    // *   zh: Chinese
-    // *   en: English
+    // The language of the returned information. Valid values:
+    // - zh: Chinese
+    // - en: English
     shared_ptr<string> acceptLanguage_ {};
-    // The ID of the application.
+    // The application ID.
     shared_ptr<string> appId_ {};
-    // The name of the application.
+    // The application name.
     // 
     // This parameter is required.
     shared_ptr<string> appName_ {};
@@ -118,13 +117,13 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> namespace_ {};
-    // The page number. Default value: 1.
+    // The target page number. Default value: 1.
     shared_ptr<int32_t> pageIndex_ {};
     // The number of entries per page.
     shared_ptr<int32_t> pageSize_ {};
-    // The name of the resource.
+    // The resource name.
     shared_ptr<string> resource_ {};
-    // The keyword that is used for the search.
+    // The search keyword.
     shared_ptr<string> resourceSearchKey_ {};
   };
 

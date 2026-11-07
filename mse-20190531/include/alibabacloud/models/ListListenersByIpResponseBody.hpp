@@ -102,12 +102,13 @@ namespace Models
 
 
     protected:
-      // The ID of the data.
+      // Data ID.
       shared_ptr<string> dataId_ {};
-      // The group.
+      // Group.
       shared_ptr<string> group_ {};
-      // The verification string.
+      // Verification string.
       shared_ptr<string> md5_ {};
+      // Namespace ID
       shared_ptr<string> namespaceId_ {};
     };
 
@@ -180,26 +181,27 @@ namespace Models
 
 
   protected:
-    // The error code returned if the request failed.
+    // Error code.
     shared_ptr<string> errorCode_ {};
-    // The HTTP status code.
+    // HTTP status code.
     shared_ptr<string> httpCode_ {};
-    // The information about listeners.
+    // Listener information.
     shared_ptr<vector<ListListenersByIpResponseBody::Listeners>> listeners_ {};
-    // The message returned.
+    // Response message.
     shared_ptr<string> message_ {};
-    // The page number of the returned page.
+    // Current page number.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries returned per page.
+    // Size of the current page.
     shared_ptr<int32_t> pageSize_ {};
-    // The ID of the request.
+    // Request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request was successful. Valid values:
+    // Request result, with the following values:
     // 
-    // *   `true`: The request was successful.
-    // *   `false`: The request failed.
+    // - `true`: The request is successful.
+    // 
+    // - `false`: The request failed.
     shared_ptr<bool> success_ {};
-    // The total number of returned instances.
+    // Total number of instances.
     shared_ptr<int32_t> totalCount_ {};
   };
 

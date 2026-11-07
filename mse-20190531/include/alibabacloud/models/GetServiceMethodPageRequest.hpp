@@ -167,20 +167,35 @@ namespace Models
 
 
   protected:
+    // The language in which you want the results to be displayed. Valid values: zh and en. zh indicates Chinese, which is the default value. en indicates English.
     shared_ptr<string> acceptLanguage_ {};
+    // The application ID.
     shared_ptr<string> appId_ {};
+    // The application name.
     shared_ptr<string> appName_ {};
+    // The IP address of the service provider.
     shared_ptr<string> ip_ {};
+    // The full name of the Controller class to which the interface belongs.
     shared_ptr<string> methodController_ {};
+    // The method name.
     shared_ptr<string> name_ {};
+    // The Microservices Engine (MSE) namespace to which the application belongs.
     shared_ptr<string> namespace_ {};
+    // The page number of the returned page.
     shared_ptr<int32_t> pageNumber_ {};
+    // The number of entries per page.
     shared_ptr<int32_t> pageSize_ {};
+    // The request path that corresponds to the interface.
     shared_ptr<string> path_ {};
+    // The region.
     shared_ptr<string> region_ {};
+    // The group to which the service belongs.
     shared_ptr<string> serviceGroup_ {};
+    // The name of the service.
     shared_ptr<string> serviceName_ {};
+    // The engine type.
     shared_ptr<string> serviceType_ {};
+    // The service version.
     shared_ptr<string> serviceVersion_ {};
   };
 

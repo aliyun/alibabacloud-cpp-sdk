@@ -160,13 +160,15 @@ namespace Models
         shared_ptr<string> clusterName_ {};
         // The version of the cluster.
         shared_ptr<string> k8sVersion_ {};
-        // The information about the namespace.
+        // The namespace information.
         shared_ptr<string> namespaceInfos_ {};
-        // The time when the pilot component was started.
+        // The start time of Pilot.
         shared_ptr<string> pilotStartTime_ {};
+        // The Pilot version.
         shared_ptr<string> pilotVersion_ {};
-        // The region where the cluster resides.
+        // The region where the cluster is deployed.
         shared_ptr<string> region_ {};
+        // The version lifecycle.
         shared_ptr<string> versionLifeCycle_ {};
       };
 
@@ -203,11 +205,11 @@ namespace Models
 
 
     protected:
-      // The page number of the returned page.
+      // The page number.
       shared_ptr<int32_t> pageNumber_ {};
-      // The number of entries returned per page.
+      // The size of the current page.
       shared_ptr<int32_t> pageSize_ {};
-      // The details of the data.
+      // The data structure.
       shared_ptr<vector<Data::Result>> result_ {};
       // The total number of clusters.
       shared_ptr<int32_t> totalSize_ {};
@@ -246,13 +248,13 @@ namespace Models
 
 
   protected:
-    // The data returned.
+    // The response data.
     shared_ptr<QueryGovernanceKubernetesClusterResponseBody::Data> data_ {};
     // The returned message.
     shared_ptr<string> message_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request was successful.
+    // Indicates whether the request is successful.
     shared_ptr<bool> success_ {};
   };
 

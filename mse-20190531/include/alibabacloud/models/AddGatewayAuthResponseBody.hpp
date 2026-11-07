@@ -84,20 +84,19 @@ namespace Models
 
 
   protected:
-    // The status code returned.
+    // The code synchronized with the Success parameter. If Success is true, Code is 200.
     shared_ptr<int32_t> code_ {};
-    // The data returned.
+    // The ID of the created authentication.
     shared_ptr<int64_t> data_ {};
-    // The HTTP status code returned.
+    // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
-    // The message returned.
+    // The returned message.
     shared_ptr<string> message_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request was successful. Valid values:
-    // 
-    // *   `true`: The request was successful.
-    // *   `false`: The request failed.
+    // The request result. Valid values:
+    // - `true`: The request is successful.
+    // - `false`: The request fails.
     shared_ptr<bool> success_ {};
   };
 

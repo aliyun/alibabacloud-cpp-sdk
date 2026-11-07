@@ -218,20 +218,44 @@ namespace Models
 
 
       protected:
+        // The web fallback behavior type. Valid values:
+        // - 0: return specified content.
+        // - 1: redirect to a specified page.
         shared_ptr<int32_t> behaviorType_ {};
+        // The encoding type. Valid values:
+        // - 0: plain text.
+        // - 1: JSON.
         shared_ptr<int32_t> bodyEncoding_ {};
+        // Specifies whether the rule is enabled. Valid values:
+        // - 0: disabled.
+        // - 1: enabled.
         shared_ptr<int32_t> enable_ {};
+        // The ID of the gateway.
         shared_ptr<int64_t> gatewayId_ {};
+        // The unique ID of the gateway.
         shared_ptr<string> gatewayUniqueId_ {};
+        // The ID of the concurrency rule.
         shared_ptr<int64_t> id_ {};
+        // The IDs of the filter rules.
         shared_ptr<vector<int64_t>> idList_ {};
+        // The threshold conversion type. Valid values:
+        // - 0: standalone.
+        // - 1: cluster.
+        // - 2: standalone to cluster.
         shared_ptr<int32_t> limitMode_ {};
+        // The overall concurrency threshold.
         shared_ptr<int32_t> maxConcurrency_ {};
+        // The custom headers, specified as key-value pairs.
         shared_ptr<string> responseAdditionalHeaders_ {};
+        // The HTTP response body.
         shared_ptr<string> responseContentBody_ {};
+        // The redirect URL.
         shared_ptr<string> responseRedirectUrl_ {};
+        // The HTTP status code.
         shared_ptr<int32_t> responseStatusCode_ {};
+        // The ID of the route.
         shared_ptr<int64_t> routeId_ {};
+        // The name of the route.
         shared_ptr<string> routeName_ {};
       };
 
@@ -394,20 +418,44 @@ namespace Models
 
 
       protected:
+        // The web fallback behavior type. Valid values:
+        // - 0: return specified content.
+        // - 1: redirect to a specified page.
         shared_ptr<int32_t> behaviorType_ {};
+        // The encoding type. Valid values:
+        // - 0: plain text.
+        // - 1: JSON.
         shared_ptr<int32_t> bodyEncoding_ {};
+        // Specifies whether the rule is enabled. Valid values:
+        // - 0: disabled.
+        // - 1: enabled.
         shared_ptr<int32_t> enable_ {};
+        // The ID of the gateway.
         shared_ptr<int64_t> gatewayId_ {};
+        // The unique ID of the gateway.
         shared_ptr<string> gatewayUniqueId_ {};
+        // The ID of the concurrency rule.
         shared_ptr<int64_t> id_ {};
+        // The IDs of the filter rules.
         shared_ptr<vector<int64_t>> idList_ {};
+        // The threshold conversion mode. Valid values:
+        // - 0: standalone.
+        // - 1: cluster.
+        // - 2: cluster to standalone.
         shared_ptr<int32_t> limitMode_ {};
+        // The overall concurrency threshold.
         shared_ptr<int32_t> maxConcurrency_ {};
+        // The custom headers, specified as key-value pairs.
         shared_ptr<string> responseAdditionalHeaders_ {};
+        // The HTTP response body.
         shared_ptr<string> responseContentBody_ {};
+        // The redirect URL.
         shared_ptr<string> responseRedirectUrl_ {};
+        // The HTTP status code.
         shared_ptr<int32_t> responseStatusCode_ {};
+        // The ID of the route.
         shared_ptr<int64_t> routeId_ {};
+        // The name of the route.
         shared_ptr<string> routeName_ {};
       };
 
@@ -453,10 +501,15 @@ namespace Models
 
 
     protected:
+      // The page number of the instance list.
       shared_ptr<int32_t> pageNumber_ {};
+      // The number of entries per page.
       shared_ptr<int32_t> pageSize_ {};
+      // The returned results.
       shared_ptr<vector<Data::Result>> result_ {};
+      // The returned result collection.
       shared_ptr<vector<Data::Results>> results_ {};
+      // The total number of queried instances.
       shared_ptr<int32_t> totalSize_ {};
     };
 
@@ -479,7 +532,9 @@ namespace Models
 
 
   protected:
+    // The returned data.
     shared_ptr<ListGatewayIsolationRuleResponseBody::Data> data_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

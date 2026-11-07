@@ -182,37 +182,49 @@ namespace Models
 
   protected:
     // The language of the response. Valid values:
-    // 
-    // *   zh: Chinese
-    // *   en: English
+    // - zh: Chinese.
+    // - en: English.
     shared_ptr<string> acceptLanguage_ {};
-    // The IDs of applications. Separate application IDs with commas (,).
+    // The IDs of the applications. Separate multiple IDs with commas (,).
     shared_ptr<string> appIds_ {};
+    // The end-to-end canary release mode. Valid values:
+    // - 0: Route by request content.
+    // - 1: Route by proportion.
     shared_ptr<int32_t> canaryModel_ {};
-    // Specifies whether to enable database canary release.
+    // **[Deprecated]** Specifies whether to enable canary release for databases.
     shared_ptr<bool> dbGrayEnable_ {};
-    // The ingress application.
+    // The entry application. Format: Source system:ID. Examples:
+    // - mse:${MSE application ID}
+    // - mse-gw:${MSE cloud-native gateway ID}
+    // - apig:${cloud-native API gateway ID}
     shared_ptr<string> entryApp_ {};
-    // The ID of the lane group. A value of -1 is used to create a lane group. A value greater than 0 is used to modify the specified lane group.
+    // The ID of the swimlane group. A value of -1 indicates that a swimlane group is created. A value greater than 0 indicates that a specified swimlane group is updated.
     shared_ptr<int64_t> id_ {};
-    // The side for message filtering when the canary release for messaging feature is enabled.
+    // The side where message queue canary release filtering is performed.
     shared_ptr<string> messageQueueFilterSide_ {};
-    // Specifies whether to enable canary release for messaging.
+    // Specifies whether to enable canary release for message queues.
     shared_ptr<bool> messageQueueGrayEnable_ {};
-    // The name.
+    // The name of the swimlane group.
     // 
     // This parameter is required.
     shared_ptr<string> name_ {};
-    // The name of the Microservices Engine (MSE) namespace.
+    // The name of the MSE namespace.
     shared_ptr<string> namespace_ {};
+    // **[Deprecated]** The paths. This parameter is required when a Java gateway is used as the entry point.
     shared_ptr<vector<string>> paths_ {};
     // Specifies whether to record request details.
     shared_ptr<bool> recordCanaryDetail_ {};
-    // The region ID.
+    // The region.
     shared_ptr<string> region_ {};
+    // The IDs of the routes. If a cloud-native gateway is used as the entry point, you must call this operation to pass the IDs of the selected cloud-native gateway routes before creating a swimlane for the swimlane group.
     shared_ptr<vector<int64_t>> routeIds_ {};
-    // The status of the lane group. The value 0 specifies that the lane group is disabled. The value 1 specifies that the lane group is enabled.
+    // The status of the swimlane group. Valid values:
+    // - 0: Inactive.
+    // - 1: Active.
     shared_ptr<int32_t> status_ {};
+    // The version of the end-to-end canary release. Valid values:
+    // - 0: Not recommended. Routes must be specified.
+    // - 2: Recommended. Routes do not need to be specified.
     shared_ptr<int32_t> swimVersion_ {};
   };
 

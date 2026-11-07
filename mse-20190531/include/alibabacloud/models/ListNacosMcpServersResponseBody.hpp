@@ -137,8 +137,11 @@ namespace Models
 
 
         protected:
+          // Indicates whether this is the latest version.
           shared_ptr<bool> isLatest_ {};
+          // The release date.
           shared_ptr<string> releaseDate_ {};
+          // The version number.
           shared_ptr<string> version_ {};
         };
 
@@ -206,14 +209,21 @@ namespace Models
 
 
       protected:
+        // The capabilities of the MCP server.
         shared_ptr<vector<string>> capabilities_ {};
+        // The description.
         shared_ptr<string> description_ {};
+        // The frontend protocol type.
         shared_ptr<string> frontProtocol_ {};
         // ID。
         shared_ptr<string> id_ {};
+        // The name.
         shared_ptr<string> name_ {};
+        // The type of the MCP server.
         shared_ptr<string> protocol_ {};
+        // The current latest version.
         shared_ptr<string> version_ {};
+        // The version details.
         shared_ptr<PageItems::VersionDetail> versionDetail_ {};
       };
 
@@ -250,11 +260,13 @@ namespace Models
 
 
     protected:
+      // The paginated list of MCP servers.
       shared_ptr<vector<Data::PageItems>> pageItems_ {};
       // pageNumber.
       shared_ptr<int32_t> pageNumber_ {};
       // pagesAvailable.
       shared_ptr<int32_t> pagesAvailable_ {};
+      // The total number of entries.
       shared_ptr<int32_t> totalCount_ {};
     };
 
@@ -277,7 +289,9 @@ namespace Models
 
 
   protected:
+    // The returned data structure.
     shared_ptr<ListNacosMcpServersResponseBody::Data> data_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

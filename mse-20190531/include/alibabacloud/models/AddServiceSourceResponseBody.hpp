@@ -84,17 +84,20 @@ namespace Models
 
 
   protected:
-    // duplicatedClusterAliasName
+    // The return code.
     shared_ptr<int32_t> code_ {};
-    // mse-100-007
+    // The returned data.
     shared_ptr<int64_t> data_ {};
-    // code
+    // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
-    // mse-200-105
+    // The returned message.
     shared_ptr<string> message_ {};
-    // The response data.
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
-    // duplicated cluster alias name
+    // The request result. Valid values:
+    // 
+    // - true: The request is successful.
+    // - false: The request fails.
     shared_ptr<bool> success_ {};
   };
 

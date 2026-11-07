@@ -240,7 +240,7 @@ namespace Models
 
 
       protected:
-        // Indicates whether empty list protection is enabled.
+        // The switch for push-empty protection.
         shared_ptr<bool> emptyProtect_ {};
         shared_ptr<bool> fenceEnabled_ {};
         shared_ptr<NacosRunningEnv::FencePolicy> fencePolicy_ {};
@@ -496,105 +496,117 @@ namespace Models
 
 
     protected:
-      // Indicates whether Simple Authentication and Security Layer (SASL) forced identity authentication is enabled for the ZooKeeper instance.
+      // The switch for ZooKeeper SASL-based forced identity authentication.
       shared_ptr<bool> authEnabled_ {};
-      // A reserved parameter.
+      // A reserved field.
       shared_ptr<string> autopurgePurgeInterval_ {};
-      // A reserved parameter.
+      // A reserved field.
       shared_ptr<string> autopurgeSnapRetainCount_ {};
-      // The name of the instance.
+      // The name of the cluster.
       shared_ptr<string> clusterName_ {};
-      // Indicates whether RAM authentication of a configuration center is enabled. This parameter is valid for Nacos instances. Valid values:
+      // The Nacos configuration. This parameter indicates whether RAM authentication is enabled for the configuration center. Valid values:
       // 
-      // *   `true`: enabled.
-      // *   `false`: disabled.
+      // - `true`: enabled
+      // 
+      // - `false`: disabled
       shared_ptr<bool> configAuthEnabled_ {};
-      // Indicates whether RAM authentication is supported by a configuration center of the instance. This parameter is valid for Nacos instances. Valid values:
+      // The Nacos configuration. This parameter indicates whether the configuration center of the current cluster supports RAM authentication. Valid values:
       // 
-      // *   `true`: supported.
-      // *   `false`: not supported.
+      // - `true`: supported
+      // 
+      // - `false`: not supported
       shared_ptr<bool> configAuthSupported_ {};
-      // The maximum size of contents in a configuration. Unit: KB.
+      // The maximum size of the content of a single configuration. Unit: KB.
       shared_ptr<int64_t> configContentLimit_ {};
-      // Indicates whether configuration encryption of a configuration center is enabled by the instance. This parameter is valid for Nacos instances. Valid values:
+      // The Nacos configuration. This parameter indicates whether configuration encryption is enabled for the cluster. Valid values:
       // 
-      // *   `true`: enabled.
-      // *   `false`: disabled.
+      // - `true`: enabled
+      // 
+      // - `false`: disabled
       shared_ptr<bool> configSecretEnabled_ {};
-      // Indicates whether configuration encryption of a configuration center is supported by the instance. This parameter is valid for Nacos instances. Valid values:
+      // The Nacos configuration. This parameter indicates whether the cluster supports configuration encryption. Valid values:
       // 
-      // *   `true`: supported.
-      // *   `false`: not supported.
+      // - `true`: supported
+      // 
+      // - `false`: not supported
       shared_ptr<bool> configSecretSupported_ {};
-      // Indicates whether the Nacos open source console is enabled.
+      // Specifies whether to enable the Nacos open source console.
       shared_ptr<bool> consoleUIEnabled_ {};
+      // Specifies whether to enable the four-letter words command.
       shared_ptr<bool> enable4lw_ {};
-      // Indicates whether access port 8761 was enabled for Eureka. If this port is disabled, applications cannot use the Eureka protocol for service registration and discovery.
+      // Specifies whether to enable port 8761 for access to the Eureka protocol. If you disable this port, applications cannot use the Eureka protocol for service registration and discovery.
       shared_ptr<bool> eurekaSupported_ {};
-      // Indicates whether the time to live (TTL) configuration is enabled. This parameter is valid for ZooKeeper instances.
+      // The ZooKeeper parameter that specifies whether to enable the TTL configuration.
       shared_ptr<bool> extendedTypesEnable_ {};
-      // The maximum connection duration of the instance. Unit: seconds. This parameter is valid for ZooKeeper instances.
+      // The ZooKeeper configuration. This parameter indicates the maximum connection duration of an instance. Unit: seconds.
       shared_ptr<string> initLimit_ {};
-      // The maximum amount of data on each node. This parameter is valid for ZooKeeper instances. Unit: bytes.
+      // The ZooKeeper configuration. This parameter indicates the maximum data size of each node. Unit: bytes.
       shared_ptr<string> juteMaxbuffer_ {};
-      // A reserved parameter.
+      // A reserved field.
       shared_ptr<string> jvmFlagsCustom_ {};
-      // Indicates whether Mesh Configuration Protocol (MCP) is enabled. This parameter is valid for Nacos instances. Valid values:
+      // The Nacos configuration. This parameter indicates whether Mesh Configuration Protocol (MCP) is enabled. Valid values:
       // 
-      // *   `true`: enabled.
-      // *   `false`: disabled.
+      // - `true`: enabled
+      // 
+      // - `false`: disabled
       shared_ptr<bool> MCPEnabled_ {};
-      // Indicates whether MCP is supported. This parameter is valid for Nacos instances. Valid values:
+      // The Nacos configuration. This parameter indicates whether MCP is supported. Valid values:
       // 
-      // *   `true`: supported.
-      // *   `false`: not supported.
+      // - `true`: supported
+      // 
+      // - `false`: not supported
       shared_ptr<bool> MCPSupported_ {};
-      // The number of connections between a client and a server. This parameter is valid for ZooKeeper instances.\\
-      // If this parameter is set to 0, no limits are imposed on the number of connections.
+      // The ZooKeeper configuration. This parameter indicates the number of connections between a client and a server.<br>
+      // If this parameter is set to 0, no limit is imposed.<br>
       shared_ptr<string> maxClientCnxns_ {};
-      // The maximum timeout period. This parameter is valid for ZooKeeper instances.
+      // The ZooKeeper configuration. This parameter indicates the maximum timeout duration.
       shared_ptr<string> maxSessionTimeout_ {};
-      // The minimum timeout period. This parameter is valid for ZooKeeper instances.
+      // The ZooKeeper configuration. This parameter indicates the minimum timeout duration.
       shared_ptr<string> minSessionTimeout_ {};
-      // The runtime configuration of the Nacos instance.
+      // The runtime configuration of Nacos.
       shared_ptr<Data::NacosRunningEnv> nacosRunningEnv_ {};
-      // Indicates whether RAM authentication of a registry is enabled. This parameter is valid for Nacos instances. Valid values:
+      // The Nacos configuration. This parameter indicates whether RAM authentication is enabled for the service registry. Valid values:
       // 
-      // *   `true`: enabled.
-      // *   `false`: disabled.
+      // - `true`: enabled
+      // 
+      // - `false`: disabled
       shared_ptr<bool> namingAuthEnabled_ {};
-      // Indicates whether RAM authentication of services is supported by the instance. This parameter is valid for Nacos instances. Valid values:
+      // The Nacos configuration. This parameter indicates whether the cluster supports RAM authentication for services. Valid values:
       // 
-      // *   `true`: supported.
-      // *   `false`: not supported.
+      // - `true`: supported
+      // 
+      // - `false`: not supported
       shared_ptr<bool> namingAuthSupported_ {};
-      // Indicates whether service creation is supported for the instance. This parameter is valid for Nacos instances. Valid values:
+      // The Nacos configuration. This parameter indicates whether the cluster supports service creation. Valid values:
       // 
-      // *   `true`: supported.
-      // *   `false`: not supported.
+      // - `true`: supported
+      // 
+      // - `false`: not supported
       shared_ptr<bool> namingCreateServiceSupported_ {};
-      // Indicates whether super permissions are enabled. This parameter is valid for ZooKeeper instances. Valid values:
+      // The ZooKeeper configuration. This parameter indicates whether the super permission is enabled. Valid values:
       // 
-      // *   `true`: enabled.
-      // *   `false`: disabled.
+      // - `true`: enabled
+      // 
+      // - `false`: disabled
       shared_ptr<bool> openSuperAcl_ {};
-      // The password that corresponds to the username. This parameter is valid only if OpenSuperAcl is set to true.
+      // The password. This parameter is returned only when OpenSuperAcl is set to true.
       shared_ptr<string> passWord_ {};
       shared_ptr<string> prometheusSdProtocolEnabled_ {};
-      // Indicates whether the instance was restarted and new configurations have taken effect. Valid values:
+      // Indicates whether the cluster is restarted and the new configuration is applied. Valid values:
       // 
-      // *   `true`: The restart was successful.
-      // *   `false`: The restart failed.
+      // - `true`: The cluster is restarted.
+      // 
+      // - `false`: The cluster fails to be restarted.
       shared_ptr<bool> restartFlag_ {};
-      // The frequency for generating snapshots. This parameter is valid for ZooKeeper instances.
+      // The ZooKeeper configuration. This parameter indicates the frequency of generating snapshots.
       shared_ptr<string> snapshotCount_ {};
-      // The connection timeout period of the instance. This parameter is valid for ZooKeeper instances. Unit: seconds.
+      // The ZooKeeper configuration. This parameter indicates the connection timeout duration of an instance. Unit: seconds.
       shared_ptr<string> syncLimit_ {};
-      // MSE Nacos supports TLS transmission link encryption since version 2.1.2.1. Nacos clients must be upgraded to version 2.2.1 or later. After TLS is enabled, the system performance will decrease by about 10%. You must evaluate the system capacity. For more information about the relevant operations, see Nacos TLS transmission encryption.
+      // MSE Nacos instances of version 2.1.2.1 or later support Transport Layer Security (TLS) encryption. The version of the Nacos client must be 2.2.1 or later. After you enable TLS, the performance may decrease by about 10%. You must evaluate the system capacity. For more information about the operations, see Nacos TLS transport encryption.
       shared_ptr<bool> TLSEnabled_ {};
-      // The time unit of the engine. This parameter is valid for ZooKeeper instances. Default value: 2000. Unit: milliseconds.
+      // The ZooKeeper configuration. This parameter indicates a unit of time in the engine. The default value is 2000. Unit: milliseconds.
       shared_ptr<string> tickTime_ {};
-      // The username of the user. This parameter is valid only if OpenSuperAcl is set to true.
+      // The username. This parameter is returned only when OpenSuperAcl is set to true.
       shared_ptr<string> userName_ {};
     };
 
@@ -645,11 +657,11 @@ namespace Models
 
 
   protected:
-    // The status code returned.
+    // The result code returned.
     shared_ptr<int32_t> code_ {};
-    // The data returned.
+    // The data overview.
     shared_ptr<QueryConfigResponseBody::Data> data_ {};
-    // The HTTP status code returned.
+    // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
     // The message returned.
     shared_ptr<string> message_ {};
@@ -657,8 +669,9 @@ namespace Models
     shared_ptr<string> requestId_ {};
     // Indicates whether the request was successful. Valid values:
     // 
-    // *   `true`: The request was successful.
-    // *   `false`: The request failed.
+    // - `true`: The request was successful.
+    // 
+    // - `false`: The request failed.
     shared_ptr<bool> success_ {};
   };
 

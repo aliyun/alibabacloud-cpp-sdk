@@ -149,24 +149,56 @@ namespace Models
 
 
   protected:
+    // The language in which you want to display the results. Valid values: zh (default): Chinese. en: English.
     shared_ptr<string> acceptLanguage_ {};
+    // The type of the web fallback behavior.
+    // 
+    // 0: The specified content is returned.
+    // 
+    // 1: Redirect to the specified page.
+    // 
     // This parameter is required.
     shared_ptr<int32_t> behaviorType_ {};
+    // The encoding type.
+    // 
+    // 0: plain text
+    // 
+    // 1: JSON text
     shared_ptr<int32_t> bodyEncoding_ {};
+    // Specifies whether to enable the rule.
+    // 
+    // 0: disable
+    // 
+    // 1: enable
+    // 
     // This parameter is required.
     shared_ptr<int32_t> enable_ {};
+    // The gateway ID.
     shared_ptr<int64_t> gatewayId_ {};
+    // The unique ID of the gateway.
+    // 
     // This parameter is required.
     shared_ptr<string> gatewayUniqueId_ {};
+    // The ID of the concurrency rule.
+    // 
     // This parameter is required.
     shared_ptr<int64_t> id_ {};
+    // The maximum number of concurrent requests.
+    // 
     // This parameter is required.
     shared_ptr<int32_t> maxConcurrency_ {};
+    // The HTTP text to be returned.
     shared_ptr<string> responseContentBody_ {};
+    // The URL to be redirected to.
     shared_ptr<string> responseRedirectUrl_ {};
+    // The HTTP status code.
     shared_ptr<int32_t> responseStatusCode_ {};
+    // The route ID.
+    // 
     // This parameter is required.
     shared_ptr<int64_t> routeId_ {};
+    // The route name.
+    // 
     // This parameter is required.
     shared_ptr<string> routeName_ {};
   };

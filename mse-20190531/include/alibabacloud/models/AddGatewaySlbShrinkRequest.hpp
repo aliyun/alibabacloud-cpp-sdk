@@ -121,35 +121,33 @@ namespace Models
 
 
   protected:
-    // The language of the response. Valid values:
-    // 
-    // *   zh: Chinese
-    // *   en: English
+    // The language of the returned information. Valid values:
+    // - zh: Chinese.
+    // - en: English.
     shared_ptr<string> acceptLanguage_ {};
     // The unique ID of the gateway.
     // 
     // This parameter is required.
     shared_ptr<string> gatewayUniqueId_ {};
-    // The HTTP port number (virtual service group).
+    // The HTTP port (virtual service group).
     shared_ptr<int32_t> httpPort_ {};
-    // The HTTPS port number (virtual service group).
+    // The HTTPS port (virtual service group).
     shared_ptr<int32_t> httpsPort_ {};
     // The ID of the HTTPS virtual service group.
     shared_ptr<string> httpsVServerGroupId_ {};
-    // The service weight.
+    // The weight of the service.
     shared_ptr<int32_t> serviceWeight_ {};
-    // The ID of the SLB instance.
+    // The SLB ID.
     // 
     // This parameter is required.
     shared_ptr<string> slbId_ {};
-    // The type of the service source. Valid values:
-    // 
-    // *   PUB_NET: Internet
-    // *   PRIVATE_NET: VPC
+    // The type. Valid values:
+    // - PUB_NET: Internet.
+    // - PRIVATE_NET: Private network.
     shared_ptr<string> type_ {};
     // The ID of the HTTP virtual service group.
     shared_ptr<string> VServerGroupId_ {};
-    // The SLB monitoring information.
+    // The SLB listener information.
     shared_ptr<string> VServiceListShrink_ {};
   };
 

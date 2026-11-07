@@ -178,26 +178,29 @@ namespace Models
 
 
     protected:
-      // The type of the instance.
+      // The type of the cluster.
       // 
-      // *   Nacos-Ans
-      // *   ZooKeeper
-      // *   Eureka
+      // - Nacos-Ans
+      // 
+      // - ZooKeeper
+      // 
+      // - Eureka
       shared_ptr<string> clusterType_ {};
-      // The creation time.
+      // The time when the migration task was created.
       shared_ptr<string> gmtCreate_ {};
-      // The modification time.
+      // The time when the migration task was updated.
       shared_ptr<string> gmtModified_ {};
-      // The ID of the task.
+      // The task ID.
       shared_ptr<string> id_ {};
-      // The address of the source instance node.
+      // The source instance node address.
       shared_ptr<string> originInstanceAddress_ {};
       // The name of the source instance.
       shared_ptr<string> originInstanceName_ {};
       // The list of namespaces. This parameter is optional if applications are migrated from a Nacos instance.
       shared_ptr<string> originInstanceNamespace_ {};
-      // The description.
+      // The description of the task.
       shared_ptr<string> projectDesc_ {};
+      // The synchronization type
       shared_ptr<string> syncType_ {};
       // The name of the destination instance.
       shared_ptr<string> targetClusterName_ {};
@@ -205,7 +208,7 @@ namespace Models
       shared_ptr<string> targetClusterUrl_ {};
       // The ID of the destination instance.
       shared_ptr<string> targetInstanceId_ {};
-      // The ID of the user.
+      // The user ID.
       shared_ptr<string> userId_ {};
     };
 
@@ -258,18 +261,19 @@ namespace Models
   protected:
     // The data structure.
     shared_ptr<UpdateMigrationTaskResponseBody::Data> data_ {};
-    // The error code returned if the request failed.
+    // The error code.
     shared_ptr<string> errorCode_ {};
-    // The HTTP status code returned.
+    // The HTTP status code.
     shared_ptr<string> httpCode_ {};
-    // The message returned.
+    // The message.
     shared_ptr<string> message_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
     // Indicates whether the request was successful. Valid values:
     // 
-    // *   `true`: The request was successful.
-    // *   `false`: The request failed.
+    // - `true`: The request was successful.
+    // 
+    // - `false`: The request failed.
     shared_ptr<bool> success_ {};
   };
 

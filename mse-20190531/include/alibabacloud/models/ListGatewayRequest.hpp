@@ -123,19 +123,19 @@ namespace Models
 
 
     protected:
-      // The type of the gateway.
+      // The gateway type.
       shared_ptr<string> gatewayType_ {};
       // The unique ID of the gateway.
       shared_ptr<string> gatewayUniqueId_ {};
-      // The ID of the instance.
+      // The instance ID.
       shared_ptr<string> instanceId_ {};
-      // The tag of the instance.
+      // The resource tag.
       shared_ptr<string> mseTag_ {};
-      // The name of the gateway.
+      // The gateway name.
       shared_ptr<string> name_ {};
-      // The ID of the resource group.
+      // The resource group ID.
       shared_ptr<string> resourceGroupId_ {};
-      // The ID of the virtual private cloud (VPC).
+      // The VPC.
       shared_ptr<string> vpc_ {};
     };
 
@@ -186,20 +186,19 @@ namespace Models
 
 
   protected:
-    // The language of the response. Valid values:
-    // 
-    // *   zh: Chinese
-    // *   en: English
+    // The language of the returned information. Valid values:
+    // - zh: Chinese
+    // - en: English
     shared_ptr<string> acceptLanguage_ {};
-    // Specifies whether to enable the sorting feature. This feature is not available.
+    // The sorting order. This parameter is currently not used.
     shared_ptr<bool> descSort_ {};
-    // The details of parameters.
+    // The filter parameters.
     shared_ptr<ListGatewayRequest::FilterParams> filterParams_ {};
     // The order information.
     shared_ptr<string> orderItem_ {};
-    // The number of the page to return.
+    // The page number.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries to return on each page.
+    // The number of instances per page.
     shared_ptr<int32_t> pageSize_ {};
   };
 

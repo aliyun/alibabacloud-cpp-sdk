@@ -57,20 +57,19 @@ namespace Models
 
 
   protected:
-    // The language of the response. Valid values:
+    // The language of the returned information. Valid values:
     // 
-    // *   zh: Chinese
-    // *   en: English
+    // - zh: Chinese.
+    // - en: English.
     shared_ptr<string> acceptLanguage_ {};
     // The unique ID of the gateway.
     shared_ptr<string> gatewayUniqueId_ {};
-    // Specifies the type of the returned service source. If this parameter is not specified, service sources of all types are returned. Valid values:
-    // 
-    // *   K8s
-    // *   MSE
-    // *   MSE_ZK
-    // *   SAE
-    // *   EDAS
+    // Specifies the service source type. If this parameter is left empty, all types are returned. Valid values:
+    // - K8s: Container Service.
+    // - MSE: MSE Nacos.
+    // - MSE_ZK: MSE ZooKeeper.
+    // - SAE: SAE registry.
+    // - EDAS: EDAS registry.
     shared_ptr<string> source_ {};
   };
 

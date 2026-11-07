@@ -84,20 +84,21 @@ namespace Models
 
 
   protected:
-    // The language of the response. Valid values:
+    // Language type for returned information:
     // 
-    // *   zh: Chinese
-    // *   en: English
+    // - zh: Chinese
+    // 
+    // - en: English
     shared_ptr<string> acceptLanguage_ {};
-    // Specifies whether to enable sorting. This parameter is unavailable.
+    // Sorting. This field is currently unavailable and being deprecated.
     shared_ptr<bool> descSort_ {};
-    // The parameters that specify filter conditions. The parameters are in the format of {"key1":"value1"}.
+    // Filter conditions in the format {"key1":"value1"}
     shared_ptr<string> filterParamsShrink_ {};
-    // The item based on which entries are sorted.
+    // Sorting property.
     shared_ptr<string> orderItem_ {};
-    // The number of the page to return.
+    // Page number.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries to return on each page.
+    // Number of instances displayed per page (currently not in effect, queries all instances by default).
     shared_ptr<int32_t> pageSize_ {};
   };
 

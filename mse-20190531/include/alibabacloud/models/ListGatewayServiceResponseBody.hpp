@@ -160,7 +160,7 @@ namespace Models
 
 
         protected:
-          // The version number.
+          // The version name.
           shared_ptr<string> name_ {};
         };
 
@@ -268,15 +268,15 @@ namespace Models
 
 
         protected:
-          // Indicates whether checks are performed.
+          // Indicates whether the check is performed.
           shared_ptr<bool> check_ {};
-          // The expected status of the health check.
+          // The expected HTTP status codes for health checks.
           shared_ptr<vector<int32_t>> expectedStatuses_ {};
-          // The threshold for healthy instances.
+          // The healthy threshold.
           shared_ptr<int32_t> healthyThreshold_ {};
-          // The endpoint of the HTTP request for the health check.
+          // The HTTP request address for health checks.
           shared_ptr<string> httpHost_ {};
-          // The path to which the HTTP request for the health check is sent.
+          // The HTTP request path for health checks.
           shared_ptr<string> httpPath_ {};
           // The health check interval.
           shared_ptr<int32_t> interval_ {};
@@ -284,7 +284,7 @@ namespace Models
           shared_ptr<string> protocol_ {};
           // The timeout period.
           shared_ptr<int32_t> timeout_ {};
-          // The threshold for unhealthy instances.
+          // The unhealthy threshold.
           shared_ptr<int32_t> unhealthyThreshold_ {};
         };
 
@@ -385,22 +385,25 @@ namespace Models
 
 
           protected:
-            // The public key of the CA certificate .
+            // The public key of the CA certificate.
             shared_ptr<string> caCertContent_ {};
-            // The ID of the certification authority (CA) certificate.
+            // The CA certificate ID.
             shared_ptr<string> caCertId_ {};
-            // The ID of the certificate.
+            // The certificate ID.
             shared_ptr<string> certId_ {};
-            // The TLS mode.
+            // The TLS mode. Valid values:
             // 
-            // *   DISABLE
-            // *   SIMPLE
-            // *   MUTUAL
-            // *   ISTIO_MUTUAL
+            // - DISABLE
+            // 
+            // - SIMPLE
+            // 
+            // - MUTUAL
+            // 
+            // - ISTIO_MUTUAL
             shared_ptr<string> mode_ {};
-            // The Server Name Indication (SNI) value.
+            // The service name identity.
             shared_ptr<string> sni_ {};
-            // The array of subject aliases.
+            // The array of subject alternative names.
             shared_ptr<vector<string>> subjectAltNames_ {};
           };
 
@@ -499,11 +502,11 @@ namespace Models
 
 
               protected:
-                // The name of the cookie.
+                // The cookie name.
                 shared_ptr<string> name_ {};
-                // The path of the cookie.
+                // The cookie path.
                 shared_ptr<string> path_ {};
-                // The lifecycle of the cookie.
+                // The time-to-live (TTL) of the cookie.
                 shared_ptr<string> ttl_ {};
               };
 
@@ -540,18 +543,21 @@ namespace Models
 
 
             protected:
-              // The type based on which consistent hashing load balancing is performed.
+              // The consistent hashing method. Valid values:
               // 
-              // *   HEADER
-              // *   COOKIE
-              // *   SOURCE_IP
-              // *   QUERY_PARAMETER
+              // - HEADER
+              // 
+              // - COOKIE
+              // 
+              // - SOURCE_IP
+              // 
+              // - QUERY_PARAMETER
               shared_ptr<string> consistentHashLBType_ {};
-              // The cookie-based load balancing parameters.
+              // The cookie-based parameter.
               shared_ptr<ConsistentHashLBConfig::HttpCookie> httpCookie_ {};
-              // The minimum value of the hash ring.
+              // The minimum size of the hash ring.
               shared_ptr<int64_t> minimumRingSize_ {};
-              // The name of the parameter.
+              // The parameter name.
               shared_ptr<string> parameterName_ {};
             };
 
@@ -581,16 +587,19 @@ namespace Models
 
 
           protected:
-            // The consistent hashing settings.
+            // The consistent hashing configuration.
             shared_ptr<LoadBalancerSettings::ConsistentHashLBConfig> consistentHashLBConfig_ {};
-            // The load balancing type.
+            // The load balancing policy. Valid values:
             // 
-            // *   ROUND_ROBIN
-            // *   LEAST_CONN
-            // *   RANDOM
-            // *   CONSISTENT_HASH
+            // - ROUND_ROBIN
+            // 
+            // - LEAST_CONN
+            // 
+            // - RANDOM
+            // 
+            // - CONSISTENT_HASH
             shared_ptr<string> loadbalancerType_ {};
-            // The prefetch time of the least connection load balancing.
+            // The warm-up duration for the minimum number of requests.
             shared_ptr<int32_t> warmupDuration_ {};
           };
 
@@ -617,7 +626,7 @@ namespace Models
         protected:
           // The load balancing settings.
           shared_ptr<GatewayTrafficPolicy::LoadBalancerSettings> loadBalancerSettings_ {};
-          // The Transport Layer Security (TLS).
+          // The TLS.
           shared_ptr<GatewayTrafficPolicy::Tls> tls_ {};
         };
 
@@ -817,6 +826,7 @@ namespace Models
 
 
       protected:
+        // The DNS server list (for DNS domain name service only).
         shared_ptr<vector<string>> dnsServerList_ {};
         // The gateway ID.
         shared_ptr<int64_t> gatewayId_ {};
@@ -824,54 +834,59 @@ namespace Models
         shared_ptr<Result::GatewayTrafficPolicy> gatewayTrafficPolicy_ {};
         // The unique ID of the gateway.
         shared_ptr<string> gatewayUniqueId_ {};
-        // The creation time.
+        // The time when the record was created.
         shared_ptr<string> gmtCreate_ {};
-        // The modification time.
+        // The time when the record was modified.
         shared_ptr<string> gmtModified_ {};
-        // The group.
+        // The group name.
         shared_ptr<string> groupName_ {};
-        // The health status.
+        // The health status. Valid values:
         // 
-        // *   Health
-        // *   Unhealthy
-        // *   Unknown
+        // - Health
+        // 
+        // - Unhealthy
+        // 
+        // - Unknown
         shared_ptr<string> healehStatus_ {};
         // Indicates whether health checks are performed.
         shared_ptr<bool> healthCheck_ {};
-        // The information about health checks.
+        // The health check information.
         shared_ptr<Result::HealthCheckInfo> healthCheckInfo_ {};
-        // The health status.
+        // The health status. Valid values:
         // 
-        // *   Health
-        // *   Unhealthy
-        // *   Unknown
+        // - Health
+        // 
+        // - Unhealthy
+        // 
+        // - Unknown
         shared_ptr<string> healthStatus_ {};
         // The ID.
         shared_ptr<int64_t> id_ {};
-        // The list of IP addresses.
+        // The IP address list.
         shared_ptr<vector<string>> ips_ {};
-        // The metadata or IP addresses of the service.
+        // The metadata or IP address list.
         shared_ptr<string> metaInfo_ {};
-        // The name of the service.
+        // The service name.
         shared_ptr<string> name_ {};
         // The namespace.
         shared_ptr<string> namespace_ {};
-        // The port array.
+        // The array of ports.
         shared_ptr<vector<int32_t>> ports_ {};
+        // The fully qualified domain name (FQDN) of the service.
         shared_ptr<string> serviceFQDN_ {};
-        // The name of the service that is registered with the service registry.
+        // The original service name in the registry.
         shared_ptr<string> serviceNameInRegistry_ {};
-        // The service port number.
+        // The service port.
         shared_ptr<int64_t> servicePort_ {};
-        // The protocol of the service.
+        // The service protocol.
         shared_ptr<string> serviceProtocol_ {};
-        // The ID of the service source.
+        // The source ID.
         shared_ptr<int64_t> sourceId_ {};
         // The source type.
         shared_ptr<string> sourceType_ {};
-        // The array of endpoints of unhealthy instances.
+        // The array of unhealthy endpoints.
         shared_ptr<vector<string>> unhealthyEndpoints_ {};
-        // The service version.
+        // The service versions.
         shared_ptr<vector<Result::Versions>> versions_ {};
       };
 
@@ -908,13 +923,13 @@ namespace Models
 
 
     protected:
-      // The number of the returned page.
+      // The page number.
       shared_ptr<int32_t> pageNumber_ {};
-      // The number of entries returned per page. Default value: 10.
+      // The maximum number of records per page. Default value: 10.
       shared_ptr<int32_t> pageSize_ {};
-      // The data returned.
+      // The returned collection.
       shared_ptr<vector<Data::Result>> result_ {};
-      // The total number of entries returned.
+      // The total number of entries.
       shared_ptr<int64_t> totalSize_ {};
     };
 
@@ -969,16 +984,15 @@ namespace Models
     shared_ptr<int32_t> code_ {};
     // The returned data.
     shared_ptr<ListGatewayServiceResponseBody::Data> data_ {};
-    // The HTTP status code returned.
+    // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
-    // The error message returned if the request failed.
+    // The error message.
     shared_ptr<string> message_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request was successful. Valid values:
-    // 
-    // *   `true`: The request was successful.
-    // *   `false`: The request failed.
+    // Indicates whether the request is successful. Valid values:
+    // - `true`: The request is successful.
+    // - `false`: The request fails.
     shared_ptr<bool> success_ {};
   };
 

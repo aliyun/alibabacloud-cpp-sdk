@@ -74,7 +74,9 @@ namespace Models
 
 
     protected:
+      // The tag key of the resource. You cannot specify an empty string as a tag key. The tag key can be up to 128 characters in length and cannot start with aliyun or acs:. It cannot contain http\\:// or https\\://.
       shared_ptr<string> key_ {};
+      // The tag value. The tag value can be up to 128 characters in length and cannot start with `aliyun` or `acs:`. It cannot contain `http://` or `https://`.
       shared_ptr<string> value_ {};
     };
 
@@ -111,9 +113,13 @@ namespace Models
 
 
   protected:
+    // The language in which you want the results to be displayed. Valid values: zh (default): Chinese. en: English
     shared_ptr<string> acceptLanguage_ {};
+    // The description of the namespace that you want to create for Microservices Governance.
     shared_ptr<string> describe_ {};
+    // The name of the namespace that you want to create for Microservices Governance.
     shared_ptr<string> name_ {};
+    // The tag.
     shared_ptr<vector<CreateNamespaceRequest::Tag>> tag_ {};
   };
 

@@ -142,33 +142,35 @@ namespace Models
   protected:
     // The language of the response. Valid values:
     // 
-    // *   zh: Chinese
-    // *   en: English
+    // - zh: Chinese
+    // 
+    // - en: English
     shared_ptr<string> acceptLanguage_ {};
     // The ID of the cluster.
     // 
-    // > This operation contains both the InstanceId and ClusterId parameters. You must specify one of them.
+    // > You must specify either this parameter or InstanceId.
     shared_ptr<string> clusterId_ {};
-    // 查询服务下某个集群的实例列表是所需要的参数
+    // The parameter that is required to query the list of instances in a specific cluster of a service.
     shared_ptr<string> clusterName_ {};
     // The name of the contact group.
     shared_ptr<string> groupName_ {};
-    // Specifies whether to query the number of instances that are used for the service.
+    // Specifies whether to query the number of service instances.
     shared_ptr<string> hasIpCount_ {};
     // The ID of the instance.
     // 
-    // > This operation contains both the InstanceId and ClusterId parameters. You must specify one of them.
+    // > You must specify either this parameter or ClusterId.
     shared_ptr<string> instanceId_ {};
     // The ID of the namespace.
     shared_ptr<string> namespaceId_ {};
-    // The number of the page to return.
+    // The page number.
     // 
     // This parameter is required.
     shared_ptr<int32_t> pageNum_ {};
-    // The number of entries returned per page.
+    // The number of instances to display on each page.
     // 
     // This parameter is required.
     shared_ptr<int32_t> pageSize_ {};
+    // The region.
     shared_ptr<string> regionId_ {};
     // The extended request parameters in the JSON format.
     shared_ptr<string> requestPars_ {};

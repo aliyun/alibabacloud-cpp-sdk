@@ -86,9 +86,9 @@ namespace Models
 
 
     protected:
-      // The key of the tag.
+      // The tag key.
       shared_ptr<string> key_ {};
-      // The value of the tag.
+      // The tag value.
       shared_ptr<string> value_ {};
     };
 
@@ -170,30 +170,32 @@ namespace Models
   protected:
     // The language of the response. Valid values:
     // 
-    // *   zh: Chinese
-    // *   en: English
+    // - zh: Chinese.
+    // - en: English.
     shared_ptr<string> acceptLanguage_ {};
-    // The alias of the instance. Fuzzy match is supported.
+    // The name of the cluster. Fuzzy match is supported.
     shared_ptr<string> clusterAliasName_ {};
+    // The key ID. If the cluster is a Nacos cluster, this parameter is used to query instances bound to the specified key ID.
     shared_ptr<string> keyId_ {};
-    // The number of the page to return.
+    // The page number.
     // 
     // This parameter is required.
     shared_ptr<int32_t> pageNum_ {};
-    // The number of entries to return on each page.
+    // The number of clusters to return on each page.
     // 
     // This parameter is required.
     shared_ptr<int32_t> pageSize_ {};
-    // The ID of the region in which the instance resides. The region is supported by MSE.
+    // The region ID of the cluster. The region must be supported by Microservices Engine (MSE).
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
-    // The extended request parameters in the JSON format.
+    // The extended request parameters in JSON format.
     shared_ptr<string> requestPars_ {};
-    // The ID of the resource group. For more information about resource groups, see the topic "View basic information of a resource group."
+    // The ID of the resource group. For more information, see View basic information of a resource group.
     shared_ptr<string> resourceGroupId_ {};
-    // The list of tags. A maximum number of 20 tags are supported.
+    // The list of tags. A maximum of 20 tags can be specified.
     shared_ptr<vector<ListClustersRequest::Tag>> tag_ {};
+    // The VPC ID.
     shared_ptr<string> vpcId_ {};
   };
 

@@ -57,9 +57,12 @@ namespace Models
 
 
   protected:
-    // The language of the response. Valid values: zh and en. Default value: zh. The value zh which indicates Chinese, and the value en indicates English.
+    // The language in which you want the results to be displayed. Valid values: zh (default): Chinese. en: English.
     shared_ptr<string> acceptLanguage_ {};
+    // The name of the namespace that you want to query.
     shared_ptr<string> name_ {};
+    // The region to which the namespace belongs.
+    // 
     // This parameter is required.
     shared_ptr<string> region_ {};
   };

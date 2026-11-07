@@ -84,20 +84,19 @@ namespace Models
 
 
   protected:
-    // The status code returned. The value 200 indicates that the request is successfully processed.
+    // The status code. A value of 200 indicates success.
     shared_ptr<int32_t> code_ {};
-    // The ID of the gateway service.
+    // The gateway service ID.
     shared_ptr<int64_t> data_ {};
-    // The HTTP status code returned.
+    // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
-    // The message returned.
+    // The error message.
     shared_ptr<string> message_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request was successful. Valid values:
-    // 
-    // *   `true`: The request was successful.
-    // *   `false`: The request failed.
+    // The request result. Valid values:
+    // - `true`: The request succeeded.
+    // - `false`: The request failed.
     shared_ptr<bool> success_ {};
   };
 

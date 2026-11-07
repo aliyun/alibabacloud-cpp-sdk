@@ -130,18 +130,19 @@ namespace Models
 
 
     protected:
-      // The application tag.
+      // The tags of the application.
       shared_ptr<string> appName_ {};
       // The ID of the data.
       shared_ptr<string> dataId_ {};
       // The name of the group.
       shared_ptr<string> group_ {};
-      // The ID of the configuration.
+      // The configuration ID.
       shared_ptr<int64_t> id_ {};
       // The timestamp when the configuration was last modified.
       shared_ptr<int64_t> lastModifiedTime_ {};
       // The format of the configuration file.
       shared_ptr<string> opType_ {};
+      // The user who modified this version
       shared_ptr<string> srcUser_ {};
     };
 
@@ -214,24 +215,25 @@ namespace Models
 
 
   protected:
-    // The error code returned if the request failed.
+    // The error code.
     shared_ptr<string> errorCode_ {};
     // The configuration items.
     shared_ptr<vector<ListNacosHistoryConfigsResponseBody::HistoryItems>> historyItems_ {};
-    // The HTTP status code returned.
+    // The HTTP status code.
     shared_ptr<string> httpCode_ {};
-    // The message returned.
+    // The message that is returned for the request.
     shared_ptr<string> message_ {};
-    // The page number of the returned page.
+    // The page number.
     shared_ptr<int32_t> pageNumber_ {};
     // The number of entries returned per page.
     shared_ptr<int32_t> pageSize_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
     // Indicates whether the request was successful. Valid values:
     // 
-    // *   `true`: The request was successful.
-    // *   `false`: The request failed.
+    // - `true`: The request was successful.
+    // 
+    // - `false`: The request failed.
     shared_ptr<bool> success_ {};
     // The total number of entries returned.
     shared_ptr<int32_t> totalCount_ {};

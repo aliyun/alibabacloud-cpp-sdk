@@ -76,7 +76,7 @@ namespace Models
     protected:
       // The route ID.
       shared_ptr<int64_t> routeId_ {};
-      // The name of the route.
+      // The route name.
       shared_ptr<string> routeName_ {};
     };
 
@@ -113,20 +113,20 @@ namespace Models
 
 
   protected:
-    // The language of the response. Valid values:
+    // The language of the returned information. Valid values:
     // 
-    // *   zh: Chinese
-    // *   en: English
+    // - zh: Chinese.
+    // - en: English.
     shared_ptr<string> acceptLanguage_ {};
-    // The gateway authentication consumer ID.
+    // The ID of the gateway authentication consumer.
     // 
     // This parameter is required.
     shared_ptr<int64_t> consumerId_ {};
-    // The unique ID of the gateway.
+    // UpdateGatewayAuthConsumerResource
     // 
     // This parameter is required.
     shared_ptr<string> gatewayUniqueId_ {};
-    // The gateway authentication consumer ID.
+    // The list of resources.
     shared_ptr<vector<UpdateGatewayAuthConsumerResourceRequest::ResourceList>> resourceList_ {};
   };
 

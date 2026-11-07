@@ -104,25 +104,23 @@ namespace Models
 
   protected:
     // The language of the response. Valid values:
-    // 
-    // *   zh: Chinese
-    // *   en: English
+    // - zh: Chinese.
+    // - en: English.
     shared_ptr<string> acceptLanguage_ {};
-    // The ID of the authorization record.
+    // The authorization ID.
     shared_ptr<int64_t> authId_ {};
-    // The authentication resource headers.
+    // The list of authentication resource headers.
     shared_ptr<string> authResourceHeaderListShrink_ {};
-    // The domain ID.
+    // The domain name ID.
     shared_ptr<int64_t> domainId_ {};
-    // The unique ID of the gateway.
+    // The unique gateway ID.
     shared_ptr<string> gatewayUniqueId_ {};
-    // Specifies whether the matching is not case-sensitive. Default value: true.
+    // Specifies whether to ignore case. Default value: true.
     shared_ptr<bool> ignoreCase_ {};
-    // The matching type. Valid values:
-    // 
-    // *   EQUAL
-    // *   PRE
-    // *   ERGULAR
+    // The match type. Valid values:
+    // - EQUAL: Exact match.
+    // - PRE: Prefix match.
+    // - ERGULAR: Regular expression match.
     shared_ptr<string> matchType_ {};
     // The path.
     shared_ptr<string> path_ {};

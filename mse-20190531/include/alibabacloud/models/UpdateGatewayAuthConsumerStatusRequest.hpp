@@ -66,15 +66,17 @@ namespace Models
 
 
   protected:
-    // The language of the response. Valid values:
+    // The language of the returned information. Valid values:
     // 
-    // *   zh: Chinese
-    // *   en: English
+    // - zh: Chinese.
+    // 
+    // - en: English.
     shared_ptr<string> acceptLanguage_ {};
-    // The status of the consumer. Valid values:
+    // Specifies whether the authentication consumer is enabled. Valid values:
     // 
-    // *   true: The consumer is enabled.
-    // *   false: The consumer is disabled.
+    // - true: Enabled.
+    // 
+    // - false: Disabled.
     // 
     // This parameter is required.
     shared_ptr<bool> consumerStatus_ {};
@@ -82,7 +84,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> gatewayUniqueId_ {};
-    // The consumer ID.
+    // The ID of the authentication consumer.
     // 
     // This parameter is required.
     shared_ptr<int64_t> id_ {};

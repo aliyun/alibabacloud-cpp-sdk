@@ -264,25 +264,67 @@ namespace Models
 
 
       protected:
+        // The Web fallback behavior type.
+        // 
+        // 0: Return specified content
+        // 
+        // 1: Redirect to a specified page
         shared_ptr<int32_t> behaviorType_ {};
+        // The encoding type.
+        // 
+        // 0: Plain text
+        // 
+        // 1: JSON
         shared_ptr<int32_t> bodyEncoding_ {};
+        // Whether to enable.
+        // 
+        // 0: Not enabled.
+        // 
+        // 1: Enabled.
         shared_ptr<int32_t> enable_ {};
+        // The gateway ID.
         shared_ptr<int64_t> gatewayId_ {};
+        // The unique ID of the gateway.
         shared_ptr<string> gatewayUniqueId_ {};
+        // The circuit breaker rule ID.
         shared_ptr<int64_t> id_ {};
+        // The filter rule id
         shared_ptr<vector<int64_t>> idList_ {};
+        // The threshold conversion mode.
+        // 
+        // 0: Single machine.
+        // 
+        // 1: Cluster.
+        // 
+        // 2: Cluster to single machine.
         shared_ptr<int32_t> limitMode_ {};
+        // The slow call threshold in slow call pattern.
         shared_ptr<int32_t> maxAllowedMs_ {};
+        // The minimum number of requests to trigger circuit breaking.
         shared_ptr<int32_t> minRequestAmount_ {};
+        // The circuit breaking recovery duration.
         shared_ptr<int32_t> recoveryTimeoutSec_ {};
+        // The custom header, input as key-value pairs.
         shared_ptr<string> responseAdditionalHeaders_ {};
+        // The HTTP response text.
         shared_ptr<string> responseContentBody_ {};
+        // The redirect URL.
         shared_ptr<string> responseRedirectUrl_ {};
+        // The HTTP status code.
         shared_ptr<int32_t> responseStatusCode_ {};
+        // The route ID.
         shared_ptr<int64_t> routeId_ {};
+        // The route name.
         shared_ptr<string> routeName_ {};
+        // The circuit breaking statistics duration.
         shared_ptr<int32_t> statDurationSec_ {};
+        // The threshold pattern.
+        // 
+        // 0: Slow call pattern.
+        // 
+        // 1: Exception pattern.
         shared_ptr<int32_t> strategy_ {};
+        // The percentage to trigger circuit breaking.
         shared_ptr<int32_t> triggerRatio_ {};
       };
 
@@ -491,25 +533,67 @@ namespace Models
 
 
       protected:
+        // The Web fallback behavior type.
+        // 
+        // 0: Return specified content.
+        // 
+        // 1: Redirect to a specified page.
         shared_ptr<int32_t> behaviorType_ {};
+        // The encoding type.
+        // 
+        // 0: Plain text
+        // 
+        // 1: JSON
         shared_ptr<int32_t> bodyEncoding_ {};
+        // Whether to enable.
+        // 
+        // 0: Not enabled.
+        // 
+        // 1: Enabled.
         shared_ptr<int32_t> enable_ {};
+        // The gateway ID.
         shared_ptr<int64_t> gatewayId_ {};
+        // The unique ID of the gateway.
         shared_ptr<string> gatewayUniqueId_ {};
+        // The circuit breaker rule ID.
         shared_ptr<int64_t> id_ {};
+        // The filter rule id
         shared_ptr<vector<int64_t>> idList_ {};
+        // The threshold conversion mode.
+        // 
+        // 0: Single machine.
+        // 
+        // 1: Cluster.
+        // 
+        // 2: Cluster to single machine.
         shared_ptr<int32_t> limitMode_ {};
+        // The slow call threshold in slow call pattern.
         shared_ptr<int32_t> maxAllowedMs_ {};
+        // The minimum number of requests to trigger circuit breaking.
         shared_ptr<int32_t> minRequestAmount_ {};
+        // The circuit breaking recovery duration.
         shared_ptr<int32_t> recoveryTimeoutSec_ {};
+        // The custom header, input as key-value pairs.
         shared_ptr<string> responseAdditionalHeaders_ {};
+        // The HTTP response text.
         shared_ptr<string> responseContentBody_ {};
+        // The redirect URL.
         shared_ptr<string> responseRedirectUrl_ {};
+        // The HTTP status code.
         shared_ptr<int32_t> responseStatusCode_ {};
+        // The route ID.
         shared_ptr<int64_t> routeId_ {};
+        // The route name.
         shared_ptr<string> routeName_ {};
+        // The circuit breaking statistics duration.
         shared_ptr<int32_t> statDurationSec_ {};
+        // The threshold pattern.
+        // 
+        // 0: Slow call pattern.
+        // 
+        // 1: Exception pattern.
         shared_ptr<int32_t> strategy_ {};
+        // The percentage to trigger circuit breaking.
         shared_ptr<int32_t> triggerRatio_ {};
       };
 
@@ -555,10 +639,15 @@ namespace Models
 
 
     protected:
+      // The page number of the instance list
       shared_ptr<int32_t> pageNumber_ {};
+      // The number of rows per page set during input
       shared_ptr<int32_t> pageSize_ {};
+      // The returned result.
       shared_ptr<vector<Data::Result>> result_ {};
+      // The returned result collection.
       shared_ptr<vector<Data::Results>> results_ {};
+      // The total number of instances queried
       shared_ptr<int32_t> totalSize_ {};
     };
 
@@ -581,7 +670,9 @@ namespace Models
 
 
   protected:
+    // The returned data.
     shared_ptr<ListGatewayCircuitBreakerRuleResponseBody::Data> data_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

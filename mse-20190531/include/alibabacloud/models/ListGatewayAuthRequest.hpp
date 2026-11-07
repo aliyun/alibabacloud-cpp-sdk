@@ -104,10 +104,15 @@ namespace Models
 
 
     protected:
+      // The unique ID of the gateway.
       shared_ptr<string> gatewayUniqueId_ {};
+      // The whitelist mode.
       shared_ptr<bool> isWhite_ {};
+      // The parameter name.
       shared_ptr<string> name_ {};
+      // The enabling status.
       shared_ptr<bool> status_ {};
+      // The type.
       shared_ptr<string> type_ {};
     };
 
@@ -158,11 +163,17 @@ namespace Models
 
 
   protected:
+    // The language of the response. Valid values: zh (default): Chinese, en: English.
     shared_ptr<string> acceptLanguage_ {};
+    // The sort order.
     shared_ptr<bool> descSort_ {};
+    // The filter conditions. Refer to the examples.
     shared_ptr<ListGatewayAuthRequest::FilterParams> filterParams_ {};
+    // This parameter is not available.
     shared_ptr<string> orderItem_ {};
+    // The page number.
     shared_ptr<int32_t> pageNumber_ {};
+    // The number of items per page.
     shared_ptr<int32_t> pageSize_ {};
   };
 

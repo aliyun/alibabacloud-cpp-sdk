@@ -57,12 +57,13 @@ namespace Models
 
 
   protected:
-    // The language in which you want to display the results. Valid values: zh and en. zh indicates Chinese, which is the default value. en indicates English.
+    // The language of the returned results. Valid values: zh (default): Chinese. en: English.
     shared_ptr<string> acceptLanguage_ {};
-    // Specifies whether to use the proxy protocol to preserve client IP addresses. Valid values:
+    // Specifies whether to enable the feature of preserving the client source IP address by using the PROXY protocol. Valid values:
     // 
-    // *   **true**
-    // *   **false** (default)
+    // - **true**: enables the feature of preserving the client source IP address.
+    // 
+    // - **false** (default): disables the feature of preserving the client source IP address.
     // 
     // This parameter is required.
     shared_ptr<bool> enableProxyProtocol_ {};

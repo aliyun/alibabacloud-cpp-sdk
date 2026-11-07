@@ -112,10 +112,10 @@ namespace Models
 
 
   protected:
-    // The language of the response. Valid values:
+    // The language of the returned information. Valid values:
     // 
-    // *   zh: Chinese
-    // *   en: English
+    // - zh: Chinese
+    // - en: English
     shared_ptr<string> acceptLanguage_ {};
     // The name of the application.
     // 
@@ -123,18 +123,19 @@ namespace Models
     shared_ptr<string> appName_ {};
     // The programming language of the application.
     shared_ptr<string> language_ {};
-    // MSE命名空间名字。
+    // The name of the MSE namespace.
     shared_ptr<string> namespace_ {};
     // The region to which the application belongs.
     // 
     // This parameter is required.
     shared_ptr<string> region_ {};
-    // Specifies whether to start the switch.
+    // Specifies whether to enable Sentinel.
     shared_ptr<string> sentinelEnable_ {};
-    // The service where the application is deployed. A value of ACK indicates Container Service for Kubernetes.
+    // The deployment method of the application. ACK indicates Container Service for Kubernetes (ACK).
     shared_ptr<string> source_ {};
-    // The name of the Microservices Engine (MSE) namespace.
+    // Specifies whether to enable Switch.
     shared_ptr<string> switchEnable_ {};
+    // The Alibaba Cloud tags.
     shared_ptr<string> tagsShrink_ {};
   };
 

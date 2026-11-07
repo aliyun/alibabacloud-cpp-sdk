@@ -143,13 +143,13 @@ namespace Models
 
 
       protected:
-        // Indicates whether Ingresses are enabled.
+        // Specifies whether to enable or disable Ingress.
         shared_ptr<bool> enableIngress_ {};
-        // Indicates whether the Ingress status is updated.
+        // Specifies whether to update IngressStatus.
         shared_ptr<bool> enableStatus_ {};
         // The Ingress class.
         shared_ptr<string> ingressClass_ {};
-        // The namespace that you want to monitor.
+        // The monitored namespace.
         shared_ptr<string> watchNamespace_ {};
       };
 
@@ -269,11 +269,11 @@ namespace Models
 
 
     protected:
-      // The ID of the Container Service for Kubernetes (ACK) cluster or the endpoint of the Microservices Engine (MSE) instance.
+      // The ACK ID or the MSE registry address.
       shared_ptr<string> address_ {};
-      // Indicates whether the service source is associated with the gateway. The value 1 indicates that the service source is associated with the gateway.
+      // Indicates whether the binding is completed. A value of 1 indicates that the binding is completed.
       shared_ptr<int32_t> bindingWithGateway_ {};
-      // The ID of the gateway.
+      // The gateway ID.
       shared_ptr<int64_t> gatewayId_ {};
       // The unique ID of the gateway.
       shared_ptr<string> gatewayUniqueId_ {};
@@ -285,16 +285,17 @@ namespace Models
       shared_ptr<vector<string>> groupList_ {};
       // The ID.
       shared_ptr<int64_t> id_ {};
-      // The information about the support for Ingresses by applications.
+      // The Ingress support for application routing.
       shared_ptr<Data::IngressOptions> ingressOptions_ {};
+      // Indicates whether the source is valid.
       shared_ptr<bool> invalid_ {};
       // The name.
       shared_ptr<string> name_ {};
-      // The array of root paths of service lists.
+      // The array of root paths for the service list.
       shared_ptr<vector<string>> pathList_ {};
-      // The type of the service source.
+      // The source type.
       shared_ptr<string> source_ {};
-      // The unique ID of the service source.
+      // The unique identifier of the source.
       shared_ptr<string> sourceUniqueId_ {};
       // The type.
       shared_ptr<string> type_ {};
@@ -347,20 +348,19 @@ namespace Models
 
 
   protected:
-    // The status code returned.
+    // The response code.
     shared_ptr<int32_t> code_ {};
-    // The returned data.
+    // The returned results.
     shared_ptr<vector<ListServiceSourceResponseBody::Data>> data_ {};
-    // The HTTP status code returned.
+    // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
-    // The error message returned.
+    // The error message.
     shared_ptr<string> message_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request was successful. Valid values:
-    // 
-    // *   `true`: The request was successful.
-    // *   `false`: The request failed.
+    // Indicates whether the request is successful. Valid values:
+    // - `true`: The request is successful.
+    // - `false`: The request fails.
     shared_ptr<bool> success_ {};
   };
 

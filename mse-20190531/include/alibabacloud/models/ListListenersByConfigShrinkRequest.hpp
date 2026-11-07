@@ -96,15 +96,16 @@ namespace Models
   protected:
     // The language of the response. Valid values:
     // 
-    // *   zh: Chinese
-    // *   en: English
+    // - zh: Chinese.
+    // - en: English.
     shared_ptr<string> acceptLanguage_ {};
-    // The ID of the data.
+    // The data ID.
     // 
     // This parameter is required.
     shared_ptr<string> dataId_ {};
+    // The list of additional canary release rules. When performing listener matching, the additional canary release rules are merged with existing rules for matching.
     shared_ptr<string> extGrayRulesShrink_ {};
-    // The name of the group.
+    // The group.
     // 
     // This parameter is required.
     shared_ptr<string> group_ {};
@@ -112,9 +113,9 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
-    // The ID of the namespace.
+    // The namespace ID. Default value: public.
     shared_ptr<string> namespaceId_ {};
-    // The extended request parameters in the JSON format.
+    // This parameter is deprecated and does not need to be specified.
     shared_ptr<string> requestPars_ {};
   };
 

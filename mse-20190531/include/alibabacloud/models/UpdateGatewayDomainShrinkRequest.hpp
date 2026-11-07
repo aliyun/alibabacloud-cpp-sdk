@@ -16,6 +16,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(AcceptLanguage, acceptLanguage_);
       DARABONBA_PTR_TO_JSON(CaCertIdentifier, caCertIdentifier_);
       DARABONBA_PTR_TO_JSON(CertIdentifier, certIdentifier_);
+      DARABONBA_PTR_TO_JSON(EnableWaf, enableWaf_);
       DARABONBA_PTR_TO_JSON(GatewayUniqueId, gatewayUniqueId_);
       DARABONBA_PTR_TO_JSON(Http2, http2_);
       DARABONBA_PTR_TO_JSON(Id, id_);
@@ -30,6 +31,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(AcceptLanguage, acceptLanguage_);
       DARABONBA_PTR_FROM_JSON(CaCertIdentifier, caCertIdentifier_);
       DARABONBA_PTR_FROM_JSON(CertIdentifier, certIdentifier_);
+      DARABONBA_PTR_FROM_JSON(EnableWaf, enableWaf_);
       DARABONBA_PTR_FROM_JSON(GatewayUniqueId, gatewayUniqueId_);
       DARABONBA_PTR_FROM_JSON(Http2, http2_);
       DARABONBA_PTR_FROM_JSON(Id, id_);
@@ -52,9 +54,9 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->acceptLanguage_ == nullptr
-        && this->caCertIdentifier_ == nullptr && this->certIdentifier_ == nullptr && this->gatewayUniqueId_ == nullptr && this->http2_ == nullptr && this->id_ == nullptr
-        && this->mtlsEnabled_ == nullptr && this->mustHttps_ == nullptr && this->protocol_ == nullptr && this->tlsCipherSuitesConfigJSONShrink_ == nullptr && this->tlsMax_ == nullptr
-        && this->tlsMin_ == nullptr; };
+        && this->caCertIdentifier_ == nullptr && this->certIdentifier_ == nullptr && this->enableWaf_ == nullptr && this->gatewayUniqueId_ == nullptr && this->http2_ == nullptr
+        && this->id_ == nullptr && this->mtlsEnabled_ == nullptr && this->mustHttps_ == nullptr && this->protocol_ == nullptr && this->tlsCipherSuitesConfigJSONShrink_ == nullptr
+        && this->tlsMax_ == nullptr && this->tlsMin_ == nullptr; };
     // acceptLanguage Field Functions 
     bool hasAcceptLanguage() const { return this->acceptLanguage_ != nullptr;};
     void deleteAcceptLanguage() { this->acceptLanguage_ = nullptr;};
@@ -74,6 +76,13 @@ namespace Models
     void deleteCertIdentifier() { this->certIdentifier_ = nullptr;};
     inline string getCertIdentifier() const { DARABONBA_PTR_GET_DEFAULT(certIdentifier_, "") };
     inline UpdateGatewayDomainShrinkRequest& setCertIdentifier(string certIdentifier) { DARABONBA_PTR_SET_VALUE(certIdentifier_, certIdentifier) };
+
+
+    // enableWaf Field Functions 
+    bool hasEnableWaf() const { return this->enableWaf_ != nullptr;};
+    void deleteEnableWaf() { this->enableWaf_ = nullptr;};
+    inline bool getEnableWaf() const { DARABONBA_PTR_GET_DEFAULT(enableWaf_, false) };
+    inline UpdateGatewayDomainShrinkRequest& setEnableWaf(bool enableWaf) { DARABONBA_PTR_SET_VALUE(enableWaf_, enableWaf) };
 
 
     // gatewayUniqueId Field Functions 
@@ -140,36 +149,38 @@ namespace Models
 
 
   protected:
-    // The language of the response. Valid values:
-    // 
-    // *   zh: Chinese
-    // *   en: English
+    // The language of the returned information. Valid values:
+    // - zh: Chinese (default).
+    // - en: English.
     shared_ptr<string> acceptLanguage_ {};
+    // The CA certificate content.
     shared_ptr<string> caCertIdentifier_ {};
-    // The ID of the certificate.
+    // The certificate ID.
     shared_ptr<string> certIdentifier_ {};
+    // Specifies whether to enable Web Application Firewall (WAF) for the gateway domain name.
+    shared_ptr<bool> enableWaf_ {};
     // The unique ID of the gateway.
     shared_ptr<string> gatewayUniqueId_ {};
-    // Specifies whether to enable `HTTP/2`.
-    // 
-    // *   `open`: `HTTP/2` is enabled.
-    // *   `close`: `HTTP/2` is disabled.
-    // *   `globalConfig`: Global configurations are used.
+    // Specifies whether to enable HTTP/2. Valid values:
+    // - `open`: enables HTTP/2.
+    // - `close`: disables HTTP/2.
+    // - `globalConfig`: uses the global configuration.
     shared_ptr<string> http2_ {};
-    // The ID of the domain name that you want to update.
+    // The ID of the domain name to be updated.
     shared_ptr<int64_t> id_ {};
+    // Specifies whether to enable mTLS.
     shared_ptr<bool> mtlsEnabled_ {};
-    // Specifies whether to forcibly use HTTPS.
+    // Specifies whether to force HTTPS.
     shared_ptr<bool> mustHttps_ {};
-    // The type of the protocol. Valid values:
-    // 
-    // *   HTTPS
-    // *   HTTP
+    // The protocol type. Valid values:
+    // - HTTPS
+    // - HTTP
     shared_ptr<string> protocol_ {};
+    // The TLS cipher suite configuration.
     shared_ptr<string> tlsCipherSuitesConfigJSONShrink_ {};
-    // The maximum version of Transport Layer Security (TLS).
+    // The maximum TLS version.
     shared_ptr<string> tlsMax_ {};
-    // The minimum version of TLS.
+    // The minimum TLS version.
     shared_ptr<string> tlsMin_ {};
   };
 

@@ -66,10 +66,16 @@ namespace Models
 
 
   protected:
+    // The language in which the response is displayed. Valid values: zh (default): Chinese; en: English.
     shared_ptr<string> acceptLanguage_ {};
+    // The application name.
+    // 
     // This parameter is required.
     shared_ptr<string> appName_ {};
+    // The list of rule IDs to be deleted.
     shared_ptr<string> idsShrink_ {};
+    // The microservice namespace to which the application belongs.
+    // 
     // This parameter is required.
     shared_ptr<string> namespace_ {};
   };

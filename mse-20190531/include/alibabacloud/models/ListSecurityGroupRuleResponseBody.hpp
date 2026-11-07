@@ -153,10 +153,11 @@ namespace Models
 
 
     protected:
+      // The list of IP address CIDR blocks with authorization to access the gateway.
       shared_ptr<vector<string>> authCidrs_ {};
       // The rule description.
       shared_ptr<string> description_ {};
-      // The gateway ID.
+      // The ID of the gateway.
       shared_ptr<int64_t> gatewayId_ {};
       // The unique ID of the gateway.
       shared_ptr<string> gatewayUniqueId_ {};
@@ -221,20 +222,19 @@ namespace Models
 
 
   protected:
-    // The status code returned.
+    // The return code.
     shared_ptr<int32_t> code_ {};
     // The returned result.
     shared_ptr<vector<ListSecurityGroupRuleResponseBody::Data>> data_ {};
-    // The HTTP status code returned.
+    // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
-    // The message returned.
+    // The response message.
     shared_ptr<string> message_ {};
-    // The ID of the request.
+    // Id of the request
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request was successful. Valid values:
-    // 
-    // *   `true`: The request was successful.
-    // *   `false`: The request failed.
+    // The request result. Valid values:
+    // - `true`: The request is successful.
+    // - `false`: The request fails.
     shared_ptr<bool> success_ {};
   };
 

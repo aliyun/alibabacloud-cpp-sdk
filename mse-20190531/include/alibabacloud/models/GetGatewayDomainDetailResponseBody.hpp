@@ -50,6 +50,7 @@ namespace Models
         DARABONBA_PTR_TO_JSON(CertIdentifier, certIdentifier_);
         DARABONBA_PTR_TO_JSON(CertName, certName_);
         DARABONBA_PTR_TO_JSON(CommonName, commonName_);
+        DARABONBA_PTR_TO_JSON(EnableWaf, enableWaf_);
         DARABONBA_PTR_TO_JSON(GatewayId, gatewayId_);
         DARABONBA_PTR_TO_JSON(GatewayUniqueId, gatewayUniqueId_);
         DARABONBA_PTR_TO_JSON(GmtAfter, gmtAfter_);
@@ -65,6 +66,7 @@ namespace Models
         DARABONBA_PTR_TO_JSON(Name, name_);
         DARABONBA_PTR_TO_JSON(Protocol, protocol_);
         DARABONBA_PTR_TO_JSON(Sans, sans_);
+        DARABONBA_PTR_TO_JSON(SupportWaf, supportWaf_);
         DARABONBA_PTR_TO_JSON(TlsCipherSuitesConfig, tlsCipherSuitesConfig_);
         DARABONBA_PTR_TO_JSON(TlsMax, tlsMax_);
         DARABONBA_PTR_TO_JSON(TlsMin, tlsMin_);
@@ -77,6 +79,7 @@ namespace Models
         DARABONBA_PTR_FROM_JSON(CertIdentifier, certIdentifier_);
         DARABONBA_PTR_FROM_JSON(CertName, certName_);
         DARABONBA_PTR_FROM_JSON(CommonName, commonName_);
+        DARABONBA_PTR_FROM_JSON(EnableWaf, enableWaf_);
         DARABONBA_PTR_FROM_JSON(GatewayId, gatewayId_);
         DARABONBA_PTR_FROM_JSON(GatewayUniqueId, gatewayUniqueId_);
         DARABONBA_PTR_FROM_JSON(GmtAfter, gmtAfter_);
@@ -92,6 +95,7 @@ namespace Models
         DARABONBA_PTR_FROM_JSON(Name, name_);
         DARABONBA_PTR_FROM_JSON(Protocol, protocol_);
         DARABONBA_PTR_FROM_JSON(Sans, sans_);
+        DARABONBA_PTR_FROM_JSON(SupportWaf, supportWaf_);
         DARABONBA_PTR_FROM_JSON(TlsCipherSuitesConfig, tlsCipherSuitesConfig_);
         DARABONBA_PTR_FROM_JSON(TlsMax, tlsMax_);
         DARABONBA_PTR_FROM_JSON(TlsMin, tlsMin_);
@@ -147,16 +151,19 @@ namespace Models
 
 
       protected:
+        // The TLS cipher suite configuration type. DEFAULT indicates the default configuration, and CUSTOM indicates the custom configuration.
         shared_ptr<string> configType_ {};
+        // The list of TLS cipher suite names.
         shared_ptr<vector<string>> tlsCipherSuites_ {};
       };
 
       virtual bool empty() const override { return this->afterDate_ == nullptr
         && this->algorithm_ == nullptr && this->beforeDate_ == nullptr && this->caCertIdentifier_ == nullptr && this->certIdentifier_ == nullptr && this->certName_ == nullptr
-        && this->commonName_ == nullptr && this->gatewayId_ == nullptr && this->gatewayUniqueId_ == nullptr && this->gmtAfter_ == nullptr && this->gmtBefore_ == nullptr
-        && this->gmtCreate_ == nullptr && this->gmtModified_ == nullptr && this->http2_ == nullptr && this->id_ == nullptr && this->isManaged_ == nullptr
-        && this->issuer_ == nullptr && this->mtlsEnabled_ == nullptr && this->mustHttps_ == nullptr && this->name_ == nullptr && this->protocol_ == nullptr
-        && this->sans_ == nullptr && this->tlsCipherSuitesConfig_ == nullptr && this->tlsMax_ == nullptr && this->tlsMin_ == nullptr; };
+        && this->commonName_ == nullptr && this->enableWaf_ == nullptr && this->gatewayId_ == nullptr && this->gatewayUniqueId_ == nullptr && this->gmtAfter_ == nullptr
+        && this->gmtBefore_ == nullptr && this->gmtCreate_ == nullptr && this->gmtModified_ == nullptr && this->http2_ == nullptr && this->id_ == nullptr
+        && this->isManaged_ == nullptr && this->issuer_ == nullptr && this->mtlsEnabled_ == nullptr && this->mustHttps_ == nullptr && this->name_ == nullptr
+        && this->protocol_ == nullptr && this->sans_ == nullptr && this->supportWaf_ == nullptr && this->tlsCipherSuitesConfig_ == nullptr && this->tlsMax_ == nullptr
+        && this->tlsMin_ == nullptr; };
       // afterDate Field Functions 
       bool hasAfterDate() const { return this->afterDate_ != nullptr;};
       void deleteAfterDate() { this->afterDate_ = nullptr;};
@@ -204,6 +211,13 @@ namespace Models
       void deleteCommonName() { this->commonName_ = nullptr;};
       inline string getCommonName() const { DARABONBA_PTR_GET_DEFAULT(commonName_, "") };
       inline Data& setCommonName(string commonName) { DARABONBA_PTR_SET_VALUE(commonName_, commonName) };
+
+
+      // enableWaf Field Functions 
+      bool hasEnableWaf() const { return this->enableWaf_ != nullptr;};
+      void deleteEnableWaf() { this->enableWaf_ = nullptr;};
+      inline bool getEnableWaf() const { DARABONBA_PTR_GET_DEFAULT(enableWaf_, false) };
+      inline Data& setEnableWaf(bool enableWaf) { DARABONBA_PTR_SET_VALUE(enableWaf_, enableWaf) };
 
 
       // gatewayId Field Functions 
@@ -311,6 +325,13 @@ namespace Models
       inline Data& setSans(string sans) { DARABONBA_PTR_SET_VALUE(sans_, sans) };
 
 
+      // supportWaf Field Functions 
+      bool hasSupportWaf() const { return this->supportWaf_ != nullptr;};
+      void deleteSupportWaf() { this->supportWaf_ = nullptr;};
+      inline bool getSupportWaf() const { DARABONBA_PTR_GET_DEFAULT(supportWaf_, false) };
+      inline Data& setSupportWaf(bool supportWaf) { DARABONBA_PTR_SET_VALUE(supportWaf_, supportWaf) };
+
+
       // tlsCipherSuitesConfig Field Functions 
       bool hasTlsCipherSuitesConfig() const { return this->tlsCipherSuitesConfig_ != nullptr;};
       void deleteTlsCipherSuitesConfig() { this->tlsCipherSuitesConfig_ = nullptr;};
@@ -335,55 +356,62 @@ namespace Models
 
 
     protected:
-      // The start time.
+      // The certificate expiration time.
       shared_ptr<int64_t> afterDate_ {};
       // The algorithm.
       shared_ptr<string> algorithm_ {};
-      // The expiration time.
+      // The certificate issuance time.
       shared_ptr<int64_t> beforeDate_ {};
+      // The CA certificate content.
       shared_ptr<string> caCertIdentifier_ {};
-      // The ID of the certificate.
+      // The certificate identifier.
       shared_ptr<string> certIdentifier_ {};
-      // The name of the certificate.
+      // The certificate name.
       shared_ptr<string> certName_ {};
       // The public domain name.
       shared_ptr<string> commonName_ {};
-      // The ID of the gateway.
+      // Indicates whether WAF protection is enabled for the domain name.
+      shared_ptr<bool> enableWaf_ {};
+      // The gateway ID.
       shared_ptr<int64_t> gatewayId_ {};
       // The unique ID of the gateway.
       shared_ptr<string> gatewayUniqueId_ {};
-      // The start time.
+      // The certificate expiration time in GMT.
       shared_ptr<string> gmtAfter_ {};
-      // The expiration time.
+      // The certificate issuance time in GMT.
       shared_ptr<string> gmtBefore_ {};
       // The creation time.
       shared_ptr<string> gmtCreate_ {};
       // The update time.
       shared_ptr<string> gmtModified_ {};
-      // Indicates whether `HTTP/2` is enabled.
-      // 
-      // *   `open`: `HTTP/2` is enabled.
-      // *   `close`: `HTTP/2` is disabled.
-      // *   `globalConfig`: Global configurations are used.
+      // Indicates whether HTTP/2 is enabled. Valid values:
+      // - `open`: HTTP/2 is enabled.
+      // - `close`: HTTP/2 is disabled.
+      // - `globalConfig`: The global configuration is used.
       shared_ptr<string> http2_ {};
       // The ID.
       shared_ptr<int64_t> id_ {};
+      // Indicates whether the domain name is managed.
       shared_ptr<bool> isManaged_ {};
       // The issuer.
       shared_ptr<string> issuer_ {};
+      // Indicates whether mTLS is enabled.
       shared_ptr<bool> mtlsEnabled_ {};
-      // Indicates whether HTTPS is forcibly used.
+      // Indicates whether HTTPS is forced.
       shared_ptr<bool> mustHttps_ {};
-      // The domain name.
+      // The name.
       shared_ptr<string> name_ {};
-      // The protocol of the gateway.
+      // The gateway protocol.
       shared_ptr<string> protocol_ {};
-      // The name of the extended field.
+      // The subject alternative names.
       shared_ptr<string> sans_ {};
+      // Indicates whether the gateway supports WAF protection.
+      shared_ptr<bool> supportWaf_ {};
+      // The TLS cipher suite configuration, including the configuration type and the list of cipher suite names.
       shared_ptr<Data::TlsCipherSuitesConfig> tlsCipherSuitesConfig_ {};
-      // The maximum version of Transport Layer Security (TLS).
+      // The maximum TLS version.
       shared_ptr<string> tlsMax_ {};
-      // The minimum version of TLS.
+      // The minimum TLS version.
       shared_ptr<string> tlsMin_ {};
     };
 
@@ -434,20 +462,19 @@ namespace Models
 
 
   protected:
-    // The status code returned.
+    // The status code.
     shared_ptr<int32_t> code_ {};
-    // The returned data.
+    // The data.
     shared_ptr<GetGatewayDomainDetailResponseBody::Data> data_ {};
-    // The HTTP status code returned.
+    // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
-    // The message returned.
+    // The returned message.
     shared_ptr<string> message_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request was successful. Valid values:
-    // 
-    // *   `true`: The request was successful.
-    // *   `false`: The request failed.
+    // Indicates whether the request is successful. Valid values:
+    // - `true`: The request is successful.
+    // - `false`: The request fails.
     shared_ptr<bool> success_ {};
   };
 

@@ -59,14 +59,15 @@ namespace Models
   protected:
     // The language of the response. Valid values:
     // 
-    // *   zh: Chinese
-    // *   en: English
+    // - zh: Chinese.
+    // 
+    // - en: English.
     shared_ptr<string> acceptLanguage_ {};
-    // The ID of the lane.
+    // The swimming lane ID.
     // 
     // This parameter is required.
     shared_ptr<int64_t> laneId_ {};
-    // The name of the Microservices Engine (MSE) namespace.
+    // The name of the MSE namespace.
     shared_ptr<string> namespace_ {};
   };
 

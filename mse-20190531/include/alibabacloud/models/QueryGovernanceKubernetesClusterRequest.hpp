@@ -75,20 +75,20 @@ namespace Models
 
 
   protected:
-    // The language of the response. Valid values:
+    // The language of the returned information. Valid values:
     // 
-    // *   zh: Chinese
-    // *   en: English
+    // - zh: Chinese.
+    // - en: English.
     shared_ptr<string> acceptLanguage_ {};
     // The ID of the Kubernetes cluster.
     shared_ptr<string> clusterId_ {};
     // The name of the Kubernetes cluster.
     shared_ptr<string> clusterName_ {};
-    // The number of the page to return.
+    // The page number.
     // 
     // This parameter is required.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries to return on each page.
+    // The number of items per page.
     // 
     // This parameter is required.
     shared_ptr<int32_t> pageSize_ {};

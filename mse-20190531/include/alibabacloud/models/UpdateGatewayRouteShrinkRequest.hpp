@@ -176,23 +176,24 @@ namespace Models
 
 
   protected:
-    // The language of the response. Valid values:
+    // The language of the returned information. Valid values:
     // 
-    // *   zh: Chinese
-    // *   en: English
+    // - zh: Chinese
+    // - en: English
     shared_ptr<string> acceptLanguage_ {};
+    // The description of the route.
     shared_ptr<string> description_ {};
-    // The destination service type.
+    // The type of the destination service.
     shared_ptr<string> destinationType_ {};
-    // The information about service mocking.
+    // The mock content.
     shared_ptr<string> directResponseJSONShrink_ {};
-    // The associated domain name.
+    // The associated domain names.
     shared_ptr<string> domainIdListJSON_ {};
-    // Specifies whether to activate Web Application Firewall (WAF).
+    // **[Deprecated]** Use UpdateGatewayRouteWafStatus to update the WAF status of the route.
     shared_ptr<bool> enableWaf_ {};
-    // Specifies whether to enable the Fallback service.
+    // Specifies whether to enable the fallback service.
     shared_ptr<bool> fallback_ {};
-    // The information about the Fallback service.
+    // The fallback services.
     shared_ptr<string> fallbackServicesShrink_ {};
     // The ID of the gateway.
     shared_ptr<int64_t> gatewayId_ {};
@@ -202,13 +203,13 @@ namespace Models
     shared_ptr<int64_t> id_ {};
     // The name of the route.
     shared_ptr<string> name_ {};
-    // The route matching conditions.
+    // The matching conditions of the route.
     shared_ptr<string> predicatesShrink_ {};
-    // The information about redirection.
+    // The redirect configuration.
     shared_ptr<string> redirectJSONShrink_ {};
-    // The sequence number of the route.
+    // The order of the route.
     shared_ptr<int32_t> routeOrder_ {};
-    // The information about destination services.
+    // The destination services. Specify this parameter when the route points to a single service, multiple services, or tag-based routing.
     shared_ptr<string> servicesShrink_ {};
   };
 

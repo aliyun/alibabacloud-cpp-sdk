@@ -130,10 +130,10 @@ namespace Models
 
 
   protected:
-    // The language of the response. Valid values:
+    // The language of the returned information. Valid values:
     // 
-    // *   zh: Chinese
-    // *   en: English
+    // - zh: Chinese.
+    // - en: English.
     shared_ptr<string> acceptLanguage_ {};
     // The content of the blacklist.
     shared_ptr<string> content_ {};
@@ -141,19 +141,19 @@ namespace Models
     shared_ptr<string> gatewayUniqueId_ {};
     // The ID of the blacklist.
     shared_ptr<int64_t> id_ {};
-    // Specifies whether to enable the whitelist.
+    // Specifies whether the list is a whitelist. Default value: false.
     shared_ptr<bool> isWhite_ {};
     // The name.
     shared_ptr<string> name_ {};
     // The description.
     shared_ptr<string> note_ {};
-    // The resource IDs in the JSON format.
+    // The JSON string of the resource ID list.
     shared_ptr<string> resourceIdJsonList_ {};
-    // The type of the resource.
+    // The scope of the bound resources.
     shared_ptr<string> resourceType_ {};
-    // Specifies whether to enable the blacklist or whitelist.
+    // Specifies whether it is enabled.
     shared_ptr<string> status_ {};
-    // The type of the blacklist or whitelist.
+    // The resource type of blacklists and whitelists.
     shared_ptr<string> type_ {};
   };
 

@@ -94,28 +94,28 @@ namespace Models
 
 
   protected:
-    // The status code returned.
+    // The return code.
     shared_ptr<int32_t> code_ {};
     // The ID of the created route.
     shared_ptr<int64_t> data_ {};
-    // The error code that is returned.
+    // The error code.
     // 
-    // *   InvalidParameter: The parameter is invalid. For example, the parameter is incomplete or the parameter format is invalid.
-    // *   IllegalRequest: The request is invalid. Unauthorized access to data initiated by parameters is identified.
-    // *   NoPermission: You are not authorized to perform this operation.
-    // *   NotFound: The resource does not exist and error 404 is returned.
-    // *   InternalError: An internal error occurred.
+    // Valid values:
+    // - InvalidParameter: Parameter error: missing or invalid format.
+    // - IllegalRequest: Illegal request: unauthorized parameter.
+    // - NoPermission: Permission denied.
+    // - NotFound: Resource not found.
+    // - InternalError: Internal error.
     shared_ptr<string> errorCode_ {};
-    // The HTTP status code returned.
+    // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
-    // The message returned.
+    // The response message.
     shared_ptr<string> message_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request was successful. Valid values:
-    // 
-    // *   `true`: The request was successful.
-    // *   `false`: The request failed.
+    // Indicates whether the request succeeded. Valid values:
+    // - `true`: The request succeeded.
+    // - `false`: The request failed.
     shared_ptr<bool> success_ {};
   };
 

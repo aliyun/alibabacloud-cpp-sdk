@@ -227,21 +227,55 @@ namespace Models
 
 
       protected:
+        // The Web fallback behavior type.
+        // 
+        // 0: Return specified content
+        // 
+        // 1: Redirect to specified page
         shared_ptr<int32_t> behaviorType_ {};
+        // The encoding type.
+        // 
+        // 0: Plain text
+        // 
+        // 1: JSON
         shared_ptr<int32_t> bodyEncoding_ {};
+        // Indicates whether the rule is enabled.
+        // 
+        // 0: Disabled.
+        // 
+        // 1: Enabled.
         shared_ptr<int32_t> enable_ {};
+        // The gateway ID.
         shared_ptr<int64_t> gatewayId_ {};
+        // The unique gateway identity ID.
         shared_ptr<string> gatewayUniqueId_ {};
+        // The routing throttle rule ID.
         shared_ptr<int64_t> id_ {};
+        // The filtered rule IDs.
         shared_ptr<vector<int64_t>> idList_ {};
+        // The threshold conversion mode.
+        // 
+        // 0: Single machine.
+        // 
+        // 1: Cluster.
+        // 
+        // 2: Cluster to single machine.
         shared_ptr<int32_t> limitMode_ {};
+        // The custom headers, entered as key-value pairs.
         shared_ptr<string> responseAdditionalHeaders_ {};
+        // The HTTP response text.
         shared_ptr<string> responseContentBody_ {};
+        // The redirect URL.
         shared_ptr<string> responseRedirectUrl_ {};
+        // The HTTP status code.
         shared_ptr<int32_t> responseStatusCode_ {};
+        // The routing ID.
         shared_ptr<int64_t> routeId_ {};
+        // The routing name.
         shared_ptr<string> routeName_ {};
+        // The statistics duration.
         shared_ptr<int32_t> statDurationMs_ {};
+        // The overall QPS threshold.
         shared_ptr<int32_t> threshold_ {};
       };
 
@@ -375,17 +409,41 @@ namespace Models
 
 
       protected:
+        // The Web fallback behavior type.
+        // 
+        // 0: Return specified content
+        // 
+        // 1: Redirect to specified page
         shared_ptr<int32_t> behaviorType_ {};
+        // The encoding type.
+        // 
+        // 0: Plain text
+        // 
+        // 1: JSON
         shared_ptr<int32_t> bodyEncoding_ {};
+        // Indicates whether the rule is enabled.
+        // 
+        // 0: Disabled.
+        // 
+        // 1: Enabled.
         shared_ptr<int32_t> enable_ {};
+        // The gateway ID.
         shared_ptr<int64_t> gatewayId_ {};
+        // The unique gateway identity ID.
         shared_ptr<string> gatewayUniqueId_ {};
+        // The routing throttle rule ID.
         shared_ptr<int64_t> id_ {};
+        // The HTTP response text.
         shared_ptr<string> responseContentBody_ {};
+        // The redirect URL.
         shared_ptr<string> responseRedirectUrl_ {};
+        // The HTTP status code.
         shared_ptr<int32_t> responseStatusCode_ {};
+        // The routing ID.
         shared_ptr<int64_t> routeId_ {};
+        // The routing name.
         shared_ptr<string> routeName_ {};
+        // The overall QPS threshold.
         shared_ptr<int32_t> threshold_ {};
       };
 
@@ -431,10 +489,15 @@ namespace Models
 
 
     protected:
+      // The page number of the instance list.
       shared_ptr<int32_t> pageNumber_ {};
+      // The number of rows per page set during input.
       shared_ptr<int32_t> pageSize_ {};
+      // The returned data.
       shared_ptr<vector<Data::Result>> result_ {};
+      // The paged data collection.
       shared_ptr<vector<Data::Results>> results_ {};
+      // The total number of instances queried.
       shared_ptr<int32_t> totalSize_ {};
     };
 
@@ -457,7 +520,9 @@ namespace Models
 
 
   protected:
+    // The Meta return information.
     shared_ptr<ListGatewayFlowRuleResponseBody::Data> data_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

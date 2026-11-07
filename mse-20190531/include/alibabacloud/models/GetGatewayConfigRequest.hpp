@@ -48,7 +48,10 @@ namespace Models
 
 
   protected:
+    // The language of the returned results. Valid values: zh (default): Chinese. en: English.
     shared_ptr<string> acceptLanguage_ {};
+    // The unique ID of the gateway.
+    // 
     // This parameter is required.
     shared_ptr<string> gatewayUniqueId_ {};
   };

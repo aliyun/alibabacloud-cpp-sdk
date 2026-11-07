@@ -140,12 +140,12 @@ namespace Models
 
 
   protected:
-    // The language of the response. Valid values:
+    // The language of the returned information. Valid values:
     // 
-    // *   zh: Chinese
-    // *   en: English
+    // - zh: Chinese
+    // - en: English
     shared_ptr<string> acceptLanguage_ {};
-    // The ID of the custom application.
+    // The IDs of the custom applications.
     // 
     // This parameter is required.
     shared_ptr<string> consumerAppIds_ {};
@@ -153,21 +153,21 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> dubboMockItems_ {};
-    // Specifies whether to enable the alert rule. Valid values:
+    // Specifies whether the alert rule is enabled. Valid values:
     // 
-    // *   `true`: enables the alert rule.
-    // *   `false`: disables the alert rule.
+    // - `true`: Enabled.
+    // - `false`: Disabled.
     shared_ptr<bool> enable_ {};
     // The description.
     // 
     // This parameter is required.
     shared_ptr<string> extraJson_ {};
-    // The response time (RT) threshold of slow calls. Valid values:
+    // The response time (RT) for slow calls. Valid values:
     // 
-    // *   \\- 15: 15 ms
-    // *   \\- 30: 30 ms
-    // *   \\- 60: 60 ms
-    // *   \\- 120: 120 ms
+    // - 15: 15 ms
+    // - 30: 30 ms
+    // - 60: 60 ms
+    // - 120: 120 ms
     shared_ptr<int64_t> mockType_ {};
     // The name of the rule.
     // 
@@ -177,15 +177,15 @@ namespace Models
     shared_ptr<string> providerAppId_ {};
     // The name of the service provider application.
     shared_ptr<string> providerAppName_ {};
-    // The ID of the region.
+    // The region ID.
     // 
     // This parameter is required.
     shared_ptr<string> region_ {};
-    // The input parameters. The JSON format is supported.
+    // The input parameters. JSON format is supported.
     // 
     // This parameter is required.
     shared_ptr<string> scMockItems_ {};
-    // The rule source.
+    // The source of the rule.
     // 
     // This parameter is required.
     shared_ptr<string> source_ {};

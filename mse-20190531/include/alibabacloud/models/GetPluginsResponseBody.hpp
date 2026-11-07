@@ -222,61 +222,61 @@ namespace Models
 
 
     protected:
-      // The type of the plug-in. Valid values:
-      // 
-      // 0: custom
-      // 
-      // 1: permission authorization
-      // 
-      // 2: security protection
-      // 
-      // 3: transmission protocol
-      // 
-      // 4: traffic control
-      // 
-      // 5: traffic observation
+      // The plug-in type. Valid values:
+      // - 0: Custom.
+      // - 1: Authentication and authorization.
+      // - 2: Security protection.
+      // - 3: Transport protocol.
+      // - 4: Traffic control.
+      // - 5: Traffic observability.
       shared_ptr<int32_t> category_ {};
-      // The information about the plug-in configuration used for checking.
+      // The configuration validation.
       shared_ptr<string> configCheck_ {};
-      // The ID of the plug-in.
+      // The plug-in ID.
       shared_ptr<int64_t> id_ {};
+      // The latest version.
       shared_ptr<string> maxVersion_ {};
+      // The plug-in language. Valid values:
+      // - 0: Wasm plug-in.
+      // - 2: Lua plug-in.
       shared_ptr<int32_t> mode_ {};
       // The name of the plug-in.
       shared_ptr<string> name_ {};
+      // Indicates whether the latest version is being published.
       shared_ptr<bool> newVersionPublishingFlag_ {};
-      // The execution stage of the plug-in.
-      // 
-      // *   0: default stage
-      // *   1: authorization stage
-      // *   2: authentication stage
-      // *   3: statistics stage
+      // The plug-in execution phase. Valid values:
+      // - 0: Default phase.
+      // - 1: Authentication phase.
+      // - 2: Authorization phase.
+      // - 3: Statistics phase.
       shared_ptr<int32_t> phase_ {};
       // The ID of the creator.
       shared_ptr<string> primaryUser_ {};
       // The execution priority of the plug-in. A larger value indicates a higher priority.
       shared_ptr<int32_t> priority_ {};
-      // The publish status.
+      // The publish status. Valid values:
+      // - 0: Successful.
+      // - 1: Publishing.
+      // - 2: Failed.
       shared_ptr<int32_t> publishState_ {};
-      // Indicates whether the plug-in is enabled.
-      // 
-      // *   0: disabled
-      // *   1: enabled
+      // The enabling status. Valid values:
+      // - 0: Disabled.
+      // - 1: Enabled.
       shared_ptr<string> status_ {};
-      // The summary of the plug-in.
+      // The plug-in summary.
       shared_ptr<string> summary_ {};
+      // The English plug-in summary.
       shared_ptr<string> summaryEn_ {};
-      // The version of the plug-in.
+      // The plug-in version.
       shared_ptr<string> version_ {};
-      // The URL of the Object Storage Service (OSS) bucket that stores the WebAssembly plug-in.
+      // The OSS object of the Wasm plug-in.
       shared_ptr<string> wasmFile_ {};
-      // The WebAssembly language. Valid values:
-      // 
-      // *   0: C++
-      // *   1: TinyGo
-      // *   2: Rust
-      // *   3: AssemblyScript
-      // *   4: Zig
+      // The WebAssembly (Wasm) implementation language. Valid values:
+      // - 0: C++.
+      // - 1: TinyGo.
+      // - 2: Rust.
+      // - 3: AssemblyScript.
+      // - 4: Zig.
       shared_ptr<int32_t> wasmLang_ {};
     };
 
@@ -349,23 +349,23 @@ namespace Models
 
 
   protected:
-    // The returned code.
+    // The code.
     shared_ptr<int32_t> code_ {};
-    // The data entries returned.
+    // The returned data.
     shared_ptr<vector<GetPluginsResponseBody::Data>> data_ {};
-    // The dynamic part in the error message.
+    // The placeholder in the dynamic error message.
     shared_ptr<string> dynamicCode_ {};
     // The dynamic error message.
     shared_ptr<string> dynamicMessage_ {};
-    // The error code returned if the request failed.
+    // The error code.
     shared_ptr<string> errorCode_ {};
-    // The HTTP status code returned.
+    // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
-    // The message returned.
+    // The returned message.
     shared_ptr<string> message_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request was successful.
+    // Indicates whether the request is successful.
     shared_ptr<bool> success_ {};
   };
 

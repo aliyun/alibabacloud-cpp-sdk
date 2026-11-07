@@ -158,14 +158,15 @@ namespace Models
         shared_ptr<string> appId_ {};
         // The application name.
         shared_ptr<string> appName_ {};
-        // The time when the service was last updated.
+        // The last update time of the service.
         shared_ptr<string> gmtModifyTime_ {};
-        // The group to which the service belongs.
+        // The service group.
         shared_ptr<string> group_ {};
-        // The number of service nodes.
+        // The number of instances for the service.
         shared_ptr<int32_t> instanceNum_ {};
         // The service name.
         shared_ptr<string> serviceName_ {};
+        // The service type.
         shared_ptr<string> serviceType_ {};
         // The service version.
         shared_ptr<string> version_ {};
@@ -204,13 +205,13 @@ namespace Models
 
 
     protected:
-      // The page number.
+      // The current page number.
       shared_ptr<string> pageNumber_ {};
       // The number of entries per page.
       shared_ptr<string> pageSize_ {};
       // The data on the current page.
       shared_ptr<vector<Data::Result>> result_ {};
-      // The total number of entries returned.
+      // The total number of entries.
       shared_ptr<string> totalSize_ {};
     };
 
@@ -247,13 +248,13 @@ namespace Models
 
 
   protected:
-    // The response to the request.
+    // The response data.
     shared_ptr<GetServiceListPageResponseBody::Data> data_ {};
     // The request information.
     shared_ptr<string> message_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request was successful.
+    // Indicates whether the request is successful.
     shared_ptr<bool> success_ {};
   };
 

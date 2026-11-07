@@ -77,13 +77,13 @@ namespace Models
   protected:
     // The ID of the user to which the application belongs.
     shared_ptr<string> userId_ {};
-    // The region where the application resides.
+    // The region where the application is deployed.
     shared_ptr<string> regionId_ {};
     // The microservice namespace where the application resides.
     shared_ptr<string> namespace_ {};
-    // The application name.
+    // The name of the application.
     shared_ptr<string> appName_ {};
-    // The application ID.
+    // The ID of the application.
     shared_ptr<string> appId_ {};
   };
 

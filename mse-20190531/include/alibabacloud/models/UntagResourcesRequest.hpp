@@ -89,34 +89,35 @@ namespace Models
 
 
   protected:
-    // The language of the response. Valid values:
+    // The language of the response information:
     // 
-    // *   zh: Chinese
-    // *   en: English
+    // - zh: Chinese
+    // - en: English
     shared_ptr<string> acceptLanguage_ {};
-    // Specifies whether to delete all tags. This parameter takes effect only when the TagKey.N parameter is not specified. Valid values:
+    // Specifies whether to delete all tags. This parameter takes effect only when TagKey.N is empty. Valid values: 
     // 
-    // *   true
-    // *   false
+    // - true
+    // - false
     // 
     // Default value: false.
     shared_ptr<bool> all_ {};
-    // The ID of the region.
+    // The region ID.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
-    // The resource IDs. A maximum of 50 resource IDs can be specified.
+    // The resource IDs. You can specify up to 50 resource IDs.
     // 
     // This parameter is required.
     shared_ptr<vector<string>> resourceId_ {};
-    // The type of the resource. Valid values:
+    // The resource type. Valid values:
     // 
-    // *   CLUSTER: MSE instance
-    // *   GATEWAY: cloud-native gateway
+    // - CLUSTER: registration and configuration center.
+    // 
+    // - GATEWAY: cloud-native gateway.
     // 
     // This parameter is required.
     shared_ptr<string> resourceType_ {};
-    // The tag keys. A maximum of 20 tag keys are supported.
+    // The tag keys. You can specify up to 20 tag keys.
     shared_ptr<vector<string>> tagKey_ {};
   };
 

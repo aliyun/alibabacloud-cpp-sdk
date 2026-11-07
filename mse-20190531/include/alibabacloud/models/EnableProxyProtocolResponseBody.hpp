@@ -112,17 +112,16 @@ namespace Models
 
 
   protected:
-    // The status code. A value of 200 is returned if the request is successful.
+    // The code used only to synchronize with the success status.
     shared_ptr<int32_t> code_ {};
-    // Indicates whether the request was successful. Valid values:
+    // Indicates whether the operation is successful.
     shared_ptr<bool> data_ {};
-    // The dynamic part in the error message.
+    // The placeholder in the dynamic error message.
     shared_ptr<string> dynamicCode_ {};
-    // The dynamic part in the error message. This parameter is used to replace the **%s** variable in the **ErrMessage** parameter.
-    // 
-    // >  For example, if the return value of the **ErrMessage** parameter is **The Value of Input Parameter %s is not valid** and the return value of the **DynamicMessage** parameter is **DtsJobId**, the **DtsJobId** parameter in the request is invalid.
+    // The dynamic error message, which is used to replace **%s** in the error message of the **ErrMessage** response parameter.
+    // > If **ErrMessage** returns **The Value of Input Parameter %s is not valid** and **DynamicMessage** returns **DtsJobId**, it indicates that the passed request parameter **DtsJobId** is invalid.
     shared_ptr<string> dynamicMessage_ {};
-    // The status code.
+    // The error code.
     shared_ptr<string> errorCode_ {};
     // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
@@ -130,10 +129,9 @@ namespace Models
     shared_ptr<string> message_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request was successful. Valid values:
-    // 
-    // *   `true`: The request was successful.
-    // *   `false`: The request failed.
+    // The request result. Valid values:
+    // - `true`: The request is successful.
+    // - `false`: The request fails.
     shared_ptr<bool> success_ {};
   };
 

@@ -38,7 +38,7 @@ namespace Mse20190531
       Models::AddAuthPolicyResponse addAuthPolicy(const Models::AddAuthPolicyRequest &request);
 
       /**
-       * @summary Adds authorization information for a gateway.
+       * @summary Creates authorization information for gateway authentication.
        *
        * @param tmpReq AddAuthResourceRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -47,7 +47,7 @@ namespace Mse20190531
       Models::AddAuthResourceResponse addAuthResourceWithOptions(const Models::AddAuthResourceRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Adds authorization information for a gateway.
+       * @summary Creates authorization information for gateway authentication.
        *
        * @param request AddAuthResourceRequest
        * @return AddAuthResourceResponse
@@ -55,7 +55,7 @@ namespace Mse20190531
       Models::AddAuthResourceResponse addAuthResource(const Models::AddAuthResourceRequest &request);
 
       /**
-       * @summary Creates a blacklist or a whitelist.
+       * @summary Adds blacklists and whitelists.
        *
        * @param request AddBlackWhiteListRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -64,7 +64,7 @@ namespace Mse20190531
       Models::AddBlackWhiteListResponse addBlackWhiteListWithOptions(const Models::AddBlackWhiteListRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Creates a blacklist or a whitelist.
+       * @summary Adds blacklists and whitelists.
        *
        * @param request AddBlackWhiteListRequest
        * @return AddBlackWhiteListResponse
@@ -72,7 +72,7 @@ namespace Mse20190531
       Models::AddBlackWhiteListResponse addBlackWhiteList(const Models::AddBlackWhiteListRequest &request);
 
       /**
-       * @summary Adds a gateway.
+       * @summary Creates a gateway.
        *
        * @param tmpReq AddGatewayRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -81,7 +81,7 @@ namespace Mse20190531
       Models::AddGatewayResponse addGatewayWithOptions(const Models::AddGatewayRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Adds a gateway.
+       * @summary Creates a gateway.
        *
        * @param request AddGatewayRequest
        * @return AddGatewayResponse
@@ -89,7 +89,7 @@ namespace Mse20190531
       Models::AddGatewayResponse addGateway(const Models::AddGatewayRequest &request);
 
       /**
-       * @summary Adds an authentication configuration for a gateway.
+       * @summary Creates gateway authentication.
        *
        * @param tmpReq AddGatewayAuthRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -98,7 +98,7 @@ namespace Mse20190531
       Models::AddGatewayAuthResponse addGatewayAuthWithOptions(const Models::AddGatewayAuthRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Adds an authentication configuration for a gateway.
+       * @summary Creates gateway authentication.
        *
        * @param request AddGatewayAuthRequest
        * @return AddGatewayAuthResponse
@@ -106,7 +106,7 @@ namespace Mse20190531
       Models::AddGatewayAuthResponse addGatewayAuth(const Models::AddGatewayAuthRequest &request);
 
       /**
-       * @summary Adds a consumer on which a gateway performs authentication operations.
+       * @summary Creates a gateway authentication consumer.
        *
        * @param request AddGatewayAuthConsumerRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -115,7 +115,7 @@ namespace Mse20190531
       Models::AddGatewayAuthConsumerResponse addGatewayAuthConsumerWithOptions(const Models::AddGatewayAuthConsumerRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Adds a consumer on which a gateway performs authentication operations.
+       * @summary Creates a gateway authentication consumer.
        *
        * @param request AddGatewayAuthConsumerRequest
        * @return AddGatewayAuthConsumerResponse
@@ -123,7 +123,7 @@ namespace Mse20190531
       Models::AddGatewayAuthConsumerResponse addGatewayAuthConsumer(const Models::AddGatewayAuthConsumerRequest &request);
 
       /**
-       * @summary Associates a domain name with a gateway.
+       * @summary Adds an associated domain to a gateway.
        *
        * @param tmpReq AddGatewayDomainRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -132,7 +132,7 @@ namespace Mse20190531
       Models::AddGatewayDomainResponse addGatewayDomainWithOptions(const Models::AddGatewayDomainRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Associates a domain name with a gateway.
+       * @summary Adds an associated domain to a gateway.
        *
        * @param request AddGatewayDomainRequest
        * @return AddGatewayDomainResponse
@@ -157,7 +157,7 @@ namespace Mse20190531
       Models::AddGatewayRouteResponse addGatewayRoute(const Models::AddGatewayRouteRequest &request);
 
       /**
-       * @summary Adds a service version for a gateway.
+       * @summary Adds a service version.
        *
        * @param request AddGatewayServiceVersionRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -166,7 +166,7 @@ namespace Mse20190531
       Models::AddGatewayServiceVersionResponse addGatewayServiceVersionWithOptions(const Models::AddGatewayServiceVersionRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Adds a service version for a gateway.
+       * @summary Adds a service version.
        *
        * @param request AddGatewayServiceVersionRequest
        * @return AddGatewayServiceVersionResponse
@@ -174,7 +174,7 @@ namespace Mse20190531
       Models::AddGatewayServiceVersionResponse addGatewayServiceVersion(const Models::AddGatewayServiceVersionRequest &request);
 
       /**
-       * @summary Associates a Server Load Balancer (SLB) instance with a gateway.
+       * @summary Associates an SLB instance with a gateway.
        *
        * @param tmpReq AddGatewaySlbRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -183,7 +183,7 @@ namespace Mse20190531
       Models::AddGatewaySlbResponse addGatewaySlbWithOptions(const Models::AddGatewaySlbRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Associates a Server Load Balancer (SLB) instance with a gateway.
+       * @summary Associates an SLB instance with a gateway.
        *
        * @param request AddGatewaySlbRequest
        * @return AddGatewaySlbResponse
@@ -191,7 +191,7 @@ namespace Mse20190531
       Models::AddGatewaySlbResponse addGatewaySlb(const Models::AddGatewaySlbRequest &request);
 
       /**
-       * @summary Create a new migration task
+       * @summary Creates a migration task.
        *
        * @param request AddMigrationTaskRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -200,7 +200,7 @@ namespace Mse20190531
       Models::AddMigrationTaskResponse addMigrationTaskWithOptions(const Models::AddMigrationTaskRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Create a new migration task
+       * @summary Creates a migration task.
        *
        * @param request AddMigrationTaskRequest
        * @return AddMigrationTaskResponse
@@ -208,7 +208,7 @@ namespace Mse20190531
       Models::AddMigrationTaskResponse addMigrationTask(const Models::AddMigrationTaskRequest &request);
 
       /**
-       * @summary Creates a service mocking rule.
+       * @summary Creates a mock rule.
        *
        * @param request AddMockRuleRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -217,7 +217,7 @@ namespace Mse20190531
       Models::AddMockRuleResponse addMockRuleWithOptions(const Models::AddMockRuleRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Creates a service mocking rule.
+       * @summary Creates a mock rule.
        *
        * @param request AddMockRuleRequest
        * @return AddMockRuleResponse
@@ -225,7 +225,7 @@ namespace Mse20190531
       Models::AddMockRuleResponse addMockRule(const Models::AddMockRuleRequest &request);
 
       /**
-       * @summary Associates a certificate with a domain name of a gateway. You can specify a certificate that is hosted in Alibaba Cloud Security.
+       * @summary Associates a certificate with a gateway domain name. The certificate can be hosted in SSL Certificates Service.
        *
        * @param request AddSSLCertRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -234,7 +234,7 @@ namespace Mse20190531
       Models::AddSSLCertResponse addSSLCertWithOptions(const Models::AddSSLCertRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Associates a certificate with a domain name of a gateway. You can specify a certificate that is hosted in Alibaba Cloud Security.
+       * @summary Associates a certificate with a gateway domain name. The certificate can be hosted in SSL Certificates Service.
        *
        * @param request AddSSLCertRequest
        * @return AddSSLCertResponse
@@ -242,7 +242,7 @@ namespace Mse20190531
       Models::AddSSLCertResponse addSSLCert(const Models::AddSSLCertRequest &request);
 
       /**
-       * @summary Creates a security group rule for a gateway.
+       * @summary Adds a security group rule for a gateway.
        *
        * @param request AddSecurityGroupRuleRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -251,7 +251,7 @@ namespace Mse20190531
       Models::AddSecurityGroupRuleResponse addSecurityGroupRuleWithOptions(const Models::AddSecurityGroupRuleRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Creates a security group rule for a gateway.
+       * @summary Adds a security group rule for a gateway.
        *
        * @param request AddSecurityGroupRuleRequest
        * @return AddSecurityGroupRuleResponse
@@ -259,7 +259,7 @@ namespace Mse20190531
       Models::AddSecurityGroupRuleResponse addSecurityGroupRule(const Models::AddSecurityGroupRuleRequest &request);
 
       /**
-       * @summary Adds a Nacos service source.
+       * @summary Creates a Nacos service source.
        *
        * @param tmpReq AddServiceSourceRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -268,7 +268,7 @@ namespace Mse20190531
       Models::AddServiceSourceResponse addServiceSourceWithOptions(const Models::AddServiceSourceRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Adds a Nacos service source.
+       * @summary Creates a Nacos service source.
        *
        * @param request AddServiceSourceRequest
        * @return AddServiceSourceResponse
@@ -276,7 +276,7 @@ namespace Mse20190531
       Models::AddServiceSourceResponse addServiceSource(const Models::AddServiceSourceRequest &request);
 
       /**
-       * @summary 增加ZooKeeper Sasl 用户
+       * @summary Adds ZooKeeper SASL users.
        *
        * @param tmpReq AddZooKeeperSaslUserRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -285,7 +285,7 @@ namespace Mse20190531
       Models::AddZooKeeperSaslUserResponse addZooKeeperSaslUserWithOptions(const Models::AddZooKeeperSaslUserRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 增加ZooKeeper Sasl 用户
+       * @summary Adds ZooKeeper SASL users.
        *
        * @param request AddZooKeeperSaslUserRequest
        * @return AddZooKeeperSaslUserResponse
@@ -310,7 +310,7 @@ namespace Mse20190531
       Models::ApplyGatewayRouteResponse applyGatewayRoute(const Models::ApplyGatewayRouteRequest &request);
 
       /**
-       * @summary Modifies a tag-based routing rule.
+       * @summary Modifies tag-based routing rules.
        *
        * @param tmpReq ApplyTagPoliciesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -319,7 +319,7 @@ namespace Mse20190531
       Models::ApplyTagPoliciesResponse applyTagPoliciesWithOptions(const Models::ApplyTagPoliciesRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Modifies a tag-based routing rule.
+       * @summary Modifies tag-based routing rules.
        *
        * @param request ApplyTagPoliciesRequest
        * @return ApplyTagPoliciesResponse
@@ -361,9 +361,9 @@ namespace Mse20190531
       Models::ChangeResourceGroupResponse changeResourceGroup(const Models::ChangeResourceGroupRequest &request);
 
       /**
-       * @summary Copy Nacos Configuration
+       * @summary Clones existing Nacos configurations to another namespace.
        *
-       * @description > This OpenAPI is not the Nacos-SDK API. For information related to the Nacos-SDK API, please refer to the [official documentation](https://nacos.io/zh-cn/docs/sdk.html).
+       * @description > The current OpenAPI is not a Nacos-SDK API. For information about Nacos-SDK APIs, see the [official documentation](https://nacos.io/zh-cn/docs/sdk.html).
        *
        * @param request CloneNacosConfigRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -372,9 +372,9 @@ namespace Mse20190531
       Models::CloneNacosConfigResponse cloneNacosConfigWithOptions(const Models::CloneNacosConfigRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Copy Nacos Configuration
+       * @summary Clones existing Nacos configurations to another namespace.
        *
-       * @description > This OpenAPI is not the Nacos-SDK API. For information related to the Nacos-SDK API, please refer to the [official documentation](https://nacos.io/zh-cn/docs/sdk.html).
+       * @description > The current OpenAPI is not a Nacos-SDK API. For information about Nacos-SDK APIs, see the [official documentation](https://nacos.io/zh-cn/docs/sdk.html).
        *
        * @param request CloneNacosConfigRequest
        * @return CloneNacosConfigResponse
@@ -433,9 +433,9 @@ namespace Mse20190531
       Models::CreateCircuitBreakerRuleResponse createCircuitBreakerRule(const Models::CreateCircuitBreakerRuleRequest &request);
 
       /**
-       * @summary Create an MSE registration and configuration center instance
+       * @summary Creates a registry and configuration center cluster, such as ZooKeeper or Nacos.
        *
-       * @description Please ensure that you fully understand the billing method and pricing of the MSE (Microservice Engine) product before using this interface.
+       * @description Make sure that you fully understand the billing methods and pricing of Microservices Engine (MSE) before you call this operation.
        *
        * @param request CreateClusterRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -444,9 +444,9 @@ namespace Mse20190531
       Models::CreateClusterResponse createClusterWithOptions(const Models::CreateClusterRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Create an MSE registration and configuration center instance
+       * @summary Creates a registry and configuration center cluster, such as ZooKeeper or Nacos.
        *
-       * @description Please ensure that you fully understand the billing method and pricing of the MSE (Microservice Engine) product before using this interface.
+       * @description Make sure that you fully understand the billing methods and pricing of Microservices Engine (MSE) before you call this operation.
        *
        * @param request CreateClusterRequest
        * @return CreateClusterResponse
@@ -619,7 +619,7 @@ namespace Mse20190531
       Models::CreateNacosInstanceResponse createNacosInstance(const Models::CreateNacosInstanceRequest &request);
 
       /**
-       * @summary 创建一个MCP Server
+       * @summary Creates an MCP server.
        *
        * @param request CreateNacosMcpServerRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -628,7 +628,7 @@ namespace Mse20190531
       Models::CreateNacosMcpServerResponse createNacosMcpServerWithOptions(const Models::CreateNacosMcpServerRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 创建一个MCP Server
+       * @summary Creates an MCP server.
        *
        * @param request CreateNacosMcpServerRequest
        * @return CreateNacosMcpServerResponse
@@ -674,7 +674,7 @@ namespace Mse20190531
       Models::CreateNamespaceResponse createNamespace(const Models::CreateNamespaceRequest &request);
 
       /**
-       * @summary Creates or updates a lane for end-to-end canary release.
+       * @summary Creates or updates an end-to-end canary release lane.
        *
        * @param tmpReq CreateOrUpdateSwimmingLaneRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -683,7 +683,7 @@ namespace Mse20190531
       Models::CreateOrUpdateSwimmingLaneResponse createOrUpdateSwimmingLaneWithOptions(const Models::CreateOrUpdateSwimmingLaneRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Creates or updates a lane for end-to-end canary release.
+       * @summary Creates or updates an end-to-end canary release lane.
        *
        * @param request CreateOrUpdateSwimmingLaneRequest
        * @return CreateOrUpdateSwimmingLaneResponse
@@ -691,7 +691,7 @@ namespace Mse20190531
       Models::CreateOrUpdateSwimmingLaneResponse createOrUpdateSwimmingLane(const Models::CreateOrUpdateSwimmingLaneRequest &request);
 
       /**
-       * @summary Creates or updates a lane group for end-to-end canary release.
+       * @summary Creates or updates an end-to-end canary release swimlane group.
        *
        * @param tmpReq CreateOrUpdateSwimmingLaneGroupRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -700,7 +700,7 @@ namespace Mse20190531
       Models::CreateOrUpdateSwimmingLaneGroupResponse createOrUpdateSwimmingLaneGroupWithOptions(const Models::CreateOrUpdateSwimmingLaneGroupRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Creates or updates a lane group for end-to-end canary release.
+       * @summary Creates or updates an end-to-end canary release swimlane group.
        *
        * @param request CreateOrUpdateSwimmingLaneGroupRequest
        * @return CreateOrUpdateSwimmingLaneGroupResponse
@@ -725,7 +725,7 @@ namespace Mse20190531
       Models::CreatePluginConfigResponse createPluginConfig(const Models::CreatePluginConfigRequest &request);
 
       /**
-       * @summary 创建行为管理
+       * @summary Creates behavior management definitions
        *
        * @param request CreateSentinelBlockFallbackDefinitionRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -734,7 +734,7 @@ namespace Mse20190531
       Models::CreateSentinelBlockFallbackDefinitionResponse createSentinelBlockFallbackDefinitionWithOptions(const Models::CreateSentinelBlockFallbackDefinitionRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 创建行为管理
+       * @summary Creates behavior management definitions
        *
        * @param request CreateSentinelBlockFallbackDefinitionRequest
        * @return CreateSentinelBlockFallbackDefinitionResponse
@@ -742,7 +742,7 @@ namespace Mse20190531
       Models::CreateSentinelBlockFallbackDefinitionResponse createSentinelBlockFallbackDefinition(const Models::CreateSentinelBlockFallbackDefinitionRequest &request);
 
       /**
-       * @summary Creates a hot parameter protection rule for HTTP requests.
+       * @summary Creates a hotspot parameter protection rule for HTTP requests.
        *
        * @param request CreateWebFlowRuleRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -751,7 +751,7 @@ namespace Mse20190531
       Models::CreateWebFlowRuleResponse createWebFlowRuleWithOptions(const Models::CreateWebFlowRuleRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Creates a hot parameter protection rule for HTTP requests.
+       * @summary Creates a hotspot parameter protection rule for HTTP requests.
        *
        * @param request CreateWebFlowRuleRequest
        * @return CreateWebFlowRuleResponse
@@ -793,7 +793,7 @@ namespace Mse20190531
       Models::DeleteAuthResourceResponse deleteAuthResource(const Models::DeleteAuthResourceRequest &request);
 
       /**
-       * @summary 删除黑白名单
+       * @summary Deletes a blacklists and whitelists entry.
        *
        * @param request DeleteBlackWhiteListRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -802,7 +802,7 @@ namespace Mse20190531
       Models::DeleteBlackWhiteListResponse deleteBlackWhiteListWithOptions(const Models::DeleteBlackWhiteListRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 删除黑白名单
+       * @summary Deletes a blacklists and whitelists entry.
        *
        * @param request DeleteBlackWhiteListRequest
        * @return DeleteBlackWhiteListResponse
@@ -844,7 +844,7 @@ namespace Mse20190531
       Models::DeleteClusterResponse deleteCluster(const Models::DeleteClusterRequest &request);
 
       /**
-       * @summary Deletes a namespace from a Nacos instance.
+       * @summary Deletes a Nacos namespace.
        *
        * @param request DeleteEngineNamespaceRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -853,7 +853,7 @@ namespace Mse20190531
       Models::DeleteEngineNamespaceResponse deleteEngineNamespaceWithOptions(const Models::DeleteEngineNamespaceRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Deletes a namespace from a Nacos instance.
+       * @summary Deletes a Nacos namespace.
        *
        * @param request DeleteEngineNamespaceRequest
        * @return DeleteEngineNamespaceResponse
@@ -895,7 +895,7 @@ namespace Mse20190531
       Models::DeleteGatewayResponse deleteGateway(const Models::DeleteGatewayRequest &request);
 
       /**
-       * @summary 删除网关认证
+       * @summary Deletes gateway authentication.
        *
        * @param request DeleteGatewayAuthRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -904,7 +904,7 @@ namespace Mse20190531
       Models::DeleteGatewayAuthResponse deleteGatewayAuthWithOptions(const Models::DeleteGatewayAuthRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 删除网关认证
+       * @summary Deletes gateway authentication.
        *
        * @param request DeleteGatewayAuthRequest
        * @return DeleteGatewayAuthResponse
@@ -912,7 +912,7 @@ namespace Mse20190531
       Models::DeleteGatewayAuthResponse deleteGatewayAuth(const Models::DeleteGatewayAuthRequest &request);
 
       /**
-       * @summary Deletes a consumer on which a gateway performs authentication operations.
+       * @summary Deletes a gateway authentication consumer.
        *
        * @param request DeleteGatewayAuthConsumerRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -921,7 +921,7 @@ namespace Mse20190531
       Models::DeleteGatewayAuthConsumerResponse deleteGatewayAuthConsumerWithOptions(const Models::DeleteGatewayAuthConsumerRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Deletes a consumer on which a gateway performs authentication operations.
+       * @summary Deletes a gateway authentication consumer.
        *
        * @param request DeleteGatewayAuthConsumerRequest
        * @return DeleteGatewayAuthConsumerResponse
@@ -929,7 +929,7 @@ namespace Mse20190531
       Models::DeleteGatewayAuthConsumerResponse deleteGatewayAuthConsumer(const Models::DeleteGatewayAuthConsumerRequest &request);
 
       /**
-       * @summary Deletes resource permissions from the consumer on which a gateway performs authentication operations.
+       * @summary Deletes the authorization for a gateway authentication consumer.
        *
        * @param request DeleteGatewayAuthConsumerResourceRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -938,7 +938,7 @@ namespace Mse20190531
       Models::DeleteGatewayAuthConsumerResourceResponse deleteGatewayAuthConsumerResourceWithOptions(const Models::DeleteGatewayAuthConsumerResourceRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Deletes resource permissions from the consumer on which a gateway performs authentication operations.
+       * @summary Deletes the authorization for a gateway authentication consumer.
        *
        * @param request DeleteGatewayAuthConsumerResourceRequest
        * @return DeleteGatewayAuthConsumerResourceResponse
@@ -997,7 +997,7 @@ namespace Mse20190531
       Models::DeleteGatewayFlowRuleResponse deleteGatewayFlowRule(const Models::DeleteGatewayFlowRuleRequest &request);
 
       /**
-       * @summary Deletes the gateway concurrency rule.
+       * @summary Deletes a gateway concurrency rule.
        *
        * @param request DeleteGatewayIsolationRuleRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1006,7 +1006,7 @@ namespace Mse20190531
       Models::DeleteGatewayIsolationRuleResponse deleteGatewayIsolationRuleWithOptions(const Models::DeleteGatewayIsolationRuleRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Deletes the gateway concurrency rule.
+       * @summary Deletes a gateway concurrency rule.
        *
        * @param request DeleteGatewayIsolationRuleRequest
        * @return DeleteGatewayIsolationRuleResponse
@@ -1014,7 +1014,7 @@ namespace Mse20190531
       Models::DeleteGatewayIsolationRuleResponse deleteGatewayIsolationRule(const Models::DeleteGatewayIsolationRuleRequest &request);
 
       /**
-       * @summary Deletes a route from a gateway.
+       * @summary Deletes a gateway route.
        *
        * @param request DeleteGatewayRouteRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1023,7 +1023,7 @@ namespace Mse20190531
       Models::DeleteGatewayRouteResponse deleteGatewayRouteWithOptions(const Models::DeleteGatewayRouteRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Deletes a route from a gateway.
+       * @summary Deletes a gateway route.
        *
        * @param request DeleteGatewayRouteRequest
        * @return DeleteGatewayRouteResponse
@@ -1082,7 +1082,7 @@ namespace Mse20190531
       Models::DeleteGatewaySlbResponse deleteGatewaySlb(const Models::DeleteGatewaySlbRequest &request);
 
       /**
-       * @summary Deletes isolation rules.
+       * @summary Deletes fencing rules.
        *
        * @param tmpReq DeleteIsolationRulesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1091,7 +1091,7 @@ namespace Mse20190531
       Models::DeleteIsolationRulesResponse deleteIsolationRulesWithOptions(const Models::DeleteIsolationRulesRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Deletes isolation rules.
+       * @summary Deletes fencing rules.
        *
        * @param request DeleteIsolationRulesRequest
        * @return DeleteIsolationRulesResponse
@@ -1137,9 +1137,9 @@ namespace Mse20190531
       Models::DeleteNacosConfigResponse deleteNacosConfig(const Models::DeleteNacosConfigRequest &request);
 
       /**
-       * @summary Deletes multiple Nacos configurations at a time.
+       * @summary Deletes multiple Nacos configurations.
        *
-       * @description >  The current API operation is not provided in Nacos SDK. For more information about the Nacos-SDK API, see the [official documentation](https://nacos.io/zh-cn/docs/sdk.html).
+       * @description > The current OpenAPI is not the Nacos SDK API. For information about the Nacos SDK API, see the [official documentation](https://nacos.io/zh-cn/docs/sdk.html).
        *
        * @param request DeleteNacosConfigsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1148,9 +1148,9 @@ namespace Mse20190531
       Models::DeleteNacosConfigsResponse deleteNacosConfigsWithOptions(const Models::DeleteNacosConfigsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Deletes multiple Nacos configurations at a time.
+       * @summary Deletes multiple Nacos configurations.
        *
-       * @description >  The current API operation is not provided in Nacos SDK. For more information about the Nacos-SDK API, see the [official documentation](https://nacos.io/zh-cn/docs/sdk.html).
+       * @description > The current OpenAPI is not the Nacos SDK API. For information about the Nacos SDK API, see the [official documentation](https://nacos.io/zh-cn/docs/sdk.html).
        *
        * @param request DeleteNacosConfigsRequest
        * @return DeleteNacosConfigsResponse
@@ -1179,7 +1179,7 @@ namespace Mse20190531
       Models::DeleteNacosInstanceResponse deleteNacosInstance(const Models::DeleteNacosInstanceRequest &request);
 
       /**
-       * @summary 删除一个MCP Server
+       * @summary Deletes an MCP Server.
        *
        * @param request DeleteNacosMcpServerRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1188,7 +1188,7 @@ namespace Mse20190531
       Models::DeleteNacosMcpServerResponse deleteNacosMcpServerWithOptions(const Models::DeleteNacosMcpServerRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 删除一个MCP Server
+       * @summary Deletes an MCP Server.
        *
        * @param request DeleteNacosMcpServerRequest
        * @return DeleteNacosMcpServerResponse
@@ -1217,7 +1217,7 @@ namespace Mse20190531
       Models::DeleteNacosServiceResponse deleteNacosService(const Models::DeleteNacosServiceRequest &request);
 
       /**
-       * @summary 删除MSE命名空间
+       * @summary Deletes an MSE namespace.
        *
        * @param request DeleteNamespaceRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1226,7 +1226,7 @@ namespace Mse20190531
       Models::DeleteNamespaceResponse deleteNamespaceWithOptions(const Models::DeleteNamespaceRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 删除MSE命名空间
+       * @summary Deletes an MSE namespace.
        *
        * @param request DeleteNamespaceRequest
        * @return DeleteNamespaceResponse
@@ -1285,7 +1285,7 @@ namespace Mse20190531
       Models::DeleteServiceSourceResponse deleteServiceSource(const Models::DeleteServiceSourceRequest &request);
 
       /**
-       * @summary Deletes a lane.
+       * @summary Deletes an end-to-end traffic lane.
        *
        * @param request DeleteSwimmingLaneRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1294,7 +1294,7 @@ namespace Mse20190531
       Models::DeleteSwimmingLaneResponse deleteSwimmingLaneWithOptions(const Models::DeleteSwimmingLaneRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Deletes a lane.
+       * @summary Deletes an end-to-end traffic lane.
        *
        * @param request DeleteSwimmingLaneRequest
        * @return DeleteSwimmingLaneResponse
@@ -1302,7 +1302,7 @@ namespace Mse20190531
       Models::DeleteSwimmingLaneResponse deleteSwimmingLane(const Models::DeleteSwimmingLaneRequest &request);
 
       /**
-       * @summary Deletes a lane group.
+       * @summary Deletes an end-to-end traffic lane group.
        *
        * @param request DeleteSwimmingLaneGroupRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1311,7 +1311,7 @@ namespace Mse20190531
       Models::DeleteSwimmingLaneGroupResponse deleteSwimmingLaneGroupWithOptions(const Models::DeleteSwimmingLaneGroupRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Deletes a lane group.
+       * @summary Deletes an end-to-end traffic lane group.
        *
        * @param request DeleteSwimmingLaneGroupRequest
        * @return DeleteSwimmingLaneGroupResponse
@@ -1319,7 +1319,7 @@ namespace Mse20190531
       Models::DeleteSwimmingLaneGroupResponse deleteSwimmingLaneGroup(const Models::DeleteSwimmingLaneGroupRequest &request);
 
       /**
-       * @summary Deletes a hot parameter protection rule for HTTP requests.
+       * @summary Deletes hot spot parameter protection rules for HTTP requests.
        *
        * @param request DeleteWebFlowRulesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1328,7 +1328,7 @@ namespace Mse20190531
       Models::DeleteWebFlowRulesResponse deleteWebFlowRulesWithOptions(const Models::DeleteWebFlowRulesRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Deletes a hot parameter protection rule for HTTP requests.
+       * @summary Deletes hot spot parameter protection rules for HTTP requests.
        *
        * @param request DeleteWebFlowRulesRequest
        * @return DeleteWebFlowRulesResponse
@@ -1336,7 +1336,7 @@ namespace Mse20190531
       Models::DeleteWebFlowRulesResponse deleteWebFlowRules(const Models::DeleteWebFlowRulesRequest &request);
 
       /**
-       * @summary Deletes a ZooKeeper node.
+       * @summary Deletes a ZooKeeper data node.
        *
        * @param request DeleteZnodeRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1345,7 +1345,7 @@ namespace Mse20190531
       Models::DeleteZnodeResponse deleteZnodeWithOptions(const Models::DeleteZnodeRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Deletes a ZooKeeper node.
+       * @summary Deletes a ZooKeeper data node.
        *
        * @param request DeleteZnodeRequest
        * @return DeleteZnodeResponse
@@ -1370,7 +1370,7 @@ namespace Mse20190531
       Models::EnableHttp2Response enableHttp2(const Models::EnableHttp2Request &request);
 
       /**
-       * @summary Enables the proxy protocol. When an NLB instance is used as an ingress, you cannot obtain the real IP address of the client if you do not enable the proxy protocol. After you enable the proxy protocol, non-proxy requests are not adversely affected.
+       * @summary Enables the PROXY protocol. If the gateway ingress traffic is connected through NLB, the real IP address of the client cannot be obtained unless this feature is enabled. Enabling this feature does not affect non-PROXY protocol requests.
        *
        * @param request EnableProxyProtocolRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1379,7 +1379,7 @@ namespace Mse20190531
       Models::EnableProxyProtocolResponse enableProxyProtocolWithOptions(const Models::EnableProxyProtocolRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Enables the proxy protocol. When an NLB instance is used as an ingress, you cannot obtain the real IP address of the client if you do not enable the proxy protocol. After you enable the proxy protocol, non-proxy requests are not adversely affected.
+       * @summary Enables the PROXY protocol. If the gateway ingress traffic is connected through NLB, the real IP address of the client cannot be obtained unless this feature is enabled. Enabling this feature does not affect non-PROXY protocol requests.
        *
        * @param request EnableProxyProtocolRequest
        * @return EnableProxyProtocolResponse
@@ -1408,7 +1408,7 @@ namespace Mse20190531
       Models::ExportNacosConfigResponse exportNacosConfig(const Models::ExportNacosConfigRequest &request);
 
       /**
-       * @summary Initiates a task to export ZooKeeper data.
+       * @summary Initiates a ZooKeeper data export task.
        *
        * @description Only one task can run at a time.
        *
@@ -1419,7 +1419,7 @@ namespace Mse20190531
       Models::ExportZookeeperDataResponse exportZookeeperDataWithOptions(const Models::ExportZookeeperDataRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Initiates a task to export ZooKeeper data.
+       * @summary Initiates a ZooKeeper data export task.
        *
        * @description Only one task can run at a time.
        *
@@ -1429,9 +1429,9 @@ namespace Mse20190531
       Models::ExportZookeeperDataResponse exportZookeeperData(const Models::ExportZookeeperDataRequest &request);
 
       /**
-       * @summary Obtains the rules for graceful start and shutdown.
+       * @summary Queries the list of graceful start and shutdown rules.
        *
-       * @description You can call this operation to query the rules for graceful start and shutdown.
+       * @description Calls the FetchLosslessRuleList operation to retrieve the list of configuration rules for graceful start and shutdown.
        *
        * @param request FetchLosslessRuleListRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1440,9 +1440,9 @@ namespace Mse20190531
       Models::FetchLosslessRuleListResponse fetchLosslessRuleListWithOptions(const Models::FetchLosslessRuleListRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Obtains the rules for graceful start and shutdown.
+       * @summary Queries the list of graceful start and shutdown rules.
        *
-       * @description You can call this operation to query the rules for graceful start and shutdown.
+       * @description Calls the FetchLosslessRuleList operation to retrieve the list of configuration rules for graceful start and shutdown.
        *
        * @param request FetchLosslessRuleListRequest
        * @return FetchLosslessRuleListResponse
@@ -1450,7 +1450,7 @@ namespace Mse20190531
       Models::FetchLosslessRuleListResponse fetchLosslessRuleList(const Models::FetchLosslessRuleListRequest &request);
 
       /**
-       * @summary Queries a list of blacklists and whitelists of a gateway.
+       * @summary Retrieves the list of gateway blacklists and whitelists.
        *
        * @param tmpReq GatewayBlackWhiteListRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1459,7 +1459,7 @@ namespace Mse20190531
       Models::GatewayBlackWhiteListResponse gatewayBlackWhiteListWithOptions(const Models::GatewayBlackWhiteListRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries a list of blacklists and whitelists of a gateway.
+       * @summary Retrieves the list of gateway blacklists and whitelists.
        *
        * @param request GatewayBlackWhiteListRequest
        * @return GatewayBlackWhiteListResponse
@@ -1467,7 +1467,7 @@ namespace Mse20190531
       Models::GatewayBlackWhiteListResponse gatewayBlackWhiteList(const Models::GatewayBlackWhiteListRequest &request);
 
       /**
-       * @summary Queries information about canary release for messaging of an application.
+       * @summary Retrieves information related to application message canary release.
        *
        * @param request GetAppMessageQueueRouteRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1476,7 +1476,7 @@ namespace Mse20190531
       Models::GetAppMessageQueueRouteResponse getAppMessageQueueRouteWithOptions(const Models::GetAppMessageQueueRouteRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries information about canary release for messaging of an application.
+       * @summary Retrieves information related to application message canary release.
        *
        * @param request GetAppMessageQueueRouteRequest
        * @return GetAppMessageQueueRouteResponse
@@ -1501,7 +1501,7 @@ namespace Mse20190531
       Models::GetApplicationInstanceListResponse getApplicationInstanceList(const Models::GetApplicationInstanceListRequest &request);
 
       /**
-       * @summary Obtains the list of applications.
+       * @summary Retrieves the list of applications.
        *
        * @param tmpReq GetApplicationListRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1510,7 +1510,7 @@ namespace Mse20190531
       Models::GetApplicationListResponse getApplicationListWithOptions(const Models::GetApplicationListRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Obtains the list of applications.
+       * @summary Retrieves the list of applications.
        *
        * @param request GetApplicationListRequest
        * @return GetApplicationListResponse
@@ -1556,7 +1556,7 @@ namespace Mse20190531
       Models::GetEngineNamepaceResponse getEngineNamepace(const Models::GetEngineNamepaceRequest &request);
 
       /**
-       * @summary Obtains the basic information about a gateway, such as the virtual private cloud (VPC) and vSwitch to which the gateway belongs.
+       * @summary Retrieves basic information about a gateway, such as the VPC and vSwitch to which the gateway belongs.
        *
        * @param request GetGatewayRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1565,7 +1565,7 @@ namespace Mse20190531
       Models::GetGatewayResponse getGatewayWithOptions(const Models::GetGatewayRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Obtains the basic information about a gateway, such as the virtual private cloud (VPC) and vSwitch to which the gateway belongs.
+       * @summary Retrieves basic information about a gateway, such as the VPC and vSwitch to which the gateway belongs.
        *
        * @param request GetGatewayRequest
        * @return GetGatewayResponse
@@ -1590,7 +1590,7 @@ namespace Mse20190531
       Models::GetGatewayAuthConsumerDetailResponse getGatewayAuthConsumerDetail(const Models::GetGatewayAuthConsumerDetailRequest &request);
 
       /**
-       * @summary Obtains the authentication details of a gateway.
+       * @summary Retrieves the details of gateway authentication.
        *
        * @param request GetGatewayAuthDetailRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1599,7 +1599,7 @@ namespace Mse20190531
       Models::GetGatewayAuthDetailResponse getGatewayAuthDetailWithOptions(const Models::GetGatewayAuthDetailRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Obtains the authentication details of a gateway.
+       * @summary Retrieves the details of gateway authentication.
        *
        * @param request GetGatewayAuthDetailRequest
        * @return GetGatewayAuthDetailResponse
@@ -1607,7 +1607,7 @@ namespace Mse20190531
       Models::GetGatewayAuthDetailResponse getGatewayAuthDetail(const Models::GetGatewayAuthDetailRequest &request);
 
       /**
-       * @summary Obtains the parameter configurations of a gateway.
+       * @summary Retrieves the parameter settings of a gateway.
        *
        * @param request GetGatewayConfigRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1616,7 +1616,7 @@ namespace Mse20190531
       Models::GetGatewayConfigResponse getGatewayConfigWithOptions(const Models::GetGatewayConfigRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Obtains the parameter configurations of a gateway.
+       * @summary Retrieves the parameter settings of a gateway.
        *
        * @param request GetGatewayConfigRequest
        * @return GetGatewayConfigResponse
@@ -1624,7 +1624,7 @@ namespace Mse20190531
       Models::GetGatewayConfigResponse getGatewayConfig(const Models::GetGatewayConfigRequest &request);
 
       /**
-       * @summary Queries the details of a domain name associated with a gateway.
+       * @summary Queries the details of a gateway domain name.
        *
        * @param request GetGatewayDomainDetailRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1633,7 +1633,7 @@ namespace Mse20190531
       Models::GetGatewayDomainDetailResponse getGatewayDomainDetailWithOptions(const Models::GetGatewayDomainDetailRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the details of a domain name associated with a gateway.
+       * @summary Queries the details of a gateway domain name.
        *
        * @param request GetGatewayDomainDetailRequest
        * @return GetGatewayDomainDetailResponse
@@ -1641,7 +1641,7 @@ namespace Mse20190531
       Models::GetGatewayDomainDetailResponse getGatewayDomainDetail(const Models::GetGatewayDomainDetailRequest &request);
 
       /**
-       * @summary Obtains the global parameters of a gateway.
+       * @summary Retrieves the global parameters of a gateway.
        *
        * @param request GetGatewayOptionRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1650,7 +1650,7 @@ namespace Mse20190531
       Models::GetGatewayOptionResponse getGatewayOptionWithOptions(const Models::GetGatewayOptionRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Obtains the global parameters of a gateway.
+       * @summary Retrieves the global parameters of a gateway.
        *
        * @param request GetGatewayOptionRequest
        * @return GetGatewayOptionResponse
@@ -1658,7 +1658,7 @@ namespace Mse20190531
       Models::GetGatewayOptionResponse getGatewayOption(const Models::GetGatewayOptionRequest &request);
 
       /**
-       * @summary Queries the details of a route for a gateway.
+       * @summary Queries the details of a gateway route.
        *
        * @param request GetGatewayRouteDetailRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1667,7 +1667,7 @@ namespace Mse20190531
       Models::GetGatewayRouteDetailResponse getGatewayRouteDetailWithOptions(const Models::GetGatewayRouteDetailRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the details of a route for a gateway.
+       * @summary Queries the details of a gateway route.
        *
        * @param request GetGatewayRouteDetailRequest
        * @return GetGatewayRouteDetailResponse
@@ -1692,7 +1692,7 @@ namespace Mse20190531
       Models::GetGatewayServiceDetailResponse getGatewayServiceDetail(const Models::GetGatewayServiceDetailRequest &request);
 
       /**
-       * @summary Queries the information about a Container Service for Kubernetes (ACK) cluster for which Microservices Governance is enabled.
+       * @summary Queries information about a Container Service for Kubernetes (ACK) cluster that has Microservices Governance enabled.
        *
        * @param request GetGovernanceKubernetesClusterRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1701,7 +1701,7 @@ namespace Mse20190531
       Models::GetGovernanceKubernetesClusterResponse getGovernanceKubernetesClusterWithOptions(const Models::GetGovernanceKubernetesClusterRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the information about a Container Service for Kubernetes (ACK) cluster for which Microservices Governance is enabled.
+       * @summary Queries information about a Container Service for Kubernetes (ACK) cluster that has Microservices Governance enabled.
        *
        * @param request GetGovernanceKubernetesClusterRequest
        * @return GetGovernanceKubernetesClusterResponse
@@ -1764,7 +1764,7 @@ namespace Mse20190531
       Models::GetKubernetesSourceResponse getKubernetesSource(const Models::GetKubernetesSourceRequest &request);
 
       /**
-       * @summary Obtains the Intra-zone Provider First rules.
+       * @summary Retrieves the Intra-zone Provider First rules.
        *
        * @param request GetLocalityRuleRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1773,7 +1773,7 @@ namespace Mse20190531
       Models::GetLocalityRuleResponse getLocalityRuleWithOptions(const Models::GetLocalityRuleRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Obtains the Intra-zone Provider First rules.
+       * @summary Retrieves the Intra-zone Provider First rules.
        *
        * @param request GetLocalityRuleRequest
        * @return GetLocalityRuleResponse
@@ -1781,11 +1781,9 @@ namespace Mse20190531
       Models::GetLocalityRuleResponse getLocalityRule(const Models::GetLocalityRuleRequest &request);
 
       /**
-       * @summary Queries the rules for graceful start and shutdown of an application.
+       * @summary Retrieves the graceful start and shutdown rules for a specified application.
        *
-       * @description You can call this operation to query the rules for graceful start and shutdown of an application.
-       * You can query the rules for graceful start and shutdown of an application preferentially by using the AppId parameter.
-       * If the AppId parameter is left empty, you can use the RegionId, Namespace, and AppName parameters to query the rules for graceful start and shutdown of an application.
+       * @description Calls the GetLosslessRuleByApp operation to retrieve the graceful start and shutdown configuration rules for a specified application. The query prioritizes the AppId parameter. If AppId is not specified, the system queries by using RegionId, Namespace, and AppName.
        *
        * @param request GetLosslessRuleByAppRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1794,11 +1792,9 @@ namespace Mse20190531
       Models::GetLosslessRuleByAppResponse getLosslessRuleByAppWithOptions(const Models::GetLosslessRuleByAppRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the rules for graceful start and shutdown of an application.
+       * @summary Retrieves the graceful start and shutdown rules for a specified application.
        *
-       * @description You can call this operation to query the rules for graceful start and shutdown of an application.
-       * You can query the rules for graceful start and shutdown of an application preferentially by using the AppId parameter.
-       * If the AppId parameter is left empty, you can use the RegionId, Namespace, and AppName parameters to query the rules for graceful start and shutdown of an application.
+       * @description Calls the GetLosslessRuleByApp operation to retrieve the graceful start and shutdown configuration rules for a specified application. The query prioritizes the AppId parameter. If AppId is not specified, the system queries by using RegionId, Namespace, and AppName.
        *
        * @param request GetLosslessRuleByAppRequest
        * @return GetLosslessRuleByAppResponse
@@ -1806,7 +1802,7 @@ namespace Mse20190531
       Models::GetLosslessRuleByAppResponse getLosslessRuleByApp(const Models::GetLosslessRuleByAppRequest &request);
 
       /**
-       * @summary Queries the information about the MSE feature switch.
+       * @summary Retrieves the MSE feature toggles.
        *
        * @param request GetMseFeatureSwitchRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1815,7 +1811,7 @@ namespace Mse20190531
       Models::GetMseFeatureSwitchResponse getMseFeatureSwitchWithOptions(const Models::GetMseFeatureSwitchRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the information about the MSE feature switch.
+       * @summary Retrieves the MSE feature toggles.
        *
        * @param request GetMseFeatureSwitchRequest
        * @return GetMseFeatureSwitchResponse
@@ -1882,7 +1878,7 @@ namespace Mse20190531
       Models::GetNacosHistoryConfigResponse getNacosHistoryConfig(const Models::GetNacosHistoryConfigRequest &request);
 
       /**
-       * @summary 获取MCP Server的详情
+       * @summary Retrieves the details of an MCP server.
        *
        * @param request GetNacosMcpServerRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1891,7 +1887,7 @@ namespace Mse20190531
       Models::GetNacosMcpServerResponse getNacosMcpServerWithOptions(const Models::GetNacosMcpServerRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取MCP Server的详情
+       * @summary Retrieves the details of an MCP server.
        *
        * @param request GetNacosMcpServerRequest
        * @return GetNacosMcpServerResponse
@@ -1899,9 +1895,9 @@ namespace Mse20190531
       Models::GetNacosMcpServerResponse getNacosMcpServer(const Models::GetNacosMcpServerRequest &request);
 
       /**
-       * @summary Queries overview information about Microservices Governance.
+       * @summary Queries the Query Governance overview information.
        *
-       * @description You can call this operation to query overview information about service governance.
+       * @description Queries the service governance overview information.
        *
        * @param request GetOverviewRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1910,9 +1906,9 @@ namespace Mse20190531
       Models::GetOverviewResponse getOverviewWithOptions(const Models::GetOverviewRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries overview information about Microservices Governance.
+       * @summary Queries the Query Governance overview information.
        *
-       * @description You can call this operation to query overview information about service governance.
+       * @description Queries the service governance overview information.
        *
        * @param request GetOverviewRequest
        * @return GetOverviewResponse
@@ -1920,7 +1916,7 @@ namespace Mse20190531
       Models::GetOverviewResponse getOverview(const Models::GetOverviewRequest &request);
 
       /**
-       * @summary Obtains plug-in configurations.
+       * @summary Retrieves the plug-in configuration.
        *
        * @param request GetPluginConfigRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1929,7 +1925,7 @@ namespace Mse20190531
       Models::GetPluginConfigResponse getPluginConfigWithOptions(const Models::GetPluginConfigRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Obtains plug-in configurations.
+       * @summary Retrieves the plug-in configuration.
        *
        * @param request GetPluginConfigRequest
        * @return GetPluginConfigResponse
@@ -1937,7 +1933,7 @@ namespace Mse20190531
       Models::GetPluginConfigResponse getPluginConfig(const Models::GetPluginConfigRequest &request);
 
       /**
-       * @summary Obtains plug-ins.
+       * @summary Queries plugins from the plug-in marketplace.
        *
        * @param request GetPluginsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1946,7 +1942,7 @@ namespace Mse20190531
       Models::GetPluginsResponse getPluginsWithOptions(const Models::GetPluginsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Obtains plug-ins.
+       * @summary Queries plugins from the plug-in marketplace.
        *
        * @param request GetPluginsRequest
        * @return GetPluginsResponse
@@ -1971,7 +1967,7 @@ namespace Mse20190531
       Models::GetServiceListResponse getServiceList(const Models::GetServiceListRequest &request);
 
       /**
-       * @summary Queries the version of a microservices application.
+       * @summary Retrieves the service list.
        *
        * @param request GetServiceListPageRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1980,7 +1976,7 @@ namespace Mse20190531
       Models::GetServiceListPageResponse getServiceListPageWithOptions(const Models::GetServiceListPageRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the version of a microservices application.
+       * @summary Retrieves the service list.
        *
        * @param request GetServiceListPageRequest
        * @return GetServiceListPageResponse
@@ -2022,7 +2018,7 @@ namespace Mse20190531
       Models::GetServiceMethodPageResponse getServiceMethodPage(const Models::GetServiceMethodPageRequest &request);
 
       /**
-       * @summary Obtains all tags in the current lane group.
+       * @summary Retrieves all tags in the current traffic lane group.
        *
        * @param request GetTagsBySwimmingLaneGroupIdRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2031,7 +2027,7 @@ namespace Mse20190531
       Models::GetTagsBySwimmingLaneGroupIdResponse getTagsBySwimmingLaneGroupIdWithOptions(const Models::GetTagsBySwimmingLaneGroupIdRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Obtains all tags in the current lane group.
+       * @summary Retrieves all tags in the current traffic lane group.
        *
        * @param request GetTagsBySwimmingLaneGroupIdRequest
        * @return GetTagsBySwimmingLaneGroupIdResponse
@@ -2056,9 +2052,9 @@ namespace Mse20190531
       Models::GetZookeeperDataImportUrlResponse getZookeeperDataImportUrl(const Models::GetZookeeperDataImportUrlRequest &request);
 
       /**
-       * @summary Imports Nacos configurations as a file.
+       * @summary Imports Nacos configurations by using a configuration file.
        *
-       * @description > The operation is not provided in Nacos SDKs. For information about Nacos SDKs, see the [official documentation](https://nacos.io/zh-cn/docs/sdk.html).
+       * @description > The current OpenAPI is not the Nacos-SDK API. For information about the Nacos-SDK API, see the [official documentation](https://nacos.io/zh-cn/docs/sdk.html).
        *
        * @param request ImportNacosConfigRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2067,9 +2063,9 @@ namespace Mse20190531
       Models::ImportNacosConfigResponse importNacosConfigWithOptions(const Models::ImportNacosConfigRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Imports Nacos configurations as a file.
+       * @summary Imports Nacos configurations by using a configuration file.
        *
-       * @description > The operation is not provided in Nacos SDKs. For information about Nacos SDKs, see the [official documentation](https://nacos.io/zh-cn/docs/sdk.html).
+       * @description > The current OpenAPI is not the Nacos-SDK API. For information about the Nacos-SDK API, see the [official documentation](https://nacos.io/zh-cn/docs/sdk.html).
        *
        * @param request ImportNacosConfigRequest
        * @return ImportNacosConfigResponse
@@ -2077,7 +2073,7 @@ namespace Mse20190531
       Models::ImportNacosConfigResponse importNacosConfig(const Models::ImportNacosConfigRequest &request);
 
       /**
-       * @summary Imports services to a gateway.
+       * @summary Subscribes to the services imported to the gateway.
        *
        * @param tmpReq ImportServicesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2086,7 +2082,7 @@ namespace Mse20190531
       Models::ImportServicesResponse importServicesWithOptions(const Models::ImportServicesRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Imports services to a gateway.
+       * @summary Subscribes to the services imported to the gateway.
        *
        * @param request ImportServicesRequest
        * @return ImportServicesResponse
@@ -2094,9 +2090,9 @@ namespace Mse20190531
       Models::ImportServicesResponse importServices(const Models::ImportServicesRequest &request);
 
       /**
-       * @summary Initiates a task to import data from a destination URL to a Microservices Engine (MSE) ZooKeeper instance.
+       * @summary Initiates a ZooKeeper data import task to import data from the specified URL into the ZooKeeper cluster.
        *
-       * @description **Danger** This operation clears existing data. Exercise caution when you call this API operation.
+       * @description >Danger: This operation clears all existing data. Proceed with caution.
        *
        * @param request ImportZookeeperDataRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2105,9 +2101,9 @@ namespace Mse20190531
       Models::ImportZookeeperDataResponse importZookeeperDataWithOptions(const Models::ImportZookeeperDataRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Initiates a task to import data from a destination URL to a Microservices Engine (MSE) ZooKeeper instance.
+       * @summary Initiates a ZooKeeper data import task to import data from the specified URL into the ZooKeeper cluster.
        *
-       * @description **Danger** This operation clears existing data. Exercise caution when you call this API operation.
+       * @description >Danger: This operation clears all existing data. Proceed with caution.
        *
        * @param request ImportZookeeperDataRequest
        * @return ImportZookeeperDataResponse
@@ -2132,9 +2128,9 @@ namespace Mse20190531
       Models::InitializeServiceLinkRoleResponse initializeServiceLinkRole(const Models::InitializeServiceLinkRoleRequest &request);
 
       /**
-       * @summary Queries application instances that are registered with a Microservices Engine (MSE) Nacos instance.
+       * @summary Queries the list of Nacos service instances.
        *
-       * @description > The operation is not provided in Nacos SDKs. For information about Nacos SDKs, see the [official documentation](https://nacos.io/zh-cn/docs/sdk.html).
+       * @description > The current OpenAPI is not the Nacos-SDK API. For information about the Nacos-SDK API, refer to the [official documentation](https://nacos.io/zh-cn/docs/sdk.html).
        *
        * @param request ListAnsInstancesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2143,9 +2139,9 @@ namespace Mse20190531
       Models::ListAnsInstancesResponse listAnsInstancesWithOptions(const Models::ListAnsInstancesRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries application instances that are registered with a Microservices Engine (MSE) Nacos instance.
+       * @summary Queries the list of Nacos service instances.
        *
-       * @description > The operation is not provided in Nacos SDKs. For information about Nacos SDKs, see the [official documentation](https://nacos.io/zh-cn/docs/sdk.html).
+       * @description > The current OpenAPI is not the Nacos-SDK API. For information about the Nacos-SDK API, refer to the [official documentation](https://nacos.io/zh-cn/docs/sdk.html).
        *
        * @param request ListAnsInstancesRequest
        * @return ListAnsInstancesResponse
@@ -2174,9 +2170,9 @@ namespace Mse20190531
       Models::ListAnsServiceClustersResponse listAnsServiceClusters(const Models::ListAnsServiceClustersRequest &request);
 
       /**
-       * @summary Queries Nacos services.
+       * @summary Queries the details of Nacos services.
        *
-       * @description > The operation is not provided in Nacos SDKs. For information about Nacos SDKs, see the [official documentation](https://nacos.io/zh-cn/docs/sdk.html).
+       * @description > This OpenAPI is not a Nacos SDK API. For more information about Nacos SDK APIs, see [the official documentation](https://nacos.io/zh-cn/docs/sdk.html).
        *
        * @param request ListAnsServicesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2185,9 +2181,9 @@ namespace Mse20190531
       Models::ListAnsServicesResponse listAnsServicesWithOptions(const Models::ListAnsServicesRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries Nacos services.
+       * @summary Queries the details of Nacos services.
        *
-       * @description > The operation is not provided in Nacos SDKs. For information about Nacos SDKs, see the [official documentation](https://nacos.io/zh-cn/docs/sdk.html).
+       * @description > This OpenAPI is not a Nacos SDK API. For more information about Nacos SDK APIs, see [the official documentation](https://nacos.io/zh-cn/docs/sdk.html).
        *
        * @param request ListAnsServicesRequest
        * @return ListAnsServicesResponse
@@ -2216,7 +2212,7 @@ namespace Mse20190531
       Models::ListAppBySwimmingLaneGroupTagResponse listAppBySwimmingLaneGroupTag(const Models::ListAppBySwimmingLaneGroupTagRequest &request);
 
       /**
-       * @summary Lists applications by tag in a specified lane group.
+       * @summary Retrieves the list of applications with a specified tag in a specified lane group.
        *
        * @param tmpReq ListAppBySwimmingLaneGroupTagsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2225,7 +2221,7 @@ namespace Mse20190531
       Models::ListAppBySwimmingLaneGroupTagsResponse listAppBySwimmingLaneGroupTagsWithOptions(const Models::ListAppBySwimmingLaneGroupTagsRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Lists applications by tag in a specified lane group.
+       * @summary Retrieves the list of applications with a specified tag in a specified lane group.
        *
        * @param request ListAppBySwimmingLaneGroupTagsRequest
        * @return ListAppBySwimmingLaneGroupTagsResponse
@@ -2250,7 +2246,7 @@ namespace Mse20190531
       Models::ListApplicationsWithTagRulesResponse listApplicationsWithTagRules(const Models::ListApplicationsWithTagRulesRequest &request);
 
       /**
-       * @summary Queries a list of service authentication rules.
+       * @summary Call the ListAuthPolicy API to query the list of service authentication rules.
        *
        * @param request ListAuthPolicyRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2259,7 +2255,7 @@ namespace Mse20190531
       Models::ListAuthPolicyResponse listAuthPolicyWithOptions(const Models::ListAuthPolicyRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries a list of service authentication rules.
+       * @summary Call the ListAuthPolicy API to query the list of service authentication rules.
        *
        * @param request ListAuthPolicyRequest
        * @return ListAuthPolicyResponse
@@ -2267,7 +2263,7 @@ namespace Mse20190531
       Models::ListAuthPolicyResponse listAuthPolicy(const Models::ListAuthPolicyRequest &request);
 
       /**
-       * @summary Queries a list of circuit breaking rules.
+       * @summary Queries circuit breaker rules.
        *
        * @param request ListCircuitBreakerRulesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2276,7 +2272,7 @@ namespace Mse20190531
       Models::ListCircuitBreakerRulesResponse listCircuitBreakerRulesWithOptions(const Models::ListCircuitBreakerRulesRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries a list of circuit breaking rules.
+       * @summary Queries circuit breaker rules.
        *
        * @param request ListCircuitBreakerRulesRequest
        * @return ListCircuitBreakerRulesResponse
@@ -2284,7 +2280,7 @@ namespace Mse20190531
       Models::ListCircuitBreakerRulesResponse listCircuitBreakerRules(const Models::ListCircuitBreakerRulesRequest &request);
 
       /**
-       * @summary Queries available cluster connection types.
+       * @summary Queries the supported cluster connection types.
        *
        * @param request ListClusterConnectionTypesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2293,7 +2289,7 @@ namespace Mse20190531
       Models::ListClusterConnectionTypesResponse listClusterConnectionTypesWithOptions(const Models::ListClusterConnectionTypesRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries available cluster connection types.
+       * @summary Queries the supported cluster connection types.
        *
        * @param request ListClusterConnectionTypesRequest
        * @return ListClusterConnectionTypesResponse
@@ -2301,7 +2297,7 @@ namespace Mse20190531
       Models::ListClusterConnectionTypesResponse listClusterConnectionTypes(const Models::ListClusterConnectionTypesRequest &request);
 
       /**
-       * @summary Obtains information about historical health check tasks.
+       * @summary Retrieves information about historical health check tasks.
        *
        * @param request ListClusterHealthCheckTaskRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2310,7 +2306,7 @@ namespace Mse20190531
       Models::ListClusterHealthCheckTaskResponse listClusterHealthCheckTaskWithOptions(const Models::ListClusterHealthCheckTaskRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Obtains information about historical health check tasks.
+       * @summary Retrieves information about historical health check tasks.
        *
        * @param request ListClusterHealthCheckTaskRequest
        * @return ListClusterHealthCheckTaskResponse
@@ -2318,7 +2314,7 @@ namespace Mse20190531
       Models::ListClusterHealthCheckTaskResponse listClusterHealthCheckTask(const Models::ListClusterHealthCheckTaskRequest &request);
 
       /**
-       * @summary Queries the engine types that can be activated.
+       * @summary Queries the supported engine types.
        *
        * @param request ListClusterTypesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2327,7 +2323,7 @@ namespace Mse20190531
       Models::ListClusterTypesResponse listClusterTypesWithOptions(const Models::ListClusterTypesRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the engine types that can be activated.
+       * @summary Queries the supported engine types.
        *
        * @param request ListClusterTypesRequest
        * @return ListClusterTypesResponse
@@ -2335,7 +2331,7 @@ namespace Mse20190531
       Models::ListClusterTypesResponse listClusterTypes(const Models::ListClusterTypesRequest &request);
 
       /**
-       * @summary Queries the information about supported instance versions.
+       * @summary Queries information about supported cluster versions.
        *
        * @param request ListClusterVersionsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2344,7 +2340,7 @@ namespace Mse20190531
       Models::ListClusterVersionsResponse listClusterVersionsWithOptions(const Models::ListClusterVersionsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the information about supported instance versions.
+       * @summary Queries information about supported cluster versions.
        *
        * @param request ListClusterVersionsRequest
        * @return ListClusterVersionsResponse
@@ -2352,7 +2348,7 @@ namespace Mse20190531
       Models::ListClusterVersionsResponse listClusterVersions(const Models::ListClusterVersionsRequest &request);
 
       /**
-       * @summary Queries Microservices Engine (MSE) instances.
+       * @summary Queries a list of Microservices Registry clusters.
        *
        * @param request ListClustersRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2361,7 +2357,7 @@ namespace Mse20190531
       Models::ListClustersResponse listClustersWithOptions(const Models::ListClustersRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries Microservices Engine (MSE) instances.
+       * @summary Queries a list of Microservices Registry clusters.
        *
        * @param request ListClustersRequest
        * @return ListClustersResponse
@@ -2420,7 +2416,7 @@ namespace Mse20190531
       Models::ListEurekaInstancesResponse listEurekaInstances(const Models::ListEurekaInstancesRequest &request);
 
       /**
-       * @summary Queries Eureka services.
+       * @summary Queries the Eureka service list.
        *
        * @param request ListEurekaServicesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2429,7 +2425,7 @@ namespace Mse20190531
       Models::ListEurekaServicesResponse listEurekaServicesWithOptions(const Models::ListEurekaServicesRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries Eureka services.
+       * @summary Queries the Eureka service list.
        *
        * @param request ListEurekaServicesRequest
        * @return ListEurekaServicesResponse
@@ -2454,7 +2450,7 @@ namespace Mse20190531
       Models::ListExportZookeeperDataResponse listExportZookeeperData(const Models::ListExportZookeeperDataRequest &request);
 
       /**
-       * @summary Obtains a list of throttling rules.
+       * @summary Queries the list of flow control rules.
        *
        * @param request ListFlowRulesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2463,7 +2459,7 @@ namespace Mse20190531
       Models::ListFlowRulesResponse listFlowRulesWithOptions(const Models::ListFlowRulesRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Obtains a list of throttling rules.
+       * @summary Queries the list of flow control rules.
        *
        * @param request ListFlowRulesRequest
        * @return ListFlowRulesResponse
@@ -2471,7 +2467,7 @@ namespace Mse20190531
       Models::ListFlowRulesResponse listFlowRules(const Models::ListFlowRulesRequest &request);
 
       /**
-       * @summary Queries a list of gateways.
+       * @summary Queries the list of gateways.
        *
        * @param tmpReq ListGatewayRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2480,7 +2476,7 @@ namespace Mse20190531
       Models::ListGatewayResponse listGatewayWithOptions(const Models::ListGatewayRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries a list of gateways.
+       * @summary Queries the list of gateways.
        *
        * @param request ListGatewayRequest
        * @return ListGatewayResponse
@@ -2488,7 +2484,7 @@ namespace Mse20190531
       Models::ListGatewayResponse listGateway(const Models::ListGatewayRequest &request);
 
       /**
-       * @summary 查询网关认证
+       * @summary Queries the list of gateway authentication rules.
        *
        * @param tmpReq ListGatewayAuthRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2497,7 +2493,7 @@ namespace Mse20190531
       Models::ListGatewayAuthResponse listGatewayAuthWithOptions(const Models::ListGatewayAuthRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询网关认证
+       * @summary Queries the list of gateway authentication rules.
        *
        * @param request ListGatewayAuthRequest
        * @return ListGatewayAuthResponse
@@ -2522,7 +2518,7 @@ namespace Mse20190531
       Models::ListGatewayAuthConsumerResponse listGatewayAuthConsumer(const Models::ListGatewayAuthConsumerRequest &request);
 
       /**
-       * @summary Queries the list of authorized resources for the consumer on which a gateway performs authentication operations.
+       * @summary Queries the authorization list for gateway authentication consumers.
        *
        * @param request ListGatewayAuthConsumerResourceRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2531,7 +2527,7 @@ namespace Mse20190531
       Models::ListGatewayAuthConsumerResourceResponse listGatewayAuthConsumerResourceWithOptions(const Models::ListGatewayAuthConsumerResourceRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the list of authorized resources for the consumer on which a gateway performs authentication operations.
+       * @summary Queries the authorization list for gateway authentication consumers.
        *
        * @param request ListGatewayAuthConsumerResourceRequest
        * @return ListGatewayAuthConsumerResourceResponse
@@ -2539,7 +2535,7 @@ namespace Mse20190531
       Models::ListGatewayAuthConsumerResourceResponse listGatewayAuthConsumerResource(const Models::ListGatewayAuthConsumerResourceRequest &request);
 
       /**
-       * @summary Queries a gateway circuit breaking rule.
+       * @summary Queries the circuit breaker rules of the gateway.
        *
        * @param request ListGatewayCircuitBreakerRuleRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2548,7 +2544,7 @@ namespace Mse20190531
       Models::ListGatewayCircuitBreakerRuleResponse listGatewayCircuitBreakerRuleWithOptions(const Models::ListGatewayCircuitBreakerRuleRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries a gateway circuit breaking rule.
+       * @summary Queries the circuit breaker rules of the gateway.
        *
        * @param request ListGatewayCircuitBreakerRuleRequest
        * @return ListGatewayCircuitBreakerRuleResponse
@@ -2556,7 +2552,7 @@ namespace Mse20190531
       Models::ListGatewayCircuitBreakerRuleResponse listGatewayCircuitBreakerRule(const Models::ListGatewayCircuitBreakerRuleRequest &request);
 
       /**
-       * @summary Queries the domain names that are associated with a gateway.
+       * @summary Queries the list of associated domains for a gateway.
        *
        * @param request ListGatewayDomainRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2565,7 +2561,7 @@ namespace Mse20190531
       Models::ListGatewayDomainResponse listGatewayDomainWithOptions(const Models::ListGatewayDomainRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the domain names that are associated with a gateway.
+       * @summary Queries the list of associated domains for a gateway.
        *
        * @param request ListGatewayDomainRequest
        * @return ListGatewayDomainResponse
@@ -2573,7 +2569,7 @@ namespace Mse20190531
       Models::ListGatewayDomainResponse listGatewayDomain(const Models::ListGatewayDomainRequest &request);
 
       /**
-       * @summary Queries throttling rules of a gateway.
+       * @summary Queries the gateway throttle rules.
        *
        * @param request ListGatewayFlowRuleRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2582,7 +2578,7 @@ namespace Mse20190531
       Models::ListGatewayFlowRuleResponse listGatewayFlowRuleWithOptions(const Models::ListGatewayFlowRuleRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries throttling rules of a gateway.
+       * @summary Queries the gateway throttle rules.
        *
        * @param request ListGatewayFlowRuleRequest
        * @return ListGatewayFlowRuleResponse
@@ -2590,7 +2586,7 @@ namespace Mse20190531
       Models::ListGatewayFlowRuleResponse listGatewayFlowRule(const Models::ListGatewayFlowRuleRequest &request);
 
       /**
-       * @summary Queries the concurrency rule of a gateway.
+       * @summary Queries the concurrency rules of the gateway.
        *
        * @param request ListGatewayIsolationRuleRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2599,7 +2595,7 @@ namespace Mse20190531
       Models::ListGatewayIsolationRuleResponse listGatewayIsolationRuleWithOptions(const Models::ListGatewayIsolationRuleRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the concurrency rule of a gateway.
+       * @summary Queries the concurrency rules of the gateway.
        *
        * @param request ListGatewayIsolationRuleRequest
        * @return ListGatewayIsolationRuleResponse
@@ -2607,7 +2603,7 @@ namespace Mse20190531
       Models::ListGatewayIsolationRuleResponse listGatewayIsolationRule(const Models::ListGatewayIsolationRuleRequest &request);
 
       /**
-       * @summary Queries the routes of a gateway.
+       * @summary Queries the gateway route list.
        *
        * @param tmpReq ListGatewayRouteRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2616,7 +2612,7 @@ namespace Mse20190531
       Models::ListGatewayRouteResponse listGatewayRouteWithOptions(const Models::ListGatewayRouteRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the routes of a gateway.
+       * @summary Queries the gateway route list.
        *
        * @param request ListGatewayRouteRequest
        * @return ListGatewayRouteResponse
@@ -2641,7 +2637,7 @@ namespace Mse20190531
       Models::ListGatewayRouteOnAuthResponse listGatewayRouteOnAuth(const Models::ListGatewayRouteOnAuthRequest &request);
 
       /**
-       * @summary Queries a list of services that are subscribed to by a gateway.
+       * @summary Queries the list of services subscribed to by a gateway.
        *
        * @param tmpReq ListGatewayServiceRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2650,7 +2646,7 @@ namespace Mse20190531
       Models::ListGatewayServiceResponse listGatewayServiceWithOptions(const Models::ListGatewayServiceRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries a list of services that are subscribed to by a gateway.
+       * @summary Queries the list of services subscribed to by a gateway.
        *
        * @param request ListGatewayServiceRequest
        * @return ListGatewayServiceResponse
@@ -2658,7 +2654,7 @@ namespace Mse20190531
       Models::ListGatewayServiceResponse listGatewayService(const Models::ListGatewayServiceRequest &request);
 
       /**
-       * @summary Queries the Server Load Balancer (SLB) instances that are associated with a gateway.
+       * @summary Queries the gateway ingress SLB.
        *
        * @param request ListGatewaySlbRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2667,7 +2663,7 @@ namespace Mse20190531
       Models::ListGatewaySlbResponse listGatewaySlbWithOptions(const Models::ListGatewaySlbRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the Server Load Balancer (SLB) instances that are associated with a gateway.
+       * @summary Queries the gateway ingress SLB.
        *
        * @param request ListGatewaySlbRequest
        * @return ListGatewaySlbResponse
@@ -2675,7 +2671,7 @@ namespace Mse20190531
       Models::ListGatewaySlbResponse listGatewaySlb(const Models::ListGatewaySlbRequest &request);
 
       /**
-       * @summary Obtains a list of zones where a gateway is available.
+       * @summary Queries the available zones for gateways.
        *
        * @param request ListGatewayZoneRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2684,7 +2680,7 @@ namespace Mse20190531
       Models::ListGatewayZoneResponse listGatewayZoneWithOptions(const Models::ListGatewayZoneRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Obtains a list of zones where a gateway is available.
+       * @summary Queries the available zones for gateways.
        *
        * @param request ListGatewayZoneRequest
        * @return ListGatewayZoneResponse
@@ -2709,7 +2705,7 @@ namespace Mse20190531
       Models::ListInstanceCountResponse listInstanceCount(const Models::ListInstanceCountRequest &request);
 
       /**
-       * @summary Queries isolation rules.
+       * @summary Query isolation rules.
        *
        * @param request ListIsolationRulesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2718,7 +2714,7 @@ namespace Mse20190531
       Models::ListIsolationRulesResponse listIsolationRulesWithOptions(const Models::ListIsolationRulesRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries isolation rules.
+       * @summary Query isolation rules.
        *
        * @param request ListIsolationRulesRequest
        * @return ListIsolationRulesResponse
@@ -2728,7 +2724,7 @@ namespace Mse20190531
       /**
        * @summary Queries listeners based on configuration information.
        *
-       * @description > The operation is not provided in Nacos SDKs. For information about Nacos SDKs, see the [official documentation](https://nacos.io/zh-cn/docs/sdk.html).
+       * @description > The current OpenAPI is not a Nacos-SDK API. For information about Nacos-SDK APIs, refer to the [official documentation](https://nacos.io/zh-cn/docs/sdk.html).
        *
        * @param tmpReq ListListenersByConfigRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2739,7 +2735,7 @@ namespace Mse20190531
       /**
        * @summary Queries listeners based on configuration information.
        *
-       * @description > The operation is not provided in Nacos SDKs. For information about Nacos SDKs, see the [official documentation](https://nacos.io/zh-cn/docs/sdk.html).
+       * @description > The current OpenAPI is not a Nacos-SDK API. For information about Nacos-SDK APIs, refer to the [official documentation](https://nacos.io/zh-cn/docs/sdk.html).
        *
        * @param request ListListenersByConfigRequest
        * @return ListListenersByConfigResponse
@@ -2747,9 +2743,9 @@ namespace Mse20190531
       Models::ListListenersByConfigResponse listListenersByConfig(const Models::ListListenersByConfigRequest &request);
 
       /**
-       * @summary Queries the information about listeners based on IP addresses.
+       * @summary Queries the listener list based on an IP address.
        *
-       * @description > The operation is not provided in Nacos SDKs. For information about Nacos SDKs, see the [official documentation](https://nacos.io/zh-cn/docs/sdk.html).
+       * @description > The current OpenAPI is not a Nacos-SDK API. For more information about the Nacos-SDK API, see [Official Documentation](https://nacos.io/zh-cn/docs/sdk.html).
        *
        * @param request ListListenersByIpRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2758,9 +2754,9 @@ namespace Mse20190531
       Models::ListListenersByIpResponse listListenersByIpWithOptions(const Models::ListListenersByIpRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the information about listeners based on IP addresses.
+       * @summary Queries the listener list based on an IP address.
        *
-       * @description > The operation is not provided in Nacos SDKs. For information about Nacos SDKs, see the [official documentation](https://nacos.io/zh-cn/docs/sdk.html).
+       * @description > The current OpenAPI is not a Nacos-SDK API. For more information about the Nacos-SDK API, see [Official Documentation](https://nacos.io/zh-cn/docs/sdk.html).
        *
        * @param request ListListenersByIpRequest
        * @return ListListenersByIpResponse
@@ -2768,7 +2764,7 @@ namespace Mse20190531
       Models::ListListenersByIpResponse listListenersByIp(const Models::ListListenersByIpRequest &request);
 
       /**
-       * @summary Queries information about a migration task.
+       * @summary This operation queries cloud migration tasks.
        *
        * @param request ListMigrationTaskRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2777,7 +2773,7 @@ namespace Mse20190531
       Models::ListMigrationTaskResponse listMigrationTaskWithOptions(const Models::ListMigrationTaskRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries information about a migration task.
+       * @summary This operation queries cloud migration tasks.
        *
        * @param request ListMigrationTaskRequest
        * @return ListMigrationTaskResponse
@@ -2785,9 +2781,9 @@ namespace Mse20190531
       Models::ListMigrationTaskResponse listMigrationTask(const Models::ListMigrationTaskRequest &request);
 
       /**
-       * @summary Queries Nacos configurations.
+       * @summary Queries the list of Nacos configurations.
        *
-       * @description > The operation is not provided in Nacos SDKs. For information about Nacos SDKs, see the [official documentation](https://nacos.io/zh-cn/docs/sdk.html).
+       * @description > The current OpenAPI is not the Nacos SDK API. For information about the Nacos SDK API, refer to the [official documentation](https://nacos.io/zh-cn/docs/sdk.html).
        *
        * @param request ListNacosConfigsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2796,9 +2792,9 @@ namespace Mse20190531
       Models::ListNacosConfigsResponse listNacosConfigsWithOptions(const Models::ListNacosConfigsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries Nacos configurations.
+       * @summary Queries the list of Nacos configurations.
        *
-       * @description > The operation is not provided in Nacos SDKs. For information about Nacos SDKs, see the [official documentation](https://nacos.io/zh-cn/docs/sdk.html).
+       * @description > The current OpenAPI is not the Nacos SDK API. For information about the Nacos SDK API, refer to the [official documentation](https://nacos.io/zh-cn/docs/sdk.html).
        *
        * @param request ListNacosConfigsRequest
        * @return ListNacosConfigsResponse
@@ -2806,9 +2802,9 @@ namespace Mse20190531
       Models::ListNacosConfigsResponse listNacosConfigs(const Models::ListNacosConfigsRequest &request);
 
       /**
-       * @summary Queries the configuration history of a Microservices Engine (MSE) Nacos instance.
+       * @summary Queries the configuration history of a Nacos instance.
        *
-       * @description > The operation is not provided in Nacos SDKs. For information about Nacos SDKs, see the [official documentation](https://nacos.io/zh-cn/docs/sdk.html).
+       * @description > The current OpenAPI is not the Nacos-SDK API. For information about the Nacos-SDK API, see [official documentation](https://nacos.io/zh-cn/docs/sdk.html).
        *
        * @param request ListNacosHistoryConfigsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2817,9 +2813,9 @@ namespace Mse20190531
       Models::ListNacosHistoryConfigsResponse listNacosHistoryConfigsWithOptions(const Models::ListNacosHistoryConfigsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the configuration history of a Microservices Engine (MSE) Nacos instance.
+       * @summary Queries the configuration history of a Nacos instance.
        *
-       * @description > The operation is not provided in Nacos SDKs. For information about Nacos SDKs, see the [official documentation](https://nacos.io/zh-cn/docs/sdk.html).
+       * @description > The current OpenAPI is not the Nacos-SDK API. For information about the Nacos-SDK API, see [official documentation](https://nacos.io/zh-cn/docs/sdk.html).
        *
        * @param request ListNacosHistoryConfigsRequest
        * @return ListNacosHistoryConfigsResponse
@@ -2827,7 +2823,7 @@ namespace Mse20190531
       Models::ListNacosHistoryConfigsResponse listNacosHistoryConfigs(const Models::ListNacosHistoryConfigsRequest &request);
 
       /**
-       * @summary 获取McpServer列表
+       * @summary Retrieves a list of MCP servers.
        *
        * @param request ListNacosMcpServersRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2836,7 +2832,7 @@ namespace Mse20190531
       Models::ListNacosMcpServersResponse listNacosMcpServersWithOptions(const Models::ListNacosMcpServersRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取McpServer列表
+       * @summary Retrieves a list of MCP servers.
        *
        * @param request ListNacosMcpServersRequest
        * @return ListNacosMcpServersResponse
@@ -2844,7 +2840,7 @@ namespace Mse20190531
       Models::ListNacosMcpServersResponse listNacosMcpServers(const Models::ListNacosMcpServersRequest &request);
 
       /**
-       * @summary Displays the list of namespaces, the number of online nodes in each namespace, and the total number of applications in each namespace. You can also call this operation to perform fuzzy queries based on the namespace name.
+       * @summary Displays the namespace list, showing the number of online nodes and total applications in each namespace. This interface also supports fuzzy queries based on namespace names.
        *
        * @param tmpReq ListNamespacesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2853,7 +2849,7 @@ namespace Mse20190531
       Models::ListNamespacesResponse listNamespacesWithOptions(const Models::ListNamespacesRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Displays the list of namespaces, the number of online nodes in each namespace, and the total number of applications in each namespace. You can also call this operation to perform fuzzy queries based on the namespace name.
+       * @summary Displays the namespace list, showing the number of online nodes and total applications in each namespace. This interface also supports fuzzy queries based on namespace names.
        *
        * @param request ListNamespacesRequest
        * @return ListNamespacesResponse
@@ -2878,7 +2874,7 @@ namespace Mse20190531
       Models::ListNamingTrackResponse listNamingTrack(const Models::ListNamingTrackRequest &request);
 
       /**
-       * @summary Obtains a list of gateway certificates.
+       * @summary Retrieves a list of gateway certificates.
        *
        * @param request ListSSLCertRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2887,7 +2883,7 @@ namespace Mse20190531
       Models::ListSSLCertResponse listSSLCertWithOptions(const Models::ListSSLCertRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Obtains a list of gateway certificates.
+       * @summary Retrieves a list of gateway certificates.
        *
        * @param request ListSSLCertRequest
        * @return ListSSLCertResponse
@@ -2912,7 +2908,7 @@ namespace Mse20190531
       Models::ListSecurityGroupResponse listSecurityGroup(const Models::ListSecurityGroupRequest &request);
 
       /**
-       * @summary Queries the security group rules of a gateway.
+       * @summary Queries the list of gateway security groups.
        *
        * @param request ListSecurityGroupRuleRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2921,7 +2917,7 @@ namespace Mse20190531
       Models::ListSecurityGroupRuleResponse listSecurityGroupRuleWithOptions(const Models::ListSecurityGroupRuleRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the security group rules of a gateway.
+       * @summary Queries the list of gateway security groups.
        *
        * @param request ListSecurityGroupRuleRequest
        * @return ListSecurityGroupRuleResponse
@@ -2946,7 +2942,7 @@ namespace Mse20190531
       Models::ListSentinelBlockFallbackDefinitionsResponse listSentinelBlockFallbackDefinitions(const Models::ListSentinelBlockFallbackDefinitionsRequest &request);
 
       /**
-       * @summary Queries a list of associated sources.
+       * @summary Queries the list of associated sources.
        *
        * @param request ListServiceSourceRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2955,7 +2951,7 @@ namespace Mse20190531
       Models::ListServiceSourceResponse listServiceSourceWithOptions(const Models::ListServiceSourceRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries a list of associated sources.
+       * @summary Queries the list of associated sources.
        *
        * @param request ListServiceSourceRequest
        * @return ListServiceSourceResponse
@@ -2963,7 +2959,7 @@ namespace Mse20190531
       Models::ListServiceSourceResponse listServiceSource(const Models::ListServiceSourceRequest &request);
 
       /**
-       * @summary Queries tagged resources.
+       * @summary Queries resource tags.
        *
        * @param request ListTagResourcesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2972,7 +2968,7 @@ namespace Mse20190531
       Models::ListTagResourcesResponse listTagResourcesWithOptions(const Models::ListTagResourcesRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries tagged resources.
+       * @summary Queries resource tags.
        *
        * @param request ListTagResourcesRequest
        * @return ListTagResourcesResponse
@@ -3031,7 +3027,7 @@ namespace Mse20190531
       Models::ListZnodeChildrenResponse listZnodeChildren(const Models::ListZnodeChildrenRequest &request);
 
       /**
-       * @summary 列出所有ZooKeeper sasl用户
+       * @summary Lists all ZooKeeper SASL users.
        *
        * @param request ListZooKeeperSaslUserRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3040,7 +3036,7 @@ namespace Mse20190531
       Models::ListZooKeeperSaslUserResponse listZooKeeperSaslUserWithOptions(const Models::ListZooKeeperSaslUserRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 列出所有ZooKeeper sasl用户
+       * @summary Lists all ZooKeeper SASL users.
        *
        * @param request ListZooKeeperSaslUserRequest
        * @return ListZooKeeperSaslUserResponse
@@ -3082,7 +3078,7 @@ namespace Mse20190531
       Models::ModifyLosslessRuleResponse modifyLosslessRule(const Models::ModifyLosslessRuleRequest &request);
 
       /**
-       * @summary Disables a route for a gateway.
+       * @summary Takes a gateway route offline.
        *
        * @param request OfflineGatewayRouteRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3091,7 +3087,7 @@ namespace Mse20190531
       Models::OfflineGatewayRouteResponse offlineGatewayRouteWithOptions(const Models::OfflineGatewayRouteRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Disables a route for a gateway.
+       * @summary Takes a gateway route offline.
        *
        * @param request OfflineGatewayRouteRequest
        * @return OfflineGatewayRouteResponse
@@ -3133,7 +3129,7 @@ namespace Mse20190531
       Models::PreserveHeaderFormatResponse preserveHeaderFormat(const Models::PreserveHeaderFormatRequest &request);
 
       /**
-       * @summary Queries all the microservices of a service source.
+       * @summary Queries the information about importable services from a specified source.
        *
        * @param request PullServicesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3142,7 +3138,7 @@ namespace Mse20190531
       Models::PullServicesResponse pullServicesWithOptions(const Models::PullServicesRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries all the microservices of a service source.
+       * @summary Queries the information about importable services from a specified source.
        *
        * @param request PullServicesRequest
        * @return PullServicesResponse
@@ -3150,7 +3146,7 @@ namespace Mse20190531
       Models::PullServicesResponse pullServices(const Models::PullServicesRequest &request);
 
       /**
-       * @summary Initiates a task to check risk evaluation for an instance.
+       * @summary Initiates a risk assessment check task for the current cluster.
        *
        * @param request PutClusterHealthCheckTaskRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3159,7 +3155,7 @@ namespace Mse20190531
       Models::PutClusterHealthCheckTaskResponse putClusterHealthCheckTaskWithOptions(const Models::PutClusterHealthCheckTaskRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Initiates a task to check risk evaluation for an instance.
+       * @summary Initiates a risk assessment check task for the current cluster.
        *
        * @param request PutClusterHealthCheckTaskRequest
        * @return PutClusterHealthCheckTaskResponse
@@ -3167,7 +3163,7 @@ namespace Mse20190531
       Models::PutClusterHealthCheckTaskResponse putClusterHealthCheckTask(const Models::PutClusterHealthCheckTaskRequest &request);
 
       /**
-       * @summary Queries all the lanes in a lane group.
+       * @summary Queries information about all lanes.
        *
        * @param request QueryAllSwimmingLaneRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3176,7 +3172,7 @@ namespace Mse20190531
       Models::QueryAllSwimmingLaneResponse queryAllSwimmingLaneWithOptions(const Models::QueryAllSwimmingLaneRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries all the lanes in a lane group.
+       * @summary Queries information about all lanes.
        *
        * @param request QueryAllSwimmingLaneRequest
        * @return QueryAllSwimmingLaneResponse
@@ -3218,7 +3214,7 @@ namespace Mse20190531
       Models::QueryBusinessLocationsResponse queryBusinessLocations(const Models::QueryBusinessLocationsRequest &request);
 
       /**
-       * @summary Queries the details of an instance.
+       * @summary Queries the details of a cluster.
        *
        * @param request QueryClusterDetailRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3227,7 +3223,7 @@ namespace Mse20190531
       Models::QueryClusterDetailResponse queryClusterDetailWithOptions(const Models::QueryClusterDetailRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the details of an instance.
+       * @summary Queries the details of a cluster.
        *
        * @param request QueryClusterDetailRequest
        * @return QueryClusterDetailResponse
@@ -3252,7 +3248,7 @@ namespace Mse20190531
       Models::QueryClusterDiskSpecificationResponse queryClusterDiskSpecification(const Models::QueryClusterDiskSpecificationRequest &request);
 
       /**
-       * @summary Queries the static information of an instance.
+       * @summary Queries the static information of a cluster.
        *
        * @param request QueryClusterInfoRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3261,7 +3257,7 @@ namespace Mse20190531
       Models::QueryClusterInfoResponse queryClusterInfoWithOptions(const Models::QueryClusterInfoRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the static information of an instance.
+       * @summary Queries the static information of a cluster.
        *
        * @param request QueryClusterInfoRequest
        * @return QueryClusterInfoResponse
@@ -3269,7 +3265,7 @@ namespace Mse20190531
       Models::QueryClusterInfoResponse queryClusterInfo(const Models::QueryClusterInfoRequest &request);
 
       /**
-       * @summary Queries the information of supported instance specifications.
+       * @summary Queries the list of supported cluster specifications.
        *
        * @param request QueryClusterSpecificationRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3278,7 +3274,7 @@ namespace Mse20190531
       Models::QueryClusterSpecificationResponse queryClusterSpecificationWithOptions(const Models::QueryClusterSpecificationRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the information of supported instance specifications.
+       * @summary Queries the list of supported cluster specifications.
        *
        * @param request QueryClusterSpecificationRequest
        * @return QueryClusterSpecificationResponse
@@ -3286,7 +3282,7 @@ namespace Mse20190531
       Models::QueryClusterSpecificationResponse queryClusterSpecification(const Models::QueryClusterSpecificationRequest &request);
 
       /**
-       * @summary Queries configuration information of an instance.
+       * @summary Queries the configuration of a cluster.
        *
        * @param request QueryConfigRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3295,7 +3291,7 @@ namespace Mse20190531
       Models::QueryConfigResponse queryConfigWithOptions(const Models::QueryConfigRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries configuration information of an instance.
+       * @summary Queries the configuration of a cluster.
        *
        * @param request QueryConfigRequest
        * @return QueryConfigResponse
@@ -3303,7 +3299,7 @@ namespace Mse20190531
       Models::QueryConfigResponse queryConfig(const Models::QueryConfigRequest &request);
 
       /**
-       * @summary Queries the regions supported by a gateway.
+       * @summary Queries the regions supported by the gateway.
        *
        * @param request QueryGatewayRegionRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3312,7 +3308,7 @@ namespace Mse20190531
       Models::QueryGatewayRegionResponse queryGatewayRegionWithOptions(const Models::QueryGatewayRegionRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the regions supported by a gateway.
+       * @summary Queries the regions supported by the gateway.
        *
        * @param request QueryGatewayRegionRequest
        * @return QueryGatewayRegionResponse
@@ -3337,7 +3333,7 @@ namespace Mse20190531
       Models::QueryGatewayTypeResponse queryGatewayType(const Models::QueryGatewayTypeRequest &request);
 
       /**
-       * @summary Queries the Kubernetes clusters for which Microservices Governance is activated.
+       * @summary Queries a list of Kubernetes clusters for microservice governance.
        *
        * @param request QueryGovernanceKubernetesClusterRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3346,7 +3342,7 @@ namespace Mse20190531
       Models::QueryGovernanceKubernetesClusterResponse queryGovernanceKubernetesClusterWithOptions(const Models::QueryGovernanceKubernetesClusterRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the Kubernetes clusters for which Microservices Governance is activated.
+       * @summary Queries a list of Kubernetes clusters for microservice governance.
        *
        * @param request QueryGovernanceKubernetesClusterRequest
        * @return QueryGovernanceKubernetesClusterResponse
@@ -3388,7 +3384,7 @@ namespace Mse20190531
       Models::QueryMonitorResponse queryMonitor(const Models::QueryMonitorRequest &request);
 
       /**
-       * @summary Queries canary configurations of a Nacos instance.
+       * @summary Queries the grayscale configuration of a Nacos canary release environment.
        *
        * @param request QueryNacosGrayConfigRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3397,7 +3393,7 @@ namespace Mse20190531
       Models::QueryNacosGrayConfigResponse queryNacosGrayConfigWithOptions(const Models::QueryNacosGrayConfigRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries canary configurations of a Nacos instance.
+       * @summary Queries the grayscale configuration of a Nacos canary release environment.
        *
        * @param request QueryNacosGrayConfigRequest
        * @return QueryNacosGrayConfigResponse
@@ -3405,7 +3401,7 @@ namespace Mse20190531
       Models::QueryNacosGrayConfigResponse queryNacosGrayConfig(const Models::QueryNacosGrayConfigRequest &request);
 
       /**
-       * @summary 查询MSE命名空间
+       * @summary Queries the namespace to which Microservices Governance belongs.
        *
        * @param request QueryNamespaceRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3414,7 +3410,7 @@ namespace Mse20190531
       Models::QueryNamespaceResponse queryNamespaceWithOptions(const Models::QueryNamespaceRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询MSE命名空间
+       * @summary Queries the namespace to which Microservices Governance belongs.
        *
        * @param request QueryNamespaceRequest
        * @return QueryNamespaceResponse
@@ -3439,7 +3435,7 @@ namespace Mse20190531
       Models::QuerySlbSpecResponse querySlbSpec(const Models::QuerySlbSpecRequest &request);
 
       /**
-       * @summary Queries the information about a lane based on the lane ID.
+       * @summary Queries swimming lane information by swimming lane ID.
        *
        * @param request QuerySwimmingLaneByIdRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3448,7 +3444,7 @@ namespace Mse20190531
       Models::QuerySwimmingLaneByIdResponse querySwimmingLaneByIdWithOptions(const Models::QuerySwimmingLaneByIdRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the information about a lane based on the lane ID.
+       * @summary Queries swimming lane information by swimming lane ID.
        *
        * @param request QuerySwimmingLaneByIdRequest
        * @return QuerySwimmingLaneByIdResponse
@@ -3490,7 +3486,7 @@ namespace Mse20190531
       Models::RemoveApplicationResponse removeApplication(const Models::RemoveApplicationRequest &request);
 
       /**
-       * @summary Deletes a service authentication rule.
+       * @summary Delete service authentication rules using the RemoveAuthPolicy interface.
        *
        * @param request RemoveAuthPolicyRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3499,7 +3495,7 @@ namespace Mse20190531
       Models::RemoveAuthPolicyResponse removeAuthPolicyWithOptions(const Models::RemoveAuthPolicyRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Deletes a service authentication rule.
+       * @summary Delete service authentication rules using the RemoveAuthPolicy interface.
        *
        * @param request RemoveAuthPolicyRequest
        * @return RemoveAuthPolicyResponse
@@ -3507,7 +3503,7 @@ namespace Mse20190531
       Models::RemoveAuthPolicyResponse removeAuthPolicy(const Models::RemoveAuthPolicyRequest &request);
 
       /**
-       * @summary 删除ZooKeeper sasl用户
+       * @summary Deletes ZooKeeper SASL users.
        *
        * @param tmpReq RemoveZooKeeperSaslUserRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3516,7 +3512,7 @@ namespace Mse20190531
       Models::RemoveZooKeeperSaslUserResponse removeZooKeeperSaslUserWithOptions(const Models::RemoveZooKeeperSaslUserRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 删除ZooKeeper sasl用户
+       * @summary Deletes ZooKeeper SASL users.
        *
        * @param request RemoveZooKeeperSaslUserRequest
        * @return RemoveZooKeeperSaslUserResponse
@@ -3575,7 +3571,7 @@ namespace Mse20190531
       Models::SelectGatewaySlbResponse selectGatewaySlb(const Models::SelectGatewaySlbRequest &request);
 
       /**
-       * @summary Tags a specified resource.
+       * @summary Adds tags to specified resources.
        *
        * @param request TagResourcesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3584,7 +3580,7 @@ namespace Mse20190531
       Models::TagResourcesResponse tagResourcesWithOptions(const Models::TagResourcesRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Tags a specified resource.
+       * @summary Adds tags to specified resources.
        *
        * @param request TagResourcesRequest
        * @return TagResourcesResponse
@@ -3592,7 +3588,7 @@ namespace Mse20190531
       Models::TagResourcesResponse tagResources(const Models::TagResourcesRequest &request);
 
       /**
-       * @summary Untags resources.
+       * @summary Deletes tags.
        *
        * @param request UntagResourcesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3601,7 +3597,7 @@ namespace Mse20190531
       Models::UntagResourcesResponse untagResourcesWithOptions(const Models::UntagResourcesRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Untags resources.
+       * @summary Deletes tags.
        *
        * @param request UntagResourcesRequest
        * @return UntagResourcesResponse
@@ -3609,7 +3605,7 @@ namespace Mse20190531
       Models::UntagResourcesResponse untagResources(const Models::UntagResourcesRequest &request);
 
       /**
-       * @summary Modifies an IP address whitelist.
+       * @summary Modifies the whitelist.
        *
        * @param request UpdateAclRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3618,7 +3614,7 @@ namespace Mse20190531
       Models::UpdateAclResponse updateAclWithOptions(const Models::UpdateAclRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Modifies an IP address whitelist.
+       * @summary Modifies the whitelist.
        *
        * @param request UpdateAclRequest
        * @return UpdateAclResponse
@@ -3626,7 +3622,7 @@ namespace Mse20190531
       Models::UpdateAclResponse updateAcl(const Models::UpdateAclRequest &request);
 
       /**
-       * @summary Updates a service authentication rule.
+       * @summary Updates service authentication rules through the UpdateAuthPolicy operation.
        *
        * @param request UpdateAuthPolicyRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3635,7 +3631,7 @@ namespace Mse20190531
       Models::UpdateAuthPolicyResponse updateAuthPolicyWithOptions(const Models::UpdateAuthPolicyRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Updates a service authentication rule.
+       * @summary Updates service authentication rules through the UpdateAuthPolicy operation.
        *
        * @param request UpdateAuthPolicyRequest
        * @return UpdateAuthPolicyResponse
@@ -3643,7 +3639,7 @@ namespace Mse20190531
       Models::UpdateAuthPolicyResponse updateAuthPolicy(const Models::UpdateAuthPolicyRequest &request);
 
       /**
-       * @summary Modifies the blacklist or whitelist of a gateway.
+       * @summary Updates the blacklists and whitelists of a gateway.
        *
        * @param request UpdateBlackWhiteListRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3652,7 +3648,7 @@ namespace Mse20190531
       Models::UpdateBlackWhiteListResponse updateBlackWhiteListWithOptions(const Models::UpdateBlackWhiteListRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Modifies the blacklist or whitelist of a gateway.
+       * @summary Updates the blacklists and whitelists of a gateway.
        *
        * @param request UpdateBlackWhiteListRequest
        * @return UpdateBlackWhiteListResponse
@@ -3677,7 +3673,7 @@ namespace Mse20190531
       Models::UpdateCircuitBreakerRuleResponse updateCircuitBreakerRule(const Models::UpdateCircuitBreakerRuleRequest &request);
 
       /**
-       * @summary Modifies the information about an instance.
+       * @summary Modifies the cluster information.
        *
        * @param request UpdateClusterRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3686,7 +3682,7 @@ namespace Mse20190531
       Models::UpdateClusterResponse updateClusterWithOptions(const Models::UpdateClusterRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Modifies the information about an instance.
+       * @summary Modifies the cluster information.
        *
        * @param request UpdateClusterRequest
        * @return UpdateClusterResponse
@@ -3694,9 +3690,9 @@ namespace Mse20190531
       Models::UpdateClusterResponse updateCluster(const Models::UpdateClusterRequest &request);
 
       /**
-       * @summary Updates the number or specifications of nodes in a pay-as-you-go Microservices Engine (MSE) instance.
+       * @summary Updates the number of nodes or specifications of a registry and configuration center cluster (supports both pay-as-you-go and subscription).
        *
-       * @description You can call this operation to update the number or specifications of nodes in a pay-as-you-go MSE instance. You are charged when you add nodes or upgrade node specifications. For more information, see [Pricing] (`~~1806469~~`).
+       * @description Updates the number of nodes or specifications of a registry and configuration center cluster (supports both pay-as-you-go and subscription). Adding nodes or upgrading specifications will incur corresponding fees. For more information, see [Pricing]\\(`~~1806469~~`).
        *
        * @param request UpdateClusterSpecRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3705,9 +3701,9 @@ namespace Mse20190531
       Models::UpdateClusterSpecResponse updateClusterSpecWithOptions(const Models::UpdateClusterSpecRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Updates the number or specifications of nodes in a pay-as-you-go Microservices Engine (MSE) instance.
+       * @summary Updates the number of nodes or specifications of a registry and configuration center cluster (supports both pay-as-you-go and subscription).
        *
-       * @description You can call this operation to update the number or specifications of nodes in a pay-as-you-go MSE instance. You are charged when you add nodes or upgrade node specifications. For more information, see [Pricing] (`~~1806469~~`).
+       * @description Updates the number of nodes or specifications of a registry and configuration center cluster (supports both pay-as-you-go and subscription). Adding nodes or upgrading specifications will incur corresponding fees. For more information, see [Pricing]\\(`~~1806469~~`).
        *
        * @param request UpdateClusterSpecRequest
        * @return UpdateClusterSpecResponse
@@ -3766,7 +3762,7 @@ namespace Mse20190531
       Models::UpdateFlowRuleResponse updateFlowRule(const Models::UpdateFlowRuleRequest &request);
 
       /**
-       * @summary 更新网关认证
+       * @summary Updates gateway authentication.
        *
        * @param tmpReq UpdateGatewayAuthRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3775,7 +3771,7 @@ namespace Mse20190531
       Models::UpdateGatewayAuthResponse updateGatewayAuthWithOptions(const Models::UpdateGatewayAuthRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 更新网关认证
+       * @summary Updates gateway authentication.
        *
        * @param request UpdateGatewayAuthRequest
        * @return UpdateGatewayAuthResponse
@@ -3783,7 +3779,7 @@ namespace Mse20190531
       Models::UpdateGatewayAuthResponse updateGatewayAuth(const Models::UpdateGatewayAuthRequest &request);
 
       /**
-       * @summary Updates the consumer on which a gateway performs authentication operations.
+       * @summary Updates a gateway authentication consumer.
        *
        * @param request UpdateGatewayAuthConsumerRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3792,7 +3788,7 @@ namespace Mse20190531
       Models::UpdateGatewayAuthConsumerResponse updateGatewayAuthConsumerWithOptions(const Models::UpdateGatewayAuthConsumerRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Updates the consumer on which a gateway performs authentication operations.
+       * @summary Updates a gateway authentication consumer.
        *
        * @param request UpdateGatewayAuthConsumerRequest
        * @return UpdateGatewayAuthConsumerResponse
@@ -3800,7 +3796,7 @@ namespace Mse20190531
       Models::UpdateGatewayAuthConsumerResponse updateGatewayAuthConsumer(const Models::UpdateGatewayAuthConsumerRequest &request);
 
       /**
-       * @summary Updates a list of resources on which permissions are granted to a gateway authentication consumer.
+       * @summary Updates the authorization list of a gateway authentication consumer.
        *
        * @param tmpReq UpdateGatewayAuthConsumerResourceRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3809,7 +3805,7 @@ namespace Mse20190531
       Models::UpdateGatewayAuthConsumerResourceResponse updateGatewayAuthConsumerResourceWithOptions(const Models::UpdateGatewayAuthConsumerResourceRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Updates a list of resources on which permissions are granted to a gateway authentication consumer.
+       * @summary Updates the authorization list of a gateway authentication consumer.
        *
        * @param request UpdateGatewayAuthConsumerResourceRequest
        * @return UpdateGatewayAuthConsumerResourceResponse
@@ -3817,7 +3813,7 @@ namespace Mse20190531
       Models::UpdateGatewayAuthConsumerResourceResponse updateGatewayAuthConsumerResource(const Models::UpdateGatewayAuthConsumerResourceRequest &request);
 
       /**
-       * @summary Updates the resource authorization status for the consumer on which a gateway performs authentication operations.
+       * @summary Updates the authorization status of a gateway authentication consumer.
        *
        * @param request UpdateGatewayAuthConsumerResourceStatusRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3826,7 +3822,7 @@ namespace Mse20190531
       Models::UpdateGatewayAuthConsumerResourceStatusResponse updateGatewayAuthConsumerResourceStatusWithOptions(const Models::UpdateGatewayAuthConsumerResourceStatusRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Updates the resource authorization status for the consumer on which a gateway performs authentication operations.
+       * @summary Updates the authorization status of a gateway authentication consumer.
        *
        * @param request UpdateGatewayAuthConsumerResourceStatusRequest
        * @return UpdateGatewayAuthConsumerResourceStatusResponse
@@ -3834,7 +3830,7 @@ namespace Mse20190531
       Models::UpdateGatewayAuthConsumerResourceStatusResponse updateGatewayAuthConsumerResourceStatus(const Models::UpdateGatewayAuthConsumerResourceStatusRequest &request);
 
       /**
-       * @summary Updates the status of the consumer on which a gateway performs authentication operations.
+       * @summary Updates the status of a gateway authentication consumer.
        *
        * @param request UpdateGatewayAuthConsumerStatusRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3843,7 +3839,7 @@ namespace Mse20190531
       Models::UpdateGatewayAuthConsumerStatusResponse updateGatewayAuthConsumerStatusWithOptions(const Models::UpdateGatewayAuthConsumerStatusRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Updates the status of the consumer on which a gateway performs authentication operations.
+       * @summary Updates the status of a gateway authentication consumer.
        *
        * @param request UpdateGatewayAuthConsumerStatusRequest
        * @return UpdateGatewayAuthConsumerStatusResponse
@@ -3851,7 +3847,7 @@ namespace Mse20190531
       Models::UpdateGatewayAuthConsumerStatusResponse updateGatewayAuthConsumerStatus(const Models::UpdateGatewayAuthConsumerStatusRequest &request);
 
       /**
-       * @summary Updates a gateway circuit breaking rule.
+       * @summary Updates the circuit breaker rule for the gateway.
        *
        * @param request UpdateGatewayCircuitBreakerRuleRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3860,7 +3856,7 @@ namespace Mse20190531
       Models::UpdateGatewayCircuitBreakerRuleResponse updateGatewayCircuitBreakerRuleWithOptions(const Models::UpdateGatewayCircuitBreakerRuleRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Updates a gateway circuit breaking rule.
+       * @summary Updates the circuit breaker rule for the gateway.
        *
        * @param request UpdateGatewayCircuitBreakerRuleRequest
        * @return UpdateGatewayCircuitBreakerRuleResponse
@@ -3885,7 +3881,7 @@ namespace Mse20190531
       Models::UpdateGatewayConfigResponse updateGatewayConfig(const Models::UpdateGatewayConfigRequest &request);
 
       /**
-       * @summary Modifies the information about the domain name associated with a gateway.
+       * @summary Modifies the associated domain name information.
        *
        * @param tmpReq UpdateGatewayDomainRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3894,7 +3890,7 @@ namespace Mse20190531
       Models::UpdateGatewayDomainResponse updateGatewayDomainWithOptions(const Models::UpdateGatewayDomainRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Modifies the information about the domain name associated with a gateway.
+       * @summary Modifies the associated domain name information.
        *
        * @param request UpdateGatewayDomainRequest
        * @return UpdateGatewayDomainResponse
@@ -3902,7 +3898,7 @@ namespace Mse20190531
       Models::UpdateGatewayDomainResponse updateGatewayDomain(const Models::UpdateGatewayDomainRequest &request);
 
       /**
-       * @summary Queries throttling rules of a gateway.
+       * @summary Updates a throttling rule of a gateway.
        *
        * @param request UpdateGatewayFlowRuleRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3911,7 +3907,7 @@ namespace Mse20190531
       Models::UpdateGatewayFlowRuleResponse updateGatewayFlowRuleWithOptions(const Models::UpdateGatewayFlowRuleRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries throttling rules of a gateway.
+       * @summary Updates a throttling rule of a gateway.
        *
        * @param request UpdateGatewayFlowRuleRequest
        * @return UpdateGatewayFlowRuleResponse
@@ -3970,7 +3966,7 @@ namespace Mse20190531
       Models::UpdateGatewayOptionResponse updateGatewayOption(const Models::UpdateGatewayOptionRequest &request);
 
       /**
-       * @summary Updates a route for a gateway.
+       * @summary Updates a gateway route.
        *
        * @param tmpReq UpdateGatewayRouteRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3979,7 +3975,7 @@ namespace Mse20190531
       Models::UpdateGatewayRouteResponse updateGatewayRouteWithOptions(const Models::UpdateGatewayRouteRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Updates a route for a gateway.
+       * @summary Updates a gateway route.
        *
        * @param request UpdateGatewayRouteRequest
        * @return UpdateGatewayRouteResponse
@@ -3987,7 +3983,7 @@ namespace Mse20190531
       Models::UpdateGatewayRouteResponse updateGatewayRoute(const Models::UpdateGatewayRouteRequest &request);
 
       /**
-       * @summary Updates the authentication configurations of a route.
+       * @summary Updates the route authentication configuration.
        *
        * @param tmpReq UpdateGatewayRouteAuthRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3996,7 +3992,7 @@ namespace Mse20190531
       Models::UpdateGatewayRouteAuthResponse updateGatewayRouteAuthWithOptions(const Models::UpdateGatewayRouteAuthRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Updates the authentication configurations of a route.
+       * @summary Updates the route authentication configuration.
        *
        * @param request UpdateGatewayRouteAuthRequest
        * @return UpdateGatewayRouteAuthResponse
@@ -4055,7 +4051,7 @@ namespace Mse20190531
       Models::UpdateGatewayRouteHeaderOpResponse updateGatewayRouteHeaderOp(const Models::UpdateGatewayRouteHeaderOpRequest &request);
 
       /**
-       * @summary Modifies the retry policy of a route.
+       * @summary Modifies the retry policy for a gateway route.
        *
        * @param tmpReq UpdateGatewayRouteRetryRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -4064,7 +4060,7 @@ namespace Mse20190531
       Models::UpdateGatewayRouteRetryResponse updateGatewayRouteRetryWithOptions(const Models::UpdateGatewayRouteRetryRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Modifies the retry policy of a route.
+       * @summary Modifies the retry policy for a gateway route.
        *
        * @param request UpdateGatewayRouteRetryRequest
        * @return UpdateGatewayRouteRetryResponse
@@ -4106,7 +4102,7 @@ namespace Mse20190531
       Models::UpdateGatewayRouteWafStatusResponse updateGatewayRouteWafStatus(const Models::UpdateGatewayRouteWafStatusRequest &request);
 
       /**
-       * @summary Updates gateways for fixed address services or DNS services.
+       * @summary Edit a gateway service (applicable only to fixed address services or DNS domain name services)
        *
        * @param tmpReq UpdateGatewayServiceRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -4115,7 +4111,7 @@ namespace Mse20190531
       Models::UpdateGatewayServiceResponse updateGatewayServiceWithOptions(const Models::UpdateGatewayServiceRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Updates gateways for fixed address services or DNS services.
+       * @summary Edit a gateway service (applicable only to fixed address services or DNS domain name services)
        *
        * @param request UpdateGatewayServiceRequest
        * @return UpdateGatewayServiceResponse
@@ -4229,7 +4225,7 @@ namespace Mse20190531
       Models::UpdateIsolationRuleResponse updateIsolationRule(const Models::UpdateIsolationRuleRequest &request);
 
       /**
-       * @summary Updates the Intra-zone Provider First rules.
+       * @summary Updates zone affinity routing rules.
        *
        * @param request UpdateLocalityRuleRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -4238,7 +4234,7 @@ namespace Mse20190531
       Models::UpdateLocalityRuleResponse updateLocalityRuleWithOptions(const Models::UpdateLocalityRuleRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Updates the Intra-zone Provider First rules.
+       * @summary Updates zone affinity routing rules.
        *
        * @param request UpdateLocalityRuleRequest
        * @return UpdateLocalityRuleResponse
@@ -4246,7 +4242,7 @@ namespace Mse20190531
       Models::UpdateLocalityRuleResponse updateLocalityRule(const Models::UpdateLocalityRuleRequest &request);
 
       /**
-       * @summary Updates the configuration of a canary release for messaging of an application.
+       * @summary Updates the message canary release configuration for an application.
        *
        * @param tmpReq UpdateMessageQueueRouteRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -4255,7 +4251,7 @@ namespace Mse20190531
       Models::UpdateMessageQueueRouteResponse updateMessageQueueRouteWithOptions(const Models::UpdateMessageQueueRouteRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Updates the configuration of a canary release for messaging of an application.
+       * @summary Updates the message canary release configuration for an application.
        *
        * @param request UpdateMessageQueueRouteRequest
        * @return UpdateMessageQueueRouteResponse
@@ -4318,7 +4314,7 @@ namespace Mse20190531
       Models::UpdateNacosConfigResponse updateNacosConfig(const Models::UpdateNacosConfigRequest &request);
 
       /**
-       * @summary Updates the canary release settings, which include beta release and tag-based canary release.
+       * @summary Updates the canary release settings, including beta release and tag-based canary release.
        *
        * @param request UpdateNacosGrayConfigRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -4327,7 +4323,7 @@ namespace Mse20190531
       Models::UpdateNacosGrayConfigResponse updateNacosGrayConfigWithOptions(const Models::UpdateNacosGrayConfigRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Updates the canary release settings, which include beta release and tag-based canary release.
+       * @summary Updates the canary release settings, including beta release and tag-based canary release.
        *
        * @param request UpdateNacosGrayConfigRequest
        * @return UpdateNacosGrayConfigResponse
@@ -4377,7 +4373,7 @@ namespace Mse20190531
       Models::UpdateNacosServiceResponse updateNacosService(const Models::UpdateNacosServiceRequest &request);
 
       /**
-       * @summary Updates plug-in configurations.
+       * @summary Updates the configuration of a plug-in.
        *
        * @param tmpReq UpdatePluginConfigRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -4386,7 +4382,7 @@ namespace Mse20190531
       Models::UpdatePluginConfigResponse updatePluginConfigWithOptions(const Models::UpdatePluginConfigRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Updates plug-in configurations.
+       * @summary Updates the configuration of a plug-in.
        *
        * @param request UpdatePluginConfigRequest
        * @return UpdatePluginConfigResponse
@@ -4462,7 +4458,7 @@ namespace Mse20190531
       Models::UpdateZnodeResponse updateZnode(const Models::UpdateZnodeRequest &request);
 
       /**
-       * @summary 修改ZooKeeper sasl 用户信息
+       * @summary Updates the SASL user information for ZooKeeper.
        *
        * @param tmpReq UpdateZooKeeperSaslUserRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -4471,7 +4467,7 @@ namespace Mse20190531
       Models::UpdateZooKeeperSaslUserResponse updateZooKeeperSaslUserWithOptions(const Models::UpdateZooKeeperSaslUserRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 修改ZooKeeper sasl 用户信息
+       * @summary Updates the SASL user information for ZooKeeper.
        *
        * @param request UpdateZooKeeperSaslUserRequest
        * @return UpdateZooKeeperSaslUserResponse
@@ -4479,7 +4475,7 @@ namespace Mse20190531
       Models::UpdateZooKeeperSaslUserResponse updateZooKeeperSaslUser(const Models::UpdateZooKeeperSaslUserRequest &request);
 
       /**
-       * @summary Upgrades the version of a cluster.
+       * @summary Upgrades the cluster version.
        *
        * @param request UpgradeClusterRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -4488,7 +4484,7 @@ namespace Mse20190531
       Models::UpgradeClusterResponse upgradeClusterWithOptions(const Models::UpgradeClusterRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Upgrades the version of a cluster.
+       * @summary Upgrades the cluster version.
        *
        * @param request UpgradeClusterRequest
        * @return UpgradeClusterResponse

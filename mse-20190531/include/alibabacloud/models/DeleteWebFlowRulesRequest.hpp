@@ -66,11 +66,18 @@ namespace Models
 
 
   protected:
+    // The language of the response. Valid values: zh (default): Chinese, en: English.
     shared_ptr<string> acceptLanguage_ {};
+    // The name of the application.
+    // 
     // This parameter is required.
     shared_ptr<string> appName_ {};
+    // The IDs of the rules to delete.
+    // 
     // This parameter is required.
     shared_ptr<string> ids_ {};
+    // The name of the MSE namespace.
+    // 
     // This parameter is required.
     shared_ptr<string> namespace_ {};
   };

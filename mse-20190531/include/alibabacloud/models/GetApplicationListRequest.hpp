@@ -90,7 +90,9 @@ namespace Models
 
 
     protected:
+      // The custom tag key. It can contain up to 128 characters and cannot start with `aliyun` or `acs:`. It cannot contain `http://` or `https://`.
       shared_ptr<string> key_ {};
+      // The tag value.
       shared_ptr<string> value_ {};
     };
 
@@ -187,35 +189,37 @@ namespace Models
   protected:
     // The language of the response. Valid values:
     // 
-    // *   zh: Chinese
-    // *   en: English
+    // - zh: Chinese
+    // 
+    // - en: English
     shared_ptr<string> acceptLanguage_ {};
-    // The ID of an application.
+    // The application ID.
     shared_ptr<string> appId_ {};
-    // The name of an application.
+    // The application name.
     shared_ptr<string> appName_ {};
-    // The programming language of the application, such as Java and Go.
+    // The programming language, such as Java or Go.
     shared_ptr<string> language_ {};
     // The microservice namespace to which the application belongs.
     shared_ptr<string> namespace_ {};
-    // The number of the page to return.
+    // The page number.
     // 
     // This parameter is required.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries to return on each page.
+    // The number of entries per page.
     // 
     // This parameter is required.
     shared_ptr<int32_t> pageSize_ {};
-    // The ID of the region.
+    // The region.
     // 
     // This parameter is required.
     shared_ptr<string> region_ {};
-    // Specifies whether to enable the Sentinel-compatible mode.
+    // Specifies whether to enable the Sentinel component.
     shared_ptr<bool> sentinelEnable_ {};
     // The source of the application. The value is fixed as edasmsc.
     shared_ptr<string> source_ {};
-    // Specifies whether to enable switching.
+    // Specifies whether to enable the switch.
     shared_ptr<bool> switchEnable_ {};
+    // Alibaba Cloud tags. You can perform filtering by Alibaba Cloud tag.
     shared_ptr<vector<GetApplicationListRequest::Tags>> tags_ {};
   };
 

@@ -194,20 +194,55 @@ namespace Models
 
 
     protected:
+      // The application ID.
       shared_ptr<string> appId_ {};
+      // The application name.
       shared_ptr<string> appName_ {};
+      // The number of additional requests allowed for burst requests. The effect is equivalent to the maximum number of tokens for the token bucket algorithm.
       shared_ptr<int32_t> burst_ {};
+      // The flow control method. Valid values:
+      // 
+      // - 0: fast failure
+      // 
+      // - 2: wait in queue
       shared_ptr<int32_t> controlBehavior_ {};
+      // The rule status. Valid values:
+      // 
+      // - true (enabled)
+      // 
+      // - false (disabled)
       shared_ptr<bool> enable_ {};
+      // The rule ID.
       shared_ptr<int64_t> id_ {};
+      // The timeout period for queuing when the ControlBehavior parameter is set to 2. Unit: milliseconds.
       shared_ptr<int32_t> maxQueueingTimeMs_ {};
+      // The threshold type. Valid values:
+      // 
+      // - 1: number of requests
       shared_ptr<int32_t> metricType_ {};
+      // The namespace.
       shared_ptr<string> namespace_ {};
+      // The parameter description item, which is a JSON string containing the following key-value pairs:
+      // 
+      // - parseStrategy: the parameter property (0: client IP address. 1: remote host. 2: header. 3: URL parameter)
+      // 
+      // - fieldName: the header name or URL parameter name. You must specify this key only if parseStrategy is set to 2 or 3
+      // 
+      // - matchStrategy: the method to match the property value. You must specify this key only if parseStrategy is set to 2 or 3 and the property value is matched. Valid values: 0 (exact match), 2 (regular expression match), and 3 (substring match)
+      // 
+      // - pattern: the match string. You must specify this key only if parseStrategy is set to 2 or 3 and the property value is matched
       shared_ptr<string> paramItem_ {};
+      // The region.
       shared_ptr<string> regionId_ {};
+      // The resource mode. Valid values:
+      // 
+      // - 0: resource name mode
       shared_ptr<int32_t> reourceMode_ {};
+      // The interface resource name.
       shared_ptr<string> resource_ {};
+      // The length of the time window. Unit: milliseconds.
       shared_ptr<int32_t> statIntervalMs_ {};
+      // The threshold.
       shared_ptr<float> threshold_ {};
     };
 
@@ -251,10 +286,19 @@ namespace Models
 
 
   protected:
+    // The response code.
     shared_ptr<string> code_ {};
+    // The returned data.
     shared_ptr<UpdateWebFlowRuleResponseBody::Data> data_ {};
+    // The message returned.
     shared_ptr<string> message_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the request was successful. Valid values:
+    // 
+    // - `true`: The request was successful.
+    // 
+    // - `false`: The request failed.
     shared_ptr<bool> success_ {};
   };
 

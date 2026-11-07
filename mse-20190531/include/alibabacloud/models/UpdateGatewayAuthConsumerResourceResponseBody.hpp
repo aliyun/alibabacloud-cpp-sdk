@@ -112,31 +112,31 @@ namespace Models
 
 
   protected:
-    // The status code. A value of 200 is returned if the request is successful.
+    // The code is used only to synchronize with the success field.
     shared_ptr<int32_t> code_ {};
-    // Indicates whether the list of the resources was updated. Valid values:
+    // Indicates whether the execution is successful. Valid values:
     // 
-    // *   true: The list of the resources was updated.
-    // *   false: The list of the resources was not updated.
+    // - true: Successful.
+    // 
+    // - false: Failed.
     shared_ptr<bool> data_ {};
-    // The dynamic part in the error message.
+    // The placeholder in the dynamic error message.
     shared_ptr<string> dynamicCode_ {};
-    // The dynamic part in the error message. This parameter is used to replace the **%s** variable in the **ErrMessage** parameter.
+    // The dynamic error message, which is used to replace the **%s** placeholder in the **ErrMessage** response parameter.
     // 
-    // >  If the return value of the **ErrMessage** parameter is **The Value of Input Parameter %s is not valid** and the return value of the **DynamicMessage** parameter is **DtsJobId**, the specified **DtsJobId** parameter is invalid.
+    // > If **ErrMessage** returns **The Value of Input Parameter %s is not valid** and **DynamicMessage** returns **DtsJobId**, the specified **DtsJobId** request parameter is invalid.
     shared_ptr<string> dynamicMessage_ {};
-    // The error code returned.
+    // The error code.
     shared_ptr<string> errorCode_ {};
-    // The HTTP status code returned.
+    // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
-    // The error message returned.
+    // The returned message.
     shared_ptr<string> message_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request was successful. Valid values:
-    // 
-    // *   `true`: The request was successful.
-    // *   `false`: The request failed.
+    // Indicates whether the request is successful. Valid values:
+    // - `true`: The request is successful.
+    // - `false`: The request failed.
     shared_ptr<bool> success_ {};
   };
 

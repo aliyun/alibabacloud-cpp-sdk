@@ -200,21 +200,55 @@ namespace Models
 
 
     protected:
+      // The type of the web fallback behavior.
+      // 
+      // 0: The specified content is returned.
+      // 
+      // 1: The specified page is displayed.
       shared_ptr<int32_t> behaviorType_ {};
+      // The encoding type.
+      // 
+      // 0: plain text
+      // 
+      // 1: JSON
       shared_ptr<int32_t> bodyEncoding_ {};
+      // Specifies whether to enable the rule.
+      // 
+      // 0: The rule is not enabled.
+      // 
+      // 1: The rule is enabled.
       shared_ptr<int32_t> enable_ {};
+      // The gateway ID.
       shared_ptr<int64_t> gatewayId_ {};
+      // The unique ID of the gateway.
       shared_ptr<string> gatewayUniqueId_ {};
+      // The ID of the throttling rule.
       shared_ptr<int64_t> id_ {};
+      // The IDs of the circuit breaking rules that are used to filter data.
       shared_ptr<vector<int64_t>> idList_ {};
+      // The threshold conversion mode.
+      // 
+      // 0: standalone.
+      // 
+      // 1: cluster.
+      // 
+      // 2: cluster-to-standalone.
       shared_ptr<int32_t> limitMode_ {};
+      // The custom header. The input is a key-value pair.
       shared_ptr<string> responseAdditionalHeaders_ {};
+      // The HTTP return text.
       shared_ptr<string> responseContentBody_ {};
+      // The redirection URL.
       shared_ptr<string> responseRedirectUrl_ {};
+      // The HTTP status code.
       shared_ptr<int32_t> responseStatusCode_ {};
+      // The route ID.
       shared_ptr<int64_t> routeId_ {};
+      // The route name.
       shared_ptr<string> routeName_ {};
+      // The duration of the statistics.
       shared_ptr<int32_t> statDurationMs_ {};
+      // The overall queries per second (QPS) threshold.
       shared_ptr<int32_t> threshold_ {};
     };
 
@@ -237,7 +271,9 @@ namespace Models
 
 
   protected:
+    // The response data.
     shared_ptr<UpdateGatewayFlowRuleResponseBody::Data> data_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

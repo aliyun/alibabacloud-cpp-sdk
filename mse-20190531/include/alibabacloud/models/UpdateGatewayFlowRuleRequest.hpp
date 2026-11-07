@@ -149,24 +149,56 @@ namespace Models
 
 
   protected:
+    // The language in which you want to display the results. Valid values: zh (default): Chinese. en: English.
     shared_ptr<string> acceptLanguage_ {};
+    // The type of the web fallback behavior.
+    // 
+    // 0: returns the specified text
+    // 
+    // 1: redirects to the specified page
+    // 
     // This parameter is required.
     shared_ptr<int32_t> behaviorType_ {};
+    // The encoding type.
+    // 
+    // 0: plain text
+    // 
+    // 1: JSON
     shared_ptr<int32_t> bodyEncoding_ {};
+    // Specifies whether to enable the rule.
+    // 
+    // 0: disables the rule.
+    // 
+    // 1: enables the rule.
+    // 
     // This parameter is required.
     shared_ptr<int32_t> enable_ {};
+    // The gateway ID.
     shared_ptr<int64_t> gatewayId_ {};
+    // The unique ID of the gateway.
+    // 
     // This parameter is required.
     shared_ptr<string> gatewayUniqueId_ {};
+    // The ID of the throttling rule.
+    // 
     // This parameter is required.
     shared_ptr<int64_t> id_ {};
+    // The returned HTTP text.
     shared_ptr<string> responseContentBody_ {};
+    // The redirection URL.
     shared_ptr<string> responseRedirectUrl_ {};
+    // The HTTP status code.
     shared_ptr<int32_t> responseStatusCode_ {};
+    // The route ID.
+    // 
     // This parameter is required.
     shared_ptr<int64_t> routeId_ {};
+    // The route name.
+    // 
     // This parameter is required.
     shared_ptr<string> routeName_ {};
+    // The overall queries per second (QPS) threshold.
+    // 
     // This parameter is required.
     shared_ptr<int32_t> threshold_ {};
   };

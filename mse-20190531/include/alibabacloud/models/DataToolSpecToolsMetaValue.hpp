@@ -50,7 +50,9 @@ namespace Models
 
 
   protected:
+    // Indicates whether the tool is enabled.
     shared_ptr<bool> enabled_ {};
+    // The protocol conversion template configuration.
     Darabonba::Json templates_ {};
   };
 

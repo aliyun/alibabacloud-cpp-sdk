@@ -189,22 +189,27 @@ namespace Models
 
 
     protected:
-      // The header that can be carried in an authentication request.
+      // The headers allowed in the authentication request.
       shared_ptr<vector<string>> allowRequestHeaders_ {};
-      // The header that can be retained in an authentication response.
+      // The headers to retain in the authentication response.
       shared_ptr<vector<string>> allowUpstreamHeaders_ {};
+      // The maximum number of bytes for the request body.
       shared_ptr<int32_t> bodyMaxBytes_ {};
-      // Specifies whether the gateway allows a client request when the authentication server is unavailable. If a connection to the authentication server fails to be established or a 5xx error code is returned, the authentication server is unavailable.
+      // The custom authentication mode. Valid values:
+      // - true: strict mode. If the authentication service is unavailable, such as when a connection fails to be established or a 5xx error is returned, the gateway rejects the client request.
+      // - false: loose mode. If the authentication service is unavailable, such as when a connection fails to be established or a 5xx error is returned, the gateway allows the client request.
       shared_ptr<bool> isRestrict_ {};
-      // The path of the authentication API provided by the authentication service. The path supports the prefix match method.
+      // The path of the authentication API provided by the authentication service. The API path must match the prefix.
       shared_ptr<string> prefixPath_ {};
-      // The ID of the service.
+      // The ID of the authentication service.
       shared_ptr<int64_t> serviceId_ {};
-      // The timeout period. Unit: seconds.
+      // The timeout period of the authentication service. Unit: seconds.
       shared_ptr<int32_t> timeout_ {};
-      // The header that stores a token in an authentication request. In most cases, a token is stored in the Authorization or Cookie header.
+      // The header in the request message that contains the token. Common headers include Authorization and Cookie.
       shared_ptr<string> tokenKey_ {};
+      // Specifies whether to rematch the route after authentication.
       shared_ptr<bool> withRematchRoute_ {};
+      // Specifies whether to include the request body.
       shared_ptr<bool> withRequestBody_ {};
     };
 
@@ -282,8 +287,20 @@ namespace Models
 
 
       protected:
+        // The name of the request header.
         shared_ptr<string> headerKey_ {};
+        // The matching condition. Valid values:
+        // - EQUAL: equal to.
+        // - NOT_EQUAL: not equal to.
+        // - EXIST: exists.
+        // - NOT_EXIST: does not exist.
+        // - INCLUDE: includes.
+        // - EXCLUDE: excludes.
+        // - PREFIX: prefix.
+        // - SUFFIX: suffix.
+        // - REGREX: regular expression.
         shared_ptr<string> headerMethod_ {};
+        // The value of the request header.
         shared_ptr<string> headerValue_ {};
       };
 
@@ -327,12 +344,20 @@ namespace Models
 
 
     protected:
+      // The request headers of the rule. This parameter is currently only used for custom authentication.
       shared_ptr<vector<AuthResourceList::AuthResourceHeaderList>> authResourceHeaderList_ {};
-      // The domain ID.
+      // The ID of the domain name in the rule.
       shared_ptr<int64_t> domainId_ {};
+      // Specifies whether the path is case-sensitive. This parameter is used when creating custom authentication. For other authentication types, case sensitivity is enabled by default. Valid values:
+      // - true: case-sensitive.
+      // - false: case-insensitive.
       shared_ptr<bool> ignoreCase_ {};
+      // The matching type for the request path. Valid values:
+      // - EQUAL: exact match.
+      // - PRE: prefix match.
+      // - ERGULAR: regular expression match.
       shared_ptr<string> matchType_ {};
-      // The request path.
+      // The matching path of the rule.
       shared_ptr<string> path_ {};
     };
 
@@ -510,48 +535,72 @@ namespace Models
 
 
   protected:
+    // The language of the returned result. Valid values:
+    // - zh: Chinese. This is the default value.
+    // - en: English.
     shared_ptr<string> acceptLanguage_ {};
+    // The YAML configuration for the complex mode.
     shared_ptr<string> authResourceConfig_ {};
-    // The information about the resource to be authorized.
+    // The list of authorization rules for authentication. Multiple rule conditions use the OR operator, and multiple matching items within a rule condition use the AND operator.
     shared_ptr<vector<AddGatewayAuthRequest::AuthResourceList>> authResourceList_ {};
+    // The authorization resource mode. Valid values:
+    // - 0: simple mode.
+    // - 1: complex mode.
     shared_ptr<int32_t> authResourceMode_ {};
-    // The application ID registered with the OIDC authentication service.
+    // The application ID registered in the service. This parameter is used for OIDC and IDaaS.
     shared_ptr<string> clientId_ {};
-    // The application secret registered with the OIDC authentication service.
+    // The application secret registered in the service. This parameter is used for OIDC and IDaaS.
     shared_ptr<string> clientSecret_ {};
-    // The domain name of the cookie. After the authentication is passed, the cookie is sent to the specified domain name to maintain the logon status. For example, if you set `Cookie-domain` to a.example.com, the cookie is sent to the domain name `a.example.com`. If you set `Cookie-domain` to .example.com, the cookie is sent to all subdomains of `example.com`.
+    // The domain name of the cookie. After authentication, the cookie is sent to the specified domain name to maintain the logon state.
+    // 
+    // For example, if you set the value to `Cookie-domain=a.example.com`, the cookie is sent to the `a.example.com` domain name. If you set the value to `Cookie-domain=.example.com`, the cookie is sent to all subdomains of `example.com`.
     shared_ptr<string> cookieDomain_ {};
-    // The information about the custom authentication service.
+    // The custom authentication information.
     shared_ptr<AddGatewayAuthRequest::ExternalAuthZJSON> externalAuthZJSON_ {};
     // The unique ID of the gateway.
     shared_ptr<string> gatewayUniqueId_ {};
-    // Specifies whether to enable the whitelist feature.
+    // The authorization blacklist and whitelist mode. Valid values:
+    // - true: whitelist mode. Hosts and paths in the list can be accessed without verification, while all others require verification.
+    // - false: blacklist mode. Hosts and paths in the list require verification, while all others can be accessed directly.
     shared_ptr<bool> isWhite_ {};
-    // The iss value of JWT claims, which indicates the issuer. You must make sure that the value of this parameter is the same as the iss value in the payload of JWT claims.
+    // Used when the authentication type is JWT or OIDC:
+    // - JWT: specifies the `iss` (issuer) claim of the JWT.
+    // - OIDC: specifies the `iss` (issuer) claim of the OIDC token.
     shared_ptr<string> issuer_ {};
-    // The JWT public key. The JSON format is supported.
+    // The JWT public key. JSON format is supported.
     shared_ptr<string> jwks_ {};
-    // The URL that is used to log on to the IDaaS instance.
+    // The URL of the user logon page for the IDaaS instance. This parameter is used for IDaaS.
     shared_ptr<string> loginUrl_ {};
-    // The name.
+    // The name of the authentication.
     shared_ptr<string> name_ {};
-    // The redirect URL.
+    // The redirect URL after successful authorization. This parameter is used for OIDC and IDaaS. The value must be the same as the redirect URL configured in OIDC or IDaaS.
     shared_ptr<string> redirectUrl_ {};
-    // The OIDC scope.
+    // The OIDC authorization scopes. This parameter is used for OIDC.
     shared_ptr<vector<string>> scopesList_ {};
-    // The status.
+    // An unavailable parameter. You do not need to specify this parameter. By default, authentication is disabled after it is created.
     shared_ptr<bool> status_ {};
-    // The sub value of JWT claims, which indicates the subject. You must make sure that the value of this parameter is the same as the sub value in the payload of JWT claims. If you do not set this parameter or leave it empty, the default value, which is the value of the Issuer parameter, is used.
+    // Used when the authentication type is JWT. Specifies the `sub` (subject) claim of the JWT. Make sure that the value of the `sub` field in the JWT payload is the same as the value configured here. If this parameter is not specified or is empty, the default value is the same as the value of the Issuer parameter.
     shared_ptr<string> sub_ {};
-    // The name of the parameter that is required to verify a token. By default, a token is prefixed with Bearer and stored in the authorization header. Example: `Authorization: Bearer token`.
+    // The location where the JWT token is stored.
+    // 
+    // By default, the token to be verified is placed in the Authorization header with the Bearer prefix, such as `Authorization: Bearer token`.
     shared_ptr<string> tokenName_ {};
-    // The name prefix of the parameter that is required to verify a token. By default, a token is prefixed with Bearer and stored in the authorization header. Example: `Authorization: Bearer token`
+    // The prefix of the JWT token.
+    // 
+    // By default, the token to be verified is placed in the Authorization header with the Bearer prefix, such as `Authorization: Bearer token`.
     shared_ptr<string> tokenNamePrefix_ {};
-    // Specifies whether to enable pass-through.
+    // Specifies whether to pass through the token.
     shared_ptr<bool> tokenPass_ {};
-    // The position of the parameter that is required to verify a token. By default, a token is prefixed with Bearer and stored in the authorization header. Example: `Authorization: Bearer token`.
+    // The position of the JWT token. Valid values:
+    // - HEADER: transmitted in the HTTP header.
+    // 
+    // By default, the token to be verified is placed in the Authorization header with the Bearer prefix, such as Authorization: Bearer token.
     shared_ptr<string> tokenPosition_ {};
-    // The authentication type. JSON Web Token (JWT) authentication, OpenID Connect (OIDC) authentication, Identity as a Service (IDaaS) authentication, or custom authentication are supported.
+    // The authentication type. Valid values:
+    // - JWT
+    // - OIDC
+    // - IDaaS
+    // - ExternalAuthZ (custom authentication service)
     shared_ptr<string> type_ {};
   };
 

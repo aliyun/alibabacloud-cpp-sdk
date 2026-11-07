@@ -103,14 +103,23 @@ namespace Models
 
 
   protected:
+    // The language in which the returned results are displayed. Valid values: zh (default): Chinese. en: English.
     shared_ptr<string> acceptLanguage_ {};
+    // The application ID.
     shared_ptr<string> appId_ {};
+    // The application name.
+    // 
     // This parameter is required.
     shared_ptr<string> appName_ {};
+    // The namespace.
     shared_ptr<string> namespace_ {};
+    // The first page to export. Default value: 1.
     shared_ptr<int32_t> pageIndex_ {};
+    // The number of entries to return on each page.
     shared_ptr<int32_t> pageSize_ {};
+    // The interface to which the protection rule applies. This parameter is mutually exclusive with the ResourceSearchKey parameter.
     shared_ptr<string> resource_ {};
+    // The interface keyword that you can search from protection rules. This parameter is mutually exclusive with the Resource parameter.
     shared_ptr<string> resourceSearchKey_ {};
   };
 

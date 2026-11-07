@@ -114,31 +114,39 @@ namespace Models
   protected:
     // The language of the response. Valid values:
     // 
-    // *   zh: Chinese
-    // *   en: English
+    // - zh: Chinese.
+    // - en: English.
     shared_ptr<string> acceptLanguage_ {};
+    // The Function Compute service alias. This parameter is required when the service source is Function Compute.
     shared_ptr<string> fcAlias_ {};
+    // The Function Compute service name. This parameter is required when the service source is Function Compute.
     shared_ptr<string> fcServiceName_ {};
+    // The Function Compute service version. This parameter is required when the service source is Function Compute.
     shared_ptr<string> fcVersion_ {};
     // The unique ID of the gateway.
     shared_ptr<string> gatewayUniqueId_ {};
-    // The information about services.
+    // The service list.
     shared_ptr<string> serviceListShrink_ {};
+    // The service source ID. This parameter is used when you add a service from a specified source.
     shared_ptr<int64_t> sourceId_ {};
     // The service source. Valid values:
     // 
-    // *   MSE: MSE Nacos instance
-    // *   K8s: ACK cluster
-    // *   VIP: fixed address
-    // *   DNS: DNS domain
+    // - MSE: Microservices Engine (MSE Nacos).
+    // - K8s: Container Service for Kubernetes (ACK).
+    // - VIP: Fixed address.
+    // - DNS: DNS domain name.
     shared_ptr<string> sourceType_ {};
-    // The Transport Layer Security (TLS) settings. Valid values:
+    // The TLS settings.
     // 
-    // *   mode: TLS mode
-    // *   certId: certificate ID
-    // *   caCertId: CA certificate ID
-    // *   caCertContent: CA certificate public key
-    // *   sni: service name identification
+    // - TLS pattern: mode
+    // 
+    // - Certificate ID: certId
+    // 
+    // - CA certificate ID: caCertId
+    // 
+    // - CA certificate public key: caCertContent
+    // 
+    // - Service name identity: sni
     shared_ptr<string> tlsSetting_ {};
   };
 

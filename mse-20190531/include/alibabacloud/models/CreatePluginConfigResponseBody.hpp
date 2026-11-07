@@ -48,7 +48,7 @@ namespace Models
 
 
   protected:
-    // The plug-in configuration ID.
+    // The ID of the plug-in configuration.
     shared_ptr<int64_t> pluginConfigID_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

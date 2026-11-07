@@ -77,16 +77,17 @@ namespace Models
   protected:
     // The language of the response. Valid values:
     // 
-    // *   zh: Chinese
-    // *   en: English
+    // - zh: Chinese
+    // 
+    // - en: English
     shared_ptr<string> acceptLanguage_ {};
-    // The ID of the gateway.
+    // The gateway ID.
     shared_ptr<int64_t> gatewayId_ {};
     // The unique ID of the gateway.
     shared_ptr<string> gatewayUniqueId_ {};
     // The ID of the associated record.
     shared_ptr<int64_t> id_ {};
-    // The information about the retry policy.
+    // The retry policy.
     shared_ptr<string> retryJSONShrink_ {};
   };
 

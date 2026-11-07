@@ -76,20 +76,18 @@ namespace Models
 
   protected:
     // The language of the response. Valid values:
-    // 
-    // *   zh: Chinese
-    // *   en: English
+    // - zh: Chinese
+    // - en: English
     shared_ptr<string> acceptLanguage_ {};
-    // The type of the object that is exported. Valid values:
-    // 
-    // *   transactionLog: transaction logs
-    // *   snapshot: snapshots
+    // The export type. Valid values:
+    // - transactionLog: transaction log
+    // - snapshot: snapshot file
     shared_ptr<string> exportType_ {};
     // The instance ID.
     shared_ptr<string> instanceId_ {};
-    // The ID of the region in which the instance resides. The region is supported by Microservices Engine (MSE).
+    // The region where the cluster is deployed. Specify a region supported by Microservices Engine (MSE).
     shared_ptr<string> regionId_ {};
-    // The extended request parameters in the JSON format.
+    // The extended request parameters in JSON format.
     shared_ptr<string> requestPars_ {};
   };
 

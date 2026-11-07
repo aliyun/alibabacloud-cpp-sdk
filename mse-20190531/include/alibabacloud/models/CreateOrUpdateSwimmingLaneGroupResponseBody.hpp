@@ -176,25 +176,31 @@ namespace Models
 
 
     protected:
-      // The list of application IDs that are separated by commas (,).
+      // The IDs of the applications, separated by commas (,).
       shared_ptr<string> appIds_ {};
+      // The end-to-end canary release mode. Valid values:
+      // - 0: Route by request content.
+      // - 1: Route by proportion.
       shared_ptr<int32_t> canaryModel_ {};
+      // Indicates whether canary release is enabled for databases.
       shared_ptr<string> dbGrayEnable_ {};
-      // The ingress application.
+      // The entry application.
       shared_ptr<string> entryApp_ {};
-      // The ID of the lane group.
+      // The ID of the swimlane group.
       shared_ptr<int64_t> id_ {};
-      // The side for message filtering when the canary release for messaging feature is enabled.
+      // The side where message queue canary release filtering is performed.
       shared_ptr<string> messageQueueFilterSide_ {};
-      // Specifies whether to enable canary release for messaging.
+      // Specifies whether to enable canary release for message queues.
       shared_ptr<bool> messageQueueGrayEnable_ {};
+      // The name of the application.
       shared_ptr<string> name_ {};
       // The name of the MSE namespace.
       shared_ptr<string> namespace_ {};
+      // **[Deprecated]** The paths. This parameter is a list of paths when a Java gateway is used as the entry point.
       shared_ptr<string> paths_ {};
       // Specifies whether to record request details.
       shared_ptr<bool> recordCanaryDetail_ {};
-      // The region where the application resides.
+      // The region to which the application belongs.
       shared_ptr<string> region_ {};
       // The ID of the user to which the application belongs.
       shared_ptr<string> userId_ {};
@@ -240,17 +246,17 @@ namespace Models
 
 
   protected:
-    // The response parameters.
+    // The data overview.
     shared_ptr<CreateOrUpdateSwimmingLaneGroupResponseBody::Data> data_ {};
     // The error code.
     shared_ptr<string> errorCode_ {};
-    // The message returned.
+    // The returned message.
     shared_ptr<string> message_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request was successful. Valid values:
-    // 
-    // true: The request was successful. false: The request failed.
+    // Indicates whether the request is successful. Valid values:
+    // - true: The request is successful.
+    // - false: The request fails.
     shared_ptr<bool> success_ {};
   };
 

@@ -59,14 +59,15 @@ namespace Models
   protected:
     // The language of the response. Valid values:
     // 
-    // *   zh: Chinese
-    // *   en: English
+    // - zh: Chinese.
+    // 
+    // - en: English.
     shared_ptr<string> acceptLanguage_ {};
-    // The ID of the instance.
+    // The cluster ID.
     // 
     // This parameter is required.
     shared_ptr<string> clusterId_ {};
-    // The ID of the region in which the instance resides. The region is supported by MSE.
+    // The region where the cluster is located. MSE supports specific regions.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};

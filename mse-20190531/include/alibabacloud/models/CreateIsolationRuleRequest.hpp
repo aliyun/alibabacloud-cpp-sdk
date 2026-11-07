@@ -112,18 +112,34 @@ namespace Models
 
 
   protected:
+    // The language of the response. Valid values:
+    // - zh: Chinese. This is the default value.
+    // - en: English.
     shared_ptr<string> acceptLanguage_ {};
+    // The ID of the application.
     shared_ptr<string> appId_ {};
+    // The name of the application.
+    // 
     // This parameter is required.
     shared_ptr<string> appName_ {};
+    // The enabling status of the rule.
+    // 
     // This parameter is required.
     shared_ptr<bool> enable_ {};
+    // The source application of the request.
     shared_ptr<string> limitApp_ {};
+    // The microservice namespace to which the application belongs.
+    // 
     // This parameter is required.
     shared_ptr<string> namespace_ {};
+    // The region where the cluster is deployed.
     shared_ptr<string> regionId_ {};
+    // The name of the interface to which the rule applies. The name must be the same as the interface name displayed in the interface details on the console.
+    // 
     // This parameter is required.
     shared_ptr<string> resource_ {};
+    // The concurrency threshold of the isolation rule.
+    // 
     // This parameter is required.
     shared_ptr<float> threshold_ {};
   };

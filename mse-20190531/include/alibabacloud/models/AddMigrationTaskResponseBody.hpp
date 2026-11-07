@@ -157,31 +157,30 @@ namespace Models
 
 
     protected:
-      // Cluster type.
-      // 
+      // The cluster type. Valid values:
       // - Nacos-Ans
       // - ZooKeeper
       // - Eureka
       shared_ptr<string> clusterType_ {};
-      // Task ID.
+      // The ID of the task.
       shared_ptr<string> id_ {};
-      // Source instance node address.
+      // The address of the source instance node.
       shared_ptr<string> originInstanceAddress_ {};
-      // Source instance name.
+      // The name of the source instance.
       shared_ptr<string> originInstanceName_ {};
-      // Namespace list, required when the source cluster is Nacos.
+      // The list of namespaces. This parameter is optional when the source cluster is Nacos.
       shared_ptr<string> originInstanceNamespace_ {};
-      // Description.
+      // The description.
       shared_ptr<string> projectDesc_ {};
-      // SyncType
+      // The synchronization type.
       shared_ptr<string> syncType_ {};
-      // Target instance name.
+      // The name of the target instance.
       shared_ptr<string> targetClusterName_ {};
-      // Target instance URL.
+      // The URL of the target instance.
       shared_ptr<string> targetClusterUrl_ {};
-      // Target instance ID.
+      // The instance ID of the target instance.
       shared_ptr<string> targetInstanceId_ {};
-      // User ID.
+      // The ID of the user.
       shared_ptr<string> userId_ {};
     };
 
@@ -225,17 +224,17 @@ namespace Models
 
 
   protected:
-    // Data structure.
+    // The data structure.
     shared_ptr<AddMigrationTaskResponseBody::Data> data_ {};
-    // Error code.
+    // The error code.
     shared_ptr<string> errorCode_ {};
-    // Message.
+    // The message.
     shared_ptr<string> message_ {};
-    // Request ID.
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
-    // 请求结果，取值如下：
-    // - `true`：请求成功。
-    // - `false`：请求失败。
+    // Indicates whether the request is successful. Valid values:
+    // - true: The request is successful.
+    // - false: The request fails.
     shared_ptr<bool> success_ {};
   };
 

@@ -192,7 +192,7 @@ namespace Models
 
 
       protected:
-        // The matching character.
+        // The match operator.
         shared_ptr<string> cond_ {};
         // The value.
         shared_ptr<string> datum_ {};
@@ -200,7 +200,7 @@ namespace Models
         shared_ptr<int32_t> divisor_ {};
         // The name.
         shared_ptr<string> name_ {};
-        // The matching list.
+        // The list of matching items.
         shared_ptr<vector<string>> nameList_ {};
         // The operator.
         shared_ptr<string> operator_ {};
@@ -208,7 +208,7 @@ namespace Models
         shared_ptr<int32_t> rate_ {};
         // The remainder.
         shared_ptr<int32_t> remainder_ {};
-        // The matching type.
+        // The match type.
         shared_ptr<string> type_ {};
         // The value.
         shared_ptr<string> value_ {};
@@ -249,13 +249,13 @@ namespace Models
 
 
     protected:
-      // Specifies how RESTful items are combined into the final condition.
+      // Specifies how RestItems are combined to form the final condition.
       shared_ptr<string> condition_ {};
-      // The paths.
+      // The list of paths.
       shared_ptr<vector<string>> paths_ {};
       // The priority.
       shared_ptr<int32_t> priority_ {};
-      // The matching list.
+      // The list of matching items.
       shared_ptr<vector<EntryRules::RestItems>> restItems_ {};
     };
 
@@ -357,36 +357,33 @@ namespace Models
 
 
   protected:
-    // The language of the response. Valid values: zh and en. Default value: zh. The value zh indicates Chinese, and the value en indicates English.
+    // The language in which the results are returned. Valid values: zh (Chinese, default) and en (English).
     shared_ptr<string> acceptLanguage_ {};
-    // Specifies whether to enable the lane.
+    // Specifies whether the lane is enabled.
     shared_ptr<bool> enable_ {};
-    // Specifies whether to configure a routing rule for the lane. If an Ingress gateway is used, this parameter is not required.
+    // Specifies whether to configure routing rules for the lane. Configuration is not required if the ingress is a gateway.
     shared_ptr<bool> enableRules_ {};
     // The JSON string.
     shared_ptr<string> entryRule_ {};
-    // The lane.
+    // The collection of lane rules.
     shared_ptr<vector<CreateOrUpdateSwimmingLaneShrinkRequest::EntryRules>> entryRules_ {};
-    // The information about the routing rule for the gateway. This parameter is required when a cloud-native gateway is used as the ingress.
+    // The gateway routing information. This parameter is used when a cloud-native gateway is used as the ingress.
     shared_ptr<string> gatewaySwimmingLaneRouteJsonShrink_ {};
-    // The language of the response. Valid values:****
-    // 
-    // *   **zh-CN**: Chinese
-    // *   **en-US**: English
-    // 
-    // > Default value: **zh-CN**.
+    // The ID of the lane group to which the lane belongs.
     shared_ptr<int64_t> groupId_ {};
-    // The ID of the primary key. The value -1 indicates a request that is used to create a lane. A value greater than 0 indicates a request that is used to modify a lane.
+    // The primary key ID. A value of -1 indicates that a lane is created. A value greater than 0 indicates that a specified lane is updated.
     shared_ptr<int64_t> id_ {};
     // The name of the lane.
     // 
     // This parameter is required.
     shared_ptr<string> name_ {};
+    // The name of the MSE namespace.
     shared_ptr<string> namespace_ {};
+    // **[Deprecated]** The Java gateway-related configuration for percentage-based routing by path.
     shared_ptr<bool> pathIndependentPercentageEnable_ {};
-    // The ID of the region.
+    // The region ID.
     shared_ptr<string> regionId_ {};
-    // The tag.
+    // The identifier.
     shared_ptr<string> tag_ {};
   };
 

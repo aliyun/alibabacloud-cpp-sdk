@@ -77,8 +77,8 @@ namespace Models
   protected:
     // The language of the response. Valid values:
     // 
-    // *   zh: Chinese
-    // *   en: English
+    // - zh: Chinese.
+    // - en: English.
     shared_ptr<string> acceptLanguage_ {};
     // The description.
     shared_ptr<string> description_ {};
@@ -86,7 +86,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> gatewayUniqueId_ {};
-    // The range of port numbers.
+    // The port range.
     // 
     // This parameter is required.
     shared_ptr<string> portRange_ {};

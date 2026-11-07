@@ -145,8 +145,11 @@ namespace Models
 
 
         protected:
+          // The description of the parameter.
           shared_ptr<string> description_ {};
+          // The name of the parameter.
           shared_ptr<string> name_ {};
+          // The parameter type.
           shared_ptr<string> type_ {};
         };
 
@@ -234,15 +237,25 @@ namespace Models
 
 
       protected:
+        // The full name of the Controller class to which the interface belongs.
         shared_ptr<string> methodController_ {};
+        // The name of the method.
         shared_ptr<string> name_ {};
+        // The interface description information.
         shared_ptr<string> nameDetail_ {};
+        // The detailed definition of the parameter.
         shared_ptr<vector<Result::ParameterDefinitions>> parameterDefinitions_ {};
+        // The type of the interface parameter.
         shared_ptr<vector<string>> parameterDetails_ {};
+        // The parameter types.
         shared_ptr<vector<string>> parameterTypes_ {};
+        // The list of request paths that correspond to the interface.
         shared_ptr<vector<string>> paths_ {};
+        // The HTTP request method.
         shared_ptr<vector<string>> requestMethods_ {};
+        // The type of the return value.
         shared_ptr<string> returnDetails_ {};
+        // The type of the return value.
         shared_ptr<string> returnType_ {};
       };
 
@@ -279,9 +292,13 @@ namespace Models
 
 
     protected:
+      // The page number.
       shared_ptr<int32_t> pageNumber_ {};
+      // The number of entries per page.
       shared_ptr<int32_t> pageSize_ {};
+      // The method description list.
       shared_ptr<vector<Data::Result>> result_ {};
+      // The total number of methods.
       shared_ptr<int32_t> totalSize_ {};
     };
 
@@ -318,9 +335,13 @@ namespace Models
 
 
   protected:
+    // The response to the request.
     shared_ptr<GetServiceMethodPageResponseBody::Data> data_ {};
+    // The request information.
     shared_ptr<string> message_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the request is successful. Valid values:
     shared_ptr<bool> success_ {};
   };
 

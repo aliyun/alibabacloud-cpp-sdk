@@ -186,31 +186,74 @@ namespace Models
 
 
   protected:
+    // The language in which you want the results to be displayed. Valid values: zh (default): Chinese. en: English.
     shared_ptr<string> acceptLanguage_ {};
+    // The type of the web fallback behavior.
+    // 
+    // 0: returns the specified content.
+    // 
+    // 1: redirects to the specified page.
+    // 
     // This parameter is required.
     shared_ptr<int32_t> behaviorType_ {};
+    // The encoding type.
+    // 
+    // 0: plain text
+    // 
+    // 1: JSON
     shared_ptr<int32_t> bodyEncoding_ {};
+    // Specifies whether to enable the rule.
+    // 
+    // 0: disables the rule.
+    // 
+    // 1: enables the rule.
+    // 
     // This parameter is required.
     shared_ptr<int32_t> enable_ {};
+    // The gateway ID.
     shared_ptr<int64_t> gatewayId_ {};
+    // The unique ID of the gateway.
+    // 
     // This parameter is required.
     shared_ptr<string> gatewayUniqueId_ {};
+    // The threshold in slow call proportion mode.
     shared_ptr<int32_t> maxAllowedMs_ {};
+    // The minimum number of requests to trigger circuit breaking.
+    // 
     // This parameter is required.
     shared_ptr<int32_t> minRequestAmount_ {};
+    // The circuit breaking timeout period.
+    // 
     // This parameter is required.
     shared_ptr<int32_t> recoveryTimeoutSec_ {};
+    // The HTTP text to be returned.
     shared_ptr<string> responseContentBody_ {};
+    // The redirection URL.
     shared_ptr<string> responseRedirectUrl_ {};
+    // The HTTP status code.
     shared_ptr<int32_t> responseStatusCode_ {};
+    // The route ID.
+    // 
     // This parameter is required.
     shared_ptr<int64_t> routeId_ {};
+    // The route name.
+    // 
     // This parameter is required.
     shared_ptr<string> routeName_ {};
+    // The statistical duration for triggering circuit breaking.
+    // 
     // This parameter is required.
     shared_ptr<int32_t> statDurationSec_ {};
+    // The type of the threshold.
+    // 
+    // 0: slow call proportion
+    // 
+    // 1: failure proportion
+    // 
     // This parameter is required.
     shared_ptr<int32_t> strategy_ {};
+    // The request percentage that triggers circuit breaking.
+    // 
     // This parameter is required.
     shared_ptr<int32_t> triggerRatio_ {};
   };

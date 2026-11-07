@@ -219,13 +219,13 @@ namespace Models
             shared_ptr<string> group_ {};
             // The method name.
             shared_ptr<string> name_ {};
-            // The types of request parameters.
+            // The list of request parameter types.
             shared_ptr<vector<string>> parameterTypes_ {};
-            // The type of the return value.
+            // The return value type.
             shared_ptr<string> returnType_ {};
             // The service name.
             shared_ptr<string> serviceName_ {};
-            // The method version.
+            // The method version number.
             shared_ptr<string> version_ {};
           };
 
@@ -280,20 +280,21 @@ namespace Models
 
 
         protected:
-          // The IDs of applications.
+          // The application collection.
           shared_ptr<vector<string>> appIds_ {};
-          // The rule type. Valid values:
+          // The rule type.
           // 
-          // *   0: by application
-          // *   1: by namespace
+          // - 0, by application dimension.
+          // 
+          // - 1, by namespace dimension.
           shared_ptr<int32_t> authType_ {};
-          // Indicates whether the rule is a blacklist rule.
+          // Indicates whether it is a blacklist.
           shared_ptr<bool> black_ {};
-          // The queried namespaces.
+          // The namespace list.
           shared_ptr<vector<string>> k8sNamespaces_ {};
           // The request method.
           shared_ptr<AuthRule::Method> method_ {};
-          // The service path.
+          // The path.
           shared_ptr<string> path_ {};
         };
 
@@ -402,41 +403,45 @@ namespace Models
 
 
       protected:
-        // The ID of the Alibaba Cloud account to which the resource belongs.
+        // The Alibaba Cloud account ID of the resource owner.
         shared_ptr<string> accountId_ {};
         // The application ID.
         shared_ptr<string> appId_ {};
         // The application name.
         shared_ptr<string> appName_ {};
-        // The content of the service authentication rule.
+        // The list of service authentication rules.
         shared_ptr<vector<Result::AuthRule>> authRule_ {};
-        // The rule type. Valid values:
+        // The rule type.
         // 
-        // *   0: by application
-        // *   1: by namespace
+        // - 0: by application dimension.
+        // 
+        // - 1: by namespace dimension.
         shared_ptr<int32_t> authType_ {};
-        // Indicates whether the rule was enabled or disabled. Valid values:
+        // Enable or disable.
         // 
-        // *   `true`: enabled
-        // *   `false`: disabled
+        // - `true`: Enable.
+        // 
+        // - `false`: disable.
         shared_ptr<bool> enable_ {};
-        // The rule ID.
+        // The ID.
         shared_ptr<int32_t> id_ {};
         // The namespace.
         shared_ptr<string> k8sNamespace_ {};
-        // The name of the authentication rule.
+        // The authentication rule name.
         shared_ptr<string> name_ {};
         // The namespace ID.
         shared_ptr<string> namespaceId_ {};
-        // The protocol type. Valid values:
+        // The Protocol Type. Valid values:
         // 
-        // *   **SPRING_CLOUD**
-        // *   **DUBBO**
-        // *   **istio**
+        // - **SPRING_CLOUD**.
+        // 
+        // - **DUBBO**.
+        // 
+        // - **istio**.
         shared_ptr<string> protocol_ {};
         // The region ID.
         shared_ptr<string> regionId_ {};
-        // The source of the application.
+        // The application source.
         shared_ptr<string> source_ {};
         // The status.
         shared_ptr<int32_t> status_ {};
@@ -477,9 +482,9 @@ namespace Models
     protected:
       // The page number.
       shared_ptr<int32_t> pageNumber_ {};
-      // The number of entries per page.
+      // The page size.
       shared_ptr<int32_t> pageSize_ {};
-      // The data returned.
+      // The returned data.
       shared_ptr<vector<Data::Result>> result_ {};
       // The total number of entries.
       shared_ptr<int32_t> totalSize_ {};
@@ -534,7 +539,7 @@ namespace Models
   protected:
     // The response code.
     shared_ptr<int32_t> code_ {};
-    // The details of the data.
+    // The data overview.
     shared_ptr<ListAuthPolicyResponseBody::Data> data_ {};
     // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
@@ -542,10 +547,11 @@ namespace Models
     shared_ptr<string> message_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request was successful. Valid values:
+    // The request result, with the following values:
     // 
-    // *   `true`: The request was successful.
-    // *   `false`: The request failed.
+    // - `true`: The request was successful.
+    // 
+    // - `false`: The request failed.
     shared_ptr<bool> success_ {};
   };
 

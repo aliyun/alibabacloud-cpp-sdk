@@ -224,7 +224,7 @@ namespace Models
 
 
       protected:
-        // The timestamp when the instance was created.
+        // The creation timestamp.
         shared_ptr<string> creationTimestamp_ {};
         // The health status of the instance.
         shared_ptr<string> healthStatus_ {};
@@ -236,9 +236,9 @@ namespace Models
         shared_ptr<string> podName_ {};
         // The role.
         shared_ptr<string> role_ {};
-        // The single-thread IP address.
+        // The single-tunnel IP address.
         shared_ptr<string> singleTunnelVip_ {};
-        // The zone ID.
+        // The zone.
         shared_ptr<string> zone_ {};
       };
 
@@ -524,85 +524,83 @@ namespace Models
     protected:
       // The whitelist.
       shared_ptr<string> aclEntryList_ {};
-      // The ID of the whitelist.
+      // The whitelist ID.
       shared_ptr<string> aclId_ {};
       // The application version.
       shared_ptr<string> appVersion_ {};
-      // The billing method, such as subscription or pay-as-you-go.
+      // The billing method, including subscription and pay-as-you-go.
       shared_ptr<string> chargeType_ {};
-      // The alias of the instance.
+      // The alias of the cluster.
       shared_ptr<string> clusterAliasName_ {};
-      // The name of the instance.
+      // The name of the cluster.
       shared_ptr<string> clusterName_ {};
       // The engine specifications.
       shared_ptr<string> clusterSpecification_ {};
-      // The type of the instance. Valid values: ZooKeeper, Nacos-Ans, and Eureka.
+      // The cluster type, including ZooKeeper, Nacos-Ans, and Eureka.
       shared_ptr<string> clusterType_ {};
-      // The version of the instance.
+      // The cluster version.
       shared_ptr<string> clusterVersion_ {};
-      // The network connection type. Valid values:
-      // 
-      // *   slb
-      // *   eni
+      // The network connectivity type. Valid values:
+      // - slb
+      // - eni
       shared_ptr<string> connectionType_ {};
-      // The number of vCPUs.
+      // The number of CPUs.
       shared_ptr<int32_t> cpu_ {};
-      // The time when the instance was created.
+      // The time when the cluster was created.
       shared_ptr<string> createTime_ {};
-      // The capacity of the disk. Unit: GB.
+      // The disk capacity. Unit: GB.
       shared_ptr<int64_t> diskCapacity_ {};
-      // The type of the disk.
+      // The disk type.
       shared_ptr<string> diskType_ {};
-      // The health status of the instance.
+      // The health status of the cluster.
       shared_ptr<string> healthStatus_ {};
-      // The amount of time taken to create the instance. Unit: milliseconds.
+      // The time taken to create the cluster. Unit: ms.
       shared_ptr<int64_t> initCostTime_ {};
-      // The creation status of the instance.
+      // The creation status of the cluster.
       shared_ptr<string> initStatus_ {};
-      // The number of instance nodes.
+      // The number of instances in the cluster.
       shared_ptr<int32_t> instanceCount_ {};
-      // The ID of the instance.
+      // The instance ID.
       shared_ptr<string> instanceId_ {};
-      // The list of instance nodes.
+      // The list of instances.
       shared_ptr<vector<Data::InstanceModels>> instanceModels_ {};
-      // The public IP address of the instance.
+      // The public endpoint.
       shared_ptr<string> internetAddress_ {};
-      // The public endpoint of the instance.
+      // The public domain name.
       shared_ptr<string> internetDomain_ {};
-      // The private port number.
+      // The private port.
       shared_ptr<string> internetPort_ {};
-      // The internal IP address.
+      // The private endpoint.
       shared_ptr<string> intranetAddress_ {};
-      // The internal endpoint of the instance.
+      // The private domain name.
       shared_ptr<string> intranetDomain_ {};
-      // The private port number.
+      // The private port.
       shared_ptr<string> intranetPort_ {};
-      // The size of the memory. Unit: GB.
+      // The memory size. Unit: GB.
       shared_ptr<int64_t> memoryCapacity_ {};
-      // The edition of Microservices Engine (MSE).
+      // The MSE version.
       shared_ptr<string> mseVersion_ {};
-      // The network type of the instance. Valid values:
-      // 
-      // *   `privatenet`: VPC
-      // *   `pubnet`: Internet
+      // The network type. Valid values:
+      // - privatenet: VPC.
+      // - pubnet: Internet.
       shared_ptr<string> netType_ {};
-      // The version number of the original order.
+      // The original order version number.
       shared_ptr<string> orderClusterVersion_ {};
-      // The billing method, such as subscription or pay-as-you-go.
+      // The billing method, including subscription and pay-as-you-go.
       shared_ptr<string> payInfo_ {};
-      // The public bandwidth. Unit: Mbit/s.\\
-      // Valid values: 0 to 5000. The value 0 indicates no access to the Internet.
+      // The Internet bandwidth. Unit: Mbit/s. Valid values: 0 to 5000. A value of 0 indicates that the cluster is not connected to the Internet.
       shared_ptr<string> pubNetworkFlow_ {};
       // The region ID.
       shared_ptr<string> regionId_ {};
-      // The ID of the resource group.
+      // The resource group ID.
       shared_ptr<string> resourceGroupId_ {};
-      // The tags that are attached to the instance.
+      // The tags bound to the instance.
       Darabonba::Json tags_ {};
-      // The ID of the vSwitch.
+      // The vSwitch ID.
       shared_ptr<string> vSwitchId_ {};
+      // The version lifecycle.
       shared_ptr<string> versionLifecycle_ {};
-      // The ID of the virtual private cloud (VPC).
+      // The VPC ID.
       shared_ptr<string> vpcId_ {};
     };
 
@@ -646,18 +644,17 @@ namespace Models
 
 
   protected:
-    // The details of the data.
+    // The data overview.
     shared_ptr<QueryClusterDetailResponseBody::Data> data_ {};
-    // The error code returned if the request failed.
+    // The error code.
     shared_ptr<string> errorCode_ {};
-    // The message returned.
+    // The returned message.
     shared_ptr<string> message_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
     // Indicates whether the request was successful. Valid values:
-    // 
-    // *   `true`: The request was successful.
-    // *   `false`: The request failed.
+    // - true: The request was successful.
+    // - false: The request failed.
     shared_ptr<bool> success_ {};
   };
 

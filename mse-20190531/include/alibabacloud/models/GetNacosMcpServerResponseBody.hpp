@@ -126,8 +126,11 @@ namespace Models
 
 
       protected:
+        // Indicates whether it is the latest version.
         shared_ptr<bool> isLatest_ {};
+        // The release date.
         shared_ptr<string> releaseDate_ {};
+        // The version number.
         shared_ptr<string> version_ {};
       };
 
@@ -207,8 +210,11 @@ namespace Models
 
 
         protected:
+          // The description.
           shared_ptr<string> description_ {};
+          // The input schema of the tool.
           Darabonba::Json inputSchema_ {};
+          // The tool name.
           shared_ptr<string> name_ {};
         };
 
@@ -256,10 +262,15 @@ namespace Models
 
 
       protected:
+        // The list of security authentication schemes in the MCP tool definition.
         Darabonba::Json securitySchemes_ {};
+        // The storage format type of the MCP tool definition.
         shared_ptr<string> specificationType_ {};
+        // The decryption result status of the MCP tool definition.
         shared_ptr<string> toolDecryptStatus_ {};
+        // The list of tools.
         shared_ptr<vector<ToolSpec::Tools>> tools_ {};
+        // The tool metadata map.
         shared_ptr<map<string, DataToolSpecToolsMetaValue>> toolsMeta_ {};
       };
 
@@ -331,8 +342,11 @@ namespace Models
 
 
         protected:
+          // The group to which the service belongs.
           shared_ptr<string> groupName_ {};
+          // The namespace ID.
           shared_ptr<string> namespaceId_ {};
+          // The service name.
           shared_ptr<string> serviceName_ {};
         };
 
@@ -355,7 +369,9 @@ namespace Models
 
 
       protected:
+        // The exposed path.
         shared_ptr<string> exportPath_ {};
+        // The service reference.
         shared_ptr<RemoteServerConfig::ServiceRef> serviceRef_ {};
       };
 
@@ -406,8 +422,11 @@ namespace Models
 
 
       protected:
+        // The address.
         shared_ptr<string> address_ {};
+        // The path.
         shared_ptr<string> path_ {};
+        // The port number.
         shared_ptr<int32_t> port_ {};
       };
 
@@ -458,8 +477,11 @@ namespace Models
 
 
       protected:
+        // Indicates whether it is the latest version.
         shared_ptr<bool> isLatest_ {};
+        // The release date.
         shared_ptr<string> releaseDate_ {};
+        // The version number.
         shared_ptr<string> version_ {};
       };
 
@@ -580,20 +602,37 @@ namespace Models
 
 
     protected:
+      // All version information of the current MCP server.
       shared_ptr<vector<Data::AllVersions>> allVersions_ {};
+      // The backend service endpoints.
       shared_ptr<vector<Data::BackendEndpoints>> backendEndpoints_ {};
+      // The capabilities of the current MCP server.
       shared_ptr<vector<string>> capabilities_ {};
+      // The description.
       shared_ptr<string> description_ {};
+      // Indicates whether the gateway is enabled.
+      // 
+      // - true: Enabled.
+      // 
+      // - false: Disabled.
       shared_ptr<bool> enabled_ {};
+      // The exposed protocol type.
       shared_ptr<string> frontProtocol_ {};
-      // ID。
+      // The ID.
       shared_ptr<string> id_ {};
+      // The local MCP server configuration.
       Darabonba::Json localServerConfig_ {};
+      // The name.
       shared_ptr<string> name_ {};
+      // The protocol.
       shared_ptr<string> protocol_ {};
+      // The remote server configuration.
       shared_ptr<Data::RemoteServerConfig> remoteServerConfig_ {};
+      // The tool specification.
       shared_ptr<Data::ToolSpec> toolSpec_ {};
+      // The version details.
       shared_ptr<Data::VersionDetail> versionDetail_ {};
+      // The YAML configuration of the AI gateway.
       shared_ptr<string> yamlConfig_ {};
     };
 
@@ -616,7 +655,9 @@ namespace Models
 
 
   protected:
+    // The response data.
     shared_ptr<GetNacosMcpServerResponseBody::Data> data_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

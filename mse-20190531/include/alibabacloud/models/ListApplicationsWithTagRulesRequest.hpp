@@ -103,10 +103,10 @@ namespace Models
 
 
   protected:
-    // The language of the response. Valid values:
+    // The language of the returned information. Valid values:
     // 
-    // *   zh: Chinese
-    // *   en: English
+    // - zh: Chinese
+    // - en: English
     shared_ptr<string> acceptLanguage_ {};
     // The ID of the application.
     shared_ptr<string> appId_ {};
@@ -114,17 +114,17 @@ namespace Models
     shared_ptr<string> appName_ {};
     // The MSE namespace to which the application belongs.
     shared_ptr<string> namespace_ {};
-    // The number of the page to return.
+    // The page number.
     // 
     // This parameter is required.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries to return on each page.
+    // The number of entries per page.
     // 
     // This parameter is required.
     shared_ptr<int32_t> pageSize_ {};
-    // The ID of the region.
+    // The region.
     shared_ptr<string> region_ {};
-    // The source of the routing rule. Default value: edasmsc.
+    // The data source. Default value: edasmsc.
     shared_ptr<string> source_ {};
   };
 

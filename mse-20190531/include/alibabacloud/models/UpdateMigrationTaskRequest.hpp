@@ -142,27 +142,31 @@ namespace Models
   protected:
     // The language of the response. Valid values:
     // 
-    // *   zh: Chinese
-    // *   en: English
-    shared_ptr<string> acceptLanguage_ {};
-    // The type of the instance. Valid values:
+    // - zh: Chinese
     // 
-    // *   Nacos-Ans
-    // *   ZooKeeper
-    // *   Eureka
+    // - en: English
+    shared_ptr<string> acceptLanguage_ {};
+    // The type of a cluster.
+    // 
+    // - Nacos-Ans
+    // 
+    // - ZooKeeper
+    // 
+    // - Eureka
     shared_ptr<string> clusterType_ {};
-    // The ID of the task.
+    // The task ID.
     shared_ptr<string> id_ {};
-    // The address of the source instance node.
+    // The source instance node address.
     shared_ptr<string> originInstanceAddress_ {};
     // The name of the source instance.
     shared_ptr<string> originInstanceName_ {};
-    // The list of namespaces. This parameter is optional if you want to migrate applications from a Nacos instance.
+    // The list of namespaces. This parameter is optional if applications are migrated from a Nacos instance.
     shared_ptr<string> originInstanceNamespace_ {};
-    // The description.
+    // The description of the task.
     shared_ptr<string> projectDesc_ {};
-    // The extended request parameters in the JSON format.
+    // The extended request parameter in the JSON format.
     shared_ptr<string> requestPars_ {};
+    // The synchronization type
     shared_ptr<string> syncType_ {};
     // The name of the destination instance.
     shared_ptr<string> targetClusterName_ {};

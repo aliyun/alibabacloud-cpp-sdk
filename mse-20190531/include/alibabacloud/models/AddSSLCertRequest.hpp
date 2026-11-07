@@ -67,13 +67,12 @@ namespace Models
 
   protected:
     // The language of the response. Valid values:
-    // 
-    // *   zh: Chinese
-    // *   en: English
+    // - zh: Chinese
+    // - en: English
     shared_ptr<string> acceptLanguage_ {};
-    // The ID of the certificate.
+    // The certificate ID.
     shared_ptr<string> certIdentifier_ {};
-    // The domain ID.
+    // The domain name ID.
     shared_ptr<int64_t> domainId_ {};
     // The unique ID of the gateway.
     shared_ptr<string> gatewayUniqueId_ {};

@@ -164,7 +164,9 @@ namespace Models
 
 
         protected:
+          // The percentage.
           shared_ptr<string> percentage_ {};
+          // The route ID.
           shared_ptr<string> routeId_ {};
         };
 
@@ -235,20 +237,25 @@ namespace Models
 
 
         protected:
-          // 条件：
-          // - PRE：前缀匹配
-          // - EQUAL：精确匹配
-          // - ERGULAR：正则匹配
+          // The condition. Valid values:
+          // 
+          // - PRE: prefix match
+          // 
+          // - EQUAL: exact match
+          // 
+          // - REGULAR: regular expression match
           shared_ptr<string> cond_ {};
-          // 参数名称
+          // The parameter name.
           shared_ptr<string> name_ {};
           // NameList
           shared_ptr<vector<string>> nameList_ {};
-          // 参数类型：
-          // - header：Header
-          // - param：Parameter
+          // The parameter type. Valid values:
+          // 
+          // - header: Header
+          // 
+          // - param: Parameter
           shared_ptr<string> type_ {};
-          // 参数值
+          // The parameter value.
           shared_ptr<string> value_ {};
         };
 
@@ -325,24 +332,27 @@ namespace Models
 
 
       protected:
-        // 全链路灰度模式：
+        // The mode of the end-to-end canary release. Valid values:
         // 
-        // - 0: 按请求内容路由
+        // - 0: route by the content of the request
         // 
-        // - 1: 按比例路由
+        // - 1: route by proportion
         shared_ptr<int32_t> canaryModel_ {};
+        // The condition for the canary release.
         shared_ptr<string> condition_ {};
-        // 匹配条件列表（按内容路由使用）
+        // The list of matching conditions. This parameter is used when you route requests by content.
         shared_ptr<vector<GatewaySwimmingLaneRoute::Conditions>> conditions_ {};
-        // 网关ID
+        // The gateway ID.
         shared_ptr<int64_t> gatewayId_ {};
-        // 网关唯一ID
+        // The unique ID of the gateway.
         shared_ptr<string> gatewayUniqueId_ {};
-        // 流量比例（按比例路由使用，取值0-100）
+        // The traffic proportion. This parameter is used when you route requests by proportion. Valid values: 0 to 100.
         shared_ptr<int32_t> percentage_ {};
-        // 路由ID列表
+        // The list of route IDs. This parameter is optional if the canary release is effective at the gateway level.
         shared_ptr<vector<int64_t>> routeIdList_ {};
+        // Indicates whether to independently set the percentage for each path.
         shared_ptr<string> routeIndependentPercentageEnable_ {};
+        // The list of routes and percentages.
         shared_ptr<vector<GatewaySwimmingLaneRoute::RouteIndependentPercentageList>> routeIndependentPercentageList_ {};
       };
 
@@ -484,15 +494,15 @@ namespace Models
 
 
         protected:
-          // The matching character.
+          // The matching operator.
           shared_ptr<string> cond_ {};
           // The value.
           shared_ptr<string> datum_ {};
           // The divisor.
           shared_ptr<int32_t> divisor_ {};
-          // The name of the matching rule.
+          // The name.
           shared_ptr<string> name_ {};
-          // The matching list.
+          // The list of items to match.
           shared_ptr<vector<string>> nameList_ {};
           // The operator.
           shared_ptr<string> operator_ {};
@@ -545,9 +555,9 @@ namespace Models
         shared_ptr<string> condition_ {};
         // The path.
         shared_ptr<string> path_ {};
-        // The paths.
+        // The list of paths.
         shared_ptr<vector<string>> paths_ {};
-        // The RESTful matching rules.
+        // The list of RESTful matching rules.
         shared_ptr<vector<EntryRules::RestItems>> restItems_ {};
       };
 
@@ -687,39 +697,41 @@ namespace Models
 
 
     protected:
-      // 是否开启。
+      // Indicates whether the lane is enabled.
       shared_ptr<string> enable_ {};
-      // The ingress application rules.
+      // The list of rules for the ingress application.
       shared_ptr<vector<Data::EntryRules>> entryRules_ {};
-      // 网关路由信息（使用云原生网关为入口时使用）
+      // The information about the gateway route. This parameter is used when a cloud-native gateway or an API Gateway instance is used as the ingress.
       shared_ptr<Data::GatewaySwimmingLaneRoute> gatewaySwimmingLaneRoute_ {};
+      // The information about the gateway. This parameter is used when an MSE cloud-native gateway or a cloud-native API Gateway instance is used as the ingress.
       shared_ptr<string> gatewaySwimmingLaneRouteJson_ {};
       // The ID of the lane group.
       shared_ptr<string> groupId_ {};
-      // The ID of the lane group.
+      // The lane ID.
       shared_ptr<int64_t> id_ {};
-      // The side on which canary release for messaging is implemented.
+      // The side on which canary release for messages is implemented.
       shared_ptr<string> messageQueueFilterSide_ {};
-      // Indicates whether canary release for messaging is enabled.
+      // Indicates whether canary release for messages is enabled.
       shared_ptr<bool> messageQueueGrayEnable_ {};
       // The name of the lane group.
       shared_ptr<string> name_ {};
-      // The Microservices Engine (MSE) namespace to which the lane belongs.
+      // The MSE namespace to which the lane belongs.
       shared_ptr<string> namespace_ {};
+      // Indicates whether to set the percentage for each path.
       shared_ptr<bool> pathIndependentPercentageEnable_ {};
-      // Indicates whether request details were recorded (metrics of end-to-end canary release).
+      // Indicates whether to record the request details. This is for the observability of end-to-end canary releases.
       shared_ptr<bool> recordCanaryDetail_ {};
       // The region ID.
       shared_ptr<string> regionId_ {};
       // The tag of the lane.
       shared_ptr<string> tag_ {};
-      // The user ID of the lane group.
+      // The ID of the user to which the lane belongs.
       shared_ptr<string> userId_ {};
-      // Indicates whether the rule is enabled.
+      // Indicates whether rules are enabled.
       shared_ptr<bool> enableRules_ {};
       // The time when the lane was created.
       shared_ptr<string> gmtCreate_ {};
-      // The time when the lane was updated.
+      // The time when the lane was last updated.
       shared_ptr<string> gmtModified_ {};
     };
 
@@ -763,18 +775,19 @@ namespace Models
 
 
   protected:
-    // The details of the data.
+    // Data Overview.
     shared_ptr<vector<QueryAllSwimmingLaneResponseBody::Data>> data_ {};
     // The error code.
     shared_ptr<string> errorCode_ {};
     // The returned message.
     shared_ptr<string> message_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
     // Indicates whether the request was successful. Valid values:
     // 
-    // *   `true`: The request was successful.
-    // *   `false`: The request failed.
+    // - `true`: The request was successful.
+    // 
+    // - `false`: The request failed.
     shared_ptr<bool> success_ {};
   };
 

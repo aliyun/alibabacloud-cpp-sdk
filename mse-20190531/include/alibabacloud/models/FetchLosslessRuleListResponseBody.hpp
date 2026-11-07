@@ -187,30 +187,30 @@ namespace Models
 
 
       protected:
-        // Indicates whether service registration is complete before readiness probe.
+        // Specifies whether to enable completing service registration before passing the readiness check.
         shared_ptr<bool> aligned_ {};
-        // The ID of the application.
+        // The application ID.
         shared_ptr<string> appId_ {};
-        // The name of the application.
+        // The application name.
         shared_ptr<string> appName_ {};
         // The number of instances.
         shared_ptr<int32_t> count_ {};
-        // The registration latency. Unit: seconds.
+        // The delayed registration time in seconds.
         shared_ptr<int32_t> delayTime_ {};
-        // Indicates whether graceful start is enabled. Valid values:
+        // The enabling status of graceful start. Valid values:
         // 
-        // *   `true`: enabled
-        // *   `false`: disabled
+        // - `true`: Enabled.
+        // - `false`: Disabled.
         shared_ptr<bool> enable_ {};
-        // The slope of the prefetching curve.
+        // The slope of the warm-up curve.
         shared_ptr<int32_t> funcType_ {};
-        // Indicates whether online and offline processing details are displayed.
+        // Specifies whether to enable the processing details for graceful start and shutdown.
         shared_ptr<bool> lossLessDetail_ {};
-        // Indicates whether notification is enabled.
+        // Specifies whether to enable proactive notifications.
         shared_ptr<bool> notice_ {};
-        // Indicates whether service prefetching is complete before readiness probe.
+        // Specifies whether to enable completing service warm-up before passing the readiness check.
         shared_ptr<bool> related_ {};
-        // The prefetching duration. Unit: seconds.
+        // The warm-up duration in seconds.
         shared_ptr<int32_t> warmupTime_ {};
       };
 
@@ -247,13 +247,13 @@ namespace Models
 
 
     protected:
-      // The page number of the returned page.
+      // The page number.
       shared_ptr<int32_t> pageNumber_ {};
-      // The number of entries returned per page.
+      // The page size.
       shared_ptr<int32_t> pageSize_ {};
       // The returned data.
       shared_ptr<vector<Data::Results>> results_ {};
-      // The total number of entries returned.
+      // The total number of entries.
       shared_ptr<int32_t> totalSize_ {};
     };
 
@@ -312,20 +312,21 @@ namespace Models
 
 
   protected:
-    // The response code returned.
+    // The response code.
     shared_ptr<int32_t> code_ {};
     // The returned result.
     shared_ptr<FetchLosslessRuleListResponseBody::Data> data_ {};
+    // The error code.
     shared_ptr<string> errorCode_ {};
+    // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
-    // The message returned.
+    // The message.
     shared_ptr<string> message_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request was successful. Valid values:
-    // 
-    // *   `true`: The request was successful.
-    // *   `false`: The request failed.
+    // The request result. Valid values:
+    // - `true`: The request is successful.
+    // - `false`: The request fails.
     shared_ptr<bool> success_ {};
   };
 

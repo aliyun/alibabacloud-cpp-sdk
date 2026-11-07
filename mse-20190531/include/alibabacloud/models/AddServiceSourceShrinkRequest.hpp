@@ -121,35 +121,49 @@ namespace Models
 
 
   protected:
-    // The language of the response. Valid values:
+    // The supported languages. Valid values:
     // 
-    // *   zh-CN (default): Chinese
-    // *   en-US: English
-    // *   ja: Japanese
+    // - zh-CN: Chinese. This is the default value.
+    // - en-US: English.
+    // - ja: Japanese.
     shared_ptr<string> acceptLanguage_ {};
-    // Specifies whether to monitor Ingress classes.
+    // The access address. This parameter is required.
+    // * Container Service: the ID of the Container Service cluster.
+    // * MSE Nacos: the internal endpoint of the instance.
+    // * MSE ZooKeeper: the internal endpoint of the instance.
+    // * SAE registry: the namespace TID.
+    // * EDAS registry: the microservice namespace.
     shared_ptr<string> address_ {};
-    // Specifies whether to update the Ingress status.
+    // The unique ID of the gateway.
     shared_ptr<string> gatewayUniqueId_ {};
-    // The data structure.
-    shared_ptr<string> groupListShrink_ {};
     // The list of service groups.
+    shared_ptr<string> groupListShrink_ {};
+    // The Ingress configurations. This parameter is used when the service source type is K8s.
     shared_ptr<string> ingressOptionsRequestShrink_ {};
-    // The namespace whose resources you want to monitor.
+    // The name.
+    // 
+    // 
+    // > Descriptions for different source types.
+    // - When the type is K8s, the input parameter is the name.
+    // - When the type is NACOS, the input parameter is the instance ID.
     shared_ptr<string> name_ {};
-    // The HTTP status code returned.
+    // The array of service root paths.
     shared_ptr<string> pathListShrink_ {};
-    // The service source.
-    // 
-    // *   K8s: ACK cluster
-    // *   NACOS: MSE Nacos instance
+    // The service source type:
+    // - Container Service: K8S
+    // - MSE Nacos: MSE
+    // - MSE ZooKeeper: MSE_ZK
+    // - SAE registry: SAE
+    // - EDAS registry: EDAS
     shared_ptr<string> source_ {};
-    // The list of security groups to be authorized. You can specify security groups to allow backend services to access data sources that you create.
+    // The list of security groups to be authorized. This parameter is used to remove security group restrictions for backend services when creating a source.
     shared_ptr<string> toAuthorizeSecurityGroupsShrink_ {};
-    // The type of the service source.
-    // 
-    // *   K8s: Container Service for Kubernetes (ACK) cluster
-    // *   NACOS: Nacos instance
+    // The service registration type. Specify the corresponding value based on the source type:
+    // - Container Service: K8S
+    // - MSE Nacos: NACOS
+    // - MSE ZooKeeper: ZOOKEEPER
+    // - SAE registry: NACOS
+    // - EDAS registry: NACOS
     shared_ptr<string> type_ {};
   };
 

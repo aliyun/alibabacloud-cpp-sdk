@@ -150,11 +150,11 @@ namespace Models
 
 
     protected:
-      // The default service ID.
+      // The ID of the default service.
       shared_ptr<int64_t> defaultServiceId_ {};
       // The ID of the gateway.
       shared_ptr<int64_t> gatewayId_ {};
-      // The unique ID of the gateway.
+      // The unique identifier of the gateway.
       shared_ptr<string> gatewayUniqueId_ {};
       // The creation time.
       shared_ptr<string> gmtCreate_ {};
@@ -166,16 +166,15 @@ namespace Models
       shared_ptr<string> name_ {};
       // The matching rules.
       shared_ptr<string> predicates_ {};
-      // The sequence number of the route.
+      // The route order.
       shared_ptr<int32_t> routeOrder_ {};
-      // The status of the route. Valid values:
-      // 
-      // *   0: unpublished
-      // *   2: publishing
-      // *   3: published
-      // *   4: editing (updated but not published)
-      // *   5: unpublishing
-      // *   6: unavailable
+      // The route status. Valid values:
+      // - 0: Unpublished.
+      // - 2: Publishing.
+      // - 3: Published.
+      // - 4: Editing (unpublished updates).
+      // - 5: Going offline.
+      // - 6: Unavailable.
       shared_ptr<int32_t> status_ {};
     };
 
@@ -226,20 +225,19 @@ namespace Models
 
 
   protected:
-    // The HTTP status code returned.
+    // The status code.
     shared_ptr<int32_t> code_ {};
-    // The data returned.
+    // The returned data.
     shared_ptr<DeleteGatewayRouteResponseBody::Data> data_ {};
-    // The HTTP status code returned.
+    // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
-    // The message returned.
+    // The error message.
     shared_ptr<string> message_ {};
     // The ID of the request.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request was successful. Valid values:
-    // 
-    // *   `true`: The request was successful.
-    // *   `false`: The request failed.
+    // Indicates whether the request is successful. Valid values:
+    // - `true`: The request is successful.
+    // - `false`: The request failed.
     shared_ptr<bool> success_ {};
   };
 

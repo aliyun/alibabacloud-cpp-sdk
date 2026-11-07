@@ -155,11 +155,11 @@ namespace Models
 
 
       protected:
-        // The tag.
+        // The label.
         shared_ptr<string> label_ {};
         // The type.
         shared_ptr<string> type_ {};
-        // The tag value.
+        // The label value.
         shared_ptr<string> value_ {};
       };
 
@@ -245,9 +245,9 @@ namespace Models
 
 
           protected:
-            // The tag.
+            // The label.
             shared_ptr<string> key_ {};
-            // The tag value.
+            // The label value.
             shared_ptr<string> value_ {};
           };
 
@@ -270,9 +270,9 @@ namespace Models
 
 
         protected:
-          // The tag.
+          // The label.
           shared_ptr<vector<ServiceVersion::Labels>> labels_ {};
-          // The version number.
+          // The version name.
           shared_ptr<string> name_ {};
         };
 
@@ -402,11 +402,11 @@ namespace Models
         shared_ptr<string> gmtCreate_ {};
         // The modification time.
         shared_ptr<string> gmtModified_ {};
-        // The port ID.
+        // The port configuration ID.
         shared_ptr<int64_t> id_ {};
         // The service ID.
         shared_ptr<int64_t> serviceId_ {};
-        // The service port number.
+        // The service port.
         shared_ptr<int32_t> servicePort_ {};
         // The traffic policy.
         shared_ptr<TrafficPolicy> trafficPolicy_ {};
@@ -452,9 +452,9 @@ namespace Models
 
 
       protected:
-        // The tag.
+        // The label.
         shared_ptr<string> key_ {};
-        // The tag value.
+        // The label value.
         shared_ptr<vector<string>> values_ {};
       };
 
@@ -656,10 +656,11 @@ namespace Models
 
 
     protected:
+      // The list of DNS servers. This parameter is only used for DNS domain name services.
       shared_ptr<vector<string>> dnsServerList_ {};
-      // The ID of the gateway.
+      // The gateway ID.
       shared_ptr<int64_t> gatewayId_ {};
-      // The traffic policy of the service.
+      // The service traffic policy.
       shared_ptr<TrafficPolicy> gatewayTrafficPolicy_ {};
       // The unique ID of the gateway.
       shared_ptr<string> gatewayUniqueId_ {};
@@ -667,41 +668,43 @@ namespace Models
       shared_ptr<string> gmtCreate_ {};
       // The last modification time.
       shared_ptr<string> gmtModified_ {};
-      // The name of the group.
+      // The group name.
       shared_ptr<string> groupName_ {};
-      // Indicates whether the health check is enabled.
+      // Indicates whether health checks are enabled.
       shared_ptr<string> healthCheck_ {};
-      // The status of the health check. Valid values:
+      // The health check status.
       shared_ptr<string> healthStatus_ {};
-      // The ID of the service.
+      // The service ID.
       shared_ptr<int64_t> id_ {};
-      // The IP address of the service.
+      // The IP addresses of the service.
       shared_ptr<vector<string>> ips_ {};
-      // The details of the tag.
+      // The label details.
       shared_ptr<vector<Data::LabelDetails>> labelDetails_ {};
-      // The basic information about the service.
+      // The basic information of the service.
       shared_ptr<string> metaInfo_ {};
-      // The name of the service.
+      // The service name.
       shared_ptr<string> name_ {};
       // The namespace.
       shared_ptr<string> namespace_ {};
-      // The traffic policy of service ports.
+      // The traffic policies for service ports.
       shared_ptr<vector<Data::PortTrafficPolicyList>> portTrafficPolicyList_ {};
       // The array of service ports.
       shared_ptr<vector<int32_t>> ports_ {};
+      // The fully qualified domain name (FQDN) of the service.
       shared_ptr<string> serviceFQDN_ {};
-      // The name of the service registered with the service registry.
+      // The name of the service registered in the registry.
       shared_ptr<string> serviceNameInRegistry_ {};
+      // The service port.
       shared_ptr<int32_t> servicePort_ {};
-      // The protocol of the service.
+      // The service protocol.
       shared_ptr<string> serviceProtocol_ {};
-      // The ID of the service source.
+      // The source ID.
       shared_ptr<int64_t> sourceId_ {};
-      // The source type of the service.
+      // The service source.
       shared_ptr<string> sourceType_ {};
-      // The details of versions.
+      // The version details.
       shared_ptr<vector<Data::VersionDetails>> versionDetails_ {};
-      // The service version. This parameter is deprecated.
+      // The service version numbers. **[Deprecated]**
       shared_ptr<vector<Data::Versions>> versions_ {};
     };
 
@@ -752,20 +755,19 @@ namespace Models
 
 
   protected:
-    // The response code returned.
+    // The response code.
     shared_ptr<int32_t> code_ {};
-    // The data returned.
+    // The data overview.
     shared_ptr<GetGatewayServiceDetailResponseBody::Data> data_ {};
-    // The HTTP status code returned.
+    // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
-    // The message returned.
+    // The returned message.
     shared_ptr<string> message_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request was successful. Valid values:
-    // 
-    // *   `true`: The request was successful.
-    // *   `false`: The request failed.
+    // Indicates whether the request is successful. Valid values:
+    // - `true`: The request is successful.
+    // - `false`: The request fails.
     shared_ptr<bool> success_ {};
   };
 

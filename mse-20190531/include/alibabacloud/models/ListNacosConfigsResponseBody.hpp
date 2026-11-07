@@ -122,15 +122,17 @@ namespace Models
 
 
     protected:
-      // The name of the application.
+      // The application name.
       shared_ptr<string> appName_ {};
+      // The tags of the configuration. Multiple tags are separated by commas.
       shared_ptr<string> configTags_ {};
-      // The ID of the configuration.
+      // The configuration ID.
       shared_ptr<string> dataId_ {};
+      // The description of the configuration item.
       shared_ptr<string> description_ {};
-      // The ID of the group.
+      // The group ID.
       shared_ptr<string> group_ {};
-      // The ID of the application.
+      // The application ID.
       shared_ptr<string> id_ {};
     };
 
@@ -210,28 +212,27 @@ namespace Models
 
 
   protected:
-    // The status code returned.
+    // The returned code.
     shared_ptr<int32_t> code_ {};
-    // The configurations.
+    // The list of configurations.
     shared_ptr<vector<ListNacosConfigsResponseBody::Configurations>> configurations_ {};
-    // The error code returned if the request failed.
+    // The error code.
     shared_ptr<string> errorCode_ {};
-    // The HTTP status code returned.
+    // The HTTP status code.
     shared_ptr<string> httpCode_ {};
-    // The message returned.
+    // The returned message.
     shared_ptr<string> message_ {};
-    // The page number of the returned page.
+    // The page number.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries returned per page.
+    // The number of instances displayed on each page.
     shared_ptr<int32_t> pageSize_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request was successful. Valid values:
-    // 
-    // *   `true`: The request was successful.
-    // *   `false`: The request failed.
+    // Indicates whether the request is successful. Valid values:
+    // - `true`: The request is successful.
+    // - `false`: The request fails.
     shared_ptr<bool> success_ {};
-    // The total number of returned instances.
+    // The total number of instances.
     shared_ptr<int32_t> totalCount_ {};
   };
 

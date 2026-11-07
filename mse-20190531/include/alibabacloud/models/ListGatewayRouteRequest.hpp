@@ -141,24 +141,37 @@ namespace Models
 
 
     protected:
-      // The default service ID.
+      // Default service ID
       shared_ptr<int64_t> defaultServiceId_ {};
-      // The domain ID.
+      // Domain ID
       shared_ptr<int64_t> domainId_ {};
-      // The associated domain name.
+      // Associated domain
       shared_ptr<string> domainName_ {};
-      // The ID of the gateway.
+      // Gateway ID
       shared_ptr<int64_t> gatewayId_ {};
-      // The unique ID of the gateway.
+      // Gateway unique identifier ID
       // 
       // This parameter is required.
       shared_ptr<string> gatewayUniqueId_ {};
-      // The name of the gateway.
+      // Route name
       shared_ptr<string> name_ {};
+      // Route path
       shared_ptr<string> path_ {};
-      // The order.
+      // Order (unused)
       shared_ptr<int32_t> routeOrder_ {};
-      // The status.
+      // Route status:
+      // 
+      // - Unpublished: 0
+      // 
+      // - Publishing: 2
+      // 
+      // - Published: 3
+      // 
+      // - Editing (updates not published): 4
+      // 
+      // - Unpublishing: 5
+      // 
+      // - Unavailable: 6
       shared_ptr<int32_t> status_ {};
     };
 
@@ -209,20 +222,21 @@ namespace Models
 
 
   protected:
-    // The language of the response. Valid values:
+    // Language type for returned information:
     // 
-    // *   zh: Chinese
-    // *   en: English
+    // - zh: Chinese
+    // 
+    // - en: English
     shared_ptr<string> acceptLanguage_ {};
-    // Specifies whether to enable sorting. This parameter is unavailable.
+    // Sorting. This field is currently unavailable and being deprecated.
     shared_ptr<bool> descSort_ {};
-    // The parameters that specify filter conditions. The parameters are in the format of {"key1":"value1"}.
+    // Filter conditions in the format {"key1":"value1"}
     shared_ptr<ListGatewayRouteRequest::FilterParams> filterParams_ {};
-    // The item based on which entries are sorted.
+    // Sorting property.
     shared_ptr<string> orderItem_ {};
-    // The number of the page to return.
+    // Page number.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries to return on each page.
+    // Number of instances displayed per page (currently not in effect, queries all instances by default).
     shared_ptr<int32_t> pageSize_ {};
   };
 

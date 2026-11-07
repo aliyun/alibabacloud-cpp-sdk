@@ -94,14 +94,13 @@ namespace Models
 
 
   protected:
-    // The language of the response. Valid values:
-    // 
-    // *   zh: Chinese
-    // *   en: English
+    // The language of the returned information. Valid values:
+    // * zh: Chinese.
+    // * en: English.
     shared_ptr<string> acceptLanguage_ {};
-    // The ID of the application.
+    // The application ID.
     shared_ptr<string> appId_ {};
-    // The name of the application.
+    // The application name.
     shared_ptr<string> appName_ {};
     // The namespace.
     shared_ptr<string> namespace_ {};
@@ -113,7 +112,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<int32_t> pageSize_ {};
-    // The ID of the region.
+    // The region ID.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};

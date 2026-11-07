@@ -112,14 +112,26 @@ namespace Models
 
 
   protected:
+    // The language of the response. Valid values: zh (Chinese, default) and en (English).
     shared_ptr<string> acceptLanguage_ {};
+    // Specifies whether to encrypt the MCP tool specification. Valid values:
+    // 
+    // - `true`: Encrypts the specification.
+    // - `false`: Does not encrypt the specification. This is the default value.
     shared_ptr<bool> encryptToolSpec_ {};
+    // The JSON string of the endpoint specification.
     shared_ptr<string> endpointSpecification_ {};
+    // The instance ID.
     shared_ptr<string> instanceId_ {};
+    // The namespace ID.
     shared_ptr<string> namespaceId_ {};
+    // The service name.
     shared_ptr<string> serverName_ {};
+    // The JSON string of the server specification.
     shared_ptr<string> serverSpecification_ {};
+    // The JSON string of the tool specification.
     shared_ptr<string> toolSpecification_ {};
+    // The YAML configuration of the AI gateway. This parameter is optional.
     shared_ptr<string> yamlConfig_ {};
   };
 

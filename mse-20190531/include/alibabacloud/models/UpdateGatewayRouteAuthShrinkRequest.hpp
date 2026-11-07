@@ -77,10 +77,10 @@ namespace Models
   protected:
     // The language of the response. Valid values:
     // 
-    // *   zh: Chinese
-    // *   en: English
+    // - zh: Chinese
+    // - en: English
     shared_ptr<string> acceptLanguage_ {};
-    // The authentication configurations.
+    // The authentication configuration.
     // 
     // This parameter is required.
     shared_ptr<string> authJSONShrink_ {};

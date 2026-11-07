@@ -84,20 +84,19 @@ namespace Models
 
 
   protected:
-    // The language of the response. Valid values:
-    // 
-    // *   zh: Chinese
-    // *   en: English
+    // The language of the returned information. Valid values:
+    // - zh: Chinese
+    // - en: English
     shared_ptr<string> acceptLanguage_ {};
-    // Specifies whether to enable the sorting feature. This feature is not available.
+    // The sorting order. This parameter is currently not used.
     shared_ptr<bool> descSort_ {};
-    // The details of parameters.
+    // The filter parameters.
     shared_ptr<string> filterParamsShrink_ {};
     // The order information.
     shared_ptr<string> orderItem_ {};
-    // The number of the page to return.
+    // The page number.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries to return on each page.
+    // The number of instances per page.
     shared_ptr<int32_t> pageSize_ {};
   };
 

@@ -187,39 +187,39 @@ namespace Models
 
 
     protected:
-      // The ID of the Alibaba Cloud account.
+      // The account ID.
       shared_ptr<string> accountId_ {};
-      // The ID of the consumer application.
+      // The ID of the service consumer application.
       shared_ptr<string> consumerAppId_ {};
-      // The name of the consumer application.
+      // The name of the application to be queried.
       shared_ptr<string> consumerAppName_ {};
-      // Indicates whether the mock rule is enabled.
+      // Indicates whether the rule is enabled. Valid values:
       // 
-      // *   `true`: enabled
-      // *   `false`: disabled
+      // - `true`: Enabled.
+      // - `false`: Disabled.
       shared_ptr<bool> enable_ {};
       // The description.
       shared_ptr<string> extraJson_ {};
-      // The ID of the rule.
+      // The rule ID.
       shared_ptr<int64_t> id_ {};
-      // The mock type. Valid values:
+      // The model type. Valid values:
       // 
-      // *   \\- `[unk]0[unk]`: desktop client
-      // *   \\- `[unk]1[unk]`: mobile client
+      // - `[unk]0[unk]`: Desktop model
+      // - `[unk]1[unk]`: Mobile model
       shared_ptr<int64_t> mockType_ {};
       // The name.
       shared_ptr<string> name_ {};
-      // The ID of the namespace.
+      // The namespace ID.
       shared_ptr<string> namespaceId_ {};
       // The ID of the service provider application.
       shared_ptr<string> providerAppId_ {};
       // The name of the service provider application.
       shared_ptr<string> providerAppName_ {};
-      // The region ID.
+      // The region.
       shared_ptr<string> region_ {};
-      // The HTTP mock rule.
+      // The mock rule for the HTTP protocol.
       shared_ptr<string> scMockItemJson_ {};
-      // The service source.
+      // The source.
       shared_ptr<string> source_ {};
     };
 
@@ -270,20 +270,19 @@ namespace Models
 
 
   protected:
-    // The status code returned.
+    // The return code.
     shared_ptr<int32_t> code_ {};
-    // The details of the data.
+    // The data overview.
     shared_ptr<AddMockRuleResponseBody::Data> data_ {};
-    // The HTTP status code returned.
+    // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
-    // The message returned.
+    // The returned message.
     shared_ptr<string> message_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request was successful. Valid values:
-    // 
-    // *   `true`: The request was successful.
-    // *   `false`: The request failed.
+    // Indicates whether the request is successful. Valid values:
+    // - `true`: The request succeeded.
+    // - `false`: The request failed.
     shared_ptr<bool> success_ {};
   };
 

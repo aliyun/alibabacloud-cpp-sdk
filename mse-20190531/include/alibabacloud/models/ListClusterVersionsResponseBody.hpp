@@ -91,11 +91,11 @@ namespace Models
 
 
     protected:
-      // The type of the instance.
+      // The cluster type.
       shared_ptr<string> clusterType_ {};
-      // The code of the instance type.
+      // The cluster type code.
       shared_ptr<string> code_ {};
-      // The version of the instance.
+      // The cluster version.
       shared_ptr<string> showName_ {};
     };
 
@@ -161,24 +161,23 @@ namespace Models
 
 
   protected:
-    // The status code returned.
+    // The response code.
     shared_ptr<int32_t> code_ {};
-    // The details of the data.
+    // The data overview.
     shared_ptr<vector<ListClusterVersionsResponseBody::Data>> data_ {};
-    // The dynamic part in the error message.
+    // The dynamic error message related to the request.
     shared_ptr<string> dynamicMessage_ {};
-    // The error code returned if the request failed.
+    // The error code.
     shared_ptr<string> errorCode_ {};
-    // The HTTP status code returned.
+    // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
-    // The message returned.
+    // The returned message.
     shared_ptr<string> message_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request was successful. Valid values:
-    // 
-    // *   `true`: The request was successful.
-    // *   `false`: The request failed.
+    // Indicates whether the request is successful. Valid values:
+    // - `true`: The request is successful.
+    // - `false`: The request fails.
     shared_ptr<bool> success_ {};
   };
 

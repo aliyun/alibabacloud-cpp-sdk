@@ -84,12 +84,19 @@ namespace Models
 
 
   protected:
+    // The language in which you want the results to be displayed. Valid values: zh and en. zh is the default value, which indicates Chinese. en indicates English.
     shared_ptr<string> acceptLanguage_ {};
+    // The application ID.
     shared_ptr<string> appId_ {};
+    // The application name.
     shared_ptr<string> appName_ {};
+    // The name of the Microservices Engine (MSE) namespace.
     shared_ptr<string> namespace_ {};
+    // The region of the gateway.
+    // 
     // This parameter is required.
     shared_ptr<string> region_ {};
+    // The source of the rule. This field is optional.
     shared_ptr<string> source_ {};
   };
 

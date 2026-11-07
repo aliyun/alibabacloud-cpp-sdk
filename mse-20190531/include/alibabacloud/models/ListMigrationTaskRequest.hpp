@@ -77,16 +77,17 @@ namespace Models
   protected:
     // The language of the response. Valid values:
     // 
-    // *   zh: Chinese
-    // *   en: English
+    // - zh: Chinese
+    // 
+    // - en: English
     shared_ptr<string> acceptLanguage_ {};
     // The name of the source instance.
     shared_ptr<string> originInstanceName_ {};
-    // The number of the page to return.
+    // The page number.
     shared_ptr<int64_t> pageNum_ {};
-    // The number of entries to return on each page.
+    // The number of entries per page.
     shared_ptr<int64_t> pageSize_ {};
-    // The extended request parameters in the JSON format.
+    // The extended request parameters. This parameter is a JSON string.
     shared_ptr<string> requestPars_ {};
   };
 

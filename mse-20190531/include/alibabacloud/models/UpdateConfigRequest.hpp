@@ -289,85 +289,96 @@ namespace Models
   protected:
     // The language of the response. Valid values:
     // 
-    // *   zh: Chinese
-    // *   en: English
+    // - zh: Chinese
+    // 
+    // - en: English
     shared_ptr<string> acceptLanguage_ {};
+    // Specifies whether to enable forced Simple Authentication and Security Layer (SASL) authentication. After this feature is enabled, clients that do not perform SASL authentication cannot access the cluster
     shared_ptr<bool> authEnabled_ {};
-    // A reserved parameter.
+    // The reserved field.
     shared_ptr<string> autopurgePurgeInterval_ {};
-    // A reserved parameter.
+    // The reserved field.
     shared_ptr<string> autopurgeSnapRetainCount_ {};
-    // The ID of the cluster.
+    // The cluster ID.
     shared_ptr<string> clusterId_ {};
-    // Specifies whether to enable Resource Access Management (RAM) authentication for a configuration center. This parameter is valid for Nacos instances. Valid values:
+    // Specifies whether to enable RAM authentication for the configuration center in Nacos:
     // 
-    // *   `true`: enabled.
-    // *   `false`: disabled.
+    // - `true`: enabled
     // 
-    // > Before you configure this parameter, you must call the QueryConfig operation to obtain the ConfigAuthSupported parameter value to check whether the instance supports the RAM authentication feature.
+    // - `false`: disabled
+    // 
+    // > Before you set this parameter, call the QueryConfig operation to obtain the ConfigAuthSupported parameter to check whether the current cluster supports this feature.
     shared_ptr<bool> configAuthEnabled_ {};
-    // Specifies whether to enable configuration encryption for a configuration center. This parameter is valid for Nacos instances. Valid values:
+    // Specifies whether to enable the configuration encryption feature for the configuration center in Nacos. Valid values:
     // 
-    // *   `true`: enabled.
-    // *   `false`: disabled.
+    // - `true`: The request was successful.
     // 
-    // > Before you configure this parameter, you must call the QueryConfig operation to obtain the ConfigSecretSupported parameter value to check whether the instance supports configuration encryption.
+    // - `false`: The request failed.
+    // 
+    // > Before you set this parameter, call the QueryConfig operation to obtain the ConfigSecretSupported parameter to check whether the current cluster supports this feature.
     shared_ptr<bool> configSecretEnabled_ {};
-    // The format of the configuration. Supported formats include TEXT, JSON, XML, and HTML.
+    // The format of the configurations. Supported formats include TEXT, JSON, XML, and HTML.
     shared_ptr<string> configType_ {};
+    // Specifies whether to enable the Nacos open-source console
     shared_ptr<bool> consoleUIEnabled_ {};
+    // Specifies whether to enable the four-character command access feature
     shared_ptr<bool> enable4lw_ {};
+    // Specifies whether to enable Eureka protocol support in Nacos
     shared_ptr<bool> eurekaSupported_ {};
-    // Specifies whether to enable the time to live (TTL) configuration. This parameter is valid for ZooKeeper instances.
+    // Specifies whether to enable TTL configuration in ZooKeeper parameters.
     shared_ptr<string> extendedTypesEnable_ {};
     // The maximum connection duration of the instance. This parameter is valid for ZooKeeper instances. Unit: seconds.
     shared_ptr<string> initLimit_ {};
-    // The ID of the instance.
+    // The instance ID.
     shared_ptr<string> instanceId_ {};
-    // The maximum amount of data on each node. This parameter is valid for ZooKeeper instances. The default maximum data amount on each node is 1 megabyte. Unit: bytes.
+    // The maximum amount of data on each node. This parameter is valid for ZooKeeper instances. Unit: bytes.
     shared_ptr<string> juteMaxbuffer_ {};
-    // Specifies whether to enable Mesh Configuration Protocol (MCP). This parameter is valid for Nacos instances. Valid values:
+    // Specifies whether MCP is enabled in Nacos configuration. Valid values:
     // 
-    // *   `true`: enabled.
-    // *   `false`: disabled.
+    // - `true`: enabled
     // 
-    // > Before you configure this parameter, you must call the QueryConfig operation to obtain the MCPSupported parameter value to check whether the instance supports MCP.
+    // - `false`: disabled
+    // 
+    // > Before you set this parameter, call the QueryConfig operation to obtain the MCPSupported parameter to check whether the current cluster supports this feature.
     shared_ptr<bool> MCPEnabled_ {};
-    // The number of connections between a client and a server. This parameter is valid for ZooKeeper instances.\\
-    // If this parameter is set to 0, no limits are imposed on the number of connections.
+    // The number of connections between a single client and a single server in ZooKeeper configuration.<br>
+    // If this parameter is set to 0, no limits are imposed on the number of connections.<br>
     shared_ptr<string> maxClientCnxns_ {};
-    // The maximum timeout period. This parameter is valid for ZooKeeper instances. Unit: seconds.
+    // The maximum timeout period in ZooKeeper configuration. Unit: seconds.
     shared_ptr<string> maxSessionTimeout_ {};
-    // The minimum timeout period. This parameter is valid for ZooKeeper instances. Unit: seconds.
+    // The minimum timeout period in ZooKeeper configuration. Unit: seconds.
     shared_ptr<string> minSessionTimeout_ {};
-    // Specifies whether to enable RAM authentication for a registry. This parameter is valid for Nacos instances. Valid values:
+    // Specifies whether to enable RAM authentication for the Accreditation Centre in Nacos:
     // 
-    // *   `true`: enabled.
-    // *   `false`: disabled.
+    // - `true`: enabled
     // 
-    // > Before you configure this parameter, you must call the QueryConfig operation to obtain the NamingAuthSupporte parameter value to check whether the instance supports the RAM authentication feature.
+    // - `false`: disabled
+    // 
+    // > Before you set this parameter, call the QueryConfig operation to obtain the NamingAuthSupporte parameter to check whether the current cluster supports this feature.
     shared_ptr<bool> namingAuthEnabled_ {};
-    // Specifies whether to enable super permissions. This parameter is valid for ZooKeeper instances. Valid values:
+    // Specifies whether super permissions are enabled. This parameter is valid for ZooKeeper instances. Valid values:
     // 
-    // *   `true`: enabled
-    // *   `false`: disabled
+    // - `true`: enabled
+    // 
+    // - `false`: disabled
     shared_ptr<string> openSuperAcl_ {};
-    // The password that corresponds to the username.
+    // The password of the account.
     // 
-    // > You must specify this parameter if OpenSuperAcl is set to true.
+    // > This parameter is required when OpenSuperAcl is set to true.
     shared_ptr<string> passWord_ {};
-    // The extended request parameters in the JSON format.
+    // The extended request parameter in the JSON format.
     shared_ptr<string> requestPars_ {};
-    // The frequency for generating snapshots. This parameter is valid for ZooKeeper instances.
+    // The frequency at which snapshots are generated in ZooKeeper configuration
     shared_ptr<string> snapshotCount_ {};
     // The connection timeout period of the instance. This parameter is valid for ZooKeeper instances. Unit: seconds.
     shared_ptr<string> syncLimit_ {};
+    // Specifies whether to enable TLS transmission link encryption in Nacos
     shared_ptr<bool> TLSEnabled_ {};
     // The time unit. This parameter is valid for ZooKeeper instances. Default value: 2000. Unit: milliseconds.
     shared_ptr<string> tickTime_ {};
-    // The name of the user.
+    // The username of the account.
     // 
-    // > You must specify this parameter if OpenSuperAcl is set to true.
+    // > This parameter is required when OpenSuperAcl is set to true.
     shared_ptr<string> userName_ {};
   };
 

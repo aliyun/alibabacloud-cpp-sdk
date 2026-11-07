@@ -130,21 +130,48 @@ namespace Models
 
 
   protected:
+    // The language of the response. Valid values: zh-CN (Chinese, default) and en-US (English).
     shared_ptr<string> acceptLanguage_ {};
+    // The ID of the application.
     shared_ptr<string> appId_ {};
+    // The content of the service authentication rule.
+    // 
     // This parameter is required.
     shared_ptr<string> authRule_ {};
+    // The type of the rule. Valid values:
+    // 
+    // - 0: application dimension.
+    // - 1: namespace dimension.
     shared_ptr<int32_t> authType_ {};
+    // Specifies whether the authentication rule is enabled. Valid values:
+    // 
+    // - `true`: Enabled.
+    // - `false`: Disabled.
+    // 
     // This parameter is required.
     shared_ptr<string> enable_ {};
+    // The ID of the namespace in the Kubernetes cluster.
     shared_ptr<string> k8sNamespace_ {};
+    // The name of the rule.
+    // 
     // This parameter is required.
     shared_ptr<string> name_ {};
+    // The MSE namespace to which the application belongs.
     shared_ptr<string> namespace_ {};
+    // The protocol type. Valid values:
+    // 
+    // - **SPRING_CLOUD**
+    // - **DUBBO**
+    // - **istio**
+    // 
     // This parameter is required.
     shared_ptr<string> protocol_ {};
+    // The region.
+    // 
     // This parameter is required.
     shared_ptr<string> region_ {};
+    // The source. Valid values: edasmsc.
+    // 
     // This parameter is required.
     shared_ptr<string> source_ {};
   };

@@ -151,9 +151,15 @@ namespace Models
 
 
       protected:
+        // The port.
         shared_ptr<string> port_ {};
+        // The protocol type. Valid values:
+        // - HTTPS
+        // - HTTP
         shared_ptr<string> protocol_ {};
+        // The ID of the virtual server group.
         shared_ptr<string> VServerGroupId_ {};
+        // The name of the virtual server group.
         shared_ptr<string> VServerGroupName_ {};
       };
 
@@ -298,40 +304,45 @@ namespace Models
 
 
     protected:
-      // Indicates whether the edit operation is supported.
+      // Indicates whether the resource is editable.
       shared_ptr<bool> editEnable_ {};
-      // The ID of the gateway.
+      // The gateway ID.
       shared_ptr<string> gatewayId_ {};
-      // The mode of the SLB instance.
+      // The source.
       shared_ptr<string> gatewaySlbMode_ {};
       // The association status.
       shared_ptr<string> gatewaySlbStatus_ {};
       // The creation time.
       shared_ptr<string> gmtCreate_ {};
-      // The port number of the HTTP virtual service group.
+      // The HTTP port (virtual server group).
       shared_ptr<int32_t> httpPort_ {};
-      // The port number of the HTTPS virtual service group.
+      // The HTTPS port (virtual server group).
       shared_ptr<int32_t> httpsPort_ {};
-      // The ID of the HTTPS virtual service group.
+      // The ID of the HTTPS virtual server group.
       shared_ptr<string> httpsVServerGroupId_ {};
-      // The ID.
+      // ID
       shared_ptr<string> id_ {};
       // The service weight.
       shared_ptr<int32_t> serviceWeight_ {};
-      // The ID of the SLB instance.
+      // SLB ID
       shared_ptr<string> slbId_ {};
-      // The IP address of the SLB instance.
+      // SLB IP
       shared_ptr<string> slbIp_ {};
-      // The port number of the SLB instance.
+      // The SLB port.
       shared_ptr<string> slbPort_ {};
+      // The SLB type.
       shared_ptr<string> slbType_ {};
-      // The description of the status.
+      // The status description.
       shared_ptr<string> statusDesc_ {};
-      // The type.
+      // The network type. Valid values:
+      // - PUB_NET: Internet.
+      // - PRIVATE_NET: Private network.
       shared_ptr<string> type_ {};
-      // The ID of the HTTP virtual service group.
+      // The ID of the HTTP virtual server group.
       shared_ptr<string> VServerGroupId_ {};
+      // The SLB listener information.
       shared_ptr<vector<Data::VServiceList>> VServiceList_ {};
+      // The metadata of the virtual server group.
       shared_ptr<string> vsMetaInfo_ {};
     };
 
@@ -382,20 +393,19 @@ namespace Models
 
 
   protected:
-    // The status code returned.
+    // The return code.
     shared_ptr<int32_t> code_ {};
-    // The data entries returned.
+    // The returned data.
     shared_ptr<vector<ListGatewaySlbResponseBody::Data>> data_ {};
-    // The HTTP status code returned.
+    // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
-    // The message returned.
+    // The returned message.
     shared_ptr<string> message_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request was successful. Valid values:
-    // 
-    // *   `true`: The request was successful.
-    // *   `false`: The request failed.
+    // Indicates whether the request is successful. Valid values:
+    // - true: The request is successful.
+    // - false: The request fails.
     shared_ptr<bool> success_ {};
   };
 

@@ -225,9 +225,13 @@ namespace Models
 
 
           protected:
+            // The name of the service group.
             shared_ptr<string> groupName_ {};
+            // The authentication service name.
             shared_ptr<string> name_ {};
+            // The namespace.
             shared_ptr<string> namespace_ {};
+            // The source type of the authentication service.
             shared_ptr<string> sourceType_ {};
           };
 
@@ -318,16 +322,29 @@ namespace Models
 
 
         protected:
+          // The names of the allowed request headers.
           shared_ptr<vector<string>> allowRequestHeaders_ {};
+          // The names of the allowed response headers.
           shared_ptr<vector<string>> allowUpstreamHeaders_ {};
+          // The maximum number of bytes for the request body.
           shared_ptr<int32_t> bodyMaxBytes_ {};
+          // The custom authentication mode. Valid values:
+          // - true: strict mode. When the authentication service is unavailable (connection establishment fails or a 5xx status code is returned), the gateway rejects the client request.
+          // - false: loose mode. When the authentication service is unavailable (connection establishment fails or a 5xx status code is returned), the gateway allows the client request.
           shared_ptr<bool> isRestrict_ {};
+          // The path of the authentication API provided by the authentication service. The API path must be prefix-matched.
           shared_ptr<string> prefixPath_ {};
+          // The authentication service information.
           shared_ptr<ExternalAuthZ::Service> service_ {};
+          // The ID of the authentication service.
           shared_ptr<int64_t> serviceId_ {};
+          // The timeout period of the authentication service. Unit: seconds.
           shared_ptr<int32_t> timeout_ {};
+          // The token location, which indicates the header in the request message where the token is located. Common values include Authorization and Cookie.
           shared_ptr<string> tokenKey_ {};
+          // Specifies whether to rematch the route after authentication is completed.
           shared_ptr<bool> withRematchRoute_ {};
+          // Specifies whether to include the request body.
           shared_ptr<bool> withRequestBody_ {};
         };
 
@@ -508,29 +525,72 @@ namespace Models
 
 
       protected:
+        // The authorization resource mode. Valid values:
+        // - 0: simple mode.
+        // - 1: complex mode.
         shared_ptr<int32_t> authResourceMode_ {};
+        // The application ID registered in the service. This parameter is used for OIDC or IDaaS.
         shared_ptr<string> clientId_ {};
+        // The application secret registered in the service. This parameter is used for OIDC or IDaaS.
         shared_ptr<string> clientSecret_ {};
+        // The domain name of the cookie. After authentication, the cookie is sent to the specified domain name to maintain the logon status. This parameter is used for OIDC or IDaaS.
         shared_ptr<string> cookieDomain_ {};
+        // The custom authentication information.
         shared_ptr<Result::ExternalAuthZ> externalAuthZ_ {};
+        // The gateway ID.
         shared_ptr<int64_t> gatewayId_ {};
+        // The unique ID of the gateway.
         shared_ptr<string> gatewayUniqueId_ {};
+        // The creation time.
         shared_ptr<string> gmtCreate_ {};
+        // The modification time.
         shared_ptr<string> gmtModified_ {};
+        // The authentication ID.
         shared_ptr<int64_t> id_ {};
+        // The authorization blacklists and whitelists mode. Valid values:
+        // - true: whitelist mode. Hosts and paths in the whitelist can be accessed without verification, while all other hosts and paths require verification.
+        // - false: blacklist mode. Hosts and paths in the blacklist require verification, while all other hosts and paths can be accessed directly.
         shared_ptr<bool> isWhite_ {};
+        // Used when the authentication type is JWT or OIDC:
+        // - JWT: the iss (issuer) claim in the JWT, which represents the issuer.
+        // - OIDC: the iss (issuer) claim in the OIDC token, which represents the issuer.
         shared_ptr<string> issuer_ {};
+        // The JWT public key in JSON format.
         shared_ptr<string> jwks_ {};
+        // The URL of the user logon page for the IDaaS instance. This parameter is used for IDaaS.
         shared_ptr<string> loginUrl_ {};
+        // The name of the authentication rule.
         shared_ptr<string> name_ {};
+        // The redirect URL after successful authorization. This parameter is used for OIDC or IDaaS and must be consistent with the redirect URL configured in OIDC or IDaaS.
         shared_ptr<string> redirectUrl_ {};
+        // The OIDC authorization scopes. This parameter is used for OIDC.
         shared_ptr<string> scopesList_ {};
+        // The enabling status. Valid values:
+        // - false: disabled.
+        // - true: enabled.
         shared_ptr<bool> status_ {};
+        // Used when the authentication type is JWT. The sub (subject) claim in the JWT, which represents the subject.
         shared_ptr<string> sub_ {};
+        // The location where the JWT token is stored.
+        // 
+        // By default, the token to be verified is prefixed with Bearer and placed in the Authorization header, for example, `Authorization: Bearer token`.
         shared_ptr<string> tokenName_ {};
+        // The prefix of the JWT token.
+        // 
+        // By default, the token to be verified is prefixed with Bearer and placed in the Authorization header, for example, `Authorization: Bearer token`.
         shared_ptr<string> tokenNamePrefix_ {};
+        // Specifies whether to pass through the token.
         shared_ptr<bool> tokenPass_ {};
+        // The JWT token position. Valid values:
+        // - HEADER: transmitted through the header.
+        // 
+        // By default, the token to be verified is prefixed with Bearer and placed in the Authorization header, for example, Authorization: Bearer token.
         shared_ptr<string> tokenPosition_ {};
+        // The authentication type. Valid values:
+        // - JWT
+        // - OIDC
+        // - IDaaS
+        // - ExternalAuthZ: self-managed authentication service
         shared_ptr<string> type_ {};
       };
 
@@ -567,9 +627,13 @@ namespace Models
 
 
     protected:
+      // The page number.
       shared_ptr<int32_t> pageNumber_ {};
+      // The number of entries per page.
       shared_ptr<int32_t> pageSize_ {};
+      // The returned results.
       shared_ptr<vector<Data::Result>> result_ {};
+      // The total number of entries.
       shared_ptr<int64_t> totalSize_ {};
     };
 
@@ -620,12 +684,19 @@ namespace Models
 
 
   protected:
+    // The status code. A value of 200 indicates success.
     shared_ptr<int32_t> code_ {};
+    // The returned data.
     shared_ptr<ListGatewayAuthResponseBody::Data> data_ {};
+    // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
+    // The error message.
     shared_ptr<string> message_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};
+    // Indicates whether the request is successful. Valid values:
+    // - true: The request is successful.
+    // - false: The request fails.
     shared_ptr<bool> success_ {};
   };
 

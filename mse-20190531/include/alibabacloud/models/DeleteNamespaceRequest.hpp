@@ -57,9 +57,11 @@ namespace Models
 
 
   protected:
-    // The language in which you want to display the results. Valid values: zh and en. Default value: zh. The value zh indicates Chinese, and the value en indicates English.
+    // The language in which the response is displayed. Valid values: zh (default): Chinese, en: English
     shared_ptr<string> acceptLanguage_ {};
+    // The name of the MSE namespace to be deleted.
     shared_ptr<string> name_ {};
+    // The region of the operation.
     shared_ptr<string> region_ {};
   };
 

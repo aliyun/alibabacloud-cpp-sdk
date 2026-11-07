@@ -66,11 +66,18 @@ namespace Models
 
 
   protected:
+    // The language in which you want the results to be displayed. Valid values: zh (default): Chinese. en: English.
     shared_ptr<string> acceptLanguage_ {};
+    // The unique ID of the gateway.
+    // 
     // This parameter is required.
     shared_ptr<string> gatewayUniqueId_ {};
+    // The ID of the route.
+    // 
     // This parameter is required.
     shared_ptr<int64_t> routeId_ {};
+    // The ID of the concurrency rule.
+    // 
     // This parameter is required.
     shared_ptr<int64_t> ruleId_ {};
   };

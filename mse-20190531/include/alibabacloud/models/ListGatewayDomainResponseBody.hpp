@@ -46,6 +46,7 @@ namespace Models
         DARABONBA_PTR_TO_JSON(CertBeforeDate, certBeforeDate_);
         DARABONBA_PTR_TO_JSON(CertIdentifier, certIdentifier_);
         DARABONBA_PTR_TO_JSON(Comment, comment_);
+        DARABONBA_PTR_TO_JSON(EnableWaf, enableWaf_);
         DARABONBA_PTR_TO_JSON(GatewayId, gatewayId_);
         DARABONBA_PTR_TO_JSON(GmtCreate, gmtCreate_);
         DARABONBA_PTR_TO_JSON(GmtModified, gmtModified_);
@@ -56,6 +57,7 @@ namespace Models
         DARABONBA_PTR_TO_JSON(Name, name_);
         DARABONBA_PTR_TO_JSON(Protocol, protocol_);
         DARABONBA_PTR_TO_JSON(Status, status_);
+        DARABONBA_PTR_TO_JSON(SupportWaf, supportWaf_);
         DARABONBA_PTR_TO_JSON(TlsCipherSuitesConfig, tlsCipherSuitesConfig_);
         DARABONBA_PTR_TO_JSON(TlsMax, tlsMax_);
         DARABONBA_PTR_TO_JSON(TlsMin, tlsMin_);
@@ -65,6 +67,7 @@ namespace Models
         DARABONBA_PTR_FROM_JSON(CertBeforeDate, certBeforeDate_);
         DARABONBA_PTR_FROM_JSON(CertIdentifier, certIdentifier_);
         DARABONBA_PTR_FROM_JSON(Comment, comment_);
+        DARABONBA_PTR_FROM_JSON(EnableWaf, enableWaf_);
         DARABONBA_PTR_FROM_JSON(GatewayId, gatewayId_);
         DARABONBA_PTR_FROM_JSON(GmtCreate, gmtCreate_);
         DARABONBA_PTR_FROM_JSON(GmtModified, gmtModified_);
@@ -75,6 +78,7 @@ namespace Models
         DARABONBA_PTR_FROM_JSON(Name, name_);
         DARABONBA_PTR_FROM_JSON(Protocol, protocol_);
         DARABONBA_PTR_FROM_JSON(Status, status_);
+        DARABONBA_PTR_FROM_JSON(SupportWaf, supportWaf_);
         DARABONBA_PTR_FROM_JSON(TlsCipherSuitesConfig, tlsCipherSuitesConfig_);
         DARABONBA_PTR_FROM_JSON(TlsMax, tlsMax_);
         DARABONBA_PTR_FROM_JSON(TlsMin, tlsMin_);
@@ -131,7 +135,9 @@ namespace Models
 
 
       protected:
+        // The TLS encrypt cipher suite configuration type. DEFAULT indicates the default configurations, and CUSTOM indicates a custom configuration.
         shared_ptr<string> configType_ {};
+        // The list of TLS cipher suite names.
         shared_ptr<vector<string>> tlsCipherSuites_ {};
       };
 
@@ -163,15 +169,15 @@ namespace Models
 
 
       protected:
-        // The route status.
+        // The status.
         shared_ptr<string> status_ {};
       };
 
       virtual bool empty() const override { return this->certBeforeDate_ == nullptr
-        && this->certIdentifier_ == nullptr && this->comment_ == nullptr && this->gatewayId_ == nullptr && this->gmtCreate_ == nullptr && this->gmtModified_ == nullptr
-        && this->http2_ == nullptr && this->id_ == nullptr && this->isManaged_ == nullptr && this->mustHttps_ == nullptr && this->name_ == nullptr
-        && this->protocol_ == nullptr && this->status_ == nullptr && this->tlsCipherSuitesConfig_ == nullptr && this->tlsMax_ == nullptr && this->tlsMin_ == nullptr
-        && this->type_ == nullptr; };
+        && this->certIdentifier_ == nullptr && this->comment_ == nullptr && this->enableWaf_ == nullptr && this->gatewayId_ == nullptr && this->gmtCreate_ == nullptr
+        && this->gmtModified_ == nullptr && this->http2_ == nullptr && this->id_ == nullptr && this->isManaged_ == nullptr && this->mustHttps_ == nullptr
+        && this->name_ == nullptr && this->protocol_ == nullptr && this->status_ == nullptr && this->supportWaf_ == nullptr && this->tlsCipherSuitesConfig_ == nullptr
+        && this->tlsMax_ == nullptr && this->tlsMin_ == nullptr && this->type_ == nullptr; };
       // certBeforeDate Field Functions 
       bool hasCertBeforeDate() const { return this->certBeforeDate_ != nullptr;};
       void deleteCertBeforeDate() { this->certBeforeDate_ = nullptr;};
@@ -193,6 +199,13 @@ namespace Models
       inline Data::Comment getComment() { DARABONBA_PTR_GET(comment_, Data::Comment) };
       inline Data& setComment(const Data::Comment & comment) { DARABONBA_PTR_SET_VALUE(comment_, comment) };
       inline Data& setComment(Data::Comment && comment) { DARABONBA_PTR_SET_RVALUE(comment_, comment) };
+
+
+      // enableWaf Field Functions 
+      bool hasEnableWaf() const { return this->enableWaf_ != nullptr;};
+      void deleteEnableWaf() { this->enableWaf_ = nullptr;};
+      inline bool getEnableWaf() const { DARABONBA_PTR_GET_DEFAULT(enableWaf_, false) };
+      inline Data& setEnableWaf(bool enableWaf) { DARABONBA_PTR_SET_VALUE(enableWaf_, enableWaf) };
 
 
       // gatewayId Field Functions 
@@ -265,6 +278,13 @@ namespace Models
       inline Data& setStatus(int32_t status) { DARABONBA_PTR_SET_VALUE(status_, status) };
 
 
+      // supportWaf Field Functions 
+      bool hasSupportWaf() const { return this->supportWaf_ != nullptr;};
+      void deleteSupportWaf() { this->supportWaf_ = nullptr;};
+      inline bool getSupportWaf() const { DARABONBA_PTR_GET_DEFAULT(supportWaf_, false) };
+      inline Data& setSupportWaf(bool supportWaf) { DARABONBA_PTR_SET_VALUE(supportWaf_, supportWaf) };
+
+
       // tlsCipherSuitesConfig Field Functions 
       bool hasTlsCipherSuitesConfig() const { return this->tlsCipherSuitesConfig_ != nullptr;};
       void deleteTlsCipherSuitesConfig() { this->tlsCipherSuitesConfig_ = nullptr;};
@@ -296,51 +316,55 @@ namespace Models
 
 
     protected:
-      // The time when the certificate expires.
+      // **[Deprecated]** The expiration time of the certificate. Go to the domain name details page to view the information.
       shared_ptr<string> certBeforeDate_ {};
       // The certificate ID.
       shared_ptr<string> certIdentifier_ {};
-      // The route comment. This parameter is returned only in ingress scenarios.
+      // The route remark (Ingress).
       shared_ptr<Data::Comment> comment_ {};
+      // Indicates whether WAF protection is enabled for the domain name.
+      shared_ptr<bool> enableWaf_ {};
       // The gateway ID.
       shared_ptr<int64_t> gatewayId_ {};
-      // The time when the domain name was created.
+      // The time when the domain name record was created.
       shared_ptr<string> gmtCreate_ {};
-      // The time when the domain name was updated.
+      // The time when the domain name record was updated.
       shared_ptr<string> gmtModified_ {};
-      // Indicates whether `HTTP/2` is enabled.
-      // 
-      // *   `open`: `HTTP/2` is enabled.
-      // *   `close`: `HTTP/2` is disabled.
-      // *   `globalConfig`: Global configurations are used.
+      // Indicates whether HTTP/2 is enabled. Valid values:
+      // - `open`: HTTP/2 is enabled.
+      // - `close`: HTTP/2 is disabled.
+      // - `globalConfig`: The global configuration is used.
       shared_ptr<string> http2_ {};
-      // The ID of the domain name.
+      // The domain name ID.
       shared_ptr<int64_t> id_ {};
+      // Indicates whether the domain name is managed.
       shared_ptr<bool> isManaged_ {};
-      // Indicates whether HTTPS is forcefully used.
+      // Indicates whether HTTPS is forced.
       shared_ptr<bool> mustHttps_ {};
       // The domain name.
       shared_ptr<string> name_ {};
       // The protocol.
       shared_ptr<string> protocol_ {};
-      // The state of the domain name. Valid values:
+      // The domain name status. Valid values:
       // 
-      // *   0: unpublished
-      // *   2: publishing
-      // *   3: published
-      // *   4: editing
-      // *   5: unpublishing
-      // *   6: unavailable
+      // - 0: unpublished
+      // - 2: publishing
+      // - 3: published
+      // - 4: editing
+      // - 5: taking offline
+      // - 6: unavailable
       shared_ptr<int32_t> status_ {};
+      // Indicates whether the gateway supports WAF protection.
+      shared_ptr<bool> supportWaf_ {};
+      // The TLS cipher suite configuration, including the configuration type and the list of cipher suite names.
       shared_ptr<Data::TlsCipherSuitesConfig> tlsCipherSuitesConfig_ {};
-      // The maximum version of Transport Layer Security (TLS).
+      // The maximum TLS version.
       shared_ptr<string> tlsMax_ {};
-      // The minimum version of TLS.
+      // The minimum TLS version.
       shared_ptr<string> tlsMin_ {};
-      // The type of the domain name source. Valid values:
-      // 
-      // *   Op: console
-      // *   Ingress: MSE Ingress
+      // The source type of the domain name. Valid values:
+      // - Op: created in the console
+      // - Ingress: created by MSE Ingress
       shared_ptr<string> type_ {};
     };
 
@@ -391,20 +415,19 @@ namespace Models
 
 
   protected:
-    // The status code returned.
+    // The return code.
     shared_ptr<int32_t> code_ {};
-    // The details of the data.
+    // The node data.
     shared_ptr<vector<ListGatewayDomainResponseBody::Data>> data_ {};
-    // The HTTP status code returned.
+    // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
-    // The error message returned if the request failed.
+    // The error message.
     shared_ptr<string> message_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request was successful. Valid values:
-    // 
-    // *   `true`: The request was successful.
-    // *   `false`: The request failed.
+    // Indicates whether the request is successful. Valid values:
+    // - `true`: The request is successful.
+    // - `false`: The request fails.
     shared_ptr<bool> success_ {};
   };
 

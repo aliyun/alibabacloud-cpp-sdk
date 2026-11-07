@@ -92,9 +92,13 @@ namespace Models
 
 
     protected:
+      // The description of the user.
       shared_ptr<string> description_ {};
+      // The original password. This parameter is required if you want to change the password.
       shared_ptr<string> originPassword_ {};
+      // The password.
       shared_ptr<string> password_ {};
+      // The username.
       shared_ptr<string> userName_ {};
     };
 
@@ -131,10 +135,16 @@ namespace Models
 
 
   protected:
+    // The language of the response. Valid values: zh (default): Chinese. en: English.
     shared_ptr<string> acceptLanguage_ {};
+    // The instance ID.
+    // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
+    // Specifies whether the changes take effect immediately.
     shared_ptr<bool> reload_ {};
+    // The list of SASL users to update.
+    // 
     // This parameter is required.
     shared_ptr<vector<UpdateZooKeeperSaslUserRequest::SaslUser>> saslUser_ {};
   };

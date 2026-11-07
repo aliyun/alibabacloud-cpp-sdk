@@ -122,12 +122,15 @@ namespace Models
 
 
   protected:
-    // The data returned.
+    // The data that is returned.
     shared_ptr<vector<QueryNamespaceResponseBody::Data>> data_ {};
     // The error code.
     shared_ptr<string> errorCode_ {};
+    // The error message returned.
     shared_ptr<string> message_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the request is successful.
     shared_ptr<bool> success_ {};
   };
 

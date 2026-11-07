@@ -142,15 +142,25 @@ namespace Models
 
 
     protected:
+      // The application name.
       shared_ptr<string> appName_ {};
+      // The configuration content.
       shared_ptr<string> content_ {};
+      // The DataId of the configuration.
       shared_ptr<string> dataId_ {};
+      // The canary release rule.
       shared_ptr<string> grayRule_ {};
+      // The name of the canary release version.
       shared_ptr<string> grayRuleName_ {};
+      // The priority of the canary release version.
       shared_ptr<string> grayRulePriority_ {};
+      // The canary release type. Valid values: Beta or Tag.
       shared_ptr<string> grayType_ {};
+      // The configuration group.
       shared_ptr<string> group_ {};
+      // The last modification time of the configuration.
       shared_ptr<string> lastModified_ {};
+      // The MD5 hash of the configuration content.
       shared_ptr<string> md5_ {};
     };
 
@@ -173,7 +183,9 @@ namespace Models
 
 
   protected:
+    // The returned data.
     shared_ptr<QueryNacosGrayConfigResponseBody::Data> data_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

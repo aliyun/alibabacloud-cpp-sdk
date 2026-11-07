@@ -111,9 +111,9 @@ namespace Models
 
 
       protected:
-        // The name of the MSE namespace that you want to access.
+        // The corresponding MSE namespace name.
         shared_ptr<string> mseNamespace_ {};
-        // The name of the namespace in the ACK cluster.
+        // The Kubernetes namespace name.
         shared_ptr<string> name_ {};
       };
 
@@ -193,23 +193,25 @@ namespace Models
 
 
     protected:
-      // The ID of the instance.
+      // The cluster ID.
       shared_ptr<string> clusterId_ {};
-      // The name of the instance.
+      // The cluster name.
       shared_ptr<string> clusterName_ {};
-      // The version of Kubernetes.
+      // The Kubernetes version.
       shared_ptr<string> k8sVersion_ {};
-      // The information of the namespace.
+      // The information about namespaces.
       shared_ptr<string> namespaceInfos_ {};
-      // The queried namespaces.
+      // The list of namespaces.
       shared_ptr<vector<Data::Namespaces>> namespaces_ {};
-      // The time when the pilot component was started.
+      // The Pilot startup time.
       shared_ptr<string> pilotStartTime_ {};
+      // The ack-onepilot component version
       shared_ptr<string> pilotVersion_ {};
-      // The ID of the region in which the instance resides. The region is supported by MSE.
+      // The region where the cluster is located. MSE supports specific regions.
       shared_ptr<string> region_ {};
-      // The time of the last modification.
+      // The time when the UDF was last modified.
       shared_ptr<string> updateTime_ {};
+      // The version lifecycle.
       shared_ptr<string> versionLifeCycle_ {};
     };
 
@@ -246,16 +248,17 @@ namespace Models
 
 
   protected:
-    // The details of the data.
+    // The data overview.
     shared_ptr<GetGovernanceKubernetesClusterResponseBody::Data> data_ {};
-    // The message returned.
+    // The information that is returned.
     shared_ptr<string> message_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
     // Indicates whether the request was successful. Valid values:
     // 
-    // *   `true`: The request was successful.
-    // *   `false`: The request failed.
+    // - `true`: The request was successful.
+    // 
+    // - `false`: The request failed.
     shared_ptr<bool> success_ {};
   };
 

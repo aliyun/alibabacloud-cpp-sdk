@@ -191,20 +191,53 @@ namespace Models
 
 
     protected:
+      // The type of the web fallback behavior.
+      // 
+      // 0: The specified content is returned.
+      // 
+      // 1: Redirect the specified page.
       shared_ptr<int32_t> behaviorType_ {};
+      // The encoding type.
+      // 
+      // 0: plain text
+      // 
+      // 1: JSON text
       shared_ptr<int32_t> bodyEncoding_ {};
+      // Specifies whether to enable the rule.
+      // 
+      // 0: disable
+      // 
+      // 1: enable
       shared_ptr<int32_t> enable_ {};
+      // The gateway ID.
       shared_ptr<int64_t> gatewayId_ {};
+      // The unique ID of the gateway.
       shared_ptr<string> gatewayUniqueId_ {};
+      // The ID of the concurrency rule.
       shared_ptr<int64_t> id_ {};
+      // The IDs of the circuit breaking rules that are used to filter data.
       shared_ptr<vector<int64_t>> idList_ {};
+      // The threshold conversion mode.
+      // 
+      // 0: standalone
+      // 
+      // 1: cluster
+      // 
+      // 2: cluster-to-standalone
       shared_ptr<int32_t> limitMode_ {};
+      // The maximum number of concurrent requests.
       shared_ptr<int32_t> maxConcurrency_ {};
+      // The custom header. The input is a key-value pair.
       shared_ptr<string> responseAdditionalHeaders_ {};
+      // The HTTP text to be returned.
       shared_ptr<string> responseContentBody_ {};
+      // The URL that is redirected to.
       shared_ptr<string> responseRedirectUrl_ {};
+      // The HTTP status code.
       shared_ptr<int32_t> responseStatusCode_ {};
+      // The route ID.
       shared_ptr<int64_t> routeId_ {};
+      // The route name.
       shared_ptr<string> routeName_ {};
     };
 
@@ -227,7 +260,9 @@ namespace Models
 
 
   protected:
+    // The response data.
     shared_ptr<UpdateGatewayIsolationRuleResponseBody::Data> data_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

@@ -94,25 +94,27 @@ namespace Models
 
 
   protected:
-    // The response code returned.
+    // The response code.
     shared_ptr<int32_t> code_ {};
-    // A reserved parameter.
+    // This is a reserved field.
     shared_ptr<string> data_ {};
-    // The error code returned if the request failed. Take note of the following rules:
+    // The error code. Take note of the following items:
     // 
-    // *   The **ErrorCode** parameter is not returned if the request succeeds.
-    // *   The **ErrorCode** parameter is returned if the request fails. For more information, see the **Error codes** section in this topic.
+    // - If the request is successful: The **ErrorCode** field is not returned.
+    // 
+    // - If the request fails: The **ErrorCode** field is returned. For more information, see the **Error codes** section in this topic.
     shared_ptr<string> errorCode_ {};
-    // The HTTP status code returned.
+    // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
-    // The message returned.
+    // The message.
     shared_ptr<string> message_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
     // Indicates whether the request was successful. Valid values:
     // 
-    // *   `true`: The request was successful.
-    // *   `false`: The request failed.
+    // - `true`: The request was successful.
+    // 
+    // - `false`: The request failed.
     shared_ptr<bool> success_ {};
   };
 

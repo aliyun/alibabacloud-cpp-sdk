@@ -48,6 +48,7 @@ namespace Models
 
 
   protected:
+    // The language in which the returned results are displayed. Valid values: zh (default): Chinese, en: English
     shared_ptr<string> acceptLanguage_ {};
     // just for POP
     // 
