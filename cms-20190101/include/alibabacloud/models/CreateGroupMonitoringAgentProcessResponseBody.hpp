@@ -65,7 +65,7 @@ namespace Models
 
 
     protected:
-      // The ID of the group process.
+      // The group process ID.
       shared_ptr<string> groupProcessId_ {};
     };
 
@@ -109,9 +109,9 @@ namespace Models
 
 
   protected:
-    // The status code.
+    // The HTTP status code.
     // 
-    // > The status code 200 indicates that the call is successful.
+    // > A status code of 200 indicates success.
     shared_ptr<string> code_ {};
     // The error message.
     shared_ptr<string> message_ {};
@@ -119,11 +119,11 @@ namespace Models
     shared_ptr<string> requestId_ {};
     // The group process information.
     shared_ptr<CreateGroupMonitoringAgentProcessResponseBody::Resource> resource_ {};
-    // Indicates whether the call is successful. Valid values:
+    // Indicates whether the operation was successful. Valid values:
     // 
-    // - true: The call is successful.
+    // - true: The operation was successful.
     // 
-    // - false: The call fails.
+    // - false: The operation failed.
     shared_ptr<bool> success_ {};
   };
 

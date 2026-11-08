@@ -13,12 +13,14 @@ namespace Models
   class CreateMonitorGroupRequest : public Darabonba::Model {
   public:
     friend void to_json(Darabonba::Json& j, const CreateMonitorGroupRequest& obj) { 
+      DARABONBA_PTR_TO_JSON(ClientToken, clientToken_);
       DARABONBA_PTR_TO_JSON(ContactGroups, contactGroups_);
       DARABONBA_PTR_TO_JSON(DryRun, dryRun_);
       DARABONBA_PTR_TO_JSON(GroupName, groupName_);
       DARABONBA_PTR_TO_JSON(RegionId, regionId_);
     };
     friend void from_json(const Darabonba::Json& j, CreateMonitorGroupRequest& obj) { 
+      DARABONBA_PTR_FROM_JSON(ClientToken, clientToken_);
       DARABONBA_PTR_FROM_JSON(ContactGroups, contactGroups_);
       DARABONBA_PTR_FROM_JSON(DryRun, dryRun_);
       DARABONBA_PTR_FROM_JSON(GroupName, groupName_);
@@ -35,8 +37,15 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { return this->contactGroups_ == nullptr
-        && this->dryRun_ == nullptr && this->groupName_ == nullptr && this->regionId_ == nullptr; };
+    virtual bool empty() const override { return this->clientToken_ == nullptr
+        && this->contactGroups_ == nullptr && this->dryRun_ == nullptr && this->groupName_ == nullptr && this->regionId_ == nullptr; };
+    // clientToken Field Functions 
+    bool hasClientToken() const { return this->clientToken_ != nullptr;};
+    void deleteClientToken() { this->clientToken_ = nullptr;};
+    inline string getClientToken() const { DARABONBA_PTR_GET_DEFAULT(clientToken_, "") };
+    inline CreateMonitorGroupRequest& setClientToken(string clientToken) { DARABONBA_PTR_SET_VALUE(clientToken_, clientToken) };
+
+
     // contactGroups Field Functions 
     bool hasContactGroups() const { return this->contactGroups_ != nullptr;};
     void deleteContactGroups() { this->contactGroups_ = nullptr;};
@@ -66,14 +75,15 @@ namespace Models
 
 
   protected:
+    shared_ptr<string> clientToken_ {};
     // The alert contact group. Alert notifications for the application group are sent to the alert contacts in this alert contact group.
     // 
     // > An alert contact group contains one or more alert contacts. For more information about how to create alert contacts and alert contact groups, see [PutContact](~~PutContact~~) and [PutContactGroup](~~PutContactGroup~~).
     shared_ptr<string> contactGroups_ {};
-    // Specifies whether to perform a dry run on the request. A dry run checks items such as permissions and instance status. Valid values:
+    // Specifies whether to perform a dry run on the request, including checks on permissions and instance status. Valid values:
     // 
-    // - **false** (default): Sends a normal request. If the request passes the check, the name and description of the route table are modified.
-    // - **true**: Sends a dry run request. Only the check is performed, and the name and description of the route table are not modified. The check items include whether required parameters are specified and whether the request format is valid. If the request fails the check, an error is returned. If the request passes the check, the `DryRunOperation` error code is returned.
+    // - **false** (default): Sends a regular request. If the request passes the check, the name and description of the route table are modified.
+    // - **true**: Sends a dry run request. Only the check is performed, and the name and description of the route table are not modified. The check items include whether required parameters are specified and whether the request format is valid. If the check fails, the corresponding error is returned. If the check passes, the `DryRunOperation` error code is returned.
     shared_ptr<bool> dryRun_ {};
     // The name of the application group.
     // 

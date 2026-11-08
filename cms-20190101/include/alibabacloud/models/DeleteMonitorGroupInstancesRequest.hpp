@@ -14,6 +14,7 @@ namespace Models
   public:
     friend void to_json(Darabonba::Json& j, const DeleteMonitorGroupInstancesRequest& obj) { 
       DARABONBA_PTR_TO_JSON(Category, category_);
+      DARABONBA_PTR_TO_JSON(ClientToken, clientToken_);
       DARABONBA_PTR_TO_JSON(DryRun, dryRun_);
       DARABONBA_PTR_TO_JSON(GroupId, groupId_);
       DARABONBA_PTR_TO_JSON(InstanceIdList, instanceIdList_);
@@ -21,6 +22,7 @@ namespace Models
     };
     friend void from_json(const Darabonba::Json& j, DeleteMonitorGroupInstancesRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(Category, category_);
+      DARABONBA_PTR_FROM_JSON(ClientToken, clientToken_);
       DARABONBA_PTR_FROM_JSON(DryRun, dryRun_);
       DARABONBA_PTR_FROM_JSON(GroupId, groupId_);
       DARABONBA_PTR_FROM_JSON(InstanceIdList, instanceIdList_);
@@ -38,12 +40,19 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->category_ == nullptr
-        && this->dryRun_ == nullptr && this->groupId_ == nullptr && this->instanceIdList_ == nullptr && this->regionId_ == nullptr; };
+        && this->clientToken_ == nullptr && this->dryRun_ == nullptr && this->groupId_ == nullptr && this->instanceIdList_ == nullptr && this->regionId_ == nullptr; };
     // category Field Functions 
     bool hasCategory() const { return this->category_ != nullptr;};
     void deleteCategory() { this->category_ = nullptr;};
     inline string getCategory() const { DARABONBA_PTR_GET_DEFAULT(category_, "") };
     inline DeleteMonitorGroupInstancesRequest& setCategory(string category) { DARABONBA_PTR_SET_VALUE(category_, category) };
+
+
+    // clientToken Field Functions 
+    bool hasClientToken() const { return this->clientToken_ != nullptr;};
+    void deleteClientToken() { this->clientToken_ = nullptr;};
+    inline string getClientToken() const { DARABONBA_PTR_GET_DEFAULT(clientToken_, "") };
+    inline DeleteMonitorGroupInstancesRequest& setClientToken(string clientToken) { DARABONBA_PTR_SET_VALUE(clientToken_, clientToken) };
 
 
     // dryRun Field Functions 
@@ -81,15 +90,16 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> category_ {};
+    shared_ptr<string> clientToken_ {};
     // Specifies whether to perform only a dry run on the request. Valid values:
-    // - **true**: performs a dry run. The system checks the required parameters, request format, and service limits, but does not delete the instances. If the request fails the check, an error is returned. If the request passes the check, the `DryRunOperation` error code is returned.
-    // - **false** (default): performs a normal request. If the request passes the check, the instances are deleted.
+    // - **true**: performs a dry run and does not delete the VPN connection. The system checks whether required parameters are specified, the request format is valid, and the service limits are met. If the request fails the dry run, an error message is returned. If the request passes the dry run, the `DryRunOperation` error code is returned.
+    // - **false** (default): sends a normal request. If the request passes the dry run, the VPN connection is deleted.
     shared_ptr<bool> dryRun_ {};
     // The ID of the application group.
     // 
     // This parameter is required.
     shared_ptr<int64_t> groupId_ {};
-    // The IDs of the instances to be deleted. Separate multiple instance IDs with commas (,). You can delete up to 20 instances at a time.
+    // The instances to delete. Separate multiple instance IDs with commas (,). You can delete up to 20 instances at a time.
     // 
     // This parameter is required.
     shared_ptr<string> instanceIdList_ {};

@@ -51,7 +51,7 @@ namespace Models
 
 
   protected:
-    // The IDs of the tasks.
+    // The ID of the task.
     // 
     // This parameter is required.
     shared_ptr<vector<int64_t>> id_ {};

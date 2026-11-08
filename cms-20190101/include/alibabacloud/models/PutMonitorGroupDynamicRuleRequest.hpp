@@ -14,6 +14,7 @@ namespace Models
   class PutMonitorGroupDynamicRuleRequest : public Darabonba::Model {
   public:
     friend void to_json(Darabonba::Json& j, const PutMonitorGroupDynamicRuleRequest& obj) { 
+      DARABONBA_PTR_TO_JSON(ClientToken, clientToken_);
       DARABONBA_PTR_TO_JSON(DryRun, dryRun_);
       DARABONBA_PTR_TO_JSON(GroupId, groupId_);
       DARABONBA_PTR_TO_JSON(GroupRules, groupRules_);
@@ -21,6 +22,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(RegionId, regionId_);
     };
     friend void from_json(const Darabonba::Json& j, PutMonitorGroupDynamicRuleRequest& obj) { 
+      DARABONBA_PTR_FROM_JSON(ClientToken, clientToken_);
       DARABONBA_PTR_FROM_JSON(DryRun, dryRun_);
       DARABONBA_PTR_FROM_JSON(GroupId, groupId_);
       DARABONBA_PTR_FROM_JSON(GroupRules, groupRules_);
@@ -108,25 +110,21 @@ namespace Models
 
 
       protected:
-        // The method that is used to filter instances. Valid values of N: 1 to 3. Valid values:
-        // 
-        // - contains: contains
-        // 
-        // - notContains: does not contain
-        // 
-        // - startWith: starts with a prefix
-        // 
-        // - endWith: ends with a suffix
+        // The filter condition for instances. Valid values of N: 1 to 3. Valid values:
+        // - contains: Contains.
+        // - notContains: Does not contain.
+        // - startWith: Prefix.
+        // - endWith: Suffix.
         // 
         // This parameter is required.
         shared_ptr<string> function_ {};
-        // The name of the field based on which instances are filtered. Valid values of N: 1 to 3.
+        // The field name for instance matching. Valid values of N: 1 to 3.
         // 
-        // Only hostnames are supported. Example: hostName.
+        // Currently, only the hostname is supported, such as hostName.
         // 
         // This parameter is required.
         shared_ptr<string> name_ {};
-        // The value to be matched with the specified field. Valid values of N: 1 to 3.
+        // The value that meets the matching condition. Valid values of N: 1 to 3.
         // 
         // This parameter is required.
         shared_ptr<string> value_ {};
@@ -158,21 +156,21 @@ namespace Models
 
 
     protected:
-      // The cloud service to which the alert rule is applied. Valid values of N: 1 to 3. Valid values:
+      // The type of Alibaba Cloud service for the dynamic alert rule. Valid values of N: 1 to 3. Valid values:
       // 
-      // - ecs: Elastic Compute Service (ECS)
+      // - ecs: Elastic Compute Service (ECS) server.
       // 
-      // - rds: ApsaraDB RDS
+      // - rds: relational database.
       // 
-      // - slb: Server Load Balancer (SLB)
+      // - slb: load balancing.
       // 
       // This parameter is required.
       shared_ptr<string> category_ {};
-      // The logical operator used between conditional expressions in the alert rule. Valid values of N: 1 to 3. Valid values:
+      // The combination condition for dynamic matching rules. Valid values of N: 1 to 3. Valid values:
       // 
-      // - and: The instances that meet all the conditional expressions are automatically added to the application group.
+      // - and: Only instances that meet all matching rules are automatically added to the application group.
       // 
-      // - or: The instances that meet one of the conditional expressions are automatically added to the application group.
+      // - or: Instances that meet any matching rule are automatically added to the application group.
       // 
       // This parameter is required.
       shared_ptr<string> filterRelation_ {};
@@ -182,8 +180,15 @@ namespace Models
       shared_ptr<vector<GroupRules::Filters>> filters_ {};
     };
 
-    virtual bool empty() const override { return this->dryRun_ == nullptr
-        && this->groupId_ == nullptr && this->groupRules_ == nullptr && this->isAsync_ == nullptr && this->regionId_ == nullptr; };
+    virtual bool empty() const override { return this->clientToken_ == nullptr
+        && this->dryRun_ == nullptr && this->groupId_ == nullptr && this->groupRules_ == nullptr && this->isAsync_ == nullptr && this->regionId_ == nullptr; };
+    // clientToken Field Functions 
+    bool hasClientToken() const { return this->clientToken_ != nullptr;};
+    void deleteClientToken() { this->clientToken_ = nullptr;};
+    inline string getClientToken() const { DARABONBA_PTR_GET_DEFAULT(clientToken_, "") };
+    inline PutMonitorGroupDynamicRuleRequest& setClientToken(string clientToken) { DARABONBA_PTR_SET_VALUE(clientToken_, clientToken) };
+
+
     // dryRun Field Functions 
     bool hasDryRun() const { return this->dryRun_ != nullptr;};
     void deleteDryRun() { this->dryRun_ = nullptr;};
@@ -222,6 +227,10 @@ namespace Models
 
 
   protected:
+    shared_ptr<string> clientToken_ {};
+    // Specifies whether to only precheck this request. Valid values:
+    // - **true**: sends a check request. No security group is associated with the instance. The check items include whether required parameters are specified, the request format, and service limits. If the check fails, the corresponding error is returned. If the check succeeds, the `DryRunOperation` error code is returned.
+    // - **false** (default): sends a normal request. If the check succeeds, an HTTP 2xx status code is returned and the operation is directly performed.
     shared_ptr<bool> dryRun_ {};
     // The ID of the application group.
     // 
@@ -231,11 +240,10 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<vector<PutMonitorGroupDynamicRuleRequest::GroupRules>> groupRules_ {};
-    // The mode for creating the alert rule. Valid values:
+    // The mode for creating the dynamic matching rule. Valid values:
     // 
-    // - true: creates asynchronously
-    // 
-    // - false (default): creates synchronously
+    // - true: Asynchronous creation.
+    // - false (default): Synchronous creation.
     shared_ptr<bool> isAsync_ {};
     shared_ptr<string> regionId_ {};
   };

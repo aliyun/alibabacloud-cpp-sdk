@@ -302,22 +302,22 @@ namespace Models
 
 
   protected:
-    // The status code of the operation.
+    // The status code.
     // 
-    // > A value of \\`200\\` indicates success.
+    // > 200 indicates success.
     shared_ptr<string> code_ {};
     shared_ptr<CreateSiteMonitorResponseBody::CreateResultList> createResultList_ {};
-    // The results of the monitoring task.
+    // The details of the monitoring task result.
     shared_ptr<CreateSiteMonitorResponseBody::Data> data_ {};
-    // The message returned for the request.
+    // The returned message.
     shared_ptr<string> message_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request was successful. Valid values:
+    // Indicates whether the operation is successful. Valid values:
     // 
-    // - true: The request was successful.
+    // - true: The operation is successful.
     // 
-    // - false: The request failed.
+    // - false: The operation fails.
     shared_ptr<string> success_ {};
   };
 

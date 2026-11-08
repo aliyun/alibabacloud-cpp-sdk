@@ -65,7 +65,7 @@ namespace Models
 
 
     protected:
-      // The ID of the alert rule.
+      // The alert rule ID.
       shared_ptr<string> ruleId_ {};
     };
 

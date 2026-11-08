@@ -76,8 +76,7 @@ namespace Models
 
   protected:
     // The status code.
-    // 
-    // > The status code 200 indicates that the request was successful.
+    // > 200 indicates success.
     shared_ptr<int32_t> code_ {};
     // The ID of the alert template.
     shared_ptr<int64_t> id_ {};
@@ -85,11 +84,10 @@ namespace Models
     shared_ptr<string> message_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request was successful. Valid values:
+    // Indicates whether the call was successful. Valid values:
     // 
-    // - true
-    // 
-    // - false
+    // - true: The call was successful.
+    // - false: The call failed.
     shared_ptr<bool> success_ {};
   };
 

@@ -183,17 +183,18 @@ namespace Models
 
 
   protected:
-    // The status code.
-    // >A value of 200 indicates success.
+    // The HTTP status code.
+    // 
+    // > 200 indicates success.
     shared_ptr<int32_t> code_ {};
     // The error message.
     shared_ptr<string> message_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
     shared_ptr<CreateGroupMetricRulesResponseBody::Resources> resources_ {};
-    // Indicates whether the operation is successful. Valid values:
+    // Indicates whether the operation was successful. Valid values:
     // 
-    // - true: The operation is successful.
+    // - true: The operation was successful.
     // 
     // - false: The operation failed.
     shared_ptr<bool> success_ {};

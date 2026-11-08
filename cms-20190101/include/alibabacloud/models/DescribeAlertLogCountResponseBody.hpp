@@ -122,7 +122,7 @@ namespace Models
 
 
     protected:
-      // The number of alert history statistics.
+      // The number of alert history records.
       shared_ptr<int32_t> count_ {};
       // The details of the alert history statistics.
       shared_ptr<vector<AlertLogCount::Logs>> logs_ {};
@@ -168,17 +168,17 @@ namespace Models
 
 
   protected:
-    // The alert history statistics.
+    // The statistics of the alert history count.
     shared_ptr<vector<DescribeAlertLogCountResponseBody::AlertLogCount>> alertLogCount_ {};
     // The status code.
     // 
-    // > The value 200 indicates success.
+    // > 200 indicates success.
     shared_ptr<string> code_ {};
     // The error message.
     shared_ptr<string> message_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the operation was successful. Valid values:
+    // Indicates whether the operation is successful. Valid values:
     // 
     // - true: Successful.
     // 

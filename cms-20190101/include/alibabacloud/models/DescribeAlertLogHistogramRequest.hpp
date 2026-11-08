@@ -210,90 +210,90 @@ namespace Models
     // 
     // Unit: milliseconds.
     // 
-    // > - You can query only the alert history within the last year.
-    // > - The interval between the start time (StartTime) and end time (EndTime) must be less than or equal to 15 days.
+    // > - You can only query the alert history of the last year.
+    // > - The time interval between the start time (`StartTime`) and the end time (`EndTime`) must be less than or equal to 15 days.
     shared_ptr<int64_t> endTime_ {};
     // The alert type. Valid values:
     // 
     // - TRIGGERED: The alert is triggered.
     // - RESOLVED: The alert recovers.
     shared_ptr<string> eventType_ {};
-    // Aggregates data by spatial dimension, equivalent to Group By in SQL. Valid values:
-    // - `product`: aggregates by Alibaba Cloud service.
-    // - `level`: aggregates by alert level.
-    // - `groupId`: aggregates by application group.
-    // - `contactGroup`: aggregates by alert contact group.
-    // - `product,metricName`: aggregates by Alibaba Cloud service and metric.
+    // The dimension for data aggregation, which is equivalent to the GROUP BY clause in SQL. Valid values:
+    // - `product`: Aggregates data by cloud service.
+    // - `level`: Aggregates data by alert level.
+    // - `groupId`: Aggregates data by application group.
+    // - `contactGroup`: Aggregates data by alert contact group.
+    // - `product,metricName`: Aggregates data by cloud service and metric.
     shared_ptr<string> groupBy_ {};
-    // The application group ID.
+    // The ID of the application group.
     shared_ptr<string> groupId_ {};
-    // The period for obtaining logs. Unit: minutes.
+    // The period for retrieving logs. Unit: minutes.
     shared_ptr<string> lastMin_ {};
     // The alert level and notification method. Valid values:
     // 
-    // <props="china">- P2: phone call + text message + email + DingTalk chatbot.
+    // <props="china">- P2: Phone call + text message + email + DingTalk chatbot.
     // 
-    // <props="china">- P3: text message + email + DingTalk chatbot.
+    // <props="china">- P3: Text message + email + DingTalk chatbot.
     // 
-    // <props="china">- P4: email + DingTalk chatbot.
+    // <props="china">- P4: Email + DingTalk chatbot.
     // 
-    // <props="china">- OK: no alert.
+    // <props="china">- OK: No alert.
     // 
-    // <props="intl">- P4: email + DingTalk chatbot.
+    // <props="intl">- P4: Email + DingTalk chatbot.
     // 
-    // <props="intl">- OK: no alert.
+    // <props="intl">- OK: No alert.
     // 
-    // <props="partner">- P4: email + DingTalk chatbot.
+    // <props="partner">- P4: Email + DingTalk chatbot.
     // 
-    // <props="partner">- OK: no alert.
+    // <props="partner">- OK: No alert.
     shared_ptr<string> level_ {};
-    // The metric name.
+    // The name of the metric.
     // 
-    // > For information about the metrics of Alibaba Cloud services, see [Metrics](https://help.aliyun.com/document_detail/163515.html).
+    // > For more information about the metrics of cloud services, see [Cloud service metrics](https://help.aliyun.com/document_detail/163515.html).
     shared_ptr<string> metricName_ {};
-    // The namespace of the Alibaba Cloud service.
+    // The namespace of the cloud service.
     // 
-    // > For information about the namespaces of Alibaba Cloud services, see [Metrics](https://help.aliyun.com/document_detail/163515.html).
+    // > For more information about the namespaces of cloud services, see [Cloud service metrics](https://help.aliyun.com/document_detail/163515.html).
     shared_ptr<string> namespace_ {};
     // The page number.
     // 
     // Default value: 1.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries per page.
+    // The number of entries to return on each page.
     // 
     // Default value: 10.
     shared_ptr<int32_t> pageSize_ {};
-    // The abbreviation of the Alibaba Cloud service name.
+    // The abbreviation of the cloud service name.
     shared_ptr<string> product_ {};
     shared_ptr<string> regionId_ {};
-    // The alert rule ID.
+    // The ID of the alert rule.
     // 
     // 
-    // For information about how to obtain the alert rule ID, see [DescribeMetricRuleList](https://help.aliyun.com/document_detail/114941.html).
+    // For more information about how to obtain the ID of an alert rule, see [DescribeMetricRuleList](https://help.aliyun.com/document_detail/114941.html).
     shared_ptr<string> ruleId_ {};
-    // The alert rule name.
+    // The name of the alert rule.
     shared_ptr<string> ruleName_ {};
-    // The keyword for searching alert history.
+    // The search keyword for querying alert history.
     shared_ptr<string> searchKey_ {};
     // The alert status. Valid values:
     // - 0: An alert is triggered or the alert recovers to Normal.
-    // - 1: The alert is not in the effective period.
-    // - 2: The mute for epoch.
+    // - 1: Outside the effective period.
+    // - 2: Mute epoch.
     // - 3: The host is restarting.
-    // - 4: Alerts are not send.
+    // - 4: Does not send alert notifications.
     // 
-    // <props="china">When the alert status is 0, if the value of Level is P2, P3, or P4, an alert is triggered. If the value of Level is OK, the alert recovers to Normal.
-    // <props="intl">When the alert status is 0, if the value of Level is P4, an alert is triggered. If the value of Level is OK, the alert recovers to Normal.
-    // <props="partner">When the alert status is 0, if the value of Level is P4, an alert is triggered. If the value of Level is OK, the alert recovers to Normal.
+    // <props="china">If the alert status is 0 and the value of Level is P2, P3, or P4, an alert is triggered. If the value of Level is OK, the alert recovers to Normal.
+    // <props="intl">If the alert status is 0 and the value of Level is P4, an alert is triggered. If the value of Level is OK, the alert recovers to Normal.
+    // <props="partner">If the alert status is 0 and the value of Level is P4, an alert is triggered. If the value of Level is OK, the alert recovers to Normal.
     shared_ptr<string> sendStatus_ {};
-    // **[Deprecated]** This parameter is deprecated and does not need to be specified.
+    // **[Deprecated]** This parameter is deprecated. You do not need to specify this parameter.
     shared_ptr<string> sourceType_ {};
     // The start timestamp for querying alert history.
     // 
     // Unit: milliseconds.
     // 
-    // > - You can query only the alert history within the last year.
-    // > - The interval between the start time (StartTime) and end time (EndTime) must be less than or equal to 15 days.
+    // > - You can only query the alert history of the last year.
+    // > - The time interval between the start time (`StartTime`) and the end time (`EndTime`) must be less than or equal to 15 days.
     shared_ptr<int64_t> startTime_ {};
   };
 

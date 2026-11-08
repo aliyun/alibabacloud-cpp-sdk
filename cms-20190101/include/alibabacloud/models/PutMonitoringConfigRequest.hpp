@@ -14,12 +14,14 @@ namespace Models
   public:
     friend void to_json(Darabonba::Json& j, const PutMonitoringConfigRequest& obj) { 
       DARABONBA_PTR_TO_JSON(AutoInstall, autoInstall_);
+      DARABONBA_PTR_TO_JSON(ClientToken, clientToken_);
       DARABONBA_PTR_TO_JSON(DryRun, dryRun_);
       DARABONBA_PTR_TO_JSON(EnableInstallAgentNewECS, enableInstallAgentNewECS_);
       DARABONBA_PTR_TO_JSON(RegionId, regionId_);
     };
     friend void from_json(const Darabonba::Json& j, PutMonitoringConfigRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(AutoInstall, autoInstall_);
+      DARABONBA_PTR_FROM_JSON(ClientToken, clientToken_);
       DARABONBA_PTR_FROM_JSON(DryRun, dryRun_);
       DARABONBA_PTR_FROM_JSON(EnableInstallAgentNewECS, enableInstallAgentNewECS_);
       DARABONBA_PTR_FROM_JSON(RegionId, regionId_);
@@ -36,12 +38,19 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->autoInstall_ == nullptr
-        && this->dryRun_ == nullptr && this->enableInstallAgentNewECS_ == nullptr && this->regionId_ == nullptr; };
+        && this->clientToken_ == nullptr && this->dryRun_ == nullptr && this->enableInstallAgentNewECS_ == nullptr && this->regionId_ == nullptr; };
     // autoInstall Field Functions 
     bool hasAutoInstall() const { return this->autoInstall_ != nullptr;};
     void deleteAutoInstall() { this->autoInstall_ = nullptr;};
     inline bool getAutoInstall() const { DARABONBA_PTR_GET_DEFAULT(autoInstall_, false) };
     inline PutMonitoringConfigRequest& setAutoInstall(bool autoInstall) { DARABONBA_PTR_SET_VALUE(autoInstall_, autoInstall) };
+
+
+    // clientToken Field Functions 
+    bool hasClientToken() const { return this->clientToken_ != nullptr;};
+    void deleteClientToken() { this->clientToken_ = nullptr;};
+    inline string getClientToken() const { DARABONBA_PTR_GET_DEFAULT(clientToken_, "") };
+    inline PutMonitoringConfigRequest& setClientToken(string clientToken) { DARABONBA_PTR_SET_VALUE(clientToken_, clientToken) };
 
 
     // dryRun Field Functions 
@@ -66,13 +75,17 @@ namespace Models
 
 
   protected:
-    // This parameter is not required.
+    // Ignore this parameter.
     shared_ptr<bool> autoInstall_ {};
+    shared_ptr<string> clientToken_ {};
+    // Specifies whether to perform a dry run on the request. Valid values:
+    // - **true**: Sends a dry run request without deleting the endpoint IPAM pool. The system checks whether all required parameters are specified, the request format is valid, and service limits are met. If the request fails the check, the corresponding error is returned. If the request passes the check, the `DryRunOperation` error code is returned.
+    // - **false** (default): Sends a normal request and directly deletes the endpoint IPAM pool if the request passes the check.
     shared_ptr<bool> dryRun_ {};
     // Specifies whether to automatically install the CloudMonitor agent on newly purchased ECS instances. Valid values:
-    // - true (default): The CloudMonitor agent is automatically installed on newly purchased ECS instances.
+    // - true (default): Automatically installs the CloudMonitor agent on newly purchased ECS instances.
     // 
-    // - false: The CloudMonitor agent is not automatically installed on newly purchased ECS instances.
+    // - false: Does not automatically install the CloudMonitor agent on newly purchased ECS instances.
     shared_ptr<bool> enableInstallAgentNewECS_ {};
     shared_ptr<string> regionId_ {};
   };

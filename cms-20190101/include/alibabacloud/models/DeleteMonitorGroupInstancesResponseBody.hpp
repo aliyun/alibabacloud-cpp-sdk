@@ -74,7 +74,7 @@ namespace Models
     shared_ptr<string> message_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the operation is successful. Valid values:
+    // Specifies whether the operation is successful. Valid values:
     // 
     // - true: The operation is successful.
     // - false: The operation fails.

@@ -48,7 +48,7 @@ namespace Models
 
 
   protected:
-    // The name of the destination configuration.
+    // The destination name of the configuration.
     // 
     // This parameter is required.
     shared_ptr<string> destName_ {};

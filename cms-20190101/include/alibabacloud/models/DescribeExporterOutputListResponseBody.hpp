@@ -256,9 +256,9 @@ namespace Models
 
 
   protected:
-    // The status code.
+    // The HTTP status code.
     // 
-    // > The status code 200 indicates that the call was successful. Other status codes indicate that the call failed.
+    // > A status code of 200 indicates success, and other values indicate failure.
     shared_ptr<string> code_ {};
     shared_ptr<DescribeExporterOutputListResponseBody::Datapoints> datapoints_ {};
     // The error message.
@@ -268,10 +268,10 @@ namespace Models
     // The request ID.
     shared_ptr<string> requestId_ {};
     // Indicates whether the call was successful. Valid values:  
-    // - `true`: successful
-    // - `false`: failed
+    // - `true`: The call was successful.
+    // - `false`: The call failed.
     shared_ptr<bool> success_ {};
-    // The total number of records.
+    // The total number of entries.
     shared_ptr<int32_t> total_ {};
   };
 

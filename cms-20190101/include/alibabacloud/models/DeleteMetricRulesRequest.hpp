@@ -14,11 +14,13 @@ namespace Models
   class DeleteMetricRulesRequest : public Darabonba::Model {
   public:
     friend void to_json(Darabonba::Json& j, const DeleteMetricRulesRequest& obj) { 
+      DARABONBA_PTR_TO_JSON(ClientToken, clientToken_);
       DARABONBA_PTR_TO_JSON(DryRun, dryRun_);
       DARABONBA_PTR_TO_JSON(Id, id_);
       DARABONBA_PTR_TO_JSON(RegionId, regionId_);
     };
     friend void from_json(const Darabonba::Json& j, DeleteMetricRulesRequest& obj) { 
+      DARABONBA_PTR_FROM_JSON(ClientToken, clientToken_);
       DARABONBA_PTR_FROM_JSON(DryRun, dryRun_);
       DARABONBA_PTR_FROM_JSON(Id, id_);
       DARABONBA_PTR_FROM_JSON(RegionId, regionId_);
@@ -34,8 +36,15 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { return this->dryRun_ == nullptr
-        && this->id_ == nullptr && this->regionId_ == nullptr; };
+    virtual bool empty() const override { return this->clientToken_ == nullptr
+        && this->dryRun_ == nullptr && this->id_ == nullptr && this->regionId_ == nullptr; };
+    // clientToken Field Functions 
+    bool hasClientToken() const { return this->clientToken_ != nullptr;};
+    void deleteClientToken() { this->clientToken_ = nullptr;};
+    inline string getClientToken() const { DARABONBA_PTR_GET_DEFAULT(clientToken_, "") };
+    inline DeleteMetricRulesRequest& setClientToken(string clientToken) { DARABONBA_PTR_SET_VALUE(clientToken_, clientToken) };
+
+
     // dryRun Field Functions 
     bool hasDryRun() const { return this->dryRun_ != nullptr;};
     void deleteDryRun() { this->dryRun_ = nullptr;};
@@ -60,9 +69,10 @@ namespace Models
 
 
   protected:
-    // Specifies whether to perform a dry run of the request. Valid values:
-    // - **true**: performs a dry run. No actual operation is performed. The system checks whether the required parameters are specified, the request format is valid, and the service limits are met. If the request fails the dry run, an error is returned. If the request passes the dry run, the `DryRunOperation` error code is returned.
-    // - **false** (default): sends a normal request. If the request passes the check, an HTTP 2xx status code is returned and the operation is performed.
+    shared_ptr<string> clientToken_ {};
+    // Specifies whether to perform a dry run on the request. Valid values:
+    // - **true**: A check request is sent, and no security group is bound to the instance. The system checks whether required parameters are specified, the request format is valid, and service limits are met. If the check fails, the corresponding error is returned. If the check succeeds, the `DryRunOperation` error code is returned.
+    // - **false** (default): A normal request is sent. If the check succeeds, an HTTP 2xx status code is returned and the operation is directly performed.
     shared_ptr<bool> dryRun_ {};
     // The IDs of the alert rules to delete.
     // 

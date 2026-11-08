@@ -75,19 +75,19 @@ namespace Models
 
 
   protected:
-    // The status code.
+    // The HTTP status code.
     // 
-    // > A value of 200 indicates success.
+    // > A status code of 200 indicates that the request is successful.
     shared_ptr<string> code_ {};
     // The error message.
     shared_ptr<string> message_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the operation was successful. Valid values:
+    // Indicates whether the operation is successful. Valid values:
     // 
-    // - true: The operation was successful.
+    // - true: The operation is successful.
     // 
-    // - false: The operation failed.
+    // - false: The operation fails.
     shared_ptr<bool> success_ {};
     // The ID of the availability monitoring task.
     shared_ptr<int64_t> taskId_ {};

@@ -14,12 +14,14 @@ namespace Models
   class CreateMonitorGroupInstancesRequest : public Darabonba::Model {
   public:
     friend void to_json(Darabonba::Json& j, const CreateMonitorGroupInstancesRequest& obj) { 
+      DARABONBA_PTR_TO_JSON(ClientToken, clientToken_);
       DARABONBA_PTR_TO_JSON(DryRun, dryRun_);
       DARABONBA_PTR_TO_JSON(GroupId, groupId_);
       DARABONBA_PTR_TO_JSON(Instances, instances_);
       DARABONBA_PTR_TO_JSON(RegionId, regionId_);
     };
     friend void from_json(const Darabonba::Json& j, CreateMonitorGroupInstancesRequest& obj) { 
+      DARABONBA_PTR_FROM_JSON(ClientToken, clientToken_);
       DARABONBA_PTR_FROM_JSON(DryRun, dryRun_);
       DARABONBA_PTR_FROM_JSON(GroupId, groupId_);
       DARABONBA_PTR_FROM_JSON(Instances, instances_);
@@ -94,7 +96,7 @@ namespace Models
     protected:
       // The abbreviation of the Alibaba Cloud service name.
       // 
-      // To obtain the abbreviation of an Alibaba Cloud service name, call the [DescribeProjectMeta](https://help.aliyun.com/document_detail/114916.html) operation. The `metricCategory` tag in the `Labels` response parameter indicates the abbreviation of the Alibaba Cloud service name.
+      // For more information about how to obtain the abbreviation of the Alibaba Cloud service name, see the `metricCategory` field in the `Labels` response parameter of the [DescribeProjectMeta](https://help.aliyun.com/document_detail/114916.html) operation.
       // 
       // This parameter is required.
       shared_ptr<string> category_ {};
@@ -102,18 +104,25 @@ namespace Models
       // 
       // This parameter is required.
       shared_ptr<string> instanceId_ {};
-      // The instance name.
+      // The name of the instance.
       // 
       // This parameter is required.
       shared_ptr<string> instanceName_ {};
-      // The region ID of the instance.
+      // The region where the instance resides.
       // 
       // This parameter is required.
       shared_ptr<string> regionId_ {};
     };
 
-    virtual bool empty() const override { return this->dryRun_ == nullptr
-        && this->groupId_ == nullptr && this->instances_ == nullptr && this->regionId_ == nullptr; };
+    virtual bool empty() const override { return this->clientToken_ == nullptr
+        && this->dryRun_ == nullptr && this->groupId_ == nullptr && this->instances_ == nullptr && this->regionId_ == nullptr; };
+    // clientToken Field Functions 
+    bool hasClientToken() const { return this->clientToken_ != nullptr;};
+    void deleteClientToken() { this->clientToken_ = nullptr;};
+    inline string getClientToken() const { DARABONBA_PTR_GET_DEFAULT(clientToken_, "") };
+    inline CreateMonitorGroupInstancesRequest& setClientToken(string clientToken) { DARABONBA_PTR_SET_VALUE(clientToken_, clientToken) };
+
+
     // dryRun Field Functions 
     bool hasDryRun() const { return this->dryRun_ != nullptr;};
     void deleteDryRun() { this->dryRun_ = nullptr;};
@@ -145,12 +154,16 @@ namespace Models
 
 
   protected:
+    shared_ptr<string> clientToken_ {};
+    // Specifies whether to only perform a dry run on the request. Valid values:
+    // - **true**: performs a dry run. A check request is sent, and no security group is bound to the instance. The system checks whether the required parameters are specified, the request format is valid, and the service limits are met. If the request fails the check, the corresponding error is returned. If the request passes the check, the `DryRunOperation` error code is returned.
+    // - **false** (default): sends a normal request. If the request passes the check, an HTTP 2xx status code is returned and the operation is performed.
     shared_ptr<string> dryRun_ {};
     // The ID of the application group.
     // 
     // This parameter is required.
     shared_ptr<string> groupId_ {};
-    // The instances that you want to add to the application group.
+    // The list of instances.
     // 
     // This parameter is required.
     shared_ptr<vector<CreateMonitorGroupInstancesRequest::Instances>> instances_ {};

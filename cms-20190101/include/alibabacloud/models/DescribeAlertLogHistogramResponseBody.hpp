@@ -85,13 +85,13 @@ namespace Models
 
 
     protected:
-      // The number of alert history entries.
+      // The number of alert history records.
       shared_ptr<int32_t> count_ {};
-      // The start timestamp for querying alert history.
+      // The start timestamp of the queried alert history.
       // 
       // Unit: seconds.
       shared_ptr<int64_t> from_ {};
-      // The end timestamp for querying alert history.
+      // The end timestamp of the queried alert history.
       // 
       // Unit: seconds.
       shared_ptr<int64_t> to_ {};
@@ -137,21 +137,21 @@ namespace Models
 
 
   protected:
-    // The histogram list of alert history.
+    // The histogram list of the queried alert history.
     shared_ptr<vector<DescribeAlertLogHistogramResponseBody::AlertLogHistogramList>> alertLogHistogramList_ {};
     // The status code.
     // 
-    // > The value 200 indicates success.
+    // > 200 indicates success.
     shared_ptr<string> code_ {};
     // The error message.
     shared_ptr<string> message_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the operation was successful. Valid values:
+    // Indicates whether the operation is successful. Valid values:
     // 
-    // - true: Successful.
+    // - true: The operation is successful.
     // 
-    // - false: Failed.
+    // - false: The operation fails.
     shared_ptr<bool> success_ {};
   };
 

@@ -15,6 +15,7 @@ namespace Models
     friend void to_json(Darabonba::Json& j, const ApplyMetricRuleTemplateRequest& obj) { 
       DARABONBA_PTR_TO_JSON(AppendMode, appendMode_);
       DARABONBA_PTR_TO_JSON(ApplyMode, applyMode_);
+      DARABONBA_PTR_TO_JSON(ClientToken, clientToken_);
       DARABONBA_PTR_TO_JSON(DryRun, dryRun_);
       DARABONBA_PTR_TO_JSON(EnableEndTime, enableEndTime_);
       DARABONBA_PTR_TO_JSON(EnableStartTime, enableStartTime_);
@@ -27,6 +28,7 @@ namespace Models
     friend void from_json(const Darabonba::Json& j, ApplyMetricRuleTemplateRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(AppendMode, appendMode_);
       DARABONBA_PTR_FROM_JSON(ApplyMode, applyMode_);
+      DARABONBA_PTR_FROM_JSON(ClientToken, clientToken_);
       DARABONBA_PTR_FROM_JSON(DryRun, dryRun_);
       DARABONBA_PTR_FROM_JSON(EnableEndTime, enableEndTime_);
       DARABONBA_PTR_FROM_JSON(EnableStartTime, enableStartTime_);
@@ -48,8 +50,8 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->appendMode_ == nullptr
-        && this->applyMode_ == nullptr && this->dryRun_ == nullptr && this->enableEndTime_ == nullptr && this->enableStartTime_ == nullptr && this->groupId_ == nullptr
-        && this->notifyLevel_ == nullptr && this->silenceTime_ == nullptr && this->templateIds_ == nullptr && this->webhook_ == nullptr; };
+        && this->applyMode_ == nullptr && this->clientToken_ == nullptr && this->dryRun_ == nullptr && this->enableEndTime_ == nullptr && this->enableStartTime_ == nullptr
+        && this->groupId_ == nullptr && this->notifyLevel_ == nullptr && this->silenceTime_ == nullptr && this->templateIds_ == nullptr && this->webhook_ == nullptr; };
     // appendMode Field Functions 
     bool hasAppendMode() const { return this->appendMode_ != nullptr;};
     void deleteAppendMode() { this->appendMode_ = nullptr;};
@@ -62,6 +64,13 @@ namespace Models
     void deleteApplyMode() { this->applyMode_ = nullptr;};
     inline string getApplyMode() const { DARABONBA_PTR_GET_DEFAULT(applyMode_, "") };
     inline ApplyMetricRuleTemplateRequest& setApplyMode(string applyMode) { DARABONBA_PTR_SET_VALUE(applyMode_, applyMode) };
+
+
+    // clientToken Field Functions 
+    bool hasClientToken() const { return this->clientToken_ != nullptr;};
+    void deleteClientToken() { this->clientToken_ = nullptr;};
+    inline string getClientToken() const { DARABONBA_PTR_GET_DEFAULT(clientToken_, "") };
+    inline ApplyMetricRuleTemplateRequest& setClientToken(string clientToken) { DARABONBA_PTR_SET_VALUE(clientToken_, clientToken) };
 
 
     // dryRun Field Functions 
@@ -123,23 +132,24 @@ namespace Models
   protected:
     // The application policy of the template. Valid values:
     // 
-    // - all: deletes all rules created by using alert templates on the selected group and then creates new alert rules based on the template. This is the default value.
+    // - all: deletes all rules created by using alert templates for the selected application group, and then creates alert rules based on the current template. This is the default value.
     // 
-    // - append: deletes the rules created by using the current alert template on the selected group and then creates new alert rules based on the current template.
+    // - append: deletes the rules created by using the current alert template for the selected application group, and then creates alert rules based on the current template.
     shared_ptr<string> appendMode_ {};
     // The application mode of the template. Valid values:
     // 
-    // - GROUP_INSTANCE_FIRST: application group instances take precedence. When the alert template is applied, the instances in the application group take precedence. If an instance specified in the template does not exist in the application group, the rule for the instance in the template is ignored.
+    // - GROUP_INSTANCE_FIRST: The instances in the application group take precedence. When the alert template is applied, the instances in the application group take precedence. If an instance specified in the template does not exist in the application group, the rule for the instance in the template is ignored.
     // 
-    // - ALARM_TEMPLATE_FIRST: alert template instances take precedence. When the alert template is applied, alert rules are created regardless of whether the instances exist in the application group.
+    // - ALARM_TEMPLATE_FIRST: The instances in the alert template take precedence. When the alert template is applied, alert rules are created regardless of whether the instances exist in the application group.
     shared_ptr<string> applyMode_ {};
+    shared_ptr<string> clientToken_ {};
     // Specifies whether to perform a dry run on the request. Valid values:
     // - **true**: performs a dry run and does not bind a security group to the instance. The system checks whether required parameters are specified, the request format is valid, and service limits are met. If the request fails the dry run, an error is returned. If the request passes the dry run, the `DryRunOperation` error code is returned.
-    // - **false**: performs a normal request. If the request passes the dry run, an HTTP 2xx status code is returned and the operation is performed. This is the default value.
+    // - **false** (default): sends a normal request. If the request passes the dry run, the HTTP 2xx status code is returned and the operation is performed.
     shared_ptr<bool> dryRun_ {};
-    // The end time of the effective period for the alert, in hours. The value is a two-digit string, such as "00", "18", or "23". Valid values: 00 to 23. The value specifies the hour of the end time, and the actual effective period ends at the 59th minute of the hour. For example, "23" indicates that the effective period ends at 23:59. The default time zone is UTC+8.
+    // The end time of the effective period for the alert rule. The value is a two-digit string, such as "00", "18", or "23". Valid values: 00 to 23. The value specifies the hour of the end time, and the effective period ends at the 59th minute of the hour. For example, "23" indicates that the effective period ends at 23:59. The default time zone is UTC+8.
     shared_ptr<int64_t> enableEndTime_ {};
-    // The start time of the effective period for the alert, in hours. The value is a two-digit string, such as "00", "09", or "23". Valid values: 00 to 23, which represent 00:00 to 23:00. The default time zone is UTC+8.
+    // The start time of the effective period for the alert rule. The value is a two-digit string, such as "00", "09", or "23". Valid values: 00 to 23, which represent 00:00 to 23:00. The default time zone is UTC+8.
     shared_ptr<int64_t> enableStartTime_ {};
     // The ID of the application group.
     // 
@@ -162,7 +172,7 @@ namespace Models
     shared_ptr<int64_t> notifyLevel_ {};
     // The mute for. Unit: seconds. Default value: 86400.
     // 
-    // > If the monitoring data continuously exceeds the threshold of the alert rule, the system sends only one alert notification within each epoch.
+    // > If the monitoring data continuously exceeds the threshold of the alert rule, the system will send only one alert notification within each epoch.
     shared_ptr<int64_t> silenceTime_ {};
     // The ID of the alert template.
     // 
@@ -170,7 +180,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> templateIds_ {};
-    // The webhook URL to which a POST request is sent when an alert is triggered.
+    // The webhook URL. When an alert is triggered, a POST request is sent to the specified URL.
     shared_ptr<string> webhook_ {};
   };
 

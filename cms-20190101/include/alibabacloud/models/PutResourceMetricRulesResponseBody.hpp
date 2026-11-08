@@ -207,9 +207,9 @@ namespace Models
 
 
   protected:
-    // The HTTP status code.
+    // The status code.
     // 
-    // > A status code of 200 indicates success.
+    // > 200 indicates success.
     shared_ptr<string> code_ {};
     shared_ptr<PutResourceMetricRulesResponseBody::FailedListResult> failedListResult_ {};
     // The error message.
@@ -218,9 +218,9 @@ namespace Models
     shared_ptr<string> requestId_ {};
     // Indicates whether the operation was successful. Valid values:
     // 
-    // - true: The operation was successful.
+    // - true: Successful.
     // 
-    // - false: The operation failed.
+    // - false: Failed.
     shared_ptr<bool> success_ {};
   };
 

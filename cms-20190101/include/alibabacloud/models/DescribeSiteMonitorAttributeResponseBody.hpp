@@ -137,11 +137,11 @@ namespace Models
       protected:
         // The region where the target site of the internal network probing task is located.
         shared_ptr<string> region_ {};
-        // The ID of the security group applied to the internal network probing task.
+        // The ID of the security group associated with the internal network probing task.
         shared_ptr<string> securityGroupId_ {};
-        // The ID of the VPC associated with the internal network probing task.
+        // The ID of the VPC to which the internal network probing task is attached.
         shared_ptr<string> vpcId_ {};
-        // The ID of the vSwitch associated with the internal network probing task.
+        // The ID of the vSwitch to which the internal network probing task is attached.
         shared_ptr<string> vswitchId_ {};
       };
 
@@ -1245,13 +1245,13 @@ namespace Models
 
 
         protected:
-          // Supported only in multi-step synthetic monitoring. The AccessKey ID used for Alibaba Cloud authentication. We recommend that you store it in an encrypted format.
+          // Supported only in multi-step monitoring. The AccessKey ID passed when using Alibaba Cloud authentication. Store it in an encrypted format.
           shared_ptr<string> accessKeyId_ {};
-          // Supported only in multi-step synthetic monitoring. The AccessKey secret used for Alibaba Cloud authentication. We recommend that you store it in an encrypted format.
+          // Supported only in multi-step monitoring. The AccessKey secret passed when using Alibaba Cloud authentication. Store it in an encrypted format.
           shared_ptr<string> accessKeySecret_ {};
-          // Supported only in multi-step synthetic monitoring. The API operation requested when using Alibaba Cloud operations.
+          // Supported only in multi-step monitoring. The requested API operation when using Alibaba Cloud operations.
           shared_ptr<string> apiAction_ {};
-          // Supported only in multi-step synthetic monitoring. The API version requested when using Alibaba Cloud operations.
+          // Supported only in multi-step monitoring. The requested API version when using Alibaba Cloud operations.
           shared_ptr<string> apiVersion_ {};
           // The OAuth 2.0 authentication style. Valid values: ROA and RPC.
           shared_ptr<string> authStyle_ {};
@@ -1259,26 +1259,26 @@ namespace Models
           shared_ptr<string> clientId_ {};
           // The client secret used for client authentication in OAuth 2.0.
           shared_ptr<string> clientSecret_ {};
-          // The grant type used in OAuth 2.0 authentication. Valid values: client_credentials and password.
+          // The authentication type used in OAuth 2.0 authentication. Valid values: client_credentials and password.
           shared_ptr<string> grantType_ {};
           // The password used for HTTP Basic Authentication.
           shared_ptr<string> password_ {};
-          // Supported only in multi-step synthetic monitoring. The region ID requested when using Alibaba Cloud authentication.
+          // Supported only in multi-step monitoring. The region ID of the request when using Alibaba Cloud authentication.
           shared_ptr<string> regionId_ {};
           shared_ptr<AuthInfo::Scopes> scopes_ {};
-          // The service name requested when using AWS authentication.
+          // The service name when using AWS authentication.
           shared_ptr<string> serviceName_ {};
           // The session token used for AWS authentication.
           shared_ptr<string> sessionToken_ {};
-          // The address of the authentication server in OAuth 2.0.
+          // The authentication server address in OAuth 2.0.
           shared_ptr<string> tokenUrl_ {};
-          // The authentication type. Currently, only HTTP Basic Authentication is supported. Valid value: basic.
+          // The authentication type. Currently, HTTP Basic Authentication is supported. Valid value: basic.
           shared_ptr<string> type_ {};
-          // Specifies whether the key is stored in the client cookie during digest authentication.
+          // In digest authentication, this parameter specifies whether the key is stored in the cookie of the client.
           shared_ptr<bool> useCookieSessionKey_ {};
           // The username used for HTTP Basic Authentication.
           shared_ptr<string> username_ {};
-          // Supported only in multi-step synthetic monitoring. Specifies whether the operation involves additional resources when Alibaba Cloud authentication is used in this step.
+          // Supported only in multi-step monitoring. Specifies whether the operation has additional resources when this step uses Alibaba Cloud authentication.
           shared_ptr<bool> withAddonResources_ {};
         };
 
@@ -1890,8 +1890,8 @@ namespace Models
         shared_ptr<OptionJson::BrowserHosts> browserHosts_ {};
         shared_ptr<OptionJson::BrowserInfo> browserInfo_ {};
         // Specifies whether to ignore certificate errors. Valid values:
-        // - false: Certificate errors are not ignored.
-        // - true: Certificate errors are ignored.
+        // - false: do not ignore certificate errors
+        // - true: ignore certificate errors
         shared_ptr<bool> browserInsecure_ {};
         // The browser monitoring version. Valid values:
         // - 1: Single-page monitoring.
@@ -1904,22 +1904,23 @@ namespace Models
         // - false: Automatic MTR network diagnostics are disabled.
         // - true: Automatic MTR network diagnostics are enabled.
         shared_ptr<bool> diagnosisMtr_ {};
-        // Specifies whether to enable automatic ping network latency detection after a task fails. Valid values:
-        // - false: Automatic ping network latency detection is disabled.
-        // - true: Automatic ping network latency detection is enabled.
+        // Specifies whether to enable automatic PING network latency probing after a task fails. Valid values:
+        // - false: Automatic PING network latency probing is disabled.
+        // - true: Automatic PING network latency probing is enabled.
         shared_ptr<bool> diagnosisPing_ {};
         // The DNS hijacking whitelist.
         shared_ptr<string> dnsHijackWhitelist_ {};
         // The DNS matching rule. Valid values:
         // - IN_DNS: The expected aliases or IP addresses are all included in the DNS response.
         // - DNS_IN: All DNS responses are included in the expected aliases or IP addresses.
-        // - EQUAL: The DNS response is exactly the same as the expected aliases or IP addresses.
+        // - EQUAL: The DNS response exactly matches the expected aliases or IP addresses.
         // - ANY: The DNS response and the expected aliases or IP addresses have an intersection.
         shared_ptr<string> dnsMatchRule_ {};
         // The IP address of the DNS server.
-        // > This parameter applies only to DNS monitoring.
+        // 
+        // > This parameter applies only to the DNS monitoring type.
         shared_ptr<string> dnsServer_ {};
-        // The DNS record type. This parameter applies only to DNS monitoring. Valid values:
+        // The DNS record type. This parameter applies only to the DNS monitoring type. Valid values:
         // - A: Specifies the IP address that corresponds to a hostname or domain name.
         // - CNAME: Maps multiple domain names to another domain name.
         // - NS: Specifies the DNS server that resolves a domain name.
@@ -1935,70 +1936,66 @@ namespace Models
         shared_ptr<OptionJson::ExpectExistString> expectExistString_ {};
         shared_ptr<OptionJson::ExpectNonExistString> expectNonExistString_ {};
         // The alias or address to be resolved.
-        // > This parameter applies only to DNS monitoring.
+        // 
+        // > This parameter applies only to the DNS monitoring type.
         shared_ptr<string> expectValue_ {};
         // The packet loss rate.
-        // > This parameter applies only to ping monitoring.
+        // 
+        // > This parameter applies only to the PING monitoring type.
         shared_ptr<float> failureRate_ {};
-        // The HTTP request headers.
+        // The HTTP request header.
         shared_ptr<string> header_ {};
-        // The number of hops for traceroute diagnostics when a ping task fails.
+        // The number of hops for traceroute diagnostics when a PING task fails.
         shared_ptr<int32_t> hops_ {};
-        // The custom host for an HTTP task. The format is `ip1,ip2:address`. You can configure multiple lines of mappings. The left side of the colon contains the A records or CNAMEs to which the domain name can be resolved, separated by commas. The right side of the colon is the domain name.
+        // The custom host for an HTTP task. The format is ip1,ip2:address. You can configure multiple lines of mappings. The left side of the colon contains the A records or CNAMEs to which the domain name can be resolved, separated by commas. The right side of the colon is the domain name.
         shared_ptr<string> hostBinding_ {};
-        // The effective method of the custom host. Valid values:
-        // - 0: Random.
-        // - 1: Round-robin.
+        // Specifies the effective mode of the custom host. Valid values: 0: random. 1: round-robin.
         shared_ptr<int32_t> hostBindingType_ {};
         // The HTTP request method. Valid values:
         // - get 
         // - post
         // - head
         shared_ptr<string> httpMethod_ {};
-        // The timeout period for a single ping in a ping task that uses the ICMP protocol. Unit: milliseconds.
+        // The timeout period for a single PING request in a PING task that uses the ICMP protocol. Unit: milliseconds.
         shared_ptr<int32_t> icmpTimeoutMillis_ {};
-        // The network type of the task. Valid values:
-        // - v4
-        // - v6
-        // - auto
-        // Default value: v4.
+        // The network type of the task. Valid values: v4, v6, and auto. Default value: v4.
         shared_ptr<string> ipNetwork_ {};
-        // Specifies whether to decode and store the password in Base64. Valid values:
-        // - true: The password is decoded and stored in Base64.
-        // - false: The password is not decoded and stored in Base64.
+        // Specifies whether to store the password in Base64 encoding. Valid values:
+        // - true: The password is stored in Base64 encoding.
+        // - false: The password is not stored in Base64 encoding.
         shared_ptr<string> isBase64Encode_ {};
-        // Specifies whether to include alert rules. Valid values:
+        // Specifies whether alert rules are included. Valid values:
         // - 0: Yes.
         // - 1: No.
         shared_ptr<int32_t> matchRule_ {};
         // The maximum TLS version.
         shared_ptr<string> maxTlsVersion_ {};
-        // The minimum TLS version. By default, TLS 1.2 and later versions are supported. TLS 1.0 and 1.1 are disabled. You can modify the configuration if you still need to support them.
+        // The minimum TLS version. By default, TLS 1.2 and later versions are supported. TLS 1.0 and 1.1 are disabled. You can modify the configuration to enable them if needed.
         shared_ptr<string> minTlsVersion_ {};
-        // The password for SMTP, POP3, or FTP monitoring.
+        // The password for the SMTP, POP3, or FTP monitoring type.
         shared_ptr<string> password_ {};
-        // The number of pings for ping monitoring.
+        // The heartbeat for the PING monitoring type.
         shared_ptr<int32_t> pingNum_ {};
-        // The ping port. This parameter applies to TCP ping.
+        // The PING port. This parameter applies to TCP PING.
         shared_ptr<int32_t> pingPort_ {};
-        // The ping protocol type. Valid values:
+        // The PING protocol type. Valid values:
         // - icmp
         // - tcp
         // - udp
         shared_ptr<string> pingType_ {};
-        // The port for TCP, UDP, SMTP, or POP3 monitoring.
+        // The port for the TCP, UDP, SMTP, or POP3 monitoring type.
         shared_ptr<int32_t> port_ {};
-        // The name of the private certificate file.
+        // The private certificate file name.
         shared_ptr<string> privateCrtFileName_ {};
         // The monitoring protocol.
         shared_ptr<string> protocol_ {};
-        // Specifies whether to use the QUIC protocol for browser monitoring. Valid values:
+        // Specifies whether the browser monitoring task uses the QUIC protocol. Valid values:
         // - true: The QUIC protocol is used.
         // - false: The QUIC protocol is not used.
         // Default value: false.
         shared_ptr<bool> quicEnabled_ {};
         shared_ptr<OptionJson::QuicTarget> quicTarget_ {};
-        // The request content for HTTP monitoring.
+        // The request content for the HTTP monitoring type.
         shared_ptr<string> requestContent_ {};
         // The format of the HTTP request content. Valid values:
         // - hex: Hexadecimal format.
@@ -2012,15 +2009,15 @@ namespace Models
         shared_ptr<string> responseFormat_ {};
         // The number of retries after a monitoring task fails.
         shared_ptr<int32_t> retryDelay_ {};
-        // Applies to SMTP tasks. A value of 1 indicates that a secure connection is used. Default value: 0.
+        // This parameter applies to SMTP tasks. If set to 1, a secure connection is used. Default value: 0.
         shared_ptr<int32_t> safeLink_ {};
         // Specifies whether to enable page screenshots.
         shared_ptr<bool> screenShot_ {};
-        // Specifies whether to scroll to the bottom of the page after the page is opened in a browser monitoring task.
+        // Specifies whether to scroll to the bottom of the page after it is opened. This parameter applies only to browser monitoring tasks.
         shared_ptr<bool> scrollEnd_ {};
-        // The Server Name Indication (SNI).
+        // The server name indication.
         shared_ptr<string> serverName_ {};
-        // Specifies whether to enable Server-Sent Events (SSE) monitoring.
+        // Specifies whether to perform SSE probing.
         shared_ptr<bool> sse_ {};
         shared_ptr<OptionJson::Steps> steps_ {};
         shared_ptr<bool> strictMode_ {};
@@ -2028,24 +2025,24 @@ namespace Models
         shared_ptr<string> supportedCipherSuits_ {};
         // The timeout period. Unit: milliseconds.
         shared_ptr<int64_t> timeOut_ {};
-        // The deployment region of the target application when integrating with the OpenTelemetry edition of Managed Service for Observability.
+        // The deployment region of the target application when integrating with the OpenTelemetry edition of Tracing Analysis.
         shared_ptr<string> traceRegion_ {};
-        // The tracing protocol used for integration with the OpenTelemetry edition of Tracing Analysis. Valid values:
+        // The tracing protocol used when integrating with the OpenTelemetry edition of Tracing Analysis. Valid values:
         // - OpenTelemetry
         // - Zipkin
         // - Jaeger
         shared_ptr<string> traceType_ {};
         shared_ptr<OptionJson::TrafficHijackElementBlacklist> trafficHijackElementBlacklist_ {};
-        // When a redirect occurs, traffic hijacking is detected if the number of resources loaded by the browser exceeds this value. If this value is set to 0, no verification is performed. Default value: 0.
+        // When a redirect occurs, if the number of resources loaded by the browser exceeds this value, traffic hijacking is considered to have occurred. If this value is 0, no verification is performed. Default value: 0.
         shared_ptr<int32_t> trafficHijackElementCount_ {};
         shared_ptr<OptionJson::TrafficHijackElementWhitelist> trafficHijackElementWhitelist_ {};
         // Specifies whether to use a private certificate.
         shared_ptr<bool> usePrivateCrt_ {};
-        // Specifies whether to establish an SSL connection when executing a TCP task.
+        // Specifies whether to use an SSL connection when executing a TCP task.
         shared_ptr<bool> useSsl_ {};
         // The username for FTP, SMTP, or POP3.
         shared_ptr<string> username_ {};
-        // The additional wait time after a page is opened in a browser probing task.
+        // The additional waiting time after the page is opened in a browser monitoring task.
         shared_ptr<int32_t> waitTimeAfterCompletion_ {};
       };
 
@@ -2246,10 +2243,10 @@ namespace Models
 
       protected:
         shared_ptr<CustomSchedule::Days> days_ {};
-        // The custom detection end time.
+        // The end time of the custom detection.
         // Unit: hours.
         shared_ptr<int32_t> endHour_ {};
-        // The custom detection start time.
+        // The start time of the custom detection.
         // Unit: hours.
         shared_ptr<int32_t> startHour_ {};
         // The time zone for the custom detection.
@@ -2345,13 +2342,13 @@ namespace Models
 
 
     protected:
-      // The detection address of the monitoring task.
+      // The target address of the monitoring task.
       shared_ptr<string> address_ {};
       // The type of the detection point. Default value: PC. Valid values:
-      // - PC: Fixed-line network.
-      // - MOBILE: Mobile network.
+      // - PC: fixed network
+      // - MOBILE: mobile network
       shared_ptr<string> agentGroup_ {};
-      // The custom detection period. You can only select a specific time range from Monday to Sunday for detection.
+      // The custom detection period. You can only select a specific time period from Monday to Sunday for detection.
       shared_ptr<SiteMonitors::CustomSchedule> customSchedule_ {};
       // The interval of the monitoring task. Unit: minutes. Valid values: 1, 5, 15, 30, and 60.
       shared_ptr<string> interval_ {};
@@ -2362,7 +2359,8 @@ namespace Models
       shared_ptr<string> taskId_ {};
       // The name of the monitoring task.
       shared_ptr<string> taskName_ {};
-      // The status of the monitoring task. Valid values:
+      // The state of the monitoring task. Valid values:
+      // 
       // - 1: Enabled.
       // - 2: Disabled.
       shared_ptr<string> taskState_ {};
@@ -2649,7 +2647,9 @@ namespace Models
     // The details of the monitoring task.
     shared_ptr<DescribeSiteMonitorAttributeResponseBody::SiteMonitors> siteMonitors_ {};
     // Indicates whether the operation is successful. Valid values:
+    // 
     // - true: Successful.
+    // 
     // - false: Failed.
     shared_ptr<bool> success_ {};
   };

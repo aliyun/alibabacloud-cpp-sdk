@@ -59,7 +59,7 @@ namespace Models
   protected:
     // The page number. Default value: 1.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries per page.
+    // The number of entries to return on each page.
     shared_ptr<int32_t> pageSize_ {};
     shared_ptr<string> regionId_ {};
   };
