@@ -60,8 +60,11 @@ namespace Models
 
 
   protected:
+    // The list of agent instance version numbers, deduplicated and sorted in ascending order by version number.
     shared_ptr<vector<string>> data_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // The total count.
     shared_ptr<int32_t> totalCount_ {};
   };
 

@@ -76,7 +76,9 @@ namespace Models
 
 
     protected:
+      // The unique identifier of the restricted URL record.
       shared_ptr<string> restrictedURLId_ {};
+      // The URL address that is restricted from access.
       shared_ptr<string> url_ {};
     };
 
@@ -120,10 +122,15 @@ namespace Models
 
 
   protected:
+    // The list of restricted URLs on the current page. Each record contains a restricted URL and its unique identifier. If no restricted URLs are configured under the specified conditions, an empty array is returned.
     shared_ptr<vector<ListBrowserRestrictedURLsResponseBody::Data>> data_ {};
+    // The actual page number used in this query. This is the echoed value of the PageNumber request parameter.
     shared_ptr<int32_t> pageNumber_ {};
+    // The actual number of entries returned per page in this query. This is the echoed value of the PageSize request parameter.
     shared_ptr<int32_t> pageSize_ {};
+    // The ID of the request. You can use the ID to locate call records and troubleshoot issues. The example value is partially masked.
     shared_ptr<string> requestId_ {};
+    // The total number of restricted URL records that meet the filter conditions. This value is independent of the number of records returned on the current page and can be used with PageSize to calculate the total number of pages. If no records meet the conditions, 0 is returned.
     shared_ptr<int32_t> totalCount_ {};
   };
 

@@ -127,7 +127,7 @@ namespace Models
 
 
     protected:
-      // The display name of the agent, which is determined by both the agent platform and the agent provider. For example, OpenClaw under the ENTERPRISE platform is displayed as OpenClaw, and OpenClaw under the JVS platform is displayed as JVS Claw.
+      // The agent display name, which is determined by both the agent platform and the agent provider. For example, OpenClaw under the ENTERPRISE platform is displayed as OpenClaw, and OpenClaw under the JVS platform is displayed as JVS Claw.
       shared_ptr<string> agentDisplayName_ {};
       // The agent platform, such as ENTERPRISE_AGENTIC_COMPUTER.
       shared_ptr<string> agentPlatform_ {};
@@ -173,9 +173,9 @@ namespace Models
   protected:
     // The list of runtime statistics grouped by agent platform and agent provider. If AgentProvider is specified but no matching runtimes are found, a record with all statistical values set to 0 is returned.
     shared_ptr<vector<GetAgentRuntimeStatisticResponseBody::Data>> data_ {};
-    // The request ID, which is used to uniquely identify the request.
+    // The request ID, which uniquely identifies the request.
     shared_ptr<string> requestId_ {};
-    // The total number of returned statistical records, which is the length of the Data list.
+    // The number of returned statistics records, which is the length of the Data list.
     shared_ptr<int32_t> totalCount_ {};
   };
 

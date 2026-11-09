@@ -48,8 +48,12 @@ namespace Models
 
 
   protected:
+    // The JSON string of the LLM configuration to be validated.
+    // 
     // This parameter is required.
     shared_ptr<string> config_ {};
+    // The ID of the provider template.
+    // 
     // This parameter is required.
     shared_ptr<string> providerTemplateId_ {};
   };

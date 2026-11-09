@@ -100,8 +100,11 @@ namespace Models
 
 
       protected:
+        // The error code, such as MISSING_FIELD, UNKNOWN_FIELD, INVALID_TYPE, or INVALID_JSON.
         shared_ptr<string> code_ {};
+        // The name of the field where the error occurred, such as id, name, or contextWindow.
         shared_ptr<string> field_ {};
+        // The error message.
         shared_ptr<string> message_ {};
       };
 
@@ -124,7 +127,9 @@ namespace Models
 
 
     protected:
+      // Indicates whether the configuration is valid. The value is true if all validation items pass.
       shared_ptr<bool> valid_ {};
+      // The list of validation errors. This list is empty if Valid is true.
       shared_ptr<vector<Data::ValidationErrors>> validationErrors_ {};
     };
 
@@ -147,7 +152,9 @@ namespace Models
 
 
   protected:
+    // The validation result of the LLM template configuration, which includes whether the configuration is valid and a list of validation errors.
     shared_ptr<ValidateLlmTemplateConfigResponseBody::Data> data_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

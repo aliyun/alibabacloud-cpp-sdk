@@ -48,7 +48,10 @@ namespace Models
 
 
   protected:
+    // The agent platform used to filter version numbers by business type. If not specified, the default value is ENTERPRISE.
     shared_ptr<string> agentPlatform_ {};
+    // The name of the agent provider.
+    // 
     // This parameter is required.
     shared_ptr<string> agentProvider_ {};
   };

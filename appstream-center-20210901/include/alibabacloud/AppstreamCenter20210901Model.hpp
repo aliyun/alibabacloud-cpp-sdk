@@ -127,6 +127,10 @@
 #include <alibabacloud/models/GetModelProviderTemplateRequest.hpp>
 #include <alibabacloud/models/GetModelProviderTemplateResponseBody.hpp>
 #include <alibabacloud/models/GetModelProviderTemplateResponse.hpp>
+#include <alibabacloud/models/GetMqttTicketRequest.hpp>
+#include <alibabacloud/models/GetMqttTicketShrinkRequest.hpp>
+#include <alibabacloud/models/GetMqttTicketResponseBody.hpp>
+#include <alibabacloud/models/GetMqttTicketResponse.hpp>
 #include <alibabacloud/models/GetOtaTaskByTaskIdRequest.hpp>
 #include <alibabacloud/models/GetOtaTaskByTaskIdResponseBody.hpp>
 #include <alibabacloud/models/GetOtaTaskByTaskIdResponse.hpp>

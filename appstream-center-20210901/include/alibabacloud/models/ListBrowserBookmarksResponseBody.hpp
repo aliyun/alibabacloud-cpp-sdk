@@ -94,9 +94,13 @@ namespace Models
 
 
     protected:
+      // The bookmark folder.
       shared_ptr<string> bookmarkFolder_ {};
+      // The bookmark ID.
       shared_ptr<string> bookmarkId_ {};
+      // The bookmark name.
       shared_ptr<string> bookmarkName_ {};
+      // The bookmark URL.
       shared_ptr<string> bookmarkURL_ {};
     };
 
@@ -140,10 +144,15 @@ namespace Models
 
 
   protected:
+    // The list of bookmarks on the current page.
     shared_ptr<vector<ListBrowserBookmarksResponseBody::Data>> data_ {};
+    // The current page number.
     shared_ptr<int32_t> pageNumber_ {};
+    // The number of entries returned per page.
     shared_ptr<int32_t> pageSize_ {};
+    // The request ID, which is used to troubleshoot issues.
     shared_ptr<string> requestId_ {};
+    // The total number of bookmarks that meet the filtering conditions.
     shared_ptr<int32_t> totalCount_ {};
   };
 
