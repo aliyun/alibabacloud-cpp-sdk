@@ -1,3 +1,6 @@
+2026-11-09 Version: 5.9.1
+- Generated cpp 2026-04-28 for Aidge.
+
 2026-11-04 Version: 5.9.0
 - Support API GenerateProductContent.
 - Support API ImageUpscale.

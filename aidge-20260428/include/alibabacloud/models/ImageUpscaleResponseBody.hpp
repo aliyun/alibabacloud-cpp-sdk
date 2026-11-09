@@ -147,7 +147,7 @@ namespace Models
       protected:
         // The actual height of the generated image.
         shared_ptr<int32_t> imageHeight_ {};
-        // The result information of the upscaled single image.
+        // The result information of the high-definition upscaling for a single image.
         shared_ptr<string> imageUrl_ {};
         // The actual width of the generated image.
         shared_ptr<int32_t> imageWidth_ {};
@@ -204,13 +204,13 @@ namespace Models
     protected:
       // The high-definition upscaling result data.
       shared_ptr<Data::DataItem> data_ {};
-      // The error code returned when the call fails, such as InvalidParameter or DownstreamUnavailable.
+      // The error code. Returned upon failure, such as InvalidParameter or DownstreamUnavailable.
       shared_ptr<string> errorCode_ {};
-      // The error message returned when the call fails.
+      // The error message. Returned upon failure.
       shared_ptr<string> errorMessage_ {};
-      // Indicates whether the call is successful. A value of true indicates success, and a value of false indicates failure.
+      // Indicates whether the operation is successful. A value of true indicates success, and a value of false indicates failure.
       shared_ptr<bool> success_ {};
-      // The ID of the downstream task. This parameter is left empty for synchronous API calls.
+      // The downstream task ID. This parameter is empty for synchronous operations.
       shared_ptr<string> taskId_ {};
       // The usage information.
       shared_ptr<Data::UsageMap> usageMap_ {};
