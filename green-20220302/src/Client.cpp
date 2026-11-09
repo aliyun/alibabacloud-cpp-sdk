@@ -2,12 +2,14 @@
 #include <alibabacloud/Green20220302.hpp>
 #include <alibabacloud/Utils.hpp>
 #include <alibabacloud/Openapi.hpp>
+#include <alibabacloud/gateway/POP.hpp>
 #include <map>
 #include <darabonba/Runtime.hpp>
 #include <alibabacloud/WebsocketUtils.hpp>
 using namespace std;
 using namespace Darabonba;
 using json = nlohmann::json;
+using namespace AlibabaCloud::Gateway;
 using namespace AlibabaCloud::OpenApi;
 using namespace AlibabaCloud::OpenApi::Models;
 using OpenApiClient = AlibabaCloud::OpenApi::Client;
@@ -20,6 +22,9 @@ namespace Green20220302
 {
 
 AlibabaCloud::Green20220302::Client::Client(Config &config): OpenApiClient(config){
+  this->_productId = "Green";
+  shared_ptr<POP> gatewayClient = make_shared<POP>();
+  this->_spi = gatewayClient;
   this->_endpointRule = "regional";
   this->_endpointMap = json({
     {"ap-northeast-1" , "green.ap-southeast-1.aliyuncs.com"},
@@ -64,7 +69,7 @@ string Client::getEndpoint(const string &productId, const string &regionId, cons
 }
 
 /**
- * @summary The document moderation result.
+ * @summary Queries the document moderation results.
  *
  * @param request DescribeFileModerationResultRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -99,7 +104,7 @@ DescribeFileModerationResultResponse Client::describeFileModerationResultWithOpt
 }
 
 /**
- * @summary The document moderation result.
+ * @summary Queries the document moderation results.
  *
  * @param request DescribeFileModerationResultRequest
  * @return DescribeFileModerationResultResponse
@@ -993,9 +998,9 @@ MultiModalGuardAsyncResponse Client::multiModalGuardAsync(const MultiModalGuardA
 }
 
 /**
- * @summary Queries the asynchronous results of AI safety guardrail multimodal content moderation, supporting audio and video modalities.
+ * @summary Queries the asynchronous moderation results of the AI security guardrail for multimodal content, including audio and video modalities.
  *
- * @description If the API incurs fees, add the following bold statement as the first sentence: **Before using this operation, make sure that you fully understand the billing methods and [pricing](https://www.aliyun.com/price/product#/ecs/detail) of XXX.**
+ * @description If the API operation involves fees, add the bold text "**Make sure that you fully understand the billing methods and pricing of the XXX service before you call this API operation.**" as the first sentence. Make "pricing" a hyperlink to https://www.aliyun.com/price/product#/ecs/detail.
  *
  * @param request MultiModalGuardAsyncResultRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1030,9 +1035,9 @@ MultiModalGuardAsyncResultResponse Client::multiModalGuardAsyncResultWithOptions
 }
 
 /**
- * @summary Queries the asynchronous results of AI safety guardrail multimodal content moderation, supporting audio and video modalities.
+ * @summary Queries the asynchronous moderation results of the AI security guardrail for multimodal content, including audio and video modalities.
  *
- * @description If the API incurs fees, add the following bold statement as the first sentence: **Before using this operation, make sure that you fully understand the billing methods and [pricing](https://www.aliyun.com/price/product#/ecs/detail) of XXX.**
+ * @description If the API operation involves fees, add the bold text "**Make sure that you fully understand the billing methods and pricing of the XXX service before you call this API operation.**" as the first sentence. Make "pricing" a hyperlink to https://www.aliyun.com/price/product#/ecs/detail.
  *
  * @param request MultiModalGuardAsyncResultRequest
  * @return MultiModalGuardAsyncResultResponse

@@ -43,6 +43,7 @@ namespace Models
         DARABONBA_PTR_TO_JSON(DataId, dataId_);
         DARABONBA_PTR_TO_JSON(FrameResult, frameResult_);
         DARABONBA_PTR_TO_JSON(LiveId, liveId_);
+        DARABONBA_PTR_TO_JSON(RedactResult, redactResult_);
         DARABONBA_PTR_TO_JSON(Suggestion, suggestion_);
         DARABONBA_PTR_TO_JSON(TaskId, taskId_);
       };
@@ -51,6 +52,7 @@ namespace Models
         DARABONBA_PTR_FROM_JSON(DataId, dataId_);
         DARABONBA_PTR_FROM_JSON(FrameResult, frameResult_);
         DARABONBA_PTR_FROM_JSON(LiveId, liveId_);
+        DARABONBA_PTR_FROM_JSON(RedactResult, redactResult_);
         DARABONBA_PTR_FROM_JSON(Suggestion, suggestion_);
         DARABONBA_PTR_FROM_JSON(TaskId, taskId_);
       };
@@ -65,6 +67,106 @@ namespace Models
       };
       virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
       virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+      class RedactResult : public Darabonba::Model {
+      public:
+        friend void to_json(Darabonba::Json& j, const RedactResult& obj) { 
+          DARABONBA_PTR_TO_JSON(ProcessType, processType_);
+          DARABONBA_PTR_TO_JSON(ResultOssBucketName, resultOssBucketName_);
+          DARABONBA_PTR_TO_JSON(ResultOssObjectName, resultOssObjectName_);
+          DARABONBA_PTR_TO_JSON(ResultOssRegionId, resultOssRegionId_);
+          DARABONBA_PTR_TO_JSON(ResultUrl, resultUrl_);
+          DARABONBA_PTR_TO_JSON(SourceUrl, sourceUrl_);
+          DARABONBA_PTR_TO_JSON(Status, status_);
+        };
+        friend void from_json(const Darabonba::Json& j, RedactResult& obj) { 
+          DARABONBA_PTR_FROM_JSON(ProcessType, processType_);
+          DARABONBA_PTR_FROM_JSON(ResultOssBucketName, resultOssBucketName_);
+          DARABONBA_PTR_FROM_JSON(ResultOssObjectName, resultOssObjectName_);
+          DARABONBA_PTR_FROM_JSON(ResultOssRegionId, resultOssRegionId_);
+          DARABONBA_PTR_FROM_JSON(ResultUrl, resultUrl_);
+          DARABONBA_PTR_FROM_JSON(SourceUrl, sourceUrl_);
+          DARABONBA_PTR_FROM_JSON(Status, status_);
+        };
+        RedactResult() = default ;
+        RedactResult(const RedactResult &) = default ;
+        RedactResult(RedactResult &&) = default ;
+        RedactResult(const Darabonba::Json & obj) { from_json(obj, *this); };
+        virtual ~RedactResult() = default ;
+        RedactResult& operator=(const RedactResult &) = default ;
+        RedactResult& operator=(RedactResult &&) = default ;
+        virtual void validate() const override {
+        };
+        virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+        virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+        virtual bool empty() const override { return this->processType_ == nullptr
+        && this->resultOssBucketName_ == nullptr && this->resultOssObjectName_ == nullptr && this->resultOssRegionId_ == nullptr && this->resultUrl_ == nullptr && this->sourceUrl_ == nullptr
+        && this->status_ == nullptr; };
+        // processType Field Functions 
+        bool hasProcessType() const { return this->processType_ != nullptr;};
+        void deleteProcessType() { this->processType_ = nullptr;};
+        inline string getProcessType() const { DARABONBA_PTR_GET_DEFAULT(processType_, "") };
+        inline RedactResult& setProcessType(string processType) { DARABONBA_PTR_SET_VALUE(processType_, processType) };
+
+
+        // resultOssBucketName Field Functions 
+        bool hasResultOssBucketName() const { return this->resultOssBucketName_ != nullptr;};
+        void deleteResultOssBucketName() { this->resultOssBucketName_ = nullptr;};
+        inline string getResultOssBucketName() const { DARABONBA_PTR_GET_DEFAULT(resultOssBucketName_, "") };
+        inline RedactResult& setResultOssBucketName(string resultOssBucketName) { DARABONBA_PTR_SET_VALUE(resultOssBucketName_, resultOssBucketName) };
+
+
+        // resultOssObjectName Field Functions 
+        bool hasResultOssObjectName() const { return this->resultOssObjectName_ != nullptr;};
+        void deleteResultOssObjectName() { this->resultOssObjectName_ = nullptr;};
+        inline string getResultOssObjectName() const { DARABONBA_PTR_GET_DEFAULT(resultOssObjectName_, "") };
+        inline RedactResult& setResultOssObjectName(string resultOssObjectName) { DARABONBA_PTR_SET_VALUE(resultOssObjectName_, resultOssObjectName) };
+
+
+        // resultOssRegionId Field Functions 
+        bool hasResultOssRegionId() const { return this->resultOssRegionId_ != nullptr;};
+        void deleteResultOssRegionId() { this->resultOssRegionId_ = nullptr;};
+        inline string getResultOssRegionId() const { DARABONBA_PTR_GET_DEFAULT(resultOssRegionId_, "") };
+        inline RedactResult& setResultOssRegionId(string resultOssRegionId) { DARABONBA_PTR_SET_VALUE(resultOssRegionId_, resultOssRegionId) };
+
+
+        // resultUrl Field Functions 
+        bool hasResultUrl() const { return this->resultUrl_ != nullptr;};
+        void deleteResultUrl() { this->resultUrl_ = nullptr;};
+        inline string getResultUrl() const { DARABONBA_PTR_GET_DEFAULT(resultUrl_, "") };
+        inline RedactResult& setResultUrl(string resultUrl) { DARABONBA_PTR_SET_VALUE(resultUrl_, resultUrl) };
+
+
+        // sourceUrl Field Functions 
+        bool hasSourceUrl() const { return this->sourceUrl_ != nullptr;};
+        void deleteSourceUrl() { this->sourceUrl_ = nullptr;};
+        inline string getSourceUrl() const { DARABONBA_PTR_GET_DEFAULT(sourceUrl_, "") };
+        inline RedactResult& setSourceUrl(string sourceUrl) { DARABONBA_PTR_SET_VALUE(sourceUrl_, sourceUrl) };
+
+
+        // status Field Functions 
+        bool hasStatus() const { return this->status_ != nullptr;};
+        void deleteStatus() { this->status_ = nullptr;};
+        inline string getStatus() const { DARABONBA_PTR_GET_DEFAULT(status_, "") };
+        inline RedactResult& setStatus(string status) { DARABONBA_PTR_SET_VALUE(status_, status) };
+
+
+      protected:
+        // The processing type.
+        shared_ptr<string> processType_ {};
+        // The name of the OSS bucket that stores the masked object.
+        shared_ptr<string> resultOssBucketName_ {};
+        // The name of the OSS object for the masked data.
+        shared_ptr<string> resultOssObjectName_ {};
+        // The region of the masked OSS object.
+        shared_ptr<string> resultOssRegionId_ {};
+        // The temporary URL of the masked object.
+        shared_ptr<string> resultUrl_ {};
+        // The URL of the object before masking.
+        shared_ptr<string> sourceUrl_ {};
+        // The status.
+        shared_ptr<string> status_ {};
+      };
+
       class FrameResult : public Darabonba::Model {
       public:
         friend void to_json(Darabonba::Json& j, const FrameResult& obj) { 
@@ -211,7 +313,7 @@ namespace Models
 
 
             protected:
-              // The confidence score, ranging from 0 to 100, rounded to two decimal places.
+              // The confidence score. Valid values: 0 to 100. The value is accurate to two decimal places.
               shared_ptr<float> confidence_ {};
               // The label description.
               shared_ptr<string> description_ {};
@@ -220,7 +322,7 @@ namespace Models
               // The label.
               shared_ptr<string> label_ {};
               // The risk level. Valid values:
-              // - high: High risk. If a custom keyword library is hit, the risk level defaults to high.
+              // - high: High risk. If a custom dictionary is hit, the risk level is high by default.
               // - medium: Medium risk.
               // - low: Low risk.
               // - none: No risk detected.
@@ -261,26 +363,26 @@ namespace Models
 
           protected:
             // The risk level. Valid values:
-            // - high: High risk. If a custom keyword library is hit, the risk level defaults to high.
+            // - high: High risk. If a custom dictionary is hit, the risk level is high by default.
             // - medium: Medium risk.
             // - low: Low risk.
             // - none: No risk detected.
             shared_ptr<string> level_ {};
             // The moderation result.
             shared_ptr<vector<Detail::Result>> result_ {};
-            // The recommended action. Valid values:
+            // The moderation suggestion. Valid values:
             // 
             // - block: Block the content.
             // - pass: Allow the content.
-            // - watch: Manually review the content.
+            // - watch: Review the content.
             // - mask: Mask the content.
             shared_ptr<string> suggestion_ {};
             // The moderation type. Valid values:
-            // - contentModeration: content compliance moderation
-            // - promptAttack: prompt attack detection
-            // - sensitiveData: sensitive content detection
-            // - modelHallucination: model hallucination detection
-            // - maliciousFile: malicious file detection
+            // - contentModeration: Content compliance moderation.
+            // - promptAttack: Prompt attack detection.
+            // - sensitiveData: Sensitive content detection.
+            // - modelHallucination: Model hallucination detection.
+            // - maliciousFile: Malicious file detection.
             shared_ptr<string> type_ {};
           };
 
@@ -345,13 +447,13 @@ namespace Models
           shared_ptr<int32_t> errorCode_ {};
           // The error message.
           shared_ptr<string> errorMsg_ {};
-          // The frame capture position.
+          // The position of the captured frame.
           shared_ptr<float> offset_ {};
-          // The recommended action. Valid values:
+          // The moderation suggestion. Valid values:
           // 
           // - block: Block the content.
           // - pass: Allow the content.
-          // - watch: Manually review the content.
+          // - watch: Review the content.
           // - mask: Mask the content.
           shared_ptr<string> suggestion_ {};
           // The absolute timestamp, in milliseconds.
@@ -390,11 +492,11 @@ namespace Models
         shared_ptr<vector<FrameResult::Frames>> frames_ {};
         // The number of segments.
         shared_ptr<int32_t> sliceNum_ {};
-        // The recommended action. Valid values:
+        // The moderation suggestion. Valid values:
         // 
         // - block: Block the content.
         // - pass: Allow the content.
-        // - watch: Manually review the content.
+        // - watch: Review the content.
         // - mask: Mask the content.
         shared_ptr<string> suggestion_ {};
       };
@@ -543,7 +645,7 @@ namespace Models
 
 
             protected:
-              // The confidence score, ranging from 0 to 100, rounded to two decimal places.
+              // The confidence score. Valid values: 0 to 100. The value is accurate to two decimal places.
               shared_ptr<float> confidence_ {};
               // The label description.
               shared_ptr<string> description_ {};
@@ -552,7 +654,7 @@ namespace Models
               // The label.
               shared_ptr<string> label_ {};
               // The risk level. Valid values:
-              // - high: High risk. If a custom keyword library is hit, the risk level defaults to high.
+              // - high: High risk. If a custom dictionary is hit, the risk level is high by default.
               // - medium: Medium risk.
               // - low: Low risk.
               // - none: No risk detected.
@@ -593,26 +695,26 @@ namespace Models
 
           protected:
             // The risk level. Valid values:
-            // - high: High risk. If a custom keyword library is hit, the risk level defaults to high.
+            // - high: High risk. If a custom dictionary is hit, the risk level is high by default.
             // - medium: Medium risk.
             // - low: Low risk.
             // - none: No risk detected.
             shared_ptr<string> level_ {};
             // The list of moderation results.
             shared_ptr<vector<Detail::Result>> result_ {};
-            // The recommended action. Valid values:
+            // The moderation suggestion. Valid values:
             // 
             // - block: Block the content.
             // - pass: Allow the content.
-            // - watch: Manually review the content.
+            // - watch: Review the content.
             // - mask: Mask the content.
             shared_ptr<string> suggestion_ {};
             // The moderation type. Valid values:
-            // - contentModeration: content compliance moderation
-            // - promptAttack: prompt attack detection
-            // - sensitiveData: sensitive content detection
-            // - modelHallucination: model hallucination detection
-            // - maliciousFile: malicious file detection
+            // - contentModeration: Content compliance moderation.
+            // - promptAttack: Prompt attack detection.
+            // - sensitiveData: Sensitive content detection.
+            // - modelHallucination: Model hallucination detection.
+            // - maliciousFile: Malicious file detection.
             shared_ptr<string> type_ {};
           };
 
@@ -669,11 +771,11 @@ namespace Models
           shared_ptr<int64_t> endTime_ {};
           // The start time of the segment, in seconds.
           shared_ptr<int64_t> startTime_ {};
-          // The recommended action. Valid values:
+          // The moderation suggestion. Valid values:
           // 
           // - block: Block the content.
           // - pass: Allow the content.
-          // - watch: Manually review the content.
+          // - watch: Review the content.
           // - mask: Mask the content.
           shared_ptr<string> suggestion_ {};
           // The transcribed text of the audio segment.
@@ -712,12 +814,13 @@ namespace Models
         shared_ptr<vector<AudioResult::SliceDetails>> sliceDetails_ {};
         // The number of segments.
         shared_ptr<int32_t> sliceNum_ {};
-        // The recommended action.
+        // The suggestion.
         shared_ptr<string> suggestion_ {};
       };
 
       virtual bool empty() const override { return this->audioResult_ == nullptr
-        && this->dataId_ == nullptr && this->frameResult_ == nullptr && this->liveId_ == nullptr && this->suggestion_ == nullptr && this->taskId_ == nullptr; };
+        && this->dataId_ == nullptr && this->frameResult_ == nullptr && this->liveId_ == nullptr && this->redactResult_ == nullptr && this->suggestion_ == nullptr
+        && this->taskId_ == nullptr; };
       // audioResult Field Functions 
       bool hasAudioResult() const { return this->audioResult_ != nullptr;};
       void deleteAudioResult() { this->audioResult_ = nullptr;};
@@ -750,6 +853,15 @@ namespace Models
       inline Data& setLiveId(string liveId) { DARABONBA_PTR_SET_VALUE(liveId_, liveId) };
 
 
+      // redactResult Field Functions 
+      bool hasRedactResult() const { return this->redactResult_ != nullptr;};
+      void deleteRedactResult() { this->redactResult_ = nullptr;};
+      inline const Data::RedactResult & getRedactResult() const { DARABONBA_PTR_GET_CONST(redactResult_, Data::RedactResult) };
+      inline Data::RedactResult getRedactResult() { DARABONBA_PTR_GET(redactResult_, Data::RedactResult) };
+      inline Data& setRedactResult(const Data::RedactResult & redactResult) { DARABONBA_PTR_SET_VALUE(redactResult_, redactResult) };
+      inline Data& setRedactResult(Data::RedactResult && redactResult) { DARABONBA_PTR_SET_RVALUE(redactResult_, redactResult) };
+
+
       // suggestion Field Functions 
       bool hasSuggestion() const { return this->suggestion_ != nullptr;};
       void deleteSuggestion() { this->suggestion_ = nullptr;};
@@ -765,19 +877,21 @@ namespace Models
 
 
     protected:
-      // The audio moderation segment results.
+      // The segmented audio moderation results.
       shared_ptr<Data::AudioResult> audioResult_ {};
-      // The value of dataId passed in the API request. This field is not returned if dataId was not specified in the request.
+      // The value of the dataId parameter passed in the API request. If this parameter is not passed in the request, this field is not returned.
       shared_ptr<string> dataId_ {};
       // The list of video frame capture results.
       shared_ptr<Data::FrameResult> frameResult_ {};
       // The unique ID of the live stream.
       shared_ptr<string> liveId_ {};
-      // The recommended action. Valid values:
+      // The data masking result.
+      shared_ptr<Data::RedactResult> redactResult_ {};
+      // The suggestion. Valid values:
       // 
       // - block: Block the content.
       // - pass: Allow the content.
-      // - watch: Manually review the content.
+      // - watch: Review the content.
       // - mask: Mask the content.
       shared_ptr<string> suggestion_ {};
       // The task ID.
