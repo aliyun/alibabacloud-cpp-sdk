@@ -221,11 +221,11 @@ namespace Models
 
 
         protected:
-          // The name of the template in the AI registry.
+          // The name of the template in the AI Registry.
           // 
           // This parameter is required.
           shared_ptr<string> name_ {};
-          // The version of the template in the AI registry.
+          // The version of the template in the AI Registry.
           shared_ptr<string> version_ {};
         };
 
@@ -240,7 +240,7 @@ namespace Models
 
 
       protected:
-        // The AI registry template configuration.
+        // The AI Registry template configuration.
         shared_ptr<Template::AiRegistry> aiRegistry_ {};
       };
 
@@ -420,7 +420,7 @@ namespace Models
         protected:
           // The version selector type.
           shared_ptr<string> type_ {};
-          // The selector value. When the type is LABEL, this is the tag name, such as latest. When the type is VERSION, this is the specific version number.
+          // The selector value. For LABEL, this is the tag name, such as latest. For VERSION, this is the specific version number.
           shared_ptr<string> value_ {};
         };
 
@@ -479,9 +479,9 @@ namespace Models
 
 
       protected:
-        // The applied runtime version. This field is read-only.
+        // The effective version at runtime. This field is read-only.
         shared_ptr<string> appliedVersion_ {};
-        // Indicates whether the item is sourced from a fixed template. This field is read-only. Items from templates cannot be removed.
+        // Indicates whether the skill is from a fixed template. This field is read-only. Template items cannot be removed.
         shared_ptr<bool> fromTemplate_ {};
         // The skill name.
         shared_ptr<string> name_ {};
@@ -489,9 +489,9 @@ namespace Models
         shared_ptr<string> resolvedVersion_ {};
         // The skill source type.
         shared_ptr<string> sourceType_ {};
-        // The current target version compatible with legacy clients. New clients use resolvedVersion and determine the effective runtime version based on appliedVersion.
+        // The current target version for backward compatibility with legacy clients. New clients use resolvedVersion and determine the runtime effective version based on appliedVersion.
         shared_ptr<string> version_ {};
-        // The version selector for the skill reference. Supports LABEL for tags and VERSION for specific versions. If omitted, LABEL/latest is used. Selectors are not provided for STATIC sources.
+        // The version selector for skill references. Supports LABEL for tags and VERSION for specific versions. If omitted, LABEL/latest is used. Selectors are not provided for STATIC sources.
         shared_ptr<Skills::VersionSelector> versionSelector_ {};
       };
 
@@ -629,7 +629,7 @@ namespace Models
 
 
         protected:
-          // Specifies whether auto-scaling is enabled in the current configuration.
+          // Indicates whether elastic scaling is enabled in the current configuration.
           shared_ptr<bool> enabled_ {};
           // The maximum number of concurrent sessions per instance in the current configuration.
           shared_ptr<int32_t> maxConcurrentSessionsPerSandbox_ {};
@@ -637,7 +637,7 @@ namespace Models
           shared_ptr<int32_t> maxSandboxCount_ {};
           // The minimum number of instances in the current configuration.
           shared_ptr<int32_t> minSandboxCount_ {};
-          // The maximum idle time of a session in the current configuration, in seconds.
+          // The maximum idle time for a session in the current configuration, in seconds.
           shared_ptr<int32_t> sessionTtlSeconds_ {};
         };
 
@@ -669,7 +669,7 @@ namespace Models
 
 
         protected:
-          // The compute specifications.
+          // The compute specification.
           // 
           // This parameter is required.
           shared_ptr<string> computeClass_ {};
@@ -709,7 +709,7 @@ namespace Models
         // 
         // This parameter is required.
         shared_ptr<Runtime::Compute> compute_ {};
-        // The sandbox auto-scaling and session configuration.
+        // The automatic scaling and session configurations for the sandbox.
         shared_ptr<Runtime::Hpa> hpa_ {};
         // The session policy configuration.
         // 
@@ -828,13 +828,13 @@ namespace Models
 
 
       protected:
-        // The name of the OSS bucket. This parameter is required for each mount item and validated by the backend.
+        // The name of the OSS bucket. Required for each mount item.
         shared_ptr<string> bucketName_ {};
         // The absolute mount path in the container, such as /data/train. Mount targets cannot be duplicated or form parent-child directory overwrites, and must avoid platform-reserved directories.
         shared_ptr<string> mountPath_ {};
         // The non-empty relative directory prefix in the currently configured bucket.
         shared_ptr<string> path_ {};
-        // Specifies whether to mount the directory in read-only mode. If not specified, the default value is false.
+        // Specifies whether to mount the directory as read-only. Default value: false.
         shared_ptr<bool> readOnly_ {};
       };
 
@@ -887,7 +887,7 @@ namespace Models
 
 
         protected:
-          // Specifies whether to allow access to the VPC.
+          // Specifies whether to allow VPC access.
           shared_ptr<bool> enabled_ {};
         };
 
@@ -919,7 +919,7 @@ namespace Models
 
 
         protected:
-          // Specifies whether to allow access to the Internet.
+          // Specifies whether to allow Internet access.
           shared_ptr<bool> enabled_ {};
         };
 
@@ -946,7 +946,7 @@ namespace Models
       protected:
         // The public network access configuration.
         shared_ptr<Network::AccessInternet> accessInternet_ {};
-        // The VPC access configurations.
+        // The VPC access configuration.
         shared_ptr<Network::AccessVpc> accessVpc_ {};
       };
 
@@ -956,11 +956,13 @@ namespace Models
           DARABONBA_PTR_TO_JSON(modelConnectionId, modelConnectionId_);
           DARABONBA_PTR_TO_JSON(modelName, modelName_);
           DARABONBA_PTR_TO_JSON(quota, quota_);
+          DARABONBA_PTR_TO_JSON(thinkingLevel, thinkingLevel_);
         };
         friend void from_json(const Darabonba::Json& j, Model& obj) { 
           DARABONBA_PTR_FROM_JSON(modelConnectionId, modelConnectionId_);
           DARABONBA_PTR_FROM_JSON(modelName, modelName_);
           DARABONBA_PTR_FROM_JSON(quota, quota_);
+          DARABONBA_PTR_FROM_JSON(thinkingLevel, thinkingLevel_);
         };
         Model() = default ;
         Model(const Model &) = default ;
@@ -1061,20 +1063,20 @@ namespace Models
           shared_ptr<bool> enabled_ {};
           // The quota limit type. Currently, only token is supported.
           shared_ptr<string> limitType_ {};
-          // Indicates whether the quota is exceeded in the current cycle. This field is read-only and returned by the backend.
+          // Indicates whether the quota is exceeded in the current period. This field is read-only and returned by the backend.
           shared_ptr<bool> overLimit_ {};
-          // The quota statistical epoch. Valid values: day (daily) and month (monthly).
+          // The quota statistical period. Valid values: day (daily) and month (monthly).
           shared_ptr<string> periodType_ {};
-          // The status of the gateway quota rule. This field is read-only and returned by the backend.
+          // The gateway quota rule status. This field is read-only and returned by the backend.
           shared_ptr<string> ruleStatus_ {};
-          // The maximum number of tokens that can be consumed in a single period.
+          // The maximum number of tokens allowed to be consumed in a single cycle.
           shared_ptr<int64_t> usageLimit_ {};
           // The number of tokens consumed in the current period. This field is read-only and returned by the backend.
           shared_ptr<int64_t> usedAmount_ {};
         };
 
         virtual bool empty() const override { return this->modelConnectionId_ == nullptr
-        && this->modelName_ == nullptr && this->quota_ == nullptr; };
+        && this->modelName_ == nullptr && this->quota_ == nullptr && this->thinkingLevel_ == nullptr; };
         // modelConnectionId Field Functions 
         bool hasModelConnectionId() const { return this->modelConnectionId_ != nullptr;};
         void deleteModelConnectionId() { this->modelConnectionId_ = nullptr;};
@@ -1098,24 +1100,37 @@ namespace Models
         inline Model& setQuota(Model::Quota && quota) { DARABONBA_PTR_SET_RVALUE(quota_, quota) };
 
 
+        // thinkingLevel Field Functions 
+        bool hasThinkingLevel() const { return this->thinkingLevel_ != nullptr;};
+        void deleteThinkingLevel() { this->thinkingLevel_ = nullptr;};
+        inline string getThinkingLevel() const { DARABONBA_PTR_GET_DEFAULT(thinkingLevel_, "") };
+        inline Model& setThinkingLevel(string thinkingLevel) { DARABONBA_PTR_SET_VALUE(thinkingLevel_, thinkingLevel) };
+
+
       protected:
         // The model connection ID.
         shared_ptr<string> modelConnectionId_ {};
-        // The upstream model name.
+        // The name of the upstream model.
         shared_ptr<string> modelName_ {};
-        // The model token quota configuration and the quota usage status for the current cycle. This field is empty if no quota is configured.
+        // The model token quota configuration and quota usage status for the current cycle. The value is empty if no quota is configured.
         shared_ptr<Model::Quota> quota_ {};
+        // If not configured, the value is default. An empty string, null, or omission is handled based on the default behavior of the model and Harness. Valid values: off, low, medium, high, xhigh, and max. If this parameter is not specified or is set to null during creation, default is used. When you update the model configuration, if the thinking level is not specified or is set to null, it reverts to default. Except for off, which is converted to none, the value is passed to the runtime framework as is without verifying model support or automatically downgrading the level. If the model does not support the specified level, adjust the level accordingly.
+        shared_ptr<string> thinkingLevel_ {};
       };
 
       class Harness : public Darabonba::Model {
       public:
         friend void to_json(Darabonba::Json& j, const Harness& obj) { 
           DARABONBA_PTR_TO_JSON(configuration, configuration_);
+          DARABONBA_PTR_TO_JSON(outdatedInstanceCount, outdatedInstanceCount_);
           DARABONBA_PTR_TO_JSON(type, type_);
+          DARABONBA_PTR_TO_JSON(version, version_);
         };
         friend void from_json(const Darabonba::Json& j, Harness& obj) { 
           DARABONBA_PTR_FROM_JSON(configuration, configuration_);
+          DARABONBA_PTR_FROM_JSON(outdatedInstanceCount, outdatedInstanceCount_);
           DARABONBA_PTR_FROM_JSON(type, type_);
+          DARABONBA_PTR_FROM_JSON(version, version_);
         };
         Harness() = default ;
         Harness(const Harness &) = default ;
@@ -1166,14 +1181,14 @@ namespace Models
 
 
         protected:
-          // The ID of the connector account key record bound to qodercli. This is not the original service account key.
+          // The ID of the connector account key record bound to qodercli, not the original service account key.
           shared_ptr<string> connectorServiceAccountKey_ {};
           // The name of the connector account bound to qodercli.
           shared_ptr<string> connectorServiceAccountName_ {};
         };
 
         virtual bool empty() const override { return this->configuration_ == nullptr
-        && this->type_ == nullptr; };
+        && this->outdatedInstanceCount_ == nullptr && this->type_ == nullptr && this->version_ == nullptr; };
         // configuration Field Functions 
         bool hasConfiguration() const { return this->configuration_ != nullptr;};
         void deleteConfiguration() { this->configuration_ = nullptr;};
@@ -1183,6 +1198,13 @@ namespace Models
         inline Harness& setConfiguration(Harness::Configuration && configuration) { DARABONBA_PTR_SET_RVALUE(configuration_, configuration) };
 
 
+        // outdatedInstanceCount Field Functions 
+        bool hasOutdatedInstanceCount() const { return this->outdatedInstanceCount_ != nullptr;};
+        void deleteOutdatedInstanceCount() { this->outdatedInstanceCount_ = nullptr;};
+        inline int64_t getOutdatedInstanceCount() const { DARABONBA_PTR_GET_DEFAULT(outdatedInstanceCount_, 0L) };
+        inline Harness& setOutdatedInstanceCount(int64_t outdatedInstanceCount) { DARABONBA_PTR_SET_VALUE(outdatedInstanceCount_, outdatedInstanceCount) };
+
+
         // type Field Functions 
         bool hasType() const { return this->type_ != nullptr;};
         void deleteType() { this->type_ = nullptr;};
@@ -1190,11 +1212,22 @@ namespace Models
         inline Harness& setType(string type) { DARABONBA_PTR_SET_VALUE(type_, type) };
 
 
+        // version Field Functions 
+        bool hasVersion() const { return this->version_ != nullptr;};
+        void deleteVersion() { this->version_ = nullptr;};
+        inline string getVersion() const { DARABONBA_PTR_GET_DEFAULT(version_, "") };
+        inline Harness& setVersion(string version) { DARABONBA_PTR_SET_VALUE(version_, version) };
+
+
       protected:
         // The runtime framework configurations.
         shared_ptr<Harness::Configuration> configuration_ {};
-        // The runtime framework type.
+        // Returned only in query responses. The server calculates this based on the complete instance distribution, which is not affected by pagination and filtering of the instance list. The value is empty if the image tag is missing, pagination is incomplete, or it cannot be confirmed, and is not equivalent to 0.
+        shared_ptr<int64_t> outdatedInstanceCount_ {};
+        // The type of the runtime framework.
         shared_ptr<string> type_ {};
+        // Returned only in query responses. Currently returns the tag of the pool target image. The value is empty if it cannot be parsed, and cannot be replaced by the agent configuration version.
+        shared_ptr<string> version_ {};
       };
 
       class Environment : public Darabonba::Model {
@@ -1256,11 +1289,11 @@ namespace Models
 
 
         protected:
-          // The name of the environment variable.
+          // The environment variable name.
           // 
           // This parameter is required.
           shared_ptr<string> name_ {};
-          // The value of the environment variable.
+          // The environment variable value.
           // 
           // This parameter is required.
           shared_ptr<string> value_ {};
@@ -1392,7 +1425,7 @@ namespace Models
         protected:
           // The version selector type.
           shared_ptr<string> type_ {};
-          // The selector value. When the type is LABEL, this is the tag name, such as latest. When the type is VERSION, this is the specific version number.
+          // The selector value. For LABEL, this is the tag name, such as latest. For VERSION, this is the specific version number.
           shared_ptr<string> value_ {};
         };
 
@@ -1435,9 +1468,9 @@ namespace Models
         shared_ptr<string> name_ {};
         // The skill source type.
         shared_ptr<string> sourceType_ {};
-        // The legacy compatibility field. Use sourceType and versionSelector for new requests.
+        // The legacy compatibility field. New requests use sourceType and versionSelector.
         shared_ptr<string> version_ {};
-        // The version selector for the skill reference. Supports LABEL for tags and VERSION for specific versions. If omitted, LABEL/latest is used. Selectors are not provided for STATIC sources.
+        // The version selector for skill references. Supports LABEL for tags and VERSION for specific versions. If omitted, LABEL/latest is used. Selectors are not provided for STATIC sources.
         shared_ptr<ConfiguredSkills::VersionSelector> versionSelector_ {};
       };
 
@@ -1499,11 +1532,11 @@ namespace Models
       protected:
         // The absolute mount path in the container, such as /data/train. Mount targets cannot be duplicated or form parent-child directory overwrites, and must avoid platform-reserved directories.
         shared_ptr<string> mountPath_ {};
-        // The existing non-empty relative directory under the access point. This parameter is required for each mount item and validated by the backend. Root directories, absolute paths, and parent directory segments are not allowed.
+        // The existing non-empty relative directory in the access point. This parameter is required and verified by the backend for each mount item. Root directories, absolute paths, and parent directory segments are not allowed.
         shared_ptr<string> path_ {};
-        // Specifies whether to mount the directory in read-only mode. If omitted, the default value is false. This parameter does not represent a RAM role read-only policy.
+        // Specifies whether the mount is read-only. If this parameter is omitted, the default value is false. This parameter does not represent a RAM role read-only policy.
         shared_ptr<bool> readOnly_ {};
-        // The access point domain name. This parameter is required for each mount item and validated by the backend. The domain name cannot contain a protocol, port, or path. Use the DomainName value from the NAS ListAccessPoints response.
+        // The access point domain name. This parameter is required and verified by the backend for each mount item. The value cannot contain a protocol, port, or path. Set this parameter to the DomainName value in the NAS ListAccessPoints response.
         shared_ptr<string> server_ {};
       };
 
@@ -1768,11 +1801,11 @@ namespace Models
       shared_ptr<Data::Environment> environment_ {};
       // The agent runtime framework.
       shared_ptr<Data::Harness> harness_ {};
-      // The agent instructions, which are used to guide the behavior of the agent.
+      // The agent instruction, which is used to guide the behavior of the agent.
       shared_ptr<string> instruction_ {};
       // The latest specification version number.
       shared_ptr<int64_t> latestSpecVersion_ {};
-      // The latest version status.
+      // The status of the latest version.
       shared_ptr<string> latestVersionStatus_ {};
       // The model configuration information.
       shared_ptr<Data::Model> model_ {};
@@ -1788,7 +1821,7 @@ namespace Models
       shared_ptr<string> regionId_ {};
       // The runtime configuration information.
       shared_ptr<Data::Runtime> runtime_ {};
-      // The number of managed harness agent instances grouped by sandbox phase. Current keys: PENDING (creating or initializing), RUNNING (running), HIBERNATING (hibernating), HIBERNATED (hibernated), RESUMING (resuming), TERMINATING (terminating), and FAILED (failed during runtime). Only phases that actually occur are returned. Missing keys are treated as 0. This field is a dynamic map and new keys may be added in the future. The frontend can use FAILED > 0 to determine whether abnormal instances exist.
+      // The number of managed Harness agent instances by sandbox phase. Current keys: PENDING (creating or initializing), RUNNING (running), HIBERNATING (hibernating), HIBERNATED (hibernated), RESUMING (resuming), TERMINATING (terminating), and FAILED (failed during runtime). Only phases that actually occur are returned, and missing keys are treated as 0. This field is a dynamic map and new keys may be added in the future. The frontend can use FAILED > 0 to determine whether abnormal instances exist.
       shared_ptr<map<string, int64_t>> sandboxPhaseCounts_ {};
       // The list of skill configurations.
       shared_ptr<vector<Data::Skills>> skills_ {};
@@ -1853,17 +1886,17 @@ namespace Models
 
 
   protected:
-    // The business status code. The value is SUCCESS when the operation is successful.
+    // The business status code. A value of SUCCESS indicates success.
     shared_ptr<string> code_ {};
     // The information about the managed Harness agent after creation.
     shared_ptr<CreateManagedAgentResponseBody::Data> data_ {};
-    // The HTTP status code. The value is 200 if the request is successful.
+    // The HTTP status code. A value of 200 indicates success.
     shared_ptr<int32_t> httpStatusCode_ {};
-    // The message that describes the request processing result.
+    // The request processing result message.
     shared_ptr<string> message_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request was successful.
+    // Indicates whether the request is successful.
     shared_ptr<bool> success_ {};
   };
 

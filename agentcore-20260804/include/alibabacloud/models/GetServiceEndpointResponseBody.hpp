@@ -211,11 +211,11 @@ namespace Models
 
 
       protected:
-        // 是否开启弹性。
+        // Specifies whether elasticity is enabled.
         shared_ptr<bool> enabled_ {};
-        // 最大实例数，不小于 1。
+        // The maximum number of instances. The value must be greater than or equal to 1.
         shared_ptr<int32_t> maxSandboxCount_ {};
-        // 最小实例数，不小于 0 且不大于 maxSandboxCount。
+        // The minimum number of instances. The value must be greater than or equal to 0 and less than or equal to the value of maxSandboxCount.
         shared_ptr<int32_t> minSandboxCount_ {};
       };
 
@@ -307,13 +307,13 @@ namespace Models
 
 
       protected:
-        // The access address type. Valid values: INTERNET and VPC.
+        // The access URL type. Valid values: INTERNET and VPC.
         shared_ptr<string> accessType_ {};
-        // The access address status. Valid values: CREATING, READY, and DEGRADED.
+        // The access URL status. Valid values: CREATING, READY, and DEGRADED.
         shared_ptr<string> status_ {};
-        // The reason for the access address status. A specific reason is returned when the status is abnormal.
+        // The reason for the access URL status. The specific reason is returned when the status is abnormal.
         shared_ptr<string> statusReason_ {};
-        // The access address.
+        // The access URL.
         shared_ptr<string> url_ {};
       };
 
@@ -435,21 +435,21 @@ namespace Models
 
 
     protected:
-      // The list of access addresses for the service endpoint.
+      // The list of access URLs for the service endpoint.
       shared_ptr<vector<Data::AccessUrls>> accessUrls_ {};
       // The authentication configuration of the service endpoint.
       shared_ptr<Data::Authentication> authentication_ {};
       // The creation time in UTC format compliant with RFC 3339.
       shared_ptr<string> createdAt_ {};
-      // publicAccessEnabled 与工作空间公网入向上限叠加后的结果：二者均允许时为 true。仅表示策略目标，不代表公网入口已发布完成，实际状态以 accessUrls 与 status 为准。
+      // The result of combining publicAccessEnabled with the public inbound access upper limit of the workspace. The value is true only when both allow public inbound access. This field only indicates the policy target and does not mean that the public endpoint has been published. The actual status is subject to accessUrls and status.
       shared_ptr<bool> effectivePublicAccessEnabled_ {};
-      // 仅在服务端点设置过弹性覆盖值时返回，可设置的为 Router 类型服务端点与 GATEWAY_API_WITH_VPC_INGRESS 类型的 DEFAULT 服务端点；未设置覆盖值时不返回该对象，表示继承智能体源配置，不得当作空对象或默认策略。返回时三个字段必全。
+      // This object is returned only when elastic override values are configured for the service endpoint. You can configure override values for Router-type service endpoints and DEFAULT service endpoints of the GATEWAY_API_WITH_VPC_INGRESS type. If no override values are configured, this object is not returned, which indicates that the source configuration of the agent is inherited. Do not treat the absence of this object as an empty object or a default policy. When this object is returned, all three fields are included.
       shared_ptr<Data::ElasticityPolicy> elasticityPolicy_ {};
-      // The service endpoint type. DEFAULT indicates a default endpoint created and maintained by the platform. NAMED indicates a named endpoint explicitly created by a user.
+      // The service endpoint type. DEFAULT indicates the default endpoint created and maintained by the platform. NAMED indicates the named endpoint explicitly created by the user.
       shared_ptr<string> endpointType_ {};
-      // The service endpoint name. It must be unique within the workspace and is 1 to 128 characters in length.
+      // The service endpoint name. The name must be unique within the workspace and be 1 to 128 characters in length.
       shared_ptr<string> name_ {};
-      // 用户在服务端点上设置的公网入向期望；未设置过的历史服务端点按 true 返回。仅表示配置期望，实际公网地址是否可用以 accessUrls 与 status 为准。
+      // The expected public inbound access configured by the user on the service endpoint. For historical service endpoints where this value is not configured, true is returned. This field only indicates the configuration expectation. The actual availability of the public URL is subject to accessUrls and status.
       shared_ptr<bool> publicAccessEnabled_ {};
       // The region ID of the service endpoint.
       shared_ptr<string> regionId_ {};
@@ -457,11 +457,11 @@ namespace Models
       shared_ptr<string> serviceEndpointId_ {};
       // The service endpoint status. Valid values: CREATING, READY, UPDATING, DEGRADED, DISABLED, and DELETING.
       shared_ptr<string> status_ {};
-      // The reason for the service endpoint status. A specific reason is returned when the status is abnormal.
+      // The reason for the service endpoint status. The specific reason is returned when the status is abnormal.
       shared_ptr<string> statusReason_ {};
       // The target route configuration of the service endpoint.
       shared_ptr<Data::Target> target_ {};
-      // The last modification time in UTC format compliant with RFC 3339.
+      // The time of the last modification in UTC format compliant with RFC 3339.
       shared_ptr<string> updatedAt_ {};
       // The workspace ID.
       shared_ptr<string> workspaceId_ {};
@@ -520,7 +520,7 @@ namespace Models
     shared_ptr<GetServiceEndpointResponseBody::Data> data_ {};
     // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
-    // The response message. An error description is returned when the request fails.
+    // The response message. An error description is returned if the request fails.
     shared_ptr<string> message_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

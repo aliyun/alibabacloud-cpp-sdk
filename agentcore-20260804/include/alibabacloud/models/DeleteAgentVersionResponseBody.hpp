@@ -75,15 +75,15 @@ namespace Models
 
 
   protected:
-    // 业务状态码，请求成功时为 SUCCESS，失败时为错误码。
+    // The business status code. The value is SUCCESS if the request is successful, or an error code if the request fails.
     shared_ptr<string> code_ {};
-    // HTTP 状态码。
+    // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
-    // 响应消息，请求成功时为 success，失败时为错误信息。
+    // The response message. The value is success if the request is successful, or an error message if the request fails.
     shared_ptr<string> message_ {};
-    // 请求 ID，用于定位和排查请求。
+    // The request ID, which is used to locate and troubleshoot requests.
     shared_ptr<string> requestId_ {};
-    // 请求是否成功。
+    // Indicates whether the request is successful.
     shared_ptr<bool> success_ {};
   };
 

@@ -158,13 +158,13 @@ namespace Models
 
 
       protected:
-        // The ID of the target agent. This parameter is returned when the target type is AGENT_VERSION.
+        // The ID of the target agent. Returned when the target type is AGENT_VERSION.
         shared_ptr<string> agentId_ {};
-        // The version of the target agent. This parameter is returned when the target type is AGENT_VERSION.
+        // The version number of the target agent. Returned when the target type is AGENT_VERSION.
         shared_ptr<string> agentVersion_ {};
-        // The type of the collaboration component. This parameter is returned when the target type is TEAM_COLLABORATION.
+        // The type of the collaboration component. Returned when the target type is TEAM_COLLABORATION.
         shared_ptr<string> collaborationComponent_ {};
-        // The workspace resource binding ID associated with the target collaboration component. This parameter is returned when the target type is TEAM_COLLABORATION.
+        // The workspace resource binding ID associated with the target collaboration component. Returned when the target type is TEAM_COLLABORATION.
         shared_ptr<string> resourceBindingId_ {};
         // The target type. Valid values: AGENT_VERSION and TEAM_COLLABORATION.
         shared_ptr<string> targetType_ {};
@@ -217,11 +217,11 @@ namespace Models
 
 
       protected:
-        // 是否开启弹性。
+        // Indicates whether elasticity is enabled.
         shared_ptr<bool> enabled_ {};
-        // 最大实例数，不小于 1。
+        // The maximum number of instances, which must be no less than 1.
         shared_ptr<int32_t> maxSandboxCount_ {};
-        // 最小实例数，不小于 0 且不大于 maxSandboxCount。
+        // The minimum number of instances, which must be no less than 0 and no greater than maxSandboxCount.
         shared_ptr<int32_t> minSandboxCount_ {};
       };
 
@@ -253,7 +253,7 @@ namespace Models
 
 
       protected:
-        // The authentication method. NONE indicates that no authentication is required. API_KEY indicates that authentication is performed by passing an API key in the `x-api-key` request header.
+        // The authentication method. NONE indicates that no authentication is required, and API_KEY indicates that authentication is performed by passing an API key through the x-api-key request header.
         shared_ptr<string> type_ {};
       };
 
@@ -313,11 +313,11 @@ namespace Models
 
 
       protected:
-        // The type of the access URL. Valid values: INTERNET and VPC.
+        // The access URL type. Valid values: INTERNET and VPC.
         shared_ptr<string> accessType_ {};
         // The status of the access URL. Valid values: CREATING, READY, and DEGRADED.
         shared_ptr<string> status_ {};
-        // The reason for the access URL status. The specific reason is returned when the status is abnormal.
+        // The reason for the access URL status. Returns the specific reason when the status is abnormal.
         shared_ptr<string> statusReason_ {};
         // The access URL.
         shared_ptr<string> url_ {};
@@ -445,17 +445,17 @@ namespace Models
       shared_ptr<vector<Items::AccessUrls>> accessUrls_ {};
       // The authentication configuration of the service endpoint.
       shared_ptr<Items::Authentication> authentication_ {};
-      // The creation time in UTC format compliant with RFC 3339.
+      // The creation time in RFC 3339 UTC format.
       shared_ptr<string> createdAt_ {};
-      // publicAccessEnabled 与工作空间公网入向上限叠加后的结果：二者均允许时为 true。仅表示策略目标，不代表公网入口已发布完成，实际状态以 accessUrls 与 status 为准。
+      // The result of combining publicAccessEnabled with the workspace public access inbound upper limit. It is true only when both allow it. This only indicates the policy target and does not mean that the public access entry has been published. The actual status is subject to accessUrls and status.
       shared_ptr<bool> effectivePublicAccessEnabled_ {};
-      // 仅在服务端点设置过弹性覆盖值时返回，可设置的为 Router 类型服务端点与 GATEWAY_API_WITH_VPC_INGRESS 类型的 DEFAULT 服务端点；未设置覆盖值时不返回该对象，表示继承智能体源配置，不得当作空对象或默认策略。返回时三个字段必全。
+      // Returned only when elastic override values are set for the service endpoint. Can be set for Router-type service endpoints and DEFAULT service endpoints of the GATEWAY_API_WITH_VPC_INGRESS type. If no override values are set, this object is not returned, indicating that the source configuration of the agent is inherited. It must not be treated as an empty object or a default policy. When returned, all three fields are always included.
       shared_ptr<Items::ElasticityPolicy> elasticityPolicy_ {};
-      // The type of the service endpoint. DEFAULT indicates a default endpoint created and maintained by the platform. NAMED indicates a named endpoint explicitly created by the user.
+      // The type of the service endpoint. DEFAULT indicates a default endpoint created and maintained by the platform, and NAMED indicates a named endpoint explicitly created by a user.
       shared_ptr<string> endpointType_ {};
-      // The name of the service endpoint. The name must be unique within the workspace and be 1 to 128 characters in length.
+      // The name of the service endpoint. It must be unique within the workspace and 1 to 128 characters in length.
       shared_ptr<string> name_ {};
-      // 用户在服务端点上设置的公网入向期望；未设置过的历史服务端点按 true 返回。仅表示配置期望，实际公网地址是否可用以 accessUrls 与 status 为准。
+      // The expected public access inbound setting configured by the user on the service endpoint. For legacy service endpoints where this has not been set, true is returned. This only indicates the configuration expectation. The actual availability of the public access URL is subject to accessUrls and status.
       shared_ptr<bool> publicAccessEnabled_ {};
       // The ID of the region where the service endpoint resides.
       shared_ptr<string> regionId_ {};
@@ -463,11 +463,11 @@ namespace Models
       shared_ptr<string> serviceEndpointId_ {};
       // The status of the service endpoint. Valid values: CREATING, READY, UPDATING, DEGRADED, DISABLED, and DELETING.
       shared_ptr<string> status_ {};
-      // The reason for the service endpoint status. The specific reason is returned when the status is abnormal.
+      // The reason for the service endpoint status. Returns the specific reason when the status is abnormal.
       shared_ptr<string> statusReason_ {};
       // The target routing configuration of the service endpoint.
       shared_ptr<Items::Target> target_ {};
-      // The time of the last modification in UTC format compliant with RFC 3339.
+      // The time of the last modification in RFC 3339 UTC format.
       shared_ptr<string> updatedAt_ {};
       // The workspace ID.
       shared_ptr<string> workspaceId_ {};
@@ -548,11 +548,11 @@ namespace Models
     shared_ptr<int32_t> httpStatusCode_ {};
     // The list of service endpoints.
     shared_ptr<vector<ListServiceEndpointsResponseBody::Items>> items_ {};
-    // The maximum number of entries returned on a single page for this query.
+    // The maximum number of records per page returned in this query.
     shared_ptr<int32_t> maxResults_ {};
-    // The response message. An error description is returned when the request fails.
+    // The response message. Returns an error description if the request fails.
     shared_ptr<string> message_ {};
-    // The cursor for the next page. This parameter is empty if no next page exists.
+    // The cursor for the next page. Empty if there is no next page.
     shared_ptr<string> nextToken_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

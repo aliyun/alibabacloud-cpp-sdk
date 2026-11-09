@@ -290,6 +290,9 @@
 #include <alibabacloud/models/GetModelConnectionRequest.hpp>
 #include <alibabacloud/models/GetModelConnectionResponseBody.hpp>
 #include <alibabacloud/models/GetModelConnectionResponse.hpp>
+#include <alibabacloud/models/GetSandboxRebuildOperationRequest.hpp>
+#include <alibabacloud/models/GetSandboxRebuildOperationResponseBody.hpp>
+#include <alibabacloud/models/GetSandboxRebuildOperationResponse.hpp>
 #include <alibabacloud/models/GetServiceEndpointRequest.hpp>
 #include <alibabacloud/models/GetServiceEndpointResponseBody.hpp>
 #include <alibabacloud/models/GetServiceEndpointResponse.hpp>
@@ -456,6 +459,9 @@
 #include <alibabacloud/models/PublishSkillVersionShrinkRequest.hpp>
 #include <alibabacloud/models/PublishSkillVersionResponseBody.hpp>
 #include <alibabacloud/models/PublishSkillVersionResponse.hpp>
+#include <alibabacloud/models/RebuildSandboxRequest.hpp>
+#include <alibabacloud/models/RebuildSandboxResponseBody.hpp>
+#include <alibabacloud/models/RebuildSandboxResponse.hpp>
 #include <alibabacloud/models/RedraftSkillVersionRequest.hpp>
 #include <alibabacloud/models/RedraftSkillVersionShrinkRequest.hpp>
 #include <alibabacloud/models/RedraftSkillVersionResponseBody.hpp>

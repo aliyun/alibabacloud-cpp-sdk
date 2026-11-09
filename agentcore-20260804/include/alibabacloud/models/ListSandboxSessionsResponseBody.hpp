@@ -93,11 +93,11 @@ namespace Models
 
 
     protected:
-      // The type of the external channel, such as DINGTALK, FEISHU, or WECOM. This parameter is empty for non-external channels.
+      // The external channel type, such as DINGTALK, FEISHU, or WECOM. This parameter is empty for non-external channels.
       shared_ptr<string> channelType_ {};
       // The unique identifier of the active session.
       shared_ptr<string> sessionId_ {};
-      // The source type of the session. A value of API indicates an API call. A value of CONSOLE_DEBUG indicates console debugging. A value of EXTERNAL_CHANNEL indicates an external channel. A value of UNKNOWN indicates an unknown source.
+      // The source type of the session. A value of API indicates an API call, CONSOLE_DEBUG indicates console debugging, EXTERNAL_CHANNEL indicates an external channel, and UNKNOWN indicates an unknown source.
       shared_ptr<string> sourceType_ {};
     };
 
@@ -174,7 +174,7 @@ namespace Models
     shared_ptr<string> code_ {};
     // The HTTP status code. The value is 200 if the request is successful.
     shared_ptr<int32_t> httpStatusCode_ {};
-    // The list of active sessions in the sandbox.
+    // The list of active sessions for the sandbox.
     shared_ptr<vector<ListSandboxSessionsResponseBody::Items>> items_ {};
     // The maximum number of records per page for the current query.
     shared_ptr<int32_t> maxResults_ {};

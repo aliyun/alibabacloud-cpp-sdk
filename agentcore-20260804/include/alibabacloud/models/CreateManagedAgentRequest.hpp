@@ -188,11 +188,11 @@ namespace Models
 
 
         protected:
-          // The name of the template in the AI registry.
+          // The name of the template in the AI Registry.
           // 
           // This parameter is required.
           shared_ptr<string> name_ {};
-          // The version of the template in the AI registry.
+          // The version of the template in the AI Registry.
           shared_ptr<string> version_ {};
         };
 
@@ -207,7 +207,7 @@ namespace Models
 
 
       protected:
-        // The AI registry template configuration.
+        // The AI Registry template configuration.
         shared_ptr<Template::AiRegistry> aiRegistry_ {};
       };
 
@@ -381,7 +381,7 @@ namespace Models
         protected:
           // The version selector type.
           shared_ptr<string> type_ {};
-          // The selector value. When the type is LABEL, this is the tag name, such as latest. When the type is VERSION, this is the specific version number.
+          // The selector value. For LABEL, this is the tag name, such as latest. For VERSION, this is the specific version number.
           shared_ptr<string> value_ {};
         };
 
@@ -424,9 +424,9 @@ namespace Models
         shared_ptr<string> name_ {};
         // The skill source type.
         shared_ptr<string> sourceType_ {};
-        // The skill version field for backward compatibility with legacy requests. For new requests, use sourceType and versionSelector. Do not submit this parameter together with sourceType.
+        // The skill version field for backward compatibility with legacy requests. For new requests, use sourceType and versionSelector. Do not submit this field in combination with sourceType.
         shared_ptr<string> version_ {};
-        // The version selector for the skill reference. Supports LABEL for tags and VERSION for specific versions. If omitted, LABEL/latest is used. Selectors are not provided for STATIC sources.
+        // The version selector for skill references. Supports LABEL for tags and VERSION for specific versions. If omitted, LABEL/latest is used. Selectors are not provided for STATIC sources.
         shared_ptr<Skills::VersionSelector> versionSelector_ {};
       };
 
@@ -491,7 +491,7 @@ namespace Models
 
 
         protected:
-          // The name of the request header used for session identification. This parameter is required when type is set to ISOLATED_HEADER_FIELD and must be a valid HTTP request header name. Do not specify this parameter for other policy types.
+          // The name of the request header for session identification. Required when type is ISOLATED_HEADER_FIELD, and must be a valid HTTP request header name. Do not specify this parameter for other policies.
           shared_ptr<string> headerName_ {};
           // The session policy type.
           // 
@@ -604,7 +604,7 @@ namespace Models
 
 
         protected:
-          // The compute specifications.
+          // The compute specification.
           // 
           // This parameter is required.
           shared_ptr<string> computeClass_ {};
@@ -644,7 +644,7 @@ namespace Models
         // 
         // This parameter is required.
         shared_ptr<Runtime::Compute> compute_ {};
-        // The elastic scaling and session configuration. Omitted fields use default values. To retain the original policy during an update, submit the complete hpa or omit the entire runtime.
+        // The elastic scaling and session configuration. Omitted fields use default values. To retain the original policy during an update, submit the complete hpa object or omit the entire runtime object.
         shared_ptr<Runtime::Hpa> hpa_ {};
         // The session policy configuration.
         // 
@@ -763,13 +763,13 @@ namespace Models
 
 
       protected:
-        // The name of the OSS bucket. This parameter is required for each mount item and validated by the backend.
+        // The name of the OSS bucket. Required for each mount item.
         shared_ptr<string> bucketName_ {};
         // The absolute mount path in the container, such as /data/train. Mount targets cannot be duplicated or form parent-child directory overwrites, and must avoid platform-reserved directories.
         shared_ptr<string> mountPath_ {};
-        // The non-empty relative object directory prefix in the bucket. This parameter is required for each mount item.
+        // The non-empty relative object directory prefix in the bucket. Required for each mount item.
         shared_ptr<string> path_ {};
-        // Specifies whether to mount the directory in read-only mode. If not specified, the default value is false.
+        // Specifies whether to mount the directory as read-only. Default value: false.
         shared_ptr<bool> readOnly_ {};
       };
 
@@ -822,7 +822,7 @@ namespace Models
 
 
         protected:
-          // Specifies whether to allow access to the VPC.
+          // Specifies whether to allow VPC access.
           shared_ptr<bool> enabled_ {};
         };
 
@@ -854,7 +854,7 @@ namespace Models
 
 
         protected:
-          // Specifies whether to allow access to the Internet.
+          // Specifies whether to allow Internet access.
           shared_ptr<bool> enabled_ {};
         };
 
@@ -879,9 +879,9 @@ namespace Models
 
 
       protected:
-        // The public network access configurations.
+        // The public network access configuration.
         shared_ptr<Network::AccessInternet> accessInternet_ {};
-        // The VPC access configurations.
+        // The VPC access configuration.
         shared_ptr<Network::AccessVpc> accessVpc_ {};
       };
 
@@ -891,11 +891,13 @@ namespace Models
           DARABONBA_PTR_TO_JSON(modelConnectionId, modelConnectionId_);
           DARABONBA_PTR_TO_JSON(modelName, modelName_);
           DARABONBA_PTR_TO_JSON(quota, quota_);
+          DARABONBA_PTR_TO_JSON(thinkingLevel, thinkingLevel_);
         };
         friend void from_json(const Darabonba::Json& j, Model& obj) { 
           DARABONBA_PTR_FROM_JSON(modelConnectionId, modelConnectionId_);
           DARABONBA_PTR_FROM_JSON(modelName, modelName_);
           DARABONBA_PTR_FROM_JSON(quota, quota_);
+          DARABONBA_PTR_FROM_JSON(thinkingLevel, thinkingLevel_);
         };
         Model() = default ;
         Model(const Model &) = default ;
@@ -964,18 +966,18 @@ namespace Models
 
 
         protected:
-          // Specifies whether to enable the token quota. If not specified, the default value is true. If you set this parameter to false, the quota is disabled and existing quota rules are deleted.
+          // Specifies whether to enable the token quota. If you do not specify this parameter, the default value is true. If you set this parameter to false, the quota is disabled and existing quota rules are deleted.
           shared_ptr<bool> enabled_ {};
-          // The quota limit type. This parameter is required and validated by the backend when the quota is enabled. Fixed value: token.
+          // The quota limit type. This parameter is required and verified by the backend when the quota is enabled. Fixed value: token.
           shared_ptr<string> limitType_ {};
-          // The quota statistical period. This parameter is required and validated by the backend when the quota is enabled. Valid values: day (daily) and month (monthly).
+          // The statistical period of the quota. This parameter is required and verified by the backend when the quota is enabled. Valid values: day and month.
           shared_ptr<string> periodType_ {};
-          // The maximum number of tokens that can be consumed in a single period. This parameter is required and validated by the backend when the quota is enabled. The value must be greater than 0.
+          // The maximum number of tokens that can be consumed in a single period. This parameter is required and verified by the backend when the quota is enabled. The value must be greater than 0.
           shared_ptr<int64_t> usageLimit_ {};
         };
 
         virtual bool empty() const override { return this->modelConnectionId_ == nullptr
-        && this->modelName_ == nullptr && this->quota_ == nullptr; };
+        && this->modelName_ == nullptr && this->quota_ == nullptr && this->thinkingLevel_ == nullptr; };
         // modelConnectionId Field Functions 
         bool hasModelConnectionId() const { return this->modelConnectionId_ != nullptr;};
         void deleteModelConnectionId() { this->modelConnectionId_ = nullptr;};
@@ -999,15 +1001,24 @@ namespace Models
         inline Model& setQuota(Model::Quota && quota) { DARABONBA_PTR_SET_RVALUE(quota_, quota) };
 
 
+        // thinkingLevel Field Functions 
+        bool hasThinkingLevel() const { return this->thinkingLevel_ != nullptr;};
+        void deleteThinkingLevel() { this->thinkingLevel_ = nullptr;};
+        inline string getThinkingLevel() const { DARABONBA_PTR_GET_DEFAULT(thinkingLevel_, "") };
+        inline Model& setThinkingLevel(string thinkingLevel) { DARABONBA_PTR_SET_VALUE(thinkingLevel_, thinkingLevel) };
+
+
       protected:
-        // For qwenpaw, use the workspace model connection ID. For qodercli, use the available model identifier returned by ListConnectorModels.
+        // For qwenpaw, set this parameter to the workspace model connection ID. For qodercli, set this parameter to the available model identifier returned by the ListConnectorModels operation.
         // 
         // This parameter is required.
         shared_ptr<string> modelConnectionId_ {};
-        // For qwenpaw, use the name of the upstream model created under the model connection. This parameter is required. For qodercli, you can omit this parameter.
+        // For qwenpaw, set this parameter to the name of the upstream model created under the model connection. This parameter is required. For qodercli, you can omit this parameter.
         shared_ptr<string> modelName_ {};
         // The model token quota configurations. If you do not pass this parameter, no quota is configured.
         shared_ptr<Model::Quota> quota_ {};
+        // Valid values: off, low, medium, high, xhigh, and max. If this parameter is not passed or is set to null during creation, the default value is used. When you update and submit model configurations, if the thinking level is not passed or is set to null, the default value is restored. Except for off, which is converted to none, the value is passed to the runtime framework as is. The system does not verify model support or automatically downgrade the level. If the model does not support the specified level, adjust the level.
+        shared_ptr<string> thinkingLevel_ {};
       };
 
       class Harness : public Darabonba::Model {
@@ -1069,7 +1080,7 @@ namespace Models
 
 
         protected:
-          // The account key record ID in the qodercli connector. You can query this ID by using ListConnectors. This is not the original key. You can omit this parameter if only one record exists. If multiple records exist, you must specify this parameter. Do not specify this parameter for qwenpaw.
+          // The account key record ID in the qodercli connector. You can query this ID by calling the ListConnectors operation. This parameter does not represent the original key. You can omit this parameter if only one record exists. You must specify this parameter if multiple records exist. Do not specify this parameter for qwenpaw.
           shared_ptr<string> connectorServiceAccountKey_ {};
           // The connector account name bound to qodercli. Do not specify this parameter for qwenpaw.
           shared_ptr<string> connectorServiceAccountName_ {};
@@ -1159,11 +1170,11 @@ namespace Models
 
 
         protected:
-          // The name of the environment variable.
+          // The environment variable name.
           // 
           // This parameter is required.
           shared_ptr<string> name_ {};
-          // The value of the environment variable.
+          // The environment variable value.
           // 
           // This parameter is required.
           shared_ptr<string> value_ {};
@@ -1288,11 +1299,11 @@ namespace Models
       protected:
         // The absolute mount path in the container, such as /data/train. Mount targets cannot be duplicated or form parent-child directory overwrites, and must avoid platform-reserved directories.
         shared_ptr<string> mountPath_ {};
-        // The existing non-empty relative directory under the access point. This parameter is required for each mount item and validated by the backend. Root directories, absolute paths, and parent directory segments are not allowed.
+        // The existing non-empty relative directory in the access point. This parameter is required and verified by the backend for each mount item. Root directories, absolute paths, and parent directory segments are not allowed.
         shared_ptr<string> path_ {};
-        // Specifies whether to mount the directory in read-only mode. If omitted, the default value is false. This parameter does not represent a RAM role read-only policy.
+        // Specifies whether the mount is read-only. If this parameter is omitted, the default value is false. This parameter does not represent a RAM role read-only policy.
         shared_ptr<bool> readOnly_ {};
-        // The access point domain name. This parameter is required for each mount item and validated by the backend. The domain name cannot contain a protocol, port, or path. Use the DomainName value from the NAS ListAccessPoints response.
+        // The access point domain name. This parameter is required and verified by the backend for each mount item. The value cannot contain a protocol, port, or path. Set this parameter to the DomainName value in the NAS ListAccessPoints response.
         shared_ptr<string> server_ {};
       };
 
@@ -1453,11 +1464,11 @@ namespace Models
       shared_ptr<vector<Body::AgenticFsMounts>> agenticFsMounts_ {};
       // The description of the managed Harness agent.
       shared_ptr<string> description_ {};
-      // The environment configurations.
+      // The environment configuration.
       shared_ptr<Body::Environment> environment_ {};
-      // The runtime framework object. If omitted, the default value is qwenpaw. Supported values are qwenpaw and qodercli. The type cannot be changed after creation.
+      // The runtime framework object. If this parameter is omitted, qwenpaw is used by default. Valid values: qwenpaw and qodercli. The type cannot be changed after creation.
       shared_ptr<Body::Harness> harness_ {};
-      // The agent instructions, which are used to guide the behavior of the agent.
+      // The agent instruction, which is used to guide the behavior of the agent.
       shared_ptr<string> instruction_ {};
       // The model configurations.
       // 
@@ -1467,9 +1478,9 @@ namespace Models
       // 
       // This parameter is required.
       shared_ptr<string> name_ {};
-      // The runtime network configurations. If you provide this parameter, you must specify both accessInternet.enabled and accessVpc.enabled. Actual access is restricted by the workspace network.
+      // The runtime network configuration. If provided, both accessInternet.enabled and accessVpc.enabled must be included. Actual access is subject to workspace network restrictions.
       shared_ptr<Body::Network> network_ {};
-      // The list of OSS directory mounts. The total number of OSS mounts and AgenticFS mounts cannot exceed 10. During an update, this list is replaced entirely. Pass [] to clear the list.
+      // The list of OSS directory mounts. The total number of OSS mounts and agenticFsMounts cannot exceed 10. During an update, this list is replaced entirely. Pass an empty array [] to clear the list.
       shared_ptr<vector<Body::OssMounts>> ossMounts_ {};
       // The prompt variable declarations.
       shared_ptr<vector<Body::PromptVariables>> promptVariables_ {};
@@ -1508,7 +1519,7 @@ namespace Models
   protected:
     // The request body.
     shared_ptr<CreateManagedAgentRequest::Body> body_ {};
-    // A reserved query parameter. The backend currently does not provide idempotency guarantees for deduplication or recovering original acceptance results based on this token.
+    // The reserved query parameter. Currently, the backend does not provide idempotency guarantees to deduplicate or recover the original acceptance result based on this identity.
     shared_ptr<string> clientToken_ {};
   };
 

@@ -51,20 +51,28 @@ namespace Models
       friend void to_json(Darabonba::Json& j, const Items& obj) { 
         DARABONBA_PTR_TO_JSON(activeSessionCount, activeSessionCount_);
         DARABONBA_PTR_TO_JSON(createdAt, createdAt_);
+        DARABONBA_PTR_TO_JSON(harnessVersion, harnessVersion_);
         DARABONBA_PTR_TO_JSON(lastActiveAt, lastActiveAt_);
         DARABONBA_PTR_TO_JSON(lastHeartbeatAt, lastHeartbeatAt_);
+        DARABONBA_PTR_TO_JSON(lastRebuildOperationId, lastRebuildOperationId_);
         DARABONBA_PTR_TO_JSON(maxConcurrentSessions, maxConcurrentSessions_);
         DARABONBA_PTR_TO_JSON(phase, phase_);
         DARABONBA_PTR_TO_JSON(sandboxId, sandboxId_);
+        DARABONBA_PTR_TO_JSON(updateAvailable, updateAvailable_);
+        DARABONBA_PTR_TO_JSON(updateFailed, updateFailed_);
       };
       friend void from_json(const Darabonba::Json& j, Items& obj) { 
         DARABONBA_PTR_FROM_JSON(activeSessionCount, activeSessionCount_);
         DARABONBA_PTR_FROM_JSON(createdAt, createdAt_);
+        DARABONBA_PTR_FROM_JSON(harnessVersion, harnessVersion_);
         DARABONBA_PTR_FROM_JSON(lastActiveAt, lastActiveAt_);
         DARABONBA_PTR_FROM_JSON(lastHeartbeatAt, lastHeartbeatAt_);
+        DARABONBA_PTR_FROM_JSON(lastRebuildOperationId, lastRebuildOperationId_);
         DARABONBA_PTR_FROM_JSON(maxConcurrentSessions, maxConcurrentSessions_);
         DARABONBA_PTR_FROM_JSON(phase, phase_);
         DARABONBA_PTR_FROM_JSON(sandboxId, sandboxId_);
+        DARABONBA_PTR_FROM_JSON(updateAvailable, updateAvailable_);
+        DARABONBA_PTR_FROM_JSON(updateFailed, updateFailed_);
       };
       Items() = default ;
       Items(const Items &) = default ;
@@ -78,8 +86,8 @@ namespace Models
       virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
       virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
       virtual bool empty() const override { return this->activeSessionCount_ == nullptr
-        && this->createdAt_ == nullptr && this->lastActiveAt_ == nullptr && this->lastHeartbeatAt_ == nullptr && this->maxConcurrentSessions_ == nullptr && this->phase_ == nullptr
-        && this->sandboxId_ == nullptr; };
+        && this->createdAt_ == nullptr && this->harnessVersion_ == nullptr && this->lastActiveAt_ == nullptr && this->lastHeartbeatAt_ == nullptr && this->lastRebuildOperationId_ == nullptr
+        && this->maxConcurrentSessions_ == nullptr && this->phase_ == nullptr && this->sandboxId_ == nullptr && this->updateAvailable_ == nullptr && this->updateFailed_ == nullptr; };
       // activeSessionCount Field Functions 
       bool hasActiveSessionCount() const { return this->activeSessionCount_ != nullptr;};
       void deleteActiveSessionCount() { this->activeSessionCount_ = nullptr;};
@@ -94,6 +102,13 @@ namespace Models
       inline Items& setCreatedAt(string createdAt) { DARABONBA_PTR_SET_VALUE(createdAt_, createdAt) };
 
 
+      // harnessVersion Field Functions 
+      bool hasHarnessVersion() const { return this->harnessVersion_ != nullptr;};
+      void deleteHarnessVersion() { this->harnessVersion_ = nullptr;};
+      inline string getHarnessVersion() const { DARABONBA_PTR_GET_DEFAULT(harnessVersion_, "") };
+      inline Items& setHarnessVersion(string harnessVersion) { DARABONBA_PTR_SET_VALUE(harnessVersion_, harnessVersion) };
+
+
       // lastActiveAt Field Functions 
       bool hasLastActiveAt() const { return this->lastActiveAt_ != nullptr;};
       void deleteLastActiveAt() { this->lastActiveAt_ = nullptr;};
@@ -106,6 +121,13 @@ namespace Models
       void deleteLastHeartbeatAt() { this->lastHeartbeatAt_ = nullptr;};
       inline string getLastHeartbeatAt() const { DARABONBA_PTR_GET_DEFAULT(lastHeartbeatAt_, "") };
       inline Items& setLastHeartbeatAt(string lastHeartbeatAt) { DARABONBA_PTR_SET_VALUE(lastHeartbeatAt_, lastHeartbeatAt) };
+
+
+      // lastRebuildOperationId Field Functions 
+      bool hasLastRebuildOperationId() const { return this->lastRebuildOperationId_ != nullptr;};
+      void deleteLastRebuildOperationId() { this->lastRebuildOperationId_ = nullptr;};
+      inline string getLastRebuildOperationId() const { DARABONBA_PTR_GET_DEFAULT(lastRebuildOperationId_, "") };
+      inline Items& setLastRebuildOperationId(string lastRebuildOperationId) { DARABONBA_PTR_SET_VALUE(lastRebuildOperationId_, lastRebuildOperationId) };
 
 
       // maxConcurrentSessions Field Functions 
@@ -129,21 +151,43 @@ namespace Models
       inline Items& setSandboxId(string sandboxId) { DARABONBA_PTR_SET_VALUE(sandboxId_, sandboxId) };
 
 
+      // updateAvailable Field Functions 
+      bool hasUpdateAvailable() const { return this->updateAvailable_ != nullptr;};
+      void deleteUpdateAvailable() { this->updateAvailable_ = nullptr;};
+      inline bool getUpdateAvailable() const { DARABONBA_PTR_GET_DEFAULT(updateAvailable_, false) };
+      inline Items& setUpdateAvailable(bool updateAvailable) { DARABONBA_PTR_SET_VALUE(updateAvailable_, updateAvailable) };
+
+
+      // updateFailed Field Functions 
+      bool hasUpdateFailed() const { return this->updateFailed_ != nullptr;};
+      void deleteUpdateFailed() { this->updateFailed_ = nullptr;};
+      inline bool getUpdateFailed() const { DARABONBA_PTR_GET_DEFAULT(updateFailed_, false) };
+      inline Items& setUpdateFailed(bool updateFailed) { DARABONBA_PTR_SET_VALUE(updateFailed_, updateFailed) };
+
+
     protected:
       // The number of active sessions in the sandbox.
       shared_ptr<int32_t> activeSessionCount_ {};
-      // The time when the sandbox was created. The time is in the RFC 3339 UTC format.
+      // The time when the sandbox was created, in RFC 3339 UTC format.
       shared_ptr<string> createdAt_ {};
-      // The time of the last activity of the sandbox. The time is in the RFC 3339 UTC format.
+      // The tag of the actual observed image of the currently returned instance. This parameter is empty if the tag cannot be parsed.
+      shared_ptr<string> harnessVersion_ {};
+      // The time of the last activity of the sandbox, in RFC 3339 UTC format.
       shared_ptr<string> lastActiveAt_ {};
-      // The time of the last heartbeat of the sandbox. The time is in the RFC 3339 UTC format.
+      // The time of the last heartbeat of the sandbox, in RFC 3339 UTC format.
       shared_ptr<string> lastHeartbeatAt_ {};
-      // The maximum number of concurrent sessions allowed for the sandbox. This value is obtained from the auto-scaling configuration that takes effect at runtime. If auto-scaling is disabled or the configuration is unavailable, this value is empty.
+      // Used to continue calling GetSandboxRebuildOperation to query the overall result after a page refresh. This parameter is empty if there is no historical rebuild. Do not use the ID of a subsequently created task instead.
+      shared_ptr<string> lastRebuildOperationId_ {};
+      // The maximum number of concurrent sessions allowed for the sandbox, which is obtained from the effective auto-scaling configuration at runtime. This parameter is empty if auto-scaling is disabled or the configuration is unavailable.
       shared_ptr<int32_t> maxConcurrentSessions_ {};
       // The current running phase of the sandbox.
       shared_ptr<string> phase_ {};
       // The sandbox ID, which can be queried by calling ListSandboxes.
       shared_ptr<string> sandboxId_ {};
+      // The server compares the actual image tag of the instance with the pool target image tag. The value is true if the tags are different during the RUNNING, HIBERNATED, or FAILED phase. The value is false if the tags are the same or during other known phases. This parameter is empty if the tag or phase cannot be confirmed, and it cannot be treated as false. The version sequence is not determined by the tag size.
+      shared_ptr<bool> updateAvailable_ {};
+      // A value of true indicates that the most recent rebuild corresponding to the current instance generation failed as a whole. A value of false indicates that there is no historical rebuild or the rebuild succeeded as a whole. This parameter is empty if the rebuild is in progress, canceled, replaced, the generation does not match, or the result cannot be confirmed.
+      shared_ptr<bool> updateFailed_ {};
     };
 
     virtual bool empty() const override { return this->code_ == nullptr
@@ -215,15 +259,15 @@ namespace Models
 
 
   protected:
-    // The business status code. The value is SUCCESS when the request is successful.
+    // The business status code. The value is SUCCESS if the request is successful.
     shared_ptr<string> code_ {};
-    // The HTTP status code. The value is 200 when the request is successful.
+    // The HTTP status code. The value is 200 if the request is successful.
     shared_ptr<int32_t> httpStatusCode_ {};
     // The list of sandboxes that meet the filter conditions.
     shared_ptr<vector<ListSandboxesResponseBody::Items>> items_ {};
     // The maximum number of records per page for this query.
     shared_ptr<int32_t> maxResults_ {};
-    // The response message. The value is success when the request is successful.
+    // The response message. The value is success if the request is successful.
     shared_ptr<string> message_ {};
     // The pagination token for the next page. An empty value indicates that no more results are available.
     shared_ptr<string> nextToken_ {};

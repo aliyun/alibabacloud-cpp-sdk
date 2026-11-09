@@ -95,11 +95,15 @@ namespace Models
       public:
         friend void to_json(Darabonba::Json& j, const Harness& obj) { 
           DARABONBA_PTR_TO_JSON(configuration, configuration_);
+          DARABONBA_PTR_TO_JSON(outdatedInstanceCount, outdatedInstanceCount_);
           DARABONBA_PTR_TO_JSON(type, type_);
+          DARABONBA_PTR_TO_JSON(version, version_);
         };
         friend void from_json(const Darabonba::Json& j, Harness& obj) { 
           DARABONBA_PTR_FROM_JSON(configuration, configuration_);
+          DARABONBA_PTR_FROM_JSON(outdatedInstanceCount, outdatedInstanceCount_);
           DARABONBA_PTR_FROM_JSON(type, type_);
+          DARABONBA_PTR_FROM_JSON(version, version_);
         };
         Harness() = default ;
         Harness(const Harness &) = default ;
@@ -150,14 +154,14 @@ namespace Models
 
 
         protected:
-          // The ID of the connector account key record bound to qodercli, not the original service account key.
+          // The ID of the connector account key record bound to qodercli, which is not the original service account key.
           shared_ptr<string> connectorServiceAccountKey_ {};
           // The name of the connector account bound to qodercli.
           shared_ptr<string> connectorServiceAccountName_ {};
         };
 
         virtual bool empty() const override { return this->configuration_ == nullptr
-        && this->type_ == nullptr; };
+        && this->outdatedInstanceCount_ == nullptr && this->type_ == nullptr && this->version_ == nullptr; };
         // configuration Field Functions 
         bool hasConfiguration() const { return this->configuration_ != nullptr;};
         void deleteConfiguration() { this->configuration_ = nullptr;};
@@ -167,6 +171,13 @@ namespace Models
         inline Harness& setConfiguration(Harness::Configuration && configuration) { DARABONBA_PTR_SET_RVALUE(configuration_, configuration) };
 
 
+        // outdatedInstanceCount Field Functions 
+        bool hasOutdatedInstanceCount() const { return this->outdatedInstanceCount_ != nullptr;};
+        void deleteOutdatedInstanceCount() { this->outdatedInstanceCount_ = nullptr;};
+        inline int64_t getOutdatedInstanceCount() const { DARABONBA_PTR_GET_DEFAULT(outdatedInstanceCount_, 0L) };
+        inline Harness& setOutdatedInstanceCount(int64_t outdatedInstanceCount) { DARABONBA_PTR_SET_VALUE(outdatedInstanceCount_, outdatedInstanceCount) };
+
+
         // type Field Functions 
         bool hasType() const { return this->type_ != nullptr;};
         void deleteType() { this->type_ = nullptr;};
@@ -174,11 +185,22 @@ namespace Models
         inline Harness& setType(string type) { DARABONBA_PTR_SET_VALUE(type_, type) };
 
 
+        // version Field Functions 
+        bool hasVersion() const { return this->version_ != nullptr;};
+        void deleteVersion() { this->version_ = nullptr;};
+        inline string getVersion() const { DARABONBA_PTR_GET_DEFAULT(version_, "") };
+        inline Harness& setVersion(string version) { DARABONBA_PTR_SET_VALUE(version_, version) };
+
+
       protected:
         // The runtime framework configuration.
         shared_ptr<Harness::Configuration> configuration_ {};
+        // Returned only in queries. The server calculates this value based on the complete instance distribution, which is not affected by the pagination and filtering of the instance list. If the image tag is missing, pagination is incomplete, or the value cannot be confirmed, this parameter is empty, which is not equivalent to 0.
+        shared_ptr<int64_t> outdatedInstanceCount_ {};
         // The runtime framework type.
         shared_ptr<string> type_ {};
+        // Returned only in queries. Currently returns the tag of the pool target image. If the tag cannot be parsed, this parameter is empty and cannot be replaced by the agent configuration version.
+        shared_ptr<string> version_ {};
       };
 
       virtual bool empty() const override { return this->accessMode_ == nullptr
@@ -385,9 +407,9 @@ namespace Models
 
 
   protected:
-    // The business status code. The value is SUCCESS when the request is successful.
+    // The business status code. A value of SUCCESS indicates success.
     shared_ptr<string> code_ {};
-    // The HTTP status code. The value is 200 when the request is successful.
+    // The HTTP status code. A value of 200 indicates success.
     shared_ptr<int32_t> httpStatusCode_ {};
     // The list of managed Harness agents.
     shared_ptr<vector<ListManagedAgentsResponseBody::Items>> items_ {};

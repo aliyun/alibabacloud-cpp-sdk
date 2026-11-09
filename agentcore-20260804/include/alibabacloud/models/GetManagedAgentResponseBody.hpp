@@ -956,11 +956,13 @@ namespace Models
           DARABONBA_PTR_TO_JSON(modelConnectionId, modelConnectionId_);
           DARABONBA_PTR_TO_JSON(modelName, modelName_);
           DARABONBA_PTR_TO_JSON(quota, quota_);
+          DARABONBA_PTR_TO_JSON(thinkingLevel, thinkingLevel_);
         };
         friend void from_json(const Darabonba::Json& j, Model& obj) { 
           DARABONBA_PTR_FROM_JSON(modelConnectionId, modelConnectionId_);
           DARABONBA_PTR_FROM_JSON(modelName, modelName_);
           DARABONBA_PTR_FROM_JSON(quota, quota_);
+          DARABONBA_PTR_FROM_JSON(thinkingLevel, thinkingLevel_);
         };
         Model() = default ;
         Model(const Model &) = default ;
@@ -1074,7 +1076,7 @@ namespace Models
         };
 
         virtual bool empty() const override { return this->modelConnectionId_ == nullptr
-        && this->modelName_ == nullptr && this->quota_ == nullptr; };
+        && this->modelName_ == nullptr && this->quota_ == nullptr && this->thinkingLevel_ == nullptr; };
         // modelConnectionId Field Functions 
         bool hasModelConnectionId() const { return this->modelConnectionId_ != nullptr;};
         void deleteModelConnectionId() { this->modelConnectionId_ = nullptr;};
@@ -1098,6 +1100,13 @@ namespace Models
         inline Model& setQuota(Model::Quota && quota) { DARABONBA_PTR_SET_RVALUE(quota_, quota) };
 
 
+        // thinkingLevel Field Functions 
+        bool hasThinkingLevel() const { return this->thinkingLevel_ != nullptr;};
+        void deleteThinkingLevel() { this->thinkingLevel_ = nullptr;};
+        inline string getThinkingLevel() const { DARABONBA_PTR_GET_DEFAULT(thinkingLevel_, "") };
+        inline Model& setThinkingLevel(string thinkingLevel) { DARABONBA_PTR_SET_VALUE(thinkingLevel_, thinkingLevel) };
+
+
       protected:
         // The model connection ID.
         shared_ptr<string> modelConnectionId_ {};
@@ -1105,17 +1114,23 @@ namespace Models
         shared_ptr<string> modelName_ {};
         // The model token quota configuration and the quota usage status for the current cycle. This field is empty if no quota is configured.
         shared_ptr<Model::Quota> quota_ {};
+        // 未配置时表示 default，空字符串、null 或省略均按模型和 Harness 默认行为处理。可选值 off、low、medium、high、xhigh、max。创建未传或 null 时使用 default；更新提交模型配置时，思考强度未传或为 null 均恢复 default。除 off 转为 none 外原样传给运行框架，不校验模型支持情况、不自动降档；模型不支持时请调整强度。
+        shared_ptr<string> thinkingLevel_ {};
       };
 
       class Harness : public Darabonba::Model {
       public:
         friend void to_json(Darabonba::Json& j, const Harness& obj) { 
           DARABONBA_PTR_TO_JSON(configuration, configuration_);
+          DARABONBA_PTR_TO_JSON(outdatedInstanceCount, outdatedInstanceCount_);
           DARABONBA_PTR_TO_JSON(type, type_);
+          DARABONBA_PTR_TO_JSON(version, version_);
         };
         friend void from_json(const Darabonba::Json& j, Harness& obj) { 
           DARABONBA_PTR_FROM_JSON(configuration, configuration_);
+          DARABONBA_PTR_FROM_JSON(outdatedInstanceCount, outdatedInstanceCount_);
           DARABONBA_PTR_FROM_JSON(type, type_);
+          DARABONBA_PTR_FROM_JSON(version, version_);
         };
         Harness() = default ;
         Harness(const Harness &) = default ;
@@ -1173,7 +1188,7 @@ namespace Models
         };
 
         virtual bool empty() const override { return this->configuration_ == nullptr
-        && this->type_ == nullptr; };
+        && this->outdatedInstanceCount_ == nullptr && this->type_ == nullptr && this->version_ == nullptr; };
         // configuration Field Functions 
         bool hasConfiguration() const { return this->configuration_ != nullptr;};
         void deleteConfiguration() { this->configuration_ = nullptr;};
@@ -1183,6 +1198,13 @@ namespace Models
         inline Harness& setConfiguration(Harness::Configuration && configuration) { DARABONBA_PTR_SET_RVALUE(configuration_, configuration) };
 
 
+        // outdatedInstanceCount Field Functions 
+        bool hasOutdatedInstanceCount() const { return this->outdatedInstanceCount_ != nullptr;};
+        void deleteOutdatedInstanceCount() { this->outdatedInstanceCount_ = nullptr;};
+        inline int64_t getOutdatedInstanceCount() const { DARABONBA_PTR_GET_DEFAULT(outdatedInstanceCount_, 0L) };
+        inline Harness& setOutdatedInstanceCount(int64_t outdatedInstanceCount) { DARABONBA_PTR_SET_VALUE(outdatedInstanceCount_, outdatedInstanceCount) };
+
+
         // type Field Functions 
         bool hasType() const { return this->type_ != nullptr;};
         void deleteType() { this->type_ = nullptr;};
@@ -1190,11 +1212,22 @@ namespace Models
         inline Harness& setType(string type) { DARABONBA_PTR_SET_VALUE(type_, type) };
 
 
+        // version Field Functions 
+        bool hasVersion() const { return this->version_ != nullptr;};
+        void deleteVersion() { this->version_ = nullptr;};
+        inline string getVersion() const { DARABONBA_PTR_GET_DEFAULT(version_, "") };
+        inline Harness& setVersion(string version) { DARABONBA_PTR_SET_VALUE(version_, version) };
+
+
       protected:
         // The runtime framework configuration.
         shared_ptr<Harness::Configuration> configuration_ {};
+        // 仅查询返回。服务端按完整实例分布统计，不受实例列表分页和筛选影响。镜像 tag 缺失、分页不完整或无法确认时为空，不等同于 0。
+        shared_ptr<int64_t> outdatedInstanceCount_ {};
         // The type of the runtime framework.
         shared_ptr<string> type_ {};
+        // 仅查询返回。当前返回 Pool 目标镜像 tag；无法解析时为空，不能用 Agent 配置版本代替。
+        shared_ptr<string> version_ {};
       };
 
       class Environment : public Darabonba::Model {

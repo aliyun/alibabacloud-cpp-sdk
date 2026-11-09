@@ -103,21 +103,21 @@ namespace Models
 
 
   protected:
-    // The ID of the target agent used to filter the results.
+    // Filters the results by target agent ID.
     shared_ptr<string> agentId_ {};
-    // The version of the target agent used to filter the results.
+    // Filters the results by target agent version.
     shared_ptr<string> agentVersion_ {};
-    // The collaboration component type used to filter the results. Valid values: MATRIX_CLIENT, MATRIX_FEDERATION, and ELEMENT_WEB.
+    // Filters the results by collaboration component type. Valid values: MATRIX_CLIENT, MATRIX_FEDERATION, and ELEMENT_WEB.
     shared_ptr<string> collaborationComponent_ {};
-    // The maximum number of entries to return on a single page. Valid values: 1 to 100. Default value: 20.
+    // The maximum number of records to return per page. Valid values: 1 to 100. Default value: 20.
     shared_ptr<int32_t> maxResults_ {};
-    // The cursor used to query the next page. Do not specify this parameter in the first call. For subsequent calls, specify the `nextToken` value returned in the previous call.
+    // The cursor used to query the next page. Do not specify this parameter in the first call. In subsequent calls, specify the nextToken value returned in the previous call.
     shared_ptr<string> nextToken_ {};
-    // The workspace resource binding ID of the target collaboration component used to filter the results.
+    // Filters the results by the workspace resource binding ID of the target collaboration component.
     shared_ptr<string> resourceBindingId_ {};
-    // The service endpoint status used to filter the results. Valid values: CREATING, READY, UPDATING, DEGRADED, DISABLED, and DELETING.
+    // Filters the results by service endpoint status. Valid values: CREATING, READY, UPDATING, DEGRADED, DISABLED, and DELETING.
     shared_ptr<string> status_ {};
-    // The target type used to filter the results. Valid values: AGENT_VERSION and TEAM_COLLABORATION.
+    // Filters the results by target type. Valid values: AGENT_VERSION and TEAM_COLLABORATION.
     shared_ptr<string> targetType_ {};
   };
 
