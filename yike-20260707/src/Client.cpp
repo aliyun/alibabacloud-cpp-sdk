@@ -2,11 +2,13 @@
 #include <alibabacloud/Yike20260707.hpp>
 #include <alibabacloud/Utils.hpp>
 #include <alibabacloud/Openapi.hpp>
+#include <alibabacloud/gateway/POP.hpp>
 #include <map>
 #include <darabonba/Runtime.hpp>
 using namespace std;
 using namespace Darabonba;
 using json = nlohmann::json;
+using namespace AlibabaCloud::Gateway;
 using namespace AlibabaCloud::OpenApi;
 using namespace AlibabaCloud::Yike20260707::Models;
 using OpenApiClient = AlibabaCloud::OpenApi::Client;
@@ -17,6 +19,9 @@ namespace Yike20260707
 {
 
 AlibabaCloud::Yike20260707::Client::Client(Config &config): OpenApiClient(config){
+  this->_productId = "Yike";
+  shared_ptr<POP> gatewayClient = make_shared<POP>();
+  this->_spi = gatewayClient;
   this->_endpointRule = "regional";
   checkConfig(config);
   this->_endpoint = getEndpoint("yike", _regionId, _endpointRule, _network, _suffix, _endpointMap, _endpoint);
@@ -94,7 +99,7 @@ BatchGetMediasResponse Client::batchGetMedias(const BatchGetMediasRequest &reque
 }
 
 /**
- * @summary 取消生成任务接口
+ * @summary Cancels an AI generation task.
  *
  * @param request CancelGenerationJobRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -125,7 +130,7 @@ CancelGenerationJobResponse Client::cancelGenerationJobWithOptions(const CancelG
 }
 
 /**
- * @summary 取消生成任务接口
+ * @summary Cancels an AI generation task.
  *
  * @param request CancelGenerationJobRequest
  * @return CancelGenerationJobResponse
@@ -702,10 +707,10 @@ GetMediaResponse Client::getMedia(const GetMediaRequest &request) {
 }
 
 /**
- * @summary Queries a media asset content understanding job.
+ * @summary Queries media content understanding jobs.
  *
- * @description ## Description
- * This API is used to query a media asset content understanding job.
+ * @description ## Request description
+ * This API operation queries media content understanding jobs.
  *
  * @param request GetMediaComprehensionJobRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -736,10 +741,10 @@ GetMediaComprehensionJobResponse Client::getMediaComprehensionJobWithOptions(con
 }
 
 /**
- * @summary Queries a media asset content understanding job.
+ * @summary Queries media content understanding jobs.
  *
- * @description ## Description
- * This API is used to query a media asset content understanding job.
+ * @description ## Request description
+ * This API operation queries media content understanding jobs.
  *
  * @param request GetMediaComprehensionJobRequest
  * @return GetMediaComprehensionJobResponse
@@ -789,6 +794,48 @@ GetRemakeScriptJobResponse Client::getRemakeScriptJobWithOptions(const GetRemake
 GetRemakeScriptJobResponse Client::getRemakeScriptJob(const GetRemakeScriptJobRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return getRemakeScriptJobWithOptions(request, runtime);
+}
+
+/**
+ * @summary Queries a video creative generation job.
+ *
+ * @param request GetVideoCreativeGenerationJobRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetVideoCreativeGenerationJobResponse
+ */
+GetVideoCreativeGenerationJobResponse Client::getVideoCreativeGenerationJobWithOptions(const GetVideoCreativeGenerationJobRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasJobId()) {
+    query["JobId"] = request.getJobId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "GetVideoCreativeGenerationJob"},
+    {"version" , "2026-07-07"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetVideoCreativeGenerationJobResponse>();
+}
+
+/**
+ * @summary Queries a video creative generation job.
+ *
+ * @param request GetVideoCreativeGenerationJobRequest
+ * @return GetVideoCreativeGenerationJobResponse
+ */
+GetVideoCreativeGenerationJobResponse Client::getVideoCreativeGenerationJob(const GetVideoCreativeGenerationJobRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return getVideoCreativeGenerationJobWithOptions(request, runtime);
 }
 
 /**
@@ -884,7 +931,7 @@ GetVideoGenerationJobResponse Client::getVideoGenerationJob(const GetVideoGenera
 }
 
 /**
- * @summary Submits a video rendering and composition task.
+ * @summary Submits a video rendering and compositing task.
  *
  * @param request GetVideoRenderJobRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -915,7 +962,7 @@ GetVideoRenderJobResponse Client::getVideoRenderJobWithOptions(const GetVideoRen
 }
 
 /**
- * @summary Submits a video rendering and composition task.
+ * @summary Submits a video rendering and compositing task.
  *
  * @param request GetVideoRenderJobRequest
  * @return GetVideoRenderJobResponse
@@ -1201,8 +1248,8 @@ ListAssetCategoriesResponse Client::listAssetCategories(const ListAssetCategorie
 /**
  * @summary Queries the list of infinite canvases.
  *
- * @description ## Operation description
- * This API is used to query media asset content understanding jobs.
+ * @description ## Request description
+ * This API operation queries media asset content understanding jobs.
  *
  * @param request ListInfiniteCanvasesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1259,8 +1306,8 @@ ListInfiniteCanvasesResponse Client::listInfiniteCanvasesWithOptions(const ListI
 /**
  * @summary Queries the list of infinite canvases.
  *
- * @description ## Operation description
- * This API is used to query media asset content understanding jobs.
+ * @description ## Request description
+ * This API operation queries media asset content understanding jobs.
  *
  * @param request ListInfiniteCanvasesRequest
  * @return ListInfiniteCanvasesResponse
@@ -1271,7 +1318,7 @@ ListInfiniteCanvasesResponse Client::listInfiniteCanvases(const ListInfiniteCanv
 }
 
 /**
- * @summary Returns media asset information that matches the specified filter conditions.
+ * @summary Queries media assets that match the specified parameters.
  *
  * @param request SearchMediaRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1326,7 +1373,7 @@ SearchMediaResponse Client::searchMediaWithOptions(const SearchMediaRequest &req
 }
 
 /**
- * @summary Returns media asset information that matches the specified filter conditions.
+ * @summary Queries media assets that match the specified parameters.
  *
  * @param request SearchMediaRequest
  * @return SearchMediaResponse
@@ -1399,7 +1446,7 @@ SubmitAgentJobResponse Client::submitAgentJob(const SubmitAgentJobRequest &reque
 }
 
 /**
- * @summary Submits an image generation task.
+ * @summary Submits an image generation request.
  *
  * @param request SubmitImageGenerationJobRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1466,7 +1513,7 @@ SubmitImageGenerationJobResponse Client::submitImageGenerationJobWithOptions(con
 }
 
 /**
- * @summary Submits an image generation task.
+ * @summary Submits an image generation request.
  *
  * @param request SubmitImageGenerationJobRequest
  * @return SubmitImageGenerationJobResponse
@@ -1479,8 +1526,8 @@ SubmitImageGenerationJobResponse Client::submitImageGenerationJob(const SubmitIm
 /**
  * @summary Submits a media asset content understanding job.
  *
- * @description ## Operation description
- * This API operation performs content understanding based on the provided media asset files (such as video URLs). You can pass custom parameters through the `UserData` field, which are returned as-is in the callback.
+ * @description ## Request description
+ * This operation performs content understanding based on the provided media asset files, such as video URLs. Additionally, you can pass custom parameters through the `UserData` field, which are returned as-is in the callback.
  *
  * @param request SubmitMediaComprehensionJobRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1525,8 +1572,8 @@ SubmitMediaComprehensionJobResponse Client::submitMediaComprehensionJobWithOptio
 /**
  * @summary Submits a media asset content understanding job.
  *
- * @description ## Operation description
- * This API operation performs content understanding based on the provided media asset files (such as video URLs). You can pass custom parameters through the `UserData` field, which are returned as-is in the callback.
+ * @description ## Request description
+ * This operation performs content understanding based on the provided media asset files, such as video URLs. Additionally, you can pass custom parameters through the `UserData` field, which are returned as-is in the callback.
  *
  * @param request SubmitMediaComprehensionJobRequest
  * @return SubmitMediaComprehensionJobResponse
@@ -1539,7 +1586,7 @@ SubmitMediaComprehensionJobResponse Client::submitMediaComprehensionJob(const Su
 /**
  * @summary Submits a creative script generation task.
  *
- * @description This API generates a new voiceover script based on content comprehension results and new product/model information by imitating the style of the original script. You can pass custom parameters through the UserData field, which are returned as-is in the callback.
+ * @description This operation generates a new voiceover script based on content understanding results and new product or avatar information. It also supports passing custom parameters through the UserData field, which are returned as-is in callbacks.
  *
  * @param request SubmitRemakeScriptJobRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1580,7 +1627,7 @@ SubmitRemakeScriptJobResponse Client::submitRemakeScriptJobWithOptions(const Sub
 /**
  * @summary Submits a creative script generation task.
  *
- * @description This API generates a new voiceover script based on content comprehension results and new product/model information by imitating the style of the original script. You can pass custom parameters through the UserData field, which are returned as-is in the callback.
+ * @description This operation generates a new voiceover script based on content understanding results and new product or avatar information. It also supports passing custom parameters through the UserData field, which are returned as-is in callbacks.
  *
  * @param request SubmitRemakeScriptJobRequest
  * @return SubmitRemakeScriptJobResponse
@@ -1588,6 +1635,80 @@ SubmitRemakeScriptJobResponse Client::submitRemakeScriptJobWithOptions(const Sub
 SubmitRemakeScriptJobResponse Client::submitRemakeScriptJob(const SubmitRemakeScriptJobRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return submitRemakeScriptJobWithOptions(request, runtime);
+}
+
+/**
+ * @summary Submits a video creative generation job.
+ *
+ * @param request SubmitVideoCreativeGenerationJobRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return SubmitVideoCreativeGenerationJobResponse
+ */
+SubmitVideoCreativeGenerationJobResponse Client::submitVideoCreativeGenerationJobWithOptions(const SubmitVideoCreativeGenerationJobRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasAspectRatio()) {
+    query["AspectRatio"] = request.getAspectRatio();
+  }
+
+  if (!!request.hasAvatarData()) {
+    query["AvatarData"] = request.getAvatarData();
+  }
+
+  if (!!request.hasJobParams()) {
+    query["JobParams"] = request.getJobParams();
+  }
+
+  if (!!request.hasOutputLanguages()) {
+    query["OutputLanguages"] = request.getOutputLanguages();
+  }
+
+  if (!!request.hasResolution()) {
+    query["Resolution"] = request.getResolution();
+  }
+
+  if (!!request.hasSceneType()) {
+    query["SceneType"] = request.getSceneType();
+  }
+
+  if (!!request.hasUserData()) {
+    query["UserData"] = request.getUserData();
+  }
+
+  if (!!request.hasUserMaterials()) {
+    query["UserMaterials"] = request.getUserMaterials();
+  }
+
+  if (!!request.hasWithSubtitles()) {
+    query["WithSubtitles"] = request.getWithSubtitles();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "SubmitVideoCreativeGenerationJob"},
+    {"version" , "2026-07-07"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<SubmitVideoCreativeGenerationJobResponse>();
+}
+
+/**
+ * @summary Submits a video creative generation job.
+ *
+ * @param request SubmitVideoCreativeGenerationJobRequest
+ * @return SubmitVideoCreativeGenerationJobResponse
+ */
+SubmitVideoCreativeGenerationJobResponse Client::submitVideoCreativeGenerationJob(const SubmitVideoCreativeGenerationJobRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return submitVideoCreativeGenerationJobWithOptions(request, runtime);
 }
 
 /**
@@ -1789,9 +1910,9 @@ SubmitVideoRenderJobResponse Client::submitVideoRenderJob(const SubmitVideoRende
 }
 
 /**
- * @summary Submits an asynchronous video translation task that supports subtitle translation, voice translation, main subtitle erasure, and on-screen text translation.
+ * @summary Submits an asynchronous video translation task that supports subtitle translation, voice translation, primary subtitle erasure, and on-screen text translation.
  *
- * @description Submits an asynchronous video translation task. The input supports a media URL or an Intelligent Media Management (IMM) media asset ID. Task parameters specify the source language, target language, and translation capabilities to enable.
+ * @description Submits an asynchronous video translation task. The input supports media URLs or Yike media asset IDs. The task parameters are used to select the source language, target language, and the translation capabilities to enable.
  *
  * @param request SubmitVideoTranslationJobRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1850,9 +1971,9 @@ SubmitVideoTranslationJobResponse Client::submitVideoTranslationJobWithOptions(c
 }
 
 /**
- * @summary Submits an asynchronous video translation task that supports subtitle translation, voice translation, main subtitle erasure, and on-screen text translation.
+ * @summary Submits an asynchronous video translation task that supports subtitle translation, voice translation, primary subtitle erasure, and on-screen text translation.
  *
- * @description Submits an asynchronous video translation task. The input supports a media URL or an Intelligent Media Management (IMM) media asset ID. Task parameters specify the source language, target language, and translation capabilities to enable.
+ * @description Submits an asynchronous video translation task. The input supports media URLs or Yike media asset IDs. The task parameters are used to select the source language, target language, and the translation capabilities to enable.
  *
  * @param request SubmitVideoTranslationJobRequest
  * @return SubmitVideoTranslationJobResponse

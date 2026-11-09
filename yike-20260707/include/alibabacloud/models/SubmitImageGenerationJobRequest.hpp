@@ -131,10 +131,13 @@ namespace Models
     // 
     // - Prompt: String. Required. The prompt text.
     // - Medias: A list of media items. Required when the task type is `image_to_image`. A maximum of 9 items are supported.
-    // > The Media structure contains the following fields: Type, the media type (String, valid value: image). URL, the media download URL (String). MediaId, the media asset ID (String).
+    // > The Media structure contains the following fields: Type, the media type, String, valid value: image. URL, the media download URL, String. MediaId, the media asset ID, String.
     // >
     shared_ptr<string> input_ {};
-    // The task feature parameters. The value is a JSON string. You do not need to set this parameter currently.
+    // The task parameters. The value is a JSON string.
+    // 
+    // - PromptExtend: Specifies whether to enable prompt optimization. Boolean. Valid values: `true` and `false`.
+    // - PromptExtendMode: The prompt extension mode. Valid values: `direct` (default) and `agent` (supported for text-to-image generation). Only qwen-image-3.0 supports this parameter.
     shared_ptr<string> jobParameters_ {};
     // The type of the generation task. This parameter is required. Valid values:
     // 
@@ -148,7 +151,7 @@ namespace Models
     // - qwen-image-2.0
     // - wan2.7-image
     shared_ptr<string> model_ {};
-    // The number of images. Valid values: 1 to 4. Default value: 1.
+    // The number of images to generate. Valid values: 1 to 4. Default value: 1.
     shared_ptr<string> n_ {};
     // The resolution. Valid values: 1K (default), 2K, and 4K.
     shared_ptr<string> resolution_ {};

@@ -124,27 +124,27 @@ namespace Models
 
 
     protected:
-      // The online editing project ID, which can be used for secondary editing of the output video.
+      // The ID of the online editing project, which can be used for secondary editing of the produced video.
       shared_ptr<string> editingProjectId_ {};
-      // The error code. This parameter is returned when the task is in the Failed state.
+      // The error code. This parameter is returned when the job is in the Failed state.
       shared_ptr<string> errorCode_ {};
-      // The error message. This parameter is returned when the task is in the Failed state.
+      // The error message. This parameter is returned when the job is in the Failed state.
       shared_ptr<string> errorMessage_ {};
-      // The task ID.
+      // The job ID.
       shared_ptr<string> jobId_ {};
-      // The narration language of the output video.
+      // The voiceover language of the produced video.
       shared_ptr<string> language_ {};
-      // The download URL of the rendered and composed video.
+      // The download URL of the rendered and composited video.
       shared_ptr<string> result_ {};
-      // The task status. Valid values:
+      // The job status. Valid values:
       // 
-      // - Created: The task is created.
-      // - Executing: The task is being executed.
-      // - Finished: The task is completed.
-      // - Failed: The task has failed.
-      // - Deleted: The task is deleted.
+      // - Created: The job is created.
+      // - Executing: The job is being executed.
+      // - Finished: The job is completed.
+      // - Failed: The job failed.
+      // - Deleted: The job is deleted.
       shared_ptr<string> status_ {};
-      // The custom user data in JSON format.
+      // The user-defined parameter, which is a JSON-formatted string.
       shared_ptr<string> userData_ {};
     };
 
@@ -167,7 +167,7 @@ namespace Models
 
 
   protected:
-    // The video rendering and composition task object.
+    // The video rendering and compositing task object.
     shared_ptr<GetVideoRenderJobResponseBody::Job> job_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

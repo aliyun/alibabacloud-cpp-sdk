@@ -42,7 +42,7 @@ namespace Yike20260707
       Models::BatchGetMediasResponse batchGetMedias(const Models::BatchGetMediasRequest &request);
 
       /**
-       * @summary 取消生成任务接口
+       * @summary Cancels an AI generation task.
        *
        * @param request CancelGenerationJobRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -51,7 +51,7 @@ namespace Yike20260707
       Models::CancelGenerationJobResponse cancelGenerationJobWithOptions(const Models::CancelGenerationJobRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 取消生成任务接口
+       * @summary Cancels an AI generation task.
        *
        * @param request CancelGenerationJobRequest
        * @return CancelGenerationJobResponse
@@ -282,10 +282,10 @@ namespace Yike20260707
       Models::GetMediaResponse getMedia(const Models::GetMediaRequest &request);
 
       /**
-       * @summary Queries a media asset content understanding job.
+       * @summary Queries media content understanding jobs.
        *
-       * @description ## Description
-       * This API is used to query a media asset content understanding job.
+       * @description ## Request description
+       * This API operation queries media content understanding jobs.
        *
        * @param request GetMediaComprehensionJobRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -294,10 +294,10 @@ namespace Yike20260707
       Models::GetMediaComprehensionJobResponse getMediaComprehensionJobWithOptions(const Models::GetMediaComprehensionJobRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries a media asset content understanding job.
+       * @summary Queries media content understanding jobs.
        *
-       * @description ## Description
-       * This API is used to query a media asset content understanding job.
+       * @description ## Request description
+       * This API operation queries media content understanding jobs.
        *
        * @param request GetMediaComprehensionJobRequest
        * @return GetMediaComprehensionJobResponse
@@ -320,6 +320,23 @@ namespace Yike20260707
        * @return GetRemakeScriptJobResponse
        */
       Models::GetRemakeScriptJobResponse getRemakeScriptJob(const Models::GetRemakeScriptJobRequest &request);
+
+      /**
+       * @summary Queries a video creative generation job.
+       *
+       * @param request GetVideoCreativeGenerationJobRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetVideoCreativeGenerationJobResponse
+       */
+      Models::GetVideoCreativeGenerationJobResponse getVideoCreativeGenerationJobWithOptions(const Models::GetVideoCreativeGenerationJobRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Queries a video creative generation job.
+       *
+       * @param request GetVideoCreativeGenerationJobRequest
+       * @return GetVideoCreativeGenerationJobResponse
+       */
+      Models::GetVideoCreativeGenerationJobResponse getVideoCreativeGenerationJob(const Models::GetVideoCreativeGenerationJobRequest &request);
 
       /**
        * @summary Queries the status, input parameters, and video result of a video text erasure task.
@@ -360,7 +377,7 @@ namespace Yike20260707
       Models::GetVideoGenerationJobResponse getVideoGenerationJob(const Models::GetVideoGenerationJobRequest &request);
 
       /**
-       * @summary Submits a video rendering and composition task.
+       * @summary Submits a video rendering and compositing task.
        *
        * @param request GetVideoRenderJobRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -369,7 +386,7 @@ namespace Yike20260707
       Models::GetVideoRenderJobResponse getVideoRenderJobWithOptions(const Models::GetVideoRenderJobRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Submits a video rendering and composition task.
+       * @summary Submits a video rendering and compositing task.
        *
        * @param request GetVideoRenderJobRequest
        * @return GetVideoRenderJobResponse
@@ -474,8 +491,8 @@ namespace Yike20260707
       /**
        * @summary Queries the list of infinite canvases.
        *
-       * @description ## Operation description
-       * This API is used to query media asset content understanding jobs.
+       * @description ## Request description
+       * This API operation queries media asset content understanding jobs.
        *
        * @param request ListInfiniteCanvasesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -486,8 +503,8 @@ namespace Yike20260707
       /**
        * @summary Queries the list of infinite canvases.
        *
-       * @description ## Operation description
-       * This API is used to query media asset content understanding jobs.
+       * @description ## Request description
+       * This API operation queries media asset content understanding jobs.
        *
        * @param request ListInfiniteCanvasesRequest
        * @return ListInfiniteCanvasesResponse
@@ -495,7 +512,7 @@ namespace Yike20260707
       Models::ListInfiniteCanvasesResponse listInfiniteCanvases(const Models::ListInfiniteCanvasesRequest &request);
 
       /**
-       * @summary Returns media asset information that matches the specified filter conditions.
+       * @summary Queries media assets that match the specified parameters.
        *
        * @param request SearchMediaRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -504,7 +521,7 @@ namespace Yike20260707
       Models::SearchMediaResponse searchMediaWithOptions(const Models::SearchMediaRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Returns media asset information that matches the specified filter conditions.
+       * @summary Queries media assets that match the specified parameters.
        *
        * @param request SearchMediaRequest
        * @return SearchMediaResponse
@@ -529,7 +546,7 @@ namespace Yike20260707
       Models::SubmitAgentJobResponse submitAgentJob(const Models::SubmitAgentJobRequest &request);
 
       /**
-       * @summary Submits an image generation task.
+       * @summary Submits an image generation request.
        *
        * @param request SubmitImageGenerationJobRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -538,7 +555,7 @@ namespace Yike20260707
       Models::SubmitImageGenerationJobResponse submitImageGenerationJobWithOptions(const Models::SubmitImageGenerationJobRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Submits an image generation task.
+       * @summary Submits an image generation request.
        *
        * @param request SubmitImageGenerationJobRequest
        * @return SubmitImageGenerationJobResponse
@@ -548,8 +565,8 @@ namespace Yike20260707
       /**
        * @summary Submits a media asset content understanding job.
        *
-       * @description ## Operation description
-       * This API operation performs content understanding based on the provided media asset files (such as video URLs). You can pass custom parameters through the `UserData` field, which are returned as-is in the callback.
+       * @description ## Request description
+       * This operation performs content understanding based on the provided media asset files, such as video URLs. Additionally, you can pass custom parameters through the `UserData` field, which are returned as-is in the callback.
        *
        * @param request SubmitMediaComprehensionJobRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -560,8 +577,8 @@ namespace Yike20260707
       /**
        * @summary Submits a media asset content understanding job.
        *
-       * @description ## Operation description
-       * This API operation performs content understanding based on the provided media asset files (such as video URLs). You can pass custom parameters through the `UserData` field, which are returned as-is in the callback.
+       * @description ## Request description
+       * This operation performs content understanding based on the provided media asset files, such as video URLs. Additionally, you can pass custom parameters through the `UserData` field, which are returned as-is in the callback.
        *
        * @param request SubmitMediaComprehensionJobRequest
        * @return SubmitMediaComprehensionJobResponse
@@ -571,7 +588,7 @@ namespace Yike20260707
       /**
        * @summary Submits a creative script generation task.
        *
-       * @description This API generates a new voiceover script based on content comprehension results and new product/model information by imitating the style of the original script. You can pass custom parameters through the UserData field, which are returned as-is in the callback.
+       * @description This operation generates a new voiceover script based on content understanding results and new product or avatar information. It also supports passing custom parameters through the UserData field, which are returned as-is in callbacks.
        *
        * @param request SubmitRemakeScriptJobRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -582,12 +599,29 @@ namespace Yike20260707
       /**
        * @summary Submits a creative script generation task.
        *
-       * @description This API generates a new voiceover script based on content comprehension results and new product/model information by imitating the style of the original script. You can pass custom parameters through the UserData field, which are returned as-is in the callback.
+       * @description This operation generates a new voiceover script based on content understanding results and new product or avatar information. It also supports passing custom parameters through the UserData field, which are returned as-is in callbacks.
        *
        * @param request SubmitRemakeScriptJobRequest
        * @return SubmitRemakeScriptJobResponse
        */
       Models::SubmitRemakeScriptJobResponse submitRemakeScriptJob(const Models::SubmitRemakeScriptJobRequest &request);
+
+      /**
+       * @summary Submits a video creative generation job.
+       *
+       * @param request SubmitVideoCreativeGenerationJobRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return SubmitVideoCreativeGenerationJobResponse
+       */
+      Models::SubmitVideoCreativeGenerationJobResponse submitVideoCreativeGenerationJobWithOptions(const Models::SubmitVideoCreativeGenerationJobRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Submits a video creative generation job.
+       *
+       * @param request SubmitVideoCreativeGenerationJobRequest
+       * @return SubmitVideoCreativeGenerationJobResponse
+       */
+      Models::SubmitVideoCreativeGenerationJobResponse submitVideoCreativeGenerationJob(const Models::SubmitVideoCreativeGenerationJobRequest &request);
 
       /**
        * @summary Submits an asynchronous video text removal job. Supports full-frame removal, time range–based removal, and region-based removal.
@@ -645,9 +679,9 @@ namespace Yike20260707
       Models::SubmitVideoRenderJobResponse submitVideoRenderJob(const Models::SubmitVideoRenderJobRequest &request);
 
       /**
-       * @summary Submits an asynchronous video translation task that supports subtitle translation, voice translation, main subtitle erasure, and on-screen text translation.
+       * @summary Submits an asynchronous video translation task that supports subtitle translation, voice translation, primary subtitle erasure, and on-screen text translation.
        *
-       * @description Submits an asynchronous video translation task. The input supports a media URL or an Intelligent Media Management (IMM) media asset ID. Task parameters specify the source language, target language, and translation capabilities to enable.
+       * @description Submits an asynchronous video translation task. The input supports media URLs or Yike media asset IDs. The task parameters are used to select the source language, target language, and the translation capabilities to enable.
        *
        * @param request SubmitVideoTranslationJobRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -656,9 +690,9 @@ namespace Yike20260707
       Models::SubmitVideoTranslationJobResponse submitVideoTranslationJobWithOptions(const Models::SubmitVideoTranslationJobRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Submits an asynchronous video translation task that supports subtitle translation, voice translation, main subtitle erasure, and on-screen text translation.
+       * @summary Submits an asynchronous video translation task that supports subtitle translation, voice translation, primary subtitle erasure, and on-screen text translation.
        *
-       * @description Submits an asynchronous video translation task. The input supports a media URL or an Intelligent Media Management (IMM) media asset ID. Task parameters specify the source language, target language, and translation capabilities to enable.
+       * @description Submits an asynchronous video translation task. The input supports media URLs or Yike media asset IDs. The task parameters are used to select the source language, target language, and the translation capabilities to enable.
        *
        * @param request SubmitVideoTranslationJobRequest
        * @return SubmitVideoTranslationJobResponse

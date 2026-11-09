@@ -48,9 +48,9 @@ namespace Models
 
 
   protected:
-    // The video translation job ID, used to call GetVideoTranslationJob to query the job.
+    // The video translation job ID, which is used to call GetVideoTranslationJob to query the task.
     shared_ptr<string> jobId_ {};
-    // The request ID, used for Tracing Analysis and troubleshooting.
+    // The request ID, which is used for Tracing Analysis and troubleshooting.
     shared_ptr<string> requestId_ {};
   };
 

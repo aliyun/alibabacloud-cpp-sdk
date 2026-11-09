@@ -47,6 +47,9 @@
 #include <alibabacloud/models/GetRemakeScriptJobRequest.hpp>
 #include <alibabacloud/models/GetRemakeScriptJobResponseBody.hpp>
 #include <alibabacloud/models/GetRemakeScriptJobResponse.hpp>
+#include <alibabacloud/models/GetVideoCreativeGenerationJobRequest.hpp>
+#include <alibabacloud/models/GetVideoCreativeGenerationJobResponseBody.hpp>
+#include <alibabacloud/models/GetVideoCreativeGenerationJobResponse.hpp>
 #include <alibabacloud/models/GetVideoDetextJobRequest.hpp>
 #include <alibabacloud/models/GetVideoDetextJobResponseBody.hpp>
 #include <alibabacloud/models/GetVideoDetextJobResponse.hpp>
@@ -89,6 +92,9 @@
 #include <alibabacloud/models/SubmitRemakeScriptJobRequest.hpp>
 #include <alibabacloud/models/SubmitRemakeScriptJobResponseBody.hpp>
 #include <alibabacloud/models/SubmitRemakeScriptJobResponse.hpp>
+#include <alibabacloud/models/SubmitVideoCreativeGenerationJobRequest.hpp>
+#include <alibabacloud/models/SubmitVideoCreativeGenerationJobResponseBody.hpp>
+#include <alibabacloud/models/SubmitVideoCreativeGenerationJobResponse.hpp>
 #include <alibabacloud/models/SubmitVideoDetextJobRequest.hpp>
 #include <alibabacloud/models/SubmitVideoDetextJobResponseBody.hpp>
 #include <alibabacloud/models/SubmitVideoDetextJobResponse.hpp>

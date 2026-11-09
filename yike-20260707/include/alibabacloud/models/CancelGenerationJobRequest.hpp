@@ -38,6 +38,8 @@ namespace Models
 
 
   protected:
+    // The task ID. Only queued tasks can be canceled.
+    // 
     // This parameter is required.
     shared_ptr<string> jobId_ {};
   };

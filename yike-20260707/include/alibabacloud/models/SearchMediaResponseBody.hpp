@@ -563,7 +563,7 @@ namespace Models
           shared_ptr<string> duration_ {};
           // The file name.
           shared_ptr<string> fileName_ {};
-          // The file size, in bytes.
+          // The file size in bytes.
           shared_ptr<string> fileSize_ {};
           // The file status.
           shared_ptr<string> fileStatus_ {};
@@ -579,7 +579,7 @@ namespace Models
           shared_ptr<string> imagesInput_ {};
           // The modification time.
           shared_ptr<string> modifiedTime_ {};
-          // The file storage region.
+          // The storage region of the file.
           shared_ptr<string> region_ {};
           // The width.
           shared_ptr<string> width_ {};
@@ -596,7 +596,7 @@ namespace Models
 
 
       protected:
-        // The basic file information, including duration and size.
+        // The basic file information, including the duration and size.
         shared_ptr<FileInfoList::FileBasicInfo> fileBasicInfo_ {};
       };
 
@@ -639,7 +639,7 @@ namespace Models
     protected:
       // The list of media files.
       shared_ptr<vector<MediaInfoList::FileInfoList>> fileInfoList_ {};
-      // The basic information of the media asset.
+      // The basic media asset information.
       shared_ptr<MediaInfoList::MediaBasicInfo> mediaBasicInfo_ {};
       // The dynamic data of the media asset.
       shared_ptr<MediaInfoList::MediaDynamicInfo> mediaDynamicInfo_ {};
@@ -694,17 +694,17 @@ namespace Models
 
 
   protected:
-    // The response code.
+    // The return code.
     shared_ptr<string> code_ {};
-    // The collection of media assets that meet the specified criteria.
+    // The collection of media assets that meet the requirements.
     shared_ptr<vector<SearchMediaResponseBody::MediaInfoList>> mediaInfoList_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The pagination token.
+    // The scroll token.
     shared_ptr<string> scrollToken_ {};
-    // Indicates whether the call was successful.
+    // Indicates whether the call is successful.
     shared_ptr<string> success_ {};
-    // The total number of media assets that meet the specified criteria.
+    // The total number of media assets that meet the requirements.
     shared_ptr<int64_t> total_ {};
   };
 

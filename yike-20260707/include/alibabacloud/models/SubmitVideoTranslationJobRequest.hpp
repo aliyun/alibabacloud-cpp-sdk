@@ -103,27 +103,27 @@ namespace Models
 
 
   protected:
-    // The user-level idempotency token, up to 40 characters. If the same user submits a request with the same token, the original job is returned.
+    // The user-level idempotency token, which can be up to 40 characters in length. If the same user submits the request repeatedly with the same token, the original task is returned.
     shared_ptr<string> clientToken_ {};
-    // The job description, used to record business purposes or processing requirements.
+    // The job description, which is used to record the business purpose or processing requirements.
     shared_ptr<string> description_ {};
-    // The input configuration JSON string. You must specify either Video or VideoMediaId, but not both. You can specify at most one of Audio or AudioMediaId. Subtitle is optional.
+    // The input configuration JSON string. You must specify either Video or VideoMediaId, but not both. You can specify at most one of Audio and AudioMediaId. Subtitle is optional.
     // 
     // This parameter is required.
     shared_ptr<string> input_ {};
-    // The job parameters JSON string. It must contain at least SourceLanguage and TargetLanguage. You can also configure main subtitle erasure, voice translation, on-screen text translation, and final editing.
+    // The job parameters JSON string. It must include at least SourceLanguage and TargetLanguage. You can also configure primary subtitle erasure, voice translation, on-screen text translation, and final editing.
     // 
     // This parameter is required.
     shared_ptr<string> jobParameters_ {};
-    // The job type. SubtitleTranslate indicates subtitle translation. VoiceTranslate indicates voice translation.
+    // The job type. SubtitleTranslate indicates subtitle translation, and VoiceTranslate indicates voice translation.
     // 
     // This parameter is required.
     shared_ptr<string> jobType_ {};
-    // The output configuration JSON string. OssUri is an optional customer OSS output directory. If not specified, a signed URL of the service-owned artifact is returned.
+    // The output configuration JSON string. OssUri is the optional customer OSS output directory. If OssUri is not specified, a signed URL for the service-owned output is returned.
     shared_ptr<string> output_ {};
     // The job title. If not specified, the service generates a default title.
     shared_ptr<string> title_ {};
-    // The custom user data JSON string. It can contain the asynchronous notification address NotifyAddress.
+    // The user-defined data JSON string. When specifying an MNS queue to receive asynchronous notifications, set `NotifyAddress` to the pure queue name starting with `yike-callback-` instead of the full queue URL. You can optionally set `NotifyMnsEndpoint` to the MNS endpoint of the task account.
     shared_ptr<string> userData_ {};
   };
 

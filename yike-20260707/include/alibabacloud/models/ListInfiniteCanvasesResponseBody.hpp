@@ -114,13 +114,13 @@ namespace Models
     protected:
       // The ID of the infinite canvas.
       shared_ptr<string> canvasId_ {};
-      // The cover URL.
+      // The URL of the cover image.
       shared_ptr<string> coverUrl_ {};
       // The creation time, in milliseconds.
       shared_ptr<string> gmtCreate_ {};
       // The last modification time.
       shared_ptr<string> gmtModified_ {};
-      // The thumbnail height, in px.
+      // The height of the thumbnail, in pixels.
       shared_ptr<string> thumbnail_ {};
       // The title of the infinite canvas.
       shared_ptr<string> title_ {};

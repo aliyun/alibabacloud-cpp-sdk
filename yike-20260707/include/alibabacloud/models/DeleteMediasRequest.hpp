@@ -66,8 +66,9 @@ namespace Models
 
 
   protected:
+    // The business configuration. It is a JSON string that can contain ProductionId (the project ID).
     shared_ptr<string> bizConfig_ {};
-    // Specifies whether to delete the physical files at the same time.
+    // Specifies whether to delete physical files at the same time.
     shared_ptr<bool> deletePhysicalFiles_ {};
     // Not supported.
     shared_ptr<string> inputURLs_ {};
