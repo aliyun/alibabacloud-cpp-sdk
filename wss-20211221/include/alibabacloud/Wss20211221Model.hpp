@@ -17,6 +17,12 @@
 #include <alibabacloud/models/DescribeDeductionStatisticResponse.hpp>
 #include <alibabacloud/models/DescribeDeliveryAddressResponseBody.hpp>
 #include <alibabacloud/models/DescribeDeliveryAddressResponse.hpp>
+#include <alibabacloud/models/DescribeGroupsRequest.hpp>
+#include <alibabacloud/models/DescribeGroupsResponseBody.hpp>
+#include <alibabacloud/models/DescribeGroupsResponse.hpp>
+#include <alibabacloud/models/DescribeInstanceAutoRenewalAttributeRequest.hpp>
+#include <alibabacloud/models/DescribeInstanceAutoRenewalAttributeResponseBody.hpp>
+#include <alibabacloud/models/DescribeInstanceAutoRenewalAttributeResponse.hpp>
 #include <alibabacloud/models/DescribeMultiPriceRequest.hpp>
 #include <alibabacloud/models/DescribeMultiPriceResponseBody.hpp>
 #include <alibabacloud/models/DescribeMultiPriceResponse.hpp>

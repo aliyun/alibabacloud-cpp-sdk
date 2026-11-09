@@ -131,17 +131,17 @@ namespace Models
     protected:
       // Agent ID
       shared_ptr<string> agentId_ {};
-      // **The instance creation time.**
+      // The time when the instance was created, in the YYYY-MM-DD HH:mm:ss format.
       shared_ptr<string> createdTime_ {};
       // **The ID of the currently active credit package instance.**
       shared_ptr<string> creditPackageId_ {};
-      // **The time when the instance expires.**
+      // The time when the instance expires, in the YYYY-MM-DD HH:mm:ss format.
       shared_ptr<string> expiredTime_ {};
       // The instance type.
       shared_ptr<string> instanceType_ {};
       // **The total number of credits.**
       shared_ptr<int64_t> totalCredit_ {};
-      // **The amount of credits used.**
+      // **The number of credits used.**
       shared_ptr<int64_t> usedCredit_ {};
       // **The alert threshold percentage (0–100).**
       shared_ptr<int32_t> warnPercent_ {};
@@ -180,7 +180,7 @@ namespace Models
 
 
   protected:
-    // The Agent list.
+    // The agent list.
     shared_ptr<vector<DescribeCreditPackageAgentsResponseBody::Agents>> agents_ {};
     // The number of entries per page.
     shared_ptr<int32_t> maxResults_ {};

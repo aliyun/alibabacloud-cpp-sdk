@@ -18,20 +18,27 @@ namespace Models
       DARABONBA_PTR_TO_JSON(AgentTypes, agentTypes_);
       DARABONBA_PTR_TO_JSON(AliUid, aliUid_);
       DARABONBA_PTR_TO_JSON(BizType, bizType_);
+      DARABONBA_PTR_TO_JSON(ConsumeWyId, consumeWyId_);
+      DARABONBA_PTR_TO_JSON(ConsumeWyIds, consumeWyIds_);
+      DARABONBA_PTR_TO_JSON(DeductionRequestId, deductionRequestId_);
       DARABONBA_PTR_TO_JSON(DeductionTypes, deductionTypes_);
       DARABONBA_PTR_TO_JSON(EndTime, endTime_);
       DARABONBA_PTR_TO_JSON(GroupByFields, groupByFields_);
       DARABONBA_PTR_TO_JSON(GroupResourceTypes, groupResourceTypes_);
       DARABONBA_PTR_TO_JSON(GroupSeparator, groupSeparator_);
+      DARABONBA_PTR_TO_JSON(InstanceId, instanceId_);
       DARABONBA_PTR_TO_JSON(InstanceIdType, instanceIdType_);
       DARABONBA_PTR_TO_JSON(InstanceIds, instanceIds_);
       DARABONBA_PTR_TO_JSON(MaxResults, maxResults_);
+      DARABONBA_PTR_TO_JSON(Model, model_);
       DARABONBA_PTR_TO_JSON(NextToken, nextToken_);
       DARABONBA_PTR_TO_JSON(PackageIds, packageIds_);
       DARABONBA_PTR_TO_JSON(PageNum, pageNum_);
       DARABONBA_PTR_TO_JSON(PageSize, pageSize_);
       DARABONBA_PTR_TO_JSON(ResourceType, resourceType_);
       DARABONBA_PTR_TO_JSON(ResourceTypes, resourceTypes_);
+      DARABONBA_PTR_TO_JSON(RunId, runId_);
+      DARABONBA_PTR_TO_JSON(RunIdList, runIdList_);
       DARABONBA_PTR_TO_JSON(StartTime, startTime_);
       DARABONBA_PTR_TO_JSON(WyId, wyId_);
     };
@@ -40,20 +47,27 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(AgentTypes, agentTypes_);
       DARABONBA_PTR_FROM_JSON(AliUid, aliUid_);
       DARABONBA_PTR_FROM_JSON(BizType, bizType_);
+      DARABONBA_PTR_FROM_JSON(ConsumeWyId, consumeWyId_);
+      DARABONBA_PTR_FROM_JSON(ConsumeWyIds, consumeWyIds_);
+      DARABONBA_PTR_FROM_JSON(DeductionRequestId, deductionRequestId_);
       DARABONBA_PTR_FROM_JSON(DeductionTypes, deductionTypes_);
       DARABONBA_PTR_FROM_JSON(EndTime, endTime_);
       DARABONBA_PTR_FROM_JSON(GroupByFields, groupByFields_);
       DARABONBA_PTR_FROM_JSON(GroupResourceTypes, groupResourceTypes_);
       DARABONBA_PTR_FROM_JSON(GroupSeparator, groupSeparator_);
+      DARABONBA_PTR_FROM_JSON(InstanceId, instanceId_);
       DARABONBA_PTR_FROM_JSON(InstanceIdType, instanceIdType_);
       DARABONBA_PTR_FROM_JSON(InstanceIds, instanceIds_);
       DARABONBA_PTR_FROM_JSON(MaxResults, maxResults_);
+      DARABONBA_PTR_FROM_JSON(Model, model_);
       DARABONBA_PTR_FROM_JSON(NextToken, nextToken_);
       DARABONBA_PTR_FROM_JSON(PackageIds, packageIds_);
       DARABONBA_PTR_FROM_JSON(PageNum, pageNum_);
       DARABONBA_PTR_FROM_JSON(PageSize, pageSize_);
       DARABONBA_PTR_FROM_JSON(ResourceType, resourceType_);
       DARABONBA_PTR_FROM_JSON(ResourceTypes, resourceTypes_);
+      DARABONBA_PTR_FROM_JSON(RunId, runId_);
+      DARABONBA_PTR_FROM_JSON(RunIdList, runIdList_);
       DARABONBA_PTR_FROM_JSON(StartTime, startTime_);
       DARABONBA_PTR_FROM_JSON(WyId, wyId_);
     };
@@ -69,10 +83,12 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->agentType_ == nullptr
-        && this->agentTypes_ == nullptr && this->aliUid_ == nullptr && this->bizType_ == nullptr && this->deductionTypes_ == nullptr && this->endTime_ == nullptr
-        && this->groupByFields_ == nullptr && this->groupResourceTypes_ == nullptr && this->groupSeparator_ == nullptr && this->instanceIdType_ == nullptr && this->instanceIds_ == nullptr
-        && this->maxResults_ == nullptr && this->nextToken_ == nullptr && this->packageIds_ == nullptr && this->pageNum_ == nullptr && this->pageSize_ == nullptr
-        && this->resourceType_ == nullptr && this->resourceTypes_ == nullptr && this->startTime_ == nullptr && this->wyId_ == nullptr; };
+        && this->agentTypes_ == nullptr && this->aliUid_ == nullptr && this->bizType_ == nullptr && this->consumeWyId_ == nullptr && this->consumeWyIds_ == nullptr
+        && this->deductionRequestId_ == nullptr && this->deductionTypes_ == nullptr && this->endTime_ == nullptr && this->groupByFields_ == nullptr && this->groupResourceTypes_ == nullptr
+        && this->groupSeparator_ == nullptr && this->instanceId_ == nullptr && this->instanceIdType_ == nullptr && this->instanceIds_ == nullptr && this->maxResults_ == nullptr
+        && this->model_ == nullptr && this->nextToken_ == nullptr && this->packageIds_ == nullptr && this->pageNum_ == nullptr && this->pageSize_ == nullptr
+        && this->resourceType_ == nullptr && this->resourceTypes_ == nullptr && this->runId_ == nullptr && this->runIdList_ == nullptr && this->startTime_ == nullptr
+        && this->wyId_ == nullptr; };
     // agentType Field Functions 
     bool hasAgentType() const { return this->agentType_ != nullptr;};
     void deleteAgentType() { this->agentType_ = nullptr;};
@@ -101,6 +117,29 @@ namespace Models
     void deleteBizType() { this->bizType_ = nullptr;};
     inline string getBizType() const { DARABONBA_PTR_GET_DEFAULT(bizType_, "") };
     inline DescribeRunIdDeductionsRequest& setBizType(string bizType) { DARABONBA_PTR_SET_VALUE(bizType_, bizType) };
+
+
+    // consumeWyId Field Functions 
+    bool hasConsumeWyId() const { return this->consumeWyId_ != nullptr;};
+    void deleteConsumeWyId() { this->consumeWyId_ = nullptr;};
+    inline string getConsumeWyId() const { DARABONBA_PTR_GET_DEFAULT(consumeWyId_, "") };
+    inline DescribeRunIdDeductionsRequest& setConsumeWyId(string consumeWyId) { DARABONBA_PTR_SET_VALUE(consumeWyId_, consumeWyId) };
+
+
+    // consumeWyIds Field Functions 
+    bool hasConsumeWyIds() const { return this->consumeWyIds_ != nullptr;};
+    void deleteConsumeWyIds() { this->consumeWyIds_ = nullptr;};
+    inline const vector<string> & getConsumeWyIds() const { DARABONBA_PTR_GET_CONST(consumeWyIds_, vector<string>) };
+    inline vector<string> getConsumeWyIds() { DARABONBA_PTR_GET(consumeWyIds_, vector<string>) };
+    inline DescribeRunIdDeductionsRequest& setConsumeWyIds(const vector<string> & consumeWyIds) { DARABONBA_PTR_SET_VALUE(consumeWyIds_, consumeWyIds) };
+    inline DescribeRunIdDeductionsRequest& setConsumeWyIds(vector<string> && consumeWyIds) { DARABONBA_PTR_SET_RVALUE(consumeWyIds_, consumeWyIds) };
+
+
+    // deductionRequestId Field Functions 
+    bool hasDeductionRequestId() const { return this->deductionRequestId_ != nullptr;};
+    void deleteDeductionRequestId() { this->deductionRequestId_ = nullptr;};
+    inline string getDeductionRequestId() const { DARABONBA_PTR_GET_DEFAULT(deductionRequestId_, "") };
+    inline DescribeRunIdDeductionsRequest& setDeductionRequestId(string deductionRequestId) { DARABONBA_PTR_SET_VALUE(deductionRequestId_, deductionRequestId) };
 
 
     // deductionTypes Field Functions 
@@ -144,6 +183,13 @@ namespace Models
     inline DescribeRunIdDeductionsRequest& setGroupSeparator(bool groupSeparator) { DARABONBA_PTR_SET_VALUE(groupSeparator_, groupSeparator) };
 
 
+    // instanceId Field Functions 
+    bool hasInstanceId() const { return this->instanceId_ != nullptr;};
+    void deleteInstanceId() { this->instanceId_ = nullptr;};
+    inline string getInstanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
+    inline DescribeRunIdDeductionsRequest& setInstanceId(string instanceId) { DARABONBA_PTR_SET_VALUE(instanceId_, instanceId) };
+
+
     // instanceIdType Field Functions 
     bool hasInstanceIdType() const { return this->instanceIdType_ != nullptr;};
     void deleteInstanceIdType() { this->instanceIdType_ = nullptr;};
@@ -165,6 +211,13 @@ namespace Models
     void deleteMaxResults() { this->maxResults_ = nullptr;};
     inline int32_t getMaxResults() const { DARABONBA_PTR_GET_DEFAULT(maxResults_, 0) };
     inline DescribeRunIdDeductionsRequest& setMaxResults(int32_t maxResults) { DARABONBA_PTR_SET_VALUE(maxResults_, maxResults) };
+
+
+    // model Field Functions 
+    bool hasModel() const { return this->model_ != nullptr;};
+    void deleteModel() { this->model_ = nullptr;};
+    inline string getModel() const { DARABONBA_PTR_GET_DEFAULT(model_, "") };
+    inline DescribeRunIdDeductionsRequest& setModel(string model) { DARABONBA_PTR_SET_VALUE(model_, model) };
 
 
     // nextToken Field Functions 
@@ -213,6 +266,22 @@ namespace Models
     inline DescribeRunIdDeductionsRequest& setResourceTypes(vector<string> && resourceTypes) { DARABONBA_PTR_SET_RVALUE(resourceTypes_, resourceTypes) };
 
 
+    // runId Field Functions 
+    bool hasRunId() const { return this->runId_ != nullptr;};
+    void deleteRunId() { this->runId_ = nullptr;};
+    inline string getRunId() const { DARABONBA_PTR_GET_DEFAULT(runId_, "") };
+    inline DescribeRunIdDeductionsRequest& setRunId(string runId) { DARABONBA_PTR_SET_VALUE(runId_, runId) };
+
+
+    // runIdList Field Functions 
+    bool hasRunIdList() const { return this->runIdList_ != nullptr;};
+    void deleteRunIdList() { this->runIdList_ = nullptr;};
+    inline const vector<string> & getRunIdList() const { DARABONBA_PTR_GET_CONST(runIdList_, vector<string>) };
+    inline vector<string> getRunIdList() { DARABONBA_PTR_GET(runIdList_, vector<string>) };
+    inline DescribeRunIdDeductionsRequest& setRunIdList(const vector<string> & runIdList) { DARABONBA_PTR_SET_VALUE(runIdList_, runIdList) };
+    inline DescribeRunIdDeductionsRequest& setRunIdList(vector<string> && runIdList) { DARABONBA_PTR_SET_RVALUE(runIdList_, runIdList) };
+
+
     // startTime Field Functions 
     bool hasStartTime() const { return this->startTime_ != nullptr;};
     void deleteStartTime() { this->startTime_ = nullptr;};
@@ -228,41 +297,59 @@ namespace Models
 
 
   protected:
-    // The agent type: `CREDIT_PACKAGE` / `JVS_CLAW` / `OPEN_CLAW` / `JVS_COPILOT`.
+    // The agent type. Valid values: CREDIT_PACKAGE, JVS_CLAW, OPEN_CLAW, and JVS_COPILOT.
     shared_ptr<string> agentType_ {};
+    // The list of agent types.
     shared_ptr<vector<string>> agentTypes_ {};
     // The Alibaba Cloud UID.
     shared_ptr<int64_t> aliUid_ {};
     // The business type.
     shared_ptr<string> bizType_ {};
+    // The consumption WyId.
+    shared_ptr<string> consumeWyId_ {};
+    // The Wuying user IDs. You can obtain the IDs by calling the GetLoginToken logon operation. The returned parameter is WyId.
+    shared_ptr<vector<string>> consumeWyIds_ {};
+    // The request ID.
+    shared_ptr<string> deductionRequestId_ {};
     // The deduction types. Do not specify this parameter for non-knowledge base scenarios.
     shared_ptr<vector<string>> deductionTypes_ {};
-    // The end time of the period.
+    // The end time of the query. The value is a UNIX timestamp in milliseconds.
     shared_ptr<int64_t> endTime_ {};
+    // The list of additional grouping fields when aggregating by runId, such as model to distinguish between different models.
     shared_ptr<vector<string>> groupByFields_ {};
+    // The list of grouped resource types.
     shared_ptr<vector<string>> groupResourceTypes_ {};
-    // Specifies whether to group results by deduction type.
+    // Specifies whether to group the results by deduction type.
     shared_ptr<bool> groupSeparator_ {};
+    // The instance ID.
+    shared_ptr<string> instanceId_ {};
     // The instance ID type. Do not specify this parameter for non-knowledge base scenarios.
     shared_ptr<string> instanceIdType_ {};
-    // The list of cloud computer IDs. If this field has a value, the `PackageIds` field is required.
+    // The list of cloud computer IDs. If this field is specified, the PackageIds field is required.
     shared_ptr<vector<string>> instanceIds_ {};
     // The number of entries per page.
     shared_ptr<int32_t> maxResults_ {};
-    // The pagination token. Leave this parameter empty for the first request. For subsequent requests, use the `nextToken` value from the previous response.
+    // The model name.
+    shared_ptr<string> model_ {};
+    // The pagination token. Leave this parameter empty for the first request. For subsequent requests, use the nextToken value returned in the previous response.
     shared_ptr<string> nextToken_ {};
     // The list of core-hour package IDs in JSON format.
     shared_ptr<vector<string>> packageIds_ {};
-    // The page number. Default value: 1.
+    // The current page number. Default value: 1.
     shared_ptr<int32_t> pageNum_ {};
-    // The number of entries per page for a paged query.
+    // The Settings for the number of entries per page during paging in a paged query.
     shared_ptr<int32_t> pageSize_ {};
     // The resource type.
     shared_ptr<string> resourceType_ {};
     // The list of resource types in JSON array format.
     shared_ptr<vector<string>> resourceTypes_ {};
-    // The start time.
+    // The run ID.
+    shared_ptr<string> runId_ {};
+    // The list of run IDs.
+    shared_ptr<vector<string>> runIdList_ {};
+    // The start time of the query. The value is a UNIX timestamp in milliseconds.
     shared_ptr<int64_t> startTime_ {};
+    // The globally unique ID of the Wuying user.
     shared_ptr<string> wyId_ {};
   };
 

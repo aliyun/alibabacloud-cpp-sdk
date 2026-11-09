@@ -185,30 +185,31 @@ namespace Models
 
 
     protected:
-      // The agent type: `CREDIT_PACKAGE` / `JVS_CLAW` / `OPEN_CLAW` / `JVS_COPILOT`.
+      // The agent type. Valid values: CREDIT_PACKAGE, JVS_CLAW, OPEN_CLAW, and JVS_COPILOT.
       shared_ptr<string> agentType_ {};
-      // The end time of the period.
+      // The end time of the period. The time is in ISO 8601 format and displayed in UTC.
       shared_ptr<string> endTime_ {};
-      // The group resource type.
+      // The grouped resource type to which the deduction record belongs.
       shared_ptr<string> groupResourceType_ {};
       // The instance ID.
       shared_ptr<string> instanceId_ {};
+      // The identifier of the called large language model. This field is used to distinguish the consumption of each model when grouping by model.
       shared_ptr<string> model_ {};
-      // The credit or plan package ID.
+      // The ID of the credit or package.
       shared_ptr<string> packageId_ {};
       // The resource ID.
       shared_ptr<string> resourceId_ {};
       // The resource type.
       shared_ptr<string> resourceType_ {};
-      // The unique run ID.
+      // The unique ID of the run.
       shared_ptr<string> runId_ {};
-      // The start time.
+      // The start time. The time is in ISO 8601 format and displayed in UTC.
       shared_ptr<string> startTime_ {};
       // The summary of the large language model call.
       shared_ptr<string> summary_ {};
-      // The usage duration. Unit: seconds. Do not use this field for AI scenarios.
+      // The usage duration. Unit: seconds. Do not use this field in AI scenarios.
       shared_ptr<int64_t> usedTime_ {};
-      // The credits used.
+      // The used credits.
       shared_ptr<string> usedTimeDecimal_ {};
     };
 
@@ -285,19 +286,19 @@ namespace Models
     shared_ptr<vector<DescribeRunIdDeductionsResponseBody::Deductions>> deductions_ {};
     // The number of entries per page.
     shared_ptr<int32_t> maxResults_ {};
-    // The pagination token. Leave this parameter empty for the first request. For subsequent requests, use the `nextToken` value from the previous response.
+    // The pagination token. Leave this parameter empty for the first request. For subsequent requests, use the nextToken value returned in the previous response.
     shared_ptr<string> nextToken_ {};
-    // The page number. Default value: 1.
+    // The current page number. Default value: 1.
     shared_ptr<int32_t> pageNum_ {};
-    // The number of entries per page for a paged query.
+    // The Settings for the number of entries per page during paging in a paged query.
     shared_ptr<int32_t> pageSize_ {};
-    // Id of the request
+    // The unique identifier of the request. You can use this ID to troubleshoot issues.
     shared_ptr<string> requestId_ {};
-    // The total number of core-hour package deduction details in the query result.
+    // The total number of core-hour package deduction details returned.
     shared_ptr<int64_t> totalCount_ {};
-    // The total usage duration. Unit: seconds. Do not use this field for AI scenarios.
+    // The total usage duration. Unit: seconds. Do not use this field in AI scenarios.
     shared_ptr<int64_t> totalUsedTime_ {};
-    // The total credits used that match the specified conditions.
+    // The total used credits that meet the conditions.
     shared_ptr<string> totalUsedTimeDecimal_ {};
   };
 

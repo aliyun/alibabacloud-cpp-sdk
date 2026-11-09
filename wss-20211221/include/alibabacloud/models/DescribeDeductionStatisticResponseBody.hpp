@@ -159,7 +159,7 @@ namespace Models
       protected:
         // The consumption duration, in seconds.
         shared_ptr<int64_t> consumeSecond_ {};
-        // The deduction date.
+        // The deduction date in the YYYY-MM-DD format.
         shared_ptr<string> deductionDate_ {};
         // The resource type.
         shared_ptr<string> resourceType_ {};
@@ -315,11 +315,11 @@ namespace Models
       protected:
         // The Alibaba Cloud UID.
         shared_ptr<int64_t> aliUid_ {};
-        // The creation time.
+        // The creation time in the YYYY-MM-DD HH:mm:ss format.
         shared_ptr<string> createTime_ {};
-        // The end time.
+        // The end time in the YYYY-MM-DD HH:mm:ss format.
         shared_ptr<string> endTime_ {};
-        // The expiration time.
+        // The expiration time in the YYYY-MM-DD HH:mm:ss format.
         shared_ptr<string> expiredTime_ {};
         // The group ID.
         shared_ptr<string> groupId_ {};
@@ -333,7 +333,7 @@ namespace Models
         shared_ptr<string> resourceId_ {};
         // The group resource type.
         shared_ptr<string> resourceType_ {};
-        // The start time.
+        // The start time in the YYYY-MM-DD HH:mm:ss format.
         shared_ptr<string> startTime_ {};
         // The status.
         shared_ptr<string> status_ {};
@@ -377,7 +377,7 @@ namespace Models
       shared_ptr<vector<Data::AvailableCorePackages>> availableCorePackages_ {};
       // The deduction details.
       shared_ptr<vector<Data::Deductions>> deductions_ {};
-      // **The usage list.**
+      // **The list of usage records.**
       shared_ptr<vector<Data::Usages>> usages_ {};
     };
 

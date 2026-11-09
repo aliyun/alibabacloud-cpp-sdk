@@ -80,7 +80,7 @@ namespace Models
   protected:
     // A JSON string of the AgentId list. Example: `["agent-1","agent-2"]`.
     shared_ptr<vector<string>> agentIds_ {};
-    // The Agent type. Valid values: `CREDIT_PACKAGE`, `JVS_CLAW`, `OPEN_CLAW`, and `JVS_COPILOT`.
+    // The agent type. Valid values: `CREDIT_PACKAGE`, `JVS_CLAW`, `OPEN_CLAW`, and `JVS_COPILOT`.
     shared_ptr<string> agentType_ {};
     // The business type.
     shared_ptr<string> bizType_ {};

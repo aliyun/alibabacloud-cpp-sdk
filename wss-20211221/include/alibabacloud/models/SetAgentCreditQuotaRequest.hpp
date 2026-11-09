@@ -18,12 +18,14 @@ namespace Models
       DARABONBA_PTR_TO_JSON(AgentType, agentType_);
       DARABONBA_PTR_TO_JSON(BizType, bizType_);
       DARABONBA_PTR_TO_JSON(CreditQuota, creditQuota_);
+      DARABONBA_PTR_TO_JSON(SceneType, sceneType_);
     };
     friend void from_json(const Darabonba::Json& j, SetAgentCreditQuotaRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(AgentIds, agentIds_);
       DARABONBA_PTR_FROM_JSON(AgentType, agentType_);
       DARABONBA_PTR_FROM_JSON(BizType, bizType_);
       DARABONBA_PTR_FROM_JSON(CreditQuota, creditQuota_);
+      DARABONBA_PTR_FROM_JSON(SceneType, sceneType_);
     };
     SetAgentCreditQuotaRequest() = default ;
     SetAgentCreditQuotaRequest(const SetAgentCreditQuotaRequest &) = default ;
@@ -37,7 +39,7 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->agentIds_ == nullptr
-        && this->agentType_ == nullptr && this->bizType_ == nullptr && this->creditQuota_ == nullptr; };
+        && this->agentType_ == nullptr && this->bizType_ == nullptr && this->creditQuota_ == nullptr && this->sceneType_ == nullptr; };
     // agentIds Field Functions 
     bool hasAgentIds() const { return this->agentIds_ != nullptr;};
     void deleteAgentIds() { this->agentIds_ = nullptr;};
@@ -68,8 +70,15 @@ namespace Models
     inline SetAgentCreditQuotaRequest& setCreditQuota(int32_t creditQuota) { DARABONBA_PTR_SET_VALUE(creditQuota_, creditQuota) };
 
 
+    // sceneType Field Functions 
+    bool hasSceneType() const { return this->sceneType_ != nullptr;};
+    void deleteSceneType() { this->sceneType_ = nullptr;};
+    inline string getSceneType() const { DARABONBA_PTR_GET_DEFAULT(sceneType_, "") };
+    inline SetAgentCreditQuotaRequest& setSceneType(string sceneType) { DARABONBA_PTR_SET_VALUE(sceneType_, sceneType) };
+
+
   protected:
-    // A list of Agent IDs.
+    // The list of Agent IDs.
     shared_ptr<vector<string>> agentIds_ {};
     // The Agent type.
     shared_ptr<string> agentType_ {};
@@ -77,6 +86,11 @@ namespace Models
     shared_ptr<string> bizType_ {};
     // The credit quota.
     shared_ptr<int32_t> creditQuota_ {};
+    // The operator scenarios type. Valid values:
+    // - If this parameter is not specified or is set to NaturalMonthlyOwn: calendar month exclusive.
+    // - JzYearlyShare: Jiaozi yearly shared.
+    // - JzYearlyOwn: Jiaozi yearly exclusive.
+    shared_ptr<string> sceneType_ {};
   };
 
   } // namespace Models

@@ -47,7 +47,10 @@ namespace Models
     class Deductions : public Darabonba::Model {
     public:
       friend void to_json(Darabonba::Json& j, const Deductions& obj) { 
+        DARABONBA_PTR_TO_JSON(AgentType, agentType_);
         DARABONBA_PTR_TO_JSON(Cpu, cpu_);
+        DARABONBA_PTR_TO_JSON(DeductionRequestId, deductionRequestId_);
+        DARABONBA_PTR_TO_JSON(DeductionType, deductionType_);
         DARABONBA_PTR_TO_JSON(DesktopId, desktopId_);
         DARABONBA_PTR_TO_JSON(DesktopName, desktopName_);
         DARABONBA_PTR_TO_JSON(DesktopType, desktopType_);
@@ -57,18 +60,25 @@ namespace Models
         DARABONBA_PTR_TO_JSON(InstanceState, instanceState_);
         DARABONBA_PTR_TO_JSON(InstanceType, instanceType_);
         DARABONBA_PTR_TO_JSON(Memory, memory_);
+        DARABONBA_PTR_TO_JSON(Model, model_);
         DARABONBA_PTR_TO_JSON(OsType, osType_);
+        DARABONBA_PTR_TO_JSON(PackageId, packageId_);
         DARABONBA_PTR_TO_JSON(RegionId, regionId_);
+        DARABONBA_PTR_TO_JSON(ResourceId, resourceId_);
         DARABONBA_PTR_TO_JSON(ResourceType, resourceType_);
         DARABONBA_PTR_TO_JSON(SessionId, sessionId_);
         DARABONBA_PTR_TO_JSON(StaTime, staTime_);
+        DARABONBA_PTR_TO_JSON(Summary, summary_);
         DARABONBA_PTR_TO_JSON(UsedCoreTime, usedCoreTime_);
         DARABONBA_PTR_TO_JSON(UsedTime, usedTime_);
         DARABONBA_PTR_TO_JSON(UsedTimeDecimal, usedTimeDecimal_);
         DARABONBA_PTR_TO_JSON(UsedTimeWithScale, usedTimeWithScale_);
       };
       friend void from_json(const Darabonba::Json& j, Deductions& obj) { 
+        DARABONBA_PTR_FROM_JSON(AgentType, agentType_);
         DARABONBA_PTR_FROM_JSON(Cpu, cpu_);
+        DARABONBA_PTR_FROM_JSON(DeductionRequestId, deductionRequestId_);
+        DARABONBA_PTR_FROM_JSON(DeductionType, deductionType_);
         DARABONBA_PTR_FROM_JSON(DesktopId, desktopId_);
         DARABONBA_PTR_FROM_JSON(DesktopName, desktopName_);
         DARABONBA_PTR_FROM_JSON(DesktopType, desktopType_);
@@ -78,11 +88,15 @@ namespace Models
         DARABONBA_PTR_FROM_JSON(InstanceState, instanceState_);
         DARABONBA_PTR_FROM_JSON(InstanceType, instanceType_);
         DARABONBA_PTR_FROM_JSON(Memory, memory_);
+        DARABONBA_PTR_FROM_JSON(Model, model_);
         DARABONBA_PTR_FROM_JSON(OsType, osType_);
+        DARABONBA_PTR_FROM_JSON(PackageId, packageId_);
         DARABONBA_PTR_FROM_JSON(RegionId, regionId_);
+        DARABONBA_PTR_FROM_JSON(ResourceId, resourceId_);
         DARABONBA_PTR_FROM_JSON(ResourceType, resourceType_);
         DARABONBA_PTR_FROM_JSON(SessionId, sessionId_);
         DARABONBA_PTR_FROM_JSON(StaTime, staTime_);
+        DARABONBA_PTR_FROM_JSON(Summary, summary_);
         DARABONBA_PTR_FROM_JSON(UsedCoreTime, usedCoreTime_);
         DARABONBA_PTR_FROM_JSON(UsedTime, usedTime_);
         DARABONBA_PTR_FROM_JSON(UsedTimeDecimal, usedTimeDecimal_);
@@ -99,16 +113,38 @@ namespace Models
       };
       virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
       virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-      virtual bool empty() const override { return this->cpu_ == nullptr
-        && this->desktopId_ == nullptr && this->desktopName_ == nullptr && this->desktopType_ == nullptr && this->endTime_ == nullptr && this->groupResourceType_ == nullptr
-        && this->instanceId_ == nullptr && this->instanceState_ == nullptr && this->instanceType_ == nullptr && this->memory_ == nullptr && this->osType_ == nullptr
-        && this->regionId_ == nullptr && this->resourceType_ == nullptr && this->sessionId_ == nullptr && this->staTime_ == nullptr && this->usedCoreTime_ == nullptr
-        && this->usedTime_ == nullptr && this->usedTimeDecimal_ == nullptr && this->usedTimeWithScale_ == nullptr; };
+      virtual bool empty() const override { return this->agentType_ == nullptr
+        && this->cpu_ == nullptr && this->deductionRequestId_ == nullptr && this->deductionType_ == nullptr && this->desktopId_ == nullptr && this->desktopName_ == nullptr
+        && this->desktopType_ == nullptr && this->endTime_ == nullptr && this->groupResourceType_ == nullptr && this->instanceId_ == nullptr && this->instanceState_ == nullptr
+        && this->instanceType_ == nullptr && this->memory_ == nullptr && this->model_ == nullptr && this->osType_ == nullptr && this->packageId_ == nullptr
+        && this->regionId_ == nullptr && this->resourceId_ == nullptr && this->resourceType_ == nullptr && this->sessionId_ == nullptr && this->staTime_ == nullptr
+        && this->summary_ == nullptr && this->usedCoreTime_ == nullptr && this->usedTime_ == nullptr && this->usedTimeDecimal_ == nullptr && this->usedTimeWithScale_ == nullptr; };
+      // agentType Field Functions 
+      bool hasAgentType() const { return this->agentType_ != nullptr;};
+      void deleteAgentType() { this->agentType_ = nullptr;};
+      inline string getAgentType() const { DARABONBA_PTR_GET_DEFAULT(agentType_, "") };
+      inline Deductions& setAgentType(string agentType) { DARABONBA_PTR_SET_VALUE(agentType_, agentType) };
+
+
       // cpu Field Functions 
       bool hasCpu() const { return this->cpu_ != nullptr;};
       void deleteCpu() { this->cpu_ = nullptr;};
       inline int32_t getCpu() const { DARABONBA_PTR_GET_DEFAULT(cpu_, 0) };
       inline Deductions& setCpu(int32_t cpu) { DARABONBA_PTR_SET_VALUE(cpu_, cpu) };
+
+
+      // deductionRequestId Field Functions 
+      bool hasDeductionRequestId() const { return this->deductionRequestId_ != nullptr;};
+      void deleteDeductionRequestId() { this->deductionRequestId_ = nullptr;};
+      inline string getDeductionRequestId() const { DARABONBA_PTR_GET_DEFAULT(deductionRequestId_, "") };
+      inline Deductions& setDeductionRequestId(string deductionRequestId) { DARABONBA_PTR_SET_VALUE(deductionRequestId_, deductionRequestId) };
+
+
+      // deductionType Field Functions 
+      bool hasDeductionType() const { return this->deductionType_ != nullptr;};
+      void deleteDeductionType() { this->deductionType_ = nullptr;};
+      inline string getDeductionType() const { DARABONBA_PTR_GET_DEFAULT(deductionType_, "") };
+      inline Deductions& setDeductionType(string deductionType) { DARABONBA_PTR_SET_VALUE(deductionType_, deductionType) };
 
 
       // desktopId Field Functions 
@@ -174,6 +210,13 @@ namespace Models
       inline Deductions& setMemory(int64_t memory) { DARABONBA_PTR_SET_VALUE(memory_, memory) };
 
 
+      // model Field Functions 
+      bool hasModel() const { return this->model_ != nullptr;};
+      void deleteModel() { this->model_ = nullptr;};
+      inline string getModel() const { DARABONBA_PTR_GET_DEFAULT(model_, "") };
+      inline Deductions& setModel(string model) { DARABONBA_PTR_SET_VALUE(model_, model) };
+
+
       // osType Field Functions 
       bool hasOsType() const { return this->osType_ != nullptr;};
       void deleteOsType() { this->osType_ = nullptr;};
@@ -181,11 +224,25 @@ namespace Models
       inline Deductions& setOsType(string osType) { DARABONBA_PTR_SET_VALUE(osType_, osType) };
 
 
+      // packageId Field Functions 
+      bool hasPackageId() const { return this->packageId_ != nullptr;};
+      void deletePackageId() { this->packageId_ = nullptr;};
+      inline string getPackageId() const { DARABONBA_PTR_GET_DEFAULT(packageId_, "") };
+      inline Deductions& setPackageId(string packageId) { DARABONBA_PTR_SET_VALUE(packageId_, packageId) };
+
+
       // regionId Field Functions 
       bool hasRegionId() const { return this->regionId_ != nullptr;};
       void deleteRegionId() { this->regionId_ = nullptr;};
       inline string getRegionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
       inline Deductions& setRegionId(string regionId) { DARABONBA_PTR_SET_VALUE(regionId_, regionId) };
+
+
+      // resourceId Field Functions 
+      bool hasResourceId() const { return this->resourceId_ != nullptr;};
+      void deleteResourceId() { this->resourceId_ = nullptr;};
+      inline string getResourceId() const { DARABONBA_PTR_GET_DEFAULT(resourceId_, "") };
+      inline Deductions& setResourceId(string resourceId) { DARABONBA_PTR_SET_VALUE(resourceId_, resourceId) };
 
 
       // resourceType Field Functions 
@@ -207,6 +264,13 @@ namespace Models
       void deleteStaTime() { this->staTime_ = nullptr;};
       inline string getStaTime() const { DARABONBA_PTR_GET_DEFAULT(staTime_, "") };
       inline Deductions& setStaTime(string staTime) { DARABONBA_PTR_SET_VALUE(staTime_, staTime) };
+
+
+      // summary Field Functions 
+      bool hasSummary() const { return this->summary_ != nullptr;};
+      void deleteSummary() { this->summary_ = nullptr;};
+      inline string getSummary() const { DARABONBA_PTR_GET_DEFAULT(summary_, "") };
+      inline Deductions& setSummary(string summary) { DARABONBA_PTR_SET_VALUE(summary_, summary) };
 
 
       // usedCoreTime Field Functions 
@@ -238,43 +302,57 @@ namespace Models
 
 
     protected:
+      // The agent type.
+      shared_ptr<string> agentType_ {};
       // The number of vCPUs.
       shared_ptr<int32_t> cpu_ {};
-      // The cloud computer ID.
+      // The request ID.
+      shared_ptr<string> deductionRequestId_ {};
+      // The deduction types.
+      shared_ptr<string> deductionType_ {};
+      // The Cloud Desktop ID.
       shared_ptr<string> desktopId_ {};
-      // The name of the cloud computer.
+      // The name of the cloud desktop.
       shared_ptr<string> desktopName_ {};
-      // The specifications of the cloud computer.
+      // The specifications of the cloud desktop.
       shared_ptr<string> desktopType_ {};
-      // The end time of the period.
+      // The end time of the deduction record in UTC. The format is yyyy-MM-ddTHH:mm:ssZ. For records aggregated by hour, the format can be yyyy-MM-ddTHH:mmZ with seconds omitted.
       shared_ptr<string> endTime_ {};
-      // The group resource type.
+      // The group resource type to which the deduction record belongs.
       shared_ptr<string> groupResourceType_ {};
       // The instance ID.
       shared_ptr<string> instanceId_ {};
       // The status of the core-hour package.
       shared_ptr<string> instanceState_ {};
-      // The instance type.
+      // The instance specifications for the deduction.
       shared_ptr<string> instanceType_ {};
-      // The memory size. Unit: MB.
+      // The memory. Unit: MB.
       shared_ptr<int64_t> memory_ {};
-      // The operating system type of the cloud computer.
+      // The model.
+      shared_ptr<string> model_ {};
+      // The operating system type of the cloud desktop.
       shared_ptr<string> osType_ {};
-      // The region ID of the cloud computer.
+      // The ID of the credit package.
+      shared_ptr<string> packageId_ {};
+      // The region ID of the cloud desktop.
       shared_ptr<string> regionId_ {};
+      // The ID of the first resource in the deduction item.
+      shared_ptr<string> resourceId_ {};
       // The resource type.
       shared_ptr<string> resourceType_ {};
-      // The session ID.
+      // The ID of the session associated with the deduction record.
       shared_ptr<string> sessionId_ {};
-      // The start time of the period.
+      // The start time of the deduction record in UTC. The format is yyyy-MM-ddTHH:mm:ssZ. For records aggregated by hour, the format can be yyyy-MM-ddTHH:mmZ with seconds omitted.
       shared_ptr<string> staTime_ {};
-      // The number of cores deducted in this period.
+      // The summary.
+      shared_ptr<string> summary_ {};
+      // The number of cores deducted.
       shared_ptr<float> usedCoreTime_ {};
       // The usage duration. Unit: seconds.
       shared_ptr<int64_t> usedTime_ {};
-      // The usage duration in decimal format.
+      // The usage calculated from UsedTime by using a precision factor, rounded to four decimal places. This field is returned only for applicable resource types and must be read based on the metering criteria of the corresponding resource.
       shared_ptr<string> usedTimeDecimal_ {};
-      // The usage duration after proportional scaling.
+      // The usage that includes the deduction coefficient. In scenarios where deduction is based on duration, the value is measured in seconds and returned as an integer.
       shared_ptr<int64_t> usedTimeWithScale_ {};
     };
 
@@ -344,17 +422,17 @@ namespace Models
     shared_ptr<vector<DescribePackageDeductionsResponseBody::Deductions>> deductions_ {};
     // The current page number.
     shared_ptr<int32_t> pageNum_ {};
-    // The number of entries per page in a paged query. Settings the number of rows per page for paging.
+    // The number of entries per page in the Settings for paging during a paged query.
     shared_ptr<int32_t> pageSize_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The total number of deduction detail records returned.
+    // The total number of core-hour package deduction details queried.
     shared_ptr<int64_t> totalCount_ {};
     // The total deducted core-hours.
     shared_ptr<float> totalUsedCoreTime_ {};
     // The total usage duration.
     shared_ptr<int64_t> totalUsedTime_ {};
-    // The total usage duration in decimal format.
+    // The total usage calculated by using a precision factor, rounded to four decimal places. This field uses the same metering criteria as UsedTimeDecimal in the details.
     shared_ptr<string> totalUsedTimeDecimal_ {};
   };
 

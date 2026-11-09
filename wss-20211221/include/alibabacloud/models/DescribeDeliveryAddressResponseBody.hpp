@@ -151,9 +151,7 @@ namespace Models
 
 
       protected:
-        // The province ID. For more information, see [China regions, countries and territories codes](https://help.aliyun.com/document_detail/167926.html).
-        // 
-        // For example, **110000** represents Beijing and **120000** represents Tianjin.
+        // The province ID. For more information, see [Codes for regions, countries, and areas in China](https://help.aliyun.com/document_detail/167926.html). For example, **110000** indicates Beijing, and **120000** indicates Tianjin.
         shared_ptr<int64_t> provinceId_ {};
         // The province name.
         shared_ptr<string> provinceName_ {};
@@ -241,9 +239,9 @@ namespace Models
 
 
       protected:
-        // The area ID.
+        // The district ID.
         shared_ptr<int64_t> areaId_ {};
-        // The area name.
+        // The district name.
         shared_ptr<string> areaName_ {};
       };
 
@@ -322,17 +320,17 @@ namespace Models
 
 
     protected:
-      // The area.
+      // The district.
       shared_ptr<Addresses::Area> area_ {};
       // The city.
       shared_ptr<Addresses::City> city_ {};
-      // The contact name.
+      // The contact.
       shared_ptr<string> contacts_ {};
-      // Indicates whether this is the default address.
+      // Indicates whether the address is the default address.
       shared_ptr<bool> defaultAddress_ {};
-      // The detailed address, which should include the street name and house number.
+      // The detailed address, which must be accurate down to the street and building number.
       shared_ptr<string> detail_ {};
-      // The mobile number.
+      // The mobile phone number.
       shared_ptr<string> mobile_ {};
       // The postal code.
       shared_ptr<string> postalCode_ {};
@@ -368,13 +366,11 @@ namespace Models
 
 
   protected:
-    // The address list.
+    // The list of addresses.
     shared_ptr<vector<DescribeDeliveryAddressResponseBody::Addresses>> addresses_ {};
-    // The request ID. Alibaba Cloud generates this unique identifier for each request.
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
-    // The total count of addresses.
-    // 
-    // > Up to 20 addresses are supported.
+    // The total number of addresses. A maximum of 20 addresses are supported.
     shared_ptr<int32_t> totalCount_ {};
   };
 

@@ -66,7 +66,11 @@ namespace Models
           DARABONBA_PTR_TO_JSON(CurrentUsedCredit, currentUsedCredit_);
           DARABONBA_PTR_TO_JSON(DayUsedCredit, dayUsedCredit_);
           DARABONBA_PTR_TO_JSON(LastTriggeredAt, lastTriggeredAt_);
+          DARABONBA_PTR_TO_JSON(PeriodCreditQuota, periodCreditQuota_);
+          DARABONBA_PTR_TO_JSON(PeriodPayGoUsedCredit, periodPayGoUsedCredit_);
+          DARABONBA_PTR_TO_JSON(PeriodSharedUsedCredit, periodSharedUsedCredit_);
           DARABONBA_PTR_TO_JSON(PeriodTotalCredit, periodTotalCredit_);
+          DARABONBA_PTR_TO_JSON(PeriodTotalUsedCredit, periodTotalUsedCredit_);
           DARABONBA_PTR_TO_JSON(PeriodUsedCredit, periodUsedCredit_);
           DARABONBA_PTR_TO_JSON(RemainCredit, remainCredit_);
           DARABONBA_PTR_TO_JSON(RemainCreditInfo, remainCreditInfo_);
@@ -88,7 +92,11 @@ namespace Models
           DARABONBA_PTR_FROM_JSON(CurrentUsedCredit, currentUsedCredit_);
           DARABONBA_PTR_FROM_JSON(DayUsedCredit, dayUsedCredit_);
           DARABONBA_PTR_FROM_JSON(LastTriggeredAt, lastTriggeredAt_);
+          DARABONBA_PTR_FROM_JSON(PeriodCreditQuota, periodCreditQuota_);
+          DARABONBA_PTR_FROM_JSON(PeriodPayGoUsedCredit, periodPayGoUsedCredit_);
+          DARABONBA_PTR_FROM_JSON(PeriodSharedUsedCredit, periodSharedUsedCredit_);
           DARABONBA_PTR_FROM_JSON(PeriodTotalCredit, periodTotalCredit_);
+          DARABONBA_PTR_FROM_JSON(PeriodTotalUsedCredit, periodTotalUsedCredit_);
           DARABONBA_PTR_FROM_JSON(PeriodUsedCredit, periodUsedCredit_);
           DARABONBA_PTR_FROM_JSON(RemainCredit, remainCredit_);
           DARABONBA_PTR_FROM_JSON(RemainCreditInfo, remainCreditInfo_);
@@ -148,7 +156,9 @@ namespace Models
 
 
         protected:
+          // The number of instances being deducted.
           shared_ptr<int32_t> deductingAmount_ {};
+          // The number of instances pending to take effect.
           shared_ptr<int32_t> pendingAmount_ {};
         };
 
@@ -190,17 +200,18 @@ namespace Models
 
 
         protected:
-          // The time point in the format `yyyy-MM-dd HH` (accurate to the hour).
+          // The time point in the `yyyy-MM-dd HH` format, accurate to the hour.
           shared_ptr<string> timePoint_ {};
-          // The number of credits consumed in this hour.
+          // The number of credits consumed in the hour.
           shared_ptr<int64_t> usedCredit_ {};
         };
 
         virtual bool empty() const override { return this->availableAmount_ == nullptr
         && this->contactGroupNames_ == nullptr && this->creditTrendList_ == nullptr && this->currentInstanceExpiredTime_ == nullptr && this->currentInstanceId_ == nullptr && this->currentRemainCredit_ == nullptr
-        && this->currentTotalCredit_ == nullptr && this->currentUsedCredit_ == nullptr && this->dayUsedCredit_ == nullptr && this->lastTriggeredAt_ == nullptr && this->periodTotalCredit_ == nullptr
-        && this->periodUsedCredit_ == nullptr && this->remainCredit_ == nullptr && this->remainCreditInfo_ == nullptr && this->todayUsed_ == nullptr && this->totalCredit_ == nullptr
-        && this->totalUsed_ == nullptr && this->totalUsedCredit_ == nullptr && this->warnPercent_ == nullptr && this->weekUsedCredit_ == nullptr; };
+        && this->currentTotalCredit_ == nullptr && this->currentUsedCredit_ == nullptr && this->dayUsedCredit_ == nullptr && this->lastTriggeredAt_ == nullptr && this->periodCreditQuota_ == nullptr
+        && this->periodPayGoUsedCredit_ == nullptr && this->periodSharedUsedCredit_ == nullptr && this->periodTotalCredit_ == nullptr && this->periodTotalUsedCredit_ == nullptr && this->periodUsedCredit_ == nullptr
+        && this->remainCredit_ == nullptr && this->remainCreditInfo_ == nullptr && this->todayUsed_ == nullptr && this->totalCredit_ == nullptr && this->totalUsed_ == nullptr
+        && this->totalUsedCredit_ == nullptr && this->warnPercent_ == nullptr && this->weekUsedCredit_ == nullptr; };
         // availableAmount Field Functions 
         bool hasAvailableAmount() const { return this->availableAmount_ != nullptr;};
         void deleteAvailableAmount() { this->availableAmount_ = nullptr;};
@@ -275,11 +286,39 @@ namespace Models
         inline UsageInfo& setLastTriggeredAt(string lastTriggeredAt) { DARABONBA_PTR_SET_VALUE(lastTriggeredAt_, lastTriggeredAt) };
 
 
+        // periodCreditQuota Field Functions 
+        bool hasPeriodCreditQuota() const { return this->periodCreditQuota_ != nullptr;};
+        void deletePeriodCreditQuota() { this->periodCreditQuota_ = nullptr;};
+        inline int64_t getPeriodCreditQuota() const { DARABONBA_PTR_GET_DEFAULT(periodCreditQuota_, 0L) };
+        inline UsageInfo& setPeriodCreditQuota(int64_t periodCreditQuota) { DARABONBA_PTR_SET_VALUE(periodCreditQuota_, periodCreditQuota) };
+
+
+        // periodPayGoUsedCredit Field Functions 
+        bool hasPeriodPayGoUsedCredit() const { return this->periodPayGoUsedCredit_ != nullptr;};
+        void deletePeriodPayGoUsedCredit() { this->periodPayGoUsedCredit_ = nullptr;};
+        inline int64_t getPeriodPayGoUsedCredit() const { DARABONBA_PTR_GET_DEFAULT(periodPayGoUsedCredit_, 0L) };
+        inline UsageInfo& setPeriodPayGoUsedCredit(int64_t periodPayGoUsedCredit) { DARABONBA_PTR_SET_VALUE(periodPayGoUsedCredit_, periodPayGoUsedCredit) };
+
+
+        // periodSharedUsedCredit Field Functions 
+        bool hasPeriodSharedUsedCredit() const { return this->periodSharedUsedCredit_ != nullptr;};
+        void deletePeriodSharedUsedCredit() { this->periodSharedUsedCredit_ = nullptr;};
+        inline int64_t getPeriodSharedUsedCredit() const { DARABONBA_PTR_GET_DEFAULT(periodSharedUsedCredit_, 0L) };
+        inline UsageInfo& setPeriodSharedUsedCredit(int64_t periodSharedUsedCredit) { DARABONBA_PTR_SET_VALUE(periodSharedUsedCredit_, periodSharedUsedCredit) };
+
+
         // periodTotalCredit Field Functions 
         bool hasPeriodTotalCredit() const { return this->periodTotalCredit_ != nullptr;};
         void deletePeriodTotalCredit() { this->periodTotalCredit_ = nullptr;};
         inline int64_t getPeriodTotalCredit() const { DARABONBA_PTR_GET_DEFAULT(periodTotalCredit_, 0L) };
         inline UsageInfo& setPeriodTotalCredit(int64_t periodTotalCredit) { DARABONBA_PTR_SET_VALUE(periodTotalCredit_, periodTotalCredit) };
+
+
+        // periodTotalUsedCredit Field Functions 
+        bool hasPeriodTotalUsedCredit() const { return this->periodTotalUsedCredit_ != nullptr;};
+        void deletePeriodTotalUsedCredit() { this->periodTotalUsedCredit_ = nullptr;};
+        inline int64_t getPeriodTotalUsedCredit() const { DARABONBA_PTR_GET_DEFAULT(periodTotalUsedCredit_, 0L) };
+        inline UsageInfo& setPeriodTotalUsedCredit(int64_t periodTotalUsedCredit) { DARABONBA_PTR_SET_VALUE(periodTotalUsedCredit_, periodTotalUsedCredit) };
 
 
         // periodUsedCredit Field Functions 
@@ -348,40 +387,53 @@ namespace Models
 
 
       protected:
+        // The number of currently available instances for the reported resources.
         shared_ptr<int32_t> availableAmount_ {};
+        // The list of contact group names.
         shared_ptr<vector<string>> contactGroupNames_ {};
         // The hourly consumption samples of the current credit package.
         shared_ptr<vector<UsageInfo::CreditTrendList>> creditTrendList_ {};
+        // The time when the current instance expires, in the `YYYY-MM-DD HH:mm:ss` format.
         shared_ptr<string> currentInstanceExpiredTime_ {};
-        // The instance ID of the current active credit package.
+        // The instance ID of the currently active credit package.
         shared_ptr<string> currentInstanceId_ {};
-        // The remaining credits of the current active credit package.
+        // The remaining amount of the currently active credit package.
         shared_ptr<int64_t> currentRemainCredit_ {};
-        // The total credits of the current active credit package.
+        // The total amount of the currently active credit package.
         shared_ptr<int64_t> currentTotalCredit_ {};
-        // The used credits of the current active credit package.
+        // The used amount of the currently active credit package.
         shared_ptr<int64_t> currentUsedCredit_ {};
-        // The credit usage in the last 1 day.
+        // The credit usage in the last day.
         shared_ptr<int64_t> dayUsedCredit_ {};
+        // The last trigger time.
         shared_ptr<string> lastTriggeredAt_ {};
+        // The credit quota for the current period.
+        shared_ptr<int64_t> periodCreditQuota_ {};
+        // The pay-as-you-go credits consumed in the current period.
+        shared_ptr<int64_t> periodPayGoUsedCredit_ {};
+        // The shared credits consumed in the current period.
+        shared_ptr<int64_t> periodSharedUsedCredit_ {};
         // The shared credit quota in the current active period.
         shared_ptr<int64_t> periodTotalCredit_ {};
+        // The total credits consumed in the current period.
+        shared_ptr<int64_t> periodTotalUsedCredit_ {};
         // The shared credit usage in the current active period.
         shared_ptr<int64_t> periodUsedCredit_ {};
-        // The cumulative remaining credits.
+        // The cumulative remaining billable credits.
         shared_ptr<int64_t> remainCredit_ {};
+        // The remaining credit information.
         shared_ptr<UsageInfo::RemainCreditInfo> remainCreditInfo_ {};
-        // The quota used today.
+        // The used quota for today.
         shared_ptr<string> todayUsed_ {};
-        // The total cumulative credits.
+        // The cumulative total credits.
         shared_ptr<int64_t> totalCredit_ {};
         // The cumulative used quota.
         shared_ptr<string> totalUsed_ {};
         // The cumulative credit usage.
         shared_ptr<int64_t> totalUsedCredit_ {};
-        // The alert threshold percentage (0–100).
+        // The alert threshold percentage, ranging from 0 to 100.
         shared_ptr<int32_t> warnPercent_ {};
-        // The credit usage in the last 1 week.
+        // The credit usage in the last week.
         shared_ptr<int64_t> weekUsedCredit_ {};
       };
 
@@ -406,7 +458,7 @@ namespace Models
     protected:
       // The usage data details.
       shared_ptr<UsageInfoList::UsageInfo> usageInfo_ {};
-      // The usage primary key. When `UsageType=User`, this is the `aliUid`. When `UsageType=CreditPackage`, this is the credit package instance ID. When `UsageType=Agent`, this is the `AgentId`.
+      // The primary key for usage. The value is `aliUid` when `UsageType` is `User`, the credit package instance ID when `UsageType` is `CreditPackage`, and the agent ID when `UsageType` is `Agent`.
       shared_ptr<string> usageInfoKey_ {};
     };
 
@@ -431,7 +483,7 @@ namespace Models
   protected:
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The array of usage data.
+    // The business data array.
     shared_ptr<vector<DescribeCreditUsageInfoResponseBody::UsageInfoList>> usageInfoList_ {};
   };
 

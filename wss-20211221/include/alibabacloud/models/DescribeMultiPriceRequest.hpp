@@ -49,6 +49,7 @@ namespace Models
         DARABONBA_PTR_TO_JSON(ResourceIds, resourceIds_);
         DARABONBA_PTR_TO_JSON(ResourceType, resourceType_);
         DARABONBA_PTR_TO_JSON(SavingPlanPeriod, savingPlanPeriod_);
+        DARABONBA_PTR_TO_JSON(UnifiedExpireDay, unifiedExpireDay_);
       };
       friend void from_json(const Darabonba::Json& j, OrderItems& obj) { 
         DARABONBA_PTR_FROM_JSON(Amount, amount_);
@@ -61,6 +62,7 @@ namespace Models
         DARABONBA_PTR_FROM_JSON(ResourceIds, resourceIds_);
         DARABONBA_PTR_FROM_JSON(ResourceType, resourceType_);
         DARABONBA_PTR_FROM_JSON(SavingPlanPeriod, savingPlanPeriod_);
+        DARABONBA_PTR_FROM_JSON(UnifiedExpireDay, unifiedExpireDay_);
       };
       OrderItems() = default ;
       OrderItems(const OrderItems &) = default ;
@@ -114,12 +116,36 @@ namespace Models
         // The key of the module.
         shared_ptr<string> key_ {};
         // The value of the module.
+        // 
+        // The following section describes the sample values and valid values of each key for the Enterprise Edition monthly package:
+        // 
+        // - RegionId: cn-shanghai
+        // - InstanceType: eds.enterprise_office.4c8g
+        // - DurationType (hours): Valid values: 
+        //    - 120
+        //    - 250
+        // - OsType: Valid values: 
+        //    - Windows
+        //    - Linux
+        // - RootDiskSize (GiB): 80
+        // - RootDiskCategory: Valid values: 
+        //    - cloud_efficiency (ultra cloud disk)
+        //    - cloud_auto (ESSD AutoPL cloud disk)
+        //    - cloud_essd (enhanced standard SSD, supported only by specific instance types)
+        // - RootPerformanceLevel: Valid values: 
+        //    - PL0
+        //    - PL1
+        //    - PL2
+        //    - PL3
+        // - DataDiskSize (GiB): Same as RootDiskSize.
+        // - DataDiskCategory: Same as RootDiskCategory.
+        // - DataPerformanceLevel: Same as RootPerformanceLevel.
         shared_ptr<string> value_ {};
       };
 
       virtual bool empty() const override { return this->amount_ == nullptr
         && this->components_ == nullptr && this->data_ == nullptr && this->instanceIds_ == nullptr && this->period_ == nullptr && this->periodUnit_ == nullptr
-        && this->promotionId_ == nullptr && this->resourceIds_ == nullptr && this->resourceType_ == nullptr && this->savingPlanPeriod_ == nullptr; };
+        && this->promotionId_ == nullptr && this->resourceIds_ == nullptr && this->resourceType_ == nullptr && this->savingPlanPeriod_ == nullptr && this->unifiedExpireDay_ == nullptr; };
       // amount Field Functions 
       bool hasAmount() const { return this->amount_ != nullptr;};
       void deleteAmount() { this->amount_ = nullptr;};
@@ -196,27 +222,41 @@ namespace Models
       inline OrderItems& setSavingPlanPeriod(string savingPlanPeriod) { DARABONBA_PTR_SET_VALUE(savingPlanPeriod_, savingPlanPeriod) };
 
 
+      // unifiedExpireDay Field Functions 
+      bool hasUnifiedExpireDay() const { return this->unifiedExpireDay_ != nullptr;};
+      void deleteUnifiedExpireDay() { this->unifiedExpireDay_ = nullptr;};
+      inline int32_t getUnifiedExpireDay() const { DARABONBA_PTR_GET_DEFAULT(unifiedExpireDay_, 0) };
+      inline OrderItems& setUnifiedExpireDay(int32_t unifiedExpireDay) { DARABONBA_PTR_SET_VALUE(unifiedExpireDay_, unifiedExpireDay) };
+
+
     protected:
-      // The quantity to purchase.
+      // The purchase quantity.
       shared_ptr<int32_t> amount_ {};
       // The list of product modules.
       shared_ptr<vector<OrderItems::Components>> components_ {};
-      // The extended properties.
+      // The extended data of the order item, which is passed as a JSON string. The structure varies based on the order scenario. For the billing method change scenario, you can pass the instance and the list of target billing methods. If no extended data is required, you can leave this parameter empty.
       shared_ptr<string> data_ {};
       // The list of instance IDs.
       shared_ptr<vector<string>> instanceIds_ {};
-      // The subscription duration. Valid values:
+      // The subscription period. Valid values:
+      // 
+      // - When `PeriodUnit` is set to `Year`: 1, 2, and 3.
+      // 
+      // - When `PeriodUnit` is set to `Month`: 1, 2, 3, and 6.
       shared_ptr<int32_t> period_ {};
-      // The unit of the subscription duration.
+      // The unit of the subscription period.
       shared_ptr<string> periodUnit_ {};
-      // The promotion ID.
+      // The ID of the promotion.
       shared_ptr<string> promotionId_ {};
       // The list of resource IDs.
       shared_ptr<vector<string>> resourceIds_ {};
       // The resource type.
+      // > This parameter is case-sensitive. Make sure that the spelling is correct.
       shared_ptr<string> resourceType_ {};
-      // The period of the savings plan.
+      // The subscription period of the savings plan. For example, 1Year indicates one year.
       shared_ptr<string> savingPlanPeriod_ {};
+      // The unified expiration date, which can be a day from the 1st to the 28th of a month. If you do not specify this parameter, the instance is renewed in the standard way.
+      shared_ptr<int32_t> unifiedExpireDay_ {};
     };
 
     virtual bool empty() const override { return this->orderItems_ == nullptr
@@ -256,9 +296,9 @@ namespace Models
     shared_ptr<vector<DescribeMultiPriceRequest::OrderItems>> orderItems_ {};
     // The order type.
     shared_ptr<string> orderType_ {};
-    // The package code. You do not need to specify this parameter if the product is not a package.
+    // The package code. You do not need to specify this parameter for non-package types.
     shared_ptr<string> packageCode_ {};
-    // The user ID of resource ownership in the reselling pattern. You do not need to specify this parameter if the product is not in the reselling pattern.
+    // The user ID for resource ownership in the reseller pattern. You do not need to specify this parameter for non-reseller patterns.
     shared_ptr<int64_t> resellerOwnerUid_ {};
   };
 

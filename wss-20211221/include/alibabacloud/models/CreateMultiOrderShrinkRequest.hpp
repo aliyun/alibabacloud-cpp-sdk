@@ -53,6 +53,7 @@ namespace Models
         DARABONBA_PTR_TO_JSON(PromotionId, promotionId_);
         DARABONBA_PTR_TO_JSON(ResourceIds, resourceIds_);
         DARABONBA_PTR_TO_JSON(ResourceType, resourceType_);
+        DARABONBA_PTR_TO_JSON(UnifiedExpireDay, unifiedExpireDay_);
       };
       friend void from_json(const Darabonba::Json& j, OrderItems& obj) { 
         DARABONBA_PTR_FROM_JSON(Amount, amount_);
@@ -67,6 +68,7 @@ namespace Models
         DARABONBA_PTR_FROM_JSON(PromotionId, promotionId_);
         DARABONBA_PTR_FROM_JSON(ResourceIds, resourceIds_);
         DARABONBA_PTR_FROM_JSON(ResourceType, resourceType_);
+        DARABONBA_PTR_FROM_JSON(UnifiedExpireDay, unifiedExpireDay_);
       };
       OrderItems() = default ;
       OrderItems(const OrderItems &) = default ;
@@ -121,22 +123,22 @@ namespace Models
         shared_ptr<string> key_ {};
         // The value of the module.
         // 
-        // The following section describes the sample values and valid values for each key of the Enterprise Edition monthly duration package:
+        // The sample values and valid values for each key of the monthly duration package for Enterprise Edition are as follows:
         // 
-        // - RegionId: ap-southeast-1
+        // - RegionId: cn-shanghai
         // - InstanceType: eds.enterprise_office.4c8g
-        // - DurationType (hours): Valid values: 
+        // - DurationType (hours): [Enum] 
         //    - 120
         //    - 250
-        // - OsType: Valid values: 
+        // - OsType: [Enum] 
         //    - Windows
         //    - Linux
         // - RootDiskSize (GiB): 80
-        // - RootDiskCategory: Valid values: 
+        // - RootDiskCategory: [Enum] 
         //    - cloud_efficiency (ultra cloud disk)
-        //    - cloud_auto (ultra-fast cloud disk)
-        //    - cloud_essd (enhanced standard SSD. Only specific instance types support this value.)
-        // - RootPerformanceLevel: Valid values: 
+        //    - cloud_auto (ESSD AutoPL cloud disk)
+        //    - cloud_essd (enhanced standard SSD, supported only by specific instance types)
+        // - RootPerformanceLevel: [Enum] 
         //    - PL0
         //    - PL1
         //    - PL2
@@ -150,7 +152,7 @@ namespace Models
       virtual bool empty() const override { return this->amount_ == nullptr
         && this->autoPay_ == nullptr && this->autoRenew_ == nullptr && this->buyChange_ == nullptr && this->components_ == nullptr && this->instanceIds_ == nullptr
         && this->paidCallBackUrl_ == nullptr && this->period_ == nullptr && this->periodUnit_ == nullptr && this->promotionId_ == nullptr && this->resourceIds_ == nullptr
-        && this->resourceType_ == nullptr; };
+        && this->resourceType_ == nullptr && this->unifiedExpireDay_ == nullptr; };
       // amount Field Functions 
       bool hasAmount() const { return this->amount_ != nullptr;};
       void deleteAmount() { this->amount_ = nullptr;};
@@ -241,41 +243,50 @@ namespace Models
       inline OrderItems& setResourceType(string resourceType) { DARABONBA_PTR_SET_VALUE(resourceType_, resourceType) };
 
 
+      // unifiedExpireDay Field Functions 
+      bool hasUnifiedExpireDay() const { return this->unifiedExpireDay_ != nullptr;};
+      void deleteUnifiedExpireDay() { this->unifiedExpireDay_ = nullptr;};
+      inline int32_t getUnifiedExpireDay() const { DARABONBA_PTR_GET_DEFAULT(unifiedExpireDay_, 0) };
+      inline OrderItems& setUnifiedExpireDay(int32_t unifiedExpireDay) { DARABONBA_PTR_SET_VALUE(unifiedExpireDay_, unifiedExpireDay) };
+
+
     protected:
-      // The quantity to purchase.
+      // The purchase quantity.
       shared_ptr<int32_t> amount_ {};
       // Specifies whether to enable automatic payment.
       shared_ptr<bool> autoPay_ {};
       // Specifies whether to enable auto-renewal.
       shared_ptr<bool> autoRenew_ {};
-      // Specifies whether this is a change purchase.
+      // Specifies whether to modify the configuration of the monthly duration package.
       shared_ptr<bool> buyChange_ {};
       // The product modules.
       shared_ptr<vector<OrderItems::Components>> components_ {};
       // The list of instance IDs.
       shared_ptr<vector<string>> instanceIds_ {};
-      // The callback URL after the payment is completed.
+      // The callback URL after the order is paid. Specify the URL to receive the payment result based on your business requirements.
       shared_ptr<string> paidCallBackUrl_ {};
-      // The subscription duration. Valid values:
+      // The subscription period. Valid values:
       // 
-      // - If PeriodUnit is set to Year: 1, 2, 3, and 5.
+      // - If `PeriodUnit` is set to `Year`, valid values are 1, 2, 3, and 5.
       // 
-      // - If PeriodUnit is set to Month: 1, 2, 3, and 6.
+      // - If `PeriodUnit` is set to `Month`, valid values are 1, 2, 3, and 6.
       shared_ptr<int32_t> period_ {};
-      // The unit of the subscription duration for a subscription instance.
+      // The unit of the subscription period for the subscription instance.
       // 
-      // > This parameter is required only when the billing method of the instance is subscription. This parameter is case-sensitive. Make sure that the value is spelled correctly.
+      // > This parameter is required only when the billing method of the instance is subscription. This parameter is case-sensitive. Make sure that the spelling is correct.
       shared_ptr<string> periodUnit_ {};
-      // The promotion ID.
+      // The ID of the promotion.
       shared_ptr<string> promotionId_ {};
       // The list of resource IDs.
-      // > For monthly duration packages, this parameter corresponds to the cloud desktop ID. This parameter is required when OrderType is not set to `create`.
+      // > For the monthly duration package, this parameter corresponds to the cloud desktop ID. This parameter is required when OrderType is not set to `create`.
       shared_ptr<vector<string>> resourceIds_ {};
       // The resource type.
-      // > This parameter is case-sensitive. Make sure that the value is spelled correctly.
+      // > This parameter is case-sensitive. Make sure that the spelling is correct.
       // 
       // This parameter is required.
       shared_ptr<string> resourceType_ {};
+      // The unified expiration date, which can be a day from the 1st to the 28th of a month. If this parameter is not specified, the standard renewal process is applied.
+      shared_ptr<int32_t> unifiedExpireDay_ {};
     };
 
     virtual bool empty() const override { return this->channelCookie_ == nullptr
@@ -318,7 +329,7 @@ namespace Models
 
 
   protected:
-    // The channel cookie information.
+    // The cookie information used for channel attribution. Specify this parameter if channel attribution information exists. Otherwise, you can leave it empty.
     shared_ptr<string> channelCookie_ {};
     // The product information.
     shared_ptr<vector<CreateMultiOrderShrinkRequest::OrderItems>> orderItems_ {};
@@ -326,7 +337,7 @@ namespace Models
     shared_ptr<string> orderType_ {};
     // The extended properties.
     shared_ptr<string> propertiesShrink_ {};
-    // The UID of the reseller owner.
+    // The ID of the actual end user. This parameter is required when a reseller partner places an order.
     shared_ptr<int64_t> resellerOwnerUid_ {};
   };
 
