@@ -45,10 +45,12 @@ namespace Models
       friend void to_json(Darabonba::Json& j, const ChargeModules& obj) { 
         DARABONBA_PTR_TO_JSON(ModuleCode, moduleCode_);
         DARABONBA_PTR_TO_JSON(Usage, usage_);
+        DARABONBA_PTR_TO_JSON(UsageDecimal, usageDecimal_);
       };
       friend void from_json(const Darabonba::Json& j, ChargeModules& obj) { 
         DARABONBA_PTR_FROM_JSON(ModuleCode, moduleCode_);
         DARABONBA_PTR_FROM_JSON(Usage, usage_);
+        DARABONBA_PTR_FROM_JSON(UsageDecimal, usageDecimal_);
       };
       ChargeModules() = default ;
       ChargeModules(const ChargeModules &) = default ;
@@ -62,7 +64,7 @@ namespace Models
       virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
       virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
       virtual bool empty() const override { return this->moduleCode_ == nullptr
-        && this->usage_ == nullptr; };
+        && this->usage_ == nullptr && this->usageDecimal_ == nullptr; };
       // moduleCode Field Functions 
       bool hasModuleCode() const { return this->moduleCode_ != nullptr;};
       void deleteModuleCode() { this->moduleCode_ = nullptr;};
@@ -77,11 +79,20 @@ namespace Models
       inline ChargeModules& setUsage(int64_t usage) { DARABONBA_PTR_SET_VALUE(usage_, usage) };
 
 
+      // usageDecimal Field Functions 
+      bool hasUsageDecimal() const { return this->usageDecimal_ != nullptr;};
+      void deleteUsageDecimal() { this->usageDecimal_ = nullptr;};
+      inline double getUsageDecimal() const { DARABONBA_PTR_GET_DEFAULT(usageDecimal_, 0.0) };
+      inline ChargeModules& setUsageDecimal(double usageDecimal) { DARABONBA_PTR_SET_VALUE(usageDecimal_, usageDecimal) };
+
+
     protected:
-      // The pricing module identifier.
+      // The billing module code.
       shared_ptr<string> moduleCode_ {};
-      // The usage of the pricing module.
+      // The usage of the billing module.
       shared_ptr<int64_t> usage_ {};
+      // The usage of the billing module, which supports integers and decimals. If the billing module is log storage capacity, the usage supports up to one decimal place, such as 10.5. This parameter is optional and has no default value. If this parameter is specified, it takes precedence even if the value is 0. If this parameter is not specified, Usage is used.
+      shared_ptr<double> usageDecimal_ {};
     };
 
     virtual bool empty() const override { return this->chargeCycle_ == nullptr
@@ -131,27 +142,27 @@ namespace Models
 
 
   protected:
-    // The billing cycle for the calculation. Valid values:
-    // - **Year**: Calculates the billing result for one year.
-    // - **Month**: Calculates the billing result for one month.
-    // - **Day**: Calculates the billing result for one day.
+    // The billing cycle. Valid values:
+    // - **Year**: calculates the billing result for one year
+    // - **Month**: calculates the billing result for one month
+    // - **Day**: calculates the billing result for one day
     shared_ptr<string> chargeCycle_ {};
-    // The list of billing modules to calculate.
+    // The list of billing modules to be calculated.
     // 
     // This parameter is required.
     shared_ptr<vector<DescribeChargeResultRequest::ChargeModules>> chargeModules_ {};
     // The metering unit.
     shared_ptr<string> chargeUnit_ {};
-    // The billing type of the instance. Valid values:
-    // - **POSTPAY**: pay-as-you-go WAF instance.
+    // The billing method of the instance. Valid values:
+    // - **POSTPAY**: pay-as-you-go WAF instances
     // 
     // This parameter is required.
     shared_ptr<string> payType_ {};
-    // The region where the WAF instance resides. Valid values:
+    // The region of the WAF instance. Valid values:
     // 
-    // - **cn-hangzhou**: the Chinese mainland.
+    // - **cn-hangzhou**: the Chinese mainland
     // 
-    // - **ap-southeast-1**: outside the Chinese mainland.
+    // - **ap-southeast-1**: outside the Chinese mainland
     shared_ptr<string> regionId_ {};
     // The Alibaba Cloud resource group ID.
     shared_ptr<string> resourceManagerResourceGroupId_ {};

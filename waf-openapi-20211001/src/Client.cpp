@@ -2,11 +2,13 @@
 #include <alibabacloud/WafOpenapi20211001.hpp>
 #include <alibabacloud/Utils.hpp>
 #include <alibabacloud/Openapi.hpp>
+#include <alibabacloud/gateway/POP.hpp>
 #include <map>
 #include <darabonba/Runtime.hpp>
 using namespace std;
 using namespace Darabonba;
 using json = nlohmann::json;
+using namespace AlibabaCloud::Gateway;
 using namespace AlibabaCloud::OpenApi;
 using OpenApiClient = AlibabaCloud::OpenApi::Client;
 using namespace AlibabaCloud::OpenApi::Utils::Models;
@@ -17,6 +19,9 @@ namespace WafOpenapi20211001
 {
 
 AlibabaCloud::WafOpenapi20211001::Client::Client(Config &config): OpenApiClient(config){
+  this->_productId = "waf-openapi";
+  shared_ptr<POP> gatewayClient = make_shared<POP>();
+  this->_spi = gatewayClient;
   this->_endpointRule = "regional";
   this->_endpointMap = json({
     {"cn-qingdao" , "wafopenapi.cn-hangzhou.aliyuncs.com"},
@@ -116,7 +121,7 @@ AddAddressResponse Client::addAddress(const AddAddressRequest &request) {
 }
 
 /**
- * @summary Modifies the resource group to which a protected object belongs.
+ * @summary Modifies the resource group of a protected object.
  *
  * @param request ChangeResourceGroupRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -163,7 +168,7 @@ ChangeResourceGroupResponse Client::changeResourceGroupWithOptions(const ChangeR
 }
 
 /**
- * @summary Modifies the resource group to which a protected object belongs.
+ * @summary Modifies the resource group of a protected object.
  *
  * @param request ChangeResourceGroupRequest
  * @return ChangeResourceGroupResponse
@@ -562,7 +567,7 @@ CreateCloudResourceResponse Client::createCloudResource(const CreateCloudResourc
 }
 
 /**
- * @summary Adds an extension certificate for a cloud native mode resource.
+ * @summary Adds an extension certificate for cloud native mode.
  *
  * @param request CreateCloudResourceExtensionCertRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -609,7 +614,7 @@ CreateCloudResourceExtensionCertResponse Client::createCloudResourceExtensionCer
 }
 
 /**
- * @summary Adds an extension certificate for a cloud native mode resource.
+ * @summary Adds an extension certificate for cloud native mode.
  *
  * @param request CreateCloudResourceExtensionCertRequest
  * @return CreateCloudResourceExtensionCertResponse
@@ -1906,7 +1911,7 @@ DeleteCloudResourceResponse Client::deleteCloudResource(const DeleteCloudResourc
 }
 
 /**
- * @summary Deletes an extension certificate for a cloud service connected in cloud native mode.
+ * @summary Deletes the extended certificate for a resource onboarded in cloud native mode.
  *
  * @param request DeleteCloudResourceExtensionCertRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1953,7 +1958,7 @@ DeleteCloudResourceExtensionCertResponse Client::deleteCloudResourceExtensionCer
 }
 
 /**
- * @summary Deletes an extension certificate for a cloud service connected in cloud native mode.
+ * @summary Deletes the extended certificate for a resource onboarded in cloud native mode.
  *
  * @param request DeleteCloudResourceExtensionCertRequest
  * @return DeleteCloudResourceExtensionCertResponse
@@ -2618,7 +2623,7 @@ DeleteMemberAccountResponse Client::deleteMemberAccount(const DeleteMemberAccoun
 }
 
 /**
- * @summary Queries abnormal cloud resources added in cloud native mode.
+ * @summary Queries abnormal cloud native mode resources.
  *
  * @param request DescribeAbnormalCloudResourcesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2657,7 +2662,7 @@ DescribeAbnormalCloudResourcesResponse Client::describeAbnormalCloudResourcesWit
 }
 
 /**
- * @summary Queries abnormal cloud resources added in cloud native mode.
+ * @summary Queries abnormal cloud native mode resources.
  *
  * @param request DescribeAbnormalCloudResourcesRequest
  * @return DescribeAbnormalCloudResourcesResponse
@@ -3930,7 +3935,7 @@ DescribeApisecProtectionResourcesResponse Client::describeApisecProtectionResour
 }
 
 /**
- * @summary Queries the rules of an API security policy.
+ * @summary Queries the configuration rules for API security policies.
  *
  * @param request DescribeApisecRulesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4001,7 +4006,7 @@ DescribeApisecRulesResponse Client::describeApisecRulesWithOptions(const Describ
 }
 
 /**
- * @summary Queries the rules of an API security policy.
+ * @summary Queries the configuration rules for API security policies.
  *
  * @param request DescribeApisecRulesRequest
  * @return DescribeApisecRulesResponse
@@ -4602,7 +4607,7 @@ DescribeBotAppKeyResponse Client::describeBotAppKey(const DescribeBotAppKeyReque
 }
 
 /**
- * @summary Queries the tag information of bot management rules.
+ * @summary Queries the bot management rule label information.
  *
  * @param request DescribeBotRuleLabelsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4657,7 +4662,7 @@ DescribeBotRuleLabelsResponse Client::describeBotRuleLabelsWithOptions(const Des
 }
 
 /**
- * @summary Queries the tag information of bot management rules.
+ * @summary Queries the bot management rule label information.
  *
  * @param request DescribeBotRuleLabelsRequest
  * @return DescribeBotRuleLabelsResponse
@@ -4842,7 +4847,7 @@ DescribeChargeModuleResponse Client::describeChargeModule(const DescribeChargeMo
 }
 
 /**
- * @summary Queries the pricing results of WAF pricing modules.
+ * @summary Queries the billing results of WAF billing modules.
  *
  * @param request DescribeChargeResultRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4893,7 +4898,7 @@ DescribeChargeResultResponse Client::describeChargeResultWithOptions(const Descr
 }
 
 /**
- * @summary Queries the pricing results of WAF pricing modules.
+ * @summary Queries the billing results of WAF billing modules.
  *
  * @param request DescribeChargeResultRequest
  * @return DescribeChargeResultResponse
@@ -6876,7 +6881,7 @@ DescribeElasticBillsResponse Client::describeElasticBills(const DescribeElasticB
 }
 
 /**
- * @summary Queries the traffic statistics.
+ * @summary Queries traffic statistics information.
  *
  * @param request DescribeFlowChartRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -6931,7 +6936,7 @@ DescribeFlowChartResponse Client::describeFlowChartWithOptions(const DescribeFlo
 }
 
 /**
- * @summary Queries the traffic statistics.
+ * @summary Queries traffic statistics information.
  *
  * @param request DescribeFlowChartRequest
  * @return DescribeFlowChartResponse
@@ -7062,7 +7067,7 @@ DescribeFlowTopUrlResponse Client::describeFlowTopUrl(const DescribeFlowTopUrlRe
 }
 
 /**
- * @summary Queries statistics information about assets detected by the basic API security feature.
+ * @summary Queries the asset statistics information for basic API security detection.
  *
  * @param request DescribeFreeUserAssetCountRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -7101,7 +7106,7 @@ DescribeFreeUserAssetCountResponse Client::describeFreeUserAssetCountWithOptions
 }
 
 /**
- * @summary Queries statistics information about assets detected by the basic API security feature.
+ * @summary Queries the asset statistics information for basic API security detection.
  *
  * @param request DescribeFreeUserAssetCountRequest
  * @return DescribeFreeUserAssetCountResponse
@@ -7162,7 +7167,7 @@ DescribeFreeUserEventCountResponse Client::describeFreeUserEventCount(const Desc
 }
 
 /**
- * @summary Queries the types of security events for basic API security detection.
+ * @summary Queries the security event types for basic API security detection.
  *
  * @param request DescribeFreeUserEventTypesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -7201,7 +7206,7 @@ DescribeFreeUserEventTypesResponse Client::describeFreeUserEventTypesWithOptions
 }
 
 /**
- * @summary Queries the types of security events for basic API security detection.
+ * @summary Queries the security event types for basic API security detection.
  *
  * @param request DescribeFreeUserEventTypesRequest
  * @return DescribeFreeUserEventTypesResponse
@@ -8312,7 +8317,7 @@ DescribeInstanceResponse Client::describeInstance(const DescribeInstanceRequest 
 }
 
 /**
- * @summary Retrieves supported countries and regions outside China for IP-based region blacklist.
+ * @summary Queries the countries and areas outside China supported by the Location Blacklist.
  *
  * @param request DescribeIpAbroadCountryInfosRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -8371,7 +8376,7 @@ DescribeIpAbroadCountryInfosResponse Client::describeIpAbroadCountryInfosWithOpt
 }
 
 /**
- * @summary Retrieves supported countries and regions outside China for IP-based region blacklist.
+ * @summary Queries the countries and areas outside China supported by the Location Blacklist.
  *
  * @param request DescribeIpAbroadCountryInfosRequest
  * @return DescribeIpAbroadCountryInfosResponse
@@ -9580,7 +9585,7 @@ DescribeResourcePortResponse Client::describeResourcePort(const DescribeResource
 }
 
 /**
- * @summary Queries the region IDs of cloud service resources that can be added to Web Application Firewall (WAF) by using the SDK.
+ * @summary Queries the region IDs of SDK-integrated resources, primarily for ALB and MSE.
  *
  * @param request DescribeResourceRegionIdRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -9619,7 +9624,7 @@ DescribeResourceRegionIdResponse Client::describeResourceRegionIdWithOptions(con
 }
 
 /**
- * @summary Queries the region IDs of cloud service resources that can be added to Web Application Firewall (WAF) by using the SDK.
+ * @summary Queries the region IDs of SDK-integrated resources, primarily for ALB and MSE.
  *
  * @param request DescribeResourceRegionIdRequest
  * @return DescribeResourceRegionIdResponse
@@ -9754,7 +9759,7 @@ DescribeResponseCodeTrendGraphResponse Client::describeResponseCodeTrendGraph(co
 }
 
 /**
- * @summary Queries the authorization status of the service-linked role for Web Application Firewall (WAF).
+ * @summary Queries the authorization status.
  *
  * @param request DescribeRoleAuthStatusRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -9789,7 +9794,7 @@ DescribeRoleAuthStatusResponse Client::describeRoleAuthStatusWithOptions(const D
 }
 
 /**
- * @summary Queries the authorization status of the service-linked role for Web Application Firewall (WAF).
+ * @summary Queries the authorization status.
  *
  * @param request DescribeRoleAuthStatusRequest
  * @return DescribeRoleAuthStatusResponse
@@ -10064,7 +10069,7 @@ DescribeRuleHitsTopRuleIdResponse Client::describeRuleHitsTopRuleId(const Descri
 }
 
 /**
- * @summary Queries the top 10 most frequently triggered protection rule types.
+ * @summary Queries the top 10 protection types with the most rule hits.
  *
  * @param request DescribeRuleHitsTopTuleTypeRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -10115,7 +10120,7 @@ DescribeRuleHitsTopTuleTypeResponse Client::describeRuleHitsTopTuleTypeWithOptio
 }
 
 /**
- * @summary Queries the top 10 most frequently triggered protection rule types.
+ * @summary Queries the top 10 protection types with the most rule hits.
  *
  * @param request DescribeRuleHitsTopTuleTypeRequest
  * @return DescribeRuleHitsTopTuleTypeResponse
@@ -11602,7 +11607,7 @@ DescribeUserAbnormalTrendResponse Client::describeUserAbnormalTrend(const Descri
 }
 
 /**
- * @summary Queries user risk types and statistics related to API security in Web Application Firewall (WAF).
+ * @summary Queries API security user risk types and statistics.
  *
  * @param request DescribeUserAbnormalTypeRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -11657,7 +11662,7 @@ DescribeUserAbnormalTypeResponse Client::describeUserAbnormalTypeWithOptions(con
 }
 
 /**
- * @summary Queries user risk types and statistics related to API security in Web Application Firewall (WAF).
+ * @summary Queries API security user risk types and statistics.
  *
  * @param request DescribeUserAbnormalTypeRequest
  * @return DescribeUserAbnormalTypeResponse
@@ -13154,7 +13159,7 @@ ModifyCloudResourceResponse Client::modifyCloudResource(const ModifyCloudResourc
 }
 
 /**
- * @summary Modifies the certificate for a cloud native mode resource.
+ * @summary Modifies the certificates for cloud native mode.
  *
  * @param request ModifyCloudResourceCertRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -13209,7 +13214,7 @@ ModifyCloudResourceCertResponse Client::modifyCloudResourceCertWithOptions(const
 }
 
 /**
- * @summary Modifies the certificate for a cloud native mode resource.
+ * @summary Modifies the certificates for cloud native mode.
  *
  * @param request ModifyCloudResourceCertRequest
  * @return ModifyCloudResourceCertResponse
@@ -13220,7 +13225,7 @@ ModifyCloudResourceCertResponse Client::modifyCloudResourceCert(const ModifyClou
 }
 
 /**
- * @summary Modifies the default certificate for a cloud native mode resource.
+ * @summary Modifies the default certificate for cloud native mode.
  *
  * @param request ModifyCloudResourceDefaultCertRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -13267,7 +13272,7 @@ ModifyCloudResourceDefaultCertResponse Client::modifyCloudResourceDefaultCertWit
 }
 
 /**
- * @summary Modifies the default certificate for a cloud native mode resource.
+ * @summary Modifies the default certificate for cloud native mode.
  *
  * @param request ModifyCloudResourceDefaultCertRequest
  * @return ModifyCloudResourceDefaultCertResponse
@@ -15362,7 +15367,7 @@ ModifyUserWafLogStatusResponse Client::modifyUserWafLogStatus(const ModifyUserWa
 }
 
 /**
- * @summary Re-connects a cloud service to WAF. This operation is used only when the cloud native mode connection status is protection exception.
+ * @summary Re-onboards a cloud service to WAF. This operation is used only when the protection status of the cloud service in cloud native mode is abnormal.
  *
  * @param request ReCreateCloudResourceRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -15417,7 +15422,7 @@ ReCreateCloudResourceResponse Client::reCreateCloudResourceWithOptions(const ReC
 }
 
 /**
- * @summary Re-connects a cloud service to WAF. This operation is used only when the cloud native mode connection status is protection exception.
+ * @summary Re-onboards a cloud service to WAF. This operation is used only when the protection status of the cloud service in cloud native mode is abnormal.
  *
  * @param request ReCreateCloudResourceRequest
  * @return ReCreateCloudResourceResponse
@@ -15586,7 +15591,7 @@ TagResourcesResponse Client::tagResources(const TagResourcesRequest &request) {
 }
 
 /**
- * @summary Removes tags from resources and then deletes the tags.
+ * @summary Removes and deletes tags from one or more specified resources.
  *
  * @param request UntagResourcesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -15633,7 +15638,7 @@ UntagResourcesResponse Client::untagResourcesWithOptions(const UntagResourcesReq
 }
 
 /**
- * @summary Removes tags from resources and then deletes the tags.
+ * @summary Removes and deletes tags from one or more specified resources.
  *
  * @param request UntagResourcesRequest
  * @return UntagResourcesResponse

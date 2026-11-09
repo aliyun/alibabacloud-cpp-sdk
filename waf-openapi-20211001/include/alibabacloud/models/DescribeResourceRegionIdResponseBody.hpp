@@ -51,9 +51,9 @@ namespace Models
 
 
   protected:
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // The region IDs of cloud service resources that can be added to WAF by using the SDK.
+    // The list of region IDs of SDK-integrated resources.
     shared_ptr<vector<string>> resourceRegionIds_ {};
   };
 

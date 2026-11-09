@@ -97,15 +97,14 @@ namespace Models
 
 
   protected:
-    // The ID of the hybrid cloud cluster.
-    // 
-    // > This parameter applies only to hybrid cloud scenarios. Call the [DescribeHybridCloudClusters](https://help.aliyun.com/document_detail/2849376.html) operation to query the IDs of hybrid cloud clusters.
+    // The ID of the hybrid cloud cluster. 
+    // > This parameter applies only to hybrid cloud scenarios. You can call the [DescribeHybridCloudClusters](https://help.aliyun.com/document_detail/2849376.html) operation to obtain the hybrid cloud cluster information.
     shared_ptr<string> clusterId_ {};
-    // The end of the time range to query. Specify the time as a UNIX timestamp in seconds. The time is in UTC.
+    // The end time of the query, in UNIX timestamp format (UTC). Unit: seconds.
     shared_ptr<int64_t> endTime_ {};
-    // The ID of the WAF instance.
+    // Instance ID of the WAF instance. 
     // 
-    // > Call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query the ID of the WAF instance.
+    // > You can call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query instance ID of the current WAF instance.
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
@@ -117,11 +116,11 @@ namespace Models
     shared_ptr<string> regionId_ {};
     // The ID of the Alibaba Cloud resource group.
     shared_ptr<string> resourceManagerResourceGroupId_ {};
-    // The beginning of the time range to query. Specify the time as a UNIX timestamp in seconds. The time is in UTC.
+    // The start time of the query, in UNIX timestamp format (UTC). Unit: seconds.
     shared_ptr<int64_t> startTime_ {};
-    // The list of risk states for which to collect statistics.
+    // The list of statuses for risk statistics.
     // 
-    // > By default, statistics are collected for risks in the **toBeConfirmed**, **toBeFixed**, **toBeVerified**, and **notFixed** states.
+    // > By default, risk data in the **toBeConfirmed**, **toBeFixed**, **toBeVerified**, and **notFixed** states is collected.
     shared_ptr<vector<string>> userStatusList_ {};
   };
 

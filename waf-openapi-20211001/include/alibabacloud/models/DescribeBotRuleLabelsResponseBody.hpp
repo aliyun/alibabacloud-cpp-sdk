@@ -131,13 +131,13 @@ namespace Models
 
 
     protected:
-      // The crawler behavior corresponding to the rule tag. Valid values:
+      // The bot behavior corresponding to the rule label.
       // 
-      // - **malicious**: malicious crawler.
-      // - **suspicious**: suspected crawler.
-      // - **normal**: normal crawler.
+      // - **malicious**: malicious bots.
+      // - **suspicious**: suspicious bots.
+      // - **normal**: normal bots.
       shared_ptr<string> botBehavior_ {};
-      // The default action. Valid values:
+      // The default action.
       // 
       // - **block**: block.
       // - **monitor**: monitor.
@@ -148,24 +148,26 @@ namespace Models
       shared_ptr<string> defaultAction_ {};
       // The default configurations corresponding to the label.
       shared_ptr<string> defaultConfig_ {};
-      // The default status of the tag rule. Valid values:
+      // The default status of the label rule.
       // 
-      // - **1**: enabled.
-      // - **0**: disabled.
+      // - **1**: The rule is enabled.
+      // - **0**: The rule is disabled.
       shared_ptr<int32_t> defaultStatus_ {};
-      // The bot management rule tag.
+      // The bot management rule label.
       shared_ptr<string> labelKey_ {};
-      // The tag status. Valid values:
+      // The status of the label.
       // 
       // - **online**: online.
       // - **wait_offline**: pending offline.
       shared_ptr<string> labelStatus_ {};
-      // The type of the bot rule tag.
+      // The type of the bot rule label.
       shared_ptr<string> labelType_ {};
-      // The collection of bot management protection scenarios to which the rule belongs. Multiple scenarios are separated by commas (,). Valid values:
+      // The bot management protection scenarios to which the rule belongs. Multiple scenarios are separated by commas (,). Valid values:
       // 
-      // - **web**: Web protection scenario.
-      // - **app**: App protection scenario.
+      // - **web**: the web protection scenario.
+      // - **app**: the app protection scenario.
+      // - **agentic_web**: the Agentic Web protection scenario.
+      // - **agentic_app**: the Agentic App protection scenario.
       shared_ptr<string> subScene_ {};
     };
 
@@ -209,17 +211,17 @@ namespace Models
 
 
   protected:
-    // The number of entries per page in a paged query. Valid values: 1 to 200. Default value: 20.
+    // The number of entries to return per paging in a paged query. Valid values: 1 to 200. Default value: 20.
     shared_ptr<int32_t> maxResults_ {};
-    // The pagination token for the next page. If a next page exists, this field returns a value.
+    // The pagination token for the next page. This parameter is returned only if a next page exists.
     // 
-    // > If this parameter returns a value, a next page exists. Use the returned **NextToken** as a request parameter to retrieve the next page of data. Repeat until no value is returned, which indicates that all data has been retrieved.
+    // > If this parameter is returned, it indicates that there is a next page. You can use the returned **NextToken** as a request parameter to obtain the data of the next page until no value is returned, which indicates that all data is obtained.
     shared_ptr<string> nextToken_ {};
     // The ID of the request.
     shared_ptr<string> requestId_ {};
-    // The list of bot management rule tags.
+    // The list of bot management rule labels.
     shared_ptr<vector<DescribeBotRuleLabelsResponseBody::RuleLabels>> ruleLabels_ {};
-    // The total number of entries returned.
+    // The total number of returned results.
     shared_ptr<int32_t> totalCount_ {};
   };
 

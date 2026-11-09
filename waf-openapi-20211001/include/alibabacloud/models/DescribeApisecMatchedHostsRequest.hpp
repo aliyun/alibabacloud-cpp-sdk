@@ -104,32 +104,32 @@ namespace Models
 
   protected:
     // The ID of the hybrid cloud cluster.
-    // > This parameter applies only to hybrid cloud scenarios. You can call the [DescribeHybridCloudClusters](https://help.aliyun.com/document_detail/2849376.html) operation to obtain hybrid cloud cluster information.
+    // > This parameter applies only to hybrid cloud scenarios. You can call the [DescribeHybridCloudClusters](https://help.aliyun.com/document_detail/2849376.html) operation to obtain the hybrid cloud cluster information.
     shared_ptr<string> clusterId_ {};
     // Instance ID of the WAF instance.
     // 
-    // > You can call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query instance ID of the WAF instance.
+    // > You can call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query instance ID of the current WAF instance.
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
     // The domain name or IP address.
     shared_ptr<string> matchedHost_ {};
-    // The page number to return in a paging query. Default value: **1**, which indicates the first page.
+    // The number of the page to return in a paged query. Default value: **1**, which indicates the first page of the paging result.
     shared_ptr<string> pageNumber_ {};
-    // The number of entries per page in a paging query. Default value: **10**, which indicates 10 entries per page.
+    // The number of entries to return on each page in a paged query. Default value: **10**, which indicates that 10 entries are returned on each page during paging.
     shared_ptr<string> pageSize_ {};
-    // The region where the WAF instance is deployed. Valid values:
+    // The region where the WAF instance resides. Valid values:
     // 
-    // - **cn-hangzhou**: the Chinese mainland.
+    // - **cn-hangzhou**: the Chinese mainland
     // 
-    // - **ap-southeast-1**: outside the Chinese mainland.
+    // - **ap-southeast-1**: outside the Chinese mainland
     shared_ptr<string> regionId_ {};
     // The ID of the Alibaba Cloud resource group.
     shared_ptr<string> resourceManagerResourceGroupId_ {};
     // The detection type. Valid values:
-    // - **api**: the domain name list of API assets.
-    // - **abnormal**: the domain name list of risks.
-    // - **event**: the domain name list of security events.
+    // - **api**: the list of domain names for API assets
+    // - **abnormal**: the list of domain names with risks
+    // - **event**: the list of domain names for security events
     shared_ptr<string> type_ {};
   };
 

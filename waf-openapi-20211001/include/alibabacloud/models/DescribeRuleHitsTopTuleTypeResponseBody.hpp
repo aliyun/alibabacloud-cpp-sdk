@@ -72,19 +72,19 @@ namespace Models
     protected:
       // The number of requests that hit the rule.
       shared_ptr<int64_t> count_ {};
-      // The type of rule that was hit. This parameter is not returned by default, which indicates that data for all rule types is returned.
+      // The type of the rule hit by the protected object. By default, this parameter is not returned, which indicates that all rules are displayed. Valid values:
       // 
-      // - **waf**: basic protection rules.
+      // - **waf**: basic protection rule.
       // 
-      // - **blacklist**: IP address blacklist.
+      // - **blacklist**: IP blacklist.
       // 
-      // - **custom**: custom rules.
+      // - **custom**: custom rule.
       // 
-      // - **antiscan**: scan protection rules.
+      // - **antiscan**: scan protection rule.
       // 
-      // - **cc_system**: HTTP flood protection rules.
+      // - **cc_system**: HTTP flood protection rule.
       // 
-      // - **region_block**: location blacklist.
+      // - **region_block**: area blocking.
       // 
       // - **scene**: bot management.
       // 
@@ -111,9 +111,9 @@ namespace Models
 
 
   protected:
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // The top 10 protection rule types that were hit.
+    // The top 10 protection types with the most rule hits.
     shared_ptr<vector<DescribeRuleHitsTopTuleTypeResponseBody::RuleHitsTopTuleType>> ruleHitsTopTuleType_ {};
   };
 

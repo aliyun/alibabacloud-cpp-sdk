@@ -101,35 +101,26 @@ namespace Models
     protected:
       // The ID of the rule.
       shared_ptr<int64_t> id_ {};
-      // The details of the rule. The value is a string that is converted from a JSON object.
+      // The rule details, formatted as a JSON string constructed from a series of parameters.
       shared_ptr<string> rule_ {};
       // The status of the rule. Valid values:
       // 
-      // - **1**: enabled
+      // - **1**: Enabled.
       // 
-      // - **0**: disabled
+      // - **0**: Disabled.
       shared_ptr<int64_t> status_ {};
-      // The type of the rule. Valid values:
-      // 
-      // - **risk**: threat detection
-      // 
-      // - **event**: security event
-      // 
-      // - **sensitive_word**: sensitive data
-      // 
-      // - **auth_flag**: authentication credential
-      // 
-      // - **api_tag**: business purpose
-      // 
-      // - **desensitization**: data masking
-      // 
-      // - **whitelist**: whitelist
-      // 
-      // - **recognition**: API.
-      // 
-      // - **offline_api**: lifecycle management
+      // The rule type. Valid values:
+      // - **risk**: Risk detection.
+      // - **event**: Security events.
+      // - **sensitive_word**: Sensitive data.
+      // - **auth_flag**: Authentication credentials.
+      // - **api_tag**: Business purpose.
+      // - **desensitization**: Data masking.
+      // - **whitelist**: Whitelist.
+      // - **recognition**: API identification.
+      // - **offline_api**: Lifecycle management.
       shared_ptr<string> type_ {};
-      // The time when the rule was updated. This value is a UNIX timestamp. Unit: seconds.
+      // The update time of the rule. The time is a UNIX timestamp in UTC. Unit: seconds.
       shared_ptr<int64_t> updateTime_ {};
     };
 
@@ -161,9 +152,9 @@ namespace Models
   protected:
     // The list of rules.
     shared_ptr<vector<DescribeApisecRulesResponseBody::Data>> data_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // The total number of entries returned.
+    // The total number of returned entries.
     shared_ptr<int64_t> totalCount_ {};
   };
 

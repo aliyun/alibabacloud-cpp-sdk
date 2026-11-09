@@ -48,11 +48,9 @@ namespace Models
 
 
   protected:
-    // Indicates whether the service-linked role for WAF is authorized.
-    // 
-    // - **true**: The service-linked role is authorized.
-    // 
-    // - **false**: The service-linked role is not authorized.
+    // The authorization status. Valid values:
+    // - **false**: Not authorized.
+    // - **true**: Authorized.
     shared_ptr<bool> authStatus_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

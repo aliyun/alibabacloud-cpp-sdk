@@ -38,7 +38,7 @@ namespace WafOpenapi20211001
       Models::AddAddressResponse addAddress(const Models::AddAddressRequest &request);
 
       /**
-       * @summary Modifies the resource group to which a protected object belongs.
+       * @summary Modifies the resource group of a protected object.
        *
        * @param request ChangeResourceGroupRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -47,7 +47,7 @@ namespace WafOpenapi20211001
       Models::ChangeResourceGroupResponse changeResourceGroupWithOptions(const Models::ChangeResourceGroupRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Modifies the resource group to which a protected object belongs.
+       * @summary Modifies the resource group of a protected object.
        *
        * @param request ChangeResourceGroupRequest
        * @return ChangeResourceGroupResponse
@@ -171,7 +171,7 @@ namespace WafOpenapi20211001
       Models::CreateCloudResourceResponse createCloudResource(const Models::CreateCloudResourceRequest &request);
 
       /**
-       * @summary Adds an extension certificate for a cloud native mode resource.
+       * @summary Adds an extension certificate for cloud native mode.
        *
        * @param request CreateCloudResourceExtensionCertRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -180,7 +180,7 @@ namespace WafOpenapi20211001
       Models::CreateCloudResourceExtensionCertResponse createCloudResourceExtensionCertWithOptions(const Models::CreateCloudResourceExtensionCertRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Adds an extension certificate for a cloud native mode resource.
+       * @summary Adds an extension certificate for cloud native mode.
        *
        * @param request CreateCloudResourceExtensionCertRequest
        * @return CreateCloudResourceExtensionCertResponse
@@ -522,7 +522,7 @@ namespace WafOpenapi20211001
       Models::DeleteCloudResourceResponse deleteCloudResource(const Models::DeleteCloudResourceRequest &request);
 
       /**
-       * @summary Deletes an extension certificate for a cloud service connected in cloud native mode.
+       * @summary Deletes the extended certificate for a resource onboarded in cloud native mode.
        *
        * @param request DeleteCloudResourceExtensionCertRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -531,7 +531,7 @@ namespace WafOpenapi20211001
       Models::DeleteCloudResourceExtensionCertResponse deleteCloudResourceExtensionCertWithOptions(const Models::DeleteCloudResourceExtensionCertRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Deletes an extension certificate for a cloud service connected in cloud native mode.
+       * @summary Deletes the extended certificate for a resource onboarded in cloud native mode.
        *
        * @param request DeleteCloudResourceExtensionCertRequest
        * @return DeleteCloudResourceExtensionCertResponse
@@ -742,7 +742,7 @@ namespace WafOpenapi20211001
       Models::DeleteMemberAccountResponse deleteMemberAccount(const Models::DeleteMemberAccountRequest &request);
 
       /**
-       * @summary Queries abnormal cloud resources added in cloud native mode.
+       * @summary Queries abnormal cloud native mode resources.
        *
        * @param request DescribeAbnormalCloudResourcesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -751,7 +751,7 @@ namespace WafOpenapi20211001
       Models::DescribeAbnormalCloudResourcesResponse describeAbnormalCloudResourcesWithOptions(const Models::DescribeAbnormalCloudResourcesRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries abnormal cloud resources added in cloud native mode.
+       * @summary Queries abnormal cloud native mode resources.
        *
        * @param request DescribeAbnormalCloudResourcesRequest
        * @return DescribeAbnormalCloudResourcesResponse
@@ -1048,7 +1048,7 @@ namespace WafOpenapi20211001
       Models::DescribeApisecProtectionResourcesResponse describeApisecProtectionResources(const Models::DescribeApisecProtectionResourcesRequest &request);
 
       /**
-       * @summary Queries the rules of an API security policy.
+       * @summary Queries the configuration rules for API security policies.
        *
        * @param request DescribeApisecRulesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1057,7 +1057,7 @@ namespace WafOpenapi20211001
       Models::DescribeApisecRulesResponse describeApisecRulesWithOptions(const Models::DescribeApisecRulesRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the rules of an API security policy.
+       * @summary Queries the configuration rules for API security policies.
        *
        * @param request DescribeApisecRulesRequest
        * @return DescribeApisecRulesResponse
@@ -1218,7 +1218,7 @@ namespace WafOpenapi20211001
       Models::DescribeBotAppKeyResponse describeBotAppKey(const Models::DescribeBotAppKeyRequest &request);
 
       /**
-       * @summary Queries the tag information of bot management rules.
+       * @summary Queries the bot management rule label information.
        *
        * @param request DescribeBotRuleLabelsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1227,7 +1227,7 @@ namespace WafOpenapi20211001
       Models::DescribeBotRuleLabelsResponse describeBotRuleLabelsWithOptions(const Models::DescribeBotRuleLabelsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the tag information of bot management rules.
+       * @summary Queries the bot management rule label information.
        *
        * @param request DescribeBotRuleLabelsRequest
        * @return DescribeBotRuleLabelsResponse
@@ -1286,7 +1286,7 @@ namespace WafOpenapi20211001
       Models::DescribeChargeModuleResponse describeChargeModule(const Models::DescribeChargeModuleRequest &request);
 
       /**
-       * @summary Queries the pricing results of WAF pricing modules.
+       * @summary Queries the billing results of WAF billing modules.
        *
        * @param request DescribeChargeResultRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1295,7 +1295,7 @@ namespace WafOpenapi20211001
       Models::DescribeChargeResultResponse describeChargeResultWithOptions(const Models::DescribeChargeResultRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the pricing results of WAF pricing modules.
+       * @summary Queries the billing results of WAF billing modules.
        *
        * @param request DescribeChargeResultRequest
        * @return DescribeChargeResultResponse
@@ -1838,7 +1838,7 @@ namespace WafOpenapi20211001
       Models::DescribeElasticBillsResponse describeElasticBills(const Models::DescribeElasticBillsRequest &request);
 
       /**
-       * @summary Queries the traffic statistics.
+       * @summary Queries traffic statistics information.
        *
        * @param request DescribeFlowChartRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1847,7 +1847,7 @@ namespace WafOpenapi20211001
       Models::DescribeFlowChartResponse describeFlowChartWithOptions(const Models::DescribeFlowChartRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the traffic statistics.
+       * @summary Queries traffic statistics information.
        *
        * @param request DescribeFlowChartRequest
        * @return DescribeFlowChartResponse
@@ -1889,7 +1889,7 @@ namespace WafOpenapi20211001
       Models::DescribeFlowTopUrlResponse describeFlowTopUrl(const Models::DescribeFlowTopUrlRequest &request);
 
       /**
-       * @summary Queries statistics information about assets detected by the basic API security feature.
+       * @summary Queries the asset statistics information for basic API security detection.
        *
        * @param request DescribeFreeUserAssetCountRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1898,7 +1898,7 @@ namespace WafOpenapi20211001
       Models::DescribeFreeUserAssetCountResponse describeFreeUserAssetCountWithOptions(const Models::DescribeFreeUserAssetCountRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries statistics information about assets detected by the basic API security feature.
+       * @summary Queries the asset statistics information for basic API security detection.
        *
        * @param request DescribeFreeUserAssetCountRequest
        * @return DescribeFreeUserAssetCountResponse
@@ -1923,7 +1923,7 @@ namespace WafOpenapi20211001
       Models::DescribeFreeUserEventCountResponse describeFreeUserEventCount(const Models::DescribeFreeUserEventCountRequest &request);
 
       /**
-       * @summary Queries the types of security events for basic API security detection.
+       * @summary Queries the security event types for basic API security detection.
        *
        * @param request DescribeFreeUserEventTypesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1932,7 +1932,7 @@ namespace WafOpenapi20211001
       Models::DescribeFreeUserEventTypesResponse describeFreeUserEventTypesWithOptions(const Models::DescribeFreeUserEventTypesRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the types of security events for basic API security detection.
+       * @summary Queries the security event types for basic API security detection.
        *
        * @param request DescribeFreeUserEventTypesRequest
        * @return DescribeFreeUserEventTypesResponse
@@ -2286,7 +2286,7 @@ namespace WafOpenapi20211001
       Models::DescribeInstanceResponse describeInstance(const Models::DescribeInstanceRequest &request);
 
       /**
-       * @summary Retrieves supported countries and regions outside China for IP-based region blacklist.
+       * @summary Queries the countries and areas outside China supported by the Location Blacklist.
        *
        * @param request DescribeIpAbroadCountryInfosRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2295,7 +2295,7 @@ namespace WafOpenapi20211001
       Models::DescribeIpAbroadCountryInfosResponse describeIpAbroadCountryInfosWithOptions(const Models::DescribeIpAbroadCountryInfosRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Retrieves supported countries and regions outside China for IP-based region blacklist.
+       * @summary Queries the countries and areas outside China supported by the Location Blacklist.
        *
        * @param request DescribeIpAbroadCountryInfosRequest
        * @return DescribeIpAbroadCountryInfosResponse
@@ -2638,7 +2638,7 @@ namespace WafOpenapi20211001
       Models::DescribeResourcePortResponse describeResourcePort(const Models::DescribeResourcePortRequest &request);
 
       /**
-       * @summary Queries the region IDs of cloud service resources that can be added to Web Application Firewall (WAF) by using the SDK.
+       * @summary Queries the region IDs of SDK-integrated resources, primarily for ALB and MSE.
        *
        * @param request DescribeResourceRegionIdRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2647,7 +2647,7 @@ namespace WafOpenapi20211001
       Models::DescribeResourceRegionIdResponse describeResourceRegionIdWithOptions(const Models::DescribeResourceRegionIdRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the region IDs of cloud service resources that can be added to Web Application Firewall (WAF) by using the SDK.
+       * @summary Queries the region IDs of SDK-integrated resources, primarily for ALB and MSE.
        *
        * @param request DescribeResourceRegionIdRequest
        * @return DescribeResourceRegionIdResponse
@@ -2689,7 +2689,7 @@ namespace WafOpenapi20211001
       Models::DescribeResponseCodeTrendGraphResponse describeResponseCodeTrendGraph(const Models::DescribeResponseCodeTrendGraphRequest &request);
 
       /**
-       * @summary Queries the authorization status of the service-linked role for Web Application Firewall (WAF).
+       * @summary Queries the authorization status.
        *
        * @param request DescribeRoleAuthStatusRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2698,7 +2698,7 @@ namespace WafOpenapi20211001
       Models::DescribeRoleAuthStatusResponse describeRoleAuthStatusWithOptions(const Models::DescribeRoleAuthStatusRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the authorization status of the service-linked role for Web Application Firewall (WAF).
+       * @summary Queries the authorization status.
        *
        * @param request DescribeRoleAuthStatusRequest
        * @return DescribeRoleAuthStatusResponse
@@ -2774,7 +2774,7 @@ namespace WafOpenapi20211001
       Models::DescribeRuleHitsTopRuleIdResponse describeRuleHitsTopRuleId(const Models::DescribeRuleHitsTopRuleIdRequest &request);
 
       /**
-       * @summary Queries the top 10 most frequently triggered protection rule types.
+       * @summary Queries the top 10 protection types with the most rule hits.
        *
        * @param request DescribeRuleHitsTopTuleTypeRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2783,7 +2783,7 @@ namespace WafOpenapi20211001
       Models::DescribeRuleHitsTopTuleTypeResponse describeRuleHitsTopTuleTypeWithOptions(const Models::DescribeRuleHitsTopTuleTypeRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the top 10 most frequently triggered protection rule types.
+       * @summary Queries the top 10 protection types with the most rule hits.
        *
        * @param request DescribeRuleHitsTopTuleTypeRequest
        * @return DescribeRuleHitsTopTuleTypeResponse
@@ -3195,7 +3195,7 @@ namespace WafOpenapi20211001
       Models::DescribeUserAbnormalTrendResponse describeUserAbnormalTrend(const Models::DescribeUserAbnormalTrendRequest &request);
 
       /**
-       * @summary Queries user risk types and statistics related to API security in Web Application Firewall (WAF).
+       * @summary Queries API security user risk types and statistics.
        *
        * @param request DescribeUserAbnormalTypeRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3204,7 +3204,7 @@ namespace WafOpenapi20211001
       Models::DescribeUserAbnormalTypeResponse describeUserAbnormalTypeWithOptions(const Models::DescribeUserAbnormalTypeRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries user risk types and statistics related to API security in Web Application Firewall (WAF).
+       * @summary Queries API security user risk types and statistics.
        *
        * @param request DescribeUserAbnormalTypeRequest
        * @return DescribeUserAbnormalTypeResponse
@@ -3652,7 +3652,7 @@ namespace WafOpenapi20211001
       Models::ModifyCloudResourceResponse modifyCloudResource(const Models::ModifyCloudResourceRequest &request);
 
       /**
-       * @summary Modifies the certificate for a cloud native mode resource.
+       * @summary Modifies the certificates for cloud native mode.
        *
        * @param request ModifyCloudResourceCertRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3661,7 +3661,7 @@ namespace WafOpenapi20211001
       Models::ModifyCloudResourceCertResponse modifyCloudResourceCertWithOptions(const Models::ModifyCloudResourceCertRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Modifies the certificate for a cloud native mode resource.
+       * @summary Modifies the certificates for cloud native mode.
        *
        * @param request ModifyCloudResourceCertRequest
        * @return ModifyCloudResourceCertResponse
@@ -3669,7 +3669,7 @@ namespace WafOpenapi20211001
       Models::ModifyCloudResourceCertResponse modifyCloudResourceCert(const Models::ModifyCloudResourceCertRequest &request);
 
       /**
-       * @summary Modifies the default certificate for a cloud native mode resource.
+       * @summary Modifies the default certificate for cloud native mode.
        *
        * @param request ModifyCloudResourceDefaultCertRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3678,7 +3678,7 @@ namespace WafOpenapi20211001
       Models::ModifyCloudResourceDefaultCertResponse modifyCloudResourceDefaultCertWithOptions(const Models::ModifyCloudResourceDefaultCertRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Modifies the default certificate for a cloud native mode resource.
+       * @summary Modifies the default certificate for cloud native mode.
        *
        * @param request ModifyCloudResourceDefaultCertRequest
        * @return ModifyCloudResourceDefaultCertResponse
@@ -4262,7 +4262,7 @@ namespace WafOpenapi20211001
       Models::ModifyUserWafLogStatusResponse modifyUserWafLogStatus(const Models::ModifyUserWafLogStatusRequest &request);
 
       /**
-       * @summary Re-connects a cloud service to WAF. This operation is used only when the cloud native mode connection status is protection exception.
+       * @summary Re-onboards a cloud service to WAF. This operation is used only when the protection status of the cloud service in cloud native mode is abnormal.
        *
        * @param request ReCreateCloudResourceRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -4271,7 +4271,7 @@ namespace WafOpenapi20211001
       Models::ReCreateCloudResourceResponse reCreateCloudResourceWithOptions(const Models::ReCreateCloudResourceRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Re-connects a cloud service to WAF. This operation is used only when the cloud native mode connection status is protection exception.
+       * @summary Re-onboards a cloud service to WAF. This operation is used only when the protection status of the cloud service in cloud native mode is abnormal.
        *
        * @param request ReCreateCloudResourceRequest
        * @return ReCreateCloudResourceResponse
@@ -4334,7 +4334,7 @@ namespace WafOpenapi20211001
       Models::TagResourcesResponse tagResources(const Models::TagResourcesRequest &request);
 
       /**
-       * @summary Removes tags from resources and then deletes the tags.
+       * @summary Removes and deletes tags from one or more specified resources.
        *
        * @param request UntagResourcesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -4343,7 +4343,7 @@ namespace WafOpenapi20211001
       Models::UntagResourcesResponse untagResourcesWithOptions(const Models::UntagResourcesRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Removes tags from resources and then deletes the tags.
+       * @summary Removes and deletes tags from one or more specified resources.
        *
        * @param request UntagResourcesRequest
        * @return UntagResourcesResponse

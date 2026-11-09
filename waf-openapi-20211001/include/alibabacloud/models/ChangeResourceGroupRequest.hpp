@@ -75,7 +75,7 @@ namespace Models
 
 
   protected:
-    // The ID of the new resource group. You can view available resource groups in the resource group console.
+    // The ID of the new resource group. You can view available resource groups in the Resource Management console.
     // 
     // This parameter is required.
     shared_ptr<string> newResourceGroupId_ {};
@@ -85,13 +85,13 @@ namespace Models
     // 
     // - **ap-southeast-1**: outside the Chinese mainland.
     shared_ptr<string> regionId_ {};
-    // The ID of the WAF resource to operate on.
+    // The ID of the WAF resource.
     // 
     // This parameter is required.
     shared_ptr<string> resourceId_ {};
-    // The Alibaba Cloud resource group ID.
+    // The ID of the Alibaba Cloud resource group.
     shared_ptr<string> resourceManagerResourceGroupId_ {};
-    // The resource type. Fixed value: defenseresource.
+    // The resource type. Set the value to defenseresource.
     // 
     // This parameter is required.
     shared_ptr<string> resourceType_ {};

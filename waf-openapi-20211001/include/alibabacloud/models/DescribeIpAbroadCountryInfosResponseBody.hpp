@@ -101,9 +101,9 @@ namespace Models
 
 
       protected:
-        // The ID of the region.
+        // The region ID.
         shared_ptr<string> abroadRegionId_ {};
-        // The name of the region.
+        // The region name.
         shared_ptr<string> abroadRegionName_ {};
       };
 
@@ -142,11 +142,11 @@ namespace Models
     protected:
       // The continent to which the country belongs.
       shared_ptr<string> continent_ {};
-      // The ID of the country.
+      // The country ID.
       shared_ptr<string> country_ {};
-      // The name of the country.
+      // The country name.
       shared_ptr<string> countryName_ {};
-      // The list of region information outside China.
+      // The list of overseas region information.
       shared_ptr<vector<AbroadInfos::Regions>> regions_ {};
     };
 
@@ -190,15 +190,15 @@ namespace Models
 
 
   protected:
-    // The list of country information outside China.
+    // The list of overseas country information.
     shared_ptr<vector<DescribeIpAbroadCountryInfosResponseBody::AbroadInfos>> abroadInfos_ {};
-    // The number of entries per page in a paged query. Valid values: 1 to 500. Default value: 20.
+    // The number of entries to return on each page for a paging query. Valid values: 1 to 500. Default value: 20.
     shared_ptr<int32_t> maxResults_ {};
-    // The token for the next page.
+    // The pagination token for the next page.
     shared_ptr<string> nextToken_ {};
-    // The request ID
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // The total number of entries returned.
+    // The total number of returned entries.
     shared_ptr<int32_t> totalCount_ {};
   };
 

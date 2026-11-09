@@ -105,7 +105,7 @@ namespace Models
 
 
   protected:
-    // The statistics information about assets detected by the basic API security feature.
+    // The asset statistics information for basic detection.
     shared_ptr<DescribeFreeUserAssetCountResponseBody::Asset> asset_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

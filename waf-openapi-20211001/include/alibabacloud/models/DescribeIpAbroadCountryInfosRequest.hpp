@@ -103,31 +103,31 @@ namespace Models
 
 
   protected:
-    // The region outside China to query. Supports fuzzy query by region ID or region name in Chinese or English.
+    // The overseas region to query. You can perform a fuzzy match by using the region ID or the region name in Chinese or English.
     shared_ptr<string> abroadRegion_ {};
-    // The country outside China to query. Supports fuzzy query by country ID or country name in Chinese or English.
+    // The overseas country to query. You can perform a fuzzy match by using the country ID or the country name in Chinese or English.
     shared_ptr<string> country_ {};
-    // The ID of the WAF instance.
+    // Instance ID of the WAF instance.
     // 
-    // > Call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query the current WAF instance ID.
+    // > You can call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query instance ID of the WAF instance.
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
-    // The language used for country and region names in the response. Valid values:
+    // The language used for the country and region names in the response. Valid values:
     // 
     // - **en** (**default**): English.
     // 
     // - **cn**: Simplified Chinese.
     shared_ptr<string> language_ {};
-    // The number of entries per page in a paged query. Valid values: 1 to 500. Default value: 20.
+    // The number of entries to return on each page for a paging query. Valid values: 1 to 500. Default value: 20.
     shared_ptr<int32_t> maxResults_ {};
-    // The token for the next page. Set this parameter to the value of the **NextToken** parameter returned from the previous API call. You do not need to specify this parameter for the first page query.
+    // The paging token that is used to query the next page. Set the value to the **NextToken** value returned from the previous API call. You do not need to specify this parameter for the first call.
     shared_ptr<string> nextToken_ {};
-    // The region in which the WAF instance is deployed. Valid values:
+    // The region where the WAF instance resides. Valid values:
     // 
-    // - **cn-hangzhou**: The Chinese mainland.
+    // - **cn-hangzhou**: the Chinese mainland.
     // 
-    // - **ap-southeast-1**: Outside the Chinese mainland.
+    // - **ap-southeast-1**: outside the Chinese mainland.
     shared_ptr<string> regionId_ {};
     // The ID of the Alibaba Cloud resource group.
     shared_ptr<string> resourceManagerResourceGroupId_ {};
