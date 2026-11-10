@@ -11,6 +11,7 @@ using namespace Darabonba;
 using json = nlohmann::json;
 using namespace AlibabaCloud::Gateway;
 using namespace AlibabaCloud::OpenApi;
+using namespace AlibabaCloud::OpenApi::Models;
 using namespace AlibabaCloud::CS20151215::Models;
 using OpenApiClient = AlibabaCloud::OpenApi::Client;
 using namespace AlibabaCloud::OpenApi::Utils::Models;
@@ -5091,6 +5092,168 @@ InstallNodePoolComponentsResponse Client::installNodePoolComponents(const string
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   map<string, string> headers = {};
   return installNodePoolComponentsWithOptions(clusterId, nodePoolId, request, headers, runtime);
+}
+
+/**
+ * @summary 发起智能助手会话运行（AG-UI 协议）
+ *
+ * @description 独立的原生 AG-UI 接口，成功建流后返回 text/event-stream。
+ *
+ * @param request InvokeAgentRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return InvokeAgentResponse
+ */
+FutureGenerator<InvokeAgentResponse> Client::invokeAgentWithSSE(const InvokeAgentRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasContext()) {
+    body["context"] = request.getContext();
+  }
+
+  if (!!request.hasForwardedProps()) {
+    body["forwardedProps"] = request.getForwardedProps();
+  }
+
+  if (!!request.hasMessages()) {
+    body["messages"] = request.getMessages();
+  }
+
+  if (!!request.hasParentRunId()) {
+    body["parentRunId"] = request.getParentRunId();
+  }
+
+  if (!!request.hasResume()) {
+    body["resume"] = request.getResume();
+  }
+
+  if (!!request.hasRunId()) {
+    body["runId"] = request.getRunId();
+  }
+
+  if (!!request.hasState()) {
+    body["state"] = request.getState();
+  }
+
+  if (!!request.hasThreadId()) {
+    body["threadId"] = request.getThreadId();
+  }
+
+  if (!!request.hasTools()) {
+    body["tools"] = request.getTools();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "InvokeAgent"},
+    {"version" , "2015-12-15"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/intelligence/invoke")},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  FutureGenerator<SSEResponse> sseResp = callSSEApi(params, req, runtime);
+  for (SSEResponse resp : sseResp) {
+    if (!!resp.hasEvent() && !!resp.getEvent().hasData()) {
+      json data = json(json::parse(resp.getEvent().getData()));
+json       __retrun = json(json({
+        {"statusCode" , resp.getStatusCode()},
+        {"headers" , resp.getHeaders()},
+        {"id" , resp.getEvent().getId()},
+        {"event" , resp.getEvent().getEvent()},
+        {"body" , data}
+      })).get<InvokeAgentResponse>();
+return Darabonba::FutureGenerator<json>(__retrun);
+    }
+
+  }
+}
+
+/**
+ * @summary 发起智能助手会话运行（AG-UI 协议）
+ *
+ * @description 独立的原生 AG-UI 接口，成功建流后返回 text/event-stream。
+ *
+ * @param request InvokeAgentRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return InvokeAgentResponse
+ */
+InvokeAgentResponse Client::invokeAgentWithOptions(const InvokeAgentRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasContext()) {
+    body["context"] = request.getContext();
+  }
+
+  if (!!request.hasForwardedProps()) {
+    body["forwardedProps"] = request.getForwardedProps();
+  }
+
+  if (!!request.hasMessages()) {
+    body["messages"] = request.getMessages();
+  }
+
+  if (!!request.hasParentRunId()) {
+    body["parentRunId"] = request.getParentRunId();
+  }
+
+  if (!!request.hasResume()) {
+    body["resume"] = request.getResume();
+  }
+
+  if (!!request.hasRunId()) {
+    body["runId"] = request.getRunId();
+  }
+
+  if (!!request.hasState()) {
+    body["state"] = request.getState();
+  }
+
+  if (!!request.hasThreadId()) {
+    body["threadId"] = request.getThreadId();
+  }
+
+  if (!!request.hasTools()) {
+    body["tools"] = request.getTools();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "InvokeAgent"},
+    {"version" , "2015-12-15"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/intelligence/invoke")},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<InvokeAgentResponse>();
+}
+
+/**
+ * @summary 发起智能助手会话运行（AG-UI 协议）
+ *
+ * @description 独立的原生 AG-UI 接口，成功建流后返回 text/event-stream。
+ *
+ * @param request InvokeAgentRequest
+ * @return InvokeAgentResponse
+ */
+InvokeAgentResponse Client::invokeAgent(const InvokeAgentRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return invokeAgentWithOptions(request, headers, runtime);
 }
 
 /**

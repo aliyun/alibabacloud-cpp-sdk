@@ -1,3 +1,7 @@
+2026-11-10 Version: 7.1.0
+- Support API InvokeAgent.
+
+
 2026-11-06 Version: 7.0.4
 - Update API DeleteClusterNodes: add request parameters body.drain_timeout_seconds.
 - Update API RemoveNodePoolNodes: add request parameters drain_timeout_seconds.

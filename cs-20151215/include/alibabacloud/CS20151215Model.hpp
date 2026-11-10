@@ -233,6 +233,9 @@
 #include <alibabacloud/models/InstallNodePoolComponentsRequest.hpp>
 #include <alibabacloud/models/InstallNodePoolComponentsResponseBody.hpp>
 #include <alibabacloud/models/InstallNodePoolComponentsResponse.hpp>
+#include <alibabacloud/models/InvokeAgentRequest.hpp>
+#include <alibabacloud/models/InvokeAgentResponseBody.hpp>
+#include <alibabacloud/models/InvokeAgentResponse.hpp>
 #include <alibabacloud/models/ListAddonsRequest.hpp>
 #include <alibabacloud/models/ListAddonsResponseBody.hpp>
 #include <alibabacloud/models/ListAddonsResponse.hpp>

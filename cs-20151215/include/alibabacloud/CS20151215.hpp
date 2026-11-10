@@ -1749,6 +1749,40 @@ namespace CS20151215
       Models::InstallNodePoolComponentsResponse installNodePoolComponents(const string &clusterId, const string &nodePoolId, const Models::InstallNodePoolComponentsRequest &request);
 
       /**
+       * @summary 发起智能助手会话运行（AG-UI 协议）
+       *
+       * @description 独立的原生 AG-UI 接口，成功建流后返回 text/event-stream。
+       *
+       * @param request InvokeAgentRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return InvokeAgentResponse
+       */
+      FutureGenerator<Models::InvokeAgentResponse> invokeAgentWithSSE(const Models::InvokeAgentRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 发起智能助手会话运行（AG-UI 协议）
+       *
+       * @description 独立的原生 AG-UI 接口，成功建流后返回 text/event-stream。
+       *
+       * @param request InvokeAgentRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return InvokeAgentResponse
+       */
+      Models::InvokeAgentResponse invokeAgentWithOptions(const Models::InvokeAgentRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 发起智能助手会话运行（AG-UI 协议）
+       *
+       * @description 独立的原生 AG-UI 接口，成功建流后返回 text/event-stream。
+       *
+       * @param request InvokeAgentRequest
+       * @return InvokeAgentResponse
+       */
+      Models::InvokeAgentResponse invokeAgent(const Models::InvokeAgentRequest &request);
+
+      /**
        * @summary Queries a list of available components and retrieves detailed component information based on parameters such as the region, cluster type, cluster profile, and cluster version. The detailed information includes whether the component is managed, the schema of supported custom parameters, and compatible operating system architectures.
        *
        * @param request ListAddonsRequest
