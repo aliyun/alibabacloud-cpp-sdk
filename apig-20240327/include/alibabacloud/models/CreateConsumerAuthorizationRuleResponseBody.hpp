@@ -63,7 +63,7 @@ namespace Models
 
 
     protected:
-      // The consumer authorization rule ID. When this ID is used to filter the API list, the response contains only the authorized APIs.
+      // The consumer authorization rule ID. The list of APIs in the response is filtered based on the specified consumer authorization rule ID and includes only authorized APIs.
       shared_ptr<string> consumerAuthorizationRuleId_ {};
     };
 

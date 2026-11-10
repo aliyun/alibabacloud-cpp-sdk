@@ -85,11 +85,11 @@ namespace Models
 
 
     protected:
-      // The response body of the debug result.
+      // The response body of the test result.
       shared_ptr<string> body_ {};
       // The response headers, such as Content-Type: text/event-stream.
       shared_ptr<map<string, string>> headers_ {};
-      // The HTTP status code of the debug result.
+      // The HTTP status code of the test result.
       shared_ptr<int32_t> httpCode_ {};
     };
 
@@ -132,7 +132,7 @@ namespace Models
     shared_ptr<InvokeAIAgentResponseBody::Data> data_ {};
     // The response message.
     shared_ptr<string> message_ {};
-    // Id of the request
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

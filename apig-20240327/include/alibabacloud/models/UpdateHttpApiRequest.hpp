@@ -128,9 +128,9 @@ namespace Models
     protected:
       // The environment ID.
       shared_ptr<string> environmentId_ {};
-      // The Ingress class to listen on.
+      // The Ingress class to listen to.
       shared_ptr<string> ingressClass_ {};
-      // Specifies whether to update the IP address in the Ingress status.
+      // Specifies whether to update the address in the Ingress status.
       shared_ptr<bool> overrideIngressIp_ {};
       // The source ID.
       shared_ptr<string> sourceId_ {};
@@ -268,7 +268,7 @@ namespace Models
     shared_ptr<vector<string>> aiProtocols_ {};
     // The authentication configuration.
     shared_ptr<AuthConfig> authConfig_ {};
-    // The base path of the API. It must start with a forward slash (/).
+    // The base path of the API, which must start with a forward slash (/).
     shared_ptr<string> basePath_ {};
     // The list of API deployment configurations.
     shared_ptr<vector<HttpApiDeployConfig>> deployConfigs_ {};
@@ -280,7 +280,7 @@ namespace Models
     shared_ptr<int32_t> firstByteTimeout_ {};
     // The configuration information of the HTTP Ingress API.
     shared_ptr<UpdateHttpApiRequest::IngressConfig> ingressConfig_ {};
-    // Specifies whether to only modify the configuration. A value of true indicates that only the configuration is modified without triggering a redeployment.
+    // Specifies whether to modify only the configuration. A value of true indicates that only the configuration is modified without triggering a redeployment.
     shared_ptr<bool> onlyChangeConfig_ {};
     // The list of API access protocols.
     shared_ptr<vector<string>> protocols_ {};
@@ -288,9 +288,9 @@ namespace Models
     shared_ptr<bool> removeBasePathOnForward_ {};
     // The versioning configuration of the API.
     shared_ptr<HttpApiVersionConfig> versionConfig_ {};
-    // The idempotent request token. If you call the same HTTP API with the same client token and request parameters, the result of the first successful call is returned.
+    // The idempotency token. If the same HTTP API is repeatedly called with the same client token and request parameters, the first successful result is returned.
     shared_ptr<string> clientToken_ {};
-    // Specifies whether to perform a dry run. If you set this parameter to true, all synchronization checks consistent with a real update are performed, but no configurations are updated and no side effects are generated. If this parameter is left empty or set to false, the behavior remains the same as the existing version.
+    // Specifies whether to perform a dry run. A value of true indicates that all synchronization checks identical to a real update are executed without updating any configurations or causing side effects. If omitted or set to false, the behavior remains consistent with the current version.
     shared_ptr<bool> dryRun_ {};
   };
 

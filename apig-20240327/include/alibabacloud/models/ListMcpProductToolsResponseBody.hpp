@@ -147,17 +147,17 @@ namespace Models
 
 
       protected:
-        // The annotations of the tool. This is a map structure. The API definition declares it only as map<any> without specifying its members and usage.
+        // The annotation information of the tool. This field is a map structure. The API definition declares it only as map<any> without specifying its members and purposes.
         Darabonba::Json annotations_ {};
         // The description of the tool.
         shared_ptr<string> description_ {};
-        // The input parameter schema of the tool. This is a map structure. The API definition declares it only as map<any> without specifying its members and constraints.
+        // The structure definition of the input parameters for the tool. This field is a map structure. The API definition declares it only as map<any> without specifying its members and constraints.
         Darabonba::Json inputSchema_ {};
-        // The metadata of the tool. This is a map structure. The API definition declares it only as map<any> without specifying its members and usage.
+        // The metadata of the tool. This field is a map structure. The API definition declares it only as map<any> without specifying its members and purposes.
         Darabonba::Json meta_ {};
         // The name of the tool.
         shared_ptr<string> name_ {};
-        // The output schema of the tool. This is a map structure. The API definition declares it only as map<any> without specifying its members and constraints.
+        // The structure definition of the output results for the tool. This field is a map structure. The API definition declares it only as map<any> without specifying its members and constraints.
         Darabonba::Json outputSchema_ {};
         // The title of the tool.
         shared_ptr<string> title_ {};

@@ -208,29 +208,29 @@ namespace Models
       protected:
         // The API key generation mode. Valid values: Custom and Reference. Historical null values are treated as Custom.
         shared_ptr<string> apiKeyGenerateMode_ {};
-        // The list of Key Management Service (KMS) reference names. This field is returned only in Reference mode. Reference values are not returned.
+        // The list of Key Management Service (KMS) reference names. This parameter is returned only in Reference mode. The reference values are not returned.
         shared_ptr<vector<string>> apiKeyReferences_ {};
-        // The list of custom API keys. This field is returned only when apiKeyGenerateMode is set to Custom. The keys are returned in their original order without deduplication.
+        // The list of custom API keys. This parameter is returned only when apiKeyGenerateMode is set to Custom. The keys are returned in the original order without deduplication.
         shared_ptr<vector<string>> apiKeys_ {};
-        // Bedrock AWS Access Key
+        // The AWS access key ID for Bedrock.
         shared_ptr<string> awsAccessKey_ {};
-        // Bedrock AWS Region
+        // The AWS region for Bedrock.
         shared_ptr<string> awsRegion_ {};
-        // Bedrock AWS Secret Key
+        // The AWS secret access key for Bedrock.
         shared_ptr<string> awsSecretKey_ {};
-        // The source of the credential. When backfilled by the PAI-EAS system, the value is pai-eas.
+        // The source of the credential. The value is pai-eas when the credential is backfilled by the PAI-EAS system.
         shared_ptr<string> credentialSource_ {};
-        // The Bedrock endpoint mode. A value of runtime is returned for historical null values.
+        // The Bedrock endpoint mode. The value is runtime for historical null values.
         shared_ptr<string> endpointMode_ {};
-        // Kling Access Key
+        // The access key ID for Kling.
         shared_ptr<string> klingAccessKey_ {};
-        // Kling Secret Key
+        // The secret access key for Kling.
         shared_ptr<string> klingSecretKey_ {};
         // The original JSON text of the Vertex service account. The text is neither parsed nor reordered.
         shared_ptr<string> vertexAuthKey_ {};
-        // Vertex Project ID
+        // The Vertex project ID.
         shared_ptr<string> vertexProjectId_ {};
-        // Vertex Region
+        // The region for Vertex.
         shared_ptr<string> vertexRegion_ {};
       };
 
@@ -274,9 +274,9 @@ namespace Models
 
 
     protected:
-      // The current configuration revision. For legacy objects, the value is legacy.
+      // The current configuration revision. The value is legacy for historical objects.
       shared_ptr<string> configRevision_ {};
-      // The credential object for the currently active type. Only the fields corresponding to the credentialType are populated.
+      // The credential object of the currently active type. Only the fields corresponding to the credentialType are populated.
       shared_ptr<Data::Credential> credential_ {};
       // The currently active credential type. Valid values: apiKey, bedrock, vertex, and kling.
       shared_ptr<string> credentialType_ {};
@@ -319,11 +319,11 @@ namespace Models
 
 
   protected:
-    // The response code. A value of Ok indicates success.
+    // The response code. The value is Ok if the request is successful.
     shared_ptr<string> code_ {};
     // The currently active credential data.
     shared_ptr<RevealServiceCredentialResponseBody::Data> data_ {};
-    // The response message. A value of success indicates success.
+    // The response message. The value is success if the request is successful.
     shared_ptr<string> message_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

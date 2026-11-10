@@ -38,7 +38,7 @@ namespace Models
 
 
   protected:
-    // The model provider identifier used to filter model cards by provider.
+    // The identifier of the model provider used to filter model cards by provider.
     shared_ptr<string> provider_ {};
   };
 

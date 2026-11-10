@@ -168,6 +168,9 @@
 #include <alibabacloud/models/CreateGatewayRequest.hpp>
 #include <alibabacloud/models/CreateGatewayResponseBody.hpp>
 #include <alibabacloud/models/CreateGatewayResponse.hpp>
+#include <alibabacloud/models/CreateGatewayQuotaRuleSubjectUsageExportTaskRequest.hpp>
+#include <alibabacloud/models/CreateGatewayQuotaRuleSubjectUsageExportTaskResponseBody.hpp>
+#include <alibabacloud/models/CreateGatewayQuotaRuleSubjectUsageExportTaskResponse.hpp>
 #include <alibabacloud/models/CreateHttpApiRequest.hpp>
 #include <alibabacloud/models/CreateHttpApiResponseBody.hpp>
 #include <alibabacloud/models/CreateHttpApiResponse.hpp>
@@ -360,6 +363,9 @@
 #include <alibabacloud/models/GetGatewayQuotaRuleSubjectUsageRequest.hpp>
 #include <alibabacloud/models/GetGatewayQuotaRuleSubjectUsageResponseBody.hpp>
 #include <alibabacloud/models/GetGatewayQuotaRuleSubjectUsageResponse.hpp>
+#include <alibabacloud/models/GetGatewayQuotaRuleSubjectUsageExportTaskRequest.hpp>
+#include <alibabacloud/models/GetGatewayQuotaRuleSubjectUsageExportTaskResponseBody.hpp>
+#include <alibabacloud/models/GetGatewayQuotaRuleSubjectUsageExportTaskResponse.hpp>
 #include <alibabacloud/models/GetGatewayResourceQuotaUsageRequest.hpp>
 #include <alibabacloud/models/GetGatewayResourceQuotaUsageResponseBody.hpp>
 #include <alibabacloud/models/GetGatewayResourceQuotaUsageResponse.hpp>

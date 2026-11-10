@@ -163,11 +163,11 @@ namespace Models
     shared_ptr<string> source_ {};
     // The statistical category to which the field belongs.
     shared_ptr<string> category_ {};
-    // The message direction of the field, which indicates whether it is extracted from the request or the response.
+    // The message direction of the field, which indicates whether the field is extracted from the request or the response.
     shared_ptr<string> io_ {};
     // Indicates whether the field contains sensitive information.
     shared_ptr<bool> sensitive_ {};
-    // Indicates whether the collection of the field is enabled.
+    // Indicates whether collection is enabled for the field.
     shared_ptr<bool> recordEnabled_ {};
     // Indicates whether the collection status of the field can be toggled.
     shared_ptr<bool> toggleAllowed_ {};

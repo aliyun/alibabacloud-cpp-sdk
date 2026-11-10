@@ -141,22 +141,22 @@ namespace Models
     shared_ptr<string> clientCACert_ {};
     // The scope of the domain name.
     shared_ptr<string> domainScope_ {};
-    // Specifies whether to enable forced HTTPS redirect when the HTTPS protocol type is set. When the protocol is HTTPS, forceHttps is required.
+    // The Settings for the HTTPS Protocol Type. Specifies whether to enable forced HTTPS redirection. This parameter is required when the protocol is HTTPS.
     shared_ptr<bool> forceHttps_ {};
     // The HTTP/2 settings.
     shared_ptr<string> http2Option_ {};
-    // Specifies whether to enable mutual TLS (mTLS) authentication.
+    // Specifies whether to enable mTLS mutual authentication.
     shared_ptr<bool> mTLSEnabled_ {};
-    // The protocol type supported by the domain name.
+    // The protocol types supported by the domain name.
     // 
-    // - HTTP: Only the HTTP protocol is supported.
-    // - HTTPS: Only the HTTPS protocol is supported.
+    // - HTTP: Supports only the HTTP protocol.
+    // - HTTPS: Supports only the HTTPS protocol.
     shared_ptr<string> protocol_ {};
-    // The cipher suite configuration.
+    // The cipher suite configurations.
     shared_ptr<TlsCipherSuitesConfig> tlsCipherSuitesConfig_ {};
-    // The maximum TLS protocol version. TLS 1.3 is the maximum supported version.
+    // The maximum TLS protocol version. The maximum supported version is TLS 1.3.
     shared_ptr<string> tlsMax_ {};
-    // The minimum TLS protocol version. TLS 1.0 is the minimum supported version.
+    // The minimum TLS protocol version. The minimum supported version is TLS 1.0.
     shared_ptr<string> tlsMin_ {};
   };
 

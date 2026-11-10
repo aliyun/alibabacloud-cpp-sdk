@@ -197,7 +197,7 @@ namespace Models
 
 
         protected:
-          // The action to be performed after the dry run. Valid values:
+          // The action to be performed after the dry run.
           // - Create: Create.
           // - Update: Update.
           shared_ptr<string> action_ {};
@@ -247,7 +247,7 @@ namespace Models
 
 
         protected:
-          // The action to be performed after the dry run. Valid values:
+          // The action to be performed after the dry run.
           // - Create: Create.
           // - Update: Update.
           shared_ptr<string> action_ {};
@@ -490,7 +490,7 @@ namespace Models
 
 
       protected:
-        // The error messages. If the error messages are not empty, the API cannot be imported.
+        // The error messages. If the error messages are not empty, the API cannot be imported successfully.
         shared_ptr<vector<string>> errorMessages_ {};
         // The existing API information. If this field is not empty, the import operation will update the API.
         shared_ptr<HttpApiApiInfo> existHttpApiInfo_ {};
@@ -498,7 +498,7 @@ namespace Models
         shared_ptr<vector<DryRunInfo::FailureComponents>> failureComponents_ {};
         // The list of operations that failed the dry run.
         shared_ptr<vector<DryRunInfo::FailureOperations>> failureOperations_ {};
-        // The list of routes that failed to be imported.
+        // The list of failed routes.
         shared_ptr<vector<DryRunInfo::FailureRoutes>> failureRoutes_ {};
         // The MCP tool definition information.
         shared_ptr<string> mcpToolsDefinition_ {};
@@ -506,7 +506,7 @@ namespace Models
         shared_ptr<vector<DryRunInfo::SuccessComponents>> successComponents_ {};
         // The list of operations that passed the dry run.
         shared_ptr<vector<DryRunInfo::SuccessOperations>> successOperations_ {};
-        // The list of routes that were successfully imported.
+        // The list of successfully imported routes.
         shared_ptr<vector<DryRunInfo::SuccessRoutes>> successRoutes_ {};
         // The warning messages. If the warning messages are not empty, some operations or data structures may fail to be imported.
         shared_ptr<vector<string>> warningMessages_ {};

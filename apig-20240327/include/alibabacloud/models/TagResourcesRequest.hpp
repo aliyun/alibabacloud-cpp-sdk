@@ -72,9 +72,9 @@ namespace Models
 
 
     protected:
-      // The label key.
+      // The tag key.
       shared_ptr<string> key_ {};
-      // The label value.
+      // The tag value.
       shared_ptr<string> value_ {};
     };
 
@@ -106,11 +106,11 @@ namespace Models
 
 
   protected:
-    // The resource IDs. You can specify up to 50 subkeys.
+    // The IDs of the resources. You can specify up to 50 resource IDs.
     shared_ptr<vector<string>> resourceId_ {};
-    // The resource type used for the tagging operation. Set this parameter to Gateway.
+    // The resource type used for the tagging operation. Set the value to Gateway.
     shared_ptr<string> resourceType_ {};
-    // The list of labels.
+    // The list of tags.
     shared_ptr<vector<TagResourcesRequest::Tag>> tag_ {};
   };
 

@@ -98,11 +98,11 @@ namespace Models
 
 
     protected:
-      // The key configuration of the JWT.
+      // The JWT key configuration.
       shared_ptr<string> key_ {};
-      // Indicates whether the request is passed through.
+      // Specifies whether to pass the token.
       shared_ptr<bool> pass_ {};
-      // The position where the JWT is stored.
+      // The JWT storage location.
       shared_ptr<string> position_ {};
       // The prefix configuration.
       shared_ptr<string> prefix_ {};
@@ -201,9 +201,9 @@ namespace Models
     protected:
       // The claim name in the JWT payload.
       shared_ptr<string> claim_ {};
-      // The HTTP header name after conversion.
+      // The converted HTTP header name.
       shared_ptr<string> header_ {};
-      // Specifies whether to overwrite an existing header with the same name.
+      // Specifies whether to override an existing header with the same name.
       shared_ptr<bool> override_ {};
     };
 

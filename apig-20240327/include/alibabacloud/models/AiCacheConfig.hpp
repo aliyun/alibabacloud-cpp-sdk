@@ -117,15 +117,15 @@ namespace Models
 
 
     protected:
-      // The vector database API key.
+      // The API key for the vector database.
       shared_ptr<string> apiKey_ {};
-      // The vector collection ID.
+      // The ID of the vector collection.
       shared_ptr<string> collectionId_ {};
-      // The vector database service address.
+      // The vector database service endpoint.
       shared_ptr<string> serviceHost_ {};
       // The similarity threshold.
       shared_ptr<float> threshold_ {};
-      // The request timeout period, in milliseconds.
+      // The request timeout in milliseconds.
       shared_ptr<int32_t> timeout_ {};
       // The vector database type.
       shared_ptr<string> type_ {};
@@ -187,11 +187,11 @@ namespace Models
 
 
     protected:
-      // The embedding model name.
+      // The name of the embedding model.
       shared_ptr<string> modelName_ {};
-      // The embedding service ID.
+      // The ID of the embedding service.
       shared_ptr<string> serviceId_ {};
-      // The request timeout period, in milliseconds.
+      // The request timeout in milliseconds.
       shared_ptr<int32_t> timeout_ {};
       // The embedding service type.
       shared_ptr<string> type_ {};
@@ -262,11 +262,11 @@ namespace Models
     shared_ptr<string> cacheKeyStrategy_ {};
     // The cache mode.
     shared_ptr<string> cacheMode_ {};
-    // The cache expiration time, in seconds.
+    // The cache expiration time in seconds.
     shared_ptr<int32_t> cacheTTL_ {};
     // The embedding service configuration.
     shared_ptr<AiCacheConfig::EmbeddingConfig> embeddingConfig_ {};
-    // The plugin running status.
+    // The running status of the plugin.
     shared_ptr<AiPluginStatus> pluginStatus_ {};
     // The Redis configuration for exact cache count storage.
     shared_ptr<AiPolicyRedisConfig> redisConfig_ {};

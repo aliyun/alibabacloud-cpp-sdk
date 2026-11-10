@@ -185,7 +185,7 @@ namespace Models
         shared_ptr<string> gatewayId_ {};
         // The name of the gateway to which the rule belongs.
         shared_ptr<string> gatewayName_ {};
-        // The period multiplier, which specifies the number of periods after which the quota resets. This parameter is returned when the rule uses a custom period. Minimum value: 1. Maximum value: 60.
+        // The period multiplier, which indicates the number of periods after which the quota is reset. This parameter is returned when the rule uses a custom period. Minimum value: 1. Maximum value: 60.
         shared_ptr<string> periodMultiplier_ {};
         // The period type.
         shared_ptr<string> periodType_ {};
@@ -199,11 +199,9 @@ namespace Models
         shared_ptr<string> ruleName_ {};
         // The rule status.
         shared_ptr<string> ruleStatus_ {};
-        // The time zone corresponding to the calendar period, in UTC+x format.
+        // The time zone corresponding to the natural period, in UTC+x format.
         shared_ptr<string> timezone_ {};
-        // The period type. Valid values:
-        // - calendar: calendar period.
-        // - epoch: custom period.
+        // The period type. calendar indicates a natural period, and epoch indicates a custom period.
         shared_ptr<string> windowAlignment_ {};
       };
 
@@ -289,7 +287,7 @@ namespace Models
     shared_ptr<ListConsumerQuotaRulesResponseBody::Data> data_ {};
     // The response message.
     shared_ptr<string> message_ {};
-    // Id of the request
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

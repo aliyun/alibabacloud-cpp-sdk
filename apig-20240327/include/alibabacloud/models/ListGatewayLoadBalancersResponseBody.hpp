@@ -171,7 +171,7 @@ namespace Models
           protected:
             // The listener port.
             shared_ptr<int32_t> port_ {};
-            // The listener protocol. No backend enumeration validation is performed. The actual values are returned from SLB or NLB OpenAPI. Common values include tcp, udp, http, https, and tls.
+            // The listener protocol. No backend enumeration validation is performed. The actual value is obtained from the SLB or NLB API. Common values include tcp, udp, http, https, and tls.
             shared_ptr<string> protocol_ {};
           };
 
@@ -203,9 +203,9 @@ namespace Models
         protected:
           // The list of associated listeners.
           shared_ptr<vector<VirtualServerGroupList::Listeners>> listeners_ {};
-          // The virtual server group ID. For CLB, this is the VServerGroupId. For NLB, this is the ServerGroupId.
+          // The ID of the virtual server group. This is VServerGroupId for Classic Load Balancer (CLB) and ServerGroupId for Network Load Balancer (NLB).
           shared_ptr<string> virtualServiceGroupId_ {};
-          // The group name.
+          // The name of the group.
           shared_ptr<string> virtualServiceGroupName_ {};
         };
 
@@ -384,9 +384,9 @@ namespace Models
 
 
           protected:
-            // The Elastic IP Address (EIP) allocation ID that corresponds to the public address.
+            // The allocation ID of the elastic IP address (EIP) corresponding to the public IP address.
             shared_ptr<string> allocationId_ {};
-            // The ID of the elastic network interface (ENI).
+            // The ID of the elastic network interface controller (NIC).
             shared_ptr<string> eniId_ {};
             // The list of private IPv4 addresses.
             shared_ptr<vector<string>> ipv4LocalAddresses_ {};
@@ -441,7 +441,7 @@ namespace Models
           shared_ptr<vector<LoadBalancerZoneMappings::LoadBalancerAddresses>> loadBalancerAddresses_ {};
           // The zone status.
           shared_ptr<string> status_ {};
-          // The vSwitch ID that corresponds to the zone.
+          // The vSwitch ID corresponding to the zone.
           shared_ptr<string> vSwitchId_ {};
           // The zone ID.
           shared_ptr<string> zoneId_ {};
@@ -585,23 +585,23 @@ namespace Models
 
 
       protected:
-        // Indicates whether this is the default ingress of the gateway.
+        // Indicates whether the load balancer is the default ingress of the gateway.
         shared_ptr<bool> defaultGatewayIngress_ {};
-        // Indicates whether the load balancer can be edited. This parameter serves as an edit switch for load balancers that are being migrated.
+        // Indicates whether the load balancer can be edited. This serves as an edit switch for load balancers during migration.
         shared_ptr<bool> editEnable_ {};
         // The gateway ID.
         shared_ptr<string> gatewayId_ {};
-        // The load balancer address (IP address or domain name).
+        // The load balancer address, which can be an IP address or a domain name.
         shared_ptr<string> loadBalancerAddress_ {};
         // The IP version.
         shared_ptr<string> loadBalancerAddressIpVersion_ {};
         // The address type.
         shared_ptr<string> loadBalancerAddressType_ {};
-        // The load balancer availability status.
+        // The availability status of the load balancer.
         shared_ptr<string> loadBalancerAvailableStatus_ {};
         // The load balancer instance ID.
         shared_ptr<string> loadBalancerId_ {};
-        // The binding mode.
+        // The association mode.
         shared_ptr<string> loadBalancerMode_ {};
         // The load balancer name.
         shared_ptr<string> loadBalancerName_ {};
@@ -615,9 +615,9 @@ namespace Models
         shared_ptr<vector<Items::LoadBalancerZoneMappings>> loadBalancerZoneMappings_ {};
         // The list of listener ports.
         shared_ptr<vector<Items::Ports>> ports_ {};
-        // The gateway service weight, which ranges from 0 to 100. This parameter is used in migration and traffic shifting scenarios.
+        // The gateway service weight, which ranges from 0 to 100 and is used in migration and traffic switching scenarios.
         shared_ptr<int64_t> serviceWeight_ {};
-        // The VServerGroup metadata.
+        // The metadata of the vServer group.
         shared_ptr<string> vServerGroupMetaInfo_ {};
         // The list of virtual server groups.
         shared_ptr<vector<Items::VirtualServerGroupList>> virtualServerGroupList_ {};

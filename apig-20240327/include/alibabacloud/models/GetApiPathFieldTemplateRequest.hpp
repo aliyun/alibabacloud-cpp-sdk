@@ -38,7 +38,7 @@ namespace Models
 
 
   protected:
-    // The URI of the request, used to query the field template corresponding to the URI.
+    // The API request path used to query the corresponding field template.
     shared_ptr<string> path_ {};
   };
 

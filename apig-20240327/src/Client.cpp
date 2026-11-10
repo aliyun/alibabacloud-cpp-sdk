@@ -976,6 +976,8 @@ CreateConsumerResponse Client::createConsumer(const CreateConsumerRequest &reque
 }
 
 /**
+ * @deprecated OpenAPI CreateConsumerAuthorizationRule is deprecated
+ *
  * @summary Creates a consumer authorization rule.
  *
  * @param request CreateConsumerAuthorizationRuleRequest
@@ -1025,6 +1027,8 @@ CreateConsumerAuthorizationRuleResponse Client::createConsumerAuthorizationRuleW
 }
 
 /**
+ * @deprecated OpenAPI CreateConsumerAuthorizationRule is deprecated
+ *
  * @summary Creates a consumer authorization rule.
  *
  * @param request CreateConsumerAuthorizationRuleRequest
@@ -1460,6 +1464,93 @@ CreateGatewayResponse Client::createGateway(const CreateGatewayRequest &request)
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   map<string, string> headers = {};
   return createGatewayWithOptions(request, headers, runtime);
+}
+
+/**
+ * @summary 创建网关配额限流规则主体用量明细导出任务
+ *
+ * @description ## 调用流程
+ * 本接口为指定网关配额规则下的一个消费者或消费者组创建消费明细导出任务，导出内容来自网关访问日志。
+ * 1. 调用本接口获取 taskId。新任务返回 Pending，表示已提交，文件尚未生成。
+ * 2. 使用相同的 gatewayId、ruleId、subjectId 和返回的 taskId 调用 GetGatewayQuotaRuleSubjectUsageExportTask，轮询任务状态。
+ * 3. 当轮询状态为 Success 且文件未过期时，通过GetGatewayQuotaRuleSubjectUsageExportTask下载 csv.gz 文件；状态为 Failed 时，根据 errorMessage 排查后重新创建任务。
+ * ## 使用条件与限制
+ * - 创建任务时，配额规则必须存在，且目标主体已绑定到该规则。消费者规则使用消费者 ID，消费者组规则使用消费者组 ID。
+ * - 有效导出时间范围内的明细依赖网关访问日志投递，请先启用日志投递并确认所需时段的日志可查询。
+ * - 单次导出时间跨度不得超过一个规则周期。单次最多导出 100000 条明细；后台统计结果超过上限时任务失败，请缩小时间范围后重试。
+ * - 同一用户在当前地域对同一网关、规则和主体在最近 10 分钟内已有 Pending 或 Running 任务时，重复创建会被拒绝；最近 10 分钟内创建且仍为 Pending 或 Running 的导出任务总数达到 3 个时也会被拒绝。请等待已有任务结束。相同 clientToken、相同参数的幂等重试可复用已有任务。
+ * - 任务自创建起的处理超时为 10 分钟。超时后任务按 Failed 处理；这不是任务必定成功完成的时限承诺。
+ * - 创建时确定导出时间范围、计量维度和主体名称，后续查询不会重新计算这些条件。文件成功生成后可在 24 小时内获取下载链接；每次查询生成的签名链接有效期为 10 分钟，具体时间以查询结果为准。
+ *
+ * @param request CreateGatewayQuotaRuleSubjectUsageExportTaskRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CreateGatewayQuotaRuleSubjectUsageExportTaskResponse
+ */
+CreateGatewayQuotaRuleSubjectUsageExportTaskResponse Client::createGatewayQuotaRuleSubjectUsageExportTaskWithOptions(const string &gatewayId, const string &ruleId, const string &subjectId, const CreateGatewayQuotaRuleSubjectUsageExportTaskRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasClientToken()) {
+    body["clientToken"] = request.getClientToken();
+  }
+
+  if (!!request.hasEndTime()) {
+    body["endTime"] = request.getEndTime();
+  }
+
+  if (!!request.hasFilterFailedRequests()) {
+    body["filterFailedRequests"] = request.getFilterFailedRequests();
+  }
+
+  if (!!request.hasFormat()) {
+    body["format"] = request.getFormat();
+  }
+
+  if (!!request.hasStartTime()) {
+    body["startTime"] = request.getStartTime();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "CreateGatewayQuotaRuleSubjectUsageExportTask"},
+    {"version" , "2024-03-27"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/v1/gateways/" , Darabonba::Encode::Encoder::percentEncode(gatewayId) , "/quota-rules/" , Darabonba::Encode::Encoder::percentEncode(ruleId) , "/subjects/" , Darabonba::Encode::Encoder::percentEncode(subjectId) , "/usage/export-tasks")},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CreateGatewayQuotaRuleSubjectUsageExportTaskResponse>();
+}
+
+/**
+ * @summary 创建网关配额限流规则主体用量明细导出任务
+ *
+ * @description ## 调用流程
+ * 本接口为指定网关配额规则下的一个消费者或消费者组创建消费明细导出任务，导出内容来自网关访问日志。
+ * 1. 调用本接口获取 taskId。新任务返回 Pending，表示已提交，文件尚未生成。
+ * 2. 使用相同的 gatewayId、ruleId、subjectId 和返回的 taskId 调用 GetGatewayQuotaRuleSubjectUsageExportTask，轮询任务状态。
+ * 3. 当轮询状态为 Success 且文件未过期时，通过GetGatewayQuotaRuleSubjectUsageExportTask下载 csv.gz 文件；状态为 Failed 时，根据 errorMessage 排查后重新创建任务。
+ * ## 使用条件与限制
+ * - 创建任务时，配额规则必须存在，且目标主体已绑定到该规则。消费者规则使用消费者 ID，消费者组规则使用消费者组 ID。
+ * - 有效导出时间范围内的明细依赖网关访问日志投递，请先启用日志投递并确认所需时段的日志可查询。
+ * - 单次导出时间跨度不得超过一个规则周期。单次最多导出 100000 条明细；后台统计结果超过上限时任务失败，请缩小时间范围后重试。
+ * - 同一用户在当前地域对同一网关、规则和主体在最近 10 分钟内已有 Pending 或 Running 任务时，重复创建会被拒绝；最近 10 分钟内创建且仍为 Pending 或 Running 的导出任务总数达到 3 个时也会被拒绝。请等待已有任务结束。相同 clientToken、相同参数的幂等重试可复用已有任务。
+ * - 任务自创建起的处理超时为 10 分钟。超时后任务按 Failed 处理；这不是任务必定成功完成的时限承诺。
+ * - 创建时确定导出时间范围、计量维度和主体名称，后续查询不会重新计算这些条件。文件成功生成后可在 24 小时内获取下载链接；每次查询生成的签名链接有效期为 10 分钟，具体时间以查询结果为准。
+ *
+ * @param request CreateGatewayQuotaRuleSubjectUsageExportTaskRequest
+ * @return CreateGatewayQuotaRuleSubjectUsageExportTaskResponse
+ */
+CreateGatewayQuotaRuleSubjectUsageExportTaskResponse Client::createGatewayQuotaRuleSubjectUsageExportTask(const string &gatewayId, const string &ruleId, const string &subjectId, const CreateGatewayQuotaRuleSubjectUsageExportTaskRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return createGatewayQuotaRuleSubjectUsageExportTaskWithOptions(gatewayId, ruleId, subjectId, request, headers, runtime);
 }
 
 /**
@@ -2598,7 +2689,7 @@ CreateSecretResponse Client::createSecret(const CreateSecretRequest &request) {
 /**
  * @summary Creates a service.
  *
- * @description Creates multiple services.
+ * @description This operation supports creating multiple services.
  *
  * @param request CreateServiceRequest
  * @param headers map
@@ -2651,7 +2742,7 @@ CreateServiceResponse Client::createServiceWithOptions(const CreateServiceReques
 /**
  * @summary Creates a service.
  *
- * @description Creates multiple services.
+ * @description This operation supports creating multiple services.
  *
  * @param request CreateServiceRequest
  * @return CreateServiceResponse
@@ -2891,7 +2982,9 @@ DeleteConsumerResponse Client::deleteConsumer(const string &consumerId) {
 }
 
 /**
- * @summary Deletes an API consumer authorization rule.
+ * @deprecated OpenAPI DeleteConsumerAuthorizationRule is deprecated
+ *
+ * @summary Deletes a consumer authorization rule.
  *
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
@@ -2916,7 +3009,9 @@ DeleteConsumerAuthorizationRuleResponse Client::deleteConsumerAuthorizationRuleW
 }
 
 /**
- * @summary Deletes an API consumer authorization rule.
+ * @deprecated OpenAPI DeleteConsumerAuthorizationRule is deprecated
+ *
+ * @summary Deletes a consumer authorization rule.
  *
  * @return DeleteConsumerAuthorizationRuleResponse
  */
@@ -4131,7 +4226,7 @@ GetAiModelProviderResponse Client::getAiModelProvider(const string &modelProvide
 }
 
 /**
- * @summary Queries the effective field collection configurations for each request path of an HTTP API under a specified cloud-native API gateway, including the field source, JSONPath, collection status, switch permission, and template origin.
+ * @summary Queries the effective field collection configurations for each request path of an HTTP API in a specified cloud-native API gateway, including the field source, JSONPath, collection status, switch permission, and template origin.
  *
  * @param request GetApiPathFieldConfigRequest
  * @param headers map
@@ -4168,7 +4263,7 @@ GetApiPathFieldConfigResponse Client::getApiPathFieldConfigWithOptions(const Get
 }
 
 /**
- * @summary Queries the effective field collection configurations for each request path of an HTTP API under a specified cloud-native API gateway, including the field source, JSONPath, collection status, switch permission, and template origin.
+ * @summary Queries the effective field collection configurations for each request path of an HTTP API in a specified cloud-native API gateway, including the field source, JSONPath, collection status, switch permission, and template origin.
  *
  * @param request GetApiPathFieldConfigRequest
  * @return GetApiPathFieldConfigResponse
@@ -4180,7 +4275,7 @@ GetApiPathFieldConfigResponse Client::getApiPathFieldConfig(const GetApiPathFiel
 }
 
 /**
- * @summary Queries the field template corresponding to a URI of the request and returns the template name, applicable protocol, template description, and the set of fields defined by the template, including field keys, JSONPaths, value sources, and statistical categories.
+ * @summary Queries the field template corresponding to the API request path and returns the template name, applicable protocol, template description, and the set of fields defined by the template, including field keys, JSONPaths, value sources, and statistical categories.
  *
  * @param request GetApiPathFieldTemplateRequest
  * @param headers map
@@ -4213,7 +4308,7 @@ GetApiPathFieldTemplateResponse Client::getApiPathFieldTemplateWithOptions(const
 }
 
 /**
- * @summary Queries the field template corresponding to a URI of the request and returns the template name, applicable protocol, template description, and the set of fields defined by the template, including field keys, JSONPaths, value sources, and statistical categories.
+ * @summary Queries the field template corresponding to the API request path and returns the template name, applicable protocol, template description, and the set of fields defined by the template, including field keys, JSONPaths, value sources, and statistical categories.
  *
  * @param request GetApiPathFieldTemplateRequest
  * @return GetApiPathFieldTemplateResponse
@@ -4339,7 +4434,9 @@ GetConsumerResponse Client::getConsumer(const string &consumerId) {
 }
 
 /**
- * @summary Retrieves a consumer authorization rule.
+ * @deprecated OpenAPI GetConsumerAuthorizationRule is deprecated
+ *
+ * @summary Retrieves consumer authorization rules.
  *
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
@@ -4364,7 +4461,9 @@ GetConsumerAuthorizationRuleResponse Client::getConsumerAuthorizationRuleWithOpt
 }
 
 /**
- * @summary Retrieves a consumer authorization rule.
+ * @deprecated OpenAPI GetConsumerAuthorizationRule is deprecated
+ *
+ * @summary Retrieves consumer authorization rules.
  *
  * @return GetConsumerAuthorizationRuleResponse
  */
@@ -4875,6 +4974,69 @@ GetGatewayQuotaRuleSubjectUsageResponse Client::getGatewayQuotaRuleSubjectUsage(
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   map<string, string> headers = {};
   return getGatewayQuotaRuleSubjectUsageWithOptions(gatewayId, ruleId, subjectId, request, headers, runtime);
+}
+
+/**
+ * @summary Queries the status, processing progress, failure cause, and file download information of an export task for quota rule subject consumption details.
+ *
+ * @description ## Call flow
+ * First, call CreateGatewayQuotaRuleSubjectUsageExportTask to create a task. Then, use the returned taskId along with the same gatewayId, ruleId, and subjectId to call this operation in the same region.
+ * - Pending or Running: The task is not completed. You can query again after a period of time.
+ * - Success: Check result.fileExpired and result.downloadUrl. If the file is not expired and a link is returned, you can download the file.
+ * - Failed: Troubleshoot the issue based on errorMessage. To re-export, call the create operation and use a new clientToken.
+ * ## Download link and file validity period
+ * For each successful query where the file is not expired, a signed link with a validity period of 10 minutes is generated. Download the file promptly based on downloadUrlExpiredAt. If the link expires but the file has not reached fileExpiredAt, you can query again to obtain a new link. Querying again does not regenerate the file or extend the 24-hour validity period of the file.
+ * After the file reaches fileExpiredAt, this operation no longer issues new links, returns fileExpired=true, and omits downloadUrl and downloadUrlExpiredAt. The task status remains Success. To export again, create a new task.
+ * ## Query scope and task progress
+ * This operation returns only the export tasks of the current user in the current region that match the gateway, rule, and subject paths. If the paths do not match or the task does not exist, a not found error is returned. Existing tasks are queried based on the information recorded at creation. The export conditions are not recalculated due to subsequent rule resets or subject name changes.
+ * If a task remains in the Pending or Running state for more than 10 minutes after creation, the query treats it as a timeout failure. Determine whether the task is completed based on the status, not just totalCount or processedCount.
+ *
+ * @param request GetGatewayQuotaRuleSubjectUsageExportTaskRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetGatewayQuotaRuleSubjectUsageExportTaskResponse
+ */
+GetGatewayQuotaRuleSubjectUsageExportTaskResponse Client::getGatewayQuotaRuleSubjectUsageExportTaskWithOptions(const string &gatewayId, const string &ruleId, const string &subjectId, const string &taskId, const GetGatewayQuotaRuleSubjectUsageExportTaskRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "GetGatewayQuotaRuleSubjectUsageExportTask"},
+    {"version" , "2024-03-27"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/v1/gateways/" , Darabonba::Encode::Encoder::percentEncode(gatewayId) , "/quota-rules/" , Darabonba::Encode::Encoder::percentEncode(ruleId) , "/subjects/" , Darabonba::Encode::Encoder::percentEncode(subjectId) , "/usage/export-tasks/" , Darabonba::Encode::Encoder::percentEncode(taskId))},
+    {"method" , "GET"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetGatewayQuotaRuleSubjectUsageExportTaskResponse>();
+}
+
+/**
+ * @summary Queries the status, processing progress, failure cause, and file download information of an export task for quota rule subject consumption details.
+ *
+ * @description ## Call flow
+ * First, call CreateGatewayQuotaRuleSubjectUsageExportTask to create a task. Then, use the returned taskId along with the same gatewayId, ruleId, and subjectId to call this operation in the same region.
+ * - Pending or Running: The task is not completed. You can query again after a period of time.
+ * - Success: Check result.fileExpired and result.downloadUrl. If the file is not expired and a link is returned, you can download the file.
+ * - Failed: Troubleshoot the issue based on errorMessage. To re-export, call the create operation and use a new clientToken.
+ * ## Download link and file validity period
+ * For each successful query where the file is not expired, a signed link with a validity period of 10 minutes is generated. Download the file promptly based on downloadUrlExpiredAt. If the link expires but the file has not reached fileExpiredAt, you can query again to obtain a new link. Querying again does not regenerate the file or extend the 24-hour validity period of the file.
+ * After the file reaches fileExpiredAt, this operation no longer issues new links, returns fileExpired=true, and omits downloadUrl and downloadUrlExpiredAt. The task status remains Success. To export again, create a new task.
+ * ## Query scope and task progress
+ * This operation returns only the export tasks of the current user in the current region that match the gateway, rule, and subject paths. If the paths do not match or the task does not exist, a not found error is returned. Existing tasks are queried based on the information recorded at creation. The export conditions are not recalculated due to subsequent rule resets or subject name changes.
+ * If a task remains in the Pending or Running state for more than 10 minutes after creation, the query treats it as a timeout failure. Determine whether the task is completed based on the status, not just totalCount or processedCount.
+ *
+ * @param request GetGatewayQuotaRuleSubjectUsageExportTaskRequest
+ * @return GetGatewayQuotaRuleSubjectUsageExportTaskResponse
+ */
+GetGatewayQuotaRuleSubjectUsageExportTaskResponse Client::getGatewayQuotaRuleSubjectUsageExportTask(const string &gatewayId, const string &ruleId, const string &subjectId, const string &taskId, const GetGatewayQuotaRuleSubjectUsageExportTaskRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return getGatewayQuotaRuleSubjectUsageExportTaskWithOptions(gatewayId, ruleId, subjectId, taskId, request, headers, runtime);
 }
 
 /**
@@ -6103,7 +6265,7 @@ InstallPluginResponse Client::installPlugin(const InstallPluginRequest &request)
 }
 
 /**
- * @summary Calls an AI agent.
+ * @summary Invokes an AI agent.
  *
  * @param request InvokeAIAgentRequest
  * @param headers map
@@ -6166,7 +6328,7 @@ return Darabonba::FutureGenerator<json>(__retrun);
 }
 
 /**
- * @summary Calls an AI agent.
+ * @summary Invokes an AI agent.
  *
  * @param request InvokeAIAgentRequest
  * @param headers map
@@ -6215,7 +6377,7 @@ InvokeAIAgentResponse Client::invokeAIAgentWithOptions(const InvokeAIAgentReques
 }
 
 /**
- * @summary Calls an AI agent.
+ * @summary Invokes an AI agent.
  *
  * @param request InvokeAIAgentRequest
  * @return InvokeAIAgentResponse
@@ -6520,6 +6682,8 @@ ListChatSessionsResponse Client::listChatSessions(const ListChatSessionsRequest 
 }
 
 /**
+ * @deprecated OpenAPI ListConsumerAuthorizationRules is deprecated
+ *
  * @summary Retrieves a list of consumer authorization rules.
  *
  * @param request ListConsumerAuthorizationRulesRequest
@@ -6561,6 +6725,8 @@ ListConsumerAuthorizationRulesResponse Client::listConsumerAuthorizationRulesWit
 }
 
 /**
+ * @deprecated OpenAPI ListConsumerAuthorizationRules is deprecated
+ *
  * @summary Retrieves a list of consumer authorization rules.
  *
  * @param request ListConsumerAuthorizationRulesRequest
@@ -6744,7 +6910,7 @@ ListConsumerGroupsResponse Client::listConsumerGroups(const ListConsumerGroupsRe
 }
 
 /**
- * @summary Queries the list of quota rules configured for a specific consumer.
+ * @summary Queries the list of configured quota rules for a consumer.
  *
  * @param request ListConsumerQuotaRulesRequest
  * @param headers map
@@ -6789,7 +6955,7 @@ ListConsumerQuotaRulesResponse Client::listConsumerQuotaRulesWithOptions(const s
 }
 
 /**
- * @summary Queries the list of quota rules configured for a specific consumer.
+ * @summary Queries the list of configured quota rules for a consumer.
  *
  * @param request ListConsumerQuotaRulesRequest
  * @return ListConsumerQuotaRulesResponse
@@ -7327,7 +7493,7 @@ ListGatewayFeaturesResponse Client::listGatewayFeatures(const string &gatewayId)
 }
 
 /**
- * @summary Retrieves the list of load balancers for a gateway.
+ * @summary Retrieves the list of gateway load balancers.
  *
  * @param request ListGatewayLoadBalancersRequest
  * @param headers map
@@ -7380,7 +7546,7 @@ ListGatewayLoadBalancersResponse Client::listGatewayLoadBalancersWithOptions(con
 }
 
 /**
- * @summary Retrieves the list of load balancers for a gateway.
+ * @summary Retrieves the list of gateway load balancers.
  *
  * @param request ListGatewayLoadBalancersRequest
  * @return ListGatewayLoadBalancersResponse
@@ -8164,7 +8330,7 @@ ListK8sClusterSourcesResponse Client::listK8sClusterSources(const string &gatewa
 }
 
 /**
- * @summary Queries the details of Model Context Protocol (MCP) tools in an API product of the MCP Server type. The response returns a list of tools. Each tool includes three text members (name, title, and description) and four map members (inputSchema, outputSchema, annotations, and meta).
+ * @summary Queries the details of Model Context Protocol (MCP) tools in an MCP Server-type API product and returns a list of tools. Each tool contains three text fields: name, title, and description, and four map fields: inputSchema, outputSchema, annotations, and meta.
  *
  * @param request ListMcpProductToolsRequest
  * @param headers map
@@ -8191,7 +8357,7 @@ ListMcpProductToolsResponse Client::listMcpProductToolsWithOptions(const string 
 }
 
 /**
- * @summary Queries the details of Model Context Protocol (MCP) tools in an API product of the MCP Server type. The response returns a list of tools. Each tool includes three text members (name, title, and description) and four map members (inputSchema, outputSchema, annotations, and meta).
+ * @summary Queries the details of Model Context Protocol (MCP) tools in an MCP Server-type API product and returns a list of tools. Each tool contains three text fields: name, title, and description, and four map fields: inputSchema, outputSchema, annotations, and meta.
  *
  * @param request ListMcpProductToolsRequest
  * @return ListMcpProductToolsResponse
@@ -8325,7 +8491,7 @@ ListMigrationTasksResponse Client::listMigrationTasks(const ListMigrationTasksRe
 }
 
 /**
- * @summary Queries a list of model cards and returns the model name, provider, and source identifier for each card, along with the features, pricing, meta, availablePaths, and snapshots structures. The only request parameter is the provider identifier.
+ * @summary Queries a list of model cards and returns the model name, provider, and source identifier of each card, along with its features, pricing, meta, availablePaths, and snapshots structures. The only business request parameter is the provider identifier.
  *
  * @param request ListModelCardsRequest
  * @param headers map
@@ -8358,7 +8524,7 @@ ListModelCardsResponse Client::listModelCardsWithOptions(const ListModelCardsReq
 }
 
 /**
- * @summary Queries a list of model cards and returns the model name, provider, and source identifier for each card, along with the features, pricing, meta, availablePaths, and snapshots structures. The only request parameter is the provider identifier.
+ * @summary Queries a list of model cards and returns the model name, provider, and source identifier of each card, along with its features, pricing, meta, availablePaths, and snapshots structures. The only business request parameter is the provider identifier.
  *
  * @param request ListModelCardsRequest
  * @return ListModelCardsResponse
@@ -10301,9 +10467,9 @@ RestartGatewayResponse Client::restartGateway(const string &gatewayId) {
 }
 
 /**
- * @summary Queries the currently active credentials for an AI service.
+ * @summary Queries the currently active credentials for the AI service.
  *
- * @description Queries the currently active credentials for an AI service.
+ * @description Queries the currently active credentials for the AI service.
  *
  * @param request RevealServiceCredentialRequest
  * @param headers map
@@ -10330,9 +10496,9 @@ RevealServiceCredentialResponse Client::revealServiceCredentialWithOptions(const
 }
 
 /**
- * @summary Queries the currently active credentials for an AI service.
+ * @summary Queries the currently active credentials for the AI service.
  *
- * @description Queries the currently active credentials for an AI service.
+ * @description Queries the currently active credentials for the AI service.
  *
  * @param request RevealServiceCredentialRequest
  * @return RevealServiceCredentialResponse
@@ -10489,7 +10655,7 @@ SyncMCPServersResponse Client::syncMCPServers(const SyncMCPServersRequest &reque
 }
 
 /**
- * @summary Tags resources.
+ * @summary Adds tags to resources.
  *
  * @param request TagResourcesRequest
  * @param headers map
@@ -10530,7 +10696,7 @@ TagResourcesResponse Client::tagResourcesWithOptions(const TagResourcesRequest &
 }
 
 /**
- * @summary Tags resources.
+ * @summary Adds tags to resources.
  *
  * @param request TagResourcesRequest
  * @return TagResourcesResponse
@@ -11115,9 +11281,11 @@ UpdateConsumerResponse Client::updateConsumer(const string &consumerId, const Up
 }
 
 /**
- * @summary Updates consumer authorization rules.
+ * @deprecated OpenAPI UpdateConsumerAuthorizationRule is deprecated
  *
- * @description This API operation is replaced by UpdateAuthorizationRule. The new API path is /v1/authorization-rules/{consumerAuthorizationRuleId}. When you call the new API operation, you only need to provide consumerAuthorizationRuleId in the path and the resources array in the request body. The consumerId parameter is no longer required.
+ * @summary Updates the consumer authorization rule.
+ *
+ * @description This API operation has been replaced by UpdateAuthorizationRule. The new API path is /v1/authorization-rules/{consumerAuthorizationRuleId}. When you call the new API operation, you only need to provide consumerAuthorizationRuleId in the path and the resources array in the request body. The consumerId parameter is no longer required.
  *
  * @param request UpdateConsumerAuthorizationRuleRequest
  * @param headers map
@@ -11158,9 +11326,11 @@ UpdateConsumerAuthorizationRuleResponse Client::updateConsumerAuthorizationRuleW
 }
 
 /**
- * @summary Updates consumer authorization rules.
+ * @deprecated OpenAPI UpdateConsumerAuthorizationRule is deprecated
  *
- * @description This API operation is replaced by UpdateAuthorizationRule. The new API path is /v1/authorization-rules/{consumerAuthorizationRuleId}. When you call the new API operation, you only need to provide consumerAuthorizationRuleId in the path and the resources array in the request body. The consumerId parameter is no longer required.
+ * @summary Updates the consumer authorization rule.
+ *
+ * @description This API operation has been replaced by UpdateAuthorizationRule. The new API path is /v1/authorization-rules/{consumerAuthorizationRuleId}. When you call the new API operation, you only need to provide consumerAuthorizationRuleId in the path and the resources array in the request body. The consumerId parameter is no longer required.
  *
  * @param request UpdateConsumerAuthorizationRuleRequest
  * @return UpdateConsumerAuthorizationRuleResponse
@@ -11272,7 +11442,7 @@ UpdateDeveloperStatusResponse Client::updateDeveloperStatus(const string &develo
 /**
  * @summary Updates a domain name.
  *
- * @description Only sources of the **Container Service** type can update the listener Ingress configuration.
+ * @description Only sources of the **container service** type are allowed to update the listener Ingress configurations.
  *
  * @param request UpdateDomainRequest
  * @param headers map
@@ -11347,7 +11517,7 @@ UpdateDomainResponse Client::updateDomainWithOptions(const string &domainId, con
 /**
  * @summary Updates a domain name.
  *
- * @description Only sources of the **Container Service** type can update the listener Ingress configuration.
+ * @description Only sources of the **container service** type are allowed to update the listener Ingress configurations.
  *
  * @param request UpdateDomainRequest
  * @return UpdateDomainResponse

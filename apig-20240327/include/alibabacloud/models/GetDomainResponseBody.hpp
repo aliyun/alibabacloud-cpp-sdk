@@ -373,7 +373,7 @@ namespace Models
       shared_ptr<string> certDetailErrorCode_ {};
       // The error message for the certificate details.
       shared_ptr<string> certDetailErrorMessage_ {};
-      // The certificate detail status.
+      // The status of the certificate details.
       shared_ptr<string> certDetailStatus_ {};
       // The certificate identifier.
       shared_ptr<string> certIdentifier_ {};
@@ -381,7 +381,7 @@ namespace Models
       shared_ptr<string> certName_ {};
       // The client CA certificate.
       shared_ptr<string> clientCACert_ {};
-      // The source from which the domain name was created.
+      // The creation source.
       shared_ptr<string> createFrom_ {};
       // The creation timestamp.
       shared_ptr<int64_t> createTimestamp_ {};
@@ -391,29 +391,30 @@ namespace Models
       shared_ptr<string> domainId_ {};
       // The domain name scope.
       shared_ptr<string> domainScope_ {};
-      // The HTTPS protocol type settings. Specifies whether forced HTTPS redirection is enabled.
+      // The settings for the HTTPS protocol type. Indicates whether forced HTTPS redirection is enabled.
       shared_ptr<bool> forceHttps_ {};
       // The HTTP/2 settings.
       shared_ptr<string> http2Option_ {};
-      // The certificate issuer.
+      // The certification authority.
       shared_ptr<string> issuer_ {};
-      // Indicates whether mTLS mutual authentication is enabled.
+      // Specifies whether mTLS mutual authentication is enabled.
       shared_ptr<bool> mTLSEnabled_ {};
       // The domain name.
       shared_ptr<string> name_ {};
       // The expiration time of the certificate.
       shared_ptr<int64_t> notAfterTimstamp_ {};
-      // The effective period of the certificate.
+      // The effective time of the certificate.
       shared_ptr<int64_t> notBeforeTimestamp_ {};
       // The protocol types supported by the domain name. Valid values:
-      // - HTTP: Only the HTTP protocol is supported.
-      // - HTTPS: Only the HTTPS protocol is supported.
+      // 
+      // - HTTP: Supports only the HTTP protocol.
+      // - HTTPS: Supports only the HTTPS protocol.
       shared_ptr<string> protocol_ {};
       // The resource group ID.
       shared_ptr<string> resourceGroupId_ {};
       // All domain names bound to the certificate.
       shared_ptr<string> sans_ {};
-      // The production resource information.
+      // The online resource information.
       shared_ptr<Data::StatisticsInfo> statisticsInfo_ {};
       // The cipher suite configuration.
       shared_ptr<TlsCipherSuitesConfig> tlsCipherSuitesConfig_ {};
@@ -464,7 +465,7 @@ namespace Models
     shared_ptr<GetDomainResponseBody::Data> data_ {};
     // The response message.
     shared_ptr<string> message_ {};
-    // The request ID, which is used to trace the API call chain.
+    // The request ID used to trace the API call chain.
     shared_ptr<string> requestId_ {};
   };
 

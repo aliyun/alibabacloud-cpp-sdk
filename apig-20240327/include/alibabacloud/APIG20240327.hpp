@@ -315,6 +315,8 @@ namespace APIG20240327
       Models::CreateConsumerResponse createConsumer(const Models::CreateConsumerRequest &request);
 
       /**
+       * @deprecated OpenAPI CreateConsumerAuthorizationRule is deprecated
+       *
        * @summary Creates a consumer authorization rule.
        *
        * @param request CreateConsumerAuthorizationRuleRequest
@@ -325,6 +327,8 @@ namespace APIG20240327
       Models::CreateConsumerAuthorizationRuleResponse createConsumerAuthorizationRuleWithOptions(const string &consumerId, const Models::CreateConsumerAuthorizationRuleRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @deprecated OpenAPI CreateConsumerAuthorizationRule is deprecated
+       *
        * @summary Creates a consumer authorization rule.
        *
        * @param request CreateConsumerAuthorizationRuleRequest
@@ -457,6 +461,50 @@ namespace APIG20240327
        * @return CreateGatewayResponse
        */
       Models::CreateGatewayResponse createGateway(const Models::CreateGatewayRequest &request);
+
+      /**
+       * @summary 创建网关配额限流规则主体用量明细导出任务
+       *
+       * @description ## 调用流程
+       * 本接口为指定网关配额规则下的一个消费者或消费者组创建消费明细导出任务，导出内容来自网关访问日志。
+       * 1. 调用本接口获取 taskId。新任务返回 Pending，表示已提交，文件尚未生成。
+       * 2. 使用相同的 gatewayId、ruleId、subjectId 和返回的 taskId 调用 GetGatewayQuotaRuleSubjectUsageExportTask，轮询任务状态。
+       * 3. 当轮询状态为 Success 且文件未过期时，通过GetGatewayQuotaRuleSubjectUsageExportTask下载 csv.gz 文件；状态为 Failed 时，根据 errorMessage 排查后重新创建任务。
+       * ## 使用条件与限制
+       * - 创建任务时，配额规则必须存在，且目标主体已绑定到该规则。消费者规则使用消费者 ID，消费者组规则使用消费者组 ID。
+       * - 有效导出时间范围内的明细依赖网关访问日志投递，请先启用日志投递并确认所需时段的日志可查询。
+       * - 单次导出时间跨度不得超过一个规则周期。单次最多导出 100000 条明细；后台统计结果超过上限时任务失败，请缩小时间范围后重试。
+       * - 同一用户在当前地域对同一网关、规则和主体在最近 10 分钟内已有 Pending 或 Running 任务时，重复创建会被拒绝；最近 10 分钟内创建且仍为 Pending 或 Running 的导出任务总数达到 3 个时也会被拒绝。请等待已有任务结束。相同 clientToken、相同参数的幂等重试可复用已有任务。
+       * - 任务自创建起的处理超时为 10 分钟。超时后任务按 Failed 处理；这不是任务必定成功完成的时限承诺。
+       * - 创建时确定导出时间范围、计量维度和主体名称，后续查询不会重新计算这些条件。文件成功生成后可在 24 小时内获取下载链接；每次查询生成的签名链接有效期为 10 分钟，具体时间以查询结果为准。
+       *
+       * @param request CreateGatewayQuotaRuleSubjectUsageExportTaskRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CreateGatewayQuotaRuleSubjectUsageExportTaskResponse
+       */
+      Models::CreateGatewayQuotaRuleSubjectUsageExportTaskResponse createGatewayQuotaRuleSubjectUsageExportTaskWithOptions(const string &gatewayId, const string &ruleId, const string &subjectId, const Models::CreateGatewayQuotaRuleSubjectUsageExportTaskRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 创建网关配额限流规则主体用量明细导出任务
+       *
+       * @description ## 调用流程
+       * 本接口为指定网关配额规则下的一个消费者或消费者组创建消费明细导出任务，导出内容来自网关访问日志。
+       * 1. 调用本接口获取 taskId。新任务返回 Pending，表示已提交，文件尚未生成。
+       * 2. 使用相同的 gatewayId、ruleId、subjectId 和返回的 taskId 调用 GetGatewayQuotaRuleSubjectUsageExportTask，轮询任务状态。
+       * 3. 当轮询状态为 Success 且文件未过期时，通过GetGatewayQuotaRuleSubjectUsageExportTask下载 csv.gz 文件；状态为 Failed 时，根据 errorMessage 排查后重新创建任务。
+       * ## 使用条件与限制
+       * - 创建任务时，配额规则必须存在，且目标主体已绑定到该规则。消费者规则使用消费者 ID，消费者组规则使用消费者组 ID。
+       * - 有效导出时间范围内的明细依赖网关访问日志投递，请先启用日志投递并确认所需时段的日志可查询。
+       * - 单次导出时间跨度不得超过一个规则周期。单次最多导出 100000 条明细；后台统计结果超过上限时任务失败，请缩小时间范围后重试。
+       * - 同一用户在当前地域对同一网关、规则和主体在最近 10 分钟内已有 Pending 或 Running 任务时，重复创建会被拒绝；最近 10 分钟内创建且仍为 Pending 或 Running 的导出任务总数达到 3 个时也会被拒绝。请等待已有任务结束。相同 clientToken、相同参数的幂等重试可复用已有任务。
+       * - 任务自创建起的处理超时为 10 分钟。超时后任务按 Failed 处理；这不是任务必定成功完成的时限承诺。
+       * - 创建时确定导出时间范围、计量维度和主体名称，后续查询不会重新计算这些条件。文件成功生成后可在 24 小时内获取下载链接；每次查询生成的签名链接有效期为 10 分钟，具体时间以查询结果为准。
+       *
+       * @param request CreateGatewayQuotaRuleSubjectUsageExportTaskRequest
+       * @return CreateGatewayQuotaRuleSubjectUsageExportTaskResponse
+       */
+      Models::CreateGatewayQuotaRuleSubjectUsageExportTaskResponse createGatewayQuotaRuleSubjectUsageExportTask(const string &gatewayId, const string &ruleId, const string &subjectId, const Models::CreateGatewayQuotaRuleSubjectUsageExportTaskRequest &request);
 
       /**
        * @summary Creates an HTTP API.
@@ -771,7 +819,7 @@ namespace APIG20240327
       /**
        * @summary Creates a service.
        *
-       * @description Creates multiple services.
+       * @description This operation supports creating multiple services.
        *
        * @param request CreateServiceRequest
        * @param headers map
@@ -783,7 +831,7 @@ namespace APIG20240327
       /**
        * @summary Creates a service.
        *
-       * @description Creates multiple services.
+       * @description This operation supports creating multiple services.
        *
        * @param request CreateServiceRequest
        * @return CreateServiceResponse
@@ -883,7 +931,9 @@ namespace APIG20240327
       Models::DeleteConsumerResponse deleteConsumer(const string &consumerId);
 
       /**
-       * @summary Deletes an API consumer authorization rule.
+       * @deprecated OpenAPI DeleteConsumerAuthorizationRule is deprecated
+       *
+       * @summary Deletes a consumer authorization rule.
        *
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
@@ -892,7 +942,9 @@ namespace APIG20240327
       Models::DeleteConsumerAuthorizationRuleResponse deleteConsumerAuthorizationRuleWithOptions(const string &consumerAuthorizationRuleId, const string &consumerId, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Deletes an API consumer authorization rule.
+       * @deprecated OpenAPI DeleteConsumerAuthorizationRule is deprecated
+       *
+       * @summary Deletes a consumer authorization rule.
        *
        * @return DeleteConsumerAuthorizationRuleResponse
        */
@@ -1431,7 +1483,7 @@ namespace APIG20240327
       Models::GetAiModelProviderResponse getAiModelProvider(const string &modelProviderId, const Models::GetAiModelProviderRequest &request);
 
       /**
-       * @summary Queries the effective field collection configurations for each request path of an HTTP API under a specified cloud-native API gateway, including the field source, JSONPath, collection status, switch permission, and template origin.
+       * @summary Queries the effective field collection configurations for each request path of an HTTP API in a specified cloud-native API gateway, including the field source, JSONPath, collection status, switch permission, and template origin.
        *
        * @param request GetApiPathFieldConfigRequest
        * @param headers map
@@ -1441,7 +1493,7 @@ namespace APIG20240327
       Models::GetApiPathFieldConfigResponse getApiPathFieldConfigWithOptions(const Models::GetApiPathFieldConfigRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the effective field collection configurations for each request path of an HTTP API under a specified cloud-native API gateway, including the field source, JSONPath, collection status, switch permission, and template origin.
+       * @summary Queries the effective field collection configurations for each request path of an HTTP API in a specified cloud-native API gateway, including the field source, JSONPath, collection status, switch permission, and template origin.
        *
        * @param request GetApiPathFieldConfigRequest
        * @return GetApiPathFieldConfigResponse
@@ -1449,7 +1501,7 @@ namespace APIG20240327
       Models::GetApiPathFieldConfigResponse getApiPathFieldConfig(const Models::GetApiPathFieldConfigRequest &request);
 
       /**
-       * @summary Queries the field template corresponding to a URI of the request and returns the template name, applicable protocol, template description, and the set of fields defined by the template, including field keys, JSONPaths, value sources, and statistical categories.
+       * @summary Queries the field template corresponding to the API request path and returns the template name, applicable protocol, template description, and the set of fields defined by the template, including field keys, JSONPaths, value sources, and statistical categories.
        *
        * @param request GetApiPathFieldTemplateRequest
        * @param headers map
@@ -1459,7 +1511,7 @@ namespace APIG20240327
       Models::GetApiPathFieldTemplateResponse getApiPathFieldTemplateWithOptions(const Models::GetApiPathFieldTemplateRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the field template corresponding to a URI of the request and returns the template name, applicable protocol, template description, and the set of fields defined by the template, including field keys, JSONPaths, value sources, and statistical categories.
+       * @summary Queries the field template corresponding to the API request path and returns the template name, applicable protocol, template description, and the set of fields defined by the template, including field keys, JSONPaths, value sources, and statistical categories.
        *
        * @param request GetApiPathFieldTemplateRequest
        * @return GetApiPathFieldTemplateResponse
@@ -1519,7 +1571,9 @@ namespace APIG20240327
       Models::GetConsumerResponse getConsumer(const string &consumerId);
 
       /**
-       * @summary Retrieves a consumer authorization rule.
+       * @deprecated OpenAPI GetConsumerAuthorizationRule is deprecated
+       *
+       * @summary Retrieves consumer authorization rules.
        *
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
@@ -1528,7 +1582,9 @@ namespace APIG20240327
       Models::GetConsumerAuthorizationRuleResponse getConsumerAuthorizationRuleWithOptions(const string &consumerAuthorizationRuleId, const string &consumerId, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Retrieves a consumer authorization rule.
+       * @deprecated OpenAPI GetConsumerAuthorizationRule is deprecated
+       *
+       * @summary Retrieves consumer authorization rules.
        *
        * @return GetConsumerAuthorizationRuleResponse
        */
@@ -1727,6 +1783,48 @@ namespace APIG20240327
        * @return GetGatewayQuotaRuleSubjectUsageResponse
        */
       Models::GetGatewayQuotaRuleSubjectUsageResponse getGatewayQuotaRuleSubjectUsage(const string &gatewayId, const string &ruleId, const string &subjectId, const Models::GetGatewayQuotaRuleSubjectUsageRequest &request);
+
+      /**
+       * @summary Queries the status, processing progress, failure cause, and file download information of an export task for quota rule subject consumption details.
+       *
+       * @description ## Call flow
+       * First, call CreateGatewayQuotaRuleSubjectUsageExportTask to create a task. Then, use the returned taskId along with the same gatewayId, ruleId, and subjectId to call this operation in the same region.
+       * - Pending or Running: The task is not completed. You can query again after a period of time.
+       * - Success: Check result.fileExpired and result.downloadUrl. If the file is not expired and a link is returned, you can download the file.
+       * - Failed: Troubleshoot the issue based on errorMessage. To re-export, call the create operation and use a new clientToken.
+       * ## Download link and file validity period
+       * For each successful query where the file is not expired, a signed link with a validity period of 10 minutes is generated. Download the file promptly based on downloadUrlExpiredAt. If the link expires but the file has not reached fileExpiredAt, you can query again to obtain a new link. Querying again does not regenerate the file or extend the 24-hour validity period of the file.
+       * After the file reaches fileExpiredAt, this operation no longer issues new links, returns fileExpired=true, and omits downloadUrl and downloadUrlExpiredAt. The task status remains Success. To export again, create a new task.
+       * ## Query scope and task progress
+       * This operation returns only the export tasks of the current user in the current region that match the gateway, rule, and subject paths. If the paths do not match or the task does not exist, a not found error is returned. Existing tasks are queried based on the information recorded at creation. The export conditions are not recalculated due to subsequent rule resets or subject name changes.
+       * If a task remains in the Pending or Running state for more than 10 minutes after creation, the query treats it as a timeout failure. Determine whether the task is completed based on the status, not just totalCount or processedCount.
+       *
+       * @param request GetGatewayQuotaRuleSubjectUsageExportTaskRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetGatewayQuotaRuleSubjectUsageExportTaskResponse
+       */
+      Models::GetGatewayQuotaRuleSubjectUsageExportTaskResponse getGatewayQuotaRuleSubjectUsageExportTaskWithOptions(const string &gatewayId, const string &ruleId, const string &subjectId, const string &taskId, const Models::GetGatewayQuotaRuleSubjectUsageExportTaskRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Queries the status, processing progress, failure cause, and file download information of an export task for quota rule subject consumption details.
+       *
+       * @description ## Call flow
+       * First, call CreateGatewayQuotaRuleSubjectUsageExportTask to create a task. Then, use the returned taskId along with the same gatewayId, ruleId, and subjectId to call this operation in the same region.
+       * - Pending or Running: The task is not completed. You can query again after a period of time.
+       * - Success: Check result.fileExpired and result.downloadUrl. If the file is not expired and a link is returned, you can download the file.
+       * - Failed: Troubleshoot the issue based on errorMessage. To re-export, call the create operation and use a new clientToken.
+       * ## Download link and file validity period
+       * For each successful query where the file is not expired, a signed link with a validity period of 10 minutes is generated. Download the file promptly based on downloadUrlExpiredAt. If the link expires but the file has not reached fileExpiredAt, you can query again to obtain a new link. Querying again does not regenerate the file or extend the 24-hour validity period of the file.
+       * After the file reaches fileExpiredAt, this operation no longer issues new links, returns fileExpired=true, and omits downloadUrl and downloadUrlExpiredAt. The task status remains Success. To export again, create a new task.
+       * ## Query scope and task progress
+       * This operation returns only the export tasks of the current user in the current region that match the gateway, rule, and subject paths. If the paths do not match or the task does not exist, a not found error is returned. Existing tasks are queried based on the information recorded at creation. The export conditions are not recalculated due to subsequent rule resets or subject name changes.
+       * If a task remains in the Pending or Running state for more than 10 minutes after creation, the query treats it as a timeout failure. Determine whether the task is completed based on the status, not just totalCount or processedCount.
+       *
+       * @param request GetGatewayQuotaRuleSubjectUsageExportTaskRequest
+       * @return GetGatewayQuotaRuleSubjectUsageExportTaskResponse
+       */
+      Models::GetGatewayQuotaRuleSubjectUsageExportTaskResponse getGatewayQuotaRuleSubjectUsageExportTask(const string &gatewayId, const string &ruleId, const string &subjectId, const string &taskId, const Models::GetGatewayQuotaRuleSubjectUsageExportTaskRequest &request);
 
       /**
        * @summary Queries the resource quotas and usage of a gateway.
@@ -2247,7 +2345,7 @@ namespace APIG20240327
       Models::InstallPluginResponse installPlugin(const Models::InstallPluginRequest &request);
 
       /**
-       * @summary Calls an AI agent.
+       * @summary Invokes an AI agent.
        *
        * @param request InvokeAIAgentRequest
        * @param headers map
@@ -2257,7 +2355,7 @@ namespace APIG20240327
       FutureGenerator<Models::InvokeAIAgentResponse> invokeAIAgentWithSSE(const Models::InvokeAIAgentRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Calls an AI agent.
+       * @summary Invokes an AI agent.
        *
        * @param request InvokeAIAgentRequest
        * @param headers map
@@ -2267,7 +2365,7 @@ namespace APIG20240327
       Models::InvokeAIAgentResponse invokeAIAgentWithOptions(const Models::InvokeAIAgentRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Calls an AI agent.
+       * @summary Invokes an AI agent.
        *
        * @param request InvokeAIAgentRequest
        * @return InvokeAIAgentResponse
@@ -2365,6 +2463,8 @@ namespace APIG20240327
       Models::ListChatSessionsResponse listChatSessions(const Models::ListChatSessionsRequest &request);
 
       /**
+       * @deprecated OpenAPI ListConsumerAuthorizationRules is deprecated
+       *
        * @summary Retrieves a list of consumer authorization rules.
        *
        * @param request ListConsumerAuthorizationRulesRequest
@@ -2375,6 +2475,8 @@ namespace APIG20240327
       Models::ListConsumerAuthorizationRulesResponse listConsumerAuthorizationRulesWithOptions(const string &consumerId, const Models::ListConsumerAuthorizationRulesRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @deprecated OpenAPI ListConsumerAuthorizationRules is deprecated
+       *
        * @summary Retrieves a list of consumer authorization rules.
        *
        * @param request ListConsumerAuthorizationRulesRequest
@@ -2441,7 +2543,7 @@ namespace APIG20240327
       Models::ListConsumerGroupsResponse listConsumerGroups(const Models::ListConsumerGroupsRequest &request);
 
       /**
-       * @summary Queries the list of quota rules configured for a specific consumer.
+       * @summary Queries the list of configured quota rules for a consumer.
        *
        * @param request ListConsumerQuotaRulesRequest
        * @param headers map
@@ -2451,7 +2553,7 @@ namespace APIG20240327
       Models::ListConsumerQuotaRulesResponse listConsumerQuotaRulesWithOptions(const string &consumerId, const Models::ListConsumerQuotaRulesRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the list of quota rules configured for a specific consumer.
+       * @summary Queries the list of configured quota rules for a consumer.
        *
        * @param request ListConsumerQuotaRulesRequest
        * @return ListConsumerQuotaRulesResponse
@@ -2627,7 +2729,7 @@ namespace APIG20240327
       Models::ListGatewayFeaturesResponse listGatewayFeatures(const string &gatewayId);
 
       /**
-       * @summary Retrieves the list of load balancers for a gateway.
+       * @summary Retrieves the list of gateway load balancers.
        *
        * @param request ListGatewayLoadBalancersRequest
        * @param headers map
@@ -2637,7 +2739,7 @@ namespace APIG20240327
       Models::ListGatewayLoadBalancersResponse listGatewayLoadBalancersWithOptions(const string &gatewayId, const Models::ListGatewayLoadBalancersRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Retrieves the list of load balancers for a gateway.
+       * @summary Retrieves the list of gateway load balancers.
        *
        * @param request ListGatewayLoadBalancersRequest
        * @return ListGatewayLoadBalancersResponse
@@ -2829,7 +2931,7 @@ namespace APIG20240327
       Models::ListK8sClusterSourcesResponse listK8sClusterSources(const string &gatewayId, const Models::ListK8sClusterSourcesRequest &request);
 
       /**
-       * @summary Queries the details of Model Context Protocol (MCP) tools in an API product of the MCP Server type. The response returns a list of tools. Each tool includes three text members (name, title, and description) and four map members (inputSchema, outputSchema, annotations, and meta).
+       * @summary Queries the details of Model Context Protocol (MCP) tools in an MCP Server-type API product and returns a list of tools. Each tool contains three text fields: name, title, and description, and four map fields: inputSchema, outputSchema, annotations, and meta.
        *
        * @param request ListMcpProductToolsRequest
        * @param headers map
@@ -2839,7 +2941,7 @@ namespace APIG20240327
       Models::ListMcpProductToolsResponse listMcpProductToolsWithOptions(const string &productId, const Models::ListMcpProductToolsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the details of Model Context Protocol (MCP) tools in an API product of the MCP Server type. The response returns a list of tools. Each tool includes three text members (name, title, and description) and four map members (inputSchema, outputSchema, annotations, and meta).
+       * @summary Queries the details of Model Context Protocol (MCP) tools in an MCP Server-type API product and returns a list of tools. Each tool contains three text fields: name, title, and description, and four map fields: inputSchema, outputSchema, annotations, and meta.
        *
        * @param request ListMcpProductToolsRequest
        * @return ListMcpProductToolsResponse
@@ -2887,7 +2989,7 @@ namespace APIG20240327
       Models::ListMigrationTasksResponse listMigrationTasks(const Models::ListMigrationTasksRequest &request);
 
       /**
-       * @summary Queries a list of model cards and returns the model name, provider, and source identifier for each card, along with the features, pricing, meta, availablePaths, and snapshots structures. The only request parameter is the provider identifier.
+       * @summary Queries a list of model cards and returns the model name, provider, and source identifier of each card, along with its features, pricing, meta, availablePaths, and snapshots structures. The only business request parameter is the provider identifier.
        *
        * @param request ListModelCardsRequest
        * @param headers map
@@ -2897,7 +2999,7 @@ namespace APIG20240327
       Models::ListModelCardsResponse listModelCardsWithOptions(const Models::ListModelCardsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries a list of model cards and returns the model name, provider, and source identifier for each card, along with the features, pricing, meta, availablePaths, and snapshots structures. The only request parameter is the provider identifier.
+       * @summary Queries a list of model cards and returns the model name, provider, and source identifier of each card, along with its features, pricing, meta, availablePaths, and snapshots structures. The only business request parameter is the provider identifier.
        *
        * @param request ListModelCardsRequest
        * @return ListModelCardsResponse
@@ -3531,9 +3633,9 @@ namespace APIG20240327
       Models::RestartGatewayResponse restartGateway(const string &gatewayId);
 
       /**
-       * @summary Queries the currently active credentials for an AI service.
+       * @summary Queries the currently active credentials for the AI service.
        *
-       * @description Queries the currently active credentials for an AI service.
+       * @description Queries the currently active credentials for the AI service.
        *
        * @param request RevealServiceCredentialRequest
        * @param headers map
@@ -3543,9 +3645,9 @@ namespace APIG20240327
       Models::RevealServiceCredentialResponse revealServiceCredentialWithOptions(const string &serviceId, const Models::RevealServiceCredentialRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the currently active credentials for an AI service.
+       * @summary Queries the currently active credentials for the AI service.
        *
-       * @description Queries the currently active credentials for an AI service.
+       * @description Queries the currently active credentials for the AI service.
        *
        * @param request RevealServiceCredentialRequest
        * @return RevealServiceCredentialResponse
@@ -3607,7 +3709,7 @@ namespace APIG20240327
       Models::SyncMCPServersResponse syncMCPServers(const Models::SyncMCPServersRequest &request);
 
       /**
-       * @summary Tags resources.
+       * @summary Adds tags to resources.
        *
        * @param request TagResourcesRequest
        * @param headers map
@@ -3617,7 +3719,7 @@ namespace APIG20240327
       Models::TagResourcesResponse tagResourcesWithOptions(const Models::TagResourcesRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Tags resources.
+       * @summary Adds tags to resources.
        *
        * @param request TagResourcesRequest
        * @return TagResourcesResponse
@@ -3819,9 +3921,11 @@ namespace APIG20240327
       Models::UpdateConsumerResponse updateConsumer(const string &consumerId, const Models::UpdateConsumerRequest &request);
 
       /**
-       * @summary Updates consumer authorization rules.
+       * @deprecated OpenAPI UpdateConsumerAuthorizationRule is deprecated
        *
-       * @description This API operation is replaced by UpdateAuthorizationRule. The new API path is /v1/authorization-rules/{consumerAuthorizationRuleId}. When you call the new API operation, you only need to provide consumerAuthorizationRuleId in the path and the resources array in the request body. The consumerId parameter is no longer required.
+       * @summary Updates the consumer authorization rule.
+       *
+       * @description This API operation has been replaced by UpdateAuthorizationRule. The new API path is /v1/authorization-rules/{consumerAuthorizationRuleId}. When you call the new API operation, you only need to provide consumerAuthorizationRuleId in the path and the resources array in the request body. The consumerId parameter is no longer required.
        *
        * @param request UpdateConsumerAuthorizationRuleRequest
        * @param headers map
@@ -3831,9 +3935,11 @@ namespace APIG20240327
       Models::UpdateConsumerAuthorizationRuleResponse updateConsumerAuthorizationRuleWithOptions(const string &consumerId, const string &consumerAuthorizationRuleId, const Models::UpdateConsumerAuthorizationRuleRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Updates consumer authorization rules.
+       * @deprecated OpenAPI UpdateConsumerAuthorizationRule is deprecated
        *
-       * @description This API operation is replaced by UpdateAuthorizationRule. The new API path is /v1/authorization-rules/{consumerAuthorizationRuleId}. When you call the new API operation, you only need to provide consumerAuthorizationRuleId in the path and the resources array in the request body. The consumerId parameter is no longer required.
+       * @summary Updates the consumer authorization rule.
+       *
+       * @description This API operation has been replaced by UpdateAuthorizationRule. The new API path is /v1/authorization-rules/{consumerAuthorizationRuleId}. When you call the new API operation, you only need to provide consumerAuthorizationRuleId in the path and the resources array in the request body. The consumerId parameter is no longer required.
        *
        * @param request UpdateConsumerAuthorizationRuleRequest
        * @return UpdateConsumerAuthorizationRuleResponse
@@ -3879,7 +3985,7 @@ namespace APIG20240327
       /**
        * @summary Updates a domain name.
        *
-       * @description Only sources of the **Container Service** type can update the listener Ingress configuration.
+       * @description Only sources of the **container service** type are allowed to update the listener Ingress configurations.
        *
        * @param request UpdateDomainRequest
        * @param headers map
@@ -3891,7 +3997,7 @@ namespace APIG20240327
       /**
        * @summary Updates a domain name.
        *
-       * @description Only sources of the **Container Service** type can update the listener Ingress configuration.
+       * @description Only sources of the **container service** type are allowed to update the listener Ingress configurations.
        *
        * @param request UpdateDomainRequest
        * @return UpdateDomainResponse
