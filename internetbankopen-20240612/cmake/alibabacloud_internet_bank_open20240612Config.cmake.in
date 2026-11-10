@@ -1,0 +1,4 @@
+@PACKAGE_INIT@
+
+include("${CMAKE_CURRENT_LIST_DIR}/alibabacloud_internet_bank_open20240612Targets.cmake")
+check_required_components("alibabacloud_internet_bank_open20240612")
