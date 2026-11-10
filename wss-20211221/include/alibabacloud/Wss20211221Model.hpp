@@ -6,6 +6,9 @@
 #include <alibabacloud/models/CreateMultiOrderShrinkRequest.hpp>
 #include <alibabacloud/models/CreateMultiOrderResponseBody.hpp>
 #include <alibabacloud/models/CreateMultiOrderResponse.hpp>
+#include <alibabacloud/models/DescribeAICallDetailsRequest.hpp>
+#include <alibabacloud/models/DescribeAICallDetailsResponseBody.hpp>
+#include <alibabacloud/models/DescribeAICallDetailsResponse.hpp>
 #include <alibabacloud/models/DescribeCreditPackageAgentsRequest.hpp>
 #include <alibabacloud/models/DescribeCreditPackageAgentsResponseBody.hpp>
 #include <alibabacloud/models/DescribeCreditPackageAgentsResponse.hpp>

@@ -113,6 +113,100 @@ CreateMultiOrderResponse Client::createMultiOrder(const CreateMultiOrderRequest 
 }
 
 /**
+ * @summary 查询 AI 调用明细
+ *
+ * @description ## 请求说明
+ * - 该接口用于分页查询当前阿里云账号下指定业务版本、地域和时间范围内的AI模型调用明细。
+ * - 支持按模型调用请求ID、请求模型和用户ID进行筛选。
+ * - 查询结果按调用时间倒序返回。
+ * - 默认查询北京时间当日零点至当前时间的数据，查询区间不超过30天且不得早于当前时间向前推算3个自然月。
+ * - 调用方仅能查询当前调用身份所属主账号的数据，不能指定其他账号。
+ * - `PageNumber`与`PageSize`的乘积不得超过1000000。
+ * - `BizType`不传时默认为企业版。
+ * - `GatewayRegion`不传时国内站默认上海，国际站默认新加坡。
+ *
+ * @param request DescribeAICallDetailsRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DescribeAICallDetailsResponse
+ */
+DescribeAICallDetailsResponse Client::describeAICallDetailsWithOptions(const DescribeAICallDetailsRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasBizType()) {
+    query["BizType"] = request.getBizType();
+  }
+
+  if (!!request.hasEndTime()) {
+    query["EndTime"] = request.getEndTime();
+  }
+
+  if (!!request.hasGatewayRegion()) {
+    query["GatewayRegion"] = request.getGatewayRegion();
+  }
+
+  if (!!request.hasModelId()) {
+    query["ModelId"] = request.getModelId();
+  }
+
+  if (!!request.hasPageNumber()) {
+    query["PageNumber"] = request.getPageNumber();
+  }
+
+  if (!!request.hasPageSize()) {
+    query["PageSize"] = request.getPageSize();
+  }
+
+  if (!!request.hasSearchRequestId()) {
+    query["SearchRequestId"] = request.getSearchRequestId();
+  }
+
+  if (!!request.hasStartTime()) {
+    query["StartTime"] = request.getStartTime();
+  }
+
+  if (!!request.hasWyIds()) {
+    query["WyIds"] = request.getWyIds();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DescribeAICallDetails"},
+    {"version" , "2021-12-21"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DescribeAICallDetailsResponse>();
+}
+
+/**
+ * @summary 查询 AI 调用明细
+ *
+ * @description ## 请求说明
+ * - 该接口用于分页查询当前阿里云账号下指定业务版本、地域和时间范围内的AI模型调用明细。
+ * - 支持按模型调用请求ID、请求模型和用户ID进行筛选。
+ * - 查询结果按调用时间倒序返回。
+ * - 默认查询北京时间当日零点至当前时间的数据，查询区间不超过30天且不得早于当前时间向前推算3个自然月。
+ * - 调用方仅能查询当前调用身份所属主账号的数据，不能指定其他账号。
+ * - `PageNumber`与`PageSize`的乘积不得超过1000000。
+ * - `BizType`不传时默认为企业版。
+ * - `GatewayRegion`不传时国内站默认上海，国际站默认新加坡。
+ *
+ * @param request DescribeAICallDetailsRequest
+ * @return DescribeAICallDetailsResponse
+ */
+DescribeAICallDetailsResponse Client::describeAICallDetails(const DescribeAICallDetailsRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return describeAICallDetailsWithOptions(request, runtime);
+}
+
+/**
  * @summary Queries the list of agents and usage summary information under the current username.
  *
  * @description ## Operation description
