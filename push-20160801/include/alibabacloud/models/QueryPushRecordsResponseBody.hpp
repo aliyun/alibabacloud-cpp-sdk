@@ -243,9 +243,9 @@ namespace Models
 
 
   protected:
-    // Deprecated. This parameter is no longer used.
+    // **[Deprecated]** This parameter is deprecated and no longer used.
     shared_ptr<string> nextToken_ {};
-    // The current page number.
+    // The current page number of the push records.
     shared_ptr<int32_t> page_ {};
     // The number of entries per page.
     shared_ptr<int32_t> pageSize_ {};

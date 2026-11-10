@@ -38,7 +38,7 @@ namespace Models
 
 
   protected:
-    // The AppKey of the application.
+    // The AppKey information.
     // 
     // This parameter is required.
     shared_ptr<int64_t> appKey_ {};

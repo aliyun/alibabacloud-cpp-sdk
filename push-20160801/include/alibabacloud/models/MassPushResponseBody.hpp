@@ -85,7 +85,7 @@ namespace Models
 
   protected:
     shared_ptr<MassPushResponseBody::MessageIds> messageIds_ {};
-    // Request ID.
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

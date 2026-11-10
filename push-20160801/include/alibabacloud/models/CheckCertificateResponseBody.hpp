@@ -77,16 +77,12 @@ namespace Models
     protected:
       // The expiration time of the certificate.
       shared_ptr<int64_t> exipreTime_ {};
-      // The status of the certificate. Valid values:
+      // The certificate status. Valid values:
       // 
-      // - **EXPIRED**: The certificate is expired.
-      // 
+      // - **EXPIRED**: The certificate has expired.
       // - **NOT_CONFIGURED**: The certificate is not configured.
-      // 
-      // - **NO_PASSWORD**: The password for the certificate is not configured.
-      // 
+      // - **NO_PASSWORD**: The password is not configured.
       // - **OK**: The certificate is normal.
-      // 
       // - **REVOKED**: The certificate is revoked.
       shared_ptr<string> status_ {};
     };
@@ -131,16 +127,12 @@ namespace Models
     protected:
       // The expiration time of the certificate.
       shared_ptr<int64_t> exipreTime_ {};
-      // The status of the certificate. Valid values:
+      // The certificate status. Valid values:
       // 
-      // - **EXPIRED**: The certificate is expired.
-      // 
+      // - **EXPIRED**: The certificate has expired.
       // - **NOT_CONFIGURED**: The certificate is not configured.
-      // 
-      // - **NO_PASSWORD**: The password for the certificate is not configured.
-      // 
+      // - **NO_PASSWORD**: The password is not configured.
       // - **OK**: The certificate is normal.
-      // 
       // - **REVOKED**: The certificate is revoked.
       shared_ptr<string> status_ {};
     };
@@ -187,23 +179,19 @@ namespace Models
 
 
   protected:
-    // Indicates whether the AppKey belongs to an Android app:
-    // 
+    // Indicates whether the AppKey represents an Android app:
     // - true
-    // 
     // - false
     shared_ptr<bool> android_ {};
-    // The information about the certificate for the development or sandbox environment.
+    // The certificate information for accessing the development or sandbox environment.
     shared_ptr<CheckCertificateResponseBody::DevelopmentCertInfo> developmentCertInfo_ {};
-    // Indicates whether the AppKey belongs to an iOS app:
-    // 
+    // Indicates whether the AppKey represents an iOS app:
     // - true
-    // 
     // - false
     shared_ptr<bool> IOS_ {};
-    // The information about the certificate for the production environment.
+    // The certificate information for accessing the production environment.
     shared_ptr<CheckCertificateResponseBody::ProductionCertInfo> productionCertInfo_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 
