@@ -2107,10 +2107,10 @@ namespace Dms20250414
        * @summary Sends a user message to a specified session or cancels the session.
        *
        * @description ## Request description
-       * - The default value of message_type is primary. Set this parameter to additional or cancel when you need to append information or cancel the session.
-       * - The reply_to field specifies the agent message to which this message responds. The default value is 0.
-       * - When message_type is set to additional, the question field is required.
-       * - You can use quoted_message to quote previous user messages.
+       * - The default value of `message_type` is `primary`. Set it to `additional` or `cancel` when you need to append information or cancel the session.
+       * - The `reply_to` field specifies the agent message to which this message responds. The default value is `0`.
+       * - The `question` field is required when `message_type` is set to `additional`.
+       * - You can use `quoted_message` to quote previous user messages.
        *
        * @param tmpReq SendChatMessageRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2122,10 +2122,10 @@ namespace Dms20250414
        * @summary Sends a user message to a specified session or cancels the session.
        *
        * @description ## Request description
-       * - The default value of message_type is primary. Set this parameter to additional or cancel when you need to append information or cancel the session.
-       * - The reply_to field specifies the agent message to which this message responds. The default value is 0.
-       * - When message_type is set to additional, the question field is required.
-       * - You can use quoted_message to quote previous user messages.
+       * - The default value of `message_type` is `primary`. Set it to `additional` or `cancel` when you need to append information or cancel the session.
+       * - The `reply_to` field specifies the agent message to which this message responds. The default value is `0`.
+       * - The `question` field is required when `message_type` is set to `additional`.
+       * - You can use `quoted_message` to quote previous user messages.
        *
        * @param request SendChatMessageRequest
        * @return SendChatMessageResponse

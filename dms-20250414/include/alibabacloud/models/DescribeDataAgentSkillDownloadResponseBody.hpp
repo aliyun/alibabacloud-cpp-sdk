@@ -145,7 +145,7 @@ namespace Models
   protected:
     // The response struct.
     shared_ptr<DescribeDataAgentSkillDownloadResponseBody::Data> data_ {};
-    // The error code. This parameter is returned when a request exception occurs.
+    // The error code returned when a request exception occurs.
     shared_ptr<string> errorCode_ {};
     // The error message returned when the call fails.
     shared_ptr<string> errorMessage_ {};
