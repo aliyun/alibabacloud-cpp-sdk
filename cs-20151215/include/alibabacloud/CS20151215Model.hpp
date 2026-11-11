@@ -227,6 +227,9 @@
 #include <alibabacloud/models/GetUpgradeStatusResponse.hpp>
 #include <alibabacloud/models/GrantPermissionsRequest.hpp>
 #include <alibabacloud/models/GrantPermissionsResponse.hpp>
+#include <alibabacloud/models/HibernateClusterRequest.hpp>
+#include <alibabacloud/models/HibernateClusterResponseBody.hpp>
+#include <alibabacloud/models/HibernateClusterResponse.hpp>
 #include <alibabacloud/models/InstallClusterAddonsRequest.hpp>
 #include <alibabacloud/models/InstallClusterAddonsResponseBody.hpp>
 #include <alibabacloud/models/InstallClusterAddonsResponse.hpp>
@@ -393,5 +396,8 @@
 #include <alibabacloud/models/UpgradeClusterNodepoolRequest.hpp>
 #include <alibabacloud/models/UpgradeClusterNodepoolResponseBody.hpp>
 #include <alibabacloud/models/UpgradeClusterNodepoolResponse.hpp>
+#include <alibabacloud/models/WakeUpClusterRequest.hpp>
+#include <alibabacloud/models/WakeUpClusterResponseBody.hpp>
+#include <alibabacloud/models/WakeUpClusterResponse.hpp>
 
 #endif

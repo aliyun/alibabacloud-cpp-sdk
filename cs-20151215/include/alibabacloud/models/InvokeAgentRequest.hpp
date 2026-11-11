@@ -106,11 +106,17 @@ namespace Models
 
 
     protected:
+      // The description of the check item.
+      // 
       // This parameter is required.
       shared_ptr<string> description_ {};
+      // The metadata.
       Darabonba::Json metadata_ {};
+      // The environment variable name.
+      // 
       // This parameter is required.
       shared_ptr<string> name_ {};
+      // The optional JSON Schema for tool parameters. Cannot be null. The internal structure is defined by the tool.
       Darabonba::Json parameters_ {};
     };
 
@@ -163,8 +169,11 @@ namespace Models
 
 
     protected:
+      // Corresponds to outcome.interrupts[].id, not toolCallId.
       shared_ptr<string> interruptId_ {};
+      // The arbitrary JSON response payload. Tool approval uses an object with decision=yes/no, and ask_human uses a string.
       Darabonba::Json payload_ {};
+      // The response status. Valid values: resolved and cancelled. Both approval and rejection use resolved, distinguished by payload.decision.
       shared_ptr<string> status_ {};
     };
 
@@ -268,7 +277,9 @@ namespace Models
 
 
         protected:
+          // The JSON string of the tool invocation parameters, not an expanded object.
           shared_ptr<string> arguments_ {};
+          // The function name.
           shared_ptr<string> name_ {};
         };
 
@@ -314,10 +325,15 @@ namespace Models
 
 
       protected:
+        // The encrypted content. The example is an invalid placeholder value and does not contain real ciphertext.
         shared_ptr<string> encryptedValue_ {};
+        // The function information of the historical tool invocation, including the name and arguments in JSON string format. The actual return values should be preserved in subsequent turns.
         shared_ptr<ToolCalls::Function> function_ {};
+        // The trigger ID.
         shared_ptr<string> id_ {};
+        // The metadata.
         Darabonba::Json metadata_ {};
+        // The tool invocation type. Fixed to function.
         shared_ptr<string> type_ {};
       };
 
@@ -392,14 +408,23 @@ namespace Models
 
 
     protected:
+      // The plain text content. This parameter can be omitted when the assistant only calls tools. Currently, only the text of the last user message is consumed.
       shared_ptr<string> content_ {};
+      // The encrypted content of the tool invocation. The example is only a placeholder value.
       shared_ptr<string> encryptedValue_ {};
+      // The message ID.
       shared_ptr<string> id_ {};
+      // The metadata.
       Darabonba::Json metadata_ {};
+      // The name.
       shared_ptr<string> name_ {};
+      // The message role. Valid values: user, developer, system, assistant, and tool. The user role requires text content. The assistant role can contain only toolCalls. The tool role requires content and toolCallId. Multimodal input is not declared in the current phase.
       shared_ptr<string> role_ {};
+      // The sub-agent invocation ID.
       shared_ptr<string> subagentRunId_ {};
+      // Required when role is set to tool. References the tool_call ID from the previous Mobile-Use Agent response.
       shared_ptr<string> toolCallId_ {};
+      // A structured tool invocation in the historical messages of the assistant. The id, type, and function returned by the server are preserved.
       shared_ptr<vector<Messages::ToolCalls>> toolCalls_ {};
     };
 
@@ -450,8 +475,13 @@ namespace Models
 
 
     protected:
+      // Specifies whether to enable thinking.
       shared_ptr<bool> enableThinking_ {};
+      // The query language. Valid values:
+      // - zh: Chinese.
+      // - en: English.
       shared_ptr<string> language_ {};
+      // The source.
       shared_ptr<string> source_ {};
     };
 
@@ -493,8 +523,12 @@ namespace Models
 
 
     protected:
+      // The description of the orchestration template.
+      // 
       // This parameter is required.
       shared_ptr<string> description_ {};
+      // The environment variable value.
+      // 
       // This parameter is required.
       shared_ptr<string> value_ {};
     };
@@ -578,14 +612,23 @@ namespace Models
 
 
   protected:
+    // The AG-UI native context array. Each item contains description and value strings. Undeclared extension keys are still passed through. Currently, the downstream service only logs a warning and ignores them. The ACK resource context is carried by forwardedProps.ackContext. If omitted, it is processed as an empty array. Null values are not accepted.
     shared_ptr<vector<InvokeAgentRequest::Context>> context_ {};
+    // The AG-UI ACK extension parameters, including language, enableThinking, and source. Unknown extensions are preserved.
     shared_ptr<InvokeAgentRequest::ForwardedProps> forwardedProps_ {};
+    // The AG-UI message list. In the current phase, user input only declares plain text content. Historical assistant and tool messages, as well as toolCalls, are preserved. Only the text of the last user message is consumed. If omitted, it is processed as an empty array. Null values are not accepted. Undeclared extension fields are passed through.
     shared_ptr<vector<InvokeAgentRequest::Messages>> messages_ {};
+    // The parent run ID. This parameter is optional and is currently not used by the downstream service.
     shared_ptr<string> parentRunId_ {};
+    // The AG-UI interrupt resume response list. Independent of the private protocol approval parameters. A single request must answer the current complete approval batch.
     shared_ptr<vector<InvokeAgentRequest::Resume>> resume_ {};
+    // The AG-UI current run ID. Must be explicitly provided as a string. Empty strings are allowed and will be generated by the downstream service. Missing or null values are rejected.
     shared_ptr<string> runId_ {};
+    // The AG-UI native state. Accepts any JSON value, including null. This parameter is currently not used by the downstream service.
     Darabonba::Json state_ {};
+    // The AG-UI session ID. Must be explicitly provided as a string. If not empty, only 32 lowercase hexadecimal characters [0-9a-f]{32} are accepted. A standard run can be created or resumed by using this ID. If an empty string is provided, the server generates a session ID. A resume operation must use an existing session ID. Missing or null values are rejected. This API only accepts native requests and does not require the stream parameter.
     shared_ptr<string> threadId_ {};
+    // The AG-UI native tool definitions. The name and description are strings, and parameters is an opaque JSON Schema. Accepted and passed through. Currently, the downstream service only logs a warning and ignores them. Frontend tool injection is not supported. If omitted, it is processed as an empty array. Null values are not accepted.
     shared_ptr<vector<InvokeAgentRequest::Tools>> tools_ {};
   };
 

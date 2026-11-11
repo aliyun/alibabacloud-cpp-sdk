@@ -5002,6 +5002,51 @@ GrantPermissionsResponse Client::grantPermissions(const string &uid, const Grant
 }
 
 /**
+ * @summary Hibernates a cluster.
+ *
+ * @param request HibernateClusterRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return HibernateClusterResponse
+ */
+HibernateClusterResponse Client::hibernateClusterWithOptions(const string &clusterId, const HibernateClusterRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasClientToken()) {
+    body["clientToken"] = request.getClientToken();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "HibernateCluster"},
+    {"version" , "2015-12-15"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/clusters/" , Darabonba::Encode::Encoder::percentEncode(clusterId) , "/hibernate")},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<HibernateClusterResponse>();
+}
+
+/**
+ * @summary Hibernates a cluster.
+ *
+ * @param request HibernateClusterRequest
+ * @return HibernateClusterResponse
+ */
+HibernateClusterResponse Client::hibernateCluster(const string &clusterId, const HibernateClusterRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return hibernateClusterWithOptions(clusterId, request, headers, runtime);
+}
+
+/**
  * @summary To enhance Kubernetes capabilities, ACK clusters support various components, such as managed core components, and application, logging and monitoring, networking, storage, and security components. You can call the InstallClusterAddons operation to install components by specifying the component name and version.
  *
  * @param request InstallClusterAddonsRequest
@@ -5095,9 +5140,9 @@ InstallNodePoolComponentsResponse Client::installNodePoolComponents(const string
 }
 
 /**
- * @summary 发起智能助手会话运行（AG-UI 协议）
+ * @summary Initiates an intelligent assistant session run over the AG-UI protocol.
  *
- * @description 独立的原生 AG-UI 接口，成功建流后返回 text/event-stream。
+ * @description The standalone native AG-UI API that returns a text/event-stream response upon successful stream establishment.
  *
  * @param request InvokeAgentRequest
  * @param headers map
@@ -5176,9 +5221,9 @@ return Darabonba::FutureGenerator<json>(__retrun);
 }
 
 /**
- * @summary 发起智能助手会话运行（AG-UI 协议）
+ * @summary Initiates an intelligent assistant session run over the AG-UI protocol.
  *
- * @description 独立的原生 AG-UI 接口，成功建流后返回 text/event-stream。
+ * @description The standalone native AG-UI API that returns a text/event-stream response upon successful stream establishment.
  *
  * @param request InvokeAgentRequest
  * @param headers map
@@ -5243,9 +5288,9 @@ InvokeAgentResponse Client::invokeAgentWithOptions(const InvokeAgentRequest &req
 }
 
 /**
- * @summary 发起智能助手会话运行（AG-UI 协议）
+ * @summary Initiates an intelligent assistant session run over the AG-UI protocol.
  *
- * @description 独立的原生 AG-UI 接口，成功建流后返回 text/event-stream。
+ * @description The standalone native AG-UI API that returns a text/event-stream response upon successful stream establishment.
  *
  * @param request InvokeAgentRequest
  * @return InvokeAgentResponse
@@ -8555,6 +8600,51 @@ UpgradeClusterNodepoolResponse Client::upgradeClusterNodepool(const string &Clus
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   map<string, string> headers = {};
   return upgradeClusterNodepoolWithOptions(ClusterId, NodepoolId, request, headers, runtime);
+}
+
+/**
+ * @summary Wakes up a cluster.
+ *
+ * @param request WakeUpClusterRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return WakeUpClusterResponse
+ */
+WakeUpClusterResponse Client::wakeUpClusterWithOptions(const string &clusterId, const WakeUpClusterRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasClientToken()) {
+    body["clientToken"] = request.getClientToken();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "WakeUpCluster"},
+    {"version" , "2015-12-15"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/clusters/" , Darabonba::Encode::Encoder::percentEncode(clusterId) , "/wakeUp")},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<WakeUpClusterResponse>();
+}
+
+/**
+ * @summary Wakes up a cluster.
+ *
+ * @param request WakeUpClusterRequest
+ * @return WakeUpClusterResponse
+ */
+WakeUpClusterResponse Client::wakeUpCluster(const string &clusterId, const WakeUpClusterRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return wakeUpClusterWithOptions(clusterId, request, headers, runtime);
 }
 } // namespace AlibabaCloud
 } // namespace CS20151215

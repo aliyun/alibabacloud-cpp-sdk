@@ -1713,6 +1713,24 @@ namespace CS20151215
       Models::GrantPermissionsResponse grantPermissions(const string &uid, const Models::GrantPermissionsRequest &request);
 
       /**
+       * @summary Hibernates a cluster.
+       *
+       * @param request HibernateClusterRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return HibernateClusterResponse
+       */
+      Models::HibernateClusterResponse hibernateClusterWithOptions(const string &clusterId, const Models::HibernateClusterRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Hibernates a cluster.
+       *
+       * @param request HibernateClusterRequest
+       * @return HibernateClusterResponse
+       */
+      Models::HibernateClusterResponse hibernateCluster(const string &clusterId, const Models::HibernateClusterRequest &request);
+
+      /**
        * @summary To enhance Kubernetes capabilities, ACK clusters support various components, such as managed core components, and application, logging and monitoring, networking, storage, and security components. You can call the InstallClusterAddons operation to install components by specifying the component name and version.
        *
        * @param request InstallClusterAddonsRequest
@@ -1749,9 +1767,9 @@ namespace CS20151215
       Models::InstallNodePoolComponentsResponse installNodePoolComponents(const string &clusterId, const string &nodePoolId, const Models::InstallNodePoolComponentsRequest &request);
 
       /**
-       * @summary 发起智能助手会话运行（AG-UI 协议）
+       * @summary Initiates an intelligent assistant session run over the AG-UI protocol.
        *
-       * @description 独立的原生 AG-UI 接口，成功建流后返回 text/event-stream。
+       * @description The standalone native AG-UI API that returns a text/event-stream response upon successful stream establishment.
        *
        * @param request InvokeAgentRequest
        * @param headers map
@@ -1761,9 +1779,9 @@ namespace CS20151215
       FutureGenerator<Models::InvokeAgentResponse> invokeAgentWithSSE(const Models::InvokeAgentRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 发起智能助手会话运行（AG-UI 协议）
+       * @summary Initiates an intelligent assistant session run over the AG-UI protocol.
        *
-       * @description 独立的原生 AG-UI 接口，成功建流后返回 text/event-stream。
+       * @description The standalone native AG-UI API that returns a text/event-stream response upon successful stream establishment.
        *
        * @param request InvokeAgentRequest
        * @param headers map
@@ -1773,9 +1791,9 @@ namespace CS20151215
       Models::InvokeAgentResponse invokeAgentWithOptions(const Models::InvokeAgentRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 发起智能助手会话运行（AG-UI 协议）
+       * @summary Initiates an intelligent assistant session run over the AG-UI protocol.
        *
-       * @description 独立的原生 AG-UI 接口，成功建流后返回 text/event-stream。
+       * @description The standalone native AG-UI API that returns a text/event-stream response upon successful stream establishment.
        *
        * @param request InvokeAgentRequest
        * @return InvokeAgentResponse
@@ -2965,6 +2983,24 @@ namespace CS20151215
        * @return UpgradeClusterNodepoolResponse
        */
       Models::UpgradeClusterNodepoolResponse upgradeClusterNodepool(const string &ClusterId, const string &NodepoolId, const Models::UpgradeClusterNodepoolRequest &request);
+
+      /**
+       * @summary Wakes up a cluster.
+       *
+       * @param request WakeUpClusterRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return WakeUpClusterResponse
+       */
+      Models::WakeUpClusterResponse wakeUpClusterWithOptions(const string &clusterId, const Models::WakeUpClusterRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Wakes up a cluster.
+       *
+       * @param request WakeUpClusterRequest
+       * @return WakeUpClusterResponse
+       */
+      Models::WakeUpClusterResponse wakeUpCluster(const string &clusterId, const Models::WakeUpClusterRequest &request);
   };
 } // namespace AlibabaCloud
 } // namespace CS20151215

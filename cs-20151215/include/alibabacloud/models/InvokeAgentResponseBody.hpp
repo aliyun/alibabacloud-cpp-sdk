@@ -169,14 +169,23 @@ namespace Models
 
 
       protected:
+        // The optional expiration time string of the interrupt. This field is not output for current tool approvals.
         shared_ptr<string> expiresAt_ {};
+        // The ID of the interrupt. It is used as resume[].interruptId when resuming the run.
+        // 
         // This parameter is required.
         shared_ptr<string> id_ {};
+        // The approval description or follow-up question text displayed to the user.
         shared_ptr<string> message_ {};
+        // The optional extension information of the interrupt. It cannot replace tool events.
         Darabonba::Json metadata_ {};
+        // The reason for the interrupt. The value is tool_call_approve for tool approval and ask_human for follow-up questions.
+        // 
         // This parameter is required.
         shared_ptr<string> reason_ {};
+        // The JSON Schema for the response. Tool approval requires decision=yes/no, and follow-up questions use strings.
         Darabonba::Json responseSchema_ {};
+        // The optional associated tool invoke ID. It is the same as the toolCallId of the preceding TOOL_CALL_START event.
         shared_ptr<string> toolCallId_ {};
       };
 
@@ -199,7 +208,10 @@ namespace Models
 
 
     protected:
+      // The list of interrupts waiting for a response. This field appears only when outcome.type is interrupt and contains at least one item.
       shared_ptr<vector<Outcome::Interrupts>> interrupts_ {};
+      // The outcome type. A value of success indicates normal completion. A value of interrupt indicates waiting for a response, in which case the interrupts array contains at least one item.
+      // 
       // This parameter is required.
       shared_ptr<string> type_ {};
     };
@@ -327,22 +339,39 @@ namespace Models
 
 
   protected:
+    // The error code for the RUN_ERROR event.
     shared_ptr<string> code_ {};
+    // The tool output text for the TOOL_CALL_RESULT event. The text may be truncated.
     shared_ptr<string> content_ {};
+    // The incremental fragment of text, reasoning, or tool parameters. Fragments with the same ID are concatenated in order.
     shared_ptr<string> delta_ {};
+    // The error description for the RUN_ERROR event.
     shared_ptr<string> message_ {};
+    // The ID of the message to which the text, reasoning, or tool result belongs.
     shared_ptr<string> messageId_ {};
+    // The name of the CUSTOM extension event, such as analysis_result.
     shared_ptr<string> name_ {};
+    // The completion reason for the RUN_FINISHED event. A value of success indicates normal completion, and interrupt indicates waiting for a response.
     shared_ptr<InvokeAgentResponseBody::Outcome> outcome_ {};
+    // The optional parent message ID for the TOOL_CALL_START event.
     shared_ptr<string> parentMessageId_ {};
+    // The role of the message. The role is assistant for text messages and tool for tool results.
     shared_ptr<string> role_ {};
+    // The run ID of the current run for RUN_STARTED and RUN_FINISHED events.
     shared_ptr<string> runId_ {};
+    // The thread snapshot for the STATE_SNAPSHOT event, including sessionId and requestId.
     Darabonba::Json snapshot_ {};
+    // The thread ID for RUN_STARTED and RUN_FINISHED events. It is consistent with the request and the thread snapshot.
     shared_ptr<string> threadId_ {};
+    // The tool invoke ID. It associates TOOL_CALL_START/ARGS/END/RESULT events with approval interrupts.
     shared_ptr<string> toolCallId_ {};
+    // The name of the tool for the TOOL_CALL_START event.
     shared_ptr<string> toolCallName_ {};
+    // The event type of the SSE data object. For the required fields of each event type, see the response description.
+    // 
     // This parameter is required.
     shared_ptr<string> type_ {};
+    // The extension value of the CUSTOM event. It can be any JSON object or null.
     Darabonba::Json value_ {};
   };
 
