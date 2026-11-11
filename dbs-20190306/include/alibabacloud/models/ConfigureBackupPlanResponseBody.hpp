@@ -84,7 +84,7 @@ namespace Models
 
 
   protected:
-    // The backup plan ID.
+    // The ID of the backup plan.
     shared_ptr<string> backupPlanId_ {};
     // The error code.
     shared_ptr<string> errCode_ {};
@@ -94,11 +94,9 @@ namespace Models
     shared_ptr<int32_t> httpStatusCode_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request was successful. Valid values:
-    // 
-    // - **true**: The request was successful.
-    // 
-    // - **false**: The request failed.
+    // Indicates whether the request is successful. Valid values:
+    // - **true**: The request is successful.
+    // - **false**: The request fails.
     shared_ptr<bool> success_ {};
   };
 

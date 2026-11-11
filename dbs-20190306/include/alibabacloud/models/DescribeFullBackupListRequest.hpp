@@ -136,26 +136,25 @@ namespace Models
     shared_ptr<string> backupPlanId_ {};
     // The ID of the backup set.
     shared_ptr<string> backupSetId_ {};
+    // The status of the backup set.
     shared_ptr<string> backupSetStatus_ {};
-    // A token that ensures idempotence and prevents duplicate requests.
+    // The client token that is used to ensure request idempotence and prevent duplicate submissions.
     shared_ptr<string> clientToken_ {};
-    // The end time of the backup, in UNIX timestamp format.
+    // The end time of the backup.
     shared_ptr<int64_t> endTimestamp_ {};
     shared_ptr<string> ownerId_ {};
-    // The page number. Valid values: integers from 0 to the maximum integer value. Default value: 0.
+    // The page number. The value must be greater than or equal to 0 and less than or equal to the maximum value of the Integer data type. Default value: 0.
     shared_ptr<int32_t> pageNum_ {};
     // The number of entries per page. Valid values:
-    // 
     // - 30
-    // 
     // - 50
-    // 
     // - 100
     // 
     // Default value: 30.
     shared_ptr<int32_t> pageSize_ {};
+    // Specifies whether to display the backup progress.
     shared_ptr<string> showProgress_ {};
-    // Specifies whether to return the storage class.
+    // Specifies whether to display the storage type.
     shared_ptr<bool> showStorageType_ {};
     // The start time of the backup.
     shared_ptr<int64_t> startTimestamp_ {};

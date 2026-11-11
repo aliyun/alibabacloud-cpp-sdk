@@ -104,11 +104,11 @@ namespace Models
     shared_ptr<int32_t> httpStatusCode_ {};
     // Indicates whether this change triggers a precheck. Valid values:
     // 
-    // - true: A precheck is triggered. You must manually call the [StartBackupPlan](https://help.aliyun.com/document_detail/2869816.html) operation to start the backup plan.
+    // - true: A precheck is triggered. You must then call [StartBackupPlan](https://help.aliyun.com/document_detail/2869816.html) to start the backup plan.
     // 
     // - false: No precheck is triggered.
     shared_ptr<bool> needPrecheck_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
     // Indicates whether the operation succeeded. Valid values:
     // 

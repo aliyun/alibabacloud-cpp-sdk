@@ -360,147 +360,130 @@ namespace Models
 
 
   protected:
-    // Enable automatic backup. Valid values:
+    // Specifies whether to enable automatic backup. Valid values:
     // 
-    // - **true**: Enable
-    // 
-    // - **false**: Disable
+    // - **true**: enables automatic backup
+    // - **false**: disables automatic backup
     shared_ptr<bool> autoStartBackup_ {};
-    // The backup gateway ID. Call the [DescribeBackupPlanList](https://help.aliyun.com/document_detail/2869825.html) API to get this parameter\\"s value.
+    // The ID of the backup gateway. You can call the [DescribeBackupPlanList](https://help.aliyun.com/document_detail/2869825.html) operation to query the value of this parameter.
     // 
-    // > This parameter is required when **SourceEndpointInstanceType** is **agent**.
+    // > This parameter is required when **SourceEndpointInstanceType** is set to **agent**.
     shared_ptr<int64_t> backupGatewayId_ {};
-    // The incremental interval in seconds (s).
-    // 
-    // > Only physical backup is supported.
+    // The interval for incremental backup, in seconds.
+    // > This parameter is supported only for physical backup.
     shared_ptr<int32_t> backupLogIntervalSeconds_ {};
-    // The backup objects. Call the [DescribeBackupPlanList](https://help.aliyun.com/document_detail/2869825.html) API to get this parameter\\"s value.
+    // The objects to be backed up. You can call the [DescribeBackupPlanList](https://help.aliyun.com/document_detail/2869825.html) operation to query the value of this parameter.
     shared_ptr<string> backupObjects_ {};
-    // The full backup period. Valid values:
-    // 
+    // The full backup cycle. Valid values:
     // - **Monday**: Monday
-    // 
     // - **Tuesday**: Tuesday
-    // 
     // - **Wednesday**: Wednesday
-    // 
     // - **Thursday**: Thursday
-    // 
     // - **Friday**: Friday
-    // 
     // - **Saturday**: Saturday
-    // 
     // - **Sunday**: Sunday
     shared_ptr<string> backupPeriod_ {};
-    // The backup plan ID. Call the [DescribeBackupPlanList](https://help.aliyun.com/document_detail/2869825.html) API to get this parameter\\"s value.
+    // The ID of the backup plan. You can call the [DescribeBackupPlanList](https://help.aliyun.com/document_detail/2869825.html) operation to query the value of this parameter.
     // 
     // This parameter is required.
     shared_ptr<string> backupPlanId_ {};
-    // The custom backup plan name. Call the [DescribeBackupPlanList](https://help.aliyun.com/document_detail/2869825.html) API to get this parameter\\"s value.
+    // The custom name of the backup plan. You can call the [DescribeBackupPlanList](https://help.aliyun.com/document_detail/2869825.html) operation to query the value of this parameter.
     // 
     // This parameter is required.
     shared_ptr<string> backupPlanName_ {};
-    // The network bandwidth throttling in KB/s. The maximum value is 10 GB.
-    // 
-    // > This parameter is valid only for MySQL physical backup.
+    // The network bandwidth throttling. Unit: KB/s. Maximum value: 10 GB.
+    // > This parameter takes effect only for MySQL physical backup.
     shared_ptr<int64_t> backupRateLimit_ {};
-    // The retention period for backup data. Valid values: 0 to 1825. Default value: 730 days.
+    // The retention period of backup data. Valid values: 0 to 1825. Default value: 730. Unit: days.
     shared_ptr<int32_t> backupRetentionPeriod_ {};
-    // The disk I/O limit in KB/s.
-    // 
-    // > This parameter is valid only for MySQL physical backup.
+    // The disk I/O limit. Unit: KB/s.
+    // > This parameter takes effect only for MySQL physical backup.
     shared_ptr<int64_t> backupSpeedLimit_ {};
-    // The full backup start time in *HH:mm*Z (UTC) format. Call the [DescribeBackupPlanList](https://help.aliyun.com/document_detail/2869825.html) API to get this parameter\\"s value.
+    // The start time of the full backup. The time is in the <i>HH:mm</i>Z format and displayed in UTC. You can call the [DescribeBackupPlanList](https://help.aliyun.com/document_detail/2869825.html) operation to query the value of this parameter.
     shared_ptr<string> backupStartTime_ {};
+    // The encryption method for backup storage.
     shared_ptr<string> backupStorageEncryptMethod_ {};
-    // The built-in storage type:
-    // 
-    // - Empty (default): Backup data is stored on your OSS.
-    // 
-    // - system: Backup data is stored on the built-in OSS of DBS.
+    // The built-in storage type. Valid values:
+    // - Empty string (default): Backup data is stored in your OSS bucket.
+    // - system: Backup data is stored in the built-in OSS bucket of DBS.
     shared_ptr<string> backupStorageType_ {};
-    // The full backup period. Valid values:
-    // 
-    // - **simple**: Periodic backup. Use this value with BackupPeriod and BackupStartTime.
-    // 
-    // - **manual**: Manual backup.
+    // The full backup epoch. Valid values:
+    // - **simple**: periodic backup, which is used together with BackupPeriod and BackupStartTime
+    // - **manual**: manual backup
     // 
     // > Default value: **simple**.
     shared_ptr<string> backupStrategyType_ {};
-    // Ensure the idempotence of the request to prevent duplicate submissions. The client generates this parameter value. Ensure its uniqueness across different requests. The maximum length is 64 ASCII characters, and the value cannot contain non-ASCII characters.
+    // The client token that is used to ensure the idempotence of the request and prevent duplicate submissions. You can use the client to generate the value, and you must ensure that the value is unique among different requests. The value can be up to 64 ASCII characters in length and cannot contain non-ASCII characters.
     shared_ptr<string> clientToken_ {};
-    // The UID for cross-Alibaba Cloud account backup. Call the [DescribeRestoreTaskList](https://help.aliyun.com/document_detail/2869838.html) API to get this parameter\\"s value.
+    // The UID of the Alibaba Cloud account for cross-account backup. You can call the [DescribeRestoreTaskList](https://help.aliyun.com/document_detail/2869838.html) operation to query the value of this parameter.
     shared_ptr<string> crossAliyunId_ {};
-    // The RAM role name for cross-Alibaba Cloud account backup. Call the [DescribeRestoreTaskList](https://help.aliyun.com/document_detail/2869838.html) API to get this parameter\\"s value.
+    // The name of the RAM role for cross-account backup. You can call the [DescribeRestoreTaskList](https://help.aliyun.com/document_detail/2869838.html) operation to query the value of this parameter.
     shared_ptr<string> crossRoleName_ {};
-    // The period after which data is converted to archive cold storage. Default value: 365 days.
+    // The period after which backup data is transitioned to Archive storage. Default value: 365. Unit: days.
     shared_ptr<int32_t> duplicationArchivePeriod_ {};
-    // The period after which data is converted to Infrequent Access storage. Default value: 180 days.
+    // The period after which backup data is transitioned to Infrequent Access (IA) storage. Default value: 180. Unit: days.
     shared_ptr<int32_t> duplicationInfrequentAccessPeriod_ {};
-    // Enable incremental log backup. Valid values:
-    // 
-    // - **true**: Enable
-    // 
-    // - **false**: Disable
+    // Specifies whether to enable incremental log backup. Valid values:
+    // - **true**: enables incremental log backup
+    // - **false**: disables incremental log backup
     shared_ptr<bool> enableBackupLog_ {};
+    // Specifies whether to enable log backup for MySQL physical backup.
     shared_ptr<string> enableMysqlPhysicalBackupBinlog_ {};
+    // Specifies whether to enable an SSL-encrypted connection to the source database instance.
     shared_ptr<string> enableSourceEndpointSsl_ {};
-    // The OSS bucket name.
+    // The name of the OSS bucket.
     // 
-    // > The system automatically generates a new name by default.
+    // > By default, the system automatically generates a new name.
     shared_ptr<string> OSSBucketName_ {};
     shared_ptr<string> ownerId_ {};
-    // The resource group ID.
+    // The ID of the resource group.
     shared_ptr<string> resourceGroupId_ {};
-    // The database name. Call the [DescribeBackupPlanList](https://help.aliyun.com/document_detail/2869825.html) API to get this parameter\\"s value.
+    // The name of the database. You can call the [DescribeBackupPlanList](https://help.aliyun.com/document_detail/2869825.html) operation to query the value of this parameter.
     // 
-    // > This parameter is required when the database type is **PostgreSQL** or **MongoDB**.
+    // > This parameter is required when the database engine is **PostgreSQL** or **MongoDB**.
     shared_ptr<string> sourceEndpointDatabaseName_ {};
-    // The database endpoint. Call the [DescribeBackupPlanList](https://help.aliyun.com/document_detail/2869825.html) API to get this parameter\\"s value.
+    // The database connection address. You can call the [DescribeBackupPlanList](https://help.aliyun.com/document_detail/2869825.html) operation to query the value of this parameter.
     // 
-    // > This parameter is required when **SourceEndpointInstanceType** is **express**, **agent**, or **other**.
+    // > This parameter is required when **SourceEndpointInstanceType** is set to **express**, **agent**, or **other**.
     shared_ptr<string> sourceEndpointIP_ {};
-    // The database instance ID. Call the [DescribeBackupPlanList](https://help.aliyun.com/document_detail/2869825.html) API to get this parameter\\"s value.
+    // The database instance ID. You can call the [DescribeBackupPlanList](https://help.aliyun.com/document_detail/2869825.html) operation to query the value of this parameter.
     // 
-    // > This parameter is required when **SourceEndpoint**.**InstanceType** is **RDS**, **ECS**, **DDS**, or **Express**.
+    // > This parameter is required when **SourceEndpoint**.**InstanceType** is set to **RDS**, **ECS**, **DDS**, or **Express**.
     shared_ptr<string> sourceEndpointInstanceID_ {};
-    // The location of the database. Call the [DescribeBackupPlanList](https://help.aliyun.com/document_detail/2869825.html) API to get this parameter\\"s value. Valid values:
+    // The location of the database. You can call the [DescribeBackupPlanList](https://help.aliyun.com/document_detail/2869825.html) operation to query the value of this parameter. Valid values:
     // 
     // - **RDS**
-    // 
     // - **ECS**
-    // 
-    // - **Express**: A database connected through a leased line, VPN Gateway, or Smart Gateway.
-    // 
-    // - **Agent**: A database connected through a backup gateway.
-    // 
-    // - **DDS**: Cloud MongoDB.
-    // 
-    // - **Other**: A database directly connected through IP:Port.
+    // - **Express**: databases connected over Express Connect circuits, VPN gateways, or Smart Access Gateway (SAG)
+    // - **Agent**: databases connected over backup gateways
+    // - **DDS**: ApsaraDB for MongoDB
+    // - **Other**: databases connected by using IP addresses and port numbers
     // 
     // This parameter is required.
     shared_ptr<string> sourceEndpointInstanceType_ {};
+    // Oracle Home
     shared_ptr<string> sourceEndpointOracleHome_ {};
-    // The Oracle SID name.
+    // The Oracle system identifier (SID).
     // 
-    // > This parameter is required when the database type is Oracle.
+    // > This parameter is required when the database engine is Oracle.
     shared_ptr<string> sourceEndpointOracleSID_ {};
-    // The password.
+    // The password of the database account.
     // 
-    // > This parameter is optional when the database type is **Redis**, or when the database location is **agent** and the database type is **SQL Server**. It is required in other scenarios.
+    // > This parameter is not required when the database engine is **Redis**, or when the database is connected over a backup gateway (**agent**) and the database engine is **SQL Server**. This parameter is required in other scenarios.
     shared_ptr<string> sourceEndpointPassword_ {};
-    // The database port. Call the [DescribeBackupPlanList](https://help.aliyun.com/document_detail/2869825.html) API to get this parameter\\"s value.
+    // The port number of the database. You can call the [DescribeBackupPlanList](https://help.aliyun.com/document_detail/2869825.html) operation to query the value of this parameter.
     // 
-    // > This parameter is required when **SourceEndpoint**.**InstanceType** is **express**, **agent**, **other**, or **ECS**.
+    // > This parameter is required when **SourceEndpoint**.**InstanceType** is set to **express**, **agent**, **other**, or **ECS**.
     shared_ptr<int32_t> sourceEndpointPort_ {};
-    // The region of the database. Call the [DescribeBackupPlanList](https://help.aliyun.com/document_detail/2869825.html) API to get this parameter\\"s value.
+    // The region of the database. You can call the [DescribeBackupPlanList](https://help.aliyun.com/document_detail/2869825.html) operation to query the value of this parameter.
     // 
-    // > This parameter is required when **SourceEndpointInstanceType** is RDS, ECS, DDS, Express, or Agent.
+    // > This parameter is required when **SourceEndpointInstanceType** is set to RDS, ECS, DDS, Express, or Agent.
     shared_ptr<string> sourceEndpointRegion_ {};
-    // The database account.
+    // The username of the database account.
     // 
-    // > This parameter is optional when the database type is **Redis**, or when the database location is **agent** and the database type is **SQL Server**. It is required in other scenarios.
+    // > This parameter is not required when the database engine is **Redis**, or when the database is connected over a backup gateway (**agent**) and the database engine is **SQL Server**. This parameter is required in other scenarios.
     shared_ptr<string> sourceEndpointUserName_ {};
+    // The PEM certificate for the SSL-encrypted connection to the source database.
     shared_ptr<string> sslCaPem_ {};
   };
 

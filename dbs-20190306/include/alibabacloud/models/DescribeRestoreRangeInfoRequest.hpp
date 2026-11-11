@@ -84,22 +84,22 @@ namespace Models
 
 
   protected:
-    // The ID of the backup plan. Call [DescribeBackupPlanList](https://help.aliyun.com/document_detail/2869825.html) to get this value.
+    // The ID of the backup plan. You can call the [DescribeBackupPlanList](https://help.aliyun.com/document_detail/2869825.html) operation to obtain the value of this parameter.
     // 
     // This parameter is required.
     shared_ptr<string> backupPlanId_ {};
-    // The start timestamp of the restorable time range. Call [DescribeBackupPlanList](https://help.aliyun.com/document_detail/2869825.html) to get this value.
+    // The start time of the recoverable time range to query. You can call the [DescribeBackupPlanList](https://help.aliyun.com/document_detail/2869825.html) operation to obtain the value of this parameter.
     // 
     // This parameter is required.
     shared_ptr<int64_t> beginTimestampForRestore_ {};
-    // A client token that ensures the idempotence of requests and prevents duplicate submissions.
+    // The client token that is used to ensure the idempotence of the request and prevent duplicate submissions.
     shared_ptr<string> clientToken_ {};
-    // The end timestamp of the restorable time range. Call [DescribeBackupPlanList](https://help.aliyun.com/document_detail/2869825.html) to get this value.
+    // The end time of the recoverable time range to query. You can call the [DescribeBackupPlanList](https://help.aliyun.com/document_detail/2869825.html) operation to obtain the value of this parameter.
     // 
     // This parameter is required.
     shared_ptr<int64_t> endTimestampForRestore_ {};
     shared_ptr<string> ownerId_ {};
-    // Whether to enable recent restore.
+    // Specifies whether to enable recent restoration.
     shared_ptr<bool> recentlyRestore_ {};
   };
 

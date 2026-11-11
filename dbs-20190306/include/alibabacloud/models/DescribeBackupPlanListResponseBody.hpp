@@ -709,24 +709,25 @@ namespace Models
 
 
   protected:
-    // Error code.
+    // The error code.
     shared_ptr<string> errCode_ {};
-    // Error message.
+    // The error message.
     shared_ptr<string> errMessage_ {};
-    // HTTP status code.
+    // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
+    // The response items.
     shared_ptr<DescribeBackupPlanListResponseBody::Items> items_ {};
-    // Page number.
+    // The page number.
     shared_ptr<int32_t> pageNum_ {};
-    // Number of records per page.
+    // The number of entries per page.
     shared_ptr<int32_t> pageSize_ {};
-    // Request ID.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request succeeded.
+    // Indicates whether the request was successful.
     shared_ptr<bool> success_ {};
-    // Total number of backup plans.
+    // The total number of backup plans.
     shared_ptr<int32_t> totalElements_ {};
-    // Total number of pages.
+    // The total number of pages.
     shared_ptr<int32_t> totalPages_ {};
   };
 

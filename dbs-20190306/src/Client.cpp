@@ -2,11 +2,13 @@
 #include <alibabacloud/Dbs20190306.hpp>
 #include <alibabacloud/Utils.hpp>
 #include <alibabacloud/Openapi.hpp>
+#include <alibabacloud/gateway/POP.hpp>
 #include <map>
 #include <darabonba/Runtime.hpp>
 using namespace std;
 using namespace Darabonba;
 using json = nlohmann::json;
+using namespace AlibabaCloud::Gateway;
 using namespace AlibabaCloud::OpenApi;
 using namespace AlibabaCloud::Dbs20190306::Models;
 using OpenApiClient = AlibabaCloud::OpenApi::Client;
@@ -17,6 +19,9 @@ namespace Dbs20190306
 {
 
 AlibabaCloud::Dbs20190306::Client::Client(Config &config): OpenApiClient(config){
+  this->_productId = "Dbs";
+  shared_ptr<POP> gatewayClient = make_shared<POP>();
+  this->_spi = gatewayClient;
   this->_endpointRule = "regional";
   this->_endpointMap = json({
     {"cn-qingdao" , "dbs-api.cn-hangzhou.aliyuncs.com"},
@@ -41,7 +46,9 @@ AlibabaCloud::Dbs20190306::Client::Client(Config &config): OpenApiClient(config)
     {"cn-shenzhen-finance-1" , "dbs-api.cn-hangzhou.aliyuncs.com"},
     {"ap-south-1" , "dbs-api.ap-south-1.aliyuncs.com"},
     {"eu-west-1" , "dbs-api.eu-west-1.aliyuncs.com"},
-    {"me-east-1" , "dbs-api.me-east-1.aliyuncs.com"}
+    {"me-east-1" , "dbs-api.me-east-1.aliyuncs.com"},
+    {"cn-wulanchabu" , "dbs-api.cn-wulanchabu.aliyuncs.com"},
+    {"cn-guangzhou" , "dbs-api.cn-guangzhou.aliyuncs.com"}
   }).get<map<string, string>>();
   checkConfig(config);
   this->_endpoint = getEndpoint("dbs", _regionId, _endpointRule, _network, _suffix, _endpointMap, _endpoint);
@@ -61,7 +68,7 @@ string Client::getEndpoint(const string &productId, const string &regionId, cons
 }
 
 /**
- * @summary This API is used to configure a DBS backup plan.
+ * @summary Configures a Database Backup (DBS) backup plan.
  *
  * @param request ConfigureBackupPlanRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -232,7 +239,7 @@ ConfigureBackupPlanResponse Client::configureBackupPlanWithOptions(const Configu
 }
 
 /**
- * @summary This API is used to configure a DBS backup plan.
+ * @summary Configures a Database Backup (DBS) backup plan.
  *
  * @param request ConfigureBackupPlanRequest
  * @return ConfigureBackupPlanResponse
@@ -609,9 +616,9 @@ CreateFullBackupSetDownloadResponse Client::createFullBackupSetDownload(const Cr
 }
 
 /**
- * @summary Creates a task to obtain a database list by using a backup gateway.
+ * @summary Creates a task to retrieve the database list through a backup gateway.
  *
- * @description This API operation returns a task ID. You can call the [GetDBListFromAgent](https://help.aliyun.com/document_detail/2869852.html) operation to query the task result based on the task ID.
+ * @description This API operation returns a TaskId. You can call the [GetDBListFromAgent](https://help.aliyun.com/document_detail/2869852.html) operation to query the result.
  *
  * @param request CreateGetDBListFromAgentTaskRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -622,6 +629,10 @@ CreateGetDBListFromAgentTaskResponse Client::createGetDBListFromAgentTaskWithOpt
   json query = {};
   if (!!request.hasBackupGatewayId()) {
     query["BackupGatewayId"] = request.getBackupGatewayId();
+  }
+
+  if (!!request.hasBackupGatewayIdentifier()) {
+    query["BackupGatewayIdentifier"] = request.getBackupGatewayIdentifier();
   }
 
   if (!!request.hasClientToken()) {
@@ -666,9 +677,9 @@ CreateGetDBListFromAgentTaskResponse Client::createGetDBListFromAgentTaskWithOpt
 }
 
 /**
- * @summary Creates a task to obtain a database list by using a backup gateway.
+ * @summary Creates a task to retrieve the database list through a backup gateway.
  *
- * @description This API operation returns a task ID. You can call the [GetDBListFromAgent](https://help.aliyun.com/document_detail/2869852.html) operation to query the task result based on the task ID.
+ * @description This API operation returns a TaskId. You can call the [GetDBListFromAgent](https://help.aliyun.com/document_detail/2869852.html) operation to query the result.
  *
  * @param request CreateGetDBListFromAgentTaskRequest
  * @return CreateGetDBListFromAgentTaskResponse
@@ -737,11 +748,11 @@ CreateIncrementBackupSetDownloadResponse Client::createIncrementBackupSetDownloa
 }
 
 /**
- * @summary This interface creates DBS restore jobs.
+ * @summary Creates a Database Backup (DBS) restore task.
  *
  * @description ### Related operations
- * - [Recover databases](https://help.aliyun.com/document_detail/85543.html)
- * - [Tutorials for various database restore configurations](https://help.aliyun.com/document_detail/197144.html)
+ * - [Restore a database](https://help.aliyun.com/document_detail/85543.html)
+ * - [Restore configuration tutorials for various databases](https://help.aliyun.com/document_detail/197144.html)
  *
  * @param request CreateRestoreTaskRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -904,11 +915,11 @@ CreateRestoreTaskResponse Client::createRestoreTaskWithOptions(const CreateResto
 }
 
 /**
- * @summary This interface creates DBS restore jobs.
+ * @summary Creates a Database Backup (DBS) restore task.
  *
  * @description ### Related operations
- * - [Recover databases](https://help.aliyun.com/document_detail/85543.html)
- * - [Tutorials for various database restore configurations](https://help.aliyun.com/document_detail/197144.html)
+ * - [Restore a database](https://help.aliyun.com/document_detail/85543.html)
+ * - [Restore configuration tutorials for various databases](https://help.aliyun.com/document_detail/197144.html)
  *
  * @param request CreateRestoreTaskRequest
  * @return CreateRestoreTaskResponse
@@ -1035,9 +1046,9 @@ DescribeBackupPlanBillingResponse Client::describeBackupPlanBilling(const Descri
 }
 
 /**
- * @summary This operation lets you view a DBS backup plan.
+ * @summary Queries a DBS backup plan.
  *
- * @description Before you use this operation, ensure that Object Storage Service (OSS) is enabled. For more information, see [Object Storage Service](https://help.aliyun.com/document_detail/31817.html).
+ * @description Ensure Object Storage Service (OSS) is enabled before you use this operation. For more information, see [Object Storage Service](https://help.aliyun.com/document_detail/31817.html).
  *
  * @param request DescribeBackupPlanListRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1116,9 +1127,9 @@ DescribeBackupPlanListResponse Client::describeBackupPlanListWithOptions(const D
 }
 
 /**
- * @summary This operation lets you view a DBS backup plan.
+ * @summary Queries a DBS backup plan.
  *
- * @description Before you use this operation, ensure that Object Storage Service (OSS) is enabled. For more information, see [Object Storage Service](https://help.aliyun.com/document_detail/31817.html).
+ * @description Ensure Object Storage Service (OSS) is enabled before you use this operation. For more information, see [Object Storage Service](https://help.aliyun.com/document_detail/31817.html).
  *
  * @param request DescribeBackupPlanListRequest
  * @return DescribeBackupPlanListResponse
@@ -1129,7 +1140,7 @@ DescribeBackupPlanListResponse Client::describeBackupPlanList(const DescribeBack
 }
 
 /**
- * @summary Queries the list of download tasks for backup sets in Database Backup Service (DBS).
+ * @summary Queries the download list of DBS backup sets.
  *
  * @param request DescribeBackupSetDownloadTaskListRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1180,7 +1191,7 @@ DescribeBackupSetDownloadTaskListResponse Client::describeBackupSetDownloadTaskL
 }
 
 /**
- * @summary Queries the list of download tasks for backup sets in Database Backup Service (DBS).
+ * @summary Queries the download list of DBS backup sets.
  *
  * @param request DescribeBackupSetDownloadTaskListRequest
  * @return DescribeBackupSetDownloadTaskListResponse
@@ -1191,7 +1202,7 @@ DescribeBackupSetDownloadTaskListResponse Client::describeBackupSetDownloadTaskL
 }
 
 /**
- * @summary Queries the status of the Data Lake Analytics (DLA) service for a backup schedule.
+ * @summary Queries the Data Lake Analytics (DLA) service information for a backup plan.
  *
  * @param request DescribeDLAServiceRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1230,7 +1241,7 @@ DescribeDLAServiceResponse Client::describeDLAServiceWithOptions(const DescribeD
 }
 
 /**
- * @summary Queries the status of the Data Lake Analytics (DLA) service for a backup schedule.
+ * @summary Queries the Data Lake Analytics (DLA) service information for a backup plan.
  *
  * @param request DescribeDLAServiceRequest
  * @return DescribeDLAServiceResponse
@@ -1241,7 +1252,7 @@ DescribeDLAServiceResponse Client::describeDLAService(const DescribeDLAServiceRe
 }
 
 /**
- * @summary You can call this operation to list full backup jobs in Database Backup Service (DBS).
+ * @summary Queries the list of full backup tasks in Database Backup (DBS).
  *
  * @param request DescribeFullBackupListRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1312,7 +1323,7 @@ DescribeFullBackupListResponse Client::describeFullBackupListWithOptions(const D
 }
 
 /**
- * @summary You can call this operation to list full backup jobs in Database Backup Service (DBS).
+ * @summary Queries the list of full backup tasks in Database Backup (DBS).
  *
  * @param request DescribeFullBackupListRequest
  * @return DescribeFullBackupListResponse
@@ -1393,7 +1404,7 @@ DescribeIncrementBackupListResponse Client::describeIncrementBackupList(const De
 }
 
 /**
- * @summary Queries the error code of a Database Backup Service (DBS) job.
+ * @summary Queries error code information for a Database Backup (DBS) job.
  *
  * @param request DescribeJobErrorCodeRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1436,7 +1447,7 @@ DescribeJobErrorCodeResponse Client::describeJobErrorCodeWithOptions(const Descr
 }
 
 /**
- * @summary Queries the error code of a Database Backup Service (DBS) job.
+ * @summary Queries error code information for a Database Backup (DBS) job.
  *
  * @param request DescribeJobErrorCodeRequest
  * @return DescribeJobErrorCodeResponse
@@ -1497,7 +1508,7 @@ DescribeNodeCidrListResponse Client::describeNodeCidrList(const DescribeNodeCidr
 }
 
 /**
- * @summary This operation queries the precheck progress for a backup plan or a restore job.
+ * @summary Queries the precheck progress of backup plans and restore tasks.
  *
  * @param request DescribePreCheckProgressListRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1540,7 +1551,7 @@ DescribePreCheckProgressListResponse Client::describePreCheckProgressListWithOpt
 }
 
 /**
- * @summary This operation queries the precheck progress for a backup plan or a restore job.
+ * @summary Queries the precheck progress of backup plans and restore tasks.
  *
  * @param request DescribePreCheckProgressListRequest
  * @return DescribePreCheckProgressListResponse
@@ -1597,7 +1608,7 @@ DescribeRegionsResponse Client::describeRegions(const DescribeRegionsRequest &re
 }
 
 /**
- * @summary This operation returns the time ranges available for restoring data from a backup plan.
+ * @summary Queries the details of the recoverable time ranges for a backup plan.
  *
  * @param request DescribeRestoreRangeInfoRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1648,7 +1659,7 @@ DescribeRestoreRangeInfoResponse Client::describeRestoreRangeInfoWithOptions(con
 }
 
 /**
- * @summary This operation returns the time ranges available for restoring data from a backup plan.
+ * @summary Queries the details of the recoverable time ranges for a backup plan.
  *
  * @param request DescribeRestoreRangeInfoRequest
  * @return DescribeRestoreRangeInfoResponse
@@ -1732,7 +1743,7 @@ DescribeRestoreTaskListResponse Client::describeRestoreTaskList(const DescribeRe
  * @summary Disable incremental backup for a backup plan.
  *
  * @description ## Impact
- * After you disable incremental backup, the backup plan no longer performs incremental backups.
+ * Calling this operation stops the specified backup plan from creating new incremental backups.
  *
  * @param request DisableBackupLogRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1778,7 +1789,7 @@ DisableBackupLogResponse Client::disableBackupLogWithOptions(const DisableBackup
  * @summary Disable incremental backup for a backup plan.
  *
  * @description ## Impact
- * After you disable incremental backup, the backup plan no longer performs incremental backups.
+ * Calling this operation stops the specified backup plan from creating new incremental backups.
  *
  * @param request DisableBackupLogRequest
  * @return DisableBackupLogResponse
@@ -1789,10 +1800,10 @@ DisableBackupLogResponse Client::disableBackupLog(const DisableBackupLogRequest 
 }
 
 /**
- * @summary This operation enables incremental backup for a backup plan.
+ * @summary Enable incremental backup for a backup schedule.
  *
  * @description ## Impact
- * Enabling incremental backup incurs no additional charge. However, this operation generates backup traffic and consumes storage space. The fees for the traffic and storage are the same as those for a full backup. You can use the free quota from a backup plan or a storage plan to cover these costs.
+ * Enabling log backup does not incur direct charges. However, log backups generate backup traffic and storage usage. These resources are billed at the same rate as full backups. You can use the free quota from your backup plan or storage plan to offset these charges.
  *
  * @param request EnableBackupLogRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1835,10 +1846,10 @@ EnableBackupLogResponse Client::enableBackupLogWithOptions(const EnableBackupLog
 }
 
 /**
- * @summary This operation enables incremental backup for a backup plan.
+ * @summary Enable incremental backup for a backup schedule.
  *
  * @description ## Impact
- * Enabling incremental backup incurs no additional charge. However, this operation generates backup traffic and consumes storage space. The fees for the traffic and storage are the same as those for a full backup. You can use the free quota from a backup plan or a storage plan to cover these costs.
+ * Enabling log backup does not incur direct charges. However, log backups generate backup traffic and storage usage. These resources are billed at the same rate as full backups. You can use the free quota from your backup plan or storage plan to offset these charges.
  *
  * @param request EnableBackupLogRequest
  * @return EnableBackupLogResponse
@@ -1849,9 +1860,9 @@ EnableBackupLogResponse Client::enableBackupLog(const EnableBackupLogRequest &re
 }
 
 /**
- * @summary Queries the result of a task that is used to query a database list by using a backup gateway based on the ID of the task.
+ * @summary Retrieves the database and table data of physical backups through a backup gateway.
  *
- * @description 您需要调用 [CreateGetDBListFromAgentTask](https://help.aliyun.com/document_detail/2869847.html) 接口创建一个异步任务获取 TaskId（异步任务 ID）。将 TaskId 传入 GetDBListFromAgent 接口后，即可获取物理备份库表数据。
+ * @description You must call the [CreateGetDBListFromAgentTask](https://help.aliyun.com/document_detail/2869847.html) operation to create an asynchronous task and obtain the TaskId (asynchronous task ID). Pass the TaskId to the GetDBListFromAgent operation to retrieve the database and table data of physical backups.
  *
  * @param request GetDBListFromAgentRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1862,6 +1873,10 @@ GetDBListFromAgentResponse Client::getDBListFromAgentWithOptions(const GetDBList
   json query = {};
   if (!!request.hasBackupGatewayId()) {
     query["BackupGatewayId"] = request.getBackupGatewayId();
+  }
+
+  if (!!request.hasBackupGatewayIdentifier()) {
+    query["BackupGatewayIdentifier"] = request.getBackupGatewayIdentifier();
   }
 
   if (!!request.hasClientToken()) {
@@ -1898,9 +1913,9 @@ GetDBListFromAgentResponse Client::getDBListFromAgentWithOptions(const GetDBList
 }
 
 /**
- * @summary Queries the result of a task that is used to query a database list by using a backup gateway based on the ID of the task.
+ * @summary Retrieves the database and table data of physical backups through a backup gateway.
  *
- * @description 您需要调用 [CreateGetDBListFromAgentTask](https://help.aliyun.com/document_detail/2869847.html) 接口创建一个异步任务获取 TaskId（异步任务 ID）。将 TaskId 传入 GetDBListFromAgent 接口后，即可获取物理备份库表数据。
+ * @description You must call the [CreateGetDBListFromAgentTask](https://help.aliyun.com/document_detail/2869847.html) operation to create an asynchronous task and obtain the TaskId (asynchronous task ID). Pass the TaskId to the GetDBListFromAgent operation to retrieve the database and table data of physical backups.
  *
  * @param request GetDBListFromAgentRequest
  * @return GetDBListFromAgentResponse
@@ -1915,7 +1930,6 @@ GetDBListFromAgentResponse Client::getDBListFromAgent(const GetDBListFromAgentRe
  *
  * @description DBS uses the service-linked role (AliyunServiceRoleForDBS) to obtain the required access permissions to connect to ApsaraDB databases, such as RDS, MongoDB, Redis, and PolarDB, or self-managed databases on ECS instances. For more information, see [Activate the Database Backup service](https://help.aliyun.com/document_detail/162603.html).
  *
- * @param request InitializeDbsServiceLinkedRoleRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return InitializeDbsServiceLinkedRoleResponse
  */
@@ -2056,9 +2070,9 @@ ModifyBackupPlanNameResponse Client::modifyBackupPlanName(const ModifyBackupPlan
 }
 
 /**
- * @summary Enables, configures, or disables the automatic download feature.
+ * @summary Enables, modifies, or disables the automatic download feature.
  *
- * @description 使用本接口前请先确认备份数据是否存储在 DBS 的内置 OSS 上，您可通过调用 [DescribeBackupPlanList](https://help.aliyun.com/document_detail/2869825.html) 接口查看 BackupStorageType 取值情况。
+ * @description Before calling this operation, verify whether the backup data is stored in the built-in OSS of DBS. You can call the [DescribeBackupPlanList](https://help.aliyun.com/document_detail/2869825.html) operation to check the value of BackupStorageType.
  *
  * @param request ModifyBackupSetDownloadRulesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2125,9 +2139,9 @@ ModifyBackupSetDownloadRulesResponse Client::modifyBackupSetDownloadRulesWithOpt
 }
 
 /**
- * @summary Enables, configures, or disables the automatic download feature.
+ * @summary Enables, modifies, or disables the automatic download feature.
  *
- * @description 使用本接口前请先确认备份数据是否存储在 DBS 的内置 OSS 上，您可通过调用 [DescribeBackupPlanList](https://help.aliyun.com/document_detail/2869825.html) 接口查看 BackupStorageType 取值情况。
+ * @description Before calling this operation, verify whether the backup data is stored in the built-in OSS of DBS. You can call the [DescribeBackupPlanList](https://help.aliyun.com/document_detail/2869825.html) operation to check the value of BackupStorageType.
  *
  * @param request ModifyBackupSetDownloadRulesRequest
  * @return ModifyBackupSetDownloadRulesResponse
@@ -2138,7 +2152,7 @@ ModifyBackupSetDownloadRulesResponse Client::modifyBackupSetDownloadRules(const 
 }
 
 /**
- * @summary This operation modifies a Database Backup source endpoint.
+ * @summary Modify a DBS backup source endpoint.
  *
  * @param request ModifyBackupSourceEndpointRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2241,7 +2255,7 @@ ModifyBackupSourceEndpointResponse Client::modifyBackupSourceEndpointWithOptions
 }
 
 /**
- * @summary This operation modifies a Database Backup source endpoint.
+ * @summary Modify a DBS backup source endpoint.
  *
  * @param request ModifyBackupSourceEndpointRequest
  * @return ModifyBackupSourceEndpointResponse
@@ -2252,7 +2266,7 @@ ModifyBackupSourceEndpointResponse Client::modifyBackupSourceEndpoint(const Modi
 }
 
 /**
- * @summary Modifies the backup time of a backup schedule.
+ * @summary Modifies the backup time of a backup plan.
  *
  * @param request ModifyBackupStrategyRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2307,7 +2321,7 @@ ModifyBackupStrategyResponse Client::modifyBackupStrategyWithOptions(const Modif
 }
 
 /**
- * @summary Modifies the backup time of a backup schedule.
+ * @summary Modifies the backup time of a backup plan.
  *
  * @param request ModifyBackupStrategyRequest
  * @return ModifyBackupStrategyResponse
@@ -2318,7 +2332,7 @@ ModifyBackupStrategyResponse Client::modifyBackupStrategy(const ModifyBackupStra
 }
 
 /**
- * @summary Modify the lifecycle of stored data in a backup plan.
+ * @summary Modifies the lifecycle of stored data in a backup plan.
  *
  * @param request ModifyStorageStrategyRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2397,7 +2411,7 @@ ModifyStorageStrategyResponse Client::modifyStorageStrategyWithOptions(const Mod
 }
 
 /**
- * @summary Modify the lifecycle of stored data in a backup plan.
+ * @summary Modifies the lifecycle of stored data in a backup plan.
  *
  * @param request ModifyStorageStrategyRequest
  * @return ModifyStorageStrategyResponse

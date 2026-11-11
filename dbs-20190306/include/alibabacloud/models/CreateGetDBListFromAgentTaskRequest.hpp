@@ -14,6 +14,7 @@ namespace Models
   public:
     friend void to_json(Darabonba::Json& j, const CreateGetDBListFromAgentTaskRequest& obj) { 
       DARABONBA_PTR_TO_JSON(BackupGatewayId, backupGatewayId_);
+      DARABONBA_PTR_TO_JSON(BackupGatewayIdentifier, backupGatewayIdentifier_);
       DARABONBA_PTR_TO_JSON(ClientToken, clientToken_);
       DARABONBA_PTR_TO_JSON(DatabaseType, databaseType_);
       DARABONBA_PTR_TO_JSON(OwnerId, ownerId_);
@@ -23,6 +24,7 @@ namespace Models
     };
     friend void from_json(const Darabonba::Json& j, CreateGetDBListFromAgentTaskRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(BackupGatewayId, backupGatewayId_);
+      DARABONBA_PTR_FROM_JSON(BackupGatewayIdentifier, backupGatewayIdentifier_);
       DARABONBA_PTR_FROM_JSON(ClientToken, clientToken_);
       DARABONBA_PTR_FROM_JSON(DatabaseType, databaseType_);
       DARABONBA_PTR_FROM_JSON(OwnerId, ownerId_);
@@ -42,13 +44,20 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->backupGatewayId_ == nullptr
-        && this->clientToken_ == nullptr && this->databaseType_ == nullptr && this->ownerId_ == nullptr && this->sourceEndpointIP_ == nullptr && this->sourceEndpointPort_ == nullptr
-        && this->sourceEndpointRegion_ == nullptr; };
+        && this->backupGatewayIdentifier_ == nullptr && this->clientToken_ == nullptr && this->databaseType_ == nullptr && this->ownerId_ == nullptr && this->sourceEndpointIP_ == nullptr
+        && this->sourceEndpointPort_ == nullptr && this->sourceEndpointRegion_ == nullptr; };
     // backupGatewayId Field Functions 
     bool hasBackupGatewayId() const { return this->backupGatewayId_ != nullptr;};
     void deleteBackupGatewayId() { this->backupGatewayId_ = nullptr;};
     inline int64_t getBackupGatewayId() const { DARABONBA_PTR_GET_DEFAULT(backupGatewayId_, 0L) };
     inline CreateGetDBListFromAgentTaskRequest& setBackupGatewayId(int64_t backupGatewayId) { DARABONBA_PTR_SET_VALUE(backupGatewayId_, backupGatewayId) };
+
+
+    // backupGatewayIdentifier Field Functions 
+    bool hasBackupGatewayIdentifier() const { return this->backupGatewayIdentifier_ != nullptr;};
+    void deleteBackupGatewayIdentifier() { this->backupGatewayIdentifier_ = nullptr;};
+    inline string getBackupGatewayIdentifier() const { DARABONBA_PTR_GET_DEFAULT(backupGatewayIdentifier_, "") };
+    inline CreateGetDBListFromAgentTaskRequest& setBackupGatewayIdentifier(string backupGatewayIdentifier) { DARABONBA_PTR_SET_VALUE(backupGatewayIdentifier_, backupGatewayIdentifier) };
 
 
     // clientToken Field Functions 
@@ -98,32 +107,27 @@ namespace Models
     // 
     // > This parameter is required.
     shared_ptr<int64_t> backupGatewayId_ {};
-    // The client token that is used to ensure the idempotence of the request. You can use the client to generate the value, but you must make sure that it is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length.
+    // The unique identifier of the backup gateway.
+    shared_ptr<string> backupGatewayIdentifier_ {};
+    // The client token that is used to ensure the idempotence of the request and prevent duplicate submissions. You can use the client to generate the value, but you must ensure that it is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length.
     shared_ptr<string> clientToken_ {};
     // The type of the database. Valid values:
     // 
     // - **MySQL**
-    // 
     // - **MSSQL**
-    // 
     // - **Oracle**
-    // 
     // - **MariaDB**
-    // 
     // - **PostgreSQL**
-    // 
     // - **DRDS**
-    // 
     // - **MongoDB**
-    // 
     // - **Redis**
     shared_ptr<string> databaseType_ {};
     shared_ptr<string> ownerId_ {};
-    // The URL that is used to access the database.
+    // The database connection address.
     shared_ptr<string> sourceEndpointIP_ {};
-    // The port that is used to connect to the database.
+    // The database connection port.
     shared_ptr<int32_t> sourceEndpointPort_ {};
-    // The region in which the backup gateway resides.
+    // The region ID of the backup gateway.
     shared_ptr<string> sourceEndpointRegion_ {};
   };
 

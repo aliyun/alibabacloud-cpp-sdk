@@ -66,7 +66,7 @@ namespace Models
 
 
   protected:
-    // A client token. It is used to ensure the idempotence of the request.
+    // The client token that is used to ensure the idempotence of the request.
     shared_ptr<string> clientToken_ {};
     // The language of the error message. Valid values:
     // 

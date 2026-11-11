@@ -381,17 +381,15 @@ namespace Models
     shared_ptr<DescribeBackupSetDownloadTaskListResponseBody::Items> items_ {};
     // The page number.
     shared_ptr<int32_t> pageNum_ {};
-    // The number of entries returned per page.
+    // The number of entries per page.
     shared_ptr<int32_t> pageSize_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request was successful. Valid values:
-    // 
-    // - **true**: The request was successful.
-    // 
-    // - **false**: The request failed.
+    // Indicates whether the request is successful. Valid values:
+    // - **true**: The request is successful.
+    // - **false**: The request fails.
     shared_ptr<bool> success_ {};
-    // The total number of download records for backup sets.
+    // The total number of backup set download records.
     shared_ptr<int32_t> totalElements_ {};
     // The total number of pages.
     shared_ptr<int32_t> totalPages_ {};

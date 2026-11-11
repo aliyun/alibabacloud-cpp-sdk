@@ -84,24 +84,23 @@ namespace Models
 
 
   protected:
-    // The ID of the backup plan. Call the [DescribeBackupPlanList](https://help.aliyun.com/document_detail/2869825.html) operation to obtain the value of this parameter.
+    // The ID of the backup plan. You can call the [DescribeBackupPlanList](https://help.aliyun.com/document_detail/2869825.html) operation to query the value of this parameter.
     // 
-    // > You must specify either **BackupPlanId** or **BackupSetDownloadTaskId**.
+    // > You must specify either **BackupPlanId** or **BackupSetDownloadTaskId** as a required request parameter.
     shared_ptr<string> backupPlanId_ {};
     // The ID of the backup set download task.
     // 
-    // - For a full backup, call the [CreateFullBackupSetDownload](https://help.aliyun.com/document_detail/2869842.html) operation to obtain the value of this parameter.
-    // 
-    // - For an incremental backup, call the [CreateIncrementBackupSetDownload](https://help.aliyun.com/document_detail/2869843.html) operation to obtain the value of this parameter.
+    // - Full backup: You can call the [CreateFullBackupSetDownload](https://help.aliyun.com/document_detail/2869842.html) operation to query the value of this parameter.
+    // - Incremental backup: You can call the [CreateIncrementBackupSetDownload](https://help.aliyun.com/document_detail/2869843.html) operation to query the value of this parameter.
     shared_ptr<string> backupSetDownloadTaskId_ {};
-    // A client token that is used to ensure the idempotence of the request. This prevents duplicate requests.
+    // The client token used to ensure the idempotence of the request and prevent duplicate submissions. You can enter any value.
     shared_ptr<string> clientToken_ {};
     shared_ptr<string> ownerId_ {};
-    // The page number. The value must be a non-negative integer that does not exceed the maximum value of the integer type. The default value is 0.
+    // The page number. The value must be greater than or equal to 0 and cannot exceed the maximum value of an integer. Default value: 0.
     shared_ptr<int32_t> pageNum_ {};
-    // The number of entries to return on each page. Valid values: 30, 50, and 100.
+    // The number of entries per page. Valid values: 30, 50, and 100.
     // 
-    // > The default value is 30.
+    // > Default value: 30.
     shared_ptr<int32_t> pageSize_ {};
   };
 

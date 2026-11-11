@@ -204,73 +204,76 @@ namespace Models
 
 
   protected:
-    // The backup gateway ID. Call [DescribeBackupPlanList](https://help.aliyun.com/document_detail/2869825.html) to get this value.
+    // The backup gateway ID. You can call the [DescribeBackupPlanList](https://help.aliyun.com/document_detail/2869825.html) operation to get this value.
     // 
-    // > You must specify this parameter when **SourceEndpointInstanceType** is Agent.
+    // > This parameter is required if the **SourceEndpointInstanceType** parameter is set to `Agent`.
     shared_ptr<int64_t> backupGatewayId_ {};
-    // The backup objects. This parameter is optional when SourceEndpointInstanceType is Agent. For all other cases, you must specify it. Call [DescribeBackupPlanList](https://help.aliyun.com/document_detail/2869825.html) to get this value.
+    // Backup objects: This parameter is optional if the database is located on an agent, but required for all other scenarios. You can call the [DescribeBackupPlanList](https://help.aliyun.com/document_detail/2869825.html) operation to obtain the value of this parameter.
     shared_ptr<string> backupObjects_ {};
-    // The backup plan ID. Call [DescribeBackupPlanList](https://help.aliyun.com/document_detail/2869825.html) to get this value.
+    // The backup plan ID. You can call the [DescribeBackupPlanList](https://help.aliyun.com/document_detail/2869825.html) operation to get this value.
     // 
     // This parameter is required.
     shared_ptr<string> backupPlanId_ {};
-    // A unique string that ensures idempotence and prevents duplicate requests.
+    // A client-generated token to ensure request idempotence.
     shared_ptr<string> clientToken_ {};
-    // The UID of the Alibaba Cloud account used for cross-account backup. Call [DescribeRestoreTaskList](https://help.aliyun.com/document_detail/2869838.html) to get this value.
+    // The UID for cross-account backup.
     shared_ptr<string> crossAliyunId_ {};
-    // The RAM role name used for cross-account backup. Call [DescribeRestoreTaskList](https://help.aliyun.com/document_detail/2869838.html) to get this value.
+    // The RAM role name for cross-account backup.
     shared_ptr<string> crossRoleName_ {};
+    // Specifies whether to use an SSL connection to back up the source database.
     shared_ptr<string> enableSourceEndpointSsl_ {};
     shared_ptr<string> ownerId_ {};
     // The database name.
     // 
-    // - You must specify this parameter for PostgreSQL or MongoDB databases.
+    // - This parameter is required for PostgreSQL and MongoDB databases.
     // 
-    // - You must specify this parameter for Microsoft SQL Server databases connected through a backup gateway.
+    // - This parameter is also required for Microsoft SQL Server databases when the **SourceEndpointInstanceType** parameter is set to \\"Agent\\".
     shared_ptr<string> sourceEndpointDatabaseName_ {};
-    // The database endpoint. Call [DescribeBackupPlanList](https://help.aliyun.com/document_detail/2869825.html) to get this value.
+    // The IP address of the database. You can call the [DescribeBackupPlanList](https://help.aliyun.com/document_detail/2869825.html) operation to get this value.
     // 
-    // > You must specify this parameter when **SourceEndpointInstanceType** is Express, Agent, or Other.
+    // > This parameter is required if the **SourceEndpointInstanceType** parameter is set to `Express`, `Agent`, or `Other`.
     shared_ptr<string> sourceEndpointIP_ {};
-    // The database instance ID. Call [DescribeBackupPlanList](https://help.aliyun.com/document_detail/2869825.html) to get this value.
+    // The database instance ID. You can call the [DescribeBackupPlanList](https://help.aliyun.com/document_detail/2869825.html) operation to get this value.
     // 
-    // > You must specify this parameter when **SourceEndpointInstanceType** is RDS, ECS, DDS, or Express.
+    // > This parameter is required if the **SourceEndpointInstanceType** parameter is set to `RDS`, `ECS`, `DDS`, or `Express`.
     shared_ptr<string> sourceEndpointInstanceID_ {};
-    // The location of the database. Call [DescribeBackupPlanList](https://help.aliyun.com/document_detail/2869825.html) to get this value. Valid values:
+    // The type of the source instance. You can call the [DescribeBackupPlanList](https://help.aliyun.com/document_detail/2869825.html) operation to get this value. Valid values:
     // 
-    // - **RDS**
+    // - **RDS**: an RDS instance
     // 
-    // - **ECS**
+    // - **ECS**: a self-managed database on an ECS instance
     // 
-    // - **Express**: A database connected through a leased line, VPN Gateway, or Smart Access Gateway
+    // - **Express**: a database connected over a leased line, VPN Gateway, or Smart Access Gateway
     // 
-    // - **Agent**: A database connected through a backup gateway
+    // - **Agent**: a database connected over a backup gateway
     // 
-    // - **DDS**: A MongoDB instance on Alibaba Cloud
+    // - **DDS**: an ApsaraDB for MongoDB instance
     // 
-    // - **Other**: A database connected directly using an IP address and port
+    // - **Other**: a database connected over an IP address and port
     // 
     // This parameter is required.
     shared_ptr<string> sourceEndpointInstanceType_ {};
+    // The Oracle Home path.
     shared_ptr<string> sourceEndpointOracleHome_ {};
-    // The Oracle system ID (SID). You must specify this parameter for Oracle databases.
+    // The Oracle SID. This parameter is required for Oracle databases.
     shared_ptr<string> sourceEndpointOracleSID_ {};
-    // The password.
+    // The password for the database account.
     // 
-    // This parameter is optional for Redis databases or for Microsoft SQL Server databases connected through a backup gateway. For all other cases, you must specify it.
+    // This parameter is required for all database engines except for Redis and Microsoft SQL Server (when the **SourceEndpointInstanceType** parameter is set to \\"Agent\\").
     shared_ptr<string> sourceEndpointPassword_ {};
-    // The database port. Call [DescribeBackupPlanList](https://help.aliyun.com/document_detail/2869825.html) to get this value.
+    // The database port. You can call the [DescribeBackupPlanList](https://help.aliyun.com/document_detail/2869825.html) operation to get this value.
     // 
-    // > You must specify this parameter when **SourceEndpointInstanceType** is Express, Agent, Other, or ECS.
+    // > This parameter is required if the **SourceEndpointInstanceType** parameter is set to `Express`, `Agent`, `Other`, or `ECS`.
     shared_ptr<int32_t> sourceEndpointPort_ {};
-    // The region where the database is located. Call [DescribeBackupPlanList](https://help.aliyun.com/document_detail/2869825.html) to get this value.
+    // The database region. You can call the [DescribeBackupPlanList](https://help.aliyun.com/document_detail/2869825.html) operation to get this value.
     // 
-    // > You must specify this parameter when **SourceEndpointInstanceType** is RDS, ECS, DDS, Express, or Agent.
+    // > This parameter is required if the **SourceEndpointInstanceType** parameter is set to `RDS`, `ECS`, `DDS`, `Express`, or `Agent`.
     shared_ptr<string> sourceEndpointRegion_ {};
-    // The database account. Call [DescribeBackupPlanList](https://help.aliyun.com/document_detail/2869825.html) to get this value.
+    // The username of the database account. You can call the [DescribeBackupPlanList](https://help.aliyun.com/document_detail/2869825.html) operation to get this value.
     // 
-    // This parameter is optional for Redis databases or for Microsoft SQL Server databases connected through a backup gateway. For all other cases, you must specify it.
+    // This parameter is required for all database engines except for Redis and Microsoft SQL Server (when the **SourceEndpointInstanceType** parameter is set to \\"Agent\\").
     shared_ptr<string> sourceEndpointUserName_ {};
+    // The PEM certificate for the SSL connection.
     shared_ptr<string> sslCaPem_ {};
   };
 

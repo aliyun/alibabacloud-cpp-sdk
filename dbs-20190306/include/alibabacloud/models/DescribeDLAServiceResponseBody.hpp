@@ -103,35 +103,28 @@ namespace Models
 
 
   protected:
-    // Specifies whether to enable the feature of automatically adding incremental data to a data lake. If this feature is enabled, DBS adds the backup sets that are newly generated to the data lake that is created for the backup schedule. Valid values:
-    // 
-    // - **true**: enables the feature.
-    // 
-    // - **false**: disables the feature.
+    // Indicates whether automatic data ingestion into the data lake for incremental data is enabled. If this feature is enabled, the system automatically adds newly generated backup sets to the data lake. Valid values:
+    // - **true**: Enabled.
+    // - **false**: Disabled.
     shared_ptr<bool> autoAdd_ {};
     // The error code.
     shared_ptr<string> errCode_ {};
     // The error message.
     shared_ptr<string> errMessage_ {};
-    // Indicates whether a failed DLA task exists in the return result. Valid values:
-    // 
-    // - **true**: A failed DLA task exists.
-    // 
-    // - **false**: No failed DLA task exists.
+    // Indicates whether the response contains failed DLA tasks. Valid values:
+    // - **true**: Yes.
+    // - **false**: No.
     shared_ptr<bool> haveJobFailed_ {};
     // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
     // The ID of the request.
     shared_ptr<string> requestId_ {};
-    // The status of the DLA service for the backup schedule. Valid values:
-    // 
-    // - **Running**: DLA is running.
-    // 
-    // - **Closing**: DLA is being disabled.
-    // 
-    // - **Closed**: DLA is disabled.
+    // The DLA service status of the backup plan. Valid values:
+    // - **Running**: The service is running.
+    // - **Closing**: The service is being closed.
+    // - **Closed**: The service is closed.
     shared_ptr<string> state_ {};
-    // Indicates whether the request is successful.
+    // Indicates whether the request was successful.
     shared_ptr<bool> success_ {};
   };
 

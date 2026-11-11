@@ -444,15 +444,13 @@ namespace Models
     shared_ptr<int32_t> pageNum_ {};
     // The number of entries per page.
     shared_ptr<int32_t> pageSize_ {};
-    // The request ID.
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the operation succeeded. Valid values:
-    // 
-    // - **true**: The operation succeeded.
-    // 
-    // - **false**: The operation failed.
+    // Indicates whether the request was successful. Valid values:
+    // - **true**: The request was successful.
+    // - **false**: The request failed.
     shared_ptr<bool> success_ {};
-    // The total number of full backup jobs.
+    // The total number of full backup tasks.
     shared_ptr<int32_t> totalElements_ {};
     // The total number of pages.
     shared_ptr<int32_t> totalPages_ {};

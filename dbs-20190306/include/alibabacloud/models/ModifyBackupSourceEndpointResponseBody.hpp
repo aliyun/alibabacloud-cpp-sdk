@@ -102,13 +102,13 @@ namespace Models
     shared_ptr<string> errMessage_ {};
     // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
-    // Indicates whether this change triggers a precheck. If this value is true, call StartBackupPlan to restart the backup plan.
+    // Indicates whether the modification triggers a precheck. If this parameter is set to true, you must call the StartBackupPlan operation to start the backup plan.
     shared_ptr<bool> needPrecheck_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request succeeded. Valid values:
+    // Indicates whether the request was successful. Valid values:
     // 
-    // - **true**: The request succeeded.
+    // - **true**: The request was successful.
     // 
     // - **false**: The request failed.
     shared_ptr<bool> success_ {};

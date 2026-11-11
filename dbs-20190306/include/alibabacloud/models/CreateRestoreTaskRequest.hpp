@@ -342,106 +342,111 @@ namespace Models
 
 
   protected:
+    // Specifies whether to automatically start the instance after an Oracle physical backup is restored.
     shared_ptr<string> autoOpenDatabase_ {};
+    // Specifies whether to automatically shut down the instance after an Oracle physical backup is restored.
     shared_ptr<string> autoShutdownDatabase_ {};
-    // backup gateway ID.
+    // The ID of the backup gateway.
     // 
-    // > This parameter is required when **DestinationEndpointInstanceType** is agent.
+    // > This parameter is required if **DestinationEndpointInstanceType** is set to Agent.
     shared_ptr<int64_t> backupGatewayId_ {};
-    // backup plan ID.
+    // The ID of the backup plan.
     // 
     // This parameter is required.
     shared_ptr<string> backupPlanId_ {};
-    // The ID of the full backup set used for restoration. Mutually exclusive with RestoreTime.
+    // The ID of the full backup set used for restoration. This parameter and RestoreTime are mutually exclusive.
     shared_ptr<string> backupSetId_ {};
-    // Ensures request idempotence and prevents duplicate submissions.
+    // The client token that is used to ensure the idempotence of the request and prevent duplicate submissions.
     shared_ptr<string> clientToken_ {};
-    // UID for cross-Alibaba Cloud account backup.
+    // The UID of the Alibaba Cloud account used for cross-account backup.
     shared_ptr<string> crossAliyunId_ {};
-    // RAM role name for cross-Alibaba Cloud account backup.
+    // The name of the RAM role used for cross-account backup.
     shared_ptr<string> crossRoleName_ {};
+    // The instance specifications of the new database instance to which data is restored.
     shared_ptr<string> destDatabaseInstanceClass_ {};
+    // The database engine version of the new database instance to which data is restored.
     shared_ptr<string> destDatabaseInstanceDatabaseVersion_ {};
+    // The region of the new database instance to which data is restored.
     shared_ptr<string> destDatabaseInstanceRegion_ {};
+    // The instance storage size of the new database to recover.
     shared_ptr<string> destDatabaseInstanceStorageSize_ {};
+    // The instance type of the new database to which data is restored.
     shared_ptr<string> destDatabaseInstanceType_ {};
+    // The vSwitch of the new database instance to which data is restored.
     shared_ptr<string> destDatabaseInstanceVSwitch_ {};
+    // The VPC of the new database instance to which data is restored.
     shared_ptr<string> destDatabaseInstanceVpc_ {};
-    // database name.
+    // The name of the database.
     // 
-    // > This parameter is required when the database type is PostgreSQL or MongoDB.
+    // > This parameter is required if the database engine is PostgreSQL or MongoDB.
     shared_ptr<string> destinationEndpointDatabaseName_ {};
-    // database endpoint.
+    // The database connection address.
     // 
-    // > This parameter is required when **DestinationEndpointInstanceType** is express, agent, or other.
+    // > This parameter is required if **DestinationEndpointInstanceType** is set to Express, Agent, or Other.
     shared_ptr<string> destinationEndpointIP_ {};
-    // database instance ID.
+    // The instance ID of the database.
     // 
-    // > This parameter is required when **DestinationEndpointInstanceType** is RDS, ECS, DDS, or Express.
+    // > This parameter is required if **DestinationEndpointInstanceType** is set to RDS, ECS, DDS, or Express.
     shared_ptr<string> destinationEndpointInstanceID_ {};
-    // database location. Valid values:
-    // 
+    // The location of the database. Valid values:
     // - **RDS**
-    // 
     // - **ECS**
-    // 
-    // - **Express**: databases accessed via leased line/VPN Gateway/Smart Gateway
-    // 
-    // - **Agent**: databases accessed via backup gateway
-    // 
-    // - **DDS**: Cloud MongoDB
-    // 
-    // - **Other**: databases directly connected via IP:Port
-    // 
-    // - **dg**: self-managed databases without public IP:Port (accessed via Database Gateway DG)
+    // - **Express**: databases connected over Express Connect circuits, VPN gateways, or Smart Access Gateway (SAG)
+    // - **Agent**: databases connected over backup gateways
+    // - **DDS**: ApsaraDB for MongoDB
+    // - **Other**: databases connected by using IP addresses and port numbers
+    // - **dg**: self-managed databases that have no public IP addresses or port numbers and are connected over Database Gateway
     // 
     // This parameter is required.
     shared_ptr<string> destinationEndpointInstanceType_ {};
-    // Oracle SID name.
+    // The Oracle SID.
     // 
-    // > This parameter is required when the database type is Oracle.
+    // > This parameter is required if the database engine is Oracle.
     shared_ptr<string> destinationEndpointOracleSID_ {};
-    // password.
+    // The password of the database account.
     // 
-    // > This parameter is optional when the database type is Redis, or when the database location is agent and the database type is MSSQL. It is required in all other scenarios.
+    // > This parameter is not required if the database engine is Redis, or if the database is connected over a backup gateway and the database engine is SQL Server. In other scenarios, this parameter is required.
     shared_ptr<string> destinationEndpointPassword_ {};
-    // database port.
+    // The port number of the database.
     // 
-    // > This parameter is required when **DestinationEndpointInstanceType** is express, agent, other, or ECS.
+    // > This parameter is required if **DestinationEndpointInstanceType** is set to Express, Agent, Other, or ECS.
     shared_ptr<int32_t> destinationEndpointPort_ {};
-    // region of the database instance.
-    // 
-    // > This parameter is required when **DestinationEndpointInstanceType** is RDS, ECS, DDS, Express, or Agent.
+    // The region of the database instance.
+    // >This parameter is required if **DestinationEndpointInstanceType** is set to RDS, ECS, DDS, Express, or Agent.
     shared_ptr<string> destinationEndpointRegion_ {};
-    // database account.
+    // The username of the database account.
     // 
-    // > This parameter is optional when the database type is Redis, or when the database location is agent and the database type is MSSQL. It is required in all other scenarios.
+    // > This parameter is not required if the database engine is Redis, or if the database is connected over a backup gateway and the database engine is SQL Server. In other scenarios, this parameter is required.
     shared_ptr<string> destinationEndpointUserName_ {};
-    // Conflict handling for objects with the same name. Currently supports:
+    // The method used to handle conflicts between objects with the same name. Valid values:
     // 
-    // **renamenew**: Rename objects if names conflict.
+    // - **renamenew**: renames the object if an object with the same name exists.
     shared_ptr<string> duplicateConflict_ {};
+    // Specifies whether to connect to the destination by using an SSL-encrypted connection.
     shared_ptr<bool> enableDestinationEndpointSsl_ {};
     shared_ptr<string> ownerId_ {};
+    // The method used to restore data to the destination. Valid values:
+    // - **EXIST_INSTANCE**: restores data to an existing instance.
+    // - **NEW_INSTANCE**: restores data to a new instance.
     shared_ptr<string> restoreDestinationMode_ {};
-    // Required when **DestinationEndpointInstanceType** is agent and the backup plan is MySQL.
+    // This parameter is required if **DestinationEndpointInstanceType** is set to Agent and the backup plan is for MySQL.
     shared_ptr<string> restoreDir_ {};
-    // database program directory.
+    // The directory of the database program.
     shared_ptr<string> restoreHome_ {};
-    // restore objects.
+    // The objects to be restored.
     // 
-    // - For details, see the **RestoreObjects** parameter definition below. This parameter is optional when the database location is agent, and required in all other scenarios.
+    // - For more information, see the definition of the **RestoreObjects** parameter below. This parameter is not required if the database is connected over a backup gateway. In other scenarios, this parameter is required.
+    // - Template: `[{ "DBName": "Name of the database to be restored", "NewDBName": "Name of the destination database" }]`
     // 
-    // - Input template: `[{ "DBName": "database name to be restored", "NewDBName": "target database name to be restored" }]`
-    // 
-    // > This API only supports restoring objects at the database level. To configure table-level restoration, use the console. For details, see [Recover databases](https://help.aliyun.com/document_detail/85543.html).
+    // > Restoring objects by calling this API operation only supports restoration at the database level. To restore specific tables, go to the console. For more information, see [Restore a database](https://help.aliyun.com/document_detail/85543.html).
     shared_ptr<string> restoreObjects_ {};
-    // restore job name.
+    // The name of the restore task.
     // 
     // This parameter is required.
     shared_ptr<string> restoreTaskName_ {};
-    // restore time. Value: 1554560477000.
+    // The point in time to which you want to restore the database. The value is a UNIX timestamp in milliseconds.
     shared_ptr<int64_t> restoreTime_ {};
+    // The credential for the SSL-encrypted connection to the destination.
     shared_ptr<string> sslCaPem_ {};
   };
 

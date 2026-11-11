@@ -121,7 +121,7 @@ namespace Models
 
   protected:
     shared_ptr<GetDBListFromAgentResponseBody::DbList> dbList_ {};
-    // The error code.
+    // The error code string.
     shared_ptr<string> errCode_ {};
     // The error message.
     shared_ptr<string> errMessage_ {};

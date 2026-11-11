@@ -249,22 +249,18 @@ namespace Models
     // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
     shared_ptr<DescribePreCheckProgressListResponseBody::Items> items_ {};
-    // The precheck progress. The value ranges from 0 to 100.
+    // The precheck progress. Valid values: 0 to 100.
     shared_ptr<int32_t> progress_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
     // The precheck status. Valid values:
-    // 
-    // - **running**: The precheck is in progress.
-    // 
-    // - **failed**: The precheck failed.
-    // 
-    // - **finish**: The precheck is complete.
+    // - **running**: running
+    // - **failed**: failed
+    // - **finish**: completed
     shared_ptr<string> status_ {};
     // Indicates whether the request was successful. Valid values:
     // 
     // - **true**: The request was successful.
-    // 
     // - **false**: The request failed.
     shared_ptr<bool> success_ {};
   };

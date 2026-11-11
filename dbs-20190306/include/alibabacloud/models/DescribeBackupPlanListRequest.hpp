@@ -149,42 +149,46 @@ namespace Models
 
 
   protected:
+    // The backup method.
     shared_ptr<string> backupMethod_ {};
-    // Backup plan ID. To list multiple backup plans, separate IDs with commas.
+    // The ID of the backup plan. You can specify multiple backup plan IDs, separated by commas.
     shared_ptr<string> backupPlanId_ {};
-    // Backup plan name.
+    // The name of the backup plan.
     shared_ptr<string> backupPlanName_ {};
-    // Backup plan status. Valid values:
+    // The status of the backup plan. Valid values:
     // 
-    // - **wait**: Not configured.
+    // - **wait**: The backup plan is not configured.
     // 
-    // - **init**: Not started (precheck failed).
+    // - **init**: The backup plan is not started because a precheck failed.
     // 
-    // - **running**: Running.
+    // - **running**: The backup plan is running.
     // 
-    // - **stop**: Failed.
+    // - **stop**: The backup plan has failed.
     // 
-    // - **pause**: Paused.
+    // - **pause**: The backup plan is paused.
     // 
-    // - **locked**: Locked.
+    // - **locked**: The backup plan is locked.
     // 
-    // - **check_pass**: Precheck passed.
+    // - **check_pass**: The precheck is passed.
     shared_ptr<string> backupPlanStatus_ {};
-    // A client token used to ensure idempotence and prevent duplicate requests.
+    // A client-generated token that ensures the idempotence of the request.
     shared_ptr<string> clientToken_ {};
     shared_ptr<string> ownerId_ {};
-    // Page number. Valid values: integers greater than or equal to 0 and less than or equal to the maximum integer value. Default value: 0.
+    // The page number to return. The value must be an integer that is greater than or equal to 0. The default value is 0.
     shared_ptr<int32_t> pageNum_ {};
-    // Number of records per page. Valid values: 1 to 100.
+    // The number of entries to return on each page. Valid values: 1 to 100.
     // 
-    // > Default value: **30**.
+    // > The default value is **30**.
     shared_ptr<int32_t> pageSize_ {};
-    // DBS region. Call [DescribeRegions](https://help.aliyun.com/document_detail/2869853.html) to view supported regions.
+    // The ID of the region where the backup plan is located. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/2869853.html) operation to query the list of supported regions.
     shared_ptr<string> region_ {};
-    // Resource group ID.
+    // The ID of the resource group.
     shared_ptr<string> resourceGroupId_ {};
+    // Specifies whether to return information about the backup strategy. Default value: false.
     shared_ptr<bool> showBackupStrategyInfo_ {};
+    // Specifies whether to return the recovery time range. Default value: false.
     shared_ptr<bool> showRecoverTimeRange_ {};
+    // Specifies whether to return information about the storage strategy. Default value: false.
     shared_ptr<bool> showStorageStrategyInfo_ {};
   };
 

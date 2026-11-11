@@ -121,57 +121,44 @@ namespace Models
 
 
   protected:
-    // The ID of the backup gateway that is used to download the backup set.
+    // The ID of the backup gateway used to download the backup set.
     shared_ptr<int64_t> backupGatewayId_ {};
-    // The ID of the backup schedule.
+    // The ID of the backup plan. You can call the [DescribeBackupPlanList](https://help.aliyun.com/document_detail/2869825.html) operation to query the ID.
     // 
     // This parameter is required.
     shared_ptr<string> backupPlanId_ {};
     // The server directory to which the backup set is downloaded.
     shared_ptr<string> backupSetDownloadDir_ {};
-    // The type of the destination server to which the backup set is downloaded.
-    // 
-    // > Set the value to agent, which indicates a server on which a backup gateway is installed.
+    // The target type for downloading the backup set.
+    // > Default value: agent. A backup gateway is installed. This is the only supported value.
     shared_ptr<string> backupSetDownloadTargetType_ {};
-    // The type of the destination directory to which the backup set is downloaded. This parameter is required if the automatic download feature is enabled. Valid values:
-    // 
+    // The target directory type for downloading the backup set. This parameter is required if automatic download is enabled. Valid values:
     // - local
-    // 
     // - nas
-    // 
     // - ftp
-    // 
     // - minio
     // 
     // > Default value: local.
     shared_ptr<string> backupSetDownloadTargetTypeLocation_ {};
-    // The client token that is used to ensure the idempotence of the request.
+    // The client token used to ensure the idempotence of the request and prevent duplicate request submissions.
     shared_ptr<string> clientToken_ {};
-    // The format in which the full backup set is downloaded. Valid values:
-    // 
+    // The format of the full data downloaded from the backup set. Valid values:
     // - Native
-    // 
     // - SQL
-    // 
     // - CSV
-    // 
     // - JSON
     // 
     // > Default value: CSV.
     shared_ptr<string> fullDataFormat_ {};
-    // The format in which the incremental backup set is downloaded. Valid values:
-    // 
+    // The format of the incremental data downloaded from the backup set. Valid values:
     // - Native
-    // 
     // - SQL
-    // 
     // - CSV
-    // 
     // - JSON
     // 
     // > Default value: Native.
     shared_ptr<string> incrementDataFormat_ {};
-    // Specifies whether to enable the automatic download feature. Default value: false.
+    // Specifies whether to enable automatic download. Default value: false.
     shared_ptr<bool> openAutoDownload_ {};
     shared_ptr<string> ownerId_ {};
   };

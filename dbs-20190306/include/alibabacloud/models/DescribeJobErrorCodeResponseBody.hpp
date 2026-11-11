@@ -182,7 +182,7 @@ namespace Models
     shared_ptr<int32_t> httpStatusCode_ {};
     // The details of the error code.
     shared_ptr<DescribeJobErrorCodeResponseBody::Item> item_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
     // Indicates whether the request was successful.
     shared_ptr<bool> success_ {};

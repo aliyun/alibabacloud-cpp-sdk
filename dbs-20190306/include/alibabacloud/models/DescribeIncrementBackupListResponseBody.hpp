@@ -330,17 +330,17 @@ namespace Models
     shared_ptr<DescribeIncrementBackupListResponseBody::Items> items_ {};
     // The page number.
     shared_ptr<int32_t> pageNum_ {};
-    // The number of entries per page.
+    // The page size.
     shared_ptr<int32_t> pageSize_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request was successful. Valid values:
+    // Indicates whether the request succeeded. Valid values:
     // 
-    // - **true**: The request was successful.
+    // - **true**: The request succeeded.
     // 
     // - **false**: The request failed.
     shared_ptr<bool> success_ {};
-    // The total number of incremental backup tasks.
+    // The total number of incremental backups.
     shared_ptr<int32_t> totalElements_ {};
     // The total number of pages.
     shared_ptr<int32_t> totalPages_ {};

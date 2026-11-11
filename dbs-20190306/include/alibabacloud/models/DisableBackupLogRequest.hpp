@@ -66,12 +66,13 @@ namespace Models
 
 
   protected:
-    // The ID of the backup plan. Call [DescribeBackupPlanList](https://help.aliyun.com/document_detail/2869825.html) to query it.
+    // The ID of the backup plan. To get this ID, call the [DescribeBackupPlanList](https://help.aliyun.com/document_detail/2869825.html) operation.
     // 
     // This parameter is required.
     shared_ptr<string> backupPlanId_ {};
-    // Ensures idempotence and prevents duplicate requests.
+    // A client token to ensure the idempotence of the request.
     shared_ptr<string> clientToken_ {};
+    // Specifies whether to disable only the log backup feature for a physical backup of a MySQL database.
     shared_ptr<string> disableMysqlPhysicalBackupBinlogOnly_ {};
     shared_ptr<string> ownerId_ {};
   };

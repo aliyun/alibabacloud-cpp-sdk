@@ -562,7 +562,7 @@ namespace Models
     shared_ptr<bool> success_ {};
     // The total number of restore jobs.
     shared_ptr<int32_t> totalElements_ {};
-    // The total number of pages.
+    // The total number of pages returned.
     shared_ptr<int32_t> totalPages_ {};
   };
 

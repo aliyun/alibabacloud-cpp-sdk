@@ -84,17 +84,17 @@ namespace Models
 
 
   protected:
-    // error code.
+    // The error code.
     shared_ptr<string> errCode_ {};
-    // error message.
+    // The error message.
     shared_ptr<string> errMessage_ {};
-    // HTTP status code.
+    // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
-    // request ID.
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
-    // restore job ID.
+    // The ID of the restore task.
     shared_ptr<string> restoreTaskId_ {};
-    // success.
+    // Indicates whether the request was successful.
     shared_ptr<bool> success_ {};
   };
 

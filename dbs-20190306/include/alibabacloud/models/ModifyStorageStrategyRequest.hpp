@@ -149,36 +149,41 @@ namespace Models
 
 
   protected:
-    // Backup plan ID. Obtain this parameter\\"s value by calling the [DescribeBackupPlanList](https://help.aliyun.com/document_detail/2869825.html) API.
+    // The ID of the backup plan. You can call the [DescribeBackupPlanList](https://help.aliyun.com/document_detail/2869825.html) operation to query the value of this parameter.
     // 
     // This parameter is required.
     shared_ptr<string> backupPlanId_ {};
-    // Backup data retention period, in days. Valid values: 0 to 1825.
+    // The retention period of backup data. Unit: days. Valid values: 0 to 1825.
     // 
-    // > Default value: 730 days.
+    // > Default value: 730.
     // 
     // This parameter is required.
     shared_ptr<int32_t> backupRetentionPeriod_ {};
+    // The encryption method for backup data storage.
     shared_ptr<string> backupStorageEncryptMethod_ {};
-    // An arbitrary string used to ensure the idempotence of the request and prevent duplicate submissions.
+    // The client token that is used to ensure the idempotence of the request and prevent duplicate submissions.
     shared_ptr<string> clientToken_ {};
-    // Time to convert to Archive Storage. This value must be less than the backup data retention period (BackupRetentionPeriod parameter). For more information about Archive Storage, see [Storage Type Overview](https://help.aliyun.com/document_detail/51374.html).
-    // 
-    // > Default value: 365 days.
+    // The period after which backup data is transitioned to Archive storage. The value must be less than the retention period of backup data (specified by the BackupRetentionPeriod parameter). For more information about Archive storage, see [Storage types](https://help.aliyun.com/document_detail/51374.html).
+    // > Default value: 365.
     // 
     // This parameter is required.
     shared_ptr<int32_t> duplicationArchivePeriod_ {};
-    // Time to convert to Infrequent Access storage. This value must be less than the Archive Storage period (DuplicationArchivePeriod parameter). For more information about Infrequent Access storage, see [Storage Type Overview](https://help.aliyun.com/document_detail/51374.html).
-    // 
-    // > Default value: 180 days.
+    // The period after which backup data is transitioned to Infrequent Access storage. The value must be less than the period after which backup data is transitioned to Archive storage (specified by the DuplicationArchivePeriod parameter). For more information about Infrequent Access storage, see [Storage types](https://help.aliyun.com/document_detail/51374.html).
+    // > Default value: 180.
     // 
     // This parameter is required.
     shared_ptr<int32_t> duplicationInfrequentAccessPeriod_ {};
+    // The retention period of incremental backup data.
     shared_ptr<string> incrementBackupRetentionPeriod_ {};
+    // The period after which incremental backup data is transitioned to Archive storage.
     shared_ptr<string> incrementDuplicationArchivePeriod_ {};
+    // The period after which incremental backup data is transitioned to Infrequent Access storage.
     shared_ptr<string> incrementDuplicationInfrequentAccessPeriod_ {};
+    // The retention period of log backup data.
     shared_ptr<string> logBackupRetentionPeriod_ {};
+    // The period after which log backup data is transitioned to Infrequent Access storage.
     shared_ptr<string> logDuplicationArchivePeriod_ {};
+    // The period after which log backup data is transitioned to Infrequent Access storage.
     shared_ptr<string> logDuplicationInfrequentAccessPeriod_ {};
     shared_ptr<string> ownerId_ {};
   };

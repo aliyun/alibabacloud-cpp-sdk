@@ -94,7 +94,7 @@ namespace Models
 
 
   protected:
-    // The ID of the backup plan.
+    // The backup plan ID.
     shared_ptr<string> backupPlanId_ {};
     // The error code.
     shared_ptr<string> errCode_ {};
@@ -102,19 +102,19 @@ namespace Models
     shared_ptr<string> errMessage_ {};
     // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
-    // Indicates whether the modification triggers a precheck. Valid values:
+    // Indicates whether this change triggers a precheck. Valid values:
     // 
-    // - true: A precheck is triggered. Call the [StartBackupPlan](https://help.aliyun.com/document_detail/2869816.html) operation to start the backup plan.
+    // - `true`: A precheck is triggered. You must call the [StartBackupPlan](https://help.aliyun.com/document_detail/2869816.html) operation to start the backup plan.
     // 
-    // - false: A precheck is not triggered.
+    // - `false`: No precheck is triggered.
     shared_ptr<bool> needPrecheck_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the operation was successful. Valid values:
+    // Indicates whether the operation succeeded. Valid values:
     // 
-    // - true: The operation was successful.
+    // - `true`: The operation succeeded.
     // 
-    // - false: The operation failed.
+    // - `false`: The operation failed.
     shared_ptr<bool> success_ {};
   };
 

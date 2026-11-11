@@ -68,12 +68,12 @@ namespace Models
   protected:
     // The ID of the backup plan.
     // 
-    // > Specify either BackupPlanId or RestoreTaskId.
+    // > Specify BackupPlanId or RestoreTaskId.
     shared_ptr<string> backupPlanId_ {};
-    // The client token that is used to ensure the idempotence of the request.
+    // The client token that is used to ensure the idempotence of the request and prevent duplicate submissions.
     shared_ptr<string> clientToken_ {};
     shared_ptr<string> ownerId_ {};
-    // The ID of the restore job.
+    // The ID of the restore task.
     shared_ptr<string> restoreTaskId_ {};
   };
 
