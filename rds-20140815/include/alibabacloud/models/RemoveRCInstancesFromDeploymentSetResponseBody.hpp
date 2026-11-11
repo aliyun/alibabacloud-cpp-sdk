@@ -72,9 +72,9 @@ namespace Models
     protected:
       // The instance ID.
       shared_ptr<string> RCInstanceId_ {};
-      // The node status. Valid values:
-      // * **Success**: successful
-      // *  **Failed**: failed
+      // The status of the node. Valid values:
+      // * **Success**: Successful.
+      // * **Failed**: Failed.
       shared_ptr<string> status_ {};
     };
 

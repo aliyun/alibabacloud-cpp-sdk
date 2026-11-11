@@ -111,20 +111,20 @@ namespace Models
     // * **0**: no compression
     // * **1**: zlib compression
     // * **2**: parallel zlib compression
-    // * **4**: quicklz compression with database and table restoration enabled
-    // * **8**: quicklz compression without database and table restoration supported
+    // * **4**: QuickLZ compression with database and table restoration enabled
+    // * **8**: QuickLZ compression without database and table restoration supported
     shared_ptr<string> compressType_ {};
-    // The instance ID. You can call the DescribeDBInstances operation to retrieve the ID.
+    // The instance ID. You can call the DescribeDBInstances operation to obtain the ID.
     // 
     // This parameter is required.
     shared_ptr<string> DBInstanceId_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
-    // The data retention policy for archived backups of deleted **MySQL** instances. Valid values:
+    // The data retention policy for archived backups of a deleted **ApsaraDB RDS for MySQL** instance. Valid values:
     // 
-    // * **None**: no retention
-    // * **Lastest**: retains the last backup
-    // * **All**: retains all backups
+    // * **None**: does not retain archived backups
+    // * **Lastest**: retains only the last archived backup
+    // * **All**: retains all archived backups
     shared_ptr<string> releasedKeepPolicy_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};

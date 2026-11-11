@@ -140,7 +140,7 @@ namespace Models
         shared_ptr<string> device_ {};
         // The size of the cloud disk. Unit: GiB.
         shared_ptr<string> size_ {};
-        // The attribute of the cloud disk. Valid values:
+        // The property of the cloud disk. Valid values:
         // 
         // - **system**: System cloud disk.
         // - **data**: Data cloud disk.
@@ -275,7 +275,7 @@ namespace Models
       shared_ptr<string> creationTime_ {};
       // The description of the image.
       shared_ptr<string> description_ {};
-      // The mappings between cloud disks and snapshots included in the image.
+      // The mapping between cloud disks and snapshots included in the image.
       shared_ptr<vector<Images::DiskDeviceMappings>> diskDeviceMappings_ {};
       // The image ID.
       shared_ptr<string> imageId_ {};
@@ -283,10 +283,10 @@ namespace Models
       shared_ptr<string> imageName_ {};
       // The image version.
       shared_ptr<string> imageVersion_ {};
-      // Indicates whether the image is public. Public images include public images provided by Alibaba Cloud and custom images that you have published as community images. Valid values:
+      // Indicates whether the image is a public image. Public images include public images provided by Alibaba Cloud and custom images that you have published as community images. Valid values:
       // 
-      // - **true**: The image is public.
-      // - **false**: The image is not public.
+      // - **true**: The image is a public image.
+      // - **false**: The image is not a public image.
       shared_ptr<bool> isPublic_ {};
       // Indicates whether the image supports RDS Custom instances. Valid values:
       // 

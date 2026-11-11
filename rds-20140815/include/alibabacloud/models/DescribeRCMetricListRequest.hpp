@@ -129,11 +129,9 @@ namespace Models
     shared_ptr<string> express_ {};
     // The instance ID. This parameter is required.
     shared_ptr<string> instanceId_ {};
-    // The number of records to return on each page for paging in a paged query.
-    // 
-    // Default value: 1000.
+    // The number of records to return on each page for paging in a paged query. Default value: 1000.
     shared_ptr<string> length_ {};
-    // The [monitored metrics](https://cms.console.aliyun.com/metric-meta/acs_ecs_dashboard/ecs).
+    // The [monitored metric](https://cms.console.aliyun.com/metric-meta/acs_ecs_dashboard/ecs).
     // 
     // This parameter is required.
     shared_ptr<string> metricName_ {};

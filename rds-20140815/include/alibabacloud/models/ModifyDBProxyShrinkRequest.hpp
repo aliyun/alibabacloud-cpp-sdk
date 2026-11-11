@@ -169,9 +169,9 @@ namespace Models
   protected:
     // Specifies whether to enable or disable the database proxy. Valid values:
     // 
-    // * **Startup**: Enables the proxy service.
-    // * **Shutdown**: Disables the proxy service.
-    // * **Modify**: Modifies the proxy service.
+    // * **Startup**: enables the proxy service.
+    // * **Shutdown**: disables the proxy service.
+    // * **Modify**: modifies the proxy service.
     // 
     // This parameter is required.
     shared_ptr<string> configDBProxyService_ {};
@@ -186,10 +186,10 @@ namespace Models
     // > More proxy instances can process more requests. You can check the load of proxy instances based on monitoring data and specify an appropriate number of proxy instances.
     shared_ptr<string> DBProxyInstanceNum_ {};
     // The type of the database proxy instance. Valid values:
-    // - **common**: General-purpose database proxy.
-    // - **exclusive**: Dedicated proxy (default).
+    // - **common**: general-purpose database proxy
+    // - **exclusive**: dedicated proxy (default)
     shared_ptr<string> DBProxyInstanceType_ {};
-    // The list of proxy nodes.
+    // The proxy nodes.
     shared_ptr<string> DBProxyNodesShrink_ {};
     // The network type of the instance. Only VPC is supported. Valid value: **VPC**.
     // 
@@ -197,10 +197,10 @@ namespace Models
     shared_ptr<string> instanceNetworkType_ {};
     shared_ptr<int64_t> ownerId_ {};
     // Specifies whether to enable connection keep-alive. Valid values:
-    // - **Enabled**: Enables connection keep-alive.
-    // - **Disabled**: Disables connection keep-alive.
+    // - **Enabled**: enables connection keep-alive.
+    // - **Disabled**: disables connection keep-alive.
     // 
-    // > - Only ApsaraDB RDS for MySQL supports this parameter.
+    // > - This parameter is supported only for ApsaraDB RDS for MySQL.
     // > - When you modify the connection keep-alive status, set **ConfigDBProxyService** to **Modify**.
     shared_ptr<string> persistentConnectionStatus_ {};
     // The region ID. You can call the DescribeRegions operation to query the region ID.

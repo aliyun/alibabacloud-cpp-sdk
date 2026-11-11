@@ -75,6 +75,8 @@ namespace Models
 
 
   protected:
+    // The ID of the ApsaraDB RDS instance. You can call the [DescribeDBInstances](https://help.aliyun.com/document_detail/26232.html) operation to query the ID.
+    // 
     // This parameter is required.
     shared_ptr<string> DBInstanceId_ {};
     shared_ptr<string> ownerAccount_ {};

@@ -66,9 +66,15 @@ namespace Models
 
 
   protected:
+    // The effective period of the authorization. Format: <i>yyyy-MM-dd</i>T<i>HH:mm:ss</i>Z (UTC).
     shared_ptr<string> createdTime_ {};
+    // The time when the authorization expires. Format: yyyy-MM-ddTHH:mm:ssZ (UTC).
     shared_ptr<string> expiredTime_ {};
+    // The types of permissions that are granted. Valid values:
+    // - **Control**: configuration permissions. Allows you to view and modify instance configurations.
+    // - **Data**: database permissions. Allows you to view table schemas, indexes, and SQL statements.
     shared_ptr<string> privileges_ {};
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
   };
 

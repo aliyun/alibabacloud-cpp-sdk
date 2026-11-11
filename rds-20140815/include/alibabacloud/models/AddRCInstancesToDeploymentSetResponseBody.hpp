@@ -80,14 +80,14 @@ namespace Models
 
     protected:
       // The node status. Valid values:
-      // * **activation**: running.
-      // * **creating**: creating.
+      // * **activation**: The node is running.
+      // * **creating**: The node is being created.
       shared_ptr<string> errorMessage_ {};
       // The instance IDs.
       shared_ptr<string> RCInstanceId_ {};
       // The node status. Valid values:
-      // * **Success**: succeeded.
-      // * **Failed**: failed.
+      // * **Success**: Successful.
+      // * **Failed**: Failed.
       shared_ptr<string> status_ {};
     };
 
@@ -110,7 +110,7 @@ namespace Models
 
 
   protected:
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
     // The inspection results.
     shared_ptr<vector<AddRCInstancesToDeploymentSetResponseBody::Results>> results_ {};

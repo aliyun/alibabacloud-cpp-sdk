@@ -48,6 +48,7 @@ namespace Models
     public:
       friend void to_json(Darabonba::Json& j, const MysqlOperator& obj) { 
         DARABONBA_PTR_TO_JSON(DashboardPublicEndpoint, dashboardPublicEndpoint_);
+        DARABONBA_PTR_TO_JSON(DashboardPublicEndpointExpireTime, dashboardPublicEndpointExpireTime_);
         DARABONBA_PTR_TO_JSON(DashboardUsername, dashboardUsername_);
         DARABONBA_PTR_TO_JSON(DashboardVpcEndpoint, dashboardVpcEndpoint_);
         DARABONBA_PTR_TO_JSON(DeployTime, deployTime_);
@@ -55,6 +56,7 @@ namespace Models
       };
       friend void from_json(const Darabonba::Json& j, MysqlOperator& obj) { 
         DARABONBA_PTR_FROM_JSON(DashboardPublicEndpoint, dashboardPublicEndpoint_);
+        DARABONBA_PTR_FROM_JSON(DashboardPublicEndpointExpireTime, dashboardPublicEndpointExpireTime_);
         DARABONBA_PTR_FROM_JSON(DashboardUsername, dashboardUsername_);
         DARABONBA_PTR_FROM_JSON(DashboardVpcEndpoint, dashboardVpcEndpoint_);
         DARABONBA_PTR_FROM_JSON(DeployTime, deployTime_);
@@ -72,12 +74,19 @@ namespace Models
       virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
       virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
       virtual bool empty() const override { return this->dashboardPublicEndpoint_ == nullptr
-        && this->dashboardUsername_ == nullptr && this->dashboardVpcEndpoint_ == nullptr && this->deployTime_ == nullptr && this->status_ == nullptr; };
+        && this->dashboardPublicEndpointExpireTime_ == nullptr && this->dashboardUsername_ == nullptr && this->dashboardVpcEndpoint_ == nullptr && this->deployTime_ == nullptr && this->status_ == nullptr; };
       // dashboardPublicEndpoint Field Functions 
       bool hasDashboardPublicEndpoint() const { return this->dashboardPublicEndpoint_ != nullptr;};
       void deleteDashboardPublicEndpoint() { this->dashboardPublicEndpoint_ = nullptr;};
       inline string getDashboardPublicEndpoint() const { DARABONBA_PTR_GET_DEFAULT(dashboardPublicEndpoint_, "") };
       inline MysqlOperator& setDashboardPublicEndpoint(string dashboardPublicEndpoint) { DARABONBA_PTR_SET_VALUE(dashboardPublicEndpoint_, dashboardPublicEndpoint) };
+
+
+      // dashboardPublicEndpointExpireTime Field Functions 
+      bool hasDashboardPublicEndpointExpireTime() const { return this->dashboardPublicEndpointExpireTime_ != nullptr;};
+      void deleteDashboardPublicEndpointExpireTime() { this->dashboardPublicEndpointExpireTime_ = nullptr;};
+      inline string getDashboardPublicEndpointExpireTime() const { DARABONBA_PTR_GET_DEFAULT(dashboardPublicEndpointExpireTime_, "") };
+      inline MysqlOperator& setDashboardPublicEndpointExpireTime(string dashboardPublicEndpointExpireTime) { DARABONBA_PTR_SET_VALUE(dashboardPublicEndpointExpireTime_, dashboardPublicEndpointExpireTime) };
 
 
       // dashboardUsername Field Functions 
@@ -110,6 +119,7 @@ namespace Models
 
     protected:
       shared_ptr<string> dashboardPublicEndpoint_ {};
+      shared_ptr<string> dashboardPublicEndpointExpireTime_ {};
       shared_ptr<string> dashboardUsername_ {};
       shared_ptr<string> dashboardVpcEndpoint_ {};
       shared_ptr<string> deployTime_ {};

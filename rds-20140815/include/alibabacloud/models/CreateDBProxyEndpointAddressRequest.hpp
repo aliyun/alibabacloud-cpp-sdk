@@ -135,13 +135,13 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> DBProxyConnectStringNetType_ {};
-    // The ID of the database proxy endpoint. You can call the DescribeDBProxyEndpoint operation to query the database proxy endpoint ID.
+    // The ID of the database proxy endpoint. You can call the DescribeDBProxyEndpoint operation to query the ID.
     // 
     // This parameter is required.
     shared_ptr<string> DBProxyEndpointId_ {};
-    // The reserved parameter. You do not need to specify this parameter.
+    // A reserved parameter. No configuration is required.
     shared_ptr<string> DBProxyEngineType_ {};
-    // The port of the new database proxy endpoint. Default values:
+    // The port number of the new database proxy endpoint. Default values:
     // 
     // - MySQL: **3306**
     // - PostgreSQL: **5432**

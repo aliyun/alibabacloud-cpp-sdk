@@ -75,21 +75,21 @@ namespace Models
 
 
   protected:
-    // The group number of the instance in the deployment set. This parameter is valid only when the deployment set strategy of the ECS instance to be added or adjusted is AvailabilityGroup. Valid values: 1 to 7.
+    // The group number of the ECS instance in the deployment set. You can specify this parameter when the deployment set policy is the AvailabilityGroup policy. Valid values: 1 to 7.
     shared_ptr<string> deploymentSetGroupNo_ {};
-    // The ID of the deployment set.
+    // The deployment set ID.
     // 
     // This parameter is required.
     shared_ptr<string> deploymentSetId_ {};
     // Specifies whether to forcibly release the running instance. Valid values:
-    // * **true**: yes.
-    // * **false** (default): no.
+    // * **true**: Yes.
+    // * **false** (default): No.
     shared_ptr<bool> force_ {};
     // The instance IDs.
     // 
     // This parameter is required.
     shared_ptr<string> RCInstanceIds_ {};
-    // The region ID. You can call the DescribeRegions operation to query the region ID.
+    // The region ID. You can call DescribeRegions to query the region ID.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};

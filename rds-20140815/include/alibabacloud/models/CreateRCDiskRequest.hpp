@@ -98,9 +98,9 @@ namespace Models
 
 
     protected:
-      // The tag key. You can create up to N tag keys at a time. Valid values of N: **1** to **20**. The tag key cannot be an empty string.
+      // The tag key. You can specify up to N tag keys at a time. Valid values of N: **1** to **20**. Empty strings are not allowed.
       shared_ptr<string> key_ {};
-      // The tag value that corresponds to the tag key. You can specify up to N tag values at a time. Valid values of N: **1** to **20**. The tag value can be an empty string.
+      // The tag value that corresponds to the tag key. You can specify up to N tag values at a time. Valid values of N: **1** to **20**. Empty strings are allowed.
       shared_ptr<string> value_ {};
     };
 
@@ -228,13 +228,14 @@ namespace Models
     // - **true** (default): Automatic payment is enabled. Make sure that your account balance is sufficient.
     // - **false**: Only an order is generated and no payment is made.
     // 
-    // > If your payment method has insufficient balance, you can set this parameter to false. In this case, an unpaid order is generated, and you can log on to the ApsaraDB RDS console to complete the payment.
+    // > If your payment method has an insufficient balance, you can set this parameter to false. In this case, an unpaid order is generated, and you can log on to the ApsaraDB RDS console to complete the payment.
+    // >
     shared_ptr<bool> autoPay_ {};
     // Specifies whether to enable auto-renewal. This parameter is valid only when you create a subscription data cloud disk. Valid values:
     // - **true**: yes.
     // - **false**: no.
     // 
-    //  > If you purchase the cloud disk on a monthly basis, the auto-renewal epoch is one month. If you purchase the cloud disk on a yearly basis, the auto-renewal epoch is one year.
+    //  > If you purchase the cloud disk on a monthly basis, the auto-renewal epoch is 1 month. If you purchase the cloud disk on a yearly basis, the auto-renewal epoch is 1 year.
     shared_ptr<bool> autoRenew_ {};
     // The description of the cloud disk. The description must be 2 to 256 characters in length and cannot start with `http://` or `https://`.
     shared_ptr<string> description_ {};
@@ -245,16 +246,16 @@ namespace Models
     // - **cloud_essd**: ESSD.
     // - **cloud_auto** (default): premium performance disk.
     shared_ptr<string> diskCategory_ {};
-    // The name of the cloud disk. The name must be 2 to 128 characters in length and can contain letters and digits in the Unicode Letter category. It can also contain colons (:), underscores (_), periods (.), and hyphens (-).
+    // The name of the cloud disk. The name must be 2 to 128 characters in length and can contain Unicode letters, including English letters, Chinese characters, and digits. It can also contain colons (:), underscores (_), periods (.), and hyphens (-).
     shared_ptr<string> diskName_ {};
     // The billing method. Valid values:
     // 
-    // - **Postpaid**: pay-as-you-go. Cloud disks of this billing method do not need to be mounted to instances. You can also mount a pay-as-you-go cloud disk to an instance of any billing method when you create it as needed.
-    // - **Prepaid**: subscription. Cloud disks of this billing method must be mounted to subscription instances. You must specify the **InstanceId** parameter, which is the instance ID of a subscription instance.
+    // - **Postpaid**: pay-as-you-go. Cloud disks of this billing method do not need to be mounted to instances. You can also mount a pay-as-you-go cloud disk to an instance of any billing method during creation as needed.
+    // - **Prepaid**: subscription. A cloud disk of this billing method must be mounted to a subscription instance. You must specify the **InstanceId** parameter, which is the instance ID of a subscription instance.
     shared_ptr<string> instanceChargeType_ {};
     // Instance ID of the instance to which the cloud disk is attached. If **InstanceChargeType** is set to **Prepaid**, you must specify instance ID of a subscription instance.
     shared_ptr<string> instanceId_ {};
-    // The performance level of the ESSD cloud disk. Valid values:
+    // The performance level of the ESSD. This parameter does not apply to a standard SSD. Valid values:
     // 
     // - **PL0**: A single ESSD can deliver up to 10,000 random read/write IOPS.
     // - **PL1** (default): A single ESSD can deliver up to 50,000 random read/write IOPS.
@@ -263,9 +264,9 @@ namespace Models
     // 
     // For more information about how to select the performance level of an ESSD, see [ESSDs](https://help.aliyun.com/document_detail/2859916.html).
     shared_ptr<string> performanceLevel_ {};
-    // A reserved parameter. You do not need to specify this parameter.
+    // Reserved parameter. You do not need to specify this parameter.
     shared_ptr<int32_t> period_ {};
-    // A reserved parameter. You do not need to specify this parameter.
+    // Reserved parameter. You do not need to specify this parameter.
     shared_ptr<string> periodUnit_ {};
     // The region ID. You can call the DescribeRegions operation to query region IDs.
     // 
@@ -286,18 +287,18 @@ namespace Models
     // 
     // If you specify the **SnapshotId** parameter and the size of the snapshot is greater than the value of **Size**, the created cloud disk is the same size as the snapshot. If the snapshot size is smaller than the value of **Size**, the created cloud disk is the size specified by **Size**.
     shared_ptr<int32_t> size_ {};
-    // The ID of the snapshot used to create the cloud disk.
+    // The snapshot used to create the cloud disk.
     // 
     // - You can use RDS Custom snapshots and ECS snapshots (excluding shared snapshots).
     // - If the size of the snapshot specified by **SnapshotId** is greater than the value of **Size**, the created cloud disk is the same size as the snapshot. If the snapshot size is smaller than the value of **Size**, the created cloud disk is the size specified by **Size**.
-    // - You cannot use snapshots to create ephemeral disks.
+    // - You cannot use snapshots to create elastic ephemeral disks.
     // - Snapshots created on or before July 15, 2013 cannot be used to create cloud disks.
     shared_ptr<string> snapshotId_ {};
     // The list of tags.
     shared_ptr<vector<CreateRCDiskRequest::Tag>> tag_ {};
-    // The zone ID.
+    // The ID of the active zone.
     // 
-    // This parameter is required when you do not specify the **InstanceId** parameter, which is the instance ID of the instance to which the cloud disk is mounted.
+    // This parameter is required if you do not specify the **InstanceId** parameter, which is the instance ID of the instance to which the cloud disk is mounted.
     shared_ptr<string> zoneId_ {};
   };
 

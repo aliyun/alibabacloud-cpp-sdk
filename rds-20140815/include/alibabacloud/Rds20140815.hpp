@@ -67,9 +67,9 @@ namespace Rds20140815
       Models::ActivateMigrationTargetInstanceResponse activateMigrationTargetInstance(const Models::ActivateMigrationTargetInstanceRequest &request);
 
       /**
-       * @summary Adds instances to a deployment set.
+       * @summary Adds an instance to a deployment set.
        *
-       * @description By default, instances with local disks are not allowed to be added to a deployment set, and the UNSUPPORTED_DBINSTANCE_OPERATEION error is returned. To add such an instance, contact the administrator to add your UID to the whitelist. This restriction does not apply to cloud disk instances. Forcibly adding an instance to a deployment set may cause the instance to restart. Proceed with caution.
+       * @description By default, instances with local disks cannot be added to a deployment set, and the UNSUPPORTED_DBINSTANCE_OPERATEION error is returned. To add such an instance, contact the development team and ask the administrator to add the UID to the whitelist. This restriction does not apply to cloud disk instances. Forcibly adding an instance to a deployment set may cause the instance to restart. Proceed with caution.
        *
        * @param request AddRCInstancesToDeploymentSetRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -78,9 +78,9 @@ namespace Rds20140815
       Models::AddRCInstancesToDeploymentSetResponse addRCInstancesToDeploymentSetWithOptions(const Models::AddRCInstancesToDeploymentSetRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Adds instances to a deployment set.
+       * @summary Adds an instance to a deployment set.
        *
-       * @description By default, instances with local disks are not allowed to be added to a deployment set, and the UNSUPPORTED_DBINSTANCE_OPERATEION error is returned. To add such an instance, contact the administrator to add your UID to the whitelist. This restriction does not apply to cloud disk instances. Forcibly adding an instance to a deployment set may cause the instance to restart. Proceed with caution.
+       * @description By default, instances with local disks cannot be added to a deployment set, and the UNSUPPORTED_DBINSTANCE_OPERATEION error is returned. To add such an instance, contact the development team and ask the administrator to add the UID to the whitelist. This restriction does not apply to cloud disk instances. Forcibly adding an instance to a deployment set may cause the instance to restart. Proceed with caution.
        *
        * @param request AddRCInstancesToDeploymentSetRequest
        * @return AddRCInstancesToDeploymentSetResponse
@@ -1276,11 +1276,11 @@ namespace Rds20140815
       /**
        * @summary Creates a database proxy endpoint for an ApsaraDB RDS instance.
        *
-       * @description ### Supported database engines
+       * @description ### Supported DPI engines
        * - ApsaraDB RDS for MySQL
        * - ApsaraDB RDS for PostgreSQL
        * ### Related feature documentation
-       * >Notice: Before you call this operation, read the feature documentation to fully understand the prerequisites and impacts.</notice>
+       * >Notice: Before you invoke this operation, carefully read the feature documentation to ensure that you fully understand the prerequisites and impacts of the operation.</notice>
        * - [Create internal and public database proxy endpoints for an ApsaraDB RDS for MySQL instance](https://help.aliyun.com/document_detail/184921.html)
        * - [Create internal and public database proxy endpoints for an ApsaraDB RDS for PostgreSQL instance](https://help.aliyun.com/document_detail/418274.html)
        *
@@ -1293,11 +1293,11 @@ namespace Rds20140815
       /**
        * @summary Creates a database proxy endpoint for an ApsaraDB RDS instance.
        *
-       * @description ### Supported database engines
+       * @description ### Supported DPI engines
        * - ApsaraDB RDS for MySQL
        * - ApsaraDB RDS for PostgreSQL
        * ### Related feature documentation
-       * >Notice: Before you call this operation, read the feature documentation to fully understand the prerequisites and impacts.</notice>
+       * >Notice: Before you invoke this operation, carefully read the feature documentation to ensure that you fully understand the prerequisites and impacts of the operation.</notice>
        * - [Create internal and public database proxy endpoints for an ApsaraDB RDS for MySQL instance](https://help.aliyun.com/document_detail/184921.html)
        * - [Create internal and public database proxy endpoints for an ApsaraDB RDS for PostgreSQL instance](https://help.aliyun.com/document_detail/418274.html)
        *
@@ -1690,9 +1690,9 @@ namespace Rds20140815
        * @summary Creates an RDS Custom data cloud disk.
        *
        * @description - Supported cloud disk types: ultra disk, standard SSD, ESSD, and premium performance disk (default).
-       * - When the billing method of the cloud disk is subscription (**Prepaid**), you must specify the instance ID of a subscription instance (**InstanceId**) to which the cloud disk is mounted. The expiration time of the cloud disk is the same as that of the mounted instance.
-       * - You can create a pay-as-you-go (**Postpaid**) cloud disk separately without mounting it to an instance. You can also mount it to an instance of any billing method when you create it as needed.
-       * - The types and number of cloud disks that can be mounted vary based on the instance type.
+       * - When the billing method of the cloud disk is subscription (**Prepaid**), you must specify the instance ID (**InstanceId**) of a subscription instance to which this cloud disk is mounted. The expiration time of the cloud disk is the same as that of the mounted instance.
+       * - You can create a pay-as-you-go (**Postpaid**) cloud disk separately without mounting it to an instance. You can also mount it to an instance of any billing method during creation as needed.
+       * - The supported cloud disk types and the maximum number of cloud disks that can be mounted vary based on the instance type.
        *
        * @param request CreateRCDiskRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1704,9 +1704,9 @@ namespace Rds20140815
        * @summary Creates an RDS Custom data cloud disk.
        *
        * @description - Supported cloud disk types: ultra disk, standard SSD, ESSD, and premium performance disk (default).
-       * - When the billing method of the cloud disk is subscription (**Prepaid**), you must specify the instance ID of a subscription instance (**InstanceId**) to which the cloud disk is mounted. The expiration time of the cloud disk is the same as that of the mounted instance.
-       * - You can create a pay-as-you-go (**Postpaid**) cloud disk separately without mounting it to an instance. You can also mount it to an instance of any billing method when you create it as needed.
-       * - The types and number of cloud disks that can be mounted vary based on the instance type.
+       * - When the billing method of the cloud disk is subscription (**Prepaid**), you must specify the instance ID (**InstanceId**) of a subscription instance to which this cloud disk is mounted. The expiration time of the cloud disk is the same as that of the mounted instance.
+       * - You can create a pay-as-you-go (**Postpaid**) cloud disk separately without mounting it to an instance. You can also mount it to an instance of any billing method during creation as needed.
+       * - The supported cloud disk types and the maximum number of cloud disks that can be mounted vary based on the instance type.
        *
        * @param request CreateRCDiskRequest
        * @return CreateRCDiskResponse
@@ -3207,7 +3207,7 @@ namespace Rds20140815
       /**
        * @summary Queries the backup settings of an ApsaraDB RDS instance.
        *
-       * @description ### Supported engines
+       * @description ### Applicable engines
        * - ApsaraDB RDS for MySQL
        * - ApsaraDB RDS for PostgreSQL
        * - ApsaraDB RDS for SQL Server
@@ -3222,7 +3222,7 @@ namespace Rds20140815
       /**
        * @summary Queries the backup settings of an ApsaraDB RDS instance.
        *
-       * @description ### Supported engines
+       * @description ### Applicable engines
        * - ApsaraDB RDS for MySQL
        * - ApsaraDB RDS for PostgreSQL
        * - ApsaraDB RDS for SQL Server
@@ -5380,7 +5380,17 @@ namespace Rds20140815
       Models::DescribeModifyParameterLogResponse describeModifyParameterLog(const Models::DescribeModifyParameterLogRequest &request);
 
       /**
-       * @summary 查询操作权限
+       * @summary Queries the authorization information of a service account.
+       *
+       * @description ### Supported engines
+       * - ApsaraDB RDS for MySQL
+       * - ApsaraDB RDS for PostgreSQL
+       * - ApsaraDB RDS for SQL Server
+       * ### Related documentation
+       * >Notice: Before you call this operation, read the related documentation carefully to fully understand the prerequisites and impacts of this operation.
+       * - [Grant permissions to a service account for ApsaraDB RDS for MySQL](https://help.aliyun.com/document_detail/96102.html)
+       * - [Grant permissions to a service account for ApsaraDB RDS for PostgreSQL](https://help.aliyun.com/document_detail/146887.html)
+       * - [Grant permissions to a service account for ApsaraDB RDS for SQL Server](https://help.aliyun.com/document_detail/95693.html)
        *
        * @param request DescribeOperatorPermissionRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -5389,7 +5399,17 @@ namespace Rds20140815
       Models::DescribeOperatorPermissionResponse describeOperatorPermissionWithOptions(const Models::DescribeOperatorPermissionRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询操作权限
+       * @summary Queries the authorization information of a service account.
+       *
+       * @description ### Supported engines
+       * - ApsaraDB RDS for MySQL
+       * - ApsaraDB RDS for PostgreSQL
+       * - ApsaraDB RDS for SQL Server
+       * ### Related documentation
+       * >Notice: Before you call this operation, read the related documentation carefully to fully understand the prerequisites and impacts of this operation.
+       * - [Grant permissions to a service account for ApsaraDB RDS for MySQL](https://help.aliyun.com/document_detail/96102.html)
+       * - [Grant permissions to a service account for ApsaraDB RDS for PostgreSQL](https://help.aliyun.com/document_detail/146887.html)
+       * - [Grant permissions to a service account for ApsaraDB RDS for SQL Server](https://help.aliyun.com/document_detail/95693.html)
        *
        * @param request DescribeOperatorPermissionRequest
        * @return DescribeOperatorPermissionResponse
@@ -5815,7 +5835,7 @@ namespace Rds20140815
       Models::DescribeRCElasticScalingResponse describeRCElasticScaling(const Models::DescribeRCElasticScalingRequest &request);
 
       /**
-       * @summary Queries the custom images available for creating RDS Custom instances.
+       * @summary Queries a list of custom images available for creating RDS Custom instances.
        *
        * @param request DescribeRCImageListRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -5824,7 +5844,7 @@ namespace Rds20140815
       Models::DescribeRCImageListResponse describeRCImageListWithOptions(const Models::DescribeRCImageListRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the custom images available for creating RDS Custom instances.
+       * @summary Queries a list of custom images available for creating RDS Custom instances.
        *
        * @param request DescribeRCImageListRequest
        * @return DescribeRCImageListResponse
@@ -5832,7 +5852,7 @@ namespace Rds20140815
       Models::DescribeRCImageListResponse describeRCImageList(const Models::DescribeRCImageListRequest &request);
 
       /**
-       * @summary Queries the details of a single RDS Custom instance by calling the DescribeRCInstanceAttribute operation.
+       * @summary Queries the details of a single RDS Custom instance.
        *
        * @param request DescribeRCInstanceAttributeRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -5841,7 +5861,7 @@ namespace Rds20140815
       Models::DescribeRCInstanceAttributeResponse describeRCInstanceAttributeWithOptions(const Models::DescribeRCInstanceAttributeRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the details of a single RDS Custom instance by calling the DescribeRCInstanceAttribute operation.
+       * @summary Queries the details of a single RDS Custom instance.
        *
        * @param request DescribeRCInstanceAttributeRequest
        * @return DescribeRCInstanceAttributeResponse
@@ -7761,12 +7781,12 @@ namespace Rds20140815
        * - ApsaraDB RDS for PostgreSQL
        * - ApsaraDB RDS for SQL Server
        * - ApsaraDB RDS for MariaDB
-       * ### Related documentation
-       * >Notice: Before you call this operation, read the documentation to understand the prerequisites and impacts.</notice>
-       * - [Configure an automatic backup policy for an ApsaraDB RDS for MySQL instance](https://help.aliyun.com/document_detail/98818.html)
-       * - [Configure an automatic backup policy for an ApsaraDB RDS for PostgreSQL instance](https://help.aliyun.com/document_detail/96772.html)
-       * - [Configure an automatic backup policy for an ApsaraDB RDS for SQL Server instance](https://help.aliyun.com/document_detail/95717.html)
-       * - [Configure an automatic backup policy for an ApsaraDB RDS for MariaDB instance](https://help.aliyun.com/document_detail/97147.html)
+       * ### Related feature documentation
+       * >Notice: Before you call this operation, read the feature documentation to fully understand the prerequisites and impacts.
+       * - [Configure the automatic backup policy for an ApsaraDB RDS for MySQL instance](https://help.aliyun.com/document_detail/98818.html)
+       * - [Configure the automatic backup policy for an ApsaraDB RDS for PostgreSQL instance](https://help.aliyun.com/document_detail/96772.html)
+       * - [Configure the automatic backup policy for an ApsaraDB RDS for SQL Server instance](https://help.aliyun.com/document_detail/95717.html)
+       * - [Configure the automatic backup policy for an ApsaraDB RDS for MariaDB instance](https://help.aliyun.com/document_detail/97147.html)
        *
        * @param request ModifyBackupPolicyRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -7782,12 +7802,12 @@ namespace Rds20140815
        * - ApsaraDB RDS for PostgreSQL
        * - ApsaraDB RDS for SQL Server
        * - ApsaraDB RDS for MariaDB
-       * ### Related documentation
-       * >Notice: Before you call this operation, read the documentation to understand the prerequisites and impacts.</notice>
-       * - [Configure an automatic backup policy for an ApsaraDB RDS for MySQL instance](https://help.aliyun.com/document_detail/98818.html)
-       * - [Configure an automatic backup policy for an ApsaraDB RDS for PostgreSQL instance](https://help.aliyun.com/document_detail/96772.html)
-       * - [Configure an automatic backup policy for an ApsaraDB RDS for SQL Server instance](https://help.aliyun.com/document_detail/95717.html)
-       * - [Configure an automatic backup policy for an ApsaraDB RDS for MariaDB instance](https://help.aliyun.com/document_detail/97147.html)
+       * ### Related feature documentation
+       * >Notice: Before you call this operation, read the feature documentation to fully understand the prerequisites and impacts.
+       * - [Configure the automatic backup policy for an ApsaraDB RDS for MySQL instance](https://help.aliyun.com/document_detail/98818.html)
+       * - [Configure the automatic backup policy for an ApsaraDB RDS for PostgreSQL instance](https://help.aliyun.com/document_detail/96772.html)
+       * - [Configure the automatic backup policy for an ApsaraDB RDS for SQL Server instance](https://help.aliyun.com/document_detail/95717.html)
+       * - [Configure the automatic backup policy for an ApsaraDB RDS for MariaDB instance](https://help.aliyun.com/document_detail/97147.html)
        *
        * @param request ModifyBackupPolicyRequest
        * @return ModifyBackupPolicyResponse
@@ -7826,10 +7846,10 @@ namespace Rds20140815
       /**
        * @summary Modifies the system character set collation and time zone of an ApsaraDB RDS for SQL Server instance.
        *
-       * @description ### Applicable engine
-       * RDS SQL Server
+       * @description ### Supported engines
+       * ApsaraDB RDS for SQL Server
        * ### Related documentation
-       * >Notice: Before you call this operation, read the following documentation and make sure that you fully understand the prerequisites and impacts of this operation.
+       * >Notice: Before you call this operation, read the documentation to understand the prerequisites and impacts.
        * [Modify the character set collation and time zone](https://help.aliyun.com/document_detail/95700.html)
        *
        * @param request ModifyCollationTimeZoneRequest
@@ -7841,10 +7861,10 @@ namespace Rds20140815
       /**
        * @summary Modifies the system character set collation and time zone of an ApsaraDB RDS for SQL Server instance.
        *
-       * @description ### Applicable engine
-       * RDS SQL Server
+       * @description ### Supported engines
+       * ApsaraDB RDS for SQL Server
        * ### Related documentation
-       * >Notice: Before you call this operation, read the following documentation and make sure that you fully understand the prerequisites and impacts of this operation.
+       * >Notice: Before you call this operation, read the documentation to understand the prerequisites and impacts.
        * [Modify the character set collation and time zone](https://help.aliyun.com/document_detail/95700.html)
        *
        * @param request ModifyCollationTimeZoneRequest
@@ -7945,13 +7965,15 @@ namespace Rds20140815
       /**
        * @summary Modifies the minor version upgrade method for ApsaraDB RDS for MySQL, ApsaraDB RDS for PostgreSQL, and ApsaraDB RDS for SQL Server instances.
        *
-       * @description ### Applicable engines
+       * @description ### Supported engines
        * - ApsaraDB RDS for MySQL
        * - ApsaraDB RDS for PostgreSQL
+       * - ApsaraDB RDS for SQL Server
        * ### Related feature documentation
-       * >Notice: Before you call this operation, carefully read the feature documentation to ensure that you fully understand the prerequisites and the impacts of the operation.
+       * >Notice: Before you call this operation, carefully read the feature documentation to ensure that you fully understand the prerequisites and the impacts of this operation.</notice>
        * - [Modify the automatic upgrade settings for ApsaraDB RDS for MySQL](https://help.aliyun.com/document_detail/96059.html)
        * - [Modify the automatic upgrade settings for ApsaraDB RDS for PostgreSQL](https://help.aliyun.com/document_detail/146895.html)
+       * - [Modify the automatic upgrade settings for ApsaraDB RDS for SQL Server](https://help.aliyun.com/document_detail/213582.html)
        *
        * @param request ModifyDBInstanceAutoUpgradeMinorVersionRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -7962,13 +7984,15 @@ namespace Rds20140815
       /**
        * @summary Modifies the minor version upgrade method for ApsaraDB RDS for MySQL, ApsaraDB RDS for PostgreSQL, and ApsaraDB RDS for SQL Server instances.
        *
-       * @description ### Applicable engines
+       * @description ### Supported engines
        * - ApsaraDB RDS for MySQL
        * - ApsaraDB RDS for PostgreSQL
+       * - ApsaraDB RDS for SQL Server
        * ### Related feature documentation
-       * >Notice: Before you call this operation, carefully read the feature documentation to ensure that you fully understand the prerequisites and the impacts of the operation.
+       * >Notice: Before you call this operation, carefully read the feature documentation to ensure that you fully understand the prerequisites and the impacts of this operation.</notice>
        * - [Modify the automatic upgrade settings for ApsaraDB RDS for MySQL](https://help.aliyun.com/document_detail/96059.html)
        * - [Modify the automatic upgrade settings for ApsaraDB RDS for PostgreSQL](https://help.aliyun.com/document_detail/146895.html)
+       * - [Modify the automatic upgrade settings for ApsaraDB RDS for SQL Server](https://help.aliyun.com/document_detail/213582.html)
        *
        * @param request ModifyDBInstanceAutoUpgradeMinorVersionRequest
        * @return ModifyDBInstanceAutoUpgradeMinorVersionResponse
@@ -8519,10 +8543,10 @@ namespace Rds20140815
        * - ApsaraDB RDS for PostgreSQL
        * - ApsaraDB RDS for SQL Server
        * ### Related feature documentation
-       * >Notice: Before you call this operation, read the feature documentation to fully understand the prerequisites and impacts.</notice>
-       * - [Secure Sockets Layer (SSL) encryption settings for ApsaraDB RDS for MySQL](https://help.aliyun.com/document_detail/96120.html)
-       * - [Secure Sockets Layer (SSL) encryption settings for ApsaraDB RDS for PostgreSQL](https://help.aliyun.com/document_detail/229517.html)
-       * - [Secure Sockets Layer (SSL) encryption settings for ApsaraDB RDS for SQL Server](https://help.aliyun.com/document_detail/95715.html)
+       * >Notice: Before you call this operation, read the feature documentation to understand the prerequisites and impacts.
+       * - [Settings for Secure Sockets Layer (SSL) encryption in ApsaraDB RDS for MySQL](https://help.aliyun.com/document_detail/96120.html)
+       * - [Settings for Secure Sockets Layer (SSL) encryption in ApsaraDB RDS for PostgreSQL](https://help.aliyun.com/document_detail/229517.html)
+       * - [Settings for Secure Sockets Layer (SSL) encryption in ApsaraDB RDS for SQL Server](https://help.aliyun.com/document_detail/95715.html)
        *
        * @param request ModifyDBInstanceSSLRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -8538,10 +8562,10 @@ namespace Rds20140815
        * - ApsaraDB RDS for PostgreSQL
        * - ApsaraDB RDS for SQL Server
        * ### Related feature documentation
-       * >Notice: Before you call this operation, read the feature documentation to fully understand the prerequisites and impacts.</notice>
-       * - [Secure Sockets Layer (SSL) encryption settings for ApsaraDB RDS for MySQL](https://help.aliyun.com/document_detail/96120.html)
-       * - [Secure Sockets Layer (SSL) encryption settings for ApsaraDB RDS for PostgreSQL](https://help.aliyun.com/document_detail/229517.html)
-       * - [Secure Sockets Layer (SSL) encryption settings for ApsaraDB RDS for SQL Server](https://help.aliyun.com/document_detail/95715.html)
+       * >Notice: Before you call this operation, read the feature documentation to understand the prerequisites and impacts.
+       * - [Settings for Secure Sockets Layer (SSL) encryption in ApsaraDB RDS for MySQL](https://help.aliyun.com/document_detail/96120.html)
+       * - [Settings for Secure Sockets Layer (SSL) encryption in ApsaraDB RDS for PostgreSQL](https://help.aliyun.com/document_detail/229517.html)
+       * - [Settings for Secure Sockets Layer (SSL) encryption in ApsaraDB RDS for SQL Server](https://help.aliyun.com/document_detail/95715.html)
        *
        * @param request ModifyDBInstanceSSLRequest
        * @return ModifyDBInstanceSSLResponse
@@ -8716,12 +8740,12 @@ namespace Rds20140815
       /**
        * @summary Enables or modifies the database proxy instance feature for an ApsaraDB RDS instance.
        *
-       * @description ### Supported engines
+       * @description ### Supported database engines
        * - ApsaraDB RDS for MySQL
        * - ApsaraDB RDS for PostgreSQL
-       * > Starting from October 17, 2023, ApsaraDB RDS for MySQL Cluster Edition gradually provides a free dedicated proxy service with one proxy instance across all units. For details, see [Promotion: ApsaraDB RDS for MySQL Cluster Edition provides a free dedicated proxy service with one proxy instance](https://help.aliyun.com/document_detail/2555466.html).
+       * > Starting from October 17, 2023, ApsaraDB RDS for MySQL Cluster Edition gradually provides a free dedicated proxy service with one proxy node in each unit. For details, see [Promotion: Free dedicated proxy service with one proxy node for ApsaraDB RDS for MySQL Cluster Edition](https://help.aliyun.com/document_detail/2555466.html).
        * ### Related feature documentation
-       * >Notice: Before you use this operation, carefully read the feature documentation to ensure that you fully understand the prerequisites and the impacts of the operation.
+       * >Notice: Before you call this operation, read the feature documentation carefully to fully understand the prerequisites and the impacts of this operation.
        * - [Enable the database proxy for ApsaraDB RDS for MySQL](https://help.aliyun.com/document_detail/197456.html)
        * - [Enable the database proxy for ApsaraDB RDS for PostgreSQL](https://help.aliyun.com/document_detail/418272.html)
        *
@@ -8734,12 +8758,12 @@ namespace Rds20140815
       /**
        * @summary Enables or modifies the database proxy instance feature for an ApsaraDB RDS instance.
        *
-       * @description ### Supported engines
+       * @description ### Supported database engines
        * - ApsaraDB RDS for MySQL
        * - ApsaraDB RDS for PostgreSQL
-       * > Starting from October 17, 2023, ApsaraDB RDS for MySQL Cluster Edition gradually provides a free dedicated proxy service with one proxy instance across all units. For details, see [Promotion: ApsaraDB RDS for MySQL Cluster Edition provides a free dedicated proxy service with one proxy instance](https://help.aliyun.com/document_detail/2555466.html).
+       * > Starting from October 17, 2023, ApsaraDB RDS for MySQL Cluster Edition gradually provides a free dedicated proxy service with one proxy node in each unit. For details, see [Promotion: Free dedicated proxy service with one proxy node for ApsaraDB RDS for MySQL Cluster Edition](https://help.aliyun.com/document_detail/2555466.html).
        * ### Related feature documentation
-       * >Notice: Before you use this operation, carefully read the feature documentation to ensure that you fully understand the prerequisites and the impacts of the operation.
+       * >Notice: Before you call this operation, read the feature documentation carefully to fully understand the prerequisites and the impacts of this operation.
        * - [Enable the database proxy for ApsaraDB RDS for MySQL](https://help.aliyun.com/document_detail/197456.html)
        * - [Enable the database proxy for ApsaraDB RDS for PostgreSQL](https://help.aliyun.com/document_detail/418272.html)
        *
@@ -8751,11 +8775,11 @@ namespace Rds20140815
       /**
        * @summary Configures the access policy for the database proxy endpoint of an ApsaraDB RDS instance.
        *
-       * @description ### Supported database engines
+       * @description ### Supported DPI engines
        * - ApsaraDB RDS for MySQL
        * - ApsaraDB RDS for PostgreSQL
        * ### Related feature documentation
-       * >Notice: Before you call this operation, read the feature documentation carefully to fully understand the prerequisites and the impacts of this operation.
+       * >Notice: Before you call this operation, read the feature documentation to fully understand the prerequisites and impacts.
        * - [Configure the access policy for a database proxy endpoint of an ApsaraDB RDS for MySQL instance](https://help.aliyun.com/document_detail/2621331.html)
        * - [Configure the access policy for a database proxy endpoint of an ApsaraDB RDS for PostgreSQL instance](https://help.aliyun.com/document_detail/418273.html)
        *
@@ -8768,11 +8792,11 @@ namespace Rds20140815
       /**
        * @summary Configures the access policy for the database proxy endpoint of an ApsaraDB RDS instance.
        *
-       * @description ### Supported database engines
+       * @description ### Supported DPI engines
        * - ApsaraDB RDS for MySQL
        * - ApsaraDB RDS for PostgreSQL
        * ### Related feature documentation
-       * >Notice: Before you call this operation, read the feature documentation carefully to fully understand the prerequisites and the impacts of this operation.
+       * >Notice: Before you call this operation, read the feature documentation to fully understand the prerequisites and impacts.
        * - [Configure the access policy for a database proxy endpoint of an ApsaraDB RDS for MySQL instance](https://help.aliyun.com/document_detail/2621331.html)
        * - [Configure the access policy for a database proxy endpoint of an ApsaraDB RDS for PostgreSQL instance](https://help.aliyun.com/document_detail/418273.html)
        *
@@ -9801,7 +9825,7 @@ namespace Rds20140815
       Models::ModifySecurityGroupConfigurationResponse modifySecurityGroupConfiguration(const Models::ModifySecurityGroupConfigurationRequest &request);
 
       /**
-       * @summary Modifies the IP address whitelist configuration of a specified ApsaraDB RDS instance. This operation supports three modification modes: overwrite, append, and delete.
+       * @summary Modifies the IP whitelist configuration of a specified ApsaraDB RDS instance. This operation supports overwrite, append, and delete modes.
        *
        * @description ### Supported engines
        * - ApsaraDB RDS for MySQL
@@ -9809,11 +9833,11 @@ namespace Rds20140815
        * - ApsaraDB RDS for SQL Server
        * - ApsaraDB RDS for MariaDB
        * ### Related feature documentation
-       * >Notice: Before you call this operation, carefully read the feature documentation to ensure that you fully understand the prerequisites and the impacts of this operation.
-       * - [Configure an IP address whitelist for an ApsaraDB RDS for MySQL instance](https://help.aliyun.com/document_detail/96118.html)
-       * - [Configure an IP address whitelist for an ApsaraDB RDS for PostgreSQL instance](https://help.aliyun.com/document_detail/43187.html)
-       * - [Configure an IP address whitelist for an ApsaraDB RDS for SQL Server instance](https://help.aliyun.com/document_detail/43186.html)
-       * - [Configure an IP address whitelist for an ApsaraDB RDS for MariaDB instance](https://help.aliyun.com/document_detail/90336.html)
+       * >Notice: Before you call this operation, carefully read the feature documentation to ensure that you fully understand the prerequisites and the impacts of the operation.
+       * - [Configure an IP whitelist for an ApsaraDB RDS for MySQL instance](https://help.aliyun.com/document_detail/96118.html)
+       * - [Configure an IP whitelist for an ApsaraDB RDS for PostgreSQL instance](https://help.aliyun.com/document_detail/43187.html)
+       * - [Configure an IP whitelist for an ApsaraDB RDS for SQL Server instance](https://help.aliyun.com/document_detail/43186.html)
+       * - [Configure an IP whitelist for an ApsaraDB RDS for MariaDB instance](https://help.aliyun.com/document_detail/90336.html)
        *
        * @param request ModifySecurityIpsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -9822,7 +9846,7 @@ namespace Rds20140815
       Models::ModifySecurityIpsResponse modifySecurityIpsWithOptions(const Models::ModifySecurityIpsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Modifies the IP address whitelist configuration of a specified ApsaraDB RDS instance. This operation supports three modification modes: overwrite, append, and delete.
+       * @summary Modifies the IP whitelist configuration of a specified ApsaraDB RDS instance. This operation supports overwrite, append, and delete modes.
        *
        * @description ### Supported engines
        * - ApsaraDB RDS for MySQL
@@ -9830,11 +9854,11 @@ namespace Rds20140815
        * - ApsaraDB RDS for SQL Server
        * - ApsaraDB RDS for MariaDB
        * ### Related feature documentation
-       * >Notice: Before you call this operation, carefully read the feature documentation to ensure that you fully understand the prerequisites and the impacts of this operation.
-       * - [Configure an IP address whitelist for an ApsaraDB RDS for MySQL instance](https://help.aliyun.com/document_detail/96118.html)
-       * - [Configure an IP address whitelist for an ApsaraDB RDS for PostgreSQL instance](https://help.aliyun.com/document_detail/43187.html)
-       * - [Configure an IP address whitelist for an ApsaraDB RDS for SQL Server instance](https://help.aliyun.com/document_detail/43186.html)
-       * - [Configure an IP address whitelist for an ApsaraDB RDS for MariaDB instance](https://help.aliyun.com/document_detail/90336.html)
+       * >Notice: Before you call this operation, carefully read the feature documentation to ensure that you fully understand the prerequisites and the impacts of the operation.
+       * - [Configure an IP whitelist for an ApsaraDB RDS for MySQL instance](https://help.aliyun.com/document_detail/96118.html)
+       * - [Configure an IP whitelist for an ApsaraDB RDS for PostgreSQL instance](https://help.aliyun.com/document_detail/43187.html)
+       * - [Configure an IP whitelist for an ApsaraDB RDS for SQL Server instance](https://help.aliyun.com/document_detail/43186.html)
+       * - [Configure an IP whitelist for an ApsaraDB RDS for MariaDB instance](https://help.aliyun.com/document_detail/90336.html)
        *
        * @param request ModifySecurityIpsRequest
        * @return ModifySecurityIpsResponse
@@ -10306,9 +10330,9 @@ namespace Rds20140815
       Models::ReleaseReadWriteSplittingConnectionResponse releaseReadWriteSplittingConnection(const Models::ReleaseReadWriteSplittingConnectionRequest &request);
 
       /**
-       * @summary Removes an RDS custom instance from a deployment set.
+       * @summary Removes ApsaraDB RDS Custom instances from a deployment set.
        *
-       * @description Removing an RDS custom instance from a deployment set is a non-disruptive operation and does not cause the instance to restart.
+       * @description Removing an instance from a deployment set is a lossless operation and does not cause the instance to restart.
        *
        * @param request RemoveRCInstancesFromDeploymentSetRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -10317,9 +10341,9 @@ namespace Rds20140815
       Models::RemoveRCInstancesFromDeploymentSetResponse removeRCInstancesFromDeploymentSetWithOptions(const Models::RemoveRCInstancesFromDeploymentSetRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Removes an RDS custom instance from a deployment set.
+       * @summary Removes ApsaraDB RDS Custom instances from a deployment set.
        *
-       * @description Removing an RDS custom instance from a deployment set is a non-disruptive operation and does not cause the instance to restart.
+       * @description Removing an instance from a deployment set is a lossless operation and does not cause the instance to restart.
        *
        * @param request RemoveRCInstancesFromDeploymentSetRequest
        * @return RemoveRCInstancesFromDeploymentSetResponse
@@ -10759,11 +10783,11 @@ namespace Rds20140815
       Models::RunRCCommandResponse runRCCommand(const Models::RunRCCommandRequest &request);
 
       /**
-       * @summary Creates one or more RDS Custom instances by calling the RunRCInstances operation. You can specify parameters such as ImageId, InstanceType, VSwitchId, and SecurityGroupId.
+       * @summary Creates one or more RDS Custom instances by specifying parameters such as ImageId, InstanceType, VSwitchId, and SecurityGroupId.
        *
-       * @description - Before creating an RDS Custom instance, submit a ticket to request that your Alibaba Cloud account be added to the whitelist.
-       * - Only subscription RDS Custom instances can be created.
-       * - Supported regions are Beijing, Shanghai, Shenzhen, and Hangzhou.
+       * @description - Before you create an RDS Custom instance, submit a ticket to apply for adding your Alibaba Cloud account to the whitelist.
+       * - Only subscription RDS Custom instances are supported.
+       * - Supported regions include Beijing, Shanghai, Shenzhen, and Hangzhou.
        *
        * @param tmpReq RunRCInstancesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -10772,11 +10796,11 @@ namespace Rds20140815
       Models::RunRCInstancesResponse runRCInstancesWithOptions(const Models::RunRCInstancesRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Creates one or more RDS Custom instances by calling the RunRCInstances operation. You can specify parameters such as ImageId, InstanceType, VSwitchId, and SecurityGroupId.
+       * @summary Creates one or more RDS Custom instances by specifying parameters such as ImageId, InstanceType, VSwitchId, and SecurityGroupId.
        *
-       * @description - Before creating an RDS Custom instance, submit a ticket to request that your Alibaba Cloud account be added to the whitelist.
-       * - Only subscription RDS Custom instances can be created.
-       * - Supported regions are Beijing, Shanghai, Shenzhen, and Hangzhou.
+       * @description - Before you create an RDS Custom instance, submit a ticket to apply for adding your Alibaba Cloud account to the whitelist.
+       * - Only subscription RDS Custom instances are supported.
+       * - Supported regions include Beijing, Shanghai, Shenzhen, and Hangzhou.
        *
        * @param request RunRCInstancesRequest
        * @return RunRCInstancesResponse

@@ -13,6 +13,7 @@ namespace Models
   class DescribeRCElasticScalingRequest : public Darabonba::Model {
   public:
     friend void to_json(Darabonba::Json& j, const DescribeRCElasticScalingRequest& obj) { 
+      DARABONBA_PTR_TO_JSON(AcuType, acuType_);
       DARABONBA_PTR_TO_JSON(InstanceChargeType, instanceChargeType_);
       DARABONBA_PTR_TO_JSON(InstanceId, instanceId_);
       DARABONBA_PTR_TO_JSON(InstanceType, instanceType_);
@@ -20,6 +21,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(SupportCase, supportCase_);
     };
     friend void from_json(const Darabonba::Json& j, DescribeRCElasticScalingRequest& obj) { 
+      DARABONBA_PTR_FROM_JSON(AcuType, acuType_);
       DARABONBA_PTR_FROM_JSON(InstanceChargeType, instanceChargeType_);
       DARABONBA_PTR_FROM_JSON(InstanceId, instanceId_);
       DARABONBA_PTR_FROM_JSON(InstanceType, instanceType_);
@@ -37,8 +39,15 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { return this->instanceChargeType_ == nullptr
-        && this->instanceId_ == nullptr && this->instanceType_ == nullptr && this->regionId_ == nullptr && this->supportCase_ == nullptr; };
+    virtual bool empty() const override { return this->acuType_ == nullptr
+        && this->instanceChargeType_ == nullptr && this->instanceId_ == nullptr && this->instanceType_ == nullptr && this->regionId_ == nullptr && this->supportCase_ == nullptr; };
+    // acuType Field Functions 
+    bool hasAcuType() const { return this->acuType_ != nullptr;};
+    void deleteAcuType() { this->acuType_ = nullptr;};
+    inline string getAcuType() const { DARABONBA_PTR_GET_DEFAULT(acuType_, "") };
+    inline DescribeRCElasticScalingRequest& setAcuType(string acuType) { DARABONBA_PTR_SET_VALUE(acuType_, acuType) };
+
+
     // instanceChargeType Field Functions 
     bool hasInstanceChargeType() const { return this->instanceChargeType_ != nullptr;};
     void deleteInstanceChargeType() { this->instanceChargeType_ = nullptr;};
@@ -75,6 +84,7 @@ namespace Models
 
 
   protected:
+    shared_ptr<string> acuType_ {};
     shared_ptr<string> instanceChargeType_ {};
     shared_ptr<string> instanceId_ {};
     shared_ptr<string> instanceType_ {};

@@ -96,7 +96,7 @@ namespace Models
   protected:
     // The returned status code.
     shared_ptr<string> code_ {};
-    // The list of monitoring data.
+    // The monitoring data points.
     shared_ptr<string> datapoints_ {};
     // The returned message.
     // 

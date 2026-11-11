@@ -16,6 +16,8 @@ namespace Models
     friend void to_json(Darabonba::Json& j, const DescribeRCElasticScalingResponseBody& obj) { 
       DARABONBA_PTR_TO_JSON(AcuType, acuType_);
       DARABONBA_PTR_TO_JSON(InstanceId, instanceId_);
+      DARABONBA_PTR_TO_JSON(MaxAcu, maxAcu_);
+      DARABONBA_PTR_TO_JSON(MinAcu, minAcu_);
       DARABONBA_PTR_TO_JSON(RequestId, requestId_);
       DARABONBA_PTR_TO_JSON(ScalingEnabled, scalingEnabled_);
       DARABONBA_PTR_TO_JSON(ScalingSupported, scalingSupported_);
@@ -26,6 +28,8 @@ namespace Models
     friend void from_json(const Darabonba::Json& j, DescribeRCElasticScalingResponseBody& obj) { 
       DARABONBA_PTR_FROM_JSON(AcuType, acuType_);
       DARABONBA_PTR_FROM_JSON(InstanceId, instanceId_);
+      DARABONBA_PTR_FROM_JSON(MaxAcu, maxAcu_);
+      DARABONBA_PTR_FROM_JSON(MinAcu, minAcu_);
       DARABONBA_PTR_FROM_JSON(RequestId, requestId_);
       DARABONBA_PTR_FROM_JSON(ScalingEnabled, scalingEnabled_);
       DARABONBA_PTR_FROM_JSON(ScalingSupported, scalingSupported_);
@@ -78,8 +82,8 @@ namespace Models
     };
 
     virtual bool empty() const override { return this->acuType_ == nullptr
-        && this->instanceId_ == nullptr && this->requestId_ == nullptr && this->scalingEnabled_ == nullptr && this->scalingSupported_ == nullptr && this->scheduledRule_ == nullptr
-        && this->scheduledRuleTemplates_ == nullptr && this->targetInstanceType_ == nullptr; };
+        && this->instanceId_ == nullptr && this->maxAcu_ == nullptr && this->minAcu_ == nullptr && this->requestId_ == nullptr && this->scalingEnabled_ == nullptr
+        && this->scalingSupported_ == nullptr && this->scheduledRule_ == nullptr && this->scheduledRuleTemplates_ == nullptr && this->targetInstanceType_ == nullptr; };
     // acuType Field Functions 
     bool hasAcuType() const { return this->acuType_ != nullptr;};
     void deleteAcuType() { this->acuType_ = nullptr;};
@@ -92,6 +96,20 @@ namespace Models
     void deleteInstanceId() { this->instanceId_ = nullptr;};
     inline string getInstanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
     inline DescribeRCElasticScalingResponseBody& setInstanceId(string instanceId) { DARABONBA_PTR_SET_VALUE(instanceId_, instanceId) };
+
+
+    // maxAcu Field Functions 
+    bool hasMaxAcu() const { return this->maxAcu_ != nullptr;};
+    void deleteMaxAcu() { this->maxAcu_ = nullptr;};
+    inline int32_t getMaxAcu() const { DARABONBA_PTR_GET_DEFAULT(maxAcu_, 0) };
+    inline DescribeRCElasticScalingResponseBody& setMaxAcu(int32_t maxAcu) { DARABONBA_PTR_SET_VALUE(maxAcu_, maxAcu) };
+
+
+    // minAcu Field Functions 
+    bool hasMinAcu() const { return this->minAcu_ != nullptr;};
+    void deleteMinAcu() { this->minAcu_ = nullptr;};
+    inline int32_t getMinAcu() const { DARABONBA_PTR_GET_DEFAULT(minAcu_, 0) };
+    inline DescribeRCElasticScalingResponseBody& setMinAcu(int32_t minAcu) { DARABONBA_PTR_SET_VALUE(minAcu_, minAcu) };
 
 
     // requestId Field Functions 
@@ -141,6 +159,8 @@ namespace Models
   protected:
     shared_ptr<string> acuType_ {};
     shared_ptr<string> instanceId_ {};
+    shared_ptr<int32_t> maxAcu_ {};
+    shared_ptr<int32_t> minAcu_ {};
     shared_ptr<string> requestId_ {};
     shared_ptr<bool> scalingEnabled_ {};
     shared_ptr<bool> scalingSupported_ {};
