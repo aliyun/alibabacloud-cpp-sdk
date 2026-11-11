@@ -39,7 +39,7 @@ namespace Models
 
   protected:
     // The application ID. You can call the [ListEdgeContainerApps](~~ListEdgeContainerApps~~) operation to obtain the application ID.
-    // <notice>AppId is a required parameter. If this parameter is not specified, the API returns InvalidParameter.appid (400). You can call the ListEdgeContainerApps operation to obtain a valid AppId.</notice>.
+    // <notice>AppId is a required parameter. If it is not provided, the API returns InvalidParameter.appid (400). You can call the ListEdgeContainerApps operation to obtain a valid AppId.</notice>
     shared_ptr<string> appId_ {};
   };
 

@@ -94,14 +94,13 @@ namespace Models
 
 
     protected:
-      // Valid value:
-      // 
-      // *   off
-      // *   essentially_off
-      // *   low
-      // *   medium
-      // *   high
-      // *   under_attack
+      // The security level value. Valid values:
+      // * off: Disabled.
+      // * essentially_off: Essentially disabled.
+      // * low: Low.
+      // * medium: Medium.
+      // * high: High.
+      // * under_attack: Under attack.
       shared_ptr<string> value_ {};
     };
 
@@ -206,11 +205,11 @@ namespace Models
 
 
         protected:
-          // The HTTP status code.
+          // The HTTP response code.
           shared_ptr<int32_t> code_ {};
-          // The maximum number of times that the status code is returned.
+          // The response code count threshold.
           shared_ptr<int32_t> count_ {};
-          // The percentage of the occurrences of the status code to total status codes.
+          // The response code percentage.
           shared_ptr<int32_t> ratio_ {};
         };
 
@@ -254,15 +253,15 @@ namespace Models
 
 
       protected:
-        // The maximum number of managed rules that are triggered.
+        // The threshold for the number of distinct managed rules.
         shared_ptr<int32_t> distinctManagedRules_ {};
-        // The maximum number of times that the managed rule is triggered.
+        // The managed rule hit threshold.
         shared_ptr<int32_t> managedRulesBlocked_ {};
         // The request threshold.
         shared_ptr<int32_t> request_ {};
-        // The configuration of the status code threshold.
+        // The response code threshold.
         shared_ptr<Threshold::ResponseStatus> responseStatus_ {};
-        // The traffic threshold, which is deprecated.
+        // **[Deprecated]** The traffic threshold.
         shared_ptr<string> traffic_ {};
       };
 
@@ -308,15 +307,15 @@ namespace Models
 
 
     protected:
-      // The statistical objects to which the rule applies.
+      // The specified object for rate statistics.
       shared_ptr<WafRatelimitCharacteristics> characteristics_ {};
-      // The statistical interval.
+      // The statistical period.
       shared_ptr<int32_t> interval_ {};
-      // Indicates whether to apply the rule to requests that hit the cache.
+      // Specifies whether to apply the rule to requests that hit the cache.
       shared_ptr<bool> onHit_ {};
-      // The timeout period for creating the stack.
+      // The timeout period.
       shared_ptr<int32_t> TTL_ {};
-      // The thresholds.
+      // The statistical threshold.
       shared_ptr<RateLimit::Threshold> threshold_ {};
     };
 
@@ -396,9 +395,9 @@ namespace Models
 
 
       protected:
-        // The action performed on requests that match the managed rule.
+        // The action of the managed rule.
         shared_ptr<string> action_ {};
-        // The ID of the managed rule.
+        // The managed rule ID.
         shared_ptr<int64_t> id_ {};
         // The status of the managed rule.
         shared_ptr<string> status_ {};
@@ -451,11 +450,11 @@ namespace Models
 
 
     protected:
-      // The action.
+      // The action to perform.
       shared_ptr<string> action_ {};
       // The attack type.
       shared_ptr<int32_t> attackType_ {};
-      // The managed rules.
+      // The list of managed rules.
       shared_ptr<vector<ManagedRulesets::ManagedRules>> managedRules_ {};
       // The number of enabled rules.
       shared_ptr<int32_t> numberEnabled_ {};
@@ -562,9 +561,9 @@ namespace Models
     protected:
       // The custom signature field.
       shared_ptr<AppSdk::CustomSign> customSign_ {};
-      // Indicates whether to configure the custom signature field.
+      // The custom signature field switch.
       shared_ptr<string> customSignStatus_ {};
-      // The app anomalies.
+      // The app feature anomaly.
       shared_ptr<vector<string>> featureAbnormal_ {};
     };
 
@@ -625,9 +624,9 @@ namespace Models
 
 
       protected:
-        // The valid package name.
+        // The specified valid package name.
         shared_ptr<string> name_ {};
-        // The valid package signature.
+        // The package signature.
         shared_ptr<string> sign_ {};
       };
 
@@ -642,7 +641,7 @@ namespace Models
 
 
     protected:
-      // The package signatures.
+      // The repackaging detection.
       shared_ptr<vector<AppPackage::PackageSigns>> packageSigns_ {};
     };
 
@@ -707,7 +706,7 @@ namespace Models
       protected:
         // The custom response code.
         shared_ptr<int32_t> code_ {};
-        // The ID of the custom error page, which can be obtained by calling the [ListPages](https://help.aliyun.com/document_detail/2850223.html) operation.
+        // The ID of the custom response page. You can obtain the ID by calling the [ListPages](https://help.aliyun.com/document_detail/2850223.html) operation.
         shared_ptr<int64_t> id_ {};
       };
 
@@ -784,15 +783,15 @@ namespace Models
 
 
       protected:
-        // The IDs of custom rules.
+        // The list of custom rule IDs.
         shared_ptr<vector<int64_t>> customRules_ {};
-        // The IDs of managed rules.
+        // The list of managed rule IDs.
         shared_ptr<vector<int64_t>> regularRules_ {};
-        // The types of managed rules.
+        // The list of managed rule types.
         shared_ptr<vector<string>> regularTypes_ {};
-        // The skip scope applied when requests match conditions defined in the whitelist rule.
+        // The type of the bypassed module.
         shared_ptr<string> skip_ {};
-        // The skipped rule categories when requests match conditions defined in the whitelist rule.
+        // The list of bypassed module phases.
         shared_ptr<vector<string>> tags_ {};
       };
 
@@ -817,9 +816,9 @@ namespace Models
 
 
     protected:
-      // The skip configuration specified by the whitelist rule.
+      // The modules bypassed by the whitelist rule.
       shared_ptr<Actions::Bypass> bypass_ {};
-      // The custom error page.
+      // The custom response page.
       shared_ptr<Actions::Response> response_ {};
     };
 
@@ -971,29 +970,29 @@ namespace Models
 
 
   protected:
-    // The operation to perform after the WAF rule is matched.
+    // The action performed after a WAF rule is matched.
     shared_ptr<string> action_ {};
-    // The extended action configurations.
+    // The extended actions.
     shared_ptr<WafRuleConfig::Actions> actions_ {};
-    // The configuration of secondary package detection.
+    // The repackaging detection configuration.
     shared_ptr<WafRuleConfig::AppPackage> appPackage_ {};
-    // The SDK configuration for apps.
+    // The app SDK configuration.
     shared_ptr<WafRuleConfig::AppSdk> appSdk_ {};
-    // The match expression.
+    // The matching expression.
     shared_ptr<string> expression_ {};
     // The ID of the WAF rule.
     shared_ptr<int64_t> id_ {};
-    // The ID of the managed rule group, which is deprecated.
+    // **[Deprecated]** The managed rule group ID.
     shared_ptr<int64_t> managedGroupId_ {};
     // The managed list.
     shared_ptr<string> managedList_ {};
-    // The managed rulesets.
+    // The list of managed rulesets.
     shared_ptr<vector<WafRuleConfig::ManagedRulesets>> managedRulesets_ {};
     // The name of the WAF rule.
     shared_ptr<string> name_ {};
     // The remarks.
     shared_ptr<string> notes_ {};
-    // The configuration of the rate limiting rule.
+    // The configurations related to the rate limiting rule.
     shared_ptr<WafRuleConfig::RateLimit> rateLimit_ {};
     // The security level.
     shared_ptr<WafRuleConfig::SecurityLevel> securityLevel_ {};
@@ -1003,9 +1002,9 @@ namespace Models
     shared_ptr<string> status_ {};
     // The timer.
     shared_ptr<WafTimer> timer_ {};
-    // The name of the WAF rule.
+    // The type of the WAF rule.
     shared_ptr<string> type_ {};
-    // Defines whether the IP can access.
+    // The IP access control value.
     shared_ptr<string> value_ {};
   };
 

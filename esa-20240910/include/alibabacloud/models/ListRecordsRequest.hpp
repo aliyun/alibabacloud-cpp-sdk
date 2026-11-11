@@ -121,42 +121,46 @@ namespace Models
 
 
   protected:
-    // The business scenario for record acceleration. Used as a filter condition for queries. Valid values:
-    // - **image_video**: Image and video.
-    // - **api**: API.
-    // - **web**: Web page.
+    // The business scenario for record acceleration. This parameter is used as a filter condition for the query. Valid values:
+    // - **image_video**: images and videos
+    // - **api**: APIs
+    // - **web**: web pages
     shared_ptr<string> bizName_ {};
+    // Specifies whether a custom port is enabled for the record. Valid values:
+    // 
+    // - on: enabled
+    // - off: disabled
     shared_ptr<string> customPort_ {};
-    // The page number for paginated queries. The value must be greater than or equal to 1. Default value: **1**.
+    // The page number for paging. The value must be greater than or equal to 1. Default value: **1**.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries per page for paginated queries. Valid values: 1 to 500. Default value: **500**.
+    // The number of entries per page for paging. Valid values: 1 to 500. Default value: **500**.
     shared_ptr<int32_t> pageSize_ {};
-    // Specifies whether proxy acceleration is enabled for the record. Used as a filter condition for queries. Valid values:
+    // Specifies whether proxy acceleration is enabled for the record. This parameter is used as a filter condition for the query. Valid values:
     // 
-    // - **true**: Proxy enabled.
-    // - **false**: Proxy acceleration disabled.
+    // - **true**: Proxy acceleration is enabled.
+    // - **false**: Proxy acceleration is disabled.
     shared_ptr<bool> proxied_ {};
-    // The search matching mode for record names. Defaults to exact match. Valid values:
+    // The search match mode for the record name. Default value: exact. Valid values:
     // 
-    // - **prefix**: Prefix match.
-    // - **suffix**: Suffix match.
-    // - **exact**: Exact match.
-    // - **fuzzy**: Fuzzy match.
+    // - **prefix**: prefix match
+    // - **suffix**: suffix match
+    // - **exact**: exact match
+    // - **fuzzy**: fuzzy match
     shared_ptr<string> recordMatchType_ {};
-    // Record name. Used as a filter condition for queries.
+    // The record name. This parameter is used as a filter condition for the query.
     shared_ptr<string> recordName_ {};
-    // Site ID, which can be obtained by calling the [ListSites](https://help.aliyun.com/document_detail/2850189.html) API.
+    // The site ID. You can obtain the site ID by calling the [ListSites](https://help.aliyun.com/document_detail/2850189.html) operation.
     // 
     // This parameter is required.
     shared_ptr<int64_t> siteId_ {};
-    // The origin type of the record. Used as a filter condition for queries (only CNAME records can be filtered by this field). Valid values:
-    // - **OSS**: OSS origin.
-    // - **S3**: S3 origin.
-    // - **LB**: Load balancer origin.
-    // - **OP**: Origin pool.
-    // - **Domain**: Standard domain origin.
+    // The origin server type of the record. This parameter is used as a filter condition for the query. Only CNAME records can be filtered by this field. Valid values:
+    // - **OSS**: OSS origin server
+    // - **S3**: S3 origin server
+    // - **LB**: load balancing origin server
+    // - **OP**: IPAM pool origin server
+    // - **Domain**: regular domain name origin server
     shared_ptr<string> sourceType_ {};
-    // The DNS record type of the record. Used as a filter condition for queries.
+    // The DNS record type of the record. This parameter is used as a filter condition for the query.
     shared_ptr<string> type_ {};
   };
 

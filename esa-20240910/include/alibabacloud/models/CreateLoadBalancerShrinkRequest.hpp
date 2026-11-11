@@ -171,20 +171,19 @@ namespace Models
 
 
   protected:
-    // The cross-origin address pool back-to-origin configuration.
+    // The back-to-origin configuration across origin address pools.
     shared_ptr<string> adaptiveRoutingShrink_ {};
-    // The list of default address pool IDs.
+    // The list of default address pools.
     // 
     // This parameter is required.
     shared_ptr<string> defaultPoolsShrink_ {};
-    // The description of the load balancer for management and identification purposes.
+    // The detailed description of the load balancer for easy management and identification.
     shared_ptr<string> description_ {};
     // Specifies whether the load balancer is enabled. Valid values:
-    // 
     // - true: Enabled.
-    // - false: Not enabled.
+    // - false: Disabled.
     shared_ptr<bool> enabled_ {};
-    // The fallback address pool ID. Traffic is directed to this pool when all other pools are unavailable.
+    // The ID of the fallback address pool. Traffic is routed to this pool when all other pools are unavailable.
     // 
     // This parameter is required.
     shared_ptr<int64_t> fallbackPool_ {};
@@ -192,37 +191,36 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> monitorShrink_ {};
-    // The name of the load balancer. The name must be in a valid domain name format and must be a subdomain of the site.
+    // The name of the load balancer. The name must pass the domain name format validation and be a subdomain of the site.
     // 
     // This parameter is required.
     shared_ptr<string> name_ {};
-    // The weighted round-robin configuration that controls the traffic distribution weight across different address pools.
+    // The weighted round-robin configuration used to control the traffic distribution weights of different address pools.
     shared_ptr<string> randomSteeringShrink_ {};
-    // The address pools mapped to primary regions.
+    // The address pools corresponding to primary regions.
     Darabonba::Json regionPools_ {};
     // The rule information.
     shared_ptr<string> rulesShrink_ {};
-    // The session persistence mode. Valid values:
-    // - off: disabled.
-    // - ip: IP-based session persistence.
-    // - cookie: cookie-based session persistence.
-    // - http_header: HTTP header-based session persistence.
+    // The session persistence configuration. Valid values:
+    // - off: Disabled.
+    // - ip: Session persistence based on IP addresses.
+    // - cookie: Session persistence based on cookies.
+    // - http_header: Session persistence based on HTTP headers.
     shared_ptr<string> sessionAffinity_ {};
-    // The site ID. You can call the [ListSites](~~ListSites~~) operation to obtain the site ID.
+    // The site ID. You can obtain the site ID by calling the [ListSites](~~ListSites~~) operation.
     // 
     // This parameter is required.
     shared_ptr<int64_t> siteId_ {};
     // The load balancing policy. Valid values:
-    // 
-    // - geo: geo-based routing.
-    // - random: weighted round-robin.
-    // - order: primary/secondary mode.
+    // - geo: Geolocation-based policy.
+    // - random: Weighted round-robin.
+    // - order: Active/standby mode.
     // 
     // This parameter is required.
     shared_ptr<string> steeringPolicy_ {};
-    // The address pools mapped to secondary regions. If multiple secondary regions share the same set of address pools, you can concatenate the secondary region names with commas as the key.
+    // The address pools corresponding to secondary regions. When multiple secondary regions share the same set of address pools, you can concatenate the secondary regions with commas (,) to use as the key.
     Darabonba::Json subRegionPools_ {};
-    // The TTL value, which specifies the time-to-live of the DNS record. Default value: 30 seconds. Valid values: 10 to 600.
+    // The time-to-live (TTL) value of the DNS record. Default value: 30. Unit: seconds. Valid values: 10 to 600.
     shared_ptr<int32_t> ttl_ {};
   };
 

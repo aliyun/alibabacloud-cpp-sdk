@@ -149,55 +149,57 @@ namespace Models
 
 
   protected:
-    // The origin authentication information for the CNAME record.
+    // The origin server authentication information for a CNAME record.
     shared_ptr<string> authConfShrink_ {};
-    // Used to tag the business scenario of the DNS record. This parameter is required when proxy acceleration is enabled for the DNS record (i.e., when the proxied parameter is set to true), and is not required when proxy acceleration is disabled (i.e., when the proxied parameter is set to false). Valid values:
-    // - **image_video**: Image and video.
-    // - **api**: API.
-    // - **web**: Web page.
+    // The business scenario used to tag the DNS record. This parameter is required when proxy acceleration is enabled for the DNS record. That is, the Proxied parameter is set to true. This parameter is not required when proxy acceleration is disabled. That is, the Proxied parameter is set to false. Valid values:
+    // - **image_video**: Images and videos.
+    // - **api**: API operations.
+    // - **web**: Web pages.
     shared_ptr<string> bizName_ {};
-    // The comment for the record, with a maximum length of 100 characters.
+    // The description of the record. The description can be up to 100 characters in length.
     shared_ptr<string> comment_ {};
-    // The DNS information of the record. Different types of records require different content for this field. For more information, see
+    // The DNS information of the record. The required content for this field varies based on the record type. For more information, see
     // <props="china">[Documentation](https://help.aliyun.com/document_detail/2708761.html)<props="intl">[Documentation](https://www.alibabacloud.com/help/doc-detail/2708761.html)
     // .
     // 
     // This parameter is required.
     shared_ptr<string> dataShrink_ {};
-    // The origin host policy. This takes effect when the record type is CNAME. It specifies the host policy for back-to-origin requests. Two modes are available:
+    // The back-to-origin host policy. This parameter takes effect when the record type is CNAME. Settings for the host policy in back-to-origin requests. Two patterns are available:
     // 
-    // - **follow_hostname**: Follow the request host.
-    // - **follow_origin_domain**: Follow the origin domain.
+    // - **follow_hostname**: Follows the request host.
+    // - **follow_origin_domain**: Follows the Origin Domain Name.
     shared_ptr<string> hostPolicy_ {};
+    // The HTTP port. By default, port 80 is supported.
     shared_ptr<string> httpPorts_ {};
+    // The HTTPS port. By default, port 443 is supported.
     shared_ptr<string> httpsPorts_ {};
-    // Specifies whether to enable proxy acceleration for the record. Only CNAME records or A/AAAA records (i.e., when the type parameter is set to A/AAAA or CNAME) can enable proxy acceleration. Valid values:
-    // - **true**: Enable proxy acceleration.
-    // - **false**: Disable proxy acceleration.
+    // Specifies whether to enable proxy acceleration for the record. Proxy acceleration can be enabled only for CNAME, A, or AAAA records. That is, the Type parameter is set to CNAME, A, or AAAA. Valid values:
+    // - **true**: Enables proxy acceleration.
+    // - **false**: Disables proxy acceleration.
     shared_ptr<bool> proxied_ {};
     // The record name.
     // 
     // This parameter is required.
     shared_ptr<string> recordName_ {};
-    // The site ID, which can be obtained by calling the [ListSites](https://help.aliyun.com/document_detail/2850189.html) API.
+    // The site ID. You can obtain the site ID by calling the [ListSites](https://help.aliyun.com/document_detail/2850189.html) operation.
     // 
     // This parameter is required.
     shared_ptr<int64_t> siteId_ {};
-    // The origin type of the CNAME record. This parameter is required when adding a CNAME record (i.e., when the type parameter is set to CNAME). Valid values:
+    // The origin server type for a CNAME record. This parameter is required when you add a CNAME record. That is, the Type parameter is set to CNAME. Valid values:
     // 
-    // - **OSS**: OSS origin.
-    // - **S3**: S3 origin.
-    // - **LB**: Load balancer origin.
-    // - **OP**: Origin pool origin.
-    // - **Domain**: Standard domain origin.
+    // - **OSS**: OSS origin server.
+    // - **S3**: S3 origin server.
+    // - **LB**: Load balancing origin server.
+    // - **OP**: IPAM pool origin server.
+    // - **Domain**: Common domain name origin server.
     // 
-    // If this parameter is not specified or is left empty, it defaults to Domain, which is the standard domain origin type.
+    // If this parameter is not specified or is left empty, the default value is Domain, which indicates a common domain name origin server.
     shared_ptr<string> sourceType_ {};
-    // The time-to-live (TTL) of the record, in seconds. When set to 1, the TTL is automatic.
+    // The time-to-live (TTL) of the record, in seconds. A value of 1 indicates that the TTL is automatically determined.
     // 
     // This parameter is required.
     shared_ptr<int32_t> ttl_ {};
-    // The DNS type of the record, such as **A/AAAA**, **CNAME**, **TXT**, etc.
+    // The DNS record type, such as **A/AAAA**, **CNAME**, or **TXT**.
     // 
     // This parameter is required.
     shared_ptr<string> type_ {};

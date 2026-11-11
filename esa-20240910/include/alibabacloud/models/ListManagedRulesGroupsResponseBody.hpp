@@ -130,7 +130,7 @@ namespace Models
     shared_ptr<int32_t> pageSize_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The total number of records after filtering.
+    // The total number of filtered records.
     shared_ptr<int32_t> totalCount_ {};
   };
 

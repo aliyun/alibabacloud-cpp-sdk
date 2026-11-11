@@ -83,9 +83,9 @@ namespace Models
 
 
     protected:
-      // The ID of the custom slider CAPTCHA page.
+      // The ID of the custom slider page.
       shared_ptr<int64_t> id_ {};
-      // The name of the custom slider CAPTCHA page.
+      // The name of the custom slider page.
       shared_ptr<string> name_ {};
       // The list of associated site IDs.
       shared_ptr<vector<int64_t>> siteIds_ {};
@@ -117,11 +117,11 @@ namespace Models
 
 
   protected:
-    // The list of custom slider CAPTCHA pages.
+    // The list of custom slider pages.
     shared_ptr<vector<ListSliderCaptchaPagesResponseBody::Pages>> pages_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The total number of entries.
+    // The total count.
     shared_ptr<int64_t> totalCount_ {};
   };
 

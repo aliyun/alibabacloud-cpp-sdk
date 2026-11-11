@@ -81,11 +81,11 @@ namespace Models
 
 
     protected:
-      // The quota value of the current site.
+      // The current quota value of the site.
       shared_ptr<string> currentQuotaValue_ {};
       // The quota value of the target instance.
       shared_ptr<string> destQuotaValue_ {};
-      // The quota name.
+      // The name of the quota.
       shared_ptr<string> quotaName_ {};
     };
 
@@ -117,7 +117,7 @@ namespace Models
   protected:
     // Indicates whether the features of the current site are compatible with the target instance.
     shared_ptr<bool> isPassed_ {};
-    // The request ID.
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
     // The information about site quotas that do not meet the requirements.
     shared_ptr<vector<CheckSiteFeaturesMatchPlanResponseBody::UnPassedSiteQuotas>> unPassedSiteQuotas_ {};

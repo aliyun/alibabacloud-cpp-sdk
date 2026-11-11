@@ -84,11 +84,11 @@ namespace Models
 
 
   protected:
-    // The environment name.
+    // The name of the environment.
     // 
     // This parameter is required.
     shared_ptr<string> environmentName_ {};
-    // The new environment name.
+    // The new name of the environment.
     shared_ptr<string> newName_ {};
     // Specifies whether the environment is read-only.
     // 
@@ -98,11 +98,11 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> rule_ {};
-    // The site ID. You can call the [ListSites](~~ListSites~~) operation to obtain the site ID.
+    // The ID of the site. You can call the [ListSites](~~ListSites~~) operation to obtain the site ID.
     // 
     // This parameter is required.
     shared_ptr<int64_t> siteId_ {};
-    // The new site version number. Only the environment with the highest priority can be modified.
+    // The new version number of the site. You can modify this parameter only for the environment with the highest priority.
     shared_ptr<int32_t> siteVersion_ {};
   };
 

@@ -130,38 +130,38 @@ namespace Models
 
 
   protected:
-    // Brotli compression. Possible values:
-    // - on: Enabled.
-    // - off: Disabled.
+    // Brotli compression. Valid values:
+    // - on: enabled.
+    // - off: disabled.
     shared_ptr<string> brotli_ {};
-    // Configuration ID.
+    // The ID of the configuration.
     shared_ptr<int64_t> configId_ {};
-    // Configuration type. Possible values:
-    // - global: Global configuration.
-    // - rule: Rule-based configuration.
+    // The type of the configuration. Valid values:
+    // - global: global configuration.
+    // - rule: rule configuration.
     shared_ptr<string> configType_ {};
-    // Gzip compression. Possible values:
-    // - on: Enabled.
-    // - off: Disabled.
+    // Gzip compression. Valid values:
+    // - on: enabled.
+    // - off: disabled.
     shared_ptr<string> gzip_ {};
-    // Request ID.
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
-    // Rule content, using conditional expressions to match user requests. This parameter is not required when adding a global configuration. There are two usage scenarios:
-    // - Match all incoming requests: Set the value to true
-    // - Match specific requests: Set the value to a custom expression, for example: (http.host eq \\"video.example.com\\")
+    // The rule content, which uses a conditional expression to match user requests. You do not need to set this parameter when adding a global configuration. Two scenarios are supported:
+    // - Match all incoming requests: set the value to true.
+    // - Match specific requests: set the value to a custom expression, such as (http.host eq "video.example.com").
     shared_ptr<string> rule_ {};
-    // Rule switch. This parameter is not required when adding a global configuration. Possible values:
-    // - on: Enabled.
-    // - off: Disabled.
+    // The rule switch. You do not need to set this parameter when adding a global configuration. Valid values:
+    // - on: enabled.
+    // - off: disabled.
     shared_ptr<string> ruleEnable_ {};
-    // Rule name. This parameter is not required when adding a global configuration.
+    // The name of the rule. You do not need to set this parameter when adding a global configuration.
     shared_ptr<string> ruleName_ {};
-    // Rule execution order. The smaller the value, the higher the priority.
+    // The execution sequence of the rule. A smaller value indicates a higher priority.
     shared_ptr<int32_t> sequence_ {};
-    // The version number of the site configuration. For sites with version management enabled, this parameter can specify the effective version of the configuration, defaulting to version 0.
+    // The version number of the site configuration. For sites with configuration version management enabled, you can use this parameter to specify the site version for which the configuration takes effect. The default value is version 0.
     shared_ptr<int32_t> siteVersion_ {};
-    // Zstd compression. Value range: 
-    // - on: enabled. 
+    // Zstd compression. Valid values:
+    // - on: enabled.
     // - off: disabled.
     shared_ptr<string> zstd_ {};
   };

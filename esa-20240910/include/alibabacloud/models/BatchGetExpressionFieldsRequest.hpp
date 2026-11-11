@@ -133,13 +133,13 @@ namespace Models
   protected:
     // The list of expressions.
     shared_ptr<vector<BatchGetExpressionFieldsRequest::Expressions>> expressions_ {};
-    // The plan instance ID.
+    // The instance ID of the plan.
     shared_ptr<string> instanceId_ {};
     // The type of the expression.
     shared_ptr<string> kind_ {};
     // The WAF phase.
     shared_ptr<string> phase_ {};
-    // The plan name (in English).
+    // The name of the plan in English.
     shared_ptr<string> planNameEn_ {};
     // The site ID.
     shared_ptr<int64_t> siteId_ {};

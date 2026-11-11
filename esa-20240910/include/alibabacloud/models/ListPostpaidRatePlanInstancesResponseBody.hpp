@@ -141,7 +141,7 @@ namespace Models
         // - pending: The site is pending configuration.
         // - active: The site is activated.
         // - offline: The site is offline.
-        // - moved: The site has been replaced.
+        // - moved: The site is replaced.
         shared_ptr<string> siteStatus_ {};
       };
 
@@ -250,33 +250,33 @@ namespace Models
 
 
     protected:
-      // The Billable methods. Valid values:
-      // - dps_month95: monthly 95th percentile billing.
+      // The billing method. Valid values:
+      // - dps_month95: Monthly 95th percentile billing.
       shared_ptr<string> billingMethod_ {};
       // The billing mode. Valid values:
       // 
-      //  * POSTPAY: pay-as-you-go.
+      // - POSTPAY: Pay-as-you-go.
       shared_ptr<string> billingMode_ {};
       // The acceleration regions for sites that can be bound to the instance. Multiple values are separated by commas (,). Valid values:
       // 
-      // - domestic: the Chinese mainland.
-      // - overseas: global (excluding the Chinese mainland).
-      // - global: global (including the Chinese mainland).
+      // - domestic: The Chinese mainland.
+      // - overseas: Global (excluding the Chinese mainland).
+      // - global: Global (including the Chinese mainland).
       shared_ptr<string> coverages_ {};
-      // The time when the instance was created. The time is displayed in UTC and follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format.
+      // The time when the instance was created. The time is displayed in UTC and formatted as yyyy-MM-ddTHH:mm:ssZ in accordance with the ISO 8601 standard.
       shared_ptr<string> createTime_ {};
-      // The scheduled time for upgrade or downgrade. The time is displayed in UTC and follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format.
+      // The scheduled time for the specification change. The time is displayed in UTC and formatted as yyyy-MM-ddTHH:mm:ssZ in accordance with the ISO 8601 standard.
       shared_ptr<string> expectedUpdateTime_ {};
       // The instance ID.
       shared_ptr<string> instanceId_ {};
       shared_ptr<string> ownerId_ {};
       // The English name of the plan.
       shared_ptr<string> planName_ {};
-      // The plan name in Chinese.
+      // The Chinese name of the plan.
       shared_ptr<string> planNameCn_ {};
-      // The plan type corresponding to the plan instance. Valid values:
-      // - normal: fixed plan.
-      // - enterprise: enterprise plan.
+      // The plan type of the instance. Valid values:
+      // - normal: Standard plan.
+      // - enterprise: Enterprise plan.
       shared_ptr<string> planType_ {};
       shared_ptr<string> shareType_ {};
       // The site quota.
@@ -342,7 +342,7 @@ namespace Models
     shared_ptr<int32_t> pageSize_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The total number of records.
+    // The total number of entries.
     shared_ptr<int32_t> totalCount_ {};
     // The total number of pages.
     shared_ptr<int32_t> totalPage_ {};

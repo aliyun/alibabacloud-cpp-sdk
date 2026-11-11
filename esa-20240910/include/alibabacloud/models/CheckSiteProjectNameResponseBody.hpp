@@ -66,14 +66,14 @@ namespace Models
 
 
   protected:
-    // Valid values:
+    // Indicates whether the project name can be added. Valid values:
     // 
-    // - **true**: Can be added.
-    // - **false**: Cannot be added.
+    // - **true**: The name can be added.
+    // - **false**: The name cannot be added.
     shared_ptr<bool> check_ {};
-    // The result description.
+    // The description of the result.
     shared_ptr<string> description_ {};
-    // The real-time log project name.
+    // The name of the real-time log project.
     shared_ptr<string> projectName_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

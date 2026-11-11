@@ -157,9 +157,9 @@ namespace Models
     // Instance ID of the plan instance. You can obtain instance ID by calling the [ListSites](https://help.aliyun.com/document_detail/2850189.html) operation.
     shared_ptr<string> instanceId_ {};
     shared_ptr<bool> isShared_ {};
-    // The page number Settings for a paging query. Default value: **1**. Valid values: **1** to **100000**.
+    // The page number Settings for paging in a paged query. Default value: **1**. Valid values: **1** to **100000**.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries per page for a paging query. Valid values: 1 to 500.
+    // The number of entries per page for paging in a paged query. Valid values: 1 to 500.
     shared_ptr<int32_t> pageSize_ {};
     // The name of the plan in English.
     shared_ptr<string> planNameEn_ {};
@@ -168,33 +168,33 @@ namespace Models
     // - normal: Fixed plan.
     // - enterprise: Enterprise plan.
     shared_ptr<string> planType_ {};
-    // Queries plan instances whose remaining validity period is less than or equal to the specified number of days. The value must be a positive integer. Unit: days.
+    // Queries plan instances whose remaining validity period is within the specified number of days. The value must be a positive integer. Unit: days.
     shared_ptr<int32_t> remainingExpireDays_ {};
     shared_ptr<int64_t> resourceOwner_ {};
-    // The field by which to sort the results. By default, the results are sorted by creation time. Valid values:
+    // The sort field. By default, the instances are sorted by creation time. Valid values:
     // 
-    // - **CreateTime**: Sorts by creation time.
-    // - **ExpireTime**: Sorts by expiration time.
+    // - **CreateTime**: The creation time.
+    // - **ExpireTime**: The expiration time.
     shared_ptr<string> sortBy_ {};
-    // The sort order. By default, the results are sorted in descending order. Valid values:
+    // The sort order. By default, the instances are sorted in descending order. Valid values:
     // 
     // - **asc**: Ascending order.
     // - **desc**: Descending order.
     shared_ptr<string> sortOrder_ {};
-    // The instance status. Valid values:
-    // - **online**: The instance is in normal service status.
-    // - **offline**: The instance has expired but is not overdue, and is in an inactive state.
-    // - **disable**: The instance is released.
-    // - **overdue**: The instance has an overdue payment.
+    // The instance status of the plan. Valid values:
+    // - **online**: The normal service status.
+    // - **offline**: The instance has expired but not overdue, and is in an inactive state.
+    // - **disable**: The released status.
+    // - **overdue**: The overdue payment status.
     shared_ptr<string> status_ {};
     // The subscription type of the plan. Valid values:
     // 
-    // - entranceplan: Free Edition (Chinese mainland)
-    // - entranceplan_intl: Free Edition (International)
-    // - basicplan: Basic Edition
-    // - standardplan: Standard Edition
-    // - advancedplan: Advanced Edition
-    // - enterpriseplan: Enterprise Edition
+    // - entranceplan: Free Edition (Chinese mainland).
+    // - entranceplan_intl: Free Edition (International).
+    // - basicplan: Basic Edition.
+    // - standardplan: Standard Edition.
+    // - advancedplan: Advanced Edition.
+    // - enterpriseplan: Enterprise Edition.
     shared_ptr<string> subscribeType_ {};
   };
 

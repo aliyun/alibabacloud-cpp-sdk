@@ -122,6 +122,10 @@
 #include <alibabacloud/models/CreateEnvironmentRequest.hpp>
 #include <alibabacloud/models/CreateEnvironmentResponseBody.hpp>
 #include <alibabacloud/models/CreateEnvironmentResponse.hpp>
+#include <alibabacloud/models/CreateErrorPagesRedirectRuleRequest.hpp>
+#include <alibabacloud/models/CreateErrorPagesRedirectRuleShrinkRequest.hpp>
+#include <alibabacloud/models/CreateErrorPagesRedirectRuleResponseBody.hpp>
+#include <alibabacloud/models/CreateErrorPagesRedirectRuleResponse.hpp>
 #include <alibabacloud/models/CreateHttpIncomingRequestHeaderModificationRuleRequest.hpp>
 #include <alibabacloud/models/CreateHttpIncomingRequestHeaderModificationRuleShrinkRequest.hpp>
 #include <alibabacloud/models/CreateHttpIncomingRequestHeaderModificationRuleResponseBody.hpp>
@@ -310,6 +314,9 @@
 #include <alibabacloud/models/DeleteEnvironmentRequest.hpp>
 #include <alibabacloud/models/DeleteEnvironmentResponseBody.hpp>
 #include <alibabacloud/models/DeleteEnvironmentResponse.hpp>
+#include <alibabacloud/models/DeleteErrorPagesRedirectRuleRequest.hpp>
+#include <alibabacloud/models/DeleteErrorPagesRedirectRuleResponseBody.hpp>
+#include <alibabacloud/models/DeleteErrorPagesRedirectRuleResponse.hpp>
 #include <alibabacloud/models/DeleteHttpDDoSIntelligentRuleRequest.hpp>
 #include <alibabacloud/models/DeleteHttpDDoSIntelligentRuleResponseBody.hpp>
 #include <alibabacloud/models/DeleteHttpDDoSIntelligentRuleResponse.hpp>
@@ -671,6 +678,9 @@
 #include <alibabacloud/models/GetErServiceRequest.hpp>
 #include <alibabacloud/models/GetErServiceResponseBody.hpp>
 #include <alibabacloud/models/GetErServiceResponse.hpp>
+#include <alibabacloud/models/GetErrorPagesRedirectRuleRequest.hpp>
+#include <alibabacloud/models/GetErrorPagesRedirectRuleResponseBody.hpp>
+#include <alibabacloud/models/GetErrorPagesRedirectRuleResponse.hpp>
 #include <alibabacloud/models/GetFailFileRequest.hpp>
 #include <alibabacloud/models/GetFailFileResponseBody.hpp>
 #include <alibabacloud/models/GetFailFileResponse.hpp>
@@ -954,6 +964,9 @@
 #include <alibabacloud/models/ListEnvironmentsRequest.hpp>
 #include <alibabacloud/models/ListEnvironmentsResponseBody.hpp>
 #include <alibabacloud/models/ListEnvironmentsResponse.hpp>
+#include <alibabacloud/models/ListErrorPagesRedirectRulesRequest.hpp>
+#include <alibabacloud/models/ListErrorPagesRedirectRulesResponseBody.hpp>
+#include <alibabacloud/models/ListErrorPagesRedirectRulesResponse.hpp>
 #include <alibabacloud/models/ListHttpIncomingRequestHeaderModificationRulesRequest.hpp>
 #include <alibabacloud/models/ListHttpIncomingRequestHeaderModificationRulesResponseBody.hpp>
 #include <alibabacloud/models/ListHttpIncomingRequestHeaderModificationRulesResponse.hpp>
@@ -1345,6 +1358,10 @@
 #include <alibabacloud/models/UpdateEnvironmentVersionRequest.hpp>
 #include <alibabacloud/models/UpdateEnvironmentVersionResponseBody.hpp>
 #include <alibabacloud/models/UpdateEnvironmentVersionResponse.hpp>
+#include <alibabacloud/models/UpdateErrorPagesRedirectRuleRequest.hpp>
+#include <alibabacloud/models/UpdateErrorPagesRedirectRuleShrinkRequest.hpp>
+#include <alibabacloud/models/UpdateErrorPagesRedirectRuleResponseBody.hpp>
+#include <alibabacloud/models/UpdateErrorPagesRedirectRuleResponse.hpp>
 #include <alibabacloud/models/UpdateHttpIncomingRequestHeaderModificationRuleRequest.hpp>
 #include <alibabacloud/models/UpdateHttpIncomingRequestHeaderModificationRuleShrinkRequest.hpp>
 #include <alibabacloud/models/UpdateHttpIncomingRequestHeaderModificationRuleResponseBody.hpp>

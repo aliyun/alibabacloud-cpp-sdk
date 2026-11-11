@@ -23,7 +23,7 @@ namespace ESA20240910
       string getEndpoint(const string &productId, const string &regionId, const string &endpointRule, const string &network, const string &suffix, const map<string, string> &endpointMap, const string &endpoint);
 
       /**
-       * @summary Activates the client based on the certificate ID.
+       * @summary Activates a client based on the certificate ID.
        *
        * @param request ActivateClientCertificateRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -32,7 +32,7 @@ namespace ESA20240910
       Models::ActivateClientCertificateResponse activateClientCertificateWithOptions(const Models::ActivateClientCertificateRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Activates the client based on the certificate ID.
+       * @summary Activates a client based on the certificate ID.
        *
        * @param request ActivateClientCertificateRequest
        * @return ActivateClientCertificateResponse
@@ -40,10 +40,10 @@ namespace ESA20240910
       Models::ActivateClientCertificateResponse activateClientCertificate(const Models::ActivateClientCertificateRequest &request);
 
       /**
-       * @summary Enables version management. This allows a site to support multiple configuration versions and multiple deployment environments, providing more flexible management of site traffic and configuration.
+       * @summary Enables version management to allow a site to support multiple configuration versions and deployment environments for more flexible management of site traffic and configurations.
        *
        * @description Prerequisites for enabling site version management:
-       * 1. The site plan must include the version management quota item `version_management_available`, and its value must be `true`.
+       * 1. The site plan must include the version management quota item `version_management_available` with the value set to `true`.
        *
        * @param request ActivateVersionManagementRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -52,10 +52,10 @@ namespace ESA20240910
       Models::ActivateVersionManagementResponse activateVersionManagementWithOptions(const Models::ActivateVersionManagementRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Enables version management. This allows a site to support multiple configuration versions and multiple deployment environments, providing more flexible management of site traffic and configuration.
+       * @summary Enables version management to allow a site to support multiple configuration versions and deployment environments for more flexible management of site traffic and configurations.
        *
        * @description Prerequisites for enabling site version management:
-       * 1. The site plan must include the version management quota item `version_management_available`, and its value must be `true`.
+       * 1. The site plan must include the version management quota item `version_management_available` with the value set to `true`.
        *
        * @param request ActivateVersionManagementRequest
        * @return ActivateVersionManagementResponse
@@ -63,7 +63,7 @@ namespace ESA20240910
       Models::ActivateVersionManagementResponse activateVersionManagement(const Models::ActivateVersionManagementRequest &request);
 
       /**
-       * @summary Creates a user opportunity order.
+       * @summary Creates a user opportunity ticket.
        *
        * @param request AddUserBusinessFormRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -72,7 +72,7 @@ namespace ESA20240910
       Models::AddUserBusinessFormResponse addUserBusinessFormWithOptions(const Models::AddUserBusinessFormRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Creates a user opportunity order.
+       * @summary Creates a user opportunity ticket.
        *
        * @param request AddUserBusinessFormRequest
        * @return AddUserBusinessFormResponse
@@ -97,7 +97,7 @@ namespace ESA20240910
       Models::ApplyCertificateResponse applyCertificate(const Models::ApplyCertificateRequest &request);
 
       /**
-       * @summary Requests a new free certificate for a Software as a Service (SaaS) domain name. Call this operation only if the previous certificate request failed, or the current certificate is about to expire or has expired.
+       * @summary Reapplies for a free certificate for a SaaS domain name. This operation is supported only when the current free certificate application fails, is about to expire, or has expired.
        *
        * @param request ApplyCustomHostnameCertificateRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -106,7 +106,7 @@ namespace ESA20240910
       Models::ApplyCustomHostnameCertificateResponse applyCustomHostnameCertificateWithOptions(const Models::ApplyCustomHostnameCertificateRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Requests a new free certificate for a Software as a Service (SaaS) domain name. Call this operation only if the previous certificate request failed, or the current certificate is about to expire or has expired.
+       * @summary Reapplies for a free certificate for a SaaS domain name. This operation is supported only when the current free certificate application fails, is about to expire, or has expired.
        *
        * @param request ApplyCustomHostnameCertificateRequest
        * @return ApplyCustomHostnameCertificateResponse
@@ -114,10 +114,10 @@ namespace ESA20240910
       Models::ApplyCustomHostnameCertificateResponse applyCustomHostnameCertificate(const Models::ApplyCustomHostnameCertificateRequest &request);
 
       /**
-       * @summary Creates multiple DNS records in a batch. Multiple record types are supported.
+       * @summary Adds DNS records in batches and supports multiple record types.
        *
-       * @description This API operation allows you to create or update multiple DNS records at a time. It is suitable for scenarios that require managing a large number of DNS configurations. Supported record types include but are not limited to A/AAAA, CNAME, NS, MX, TXT, CAA, SRV, and URI. Detailed configuration items are provided to meet specific requirements, such as Priority, Flag, Tag, and Weight. In addition, for specific record types such as CERT, SSHFP, SMIMEA, and TLSA, advanced settings such as certificate information and encryption algorithms are supported.
-       * Successfully and unsuccessfully processed records are listed separately in the response, so that you can identify which records are processed, which records failed, and the failure reasons.
+       * @description This API operation allows you to create or update multiple DNS record entries at a time, which is suitable for scenarios that require managing a large number of DNS configurations. Supported record types include but are not limited to A/AAAA, CNAME, NS, MX, TXT, CAA, SRV, and URI. Detailed configuration items are provided to meet specific requirements, such as priority, flag, tag, and weight. In addition, for specific record types such as CERT, SSHFP, SMIMEA, and TLSA, advanced settings such as certificate information and encryption algorithms are supported.
+       * Successful and failed record operations are listed separately in the response, so that you can understand which records are processed successfully and which records fail and the reasons for the failures.
        *
        * @param tmpReq BatchCreateRecordsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -126,10 +126,10 @@ namespace ESA20240910
       Models::BatchCreateRecordsResponse batchCreateRecordsWithOptions(const Models::BatchCreateRecordsRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Creates multiple DNS records in a batch. Multiple record types are supported.
+       * @summary Adds DNS records in batches and supports multiple record types.
        *
-       * @description This API operation allows you to create or update multiple DNS records at a time. It is suitable for scenarios that require managing a large number of DNS configurations. Supported record types include but are not limited to A/AAAA, CNAME, NS, MX, TXT, CAA, SRV, and URI. Detailed configuration items are provided to meet specific requirements, such as Priority, Flag, Tag, and Weight. In addition, for specific record types such as CERT, SSHFP, SMIMEA, and TLSA, advanced settings such as certificate information and encryption algorithms are supported.
-       * Successfully and unsuccessfully processed records are listed separately in the response, so that you can identify which records are processed, which records failed, and the failure reasons.
+       * @description This API operation allows you to create or update multiple DNS record entries at a time, which is suitable for scenarios that require managing a large number of DNS configurations. Supported record types include but are not limited to A/AAAA, CNAME, NS, MX, TXT, CAA, SRV, and URI. Detailed configuration items are provided to meet specific requirements, such as priority, flag, tag, and weight. In addition, for specific record types such as CERT, SSHFP, SMIMEA, and TLSA, advanced settings such as certificate information and encryption algorithms are supported.
+       * Successful and failed record operations are listed separately in the response, so that you can understand which records are processed successfully and which records fail and the reasons for the failures.
        *
        * @param request BatchCreateRecordsRequest
        * @return BatchCreateRecordsResponse
@@ -137,7 +137,7 @@ namespace ESA20240910
       Models::BatchCreateRecordsResponse batchCreateRecords(const Models::BatchCreateRecordsRequest &request);
 
       /**
-       * @summary Batch creates rules in a specified WAF phase. You can create multiple rules at a time and configure shared settings for these rules.
+       * @summary Creates multiple rules in a specified WAF phase in a single batch and configures shared settings for the rules.
        *
        * @param tmpReq BatchCreateWafRulesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -146,7 +146,7 @@ namespace ESA20240910
       Models::BatchCreateWafRulesResponse batchCreateWafRulesWithOptions(const Models::BatchCreateWafRulesRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Batch creates rules in a specified WAF phase. You can create multiple rules at a time and configure shared settings for these rules.
+       * @summary Creates multiple rules in a specified WAF phase in a single batch and configures shared settings for the rules.
        *
        * @param request BatchCreateWafRulesRequest
        * @return BatchCreateWafRulesResponse
@@ -411,7 +411,7 @@ namespace ESA20240910
       Models::BatchPutKvWithHighCapacityResponse batchPutKvWithHighCapacityAdvance(const Models::BatchPutKvWithHighCapacityAdvanceRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Batch updates rules in a specified WAF ruleset. You can use this operation to update the configurations of multiple rules at a time.
+       * @summary Modifies multiple rules in a specified WAF rule set in batches. You can use this operation to update the configurations of multiple rules at the same time.
        *
        * @param tmpReq BatchUpdateWafRulesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -420,7 +420,7 @@ namespace ESA20240910
       Models::BatchUpdateWafRulesResponse batchUpdateWafRulesWithOptions(const Models::BatchUpdateWafRulesRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Batch updates rules in a specified WAF ruleset. You can use this operation to update the configurations of multiple rules at a time.
+       * @summary Modifies multiple rules in a specified WAF rule set in batches. You can use this operation to update the configurations of multiple rules at the same time.
        *
        * @param request BatchUpdateWafRulesRequest
        * @return BatchUpdateWafRulesResponse
@@ -460,7 +460,7 @@ namespace ESA20240910
       Models::CheckAssumeSlrRoleResponse checkAssumeSlrRole();
 
       /**
-       * @summary Validates whether a site is compatible with the target plan during site plan migration.
+       * @summary Validates whether a site is compatible with the target plan during plan migration.
        *
        * @param request CheckSiteFeaturesMatchPlanRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -469,7 +469,7 @@ namespace ESA20240910
       Models::CheckSiteFeaturesMatchPlanResponse checkSiteFeaturesMatchPlanWithOptions(const Models::CheckSiteFeaturesMatchPlanRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Validates whether a site is compatible with the target plan during site plan migration.
+       * @summary Validates whether a site is compatible with the target plan during plan migration.
        *
        * @param request CheckSiteFeaturesMatchPlanRequest
        * @return CheckSiteFeaturesMatchPlanResponse
@@ -477,7 +477,7 @@ namespace ESA20240910
       Models::CheckSiteFeaturesMatchPlanResponse checkSiteFeaturesMatchPlan(const Models::CheckSiteFeaturesMatchPlanRequest &request);
 
       /**
-       * @summary Checks whether a specified website name is available.
+       * @summary Pre-validates whether a site name is available.
        *
        * @param request CheckSiteNameRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -486,7 +486,7 @@ namespace ESA20240910
       Models::CheckSiteNameResponse checkSiteNameWithOptions(const Models::CheckSiteNameRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Checks whether a specified website name is available.
+       * @summary Pre-validates whether a site name is available.
        *
        * @param request CheckSiteNameRequest
        * @return CheckSiteNameResponse
@@ -494,7 +494,7 @@ namespace ESA20240910
       Models::CheckSiteNameResponse checkSiteName(const Models::CheckSiteNameRequest &request);
 
       /**
-       * @summary Checks the project name of a real-time log delivery task.
+       * @summary Checks the project name of a real-time log task.
        *
        * @param request CheckSiteProjectNameRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -503,7 +503,7 @@ namespace ESA20240910
       Models::CheckSiteProjectNameResponse checkSiteProjectNameWithOptions(const Models::CheckSiteProjectNameRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Checks the project name of a real-time log delivery task.
+       * @summary Checks the project name of a real-time log task.
        *
        * @param request CheckSiteProjectNameRequest
        * @return CheckSiteProjectNameResponse
@@ -545,8 +545,7 @@ namespace ESA20240910
       Models::CloneVersionResponse cloneVersion(const Models::CloneVersionRequest &request);
 
       /**
-       * @summary Submits the staging (unstable) code of an Edge Routine and generates a production version.
-       * Prerequisite: Before calling this API operation, call GetRoutineStagingCodeUploadInfo to obtain OSS upload credentials. Upload the code file through OSS POST. After the upload callback succeeds, call this API operation to submit the code.
+       * @summary Submits the staging code of an Edge Routine to generate a production version. Before calling this API operation, you must call GetRoutineStagingCodeUploadInfo to obtain the Object Storage Service (OSS) upload credentials, upload the code file by using an OSS POST request, and then call this API operation after the upload callback succeeds.
        *
        * @param request CommitRoutineStagingCodeRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -555,8 +554,7 @@ namespace ESA20240910
       Models::CommitRoutineStagingCodeResponse commitRoutineStagingCodeWithOptions(const Models::CommitRoutineStagingCodeRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Submits the staging (unstable) code of an Edge Routine and generates a production version.
-       * Prerequisite: Before calling this API operation, call GetRoutineStagingCodeUploadInfo to obtain OSS upload credentials. Upload the code file through OSS POST. After the upload callback succeeds, call this API operation to submit the code.
+       * @summary Submits the staging code of an Edge Routine to generate a production version. Before calling this API operation, you must call GetRoutineStagingCodeUploadInfo to obtain the Object Storage Service (OSS) upload credentials, upload the code file by using an OSS POST request, and then call this API operation after the upload callback succeeds.
        *
        * @param request CommitRoutineStagingCodeRequest
        * @return CommitRoutineStagingCodeResponse
@@ -638,7 +636,7 @@ namespace ESA20240910
       Models::CreateCustomHostnameResponse createCustomHostname(const Models::CreateCustomHostnameRequest &request);
 
       /**
-       * @summary Creates a custom response code rule for a site.
+       * @summary Creates a custom response code configuration for a site.
        *
        * @param request CreateCustomResponseCodeRuleRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -647,7 +645,7 @@ namespace ESA20240910
       Models::CreateCustomResponseCodeRuleResponse createCustomResponseCodeRuleWithOptions(const Models::CreateCustomResponseCodeRuleRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Creates a custom response code rule for a site.
+       * @summary Creates a custom response code configuration for a site.
        *
        * @param request CreateCustomResponseCodeRuleRequest
        * @return CreateCustomResponseCodeRuleResponse
@@ -691,7 +689,7 @@ namespace ESA20240910
       Models::CreateEdgeContainerAppResponse createEdgeContainerApp(const Models::CreateEdgeContainerAppRequest &request);
 
       /**
-       * @summary Create an image secret for the edge container application
+       * @summary Creates an image secret for an edge container application.
        *
        * @param request CreateEdgeContainerAppImageSecretRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -700,7 +698,7 @@ namespace ESA20240910
       Models::CreateEdgeContainerAppImageSecretResponse createEdgeContainerAppImageSecretWithOptions(const Models::CreateEdgeContainerAppImageSecretRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Create an image secret for the edge container application
+       * @summary Creates an image secret for an edge container application.
        *
        * @param request CreateEdgeContainerAppImageSecretRequest
        * @return CreateEdgeContainerAppImageSecretResponse
@@ -725,11 +723,11 @@ namespace ESA20240910
       Models::CreateEdgeContainerAppRecordResponse createEdgeContainerAppRecord(const Models::CreateEdgeContainerAppRecordRequest &request);
 
       /**
-       * @summary Creates an edge container application version. You can iteratively release applications by version.
+       * @summary Creates a version for an edge container application to support iterative releases.
        * Note:
-       * 1) Your account must have an ESA plan with the Edge Container feature enabled.
-       * 2) Call CreateEdgeContainerApp first to create an application and obtain the AppId.
-       * 3) Complete call chain example: CreateEdgeContainerApp → ListEdgeContainerApps → CreateEdgeContainerAppVersion.
+       * 1) Your account must be subscribed to an ESA plan that includes the Edge Container feature.
+       * 2) You must call CreateEdgeContainerApp to create an application and obtain the AppId.
+       * 3) A complete call chain example is provided (CreateEdgeContainerApp → ListEdgeContainerApps → CreateEdgeContainerAppVersion).
        *
        * @param tmpReq CreateEdgeContainerAppVersionRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -738,11 +736,11 @@ namespace ESA20240910
       Models::CreateEdgeContainerAppVersionResponse createEdgeContainerAppVersionWithOptions(const Models::CreateEdgeContainerAppVersionRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Creates an edge container application version. You can iteratively release applications by version.
+       * @summary Creates a version for an edge container application to support iterative releases.
        * Note:
-       * 1) Your account must have an ESA plan with the Edge Container feature enabled.
-       * 2) Call CreateEdgeContainerApp first to create an application and obtain the AppId.
-       * 3) Complete call chain example: CreateEdgeContainerApp → ListEdgeContainerApps → CreateEdgeContainerAppVersion.
+       * 1) Your account must be subscribed to an ESA plan that includes the Edge Container feature.
+       * 2) You must call CreateEdgeContainerApp to create an application and obtain the AppId.
+       * 3) A complete call chain example is provided (CreateEdgeContainerApp → ListEdgeContainerApps → CreateEdgeContainerAppVersion).
        *
        * @param request CreateEdgeContainerAppVersionRequest
        * @return CreateEdgeContainerAppVersionResponse
@@ -765,6 +763,23 @@ namespace ESA20240910
        * @return CreateEnvironmentResponse
        */
       Models::CreateEnvironmentResponse createEnvironment(const Models::CreateEnvironmentRequest &request);
+
+      /**
+       * @summary Creates an error code redirection rule.
+       *
+       * @param tmpReq CreateErrorPagesRedirectRuleRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CreateErrorPagesRedirectRuleResponse
+       */
+      Models::CreateErrorPagesRedirectRuleResponse createErrorPagesRedirectRuleWithOptions(const Models::CreateErrorPagesRedirectRuleRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Creates an error code redirection rule.
+       *
+       * @param request CreateErrorPagesRedirectRuleRequest
+       * @return CreateErrorPagesRedirectRuleResponse
+       */
+      Models::CreateErrorPagesRedirectRuleResponse createErrorPagesRedirectRule(const Models::CreateErrorPagesRedirectRuleRequest &request);
 
       /**
        * @summary Creates a configuration for modifying HTTP inbound request headers for a site.
@@ -907,7 +922,7 @@ namespace ESA20240910
       Models::CreateKvNamespaceResponse createKvNamespace(const Models::CreateKvNamespaceRequest &request);
 
       /**
-       * @summary Creates a custom list. Custom lists are typically referenced by the rule matching engine for values used in various security policies to implement complex logic and control.
+       * @summary Creates a custom list for referencing values in rule matching engines to implement complex logic and control in various security policies.
        *
        * @param tmpReq CreateListRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -916,7 +931,7 @@ namespace ESA20240910
       Models::CreateListResponse createListWithOptions(const Models::CreateListRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Creates a custom list. Custom lists are typically referenced by the rule matching engine for values used in various security policies to implement complex logic and control.
+       * @summary Creates a custom list for referencing values in rule matching engines to implement complex logic and control in various security policies.
        *
        * @param request CreateListRequest
        * @return CreateListResponse
@@ -924,10 +939,10 @@ namespace ESA20240910
       Models::CreateListResponse createList(const Models::CreateListRequest &request);
 
       /**
-       * @summary Creates a load balancer instance that supports custom routing policies, session persistence, monitoring configurations, and other advanced features.
+       * @summary Creates a load balancer instance with advanced features such as custom routing policies, session persistence, and monitoring configurations.
        *
-       * @description Creates a load balancing service based on your business requirements. You can configure settings such as adaptive routing, weighted polling, rule matching, and health checks to effectively manage and optimize traffic.
-       * Only Enterprise plans support the load balancing service. To use this feature, contact Alibaba Cloud sales to apply for an Enterprise plan.
+       * @description This API allows you to configure load balancing services based on your business requirements, including but not limited to adaptive routing, weighted round-robin, rule matching, and health checks, to achieve effective traffic management and optimization.
+       * Only the Enterprise Edition plan supports the load balancer service. To use this service, contact Alibaba Cloud sales to apply for the Enterprise Edition plan.
        *
        * @param tmpReq CreateLoadBalancerRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -936,10 +951,10 @@ namespace ESA20240910
       Models::CreateLoadBalancerResponse createLoadBalancerWithOptions(const Models::CreateLoadBalancerRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Creates a load balancer instance that supports custom routing policies, session persistence, monitoring configurations, and other advanced features.
+       * @summary Creates a load balancer instance with advanced features such as custom routing policies, session persistence, and monitoring configurations.
        *
-       * @description Creates a load balancing service based on your business requirements. You can configure settings such as adaptive routing, weighted polling, rule matching, and health checks to effectively manage and optimize traffic.
-       * Only Enterprise plans support the load balancing service. To use this feature, contact Alibaba Cloud sales to apply for an Enterprise plan.
+       * @description This API allows you to configure load balancing services based on your business requirements, including but not limited to adaptive routing, weighted round-robin, rule matching, and health checks, to achieve effective traffic management and optimization.
+       * Only the Enterprise Edition plan supports the load balancer service. To use this service, contact Alibaba Cloud sales to apply for the Enterprise Edition plan.
        *
        * @param request CreateLoadBalancerRequest
        * @return CreateLoadBalancerResponse
@@ -947,9 +962,9 @@ namespace ESA20240910
       Models::CreateLoadBalancerResponse createLoadBalancer(const Models::CreateLoadBalancerRequest &request);
 
       /**
-       * @summary Adds a network optimization configuration for a site.
+       * @summary Creates a network optimization configuration for a site.
        *
-       * @description The site plan must be Standard Edition or higher to use the WebSocket feature. When calling this API, you must provide at least one feature configuration parameter. Providing only SiteId returns an error.
+       * @description The site plan must be Standard Edition or higher to use the WebSocket feature. In addition, when you call this API operation, you must specify at least one feature configuration parameter. Specifying only SiteId returns an error.
        *
        * @param request CreateNetworkOptimizationRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -958,9 +973,9 @@ namespace ESA20240910
       Models::CreateNetworkOptimizationResponse createNetworkOptimizationWithOptions(const Models::CreateNetworkOptimizationRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Adds a network optimization configuration for a site.
+       * @summary Creates a network optimization configuration for a site.
        *
-       * @description The site plan must be Standard Edition or higher to use the WebSocket feature. When calling this API, you must provide at least one feature configuration parameter. Providing only SiteId returns an error.
+       * @description The site plan must be Standard Edition or higher to use the WebSocket feature. In addition, when you call this API operation, you must specify at least one feature configuration parameter. Specifying only SiteId returns an error.
        *
        * @param request CreateNetworkOptimizationRequest
        * @return CreateNetworkOptimizationResponse
@@ -1040,7 +1055,7 @@ namespace ESA20240910
       Models::CreatePageResponse createPage(const Models::CreatePageRequest &request);
 
       /**
-       * @summary Create a DNS record under a site.
+       * @summary Creates a DNS record under a site.
        *
        * @param tmpReq CreateRecordRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1049,7 +1064,7 @@ namespace ESA20240910
       Models::CreateRecordResponse createRecordWithOptions(const Models::CreateRecordRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Create a DNS record under a site.
+       * @summary Creates a DNS record under a site.
        *
        * @param request CreateRecordRequest
        * @return CreateRecordResponse
@@ -1666,7 +1681,7 @@ namespace ESA20240910
       Models::DeleteClientCertificateResponse deleteClientCertificate(const Models::DeleteClientCertificateRequest &request);
 
       /**
-       * @summary Delete compression rule
+       * @summary Deletes the compression rule configuration for a site.
        *
        * @param request DeleteCompressionRuleRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1675,7 +1690,7 @@ namespace ESA20240910
       Models::DeleteCompressionRuleResponse deleteCompressionRuleWithOptions(const Models::DeleteCompressionRuleRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Delete compression rule
+       * @summary Deletes the compression rule configuration for a site.
        *
        * @param request DeleteCompressionRuleRequest
        * @return DeleteCompressionRuleResponse
@@ -1825,7 +1840,24 @@ namespace ESA20240910
       Models::DeleteEnvironmentResponse deleteEnvironment(const Models::DeleteEnvironmentRequest &request);
 
       /**
-       * @summary Deletes a rule created by Deep Learning and Protection.
+       * @summary Deletes the error code redirection configuration.
+       *
+       * @param request DeleteErrorPagesRedirectRuleRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DeleteErrorPagesRedirectRuleResponse
+       */
+      Models::DeleteErrorPagesRedirectRuleResponse deleteErrorPagesRedirectRuleWithOptions(const Models::DeleteErrorPagesRedirectRuleRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Deletes the error code redirection configuration.
+       *
+       * @param request DeleteErrorPagesRedirectRuleRequest
+       * @return DeleteErrorPagesRedirectRuleResponse
+       */
+      Models::DeleteErrorPagesRedirectRuleResponse deleteErrorPagesRedirectRule(const Models::DeleteErrorPagesRedirectRuleRequest &request);
+
+      /**
+       * @summary Deletes the rules issued by deep learning and protection.
        *
        * @param request DeleteHttpDDoSIntelligentRuleRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1834,7 +1866,7 @@ namespace ESA20240910
       Models::DeleteHttpDDoSIntelligentRuleResponse deleteHttpDDoSIntelligentRuleWithOptions(const Models::DeleteHttpDDoSIntelligentRuleRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Deletes a rule created by Deep Learning and Protection.
+       * @summary Deletes the rules issued by deep learning and protection.
        *
        * @param request DeleteHttpDDoSIntelligentRuleRequest
        * @return DeleteHttpDDoSIntelligentRuleResponse
@@ -1961,7 +1993,7 @@ namespace ESA20240910
       Models::DeleteImageTransformResponse deleteImageTransform(const Models::DeleteImageTransformRequest &request);
 
       /**
-       * @summary Deletes a keyless server configuration.
+       * @summary Deletes a Keyless server configuration.
        *
        * @param request DeleteKeylessServerRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1970,7 +2002,7 @@ namespace ESA20240910
       Models::DeleteKeylessServerResponse deleteKeylessServerWithOptions(const Models::DeleteKeylessServerRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Deletes a keyless server configuration.
+       * @summary Deletes a Keyless server configuration.
        *
        * @param request DeleteKeylessServerRequest
        * @return DeleteKeylessServerResponse
@@ -2084,7 +2116,7 @@ namespace ESA20240910
       Models::DeleteOriginCaCertificateResponse deleteOriginCaCertificate(const Models::DeleteOriginCaCertificateRequest &request);
 
       /**
-       * @summary Deletes an origin client certificate for a specific site.
+       * @summary Deletes a domain-level back-to-origin client certificate.
        *
        * @param request DeleteOriginClientCertificateRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2093,7 +2125,7 @@ namespace ESA20240910
       Models::DeleteOriginClientCertificateResponse deleteOriginClientCertificateWithOptions(const Models::DeleteOriginClientCertificateRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Deletes an origin client certificate for a specific site.
+       * @summary Deletes a domain-level back-to-origin client certificate.
        *
        * @param request DeleteOriginClientCertificateRequest
        * @return DeleteOriginClientCertificateResponse
@@ -2135,7 +2167,7 @@ namespace ESA20240910
       Models::DeleteOriginProtectionResponse deleteOriginProtection(const Models::DeleteOriginProtectionRequest &request);
 
       /**
-       * @summary Delete Origin Rule Configuration
+       * @summary Deletes the back-to-origin rule configuration.
        *
        * @param request DeleteOriginRuleRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2144,7 +2176,7 @@ namespace ESA20240910
       Models::DeleteOriginRuleResponse deleteOriginRuleWithOptions(const Models::DeleteOriginRuleRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Delete Origin Rule Configuration
+       * @summary Deletes the back-to-origin rule configuration.
        *
        * @param request DeleteOriginRuleRequest
        * @return DeleteOriginRuleResponse
@@ -2186,7 +2218,7 @@ namespace ESA20240910
       Models::DeleteRecordResponse deleteRecord(const Models::DeleteRecordRequest &request);
 
       /**
-       * @summary Deletes a URL redirect rule for a website.
+       * @summary Deletes the redirect configuration for a site.
        *
        * @param request DeleteRedirectRuleRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2195,7 +2227,7 @@ namespace ESA20240910
       Models::DeleteRedirectRuleResponse deleteRedirectRuleWithOptions(const Models::DeleteRedirectRuleRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Deletes a URL redirect rule for a website.
+       * @summary Deletes the redirect configuration for a site.
        *
        * @param request DeleteRedirectRuleRequest
        * @return DeleteRedirectRuleResponse
@@ -2203,7 +2235,7 @@ namespace ESA20240910
       Models::DeleteRedirectRuleResponse deleteRedirectRule(const Models::DeleteRedirectRuleRequest &request);
 
       /**
-       * @summary Deletes a URL rewrite rule for a website.
+       * @summary Deletes the URL rewrite configuration for a site.
        *
        * @param request DeleteRewriteUrlRuleRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2212,7 +2244,7 @@ namespace ESA20240910
       Models::DeleteRewriteUrlRuleResponse deleteRewriteUrlRuleWithOptions(const Models::DeleteRewriteUrlRuleRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Deletes a URL rewrite rule for a website.
+       * @summary Deletes the URL rewrite configuration for a site.
        *
        * @param request DeleteRewriteUrlRuleRequest
        * @return DeleteRewriteUrlRuleResponse
@@ -2271,11 +2303,11 @@ namespace ESA20240910
       Models::DeleteRoutineCodeVersionResponse deleteRoutineCodeVersion(const Models::DeleteRoutineCodeVersionRequest &request);
 
       /**
-       * @summary Deletes environment variables of a Routine.
+       * @summary Deletes the environment variables of a routine.
        *
-       * @description ## Operation description
-       * - When you create a Routine code version for deployment, the environment name `Env` supports only the staging environment `staging` or the production environment `production`.
-       * - The `CodeVersions` parameter supports canary release of up to two versions, and the total proportion of these versions must equal 100%.
+       * @description ## Request description
+       * - When you create a deployment for a routine code version, the `Env` parameter only supports `staging` for the staging environment and `production` for the production environment.
+       * - The `CodeVersions` parameter supports canary releases for up to two versions, and the sum of the traffic ratios for these versions must equal 100%.
        *
        * @param tmpReq DeleteRoutineEnvironmentVariablesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2284,11 +2316,11 @@ namespace ESA20240910
       Models::DeleteRoutineEnvironmentVariablesResponse deleteRoutineEnvironmentVariablesWithOptions(const Models::DeleteRoutineEnvironmentVariablesRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Deletes environment variables of a Routine.
+       * @summary Deletes the environment variables of a routine.
        *
-       * @description ## Operation description
-       * - When you create a Routine code version for deployment, the environment name `Env` supports only the staging environment `staging` or the production environment `production`.
-       * - The `CodeVersions` parameter supports canary release of up to two versions, and the total proportion of these versions must equal 100%.
+       * @description ## Request description
+       * - When you create a deployment for a routine code version, the `Env` parameter only supports `staging` for the staging environment and `production` for the production environment.
+       * - The `CodeVersions` parameter supports canary releases for up to two versions, and the sum of the traffic ratios for these versions must equal 100%.
        *
        * @param request DeleteRoutineEnvironmentVariablesRequest
        * @return DeleteRoutineEnvironmentVariablesResponse
@@ -2466,13 +2498,13 @@ namespace ESA20240910
       Models::DeleteUrlObservationResponse deleteUrlObservation(const Models::DeleteUrlObservationRequest &request);
 
       /**
-       * @summary Deletes a user task delivery configuration based on the specified task name and Alibaba Cloud UID.
+       * @summary Deletes the user task delivery configuration based on the specified task name and Alibaba Cloud UID.
        *
-       * @description This operation allows you to delete an existing task delivery configuration based on the specified **task name** and **Alibaba Cloud UID**. Before proceeding, verify that the provided information is accurate to avoid disrupting the processing of related logs or data.
+       * @description This operation allows you to delete a configured task delivery configuration based on the specified **task name** and **Alibaba Cloud UID**. Before the operation, ensure that the provided information is accurate to avoid affecting the normal processing of related logs or data.
        * **Note:**
-       * - The deletion operation is irreversible. Proceed with caution.
+       * - The delete operation is irreversible. Proceed with caution.
        * - Only accounts with the required permissions can call this operation.
-       * - You can use the returned `RequestId` to track the request progress and troubleshoot issues.
+       * - The returned `RequestId` can be used to track the request processing progress and troubleshoot issues.
        *
        * @param request DeleteUserDeliveryTaskRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2481,13 +2513,13 @@ namespace ESA20240910
       Models::DeleteUserDeliveryTaskResponse deleteUserDeliveryTaskWithOptions(const Models::DeleteUserDeliveryTaskRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Deletes a user task delivery configuration based on the specified task name and Alibaba Cloud UID.
+       * @summary Deletes the user task delivery configuration based on the specified task name and Alibaba Cloud UID.
        *
-       * @description This operation allows you to delete an existing task delivery configuration based on the specified **task name** and **Alibaba Cloud UID**. Before proceeding, verify that the provided information is accurate to avoid disrupting the processing of related logs or data.
+       * @description This operation allows you to delete a configured task delivery configuration based on the specified **task name** and **Alibaba Cloud UID**. Before the operation, ensure that the provided information is accurate to avoid affecting the normal processing of related logs or data.
        * **Note:**
-       * - The deletion operation is irreversible. Proceed with caution.
+       * - The delete operation is irreversible. Proceed with caution.
        * - Only accounts with the required permissions can call this operation.
-       * - You can use the returned `RequestId` to track the request progress and troubleshoot issues.
+       * - The returned `RequestId` can be used to track the request processing progress and troubleshoot issues.
        *
        * @param request DeleteUserDeliveryTaskRequest
        * @return DeleteUserDeliveryTaskResponse
@@ -3369,7 +3401,7 @@ namespace ESA20240910
       Models::EnableCustomScenePolicyResponse enableCustomScenePolicy(const Models::EnableCustomScenePolicyRequest &request);
 
       /**
-       * @summary Exports the CNAME values of all records under the current site. When the site access mode is switched to CNAME access, you can call this operation to retrieve pre-configured CNAME values to prevent service interruptions.
+       * @summary Exports the CNAME values of all records for the current site. When you switch the site access mode to CNAME access, you can call this operation to retrieve pre-configured CNAME values and prevent service interruptions.
        *
        * @param request ExportRecordCnamesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3378,7 +3410,7 @@ namespace ESA20240910
       Models::ExportRecordCnamesResponse exportRecordCnamesWithOptions(const Models::ExportRecordCnamesRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Exports the CNAME values of all records under the current site. When the site access mode is switched to CNAME access, you can call this operation to retrieve pre-configured CNAME values to prevent service interruptions.
+       * @summary Exports the CNAME values of all records for the current site. When you switch the site access mode to CNAME access, you can call this operation to retrieve pre-configured CNAME values and prevent service interruptions.
        *
        * @param request ExportRecordCnamesRequest
        * @return ExportRecordCnamesResponse
@@ -3622,7 +3654,7 @@ namespace ESA20240910
       Models::GetClientCertificateHostnamesResponse getClientCertificateHostnames(const Models::GetClientCertificateHostnamesRequest &request);
 
       /**
-       * @summary Queries the CNAME flattening configuration of a website
+       * @summary Queries the CNAME flattening configuration of a site.
        *
        * @param request GetCnameFlatteningRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3631,7 +3663,7 @@ namespace ESA20240910
       Models::GetCnameFlatteningResponse getCnameFlatteningWithOptions(const Models::GetCnameFlatteningRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the CNAME flattening configuration of a website
+       * @summary Queries the CNAME flattening configuration of a site.
        *
        * @param request GetCnameFlatteningRequest
        * @return GetCnameFlatteningResponse
@@ -3639,7 +3671,7 @@ namespace ESA20240910
       Models::GetCnameFlatteningResponse getCnameFlattening(const Models::GetCnameFlatteningRequest &request);
 
       /**
-       * @summary Query Compression Rule Details
+       * @summary Queries the details of compression rules for a site.
        *
        * @param request GetCompressionRuleRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3648,7 +3680,7 @@ namespace ESA20240910
       Models::GetCompressionRuleResponse getCompressionRuleWithOptions(const Models::GetCompressionRuleRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Query Compression Rule Details
+       * @summary Queries the details of compression rules for a site.
        *
        * @param request GetCompressionRuleRequest
        * @return GetCompressionRuleResponse
@@ -3966,6 +3998,23 @@ namespace ESA20240910
       Models::GetErServiceResponse getErService(const Models::GetErServiceRequest &request);
 
       /**
+       * @summary Queries the details of the error code redirect configuration.
+       *
+       * @param request GetErrorPagesRedirectRuleRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetErrorPagesRedirectRuleResponse
+       */
+      Models::GetErrorPagesRedirectRuleResponse getErrorPagesRedirectRuleWithOptions(const Models::GetErrorPagesRedirectRuleRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Queries the details of the error code redirect configuration.
+       *
+       * @param request GetErrorPagesRedirectRuleRequest
+       * @return GetErrorPagesRedirectRuleResponse
+       */
+      Models::GetErrorPagesRedirectRuleResponse getErrorPagesRedirectRule(const Models::GetErrorPagesRedirectRuleRequest &request);
+
+      /**
        * @summary Downloads the failed file for a specified upload task.
        *
        * @param request GetFailFileRequest
@@ -3983,7 +4032,7 @@ namespace ESA20240910
       Models::GetFailFileResponse getFailFile(const Models::GetFailFileRequest &request);
 
       /**
-       * @summary Queries the configuration details of an HTTP request header modification rule for a website.
+       * @summary Queries the details of the HTTP incoming request header modification configuration for a site.
        *
        * @param request GetHttpIncomingRequestHeaderModificationRuleRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3992,7 +4041,7 @@ namespace ESA20240910
       Models::GetHttpIncomingRequestHeaderModificationRuleResponse getHttpIncomingRequestHeaderModificationRuleWithOptions(const Models::GetHttpIncomingRequestHeaderModificationRuleRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the configuration details of an HTTP request header modification rule for a website.
+       * @summary Queries the details of the HTTP incoming request header modification configuration for a site.
        *
        * @param request GetHttpIncomingRequestHeaderModificationRuleRequest
        * @return GetHttpIncomingRequestHeaderModificationRuleResponse
@@ -4017,7 +4066,7 @@ namespace ESA20240910
       Models::GetHttpIncomingResponseHeaderModificationRuleResponse getHttpIncomingResponseHeaderModificationRule(const Models::GetHttpIncomingResponseHeaderModificationRuleRequest &request);
 
       /**
-       * @summary Retrieves the details of an HTTP request header modification rule for a site.
+       * @summary Queries the details of the HTTP request header modification configuration for a site.
        *
        * @param request GetHttpRequestHeaderModificationRuleRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -4026,7 +4075,7 @@ namespace ESA20240910
       Models::GetHttpRequestHeaderModificationRuleResponse getHttpRequestHeaderModificationRuleWithOptions(const Models::GetHttpRequestHeaderModificationRuleRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Retrieves the details of an HTTP request header modification rule for a site.
+       * @summary Queries the details of the HTTP request header modification configuration for a site.
        *
        * @param request GetHttpRequestHeaderModificationRuleRequest
        * @return GetHttpRequestHeaderModificationRuleResponse
@@ -4102,7 +4151,7 @@ namespace ESA20240910
       Models::GetIPv6Response getIPv6(const Models::GetIPv6Request &request);
 
       /**
-       * @summary Queries a single site image transformation configuration.
+       * @summary Queries a single image transform configuration for a site.
        *
        * @param request GetImageTransformRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -4111,7 +4160,7 @@ namespace ESA20240910
       Models::GetImageTransformResponse getImageTransformWithOptions(const Models::GetImageTransformRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries a single site image transformation configuration.
+       * @summary Queries a single image transform configuration for a site.
        *
        * @param request GetImageTransformRequest
        * @return GetImageTransformResponse
@@ -4257,7 +4306,7 @@ namespace ESA20240910
       Models::GetMainDomainNameResponse getMainDomainName(const Models::GetMainDomainNameRequest &request);
 
       /**
-       * @summary Retrieves the managed transform configuration for a site.
+       * @summary Queries the site hosting transition configuration.
        *
        * @param request GetManagedTransformRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -4266,7 +4315,7 @@ namespace ESA20240910
       Models::GetManagedTransformResponse getManagedTransformWithOptions(const Models::GetManagedTransformRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Retrieves the managed transform configuration for a site.
+       * @summary Queries the site hosting transition configuration.
        *
        * @param request GetManagedTransformRequest
        * @return GetManagedTransformResponse
@@ -4312,7 +4361,7 @@ namespace ESA20240910
       Models::GetNetworkOptimizationResponse getNetworkOptimization(const Models::GetNetworkOptimizationRequest &request);
 
       /**
-       * @summary Retrieves the CA certificate information of an origin server.
+       * @summary Retrieves the CA certificate information of the origin server.
        *
        * @param request GetOriginCaCertificateRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -4321,7 +4370,7 @@ namespace ESA20240910
       Models::GetOriginCaCertificateResponse getOriginCaCertificateWithOptions(const Models::GetOriginCaCertificateRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Retrieves the CA certificate information of an origin server.
+       * @summary Retrieves the CA certificate information of the origin server.
        *
        * @param request GetOriginCaCertificateRequest
        * @return GetOriginCaCertificateResponse
@@ -4346,7 +4395,7 @@ namespace ESA20240910
       Models::GetOriginClientCertificateResponse getOriginClientCertificate(const Models::GetOriginClientCertificateRequest &request);
 
       /**
-       * @summary Retrieves the hostnames associated with a specific origin client certificate.
+       * @summary Retrieves the list of domain names bound to a back-to-origin client certificate at the domain name level.
        *
        * @param request GetOriginClientCertificateHostnamesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -4355,7 +4404,7 @@ namespace ESA20240910
       Models::GetOriginClientCertificateHostnamesResponse getOriginClientCertificateHostnamesWithOptions(const Models::GetOriginClientCertificateHostnamesRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Retrieves the hostnames associated with a specific origin client certificate.
+       * @summary Retrieves the list of domain names bound to a back-to-origin client certificate at the domain name level.
        *
        * @param request GetOriginClientCertificateHostnamesRequest
        * @return GetOriginClientCertificateHostnamesResponse
@@ -4380,7 +4429,7 @@ namespace ESA20240910
       Models::GetOriginPoolResponse getOriginPool(const Models::GetOriginPoolRequest &request);
 
       /**
-       * @summary Queries site origin protection configurations, including the origin protection switch, the origin convergence switch, whether the origin IP whitelist needs to be updated, and detailed information about the origin IP whitelist, including the current origin IP whitelist used by the site, the latest origin IP whitelist, and the differences between them.
+       * @summary Queries the origin server protection configurations for a site, including the origin server protection switch, the back-to-origin convergence switch, and whether the back-to-origin IP addresses whitelist needs to be updated. It also provides detailed information about the back-to-origin IP addresses whitelist, including the current whitelist used by the site, the latest whitelist, and the differences between them.
        *
        * @param request GetOriginProtectionRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -4389,7 +4438,7 @@ namespace ESA20240910
       Models::GetOriginProtectionResponse getOriginProtectionWithOptions(const Models::GetOriginProtectionRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries site origin protection configurations, including the origin protection switch, the origin convergence switch, whether the origin IP whitelist needs to be updated, and detailed information about the origin IP whitelist, including the current origin IP whitelist used by the site, the latest origin IP whitelist, and the differences between them.
+       * @summary Queries the origin server protection configurations for a site, including the origin server protection switch, the back-to-origin convergence switch, and whether the back-to-origin IP addresses whitelist needs to be updated. It also provides detailed information about the back-to-origin IP addresses whitelist, including the current whitelist used by the site, the latest whitelist, and the differences between them.
        *
        * @param request GetOriginProtectionRequest
        * @return GetOriginProtectionResponse
@@ -4482,7 +4531,7 @@ namespace ESA20240910
       Models::GetPurgeQuotaResponse getPurgeQuota(const Models::GetPurgeQuotaRequest &request);
 
       /**
-       * @summary Queries the fields in real-time logs based on the log category.
+       * @summary Retrieves the list of fields for real-time logs based on the log business type.
        *
        * @param request GetRealtimeDeliveryFieldRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -4491,7 +4540,7 @@ namespace ESA20240910
       Models::GetRealtimeDeliveryFieldResponse getRealtimeDeliveryFieldWithOptions(const Models::GetRealtimeDeliveryFieldRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the fields in real-time logs based on the log category.
+       * @summary Retrieves the list of fields for real-time logs based on the log business type.
        *
        * @param request GetRealtimeDeliveryFieldRequest
        * @return GetRealtimeDeliveryFieldResponse
@@ -4499,7 +4548,7 @@ namespace ESA20240910
       Models::GetRealtimeDeliveryFieldResponse getRealtimeDeliveryField(const Models::GetRealtimeDeliveryFieldRequest &request);
 
       /**
-       * @summary Retrieves the detailed configuration of a single DNS record, including the record value, priority, and back-to-origin authentication configuration (exclusive to CNAME records).
+       * @summary Retrieves the detailed configuration information of a single DNS record, including the record value, priority, and back-to-origin authentication configuration (exclusive to CNAME records).
        *
        * @param request GetRecordRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -4508,7 +4557,7 @@ namespace ESA20240910
       Models::GetRecordResponse getRecordWithOptions(const Models::GetRecordRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Retrieves the detailed configuration of a single DNS record, including the record value, priority, and back-to-origin authentication configuration (exclusive to CNAME records).
+       * @summary Retrieves the detailed configuration information of a single DNS record, including the record value, priority, and back-to-origin authentication configuration (exclusive to CNAME records).
        *
        * @param request GetRecordRequest
        * @return GetRecordResponse
@@ -4796,7 +4845,7 @@ namespace ESA20240910
       Models::GetSiteResponse getSite(const Models::GetSiteRequest &request);
 
       /**
-       * @summary Queries the nameservers configured for a website.
+       * @summary Queries the DNS server names configured for the current site.
        *
        * @param request GetSiteCurrentNSRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -4805,7 +4854,7 @@ namespace ESA20240910
       Models::GetSiteCurrentNSResponse getSiteCurrentNSWithOptions(const Models::GetSiteCurrentNSRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the nameservers configured for a website.
+       * @summary Queries the DNS server names configured for the current site.
        *
        * @param request GetSiteCurrentNSRequest
        * @return GetSiteCurrentNSResponse
@@ -5110,8 +5159,8 @@ namespace ESA20240910
       /**
        * @summary Queries the details of a WAF ruleset for a specified instance.
        *
-       * @description ## Operation description
-       * By calling the `GetUserWafRuleset` operation, you can retrieve information about a specific Web Application Firewall (WAF) ruleset based on the instance ID and ruleset ID. The returned information includes but is not limited to the position, name, description, status, and specific rules of the ruleset. Make sure that you correctly specify the required parameters to avoid request failures.
+       * @description ## Request instructions
+       * By calling the `GetUserWafRuleset` operation, you can retrieve specific Web Application Firewall (WAF) ruleset information based on the provided instance ID and ruleset ID. The information returned by this operation includes but is not limited to the position, name, description, and status of the ruleset, as well as detailed content such as the specific rules it contains. Correctly specify the required parameters when making a request to avoid request failures.
        *
        * @param request GetUserWafRulesetRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -5122,8 +5171,8 @@ namespace ESA20240910
       /**
        * @summary Queries the details of a WAF ruleset for a specified instance.
        *
-       * @description ## Operation description
-       * By calling the `GetUserWafRuleset` operation, you can retrieve information about a specific Web Application Firewall (WAF) ruleset based on the instance ID and ruleset ID. The returned information includes but is not limited to the position, name, description, status, and specific rules of the ruleset. Make sure that you correctly specify the required parameters to avoid request failures.
+       * @description ## Request instructions
+       * By calling the `GetUserWafRuleset` operation, you can retrieve specific Web Application Firewall (WAF) ruleset information based on the provided instance ID and ruleset ID. The information returned by this operation includes but is not limited to the position, name, description, and status of the ruleset, as well as detailed content such as the specific rules it contains. Correctly specify the required parameters when making a request to avoid request failures.
        *
        * @param request GetUserWafRulesetRequest
        * @return GetUserWafRulesetResponse
@@ -5384,7 +5433,7 @@ namespace ESA20240910
       Models::ListCertificatesByRecordResponse listCertificatesByRecord(const Models::ListCertificatesByRecordRequest &request);
 
       /**
-       * @summary Query TLS Cipher Suite List
+       * @summary Queries the list of cipher suite names based on the cipher suite group name.
        *
        * @param request ListCiphersRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -5393,7 +5442,7 @@ namespace ESA20240910
       Models::ListCiphersResponse listCiphersWithOptions(const Models::ListCiphersRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Query TLS Cipher Suite List
+       * @summary Queries the list of cipher suite names based on the cipher suite group name.
        *
        * @param request ListCiphersRequest
        * @return ListCiphersResponse
@@ -5662,6 +5711,23 @@ namespace ESA20240910
       Models::ListEnvironmentsResponse listEnvironments(const Models::ListEnvironmentsRequest &request);
 
       /**
+       * @summary Queries the error code redirection configurations.
+       *
+       * @param request ListErrorPagesRedirectRulesRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListErrorPagesRedirectRulesResponse
+       */
+      Models::ListErrorPagesRedirectRulesResponse listErrorPagesRedirectRulesWithOptions(const Models::ListErrorPagesRedirectRulesRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Queries the error code redirection configurations.
+       *
+       * @param request ListErrorPagesRedirectRulesRequest
+       * @return ListErrorPagesRedirectRulesResponse
+       */
+      Models::ListErrorPagesRedirectRulesResponse listErrorPagesRedirectRules(const Models::ListErrorPagesRedirectRulesRequest &request);
+
+      /**
        * @summary Queries the list of HTTP incoming request header modification configurations for a site.
        *
        * @param request ListHttpIncomingRequestHeaderModificationRulesRequest
@@ -5866,7 +5932,7 @@ namespace ESA20240910
       Models::ListKvsResponse listKvs(const Models::ListKvsRequest &request);
 
       /**
-       * @summary Lists all custom lists under the account along with their details. You can use query parameters to filter results and paginate to retrieve a specific set of lists.
+       * @summary Lists all custom lists and their details under the account. You can filter the results by using query parameters and paginate the results to retrieve a specific set of lists.
        *
        * @param tmpReq ListListsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -5875,7 +5941,7 @@ namespace ESA20240910
       Models::ListListsResponse listListsWithOptions(const Models::ListListsRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Lists all custom lists under the account along with their details. You can use query parameters to filter results and paginate to retrieve a specific set of lists.
+       * @summary Lists all custom lists and their details under the account. You can filter the results by using query parameters and paginate the results to retrieve a specific set of lists.
        *
        * @param request ListListsRequest
        * @return ListListsResponse
@@ -5933,7 +5999,7 @@ namespace ESA20240910
       Models::ListLoadBalancerRegionsResponse listLoadBalancerRegions(const Models::ListLoadBalancerRegionsRequest &request);
 
       /**
-       * @summary Queries the list of load balancers under a site and returns load balancing information. You can query by load balancer name. Paging is supported.
+       * @summary Queries the list of load balancing instances under a site and returns the load balancing information under the site. Supports querying by load balancing name and paging.
        *
        * @param request ListLoadBalancersRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -5942,7 +6008,7 @@ namespace ESA20240910
       Models::ListLoadBalancersResponse listLoadBalancersWithOptions(const Models::ListLoadBalancersRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the list of load balancers under a site and returns load balancing information. You can query by load balancer name. Paging is supported.
+       * @summary Queries the list of load balancing instances under a site and returns the load balancing information under the site. Supports querying by load balancing name and paging.
        *
        * @param request ListLoadBalancersRequest
        * @return ListLoadBalancersResponse
@@ -5950,7 +6016,7 @@ namespace ESA20240910
       Models::ListLoadBalancersResponse listLoadBalancers(const Models::ListLoadBalancersRequest &request);
 
       /**
-       * @summary Lists all WAF managed rule groups under the current account. You can call this operation to retrieve a list of all rule groups and their summary information.
+       * @summary Lists all Web Application Firewall (WAF) managed rule groups within your account. You can use this operation to retrieve a list of all rule groups and their summary information.
        *
        * @param request ListManagedRulesGroupsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -5959,7 +6025,7 @@ namespace ESA20240910
       Models::ListManagedRulesGroupsResponse listManagedRulesGroupsWithOptions(const Models::ListManagedRulesGroupsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Lists all WAF managed rule groups under the current account. You can call this operation to retrieve a list of all rule groups and their summary information.
+       * @summary Lists all Web Application Firewall (WAF) managed rule groups within your account. You can use this operation to retrieve a list of all rule groups and their summary information.
        *
        * @param request ListManagedRulesGroupsRequest
        * @return ListManagedRulesGroupsResponse
@@ -6018,7 +6084,7 @@ namespace ESA20240910
       Models::ListOriginClientCertificatesResponse listOriginClientCertificates(const Models::ListOriginClientCertificatesRequest &request);
 
       /**
-       * @summary Lists all origin pools within a site. Supports pagination and searching by origin pool name (exact or fuzzy).
+       * @summary Queries all origin address pools under a site. Supports pagination and exact or fuzzy search by origin address pool name.
        *
        * @param request ListOriginPoolsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -6027,7 +6093,7 @@ namespace ESA20240910
       Models::ListOriginPoolsResponse listOriginPoolsWithOptions(const Models::ListOriginPoolsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Lists all origin pools within a site. Supports pagination and searching by origin pool name (exact or fuzzy).
+       * @summary Queries all origin address pools under a site. Supports pagination and exact or fuzzy search by origin address pool name.
        *
        * @param request ListOriginPoolsRequest
        * @return ListOriginPoolsResponse
@@ -6052,7 +6118,7 @@ namespace ESA20240910
       Models::ListOriginRulesResponse listOriginRules(const Models::ListOriginRulesRequest &request);
 
       /**
-       * @summary Lists all custom response pages created by the user. This operation supports pagination, allowing you to retrieve response pages by page number and page size.
+       * @summary Lists all custom response pages created by the user. This operation supports pagination and allows you to retrieve the response page list by page number and page size.
        *
        * @param tmpReq ListPagesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -6061,7 +6127,7 @@ namespace ESA20240910
       Models::ListPagesResponse listPagesWithOptions(const Models::ListPagesRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Lists all custom response pages created by the user. This operation supports pagination, allowing you to retrieve response pages by page number and page size.
+       * @summary Lists all custom response pages created by the user. This operation supports pagination and allows you to retrieve the response page list by page number and page size.
        *
        * @param request ListPagesRequest
        * @return ListPagesResponse
@@ -6069,9 +6135,9 @@ namespace ESA20240910
       Models::ListPagesResponse listPages(const Models::ListPagesRequest &request);
 
       /**
-       * @summary Queries pay-as-you-go plan instances.
+       * @summary Queries the pay-as-you-go plan instances.
        *
-       * @description This operation queries pay-as-you-go plan instances under your account and supports filtering and sorting by various conditions.
+       * @description Queries the pay-as-you-go plan instances under your account. You can filter and sort the instances based on various conditions.
        *
        * @param request ListPostpaidRatePlanInstancesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -6080,9 +6146,9 @@ namespace ESA20240910
       Models::ListPostpaidRatePlanInstancesResponse listPostpaidRatePlanInstancesWithOptions(const Models::ListPostpaidRatePlanInstancesRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries pay-as-you-go plan instances.
+       * @summary Queries the pay-as-you-go plan instances.
        *
-       * @description This operation queries pay-as-you-go plan instances under your account and supports filtering and sorting by various conditions.
+       * @description Queries the pay-as-you-go plan instances under your account. You can filter and sort the instances based on various conditions.
        *
        * @param request ListPostpaidRatePlanInstancesRequest
        * @return ListPostpaidRatePlanInstancesResponse
@@ -6111,7 +6177,7 @@ namespace ESA20240910
       Models::ListPostpaidSitePlansResponse listPostpaidSitePlans(const Models::ListPostpaidSitePlansRequest &request);
 
       /**
-       * @summary Queries the minimum plan edition required for a site plan quota to take effect, that is, the minimum plan edition to which the quota must be upgraded for use.
+       * @summary Queries the minimum required plan version for site plan quotas, indicating the lowest plan version to which you must upgrade to use a quota.
        *
        * @param request ListQuotasMinEffectPlanRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -6120,7 +6186,7 @@ namespace ESA20240910
       Models::ListQuotasMinEffectPlanResponse listQuotasMinEffectPlanWithOptions(const Models::ListQuotasMinEffectPlanRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the minimum plan edition required for a site plan quota to take effect, that is, the minimum plan edition to which the quota must be upgraded for use.
+       * @summary Queries the minimum required plan version for site plan quotas, indicating the lowest plan version to which you must upgrade to use a quota.
        *
        * @param request ListQuotasMinEffectPlanRequest
        * @return ListQuotasMinEffectPlanResponse
@@ -6128,9 +6194,9 @@ namespace ESA20240910
       Models::ListQuotasMinEffectPlanResponse listQuotasMinEffectPlan(const Models::ListQuotasMinEffectPlanRequest &request);
 
       /**
-       * @summary Queries the list of DNS records under a site, including record values, priorities, authentication configurations, etc. Supports filtering by conditions such as record name and record type.
+       * @summary Queries the DNS records of a site, including record values, priorities, and authentication configurations. Supports filtering by record name, record type, and other conditions.
        *
-       * @description DNS records corresponding to edge containers, edge functions, and Layer 4 acceleration will not be returned by this API.
+       * @description DNS records associated with edge containers, Edge Routines, and Layer 4 acceleration are not returned by this API operation.
        *
        * @param request ListRecordsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -6139,9 +6205,9 @@ namespace ESA20240910
       Models::ListRecordsResponse listRecordsWithOptions(const Models::ListRecordsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the list of DNS records under a site, including record values, priorities, authentication configurations, etc. Supports filtering by conditions such as record name and record type.
+       * @summary Queries the DNS records of a site, including record values, priorities, and authentication configurations. Supports filtering by record name, record type, and other conditions.
        *
-       * @description DNS records corresponding to edge containers, edge functions, and Layer 4 acceleration will not be returned by this API.
+       * @description DNS records associated with edge containers, Edge Routines, and Layer 4 acceleration are not returned by this API operation.
        *
        * @param request ListRecordsRequest
        * @return ListRecordsResponse
@@ -6276,9 +6342,9 @@ namespace ESA20240910
       Models::ListRoutineEnvironmentVariablesResponse listRoutineEnvironmentVariables(const Models::ListRoutineEnvironmentVariablesRequest &request);
 
       /**
-       * @summary The records associated with the function.
+       * @summary Queries the association records of an Edge Routine.
        *
-       * @description Queries the list of related records for a specified edge routine. You can use pagination parameters to retrieve partial results, or use fuzzy keywords to filter specific record entries.
+       * @description Queries the association records of a specified Edge Routine. You can set pagination parameters to retrieve partial results, or use fuzzy keywords to filter specific records.
        *
        * @param request ListRoutineRelatedRecordsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -6287,9 +6353,9 @@ namespace ESA20240910
       Models::ListRoutineRelatedRecordsResponse listRoutineRelatedRecordsWithOptions(const Models::ListRoutineRelatedRecordsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary The records associated with the function.
+       * @summary Queries the association records of an Edge Routine.
        *
-       * @description Queries the list of related records for a specified edge routine. You can use pagination parameters to retrieve partial results, or use fuzzy keywords to filter specific record entries.
+       * @description Queries the association records of a specified Edge Routine. You can set pagination parameters to retrieve partial results, or use fuzzy keywords to filter specific records.
        *
        * @param request ListRoutineRelatedRecordsRequest
        * @return ListRoutineRelatedRecordsResponse
@@ -6297,7 +6363,7 @@ namespace ESA20240910
       Models::ListRoutineRelatedRecordsResponse listRoutineRelatedRecords(const Models::ListRoutineRelatedRecordsRequest &request);
 
       /**
-       * @summary Queries the function route list of an Edge Routine.
+       * @summary Queries the function routes of an Edge Routine.
        *
        * @param request ListRoutineRoutesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -6306,7 +6372,7 @@ namespace ESA20240910
       Models::ListRoutineRoutesResponse listRoutineRoutesWithOptions(const Models::ListRoutineRoutesRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the function route list of an Edge Routine.
+       * @summary Queries the function routes of an Edge Routine.
        *
        * @param request ListRoutineRoutesRequest
        * @return ListRoutineRoutesResponse
@@ -6348,7 +6414,7 @@ namespace ESA20240910
       Models::ListScheduledPreloadJobsResponse listScheduledPreloadJobs(const Models::ListScheduledPreloadJobsRequest &request);
 
       /**
-       * @summary Lists all log delivery tasks that are in progress.
+       * @summary Lists the delivery status of all ongoing real-time log tasks.
        *
        * @param request ListSiteDeliveryTasksRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -6357,7 +6423,7 @@ namespace ESA20240910
       Models::ListSiteDeliveryTasksResponse listSiteDeliveryTasksWithOptions(const Models::ListSiteDeliveryTasksRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Lists all log delivery tasks that are in progress.
+       * @summary Lists the delivery status of all ongoing real-time log tasks.
        *
        * @param request ListSiteDeliveryTasksRequest
        * @return ListSiteDeliveryTasksResponse
@@ -6382,7 +6448,7 @@ namespace ESA20240910
       Models::ListSiteFunctionsResponse listSiteFunctions(const Models::ListSiteFunctionsRequest &request);
 
       /**
-       * @summary Queries the list of back-to-origin client certificates at the site level.
+       * @summary Queries the site-level back-to-origin client certificates.
        *
        * @param request ListSiteOriginClientCertificatesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -6391,7 +6457,7 @@ namespace ESA20240910
       Models::ListSiteOriginClientCertificatesResponse listSiteOriginClientCertificatesWithOptions(const Models::ListSiteOriginClientCertificatesRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the list of back-to-origin client certificates at the site level.
+       * @summary Queries the site-level back-to-origin client certificates.
        *
        * @param request ListSiteOriginClientCertificatesRequest
        * @return ListSiteOriginClientCertificatesResponse
@@ -6535,7 +6601,7 @@ namespace ESA20240910
       Models::ListUrlObservationsResponse listUrlObservations(const Models::ListUrlObservationsRequest &request);
 
       /**
-       * @summary Queries all delivery tasks in your Alibaba Cloud account by page. You can filter the delivery tasks by the category of the delivered real-time logs.
+       * @summary Lists all task delivery records for a user, and supports filtering by business type and paging.
        *
        * @param request ListUserDeliveryTasksRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -6544,7 +6610,7 @@ namespace ESA20240910
       Models::ListUserDeliveryTasksResponse listUserDeliveryTasksWithOptions(const Models::ListUserDeliveryTasksRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries all delivery tasks in your Alibaba Cloud account by page. You can filter the delivery tasks by the category of the delivered real-time logs.
+       * @summary Lists all task delivery records for a user, and supports filtering by business type and paging.
        *
        * @param request ListUserDeliveryTasksRequest
        * @return ListUserDeliveryTasksResponse
@@ -6655,7 +6721,7 @@ namespace ESA20240910
       Models::ListVideoProcessingsResponse listVideoProcessings(const Models::ListVideoProcessingsRequest &request);
 
       /**
-       * @summary Lists all managed rules under Web Application Firewall (WAF) or filters rules based on specific conditions. You can use this operation to query detailed information about WAF managed rules in a paginated manner.
+       * @summary Lists all managed rules under Web Application Firewall (WAF) or filters the rules based on specific conditions. You can use this operation to query the details of WAF managed rules in a paginated manner.
        *
        * @param tmpReq ListWafManagedRulesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -6664,7 +6730,7 @@ namespace ESA20240910
       Models::ListWafManagedRulesResponse listWafManagedRulesWithOptions(const Models::ListWafManagedRulesRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Lists all managed rules under Web Application Firewall (WAF) or filters rules based on specific conditions. You can use this operation to query detailed information about WAF managed rules in a paginated manner.
+       * @summary Lists all managed rules under Web Application Firewall (WAF) or filters the rules based on specific conditions. You can use this operation to query the details of WAF managed rules in a paginated manner.
        *
        * @param request ListWafManagedRulesRequest
        * @return ListWafManagedRulesResponse
@@ -6689,7 +6755,7 @@ namespace ESA20240910
       Models::ListWafPhasesResponse listWafPhases(const Models::ListWafPhasesRequest &request);
 
       /**
-       * @summary Lists all rules or filters rules by specific conditions under Web Application Firewall (WAF). You can use this operation to query detailed information about WAF rules in a paged manner.
+       * @summary Lists all Web Application Firewall (WAF) rules or filters rules based on specific conditions. You can call this operation to query the details of WAF rules in a paginated manner.
        *
        * @param tmpReq ListWafRulesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -6698,7 +6764,7 @@ namespace ESA20240910
       Models::ListWafRulesResponse listWafRulesWithOptions(const Models::ListWafRulesRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Lists all rules or filters rules by specific conditions under Web Application Firewall (WAF). You can use this operation to query detailed information about WAF rules in a paged manner.
+       * @summary Lists all Web Application Firewall (WAF) rules or filters rules based on specific conditions. You can call this operation to query the details of WAF rules in a paginated manner.
        *
        * @param request ListWafRulesRequest
        * @return ListWafRulesResponse
@@ -6706,7 +6772,7 @@ namespace ESA20240910
       Models::ListWafRulesResponse listWafRules(const Models::ListWafRulesRequest &request);
 
       /**
-       * @summary Lists the rulesets under the current WAF execution phase. Queries basic information and status of rulesets with paging support.
+       * @summary Lists the rulesets in the current WAF phase and retrieves the basic information and status of the rulesets through paging in a paged query.
        *
        * @param tmpReq ListWafRulesetsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -6715,7 +6781,7 @@ namespace ESA20240910
       Models::ListWafRulesetsResponse listWafRulesetsWithOptions(const Models::ListWafRulesetsRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Lists the rulesets under the current WAF execution phase. Queries basic information and status of rulesets with paging support.
+       * @summary Lists the rulesets in the current WAF phase and retrieves the basic information and status of the rulesets through paging in a paged query.
        *
        * @param request ListWafRulesetsRequest
        * @return ListWafRulesetsResponse
@@ -6723,7 +6789,7 @@ namespace ESA20240910
       Models::ListWafRulesetsResponse listWafRulesets(const Models::ListWafRulesetsRequest &request);
 
       /**
-       * @summary Lists the template rules in WAF. These rules are typically predefined rulesets for quickly enabling protection against common attack types.
+       * @summary Lists the template rules in Web Application Firewall (WAF). These rules are typically predefined rule sets used to quickly enable protection against common attack types.
        *
        * @param tmpReq ListWafTemplateRulesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -6732,7 +6798,7 @@ namespace ESA20240910
       Models::ListWafTemplateRulesResponse listWafTemplateRulesWithOptions(const Models::ListWafTemplateRulesRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Lists the template rules in WAF. These rules are typically predefined rulesets for quickly enabling protection against common attack types.
+       * @summary Lists the template rules in Web Application Firewall (WAF). These rules are typically predefined rule sets used to quickly enable protection against common attack types.
        *
        * @param request ListWafTemplateRulesRequest
        * @return ListWafTemplateRulesResponse
@@ -6757,9 +6823,9 @@ namespace ESA20240910
       Models::ListWafUsageOfRulesResponse listWafUsageOfRules(const Models::ListWafUsageOfRulesRequest &request);
 
       /**
-       * @summary Queries waiting room events for a waiting room.
+       * @summary Queries the details of waiting room events.
        *
-       * @description Use this operation to query details of all waiting room events related to a waiting room in a website.
+       * @description Queries the details of all waiting room events associated with a specified site ID and waiting room ID.
        *
        * @param request ListWaitingRoomEventsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -6768,9 +6834,9 @@ namespace ESA20240910
       Models::ListWaitingRoomEventsResponse listWaitingRoomEventsWithOptions(const Models::ListWaitingRoomEventsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries waiting room events for a waiting room.
+       * @summary Queries the details of waiting room events.
        *
-       * @description Use this operation to query details of all waiting room events related to a waiting room in a website.
+       * @description Queries the details of all waiting room events associated with a specified site ID and waiting room ID.
        *
        * @param request ListWaitingRoomEventsRequest
        * @return ListWaitingRoomEventsResponse
@@ -7676,7 +7742,7 @@ namespace ESA20240910
       Models::UpdateCacheReserveResponse updateCacheReserve(const Models::UpdateCacheReserveRequest &request);
 
       /**
-       * @summary Cache Reserve Specification Change
+       * @summary Modifies the specifications of cache retention.
        *
        * @param request UpdateCacheReserveSpecRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -7685,7 +7751,7 @@ namespace ESA20240910
       Models::UpdateCacheReserveSpecResponse updateCacheReserveSpecWithOptions(const Models::UpdateCacheReserveSpecRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Cache Reserve Specification Change
+       * @summary Modifies the specifications of cache retention.
        *
        * @param request UpdateCacheReserveSpecRequest
        * @return UpdateCacheReserveSpecResponse
@@ -7968,6 +8034,23 @@ namespace ESA20240910
       Models::UpdateEnvironmentVersionResponse updateEnvironmentVersion(const Models::UpdateEnvironmentVersionRequest &request);
 
       /**
+       * @summary Modifies the error code redirect configuration.
+       *
+       * @param tmpReq UpdateErrorPagesRedirectRuleRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return UpdateErrorPagesRedirectRuleResponse
+       */
+      Models::UpdateErrorPagesRedirectRuleResponse updateErrorPagesRedirectRuleWithOptions(const Models::UpdateErrorPagesRedirectRuleRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Modifies the error code redirect configuration.
+       *
+       * @param request UpdateErrorPagesRedirectRuleRequest
+       * @return UpdateErrorPagesRedirectRuleResponse
+       */
+      Models::UpdateErrorPagesRedirectRuleResponse updateErrorPagesRedirectRule(const Models::UpdateErrorPagesRedirectRuleRequest &request);
+
+      /**
        * @summary Modify HTTP incoming request header configuration.
        *
        * @param tmpReq UpdateHttpIncomingRequestHeaderModificationRuleRequest
@@ -8036,7 +8119,7 @@ namespace ESA20240910
       Models::UpdateHttpResponseHeaderModificationRuleResponse updateHttpResponseHeaderModificationRule(const Models::UpdateHttpResponseHeaderModificationRuleRequest &request);
 
       /**
-       * @summary Update the HTTPS Application Configuration.
+       * @summary Modifies the HTTPS application configuration.
        *
        * @param request UpdateHttpsApplicationConfigurationRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -8045,7 +8128,7 @@ namespace ESA20240910
       Models::UpdateHttpsApplicationConfigurationResponse updateHttpsApplicationConfigurationWithOptions(const Models::UpdateHttpsApplicationConfigurationRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Update the HTTPS Application Configuration.
+       * @summary Modifies the HTTPS application configuration.
        *
        * @param request UpdateHttpsApplicationConfigurationRequest
        * @return UpdateHttpsApplicationConfigurationResponse
@@ -8121,9 +8204,9 @@ namespace ESA20240910
       Models::UpdateListResponse updateList(const Models::UpdateListRequest &request);
 
       /**
-       * @summary To modify an existing load balancer, you must specify its load balancer ID.
+       * @summary Modifies the information of an existing load balancing instance. The load balancing instance ID is required to identify the load balancing instance to be modified.
        *
-       * @description This operation modifies multiple configurations for a load balancer, including its name, acceleration status, session persistence policy, and advanced traffic routing settings.>Notice: Changes to certain parameters might affect the stability of existing services. Proceed with caution.
+       * @description This operation allows you to modify multiple configurations of a load balancing instance, including but not limited to the load balancing instance name, acceleration status, session persistence policy, and various advanced settings related to traffic routing.>Notice: Changes to certain parameters may affect the stability of existing services. Proceed with caution.
        *
        * @param tmpReq UpdateLoadBalancerRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -8132,9 +8215,9 @@ namespace ESA20240910
       Models::UpdateLoadBalancerResponse updateLoadBalancerWithOptions(const Models::UpdateLoadBalancerRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary To modify an existing load balancer, you must specify its load balancer ID.
+       * @summary Modifies the information of an existing load balancing instance. The load balancing instance ID is required to identify the load balancing instance to be modified.
        *
-       * @description This operation modifies multiple configurations for a load balancer, including its name, acceleration status, session persistence policy, and advanced traffic routing settings.>Notice: Changes to certain parameters might affect the stability of existing services. Proceed with caution.
+       * @description This operation allows you to modify multiple configurations of a load balancing instance, including but not limited to the load balancing instance name, acceleration status, session persistence policy, and various advanced settings related to traffic routing.>Notice: Changes to certain parameters may affect the stability of existing services. Proceed with caution.
        *
        * @param request UpdateLoadBalancerRequest
        * @return UpdateLoadBalancerResponse
@@ -8142,7 +8225,7 @@ namespace ESA20240910
       Models::UpdateLoadBalancerResponse updateLoadBalancer(const Models::UpdateLoadBalancerRequest &request);
 
       /**
-       * @summary Modify the site hosting transformation configuration.
+       * @summary Modifies the site hosting transformation configuration.
        *
        * @param request UpdateManagedTransformRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -8151,7 +8234,7 @@ namespace ESA20240910
       Models::UpdateManagedTransformResponse updateManagedTransformWithOptions(const Models::UpdateManagedTransformRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Modify the site hosting transformation configuration.
+       * @summary Modifies the site hosting transformation configuration.
        *
        * @param request UpdateManagedTransformRequest
        * @return UpdateManagedTransformResponse
@@ -8193,7 +8276,7 @@ namespace ESA20240910
       Models::UpdateOriginPoolResponse updateOriginPool(const Models::UpdateOriginPoolRequest &request);
 
       /**
-       * @summary Modify the origin protection feature to enable or disable origin fetch convergence.
+       * @summary Modifies the origin protection feature to enable or disable back-to-origin convergence.
        *
        * @param request UpdateOriginProtectionRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -8202,7 +8285,7 @@ namespace ESA20240910
       Models::UpdateOriginProtectionResponse updateOriginProtectionWithOptions(const Models::UpdateOriginProtectionRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Modify the origin protection feature to enable or disable origin fetch convergence.
+       * @summary Modifies the origin protection feature to enable or disable back-to-origin convergence.
        *
        * @param request UpdateOriginProtectionRequest
        * @return UpdateOriginProtectionResponse
@@ -8295,15 +8378,15 @@ namespace ESA20240910
       Models::UpdateRatePlanSpecResponse updateRatePlanSpec(const Models::UpdateRatePlanSpecRequest &request);
 
       /**
-       * @summary Updates a DNS record. Various record types and origin authentication configurations are supported.
+       * @summary Updates a DNS record and supports multiple record types and origin server authentication configurations.
        *
-       * @description This API operation allows you to update a DNS record, including but not limited to A/AAAA, CNAME, NS, MX, TXT, CAA, SRV, and URI record types. You can modify the record content by specifying the corresponding record value, priority, flag, and other fields. For CNAME origin servers that require authentication, such as OSS and S3, this API operation also supports configuring origin authentication information to ensure secure access.
-       * ### Before you begin
-       * - The record value (Value) must match the record type. For example, a CNAME record must correspond to a target domain name.
-       * - Certain record types, such as MX and SRV, require a priority (Priority) value.
-       * - CAA records require specific fields such as Flag and Tag.
-       * - When updating security records such as CERT and SSHFP, accurately set the Type, Algorithm, and other fields.
-       * - When using OSS or S3 as the origin server, configure the authentication details in AuthConf based on the permission settings.
+       * @description This API operation allows you to update DNS records, including but not limited to A, AAAA, CNAME, NS, MX, TXT, CAA, SRV, and URI types. You can modify the record content by passing the corresponding record value, priority, flag, and other fields. For CNAME origin servers that require authentication, such as OSS and S3, this API operation also supports configuring origin server authentication information to ensure secure access.
+       * ### Precautions
+       * - The record value must match the record type. For example, a CNAME record must correspond to the target domain name.
+       * - You must specify the priority for certain record types, such as MX and SRV.
+       * - You must provide specific fields such as Flag and Tag for CAA records.
+       * - When updating security records such as CERT and SSHFP, you must accurately set fields such as Type and Algorithm.
+       * - When using OSS or S3 as the origin server, configure the authentication details in AuthConf based on the permissions.
        *
        * @param tmpReq UpdateRecordRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -8312,15 +8395,15 @@ namespace ESA20240910
       Models::UpdateRecordResponse updateRecordWithOptions(const Models::UpdateRecordRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Updates a DNS record. Various record types and origin authentication configurations are supported.
+       * @summary Updates a DNS record and supports multiple record types and origin server authentication configurations.
        *
-       * @description This API operation allows you to update a DNS record, including but not limited to A/AAAA, CNAME, NS, MX, TXT, CAA, SRV, and URI record types. You can modify the record content by specifying the corresponding record value, priority, flag, and other fields. For CNAME origin servers that require authentication, such as OSS and S3, this API operation also supports configuring origin authentication information to ensure secure access.
-       * ### Before you begin
-       * - The record value (Value) must match the record type. For example, a CNAME record must correspond to a target domain name.
-       * - Certain record types, such as MX and SRV, require a priority (Priority) value.
-       * - CAA records require specific fields such as Flag and Tag.
-       * - When updating security records such as CERT and SSHFP, accurately set the Type, Algorithm, and other fields.
-       * - When using OSS or S3 as the origin server, configure the authentication details in AuthConf based on the permission settings.
+       * @description This API operation allows you to update DNS records, including but not limited to A, AAAA, CNAME, NS, MX, TXT, CAA, SRV, and URI types. You can modify the record content by passing the corresponding record value, priority, flag, and other fields. For CNAME origin servers that require authentication, such as OSS and S3, this API operation also supports configuring origin server authentication information to ensure secure access.
+       * ### Precautions
+       * - The record value must match the record type. For example, a CNAME record must correspond to the target domain name.
+       * - You must specify the priority for certain record types, such as MX and SRV.
+       * - You must provide specific fields such as Flag and Tag for CAA records.
+       * - When updating security records such as CERT and SSHFP, you must accurately set fields such as Type and Algorithm.
+       * - When using OSS or S3 as the origin server, configure the authentication details in AuthConf based on the permissions.
        *
        * @param request UpdateRecordRequest
        * @return UpdateRecordResponse
@@ -8523,7 +8606,7 @@ namespace ESA20240910
       Models::UpdateSiteDeliveryTaskResponse updateSiteDeliveryTask(const Models::UpdateSiteDeliveryTaskRequest &request);
 
       /**
-       * @summary Changes the status of a real-time log delivery task.
+       * @summary Modifies the delivery status of a real-time log task.
        *
        * @param request UpdateSiteDeliveryTaskStatusRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -8532,7 +8615,7 @@ namespace ESA20240910
       Models::UpdateSiteDeliveryTaskStatusResponse updateSiteDeliveryTaskStatusWithOptions(const Models::UpdateSiteDeliveryTaskStatusRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Changes the status of a real-time log delivery task.
+       * @summary Modifies the delivery status of a real-time log task.
        *
        * @param request UpdateSiteDeliveryTaskStatusRequest
        * @return UpdateSiteDeliveryTaskStatusResponse
@@ -8540,7 +8623,7 @@ namespace ESA20240910
       Models::UpdateSiteDeliveryTaskStatusResponse updateSiteDeliveryTaskStatus(const Models::UpdateSiteDeliveryTaskStatusRequest &request);
 
       /**
-       * @summary Changes the plan instance associated with a site.
+       * @summary Replaces the plan instance for a site.
        *
        * @param request UpdateSiteInstanceRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -8549,7 +8632,7 @@ namespace ESA20240910
       Models::UpdateSiteInstanceResponse updateSiteInstanceWithOptions(const Models::UpdateSiteInstanceRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Changes the plan instance associated with a site.
+       * @summary Replaces the plan instance for a site.
        *
        * @param request UpdateSiteInstanceRequest
        * @return UpdateSiteInstanceResponse
@@ -8595,9 +8678,9 @@ namespace ESA20240910
       Models::UpdateSitePauseResponse updateSitePause(const Models::UpdateSitePauseRequest &request);
 
       /**
-       * @summary Modifies the custom nameserver (NS) names for a single site.
+       * @summary Modifies the custom NS names for a single site.
        *
-       * @description The site plan must be Enterprise Edition or higher to use the custom NS feature.
+       * @description The custom NS feature is available only for sites on the Enterprise edition plan.
        *
        * @param request UpdateSiteVanityNSRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -8606,9 +8689,9 @@ namespace ESA20240910
       Models::UpdateSiteVanityNSResponse updateSiteVanityNSWithOptions(const Models::UpdateSiteVanityNSRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Modifies the custom nameserver (NS) names for a single site.
+       * @summary Modifies the custom NS names for a single site.
        *
-       * @description The site plan must be Enterprise Edition or higher to use the custom NS feature.
+       * @description The custom NS feature is available only for sites on the Enterprise edition plan.
        *
        * @param request UpdateSiteVanityNSRequest
        * @return UpdateSiteVanityNSResponse
@@ -8616,7 +8699,7 @@ namespace ESA20240910
       Models::UpdateSiteVanityNSResponse updateSiteVanityNS(const Models::UpdateSiteVanityNSRequest &request);
 
       /**
-       * @summary Updates a slider CAPTCHA page.
+       * @summary Updates the slider CAPTCHA page.
        *
        * @param tmpReq UpdateSliderCaptchaPageRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -8625,7 +8708,7 @@ namespace ESA20240910
       Models::UpdateSliderCaptchaPageResponse updateSliderCaptchaPageWithOptions(const Models::UpdateSliderCaptchaPageRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Updates a slider CAPTCHA page.
+       * @summary Updates the slider CAPTCHA page.
        *
        * @param request UpdateSliderCaptchaPageRequest
        * @return UpdateSliderCaptchaPageResponse
@@ -8650,10 +8733,10 @@ namespace ESA20240910
       Models::UpdateTieredCacheResponse updateTieredCache(const Models::UpdateTieredCacheRequest &request);
 
       /**
-       * @summary Modifies the forwarding rule configurations of a Layer 4 application under a specified site.
+       * @summary Modifies the configurations such as forwarding rules for a Layer 4 application under a specified site.
        *
-       * @description If ListTransportLayerApplications returns an empty Layer 4 acceleration application list, use CreateTransportLayerApplication to create a Layer 4 acceleration application, and then use this API to modify the configurations of the Layer 4 acceleration application.
-       * When creating a Layer 4 acceleration application, the selected site must be an activated site. After creating a site, call the VerifySite API to verify it. A site that passes verification is automatically activated, indicated by the response parameter Passed=true.
+       * @description If ListTransportLayerApplications returns an empty list of Layer 4 accelerated applications, you must use CreateTransportLayerApplication to create a Layer 4 accelerated application, and then use this API operation to modify multiple configurations of the application.
+       * When you create a Layer 4 accelerated application, the selected site must be activated. After you create a site, call the VerifySite API operation to verify the site. A site that passes the verification is automatically activated, which means the response parameter Passed is set to true.
        *
        * @param tmpReq UpdateTransportLayerApplicationRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -8662,10 +8745,10 @@ namespace ESA20240910
       Models::UpdateTransportLayerApplicationResponse updateTransportLayerApplicationWithOptions(const Models::UpdateTransportLayerApplicationRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Modifies the forwarding rule configurations of a Layer 4 application under a specified site.
+       * @summary Modifies the configurations such as forwarding rules for a Layer 4 application under a specified site.
        *
-       * @description If ListTransportLayerApplications returns an empty Layer 4 acceleration application list, use CreateTransportLayerApplication to create a Layer 4 acceleration application, and then use this API to modify the configurations of the Layer 4 acceleration application.
-       * When creating a Layer 4 acceleration application, the selected site must be an activated site. After creating a site, call the VerifySite API to verify it. A site that passes verification is automatically activated, indicated by the response parameter Passed=true.
+       * @description If ListTransportLayerApplications returns an empty list of Layer 4 accelerated applications, you must use CreateTransportLayerApplication to create a Layer 4 accelerated application, and then use this API operation to modify multiple configurations of the application.
+       * When you create a Layer 4 accelerated application, the selected site must be activated. After you create a site, call the VerifySite API operation to verify the site. A site that passes the verification is automatically activated, which means the response parameter Passed is set to true.
        *
        * @param request UpdateTransportLayerApplicationRequest
        * @return UpdateTransportLayerApplicationResponse
@@ -8690,9 +8773,9 @@ namespace ESA20240910
       Models::UpdateUrlObservationResponse updateUrlObservation(const Models::UpdateUrlObservationRequest &request);
 
       /**
-       * @summary Modifies the delivery task configuration of a user, allowing you to set the task name, select fields, specify the real-time log type, and adjust the discard rate.
+       * @summary Modifies the task delivery configuration for a user, allowing you to set the task name, select fields, specify the real-time log type, and adjust the discard rate.
        *
-       * @description Before calling this operation, you must have successfully created a task with the target TaskName by using CreateUserDeliveryTask. Only then can you use this operation to update the delivery task configuration.
+       * @description Before calling this operation, you must create a task with the specified TaskName by calling CreateUserDeliveryTask. You can then use this operation to update the delivery task configuration.
        *
        * @param request UpdateUserDeliveryTaskRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -8701,9 +8784,9 @@ namespace ESA20240910
       Models::UpdateUserDeliveryTaskResponse updateUserDeliveryTaskWithOptions(const Models::UpdateUserDeliveryTaskRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Modifies the delivery task configuration of a user, allowing you to set the task name, select fields, specify the real-time log type, and adjust the discard rate.
+       * @summary Modifies the task delivery configuration for a user, allowing you to set the task name, select fields, specify the real-time log type, and adjust the discard rate.
        *
-       * @description Before calling this operation, you must have successfully created a task with the target TaskName by using CreateUserDeliveryTask. Only then can you use this operation to update the delivery task configuration.
+       * @description Before calling this operation, you must create a task with the specified TaskName by calling CreateUserDeliveryTask. You can then use this operation to update the delivery task configuration.
        *
        * @param request UpdateUserDeliveryTaskRequest
        * @return UpdateUserDeliveryTaskResponse
@@ -8711,10 +8794,9 @@ namespace ESA20240910
       Models::UpdateUserDeliveryTaskResponse updateUserDeliveryTask(const Models::UpdateUserDeliveryTaskRequest &request);
 
       /**
-       * @summary Changes the status of a delivery task in your Alibaba Cloud account.
+       * @summary Enables or disables a user task delivery.
        *
-       * @description ## [](#)
-       * Use this operation to enable or disable a delivery task by using TaskName and Method. The response includes the most recent status and operation result details of the task.
+       * @description This operation enables or disables the data delivery feature of a task based on the task name and method. The method must be specified as online or offline. The response returns the latest status of the task and the operation result details.
        *
        * @param request UpdateUserDeliveryTaskStatusRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -8723,10 +8805,9 @@ namespace ESA20240910
       Models::UpdateUserDeliveryTaskStatusResponse updateUserDeliveryTaskStatusWithOptions(const Models::UpdateUserDeliveryTaskStatusRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Changes the status of a delivery task in your Alibaba Cloud account.
+       * @summary Enables or disables a user task delivery.
        *
-       * @description ## [](#)
-       * Use this operation to enable or disable a delivery task by using TaskName and Method. The response includes the most recent status and operation result details of the task.
+       * @description This operation enables or disables the data delivery feature of a task based on the task name and method. The method must be specified as online or offline. The response returns the latest status of the task and the operation result details.
        *
        * @param request UpdateUserDeliveryTaskStatusRequest
        * @return UpdateUserDeliveryTaskStatusResponse
@@ -8734,12 +8815,12 @@ namespace ESA20240910
       Models::UpdateUserDeliveryTaskStatusResponse updateUserDeliveryTaskStatus(const Models::UpdateUserDeliveryTaskStatusRequest &request);
 
       /**
-       * @summary Modifies the WAF ruleset configuration for a specified instance, including its position, name, and other properties.
+       * @summary Modifies the configuration of a WAF rule set for a specified instance, including the position and name.
        *
        * @description ## Request description
-       * - This operation updates an existing WAF ruleset. You can modify the position, name, description, status, and expression of the ruleset.
-       * - Include only the parameters that you want to modify. Omit parameters that you do not want to change.
-       * - Note: Before you call this operation, ensure that the `InstanceId` and `Id` values are correct. Otherwise, the request may fail.
+       * - This operation allows you to update an existing WAF rule set. You can modify the position, name, description, status, and expression of the rule set.
+       * - Specify only the parameters that you want to modify. You do not need to pass the key of a parameter that remains unchanged.
+       * - Note: Make sure that you have obtained the correct `InstanceId` and `Id` values before you call this operation. Otherwise, the request may fail.
        *
        * @param tmpReq UpdateUserWafRulesetRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -8748,12 +8829,12 @@ namespace ESA20240910
       Models::UpdateUserWafRulesetResponse updateUserWafRulesetWithOptions(const Models::UpdateUserWafRulesetRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Modifies the WAF ruleset configuration for a specified instance, including its position, name, and other properties.
+       * @summary Modifies the configuration of a WAF rule set for a specified instance, including the position and name.
        *
        * @description ## Request description
-       * - This operation updates an existing WAF ruleset. You can modify the position, name, description, status, and expression of the ruleset.
-       * - Include only the parameters that you want to modify. Omit parameters that you do not want to change.
-       * - Note: Before you call this operation, ensure that the `InstanceId` and `Id` values are correct. Otherwise, the request may fail.
+       * - This operation allows you to update an existing WAF rule set. You can modify the position, name, description, status, and expression of the rule set.
+       * - Specify only the parameters that you want to modify. You do not need to pass the key of a parameter that remains unchanged.
+       * - Note: Make sure that you have obtained the correct `InstanceId` and `Id` values before you call this operation. Otherwise, the request may fail.
        *
        * @param request UpdateUserWafRulesetRequest
        * @return UpdateUserWafRulesetResponse
@@ -8812,7 +8893,7 @@ namespace ESA20240910
       Models::UpdateWafRuleResponse updateWafRule(const Models::UpdateWafRuleRequest &request);
 
       /**
-       * @summary Updates a WAF ruleset based on its ID.
+       * @summary Updates a WAF rule set based on the ID of the rule set.
        *
        * @param request UpdateWafRulesetRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -8821,7 +8902,7 @@ namespace ESA20240910
       Models::UpdateWafRulesetResponse updateWafRulesetWithOptions(const Models::UpdateWafRulesetRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Updates a WAF ruleset based on its ID.
+       * @summary Updates a WAF rule set based on the ID of the rule set.
        *
        * @param request UpdateWafRulesetRequest
        * @return UpdateWafRulesetResponse

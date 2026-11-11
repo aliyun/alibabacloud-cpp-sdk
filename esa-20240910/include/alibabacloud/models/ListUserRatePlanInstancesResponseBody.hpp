@@ -173,7 +173,7 @@ namespace Models
         // - **pending**: The site is pending configuration.
         // - **active**: The site is activated.
         // - **offline**: The site is offline.
-        // - **moved**: The site is replaced.
+        // - **moved**: The site has been replaced.
         shared_ptr<string> siteStatus_ {};
       };
 
@@ -405,24 +405,23 @@ namespace Models
       // If this parameter is empty, no bot protection instance is purchased for the plan. If a value is returned, a bot protection instance is purchased for the plan. Valid values:
       // 
       // - enterprise_bot: Web edition.
-      // 
       // - enterprise_bot_with_app: App edition.
       shared_ptr<string> botInstanceLevel_ {};
       // The prepaid number of bot requests in the plan. Unit: 10,000 requests.
       shared_ptr<string> botRequest_ {};
       // The acceleration regions where the site can be bound. Multiple regions are separated by commas (,). Valid values:
       // 
-      // - **domestic**: Chinese mainland.
+      // - **domestic**: The Chinese mainland.
       // - **overseas**: Global (excluding the Chinese mainland).
       // - **global**: Global (including the Chinese mainland).
       shared_ptr<string> coverages_ {};
-      // The creation time of the plan instance. The time is displayed in UTC and formatted as yyyy-MM-ddTHH:mm:ssZ in accordance with ISO 8601.
+      // The creation time of the plan instance. The time is displayed in UTC and formatted in accordance with the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format.
       shared_ptr<string> createTime_ {};
       // The prepaid China network acceleration traffic in the plan. Unit: GB.
       shared_ptr<string> crossborderTraffic_ {};
-      // The specifications of the Anti-DDoS instance in the plan for the Chinese mainland.
+      // The specifications of the Anti-DDoS instance in the Chinese mainland for the plan.
       shared_ptr<string> ddosBurstableDomesticProtection_ {};
-      // The specifications of the Anti-DDoS instance in the plan for regions outside the Chinese mainland.
+      // The specifications of the Anti-DDoS instance outside the Chinese mainland for the plan.
       shared_ptr<string> ddosBurstableOverseasProtection_ {};
       // If this parameter is empty, no Anti-DDoS instance is purchased for the plan. If a value is returned, an Anti-DDoS instance is purchased for the plan, and the value is `esa_ddos_instance`.
       shared_ptr<string> ddosInstanceLevel_ {};
@@ -430,11 +429,11 @@ namespace Models
       shared_ptr<int32_t> duration_ {};
       // The prepaid number of Edge Routine (ER) requests in the plan. Unit: 10,000 requests.
       shared_ptr<string> edgeRoutineRquest_ {};
-      // The prepaid number of Web Application Firewall (WAF) requests in the plan. Unit: 10,000 requests.
+      // The prepaid number of WAF requests in the plan. Unit: 10,000 requests.
       shared_ptr<string> edgeWafRequest_ {};
-      // The expiration time of the plan instance. The time is displayed in UTC and formatted as yyyy-MM-ddTHH:mm:ssZ in accordance with ISO 8601.
+      // The expiration time of the plan instance. The time is displayed in UTC and formatted in accordance with the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format.
       shared_ptr<string> expireTime_ {};
-      // The instance ID.
+      // The instance ID of the plan.
       shared_ptr<string> instanceId_ {};
       // The prepaid Layer 4 proxy traffic in the plan for the Chinese mainland. Unit: GB.
       shared_ptr<string> layer4Traffic_ {};
@@ -459,7 +458,7 @@ namespace Models
       shared_ptr<string> renewalStatus_ {};
       shared_ptr<int64_t> resourceOwner_ {};
       shared_ptr<string> shareType_ {};
-      // The quota for the number of sites under the plan instance.
+      // The site quota under the plan instance.
       shared_ptr<string> siteQuota_ {};
       // The list of sites bound to the current plan instance.
       shared_ptr<vector<InstanceInfo::Sites>> sites_ {};
@@ -467,10 +466,10 @@ namespace Models
       shared_ptr<string> smartRoutingRequest_ {};
       // The prepaid number of HTTP requests in the plan. Unit: 10,000 requests.
       shared_ptr<string> staticRequest_ {};
-      // The instance status. Valid values:
-      // - **online**: The instance is in normal service status.
-      // - **offline**: The instance has expired but is not overdue, and is in an inactive state.
-      // - **disable**: The instance is released.
+      // The instance status of the plan. Valid values:
+      // - **online**: The normal service status.
+      // - **offline**: The instance has expired but not overdue, and is in an inactive state.
+      // - **disable**: The released status.
       shared_ptr<string> status_ {};
       // The subscription type of the plan. Valid values:
       // 
@@ -530,7 +529,7 @@ namespace Models
 
 
   protected:
-    // The plan instances that meet the query conditions under the user.
+    // The plan instances that meet the conditions under the user.
     shared_ptr<vector<ListUserRatePlanInstancesResponseBody::InstanceInfo>> instanceInfo_ {};
     // The current page number, which is the same as the PageNumber request parameter.
     shared_ptr<int32_t> pageNumber_ {};

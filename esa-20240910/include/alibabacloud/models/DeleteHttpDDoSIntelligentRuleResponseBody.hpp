@@ -72,7 +72,7 @@ namespace Models
     shared_ptr<string> requestId_ {};
     // The ID of the rule.
     shared_ptr<int64_t> ruleId_ {};
-    // The ID of the site. Call the [ListSites](https://help.aliyun.com/document_detail/2850189.html) operation to obtain the site ID.
+    // The site ID. You can call the [ListSites](https://help.aliyun.com/document_detail/2850189.html) operation to obtain the site ID.
     shared_ptr<int64_t> siteId_ {};
   };
 

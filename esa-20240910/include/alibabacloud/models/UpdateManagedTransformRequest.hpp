@@ -75,25 +75,21 @@ namespace Models
 
 
   protected:
-    // Specifies whether to add a header that contains visitor geolocation information. Valid values:
-    // 
-    // - `on`: Add the header.
-    // 
-    // - `off`: Do not add the header.
+    // Specifies whether to add the visitor geolocation header. Valid values:
+    // - on: Enabled.
+    // - off: Disabled.
     shared_ptr<string> addClientGeolocationHeader_ {};
-    // Specifies whether to add the `ali-real-client-ip` header, which contains the real client IP. Valid values:
-    // 
-    // - `on`: Add the header.
-    // 
-    // - `off`: Do not add the header.
+    // Specifies whether to add the ali-real-client-ip header that contains the real client IP address. Valid values:
+    // - on: Enabled.
+    // - off: Disabled.
     shared_ptr<string> addRealClientIpHeader_ {};
-    // The name of the header that contains the real client IP. The name must start with a letter and can contain letters, digits (0-9), and hyphens (-).
+    // The name of the real client IP address header. The name must start with a letter and can contain digits and hyphens (-).
     shared_ptr<string> realClientIpHeaderName_ {};
-    // The ID of the site. You can call the [ListSites](https://help.aliyun.com/document_detail/2850189.html) operation to obtain this ID.
+    // The ID of the site. You can obtain the ID by calling the [ListSites](https://help.aliyun.com/document_detail/2850189.html) operation.
     // 
     // This parameter is required.
     shared_ptr<int64_t> siteId_ {};
-    // The version of the site. For sites with version management enabled, this parameter specifies the version to which the configuration applies. Default value: 0.
+    // The version number of the site. For sites with version management enabled, you can use this parameter to specify the site version to which the configuration applies. Default value: 0.
     shared_ptr<int32_t> siteVersion_ {};
   };
 

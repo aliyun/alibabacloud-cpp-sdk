@@ -57,11 +57,11 @@ namespace Models
 
 
   protected:
-    // The page number for paging.
+    // The page number for paging in a paged query.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries per page for paging.
+    // The number of entries per page for paging in a paged query.
     shared_ptr<int32_t> pageSize_ {};
-    // The query parameters passed in JSON format, which contain various filter conditions.
+    // The query parameters, passed in JSON format, which include various filter conditions.
     shared_ptr<string> queryArgsShrink_ {};
   };
 

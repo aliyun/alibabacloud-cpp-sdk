@@ -69,15 +69,15 @@ namespace Models
 
 
   protected:
-    // The description of the custom list. This parameter provides detailed information about the custom list.
+    // The description of the list, which provides details about the custom list.
     shared_ptr<string> description_ {};
-    // The list items. This parameter provides the specific item data for the list.
+    // The content of the list, which provides specific data for the list items.
     shared_ptr<vector<string>> items_ {};
-    // The kind of the custom list. This parameter specifies the type of the custom list.
+    // The kind of the list, which specifies the type of the custom list.
     shared_ptr<string> kind_ {};
     // The name of the custom list.
     // 
-    // **Naming rules**: Only letters, digits, and underscores are supported (`^\\w{1,64}$`). The name must be 1 to 64 characters in length.
+    // **Naming rules**: Only letters, digits, and underscores are supported. The value must match the regular expression `^\\w{1,64}$` and be 1 to 64 characters in length.
     // 
     // This parameter is required.
     shared_ptr<string> name_ {};

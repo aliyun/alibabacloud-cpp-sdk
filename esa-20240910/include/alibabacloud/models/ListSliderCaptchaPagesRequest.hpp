@@ -61,7 +61,7 @@ namespace Models
 
 
     protected:
-      // The fuzzy search keyword for the name.
+      // The fuzzy name search.
       shared_ptr<string> nameLike_ {};
     };
 
@@ -93,7 +93,7 @@ namespace Models
   protected:
     // The page number.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries per page.
+    // The page size.
     shared_ptr<int32_t> pageSize_ {};
     // The filter parameters.
     shared_ptr<ListSliderCaptchaPagesRequest::QueryArgs> queryArgs_ {};

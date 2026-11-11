@@ -114,36 +114,36 @@ namespace Models
   protected:
     // Specifies whether to check for remaining site quotas. Valid values:
     // 
-    // - true: Queries instances that have remaining site quotas.
+    // - true: Queries instances with remaining site quotas.
     // 
     // - false: Does not filter by this condition.
     shared_ptr<string> checkRemainingSiteQuota_ {};
-    // The instance ID, which is used to query a specific instance.
+    // The instance ID, which is used to precisely query a single instance.
     shared_ptr<string> instanceId_ {};
-    // The page number Settings for paging in a paged query. The value must be greater than or equal to 1.
+    // The page number for paging. The value must be greater than or equal to 1.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries per page for paging in a paged query. Valid values: 1 to 500.
+    // The page size for paging. Valid values: 1 to 500.
     shared_ptr<int32_t> pageSize_ {};
     shared_ptr<int64_t> resourceOwner_ {};
-    // Specifies the field by which to sort the results. Valid values:
+    // The field by which to sort the results. Valid values:
     // 
-    // - CreateTime: sorts by creation time
+    // - CreateTime: Sorts by creation time.
     shared_ptr<string> sortBy_ {};
     // The sort order. Valid values:
     // 
-    //  * asc: ascending order
+    // - asc: Ascending order.
     // 
-    //  * desc: descending order
+    // - desc: Descending order.
     shared_ptr<string> sortOrder_ {};
     // The instance status. Valid values:
     // 
-    //  * online: normal status
+    // - online: Normal.
     // 
-    //  * overdue: overdue payment
+    // - overdue: Overdue payment.
     // 
-    //  * disable: released
+    // - disable: Released.
     shared_ptr<string> status_ {};
-    // Specifies whether bot or DDoS protection is added to the instance.
+    // Specifies whether the instance has the Bot Management or Anti-DDoS add-on.
     shared_ptr<string> unrelatedType_ {};
   };
 

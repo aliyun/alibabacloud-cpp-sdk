@@ -119,11 +119,11 @@ namespace Models
 
 
       protected:
-        // Specifies whether to display the footer.
+        // Specifies whether to show the footer.
         shared_ptr<bool> showFooter_ {};
-        // Specifies whether to display the request ID.
+        // Specifies whether to show the request ID.
         shared_ptr<bool> showRequestId_ {};
-        // The slider color.
+        // The color of the slider.
         shared_ptr<string> sliderColor_ {};
         // The title.
         shared_ptr<string> title_ {};
@@ -185,11 +185,11 @@ namespace Models
 
 
       protected:
-        // Specifies whether to display the footer.
+        // Specifies whether to show the footer.
         shared_ptr<bool> showFooter_ {};
-        // Specifies whether to display the request ID.
+        // Specifies whether to show the request ID.
         shared_ptr<bool> showRequestId_ {};
-        // The slider color.
+        // The color of the slider.
         shared_ptr<string> sliderColor_ {};
         // The title.
         shared_ptr<string> title_ {};
@@ -279,11 +279,11 @@ namespace Models
 
 
   protected:
-    // The predefined configurations for the custom slider page.
+    // The predefined configurations of the custom slider page.
     shared_ptr<GetSliderCaptchaPageResponseBody::Configs> configs_ {};
     // The custom slider configurations.
     shared_ptr<string> customContent_ {};
-    // The forced language.
+    // The forcibly specified language.
     shared_ptr<string> forceLanguage_ {};
     // The ID of the custom slider page.
     shared_ptr<int64_t> id_ {};
@@ -291,7 +291,7 @@ namespace Models
     shared_ptr<string> name_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The list of bound site IDs.
+    // The list of associated site IDs.
     shared_ptr<vector<int64_t>> siteIds_ {};
   };
 

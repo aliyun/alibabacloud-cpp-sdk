@@ -2,6 +2,7 @@
 #include <alibabacloud/ESA20240910.hpp>
 #include <alibabacloud/Utils.hpp>
 #include <alibabacloud/Openapi.hpp>
+#include <alibabacloud/gateway/POP.hpp>
 #include <darabonba/Runtime.hpp>
 #include <darabonba/policy/Retry.hpp>
 #include <darabonba/Exception.hpp>
@@ -16,6 +17,7 @@ using namespace std;
 using namespace Darabonba;
 using json = nlohmann::json;
 using namespace Darabonba::Http;
+using namespace AlibabaCloud::Gateway;
 using namespace AlibabaCloud::OpenApi;
 using namespace AlibabaCloud::OpenApi::Exceptions;
 using namespace AlibabaCloud::ESA20240910::Models;
@@ -28,6 +30,9 @@ namespace ESA20240910
 {
 
 AlibabaCloud::ESA20240910::Client::Client(AlibabaCloud::OpenApi::Utils::Models::Config &config): OpenApiClient(config){
+  this->_productId = "ESA";
+  shared_ptr<POP> gatewayClient = make_shared<POP>();
+  this->_spi = gatewayClient;
   this->_endpointRule = "regional";
   checkConfig(config);
   this->_endpoint = getEndpoint("esa", _regionId, _endpointRule, _network, _suffix, _endpointMap, _endpoint);
@@ -128,7 +133,7 @@ string Client::getEndpoint(const string &productId, const string &regionId, cons
 }
 
 /**
- * @summary Activates the client based on the certificate ID.
+ * @summary Activates a client based on the certificate ID.
  *
  * @param request ActivateClientCertificateRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -155,7 +160,7 @@ ActivateClientCertificateResponse Client::activateClientCertificateWithOptions(c
 }
 
 /**
- * @summary Activates the client based on the certificate ID.
+ * @summary Activates a client based on the certificate ID.
  *
  * @param request ActivateClientCertificateRequest
  * @return ActivateClientCertificateResponse
@@ -166,10 +171,10 @@ ActivateClientCertificateResponse Client::activateClientCertificate(const Activa
 }
 
 /**
- * @summary Enables version management. This allows a site to support multiple configuration versions and multiple deployment environments, providing more flexible management of site traffic and configuration.
+ * @summary Enables version management to allow a site to support multiple configuration versions and deployment environments for more flexible management of site traffic and configurations.
  *
  * @description Prerequisites for enabling site version management:
- * 1. The site plan must include the version management quota item `version_management_available`, and its value must be `true`.
+ * 1. The site plan must include the version management quota item `version_management_available` with the value set to `true`.
  *
  * @param request ActivateVersionManagementRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -200,10 +205,10 @@ ActivateVersionManagementResponse Client::activateVersionManagementWithOptions(c
 }
 
 /**
- * @summary Enables version management. This allows a site to support multiple configuration versions and multiple deployment environments, providing more flexible management of site traffic and configuration.
+ * @summary Enables version management to allow a site to support multiple configuration versions and deployment environments for more flexible management of site traffic and configurations.
  *
  * @description Prerequisites for enabling site version management:
- * 1. The site plan must include the version management quota item `version_management_available`, and its value must be `true`.
+ * 1. The site plan must include the version management quota item `version_management_available` with the value set to `true`.
  *
  * @param request ActivateVersionManagementRequest
  * @return ActivateVersionManagementResponse
@@ -214,7 +219,7 @@ ActivateVersionManagementResponse Client::activateVersionManagement(const Activa
 }
 
 /**
- * @summary Creates a user opportunity order.
+ * @summary Creates a user opportunity ticket.
  *
  * @param request AddUserBusinessFormRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -269,7 +274,7 @@ AddUserBusinessFormResponse Client::addUserBusinessFormWithOptions(const AddUser
 }
 
 /**
- * @summary Creates a user opportunity order.
+ * @summary Creates a user opportunity ticket.
  *
  * @param request AddUserBusinessFormRequest
  * @return AddUserBusinessFormResponse
@@ -334,7 +339,7 @@ ApplyCertificateResponse Client::applyCertificate(const ApplyCertificateRequest 
 }
 
 /**
- * @summary Requests a new free certificate for a Software as a Service (SaaS) domain name. Call this operation only if the previous certificate request failed, or the current certificate is about to expire or has expired.
+ * @summary Reapplies for a free certificate for a SaaS domain name. This operation is supported only when the current free certificate application fails, is about to expire, or has expired.
  *
  * @param request ApplyCustomHostnameCertificateRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -365,7 +370,7 @@ ApplyCustomHostnameCertificateResponse Client::applyCustomHostnameCertificateWit
 }
 
 /**
- * @summary Requests a new free certificate for a Software as a Service (SaaS) domain name. Call this operation only if the previous certificate request failed, or the current certificate is about to expire or has expired.
+ * @summary Reapplies for a free certificate for a SaaS domain name. This operation is supported only when the current free certificate application fails, is about to expire, or has expired.
  *
  * @param request ApplyCustomHostnameCertificateRequest
  * @return ApplyCustomHostnameCertificateResponse
@@ -376,10 +381,10 @@ ApplyCustomHostnameCertificateResponse Client::applyCustomHostnameCertificate(co
 }
 
 /**
- * @summary Creates multiple DNS records in a batch. Multiple record types are supported.
+ * @summary Adds DNS records in batches and supports multiple record types.
  *
- * @description This API operation allows you to create or update multiple DNS records at a time. It is suitable for scenarios that require managing a large number of DNS configurations. Supported record types include but are not limited to A/AAAA, CNAME, NS, MX, TXT, CAA, SRV, and URI. Detailed configuration items are provided to meet specific requirements, such as Priority, Flag, Tag, and Weight. In addition, for specific record types such as CERT, SSHFP, SMIMEA, and TLSA, advanced settings such as certificate information and encryption algorithms are supported.
- * Successfully and unsuccessfully processed records are listed separately in the response, so that you can identify which records are processed, which records failed, and the failure reasons.
+ * @description This API operation allows you to create or update multiple DNS record entries at a time, which is suitable for scenarios that require managing a large number of DNS configurations. Supported record types include but are not limited to A/AAAA, CNAME, NS, MX, TXT, CAA, SRV, and URI. Detailed configuration items are provided to meet specific requirements, such as priority, flag, tag, and weight. In addition, for specific record types such as CERT, SSHFP, SMIMEA, and TLSA, advanced settings such as certificate information and encryption algorithms are supported.
+ * Successful and failed record operations are listed separately in the response, so that you can understand which records are processed successfully and which records fail and the reasons for the failures.
  *
  * @param tmpReq BatchCreateRecordsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -420,10 +425,10 @@ BatchCreateRecordsResponse Client::batchCreateRecordsWithOptions(const BatchCrea
 }
 
 /**
- * @summary Creates multiple DNS records in a batch. Multiple record types are supported.
+ * @summary Adds DNS records in batches and supports multiple record types.
  *
- * @description This API operation allows you to create or update multiple DNS records at a time. It is suitable for scenarios that require managing a large number of DNS configurations. Supported record types include but are not limited to A/AAAA, CNAME, NS, MX, TXT, CAA, SRV, and URI. Detailed configuration items are provided to meet specific requirements, such as Priority, Flag, Tag, and Weight. In addition, for specific record types such as CERT, SSHFP, SMIMEA, and TLSA, advanced settings such as certificate information and encryption algorithms are supported.
- * Successfully and unsuccessfully processed records are listed separately in the response, so that you can identify which records are processed, which records failed, and the failure reasons.
+ * @description This API operation allows you to create or update multiple DNS record entries at a time, which is suitable for scenarios that require managing a large number of DNS configurations. Supported record types include but are not limited to A/AAAA, CNAME, NS, MX, TXT, CAA, SRV, and URI. Detailed configuration items are provided to meet specific requirements, such as priority, flag, tag, and weight. In addition, for specific record types such as CERT, SSHFP, SMIMEA, and TLSA, advanced settings such as certificate information and encryption algorithms are supported.
+ * Successful and failed record operations are listed separately in the response, so that you can understand which records are processed successfully and which records fail and the reasons for the failures.
  *
  * @param request BatchCreateRecordsRequest
  * @return BatchCreateRecordsResponse
@@ -434,7 +439,7 @@ BatchCreateRecordsResponse Client::batchCreateRecords(const BatchCreateRecordsRe
 }
 
 /**
- * @summary Batch creates rules in a specified WAF phase. You can create multiple rules at a time and configure shared settings for these rules.
+ * @summary Creates multiple rules in a specified WAF phase in a single batch and configures shared settings for the rules.
  *
  * @param tmpReq BatchCreateWafRulesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -497,7 +502,7 @@ BatchCreateWafRulesResponse Client::batchCreateWafRulesWithOptions(const BatchCr
 }
 
 /**
- * @summary Batch creates rules in a specified WAF phase. You can create multiple rules at a time and configure shared settings for these rules.
+ * @summary Creates multiple rules in a specified WAF phase in a single batch and configures shared settings for the rules.
  *
  * @param request BatchCreateWafRulesRequest
  * @return BatchCreateWafRulesResponse
@@ -1118,7 +1123,7 @@ BatchPutKvWithHighCapacityResponse Client::batchPutKvWithHighCapacityAdvance(con
 }
 
 /**
- * @summary Batch updates rules in a specified WAF ruleset. You can use this operation to update the configurations of multiple rules at a time.
+ * @summary Modifies multiple rules in a specified WAF rule set in batches. You can use this operation to update the configurations of multiple rules at the same time.
  *
  * @param tmpReq BatchUpdateWafRulesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1181,7 +1186,7 @@ BatchUpdateWafRulesResponse Client::batchUpdateWafRulesWithOptions(const BatchUp
 }
 
 /**
- * @summary Batch updates rules in a specified WAF ruleset. You can use this operation to update the configurations of multiple rules at a time.
+ * @summary Modifies multiple rules in a specified WAF rule set in batches. You can use this operation to update the configurations of multiple rules at the same time.
  *
  * @param request BatchUpdateWafRulesRequest
  * @return BatchUpdateWafRulesResponse
@@ -1284,7 +1289,7 @@ CheckAssumeSlrRoleResponse Client::checkAssumeSlrRole() {
 }
 
 /**
- * @summary Validates whether a site is compatible with the target plan during site plan migration.
+ * @summary Validates whether a site is compatible with the target plan during plan migration.
  *
  * @param request CheckSiteFeaturesMatchPlanRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1319,7 +1324,7 @@ CheckSiteFeaturesMatchPlanResponse Client::checkSiteFeaturesMatchPlanWithOptions
 }
 
 /**
- * @summary Validates whether a site is compatible with the target plan during site plan migration.
+ * @summary Validates whether a site is compatible with the target plan during plan migration.
  *
  * @param request CheckSiteFeaturesMatchPlanRequest
  * @return CheckSiteFeaturesMatchPlanResponse
@@ -1330,7 +1335,7 @@ CheckSiteFeaturesMatchPlanResponse Client::checkSiteFeaturesMatchPlan(const Chec
 }
 
 /**
- * @summary Checks whether a specified website name is available.
+ * @summary Pre-validates whether a site name is available.
  *
  * @param request CheckSiteNameRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1361,7 +1366,7 @@ CheckSiteNameResponse Client::checkSiteNameWithOptions(const CheckSiteNameReques
 }
 
 /**
- * @summary Checks whether a specified website name is available.
+ * @summary Pre-validates whether a site name is available.
  *
  * @param request CheckSiteNameRequest
  * @return CheckSiteNameResponse
@@ -1372,7 +1377,7 @@ CheckSiteNameResponse Client::checkSiteName(const CheckSiteNameRequest &request)
 }
 
 /**
- * @summary Checks the project name of a real-time log delivery task.
+ * @summary Checks the project name of a real-time log task.
  *
  * @param request CheckSiteProjectNameRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1399,7 +1404,7 @@ CheckSiteProjectNameResponse Client::checkSiteProjectNameWithOptions(const Check
 }
 
 /**
- * @summary Checks the project name of a real-time log delivery task.
+ * @summary Checks the project name of a real-time log task.
  *
  * @param request CheckSiteProjectNameRequest
  * @return CheckSiteProjectNameResponse
@@ -1494,8 +1499,7 @@ CloneVersionResponse Client::cloneVersion(const CloneVersionRequest &request) {
 }
 
 /**
- * @summary Submits the staging (unstable) code of an Edge Routine and generates a production version.
- * Prerequisite: Before calling this API operation, call GetRoutineStagingCodeUploadInfo to obtain OSS upload credentials. Upload the code file through OSS POST. After the upload callback succeeds, call this API operation to submit the code.
+ * @summary Submits the staging code of an Edge Routine to generate a production version. Before calling this API operation, you must call GetRoutineStagingCodeUploadInfo to obtain the Object Storage Service (OSS) upload credentials, upload the code file by using an OSS POST request, and then call this API operation after the upload callback succeeds.
  *
  * @param request CommitRoutineStagingCodeRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1534,8 +1538,7 @@ CommitRoutineStagingCodeResponse Client::commitRoutineStagingCodeWithOptions(con
 }
 
 /**
- * @summary Submits the staging (unstable) code of an Edge Routine and generates a production version.
- * Prerequisite: Before calling this API operation, call GetRoutineStagingCodeUploadInfo to obtain OSS upload credentials. Upload the code file through OSS POST. After the upload callback succeeds, call this API operation to submit the code.
+ * @summary Submits the staging code of an Edge Routine to generate a production version. Before calling this API operation, you must call GetRoutineStagingCodeUploadInfo to obtain the Object Storage Service (OSS) upload credentials, upload the code file by using an OSS POST request, and then call this API operation after the upload callback succeeds.
  *
  * @param request CommitRoutineStagingCodeRequest
  * @return CommitRoutineStagingCodeResponse
@@ -1910,7 +1913,7 @@ CreateCustomHostnameResponse Client::createCustomHostname(const CreateCustomHost
 }
 
 /**
- * @summary Creates a custom response code rule for a site.
+ * @summary Creates a custom response code configuration for a site.
  *
  * @param request CreateCustomResponseCodeRuleRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1969,7 +1972,7 @@ CreateCustomResponseCodeRuleResponse Client::createCustomResponseCodeRuleWithOpt
 }
 
 /**
- * @summary Creates a custom response code rule for a site.
+ * @summary Creates a custom response code configuration for a site.
  *
  * @param request CreateCustomResponseCodeRuleRequest
  * @return CreateCustomResponseCodeRuleResponse
@@ -2138,7 +2141,7 @@ CreateEdgeContainerAppResponse Client::createEdgeContainerApp(const CreateEdgeCo
 }
 
 /**
- * @summary Create an image secret for the edge container application
+ * @summary Creates an image secret for an edge container application.
  *
  * @param request CreateEdgeContainerAppImageSecretRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2181,7 +2184,7 @@ CreateEdgeContainerAppImageSecretResponse Client::createEdgeContainerAppImageSec
 }
 
 /**
- * @summary Create an image secret for the edge container application
+ * @summary Creates an image secret for an edge container application.
  *
  * @param request CreateEdgeContainerAppImageSecretRequest
  * @return CreateEdgeContainerAppImageSecretResponse
@@ -2242,11 +2245,11 @@ CreateEdgeContainerAppRecordResponse Client::createEdgeContainerAppRecord(const 
 }
 
 /**
- * @summary Creates an edge container application version. You can iteratively release applications by version.
+ * @summary Creates a version for an edge container application to support iterative releases.
  * Note:
- * 1) Your account must have an ESA plan with the Edge Container feature enabled.
- * 2) Call CreateEdgeContainerApp first to create an application and obtain the AppId.
- * 3) Complete call chain example: CreateEdgeContainerApp → ListEdgeContainerApps → CreateEdgeContainerAppVersion.
+ * 1) Your account must be subscribed to an ESA plan that includes the Edge Container feature.
+ * 2) You must call CreateEdgeContainerApp to create an application and obtain the AppId.
+ * 3) A complete call chain example is provided (CreateEdgeContainerApp → ListEdgeContainerApps → CreateEdgeContainerAppVersion).
  *
  * @param tmpReq CreateEdgeContainerAppVersionRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2295,11 +2298,11 @@ CreateEdgeContainerAppVersionResponse Client::createEdgeContainerAppVersionWithO
 }
 
 /**
- * @summary Creates an edge container application version. You can iteratively release applications by version.
+ * @summary Creates a version for an edge container application to support iterative releases.
  * Note:
- * 1) Your account must have an ESA plan with the Edge Container feature enabled.
- * 2) Call CreateEdgeContainerApp first to create an application and obtain the AppId.
- * 3) Complete call chain example: CreateEdgeContainerApp → ListEdgeContainerApps → CreateEdgeContainerAppVersion.
+ * 1) Your account must be subscribed to an ESA plan that includes the Edge Container feature.
+ * 2) You must call CreateEdgeContainerApp to create an application and obtain the AppId.
+ * 3) A complete call chain example is provided (CreateEdgeContainerApp → ListEdgeContainerApps → CreateEdgeContainerAppVersion).
  *
  * @param request CreateEdgeContainerAppVersionRequest
  * @return CreateEdgeContainerAppVersionResponse
@@ -2361,6 +2364,78 @@ CreateEnvironmentResponse Client::createEnvironmentWithOptions(const CreateEnvir
 CreateEnvironmentResponse Client::createEnvironment(const CreateEnvironmentRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return createEnvironmentWithOptions(request, runtime);
+}
+
+/**
+ * @summary Creates an error code redirection rule.
+ *
+ * @param tmpReq CreateErrorPagesRedirectRuleRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CreateErrorPagesRedirectRuleResponse
+ */
+CreateErrorPagesRedirectRuleResponse Client::createErrorPagesRedirectRuleWithOptions(const CreateErrorPagesRedirectRuleRequest &tmpReq, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  CreateErrorPagesRedirectRuleShrinkRequest request = CreateErrorPagesRedirectRuleShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasErrorPagesRedirect()) {
+    request.setErrorPagesRedirectShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getErrorPagesRedirect(), "ErrorPagesRedirect", "json"));
+  }
+
+  json query = {};
+  if (!!request.hasErrorPagesRedirectShrink()) {
+    query["ErrorPagesRedirect"] = request.getErrorPagesRedirectShrink();
+  }
+
+  if (!!request.hasRule()) {
+    query["Rule"] = request.getRule();
+  }
+
+  if (!!request.hasRuleEnable()) {
+    query["RuleEnable"] = request.getRuleEnable();
+  }
+
+  if (!!request.hasRuleName()) {
+    query["RuleName"] = request.getRuleName();
+  }
+
+  if (!!request.hasSequence()) {
+    query["Sequence"] = request.getSequence();
+  }
+
+  if (!!request.hasSiteId()) {
+    query["SiteId"] = request.getSiteId();
+  }
+
+  if (!!request.hasSiteVersion()) {
+    query["SiteVersion"] = request.getSiteVersion();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "CreateErrorPagesRedirectRule"},
+    {"version" , "2024-09-10"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CreateErrorPagesRedirectRuleResponse>();
+}
+
+/**
+ * @summary Creates an error code redirection rule.
+ *
+ * @param request CreateErrorPagesRedirectRuleRequest
+ * @return CreateErrorPagesRedirectRuleResponse
+ */
+CreateErrorPagesRedirectRuleResponse Client::createErrorPagesRedirectRule(const CreateErrorPagesRedirectRuleRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return createErrorPagesRedirectRuleWithOptions(request, runtime);
 }
 
 /**
@@ -2988,7 +3063,7 @@ CreateKvNamespaceResponse Client::createKvNamespace(const CreateKvNamespaceReque
 }
 
 /**
- * @summary Creates a custom list. Custom lists are typically referenced by the rule matching engine for values used in various security policies to implement complex logic and control.
+ * @summary Creates a custom list for referencing values in rule matching engines to implement complex logic and control in various security policies.
  *
  * @param tmpReq CreateListRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3037,7 +3112,7 @@ CreateListResponse Client::createListWithOptions(const CreateListRequest &tmpReq
 }
 
 /**
- * @summary Creates a custom list. Custom lists are typically referenced by the rule matching engine for values used in various security policies to implement complex logic and control.
+ * @summary Creates a custom list for referencing values in rule matching engines to implement complex logic and control in various security policies.
  *
  * @param request CreateListRequest
  * @return CreateListResponse
@@ -3048,10 +3123,10 @@ CreateListResponse Client::createList(const CreateListRequest &request) {
 }
 
 /**
- * @summary Creates a load balancer instance that supports custom routing policies, session persistence, monitoring configurations, and other advanced features.
+ * @summary Creates a load balancer instance with advanced features such as custom routing policies, session persistence, and monitoring configurations.
  *
- * @description Creates a load balancing service based on your business requirements. You can configure settings such as adaptive routing, weighted polling, rule matching, and health checks to effectively manage and optimize traffic.
- * Only Enterprise plans support the load balancing service. To use this feature, contact Alibaba Cloud sales to apply for an Enterprise plan.
+ * @description This API allows you to configure load balancing services based on your business requirements, including but not limited to adaptive routing, weighted round-robin, rule matching, and health checks, to achieve effective traffic management and optimization.
+ * Only the Enterprise Edition plan supports the load balancer service. To use this service, contact Alibaba Cloud sales to apply for the Enterprise Edition plan.
  *
  * @param tmpReq CreateLoadBalancerRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3160,10 +3235,10 @@ CreateLoadBalancerResponse Client::createLoadBalancerWithOptions(const CreateLoa
 }
 
 /**
- * @summary Creates a load balancer instance that supports custom routing policies, session persistence, monitoring configurations, and other advanced features.
+ * @summary Creates a load balancer instance with advanced features such as custom routing policies, session persistence, and monitoring configurations.
  *
- * @description Creates a load balancing service based on your business requirements. You can configure settings such as adaptive routing, weighted polling, rule matching, and health checks to effectively manage and optimize traffic.
- * Only Enterprise plans support the load balancing service. To use this feature, contact Alibaba Cloud sales to apply for an Enterprise plan.
+ * @description This API allows you to configure load balancing services based on your business requirements, including but not limited to adaptive routing, weighted round-robin, rule matching, and health checks, to achieve effective traffic management and optimization.
+ * Only the Enterprise Edition plan supports the load balancer service. To use this service, contact Alibaba Cloud sales to apply for the Enterprise Edition plan.
  *
  * @param request CreateLoadBalancerRequest
  * @return CreateLoadBalancerResponse
@@ -3174,9 +3249,9 @@ CreateLoadBalancerResponse Client::createLoadBalancer(const CreateLoadBalancerRe
 }
 
 /**
- * @summary Adds a network optimization configuration for a site.
+ * @summary Creates a network optimization configuration for a site.
  *
- * @description The site plan must be Standard Edition or higher to use the WebSocket feature. When calling this API, you must provide at least one feature configuration parameter. Providing only SiteId returns an error.
+ * @description The site plan must be Standard Edition or higher to use the WebSocket feature. In addition, when you call this API operation, you must specify at least one feature configuration parameter. Specifying only SiteId returns an error.
  *
  * @param request CreateNetworkOptimizationRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3247,9 +3322,9 @@ CreateNetworkOptimizationResponse Client::createNetworkOptimizationWithOptions(c
 }
 
 /**
- * @summary Adds a network optimization configuration for a site.
+ * @summary Creates a network optimization configuration for a site.
  *
- * @description The site plan must be Standard Edition or higher to use the WebSocket feature. When calling this API, you must provide at least one feature configuration parameter. Providing only SiteId returns an error.
+ * @description The site plan must be Standard Edition or higher to use the WebSocket feature. In addition, when you call this API operation, you must specify at least one feature configuration parameter. Specifying only SiteId returns an error.
  *
  * @param request CreateNetworkOptimizationRequest
  * @return CreateNetworkOptimizationResponse
@@ -3560,7 +3635,7 @@ CreatePageResponse Client::createPage(const CreatePageRequest &request) {
 }
 
 /**
- * @summary Create a DNS record under a site.
+ * @summary Creates a DNS record under a site.
  *
  * @param tmpReq CreateRecordRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3649,7 +3724,7 @@ CreateRecordResponse Client::createRecordWithOptions(const CreateRecordRequest &
 }
 
 /**
- * @summary Create a DNS record under a site.
+ * @summary Creates a DNS record under a site.
  *
  * @param request CreateRecordRequest
  * @return CreateRecordResponse
@@ -5828,7 +5903,7 @@ DeleteClientCertificateResponse Client::deleteClientCertificate(const DeleteClie
 }
 
 /**
- * @summary Delete compression rule
+ * @summary Deletes the compression rule configuration for a site.
  *
  * @param request DeleteCompressionRuleRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -5863,7 +5938,7 @@ DeleteCompressionRuleResponse Client::deleteCompressionRuleWithOptions(const Del
 }
 
 /**
- * @summary Delete compression rule
+ * @summary Deletes the compression rule configuration for a site.
  *
  * @param request DeleteCompressionRuleRequest
  * @return DeleteCompressionRuleResponse
@@ -6240,7 +6315,53 @@ DeleteEnvironmentResponse Client::deleteEnvironment(const DeleteEnvironmentReque
 }
 
 /**
- * @summary Deletes a rule created by Deep Learning and Protection.
+ * @summary Deletes the error code redirection configuration.
+ *
+ * @param request DeleteErrorPagesRedirectRuleRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DeleteErrorPagesRedirectRuleResponse
+ */
+DeleteErrorPagesRedirectRuleResponse Client::deleteErrorPagesRedirectRuleWithOptions(const DeleteErrorPagesRedirectRuleRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasConfigId()) {
+    query["ConfigId"] = request.getConfigId();
+  }
+
+  if (!!request.hasSiteId()) {
+    query["SiteId"] = request.getSiteId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DeleteErrorPagesRedirectRule"},
+    {"version" , "2024-09-10"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DeleteErrorPagesRedirectRuleResponse>();
+}
+
+/**
+ * @summary Deletes the error code redirection configuration.
+ *
+ * @param request DeleteErrorPagesRedirectRuleRequest
+ * @return DeleteErrorPagesRedirectRuleResponse
+ */
+DeleteErrorPagesRedirectRuleResponse Client::deleteErrorPagesRedirectRule(const DeleteErrorPagesRedirectRuleRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return deleteErrorPagesRedirectRuleWithOptions(request, runtime);
+}
+
+/**
+ * @summary Deletes the rules issued by deep learning and protection.
  *
  * @param request DeleteHttpDDoSIntelligentRuleRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -6279,7 +6400,7 @@ DeleteHttpDDoSIntelligentRuleResponse Client::deleteHttpDDoSIntelligentRuleWithO
 }
 
 /**
- * @summary Deletes a rule created by Deep Learning and Protection.
+ * @summary Deletes the rules issued by deep learning and protection.
  *
  * @param request DeleteHttpDDoSIntelligentRuleRequest
  * @return DeleteHttpDDoSIntelligentRuleResponse
@@ -6612,7 +6733,7 @@ DeleteImageTransformResponse Client::deleteImageTransform(const DeleteImageTrans
 }
 
 /**
- * @summary Deletes a keyless server configuration.
+ * @summary Deletes a Keyless server configuration.
  *
  * @param request DeleteKeylessServerRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -6647,7 +6768,7 @@ DeleteKeylessServerResponse Client::deleteKeylessServerWithOptions(const DeleteK
 }
 
 /**
- * @summary Deletes a keyless server configuration.
+ * @summary Deletes a Keyless server configuration.
  *
  * @param request DeleteKeylessServerRequest
  * @return DeleteKeylessServerResponse
@@ -6914,7 +7035,7 @@ DeleteOriginCaCertificateResponse Client::deleteOriginCaCertificate(const Delete
 }
 
 /**
- * @summary Deletes an origin client certificate for a specific site.
+ * @summary Deletes a domain-level back-to-origin client certificate.
  *
  * @param request DeleteOriginClientCertificateRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -6941,7 +7062,7 @@ DeleteOriginClientCertificateResponse Client::deleteOriginClientCertificateWithO
 }
 
 /**
- * @summary Deletes an origin client certificate for a specific site.
+ * @summary Deletes a domain-level back-to-origin client certificate.
  *
  * @param request DeleteOriginClientCertificateRequest
  * @return DeleteOriginClientCertificateResponse
@@ -7040,7 +7161,7 @@ DeleteOriginProtectionResponse Client::deleteOriginProtection(const DeleteOrigin
 }
 
 /**
- * @summary Delete Origin Rule Configuration
+ * @summary Deletes the back-to-origin rule configuration.
  *
  * @param request DeleteOriginRuleRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -7075,7 +7196,7 @@ DeleteOriginRuleResponse Client::deleteOriginRuleWithOptions(const DeleteOriginR
 }
 
 /**
- * @summary Delete Origin Rule Configuration
+ * @summary Deletes the back-to-origin rule configuration.
  *
  * @param request DeleteOriginRuleRequest
  * @return DeleteOriginRuleResponse
@@ -7174,7 +7295,7 @@ DeleteRecordResponse Client::deleteRecord(const DeleteRecordRequest &request) {
 }
 
 /**
- * @summary Deletes a URL redirect rule for a website.
+ * @summary Deletes the redirect configuration for a site.
  *
  * @param request DeleteRedirectRuleRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -7209,7 +7330,7 @@ DeleteRedirectRuleResponse Client::deleteRedirectRuleWithOptions(const DeleteRed
 }
 
 /**
- * @summary Deletes a URL redirect rule for a website.
+ * @summary Deletes the redirect configuration for a site.
  *
  * @param request DeleteRedirectRuleRequest
  * @return DeleteRedirectRuleResponse
@@ -7220,7 +7341,7 @@ DeleteRedirectRuleResponse Client::deleteRedirectRule(const DeleteRedirectRuleRe
 }
 
 /**
- * @summary Deletes a URL rewrite rule for a website.
+ * @summary Deletes the URL rewrite configuration for a site.
  *
  * @param request DeleteRewriteUrlRuleRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -7255,7 +7376,7 @@ DeleteRewriteUrlRuleResponse Client::deleteRewriteUrlRuleWithOptions(const Delet
 }
 
 /**
- * @summary Deletes a URL rewrite rule for a website.
+ * @summary Deletes the URL rewrite configuration for a site.
  *
  * @param request DeleteRewriteUrlRuleRequest
  * @return DeleteRewriteUrlRuleResponse
@@ -7396,11 +7517,11 @@ DeleteRoutineCodeVersionResponse Client::deleteRoutineCodeVersion(const DeleteRo
 }
 
 /**
- * @summary Deletes environment variables of a Routine.
+ * @summary Deletes the environment variables of a routine.
  *
- * @description ## Operation description
- * - When you create a Routine code version for deployment, the environment name `Env` supports only the staging environment `staging` or the production environment `production`.
- * - The `CodeVersions` parameter supports canary release of up to two versions, and the total proportion of these versions must equal 100%.
+ * @description ## Request description
+ * - When you create a deployment for a routine code version, the `Env` parameter only supports `staging` for the staging environment and `production` for the production environment.
+ * - The `CodeVersions` parameter supports canary releases for up to two versions, and the sum of the traffic ratios for these versions must equal 100%.
  *
  * @param tmpReq DeleteRoutineEnvironmentVariablesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -7445,11 +7566,11 @@ DeleteRoutineEnvironmentVariablesResponse Client::deleteRoutineEnvironmentVariab
 }
 
 /**
- * @summary Deletes environment variables of a Routine.
+ * @summary Deletes the environment variables of a routine.
  *
- * @description ## Operation description
- * - When you create a Routine code version for deployment, the environment name `Env` supports only the staging environment `staging` or the production environment `production`.
- * - The `CodeVersions` parameter supports canary release of up to two versions, and the total proportion of these versions must equal 100%.
+ * @description ## Request description
+ * - When you create a deployment for a routine code version, the `Env` parameter only supports `staging` for the staging environment and `production` for the production environment.
+ * - The `CodeVersions` parameter supports canary releases for up to two versions, and the sum of the traffic ratios for these versions must equal 100%.
  *
  * @param request DeleteRoutineEnvironmentVariablesRequest
  * @return DeleteRoutineEnvironmentVariablesResponse
@@ -7910,13 +8031,13 @@ DeleteUrlObservationResponse Client::deleteUrlObservation(const DeleteUrlObserva
 }
 
 /**
- * @summary Deletes a user task delivery configuration based on the specified task name and Alibaba Cloud UID.
+ * @summary Deletes the user task delivery configuration based on the specified task name and Alibaba Cloud UID.
  *
- * @description This operation allows you to delete an existing task delivery configuration based on the specified **task name** and **Alibaba Cloud UID**. Before proceeding, verify that the provided information is accurate to avoid disrupting the processing of related logs or data.
+ * @description This operation allows you to delete a configured task delivery configuration based on the specified **task name** and **Alibaba Cloud UID**. Before the operation, ensure that the provided information is accurate to avoid affecting the normal processing of related logs or data.
  * **Note:**
- * - The deletion operation is irreversible. Proceed with caution.
+ * - The delete operation is irreversible. Proceed with caution.
  * - Only accounts with the required permissions can call this operation.
- * - You can use the returned `RequestId` to track the request progress and troubleshoot issues.
+ * - The returned `RequestId` can be used to track the request processing progress and troubleshoot issues.
  *
  * @param request DeleteUserDeliveryTaskRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -7947,13 +8068,13 @@ DeleteUserDeliveryTaskResponse Client::deleteUserDeliveryTaskWithOptions(const D
 }
 
 /**
- * @summary Deletes a user task delivery configuration based on the specified task name and Alibaba Cloud UID.
+ * @summary Deletes the user task delivery configuration based on the specified task name and Alibaba Cloud UID.
  *
- * @description This operation allows you to delete an existing task delivery configuration based on the specified **task name** and **Alibaba Cloud UID**. Before proceeding, verify that the provided information is accurate to avoid disrupting the processing of related logs or data.
+ * @description This operation allows you to delete a configured task delivery configuration based on the specified **task name** and **Alibaba Cloud UID**. Before the operation, ensure that the provided information is accurate to avoid affecting the normal processing of related logs or data.
  * **Note:**
- * - The deletion operation is irreversible. Proceed with caution.
+ * - The delete operation is irreversible. Proceed with caution.
  * - Only accounts with the required permissions can call this operation.
- * - You can use the returned `RequestId` to track the request progress and troubleshoot issues.
+ * - The returned `RequestId` can be used to track the request processing progress and troubleshoot issues.
  *
  * @param request DeleteUserDeliveryTaskRequest
  * @return DeleteUserDeliveryTaskResponse
@@ -10314,7 +10435,7 @@ EnableCustomScenePolicyResponse Client::enableCustomScenePolicy(const EnableCust
 }
 
 /**
- * @summary Exports the CNAME values of all records under the current site. When the site access mode is switched to CNAME access, you can call this operation to retrieve pre-configured CNAME values to prevent service interruptions.
+ * @summary Exports the CNAME values of all records for the current site. When you switch the site access mode to CNAME access, you can call this operation to retrieve pre-configured CNAME values and prevent service interruptions.
  *
  * @param request ExportRecordCnamesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -10341,7 +10462,7 @@ ExportRecordCnamesResponse Client::exportRecordCnamesWithOptions(const ExportRec
 }
 
 /**
- * @summary Exports the CNAME values of all records under the current site. When the site access mode is switched to CNAME access, you can call this operation to retrieve pre-configured CNAME values to prevent service interruptions.
+ * @summary Exports the CNAME values of all records for the current site. When you switch the site access mode to CNAME access, you can call this operation to retrieve pre-configured CNAME values and prevent service interruptions.
  *
  * @param request ExportRecordCnamesRequest
  * @return ExportRecordCnamesResponse
@@ -10918,7 +11039,7 @@ GetClientCertificateHostnamesResponse Client::getClientCertificateHostnames(cons
 }
 
 /**
- * @summary Queries the CNAME flattening configuration of a website
+ * @summary Queries the CNAME flattening configuration of a site.
  *
  * @param request GetCnameFlatteningRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -10945,7 +11066,7 @@ GetCnameFlatteningResponse Client::getCnameFlatteningWithOptions(const GetCnameF
 }
 
 /**
- * @summary Queries the CNAME flattening configuration of a website
+ * @summary Queries the CNAME flattening configuration of a site.
  *
  * @param request GetCnameFlatteningRequest
  * @return GetCnameFlatteningResponse
@@ -10956,7 +11077,7 @@ GetCnameFlatteningResponse Client::getCnameFlattening(const GetCnameFlatteningRe
 }
 
 /**
- * @summary Query Compression Rule Details
+ * @summary Queries the details of compression rules for a site.
  *
  * @param request GetCompressionRuleRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -10983,7 +11104,7 @@ GetCompressionRuleResponse Client::getCompressionRuleWithOptions(const GetCompre
 }
 
 /**
- * @summary Query Compression Rule Details
+ * @summary Queries the details of compression rules for a site.
  *
  * @param request GetCompressionRuleRequest
  * @return GetCompressionRuleResponse
@@ -11726,6 +11847,52 @@ GetErServiceResponse Client::getErService(const GetErServiceRequest &request) {
 }
 
 /**
+ * @summary Queries the details of the error code redirect configuration.
+ *
+ * @param request GetErrorPagesRedirectRuleRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetErrorPagesRedirectRuleResponse
+ */
+GetErrorPagesRedirectRuleResponse Client::getErrorPagesRedirectRuleWithOptions(const GetErrorPagesRedirectRuleRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasConfigId()) {
+    query["ConfigId"] = request.getConfigId();
+  }
+
+  if (!!request.hasSiteId()) {
+    query["SiteId"] = request.getSiteId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "GetErrorPagesRedirectRule"},
+    {"version" , "2024-09-10"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetErrorPagesRedirectRuleResponse>();
+}
+
+/**
+ * @summary Queries the details of the error code redirect configuration.
+ *
+ * @param request GetErrorPagesRedirectRuleRequest
+ * @return GetErrorPagesRedirectRuleResponse
+ */
+GetErrorPagesRedirectRuleResponse Client::getErrorPagesRedirectRule(const GetErrorPagesRedirectRuleRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return getErrorPagesRedirectRuleWithOptions(request, runtime);
+}
+
+/**
  * @summary Downloads the failed file for a specified upload task.
  *
  * @param request GetFailFileRequest
@@ -11764,7 +11931,7 @@ GetFailFileResponse Client::getFailFile(const GetFailFileRequest &request) {
 }
 
 /**
- * @summary Queries the configuration details of an HTTP request header modification rule for a website.
+ * @summary Queries the details of the HTTP incoming request header modification configuration for a site.
  *
  * @param request GetHttpIncomingRequestHeaderModificationRuleRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -11791,7 +11958,7 @@ GetHttpIncomingRequestHeaderModificationRuleResponse Client::getHttpIncomingRequ
 }
 
 /**
- * @summary Queries the configuration details of an HTTP request header modification rule for a website.
+ * @summary Queries the details of the HTTP incoming request header modification configuration for a site.
  *
  * @param request GetHttpIncomingRequestHeaderModificationRuleRequest
  * @return GetHttpIncomingRequestHeaderModificationRuleResponse
@@ -11840,7 +12007,7 @@ GetHttpIncomingResponseHeaderModificationRuleResponse Client::getHttpIncomingRes
 }
 
 /**
- * @summary Retrieves the details of an HTTP request header modification rule for a site.
+ * @summary Queries the details of the HTTP request header modification configuration for a site.
  *
  * @param request GetHttpRequestHeaderModificationRuleRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -11867,7 +12034,7 @@ GetHttpRequestHeaderModificationRuleResponse Client::getHttpRequestHeaderModific
 }
 
 /**
- * @summary Retrieves the details of an HTTP request header modification rule for a site.
+ * @summary Queries the details of the HTTP request header modification configuration for a site.
  *
  * @param request GetHttpRequestHeaderModificationRuleRequest
  * @return GetHttpRequestHeaderModificationRuleResponse
@@ -12030,7 +12197,7 @@ GetIPv6Response Client::getIPv6(const GetIPv6Request &request) {
 }
 
 /**
- * @summary Queries a single site image transformation configuration.
+ * @summary Queries a single image transform configuration for a site.
  *
  * @param request GetImageTransformRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -12057,7 +12224,7 @@ GetImageTransformResponse Client::getImageTransformWithOptions(const GetImageTra
 }
 
 /**
- * @summary Queries a single site image transformation configuration.
+ * @summary Queries a single image transform configuration for a site.
  *
  * @param request GetImageTransformRequest
  * @return GetImageTransformResponse
@@ -12390,7 +12557,7 @@ GetMainDomainNameResponse Client::getMainDomainName(const GetMainDomainNameReque
 }
 
 /**
- * @summary Retrieves the managed transform configuration for a site.
+ * @summary Queries the site hosting transition configuration.
  *
  * @param request GetManagedTransformRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -12417,7 +12584,7 @@ GetManagedTransformResponse Client::getManagedTransformWithOptions(const GetMana
 }
 
 /**
- * @summary Retrieves the managed transform configuration for a site.
+ * @summary Queries the site hosting transition configuration.
  *
  * @param request GetManagedTransformRequest
  * @return GetManagedTransformResponse
@@ -12508,7 +12675,7 @@ GetNetworkOptimizationResponse Client::getNetworkOptimization(const GetNetworkOp
 }
 
 /**
- * @summary Retrieves the CA certificate information of an origin server.
+ * @summary Retrieves the CA certificate information of the origin server.
  *
  * @param request GetOriginCaCertificateRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -12535,7 +12702,7 @@ GetOriginCaCertificateResponse Client::getOriginCaCertificateWithOptions(const G
 }
 
 /**
- * @summary Retrieves the CA certificate information of an origin server.
+ * @summary Retrieves the CA certificate information of the origin server.
  *
  * @param request GetOriginCaCertificateRequest
  * @return GetOriginCaCertificateResponse
@@ -12584,7 +12751,7 @@ GetOriginClientCertificateResponse Client::getOriginClientCertificate(const GetO
 }
 
 /**
- * @summary Retrieves the hostnames associated with a specific origin client certificate.
+ * @summary Retrieves the list of domain names bound to a back-to-origin client certificate at the domain name level.
  *
  * @param request GetOriginClientCertificateHostnamesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -12611,7 +12778,7 @@ GetOriginClientCertificateHostnamesResponse Client::getOriginClientCertificateHo
 }
 
 /**
- * @summary Retrieves the hostnames associated with a specific origin client certificate.
+ * @summary Retrieves the list of domain names bound to a back-to-origin client certificate at the domain name level.
  *
  * @param request GetOriginClientCertificateHostnamesRequest
  * @return GetOriginClientCertificateHostnamesResponse
@@ -12660,7 +12827,7 @@ GetOriginPoolResponse Client::getOriginPool(const GetOriginPoolRequest &request)
 }
 
 /**
- * @summary Queries site origin protection configurations, including the origin protection switch, the origin convergence switch, whether the origin IP whitelist needs to be updated, and detailed information about the origin IP whitelist, including the current origin IP whitelist used by the site, the latest origin IP whitelist, and the differences between them.
+ * @summary Queries the origin server protection configurations for a site, including the origin server protection switch, the back-to-origin convergence switch, and whether the back-to-origin IP addresses whitelist needs to be updated. It also provides detailed information about the back-to-origin IP addresses whitelist, including the current whitelist used by the site, the latest whitelist, and the differences between them.
  *
  * @param request GetOriginProtectionRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -12687,7 +12854,7 @@ GetOriginProtectionResponse Client::getOriginProtectionWithOptions(const GetOrig
 }
 
 /**
- * @summary Queries site origin protection configurations, including the origin protection switch, the origin convergence switch, whether the origin IP whitelist needs to be updated, and detailed information about the origin IP whitelist, including the current origin IP whitelist used by the site, the latest origin IP whitelist, and the differences between them.
+ * @summary Queries the origin server protection configurations for a site, including the origin server protection switch, the back-to-origin convergence switch, and whether the back-to-origin IP addresses whitelist needs to be updated. It also provides detailed information about the back-to-origin IP addresses whitelist, including the current whitelist used by the site, the latest whitelist, and the differences between them.
  *
  * @param request GetOriginProtectionRequest
  * @return GetOriginProtectionResponse
@@ -12912,7 +13079,7 @@ GetPurgeQuotaResponse Client::getPurgeQuota(const GetPurgeQuotaRequest &request)
 }
 
 /**
- * @summary Queries the fields in real-time logs based on the log category.
+ * @summary Retrieves the list of fields for real-time logs based on the log business type.
  *
  * @param request GetRealtimeDeliveryFieldRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -12939,7 +13106,7 @@ GetRealtimeDeliveryFieldResponse Client::getRealtimeDeliveryFieldWithOptions(con
 }
 
 /**
- * @summary Queries the fields in real-time logs based on the log category.
+ * @summary Retrieves the list of fields for real-time logs based on the log business type.
  *
  * @param request GetRealtimeDeliveryFieldRequest
  * @return GetRealtimeDeliveryFieldResponse
@@ -12950,7 +13117,7 @@ GetRealtimeDeliveryFieldResponse Client::getRealtimeDeliveryField(const GetRealt
 }
 
 /**
- * @summary Retrieves the detailed configuration of a single DNS record, including the record value, priority, and back-to-origin authentication configuration (exclusive to CNAME records).
+ * @summary Retrieves the detailed configuration information of a single DNS record, including the record value, priority, and back-to-origin authentication configuration (exclusive to CNAME records).
  *
  * @param request GetRecordRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -12977,7 +13144,7 @@ GetRecordResponse Client::getRecordWithOptions(const GetRecordRequest &request, 
 }
 
 /**
- * @summary Retrieves the detailed configuration of a single DNS record, including the record value, priority, and back-to-origin authentication configuration (exclusive to CNAME records).
+ * @summary Retrieves the detailed configuration information of a single DNS record, including the record value, priority, and back-to-origin authentication configuration (exclusive to CNAME records).
  *
  * @param request GetRecordRequest
  * @return GetRecordResponse
@@ -13648,7 +13815,7 @@ GetSiteResponse Client::getSite(const GetSiteRequest &request) {
 }
 
 /**
- * @summary Queries the nameservers configured for a website.
+ * @summary Queries the DNS server names configured for the current site.
  *
  * @param request GetSiteCurrentNSRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -13675,7 +13842,7 @@ GetSiteCurrentNSResponse Client::getSiteCurrentNSWithOptions(const GetSiteCurren
 }
 
 /**
- * @summary Queries the nameservers configured for a website.
+ * @summary Queries the DNS server names configured for the current site.
  *
  * @param request GetSiteCurrentNSRequest
  * @return GetSiteCurrentNSResponse
@@ -14318,8 +14485,8 @@ GetUserMaxPlanQuotaResponse Client::getUserMaxPlanQuota(const GetUserMaxPlanQuot
 /**
  * @summary Queries the details of a WAF ruleset for a specified instance.
  *
- * @description ## Operation description
- * By calling the `GetUserWafRuleset` operation, you can retrieve information about a specific Web Application Firewall (WAF) ruleset based on the instance ID and ruleset ID. The returned information includes but is not limited to the position, name, description, status, and specific rules of the ruleset. Make sure that you correctly specify the required parameters to avoid request failures.
+ * @description ## Request instructions
+ * By calling the `GetUserWafRuleset` operation, you can retrieve specific Web Application Firewall (WAF) ruleset information based on the provided instance ID and ruleset ID. The information returned by this operation includes but is not limited to the position, name, description, and status of the ruleset, as well as detailed content such as the specific rules it contains. Correctly specify the required parameters when making a request to avoid request failures.
  *
  * @param request GetUserWafRulesetRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -14356,8 +14523,8 @@ GetUserWafRulesetResponse Client::getUserWafRulesetWithOptions(const GetUserWafR
 /**
  * @summary Queries the details of a WAF ruleset for a specified instance.
  *
- * @description ## Operation description
- * By calling the `GetUserWafRuleset` operation, you can retrieve information about a specific Web Application Firewall (WAF) ruleset based on the instance ID and ruleset ID. The returned information includes but is not limited to the position, name, description, status, and specific rules of the ruleset. Make sure that you correctly specify the required parameters to avoid request failures.
+ * @description ## Request instructions
+ * By calling the `GetUserWafRuleset` operation, you can retrieve specific Web Application Firewall (WAF) ruleset information based on the provided instance ID and ruleset ID. The information returned by this operation includes but is not limited to the position, name, description, and status of the ruleset, as well as detailed content such as the specific rules it contains. Correctly specify the required parameters when making a request to avoid request failures.
  *
  * @param request GetUserWafRulesetRequest
  * @return GetUserWafRulesetResponse
@@ -15060,7 +15227,7 @@ ListCertificatesByRecordResponse Client::listCertificatesByRecord(const ListCert
 }
 
 /**
- * @summary Query TLS Cipher Suite List
+ * @summary Queries the list of cipher suite names based on the cipher suite group name.
  *
  * @param request ListCiphersRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -15087,7 +15254,7 @@ ListCiphersResponse Client::listCiphersWithOptions(const ListCiphersRequest &req
 }
 
 /**
- * @summary Query TLS Cipher Suite List
+ * @summary Queries the list of cipher suite names based on the cipher suite group name.
  *
  * @param request ListCiphersRequest
  * @return ListCiphersResponse
@@ -15782,6 +15949,72 @@ ListEnvironmentsResponse Client::listEnvironments(const ListEnvironmentsRequest 
 }
 
 /**
+ * @summary Queries the error code redirection configurations.
+ *
+ * @param request ListErrorPagesRedirectRulesRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListErrorPagesRedirectRulesResponse
+ */
+ListErrorPagesRedirectRulesResponse Client::listErrorPagesRedirectRulesWithOptions(const ListErrorPagesRedirectRulesRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasConfigId()) {
+    query["ConfigId"] = request.getConfigId();
+  }
+
+  if (!!request.hasConfigType()) {
+    query["ConfigType"] = request.getConfigType();
+  }
+
+  if (!!request.hasPageNumber()) {
+    query["PageNumber"] = request.getPageNumber();
+  }
+
+  if (!!request.hasPageSize()) {
+    query["PageSize"] = request.getPageSize();
+  }
+
+  if (!!request.hasRuleName()) {
+    query["RuleName"] = request.getRuleName();
+  }
+
+  if (!!request.hasSiteId()) {
+    query["SiteId"] = request.getSiteId();
+  }
+
+  if (!!request.hasSiteVersion()) {
+    query["SiteVersion"] = request.getSiteVersion();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ListErrorPagesRedirectRules"},
+    {"version" , "2024-09-10"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListErrorPagesRedirectRulesResponse>();
+}
+
+/**
+ * @summary Queries the error code redirection configurations.
+ *
+ * @param request ListErrorPagesRedirectRulesRequest
+ * @return ListErrorPagesRedirectRulesResponse
+ */
+ListErrorPagesRedirectRulesResponse Client::listErrorPagesRedirectRules(const ListErrorPagesRedirectRulesRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return listErrorPagesRedirectRulesWithOptions(request, runtime);
+}
+
+/**
  * @summary Queries the list of HTTP incoming request header modification configurations for a site.
  *
  * @param request ListHttpIncomingRequestHeaderModificationRulesRequest
@@ -16260,7 +16493,7 @@ ListKvsResponse Client::listKvs(const ListKvsRequest &request) {
 }
 
 /**
- * @summary Lists all custom lists under the account along with their details. You can use query parameters to filter results and paginate to retrieve a specific set of lists.
+ * @summary Lists all custom lists and their details under the account. You can filter the results by using query parameters and paginate the results to retrieve a specific set of lists.
  *
  * @param tmpReq ListListsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -16305,7 +16538,7 @@ ListListsResponse Client::listListsWithOptions(const ListListsRequest &tmpReq, c
 }
 
 /**
- * @summary Lists all custom lists under the account along with their details. You can use query parameters to filter results and paginate to retrieve a specific set of lists.
+ * @summary Lists all custom lists and their details under the account. You can filter the results by using query parameters and paginate the results to retrieve a specific set of lists.
  *
  * @param request ListListsRequest
  * @return ListListsResponse
@@ -16408,7 +16641,7 @@ ListLoadBalancerRegionsResponse Client::listLoadBalancerRegions(const ListLoadBa
 }
 
 /**
- * @summary Queries the list of load balancers under a site and returns load balancing information. You can query by load balancer name. Paging is supported.
+ * @summary Queries the list of load balancing instances under a site and returns the load balancing information under the site. Supports querying by load balancing name and paging.
  *
  * @param request ListLoadBalancersRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -16435,7 +16668,7 @@ ListLoadBalancersResponse Client::listLoadBalancersWithOptions(const ListLoadBal
 }
 
 /**
- * @summary Queries the list of load balancers under a site and returns load balancing information. You can query by load balancer name. Paging is supported.
+ * @summary Queries the list of load balancing instances under a site and returns the load balancing information under the site. Supports querying by load balancing name and paging.
  *
  * @param request ListLoadBalancersRequest
  * @return ListLoadBalancersResponse
@@ -16446,7 +16679,7 @@ ListLoadBalancersResponse Client::listLoadBalancers(const ListLoadBalancersReque
 }
 
 /**
- * @summary Lists all WAF managed rule groups under the current account. You can call this operation to retrieve a list of all rule groups and their summary information.
+ * @summary Lists all Web Application Firewall (WAF) managed rule groups within your account. You can use this operation to retrieve a list of all rule groups and their summary information.
  *
  * @param request ListManagedRulesGroupsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -16481,7 +16714,7 @@ ListManagedRulesGroupsResponse Client::listManagedRulesGroupsWithOptions(const L
 }
 
 /**
- * @summary Lists all WAF managed rule groups under the current account. You can call this operation to retrieve a list of all rule groups and their summary information.
+ * @summary Lists all Web Application Firewall (WAF) managed rule groups within your account. You can use this operation to retrieve a list of all rule groups and their summary information.
  *
  * @param request ListManagedRulesGroupsRequest
  * @return ListManagedRulesGroupsResponse
@@ -16606,7 +16839,7 @@ ListOriginClientCertificatesResponse Client::listOriginClientCertificates(const 
 }
 
 /**
- * @summary Lists all origin pools within a site. Supports pagination and searching by origin pool name (exact or fuzzy).
+ * @summary Queries all origin address pools under a site. Supports pagination and exact or fuzzy search by origin address pool name.
  *
  * @param request ListOriginPoolsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -16633,7 +16866,7 @@ ListOriginPoolsResponse Client::listOriginPoolsWithOptions(const ListOriginPools
 }
 
 /**
- * @summary Lists all origin pools within a site. Supports pagination and searching by origin pool name (exact or fuzzy).
+ * @summary Queries all origin address pools under a site. Supports pagination and exact or fuzzy search by origin address pool name.
  *
  * @param request ListOriginPoolsRequest
  * @return ListOriginPoolsResponse
@@ -16682,7 +16915,7 @@ ListOriginRulesResponse Client::listOriginRules(const ListOriginRulesRequest &re
 }
 
 /**
- * @summary Lists all custom response pages created by the user. This operation supports pagination, allowing you to retrieve response pages by page number and page size.
+ * @summary Lists all custom response pages created by the user. This operation supports pagination and allows you to retrieve the response page list by page number and page size.
  *
  * @param tmpReq ListPagesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -16727,7 +16960,7 @@ ListPagesResponse Client::listPagesWithOptions(const ListPagesRequest &tmpReq, c
 }
 
 /**
- * @summary Lists all custom response pages created by the user. This operation supports pagination, allowing you to retrieve response pages by page number and page size.
+ * @summary Lists all custom response pages created by the user. This operation supports pagination and allows you to retrieve the response page list by page number and page size.
  *
  * @param request ListPagesRequest
  * @return ListPagesResponse
@@ -16738,9 +16971,9 @@ ListPagesResponse Client::listPages(const ListPagesRequest &request) {
 }
 
 /**
- * @summary Queries pay-as-you-go plan instances.
+ * @summary Queries the pay-as-you-go plan instances.
  *
- * @description This operation queries pay-as-you-go plan instances under your account and supports filtering and sorting by various conditions.
+ * @description Queries the pay-as-you-go plan instances under your account. You can filter and sort the instances based on various conditions.
  *
  * @param request ListPostpaidRatePlanInstancesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -16767,9 +17000,9 @@ ListPostpaidRatePlanInstancesResponse Client::listPostpaidRatePlanInstancesWithO
 }
 
 /**
- * @summary Queries pay-as-you-go plan instances.
+ * @summary Queries the pay-as-you-go plan instances.
  *
- * @description This operation queries pay-as-you-go plan instances under your account and supports filtering and sorting by various conditions.
+ * @description Queries the pay-as-you-go plan instances under your account. You can filter and sort the instances based on various conditions.
  *
  * @param request ListPostpaidRatePlanInstancesRequest
  * @return ListPostpaidRatePlanInstancesResponse
@@ -16819,7 +17052,7 @@ ListPostpaidSitePlansResponse Client::listPostpaidSitePlans(const ListPostpaidSi
 }
 
 /**
- * @summary Queries the minimum plan edition required for a site plan quota to take effect, that is, the minimum plan edition to which the quota must be upgraded for use.
+ * @summary Queries the minimum required plan version for site plan quotas, indicating the lowest plan version to which you must upgrade to use a quota.
  *
  * @param request ListQuotasMinEffectPlanRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -16846,7 +17079,7 @@ ListQuotasMinEffectPlanResponse Client::listQuotasMinEffectPlanWithOptions(const
 }
 
 /**
- * @summary Queries the minimum plan edition required for a site plan quota to take effect, that is, the minimum plan edition to which the quota must be upgraded for use.
+ * @summary Queries the minimum required plan version for site plan quotas, indicating the lowest plan version to which you must upgrade to use a quota.
  *
  * @param request ListQuotasMinEffectPlanRequest
  * @return ListQuotasMinEffectPlanResponse
@@ -16857,9 +17090,9 @@ ListQuotasMinEffectPlanResponse Client::listQuotasMinEffectPlan(const ListQuotas
 }
 
 /**
- * @summary Queries the list of DNS records under a site, including record values, priorities, authentication configurations, etc. Supports filtering by conditions such as record name and record type.
+ * @summary Queries the DNS records of a site, including record values, priorities, and authentication configurations. Supports filtering by record name, record type, and other conditions.
  *
- * @description DNS records corresponding to edge containers, edge functions, and Layer 4 acceleration will not be returned by this API.
+ * @description DNS records associated with edge containers, Edge Routines, and Layer 4 acceleration are not returned by this API operation.
  *
  * @param request ListRecordsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -16886,9 +17119,9 @@ ListRecordsResponse Client::listRecordsWithOptions(const ListRecordsRequest &req
 }
 
 /**
- * @summary Queries the list of DNS records under a site, including record values, priorities, authentication configurations, etc. Supports filtering by conditions such as record name and record type.
+ * @summary Queries the DNS records of a site, including record values, priorities, and authentication configurations. Supports filtering by record name, record type, and other conditions.
  *
- * @description DNS records corresponding to edge containers, edge functions, and Layer 4 acceleration will not be returned by this API.
+ * @description DNS records associated with edge containers, Edge Routines, and Layer 4 acceleration are not returned by this API operation.
  *
  * @param request ListRecordsRequest
  * @return ListRecordsResponse
@@ -17233,9 +17466,9 @@ ListRoutineEnvironmentVariablesResponse Client::listRoutineEnvironmentVariables(
 }
 
 /**
- * @summary The records associated with the function.
+ * @summary Queries the association records of an Edge Routine.
  *
- * @description Queries the list of related records for a specified edge routine. You can use pagination parameters to retrieve partial results, or use fuzzy keywords to filter specific record entries.
+ * @description Queries the association records of a specified Edge Routine. You can set pagination parameters to retrieve partial results, or use fuzzy keywords to filter specific records.
  *
  * @param request ListRoutineRelatedRecordsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -17278,9 +17511,9 @@ ListRoutineRelatedRecordsResponse Client::listRoutineRelatedRecordsWithOptions(c
 }
 
 /**
- * @summary The records associated with the function.
+ * @summary Queries the association records of an Edge Routine.
  *
- * @description Queries the list of related records for a specified edge routine. You can use pagination parameters to retrieve partial results, or use fuzzy keywords to filter specific record entries.
+ * @description Queries the association records of a specified Edge Routine. You can set pagination parameters to retrieve partial results, or use fuzzy keywords to filter specific records.
  *
  * @param request ListRoutineRelatedRecordsRequest
  * @return ListRoutineRelatedRecordsResponse
@@ -17291,7 +17524,7 @@ ListRoutineRelatedRecordsResponse Client::listRoutineRelatedRecords(const ListRo
 }
 
 /**
- * @summary Queries the function route list of an Edge Routine.
+ * @summary Queries the function routes of an Edge Routine.
  *
  * @param request ListRoutineRoutesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -17330,7 +17563,7 @@ ListRoutineRoutesResponse Client::listRoutineRoutesWithOptions(const ListRoutine
 }
 
 /**
- * @summary Queries the function route list of an Edge Routine.
+ * @summary Queries the function routes of an Edge Routine.
  *
  * @param request ListRoutineRoutesRequest
  * @return ListRoutineRoutesResponse
@@ -17417,7 +17650,7 @@ ListScheduledPreloadJobsResponse Client::listScheduledPreloadJobs(const ListSche
 }
 
 /**
- * @summary Lists all log delivery tasks that are in progress.
+ * @summary Lists the delivery status of all ongoing real-time log tasks.
  *
  * @param request ListSiteDeliveryTasksRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -17444,7 +17677,7 @@ ListSiteDeliveryTasksResponse Client::listSiteDeliveryTasksWithOptions(const Lis
 }
 
 /**
- * @summary Lists all log delivery tasks that are in progress.
+ * @summary Lists the delivery status of all ongoing real-time log tasks.
  *
  * @param request ListSiteDeliveryTasksRequest
  * @return ListSiteDeliveryTasksResponse
@@ -17493,7 +17726,7 @@ ListSiteFunctionsResponse Client::listSiteFunctions(const ListSiteFunctionsReque
 }
 
 /**
- * @summary Queries the list of back-to-origin client certificates at the site level.
+ * @summary Queries the site-level back-to-origin client certificates.
  *
  * @param request ListSiteOriginClientCertificatesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -17520,7 +17753,7 @@ ListSiteOriginClientCertificatesResponse Client::listSiteOriginClientCertificate
 }
 
 /**
- * @summary Queries the list of back-to-origin client certificates at the site level.
+ * @summary Queries the site-level back-to-origin client certificates.
  *
  * @param request ListSiteOriginClientCertificatesRequest
  * @return ListSiteOriginClientCertificatesResponse
@@ -17963,7 +18196,7 @@ ListUrlObservationsResponse Client::listUrlObservations(const ListUrlObservation
 }
 
 /**
- * @summary Queries all delivery tasks in your Alibaba Cloud account by page. You can filter the delivery tasks by the category of the delivered real-time logs.
+ * @summary Lists all task delivery records for a user, and supports filtering by business type and paging.
  *
  * @param request ListUserDeliveryTasksRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -17990,7 +18223,7 @@ ListUserDeliveryTasksResponse Client::listUserDeliveryTasksWithOptions(const Lis
 }
 
 /**
- * @summary Queries all delivery tasks in your Alibaba Cloud account by page. You can filter the delivery tasks by the category of the delivered real-time logs.
+ * @summary Lists all task delivery records for a user, and supports filtering by business type and paging.
  *
  * @param request ListUserDeliveryTasksRequest
  * @return ListUserDeliveryTasksResponse
@@ -18275,7 +18508,7 @@ ListVideoProcessingsResponse Client::listVideoProcessings(const ListVideoProcess
 }
 
 /**
- * @summary Lists all managed rules under Web Application Firewall (WAF) or filters rules based on specific conditions. You can use this operation to query detailed information about WAF managed rules in a paginated manner.
+ * @summary Lists all managed rules under Web Application Firewall (WAF) or filters the rules based on specific conditions. You can use this operation to query the details of WAF managed rules in a paginated manner.
  *
  * @param tmpReq ListWafManagedRulesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -18352,7 +18585,7 @@ ListWafManagedRulesResponse Client::listWafManagedRulesWithOptions(const ListWaf
 }
 
 /**
- * @summary Lists all managed rules under Web Application Firewall (WAF) or filters rules based on specific conditions. You can use this operation to query detailed information about WAF managed rules in a paginated manner.
+ * @summary Lists all managed rules under Web Application Firewall (WAF) or filters the rules based on specific conditions. You can use this operation to query the details of WAF managed rules in a paginated manner.
  *
  * @param request ListWafManagedRulesRequest
  * @return ListWafManagedRulesResponse
@@ -18409,7 +18642,7 @@ ListWafPhasesResponse Client::listWafPhases(const ListWafPhasesRequest &request)
 }
 
 /**
- * @summary Lists all rules or filters rules by specific conditions under Web Application Firewall (WAF). You can use this operation to query detailed information about WAF rules in a paged manner.
+ * @summary Lists all Web Application Firewall (WAF) rules or filters rules based on specific conditions. You can call this operation to query the details of WAF rules in a paginated manner.
  *
  * @param tmpReq ListWafRulesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -18470,7 +18703,7 @@ ListWafRulesResponse Client::listWafRulesWithOptions(const ListWafRulesRequest &
 }
 
 /**
- * @summary Lists all rules or filters rules by specific conditions under Web Application Firewall (WAF). You can use this operation to query detailed information about WAF rules in a paged manner.
+ * @summary Lists all Web Application Firewall (WAF) rules or filters rules based on specific conditions. You can call this operation to query the details of WAF rules in a paginated manner.
  *
  * @param request ListWafRulesRequest
  * @return ListWafRulesResponse
@@ -18481,7 +18714,7 @@ ListWafRulesResponse Client::listWafRules(const ListWafRulesRequest &request) {
 }
 
 /**
- * @summary Lists the rulesets under the current WAF execution phase. Queries basic information and status of rulesets with paging support.
+ * @summary Lists the rulesets in the current WAF phase and retrieves the basic information and status of the rulesets through paging in a paged query.
  *
  * @param tmpReq ListWafRulesetsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -18538,7 +18771,7 @@ ListWafRulesetsResponse Client::listWafRulesetsWithOptions(const ListWafRulesets
 }
 
 /**
- * @summary Lists the rulesets under the current WAF execution phase. Queries basic information and status of rulesets with paging support.
+ * @summary Lists the rulesets in the current WAF phase and retrieves the basic information and status of the rulesets through paging in a paged query.
  *
  * @param request ListWafRulesetsRequest
  * @return ListWafRulesetsResponse
@@ -18549,7 +18782,7 @@ ListWafRulesetsResponse Client::listWafRulesets(const ListWafRulesetsRequest &re
 }
 
 /**
- * @summary Lists the template rules in WAF. These rules are typically predefined rulesets for quickly enabling protection against common attack types.
+ * @summary Lists the template rules in Web Application Firewall (WAF). These rules are typically predefined rule sets used to quickly enable protection against common attack types.
  *
  * @param tmpReq ListWafTemplateRulesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -18598,7 +18831,7 @@ ListWafTemplateRulesResponse Client::listWafTemplateRulesWithOptions(const ListW
 }
 
 /**
- * @summary Lists the template rules in WAF. These rules are typically predefined rulesets for quickly enabling protection against common attack types.
+ * @summary Lists the template rules in Web Application Firewall (WAF). These rules are typically predefined rule sets used to quickly enable protection against common attack types.
  *
  * @param request ListWafTemplateRulesRequest
  * @return ListWafTemplateRulesResponse
@@ -18659,9 +18892,9 @@ ListWafUsageOfRulesResponse Client::listWafUsageOfRules(const ListWafUsageOfRule
 }
 
 /**
- * @summary Queries waiting room events for a waiting room.
+ * @summary Queries the details of waiting room events.
  *
- * @description Use this operation to query details of all waiting room events related to a waiting room in a website.
+ * @description Queries the details of all waiting room events associated with a specified site ID and waiting room ID.
  *
  * @param request ListWaitingRoomEventsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -18688,9 +18921,9 @@ ListWaitingRoomEventsResponse Client::listWaitingRoomEventsWithOptions(const Lis
 }
 
 /**
- * @summary Queries waiting room events for a waiting room.
+ * @summary Queries the details of waiting room events.
  *
- * @description Use this operation to query details of all waiting room events related to a waiting room in a website.
+ * @description Queries the details of all waiting room events associated with a specified site ID and waiting room ID.
  *
  * @param request ListWaitingRoomEventsRequest
  * @return ListWaitingRoomEventsResponse
@@ -21329,7 +21562,7 @@ UpdateCacheReserveResponse Client::updateCacheReserve(const UpdateCacheReserveRe
 }
 
 /**
- * @summary Cache Reserve Specification Change
+ * @summary Modifies the specifications of cache retention.
  *
  * @param request UpdateCacheReserveSpecRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -21372,7 +21605,7 @@ UpdateCacheReserveSpecResponse Client::updateCacheReserveSpecWithOptions(const U
 }
 
 /**
- * @summary Cache Reserve Specification Change
+ * @summary Modifies the specifications of cache retention.
  *
  * @param request UpdateCacheReserveSpecRequest
  * @return UpdateCacheReserveSpecResponse
@@ -22359,6 +22592,78 @@ UpdateEnvironmentVersionResponse Client::updateEnvironmentVersion(const UpdateEn
 }
 
 /**
+ * @summary Modifies the error code redirect configuration.
+ *
+ * @param tmpReq UpdateErrorPagesRedirectRuleRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return UpdateErrorPagesRedirectRuleResponse
+ */
+UpdateErrorPagesRedirectRuleResponse Client::updateErrorPagesRedirectRuleWithOptions(const UpdateErrorPagesRedirectRuleRequest &tmpReq, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  UpdateErrorPagesRedirectRuleShrinkRequest request = UpdateErrorPagesRedirectRuleShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasErrorPagesRedirect()) {
+    request.setErrorPagesRedirectShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getErrorPagesRedirect(), "ErrorPagesRedirect", "json"));
+  }
+
+  json query = {};
+  if (!!request.hasConfigId()) {
+    query["ConfigId"] = request.getConfigId();
+  }
+
+  if (!!request.hasErrorPagesRedirectShrink()) {
+    query["ErrorPagesRedirect"] = request.getErrorPagesRedirectShrink();
+  }
+
+  if (!!request.hasRule()) {
+    query["Rule"] = request.getRule();
+  }
+
+  if (!!request.hasRuleEnable()) {
+    query["RuleEnable"] = request.getRuleEnable();
+  }
+
+  if (!!request.hasRuleName()) {
+    query["RuleName"] = request.getRuleName();
+  }
+
+  if (!!request.hasSequence()) {
+    query["Sequence"] = request.getSequence();
+  }
+
+  if (!!request.hasSiteId()) {
+    query["SiteId"] = request.getSiteId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "UpdateErrorPagesRedirectRule"},
+    {"version" , "2024-09-10"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<UpdateErrorPagesRedirectRuleResponse>();
+}
+
+/**
+ * @summary Modifies the error code redirect configuration.
+ *
+ * @param request UpdateErrorPagesRedirectRuleRequest
+ * @return UpdateErrorPagesRedirectRuleResponse
+ */
+UpdateErrorPagesRedirectRuleResponse Client::updateErrorPagesRedirectRule(const UpdateErrorPagesRedirectRuleRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return updateErrorPagesRedirectRuleWithOptions(request, runtime);
+}
+
+/**
  * @summary Modify HTTP incoming request header configuration.
  *
  * @param tmpReq UpdateHttpIncomingRequestHeaderModificationRuleRequest
@@ -22647,7 +22952,7 @@ UpdateHttpResponseHeaderModificationRuleResponse Client::updateHttpResponseHeade
 }
 
 /**
- * @summary Update the HTTPS Application Configuration.
+ * @summary Modifies the HTTPS application configuration.
  *
  * @param request UpdateHttpsApplicationConfigurationRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -22750,7 +23055,7 @@ UpdateHttpsApplicationConfigurationResponse Client::updateHttpsApplicationConfig
 }
 
 /**
- * @summary Update the HTTPS Application Configuration.
+ * @summary Modifies the HTTPS application configuration.
  *
  * @param request UpdateHttpsApplicationConfigurationRequest
  * @return UpdateHttpsApplicationConfigurationResponse
@@ -23047,9 +23352,9 @@ UpdateListResponse Client::updateList(const UpdateListRequest &request) {
 }
 
 /**
- * @summary To modify an existing load balancer, you must specify its load balancer ID.
+ * @summary Modifies the information of an existing load balancing instance. The load balancing instance ID is required to identify the load balancing instance to be modified.
  *
- * @description This operation modifies multiple configurations for a load balancer, including its name, acceleration status, session persistence policy, and advanced traffic routing settings.>Notice: Changes to certain parameters might affect the stability of existing services. Proceed with caution.
+ * @description This operation allows you to modify multiple configurations of a load balancing instance, including but not limited to the load balancing instance name, acceleration status, session persistence policy, and various advanced settings related to traffic routing.>Notice: Changes to certain parameters may affect the stability of existing services. Proceed with caution.
  *
  * @param tmpReq UpdateLoadBalancerRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -23158,9 +23463,9 @@ UpdateLoadBalancerResponse Client::updateLoadBalancerWithOptions(const UpdateLoa
 }
 
 /**
- * @summary To modify an existing load balancer, you must specify its load balancer ID.
+ * @summary Modifies the information of an existing load balancing instance. The load balancing instance ID is required to identify the load balancing instance to be modified.
  *
- * @description This operation modifies multiple configurations for a load balancer, including its name, acceleration status, session persistence policy, and advanced traffic routing settings.>Notice: Changes to certain parameters might affect the stability of existing services. Proceed with caution.
+ * @description This operation allows you to modify multiple configurations of a load balancing instance, including but not limited to the load balancing instance name, acceleration status, session persistence policy, and various advanced settings related to traffic routing.>Notice: Changes to certain parameters may affect the stability of existing services. Proceed with caution.
  *
  * @param request UpdateLoadBalancerRequest
  * @return UpdateLoadBalancerResponse
@@ -23171,7 +23476,7 @@ UpdateLoadBalancerResponse Client::updateLoadBalancer(const UpdateLoadBalancerRe
 }
 
 /**
- * @summary Modify the site hosting transformation configuration.
+ * @summary Modifies the site hosting transformation configuration.
  *
  * @param request UpdateManagedTransformRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -23218,7 +23523,7 @@ UpdateManagedTransformResponse Client::updateManagedTransformWithOptions(const U
 }
 
 /**
- * @summary Modify the site hosting transformation configuration.
+ * @summary Modifies the site hosting transformation configuration.
  *
  * @param request UpdateManagedTransformRequest
  * @return UpdateManagedTransformResponse
@@ -23371,7 +23676,7 @@ UpdateOriginPoolResponse Client::updateOriginPool(const UpdateOriginPoolRequest 
 }
 
 /**
- * @summary Modify the origin protection feature to enable or disable origin fetch convergence.
+ * @summary Modifies the origin protection feature to enable or disable back-to-origin convergence.
  *
  * @param request UpdateOriginProtectionRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -23410,7 +23715,7 @@ UpdateOriginProtectionResponse Client::updateOriginProtectionWithOptions(const U
 }
 
 /**
- * @summary Modify the origin protection feature to enable or disable origin fetch convergence.
+ * @summary Modifies the origin protection feature to enable or disable back-to-origin convergence.
  *
  * @param request UpdateOriginProtectionRequest
  * @return UpdateOriginProtectionResponse
@@ -23765,15 +24070,15 @@ UpdateRatePlanSpecResponse Client::updateRatePlanSpec(const UpdateRatePlanSpecRe
 }
 
 /**
- * @summary Updates a DNS record. Various record types and origin authentication configurations are supported.
+ * @summary Updates a DNS record and supports multiple record types and origin server authentication configurations.
  *
- * @description This API operation allows you to update a DNS record, including but not limited to A/AAAA, CNAME, NS, MX, TXT, CAA, SRV, and URI record types. You can modify the record content by specifying the corresponding record value, priority, flag, and other fields. For CNAME origin servers that require authentication, such as OSS and S3, this API operation also supports configuring origin authentication information to ensure secure access.
- * ### Before you begin
- * - The record value (Value) must match the record type. For example, a CNAME record must correspond to a target domain name.
- * - Certain record types, such as MX and SRV, require a priority (Priority) value.
- * - CAA records require specific fields such as Flag and Tag.
- * - When updating security records such as CERT and SSHFP, accurately set the Type, Algorithm, and other fields.
- * - When using OSS or S3 as the origin server, configure the authentication details in AuthConf based on the permission settings.
+ * @description This API operation allows you to update DNS records, including but not limited to A, AAAA, CNAME, NS, MX, TXT, CAA, SRV, and URI types. You can modify the record content by passing the corresponding record value, priority, flag, and other fields. For CNAME origin servers that require authentication, such as OSS and S3, this API operation also supports configuring origin server authentication information to ensure secure access.
+ * ### Precautions
+ * - The record value must match the record type. For example, a CNAME record must correspond to the target domain name.
+ * - You must specify the priority for certain record types, such as MX and SRV.
+ * - You must provide specific fields such as Flag and Tag for CAA records.
+ * - When updating security records such as CERT and SSHFP, you must accurately set fields such as Type and Algorithm.
+ * - When using OSS or S3 as the origin server, configure the authentication details in AuthConf based on the permissions.
  *
  * @param tmpReq UpdateRecordRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -23858,15 +24163,15 @@ UpdateRecordResponse Client::updateRecordWithOptions(const UpdateRecordRequest &
 }
 
 /**
- * @summary Updates a DNS record. Various record types and origin authentication configurations are supported.
+ * @summary Updates a DNS record and supports multiple record types and origin server authentication configurations.
  *
- * @description This API operation allows you to update a DNS record, including but not limited to A/AAAA, CNAME, NS, MX, TXT, CAA, SRV, and URI record types. You can modify the record content by specifying the corresponding record value, priority, flag, and other fields. For CNAME origin servers that require authentication, such as OSS and S3, this API operation also supports configuring origin authentication information to ensure secure access.
- * ### Before you begin
- * - The record value (Value) must match the record type. For example, a CNAME record must correspond to a target domain name.
- * - Certain record types, such as MX and SRV, require a priority (Priority) value.
- * - CAA records require specific fields such as Flag and Tag.
- * - When updating security records such as CERT and SSHFP, accurately set the Type, Algorithm, and other fields.
- * - When using OSS or S3 as the origin server, configure the authentication details in AuthConf based on the permission settings.
+ * @description This API operation allows you to update DNS records, including but not limited to A, AAAA, CNAME, NS, MX, TXT, CAA, SRV, and URI types. You can modify the record content by passing the corresponding record value, priority, flag, and other fields. For CNAME origin servers that require authentication, such as OSS and S3, this API operation also supports configuring origin server authentication information to ensure secure access.
+ * ### Precautions
+ * - The record value must match the record type. For example, a CNAME record must correspond to the target domain name.
+ * - You must specify the priority for certain record types, such as MX and SRV.
+ * - You must provide specific fields such as Flag and Tag for CAA records.
+ * - When updating security records such as CERT and SSHFP, you must accurately set fields such as Type and Algorithm.
+ * - When using OSS or S3 as the origin server, configure the authentication details in AuthConf based on the permissions.
  *
  * @param request UpdateRecordRequest
  * @return UpdateRecordResponse
@@ -24593,7 +24898,7 @@ UpdateSiteDeliveryTaskResponse Client::updateSiteDeliveryTask(const UpdateSiteDe
 }
 
 /**
- * @summary Changes the status of a real-time log delivery task.
+ * @summary Modifies the delivery status of a real-time log task.
  *
  * @param request UpdateSiteDeliveryTaskStatusRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -24620,7 +24925,7 @@ UpdateSiteDeliveryTaskStatusResponse Client::updateSiteDeliveryTaskStatusWithOpt
 }
 
 /**
- * @summary Changes the status of a real-time log delivery task.
+ * @summary Modifies the delivery status of a real-time log task.
  *
  * @param request UpdateSiteDeliveryTaskStatusRequest
  * @return UpdateSiteDeliveryTaskStatusResponse
@@ -24631,7 +24936,7 @@ UpdateSiteDeliveryTaskStatusResponse Client::updateSiteDeliveryTaskStatus(const 
 }
 
 /**
- * @summary Changes the plan instance associated with a site.
+ * @summary Replaces the plan instance for a site.
  *
  * @param request UpdateSiteInstanceRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -24670,7 +24975,7 @@ UpdateSiteInstanceResponse Client::updateSiteInstanceWithOptions(const UpdateSit
 }
 
 /**
- * @summary Changes the plan instance associated with a site.
+ * @summary Replaces the plan instance for a site.
  *
  * @param request UpdateSiteInstanceRequest
  * @return UpdateSiteInstanceResponse
@@ -24777,9 +25082,9 @@ UpdateSitePauseResponse Client::updateSitePause(const UpdateSitePauseRequest &re
 }
 
 /**
- * @summary Modifies the custom nameserver (NS) names for a single site.
+ * @summary Modifies the custom NS names for a single site.
  *
- * @description The site plan must be Enterprise Edition or higher to use the custom NS feature.
+ * @description The custom NS feature is available only for sites on the Enterprise edition plan.
  *
  * @param request UpdateSiteVanityNSRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -24814,9 +25119,9 @@ UpdateSiteVanityNSResponse Client::updateSiteVanityNSWithOptions(const UpdateSit
 }
 
 /**
- * @summary Modifies the custom nameserver (NS) names for a single site.
+ * @summary Modifies the custom NS names for a single site.
  *
- * @description The site plan must be Enterprise Edition or higher to use the custom NS feature.
+ * @description The custom NS feature is available only for sites on the Enterprise edition plan.
  *
  * @param request UpdateSiteVanityNSRequest
  * @return UpdateSiteVanityNSResponse
@@ -24827,7 +25132,7 @@ UpdateSiteVanityNSResponse Client::updateSiteVanityNS(const UpdateSiteVanityNSRe
 }
 
 /**
- * @summary Updates a slider CAPTCHA page.
+ * @summary Updates the slider CAPTCHA page.
  *
  * @param tmpReq UpdateSliderCaptchaPageRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -24888,7 +25193,7 @@ UpdateSliderCaptchaPageResponse Client::updateSliderCaptchaPageWithOptions(const
 }
 
 /**
- * @summary Updates a slider CAPTCHA page.
+ * @summary Updates the slider CAPTCHA page.
  *
  * @param request UpdateSliderCaptchaPageRequest
  * @return UpdateSliderCaptchaPageResponse
@@ -24945,10 +25250,10 @@ UpdateTieredCacheResponse Client::updateTieredCache(const UpdateTieredCacheReque
 }
 
 /**
- * @summary Modifies the forwarding rule configurations of a Layer 4 application under a specified site.
+ * @summary Modifies the configurations such as forwarding rules for a Layer 4 application under a specified site.
  *
- * @description If ListTransportLayerApplications returns an empty Layer 4 acceleration application list, use CreateTransportLayerApplication to create a Layer 4 acceleration application, and then use this API to modify the configurations of the Layer 4 acceleration application.
- * When creating a Layer 4 acceleration application, the selected site must be an activated site. After creating a site, call the VerifySite API to verify it. A site that passes verification is automatically activated, indicated by the response parameter Passed=true.
+ * @description If ListTransportLayerApplications returns an empty list of Layer 4 accelerated applications, you must use CreateTransportLayerApplication to create a Layer 4 accelerated application, and then use this API operation to modify multiple configurations of the application.
+ * When you create a Layer 4 accelerated application, the selected site must be activated. After you create a site, call the VerifySite API operation to verify the site. A site that passes the verification is automatically activated, which means the response parameter Passed is set to true.
  *
  * @param tmpReq UpdateTransportLayerApplicationRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -25013,10 +25318,10 @@ UpdateTransportLayerApplicationResponse Client::updateTransportLayerApplicationW
 }
 
 /**
- * @summary Modifies the forwarding rule configurations of a Layer 4 application under a specified site.
+ * @summary Modifies the configurations such as forwarding rules for a Layer 4 application under a specified site.
  *
- * @description If ListTransportLayerApplications returns an empty Layer 4 acceleration application list, use CreateTransportLayerApplication to create a Layer 4 acceleration application, and then use this API to modify the configurations of the Layer 4 acceleration application.
- * When creating a Layer 4 acceleration application, the selected site must be an activated site. After creating a site, call the VerifySite API to verify it. A site that passes verification is automatically activated, indicated by the response parameter Passed=true.
+ * @description If ListTransportLayerApplications returns an empty list of Layer 4 accelerated applications, you must use CreateTransportLayerApplication to create a Layer 4 accelerated application, and then use this API operation to modify multiple configurations of the application.
+ * When you create a Layer 4 accelerated application, the selected site must be activated. After you create a site, call the VerifySite API operation to verify the site. A site that passes the verification is automatically activated, which means the response parameter Passed is set to true.
  *
  * @param request UpdateTransportLayerApplicationRequest
  * @return UpdateTransportLayerApplicationResponse
@@ -25077,9 +25382,9 @@ UpdateUrlObservationResponse Client::updateUrlObservation(const UpdateUrlObserva
 }
 
 /**
- * @summary Modifies the delivery task configuration of a user, allowing you to set the task name, select fields, specify the real-time log type, and adjust the discard rate.
+ * @summary Modifies the task delivery configuration for a user, allowing you to set the task name, select fields, specify the real-time log type, and adjust the discard rate.
  *
- * @description Before calling this operation, you must have successfully created a task with the target TaskName by using CreateUserDeliveryTask. Only then can you use this operation to update the delivery task configuration.
+ * @description Before calling this operation, you must create a task with the specified TaskName by calling CreateUserDeliveryTask. You can then use this operation to update the delivery task configuration.
  *
  * @param request UpdateUserDeliveryTaskRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -25130,9 +25435,9 @@ UpdateUserDeliveryTaskResponse Client::updateUserDeliveryTaskWithOptions(const U
 }
 
 /**
- * @summary Modifies the delivery task configuration of a user, allowing you to set the task name, select fields, specify the real-time log type, and adjust the discard rate.
+ * @summary Modifies the task delivery configuration for a user, allowing you to set the task name, select fields, specify the real-time log type, and adjust the discard rate.
  *
- * @description Before calling this operation, you must have successfully created a task with the target TaskName by using CreateUserDeliveryTask. Only then can you use this operation to update the delivery task configuration.
+ * @description Before calling this operation, you must create a task with the specified TaskName by calling CreateUserDeliveryTask. You can then use this operation to update the delivery task configuration.
  *
  * @param request UpdateUserDeliveryTaskRequest
  * @return UpdateUserDeliveryTaskResponse
@@ -25143,10 +25448,9 @@ UpdateUserDeliveryTaskResponse Client::updateUserDeliveryTask(const UpdateUserDe
 }
 
 /**
- * @summary Changes the status of a delivery task in your Alibaba Cloud account.
+ * @summary Enables or disables a user task delivery.
  *
- * @description ## [](#)
- * Use this operation to enable or disable a delivery task by using TaskName and Method. The response includes the most recent status and operation result details of the task.
+ * @description This operation enables or disables the data delivery feature of a task based on the task name and method. The method must be specified as online or offline. The response returns the latest status of the task and the operation result details.
  *
  * @param request UpdateUserDeliveryTaskStatusRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -25173,10 +25477,9 @@ UpdateUserDeliveryTaskStatusResponse Client::updateUserDeliveryTaskStatusWithOpt
 }
 
 /**
- * @summary Changes the status of a delivery task in your Alibaba Cloud account.
+ * @summary Enables or disables a user task delivery.
  *
- * @description ## [](#)
- * Use this operation to enable or disable a delivery task by using TaskName and Method. The response includes the most recent status and operation result details of the task.
+ * @description This operation enables or disables the data delivery feature of a task based on the task name and method. The method must be specified as online or offline. The response returns the latest status of the task and the operation result details.
  *
  * @param request UpdateUserDeliveryTaskStatusRequest
  * @return UpdateUserDeliveryTaskStatusResponse
@@ -25187,12 +25490,12 @@ UpdateUserDeliveryTaskStatusResponse Client::updateUserDeliveryTaskStatus(const 
 }
 
 /**
- * @summary Modifies the WAF ruleset configuration for a specified instance, including its position, name, and other properties.
+ * @summary Modifies the configuration of a WAF rule set for a specified instance, including the position and name.
  *
  * @description ## Request description
- * - This operation updates an existing WAF ruleset. You can modify the position, name, description, status, and expression of the ruleset.
- * - Include only the parameters that you want to modify. Omit parameters that you do not want to change.
- * - Note: Before you call this operation, ensure that the `InstanceId` and `Id` values are correct. Otherwise, the request may fail.
+ * - This operation allows you to update an existing WAF rule set. You can modify the position, name, description, status, and expression of the rule set.
+ * - Specify only the parameters that you want to modify. You do not need to pass the key of a parameter that remains unchanged.
+ * - Note: Make sure that you have obtained the correct `InstanceId` and `Id` values before you call this operation. Otherwise, the request may fail.
  *
  * @param tmpReq UpdateUserWafRulesetRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -25267,12 +25570,12 @@ UpdateUserWafRulesetResponse Client::updateUserWafRulesetWithOptions(const Updat
 }
 
 /**
- * @summary Modifies the WAF ruleset configuration for a specified instance, including its position, name, and other properties.
+ * @summary Modifies the configuration of a WAF rule set for a specified instance, including the position and name.
  *
  * @description ## Request description
- * - This operation updates an existing WAF ruleset. You can modify the position, name, description, status, and expression of the ruleset.
- * - Include only the parameters that you want to modify. Omit parameters that you do not want to change.
- * - Note: Before you call this operation, ensure that the `InstanceId` and `Id` values are correct. Otherwise, the request may fail.
+ * - This operation allows you to update an existing WAF rule set. You can modify the position, name, description, status, and expression of the rule set.
+ * - Specify only the parameters that you want to modify. You do not need to pass the key of a parameter that remains unchanged.
+ * - Note: Make sure that you have obtained the correct `InstanceId` and `Id` values before you call this operation. Otherwise, the request may fail.
  *
  * @param request UpdateUserWafRulesetRequest
  * @return UpdateUserWafRulesetResponse
@@ -25489,7 +25792,7 @@ UpdateWafRuleResponse Client::updateWafRule(const UpdateWafRuleRequest &request)
 }
 
 /**
- * @summary Updates a WAF ruleset based on its ID.
+ * @summary Updates a WAF rule set based on the ID of the rule set.
  *
  * @param request UpdateWafRulesetRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -25534,7 +25837,7 @@ UpdateWafRulesetResponse Client::updateWafRulesetWithOptions(const UpdateWafRule
 }
 
 /**
- * @summary Updates a WAF ruleset based on its ID.
+ * @summary Updates a WAF rule set based on the ID of the rule set.
  *
  * @param request UpdateWafRulesetRequest
  * @return UpdateWafRulesetResponse

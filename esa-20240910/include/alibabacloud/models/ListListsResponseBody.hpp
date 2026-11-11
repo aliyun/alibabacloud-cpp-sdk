@@ -116,19 +116,19 @@ namespace Models
 
 
     protected:
-      // The list description.
+      // The description of the list.
       shared_ptr<string> description_ {};
       // The ID of the custom list. You can obtain the ID by calling the [ListLists](https://help.aliyun.com/document_detail/2850217.html) operation.
       shared_ptr<int64_t> id_ {};
-      // The kind of the list.
+      // The type of the list.
       shared_ptr<string> kind_ {};
-      // The length of the list content array, which indicates the number of items in the list.
+      // The length of the list content array, which indicates the number of items contained in the list.
       shared_ptr<int64_t> length_ {};
-      // The list name.
+      // The name of the list.
       shared_ptr<string> name_ {};
-      // The time when the list was last modified.
+      // The last update time of the list.
       // 
-      // Format: RFC 3339 / ISO 8601, UTC time zone (ending with Z).
+      // Format: RFC 3339 / ISO 8601, UTC standard time zone (ending with Z).
       // 
       // Example: 2026-06-10T14:23:45Z
       shared_ptr<string> updateTime_ {};
@@ -189,7 +189,7 @@ namespace Models
 
 
   protected:
-    // The total item usage.
+    // The total usage of items.
     shared_ptr<int64_t> itemsUsage_ {};
     // The array of list information, which contains the paginated list data.
     shared_ptr<vector<ListListsResponseBody::Lists>> lists_ {};
@@ -201,7 +201,7 @@ namespace Models
     shared_ptr<string> requestId_ {};
     // The total number of records after filtering.
     shared_ptr<int32_t> totalCount_ {};
-    // The amount of usage consumed by the user.
+    // The usage of the user.
     shared_ptr<int64_t> usage_ {};
   };
 

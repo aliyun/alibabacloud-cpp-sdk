@@ -123,7 +123,7 @@ namespace Models
         // 
         // This parameter is required.
         shared_ptr<bool> showRequestId_ {};
-        // The color of the slider.
+        // The slider color.
         // 
         // This parameter is required.
         shared_ptr<string> sliderColor_ {};
@@ -195,7 +195,7 @@ namespace Models
         shared_ptr<bool> showFooter_ {};
         // Specifies whether to show the request ID.
         shared_ptr<bool> showRequestId_ {};
-        // The color of the slider.
+        // The slider color.
         // 
         // This parameter is required.
         shared_ptr<string> sliderColor_ {};
@@ -276,7 +276,7 @@ namespace Models
   protected:
     // The predefined configurations for the custom slider page.
     shared_ptr<CreateSliderCaptchaPageRequest::Configs> configs_ {};
-    // The custom slider configurations. The value is a JSON string.
+    // The custom slider configuration, in JSON string format.
     shared_ptr<string> customContent_ {};
     // The forced language.
     shared_ptr<string> forceLanguage_ {};

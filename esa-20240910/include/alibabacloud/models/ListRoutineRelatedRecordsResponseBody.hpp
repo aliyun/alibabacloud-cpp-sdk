@@ -94,13 +94,13 @@ namespace Models
 
 
     protected:
-      // The record ID of the domain name.
+      // The ID of the record.
       shared_ptr<int64_t> recordId_ {};
       // The name of the record.
       shared_ptr<string> recordName_ {};
-      // The website ID.
+      // The ID of the site.
       shared_ptr<int64_t> siteId_ {};
-      // The website name.
+      // The name of the site.
       shared_ptr<string> siteName_ {};
     };
 
@@ -144,15 +144,15 @@ namespace Models
 
 
   protected:
-    // The page number. Pages start from page 1. Default value: 1.
+    // The current page number.
     shared_ptr<int64_t> pageNumber_ {};
     // The number of entries per page.
     shared_ptr<int64_t> pageSize_ {};
-    // The list of records associated with the edge function.
+    // The list of association records for the Edge Routine.
     shared_ptr<vector<ListRoutineRelatedRecordsResponseBody::RelatedRecords>> relatedRecords_ {};
-    // The request ID.
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
-    // The total number of entries.
+    // The total number of records.
     shared_ptr<int64_t> totalCount_ {};
   };
 

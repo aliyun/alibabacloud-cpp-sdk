@@ -1,0 +1,281 @@
+// This file is auto-generated, don't edit it. Thanks.
+#ifndef ALIBABACLOUD_MODELS_LISTERRORPAGESREDIRECTRULESRESPONSEBODY_HPP_
+#define ALIBABACLOUD_MODELS_LISTERRORPAGESREDIRECTRULESRESPONSEBODY_HPP_
+#include <darabonba/Core.hpp>
+#include <vector>
+using namespace std;
+using json = nlohmann::json;
+namespace AlibabaCloud
+{
+namespace ESA20240910
+{
+namespace Models
+{
+  class ListErrorPagesRedirectRulesResponseBody : public Darabonba::Model {
+  public:
+    friend void to_json(Darabonba::Json& j, const ListErrorPagesRedirectRulesResponseBody& obj) { 
+      DARABONBA_PTR_TO_JSON(Configs, configs_);
+      DARABONBA_PTR_TO_JSON(PageNumber, pageNumber_);
+      DARABONBA_PTR_TO_JSON(PageSize, pageSize_);
+      DARABONBA_PTR_TO_JSON(RequestId, requestId_);
+      DARABONBA_PTR_TO_JSON(TotalCount, totalCount_);
+      DARABONBA_PTR_TO_JSON(TotalPage, totalPage_);
+    };
+    friend void from_json(const Darabonba::Json& j, ListErrorPagesRedirectRulesResponseBody& obj) { 
+      DARABONBA_PTR_FROM_JSON(Configs, configs_);
+      DARABONBA_PTR_FROM_JSON(PageNumber, pageNumber_);
+      DARABONBA_PTR_FROM_JSON(PageSize, pageSize_);
+      DARABONBA_PTR_FROM_JSON(RequestId, requestId_);
+      DARABONBA_PTR_FROM_JSON(TotalCount, totalCount_);
+      DARABONBA_PTR_FROM_JSON(TotalPage, totalPage_);
+    };
+    ListErrorPagesRedirectRulesResponseBody() = default ;
+    ListErrorPagesRedirectRulesResponseBody(const ListErrorPagesRedirectRulesResponseBody &) = default ;
+    ListErrorPagesRedirectRulesResponseBody(ListErrorPagesRedirectRulesResponseBody &&) = default ;
+    ListErrorPagesRedirectRulesResponseBody(const Darabonba::Json & obj) { from_json(obj, *this); };
+    virtual ~ListErrorPagesRedirectRulesResponseBody() = default ;
+    ListErrorPagesRedirectRulesResponseBody& operator=(const ListErrorPagesRedirectRulesResponseBody &) = default ;
+    ListErrorPagesRedirectRulesResponseBody& operator=(ListErrorPagesRedirectRulesResponseBody &&) = default ;
+    virtual void validate() const override {
+    };
+    virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+    virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+    class Configs : public Darabonba::Model {
+    public:
+      friend void to_json(Darabonba::Json& j, const Configs& obj) { 
+        DARABONBA_PTR_TO_JSON(ConfigId, configId_);
+        DARABONBA_PTR_TO_JSON(ConfigType, configType_);
+        DARABONBA_PTR_TO_JSON(ErrorPagesRedirect, errorPagesRedirect_);
+        DARABONBA_PTR_TO_JSON(Rule, rule_);
+        DARABONBA_PTR_TO_JSON(RuleEnable, ruleEnable_);
+        DARABONBA_PTR_TO_JSON(RuleName, ruleName_);
+        DARABONBA_PTR_TO_JSON(Sequence, sequence_);
+        DARABONBA_PTR_TO_JSON(SiteVersion, siteVersion_);
+      };
+      friend void from_json(const Darabonba::Json& j, Configs& obj) { 
+        DARABONBA_PTR_FROM_JSON(ConfigId, configId_);
+        DARABONBA_PTR_FROM_JSON(ConfigType, configType_);
+        DARABONBA_PTR_FROM_JSON(ErrorPagesRedirect, errorPagesRedirect_);
+        DARABONBA_PTR_FROM_JSON(Rule, rule_);
+        DARABONBA_PTR_FROM_JSON(RuleEnable, ruleEnable_);
+        DARABONBA_PTR_FROM_JSON(RuleName, ruleName_);
+        DARABONBA_PTR_FROM_JSON(Sequence, sequence_);
+        DARABONBA_PTR_FROM_JSON(SiteVersion, siteVersion_);
+      };
+      Configs() = default ;
+      Configs(const Configs &) = default ;
+      Configs(Configs &&) = default ;
+      Configs(const Darabonba::Json & obj) { from_json(obj, *this); };
+      virtual ~Configs() = default ;
+      Configs& operator=(const Configs &) = default ;
+      Configs& operator=(Configs &&) = default ;
+      virtual void validate() const override {
+      };
+      virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+      virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+      class ErrorPagesRedirect : public Darabonba::Model {
+      public:
+        friend void to_json(Darabonba::Json& j, const ErrorPagesRedirect& obj) { 
+          DARABONBA_PTR_TO_JSON(StatusCode, statusCode_);
+          DARABONBA_PTR_TO_JSON(TargetURL, targetURL_);
+        };
+        friend void from_json(const Darabonba::Json& j, ErrorPagesRedirect& obj) { 
+          DARABONBA_PTR_FROM_JSON(StatusCode, statusCode_);
+          DARABONBA_PTR_FROM_JSON(TargetURL, targetURL_);
+        };
+        ErrorPagesRedirect() = default ;
+        ErrorPagesRedirect(const ErrorPagesRedirect &) = default ;
+        ErrorPagesRedirect(ErrorPagesRedirect &&) = default ;
+        ErrorPagesRedirect(const Darabonba::Json & obj) { from_json(obj, *this); };
+        virtual ~ErrorPagesRedirect() = default ;
+        ErrorPagesRedirect& operator=(const ErrorPagesRedirect &) = default ;
+        ErrorPagesRedirect& operator=(ErrorPagesRedirect &&) = default ;
+        virtual void validate() const override {
+        };
+        virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+        virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+        virtual bool empty() const override { return this->statusCode_ == nullptr
+        && this->targetURL_ == nullptr; };
+        // statusCode Field Functions 
+        bool hasStatusCode() const { return this->statusCode_ != nullptr;};
+        void deleteStatusCode() { this->statusCode_ = nullptr;};
+        inline string getStatusCode() const { DARABONBA_PTR_GET_DEFAULT(statusCode_, "") };
+        inline ErrorPagesRedirect& setStatusCode(string statusCode) { DARABONBA_PTR_SET_VALUE(statusCode_, statusCode) };
+
+
+        // targetURL Field Functions 
+        bool hasTargetURL() const { return this->targetURL_ != nullptr;};
+        void deleteTargetURL() { this->targetURL_ = nullptr;};
+        inline string getTargetURL() const { DARABONBA_PTR_GET_DEFAULT(targetURL_, "") };
+        inline ErrorPagesRedirect& setTargetURL(string targetURL) { DARABONBA_PTR_SET_VALUE(targetURL_, targetURL) };
+
+
+      protected:
+        // The response status code used by the node when responding to the client with a redirect address. Valid values:
+        // - 400
+        // - 403
+        // - 404
+        // - 405
+        // - 414
+        // - 416
+        // - 500
+        // - 501
+        // - 502
+        // - 503
+        // - 504
+        shared_ptr<string> statusCode_ {};
+        // The target URL after redirection.
+        shared_ptr<string> targetURL_ {};
+      };
+
+      virtual bool empty() const override { return this->configId_ == nullptr
+        && this->configType_ == nullptr && this->errorPagesRedirect_ == nullptr && this->rule_ == nullptr && this->ruleEnable_ == nullptr && this->ruleName_ == nullptr
+        && this->sequence_ == nullptr && this->siteVersion_ == nullptr; };
+      // configId Field Functions 
+      bool hasConfigId() const { return this->configId_ != nullptr;};
+      void deleteConfigId() { this->configId_ = nullptr;};
+      inline int64_t getConfigId() const { DARABONBA_PTR_GET_DEFAULT(configId_, 0L) };
+      inline Configs& setConfigId(int64_t configId) { DARABONBA_PTR_SET_VALUE(configId_, configId) };
+
+
+      // configType Field Functions 
+      bool hasConfigType() const { return this->configType_ != nullptr;};
+      void deleteConfigType() { this->configType_ = nullptr;};
+      inline string getConfigType() const { DARABONBA_PTR_GET_DEFAULT(configType_, "") };
+      inline Configs& setConfigType(string configType) { DARABONBA_PTR_SET_VALUE(configType_, configType) };
+
+
+      // errorPagesRedirect Field Functions 
+      bool hasErrorPagesRedirect() const { return this->errorPagesRedirect_ != nullptr;};
+      void deleteErrorPagesRedirect() { this->errorPagesRedirect_ = nullptr;};
+      inline const vector<Configs::ErrorPagesRedirect> & getErrorPagesRedirect() const { DARABONBA_PTR_GET_CONST(errorPagesRedirect_, vector<Configs::ErrorPagesRedirect>) };
+      inline vector<Configs::ErrorPagesRedirect> getErrorPagesRedirect() { DARABONBA_PTR_GET(errorPagesRedirect_, vector<Configs::ErrorPagesRedirect>) };
+      inline Configs& setErrorPagesRedirect(const vector<Configs::ErrorPagesRedirect> & errorPagesRedirect) { DARABONBA_PTR_SET_VALUE(errorPagesRedirect_, errorPagesRedirect) };
+      inline Configs& setErrorPagesRedirect(vector<Configs::ErrorPagesRedirect> && errorPagesRedirect) { DARABONBA_PTR_SET_RVALUE(errorPagesRedirect_, errorPagesRedirect) };
+
+
+      // rule Field Functions 
+      bool hasRule() const { return this->rule_ != nullptr;};
+      void deleteRule() { this->rule_ = nullptr;};
+      inline string getRule() const { DARABONBA_PTR_GET_DEFAULT(rule_, "") };
+      inline Configs& setRule(string rule) { DARABONBA_PTR_SET_VALUE(rule_, rule) };
+
+
+      // ruleEnable Field Functions 
+      bool hasRuleEnable() const { return this->ruleEnable_ != nullptr;};
+      void deleteRuleEnable() { this->ruleEnable_ = nullptr;};
+      inline string getRuleEnable() const { DARABONBA_PTR_GET_DEFAULT(ruleEnable_, "") };
+      inline Configs& setRuleEnable(string ruleEnable) { DARABONBA_PTR_SET_VALUE(ruleEnable_, ruleEnable) };
+
+
+      // ruleName Field Functions 
+      bool hasRuleName() const { return this->ruleName_ != nullptr;};
+      void deleteRuleName() { this->ruleName_ = nullptr;};
+      inline string getRuleName() const { DARABONBA_PTR_GET_DEFAULT(ruleName_, "") };
+      inline Configs& setRuleName(string ruleName) { DARABONBA_PTR_SET_VALUE(ruleName_, ruleName) };
+
+
+      // sequence Field Functions 
+      bool hasSequence() const { return this->sequence_ != nullptr;};
+      void deleteSequence() { this->sequence_ = nullptr;};
+      inline int32_t getSequence() const { DARABONBA_PTR_GET_DEFAULT(sequence_, 0) };
+      inline Configs& setSequence(int32_t sequence) { DARABONBA_PTR_SET_VALUE(sequence_, sequence) };
+
+
+      // siteVersion Field Functions 
+      bool hasSiteVersion() const { return this->siteVersion_ != nullptr;};
+      void deleteSiteVersion() { this->siteVersion_ = nullptr;};
+      inline int32_t getSiteVersion() const { DARABONBA_PTR_GET_DEFAULT(siteVersion_, 0) };
+      inline Configs& setSiteVersion(int32_t siteVersion) { DARABONBA_PTR_SET_VALUE(siteVersion_, siteVersion) };
+
+
+    protected:
+      // The configuration ID.
+      shared_ptr<int64_t> configId_ {};
+      // The configuration type. Valid values:
+      // - global: global configuration.
+      // - rule: rule configuration.
+      shared_ptr<string> configType_ {};
+      // The error code redirection.
+      shared_ptr<vector<Configs::ErrorPagesRedirect>> errorPagesRedirect_ {};
+      // The rule content. A conditional expression is used to match user requests. You do not need to set this parameter when adding a global configuration. Two scenarios are supported:
+      // - Match all incoming requests: Set the value to true.
+      // - Match specific requests: Set the value to a custom expression, such as (http.host eq "video.example.com").
+      shared_ptr<string> rule_ {};
+      // The rule switch. You do not need to set this parameter when adding a global configuration. Valid values:
+      // - on: enables the rule.
+      // - off: disables the rule.
+      shared_ptr<string> ruleEnable_ {};
+      // The rule name. You do not need to set this parameter when adding a global configuration.
+      shared_ptr<string> ruleName_ {};
+      // The execution sequence of the rule. A smaller value indicates a higher priority.
+      shared_ptr<int32_t> sequence_ {};
+      // The version number of the site configuration. For sites with configuration version management enabled, you can use this parameter to specify the site version for which the configuration takes effect. Default value: 0.
+      shared_ptr<int32_t> siteVersion_ {};
+    };
+
+    virtual bool empty() const override { return this->configs_ == nullptr
+        && this->pageNumber_ == nullptr && this->pageSize_ == nullptr && this->requestId_ == nullptr && this->totalCount_ == nullptr && this->totalPage_ == nullptr; };
+    // configs Field Functions 
+    bool hasConfigs() const { return this->configs_ != nullptr;};
+    void deleteConfigs() { this->configs_ = nullptr;};
+    inline const vector<ListErrorPagesRedirectRulesResponseBody::Configs> & getConfigs() const { DARABONBA_PTR_GET_CONST(configs_, vector<ListErrorPagesRedirectRulesResponseBody::Configs>) };
+    inline vector<ListErrorPagesRedirectRulesResponseBody::Configs> getConfigs() { DARABONBA_PTR_GET(configs_, vector<ListErrorPagesRedirectRulesResponseBody::Configs>) };
+    inline ListErrorPagesRedirectRulesResponseBody& setConfigs(const vector<ListErrorPagesRedirectRulesResponseBody::Configs> & configs) { DARABONBA_PTR_SET_VALUE(configs_, configs) };
+    inline ListErrorPagesRedirectRulesResponseBody& setConfigs(vector<ListErrorPagesRedirectRulesResponseBody::Configs> && configs) { DARABONBA_PTR_SET_RVALUE(configs_, configs) };
+
+
+    // pageNumber Field Functions 
+    bool hasPageNumber() const { return this->pageNumber_ != nullptr;};
+    void deletePageNumber() { this->pageNumber_ = nullptr;};
+    inline int32_t getPageNumber() const { DARABONBA_PTR_GET_DEFAULT(pageNumber_, 0) };
+    inline ListErrorPagesRedirectRulesResponseBody& setPageNumber(int32_t pageNumber) { DARABONBA_PTR_SET_VALUE(pageNumber_, pageNumber) };
+
+
+    // pageSize Field Functions 
+    bool hasPageSize() const { return this->pageSize_ != nullptr;};
+    void deletePageSize() { this->pageSize_ = nullptr;};
+    inline int32_t getPageSize() const { DARABONBA_PTR_GET_DEFAULT(pageSize_, 0) };
+    inline ListErrorPagesRedirectRulesResponseBody& setPageSize(int32_t pageSize) { DARABONBA_PTR_SET_VALUE(pageSize_, pageSize) };
+
+
+    // requestId Field Functions 
+    bool hasRequestId() const { return this->requestId_ != nullptr;};
+    void deleteRequestId() { this->requestId_ = nullptr;};
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline ListErrorPagesRedirectRulesResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
+
+
+    // totalCount Field Functions 
+    bool hasTotalCount() const { return this->totalCount_ != nullptr;};
+    void deleteTotalCount() { this->totalCount_ = nullptr;};
+    inline int32_t getTotalCount() const { DARABONBA_PTR_GET_DEFAULT(totalCount_, 0) };
+    inline ListErrorPagesRedirectRulesResponseBody& setTotalCount(int32_t totalCount) { DARABONBA_PTR_SET_VALUE(totalCount_, totalCount) };
+
+
+    // totalPage Field Functions 
+    bool hasTotalPage() const { return this->totalPage_ != nullptr;};
+    void deleteTotalPage() { this->totalPage_ = nullptr;};
+    inline int32_t getTotalPage() const { DARABONBA_PTR_GET_DEFAULT(totalPage_, 0) };
+    inline ListErrorPagesRedirectRulesResponseBody& setTotalPage(int32_t totalPage) { DARABONBA_PTR_SET_VALUE(totalPage_, totalPage) };
+
+
+  protected:
+    // The error code redirection configurations.
+    shared_ptr<vector<ListErrorPagesRedirectRulesResponseBody::Configs>> configs_ {};
+    // The page number. Default value: 1.
+    shared_ptr<int32_t> pageNumber_ {};
+    // The number of entries per page. Default value: 500. Valid values: 1 to 500.
+    shared_ptr<int32_t> pageSize_ {};
+    // The request ID.
+    shared_ptr<string> requestId_ {};
+    // The total number of entries.
+    shared_ptr<int32_t> totalCount_ {};
+    // The total number of pages.
+    shared_ptr<int32_t> totalPage_ {};
+  };
+
+  } // namespace Models
+} // namespace AlibabaCloud
+} // namespace ESA20240910
+#endif

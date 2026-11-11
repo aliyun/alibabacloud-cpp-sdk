@@ -77,7 +77,7 @@ namespace Models
   protected:
     // The predefined configurations for the custom slider page.
     shared_ptr<string> configsShrink_ {};
-    // The custom slider configurations. The value is a JSON string.
+    // The custom slider configuration, in JSON string format.
     shared_ptr<string> customContent_ {};
     // The forced language.
     shared_ptr<string> forceLanguage_ {};

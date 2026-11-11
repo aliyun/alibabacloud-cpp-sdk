@@ -68,11 +68,11 @@ namespace Models
   protected:
     // The instance ID.
     shared_ptr<string> instanceId_ {};
-    // The WAF running phase for filtering template rules.
+    // The WAF phase used to filter template rules for a specific phase.
     shared_ptr<string> phase_ {};
-    // The query parameters for filtering template rules by criteria such as the rule type.
+    // The query parameters used to filter template rules based on conditions such as the rule type.
     shared_ptr<string> queryArgsShrink_ {};
-    // The site ID. To obtain this ID, call the [ListSites](https://help.aliyun.com/document_detail/2850189.html) API.
+    // The site ID. You can call the [ListSites](https://help.aliyun.com/document_detail/2850189.html) operation to query the site ID.
     shared_ptr<int64_t> siteId_ {};
   };
 

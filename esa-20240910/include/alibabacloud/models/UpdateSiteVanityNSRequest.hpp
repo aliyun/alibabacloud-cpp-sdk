@@ -52,7 +52,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<int64_t> siteId_ {};
-    // The list of custom NS names. You can specify 2 to 5 custom NS names, separated by commas (,).
+    // The list of custom NS names. You can specify 2 to 5 custom NS names. Separate multiple names with commas (,).
     shared_ptr<string> vanityNSList_ {};
   };
 

@@ -235,89 +235,74 @@ namespace Models
 
 
     protected:
-      // The content of the custom waiting room page. This parameter is returned when the waiting room type is set to custom. The content is URL-encoded.
+      // The custom content of the waiting room page. This parameter is required when the waiting room type is custom. The content must be URL-encoded.
       shared_ptr<string> customPageHtml_ {};
-      // The event description.
+      // The detailed description of the event.
       shared_ptr<string> description_ {};
-      // Indicates whether session renewal is disabled. Valid values:
-      // 
-      // - on
-      // 
-      // - off
+      // Specifies whether session renewal is disabled. Valid values:
+      // - **on**: Enabled.
+      // - **off**: Disabled.
       shared_ptr<string> disableSessionRenewalEnable_ {};
-      // The event status. Valid values:
-      // 
-      // - on
-      // 
-      // - off
+      // The enabled status of the event. Valid values:
+      // - **on**: Enabled.
+      // - **off**: Disabled.
       shared_ptr<string> enable_ {};
-      // The end time of the event. This value is a UNIX timestamp.
+      // The end time of the event. The value is a UNIX timestamp.
       shared_ptr<string> endTime_ {};
-      // Indicates whether JOSN response is enabled. If JSON response is enabled, a JSON body is returned for requests to the waiting room with the header Accept: application/json. Valid values:
+      // Specifies whether to enable JSON responses. If this feature is enabled and the Accept request header contains "application/json", JSON data is returned. Valid values:
       // 
-      // - on
-      // 
-      // - off
+      // - **on**: Enabled.
+      // - **off**: Disabled.
       shared_ptr<string> jsonResponseEnable_ {};
-      // The language of the waiting room page. This parameter is returned when the waiting room type is set to default. Valid values:
+      // The language of the waiting room page. This parameter is required when the waiting room type is default. Valid values:
       // 
-      // - enus: English.
-      // 
-      // - zhcn: Simplified Chinese.
-      // 
-      // - zhhk: Traditional Chinese.
+      // - **enus**: English.
+      // - **zhcn**: Simplified Chinese.
+      // - **zhhk**: Traditional Chinese.
       shared_ptr<string> language_ {};
-      // The custom event name.
+      // The event name, which is a custom event description.
       shared_ptr<string> name_ {};
-      // The maximum number of new users per minute.
+      // The number of new users per minute.
       shared_ptr<string> newUsersPerMinute_ {};
-      // Indicates whether pre-queuing is enabled. Valid values:
+      // Specifies whether to enable pre-queuing. Valid values:
       // 
-      // - on
-      // 
-      // - off
+      // - **on**: Enabled.
+      // - **off**: Disabled.
       shared_ptr<string> preQueueEnable_ {};
-      // The start time for pre-queuing. This value is a UNIX timestamp. This parameter is valid only when pre-queuing is enabled.
+      // The start time of pre-queuing. The value is a UNIX timestamp. This parameter is valid only when pre-queuing is enabled.
       shared_ptr<string> preQueueStartTime_ {};
       // The queuing method. Valid values:
       // 
-      // - random: Users gain access to the origin randomly, regardless of the arrival time.
-      // 
-      // - fifo: Users gain access to the origin in order of arrival.
-      // 
-      // - passthrough: Users pass through the waiting room and go straight to the origin.
-      // 
-      // - reject-all: Users are blocked from reaching the origin.
+      // - **random**: Random.
+      // - **fifo**: First-in, first-out (FIFO).
+      // - **passthrough**: Passthrough.
+      // - **reject-all**: Reject all.
       shared_ptr<string> queuingMethod_ {};
-      // The HTTP status code to return while a user is in the queue. Valid values:
+      // The waiting room status code. Valid values:
       // 
-      // - 200
-      // 
-      // - 202
-      // 
-      // - 429
+      // - **200**
+      // - **202**
+      // - **429**
       shared_ptr<string> queuingStatusCode_ {};
-      // Indicates whether random queuing is enabled. Valid values:
+      // Specifies whether to enable random pre-queuing. Valid values:
       // 
-      // - on
-      // 
-      // - off
+      // - **on**: Enabled.
+      // - **off**: Disabled.
       shared_ptr<string> randomPreQueueEnable_ {};
-      // The maximum duration for which a session remains valid after a user leaves the origin. Unit: minutes.
+      // The session duration, in minutes.
       shared_ptr<string> sessionDuration_ {};
-      // The start time of the event. This value is a UNIX timestamp.
+      // The start time of the event. The value is a UNIX timestamp.
       shared_ptr<string> startTime_ {};
-      // The maximum number of active users.
+      // The total number of active users.
       shared_ptr<string> totalActiveUsers_ {};
-      // The unique ID of the waiting room event.
+      // The event ID, which uniquely identifies a waiting room event.
       shared_ptr<int64_t> waitingRoomEventId_ {};
-      // The ID of the waiting room associated with the event.
+      // The ID of the associated waiting room.
       shared_ptr<string> waitingRoomId_ {};
-      // The type of the waiting room. Valid values:
+      // The waiting room type. Valid values:
       // 
-      // - default
-      // 
-      // - custom
+      // - **default**: Default type.
+      // - **custom**: Custom type.
       shared_ptr<string> waitingRoomType_ {};
     };
 
@@ -340,9 +325,9 @@ namespace Models
 
 
   protected:
-    // The request ID, which is used to trace a call.
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
-    // The details of the waiting room events.
+    // The list of waiting room events, which contains the specific information of each event.
     shared_ptr<vector<ListWaitingRoomEventsResponseBody::WaitingRoomEvents>> waitingRoomEvents_ {};
   };
 

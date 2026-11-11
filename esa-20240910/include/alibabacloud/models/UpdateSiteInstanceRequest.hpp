@@ -61,8 +61,9 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> newInstanceId_ {};
+    // The UID of the Alibaba Cloud account that owns the new plan instance.
     shared_ptr<int64_t> resourceOwner_ {};
-    // The site ID. You can call [ListSites](https://help.aliyun.com/document_detail/2850189.html) to obtain the site ID.
+    // The ID of the site. You can call the [ListSites](https://help.aliyun.com/document_detail/2850189.html) operation to obtain the ID.
     // 
     // This parameter is required.
     shared_ptr<int64_t> siteId_ {};

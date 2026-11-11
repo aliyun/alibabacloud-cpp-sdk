@@ -66,7 +66,7 @@ namespace Models
 
 
   protected:
-    // The keyless server ID.
+    // The Keyless server ID.
     shared_ptr<string> id_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

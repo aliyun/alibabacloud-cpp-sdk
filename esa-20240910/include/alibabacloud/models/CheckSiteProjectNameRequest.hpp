@@ -48,13 +48,13 @@ namespace Models
 
 
   protected:
-    // The real-time log project name.
+    // The name of the real-time log project.
     // 
-    // > Allowed character set (hyphens only, no underscores), length range, and naming rule examples (such as \\"ali-dcdn-log-56\\")
+    // > Allowed character set (hyphens only, no underscores), length limits, and naming convention examples (such as \\"ali-dcdn-log-56\\").
     // 
     // This parameter is required.
     shared_ptr<string> projectName_ {};
-    // The site ID. You can call [ListSites](https://help.aliyun.com/document_detail/2850189.html) to obtain the site ID.
+    // The site ID. You can obtain the site ID by calling the [ListSites](https://help.aliyun.com/document_detail/2850189.html) operation.
     shared_ptr<int64_t> siteId_ {};
   };
 

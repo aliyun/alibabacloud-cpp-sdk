@@ -48,11 +48,11 @@ namespace Models
 
 
   protected:
-    // The site ID. You can obtain the site ID by calling [ListSites](https://help.aliyun.com/document_detail/2850189.html).
+    // The ID of the site. You can obtain the ID by calling the [ListSites](https://help.aliyun.com/document_detail/2850189.html) operation.
     // 
     // This parameter is required.
     shared_ptr<int64_t> siteId_ {};
-    // The task name.
+    // The name of the task.
     // 
     // This parameter is required.
     shared_ptr<string> taskName_ {};

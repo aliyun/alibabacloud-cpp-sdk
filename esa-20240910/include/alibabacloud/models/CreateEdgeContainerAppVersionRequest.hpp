@@ -199,27 +199,27 @@ namespace Models
 
 
       protected:
-        // The probe command for exec-type probes.
+        // The probe command for the exec type.
         shared_ptr<string> command_ {};
-        // The number of consecutive failed health checks required.
+        // The number of consecutive failed container health checks.
         shared_ptr<int32_t> failureThreshold_ {};
         // The domain name for the health check.
         shared_ptr<string> host_ {};
         // The HTTP request headers.
         shared_ptr<string> httpHeaders_ {};
-        // The initial delay time for the container probe. Unit: seconds. For example, 5 indicates that the initial delay time is set to 5 seconds.
+        // The initial delay time for the container probe. Unit: seconds. For example, a value of 5 indicates that the initial delay time is set to 5 seconds.
         shared_ptr<int32_t> initialDelaySeconds_ {};
         // The path for the container health check.
         shared_ptr<string> path_ {};
-        // The interval for the container health check. Unit: seconds. For example, 5 indicates that the health check interval is set to 5 seconds.
+        // The interval for the container health check. Unit: seconds. For example, a value of 5 indicates that the health check interval is set to 5 seconds.
         shared_ptr<int32_t> periodSeconds_ {};
         // The port for the container health check.
         shared_ptr<int32_t> port_ {};
         // The request protocol for the health check.
         shared_ptr<string> scheme_ {};
-        // The number of consecutive successful health checks required.
+        // The number of consecutive successful health checks.
         shared_ptr<int32_t> successThreshold_ {};
-        // The timeout period for the container health check. Unit: seconds. For example, 5 indicates that the timeout period is set to 5 seconds.
+        // The timeout period for the container health check. Unit: seconds. For example, a value of 5 indicates that the timeout period is set to 5 seconds.
         shared_ptr<int32_t> timeoutSeconds_ {};
       };
 
@@ -325,23 +325,23 @@ namespace Models
 
 
       protected:
-        // The ACR image domain name.
+        // The domain name of the ACR image.
         shared_ptr<string> domain_ {};
         // The ACR instance ID.
         shared_ptr<string> instanceId_ {};
-        // Specifies whether the image is an enterprise-level image.
+        // Specifies whether the image is an enterprise edition image.
         shared_ptr<bool> isEnterpriseRegistry_ {};
-        // The region list of the ACR instance.
+        // The list of regions for the ACR instance.
         shared_ptr<string> regionId_ {};
         // The repository ID of the image.
         shared_ptr<string> repoId_ {};
-        // The image repository name.
+        // The name of the image repository.
         shared_ptr<string> repoName_ {};
-        // The namespace of the image repository.
+        // The namespace name of the image repository.
         shared_ptr<string> repoNamespace_ {};
-        // The ACR image tag.
+        // The tag of the ACR image.
         shared_ptr<string> tag_ {};
-        // The ACR image tag URL.
+        // The tag URL of the ACR image.
         shared_ptr<string> tagUrl_ {};
       };
 
@@ -447,9 +447,9 @@ namespace Models
     protected:
       // The ACR image information.
       shared_ptr<Containers::ACRImageInfo> ACRImageInfo_ {};
-      // The startup parameters. Separate multiple parameters with spaces.
+      // The startup arguments. Separate multiple arguments with spaces.
       shared_ptr<string> args_ {};
-      // The startup command. Separate multiple commands with spaces.
+      // The command to run. This indicates the startup command. Separate multiple commands with spaces.
       shared_ptr<string> command_ {};
       // The environment variables. Format: key1=val1,key2=val2.
       shared_ptr<string> envVariables_ {};
@@ -457,7 +457,7 @@ namespace Models
       // 
       // This parameter is required.
       shared_ptr<string> image_ {};
-      // Specifies whether the image is an Alibaba Cloud Container Registry (ACR) image.
+      // Specifies whether the image is an ACR image.
       // 
       // This parameter is required.
       shared_ptr<bool> isACRImage_ {};
@@ -465,26 +465,26 @@ namespace Models
       // 
       // This parameter is required.
       shared_ptr<string> name_ {};
-      // The command to execute before the container starts. Separate multiple commands with spaces. This command is executed before the service starts and is typically used for initialization operations.
+      // The command to execute before the container starts. This indicates the command executed before the service starts. Separate multiple parts with spaces. It is generally used for initialization operations.
       shared_ptr<string> postStart_ {};
-      // The command to execute before the container stops. Separate multiple commands with spaces. This command is executed before the service exits and is typically used for cleanup operations before exit.
+      // The command to execute before the container stops. This indicates the command executed after startup. Separate multiple parts with spaces. It is executed before the service exits and is generally used for cleanup operations before exit.
       shared_ptr<string> preStop_ {};
-      // The container health probe content.
+      // The content of the container health probe.
       // 
       // This parameter is required.
       shared_ptr<Containers::ProbeContent> probeContent_ {};
       // The probe type. Valid values:
       // - **exec**: Command-based.
-      // - **tcpSocket**: TCP detection-based.
-      // - **httpGet**: HTTP access-based.
+      // - **tcpSocket**: TCP socket-based.
+      // - **httpGet**: HTTP GET-based.
       // 
       // This parameter is required.
       shared_ptr<string> probeType_ {};
-      // The container specifications. Specifies the computing specifications. Valid values: 1C2G, 2C4G, 2C8G, 4C8G, 4C16G, 8C16G, and 8C32G.
+      // The container specifications. This indicates the computing power specifications. Valid values: 1C2G, 2C4G, 2C8G, 4C8G, 4C16G, 8C16G, and 8C32G.
       // 
       // This parameter is required.
       shared_ptr<string> spec_ {};
-      // The storage capacity. Valid values: 0.5G, 10G, 20G, and 30G.
+      // The storage information. This indicates the storage space. Valid values: 0.5G, 10G, 20G, and 30G.
       // 
       // This parameter is required.
       shared_ptr<string> storage_ {};
@@ -524,11 +524,11 @@ namespace Models
 
   protected:
     // The application ID. You can call the [ListEdgeContainerApps](~~ListEdgeContainerApps~~) operation to obtain the application ID.
-    // >Notice: 1) Your account must have an ESA plan with the Edge Container feature enabled. 2) Call CreateEdgeContainerApp first to create an application and obtain the AppId. 3) Complete call chain example: CreateEdgeContainerApp → ListEdgeContainerApps → CreateEdgeContainerAppVersion.</notice>
+    // >Notice: 1) Your account must be subscribed to an ESA plan that includes the Edge Container feature. 2) You must call CreateEdgeContainerApp to create an application and obtain the AppId. 3) A complete call chain example is provided (CreateEdgeContainerApp → ListEdgeContainerApps → CreateEdgeContainerAppVersion).</notice>
     // 
     // This parameter is required.
     shared_ptr<string> appId_ {};
-    // The container group to be deployed for this version, including specific image information. The image information consists of the image address, startup command, parameters, environment variables, and probe rules. Multiple images are supported in a JSON array structure.
+    // The container group to be deployed for this version, which includes specific image information. The image information consists of the image address, startup command, arguments, environment variables, and probe rules. Multiple images are supported and structured as a JSON array.
     // 
     // This parameter is required.
     shared_ptr<vector<CreateEdgeContainerAppVersionRequest::Containers>> containers_ {};

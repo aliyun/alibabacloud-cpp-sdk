@@ -103,33 +103,34 @@ namespace Models
 
 
     protected:
-      // The log category. Valid values:
+      // The real-time log type. Valid values:
       // 
-      // *   dcdn_log_access_l1 (default): access logs.
-      // *   dcdn_log_er: Edge Routine logs.
-      // *   dcdn_log_waf: firewall logs.
-      // *   dcdn_log_ipa: TCP/UDP proxy logs.
+      // - **dcdn_log_access_l1** (default): Access logs.
+      // - **dcdn_log_er**: Edge Routine logs.
+      // - **dcdn_log_waf**: Security protection logs.
+      // - **dcdn_log_ipa**: Layer 4 acceleration logs.
       shared_ptr<string> businessType_ {};
       // The data center. Valid values:
       // 
-      // *   cn: the Chinese mainland.
-      // *   sg: outside the Chinese mainland.
+      // - **cn**: The Chinese mainland.
+      // - **sg**: Global (excluding the Chinese mainland).
       shared_ptr<string> dataCenter_ {};
-      // The destination of the delivery. Valid values:
+      // The delivery type. Valid values:
       // 
-      // 1.  sls: Alibaba Cloud Simple Log Service (SLS).
-      // 2.  http: HTTP server.
-      // 3.  aws3: Amazon Simple Storage Service (S3).
-      // 4.  oss: Alibaba Cloud Object Storage Service (OSS).
-      // 5.  kafka: Kafka.
-      // 6.  aws3cmpt: S3-compatible storage service.
+      // - **sls**: Simple Log Service.
+      // - **http**: HTTP service.
+      // - **aws3**: Amazon S3 service.
+      // - **oss**: Object Storage Service (OSS).
+      // - **kafka**: Kafka service.
+      // - **aws3cmpt**: Amazon S3-compatible service.
       shared_ptr<string> deliveryType_ {};
-      // The status of the delivery task.
+      // The status. Valid values:
       // 
-      // *   **online**
-      // *   **offline**
+      // - **online**: Pushing.
+      // 
+      // - **offline**: Paused.
       shared_ptr<string> status_ {};
-      // The name of the delivery task.
+      // The task name.
       shared_ptr<string> taskName_ {};
     };
 
@@ -173,15 +174,15 @@ namespace Models
 
 
   protected:
-    // The page number. Default value: 0.
+    // The page number. Default value: **0**.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries per page. Valid values: **1 to 500**. Default value: **20**.
+    // The number of entries per page. Default value: **20**. Valid values: **1 to 500**.
     shared_ptr<int32_t> pageSize_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The delivery tasks.
+    // The list of tasks.
     shared_ptr<vector<ListSiteDeliveryTasksResponseBody::Tasks>> tasks_ {};
-    // The total number of log delivery tasks.
+    // The total number of real-time log projects.
     shared_ptr<int32_t> totalCount_ {};
   };
 

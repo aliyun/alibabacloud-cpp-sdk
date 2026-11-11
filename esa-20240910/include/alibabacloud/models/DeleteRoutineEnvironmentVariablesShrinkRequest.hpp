@@ -57,19 +57,17 @@ namespace Models
 
 
   protected:
-    // The environment name.
-    // 
-    // Valid values:
-    // - `staging`: staging environment
-    // - `production`: production environment
+    // The environment name. Valid values:
+    // - `staging`: the staging environment.
+    // - `production`: the production environment.
     // 
     // This parameter is required.
     shared_ptr<string> env_ {};
-    // The list of environment variable keys to delete.
+    // The keys of the environment variables to delete.
     // 
     // This parameter is required.
     shared_ptr<string> environmentVariableKeysShrink_ {};
-    // The name of the Routine function.
+    // The name of the routine.
     // 
     // This parameter is required.
     shared_ptr<string> name_ {};

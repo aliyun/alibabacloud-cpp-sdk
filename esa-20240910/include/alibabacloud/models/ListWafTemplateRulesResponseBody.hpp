@@ -104,7 +104,7 @@ namespace Models
       shared_ptr<WafRuleConfig> config_ {};
       // The rule name.
       shared_ptr<string> name_ {};
-      // The WAF running phase.
+      // The WAF phase.
       shared_ptr<string> phase_ {};
       // The rule status.
       shared_ptr<string> status_ {};
@@ -133,7 +133,7 @@ namespace Models
   protected:
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // A list of template rules.
+    // The list of returned template rules.
     shared_ptr<vector<ListWafTemplateRulesResponseBody::Rules>> rules_ {};
   };
 

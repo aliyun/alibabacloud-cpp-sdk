@@ -51,7 +51,7 @@ namespace Models
 
 
   protected:
-    // The nameservers of the website.
+    // The list of current name servers for the site.
     shared_ptr<vector<string>> NSList_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

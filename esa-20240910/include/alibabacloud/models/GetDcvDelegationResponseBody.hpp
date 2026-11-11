@@ -66,7 +66,7 @@ namespace Models
 
 
   protected:
-    // The DCV managed domain name.
+    // The DCV delegation domain name.
     shared_ptr<string> delegationDomain_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};

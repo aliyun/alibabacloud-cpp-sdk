@@ -48,11 +48,11 @@ namespace Models
 
 
   protected:
-    // The configuration ID, which can be obtained by calling the [ListRedirectRules](~~ListRedirectRules~~) operation.
+    // The ID of the configuration. You can call the [ListRedirectRules](~~ListRedirectRules~~) operation to obtain the ID.
     // 
     // This parameter is required.
     shared_ptr<int64_t> configId_ {};
-    // The website ID, which can be obtained by calling the [ListSites](https://help.aliyun.com/document_detail/2850189.html) operation.
+    // The ID of the site. You can call the [ListSites](https://help.aliyun.com/document_detail/2850189.html) operation to obtain the ID.
     // 
     // This parameter is required.
     shared_ptr<int64_t> siteId_ {};

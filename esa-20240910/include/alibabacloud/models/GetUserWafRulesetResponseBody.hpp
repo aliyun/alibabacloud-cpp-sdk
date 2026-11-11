@@ -225,13 +225,13 @@ namespace Models
 
 
       protected:
-        // The action of the rule. Valid values:
-        // - deny: Block.
-        // - monitor: Monitor.
-        // - js: JavaScript Challenge.
-        // - captcha: Slider challenge.
+        // The action corresponding to the rule. Valid values:
+        // - deny: block
+        // - monitor: monitor
+        // - js: JavaScript challenge
+        // - captcha: slider challenge
         shared_ptr<string> action_ {};
-        // The list of statistics fields for the WAF rule.
+        // The list of statistical fields for the WAF rule.
         shared_ptr<vector<string>> characteristicsFields_ {};
         // The configuration of the WAF rule.
         shared_ptr<WafRuleConfig> config_ {};
@@ -241,28 +241,28 @@ namespace Models
         shared_ptr<int64_t> id_ {};
         // The name of the WAF rule.
         shared_ptr<string> name_ {};
-        // The phase in which the WAF rule runs. Valid values:
-        // - http_whitelist: whitelist rule
-        // - http_custom: custom rule
-        // - http_managed: managed rule
-        // - http_anti_scan: scan protection rule
-        // - http_ratelimit: frequency control rule
+        // The execution phase of the WAF ruleset. Valid values:
+        // - http_whitelist: whitelist rules
+        // - http_custom: custom rules
+        // - http_managed: managed rules
+        // - http_anti_scan: scan protection rules
+        // - http_ratelimit: frequency control rules
         shared_ptr<string> phase_ {};
         // The position of the WAF rule.
         shared_ptr<int64_t> position_ {};
         // The WAF ruleset ID.
         shared_ptr<int64_t> rulesetId_ {};
-        // The skip mode of the WAF rule.
+        // The skip method for the WAF rule.
         shared_ptr<string> skip_ {};
         // The status of the WAF rule.
         shared_ptr<string> status_ {};
-        // The list of phases to skip for the WAF rule.
+        // The list of skip phases for the WAF rule.
         shared_ptr<vector<string>> tags_ {};
         // The type of the WAF rule.
         shared_ptr<string> type_ {};
-        // The time when the WAF rule was last updated.
+        // The update time of the WAF rule.
         // 
-        // Format: RFC 3339 / ISO 8601, UTC time zone (ending with Z).
+        // Format: RFC 3339 / ISO 8601, UTC standard time zone (ending with Z).
         // 
         // Example: 2025-07-07T15:00:00Z
         shared_ptr<string> updateTime_ {};
@@ -347,18 +347,18 @@ namespace Models
       shared_ptr<int64_t> id_ {};
       // The name of the WAF ruleset.
       shared_ptr<string> name_ {};
-      // The phase in which the WAF rule runs. Valid values:
-      // - http_whitelist: whitelist rule
-      // - http_custom: custom rule
-      // - http_managed: managed rule
-      // - http_anti_scan: scan protection rule
-      // - http_ratelimit: frequency control rule
+      // The execution phase of the WAF ruleset. Valid values:
+      // - http_whitelist: whitelist rules
+      // - http_custom: custom rules
+      // - http_managed: managed rules
+      // - http_anti_scan: scan protection rules
+      // - http_ratelimit: frequency control rules
       shared_ptr<string> phase_ {};
       // The position of the WAF ruleset.
       shared_ptr<int64_t> position_ {};
-      // The list of rule configurations in the WAF ruleset.
+      // The list of rule configurations under the WAF ruleset.
       shared_ptr<vector<Ruleset::Rules>> rules_ {};
-      // The shared configuration of the WAF ruleset.
+      // The sharing configuration of the WAF ruleset.
       shared_ptr<WafBatchRuleShared> shared_ {};
       // The status of the WAF ruleset.
       shared_ptr<string> status_ {};

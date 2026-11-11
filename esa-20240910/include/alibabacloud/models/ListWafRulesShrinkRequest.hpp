@@ -98,15 +98,15 @@ namespace Models
     shared_ptr<int32_t> pageNumber_ {};
     // The page size for pagination.
     shared_ptr<int32_t> pageSize_ {};
-    // The WAF rule execution phase. Valid values:
-    // - http_whitelist: whitelist rule
-    // - http_custom: custom rule
-    // - http_managed: managed rule
-    // - http_anti_scan: scan protection rule
-    // - http_ratelimit: frequency control rule
-    // - ip_access_rule: IP access rule
-    // - http_bot: advanced mode bots
-    // - http_security_level_rule: security rule
+    // The execution phase of the WAF rule. Valid values:
+    // - http_whitelist: whitelist rules
+    // - http_custom: custom rules
+    // - http_managed: managed rules
+    // - http_anti_scan: scan protection rules
+    // - http_ratelimit: rate limiting rules
+    // - ip_access_rule: IP access rules
+    // - http_bot: advanced bot management
+    // - http_security_level_rule: security rules
     // 
     // This parameter is required.
     shared_ptr<string> phase_ {};
@@ -118,7 +118,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<int64_t> siteId_ {};
-    // The version number of the site configuration. For sites with version management enabled, you can use this parameter to specify the site version for which the configuration takes effect. The default value is 0.
+    // The version number of the site configuration. For sites with configuration version management enabled, you can use this parameter to specify the site version for which the configuration takes effect. Default value: 0.
     shared_ptr<int32_t> siteVersion_ {};
   };
 

@@ -75,23 +75,19 @@ namespace Models
 
 
   protected:
-    // Indicates whether a header that contains the visitor\\"s geolocation is added. Valid values:
-    // 
-    // - on: Enables this feature.
-    // 
-    // - off: Disables this feature.
+    // Indicates whether the visitor geolocation header is added. Valid values:
+    // - on: Enabled.
+    // - off: Disabled.
     shared_ptr<string> addClientGeolocationHeader_ {};
-    // Indicates whether the "ali-real-client-ip" header is added to include the real client IP. Valid values:
-    // 
-    // - on: Enables this feature.
-    // 
-    // - off: Disables this feature.
+    // Indicates whether the ali-real-client-ip header containing the real client IP address is added. Valid values:
+    // - on: Enabled.
+    // - off: Disabled.
     shared_ptr<string> addRealClientIpHeader_ {};
-    // The real client IP header name.
+    // The name of the real client IP address header.
     shared_ptr<string> realClientIpHeaderName_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The version of the site for which the configuration is returned.
+    // The site version number. For sites with version management enabled, you can use this parameter to specify the site version to which the configuration applies. Default value: 0.
     shared_ptr<int32_t> siteVersion_ {};
   };
 

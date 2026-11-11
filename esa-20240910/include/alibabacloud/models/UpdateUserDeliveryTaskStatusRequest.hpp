@@ -48,11 +48,11 @@ namespace Models
 
 
   protected:
-    // Enables or disables the delivery task. Valid values: online and offline.
+    // The method. Valid values: online and offline.
     // 
     // This parameter is required.
     shared_ptr<string> method_ {};
-    // The name of the delivery task.
+    // The task name.
     // 
     // This parameter is required.
     shared_ptr<string> taskName_ {};

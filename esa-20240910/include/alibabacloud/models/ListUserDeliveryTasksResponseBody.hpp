@@ -103,18 +103,17 @@ namespace Models
 
 
     protected:
-      // The log category.
+      // The business type.
       shared_ptr<string> businessType_ {};
       // The data center. Valid values:
-      // 
-      // 1.  cn: the Chinese mainland.
-      // 2.  sg: outside the Chinese mainland.
+      // - **cn**: The Chinese mainland.
+      // - **sg**: Global (excluding the Chinese mainland).
       shared_ptr<string> dataCenter_ {};
-      // The delivery destination.
+      // The delivery type.
       shared_ptr<string> deliveryType_ {};
-      // The status of the delivery task.
+      // The status.
       shared_ptr<string> status_ {};
-      // The name of the delivery task.
+      // The name of the task.
       shared_ptr<string> taskName_ {};
     };
 
@@ -158,15 +157,15 @@ namespace Models
 
 
   protected:
-    // The page number returned.
+    // The current page number.
     shared_ptr<int32_t> pageNumber_ {};
     // The number of entries per page.
     shared_ptr<int32_t> pageSize_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The delivery tasks.
+    // The list of tasks.
     shared_ptr<vector<ListUserDeliveryTasksResponseBody::Tasks>> tasks_ {};
-    // The total number of delivery tasks.
+    // The total number of tasks.
     shared_ptr<int32_t> totalCount_ {};
   };
 

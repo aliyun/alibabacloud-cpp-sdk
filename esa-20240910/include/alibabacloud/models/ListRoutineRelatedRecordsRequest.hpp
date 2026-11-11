@@ -66,15 +66,15 @@ namespace Models
 
 
   protected:
-    // The name of the function.
+    // The name of the Edge Routine.
     // 
     // This parameter is required.
     shared_ptr<string> name_ {};
-    // The page number of the returned page. Default value: 1
+    // The page number. Default value: 1.
     shared_ptr<int64_t> pageNumber_ {};
-    // The number of entries per page. Valid values: an integer from 1 to 20.
+    // The number of entries per page. Valid values: any integer from 1 to 20.
     shared_ptr<int64_t> pageSize_ {};
-    // The keyword used for fuzzy search.
+    // The keyword for fuzzy search.
     shared_ptr<string> searchKeyWord_ {};
   };
 

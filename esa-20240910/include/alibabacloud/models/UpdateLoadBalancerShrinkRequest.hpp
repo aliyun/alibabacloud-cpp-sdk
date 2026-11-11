@@ -171,49 +171,45 @@ namespace Models
 
 
   protected:
-    // Configures origin-pull behavior across address pools.
+    // The cross-pool back-to-origin configuration.
     shared_ptr<string> adaptiveRoutingShrink_ {};
-    // A list of default address pool IDs.
+    // The list of default pool IDs.
     shared_ptr<string> defaultPoolsShrink_ {};
-    // An optional description of the load balancer for easier identification and management.
+    // The detailed description of the load balancing instance. This description facilitates management and identification.
     shared_ptr<string> description_ {};
-    // Specifies whether the load balancer is enabled.
+    // Specifies whether the load balancing instance is enabled.
     // 
-    // - `true`: The load balancer is enabled.
-    // 
-    // - `false`: The load balancer is disabled.
+    // - true: Enabled.
+    // - false: Disabled.
     shared_ptr<bool> enabled_ {};
-    // The ID of the fallback address pool. Traffic is routed to this pool when all other address pools are unavailable.
+    // The fallback pool ID. Traffic is routed to this pool when all other pools are unavailable.
     shared_ptr<int64_t> fallbackPool_ {};
-    // The ID of the load balancer. You can obtain this ID by calling the [ListLoadBalancers](https://help.aliyun.com/document_detail/2868897.html) API operation.
+    // The load balancing instance ID. You can invoke the [ListLoadBalancers](https://help.aliyun.com/document_detail/2868897.html) operation to obtain the load balancing instance ID.
     // 
     // This parameter is required.
     shared_ptr<int64_t> id_ {};
-    // The health check monitor configuration.
+    // The monitor configuration for health checks.
     shared_ptr<string> monitorShrink_ {};
-    // The configuration for weighted round-robin. This setting controls the weight of traffic distributed to different address pools.
+    // The weighted round-robin configuration. This configuration controls the traffic distribution weights for different pools.
     shared_ptr<string> randomSteeringShrink_ {};
-    // A map of primary regions to their corresponding address pools.
+    // The pools that correspond to the primary regions.
     Darabonba::Json regionPools_ {};
-    // A list of rules that define behavior overrides for specific conditions.
+    // The list of rule configurations. This list is used to define behavior overrides under specific conditions.
     shared_ptr<string> rulesShrink_ {};
-    // The method for session affinity, which ensures that requests from the same client are routed to the same origin server. Valid values:
-    // 
-    // - `off`: Disables session affinity.
-    // 
-    // - `ip`: Enables session affinity based on the client IP address.
-    // 
-    // - `cookie`: Enables session affinity based on a cookie.
+    // The session persistence policy. Valid values:
+    // - off: Disabled.
+    // - ip: Session persistence based on IP address.
+    // - cookie: Session persistence based on cookie.
     shared_ptr<string> sessionAffinity_ {};
-    // The ID of the Site. You can obtain this ID by calling the [ListSites](~~ListSites~~) API operation.
+    // The site ID. You can obtain the site ID by calling the [ListSites](~~ListSites~~) operation.
     // 
     // This parameter is required.
     shared_ptr<int64_t> siteId_ {};
-    // The traffic steering policy, which determines how traffic is distributed among the address pools.
+    // The load balancing policy.
     shared_ptr<string> steeringPolicy_ {};
-    // A map of secondary regions to their corresponding address pools. To assign the same address pools to multiple secondary regions, combine their codes into a single, comma-separated key.
+    // The pools that correspond to the secondary regions. When multiple secondary regions share the same set of pools, you can concatenate multiple secondary regions with commas (,) to use as the key.
     Darabonba::Json subRegionPools_ {};
-    // The Time to Live (TTL) for the DNS record, in seconds. The default is 30. The value must be between 10 and 600, inclusive.
+    // The time-to-live (TTL) value of the DNS record. Default value: 30. Valid values: 10 to 600.
     shared_ptr<int32_t> ttl_ {};
   };
 

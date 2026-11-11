@@ -84,9 +84,9 @@ namespace Models
 
 
   protected:
-    // The page number. Specifies the current page number for paging queries.
+    // The page number. This parameter specifies the current page number for paging in a paged query.
     shared_ptr<int32_t> pageNumber_ {};
-    // The page size. Specifies the number of records per page for paging queries.
+    // The page size. This parameter specifies the number of records per page for paging in a paged query.
     shared_ptr<int32_t> pageSize_ {};
     // The WAF rule execution phase. Valid values:
     // - http_whitelist: whitelist rules
@@ -98,9 +98,9 @@ namespace Models
     // - http_bot: advanced mode bots
     // - http_security_level_rule: security rules
     shared_ptr<string> phase_ {};
-    // The query parameters, passed in JSON format, including various filter conditions.
+    // The query parameters. The parameters are passed in JSON format and contain various filter conditions.
     shared_ptr<string> queryArgsShrink_ {};
-    // The site ID. You can call the [ListSites](https://help.aliyun.com/document_detail/2850189.html) operation to obtain the site ID.
+    // The site ID. You can obtain the site ID by calling the [ListSites](https://help.aliyun.com/document_detail/2850189.html) operation.
     shared_ptr<int64_t> siteId_ {};
     // The version number of the site configuration. For sites with configuration version management enabled, you can use this parameter to specify the site version for which the configuration takes effect. Default value: 0.
     shared_ptr<int32_t> siteVersion_ {};

@@ -59,12 +59,13 @@ namespace Models
   protected:
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The status of the delivery task. Valid values:
+    // The task status. Valid values:
     // 
-    // *   **online**
-    // *   **offline**
+    // - **online**: Delivering.
+    // 
+    // - **offline**: Disabled.
     shared_ptr<string> status_ {};
-    // The name of the delivery task.
+    // The name of the task.
     shared_ptr<string> taskName_ {};
   };
 

@@ -48,11 +48,11 @@ namespace Models
 
 
   protected:
-    // The ID of the site. You can obtain this ID by calling the [ListSites](https://help.aliyun.com/document_detail/2850189.html) operation.
+    // The site ID. You can call the [ListSites](https://help.aliyun.com/document_detail/2850189.html) operation to obtain the site ID.
     // 
     // This parameter is required.
     shared_ptr<int64_t> siteId_ {};
-    // The site version. If version management is enabled for the site, use this parameter to specify the version whose configuration you want to retrieve. The default is 0.
+    // The site version number. For sites with version management enabled, you can use this parameter to specify the site version to which the configuration applies. Default value: 0.
     shared_ptr<int32_t> siteVersion_ {};
   };
 

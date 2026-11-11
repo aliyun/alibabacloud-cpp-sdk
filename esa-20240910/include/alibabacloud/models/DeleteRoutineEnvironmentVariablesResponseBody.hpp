@@ -62,9 +62,9 @@ namespace Models
 
 
   protected:
-    // The list of environment variable keys that were deleted successfully.
+    // The keys of the successfully deleted environment variables.
     shared_ptr<vector<string>> deletedKeys_ {};
-    // The list of environment variable keys that failed to be deleted.
+    // The keys of the environment variables that failed to be deleted.
     shared_ptr<vector<string>> failedKeys_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};

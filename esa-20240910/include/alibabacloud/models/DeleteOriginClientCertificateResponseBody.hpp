@@ -66,13 +66,13 @@ namespace Models
 
 
   protected:
-    // The ID of the certificate.
+    // The certificate ID.
     shared_ptr<string> id_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The ID of the site.
+    // The site ID.
     shared_ptr<int64_t> siteId_ {};
-    // The name of the site.
+    // The site name.
     shared_ptr<string> siteName_ {};
   };
 
