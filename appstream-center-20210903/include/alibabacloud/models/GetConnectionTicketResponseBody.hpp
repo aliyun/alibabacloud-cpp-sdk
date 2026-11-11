@@ -110,8 +110,15 @@ namespace Models
 
 
     protected:
+      // Specifies whether to use adaptive resolution.
+      // 
+      // > 
+      // > - `true`: The session resolution changes with the terminal display area. In this case, `SessionResolutionWidth` and `SessionResolutionHeight` are the maximum values of the resolution change.
+      // > - `false`: The session resolution does not change with the terminal display area. In this case, the resolution is fixed to the values of `SessionResolutionWidth` and `SessionResolutionHeight`.
       shared_ptr<string> resolutionAdaptive_ {};
+      // The resolution height, in pixels.
       shared_ptr<int32_t> resolutionHeight_ {};
+      // The resolution width, in pixels.
       shared_ptr<int32_t> resolutionWidth_ {};
     };
 
@@ -199,12 +206,19 @@ namespace Models
 
 
     protected:
+      // The queue task status.
       shared_ptr<string> queueStatus_ {};
+      // The ranking information.
       shared_ptr<int32_t> rank_ {};
+      // The timeout period for manual connection after the turn is reached.
       shared_ptr<int64_t> readyTimeout_ {};
+      // The remaining wait time. Unit: seconds.
       shared_ptr<int64_t> remainingTime_ {};
+      // The queue request key.
       shared_ptr<string> requestKey_ {};
+      // The queue ID.
       shared_ptr<string> targetId_ {};
+      // The time already waited in the queue. Unit: seconds.
       shared_ptr<int64_t> waitTime_ {};
     };
 
@@ -344,24 +358,43 @@ namespace Models
 
 
   protected:
+    // The delivery group ID.
     shared_ptr<string> appInstanceGroupId_ {};
+    // The application instance ID.
     shared_ptr<string> appInstanceId_ {};
+    // The persistent session ID.
     shared_ptr<string> appInstancePersistentId_ {};
+    // The user avatar ID.
     shared_ptr<string> avatarId_ {};
+    // The queue information.
+    // 
+    // > This parameter is not available.
     shared_ptr<GetConnectionTicketResponseBody::BindQueueInfo> bindQueueInfo_ {};
+    // The error code.
     shared_ptr<string> code_ {};
+    // The logon token.
     shared_ptr<string> loginToken_ {};
+    // The error message.
     shared_ptr<string> message_ {};
+    // The next polling interval, in milliseconds. If this parameter is empty, the value is 1000 ms.
     shared_ptr<int32_t> nextPollIntervalMs_ {};
+    // The operating system type.
     shared_ptr<string> osType_ {};
+    // The session policy.
     shared_ptr<GetConnectionTicketResponseBody::Policy> policy_ {};
+    // The ID of the region to which the delivery group belongs.
     shared_ptr<string> regionId_ {};
-    // Id of the request
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // The number of retries.
     shared_ptr<int32_t> retryTimes_ {};
+    // The task ID.
     shared_ptr<string> taskId_ {};
+    // The task status.
     shared_ptr<string> taskStatus_ {};
+    // The tenant ID, which is the Alibaba Cloud account UID.
     shared_ptr<int64_t> tenantId_ {};
+    // The connection ticket.
     shared_ptr<string> ticket_ {};
   };
 

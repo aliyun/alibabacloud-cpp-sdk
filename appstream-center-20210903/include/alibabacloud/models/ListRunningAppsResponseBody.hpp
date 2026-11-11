@@ -152,16 +152,27 @@ namespace Models
 
 
     protected:
+      // The application ID.
       shared_ptr<string> appId_ {};
+      // The app instance group ID.
       shared_ptr<string> appInstanceGroupId_ {};
+      // The application instance ID.
       shared_ptr<string> appInstanceId_ {};
+      // The application name.
       shared_ptr<string> appName_ {};
+      // The application version.
       shared_ptr<string> appVersion_ {};
+      // The application version name.
       shared_ptr<string> appVersionName_ {};
+      // The running duration of the cloud application instance. Unit: seconds.
       shared_ptr<int64_t> duration_ {};
+      // The URL of the application icon.
       shared_ptr<string> iconUrl_ {};
+      // The operating system type of the instance platform.
       shared_ptr<string> osType_ {};
+      // The region ID of the cloud application.
       shared_ptr<string> regionId_ {};
+      // The start time. The value is a UNIX timestamp. Unit: seconds.
       shared_ptr<string> startTime_ {};
     };
 
@@ -184,8 +195,9 @@ namespace Models
 
 
   protected:
-    // Id of the request
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // The list of running cloud applications.
     shared_ptr<vector<ListRunningAppsResponseBody::RunningCloudApps>> runningCloudApps_ {};
   };
 

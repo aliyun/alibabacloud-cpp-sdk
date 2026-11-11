@@ -268,32 +268,92 @@ namespace Models
 
 
   protected:
+    // The access type. If this parameter is not passed, both types are displayed. Valid values: INTERNET (Internet) and VPC (Express Connect circuit).
     shared_ptr<string> accessType_ {};
+    // The application ID.
+    // 
+    // > Required for the first call, and optional for subsequent calls.
     shared_ptr<string> appId_ {};
+    // The delivery group ID.
+    // > 
+    // > - When this parameter is passed, an application instance is assigned only from the specified and authorized delivery groups.
+    // > - When the AppInstanceId parameter is passed, this parameter is required.
     shared_ptr<string> appInstanceGroupId_ {};
+    // The application instance ID.
+    // 
+    // > 
+    // > - When this parameter is passed, the system only attempts to assign the specified application instance.
+    // > - When this parameter is passed, the AppInstanceGroupId parameter must also be passed.
     shared_ptr<string> appInstanceId_ {};
+    // The policy ID.
     shared_ptr<string> appPolicyId_ {};
+    // The application version number.
     shared_ptr<string> appVersion_ {};
+    // Specifies whether to automatically connect when the turn is reached.
+    // 
+    // > This parameter is not available.
     shared_ptr<bool> autoConnectInQueue_ {};
+    // The region ID.
+    // 
+    // > When this parameter is passed, an application instance is assigned only from the delivery groups in the specified region.
     shared_ptr<string> bizRegionId_ {};
+    // The client ID.
     shared_ptr<string> clientId_ {};
+    // The client IP address.
     shared_ptr<string> clientIp_ {};
+    // The client operating system.
     shared_ptr<string> clientOS_ {};
+    // The client type.
     shared_ptr<string> clientType_ {};
+    // The client version.
     shared_ptr<string> clientVersion_ {};
+    // The connection properties in JSON format.
+    // The following parameters are supported:
+    // 
+    // - authMode: the authorization mode, which is determined based on the authorization mode of the delivery group. Valid values: App (application authorization), AppInstanceGroup (delivery group authorization), and Session (persistent session authorization).
+    // - appInstanceGroupScheduleTags: the delivery group scheduling tags. Multiple tag key-value pairs are supported for filtering. Multiple tag pairs have an AND relationship. The key must have a value, and the value can be empty. Format example: [{"key":"Resolution","value":"720p"},{"key":"Name"}].
+    // - appInstanceGroupIds: the list of specified delivery group IDs.
+    // - appInstancePersistentId: the specified persistent session ID.
+    // - avatarId: the user avatar ID. Default value: default. This parameter is used to support assigning multiple session instances to a single user.
+    // 
+    // > Used when connecting to a cloud phone. Pass the fixed value `{"authMode":"Session"}`.
     shared_ptr<string> connectionProperties_ {};
+    // The username of the convenience account.
     shared_ptr<string> endUserId_ {};
+    // The environment configuration.
     shared_ptr<string> environmentConfig_ {};
+    // The logon region ID. When a user logs on to a workspace, this parameter specifies the ID of the region to which the workspace belongs.
     shared_ptr<string> loginRegionId_ {};
+    // The logon token.
+    // Obtained by calling the GetLoginToken or GetStsToken API operation.
+    // The GetLoginToken and GetStsToken API operations belong to the client logon authentication APIs of the 2021-02-20 version of WUYING Cloud App (product code: appstream-center). These two API operations are not provided in the 2021-09-03 version. OpenAPI Explorer links: https://api.aliyun.com/api/appstream-center/2021-02-20/GetLoginToken and https://api.aliyun.com/api/appstream-center/2021-02-20/GetStsToken.
+    // Note: This parameter is required. If it is not provided, the API returns InvalidParameter.loginToken(400).
     shared_ptr<string> loginToken_ {};
+    // The application startup parameters.
     shared_ptr<string> param_ {};
+    // The product type.
+    // 
     // This parameter is required.
     shared_ptr<string> productType_ {};
+    // Specifies whether UUID validation is required.
     shared_ptr<bool> requireUuidValidation_ {};
+    // The resource ID.
+    // 
+    // > Used when connecting to a cloud phone. Pass the persistent session ID that corresponds to the cloud phone instance.
+    // > When connecting to a cloud browser, pass the cloud browser ID.
+    // > When connecting to a cloud application, pass the application ID for the application authorization scenario, the delivery group ID for the delivery group authorization scenario, or the persistent session ID for the persistent session authorization scenario.
     shared_ptr<string> resourceId_ {};
+    // The logon session ID. Obtained by calling the GetLoginToken or GetStsToken API operation. This parameter is used together with LoginToken.
+    // The GetLoginToken and GetStsToken API operations belong to the client logon authentication APIs of the 2021-02-20 version of WUYING Cloud App (product code: appstream-center). These two API operations are not provided in the 2021-09-03 version. OpenAPI Explorer links: https://api.aliyun.com/api/appstream-center/2021-02-20/GetLoginToken and https://api.aliyun.com/api/appstream-center/2021-02-20/GetStsToken.
+    // Note: This parameter is required. If it is not provided, the API returns InvalidParameter.sessionId(400). This parameter must be used together with LoginToken.
     shared_ptr<string> sessionId_ {};
+    // The node ID.
+    // 
+    // > Required when you invoke the API not for the first time. Use this parameter query to check the node status and connection credentials.
     shared_ptr<string> taskId_ {};
+    // The tenant ID, which is the Alibaba Cloud account UID.
     shared_ptr<string> tenantId_ {};
+    // The unique identifier of the logon device.
     shared_ptr<string> uuid_ {};
   };
 

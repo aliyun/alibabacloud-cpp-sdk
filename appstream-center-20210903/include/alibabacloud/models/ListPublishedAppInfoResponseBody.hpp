@@ -164,17 +164,44 @@ namespace Models
 
 
     protected:
+      // The application image ID. You can obtain the ID from the Image Management page in the WUYING Cloud App console.
       shared_ptr<string> appCenterImageId_ {};
+      // The application ID.
       shared_ptr<string> appId_ {};
+      // The application name.
       shared_ptr<string> appName_ {};
+      // The theme color of the application.
       shared_ptr<string> appThemeColor_ {};
+      // The application version number.
       shared_ptr<string> appVersion_ {};
+      // The application version name.
       shared_ptr<string> appVersionName_ {};
+      // The authorization time of the application.
+      // The return value is a serialized datetime string from the server in the format of `EEE MMM dd HH:mm:ss zzz yyyy`, which represents the day of the week, month, day, hour:minute:second, time zone abbreviation, and year in sequence. For example, `Wed Jan 14 20:47:02 CST 2026`, where `CST` is the time zone abbreviation of the server\\"s time zone (China Standard Time, UTC+08:00).
       shared_ptr<string> authTime_ {};
+      // The specific category information of the application, which is the secondary category.
+      // Valid values:
+      // 
+      // - 1: All applications
+      // - 2: Design software
+      // - 3: Programming and development
+      // - 4: Office essentials
+      // - 5: Input methods
+      // - 6: Image and video
+      // - 7: System tools
+      // - 8: Browsers
       shared_ptr<int64_t> categoryId_ {};
+      // The primary category of the application. Valid values:
+      // 
+      // - 0: Cloud application
+      // - 1: Cloud game
       shared_ptr<int64_t> categoryType_ {};
+      // The URL of the application icon.
       shared_ptr<string> iconUrl_ {};
+      // Indicates whether the user has permissions.
+      // The value is True.
       shared_ptr<bool> isAuth_ {};
+      // Indicates whether the application is in use.
       shared_ptr<bool> usedInSession_ {};
     };
 
@@ -204,10 +231,11 @@ namespace Models
 
 
   protected:
-    // appModels
+    // The list of published applications.
     shared_ptr<vector<ListPublishedAppInfoResponseBody::AppModels>> appModels_ {};
+    // The starting token for the next query.
     shared_ptr<string> nextToken_ {};
-    // Id of the request
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

@@ -152,24 +152,43 @@ namespace Models
 
 
   protected:
+    // The resource group ID.
+    // 
     // This parameter is required.
     shared_ptr<string> appInstanceGroupId_ {};
+    // The business region ID.
     shared_ptr<string> bizRegionId_ {};
+    // The client ID.
+    // 
     // This parameter is required.
     shared_ptr<string> clientId_ {};
+    // The client IP address.
     shared_ptr<string> clientIp_ {};
+    // The client operating system.
     shared_ptr<string> clientOS_ {};
+    // The client version.
     shared_ptr<string> clientVersion_ {};
+    // The username.
     shared_ptr<string> endUserId_ {};
+    // The region ID for office network logon.
     shared_ptr<string> loginRegionId_ {};
+    // The logon token.
+    // 
     // This parameter is required.
     shared_ptr<string> loginToken_ {};
+    // The product type.
+    // 
     // This parameter is required.
     shared_ptr<string> productType_ {};
+    // The list of resource IDs.
+    // 
     // This parameter is required.
     shared_ptr<vector<string>> resourceIds_ {};
+    // The session ID.
+    // 
     // This parameter is required.
     shared_ptr<string> sessionId_ {};
+    // The client UUID.
     shared_ptr<string> uuid_ {};
   };
 
