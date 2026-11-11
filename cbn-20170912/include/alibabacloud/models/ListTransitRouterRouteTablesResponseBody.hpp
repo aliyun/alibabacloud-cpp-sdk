@@ -147,9 +147,9 @@ namespace Models
 
 
       protected:
-        // Multi-region equal-cost multi-path (ECMP) routing. Valid values:
-        // - **disable**: Disables multi-region ECMP routing. After multi-region ECMP routing is disabled, routes with the same prefix learned from different regions select the transit router (TR) with the smallest Region ID (sorted alphabetically) as the next hop when other route attributes are the same. This changes the traffic latency and bandwidth consumed between different regions. Make sure that you fully evaluate the impact before disabling this feature.
-        // - **enable**: Enables multi-region ECMP routing. After multi-region ECMP routing is enabled, routes with the same prefix learned from different regions form ECMP routes when other route attributes are the same. This changes the traffic latency and bandwidth consumed between different regions. Make sure that you fully evaluate the impact before enabling this feature.
+        // The multi-region equal-cost multi-path (ECMP) routing feature. Valid values:
+        // - **disable**: disables multi-region ECMP routing. After you disable this feature, if routes with the same prefix are learned from different regions and have the same route attributes, the transit router with the smallest region ID (in alphabetical order) is preferred as the next hop. This changes the traffic latency and the bandwidth consumed between regions. Make sure that you fully evaluate the impact before you disable this feature.
+        // - **enable**: enables multi-region ECMP routing. After you enable this feature, if routes with the same prefix are learned from different regions and have the same route attributes, ECMP routing is formed. This changes the traffic latency and the bandwidth consumed between regions. Make sure that you fully evaluate the impact before you enable this feature.
         shared_ptr<string> multiRegionECMP_ {};
       };
 
@@ -233,15 +233,15 @@ namespace Models
     protected:
       // The time when the route table was created.
       // 
-      // The time is displayed in UTC in the YYYY-MM-DDThh:mmZ format.
+      // The time is displayed in ISO 8601 standard format in UTC. Format: YYYY-MM-DDThh:mmZ.
       shared_ptr<string> createTime_ {};
-      // The region ID of the Enterprise Edition transit router instance.
+      // The region ID of the Enterprise Edition transit router.
       shared_ptr<string> regionId_ {};
       // The route table feature options.
       shared_ptr<TransitRouterRouteTables::RouteTableOptions> routeTableOptions_ {};
       // The list of tags.
       shared_ptr<vector<TransitRouterRouteTables::Tags>> tags_ {};
-      // The transit router instance ID.
+      // The instance ID of the transit router, which is used to forward routing information.
       shared_ptr<string> transitRouterId_ {};
       // The description of the route table.
       shared_ptr<string> transitRouterRouteTableDescription_ {};
@@ -251,9 +251,9 @@ namespace Models
       shared_ptr<string> transitRouterRouteTableName_ {};
       // The status of the route table.
       // 
-      // - **Creating**: being created.
-      // - **Deleting**: being deleted.
-      // - **Active**: active.
+      // - **Creating**: The route table is being created.
+      // - **Deleting**: The route table is being deleted.
+      // - **Active**: The route table is available.
       shared_ptr<string> transitRouterRouteTableStatus_ {};
       // The type of the route table.
       // 
@@ -302,15 +302,15 @@ namespace Models
 
 
   protected:
-    // The number of entries per page when entries are returned by page.
+    // The number of entries returned per page.
     shared_ptr<int32_t> maxResults_ {};
-    // The pagination token that is used in the next request to retrieve a new page of results. Valid values:
-    // - If **NextToken** is empty, no next query exists.
-    // - If **NextToken** is returned, the value indicates the token for the next query.
+    // The token for the next query. Valid values:
+    // - If **NextToken** is empty, no next query is to be sent.
+    // - If **NextToken** returns a value, the value is the token for the next query.
     shared_ptr<string> nextToken_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The total number of entries returned.
+    // The total number of entries.
     shared_ptr<int32_t> totalCount_ {};
     // The list of route tables.
     shared_ptr<vector<ListTransitRouterRouteTablesResponseBody::TransitRouterRouteTables>> transitRouterRouteTables_ {};

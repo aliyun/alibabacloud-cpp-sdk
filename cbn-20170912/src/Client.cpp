@@ -2,11 +2,13 @@
 #include <alibabacloud/Cbn20170912.hpp>
 #include <alibabacloud/Utils.hpp>
 #include <alibabacloud/Openapi.hpp>
+#include <alibabacloud/gateway/POP.hpp>
 #include <map>
 #include <darabonba/Runtime.hpp>
 using namespace std;
 using namespace Darabonba;
 using json = nlohmann::json;
+using namespace AlibabaCloud::Gateway;
 using namespace AlibabaCloud::OpenApi;
 using namespace AlibabaCloud::Cbn20170912::Models;
 using OpenApiClient = AlibabaCloud::OpenApi::Client;
@@ -17,6 +19,9 @@ namespace Cbn20170912
 {
 
 AlibabaCloud::Cbn20170912::Client::Client(Config &config): OpenApiClient(config){
+  this->_productId = "Cbn";
+  shared_ptr<POP> gatewayClient = make_shared<POP>();
+  this->_spi = gatewayClient;
   this->_endpointRule = "central";
   checkConfig(config);
   this->_endpoint = getEndpoint("cbn", _regionId, _endpointRule, _network, _suffix, _endpointMap, _endpoint);
@@ -513,6 +518,68 @@ AssociateTransitRouterMulticastDomainResponse Client::associateTransitRouterMult
 AssociateTransitRouterMulticastDomainResponse Client::associateTransitRouterMulticastDomain(const AssociateTransitRouterMulticastDomainRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return associateTransitRouterMulticastDomainWithOptions(request, runtime);
+}
+
+/**
+ * @summary Associates a policy route table.
+ *
+ * @description The AssociateTransitRouterPolicyTable API operation is asynchronous. The system returns an association ID before the association is fully created, and the creation task continues in the background. You can call the DescribeTransitRouterPolicyTableAssociations API operation to query the status of the policy route table association.
+ * - When the policy route table association is in the Associating state, the association is being created. In this state, you can only perform query operations.
+ * - When the policy route table association is in the Active state, the association is created.
+ *
+ * @param request AssociateTransitRouterPolicyTableRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return AssociateTransitRouterPolicyTableResponse
+ */
+AssociateTransitRouterPolicyTableResponse Client::associateTransitRouterPolicyTableWithOptions(const AssociateTransitRouterPolicyTableRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasAttachmentId()) {
+    query["AttachmentId"] = request.getAttachmentId();
+  }
+
+  if (!!request.hasClientToken()) {
+    query["ClientToken"] = request.getClientToken();
+  }
+
+  if (!!request.hasDryRun()) {
+    query["DryRun"] = request.getDryRun();
+  }
+
+  if (!!request.hasPolicyTableId()) {
+    query["PolicyTableId"] = request.getPolicyTableId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "AssociateTransitRouterPolicyTable"},
+    {"version" , "2017-09-12"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<AssociateTransitRouterPolicyTableResponse>();
+}
+
+/**
+ * @summary Associates a policy route table.
+ *
+ * @description The AssociateTransitRouterPolicyTable API operation is asynchronous. The system returns an association ID before the association is fully created, and the creation task continues in the background. You can call the DescribeTransitRouterPolicyTableAssociations API operation to query the status of the policy route table association.
+ * - When the policy route table association is in the Associating state, the association is being created. In this state, you can only perform query operations.
+ * - When the policy route table association is in the Active state, the association is created.
+ *
+ * @param request AssociateTransitRouterPolicyTableRequest
+ * @return AssociateTransitRouterPolicyTableResponse
+ */
+AssociateTransitRouterPolicyTableResponse Client::associateTransitRouterPolicyTable(const AssociateTransitRouterPolicyTableRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return associateTransitRouterPolicyTableWithOptions(request, runtime);
 }
 
 /**
@@ -1568,9 +1635,9 @@ CreateFlowlogResponse Client::createFlowlog(const CreateFlowlogRequest &request)
 /**
  * @summary Creates a route map to control the routing behavior between network instances.
  *
- * @description The `CreateRouteMap` operation is asynchronous. The system first returns a route map ID, but the route map is not yet created. The creation task continues to run in the background. You can call the `ListRouteMaps` operation to query the status of the route map.
- * - When the route map is in the **Creating** state, the route map is being created. In this state, you can only perform query operations and cannot perform other operations.
- * - When the route map is in the **Active** state, the route map is created.
+ * @description The `CreateRouteMap` operation is asynchronous. The system returns a route map ID before the route map is created, and the creation task continues in the background. You can call the `ListRouteMaps` operation to query the status of the route map.
+ * - If the route map is in the **Creating** state, the route map is being created. In this state, you can only perform query operations.
+ * - If the route map is in the **Active** state, the route map is created.
  *
  * @param request CreateRouteMapRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1631,9 +1698,9 @@ CreateRouteMapResponse Client::createRouteMapWithOptions(const CreateRouteMapReq
 /**
  * @summary Creates a route map to control the routing behavior between network instances.
  *
- * @description The `CreateRouteMap` operation is asynchronous. The system first returns a route map ID, but the route map is not yet created. The creation task continues to run in the background. You can call the `ListRouteMaps` operation to query the status of the route map.
- * - When the route map is in the **Creating** state, the route map is being created. In this state, you can only perform query operations and cannot perform other operations.
- * - When the route map is in the **Active** state, the route map is created.
+ * @description The `CreateRouteMap` operation is asynchronous. The system returns a route map ID before the route map is created, and the creation task continues in the background. You can call the `ListRouteMaps` operation to query the status of the route map.
+ * - If the route map is in the **Creating** state, the route map is being created. In this state, you can only perform query operations.
+ * - If the route map is in the **Active** state, the route map is created.
  *
  * @param request CreateRouteMapRequest
  * @return CreateRouteMapResponse
@@ -1647,11 +1714,11 @@ CreateRouteMapResponse Client::createRouteMap(const CreateRouteMapRequest &reque
  * @summary Creates a route map rule.
  *
  * @description ## Request description
- * - `RouteMapId` is a required parameter that specifies the route map to which the new rule belongs.
- * - `Priority` is a required parameter. A smaller value indicates a higher priority. Rules within the same route map cannot have duplicate priorities.
- * - `Name` and `Description` are optional parameters used to identify the rule and describe its purpose.
- * - `MatchConditions` defines the match conditions for the rule, and `SetActions` defines the actions to be executed when a route meets all match conditions. Both are passed as JSON strings.
- * - `DryRun` is an optional parameter used to precheck the request without actually creating the route map rule.
+ * - RouteMapId is a required parameter that specifies the route map to which the new rule belongs.
+ * - Priority is a required parameter. A smaller value indicates a higher priority. Rules within the same route map cannot have duplicate priorities.
+ * - Name and Description are optional parameters used to identify the rule and describe its purpose.
+ * - MatchConditions defines the match conditions for the rule, and SetActions defines the actions to be performed when a route meets all match conditions. Both are passed as JSON strings.
+ * - DryRun is an optional parameter used to perform a dry run of the request without actually creating the route map rule.
  *
  * @param tmpReq CreateRouteMapRuleRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1723,11 +1790,11 @@ CreateRouteMapRuleResponse Client::createRouteMapRuleWithOptions(const CreateRou
  * @summary Creates a route map rule.
  *
  * @description ## Request description
- * - `RouteMapId` is a required parameter that specifies the route map to which the new rule belongs.
- * - `Priority` is a required parameter. A smaller value indicates a higher priority. Rules within the same route map cannot have duplicate priorities.
- * - `Name` and `Description` are optional parameters used to identify the rule and describe its purpose.
- * - `MatchConditions` defines the match conditions for the rule, and `SetActions` defines the actions to be executed when a route meets all match conditions. Both are passed as JSON strings.
- * - `DryRun` is an optional parameter used to precheck the request without actually creating the route map rule.
+ * - RouteMapId is a required parameter that specifies the route map to which the new rule belongs.
+ * - Priority is a required parameter. A smaller value indicates a higher priority. Rules within the same route map cannot have duplicate priorities.
+ * - Name and Description are optional parameters used to identify the rule and describe its purpose.
+ * - MatchConditions defines the match conditions for the rule, and SetActions defines the actions to be performed when a route meets all match conditions. Both are passed as JSON strings.
+ * - DryRun is an optional parameter used to perform a dry run of the request without actually creating the route map rule.
  *
  * @param request CreateRouteMapRuleRequest
  * @return CreateRouteMapRuleResponse
@@ -2044,19 +2111,19 @@ CreateTransitRouterResponse Client::createTransitRouter(const CreateTransitRoute
 }
 
 /**
- * @summary A transit router CIDR block is a custom CIDR block that you define for a transit router, similar to a CIDR block used to assign IP addresses to a router loopback interface. Calls the CreateTransitRouterCidr operation to create a CIDR block for a transit router.
+ * @summary Creates a custom CIDR block for a transit router. The CIDR block is similar to an IP address block assigned to a router loopback interface.
  *
- * @description A transit router CIDR block is a custom CIDR block that you define for a transit router, similar to a CIDR block used to assign IP addresses to a router loopback interface. Transit router CIDR blocks are used to assign addresses to network instance connections. For more information, see [Transit router CIDR blocks](https://help.aliyun.com/document_detail/462635.html).
- * The **CreateTransitRouterCidr** operation is used only to add a CIDR block to a transit router after the transit router is created.
- * Before you create a transit router CIDR block, take note of the following information:
+ * @description A transit router CIDR block is a custom CIDR block that you configure for a transit router. It is similar to the IP address block assigned to a router loopback interface. Transit router CIDR blocks are used to assign addresses to network instance connections. For more information, see [Transit router CIDR blocks](https://help.aliyun.com/document_detail/462635.html).
+ * The **CreateTransitRouterCidr** operation is applicable only for adding a CIDR block to a transit router after the transit router is created.
+ * Before you create a transit router CIDR block, take note of the following items:
  * - Only Enterprise Edition transit routers support transit router CIDR blocks.
- * - For limits on transit router CIDR blocks, see [Limits on transit router CIDR blocks](https://help.aliyun.com/document_detail/462635.html).
- * - A maximum of five CIDR blocks can be configured for a transit router. The subnet mask of each CIDR block must be 16 to 24 bits in length.
- * - CIDR blocks that fall within 100.64.0.0/10, 224.0.0.0/4, 127.0.0.0/8, or 169.254.0.0/16 and their subnets are not supported.
- * - Each CIDR block cannot conflict with any CIDR block that needs to communicate within the Cloud Enterprise Network (CEN) instance.
+ * - For the limits on transit router CIDR blocks, see [Limits on transit router CIDR blocks](https://help.aliyun.com/document_detail/462635.html).
+ * - A transit router supports up to five CIDR blocks. The subnet mask of each CIDR block must be 16 to 26 bits in length.
+ * - You cannot create CIDR blocks for 100.64.0.0/10, 224.0.0.0/4, 127.0.0.0/8, 169.254.0.0/16, or their subnets.
+ * - Each CIDR block cannot overlap with the CIDR blocks of the network instances that need to communicate with each other in the Cloud Enterprise Network (CEN) instance.
  * - Each CIDR block must be unique within the same CEN instance.
- * - After you add a CIDR block to a transit router, the system automatically reserves three CIDR blocks from the CIDR block when you create the first VPN connection on the transit router. The reserved CIDR blocks are used by the system to create VPN connections in the background. The system assigns IP addresses to IPsec connections from the remaining CIDR blocks.
- *     You can call the [ListTransitRouterCidrAllocation](https://help.aliyun.com/document_detail/464173.html) operation to query the CIDR blocks that are reserved by the system or from which IP addresses are allocated.
+ * - After you add a CIDR block to a transit router and create the first VPN connection under the transit router, the system automatically allocates three CIDR blocks from the CIDR block as system-reserved CIDR blocks for creating VPN connections in the background. The system assigns IP addresses to the IPsec connection from the remaining CIDR blocks.
+ *     You can call the [ListTransitRouterCidrAllocation](https://help.aliyun.com/document_detail/464173.html) operation to query the system-reserved or assigned CIDR blocks.
  *
  * @param request CreateTransitRouterCidrRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2131,19 +2198,19 @@ CreateTransitRouterCidrResponse Client::createTransitRouterCidrWithOptions(const
 }
 
 /**
- * @summary A transit router CIDR block is a custom CIDR block that you define for a transit router, similar to a CIDR block used to assign IP addresses to a router loopback interface. Calls the CreateTransitRouterCidr operation to create a CIDR block for a transit router.
+ * @summary Creates a custom CIDR block for a transit router. The CIDR block is similar to an IP address block assigned to a router loopback interface.
  *
- * @description A transit router CIDR block is a custom CIDR block that you define for a transit router, similar to a CIDR block used to assign IP addresses to a router loopback interface. Transit router CIDR blocks are used to assign addresses to network instance connections. For more information, see [Transit router CIDR blocks](https://help.aliyun.com/document_detail/462635.html).
- * The **CreateTransitRouterCidr** operation is used only to add a CIDR block to a transit router after the transit router is created.
- * Before you create a transit router CIDR block, take note of the following information:
+ * @description A transit router CIDR block is a custom CIDR block that you configure for a transit router. It is similar to the IP address block assigned to a router loopback interface. Transit router CIDR blocks are used to assign addresses to network instance connections. For more information, see [Transit router CIDR blocks](https://help.aliyun.com/document_detail/462635.html).
+ * The **CreateTransitRouterCidr** operation is applicable only for adding a CIDR block to a transit router after the transit router is created.
+ * Before you create a transit router CIDR block, take note of the following items:
  * - Only Enterprise Edition transit routers support transit router CIDR blocks.
- * - For limits on transit router CIDR blocks, see [Limits on transit router CIDR blocks](https://help.aliyun.com/document_detail/462635.html).
- * - A maximum of five CIDR blocks can be configured for a transit router. The subnet mask of each CIDR block must be 16 to 24 bits in length.
- * - CIDR blocks that fall within 100.64.0.0/10, 224.0.0.0/4, 127.0.0.0/8, or 169.254.0.0/16 and their subnets are not supported.
- * - Each CIDR block cannot conflict with any CIDR block that needs to communicate within the Cloud Enterprise Network (CEN) instance.
+ * - For the limits on transit router CIDR blocks, see [Limits on transit router CIDR blocks](https://help.aliyun.com/document_detail/462635.html).
+ * - A transit router supports up to five CIDR blocks. The subnet mask of each CIDR block must be 16 to 26 bits in length.
+ * - You cannot create CIDR blocks for 100.64.0.0/10, 224.0.0.0/4, 127.0.0.0/8, 169.254.0.0/16, or their subnets.
+ * - Each CIDR block cannot overlap with the CIDR blocks of the network instances that need to communicate with each other in the Cloud Enterprise Network (CEN) instance.
  * - Each CIDR block must be unique within the same CEN instance.
- * - After you add a CIDR block to a transit router, the system automatically reserves three CIDR blocks from the CIDR block when you create the first VPN connection on the transit router. The reserved CIDR blocks are used by the system to create VPN connections in the background. The system assigns IP addresses to IPsec connections from the remaining CIDR blocks.
- *     You can call the [ListTransitRouterCidrAllocation](https://help.aliyun.com/document_detail/464173.html) operation to query the CIDR blocks that are reserved by the system or from which IP addresses are allocated.
+ * - After you add a CIDR block to a transit router and create the first VPN connection under the transit router, the system automatically allocates three CIDR blocks from the CIDR block as system-reserved CIDR blocks for creating VPN connections in the background. The system assigns IP addresses to the IPsec connection from the remaining CIDR blocks.
+ *     You can call the [ListTransitRouterCidrAllocation](https://help.aliyun.com/document_detail/464173.html) operation to query the system-reserved or assigned CIDR blocks.
  *
  * @param request CreateTransitRouterCidrRequest
  * @return CreateTransitRouterCidrResponse
@@ -2509,6 +2576,180 @@ CreateTransitRouterPeerAttachmentResponse Client::createTransitRouterPeerAttachm
 CreateTransitRouterPeerAttachmentResponse Client::createTransitRouterPeerAttachment(const CreateTransitRouterPeerAttachmentRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return createTransitRouterPeerAttachmentWithOptions(request, runtime);
+}
+
+/**
+ * @summary Creates a policy-based routing rule in the policy route table of an Enterprise Edition transit router.
+ *
+ * @description The **CreateTransitRouterPolicyBasedRoute** API operation is asynchronous. The system returns a route entry ID before the route entry is created, and the creation task continues in the background. You can call the **DescribeTransitRouterPolicyBasedRoutes** API operation to query the status of the route entry. 
+ * - If the route entry is in the **Creating** state, the route entry is being created. In this state, you can only query the route entry and cannot perform other operations.
+ * - If the route entry is in the **Active** state, the route entry is created.
+ *
+ * @param request CreateTransitRouterPolicyBasedRouteRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CreateTransitRouterPolicyBasedRouteResponse
+ */
+CreateTransitRouterPolicyBasedRouteResponse Client::createTransitRouterPolicyBasedRouteWithOptions(const CreateTransitRouterPolicyBasedRouteRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasAddressFamily()) {
+    query["AddressFamily"] = request.getAddressFamily();
+  }
+
+  if (!!request.hasClientToken()) {
+    query["ClientToken"] = request.getClientToken();
+  }
+
+  if (!!request.hasDescription()) {
+    query["Description"] = request.getDescription();
+  }
+
+  if (!!request.hasDestPortRange()) {
+    query["DestPortRange"] = request.getDestPortRange();
+  }
+
+  if (!!request.hasDestinationCidr()) {
+    query["DestinationCidr"] = request.getDestinationCidr();
+  }
+
+  if (!!request.hasDryRun()) {
+    query["DryRun"] = request.getDryRun();
+  }
+
+  if (!!request.hasDscp()) {
+    query["Dscp"] = request.getDscp();
+  }
+
+  if (!!request.hasName()) {
+    query["Name"] = request.getName();
+  }
+
+  if (!!request.hasPolicyTableId()) {
+    query["PolicyTableId"] = request.getPolicyTableId();
+  }
+
+  if (!!request.hasPriority()) {
+    query["Priority"] = request.getPriority();
+  }
+
+  if (!!request.hasProtocol()) {
+    query["Protocol"] = request.getProtocol();
+  }
+
+  if (!!request.hasSourceCidr()) {
+    query["SourceCidr"] = request.getSourceCidr();
+  }
+
+  if (!!request.hasSourcePortRange()) {
+    query["SourcePortRange"] = request.getSourcePortRange();
+  }
+
+  if (!!request.hasTargetRouteTableId()) {
+    query["TargetRouteTableId"] = request.getTargetRouteTableId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "CreateTransitRouterPolicyBasedRoute"},
+    {"version" , "2017-09-12"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CreateTransitRouterPolicyBasedRouteResponse>();
+}
+
+/**
+ * @summary Creates a policy-based routing rule in the policy route table of an Enterprise Edition transit router.
+ *
+ * @description The **CreateTransitRouterPolicyBasedRoute** API operation is asynchronous. The system returns a route entry ID before the route entry is created, and the creation task continues in the background. You can call the **DescribeTransitRouterPolicyBasedRoutes** API operation to query the status of the route entry. 
+ * - If the route entry is in the **Creating** state, the route entry is being created. In this state, you can only query the route entry and cannot perform other operations.
+ * - If the route entry is in the **Active** state, the route entry is created.
+ *
+ * @param request CreateTransitRouterPolicyBasedRouteRequest
+ * @return CreateTransitRouterPolicyBasedRouteResponse
+ */
+CreateTransitRouterPolicyBasedRouteResponse Client::createTransitRouterPolicyBasedRoute(const CreateTransitRouterPolicyBasedRouteRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return createTransitRouterPolicyBasedRouteWithOptions(request, runtime);
+}
+
+/**
+ * @summary Creates a policy route table for an Enterprise Edition transit router.
+ *
+ * @description - Only Enterprise Edition transit routers support policy route tables. For more information about the regions and zones supported by Enterprise Edition transit routers, see [What is Cloud Enterprise Network?](https://help.aliyun.com/document_detail/181681.html).
+ * - The **CreateTransitRouterPolicyTable** operation is asynchronous. After you call this operation, the system returns a policy route table ID, but the policy route table is not yet created and the creation task is still running in the background. You can call the **DescribeTransitRouterPolicyTables** operation to query the status of the policy route table.
+ *     - If the policy route table is in the **Creating** state, the policy route table is being created. In this state, you can only perform query operations.
+ *     - If the policy route table is in the **Active** state, the policy route table is created.
+ *
+ * @param request CreateTransitRouterPolicyTableRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CreateTransitRouterPolicyTableResponse
+ */
+CreateTransitRouterPolicyTableResponse Client::createTransitRouterPolicyTableWithOptions(const CreateTransitRouterPolicyTableRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasClientToken()) {
+    query["ClientToken"] = request.getClientToken();
+  }
+
+  if (!!request.hasDescription()) {
+    query["Description"] = request.getDescription();
+  }
+
+  if (!!request.hasDryRun()) {
+    query["DryRun"] = request.getDryRun();
+  }
+
+  if (!!request.hasName()) {
+    query["Name"] = request.getName();
+  }
+
+  if (!!request.hasTag()) {
+    query["Tag"] = request.getTag();
+  }
+
+  if (!!request.hasTransitRouterId()) {
+    query["TransitRouterId"] = request.getTransitRouterId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "CreateTransitRouterPolicyTable"},
+    {"version" , "2017-09-12"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CreateTransitRouterPolicyTableResponse>();
+}
+
+/**
+ * @summary Creates a policy route table for an Enterprise Edition transit router.
+ *
+ * @description - Only Enterprise Edition transit routers support policy route tables. For more information about the regions and zones supported by Enterprise Edition transit routers, see [What is Cloud Enterprise Network?](https://help.aliyun.com/document_detail/181681.html).
+ * - The **CreateTransitRouterPolicyTable** operation is asynchronous. After you call this operation, the system returns a policy route table ID, but the policy route table is not yet created and the creation task is still running in the background. You can call the **DescribeTransitRouterPolicyTables** operation to query the status of the policy route table.
+ *     - If the policy route table is in the **Creating** state, the policy route table is being created. In this state, you can only perform query operations.
+ *     - If the policy route table is in the **Active** state, the policy route table is created.
+ *
+ * @param request CreateTransitRouterPolicyTableRequest
+ * @return CreateTransitRouterPolicyTableResponse
+ */
+CreateTransitRouterPolicyTableResponse Client::createTransitRouterPolicyTable(const CreateTransitRouterPolicyTableRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return createTransitRouterPolicyTableWithOptions(request, runtime);
 }
 
 /**
@@ -3902,9 +4143,9 @@ DeleteFlowlogResponse Client::deleteFlowlog(const DeleteFlowlogRequest &request)
  *
  * @description If the route map to be deleted is still associated with any resources, this operation fails.
  * If route map rules exist under the route map, this operation is not supported.
- * The DeleteRouteMap operation is asynchronous. The system returns a **RequestId**, but the route map is not completely deleted. The deletion task continues in the background. You can call the ListRouteMaps operation to query the status of the route map.
- * - If the route map is in the **Deleting** state, the route map is being deleted. In this state, you can only perform query operations.
- * - If the route map cannot be queried by using the ListRouteMaps operation, the route map is completely deleted.
+ * The `DeleteRouteMap` operation is asynchronous. The system first returns a **RequestId**, but the route map is not completely deleted. The deletion task is still running in the background. You can call the `ListRouteMaps` operation to query the status of the route map.
+ * - When the route map is in the **Deleting** state, it indicates that the route map is being deleted. In this state, you can only perform query operations and cannot perform other operations.
+ * - When the route map cannot be queried by calling the `ListRouteMaps` operation, it indicates that the route map is completely deleted.
  *
  * @param request DeleteRouteMapRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3947,9 +4188,9 @@ DeleteRouteMapResponse Client::deleteRouteMapWithOptions(const DeleteRouteMapReq
  *
  * @description If the route map to be deleted is still associated with any resources, this operation fails.
  * If route map rules exist under the route map, this operation is not supported.
- * The DeleteRouteMap operation is asynchronous. The system returns a **RequestId**, but the route map is not completely deleted. The deletion task continues in the background. You can call the ListRouteMaps operation to query the status of the route map.
- * - If the route map is in the **Deleting** state, the route map is being deleted. In this state, you can only perform query operations.
- * - If the route map cannot be queried by using the ListRouteMaps operation, the route map is completely deleted.
+ * The `DeleteRouteMap` operation is asynchronous. The system first returns a **RequestId**, but the route map is not completely deleted. The deletion task is still running in the background. You can call the `ListRouteMaps` operation to query the status of the route map.
+ * - When the route map is in the **Deleting** state, it indicates that the route map is being deleted. In this state, you can only perform query operations and cannot perform other operations.
+ * - When the route map cannot be queried by calling the `ListRouteMaps` operation, it indicates that the route map is completely deleted.
  *
  * @param request DeleteRouteMapRequest
  * @return DeleteRouteMapResponse
@@ -4675,6 +4916,122 @@ DeleteTransitRouterPeerAttachmentResponse Client::deleteTransitRouterPeerAttachm
 DeleteTransitRouterPeerAttachmentResponse Client::deleteTransitRouterPeerAttachment(const DeleteTransitRouterPeerAttachmentRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return deleteTransitRouterPeerAttachmentWithOptions(request, runtime);
+}
+
+/**
+ * @summary Deletes a policy-based route from the policy-based route table of an Enterprise Edition transit router.
+ *
+ * @description - The **DeleteTransitRouterPolicyBasedRoute** operation is asynchronous. After you call this operation, the system returns a **RequestId**, but the policy-based route is not immediately deleted. The deletion task is still running in the background. You can call the **DescribeTransitRouterPolicyBasedRoutes** operation to query the status of the policy-based route. 
+ *     - If the policy-based route is in the **Deleting** state, the policy-based route is being deleted. In this state, you can only query the policy-based route and cannot perform other operations.
+ *     - If the specified policy-based route cannot be queried, the policy-based route is deleted.
+ *
+ * @param request DeleteTransitRouterPolicyBasedRouteRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DeleteTransitRouterPolicyBasedRouteResponse
+ */
+DeleteTransitRouterPolicyBasedRouteResponse Client::deleteTransitRouterPolicyBasedRouteWithOptions(const DeleteTransitRouterPolicyBasedRouteRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasClientToken()) {
+    query["ClientToken"] = request.getClientToken();
+  }
+
+  if (!!request.hasDryRun()) {
+    query["DryRun"] = request.getDryRun();
+  }
+
+  if (!!request.hasPolicyBasedRouteId()) {
+    query["PolicyBasedRouteId"] = request.getPolicyBasedRouteId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DeleteTransitRouterPolicyBasedRoute"},
+    {"version" , "2017-09-12"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DeleteTransitRouterPolicyBasedRouteResponse>();
+}
+
+/**
+ * @summary Deletes a policy-based route from the policy-based route table of an Enterprise Edition transit router.
+ *
+ * @description - The **DeleteTransitRouterPolicyBasedRoute** operation is asynchronous. After you call this operation, the system returns a **RequestId**, but the policy-based route is not immediately deleted. The deletion task is still running in the background. You can call the **DescribeTransitRouterPolicyBasedRoutes** operation to query the status of the policy-based route. 
+ *     - If the policy-based route is in the **Deleting** state, the policy-based route is being deleted. In this state, you can only query the policy-based route and cannot perform other operations.
+ *     - If the specified policy-based route cannot be queried, the policy-based route is deleted.
+ *
+ * @param request DeleteTransitRouterPolicyBasedRouteRequest
+ * @return DeleteTransitRouterPolicyBasedRouteResponse
+ */
+DeleteTransitRouterPolicyBasedRouteResponse Client::deleteTransitRouterPolicyBasedRoute(const DeleteTransitRouterPolicyBasedRouteRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return deleteTransitRouterPolicyBasedRouteWithOptions(request, runtime);
+}
+
+/**
+ * @summary DeleteTransitRouterPolicyTable
+ *
+ * @description - **DeleteTransitRouterPolicyTable**接口属于异步接口，即系统会先返回一个**RequestId**，但策略路由表并未删除完成，系统后台的删除任务仍在进行。您可以调用**DescribeTransitRouterPolicyTables**接口查询策略路由表的状态。 
+ *     - 当策略路由表处于Deleting状态时，表示策略路由表正在删除中。在该状态下，您只能对策略路由表执行查询操作，不能执行其他操作。
+ *     - 当查询不到指定策略路由表时，表示该策略路由表删除完成。
+ *
+ * @param request DeleteTransitRouterPolicyTableRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DeleteTransitRouterPolicyTableResponse
+ */
+DeleteTransitRouterPolicyTableResponse Client::deleteTransitRouterPolicyTableWithOptions(const DeleteTransitRouterPolicyTableRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasClientToken()) {
+    query["ClientToken"] = request.getClientToken();
+  }
+
+  if (!!request.hasDryRun()) {
+    query["DryRun"] = request.getDryRun();
+  }
+
+  if (!!request.hasPolicyTableId()) {
+    query["PolicyTableId"] = request.getPolicyTableId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DeleteTransitRouterPolicyTable"},
+    {"version" , "2017-09-12"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DeleteTransitRouterPolicyTableResponse>();
+}
+
+/**
+ * @summary DeleteTransitRouterPolicyTable
+ *
+ * @description - **DeleteTransitRouterPolicyTable**接口属于异步接口，即系统会先返回一个**RequestId**，但策略路由表并未删除完成，系统后台的删除任务仍在进行。您可以调用**DescribeTransitRouterPolicyTables**接口查询策略路由表的状态。 
+ *     - 当策略路由表处于Deleting状态时，表示策略路由表正在删除中。在该状态下，您只能对策略路由表执行查询操作，不能执行其他操作。
+ *     - 当查询不到指定策略路由表时，表示该策略路由表删除完成。
+ *
+ * @param request DeleteTransitRouterPolicyTableRequest
+ * @return DeleteTransitRouterPolicyTableResponse
+ */
+DeleteTransitRouterPolicyTableResponse Client::deleteTransitRouterPolicyTable(const DeleteTransitRouterPolicyTableRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return deleteTransitRouterPolicyTableWithOptions(request, runtime);
 }
 
 /**
@@ -5508,7 +5865,7 @@ DescribeCenAttachedChildInstancesResponse Client::describeCenAttachedChildInstan
 }
 
 /**
- * @summary Queries information about bandwidth package instances by calling the DescribeCenBandwidthPackages operation.
+ * @summary Queries the details of bandwidth plan instances.
  *
  * @param request DescribeCenBandwidthPackagesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -5579,7 +5936,7 @@ DescribeCenBandwidthPackagesResponse Client::describeCenBandwidthPackagesWithOpt
 }
 
 /**
- * @summary Queries information about bandwidth package instances by calling the DescribeCenBandwidthPackages operation.
+ * @summary Queries the details of bandwidth plan instances.
  *
  * @param request DescribeCenBandwidthPackagesRequest
  * @return DescribeCenBandwidthPackagesResponse
@@ -6186,7 +6543,7 @@ DescribeCenVbrHealthCheckResponse Client::describeCenVbrHealthCheck(const Descri
 }
 
 /**
- * @summary Queries information about Cloud Enterprise Network (CEN) instances under the current Alibaba Cloud account, including the instance status, whether IPv6 is enabled, and the list of bandwidth packages associated with the instances.
+ * @summary Queries the status, IPv6 status, and list of associated bandwidth plans for Cloud Enterprise Network (CEN) instances under the current Alibaba Cloud account.
  *
  * @param request DescribeCensRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -6249,7 +6606,7 @@ DescribeCensResponse Client::describeCensWithOptions(const DescribeCensRequest &
 }
 
 /**
- * @summary Queries information about Cloud Enterprise Network (CEN) instances under the current Alibaba Cloud account, including the instance status, whether IPv6 is enabled, and the list of bandwidth packages associated with the instances.
+ * @summary Queries the status, IPv6 status, and list of associated bandwidth plans for Cloud Enterprise Network (CEN) instances under the current Alibaba Cloud account.
  *
  * @param request DescribeCensRequest
  * @return DescribeCensResponse
@@ -7060,7 +7417,7 @@ DescribeTransitRouteTableAggregationDetailResponse Client::describeTransitRouteT
 }
 
 /**
- * @summary Queries the resource reservation configuration of a specified transit router.
+ * @summary Queries the resource reservation configurations of a specified transit router.
  *
  * @param request DescribeTransitRouterCapacityReservationsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -7095,7 +7452,7 @@ DescribeTransitRouterCapacityReservationsResponse Client::describeTransitRouterC
 }
 
 /**
- * @summary Queries the resource reservation configuration of a specified transit router.
+ * @summary Queries the resource reservation configurations of a specified transit router.
  *
  * @param request DescribeTransitRouterCapacityReservationsRequest
  * @return DescribeTransitRouterCapacityReservationsResponse
@@ -7103,6 +7460,164 @@ DescribeTransitRouterCapacityReservationsResponse Client::describeTransitRouterC
 DescribeTransitRouterCapacityReservationsResponse Client::describeTransitRouterCapacityReservations(const DescribeTransitRouterCapacityReservationsRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return describeTransitRouterCapacityReservationsWithOptions(request, runtime);
+}
+
+/**
+ * @summary Queries the policy-based route rules in the policy-based route table of an Enterprise Edition transit router.
+ *
+ * @param request DescribeTransitRouterPolicyBasedRoutesRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DescribeTransitRouterPolicyBasedRoutesResponse
+ */
+DescribeTransitRouterPolicyBasedRoutesResponse Client::describeTransitRouterPolicyBasedRoutesWithOptions(const DescribeTransitRouterPolicyBasedRoutesRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasFilter()) {
+    query["Filter"] = request.getFilter();
+  }
+
+  if (!!request.hasMaxResults()) {
+    query["MaxResults"] = request.getMaxResults();
+  }
+
+  if (!!request.hasNextToken()) {
+    query["NextToken"] = request.getNextToken();
+  }
+
+  if (!!request.hasPolicyTableId()) {
+    query["PolicyTableId"] = request.getPolicyTableId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DescribeTransitRouterPolicyBasedRoutes"},
+    {"version" , "2017-09-12"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DescribeTransitRouterPolicyBasedRoutesResponse>();
+}
+
+/**
+ * @summary Queries the policy-based route rules in the policy-based route table of an Enterprise Edition transit router.
+ *
+ * @param request DescribeTransitRouterPolicyBasedRoutesRequest
+ * @return DescribeTransitRouterPolicyBasedRoutesResponse
+ */
+DescribeTransitRouterPolicyBasedRoutesResponse Client::describeTransitRouterPolicyBasedRoutes(const DescribeTransitRouterPolicyBasedRoutesRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return describeTransitRouterPolicyBasedRoutesWithOptions(request, runtime);
+}
+
+/**
+ * @summary Queries the associations of a policy route table.
+ *
+ * @param request DescribeTransitRouterPolicyTableAssociationsRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DescribeTransitRouterPolicyTableAssociationsResponse
+ */
+DescribeTransitRouterPolicyTableAssociationsResponse Client::describeTransitRouterPolicyTableAssociationsWithOptions(const DescribeTransitRouterPolicyTableAssociationsRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasFilter()) {
+    query["Filter"] = request.getFilter();
+  }
+
+  if (!!request.hasMaxResults()) {
+    query["MaxResults"] = request.getMaxResults();
+  }
+
+  if (!!request.hasNextToken()) {
+    query["NextToken"] = request.getNextToken();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DescribeTransitRouterPolicyTableAssociations"},
+    {"version" , "2017-09-12"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DescribeTransitRouterPolicyTableAssociationsResponse>();
+}
+
+/**
+ * @summary Queries the associations of a policy route table.
+ *
+ * @param request DescribeTransitRouterPolicyTableAssociationsRequest
+ * @return DescribeTransitRouterPolicyTableAssociationsResponse
+ */
+DescribeTransitRouterPolicyTableAssociationsResponse Client::describeTransitRouterPolicyTableAssociations(const DescribeTransitRouterPolicyTableAssociationsRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return describeTransitRouterPolicyTableAssociationsWithOptions(request, runtime);
+}
+
+/**
+ * @summary Queries the details of the policy route tables of an Enterprise Edition transit router.
+ *
+ * @param request DescribeTransitRouterPolicyTablesRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DescribeTransitRouterPolicyTablesResponse
+ */
+DescribeTransitRouterPolicyTablesResponse Client::describeTransitRouterPolicyTablesWithOptions(const DescribeTransitRouterPolicyTablesRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasFilter()) {
+    query["Filter"] = request.getFilter();
+  }
+
+  if (!!request.hasMaxResults()) {
+    query["MaxResults"] = request.getMaxResults();
+  }
+
+  if (!!request.hasNextToken()) {
+    query["NextToken"] = request.getNextToken();
+  }
+
+  if (!!request.hasTransitRouterId()) {
+    query["TransitRouterId"] = request.getTransitRouterId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DescribeTransitRouterPolicyTables"},
+    {"version" , "2017-09-12"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DescribeTransitRouterPolicyTablesResponse>();
+}
+
+/**
+ * @summary Queries the details of the policy route tables of an Enterprise Edition transit router.
+ *
+ * @param request DescribeTransitRouterPolicyTablesRequest
+ * @return DescribeTransitRouterPolicyTablesResponse
+ */
+DescribeTransitRouterPolicyTablesResponse Client::describeTransitRouterPolicyTables(const DescribeTransitRouterPolicyTablesRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return describeTransitRouterPolicyTablesWithOptions(request, runtime);
 }
 
 /**
@@ -7423,6 +7938,64 @@ DisassociateTransitRouterMulticastDomainResponse Client::disassociateTransitRout
 DisassociateTransitRouterMulticastDomainResponse Client::disassociateTransitRouterMulticastDomain(const DisassociateTransitRouterMulticastDomainRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return disassociateTransitRouterMulticastDomainWithOptions(request, runtime);
+}
+
+/**
+ * @summary Disassociates a transit router policy table.
+ *
+ * @description The **DisassociateTransitRouterPolicyTable** operation is asynchronous. The system first returns a request ID, but the transit router policy routing table association is not immediately deleted. The deletion node continues to run in the background. You can invoke the **DescribeTransitRouterPolicyTableAssociations** operation to query the status of the transit router policy routing table association.
+ * - When the transit router policy routing table association is in the **Dissociating** state, the association is being deleted. In this state, you can only execute query operations and cannot execute other operations.
+ * - If the **DescribeTransitRouterPolicyTableAssociations** operation cannot query the association between the network instance connection and the transit router policy routing table, the association is successfully dissociated.
+ *
+ * @param request DisassociateTransitRouterPolicyTableRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DisassociateTransitRouterPolicyTableResponse
+ */
+DisassociateTransitRouterPolicyTableResponse Client::disassociateTransitRouterPolicyTableWithOptions(const DisassociateTransitRouterPolicyTableRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasAssociationId()) {
+    query["AssociationId"] = request.getAssociationId();
+  }
+
+  if (!!request.hasClientToken()) {
+    query["ClientToken"] = request.getClientToken();
+  }
+
+  if (!!request.hasDryRun()) {
+    query["DryRun"] = request.getDryRun();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DisassociateTransitRouterPolicyTable"},
+    {"version" , "2017-09-12"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DisassociateTransitRouterPolicyTableResponse>();
+}
+
+/**
+ * @summary Disassociates a transit router policy table.
+ *
+ * @description The **DisassociateTransitRouterPolicyTable** operation is asynchronous. The system first returns a request ID, but the transit router policy routing table association is not immediately deleted. The deletion node continues to run in the background. You can invoke the **DescribeTransitRouterPolicyTableAssociations** operation to query the status of the transit router policy routing table association.
+ * - When the transit router policy routing table association is in the **Dissociating** state, the association is being deleted. In this state, you can only execute query operations and cannot execute other operations.
+ * - If the **DescribeTransitRouterPolicyTableAssociations** operation cannot query the association between the network instance connection and the transit router policy routing table, the association is successfully dissociated.
+ *
+ * @param request DisassociateTransitRouterPolicyTableRequest
+ * @return DisassociateTransitRouterPolicyTableResponse
+ */
+DisassociateTransitRouterPolicyTableResponse Client::disassociateTransitRouterPolicyTable(const DisassociateTransitRouterPolicyTableRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return disassociateTransitRouterPolicyTableWithOptions(request, runtime);
 }
 
 /**
@@ -8253,11 +8826,11 @@ ListGrantVSwitchesToCenResponse Client::listGrantVSwitchesToCen(const ListGrantV
  * @summary Queries the details of one or more route map rules.
  *
  * @description ## Request description
- * - RouteMapId: specifies the route map whose rules you want to query.
- * - RouteMapRuleIds: the list of rule IDs to query. This parameter and filter conditions can be used together for matching, and they have an OR relationship.
- * - Filter: the filter. You can filter by attributes such as direction. Supported filter conditions include Status and Direction.
+ * - RouteMapId: specifies the route map to which the rules to be queried belong.
+ * - RouteMapRuleIds: the list of rule IDs to query. This parameter and filter conditions can be used together for matching, and the relationship is OR.
+ * - Filter: the filter conditions. You can filter by attributes such as direction. Supported filter conditions include Status and Direction.
  * - DryRun: specifies whether to enable the dry run mode. Default value: false.
- * You must specify at least one of RouteMapId and RouteMapRuleIds. If both are provided, a joint query is performed based on these two parameters. If only RouteMapId is provided, all rules under the route map are returned. If only RouteMapRuleIds is provided, the details of the specified rules are returned.
+ * You must specify at least one of RouteMapId and RouteMapRuleIds. If both are provided, a joint query is performed based on these two parameters. If only RouteMapId is provided, all rules under the route map are returned. If only RouteMapRuleIds is provided, the details of these rules are returned.
  *
  * @param request ListRouteMapRulesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -8315,11 +8888,11 @@ ListRouteMapRulesResponse Client::listRouteMapRulesWithOptions(const ListRouteMa
  * @summary Queries the details of one or more route map rules.
  *
  * @description ## Request description
- * - RouteMapId: specifies the route map whose rules you want to query.
- * - RouteMapRuleIds: the list of rule IDs to query. This parameter and filter conditions can be used together for matching, and they have an OR relationship.
- * - Filter: the filter. You can filter by attributes such as direction. Supported filter conditions include Status and Direction.
+ * - RouteMapId: specifies the route map to which the rules to be queried belong.
+ * - RouteMapRuleIds: the list of rule IDs to query. This parameter and filter conditions can be used together for matching, and the relationship is OR.
+ * - Filter: the filter conditions. You can filter by attributes such as direction. Supported filter conditions include Status and Direction.
  * - DryRun: specifies whether to enable the dry run mode. Default value: false.
- * You must specify at least one of RouteMapId and RouteMapRuleIds. If both are provided, a joint query is performed based on these two parameters. If only RouteMapId is provided, all rules under the route map are returned. If only RouteMapRuleIds is provided, the details of the specified rules are returned.
+ * You must specify at least one of RouteMapId and RouteMapRuleIds. If both are provided, a joint query is performed based on these two parameters. If only RouteMapId is provided, all rules under the route map are returned. If only RouteMapRuleIds is provided, the details of these rules are returned.
  *
  * @param request ListRouteMapRulesRequest
  * @return ListRouteMapRulesResponse
@@ -8333,12 +8906,12 @@ ListRouteMapRulesResponse Client::listRouteMapRules(const ListRouteMapRulesReque
  * @summary Queries the details of one or more route maps.
  *
  * @description ## Request description
- * - **RouteMapIds**: optional. Specifies a list of one or more route map IDs to query. If you do not specify this parameter, all route maps are queried by default.
- * - **Filter**: optional. Filters route maps based on specific conditions such as the name and direction.
- * - **ResourceGroupId**: optional. Specifies the ID of the resource group to further filter the results.
- * - **DryRun**: optional. Specifies whether to check the request without actually performing the operation.
- * - **MaxResults** and **NextToken**: pagination parameters. Used to control the number of returned results and obtain the next page of data.
- * Note: If you specify both `RouteMapIds` and `Filter`, they are connected by an OR logical operator. Route maps that meet either condition are queried.
+ * - **RouteMapIds**: Optional. The IDs of the route maps to query. If you do not specify this parameter, all route maps are queried.
+ * - **Filter**: Optional. The filter conditions used to filter route maps based on specific attributes such as name and direction.
+ * - **ResourceGroupId**: Optional. The ID of the resource group used to further filter the results.
+ * - **DryRun**: Optional. Specifies whether to perform a dry run.
+ * - **MaxResults** and **NextToken**: The pagination parameters used to control the number of returned results and retrieve the next page.
+ * Note: If you specify both RouteMapIds and Filter, the logical OR operator is used. A route map that meets either condition is returned.
  *
  * @param request ListRouteMapsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -8396,12 +8969,12 @@ ListRouteMapsResponse Client::listRouteMapsWithOptions(const ListRouteMapsReques
  * @summary Queries the details of one or more route maps.
  *
  * @description ## Request description
- * - **RouteMapIds**: optional. Specifies a list of one or more route map IDs to query. If you do not specify this parameter, all route maps are queried by default.
- * - **Filter**: optional. Filters route maps based on specific conditions such as the name and direction.
- * - **ResourceGroupId**: optional. Specifies the ID of the resource group to further filter the results.
- * - **DryRun**: optional. Specifies whether to check the request without actually performing the operation.
- * - **MaxResults** and **NextToken**: pagination parameters. Used to control the number of returned results and obtain the next page of data.
- * Note: If you specify both `RouteMapIds` and `Filter`, they are connected by an OR logical operator. Route maps that meet either condition are queried.
+ * - **RouteMapIds**: Optional. The IDs of the route maps to query. If you do not specify this parameter, all route maps are queried.
+ * - **Filter**: Optional. The filter conditions used to filter route maps based on specific attributes such as name and direction.
+ * - **ResourceGroupId**: Optional. The ID of the resource group used to further filter the results.
+ * - **DryRun**: Optional. Specifies whether to perform a dry run.
+ * - **MaxResults** and **NextToken**: The pagination parameters used to control the number of returned results and retrieve the next page.
+ * Note: If you specify both RouteMapIds and Filter, the logical OR operator is used. A route map that meets either condition is returned.
  *
  * @param request ListRouteMapsRequest
  * @return ListRouteMapsResponse
@@ -8412,14 +8985,14 @@ ListRouteMapsResponse Client::listRouteMaps(const ListRouteMapsRequest &request)
 }
 
 /**
- * @summary Queries the tags bound to a Cloud Enterprise Network (CEN) instance.
+ * @summary Queries the tags associated with Cloud Enterprise Network (CEN) instances.
  *
- * @description When you call the ListTagResources operation, you must specify at least one of the request parameters **ResourceId.N** and **Tag.N.Key**:
- * - If you specify only **ResourceId.N**, the tags bound to the specified CEN instance are queried.
- * - If you specify only **Tag.N.Key**, all CEN instances that have the specified tag key bound are queried.
- * - If you specify both **ResourceId.N** and **Tag.N.Key**, the specified tags bound to the specified CEN instance are queried.
+ * @description When you call the ListTagResources operation, you must specify at least one of the **ResourceId.N** and **Tag.N.Key** request parameters:
+ * - If you specify only **ResourceId.N**, the system queries the tags associated with the specified CEN instances.
+ * - If you specify only **Tag.N.Key**, the system queries all CEN instances associated with the specified tag key.
+ * - If you specify both **ResourceId.N** and **Tag.N.Key**, the system queries the specified tags associated with the specified CEN instances.
  *     - Make sure that the values of **ResourceId.N** and **Tag.N.Key** correspond to each other. Otherwise, an empty result is returned.
- *     - If you specify multiple tag keys, the tag keys are evaluated by using the logical AND operator.
+ *     - If you specify multiple tag keys, the logical **AND** relation is applied to the tag keys.
  *
  * @param request ListTagResourcesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -8486,14 +9059,14 @@ ListTagResourcesResponse Client::listTagResourcesWithOptions(const ListTagResour
 }
 
 /**
- * @summary Queries the tags bound to a Cloud Enterprise Network (CEN) instance.
+ * @summary Queries the tags associated with Cloud Enterprise Network (CEN) instances.
  *
- * @description When you call the ListTagResources operation, you must specify at least one of the request parameters **ResourceId.N** and **Tag.N.Key**:
- * - If you specify only **ResourceId.N**, the tags bound to the specified CEN instance are queried.
- * - If you specify only **Tag.N.Key**, all CEN instances that have the specified tag key bound are queried.
- * - If you specify both **ResourceId.N** and **Tag.N.Key**, the specified tags bound to the specified CEN instance are queried.
+ * @description When you call the ListTagResources operation, you must specify at least one of the **ResourceId.N** and **Tag.N.Key** request parameters:
+ * - If you specify only **ResourceId.N**, the system queries the tags associated with the specified CEN instances.
+ * - If you specify only **Tag.N.Key**, the system queries all CEN instances associated with the specified tag key.
+ * - If you specify both **ResourceId.N** and **Tag.N.Key**, the system queries the specified tags associated with the specified CEN instances.
  *     - Make sure that the values of **ResourceId.N** and **Tag.N.Key** correspond to each other. Otherwise, an empty result is returned.
- *     - If you specify multiple tag keys, the tag keys are evaluated by using the logical AND operator.
+ *     - If you specify multiple tag keys, the logical **AND** relation is applied to the tag keys.
  *
  * @param request ListTagResourcesRequest
  * @return ListTagResourcesResponse
@@ -9512,7 +10085,7 @@ ListTransitRouterPrefixListAssociationResponse Client::listTransitRouterPrefixLi
 }
 
 /**
- * @summary Calls the ListTransitRouterRouteEntries operation to query the details of route entries in an Enterprise Edition transit router route table.
+ * @summary Queries the details of the route entry in the routing table of an Enterprise Edition forwarding router.
  *
  * @param request ListTransitRouterRouteEntriesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -9619,7 +10192,7 @@ ListTransitRouterRouteEntriesResponse Client::listTransitRouterRouteEntriesWithO
 }
 
 /**
- * @summary Calls the ListTransitRouterRouteEntries operation to query the details of route entries in an Enterprise Edition transit router route table.
+ * @summary Queries the details of the route entry in the routing table of an Enterprise Edition forwarding router.
  *
  * @param request ListTransitRouterRouteEntriesRequest
  * @return ListTransitRouterRouteEntriesResponse
@@ -9812,7 +10385,7 @@ ListTransitRouterRouteTablePropagationsResponse Client::listTransitRouterRouteTa
 }
 
 /**
- * @summary Queries the details of route tables of an Enterprise Edition transit router by calling the ListTransitRouterRouteTables operation.
+ * @summary Queries the details of the route tables of an Enterprise Edition transit router.
  *
  * @param request ListTransitRouterRouteTablesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -9891,7 +10464,7 @@ ListTransitRouterRouteTablesResponse Client::listTransitRouterRouteTablesWithOpt
 }
 
 /**
- * @summary Queries the details of route tables of an Enterprise Edition transit router by calling the ListTransitRouterRouteTables operation.
+ * @summary Queries the details of the route tables of an Enterprise Edition transit router.
  *
  * @param request ListTransitRouterRouteTablesRequest
  * @return ListTransitRouterRouteTablesResponse
@@ -12022,19 +12595,19 @@ ReplaceTransitRouterRouteTableAssociationResponse Client::replaceTransitRouterRo
 }
 
 /**
- * @summary Configures a cloud service to add access configurations for on-premises networks by calling the ResolveAndRouteServiceInCen operation.
+ * @summary Configures a cloud service and adds configurations for an on-premises network to access the cloud service by calling the ResolveAndRouteServiceInCen operation.
  *
- * @description Cloud services refer to Alibaba Cloud services that use the 100.64.0.0/10 CIDR block, such as Object Storage Service (OSS), Simple Log Service (SLS), and Data Transmission Service (DTS). If your on-premises network needs to access cloud services, you must load the Virtual Border Router (VBR) instance or Cloud Connect Network (CCN) instance associated with your on-premises network to a Cloud Enterprise Network (CEN) instance. You must also load a VPC-connected instance in the region where the cloud service resides to the same CEN instance. After loading, your on-premises network can access the VPC-connected instance in the region of the cloud service through CEN, and then access the cloud service through the VPC by forwarding traffic. The CEN handles the routing accordingly.
- * - Limits: This operation applies only to Basic Edition transit routers. On-premises networks associated with VBR instances can access only cloud services in the same region through CEN.
- *     For example, if the cloud service resides in the China (Beijing) region, only on-premises networks associated with VBR instances in the China (Beijing) region can access the cloud service.
- * - The **ResolveAndRouteServiceInCen** operation is asynchronous. After you send a request, the system returns a **RequestId** but the cloud service configuration is not yet complete. The background node for adding the configuration continues to run. You can invoke the **DescribeRouteServicesInCen** operation to query the status of the cloud service. 
- *     - If the cloud service is in the **Creating** state, the cloud service configuration is being added. In this state, you can only execute a query on the cloud service configuration and cannot execute other operations.
- *     - If the cloud service is in the **Active** state, the cloud service configuration is added.
- *     - If the cloud service is in the **Failed** state, the cloud service configuration failed to be added.
+ * @description Cloud services refer to Alibaba Cloud products that provide services by using the cloud service CIDR block 100.64.0.0/10, such as Object Storage Service (OSS), Simple Log Service (SLS), and Data Transmission Service (DTS). If your on-premises network needs to access cloud services, you must load the virtual border router (VBR) instance that handles routing or the Cloud Connect Network (CCN) instance associated with the on-premises network to a Cloud Enterprise Network (CEN) instance. You must also load a VPC-connected instance in the region where the cloud services are deployed to the CEN instance. After the instances are loaded, your on-premises network can access the VPC-connected instance in the region where the cloud services are deployed through the CEN instance, and then access the cloud services through the VPC-connected instance.
+ * - Limits: This operation is applicable only to Basic Edition transit routers that forward traffic. An on-premises network associated with a VBR instance can access only cloud services in the same region through the CEN instance.
+ *     For example, if the cloud services are deployed in the China (Beijing) region, only the on-premises networks associated with VBR instances in the China (Beijing) region can access the cloud services.
+ * - The **ResolveAndRouteServiceInCen** operation is asynchronous. After you invoke this operation, the system returns a **RequestId**, but the cloud service configurations are not completely added. The addition task is still running in the background. You can invoke the **DescribeRouteServicesInCen** operation to query the status of the cloud services. 
+ *     - If the cloud services are in the **Creating** state, the cloud service configurations are being added. In this state, you can only execute query operations on the cloud service configurations and cannot execute other operations.
+ *     - If the cloud services are in the **Active** state, the cloud service configurations are added.
+ *     - If the cloud services are in the **Failed** state, the cloud service configurations fail to be added.
  * ### Before you begin
  * Before you invoke the ResolveAndRouteServiceInCen operation, make sure that the following conditions are met:
- * - The VBR or CCN instance with network connectivity to your on-premises network is loaded to the CEN instance.
- * - A VPC-connected instance in the region where the cloud service resides is loaded to the CEN instance. For more information, see [AttachCenChildInstance](https://help.aliyun.com/document_detail/65902.html).
+ * - The VBR or CCN instance that has network connectivity to your on-premises network is loaded to the CEN instance.
+ * - A VPC-connected instance in the region where the cloud services are deployed is loaded to the CEN instance. For more information, see [AttachCenChildInstance](https://help.aliyun.com/document_detail/65902.html).
  *
  * @param request ResolveAndRouteServiceInCenRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -12105,19 +12678,19 @@ ResolveAndRouteServiceInCenResponse Client::resolveAndRouteServiceInCenWithOptio
 }
 
 /**
- * @summary Configures a cloud service to add access configurations for on-premises networks by calling the ResolveAndRouteServiceInCen operation.
+ * @summary Configures a cloud service and adds configurations for an on-premises network to access the cloud service by calling the ResolveAndRouteServiceInCen operation.
  *
- * @description Cloud services refer to Alibaba Cloud services that use the 100.64.0.0/10 CIDR block, such as Object Storage Service (OSS), Simple Log Service (SLS), and Data Transmission Service (DTS). If your on-premises network needs to access cloud services, you must load the Virtual Border Router (VBR) instance or Cloud Connect Network (CCN) instance associated with your on-premises network to a Cloud Enterprise Network (CEN) instance. You must also load a VPC-connected instance in the region where the cloud service resides to the same CEN instance. After loading, your on-premises network can access the VPC-connected instance in the region of the cloud service through CEN, and then access the cloud service through the VPC by forwarding traffic. The CEN handles the routing accordingly.
- * - Limits: This operation applies only to Basic Edition transit routers. On-premises networks associated with VBR instances can access only cloud services in the same region through CEN.
- *     For example, if the cloud service resides in the China (Beijing) region, only on-premises networks associated with VBR instances in the China (Beijing) region can access the cloud service.
- * - The **ResolveAndRouteServiceInCen** operation is asynchronous. After you send a request, the system returns a **RequestId** but the cloud service configuration is not yet complete. The background node for adding the configuration continues to run. You can invoke the **DescribeRouteServicesInCen** operation to query the status of the cloud service. 
- *     - If the cloud service is in the **Creating** state, the cloud service configuration is being added. In this state, you can only execute a query on the cloud service configuration and cannot execute other operations.
- *     - If the cloud service is in the **Active** state, the cloud service configuration is added.
- *     - If the cloud service is in the **Failed** state, the cloud service configuration failed to be added.
+ * @description Cloud services refer to Alibaba Cloud products that provide services by using the cloud service CIDR block 100.64.0.0/10, such as Object Storage Service (OSS), Simple Log Service (SLS), and Data Transmission Service (DTS). If your on-premises network needs to access cloud services, you must load the virtual border router (VBR) instance that handles routing or the Cloud Connect Network (CCN) instance associated with the on-premises network to a Cloud Enterprise Network (CEN) instance. You must also load a VPC-connected instance in the region where the cloud services are deployed to the CEN instance. After the instances are loaded, your on-premises network can access the VPC-connected instance in the region where the cloud services are deployed through the CEN instance, and then access the cloud services through the VPC-connected instance.
+ * - Limits: This operation is applicable only to Basic Edition transit routers that forward traffic. An on-premises network associated with a VBR instance can access only cloud services in the same region through the CEN instance.
+ *     For example, if the cloud services are deployed in the China (Beijing) region, only the on-premises networks associated with VBR instances in the China (Beijing) region can access the cloud services.
+ * - The **ResolveAndRouteServiceInCen** operation is asynchronous. After you invoke this operation, the system returns a **RequestId**, but the cloud service configurations are not completely added. The addition task is still running in the background. You can invoke the **DescribeRouteServicesInCen** operation to query the status of the cloud services. 
+ *     - If the cloud services are in the **Creating** state, the cloud service configurations are being added. In this state, you can only execute query operations on the cloud service configurations and cannot execute other operations.
+ *     - If the cloud services are in the **Active** state, the cloud service configurations are added.
+ *     - If the cloud services are in the **Failed** state, the cloud service configurations fail to be added.
  * ### Before you begin
  * Before you invoke the ResolveAndRouteServiceInCen operation, make sure that the following conditions are met:
- * - The VBR or CCN instance with network connectivity to your on-premises network is loaded to the CEN instance.
- * - A VPC-connected instance in the region where the cloud service resides is loaded to the CEN instance. For more information, see [AttachCenChildInstance](https://help.aliyun.com/document_detail/65902.html).
+ * - The VBR or CCN instance that has network connectivity to your on-premises network is loaded to the CEN instance.
+ * - A VPC-connected instance in the region where the cloud services are deployed is loaded to the CEN instance. For more information, see [AttachCenChildInstance](https://help.aliyun.com/document_detail/65902.html).
  *
  * @param request ResolveAndRouteServiceInCenRequest
  * @return ResolveAndRouteServiceInCenResponse
@@ -12418,10 +12991,10 @@ SetCenInterRegionBandwidthLimitResponse Client::setCenInterRegionBandwidthLimit(
 }
 
 /**
- * @summary Creates and attaches tags to resources.
+ * @summary Creates and attaches tags to a resource.
  *
- * @description - A tag consists of a tag key and a tag value. Both the tag key and tag value are required when you add a tag.
- * - If you want to add multiple tags to a Cloud Enterprise Network (CEN) instance, the tag keys of the tags must be unique within the instance.
+ * @description - A tag consists of a tag key and a tag value. Both the tag key and the tag value are required when you add a tag.
+ * - If you want to add multiple tags to a Cloud Enterprise Network (CEN) instance, the tag keys of the tags attached to the instance must be unique.
  * - You can attach up to 20 tags to a CEN instance.
  *
  * @param request TagResourcesRequest
@@ -12481,10 +13054,10 @@ TagResourcesResponse Client::tagResourcesWithOptions(const TagResourcesRequest &
 }
 
 /**
- * @summary Creates and attaches tags to resources.
+ * @summary Creates and attaches tags to a resource.
  *
- * @description - A tag consists of a tag key and a tag value. Both the tag key and tag value are required when you add a tag.
- * - If you want to add multiple tags to a Cloud Enterprise Network (CEN) instance, the tag keys of the tags must be unique within the instance.
+ * @description - A tag consists of a tag key and a tag value. Both the tag key and the tag value are required when you add a tag.
+ * - If you want to add multiple tags to a Cloud Enterprise Network (CEN) instance, the tag keys of the tags attached to the instance must be unique.
  * - You can attach up to 20 tags to a CEN instance.
  *
  * @param request TagResourcesRequest
@@ -12714,7 +13287,7 @@ UnroutePrivateZoneInCenToVpcResponse Client::unroutePrivateZoneInCenToVpc(const 
 }
 
 /**
- * @summary Remove tags from resources.
+ * @summary Removes tags from one or more resources.
  *
  * @param request UntagResourcesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -12777,7 +13350,7 @@ UntagResourcesResponse Client::untagResourcesWithOptions(const UntagResourcesReq
 }
 
 /**
- * @summary Remove tags from resources.
+ * @summary Removes tags from one or more resources.
  *
  * @param request UntagResourcesRequest
  * @return UntagResourcesResponse
@@ -12950,7 +13523,7 @@ UpdateCenInterRegionTrafficQosQueueAttributeResponse Client::updateCenInterRegio
 /**
  * @summary Updates the attributes of an existing route map.
  *
- * @description The UpdateRouteMap operation is asynchronous. After you call this operation, the system returns a **RequestId**, but the route map is not immediately updated. The update task continues to run in the background. You can call the ListRouteMaps operation to query the status of the route map.
+ * @description The `UpdateRouteMap` operation is asynchronous. After you call this operation, the system returns a **RequestId**, but the route map is not immediately updated. The update task continues to run in the background. You can call the `ListRouteMaps` operation to query the status of the route map.
  * - If the route map is in the **Updating** state, the route map is being updated. In this state, you can only perform query operations.
  * - If the route map is in the **Active** state, the route map is updated.
  *
@@ -13005,7 +13578,7 @@ UpdateRouteMapResponse Client::updateRouteMapWithOptions(const UpdateRouteMapReq
 /**
  * @summary Updates the attributes of an existing route map.
  *
- * @description The UpdateRouteMap operation is asynchronous. After you call this operation, the system returns a **RequestId**, but the route map is not immediately updated. The update task continues to run in the background. You can call the ListRouteMaps operation to query the status of the route map.
+ * @description The `UpdateRouteMap` operation is asynchronous. After you call this operation, the system returns a **RequestId**, but the route map is not immediately updated. The update task continues to run in the background. You can call the `ListRouteMaps` operation to query the status of the route map.
  * - If the route map is in the **Updating** state, the route map is being updated. In this state, you can only perform query operations.
  * - If the route map is in the **Active** state, the route map is updated.
  *
@@ -13023,7 +13596,7 @@ UpdateRouteMapResponse Client::updateRouteMap(const UpdateRouteMapRequest &reque
  * @description ## Request description
  * - `RouteMapRuleId` specifies the route map rule to be updated.
  * - `Name`, `Description`, and `Priority` are used to update the name, description, and priority of the rule. Rule priorities under the same route map must be unique.
- * - `MatchConditions` is used to update the match conditions of the rule, and `SetActions` is used to update the actions to be performed when a route meets the match conditions.
+ * - `MatchConditions` is used to update the match conditions of the rule, and `SetActions` is used to update the actions to be executed after a route meets the match conditions.
  * - `DryRun` is an optional parameter used to precheck the request without actually updating the route map rule.
  *
  * @param tmpReq UpdateRouteMapRuleRequest
@@ -13098,7 +13671,7 @@ UpdateRouteMapRuleResponse Client::updateRouteMapRuleWithOptions(const UpdateRou
  * @description ## Request description
  * - `RouteMapRuleId` specifies the route map rule to be updated.
  * - `Name`, `Description`, and `Priority` are used to update the name, description, and priority of the rule. Rule priorities under the same route map must be unique.
- * - `MatchConditions` is used to update the match conditions of the rule, and `SetActions` is used to update the actions to be performed when a route meets the match conditions.
+ * - `MatchConditions` is used to update the match conditions of the rule, and `SetActions` is used to update the actions to be executed after a route meets the match conditions.
  * - `DryRun` is an optional parameter used to precheck the request without actually updating the route map rule.
  *
  * @param request UpdateRouteMapRuleRequest
@@ -13463,6 +14036,122 @@ UpdateTransitRouterPeerAttachmentAttributeResponse Client::updateTransitRouterPe
 UpdateTransitRouterPeerAttachmentAttributeResponse Client::updateTransitRouterPeerAttachmentAttribute(const UpdateTransitRouterPeerAttachmentAttributeRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return updateTransitRouterPeerAttachmentAttributeWithOptions(request, runtime);
+}
+
+/**
+ * @summary Modifies the name and description of a policy-based routing rule in the route table of an Enterprise Edition transit router.
+ *
+ * @param request UpdateTransitRouterPolicyBasedRouteRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return UpdateTransitRouterPolicyBasedRouteResponse
+ */
+UpdateTransitRouterPolicyBasedRouteResponse Client::updateTransitRouterPolicyBasedRouteWithOptions(const UpdateTransitRouterPolicyBasedRouteRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasClientToken()) {
+    query["ClientToken"] = request.getClientToken();
+  }
+
+  if (!!request.hasDescription()) {
+    query["Description"] = request.getDescription();
+  }
+
+  if (!!request.hasDryRun()) {
+    query["DryRun"] = request.getDryRun();
+  }
+
+  if (!!request.hasName()) {
+    query["Name"] = request.getName();
+  }
+
+  if (!!request.hasPolicyBasedRouteId()) {
+    query["PolicyBasedRouteId"] = request.getPolicyBasedRouteId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "UpdateTransitRouterPolicyBasedRoute"},
+    {"version" , "2017-09-12"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<UpdateTransitRouterPolicyBasedRouteResponse>();
+}
+
+/**
+ * @summary Modifies the name and description of a policy-based routing rule in the route table of an Enterprise Edition transit router.
+ *
+ * @param request UpdateTransitRouterPolicyBasedRouteRequest
+ * @return UpdateTransitRouterPolicyBasedRouteResponse
+ */
+UpdateTransitRouterPolicyBasedRouteResponse Client::updateTransitRouterPolicyBasedRoute(const UpdateTransitRouterPolicyBasedRouteRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return updateTransitRouterPolicyBasedRouteWithOptions(request, runtime);
+}
+
+/**
+ * @summary Modifies the name and description of a policy route table.
+ *
+ * @param request UpdateTransitRouterPolicyTableRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return UpdateTransitRouterPolicyTableResponse
+ */
+UpdateTransitRouterPolicyTableResponse Client::updateTransitRouterPolicyTableWithOptions(const UpdateTransitRouterPolicyTableRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasClientToken()) {
+    query["ClientToken"] = request.getClientToken();
+  }
+
+  if (!!request.hasDescription()) {
+    query["Description"] = request.getDescription();
+  }
+
+  if (!!request.hasDryRun()) {
+    query["DryRun"] = request.getDryRun();
+  }
+
+  if (!!request.hasName()) {
+    query["Name"] = request.getName();
+  }
+
+  if (!!request.hasPolicyTableId()) {
+    query["PolicyTableId"] = request.getPolicyTableId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "UpdateTransitRouterPolicyTable"},
+    {"version" , "2017-09-12"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<UpdateTransitRouterPolicyTableResponse>();
+}
+
+/**
+ * @summary Modifies the name and description of a policy route table.
+ *
+ * @param request UpdateTransitRouterPolicyTableRequest
+ * @return UpdateTransitRouterPolicyTableResponse
+ */
+UpdateTransitRouterPolicyTableResponse Client::updateTransitRouterPolicyTable(const UpdateTransitRouterPolicyTableRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return updateTransitRouterPolicyTableWithOptions(request, runtime);
 }
 
 /**

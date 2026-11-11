@@ -90,15 +90,15 @@ namespace Models
     protected:
       // The tag key of the resource.
       // 
-      // Once specified, the tag key cannot be an empty string. The tag key can be up to 64 characters in length and cannot start with `aliyun` or `acs:`. It cannot contain `http://` or `https://`.
+      // This parameter cannot be an empty string once specified. It can be up to 64 characters in length, and cannot start with `aliyun` or `acs:`, or contain `http://` or `https://`.
       // 
       // You can specify up to 20 tag keys at a time.
       shared_ptr<string> key_ {};
       // The tag value of the resource.
       // 
-      // The tag value can be empty or a string of up to 128 characters. It cannot start with `aliyun` or `acs:` and cannot contain `http://` or `https://`.
+      // The tag value can be empty or a string of up to 128 characters. It cannot start with `aliyun` or `acs:`, or contain `http://` or `https://`.
       // 
-      // Each tag key corresponds to one tag value. You can specify up to 20 tag values at a time.
+      // Each tag key corresponds to a tag value. You can specify up to 20 tag values at a time.
       shared_ptr<string> value_ {};
     };
 
@@ -143,21 +143,21 @@ namespace Models
 
     protected:
       // The filter condition.
-      // You can use filter conditions to filter the bandwidth package instances to query. The following filter conditions are supported:
+      // You can use filter conditions to filter the bandwidth plan instances to be viewed. The system supports the following filter conditions:
       // 
       // - **CenId**: The ID of the Cloud Enterprise Network (CEN) instance.
       // 
-      // - **Status**: The status of the bandwidth package instance. Valid values:
+      // - **Status**: The status of the bandwidth plan instance. Valid values:
       // 
-      //     - **Idle**: Not associated.
-      //     - **InUse**: Associated.
+      //     - **Idle**: Unbound.
+      //     - **InUse**: Bound.
       // 
-      // - **CenBandwidthPackageId**: The ID of the bandwidth package.
+      // - **CenBandwidthPackageId**: The ID of the bandwidth plan.
       // 
-      // - **Name**: The name of the bandwidth package.
+      // - **Name**: The name of the bandwidth plan.
       // You can specify one or more filter conditions. The maximum value of **N** is **5**.
       shared_ptr<string> key_ {};
-      // The filter values based on the specified **Key**. You can specify multiple filter values for a single **Key**. The filter values have an **OR** relationship, which means that a bandwidth package matching any of the filter values is considered a match for the filter condition.
+      // The filter value specified based on **Key**. You can specify multiple filter values for a single **Key**. The filter values have an **OR** relationship. A match occurs when any of the filter values is met.
       shared_ptr<vector<string>> value_ {};
     };
 
@@ -246,7 +246,7 @@ namespace Models
 
 
   protected:
-    // The filter information.
+    // The filter conditions.
     shared_ptr<vector<DescribeCenBandwidthPackagesRequest::Filter>> filter_ {};
     // Specifies whether to include renewal data. Valid values:
     // 
@@ -256,9 +256,9 @@ namespace Models
     shared_ptr<bool> includeReservationData_ {};
     // The logical relationship between filter conditions. Valid values:
     // 
-    // - **false** (default): The filter conditions have an **AND** relationship. A bandwidth package must match all filter conditions to be returned.
+    // - **false** (default): The filter conditions have an **AND** relationship. A match occurs only when all filter conditions are met.
     // 
-    // - **true**: The filter conditions have an **OR** relationship. A bandwidth package that matches any filter condition is returned.
+    // - **true**: The filter conditions have an **OR** relationship. A match occurs when any of the filter conditions is met.
     shared_ptr<bool> isOrKey_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
@@ -266,11 +266,11 @@ namespace Models
     shared_ptr<int32_t> pageNumber_ {};
     // The number of entries per page for a paged query. Maximum value: **50**. Default value: **10**.
     shared_ptr<int32_t> pageSize_ {};
-    // The resource group ID.
+    // The ID of the resource group.
     shared_ptr<string> resourceGroupId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
-    // The tag information list.
+    // The list of tag information.
     // 
     // You can specify up to 20 tags at a time.
     shared_ptr<vector<DescribeCenBandwidthPackagesRequest::Tag>> tag_ {};

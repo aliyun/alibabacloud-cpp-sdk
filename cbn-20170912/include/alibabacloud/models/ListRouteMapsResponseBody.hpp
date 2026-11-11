@@ -204,8 +204,8 @@ namespace Models
       // The description of the route map.
       shared_ptr<string> description_ {};
       // The direction of the route map. Valid values: 
-      // - Inbound: inbound.
-      // - Outbound: outbound.
+      // - **Inbound**: inbound.
+      // - **Outbound**: outbound.
       shared_ptr<string> direction_ {};
       // The name of the route map.
       shared_ptr<string> name_ {};
@@ -217,10 +217,10 @@ namespace Models
       shared_ptr<string> routeMapId_ {};
       // The status of the route map. Valid values:
       // 
-      // - **Creating**: The route map is being created.
-      // - **Updating**: The route map is being updated.
-      // - **Active**: The route map is available.
-      // - **Deleting**: The route map is being deleted.
+      // - **Creating**: creating.
+      // - **Updating**: updating.
+      // - **Active**: active.
+      // - **Deleting**: deleting.
       shared_ptr<string> status_ {};
       // The list of tags.
       shared_ptr<vector<RouteMaps::Tag>> tag_ {};
@@ -271,10 +271,10 @@ namespace Models
   protected:
     // The number of entries returned on each page. Default value: **20**.
     shared_ptr<int32_t> maxResults_ {};
-    // The token for the next query. Valid values:
+    // The token that is used to retrieve the next page of results. Valid values:
     // 
-    // - If **NextToken** is empty, no next query is available.
-    // - If **NextToken** returns a value, the value is the token for the next query.
+    // - If NextToken is empty, no subsequent query is to be sent.
+    // - If NextToken is returned, the value indicates the token used to start the next query.
     shared_ptr<string> nextToken_ {};
     // The ID of the request.
     shared_ptr<string> requestId_ {};

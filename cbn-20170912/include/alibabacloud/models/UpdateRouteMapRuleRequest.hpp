@@ -126,48 +126,48 @@ namespace Models
 
 
     protected:
-      // The AS path to prepend when the regional gateway accepts or executes a publish route entry.
+      // The AS path to be prepended when the regional gateway receives or publishes a route.
       // 
-      // This parameter is mutually exclusive with **AsPathReplace**. You cannot specify both parameters at the same time.
+      // This parameter is mutually exclusive with **AsPathReplace** and cannot be specified at the same time.
       // 
-      // This parameter specifies the action to execute after a route meets the match conditions.
+      // This parameter specifies the action to be executed after a route passes the match conditions.
       shared_ptr<vector<int64_t>> asPathPrepend_ {};
-      // The AS path to use as a replacement when the regional gateway accepts or executes a publish route entry. The original AS path of the route is replaced with the list of AS numbers specified by this parameter.
+      // The AS path to be replaced when the regional gateway receives or publishes a route. The original AS path of the route is replaced with the list of AS numbers specified in this parameter.
       // 
-      // This parameter is mutually exclusive with **AsPathPrepend**. You cannot specify both parameters at the same time.
+      // This parameter is mutually exclusive with **AsPathPrepend** and cannot be specified at the same time.
       // 
-      // This parameter specifies the action to execute after a route meets the match conditions.
+      // This parameter specifies the action to be executed after a route passes the match conditions.
       shared_ptr<vector<int64_t>> asPathReplace_ {};
       // The community set to be added to the route.
       // 
-      // Each community is in the format of n:m, where n and m range from **1** to **65535**. The community must comply with RFC 1997. Large communities (RFC 8092) are not supported.
+      // Each community is in the format of n:m, where n and m range from **1** to **65535**. Communities must comply with RFC 1997. Large communities (RFC 8092) are not supported.
       // 
       // This parameter is mutually exclusive with **CommunityReplace** and cannot be specified at the same time.
       // 
-      // This parameter specifies the action to be performed after a route meets the match conditions.
+      // This parameter specifies the action to be executed after a route meets the match conditions.
       // 
       // > Incorrect community configurations may prevent routes from being advertised to the on-premises data center.
       shared_ptr<vector<string>> communityAdd_ {};
       // The community set used to replace the original community of the route.
       // 
-      // Each community is in the format of n:m, where n and m range from **1** to **65535**. The community must comply with RFC 1997. Large communities (RFC 8092) are not supported.
+      // Each community is in the format of n:m, where n and m range from **1** to **65535**. Communities must comply with RFC 1997. Large communities (RFC 8092) are not supported.
       // 
       // This parameter is mutually exclusive with **CommunityAdd** and cannot be specified at the same time.
       // 
-      // This parameter specifies the action to be performed after a route meets the match conditions.
+      // This parameter specifies the action to be executed after a route meets the match conditions.
       // 
       // > Incorrect community configurations may prevent routes from being advertised to the on-premises data center.
       shared_ptr<vector<string>> communityReplace_ {};
       // Policy priority of the associated next route map rule.
       // 
-      // - You can set policy priority of the associated route map rule only when **RouteAction** is set to **Permit**. Only the permitted routes continue to match the associated next route map rule.
+      // - You can set policy priority of the associated route map rule only when **RouteAction** is set to **Permit**. Only the routes that are permitted can continue to match the associated next route map rule.
       // - Policy priority of the associated next route map rule must be lower than that of the current route map rule.
       shared_ptr<int64_t> nextPriority_ {};
-      // The action to be performed after all conditions are met. Valid values:
+      // The policy action after all conditions are met. Valid values:
       // 
-      // - **Permit**: permits the matched route.
+      // - **Permit**: permits the matched routes to pass.
       // 
-      // - **Deny**: denies the matched route.
+      // - **Deny**: denies the matched routes from passing.
       shared_ptr<string> routeAction_ {};
     };
 
@@ -386,29 +386,29 @@ namespace Models
 
 
     protected:
-      // The route prefix list for fuzzy matching. You can specify up to 64 CIDR blocks.
+      // The route prefix list for fuzzy match. You can enter up to 64 IP address prefixes.
       // 
-      // A match is successful if the route prefix in the match condition contains the route prefix of the route being matched.
+      // A match is successful if the route prefix in the match condition contains the route prefix of the matched route.
       // 
-      // For example, a policy defined with 10.0.0.0/8 can fuzzy match the 10.10.10.0/24 route.
+      // For example, a policy defined with 10.0.0.0/8 can fuzzy match a route with the prefix 10.10.10.0/24.
       // 
-      // The CIDR blocks use the CIDR format and support both IPv4 and IPv6.
+      // IP address prefixes use the CIDR format and support IPv4 and IPv6.
       // 
-      // This parameter is mutually exclusive with **AddressPrefixesMatch**. You cannot specify both parameters at the same time.
+      // This parameter is mutually exclusive with **AddressPrefixesMatch** and cannot be specified at the same time.
       shared_ptr<vector<string>> addressPrefixesInclude_ {};
-      // The route prefix list for exact matching. You can specify up to 64 CIDR blocks.
+      // The route prefix list for exact match. You can enter up to 64 IP address prefixes.
       // 
-      // A match is successful only if the route prefix in the match condition is identical to the route prefix of the route being matched.
+      // A match is successful only if the route prefix in the match condition is exactly the same as the route prefix of the matched route.
       // 
-      // For example, a policy defined with 10.0.0.0/8 can exactly match only the 10.0.0.0/8 route.
+      // For example, a policy defined with 10.0.0.0/8 can only exactly match a route with the prefix 10.0.0.0/8.
       // 
-      // The CIDR blocks use the CIDR format and support both IPv4 and IPv6.
+      // IP address prefixes use the CIDR format and support IPv4 and IPv6.
       // 
-      // This parameter is mutually exclusive with **AddressPrefixesInclude**. You cannot specify both parameters at the same time.
+      // This parameter is mutually exclusive with **AddressPrefixesInclude** and cannot be specified at the same time.
       shared_ptr<vector<string>> addressPrefixesMatch_ {};
       // The list of AS paths for fuzzy match. You can enter up to 64 AS numbers.
       // 
-      // A route is considered a match if the AS path in the match condition overlaps with the AS path of the matched route.
+      // A match is successful if the AS path in the match condition overlaps with the AS path of the matched route.
       // 
       // This parameter is mutually exclusive with **AsPathsMatch** and cannot be specified at the same time.
       // 
@@ -416,7 +416,7 @@ namespace Models
       shared_ptr<vector<int64_t>> asPathsInclude_ {};
       // The list of AS paths for exact match. You can enter up to 64 AS numbers.
       // 
-      // A route is considered a match only when the AS path in the match condition is exactly the same as the AS path of the matched route.
+      // A match is successful only if the AS path in the match condition is exactly the same as the AS path of the matched route.
       // 
       // This parameter is mutually exclusive with **AsPathsInclude** and cannot be specified at the same time.
       // 
@@ -424,9 +424,9 @@ namespace Models
       shared_ptr<vector<int64_t>> asPathsMatch_ {};
       // The community set for fuzzy match. You can enter up to 64 communities.
       // 
-      // A route is considered a match if the community in the match condition overlaps with the community of the matched route.
+      // A match is successful if the community in the match condition overlaps with the community of the matched route.
       // 
-      // Each community is in the format of n:m, where n and m range from **1** to **65535**. The community must comply with RFC 1997. Large communities (RFC 8092) are not supported.
+      // Each community is in the format of n:m, where n and m range from **1** to **65535**. Communities must comply with RFC 1997. Large communities (RFC 8092) are not supported.
       // 
       // This parameter is mutually exclusive with **CommunitySetMatch** and cannot be specified at the same time.
       // 
@@ -434,28 +434,28 @@ namespace Models
       shared_ptr<vector<string>> communitySetInclude_ {};
       // The community set for exact match. You can enter up to 64 communities.
       // 
-      // A route is considered a match only when the community in the match condition is exactly the same as the community of the matched route.
+      // A match is successful only if the community in the match condition is exactly the same as the community of the matched route.
       // 
-      // Each community is in the format of n:m, where n and m range from **1** to **65535**. The community must comply with RFC 1997. Large communities (RFC 8092) are not supported.
+      // Each community is in the format of n:m, where n and m range from **1** to **65535**. Communities must comply with RFC 1997. Large communities (RFC 8092) are not supported.
       // 
       // This parameter is mutually exclusive with **CommunitySetInclude** and cannot be specified at the same time.
       // 
       // > Incorrect community configurations may prevent routes from being advertised to the on-premises data center.
       shared_ptr<vector<string>> communitySetMatch_ {};
-      // The list of destination instance IDs to be matched. You can enter the following types of instance IDs:
+      // The list of destination instance IDs to be matched. You can enter instance IDs of the following types:
       // 
-      // - Virtual private cloud (VPC) instance IDs
-      // - Virtual border router (VBR) instance IDs
+      // - Virtual Private Cloud (VPC) instance IDs
+      // - Virtual Border Router (VBR) instance IDs
       // 
       // You can enter up to 64 instance IDs.
       // 
       // > The list of destination instance IDs takes effect only when the direction of the route map is outbound.
       shared_ptr<vector<string>> destinationInstanceIds_ {};
-      // Specifies whether to use the exclusion match mode for the list of destination instance IDs. Valid values:
+      // Specifies whether to use the exclude match mode for the list of destination instance IDs. Valid values:
       // 
-      // - **false** (default): no. A route is considered a match if the destination instance ID of the route is in **DestinationInstanceIds.N**.
+      // - **false** (default): no. A match is successful if the destination instance ID propagated by the route is included in **DestinationInstanceIds.N**.
       // 
-      // - **true**: yes. A route is considered a match if the destination instance ID of the route is not in **DestinationInstanceIds.N**.
+      // - **true**: yes. A match is successful if the destination instance ID propagated by the route is not included in **DestinationInstanceIds.N**.
       shared_ptr<bool> destinationInstanceIdsReverseMatch_ {};
       // The list of destination instance types to be matched. The following instance types are supported:
       // 
@@ -481,29 +481,29 @@ namespace Models
       // 
       // This parameter can be left empty, which indicates that all types of routes are matched.
       shared_ptr<string> matchAddressType_ {};
-      // The list of route types to match. The following route types are supported:
+      // The list of route types to be matched. The following route types are supported:
       // 
       // - **System**: system route, which is automatically generated by the system.
       // 
-      // - **Custom**: custom route, which is manually added by users.
+      // - **Custom**: custom route, which is manually added by the user.
       // 
       // - **BGP**: BGP route, which is propagated through the BGP routable protocol.
       // 
-      // You can specify multiple route types.
+      // You can enter multiple route types.
       shared_ptr<vector<string>> routeTypes_ {};
-      // The list of source instance IDs to be matched. You can enter the following types of instance IDs:
+      // The list of source instance IDs to be matched. You can enter instance IDs of the following types:
       // 
-      // - Virtual private cloud (VPC) instance IDs
-      // - Virtual border router (VBR) instance IDs
+      // - Virtual Private Cloud (VPC) instance IDs
+      // - Virtual Border Router (VBR) instance IDs
       // 
       // 
       // You can enter up to 64 instance IDs.
       shared_ptr<vector<string>> sourceInstanceIds_ {};
-      // Specifies whether to use the exclusion match mode for the list of source instance IDs. Valid values:
+      // Specifies whether to use the exclude match mode for the list of source instance IDs. Valid values:
       // 
-      // - **false** (default): no. A route is considered a match if the source instance ID of the route is in **SourceInstanceIds.N**.
+      // - **false** (default): no. A match is successful if the source instance ID propagated by the route is included in **SourceInstanceIds.N**.
       // 
-      // - **true**: yes. A route is considered a match if the source instance ID of the route is not in **SourceInstanceIds.N**.
+      // - **true**: yes. A match is successful if the source instance ID propagated by the route is not included in **SourceInstanceIds.N**.
       shared_ptr<bool> sourceInstanceIdsReverseMatch_ {};
       // The list of source instance types to be matched. The following instance types are supported:
       // 
@@ -586,18 +586,18 @@ namespace Models
   protected:
     // The client token that is used to ensure the idempotence of the request.
     // 
-    // You can use the client to generate the value, but you must make sure that the value is unique among different requests. The client token can contain only ASCII characters.
+    // You can generate a parameter value on your client to ensure that the value is unique across different requests. The ClientToken parameter supports only ASCII characters.
     // 
     // > If you do not specify this parameter, the system automatically uses the **RequestId** of the API request as the **ClientToken**. The **RequestId** of each API request may be different.
     shared_ptr<string> clientToken_ {};
     // The detailed description of the rule. The description can be empty or 1 to 256 characters in length, and cannot start with http:// or https://.
     shared_ptr<string> description_ {};
-    // Specifies whether to precheck only this request. Valid values:
+    // Specifies whether to only precheck the request. Valid values:
     // 
-    // - **true**: prechecks the request without updating the route map rule. The system checks whether required parameters are set, the request format, and service limits. If the request fails the precheck, the corresponding error is returned. If the request passes the precheck, the `DryRunOperation` error code is returned.
+    // - **true**: prechecks the request without updating the route map rule. The system checks whether required parameters are specified, the request format is valid, and service limits are met. If the request fails the precheck, the corresponding error is returned. If the request passes the precheck, the `DryRunOperation` error code is returned.
     // - **false** (default): sends the request. If the request passes the precheck, the route map rule is updated.
     shared_ptr<bool> dryRun_ {};
-    // The match conditions of the route map rule. The system performs the actions defined in **SetActions** only when a route meets all the match conditions defined in this parameter.
+    // The match conditions of the route map rule. The system executes the actions defined in **SetActions** only after a route meets all the match conditions defined in this parameter.
     shared_ptr<UpdateRouteMapRuleRequest::MatchConditions> matchConditions_ {};
     // The name of the rule for easy identification. The name can be empty or 1 to 128 characters in length, and cannot start with http:// or https://.
     shared_ptr<string> name_ {};
@@ -605,7 +605,7 @@ namespace Models
     shared_ptr<int32_t> priority_ {};
     // The ID of the route map rule to be updated.
     shared_ptr<string> routeMapRuleId_ {};
-    // The actions to be performed for the route map rule. After a route meets all the match conditions defined in **MatchConditions**, the system processes the route based on the actions defined in this parameter.
+    // The actions to be executed for the route map rule. After a route meets all the match conditions defined in **MatchConditions**, the system processes the route based on the actions defined in this parameter.
     shared_ptr<UpdateRouteMapRuleRequest::SetActions> setActions_ {};
   };
 
