@@ -61,6 +61,7 @@ namespace Models
         DARABONBA_PTR_TO_JSON(RealNickName, realNickName_);
         DARABONBA_PTR_TO_JSON(Remark, remark_);
         DARABONBA_PTR_TO_JSON(Status, status_);
+        DARABONBA_PTR_TO_JSON(UserSource, userSource_);
         DARABONBA_PTR_TO_JSON(WyId, wyId_);
       };
       friend void from_json(const Darabonba::Json& j, Users& obj) { 
@@ -86,6 +87,7 @@ namespace Models
         DARABONBA_PTR_FROM_JSON(RealNickName, realNickName_);
         DARABONBA_PTR_FROM_JSON(Remark, remark_);
         DARABONBA_PTR_FROM_JSON(Status, status_);
+        DARABONBA_PTR_FROM_JSON(UserSource, userSource_);
         DARABONBA_PTR_FROM_JSON(WyId, wyId_);
       };
       Users() = default ;
@@ -190,9 +192,9 @@ namespace Models
 
 
       protected:
-        // The ID of the department.
+        // The department ID.
         shared_ptr<string> orgId_ {};
-        // The name of the department.
+        // The department name.
         shared_ptr<string> orgName_ {};
         // The name path from the root organization to the current organization.
         shared_ptr<string> orgNamePath_ {};
@@ -236,9 +238,9 @@ namespace Models
 
 
       protected:
-        // The ID of the user group.
+        // The user group ID.
         shared_ptr<string> groupId_ {};
-        // The name of the user group.
+        // The user group name.
         shared_ptr<string> groupName_ {};
       };
 
@@ -301,9 +303,9 @@ namespace Models
 
 
         protected:
-          // The ID of the resource policy.
+          // The resource policy ID.
           shared_ptr<string> policyId_ {};
-          // The Policy Name of the resource policy.
+          // The resource policy name.
           shared_ptr<string> policyName_ {};
         };
 
@@ -339,7 +341,7 @@ namespace Models
         && this->extras_ == nullptr && this->groups_ == nullptr && this->id_ == nullptr && this->isTenantManager_ == nullptr && this->jobNumber_ == nullptr
         && this->nickName_ == nullptr && this->orgId_ == nullptr && this->orgs_ == nullptr && this->ownerType_ == nullptr && this->passwordExpireDays_ == nullptr
         && this->passwordExpireRestDays_ == nullptr && this->phone_ == nullptr && this->properties_ == nullptr && this->realNickName_ == nullptr && this->remark_ == nullptr
-        && this->status_ == nullptr && this->wyId_ == nullptr; };
+        && this->status_ == nullptr && this->userSource_ == nullptr && this->wyId_ == nullptr; };
       // address Field Functions 
       bool hasAddress() const { return this->address_ != nullptr;};
       void deleteAddress() { this->address_ = nullptr;};
@@ -502,6 +504,13 @@ namespace Models
       inline Users& setStatus(int64_t status) { DARABONBA_PTR_SET_VALUE(status_, status) };
 
 
+      // userSource Field Functions 
+      bool hasUserSource() const { return this->userSource_ != nullptr;};
+      void deleteUserSource() { this->userSource_ = nullptr;};
+      inline string getUserSource() const { DARABONBA_PTR_GET_DEFAULT(userSource_, "") };
+      inline Users& setUserSource(string userSource) { DARABONBA_PTR_SET_VALUE(userSource_, userSource) };
+
+
       // wyId Field Functions 
       bool hasWyId() const { return this->wyId_ != nullptr;};
       void deleteWyId() { this->wyId_ = nullptr;};
@@ -512,24 +521,23 @@ namespace Models
     protected:
       // The work address of the user.
       shared_ptr<string> address_ {};
-      // The URL of the profile picture.
+      // The URL of the user profile picture.
       shared_ptr<string> avatar_ {};
       // The email address.
       shared_ptr<string> email_ {};
-      // Specifies whether to enable administrator access permissions.
+      // Indicates whether administrator access permissions are enabled.
       shared_ptr<bool> enableAdminAccess_ {};
       // The username.
       shared_ptr<string> endUserId_ {};
-      // The name of the externally imported user.
-      // > This field is not publicly available.
+      // The name of the externally imported user. This field is not publicly available.
       shared_ptr<string> externalName_ {};
       // The extended information of the user.
       shared_ptr<Users::Extras> extras_ {};
       // The collection of user groups to which the convenience user belongs.
       shared_ptr<vector<Users::Groups>> groups_ {};
-      // The ID of the convenience user.
+      // The convenience user ID.
       shared_ptr<int64_t> id_ {};
-      // Indicates whether the user is a tenant administrator. If the convenience user to be created uses the administrator activation type, you must specify a tenant administrator. Notifications such as password resets initiated by end users through the client are sent to the email address or mobile phone number of the tenant administrator. For more information, see [Create a convenience user](https://help.aliyun.com/document_detail/214472.html).
+      // Indicates whether the user is a tenant administrator. If the convenience user is activated by an administrator, you must specify a tenant administrator. Notifications, such as password reset requests from end users through the client, are sent to the email address or mobile phone number of the tenant administrator. For more information, see [Create a convenience user](https://help.aliyun.com/document_detail/214472.html).
       shared_ptr<bool> isTenantManager_ {};
       // The employee ID of the user.
       shared_ptr<string> jobNumber_ {};
@@ -538,16 +546,15 @@ namespace Models
       // - Remark
       // - EndUserId
       shared_ptr<string> nickName_ {};
-      // The ID of the department to which the convenience user belongs.
-      // > **[Deprecated]** This parameter will be deprecated soon.
+      // **[Deprecated]** The ID of the department to which the convenience user belongs.
       shared_ptr<string> orgId_ {};
       // The collection of departments to which the convenience user belongs.
       shared_ptr<vector<Users::Orgs>> orgs_ {};
       // The convenience user type. Valid values:
-      // - CreateFromManager: administrator-activated. The administrator sets the username and password. User notifications such as password reset notifications are sent to the email address or mobile phone number of the administrator.
-      // - Normal: user-activated. The administrator sets the username and the email address or mobile phone number for receiving notifications. User notifications such as cloud desktop activation notifications (including the initial password) are sent to the email address or mobile phone number of the user.
+      // - Administrator-activated: The administrator sets the username and password. User notifications such as password reset notifications are sent to the email address or mobile phone number of the administrator.
+      // - User-activated: The administrator sets the username and the email address or mobile phone number for receiving notifications. User notifications such as the cloud computer activation notification that contains the initial password are sent to the email address or mobile phone number of the user.
       shared_ptr<string> ownerType_ {};
-      // The password validity period, in days. Valid values: 30 to 365. By default, the password never expires.
+      // The password validity period, in days. Valid values: 30 to 365. By default, the password is permanently valid.
       shared_ptr<int32_t> passwordExpireDays_ {};
       // The remaining days of the password validity period.
       shared_ptr<int32_t> passwordExpireRestDays_ {};
@@ -557,10 +564,12 @@ namespace Models
       shared_ptr<vector<Users::Properties>> properties_ {};
       // The display name of the user.
       shared_ptr<string> realNickName_ {};
-      // The remarks for the convenience user.
+      // The remark of the convenience user.
       shared_ptr<string> remark_ {};
       // The status.
       shared_ptr<int64_t> status_ {};
+      // The enterprise identity source type of the user source. The backend determines whether to query this field based on the display and hide configurations of the custom columns for the enterprise identity source. Valid values: DINGDING (DingTalk), FEISHU (Lark), WECHAT (WeCom), and ENTRA_ID (Microsoft Entra ID). This field is empty if the column is hidden, not configured, or not associated with an enterprise identity source.
+      shared_ptr<string> userSource_ {};
       // The globally unique ID of the convenience user.
       shared_ptr<string> wyId_ {};
     };

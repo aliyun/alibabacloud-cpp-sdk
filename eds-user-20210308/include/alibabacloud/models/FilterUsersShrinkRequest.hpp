@@ -105,9 +105,9 @@ namespace Models
 
 
     protected:
-      // The name of the attribute.
+      // The property name.
       shared_ptr<string> propertyKey_ {};
-      // The values of the attribute.
+      // The property values.
       shared_ptr<string> propertyValues_ {};
     };
 
@@ -149,9 +149,9 @@ namespace Models
 
 
     protected:
-      // The ID of the attribute.
+      // The property ID.
       shared_ptr<int64_t> propertyId_ {};
-      // The IDs of the attribute values.
+      // The IDs of the property values.
       shared_ptr<string> propertyValueIds_ {};
     };
 
@@ -306,11 +306,11 @@ namespace Models
   protected:
     // The channel.
     shared_ptr<string> businessChannel_ {};
-    // The list of usernames (EndUserIds) to exclude by exact match.
+    // The list of usernames (EndUserIds) to exactly exclude.
     shared_ptr<vector<string>> excludeEndUserIds_ {};
-    // The fuzzy search string. This parameter supports matching the username (EndUserId) and email address (Email). Wildcards (*) are supported. For example, if you set this parameter to a*m, all results where the username or email address starts with a and ends with m are returned.
+    // The fuzzy search string. It supports matching the username (EndUserId) and email address (Email). This field supports wildcards (\\*). For example, if you set this field to a*m, all results where the username or email address starts with a and ends with m are returned.
     shared_ptr<string> filter_ {};
-    // The fuzzy match condition mapping for user information. This parameter supports fields such as the username, remarks, phone number, email address, nickname, and employee ID.
+    // The fuzzy match condition map for user information. It supports fields such as username, remarks, phone number, email address, nickname, and employee ID.
     shared_ptr<string> filterMapShrink_ {};
     // Specifies whether to return the number of cloud computers assigned to the user.
     shared_ptr<bool> includeDesktopCount_ {};
@@ -320,27 +320,27 @@ namespace Models
     shared_ptr<vector<string>> includeEndUserIds_ {};
     // Specifies whether to include organization information.
     shared_ptr<bool> includeOrgInfo_ {};
-    // Specifies whether to include the supported logon types.
+    // Specifies whether to include supported logon types.
     shared_ptr<bool> includeSupportIdps_ {};
     // Specifies whether to query all sub-organizations.
     shared_ptr<bool> isQueryAllSubOrgs_ {};
-    // The number of entries per page in a paged query. If the value exceeds 100, it is automatically reset to 100.
+    // The number of rows to return per page during paging in a paged query. If the value is greater than 100, it is automatically reset to 100.
     shared_ptr<int64_t> maxResults_ {};
-    // The token for the next query. You do not need to specify this parameter when you call this operation for the first time. If the response does not contain all results, a non-empty NextToken is returned. You can use the returned NextToken in subsequent queries to obtain the remaining results.
+    // The pagination token for the next query. You do not need to specify this parameter when you call the operation for the first time. If a single call does not return all results, the returned NextToken is not empty. You can use the returned NextToken in subsequent calls to continue the query.
     shared_ptr<string> nextToken_ {};
     // The supported sorting parameters.
     shared_ptr<string> orderParamShrink_ {};
-    // The ID of the enterprise organization.
+    // The enterprise organization ID.
     shared_ptr<string> orgId_ {};
     // The account activation type.
     shared_ptr<string> ownerType_ {};
-    // The list of user attributes for fuzzy queries.
+    // The list of user properties to use for fuzzy queries.
     shared_ptr<vector<FilterUsersShrinkRequest::PropertyFilterParam>> propertyFilterParam_ {};
-    // The list of attribute names and attribute values.
+    // The list of property names and property values.
     shared_ptr<vector<FilterUsersShrinkRequest::PropertyKeyValueFilterParam>> propertyKeyValueFilterParam_ {};
-    // The switch mapping for additional response information. This parameter controls whether to include desktop policy information.
+    // The switch map for additional returned information. This parameter controls whether to display desktop policy information.
     shared_ptr<map<string, string>> showExtras_ {};
-    // The user status used to filter results.
+    // The user status to filter by.
     shared_ptr<int32_t> status_ {};
   };
 

@@ -2,11 +2,13 @@
 #include <alibabacloud/EdsUser20210308.hpp>
 #include <alibabacloud/Utils.hpp>
 #include <alibabacloud/Openapi.hpp>
+#include <alibabacloud/gateway/POP.hpp>
 #include <map>
 #include <darabonba/Runtime.hpp>
 using namespace std;
 using namespace Darabonba;
 using json = nlohmann::json;
+using namespace AlibabaCloud::Gateway;
 using namespace AlibabaCloud::OpenApi;
 using OpenApiClient = AlibabaCloud::OpenApi::Client;
 using namespace AlibabaCloud::OpenApi::Utils::Models;
@@ -17,6 +19,9 @@ namespace EdsUser20210308
 {
 
 AlibabaCloud::EdsUser20210308::Client::Client(Config &config): OpenApiClient(config){
+  this->_productId = "eds-user";
+  shared_ptr<POP> gatewayClient = make_shared<POP>();
+  this->_spi = gatewayClient;
   this->_endpointRule = "regional";
   checkConfig(config);
   this->_endpoint = getEndpoint("eds-user", _regionId, _endpointRule, _network, _suffix, _endpointMap, _endpoint);
@@ -406,6 +411,8 @@ CreatePropertyResponse Client::createProperty(const CreatePropertyRequest &reque
 /**
  * @summary Creates a resource group.
  *
+ * @description The number of resource groups in each categorization is subject to the enterprise resource group quota limit. By default, a maximum of 20 resource groups are allowed for each categorization, but the quota limit configured for your enterprise may vary. If the quota limit is reached, the ExceedNumberQuota error is returned. You can invoke the DescribeResourceGroups operation to query the number of existing resource groups in the corresponding categorization.
+ *
  * @param request CreateResourceGroupRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return CreateResourceGroupResponse
@@ -464,6 +471,8 @@ CreateResourceGroupResponse Client::createResourceGroupWithOptions(const CreateR
 
 /**
  * @summary Creates a resource group.
+ *
+ * @description The number of resource groups in each categorization is subject to the enterprise resource group quota limit. By default, a maximum of 20 resource groups are allowed for each categorization, but the quota limit configured for your enterprise may vary. If the quota limit is reached, the ExceedNumberQuota error is returned. You can invoke the DescribeResourceGroups operation to query the number of existing resource groups in the corresponding categorization.
  *
  * @param request CreateResourceGroupRequest
  * @return CreateResourceGroupResponse
@@ -1120,6 +1129,56 @@ DescribeUserResponse Client::describeUser(const DescribeUserRequest &request) {
 }
 
 /**
+ * @summary Queries logon policies.
+ *
+ * @param request DescribeUserLoginPoliciesRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DescribeUserLoginPoliciesResponse
+ */
+DescribeUserLoginPoliciesResponse Client::describeUserLoginPoliciesWithOptions(const DescribeUserLoginPoliciesRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasBusinessChannel()) {
+    query["BusinessChannel"] = request.getBusinessChannel();
+  }
+
+  if (!!request.hasName()) {
+    query["Name"] = request.getName();
+  }
+
+  if (!!request.hasPolicyIds()) {
+    query["PolicyIds"] = request.getPolicyIds();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DescribeUserLoginPolicies"},
+    {"version" , "2021-03-08"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DescribeUserLoginPoliciesResponse>();
+}
+
+/**
+ * @summary Queries logon policies.
+ *
+ * @param request DescribeUserLoginPoliciesRequest
+ * @return DescribeUserLoginPoliciesResponse
+ */
+DescribeUserLoginPoliciesResponse Client::describeUserLoginPolicies(const DescribeUserLoginPoliciesRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return describeUserLoginPoliciesWithOptions(request, runtime);
+}
+
+/**
  * @summary Queries the information of convenience users, such as usernames, email addresses, and remarks.
  *
  * @param tmpReq DescribeUsersRequest
@@ -1246,7 +1305,7 @@ DescribeUsersResponse Client::describeUsers(const DescribeUsersRequest &request)
 }
 
 /**
- * @summary Queries convenience account information by filtering based on user property.
+ * @summary Queries convenience account information by using a filtered query based on user property.
  *
  * @param tmpReq FilterUsersRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1359,7 +1418,7 @@ FilterUsersResponse Client::filterUsersWithOptions(const FilterUsersRequest &tmp
 }
 
 /**
- * @summary Queries convenience account information by filtering based on user property.
+ * @summary Queries convenience account information by using a filtered query based on user property.
  *
  * @param request FilterUsersRequest
  * @return FilterUsersResponse
@@ -1928,6 +1987,56 @@ ModifyUserResponse Client::modifyUser(const ModifyUserRequest &request) {
 }
 
 /**
+ * @summary Modifies the logon policy.
+ *
+ * @param request ModifyUserPolicyBasicInfoRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ModifyUserPolicyBasicInfoResponse
+ */
+ModifyUserPolicyBasicInfoResponse Client::modifyUserPolicyBasicInfoWithOptions(const ModifyUserPolicyBasicInfoRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasBusinessChannel()) {
+    query["BusinessChannel"] = request.getBusinessChannel();
+  }
+
+  if (!!request.hasName()) {
+    query["Name"] = request.getName();
+  }
+
+  if (!!request.hasPolicyId()) {
+    query["PolicyId"] = request.getPolicyId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ModifyUserPolicyBasicInfo"},
+    {"version" , "2021-03-08"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ModifyUserPolicyBasicInfoResponse>();
+}
+
+/**
+ * @summary Modifies the logon policy.
+ *
+ * @param request ModifyUserPolicyBasicInfoRequest
+ * @return ModifyUserPolicyBasicInfoResponse
+ */
+ModifyUserPolicyBasicInfoResponse Client::modifyUserPolicyBasicInfo(const ModifyUserPolicyBasicInfoRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return modifyUserPolicyBasicInfoWithOptions(request, runtime);
+}
+
+/**
  * @summary Moves an organization.
  *
  * @param request MoveOrgRequest
@@ -2265,6 +2374,52 @@ RemovePropertyResponse Client::removePropertyWithOptions(const RemovePropertyReq
 RemovePropertyResponse Client::removeProperty(const RemovePropertyRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return removePropertyWithOptions(request, runtime);
+}
+
+/**
+ * @summary Deletes a logon policy.
+ *
+ * @param request RemoveUserLoginPoliciesRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return RemoveUserLoginPoliciesResponse
+ */
+RemoveUserLoginPoliciesResponse Client::removeUserLoginPoliciesWithOptions(const RemoveUserLoginPoliciesRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasBusinessChannel()) {
+    query["BusinessChannel"] = request.getBusinessChannel();
+  }
+
+  if (!!request.hasPolicyIds()) {
+    query["PolicyIds"] = request.getPolicyIds();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "RemoveUserLoginPolicies"},
+    {"version" , "2021-03-08"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<RemoveUserLoginPoliciesResponse>();
+}
+
+/**
+ * @summary Deletes a logon policy.
+ *
+ * @param request RemoveUserLoginPoliciesRequest
+ * @return RemoveUserLoginPoliciesResponse
+ */
+RemoveUserLoginPoliciesResponse Client::removeUserLoginPolicies(const RemoveUserLoginPoliciesRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return removeUserLoginPoliciesWithOptions(request, runtime);
 }
 
 /**

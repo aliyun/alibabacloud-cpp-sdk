@@ -60,6 +60,9 @@
 #include <alibabacloud/models/DescribeUserRequest.hpp>
 #include <alibabacloud/models/DescribeUserResponseBody.hpp>
 #include <alibabacloud/models/DescribeUserResponse.hpp>
+#include <alibabacloud/models/DescribeUserLoginPoliciesRequest.hpp>
+#include <alibabacloud/models/DescribeUserLoginPoliciesResponseBody.hpp>
+#include <alibabacloud/models/DescribeUserLoginPoliciesResponse.hpp>
 #include <alibabacloud/models/DescribeUsersRequest.hpp>
 #include <alibabacloud/models/DescribeUsersShrinkRequest.hpp>
 #include <alibabacloud/models/DescribeUsersResponseBody.hpp>
@@ -101,6 +104,9 @@
 #include <alibabacloud/models/ModifyUserRequest.hpp>
 #include <alibabacloud/models/ModifyUserResponseBody.hpp>
 #include <alibabacloud/models/ModifyUserResponse.hpp>
+#include <alibabacloud/models/ModifyUserPolicyBasicInfoRequest.hpp>
+#include <alibabacloud/models/ModifyUserPolicyBasicInfoResponseBody.hpp>
+#include <alibabacloud/models/ModifyUserPolicyBasicInfoResponse.hpp>
 #include <alibabacloud/models/MoveOrgRequest.hpp>
 #include <alibabacloud/models/MoveOrgResponseBody.hpp>
 #include <alibabacloud/models/MoveOrgResponse.hpp>
@@ -122,6 +128,9 @@
 #include <alibabacloud/models/RemovePropertyRequest.hpp>
 #include <alibabacloud/models/RemovePropertyResponseBody.hpp>
 #include <alibabacloud/models/RemovePropertyResponse.hpp>
+#include <alibabacloud/models/RemoveUserLoginPoliciesRequest.hpp>
+#include <alibabacloud/models/RemoveUserLoginPoliciesResponseBody.hpp>
+#include <alibabacloud/models/RemoveUserLoginPoliciesResponse.hpp>
 #include <alibabacloud/models/RemoveUsersRequest.hpp>
 #include <alibabacloud/models/RemoveUsersResponseBody.hpp>
 #include <alibabacloud/models/RemoveUsersResponse.hpp>

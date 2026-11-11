@@ -152,6 +152,8 @@ namespace EdsUser20210308
       /**
        * @summary Creates a resource group.
        *
+       * @description The number of resource groups in each categorization is subject to the enterprise resource group quota limit. By default, a maximum of 20 resource groups are allowed for each categorization, but the quota limit configured for your enterprise may vary. If the quota limit is reached, the ExceedNumberQuota error is returned. You can invoke the DescribeResourceGroups operation to query the number of existing resource groups in the corresponding categorization.
+       *
        * @param request CreateResourceGroupRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return CreateResourceGroupResponse
@@ -160,6 +162,8 @@ namespace EdsUser20210308
 
       /**
        * @summary Creates a resource group.
+       *
+       * @description The number of resource groups in each categorization is subject to the enterprise resource group quota limit. By default, a maximum of 20 resource groups are allowed for each categorization, but the quota limit configured for your enterprise may vary. If the quota limit is reached, the ExceedNumberQuota error is returned. You can invoke the DescribeResourceGroups operation to query the number of existing resource groups in the corresponding categorization.
        *
        * @param request CreateResourceGroupRequest
        * @return CreateResourceGroupResponse
@@ -347,6 +351,23 @@ namespace EdsUser20210308
       Models::DescribeUserResponse describeUser(const Models::DescribeUserRequest &request);
 
       /**
+       * @summary Queries logon policies.
+       *
+       * @param request DescribeUserLoginPoliciesRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DescribeUserLoginPoliciesResponse
+       */
+      Models::DescribeUserLoginPoliciesResponse describeUserLoginPoliciesWithOptions(const Models::DescribeUserLoginPoliciesRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Queries logon policies.
+       *
+       * @param request DescribeUserLoginPoliciesRequest
+       * @return DescribeUserLoginPoliciesResponse
+       */
+      Models::DescribeUserLoginPoliciesResponse describeUserLoginPolicies(const Models::DescribeUserLoginPoliciesRequest &request);
+
+      /**
        * @summary Queries the information of convenience users, such as usernames, email addresses, and remarks.
        *
        * @param tmpReq DescribeUsersRequest
@@ -364,7 +385,7 @@ namespace EdsUser20210308
       Models::DescribeUsersResponse describeUsers(const Models::DescribeUsersRequest &request);
 
       /**
-       * @summary Queries convenience account information by filtering based on user property.
+       * @summary Queries convenience account information by using a filtered query based on user property.
        *
        * @param tmpReq FilterUsersRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -373,7 +394,7 @@ namespace EdsUser20210308
       Models::FilterUsersResponse filterUsersWithOptions(const Models::FilterUsersRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries convenience account information by filtering based on user property.
+       * @summary Queries convenience account information by using a filtered query based on user property.
        *
        * @param request FilterUsersRequest
        * @return FilterUsersResponse
@@ -590,6 +611,23 @@ namespace EdsUser20210308
       Models::ModifyUserResponse modifyUser(const Models::ModifyUserRequest &request);
 
       /**
+       * @summary Modifies the logon policy.
+       *
+       * @param request ModifyUserPolicyBasicInfoRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ModifyUserPolicyBasicInfoResponse
+       */
+      Models::ModifyUserPolicyBasicInfoResponse modifyUserPolicyBasicInfoWithOptions(const Models::ModifyUserPolicyBasicInfoRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Modifies the logon policy.
+       *
+       * @param request ModifyUserPolicyBasicInfoRequest
+       * @return ModifyUserPolicyBasicInfoResponse
+       */
+      Models::ModifyUserPolicyBasicInfoResponse modifyUserPolicyBasicInfo(const Models::ModifyUserPolicyBasicInfoRequest &request);
+
+      /**
        * @summary Moves an organization.
        *
        * @param request MoveOrgRequest
@@ -711,6 +749,23 @@ namespace EdsUser20210308
        * @return RemovePropertyResponse
        */
       Models::RemovePropertyResponse removeProperty(const Models::RemovePropertyRequest &request);
+
+      /**
+       * @summary Deletes a logon policy.
+       *
+       * @param request RemoveUserLoginPoliciesRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return RemoveUserLoginPoliciesResponse
+       */
+      Models::RemoveUserLoginPoliciesResponse removeUserLoginPoliciesWithOptions(const Models::RemoveUserLoginPoliciesRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Deletes a logon policy.
+       *
+       * @param request RemoveUserLoginPoliciesRequest
+       * @return RemoveUserLoginPoliciesResponse
+       */
+      Models::RemoveUserLoginPoliciesResponse removeUserLoginPolicies(const Models::RemoveUserLoginPoliciesRequest &request);
 
       /**
        * @summary Deletes one or more convenience users.

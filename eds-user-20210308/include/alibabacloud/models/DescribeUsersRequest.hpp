@@ -207,30 +207,30 @@ namespace Models
     shared_ptr<vector<string>> endUserIds_ {};
     // The list of usernames (EndUserId) to be exactly excluded.
     shared_ptr<vector<string>> excludeEndUserIds_ {};
-    // Excludes convenience users that belong to the specified user group.
+    // The ID of the user group used to exclude convenience users.
     shared_ptr<string> excludeGroupId_ {};
-    // The fuzzy search string. This parameter supports matching usernames (EndUserId) and email addresses (Email). This field supports wildcards (*). For example, if you set this field to `a*m`, all results where the username or email address starts with `a` and ends with `m` are returned.
+    // The fuzzy search string, which supports matching usernames (EndUserId) and email addresses (Email). This field supports wildcards (*). For example, if you set this field to `a*m`, all results whose username or email address starts with `a` and ends with `m` are returned.
     shared_ptr<string> filter_ {};
-    // The mapping of fuzzy match conditions for user information. This parameter supports usernames, nicknames, mobile phone numbers, email addresses, remarks, and employee IDs.
+    // The fuzzy match condition map for user information, which supports usernames, nicknames, mobile phone numbers, email addresses, remarks, and employee IDs.
     shared_ptr<map<string, string>> filterMap_ {};
-    // Filters users based on the allocation relationship of specified resources. The mapping key is the resource type.
+    // Filters users based on the assignment relationships of specified resources. The map key is the resource type.
     shared_ptr<map<string, string>> filterWithAssignedResource_ {};
-    // Filters users based on whether cloud resources are allocated.
+    // Filters users based on whether cloud resources are assigned.
     shared_ptr<map<string, bool>> filterWithAssignedResources_ {};
-    // The user group ID for exact match. Queries the list of accounts that belong to the specified user group.
+    // The user group ID for exact match.
     shared_ptr<string> groupId_ {};
     // Specifies whether to query users in sub-organizations.
     shared_ptr<bool> isQueryAllSubOrgs_ {};
     // The number of entries to return on each page in a paging query.
+    // 
     // - Valid values: 1 to 500.
     // - Default value: 200.
     shared_ptr<int64_t> maxResults_ {};
-    // The token for the next query. You do not need to specify this parameter for the first call.      
-    // If the results returned in a single call do not include all entries, a non-empty NextToken is returned. You can use the returned NextToken in subsequent calls to continue the query.
+    // The pagination token for the next query. You do not need to specify this parameter for the first call. If a query does not return all results, a non-empty NextToken is returned. You can use the returned NextToken to continue the query.
     shared_ptr<string> nextToken_ {};
-    // The organization ID for exact match. Queries the list of accounts that belong to the specified organization.
+    // The organization ID for exact match.
     shared_ptr<string> orgId_ {};
-    // The extended information of users to query.
+    // The extended user information to query.
     Darabonba::Json showExtras_ {};
     shared_ptr<string> solutionId_ {};
     // The status.

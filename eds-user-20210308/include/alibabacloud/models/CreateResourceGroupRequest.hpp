@@ -103,15 +103,17 @@ namespace Models
 
 
   protected:
+    // The agent subtype of the DesktopAgent resource group. Valid values: JVSClaw and HermesAgent.
     shared_ptr<string> agentType_ {};
     // The channel.
     shared_ptr<string> businessChannel_ {};
+    // Specifies whether to create an Alibaba Cloud resource group at the same time. This is supported only for resource groups in the Default category.
     shared_ptr<bool> enableAliyunResourceGroup_ {};
     // > This parameter is not publicly available.
     shared_ptr<int64_t> isResourceGroupWithOfficeSite_ {};
-    // For Elastic Desktop Service (EDS) Enterprise Edition, set the value to `AliyunConsole`. Other platforms are not supported.
+    // For Elastic Desktop Service Enterprise Edition, set the value to `AliyunConsole`. Other platforms are not supported.
     shared_ptr<string> platform_ {};
-    // The resource category.
+    // The category of the resource.
     shared_ptr<string> resourceClassification_ {};
     // The description of the resource group. This parameter is optional. The description can be up to 500 characters in length and is saved as-is.
     shared_ptr<string> resourceGroupDescription_ {};

@@ -58,6 +58,7 @@ namespace Models
         DARABONBA_PTR_TO_JSON(Status, status_);
         DARABONBA_PTR_TO_JSON(SupportLoginIdps, supportLoginIdps_);
         DARABONBA_PTR_TO_JSON(UserSetPropertiesModels, userSetPropertiesModels_);
+        DARABONBA_PTR_TO_JSON(UserSource, userSource_);
       };
       friend void from_json(const Darabonba::Json& j, Users& obj) { 
         DARABONBA_PTR_FROM_JSON(AutoLockTime, autoLockTime_);
@@ -81,6 +82,7 @@ namespace Models
         DARABONBA_PTR_FROM_JSON(Status, status_);
         DARABONBA_PTR_FROM_JSON(SupportLoginIdps, supportLoginIdps_);
         DARABONBA_PTR_FROM_JSON(UserSetPropertiesModels, userSetPropertiesModels_);
+        DARABONBA_PTR_FROM_JSON(UserSource, userSource_);
       };
       Users() = default ;
       Users(const Users &) = default ;
@@ -362,11 +364,11 @@ namespace Models
 
 
       protected:
-        // The organization structure ID.
+        // The organizational structure ID.
         shared_ptr<string> orgId_ {};
-        // The organization structure name.
+        // The organizational structure name.
         shared_ptr<string> orgName_ {};
-        // The organization structure name path.
+        // The organizational structure name path.
         shared_ptr<string> orgNamePath_ {};
       };
 
@@ -454,7 +456,7 @@ namespace Models
       protected:
         // The name of the external account associated with the user.
         shared_ptr<string> externalName_ {};
-        // The external account, student ID, or employee ID associated with the user.
+        // The account, student ID, or employee ID associated with the user.
         shared_ptr<string> jobNumber_ {};
       };
 
@@ -462,7 +464,8 @@ namespace Models
         && this->desktopCount_ == nullptr && this->desktopGroupCount_ == nullptr && this->email_ == nullptr && this->enableAdminAccess_ == nullptr && this->endUserId_ == nullptr
         && this->externalInfo_ == nullptr && this->groups_ == nullptr && this->id_ == nullptr && this->isTenantManager_ == nullptr && this->orgList_ == nullptr
         && this->ownerType_ == nullptr && this->passwordExpireDays_ == nullptr && this->passwordExpireRestDays_ == nullptr && this->phone_ == nullptr && this->realNickName_ == nullptr
-        && this->remark_ == nullptr && this->resourcePolicyList_ == nullptr && this->status_ == nullptr && this->supportLoginIdps_ == nullptr && this->userSetPropertiesModels_ == nullptr; };
+        && this->remark_ == nullptr && this->resourcePolicyList_ == nullptr && this->status_ == nullptr && this->supportLoginIdps_ == nullptr && this->userSetPropertiesModels_ == nullptr
+        && this->userSource_ == nullptr; };
       // autoLockTime Field Functions 
       bool hasAutoLockTime() const { return this->autoLockTime_ != nullptr;};
       void deleteAutoLockTime() { this->autoLockTime_ = nullptr;};
@@ -622,6 +625,13 @@ namespace Models
       inline Users& setUserSetPropertiesModels(vector<Users::UserSetPropertiesModels> && userSetPropertiesModels) { DARABONBA_PTR_SET_RVALUE(userSetPropertiesModels_, userSetPropertiesModels) };
 
 
+      // userSource Field Functions 
+      bool hasUserSource() const { return this->userSource_ != nullptr;};
+      void deleteUserSource() { this->userSource_ = nullptr;};
+      inline string getUserSource() const { DARABONBA_PTR_GET_DEFAULT(userSource_, "") };
+      inline Users& setUserSource(string userSource) { DARABONBA_PTR_SET_VALUE(userSource_, userSource) };
+
+
     protected:
       // The date when the account is automatically locked, in the YYYY-MM-DD format.
       shared_ptr<string> autoLockTime_ {};
@@ -649,24 +659,26 @@ namespace Models
       shared_ptr<string> ownerType_ {};
       // The password of the user account is valid permanently by default. You can use this parameter to set a password validity period of 30 to 365 days. After the password expires, the end user must change the password before logging on again.
       // 
-      // > This feature is currently in invitational preview. To use this feature, submit a ticket.
+      // > This feature is in invitational preview. To use this feature, submit a ticket.
       shared_ptr<int32_t> passwordExpireDays_ {};
-      // The remaining days of the password validity period for the account.
+      // The number of remaining days before the account password expires.
       shared_ptr<int32_t> passwordExpireRestDays_ {};
       // The mobile phone number.
       shared_ptr<string> phone_ {};
       // The user nickname.
       shared_ptr<string> realNickName_ {};
-      // The user remarks.
+      // The remarks for the user.
       shared_ptr<string> remark_ {};
       // The list of resource policies associated with the convenience user.
       shared_ptr<vector<Users::ResourcePolicyList>> resourcePolicyList_ {};
       // The status of the convenience user.
       shared_ptr<int64_t> status_ {};
-      // The supported logon identity sources.
+      // The supported identity sources for logon.
       shared_ptr<vector<Users::SupportLoginIdps>> supportLoginIdps_ {};
       // The collection of user properties.
       shared_ptr<vector<Users::UserSetPropertiesModels>> userSetPropertiesModels_ {};
+      // The enterprise identity source type of the user source. The backend determines whether to query this field based on the show or hide configuration of the custom column for the enterprise identity source. Valid values: DINGDING (DingTalk), FEISHU (Lark), WECHAT (WeCom), and ENTRA_ID (Microsoft Entra ID). This field is empty when the column is hidden, not configured, or not associated with an enterprise identity source.
+      shared_ptr<string> userSource_ {};
     };
 
     virtual bool empty() const override { return this->nextToken_ == nullptr
@@ -695,7 +707,7 @@ namespace Models
 
 
   protected:
-    // The token for the next query. If a query does not return all results, the returned NextToken is not empty. You can pass the returned NextToken in a subsequent query to continue the query.
+    // The token for the next query. If a single query does not return all results, the returned NextToken is not empty. You can pass the returned NextToken in a subsequent query to continue the query.
     shared_ptr<string> nextToken_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

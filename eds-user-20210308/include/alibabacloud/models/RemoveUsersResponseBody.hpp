@@ -151,11 +151,13 @@ namespace Models
 
 
     protected:
-      // The information about the users that failed to be deleted.
+      // The collection of information about users that failed to be deleted.
       shared_ptr<vector<RemoveUsersResult::FailedUsers>> failedUsers_ {};
+      // The list of usernames of convenience users for which asynchronous deletion tasks already exist and have not finished. This request does not create duplicate deletion tasks for these users. The return of this field does not indicate that the users have been deleted.
       shared_ptr<vector<string>> processingUsers_ {};
-      // The convenience users that are successfully deleted.
+      // The convenience users that were successfully deleted.
       shared_ptr<vector<string>> removedUsers_ {};
+      // The list of usernames of convenience users for which asynchronous deletion tasks have been successfully accepted and created in this request. Asynchronous deletion is used when UnbindDesktops is set to true. Task acceptance does not mean that the convenience users have been deleted.
       shared_ptr<vector<string>> submittedUsers_ {};
     };
 
@@ -178,7 +180,7 @@ namespace Models
 
 
   protected:
-    // The result of deleting the convenience users.
+    // The result of the convenience user deletion operation.
     shared_ptr<RemoveUsersResponseBody::RemoveUsersResult> removeUsersResult_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
