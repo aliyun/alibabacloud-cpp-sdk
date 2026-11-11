@@ -232,9 +232,9 @@ namespace Models
 
 
     protected:
-      // The creation time of the data object. The value is a UNIX timestamp in milliseconds since 1970-01-01 00:00:00 UTC.
+      // The creation time of the data object. The value is a UNIX timestamp that represents the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
       shared_ptr<int64_t> creationTime_ {};
-      // The cloud instance identity.
+      // The instance identity of the cloud instance.
       shared_ptr<string> dataAssetSourceId_ {};
       // The name of the database.
       shared_ptr<string> dataSourceName_ {};
@@ -244,7 +244,7 @@ namespace Models
       shared_ptr<string> engineType_ {};
       // The instance identity of the cloud instance to which the column belongs. This is a compatible field.
       shared_ptr<string> instanceName_ {};
-      // The compatibility field for the column encryption status. To query column encryption results, call ListDataMaskingColumns.
+      // The compatibility field for the column encryption status. To query the column encryption results, call ListDataMaskingColumns.
       shared_ptr<int32_t> maskingStatus_ {};
       // The name of the data column.
       shared_ptr<string> name_ {};
@@ -314,11 +314,11 @@ namespace Models
   protected:
     // The page number of the returned data.
     shared_ptr<int32_t> currentPage_ {};
-    // The list of records returned by the current query.
+    // The list of records returned in the current query.
     shared_ptr<vector<ListColumnsResponseBody::Items>> items_ {};
     // The number of entries returned per page in the current query.
     shared_ptr<int32_t> pageSize_ {};
-    // The request ID, which can be used to locate the current API call.
+    // The request ID. You can use the ID to locate this API call.
     shared_ptr<string> requestId_ {};
     // The total number of entries that meet the current statistics or query scope.
     shared_ptr<int32_t> totalCount_ {};

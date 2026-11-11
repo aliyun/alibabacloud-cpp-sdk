@@ -84,24 +84,23 @@ namespace Models
 
 
   protected:
-    // The name of the instance-level column encryption algorithm. Select an available algorithm from the ListDataMaskingEncryptionAlgorithms operation.
+    // The name of the instance-level column encryption algorithm. Select an available algorithm from ListDataMaskingEncryptionAlgorithms.
     shared_ptr<string> encryptionAlgorithm_ {};
-    // The KMS key identifier. You can obtain this value from Items[].KeyId in the response of the ListKmsKeys operation. Specify this parameter when you use a KMS key. Do not specify this parameter for local key scenarios.
+    // The identifier of the Key Management Service (KMS) key. You can obtain it from Items[].KeyId in the response of ListKmsKeys. Provide this parameter when using a KMS key. Do not pass this parameter in local key scenarios.
     shared_ptr<string> encryptionKeyId_ {};
-    // The database instance identity. You can obtain this value from Items[].InstanceId in the response of the ListDataMaskingInstances operation.
+    // The database instance identity. You can obtain it from Items[].InstanceId in the response of ListDataMaskingInstances.
     shared_ptr<string> instanceId_ {};
     // The language of the response description. Valid values:
     // - zh: Chinese.
     // - en: English.
     shared_ptr<string> lang_ {};
-    // The cloud product code. Column encryption supports RDS, POLARDB, and PolarDBX2. If you also specify ProductId, the two values must correspond to each other.
+    // The code of the cloud service. Column encryption supports ApsaraDB RDS, PolarDB, and PolarDB-X 2.0. If ProductId is also provided, the two parameters must match.
     shared_ptr<string> productCode_ {};
-    // The cloud product type identifier. Valid values:
-    // - 5: RDS.
-    // - 8: POLARDB.
-    // - 27: PolarDBX2.
-    // 
-    // If you specify both ProductId and ProductCode, the values must correspond to each other.
+    // The identifier of the cloud service type. Valid values:
+    // - 5: ApsaraDB RDS.
+    // - 8: PolarDB.
+    // - 27: PolarDB-X 2.0.
+    // If specified together with ProductCode, the values must match.
     shared_ptr<int64_t> productId_ {};
   };
 

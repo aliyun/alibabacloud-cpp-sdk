@@ -20,6 +20,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(InstanceName, instanceName_);
       DARABONBA_PTR_TO_JSON(Lang, lang_);
       DARABONBA_PTR_TO_JSON(Name, name_);
+      DARABONBA_PTR_TO_JSON(OnlyColumnName, onlyColumnName_);
       DARABONBA_PTR_TO_JSON(PageSize, pageSize_);
       DARABONBA_PTR_TO_JSON(ProductCode, productCode_);
       DARABONBA_PTR_TO_JSON(RiskLevelId, riskLevelId_);
@@ -35,6 +36,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(InstanceName, instanceName_);
       DARABONBA_PTR_FROM_JSON(Lang, lang_);
       DARABONBA_PTR_FROM_JSON(Name, name_);
+      DARABONBA_PTR_FROM_JSON(OnlyColumnName, onlyColumnName_);
       DARABONBA_PTR_FROM_JSON(PageSize, pageSize_);
       DARABONBA_PTR_FROM_JSON(ProductCode, productCode_);
       DARABONBA_PTR_FROM_JSON(RiskLevelId, riskLevelId_);
@@ -55,8 +57,8 @@ namespace Models
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->currentPage_ == nullptr
         && this->dataAssetSourceId_ == nullptr && this->dataSourceName_ == nullptr && this->engineType_ == nullptr && this->instanceName_ == nullptr && this->lang_ == nullptr
-        && this->name_ == nullptr && this->pageSize_ == nullptr && this->productCode_ == nullptr && this->riskLevelId_ == nullptr && this->ruleId_ == nullptr
-        && this->tableName_ == nullptr && this->templateId_ == nullptr; };
+        && this->name_ == nullptr && this->onlyColumnName_ == nullptr && this->pageSize_ == nullptr && this->productCode_ == nullptr && this->riskLevelId_ == nullptr
+        && this->ruleId_ == nullptr && this->tableName_ == nullptr && this->templateId_ == nullptr; };
     // currentPage Field Functions 
     bool hasCurrentPage() const { return this->currentPage_ != nullptr;};
     void deleteCurrentPage() { this->currentPage_ = nullptr;};
@@ -106,6 +108,13 @@ namespace Models
     inline ListColumnsRequest& setName(string name) { DARABONBA_PTR_SET_VALUE(name_, name) };
 
 
+    // onlyColumnName Field Functions 
+    bool hasOnlyColumnName() const { return this->onlyColumnName_ != nullptr;};
+    void deleteOnlyColumnName() { this->onlyColumnName_ = nullptr;};
+    inline int32_t getOnlyColumnName() const { DARABONBA_PTR_GET_DEFAULT(onlyColumnName_, 0) };
+    inline ListColumnsRequest& setOnlyColumnName(int32_t onlyColumnName) { DARABONBA_PTR_SET_VALUE(onlyColumnName_, onlyColumnName) };
+
+
     // pageSize Field Functions 
     bool hasPageSize() const { return this->pageSize_ != nullptr;};
     void deletePageSize() { this->pageSize_ = nullptr;};
@@ -151,29 +160,31 @@ namespace Models
   protected:
     // The page number of the current query. Pages start from 1.
     shared_ptr<int32_t> currentPage_ {};
-    // The cloud database instance identity. Set this parameter to the InstanceId in the instance list.
+    // The instance identity of the cloud database. Set this parameter to the InstanceId in the instance list.
     shared_ptr<string> dataAssetSourceId_ {};
     // The name of the database. Set this parameter to the DbName returned by ListDataSources.
     shared_ptr<string> dataSourceName_ {};
     // The type of the database engine. This parameter must be consistent with the EngineType of the target instance, such as MySQL or PostgreSQL.
     shared_ptr<string> engineType_ {};
-    // The compatible parameter for the instance identity. DataAssetSourceId takes precedence. If both are specified, DataAssetSourceId is used.
+    // The compatible parameter for the instance identity. DataAssetSourceId takes precedence. If both parameters are specified, DataAssetSourceId is used.
     shared_ptr<string> instanceName_ {};
-    // The language of the response description. Valid values: zh: Chinese; en: English.
+    // The language of the response description. Valid values: zh: Chinese. en: English.
     shared_ptr<string> lang_ {};
     // The filter condition for the column name.
     shared_ptr<string> name_ {};
+    // Specifies whether the API operation returns only column names.
+    shared_ptr<int32_t> onlyColumnName_ {};
     // The number of entries to return on each page. Keep other filter conditions consistent when querying the next page.
     shared_ptr<int32_t> pageSize_ {};
     // The code of the cloud service. Column encryption supports RDS, POLARDB, and PolarDBX2. If ProductId is also specified, the two parameters must match.
     shared_ptr<string> productCode_ {};
-    // The identifier of the sensitivity level. You can obtain this value from the return list of ListRiskLevels.
+    // The identifier of the sensitivity level. You can obtain the value from the return list of ListRiskLevels.
     shared_ptr<int64_t> riskLevelId_ {};
     // The identifier of the detection rule or model. Set this parameter to the ID of the corresponding detection rule in the target template.
     shared_ptr<int64_t> ruleId_ {};
     // The name of the data table. In PostgreSQL or Oracle scenarios, retain the schema.table format obtained from the table list.
     shared_ptr<string> tableName_ {};
-    // The identifier of the data classification and grading template. You can obtain this value from Items[].Id returned by ListTemplates. Keep this parameter consistent with the selected sensitivity level and detection model.
+    // The identifier of the data classification template. You can obtain the value from Items[].Id returned by ListTemplates. Keep this parameter consistent with the selected sensitivity level and detection model.
     shared_ptr<int64_t> templateId_ {};
   };
 
