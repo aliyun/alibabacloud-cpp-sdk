@@ -148,11 +148,13 @@ namespace Models
       class ProxyProtocolV2Config : public Darabonba::Model {
       public:
         friend void to_json(Darabonba::Json& j, const ProxyProtocolV2Config& obj) { 
+          DARABONBA_PTR_TO_JSON(Ppv2CnIdEnabled, ppv2CnIdEnabled_);
           DARABONBA_PTR_TO_JSON(Ppv2PrivateLinkEpIdEnabled, ppv2PrivateLinkEpIdEnabled_);
           DARABONBA_PTR_TO_JSON(Ppv2PrivateLinkEpsIdEnabled, ppv2PrivateLinkEpsIdEnabled_);
           DARABONBA_PTR_TO_JSON(Ppv2VpcIdEnabled, ppv2VpcIdEnabled_);
         };
         friend void from_json(const Darabonba::Json& j, ProxyProtocolV2Config& obj) { 
+          DARABONBA_PTR_FROM_JSON(Ppv2CnIdEnabled, ppv2CnIdEnabled_);
           DARABONBA_PTR_FROM_JSON(Ppv2PrivateLinkEpIdEnabled, ppv2PrivateLinkEpIdEnabled_);
           DARABONBA_PTR_FROM_JSON(Ppv2PrivateLinkEpsIdEnabled, ppv2PrivateLinkEpsIdEnabled_);
           DARABONBA_PTR_FROM_JSON(Ppv2VpcIdEnabled, ppv2VpcIdEnabled_);
@@ -168,8 +170,15 @@ namespace Models
         };
         virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
         virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-        virtual bool empty() const override { return this->ppv2PrivateLinkEpIdEnabled_ == nullptr
-        && this->ppv2PrivateLinkEpsIdEnabled_ == nullptr && this->ppv2VpcIdEnabled_ == nullptr; };
+        virtual bool empty() const override { return this->ppv2CnIdEnabled_ == nullptr
+        && this->ppv2PrivateLinkEpIdEnabled_ == nullptr && this->ppv2PrivateLinkEpsIdEnabled_ == nullptr && this->ppv2VpcIdEnabled_ == nullptr; };
+        // ppv2CnIdEnabled Field Functions 
+        bool hasPpv2CnIdEnabled() const { return this->ppv2CnIdEnabled_ != nullptr;};
+        void deletePpv2CnIdEnabled() { this->ppv2CnIdEnabled_ = nullptr;};
+        inline bool getPpv2CnIdEnabled() const { DARABONBA_PTR_GET_DEFAULT(ppv2CnIdEnabled_, false) };
+        inline ProxyProtocolV2Config& setPpv2CnIdEnabled(bool ppv2CnIdEnabled) { DARABONBA_PTR_SET_VALUE(ppv2CnIdEnabled_, ppv2CnIdEnabled) };
+
+
         // ppv2PrivateLinkEpIdEnabled Field Functions 
         bool hasPpv2PrivateLinkEpIdEnabled() const { return this->ppv2PrivateLinkEpIdEnabled_ != nullptr;};
         void deletePpv2PrivateLinkEpIdEnabled() { this->ppv2PrivateLinkEpIdEnabled_ = nullptr;};
@@ -192,20 +201,29 @@ namespace Models
 
 
       protected:
-        // Indicates whether the Proxy protocol passes the PrivateLinkEpId parameter to backend servers. Valid values:
+        // Indicates whether the Common Name (CN) field of the client certificate is passed to backend servers by using Proxy Protocol V2. Note: This parameter takes effect only when the listener protocol is TCPSSL, mutual authentication (mTLS) is enabled, and Proxy Protocol V2 is enabled. Valid values:
         // 
-        // *   **true**
-        // *   **false**
+        // - **true**: enabled.
+        // 
+        // - **false**: disabled.
+        shared_ptr<bool> ppv2CnIdEnabled_ {};
+        // Indicates whether the Proxy Protocol is enabled to pass the PrivateLinkEpId to backend servers. Valid values:
+        // 
+        // - **true**: enabled.
+        // 
+        // - **false**: disabled.
         shared_ptr<bool> ppv2PrivateLinkEpIdEnabled_ {};
-        // Indicates whether the Proxy protocol passes the PrivateLinkEpsId parameter to backend servers. Valid values:
+        // Indicates whether the Proxy Protocol is enabled to pass the PrivateLinkEpsId to backend servers. Valid values:
         // 
-        // *   **true**
-        // *   **false**
+        // - **true**: enabled.
+        // 
+        // - **false**: disabled.
         shared_ptr<bool> ppv2PrivateLinkEpsIdEnabled_ {};
-        // Indicates whether the Proxy protocol passes the VpcId parameter to backend servers. Valid values:
+        // Indicates whether the Proxy Protocol is enabled to pass the VpcId to backend servers. Valid values:
         // 
-        // *   **true**
-        // *   **false**
+        // - **true**: enabled.
+        // 
+        // - **false**: disabled.
         shared_ptr<bool> ppv2VpcIdEnabled_ {};
       };
 
@@ -387,85 +405,95 @@ namespace Models
     protected:
       // Indicates whether Application-Layer Protocol Negotiation (ALPN) is enabled. Valid values:
       // 
-      // *   **true**
-      // *   **false**
+      // - **true**: enabled.
+      // 
+      // - **false**: disabled.
       shared_ptr<bool> alpnEnabled_ {};
       // The ALPN policy. Valid values:
       // 
-      // *   **HTTP1Only**
-      // *   **HTTP2Only**
-      // *   **HTTP2Preferred**
-      // *   **HTTP2Optional**
+      // - **HTTP1Only**
+      // - **HTTP2Only**
+      // - **HTTP2Preferred**
+      // - **HTTP2Optional**
       shared_ptr<string> alpnPolicy_ {};
-      // A list of CA certificates.
-      // 
-      // >  This parameter takes effect only for listeners that use SSL over TCP.
+      // The list of CA certificates.
+      // > This parameter takes effect only for TCPSSL listeners.
       shared_ptr<vector<string>> caCertificateIds_ {};
       // Indicates whether mutual authentication is enabled. Valid values:
       // 
-      // *   **true**
-      // *   **false**
+      // - **true**: enabled.
+      // 
+      // - **false**: disabled.
       shared_ptr<bool> caEnabled_ {};
-      // The server certificate.
+      // The list of server certificates.
       // 
-      // >  This parameter takes effect only for listeners that use SSL over TCP.
+      // > This parameter takes effect only for TCPSSL listeners.
       shared_ptr<vector<string>> certificateIds_ {};
-      // The maximum number of new connections per second supported by the listener in each zone (virtual IP address). Valid values: **0** to **1000000**. **0** indicates that the number of connections is unlimited.
+      // The maximum number of new connections per second that the listener can process in each zone (VIP). Valid values: **0** to **1000000**. A value of **0** indicates that no limit is applied.
       shared_ptr<int32_t> cps_ {};
-      // The last port in the listener port range.
+      // The end port for all-port listening.
       shared_ptr<string> endPort_ {};
-      // The timeout period of idle connections. Unit: seconds. Valid values: **1** to **900**. Default value: **900**.
+      // The idle timeout period for connections. Unit: seconds.
       shared_ptr<int32_t> idleTimeout_ {};
-      // The name of the listener.
+      // The custom name of the listener.
       // 
-      // The name must be 2 to 256 characters in length, and can contain letters, digits, commas (,), periods (.), semicolons (;), forward slashes (/), at signs (@), underscores (_), and hyphens (-).
+      // The name must be 2 to 256 characters in length and can contain Chinese characters, English letters, digits, commas (,), periods (.), semicolons (;), forward slashes (/), at signs (@), underscores (_), and hyphens (-).
       shared_ptr<string> listenerDescription_ {};
       // The listener ID.
       shared_ptr<string> listenerId_ {};
-      // The information about the listener port of your server.
+      // The listener port.
       shared_ptr<int32_t> listenerPort_ {};
       // The listener protocol. Valid values: **TCP**, **UDP**, and **TCPSSL**.
       shared_ptr<string> listenerProtocol_ {};
       // The status of the listener. Valid values:
       // 
-      // *   **Provisioning**: The listener is being created.
-      // *   **Running**: The listener is running.
-      // *   **Configuring**: The listener is being configured.
-      // *   **Stopping**: The listener is being stopped.
-      // *   **Stopped**: The listener is stopped.
-      // *   **Starting**: The listener is being started.
-      // *   **Deleting**: The listener is being deleted.
-      // *   **Deleted**: The listener is deleted.
+      // - **Provisioning**: The listener is being created.
+      // 
+      // - **Running**: The listener is running.
+      // 
+      // - **Configuring**: The listener is being configured.
+      // 
+      // - **Stopping**: The listener is being stopped.
+      // 
+      // - **Stopped**: The listener is stopped.
+      // 
+      // - **Starting**: The listener is being started.
+      // 
+      // - **Deleting**: The listener is being deleted.
+      // 
+      // - **Deleted**: The listener is deleted.
       shared_ptr<string> listenerStatus_ {};
-      // The CLB instance ID.
+      // The ID of the Network Load Balancer (NLB) instance.
       shared_ptr<string> loadBalancerId_ {};
-      // The size of the largest TCP packet segment. Unit: bytes. Valid values: **0** to **1500**. **0** indicates that the Mss value of TCP packets remains unchanged.
+      // The maximum segment size (MSS) of TCP packets. Unit: bytes. Valid values: **0** to **1500**. A value of **0** indicates that the MSS value of user TCP packets is not modified.
       // 
-      // >  This parameter takes effect only for listeners that use SSL over TCP.
+      // > This parameter is supported only by TCP and TCPSSL listeners.
       shared_ptr<int32_t> mss_ {};
-      // Indicates whether the Proxy protocol passes source client IP addresses to backend servers. Valid values:
+      // Indicates whether the Proxy Protocol is enabled to pass the client source IP address to backend servers. Valid values:
       // 
-      // *   **true**
-      // *   **false**
+      // - **true**: enabled.
+      // 
+      // - **false**: disabled.
       shared_ptr<bool> proxyProtocolEnabled_ {};
-      // Indicates whether the Proxy protocol passes the VpcId, PrivateLinkEpId, and PrivateLinkEpsId parameters to backend servers.
+      // The configuration for passing the VpcId, PrivateLinkEpId, and PrivateLinkEpsId information to backend servers by using the Proxy Protocol.
       shared_ptr<Listeners::ProxyProtocolV2Config> proxyProtocolV2Config_ {};
-      // The region ID of the NLB instance.
+      // The region ID of the Network Load Balancer (NLB) instance.
       shared_ptr<string> regionId_ {};
-      // Indicates whether fine-grained monitoring is enabled. Valid values:
+      // Indicates whether second-level monitoring is enabled. Valid values:
       // 
-      // *   **true**
-      // *   **false**
+      // - **true**: enabled.
+      // 
+      // - **false**: disabled.
       shared_ptr<bool> secSensorEnabled_ {};
       // The ID of the security policy.
       // 
-      // >  This parameter takes effect only for listeners that use SSL over TCP.
+      // > This parameter takes effect only for TCPSSL listeners.
       shared_ptr<string> securityPolicyId_ {};
-      // The server group ID.
+      // The ID of the server group.
       shared_ptr<string> serverGroupId_ {};
-      // The first port in the listener port range.
+      // The start port for all-port listening.
       shared_ptr<string> startPort_ {};
-      // A list of tags.
+      // The list of tags.
       shared_ptr<vector<Listeners::Tags>> tags_ {};
     };
 
@@ -509,18 +537,17 @@ namespace Models
 
 
   protected:
-    // The listeners.
+    // The list of Network Load Balancer (NLB) listeners.
     shared_ptr<vector<ListListenersResponseBody::Listeners>> listeners_ {};
     // The number of entries returned per page.
     shared_ptr<int32_t> maxResults_ {};
-    // The token that is used for the next query. Valid values:
-    // 
-    // *   If **NextToken** is empty, it indicates that no next query is to be sent.
-    // *   If a value of **NextToken** is returned, the value is the token used for the next query.
+    // The pagination token. Valid values:
+    // - If **NextToken** is empty, no next query is required.
+    // - If **NextToken** returns a value, the value indicates the token for the next query.
     shared_ptr<string> nextToken_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // The number of entries returned.
+    // The total number of entries.
     shared_ptr<int32_t> totalCount_ {};
   };
 

@@ -57,19 +57,19 @@ namespace Models
 
 
   protected:
-    // The supported natural language. Valid values:
+    // The supported language. Valid values:
     // 
-    // *   **zh-CN**: Chinese
-    // *   **en-US** (default): English
-    // *   **ja**: Japanese
+    // - **zh-CN**: Chinese.
+    // - **en-US** (default): English.
+    // - **ja**: Japanese.
     shared_ptr<string> acceptLanguage_ {};
-    // The client token used to ensure the idempotence of the request.
+    // The client token that is used to ensure the idempotence of the request.
     // 
-    // You can use the client to generate this value. Ensure that the value is unique among all requests. Only ASCII characters are allowed.
+    // You can generate the value from your client to ensure that the value is unique across different requests. The client token can contain only ASCII characters.
     // 
-    // >  If you do not specify this parameter, the value of **RequestId** is used.**** **RequestId** of each request is different.
+    // > If you do not specify this parameter, the system automatically uses the **RequestId** of the API request as the **ClientToken**. The **RequestId** of each API request may be different.
     shared_ptr<string> clientToken_ {};
-    // The service code. Set the value to **nlb**.
+    // The service code of the cloud service. Valid value: **nlb**.
     shared_ptr<string> serviceCode_ {};
   };
 

@@ -84,13 +84,13 @@ namespace Models
 
 
     protected:
-      // The key of the tag. You can specify up to 10 tag keys.
+      // The tag key. You can specify up to 10 tag keys.
       // 
-      // The tag key can be up to 64 characters in length. It cannot start with `aliyun` or `acs:` and cannot contain `http://` or `https://`.
+      // The tag key can be up to 64 characters in length and cannot start with `aliyun` or `acs:`. It cannot contain `http://` or `https://`.
       shared_ptr<string> key_ {};
-      // The value of the tag. You can specify up to 10 tag values.
+      // The tag value. You can specify up to 10 tag values.
       // 
-      // The tag value can be up to 128 characters in length. It cannot start with `aliyun` and `acs:`, and cannot contain `http://` or `https://`.
+      // The tag value can be up to 128 characters in length and cannot start with `aliyun` or `acs:`. It cannot contain `http://` or `https://`.
       shared_ptr<string> value_ {};
     };
 
@@ -169,29 +169,28 @@ namespace Models
   protected:
     // The number of entries per page. Valid values: **1** to **100**. Default value: **20**.
     shared_ptr<int32_t> maxResults_ {};
-    // The pagination token used in the next request to retrieve a new page of results. Valid values:
-    // 
-    // *   For the first request and last request, you do not need to specify this parameter.
-    // *   You must specify the token obtained from the previous query as the value of NextToken.
+    // The pagination token that is used in the next request to retrieve a new page of results. Valid values:
+    // - You do not need to specify this parameter for the first request or if no next query exists.
+    // - If a next query exists, set the value to the NextToken value returned in the previous API call.
     shared_ptr<string> nextToken_ {};
-    // The region ID of the NLB instance.
+    // The region ID of the Network Load Balancer (NLB) load balancing instance. 
     // 
-    // You can call the [DescribeRegions](https://help.aliyun.com/document_detail/443657.html) operation to query the most recent region list.
+    // You can invoke the [DescribeRegions](https://help.aliyun.com/document_detail/443657.html) operation to query the region ID.
     shared_ptr<string> regionId_ {};
     // The ID of the resource group to which the server group belongs.
     shared_ptr<string> resourceGroupId_ {};
-    // The server group IDs. You can specify up to 20 server group IDs in each call.
+    // The server group IDs. You can query up to 20 server group IDs at a time.
     shared_ptr<vector<string>> serverGroupIds_ {};
-    // The names of the server groups to be queried. You can specify up to 20 names in each call.
+    // The server group names. You can query up to 20 server group names at a time.
     shared_ptr<vector<string>> serverGroupNames_ {};
-    // The type of server group. Valid values:
+    // The type of the server group. Valid values:
     // 
-    // *   **Instance**: allows you to add servers of the **Ecs**, **Ens**, and **Eci** types.
-    // *   **Ip**: allows you to add servers by specifying IP addresses.
+    // - **Instance**: server type. This type of server group supports adding **Ecs**, **Ens**, and **Eci** instances.
+    // - **Ip**: IP address type. This type of server group supports adding IP addresses directly.
     shared_ptr<string> serverGroupType_ {};
     // The tags.
     shared_ptr<vector<ListServerGroupsRequest::Tag>> tag_ {};
-    // The ID of the virtual private cloud (VPC) in which the server group is deployed.
+    // The ID of the VPC to which the server group belongs.
     shared_ptr<string> vpcId_ {};
   };
 

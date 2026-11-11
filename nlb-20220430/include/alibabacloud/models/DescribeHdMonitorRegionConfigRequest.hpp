@@ -38,7 +38,7 @@ namespace Models
 
 
   protected:
-    // The ID of the region where the resources are deployed.
+    // The ID of the region where the resource resides.
     shared_ptr<string> regionId_ {};
   };
 

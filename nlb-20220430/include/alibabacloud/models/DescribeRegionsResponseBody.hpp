@@ -79,11 +79,11 @@ namespace Models
 
 
     protected:
-      // The name of the region.
+      // The region name.
       shared_ptr<string> localName_ {};
-      // The endpoint of the region service.
+      // The endpoint of the region.
       shared_ptr<string> regionEndpoint_ {};
-      // The ID of the region.
+      // The region ID.
       shared_ptr<string> regionId_ {};
     };
 
@@ -106,9 +106,9 @@ namespace Models
 
 
   protected:
-    // A list of regions.
+    // The list of regions.
     shared_ptr<vector<DescribeRegionsResponseBody::Regions>> regions_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

@@ -61,7 +61,7 @@ namespace Models
     shared_ptr<string> jobId_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The server group ID.
+    // The ID of the server group.
     shared_ptr<string> serverGroupId_ {};
   };
 

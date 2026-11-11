@@ -146,23 +146,26 @@ namespace Models
 
 
     protected:
-      // The ID of the elastic IP address (EIP) that is associated with the Internet-facing NLB instance. Each zone is assigned one EIP. An NLB instance can be deployed in up to 10 zones. If the region supports two or more zones, specify at least two zones.
+      // The EIP instance ID associated with the Internet-facing instance. Each zone corresponds to one EIP instance ID. You can add up to 10 zones. If the current region supports two or more zones, you must add at least two zones.
       shared_ptr<string> allocationId_ {};
-      // The local IPv4 addresses. The IP addresses that the NLB instance uses to communicate with the backend servers. The number of IP addresses must be an even number, which must be at least 2 and at most 8.
+      // The list of IPv4 local addresses. These are the addresses used by the NLB to interact with backend services.
+      // The number of addresses must be an even number, with a minimum of 2 and a maximum of 8.
       shared_ptr<vector<string>> ipv4LocalAddresses_ {};
-      // The VIP of the IPv6 version. The IPv6 address that the NLB instance uses to provide external services.
+      // The IPv6 VIP. This is the IPv6 address used by the NLB to provide services.
       shared_ptr<string> ipv6Address_ {};
-      // The local IPv6 addresses. The IP addresses that the NLB instance uses to communicate with the backend servers. The number of IP addresses must be an even number, which must be at least 2 and at most 8.
+      // The list of IPv6 local addresses. These are the addresses used by the NLB to interact with backend services.
+      // The number of addresses must be an even number, with a minimum of 2 and a maximum of 8.
       shared_ptr<vector<string>> ipv6LocalAddresses_ {};
-      // The private virtual IP address (VIP) of the IPv4 version. The private IPv4 address that the NLB instance uses to provide external services.
+      // The private IPv4 virtual IP address (VIP). This is the private IPv4 address used by the NLB to provide services.
       shared_ptr<string> privateIPv4Address_ {};
-      // The ID of the vSwitch in the zone. You can specify only one vSwitch (subnet) in each zone of an NLB instance. An NLB instance can be deployed in up to 10 zones. If the region supports two or more zones, you must specify at least two zones.
+      // The vSwitch that corresponds to the zone. You can use only one vSwitch and one subnet in each zone. You can add up to 10 zones.
+      // If the current region supports two or more zones, you must add at least two zones.
       // 
       // This parameter is required.
       shared_ptr<string> vSwitchId_ {};
-      // The ID of the zone where the NLB instance is deployed. An NLB instance can be deployed in up to 10 zones. If the region supports two or more zones, specify at least two zones.
+      // The ID of the zone where the Network Load Balancing (NLB) instance is deployed. You can add up to 10 zones. If the current region supports two or more zones, you must add at least two zones.
       // 
-      // You can call the [DescribeZones](https://help.aliyun.com/document_detail/443890.html) operation to query the most recent zone list.
+      // You can invoke the [DescribeZones](https://help.aliyun.com/document_detail/443890.html) operation to query zone IDs.
       // 
       // This parameter is required.
       shared_ptr<string> zoneId_ {};
@@ -206,13 +209,13 @@ namespace Models
 
 
     protected:
-      // The key of the tag. The tag key can be up to 64 characters in length, cannot start with `aliyun` or `acs:`, and cannot contain `http://` or `https://`. The tag key can contain letters, digits, and the following special characters: _ . : / = + - @
+      // The tag key. The key can be up to 64 characters in length, and cannot start with `aliyun` or `acs:`. It cannot contain `http://` or `https://`. The key can contain letters, digits, underscores (_), periods (.), colons (:), forward slashes (/), equal signs (=), plus signs (+), hyphens (-), and at signs (@).
       // 
-      // You can specify up to 20 tags in each call.
+      // You can add up to 20 tags in a single call.
       shared_ptr<string> key_ {};
-      // The value of the tag. The tag value can be up to 128 characters in length, cannot start with `acs:` or `aliyun`, and cannot contain `http://` or `https://`. The tag value can contain letters, digits, and the following special characters: _ . : / = + - @
+      // The tag value. The value can be up to 128 characters in length, and cannot start with `aliyun` or `acs:`. It cannot contain `http://` or `https://`. The value can contain letters, digits, underscores (_), periods (.), colons (:), forward slashes (/), equal signs (=), plus signs (+), hyphens (-), and at signs (@).
       // 
-      // You can specify up to 20 tags in each call.
+      // You can add up to 20 tags in a single call.
       shared_ptr<string> value_ {};
     };
 
@@ -254,16 +257,16 @@ namespace Models
 
 
     protected:
-      // The reason for enabling the configuration read-only mode. The reason must be 2 to 128 characters in length, can contain letters, digits, periods (.), underscores (_), and hyphens (-), and must start with a letter.
+      // The reason for enabling modification protection. The reason must be 2 to 128 characters in length, and can contain letters, digits, periods (.), underscores (_), and hyphens (-). It must start with a letter.
       // 
-      // >  This parameter takes effect only when **Status** is set to **ConsoleProtection**.
+      // > This parameter is valid and takes effect only when **Status** is set to **ConsoleProtection**.
       shared_ptr<string> reason_ {};
-      // Specifies whether to enable the configuration read-only mode. Valid values:
+      // The modification protection status of the Network Load Balancing (NLB). Valid values:
       // 
-      // *   **NonProtection**: does not enable the configuration read-only mode. You cannot set the **Reason** parameter. If the **Reason** parameter is set, the value is cleared.
-      // *   **ConsoleProtection**: enables the configuration read-only mode. You can set the **Reason** parameter.
+      // - **NonProtection**: modification protection is disabled. You cannot specify the **Reason** parameter. If you specify the **Reason** parameter, the configuration is cleared.
+      // - **ConsoleProtection**: console modification protection is enabled. You can specify the **Reason** parameter.
       // 
-      // >  If the parameter is set to **ConsoleProtection**, the configuration read-only mode is enabled. You cannot modify the configurations of the NLB instance in the NLB console. However, you can call API operations to modify the configurations of the NLB instance.
+      // > If you set the value to **ConsoleProtection**, modification protection is enabled. You cannot modify the instance configurations in the load balancing console, but you can invoke API operations to modify the instance configurations.
       shared_ptr<string> status_ {};
     };
 
@@ -295,9 +298,9 @@ namespace Models
 
 
     protected:
-      // The billing method of the NLB instance.
+      // The billing method of the Network Load Balancing (NLB) instance.
       // 
-      // Set the value to **PostPay**, which specifies the pay-as-you-go billing method.
+      // Valid value: **PostPay**, which indicates the pay-as-you-go billing method.
       shared_ptr<string> payType_ {};
     };
 
@@ -339,12 +342,12 @@ namespace Models
 
 
     protected:
-      // Specifies whether to enable the deletion protection feature. Valid values:
+      // The deletion protection status. Valid values:
       // 
-      // *   **true**
-      // *   **false** (default)
+      // - **true**: enabled.
+      // - **false** (default): disabled.
       shared_ptr<bool> enabled_ {};
-      // The reason why the deletion protection feature is enabled or disabled. The reason must be 2 to 128 characters in length, can contain letters, digits, periods (.), underscores (_), and hyphens (-), and must start with a letter.
+      // The reason for changing the deletion protection status. The reason must be 2 to 128 characters in length, and can contain letters, digits, periods (.), underscores (_), and hyphens (-). It must start with a letter.
       shared_ptr<string> reason_ {};
     };
 
@@ -468,58 +471,57 @@ namespace Models
 
 
   protected:
-    // The version of IP addresses used for the NLB instance. Valid values:
+    // The IP version. Valid values:
     // 
-    // *   **ipv4** (default)
-    // *   **DualStack**
+    // - **ipv4** (default): IPv4.
+    // - **DualStack**: dual-stack.
     shared_ptr<string> addressIpVersion_ {};
-    // The type of IPv4 addresses used for the NLB instance. Valid values are:
+    // The IPv4 address type of the Network Load Balancing (NLB) instance. Valid values:
     // 
-    // *   **Internet**: The nodes of an Internet-facing NLB instance have public IP addresses. The DNS name of an Internet-facing NLB instance is publicly resolvable to the public IP addresses of the nodes. Therefore, Internet-facing NLB instances can route requests from clients over the Internet.
-    // *   **Intranet**: The nodes of an internal-facing NLB instance have only private IP addresses. The DNS name of an internal-facing NLB instance is publicly resolvable to the private IP addresses of the nodes. Therefore, internal-facing NLB instances can route requests only from clients with access to the virtual private cloud (VPC) for the NLB instance.
+    // - **Internet**: The load balancing instance has a public IP address. The DNS domain name is resolved to the public IP address, so it can be accessed over the Internet.
+    // - **Intranet**: The load balancing instance has only a private IP address. The DNS domain name is resolved to the private IP address, so it can be accessed only over the internal network of the VPC where the load balancing instance is deployed.
     // 
-    // >  To enable a public IPv6 address for a dual-stack NLB instance, call the [EnableLoadBalancerIpv6Internet](https://help.aliyun.com/document_detail/445878.html) operation.
+    // > To enable IPv6 access over the Internet for a dual-stack Network Load Balancing (NLB) instance, invoke the [EnableLoadBalancerIpv6Internet](https://help.aliyun.com/document_detail/445878.html) operation.
     // 
     // This parameter is required.
     shared_ptr<string> addressType_ {};
-    // The ID of the Internet Shared Bandwidth instance that is associated with the Internet-facing NLB instance.
+    // The ID of the Internet Shared Bandwidth instance that is associated with the Internet-facing instance.
     shared_ptr<string> bandwidthPackageId_ {};
-    // The client token used to ensure the idempotence of the request.
+    // The client token that is used to ensure the idempotence of the request.
     // 
-    // You can use the client to generate the token. Ensure that the token is unique among different requests. Only ASCII characters are allowed.
+    // You can use the client to generate the value, but you must ensure that it is unique among different requests. The client token can contain only ASCII characters.
     // 
-    // >  If you do not specify this parameter, the value of **RequestId** is used.**** The value of **RequestId** is different for each request.
+    // > If you do not specify this parameter, the system automatically uses the **RequestId** of the API request as the **ClientToken**. The **RequestId** of each API request is unique.
     shared_ptr<string> clientToken_ {};
-    // The configuration of the deletion protection feature.
+    // The deletion protection configuration.
     shared_ptr<CreateLoadBalancerRequest::DeletionProtectionConfig> deletionProtectionConfig_ {};
-    // Perform a dry run without actually making the request. Valid values are:
-    // 
-    // *   **true**: Perform only a dry run. The system checks the request for potential issues, including missing parameter values, incorrect request syntax, and service limits. If the request fails the check, an error message specifying the issue is returned. If the request passes, the `DryRunOperation` error code is returned.
-    // *   **false** (default): Check the request and perform the operation. If the request passes the check, a 2xx HTTP status code is returned, and the operation is performed.
+    // Specifies whether to only precheck the request. Valid values:
+    // - **true**: prechecks the request without creating the instance. The system checks whether required parameters are specified, the request format is valid, and service limits are met. If the request fails the precheck, the corresponding error is returned. If the request passes the precheck, the `DryRunOperation` error code is returned.
+    // - **false** (default): sends the request. If the request passes the precheck, an HTTP 2xx status code is returned and the operation is performed.
     shared_ptr<bool> dryRun_ {};
-    // The billing settings of the NLB instance.
+    // The billing configuration of the Network Load Balancing (NLB) instance.
     shared_ptr<CreateLoadBalancerRequest::LoadBalancerBillingConfig> loadBalancerBillingConfig_ {};
-    // The name of the NLB instance.
+    // The name of the Network Load Balancing (NLB) instance.
     // 
-    // It must be 2 to 128 characters in length, can contain letters, digits, periods (.), underscores (_), and hyphens (-), and must start with a letter.
+    // The name must be 2 to 128 characters in length, and can contain letters, digits, periods (.), underscores (_), and hyphens (-). It must start with a letter.
     shared_ptr<string> loadBalancerName_ {};
-    // The type of the Server Load Balancer (SLB) instance. Set the value to **network**, which indicates an NLB instance.
+    // The type of load balancing. Valid value: **network**, which indicates Network Load Balancing (NLB).
     shared_ptr<string> loadBalancerType_ {};
-    // The configuration of the configuration read-only mode.
+    // The modification protection configuration.
     shared_ptr<CreateLoadBalancerRequest::ModificationProtectionConfig> modificationProtectionConfig_ {};
-    // The ID of the region where the NLB instance is deployed.
+    // The region ID of the Network Load Balancing (NLB) instance. 
     // 
-    // You can call the [DescribeRegions](https://help.aliyun.com/document_detail/443657.html) operation to query the most recent region list.
+    // You can invoke the [DescribeRegions](https://help.aliyun.com/document_detail/443657.html) operation to query region IDs.
     shared_ptr<string> regionId_ {};
-    // The ID of the resource group to which the instance belongs.
+    // The ID of the resource group.
     shared_ptr<string> resourceGroupId_ {};
-    // The tags.
+    // The list of tags.
     shared_ptr<vector<CreateLoadBalancerRequest::Tag>> tag_ {};
-    // The ID of the VPC where you want to create the NLB instance.
+    // The ID of the virtual private cloud (VPC) where the Network Load Balancing (NLB) instance is deployed.
     // 
     // This parameter is required.
     shared_ptr<string> vpcId_ {};
-    // The mappings between zones and vSwitches. An NLB instance can be deployed in up to 10 zones. If the region supports two or more zones, you must specify at least two zones.
+    // The zone and vSwitch mappings. You can add up to 10 zones. If the current region supports two or more zones, you must add at least two zones.
     // 
     // This parameter is required.
     shared_ptr<vector<CreateLoadBalancerRequest::ZoneMappings>> zoneMappings_ {};

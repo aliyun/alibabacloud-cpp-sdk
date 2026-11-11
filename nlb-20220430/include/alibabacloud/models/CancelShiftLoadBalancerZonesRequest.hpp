@@ -76,15 +76,14 @@ namespace Models
 
 
     protected:
-      // The ID of the vSwitch in the zone. By default, each zone uses one vSwitch and one subnet.
+      // The vSwitch that corresponds to the zone. By default, each zone uses one vSwitch and one subnet.
       // 
       // This parameter is required.
       shared_ptr<string> vSwitchId_ {};
       // The zone ID of the NLB instance.
+      // > You can add back at most one zone in a single call.
       // 
-      // >  You can specify only one zone ID in each call.
-      // 
-      // You can call the [DescribeZones](https://help.aliyun.com/document_detail/443890.html) operation to query the most recent zone list.
+      // You can call the [DescribeZones](https://help.aliyun.com/document_detail/443890.html) operation to query zone IDs.
       // 
       // This parameter is required.
       shared_ptr<string> zoneId_ {};
@@ -130,28 +129,27 @@ namespace Models
 
 
   protected:
-    // The client token used to ensure the idempotence of the request.
+    // The client token that is used to ensure the idempotence of the request.
     // 
-    // You can use the client to generate the token. Ensure that the token is unique among different requests. Only ASCII characters are allowed.
+    // You can generate the value from your client. Make sure that the value is unique across different requests. The client token can contain only ASCII characters.
     // 
-    // >  If you do not set this parameter, the value of **RequestId** is used.**** The value of **RequestId** is different for each request.
+    // > If you do not specify this parameter, the system automatically uses the **RequestId** of the API request as the **ClientToken**. The **RequestId** of each API request is different.
     shared_ptr<string> clientToken_ {};
-    // Specifies whether to perform a dry run. Valid values:
-    // 
-    // *   **true**: validates the request without performing the operation. The system checks the request for potential issues, including missing parameter values, incorrect request syntax, and service limits. If the request fails the validation, the corresponding error message is returned. If the request passes the validation, the `DryRunOperation` error code is returned.
-    // *   **false** (default): validates the request and performs the operation. If the request passes the validation, a 2xx HTTP status code is returned and the operation is performed.
+    // Specifies whether to only precheck the request. Valid values:
+    // - **true**: sends a precheck request without adding the zone back. The system checks whether required parameters are specified, the request format is valid, and service limits are met. If the request fails the precheck, the corresponding error is returned. If the request passes the precheck, the error code `DryRunOperation` is returned.
+    // - **false** (default): sends a regular request. If the request passes the precheck, an HTTP 2xx status code is returned and the operation is performed.
     shared_ptr<bool> dryRun_ {};
-    // The ID of the NLB instance.
+    // The NLB instance ID.
     // 
     // This parameter is required.
     shared_ptr<string> loadBalancerId_ {};
-    // The ID of the region where the NLB instance is deployed.
+    // The region ID of the NLB instance. 
     // 
-    // You can call the [DescribeRegions](https://help.aliyun.com/document_detail/443657.html) operation to query the most recent region list.
+    // You can call the [DescribeRegions](https://help.aliyun.com/document_detail/443657.html) operation to query region IDs.
     shared_ptr<string> regionId_ {};
-    // The mapping between the zone and the vSwitch.
+    // The list of zone and vSwitch mappings.
     // 
-    // >  You can specify only one zone ID in each call.
+    // > You can add back at most one zone in a single call.
     // 
     // This parameter is required.
     shared_ptr<vector<CancelShiftLoadBalancerZonesRequest::ZoneMappings>> zoneMappings_ {};

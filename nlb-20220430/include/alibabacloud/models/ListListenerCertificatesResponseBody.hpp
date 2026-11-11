@@ -96,20 +96,23 @@ namespace Models
 
 
     protected:
-      // The ID of the certificate. Only one server certificate is supported.
+      // The certificate ID. Only server certificates are supported.
       shared_ptr<string> certificateId_ {};
-      // The type of the certificate.
+      // The certificate type.
       shared_ptr<string> certificateType_ {};
-      // Indicates whether the certificate is the default certificate of the listener. Valid values:
+      // Specifies whether the certificate is the default certificate for the listener. Valid values:
       // 
-      // *   **true**
-      // *   **false**
+      // - **true**: The certificate is the default certificate.
+      // 
+      // - **false**: The certificate is an additional certificate.
       shared_ptr<bool> isDefault_ {};
-      // Indicates whether the certificate is associated with the listener. Valid values:
+      // The association status between the certificate and the listener. Valid values:
       // 
-      // *   **Associating**
-      // *   **Associated**
-      // *   **Diassociating**
+      // - **Associating**: The certificate is being associated.
+      // 
+      // - **Associated**: The certificate is associated.
+      // 
+      // - **Diassociating**: The certificate is being dissociated.
       shared_ptr<string> status_ {};
     };
 
@@ -166,16 +169,15 @@ namespace Models
     shared_ptr<vector<string>> certificateIds_ {};
     // The certificates.
     shared_ptr<vector<ListListenerCertificatesResponseBody::Certificates>> certificates_ {};
-    // The number of entries returned per page. Valid values: **1** to **50**. Default value: **20**.
+    // The number of entries to return per page. Valid values: **1** to **50**. Default value: **20**.
     shared_ptr<int32_t> maxResults_ {};
-    // The returned value of NextToken is a pagination token, which can be used in the next request to retrieve a new page of results. Valid values:
-    // 
-    // *   You do not need to specify this parameter for the first request.
-    // *   You must specify the token that is obtained from the previous query as the value of NextToken.
+    // The pagination token for the next query.
+    // - Leave this parameter empty for the first query or when no subsequent query is required.
+    // - For subsequent queries, set this parameter to the NextToken value returned by the previous API call.
     shared_ptr<string> nextToken_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The total number of entries returned.
+    // The total number of entries.
     shared_ptr<int32_t> totalCount_ {};
   };
 

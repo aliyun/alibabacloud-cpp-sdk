@@ -66,15 +66,13 @@ namespace Models
 
 
   protected:
-    // The name of the Log Service project.
+    // The name of the LogProject in Simple Log Service.
     shared_ptr<string> logProject_ {};
-    // The name of the Metricstore in Simple Log Service.
+    // The name of the MetricStore in Simple Log Service.
     shared_ptr<string> metricStore_ {};
-    // The region ID of the NLB instance.
-    // 
-    // You can call the [DescribeRegions](https://help.aliyun.com/document_detail/443657.html) operation to obtain the region ID.
+    // The ID of the region where the resource resides. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/443657.html) operation to obtain the region ID.
     shared_ptr<string> regionId_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

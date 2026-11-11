@@ -59,7 +59,7 @@ namespace Models
   protected:
     // The ID of the asynchronous task.
     shared_ptr<string> jobId_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
     // The ID of the TLS security policy.
     shared_ptr<string> securityPolicyId_ {};

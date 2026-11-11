@@ -82,13 +82,13 @@ namespace Models
 
 
     protected:
-      // The key of the tag. You can specify up to 20 tags. The tag key cannot be an empty string.
+      // The tag key of the instance. You can specify up to 20 tag keys. The tag key cannot be an empty string.
       // 
-      // It can be up to 64 characters in length, cannot start with `aliyun` or `acs:`, and cannot contain `http://` or `https://`.
+      // The tag key can be up to 64 characters in length, and cannot start with `aliyun` or `acs:`. It cannot contain `http://` or `https://`.
       shared_ptr<string> key_ {};
-      // The value of the tag. You can specify up to 20 tags. The tag value can be an empty string.
+      // The tag value of the instance. You can specify up to 20 tag values. The tag value can be an empty string.
       // 
-      // It can be up to 128 characters in length, cannot start with `aliyun` or `acs:`, and cannot contain `http://` or `https://`.
+      // The tag value can be up to 128 characters in length, and cannot start with `aliyun` or `acs:`. It cannot contain `http://` or `https://`.
       shared_ptr<string> value_ {};
     };
 
@@ -158,29 +158,28 @@ namespace Models
 
 
   protected:
-    // The listener IDs. You can specify up to 20 listeners.
+    // The instance IDs. You can specify up to 20 instance IDs.
     shared_ptr<vector<string>> listenerIds_ {};
     // The listener protocol. Valid values: **TCP**, **UDP**, and **TCPSSL**.
     shared_ptr<string> listenerProtocol_ {};
-    // The IDs of the NLB instances. You can specify up to 20 instances.
+    // The IDs of the Network Load Balancer (NLB) instances. You can specify up to 20 instance IDs.
     shared_ptr<vector<string>> loadBalancerIds_ {};
-    // The number of entries to return in each call. Valid values: **1** to **100**. Default value: **20**
+    // The number of entries to return per page. Valid values: **1** to **100**. Default value: **20**.
     shared_ptr<int32_t> maxResults_ {};
-    // The pagination token used to specify a particular page of results. Valid values:
-    // 
-    // *   Leave this parameter empty for the first query or the only query.
-    // *   Set this parameter to the value of NextToken obtained from the previous query.
+    // The pagination token. Valid values:
+    // - If this is the first query or no next query is required, you do not need to specify this parameter.
+    // - If a next query is required, the value is the NextToken value returned from the previous API call.
     shared_ptr<string> nextToken_ {};
-    // The ID of the region where the NLB instance is deployed.
+    // The region ID of the Network Load Balancer (NLB) instance. 
     // 
-    // You can call the [DescribeRegions](https://help.aliyun.com/document_detail/443657.html) operation to query the most recent region list.
+    // You can invoke the [DescribeRegions](https://help.aliyun.com/document_detail/443657.html) operation to query the most recent region list.
     shared_ptr<string> regionId_ {};
-    // Specifies whether to enable fine-grained monitoring. Valid values:
+    // Specifies whether to enable second-level monitoring. Valid values:
     // 
-    // *   **true**
-    // *   **false**
+    // - **true**: enabled.
+    // - **false**: disabled.
     shared_ptr<string> secSensorEnabled_ {};
-    // The tags.
+    // The list of tags.
     shared_ptr<vector<ListListenersRequest::Tag>> tag_ {};
   };
 

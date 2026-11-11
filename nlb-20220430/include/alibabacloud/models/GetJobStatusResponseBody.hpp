@@ -48,12 +48,12 @@ namespace Models
 
 
   protected:
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // The state of the task. Valid values:
+    // The task status. Valid values:
     // 
-    // *   **Succeeded**: The task is successful.
-    // *   **processing**: The ticket is being executed.
+    // - **Succeeded**: The task succeeded.
+    // - **Processing**: The task is in progress.
     shared_ptr<string> status_ {};
   };
 

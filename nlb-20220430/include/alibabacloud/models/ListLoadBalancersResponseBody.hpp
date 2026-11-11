@@ -208,27 +208,25 @@ namespace Models
 
 
         protected:
-          // The ID of the elastic IP address (EIP).
+          // The ID of the elastic IP address (EIP) instance.
           shared_ptr<string> allocationId_ {};
-          // The ID of the elastic network interface (ENI) attached to the NLB instance.
+          // The ID of the ENI attached to the NLB instance.
           shared_ptr<string> eniId_ {};
-          // The IPv6 address used by the NLB instance.
+          // The IPv6 address of the NLB instance.
           shared_ptr<string> ipv6Address_ {};
-          // The private IPv4 address of the NLB instance.
+          // The private IP IPv4 address of the NLB instance.
           shared_ptr<string> privateIPv4Address_ {};
-          // The health status of the private IPv4 address of the NLB instance. Valid values:
+          // The health check status of the private IP IPv4 address of the NLB instance. Valid values:
+          // - **Healthy**: healthy.
+          // - **Unhealthy**: unhealthy.
           // 
-          // - **Healthy**
-          // - **Unhealthy**
-          // 
-          // > This parameter is returned only when the Status of the zone is Active.
+          // > This parameter is returned only when the zone status (**Status**) is Active.
           shared_ptr<string> privateIPv4HcStatus_ {};
-          // The health status of the IPv6 address of the NLB instance. Valid values:
+          // The health check status of the IPv6 address of the NLB instance. Valid values:
+          // - **Healthy**: healthy.
+          // - **Unhealthy**: unhealthy.
           // 
-          // - **Healthy**
-          // - **Unhealthy**
-          // 
-          // > This parameter is returned only when the Status of the zone is Active.
+          // > This parameter is returned only when the zone status (**Status**) is Active.
           shared_ptr<string> privateIPv6HcStatus_ {};
           // The public IPv4 address of the NLB instance.
           shared_ptr<string> publicIPv4Address_ {};
@@ -267,23 +265,20 @@ namespace Models
 
 
       protected:
-        // The IP addresses that are used by the NLB instance.
+        // The address information of the NLB instance.
         shared_ptr<vector<ZoneMappings::LoadBalancerAddresses>> loadBalancerAddresses_ {};
         // The zone status. Valid values:
         // 
-        // - **Active**: The zone is available.
-        // 
-        // - **Stopped**: The zone is disabled. You can set the zone to this status only by using Cloud Architect Design Tools (CADT).
-        // 
-        // - **Shifted**: The DNS record is removed.
-        // 
-        // - **Starting**: The zone is being enabled. You can set the zone to this status only by using CADT.
-        // 
-        // - **Stopping** You can set the zone to this status only by using CADT.
+        // - **Active**: enabled.
+        // - **Stopped**: stopped. This state can only be triggered through service invocation of the CADT disaster recovery management service.
+        // - **Shifted**: DNS manually removed. You can call the [CancelShiftLoadBalancerZones](https://help.aliyun.com/document_detail/2412000.html) operation to restore the zone DNS.
+        // - **AutoShifted**: DNS automatically removed. When a zone encounters an exception or other special conditions, the system automatically removes the IP address of the abnormal zone to ensure that you can access services normally through the NLB domain name. The IP address is automatically restored when the zone recovers. No manual operation is required.
+        // - **Starting**: starting. This state can only be triggered through service invocation of the CADT disaster recovery management service.
+        // - **Stopping**: stopping. This state can only be triggered through service invocation of the CADT disaster recovery management service.
         shared_ptr<string> status_ {};
-        // The ID of the vSwitch in the zone. By default, each zone contains one vSwitch and one subnet.
+        // The vSwitch that corresponds to the zone. Each zone uses one vSwitch and one subnet by default.
         shared_ptr<string> vSwitchId_ {};
-        // The name of the zone. You can call the [DescribeZones](https://help.aliyun.com/document_detail/443890.html) operation to query the zones.
+        // The zone name. You can call the [DescribeZones](https://help.aliyun.com/document_detail/443890.html) operation to query zones.
         shared_ptr<string> zoneId_ {};
       };
 
@@ -325,9 +320,9 @@ namespace Models
 
 
       protected:
-        // The tag key.
+        // The tag key of the instance.
         shared_ptr<string> key_ {};
-        // The tag value.
+        // The tag value of the instance.
         shared_ptr<string> value_ {};
       };
 
@@ -369,14 +364,14 @@ namespace Models
 
 
       protected:
-        // The reason why the NLB instance is locked.
+        // The reason for the lock.
         shared_ptr<string> lockReason_ {};
-        // The type of lock. Valid values:
+        // The type of the lock. Valid values:
         // 
-        // *   **SecurityLocked**: The NLB instance is locked due to security reasons.
-        // *   **RelatedResourceLocked**: The NLB instance is locked due to association issues.
-        // *   **FinancialLocked**: The NLB instance is locked due to overdue payments.
-        // *   **ResidualLocked**: The NLB instance is locked because the payments of the associated resources are overdue and the resources are released.
+        // - **SecurityLocked**: locked due to security reasons.
+        // - **RelatedResourceLocked**: locked due to associated resources.
+        // - **FinancialLocked**: financial lock due to overdue payment.
+        // - **ResidualLocked**: locked due to residual resources.
         shared_ptr<string> lockType_ {};
       };
 
@@ -427,18 +422,18 @@ namespace Models
 
 
       protected:
-        // The time when the configuration read-only mode was enabled. The time is displayed in UTC in `yyyy-MM-ddTHH:mm:ssZ` format.
+        // The time when modification protection was enabled. The time is displayed in UTC in the `yyyy-MM-ddTHH:mm:ssZ` format.
         shared_ptr<string> enabledTime_ {};
-        // The reason why the configuration read-only mode is enabled. The reason must be 2 to 128 characters in length and can contain letters, digits, periods (.), underscores (_), and hyphens (-). The reason must start with a letter.
+        // The reason for enabling modification protection. The reason must be 2 to 128 characters in length and can contain letters, digits, periods (.), underscores (_), and hyphens (-). It must start with a letter.
         // 
-        // This parameter takes effect only if **Status** is set to **ConsoleProtection**.
+        // This parameter takes effect only when **Status** is set to **ConsoleProtection**.
         shared_ptr<string> reason_ {};
-        // Indicates whether the configuration read-only mode is enabled. Valid values:
+        // The modification protection status of the NLB instance. Valid values:
         // 
-        // *   **NonProtection**: disabled. In this case, **Reason** is not returned. If **Reason** is set, the value is cleared.
-        // *   **ConsoleProtection**: enabled. In this case, **Reason** is returned.
+        // - **NonProtection**: Modification protection is disabled. You cannot specify **Reason**. If **Reason** is specified, the value is cleared.
+        // - **ConsoleProtection**: Modification protection is enabled through the console. You can specify **Reason**.
         // 
-        // >  If you set this parameter to **ConsoleProtection**, you cannot use the NLB console to modify instance configurations. However, you can call API operations to modify instance configurations.
+        // > If the value is **ConsoleProtection**, you cannot modify the instance configuration in the load balancing console. However, you can modify the instance configuration by invoking API operations.
         shared_ptr<string> status_ {};
       };
 
@@ -470,7 +465,7 @@ namespace Models
 
 
       protected:
-        // The billing method of the NLB instance. Only **PostPay** is supported, which indicates the pay-as-you-go billing method.
+        // The billing type of the NLB instance. Only **PostPay** is returned, which indicates the pay-as-you-go billing method.
         shared_ptr<string> payType_ {};
       };
 
@@ -521,14 +516,14 @@ namespace Models
 
 
       protected:
-        // Indicates whether deletion protection is enabled. Valid values:
+        // The deletion protection status. Valid values:
         // 
-        // *   **true**: enabled
-        // *   **false**: disabled
+        // - **true**: enabled.
+        // - **false**: disabled.
         shared_ptr<bool> enabled_ {};
-        // The time when deletion protection was enabled. The time is displayed in UTC in `yyyy-MM-ddTHH:mm:ssZ` format.
+        // The time when deletion protection was enabled. The time is displayed in UTC in the `yyyy-MM-ddTHH:mm:ssZ` format.
         shared_ptr<string> enabledTime_ {};
-        // The reason why the deletion protection feature is enabled or disabled. The reason must be 2 to 128 characters in length and can contain letters, digits, periods (.), underscores (_), and hyphens (-). The reason must start with a letter.
+        // The reason for the change of the deletion protection status. The reason must be 2 to 128 characters in length and can contain letters, digits, periods (.), underscores (_), and hyphens (-). It must start with a letter.
         shared_ptr<string> reason_ {};
       };
 
@@ -707,71 +702,66 @@ namespace Models
 
 
     protected:
-      // The IP version. Valid values:
-      // 
-      // *   **ipv4**: IPv4
-      // *   **DualStack**: dual stack
+      // The protocol version. Valid values:
+      // - **ipv4**: IPv4.
+      // - **DualStack**: dual-stack.
       shared_ptr<string> addressIpVersion_ {};
-      // The type of IPv4 address used by the NLB instance. Valid values:
-      // 
-      // *   **Internet**: The NLB instance uses a public IP address. The domain name of the NLB instance is resolved to the public IP address. Therefore, the NLB instance can be accessed over the Internet.
-      // *   **Intranet**: The NLB instance uses a private IP address. The domain name of the NLB instance is resolved to the private IP address. Therefore, the NLB instance can be accessed over the VPC where the NLB instance is deployed.
+      // The IPv4 address type of the NLB instance. Valid values:
+      // - **Internet**: The load balancing instance has a public IP address. The DNS domain name is resolved to the public IP address. Therefore, the instance is accessible over the Internet.
+      // - **Intranet**: The load balancing instance has only a private IP address. The DNS domain name is resolved to the private IP address. Therefore, the instance is accessible only within the internal network environment of the VPC where the load balancing instance is deployed.
       shared_ptr<string> addressType_ {};
-      // The ID of the EIP bandwidth plan that is associated with the NLB instance if the NLB instance uses a public IP address.
+      // The ID of the Internet Shared Bandwidth instance associated with the Internet-facing NLB instance.
       shared_ptr<string> bandwidthPackageId_ {};
       // The time when the resource was created. The time is displayed in UTC in the `yyyy-MM-ddTHH:mm:ssZ` format.
       shared_ptr<string> createTime_ {};
       // Indicates whether cross-zone load balancing is enabled for the NLB instance. Valid values:
-      // 
-      // *   **true**: enabled
-      // *   **false**: disabled
+      // - **true**: enabled.
+      // - **false**: disabled.
       shared_ptr<bool> crossZoneEnabled_ {};
-      // The domain name of the NLB instance.
+      // The DNS domain name.
       shared_ptr<string> DNSName_ {};
-      // The configuration of the deletion protection feature.
+      // The deletion protection configuration.
       shared_ptr<LoadBalancers::DeletionProtectionConfig> deletionProtectionConfig_ {};
-      // The type of IPv6 address used by the NLB instance. Valid values:
+      // The IPv6 address type of the NLB instance. Valid values:
       // 
-      // *   **Internet**: The NLB instance uses a public IP address. The domain name of the NLB instance is resolved to the public IP address. Therefore, the NLB instance can be accessed over the Internet.
-      // *   **Intranet**: The NLB instance uses a private IP address. The domain name of the NLB instance is resolved to the private IP address. Therefore, the NLB instance can be accessed over the VPC where the NLB instance is deployed.
+      // - **Internet**: The load balancing instance has a public IP address. The DNS domain name is resolved to the public IP address. Therefore, the instance is accessible over the Internet.
+      // - **Intranet**: The load balancing instance has only a private IP address. The DNS domain name is resolved to the private IP address. Therefore, the instance is accessible only within the internal network environment of the VPC where the load balancing instance is deployed.
       shared_ptr<string> ipv6AddressType_ {};
-      // The billing settings of the NLB instance.
+      // The billing configuration of the NLB instance.
       shared_ptr<LoadBalancers::LoadBalancerBillingConfig> loadBalancerBillingConfig_ {};
       // The business status of the NLB instance. Valid values:
-      // 
-      // *   **Abnormal**: The NLB instance is not working as expected.
-      // *   **Normal**: The NLB instance is working as expected.
+      // - **Abnormal**: The instance is in an abnormal state.
+      // - **Normal**: The instance is in a normal state.
       shared_ptr<string> loadBalancerBusinessStatus_ {};
       // The ID of the NLB instance.
       shared_ptr<string> loadBalancerId_ {};
       // The name of the NLB instance.
       shared_ptr<string> loadBalancerName_ {};
       // The status of the NLB instance. Valid values:
-      // 
-      // *   **Inactive**: The NLB instance is disabled. Listeners of NLB instances in the Inactive state do not forward traffic.
-      // *   **Active**: The NLB instance is running.
-      // *   **Provisioning**: The NLB instance is being created.
-      // *   **Configuring**: The NLB instance is being modified.
-      // *   **Deleting**: The NLB instance is being deleted.
-      // *   **Deleted**: The NLB instance is deleted.
+      // - **Inactive**: The instance is stopped. Listeners of the instance no longer forward traffic.
+      // - **Active**: The instance is running.
+      // - **Provisioning**: The instance is being created.
+      // - **Configuring**: Upgrade/Downgrade in progress.
+      // - **Deleting**: The instance is being deleted.
+      // - **Deleted**: The instance is deleted.
       shared_ptr<string> loadBalancerStatus_ {};
-      // The type of the SLB instance. Only **Network** is returned, which indicates NLB.
+      // The type of the load balancing instance. Only **Network** is returned, which indicates Network Load Balancer (NLB).
       shared_ptr<string> loadBalancerType_ {};
-      // The configuration of the configuration read-only mode.
+      // The modification protection configuration.
       shared_ptr<LoadBalancers::ModificationProtectionConfig> modificationProtectionConfig_ {};
-      // The configuration of the operation lock. This parameter takes effect if the value of `LoadBalancerBussinessStatus` is **Abnormal**.
+      // The operation lock configuration of the NLB instance. This parameter takes effect when `LoadBalancerBussinessStatus` is **Abnormal**.
       shared_ptr<vector<LoadBalancers::OperationLocks>> operationLocks_ {};
-      // The ID of the region where the NLB instance is deployed.
+      // The region ID of the NLB instance.
       shared_ptr<string> regionId_ {};
-      // The ID of the resource group.
+      // The resource group ID.
       shared_ptr<string> resourceGroupId_ {};
-      // The security group to which the NLB instance is added.
+      // The security groups to which the NLB instance is added.
       shared_ptr<vector<string>> securityGroupIds_ {};
-      // A list of tags.
+      // The list of tags.
       shared_ptr<vector<LoadBalancers::Tags>> tags_ {};
-      // The ID of the VPC where the NLB instance is deployed.
+      // The VPC ID of the NLB instance.
       shared_ptr<string> vpcId_ {};
-      // The mappings between zones and vSwitches.
+      // The list of zone and vSwitch mappings.
       shared_ptr<vector<LoadBalancers::ZoneMappings>> zoneMappings_ {};
     };
 
@@ -815,16 +805,15 @@ namespace Models
 
 
   protected:
-    // The NLB instances.
+    // The list of NLB instances.
     shared_ptr<vector<ListLoadBalancersResponseBody::LoadBalancers>> loadBalancers_ {};
-    // The number of entries returned per page.
+    // The number of entries per page.
     shared_ptr<int32_t> maxResults_ {};
-    // The token that determines the start point of the next query. Valid values:
-    // 
-    // *   If this is your first query and no subsequent queries are to be sent, ignore this parameter.
-    // *   If a subsequent query is to be sent, set the parameter to the value of NextToken that is returned from the last call.
+    // The pagination token that is used in the next request to retrieve a new page of results. Valid values:
+    // - If this is the first request or no next request exists, you do not need to specify this parameter.
+    // - If a next request exists, set the value to the NextToken value returned in the previous API call.
     shared_ptr<string> nextToken_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
     // The total number of entries returned.
     shared_ptr<int32_t> totalCount_ {};

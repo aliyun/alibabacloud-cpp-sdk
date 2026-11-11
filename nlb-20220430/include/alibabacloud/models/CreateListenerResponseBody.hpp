@@ -57,11 +57,11 @@ namespace Models
 
 
   protected:
-    // The asynchronous task ID.
+    // The ID of the asynchronous task.
     shared_ptr<string> jobId_ {};
-    // The listener ID.
+    // The ID of the listener.
     shared_ptr<string> listenerId_ {};
-    // The request ID.
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
   };
 

@@ -2,11 +2,13 @@
 #include <alibabacloud/Nlb20220430.hpp>
 #include <alibabacloud/Utils.hpp>
 #include <alibabacloud/Openapi.hpp>
+#include <alibabacloud/gateway/POP.hpp>
 #include <map>
 #include <darabonba/Runtime.hpp>
 using namespace std;
 using namespace Darabonba;
 using json = nlohmann::json;
+using namespace AlibabaCloud::Gateway;
 using namespace AlibabaCloud::OpenApi;
 using namespace AlibabaCloud::Nlb20220430::Models;
 using OpenApiClient = AlibabaCloud::OpenApi::Client;
@@ -17,6 +19,9 @@ namespace Nlb20220430
 {
 
 AlibabaCloud::Nlb20220430::Client::Client(Config &config): OpenApiClient(config){
+  this->_productId = "Nlb";
+  shared_ptr<POP> gatewayClient = make_shared<POP>();
+  this->_spi = gatewayClient;
   this->_endpointRule = "regional";
   checkConfig(config);
   this->_endpoint = getEndpoint("nlb", _regionId, _endpointRule, _network, _suffix, _endpointMap, _endpoint);
@@ -36,7 +41,7 @@ string Client::getEndpoint(const string &productId, const string &regionId, cons
 }
 
 /**
- * @summary Adds backend servers to a specified server group.
+ * @summary Adds backend servers to a Network Load Balancer (NLB) server group.
  *
  * @param request AddServersToServerGroupRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -87,7 +92,7 @@ AddServersToServerGroupResponse Client::addServersToServerGroupWithOptions(const
 }
 
 /**
- * @summary Adds backend servers to a specified server group.
+ * @summary Adds backend servers to a Network Load Balancer (NLB) server group.
  *
  * @param request AddServersToServerGroupRequest
  * @return AddServersToServerGroupResponse
@@ -98,11 +103,11 @@ AddServersToServerGroupResponse Client::addServersToServerGroup(const AddServers
 }
 
 /**
- * @summary Associates additional certificates with a listener that uses SSL over TCP.
+ * @summary Associates additional certificates with a TCPSSL listener.
  *
- * @description **AssociateAdditionalCertificatesWithListener** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [ListListenerCertificates](https://help.aliyun.com/document_detail/615175.html) operation to query the status of the task:
- * *   If the listener is in the **Associating** state, the additional certificates are being associated.
- * *   If the listener is in the **Associated** state, the additional certificates are associated.
+ * @description **AssociateAdditionalCertificatesWithListener** is an asynchronous operation. The system returns a request ID, but the additional certificates are not immediately added. The addition task is still running in the background. You can call [ListListenerCertificates](https://help.aliyun.com/document_detail/615175.html) to query the addition status of the additional certificates:
+ * - When the TCPSSL listener is in the **Associating** state, the additional certificates are being added.
+ * - When the TCPSSL listener is in the **Associated** state, the additional certificates are added.
  *
  * @param request AssociateAdditionalCertificatesWithListenerRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -149,11 +154,11 @@ AssociateAdditionalCertificatesWithListenerResponse Client::associateAdditionalC
 }
 
 /**
- * @summary Associates additional certificates with a listener that uses SSL over TCP.
+ * @summary Associates additional certificates with a TCPSSL listener.
  *
- * @description **AssociateAdditionalCertificatesWithListener** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [ListListenerCertificates](https://help.aliyun.com/document_detail/615175.html) operation to query the status of the task:
- * *   If the listener is in the **Associating** state, the additional certificates are being associated.
- * *   If the listener is in the **Associated** state, the additional certificates are associated.
+ * @description **AssociateAdditionalCertificatesWithListener** is an asynchronous operation. The system returns a request ID, but the additional certificates are not immediately added. The addition task is still running in the background. You can call [ListListenerCertificates](https://help.aliyun.com/document_detail/615175.html) to query the addition status of the additional certificates:
+ * - When the TCPSSL listener is in the **Associating** state, the additional certificates are being added.
+ * - When the TCPSSL listener is in the **Associated** state, the additional certificates are added.
  *
  * @param request AssociateAdditionalCertificatesWithListenerRequest
  * @return AssociateAdditionalCertificatesWithListenerResponse
@@ -164,7 +169,7 @@ AssociateAdditionalCertificatesWithListenerResponse Client::associateAdditionalC
 }
 
 /**
- * @summary Associates an Internet Shared Bandwidth instance with a Network Load Balancer (NLB) instance.
+ * @summary Associates an Internet Shared Bandwidth with a Network Load Balancer (NLB) instance.
  *
  * @param request AttachCommonBandwidthPackageToLoadBalancerRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -211,7 +216,7 @@ AttachCommonBandwidthPackageToLoadBalancerResponse Client::attachCommonBandwidth
 }
 
 /**
- * @summary Associates an Internet Shared Bandwidth instance with a Network Load Balancer (NLB) instance.
+ * @summary Associates an Internet Shared Bandwidth with a Network Load Balancer (NLB) instance.
  *
  * @param request AttachCommonBandwidthPackageToLoadBalancerRequest
  * @return AttachCommonBandwidthPackageToLoadBalancerResponse
@@ -222,9 +227,9 @@ AttachCommonBandwidthPackageToLoadBalancerResponse Client::attachCommonBandwidth
 }
 
 /**
- * @summary Adds the elastic IP address (EIP) and virtual IP address (VIP) of a zone to the DNS record.
+ * @summary Adds the EIP or VIP of a zone back to DNS resolution.
  *
- * @description Before you call this operation, the zone of the Network Load Balancer (NLB) instance is removed from the DNS record by using the console or calling the [StartShiftLoadBalancerZones](https://help.aliyun.com/document_detail/2411999.html) API operation.
+ * @description When you call this operation, you must have already removed a zone from the NLB instance by calling the [StartShiftLoadBalancerZones](https://help.aliyun.com/document_detail/2411999.html) operation or in the console.
  *
  * @param request CancelShiftLoadBalancerZonesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -271,9 +276,9 @@ CancelShiftLoadBalancerZonesResponse Client::cancelShiftLoadBalancerZonesWithOpt
 }
 
 /**
- * @summary Adds the elastic IP address (EIP) and virtual IP address (VIP) of a zone to the DNS record.
+ * @summary Adds the EIP or VIP of a zone back to DNS resolution.
  *
- * @description Before you call this operation, the zone of the Network Load Balancer (NLB) instance is removed from the DNS record by using the console or calling the [StartShiftLoadBalancerZones](https://help.aliyun.com/document_detail/2411999.html) API operation.
+ * @description When you call this operation, you must have already removed a zone from the NLB instance by calling the [StartShiftLoadBalancerZones](https://help.aliyun.com/document_detail/2411999.html) operation or in the console.
  *
  * @param request CancelShiftLoadBalancerZonesRequest
  * @return CancelShiftLoadBalancerZonesResponse
@@ -284,7 +289,7 @@ CancelShiftLoadBalancerZonesResponse Client::cancelShiftLoadBalancerZones(const 
 }
 
 /**
- * @summary Creates a TCP or UDP listener, or a listener that uses SSL over TCP for a Network Load Balancer (NLB) instance.
+ * @summary Creates a TCP, UDP, or TCPSSL listener on a Network Load Balancer (NLB) instance.
  *
  * @param tmpReq CreateListenerRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -409,7 +414,7 @@ CreateListenerResponse Client::createListenerWithOptions(const CreateListenerReq
 }
 
 /**
- * @summary Creates a TCP or UDP listener, or a listener that uses SSL over TCP for a Network Load Balancer (NLB) instance.
+ * @summary Creates a TCP, UDP, or TCPSSL listener on a Network Load Balancer (NLB) instance.
  *
  * @param request CreateListenerRequest
  * @return CreateListenerResponse
@@ -420,12 +425,12 @@ CreateListenerResponse Client::createListener(const CreateListenerRequest &reque
 }
 
 /**
- * @summary Creates a Network Load Balancer (NLB) instance in a specified region.
+ * @summary Creates a Network Load Balancing (NLB) instance.
  *
- * @description *   When you create an NLB instance, the service-linked role AliyunServiceRoleForNlb is automatically created and assigned to you.
- * *   **CreateLoadBalancer** is an asynchronous operation. After you send a request, the system returns an instance ID and runs the task in the background. You can call [GetLoadBalancerAttribute](https://help.aliyun.com/document_detail/445873.html) to query the status of an NLB instance.
- *     *   If an NLB instance is in the **Provisioning** state, the NLB instance is being created.
- *     *   If an NLB instance is in the **Active** state, the NLB instance is created.
+ * @description - When you create a Network Load Balancing (NLB) instance, the system automatically creates the AliyunServiceRoleForNlb service-linked role for you.
+ * - The **CreateLoadBalancer** operation is asynchronous. The system returns an instance ID, but the Network Load Balancing (NLB) instance is not yet created and the creation task is still running in the background. You can invoke the [GetLoadBalancerAttribute](https://help.aliyun.com/document_detail/445873.html) operation to query the creation status of the Network Load Balancing (NLB) instance:
+ *     - If the Network Load Balancing (NLB) instance is in the **Provisioning** state, the Network Load Balancing (NLB) instance is being created.
+ *     - If the Network Load Balancing (NLB) instance is in the **Active** state, the Network Load Balancing (NLB) instance is created.
  *
  * @param request CreateLoadBalancerRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -516,12 +521,12 @@ CreateLoadBalancerResponse Client::createLoadBalancerWithOptions(const CreateLoa
 }
 
 /**
- * @summary Creates a Network Load Balancer (NLB) instance in a specified region.
+ * @summary Creates a Network Load Balancing (NLB) instance.
  *
- * @description *   When you create an NLB instance, the service-linked role AliyunServiceRoleForNlb is automatically created and assigned to you.
- * *   **CreateLoadBalancer** is an asynchronous operation. After you send a request, the system returns an instance ID and runs the task in the background. You can call [GetLoadBalancerAttribute](https://help.aliyun.com/document_detail/445873.html) to query the status of an NLB instance.
- *     *   If an NLB instance is in the **Provisioning** state, the NLB instance is being created.
- *     *   If an NLB instance is in the **Active** state, the NLB instance is created.
+ * @description - When you create a Network Load Balancing (NLB) instance, the system automatically creates the AliyunServiceRoleForNlb service-linked role for you.
+ * - The **CreateLoadBalancer** operation is asynchronous. The system returns an instance ID, but the Network Load Balancing (NLB) instance is not yet created and the creation task is still running in the background. You can invoke the [GetLoadBalancerAttribute](https://help.aliyun.com/document_detail/445873.html) operation to query the creation status of the Network Load Balancing (NLB) instance:
+ *     - If the Network Load Balancing (NLB) instance is in the **Provisioning** state, the Network Load Balancing (NLB) instance is being created.
+ *     - If the Network Load Balancing (NLB) instance is in the **Active** state, the Network Load Balancing (NLB) instance is created.
  *
  * @param request CreateLoadBalancerRequest
  * @return CreateLoadBalancerResponse
@@ -532,7 +537,7 @@ CreateLoadBalancerResponse Client::createLoadBalancer(const CreateLoadBalancerRe
 }
 
 /**
- * @summary Creates a custom security policy for a TCP/SSL listener.
+ * @summary Creates a custom security policy for a TCPSSL listener in a specified region.
  *
  * @param request CreateSecurityPolicyRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -591,7 +596,7 @@ CreateSecurityPolicyResponse Client::createSecurityPolicyWithOptions(const Creat
 }
 
 /**
- * @summary Creates a custom security policy for a TCP/SSL listener.
+ * @summary Creates a custom security policy for a TCPSSL listener in a specified region.
  *
  * @param request CreateSecurityPolicyRequest
  * @return CreateSecurityPolicyResponse
@@ -602,11 +607,11 @@ CreateSecurityPolicyResponse Client::createSecurityPolicy(const CreateSecurityPo
 }
 
 /**
- * @summary Creates a server group in a region.
+ * @summary Creates a server group in a specified region.
  *
- * @description **CreateServerGroup** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [GetJobStatus](https://help.aliyun.com/document_detail/445904.html) operation to query the creation status of the task.
- *    - If the task is in the **Succeeded** status, the server group is created.
- * -    If the task is in the **Processing** status, the server group is being created.
+ * @description The **CreateServerGroup** operation is asynchronous. The system returns a request ID, but the server group of the Network Load Balancer (NLB) is not yet created, and the creation task is still running in the background. You can call the [GetJobStatus](https://help.aliyun.com/document_detail/445904.html) operation to query the creation status of the server group:
+ *    - If the task status is **Succeeded**, the server group is created.
+ *    - If the task status is **Processing**, the server group is being created. In this state, you can only perform query operations and cannot perform other operations.
  *
  * @param request CreateServerGroupRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -705,11 +710,11 @@ CreateServerGroupResponse Client::createServerGroupWithOptions(const CreateServe
 }
 
 /**
- * @summary Creates a server group in a region.
+ * @summary Creates a server group in a specified region.
  *
- * @description **CreateServerGroup** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [GetJobStatus](https://help.aliyun.com/document_detail/445904.html) operation to query the creation status of the task.
- *    - If the task is in the **Succeeded** status, the server group is created.
- * -    If the task is in the **Processing** status, the server group is being created.
+ * @description The **CreateServerGroup** operation is asynchronous. The system returns a request ID, but the server group of the Network Load Balancer (NLB) is not yet created, and the creation task is still running in the background. You can call the [GetJobStatus](https://help.aliyun.com/document_detail/445904.html) operation to query the creation status of the server group:
+ *    - If the task status is **Succeeded**, the server group is created.
+ *    - If the task status is **Processing**, the server group is being created. In this state, you can only perform query operations and cannot perform other operations.
  *
  * @param request CreateServerGroupRequest
  * @return CreateServerGroupResponse
@@ -828,7 +833,7 @@ DeleteLoadBalancerResponse Client::deleteLoadBalancer(const DeleteLoadBalancerRe
 }
 
 /**
- * @summary Deletes a custom TLS security policy from a Network Load Balancer (NLB) instance.
+ * @summary Deletes a custom TLS security policy for Network Load Balancer (NLB).
  *
  * @param request DeleteSecurityPolicyRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -871,7 +876,7 @@ DeleteSecurityPolicyResponse Client::deleteSecurityPolicyWithOptions(const Delet
 }
 
 /**
- * @summary Deletes a custom TLS security policy from a Network Load Balancer (NLB) instance.
+ * @summary Deletes a custom TLS security policy for Network Load Balancer (NLB).
  *
  * @param request DeleteSecurityPolicyRequest
  * @return DeleteSecurityPolicyResponse
@@ -882,9 +887,9 @@ DeleteSecurityPolicyResponse Client::deleteSecurityPolicy(const DeleteSecurityPo
 }
 
 /**
- * @summary Deletes a Network Load Balancer (NLB) server group.
+ * @summary Deletes a server group of a Network Load Balancer (NLB).
  *
- * @description You can delete server groups that are not associated with listeners.
+ * @description You can delete a server group only when it is not used by any listener.
  *
  * @param request DeleteServerGroupRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -927,9 +932,9 @@ DeleteServerGroupResponse Client::deleteServerGroupWithOptions(const DeleteServe
 }
 
 /**
- * @summary Deletes a Network Load Balancer (NLB) server group.
+ * @summary Deletes a server group of a Network Load Balancer (NLB).
  *
- * @description You can delete server groups that are not associated with listeners.
+ * @description You can delete a server group only when it is not used by any listener.
  *
  * @param request DeleteServerGroupRequest
  * @return DeleteServerGroupResponse
@@ -940,7 +945,9 @@ DeleteServerGroupResponse Client::deleteServerGroup(const DeleteServerGroupReque
 }
 
 /**
- * @summary Queries the storage configurations of fine-grained monitoring.
+ * @summary Queries the storage configuration for second-level monitoring.
+ *
+ * @description Queries the data warehouse configured for second-level monitoring storage in the current region.
  *
  * @param request DescribeHdMonitorRegionConfigRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -971,7 +978,9 @@ DescribeHdMonitorRegionConfigResponse Client::describeHdMonitorRegionConfigWithO
 }
 
 /**
- * @summary Queries the storage configurations of fine-grained monitoring.
+ * @summary Queries the storage configuration for second-level monitoring.
+ *
+ * @description Queries the data warehouse configured for second-level monitoring storage in the current region.
  *
  * @param request DescribeHdMonitorRegionConfigRequest
  * @return DescribeHdMonitorRegionConfigResponse
@@ -982,7 +991,7 @@ DescribeHdMonitorRegionConfigResponse Client::describeHdMonitorRegionConfig(cons
 }
 
 /**
- * @summary Queries regions that support Network Load Balancer (NLB) instances.
+ * @summary Queries the available regions for NLB.
  *
  * @param request DescribeRegionsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1023,7 +1032,7 @@ DescribeRegionsResponse Client::describeRegionsWithOptions(const DescribeRegions
 }
 
 /**
- * @summary Queries regions that support Network Load Balancer (NLB) instances.
+ * @summary Queries the available regions for NLB.
  *
  * @param request DescribeRegionsRequest
  * @return DescribeRegionsResponse
@@ -1034,7 +1043,7 @@ DescribeRegionsResponse Client::describeRegions(const DescribeRegionsRequest &re
 }
 
 /**
- * @summary Queries the zones of a region in which a Network Load Balancer (NLB) instance is deployed.
+ * @summary Queries the zones in a region for Network Load Balancer (NLB).
  *
  * @param request DescribeZonesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1077,7 +1086,7 @@ DescribeZonesResponse Client::describeZonesWithOptions(const DescribeZonesReques
 }
 
 /**
- * @summary Queries the zones of a region in which a Network Load Balancer (NLB) instance is deployed.
+ * @summary Queries the zones in a region for Network Load Balancer (NLB).
  *
  * @param request DescribeZonesRequest
  * @return DescribeZonesResponse
@@ -1088,7 +1097,7 @@ DescribeZonesResponse Client::describeZones(const DescribeZonesRequest &request)
 }
 
 /**
- * @summary Disassociates a Network Load Balancer (NLB) instance from an Internet Shared Bandwidth instance.
+ * @summary Disassociates an Internet Shared Bandwidth plan from a Network Load Balancer (NLB) instance.
  *
  * @param request DetachCommonBandwidthPackageFromLoadBalancerRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1135,7 +1144,7 @@ DetachCommonBandwidthPackageFromLoadBalancerResponse Client::detachCommonBandwid
 }
 
 /**
- * @summary Disassociates a Network Load Balancer (NLB) instance from an Internet Shared Bandwidth instance.
+ * @summary Disassociates an Internet Shared Bandwidth plan from a Network Load Balancer (NLB) instance.
  *
  * @param request DetachCommonBandwidthPackageFromLoadBalancerRequest
  * @return DetachCommonBandwidthPackageFromLoadBalancerResponse
@@ -1146,7 +1155,7 @@ DetachCommonBandwidthPackageFromLoadBalancerResponse Client::detachCommonBandwid
 }
 
 /**
- * @summary Changes the public IPv6 address of a dual-stack Network Load Balancer (NLB) instance to a private IPv6 address.
+ * @summary Changes the IPv6 address of a dual-stack Network Load Balancer (NLB) instance from public to private.
  *
  * @param request DisableLoadBalancerIpv6InternetRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1189,7 +1198,7 @@ DisableLoadBalancerIpv6InternetResponse Client::disableLoadBalancerIpv6InternetW
 }
 
 /**
- * @summary Changes the public IPv6 address of a dual-stack Network Load Balancer (NLB) instance to a private IPv6 address.
+ * @summary Changes the IPv6 address of a dual-stack Network Load Balancer (NLB) instance from public to private.
  *
  * @param request DisableLoadBalancerIpv6InternetRequest
  * @return DisableLoadBalancerIpv6InternetResponse
@@ -1320,7 +1329,7 @@ EnableLoadBalancerIpv6InternetResponse Client::enableLoadBalancerIpv6Internet(co
 }
 
 /**
- * @summary Queries the result of an asynchronous operation performed on a Network Load Balancer (NLB) instance.
+ * @summary Queries the execution result of an asynchronous task for Network Load Balancer (NLB).
  *
  * @param request GetJobStatusRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1355,7 +1364,7 @@ GetJobStatusResponse Client::getJobStatusWithOptions(const GetJobStatusRequest &
 }
 
 /**
- * @summary Queries the result of an asynchronous operation performed on a Network Load Balancer (NLB) instance.
+ * @summary Queries the execution result of an asynchronous task for Network Load Balancer (NLB).
  *
  * @param request GetJobStatusRequest
  * @return GetJobStatusResponse
@@ -1366,7 +1375,7 @@ GetJobStatusResponse Client::getJobStatus(const GetJobStatusRequest &request) {
 }
 
 /**
- * @summary Queries the details of a Network Load Balancer (NLB) listener.
+ * @summary Queries the details of a listener on a Network Load Balancer (NLB) instance.
  *
  * @param request GetListenerAttributeRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1409,7 +1418,7 @@ GetListenerAttributeResponse Client::getListenerAttributeWithOptions(const GetLi
 }
 
 /**
- * @summary Queries the details of a Network Load Balancer (NLB) listener.
+ * @summary Queries the details of a listener on a Network Load Balancer (NLB) instance.
  *
  * @param request GetListenerAttributeRequest
  * @return GetListenerAttributeResponse
@@ -1466,7 +1475,7 @@ GetListenerHealthStatusResponse Client::getListenerHealthStatus(const GetListene
 }
 
 /**
- * @summary Queries the details about a Network Load Balancer (NLB) instance.
+ * @summary Queries the details of a specified Network Load Balancer (NLB) instance.
  *
  * @param request GetLoadBalancerAttributeRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1509,7 +1518,7 @@ GetLoadBalancerAttributeResponse Client::getLoadBalancerAttributeWithOptions(con
 }
 
 /**
- * @summary Queries the details about a Network Load Balancer (NLB) instance.
+ * @summary Queries the details of a specified Network Load Balancer (NLB) instance.
  *
  * @param request GetLoadBalancerAttributeRequest
  * @return GetLoadBalancerAttributeResponse
@@ -1562,7 +1571,7 @@ ListAsynJobsResponse Client::listAsynJobs(const ListAsynJobsRequest &request) {
 }
 
 /**
- * @summary Queries the server certificate of a TCP/SSL listener.
+ * @summary Queries the server certificates of a TCPSSL listener.
  *
  * @param request ListListenerCertificatesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1613,7 +1622,7 @@ ListListenerCertificatesResponse Client::listListenerCertificatesWithOptions(con
 }
 
 /**
- * @summary Queries the server certificate of a TCP/SSL listener.
+ * @summary Queries the server certificates of a TCPSSL listener.
  *
  * @param request ListListenerCertificatesRequest
  * @return ListListenerCertificatesResponse
@@ -1624,7 +1633,7 @@ ListListenerCertificatesResponse Client::listListenerCertificates(const ListList
 }
 
 /**
- * @summary Queries listeners added to a Network Load Balancer (NLB) instance.
+ * @summary Queries the list of Network Load Balancer (NLB) listeners.
  *
  * @param request ListListenersRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1683,7 +1692,7 @@ ListListenersResponse Client::listListenersWithOptions(const ListListenersReques
 }
 
 /**
- * @summary Queries listeners added to a Network Load Balancer (NLB) instance.
+ * @summary Queries the list of Network Load Balancer (NLB) listeners.
  *
  * @param request ListListenersRequest
  * @return ListListenersResponse
@@ -1694,7 +1703,7 @@ ListListenersResponse Client::listListeners(const ListListenersRequest &request)
 }
 
 /**
- * @summary Queries the basic information about Network Load Balancer (NLB) instances.
+ * @summary Queries the basic information about created Network Load Balancer (NLB) instances.
  *
  * @param request ListLoadBalancersRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1785,7 +1794,7 @@ ListLoadBalancersResponse Client::listLoadBalancersWithOptions(const ListLoadBal
 }
 
 /**
- * @summary Queries the basic information about Network Load Balancer (NLB) instances.
+ * @summary Queries the basic information about created Network Load Balancer (NLB) instances.
  *
  * @param request ListLoadBalancersRequest
  * @return ListLoadBalancersResponse
@@ -1926,7 +1935,7 @@ ListServerGroupServersResponse Client::listServerGroupServers(const ListServerGr
 }
 
 /**
- * @summary Queries the server groups of a Network Load Balancer (NLB) instance.
+ * @summary Queries the server group list of a Network Load Balancer (NLB) load balancing instance.
  *
  * @param request ListServerGroupsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1991,7 +2000,7 @@ ListServerGroupsResponse Client::listServerGroupsWithOptions(const ListServerGro
 }
 
 /**
- * @summary Queries the server groups of a Network Load Balancer (NLB) instance.
+ * @summary Queries the server group list of a Network Load Balancer (NLB) load balancing instance.
  *
  * @param request ListServerGroupsRequest
  * @return ListServerGroupsResponse
@@ -2720,7 +2729,7 @@ UntagResourcesResponse Client::untagResources(const UntagResourcesRequest &reque
 }
 
 /**
- * @summary Updates the attributes of a listener, such as the name and the idle connection timeout period.
+ * @summary Updates the configuration of a Network Load Balancer (NLB) listener.
  *
  * @param tmpReq UpdateListenerAttributeRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2825,7 +2834,7 @@ UpdateListenerAttributeResponse Client::updateListenerAttributeWithOptions(const
 }
 
 /**
- * @summary Updates the attributes of a listener, such as the name and the idle connection timeout period.
+ * @summary Updates the configuration of a Network Load Balancer (NLB) listener.
  *
  * @param request UpdateListenerAttributeRequest
  * @return UpdateListenerAttributeResponse
@@ -2976,9 +2985,7 @@ UpdateLoadBalancerAttributeResponse Client::updateLoadBalancerAttribute(const Up
 }
 
 /**
- * @summary Enables or disables the deletion protection feature.
- *
- * @description > You can call the [GetLoadBalancerAttribute](https://help.aliyun.com/document_detail/445873.html) operation to query the details about deletion protection and the configuration read-only mode.
+ * @summary create operation
  *
  * @param request UpdateLoadBalancerProtectionRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3037,9 +3044,7 @@ UpdateLoadBalancerProtectionResponse Client::updateLoadBalancerProtectionWithOpt
 }
 
 /**
- * @summary Enables or disables the deletion protection feature.
- *
- * @description > You can call the [GetLoadBalancerAttribute](https://help.aliyun.com/document_detail/445873.html) operation to query the details about deletion protection and the configuration read-only mode.
+ * @summary create operation
  *
  * @param request UpdateLoadBalancerProtectionRequest
  * @return UpdateLoadBalancerProtectionResponse
@@ -3054,11 +3059,11 @@ UpdateLoadBalancerProtectionResponse Client::updateLoadBalancerProtection(const 
  *
  * @description When you call this operation, make sure that you specify all the zones of the NLB instance, including the existing zones and new zones. If you do not specify the existing zones, the existing zones are removed.
  * Prerequisites
- * *   An NLB instance is created. For more information, see [CreateLoadBalancer](https://help.aliyun.com/document_detail/445868.html).
- * *   You can call the [GetLoadBalancerAttribute](https://help.aliyun.com/document_detail/445873.html) operation to query the zones and zone attributes of an NLB instance.
- * *   **UpdateLoadBalancerZones** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [GetJobStatus](https://help.aliyun.com/document_detail/445904.html) operation query to query the status of a task:
- *     *   If the task is in the **Succeeded** state, the zones and zone attributes are modified.
- *     *   If the task is in the **Processing** state, the zones and zone attributes are being modified. In this case, you can perform only query operations.
+ * - An NLB instance is created. For more information, see [CreateLoadBalancer](https://help.aliyun.com/document_detail/445868.html).
+ * - You can call the [GetLoadBalancerAttribute](https://help.aliyun.com/document_detail/445873.html) operation to query the zones and zone attributes of an NLB instance.
+ * - **UpdateLoadBalancerZones** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [GetJobStatus](https://help.aliyun.com/document_detail/445904.html) operation query to query the status of a task:
+ *   - If the task is in the **Succeeded** state, the zones and zone attributes are modified.
+ *   - If the task is in the **Processing** state, the zones and zone attributes are being modified. In this case, you can perform only query operations.
  *
  * @param request UpdateLoadBalancerZonesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3109,11 +3114,11 @@ UpdateLoadBalancerZonesResponse Client::updateLoadBalancerZonesWithOptions(const
  *
  * @description When you call this operation, make sure that you specify all the zones of the NLB instance, including the existing zones and new zones. If you do not specify the existing zones, the existing zones are removed.
  * Prerequisites
- * *   An NLB instance is created. For more information, see [CreateLoadBalancer](https://help.aliyun.com/document_detail/445868.html).
- * *   You can call the [GetLoadBalancerAttribute](https://help.aliyun.com/document_detail/445873.html) operation to query the zones and zone attributes of an NLB instance.
- * *   **UpdateLoadBalancerZones** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [GetJobStatus](https://help.aliyun.com/document_detail/445904.html) operation query to query the status of a task:
- *     *   If the task is in the **Succeeded** state, the zones and zone attributes are modified.
- *     *   If the task is in the **Processing** state, the zones and zone attributes are being modified. In this case, you can perform only query operations.
+ * - An NLB instance is created. For more information, see [CreateLoadBalancer](https://help.aliyun.com/document_detail/445868.html).
+ * - You can call the [GetLoadBalancerAttribute](https://help.aliyun.com/document_detail/445873.html) operation to query the zones and zone attributes of an NLB instance.
+ * - **UpdateLoadBalancerZones** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [GetJobStatus](https://help.aliyun.com/document_detail/445904.html) operation query to query the status of a task:
+ *   - If the task is in the **Succeeded** state, the zones and zone attributes are modified.
+ *   - If the task is in the **Processing** state, the zones and zone attributes are being modified. In this case, you can perform only query operations.
  *
  * @param request UpdateLoadBalancerZonesRequest
  * @return UpdateLoadBalancerZonesResponse
@@ -3190,7 +3195,7 @@ UpdateSecurityPolicyAttributeResponse Client::updateSecurityPolicyAttribute(cons
 }
 
 /**
- * @summary Modifies the configurations of a Network Load Balancer (NLB) server group.
+ * @summary Updates the configuration of a Network Load Balancer (NLB) server group.
  *
  * @param request UpdateServerGroupAttributeRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3199,6 +3204,10 @@ UpdateSecurityPolicyAttributeResponse Client::updateSecurityPolicyAttribute(cons
 UpdateServerGroupAttributeResponse Client::updateServerGroupAttributeWithOptions(const UpdateServerGroupAttributeRequest &request, const Darabonba::RuntimeOptions &runtime) {
   request.validate();
   json body = {};
+  if (!!request.hasAddressIPVersion()) {
+    body["AddressIPVersion"] = request.getAddressIPVersion();
+  }
+
   if (!!request.hasClientToken()) {
     body["ClientToken"] = request.getClientToken();
   }
@@ -3265,7 +3274,7 @@ UpdateServerGroupAttributeResponse Client::updateServerGroupAttributeWithOptions
 }
 
 /**
- * @summary Modifies the configurations of a Network Load Balancer (NLB) server group.
+ * @summary Updates the configuration of a Network Load Balancer (NLB) server group.
  *
  * @param request UpdateServerGroupAttributeRequest
  * @return UpdateServerGroupAttributeResponse

@@ -57,11 +57,11 @@ namespace Models
 
 
   protected:
-    // The ID of the NLB instance.
+    // The instance ID.
     shared_ptr<string> loadbalancerId_ {};
-    // The ID of the order for the NLB instance.
+    // The order ID of the Network Load Balancing (NLB) instance.
     shared_ptr<int64_t> orderId_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

@@ -107,10 +107,11 @@ namespace Models
       shared_ptr<string> allocationId_ {};
       // The type of the EIP. Valid values:
       // 
-      // *   **Common**: an EIP
-      // *   **Anycast**: an Anycast EIP
+      // - **Common**: an EIP
       // 
-      // >  For regions that support Anycast EIPs, see [Limits](https://help.aliyun.com/document_detail/470000.html).This parameter is required if **AddressType** is set to **Internet**.
+      // - **Anycast**: an Anycast EIP
+      // 
+      // > For regions that support Anycast EIPs, see [Limits](https://help.aliyun.com/document_detail/470000.html).This parameter is required if **AddressType** is set to **Internet**.
       shared_ptr<string> eipType_ {};
       // The private IP address.
       shared_ptr<string> privateIPv4Address_ {};
@@ -168,12 +169,13 @@ namespace Models
     // 
     // You can use the client to generate the token. Ensure that the token is unique among different requests. Only ASCII characters are allowed.
     // 
-    // >  If you do not set this parameter, the value of **RequestId** is used.**** The value of **RequestId** is different for each request.
+    // > If you do not set this parameter, the value of **RequestId** is used.\\*\\*\\*\\* The value of **RequestId** is different for each request.
     shared_ptr<string> clientToken_ {};
     // Specifies whether to perform a dry run. Valid values:
     // 
-    // *   **true**: validates the request without performing the operation. The system checks the request for potential issues, including missing parameter values, incorrect request syntax, and service limits. If the request fails the validation, the corresponding error message is returned. If the request passes the validation, the `DryRunOperation` error code is returned.
-    // *   **false** (default): validates the request and performs the request. If the request passes the validation, an HTTP 2xx status code is returned and the operation is performed.
+    // - **true**: validates the request without performing the operation. The system checks the request for potential issues, including missing parameter values, incorrect request syntax, and service limits. If the request fails the validation, the corresponding error message is returned. If the request passes the validation, the `DryRunOperation` error code is returned.
+    // 
+    // - **false** (default): validates the request and performs the request. If the request passes the validation, an HTTP 2xx status code is returned and the operation is performed.
     shared_ptr<bool> dryRun_ {};
     // The ID of the NLB instance.
     // 

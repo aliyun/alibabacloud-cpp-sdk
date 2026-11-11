@@ -87,29 +87,28 @@ namespace Models
 
 
   protected:
-    // The type of the certificate. Valid values:
+    // The certificate type. Valid values:
     // 
-    // *   **Ca**: CA certificate.
-    // *   **Server**: server certificate
+    // - **Ca**: CA certificate.
+    // - **Server**: Server certificate.
     shared_ptr<string> certType_ {};
-    // The server certificate. Only one server certificate is supported.
+    // The server certificates. You can add only one server certificate.
     // 
-    // >  This parameter takes effect only for TCP/SSL listeners.
+    // > This parameter takes effect only for TCPSSL listeners.
     shared_ptr<vector<string>> certificateIds_ {};
-    // The ID of the listener. Specify the ID of a listener that uses SSL over TCP.
+    // The listener ID. This parameter is valid only for TCPSSL listeners.
     // 
     // This parameter is required.
     shared_ptr<string> listenerId_ {};
-    // The number of entries to return on each page. Valid values: **1** to **50**. Default value: **20**.
+    // The number of entries to return per page. Valid values: **1** to **50**. Default value: **20**.
     shared_ptr<int32_t> maxResults_ {};
-    // The pagination token that is used in the next request to retrieve a new page of results. Valid values:
-    // 
-    // *   You do not need to specify this parameter for the first request.
-    // *   You must specify the token that is obtained from the previous query as the value of NextToken.
+    // The pagination token for the next query.
+    // - Leave this parameter empty for the first query or when no subsequent query is required.
+    // - For subsequent queries, set this parameter to the NextToken value returned by the previous API call.
     shared_ptr<string> nextToken_ {};
-    // The ID of the region where the Network Load Balancer (NLB) instance is deployed.
+    // The region ID of the Network Load Balancer (NLB) instance.
     // 
-    // You can call the [DescribeRegions](https://help.aliyun.com/document_detail/443657.html) operation to query the most recent region list.
+    // You can call the [DescribeRegions](https://help.aliyun.com/document_detail/443657.html) operation to query region IDs.
     shared_ptr<string> regionId_ {};
   };
 
