@@ -191,27 +191,27 @@ namespace Models
       // - IPv4
       // - IPv6
       shared_ptr<string> addressFamily_ {};
-      // The description of the policy-based route table.
+      // The description of the policy route table instance.
       shared_ptr<string> description_ {};
       // The destination port. Valid values: **-1** or **1** to **65535**.
       // 
-      // Matches traffic whose port numbers fall within the destination port range. If this parameter is not specified, traffic to any destination port is matched.
+      // Matches traffic whose port number falls within the destination port range. If this parameter is not specified, traffic to any destination port is matched.
       // 
       // The port range format is described as follows:
       // 
-      // - 80: port 80.
-      // - 80/80: port 80.
-      // - 1/200: ports 1 to 200.
-      // - -1/-1: all ports.
+      // - 80: specifies port 80.
+      // - 80/80: specifies port 80.
+      // - 1/200: specifies ports 1 to 200.
+      // - -1/-1: specifies all ports.
       shared_ptr<string> destPortRange_ {};
       // The destination CIDR block.
       shared_ptr<string> destinationCidr_ {};
       // The Differentiated Services Code Point (DSCP) value of the traffic packets to match. Valid values: **0** to **63**.
       // 
-      // The DSCP value format is described as follows:
+      // The input format is described as follows:
       // 
       // - 1: matches traffic with a DSCP value of 1.
-      // - 1/10: matches traffic with DSCP values from 1 to 10.
+      // - 1/10: matches traffic with a DSCP value from 1 to 10.
       // - -1/-1: matches traffic with any DSCP value.
       shared_ptr<string> dscp_ {};
       // The name of the policy-based route rule.
@@ -220,11 +220,11 @@ namespace Models
       shared_ptr<string> name_ {};
       // The instance ID of the policy-based routing rule.
       shared_ptr<string> policyBasedRouteId_ {};
-      // The instance ID of the policy-based routing table.
+      // The instance ID of the policy routing table.
       shared_ptr<string> policyTableId_ {};
       // The priority of the policy-based route. Valid values: **1** to **100**.
       // 
-      // The priority of each policy-based route in a policy-based route table of a transit router must be unique. A smaller value indicates a higher priority.
+      // The priority of each policy-based route in a transit router policy route table must be unique. A smaller value indicates a higher priority.
       shared_ptr<int32_t> priority_ {};
       // The protocol type of the traffic packets.
       // 
@@ -234,22 +234,22 @@ namespace Models
       shared_ptr<string> sourceCidr_ {};
       // The source port. Valid values: **-1** or **1** to **65535**.
       // 
-      // Matches traffic whose port numbers fall within the source port range. If this parameter is not specified, traffic from any source port is matched.
+      // Matches traffic whose port number falls within the source port range. If this parameter is not specified, traffic from any source port is matched.
       // 
       // The port range format is described as follows:
       // 
-      // - 80: port 80.
-      // - 80/80: port 80.
-      // - 1/200: ports 1 to 200.
-      // - -1/-1: all ports.
+      // - 80: specifies port 80.
+      // - 80/80: specifies port 80.
+      // - 1/200: specifies ports 1 to 200.
+      // - -1/-1: specifies all ports.
       shared_ptr<string> sourcePortRange_ {};
       // The status of the policy-based route. Valid values:
       // 
-      // - **Creating**: The policy-based route is being created.
-      // - **Active**: The policy-based route is available.
-      // - **Deleting**: The policy-based route is being deleted.
+      // - **Creating**: creating
+      // - **Active**: available
+      // - **Deleting**: deleting
       shared_ptr<string> status_ {};
-      // The destination route table.
+      // The target route table.
       shared_ptr<string> targetRouteTableId_ {};
     };
 
@@ -293,16 +293,16 @@ namespace Models
 
 
   protected:
-    // The number of entries returned per page. Default value: **20**.
+    // The number of entries returned on each page. Default value: **20**.
     shared_ptr<int32_t> maxResults_ {};
-    // The token for the next query. Valid values:
+    // The token that is used to retrieve the next page of results. Valid values:
     // 
-    // - If **NextToken** is empty, no next query is available.
+    // - If **NextToken** is empty, no more results are available.
     // - If **NextToken** returns a value, the value is the token used to start the next query.
     shared_ptr<string> nextToken_ {};
-    // The list of policy-based route rules.
+    // The policy-based route rules.
     shared_ptr<vector<DescribeTransitRouterPolicyBasedRoutesResponseBody::PolicyBasedRoutes>> policyBasedRoutes_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
     // The total number of entries.
     shared_ptr<int32_t> totalCount_ {};

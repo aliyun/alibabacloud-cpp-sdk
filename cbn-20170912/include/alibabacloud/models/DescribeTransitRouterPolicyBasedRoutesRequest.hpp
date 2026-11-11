@@ -80,15 +80,15 @@ namespace Models
       // 
       // - **PolicyBasedRouteId**: the instance ID of the policy-based routing rule.
       // 
-      // By default, multiple filter conditions are evaluated by using the **AND** operator. A resource is considered a match only if it meets all the filter conditions.
+      // By default, multiple filter conditions are evaluated by using the **AND** operator. A resource matches the filter only if it meets all the specified conditions.
       // 
       // You can specify up to 5 filter conditions at a time.
       shared_ptr<string> key_ {};
       // The value of the filter condition.
       // 
-      // Specify the filter value based on **Key**. You can specify multiple filter values for a single **Key**. Multiple filter values are evaluated by using the **OR** operator. A resource is considered a match if it meets any of the filter values.
+      // Specify the filter value based on the **Key**. You can specify multiple values for a single **Key**. Multiple values are evaluated by using the **OR** operator. A resource matches the filter condition if it meets at least one of the specified values.
       // 
-      // You can specify up to 5 filter values for a single filter condition.
+      // You can specify up to 5 values for each filter condition.
       shared_ptr<vector<string>> value_ {};
     };
 
@@ -131,12 +131,12 @@ namespace Models
     shared_ptr<vector<DescribeTransitRouterPolicyBasedRoutesRequest::Filter>> filter_ {};
     // The number of entries to return on each page. Valid values: 1 to 100. Default value: 20.
     shared_ptr<int32_t> maxResults_ {};
-    // The token for the next query. Valid values:
+    // The token that is used to retrieve the next page of results. Valid values:
     // 
-    // - If **NextToken** is empty, no next query is available.
+    // - If **NextToken** is empty, no more results are available.
     // - If **NextToken** returns a value, the value is the token used to start the next query.
     shared_ptr<string> nextToken_ {};
-    // The instance ID of the policy-based routing table.
+    // The instance ID of the policy routing table.
     shared_ptr<string> policyTableId_ {};
   };
 

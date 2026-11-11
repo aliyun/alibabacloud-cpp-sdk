@@ -43,10 +43,12 @@ namespace Models
     class Tag : public Darabonba::Model {
     public:
       friend void to_json(Darabonba::Json& j, const Tag& obj) { 
-        (void)j; (void)obj; 
+        DARABONBA_PTR_TO_JSON(Key, key_);
+        DARABONBA_PTR_TO_JSON(Value, value_);
       };
       friend void from_json(const Darabonba::Json& j, Tag& obj) { 
-        (void)j; (void)obj; 
+        DARABONBA_PTR_FROM_JSON(Key, key_);
+        DARABONBA_PTR_FROM_JSON(Value, value_);
       };
       Tag() = default ;
       Tag(const Tag &) = default ;
@@ -59,7 +61,25 @@ namespace Models
       };
       virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
       virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-      virtual bool empty() const override { return true; };
+      virtual bool empty() const override { return this->key_ == nullptr
+        && this->value_ == nullptr; };
+      // key Field Functions 
+      bool hasKey() const { return this->key_ != nullptr;};
+      void deleteKey() { this->key_ = nullptr;};
+      inline string getKey() const { DARABONBA_PTR_GET_DEFAULT(key_, "") };
+      inline Tag& setKey(string key) { DARABONBA_PTR_SET_VALUE(key_, key) };
+
+
+      // value Field Functions 
+      bool hasValue() const { return this->value_ != nullptr;};
+      void deleteValue() { this->value_ = nullptr;};
+      inline string getValue() const { DARABONBA_PTR_GET_DEFAULT(value_, "") };
+      inline Tag& setValue(string value) { DARABONBA_PTR_SET_VALUE(value_, value) };
+
+
+    protected:
+      shared_ptr<string> key_ {};
+      shared_ptr<string> value_ {};
     };
 
     virtual bool empty() const override { return this->clientToken_ == nullptr
@@ -111,20 +131,20 @@ namespace Models
   protected:
     // The client token that is used to ensure the idempotence of the request.
     // 
-    // You can use the client to generate the value, but you must make sure that the value is unique among different requests. The client token can contain only ASCII characters.
+    // You can generate the parameter value on your client to ensure that the value is unique among different requests. The client token can contain only ASCII characters.
     // 
     // > If you do not specify this parameter, the system automatically uses the **RequestId** of the API request as the **ClientToken**. The **RequestId** of each API request is unique.
     shared_ptr<string> clientToken_ {};
     // The description of the policy route table.
     shared_ptr<string> description_ {};
-    // Specifies whether to perform a dry run on the creation request. The dry run includes checks such as permissions and instance status. Valid values:
+    // Specifies whether to perform a dry run on the creation request, including permission and instance status checks. Valid values:
     // 
-    // - **false** (default): sends a normal request. The system performs the check and creates the policy route table if the request passes the check.
-    // - **true**: sends a dry run request. The system only performs the check and does not create the policy route table. The check items include whether required parameters are specified and whether the request format is valid. If the request fails the check, an error is returned. If the request passes the check, the request ID is returned.
+    // - **false** (default): sends a normal request. The system performs a check and creates the policy route table if the check passes.
+    // - **true**: sends a dry run request. The system only performs a check and does not create the policy route table. Check items include whether required parameters are specified and whether the request format is valid. If the check fails, the corresponding error is returned. If the check passes, the corresponding request ID is returned.
     shared_ptr<bool> dryRun_ {};
     // The name of the policy route table.
     shared_ptr<string> name_ {};
-    // The tags that are added to the policy route table.
+    // The list of tags bound to the policy route table.
     shared_ptr<vector<CreateTransitRouterPolicyTableRequest::Tag>> tag_ {};
     // The ID of the Enterprise Edition transit router.
     // 

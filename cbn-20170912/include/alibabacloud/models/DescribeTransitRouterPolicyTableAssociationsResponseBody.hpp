@@ -98,13 +98,13 @@ namespace Models
       shared_ptr<string> associationId_ {};
       // The ID of the network instance connection.
       shared_ptr<string> attachmentId_ {};
-      // The instance ID of the policy routing table.
+      // The policy routing table instance ID.
       shared_ptr<string> policyTableId_ {};
       // The status of the association. Valid values:
       // 
-      // - **Active**: Active.
-      // - **Associating**: Associating.
-      // - **Dissociating**: Dissociating.
+      // - **Active**: active.
+      // - **Associating**: associating.
+      // - **Dissociating**: dissociating.
       shared_ptr<string> status_ {};
     };
 
@@ -150,9 +150,9 @@ namespace Models
   protected:
     // The associate relationships between the policy routing table and network connectivity instances.
     shared_ptr<vector<DescribeTransitRouterPolicyTableAssociationsResponseBody::Associations>> associations_ {};
-    // The number of entries returned per page in a paginated query.
+    // The number of entries returned per page.
     shared_ptr<int32_t> maxResults_ {};
-    // The token for the next query in a paginated query.
+    // The token for the next query.
     shared_ptr<string> nextToken_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

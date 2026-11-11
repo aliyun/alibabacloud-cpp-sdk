@@ -188,11 +188,9 @@ namespace Models
 
 
     protected:
-      // The network instance attachments associated with the policy route table.
+      // The attachments associated with the policy route table.
       shared_ptr<vector<string>> attachments_ {};
-      // The time when the policy route table was created.
-      // 
-      // The time is displayed in the ISO 8601 standard in the YYYY-MM-DDThh:mmZ format. The time is displayed in UTC.
+      // The time when the policy route table was created. The time is displayed in UTC and follows the ISO 8601 standard in the YYYY-MM-DDThh:mmZ format.
       // 
       // Use the UTC time format: yyyy-MM-ddTHH:mm:ssZ
       shared_ptr<string> creationTime_ {};
@@ -200,7 +198,7 @@ namespace Models
       shared_ptr<string> description_ {};
       // The name of the policy route table.
       shared_ptr<string> name_ {};
-      // The policy routing table instance ID.
+      // The ID of the policy route table instance.
       shared_ptr<string> policyTableId_ {};
       // The region ID.
       shared_ptr<string> regionId_ {};
@@ -212,7 +210,7 @@ namespace Models
       // 
       // - Deleting: The policy route table is being deleted.
       shared_ptr<string> status_ {};
-      // The tags added to the policy route table.
+      // The tags that are added to the policy route table.
       shared_ptr<vector<PolicyTables::Tags>> tags_ {};
       // The ID of the Enterprise Edition transit router.
       shared_ptr<string> transitRouterId_ {};
@@ -260,10 +258,10 @@ namespace Models
   protected:
     // The number of entries returned on each page.
     shared_ptr<int32_t> maxResults_ {};
-    // The token for the next query. Valid values:
+    // The token that is used to retrieve the next page of results. Valid values:
     // 
-    // - If NextToken is empty, no subsequent query is required.
-    // - If NextToken is returned, the value indicates the token for the next query.
+    // If NextToken is empty, no next query is to be sent.
+    // If NextToken is returned, the value indicates the token that is used to start the next query.
     shared_ptr<string> nextToken_ {};
     // The policy route tables.
     shared_ptr<vector<DescribeTransitRouterPolicyTablesResponseBody::PolicyTables>> policyTables_ {};
