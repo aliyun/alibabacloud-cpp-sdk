@@ -66,9 +66,9 @@ namespace Models
 
 
   protected:
-    // The ID of the target knowledge base.
+    // The destination knowledge base ID.
     shared_ptr<string> knowledgeBaseId_ {};
-    // The page number. The value starts from 1.
+    // The page number, starting from 1.
     shared_ptr<int32_t> page_ {};
     // The number of entries per page.
     shared_ptr<int32_t> pageSize_ {};

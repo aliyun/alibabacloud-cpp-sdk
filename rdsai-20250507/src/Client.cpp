@@ -2,11 +2,13 @@
 #include <alibabacloud/RdsAi20250507.hpp>
 #include <alibabacloud/Utils.hpp>
 #include <alibabacloud/Openapi.hpp>
+#include <alibabacloud/gateway/POP.hpp>
 #include <map>
 #include <darabonba/Runtime.hpp>
 using namespace std;
 using namespace Darabonba;
 using json = nlohmann::json;
+using namespace AlibabaCloud::Gateway;
 using namespace AlibabaCloud::OpenApi;
 using namespace AlibabaCloud::OpenApi::Models;
 using OpenApiClient = AlibabaCloud::OpenApi::Client;
@@ -18,6 +20,9 @@ namespace RdsAi20250507
 {
 
 AlibabaCloud::RdsAi20250507::Client::Client(Config &config): OpenApiClient(config){
+  this->_productId = "RdsAi";
+  shared_ptr<POP> gatewayClient = make_shared<POP>();
+  this->_spi = gatewayClient;
   this->_endpointRule = "regional";
   this->_endpointMap = json({
     {"cn-wulanchabu" , "rdsai.aliyuncs.com"},
@@ -944,9 +949,12 @@ CreateContextDatabaseSyncSourceResponse Client::createContextDatabaseSyncSource(
 }
 
 /**
- * @summary Creates a workspace, the first member, and the first API key in a one-time onboarding process.
+ * @summary Creates a ContextDB workspace and its first member, and optionally generates an initial API key.
  *
- * @description Creates a workspace along with the first member and the first API key in a one-time onboarding process. The plaintext API key is returned in the response.
+ * @description Creates a ContextDB workspace and its first member.
+ * - GenerateInitialKey defaults to `true`. An initial API key is generated during creation, and the plaintext key is returned only once. Save the returned key. If set to `false`, no initial API key is generated, and the ApiKeyName and ApiKey fields in the response are empty.
+ * - You can use ClusterId to specify the cluster to which the workspace belongs.
+ * - You can use PermissionMode to select the compatibility mode or the advanced permission mode. The advanced permission mode can only be selected by the Alibaba Cloud account. It takes effect immediately after the workspace is created and cannot be disabled.
  *
  * @param request CreateContextDatabaseWorkspaceRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -955,8 +963,20 @@ CreateContextDatabaseSyncSourceResponse Client::createContextDatabaseSyncSource(
 CreateContextDatabaseWorkspaceResponse Client::createContextDatabaseWorkspaceWithOptions(const CreateContextDatabaseWorkspaceRequest &request, const Darabonba::RuntimeOptions &runtime) {
   request.validate();
   json query = {};
+  if (!!request.hasClusterId()) {
+    query["ClusterId"] = request.getClusterId();
+  }
+
+  if (!!request.hasGenerateInitialKey()) {
+    query["GenerateInitialKey"] = request.getGenerateInitialKey();
+  }
+
   if (!!request.hasMemberName()) {
     query["MemberName"] = request.getMemberName();
+  }
+
+  if (!!request.hasPermissionMode()) {
+    query["PermissionMode"] = request.getPermissionMode();
   }
 
   if (!!request.hasWorkspaceName()) {
@@ -981,9 +1001,12 @@ CreateContextDatabaseWorkspaceResponse Client::createContextDatabaseWorkspaceWit
 }
 
 /**
- * @summary Creates a workspace, the first member, and the first API key in a one-time onboarding process.
+ * @summary Creates a ContextDB workspace and its first member, and optionally generates an initial API key.
  *
- * @description Creates a workspace along with the first member and the first API key in a one-time onboarding process. The plaintext API key is returned in the response.
+ * @description Creates a ContextDB workspace and its first member.
+ * - GenerateInitialKey defaults to `true`. An initial API key is generated during creation, and the plaintext key is returned only once. Save the returned key. If set to `false`, no initial API key is generated, and the ApiKeyName and ApiKey fields in the response are empty.
+ * - You can use ClusterId to specify the cluster to which the workspace belongs.
+ * - You can use PermissionMode to select the compatibility mode or the advanced permission mode. The advanced permission mode can only be selected by the Alibaba Cloud account. It takes effect immediately after the workspace is created and cannot be disabled.
  *
  * @param request CreateContextDatabaseWorkspaceRequest
  * @return CreateContextDatabaseWorkspaceResponse
@@ -1806,7 +1829,7 @@ DeleteContextDatabaseSyncSourceResponse Client::deleteContextDatabaseSyncSource(
 /**
  * @summary Deletes a ContextDB workspace.
  *
- * @description Deletes a workspace. This is a hard delete and cannot be recovered. After the workspace is deleted, the local metadata is soft-deleted synchronously. Deleted workspaces no longer count toward the quota.
+ * @description Deletes a workspace. This is a hard deletion and cannot be undone. After the workspace is deleted, local metadata is synchronously soft deleted, and the deleted workspace is no longer counted towards the quota.
  *
  * @param request DeleteContextDatabaseWorkspaceRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1839,7 +1862,7 @@ DeleteContextDatabaseWorkspaceResponse Client::deleteContextDatabaseWorkspaceWit
 /**
  * @summary Deletes a ContextDB workspace.
  *
- * @description Deletes a workspace. This is a hard delete and cannot be recovered. After the workspace is deleted, the local metadata is soft-deleted synchronously. Deleted workspaces no longer count toward the quota.
+ * @description Deletes a workspace. This is a hard deletion and cannot be undone. After the workspace is deleted, local metadata is synchronously soft deleted, and the deleted workspace is no longer counted towards the quota.
  *
  * @param request DeleteContextDatabaseWorkspaceRequest
  * @return DeleteContextDatabaseWorkspaceResponse
@@ -4427,10 +4450,10 @@ ListContextDatabaseMembersResponse Client::listContextDatabaseMembers(const List
 }
 
 /**
- * @summary Lists the datasource configurations in a workspace.
+ * @summary Lists the data sources in a workspace.
  *
- * @description The list operation returns paginated results by default. Page and PageSize are optional parameters.
- * The Data list field in the response is returned as an array. Total indicates the total number of records that match the specified conditions.
+ * @description By default, the list operation returns paginated results. The Page and PageSize parameters are optional.
+ * The Data field in the response is returned as an array, and Total indicates the total number of matching entries.
  *
  * @param request ListContextDatabaseSyncConnectionsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4473,10 +4496,10 @@ ListContextDatabaseSyncConnectionsResponse Client::listContextDatabaseSyncConnec
 }
 
 /**
- * @summary Lists the datasource configurations in a workspace.
+ * @summary Lists the data sources in a workspace.
  *
- * @description The list operation returns paginated results by default. Page and PageSize are optional parameters.
- * The Data list field in the response is returned as an array. Total indicates the total number of records that match the specified conditions.
+ * @description By default, the list operation returns paginated results. The Page and PageSize parameters are optional.
+ * The Data field in the response is returned as an array, and Total indicates the total number of matching entries.
  *
  * @param request ListContextDatabaseSyncConnectionsRequest
  * @return ListContextDatabaseSyncConnectionsResponse
@@ -4597,10 +4620,10 @@ ListContextDatabaseSyncJobExclusionsResponse Client::listContextDatabaseSyncJobE
 }
 
 /**
- * @summary Lists import tasks.
+ * @summary Lists import jobs.
  *
- * @description The list operation returns paginated results by default. Page and PageSize are optional parameters.
- * The Data list field in the response is returned as an array. Total indicates the total number of records that match the specified conditions.
+ * @description The list API returns paginated results by default. Page and PageSize are optional parameters.
+ * The Data list field in the response is returned as an array, and Total indicates the total number of matching entries.
  *
  * @param request ListContextDatabaseSyncJobsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4643,10 +4666,10 @@ ListContextDatabaseSyncJobsResponse Client::listContextDatabaseSyncJobsWithOptio
 }
 
 /**
- * @summary Lists import tasks.
+ * @summary Lists import jobs.
  *
- * @description The list operation returns paginated results by default. Page and PageSize are optional parameters.
- * The Data list field in the response is returned as an array. Total indicates the total number of records that match the specified conditions.
+ * @description The list API returns paginated results by default. Page and PageSize are optional parameters.
+ * The Data list field in the response is returned as an array, and Total indicates the total number of matching entries.
  *
  * @param request ListContextDatabaseSyncJobsRequest
  * @return ListContextDatabaseSyncJobsResponse

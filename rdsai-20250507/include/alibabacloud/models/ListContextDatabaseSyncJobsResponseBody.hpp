@@ -282,29 +282,29 @@ namespace Models
 
 
       protected:
-        // The reason for automatic pause.
+        // The auto-pause reason.
         shared_ptr<string> autoPauseReason_ {};
-        // Indicates whether the task is automatically paused.
+        // Indicates whether the job is automatically paused.
         shared_ptr<bool> autoPaused_ {};
         // The configuration version number.
         shared_ptr<int32_t> configVersion_ {};
-        // Indicates whether the task is enabled.
+        // Indicates whether the job is enabled.
         shared_ptr<bool> enabled_ {};
         // The filter conditions.
         shared_ptr<Jobs::Filters> filters_ {};
-        // The task ID, which is a system-generated UUID.
+        // The job ID, which is a system-generated UUID.
         shared_ptr<string> id_ {};
-        // The ID of the target knowledge base.
+        // The destination knowledge base ID.
         shared_ptr<string> knowledgeBaseId_ {};
         // The name.
         shared_ptr<string> name_ {};
-        // The time of the next run.
+        // The next run time.
         shared_ptr<string> nextRunAt_ {};
-        // The scheduling type. Valid values: interval, daily-times.
+        // The schedule type. Valid values: interval and daily-times.
         shared_ptr<string> scheduleType_ {};
         // The data source ID, which is a system-generated UUID.
         shared_ptr<string> sourceId_ {};
-        // The target ID, which is a system-generated UUID.
+        // The destination ID, which is a system-generated UUID.
         shared_ptr<string> targetId_ {};
       };
 
@@ -341,9 +341,9 @@ namespace Models
 
 
     protected:
-      // The list of import tasks.
+      // The list of import jobs.
       shared_ptr<vector<Data::Jobs>> jobs_ {};
-      // The page number. The value starts from 1.
+      // The page number, starting from 1.
       shared_ptr<int32_t> page_ {};
       // The number of entries per page.
       shared_ptr<int32_t> pageSize_ {};
@@ -404,11 +404,11 @@ namespace Models
     shared_ptr<ListContextDatabaseSyncJobsResponseBody::Data> data_ {};
     // The HTTP status code.
     shared_ptr<int64_t> httpStatusCode_ {};
-    // The response message.
+    // The message.
     shared_ptr<string> message_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request was successful.
+    // Indicates whether the request is successful.
     shared_ptr<bool> success_ {};
   };
 

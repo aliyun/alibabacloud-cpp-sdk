@@ -66,11 +66,11 @@ namespace Models
 
 
   protected:
-    // The page number. Pages start from 1.
+    // The page number, starting from 1.
     shared_ptr<int32_t> page_ {};
     // The number of entries per page.
     shared_ptr<int32_t> pageSize_ {};
-    // The plug-in ID.
+    // The plugin ID.
     shared_ptr<string> pluginId_ {};
     // The workspace ID.
     // 
