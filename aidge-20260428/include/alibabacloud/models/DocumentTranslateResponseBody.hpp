@@ -109,14 +109,14 @@ namespace Models
 
 
   protected:
-    // The response code. This parameter is not returned when the call is successful.
+    // The response code.
     shared_ptr<string> code_ {};
     // The asynchronous task information.
     shared_ptr<DocumentTranslateResponseBody::Data> data_ {};
-    // The error message, such as "The parameter contains sensitive information. Try another input."
+    // The error message, such as "The parameters contain sensitive information. Try other inputs."
     // This parameter is not returned when the call is successful.
     shared_ptr<string> message_ {};
-    // The unique identifier of the request, used for troubleshooting and tracing analysis.
+    // The unique identity of the request, which is used for troubleshooting and Tracing Analysis.
     shared_ptr<string> requestId_ {};
     // Indicates whether the call is successful. Valid values:
     // - true: The call is successful.

@@ -141,6 +141,10 @@
 #include <alibabacloud/models/ProductHotspotDetectionShrinkRequest.hpp>
 #include <alibabacloud/models/ProductHotspotDetectionResponseBody.hpp>
 #include <alibabacloud/models/ProductHotspotDetectionResponse.hpp>
+#include <alibabacloud/models/ProductVideoGenerationRequest.hpp>
+#include <alibabacloud/models/ProductVideoGenerationShrinkRequest.hpp>
+#include <alibabacloud/models/ProductVideoGenerationResponseBody.hpp>
+#include <alibabacloud/models/ProductVideoGenerationResponse.hpp>
 #include <alibabacloud/models/QueryAsyncTaskResultRequest.hpp>
 #include <alibabacloud/models/QueryAsyncTaskResultResponseBody.hpp>
 #include <alibabacloud/models/QueryAsyncTaskResultResponse.hpp>

@@ -195,9 +195,11 @@ namespace Models
     shared_ptr<AiTryOnResponseBody::Data> data_ {};
     // The error message. This parameter is not returned when the call is successful.
     shared_ptr<string> message_ {};
-    // The ID of the request. It is used to identify a unique API call.
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the call is successful. A value of true indicates success, and a value of false indicates failure.
+    // Indicates whether the call was successful. Valid values:
+    // - true: The call was successful.
+    // - false: The call failed.
     shared_ptr<bool> success_ {};
   };
 
