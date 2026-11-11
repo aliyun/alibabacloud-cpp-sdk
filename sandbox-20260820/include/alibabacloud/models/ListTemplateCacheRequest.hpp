@@ -77,9 +77,9 @@ namespace Models
   protected:
     // The maximum number of entries to return per page. Default value: 20. Maximum value: 100.
     shared_ptr<int32_t> maxResults_ {};
-    // The pagination token returned from the previous response.
+    // The pagination token returned from the previous request.
     shared_ptr<string> nextToken_ {};
-    // Filters by cache status. Valid values: InProgress, Success, Failed, Deleting, and Evicted.
+    // Filters results by cache status. Valid values: InProgress, Success, Failed, Deleting, and Evicted.
     shared_ptr<string> status_ {};
     // The team ID.
     shared_ptr<string> teamID_ {};

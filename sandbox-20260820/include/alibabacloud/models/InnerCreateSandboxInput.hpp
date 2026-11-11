@@ -25,6 +25,8 @@ namespace Models
       DARABONBA_PTR_TO_JSON(network, network_);
       DARABONBA_PTR_TO_JSON(runtime, runtime_);
       DARABONBA_PTR_TO_JSON(secure, secure_);
+      DARABONBA_PTR_TO_JSON(snapshotID, snapshotID_);
+      DARABONBA_PTR_TO_JSON(snapshotName, snapshotName_);
       DARABONBA_PTR_TO_JSON(teamID, teamID_);
       DARABONBA_PTR_TO_JSON(templateID, templateID_);
       DARABONBA_PTR_TO_JSON(timeout, timeout_);
@@ -39,6 +41,8 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(network, network_);
       DARABONBA_PTR_FROM_JSON(runtime, runtime_);
       DARABONBA_PTR_FROM_JSON(secure, secure_);
+      DARABONBA_PTR_FROM_JSON(snapshotID, snapshotID_);
+      DARABONBA_PTR_FROM_JSON(snapshotName, snapshotName_);
       DARABONBA_PTR_FROM_JSON(teamID, teamID_);
       DARABONBA_PTR_FROM_JSON(templateID, templateID_);
       DARABONBA_PTR_FROM_JSON(timeout, timeout_);
@@ -57,8 +61,8 @@ namespace Models
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->allowInternetAccess_ == nullptr
         && this->autoPause_ == nullptr && this->autoResume_ == nullptr && this->envVars_ == nullptr && this->metadata_ == nullptr && this->network_ == nullptr
-        && this->runtime_ == nullptr && this->secure_ == nullptr && this->teamID_ == nullptr && this->templateID_ == nullptr && this->timeout_ == nullptr
-        && this->volumeMounts_ == nullptr; };
+        && this->runtime_ == nullptr && this->secure_ == nullptr && this->snapshotID_ == nullptr && this->snapshotName_ == nullptr && this->teamID_ == nullptr
+        && this->templateID_ == nullptr && this->timeout_ == nullptr && this->volumeMounts_ == nullptr; };
     // allowInternetAccess Field Functions 
     bool hasAllowInternetAccess() const { return this->allowInternetAccess_ != nullptr;};
     void deleteAllowInternetAccess() { this->allowInternetAccess_ = nullptr;};
@@ -123,6 +127,20 @@ namespace Models
     inline InnerCreateSandboxInput& setSecure(bool secure) { DARABONBA_PTR_SET_VALUE(secure_, secure) };
 
 
+    // snapshotID Field Functions 
+    bool hasSnapshotID() const { return this->snapshotID_ != nullptr;};
+    void deleteSnapshotID() { this->snapshotID_ = nullptr;};
+    inline string getSnapshotID() const { DARABONBA_PTR_GET_DEFAULT(snapshotID_, "") };
+    inline InnerCreateSandboxInput& setSnapshotID(string snapshotID) { DARABONBA_PTR_SET_VALUE(snapshotID_, snapshotID) };
+
+
+    // snapshotName Field Functions 
+    bool hasSnapshotName() const { return this->snapshotName_ != nullptr;};
+    void deleteSnapshotName() { this->snapshotName_ = nullptr;};
+    inline string getSnapshotName() const { DARABONBA_PTR_GET_DEFAULT(snapshotName_, "") };
+    inline InnerCreateSandboxInput& setSnapshotName(string snapshotName) { DARABONBA_PTR_SET_VALUE(snapshotName_, snapshotName) };
+
+
     // teamID Field Functions 
     bool hasTeamID() const { return this->teamID_ != nullptr;};
     void deleteTeamID() { this->teamID_ = nullptr;};
@@ -156,9 +174,9 @@ namespace Models
   protected:
     // Specifies whether the sandbox is allowed to access external networks.
     shared_ptr<bool> allowInternetAccess_ {};
-    // Specifies whether to automatically pause after timeout.
+    // Specifies whether to automatically pause the sandbox after a timeout.
     shared_ptr<bool> autoPause_ {};
-    // Specifies whether to automatically resume.
+    // Specifies whether to automatically resume the sandbox.
     shared_ptr<bool> autoResume_ {};
     // The environment variable configuration.
     shared_ptr<map<string, string>> envVars_ {};
@@ -170,11 +188,15 @@ namespace Models
     shared_ptr<InnerSandboxRuntimeConfig> runtime_ {};
     // Specifies whether authentication is required to access the sandbox envd.
     shared_ptr<bool> secure_ {};
+    // The snapshot ID.
+    shared_ptr<string> snapshotID_ {};
+    // The snapshot name.
+    shared_ptr<string> snapshotName_ {};
     // The unique identifier of the team.
     shared_ptr<string> teamID_ {};
     // The unique identifier of the template.
     shared_ptr<string> templateID_ {};
-    // The timeout period. Unit: seconds.
+    // The timeout period, in seconds.
     shared_ptr<int32_t> timeout_ {};
     // The volume mount configuration.
     shared_ptr<InnerCreateSandboxVolumeMounts> volumeMounts_ {};

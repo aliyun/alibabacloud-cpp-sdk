@@ -3,6 +3,7 @@
 #define ALIBABACLOUD_MODELS_E2BLISTEDSANDBOX_HPP_
 #include <darabonba/Core.hpp>
 #include <map>
+#include <vector>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud
@@ -21,7 +22,9 @@ namespace Models
       DARABONBA_PTR_TO_JSON(memoryMB, memoryMB_);
       DARABONBA_PTR_TO_JSON(metadata, metadata_);
       DARABONBA_PTR_TO_JSON(resourceGroupID, resourceGroupID_);
+      DARABONBA_PTR_TO_JSON(resourceTags, resourceTags_);
       DARABONBA_PTR_TO_JSON(sandboxID, sandboxID_);
+      DARABONBA_PTR_TO_JSON(snapshotID, snapshotID_);
       DARABONBA_PTR_TO_JSON(startedAt, startedAt_);
       DARABONBA_PTR_TO_JSON(state, state_);
       DARABONBA_PTR_TO_JSON(teamID, teamID_);
@@ -39,7 +42,9 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(memoryMB, memoryMB_);
       DARABONBA_PTR_FROM_JSON(metadata, metadata_);
       DARABONBA_PTR_FROM_JSON(resourceGroupID, resourceGroupID_);
+      DARABONBA_PTR_FROM_JSON(resourceTags, resourceTags_);
       DARABONBA_PTR_FROM_JSON(sandboxID, sandboxID_);
+      DARABONBA_PTR_FROM_JSON(snapshotID, snapshotID_);
       DARABONBA_PTR_FROM_JSON(startedAt, startedAt_);
       DARABONBA_PTR_FROM_JSON(state, state_);
       DARABONBA_PTR_FROM_JSON(teamID, teamID_);
@@ -60,10 +65,55 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+    class ResourceTags : public Darabonba::Model {
+    public:
+      friend void to_json(Darabonba::Json& j, const ResourceTags& obj) { 
+        DARABONBA_PTR_TO_JSON(tagKey, tagKey_);
+        DARABONBA_PTR_TO_JSON(tagValue, tagValue_);
+      };
+      friend void from_json(const Darabonba::Json& j, ResourceTags& obj) { 
+        DARABONBA_PTR_FROM_JSON(tagKey, tagKey_);
+        DARABONBA_PTR_FROM_JSON(tagValue, tagValue_);
+      };
+      ResourceTags() = default ;
+      ResourceTags(const ResourceTags &) = default ;
+      ResourceTags(ResourceTags &&) = default ;
+      ResourceTags(const Darabonba::Json & obj) { from_json(obj, *this); };
+      virtual ~ResourceTags() = default ;
+      ResourceTags& operator=(const ResourceTags &) = default ;
+      ResourceTags& operator=(ResourceTags &&) = default ;
+      virtual void validate() const override {
+      };
+      virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+      virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+      virtual bool empty() const override { return this->tagKey_ == nullptr
+        && this->tagValue_ == nullptr; };
+      // tagKey Field Functions 
+      bool hasTagKey() const { return this->tagKey_ != nullptr;};
+      void deleteTagKey() { this->tagKey_ = nullptr;};
+      inline string getTagKey() const { DARABONBA_PTR_GET_DEFAULT(tagKey_, "") };
+      inline ResourceTags& setTagKey(string tagKey) { DARABONBA_PTR_SET_VALUE(tagKey_, tagKey) };
+
+
+      // tagValue Field Functions 
+      bool hasTagValue() const { return this->tagValue_ != nullptr;};
+      void deleteTagValue() { this->tagValue_ = nullptr;};
+      inline string getTagValue() const { DARABONBA_PTR_GET_DEFAULT(tagValue_, "") };
+      inline ResourceTags& setTagValue(string tagValue) { DARABONBA_PTR_SET_VALUE(tagValue_, tagValue) };
+
+
+    protected:
+      // The tag key.
+      shared_ptr<string> tagKey_ {};
+      // The tag value.
+      shared_ptr<string> tagValue_ {};
+    };
+
     virtual bool empty() const override { return this->cpuCount_ == nullptr
         && this->diskSizeMB_ == nullptr && this->endAt_ == nullptr && this->generation_ == nullptr && this->memoryMB_ == nullptr && this->metadata_ == nullptr
-        && this->resourceGroupID_ == nullptr && this->sandboxID_ == nullptr && this->startedAt_ == nullptr && this->state_ == nullptr && this->teamID_ == nullptr
-        && this->teamName_ == nullptr && this->teamPlan_ == nullptr && this->templateID_ == nullptr && this->templateName_ == nullptr && this->userID_ == nullptr; };
+        && this->resourceGroupID_ == nullptr && this->resourceTags_ == nullptr && this->sandboxID_ == nullptr && this->snapshotID_ == nullptr && this->startedAt_ == nullptr
+        && this->state_ == nullptr && this->teamID_ == nullptr && this->teamName_ == nullptr && this->teamPlan_ == nullptr && this->templateID_ == nullptr
+        && this->templateName_ == nullptr && this->userID_ == nullptr; };
     // cpuCount Field Functions 
     bool hasCpuCount() const { return this->cpuCount_ != nullptr;};
     void deleteCpuCount() { this->cpuCount_ = nullptr;};
@@ -115,11 +165,27 @@ namespace Models
     inline E2BListedSandbox& setResourceGroupID(string resourceGroupID) { DARABONBA_PTR_SET_VALUE(resourceGroupID_, resourceGroupID) };
 
 
+    // resourceTags Field Functions 
+    bool hasResourceTags() const { return this->resourceTags_ != nullptr;};
+    void deleteResourceTags() { this->resourceTags_ = nullptr;};
+    inline const vector<E2BListedSandbox::ResourceTags> & getResourceTags() const { DARABONBA_PTR_GET_CONST(resourceTags_, vector<E2BListedSandbox::ResourceTags>) };
+    inline vector<E2BListedSandbox::ResourceTags> getResourceTags() { DARABONBA_PTR_GET(resourceTags_, vector<E2BListedSandbox::ResourceTags>) };
+    inline E2BListedSandbox& setResourceTags(const vector<E2BListedSandbox::ResourceTags> & resourceTags) { DARABONBA_PTR_SET_VALUE(resourceTags_, resourceTags) };
+    inline E2BListedSandbox& setResourceTags(vector<E2BListedSandbox::ResourceTags> && resourceTags) { DARABONBA_PTR_SET_RVALUE(resourceTags_, resourceTags) };
+
+
     // sandboxID Field Functions 
     bool hasSandboxID() const { return this->sandboxID_ != nullptr;};
     void deleteSandboxID() { this->sandboxID_ = nullptr;};
     inline string getSandboxID() const { DARABONBA_PTR_GET_DEFAULT(sandboxID_, "") };
     inline E2BListedSandbox& setSandboxID(string sandboxID) { DARABONBA_PTR_SET_VALUE(sandboxID_, sandboxID) };
+
+
+    // snapshotID Field Functions 
+    bool hasSnapshotID() const { return this->snapshotID_ != nullptr;};
+    void deleteSnapshotID() { this->snapshotID_ = nullptr;};
+    inline string getSnapshotID() const { DARABONBA_PTR_GET_DEFAULT(snapshotID_, "") };
+    inline E2BListedSandbox& setSnapshotID(string snapshotID) { DARABONBA_PTR_SET_VALUE(snapshotID_, snapshotID) };
 
 
     // startedAt Field Functions 
@@ -181,31 +247,35 @@ namespace Models
   protected:
     // The number of vCPUs.
     shared_ptr<int32_t> cpuCount_ {};
-    // The temporary disk specification.
+    // The ephemeral disk size.
     shared_ptr<int32_t> diskSizeMB_ {};
     // The end time.
     shared_ptr<string> endAt_ {};
     // The sandbox version.
     shared_ptr<int32_t> generation_ {};
-    // The memory specification.
+    // The memory size.
     shared_ptr<int32_t> memoryMB_ {};
     // The metadata.
     shared_ptr<map<string, string>> metadata_ {};
     // The resource group ID.
     shared_ptr<string> resourceGroupID_ {};
+    // The resource tags.
+    shared_ptr<vector<E2BListedSandbox::ResourceTags>> resourceTags_ {};
     // The sandbox ID.
     shared_ptr<string> sandboxID_ {};
+    // The snapshot ID.
+    shared_ptr<string> snapshotID_ {};
     // The start time.
     shared_ptr<string> startedAt_ {};
-    // The sandbox status. Valid values:
+    // The sandbox state. Valid values:
     // - running: Running.
-    // - pausing: Being paused.
+    // - pausing: Pausing.
     // - paused: Paused.
-    // - resuming: Being resumed.
-    // - pause_fail: Failed to pause.
-    // - resume_fail: Failed to resume.
+    // - resuming: Resuming.
+    // - pause_fail: Pause failed.
+    // - resume_fail: Resume failed.
     // - snapshotting: Creating a snapshot.
-    // - snapshot_failed: Failed to create a snapshot.
+    // - snapshot_failed: Snapshot creation failed.
     // - terminated: Terminated.
     shared_ptr<string> state_ {};
     // The unique identifier of the team.

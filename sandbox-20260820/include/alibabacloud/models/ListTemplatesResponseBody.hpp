@@ -90,7 +90,7 @@ namespace Models
   protected:
     // The error code. The value 200 indicates success.
     shared_ptr<string> code_ {};
-    // The maximum number of entries per page returned in the current response.
+    // The maximum number of entries returned per page in the current response.
     shared_ptr<int32_t> maxResults_ {};
     // The response message.
     shared_ptr<string> message_ {};

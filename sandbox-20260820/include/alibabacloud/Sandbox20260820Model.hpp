@@ -11,6 +11,7 @@
 #include <alibabacloud/models/CreateApiKeyInput.hpp>
 #include <alibabacloud/models/TLSConfig.hpp>
 #include <alibabacloud/models/CreateCustomDomainInput.hpp>
+#include <alibabacloud/models/CreateSnapshotInput.hpp>
 #include <alibabacloud/models/CreateTeamInput.hpp>
 #include <alibabacloud/models/CreateTemplateRegistryAuthConfig.hpp>
 #include <alibabacloud/models/CreateTemplateRegistryCertConfig.hpp>
@@ -39,6 +40,7 @@
 #include <alibabacloud/models/InnerSandboxRuntimeConfig.hpp>
 #include <alibabacloud/models/InnerSandboxVolumeMount.hpp>
 #include <alibabacloud/models/E2BSandbox.hpp>
+#include <alibabacloud/models/E2BSnapshot.hpp>
 #include <alibabacloud/models/E2BTeam.hpp>
 #include <alibabacloud/models/NetworkConfiguration.hpp>
 #include <alibabacloud/models/E2BTemplate.hpp>
@@ -49,6 +51,7 @@
 #include <alibabacloud/models/ImportApiKeyInput.hpp>
 #include <alibabacloud/models/InnerCreateSandboxVolumeMounts.hpp>
 #include <alibabacloud/models/InnerCreateSandboxInput.hpp>
+#include <alibabacloud/models/PublicListedSandbox.hpp>
 #include <alibabacloud/models/PublicTemplateLogConfig.hpp>
 #include <alibabacloud/models/PublicTemplateRegistryNetworkConfig.hpp>
 #include <alibabacloud/models/PublicTemplateRegistryConfig.hpp>
@@ -74,6 +77,7 @@
 #include <alibabacloud/models/PublicUpdateTemplateRuntimeConfig.hpp>
 #include <alibabacloud/models/PublicUpdateTemplateInput.hpp>
 #include <alibabacloud/models/Quota.hpp>
+#include <alibabacloud/models/QuotaUsage.hpp>
 #include <alibabacloud/models/SandboxLifecycleEvent.hpp>
 #include <alibabacloud/models/UpdateApiKeyInput.hpp>
 #include <alibabacloud/models/UpdateCustomDomainInput.hpp>

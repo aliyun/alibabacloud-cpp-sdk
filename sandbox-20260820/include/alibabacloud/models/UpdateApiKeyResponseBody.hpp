@@ -101,7 +101,7 @@ namespace Models
     shared_ptr<vector<IPConfig>> ipBlacklist_ {};
     // The list of IP address whitelist rules.
     shared_ptr<vector<IPConfig>> ipWhitelist_ {};
-    // The response message. A value of success indicates a successful request.
+    // The response message. The value is success if the request is successful.
     shared_ptr<string> message_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

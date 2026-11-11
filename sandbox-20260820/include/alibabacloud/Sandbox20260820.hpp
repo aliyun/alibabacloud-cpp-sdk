@@ -237,7 +237,7 @@ namespace Sandbox20260820
       Models::DescribeApiKeyResponse describeApiKey(const string &apiKeyID, const Models::DescribeApiKeyRequest &request);
 
       /**
-       * @summary Queries the quota configuration of a specified team.
+       * @summary Queries the quota configurations of a specified team.
        *
        * @param request DescribeQuotaRequest
        * @param headers map
@@ -247,7 +247,7 @@ namespace Sandbox20260820
       Models::DescribeQuotaResponse describeQuotaWithOptions(const Models::DescribeQuotaRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the quota configuration of a specified team.
+       * @summary Queries the quota configurations of a specified team.
        *
        * @param request DescribeQuotaRequest
        * @return DescribeQuotaResponse
@@ -345,7 +345,7 @@ namespace Sandbox20260820
       Models::ListApiKeysResponse listApiKeys(const Models::ListApiKeysRequest &request);
 
       /**
-       * @summary Performs a paging query on the quota configurations for the current account.
+       * @summary Performs a paging query to retrieve the quota configuration list for the current account.
        *
        * @param request ListQuotaRequest
        * @param headers map
@@ -355,7 +355,7 @@ namespace Sandbox20260820
       Models::ListQuotaResponse listQuotaWithOptions(const Models::ListQuotaRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Performs a paging query on the quota configurations for the current account.
+       * @summary Performs a paging query to retrieve the quota configuration list for the current account.
        *
        * @param request ListQuotaRequest
        * @return ListQuotaResponse
@@ -363,7 +363,7 @@ namespace Sandbox20260820
       Models::ListQuotaResponse listQuota(const Models::ListQuotaRequest &request);
 
       /**
-       * @summary Queries the list of teams by using paging.
+       * @summary Queries the team list by using paging.
        *
        * @param request ListTeamsRequest
        * @param headers map
@@ -373,7 +373,7 @@ namespace Sandbox20260820
       Models::ListTeamsResponse listTeamsWithOptions(const Models::ListTeamsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the list of teams by using paging.
+       * @summary Queries the team list by using paging.
        *
        * @param request ListTeamsRequest
        * @return ListTeamsResponse
@@ -381,7 +381,7 @@ namespace Sandbox20260820
       Models::ListTeamsResponse listTeams(const Models::ListTeamsRequest &request);
 
       /**
-       * @summary Performs a paging query of template caches.
+       * @summary Performs a paged query on template caches with paging support.
        *
        * @param request ListTemplateCacheRequest
        * @param headers map
@@ -391,7 +391,7 @@ namespace Sandbox20260820
       Models::ListTemplateCacheResponse listTemplateCacheWithOptions(const Models::ListTemplateCacheRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Performs a paging query of template caches.
+       * @summary Performs a paged query on template caches with paging support.
        *
        * @param request ListTemplateCacheRequest
        * @return ListTemplateCacheResponse
@@ -399,7 +399,7 @@ namespace Sandbox20260820
       Models::ListTemplateCacheResponse listTemplateCache(const Models::ListTemplateCacheRequest &request);
 
       /**
-       * @summary Performs a paged query on the template list by using paging.
+       * @summary Performs a paged query to retrieve the template list with paging.
        *
        * @param request ListTemplatesRequest
        * @param headers map
@@ -409,7 +409,7 @@ namespace Sandbox20260820
       Models::ListTemplatesResponse listTemplatesWithOptions(const Models::ListTemplatesRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Performs a paged query on the template list by using paging.
+       * @summary Performs a paged query to retrieve the template list with paging.
        *
        * @param request ListTemplatesRequest
        * @return ListTemplatesResponse
@@ -417,7 +417,7 @@ namespace Sandbox20260820
       Models::ListTemplatesResponse listTemplates(const Models::ListTemplatesRequest &request);
 
       /**
-       * @summary Queries a list of storage volumes by using paging.
+       * @summary Queries the list of storage volumes by using paging.
        *
        * @param request ListVolumesRequest
        * @param headers map
@@ -427,7 +427,7 @@ namespace Sandbox20260820
       Models::ListVolumesResponse listVolumesWithOptions(const Models::ListVolumesRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries a list of storage volumes by using paging.
+       * @summary Queries the list of storage volumes by using paging.
        *
        * @param request ListVolumesRequest
        * @return ListVolumesResponse

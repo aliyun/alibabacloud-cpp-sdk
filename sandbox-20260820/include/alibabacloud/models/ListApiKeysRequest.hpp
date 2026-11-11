@@ -100,13 +100,11 @@ namespace Models
     shared_ptr<int32_t> pageNumber_ {};
     // The number of API keys to return on each page. Default value: 10. Valid values: 1 to 100.
     shared_ptr<int32_t> pageSize_ {};
-    // The ID of the resource group.
+    // The resource group ID.
     shared_ptr<string> resourceGroupID_ {};
-    // Filters API keys by status. Valid values:
-    // - active: Enabled.
-    // - inactive: Disabled.
+    // Filters API keys by status. Valid values: active (enabled), inactive (disabled).
     shared_ptr<string> status_ {};
-    // The ID of the team.
+    // The team ID.
     shared_ptr<string> teamID_ {};
     // The user ID of the creator.
     shared_ptr<string> userID_ {};

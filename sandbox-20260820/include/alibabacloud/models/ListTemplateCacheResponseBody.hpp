@@ -88,13 +88,13 @@ namespace Models
 
 
   protected:
-    // The error code. The value is 200 if the request succeeds.
+    // The error code. The value is 200 if the request is successful.
     shared_ptr<string> code_ {};
-    // The maximum number of entries returned per page in this response.
+    // The maximum number of entries per page returned in this response.
     shared_ptr<int32_t> maxResults_ {};
     // The response message.
     shared_ptr<string> message_ {};
-    // The pagination token for the next page. It is empty if no more results are available.
+    // The pagination token for the next page. This value is empty if no more results are available.
     shared_ptr<string> nextToken_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};

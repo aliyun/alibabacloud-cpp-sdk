@@ -105,19 +105,23 @@ namespace Models
   protected:
     // The maximum number of entries to return per page.
     shared_ptr<int32_t> maxResults_ {};
-    // The pagination token. Leave this parameter empty for the first request. To query the next page, set this parameter to the nextToken value returned in the previous response.
+    // The pagination token. Leave this parameter empty for the first request. To retrieve the next page, set this parameter to the nextToken value returned in the previous response.
     shared_ptr<string> nextToken_ {};
     // The ID of the resource group.
     shared_ptr<string> resourceGroupID_ {};
-    // Filters by storage volume status. Valid values: CREATING (creating), AVAILABLE (available), ERROR (error), and DELETING (deleting).
+    // Filters by storage volume status. Valid values:
+    // - CREATING: The storage volume is being created.
+    // - AVAILABLE: The storage volume is available.
+    // - ERROR: The storage volume is in an error state.
+    // - DELETING: The storage volume is being deleted.
     shared_ptr<string> status_ {};
-    // Filters by storage class. Valid values: OSS, AGENTIC_BUCKET, AGENTIC_FS, and JUICE_FS.
+    // Filters storage volumes by storage class. Valid values: OSS, AGENTIC_BUCKET, AGENTIC_FS, and JUICE_FS.
     shared_ptr<string> storageClass_ {};
     // The ID of the team to which the storage volume belongs.
     shared_ptr<string> teamID_ {};
     // The user ID of the creator.
     shared_ptr<string> userID_ {};
-    // The name of the storage volume, which is unique within the team.
+    // The name of the storage volume. The name must be unique within the team.
     shared_ptr<string> volumeName_ {};
   };
 

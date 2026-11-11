@@ -16,10 +16,12 @@ namespace Models
   public:
     friend void to_json(Darabonba::Json& j, const PublicUpdateTemplateInput& obj) { 
       DARABONBA_PTR_TO_JSON(buildConfig, buildConfig_);
+      DARABONBA_PTR_TO_JSON(plan, plan_);
       DARABONBA_PTR_TO_JSON(runtimeConfig, runtimeConfig_);
     };
     friend void from_json(const Darabonba::Json& j, PublicUpdateTemplateInput& obj) { 
       DARABONBA_PTR_FROM_JSON(buildConfig, buildConfig_);
+      DARABONBA_PTR_FROM_JSON(plan, plan_);
       DARABONBA_PTR_FROM_JSON(runtimeConfig, runtimeConfig_);
     };
     PublicUpdateTemplateInput() = default ;
@@ -34,7 +36,7 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->buildConfig_ == nullptr
-        && this->runtimeConfig_ == nullptr; };
+        && this->plan_ == nullptr && this->runtimeConfig_ == nullptr; };
     // buildConfig Field Functions 
     bool hasBuildConfig() const { return this->buildConfig_ != nullptr;};
     void deleteBuildConfig() { this->buildConfig_ = nullptr;};
@@ -42,6 +44,13 @@ namespace Models
     inline PublicUpdateTemplateBuildConfig getBuildConfig() { DARABONBA_PTR_GET(buildConfig_, PublicUpdateTemplateBuildConfig) };
     inline PublicUpdateTemplateInput& setBuildConfig(const PublicUpdateTemplateBuildConfig & buildConfig) { DARABONBA_PTR_SET_VALUE(buildConfig_, buildConfig) };
     inline PublicUpdateTemplateInput& setBuildConfig(PublicUpdateTemplateBuildConfig && buildConfig) { DARABONBA_PTR_SET_RVALUE(buildConfig_, buildConfig) };
+
+
+    // plan Field Functions 
+    bool hasPlan() const { return this->plan_ != nullptr;};
+    void deletePlan() { this->plan_ = nullptr;};
+    inline string getPlan() const { DARABONBA_PTR_GET_DEFAULT(plan_, "") };
+    inline PublicUpdateTemplateInput& setPlan(string plan) { DARABONBA_PTR_SET_VALUE(plan_, plan) };
 
 
     // runtimeConfig Field Functions 
@@ -56,6 +65,8 @@ namespace Models
   protected:
     // The build configuration.
     shared_ptr<PublicUpdateTemplateBuildConfig> buildConfig_ {};
+    // The subscription plan for the team. Valid values: eco, std, and pro.
+    shared_ptr<string> plan_ {};
     // The runtime configuration.
     shared_ptr<PublicUpdateTemplateRuntimeConfig> runtimeConfig_ {};
   };

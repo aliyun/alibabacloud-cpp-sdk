@@ -57,7 +57,7 @@ namespace Models
 
 
   protected:
-    // The error code. 200 indicates success.
+    // The error code. A value of 200 indicates success.
     shared_ptr<string> code_ {};
     // The response message.
     shared_ptr<string> message_ {};

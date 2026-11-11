@@ -59,7 +59,7 @@ namespace Models
   protected:
     // The maximum number of entries to return per page. Default value: 20. Maximum value: 100.
     shared_ptr<int32_t> maxResults_ {};
-    // The pagination token. Set this parameter to the nextToken value returned in the previous response.
+    // The pagination token. Set this parameter to the nextToken value returned in the response of the previous request.
     shared_ptr<string> nextToken_ {};
     // The team ID.
     shared_ptr<string> teamID_ {};

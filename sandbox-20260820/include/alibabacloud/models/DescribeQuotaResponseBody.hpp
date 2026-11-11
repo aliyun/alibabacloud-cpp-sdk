@@ -3,6 +3,7 @@
 #define ALIBABACLOUD_MODELS_DESCRIBEQUOTARESPONSEBODY_HPP_
 #include <darabonba/Core.hpp>
 #include <alibabacloud/models/Quota.hpp>
+#include <alibabacloud/models/QuotaUsage.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud
@@ -18,12 +19,14 @@ namespace Models
       DARABONBA_PTR_TO_JSON(message, message_);
       DARABONBA_PTR_TO_JSON(quota, quota_);
       DARABONBA_PTR_TO_JSON(requestId, requestId_);
+      DARABONBA_PTR_TO_JSON(usage, usage_);
     };
     friend void from_json(const Darabonba::Json& j, DescribeQuotaResponseBody& obj) { 
       DARABONBA_PTR_FROM_JSON(code, code_);
       DARABONBA_PTR_FROM_JSON(message, message_);
       DARABONBA_PTR_FROM_JSON(quota, quota_);
       DARABONBA_PTR_FROM_JSON(requestId, requestId_);
+      DARABONBA_PTR_FROM_JSON(usage, usage_);
     };
     DescribeQuotaResponseBody() = default ;
     DescribeQuotaResponseBody(const DescribeQuotaResponseBody &) = default ;
@@ -37,7 +40,7 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->code_ == nullptr
-        && this->message_ == nullptr && this->quota_ == nullptr && this->requestId_ == nullptr; };
+        && this->message_ == nullptr && this->quota_ == nullptr && this->requestId_ == nullptr && this->usage_ == nullptr; };
     // code Field Functions 
     bool hasCode() const { return this->code_ != nullptr;};
     void deleteCode() { this->code_ = nullptr;};
@@ -68,15 +71,26 @@ namespace Models
     inline DescribeQuotaResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
+    // usage Field Functions 
+    bool hasUsage() const { return this->usage_ != nullptr;};
+    void deleteUsage() { this->usage_ = nullptr;};
+    inline const QuotaUsage & getUsage() const { DARABONBA_PTR_GET_CONST(usage_, QuotaUsage) };
+    inline QuotaUsage getUsage() { DARABONBA_PTR_GET(usage_, QuotaUsage) };
+    inline DescribeQuotaResponseBody& setUsage(const QuotaUsage & usage) { DARABONBA_PTR_SET_VALUE(usage_, usage) };
+    inline DescribeQuotaResponseBody& setUsage(QuotaUsage && usage) { DARABONBA_PTR_SET_RVALUE(usage_, usage) };
+
+
   protected:
-    // The response code. A value of 200 indicates success.
+    // The response code. The value is 200 if the request is successful.
     shared_ptr<string> code_ {};
-    // The response message. The value is success if the request succeeds.
+    // The response message. The value is success if the request is successful.
     shared_ptr<string> message_ {};
     // The quota configuration information.
     shared_ptr<Quota> quota_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
+    // The current quota usage of the team. This field is omitted when the usage is unavailable. If the query is successful and no quota is consumed, three zero values are returned.
+    shared_ptr<QuotaUsage> usage_ {};
   };
 
   } // namespace Models

@@ -102,13 +102,13 @@ namespace Models
     shared_ptr<vector<ApiKey>> apiKeys_ {};
     // The response code. A value of 200 indicates success.
     shared_ptr<string> code_ {};
-    // The response message. A value of success indicates a successful request.
+    // The response message. The value is success if the request succeeds.
     shared_ptr<string> message_ {};
     // The page number of the current query.
     shared_ptr<int32_t> pageNumber_ {};
     // The number of entries per page used in the current query.
     shared_ptr<int32_t> pageSize_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
     // The total number of API keys that meet the query conditions.
     shared_ptr<int32_t> total_ {};

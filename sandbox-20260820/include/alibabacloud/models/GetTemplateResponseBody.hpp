@@ -92,9 +92,9 @@ namespace Models
 
 
     protected:
-      // The tag key.
+      // The key of the tag.
       shared_ptr<string> tagKey_ {};
-      // The tag value.
+      // The value of the tag.
       shared_ptr<string> tagValue_ {};
     };
 
@@ -213,7 +213,7 @@ namespace Models
     shared_ptr<PublicTemplateStatus> status_ {};
     // The team ID.
     shared_ptr<string> teamID_ {};
-    // The team name.
+    // The name of the team.
     shared_ptr<string> teamName_ {};
     // The unique identifier of the template.
     shared_ptr<string> templateID_ {};

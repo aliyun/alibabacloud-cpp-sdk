@@ -2,12 +2,14 @@
 #include <alibabacloud/Sandbox20260820.hpp>
 #include <alibabacloud/Utils.hpp>
 #include <alibabacloud/Openapi.hpp>
+#include <alibabacloud/gateway/POP.hpp>
 #include <map>
 #include <darabonba/Runtime.hpp>
 #include <darabonba/encode/Encoder.hpp>
 using namespace std;
 using namespace Darabonba;
 using json = nlohmann::json;
+using namespace AlibabaCloud::Gateway;
 using namespace AlibabaCloud::OpenApi;
 using OpenApiClient = AlibabaCloud::OpenApi::Client;
 using namespace AlibabaCloud::OpenApi::Utils::Models;
@@ -18,6 +20,9 @@ namespace Sandbox20260820
 {
 
 AlibabaCloud::Sandbox20260820::Client::Client(Config &config): OpenApiClient(config){
+  this->_productId = "Sandbox";
+  shared_ptr<POP> gatewayClient = make_shared<POP>();
+  this->_spi = gatewayClient;
   this->_endpointRule = "regional";
   checkConfig(config);
   this->_endpoint = getEndpoint("sandbox", _regionId, _endpointRule, _network, _suffix, _endpointMap, _endpoint);
@@ -534,7 +539,7 @@ DescribeApiKeyResponse Client::describeApiKey(const string &apiKeyID, const Desc
 }
 
 /**
- * @summary Queries the quota configuration of a specified team.
+ * @summary Queries the quota configurations of a specified team.
  *
  * @param request DescribeQuotaRequest
  * @param headers map
@@ -567,7 +572,7 @@ DescribeQuotaResponse Client::describeQuotaWithOptions(const DescribeQuotaReques
 }
 
 /**
- * @summary Queries the quota configuration of a specified team.
+ * @summary Queries the quota configurations of a specified team.
  *
  * @param request DescribeQuotaRequest
  * @return DescribeQuotaResponse
@@ -822,7 +827,7 @@ ListApiKeysResponse Client::listApiKeys(const ListApiKeysRequest &request) {
 }
 
 /**
- * @summary Performs a paging query on the quota configurations for the current account.
+ * @summary Performs a paging query to retrieve the quota configuration list for the current account.
  *
  * @param request ListQuotaRequest
  * @param headers map
@@ -859,7 +864,7 @@ ListQuotaResponse Client::listQuotaWithOptions(const ListQuotaRequest &request, 
 }
 
 /**
- * @summary Performs a paging query on the quota configurations for the current account.
+ * @summary Performs a paging query to retrieve the quota configuration list for the current account.
  *
  * @param request ListQuotaRequest
  * @return ListQuotaResponse
@@ -871,7 +876,7 @@ ListQuotaResponse Client::listQuota(const ListQuotaRequest &request) {
 }
 
 /**
- * @summary Queries the list of teams by using paging.
+ * @summary Queries the team list by using paging.
  *
  * @param request ListTeamsRequest
  * @param headers map
@@ -920,7 +925,7 @@ ListTeamsResponse Client::listTeamsWithOptions(const ListTeamsRequest &request, 
 }
 
 /**
- * @summary Queries the list of teams by using paging.
+ * @summary Queries the team list by using paging.
  *
  * @param request ListTeamsRequest
  * @return ListTeamsResponse
@@ -932,7 +937,7 @@ ListTeamsResponse Client::listTeams(const ListTeamsRequest &request) {
 }
 
 /**
- * @summary Performs a paging query of template caches.
+ * @summary Performs a paged query on template caches with paging support.
  *
  * @param request ListTemplateCacheRequest
  * @param headers map
@@ -981,7 +986,7 @@ ListTemplateCacheResponse Client::listTemplateCacheWithOptions(const ListTemplat
 }
 
 /**
- * @summary Performs a paging query of template caches.
+ * @summary Performs a paged query on template caches with paging support.
  *
  * @param request ListTemplateCacheRequest
  * @return ListTemplateCacheResponse
@@ -993,7 +998,7 @@ ListTemplateCacheResponse Client::listTemplateCache(const ListTemplateCacheReque
 }
 
 /**
- * @summary Performs a paged query on the template list by using paging.
+ * @summary Performs a paged query to retrieve the template list with paging.
  *
  * @param request ListTemplatesRequest
  * @param headers map
@@ -1034,7 +1039,7 @@ ListTemplatesResponse Client::listTemplatesWithOptions(const ListTemplatesReques
 }
 
 /**
- * @summary Performs a paged query on the template list by using paging.
+ * @summary Performs a paged query to retrieve the template list with paging.
  *
  * @param request ListTemplatesRequest
  * @return ListTemplatesResponse
@@ -1046,7 +1051,7 @@ ListTemplatesResponse Client::listTemplates(const ListTemplatesRequest &request)
 }
 
 /**
- * @summary Queries a list of storage volumes by using paging.
+ * @summary Queries the list of storage volumes by using paging.
  *
  * @param request ListVolumesRequest
  * @param headers map
@@ -1107,7 +1112,7 @@ ListVolumesResponse Client::listVolumesWithOptions(const ListVolumesRequest &req
 }
 
 /**
- * @summary Queries a list of storage volumes by using paging.
+ * @summary Queries the list of storage volumes by using paging.
  *
  * @param request ListVolumesRequest
  * @return ListVolumesResponse
