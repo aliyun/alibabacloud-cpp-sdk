@@ -135,13 +135,13 @@ namespace Models
     protected:
       // The permissions.
       shared_ptr<string> acl_ {};
-      // The creation time.
+      // The creation time. The time is displayed in UTC and follows the ISO 8601 standard in the YYYY-MM-DDTHH:mm:ssZ format.
       shared_ptr<string> createTime_ {};
       // The workspace description.
       shared_ptr<string> description_ {};
       // The administrator name.
       shared_ptr<string> maintainer_ {};
-      // The number of Registry templates in the workspace.
+      // The number of registry templates in the workspace.
       shared_ptr<int32_t> modules_ {};
       // The workspace name.
       shared_ptr<string> namespaceName_ {};
@@ -193,7 +193,7 @@ namespace Models
   protected:
     // The total number of records.
     shared_ptr<int64_t> count_ {};
-    // The maximum number of records returned at a time.
+    // The maximum number of records returned in a single call.
     shared_ptr<int32_t> maxResults_ {};
     // The list of workspaces.
     shared_ptr<vector<ListRegistryNamespacesResponseBody::Namespaces>> namespaces_ {};

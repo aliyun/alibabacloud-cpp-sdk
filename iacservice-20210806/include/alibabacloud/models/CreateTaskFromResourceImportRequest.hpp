@@ -66,12 +66,20 @@ namespace Models
 
 
   protected:
+    // The client token that is used to ensure the idempotence of the request. The token must be 1 to 64 characters in length and can contain only letters, digits, and hyphens (-). A UUID is recommended.
+    // 
     // This parameter is required.
     shared_ptr<string> clientToken_ {};
+    // The ID of the resource export task.
+    // 
     // This parameter is required.
     shared_ptr<string> exportTaskId_ {};
+    // The resource export version.
+    // 
     // This parameter is required.
     shared_ptr<string> exportVersion_ {};
+    // The name of the task.
+    // 
     // This parameter is required.
     shared_ptr<string> taskName_ {};
   };

@@ -122,16 +122,15 @@ namespace Models
 
 
     protected:
-      // The creation time.
+      // The creation time. The format is YYYY-MM-DD HH:mm:ss. The returned value does not include a time zone identifier.
       shared_ptr<string> createTime_ {};
-      // The template name.
+      // The name of the template.
       shared_ptr<string> moduleName_ {};
-      // The workspace name.
+      // The name of the workspace.
       shared_ptr<string> namespaceName_ {};
-      // The provider type. Valid values:
-      // - alicloud: Alibaba Cloud.
+      // The provider type. Valid value: alicloud: Alibaba Cloud.
       shared_ptr<string> provider_ {};
-      // The template source, in the format of namespaceName/ModuleName.
+      // The template source. Format: namespaceName/ModuleName.
       shared_ptr<string> source_ {};
       // The source URL of the template.
       shared_ptr<string> sourceUrl_ {};
@@ -181,11 +180,11 @@ namespace Models
   protected:
     // The total number of records.
     shared_ptr<int64_t> count_ {};
-    // The number of entries per page in a paged query. Maximum value: 100. Default value: 20.
+    // The number of entries to return per page for paging in a paged query. Maximum value: 100. Default value: 20.
     shared_ptr<int32_t> maxResults_ {};
     // The list of template versions.
     shared_ptr<vector<ListRegistryModuleVersionsResponseBody::ModuleVersions>> moduleVersions_ {};
-    // The pagination token. Set this parameter to the NextToken value returned in the previous API call.
+    // The pagination token. Set the value to the NextToken value returned from the previous API call.
     shared_ptr<string> nextToken_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

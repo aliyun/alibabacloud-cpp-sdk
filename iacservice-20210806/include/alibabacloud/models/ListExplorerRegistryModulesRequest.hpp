@@ -75,7 +75,7 @@ namespace Models
 
 
   protected:
-    // The search keyword for the module name. Fuzzy matching is performed based on `moduleName`.
+    // The search keyword for the module name. A fuzzy match is performed based on `moduleName`.
     shared_ptr<string> keyword_ {};
     // The maximum number of entries per page.
     // 
@@ -85,14 +85,14 @@ namespace Models
     shared_ptr<int32_t> maxResults_ {};
     // The name of the module.
     // 
-    // Note: The module name is not necessarily the same as the product name or resource name.
+    // Note: The module name may differ from the product name or resource name.
     shared_ptr<string> moduleName_ {};
-    // The pagination token for the next page of results.
+    // The token used to query the next page of results.
     // 
-    // If the total number of entries exceeds the maxResults limit, the data is truncated. You can use nextToken to query the next page of data.
+    // If the total number of entries exceeds the value of `maxResults`, the returned data is truncated. You can use `nextToken` to query the next page.
     shared_ptr<string> nextToken_ {};
-    // The sort order of the returned results. Valid values:
-    // - Normal (default): returns results in normal order.
+    // The sorting method for the returned results. Valid values:
+    // - Normal: returns results in default order. This is the default value.
     // - Top: returns results sorted by popularity.
     shared_ptr<string> sort_ {};
   };

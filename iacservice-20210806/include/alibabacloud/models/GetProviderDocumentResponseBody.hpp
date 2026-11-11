@@ -66,10 +66,13 @@ namespace Models
 
 
   protected:
+    // The Terraform provider resource document.
     shared_ptr<string> document_ {};
+    // The Terraform provider version.
     shared_ptr<string> providerVersion_ {};
-    // Id of the request
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // The Terraform resource type.
     shared_ptr<string> terraformResourceType_ {};
   };
 

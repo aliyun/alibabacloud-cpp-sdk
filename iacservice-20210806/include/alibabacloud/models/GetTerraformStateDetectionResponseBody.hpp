@@ -180,7 +180,7 @@ namespace Models
         shared_ptr<string> driftedType_ {};
         // The Terraform resource ID.
         shared_ptr<string> resourceId_ {};
-        // The identifier of the resource in the Terraform template. For a Stack task, the value is in the format of <$componetName>:<$resourceName>. For a Task task, the value is <$resourceName>.
+        // The identifier of the resource in the Terraform template. The format is <$componetName>:<$resourceName> for stack tasks and <$resourceName> for tasks.
         shared_ptr<string> resourceIdentifier_ {};
       };
 
@@ -262,7 +262,7 @@ namespace Models
           shared_ptr<string> attributePath_ {};
           // The server-side state value.
           shared_ptr<string> remoteValue_ {};
-          // The template-declared value.
+          // The value declared in the template.
           shared_ptr<string> templateValue_ {};
         };
 
@@ -314,7 +314,7 @@ namespace Models
         shared_ptr<bool> hasDrift_ {};
         // The Terraform resource ID.
         shared_ptr<string> resourceId_ {};
-        // The identifier of the resource in the Terraform template. For a Stack task, the value is in the format of <$componetName>:<$resourceName>. For a Task task, the value is <$resourceName>.
+        // The identifier of the resource in the Terraform template. The format is <$componetName>:<$resourceName> for stack tasks and <$resourceName> for tasks.
         shared_ptr<string> resourceIdentifier_ {};
       };
 
@@ -373,18 +373,17 @@ namespace Models
       shared_ptr<vector<Job::DriftedResources>> driftedResources_ {};
       // The error message.
       shared_ptr<string> errorMessage_ {};
-      // The task identifier. For a Stack task, the value is in the format of <$stackId>:<$deploymentName>. For a Task task, the value is <$TaskId>.
+      // The job identifier. The format is <$stackId>:<$deploymentName> for stack tasks and <$TaskId> for tasks.
       shared_ptr<string> identifier_ {};
       // The job status. Valid values:
-      // 
-      // - Pending: the initial status after the job is created.
-      // - PlanQueued: the job is queued because no containers are available after the job is created.
-      // - Planning: the resource job is in the Plan execution phase.
-      // - Planned: the resource job has completed the Plan execution.
-      // - PlannedAndFinished: no differences are found after the Plan execution is complete. The job is in a final status.
-      // - Errored: the job execution encountered an error and entered a final status.
+      // - Pending: The initial state after the job is created.
+      // - PlanQueued: The job is queued and waiting because no containers are available after creation.
+      // - Planning: The resource job is in the plan execution phase.
+      // - Planned: The resource job has completed plan execution.
+      // - PlannedAndFinished: The job is in the final state because no differences are found after plan execution.
+      // - Errored: The job has entered the final state due to an execution error.
       shared_ptr<string> status_ {};
-      // The task type.
+      // The job type.
       shared_ptr<string> type_ {};
     };
 

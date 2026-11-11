@@ -195,7 +195,7 @@ namespace Models
 
 
     protected:
-      // The creation time.
+      // The creation time. The time is displayed in UTC and follows the ISO 8601 standard in the YYYY-MM-DDTHH:mm:ssZ format.
       shared_ptr<string> createTime_ {};
       // The group description.
       shared_ptr<string> description_ {};
@@ -263,7 +263,7 @@ namespace Models
     shared_ptr<vector<ListGroupResponseBody::Groups>> groups_ {};
     // The current page number.
     shared_ptr<int64_t> pageNumber_ {};
-    // The page size, which indicates the maximum number of results returned per page.
+    // The page size, which specifies the maximum number of results returned per page.
     shared_ptr<int64_t> pageSize_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

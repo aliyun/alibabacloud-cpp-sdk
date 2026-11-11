@@ -50,7 +50,7 @@ namespace Models
   protected:
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The template source, which is a concatenation of \\<namespaceName>/\\<ModuleName>.
+    // The template source, which is concatenated in the \\<namespaceName>/\\<ModuleName> format.
     shared_ptr<string> source_ {};
   };
 

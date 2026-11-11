@@ -57,11 +57,11 @@ namespace Models
 
 
   protected:
-    // The idempotence token. Format: [0-9a-zA-Z-]{1,64}. Use a UUID.
+    // The idempotency token. Format: [0-9a-zA-Z-]{1,64}. A UUID is recommended.
     shared_ptr<string> clientToken_ {};
     // The ID of the KMS key used for encryption.
     shared_ptr<string> kmsKeyId_ {};
-    // The region ID of the KMS key.
+    // The ID of the region to which the KMS key belongs.
     shared_ptr<string> kmsRegionId_ {};
   };
 

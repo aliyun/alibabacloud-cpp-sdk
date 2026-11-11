@@ -22,9 +22,9 @@ namespace IaCService20210806
       string getEndpoint(const string &productId, const string &regionId, const string &endpointRule, const string &network, const string &suffix, const map<string, string> &endpointMap, const string &endpoint);
 
       /**
-       * @summary Adds shared accounts.
+       * @summary Adds a shared account.
        *
-       * @description Per-user call frequency: 100 calls per second.
+       * @description The rate limit per user is 100 calls per second.
        *
        * @param request AddSharedAccountsRequest
        * @param headers map
@@ -34,9 +34,9 @@ namespace IaCService20210806
       Models::AddSharedAccountsResponse addSharedAccountsWithOptions(const Models::AddSharedAccountsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Adds shared accounts.
+       * @summary Adds a shared account.
        *
-       * @description Per-user call frequency: 100 calls per second.
+       * @description The rate limit per user is 100 calls per second.
        *
        * @param request AddSharedAccountsRequest
        * @return AddSharedAccountsResponse
@@ -80,12 +80,12 @@ namespace IaCService20210806
       Models::AssociateGroupResponse associateGroup(const string &groupId, const Models::AssociateGroupRequest &request);
 
       /**
-       * @summary Associates parameter sets.
+       * @summary Associates parameter sets with a resource.
        *
-       * @description After creating a parameter set, you need to associate it with a resource. Valid values for the resource type:
+       * @description After you create a parameter set, you must associate it with a resource. Valid values for the resource type:
        * - Module: template
        * - ModuleVersion: template version
-       * - Task: node.
+       * - Task: task.
        *
        * @param request AssociateParameterSetRequest
        * @param headers map
@@ -95,12 +95,12 @@ namespace IaCService20210806
       Models::AssociateParameterSetResponse associateParameterSetWithOptions(const Models::AssociateParameterSetRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Associates parameter sets.
+       * @summary Associates parameter sets with a resource.
        *
-       * @description After creating a parameter set, you need to associate it with a resource. Valid values for the resource type:
+       * @description After you create a parameter set, you must associate it with a resource. Valid values for the resource type:
        * - Module: template
        * - ModuleVersion: template version
-       * - Task: node.
+       * - Task: task.
        *
        * @param request AssociateParameterSetRequest
        * @return AssociateParameterSetResponse
@@ -110,7 +110,7 @@ namespace IaCService20210806
       /**
        * @summary Cancels a resource export task.
        *
-       * @description Single-user call frequency: 100 calls per second.
+       * @description The rate limit per user is 100 calls per second.
        *
        * @param request CancelResourceExportTaskRequest
        * @param headers map
@@ -122,7 +122,7 @@ namespace IaCService20210806
       /**
        * @summary Cancels a resource export task.
        *
-       * @description Single-user call frequency: 100 calls per second.
+       * @description The rate limit per user is 100 calls per second.
        *
        * @param request CancelResourceExportTaskRequest
        * @return CancelResourceExportTaskResponse
@@ -180,7 +180,7 @@ namespace IaCService20210806
       /**
        * @summary Creates a job and runs a task.
        *
-       * @description Single-user call frequency: 100 calls per second.
+       * @description The rate limit per user is 100 calls per second.
        *
        * @param request CreateJobRequest
        * @param headers map
@@ -192,7 +192,7 @@ namespace IaCService20210806
       /**
        * @summary Creates a job and runs a task.
        *
-       * @description Single-user call frequency: 100 calls per second.
+       * @description The rate limit per user is 100 calls per second.
        *
        * @param request CreateJobRequest
        * @return CreateJobResponse
@@ -200,9 +200,9 @@ namespace IaCService20210806
       Models::CreateJobResponse createJob(const string &taskId, const Models::CreateJobRequest &request);
 
       /**
-       * @summary Creates a Terraform template. Multiple source methods are supported, such as OSS import, Registry import, file upload, and online editing.
+       * @summary Creates a Terraform template by using various source methods such as OSS import, Registry import, file upload, and online editing.
        *
-       * @description Single-user call frequency: 100 calls per second.
+       * @description The rate limit for a single user is 100 calls per second.
        *
        * @param request CreateModuleRequest
        * @param headers map
@@ -212,9 +212,9 @@ namespace IaCService20210806
       Models::CreateModuleResponse createModuleWithOptions(const Models::CreateModuleRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Creates a Terraform template. Multiple source methods are supported, such as OSS import, Registry import, file upload, and online editing.
+       * @summary Creates a Terraform template by using various source methods such as OSS import, Registry import, file upload, and online editing.
        *
-       * @description Single-user call frequency: 100 calls per second.
+       * @description The rate limit for a single user is 100 calls per second.
        *
        * @param request CreateModuleRequest
        * @return CreateModuleResponse
@@ -224,8 +224,8 @@ namespace IaCService20210806
       /**
        * @summary Publishes a new version for a specified template.
        *
-       * @description ## Operation description
-       * - Use the `clientToken` parameter to ensure idempotence of the request and prevent duplicate submissions caused by network retries.
+       * @description ## Request description
+       * - Use the `clientToken` parameter to ensure the idempotence of the request and prevent duplicate submissions caused by network retries.
        * - Use semantic versioning (such as `v1.0.0`).
        *
        * @param request CreateModuleVersionRequest
@@ -238,8 +238,8 @@ namespace IaCService20210806
       /**
        * @summary Publishes a new version for a specified template.
        *
-       * @description ## Operation description
-       * - Use the `clientToken` parameter to ensure idempotence of the request and prevent duplicate submissions caused by network retries.
+       * @description ## Request description
+       * - Use the `clientToken` parameter to ensure the idempotence of the request and prevent duplicate submissions caused by network retries.
        * - Use semantic versioning (such as `v1.0.0`).
        *
        * @param request CreateModuleVersionRequest
@@ -300,7 +300,7 @@ namespace IaCService20210806
       /**
        * @summary Creates a Registry template.
        *
-       * @description Per-user call frequency: 100 calls per second.
+       * @description The rate limit per user is 100 calls per second.
        *
        * @param request CreateRegistryModuleRequest
        * @param headers map
@@ -312,7 +312,7 @@ namespace IaCService20210806
       /**
        * @summary Creates a Registry template.
        *
-       * @description Per-user call frequency: 100 calls per second.
+       * @description The rate limit per user is 100 calls per second.
        *
        * @param request CreateRegistryModuleRequest
        * @return CreateRegistryModuleResponse
@@ -322,7 +322,7 @@ namespace IaCService20210806
       /**
        * @summary Creates a workspace.
        *
-       * @description Single-user call frequency: 100 calls per second.
+       * @description Rate limit per user: 100 calls per second.
        *
        * @param request CreateRegistryNamespaceRequest
        * @param headers map
@@ -334,7 +334,7 @@ namespace IaCService20210806
       /**
        * @summary Creates a workspace.
        *
-       * @description Single-user call frequency: 100 calls per second.
+       * @description Rate limit per user: 100 calls per second.
        *
        * @param request CreateRegistryNamespaceRequest
        * @return CreateRegistryNamespaceResponse
@@ -344,7 +344,7 @@ namespace IaCService20210806
       /**
        * @summary Creates a resource export task.
        *
-       * @description Single-user call frequency: 100 calls per second.
+       * @description The rate limit per user is 100 calls per second.
        *
        * @param request CreateResourceExportTaskRequest
        * @param headers map
@@ -356,7 +356,7 @@ namespace IaCService20210806
       /**
        * @summary Creates a resource export task.
        *
-       * @description Single-user call frequency: 100 calls per second.
+       * @description The rate limit per user is 100 calls per second.
        *
        * @param request CreateResourceExportTaskRequest
        * @return CreateResourceExportTaskResponse
@@ -364,7 +364,7 @@ namespace IaCService20210806
       Models::CreateResourceExportTaskResponse createResourceExportTask(const Models::CreateResourceExportTaskRequest &request);
 
       /**
-       * @summary Creates a resource stack and triggers deployment.
+       * @summary Creates a stack and triggers a deployment.
        *
        * @param request CreateStackRequest
        * @param headers map
@@ -374,7 +374,7 @@ namespace IaCService20210806
       Models::CreateStackResponse createStackWithOptions(const Models::CreateStackRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Creates a resource stack and triggers deployment.
+       * @summary Creates a stack and triggers a deployment.
        *
        * @param request CreateStackRequest
        * @return CreateStackResponse
@@ -404,7 +404,7 @@ namespace IaCService20210806
       Models::CreateTaskResponse createTask(const Models::CreateTaskRequest &request);
 
       /**
-       * @summary Creates a node from a resource import result.
+       * @summary Creates a task from a resource import result.
        *
        * @param request CreateTaskFromResourceImportRequest
        * @param headers map
@@ -414,7 +414,7 @@ namespace IaCService20210806
       Models::CreateTaskFromResourceImportResponse createTaskFromResourceImportWithOptions(const Models::CreateTaskFromResourceImportRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Creates a node from a resource import result.
+       * @summary Creates a task from a resource import result.
        *
        * @param request CreateTaskFromResourceImportRequest
        * @return CreateTaskFromResourceImportResponse
@@ -422,7 +422,7 @@ namespace IaCService20210806
       Models::CreateTaskFromResourceImportResponse createTaskFromResourceImport(const Models::CreateTaskFromResourceImportRequest &request);
 
       /**
-       * @summary Deletes a bias detection configuration.
+       * @summary Deletes the bias detection configuration.
        *
        * @param request DeleteDetectConfigRequest
        * @param headers map
@@ -432,7 +432,7 @@ namespace IaCService20210806
       Models::DeleteDetectConfigResponse deleteDetectConfigWithOptions(const string &detectConfigId, const Models::DeleteDetectConfigRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Deletes a bias detection configuration.
+       * @summary Deletes the bias detection configuration.
        *
        * @param request DeleteDetectConfigRequest
        * @return DeleteDetectConfigResponse
@@ -460,9 +460,9 @@ namespace IaCService20210806
       /**
        * @summary Deletes a specified template and all its versions.
        *
-       * @description ## Operation description
+       * @description ## Request description
        * - This operation deletes a specified template.
-       * - Deletion is irreversible. Proceed with caution.
+       * - The deletion operation is irreversible. Proceed with caution.
        *
        * @param request DeleteModuleRequest
        * @param headers map
@@ -474,9 +474,9 @@ namespace IaCService20210806
       /**
        * @summary Deletes a specified template and all its versions.
        *
-       * @description ## Operation description
+       * @description ## Request description
        * - This operation deletes a specified template.
-       * - Deletion is irreversible. Proceed with caution.
+       * - The deletion operation is irreversible. Proceed with caution.
        *
        * @param request DeleteModuleRequest
        * @return DeleteModuleResponse
@@ -484,9 +484,9 @@ namespace IaCService20210806
       Models::DeleteModuleResponse deleteModule(const string &moduleId, const Models::DeleteModuleRequest &request);
 
       /**
-       * @summary Deletes a specified parameter set by parameter set ID.
+       * @summary Deletes a specified parameter set by its ID.
        *
-       * @description Deletes a specified parameter set.
+       * @description Deletes a parameter set.
        *
        * @param request DeleteParameterSetRequest
        * @param headers map
@@ -496,9 +496,9 @@ namespace IaCService20210806
       Models::DeleteParameterSetResponse deleteParameterSetWithOptions(const string &parameterSetId, const Models::DeleteParameterSetRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Deletes a specified parameter set by parameter set ID.
+       * @summary Deletes a specified parameter set by its ID.
        *
-       * @description Deletes a specified parameter set.
+       * @description Deletes a parameter set.
        *
        * @param request DeleteParameterSetRequest
        * @return DeleteParameterSetResponse
@@ -526,7 +526,7 @@ namespace IaCService20210806
       /**
        * @summary Deletes a Registry template.
        *
-       * @description Single-user call frequency: 100 calls per second.
+       * @description The rate limit per user is 100 calls per second.
        *
        * @param request DeleteRegistryModuleRequest
        * @param headers map
@@ -538,7 +538,7 @@ namespace IaCService20210806
       /**
        * @summary Deletes a Registry template.
        *
-       * @description Single-user call frequency: 100 calls per second.
+       * @description The rate limit per user is 100 calls per second.
        *
        * @param request DeleteRegistryModuleRequest
        * @return DeleteRegistryModuleResponse
@@ -546,9 +546,9 @@ namespace IaCService20210806
       Models::DeleteRegistryModuleResponse deleteRegistryModule(const string &namespaceName, const string &moduleName, const Models::DeleteRegistryModuleRequest &request);
 
       /**
-       * @summary Deletes a Registry template version.
+       * @summary Deletes a registry template version.
        *
-       * @description Single-user call frequency: 100 calls per second.
+       * @description Rate limit per user: 100 calls per second.
        *
        * @param request DeleteRegistryModuleVersionRequest
        * @param headers map
@@ -558,9 +558,9 @@ namespace IaCService20210806
       Models::DeleteRegistryModuleVersionResponse deleteRegistryModuleVersionWithOptions(const string &namespaceName, const string &moduleName, const string &version, const Models::DeleteRegistryModuleVersionRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Deletes a Registry template version.
+       * @summary Deletes a registry template version.
        *
-       * @description Single-user call frequency: 100 calls per second.
+       * @description Rate limit per user: 100 calls per second.
        *
        * @param request DeleteRegistryModuleVersionRequest
        * @return DeleteRegistryModuleVersionResponse
@@ -570,7 +570,7 @@ namespace IaCService20210806
       /**
        * @summary Deletes a workspace.
        *
-       * @description Single-user call frequency: 100 calls per second.
+       * @description The rate limit per user is 100 calls per second.
        *
        * @param request DeleteRegistryNamespaceRequest
        * @param headers map
@@ -582,7 +582,7 @@ namespace IaCService20210806
       /**
        * @summary Deletes a workspace.
        *
-       * @description Single-user call frequency: 100 calls per second.
+       * @description The rate limit per user is 100 calls per second.
        *
        * @param request DeleteRegistryNamespaceRequest
        * @return DeleteRegistryNamespaceResponse
@@ -592,7 +592,7 @@ namespace IaCService20210806
       /**
        * @summary Deletes a resource export task.
        *
-       * @description Single-user call frequency: 100 calls per second.
+       * @description The call frequency per user is 100 calls per second.
        *
        * @param request DeleteResourceExportTaskRequest
        * @param headers map
@@ -604,7 +604,7 @@ namespace IaCService20210806
       /**
        * @summary Deletes a resource export task.
        *
-       * @description Single-user call frequency: 100 calls per second.
+       * @description The call frequency per user is 100 calls per second.
        *
        * @param request DeleteResourceExportTaskRequest
        * @return DeleteResourceExportTaskResponse
@@ -630,10 +630,10 @@ namespace IaCService20210806
       Models::DeleteStackResponse deleteStack(const string &stackId, const Models::DeleteStackRequest &request);
 
       /**
-       * @summary Deletes a node.
+       * @summary Deletes a task.
        *
-       * @description Single-user call frequency: 100 calls per second.
-       * Deletes a node. If the node has resources that have not been destroyed, the deletion is not allowed.
+       * @description Rate limit per user: 100 calls per second.
+       * Deletes a task. If the task has unreleased resources, it cannot be deleted.
        *
        * @param request DeleteTaskRequest
        * @param headers map
@@ -643,10 +643,10 @@ namespace IaCService20210806
       Models::DeleteTaskResponse deleteTaskWithOptions(const string &taskId, const Models::DeleteTaskRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Deletes a node.
+       * @summary Deletes a task.
        *
-       * @description Single-user call frequency: 100 calls per second.
-       * Deletes a node. If the node has resources that have not been destroyed, the deletion is not allowed.
+       * @description Rate limit per user: 100 calls per second.
+       * Deletes a task. If the task has unreleased resources, it cannot be deleted.
        *
        * @param request DeleteTaskRequest
        * @return DeleteTaskResponse
@@ -656,7 +656,7 @@ namespace IaCService20210806
       /**
        * @summary Initiates a state file consistency check.
        *
-       * @description This API is used to perform drift detection on the state files of resource orchestration tasks and stack tasks in the automated service desk.
+       * @description This API is primarily used to perform drift detection on the state files of resource orchestration tasks and stack tasks on the automated service desk.
        *
        * @param request DetectTerraformStateRequest
        * @param headers map
@@ -668,7 +668,7 @@ namespace IaCService20210806
       /**
        * @summary Initiates a state file consistency check.
        *
-       * @description This API is used to perform drift detection on the state files of resource orchestration tasks and stack tasks in the automated service desk.
+       * @description This API is primarily used to perform drift detection on the state files of resource orchestration tasks and stack tasks on the automated service desk.
        *
        * @param request DetectTerraformStateRequest
        * @return DetectTerraformStateResponse
@@ -694,7 +694,7 @@ namespace IaCService20210806
       Models::DissociateDetectConfigResponse dissociateDetectConfig(const Models::DissociateDetectConfigRequest &request);
 
       /**
-       * @summary Dissociates a resource group.
+       * @summary Dissociates resources from a group.
        *
        * @param request DissociateGroupRequest
        * @param headers map
@@ -704,7 +704,7 @@ namespace IaCService20210806
       Models::DissociateGroupResponse dissociateGroupWithOptions(const string &projectId, const string &groupId, const Models::DissociateGroupRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Dissociates a resource group.
+       * @summary Dissociates resources from a group.
        *
        * @param request DissociateGroupRequest
        * @return DissociateGroupResponse
@@ -712,7 +712,7 @@ namespace IaCService20210806
       Models::DissociateGroupResponse dissociateGroup(const string &projectId, const string &groupId, const Models::DissociateGroupRequest &request);
 
       /**
-       * @summary Dissociates a parameter set from other resources.
+       * @summary Dissociates parameter sets from other resources.
        *
        * @param request DissociateParameterSetRequest
        * @param headers map
@@ -722,7 +722,7 @@ namespace IaCService20210806
       Models::DissociateParameterSetResponse dissociateParameterSetWithOptions(const Models::DissociateParameterSetRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Dissociates a parameter set from other resources.
+       * @summary Dissociates parameter sets from other resources.
        *
        * @param request DissociateParameterSetRequest
        * @return DissociateParameterSetResponse
@@ -730,9 +730,9 @@ namespace IaCService20210806
       Models::DissociateParameterSetResponse dissociateParameterSet(const Models::DissociateParameterSetRequest &request);
 
       /**
-       * @summary Executes a Module officially provided by Alibaba Cloud Terraform.
+       * @summary Executes an official Alibaba Cloud Terraform module.
        *
-       * @description This API operation is used to execute Terraform Module code to create or update cloud resources. Before using this API operation, make sure that all required authentication information is correctly configured and that the Terraform code corresponding to the Module meets the expected functional requirements.
+       * @description This API is primarily used to execute Terraform module code to create or update cloud resources. Before using this API, ensure that all necessary authentication information is correctly configured and that the Terraform code for the module meets the expected functional requirements.
        *
        * @param request ExecuteRegistryModuleRequest
        * @param headers map
@@ -742,9 +742,9 @@ namespace IaCService20210806
       Models::ExecuteRegistryModuleResponse executeRegistryModuleWithOptions(const string &namespaceName, const string &moduleName, const Models::ExecuteRegistryModuleRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Executes a Module officially provided by Alibaba Cloud Terraform.
+       * @summary Executes an official Alibaba Cloud Terraform module.
        *
-       * @description This API operation is used to execute Terraform Module code to create or update cloud resources. Before using this API operation, make sure that all required authentication information is correctly configured and that the Terraform code corresponding to the Module meets the expected functional requirements.
+       * @description This API is primarily used to execute Terraform module code to create or update cloud resources. Before using this API, ensure that all necessary authentication information is correctly configured and that the Terraform code for the module meets the expected functional requirements.
        *
        * @param request ExecuteRegistryModuleRequest
        * @return ExecuteRegistryModuleResponse
@@ -752,9 +752,9 @@ namespace IaCService20210806
       Models::ExecuteRegistryModuleResponse executeRegistryModule(const string &namespaceName, const string &moduleName, const Models::ExecuteRegistryModuleRequest &request);
 
       /**
-       * @summary Runs a resource export task.
+       * @summary Executes a resource export task.
        *
-       * @description Single-user call frequency: 100 calls per second.
+       * @description The rate limit per user is 100 calls per second.
        *
        * @param request ExecuteResourceExportTaskRequest
        * @param headers map
@@ -764,9 +764,9 @@ namespace IaCService20210806
       Models::ExecuteResourceExportTaskResponse executeResourceExportTaskWithOptions(const string &exportTaskId, const Models::ExecuteResourceExportTaskRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Runs a resource export task.
+       * @summary Executes a resource export task.
        *
-       * @description Single-user call frequency: 100 calls per second.
+       * @description The rate limit per user is 100 calls per second.
        *
        * @param request ExecuteResourceExportTaskRequest
        * @return ExecuteResourceExportTaskResponse
@@ -774,10 +774,10 @@ namespace IaCService20210806
       Models::ExecuteResourceExportTaskResponse executeResourceExportTask(const string &exportTaskId, const Models::ExecuteResourceExportTaskRequest &request);
 
       /**
-       * @summary Executes TerraformApply.
+       * @summary Executes Terraform Apply.
        *
-       * @description Executes the Terraform Apply command to create or update cloud resources based on the provided Terraform code. This API can handle complex scenarios such as operations that depend on a previous state.
-       * Before calling this API, ensure that all required authentication information is properly configured and that the Terraform code meets the expected functional requirements.
+       * @description This API executes the Terraform Apply command to create or update cloud resources by using the provided Terraform code. It handles complex scenarios, such as operations that depend on the previous state.
+       * Before you use this API, ensure that all required authentication information is correctly configured and the Terraform code meets your functional requirements.
        *
        * @param request ExecuteTerraformApplyRequest
        * @param headers map
@@ -787,10 +787,10 @@ namespace IaCService20210806
       Models::ExecuteTerraformApplyResponse executeTerraformApplyWithOptions(const Models::ExecuteTerraformApplyRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Executes TerraformApply.
+       * @summary Executes Terraform Apply.
        *
-       * @description Executes the Terraform Apply command to create or update cloud resources based on the provided Terraform code. This API can handle complex scenarios such as operations that depend on a previous state.
-       * Before calling this API, ensure that all required authentication information is properly configured and that the Terraform code meets the expected functional requirements.
+       * @description This API executes the Terraform Apply command to create or update cloud resources by using the provided Terraform code. It handles complex scenarios, such as operations that depend on the previous state.
+       * Before you use this API, ensure that all required authentication information is correctly configured and the Terraform code meets your functional requirements.
        *
        * @param request ExecuteTerraformApplyRequest
        * @return ExecuteTerraformApplyResponse
@@ -798,9 +798,9 @@ namespace IaCService20210806
       Models::ExecuteTerraformApplyResponse executeTerraformApply(const Models::ExecuteTerraformApplyRequest &request);
 
       /**
-       * @summary Executes Terraform Destroy.
+       * @summary Executes the Terraform destroy command.
        *
-       * @description Executes the Terraform Destroy command to destroy resources created by Terraform.
+       * @description Executes the Terraform destroy command to destroy resources created by using Terraform.
        *
        * @param request ExecuteTerraformDestroyRequest
        * @param headers map
@@ -810,9 +810,9 @@ namespace IaCService20210806
       Models::ExecuteTerraformDestroyResponse executeTerraformDestroyWithOptions(const Models::ExecuteTerraformDestroyRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Executes Terraform Destroy.
+       * @summary Executes the Terraform destroy command.
        *
-       * @description Executes the Terraform Destroy command to destroy resources created by Terraform.
+       * @description Executes the Terraform destroy command to destroy resources created by using Terraform.
        *
        * @param request ExecuteTerraformDestroyRequest
        * @return ExecuteTerraformDestroyResponse
@@ -822,8 +822,8 @@ namespace IaCService20210806
       /**
        * @summary Executes a Terraform plan.
        *
-       * @description Executes a Terraform Plan command by using the provided Terraform code to create or update cloud resources. This API operation can handle complex scenarios such as operations that depend on a previous state.
-       * Before calling this API operation, ensure that all required authentication information is properly configured and that the Terraform code meets the expected functional requirements.
+       * @description This API executes the Terraform plan command to create or update cloud resources based on the provided Terraform code. It can also handle complex scenarios, such as operations that depend on the previous state.
+       * Before you call this API, ensure that all required authentication information is correctly configured and that the Terraform code meets your functional requirements.
        *
        * @param request ExecuteTerraformPlanRequest
        * @param headers map
@@ -835,8 +835,8 @@ namespace IaCService20210806
       /**
        * @summary Executes a Terraform plan.
        *
-       * @description Executes a Terraform Plan command by using the provided Terraform code to create or update cloud resources. This API operation can handle complex scenarios such as operations that depend on a previous state.
-       * Before calling this API operation, ensure that all required authentication information is properly configured and that the Terraform code meets the expected functional requirements.
+       * @description This API executes the Terraform plan command to create or update cloud resources based on the provided Terraform code. It can also handle complex scenarios, such as operations that depend on the previous state.
+       * Before you call this API, ensure that all required authentication information is correctly configured and that the Terraform code meets your functional requirements.
        *
        * @param request ExecuteTerraformPlanRequest
        * @return ExecuteTerraformPlanResponse
@@ -898,9 +898,9 @@ namespace IaCService20210806
       Models::GetEncryptionConfigResponse getEncryptionConfig(const Models::GetEncryptionConfigRequest &request);
 
       /**
-       * @summary Retrieves the result of a Terraform run.
+       * @summary Retrieves the Terraform execution results.
        *
-       * @description Retrieves the result of a Terraform run.
+       * @description Retrieves the Terraform execution results.
        *
        * @param request GetExecuteStateRequest
        * @param headers map
@@ -910,9 +910,9 @@ namespace IaCService20210806
       Models::GetExecuteStateResponse getExecuteStateWithOptions(const string &stateId, const Models::GetExecuteStateRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Retrieves the result of a Terraform run.
+       * @summary Retrieves the Terraform execution results.
        *
-       * @description Retrieves the result of a Terraform run.
+       * @description Retrieves the Terraform execution results.
        *
        * @param request GetExecuteStateRequest
        * @return GetExecuteStateResponse
@@ -940,7 +940,7 @@ namespace IaCService20210806
       /**
        * @summary Retrieves job information.
        *
-       * @description Single-user call frequency: 100 calls per second.
+       * @description Rate limit per user: 100 calls per second.
        *
        * @param request GetJobRequest
        * @param headers map
@@ -952,7 +952,7 @@ namespace IaCService20210806
       /**
        * @summary Retrieves job information.
        *
-       * @description Single-user call frequency: 100 calls per second.
+       * @description Rate limit per user: 100 calls per second.
        *
        * @param request GetJobRequest
        * @return GetJobResponse
@@ -962,8 +962,8 @@ namespace IaCService20210806
       /**
        * @summary Queries the details of a specified template.
        *
-       * @description ## Operation description
-       * You can call this operation to query the details of a specified template, including but not limited to the template name, description, source, status, and latest version. You must specify the template ID and include authentication information in the request.
+       * @description ## Request description
+       * This operation retrieves the details of a specified template, including but not limited to the template name, description, source, status, and latest version. The request must include the template ID and authentication information.
        *
        * @param request GetModuleRequest
        * @param headers map
@@ -975,8 +975,8 @@ namespace IaCService20210806
       /**
        * @summary Queries the details of a specified template.
        *
-       * @description ## Operation description
-       * You can call this operation to query the details of a specified template, including but not limited to the template name, description, source, status, and latest version. You must specify the template ID and include authentication information in the request.
+       * @description ## Request description
+       * This operation retrieves the details of a specified template, including but not limited to the template name, description, source, status, and latest version. The request must include the template ID and authentication information.
        *
        * @param request GetModuleRequest
        * @return GetModuleResponse
@@ -986,8 +986,8 @@ namespace IaCService20210806
       /**
        * @summary Queries the details of a specific version of a specified template.
        *
-       * @description ## Operation description
-       * You can call this operation to query the details of a specific version of a specified template, including the version number, description, and release time. Make sure that the template ID and version number are correct.
+       * @description ## Request description
+       * This operation retrieves the details of a specific version of a specified template, including the version number, description, and release time. Make sure that the provided template ID and version number are correct.
        *
        * @param request GetModuleVersionRequest
        * @param headers map
@@ -999,8 +999,8 @@ namespace IaCService20210806
       /**
        * @summary Queries the details of a specific version of a specified template.
        *
-       * @description ## Operation description
-       * You can call this operation to query the details of a specific version of a specified template, including the version number, description, and release time. Make sure that the template ID and version number are correct.
+       * @description ## Request description
+       * This operation retrieves the details of a specific version of a specified template, including the version number, description, and release time. Make sure that the provided template ID and version number are correct.
        *
        * @param request GetModuleVersionRequest
        * @return GetModuleVersionResponse
@@ -1054,7 +1054,7 @@ namespace IaCService20210806
       Models::GetProjectResponse getProject(const string &projectId, const Models::GetProjectRequest &request);
 
       /**
-       * @summary Retrieves the resource documentation of a Terraform provider.
+       * @summary Retrieves the Terraform provider resource document.
        *
        * @param request GetProviderDocumentRequest
        * @param headers map
@@ -1064,7 +1064,7 @@ namespace IaCService20210806
       Models::GetProviderDocumentResponse getProviderDocumentWithOptions(const Models::GetProviderDocumentRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Retrieves the resource documentation of a Terraform provider.
+       * @summary Retrieves the Terraform provider resource document.
        *
        * @param request GetProviderDocumentRequest
        * @return GetProviderDocumentResponse
@@ -1072,9 +1072,9 @@ namespace IaCService20210806
       Models::GetProviderDocumentResponse getProviderDocument(const Models::GetProviderDocumentRequest &request);
 
       /**
-       * @summary Queries a Registry module.
+       * @summary Queries a Registry template.
        *
-       * @description Single-user call frequency: 200 calls per second.
+       * @description The rate limit per user is 200 calls per second.
        *
        * @param request GetRegistryModuleRequest
        * @param headers map
@@ -1084,9 +1084,9 @@ namespace IaCService20210806
       Models::GetRegistryModuleResponse getRegistryModuleWithOptions(const string &namespaceName, const string &moduleName, const Models::GetRegistryModuleRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries a Registry module.
+       * @summary Queries a Registry template.
        *
-       * @description Single-user call frequency: 200 calls per second.
+       * @description The rate limit per user is 200 calls per second.
        *
        * @param request GetRegistryModuleRequest
        * @return GetRegistryModuleResponse
@@ -1094,9 +1094,9 @@ namespace IaCService20210806
       Models::GetRegistryModuleResponse getRegistryModule(const string &namespaceName, const string &moduleName, const Models::GetRegistryModuleRequest &request);
 
       /**
-       * @summary Queries a Registry template version.
+       * @summary Queries the registry template version.
        *
-       * @description Single-user call frequency: 200 calls per second.
+       * @description The rate limit per user is 200 calls per second.
        *
        * @param request GetRegistryModuleVersionRequest
        * @param headers map
@@ -1106,9 +1106,9 @@ namespace IaCService20210806
       Models::GetRegistryModuleVersionResponse getRegistryModuleVersionWithOptions(const string &namespaceName, const string &moduleName, const string &version, const Models::GetRegistryModuleVersionRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries a Registry template version.
+       * @summary Queries the registry template version.
        *
-       * @description Single-user call frequency: 200 calls per second.
+       * @description The rate limit per user is 200 calls per second.
        *
        * @param request GetRegistryModuleVersionRequest
        * @return GetRegistryModuleVersionResponse
@@ -1116,9 +1116,9 @@ namespace IaCService20210806
       Models::GetRegistryModuleVersionResponse getRegistryModuleVersion(const string &namespaceName, const string &moduleName, const string &version, const Models::GetRegistryModuleVersionRequest &request);
 
       /**
-       * @summary Queries a workspace.
+       * @summary Retrieves a workspace.
        *
-       * @description Single-user call frequency: 200 calls per second.
+       * @description The rate limit per user is 200 calls per second.
        *
        * @param request GetRegistryNamespaceRequest
        * @param headers map
@@ -1128,9 +1128,9 @@ namespace IaCService20210806
       Models::GetRegistryNamespaceResponse getRegistryNamespaceWithOptions(const string &namespaceName, const Models::GetRegistryNamespaceRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries a workspace.
+       * @summary Retrieves a workspace.
        *
-       * @description Single-user call frequency: 200 calls per second.
+       * @description The rate limit per user is 200 calls per second.
        *
        * @param request GetRegistryNamespaceRequest
        * @return GetRegistryNamespaceResponse
@@ -1140,7 +1140,7 @@ namespace IaCService20210806
       /**
        * @summary Queries the details of a resource export task.
        *
-       * @description Single-user call frequency: 100 calls per second.
+       * @description The rate limit per user is 100 calls per second.
        *
        * @param request GetResourceExportTaskRequest
        * @param headers map
@@ -1152,7 +1152,7 @@ namespace IaCService20210806
       /**
        * @summary Queries the details of a resource export task.
        *
-       * @description Single-user call frequency: 100 calls per second.
+       * @description The rate limit per user is 100 calls per second.
        *
        * @param request GetResourceExportTaskRequest
        * @return GetResourceExportTaskResponse
@@ -1184,6 +1184,8 @@ namespace IaCService20210806
       /**
        * @summary Queries a stack.
        *
+       * @description Retrieves the results of a Terraform run.
+       *
        * @param request GetStackRequest
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
@@ -1194,13 +1196,15 @@ namespace IaCService20210806
       /**
        * @summary Queries a stack.
        *
+       * @description Retrieves the results of a Terraform run.
+       *
        * @param request GetStackRequest
        * @return GetStackResponse
        */
       Models::GetStackResponse getStack(const string &stackId, const Models::GetStackRequest &request);
 
       /**
-       * @summary Queries the list of deployments for a stack.
+       * @summary Queries the deployments of a stack.
        *
        * @param request GetStackDeploymentsRequest
        * @param headers map
@@ -1210,7 +1214,7 @@ namespace IaCService20210806
       Models::GetStackDeploymentsResponse getStackDeploymentsWithOptions(const string &stackId, const Models::GetStackDeploymentsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the list of deployments for a stack.
+       * @summary Queries the deployments of a stack.
        *
        * @param request GetStackDeploymentsRequest
        * @return GetStackDeploymentsResponse
@@ -1218,7 +1222,7 @@ namespace IaCService20210806
       Models::GetStackDeploymentsResponse getStackDeployments(const string &stackId, const Models::GetStackDeploymentsRequest &request);
 
       /**
-       * @summary Retrieves the trigger result of a Stack.
+       * @summary Retrieves the stack trigger results.
        *
        * @param request GetStackExecutionResultRequest
        * @param headers map
@@ -1228,7 +1232,7 @@ namespace IaCService20210806
       Models::GetStackExecutionResultResponse getStackExecutionResultWithOptions(const string &triggerId, const Models::GetStackExecutionResultRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Retrieves the trigger result of a Stack.
+       * @summary Retrieves the stack trigger results.
        *
        * @param request GetStackExecutionResultRequest
        * @return GetStackExecutionResultResponse
@@ -1258,9 +1262,9 @@ namespace IaCService20210806
       Models::GetTaskResponse getTask(const string &taskId, const Models::GetTaskRequest &request);
 
       /**
-       * @summary Retrieves the detection result of a state file.
+       * @summary Retrieves the state file detection results.
        *
-       * @description This API is used to retrieve the detection results of state files for resource orchestration tasks and stack tasks on the automation service desk.
+       * @description Retrieves the detection results of state files for resource orchestration tasks and stack tasks on the automated service desk.
        *
        * @param request GetTerraformStateDetectionRequest
        * @param headers map
@@ -1270,9 +1274,9 @@ namespace IaCService20210806
       Models::GetTerraformStateDetectionResponse getTerraformStateDetectionWithOptions(const string &detectionId, const Models::GetTerraformStateDetectionRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Retrieves the detection result of a state file.
+       * @summary Retrieves the state file detection results.
        *
-       * @description This API is used to retrieve the detection results of state files for resource orchestration tasks and stack tasks on the automation service desk.
+       * @description Retrieves the detection results of state files for resource orchestration tasks and stack tasks on the automated service desk.
        *
        * @param request GetTerraformStateDetectionRequest
        * @return GetTerraformStateDetectionResponse
@@ -1316,18 +1320,18 @@ namespace IaCService20210806
       Models::ListDetectConfigsResponse listDetectConfigs(const Models::ListDetectConfigsRequest &request);
 
       /**
-       * @summary Retrieves the list of official Terraform Module examples.
+       * @summary Retrieves the list of official Terraform module examples.
        *
-       * @description This operation queries the example information of Terraform Modules officially provided by Alibaba Cloud.
-       * You can use the `maxResults` parameter to adjust the maximum number of entries to return.
-       * - If `nextToken` is not included in the response, no more data is available. Otherwise, more data is available. To query the next page, set the `nextToken` parameter of the ListExplorerRegistryModuleExamples operation to the `nextToken` value returned in the previous response. If the `NextToken` parameter is not specified, the first page of data is returned by default.
-       * - You can use keyword, namespaceName, moduleName, moduleVersion, and exampleName as conditional filter settings to narrow down the search scope. Multiple filter conditions have a logical `AND` relationship, and only resources that meet all filter conditions are returned.
-       *   - keyword: optional. Searches by keyword and supports fuzzy match on exampleName. For example, if keyword is set to ecs, module examples whose names contain ecs are returned.
-       *   - namespaceName: optional. Filters module examples by a specific workspace. For example, if namespaceName is set to alibaba, module examples in the alibaba workspace are returned.
-       *   - moduleName: optional. Filters module examples by a specific module name. For example, if moduleName is set to ecs, module examples whose module name is ecs are returned.
-       *   - moduleVersion: optional. Filters module examples by a specific module version. For example, if moduleVersion is set to 1.0.0, module examples whose module version is 1.0.0 are returned.
-       *   - exampleName: optional. Filters module examples by a specific example name. For example, if exampleName is set to ecs, module examples whose example name is ecs are returned.
-       * The response contains the request ID, total number of entries, data of the current page, and pagination information, which facilitates processing of query results.
+       * @description This operation queries example information for Terraform modules officially provided by Alibaba Cloud.
+       * You can specify the maxResults parameter to adjust the maximum number of returned entries.
+       * - If nextToken is not present in the response, no more data is available. Otherwise, more data is available. To query the next page, set the nextToken parameter of the ListExplorerRegistryModuleExamples operation to the nextToken value returned in the previous response. If the NextToken parameter is not specified, the first page of data is returned by default.
+       * - You can set keyword, namespaceName, moduleName, moduleVersion, and exampleName as filter conditions to narrow the search scope. Multiple filter conditions are connected by the logical AND operator. Only resources that meet all filter conditions are returned.
+       *   - keyword: Optional. Keyword search. Supports fuzzy matching for exampleName. For example, if keyword is set to ecs, the system queries module examples whose names contain ecs.
+       *   - namespaceName: Optional. Filters module examples in a specific workspace. For example, if namespaceName is set to alibaba, the system queries module examples in the alibaba workspace.
+       *   - moduleName: Optional. Filters module examples with a specific name. For example, if moduleName is set to ecs, the system queries module examples named ecs.
+       *   - moduleVersion: Optional. Filters module examples of a specific version. For example, if moduleVersion is set to 1.0.0, the system queries module examples of version 1.0.0.
+       *   - exampleName: Optional. Filters module examples with a specific example name. For example, if exampleName is set to ecs, the system queries module examples named ecs.
+       * The response structure includes the request ID, total number of entries, current page data, and pagination information to facilitate processing the query results.
        *
        * @param request ListExplorerRegistryModuleExamplesRequest
        * @param headers map
@@ -1337,18 +1341,18 @@ namespace IaCService20210806
       Models::ListExplorerRegistryModuleExamplesResponse listExplorerRegistryModuleExamplesWithOptions(const Models::ListExplorerRegistryModuleExamplesRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Retrieves the list of official Terraform Module examples.
+       * @summary Retrieves the list of official Terraform module examples.
        *
-       * @description This operation queries the example information of Terraform Modules officially provided by Alibaba Cloud.
-       * You can use the `maxResults` parameter to adjust the maximum number of entries to return.
-       * - If `nextToken` is not included in the response, no more data is available. Otherwise, more data is available. To query the next page, set the `nextToken` parameter of the ListExplorerRegistryModuleExamples operation to the `nextToken` value returned in the previous response. If the `NextToken` parameter is not specified, the first page of data is returned by default.
-       * - You can use keyword, namespaceName, moduleName, moduleVersion, and exampleName as conditional filter settings to narrow down the search scope. Multiple filter conditions have a logical `AND` relationship, and only resources that meet all filter conditions are returned.
-       *   - keyword: optional. Searches by keyword and supports fuzzy match on exampleName. For example, if keyword is set to ecs, module examples whose names contain ecs are returned.
-       *   - namespaceName: optional. Filters module examples by a specific workspace. For example, if namespaceName is set to alibaba, module examples in the alibaba workspace are returned.
-       *   - moduleName: optional. Filters module examples by a specific module name. For example, if moduleName is set to ecs, module examples whose module name is ecs are returned.
-       *   - moduleVersion: optional. Filters module examples by a specific module version. For example, if moduleVersion is set to 1.0.0, module examples whose module version is 1.0.0 are returned.
-       *   - exampleName: optional. Filters module examples by a specific example name. For example, if exampleName is set to ecs, module examples whose example name is ecs are returned.
-       * The response contains the request ID, total number of entries, data of the current page, and pagination information, which facilitates processing of query results.
+       * @description This operation queries example information for Terraform modules officially provided by Alibaba Cloud.
+       * You can specify the maxResults parameter to adjust the maximum number of returned entries.
+       * - If nextToken is not present in the response, no more data is available. Otherwise, more data is available. To query the next page, set the nextToken parameter of the ListExplorerRegistryModuleExamples operation to the nextToken value returned in the previous response. If the NextToken parameter is not specified, the first page of data is returned by default.
+       * - You can set keyword, namespaceName, moduleName, moduleVersion, and exampleName as filter conditions to narrow the search scope. Multiple filter conditions are connected by the logical AND operator. Only resources that meet all filter conditions are returned.
+       *   - keyword: Optional. Keyword search. Supports fuzzy matching for exampleName. For example, if keyword is set to ecs, the system queries module examples whose names contain ecs.
+       *   - namespaceName: Optional. Filters module examples in a specific workspace. For example, if namespaceName is set to alibaba, the system queries module examples in the alibaba workspace.
+       *   - moduleName: Optional. Filters module examples with a specific name. For example, if moduleName is set to ecs, the system queries module examples named ecs.
+       *   - moduleVersion: Optional. Filters module examples of a specific version. For example, if moduleVersion is set to 1.0.0, the system queries module examples of version 1.0.0.
+       *   - exampleName: Optional. Filters module examples with a specific example name. For example, if exampleName is set to ecs, the system queries module examples named ecs.
+       * The response structure includes the request ID, total number of entries, current page data, and pagination information to facilitate processing the query results.
        *
        * @param request ListExplorerRegistryModuleExamplesRequest
        * @return ListExplorerRegistryModuleExamplesResponse
@@ -1356,17 +1360,17 @@ namespace IaCService20210806
       Models::ListExplorerRegistryModuleExamplesResponse listExplorerRegistryModuleExamples(const Models::ListExplorerRegistryModuleExamplesRequest &request);
 
       /**
-       * @summary Lists the version information of official Terraform modules provided by Alibaba Cloud.
+       * @summary Lists the version information of modules officially provided by Alibaba Cloud Terraform.
        *
-       * @description This operation queries the version information of official Terraform modules provided by Alibaba Cloud.
-       * You can use the `maxResults` parameter to adjust the maximum number of entries to return.
-       * - If `nextToken` is not included in the response, no more data is available. Otherwise, more data is available. To query the next page, set the `nextToken` parameter of the ListExplorerRegistryModules operation to the `nextToken` value returned in the previous response. If the `NextToken` parameter is not specified, the first page of data is returned by default.
-       * - You can use keyword, namespaceName, moduleName, and moduleVersion as conditional filter Settings to narrow the search scope. Multiple filter conditions have a logical `AND` relationship. Only resources that meet all filter conditions are returned.
-       *   - keyword: optional. Performs a fuzzy match on the module name. For example, if keyword is set to ecs, modules whose names contain ecs are returned.
-       *   - namespaceName: optional. Filters modules by a specific workspace. For example, if namespaceName is set to alibaba, modules whose workspace is alibaba are returned. When moduleName is specified, namespaceName must also be specified. You can call the ListExplorerRegistryModule operation to obtain the namespaceName information.
-       *   - moduleName: optional. Filters modules by a specific name. For example, if moduleName is set to ecs, modules whose name is ecs are returned.
-       *   - moduleVersion: optional. Filters modules by a specific version. For example, if moduleVersion is set to 1.0.0, modules whose version is 1.0.0 are returned.
-       * The response contains the request ID, total number of entries, data on the current page, and pagination information, which facilitates the processing of query results.
+       * @description This operation queries the version information of modules officially provided by Alibaba Cloud Terraform.
+       * You can specify the maxResults parameter to adjust the maximum number of returned entries.
+       * - If nextToken is not included in the response, no more data is available. Otherwise, more data is available. To query the next page, set the nextToken parameter of the ListExplorerRegistryModules operation to the nextToken value returned in the previous response. If the NextToken parameter is not specified, the first page of data is returned by default.
+       * - By using the Settings of keyword, namespaceName, moduleName, and moduleVersion as conditional filters, you can narrow down the search scope. Multiple conditional filters are connected by the logical AND operator. Only resources that meet all conditional filters are returned.
+       *   - keyword: optional. The keyword for fuzzy matching against the module name. For example, if you set keyword to ecs, the system queries modules whose names contain ecs.
+       *   - namespaceName: optional. Supports filtering modules in a specific workspace. For example, if you set namespaceName to alibaba, the system queries modules whose workspace is alibaba. If you specify moduleName, you must also specify namespaceName. You can call the ListExplorerRegistryModule operation to obtain the namespaceName.
+       *   - moduleName: optional. Supports filtering modules with a specific name. For example, if you set keyword to ecs, the system queries the module named ecs.
+       *   - moduleVersion: optional. Supports filtering modules with a specific version. For example, if you set keyword to 1.0.0, the system queries modules whose version is 1.0.0.
+       * The response structure includes the request ID, total number of entries, current page data, and pagination information to facilitate result processing.
        *
        * @param request ListExplorerRegistryModuleVersionsRequest
        * @param headers map
@@ -1376,17 +1380,17 @@ namespace IaCService20210806
       Models::ListExplorerRegistryModuleVersionsResponse listExplorerRegistryModuleVersionsWithOptions(const Models::ListExplorerRegistryModuleVersionsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Lists the version information of official Terraform modules provided by Alibaba Cloud.
+       * @summary Lists the version information of modules officially provided by Alibaba Cloud Terraform.
        *
-       * @description This operation queries the version information of official Terraform modules provided by Alibaba Cloud.
-       * You can use the `maxResults` parameter to adjust the maximum number of entries to return.
-       * - If `nextToken` is not included in the response, no more data is available. Otherwise, more data is available. To query the next page, set the `nextToken` parameter of the ListExplorerRegistryModules operation to the `nextToken` value returned in the previous response. If the `NextToken` parameter is not specified, the first page of data is returned by default.
-       * - You can use keyword, namespaceName, moduleName, and moduleVersion as conditional filter Settings to narrow the search scope. Multiple filter conditions have a logical `AND` relationship. Only resources that meet all filter conditions are returned.
-       *   - keyword: optional. Performs a fuzzy match on the module name. For example, if keyword is set to ecs, modules whose names contain ecs are returned.
-       *   - namespaceName: optional. Filters modules by a specific workspace. For example, if namespaceName is set to alibaba, modules whose workspace is alibaba are returned. When moduleName is specified, namespaceName must also be specified. You can call the ListExplorerRegistryModule operation to obtain the namespaceName information.
-       *   - moduleName: optional. Filters modules by a specific name. For example, if moduleName is set to ecs, modules whose name is ecs are returned.
-       *   - moduleVersion: optional. Filters modules by a specific version. For example, if moduleVersion is set to 1.0.0, modules whose version is 1.0.0 are returned.
-       * The response contains the request ID, total number of entries, data on the current page, and pagination information, which facilitates the processing of query results.
+       * @description This operation queries the version information of modules officially provided by Alibaba Cloud Terraform.
+       * You can specify the maxResults parameter to adjust the maximum number of returned entries.
+       * - If nextToken is not included in the response, no more data is available. Otherwise, more data is available. To query the next page, set the nextToken parameter of the ListExplorerRegistryModules operation to the nextToken value returned in the previous response. If the NextToken parameter is not specified, the first page of data is returned by default.
+       * - By using the Settings of keyword, namespaceName, moduleName, and moduleVersion as conditional filters, you can narrow down the search scope. Multiple conditional filters are connected by the logical AND operator. Only resources that meet all conditional filters are returned.
+       *   - keyword: optional. The keyword for fuzzy matching against the module name. For example, if you set keyword to ecs, the system queries modules whose names contain ecs.
+       *   - namespaceName: optional. Supports filtering modules in a specific workspace. For example, if you set namespaceName to alibaba, the system queries modules whose workspace is alibaba. If you specify moduleName, you must also specify namespaceName. You can call the ListExplorerRegistryModule operation to obtain the namespaceName.
+       *   - moduleName: optional. Supports filtering modules with a specific name. For example, if you set keyword to ecs, the system queries the module named ecs.
+       *   - moduleVersion: optional. Supports filtering modules with a specific version. For example, if you set keyword to 1.0.0, the system queries modules whose version is 1.0.0.
+       * The response structure includes the request ID, total number of entries, current page data, and pagination information to facilitate result processing.
        *
        * @param request ListExplorerRegistryModuleVersionsRequest
        * @return ListExplorerRegistryModuleVersionsResponse
@@ -1394,15 +1398,15 @@ namespace IaCService20210806
       Models::ListExplorerRegistryModuleVersionsResponse listExplorerRegistryModuleVersions(const Models::ListExplorerRegistryModuleVersionsRequest &request);
 
       /**
-       * @summary Lists information about official Terraform modules provided by Alibaba Cloud.
+       * @summary Lists the official Terraform modules provided by Alibaba Cloud.
        *
-       * @description This operation queries information about official Terraform modules provided by Alibaba Cloud.
-       * You can use the `maxResults` parameter to adjust the maximum number of entries to return.
-       * - If the `nextToken` parameter is not included in the response, no more data is available. Otherwise, more data is available. To query the next page, set the `nextToken` parameter of the ListExplorerRegistryModules operation to the `nextToken` value returned in the previous response. If you do not specify the `NextToken` parameter, the first page of data is returned by default.
-       * - You can use keyword and moduleName as filter conditions to narrow the search scope. Multiple filter conditions are evaluated by using a logical `AND`. Only resources that meet all filter conditions are returned.
-       *   - keyword: optional. Searches by keyword through fuzzy matching against ModuleName. For example, if keyword is set to ecs, modules whose names contain ecs are returned.
-       *   - moduleName: optional. Filters modules by a specific name. For example, if moduleName is set to ecs, only the module whose name is exactly ecs is returned.
-       * The response contains the request ID, total number of entries, data of the current page, and pagination information, which facilitates the processing of query results.
+       * @description This operation queries the official Terraform modules provided by Alibaba Cloud.
+       * You can specify the `maxResults` parameter to adjust the maximum number of entries to return.
+       * - If `nextToken` is not included in the response, no more data is available. Otherwise, more data is available. To query the next page, set the `nextToken` parameter of the ListExplorerRegistryModules operation to the `nextToken` value returned in the previous response. If you do not specify the `nextToken` parameter, the first page of data is returned by default.
+       * - You can set `keyword` and `moduleName` as filter conditions to narrow down the search scope. Multiple filter conditions are connected by the logical `AND` operator. Only resources that meet all filter conditions are returned.
+       *   - `keyword`: optional. The keyword for search. The system performs a fuzzy match on the module name. For example, if you set this parameter to ecs, the system queries modules whose names contain ecs.
+       *   - `moduleName`: optional. The name of the module. You can use this parameter to filter modules by a specific name. For example, if you set this parameter to ecs, the system queries the module whose name is ecs.
+       * The response structure includes the request ID, total number of entries, data on the current page, and pagination information to help you process the query results.
        *
        * @param request ListExplorerRegistryModulesRequest
        * @param headers map
@@ -1412,15 +1416,15 @@ namespace IaCService20210806
       Models::ListExplorerRegistryModulesResponse listExplorerRegistryModulesWithOptions(const Models::ListExplorerRegistryModulesRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Lists information about official Terraform modules provided by Alibaba Cloud.
+       * @summary Lists the official Terraform modules provided by Alibaba Cloud.
        *
-       * @description This operation queries information about official Terraform modules provided by Alibaba Cloud.
-       * You can use the `maxResults` parameter to adjust the maximum number of entries to return.
-       * - If the `nextToken` parameter is not included in the response, no more data is available. Otherwise, more data is available. To query the next page, set the `nextToken` parameter of the ListExplorerRegistryModules operation to the `nextToken` value returned in the previous response. If you do not specify the `NextToken` parameter, the first page of data is returned by default.
-       * - You can use keyword and moduleName as filter conditions to narrow the search scope. Multiple filter conditions are evaluated by using a logical `AND`. Only resources that meet all filter conditions are returned.
-       *   - keyword: optional. Searches by keyword through fuzzy matching against ModuleName. For example, if keyword is set to ecs, modules whose names contain ecs are returned.
-       *   - moduleName: optional. Filters modules by a specific name. For example, if moduleName is set to ecs, only the module whose name is exactly ecs is returned.
-       * The response contains the request ID, total number of entries, data of the current page, and pagination information, which facilitates the processing of query results.
+       * @description This operation queries the official Terraform modules provided by Alibaba Cloud.
+       * You can specify the `maxResults` parameter to adjust the maximum number of entries to return.
+       * - If `nextToken` is not included in the response, no more data is available. Otherwise, more data is available. To query the next page, set the `nextToken` parameter of the ListExplorerRegistryModules operation to the `nextToken` value returned in the previous response. If you do not specify the `nextToken` parameter, the first page of data is returned by default.
+       * - You can set `keyword` and `moduleName` as filter conditions to narrow down the search scope. Multiple filter conditions are connected by the logical `AND` operator. Only resources that meet all filter conditions are returned.
+       *   - `keyword`: optional. The keyword for search. The system performs a fuzzy match on the module name. For example, if you set this parameter to ecs, the system queries modules whose names contain ecs.
+       *   - `moduleName`: optional. The name of the module. You can use this parameter to filter modules by a specific name. For example, if you set this parameter to ecs, the system queries the module whose name is ecs.
+       * The response structure includes the request ID, total number of entries, data on the current page, and pagination information to help you process the query results.
        *
        * @param request ListExplorerRegistryModulesRequest
        * @return ListExplorerRegistryModulesResponse
@@ -1470,7 +1474,7 @@ namespace IaCService20210806
       /**
        * @summary Retrieves a list of template versions.
        *
-       * @description Single-user call frequency: 100 calls per second.
+       * @description The rate limit per user is 100 calls per second.
        *
        * @param request ListModuleVersionRequest
        * @param headers map
@@ -1482,7 +1486,7 @@ namespace IaCService20210806
       /**
        * @summary Retrieves a list of template versions.
        *
-       * @description Single-user call frequency: 100 calls per second.
+       * @description The rate limit per user is 100 calls per second.
        *
        * @param request ListModuleVersionRequest
        * @return ListModuleVersionResponse
@@ -1574,13 +1578,13 @@ namespace IaCService20210806
       Models::ListParameterSetsResponse listParameterSets(const Models::ListParameterSetsRequest &request);
 
       /**
-       * @summary Queries the list of all products.
+       * @summary Lists all products.
        *
-       * @description ## Operation description
-       * - **Keyword search**: Use the `keyword` parameter for fuzzy matching.
-       * - **Paged query**: Use `nextToken` for pagination and `maxResults` to specify the maximum number of results per page (default: 100, maximum: 200).
-       * - **Terraform Provider version**: The optional `terraformProviderVersion` parameter filters products associated with a specific Provider version.
-       * - **Response structure**: The response contains the request ID, total number of entries, data of the current page, and pagination information for easy processing of query results.
+       * @description ## Request description
+       * - **Keyword search**: Uses the `keyword` parameter for fuzzy matching.
+       * - **Paged query**: Uses `nextToken` for pagination and `maxResults` to specify the maximum number of results to return on each page. Default value: 100. Maximum value: 200.
+       * - **Terraform provider version**: The optional `terraformProviderVersion` parameter is used to filter products related to a specific provider version.
+       * - **Response structure**: Includes the request ID, total number of entries, data on the current page, and pagination information to facilitate the processing of query results.
        *
        * @param request ListProductsRequest
        * @param headers map
@@ -1590,13 +1594,13 @@ namespace IaCService20210806
       Models::ListProductsResponse listProductsWithOptions(const Models::ListProductsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the list of all products.
+       * @summary Lists all products.
        *
-       * @description ## Operation description
-       * - **Keyword search**: Use the `keyword` parameter for fuzzy matching.
-       * - **Paged query**: Use `nextToken` for pagination and `maxResults` to specify the maximum number of results per page (default: 100, maximum: 200).
-       * - **Terraform Provider version**: The optional `terraformProviderVersion` parameter filters products associated with a specific Provider version.
-       * - **Response structure**: The response contains the request ID, total number of entries, data of the current page, and pagination information for easy processing of query results.
+       * @description ## Request description
+       * - **Keyword search**: Uses the `keyword` parameter for fuzzy matching.
+       * - **Paged query**: Uses `nextToken` for pagination and `maxResults` to specify the maximum number of results to return on each page. Default value: 100. Maximum value: 200.
+       * - **Terraform provider version**: The optional `terraformProviderVersion` parameter is used to filter products related to a specific provider version.
+       * - **Response structure**: Includes the request ID, total number of entries, data on the current page, and pagination information to facilitate the processing of query results.
        *
        * @param request ListProductsRequest
        * @return ListProductsResponse
@@ -1622,9 +1626,9 @@ namespace IaCService20210806
       Models::ListProjectResponse listProject(const Models::ListProjectRequest &request);
 
       /**
-       * @summary Queries the list of Registry template versions.
+       * @summary Queries registry template versions.
        *
-       * @description Single-user call frequency: 200 calls per second.
+       * @description Rate limit per user: 200 calls per second.
        *
        * @param request ListRegistryModuleVersionsRequest
        * @param headers map
@@ -1634,9 +1638,9 @@ namespace IaCService20210806
       Models::ListRegistryModuleVersionsResponse listRegistryModuleVersionsWithOptions(const Models::ListRegistryModuleVersionsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the list of Registry template versions.
+       * @summary Queries registry template versions.
        *
-       * @description Single-user call frequency: 200 calls per second.
+       * @description Rate limit per user: 200 calls per second.
        *
        * @param request ListRegistryModuleVersionsRequest
        * @return ListRegistryModuleVersionsResponse
@@ -1668,7 +1672,7 @@ namespace IaCService20210806
       /**
        * @summary Queries the list of workspaces.
        *
-       * @description Single-user call frequency: 200 calls per second.
+       * @description The maximum call frequency per user is 200 calls per second.
        *
        * @param request ListRegistryNamespacesRequest
        * @param headers map
@@ -1680,7 +1684,7 @@ namespace IaCService20210806
       /**
        * @summary Queries the list of workspaces.
        *
-       * @description Single-user call frequency: 200 calls per second.
+       * @description The maximum call frequency per user is 200 calls per second.
        *
        * @param request ListRegistryNamespacesRequest
        * @return ListRegistryNamespacesResponse
@@ -1688,9 +1692,9 @@ namespace IaCService20210806
       Models::ListRegistryNamespacesResponse listRegistryNamespaces(const Models::ListRegistryNamespacesRequest &request);
 
       /**
-       * @summary Retrieves the list of resource export task versions.
+       * @summary Retrieves the versions of a resource export task.
        *
-       * @description Single-user call frequency: 100 calls per second.
+       * @description The rate limit for a single user is 100 calls per second.
        *
        * @param request ListResourceExportTaskVersionsRequest
        * @param headers map
@@ -1700,9 +1704,9 @@ namespace IaCService20210806
       Models::ListResourceExportTaskVersionsResponse listResourceExportTaskVersionsWithOptions(const string &exportTaskId, const Models::ListResourceExportTaskVersionsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Retrieves the list of resource export task versions.
+       * @summary Retrieves the versions of a resource export task.
        *
-       * @description Single-user call frequency: 100 calls per second.
+       * @description The rate limit for a single user is 100 calls per second.
        *
        * @param request ListResourceExportTaskVersionsRequest
        * @return ListResourceExportTaskVersionsResponse
@@ -1710,9 +1714,9 @@ namespace IaCService20210806
       Models::ListResourceExportTaskVersionsResponse listResourceExportTaskVersions(const string &exportTaskId, const Models::ListResourceExportTaskVersionsRequest &request);
 
       /**
-       * @summary Queries the list of resource export tasks.
+       * @summary Queries a list of resource export tasks.
        *
-       * @description Rate limit per user: 100 calls per second.
+       * @description The rate limit per user is 100 calls per second.
        *
        * @param request ListResourceExportTasksRequest
        * @param headers map
@@ -1722,9 +1726,9 @@ namespace IaCService20210806
       Models::ListResourceExportTasksResponse listResourceExportTasksWithOptions(const Models::ListResourceExportTasksRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the list of resource export tasks.
+       * @summary Queries a list of resource export tasks.
        *
-       * @description Rate limit per user: 100 calls per second.
+       * @description The rate limit per user is 100 calls per second.
        *
        * @param request ListResourceExportTasksRequest
        * @return ListResourceExportTasksResponse
@@ -1756,7 +1760,7 @@ namespace IaCService20210806
       Models::ListResourceTypesResponse listResourceTypes(const Models::ListResourceTypesRequest &request);
 
       /**
-       * @summary Retrieves the resources of a node.
+       * @summary Retrieves the list of resources for a task.
        *
        * @param request ListResourcesRequest
        * @param headers map
@@ -1766,7 +1770,7 @@ namespace IaCService20210806
       Models::ListResourcesResponse listResourcesWithOptions(const Models::ListResourcesRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Retrieves the resources of a node.
+       * @summary Retrieves the list of resources for a task.
        *
        * @param request ListResourcesRequest
        * @return ListResourcesResponse
@@ -1774,7 +1778,7 @@ namespace IaCService20210806
       Models::ListResourcesResponse listResources(const Models::ListResourcesRequest &request);
 
       /**
-       * @summary Queries the list of stack configurations.
+       * @summary Queries stack configurations.
        *
        * @param request ListStackConfigsRequest
        * @param headers map
@@ -1784,7 +1788,7 @@ namespace IaCService20210806
       Models::ListStackConfigsResponse listStackConfigsWithOptions(const string &stackId, const Models::ListStackConfigsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the list of stack configurations.
+       * @summary Queries stack configurations.
        *
        * @param request ListStackConfigsRequest
        * @return ListStackConfigsResponse
@@ -1832,7 +1836,7 @@ namespace IaCService20210806
       Models::ListTasksResponse listTasks(const Models::ListTasksRequest &request);
 
       /**
-       * @summary Retrieves the list of Terraform provider versions.
+       * @summary Retrieves a list of Terraform provider versions.
        *
        * @param request ListTerraformProviderVersionsRequest
        * @param headers map
@@ -1842,7 +1846,7 @@ namespace IaCService20210806
       Models::ListTerraformProviderVersionsResponse listTerraformProviderVersionsWithOptions(const Models::ListTerraformProviderVersionsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Retrieves the list of Terraform provider versions.
+       * @summary Retrieves a list of Terraform provider versions.
        *
        * @param request ListTerraformProviderVersionsRequest
        * @return ListTerraformProviderVersionsResponse
@@ -1850,10 +1854,10 @@ namespace IaCService20210806
       Models::ListTerraformProviderVersionsResponse listTerraformProviderVersions(const Models::ListTerraformProviderVersionsRequest &request);
 
       /**
-       * @summary Supports resource import and removal for state files.
+       * @summary Imports and removes resources from state files.
        *
-       * @description This API is used to manage state files for resource orchestration tasks and stack tasks on the automated service desk.
-       * Before using this API, make sure that all required authentication information is correctly configured and that the Terraform code meets the expected functional requirements.
+       * @description This API is primarily used to manage state files for resource orchestration tasks and stack tasks on the automated service desk.
+       * Before you use this API, ensure that all required authentication information is correctly configured and that the Terraform code meets the expected functional requirements.
        *
        * @param request ManageTerraformStateRequest
        * @param headers map
@@ -1863,10 +1867,10 @@ namespace IaCService20210806
       Models::ManageTerraformStateResponse manageTerraformStateWithOptions(const Models::ManageTerraformStateRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Supports resource import and removal for state files.
+       * @summary Imports and removes resources from state files.
        *
-       * @description This API is used to manage state files for resource orchestration tasks and stack tasks on the automated service desk.
-       * Before using this API, make sure that all required authentication information is correctly configured and that the Terraform code meets the expected functional requirements.
+       * @description This API is primarily used to manage state files for resource orchestration tasks and stack tasks on the automated service desk.
+       * Before you use this API, ensure that all required authentication information is correctly configured and that the Terraform code meets the expected functional requirements.
        *
        * @param request ManageTerraformStateRequest
        * @return ManageTerraformStateResponse
@@ -1874,10 +1878,9 @@ namespace IaCService20210806
       Models::ManageTerraformStateResponse manageTerraformState(const Models::ManageTerraformStateRequest &request);
 
       /**
-       * @summary After a job is created, you can perform the **Cancel** operation to stop the job while it is running.
-       * After a job reaches the pending confirmation state, you can perform the **Abolish** operation to stop the job, or perform the **Execute** operation to continue the job execution.
+       * @summary Cancels a running job, aborts a job that is waiting for confirmation, or continues the execution of a job.
        *
-       * @description Per-user call frequency: 100 calls per second.
+       * @description The maximum call frequency for a single user is 100 calls per second.
        *
        * @param request OperateJobRequest
        * @param headers map
@@ -1887,10 +1890,9 @@ namespace IaCService20210806
       Models::OperateJobResponse operateJobWithOptions(const string &taskId, const string &jobId, const string &operationType, const Models::OperateJobRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary After a job is created, you can perform the **Cancel** operation to stop the job while it is running.
-       * After a job reaches the pending confirmation state, you can perform the **Abolish** operation to stop the job, or perform the **Execute** operation to continue the job execution.
+       * @summary Cancels a running job, aborts a job that is waiting for confirmation, or continues the execution of a job.
        *
-       * @description Per-user call frequency: 100 calls per second.
+       * @description The maximum call frequency for a single user is 100 calls per second.
        *
        * @param request OperateJobRequest
        * @return OperateJobResponse
@@ -1898,9 +1900,9 @@ namespace IaCService20210806
       Models::OperateJobResponse operateJob(const string &taskId, const string &jobId, const string &operationType, const Models::OperateJobRequest &request);
 
       /**
-       * @summary Publishes a Registry template version.
+       * @summary Publishes a registry template version.
        *
-       * @description Single-user call frequency: 100 calls per second.
+       * @description Rate limit for a single user: 100 calls per second.
        *
        * @param request PublishRegistryModuleVersionRequest
        * @param headers map
@@ -1910,9 +1912,9 @@ namespace IaCService20210806
       Models::PublishRegistryModuleVersionResponse publishRegistryModuleVersionWithOptions(const Models::PublishRegistryModuleVersionRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Publishes a Registry template version.
+       * @summary Publishes a registry template version.
        *
-       * @description Single-user call frequency: 100 calls per second.
+       * @description Rate limit for a single user: 100 calls per second.
        *
        * @param request PublishRegistryModuleVersionRequest
        * @return PublishRegistryModuleVersionResponse
@@ -1920,9 +1922,9 @@ namespace IaCService20210806
       Models::PublishRegistryModuleVersionResponse publishRegistryModuleVersion(const Models::PublishRegistryModuleVersionRequest &request);
 
       /**
-       * @summary Removes a shared account.
+       * @summary Removes shared accounts.
        *
-       * @description Single-user call frequency: 100 calls per second.
+       * @description The rate limit per user is 100 calls per second.
        *
        * @param tmpReq RemoveSharedAccountsRequest
        * @param headers map
@@ -1932,9 +1934,9 @@ namespace IaCService20210806
       Models::RemoveSharedAccountsResponse removeSharedAccountsWithOptions(const Models::RemoveSharedAccountsRequest &tmpReq, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Removes a shared account.
+       * @summary Removes shared accounts.
        *
-       * @description Single-user call frequency: 100 calls per second.
+       * @description The rate limit per user is 100 calls per second.
        *
        * @param request RemoveSharedAccountsRequest
        * @return RemoveSharedAccountsResponse
@@ -2008,9 +2010,9 @@ namespace IaCService20210806
       Models::UpdateDetectConfigResponse updateDetectConfig(const string &detectConfigId, const Models::UpdateDetectConfigRequest &request);
 
       /**
-       * @summary Updates an Explorer template.
+       * @summary Updates the Explorer template.
        *
-       * @description Updates an Explorer template.
+       * @description Updates the Explorer template.
        *
        * @param request UpdateExplorerModuleAttributeRequest
        * @param headers map
@@ -2020,9 +2022,9 @@ namespace IaCService20210806
       Models::UpdateExplorerModuleAttributeResponse updateExplorerModuleAttributeWithOptions(const string &explorerModuleId, const Models::UpdateExplorerModuleAttributeRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Updates an Explorer template.
+       * @summary Updates the Explorer template.
        *
-       * @description Updates an Explorer template.
+       * @description Updates the Explorer template.
        *
        * @param request UpdateExplorerModuleAttributeRequest
        * @return UpdateExplorerModuleAttributeResponse
@@ -2053,8 +2055,8 @@ namespace IaCService20210806
        * @description ## Operation description
        * - This operation allows you to modify the basic attributes of an existing template, including but not limited to the template name, description, and tags.
        * - The update operation does not affect the content or version information of the template.
-       * - To enable or disable deletion protection, use the deletionProtection parameter.
-       * - Use clientToken to ensure the idempotence of the request and avoid duplicate submissions caused by network issues.
+       * - To enable or disable deletion protection, set the `deletionProtection` parameter.
+       * - Use `clientToken` to ensure the idempotence of the request and prevent duplicate submissions caused by network issues.
        *
        * @param request UpdateModuleAttributeRequest
        * @param headers map
@@ -2069,8 +2071,8 @@ namespace IaCService20210806
        * @description ## Operation description
        * - This operation allows you to modify the basic attributes of an existing template, including but not limited to the template name, description, and tags.
        * - The update operation does not affect the content or version information of the template.
-       * - To enable or disable deletion protection, use the deletionProtection parameter.
-       * - Use clientToken to ensure the idempotence of the request and avoid duplicate submissions caused by network issues.
+       * - To enable or disable deletion protection, set the `deletionProtection` parameter.
+       * - Use `clientToken` to ensure the idempotence of the request and prevent duplicate submissions caused by network issues.
        *
        * @param request UpdateModuleAttributeRequest
        * @return UpdateModuleAttributeResponse
@@ -2130,7 +2132,7 @@ namespace IaCService20210806
       /**
        * @summary Updates a Registry template.
        *
-       * @description Single-user call frequency: 100 calls per second.
+       * @description The rate limit per user is 100 calls per second.
        *
        * @param request UpdateRegistryModuleAttributeRequest
        * @param headers map
@@ -2142,7 +2144,7 @@ namespace IaCService20210806
       /**
        * @summary Updates a Registry template.
        *
-       * @description Single-user call frequency: 100 calls per second.
+       * @description The rate limit per user is 100 calls per second.
        *
        * @param request UpdateRegistryModuleAttributeRequest
        * @return UpdateRegistryModuleAttributeResponse
@@ -2150,9 +2152,9 @@ namespace IaCService20210806
       Models::UpdateRegistryModuleAttributeResponse updateRegistryModuleAttribute(const string &namespaceName, const string &moduleName, const Models::UpdateRegistryModuleAttributeRequest &request);
 
       /**
-       * @summary Modifies a workspace.
+       * @summary Updates a workspace.
        *
-       * @description Single-user call frequency: 100 calls per second.
+       * @description The rate limit for a single user is 100 calls per second.
        *
        * @param request UpdateRegistryNamespaceAttributeRequest
        * @param headers map
@@ -2162,9 +2164,9 @@ namespace IaCService20210806
       Models::UpdateRegistryNamespaceAttributeResponse updateRegistryNamespaceAttributeWithOptions(const string &namespaceName, const Models::UpdateRegistryNamespaceAttributeRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Modifies a workspace.
+       * @summary Updates a workspace.
        *
-       * @description Single-user call frequency: 100 calls per second.
+       * @description The rate limit for a single user is 100 calls per second.
        *
        * @param request UpdateRegistryNamespaceAttributeRequest
        * @return UpdateRegistryNamespaceAttributeResponse
@@ -2172,9 +2174,9 @@ namespace IaCService20210806
       Models::UpdateRegistryNamespaceAttributeResponse updateRegistryNamespaceAttribute(const string &namespaceName, const Models::UpdateRegistryNamespaceAttributeRequest &request);
 
       /**
-       * @summary Modifies a resource export task.
+       * @summary Updates a resource export task.
        *
-       * @description Single-user call frequency: 100 calls per second.
+       * @description The rate limit for a single user is 100 calls per second.
        *
        * @param request UpdateResourceExportTaskAttributeRequest
        * @param headers map
@@ -2184,9 +2186,9 @@ namespace IaCService20210806
       Models::UpdateResourceExportTaskAttributeResponse updateResourceExportTaskAttributeWithOptions(const string &exportTaskId, const Models::UpdateResourceExportTaskAttributeRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Modifies a resource export task.
+       * @summary Updates a resource export task.
        *
-       * @description Single-user call frequency: 100 calls per second.
+       * @description The rate limit for a single user is 100 calls per second.
        *
        * @param request UpdateResourceExportTaskAttributeRequest
        * @return UpdateResourceExportTaskAttributeResponse
@@ -2194,7 +2196,7 @@ namespace IaCService20210806
       Models::UpdateResourceExportTaskAttributeResponse updateResourceExportTaskAttribute(const string &exportTaskId, const Models::UpdateResourceExportTaskAttributeRequest &request);
 
       /**
-       * @summary Modifies a stack. When the configuration changes, a stack deployment is triggered.
+       * @summary Updates a stack and triggers stack deployment when configuration changes occur.
        *
        * @param request UpdateStackRequest
        * @param headers map
@@ -2204,7 +2206,7 @@ namespace IaCService20210806
       Models::UpdateStackResponse updateStackWithOptions(const string &stackId, const Models::UpdateStackRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Modifies a stack. When the configuration changes, a stack deployment is triggered.
+       * @summary Updates a stack and triggers stack deployment when configuration changes occur.
        *
        * @param request UpdateStackRequest
        * @return UpdateStackResponse

@@ -133,23 +133,22 @@ namespace Models
 
 
     protected:
-      // The creation time.
+      // The creation time. The time is displayed in UTC and follows the ISO 8601 standard in the YYYY-MM-DDTHH:mm:ssZ format.
       shared_ptr<string> createTime_ {};
-      // The product page URL.
+      // The URL of the details page.
       shared_ptr<string> detailUrl_ {};
       // The number of downloads.
       shared_ptr<string> downloads_ {};
-      // The template name.
+      // The name of the template.
       shared_ptr<string> moduleName_ {};
-      // The workspace name.
+      // The name of the workspace.
       shared_ptr<string> namespaceName_ {};
       // The provider type. Valid values:
-      // 
       // - alicloud: Alibaba Cloud.
       shared_ptr<string> provider_ {};
       // The template source.
       shared_ptr<string> source_ {};
-      // The template source URL.
+      // The URL of the template source.
       shared_ptr<string> sourceUrl_ {};
       // The version number.
       shared_ptr<string> version_ {};

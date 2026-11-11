@@ -124,17 +124,17 @@ namespace Models
 
 
     protected:
-      // The example name.
+      // The name of the example.
       shared_ptr<string> exampleName_ {};
-      // The example path.
+      // The path of the example.
       shared_ptr<string> examplePath_ {};
       // The example schema.
       Darabonba::Json exampleSchema_ {};
-      // The module name.
+      // The name of the module.
       shared_ptr<string> moduleName_ {};
-      // The module version.
+      // The version of the module.
       shared_ptr<string> moduleVersion_ {};
-      // The workspace name.
+      // The name of the workspace.
       shared_ptr<string> namespaceName_ {};
       // The status.
       shared_ptr<string> status_ {};
@@ -188,9 +188,9 @@ namespace Models
     // 
     // Default value: 100.
     shared_ptr<int32_t> maxResults_ {};
-    // The pagination token for the next page of results.
+    // The token used to query the next page of results.
     // 
-    // If the total number of entries exceeds the maxResults limit, the data is truncated. You can use nextToken to query the next page of data.
+    // If the total number of entries exceeds the maxResults limit, the data is truncated. You can use nextToken to query the next page.
     shared_ptr<string> nextToken_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

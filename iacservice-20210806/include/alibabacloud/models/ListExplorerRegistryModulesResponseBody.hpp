@@ -128,9 +128,9 @@ namespace Models
       shared_ptr<int64_t> downloads_ {};
       // The latest version number.
       shared_ptr<string> latestVersion_ {};
-      // The module name.
+      // The name of the module.
       shared_ptr<string> moduleName_ {};
-      // The workspace name.
+      // The name of the workspace.
       shared_ptr<string> namespaceName_ {};
       // The source.
       shared_ptr<string> source_ {};
@@ -186,9 +186,9 @@ namespace Models
     // 
     // Default value: 100.
     shared_ptr<int32_t> maxResults_ {};
-    // The pagination token for the next page of results.
+    // The token used to query the next page of results.
     // 
-    // If the total number of entries exceeds the maxResults limit, the data is truncated. You can use nextToken to query the next page of data.
+    // If the total number of entries exceeds the value of `maxResults`, the returned data is truncated. You can use `nextToken` to query the next page.
     shared_ptr<string> nextToken_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

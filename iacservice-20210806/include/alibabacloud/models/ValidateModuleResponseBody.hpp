@@ -66,17 +66,17 @@ namespace Models
 
 
   protected:
-    // The validation message.
+    // The check message.
     shared_ptr<string> message_ {};
-    // The validation ID.
+    // The check ID.
     shared_ptr<string> moduleValidationId_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The validation result. Valid values:
-    // - Initializing: initialization in progress.
-    // - Validating: validation in progress.
-    // - Validated: validation succeeded.
-    // - Errored: validation failed.
+    // The check result. Valid values:
+    // - Initializing: The check is being initialized.
+    // - Validating: The check is in progress.
+    // - Validated: The check succeeded.
+    // - Errored: The check failed.
     shared_ptr<string> status_ {};
   };
 

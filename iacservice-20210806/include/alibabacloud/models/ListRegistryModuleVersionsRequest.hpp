@@ -66,17 +66,17 @@ namespace Models
 
 
   protected:
-    // The number of entries per page in a paged query. Maximum value: 100. Default value: 20.
+    // The number of entries to return per page for paging in a paged query. Maximum value: 100. Default value: 20.
     shared_ptr<int32_t> maxResults_ {};
-    // The Registry template name.
+    // The name of the registry template.
     // 
     // This parameter is required.
     shared_ptr<string> moduleName_ {};
-    // The workspace name.
+    // The name of the workspace.
     // 
     // This parameter is required.
     shared_ptr<string> namespaceName_ {};
-    // The pagination token. Set this parameter to the NextToken value returned in the previous API call.
+    // The pagination token. Set the value to the NextToken value returned from the previous API call.
     shared_ptr<string> nextToken_ {};
   };
 

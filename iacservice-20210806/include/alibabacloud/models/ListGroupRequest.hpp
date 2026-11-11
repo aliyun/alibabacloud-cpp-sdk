@@ -126,7 +126,7 @@ namespace Models
     shared_ptr<string> keyword_ {};
     // The page number. Default value: 1.
     shared_ptr<string> pageNumber_ {};
-    // The number of results to return per page. Default value: 20. Minimum value: 1. Maximum value: 100.
+    // The number of results returned per page. Default value: 20. Minimum value: 1. Maximum value: 100.
     shared_ptr<string> pageSize_ {};
     // The project ID.
     shared_ptr<string> projectId_ {};

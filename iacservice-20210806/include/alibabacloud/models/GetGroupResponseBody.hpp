@@ -122,11 +122,10 @@ namespace Models
 
       protected:
         // The trigger strategy. Valid values:
-        // 
-        // - ProviderNewVersion: triggered when a new provider version is released
-        // - Cron: triggered on a schedule.
+        // - ProviderNewVersion: Triggered when a new provider version is released.
+        // - Cron: Triggered on a schedule.
         shared_ptr<string> triggerStrategy_ {};
-        // The policy value that must be maintained for scheduled triggering. This value is a cron expression.
+        // The policy value for scheduled triggers. Specify a cron expression.
         shared_ptr<string> triggerValue_ {};
       };
 
@@ -171,7 +170,7 @@ namespace Models
         // The path configuration for notifications.
         shared_ptr<string> notifyPath_ {};
         // The notification type. Valid values:
-        // DingDing.
+        // - DingDing
         shared_ptr<string> notifyType_ {};
       };
 
@@ -314,11 +313,11 @@ namespace Models
       shared_ptr<bool> autoDestroy_ {};
       // Indicates whether automatic triggering is enabled.
       shared_ptr<bool> autoTrigger_ {};
-      // The creation time.
+      // The creation time. The time is displayed in UTC and follows the ISO 8601 standard in the YYYY-MM-DDTHH:mm:ssZ format.
       shared_ptr<string> createTime_ {};
       // The group description.
       shared_ptr<string> description_ {};
-      // Indicates whether the group configuration is forcibly used.
+      // Indicates whether the group configuration is forcibly applied.
       shared_ptr<bool> forcedSetting_ {};
       // The group ID.
       shared_ptr<string> groupId_ {};
@@ -330,22 +329,21 @@ namespace Models
       shared_ptr<vector<string>> notifyOperationTypes_ {};
       // The project ID.
       shared_ptr<string> projectId_ {};
-      // The RAM role (1 to 128 characters). The system assumes this role to execute the template when a new job is triggered. This parameter is required when the job trigger mode is not manual.
+      // The Resource Access Management (RAM) role. Length: 1 to 128 characters. The system assumes this role to execute the template when a new job is triggered. This parameter is required when the job is not triggered manually.
       shared_ptr<string> ramRole_ {};
-      // The list of report export field options.
+      // The list of report export fields.
       shared_ptr<vector<string>> reportExportField_ {};
-      // The export address for the execution report. OSS addresses are supported. Format: https://<OSS bucket address>/<path>.
+      // The export path for execution reports. OSS paths are supported, such as https://<OSS bucket endpoint>/<path>.
       shared_ptr<string> reportExportPath_ {};
       // The number of tasks.
       shared_ptr<int64_t> taskCnt_ {};
-      // The Terraform provider version. Select a Terraform provider version. Tasks in the group are executed based on the specified Terraform provider version. The version configured on a task takes higher priority. This version may conflict with the Terraform provider version specified in the module.
+      // The Terraform provider version. Select a Terraform provider version. Tasks in the group execute plans based on the specified Terraform provider version. The version configured on the task takes precedence. This setting may conflict with the Terraform provider version specified in the module.
       shared_ptr<string> terraformProviderVersion_ {};
       // The trigger policy. This parameter cannot be empty when autoTrigger is set to true.
       shared_ptr<vector<Group::TriggerConfig>> triggerConfig_ {};
-      // The resource type that triggers execution. Valid values:
-      // 
-      // - Task: regular task
-      // - SceneTestingTask: scenario-based testing task.
+      // The resource type for triggered execution. Valid values:
+      // - Task: Regular task.
+      // - SceneTestingTask: Scenario-based testing task.
       shared_ptr<vector<string>> triggerResourceType_ {};
     };
 

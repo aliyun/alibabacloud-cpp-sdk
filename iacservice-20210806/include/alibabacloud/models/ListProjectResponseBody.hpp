@@ -158,7 +158,7 @@ namespace Models
 
 
     protected:
-      // The creation time.
+      // The creation time. The time is displayed in UTC and follows the ISO 8601 standard in the YYYY-MM-DDTHH:mm:ssZ format.
       shared_ptr<string> createTime_ {};
       // The project description.
       shared_ptr<string> description_ {};
@@ -216,7 +216,7 @@ namespace Models
     shared_ptr<int64_t> count_ {};
     // The current page number.
     shared_ptr<int64_t> pageNumber_ {};
-    // The number of results per page. Default value: 20. Minimum value: 1. Maximum value: 100.
+    // The number of results returned per page. Default value: 20. Minimum value: 1. Maximum value: 100.
     shared_ptr<int64_t> pageSize_ {};
     // The list of projects.
     shared_ptr<vector<ListProjectResponseBody::Projects>> projects_ {};

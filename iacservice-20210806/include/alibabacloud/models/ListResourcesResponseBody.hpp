@@ -275,11 +275,11 @@ namespace Models
 
 
     protected:
-      // The Alibaba Cloud account ID.
+      // The Alibaba Cloud user ID.
       shared_ptr<string> accountId_ {};
-      // The creation time.
+      // The creation time. The time is displayed in UTC and follows the ISO 8601 standard in the YYYY-MM-DDTHH:mm:ssZ format.
       shared_ptr<string> createTime_ {};
-      // The dependent resources.
+      // The list of dependent resources.
       shared_ptr<vector<string>> dependsOnResourceIds_ {};
       // The product code.
       shared_ptr<string> productCode_ {};
@@ -289,7 +289,7 @@ namespace Models
       Darabonba::Json propertyVariables_ {};
       // The region ID.
       shared_ptr<string> regionId_ {};
-      // The resource ARN.
+      // The ARN of the resource.
       shared_ptr<string> resourceArn_ {};
       // The resource group ID.
       shared_ptr<string> resourceGroupId_ {};
@@ -357,7 +357,7 @@ namespace Models
     shared_ptr<vector<ListResourcesResponseBody::Resources>> resources_ {};
     // The page number. Default value: 1.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of results per page. Default value: 20. Minimum value: 1. Maximum value: 200.
+    // The number of results to return per page. Default value: 20. Minimum value: 1. Maximum value: 200.
     shared_ptr<int32_t> pageSize_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

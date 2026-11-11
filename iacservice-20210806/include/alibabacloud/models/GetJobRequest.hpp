@@ -39,10 +39,9 @@ namespace Models
 
   protected:
     // The task type. Valid values:
-    // 
-    // - Task: regular task (default)
-    // - SceneTestingTask: scenario-based testing task
-    // - Stack: resource stack.
+    // - Task: Regular task (default).
+    // - SceneTestingTask: Scenario-based testing task.
+    // - Stack: Resource stack.
     shared_ptr<string> taskType_ {};
   };
 

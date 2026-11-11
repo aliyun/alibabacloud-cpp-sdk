@@ -85,7 +85,7 @@ namespace Models
 
 
     protected:
-      // The publish time.
+      // The release time in UTC. The time follows the ISO 8601 standard in the YYYY-MM-DDTHH:mm:ssZ format.
       shared_ptr<string> publishedTime_ {};
       // The status.
       shared_ptr<string> status_ {};
@@ -133,9 +133,9 @@ namespace Models
 
 
   protected:
-    // The maximum number of records retrieved in a single request.
+    // The maximum number of records returned per request.
     shared_ptr<int32_t> maxResults_ {};
-    // The pagination token for the next page. An empty value indicates that no more pages are available.
+    // The pagination token for the next page. An empty value indicates that there are no more pages.
     shared_ptr<string> nextToken_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

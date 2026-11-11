@@ -123,7 +123,7 @@ namespace Models
 
 
       protected:
-        // The list of Terraform resource properties that correspond to the resource type.
+        // The list of properties for the Terraform resource corresponding to the resource type.
         shared_ptr<vector<string>> properties_ {};
         // The resource type.
         shared_ptr<string> resourceType_ {};
@@ -178,11 +178,9 @@ namespace Models
       protected:
         // The module type where the exported template is located. Two formats are supported: CloudRegistry and OSS. If the ExportToModule parameter is specified, both formats are returned. Otherwise, only CloudRegistry is returned.
         shared_ptr<string> source_ {};
-        // The download address of the exported template in the module.
-        // 
-        // - If Source is set to CloudRegistry, the format is: "cloudregistry::iacservice//"
-        // 
-        // - If Source is set to OSS, the format is: "oss::https://.oss-cn-hangzhou.aliyuncs.com/xxx.zip"
+        // The download URL in the module where the exported template is located.
+        // - If Source is set to CloudRegistry, the format is "cloudregistry::iacservice//".
+        // - If Source is set to OSS, the format is "oss::https://.oss-cn-hangzhou.aliyuncs.com/xxx.zip".
         shared_ptr<string> sourcePath_ {};
         // The version of the module where the exported template is located.
         shared_ptr<string> version_ {};
@@ -228,17 +226,16 @@ namespace Models
 
 
       protected:
-        // The name of the include rule for resource export. Valid values:
+        // The name of the inclusion rule for resource export. Valid values:
+        // - ResourceType: Required. The resource type, such as ALIYUN::VPC::VPC.
+        // - RegionId: Required. The region to which the resource belongs. Only one region is supported, such as cn-chengdu.
+        // - <ResourceType>:Id: The resource ID, such as ALIYUN::VPC::VPC:Id.
+        // - ResourceGroupId: The resource group ID, such as rg-1234.
+        // - ZoneId: The zone to which the resource belongs. Only one zone is supported, such as cn-hangzhou-h.
         // 
-        // - ResourceType: required. The resource type. Example: ALIYUN::VPC::VPC.
-        // - RegionId: required. The region to which the resource belongs. Only one region is supported. Example: cn-chengdu.
-        // - \\<ResourceType>:Id: the resource ID. Example: ALIYUN::VPC::VPC:Id.
-        // - ResourceGroupId: the resource group ID. Example: rg-1234.
-        // - ZoneId: the zone to which the resource belongs. Only one zone is supported. Example: cn-hangzhou-h.
-        // 
-        // By default, multiple filter conditions are evaluated with an AND operator. A resource must match all filter conditions to be considered a match.
+        // By default, multiple filter conditions use the AND logical operator. A resource matches the filter conditions only if it meets all the conditions.
         shared_ptr<string> key_ {};
-        // The values of the include rule for resource export.
+        // The values of the inclusion rule for resource export.
         shared_ptr<vector<string>> values_ {};
       };
 
@@ -289,18 +286,15 @@ namespace Models
 
 
       protected:
-        // The module type to which the exported template is saved. Valid values:
-        // 
-        // - OSS: OSS
-        // - Registry: Terraform Registry
+        // The module type where the exported template is saved. Valid values:
+        // - OSS: OSS.
+        // - Registry: Terraform Registry.
         shared_ptr<string> source_ {};
         // The path where the template content is saved.
-        // 
-        // - If Source is set to Registry, the format is: "cloudregistry::iacservice//"
-        // 
-        // - If Source is set to OSS, the format is: "oss::https://.oss-cn-hangzhou.aliyuncs.com/xxx.zip"
+        // - If Source is set to Registry, the format is "cloudregistry::iacservice//".
+        // - If Source is set to OSS, the format is "oss::https://.oss-cn-hangzhou.aliyuncs.com/xxx.zip".
         shared_ptr<string> sourcePath_ {};
-        // The path of the State file that corresponds to the module.
+        // The path of the state file corresponding to the module.
         shared_ptr<string> statePath_ {};
       };
 
@@ -415,7 +409,7 @@ namespace Models
 
 
     protected:
-      // The creation time in UTC. The time follows the ISO 8601 standard in the YYYY-MM-DDTHH:mm:ssZ format.
+      // The creation time. The time is displayed in UTC and follows the ISO 8601 standard in the YYYY-MM-DDTHH:mm:ssZ format.
       shared_ptr<string> createTime_ {};
       // The description.
       shared_ptr<string> description_ {};
@@ -423,29 +417,30 @@ namespace Models
       shared_ptr<int64_t> elapsedTime_ {};
       // The ID of the resource export task.
       shared_ptr<string> exportTaskId_ {};
-      // The module to which the exported template is saved. If this parameter is not specified, the template is automatically saved in the Registry.
+      // Saves the exported template as a module. If this parameter is not specified, the template is automatically saved in the registry.
       shared_ptr<ExportTasks::ExportToModule> exportToModule_ {};
       // The resource export version.
       shared_ptr<string> exportVersion_ {};
       // The reason for the export failure.
       shared_ptr<string> failedReason_ {};
-      // The list of include rules used when exporting resources.
+      // The list of inclusion rules used when exporting resources.
       shared_ptr<vector<ExportTasks::IncludeRules>> includeRules_ {};
+      // The ID of the managed task created by this resource export version.
       shared_ptr<string> managedTaskId_ {};
-      // The module configurations of the exported resources.
+      // The module configurations after the resources are exported.
       shared_ptr<vector<ExportTasks::Modules>> modules_ {};
       // The name of the export task.
       shared_ptr<string> name_ {};
-      // The version export status. Valid values:
-      // - Queue: queued
-      // - Pending: preparing to run
-      // - Success: succeeded
-      // - Errored: failed
-      // - Canceled: canceled
+      // The export status of the version. Valid values:
+      // - Queue: Queued.
+      // - Pending: Ready to run.
+      // - Success: Succeeded.
+      // - Errored: Failed.
+      // - Canceled: Canceled.
       shared_ptr<string> status_ {};
-      // The Terraform Provider version.
+      // The Terraform provider version.
       shared_ptr<string> terraformProviderVersion_ {};
-      // The list of variables. Parameters of exported resources are set as variables.
+      // The list of variables. The parameters after the resources are exported are set as variables.
       shared_ptr<vector<ExportTasks::Variables>> variables_ {};
     };
 
@@ -493,7 +488,7 @@ namespace Models
     shared_ptr<vector<ListResourceExportTaskVersionsResponseBody::ExportTasks>> exportTasks_ {};
     // The page number. Default value: 1.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of results per page. Default value: 20. Minimum value: 1. Maximum value: 100.
+    // The number of results to return per page. Default value: 20. Minimum value: 1. Maximum value: 100.
     shared_ptr<int32_t> pageSize_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

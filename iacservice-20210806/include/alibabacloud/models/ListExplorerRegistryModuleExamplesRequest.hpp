@@ -94,9 +94,9 @@ namespace Models
 
 
   protected:
-    // The example name of the module.
+    // The name of the module example.
     shared_ptr<string> exampleName_ {};
-    // The search keyword. Supports fuzzy match based on the module name or module example name.
+    // The search keyword. Supports fuzzy matching based on the module name or module example name.
     shared_ptr<string> keyword_ {};
     // The maximum number of entries per page.
     // 
@@ -108,11 +108,11 @@ namespace Models
     shared_ptr<string> moduleName_ {};
     // The version of the module.
     shared_ptr<string> moduleVersion_ {};
-    // The name of the workspace to which the module belongs.
+    // The name of the workspace where the module is located.
     shared_ptr<string> namespaceName_ {};
-    // The pagination token for the next page of results.
+    // The token used to query the next page of results.
     // 
-    // If the total number of entries exceeds the maxResults limit, the data is truncated. You can use nextToken to query the next page of data.
+    // If the total number of entries exceeds the maxResults limit, the data is truncated. You can use nextToken to query the next page.
     shared_ptr<string> nextToken_ {};
   };
 

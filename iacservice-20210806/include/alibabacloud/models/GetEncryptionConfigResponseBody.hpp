@@ -104,11 +104,7 @@ namespace Models
       shared_ptr<string> keyArn_ {};
       // The key ID.
       shared_ptr<string> keyId_ {};
-      // The key status. Valid values:
-      // - Enabled
-      // - Disabled
-      // - PendingDeletion
-      // - PendingImport
+      // The key status. Valid values: Enabled, Disabled, PendingDeletion, and PendingImport.
       shared_ptr<string> status_ {};
     };
 

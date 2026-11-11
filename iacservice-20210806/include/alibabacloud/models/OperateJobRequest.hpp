@@ -48,14 +48,13 @@ namespace Models
 
 
   protected:
-    // The description. The length is 0 to 128 characters.
+    // The description. The length ranges from 0 to 128 characters.
     // 
     // This parameter is required.
     shared_ptr<string> comment_ {};
     // The task type. Valid values:
-    // 
-    // - Task: regular task (default).
-    // - SceneTestingTask: scenario-based testing task.
+    // - Task: Regular task. This is the default value.
+    // - SceneTestingTask: Scenario-based testing task.
     shared_ptr<string> taskType_ {};
   };
 

@@ -96,10 +96,10 @@ namespace Models
     protected:
       // The trigger strategy. Valid values:
       // 
-      // - ProviderNewVersion: triggered when a new Provider version is released.
-      // - Cron: triggered on a schedule.
+      // - ProviderNewVersion: Triggered when a new provider version is released.
+      // - Cron: Triggered on a schedule.
       shared_ptr<string> triggerStrategy_ {};
-      // The policy value that must be maintained for scheduled triggers. This value is a cron expression.
+      // The policy value for scheduled triggers. Specify a cron expression.
       shared_ptr<string> triggerValue_ {};
     };
 
@@ -262,36 +262,36 @@ namespace Models
   protected:
     // Specifies whether to automatically delete the group.
     shared_ptr<bool> autoDestroy_ {};
-    // Specifies whether to enable the automatic trigger policy. Valid values: - **true**: enabled. - **false**: disabled.
+    // Specifies whether to enable the automatic trigger policy. Valid values: - **true**: Enabled. - **false**: Disabled.
     shared_ptr<bool> autoTrigger_ {};
-    // The idempotency token. Format: [0-9a-zA-Z-]{1,64}. We recommend that you use a UUID.
+    // The idempotency token. Format: [0-9a-zA-Z-]{1,64}. A UUID is recommended.
     // 
     // This parameter is required.
     shared_ptr<string> clientToken_ {};
-    // The group description.
+    // The description of the group.
     shared_ptr<string> description_ {};
-    // Specifies whether to forcibly use the group configuration.
+    // Specifies whether to force the use of the group configuration.
     shared_ptr<bool> forcedSetting_ {};
-    // The group name.
+    // The name of the group.
     shared_ptr<string> name_ {};
     // The notification configuration.
     shared_ptr<vector<UpdateGroupRequest::NotifyConfig>> notifyConfig_ {};
     // The list of notification operation types.
     shared_ptr<vector<string>> notifyOperationTypes_ {};
-    // The RAM role (1-128 characters). The system assumes this role to execute the template when a new job is triggered. This parameter is required when the job trigger method is not manual.
+    // The RAM role. Length: 1 to 128 characters. The system assumes this role to execute the template when a new job is triggered. This parameter is required when the job trigger method is not manual.
     shared_ptr<string> ramRole_ {};
     // The list of export fields for the report.
     shared_ptr<vector<string>> reportExportField_ {};
     // The export path for the execution report. OSS paths are supported.
     shared_ptr<string> reportExportPath_ {};
-    // The Terraform Provider version. Select a Terraform Provider version. Nodes in the group execute plans based on the specified Terraform Provider version. The version configured on a node takes higher priority.
+    // The Terraform provider version. Select a Terraform provider version. Tasks in the group will execute plans based on this version. The version configured on the task takes precedence.
     shared_ptr<string> terraformProviderVersion_ {};
-    // The trigger policy. This parameter cannot be empty when autoTrigger is set to true.
+    // The trigger policy. This parameter is required when autoTrigger is set to true.
     shared_ptr<vector<UpdateGroupRequest::TriggerConfig>> triggerConfig_ {};
-    // The resource type that triggers execution. Valid values:
+    // The resource type for trigger execution. Valid values:
     // 
-    // - Task: regular node.
-    // - SceneTestingTask: scenario-based testing node.
+    // - Task: Regular task.
+    // - SceneTestingTask: Scenario-based testing task.
     shared_ptr<vector<string>> triggerResourceType_ {};
   };
 

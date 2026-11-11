@@ -121,13 +121,13 @@ namespace Models
 
 
       protected:
-        // The deployment name.
+        // The name of the deployment.
         shared_ptr<string> deploymentName_ {};
         // The result of the deployment task.
         shared_ptr<string> jobResult_ {};
-        // The deployment status.
+        // The status of the deployment.
         shared_ptr<string> status_ {};
-        // The URL for viewing deployment details.
+        // The URL to view the deployment details.
         shared_ptr<string> url_ {};
       };
 
@@ -178,17 +178,17 @@ namespace Models
 
 
     protected:
-      // The deployment results of the Stack.
+      // The deployment results of the stack.
       shared_ptr<vector<StackResults::Deployments>> deployments_ {};
-      // Error code of the stack execution
+      // The error code for the stack execution.
       shared_ptr<string> errorCode_ {};
       // The error message.
       shared_ptr<string> message_ {};
-      // The unique identifier of the Stack.
+      // The unique ID of the stack.
       shared_ptr<string> stackId_ {};
-      // The Stack name.
+      // The name of the stack.
       shared_ptr<string> stackName_ {};
-      // The execution status of the Stack.
+      // The execution status of the stack.
       shared_ptr<string> stackStatus_ {};
     };
 
@@ -227,14 +227,11 @@ namespace Models
   protected:
     // Id of the request
     shared_ptr<string> requestId_ {};
-    // The execution results of the triggered Stacks.
+    // The execution results of the triggered stack.
     shared_ptr<vector<GetStackExecutionResultResponseBody::StackResults>> stackResults_ {};
     // The unique ID of the trigger.
     shared_ptr<string> triggerId_ {};
-    // The overall execution status of this trigger task. Valid values:
-    // - Waiting: Processing.
-    // - Success: Processing succeeded.
-    // - Errored: Processing failed.
+    // The overall execution status of the current trigger task. Valid values: Waiting (Processing), Success (Succeeded), and Errored (Failed).
     shared_ptr<string> triggeredStatus_ {};
   };
 

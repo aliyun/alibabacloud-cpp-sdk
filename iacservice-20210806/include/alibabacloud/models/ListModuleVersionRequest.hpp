@@ -57,11 +57,11 @@ namespace Models
 
 
   protected:
-    // The search keyword. Fuzzy match on version names is supported.
+    // The search keyword, which supports fuzzy search for version names.
     shared_ptr<string> keyword_ {};
     // The page number. Default value: 1.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of results per page. Default value: 20. Minimum value: 1. Maximum value: 100.
+    // The number of results to return per page. Default value: 20. Minimum value: 1. Maximum value: 100.
     shared_ptr<int32_t> pageSize_ {};
   };
 

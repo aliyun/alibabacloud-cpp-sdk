@@ -40,6 +40,7 @@ namespace Models
         DARABONBA_PTR_TO_JSON(description, description_);
         DARABONBA_PTR_TO_JSON(name, name_);
         DARABONBA_PTR_TO_JSON(ramRole, ramRole_);
+        DARABONBA_PTR_TO_JSON(skipPropertyValidation, skipPropertyValidation_);
         DARABONBA_PTR_TO_JSON(source, source_);
         DARABONBA_PTR_TO_JSON(sourcePath, sourcePath_);
         DARABONBA_PTR_TO_JSON(stackId, stackId_);
@@ -54,6 +55,7 @@ namespace Models
         DARABONBA_PTR_FROM_JSON(description, description_);
         DARABONBA_PTR_FROM_JSON(name, name_);
         DARABONBA_PTR_FROM_JSON(ramRole, ramRole_);
+        DARABONBA_PTR_FROM_JSON(skipPropertyValidation, skipPropertyValidation_);
         DARABONBA_PTR_FROM_JSON(source, source_);
         DARABONBA_PTR_FROM_JSON(sourcePath, sourcePath_);
         DARABONBA_PTR_FROM_JSON(stackId, stackId_);
@@ -118,8 +120,8 @@ namespace Models
 
       virtual bool empty() const override { return this->config_ == nullptr
         && this->createTime_ == nullptr && this->currentConfigVersion_ == nullptr && this->description_ == nullptr && this->name_ == nullptr && this->ramRole_ == nullptr
-        && this->source_ == nullptr && this->sourcePath_ == nullptr && this->stackId_ == nullptr && this->status_ == nullptr && this->triggerStrategy_ == nullptr
-        && this->workingDirectory_ == nullptr; };
+        && this->skipPropertyValidation_ == nullptr && this->source_ == nullptr && this->sourcePath_ == nullptr && this->stackId_ == nullptr && this->status_ == nullptr
+        && this->triggerStrategy_ == nullptr && this->workingDirectory_ == nullptr; };
       // config Field Functions 
       bool hasConfig() const { return this->config_ != nullptr;};
       void deleteConfig() { this->config_ = nullptr;};
@@ -162,6 +164,13 @@ namespace Models
       void deleteRamRole() { this->ramRole_ = nullptr;};
       inline string getRamRole() const { DARABONBA_PTR_GET_DEFAULT(ramRole_, "") };
       inline Stack& setRamRole(string ramRole) { DARABONBA_PTR_SET_VALUE(ramRole_, ramRole) };
+
+
+      // skipPropertyValidation Field Functions 
+      bool hasSkipPropertyValidation() const { return this->skipPropertyValidation_ != nullptr;};
+      void deleteSkipPropertyValidation() { this->skipPropertyValidation_ = nullptr;};
+      inline bool getSkipPropertyValidation() const { DARABONBA_PTR_GET_DEFAULT(skipPropertyValidation_, false) };
+      inline Stack& setSkipPropertyValidation(bool skipPropertyValidation) { DARABONBA_PTR_SET_VALUE(skipPropertyValidation_, skipPropertyValidation) };
 
 
       // source Field Functions 
@@ -209,44 +218,46 @@ namespace Models
     protected:
       // The stack configuration.
       shared_ptr<Stack::Config> config_ {};
-      // The creation time.
+      // The creation time. The time is displayed in UTC and follows the ISO 8601 standard in the YYYY-MM-DDTHH:mm:ssZ format.
       shared_ptr<string> createTime_ {};
-      // The current configuration version number, such as v1. The initial value is v1. The version number increments each time the stack is updated or refreshed and the configuration changes.
+      // The current configuration version number, such as v1. The initial value is v1. The version number is incremented each time the stack is updated or refreshed and the configuration is changed.
       shared_ptr<string> currentConfigVersion_ {};
       // The description of the stack.
       shared_ptr<string> description_ {};
-      // The stack name.
+      // The name of the stack.
       shared_ptr<string> name_ {};
       // The RAM role assumed by the system to perform resource change operations during stack deployment.
       shared_ptr<string> ramRole_ {};
+      // Indicates whether to skip property constraint validation. Default value: false.
+      shared_ptr<bool> skipPropertyValidation_ {};
       // The configuration source of the stack. Valid values:
-      // - OSS: a template stored in Object Storage Service (OSS).
-      // - IAC_SERVICE_MODULE: a template created in the automation service console.
+      // - OSS: templates from OSS.
+      // - IAC_SERVICE_MODULE: templates created in the IaC service module.
       shared_ptr<string> source_ {};
-      // The path value of the configuration source. The value cannot exceed 1000 characters.
-      // - If the source is OSS, the value is in the format of oss::<file link>. The file must be a ZIP file. Example: oss::https://terraform-pipeline.oss-eu-central-1.aliyuncs.com/code.zip.
-      // - If the source is IAC_SERVICE_MODULE, the value is a template ID. Example: mod-xxxxx.
+      // The path value of the configuration source, which can be up to 1,000 characters in length.
+      // - If the source is OSS, the value is in the oss::<file URL> format and must be a ZIP file. Example: oss::https://terraform-pipeline.oss-eu-central-1.aliyuncs.com/code.zip.
+      // - If the source is IAC_SERVICE_MODULE, the value is the template ID. Example: mod-xxxxx.
       shared_ptr<string> sourcePath_ {};
-      // The unique identifier of the stack, which is generated after the stack is created.
+      // The unique identifier of the stack after creation.
       shared_ptr<string> stackId_ {};
-      // The stack status.
+      // The status of the stack.
       // | Name | Description |
-      // |------|------|
-      // | Creating | The stack is being created. |
-      // | Created | The stack is created. |
-      // | Waiting | The stack is waiting for deployment. |
-      // | Deploying | The stack is being deployed. |
-      // | Deployed | The stack is deployed. |
-      // | Errored | The deployment failed. |
-      // | Deleting | The stack is being deleted. |
-      // | Deleted | The stack is deleted. |
-      // | DeleteFailed | The deletion failed. |
-      // | DetectTriggered | Drift detection is triggered. |.
+      // |---|---|
+      // | Creating | Creating |
+      // | Created | Created |
+      // | Waiting | Waiting for deployment |
+      // | Deploying | Deploying |
+      // | Deployed | Deployed |
+      // | Errored | Deployment failed |
+      // | Deleting | Deleting |
+      // | Deleted | Deleted |
+      // | DeleteFailed | Deletion failed |
+      // | DetectTriggered | Drift detection triggered successfully |
       shared_ptr<string> status_ {};
-      // The deployment trigger method of the stack. This field is not publicly available.
+      // The trigger method for stack deployment. This field is not available to the public. Valid values:
       // - SetUpdated: triggered by file changes.
       shared_ptr<string> triggerStrategy_ {};
-      // The directory where the deployment and component configuration files of the stack are located. Set this parameter to / for the root directory.
+      // The directory where the deployment and component configuration files of the stack are located. The value is / for the root directory.
       shared_ptr<string> workingDirectory_ {};
     };
 

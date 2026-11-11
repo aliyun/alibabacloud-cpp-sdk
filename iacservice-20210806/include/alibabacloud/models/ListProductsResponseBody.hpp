@@ -158,19 +158,19 @@ namespace Models
 
 
     protected:
-      // The first-level category name.
+      // The name of the level-1 category.
       shared_ptr<string> firstCategoryName_ {};
-      // The first-level category name in English.
+      // The English name of the level-1 category.
       shared_ptr<string> firstCategoryNameEn_ {};
       // The product name.
       shared_ptr<string> product_ {};
       // The product name.
       shared_ptr<string> productName_ {};
-      // The product name in English.
+      // The English name of the product.
       shared_ptr<string> productNameEn_ {};
-      // The second-level category name.
+      // The name of the level-2 category.
       shared_ptr<string> secondCategoryName_ {};
-      // The second-level category name in English.
+      // The English name of the level-2 category.
       shared_ptr<string> secondCategoryNameEn_ {};
       // The status.
       shared_ptr<string> status_ {};
@@ -178,7 +178,7 @@ namespace Models
       shared_ptr<string> subcategory_ {};
       // Specifies whether Terraformer is supported.
       shared_ptr<bool> supportTerraformer_ {};
-      // The Terraform Provider version.
+      // The Terraform provider version.
       shared_ptr<string> terraformProviderVersion_ {};
     };
 
@@ -224,9 +224,9 @@ namespace Models
   protected:
     // The pagination token.
     shared_ptr<int32_t> maxResults_ {};
-    // The maximum number of results per page. Valid values: 0 to 200. Default value: 100.
+    // The maximum number of entries to return on each page. Valid values: 0 to 200. Default value: 100.
     shared_ptr<string> nextToken_ {};
-    // The product list.
+    // The list of products.
     shared_ptr<vector<ListProductsResponseBody::Products>> products_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

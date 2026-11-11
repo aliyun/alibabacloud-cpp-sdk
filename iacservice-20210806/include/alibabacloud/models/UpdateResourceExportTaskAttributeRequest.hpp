@@ -88,9 +88,9 @@ namespace Models
 
 
     protected:
-      // The list of Terraform resource properties corresponding to the resource type.
+      // The list of properties for the Terraform resource that corresponds to the resource type.
       shared_ptr<vector<string>> properties_ {};
-      // The resource type. Call **ListResourceTypes** to view the supported resources.
+      // The resource type. You can call the **ListResourceTypes** operation to view the supported resources.
       shared_ptr<string> resourceType_ {};
     };
 
@@ -134,17 +134,17 @@ namespace Models
 
 
     protected:
-      // The name of the include rule for resource export. Valid values:
+      // The name of the inclusion rule for resource export. Valid values:
       // 
-      // - ResourceType: required. The resource type. Call **ListResourceTypes** to view the supported resources. Example: ALIYUN::VPC::VPC.
-      // - RegionId: required. The region to which the resource belongs. Only one region is supported. Example: cn-chengdu.
-      // - <ResourceType>:Id: the resource ID. Example: ALIYUN::VPC::VPC:Id.
-      // - ResourceGroupId: the resource group ID. Example: rg-1234.
-      // - ZoneId: the zone to which the resource belongs. Only one zone is supported. Example: ap-southeast-1-h.
+      // - ResourceType: Required. The resource type. You can call the **ListResourceTypes** operation to view the supported resources. Example: ALIYUN::VPC::VPC.
+      // - RegionId: Required. The region to which the resource belongs. Only one region is supported. Example: cn-chengdu.
+      // - <ResourceType>:Id: The resource ID. Example: ALIYUN::VPC::VPC:Id.
+      // - ResourceGroupId: The resource group ID. Example: rg-1234.
+      // - ZoneId: The zone to which the resource belongs. Only one zone is supported. Example: cn-hangzhou-h.
       // 
-      // Multiple filter conditions have an AND relationship by default. A resource must meet all filter conditions to be considered a match.
+      // By default, multiple filter conditions use the AND logical operator. A resource matches the filter only when it meets all the conditions.
       shared_ptr<string> key_ {};
-      // The values of an include rule for resource export.
+      // The values of the inclusion rule for a group of resources to be exported.
       shared_ptr<vector<string>> values_ {};
     };
 
@@ -195,14 +195,14 @@ namespace Models
 
 
     protected:
-      // The module type in which the exported template is saved. Valid values:
+      // The module type for saving the exported template. Valid values:
       // 
-      // - OSS: OSS
+      // - OSS: OSS.
       // - Registry: Terraform Registry.
       shared_ptr<string> source_ {};
-      // The path for saving the template content. Set this parameter when source is set to OSS. Format: oss::https://<bucket>.oss-<region>.aliyuncs.com/<path>.zip.
+      // The path for saving the template content. This parameter is required when source is set to OSS. Format: oss::https://<bucket>.oss-<region>.aliyuncs.com/<path>.zip.
       shared_ptr<string> sourcePath_ {};
-      // The path for saving the template state file. Set this parameter when source is set to OSS. Format: oss::https://<bucket>.oss-<region>.aliyuncs.com/<path>/terraform.tfstate.
+      // The path for saving the state file of the template. This parameter is required when source is set to OSS. Format: oss::https://<bucket>.oss-<region>.aliyuncs.com/<path>/terraform.tfstate.
       shared_ptr<string> statePath_ {};
     };
 
@@ -286,35 +286,35 @@ namespace Models
 
 
   protected:
-    // The idempotency token. Format: [0-9a-zA-Z-]{1,64}. We recommend that you use a UUID.
+    // The idempotency token. The format is [0-9a-zA-Z-]{1,64}. A UUID is recommended.
     // 
     // This parameter is required.
     shared_ptr<string> clientToken_ {};
-    // The description of the task.
+    // The task description.
     shared_ptr<string> description_ {};
-    // Saves the exported template as a module. If this parameter is not set, the template is automatically saved in the registry.
+    // Saves the exported template as a module. If this parameter is not specified, the template is automatically saved in the registry.
     shared_ptr<UpdateResourceExportTaskAttributeRequest::ExportToModule> exportToModule_ {};
-    // The list of include rules used when exporting resources.
+    // The list of inclusion rules used when exporting resources.
     shared_ptr<vector<UpdateResourceExportTaskAttributeRequest::IncludeRules>> includeRules_ {};
     // The name of the resource export task. The name must meet the following requirements:
     // 
     // - The name must be 2 to 128 characters in length.
-    // - The name can contain letters, digits, Chinese characters, hyphens (-), underscores (_), and periods (.). The name cannot start or end with a hyphen, underscore, or period.
-    // - The name must be unique among resource export tasks within the current account.
+    // - The name can contain letters, digits, Chinese characters, hyphens (-), underscores (_), and periods (.). It cannot start or end with a hyphen, underscore, or period.
+    // - The name must be unique among the resource export tasks within the current account.
     shared_ptr<string> name_ {};
     // The RAM role.
     shared_ptr<string> ramRole_ {};
-    // The Terraform provider version. Call **ListTerraformProviderVersions** to view the supported versions. Default value: the latest version.
+    // The Terraform provider version. You can call the **ListTerraformProviderVersions** operation to view the supported versions. Default value: the latest version.
     shared_ptr<string> terraformProviderVersion_ {};
-    // The Terraform version. Call **ListAvailableTerraformVersions** to view the supported versions. Default value: 1.5.7.
+    // The Terraform version. You can call the **ListAvailableTerraformVersions** operation to view the supported versions. Default value: 1.5.7.
     shared_ptr<string> terraformVersion_ {};
     // The trigger strategy. Valid values:
-    // - Auto: triggered automatically when rules are modified or the trigger strategy is changed to Auto.
-    // - Manual: triggered manually.
+    // - Auto: Triggered when a rule is modified or the trigger strategy is changed to Auto.
+    // - Manual: Manually triggered.
     // 
     // Default value: Manual.
     shared_ptr<string> triggerStrategy_ {};
-    // The list of variables. Sets exported resource parameters as variables.
+    // The list of variables. Sets the parameters of the exported resources as variables.
     shared_ptr<vector<UpdateResourceExportTaskAttributeRequest::Variables>> variables_ {};
   };
 

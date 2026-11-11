@@ -129,13 +129,13 @@ namespace Models
     protected:
       // The permissions.
       shared_ptr<string> acl_ {};
-      // The creation time.
+      // The creation time. The time is displayed in UTC and follows the ISO 8601 standard in the YYYY-MM-DDTHH:mm:ssZ format.
       shared_ptr<string> createTime_ {};
       // The description of the workspace.
       shared_ptr<string> description_ {};
       // The name of the administrator.
       shared_ptr<string> maintainer_ {};
-      // The number of Registry templates in the workspace.
+      // The number of registry templates in the workspace.
       shared_ptr<int32_t> modules_ {};
       // The name of the workspace.
       shared_ptr<string> namespaceName_ {};

@@ -132,9 +132,9 @@ namespace Models
       Darabonba::Json moduleDetail_ {};
       // The module file.
       Darabonba::Json moduleFile_ {};
-      // The module name.
+      // The name of the module.
       shared_ptr<string> moduleName_ {};
-      // The workspace name.
+      // The name of the workspace.
       shared_ptr<string> namespaceName_ {};
       // The resource properties.
       Darabonba::Json properties_ {};
@@ -186,15 +186,15 @@ namespace Models
   protected:
     // The list of Explorer community module versions.
     shared_ptr<vector<ListExplorerRegistryModuleVersionsResponseBody::ExplorerRegistryModuleVersions>> explorerRegistryModuleVersions_ {};
-    // The maximum number of entries per page.
+    // The maximum number of entries to return per page.
     // 
     // Valid values: 0 to 200.
     // 
     // Default value: 100.
     shared_ptr<int32_t> maxResults_ {};
-    // The pagination token for the next page of results.
+    // The token used to return the next page of query results.
     // 
-    // If the total number of entries exceeds the maxResults limit, the data is truncated. You can use nextToken to query the next page of data.
+    // If the total number of entries exceeds the value of maxResults, the returned results are truncated. You can use nextToken to query the next page.
     shared_ptr<string> nextToken_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

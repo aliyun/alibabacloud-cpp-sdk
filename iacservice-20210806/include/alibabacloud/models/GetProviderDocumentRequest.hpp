@@ -48,7 +48,10 @@ namespace Models
 
 
   protected:
+    // The Terraform provider version.
     shared_ptr<string> providerVersion_ {};
+    // The Terraform resource type.
+    // 
     // This parameter is required.
     shared_ptr<string> terraformResourceType_ {};
   };

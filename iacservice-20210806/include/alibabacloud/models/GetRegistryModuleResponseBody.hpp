@@ -164,36 +164,37 @@ namespace Models
 
 
     protected:
-      // The permission. Valid values:
-      // 
-      // - private: private.
+      // The permissions. Valid values:
+      // - private: Private.
       shared_ptr<string> acl_ {};
-      // The creation time.
+      // The creation time in the YYYY-MM-DD HH:mm:ss format. The returned value does not include a time zone identifier.
       shared_ptr<string> createTime_ {};
-      // The module description.
+      // The template description.
       shared_ptr<string> description_ {};
       // The number of downloads.
       shared_ptr<int32_t> downloads_ {};
-      // The module name.
+      // The name of the template.
       shared_ptr<string> moduleName_ {};
-      // The workspace name.
+      // The name of the workspace.
       shared_ptr<string> namespaceName_ {};
       // The provider type. Valid values:
-      // 
       // - alicloud: Alibaba Cloud.
       shared_ptr<string> provider_ {};
-      // The list of accounts with which the Registry module is shared.
+      // The list of accounts that share the Registry template.
       shared_ptr<vector<int64_t>> sharedAccounts_ {};
-      // The module source, which is a concatenation of <NamespaceName>/<ModuleName>.
+      // The template source, which is concatenated in the <NamespaceName>/<ModuleName> format.
       shared_ptr<string> source_ {};
-      // The module source URL.
+      // The URL of the template source.
       shared_ptr<string> sourceUrl_ {};
       // The workspace type. Valid values:
       // 
-      // - system: public module
-      // - self: custom module
-      // - shared: shared module
-      // - community: community module.
+      // - system: Public module.
+      // 
+      // - self: Custom module.
+      // 
+      // - shared: Shared module.
+      // 
+      // - community: Community module.
       shared_ptr<string> type_ {};
       // The latest version.
       shared_ptr<string> version_ {};
@@ -218,7 +219,7 @@ namespace Models
 
 
   protected:
-    // The Registry module.
+    // The Registry template.
     shared_ptr<GetRegistryModuleResponseBody::RegistryModule> registryModule_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
