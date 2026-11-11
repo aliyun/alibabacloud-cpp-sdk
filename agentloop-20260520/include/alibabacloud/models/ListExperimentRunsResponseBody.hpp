@@ -98,7 +98,7 @@ namespace Models
 
 
   protected:
-    // The maximum number of entries returned.
+    // The maximum number of returned entries.
     shared_ptr<int32_t> maxResults_ {};
     // Optional.
     shared_ptr<string> nextToken_ {};
@@ -106,7 +106,7 @@ namespace Models
     shared_ptr<int32_t> page_ {};
     // The number of entries per page.
     shared_ptr<int32_t> pageSize_ {};
-    // The list of experiment run records.
+    // The list of experiment runs.
     shared_ptr<vector<ExperimentRecord>> records_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

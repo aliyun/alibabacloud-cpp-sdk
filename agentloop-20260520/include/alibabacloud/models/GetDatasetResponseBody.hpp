@@ -128,7 +128,7 @@ namespace Models
 
 
   protected:
-    // The name of the agent space.
+    // The name of the agent workspace.
     shared_ptr<string> agentSpace_ {};
     // The creation time.
     // 

@@ -2,12 +2,14 @@
 #include <alibabacloud/AgentLoop20260520.hpp>
 #include <alibabacloud/Utils.hpp>
 #include <alibabacloud/Openapi.hpp>
+#include <alibabacloud/gateway/POP.hpp>
 #include <map>
 #include <darabonba/Runtime.hpp>
 #include <darabonba/encode/Encoder.hpp>
 using namespace std;
 using namespace Darabonba;
 using json = nlohmann::json;
+using namespace AlibabaCloud::Gateway;
 using namespace AlibabaCloud::OpenApi;
 using OpenApiClient = AlibabaCloud::OpenApi::Client;
 using namespace AlibabaCloud::OpenApi::Utils::Models;
@@ -18,6 +20,9 @@ namespace AgentLoop20260520
 {
 
 AlibabaCloud::AgentLoop20260520::Client::Client(Config &config): OpenApiClient(config){
+  this->_productId = "AgentLoop";
+  shared_ptr<POP> gatewayClient = make_shared<POP>();
+  this->_spi = gatewayClient;
   this->_endpointRule = "regional";
   checkConfig(config);
   this->_endpoint = getEndpoint("agentloop", _regionId, _endpointRule, _network, _suffix, _endpointMap, _endpoint);
@@ -158,6 +163,10 @@ CreateAgentSpaceResponse Client::createAgentSpaceWithOptions(const CreateAgentSp
     body["mseNamespaceId"] = request.getMseNamespaceId();
   }
 
+  if (!!request.hasTrajectoryEmbeddingEnabled()) {
+    body["trajectoryEmbeddingEnabled"] = request.getTrajectoryEmbeddingEnabled();
+  }
+
   if (!!request.hasTrajectoryStoreEnabled()) {
     body["trajectoryStoreEnabled"] = request.getTrajectoryStoreEnabled();
   }
@@ -194,7 +203,7 @@ CreateAgentSpaceResponse Client::createAgentSpace(const CreateAgentSpaceRequest 
 }
 
 /**
- * @summary Creates a context library.
+ * @summary Creates a context store.
  *
  * @param request CreateContextStoreRequest
  * @param headers map
@@ -245,7 +254,7 @@ CreateContextStoreResponse Client::createContextStoreWithOptions(const string &a
 }
 
 /**
- * @summary Creates a context library.
+ * @summary Creates a context store.
  *
  * @param request CreateContextStoreRequest
  * @return CreateContextStoreResponse
@@ -620,7 +629,7 @@ CreateEvaluatorSkillResponse Client::createEvaluatorSkill(const string &name, co
 /**
  * @summary Creates an experiment plan.
  *
- * @description Calls CreateExperimentPlan to create an experiment plan under a specified AgentSpace. This operation defines the configuration for an offline or online experiment, including the data source, optional evaluators, and experiment groups required for online experiments. After the plan is created, call CreateExperimentRun to start the execution.
+ * @description Creates an experiment plan in a specified AgentSpace. You can use this operation to define the configuration for an offline or online experiment, including the data source, optional evaluators, and experiment groups required for online experiments. After the plan is created, call CreateExperimentRun to initiate the execution.
  *
  * @param request CreateExperimentPlanRequest
  * @param headers map
@@ -691,7 +700,7 @@ CreateExperimentPlanResponse Client::createExperimentPlanWithOptions(const strin
 /**
  * @summary Creates an experiment plan.
  *
- * @description Calls CreateExperimentPlan to create an experiment plan under a specified AgentSpace. This operation defines the configuration for an offline or online experiment, including the data source, optional evaluators, and experiment groups required for online experiments. After the plan is created, call CreateExperimentRun to start the execution.
+ * @description Creates an experiment plan in a specified AgentSpace. You can use this operation to define the configuration for an offline or online experiment, including the data source, optional evaluators, and experiment groups required for online experiments. After the plan is created, call CreateExperimentRun to initiate the execution.
  *
  * @param request CreateExperimentPlanRequest
  * @return CreateExperimentPlanResponse
@@ -1755,8 +1764,14 @@ GetContextStoreAPIKeyResponse Client::getContextStoreAPIKey(const string &agentS
  */
 GetDatasetResponse Client::getDatasetWithOptions(const string &agentSpace, const string &datasetName, const GetDatasetRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
   request.validate();
+  json query = {};
+  if (!!request.hasVersion()) {
+    query["version"] = request.getVersion();
+  }
+
   OpenApiRequest req = OpenApiRequest(json({
-    {"headers" , headers}
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)}
   }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "GetDataset"},
@@ -2000,9 +2015,9 @@ GetExperimentPlanResponse Client::getExperimentPlan(const string &agentSpace, co
 }
 
 /**
- * @summary Queries the details of an experiment run record.
+ * @summary Queries the details of an experiment run.
  *
- * @description Calls GetExperimentRun to query the details of a specific experiment run record, including the status, progress, configuration snapshot, and associated evaluation task ID.
+ * @description Calls the GetExperimentRun operation to query the details of an experiment run, including the status, progress, configuration snapshot, and associated evaluation task ID.
  *
  * @param request GetExperimentRunRequest
  * @param headers map
@@ -2029,9 +2044,9 @@ GetExperimentRunResponse Client::getExperimentRunWithOptions(const string &agent
 }
 
 /**
- * @summary Queries the details of an experiment run record.
+ * @summary Queries the details of an experiment run.
  *
- * @description Calls GetExperimentRun to query the details of a specific experiment run record, including the status, progress, configuration snapshot, and associated evaluation task ID.
+ * @description Calls the GetExperimentRun operation to query the details of an experiment run, including the status, progress, configuration snapshot, and associated evaluation task ID.
  *
  * @param request GetExperimentRunRequest
  * @return GetExperimentRunResponse
@@ -2803,9 +2818,9 @@ ListExperimentPlansResponse Client::listExperimentPlans(const string &agentSpace
 }
 
 /**
- * @summary Queries a list of experiment run records.
+ * @summary Queries a list of experiment runs.
  *
- * @description Calls ListExperimentRuns to query experiment run records under a specified AgentSpace for the current account. You can filter results by status, dataset, plan name, or experiment name, and use `page`/`pageSize` for pagination.
+ * @description Calls the ListExperimentRuns operation to query the experiment execution records of the current account in a specified AgentSpace. You can filter records by status, dataset, plan name, and experiment name, and paginate results by using page and pageSize.
  *
  * @param request ListExperimentRunsRequest
  * @param headers map
@@ -2866,9 +2881,9 @@ ListExperimentRunsResponse Client::listExperimentRunsWithOptions(const string &a
 }
 
 /**
- * @summary Queries a list of experiment run records.
+ * @summary Queries a list of experiment runs.
  *
- * @description Calls ListExperimentRuns to query experiment run records under a specified AgentSpace for the current account. You can filter results by status, dataset, plan name, or experiment name, and use `page`/`pageSize` for pagination.
+ * @description Calls the ListExperimentRuns operation to query the experiment execution records of the current account in a specified AgentSpace. You can filter records by status, dataset, plan name, and experiment name, and paginate results by using page and pageSize.
  *
  * @param request ListExperimentRunsRequest
  * @return ListExperimentRunsResponse
@@ -3911,7 +3926,7 @@ UpdateEvaluatorSkillResponse Client::updateEvaluatorSkill(const string &name, co
 /**
  * @summary Updates an experiment plan.
  *
- * @description Updates a specified experiment plan. Fields that are not specified remain unchanged. You can only update plans created by the current account.
+ * @description Updates a specified experiment plan. Unspecified fields remain unchanged. Only plans created by the current account can be updated.
  *
  * @param request UpdateExperimentPlanRequest
  * @param headers map
@@ -3986,7 +4001,7 @@ UpdateExperimentPlanResponse Client::updateExperimentPlanWithOptions(const strin
 /**
  * @summary Updates an experiment plan.
  *
- * @description Updates a specified experiment plan. Fields that are not specified remain unchanged. You can only update plans created by the current account.
+ * @description Updates a specified experiment plan. Unspecified fields remain unchanged. Only plans created by the current account can be updated.
  *
  * @param request UpdateExperimentPlanRequest
  * @return UpdateExperimentPlanResponse

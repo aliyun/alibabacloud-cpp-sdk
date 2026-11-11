@@ -147,21 +147,21 @@ namespace Models
     shared_ptr<string> datasetProject_ {};
     // The description.
     shared_ptr<string> description_ {};
-    // The list of evaluators. If this parameter is omitted, the list remains unchanged. If an empty array is passed, the list is cleared.
+    // The list of evaluators. If omitted, the list is not modified. If an empty array is passed, the list is cleared. When configured, evaluation is automatically triggered upon experiment completion.
     shared_ptr<vector<Evaluator>> evaluators_ {};
-    // The experiment type. Valid values: OFFLINE (offline experiment) and ONLINE (online experiment).
+    // The type of the experiment. Valid values: OFFLINE (offline experiment) and ONLINE (online experiment).
     shared_ptr<string> experimentType_ {};
     // The list of experiment configurations. When passed, the entire list is replaced. The number of items must be between 1 and 5.
     shared_ptr<vector<ExperimentConfig>> experiments_ {};
     // Optional.
     Darabonba::Json input_ {};
-    // The name of the associated data processing pipeline. This parameter is optional. If it is not passed, the association is not updated. If an empty character string is passed, the pipeline is dissociated. After the association is configured, when an experiment under this plan executes and completes writing the experiment results to the Logstore, the system filters the results by the traceId of the current experiment trace and invokes PreviewPipeline to write the results processed by the pipeline.
+    // The name of the associated data processing pipeline. This parameter is optional. If you do not specify this parameter, the association is not updated. If you specify an empty string, the association is removed. After the association is established, when an experiment under this plan completes and writes experiment results to a Logstore, the system filters the data by the traceId of the current experiment trace and calls PreviewPipeline to write the pipeline-processed trace results together with the experiment results.
     shared_ptr<string> pipelineName_ {};
     // The name of the experiment plan.
     shared_ptr<string> planName_ {};
     // The custom query SQL clause in partial dataset mode.
     shared_ptr<string> querySql_ {};
-    // The list of selected data item IDs in partial dataset mode. If an empty array is passed, the list is cleared.
+    // The list of selected data item IDs in partial dataset mode. Passing an empty array clears the list.
     shared_ptr<vector<string>> selectedItemIds_ {};
   };
 

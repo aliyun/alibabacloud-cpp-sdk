@@ -178,25 +178,25 @@ namespace Models
 
 
   protected:
-    // The creation time. The value is a millisecond-level UNIX timestamp.
+    // The creation time. The value is a UNIX timestamp in milliseconds.
     shared_ptr<int64_t> createdAt_ {};
-    // The associated dataset ID.
+    // The ID of the associated dataset.
     shared_ptr<string> datasetId_ {};
     // The description.
     shared_ptr<string> description_ {};
     // The list of evaluators.
     shared_ptr<vector<Evaluator>> evaluators_ {};
-    // The experiment type.
+    // The type of the experiment.
     shared_ptr<string> experimentType_ {};
     // The list of experiment configurations.
     shared_ptr<vector<ExperimentConfig>> experiments_ {};
     // Optional.
     Darabonba::Json input_ {};
-    // The name of the associated data processing pipeline. This value is empty if no pipeline is associated.
+    // The name of the associated data processing pipeline. This field is empty if no pipeline is associated.
     shared_ptr<string> pipelineName_ {};
-    // The experiment plan ID.
+    // The ID of the experiment plan.
     shared_ptr<string> planId_ {};
-    // The experiment plan name.
+    // The name of the experiment plan.
     shared_ptr<string> planName_ {};
     // The custom query SQL clause in partial dataset mode.
     shared_ptr<string> querySql_ {};
@@ -204,9 +204,9 @@ namespace Models
     shared_ptr<string> requestId_ {};
     // The list of selected data item IDs in partial dataset mode.
     shared_ptr<vector<string>> selectedItemIds_ {};
-    // The plan status.
+    // The status of the plan.
     shared_ptr<string> status_ {};
-    // The update time. The value is a millisecond-level UNIX timestamp.
+    // The update time. The value is a UNIX timestamp in milliseconds.
     shared_ptr<int64_t> updatedAt_ {};
   };
 

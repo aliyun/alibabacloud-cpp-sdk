@@ -68,11 +68,11 @@ namespace Models
   protected:
     // The message.
     shared_ptr<string> message_ {};
-    // The experiment plan ID.
+    // The ID of the experiment plan.
     shared_ptr<string> planId_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The creation result. The value `created` indicates success.
+    // The creation result. A value of created indicates success.
     shared_ptr<string> status_ {};
   };
 

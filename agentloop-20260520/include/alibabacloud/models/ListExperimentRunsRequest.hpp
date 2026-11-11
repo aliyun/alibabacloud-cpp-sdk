@@ -103,21 +103,21 @@ namespace Models
 
 
   protected:
-    // Filters results by exact dataset ID.
+    // Filters the results by exact dataset ID.
     shared_ptr<string> datasetId_ {};
-    // Filters results by fuzzy match on the experiment configuration name.
+    // Filters the results by using a fuzzy match on the name in the experiment configuration.
     shared_ptr<string> experimentName_ {};
-    // Optional. Use `page` and `pageSize` for pagination instead.
+    // Optional. For pagination, use page and pageSize.
     shared_ptr<int32_t> maxResults_ {};
-    // Optional. Use `page` and `pageSize` for pagination instead.
+    // Optional. For pagination, use page and pageSize.
     shared_ptr<string> nextToken_ {};
     // The page number, starting from 0. Default value: 0.
     shared_ptr<int32_t> page_ {};
     // The number of entries per page. Default value: 20.
     shared_ptr<int32_t> pageSize_ {};
-    // Filters results by fuzzy match on the experiment plan name.
+    // Filters the results by using a fuzzy match on the experiment plan name.
     shared_ptr<string> planName_ {};
-    // Filters results by status.
+    // Filters the results by status.
     shared_ptr<string> status_ {};
   };
 

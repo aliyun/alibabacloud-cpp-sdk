@@ -118,10 +118,11 @@ namespace Models
 
 
       protected:
+        // The attach method of the MSE namespace. AutoCreated indicates automatic creation by AgentLoop. UserSelected indicates that an existing namespace is selected and attached when the AgentSpace is created.
         shared_ptr<string> bindType_ {};
-        // The MSE namespace ID.
+        // The ID of the MSE namespace.
         shared_ptr<string> namespaceId_ {};
-        // The MSE namespace name.
+        // The name of the MSE namespace.
         shared_ptr<string> namespaceName_ {};
       };
 
@@ -187,7 +188,7 @@ namespace Models
 
 
     protected:
-      // The AgentSpace name.
+      // The name of the AgentSpace.
       shared_ptr<string> agentSpace_ {};
       // The CMS workspace.
       shared_ptr<string> cmsWorkspace_ {};
@@ -201,7 +202,7 @@ namespace Models
       shared_ptr<AgentSpaces::MseNamespace> mseNamespace_ {};
       // The region ID.
       shared_ptr<string> regionId_ {};
-      // The Simple Log Service project name.
+      // The name of the Simple Log Service project.
       shared_ptr<string> slsProject_ {};
       // The update time.
       // 
@@ -249,15 +250,15 @@ namespace Models
 
 
   protected:
-    // The AgentSpaces information.
+    // The information about the AgentSpaces.
     shared_ptr<vector<ListAgentSpacesResponseBody::AgentSpaces>> agentSpaces_ {};
-    // The maximum number of results returned.
+    // The maximum number of returned results.
     shared_ptr<int32_t> maxResults_ {};
-    // The pagination token. This parameter is empty if no more pages are available.
+    // The pagination token. This parameter is empty if no next page is available.
     shared_ptr<string> nextToken_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The total number of entries.
+    // The total count.
     shared_ptr<int32_t> total_ {};
   };
 

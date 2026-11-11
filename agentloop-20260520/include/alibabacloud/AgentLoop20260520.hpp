@@ -75,7 +75,7 @@ namespace AgentLoop20260520
       Models::CreateAgentSpaceResponse createAgentSpace(const Models::CreateAgentSpaceRequest &request);
 
       /**
-       * @summary Creates a context library.
+       * @summary Creates a context store.
        *
        * @param request CreateContextStoreRequest
        * @param headers map
@@ -85,7 +85,7 @@ namespace AgentLoop20260520
       Models::CreateContextStoreResponse createContextStoreWithOptions(const string &agentSpace, const Models::CreateContextStoreRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Creates a context library.
+       * @summary Creates a context store.
        *
        * @param request CreateContextStoreRequest
        * @return CreateContextStoreResponse
@@ -191,7 +191,7 @@ namespace AgentLoop20260520
       /**
        * @summary Creates an experiment plan.
        *
-       * @description Calls CreateExperimentPlan to create an experiment plan under a specified AgentSpace. This operation defines the configuration for an offline or online experiment, including the data source, optional evaluators, and experiment groups required for online experiments. After the plan is created, call CreateExperimentRun to start the execution.
+       * @description Creates an experiment plan in a specified AgentSpace. You can use this operation to define the configuration for an offline or online experiment, including the data source, optional evaluators, and experiment groups required for online experiments. After the plan is created, call CreateExperimentRun to initiate the execution.
        *
        * @param request CreateExperimentPlanRequest
        * @param headers map
@@ -203,7 +203,7 @@ namespace AgentLoop20260520
       /**
        * @summary Creates an experiment plan.
        *
-       * @description Calls CreateExperimentPlan to create an experiment plan under a specified AgentSpace. This operation defines the configuration for an offline or online experiment, including the data source, optional evaluators, and experiment groups required for online experiments. After the plan is created, call CreateExperimentRun to start the execution.
+       * @description Creates an experiment plan in a specified AgentSpace. You can use this operation to define the configuration for an offline or online experiment, including the data source, optional evaluators, and experiment groups required for online experiments. After the plan is created, call CreateExperimentRun to initiate the execution.
        *
        * @param request CreateExperimentPlanRequest
        * @return CreateExperimentPlanResponse
@@ -719,9 +719,9 @@ namespace AgentLoop20260520
       Models::GetExperimentPlanResponse getExperimentPlan(const string &agentSpace, const string &planId, const Models::GetExperimentPlanRequest &request);
 
       /**
-       * @summary Queries the details of an experiment run record.
+       * @summary Queries the details of an experiment run.
        *
-       * @description Calls GetExperimentRun to query the details of a specific experiment run record, including the status, progress, configuration snapshot, and associated evaluation task ID.
+       * @description Calls the GetExperimentRun operation to query the details of an experiment run, including the status, progress, configuration snapshot, and associated evaluation task ID.
        *
        * @param request GetExperimentRunRequest
        * @param headers map
@@ -731,9 +731,9 @@ namespace AgentLoop20260520
       Models::GetExperimentRunResponse getExperimentRunWithOptions(const string &agentSpace, const string &recordId, const Models::GetExperimentRunRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the details of an experiment run record.
+       * @summary Queries the details of an experiment run.
        *
-       * @description Calls GetExperimentRun to query the details of a specific experiment run record, including the status, progress, configuration snapshot, and associated evaluation task ID.
+       * @description Calls the GetExperimentRun operation to query the details of an experiment run, including the status, progress, configuration snapshot, and associated evaluation task ID.
        *
        * @param request GetExperimentRunRequest
        * @return GetExperimentRunResponse
@@ -1001,9 +1001,9 @@ namespace AgentLoop20260520
       Models::ListExperimentPlansResponse listExperimentPlans(const string &agentSpace, const Models::ListExperimentPlansRequest &request);
 
       /**
-       * @summary Queries a list of experiment run records.
+       * @summary Queries a list of experiment runs.
        *
-       * @description Calls ListExperimentRuns to query experiment run records under a specified AgentSpace for the current account. You can filter results by status, dataset, plan name, or experiment name, and use `page`/`pageSize` for pagination.
+       * @description Calls the ListExperimentRuns operation to query the experiment execution records of the current account in a specified AgentSpace. You can filter records by status, dataset, plan name, and experiment name, and paginate results by using page and pageSize.
        *
        * @param request ListExperimentRunsRequest
        * @param headers map
@@ -1013,9 +1013,9 @@ namespace AgentLoop20260520
       Models::ListExperimentRunsResponse listExperimentRunsWithOptions(const string &agentSpace, const Models::ListExperimentRunsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries a list of experiment run records.
+       * @summary Queries a list of experiment runs.
        *
-       * @description Calls ListExperimentRuns to query experiment run records under a specified AgentSpace for the current account. You can filter results by status, dataset, plan name, or experiment name, and use `page`/`pageSize` for pagination.
+       * @description Calls the ListExperimentRuns operation to query the experiment execution records of the current account in a specified AgentSpace. You can filter records by status, dataset, plan name, and experiment name, and paginate results by using page and pageSize.
        *
        * @param request ListExperimentRunsRequest
        * @return ListExperimentRunsResponse
@@ -1345,7 +1345,7 @@ namespace AgentLoop20260520
       /**
        * @summary Updates an experiment plan.
        *
-       * @description Updates a specified experiment plan. Fields that are not specified remain unchanged. You can only update plans created by the current account.
+       * @description Updates a specified experiment plan. Unspecified fields remain unchanged. Only plans created by the current account can be updated.
        *
        * @param request UpdateExperimentPlanRequest
        * @param headers map
@@ -1357,7 +1357,7 @@ namespace AgentLoop20260520
       /**
        * @summary Updates an experiment plan.
        *
-       * @description Updates a specified experiment plan. Fields that are not specified remain unchanged. You can only update plans created by the current account.
+       * @description Updates a specified experiment plan. Unspecified fields remain unchanged. Only plans created by the current account can be updated.
        *
        * @param request UpdateExperimentPlanRequest
        * @return UpdateExperimentPlanResponse
