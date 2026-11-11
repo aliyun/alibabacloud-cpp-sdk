@@ -223,9 +223,9 @@ namespace Models
   protected:
     // Specifies whether users are allowed to apply for the permission template. Default value: true.
     shared_ptr<bool> allowRequest_ {};
-    // The applicable scope of the permission template, including the scope type and specified users, groups, or organizational units.
+    // The applicable scope of the permission template, including the scope type and the specified users, groups, or organizational units.
     shared_ptr<CreateCloudPermissionTemplateRequest::ApplicableScope> applicableScope_ {};
-    // The client token that is used to ensure the idempotence of the request. You can use the client to generate the value, but you must ensure that it is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length.
+    // Ensures the idempotence of the request. You can generate the value from your client to ensure that the value is unique across different requests. The client token supports only ASCII characters and can be up to 64 characters in length.
     shared_ptr<string> clientToken_ {};
     // The cloud account ID.
     // 
@@ -237,10 +237,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> cloudPermissionTemplateName_ {};
-    // The usage type of the permission template. Valid values:
-    // - user: Privilege escalation for human users.
-    // - application: Privilege escalation for M2M applications.
-    // Default value: user.
+    // The usage type of the permission template. Valid values: user (privilege escalation for human users) and application (privilege escalation for M2M applications). Default value: user.
     shared_ptr<string> cloudPermissionTemplateUsageType_ {};
     // The description of the permission template. The description can be up to 128 characters in length.
     shared_ptr<string> description_ {};

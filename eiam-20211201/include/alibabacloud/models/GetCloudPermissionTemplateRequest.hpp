@@ -57,7 +57,7 @@ namespace Models
 
 
   protected:
-    // The cloud account ID.
+    // The ID of the cloud account.
     // 
     // This parameter is required.
     shared_ptr<string> cloudAccountId_ {};

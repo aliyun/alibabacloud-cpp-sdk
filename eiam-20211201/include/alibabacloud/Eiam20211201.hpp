@@ -21,7 +21,7 @@ namespace Eiam20211201
       string getEndpoint(const string &productId, const string &regionId, const string &endpointRule, const string &network, const string &suffix, const map<string, string> &endpointMap, const string &endpoint);
 
       /**
-       * @summary Activates privileged hosting for a cloud account.
+       * @summary Activates privileged access hosting for a cloud account.
        *
        * @param request ActivateCloudAccountPrivilegeRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -30,7 +30,7 @@ namespace Eiam20211201
       Models::ActivateCloudAccountPrivilegeResponse activateCloudAccountPrivilegeWithOptions(const Models::ActivateCloudAccountPrivilegeRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Activates privileged hosting for a cloud account.
+       * @summary Activates privileged access hosting for a cloud account.
        *
        * @param request ActivateCloudAccountPrivilegeRequest
        * @return ActivateCloudAccountPrivilegeResponse
@@ -293,7 +293,7 @@ namespace Eiam20211201
       Models::AuthorizeResourceServerToClientResponse authorizeResourceServerToClient(const Models::AuthorizeResourceServerToClientRequest &request);
 
       /**
-       * @summary Binds a third-party logon account.
+       * @summary Associates a third-party logon account.
        *
        * @param request BindUserAuthnSourceMappingRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -302,7 +302,7 @@ namespace Eiam20211201
       Models::BindUserAuthnSourceMappingResponse bindUserAuthnSourceMappingWithOptions(const Models::BindUserAuthnSourceMappingRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Binds a third-party logon account.
+       * @summary Associates a third-party logon account.
        *
        * @param request BindUserAuthnSourceMappingRequest
        * @return BindUserAuthnSourceMappingResponse
@@ -1695,7 +1695,7 @@ namespace Eiam20211201
       Models::DisableClientPublicKeyResponse disableClientPublicKey(const Models::DisableClientPublicKeyRequest &request);
 
       /**
-       * @summary Disables cloud account privileges.
+       * @summary Disables privileges for a cloud account.
        *
        * @param request DisableCloudAccountPrivilegeRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1704,7 +1704,7 @@ namespace Eiam20211201
       Models::DisableCloudAccountPrivilegeResponse disableCloudAccountPrivilegeWithOptions(const Models::DisableCloudAccountPrivilegeRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Disables cloud account privileges.
+       * @summary Disables privileges for a cloud account.
        *
        * @param request DisableCloudAccountPrivilegeRequest
        * @return DisableCloudAccountPrivilegeResponse
@@ -2936,6 +2936,23 @@ namespace Eiam20211201
       Models::GetCloudAccountResponse getCloudAccount(const Models::GetCloudAccountRequest &request);
 
       /**
+       * @summary Queries the details of a specified cloud account resource.
+       *
+       * @param request GetCloudAccountResourceRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetCloudAccountResourceResponse
+       */
+      Models::GetCloudAccountResourceResponse getCloudAccountResourceWithOptions(const Models::GetCloudAccountResourceRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Queries the details of a specified cloud account resource.
+       *
+       * @param request GetCloudAccountResourceRequest
+       * @return GetCloudAccountResourceResponse
+       */
+      Models::GetCloudAccountResourceResponse getCloudAccountResource(const Models::GetCloudAccountResourceRequest &request);
+
+      /**
        * @summary Queries the resource information of a cloud role.
        *
        * @param request GetCloudAccountRoleRequest
@@ -3127,7 +3144,7 @@ namespace Eiam20211201
       Models::GetForgetPasswordConfigurationResponse getForgetPasswordConfiguration(const Models::GetForgetPasswordConfigurationRequest &request);
 
       /**
-       * @summary 查询全局云账号系统角色权限模板
+       * @summary Queries the permission template for the global cloud account system role.
        *
        * @param request GetGlobalCloudAccountSystemRolePolicyRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3136,7 +3153,7 @@ namespace Eiam20211201
       Models::GetGlobalCloudAccountSystemRolePolicyResponse getGlobalCloudAccountSystemRolePolicyWithOptions(const Models::GetGlobalCloudAccountSystemRolePolicyRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询全局云账号系统角色权限模板
+       * @summary Queries the permission template for the global cloud account system role.
        *
        * @param request GetGlobalCloudAccountSystemRolePolicyRequest
        * @return GetGlobalCloudAccountSystemRolePolicyResponse
@@ -3178,7 +3195,7 @@ namespace Eiam20211201
       Models::GetIdentityProviderResponse getIdentityProvider(const Models::GetIdentityProviderRequest &request);
 
       /**
-       * @summary Retrieves advanced configuration information.
+       * @summary Retrieves the advanced configuration information.
        *
        * @param request GetIdentityProviderAdvancedConfigurationRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3187,7 +3204,7 @@ namespace Eiam20211201
       Models::GetIdentityProviderAdvancedConfigurationResponse getIdentityProviderAdvancedConfigurationWithOptions(const Models::GetIdentityProviderAdvancedConfigurationRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Retrieves advanced configuration information.
+       * @summary Retrieves the advanced configuration information.
        *
        * @param request GetIdentityProviderAdvancedConfigurationRequest
        * @return GetIdentityProviderAdvancedConfigurationResponse
@@ -3367,6 +3384,23 @@ namespace Eiam20211201
        * @return GetInstanceTrialStatusResponse
        */
       Models::GetInstanceTrialStatusResponse getInstanceTrialStatus(const Models::GetInstanceTrialStatusRequest &request);
+
+      /**
+       * @summary Queries resource synchronization tasks.
+       *
+       * @param request GetInventorySynchronizationJobRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetInventorySynchronizationJobResponse
+       */
+      Models::GetInventorySynchronizationJobResponse getInventorySynchronizationJobWithOptions(const Models::GetInventorySynchronizationJobRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Queries resource synchronization tasks.
+       *
+       * @param request GetInventorySynchronizationJobRequest
+       * @return GetInventorySynchronizationJobResponse
+       */
+      Models::GetInventorySynchronizationJobResponse getInventorySynchronizationJob(const Models::GetInventorySynchronizationJobRequest &request);
 
       /**
        * @summary Sets the post-logon redirect application for a brand.
@@ -4031,6 +4065,40 @@ namespace Eiam20211201
       Models::ListClientPublicKeysResponse listClientPublicKeys(const Models::ListClientPublicKeysRequest &request);
 
       /**
+       * @summary Invokes ListCloudAccountResources to perform a paged query of cloud account resources by using paging.
+       *
+       * @param request ListCloudAccountResourcesRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListCloudAccountResourcesResponse
+       */
+      Models::ListCloudAccountResourcesResponse listCloudAccountResourcesWithOptions(const Models::ListCloudAccountResourcesRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Invokes ListCloudAccountResources to perform a paged query of cloud account resources by using paging.
+       *
+       * @param request ListCloudAccountResourcesRequest
+       * @return ListCloudAccountResourcesResponse
+       */
+      Models::ListCloudAccountResourcesResponse listCloudAccountResources(const Models::ListCloudAccountResourcesRequest &request);
+
+      /**
+       * @summary Calls ListCloudAccountResourcesForCloudPermissionTemplate to perform a paging query for the list of cloud account resources associated with a specified cloud permission template.
+       *
+       * @param request ListCloudAccountResourcesForCloudPermissionTemplateRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListCloudAccountResourcesForCloudPermissionTemplateResponse
+       */
+      Models::ListCloudAccountResourcesForCloudPermissionTemplateResponse listCloudAccountResourcesForCloudPermissionTemplateWithOptions(const Models::ListCloudAccountResourcesForCloudPermissionTemplateRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Calls ListCloudAccountResourcesForCloudPermissionTemplate to perform a paging query for the list of cloud account resources associated with a specified cloud permission template.
+       *
+       * @param request ListCloudAccountResourcesForCloudPermissionTemplateRequest
+       * @return ListCloudAccountResourcesForCloudPermissionTemplateResponse
+       */
+      Models::ListCloudAccountResourcesForCloudPermissionTemplateResponse listCloudAccountResourcesForCloudPermissionTemplate(const Models::ListCloudAccountResourcesForCloudPermissionTemplateRequest &request);
+
+      /**
        * @summary Queries information about one or more cloud roles by using paging.
        *
        * @param request ListCloudAccountRolesRequest
@@ -4065,7 +4133,7 @@ namespace Eiam20211201
       Models::ListCloudAccountsResponse listCloudAccounts(const Models::ListCloudAccountsRequest &request);
 
       /**
-       * @summary Queries the information of one or more permission templates by using a paging query.
+       * @summary Queries the information of one or more permission templates by using paging.
        *
        * @param request ListCloudPermissionTemplatesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -4074,7 +4142,7 @@ namespace Eiam20211201
       Models::ListCloudPermissionTemplatesResponse listCloudPermissionTemplatesWithOptions(const Models::ListCloudPermissionTemplatesRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the information of one or more permission templates by using a paging query.
+       * @summary Queries the information of one or more permission templates by using paging.
        *
        * @param request ListCloudPermissionTemplatesRequest
        * @return ListCloudPermissionTemplatesResponse
@@ -4411,7 +4479,7 @@ namespace Eiam20211201
       Models::ListGroupsForUserResponse listGroupsForUser(const Models::ListGroupsForUserRequest &request);
 
       /**
-       * @summary Query the list of identity providers.
+       * @summary Queries the list of identity providers.
        *
        * @param request ListIdentityProvidersRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -4420,7 +4488,7 @@ namespace Eiam20211201
       Models::ListIdentityProvidersResponse listIdentityProvidersWithOptions(const Models::ListIdentityProvidersRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Query the list of identity providers.
+       * @summary Queries the list of identity providers.
        *
        * @param request ListIdentityProvidersRequest
        * @return ListIdentityProvidersResponse
@@ -4460,6 +4528,33 @@ namespace Eiam20211201
        * @return ListInstancesResponse
        */
       Models::ListInstancesResponse listInstances(const Models::ListInstancesRequest &request);
+
+      /**
+       * @summary Queries resource synchronization tasks.
+       *
+       * @description You can use one of the following two methods to view the returned data:
+       * - Method 1: When paged query the first page, you only need to set MaxResults to limit the number of returned entries. The NextToken value in the response is used as the token to query the next page. When paged query subsequent pages, set the NextToken parameter to the NextToken value obtained from the previous response, and set MaxResults to limit the number of returned entries. If no more pages exist, NextToken is not returned. The maximum value of MaxResults is 100.
+       * - Method 2: Set PageSize to specify the number of entries to return per page, and set PageNumber to specify the page number.
+       * You can use only one of the two methods. Method 1 is recommended when a large number of entries are returned. If you set the MaxResults or NextToken parameter, the PageSize and PageNumber request parameters become invalid.
+       *
+       * @param request ListInventorySynchronizationJobsRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListInventorySynchronizationJobsResponse
+       */
+      Models::ListInventorySynchronizationJobsResponse listInventorySynchronizationJobsWithOptions(const Models::ListInventorySynchronizationJobsRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Queries resource synchronization tasks.
+       *
+       * @description You can use one of the following two methods to view the returned data:
+       * - Method 1: When paged query the first page, you only need to set MaxResults to limit the number of returned entries. The NextToken value in the response is used as the token to query the next page. When paged query subsequent pages, set the NextToken parameter to the NextToken value obtained from the previous response, and set MaxResults to limit the number of returned entries. If no more pages exist, NextToken is not returned. The maximum value of MaxResults is 100.
+       * - Method 2: Set PageSize to specify the number of entries to return per page, and set PageNumber to specify the page number.
+       * You can use only one of the two methods. Method 1 is recommended when a large number of entries are returned. If you set the MaxResults or NextToken parameter, the PageSize and PageNumber request parameters become invalid.
+       *
+       * @param request ListInventorySynchronizationJobsRequest
+       * @return ListInventorySynchronizationJobsResponse
+       */
+      Models::ListInventorySynchronizationJobsResponse listInventorySynchronizationJobs(const Models::ListInventorySynchronizationJobsRequest &request);
 
       /**
        * @summary Queries the list of regions where IDaaS EIAM supports creating network endpoints.
@@ -5168,6 +5263,23 @@ namespace Eiam20211201
       Models::RevokeResourceServerScopesFromUserResponse revokeResourceServerScopesFromUser(const Models::RevokeResourceServerScopesFromUserRequest &request);
 
       /**
+       * @summary Runs a resource synchronization task.
+       *
+       * @param request RunInventorySynchronizationJobRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return RunInventorySynchronizationJobResponse
+       */
+      Models::RunInventorySynchronizationJobResponse runInventorySynchronizationJobWithOptions(const Models::RunInventorySynchronizationJobRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Runs a resource synchronization task.
+       *
+       * @param request RunInventorySynchronizationJobRequest
+       * @return RunInventorySynchronizationJobResponse
+       */
+      Models::RunInventorySynchronizationJobResponse runInventorySynchronizationJob(const Models::RunInventorySynchronizationJobRequest &request);
+
+      /**
        * @summary Runs a synchronization task. This creates a new synchronization task and immediately executes it.
        *
        * @param request RunSynchronizationJobRequest
@@ -5563,7 +5675,7 @@ namespace Eiam20211201
       Models::UnbindTotpAuthenticatorResponse unbindTotpAuthenticator(const Models::UnbindTotpAuthenticatorRequest &request);
 
       /**
-       * @summary Disassociates a third-party logon account.
+       * @summary Dissociates a third-party logon account.
        *
        * @param request UnbindUserAuthnSourceMappingRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -5572,7 +5684,7 @@ namespace Eiam20211201
       Models::UnbindUserAuthnSourceMappingResponse unbindUserAuthnSourceMappingWithOptions(const Models::UnbindUserAuthnSourceMappingRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Disassociates a third-party logon account.
+       * @summary Dissociates a third-party logon account.
        *
        * @param request UnbindUserAuthnSourceMappingRequest
        * @return UnbindUserAuthnSourceMappingResponse

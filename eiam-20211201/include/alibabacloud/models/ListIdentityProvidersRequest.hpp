@@ -68,13 +68,13 @@ namespace Models
   protected:
     // The direction of the identity provider.
     shared_ptr<string> direction_ {};
-    // Instance ID.
+    // The instance ID.
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
-    // Page number.
+    // The page number.
     shared_ptr<int64_t> pageNumber_ {};
-    // Page size.
+    // The page size.
     shared_ptr<int64_t> pageSize_ {};
   };
 

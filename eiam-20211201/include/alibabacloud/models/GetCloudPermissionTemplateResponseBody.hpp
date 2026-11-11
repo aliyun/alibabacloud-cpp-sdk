@@ -134,11 +134,13 @@ namespace Models
 
 
       protected:
-        // The error code returned when initialization fails.
+        // The error code returned when the initialization fails.
         shared_ptr<string> errorCode_ {};
-        // The error message returned when initialization fails.
+        // The error message returned when the initialization fails.
         shared_ptr<string> errorMessage_ {};
-        // The initialization result. Valid values: success and failed.
+        // The initialization result. Valid values:
+        // - success: The initialization succeeded.
+        // - failed: The initialization failed.
         shared_ptr<string> result_ {};
       };
 
@@ -193,7 +195,9 @@ namespace Models
         shared_ptr<string> creatorId_ {};
         // The name of the creator.
         shared_ptr<string> creatorName_ {};
-        // The type of the creator. Valid values: idaas_admin and idaas_user.
+        // The type of the creator. Valid values:
+        // - idaas_admin: IDaaS administrator.
+        // - idaas_user: IDaaS user.
         shared_ptr<string> creatorType_ {};
       };
 
@@ -259,13 +263,15 @@ namespace Models
 
 
       protected:
-        // The list of specified group IDs. This parameter has a value only when ScopeType is set to custom.
+        // The list of specified group IDs. This field is returned only when ScopeType is set to custom.
         shared_ptr<vector<string>> groupIds_ {};
-        // The list of specified organizational unit IDs. This parameter has a value only when ScopeType is set to custom.
+        // The list of specified organizational unit IDs. This field is returned only when ScopeType is set to custom.
         shared_ptr<vector<string>> organizationalUnitIds_ {};
-        // The type of the applicable scope. Valid values: global and custom.
+        // The type of the applicable scope. Valid values:
+        // - global: Global.
+        // - custom: Custom.
         shared_ptr<string> scopeType_ {};
-        // The list of specified user IDs. This parameter has a value only when ScopeType is set to custom.
+        // The list of specified user IDs. This field is returned only when ScopeType is set to custom.
         shared_ptr<vector<string>> userIds_ {};
       };
 
@@ -414,29 +420,36 @@ namespace Models
 
 
     protected:
-      // Specifies whether users are allowed to request the permission.
+      // Specifies whether users are allowed to apply for the permission template.
       shared_ptr<bool> allowRequest_ {};
-      // The applicable scope of the permission template.
+      // The applicable scope for applying for the permission template.
       shared_ptr<CloudPermissionTemplate::ApplicableScope> applicableScope_ {};
-      // The ID of the cloud account to which the template belongs.
+      // The ID of the cloud account to which the permission template belongs.
       shared_ptr<string> cloudAccountId_ {};
-      // The creator information of the permission template.
+      // The information about the creator of the permission template.
       shared_ptr<CloudPermissionTemplate::CloudPermissionTemplateCreator> cloudPermissionTemplateCreator_ {};
       // The unique identifier of the permission template.
       shared_ptr<string> cloudPermissionTemplateId_ {};
-      // The initialization result. This parameter is returned only when the status is init_failed.
+      // The initialization result. This field is returned only when the status is init_failed.
       shared_ptr<CloudPermissionTemplate::CloudPermissionTemplateInitResult> cloudPermissionTemplateInitResult_ {};
       // The name of the permission template.
       shared_ptr<string> cloudPermissionTemplateName_ {};
-      // The ID of the application to which the exclusive template belongs. This parameter is empty for shared templates.
+      // The ID of the application that owns the exclusive template. This field is empty for shared templates.
       shared_ptr<string> cloudPermissionTemplateOwnerId_ {};
-      // The owner type of the exclusive template. Valid values: application (M2M applications) and user (human users). This parameter is empty for shared templates.
+      // The owner type of the exclusive template. Valid values:
+      // - application: M2M application.
+      // - user: Human user.
+      // This field is empty for shared templates.
       shared_ptr<string> cloudPermissionTemplateOwnerType_ {};
-      // The sharing mode of the permission template. Valid values: shared and exclusive.
+      // The sharing mode of the permission template. Valid values:
+      // - shared: Shared.
+      // - exclusive: Exclusive.
       shared_ptr<string> cloudPermissionTemplateSharingMode_ {};
-      // The usage type of the permission template. Valid values: user (privilege escalation for human users) and application (privilege escalation for M2M applications).
+      // The usage type of the permission template. Valid values:
+      // - user: Privilege escalation for human users.
+      // - application: Privilege escalation for machine-to-machine (M2M) applications.
       shared_ptr<string> cloudPermissionTemplateUsageType_ {};
-      // The creation time. The value is a UNIX timestamp in milliseconds.
+      // The time when the permission template was created. The value is a UNIX timestamp in milliseconds.
       shared_ptr<int64_t> createTime_ {};
       // The description of the permission template.
       shared_ptr<string> description_ {};
@@ -446,11 +459,15 @@ namespace Models
       shared_ptr<string> permissionEntityExternalId_ {};
       // The ID of the associated CloudAccountRole.
       shared_ptr<string> permissionEntityId_ {};
-      // The permission entity type. Fixed value: cloud_account_role.
+      // The type of the permission entity. Fixed value: cloud_account_role.
       shared_ptr<string> permissionEntityType_ {};
-      // The status of the permission template. Valid values: initializing, init_failed, enabled, and disabled.
+      // The status of the permission template. Valid values:
+      // - initializing: The template is being initialized.
+      // - init_failed: The template initialization failed.
+      // - enabled: The template is enabled.
+      // - disabled: The template is disabled.
       shared_ptr<string> status_ {};
-      // The last update time. The value is a UNIX timestamp in milliseconds.
+      // The time when the permission template was last updated. The value is a UNIX timestamp in milliseconds.
       shared_ptr<int64_t> updateTime_ {};
     };
 
@@ -475,7 +492,7 @@ namespace Models
   protected:
     // The permission template.
     shared_ptr<GetCloudPermissionTemplateResponseBody::CloudPermissionTemplate> cloudPermissionTemplate_ {};
-    // The request ID.
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
   };
 

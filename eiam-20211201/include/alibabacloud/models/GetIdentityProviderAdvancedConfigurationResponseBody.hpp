@@ -92,9 +92,9 @@ namespace Models
 
 
       protected:
-        // AppKey of the DingTalk first-party application
+        // The AppKey of the DingTalk first-party application.
         shared_ptr<string> appKey_ {};
-        // App secret of the DingTalk first-party application
+        // The AppSecret of the DingTalk first-party application.
         shared_ptr<string> appSecret_ {};
       };
 
@@ -124,11 +124,11 @@ namespace Models
 
 
     protected:
-      // DingTalk advanced configuration
+      // The DingTalk advanced configuration.
       shared_ptr<AdvancedConfiguration::DingtalkAdvancedConfig> dingtalkAdvancedConfig_ {};
-      // Identity provider ID
+      // The identity provider ID.
       shared_ptr<string> identityProviderId_ {};
-      // Instance ID
+      // The instance ID.
       shared_ptr<string> instanceId_ {};
     };
 
@@ -151,9 +151,9 @@ namespace Models
 
 
   protected:
-    // Advanced configuration information
+    // The advanced configuration information.
     shared_ptr<GetIdentityProviderAdvancedConfigurationResponseBody::AdvancedConfiguration> advancedConfiguration_ {};
-    // Request ID
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

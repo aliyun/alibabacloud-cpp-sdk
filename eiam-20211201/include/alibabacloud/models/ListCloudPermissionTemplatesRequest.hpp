@@ -103,15 +103,15 @@ namespace Models
 
 
   protected:
-    // The ID of the cloud account.
+    // The cloud account ID.
     // 
     // This parameter is required.
     shared_ptr<string> cloudAccountId_ {};
-    // Filters the results by the prefix of the template name.
+    // Filters the results by template name prefix.
     shared_ptr<string> cloudPermissionTemplateNamePrefix_ {};
-    // Filters the results by permission template sharing mode. Valid values: shared and exclusive. If you do not specify this parameter, no filtering is applied.
+    // Filters the results by permission template sharing mode. Valid values: shared and exclusive. If this parameter is not specified, no filtering is applied.
     shared_ptr<string> cloudPermissionTemplateSharingMode_ {};
-    // Filters the results by permission template usage type. Valid values: user (privilege escalation for human users) and application (privilege escalation for machine-to-machine applications).
+    // Filters the results by permission template usage type. Valid values: user (privilege escalation for human users) and application (privilege escalation for M2M applications).
     shared_ptr<string> cloudPermissionTemplateUsageType_ {};
     // Filters the results by creator type. Valid values: idaas_admin and idaas_user.
     shared_ptr<string> creatorType_ {};
@@ -119,9 +119,9 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
-    // The maximum number of entries to return per page in a paging query. Default value: 20. Maximum value: 100.
+    // The number of entries per page for paging. Default value: 20. Maximum value: 100.
     shared_ptr<int64_t> maxResults_ {};
-    // The pagination token. Set the value to the NextToken value returned from the previous call.
+    // The pagination token. Set this parameter to the NextToken value returned from the previous API call.
     shared_ptr<string> nextToken_ {};
   };
 

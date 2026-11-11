@@ -41,7 +41,7 @@ string Client::getEndpoint(const string &productId, const string &regionId, cons
 }
 
 /**
- * @summary Activates privileged hosting for a cloud account.
+ * @summary Activates privileged access hosting for a cloud account.
  *
  * @param request ActivateCloudAccountPrivilegeRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -80,7 +80,7 @@ ActivateCloudAccountPrivilegeResponse Client::activateCloudAccountPrivilegeWithO
 }
 
 /**
- * @summary Activates privileged hosting for a cloud account.
+ * @summary Activates privileged access hosting for a cloud account.
  *
  * @param request ActivateCloudAccountPrivilegeRequest
  * @return ActivateCloudAccountPrivilegeResponse
@@ -927,7 +927,7 @@ AuthorizeResourceServerToClientResponse Client::authorizeResourceServerToClient(
 }
 
 /**
- * @summary Binds a third-party logon account.
+ * @summary Associates a third-party logon account.
  *
  * @param request BindUserAuthnSourceMappingRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -970,7 +970,7 @@ BindUserAuthnSourceMappingResponse Client::bindUserAuthnSourceMappingWithOptions
 }
 
 /**
- * @summary Binds a third-party logon account.
+ * @summary Associates a third-party logon account.
  *
  * @param request BindUserAuthnSourceMappingRequest
  * @return BindUserAuthnSourceMappingResponse
@@ -5355,7 +5355,7 @@ DisableClientPublicKeyResponse Client::disableClientPublicKey(const DisableClien
 }
 
 /**
- * @summary Disables cloud account privileges.
+ * @summary Disables privileges for a cloud account.
  *
  * @param request DisableCloudAccountPrivilegeRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -5394,7 +5394,7 @@ DisableCloudAccountPrivilegeResponse Client::disableCloudAccountPrivilegeWithOpt
 }
 
 /**
- * @summary Disables cloud account privileges.
+ * @summary Disables privileges for a cloud account.
  *
  * @param request DisableCloudAccountPrivilegeRequest
  * @return DisableCloudAccountPrivilegeResponse
@@ -8785,6 +8785,56 @@ GetCloudAccountResponse Client::getCloudAccount(const GetCloudAccountRequest &re
 }
 
 /**
+ * @summary Queries the details of a specified cloud account resource.
+ *
+ * @param request GetCloudAccountResourceRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetCloudAccountResourceResponse
+ */
+GetCloudAccountResourceResponse Client::getCloudAccountResourceWithOptions(const GetCloudAccountResourceRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasCloudAccountId()) {
+    query["CloudAccountId"] = request.getCloudAccountId();
+  }
+
+  if (!!request.hasCloudAccountResourceId()) {
+    query["CloudAccountResourceId"] = request.getCloudAccountResourceId();
+  }
+
+  if (!!request.hasInstanceId()) {
+    query["InstanceId"] = request.getInstanceId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "GetCloudAccountResource"},
+    {"version" , "2021-12-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetCloudAccountResourceResponse>();
+}
+
+/**
+ * @summary Queries the details of a specified cloud account resource.
+ *
+ * @param request GetCloudAccountResourceRequest
+ * @return GetCloudAccountResourceResponse
+ */
+GetCloudAccountResourceResponse Client::getCloudAccountResource(const GetCloudAccountResourceRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return getCloudAccountResourceWithOptions(request, runtime);
+}
+
+/**
  * @summary Queries the resource information of a cloud role.
  *
  * @param request GetCloudAccountRoleRequest
@@ -9299,7 +9349,7 @@ GetForgetPasswordConfigurationResponse Client::getForgetPasswordConfiguration(co
 }
 
 /**
- * @summary 查询全局云账号系统角色权限模板
+ * @summary Queries the permission template for the global cloud account system role.
  *
  * @param request GetGlobalCloudAccountSystemRolePolicyRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -9323,7 +9373,7 @@ GetGlobalCloudAccountSystemRolePolicyResponse Client::getGlobalCloudAccountSyste
 }
 
 /**
- * @summary 查询全局云账号系统角色权限模板
+ * @summary Queries the permission template for the global cloud account system role.
  *
  * @param request GetGlobalCloudAccountSystemRolePolicyRequest
  * @return GetGlobalCloudAccountSystemRolePolicyResponse
@@ -9426,7 +9476,7 @@ GetIdentityProviderResponse Client::getIdentityProvider(const GetIdentityProvide
 }
 
 /**
- * @summary Retrieves advanced configuration information.
+ * @summary Retrieves the advanced configuration information.
  *
  * @param request GetIdentityProviderAdvancedConfigurationRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -9461,7 +9511,7 @@ GetIdentityProviderAdvancedConfigurationResponse Client::getIdentityProviderAdva
 }
 
 /**
- * @summary Retrieves advanced configuration information.
+ * @summary Retrieves the advanced configuration information.
  *
  * @param request GetIdentityProviderAdvancedConfigurationRequest
  * @return GetIdentityProviderAdvancedConfigurationResponse
@@ -9921,6 +9971,52 @@ GetInstanceTrialStatusResponse Client::getInstanceTrialStatusWithOptions(const G
 GetInstanceTrialStatusResponse Client::getInstanceTrialStatus(const GetInstanceTrialStatusRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return getInstanceTrialStatusWithOptions(request, runtime);
+}
+
+/**
+ * @summary Queries resource synchronization tasks.
+ *
+ * @param request GetInventorySynchronizationJobRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetInventorySynchronizationJobResponse
+ */
+GetInventorySynchronizationJobResponse Client::getInventorySynchronizationJobWithOptions(const GetInventorySynchronizationJobRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasInstanceId()) {
+    query["InstanceId"] = request.getInstanceId();
+  }
+
+  if (!!request.hasInventorySynchronizationJobId()) {
+    query["InventorySynchronizationJobId"] = request.getInventorySynchronizationJobId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "GetInventorySynchronizationJob"},
+    {"version" , "2021-12-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetInventorySynchronizationJobResponse>();
+}
+
+/**
+ * @summary Queries resource synchronization tasks.
+ *
+ * @param request GetInventorySynchronizationJobRequest
+ * @return GetInventorySynchronizationJobResponse
+ */
+GetInventorySynchronizationJobResponse Client::getInventorySynchronizationJob(const GetInventorySynchronizationJobRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return getInventorySynchronizationJobWithOptions(request, runtime);
 }
 
 /**
@@ -11924,6 +12020,134 @@ ListClientPublicKeysResponse Client::listClientPublicKeys(const ListClientPublic
 }
 
 /**
+ * @summary Invokes ListCloudAccountResources to perform a paged query of cloud account resources by using paging.
+ *
+ * @param request ListCloudAccountResourcesRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListCloudAccountResourcesResponse
+ */
+ListCloudAccountResourcesResponse Client::listCloudAccountResourcesWithOptions(const ListCloudAccountResourcesRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasCloudAccountId()) {
+    query["CloudAccountId"] = request.getCloudAccountId();
+  }
+
+  if (!!request.hasCloudAccountResourceEntityType()) {
+    query["CloudAccountResourceEntityType"] = request.getCloudAccountResourceEntityType();
+  }
+
+  if (!!request.hasCloudAccountResourceNameContains()) {
+    query["CloudAccountResourceNameContains"] = request.getCloudAccountResourceNameContains();
+  }
+
+  if (!!request.hasCloudAccountResourceNamePrefix()) {
+    query["CloudAccountResourceNamePrefix"] = request.getCloudAccountResourceNamePrefix();
+  }
+
+  if (!!request.hasInstanceId()) {
+    query["InstanceId"] = request.getInstanceId();
+  }
+
+  if (!!request.hasMaxResults()) {
+    query["MaxResults"] = request.getMaxResults();
+  }
+
+  if (!!request.hasNextToken()) {
+    query["NextToken"] = request.getNextToken();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ListCloudAccountResources"},
+    {"version" , "2021-12-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListCloudAccountResourcesResponse>();
+}
+
+/**
+ * @summary Invokes ListCloudAccountResources to perform a paged query of cloud account resources by using paging.
+ *
+ * @param request ListCloudAccountResourcesRequest
+ * @return ListCloudAccountResourcesResponse
+ */
+ListCloudAccountResourcesResponse Client::listCloudAccountResources(const ListCloudAccountResourcesRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return listCloudAccountResourcesWithOptions(request, runtime);
+}
+
+/**
+ * @summary Calls ListCloudAccountResourcesForCloudPermissionTemplate to perform a paging query for the list of cloud account resources associated with a specified cloud permission template.
+ *
+ * @param request ListCloudAccountResourcesForCloudPermissionTemplateRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListCloudAccountResourcesForCloudPermissionTemplateResponse
+ */
+ListCloudAccountResourcesForCloudPermissionTemplateResponse Client::listCloudAccountResourcesForCloudPermissionTemplateWithOptions(const ListCloudAccountResourcesForCloudPermissionTemplateRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasCloudAccountId()) {
+    query["CloudAccountId"] = request.getCloudAccountId();
+  }
+
+  if (!!request.hasCloudAccountResourceEntityType()) {
+    query["CloudAccountResourceEntityType"] = request.getCloudAccountResourceEntityType();
+  }
+
+  if (!!request.hasCloudPermissionTemplateId()) {
+    query["CloudPermissionTemplateId"] = request.getCloudPermissionTemplateId();
+  }
+
+  if (!!request.hasInstanceId()) {
+    query["InstanceId"] = request.getInstanceId();
+  }
+
+  if (!!request.hasMaxResults()) {
+    query["MaxResults"] = request.getMaxResults();
+  }
+
+  if (!!request.hasNextToken()) {
+    query["NextToken"] = request.getNextToken();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ListCloudAccountResourcesForCloudPermissionTemplate"},
+    {"version" , "2021-12-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListCloudAccountResourcesForCloudPermissionTemplateResponse>();
+}
+
+/**
+ * @summary Calls ListCloudAccountResourcesForCloudPermissionTemplate to perform a paging query for the list of cloud account resources associated with a specified cloud permission template.
+ *
+ * @param request ListCloudAccountResourcesForCloudPermissionTemplateRequest
+ * @return ListCloudAccountResourcesForCloudPermissionTemplateResponse
+ */
+ListCloudAccountResourcesForCloudPermissionTemplateResponse Client::listCloudAccountResourcesForCloudPermissionTemplate(const ListCloudAccountResourcesForCloudPermissionTemplateRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return listCloudAccountResourcesForCloudPermissionTemplateWithOptions(request, runtime);
+}
+
+/**
  * @summary Queries information about one or more cloud roles by using paging.
  *
  * @param request ListCloudAccountRolesRequest
@@ -12036,7 +12260,7 @@ ListCloudAccountsResponse Client::listCloudAccounts(const ListCloudAccountsReque
 }
 
 /**
- * @summary Queries the information of one or more permission templates by using a paging query.
+ * @summary Queries the information of one or more permission templates by using paging.
  *
  * @param request ListCloudPermissionTemplatesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -12095,7 +12319,7 @@ ListCloudPermissionTemplatesResponse Client::listCloudPermissionTemplatesWithOpt
 }
 
 /**
- * @summary Queries the information of one or more permission templates by using a paging query.
+ * @summary Queries the information of one or more permission templates by using paging.
  *
  * @param request ListCloudPermissionTemplatesRequest
  * @return ListCloudPermissionTemplatesResponse
@@ -13142,7 +13366,7 @@ ListGroupsForUserResponse Client::listGroupsForUser(const ListGroupsForUserReque
 }
 
 /**
- * @summary Query the list of identity providers.
+ * @summary Queries the list of identity providers.
  *
  * @param request ListIdentityProvidersRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -13185,7 +13409,7 @@ ListIdentityProvidersResponse Client::listIdentityProvidersWithOptions(const Lis
 }
 
 /**
- * @summary Query the list of identity providers.
+ * @summary Queries the list of identity providers.
  *
  * @param request ListIdentityProvidersRequest
  * @return ListIdentityProvidersResponse
@@ -13317,6 +13541,82 @@ ListInstancesResponse Client::listInstancesWithOptions(const ListInstancesReques
 ListInstancesResponse Client::listInstances(const ListInstancesRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return listInstancesWithOptions(request, runtime);
+}
+
+/**
+ * @summary Queries resource synchronization tasks.
+ *
+ * @description You can use one of the following two methods to view the returned data:
+ * - Method 1: When paged query the first page, you only need to set MaxResults to limit the number of returned entries. The NextToken value in the response is used as the token to query the next page. When paged query subsequent pages, set the NextToken parameter to the NextToken value obtained from the previous response, and set MaxResults to limit the number of returned entries. If no more pages exist, NextToken is not returned. The maximum value of MaxResults is 100.
+ * - Method 2: Set PageSize to specify the number of entries to return per page, and set PageNumber to specify the page number.
+ * You can use only one of the two methods. Method 1 is recommended when a large number of entries are returned. If you set the MaxResults or NextToken parameter, the PageSize and PageNumber request parameters become invalid.
+ *
+ * @param request ListInventorySynchronizationJobsRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListInventorySynchronizationJobsResponse
+ */
+ListInventorySynchronizationJobsResponse Client::listInventorySynchronizationJobsWithOptions(const ListInventorySynchronizationJobsRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasEndTime()) {
+    query["EndTime"] = request.getEndTime();
+  }
+
+  if (!!request.hasInstanceId()) {
+    query["InstanceId"] = request.getInstanceId();
+  }
+
+  if (!!request.hasInventorySourceIds()) {
+    query["InventorySourceIds"] = request.getInventorySourceIds();
+  }
+
+  if (!!request.hasMaxResults()) {
+    query["MaxResults"] = request.getMaxResults();
+  }
+
+  if (!!request.hasNextToken()) {
+    query["NextToken"] = request.getNextToken();
+  }
+
+  if (!!request.hasStartTime()) {
+    query["StartTime"] = request.getStartTime();
+  }
+
+  if (!!request.hasStatus()) {
+    query["Status"] = request.getStatus();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ListInventorySynchronizationJobs"},
+    {"version" , "2021-12-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListInventorySynchronizationJobsResponse>();
+}
+
+/**
+ * @summary Queries resource synchronization tasks.
+ *
+ * @description You can use one of the following two methods to view the returned data:
+ * - Method 1: When paged query the first page, you only need to set MaxResults to limit the number of returned entries. The NextToken value in the response is used as the token to query the next page. When paged query subsequent pages, set the NextToken parameter to the NextToken value obtained from the previous response, and set MaxResults to limit the number of returned entries. If no more pages exist, NextToken is not returned. The maximum value of MaxResults is 100.
+ * - Method 2: Set PageSize to specify the number of entries to return per page, and set PageNumber to specify the page number.
+ * You can use only one of the two methods. Method 1 is recommended when a large number of entries are returned. If you set the MaxResults or NextToken parameter, the PageSize and PageNumber request parameters become invalid.
+ *
+ * @param request ListInventorySynchronizationJobsRequest
+ * @return ListInventorySynchronizationJobsResponse
+ */
+ListInventorySynchronizationJobsResponse Client::listInventorySynchronizationJobs(const ListInventorySynchronizationJobsRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return listInventorySynchronizationJobsWithOptions(request, runtime);
 }
 
 /**
@@ -15578,6 +15878,56 @@ RevokeResourceServerScopesFromUserResponse Client::revokeResourceServerScopesFro
 }
 
 /**
+ * @summary Runs a resource synchronization task.
+ *
+ * @param request RunInventorySynchronizationJobRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return RunInventorySynchronizationJobResponse
+ */
+RunInventorySynchronizationJobResponse Client::runInventorySynchronizationJobWithOptions(const RunInventorySynchronizationJobRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasInstanceId()) {
+    query["InstanceId"] = request.getInstanceId();
+  }
+
+  if (!!request.hasInventorySourceId()) {
+    query["InventorySourceId"] = request.getInventorySourceId();
+  }
+
+  if (!!request.hasInventoryTypes()) {
+    query["InventoryTypes"] = request.getInventoryTypes();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "RunInventorySynchronizationJob"},
+    {"version" , "2021-12-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<RunInventorySynchronizationJobResponse>();
+}
+
+/**
+ * @summary Runs a resource synchronization task.
+ *
+ * @param request RunInventorySynchronizationJobRequest
+ * @return RunInventorySynchronizationJobResponse
+ */
+RunInventorySynchronizationJobResponse Client::runInventorySynchronizationJob(const RunInventorySynchronizationJobRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return runInventorySynchronizationJobWithOptions(request, runtime);
+}
+
+/**
  * @summary Runs a synchronization task. This creates a new synchronization task and immediately executes it.
  *
  * @param request RunSynchronizationJobRequest
@@ -16884,7 +17234,7 @@ UnbindTotpAuthenticatorResponse Client::unbindTotpAuthenticator(const UnbindTotp
 }
 
 /**
- * @summary Disassociates a third-party logon account.
+ * @summary Dissociates a third-party logon account.
  *
  * @param request UnbindUserAuthnSourceMappingRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -16927,7 +17277,7 @@ UnbindUserAuthnSourceMappingResponse Client::unbindUserAuthnSourceMappingWithOpt
 }
 
 /**
- * @summary Disassociates a third-party logon account.
+ * @summary Dissociates a third-party logon account.
  *
  * @param request UnbindUserAuthnSourceMappingRequest
  * @return UnbindUserAuthnSourceMappingResponse

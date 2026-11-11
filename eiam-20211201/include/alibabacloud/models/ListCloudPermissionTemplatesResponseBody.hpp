@@ -424,7 +424,7 @@ namespace Models
       shared_ptr<bool> allowRequest_ {};
       // The applicable scope of the permission template.
       shared_ptr<CloudPermissionTemplates::ApplicableScope> applicableScope_ {};
-      // The ID of the cloud account to which the template belongs.
+      // The ID of the cloud account to which the resource belongs.
       shared_ptr<string> cloudAccountId_ {};
       // The creator information of the permission template.
       shared_ptr<CloudPermissionTemplates::CloudPermissionTemplateCreator> cloudPermissionTemplateCreator_ {};
@@ -502,13 +502,13 @@ namespace Models
   protected:
     // The list of cloud permission templates.
     shared_ptr<vector<ListCloudPermissionTemplatesResponseBody::CloudPermissionTemplates>> cloudPermissionTemplates_ {};
-    // The maximum number of items per page for a paged query.
+    // The maximum number of entries per page in a paging query.
     shared_ptr<int64_t> maxResults_ {};
-    // The pagination token returned by the current call for the next query.
+    // The pagination token returned by the current call for subsequent queries.
     shared_ptr<string> nextToken_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The total number of items.
+    // The total number of entries.
     shared_ptr<int64_t> totalCount_ {};
   };
 

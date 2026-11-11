@@ -503,6 +503,9 @@
 #include <alibabacloud/models/GetCloudAccountRequest.hpp>
 #include <alibabacloud/models/GetCloudAccountResponseBody.hpp>
 #include <alibabacloud/models/GetCloudAccountResponse.hpp>
+#include <alibabacloud/models/GetCloudAccountResourceRequest.hpp>
+#include <alibabacloud/models/GetCloudAccountResourceResponseBody.hpp>
+#include <alibabacloud/models/GetCloudAccountResourceResponse.hpp>
 #include <alibabacloud/models/GetCloudAccountRoleRequest.hpp>
 #include <alibabacloud/models/GetCloudAccountRoleResponseBody.hpp>
 #include <alibabacloud/models/GetCloudAccountRoleResponse.hpp>
@@ -578,6 +581,9 @@
 #include <alibabacloud/models/GetInstanceTrialStatusRequest.hpp>
 #include <alibabacloud/models/GetInstanceTrialStatusResponseBody.hpp>
 #include <alibabacloud/models/GetInstanceTrialStatusResponse.hpp>
+#include <alibabacloud/models/GetInventorySynchronizationJobRequest.hpp>
+#include <alibabacloud/models/GetInventorySynchronizationJobResponseBody.hpp>
+#include <alibabacloud/models/GetInventorySynchronizationJobResponse.hpp>
 #include <alibabacloud/models/GetLoginRedirectApplicationForBrandRequest.hpp>
 #include <alibabacloud/models/GetLoginRedirectApplicationForBrandResponseBody.hpp>
 #include <alibabacloud/models/GetLoginRedirectApplicationForBrandResponse.hpp>
@@ -692,6 +698,12 @@
 #include <alibabacloud/models/ListClientPublicKeysRequest.hpp>
 #include <alibabacloud/models/ListClientPublicKeysResponseBody.hpp>
 #include <alibabacloud/models/ListClientPublicKeysResponse.hpp>
+#include <alibabacloud/models/ListCloudAccountResourcesRequest.hpp>
+#include <alibabacloud/models/ListCloudAccountResourcesResponseBody.hpp>
+#include <alibabacloud/models/ListCloudAccountResourcesResponse.hpp>
+#include <alibabacloud/models/ListCloudAccountResourcesForCloudPermissionTemplateRequest.hpp>
+#include <alibabacloud/models/ListCloudAccountResourcesForCloudPermissionTemplateResponseBody.hpp>
+#include <alibabacloud/models/ListCloudAccountResourcesForCloudPermissionTemplateResponse.hpp>
 #include <alibabacloud/models/ListCloudAccountRolesRequest.hpp>
 #include <alibabacloud/models/ListCloudAccountRolesResponseBody.hpp>
 #include <alibabacloud/models/ListCloudAccountRolesResponse.hpp>
@@ -766,6 +778,9 @@
 #include <alibabacloud/models/ListInstancesRequest.hpp>
 #include <alibabacloud/models/ListInstancesResponseBody.hpp>
 #include <alibabacloud/models/ListInstancesResponse.hpp>
+#include <alibabacloud/models/ListInventorySynchronizationJobsRequest.hpp>
+#include <alibabacloud/models/ListInventorySynchronizationJobsResponseBody.hpp>
+#include <alibabacloud/models/ListInventorySynchronizationJobsResponse.hpp>
 #include <alibabacloud/models/ListNetworkAccessEndpointAvailableRegionsResponseBody.hpp>
 #include <alibabacloud/models/ListNetworkAccessEndpointAvailableRegionsResponse.hpp>
 #include <alibabacloud/models/ListNetworkAccessEndpointAvailableZonesRequest.hpp>
@@ -884,6 +899,9 @@
 #include <alibabacloud/models/RevokeResourceServerScopesFromUserRequest.hpp>
 #include <alibabacloud/models/RevokeResourceServerScopesFromUserResponseBody.hpp>
 #include <alibabacloud/models/RevokeResourceServerScopesFromUserResponse.hpp>
+#include <alibabacloud/models/RunInventorySynchronizationJobRequest.hpp>
+#include <alibabacloud/models/RunInventorySynchronizationJobResponseBody.hpp>
+#include <alibabacloud/models/RunInventorySynchronizationJobResponse.hpp>
 #include <alibabacloud/models/RunSynchronizationJobRequest.hpp>
 #include <alibabacloud/models/RunSynchronizationJobResponseBody.hpp>
 #include <alibabacloud/models/RunSynchronizationJobResponse.hpp>
