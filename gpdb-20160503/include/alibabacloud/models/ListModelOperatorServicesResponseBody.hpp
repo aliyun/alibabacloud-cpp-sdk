@@ -42,9 +42,11 @@ namespace Models
     public:
       friend void to_json(Darabonba::Json& j, const Services& obj) { 
         DARABONBA_PTR_TO_JSON(ServiceId, serviceId_);
+        DARABONBA_PTR_TO_JSON(Status, status_);
       };
       friend void from_json(const Darabonba::Json& j, Services& obj) { 
         DARABONBA_PTR_FROM_JSON(ServiceId, serviceId_);
+        DARABONBA_PTR_FROM_JSON(Status, status_);
       };
       Services() = default ;
       Services(const Services &) = default ;
@@ -57,7 +59,8 @@ namespace Models
       };
       virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
       virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-      virtual bool empty() const override { return this->serviceId_ == nullptr; };
+      virtual bool empty() const override { return this->serviceId_ == nullptr
+        && this->status_ == nullptr; };
       // serviceId Field Functions 
       bool hasServiceId() const { return this->serviceId_ != nullptr;};
       void deleteServiceId() { this->serviceId_ = nullptr;};
@@ -65,9 +68,25 @@ namespace Models
       inline Services& setServiceId(string serviceId) { DARABONBA_PTR_SET_VALUE(serviceId_, serviceId) };
 
 
+      // status Field Functions 
+      bool hasStatus() const { return this->status_ != nullptr;};
+      void deleteStatus() { this->status_ = nullptr;};
+      inline string getStatus() const { DARABONBA_PTR_GET_DEFAULT(status_, "") };
+      inline Services& setStatus(string status) { DARABONBA_PTR_SET_VALUE(status_, status) };
+
+
     protected:
       // The service ID.
       shared_ptr<string> serviceId_ {};
+      // The status of the model operator service. Valid values:
+      // - active: Normal.
+      // - locking: Locking.
+      // - locked: Locked.
+      // - unlocking: Unlocking.
+      // - deleting: Releasing.
+      // 
+      // This status indicates the processing status of the control plane and does not mean that data plane propagation of the MO gateway is complete.
+      shared_ptr<string> status_ {};
     };
 
     virtual bool empty() const override { return this->pageNumber_ == nullptr
@@ -110,7 +129,7 @@ namespace Models
 
 
   protected:
-    // The current page number.
+    // The page number.
     shared_ptr<int32_t> pageNumber_ {};
     // The number of entries on the current page.
     shared_ptr<int32_t> pageRecordCount_ {};

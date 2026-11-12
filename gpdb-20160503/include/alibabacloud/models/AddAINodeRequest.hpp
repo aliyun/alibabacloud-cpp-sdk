@@ -141,7 +141,7 @@ namespace Models
   protected:
     // The ID of the resource pool to which the AI node belongs.
     shared_ptr<string> AINodePoolId_ {};
-    // The node specifications of the AI node.
+    // The node specifications of the AI nodes.
     // 
     // This parameter is required.
     shared_ptr<vector<AddAINodeRequest::AINodeSpecInfos>> AINodeSpecInfos_ {};

@@ -75,7 +75,7 @@ namespace Models
 
 
   protected:
-    // The maximum number of entries to return in this request. Default value: 10.
+    // The maximum number of entries to return for this request. Default value: 10.
     shared_ptr<int32_t> maxResults_ {};
     // The token used to start the next query.
     shared_ptr<string> nextToken_ {};

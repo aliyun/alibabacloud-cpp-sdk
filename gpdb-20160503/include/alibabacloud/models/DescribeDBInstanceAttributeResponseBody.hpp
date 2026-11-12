@@ -76,6 +76,7 @@ namespace Models
           DARABONBA_PTR_TO_JSON(DBInstanceStatus, DBInstanceStatus_);
           DARABONBA_PTR_TO_JSON(DBInstanceStorage, DBInstanceStorage_);
           DARABONBA_PTR_TO_JSON(DeployMode, deployMode_);
+          DARABONBA_PTR_TO_JSON(DiskNotifyThreshold, diskNotifyThreshold_);
           DARABONBA_PTR_TO_JSON(EncryptionKey, encryptionKey_);
           DARABONBA_PTR_TO_JSON(EncryptionType, encryptionType_);
           DARABONBA_PTR_TO_JSON(Engine, engine_);
@@ -86,12 +87,14 @@ namespace Models
           DARABONBA_PTR_TO_JSON(IdleTime, idleTime_);
           DARABONBA_PTR_TO_JSON(InstanceNetworkType, instanceNetworkType_);
           DARABONBA_PTR_TO_JSON(InstanceSpec, instanceSpec_);
+          DARABONBA_PTR_TO_JSON(InstanceType, instanceType_);
           DARABONBA_PTR_TO_JSON(LockMode, lockMode_);
           DARABONBA_PTR_TO_JSON(LockReason, lockReason_);
           DARABONBA_PTR_TO_JSON(MaintainEndTime, maintainEndTime_);
           DARABONBA_PTR_TO_JSON(MaintainStartTime, maintainStartTime_);
           DARABONBA_PTR_TO_JSON(MasterAISpec, masterAISpec_);
           DARABONBA_PTR_TO_JSON(MasterCU, masterCU_);
+          DARABONBA_PTR_TO_JSON(MasterDiskLockThreshold, masterDiskLockThreshold_);
           DARABONBA_PTR_TO_JSON(MasterNodeNum, masterNodeNum_);
           DARABONBA_PTR_TO_JSON(MaxConnections, maxConnections_);
           DARABONBA_PTR_TO_JSON(MemoryPerNode, memoryPerNode_);
@@ -100,6 +103,7 @@ namespace Models
           DARABONBA_PTR_TO_JSON(MinorVersion, minorVersion_);
           DARABONBA_PTR_TO_JSON(PayType, payType_);
           DARABONBA_PTR_TO_JSON(Port, port_);
+          DARABONBA_PTR_TO_JSON(PrimaryDBInstanceId, primaryDBInstanceId_);
           DARABONBA_PTR_TO_JSON(ProdType, prodType_);
           DARABONBA_PTR_TO_JSON(ReadDelayTime, readDelayTime_);
           DARABONBA_PTR_TO_JSON(RegionId, regionId_);
@@ -110,6 +114,7 @@ namespace Models
           DARABONBA_PTR_TO_JSON(SegNodeNum, segNodeNum_);
           DARABONBA_PTR_TO_JSON(SegmentAISpec, segmentAISpec_);
           DARABONBA_PTR_TO_JSON(SegmentCounts, segmentCounts_);
+          DARABONBA_PTR_TO_JSON(SegmentDiskLockThreshold, segmentDiskLockThreshold_);
           DARABONBA_PTR_TO_JSON(ServerlessMode, serverlessMode_);
           DARABONBA_PTR_TO_JSON(ServerlessResource, serverlessResource_);
           DARABONBA_PTR_TO_JSON(StandbyZoneId, standbyZoneId_);
@@ -148,6 +153,7 @@ namespace Models
           DARABONBA_PTR_FROM_JSON(DBInstanceStatus, DBInstanceStatus_);
           DARABONBA_PTR_FROM_JSON(DBInstanceStorage, DBInstanceStorage_);
           DARABONBA_PTR_FROM_JSON(DeployMode, deployMode_);
+          DARABONBA_PTR_FROM_JSON(DiskNotifyThreshold, diskNotifyThreshold_);
           DARABONBA_PTR_FROM_JSON(EncryptionKey, encryptionKey_);
           DARABONBA_PTR_FROM_JSON(EncryptionType, encryptionType_);
           DARABONBA_PTR_FROM_JSON(Engine, engine_);
@@ -158,12 +164,14 @@ namespace Models
           DARABONBA_PTR_FROM_JSON(IdleTime, idleTime_);
           DARABONBA_PTR_FROM_JSON(InstanceNetworkType, instanceNetworkType_);
           DARABONBA_PTR_FROM_JSON(InstanceSpec, instanceSpec_);
+          DARABONBA_PTR_FROM_JSON(InstanceType, instanceType_);
           DARABONBA_PTR_FROM_JSON(LockMode, lockMode_);
           DARABONBA_PTR_FROM_JSON(LockReason, lockReason_);
           DARABONBA_PTR_FROM_JSON(MaintainEndTime, maintainEndTime_);
           DARABONBA_PTR_FROM_JSON(MaintainStartTime, maintainStartTime_);
           DARABONBA_PTR_FROM_JSON(MasterAISpec, masterAISpec_);
           DARABONBA_PTR_FROM_JSON(MasterCU, masterCU_);
+          DARABONBA_PTR_FROM_JSON(MasterDiskLockThreshold, masterDiskLockThreshold_);
           DARABONBA_PTR_FROM_JSON(MasterNodeNum, masterNodeNum_);
           DARABONBA_PTR_FROM_JSON(MaxConnections, maxConnections_);
           DARABONBA_PTR_FROM_JSON(MemoryPerNode, memoryPerNode_);
@@ -172,6 +180,7 @@ namespace Models
           DARABONBA_PTR_FROM_JSON(MinorVersion, minorVersion_);
           DARABONBA_PTR_FROM_JSON(PayType, payType_);
           DARABONBA_PTR_FROM_JSON(Port, port_);
+          DARABONBA_PTR_FROM_JSON(PrimaryDBInstanceId, primaryDBInstanceId_);
           DARABONBA_PTR_FROM_JSON(ProdType, prodType_);
           DARABONBA_PTR_FROM_JSON(ReadDelayTime, readDelayTime_);
           DARABONBA_PTR_FROM_JSON(RegionId, regionId_);
@@ -182,6 +191,7 @@ namespace Models
           DARABONBA_PTR_FROM_JSON(SegNodeNum, segNodeNum_);
           DARABONBA_PTR_FROM_JSON(SegmentAISpec, segmentAISpec_);
           DARABONBA_PTR_FROM_JSON(SegmentCounts, segmentCounts_);
+          DARABONBA_PTR_FROM_JSON(SegmentDiskLockThreshold, segmentDiskLockThreshold_);
           DARABONBA_PTR_FROM_JSON(ServerlessMode, serverlessMode_);
           DARABONBA_PTR_FROM_JSON(ServerlessResource, serverlessResource_);
           DARABONBA_PTR_FROM_JSON(StandbyZoneId, standbyZoneId_);
@@ -288,13 +298,14 @@ namespace Models
         && this->cpuCoresPerNode_ == nullptr && this->creationTime_ == nullptr && this->DBInstanceCategory_ == nullptr && this->DBInstanceClass_ == nullptr && this->DBInstanceClassType_ == nullptr
         && this->DBInstanceCpuCores_ == nullptr && this->DBInstanceDescription_ == nullptr && this->DBInstanceDiskMBPS_ == nullptr && this->DBInstanceGroupCount_ == nullptr && this->DBInstanceId_ == nullptr
         && this->DBInstanceMemory_ == nullptr && this->DBInstanceMode_ == nullptr && this->DBInstanceNetType_ == nullptr && this->DBInstanceStatus_ == nullptr && this->DBInstanceStorage_ == nullptr
-        && this->deployMode_ == nullptr && this->encryptionKey_ == nullptr && this->encryptionType_ == nullptr && this->engine_ == nullptr && this->engineVersion_ == nullptr
-        && this->expireTime_ == nullptr && this->graphEngineStatus_ == nullptr && this->hostType_ == nullptr && this->idleTime_ == nullptr && this->instanceNetworkType_ == nullptr
-        && this->instanceSpec_ == nullptr && this->lockMode_ == nullptr && this->lockReason_ == nullptr && this->maintainEndTime_ == nullptr && this->maintainStartTime_ == nullptr
-        && this->masterAISpec_ == nullptr && this->masterCU_ == nullptr && this->masterNodeNum_ == nullptr && this->maxConnections_ == nullptr && this->memoryPerNode_ == nullptr
-        && this->memorySize_ == nullptr && this->memoryUnit_ == nullptr && this->minorVersion_ == nullptr && this->payType_ == nullptr && this->port_ == nullptr
-        && this->prodType_ == nullptr && this->readDelayTime_ == nullptr && this->regionId_ == nullptr && this->resourceGroupId_ == nullptr && this->runningTime_ == nullptr
-        && this->securityIPList_ == nullptr && this->segDiskPerformanceLevel_ == nullptr && this->segNodeNum_ == nullptr && this->segmentAISpec_ == nullptr && this->segmentCounts_ == nullptr
+        && this->deployMode_ == nullptr && this->diskNotifyThreshold_ == nullptr && this->encryptionKey_ == nullptr && this->encryptionType_ == nullptr && this->engine_ == nullptr
+        && this->engineVersion_ == nullptr && this->expireTime_ == nullptr && this->graphEngineStatus_ == nullptr && this->hostType_ == nullptr && this->idleTime_ == nullptr
+        && this->instanceNetworkType_ == nullptr && this->instanceSpec_ == nullptr && this->instanceType_ == nullptr && this->lockMode_ == nullptr && this->lockReason_ == nullptr
+        && this->maintainEndTime_ == nullptr && this->maintainStartTime_ == nullptr && this->masterAISpec_ == nullptr && this->masterCU_ == nullptr && this->masterDiskLockThreshold_ == nullptr
+        && this->masterNodeNum_ == nullptr && this->maxConnections_ == nullptr && this->memoryPerNode_ == nullptr && this->memorySize_ == nullptr && this->memoryUnit_ == nullptr
+        && this->minorVersion_ == nullptr && this->payType_ == nullptr && this->port_ == nullptr && this->primaryDBInstanceId_ == nullptr && this->prodType_ == nullptr
+        && this->readDelayTime_ == nullptr && this->regionId_ == nullptr && this->resourceGroupId_ == nullptr && this->runningTime_ == nullptr && this->securityIPList_ == nullptr
+        && this->segDiskPerformanceLevel_ == nullptr && this->segNodeNum_ == nullptr && this->segmentAISpec_ == nullptr && this->segmentCounts_ == nullptr && this->segmentDiskLockThreshold_ == nullptr
         && this->serverlessMode_ == nullptr && this->serverlessResource_ == nullptr && this->standbyZoneId_ == nullptr && this->startTime_ == nullptr && this->storagePerNode_ == nullptr
         && this->storageSize_ == nullptr && this->storageType_ == nullptr && this->storageUnit_ == nullptr && this->supportRestore_ == nullptr && this->tags_ == nullptr
         && this->vSwitchId_ == nullptr && this->vectorConfigurationStatus_ == nullptr && this->vpcId_ == nullptr && this->zoneId_ == nullptr; };
@@ -452,6 +463,13 @@ namespace Models
         inline DBInstanceAttribute& setDeployMode(string deployMode) { DARABONBA_PTR_SET_VALUE(deployMode_, deployMode) };
 
 
+        // diskNotifyThreshold Field Functions 
+        bool hasDiskNotifyThreshold() const { return this->diskNotifyThreshold_ != nullptr;};
+        void deleteDiskNotifyThreshold() { this->diskNotifyThreshold_ = nullptr;};
+        inline string getDiskNotifyThreshold() const { DARABONBA_PTR_GET_DEFAULT(diskNotifyThreshold_, "") };
+        inline DBInstanceAttribute& setDiskNotifyThreshold(string diskNotifyThreshold) { DARABONBA_PTR_SET_VALUE(diskNotifyThreshold_, diskNotifyThreshold) };
+
+
         // encryptionKey Field Functions 
         bool hasEncryptionKey() const { return this->encryptionKey_ != nullptr;};
         void deleteEncryptionKey() { this->encryptionKey_ = nullptr;};
@@ -522,6 +540,13 @@ namespace Models
         inline DBInstanceAttribute& setInstanceSpec(string instanceSpec) { DARABONBA_PTR_SET_VALUE(instanceSpec_, instanceSpec) };
 
 
+        // instanceType Field Functions 
+        bool hasInstanceType() const { return this->instanceType_ != nullptr;};
+        void deleteInstanceType() { this->instanceType_ = nullptr;};
+        inline string getInstanceType() const { DARABONBA_PTR_GET_DEFAULT(instanceType_, "") };
+        inline DBInstanceAttribute& setInstanceType(string instanceType) { DARABONBA_PTR_SET_VALUE(instanceType_, instanceType) };
+
+
         // lockMode Field Functions 
         bool hasLockMode() const { return this->lockMode_ != nullptr;};
         void deleteLockMode() { this->lockMode_ = nullptr;};
@@ -562,6 +587,13 @@ namespace Models
         void deleteMasterCU() { this->masterCU_ = nullptr;};
         inline int32_t getMasterCU() const { DARABONBA_PTR_GET_DEFAULT(masterCU_, 0) };
         inline DBInstanceAttribute& setMasterCU(int32_t masterCU) { DARABONBA_PTR_SET_VALUE(masterCU_, masterCU) };
+
+
+        // masterDiskLockThreshold Field Functions 
+        bool hasMasterDiskLockThreshold() const { return this->masterDiskLockThreshold_ != nullptr;};
+        void deleteMasterDiskLockThreshold() { this->masterDiskLockThreshold_ = nullptr;};
+        inline string getMasterDiskLockThreshold() const { DARABONBA_PTR_GET_DEFAULT(masterDiskLockThreshold_, "") };
+        inline DBInstanceAttribute& setMasterDiskLockThreshold(string masterDiskLockThreshold) { DARABONBA_PTR_SET_VALUE(masterDiskLockThreshold_, masterDiskLockThreshold) };
 
 
         // masterNodeNum Field Functions 
@@ -618,6 +650,13 @@ namespace Models
         void deletePort() { this->port_ = nullptr;};
         inline string getPort() const { DARABONBA_PTR_GET_DEFAULT(port_, "") };
         inline DBInstanceAttribute& setPort(string port) { DARABONBA_PTR_SET_VALUE(port_, port) };
+
+
+        // primaryDBInstanceId Field Functions 
+        bool hasPrimaryDBInstanceId() const { return this->primaryDBInstanceId_ != nullptr;};
+        void deletePrimaryDBInstanceId() { this->primaryDBInstanceId_ = nullptr;};
+        inline string getPrimaryDBInstanceId() const { DARABONBA_PTR_GET_DEFAULT(primaryDBInstanceId_, "") };
+        inline DBInstanceAttribute& setPrimaryDBInstanceId(string primaryDBInstanceId) { DARABONBA_PTR_SET_VALUE(primaryDBInstanceId_, primaryDBInstanceId) };
 
 
         // prodType Field Functions 
@@ -688,6 +727,13 @@ namespace Models
         void deleteSegmentCounts() { this->segmentCounts_ = nullptr;};
         inline int32_t getSegmentCounts() const { DARABONBA_PTR_GET_DEFAULT(segmentCounts_, 0) };
         inline DBInstanceAttribute& setSegmentCounts(int32_t segmentCounts) { DARABONBA_PTR_SET_VALUE(segmentCounts_, segmentCounts) };
+
+
+        // segmentDiskLockThreshold Field Functions 
+        bool hasSegmentDiskLockThreshold() const { return this->segmentDiskLockThreshold_ != nullptr;};
+        void deleteSegmentDiskLockThreshold() { this->segmentDiskLockThreshold_ = nullptr;};
+        inline string getSegmentDiskLockThreshold() const { DARABONBA_PTR_GET_DEFAULT(segmentDiskLockThreshold_, "") };
+        inline DBInstanceAttribute& setSegmentDiskLockThreshold(string segmentDiskLockThreshold) { DARABONBA_PTR_SET_VALUE(segmentDiskLockThreshold_, segmentDiskLockThreshold) };
 
 
         // serverlessMode Field Functions 
@@ -813,6 +859,8 @@ namespace Models
         shared_ptr<string> DBInstanceStatus_ {};
         shared_ptr<int64_t> DBInstanceStorage_ {};
         shared_ptr<string> deployMode_ {};
+        // 实例磁盘告警阈值，百分比字符串；未配置时为空。
+        shared_ptr<string> diskNotifyThreshold_ {};
         shared_ptr<string> encryptionKey_ {};
         shared_ptr<string> encryptionType_ {};
         shared_ptr<string> engine_ {};
@@ -823,12 +871,16 @@ namespace Models
         shared_ptr<int32_t> idleTime_ {};
         shared_ptr<string> instanceNetworkType_ {};
         shared_ptr<string> instanceSpec_ {};
+        // 实例类型：main表示主实例，readonly表示只读实例
+        shared_ptr<string> instanceType_ {};
         shared_ptr<string> lockMode_ {};
         shared_ptr<string> lockReason_ {};
         shared_ptr<string> maintainEndTime_ {};
         shared_ptr<string> maintainStartTime_ {};
         shared_ptr<string> masterAISpec_ {};
         shared_ptr<int32_t> masterCU_ {};
+        // master磁盘锁定阈值，百分比字符串；未配置时为空。
+        shared_ptr<string> masterDiskLockThreshold_ {};
         shared_ptr<int32_t> masterNodeNum_ {};
         shared_ptr<int32_t> maxConnections_ {};
         shared_ptr<int32_t> memoryPerNode_ {};
@@ -837,6 +889,8 @@ namespace Models
         shared_ptr<string> minorVersion_ {};
         shared_ptr<string> payType_ {};
         shared_ptr<string> port_ {};
+        // 主实例ID；当前实例为主实例时为空
+        shared_ptr<string> primaryDBInstanceId_ {};
         shared_ptr<string> prodType_ {};
         shared_ptr<string> readDelayTime_ {};
         shared_ptr<string> regionId_ {};
@@ -847,6 +901,8 @@ namespace Models
         shared_ptr<int32_t> segNodeNum_ {};
         shared_ptr<string> segmentAISpec_ {};
         shared_ptr<int32_t> segmentCounts_ {};
+        // segment磁盘锁定阈值，百分比字符串；未配置时为空。
+        shared_ptr<string> segmentDiskLockThreshold_ {};
         shared_ptr<string> serverlessMode_ {};
         shared_ptr<int32_t> serverlessResource_ {};
         shared_ptr<string> standbyZoneId_ {};

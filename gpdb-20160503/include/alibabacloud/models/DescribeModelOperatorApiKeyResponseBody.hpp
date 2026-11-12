@@ -19,6 +19,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(Description, description_);
       DARABONBA_PTR_TO_JSON(Endpoint, endpoint_);
       DARABONBA_PTR_TO_JSON(RequestId, requestId_);
+      DARABONBA_PTR_TO_JSON(Status, status_);
     };
     friend void from_json(const Darabonba::Json& j, DescribeModelOperatorApiKeyResponseBody& obj) { 
       DARABONBA_PTR_FROM_JSON(ApiKey, apiKey_);
@@ -27,6 +28,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(Description, description_);
       DARABONBA_PTR_FROM_JSON(Endpoint, endpoint_);
       DARABONBA_PTR_FROM_JSON(RequestId, requestId_);
+      DARABONBA_PTR_FROM_JSON(Status, status_);
     };
     DescribeModelOperatorApiKeyResponseBody() = default ;
     DescribeModelOperatorApiKeyResponseBody(const DescribeModelOperatorApiKeyResponseBody &) = default ;
@@ -40,7 +42,8 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->apiKey_ == nullptr
-        && this->apiKeyId_ == nullptr && this->createTime_ == nullptr && this->description_ == nullptr && this->endpoint_ == nullptr && this->requestId_ == nullptr; };
+        && this->apiKeyId_ == nullptr && this->createTime_ == nullptr && this->description_ == nullptr && this->endpoint_ == nullptr && this->requestId_ == nullptr
+        && this->status_ == nullptr; };
     // apiKey Field Functions 
     bool hasApiKey() const { return this->apiKey_ != nullptr;};
     void deleteApiKey() { this->apiKey_ = nullptr;};
@@ -83,10 +86,17 @@ namespace Models
     inline DescribeModelOperatorApiKeyResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
+    // status Field Functions 
+    bool hasStatus() const { return this->status_ != nullptr;};
+    void deleteStatus() { this->status_ = nullptr;};
+    inline string getStatus() const { DARABONBA_PTR_GET_DEFAULT(status_, "") };
+    inline DescribeModelOperatorApiKeyResponseBody& setStatus(string status) { DARABONBA_PTR_SET_VALUE(status_, status) };
+
+
   protected:
-    // The API key content.
+    // The content of the API key.
     shared_ptr<string> apiKey_ {};
-    // API KEY ID。
+    // The API key ID.
     shared_ptr<int32_t> apiKeyId_ {};
     // The creation time.
     shared_ptr<string> createTime_ {};
@@ -96,6 +106,8 @@ namespace Models
     shared_ptr<string> endpoint_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
+    // The status of the API key. Valid values: Creating, Running, Locked, and Deleting.
+    shared_ptr<string> status_ {};
   };
 
   } // namespace Models

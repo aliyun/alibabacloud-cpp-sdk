@@ -182,11 +182,22 @@ namespace Models
 
 
         protected:
+          // The creation time.
           shared_ptr<string> createTime_ {};
+          // The compute resources.
           shared_ptr<string> cu_ {};
+          // Specifies whether release protection is enabled.
           shared_ptr<bool> deletionProtection_ {};
+          // The service component status. Valid values:
+          // 
+          // - creating: The component is being created.
+          // - active: The component is running.
           shared_ptr<string> status_ {};
+          // The component ID.
           shared_ptr<string> componentId_ {};
+          // The component type. Valid values:
+          // 
+          // - game
           shared_ptr<string> componentType_ {};
         };
 
@@ -273,34 +284,36 @@ namespace Models
 
 
       protected:
+        // The list of service components.
         shared_ptr<vector<Services::Components>> components_ {};
-        // The time when the workspace was created.
+        // The creation time.
         shared_ptr<string> createTime_ {};
         // The compute resources.
         shared_ptr<string> cu_ {};
+        // Specifies whether release protection is enabled.
         shared_ptr<bool> deletionProtection_ {};
         // The expiration time.
         shared_ptr<string> expireTime_ {};
         // The billing method. Valid values:
         // 
-        // - **POSTPAY**: pay-as-you-go.
-        // - **PREPAY**: subscription.
+        // - **POSTPAY**: pay-as-you-go
+        // - **PREPAY**: subscription
         // 
-        // > - If this parameter is not specified, the default value is POSTPAY.
-        // > - In subscription mode, a discount is provided if you purchase a subscription for one year or longer. Select a billing method based on your business requirements.
+        // > - If this parameter is not specified, the pay-as-you-go billing method is used by default.
+        // > - In subscription mode, a discount is provided when you purchase a subscription for one year or longer. Select a billing method based on your business requirements.
         shared_ptr<string> payType_ {};
         // **[Deprecated]**
         shared_ptr<string> plan_ {};
-        // The ID of the service.
+        // The service ID.
         shared_ptr<string> serviceId_ {};
-        // The name of the service.
+        // The service name.
         shared_ptr<string> serviceName_ {};
-        // The type of the service. Valid values:
+        // The service type. Valid values:
         // 
         // - memory
         // - drama
         shared_ptr<string> serviceType_ {};
-        // The status of the service. Valid values:
+        // The service status. Valid values:
         // 
         // - creating: The service is being created.
         // - active: The service is running.
@@ -374,9 +387,9 @@ namespace Models
 
 
         protected:
-          // The ID of the service.
+          // The service ID.
           shared_ptr<string> serviceId_ {};
-          // The type of the service. Valid values:
+          // The service type. Valid values:
           // 
           // - memory
           // - drama
@@ -432,7 +445,7 @@ namespace Models
       protected:
         // The services authorized for the API key.
         shared_ptr<vector<Apikeys::AuthServices>> authServices_ {};
-        // The time when the API key was created.
+        // The creation time of the API key.
         shared_ptr<string> createTime_ {};
         // The description.
         shared_ptr<string> description_ {};
@@ -488,15 +501,15 @@ namespace Models
     protected:
       // The list of API keys in the workspace.
       shared_ptr<vector<Items::Apikeys>> apikeys_ {};
-      // The time when the workspace was created.
+      // The creation time.
       shared_ptr<string> createTime_ {};
       // The services in the workspace.
       shared_ptr<vector<Items::Services>> services_ {};
-      // The ID of the workspace.
+      // The workspace ID.
       shared_ptr<string> workspaceId_ {};
-      // The name of the workspace.
-      // - The maximum length is 50 characters.
-      // - The name must be unique.
+      // The workspace name.
+      // - Maximum length: 50 characters.
+      // - Must be unique.
       // - Special characters are not allowed.
       shared_ptr<string> workspaceName_ {};
     };
@@ -558,7 +571,7 @@ namespace Models
   protected:
     // The list of workspace details.
     shared_ptr<vector<ListWorkspacesResponseBody::Items>> items_ {};
-    // The maximum number of entries to return in this request. Default value: 10.
+    // The maximum number of entries to return for this request. Default value: 10.
     shared_ptr<int32_t> maxResults_ {};
     // The token used to start the next query.
     shared_ptr<string> nextToken_ {};
@@ -566,7 +579,7 @@ namespace Models
     shared_ptr<int32_t> pageNumber_ {};
     // The number of entries on the current page.
     shared_ptr<int32_t> pageRecordCount_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
     // The total number of entries.
     shared_ptr<int32_t> totalRecordCount_ {};

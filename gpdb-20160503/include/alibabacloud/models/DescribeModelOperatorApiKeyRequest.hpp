@@ -38,7 +38,7 @@ namespace Models
 
 
   protected:
-    // API KEY ID。
+    // The API key ID.
     shared_ptr<int32_t> apiKeyId_ {};
   };
 

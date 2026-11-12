@@ -15,10 +15,12 @@ namespace Models
     friend void to_json(Darabonba::Json& j, const CreateModelOperatorApiKeyResponseBody& obj) { 
       DARABONBA_PTR_TO_JSON(ApiKeyId, apiKeyId_);
       DARABONBA_PTR_TO_JSON(RequestId, requestId_);
+      DARABONBA_PTR_TO_JSON(Status, status_);
     };
     friend void from_json(const Darabonba::Json& j, CreateModelOperatorApiKeyResponseBody& obj) { 
       DARABONBA_PTR_FROM_JSON(ApiKeyId, apiKeyId_);
       DARABONBA_PTR_FROM_JSON(RequestId, requestId_);
+      DARABONBA_PTR_FROM_JSON(Status, status_);
     };
     CreateModelOperatorApiKeyResponseBody() = default ;
     CreateModelOperatorApiKeyResponseBody(const CreateModelOperatorApiKeyResponseBody &) = default ;
@@ -32,7 +34,7 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->apiKeyId_ == nullptr
-        && this->requestId_ == nullptr; };
+        && this->requestId_ == nullptr && this->status_ == nullptr; };
     // apiKeyId Field Functions 
     bool hasApiKeyId() const { return this->apiKeyId_ != nullptr;};
     void deleteApiKeyId() { this->apiKeyId_ = nullptr;};
@@ -47,11 +49,20 @@ namespace Models
     inline CreateModelOperatorApiKeyResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
+    // status Field Functions 
+    bool hasStatus() const { return this->status_ != nullptr;};
+    void deleteStatus() { this->status_ = nullptr;};
+    inline string getStatus() const { DARABONBA_PTR_GET_DEFAULT(status_, "") };
+    inline CreateModelOperatorApiKeyResponseBody& setStatus(string status) { DARABONBA_PTR_SET_VALUE(status_, status) };
+
+
   protected:
     // The API key ID.
     shared_ptr<int32_t> apiKeyId_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
+    // Returns Creating after the creation request is accepted. The plaintext and endpoint are not returned.
+    shared_ptr<string> status_ {};
   };
 
   } // namespace Models
