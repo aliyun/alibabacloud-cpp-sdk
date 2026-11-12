@@ -33,33 +33,39 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->retCode_ != nullptr
-        && this->retMsg_ != nullptr && this->retValue_ != nullptr; };
+    virtual bool empty() const override { return this->retCode_ == nullptr
+        && this->retMsg_ == nullptr && this->retValue_ == nullptr; };
     // retCode Field Functions 
     bool hasRetCode() const { return this->retCode_ != nullptr;};
     void deleteRetCode() { this->retCode_ = nullptr;};
-    inline int32_t retCode() const { DARABONBA_PTR_GET_DEFAULT(retCode_, 0) };
+    inline int32_t getRetCode() const { DARABONBA_PTR_GET_DEFAULT(retCode_, 0) };
     inline VideoAppReportResponseBody& setRetCode(int32_t retCode) { DARABONBA_PTR_SET_VALUE(retCode_, retCode) };
 
 
     // retMsg Field Functions 
     bool hasRetMsg() const { return this->retMsg_ != nullptr;};
     void deleteRetMsg() { this->retMsg_ = nullptr;};
-    inline string retMsg() const { DARABONBA_PTR_GET_DEFAULT(retMsg_, "") };
+    inline string getRetMsg() const { DARABONBA_PTR_GET_DEFAULT(retMsg_, "") };
     inline VideoAppReportResponseBody& setRetMsg(string retMsg) { DARABONBA_PTR_SET_VALUE(retMsg_, retMsg) };
 
 
     // retValue Field Functions 
     bool hasRetValue() const { return this->retValue_ != nullptr;};
     void deleteRetValue() { this->retValue_ = nullptr;};
-    inline bool retValue() const { DARABONBA_PTR_GET_DEFAULT(retValue_, false) };
+    inline bool getRetValue() const { DARABONBA_PTR_GET_DEFAULT(retValue_, false) };
     inline VideoAppReportResponseBody& setRetValue(bool retValue) { DARABONBA_PTR_SET_VALUE(retValue_, retValue) };
 
 
   protected:
-    std::shared_ptr<int32_t> retCode_ = nullptr;
-    std::shared_ptr<string> retMsg_ = nullptr;
-    std::shared_ptr<bool> retValue_ = nullptr;
+    // The returned error code. `0` indicates success.
+    shared_ptr<int32_t> retCode_ {};
+    // The returned error message. This field is not returned if the operation succeeded.
+    shared_ptr<string> retMsg_ {};
+    // The returned invocation result.
+    // 
+    // - true indicates success.
+    // - false indicates failure.
+    shared_ptr<bool> retValue_ {};
   };
 
   } // namespace Models

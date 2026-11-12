@@ -31,26 +31,29 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->notificationUnicastRequestShrink_ != nullptr
-        && this->tenantInfoShrink_ != nullptr; };
+    virtual bool empty() const override { return this->notificationUnicastRequestShrink_ == nullptr
+        && this->tenantInfoShrink_ == nullptr; };
     // notificationUnicastRequestShrink Field Functions 
     bool hasNotificationUnicastRequestShrink() const { return this->notificationUnicastRequestShrink_ != nullptr;};
     void deleteNotificationUnicastRequestShrink() { this->notificationUnicastRequestShrink_ = nullptr;};
-    inline string notificationUnicastRequestShrink() const { DARABONBA_PTR_GET_DEFAULT(notificationUnicastRequestShrink_, "") };
+    inline string getNotificationUnicastRequestShrink() const { DARABONBA_PTR_GET_DEFAULT(notificationUnicastRequestShrink_, "") };
     inline PushNotificationsShrinkRequest& setNotificationUnicastRequestShrink(string notificationUnicastRequestShrink) { DARABONBA_PTR_SET_VALUE(notificationUnicastRequestShrink_, notificationUnicastRequestShrink) };
 
 
     // tenantInfoShrink Field Functions 
     bool hasTenantInfoShrink() const { return this->tenantInfoShrink_ != nullptr;};
     void deleteTenantInfoShrink() { this->tenantInfoShrink_ = nullptr;};
-    inline string tenantInfoShrink() const { DARABONBA_PTR_GET_DEFAULT(tenantInfoShrink_, "") };
+    inline string getTenantInfoShrink() const { DARABONBA_PTR_GET_DEFAULT(tenantInfoShrink_, "") };
     inline PushNotificationsShrinkRequest& setTenantInfoShrink(string tenantInfoShrink) { DARABONBA_PTR_SET_VALUE(tenantInfoShrink_, tenantInfoShrink) };
 
 
   protected:
+    // Input parameter object for message push.
+    // 
     // This parameter is required.
-    std::shared_ptr<string> notificationUnicastRequestShrink_ = nullptr;
-    std::shared_ptr<string> tenantInfoShrink_ = nullptr;
+    shared_ptr<string> notificationUnicastRequestShrink_ {};
+    // Identity information.
+    shared_ptr<string> tenantInfoShrink_ {};
   };
 
   } // namespace Models

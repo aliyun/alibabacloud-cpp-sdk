@@ -45,82 +45,91 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->bizGroup_ != nullptr
-        && this->bizType_ != nullptr && this->cardType_ != nullptr && this->errorMsg_ != nullptr && this->extendInfoShrink_ != nullptr && this->genieOpenId_ != nullptr
-        && this->receiveStatus_ != nullptr && this->sn_ != nullptr && this->supplierId_ != nullptr; };
+    virtual bool empty() const override { return this->bizGroup_ == nullptr
+        && this->bizType_ == nullptr && this->cardType_ == nullptr && this->errorMsg_ == nullptr && this->extendInfoShrink_ == nullptr && this->genieOpenId_ == nullptr
+        && this->receiveStatus_ == nullptr && this->sn_ == nullptr && this->supplierId_ == nullptr; };
     // bizGroup Field Functions 
     bool hasBizGroup() const { return this->bizGroup_ != nullptr;};
     void deleteBizGroup() { this->bizGroup_ = nullptr;};
-    inline string bizGroup() const { DARABONBA_PTR_GET_DEFAULT(bizGroup_, "") };
+    inline string getBizGroup() const { DARABONBA_PTR_GET_DEFAULT(bizGroup_, "") };
     inline CallBackThirdRightSendPlanShrinkRequest& setBizGroup(string bizGroup) { DARABONBA_PTR_SET_VALUE(bizGroup_, bizGroup) };
 
 
     // bizType Field Functions 
     bool hasBizType() const { return this->bizType_ != nullptr;};
     void deleteBizType() { this->bizType_ = nullptr;};
-    inline string bizType() const { DARABONBA_PTR_GET_DEFAULT(bizType_, "") };
+    inline string getBizType() const { DARABONBA_PTR_GET_DEFAULT(bizType_, "") };
     inline CallBackThirdRightSendPlanShrinkRequest& setBizType(string bizType) { DARABONBA_PTR_SET_VALUE(bizType_, bizType) };
 
 
     // cardType Field Functions 
     bool hasCardType() const { return this->cardType_ != nullptr;};
     void deleteCardType() { this->cardType_ = nullptr;};
-    inline int32_t cardType() const { DARABONBA_PTR_GET_DEFAULT(cardType_, 0) };
+    inline int32_t getCardType() const { DARABONBA_PTR_GET_DEFAULT(cardType_, 0) };
     inline CallBackThirdRightSendPlanShrinkRequest& setCardType(int32_t cardType) { DARABONBA_PTR_SET_VALUE(cardType_, cardType) };
 
 
     // errorMsg Field Functions 
     bool hasErrorMsg() const { return this->errorMsg_ != nullptr;};
     void deleteErrorMsg() { this->errorMsg_ = nullptr;};
-    inline string errorMsg() const { DARABONBA_PTR_GET_DEFAULT(errorMsg_, "") };
+    inline string getErrorMsg() const { DARABONBA_PTR_GET_DEFAULT(errorMsg_, "") };
     inline CallBackThirdRightSendPlanShrinkRequest& setErrorMsg(string errorMsg) { DARABONBA_PTR_SET_VALUE(errorMsg_, errorMsg) };
 
 
     // extendInfoShrink Field Functions 
     bool hasExtendInfoShrink() const { return this->extendInfoShrink_ != nullptr;};
     void deleteExtendInfoShrink() { this->extendInfoShrink_ = nullptr;};
-    inline string extendInfoShrink() const { DARABONBA_PTR_GET_DEFAULT(extendInfoShrink_, "") };
+    inline string getExtendInfoShrink() const { DARABONBA_PTR_GET_DEFAULT(extendInfoShrink_, "") };
     inline CallBackThirdRightSendPlanShrinkRequest& setExtendInfoShrink(string extendInfoShrink) { DARABONBA_PTR_SET_VALUE(extendInfoShrink_, extendInfoShrink) };
 
 
     // genieOpenId Field Functions 
     bool hasGenieOpenId() const { return this->genieOpenId_ != nullptr;};
     void deleteGenieOpenId() { this->genieOpenId_ = nullptr;};
-    inline string genieOpenId() const { DARABONBA_PTR_GET_DEFAULT(genieOpenId_, "") };
+    inline string getGenieOpenId() const { DARABONBA_PTR_GET_DEFAULT(genieOpenId_, "") };
     inline CallBackThirdRightSendPlanShrinkRequest& setGenieOpenId(string genieOpenId) { DARABONBA_PTR_SET_VALUE(genieOpenId_, genieOpenId) };
 
 
     // receiveStatus Field Functions 
     bool hasReceiveStatus() const { return this->receiveStatus_ != nullptr;};
     void deleteReceiveStatus() { this->receiveStatus_ = nullptr;};
-    inline int32_t receiveStatus() const { DARABONBA_PTR_GET_DEFAULT(receiveStatus_, 0) };
+    inline int32_t getReceiveStatus() const { DARABONBA_PTR_GET_DEFAULT(receiveStatus_, 0) };
     inline CallBackThirdRightSendPlanShrinkRequest& setReceiveStatus(int32_t receiveStatus) { DARABONBA_PTR_SET_VALUE(receiveStatus_, receiveStatus) };
 
 
     // sn Field Functions 
     bool hasSn() const { return this->sn_ != nullptr;};
     void deleteSn() { this->sn_ = nullptr;};
-    inline string sn() const { DARABONBA_PTR_GET_DEFAULT(sn_, "") };
+    inline string getSn() const { DARABONBA_PTR_GET_DEFAULT(sn_, "") };
     inline CallBackThirdRightSendPlanShrinkRequest& setSn(string sn) { DARABONBA_PTR_SET_VALUE(sn_, sn) };
 
 
     // supplierId Field Functions 
     bool hasSupplierId() const { return this->supplierId_ != nullptr;};
     void deleteSupplierId() { this->supplierId_ = nullptr;};
-    inline int64_t supplierId() const { DARABONBA_PTR_GET_DEFAULT(supplierId_, 0L) };
+    inline int64_t getSupplierId() const { DARABONBA_PTR_GET_DEFAULT(supplierId_, 0L) };
     inline CallBackThirdRightSendPlanShrinkRequest& setSupplierId(int64_t supplierId) { DARABONBA_PTR_SET_VALUE(supplierId_, supplierId) };
 
 
   protected:
-    std::shared_ptr<string> bizGroup_ = nullptr;
-    std::shared_ptr<string> bizType_ = nullptr;
-    std::shared_ptr<int32_t> cardType_ = nullptr;
-    std::shared_ptr<string> errorMsg_ = nullptr;
-    std::shared_ptr<string> extendInfoShrink_ = nullptr;
-    std::shared_ptr<string> genieOpenId_ = nullptr;
-    std::shared_ptr<int32_t> receiveStatus_ = nullptr;
-    std::shared_ptr<string> sn_ = nullptr;
-    std::shared_ptr<int64_t> supplierId_ = nullptr;
+    // device group
+    shared_ptr<string> bizGroup_ {};
+    // device Type
+    shared_ptr<string> bizType_ {};
+    // 1001 daily card, 1002 monthly card, 1003 quarterly card, 1004 annual card
+    shared_ptr<int32_t> cardType_ {};
+    // error message
+    shared_ptr<string> errorMsg_ {};
+    // Extension fields
+    shared_ptr<string> extendInfoShrink_ {};
+    // Genie ID
+    shared_ptr<string> genieOpenId_ {};
+    // redemption status
+    shared_ptr<int32_t> receiveStatus_ {};
+    // SN of the device
+    shared_ptr<string> sn_ {};
+    // Supplier ID
+    shared_ptr<int64_t> supplierId_ {};
   };
 
   } // namespace Models

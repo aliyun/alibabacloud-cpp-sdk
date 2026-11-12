@@ -37,49 +37,54 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->bizGroup_ != nullptr
-        && this->bizType_ != nullptr && this->extendInfoShrink_ != nullptr && this->sn_ != nullptr && this->supplierId_ != nullptr; };
+    virtual bool empty() const override { return this->bizGroup_ == nullptr
+        && this->bizType_ == nullptr && this->extendInfoShrink_ == nullptr && this->sn_ == nullptr && this->supplierId_ == nullptr; };
     // bizGroup Field Functions 
     bool hasBizGroup() const { return this->bizGroup_ != nullptr;};
     void deleteBizGroup() { this->bizGroup_ = nullptr;};
-    inline string bizGroup() const { DARABONBA_PTR_GET_DEFAULT(bizGroup_, "") };
+    inline string getBizGroup() const { DARABONBA_PTR_GET_DEFAULT(bizGroup_, "") };
     inline CheckThirdRightSendPlanShrinkRequest& setBizGroup(string bizGroup) { DARABONBA_PTR_SET_VALUE(bizGroup_, bizGroup) };
 
 
     // bizType Field Functions 
     bool hasBizType() const { return this->bizType_ != nullptr;};
     void deleteBizType() { this->bizType_ = nullptr;};
-    inline string bizType() const { DARABONBA_PTR_GET_DEFAULT(bizType_, "") };
+    inline string getBizType() const { DARABONBA_PTR_GET_DEFAULT(bizType_, "") };
     inline CheckThirdRightSendPlanShrinkRequest& setBizType(string bizType) { DARABONBA_PTR_SET_VALUE(bizType_, bizType) };
 
 
     // extendInfoShrink Field Functions 
     bool hasExtendInfoShrink() const { return this->extendInfoShrink_ != nullptr;};
     void deleteExtendInfoShrink() { this->extendInfoShrink_ = nullptr;};
-    inline string extendInfoShrink() const { DARABONBA_PTR_GET_DEFAULT(extendInfoShrink_, "") };
+    inline string getExtendInfoShrink() const { DARABONBA_PTR_GET_DEFAULT(extendInfoShrink_, "") };
     inline CheckThirdRightSendPlanShrinkRequest& setExtendInfoShrink(string extendInfoShrink) { DARABONBA_PTR_SET_VALUE(extendInfoShrink_, extendInfoShrink) };
 
 
     // sn Field Functions 
     bool hasSn() const { return this->sn_ != nullptr;};
     void deleteSn() { this->sn_ = nullptr;};
-    inline string sn() const { DARABONBA_PTR_GET_DEFAULT(sn_, "") };
+    inline string getSn() const { DARABONBA_PTR_GET_DEFAULT(sn_, "") };
     inline CheckThirdRightSendPlanShrinkRequest& setSn(string sn) { DARABONBA_PTR_SET_VALUE(sn_, sn) };
 
 
     // supplierId Field Functions 
     bool hasSupplierId() const { return this->supplierId_ != nullptr;};
     void deleteSupplierId() { this->supplierId_ = nullptr;};
-    inline int64_t supplierId() const { DARABONBA_PTR_GET_DEFAULT(supplierId_, 0L) };
+    inline int64_t getSupplierId() const { DARABONBA_PTR_GET_DEFAULT(supplierId_, 0L) };
     inline CheckThirdRightSendPlanShrinkRequest& setSupplierId(int64_t supplierId) { DARABONBA_PTR_SET_VALUE(supplierId_, supplierId) };
 
 
   protected:
-    std::shared_ptr<string> bizGroup_ = nullptr;
-    std::shared_ptr<string> bizType_ = nullptr;
-    std::shared_ptr<string> extendInfoShrink_ = nullptr;
-    std::shared_ptr<string> sn_ = nullptr;
-    std::shared_ptr<int64_t> supplierId_ = nullptr;
+    // Device group
+    shared_ptr<string> bizGroup_ {};
+    // Device type
+    shared_ptr<string> bizType_ {};
+    // Extension field
+    shared_ptr<string> extendInfoShrink_ {};
+    // Device SN
+    shared_ptr<string> sn_ {};
+    // Supplier ID
+    shared_ptr<int64_t> supplierId_ {};
   };
 
   } // namespace Models

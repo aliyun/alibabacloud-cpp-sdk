@@ -21,7 +21,7 @@ namespace AliGenieiap_1_0
       string getEndpoint(const string &productId, const string &regionId, const string &endpointRule, const string &network, const string &suffix, const map<string, string> &endpointMap, const string &endpoint);
 
       /**
-       * @summary 应用使用时长上报
+       * @summary Used to report application usage duration on Tmall Genie devices.
        *
        * @param tmpReq AppUseTimeReportRequest
        * @param headers AppUseTimeReportHeaders
@@ -31,7 +31,7 @@ namespace AliGenieiap_1_0
       Models::AppUseTimeReportResponse appUseTimeReportWithOptions(const Models::AppUseTimeReportRequest &tmpReq, const Models::AppUseTimeReportHeaders &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 应用使用时长上报
+       * @summary Used to report application usage duration on Tmall Genie devices.
        *
        * @param request AppUseTimeReportRequest
        * @return AppUseTimeReportResponse
@@ -39,7 +39,7 @@ namespace AliGenieiap_1_0
       Models::AppUseTimeReportResponse appUseTimeReport(const Models::AppUseTimeReportRequest &request);
 
       /**
-       * @summary 三方领取回调接口
+       * @summary Third-party membership redemption callback API.
        *
        * @param tmpReq CallBackThirdRightSendPlanRequest
        * @param headers CallBackThirdRightSendPlanHeaders
@@ -49,7 +49,7 @@ namespace AliGenieiap_1_0
       Models::CallBackThirdRightSendPlanResponse callBackThirdRightSendPlanWithOptions(const Models::CallBackThirdRightSendPlanRequest &tmpReq, const Models::CallBackThirdRightSendPlanHeaders &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 三方领取回调接口
+       * @summary Third-party membership redemption callback API.
        *
        * @param request CallBackThirdRightSendPlanRequest
        * @return CallBackThirdRightSendPlanResponse
@@ -57,7 +57,7 @@ namespace AliGenieiap_1_0
       Models::CallBackThirdRightSendPlanResponse callBackThirdRightSendPlan(const Models::CallBackThirdRightSendPlanRequest &request);
 
       /**
-       * @summary 商业化移动屏三方app领卡校验
+       * @summary Commercial mobile screen third-party app card issuance validation.
        *
        * @param tmpReq CheckThirdRightSendPlanRequest
        * @param headers CheckThirdRightSendPlanHeaders
@@ -67,7 +67,7 @@ namespace AliGenieiap_1_0
       Models::CheckThirdRightSendPlanResponse checkThirdRightSendPlanWithOptions(const Models::CheckThirdRightSendPlanRequest &tmpReq, const Models::CheckThirdRightSendPlanHeaders &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 商业化移动屏三方app领卡校验
+       * @summary Commercial mobile screen third-party app card issuance validation.
        *
        * @param request CheckThirdRightSendPlanRequest
        * @return CheckThirdRightSendPlanResponse
@@ -75,7 +75,7 @@ namespace AliGenieiap_1_0
       Models::CheckThirdRightSendPlanResponse checkThirdRightSendPlan(const Models::CheckThirdRightSendPlanRequest &request);
 
       /**
-       * @summary 创建提醒
+       * @summary Used to create a reminder on a Tmall Genie device.
        *
        * @param tmpReq CreateReminderRequest
        * @param headers CreateReminderHeaders
@@ -85,7 +85,7 @@ namespace AliGenieiap_1_0
       Models::CreateReminderResponse createReminderWithOptions(const Models::CreateReminderRequest &tmpReq, const Models::CreateReminderHeaders &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 创建提醒
+       * @summary Used to create a reminder on a Tmall Genie device.
        *
        * @param request CreateReminderRequest
        * @return CreateReminderResponse
@@ -93,7 +93,25 @@ namespace AliGenieiap_1_0
       Models::CreateReminderResponse createReminder(const Models::CreateReminderRequest &request);
 
       /**
-       * @summary 删除提醒
+       * @summary 携程订单状态变更推送
+       *
+       * @param request CtripOrderPushRequest
+       * @param headers CtripOrderPushHeaders
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CtripOrderPushResponse
+       */
+      Models::CtripOrderPushResponse ctripOrderPushWithOptions(const Models::CtripOrderPushRequest &request, const Models::CtripOrderPushHeaders &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 携程订单状态变更推送
+       *
+       * @param request CtripOrderPushRequest
+       * @return CtripOrderPushResponse
+       */
+      Models::CtripOrderPushResponse ctripOrderPush(const Models::CtripOrderPushRequest &request);
+
+      /**
+       * @summary User deletes a reminder created on a Tmall Genie device.
        *
        * @param tmpReq DeleteReminderRequest
        * @param headers DeleteReminderHeaders
@@ -103,7 +121,7 @@ namespace AliGenieiap_1_0
       Models::DeleteReminderResponse deleteReminderWithOptions(const Models::DeleteReminderRequest &tmpReq, const Models::DeleteReminderHeaders &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 删除提醒
+       * @summary User deletes a reminder created on a Tmall Genie device.
        *
        * @param request DeleteReminderRequest
        * @return DeleteReminderResponse
@@ -111,7 +129,7 @@ namespace AliGenieiap_1_0
       Models::DeleteReminderResponse deleteReminder(const Models::DeleteReminderRequest &request);
 
       /**
-       * @summary 获取会员信息
+       * @summary Used by developers to obtain membership information in business scenarios that depend on CatGenie Membership.
        *
        * @param tmpReq GetAccountForAppRequest
        * @param headers GetAccountForAppHeaders
@@ -121,7 +139,7 @@ namespace AliGenieiap_1_0
       Models::GetAccountForAppResponse getAccountForAppWithOptions(const Models::GetAccountForAppRequest &tmpReq, const Models::GetAccountForAppHeaders &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取会员信息
+       * @summary Used by developers to obtain membership information in business scenarios that depend on CatGenie Membership.
        *
        * @param request GetAccountForAppRequest
        * @return GetAccountForAppResponse
@@ -129,7 +147,7 @@ namespace AliGenieiap_1_0
       Models::GetAccountForAppResponse getAccountForApp(const Models::GetAccountForAppRequest &request);
 
       /**
-       * @summary 获取应用配置
+       * @summary Obtain application configuration.
        *
        * @param tmpReq GetBusAppConfigRequest
        * @param headers GetBusAppConfigHeaders
@@ -139,7 +157,7 @@ namespace AliGenieiap_1_0
       Models::GetBusAppConfigResponse getBusAppConfigWithOptions(const Models::GetBusAppConfigRequest &tmpReq, const Models::GetBusAppConfigHeaders &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取应用配置
+       * @summary Obtain application configuration.
        *
        * @param request GetBusAppConfigRequest
        * @return GetBusAppConfigResponse
@@ -147,7 +165,7 @@ namespace AliGenieiap_1_0
       Models::GetBusAppConfigResponse getBusAppConfig(const Models::GetBusAppConfigRequest &request);
 
       /**
-       * @summary 用户手机号获取
+       * @summary Obtain the phone number bound to the user\\"s Maojing device. You must first request this capability on the Maojing Skill Application Platform and obtain user authorization on the device side.
        *
        * @param tmpReq GetPhoneNumberRequest
        * @param headers GetPhoneNumberHeaders
@@ -157,7 +175,7 @@ namespace AliGenieiap_1_0
       Models::GetPhoneNumberResponse getPhoneNumberWithOptions(const Models::GetPhoneNumberRequest &tmpReq, const Models::GetPhoneNumberHeaders &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 用户手机号获取
+       * @summary Obtain the phone number bound to the user\\"s Maojing device. You must first request this capability on the Maojing Skill Application Platform and obtain user authorization on the device side.
        *
        * @param request GetPhoneNumberRequest
        * @return GetPhoneNumberResponse
@@ -165,7 +183,7 @@ namespace AliGenieiap_1_0
       Models::GetPhoneNumberResponse getPhoneNumber(const Models::GetPhoneNumberRequest &request);
 
       /**
-       * @summary 查询提醒
+       * @summary User retrieves reminders created on Tmall Genie devices.
        *
        * @param tmpReq GetReminderRequest
        * @param headers GetReminderHeaders
@@ -175,7 +193,7 @@ namespace AliGenieiap_1_0
       Models::GetReminderResponse getReminderWithOptions(const Models::GetReminderRequest &tmpReq, const Models::GetReminderHeaders &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询提醒
+       * @summary User retrieves reminders created on Tmall Genie devices.
        *
        * @param request GetReminderRequest
        * @return GetReminderResponse
@@ -183,7 +201,7 @@ namespace AliGenieiap_1_0
       Models::GetReminderResponse getReminder(const Models::GetReminderRequest &request);
 
       /**
-       * @summary 查询提醒列表
+       * @summary The User batch retrieves reminders created on Tmall Genie devices.
        *
        * @param tmpReq ListRemindersRequest
        * @param headers ListRemindersHeaders
@@ -193,7 +211,7 @@ namespace AliGenieiap_1_0
       Models::ListRemindersResponse listRemindersWithOptions(const Models::ListRemindersRequest &tmpReq, const Models::ListRemindersHeaders &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询提醒列表
+       * @summary The User batch retrieves reminders created on Tmall Genie devices.
        *
        * @param request ListRemindersRequest
        * @return ListRemindersResponse
@@ -201,7 +219,7 @@ namespace AliGenieiap_1_0
       Models::ListRemindersResponse listReminders(const Models::ListRemindersRequest &request);
 
       /**
-       * @summary 拉取收银台
+       * @summary The user launches the checkout page on a Tmall Genie device.
        *
        * @param tmpReq PullCashierRequest
        * @param headers PullCashierHeaders
@@ -211,7 +229,7 @@ namespace AliGenieiap_1_0
       Models::PullCashierResponse pullCashierWithOptions(const Models::PullCashierRequest &tmpReq, const Models::PullCashierHeaders &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 拉取收银台
+       * @summary The user launches the checkout page on a Tmall Genie device.
        *
        * @param request PullCashierRequest
        * @return PullCashierResponse
@@ -219,7 +237,7 @@ namespace AliGenieiap_1_0
       Models::PullCashierResponse pullCashier(const Models::PullCashierRequest &request);
 
       /**
-       * @summary 猫精系统消息推送
+       * @summary Execute the message push feature of Tmall Genie. You must first request the capability and configure the message template on the Tmall Genie Skill Application Platform.
        *
        * @param tmpReq PushNotificationsRequest
        * @param headers PushNotificationsHeaders
@@ -229,7 +247,7 @@ namespace AliGenieiap_1_0
       Models::PushNotificationsResponse pushNotificationsWithOptions(const Models::PushNotificationsRequest &tmpReq, const Models::PushNotificationsHeaders &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 猫精系统消息推送
+       * @summary Execute the message push feature of Tmall Genie. You must first request the capability and configure the message template on the Tmall Genie Skill Application Platform.
        *
        * @param request PushNotificationsRequest
        * @return PushNotificationsResponse
@@ -237,7 +255,7 @@ namespace AliGenieiap_1_0
       Models::PushNotificationsResponse pushNotifications(const Models::PushNotificationsRequest &request);
 
       /**
-       * @summary 消息推送服务（普通版）
+       * @summary Execute the message push feature of Tmall Genie. You must first request the capability and configure the message template in the Tmall Genie Skill Application Platform.
        *
        * @param tmpReq SendNotificationsRequest
        * @param headers SendNotificationsHeaders
@@ -247,7 +265,7 @@ namespace AliGenieiap_1_0
       Models::SendNotificationsResponse sendNotificationsWithOptions(const Models::SendNotificationsRequest &tmpReq, const Models::SendNotificationsHeaders &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 消息推送服务（普通版）
+       * @summary Execute the message push feature of Tmall Genie. You must first request the capability and configure the message template in the Tmall Genie Skill Application Platform.
        *
        * @param request SendNotificationsRequest
        * @return SendNotificationsResponse
@@ -273,7 +291,7 @@ namespace AliGenieiap_1_0
       Models::ThirdImmediateMsgPushResponse thirdImmediateMsgPush(const Models::ThirdImmediateMsgPushRequest &request);
 
       /**
-       * @summary 更新提醒
+       * @summary The user updates a reminder created on a Tmall Genie device.
        *
        * @param tmpReq UpdateReminderRequest
        * @param headers UpdateReminderHeaders
@@ -283,7 +301,7 @@ namespace AliGenieiap_1_0
       Models::UpdateReminderResponse updateReminderWithOptions(const Models::UpdateReminderRequest &tmpReq, const Models::UpdateReminderHeaders &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 更新提醒
+       * @summary The user updates a reminder created on a Tmall Genie device.
        *
        * @param request UpdateReminderRequest
        * @return UpdateReminderResponse
@@ -291,7 +309,7 @@ namespace AliGenieiap_1_0
       Models::UpdateReminderResponse updateReminder(const Models::UpdateReminderRequest &request);
 
       /**
-       * @summary 视频类应用会员信息上报
+       * @summary Used by developers to report membership information in scenarios involving membership collaboration with CatGenie.
        *
        * @param tmpReq VideoAppReportRequest
        * @param headers VideoAppReportHeaders
@@ -301,7 +319,7 @@ namespace AliGenieiap_1_0
       Models::VideoAppReportResponse videoAppReportWithOptions(const Models::VideoAppReportRequest &tmpReq, const Models::VideoAppReportHeaders &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 视频类应用会员信息上报
+       * @summary Used by developers to report membership information in scenarios involving membership collaboration with CatGenie.
        *
        * @param request VideoAppReportRequest
        * @return VideoAppReportResponse
@@ -309,7 +327,7 @@ namespace AliGenieiap_1_0
       Models::VideoAppReportResponse videoAppReport(const Models::VideoAppReportRequest &request);
 
       /**
-       * @summary 猫精应用唤起
+       * @summary On a smart speaker with a screen, proactively launch the MeowGenie screen-display application. You must first request this capability on the MeowGenie skill application platform.
        *
        * @param request WakeUpAppRequest
        * @param headers WakeUpAppHeaders
@@ -319,7 +337,7 @@ namespace AliGenieiap_1_0
       Models::WakeUpAppResponse wakeUpAppWithOptions(const Models::WakeUpAppRequest &request, const Models::WakeUpAppHeaders &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 猫精应用唤起
+       * @summary On a smart speaker with a screen, proactively launch the MeowGenie screen-display application. You must first request this capability on the MeowGenie skill application platform.
        *
        * @param request WakeUpAppRequest
        * @return WakeUpAppResponse

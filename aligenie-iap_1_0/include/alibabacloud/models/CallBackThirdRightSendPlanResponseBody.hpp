@@ -35,41 +35,45 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->retCode_ != nullptr
-        && this->retMsg_ != nullptr && this->retValue_ != nullptr && this->requestId_ != nullptr; };
+    virtual bool empty() const override { return this->retCode_ == nullptr
+        && this->retMsg_ == nullptr && this->retValue_ == nullptr && this->requestId_ == nullptr; };
     // retCode Field Functions 
     bool hasRetCode() const { return this->retCode_ != nullptr;};
     void deleteRetCode() { this->retCode_ = nullptr;};
-    inline string retCode() const { DARABONBA_PTR_GET_DEFAULT(retCode_, "") };
+    inline string getRetCode() const { DARABONBA_PTR_GET_DEFAULT(retCode_, "") };
     inline CallBackThirdRightSendPlanResponseBody& setRetCode(string retCode) { DARABONBA_PTR_SET_VALUE(retCode_, retCode) };
 
 
     // retMsg Field Functions 
     bool hasRetMsg() const { return this->retMsg_ != nullptr;};
     void deleteRetMsg() { this->retMsg_ = nullptr;};
-    inline string retMsg() const { DARABONBA_PTR_GET_DEFAULT(retMsg_, "") };
+    inline string getRetMsg() const { DARABONBA_PTR_GET_DEFAULT(retMsg_, "") };
     inline CallBackThirdRightSendPlanResponseBody& setRetMsg(string retMsg) { DARABONBA_PTR_SET_VALUE(retMsg_, retMsg) };
 
 
     // retValue Field Functions 
     bool hasRetValue() const { return this->retValue_ != nullptr;};
     void deleteRetValue() { this->retValue_ = nullptr;};
-    inline bool retValue() const { DARABONBA_PTR_GET_DEFAULT(retValue_, false) };
+    inline bool getRetValue() const { DARABONBA_PTR_GET_DEFAULT(retValue_, false) };
     inline CallBackThirdRightSendPlanResponseBody& setRetValue(bool retValue) { DARABONBA_PTR_SET_VALUE(retValue_, retValue) };
 
 
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline CallBackThirdRightSendPlanResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
   protected:
-    std::shared_ptr<string> retCode_ = nullptr;
-    std::shared_ptr<string> retMsg_ = nullptr;
-    std::shared_ptr<bool> retValue_ = nullptr;
-    std::shared_ptr<string> requestId_ = nullptr;
+    // fault status code
+    shared_ptr<string> retCode_ {};
+    // error message
+    shared_ptr<string> retMsg_ {};
+    // Return Result true/false
+    shared_ptr<bool> retValue_ {};
+    // Request ID
+    shared_ptr<string> requestId_ {};
   };
 
   } // namespace Models
