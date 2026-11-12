@@ -2367,7 +2367,7 @@ CreateEnvironmentResponse Client::createEnvironment(const CreateEnvironmentReque
 }
 
 /**
- * @summary Creates an error code redirection rule.
+ * @summary Creates an error code redirect rule.
  *
  * @param tmpReq CreateErrorPagesRedirectRuleRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2428,7 +2428,7 @@ CreateErrorPagesRedirectRuleResponse Client::createErrorPagesRedirectRuleWithOpt
 }
 
 /**
- * @summary Creates an error code redirection rule.
+ * @summary Creates an error code redirect rule.
  *
  * @param request CreateErrorPagesRedirectRuleRequest
  * @return CreateErrorPagesRedirectRuleResponse
@@ -6315,7 +6315,7 @@ DeleteEnvironmentResponse Client::deleteEnvironment(const DeleteEnvironmentReque
 }
 
 /**
- * @summary Deletes the error code redirection configuration.
+ * @summary Deletes the error code redirect configuration.
  *
  * @param request DeleteErrorPagesRedirectRuleRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -6350,7 +6350,7 @@ DeleteErrorPagesRedirectRuleResponse Client::deleteErrorPagesRedirectRuleWithOpt
 }
 
 /**
- * @summary Deletes the error code redirection configuration.
+ * @summary Deletes the error code redirect configuration.
  *
  * @param request DeleteErrorPagesRedirectRuleRequest
  * @return DeleteErrorPagesRedirectRuleResponse

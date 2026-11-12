@@ -42,6 +42,7 @@ namespace Models
         DARABONBA_PTR_TO_JSON(DataType, dataType_);
         DARABONBA_PTR_TO_JSON(SortOrder, sortOrder_);
         DARABONBA_PTR_TO_JSON(IsDefault, isDefault_);
+        DARABONBA_PTR_TO_JSON(IsSupported, isSupported_);
       };
       friend void from_json(const Darabonba::Json& j, FieldList& obj) { 
         DARABONBA_PTR_FROM_JSON(FieldName, fieldName_);
@@ -51,6 +52,7 @@ namespace Models
         DARABONBA_PTR_FROM_JSON(DataType, dataType_);
         DARABONBA_PTR_FROM_JSON(SortOrder, sortOrder_);
         DARABONBA_PTR_FROM_JSON(IsDefault, isDefault_);
+        DARABONBA_PTR_FROM_JSON(IsSupported, isSupported_);
       };
       FieldList() = default ;
       FieldList(const FieldList &) = default ;
@@ -65,7 +67,7 @@ namespace Models
       virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
       virtual bool empty() const override { return this->fieldName_ == nullptr
         && this->description_ == nullptr && this->descriptionCn_ == nullptr && this->category_ == nullptr && this->dataType_ == nullptr && this->sortOrder_ == nullptr
-        && this->isDefault_ == nullptr; };
+        && this->isDefault_ == nullptr && this->isSupported_ == nullptr; };
       // fieldName Field Functions 
       bool hasFieldName() const { return this->fieldName_ != nullptr;};
       void deleteFieldName() { this->fieldName_ = nullptr;};
@@ -115,6 +117,13 @@ namespace Models
       inline FieldList& setIsDefault(bool isDefault) { DARABONBA_PTR_SET_VALUE(isDefault_, isDefault) };
 
 
+      // isSupported Field Functions 
+      bool hasIsSupported() const { return this->isSupported_ != nullptr;};
+      void deleteIsSupported() { this->isSupported_ = nullptr;};
+      inline bool getIsSupported() const { DARABONBA_PTR_GET_DEFAULT(isSupported_, false) };
+      inline FieldList& setIsSupported(bool isSupported) { DARABONBA_PTR_SET_VALUE(isSupported_, isSupported) };
+
+
     protected:
       // The field name.
       shared_ptr<string> fieldName_ {};
@@ -130,6 +139,8 @@ namespace Models
       shared_ptr<int64_t> sortOrder_ {};
       // Specifies whether the field is provided by default.
       shared_ptr<bool> isDefault_ {};
+      // Specifies whether the user plan supports the field.
+      shared_ptr<bool> isSupported_ {};
     };
 
     virtual bool empty() const override { return this->sortOrder_ == nullptr

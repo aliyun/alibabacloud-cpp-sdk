@@ -765,7 +765,7 @@ namespace ESA20240910
       Models::CreateEnvironmentResponse createEnvironment(const Models::CreateEnvironmentRequest &request);
 
       /**
-       * @summary Creates an error code redirection rule.
+       * @summary Creates an error code redirect rule.
        *
        * @param tmpReq CreateErrorPagesRedirectRuleRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -774,7 +774,7 @@ namespace ESA20240910
       Models::CreateErrorPagesRedirectRuleResponse createErrorPagesRedirectRuleWithOptions(const Models::CreateErrorPagesRedirectRuleRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Creates an error code redirection rule.
+       * @summary Creates an error code redirect rule.
        *
        * @param request CreateErrorPagesRedirectRuleRequest
        * @return CreateErrorPagesRedirectRuleResponse
@@ -1840,7 +1840,7 @@ namespace ESA20240910
       Models::DeleteEnvironmentResponse deleteEnvironment(const Models::DeleteEnvironmentRequest &request);
 
       /**
-       * @summary Deletes the error code redirection configuration.
+       * @summary Deletes the error code redirect configuration.
        *
        * @param request DeleteErrorPagesRedirectRuleRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1849,7 +1849,7 @@ namespace ESA20240910
       Models::DeleteErrorPagesRedirectRuleResponse deleteErrorPagesRedirectRuleWithOptions(const Models::DeleteErrorPagesRedirectRuleRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Deletes the error code redirection configuration.
+       * @summary Deletes the error code redirect configuration.
        *
        * @param request DeleteErrorPagesRedirectRuleRequest
        * @return DeleteErrorPagesRedirectRuleResponse

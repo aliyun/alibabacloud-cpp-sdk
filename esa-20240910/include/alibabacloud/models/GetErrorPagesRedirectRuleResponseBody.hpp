@@ -84,7 +84,7 @@ namespace Models
 
 
     protected:
-      // The response status code used by the node when responding to the client with a redirect address. Valid values:
+      // The response status code used when the node responds to the client with a redirect address. Valid values:
       // - 400
       // - 403
       // - 404
@@ -97,7 +97,7 @@ namespace Models
       // - 503
       // - 504
       shared_ptr<string> statusCode_ {};
-      // The target URL after the redirect.
+      // The target URL after redirection.
       shared_ptr<string> targetURL_ {};
     };
 
@@ -170,29 +170,29 @@ namespace Models
 
 
   protected:
-    // The ID of the configuration. You can call the [ListCompressionRules](https://help.aliyun.com/document_detail/2867498.html) operation to obtain the configuration ID.
+    // The configuration ID. You can obtain the configuration ID by calling the [ListCompressionRules](https://help.aliyun.com/document_detail/2867498.html) operation.
     shared_ptr<int64_t> configId_ {};
     // The configuration type. You can use this parameter to query global configurations or rule configurations. Valid values:
-    // - global: queries global configurations
-    // - rule: queries rule configurations
+    // - global: Queries global configurations.
+    // - rule: Queries rule configurations.
     // 
     // This parameter is optional. If you do not specify this parameter, global and rule configurations are not distinguished. This parameter takes effect only when the functionName parameter is specified.
     shared_ptr<string> configType_ {};
     // The error code redirect.
     shared_ptr<vector<GetErrorPagesRedirectRuleResponseBody::ErrorPagesRedirect>> errorPagesRedirect_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // The rule content, which uses conditional expressions to match user requests. You do not need to set this parameter when adding a global configuration. Two scenarios are supported:
+    // The rule content, which uses a conditional expression to match user requests. You do not need to set this parameter when adding a global configuration. Two scenarios are supported:
     // - Match all incoming requests: Set the value to true.
-    // - Match specific requests: Set the value to a custom expression, such as (http.host eq \\"video.example.com\\").
+    // - Match specified requests: Set the value to a custom expression, such as (http.host eq "video.example.com").
     shared_ptr<string> rule_ {};
     // The rule switch. You do not need to set this parameter when adding a global configuration. Valid values:
-    // - on: enables the rule
-    // - off: disables the rule
+    // - on: Enabled.
+    // - off: Disabled.
     shared_ptr<string> ruleEnable_ {};
-    // The name of the rule. You do not need to set this parameter when adding a global configuration.
+    // The rule name. You do not need to set this parameter when adding a global configuration.
     shared_ptr<string> ruleName_ {};
-    // The execution sequence of the rule. A smaller value indicates a higher priority.
+    // The execution order of the rule. A smaller value indicates a higher priority.
     shared_ptr<int32_t> sequence_ {};
     // The version number of the site configuration. For sites with configuration version management enabled, you can use this parameter to specify the site version for which the configuration takes effect. Default value: 0.
     shared_ptr<int32_t> siteVersion_ {};

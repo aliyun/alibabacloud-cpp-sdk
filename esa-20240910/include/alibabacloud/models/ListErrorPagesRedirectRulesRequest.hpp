@@ -96,10 +96,10 @@ namespace Models
   protected:
     // The configuration ID.
     shared_ptr<int64_t> configId_ {};
-    // The configuration type. You can use this parameter to query global configurations or rule configurations. Valid values:
+    // The configuration type. You can use this parameter to query global or rule configurations. Valid values:
     // 
-    // - global: queries global configurations.
-    // - rule: queries rule configurations.
+    // - global: Global configurations.
+    // - rule: Rule configurations.
     shared_ptr<string> configType_ {};
     // The page number. Default value: 1.
     shared_ptr<int32_t> pageNumber_ {};

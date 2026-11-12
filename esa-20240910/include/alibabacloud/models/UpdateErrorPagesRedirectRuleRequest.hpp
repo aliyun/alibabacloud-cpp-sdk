@@ -80,7 +80,7 @@ namespace Models
 
 
     protected:
-      // The HTTP status code used by the node when responding to the client with a redirect address. Valid values:
+      // The response status code used by the node when responding to the client with a redirect address. Valid values:
       // 
       // - 400
       // - 403
@@ -96,7 +96,7 @@ namespace Models
       // 
       // This parameter is required.
       shared_ptr<string> statusCode_ {};
-      // The destination URL after the redirect.
+      // The target URL after the redirect.
       // 
       // This parameter is required.
       shared_ptr<string> targetURL_ {};
@@ -161,21 +161,21 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<int64_t> configId_ {};
-    // The error code redirect configuration.
+    // The error code redirect.
     shared_ptr<vector<UpdateErrorPagesRedirectRuleRequest::ErrorPagesRedirect>> errorPagesRedirect_ {};
-    // The content of the rule, which uses a conditional expression to match user requests. You do not need to specify this parameter when you add a global configuration. This parameter applies to the following scenarios:
+    // The rule content, which uses conditional expressions to match user requests. You do not need to specify this parameter when adding a global configuration. This parameter applies to the following scenarios:
     // - Match all incoming requests: Set the value to true.
     // - Match specific requests: Set the value to a custom expression, such as (http.host eq \\"video.example.com\\").
     shared_ptr<string> rule_ {};
-    // Specifies whether to enable the rule. You do not need to specify this parameter when you add a global configuration. Valid values:
+    // Specifies whether to enable the rule. You do not need to specify this parameter when adding a global configuration. Valid values:
     // - on: Enabled.
     // - off: Disabled.
     shared_ptr<string> ruleEnable_ {};
-    // The name of the rule. You do not need to specify this parameter when you add a global configuration.
+    // The rule name. You do not need to specify this parameter when adding a global configuration.
     shared_ptr<string> ruleName_ {};
     // The execution sequence of the rule. A smaller value indicates a higher priority.
     shared_ptr<int32_t> sequence_ {};
-    // The ID of the site. You can call the [ListSites](~~ListSites~~) operation to obtain the site ID.
+    // The site ID. You can obtain the site ID by calling the [ListSites](~~ListSites~~) operation.
     // 
     // This parameter is required.
     shared_ptr<int64_t> siteId_ {};
