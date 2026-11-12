@@ -95,11 +95,11 @@ namespace Models
 
 
     protected:
-      // The SAML assertion consumer service (ACS) URL of the local SP. Configure it in the external IdP.
+      // The SAML assertion consumer URL of the local SP. Configure it in the external IdP.
       shared_ptr<string> acsUrl_ {};
       // The entity identifier of the local SP. Configure it in the external IdP. This is not the Entity ID of the external IdP.
       shared_ptr<string> entityId_ {};
-      // The SP metadata XML of the local SP. Import it to the external IdP. You cannot use it as the IdP XML to submit the SAML configuration.
+      // The SP metadata XML of the local SP. Use it for import in the external IdP. Do not submit it as the IdP XML for SAML configuration.
       shared_ptr<string> metadataXml_ {};
       // Required. The query parameter. Only the exact value SAML is supported. The response returns SAML.
       shared_ptr<string> protocol_ {};
@@ -152,15 +152,15 @@ namespace Models
 
 
   protected:
-    // The business result code. If a failure occurs, handle it based on the HTTP status code and the message.
+    // The business result code. If the request fails, handle the error based on the HTTP status code and the message.
     shared_ptr<string> code_ {};
-    // The data structure of the result. For details, see the response fields of this operation. The response of an asynchronous write operation indicates that the request is accepted, but does not ensure that the background task is completed.
+    // The SP information. For the result structure, see the response fields of this operation. The response of an asynchronous write operation indicates that the request is accepted, which does not guarantee that the background task is complete.
     shared_ptr<GetIdentityProviderServiceProviderResponseBody::Data> data_ {};
     // The processing status of the current request. This status is not equivalent to the final result of the background task.
     shared_ptr<int32_t> httpStatusCode_ {};
-    // The request acceptance or error message. For asynchronous tasks, check the task results by calling the corresponding query operation.
+    // The message about request acceptance or errors. Check the asynchronous task result by calling the corresponding query operation.
     shared_ptr<string> message_ {};
-    // The ID of the request. You can use the ID to associate the call with troubleshooting. Keep the ID when a failure occurs.
+    // The ID of the request. You can use the ID to associate the call with troubleshooting. Keep the ID if the request fails.
     shared_ptr<string> requestId_ {};
     // Indicates whether the current request is successful. A value of true indicates that the request is processed successfully. For asynchronous write operations, you must continue to query the task results.
     shared_ptr<bool> success_ {};

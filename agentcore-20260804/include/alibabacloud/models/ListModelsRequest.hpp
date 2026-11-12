@@ -68,11 +68,11 @@ namespace Models
   protected:
     // The model connection ID used to filter models.
     shared_ptr<string> connectionId_ {};
-    // The number of entries to return on each page. Valid values: 0 to 100. If this parameter is not specified or is set to 0, the default value is 10.
+    // The maximum number of entries to return per page. Valid values: 0 to 100. If this parameter is not specified or is set to 0, the default value is 10.
     shared_ptr<int32_t> maxResults_ {};
     // The upstream model name.
     shared_ptr<string> modelName_ {};
-    // The pagination token. Specify the token returned from the previous request to retrieve the next page. An empty response indicates that no more pages are available.
+    // The pagination token. Specify the token returned from the previous query. An empty response indicates that no more pages are available.
     shared_ptr<string> nextToken_ {};
   };
 

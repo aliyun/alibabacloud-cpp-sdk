@@ -76,7 +76,7 @@ namespace Models
 
 
     protected:
-      // The name of the code package file.
+      // The file name of the code package.
       // 
       // This parameter is required.
       shared_ptr<string> fileName_ {};

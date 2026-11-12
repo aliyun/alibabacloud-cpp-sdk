@@ -152,25 +152,25 @@ namespace Models
 
 
     protected:
-      // The ID of the managed or custom agent that owns the version.
+      // The ID of the managed or custom agent to which the version belongs.
       shared_ptr<string> agentId_ {};
-      // The system-generated version number that increments for each agent, such as v1 and v2. This is used when querying or deleting versions, and when referencing versions in service endpoints.
+      // The system-generated version number that increments for the agent, such as v1 and v2. This is used when querying or deleting versions, and when server endpoints reference the version.
       shared_ptr<string> agentVersion_ {};
-      // Indicates only whether the version template and artifact archiving are complete, and does not represent the deployment or running status. A value of READY indicates that the archiving is complete. A value of INVALID indicates that the archiving is missing or inconsistent.
+      // Indicates only whether the version template and artifact archive are complete, and does not represent the deployment or running status. Valid values: READY indicates that the archive is complete. INVALID indicates that the archive is missing or inconsistent.
       shared_ptr<string> artifactStatus_ {};
-      // For managed agents, the structure is consistent with the data structure of GetManagedAgent. For custom agents, the structure is consistent with the data structure of GetCustomAgent. The desensitization rules are the same.
+      // For managed agents, the structure is consistent with the data structure of GetManagedAgent. For custom agents, the structure is consistent with the data structure of GetCustomAgent. The data masking rules are the same.
       Darabonba::Json configuration_ {};
       // The time when the version was saved, in ISO 8601 UTC format.
       shared_ptr<string> createdAt_ {};
-      // The UID of the Alibaba Cloud account of the caller who saved the version. If the API is called by a RAM user, this value is the UID of the Alibaba Cloud account to which the RAM user belongs.
+      // The UID of the Alibaba Cloud account of the caller who saved the version. If the API is called by a RAM user, this is the UID of the Alibaba Cloud account to which the RAM user belongs.
       shared_ptr<string> createdBy_ {};
-      // The version description provided when the version was saved. It can contain up to 1,024 characters. If no description was provided when the version was saved, this field is empty.
+      // The version description provided when the version was saved. It can be up to 1,024 characters in length. If no description was provided when the version was saved, this field is empty.
       shared_ptr<string> description_ {};
-      // The effective release serial number of the agent when the version was saved, which is the effectiveSpecVersion at that time. This value does not change after the version is saved.
+      // The effective release sequence number of the agent when the version was saved, which is the effectiveSpecVersion at that time. This value does not change after the version is saved.
       shared_ptr<int64_t> targetSpecVersion_ {};
-      // The display name specified by the user when the version was saved. For earlier saved versions that did not record a name, the agentVersion is returned.
+      // The display name specified by the user when the version was saved. For earlier saved versions where no name was recorded, the agentVersion is returned.
       shared_ptr<string> versionName_ {};
-      // The ID of the AgentCore workspace where the agent that owns the version resides.
+      // The ID of the AgentCore workspace where the agent that owns this version resides.
       shared_ptr<string> workspaceId_ {};
     };
 

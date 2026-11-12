@@ -139,7 +139,7 @@ namespace Models
     shared_ptr<BatchDeleteModelsResponseBody::Data> data_ {};
     // The HTTP status code. The value is 200 if the request is successful.
     shared_ptr<int32_t> httpStatusCode_ {};
-    // The request processing result message.
+    // The message about the request processing result.
     shared_ptr<string> message_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

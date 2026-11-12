@@ -50,7 +50,7 @@ namespace Models
   protected:
     // The maximum number of entries to return per page. Valid values: 0 to 100. If this parameter is omitted or set to 0, the default value is 20.
     shared_ptr<int32_t> maxResults_ {};
-    // The pagination token. You can leave this parameter empty for the first call. For subsequent calls, use the nextToken value returned in the previous response.
+    // The pagination token. You can omit this parameter in the first call. For subsequent calls, use the nextToken returned in the previous response.
     shared_ptr<string> nextToken_ {};
   };
 

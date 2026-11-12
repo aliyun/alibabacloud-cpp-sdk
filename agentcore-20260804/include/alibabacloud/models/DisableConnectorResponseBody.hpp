@@ -110,9 +110,9 @@ namespace Models
       shared_ptr<string> enabledAt_ {};
       // The JSON string of the connector configuration before it was disabled. This is sensitive information.
       shared_ptr<string> metadata_ {};
-      // The connector name. The current value is qodercli.
+      // The name of the connector. Currently, the value is qodercli.
       shared_ptr<string> name_ {};
-      // The connector status.
+      // The status of the connector.
       shared_ptr<string> status_ {};
     };
 
@@ -173,7 +173,7 @@ namespace Models
     shared_ptr<string> message_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request is successful.
+    // Indicates whether the request was successful.
     shared_ptr<bool> success_ {};
   };
 

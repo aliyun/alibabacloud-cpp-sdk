@@ -178,11 +178,11 @@ namespace Models
 
 
     protected:
-      // The inbound access mode.
+      // The inbound access method.
       shared_ptr<string> accessMode_ {};
       // The user access scope.
       shared_ptr<string> accessScope_ {};
-      // The ID of the managed Harness agent.
+      // The managed Harness agent ID.
       shared_ptr<string> agentId_ {};
       // The creation mode.
       shared_ptr<string> createMode_ {};
@@ -253,11 +253,11 @@ namespace Models
 
 
   protected:
-    // The business status code. The value is SUCCESS if the request is successful.
+    // The business status code. The value is SUCCESS for a successful request.
     shared_ptr<string> code_ {};
     // The summary information of the managed Harness agent after deletion.
     shared_ptr<DeleteManagedAgentResponseBody::Data> data_ {};
-    // The HTTP status code. The value is 200 if the request is successful.
+    // The HTTP status code. The value is 200 for a successful request.
     shared_ptr<int32_t> httpStatusCode_ {};
     // The message about the request processing result.
     shared_ptr<string> message_ {};

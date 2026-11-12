@@ -100,9 +100,9 @@ namespace Models
       // 
       // This parameter is required.
       shared_ptr<string> displayName_ {};
-      // The email address of the user. The email address can be up to 256 characters in length.
+      // The email address of the user. The address can be up to 256 characters in length.
       shared_ptr<string> email_ {};
-      // The username. The username must be unique within the workspace, can contain only lowercase letters, digits, and hyphens, must start and end with a lowercase letter or a digit, and must be 1 to 32 characters in length. Reserved names such as manager, admin, or any name starting with worker- are not allowed.
+      // The username. The name must be unique within the workspace, can contain only lowercase letters, digits, and hyphens, must start and end with a lowercase letter or a digit, and must be 1 to 32 characters in length. Reserved names such as manager, admin, or any name starting with worker- are not allowed.
       // 
       // This parameter is required.
       shared_ptr<string> name_ {};

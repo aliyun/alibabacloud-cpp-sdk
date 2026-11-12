@@ -48,7 +48,7 @@ namespace Models
 
 
   protected:
-    // The region ID. It is passed as a query parameter and must match the selected region endpoint and the workspace region.
+    // The product entry region. This parameter is passed as a query parameter and must match the selected region endpoint and the workspace region.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};

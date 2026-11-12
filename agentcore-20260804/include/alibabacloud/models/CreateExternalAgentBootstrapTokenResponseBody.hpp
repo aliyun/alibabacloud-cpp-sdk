@@ -119,7 +119,7 @@ namespace Models
         shared_ptr<string> endpoint_ {};
         // The license key used for CMS access.
         shared_ptr<string> licenseKey_ {};
-        // The name of the CMS workspace.
+        // The CMS workspace name.
         shared_ptr<string> workspace_ {};
       };
 
@@ -170,13 +170,13 @@ namespace Models
 
 
     protected:
-      // The ID of the managed agent.
+      // The managed agent ID.
       shared_ptr<string> agentId_ {};
       // The bootstrap token used for the managed agent onboarding.
       shared_ptr<string> bootstrapToken_ {};
       // The CMS configuration used for the managed agent onboarding.
       shared_ptr<Data::Cms> cms_ {};
-      // The access network type. Valid values: INTRANET (internal network) and INTERNET (Internet).
+      // The network type for access. Valid values: INTRANET (internal network) and INTERNET (Internet).
       shared_ptr<string> networkType_ {};
       // The fingerprint of the bootstrap token.
       shared_ptr<string> tokenFingerprint_ {};
@@ -231,13 +231,13 @@ namespace Models
 
 
   protected:
-    // The business status code. The value is SUCCESS if the request is successful.
+    // The business status code. A value of SUCCESS indicates success.
     shared_ptr<string> code_ {};
     // The bootstrap token and CMS configuration required for the managed agent onboarding.
     shared_ptr<CreateExternalAgentBootstrapTokenResponseBody::Data> data_ {};
-    // The HTTP status code. The value is 200 if the request is successful.
+    // The HTTP status code. A value of 200 indicates success.
     shared_ptr<int32_t> httpStatusCode_ {};
-    // The request processing result message.
+    // The message about the request processing result.
     shared_ptr<string> message_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

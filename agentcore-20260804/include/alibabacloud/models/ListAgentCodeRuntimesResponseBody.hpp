@@ -174,7 +174,7 @@ namespace Models
     shared_ptr<string> code_ {};
     // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
-    // The supported code runtime environments.
+    // The list of supported code runtime environments.
     shared_ptr<vector<ListAgentCodeRuntimesResponseBody::Items>> items_ {};
     // The actual page size.
     shared_ptr<int32_t> maxResults_ {};

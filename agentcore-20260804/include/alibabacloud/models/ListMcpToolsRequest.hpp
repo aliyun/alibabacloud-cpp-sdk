@@ -48,7 +48,7 @@ namespace Models
 
 
   protected:
-    // The maximum number of results to return per request. Default value: 10. Maximum value: 100.
+    // The maximum number of results to return in a single request. Default value: 10. Maximum value: 100.
     shared_ptr<int32_t> maxResults_ {};
     // The pagination token.
     shared_ptr<string> nextToken_ {};

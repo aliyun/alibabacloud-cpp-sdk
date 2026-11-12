@@ -169,9 +169,9 @@ namespace Models
 
 
       protected:
-        // The author of the version.
+        // The version author.
         shared_ptr<string> author_ {};
-        // The creation time. It is a UNIX timestamp in milliseconds.
+        // The creation time, which is a UNIX timestamp in milliseconds.
         shared_ptr<int64_t> createTime_ {};
         // The description.
         shared_ptr<string> description_ {};
@@ -181,7 +181,7 @@ namespace Models
         shared_ptr<string> publishPipelineInfo_ {};
         // The status.
         shared_ptr<string> status_ {};
-        // The update time. It is a UNIX timestamp in milliseconds.
+        // The update time, which is a UNIX timestamp in milliseconds.
         shared_ptr<int64_t> updateTime_ {};
         // The version number.
         shared_ptr<string> version_ {};
@@ -309,7 +309,7 @@ namespace Models
       shared_ptr<string> reviewingVersion_ {};
       // The visibility scope.
       shared_ptr<string> scope_ {};
-      // The update time. It is a UNIX timestamp in milliseconds.
+      // The update time, which is a UNIX timestamp in milliseconds.
       shared_ptr<int64_t> updateTime_ {};
       // The list of version summaries.
       shared_ptr<vector<Data::Versions>> versions_ {};

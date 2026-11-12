@@ -81,7 +81,7 @@ namespace Models
     shared_ptr<int32_t> httpStatusCode_ {};
     // The response message. The value is success if the request is successful, or an error message if the request fails.
     shared_ptr<string> message_ {};
-    // The request ID, which is used to locate and troubleshoot requests.
+    // The request ID, which is used to locate and troubleshoot the request.
     shared_ptr<string> requestId_ {};
     // Indicates whether the request is successful.
     shared_ptr<bool> success_ {};

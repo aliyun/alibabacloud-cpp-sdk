@@ -244,7 +244,7 @@ namespace Models
       shared_ptr<int32_t> apiKeyCount_ {};
       // The model connection ID.
       shared_ptr<string> connectionId_ {};
-      // The time when the resource was created. The time is displayed in the RFC 3339 UTC format.
+      // The time when the resource was created. The time is in RFC 3339 UTC format.
       shared_ptr<string> createdAt_ {};
       // Indicates whether access credentials are configured for the model connection.
       shared_ptr<bool> credentialConfigured_ {};
@@ -252,19 +252,19 @@ namespace Models
       shared_ptr<string> description_ {};
       // The absolute HTTP or HTTPS URL of the upstream model service. The URL can be up to 1,024 characters in length.
       shared_ptr<string> endpoint_ {};
-      // The list of summaries of models associated with the model connection.
+      // The list of model summaries associated with the model connection.
       shared_ptr<vector<Items::Models>> models_ {};
-      // The name of the model connection. The name must be 1 to 128 characters in length and cannot contain whitespace characters.
+      // The name of the model connection. The name must be 1 to 128 non-whitespace characters in length.
       shared_ptr<string> name_ {};
-      // The model invocation protocol. Currently, only OpenAI/v1 is supported. If this parameter is not specified during model connection creation, this default value is used.
+      // The model invocation protocol. Currently, only OpenAI/v1 is supported. If this parameter is not specified when you create a model connection, this default value is used.
       shared_ptr<string> protocol_ {};
       // The model provider type.
       shared_ptr<string> providerType_ {};
       // The resource status.
       shared_ptr<string> status_ {};
-      // The failure summary returned when the model connection fails to be published, or when deletion fails but the connection remains in the deleting state. This field is empty in other states.
+      // The failure summary returned when the model connection fails to be published, or when deletion fails but the status remains Deleting. This field is empty for other statuses.
       shared_ptr<string> statusReason_ {};
-      // The time when the resource was last updated. The time is displayed in the RFC 3339 UTC format.
+      // The time when the resource was last updated. The time is in RFC 3339 UTC format.
       shared_ptr<string> updatedAt_ {};
       // The workspace ID.
       shared_ptr<string> workspaceId_ {};
@@ -345,11 +345,11 @@ namespace Models
     shared_ptr<int32_t> httpStatusCode_ {};
     // The list of model connections.
     shared_ptr<vector<ListModelConnectionsResponseBody::Items>> items_ {};
-    // The maximum number of entries to return on each page. Valid values: 0 to 100. Default value: 10. If this parameter is not specified or is set to 0, the default value is used.
+    // The maximum number of entries to return per page. Valid values: 0 to 100. Default value: 10. If this parameter is not specified or is set to 0, the default value is used.
     shared_ptr<int32_t> maxResults_ {};
     // The message about the request processing result.
     shared_ptr<string> message_ {};
-    // The pagination token. Pass the token returned in the previous query for the current request. An empty response indicates that no more pages are available.
+    // The pagination token. Pass the token returned in the previous response to query the next page. If the response is empty, no more pages are available.
     shared_ptr<string> nextToken_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

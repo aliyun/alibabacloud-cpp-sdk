@@ -115,9 +115,9 @@ namespace Models
 
 
       protected:
-        // When the mode is SelectedDepartments, it must contain at least one non-empty department ID, which should be obtained from ListIdentityProviderDepartments. When the mode is AllAuthorized, pass an empty array or omit this parameter.
+        // For SelectedDepartments, it must contain at least one non-empty department ID, which should be obtained from ListIdentityProviderDepartments. For AllAuthorized, pass an empty array or omit it.
         shared_ptr<vector<string>> departmentIds_ {};
-        // AllAuthorized: the full authorization scope, which is subject to the application directory authorization limits. SelectedDepartments: the selected departments and all their sub-departments. When explicitly submitting syncScope, you must provide a valid mode, which is verified by the backend.
+        // AllAuthorized: All authorized scopes, subject to application directory authorization restrictions. SelectedDepartments: Selected departments and all sub-departments. When explicitly submitting syncScope, a valid mode must be provided and verified by the backend.
         shared_ptr<string> mode_ {};
       };
 
@@ -181,11 +181,11 @@ namespace Models
       protected:
         // HTTP-Redirect or HTTP-POST. Required for manual entry. The query returns the short name.
         shared_ptr<string> bindingType_ {};
-        // Required for manual entry. It must be non-empty and contain a maximum of 2,048 characters. The existing configuration does not support replacement. It is different from our Entity ID returned by the SP query.
+        // Required for manual entry. It must be non-empty and contain up to 2,048 characters. The existing configuration cannot be replaced. It is different from the local entity ID queried by the SP.
         shared_ptr<string> entityId_ {};
         // Required for manual entry. It must be an absolute HTTPS URL and cannot contain user credentials or fragments.
         shared_ptr<string> loginUrl_ {};
-        // Required for manual entry. It must be a non-empty array and use PEM X.509 certificate text. The current validity period is verified. A maximum of two certificates are allowed after deduplication.
+        // Required for manual entry. It must be a non-empty array using PEM X.509 certificate text. The current validity period is verified. Up to two certificates are allowed after deduplication.
         shared_ptr<vector<string>> x509Certificates_ {};
       };
 
@@ -247,11 +247,11 @@ namespace Models
       protected:
         // HTTP-Redirect or HTTP-POST. Required for manual entry. The query returns the short name.
         shared_ptr<string> bindingType_ {};
-        // Required for manual entry. It must be non-empty and contain a maximum of 2,048 characters. The existing configuration does not support replacement. It is different from our Entity ID returned by the SP query.
+        // Required for manual entry. It must be non-empty and contain up to 2,048 characters. The existing configuration cannot be replaced. It is different from the local entity ID queried by the SP.
         shared_ptr<string> entityId_ {};
         // Required for manual entry. It must be an absolute HTTPS URL and cannot contain user credentials or fragments.
         shared_ptr<string> loginUrl_ {};
-        // The actual switch value is Enabled or Disabled, which is not equivalent to the expected loginEnabled value saved in AC.
+        // The actual SSO logon status. The actual switch value is Enabled or Disabled, which is not equivalent to the expected loginEnabled value saved in AC.
         shared_ptr<string> ssoStatus_ {};
       };
 
@@ -328,21 +328,21 @@ namespace Models
 
 
     protected:
-      // The actual SAML configuration is read back on demand only in GetIdentityProvider. SCIM queries and preparations return the actual receiving status and URL.
+      // The actual upstream configuration. The actual SAML configuration is read on demand only when you call the GetIdentityProvider operation. SCIM queries and preparations return the actual receiving status and URL.
       shared_ptr<Data::Configuration> configuration_ {};
-      // General CRUD operations support DingTalk, Feishu, and CustomSSO. SP queries support only CustomSSO. The SCIM path uses the CustomSSO shared pool.
+      // General CRUD operations support DingTalk, Lark, and CustomSSO. SP queries support only CustomSSO. The SCIM path uses the CustomSSO shared pool.
       shared_ptr<string> identityProviderType_ {};
-      // Do not set this parameter to true during CustomSSO initialization. A valid SAML configuration must be saved before you enable logon. Disabling logon does not delete the configuration. If an asynchronous failure occurs, this expected value does not mean that the change has taken effect upstream.
+      // Do not pass true during CustomSSO initialization. A valid SAML configuration must be saved before enabling. Disabling does not delete the configuration. In case of asynchronous failure, this expected value does not mean that it has taken effect upstream.
       shared_ptr<bool> loginEnabled_ {};
-      // The logon protocol for CustomSSO. Currently, only SAML is supported. You can pass SAML when saving the SAML configuration. You can omit this parameter if you only modify loginEnabled. DingTalk and Feishu do not accept this field.
+      // The logon protocol for CustomSSO. Only SAML is supported. You can pass SAML when saving the SAML configuration. You can omit this field if you only modify loginEnabled. DingTalk and Lark do not accept this field.
       shared_ptr<string> protocol_ {};
-      // The SAML configuration for CustomSSO. Choose between metadataXml and the four manually entered fields: entityId, loginUrl, bindingType, and x509Certificates. If not submitted, the existing configuration is retained. DingTalk and Feishu do not accept this field.
+      // The SAML configuration for CustomSSO. Choose either metadataXml or the four manual entry fields: entityId, loginUrl, bindingType, and x509Certificates. If not submitted, the existing configuration is retained. DingTalk and Lark do not accept this field.
       shared_ptr<Data::Saml> saml_ {};
-      // For a CustomSSO shared pool, READY does not mean that SAML is configured. The SCIM operation result is queried independently through operationStatus.
+      // The status of the identity source resource and logon configuration. For CustomSSO, a shared pool status of READY does not mean that SAML is configured. For SCIM, query operationStatus independently for the operation result.
       shared_ptr<string> status_ {};
-      // Do not set this parameter to true during CustomSSO initialization. It can only be updated later by calling UpdateIdentityProviderSCIM, and the result is determined in combination with operationStatus.
+      // Specifies whether synchronization is enabled. Do not pass true when initializing CustomSSO. You can update this parameter only by calling the UpdateIdentityProviderSCIM operation. Determine the result in combination with operationStatus.
       shared_ptr<bool> syncEnabled_ {};
-      // Uses the definition of the department-based synchronization scope. If omitted during creation, the default value is AllAuthorized. The initial vendor synchronization is determined by syncOnBind. If omitted or set to null during an update, the original value is retained. Updating and saving the scope does not automatically execute a full synchronization.
+      // Follows the definition of the department-based synchronization scope. If omitted during creation, the default is AllAuthorized. The initial provider synchronization is determined by syncOnBind. If omitted or set to null during an update, the original value is retained. Updating and saving the scope does not automatically execute a full synchronization.
       shared_ptr<Data::SyncScope> syncScope_ {};
       // Required. The ID of the destination workspace. The region of the request must be the same as the region of the destination workspace.
       shared_ptr<string> workspaceId_ {};
@@ -395,17 +395,17 @@ namespace Models
 
 
   protected:
-    // Handle failures by combining the HTTP status code and the message.
+    // The business result code. If the request fails, use this code in combination with the HTTP status code and the message for troubleshooting.
     shared_ptr<string> code_ {};
-    // The result structure is described in the response fields of this operation. For asynchronous write operations, the response indicates that the request is accepted, but does not guarantee that the background task is completed.
+    // The business result. For the result structure, see the response parameters of this API operation. For asynchronous write operations, the response indicates that the request is accepted, but does not guarantee that the background task is completed.
     shared_ptr<UpdateIdentityProviderResponseBody::Data> data_ {};
-    // The processing status of the current request, which is not equivalent to the final result of the background task.
+    // The HTTP status code of the current request. This status code indicates the processing status of the request and does not represent the final result of the background task.
     shared_ptr<int32_t> httpStatusCode_ {};
-    // The request acceptance or error message. You must verify the result of the asynchronous task by calling the corresponding query operation.
+    // Task result message. It indicates whether the request is accepted or returns an error message. For asynchronous tasks, check task results by calling the corresponding query API operation.
     shared_ptr<string> message_ {};
-    // Used to associate the current call with troubleshooting. Keep it when a failure occurs.
+    // The request ID. Retain this ID for troubleshooting and to correlate with the current API call if the request fails.
     shared_ptr<string> requestId_ {};
-    // A value of true indicates that the current request is processed successfully. For asynchronous write operations, you must continue to query the task result.
+    // Indicates whether the current request is successful. A value of true indicates that the request is processed successfully. For asynchronous write operations, you must continue to query the task result.
     shared_ptr<bool> success_ {};
   };
 

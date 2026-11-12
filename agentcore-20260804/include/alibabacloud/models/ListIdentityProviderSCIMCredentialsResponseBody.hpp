@@ -100,9 +100,9 @@ namespace Models
       shared_ptr<string> createTime_ {};
       // The credential ID. This field is required and cannot be empty when deleting a credential. Use the ID returned in the credential list, not the plaintext token.
       shared_ptr<string> credentialId_ {};
-      // The expiration time returned by AgentIdentity. Only credentials with the Enabled status that have not expired are considered available.
+      // The expiration time returned by AgentIdentity. Only credentials with the `Enabled` status that have not expired are considered available.
       shared_ptr<string> expireTime_ {};
-      // The credential status. Only credentials with the Enabled status that have not expired are considered available. This field is not the operationStatus of a SCIM task.
+      // The credential status. Only credentials with the `Enabled` status that have not expired are considered available. This field is not the operationStatus of a SCIM task.
       shared_ptr<string> status_ {};
     };
 
@@ -153,17 +153,17 @@ namespace Models
 
 
   protected:
-    // The business result code. In case of failure, evaluate this code together with the HTTP status code and message.
+    // The business result code. If the call fails, use this code in combination with the HTTP status code and message for troubleshooting.
     shared_ptr<string> code_ {};
     // The operation result. For the result structure, see the response fields of this operation. The response of an asynchronous write operation indicates that the request is accepted, but does not guarantee that the background task is completed.
     shared_ptr<vector<ListIdentityProviderSCIMCredentialsResponseBody::Data>> data_ {};
-    // The processing status of the current request. This does not indicate the final result of the background task.
+    // The processing status of the current request, which does not equate to the final result of the background task.
     shared_ptr<int32_t> httpStatusCode_ {};
-    // The message indicating request acceptance or an error. For asynchronous task results, verify them by using the corresponding query operation.
+    // The request acceptance or error message. For asynchronous task results, check the corresponding query operation.
     shared_ptr<string> message_ {};
-    // The request ID. Used to correlate this call for troubleshooting. Retain this ID in case of failure.
+    // The request ID used to correlate the current call for troubleshooting. Retain this ID if the call fails.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request was successful. A value of true indicates that the request was processed successfully. For asynchronous writes, you must continue to query the task result.
+    // Indicates whether the current request is processed successfully. For asynchronous writes, you must continue to query the task result even if this value is true.
     shared_ptr<bool> success_ {};
   };
 

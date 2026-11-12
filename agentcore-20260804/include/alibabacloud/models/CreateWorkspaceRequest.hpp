@@ -165,11 +165,11 @@ namespace Models
 
 
       protected:
-        // Specifies whether to allow public egress access from the platform. If not specified, this feature is enabled by default. This parameter only controls whether the latest versions of managed and custom agents use the public egress of the platform. It does not control fixed historical versions, model or MCP proxy egress, or the public egress of the user VPC.
+        // Specifies whether to allow public egress access through the platform. If not specified, this feature is enabled by default. This parameter only controls whether the latest versions of managed and custom agents use the platform public egress. It does not control fixed historical versions, model or MCP proxy egress, or the public egress of the user VPC.
         shared_ptr<bool> publicEgressEnabled_ {};
         // Specifies whether to allow public ingress access. If not specified, this feature is enabled by default. If disabled, the public ingress endpoints of all agent endpoints in the workspace are closed. If re-enabled, the original public ingress endpoints are restored. INNER_DIRECT and user VPC ingress endpoints are not affected. Collaboration and Element Web ingress endpoints are not controlled by this parameter.
         shared_ptr<bool> publicIngressEnabled_ {};
-        // The VPC network configuration of the user.
+        // The network configuration of the user VPC.
         shared_ptr<NetworkConfiguration::Vpc> vpc_ {};
       };
 
@@ -213,9 +213,9 @@ namespace Models
 
 
     protected:
-      // If specified, the workspace is directly bound to this AgentSpace without creating a new one. The CloudMonitor (CMS) workspace to which it belongs is determined by the server-side reverse lookup result, and CmsWorkspace validation is not required in this case. When the workspace is deleted, it is only unbound, and the AgentSpace is not deleted. The value must match the current account and region, and the reverse lookup must return the associated CMS workspace. Otherwise, InvalidParameter is returned.
+      // If specified, the workspace is directly bound to this AgentSpace, and a new one is not created. The CMS workspace to which it belongs is determined by the server reverse lookup result, and CmsWorkspace validation is not required. When the workspace is deleted, it is only unbound, and the AgentSpace is not deleted. The value must match the current account and region, and the reverse lookup must return the associated CMS workspace. Otherwise, InvalidParameter is returned.
       shared_ptr<string> agentSpace_ {};
-      // If specified, the workspace is bound to this CloudMonitor (CMS) workspace without creating a new one. When the workspace is deleted, it is only unbound, and the CMS workspace is not deleted. The value must match the current account and region. Otherwise, InvalidParameter is returned.
+      // If specified, the workspace is bound to this CMS workspace, and the platform does not create a new one. When the workspace is deleted, it is only unbound, and the CMS workspace is not deleted. The value must match the current account and region. Otherwise, InvalidParameter is returned.
       shared_ptr<string> cmsWorkspace_ {};
       // The name of the workspace.
       // 
@@ -223,7 +223,7 @@ namespace Models
       shared_ptr<string> name_ {};
       // The network configuration of the workspace.
       shared_ptr<Body::NetworkConfiguration> networkConfiguration_ {};
-      // The storage type of the workspace.
+      // The storage type of the workspace. PLATFORM indicates platform-managed storage, and PRIVATE indicates user private OSS storage.
       shared_ptr<string> storageType_ {};
     };
 

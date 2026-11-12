@@ -253,7 +253,7 @@ namespace Models
       // 
       // This parameter is required.
       shared_ptr<bool> canDelete_ {};
-      // The time when the resource was created. The time is in RFC 3339 format. The Z at the end of the example indicates the UTC time zone.
+      // The time when the resource was created. The time follows the RFC 3339 format. The trailing Z in the example indicates the UTC time zone.
       // 
       // This parameter is required.
       shared_ptr<string> createdAt_ {};

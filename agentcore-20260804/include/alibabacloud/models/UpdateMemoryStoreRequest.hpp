@@ -69,9 +69,9 @@ namespace Models
 
 
     protected:
-      // The MemoryStore description. The maximum length is 1,024 characters.
+      // The description of the memory store. Maximum length: 1024 characters.
       shared_ptr<string> description_ {};
-      // The custom memory extraction instructions. The maximum length is 4,096 characters.
+      // The custom memory extraction instructions. Maximum length: 4096 characters.
       shared_ptr<string> extractInstructions_ {};
     };
 
@@ -94,11 +94,11 @@ namespace Models
 
 
   protected:
-    // The update MemoryStore request.
+    // The update memory store request.
     // 
     // This parameter is required.
     shared_ptr<UpdateMemoryStoreRequest::Body> body_ {};
-    // The client request token.
+    // The client token.
     shared_ptr<string> clientToken_ {};
   };
 

@@ -88,7 +88,7 @@ namespace Models
     protected:
       // The credential ID.
       shared_ptr<string> credentialId_ {};
-      // The credential name. The name must be unique within the workspace, contain only letters, digits, periods, underscores, and hyphens, and be 3 to 99 characters in length. You cannot use runtime reserved names.
+      // The credential name. It must be unique within the workspace, contain only letters, digits, periods, underscores, and hyphens, and be 3 to 99 characters in length. You cannot use runtime reserved names.
       shared_ptr<string> name_ {};
       // The workspace ID.
       shared_ptr<string> workspaceId_ {};
@@ -143,11 +143,11 @@ namespace Models
   protected:
     // The business status code.
     shared_ptr<string> code_ {};
-    // The information about the deleted credential.
+    // The deleted credential information.
     shared_ptr<DeleteCredentialResponseBody::Data> data_ {};
     // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
-    // The response message. An error description is returned if the request fails.
+    // The response message. Returns an error description when the request fails.
     shared_ptr<string> message_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

@@ -195,11 +195,11 @@ namespace Models
       protected:
         // The runtime framework configuration.
         shared_ptr<Harness::Configuration> configuration_ {};
-        // Returned only in queries. The server calculates this value based on the complete instance distribution, which is not affected by the pagination and filtering of the instance list. If the image tag is missing, pagination is incomplete, or the value cannot be confirmed, this parameter is empty, which is not equivalent to 0.
+        // The total number of instances that are not aligned with the pool target image tag.
         shared_ptr<int64_t> outdatedInstanceCount_ {};
         // The runtime framework type.
         shared_ptr<string> type_ {};
-        // Returned only in queries. Currently returns the tag of the pool target image. If the tag cannot be parsed, this parameter is empty and cannot be replaced by the agent configuration version.
+        // The Harness version corresponding to the pool target image.
         shared_ptr<string> version_ {};
       };
 
@@ -407,9 +407,9 @@ namespace Models
 
 
   protected:
-    // The business status code. A value of SUCCESS indicates success.
+    // The business status code. The value is SUCCESS if the request is successful.
     shared_ptr<string> code_ {};
-    // The HTTP status code. A value of 200 indicates success.
+    // The HTTP status code. The value is 200 if the request is successful.
     shared_ptr<int32_t> httpStatusCode_ {};
     // The list of managed Harness agents.
     shared_ptr<vector<ListManagedAgentsResponseBody::Items>> items_ {};
@@ -417,7 +417,7 @@ namespace Models
     shared_ptr<int32_t> maxResults_ {};
     // The message about the request processing result.
     shared_ptr<string> message_ {};
-    // The token for the next page. An empty value indicates that the end of the list is reached.
+    // The token for the next page. An empty value indicates that the last page is reached.
     shared_ptr<string> nextToken_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

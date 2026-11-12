@@ -152,13 +152,13 @@ namespace Models
     protected:
       // The target agent ID.
       shared_ptr<string> agentId_ {};
-      // The error. This parameter is returned only when the task fails. Otherwise, the value is null.
+      // The error details. This parameter is returned only when the task fails. Otherwise, the value is null.
       shared_ptr<Data::Error> error_ {};
       // The phase where the failure occurred. This parameter is returned only when the phase is FAILED. Otherwise, the value is null.
       shared_ptr<string> failedPhase_ {};
       // The current phase. Only SUCCEEDED indicates that the target version is deployed successfully.
       shared_ptr<string> phase_ {};
-      // The Console task ID for the current submission.
+      // The console task ID for the current submission.
       shared_ptr<string> preparationId_ {};
     };
 
@@ -219,7 +219,7 @@ namespace Models
     shared_ptr<string> message_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the API call is successful.
+    // Indicates whether the current API call is successful.
     shared_ptr<bool> success_ {};
   };
 

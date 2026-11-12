@@ -143,7 +143,7 @@ namespace Models
   protected:
     // The business status code.
     shared_ptr<string> code_ {};
-    // The information about the deleted user.
+    // The deleted user information.
     shared_ptr<DeleteUserResponseBody::Data> data_ {};
     // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};

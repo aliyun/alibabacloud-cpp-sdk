@@ -112,9 +112,9 @@ namespace Models
 
 
     protected:
-      // The memory references. This parameter is returned only when sync is set to true. An empty array is allowed. This parameter is not returned together with taskId.
+      // The memory references. This parameter is returned only when sync is set to true, and an empty array is allowed. It is not returned together with taskId.
       shared_ptr<vector<Data::Memories>> memories_ {};
-      // The task ID. This parameter is returned only when sync is set to false. This parameter is not returned together with memories.
+      // The task ID. This parameter is returned only when sync is set to false. It is not returned together with memories.
       shared_ptr<string> taskId_ {};
     };
 

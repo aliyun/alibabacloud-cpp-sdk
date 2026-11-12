@@ -158,11 +158,11 @@ namespace Models
 
 
           protected:
-            // Indicates whether VPC network access is currently enabled for the collaboration component.
+            // Indicates whether the VPC network is currently enabled for the collaboration component.
             shared_ptr<bool> enabled_ {};
             // The list of vSwitch IDs used for component deployment.
             shared_ptr<vector<string>> vSwitchIds_ {};
-            // The VPC ID used for component deployment.
+            // The ID of the VPC used for component deployment.
             shared_ptr<string> vpcId_ {};
           };
 
@@ -194,7 +194,7 @@ namespace Models
 
 
           protected:
-            // Specifies whether public network access is enabled.
+            // Indicates whether public network access is enabled.
             shared_ptr<bool> enabled_ {};
           };
 
@@ -274,9 +274,9 @@ namespace Models
         protected:
           // The name of the AgentSpace associated with the AgentLoop component.
           shared_ptr<string> agentSpaceName_ {};
-          // The creation time of the AgentSpace, in UTC format compliant with RFC 3339.
+          // The creation time of the AgentSpace, in UTC time formatted according to RFC 3339.
           shared_ptr<string> createdAt_ {};
-          // The region ID where the AgentSpace resides.
+          // The ID of the region where the AgentSpace is located.
           shared_ptr<string> regionId_ {};
         };
 
@@ -412,7 +412,7 @@ namespace Models
     shared_ptr<GetWorkspacePluginResponseBody::Data> data_ {};
     // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
-    // The response message. An error description is returned when the request fails.
+    // The response message. An error description is returned if the request fails.
     shared_ptr<string> message_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

@@ -170,11 +170,11 @@ namespace Models
 
 
         protected:
-          // The name of the template in the AI Registry.
+          // The name of the template in AI Registry.
           // 
           // This parameter is required.
           shared_ptr<string> name_ {};
-          // The version of the template in the AI Registry.
+          // The version of the template in AI Registry.
           // 
           // This parameter is required.
           shared_ptr<string> version_ {};
@@ -258,9 +258,9 @@ namespace Models
 
 
         protected:
-          // The version selector type. Valid values: LABEL (selects by tag) and VERSION (selects by specific version).
+          // The version selector type. LABEL selects by tag, and VERSION selects by specific version.
           shared_ptr<string> type_ {};
-          // The selector value. When the type is LABEL, this is the tag name, such as latest. When the type is VERSION, this is the specific version number.
+          // The selector value. For LABEL, it is the tag name (such as latest). For VERSION, it is the specific version number.
           shared_ptr<string> value_ {};
         };
 
@@ -301,11 +301,11 @@ namespace Models
         // 
         // This parameter is required.
         shared_ptr<string> name_ {};
-        // The skill source type. Valid values: REFERENCE (references the AI Registry) and STATIC (statically provided with the package).
+        // The skill source type. REFERENCE references AI Registry, and STATIC is statically provided with the package.
         shared_ptr<string> sourceType_ {};
-        // The skill version field for compatibility with legacy requests. For new requests, use sourceType and versionSelector. Do not submit this parameter in combination with sourceType.
+        // The skill version field for compatibility with legacy requests. For new requests, use sourceType and versionSelector. Do not submit this field in combination with sourceType.
         shared_ptr<string> version_ {};
-        // The skill reference version selector. Supports LABEL for tags and VERSION for specific versions. If omitted, LABEL/latest is used. Selectors are not provided for STATIC sources.
+        // The skill reference version selector, which supports LABEL tags and VERSION specific versions. If omitted, LABEL/latest is used. STATIC sources do not provide a selector.
         shared_ptr<Skills::VersionSelector> versionSelector_ {};
       };
 
@@ -388,13 +388,13 @@ namespace Models
 
 
         protected:
-          // Specifies whether to enable the token quota. If this parameter is not specified, the default value is true. If you set this parameter to false, the quota is disabled and existing quota rules are deleted.
+          // Specifies whether to enable the token quota. Default value: true. If set to false, the quota is disabled and existing quota rules are deleted.
           shared_ptr<bool> enabled_ {};
-          // The quota limit type. This parameter is required and validated by the backend when the quota is enabled. Fixed value: token.
+          // The quota limit type. Required and validated by the backend when the quota is enabled. Fixed value: token.
           shared_ptr<string> limitType_ {};
-          // The quota statistical period. This parameter is required and validated by the backend when the quota is enabled. Valid values: day (daily) and month (monthly).
+          // The quota statistical period. Required and validated by the backend when the quota is enabled. Valid values: day (daily) and month (monthly).
           shared_ptr<string> periodType_ {};
-          // The maximum number of tokens that can be consumed in a single period. This parameter is required and validated by the backend when the quota is enabled. The value must be greater than 0.
+          // The maximum number of tokens allowed to be consumed in a single period. Required and validated by the backend when the quota is enabled, and must be greater than 0.
           shared_ptr<int64_t> usageLimit_ {};
         };
 
@@ -432,7 +432,7 @@ namespace Models
         // 
         // This parameter is required.
         shared_ptr<string> modelName_ {};
-        // The model token quota configuration. If this parameter is not provided, no quota is configured.
+        // The model token quota configuration. If not passed, no quota is configured.
         shared_ptr<Model::Quota> quota_ {};
       };
 
@@ -506,11 +506,11 @@ namespace Models
     protected:
       // The description of the managed agent.
       shared_ptr<string> description_ {};
-      // The agent instructions used to guide the behavior of the agent.
+      // The agent instructions, which are used to guide the behavior of the agent.
       shared_ptr<string> instruction_ {};
-      // The model configuration. Available only when modelSource is set to PLATFORM.
+      // The model configuration. Available only when modelSource is PLATFORM.
       shared_ptr<Body::Model> model_ {};
-      // The source of the model configuration. PLATFORM indicates that the platform parses and delivers the model configuration. RUNTIME indicates that the external runtime manages the model, and the model parameter cannot be provided at the same time. Valid values: PLATFORM (platform model) and RUNTIME (runtime model).
+      // The source of the model configuration. PLATFORM indicates that the platform parses and delivers the model configuration. RUNTIME indicates that the external runtime manages the model, and the model parameter cannot be passed at the same time. Valid values: PLATFORM (platform model) and RUNTIME (runtime model).
       shared_ptr<string> modelSource_ {};
       // The name of the managed agent.
       // 
@@ -545,7 +545,7 @@ namespace Models
   protected:
     // The request body.
     shared_ptr<CreateExternalAgentRequest::Body> body_ {};
-    // A reserved query parameter. Currently, the backend does not provide idempotency guarantees for deduplication or restoring the original processing result based on this identifier.
+    // The reserved query parameter. Currently, the backend does not provide idempotency guarantees for deduplication or restoring the original acceptance result based on this identifier.
     shared_ptr<string> clientToken_ {};
   };
 

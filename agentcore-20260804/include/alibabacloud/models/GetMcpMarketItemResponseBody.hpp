@@ -202,35 +202,35 @@ namespace Models
 
 
     protected:
-      // The MCP marketplace template category.
+      // The category of the MCP marketplace template.
       shared_ptr<string> category_ {};
-      // The MCP service description.
+      // The description of the MCP service.
       shared_ptr<string> description_ {};
-      // The template display metadata.
+      // The display metadata of the template.
       Darabonba::Json displayMetadata_ {};
-      // The multilingual display content organized by BCP-47 language tags. If a language is not matched, the default fields are used.
+      // The multilingual display content, organized by BCP-47 language tags. If a language is not matched, the system falls back to the default fields.
       shared_ptr<map<string, DataI18nValue>> i18n_ {};
       // The icon URL of the MCP marketplace template.
       shared_ptr<string> iconUrl_ {};
-      // The template installation count.
+      // The number of times the template has been installed.
       shared_ptr<int64_t> installCount_ {};
       // The MCP marketplace template ID.
       shared_ptr<string> marketItemId_ {};
       // The MCP type.
       shared_ptr<string> mcpType_ {};
-      // The MCP marketplace template name.
+      // The name of the MCP marketplace template.
       shared_ptr<string> name_ {};
       // The official usage tag.
       shared_ptr<string> officialTag_ {};
       // The MCP protocol.
       shared_ptr<string> protocol_ {};
-      // The MCP marketplace template instructions.
+      // The instructions for the MCP marketplace template.
       shared_ptr<string> readme_ {};
-      // The template schema version.
+      // The schema version of the template.
       shared_ptr<string> schemaVersion_ {};
-      // The template input schema, represented as a JSON Schema string.
+      // The input schema of the template, represented as a JSON Schema string.
       shared_ptr<string> templateInputSchema_ {};
-      // The MCP marketplace template version.
+      // The version of the MCP marketplace template.
       shared_ptr<string> templateVersion_ {};
     };
 
@@ -283,13 +283,13 @@ namespace Models
   protected:
     // The business status code.
     shared_ptr<string> code_ {};
-    // The response data.
+    // The returned result.
     shared_ptr<GetMcpMarketItemResponseBody::Data> data_ {};
     // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
     // The response message.
     shared_ptr<string> message_ {};
-    // The request ID used to locate and troubleshoot the request.
+    // The request ID, which is used to locate and troubleshoot the request.
     shared_ptr<string> requestId_ {};
     // Indicates whether the request is successful.
     shared_ptr<bool> success_ {};

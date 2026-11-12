@@ -142,7 +142,7 @@ namespace Models
     shared_ptr<UpdateAgentIMChannelCredentialResponseBody::Data> data_ {};
     // The HTTP status code. The value is 200 if the request is successful.
     shared_ptr<int32_t> httpStatusCode_ {};
-    // The message about the request processing result.
+    // The request processing result message.
     shared_ptr<string> message_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

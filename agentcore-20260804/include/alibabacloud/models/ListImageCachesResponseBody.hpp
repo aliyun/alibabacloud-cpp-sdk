@@ -244,15 +244,15 @@ namespace Models
 
 
     protected:
-      // The ID of the source ACR instance.
+      // The source ACR instance ID.
       // 
       // This parameter is required.
       shared_ptr<string> acrInstanceId_ {};
-      // The number of agents that use the cache.
+      // The number of agents using the cache.
       // 
       // This parameter is required.
       shared_ptr<int64_t> agentCount_ {};
-      // The size of the cache in bytes.
+      // The cache size in bytes.
       // 
       // This parameter is required.
       shared_ptr<int64_t> cacheSizeBytes_ {};
@@ -260,7 +260,7 @@ namespace Models
       // 
       // This parameter is required.
       shared_ptr<bool> canDelete_ {};
-      // The time when the resource was created. The time is in RFC 3339 format. The Z at the end of the example indicates the UTC time zone.
+      // The resource creation time. The time is in RFC 3339 format. The Z at the end of the example indicates the UTC time zone.
       // 
       // This parameter is required.
       shared_ptr<string> createdAt_ {};
@@ -276,23 +276,23 @@ namespace Models
       // 
       // This parameter is required.
       shared_ptr<Items::Error> error_ {};
-      // The ID of the image cache.
+      // The image cache ID.
       // 
       // This parameter is required.
       shared_ptr<string> imageId_ {};
-      // The domain name of the source image.
+      // The source image domain name.
       // 
       // This parameter is required.
       shared_ptr<string> registry_ {};
-      // The repository path of the source image.
+      // The source image repository path.
       // 
       // This parameter is required.
       shared_ptr<string> repository_ {};
-      // The cache status.
+      // The image cache status.
       // 
       // This parameter is required.
       shared_ptr<string> status_ {};
-      // The tag of the source image.
+      // The source image tag.
       // 
       // This parameter is required.
       shared_ptr<string> tag_ {};
@@ -379,11 +379,11 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<int32_t> httpStatusCode_ {};
-    // The records on the current page. If no matching items are found, an empty array is returned.
+    // The records on the current page. An empty array is returned if no matching items are found.
     // 
     // This parameter is required.
     shared_ptr<vector<ListImageCachesResponseBody::Items>> items_ {};
-    // The actual page size used for this request. This is not the number of items on the current page.
+    // The actual page size used for this request, which is not the number of items on the current page.
     // 
     // This parameter is required.
     shared_ptr<int32_t> maxResults_ {};
@@ -391,19 +391,19 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> message_ {};
-    // The opaque cursor for the next page. An empty string indicates that there are no more pages.
+    // The opaque cursor for the next page. An empty string indicates the end of the list.
     // 
     // This parameter is required.
     shared_ptr<string> nextToken_ {};
-    // The request ID used for troubleshooting.
+    // The request ID, which is used for troubleshooting.
     // 
     // This parameter is required.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request is successful. A successful request does not indicate that the cache creation is complete.
+    // Indicates whether the request is successful. This does not indicate that the cache creation is complete.
     // 
     // This parameter is required.
     shared_ptr<bool> success_ {};
-    // The total number of records that match the current filter conditions. Do not use this value to determine whether the traversal is complete.
+    // The total number of records under the current filter conditions. Do not use this value to determine whether the traversal is complete.
     // 
     // This parameter is required.
     shared_ptr<int64_t> totalCount_ {};

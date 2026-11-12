@@ -181,9 +181,9 @@ namespace Models
 
 
       protected:
-        // Returns the target configuration value. Updating indicates that the change is still in progress, and UpdateFailed indicates that the current change failed. This parameter only controls whether the latest versions of managed and custom agents use the public network egress of the platform. It does not control fixed historical versions, model or MCP proxy egresses, or the public network egress of the user VPC.
+        // Returns the target configuration value. Updating indicates that the change is still in progress, and UpdateFailed indicates that the current change failed. This setting only controls whether the latest versions of managed and custom agents use the public network egress of the platform. It does not control fixed historical versions, model or MCP proxy egresses, or the public network egress of the user VPC.
         shared_ptr<bool> publicEgressEnabled_ {};
-        // Returns the target configuration value. Updating indicates that the change is in progress, and UpdateFailed indicates that the change failed. When disabled, the public network ingress for all agent endpoints in the workspace is closed, and the original public network ingress is restored when re-enabled. INNER_DIRECT and user VPC ingress are not affected, and collaboration and Element Web ingress are not controlled by this parameter.
+        // Returns the target configuration value. Updating indicates that the change is in progress, and UpdateFailed indicates that the change failed. When disabled, the public network ingress of all agent endpoints in the workspace is closed. When re-enabled, the original public network ingress is restored. INNER_DIRECT and user VPC ingress are not affected. Collaboration and Element Web ingress are not controlled by this setting.
         shared_ptr<bool> publicIngressEnabled_ {};
         // The VPC network configuration of the user.
         shared_ptr<NetworkConfiguration::Vpc> vpc_ {};
@@ -262,17 +262,17 @@ namespace Models
       shared_ptr<string> authorizationStatus_ {};
       // The name of the private OSS bucket.
       shared_ptr<string> bucketName_ {};
-      // The name of the workspace.
+      // The workspace name.
       shared_ptr<string> name_ {};
-      // The network configuration of the workspace.
+      // The workspace network configuration.
       shared_ptr<Data::NetworkConfiguration> networkConfiguration_ {};
-      // The region ID of the workspace.
+      // The ID of the region where the workspace resides.
       shared_ptr<string> regionId_ {};
-      // The status of the workspace. Valid values: Initializing, Initialized, Deleting, and Deleted.
+      // The workspace status. Valid values: Initializing, Initialized, Deleting, and Deleted.
       shared_ptr<string> status_ {};
-      // The storage type of the workspace.
+      // The workspace storage type.
       shared_ptr<string> storageType_ {};
-      // The ID of the tenant to which the workspace belongs.
+      // The ID of the tenant.
       shared_ptr<string> tenantId_ {};
       // The workspace ID.
       shared_ptr<string> workspaceId_ {};
@@ -335,7 +335,7 @@ namespace Models
     shared_ptr<string> message_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request is successful.
+    // Indicates whether the request was successful.
     shared_ptr<bool> success_ {};
   };
 

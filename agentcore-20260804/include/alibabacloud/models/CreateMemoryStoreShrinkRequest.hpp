@@ -48,7 +48,7 @@ namespace Models
 
 
   protected:
-    // The MemoryStore creation request.
+    // The request to create a memory store.
     // 
     // This parameter is required.
     shared_ptr<string> bodyShrink_ {};

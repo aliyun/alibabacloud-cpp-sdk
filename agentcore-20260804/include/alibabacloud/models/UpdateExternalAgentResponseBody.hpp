@@ -141,7 +141,8 @@ namespace Models
         // 
         // This parameter is required.
         shared_ptr<string> name_ {};
-        // The tool type. Valid values: MCP (MCP tool).
+        // The tool type. Valid values:
+        // - MCP: MCP tool.
         // 
         // This parameter is required.
         shared_ptr<string> type_ {};
@@ -298,7 +299,9 @@ namespace Models
 
 
         protected:
-          // The version selector type. Valid values: LABEL (by tag) and VERSION (by specific version).
+          // The version selector type. Valid values:
+          // - LABEL: Selects by tag.
+          // - VERSION: Selects by specific version.
           shared_ptr<string> type_ {};
           // The selector value. When the type is LABEL, the value is the tag name, such as latest. When the type is VERSION, the value is the specific version number.
           shared_ptr<string> value_ {};
@@ -359,19 +362,21 @@ namespace Models
 
 
       protected:
-        // The version that has taken effect at runtime. This is a read-only field.
+        // The effective version at runtime. This field is read-only.
         shared_ptr<string> appliedVersion_ {};
-        // Indicates whether the skill is from a fixed template. This is a read-only field. Template items cannot be removed.
+        // Indicates whether the skill is from a fixed template. This field is read-only. Template items cannot be removed.
         shared_ptr<bool> fromTemplate_ {};
         // The skill name.
         shared_ptr<string> name_ {};
         // The current target version. This field is read-only.
         shared_ptr<string> resolvedVersion_ {};
-        // The skill source type. Valid values: REFERENCE (references AI Registry) and STATIC (statically provided with the package).
+        // The skill source type. Valid values:
+        // - REFERENCE: References AI Registry assets.
+        // - STATIC: Statically provided with deployment artifacts.
         shared_ptr<string> sourceType_ {};
-        // The current target version compatible with legacy clients. New clients use resolvedVersion and determine the effective runtime version based on appliedVersion.
+        // The current target version for compatibility with legacy clients. New clients use resolvedVersion and determine the effective runtime version based on appliedVersion.
         shared_ptr<string> version_ {};
-        // The skill reference version selector, which supports LABEL tags and specific VERSION numbers. If this parameter is omitted, LABEL/latest is used. Selectors are not provided for STATIC sources.
+        // The skill reference version selector, which supports LABEL tags and VERSION specific versions. If this parameter is omitted, LABEL/latest is used. Selectors are not provided for STATIC sources.
         shared_ptr<Skills::VersionSelector> versionSelector_ {};
       };
 
@@ -482,19 +487,19 @@ namespace Models
 
 
         protected:
-          // Specifies whether the quota is enabled. This field is not returned if no quota is configured.
+          // Indicates whether the quota is enabled. This field is not returned if no quota is configured.
           shared_ptr<bool> enabled_ {};
-          // The quota limit type. Only token is supported.
+          // The quota limit type. Currently, only token is supported.
           shared_ptr<string> limitType_ {};
-          // Indicates whether the quota has been exceeded in the current period. This is a read-only field returned by the backend.
+          // Indicates whether the quota is exceeded in the current cycle. This field is read-only and returned by the backend.
           shared_ptr<bool> overLimit_ {};
           // The quota statistical period. A value of day indicates daily, and a value of month indicates monthly.
           shared_ptr<string> periodType_ {};
-          // The gateway quota rule status. This is a read-only field returned by the backend.
+          // The gateway quota rule status. This field is read-only and returned by the backend.
           shared_ptr<string> ruleStatus_ {};
-          // The maximum number of tokens allowed to be consumed in a single period.
+          // The maximum number of tokens allowed to be consumed in a single cycle.
           shared_ptr<int64_t> usageLimit_ {};
-          // The number of tokens consumed in the current period. This is a read-only field returned by the backend.
+          // The number of tokens consumed in the current cycle. This field is read-only and returned by the backend.
           shared_ptr<int64_t> usedAmount_ {};
         };
 
@@ -528,7 +533,7 @@ namespace Models
         shared_ptr<string> modelConnectionId_ {};
         // The upstream model name.
         shared_ptr<string> modelName_ {};
-        // The model token quota configuration and usage status for the current period. This field is empty if no quota is configured.
+        // The model token quota configuration and the quota usage status for the current cycle. This field is empty if no quota is configured.
         shared_ptr<Model::Quota> quota_ {};
       };
 
@@ -597,11 +602,11 @@ namespace Models
 
 
       protected:
-        // The heartbeat status. ONLINE indicates that the latest heartbeat has not exceeded the configured timeout threshold. STALE indicates that the heartbeat has timed out. UNKNOWN indicates that the heartbeat is missing or the format is invalid. Valid values: ONLINE, STALE, and UNKNOWN.
+        // The heartbeat status. ONLINE indicates that the most recent heartbeat did not exceed the configured timeout threshold. STALE indicates that the heartbeat has timed out. UNKNOWN indicates that the heartbeat is missing or the format is invalid. Valid values: ONLINE (online), STALE (heartbeat expired), and UNKNOWN (unknown).
         shared_ptr<string> heartbeatStatus_ {};
-        // The last active time of the managed agent in RFC 3339 format.
+        // The time when the managed agent was last active, in RFC 3339 format.
         shared_ptr<string> lastActiveAt_ {};
-        // The last heartbeat time of the managed agent in RFC 3339 format.
+        // The time of the most recent heartbeat from the managed agent, in RFC 3339 format.
         shared_ptr<string> lastHeartbeat_ {};
         // The local IP address reported by the managed agent.
         shared_ptr<string> localIP_ {};
@@ -672,7 +677,9 @@ namespace Models
 
 
         protected:
-          // The version selector type. Valid values: LABEL (by tag) and VERSION (by specific version).
+          // The version selector type. Valid values:
+          // - LABEL: Selects by tag.
+          // - VERSION: Selects by specific version.
           shared_ptr<string> type_ {};
           // The selector value. When the type is LABEL, the value is the tag name, such as latest. When the type is VERSION, the value is the specific version number.
           shared_ptr<string> value_ {};
@@ -715,11 +722,13 @@ namespace Models
         // 
         // This parameter is required.
         shared_ptr<string> name_ {};
-        // The skill source type. Valid values: REFERENCE (references AI Registry) and STATIC (statically provided with the package).
+        // The skill source type. Valid values:
+        // - REFERENCE: References AI Registry assets.
+        // - STATIC: Statically provided with deployment artifacts.
         shared_ptr<string> sourceType_ {};
         // The legacy compatibility field. Use sourceType and versionSelector for new requests.
         shared_ptr<string> version_ {};
-        // The skill reference version selector, which supports LABEL tags and specific VERSION numbers. If this parameter is omitted, LABEL/latest is used. Selectors are not provided for STATIC sources.
+        // The skill reference version selector, which supports LABEL tags and VERSION specific versions. If this parameter is omitted, LABEL/latest is used. Selectors are not provided for STATIC sources.
         shared_ptr<ConfiguredSkills::VersionSelector> versionSelector_ {};
       };
 
@@ -902,7 +911,7 @@ namespace Models
       shared_ptr<string> description_ {};
       // The runtime status information reported by the managed agent.
       shared_ptr<Data::ExternalAgentStatus> externalAgentStatus_ {};
-      // The agent instructions used to guide the behavior of the agent.
+      // The agent instruction, which is used to guide the behavior of the agent.
       shared_ptr<string> instruction_ {};
       // The latest specification version number.
       shared_ptr<int64_t> latestSpecVersion_ {};
@@ -910,7 +919,9 @@ namespace Models
       shared_ptr<string> latestVersionStatus_ {};
       // The model configuration. This parameter is available only when modelSource is set to PLATFORM.
       shared_ptr<Data::Model> model_ {};
-      // The model configuration source. PLATFORM indicates that the platform parses and delivers the model configuration. RUNTIME indicates that the external runtime manages the model itself, and the model parameter cannot be passed at the same time. Valid values: PLATFORM (platform model) and RUNTIME (runtime model).
+      // The source of the model configuration. PLATFORM indicates that the platform parses and delivers the model configuration. RUNTIME indicates that the external runtime manages the model independently, and the model parameter cannot be passed at the same time. Valid values:
+      // - PLATFORM: Platform model.
+      // - RUNTIME: Runtime model.
       shared_ptr<string> modelSource_ {};
       // The name of the managed agent.
       shared_ptr<string> name_ {};
@@ -979,13 +990,13 @@ namespace Models
 
 
   protected:
-    // The business status code. The value is SUCCESS when the operation succeeds.
+    // The business status code. A value of SUCCESS indicates success.
     shared_ptr<string> code_ {};
     // The details of the updated managed agent.
     shared_ptr<UpdateExternalAgentResponseBody::Data> data_ {};
     // The HTTP status code. A value of 200 indicates success.
     shared_ptr<int32_t> httpStatusCode_ {};
-    // The result message of the request.
+    // The request processing result message.
     shared_ptr<string> message_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

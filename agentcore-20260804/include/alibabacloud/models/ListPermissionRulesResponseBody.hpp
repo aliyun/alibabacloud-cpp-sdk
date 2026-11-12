@@ -220,7 +220,7 @@ namespace Models
       shared_ptr<string> sourceDetail_ {};
       // The target scope.
       shared_ptr<string> targetScope_ {};
-      // The list of targets to which the rule applies.
+      // The list of rule targets.
       shared_ptr<vector<string>> targets_ {};
       // The update time in RFC 3339 format.
       shared_ptr<string> updatedAt_ {};
@@ -301,9 +301,9 @@ namespace Models
     shared_ptr<int32_t> httpStatusCode_ {};
     // The list of permission rules.
     shared_ptr<vector<ListPermissionRulesResponseBody::Items>> items_ {};
-    // The maximum number of entries returned in the current request.
+    // The maximum number of results returned in this response.
     shared_ptr<int32_t> maxResults_ {};
-    // The message about the request processing result.
+    // The request processing result message.
     shared_ptr<string> message_ {};
     // The token for the next page.
     shared_ptr<string> nextToken_ {};
@@ -311,7 +311,7 @@ namespace Models
     shared_ptr<string> requestId_ {};
     // Indicates whether the request is successful.
     shared_ptr<bool> success_ {};
-    // The total number of rules that meet the conditions.
+    // The total number of rules that match the criteria.
     shared_ptr<int64_t> totalCount_ {};
   };
 

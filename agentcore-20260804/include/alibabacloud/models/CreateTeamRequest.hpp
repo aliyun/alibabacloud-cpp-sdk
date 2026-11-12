@@ -95,7 +95,7 @@ namespace Models
 
 
       protected:
-        // The role of the user in the team. Valid values: ADMIN and MEMBER. Each team must have exactly one ADMIN.
+        // The role of the user in the team. Valid values: ADMIN and MEMBER. Each team must include exactly one ADMIN.
         shared_ptr<string> teamRole_ {};
         // The user ID.
         shared_ptr<string> userId_ {};
@@ -180,15 +180,15 @@ namespace Models
 
 
     protected:
-      // The list of agent members in the team.
+      // The list of agent members in the team. The list must include exactly one LEADER, and the LEADER must be a managed agent. External agents and high-code agents only support the WORKER role. In addition, high-code agents must declare the AG-UI (agui) or OpenAI Chat Completions (openai-chat-completion) protocol in the latest version configuration.
       shared_ptr<vector<Body::Agents>> agents_ {};
       // The team description.
       shared_ptr<string> description_ {};
-      // The team name. It can only contain lowercase letters, digits, and hyphens, must start and end with a lowercase letter or a digit, and must be 1 to 128 characters in length.
+      // The team name. The name can contain only lowercase letters, digits, and hyphens, must start and end with a lowercase letter or a digit, and must be 1 to 128 characters in length.
       // 
       // This parameter is required.
       shared_ptr<string> name_ {};
-      // The list of user members in the team. The list must contain exactly one member with the ADMIN role.
+      // The list of user members in the team. The list must include exactly one member with the ADMIN role.
       shared_ptr<vector<Body::Users>> users_ {};
     };
 

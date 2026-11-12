@@ -118,11 +118,11 @@ namespace Models
     protected:
       // The expiration time of the upload URL.
       shared_ptr<string> expiresAt_ {};
-      // The required HTTP request headers for direct upload.
+      // The HTTP request headers that must be included for direct upload.
       shared_ptr<map<string, string>> headers_ {};
       // The maximum compressed size of the code package.
       shared_ptr<int64_t> maxSize_ {};
-      // The OSS URI of the temporary code package.
+      // The temporary Object Storage Service (OSS) URI of the code package.
       shared_ptr<string> sourceUri_ {};
       // The HTTP method for direct upload.
       shared_ptr<string> uploadMethod_ {};

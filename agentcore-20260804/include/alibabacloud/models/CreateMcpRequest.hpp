@@ -212,17 +212,17 @@ namespace Models
         protected:
           // The CPU specification in cores. Default value: 0.25.
           shared_ptr<double> cpu_ {};
-          // The temporary disk size in MB. Valid values: 512 or 10240.
+          // The ephemeral disk size in MB. Valid values: 512 and 10240.
           shared_ptr<int32_t> diskSize_ {};
           // The environment variables.
           shared_ptr<map<string, string>> environmentVariables_ {};
-          // The ARN of the RAM role used by user code to access downstream Alibaba Cloud resources.
+          // The ARN of the RAM role used when user code accesses downstream Alibaba Cloud resources.
           shared_ptr<string> executionRoleArn_ {};
-          // The maximum number of concurrent requests per instance. Default value: 200.
+          // Default value: 200.
           shared_ptr<int32_t> instanceConcurrency_ {};
           // The memory specification in MB. Default value: 512.
           shared_ptr<int32_t> memory_ {};
-          // The service port. Default value: 9000.
+          // Default value: 9000.
           shared_ptr<int32_t> port_ {};
           // The function timeout period in seconds. Default value: 300.
           shared_ptr<int32_t> timeout_ {};
@@ -309,7 +309,7 @@ namespace Models
         protected:
           // Specifies whether to enable parameter transformation and result enhancement.
           shared_ptr<bool> enabled_ {};
-          // The reserved reference to the parameter transformation and result enhancement rule set.
+          // The reserved parameter transformation and result enhancement rule set reference.
           shared_ptr<string> ruleSetId_ {};
           // The transformation rule version.
           shared_ptr<string> version_ {};
@@ -401,7 +401,7 @@ namespace Models
           protected:
             // The name of the OSS bucket.
             shared_ptr<string> bucketName_ {};
-            // The path of the OSS bucket.
+            // The path in the OSS bucket.
             shared_ptr<string> bucketPath_ {};
             // The OSS service endpoint.
             shared_ptr<string> endpoint_ {};
@@ -664,7 +664,7 @@ namespace Models
         protected:
           // The MCP endpoint path, such as /mcp or /sse.
           shared_ptr<string> endpointPath_ {};
-          // The number of concurrent sessions per instance. Currently fixed to 1.
+          // Currently fixed to 1.
           shared_ptr<int32_t> sessionConcurrencyPerInstance_ {};
           // The session idle timeout period in seconds. Default value: 1800.
           shared_ptr<int32_t> sessionIdleTimeoutSeconds_ {};
@@ -741,7 +741,7 @@ namespace Models
           shared_ptr<bool> enableInstanceMetrics_ {};
           // Specifies whether to collect request metrics.
           shared_ptr<bool> enableRequestMetrics_ {};
-          // The start rule for splitting Function Compute logs.
+          // The start rule for FC log splitting.
           shared_ptr<string> logBeginRule_ {};
           // The name of the Logstore.
           shared_ptr<string> logstore_ {};
@@ -881,7 +881,7 @@ namespace Models
 
 
         protected:
-          // The ordered list of hooks. Executes PRE_LIST_TOOLS, PRE_CALL_TOOL, POST_LIST_TOOLS, and POST_CALL_TOOL hooks in the order of the array.
+          // Executes the PRE_LIST_TOOLS, PRE_CALL_TOOL, POST_LIST_TOOLS, and POST_CALL_TOOL hooks in array order.
           shared_ptr<vector<HookConfiguration::Hooks>> hooks_ {};
         };
 
@@ -981,11 +981,11 @@ namespace Models
           shared_ptr<vector<string>> entrypoint_ {};
           // The container image URL.
           shared_ptr<string> image_ {};
-          // The image registry type.
+          // The image repository type.
           shared_ptr<string> imageRegistryType_ {};
-          // The MCP runtime mode. Custom containers currently need to expose the standard MCP themselves. Set the value to SELF_HOSTED.
+          // Custom containers currently must expose the standard MCP themselves. Set the value to SELF_HOSTED.
           shared_ptr<string> mcpRuntimeMode_ {};
-          // The container source type. Currently fixed to CONTAINER_IMAGE.
+          // Currently fixed to CONTAINER_IMAGE.
           shared_ptr<string> sourceType_ {};
         };
 
@@ -1047,13 +1047,13 @@ namespace Models
 
 
         protected:
-          // The temporary code package token returned by GetMcpCodePackageUploadUrl. Used to create a code deployment after a presigned upload is completed. Mutually exclusive with CodePackageUrl.
+          // The temporary code package token returned by GetMcpCodePackageUploadUrl. It is used to create a code deployment after a presigned upload is completed. Specify either this parameter or CodePackageUrl.
           shared_ptr<string> codePackageToken_ {};
-          // The public Alibaba Cloud OSS HTTP(S) URL that can be directly passed when creating a code deployment. Mutually exclusive with CodePackageToken. Only supported by CreateMcp, and not supported for update and query operations.
+          // The public Alibaba Cloud OSS HTTP(S) URL that can be directly passed when creating a code deployment. Specify either this parameter or CodePackageToken. This parameter is only supported by CreateMcp, and is not supported for update and query operations.
           shared_ptr<string> codePackageUrl_ {};
           // The complete startup command, passed sequentially by parameter boundaries. For example, when using supergateway to start a stdio MCP, pass supergateway, --stdio, the complete subcommand, and the remaining parameters.
           shared_ptr<vector<string>> command_ {};
-          // The runtime environment for the code package.
+          // The runtime of the code package. Valid values: python3.13, nodejs22, and java17.
           shared_ptr<string> language_ {};
         };
 
@@ -1170,11 +1170,11 @@ namespace Models
 
 
         protected:
-          // The access credential ID. This parameter references an AgentCore credential when the mode is set to CREDENTIAL.
+          // The ID of the AgentCore credential referenced when the mode is set to CREDENTIAL.
           shared_ptr<string> credentialId_ {};
           // Specifies whether to enable entry access control.
           shared_ptr<bool> enabled_ {};
-          // The access control mode. ANONYMOUS indicates anonymous access, and CREDENTIAL indicates that AgentCore access credentials are used.
+          // The access control mode. ANONYMOUS indicates anonymous access. CREDENTIAL indicates authentication by using AgentCore access credentials.
           shared_ptr<string> mode_ {};
         };
 
@@ -1311,7 +1311,7 @@ namespace Models
         shared_ptr<DeploymentConfig::AccessControl> accessControl_ {};
         // The agent identity configuration.
         shared_ptr<DeploymentConfig::AgentIdentityConfiguration> agentIdentityConfiguration_ {};
-        // The artifact type. A value of Code indicates a ZIP code package, and a value of Container indicates a custom container.
+        // The artifact type. Code indicates a ZIP code package, and Container indicates a custom container.
         shared_ptr<string> artifactType_ {};
         // The code package configuration.
         shared_ptr<DeploymentConfig::CodeConfiguration> codeConfiguration_ {};
@@ -1435,7 +1435,7 @@ namespace Models
           shared_ptr<string> name_ {};
           // The location of the credential.
           shared_ptr<string> position_ {};
-          // The MCP type.
+          // The type.
           shared_ptr<string> type_ {};
         };
 
@@ -1564,13 +1564,13 @@ namespace Models
 
 
       protected:
-        // The API Key authentication configuration for callers of the code deployment MCP.
+        // The caller API Key authentication configuration for code-deployed MCP.
         shared_ptr<Auth::CodePackage> codePackage_ {};
-        // The authentication configuration for the direct proxy.
+        // The direct proxy authentication configuration.
         shared_ptr<Auth::DirectProxy> directProxy_ {};
         // Specifies whether to enable the configuration.
         shared_ptr<bool> enabled_ {};
-        // The list of authentication configurations for HTTP_TO_MCP.
+        // The list of HTTP_TO_MCP authentication configurations.
         shared_ptr<vector<Auth::HttpToMcp>> httpToMcp_ {};
       };
 
@@ -1656,13 +1656,13 @@ namespace Models
 
 
     protected:
-      // The list of MCP service addresses. This parameter is required when Type is set to DIRECT_PROXY or HTTP_TO_MCP. Do not specify this parameter when Type is set to CODE_PACKAGE.
+      // The list of MCP service addresses.
       shared_ptr<vector<string>> addresses_ {};
-      // The backend authentication configuration. When enabled is set to true, specify directProxy (name and value) for DIRECT_PROXY, specify the httpToMcp array (each item includes id, type, and credential; apiKey also requires position and name) for HTTP_TO_MCP, and specify codePackage (headerName and apiKey) for CODE_PACKAGE to verify MCP callers. Multiple authentication objects are supported, and the first one is the default upstream credential. HTTP_TO_MCP credentials are merged into the securitySchemes of Swagger.
+      // The backend authentication configuration. When enabled is set to true: for DIRECT_PROXY, specify directProxy (name and value); for HTTP_TO_MCP, specify the httpToMcp array (each item includes id, type, and credential, and apiKey also requires position and name), which supports multiple authentication objects with the first one as the default upstream credential. HTTP_TO_MCP credentials are merged into the securitySchemes of Swagger.
       shared_ptr<Body::Auth> auth_ {};
       // The custom tags. Multiple tags are supported.
       shared_ptr<vector<string>> customTags_ {};
-      // The code deployment configuration. Required when Type is set to CODE_PACKAGE. When creating a Code artifact, you must specify either CodeConfiguration.CodePackageToken or CodePackageUrl, but not both. CodePackageUrl only supports public Alibaba Cloud OSS HTTP(S) URLs.
+      // The code deployment configuration. Required when Type is CODE_PACKAGE. When creating a Code artifact, you must specify exactly one of CodeConfiguration.CodePackageToken and CodePackageUrl. CodePackageUrl only supports public Alibaba Cloud OSS HTTP(S) URLs.
       shared_ptr<Body::DeploymentConfig> deploymentConfig_ {};
       // The description.
       shared_ptr<string> description_ {};
@@ -1670,13 +1670,13 @@ namespace Models
       // 
       // This parameter is required.
       shared_ptr<string> name_ {};
-      // The access permission mode. PUBLIC indicates public access. CONTROLLED indicates that access is controlled based on permission rules.
+      // PUBLIC indicates public access. CONTROLLED indicates that access is controlled based on permission rules.
       shared_ptr<string> permissionMode_ {};
       // The MCP protocol.
       shared_ptr<string> protocol_ {};
-      // The Swagger configuration. Specify this field when Type is set to HTTP_TO_MCP.
+      // Specify this field if Type is HTTP_TO_MCP.
       shared_ptr<string> swaggerConfig_ {};
-      // The MCP type.
+      // The type.
       // 
       // This parameter is required.
       shared_ptr<string> type_ {};
@@ -1703,7 +1703,7 @@ namespace Models
   protected:
     // The request body.
     shared_ptr<CreateMcpRequest::Body> body_ {};
-    // The reserved query request identifier. The console backend currently does not read this parameter and does not provide idempotency guarantees for deduplication or restoring the original processing result based on this identifier.
+    // The reserved query request identifier. The console backend does not read this parameter and does not provide idempotency guarantees for deduplication or restoring the original processing result based on this identifier.
     shared_ptr<string> clientToken_ {};
   };
 

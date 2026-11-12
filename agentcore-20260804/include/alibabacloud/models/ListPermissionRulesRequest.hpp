@@ -112,7 +112,7 @@ namespace Models
 
 
   protected:
-    // The maximum number of entries to return per page.
+    // The maximum number of results to return per page.
     shared_ptr<int32_t> maxResults_ {};
     // The token used to retrieve the next page.
     shared_ptr<string> nextToken_ {};
@@ -132,7 +132,7 @@ namespace Models
     shared_ptr<string> resourceType_ {};
     // The rule source.
     shared_ptr<string> source_ {};
-    // The target of the rule.
+    // The rule target.
     shared_ptr<string> target_ {};
   };
 

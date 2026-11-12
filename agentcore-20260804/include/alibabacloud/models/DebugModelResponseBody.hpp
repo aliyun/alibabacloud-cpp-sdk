@@ -152,23 +152,23 @@ namespace Models
     protected:
       // The model connection ID.
       shared_ptr<string> connectionId_ {};
-      // Indicates whether the model debugging is successful.
+      // Indicates whether the model test is successful.
       shared_ptr<bool> debugSuccess_ {};
-      // The error code returned when debugging fails.
+      // The error code for a test failure.
       shared_ptr<string> errorCode_ {};
-      // The error description returned when debugging fails.
+      // The error description for a test failure.
       shared_ptr<string> errorMessage_ {};
-      // The number of input tokens consumed by this model debugging request.
+      // The number of input tokens consumed by the model test request.
       shared_ptr<int64_t> inputTokens_ {};
-      // The duration of this model debugging invocation, in milliseconds.
+      // The duration of the model test call, in milliseconds.
       shared_ptr<int64_t> latencyMs_ {};
       // The model ID.
       shared_ptr<string> modelId_ {};
-      // The number of output tokens consumed by this model debugging response.
+      // The number of output tokens consumed by the model test response.
       shared_ptr<int64_t> outputTokens_ {};
-      // The text response returned by the model when model debugging succeeds. This field is empty if debugging fails.
+      // The text response returned by the model when the model test succeeds. This field is empty if the test fails.
       shared_ptr<string> response_ {};
-      // The debugging result status.
+      // The test result status.
       shared_ptr<string> status_ {};
     };
 
@@ -221,11 +221,11 @@ namespace Models
   protected:
     // The business status code. The value is SUCCESS if the request is successful.
     shared_ptr<string> code_ {};
-    // The model debugging result.
+    // The model test result.
     shared_ptr<DebugModelResponseBody::Data> data_ {};
     // The HTTP status code. The value is 200 if the request is successful.
     shared_ptr<int32_t> httpStatusCode_ {};
-    // The message about the request processing result.
+    // The request processing result message.
     shared_ptr<string> message_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

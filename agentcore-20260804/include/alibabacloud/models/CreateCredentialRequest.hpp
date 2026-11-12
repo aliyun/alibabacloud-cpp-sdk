@@ -110,9 +110,9 @@ namespace Models
       protected:
         // The ID of the applicable MCP service.
         shared_ptr<string> resourceId_ {};
-        // The name of the resource. This parameter is empty if the resource is deleted.
+        // The resource name. This field is empty if the resource is deleted.
         shared_ptr<string> resourceName_ {};
-        // The type of the resource. Set the value to mcpServer, which indicates an MCP service.
+        // The resource type. Currently, only mcpServer is supported, which indicates an MCP service.
         shared_ptr<string> resourceType_ {};
       };
 
@@ -163,7 +163,7 @@ namespace Models
 
 
     protected:
-      // The credential content, submitted as a JSON string. For the apiKey type, it contains only a non-empty apiKey. For the mcpHeader type, it contains a non-empty headers array, where each item includes a name and a value.
+      // The credential content, submitted as a JSON string. For the apiKey type, it contains only a non-empty apiKey. For the mcpHeader type, it contains a non-empty headers array, where each item contains a name and a value.
       // 
       // This parameter is required.
       shared_ptr<string> credentialMetadata_ {};
@@ -171,15 +171,15 @@ namespace Models
       // 
       // This parameter is required.
       shared_ptr<string> credentialType_ {};
-      // The description of the credential. The description can be up to 256 characters in length.
+      // The credential description. It can be up to 256 characters in length.
       shared_ptr<string> description_ {};
-      // The name of the credential. The name must be unique within the workspace, contain only letters, digits, periods, underscores, and hyphens, and be 3 to 99 characters in length. Runtime reserved names cannot be used.
+      // The credential name. It must be unique within the workspace, contain only letters, digits, periods, underscores, and hyphens, and be 3 to 99 characters in length. Runtime reserved names cannot be used.
       // 
       // This parameter is required.
       shared_ptr<string> name_ {};
-      // The list of applicable resources for an mcpHeader credential. This parameter must be non-empty when resourceScope is set to SPECIFIED, and must be omitted when resourceScope is set to ALL.
+      // The list of applicable resources for the MCP header credential. This field must be non-empty when resourceScope is set to SPECIFIED, and must be omitted when resourceScope is set to ALL.
       shared_ptr<vector<Body::ResourceRefs>> resourceRefs_ {};
-      // The application scope of an mcpHeader credential. This parameter is supported only for the mcpHeader type. ALL indicates all MCP services, and SPECIFIED indicates the MCP services specified in resourceRefs. Do not submit this field for the apiKey type.
+      // The applicable scope of the MCP header credential. This field is supported only for the mcpHeader type. ALL indicates all MCP services, and SPECIFIED indicates the MCP services specified in resourceRefs. Do not submit this field for the apiKey type.
       shared_ptr<string> resourceScope_ {};
     };
 

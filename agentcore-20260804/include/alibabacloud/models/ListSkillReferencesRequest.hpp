@@ -68,7 +68,7 @@ namespace Models
   protected:
     // The page number. Pages start from 1. Default value: 1.
     shared_ptr<int32_t> pageNo_ {};
-    // The number of entries per page. If not specified, the server default value is used.
+    // The number of entries per page. If omitted, the server default value is used.
     shared_ptr<int32_t> pageSize_ {};
     // The reference selector type used for filtering. Valid values: LABEL and VERSION.
     shared_ptr<string> selectorType_ {};

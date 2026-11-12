@@ -128,9 +128,9 @@ namespace Models
       protected:
         // The ID of the applicable MCP service.
         shared_ptr<string> resourceId_ {};
-        // The resource name. This field is empty if the resource has been deleted.
+        // The resource name. This field is empty if the resource is deleted.
         shared_ptr<string> resourceName_ {};
-        // The resource type. Currently, the value is mcpServer, which indicates an MCP service.
+        // The resource type. The current value is mcpServer, which indicates an MCP service.
         shared_ptr<string> resourceType_ {};
       };
 
@@ -227,7 +227,7 @@ namespace Models
       shared_ptr<string> credentialType_ {};
       // The credential description. The description can be up to 256 characters in length.
       shared_ptr<string> description_ {};
-      // The credential name. The name must be unique within the workspace, contain only letters, digits, periods, underscores, and hyphens, and be 3 to 99 characters in length. Runtime reserved names cannot be used.
+      // The credential name. It must be unique within the workspace, contain only letters, digits, periods, underscores, and hyphens, and be 3 to 99 characters in length. Runtime reserved names cannot be used.
       shared_ptr<string> name_ {};
       // The region ID of the resource.
       shared_ptr<string> regionId_ {};

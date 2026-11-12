@@ -136,7 +136,7 @@ namespace Models
         protected:
           // The type of the version selector.
           shared_ptr<string> type_ {};
-          // The value of the selector. If the type is LABEL, the value is the label name, such as latest. If the type is VERSION, the value is the specific version number.
+          // The value of the selector. When the type is LABEL, this is the label name, such as latest. When the type is VERSION, this is the specific version number.
           shared_ptr<string> value_ {};
         };
 
@@ -170,7 +170,7 @@ namespace Models
         shared_ptr<string> name_ {};
         // The source type of the skill.
         shared_ptr<string> sourceType_ {};
-        // The referenced version selector. If omitted, the default is LABEL/latest.
+        // The referenced version selector. If omitted, the default value is LABEL/latest.
         shared_ptr<Skills::VersionSelector> versionSelector_ {};
       };
 

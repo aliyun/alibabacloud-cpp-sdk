@@ -113,17 +113,24 @@ namespace Models
 
 
     protected:
-      // The current execution step of the AgentCore asynchronous task. This may not be returned if the task has not started executing.
+      // The current execution step of the AgentCore asynchronous task. This parameter may not be returned if the task has not started.
       shared_ptr<string> currentStep_ {};
-      // The failure summary of the asynchronous task. This is not returned when no failure information is available. You can use this in combination with taskId and requestId for troubleshooting.
+      // The failure summary of the asynchronous task. This parameter is not returned if no failure information is available. You can use this parameter together with taskId and requestId for troubleshooting.
       shared_ptr<string> failureReason_ {};
-      // The status of the synchronization task. Valid values: PENDING: to be executed; RUNNING: executing; PAUSED: paused; SUCCESS: successful; FAILED: failed; CANCELED: canceled. The first three are non-terminal states, and the last three are terminal states. Query the status until a terminal state is reached to determine the result.
+      // The status of the synchronization task. Valid values:
+      // - PENDING: The task is pending.
+      // - RUNNING: The task is running.
+      // - PAUSED: The task is paused.
+      // - SUCCESS: The task is successful.
+      // - FAILED: The task failed.
+      // - CANCELED: The task is canceled.
+      // The first three values are non-terminal states, and the last three are terminal states. Query the task until it reaches a terminal state to determine the result.
       shared_ptr<string> status_ {};
-      // The number of user entries that have been locally read and written or updated, including existing users. This does not represent the number of newly added users or the synchronization percentage. This is not returned when no statistics are available.
+      // The number of user entries that have been locally read and written or updated, including existing users. This number does not represent the number of new users or the synchronization percentage. This parameter is not returned if no statistics are available.
       shared_ptr<int32_t> syncedUserCount_ {};
-      // The downstream AgentIdentity synchronization task ID. This is not returned if the task has not been created. You cannot use this ID instead of taskId to call GetIdentityProviderSyncJob.
+      // The downstream AgentIdentity synchronization task ID. This parameter is not returned if the task is not created. You cannot use this ID instead of taskId to call GetIdentityProviderSyncJob.
       shared_ptr<string> synchronizationJobId_ {};
-      // The local AgentCore task ID returned by CreateIdentityProviderSyncJob. This is not the synchronizationJobId of AgentIdentity. You must use the same workspace and identity provider when querying.
+      // The local AgentCore task ID returned by CreateIdentityProviderSyncJob. This is not the synchronizationJobId of AgentIdentity. You must use the same workspace and identity provider when querying the task.
       shared_ptr<string> taskId_ {};
     };
 
@@ -174,17 +181,17 @@ namespace Models
 
 
   protected:
-    // The business status code for the current API request. SUCCESS indicates that the current request is successful, but does not indicate that the asynchronous synchronization task is complete.
+    // The business status code of the API request. SUCCESS indicates that the request is successful, but does not indicate that the asynchronous synchronization task is complete.
     shared_ptr<string> code_ {};
-    // The business data returned by the current request.
+    // The business data returned by the request.
     shared_ptr<CreateIdentityProviderSyncJobResponseBody::Data> data_ {};
-    // The HTTP status code for the current API request. This does not indicate the execution result of the asynchronous task.
+    // The HTTP status code of the API request. This code does not indicate the execution result of the asynchronous task.
     shared_ptr<int32_t> httpStatusCode_ {};
-    // The response message for the current API request.
+    // The response message of the API request.
     shared_ptr<string> message_ {};
-    // The unique identifier of the request. Provide this value when troubleshooting issues.
+    // The unique identifier of the request. Provide this value when you troubleshoot issues.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the current API request is successful. To determine whether the asynchronous task is complete, query the task status.
+    // Indicates whether the API request is successful. To check whether the asynchronous task is complete, query the task status.
     shared_ptr<bool> success_ {};
   };
 

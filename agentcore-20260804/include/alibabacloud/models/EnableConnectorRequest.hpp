@@ -74,7 +74,7 @@ namespace Models
 
 
   protected:
-    // The request body for enabling the connector.
+    // The request body for the enable operation.
     // 
     // This parameter is required.
     shared_ptr<EnableConnectorRequest::Body> body_ {};

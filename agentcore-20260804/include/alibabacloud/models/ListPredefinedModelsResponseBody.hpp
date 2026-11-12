@@ -164,11 +164,11 @@ namespace Models
         shared_ptr<bool> audio_ {};
         // Indicates whether the model supports document input.
         shared_ptr<bool> document_ {};
-        // Specifies whether the model is able to invoke multiple tool calling operations in a single response.
+        // Specifies whether the model is able to invoke multiple tools in a single response through tool calling.
         shared_ptr<bool> multiToolCall_ {};
         // Indicates whether the model supports reasoning capabilities.
         shared_ptr<bool> reasoning_ {};
-        // Specifies whether the model is able to invoke streaming tool calling.
+        // Specifies whether the model is able to invoke tools through streaming tool calling.
         shared_ptr<bool> streamToolCall_ {};
         // Indicates whether the model supports tool calling.
         shared_ptr<bool> toolCall_ {};
@@ -218,7 +218,7 @@ namespace Models
 
 
     protected:
-      // The model capability configurations.
+      // The model capability configuration.
       shared_ptr<Data::Capabilities> capabilities_ {};
       // The context window size of the model, in tokens. The value must be a positive integer.
       shared_ptr<int64_t> contextSize_ {};
@@ -283,7 +283,7 @@ namespace Models
     shared_ptr<vector<ListPredefinedModelsResponseBody::Data>> data_ {};
     // The HTTP status code. The value is 200 if the request succeeds.
     shared_ptr<int32_t> httpStatusCode_ {};
-    // The message about the request processing result.
+    // The request processing result message.
     shared_ptr<string> message_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

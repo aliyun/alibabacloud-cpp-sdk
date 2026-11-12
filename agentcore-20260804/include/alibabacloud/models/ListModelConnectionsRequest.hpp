@@ -96,11 +96,11 @@ namespace Models
   protected:
     // Specifies whether to return the summary of associated models in each model connection. Default value: false.
     shared_ptr<bool> includeModels_ {};
-    // The maximum number of entries to return on each page. Valid values: 0 to 100. Default value: 10. If this parameter is not specified or is set to 0, the default value is used.
+    // The maximum number of entries to return per page. Valid values: 0 to 100. Default value: 10. If this parameter is not specified or is set to 0, the default value is used.
     shared_ptr<int32_t> maxResults_ {};
-    // The name of the model connection. The name must be 1 to 128 characters in length and cannot contain whitespace characters.
+    // The name of the model connection. The name must be 1 to 128 non-whitespace characters in length.
     shared_ptr<string> name_ {};
-    // The pagination token. Pass the token returned in the previous query for the current request. An empty response indicates that no more pages are available.
+    // The pagination token. Pass the token returned in the previous response to query the next page. If the response is empty, no more pages are available.
     shared_ptr<string> nextToken_ {};
     // The invocation protocol used to filter model connections.
     shared_ptr<string> protocol_ {};

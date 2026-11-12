@@ -240,19 +240,19 @@ namespace Models
 
 
       protected:
-        // The business tags in a JSON array string.
+        // The JSON array string of business tags.
         shared_ptr<string> bizTags_ {};
         // The description.
         shared_ptr<string> description_ {};
         // The total number of downloads.
         shared_ptr<int64_t> downloadCount_ {};
-        // The draft mode. Valid values: HEAD (the skill has a persistent draft) and VERSIONED (each edit creates a versioned draft). This is determined by the server and used by the caller to render the status column.
+        // The draft mode. Valid values: HEAD (the skill has a persistent draft) and VERSIONED (a versioned draft is created for each edit). This value is determined by the server and used by the caller to render the status column.
         shared_ptr<string> draftMode_ {};
-        // Indicates whether the page item is editable.
+        // Specifies whether the page item is editable.
         shared_ptr<bool> editable_ {};
         // The version being edited. The value is HEAD in HEAD draft mode.
         shared_ptr<string> editingVersion_ {};
-        // Indicates whether the skill is enabled.
+        // Specifies whether the skill is enabled.
         shared_ptr<bool> enable_ {};
         // The source tag.
         shared_ptr<string> from_ {};
@@ -268,11 +268,11 @@ namespace Models
         shared_ptr<string> reviewingVersion_ {};
         // The visibility scope.
         shared_ptr<string> scope_ {};
-        // The update time. It is a UNIX timestamp in milliseconds.
+        // The update time. The value is a UNIX timestamp in milliseconds.
         shared_ptr<int64_t> updateTime_ {};
         // The workspace ID.
         shared_ptr<string> workspaceId_ {};
-        // Indicates whether the current user has write permissions.
+        // Specifies whether the current user has write permissions.
         shared_ptr<bool> writeable_ {};
       };
 

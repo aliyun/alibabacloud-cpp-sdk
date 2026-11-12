@@ -59,9 +59,9 @@ namespace Models
   protected:
     // The number of departments returned per page. Valid values: 1 to 50. Default value: 50.
     shared_ptr<int32_t> maxResults_ {};
-    // The pagination token returned from the previous page. Do not specify this parameter for the first query. When continuing pagination, keep the identity provider and parentDepartmentId unchanged, and pass the token as is. An empty return value or no return value indicates that there are no subsequent pages at the current level.
+    // The nextToken returned from the previous page. Do not pass this parameter for the first query. When continuing pagination, keep the identity provider and parentDepartmentId unchanged, and pass the token as is. An empty return value or no return value indicates that there are no subsequent pages at the current level.
     shared_ptr<string> nextToken_ {};
-    // The ID of the parent department. If you specify this parameter, the direct child departments of this department are queried. If this parameter is not specified or is empty, the root level is queried, and all descendants are not recursively returned. When expanding a node in the list, pass the ID of the node, not its parentId.
+    // Queries the direct child departments of this department. If this parameter is not passed or is empty, the root level is queried, and all descendants are not recursively returned. When expanding a node in the list, pass the id of the node, not its parentId.
     shared_ptr<string> parentDepartmentId_ {};
   };
 

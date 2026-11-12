@@ -170,9 +170,9 @@ namespace Models
 
 
       protected:
-        // Specifies whether to display the thinking process in IM messages. Default value: false.
+        // Indicates whether to display the thinking process in IM messages. Default value: false.
         shared_ptr<bool> showThinking_ {};
-        // Specifies whether to display the tool calling process in IM messages. Default value: false.
+        // Indicates whether to display the tool calling process in IM messages. Default value: false.
         shared_ptr<bool> showToolCalls_ {};
       };
 
@@ -280,7 +280,7 @@ namespace Models
       shared_ptr<string> agentId_ {};
       // The channel behavior configuration.
       shared_ptr<Data::ChannelConfig> channelConfig_ {};
-      // The IM channel type. Valid values: DINGTALK (DingTalk), FEISHU (Lark), and WECOM (WeCom).
+      // The IM channel type. Valid values: DINGTALK (DingTalk), FEISHU (Lark), WECOM (WeCom).
       shared_ptr<string> channelType_ {};
       // The creation time in RFC 3339 format.
       shared_ptr<string> createTime_ {};
@@ -292,9 +292,9 @@ namespace Models
       shared_ptr<string> endpointUrl_ {};
       // The IM channel ID.
       shared_ptr<string> imChannelId_ {};
-      // The ID of the bound service endpoint. The endpoint must belong to the specified agent and its current version, be in the ready state, and have a public address.
+      // The ID of the bound service endpoint. The endpoint must belong to the specified agent and its current version, be ready, and have a public network address.
       shared_ptr<string> serviceEndpointId_ {};
-      // The IM channel status. Valid values: CREATING (creating), READY (ready), UPDATING (updating), FAILED (failed), DELETING (deleting), and DELETE_FAILED (deletion failed).
+      // The IM channel status. Valid values: CREATING (creating), READY (ready), UPDATING (updating), FAILED (failed), DELETING (deleting), DELETE_FAILED (delete failed).
       shared_ptr<string> status_ {};
       // The reason for the current status of the IM channel.
       shared_ptr<string> statusReason_ {};

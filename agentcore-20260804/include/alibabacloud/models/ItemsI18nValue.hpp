@@ -57,11 +57,11 @@ namespace Models
 
 
   protected:
-    // The description of the MCP service in the language.
+    // The MCP service description in the specified language.
     shared_ptr<string> description_ {};
-    // The name of the MCP marketplace template in the language.
+    // The MCP marketplace template name in the specified language.
     shared_ptr<string> name_ {};
-    // The usage instructions of the MCP marketplace template in the language.
+    // The usage instructions for the MCP marketplace template in the specified language.
     shared_ptr<string> readme_ {};
   };
 

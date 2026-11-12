@@ -117,7 +117,7 @@ namespace Models
       protected:
         // When the mode is SelectedDepartments, this parameter must contain at least one non-empty department ID, which should be obtained from ListIdentityProviderDepartments. When the mode is AllAuthorized, pass an empty array or omit this parameter.
         shared_ptr<vector<string>> departmentIds_ {};
-        // AllAuthorized: the entire authorized scope, which is limited by the application address book authorization. SelectedDepartments: the selected departments and all their sub-departments. When you explicitly submit syncScope, you must provide a valid mode, which is verified by the backend.
+        // AllAuthorized: the full authorization scope, which is limited by the application address book authorization. SelectedDepartments: the selected departments and all their sub-departments. When explicitly submitting syncScope, you must provide a valid mode, which is verified by the backend.
         shared_ptr<string> mode_ {};
       };
 
@@ -179,13 +179,13 @@ namespace Models
 
 
       protected:
-        // HTTP-Redirect or HTTP-POST. This parameter is required when you manually enter the configuration. The query returns the short name.
+        // Valid values: HTTP-Redirect or HTTP-POST. Required for manual entry. Queries return the short name.
         shared_ptr<string> bindingType_ {};
-        // This parameter is required when you manually enter the configuration. It cannot be empty and cannot exceed 2,048 characters. Existing configurations cannot be replaced. This is different from the Entity ID of the service provider (SP) returned in the query.
+        // Required for manual entry. It must be non-empty and contain a maximum of 2,048 characters. It cannot be changed after configuration. It is different from the Entity ID of the service provider (SP).
         shared_ptr<string> entityId_ {};
-        // This parameter is required when you manually enter the configuration. It must be an absolute HTTPS URL and cannot contain user credentials or fragments.
+        // Required for manual entry. It must be an absolute HTTPS URL and cannot contain user credentials or fragments.
         shared_ptr<string> loginUrl_ {};
-        // This parameter is required when you manually enter the configuration. It must be a non-empty array that uses PEM X.509 certificate text. The current validity period is verified, and a maximum of two certificates are allowed after deduplication.
+        // Required for manual entry. It must be a non-empty array that uses PEM X.509 certificate text. The current validity period is verified. A maximum of two certificates are allowed after deduplication.
         shared_ptr<vector<string>> x509Certificates_ {};
       };
 
@@ -245,13 +245,13 @@ namespace Models
 
 
       protected:
-        // HTTP-Redirect or HTTP-POST. This parameter is required when you manually enter the configuration. The query returns the short name.
+        // Valid values: HTTP-Redirect or HTTP-POST. Required for manual entry. Queries return the short name.
         shared_ptr<string> bindingType_ {};
-        // This parameter is required when you manually enter the configuration. It cannot be empty and cannot exceed 2,048 characters. Existing configurations cannot be replaced. This is different from the Entity ID of the service provider (SP) returned in the query.
+        // Required for manual entry. It must be non-empty and contain a maximum of 2,048 characters. It cannot be changed after configuration. It is different from the Entity ID of the service provider (SP).
         shared_ptr<string> entityId_ {};
-        // This parameter is required when you manually enter the configuration. It must be an absolute HTTPS URL and cannot contain user credentials or fragments.
+        // Required for manual entry. It must be an absolute HTTPS URL and cannot contain user credentials or fragments.
         shared_ptr<string> loginUrl_ {};
-        // The actual switch value is Enabled or Disabled, which differs from the expected loginEnabled value saved in AC.
+        // The actual switch value. Valid values: Enabled or Disabled. It is not equivalent to the expected loginEnabled value saved in the access control (AC).
         shared_ptr<string> ssoStatus_ {};
       };
 
@@ -334,9 +334,9 @@ namespace Models
       shared_ptr<string> identityProviderType_ {};
       // Specifies whether to allow workspace users to log on through the external identity provider.
       shared_ptr<bool> loginEnabled_ {};
-      // Only SAML is currently supported. This parameter may not be returned if no valid configuration is saved. Placeholder initialization with OIDC is not supported.
+      // Currently, only SAML is supported. This field may not be returned if no valid configuration is saved. Initialization with an OIDC placeholder is not supported.
       shared_ptr<string> protocol_ {};
-      // The input supports either XML or complete manual entry. The query returns the standardized configuration and does not echo the original XML. This parameter can be omitted if it is not configured.
+      // The input supports either XML or complete manual entry. Queries return the standardized configuration and do not echo the original XML. This field can be omitted if it is not configured.
       shared_ptr<Data::Saml> saml_ {};
       // The binding status. Valid values:
       // - CONFIGURED: The configuration is accepted and waiting for the user pool to be activated.
@@ -351,7 +351,7 @@ namespace Models
       shared_ptr<string> status_ {};
       // Specifies whether to enable organization member synchronization. When enabled, organization members are synchronized as workspace users by the external identity provider.
       shared_ptr<bool> syncEnabled_ {};
-      // Uses the department-based synchronization scope definition. If this parameter is omitted during creation, the default value is AllAuthorized. The initial provider synchronization is determined by syncOnBind. If this parameter is omitted or set to null during an update, the original value is retained. Updating and saving the scope does not automatically trigger full synchronization.
+      // Follows the department-based synchronization scope definition. If omitted during creation, the default value is AllAuthorized, and the initial vendor synchronization is determined by syncOnBind. If omitted or null during an update, the original value is retained. Updating and saving the scope does not automatically trigger full synchronization.
       shared_ptr<Data::SyncScope> syncScope_ {};
       // The workspace ID.
       shared_ptr<string> workspaceId_ {};
@@ -410,7 +410,7 @@ namespace Models
     shared_ptr<CreateIdentityProviderResponseBody::Data> data_ {};
     // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
-    // The response message. An error description is returned when the request fails.
+    // The response message. Returns an error description when the request fails.
     shared_ptr<string> message_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

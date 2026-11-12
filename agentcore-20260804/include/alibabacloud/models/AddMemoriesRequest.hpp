@@ -107,11 +107,11 @@ namespace Models
 
 
       protected:
-        // The agent ID. The length is limited to 1 to 128 UTF-8 bytes. The value cannot contain a forward slash (/) or an asterisk (*).
+        // The agent ID. The length is limited to 1 to 128 UTF-8 bytes. The ID cannot contain a forward slash (/) or an asterisk (*).
         shared_ptr<string> agentId_ {};
-        // The session ID. The length is limited to 1 to 128 UTF-8 bytes. The value cannot contain a forward slash (/) or an asterisk (*).
+        // The session ID. The length is limited to 1 to 128 UTF-8 bytes. The ID cannot contain a forward slash (/) or an asterisk (*).
         shared_ptr<string> sessionId_ {};
-        // The user ID. The length is limited to 1 to 128 UTF-8 bytes. The value cannot contain a forward slash (/) or an asterisk (*).
+        // The user ID. The length is limited to 1 to 128 UTF-8 bytes. The ID cannot contain a forward slash (/) or an asterisk (*).
         shared_ptr<string> userId_ {};
       };
 
@@ -214,17 +214,17 @@ namespace Models
 
 
     protected:
-      // The message list. You must provide either this parameter or Text, but not both. You can specify 1 to 20 messages, and the total size of the content cannot exceed 32,000 UTF-8 bytes.
+      // The message list. You must provide either this parameter or Text, but not both. The list can contain 1 to 20 messages, and the total size of Content cannot exceed 32,000 UTF-8 bytes.
       shared_ptr<vector<Body::Messages>> messages_ {};
       // The string key-value metadata. You can specify up to 16 keys. The maximum length of a key is 64 characters, and the maximum length of a value is 1,024 characters.
       shared_ptr<map<string, string>> metadata_ {};
-      // The time reference point for the batch of messages or text. The value must be in RFC 3339 format with a time zone and support fractional seconds.
+      // The time reference point for this batch of messages or text. The time must be in RFC 3339 format with a time zone and support fractional seconds.
       shared_ptr<string> referenceTime_ {};
       // The write scope. UserId, AgentId, and SessionId are all optional.
       shared_ptr<Body::Scope> scope_ {};
-      // Specifies whether to synchronously wait for the memory extraction to complete. Default value: true.
+      // Specifies whether to synchronously wait for memory extraction to complete. Default value: true.
       shared_ptr<bool> sync_ {};
-      // The text to be written directly. You must provide either this parameter or Messages, but not both. The size cannot exceed 32,000 UTF-8 bytes.
+      // The text to write directly. You must provide either this parameter or Messages, but not both. The size cannot exceed 32,000 UTF-8 bytes.
       shared_ptr<string> text_ {};
     };
 
@@ -239,7 +239,7 @@ namespace Models
 
 
   protected:
-    // The write memory request.
+    // The memory write request.
     // 
     // This parameter is required.
     shared_ptr<AddMemoriesRequest::Body> body_ {};

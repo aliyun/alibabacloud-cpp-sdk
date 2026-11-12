@@ -48,9 +48,9 @@ namespace Models
 
 
   protected:
-    // The maximum number of entries to return on a single page. Valid values: 1 to 100. If you do not specify this parameter, 10 entries are returned by default.
+    // The maximum number of records to return per page. Valid values: 1 to 100. Default value: 10.
     shared_ptr<int32_t> maxResults_ {};
-    // The cursor for querying the next page. Do not specify this parameter in the first call. In subsequent calls, specify the nextToken value returned from the previous call.
+    // The cursor for querying the next page. Do not specify this parameter for the first call. For subsequent calls, specify the nextToken returned from the previous call.
     shared_ptr<string> nextToken_ {};
   };
 

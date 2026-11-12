@@ -113,7 +113,7 @@ namespace Models
 
 
       protected:
-        // The role of the user in the team. Valid values: ADMIN and MEMBER. Each team must have exactly one ADMIN.
+        // The role of the user in the team. Valid values: ADMIN and MEMBER. Each team must include exactly one ADMIN.
         shared_ptr<string> teamRole_ {};
         // The user ID.
         shared_ptr<string> userId_ {};
@@ -159,7 +159,7 @@ namespace Models
       protected:
         // The agent ID.
         shared_ptr<string> agentId_ {};
-        // The role of the agent in the team. Valid values: LEADER and WORKER. Each team must have exactly one LEADER.
+        // The role of the agent in the team. Valid values: LEADER and WORKER. Each team must include exactly one LEADER.
         shared_ptr<string> teamRole_ {};
       };
 
@@ -236,17 +236,17 @@ namespace Models
     protected:
       // The list of agent members in the team.
       shared_ptr<vector<Data::Agents>> agents_ {};
-      // The creation time in RFC 3339 UTC format.
+      // The creation time in UTC format based on RFC 3339.
       shared_ptr<string> createdAt_ {};
       // The team description.
       shared_ptr<string> description_ {};
-      // The team name. It can only contain lowercase letters, digits, and hyphens, must start and end with a lowercase letter or a digit, and must be 1 to 128 characters in length.
+      // The team name. The name can contain only lowercase letters, digits, and hyphens, must start and end with a lowercase letter or a digit, and must be 1 to 128 characters in length.
       shared_ptr<string> name_ {};
       // The team status. Valid values: Creating, Active, Updating, Deleting, Failed, and Deleted.
       shared_ptr<string> status_ {};
       // The team ID.
       shared_ptr<string> teamId_ {};
-      // The last update time in RFC 3339 UTC format.
+      // The last update time in UTC format based on RFC 3339.
       shared_ptr<string> updatedAt_ {};
       // The list of user members in the team.
       shared_ptr<vector<Data::Users>> users_ {};

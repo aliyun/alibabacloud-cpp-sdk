@@ -165,7 +165,7 @@ namespace Models
     shared_ptr<string> code_ {};
     // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
-    // The session list.
+    // The list of sessions.
     shared_ptr<vector<ListMemorySessionsResponseBody::Items>> items_ {};
     // The maximum number of records per page.
     shared_ptr<int32_t> maxResults_ {};

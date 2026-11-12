@@ -155,11 +155,11 @@ namespace Models
 
 
         protected:
-          // Specifies whether the VPC network is enabled.
+          // Indicates whether the VPC network is enabled.
           shared_ptr<bool> enabled_ {};
           // The list of vSwitch IDs.
           shared_ptr<vector<string>> vSwitchIds_ {};
-          // The VPC ID of the user.
+          // The ID of the user VPC.
           shared_ptr<string> vpcId_ {};
         };
 
@@ -203,15 +203,15 @@ namespace Models
 
 
       protected:
-        // Specifies whether private network ingress access is enabled for the workspace. A value of true indicates that it is enabled, and a value of false indicates that it is disabled. This setting is independent of the enabled field in the user VPC network configuration.
+        // The private ingress access switch for the workspace. A value of true indicates that it is enabled, and a value of false indicates that it is disabled. This switch is independent of the enabled field in the user VPC network configuration.
         shared_ptr<bool> privateIngressEnabled_ {};
-        // Returns the target configuration value. Updating indicates that the change is still in progress, and UpdateFailed indicates that the current change failed. This setting only controls whether the latest versions of managed and custom agents use the platform\\"s public network egress. It does not control fixed historical versions, model or MCP proxy egress, or the user VPC\\"s own public network egress.
+        // Returns the target configuration value. Updating indicates that the change is still being executed, and UpdateFailed indicates that the change failed in the current round. This parameter only controls the use of the platform public egress by the latest versions of managed and custom agents. It does not control fixed historical versions, model or MCP proxy egress, or the public egress of the user VPC.
         shared_ptr<bool> publicEgressEnabled_ {};
-        // The public network egress IP address of the workspace.
+        // The public egress IP address of the workspace.
         shared_ptr<string> publicEgressIp_ {};
-        // Returns the target configuration value. Updating indicates that the change is in progress, and UpdateFailed indicates that the change failed. When disabled, the public network ingress for all agent endpoints in the workspace is closed, and the original public network ingress is restored when re-enabled. INNER_DIRECT and user VPC ingress are not affected, and collaboration and Element Web ingress are not controlled by this setting.
+        // Returns the target configuration value. Updating indicates that the change is in progress, and UpdateFailed indicates that the change failed. After this feature is disabled, the public ingress of all agent endpoints in the workspace is disabled. After this feature is re-enabled, the original public ingress is restored. The INNER_DIRECT and user VPC ingress are not affected. The collaboration and Element Web ingress are not controlled by this parameter.
         shared_ptr<bool> publicIngressEnabled_ {};
-        // The VPC network configuration of the user.
+        // The network configuration of the user VPC.
         shared_ptr<NetworkConfiguration::Vpc> vpc_ {};
       };
 
@@ -298,7 +298,7 @@ namespace Models
 
 
     protected:
-      // The OSS storage authorization status.
+      // The authorization status of OSS storage.
       shared_ptr<string> authorizationStatus_ {};
       // The name of the private OSS bucket.
       shared_ptr<string> bucketName_ {};
@@ -379,7 +379,7 @@ namespace Models
     shared_ptr<string> message_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request is successful.
+    // Indicates whether the request was successful.
     shared_ptr<bool> success_ {};
   };
 

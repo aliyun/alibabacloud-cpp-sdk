@@ -168,23 +168,23 @@ namespace Models
     protected:
       // The number of active sessions in the sandbox.
       shared_ptr<int32_t> activeSessionCount_ {};
-      // The time when the sandbox was created, in RFC 3339 UTC format.
+      // The time when the sandbox was created. The time is in RFC 3339 UTC format.
       shared_ptr<string> createdAt_ {};
       // The tag of the actual observed image of the currently returned instance. This parameter is empty if the tag cannot be parsed.
       shared_ptr<string> harnessVersion_ {};
-      // The time of the last activity of the sandbox, in RFC 3339 UTC format.
+      // The time of the last activity of the sandbox. The time is in RFC 3339 UTC format.
       shared_ptr<string> lastActiveAt_ {};
-      // The time of the last heartbeat of the sandbox, in RFC 3339 UTC format.
+      // The time of the last heartbeat of the sandbox. The time is in RFC 3339 UTC format.
       shared_ptr<string> lastHeartbeatAt_ {};
-      // Used to continue calling GetSandboxRebuildOperation to query the overall result after a page refresh. This parameter is empty if there is no historical rebuild. Do not use the ID of a subsequently created task instead.
+      // Used to continue calling GetSandboxRebuildOperation to query the overall result after the page is refreshed. This parameter is empty if there is no historical rebuild. Do not use the ID of a subsequently created task instead.
       shared_ptr<string> lastRebuildOperationId_ {};
       // The maximum number of concurrent sessions allowed for the sandbox, which is obtained from the effective auto-scaling configuration at runtime. This parameter is empty if auto-scaling is disabled or the configuration is unavailable.
       shared_ptr<int32_t> maxConcurrentSessions_ {};
       // The current running phase of the sandbox.
       shared_ptr<string> phase_ {};
-      // The sandbox ID, which can be queried by calling ListSandboxes.
+      // The sandbox ID. You can query it by calling ListSandboxes.
       shared_ptr<string> sandboxId_ {};
-      // The server compares the actual image tag of the instance with the pool target image tag. The value is true if the tags are different during the RUNNING, HIBERNATED, or FAILED phase. The value is false if the tags are the same or during other known phases. This parameter is empty if the tag or phase cannot be confirmed, and it cannot be treated as false. The version sequence is not determined by the tag size.
+      // The server compares the actual image tag of the instance with the target image tag of the pool. The value is true if the tags are different during the RUNNING, HIBERNATED, or FAILED phase. The value is false if the tags are the same or during other known phases. This parameter is empty if the tag or phase cannot be confirmed, and it cannot be treated as false. The version sequence is not determined by the tag size.
       shared_ptr<bool> updateAvailable_ {};
       // A value of true indicates that the most recent rebuild corresponding to the current instance generation failed as a whole. A value of false indicates that there is no historical rebuild or the rebuild succeeded as a whole. This parameter is empty if the rebuild is in progress, canceled, replaced, the generation does not match, or the result cannot be confirmed.
       shared_ptr<bool> updateFailed_ {};

@@ -77,7 +77,7 @@ namespace Models
 
 
     protected:
-      // Indicates whether the deletion is in progress. The current implementation always returns false. To confirm the visibility of the cache, call GetImageCache or ListImageCaches.
+      // The flag indicating whether deletion is in progress. The current implementation always returns false. To confirm cache visibility, call GetImageCache or ListImageCaches.
       // 
       // This parameter is required.
       shared_ptr<bool> deletionPending_ {};
@@ -154,7 +154,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request is successful. A successful request does not mean that the cache creation is complete.
+    // Indicates whether the request is successful. This does not mean that the cache creation is complete.
     // 
     // This parameter is required.
     shared_ptr<bool> success_ {};

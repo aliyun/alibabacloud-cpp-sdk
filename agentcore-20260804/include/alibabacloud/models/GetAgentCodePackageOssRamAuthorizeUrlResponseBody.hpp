@@ -95,7 +95,7 @@ namespace Models
 
 
     protected:
-      // The RAM authorization link.
+      // The RAM authorization URL.
       shared_ptr<string> authorizeUrl_ {};
       // The name of the authorized source OSS bucket.
       shared_ptr<string> ossBucketName_ {};
@@ -154,7 +154,7 @@ namespace Models
   protected:
     // The business status code.
     shared_ptr<string> code_ {};
-    // The response data.
+    // The returned result.
     shared_ptr<GetAgentCodePackageOssRamAuthorizeUrlResponseBody::Data> data_ {};
     // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};

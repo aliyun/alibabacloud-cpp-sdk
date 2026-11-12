@@ -188,11 +188,11 @@ namespace Models
 
 
   protected:
-    // The business status code. The value is SUCCESS if the request is successful.
+    // The business status code. The value is SUCCESS for a successful request.
     shared_ptr<string> code_ {};
     // The available access network information for the managed agent.
     shared_ptr<GetExternalAgentBootstrapOptionsResponseBody::Data> data_ {};
-    // The HTTP status code. The value is 200 if the request is successful.
+    // The HTTP status code. The value is 200 for a successful request.
     shared_ptr<int32_t> httpStatusCode_ {};
     // The request processing result message.
     shared_ptr<string> message_ {};

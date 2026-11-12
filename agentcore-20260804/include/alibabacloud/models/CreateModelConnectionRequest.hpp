@@ -122,9 +122,9 @@ namespace Models
       // 
       // This parameter is required.
       shared_ptr<string> name_ {};
-      // The model invoke protocol. Currently, only OpenAI/v1 is supported. If this parameter is not specified in Settings during model creation, this default value is used.
+      // The model invoke protocol. Currently, only OpenAI/v1 is supported. If the Settings are not specified when you create a model connection, this default value is used for model creation.
       shared_ptr<string> protocol_ {};
-      // The model provider type.
+      // The model provider type. Predefined providers can be queried by calling [ListPredefinedModelProviders](https://api.aliyun.com/document/AgentCore/2026-08-04/ListPredefinedModelProviders). In addition, custom, anthropic, and gemini are supported.
       // 
       // This parameter is required.
       shared_ptr<string> providerType_ {};

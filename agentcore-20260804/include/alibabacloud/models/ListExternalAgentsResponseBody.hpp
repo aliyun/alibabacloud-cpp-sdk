@@ -166,7 +166,7 @@ namespace Models
 
 
     protected:
-      // The ID of the managed agent.
+      // The managed agent ID.
       shared_ptr<string> agentId_ {};
       // The creation mode.
       shared_ptr<string> createMode_ {};
@@ -265,7 +265,7 @@ namespace Models
     shared_ptr<int32_t> httpStatusCode_ {};
     // The list of managed agents.
     shared_ptr<vector<ListExternalAgentsResponseBody::Items>> items_ {};
-    // The maximum number of entries returned per page for this request.
+    // The maximum number of entries returned per page for the current request.
     shared_ptr<int32_t> maxResults_ {};
     // The message about the request processing result.
     shared_ptr<string> message_ {};

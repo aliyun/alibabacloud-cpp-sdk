@@ -38,7 +38,7 @@ namespace Models
 
 
   protected:
-    // The request parameters for querying the list of agent teams.
+    // The request parameters for querying agent teams.
     shared_ptr<string> bodyShrink_ {};
   };
 

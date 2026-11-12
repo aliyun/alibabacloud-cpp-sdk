@@ -104,7 +104,7 @@ namespace Models
       protected:
         // The URL configured for the external provisioning system. The presence of a URL does not mean that the external configuration is completed or AgentCore synchronization is enabled.
         shared_ptr<string> baseUrl_ {};
-        // A value of Enabled indicates that SCIM receiving is enabled, and Disabled indicates that it is disabled. This is not equivalent to the expected value of syncEnabled in AgentCore.
+        // Enabled indicates that SCIM receiving is enabled, and Disabled indicates that it is disabled. This is not equivalent to the expected value of syncEnabled in AgentCore.
         shared_ptr<string> status_ {};
       };
 
@@ -147,7 +147,7 @@ namespace Models
       shared_ptr<string> operationStatus_ {};
       // The SCIM independent configuration status.
       shared_ptr<string> status_ {};
-      // Do not pass true during CustomSSO initialization. It can only be updated later through UpdateIdentityProviderSCIM. Determine the result in combination with operationStatus.
+      // Do not pass true during CustomSSO initialization. Subsequently, it can only be updated through UpdateIdentityProviderSCIM, and the result is determined in combination with operationStatus.
       shared_ptr<bool> syncEnabled_ {};
     };
 
@@ -198,17 +198,17 @@ namespace Models
 
 
   protected:
-    // The business result code. If the request fails, handle the issue based on the HTTP status code and the message.
+    // If the request fails, handle the error based on the HTTP status code and the message.
     shared_ptr<string> code_ {};
-    // The result structure. For details, see the response fields of this operation. The response of an asynchronous write operation indicates that the request is accepted, but does not guarantee that the background task is completed.
+    // For the result structure, see the response fields of this operation. The response of an asynchronous write operation indicates that the request is accepted, but does not guarantee that the background task is completed.
     shared_ptr<GetIdentityProviderSCIMResponseBody::Data> data_ {};
-    // The processing status of the current request, which is not equivalent to the final result of the background task.
+    // The processing status of this request, which is not equivalent to the final result of the background task.
     shared_ptr<int32_t> httpStatusCode_ {};
-    // The request acceptance or error message. For asynchronous tasks, check the task result by using the corresponding query operation.
+    // The request acceptance or error message. For asynchronous tasks, verify the task result by using the corresponding query operation.
     shared_ptr<string> message_ {};
-    // The request ID. Used to associate this call with troubleshooting. Keep the ID if the request fails.
+    // Used to associate this call with troubleshooting. Retain this ID if the call fails.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the current request is successful. A value of true indicates that the request is processed successfully. For asynchronous writes, you must continue to query the task results.
+    // A value of true indicates that the current request is processed successfully. For asynchronous writes, you must continue to query the task results.
     shared_ptr<bool> success_ {};
   };
 

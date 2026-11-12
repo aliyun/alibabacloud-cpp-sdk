@@ -116,15 +116,15 @@ namespace Models
     shared_ptr<int32_t> maxResults_ {};
     // The token for the next page.
     shared_ptr<string> nextToken_ {};
-    // The sort field. Valid value: download_count. Default value: gmt_modified.
+    // The field used for sorting. Supported value: download_count. Default value: gmt_modified.
     shared_ptr<string> orderBy_ {};
-    // Filters the skills by owner.
+    // The owner used to filter results.
     shared_ptr<string> owner_ {};
     // The page number. Default value: 1.
     shared_ptr<int32_t> pageNo_ {};
     // The number of items per page. Default value: 10. Maximum value: 50.
     shared_ptr<int32_t> pageSize_ {};
-    // Filters the skills by visibility. Valid values: PUBLIC and PRIVATE.
+    // The visibility used to filter results. Valid values: PUBLIC and PRIVATE.
     shared_ptr<string> scope_ {};
     // The search mode. Valid values: accurate (exact match) and blur (fuzzy match).
     shared_ptr<string> search_ {};

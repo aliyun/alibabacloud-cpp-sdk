@@ -211,33 +211,33 @@ namespace Models
     protected:
       // The category of the MCP marketplace template.
       shared_ptr<string> category_ {};
-      // The description of the MCP service.
+      // The MCP service description.
       shared_ptr<string> description_ {};
       // The display metadata of the template.
       Darabonba::Json displayMetadata_ {};
-      // The multilingual display content organized by BCP-47 language tags. If a language is not matched, the system falls back to the default fields.
+      // The multilingual display content, organized by BCP-47 language tags. Falls back to default fields if the language is not matched.
       shared_ptr<map<string, ItemsI18nValue>> i18n_ {};
       // The icon URL of the MCP marketplace template.
       shared_ptr<string> iconUrl_ {};
       // The number of times the template has been installed.
       shared_ptr<int64_t> installCount_ {};
-      // The ID of the MCP marketplace template.
+      // The MCP marketplace template ID.
       shared_ptr<string> marketItemId_ {};
       // The MCP type.
       shared_ptr<string> mcpType_ {};
-      // The name of the MCP marketplace template.
+      // The MCP marketplace template name.
       shared_ptr<string> name_ {};
       // The official usage tag.
       shared_ptr<string> officialTag_ {};
       // The MCP protocol.
       shared_ptr<string> protocol_ {};
-      // The usage instructions of the MCP marketplace template.
+      // The usage instructions for the MCP marketplace template.
       shared_ptr<string> readme_ {};
-      // The schema version of the template.
+      // The template schema version.
       shared_ptr<string> schemaVersion_ {};
-      // The input schema of the template, represented as a JSON Schema string.
+      // The template input schema, represented as a JSON Schema string.
       shared_ptr<string> templateInputSchema_ {};
-      // The version of the MCP marketplace template.
+      // The MCP marketplace template version.
       shared_ptr<string> templateVersion_ {};
     };
 
@@ -320,9 +320,9 @@ namespace Models
     shared_ptr<int32_t> maxResults_ {};
     // The response message.
     shared_ptr<string> message_ {};
-    // The pagination token used to query the next page.
+    // The pagination token for querying the next page.
     shared_ptr<string> nextToken_ {};
-    // The request ID used to locate and troubleshoot the request.
+    // The request ID, used to locate and troubleshoot the request.
     shared_ptr<string> requestId_ {};
     // Indicates whether the request is successful.
     shared_ptr<bool> success_ {};

@@ -123,15 +123,15 @@ namespace Models
 
 
     protected:
-      // The active API key of the service endpoint. The service reads this value in real time from the gateway consumer, and AgentCore does not persist the plaintext. When calling the service endpoint, place this value in the request header specified by apiKeyName. Do not log this value or expose it in public configurations.
+      // The currently effective API key for the service endpoint. The service reads this value in real time from the gateway consumer, and AgentCore does not persist the plaintext. When calling the service endpoint, place this value in the request header specified by apiKeyName. Do not log this value or expose it in public configurations.
       shared_ptr<string> apiKey_ {};
-      // The API key fingerprint, which consists of the first 12 lowercase hexadecimal characters of the SHA-256 digest of the API key. It can be used to identify the key version but cannot replace the API key for authentication.
+      // The fingerprint of the API key, which consists of the first 12 lowercase hexadecimal characters of the SHA-256 digest of the API key. It can be used to identify the key version but cannot replace the API key for authentication.
       shared_ptr<string> apiKeyFingerprint_ {};
-      // The name of the HTTP request header used to pass the API key. Currently, this is fixed to x-api-key.
+      // The name of the HTTP request header used to deliver the API key. The value is fixed to x-api-key.
       shared_ptr<string> apiKeyName_ {};
-      // The delivery location of the API key. Currently, this is fixed to Header, which indicates that the API key is passed through an HTTP request header.
+      // The delivery location of the API key. The value is fixed to Header, which indicates that the API key is delivered through an HTTP request header.
       shared_ptr<string> apiKeySource_ {};
-      // The authentication type of the service endpoint. Valid values: NONE (authentication is disabled) and API_KEY (API key authentication is used). This operation succeeds only when the authentication type is API_KEY. Therefore, a successful response always returns API_KEY.
+      // The authentication type of the service endpoint. Valid values: NONE (authentication is not enabled) and API_KEY (API key authentication is used). This operation is successful only when the authentication type is API_KEY. Therefore, a successful response always returns API_KEY.
       shared_ptr<string> authenticationType_ {};
       // The ID of the service endpoint.
       shared_ptr<string> serviceEndpointId_ {};
@@ -188,7 +188,7 @@ namespace Models
   protected:
     // The response code. The value is SUCCESS if the request is successful.
     shared_ptr<string> code_ {};
-    // The active API key information of the service endpoint.
+    // The information about the currently effective API key for the service endpoint.
     shared_ptr<GetServiceEndpointApiKeyResponseBody::Data> data_ {};
     // The HTTP status code. The value is 200 if the request is successful.
     shared_ptr<int32_t> httpStatusCode_ {};

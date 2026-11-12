@@ -76,9 +76,9 @@ namespace Models
 
 
     protected:
-      // The business tags as a JSON-formatted string.
+      // The business tags in JSON format.
       shared_ptr<string> bizTags_ {};
-      // The label mapping as a JSON-formatted string.
+      // The label mapping in JSON format.
       shared_ptr<string> labels_ {};
       // The visibility scope. Valid values: PUBLIC and PRIVATE.
       shared_ptr<string> scope_ {};

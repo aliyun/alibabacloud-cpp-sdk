@@ -127,13 +127,13 @@ namespace Models
 
 
       protected:
-        // HTTP-Redirect or HTTP-POST. Required when manually specified. Queries return the short name.
+        // HTTP-Redirect or HTTP-POST. Required for manual entry. Queries return the short name.
         shared_ptr<string> bindingType_ {};
-        // Required when manually specified. It must be non-empty and no more than 2,048 characters in length. Existing configurations cannot be replaced. This is different from the local Entity ID returned by SP queries.
+        // Required for manual entry. It must be non-empty and up to 2,048 characters in length. It cannot be changed if a configuration already exists. It is different from the local entity ID queried by the SP.
         shared_ptr<string> entityId_ {};
-        // Required when manually specified. It must be an absolute HTTPS URL and cannot contain user credentials or fragments.
+        // Required for manual entry. It must be an absolute HTTPS URL and cannot contain user credentials or fragments.
         shared_ptr<string> loginUrl_ {};
-        // Required when manually specified. It must be a non-empty array using PEM X.509 certificate text. The current validity period is verified. A maximum of two certificates are allowed after deduplication.
+        // Required for manual entry. It must be a non-empty array using PEM X.509 certificate text. The current validity period is verified. A maximum of two certificates are allowed after deduplication.
         shared_ptr<vector<string>> x509Certificates_ {};
       };
 
@@ -193,13 +193,13 @@ namespace Models
 
 
       protected:
-        // HTTP-Redirect or HTTP-POST. Required when manually specified. Queries return the short name.
+        // HTTP-Redirect or HTTP-POST. Required for manual entry. Queries return the short name.
         shared_ptr<string> bindingType_ {};
-        // Required when manually specified. It must be non-empty and no more than 2,048 characters in length. Existing configurations cannot be replaced. This is different from the local Entity ID returned by SP queries.
+        // Required for manual entry. It must be non-empty and up to 2,048 characters in length. It cannot be changed if a configuration already exists. It is different from the local entity ID queried by the SP.
         shared_ptr<string> entityId_ {};
-        // Required when manually specified. It must be an absolute HTTPS URL and cannot contain user credentials or fragments.
+        // Required for manual entry. It must be an absolute HTTPS URL and cannot contain user credentials or fragments.
         shared_ptr<string> loginUrl_ {};
-        // The actual switch value, which is Enabled or Disabled. This is not equivalent to the expected loginEnabled value saved by AC.
+        // The actual switch value, which is Enabled or Disabled. It is not equivalent to the expected loginEnabled value saved by AC.
         shared_ptr<string> ssoStatus_ {};
       };
 
@@ -252,17 +252,17 @@ namespace Models
 
 
     protected:
-      // The actual SAML configuration is read back on demand only by GetIdentityProvider. SCIM queries and preparations return the actual receiving status and URL.
+      // The actual SAML configuration is read back on demand only in GetIdentityProvider. SCIM queries and preparations return the actual receiving status and URL.
       shared_ptr<Data::Configuration> configuration_ {};
       // The type of the external identity provider. Valid values: DingTalk and Feishu.
       shared_ptr<string> identityProviderType_ {};
-      // Only SAML is currently supported. This field may not be returned if no valid configuration is saved. OIDC placeholder initialization is not supported.
+      // Currently, only SAML is supported. This field may not be returned if no valid configuration is saved. OIDC placeholder initialization is not supported.
       shared_ptr<string> protocol_ {};
-      // The input supports either XML or complete manual entry. Queries return the standardized configuration and do not echo the original XML. This field can be omitted if it is not configured.
+      // The input supports either XML or complete manual entry. Queries return the standardized configuration and do not echo the original XML. This field can be omitted if not configured.
       shared_ptr<Data::Saml> saml_ {};
-      // The status. Valid values: CONFIGURED (the configuration is accepted and the system is waiting to activate the user pool), SYNCING (organization members are being synchronized), SYNCED (organization member synchronization is complete), READY (the binding is in effect), SYNC_FAILED (organization member synchronization failed), UPDATING (the configuration is being updated), UPDATE_FAILED (configuration update failed), DISCONNECTING (disconnecting), and DISCONNECT_FAILED (disconnection failed).
+      // The status. CONFIGURED (the configuration is accepted and waiting for the user pool to be activated), SYNCING (synchronizing organization members), SYNCED (organization member synchronization is complete), READY (the binding is in effect), SYNC_FAILED (organization member synchronization failed), UPDATING (updating the configuration), UPDATE_FAILED (configuration update failed), DISCONNECTING (disconnecting), and DISCONNECT_FAILED (disconnection failed).
       shared_ptr<string> status_ {};
-      // The ID of the workspace.
+      // The workspace ID.
       shared_ptr<string> workspaceId_ {};
     };
 
@@ -315,13 +315,13 @@ namespace Models
   protected:
     // The business status code.
     shared_ptr<string> code_ {};
-    // The binding information of the external identity provider after the disconnection operation is accepted.
+    // The external identity provider binding information after the disconnection operation is accepted.
     shared_ptr<DeleteIdentityProviderResponseBody::Data> data_ {};
     // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
-    // The response message. An error description is returned when the request fails.
+    // The response message. Returns an error description when the request fails.
     shared_ptr<string> message_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
     // Indicates whether the request is successful.
     shared_ptr<bool> success_ {};

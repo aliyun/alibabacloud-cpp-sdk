@@ -120,7 +120,7 @@ namespace Models
   protected:
     // The business status code.
     shared_ptr<string> code_ {};
-    // The deletion request result.
+    // The result of the deletion request.
     shared_ptr<DeleteWorkspaceResponseBody::Data> data_ {};
     // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};

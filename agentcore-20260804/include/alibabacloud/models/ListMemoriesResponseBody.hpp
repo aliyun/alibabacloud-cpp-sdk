@@ -121,11 +121,11 @@ namespace Models
 
 
       protected:
-        // The agent ID. The value must be 1 to 128 UTF-8 bytes in length and cannot contain slashes (/) or asterisks (*). This field is not returned if the memory is not associated with an agent ID.
+        // The agent ID. The length is limited to 1 to 128 UTF-8 bytes, and the value cannot contain a forward slash (/) or an asterisk (*). This field is not returned if the memory is not associated with an agent ID.
         shared_ptr<string> agentId_ {};
-        // The session ID. The value must be 1 to 128 UTF-8 bytes in length and cannot contain slashes (/) or asterisks (*). This field is not returned if the memory is not associated with a session ID.
+        // The session ID. The length is limited to 1 to 128 UTF-8 bytes, and the value cannot contain a forward slash (/) or an asterisk (*). This field is not returned if the memory is not associated with a session ID.
         shared_ptr<string> sessionId_ {};
-        // The user ID. The value must be 1 to 128 UTF-8 bytes in length and cannot contain slashes (/) or asterisks (*). This field is not returned if the memory is not associated with a user ID.
+        // The user ID. The length is limited to 1 to 128 UTF-8 bytes, and the value cannot contain a forward slash (/) or an asterisk (*). This field is not returned if the memory is not associated with a user ID.
         shared_ptr<string> userId_ {};
       };
 
@@ -292,7 +292,7 @@ namespace Models
     shared_ptr<string> code_ {};
     // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
-    // The list of memory records.
+    // The memory list.
     shared_ptr<vector<ListMemoriesResponseBody::Items>> items_ {};
     // The maximum number of records per page.
     shared_ptr<int32_t> maxResults_ {};

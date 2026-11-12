@@ -75,15 +75,15 @@ namespace Models
 
 
   protected:
-    // The agent ID. If you do not specify this parameter, all agents are matched. The value must be 1 to 128 UTF-8 bytes in length and cannot contain slashes (/) or asterisks (*).
+    // The agent ID. If you do not specify this parameter, all agents are matched. The length is limited to 1 to 128 UTF-8 bytes, and the value cannot contain a forward slash (/) or an asterisk (*).
     shared_ptr<string> agentId_ {};
     // The maximum number of records per page. Default value: 50. Valid values: 1 to 100.
     shared_ptr<int32_t> maxResults_ {};
     // The pagination token for the next page.
     shared_ptr<string> nextToken_ {};
-    // The session ID. If you do not specify this parameter, all sessions are matched. The value must be 1 to 128 UTF-8 bytes in length and cannot contain slashes (/) or asterisks (*).
+    // The session ID. If you do not specify this parameter, all sessions are matched. The length is limited to 1 to 128 UTF-8 bytes, and the value cannot contain a forward slash (/) or an asterisk (*).
     shared_ptr<string> sessionId_ {};
-    // The user ID. If you do not specify this parameter, all users are matched. The value must be 1 to 128 UTF-8 bytes in length and cannot contain slashes (/) or asterisks (*).
+    // The user ID. If you do not specify this parameter, all users are matched. The length is limited to 1 to 128 UTF-8 bytes, and the value cannot contain a forward slash (/) or an asterisk (*).
     shared_ptr<string> userId_ {};
   };
 

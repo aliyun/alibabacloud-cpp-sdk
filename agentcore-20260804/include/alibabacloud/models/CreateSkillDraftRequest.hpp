@@ -94,7 +94,7 @@ namespace Models
 
 
     protected:
-      // The version to fork from. If you do not specify this parameter, a new skill is created.
+      // The version from which the draft is derived. If you leave this parameter empty, a new skill is created.
       shared_ptr<string> basedOnVersion_ {};
       // The commit message.
       shared_ptr<string> commitMsg_ {};
@@ -104,7 +104,7 @@ namespace Models
       // 
       // This parameter is required.
       shared_ptr<string> skillName_ {};
-      // Specifies the draft version number. If not specified, the version number automatically increments.
+      // The target version number of the draft. If you do not specify this parameter, the version number automatically increments.
       shared_ptr<string> targetVersion_ {};
     };
 

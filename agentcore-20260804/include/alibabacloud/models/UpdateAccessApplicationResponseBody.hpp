@@ -217,7 +217,7 @@ namespace Models
     shared_ptr<UpdateAccessApplicationResponseBody::Data> data_ {};
     // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
-    // The request processing result message.
+    // The message indicating the request processing result.
     shared_ptr<string> message_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

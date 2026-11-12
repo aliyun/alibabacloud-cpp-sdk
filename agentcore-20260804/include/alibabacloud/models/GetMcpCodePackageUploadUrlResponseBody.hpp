@@ -132,13 +132,13 @@ namespace Models
       shared_ptr<string> codePackageToken_ {};
       // The expiration time of the presigned upload URL, in ISO 8601 UTC format.
       shared_ptr<string> expiresAt_ {};
-      // The HTTP request headers, where the key is the header name and the value is the header content.
+      // The HTTP request headers. The key is the header name, and the value is the header content.
       shared_ptr<map<string, string>> headers_ {};
-      // The maximum allowed size of the code package to upload, in bytes.
+      // The maximum allowed size of the code package to be uploaded, in bytes.
       shared_ptr<int64_t> maxSize_ {};
       // The HTTP method used to upload the code package.
       shared_ptr<string> uploadMethod_ {};
-      // The presigned upload URL for the code package.
+      // The presigned upload URL of the code package.
       shared_ptr<string> uploadUrl_ {};
     };
 

@@ -164,9 +164,9 @@ namespace Models
 
 
           protected:
-            // The type of the version selector. Valid values: LABEL (by label) and VERSION (by specific version).
+            // The version selector type. Valid values: LABEL (by tag) and VERSION (by specific version).
             shared_ptr<string> type_ {};
-            // The value of the selector. If the type is LABEL, the value is the label name, such as latest. If the type is VERSION, the value is the specific version number.
+            // The selector value. For LABEL, it is the tag name (such as latest). For VERSION, it is the specific version number.
             shared_ptr<string> value_ {};
           };
 
@@ -198,9 +198,9 @@ namespace Models
         protected:
           // The name.
           shared_ptr<string> name_ {};
-          // The source type of the skill. Valid values: REFERENCE (references the AI Registry) and STATIC (statically provided with the package).
+          // The skill source type. Valid values: REFERENCE (references AI Registry) and STATIC (statically provided with the package).
           shared_ptr<string> sourceType_ {};
-          // The referenced version selector. If omitted, the default value is LABEL/latest.
+          // The referenced version selector. If omitted, the default is LABEL/latest.
           shared_ptr<Skills::VersionSelector> versionSelector_ {};
         };
 
@@ -353,13 +353,13 @@ namespace Models
         shared_ptr<int64_t> downloadCount_ {};
         // The version currently being edited.
         shared_ptr<string> editingVersion_ {};
-        // Indicates whether it is enabled.
+        // Specifies whether it is enabled.
         shared_ptr<bool> enable_ {};
         // The source.
         shared_ptr<string> from_ {};
-        // The version labels.
+        // The version tags.
         shared_ptr<map<string, string>> labels_ {};
-        // The list of referenced MCP servers.
+        // The list of MCP service references.
         shared_ptr<vector<PageItems::McpServers>> mcpServers_ {};
         // The name.
         shared_ptr<string> name_ {};
@@ -369,9 +369,9 @@ namespace Models
         shared_ptr<string> reviewingVersion_ {};
         // The visibility scope.
         shared_ptr<string> scope_ {};
-        // The list of referenced skills.
+        // The list of skill references.
         shared_ptr<vector<PageItems::Skills>> skills_ {};
-        // The update time. The value is a UNIX timestamp in milliseconds.
+        // The update time. It is a UNIX timestamp in milliseconds.
         shared_ptr<int64_t> updateTime_ {};
       };
 

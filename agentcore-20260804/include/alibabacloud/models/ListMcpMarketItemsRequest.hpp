@@ -81,7 +81,7 @@ namespace Models
     shared_ptr<int32_t> maxResults_ {};
     // The MCP type.
     shared_ptr<string> mcpType_ {};
-    // The pagination token used to query the next page.
+    // The pagination token for querying the next page.
     shared_ptr<string> nextToken_ {};
     // The official usage tag.
     shared_ptr<string> officialTag_ {};

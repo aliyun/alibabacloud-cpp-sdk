@@ -38,7 +38,7 @@ namespace Models
 
 
   protected:
-    // The semantic retrieval request.
+    // The semantic search request.
     // 
     // This parameter is required.
     shared_ptr<string> bodyShrink_ {};

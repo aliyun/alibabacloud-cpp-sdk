@@ -178,7 +178,7 @@ namespace Models
 
 
     protected:
-      // The number of API keys configured in the model connection.
+      // The number of API keys configured for the model connection.
       shared_ptr<int32_t> apiKeyCount_ {};
       // The model connection ID.
       shared_ptr<string> connectionId_ {};
@@ -192,13 +192,13 @@ namespace Models
       shared_ptr<string> endpoint_ {};
       // The name of the model connection, which must be 1 to 128 non-whitespace characters in length.
       shared_ptr<string> name_ {};
-      // The model invoke protocol. Currently, only OpenAI/v1 is supported. If the Settings are not specified during model creation, this default value is used.
+      // The model invoke protocol. Currently, only OpenAI/v1 is supported. If Settings are not specified during model creation, this default value is used.
       shared_ptr<string> protocol_ {};
       // The model provider type.
       shared_ptr<string> providerType_ {};
       // The resource status.
       shared_ptr<string> status_ {};
-      // The failure summary returned when the model connection fails to be published, or when deletion fails but the connection remains in the deleting state. This field is empty in other states.
+      // The failure summary returned when the model connection fails to be published, or when deletion fails but the connection remains in the deleting state. This field is empty for other states.
       shared_ptr<string> statusReason_ {};
       // The time when the resource was last updated, in RFC 3339 UTC format.
       shared_ptr<string> updatedAt_ {};
@@ -253,11 +253,11 @@ namespace Models
 
 
   protected:
-    // The business status code. The value is SUCCESS if the request is successful.
+    // The business status code. The value is SUCCESS if the request succeeds.
     shared_ptr<string> code_ {};
     // The updated model connection information.
     shared_ptr<UpdateModelConnectionResponseBody::Data> data_ {};
-    // The HTTP status code. The value is 200 if the request is successful.
+    // The HTTP status code. The value is 200 if the request succeeds.
     shared_ptr<int32_t> httpStatusCode_ {};
     // The message about the request processing result.
     shared_ptr<string> message_ {};

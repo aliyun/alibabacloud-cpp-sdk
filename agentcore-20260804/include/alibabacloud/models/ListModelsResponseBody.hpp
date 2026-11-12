@@ -176,21 +176,21 @@ namespace Models
 
 
       protected:
-        // Specifies whether the model supports audio input or output.
+        // Indicates whether the model supports audio input or output.
         shared_ptr<bool> audio_ {};
-        // Specifies whether the model supports document input.
+        // Indicates whether the model supports document input.
         shared_ptr<bool> document_ {};
         // Specifies whether the model supports multiple tool calls in a single response.
         shared_ptr<bool> multiToolCall_ {};
-        // Specifies whether the model supports reasoning capabilities.
+        // Indicates whether the model supports reasoning capabilities.
         shared_ptr<bool> reasoning_ {};
-        // Specifies whether the model supports streaming tool calling.
+        // Specifies whether the model supports streaming tool calls.
         shared_ptr<bool> streamToolCall_ {};
-        // Specifies whether the model supports tool calling.
+        // Indicates whether the model supports tool calling.
         shared_ptr<bool> toolCall_ {};
-        // Specifies whether the model supports video input.
+        // Indicates whether the model supports video input.
         shared_ptr<bool> video_ {};
-        // Specifies whether the model supports image input.
+        // Indicates whether the model supports image input.
         shared_ptr<bool> vision_ {};
       };
 
@@ -276,9 +276,9 @@ namespace Models
       shared_ptr<string> connectionId_ {};
       // The context window size of the model, in tokens. The value must be a positive integer.
       shared_ptr<int64_t> contextSize_ {};
-      // The time when the resource was created. The time is in the RFC 3339 UTC format.
+      // The time when the resource was created, in RFC 3339 UTC format.
       shared_ptr<string> createdAt_ {};
-      // The model description. The description can be up to 255 characters in length.
+      // The model description, which can be up to 255 characters in length.
       shared_ptr<string> description_ {};
       // The maximum number of output tokens supported by the model per generation.
       shared_ptr<int64_t> maxTokens_ {};
@@ -286,7 +286,7 @@ namespace Models
       shared_ptr<string> modelId_ {};
       // The upstream model name.
       shared_ptr<string> modelName_ {};
-      // The time when the resource was last updated. The time is in the RFC 3339 UTC format.
+      // The time when the resource was last updated, in RFC 3339 UTC format.
       shared_ptr<string> updatedAt_ {};
       // The workspace ID.
       shared_ptr<string> workspaceId_ {};
@@ -361,17 +361,17 @@ namespace Models
 
 
   protected:
-    // The business status code. The value is SUCCESS if the request is successful.
+    // The business status code. A value of SUCCESS indicates success.
     shared_ptr<string> code_ {};
-    // The HTTP status code. The value is 200 if the request is successful.
+    // The HTTP status code. A value of 200 indicates success.
     shared_ptr<int32_t> httpStatusCode_ {};
     // The list of models.
     shared_ptr<vector<ListModelsResponseBody::Items>> items_ {};
-    // The number of entries to return on each page. Valid values: 0 to 100. If this parameter is not specified or is set to 0, the default value is 10.
+    // The maximum number of entries to return per page. Valid values: 0 to 100. If this parameter is not specified or is set to 0, the default value is 10.
     shared_ptr<int32_t> maxResults_ {};
     // The message about the request processing result.
     shared_ptr<string> message_ {};
-    // The pagination token. Specify the token returned from the previous request to retrieve the next page. An empty response indicates that no more pages are available.
+    // The pagination token. Specify the token returned from the previous query. An empty response indicates that no more pages are available.
     shared_ptr<string> nextToken_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

@@ -161,9 +161,9 @@ namespace Models
     protected:
       // The user ID.
       shared_ptr<string> agentCoreUserId_ {};
-      // The authentication method of the user. A value of password indicates that the user is authenticated by using the local password of the workspace. A value of dingtalk or feishu indicates that the user is synchronized and authenticated by the corresponding external identity provider.
+      // The authentication method of the user. A value of password indicates that local password authentication in the workspace is used. A value of dingtalk or feishu indicates that the user is synchronized and authenticated by the corresponding external identity provider.
       shared_ptr<string> authMethod_ {};
-      // The creation time. The time is displayed in UTC and follows the RFC 3339 format.
+      // The creation time in UTC format based on RFC 3339.
       shared_ptr<string> createdAt_ {};
       // The display name of the user. The name must be 1 to 32 characters in length.
       shared_ptr<string> displayName_ {};
@@ -177,7 +177,7 @@ namespace Models
       shared_ptr<string> regionId_ {};
       // The user status. Valid values: Creating, Active, Updating, Deleting, Failed, and DeleteFailed.
       shared_ptr<string> status_ {};
-      // The time when the user was last modified. The time is displayed in UTC and follows the RFC 3339 format.
+      // The last modification time in UTC format based on RFC 3339.
       shared_ptr<string> updatedAt_ {};
       // The workspace ID.
       shared_ptr<string> workspaceId_ {};

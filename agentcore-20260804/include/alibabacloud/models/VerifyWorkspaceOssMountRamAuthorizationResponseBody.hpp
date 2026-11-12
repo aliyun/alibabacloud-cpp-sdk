@@ -67,7 +67,7 @@ namespace Models
 
 
     protected:
-      // The authorization status of the OSS storage.
+      // The OSS storage authorization status.
       shared_ptr<string> authorizationStatus_ {};
     };
 

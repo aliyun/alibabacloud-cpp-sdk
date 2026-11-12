@@ -189,12 +189,9 @@ namespace Models
 
 
         protected:
-          // The name of the HTTP request header used by the session policy. This applies to ISOLATED_HEADER_FIELD.
+          // The name of the HTTP request header used by the session policy, applicable to ISOLATED_HEADER_FIELD.
           shared_ptr<string> headerName_ {};
-          // The session policy type. Valid values:
-          // - AFFINITY: Session affinity.
-          // - ISOLATED_HEADER_FIELD: Uses the request header specified by headerName to associate sessions.
-          // ISOLATED_COOKIE is not recommended. The compatible value DISABLED in a request is returned as AFFINITY.
+          // The session policy type. AFFINITY: session affinity. ISOLATED_HEADER_FIELD: uses the request header specified by headerName to associate sessions. ISOLATED_COOKIE is not recommended. The compatible value DISABLED in the request is returned as AFFINITY.
           // 
           // This parameter is required.
           shared_ptr<string> type_ {};
@@ -275,7 +272,7 @@ namespace Models
           shared_ptr<int32_t> maxSandboxCount_ {};
           // The minimum number of instances in the current configuration.
           shared_ptr<int32_t> minSandboxCount_ {};
-          // The maximum idle time for a session in the current configuration, in seconds.
+          // The maximum idle time of a session in the current configuration, in seconds.
           shared_ptr<int32_t> sessionTtlSeconds_ {};
         };
 
@@ -419,9 +416,9 @@ namespace Models
 
 
         protected:
-          // The purpose description of the current API path.
+          // The description of the current API path.
           shared_ptr<string> description_ {};
-          // The interface path corresponding to the current protocol.
+          // The API path corresponding to the current protocol.
           // 
           // This parameter is required.
           shared_ptr<string> name_ {};
@@ -455,11 +452,11 @@ namespace Models
 
 
       protected:
-        // The request header configuration for the current protocol. The key is the name and the value is a string.
+        // The request header configuration for the current protocol. The key is the header name and the value is a string.
         shared_ptr<map<string, string>> headers_ {};
-        // The list of API paths corresponding to the current protocol.
+        // The list of API paths for the current protocol.
         shared_ptr<vector<Protocol::Paths>> paths_ {};
-        // The invocation protocol type. Valid values:
+        // The invoke protocol type. Valid values:
         // - agui: AG-UI protocol.
         // - openai-chat-completion: OpenAI Chat Completions compatible protocol.
         // - custom: Custom protocol.
@@ -526,11 +523,11 @@ namespace Models
       protected:
         // The name of the mounted OSS bucket.
         shared_ptr<string> bucketName_ {};
-        // The absolute mount path in the container, such as /data/train. Mount targets cannot be duplicated or form parent-child overrides, and must avoid platform reserved directories.
+        // The absolute mount path within the container, such as /data/train. Mount targets cannot be duplicated or form parent-child directory overrides, and must avoid platform reserved directories.
         shared_ptr<string> mountPath_ {};
         // The non-empty relative directory prefix in the currently configured bucket.
         shared_ptr<string> path_ {};
-        // Specifies whether the mount is read-only. A value of true indicates read-only. A value of false indicates read and write.
+        // Specifies whether the mount is read-only. A value of true indicates a read-only mount, and a value of false indicates a read/write mount.
         shared_ptr<bool> readOnly_ {};
       };
 
@@ -615,7 +612,7 @@ namespace Models
 
 
         protected:
-          // Specifies whether the agent is allowed to access the user VPC configured for the workspace. The actual access is still limited by the workspace.
+          // Specifies whether access to the user VPC configured in the workspace is allowed on the agent side. The actual access is still limited by the workspace.
           shared_ptr<bool> enabled_ {};
         };
 
@@ -647,7 +644,7 @@ namespace Models
 
 
         protected:
-          // Specifies whether the agent is allowed to access the Internet. The actual access is still limited by the workspace.
+          // Specifies whether Internet access is allowed on the agent side. The actual access is still limited by the workspace.
           shared_ptr<bool> enabled_ {};
         };
 
@@ -672,9 +669,9 @@ namespace Models
 
 
       protected:
-        // The Internet access configuration of the agent. If this item is not configured, the agent is allowed to access the Internet, but the access is still limited by the workspace.
+        // The Internet access configuration of the agent. If this item is not configured, access is allowed on the agent side, but it is still limited by the workspace.
         shared_ptr<Network::AccessInternet> accessInternet_ {};
-        // The user VPC access configuration of the agent. If this item is not configured, the agent is allowed to access the user VPC, but the access is still limited by the workspace.
+        // The user VPC access configuration of the agent. If this item is not configured, access is allowed on the agent side, but it is still limited by the workspace.
         shared_ptr<Network::AccessVpc> accessVpc_ {};
       };
 
@@ -735,9 +732,9 @@ namespace Models
 
 
         protected:
-          // The name of the SLS Logstore that receives agent logs.
+          // The name of the Simple Log Service Logstore that receives agent logs.
           shared_ptr<string> logstore_ {};
-          // The name of the SLS project that receives agent logs.
+          // The name of the Simple Log Service project that receives agent logs.
           shared_ptr<string> project_ {};
         };
 
@@ -752,7 +749,7 @@ namespace Models
 
 
       protected:
-        // The Simple Log Service (SLS) log delivery destination.
+        // The SLS log delivery destination.
         shared_ptr<Logging::Sls> sls_ {};
       };
 
@@ -803,15 +800,15 @@ namespace Models
 
 
       protected:
-        // The reason code for the waiting or execution failure of the latest configuration. Use this code to determine the subsequent processing method.
+        // The reason code for the waiting or execution failure of the latest configuration, which is used to determine the subsequent processing method. The value is ACRDependencyNotReady when waiting for ACR configuration. Specific failures retain publicly available stable reason codes.
         // 
         // This parameter is required.
         shared_ptr<string> code_ {};
-        // The description of the reason why the latest configuration is waiting or failed to execute. Refer to the code and retryable fields to determine What to do next.
+        // The description of the reason why the latest configuration is waiting or has failed to execute. Refer to code and retryable to determine what to do next.
         // 
         // This parameter is required.
         shared_ptr<string> message_ {};
-        // Specifies whether the operation is automatically retried. If the value is true, you can query again later. If the value is false, check and fix the configuration based on the reason and resubmit.
+        // Specifies whether automatic retries are performed. A value of true indicates that you can query again later. A value of false indicates that you must check and fix the configuration based on the reason before resubmitting.
         // 
         // This parameter is required.
         shared_ptr<bool> retryable_ {};
@@ -855,9 +852,9 @@ namespace Models
 
 
       protected:
-        // The current image preparation phase. Configuration acceptance does not indicate successful deployment.
+        // The phase of the current image preparation. Configuration acceptance does not indicate successful deployment.
         shared_ptr<string> phase_ {};
-        // The ID of the task submitted from the console. This is not the RM operationId.
+        // The task ID submitted from the console for this operation, which is not the RM operation ID.
         shared_ptr<string> preparationId_ {};
       };
 
@@ -908,7 +905,7 @@ namespace Models
 
 
       protected:
-        // The ID of the currently associated cache.
+        // The ID of the cache associated with this request.
         // 
         // This parameter is required.
         shared_ptr<string> imageId_ {};
@@ -1002,7 +999,7 @@ namespace Models
         shared_ptr<int32_t> intervalSeconds_ {};
         // The HTTP health check path.
         shared_ptr<string> path_ {};
-        // The port accessed for the HTTP health check.
+        // The port accessed for HTTP health checks.
         shared_ptr<int32_t> port_ {};
         // The timeout period for a single health check, in seconds.
         shared_ptr<int32_t> timeoutSeconds_ {};
@@ -1088,7 +1085,7 @@ namespace Models
 
 
       protected:
-        // The list of latest submitted environment variables.
+        // The latest submitted list of environment variables.
         shared_ptr<vector<Environment::Variables>> variables_ {};
       };
 
@@ -1173,13 +1170,13 @@ namespace Models
 
 
         protected:
-          // The security group ID. This parameter is required when type is set to vpc, and must belong to the selected VPC.
+          // The vSwitch ID. This field is required when type is vpc. The vSwitch must belong to the selected VPC.
           shared_ptr<string> securityGroupId_ {};
-          // The pull network type. This parameter is required and verified by the backend when pullNetwork is submitted. The default value for new creations is public, which is independent of the agent runtime network.
+          // The pull network type. This field is required when submitting pullNetwork and is validated by the backend. The default value for new creations is public. It is independent of the agent runtime network.
           shared_ptr<string> type_ {};
-          // The security group ID. This parameter is required when type is set to vpc, and must belong to the selected VPC.
+          // The vSwitch ID. This field is required when type is vpc. The vSwitch must belong to the selected VPC.
           shared_ptr<string> vSwitchId_ {};
-          // The VPC ID. This parameter is required when type is set to vpc. The associated account and region are verified by the backend.
+          // The VPC ID. This field is required when type is vpc. The associated account and region are validated by the backend.
           shared_ptr<string> vpcId_ {};
         };
 
@@ -1216,13 +1213,13 @@ namespace Models
 
 
       protected:
-        // The latest saved source address, which may still be in preparation.
+        // The recently saved source address, which may still be in preparation.
         shared_ptr<string> image_ {};
         // The saved dedicated pull network.
         shared_ptr<CustomImage::PullNetwork> pullNetwork_ {};
         // The saved HTTPS certificate exception option.
         shared_ptr<bool> skipTlsVerify_ {};
-        // The verified source username.
+        // The verified username for the source.
         shared_ptr<string> username_ {};
       };
 
@@ -1317,13 +1314,13 @@ namespace Models
 
 
         protected:
-          // The security group ID. This parameter is required when type is set to vpc, and must belong to the selected VPC.
+          // The vSwitch ID. This field is required when type is vpc. The vSwitch must belong to the selected VPC.
           shared_ptr<string> securityGroupId_ {};
-          // The pull network type. This parameter is required and verified by the backend when pullNetwork is submitted. The default value for new creations is public, which is independent of the agent runtime network.
+          // The pull network type. This field is required when submitting pullNetwork and is validated by the backend. The default value for new creations is public. It is independent of the agent runtime network.
           shared_ptr<string> type_ {};
-          // The security group ID. This parameter is required when type is set to vpc, and must belong to the selected VPC.
+          // The vSwitch ID. This field is required when type is vpc. The vSwitch must belong to the selected VPC.
           shared_ptr<string> vSwitchId_ {};
-          // The VPC ID. This parameter is required when type is set to vpc. The associated account and region are verified by the backend.
+          // The VPC ID. This field is required when type is vpc. The associated account and region are validated by the backend.
           shared_ptr<string> vpcId_ {};
         };
 
@@ -1396,17 +1393,17 @@ namespace Models
 
 
       protected:
-        // The original image address for the custom source.
+        // The original image address of the custom source.
         shared_ptr<string> image_ {};
-        // The instance ID for the ACR source.
+        // The instance ID of the ACR source.
         shared_ptr<string> instanceId_ {};
-        // The namespace for the ACR source.
+        // The namespace of the ACR source.
         shared_ptr<string> namespace_ {};
-        // The independent pull network for the custom source.
+        // The dedicated pull network of the custom source.
         shared_ptr<CurrentImage::PullNetwork> pullNetwork_ {};
-        // The repository name from the ACR source.
+        // The repository name of the ACR source.
         shared_ptr<string> repo_ {};
-        // The TLS verification exception option for the custom source.
+        // The certificate exception option of the custom source.
         shared_ptr<bool> skipTlsVerify_ {};
         // The image source type of the current active version.
         shared_ptr<string> sourceType_ {};
@@ -1481,15 +1478,15 @@ namespace Models
 
 
       protected:
-        // The CRC64 checksum of the code package object.
+        // The CRC64 of the code package object.
         shared_ptr<string> crc64_ {};
         // The ETag of the code package object.
         shared_ptr<string> etag_ {};
-        // The original file name of the code package.
+        // The original code package file name.
         shared_ptr<string> fileName_ {};
         // The compressed size of the code package.
         shared_ptr<int64_t> fileSize_ {};
-        // The format of the code package.
+        // The code package format.
         shared_ptr<string> format_ {};
       };
 
@@ -1600,7 +1597,7 @@ namespace Models
           shared_ptr<string> repo_ {};
           // The latest submitted image tag.
           shared_ptr<string> tag_ {};
-          // The image source type. A value of acr indicates an ACR image, and a value of custom indicates a custom image source. For the corresponding source configurations, refer to the descriptions of artifact.container and customImage.
+          // The image source type. acr indicates an ACR image, and custom indicates a custom image source. For the corresponding source configurations, refer to the descriptions of artifact.container and customImage.
           // 
           // This parameter is required.
           shared_ptr<string> type_ {};
@@ -1653,15 +1650,15 @@ namespace Models
 
 
         protected:
-          // The startup command for the code package. This parameter is required in code package mode. The working directory is the root directory of the decompressed code, /code, such as python main.py. Quotes and escapes are supported. Environment variables, pipelines, and logical operations are not automatically expanded. For complex commands, use a script in the package.
+          // The startup command for the code package. This parameter is required in code package mode. The working directory is the extracted code root directory /code, such as python main.py. Quotes and escapes are supported. Environment variables, pipes, and logical operations are not automatically expanded. Use scripts within the package for complex commands.
           // 
           // This parameter is required.
           shared_ptr<string> entrypoint_ {};
-          // The identifier of the code runtime environment for the currently saved configuration. The runtime image uses the saved snapshot. Adding a new version to the directory does not automatically change the existing configuration.
+          // The code runtime environment identifier of the currently saved configuration. The runtime image uses a saved snapshot. Adding a new version to the directory does not automatically change the existing configuration.
           // 
           // This parameter is required.
           shared_ptr<string> languageRuntime_ {};
-          // The fixed oss:// address of the code package referenced by the currently saved configuration on the platform. This address does not include the signature parameters of the source HTTPS link. You can use this address to reuse an existing code package. To download the content, call GetAgentCodePackageDownloadUrl.
+          // The fixed oss:// address of the code package referenced by the currently saved configuration, excluding the signature parameters of the source HTTPS link. This can be used to reuse an existing code package. To download the content, call GetAgentCodePackageDownloadUrl.
           // 
           // This parameter is required.
           shared_ptr<string> sourceUri_ {};
@@ -1695,7 +1692,7 @@ namespace Models
 
 
       protected:
-        // The code package deployment configuration. This parameter is mutually exclusive with container. The code package uses the ZIP or TAR.GZ format. Dependencies must be packaged by the user. The platform does not install dependencies or perform online builds.
+        // The code package deployment configuration, which is mutually exclusive with container. The code package uses the ZIP or TAR.GZ format. Dependencies are packaged by the user, and the platform does not install dependencies or build online.
         shared_ptr<Artifact::Code> code_ {};
         // The latest submitted ACR container image configuration.
         shared_ptr<Artifact::Container> container_ {};
@@ -1761,13 +1758,13 @@ namespace Models
 
 
       protected:
-        // The absolute mount path in the container, such as /data/train. Mount targets cannot be duplicated or form parent-child overrides, and must avoid platform reserved directories.
+        // The absolute mount path within the container, such as /data/train. Mount targets cannot be duplicated or form parent-child directory overrides, and must avoid platform reserved directories.
         shared_ptr<string> mountPath_ {};
         // The relative directory within the mounted access point.
         shared_ptr<string> path_ {};
-        // Specifies whether the mount is read-only. A value of true indicates read-only. A value of false indicates read and write.
+        // Specifies whether the mount is read-only. A value of true indicates a read-only mount, and a value of false indicates a read/write mount.
         shared_ptr<bool> readOnly_ {};
-        // The domain name of the AgenticFS access point used for the mount.
+        // The AgenticFS access point domain name used for mounting.
         shared_ptr<string> server_ {};
       };
 
@@ -2059,7 +2056,7 @@ namespace Models
 
 
     protected:
-      // The inbound access method.
+      // The inbound access mode.
       shared_ptr<string> accessMode_ {};
       // The user access scope.
       shared_ptr<string> accessScope_ {};
@@ -2069,51 +2066,45 @@ namespace Models
       shared_ptr<string> agentId_ {};
       // The NAS storage mount configuration. Currently, only the AgenticFS type is supported, which is used to mount file directories in access points to agent runtime instances. This represents the latest submitted NAS mounts.
       shared_ptr<vector<Data::AgenticFsMounts>> agenticFsMounts_ {};
-      // The latest submitted deployment artifact configuration, including the service listening port and ACR container image. To check whether the configuration has taken effect, refer to latestVersionStatus.
+      // The latest submitted deployment artifact configuration, including the service listening port and ACR container image. To check whether it has taken effect, refer to latestVersionStatus.
       shared_ptr<Data::Artifact> artifact_ {};
       // The currently saved code package information.
       shared_ptr<Data::CodePackageInfo> codePackageInfo_ {};
-      // The creation method of the agent. For custom code or image agents, the value is CUSTOM.
+      // The creation method of the agent. The value is CUSTOM for custom code or image agents.
       shared_ptr<string> createMode_ {};
-      // The creation time of the agent. The time is in ISO 8601 format. The trailing Z indicates the UTC time zone. Fractional seconds may be included.
+      // The time when the agent was created. The time is in ISO 8601 format. A trailing Z indicates the UTC time zone. Fractional seconds may be included.
       shared_ptr<string> createdAt_ {};
-      // The image source snapshot of the current effective configuration version. This value is null before the initial configuration takes effect and does not represent the health status.
+      // The image source snapshot of the current active configuration version. This value is null before the initial configuration takes effect and does not represent the health status.
       shared_ptr<Data::CurrentImage> currentImage_ {};
       // The recently saved source and the verified username for the source. The source may be in preparation or failed. The password is not returned.
       shared_ptr<Data::CustomImage> customImage_ {};
-      // The deployment method of the agent. For custom code or image agents deployed and managed by the platform, MANAGED is returned.
+      // The deployment method of the agent. Custom code or image agents are deployed and managed by the platform, and the value is MANAGED.
       shared_ptr<string> deployType_ {};
-      // The description of the agent\\"s purpose.
+      // The description of the agent.
       shared_ptr<string> description_ {};
-      // The active configuration version.
+      // The effective configuration version.
       // 
       // This parameter is required.
       shared_ptr<int64_t> effectiveSpecVersion_ {};
-      // The environment variable configuration for the agent process.
+      // The environment variable configuration of the agent process.
       shared_ptr<Data::Environment> environment_ {};
-      // The HTTP health check configuration for the agent. This field is empty if not configured.
+      // The HTTP health check configuration of the agent. Empty if not configured.
       shared_ptr<Data::HealthCheck> healthCheck_ {};
       // The ID of the currently associated image cache.
       // 
       // This parameter is required.
       shared_ptr<string> imageCacheId_ {};
-      // The acceptance summary of the current cache preparation.
+      // The summary of the acceptance for the current image cache preparation.
       shared_ptr<Data::ImageCachePreparation> imageCachePreparation_ {};
-      // The currently associated image preparation task. The phase serves as an acceptance prompt. Query the preparation interface for real-time progress. A normal save does not create an image preparation task.
+      // The currently associated image preparation task. The phase indicates the acceptance status. Query the preparation API for real-time progress. A standard save operation does not create an image preparation task.
       shared_ptr<Data::ImagePreparation> imagePreparation_ {};
-      // The waiting or execution error of the latest configuration version. This is returned only when the version is waiting for a retry or fails to execute.
+      // The waiting or execution error of the latest configuration version. This field is returned only when the version is waiting for a retry or fails to execute.
       shared_ptr<Data::LatestExecutionError> latestExecutionError_ {};
       // The latest configuration version number. Updates with the same configuration may retain the original version number. This field does not indicate that the configuration has taken effect.
       // 
       // This parameter is required.
       shared_ptr<int64_t> latestSpecVersion_ {};
-      // The execution status corresponding to the latestSpecVersion. Valid values:
-      // - pending: Waiting for execution.
-      // - processing: Executing.
-      // - waiting_retry: Waiting for a retry.
-      // - succeeded: Execution succeeded.
-      // - failed: Execution failed.
-      // - superseded: Superseded by a subsequent version.
+      // The execution status corresponding to latestSpecVersion. Valid values: pending, processing, waiting_retry, succeeded, failed, and superseded.
       shared_ptr<string> latestVersionStatus_ {};
       // The latest submitted log delivery configuration.
       shared_ptr<Data::Logging> logging_ {};
@@ -2121,11 +2112,11 @@ namespace Models
       // 
       // This parameter is required.
       shared_ptr<string> name_ {};
-      // The network access configuration of the agent. The actual access scope is also limited by the network configuration of the workspace.
+      // The network access configuration of the agent. The actual access scope is also limited by the workspace network configuration.
       shared_ptr<Data::Network> network_ {};
-      // The observability configuration for the high-code agent.
+      // The high-code agent observability configuration.
       shared_ptr<Data::Observability> observability_ {};
-      // The latest submitted list of OSS directory mounts.
+      // The list of recently submitted OSS directory mounts.
       shared_ptr<vector<Data::OssMounts>> ossMounts_ {};
       // The list of invocation protocol configurations for the agent.
       shared_ptr<vector<Data::Protocol>> protocol_ {};
@@ -2135,13 +2126,13 @@ namespace Models
       shared_ptr<string> roleArn_ {};
       // The latest committed runtime configuration, including compute specifications, session policy, and elastic policy.
       shared_ptr<Data::Runtime> runtime_ {};
-      // The number of instances by sandbox phase. Keys include PENDING (creating or initializing), RUNNING (running), HIBERNATING (hibernating), HIBERNATED (hibernated), RESUMING (resuming), TERMINATING (terminating), and FAILED (failed). Only phases that actually occur are returned, and missing keys are treated as 0.
+      // The count of instances by runtime phase. Valid keys include PENDING (creating or initializing), RUNNING (running), HIBERNATING (hibernating), HIBERNATED (hibernated), RESUMING (resuming), TERMINATING (terminating), and FAILED (failed). Only phases that actually occur are returned. Missing keys are treated as 0.
       shared_ptr<map<string, int64_t>> sandboxPhaseCounts_ {};
-      // The overall status of the agent. Valid values: Creating (the agent is being created), Running (the agent is running), Failed (the agent failed), Updating (the agent is being updated), Deleting (the agent is being deleted), and Deleted (the agent is deleted). To check the execution progress of the latest configuration, query latestVersionStatus.
+      // The overall status of the agent. Valid values: Creating, Running, Failed, Updating, Deleting, and Deleted. To check the execution progress of the latest configuration, query latestVersionStatus.
       // 
       // This parameter is required.
       shared_ptr<string> status_ {};
-      // The time when the agent was last updated, in ISO 8601 format. The trailing Z indicates the UTC time zone, and fractional seconds may be included.
+      // The time when the agent was last updated. The time is in ISO 8601 format. A trailing Z indicates the UTC time zone. Fractional seconds may be included.
       shared_ptr<string> updatedAt_ {};
       // Specifies whether the image cache is enabled.
       // 
@@ -2200,27 +2191,27 @@ namespace Models
 
 
   protected:
-    // The request result code. The value is SUCCESS if the request is successful.
+    // The result code of the request. The value is SUCCESS if the request succeeds.
     // 
     // This parameter is required.
     shared_ptr<string> code_ {};
-    // The latest submitted configuration and status of the custom code or image agent. A successful response indicates that the request is accepted, but the configuration may not have taken effect yet.
+    // The latest submitted configuration and status of the custom code or image agent. A successful response indicates that the request is accepted, but the configuration may not have taken effect.
     // 
     // This parameter is required.
     shared_ptr<CreateCustomAgentResponseBody::Data> data_ {};
-    // The HTTP status code of the request. A value of 200 indicates success.
+    // The HTTP status code of the request. The value is 200 if the request succeeds.
     // 
     // This parameter is required.
     shared_ptr<int32_t> httpStatusCode_ {};
-    // The result message of the request. The value is success if the request is successful.
+    // The message that describes the processing result of the request. The value is success if the request succeeds.
     // 
     // This parameter is required.
     shared_ptr<string> message_ {};
-    // The unique identifier of the request, which is used to locate and troubleshoot issues.
+    // The unique identifier of the request, used to locate and troubleshoot issues.
     // 
     // This parameter is required.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request was successful. A value of true indicates success. A successful creation, update, or deletion does not mean that the background operation is complete.
+    // Indicates whether the request was processed successfully. A value of true indicates that the request was processed successfully. However, a successful creation, update, or deletion does not mean that the backend operation is complete.
     // 
     // This parameter is required.
     shared_ptr<bool> success_ {};

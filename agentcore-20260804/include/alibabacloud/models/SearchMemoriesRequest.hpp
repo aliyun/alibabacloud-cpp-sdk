@@ -108,11 +108,11 @@ namespace Models
 
 
       protected:
-        // The agent ID. The ID must be 1 to 128 bytes in length and encoded in UTF-8. The ID cannot contain forward slashes (/) or asterisks (*). If the memory is not associated with an agent ID, this field is not returned.
+        // The agent ID. The length is limited to 1 to 128 UTF-8 bytes. The value cannot contain a forward slash (/) or an asterisk (*). This field is not returned if the memory is not associated with an agent ID.
         shared_ptr<string> agentId_ {};
-        // The session ID. The ID must be 1 to 128 bytes in length and encoded in UTF-8. The ID cannot contain forward slashes (/) or asterisks (*). If the memory is not associated with a session ID, this field is not returned.
+        // The session ID. The length is limited to 1 to 128 UTF-8 bytes. The value cannot contain a forward slash (/) or an asterisk (*). This field is not returned if the memory is not associated with a session ID.
         shared_ptr<string> sessionId_ {};
-        // The user ID. The ID must be 1 to 128 bytes in length and encoded in UTF-8. The ID cannot contain forward slashes (/) or asterisks (*). If the memory is not associated with a user ID, this field is not returned.
+        // The user ID. The length is limited to 1 to 128 UTF-8 bytes. The value cannot contain a forward slash (/) or an asterisk (*). This field is not returned if the memory is not associated with a user ID.
         shared_ptr<string> userId_ {};
       };
 
@@ -175,19 +175,19 @@ namespace Models
     protected:
       // Specifies whether to enable reranking. Default value: true.
       shared_ptr<bool> enableRerank_ {};
-      // The string key-value metadata for exact match. A maximum of 16 keys are supported. Each key can be up to 64 characters in length, and each value can be up to 1,024 characters in length.
+      // The string key-value metadata for exact matching. You can specify up to 16 keys. The maximum length of a key is 64 characters, and the maximum length of a value is 1,024 characters.
       shared_ptr<map<string, string>> metadata_ {};
       // The minimum relevance score. Valid values: 0 to 1. Default value: 0.2. If both minScore and minSimilarity are specified, the AND logic is applied for filtering.
       shared_ptr<float> minScore_ {};
-      // The minimum similarity. Valid values: 0 to 1. Default value: 0.3. If both minScore and minSimilarity are specified, the AND logic is applied for filtering.
+      // The minimum similarity. Valid values: 0 to 1. Default value: 0.3. If both minSimilarity and minScore are specified, the AND logic is applied for filtering.
       shared_ptr<float> minSimilarity_ {};
-      // The query text. The text can be up to 8,192 characters in length.
+      // The query text. The maximum length is 8,192 characters.
       // 
       // This parameter is required.
       shared_ptr<string> query_ {};
-      // The retrieval scope. UserId, AgentId, and SessionId are all optional.
+      // The search scope. UserId, AgentId, and SessionId are all optional.
       shared_ptr<Body::Scope> scope_ {};
-      // The number of returned results.
+      // The number of results to return.
       shared_ptr<int32_t> topK_ {};
     };
 
@@ -202,7 +202,7 @@ namespace Models
 
 
   protected:
-    // The semantic retrieval request.
+    // The semantic search request.
     // 
     // This parameter is required.
     shared_ptr<SearchMemoriesRequest::Body> body_ {};

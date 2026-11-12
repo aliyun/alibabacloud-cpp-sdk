@@ -176,7 +176,7 @@ namespace Models
     shared_ptr<int32_t> httpStatusCode_ {};
     // The list of active sessions for the sandbox.
     shared_ptr<vector<ListSandboxSessionsResponseBody::Items>> items_ {};
-    // The maximum number of records per page for the current query.
+    // The maximum number of records per page for this query.
     shared_ptr<int32_t> maxResults_ {};
     // The response message. The value is success if the request is successful.
     shared_ptr<string> message_ {};
@@ -184,7 +184,7 @@ namespace Models
     shared_ptr<string> nextToken_ {};
     // The request ID, which is used to locate and troubleshoot issues.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request is successful. A value of true indicates that the request is successful. A value of false indicates that the request fails.
+    // Indicates whether the request is successful. A value of true indicates success, and a value of false indicates failure.
     shared_ptr<bool> success_ {};
     // The total number of records that meet the query conditions.
     shared_ptr<int64_t> totalCount_ {};

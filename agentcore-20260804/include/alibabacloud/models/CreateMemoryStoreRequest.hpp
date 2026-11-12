@@ -78,11 +78,11 @@ namespace Models
 
 
     protected:
-      // The description of the MemoryStore, up to 1,024 characters.
+      // The description of the memory store. The description can be up to 1,024 characters in length.
       shared_ptr<string> description_ {};
-      // The custom extraction instructions, up to 4,096 characters.
+      // The custom extraction instructions. The instructions can be up to 4,096 characters in length.
       shared_ptr<string> extractInstructions_ {};
-      // The name of the MemoryStore. The name must be 1 to 64 characters in length and can contain only lowercase letters, digits, and hyphens (-). The name cannot be modified after creation.
+      // The name of the memory store. The name must be 1 to 64 characters in length and can contain only lowercase letters, digits, and hyphens (-). The name cannot be modified after creation.
       // 
       // This parameter is required.
       shared_ptr<string> memoryStoreName_ {};
@@ -107,7 +107,7 @@ namespace Models
 
 
   protected:
-    // The MemoryStore creation request.
+    // The request to create a memory store.
     // 
     // This parameter is required.
     shared_ptr<CreateMemoryStoreRequest::Body> body_ {};

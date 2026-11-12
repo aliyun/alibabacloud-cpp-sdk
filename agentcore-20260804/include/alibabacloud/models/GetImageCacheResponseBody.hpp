@@ -122,7 +122,7 @@ namespace Models
 
 
       protected:
-        // The error code for the creation failure.
+        // The error code for creation failure.
         // 
         // This parameter is required.
         shared_ptr<string> code_ {};
@@ -253,11 +253,11 @@ namespace Models
       // 
       // This parameter is required.
       shared_ptr<bool> canDelete_ {};
-      // The resource creation time. It uses the RFC 3339 format. The Z at the end of the example indicates the UTC time zone.
+      // The resource creation time. The format is RFC 3339. The Z at the end of the example indicates the UTC time zone.
       // 
       // This parameter is required.
       shared_ptr<string> createdAt_ {};
-      // The reason why deletion is blocked.
+      // The reason for blocking deletion.
       // 
       // This parameter is required.
       shared_ptr<string> deleteBlockReason_ {};
@@ -265,7 +265,7 @@ namespace Models
       // 
       // This parameter is required.
       shared_ptr<string> digest_ {};
-      // The reason for the cache failure.
+      // The cache failure reason.
       // 
       // This parameter is required.
       shared_ptr<Data::Error> error_ {};
@@ -346,7 +346,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> code_ {};
-    // The query result for the image cache details.
+    // The image cache details.
     // 
     // This parameter is required.
     shared_ptr<GetImageCacheResponseBody::Data> data_ {};
@@ -358,11 +358,11 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> message_ {};
-    // The request ID, which is used for troubleshooting.
+    // The request ID, used for troubleshooting.
     // 
     // This parameter is required.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request is successful. This does not mean that the cache creation is completed.
+    // Indicates whether the request is successful. This does not mean that the cache creation is complete.
     // 
     // This parameter is required.
     shared_ptr<bool> success_ {};

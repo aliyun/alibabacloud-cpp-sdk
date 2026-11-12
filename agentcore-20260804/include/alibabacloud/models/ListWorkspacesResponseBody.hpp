@@ -183,11 +183,11 @@ namespace Models
 
 
       protected:
-        // Indicates whether public egress access from the platform is allowed. The value returned is the target configuration value. Updating indicates that the change is in progress, and UpdateFailed indicates that the change failed. This setting only controls whether the latest versions of managed and custom agents use the public egress of the platform. It does not control fixed historical versions, model or MCP proxy egress, or the public egress of the user VPC.
+        // Returns the target configuration value. Updating indicates that the change is still being executed, and UpdateFailed indicates that the current change failed. This parameter only controls whether the latest versions of managed and custom agents use the public network egress of the platform. It does not control fixed historical versions, model or MCP proxy egresses, or the public network egress of the user VPC.
         shared_ptr<bool> publicEgressEnabled_ {};
-        // Indicates whether public ingress access is allowed. The value returned is the target configuration value. Updating indicates that the change is in progress, and UpdateFailed indicates that the change failed. If disabled, the public ingress for all agent endpoints in the workspace is closed. If re-enabled, the original public ingress is restored. INNER_DIRECT and user VPC ingress are not affected. Collaboration and Element Web ingress are not controlled by this setting.
+        // Returns the target configuration value. Updating indicates that the change is in progress, and UpdateFailed indicates that the change failed. After this feature is disabled, the public network ingress of all agent endpoints in the workspace is closed. After it is re-enabled, the original public network ingress is restored. INNER_DIRECT and user VPC ingresses are not affected. Collaboration and Element Web ingresses are not controlled by this parameter.
         shared_ptr<bool> publicIngressEnabled_ {};
-        // The network configuration of the user VPC.
+        // The VPC network configuration of the user.
         shared_ptr<NetworkConfiguration::Vpc> vpc_ {};
       };
 
@@ -246,7 +246,7 @@ namespace Models
 
 
     protected:
-      // The creation time. The time is in RFC 3339 format. The Z at the end of the example indicates the UTC time zone.
+      // The creation time. The time follows the RFC 3339 format. The Z at the end of the example indicates the UTC time zone.
       shared_ptr<string> createTime_ {};
       // The workspace name.
       shared_ptr<string> name_ {};
@@ -335,9 +335,9 @@ namespace Models
     shared_ptr<string> code_ {};
     // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
-    // The workspace list.
+    // The list of workspaces.
     shared_ptr<vector<ListWorkspacesResponseBody::Items>> items_ {};
-    // The maximum number of records per page used in the current request.
+    // The maximum number of records per page used in this request.
     shared_ptr<int32_t> maxResults_ {};
     // The response message.
     shared_ptr<string> message_ {};
@@ -347,7 +347,7 @@ namespace Models
     shared_ptr<string> requestId_ {};
     // Indicates whether the request is successful.
     shared_ptr<bool> success_ {};
-    // The total number of workspaces that match the query conditions.
+    // The total number of workspaces that meet the query conditions.
     shared_ptr<int32_t> totalCount_ {};
   };
 

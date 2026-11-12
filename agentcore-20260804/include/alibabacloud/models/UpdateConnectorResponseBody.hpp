@@ -108,11 +108,11 @@ namespace Models
       shared_ptr<int64_t> boundAgentCount_ {};
       // The time when the connector was enabled.
       shared_ptr<string> enabledAt_ {};
-      // The updated JSON string for the connector configuration. This is sensitive information.
+      // The updated JSON string of the connector configuration. This is sensitive information.
       shared_ptr<string> metadata_ {};
-      // The name of the connector. Currently, the value is qodercli.
+      // The connector name. Currently, the value is qodercli.
       shared_ptr<string> name_ {};
-      // The status of the connector.
+      // The connector status.
       shared_ptr<string> status_ {};
     };
 

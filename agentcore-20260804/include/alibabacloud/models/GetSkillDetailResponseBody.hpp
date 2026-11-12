@@ -197,23 +197,23 @@ namespace Models
 
 
       protected:
-        // The version author.
+        // The author of the version.
         shared_ptr<string> author_ {};
         // The commit message.
         shared_ptr<string> commitMsg_ {};
-        // The MD5 checksum of the skill content package for this version, which is used to verify content consistency.
+        // The MD5 checksum of the skill content package for this version, used to verify content consistency.
         shared_ptr<string> contentMd5_ {};
-        // The creation time. It is a UNIX timestamp in milliseconds.
+        // The creation time. The value is a UNIX timestamp in milliseconds.
         shared_ptr<int64_t> createTime_ {};
         // The description.
         shared_ptr<string> description_ {};
         // The number of downloads.
         shared_ptr<int64_t> downloadCount_ {};
-        // The publish pipeline information.
+        // The release pipeline information.
         shared_ptr<string> publishPipelineInfo_ {};
         // The status.
         shared_ptr<string> status_ {};
-        // The update time. It is a UNIX timestamp in milliseconds.
+        // The update time. The value is a UNIX timestamp in milliseconds.
         shared_ptr<int64_t> updateTime_ {};
         // The version number.
         shared_ptr<string> version_ {};
@@ -361,17 +361,17 @@ namespace Models
       shared_ptr<string> description_ {};
       // The total number of downloads.
       shared_ptr<int64_t> downloadCount_ {};
-      // The draft pattern. A value of HEAD indicates that the skill has a persistent draft, and a value of VERSIONED indicates that a draft with a version number is created for each edit. This is determined by the server, and the client uses this value to invoke routing for What to do next.
+      // The draft pattern. A value of HEAD indicates that the skill has a persistent draft. A value of VERSIONED indicates that each edit creates a draft with a version number. This pattern is determined by the server, and the client uses it for routing What to do next when they invoke the API.
       shared_ptr<string> draftMode_ {};
-      // Specifies whether the root data is editable.
+      // Indicates whether the root data is editable.
       shared_ptr<bool> editable_ {};
       // The version being edited.
       shared_ptr<string> editingVersion_ {};
-      // Specifies whether the skill is enabled.
+      // Indicates whether the skill is enabled.
       shared_ptr<bool> enable_ {};
       // The source tag.
       shared_ptr<string> from_ {};
-      // The label mapping.
+      // The tag mapping.
       shared_ptr<map<string, string>> labels_ {};
       // The name.
       shared_ptr<string> name_ {};
@@ -383,13 +383,13 @@ namespace Models
       shared_ptr<string> reviewingVersion_ {};
       // The visibility scope.
       shared_ptr<string> scope_ {};
-      // The update time. It is a UNIX timestamp in milliseconds.
+      // The update time. The value is a UNIX timestamp in milliseconds.
       shared_ptr<int64_t> updateTime_ {};
       // The list of all version summaries.
       shared_ptr<vector<Data::Versions>> versions_ {};
       // The workspace ID.
       shared_ptr<string> workspaceId_ {};
-      // Specifies whether the current user has write permissions.
+      // Indicates whether the current user has write permissions.
       shared_ptr<bool> writeable_ {};
     };
 
@@ -412,7 +412,7 @@ namespace Models
 
 
   protected:
-    // The returned data.
+    // The response data.
     shared_ptr<GetSkillDetailResponseBody::Data> data_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

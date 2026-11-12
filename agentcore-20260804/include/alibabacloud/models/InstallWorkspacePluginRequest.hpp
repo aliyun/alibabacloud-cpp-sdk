@@ -140,13 +140,13 @@ namespace Models
 
 
           protected:
-            // Explicitly controls whether the collaboration component uses a VPC network. If this parameter is set to false, vpcId and vSwitchIds are ignored. If this parameter is set to true, you must provide a vpcId and at least two vSwitchIds.
+            // Explicitly specifies whether the collaboration component uses the VPC network. If set to false, vpcId and vSwitchIds are ignored. If set to true, you must provide both vpcId and at least two vSwitchIds.
             shared_ptr<bool> enabled_ {};
             // The list of vSwitch IDs. The collaboration component requires that the vSwitches cover at least two different zones, and all vSwitches must belong to the VPC specified by vpcId.
             // 
             // This parameter is required.
             shared_ptr<vector<string>> vSwitchIds_ {};
-            // The ID of the user VPC.
+            // The user VPC ID.
             // 
             // This parameter is required.
             shared_ptr<string> vpcId_ {};
@@ -180,7 +180,7 @@ namespace Models
 
 
           protected:
-            // Specifies whether to enable Internet access. If this parameter is set to true and no VPC is specified, PUB_NET is used. If this parameter is set to true and a VPC is specified, PRIVATE_PUBNET is used. If only a VPC is specified, PRIVATE_NET is used. You must configure at least one of Internet access and VPC access.
+            // If set to true and no VPC is specified, PUB_NET is used. If set to true and a VPC is specified, PRIVATE_PUBNET is used. If only a VPC is specified, PRIVATE_NET is used. You must configure at least one of Internet access and VPC.
             shared_ptr<bool> enabled_ {};
           };
 
@@ -207,7 +207,7 @@ namespace Models
         protected:
           // Specifies whether the collaboration component is allowed to access the public network. This configuration only controls the public network access capability and does not expose the component service to the public network.
           shared_ptr<Network::Internet> internet_ {};
-          // The user VPC and the list of vSwitches used to deploy the collaboration component. The zones corresponding to the vSwitches are queried by the server. You do not need to pass the Zones parameter.
+          // The user VPC and the list of vSwitches used to deploy the collaboration component. The zones corresponding to the vSwitches are queried by the server, so you do not need to specify the zones.
           shared_ptr<Network::Vpc> vpc_ {};
         };
 

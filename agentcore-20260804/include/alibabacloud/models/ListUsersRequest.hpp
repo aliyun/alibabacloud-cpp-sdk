@@ -83,7 +83,7 @@ namespace Models
     shared_ptr<string> name_ {};
     // The filter condition for fuzzy match on the username. The value can be up to 128 characters in length.
     shared_ptr<string> nameLike_ {};
-    // The cursor for querying the next page. Do not specify this parameter in the first call. Specify the nextToken value returned in the previous call for subsequent calls.
+    // The cursor for querying the next page. Do not specify this parameter for the first call. For subsequent calls, specify the nextToken value returned from the previous call.
     shared_ptr<string> nextToken_ {};
   };
 

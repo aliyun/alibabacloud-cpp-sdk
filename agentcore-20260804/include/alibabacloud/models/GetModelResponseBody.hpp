@@ -175,7 +175,7 @@ namespace Models
         shared_ptr<bool> audio_ {};
         // Indicates whether the model supports document input.
         shared_ptr<bool> document_ {};
-        // Indicates whether the model is able to invoke multiple tool calling operations in a single response.
+        // Specifies whether the model is able to invoke multiple tool calling operations in a single response.
         shared_ptr<bool> multiToolCall_ {};
         // Indicates whether the model supports reasoning capabilities.
         shared_ptr<bool> reasoning_ {};
@@ -278,9 +278,9 @@ namespace Models
       shared_ptr<string> connectionId_ {};
       // The context window size of the model, in tokens. The value must be a positive integer.
       shared_ptr<int64_t> contextSize_ {};
-      // The creation time of the resource, in RFC 3339 UTC format.
+      // The time when the resource was created, in RFC 3339 UTC format.
       shared_ptr<string> createdAt_ {};
-      // The model description. The maximum length is 255 characters.
+      // The model description, which can be up to 255 characters in length.
       shared_ptr<string> description_ {};
       // The maximum number of output tokens supported by the model in a single generation.
       shared_ptr<int64_t> maxTokens_ {};
@@ -290,7 +290,7 @@ namespace Models
       shared_ptr<string> modelName_ {};
       // The ID of the region to which the resource belongs.
       shared_ptr<string> regionId_ {};
-      // The last update time of the resource, in RFC 3339 UTC format.
+      // The time when the resource was last updated, in RFC 3339 UTC format.
       shared_ptr<string> updatedAt_ {};
       // The workspace ID.
       shared_ptr<string> workspaceId_ {};
@@ -349,7 +349,7 @@ namespace Models
     shared_ptr<GetModelResponseBody::Data> data_ {};
     // The HTTP status code. A value of 200 indicates success.
     shared_ptr<int32_t> httpStatusCode_ {};
-    // The message indicating the request processing result.
+    // The message about the request processing result.
     shared_ptr<string> message_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

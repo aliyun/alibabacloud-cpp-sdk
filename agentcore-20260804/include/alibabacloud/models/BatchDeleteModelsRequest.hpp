@@ -89,7 +89,7 @@ namespace Models
   protected:
     // The request body.
     shared_ptr<BatchDeleteModelsRequest::Body> body_ {};
-    // The client token used to ensure idempotence. This parameter is not supported.
+    // The client token used for idempotence. This parameter is not supported.
     shared_ptr<string> clientToken_ {};
   };
 
