@@ -1,0 +1,52 @@
+// This file is auto-generated, don't edit it. Thanks.
+#ifndef ALIBABACLOUD_MODELS_LISTREGIONSREQUEST_HPP_
+#define ALIBABACLOUD_MODELS_LISTREGIONSREQUEST_HPP_
+#include <darabonba/Core.hpp>
+using namespace std;
+using json = nlohmann::json;
+namespace AlibabaCloud
+{
+namespace SWASOPEN20200601
+{
+namespace Models
+{
+  class ListRegionsRequest : public Darabonba::Model {
+  public:
+    friend void to_json(Darabonba::Json& j, const ListRegionsRequest& obj) { 
+      DARABONBA_PTR_TO_JSON(AcceptLanguage, acceptLanguage_);
+    };
+    friend void from_json(const Darabonba::Json& j, ListRegionsRequest& obj) { 
+      DARABONBA_PTR_FROM_JSON(AcceptLanguage, acceptLanguage_);
+    };
+    ListRegionsRequest() = default ;
+    ListRegionsRequest(const ListRegionsRequest &) = default ;
+    ListRegionsRequest(ListRegionsRequest &&) = default ;
+    ListRegionsRequest(const Darabonba::Json & obj) { from_json(obj, *this); };
+    virtual ~ListRegionsRequest() = default ;
+    ListRegionsRequest& operator=(const ListRegionsRequest &) = default ;
+    ListRegionsRequest& operator=(ListRegionsRequest &&) = default ;
+    virtual void validate() const override {
+    };
+    virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+    virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+    virtual bool empty() const override { return this->acceptLanguage_ == nullptr; };
+    // acceptLanguage Field Functions 
+    bool hasAcceptLanguage() const { return this->acceptLanguage_ != nullptr;};
+    void deleteAcceptLanguage() { this->acceptLanguage_ = nullptr;};
+    inline string getAcceptLanguage() const { DARABONBA_PTR_GET_DEFAULT(acceptLanguage_, "") };
+    inline ListRegionsRequest& setAcceptLanguage(string acceptLanguage) { DARABONBA_PTR_SET_VALUE(acceptLanguage_, acceptLanguage) };
+
+
+  protected:
+    // The language of the response. Valid values:
+    // 
+    // - **zh-CN** (default): Chinese
+    // 
+    // - **en-US**: English
+    shared_ptr<string> acceptLanguage_ {};
+  };
+
+  } // namespace Models
+} // namespace AlibabaCloud
+} // namespace SWASOPEN20200601
+#endif
