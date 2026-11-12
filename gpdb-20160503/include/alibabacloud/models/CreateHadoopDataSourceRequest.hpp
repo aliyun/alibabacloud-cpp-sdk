@@ -149,43 +149,39 @@ namespace Models
 
 
   protected:
-    // Instance ID.
+    // The instance ID.
     // 
     // This parameter is required.
     shared_ptr<string> DBInstanceId_ {};
-    // Service description.
+    // The service description.
     shared_ptr<string> dataSourceDescription_ {};
-    // Service name.
+    // The service name.
     shared_ptr<string> dataSourceName_ {};
-    // Type of Hadoop external table to be enabled, with values:
-    // 
-    // - HDFS 
-    // 
+    // The type of the Hadoop external table to enable. Valid values:
+    // - HDFS
     // - Hive
     shared_ptr<string> dataSourceType_ {};
-    // When HadoopCreateType=Emr, this field should contain the EMR instance ID.
+    // The ID of the EMR instance. This parameter is required when HadoopCreateType is set to Emr.
     shared_ptr<string> emrInstanceId_ {};
-    // Content string of the Hadoop hdfs-site.xml file. This field is required when enabling an HDFS external table.
+    // The content string of the Hadoop hdfs-site.xml file. This parameter is required when you enable HDFS external tables.
     shared_ptr<string> HDFSConf_ {};
-    // Content string of the Hadoop core-site.xml file.
+    // The content string of the Hadoop core-site.xml file.
     shared_ptr<string> hadoopCoreConf_ {};
-    // External service type:
-    // 
+    // The external service type. Valid values:
     // - emr
-    // 
-    // - hadoop: Self-built Hadoop
+    // - hadoop: self-managed Hadoop.
     shared_ptr<string> hadoopCreateType_ {};
-    // Address and hostname of the Hadoop cluster\\"s source node in the /etc/hosts file.
+    // The addresses and hostnames of the source nodes in the Hadoop cluster in the /etc/hosts file.
     shared_ptr<string> hadoopHostsAddress_ {};
-    // Content string of the Hadoop hive-site.xml file. This field is required when enabling a HIVE external table.
+    // The content string of the Hadoop hive-site.xml file. This parameter is required when you enable Hive external tables.
     shared_ptr<string> hiveConf_ {};
-    // Content string of the Hadoop mapred-site.xml file. This field is required when enabling an HDFS external table.
+    // The content string of the Hadoop mapred-site.xml file. This parameter is required when you enable HDFS external tables.
     shared_ptr<string> mapReduceConf_ {};
-    // Region ID.
+    // The region ID.
     // 
-    // > You can call the [DescribeRegions](https://help.aliyun.com/document_detail/86912.html) interface to view available region IDs.
+    // > You can call the [DescribeRegions](https://help.aliyun.com/document_detail/86912.html) operation to query available region IDs.
     shared_ptr<string> regionId_ {};
-    // Content string of the Hadoop yarn-site.xml file. This field is required when enabling an HDFS external table.
+    // The content string of the Hadoop yarn-site.xml file. This parameter is required when you enable HDFS external tables.
     shared_ptr<string> yarnConf_ {};
   };
 

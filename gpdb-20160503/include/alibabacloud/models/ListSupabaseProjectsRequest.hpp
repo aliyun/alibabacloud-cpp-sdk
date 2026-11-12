@@ -112,21 +112,31 @@ namespace Models
 
 
   protected:
-    // The maximum number of entries to return. The default value is 10.
+    // The maximum number of results to return for the current request. Default value: 10.
     shared_ptr<int32_t> maxResults_ {};
-    // The pagination token to retrieve the next page of results.
+    // The next token.
     shared_ptr<string> nextToken_ {};
-    // The page number.
+    // The current page number.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries per page.
+    // The number of entries to return on each page.
     shared_ptr<int32_t> pageSize_ {};
-    // The ID of the region.
-    // 
-    // > You can call the [DescribeRegions](https://help.aliyun.com/document_detail/86912.html) operation to query the available regions.
+    // The region ID.
+    // > You can call the [DescribeRegions](https://help.aliyun.com/document_detail/86912.html) operation to query available region IDs.
     shared_ptr<string> regionId_ {};
+    // The field used for searching. Valid values: ProjectID and ProjectName.
     shared_ptr<string> searchField_ {};
+    // The search keyword. You can filter instances by instance ID or description.
+    // > You can call the [DescribeDBInstances](https://help.aliyun.com/document_detail/86911.html) operation to query the details of all AnalyticDB for PostgreSQL instances in the specified region, including the instance IDs and descriptions.
     shared_ptr<string> searchValue_ {};
+    // The field used for sorting. Valid values: `gmtCreate` and `gmtModified`. Default value: `gmtCreate`.
     shared_ptr<string> sortField_ {};
+    // The sort order. Default value: DESC.
+    // 
+    // Valid values:
+    // 
+    // - ASC: ascending order.
+    // 
+    // - DESC: descending order.
     shared_ptr<string> sortOrder_ {};
   };
 

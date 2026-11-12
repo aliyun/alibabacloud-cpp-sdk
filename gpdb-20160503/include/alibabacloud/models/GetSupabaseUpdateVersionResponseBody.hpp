@@ -66,9 +66,9 @@ namespace Models
 
 
   protected:
-    // The latest upgradable version.
+    // The latest available upgrade version.
     shared_ptr<string> latestVersion_ {};
-    // The ID of the Supabase project.
+    // The Supabase project ID.
     shared_ptr<string> projectId_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

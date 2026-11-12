@@ -68,14 +68,14 @@ namespace Models
   protected:
     // The instance ID.
     // 
-    // >  You can call the [DescribeDBInstances](https://help.aliyun.com/document_detail/86911.html) operation to query the information about all AnalyticDB for PostgreSQL instances within a region, including instance IDs.
+    // > You can call the [DescribeDBInstances](https://help.aliyun.com/document_detail/86911.html) operation to query the IDs of all AnalyticDB for PostgreSQL instances in the specified region.
     shared_ptr<string> DBInstanceId_ {};
     shared_ptr<int64_t> ownerId_ {};
-    // The region ID of the instance.
+    // The ID of the region where the instance resides.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
-    // The ID of the workspace composed of multiple database instances. This parameter and the DBInstanceId parameter cannot both be empty. If both are specified, this parameter takes precedence.
+    // The ID of the workspace that consists of multiple database instances. This parameter and the DBInstanceId parameter cannot both be left empty. If both parameters are specified, this parameter takes precedence.
     shared_ptr<string> workspaceId_ {};
   };
 

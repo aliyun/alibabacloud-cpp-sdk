@@ -112,16 +112,15 @@ namespace Models
 
   protected:
     shared_ptr<ListDatabasesResponseBody::Databases> databases_ {};
-    // The returned message.
+    // The response message.
     shared_ptr<string> message_ {};
-    // A pagination token. It can be used in the next request to retrieve a new page of results. If NextToken is empty, no next page exists.
+    // The token used to start the next query.
     shared_ptr<string> nextToken_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The status of the operation. Valid values:
-    // 
-    // *   **success**
-    // *   **fail**
+    // The execution status of the API operation. Valid values:
+    // - **success**: The execution was successful.
+    // - **fail**: The execution failed.
     shared_ptr<string> status_ {};
   };
 

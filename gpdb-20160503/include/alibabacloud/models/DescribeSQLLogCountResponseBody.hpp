@@ -108,7 +108,7 @@ namespace Models
 
 
         protected:
-          // The time when the audit logs were generated and the number of the audit logs.
+          // None.
           shared_ptr<vector<string>> point_ {};
         };
 
@@ -123,7 +123,7 @@ namespace Models
 
 
       protected:
-        // Details of the audit logs.
+        // The returned values.
         shared_ptr<vector<Series::Values>> values_ {};
       };
 
@@ -146,9 +146,9 @@ namespace Models
 
 
     protected:
-      // The name of the table.
+      // The instance name.
       shared_ptr<string> name_ {};
-      // Details of the audit logs.
+      // The set of returned values.
       shared_ptr<vector<Items::Series>> series_ {};
     };
 
@@ -196,7 +196,7 @@ namespace Models
     shared_ptr<string> DBClusterId_ {};
     // The end time of the query.
     shared_ptr<string> endTime_ {};
-    // The name of the instance.
+    // The list of returned items.
     shared_ptr<vector<DescribeSQLLogCountResponseBody::Items>> items_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

@@ -103,21 +103,29 @@ namespace Models
 
 
   protected:
-    // The time when the service was created.
+    // The creation time.
     shared_ptr<string> createTime_ {};
-    // The time when the service was last modified.
+    // The last modification time.
     shared_ptr<string> modifyTime_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The description of the service.
+    // The service description.
     shared_ptr<string> serviceDescription_ {};
     // The service ID.
     shared_ptr<string> serviceId_ {};
-    // The name of the service.
+    // The service name.
     shared_ptr<string> serviceName_ {};
-    // The specifications of the service. Unit: compute units (CUs).
+    // The service specification (unit: CU).
     shared_ptr<string> serviceSpec_ {};
-    // The status of the operation.
+    // The service status. Valid values:
+    // 
+    // - Init: The service is being initialized.
+    // 
+    // - Running: The service is running.
+    // 
+    // - Exception: An exception occurred.
+    // 
+    // - Paused: The service is paused.
     shared_ptr<string> status_ {};
   };
 

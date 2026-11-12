@@ -66,13 +66,13 @@ namespace Models
 
 
   protected:
-    // API KEY ID。
+    // The API key ID.
     // 
     // This parameter is required.
     shared_ptr<string> keyId_ {};
     // The region ID.
     shared_ptr<string> regionId_ {};
-    // The list of service IDs to be authorized.
+    // The list of service IDs to authorize.
     // 
     // This parameter is required.
     shared_ptr<string> serviceIdsShrink_ {};

@@ -86,26 +86,25 @@ namespace Models
   protected:
     // The instance ID.
     // 
-    // >  You can call the [DescribeDBInstances](https://help.aliyun.com/document_detail/86911.html) operation to query the information about all AnalyticDB for PostgreSQL instances within a region, including instance IDs.
+    // > You can call the [DescribeDBInstances](https://help.aliyun.com/document_detail/86911.html) operation to query the details of all AnalyticDB for PostgreSQL instances in a specific region, including the instance IDs.
     shared_ptr<string> DBInstanceId_ {};
-    // The name of the manager account that has the rds_superuser permission.
+    // The name of the administrator account that has the rds_superuser permission.
     // 
-    // >  You can create an account on the Account Management page of the AnalyticDB for PostgreSQL console or by calling the [CreateAccount](https://help.aliyun.com/document_detail/2361789.html) operation.
+    // > You can create an account in the console by navigating to Account Management, or call the [CreateAccount](https://help.aliyun.com/document_detail/2361789.html) operation.
     // 
     // This parameter is required.
     shared_ptr<string> managerAccount_ {};
-    // The password of the database account.
+    // The password of the administrator account.
     // 
     // This parameter is required.
     shared_ptr<string> managerAccountPassword_ {};
     shared_ptr<int64_t> ownerId_ {};
     // The region ID of the instance.
-    // 
-    // >  You can call the [DescribeRegions](https://help.aliyun.com/document_detail/86912.html) operation to query the most recent region list.
+    // > You can call the [DescribeRegions](https://help.aliyun.com/document_detail/86912.html) operation to query available region IDs.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
-    // The ID of the workspace that consists of multiple AnalyticDB for PostgreSQL instances. You must specify one of the WorkspaceId and DBInstanceId parameters. If you specify both parameters, the WorkspaceId parameter takes effect.
+    // The ID of the workspace that consists of multiple database instances. This parameter and the DBInstanceId parameter cannot be both empty. If both parameters are specified, this parameter takes precedence.
     shared_ptr<string> workspaceId_ {};
   };
 

@@ -77,9 +77,9 @@ namespace Models
 
 
     protected:
-      // The number of entries used during embedding.
+      // The number of entries used for vectorization.
       shared_ptr<int32_t> embeddingEntries_ {};
-      // The number of tokens used during embedding.
+      // The number of tokens used for vectorization.
       // 
       // > A token is the smallest unit into which the input text is split. A token can be a word, a phrase, a punctuation mark, or a character.
       shared_ptr<int32_t> embeddingTokens_ {};
@@ -178,28 +178,28 @@ namespace Models
 
 
     protected:
-      // Indicates whether the operation is complete.
+      // Indicates whether the operation is completed.
       shared_ptr<bool> completed_ {};
       // The time when the task was created.
       shared_ptr<string> createTime_ {};
-      // The error message returned when the operation encounters an exception or fails.
+      // The error message returned when the current operation is abnormal or fails.
       shared_ptr<string> error_ {};
       // The error code.
       shared_ptr<string> errorCode_ {};
-      // Job ID。
+      // The job ID.
       shared_ptr<string> id_ {};
-      // The upload progress. This value is a percentage. A value of 100 indicates that the upload is complete.
+      // The upload progress. The value is a percentage. A value of 100 indicates that the upload is completed.
       shared_ptr<int32_t> progress_ {};
       // The task status. Valid values:
       // - Success: The task is successful.
-      // - Failed: The task failed. You can view the Error field for the failure reason.
-      // - Cancelling: The task is being canceled.
-      // - Cancelled: The task is canceled.
-      // - Start: The task has started.
+      // - Failed: The task failed. You can view the Error field for the cause of the failure.
+      // - Cancelling: The task is being cancelled.
+      // - Cancelled: The task is cancelled.
+      // - Start: The task is started.
       // - Running: The task is running.
       // - Pending: The task is pending.
       shared_ptr<string> status_ {};
-      // The time when the task was last updated.
+      // The time when the task was updated.
       shared_ptr<string> updateTime_ {};
     };
 
@@ -250,11 +250,11 @@ namespace Models
 
 
     protected:
-      // The URL of the chunked file. The URL is valid for 2 hours. The file is in JSONL format, and each line is in the format `{"page_content":"*****", "metadata": {"**":"***","**":"***"}`.
+      // The URL of the chunked file. The URL is valid for 2 hours. The file format is JSONL, and each line is in the following format: `{"page_content":"*****", "metadata": {"**":"***","**":"***"}`.
       shared_ptr<string> chunkFileUrl_ {};
-      // The markdown result file parsed by ADBPGLoader. The URL is valid for 2 hours.
+      // The URL of the Markdown result file parsed by ADBPGLoader. The URL is valid for 2 hours.
       shared_ptr<string> documentLoaderResultFileUrl_ {};
-      // The URL of the chunked file without metadata. The URL is valid for 2 hours. The file is in plain text format, and each line represents a chunk. This file can be conveniently used for embedding.
+      // The URL of the chunked file without metadata. The URL is valid for 2 hours. The file format is plain text, and each line represents a chunk. This file can be conveniently used for embedding.
       shared_ptr<string> plainChunkFileUrl_ {};
     };
 
@@ -311,13 +311,13 @@ namespace Models
   protected:
     // The chunking result.
     shared_ptr<GetUploadDocumentJobResponseBody::ChunkResult> chunkResult_ {};
-    // The details of the document upload task.
+    // The detailed information of the document upload task.
     shared_ptr<GetUploadDocumentJobResponseBody::Job> job_ {};
     // The detailed information returned by the operation.
     shared_ptr<string> message_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The status of this operation. Valid values:
+    // The status of the operation. Valid values:
     // - **success**: The operation is successful.
     // - **fail**: The operation failed.
     shared_ptr<string> status_ {};

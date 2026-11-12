@@ -48,13 +48,13 @@ namespace Models
 
 
   protected:
-    // The endpoint that is used to connect to the instance.
+    // The database endpoint.
     // 
-    // >  If you do not specify this parameter, the information about all endpoints of the instance is returned.
+    // > If you do not specify this parameter, the information about all database endpoints is returned.
     shared_ptr<string> connectionString_ {};
     // The instance ID.
     // 
-    // >  You can call the [DescribeDBInstances](https://help.aliyun.com/document_detail/86911.html) operation to query the information about all AnalyticDB for PostgreSQL instances within a region, including instance IDs.
+    // > You can call the [DescribeDBInstances](https://help.aliyun.com/document_detail/86911.html) operation to query the details of all AnalyticDB for PostgreSQL instances in a specific region, including instance IDs.
     // 
     // This parameter is required.
     shared_ptr<string> DBInstanceId_ {};

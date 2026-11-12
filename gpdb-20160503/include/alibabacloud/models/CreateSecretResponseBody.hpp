@@ -75,18 +75,19 @@ namespace Models
 
 
   protected:
-    // The returned message.
+    // The detailed information returned by the operation.
     shared_ptr<string> message_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The Alibaba Cloud Resource Name (ARN) of the access credential for the created Data API account. Format: `acs:gpdb:{{region}}:{{accountId}}:secret/{{secretName}}-{{32 digits random string}`.
+    // The ARN that uniquely identifies the logon credential and permissions of the Data API account created by the user.
+    // Format: ```acs:gpdb:{{region}}:{{accountId}}:secret/{{secretName}}-{{32 digits random string}}```
     shared_ptr<string> secretArn_ {};
-    // The name of the access credential.
+    // The name of the credential.
     shared_ptr<string> secretName_ {};
-    // The status of the operation. Valid values:
+    // The status. Valid values:
     // 
-    // *   **success**
-    // *   **fail**
+    // - **success**: The operation is successful.
+    // - **fail**: The operation failed.
     shared_ptr<string> status_ {};
   };
 

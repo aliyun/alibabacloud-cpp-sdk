@@ -77,19 +77,19 @@ namespace Models
   protected:
     // The resource type of the instance. Valid values:
     // 
-    // *   **StorageElastic**: elastic storage mode.
-    // *   **Serverless**: Serverless mode.
+    // - **StorageElastic**: storage elastic mode
+    // - **Serverless**: Serverless mode
     shared_ptr<string> DBInstanceMode_ {};
-    // The minor version number that does not include the prefix.
+    // The kernel version number without a prefix.
     shared_ptr<string> DBVersion_ {};
     shared_ptr<int64_t> ownerId_ {};
-    // The region ID of the instance.
+    // The region ID.
     // 
-    // >  You can call the [DescribeRegions](https://help.aliyun.com/document_detail/86912.html) operation to query the most recent region list.
+    // > You can call the [DescribeRegions](https://help.aliyun.com/document_detail/86912.html) operation to query available region IDs.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
-    // The ID of the resource group to which the instance belongs. For information about how to obtain the ID of a resource group, see [View basic information of a resource group](https://help.aliyun.com/document_detail/151181.html).
+    // The ID of the resource group to which the instance belongs. For more information about how to obtain a resource group ID, see [View basic information of a resource group](https://help.aliyun.com/document_detail/151181.html).
     shared_ptr<string> resourceGroupId_ {};
   };
 

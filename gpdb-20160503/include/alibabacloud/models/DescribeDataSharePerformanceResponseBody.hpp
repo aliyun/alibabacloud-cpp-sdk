@@ -112,7 +112,7 @@ namespace Models
 
 
         protected:
-          // An array that contains the timestamp and the corresponding metric value.
+          // The performance metric value.
           shared_ptr<vector<string>> point_ {};
         };
 
@@ -137,7 +137,7 @@ namespace Models
       protected:
         // The name of the performance metric.
         shared_ptr<string> name_ {};
-        // The data points of the time series.
+        // The list of performance metric values, which consists of one or more values.
         shared_ptr<vector<Series::Values>> values_ {};
       };
 
@@ -169,7 +169,7 @@ namespace Models
     protected:
       // The name of the performance metric.
       shared_ptr<string> name_ {};
-      // The details of the time series data for the metric.
+      // The performance metric series.
       shared_ptr<vector<PerformanceKeys::Series>> series_ {};
       // The unit of the performance metric.
       shared_ptr<string> unit_ {};
@@ -217,13 +217,13 @@ namespace Models
   protected:
     // The instance ID.
     shared_ptr<string> DBClusterId_ {};
-    // The end of the queried time range.
+    // The end time of the query.
     shared_ptr<string> endTime_ {};
-    // The list of performance metrics.
+    // The list of performance metric values for data sharing.
     shared_ptr<vector<DescribeDataSharePerformanceResponseBody::PerformanceKeys>> performanceKeys_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The start of the queried time range.
+    // The start time of the query.
     shared_ptr<string> startTime_ {};
   };
 

@@ -277,73 +277,73 @@ namespace Models
 
 
   protected:
-    // Target database account.
+    // The destination database account.
     shared_ptr<string> account_ {};
-    // Delivery guarantee.
+    // The delivery guarantee.
     shared_ptr<string> consistency_ {};
-    // Creation time.
+    // The creation time.
     // 
     // Use the UTC time format: yyyy-MM-ddTHH:mm:ssZ
     shared_ptr<string> createTime_ {};
-    // Data source ID.
+    // The data source ID.
     shared_ptr<string> dataSourceId_ {};
-    // Data source name.
+    // The data source name.
     shared_ptr<string> dataSourceName_ {};
-    // Target data table mapping field list.
+    // The list of mapped columns in the destination table.
     shared_ptr<vector<string>> destColumns_ {};
-    // Target database name.
+    // The destination database name.
     shared_ptr<string> destDatabase_ {};
-    // Target namespace.
+    // The destination namespace.
     shared_ptr<string> destSchema_ {};
-    // Target table name.
+    // The destination table name.
     shared_ptr<string> destTable_ {};
-    // When data in Kafka does not match the ADBPG target table, it can cause write failures. This value represents the number of error rows allowed; if exceeded, the task will fail.
+    // The maximum number of allowed error rows. If data in Kafka does not match the destination AnalyticDB for PostgreSQL table, a write failure occurs. If the number of error rows exceeds this value, the job fails.
     shared_ptr<int32_t> errorLimitCount_ {};
-    // Service status information, such as the reason for an exception. It is empty in the normal Running state.
+    // The service status message. For example, if an exception occurs, the cause of the exception is displayed. This parameter is empty when the service is in the Running state.
     shared_ptr<string> errorMessage_ {};
-    // Fallback offset, which is the fallback position
+    // The fallback offset.
     // 
-    // - The FallbackOffset parameter defines the behavior when the consumer has not requested a specific offset to consume or the requested offset exceeds the current record\\"s offset information in the Kafka cluster. You can choose to start consuming from the earliest (newest) or latest (oldest) offset.
+    // - The FallbackOffset parameter defines the behavior when a consumer does not request a specific offset to consume, or when the requested offset exceeds the offset range recorded in the current Kafka cluster. You can choose to start consuming from the earliest or latest offset.
     shared_ptr<string> fallbackOffset_ {};
-    // Kafka group name
+    // The Kafka group name.
     shared_ptr<string> groupName_ {};
-    // Job configuration file.
+    // The job configuration file.
     shared_ptr<string> jobConfig_ {};
-    // Job description.
+    // The job description.
     shared_ptr<string> jobDescription_ {};
-    // Job ID.
+    // The job ID.
     shared_ptr<string> jobId_ {};
-    // Job name.
+    // The job name.
     shared_ptr<string> jobName_ {};
-    // Match columns, usually all primary key columns of the target table. If all column values in this configuration are the same, the two rows of data are considered duplicates.
+    // The match columns. Typically, these are all primary key columns of the destination table. If the values of all columns in this configuration are the same, the two rows of data are considered duplicate.
     shared_ptr<vector<string>> matchColumns_ {};
-    // Configuration mode
-    // 1. Basic mode requires specifying some configuration fields
-    // 1. Professional mode supports submitting YAML files
+    // The configuration mode.
+    // 1. basic: requires specific configuration fields.
+    // 2. professional: supports submitting YAML files.
     shared_ptr<string> mode_ {};
-    // Last modified time.
+    // The last modification time.
     // 
     // Use the UTC time format: yyyy-MM-ddTHH:mm:ssZ
     shared_ptr<string> modifyTime_ {};
-    // Target database password.
+    // The destination database password.
     shared_ptr<string> password_ {};
-    // Request ID.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // Source field list.
+    // The list of source columns.
     shared_ptr<vector<string>> srcColumns_ {};
-    // Service status, with possible values:
+    // The service status. Valid values:
     // 
-    // - Init: Initializing
+    // - Init: initializing.
     // 
-    // - Running: Running
+    // - Running: running.
     // 
-    // - Exception: Exception
+    // - Exception: an exception occurred.
     // 
-    // - Paused: Paused
+    // - Paused: paused.
     shared_ptr<string> status_ {};
-    // Update columns, usually all non-primary key columns of the target table. When data duplication is determined through MatchColumns, updating the UpdateColumns column values will result in new data overwriting old data.
+    // The update columns. Typically, these are all non-primary key columns of the destination table. When duplicate data is identified based on the match columns, the values of the update columns are updated so that the new data overwrites the old data.
     shared_ptr<vector<string>> updateColumns_ {};
-    // Write mode.
+    // The write mode.
     shared_ptr<string> writeMode_ {};
   };
 

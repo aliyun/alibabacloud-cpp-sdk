@@ -532,6 +532,9 @@
 #include <alibabacloud/models/GetGraphRAGJobRequest.hpp>
 #include <alibabacloud/models/GetGraphRAGJobResponseBody.hpp>
 #include <alibabacloud/models/GetGraphRAGJobResponse.hpp>
+#include <alibabacloud/models/GetSaasDataUnitUsageRequest.hpp>
+#include <alibabacloud/models/GetSaasDataUnitUsageResponseBody.hpp>
+#include <alibabacloud/models/GetSaasDataUnitUsageResponse.hpp>
 #include <alibabacloud/models/GetSaasServiceRequest.hpp>
 #include <alibabacloud/models/GetSaasServiceResponseBody.hpp>
 #include <alibabacloud/models/GetSaasServiceResponse.hpp>

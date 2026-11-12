@@ -347,19 +347,16 @@ namespace Models
 
 
   protected:
-    // The matched results.
     shared_ptr<QueryCollectionDataResponseBody::Matches> matches_ {};
-    // Details about the error, returned if the request fails.
+    // The detailed information returned when the request fails.
     shared_ptr<string> message_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The status of the request. Valid values:
-    // 
-    // - **success**: The request was successful.
-    // 
-    // - **fail**: The request failed.
+    // The status. Valid values:
+    // - **success**: The request is successful.
+    // - **fail**: The request fails.
     shared_ptr<string> status_ {};
-    // The total number of hits for the search. This parameter is returned only when the Offset parameter in the request is not 0.
+    // The total number of hits for the search condition. This parameter is returned only when the Offset parameter in the request is not 0.
     shared_ptr<int32_t> total_ {};
   };
 

@@ -77,22 +77,22 @@ namespace Models
   protected:
     // The ID of the instance.
     // 
-    // > To view details of all AnalyticDB for PostgreSQL instances in a region, including their IDs, call the [DescribeDBInstances](https://help.aliyun.com/document_detail/86911.html) operation.
+    // > You can call the [DescribeDBInstances](https://help.aliyun.com/document_detail/86911.html) operation to view the details of all AnalyticDB for PostgreSQL instances in the target region, including instance IDs.
     // 
     // This parameter is required.
     shared_ptr<string> DBInstanceId_ {};
     // The namespace. Default value: public.
     // 
-    // > To create a namespace, call the [CreateNamespace](https://help.aliyun.com/document_detail/2401495.html) operation. To list namespaces, call the [ListNamespaces](https://help.aliyun.com/document_detail/2401502.html) operation.
+    // > You can call the [CreateNamespace](https://help.aliyun.com/document_detail/2401495.html) operation to create a namespace and the [ListNamespaces](https://help.aliyun.com/document_detail/2401502.html) operation to view the namespace list.
     shared_ptr<string> namespace_ {};
     // The password for the namespace.
     // 
-    // > You set this password when you call the [CreateNamespace](https://help.aliyun.com/document_detail/2401495.html) operation.
+    // > This value is specified when you call the [CreateNamespace](https://help.aliyun.com/document_detail/2401495.html) operation.
     // 
     // This parameter is required.
     shared_ptr<string> namespacePassword_ {};
     shared_ptr<int64_t> ownerId_ {};
-    // The ID of the region where the instance resides.
+    // The region ID of the instance.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};

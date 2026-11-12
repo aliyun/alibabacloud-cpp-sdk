@@ -38,7 +38,7 @@ namespace Models
 
 
   protected:
-    // The description. Spaces are not allowed, and the value cannot exceed 256 characters.
+    // The description. Spaces are not allowed, and the value cannot exceed 256 characters in length.
     // 
     // This parameter is required.
     shared_ptr<string> description_ {};

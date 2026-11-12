@@ -110,17 +110,17 @@ namespace Models
 
 
     protected:
-      // The name of the database.
+      // The database name.
       shared_ptr<string> database_ {};
       // This parameter is not supported.
       shared_ptr<string> host_ {};
       // The content of the error log.
       shared_ptr<string> logContext_ {};
-      // The level of the queried log.
+      // The level of the collected log.
       shared_ptr<string> logLevel_ {};
-      // The time when the log was generated. The time is displayed in UTC.
+      // The time when the log was generated. The time is in UTC.
       shared_ptr<int64_t> time_ {};
-      // The name of the database account.
+      // The username.
       shared_ptr<string> user_ {};
     };
 
@@ -157,13 +157,13 @@ namespace Models
 
 
   protected:
-    // The content of the error log.
+    // The list of error logs.
     shared_ptr<vector<DescribeDBInstanceErrorLogResponseBody::Items>> items_ {};
-    // The page number.
+    // The current page number.
     shared_ptr<int32_t> pageNumber_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The total number of entries returned.
+    // The total number of entries.
     shared_ptr<int32_t> totalCount_ {};
   };
 

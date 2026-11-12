@@ -94,9 +94,9 @@ namespace Models
 
 
   protected:
-    // The interval between automatic recovery points, in minutes. A value greater than 0 indicates that automatic recovery points are enabled. If the feature is disabled, -1 is returned.
+    // The interval for automatic recovery points, in minutes. A value greater than 0 indicates that automatic recovery points are enabled. A value of -1 indicates that automatic recovery points are disabled.
     shared_ptr<int32_t> backupInterval_ {};
-    // The data backup retention period, in days.
+    // The retention period for data backups, in days.
     shared_ptr<int32_t> backupRetentionPeriod_ {};
     // Indicates whether automatic recovery points are enabled. Valid values:
     // - true: Enabled.
@@ -106,7 +106,7 @@ namespace Models
     shared_ptr<string> preferredBackupPeriod_ {};
     // The data backup time window in UTC. The format is HH:mmZ-HH:mmZ.
     shared_ptr<string> preferredBackupTime_ {};
-    // The interval for the automatic creation of recovery points, in hours. Valid values: 1/6 (10 minutes), 1/2 (30 minutes), 1, 2, 4, and 8. This value is valid only when EnableRecoveryPoint is set to true. If automatic recovery points are shutdown, 0 is returned.
+    // The interval for the automatic creation of recovery points, in hours. Valid values: 1/6 (10 minutes), 1/2 (30 minutes), 1, 2, 4, and 8. This parameter is valid only when EnableRecoveryPoint is set to true. A value of 0 is returned upon shutdown of automatic recovery points.
     shared_ptr<string> recoveryPointPeriod_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

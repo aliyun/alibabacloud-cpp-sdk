@@ -119,33 +119,25 @@ namespace Models
 
 
     protected:
-      // Indicates whether the operation is complete.
+      // Indicates whether the operation is completed.
       shared_ptr<bool> completed_ {};
-      // The time when the job was created.
+      // The time when the task was created.
       shared_ptr<string> createTime_ {};
-      // The error message.
+      // The error message returned when the current operation is abnormal or fails.
       shared_ptr<string> error_ {};
       // The job ID.
       shared_ptr<string> id_ {};
-      // The progress of the vector data upload job. The value of this parameter indicates the number of data entries that have been uploaded.
+      // The upload progress. The value indicates the number of data records that have been uploaded.
       shared_ptr<int32_t> progress_ {};
-      // The status of the job.
-      // 
-      // >  Valid values:
-      // 
-      // *   Success
-      // 
-      // *   Failed (See the Error parameter for failure reasons.)
-      // 
-      // *   Cancelling
-      // 
-      // *   Cancelled
-      // 
-      // *   Start
-      // 
-      // *   Running
+      // The task status. Valid values:
+      // > - Success: The task is successful.
+      // > - Failed: The task fails. You can view the Error field for the cause of the failure.
+      // > - Cancelling: The task is being canceled.
+      // > - Cancelled: The task is canceled.
+      // > - Start: The task is started.
+      // > - Running: The task is running.
       shared_ptr<string> status_ {};
-      // The time when the job was updated.
+      // The time when the task was updated.
       shared_ptr<string> updateTime_ {};
     };
 
@@ -182,16 +174,15 @@ namespace Models
 
 
   protected:
-    // The information about the vector data upload job.
+    // The details of the task for uploading vector data.
     shared_ptr<GetUpsertCollectionDataJobResponseBody::Job> job_ {};
     // The returned message.
     shared_ptr<string> message_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
     // The status of the operation. Valid values:
-    // 
-    // *   **success**
-    // *   **fail**
+    // - **success**: The operation is successful.
+    // - **fail**: The operation fails.
     shared_ptr<string> status_ {};
   };
 

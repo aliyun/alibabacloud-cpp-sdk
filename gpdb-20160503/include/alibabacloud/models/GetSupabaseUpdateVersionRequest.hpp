@@ -48,7 +48,7 @@ namespace Models
 
 
   protected:
-    // The ID of the Supabase project.
+    // The Supabase project ID.
     // 
     // This parameter is required.
     shared_ptr<string> projectId_ {};

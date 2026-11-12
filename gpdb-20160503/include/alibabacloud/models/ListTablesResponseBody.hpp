@@ -113,14 +113,13 @@ namespace Models
   protected:
     // The returned message.
     shared_ptr<string> message_ {};
-    // A pagination token. It can be used in the next request to retrieve a new page of results. If NextToken is empty, no next page exists.
+    // The token that is used to start the next query.
     shared_ptr<string> nextToken_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The status of the operation. Valid values:
-    // 
-    // *   **success**
-    // *   **fail**
+    // The status. Valid values:
+    // - **success**: Successful.
+    // - **fail**: Failed.
     shared_ptr<string> status_ {};
     shared_ptr<ListTablesResponseBody::Tables> tables_ {};
   };

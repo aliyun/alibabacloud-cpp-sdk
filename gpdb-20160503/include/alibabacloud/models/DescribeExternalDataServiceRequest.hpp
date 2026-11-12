@@ -63,7 +63,7 @@ namespace Models
     shared_ptr<string> DBInstanceId_ {};
     // The region ID.
     // 
-    // >  You can call the [DescribeRegions](https://help.aliyun.com/document_detail/86912.html) operation to query the most recent region list.
+    // > You can call the [DescribeRegions](https://help.aliyun.com/document_detail/86912.html) operation to query available region IDs.
     shared_ptr<string> regionId_ {};
     // The service ID.
     // 

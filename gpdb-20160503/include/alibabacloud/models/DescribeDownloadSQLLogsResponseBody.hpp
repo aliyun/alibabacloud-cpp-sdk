@@ -97,15 +97,15 @@ namespace Models
 
 
     protected:
-      // Download record ID.
+      // The ID of the download record.
       shared_ptr<int64_t> downloadId_ {};
-      // Download link.
+      // The download URL.
       shared_ptr<string> downloadUrl_ {};
-      // Error message.
+      // The error message.
       shared_ptr<string> exceptionMsg_ {};
-      // File name.
+      // The file name.
       shared_ptr<string> fileName_ {};
-      // Task status, with possible values being:
+      // The task status. Valid values:
       // - **running**: Downloading.
       // - **finished**: Completed.
       // - **failed**: Download failed.
@@ -131,9 +131,9 @@ namespace Models
 
 
   protected:
-    // List of download records.
+    // The list of download records.
     shared_ptr<vector<DescribeDownloadSQLLogsResponseBody::Records>> records_ {};
-    // Request ID.
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

@@ -119,28 +119,25 @@ namespace Models
 
 
     protected:
-      // Indicates whether the operation is complete.
+      // Indicates whether the operation is completed.
       shared_ptr<bool> completed_ {};
-      // The job creation time.
+      // The time when the task was created.
       shared_ptr<string> createTime_ {};
-      // The error message that is returned when the current operation is abnormal or fails.
+      // The error message returned when the current operation encounters an exception or fails.
       shared_ptr<string> error_ {};
       // The job ID.
       shared_ptr<string> id_ {};
-      // The progress of the index creation job. Unit: %. A value of 100 indicates that the job is complete.
+      // The creation progress. This value is a percentage, and a value of 100 indicates that the task is completed.
       // 
-      // > 
-      // 
-      // *   Only AnalyticDB for PostgreSQL V7.0 supports the Progress parameter.
+      // >- Only AnalyticDB for PostgreSQL 7.0 instances support progress updates.
       shared_ptr<int32_t> progress_ {};
-      // The status of the job. Valid values:
-      // 
-      // *   **Success.**
-      // *   **Failed** (See the Error parameter for failure reasons).
-      // *   **Cancelled.**
-      // *   **Running.
+      // The task status. Valid values:
+      // - **Success**: Successful.
+      // - **Failed**: Failed. You can check the Error field for the cause of the failure.
+      // - **Cancelled**: Canceled.
+      // - **Running**: Running.
       shared_ptr<string> status_ {};
-      // The job last updated time.
+      // The time when the task was updated.
       shared_ptr<string> updateTime_ {};
     };
 
@@ -177,16 +174,15 @@ namespace Models
 
 
   protected:
-    // The details of the index creation job.
+    // The details of the index creation task.
     shared_ptr<DescribeCreateIndexJobResponseBody::Job> job_ {};
-    // The returned message.
+    // The detailed information returned by the API operation.
     shared_ptr<string> message_ {};
-    // The unique ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // The status of the operation. Valid values:
-    // 
-    // *   **success**.
-    // *   **fail**.
+    // The execution status of the API operation. Valid values:
+    // - **success**: Successful.
+    // - **fail**: Failed.
     shared_ptr<string> status_ {};
   };
 

@@ -70,9 +70,9 @@ namespace Models
 
 
     protected:
-      // The value of the API key.
+      // The content of the API key.
       shared_ptr<string> apiKey_ {};
-      // The name of the API key, such as anon key, service role key, or JWT secret.
+      // The name of the API key, including the anon key, service role key, and JWT secrets.
       shared_ptr<string> name_ {};
     };
 
@@ -95,7 +95,7 @@ namespace Models
 
 
   protected:
-    // A list of API keys.
+    // The list of API keys.
     shared_ptr<vector<GetSupabaseProjectApiKeysResponseBody::ApiKeys>> apiKeys_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

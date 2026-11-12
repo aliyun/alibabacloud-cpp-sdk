@@ -77,7 +77,7 @@ namespace Models
   protected:
     // The name of the API key.
     shared_ptr<string> keyName_ {};
-    // The maximum number of records to return in this query.
+    // The maximum number of records to return in this request.
     shared_ptr<int32_t> maxResults_ {};
     // The token for the next query.
     shared_ptr<string> nextToken_ {};

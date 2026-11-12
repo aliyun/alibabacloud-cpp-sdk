@@ -61,10 +61,9 @@ namespace Models
     shared_ptr<string> message_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The status of the operation. Valid values:
-    // 
-    // *   **success**
-    // *   **fail**
+    // The status of the cancellation. Valid values:
+    // - **success**: The cancellation succeeded.
+    // - **fail**: The cancellation failed.
     shared_ptr<string> status_ {};
   };
 

@@ -38,7 +38,7 @@ namespace Models
 
 
   protected:
-    // The region ID.
+    // The region ID. Specifies the region for the query or operation.
     shared_ptr<string> regionId_ {};
   };
 

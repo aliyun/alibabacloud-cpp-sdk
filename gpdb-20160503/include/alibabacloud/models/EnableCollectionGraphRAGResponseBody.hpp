@@ -66,16 +66,15 @@ namespace Models
 
 
   protected:
-    // The ID of the job. You can use the `GetGraphRAGJob` to view the job status.
+    // The job ID. You can use this ID to call the GetGraphRAGJob operation to query the job status later.
     shared_ptr<string> jobId_ {};
-    // The response message.
+    // The returned message.
     shared_ptr<string> message_ {};
-    // The unique ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // The status of the operation. Valid values:
-    // 
-    // *   **success**
-    // *   **fail**
+    // The status. Valid values:
+    // - **success**: Success.
+    // - **fail**: Failure.
     shared_ptr<string> status_ {};
   };
 

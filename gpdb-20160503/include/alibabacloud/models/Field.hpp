@@ -84,11 +84,17 @@ namespace Models
 
 
   protected:
+    // The Base64-encoded binary.
     shared_ptr<string> blobValue_ {};
+    // The Boolean value.
     shared_ptr<bool> booleanValue_ {};
+    // The Double value.
     shared_ptr<double> doubleValue_ {};
+    // Indicates whether the value is null.
     shared_ptr<bool> isNull_ {};
+    // The Long value.
     shared_ptr<int64_t> longValue_ {};
+    // The string.
     shared_ptr<string> stringValue_ {};
   };
 

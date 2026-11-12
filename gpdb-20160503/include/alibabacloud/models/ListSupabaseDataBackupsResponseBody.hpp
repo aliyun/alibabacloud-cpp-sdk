@@ -182,16 +182,16 @@ namespace Models
       shared_ptr<string> backupMethod_ {};
       // The backup mode.
       // 
-      // Valid values for automatic backups:
+      // Valid values for full backups:
       // 
-      // - **Automated**: automatic system backup.
+      // - **Automated**: automatic backup performed by the system.
       // - **Manual**: manual backup.
       // 
       // Valid values for restorable points:
       // 
-      // - **Automated**: the restorable point after a automatic backup.
-      // - **Manual**: the restorable point manually triggered by the user.
-      // - **Period**: the restorable point triggered periodically based on the backup policy.
+      // - **Automated**: restorable point after a full backup.
+      // - **Manual**: restorable point manually triggered by the user.
+      // - **Period**: restorable point triggered periodically based on the backup policy.
       shared_ptr<string> backupMode_ {};
       // The ID of the backup set.
       shared_ptr<string> backupSetId_ {};
@@ -208,7 +208,7 @@ namespace Models
       shared_ptr<string> backupStatus_ {};
       // The name of the restorable point or the full backup set.
       shared_ptr<string> baksetName_ {};
-      // The consistency point in time. The value is a UNIX timestamp in seconds. For a full backup, this parameter indicates the consistency point in time of the backup. For a restorable point, this parameter indicates the point in time to which data can be restored.
+      // The consistency point in time. The value is a UNIX timestamp in seconds. For a full backup, this indicates the consistency point in time of the backup. For a restorable point, this indicates the point in time to which data can be restored.
       shared_ptr<int64_t> consistentTime_ {};
       // The backup type. Valid values:
       // 

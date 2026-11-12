@@ -241,57 +241,57 @@ namespace Models
 
 
   protected:
-    // Target database account.
+    // The account for the destination database.
     shared_ptr<string> account_ {};
-    // Delivery guarantee.
+    // The delivery guarantee.
     shared_ptr<string> consistency_ {};
-    // Instance ID.
+    // The instance ID.
     // 
     // This parameter is required.
     shared_ptr<string> DBInstanceId_ {};
-    // Data source ID.
+    // The data source ID.
     // 
     // This parameter is required.
     shared_ptr<string> dataSourceId_ {};
-    // Target data table mapping field list.
+    // The list of mapped fields in the destination table.
     shared_ptr<vector<string>> destColumns_ {};
-    // Target database name.
+    // The name of the destination database.
     shared_ptr<string> destDatabase_ {};
-    // Target namespace.
+    // The destination namespace.
     shared_ptr<string> destSchema_ {};
-    // Target table name.
+    // The name of the destination table.
     shared_ptr<string> destTable_ {};
-    // When data in Kafka does not match the ADBPG target table, it will cause a write failure. This value is the number of error rows allowed; exceeding this will cause the task to fail.
+    // The maximum number of allowed error rows. When data in Kafka does not match the destination AnalyticDB for PostgreSQL table, a write failure occurs. If the number of error rows exceeds this value, the task fails.
     shared_ptr<int64_t> errorLimitCount_ {};
-    // FallbackOffset, fallback offset
+    // The fallback offset.
     // 
-    // - The FallbackOffset parameter defines the behavior when the consumer does not request a specific offset or the requested offset exceeds the current Kafka cluster\\"s recorded offset information. You can choose to start consuming from the earliest (newest) or latest (oldest) offset.
+    // - The FallbackOffset parameter defines the behavior when a consumer does not request a specific offset to consume, or when the requested offset exceeds the offset range recorded in the current Kafka cluster. You can choose to start consuming from the earliest or latest offset.
     shared_ptr<string> fallbackOffset_ {};
-    // Kafka group name
+    // The name of the Kafka group.
     shared_ptr<string> groupName_ {};
-    // Job configuration file, required for professional mode.
+    // The task configuration file. This parameter is required in professional mode.
     shared_ptr<string> jobConfig_ {};
-    // Job description.
+    // The task description.
     shared_ptr<string> jobDescription_ {};
-    // Job name.
+    // The task name.
     // 
     // This parameter is required.
     shared_ptr<string> jobName_ {};
-    // Match columns, usually all primary key columns of the target table. If all column values in this configuration are the same, the two rows of data are considered duplicates.
+    // The match columns. Typically, these are all the primary key columns of the destination table. If the values of all columns in this configuration are the same, the two rows of data are considered duplicate.
     shared_ptr<vector<string>> matchColumns_ {};
-    // Configuration mode
-    // 1. Basic mode requires specifying some configuration fields
-    // 1. Professional mode supports submitting a YAML file
+    // The configuration mode.
+    // 1. The basic mode requires you to specify certain configuration fields.
+    // 2. The professional mode supports submitting a YAML file.
     shared_ptr<string> mode_ {};
-    // Target database password.
+    // The password for the destination database.
     shared_ptr<string> password_ {};
-    // Region ID.
+    // The region ID.
     // 
-    // > You can call the [DescribeRegions](https://help.aliyun.com/document_detail/86912.html) API to view available region IDs.
+    // > You can call the [DescribeRegions](https://help.aliyun.com/document_detail/86912.html) operation to query available region IDs.
     shared_ptr<string> regionId_ {};
-    // Source data field list.
+    // The list of source data fields.
     shared_ptr<vector<string>> srcColumns_ {};
-    // Whether to test the real-time task, values:
+    // Specifies whether to test the real-time task. Valid values:
     // 
     // - true
     // 
@@ -299,9 +299,9 @@ namespace Models
     // 
     // Default value: false.
     shared_ptr<bool> tryRun_ {};
-    // Update columns, usually all non-primary key columns of the target table. When data is determined to be duplicate through MatchColumns, updating the UpdateColumns column values will result in new data overwriting old data.
+    // The update columns. Typically, these are all the non-primary key columns of the destination table. When duplicate data is identified based on MatchColumns, updating the values of the UpdateColumns overwrites the old data with the new data.
     shared_ptr<vector<string>> updateColumns_ {};
-    // Write mode.
+    // The write mode.
     shared_ptr<string> writeMode_ {};
   };
 

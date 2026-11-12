@@ -66,16 +66,15 @@ namespace Models
 
 
   protected:
-    // The number of rows that are affected by the request.
+    // The applied rows.
     shared_ptr<int64_t> appliedRows_ {};
     // The returned message.
     shared_ptr<string> message_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request was successful. Valid values:
-    // 
-    // *   **success**
-    // *   **fail**
+    // The execution status of the API operation. Valid values:
+    // - **success**: Execution succeeded.
+    // - **fail**: Execution failed.
     shared_ptr<string> status_ {};
   };
 

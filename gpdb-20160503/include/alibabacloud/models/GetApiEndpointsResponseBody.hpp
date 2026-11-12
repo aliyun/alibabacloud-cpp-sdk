@@ -136,11 +136,11 @@ namespace Models
 
 
   protected:
-    // The list of parameters.
+    // The list of items.
     shared_ptr<vector<GetApiEndpointsResponseBody::Items>> items_ {};
-    // The maximum number of records to return in this query.
+    // The maximum number of records to return for the current query.
     shared_ptr<int32_t> maxResults_ {};
-    // The token for the next query during paging. Use this token to start the next query.
+    // The paging token for the next paged query.
     shared_ptr<string> nextToken_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};

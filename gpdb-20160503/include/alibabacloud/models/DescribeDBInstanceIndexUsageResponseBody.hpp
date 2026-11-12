@@ -159,8 +159,8 @@ namespace Models
       shared_ptr<string> indexSize_ {};
       // Indicates whether the table is a partitioned table. Valid values:
       // 
-      // *   **true**: The table is a partitioned table.
-      // *   **false**: The table is not a partitioned table.
+      // - **true**: The table is a partitioned table.
+      // - **false**: The table is not a partitioned table.
       shared_ptr<bool> isPartitionTable_ {};
       // The name of the parent table.
       shared_ptr<string> parentTableName_ {};
@@ -168,7 +168,7 @@ namespace Models
       shared_ptr<string> schemaName_ {};
       // The name of the table.
       shared_ptr<string> tableName_ {};
-      // The time when the table was last deleted, inserted, or updated.
+      // The time when the table was last updated by a DELETE, INSERT, or UPDATE operation.
       shared_ptr<string> timeLastUpdated_ {};
     };
 
@@ -205,13 +205,13 @@ namespace Models
 
 
   protected:
-    // The queried index usage.
+    // The list of index usage details.
     shared_ptr<vector<DescribeDBInstanceIndexUsageResponseBody::Items>> items_ {};
-    // The page number.
+    // The current page number.
     shared_ptr<int32_t> pageNumber_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The total number of entries returned.
+    // The total number of entries.
     shared_ptr<int32_t> totalCount_ {};
   };
 

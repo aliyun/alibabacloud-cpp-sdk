@@ -57,15 +57,15 @@ namespace Models
 
 
   protected:
-    // The branch ID that uniquely identifies a Supabase branch.
+    // The branch ID, which uniquely identifies a Supabase branch.
     // 
     // This parameter is required.
     shared_ptr<string> branchId_ {};
-    // The Supabase project ID that corresponds to the main branch.
+    // The ID of the Supabase project to which the main branch belongs.
     // 
     // This parameter is required.
     shared_ptr<string> projectId_ {};
-    // The region ID. This parameter is required when you create a main branch. When you create a child branch, the region is inherited from the main branch by default.
+    // The region ID. This parameter is required when you create a main branch. When you create a child branch, it inherits the region of the main branch by default.
     shared_ptr<string> regionId_ {};
   };
 

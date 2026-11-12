@@ -130,21 +130,20 @@ namespace Models
 
 
   protected:
-    // The total number of entries returned.
+    // The total number of entries.
     shared_ptr<int32_t> count_ {};
     // The instance ID.
     shared_ptr<string> DBInstanceId_ {};
     // The returned message.
     shared_ptr<string> message_ {};
     shared_ptr<ListNamespacesResponseBody::Namespaces> namespaces_ {};
-    // The region ID of the instance.
+    // The region ID.
     shared_ptr<string> regionId_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request was successful. Valid values:
-    // 
-    // *   **success**
-    // *   **fail**
+    // The execution status of the API operation. Valid values:
+    // - **success**: The execution is successful.
+    // - **fail**: The execution fails.
     shared_ptr<string> status_ {};
   };
 

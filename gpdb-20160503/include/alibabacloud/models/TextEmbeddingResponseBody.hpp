@@ -194,10 +194,10 @@ namespace Models
     shared_ptr<string> requestId_ {};
     shared_ptr<TextEmbeddingResponseBody::Results> results_ {};
     // The API execution status. Valid values:
-    // - **success**: The execution is successful.
-    // - **fail**: The execution failed.
+    // - **success**: Execution succeeded.
+    // - **fail**: Execution failed.
     shared_ptr<string> status_ {};
-    // The total number of tokens consumed.
+    // The total number of consumed tokens.
     shared_ptr<int32_t> textTokens_ {};
   };
 

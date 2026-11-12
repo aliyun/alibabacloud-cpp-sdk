@@ -85,11 +85,11 @@ namespace Models
     protected:
       // The number of entries used during vectorization.
       // 
-      // > An entry refers to the number of items processed during vectorization of text or images. For example, processing text once counts as 1 entry, and processing an image once counts as 2 entries.
+      // > An entry refers to the number of items processed when vectorizing text or images. For example, processing text once counts as 1 entry, and processing an image once counts as 2 entries.
       shared_ptr<string> embeddingEntries_ {};
       // The number of tokens used during vectorization.
       // 
-      // > A token is the smallest unit into which the input text is split. A token can be a word, a phrase, a punctuation mark, or a character.
+      // > A token is the smallest unit into which the input text is divided. A token can be a word, a phrase, a punctuation mark, or a character.
       shared_ptr<string> embeddingTokens_ {};
     };
 
@@ -521,7 +521,7 @@ namespace Models
   protected:
     // The number of tokens used during vectorization.
     // 
-    // > A token is the smallest unit into which the input text is split. A token can be a word, a phrase, a punctuation mark, or a character.
+    // > A token is the smallest unit into which the input text is divided. A token can be a word, a phrase, a punctuation mark, or a character.
     shared_ptr<string> embeddingTokens_ {};
     shared_ptr<QueryKnowledgeBasesContentResponseBody::Entities> entities_ {};
     shared_ptr<QueryKnowledgeBasesContentResponseBody::Matches> matches_ {};
@@ -530,9 +530,9 @@ namespace Models
     shared_ptr<QueryKnowledgeBasesContentResponseBody::Relations> relations_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The API execution status. Valid values:
-    // - **success**: The execution is successful.
-    // - **fail**: The execution failed.
+    // The execution status of the API operation. Valid values:
+    // - **success**: The operation is successful.
+    // - **fail**: The operation fails.
     shared_ptr<string> status_ {};
     // The resource usage of this query.
     shared_ptr<QueryKnowledgeBasesContentResponseBody::Usage> usage_ {};

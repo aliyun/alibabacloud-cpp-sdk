@@ -167,20 +167,35 @@ namespace Models
 
 
   protected:
+    // The default value.
     shared_ptr<string> columnDefault_ {};
+    // The column description.
     shared_ptr<string> comment_ {};
+    // The data type.
     shared_ptr<string> dataType_ {};
+    // The case sensitivity.
     shared_ptr<bool> isCaseSensitive_ {};
+    // The currency value indicator.
     shared_ptr<bool> isCurrency_ {};
+    // The primary key indicator.
     shared_ptr<bool> isPrimaryKey_ {};
+    // The signed indicator.
     shared_ptr<bool> isSigned_ {};
+    // The maximum character length.
     shared_ptr<int32_t> maxLength_ {};
+    // The column name.
     shared_ptr<string> name_ {};
+    // The nullability.
     shared_ptr<bool> nullable_ {};
+    // The precision of the column, which indicates the total number of digits in the integer and fractional parts of a decimal number.
     shared_ptr<int32_t> precision_ {};
+    // The scale of the column, which indicates the number of digits in the fractional part of a decimal number.
     shared_ptr<int32_t> scale_ {};
+    // The schema name.
     shared_ptr<string> schemaName_ {};
+    // The table name.
     shared_ptr<string> tableName_ {};
+    // The name of the base data type used by the column.
     shared_ptr<string> udtName_ {};
   };
 

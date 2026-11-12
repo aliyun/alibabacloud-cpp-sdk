@@ -57,11 +57,13 @@ namespace Models
 
 
   protected:
-    // Detailed information returned by the API.
+    // The detailed information returned by the API operation.
     shared_ptr<string> message_ {};
-    // Request ID.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // Creation status, value description: - **success**: Success - **fail**: Fail
+    // The creation status. Valid values:
+    // - **success**: Successful.
+    // - **fail**: Failed.
     shared_ptr<string> status_ {};
   };
 

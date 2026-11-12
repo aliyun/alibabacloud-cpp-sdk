@@ -79,11 +79,11 @@ namespace Models
 
 
     protected:
-      // The description of the extension.
+      // The plug-in description.
       shared_ptr<string> description_ {};
-      // The extension name.
+      // The plug-in name.
       shared_ptr<string> extensionName_ {};
-      // The status of the extension.
+      // The plug-in status.
       shared_ptr<string> status_ {};
     };
 
@@ -106,9 +106,9 @@ namespace Models
 
 
   protected:
-    // Extension list.
+    // The list of plug-ins.
     shared_ptr<vector<ListDatabaseExtensionsResponseBody::Extensions>> extensions_ {};
-    // The unique ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

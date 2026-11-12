@@ -75,22 +75,21 @@ namespace Models
 
 
   protected:
-    // The number of tokens that are consumed during vectorization.
+    // The number of tokens used for vectorization.
     // 
-    // > A token is the minimum unit for splitting text. A token can be a word, phrase, punctuation, or character.
+    // > A token is the smallest unit into which input text is divided. A token can be a word, a phrase, a punctuation mark, or a character.
     shared_ptr<string> embeddingTokens_ {};
-    // The job ID. You can use the `GetGraphRAGJob` to view the job status.
+    // The job ID. You can use this ID to call the GetGraphRAGJob operation to query the job status later.
     // 
-    // > This parameter is returned only when the knowledge base is enabled.
+    // > This parameter is returned only when knowledge graph construction is enabled for the knowledge base.
     shared_ptr<string> jobId_ {};
-    // The response message.
+    // The returned message.
     shared_ptr<string> message_ {};
-    // The unique ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // The status of the operation. Valid values:
-    // 
-    // *   **success**
-    // *   **fail**
+    // The execution status of the API operation. Valid values:
+    // - **success**: The operation is successful.
+    // - **fail**: The operation fails.
     shared_ptr<string> status_ {};
   };
 

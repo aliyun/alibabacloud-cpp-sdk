@@ -118,17 +118,17 @@ namespace Models
     protected:
       // The current value of the configuration parameter.
       shared_ptr<string> currentValue_ {};
-      // Indicates whether a restart is required for parameter modifications to take effect. Valid values:
+      // Indicates whether the instance must be restarted. Valid values:
       // 
-      // *   **true**
-      // *   **false**
+      // - **true**: The instance must be restarted.
+      // - **false**: The instance does not need to be restarted.
       shared_ptr<string> forceRestartInstance_ {};
       // Indicates whether the configuration parameter can be modified. Valid values:
       // 
-      // *   **true**
-      // *   **false**
+      // - **true**: The parameter can be modified.
+      // - **false**: The parameter cannot be modified.
       shared_ptr<string> isChangeableConfig_ {};
-      // The valid values of the configuration parameter.
+      // The value range of the configuration parameter.
       shared_ptr<string> optionalRange_ {};
       // The description of the configuration parameter.
       shared_ptr<string> parameterDescription_ {};
@@ -157,9 +157,9 @@ namespace Models
 
 
   protected:
-    // The queried configuration parameters.
+    // The list of configuration parameters.
     shared_ptr<vector<DescribeParametersResponseBody::Parameters>> parameters_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

@@ -114,7 +114,7 @@ namespace Models
 
 
         protected:
-          // The value of the performance metric and the time when the metric value was collected.
+          // The performance metric value.
           shared_ptr<vector<string>> point_ {};
         };
 
@@ -148,11 +148,11 @@ namespace Models
         shared_ptr<string> name_ {};
         // The role of the node. Valid values:
         // 
-        // *   **master**: primary coordinator node
-        // *   **standby**: standby coordinator node
-        // *   **segment**: compute node
+        // - **master**: Master node.
+        // - **standby**: Standby node.
+        // - **segment**: Compute node.
         shared_ptr<string> role_ {};
-        // The value of the performance metric collected at a point in time.
+        // The performance metric values. Each value corresponds to a collection time point.
         shared_ptr<vector<Series::Values>> values_ {};
       };
 
@@ -182,11 +182,11 @@ namespace Models
 
 
     protected:
-      // The name of the performance metric. For more information, see [Performance parameters](https://help.aliyun.com/document_detail/86943.html).
+      // The name of the performance metric. For more information, see [Performance metric table](https://help.aliyun.com/document_detail/86943.html).
       shared_ptr<string> name_ {};
-      // Details of the performance metric of a node.
+      // The collection of performance metrics.
       shared_ptr<vector<PerformanceKeys::Series>> series_ {};
-      // The unit of the performance metric.
+      // The unit of the monitoring metrics.
       shared_ptr<string> unit_ {};
     };
 
@@ -232,13 +232,13 @@ namespace Models
   protected:
     // The instance ID.
     shared_ptr<string> DBClusterId_ {};
-    // The end time of the query. The time follows the ISO 8601 standard in the `YYYY-MM-DDTHH:mmZ` format. The time is displayed in UTC.
+    // The end time of the query in UTC. Specify the time in the `YYYY-MM-DDTHH:mmZ` format.
     shared_ptr<string> endTime_ {};
-    // The name of the performance metric. For more information, see [Performance parameters](https://help.aliyun.com/document_detail/86943.html).
+    // The list of performance metric values for the instance.
     shared_ptr<vector<DescribeDBClusterPerformanceResponseBody::PerformanceKeys>> performanceKeys_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The start time of the query. The time follows the ISO 8601 standard in the `YYYY-MM-DDTHH:mmZ` format. The time is displayed in UTC.
+    // The start time of the query in UTC. Specify the time in the `YYYY-MM-DDTHH:mmZ` format.
     shared_ptr<string> startTime_ {};
   };
 

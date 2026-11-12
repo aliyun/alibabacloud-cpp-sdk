@@ -154,36 +154,32 @@ namespace Models
   protected:
     // The instance ID.
     shared_ptr<string> DBInstanceId_ {};
-    // The number of vector dimensions.
+    // The vector dimensions.
     shared_ptr<int32_t> dimension_ {};
-    // The fields that are used for full-text search. Multiple fields are separated by commas (,).
+    // The full-text index fields. Separate multiple fields with commas (,).
     shared_ptr<string> fullTextRetrievalFields_ {};
-    // The returned message.
+    // The detailed information returned by the API operation.
     shared_ptr<string> message_ {};
-    // The metadata of vector data, which is a JSON string in the MAP format. The key specifies the field name, and the value specifies the data type.
-    // 
-    // **
-    // 
-    // **Warning** Reserved fields such as id, vector, and to_tsvector cannot be used.
+    // The metadata of the vector data, which is a JSON string in MAP format. The key represents the field name, and the value represents the data type.
+    // >Warning: The id, vector, and to_tsvector fields are reserved and cannot be used.</warning>
     shared_ptr<map<string, string>> metadata_ {};
     // The distance metrics.
     shared_ptr<string> metrics_ {};
-    // The name of the namespace.
+    // The namespace.
     shared_ptr<string> namespace_ {};
-    // The analyzer that is used for full-text search.
+    // The tokenizer used for full-text index.
     shared_ptr<string> parser_ {};
-    // The region ID of the instance.
+    // The region ID.
     shared_ptr<string> regionId_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The method that is used to create sparse vector indexes.
+    // The method used to build indexes for sparse vectors.
     shared_ptr<string> sparseVectorMetrics_ {};
-    // Indicates whether the request was successful. Valid values:
-    // 
-    // *   **success**
-    // *   **fail**
+    // The execution status of the API operation. Valid values:
+    // - **success**: The execution is successful.
+    // - **fail**: The execution fails.
     shared_ptr<string> status_ {};
-    // Indicates whether sparse vectors are supported.
+    // Specifies whether sparse vectors are supported.
     shared_ptr<bool> supportSparse_ {};
   };
 

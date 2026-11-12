@@ -184,36 +184,36 @@ namespace Models
 
 
     protected:
-      // The database account that executes the SQL statement.
+      // The database account that executed the SQL statement.
       shared_ptr<string> accountName_ {};
       // The name of the database.
       shared_ptr<string> DBName_ {};
-      // The role of the database.
+      // The database role.
       shared_ptr<string> DBRole_ {};
-      // The execution duration of the SQL statement.
+      // The execution duration.
       shared_ptr<float> executeCost_ {};
-      // The execution status of the SQL statement. Valid values:
+      // The execution state. Valid values:
       // 
-      // *   **success**
-      // *   **fail**
+      // - **success**: Successful.
+      // - **fail**: Failed.
       shared_ptr<string> executeState_ {};
-      // The type of the query language.
+      // The operation class.
       shared_ptr<string> operationClass_ {};
-      // The time when the SQL statement was executed.
+      // The execution time.
       shared_ptr<string> operationExecuteTime_ {};
-      // The type of the SQL statement.
+      // The type of the executed SQL statement.
       shared_ptr<string> operationType_ {};
-      // The total number of entries returned.
+      // The number of rows returned in the execution result.
       shared_ptr<int64_t> returnRowCounts_ {};
       // The SQL execution plan.
       shared_ptr<string> SQLPlan_ {};
-      // The SQL statement.
+      // The content of the SQL statement.
       shared_ptr<string> SQLText_ {};
-      // The number of entries scanned.
+      // The number of scanned rows.
       shared_ptr<int64_t> scanRowCounts_ {};
       // The source IP address.
       shared_ptr<string> sourceIP_ {};
-      // The number of the source port.
+      // The source port.
       shared_ptr<int32_t> sourcePort_ {};
     };
 
@@ -250,11 +250,11 @@ namespace Models
 
 
   protected:
-    // The queried SQL execution logs.
+    // The list of results.
     shared_ptr<vector<DescribeSQLLogsResponseBody::Items>> items_ {};
-    // The page number.
+    // The page number of the returned query result.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries per page.
+    // The number of entries returned per page.
     shared_ptr<int32_t> pageRecordCount_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

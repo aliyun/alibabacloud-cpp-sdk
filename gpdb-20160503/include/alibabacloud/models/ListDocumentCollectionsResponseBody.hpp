@@ -224,18 +224,16 @@ namespace Models
 
 
   protected:
-    // The total number of items.
+    // The total number of entries.
     shared_ptr<int32_t> count_ {};
     shared_ptr<ListDocumentCollectionsResponseBody::Items> items_ {};
-    // The response message.
+    // The returned message.
     shared_ptr<string> message_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
     // The creation status. Valid values:
-    // 
-    // - **success**: The operation succeeded.
-    // 
-    // - **fail**: The operation failed.
+    // - **success**: Succeeded.
+    // - **fail**: Failed.
     shared_ptr<string> status_ {};
   };
 

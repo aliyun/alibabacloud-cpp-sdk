@@ -142,9 +142,9 @@ namespace Models
   protected:
     // The ID of the backup set. You can obtain the ID from the BackupSetId parameter returned by the ListSupabaseDataBackups operation.
     shared_ptr<string> backupId_ {};
-    // The backup pattern. Valid values: Automated: automatic backup. Manual: manual backup.
+    // The backup mode. Valid values: Automated: automatic backup performed by the system; Manual: manual backup.
     shared_ptr<string> backupMode_ {};
-    // The status of the backup set. Valid values: Success: the backup is successful; Failed: the backup fails.
+    // The status of the backup set. Valid values: Success: successful; Failed: failed.
     shared_ptr<string> backupStatus_ {};
     // The backup type. Valid values: DATA: full backup; RESTOREPOI: restorable point.
     shared_ptr<string> dataType_ {};
@@ -152,9 +152,9 @@ namespace Models
     shared_ptr<string> endTime_ {};
     // The maximum number of entries to return for the current request.
     shared_ptr<int32_t> maxResults_ {};
-    // The paging token for paged query. Do not specify this parameter for the first request. For subsequent requests, specify the NextToken value returned by the previous response.
+    // The paging query token. Do not specify this parameter for the first request. For subsequent requests, specify the NextToken value returned by the previous response.
     shared_ptr<string> nextToken_ {};
-    // The page number. The value must be greater than 0 and cannot exceed the maximum value of an integer. Default value: 1.
+    // The page number. The value must be greater than 0 and not exceed the maximum value of an integer. Default value: 1.
     shared_ptr<int32_t> pageNumber_ {};
     // The number of entries per page. Valid values:
     // 

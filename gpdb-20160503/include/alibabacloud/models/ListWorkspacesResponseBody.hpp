@@ -274,33 +274,33 @@ namespace Models
 
       protected:
         shared_ptr<vector<Services::Components>> components_ {};
-        // The creation time.
+        // The time when the workspace was created.
         shared_ptr<string> createTime_ {};
-        // The compute resource.
+        // The compute resources.
         shared_ptr<string> cu_ {};
         shared_ptr<bool> deletionProtection_ {};
         // The expiration time.
         shared_ptr<string> expireTime_ {};
-        // The billing type. Valid values:
+        // The billing method. Valid values:
         // 
         // - **POSTPAY**: pay-as-you-go.
         // - **PREPAY**: subscription.
         // 
-        // > - If this parameter is not specified, the default value is pay-as-you-go.
-        // > - In subscription billing mode, a discount is available when you purchase a duration of one year or longer. Select the billing type as needed.
+        // > - If this parameter is not specified, the default value is POSTPAY.
+        // > - In subscription mode, a discount is provided if you purchase a subscription for one year or longer. Select a billing method based on your business requirements.
         shared_ptr<string> payType_ {};
         // **[Deprecated]**
         shared_ptr<string> plan_ {};
-        // The service ID.
+        // The ID of the service.
         shared_ptr<string> serviceId_ {};
-        // The service name.
+        // The name of the service.
         shared_ptr<string> serviceName_ {};
-        // The service type. Valid values:
+        // The type of the service. Valid values:
         // 
         // - memory
         // - drama
         shared_ptr<string> serviceType_ {};
-        // The service status. Valid values:
+        // The status of the service. Valid values:
         // 
         // - creating: The service is being created.
         // - active: The service is running.
@@ -374,9 +374,9 @@ namespace Models
 
 
         protected:
-          // The service ID.
+          // The ID of the service.
           shared_ptr<string> serviceId_ {};
-          // The service type. Valid values:
+          // The type of the service. Valid values:
           // 
           // - memory
           // - drama
@@ -432,7 +432,7 @@ namespace Models
       protected:
         // The services authorized for the API key.
         shared_ptr<vector<Apikeys::AuthServices>> authServices_ {};
-        // The creation time of the API key.
+        // The time when the API key was created.
         shared_ptr<string> createTime_ {};
         // The description.
         shared_ptr<string> description_ {};
@@ -486,17 +486,17 @@ namespace Models
 
 
     protected:
-      // The list of API keys for the workspace.
+      // The list of API keys in the workspace.
       shared_ptr<vector<Items::Apikeys>> apikeys_ {};
-      // The creation time.
+      // The time when the workspace was created.
       shared_ptr<string> createTime_ {};
       // The services in the workspace.
       shared_ptr<vector<Items::Services>> services_ {};
-      // The workspace ID.
+      // The ID of the workspace.
       shared_ptr<string> workspaceId_ {};
-      // The workspace name.
-      // - Maximum length: 50.
-      // - Must be unique.
+      // The name of the workspace.
+      // - The maximum length is 50 characters.
+      // - The name must be unique.
       // - Special characters are not allowed.
       shared_ptr<string> workspaceName_ {};
     };
@@ -558,17 +558,17 @@ namespace Models
   protected:
     // The list of workspace details.
     shared_ptr<vector<ListWorkspacesResponseBody::Items>> items_ {};
-    // The maximum number of entries to return. Default value: 10.
+    // The maximum number of entries to return in this request. Default value: 10.
     shared_ptr<int32_t> maxResults_ {};
-    // The token for the next query.
+    // The token used to start the next query.
     shared_ptr<string> nextToken_ {};
     // The current page number.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of records on the current page.
+    // The number of entries on the current page.
     shared_ptr<int32_t> pageRecordCount_ {};
-    // The request ID.
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
-    // The total number of records.
+    // The total number of entries.
     shared_ptr<int32_t> totalRecordCount_ {};
   };
 

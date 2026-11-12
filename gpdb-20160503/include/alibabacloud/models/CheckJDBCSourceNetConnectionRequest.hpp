@@ -66,15 +66,15 @@ namespace Models
 
 
   protected:
-    // Instance ID.
+    // The instance ID.
     // 
     // This parameter is required.
     shared_ptr<string> DBInstanceId_ {};
-    // Either DataSourceId or JdbcConnectionString must be specified as input, otherwise an error will occur. If both parameters are specified, JdbcConnectionString will be used preferentially.
+    // You must specify either DataSourceId or JdbcConnectionString. Otherwise, an error occurs. If both parameters are specified, JdbcConnectionString takes precedence.
     shared_ptr<string> dataSourceId_ {};
-    // JDBC connection string.
+    // The JDBC connection string.
     shared_ptr<string> jdbcConnectionString_ {};
-    // The ID of the region where the instance is located.
+    // The region ID of the instance.
     shared_ptr<string> regionId_ {};
   };
 

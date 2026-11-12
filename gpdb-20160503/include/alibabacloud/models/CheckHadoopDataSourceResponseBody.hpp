@@ -57,14 +57,15 @@ namespace Models
 
 
   protected:
-    // The returned message. If the service failed, an error message is returned. Otherwise, a pair of double quotation marks ("") is returned.
+    // The message returned by the service. If the service is unavailable, an error message is returned. If the service is available, an empty string is returned.
     shared_ptr<string> message_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The status of the service. Valid values:
+    // The service status. Valid values:
     // 
-    // *   Running
-    // *   Failed
+    // - Running: The service is available.
+    // 
+    // - Failed: The service is unavailable.
     shared_ptr<string> status_ {};
   };
 

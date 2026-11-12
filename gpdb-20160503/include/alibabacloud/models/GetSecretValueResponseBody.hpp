@@ -125,24 +125,24 @@ namespace Models
     shared_ptr<string> code_ {};
     // The instance ID.
     shared_ptr<string> DBInstanceId_ {};
-    // The description of the access credential.
+    // The description.
     shared_ptr<string> description_ {};
     // The returned message.
     shared_ptr<string> message_ {};
-    // The password of the database account.
+    // The password of the target database.
     shared_ptr<string> password_ {};
-    // The request ID.
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
-    // The ARN of the access credential for the created Data API account. Format: `acs:gpdb:{{region}}:{{accountId}}:secret/{{secretName}}-{{32 digits random string}`.
+    // The ARN that uniquely specifies the logon credentials and permissions of the Data API account created by the user. Format: ```acs:gpdb:{{region}}:{{accountId}}:secret/{{secretName}}-{{32 digits random string}```
     shared_ptr<string> secretArn_ {};
-    // The name of the access credential.
+    // The name of the credential.
     shared_ptr<string> secretName_ {};
-    // The status of the operation. Valid values:
+    // The status. Valid values:
     // 
-    // *   **success**
-    // *   **fail**
+    // - **success**: Successful.
+    // - **fail**: Failed.
     shared_ptr<string> status_ {};
-    // The name of the database account.
+    // The username.
     shared_ptr<string> username_ {};
   };
 

@@ -75,15 +75,15 @@ namespace Models
 
 
   protected:
-    // The username for accessing the project\\"s dashboard.
+    // The password for the Supabase dashboard.
     shared_ptr<string> dashboardPassword_ {};
-    // The password associated with the dashboard username.
+    // The username for the Supabase dashboard.
     shared_ptr<string> dashboardUsername_ {};
-    // The ID of the Supabase project.
+    // The Supabase instance ID.
     shared_ptr<string> projectId_ {};
-    // The name of the Supabase project.
+    // The name of the Supabase project. This field is not used.
     shared_ptr<string> projectName_ {};
-    // The unique ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

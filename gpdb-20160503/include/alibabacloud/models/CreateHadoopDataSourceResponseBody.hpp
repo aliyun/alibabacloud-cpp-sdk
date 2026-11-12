@@ -48,9 +48,9 @@ namespace Models
 
 
   protected:
-    // Data source ID.
+    // The data source ID.
     shared_ptr<int32_t> dataSourceId_ {};
-    // Request ID.
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

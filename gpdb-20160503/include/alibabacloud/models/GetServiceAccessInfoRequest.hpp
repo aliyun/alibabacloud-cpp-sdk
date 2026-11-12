@@ -48,7 +48,7 @@ namespace Models
 
 
   protected:
-    // The region ID where the SaaS service resides.
+    // The region ID of the SaaS service.
     shared_ptr<string> regionId_ {};
     // The service ID.
     // 

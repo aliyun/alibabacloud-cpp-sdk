@@ -80,7 +80,7 @@ namespace Models
 
 
   protected:
-    // Specifies whether to unbind all tags from the instance. This parameter takes effect only when TagKey.N is not specified in the request. Valid values:
+    // Specifies whether to remove all tags from the instance. This parameter is valid only when TagKey.N is not specified in the request. Valid values:
     // 
     // - true
     // - false
@@ -92,8 +92,8 @@ namespace Models
     // The instance ID. Valid values of N: 1 to 50.
     shared_ptr<vector<string>> resourceId_ {};
     // The resource type. Valid values:
-    // - `instance`: reserved mode instance.
-    // - `ALIYUN::GPDB::INSTANCE`: elastic mode instance.
+    // - `instance`: reserved mode instance
+    // - `ALIYUN::GPDB::INSTANCE`: elastic mode instance
     shared_ptr<string> resourceType_ {};
     // The tag key of the resource. Valid values of N: 1 to 20.
     shared_ptr<vector<string>> tagKey_ {};

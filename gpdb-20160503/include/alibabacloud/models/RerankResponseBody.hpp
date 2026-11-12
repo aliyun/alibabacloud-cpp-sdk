@@ -163,16 +163,16 @@ namespace Models
 
 
   protected:
-    // Detailed information returned by the interface.
+    // The detailed information returned in the response.
     shared_ptr<string> message_ {};
-    // Request ID.
+    // The request ID.
     shared_ptr<string> requestId_ {};
     shared_ptr<RerankResponseBody::Results> results_ {};
-    // API execution status, value description:
-    // - **success**: Execution succeeded.
-    // - **fail**: Execution failed.
+    // The execution status of the API operation. Valid values:
+    // - **success**: The operation is successful.
+    // - **fail**: The operation fails.
     shared_ptr<string> status_ {};
-    // Number of consumed tokens.
+    // The number of tokens consumed.
     shared_ptr<int32_t> tokens_ {};
   };
 

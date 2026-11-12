@@ -134,25 +134,25 @@ namespace Models
     shared_ptr<string> createTime_ {};
     // The description.
     shared_ptr<string> description_ {};
-    // The internal endpoint for API debugging.
+    // The internal URL for API debugging.
     shared_ptr<string> privateApiDevUrl_ {};
-    // The internal endpoint of the workbench.
+    // The internal URL of the workbench.
     shared_ptr<string> privateWorkbenchUrl_ {};
-    // The public endpoint for API debugging.
+    // The public URL for API debugging.
     shared_ptr<string> publicApiDevUrl_ {};
-    // The public endpoint of the workbench.
+    // The public URL of the workbench.
     shared_ptr<string> publicWorkbenchUrl_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The IP addresses in the IP address whitelist group, separated by commas (,).
+    // The list of IP addresses in the IP address whitelist, separated by commas.
     shared_ptr<string> securityIpList_ {};
     // The service account.
     shared_ptr<string> serviceAccount_ {};
     // The service ID.
     shared_ptr<string> serviceId_ {};
     // The service status. Valid values:
-    // - deploying: being deployed.
-    // - active: running.
+    // - deploying: Deploying.
+    // - active: Running.
     shared_ptr<string> status_ {};
   };
 

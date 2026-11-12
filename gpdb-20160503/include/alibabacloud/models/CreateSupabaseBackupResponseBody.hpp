@@ -48,7 +48,7 @@ namespace Models
 
 
   protected:
-    // The ID of the backup job. You can call ListSupabaseBackupJobs to query the status and progress of the corresponding job.
+    // The ID of the backup job. You can call ListSupabaseBackupJobs to query the status and progress of the job.
     shared_ptr<int64_t> backupJobId_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

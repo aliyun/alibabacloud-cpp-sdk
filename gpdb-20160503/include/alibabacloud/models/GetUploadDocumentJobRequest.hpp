@@ -96,13 +96,13 @@ namespace Models
   protected:
     // The name of the document collection.
     // 
-    // > A document collection is created by calling the [CreateDocumentCollection](https://help.aliyun.com/document_detail/2618448.html) operation. You can call the [ListDocumentCollections](https://help.aliyun.com/document_detail/2618452.html) operation to view existing document collections.
+    // > The document collection is created by calling the [CreateDocumentCollection](https://help.aliyun.com/document_detail/2618448.html) operation. You can call the [ListDocumentCollections](https://help.aliyun.com/document_detail/2618452.html) operation to view the created document collections.
     // 
     // This parameter is required.
     shared_ptr<string> collection_ {};
-    // The ID of the instance that has the vector engine optimization feature enabled.
+    // The ID of the instance for which vector engine optimization is enabled.
     // 
-    // > You can call the [DescribeDBInstances](https://help.aliyun.com/document_detail/86911.html) operation to query the details of all AnalyticDB for PostgreSQL instances in a region, including instance IDs.
+    // > You can call the [DescribeDBInstances](https://help.aliyun.com/document_detail/86911.html) operation to query the details of all AnalyticDB for PostgreSQL instances in the specified region, including the instance IDs.
     // 
     // This parameter is required.
     shared_ptr<string> DBInstanceId_ {};
@@ -110,13 +110,13 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> jobId_ {};
-    // The namespace, which is used for tenant isolation. Default value: public.
+    // The namespace used for tenant isolation. Default value: public.
     // 
-    // > You can create a namespace by calling [CreateNamespace](https://help.aliyun.com/document_detail/2401495.html) and view the list of namespaces by calling [ListNamespaces](https://help.aliyun.com/document_detail/2401502.html).
+    // > You can call the [CreateNamespace](https://help.aliyun.com/document_detail/2401495.html) operation to create a namespace and call the [ListNamespaces](https://help.aliyun.com/document_detail/2401502.html) operation to view the namespace list.
     shared_ptr<string> namespace_ {};
     // The password of the namespace.
     // 
-    // > This value is specified by the CreateNamespace operation.
+    // > This value is specified when you call the CreateNamespace operation.
     // 
     // This parameter is required.
     shared_ptr<string> namespacePassword_ {};

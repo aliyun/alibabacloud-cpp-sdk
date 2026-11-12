@@ -264,36 +264,32 @@ namespace Models
 
 
     protected:
-      // Indicates if the **auto start and stop** feature is enabled.
+      // Specifies whether to enable **auto-start and auto-stop**.
       // Valid values:
-      // 
-      // - `true`: The feature is enabled. The Supabase instance automatically pauses and resumes based on traffic.
-      // 
-      // - `false`: The auto start and stop feature is disabled.
+      // - true: enabled. After this feature is enabled, Supabase automatically pauses and resumes the instance based on traffic.
+      // - false: disabled. After this feature is disabled, the auto-start and auto-stop feature of Supabase is turned off.
       shared_ptr<string> autoScale_ {};
-      // The time when the resource was created.
+      // The time when the instance was created.
       shared_ptr<string> createTime_ {};
-      // The password for the Supabase dashboard. This parameter is reserved.
+      // The password for the Supabase dashboard. This parameter is not used.
       shared_ptr<string> dashboardPassword_ {};
-      // The username for the Supabase dashboard. This parameter is reserved.
+      // The username for the Supabase dashboard. This parameter is not used.
       shared_ptr<string> dashboardUserName_ {};
-      // The disk performance level.
+      // The performance level of the cloud disk.
       shared_ptr<string> diskPerformanceLevel_ {};
       // The database engine.
       shared_ptr<string> engine_ {};
-      // The engine version.
+      // The database engine version.
       shared_ptr<string> engineVersion_ {};
-      // The expiration time.
+      // The time when the instance expires.
       shared_ptr<string> expireTime_ {};
       // The billing method. Valid values:
       // 
       // - **Postpaid**: pay-as-you-go.
-      // 
       // - **Prepaid**: subscription.
-      // 
-      // - **Free**: The instance is free of charge.
+      // - **Free**: free of charge.
       shared_ptr<string> payType_ {};
-      // The private endpoint for the Supabase dashboard.
+      // The internal network connection string for the Supabase dashboard.
       shared_ptr<string> privateConnectUrl_ {};
       // The detailed description of the Supabase project.
       shared_ptr<string> projectDescription_ {};
@@ -301,23 +297,20 @@ namespace Models
       shared_ptr<string> projectId_ {};
       // The name of the Supabase project.
       shared_ptr<string> projectName_ {};
-      // The Supabase instance specification.
+      // The specifications of the Supabase instance.
       shared_ptr<string> projectSpec_ {};
-      // The public endpoint for the Supabase dashboard.
+      // The public network connection string for the Supabase dashboard.
       shared_ptr<string> publicConnectUrl_ {};
       // The region ID.
       shared_ptr<string> regionId_ {};
-      // The IP whitelist. IP addresses are separated by commas. The following formats are supported:
-      // 
+      // The IP addresses in the IP whitelist. Separate multiple IP addresses with commas. The following three formats are supported:
       // - 0.0.0.0/0
-      // 
-      // - 10.23.12.24 (IP)
-      // 
-      // - 10.23.12.24/24 (a Classless Inter-Domain Routing (CIDR) block; the prefix length, which is the number after the `/`, must be an integer from 1 to 32.)
+      // - 10.23.12.24 (IP address)
+      // - 10.23.12.24/24 (CIDR block. `/24` specifies the length of the prefix in the IP address. Valid values of the prefix length: 1 to 32.)
       shared_ptr<string> securityIPList_ {};
-      // The status of the instance.
+      // The status of the Supabase instance.
       shared_ptr<string> status_ {};
-      // The storage size in GB.
+      // The storage capacity. Unit: GB.
       shared_ptr<int64_t> storageSize_ {};
       // The vSwitch ID.
       shared_ptr<string> vSwitchId_ {};
@@ -382,19 +375,19 @@ namespace Models
 
 
   protected:
-    // A list of instance details.
+    // The list of instance details.
     shared_ptr<vector<ListSupabaseProjectsResponseBody::Items>> items_ {};
-    // The maximum number of entries returned per page.
+    // The maximum number of results to return for the current request. Default value: 10.
     shared_ptr<int32_t> maxResults_ {};
-    // A pagination token for retrieving the next page of results. If this parameter is not returned, it indicates that all results have been displayed.
+    // The next token.
     shared_ptr<string> nextToken_ {};
-    // The page number.
+    // The current page number.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries on the current page.
+    // The number of records on the current page.
     shared_ptr<int32_t> pageRecordCount_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The total number of entries.
+    // The total number of records.
     shared_ptr<int32_t> totalRecordCount_ {};
   };
 

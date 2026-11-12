@@ -67,7 +67,7 @@ namespace Models
     shared_ptr<int32_t> dataSourceId_ {};
     // The region ID.
     // 
-    // > You can invoke the [DescribeRegions](https://help.aliyun.com/document_detail/86912.html) API to view available region IDs.
+    // > You can call the [DescribeRegions](https://help.aliyun.com/document_detail/86912.html) operation to query available region IDs.
     shared_ptr<string> regionId_ {};
   };
 

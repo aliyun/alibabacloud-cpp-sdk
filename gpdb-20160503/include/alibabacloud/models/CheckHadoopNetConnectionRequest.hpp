@@ -66,17 +66,17 @@ namespace Models
 
 
   protected:
-    // Instance ID.
+    // The instance ID.
     // 
     // This parameter is required.
     shared_ptr<string> DBInstanceId_ {};
-    // 1. Either DataSourceId or EmrInstanceId must be specified as input, otherwise an error will occur.
-    // 2. If both of the above parameters are specified, EmrInstanceId will be used preferentially.
-    // 3. If the data source specified by DataSourceId is a self-built Hadoop cluster, an error will occur directly.
+    // 1. You must specify either DataSourceId or EmrInstanceId. Otherwise, an error is returned.
+    // 2. If both parameters are specified, EmrInstanceId takes precedence.
+    // 3. If the data source specified by DataSourceId is a self-managed Hadoop cluster, an error is returned.
     shared_ptr<string> dataSourceId_ {};
-    // EMR instance ID.
+    // The EMR instance ID.
     shared_ptr<string> emrInstanceId_ {};
-    // Region ID.
+    // The region ID.
     shared_ptr<string> regionId_ {};
   };
 

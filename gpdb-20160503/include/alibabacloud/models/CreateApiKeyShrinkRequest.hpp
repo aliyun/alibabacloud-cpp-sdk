@@ -83,7 +83,7 @@ namespace Models
     shared_ptr<string> keyName_ {};
     // The region ID.
     shared_ptr<string> regionId_ {};
-    // The list of service IDs to authorize.
+    // The IDs of the services to be authorized.
     shared_ptr<string> serviceIdsShrink_ {};
     // The workspace ID.
     // 

@@ -73,9 +73,9 @@ namespace Models
 
 
     protected:
-      // The queried minor version information about the instance in Serverless mode.
+      // The kernel version information for the cloud-native mode.
       Darabonba::Json serverless_ {};
-      // The queried minor version information about the instance in elastic storage mode.
+      // The kernel version information for the storage elastic mode.
       Darabonba::Json storageElastic_ {};
     };
 
@@ -100,7 +100,7 @@ namespace Models
   protected:
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The queried minor versions.
+    // The data structure.
     shared_ptr<DescribeDBVersionInfosResponseBody::VersionDetails> versionDetails_ {};
   };
 

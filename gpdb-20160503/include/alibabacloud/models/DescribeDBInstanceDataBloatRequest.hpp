@@ -77,21 +77,21 @@ namespace Models
   protected:
     // The ID of the instance.
     // 
-    // >  You can call the [DescribeDBInstances](https://help.aliyun.com/document_detail/86911.html) operation to query the details of all AnalyticDB for PostgreSQL instances in a specific region, including instance IDs.
+    // > You can call the [DescribeDBInstances](https://help.aliyun.com/document_detail/86911.html) operation to query the details of all AnalyticDB for PostgreSQL instances in a specific region, including the instance IDs.
     // 
     // This parameter is required.
     shared_ptr<string> DBInstanceId_ {};
     // The name of the database.
     shared_ptr<string> database_ {};
-    // The sorting order.
+    // The sorting condition.
     shared_ptr<string> orderBy_ {};
-    // The number of the page to return. The value must be an integer that is greater than 0. Default value: **1**.
+    // The page number. The value must be greater than 0 and cannot exceed the maximum value of the Integer data type. Default value: **1**.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries to return on each page. Valid values:
+    // The number of entries per page. Valid values:
     // 
-    // *   **30**
-    // *   **50**
-    // *   **100**
+    // - **30**
+    // - **50**
+    // - **100**
     // 
     // Default value: **30**.
     shared_ptr<int32_t> pageSize_ {};

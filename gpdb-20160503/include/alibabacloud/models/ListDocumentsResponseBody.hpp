@@ -162,19 +162,18 @@ namespace Models
 
 
   protected:
-    // The total number of entries returned.
+    // The total number of entries.
     shared_ptr<int32_t> count_ {};
     shared_ptr<ListDocumentsResponseBody::Items> items_ {};
-    // The returned message.
+    // The detailed information returned by the API operation.
     shared_ptr<string> message_ {};
-    // A pagination token. It can be used in the next request to retrieve a new page of results. If NextToken is empty, no next page exists.
+    // The paging token used to start the next paged query. If this parameter is empty, the current page is the last page.
     shared_ptr<string> nextToken_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request was successful. Valid values:
-    // 
-    // *   **success**
-    // *   **fail**
+    // The execution status of the API operation. Valid values:
+    // - **success**: The operation is successful.
+    // - **fail**: The operation fails.
     shared_ptr<string> status_ {};
   };
 

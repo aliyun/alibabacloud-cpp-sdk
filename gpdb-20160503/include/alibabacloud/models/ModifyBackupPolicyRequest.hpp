@@ -84,43 +84,43 @@ namespace Models
 
 
   protected:
-    // The number of days for which data backup files are retained. Default value: 7. Maximum value: 7. Valid values: 1 to 7.
+    // The number of days for which data backups are retained. Default value: 7. Maximum value: 7. Valid values: 1 to 7.
     shared_ptr<int32_t> backupRetentionPeriod_ {};
     // The ID of the instance.
     // 
+    // > You can call the [DescribeDBInstances](https://help.aliyun.com/document_detail/86911.html) operation to query the details of all AnalyticDB for PostgreSQL instances in a specified region, including instance IDs.
+    // 
     // This parameter is required.
     shared_ptr<string> DBInstanceId_ {};
-    // Specifies whether to enable automatic point-in-time backup.
+    // Specifies whether to enable automatic recovery point creation. Valid values:
     // 
-    // *   true
-    // *   false
-    // 
+    // - true: Enabled.
+    // - false: Disabled.
     // Default value: true.
     shared_ptr<bool> enableRecoveryPoint_ {};
-    // The cycle based on which backups are performed. If more than one day of the week is specified, the days of the week are separated by commas (,). Valid values:
+    // The data backup cycle. Separate multiple values with commas (,). Valid values:
     // 
-    // *   Monday
-    // *   Tuesday
-    // *   Wednesday
-    // *   Thursday
-    // *   Friday
-    // *   Saturday
-    // *   Sunday
+    // - Monday: Monday.
+    // - Tuesday: Tuesday.
+    // - Wednesday: Wednesday.
+    // - Thursday: Thursday.
+    // - Friday: Friday.
+    // - Saturday: Saturday.
+    // - Sunday: Sunday.
     // 
     // This parameter is required.
     shared_ptr<string> preferredBackupPeriod_ {};
-    // The backup window. Specify the backup window in the HH:mmZ-HH:mmZ format. The backup window must be in UTC. Default value: 00:00-01:00.
+    // The data backup time. Default value: 00:00Z-01:00Z. Format: HH:mmZ-HH:mmZ (UTC).
     // 
     // This parameter is required.
     shared_ptr<string> preferredBackupTime_ {};
-    // The frequency of point-in-time backup.
+    // The frequency of recovery points. Valid values:
     // 
-    // *   1: per hour
-    // *   2: per 2 hours
-    // *   4: per 4 hours
-    // *   8: per 8 hours
-    // 
-    // Default value: 8.
+    // - **1**: Every hour.
+    // - **2**: Every two hours.
+    // - **4**: Every four hours.
+    // - **8**: Every eight hours.
+    // Default value: **1**.
     shared_ptr<string> recoveryPointPeriod_ {};
   };
 

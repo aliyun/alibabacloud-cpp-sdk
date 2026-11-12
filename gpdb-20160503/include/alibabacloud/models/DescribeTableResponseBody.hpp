@@ -106,11 +106,11 @@ namespace Models
     shared_ptr<DescribeTableResponseBody::ColumnList> columnList_ {};
     // The detailed information returned by the operation.
     shared_ptr<string> message_ {};
-    // The request ID.
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
     // The execution status of the API operation. Valid values:
-    // - **success**: The execution was successful.
-    // - **fail**: The execution failed.
+    // - **success**: Execution succeeded.
+    // - **fail**: Execution failed.
     shared_ptr<string> status_ {};
   };
 

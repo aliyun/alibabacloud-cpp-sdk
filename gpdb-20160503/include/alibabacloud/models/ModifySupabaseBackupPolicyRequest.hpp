@@ -97,9 +97,9 @@ namespace Models
     // The data backup retention period. Unit: days. Valid values: 1 to 7.
     shared_ptr<int32_t> backupRetentionPeriod_ {};
     // Specifies whether to enable automatic recovery points. Valid values:
-    // - true: Enabled.
-    // - false: Disabled.
-    // If this parameter is not specified, false is used.
+    // - true: enables automatic recovery points.
+    // - false: disables automatic recovery points.
+    // Default value: false.
     shared_ptr<bool> enableRecoveryPoint_ {};
     // The data backup cycle. Separate multiple values with commas (,). Valid values: Monday, Tuesday, Wednesday, Thursday, Friday, Saturday, and Sunday.
     // 
@@ -113,7 +113,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> projectId_ {};
-    // The interval for the automatic creation of recovery points. Unit: hours. Valid values: 1/6 (10 minutes), 1/2 (30 minutes), 1, 2, 4, and 8. This parameter takes effect only when EnableRecoveryPoint is set to true. If this parameter is not specified, the default value 1 is used. If EnableRecoveryPoint is set to false, this parameter is ignored.
+    // The interval for the automatic creation of recovery points. Unit: hours. Valid values: 1/6 (10 minutes), 1/2 (30 minutes), 1, 2, 4, and 8. This parameter takes effect only when EnableRecoveryPoint is set to true. If EnableRecoveryPoint is set to true and this parameter is not specified, the default value 1 is used. If EnableRecoveryPoint is set to false, this parameter is ignored.
     shared_ptr<string> recoveryPointPeriod_ {};
     // The region ID.
     // 

@@ -166,19 +166,19 @@ namespace Models
 
 
     protected:
-      // The coefficient of data bloat. It is calculated by using the following formula:
+      // The data bloat coefficient. The bloat coefficient is calculated by using the following formula:
       // 
-      // Bloat coefficient = Number of dead rows/Number of active rows.
+      // Number of dead rows counted by the system / Number of live rows counted by the system.
       shared_ptr<string> bloatCeoff_ {};
-      // The bloat size of the table. It indicates the amount of space that can be released.
+      // The size of the bloated data, which indicates the amount of space that can be reclaimed.
       shared_ptr<string> bloatSize_ {};
       // The name of the database.
       shared_ptr<string> databaseName_ {};
-      // The expected size of the table.
+      // The expected table size.
       // 
-      // It indicates the size of the table that has no data bloat.
+      // The expected table size is the estimated size of the table when no data bloat occurs.
       shared_ptr<string> expectTableSize_ {};
-      // The actual size of the table.
+      // The actual table size.
       shared_ptr<string> realTableSize_ {};
       // The name of the schema.
       shared_ptr<string> schemaName_ {};
@@ -186,15 +186,15 @@ namespace Models
       shared_ptr<int32_t> sequence_ {};
       // The storage type of the table. Valid values:
       // 
-      // *   **Heap Table**
-      // *   **Append-Only Heap Table**
-      // *   **Append-Only Columnar Table**
+      // - **Heap Table**: heap table
+      // - **Append-Only Heap Table**: append-only heap table
+      // - **Append-Only Columnar Table**: column-oriented table
       shared_ptr<string> storageType_ {};
       // This parameter is not returned.
       shared_ptr<string> suggestedAction_ {};
       // The name of the table.
       shared_ptr<string> tableName_ {};
-      // The time when the table was last deleted, inserted, or updated.
+      // The time when the table was last updated by a DELETE, INSERT, or UPDATE operation.
       shared_ptr<string> timeLastUpdated_ {};
       // The time when the table was last vacuumed. The time is displayed in UTC.
       shared_ptr<string> timeLastVacuumed_ {};
@@ -233,13 +233,13 @@ namespace Models
 
 
   protected:
-    // The queried data bloat.
+    // The list of data bloat details.
     shared_ptr<vector<DescribeDBInstanceDataBloatResponseBody::Items>> items_ {};
-    // The page number of the returned page.
+    // The current page number.
     shared_ptr<int32_t> pageNumber_ {};
     // The ID of the request.
     shared_ptr<string> requestId_ {};
-    // The total number of entries.
+    // The total number of tables. The total number of pages is calculated by dividing this value by the page size.
     shared_ptr<int32_t> totalCount_ {};
   };
 

@@ -104,14 +104,14 @@ namespace Models
       // The ID of the backup task.
       shared_ptr<string> backupJobId_ {};
       // The backup mode. Valid values:
-      // * **Automated**: automatic backup
-      // * **Manual**: manual backup
+      // * **Automated**: automatic backup.
+      // * **Manual**: manual backup.
       shared_ptr<string> backupMode_ {};
-      // The status of the backup task. Valid statuses include: schedule (waiting to be scheduled) and backup (in progress).
+      // The status of the backup task. Known statuses include: schedule (waiting for scheduling) and backup (in progress).
       shared_ptr<string> backupStatus_ {};
-      // The progress percentage of the backup task, such as 0%. This value may be an empty string when the task is in the schedule (waiting to be scheduled) state.
+      // The progress of the backup task in percentage, such as 0%. This value may be an empty string when the task is in the schedule state.
       shared_ptr<string> process_ {};
-      // The start time of the backup task. The time is displayed in UTC in the yyyy-MM-ddTHH:mm:ssZ format. This value may be an empty string when the task is in the schedule (waiting to be scheduled) state.
+      // The start time of the backup task. The time is displayed in UTC in the yyyy-MM-ddTHH:mm:ssZ format. This value may be an empty string when the task is in the schedule state.
       shared_ptr<string> startTime_ {};
     };
 
@@ -152,7 +152,7 @@ namespace Models
     shared_ptr<vector<ListSupabaseBackupJobsResponseBody::Items>> items_ {};
     // The maximum number of entries to return for this request.
     shared_ptr<int32_t> maxResults_ {};
-    // The pagination token for the next page, which can be used as the NextToken parameter in the next request.
+    // The pagination token for the next page. You can use this value as the NextToken parameter in the next request.
     shared_ptr<string> nextToken_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

@@ -57,14 +57,13 @@ namespace Models
 
 
   protected:
-    // The error message returned if the request fails.
+    // The details of the error message.
     shared_ptr<string> message_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request was successful. Valid values:
-    // 
-    // *   **Success**
-    // *   **fail**
+    // The execution status of the API operation. Valid values:
+    // - **success**: The execution succeeded.
+    // - **fail**: The execution failed.
     shared_ptr<string> status_ {};
   };
 

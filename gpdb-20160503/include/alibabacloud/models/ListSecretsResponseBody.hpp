@@ -204,17 +204,16 @@ namespace Models
 
 
   protected:
-    // The number of access credentials.
+    // The total number of entries.
     shared_ptr<int64_t> count_ {};
-    // The returned message.
+    // The response message.
     shared_ptr<string> message_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
     shared_ptr<ListSecretsResponseBody::Secrets> secrets_ {};
-    // The status of the operation. Valid values:
-    // 
-    // *   **success**
-    // *   **fail**
+    // The API execution status. Valid values:
+    // - **success**: The execution succeeded.
+    // - **fail**: The execution failed.
     shared_ptr<string> status_ {};
   };
 

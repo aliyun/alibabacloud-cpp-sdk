@@ -151,57 +151,53 @@ namespace Models
   protected:
     // The instance ID.
     // 
-    // > You can call the [DescribeDBInstances](https://help.aliyun.com/document_detail/86911.html) operation to query the information about all AnalyticDB for PostgreSQL instances within a region, including instance IDs.
+    // > You can call the [DescribeDBInstances](https://help.aliyun.com/document_detail/86911.html) operation to query the details of all AnalyticDB for PostgreSQL instances in a specific region, including the instance IDs.
     // 
     // This parameter is required.
     shared_ptr<string> DBInstanceId_ {};
     // The name of the database.
     shared_ptr<string> database_ {};
-    // The end of the time range to query. Specify the time in the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm*Z format. The time must be in UTC.
+    // The end time of the query. Specify the time in the <i>yyyy-MM-dd</i>T<i>HH:mm</i>Z format. The time must be in UTC.
     // 
-    // > The end time must be later than the start time. The maximum time range that can be specified is seven days.
+    // > The end time must be later than the start time. The time span between the start time and the end time cannot exceed seven days.
     // 
     // This parameter is required.
     shared_ptr<string> endTime_ {};
-    // The execution duration of the SQL statement. Unit: seconds.
+    // The execution duration. Unit: seconds.
     shared_ptr<string> executeCost_ {};
-    // The execution status of the query. Valid values:
+    // The execution state. Valid values:
     // 
-    // *   1: successful.
-    // *   0: failed.
-    // *   0,1 or 1,0: all.
+    // - 1: success
+    // - 0: failure
+    // - 0,1 or 1,0: all
     shared_ptr<string> executeState_ {};
-    // The maximum amount of time consumed by a slow query. Unit: seconds. Minimum value: 0.
+    // The maximum execution duration of slow SQL queries. The value must be greater than or equal to 0. Unit: seconds.
     shared_ptr<string> maxExecuteCost_ {};
-    // The minimum amount of time consumed by a slow query. Unit: seconds. Minimum value: 0.
+    // The minimum execution duration of slow SQL queries. The value must be greater than or equal to 0. Unit: seconds.
     shared_ptr<string> minExecuteCost_ {};
-    // The type of the query language. Valid values:
+    // The operation class. Valid values:
     // 
-    // *   **DQL**
-    // *   **DML**
-    // *   **DDL**
-    // *   **DCL**
-    // *   **TCL**
+    // - **DQL**
+    // - **DML**
+    // - **DDL**
+    // - **DCL**
+    // - **TCL**
     shared_ptr<string> operationClass_ {};
-    // The type of the SQL statement.
+    // The type of the executed SQL statement.
     // 
-    // > 
-    // 
-    // *   If you specify **OperationClass**, the value of **OperationType** must be of the corresponding query language. For example, if you set **OperationClass** to **DQL**, the value of **OperationType** must be a **DQL** statement such as **SELECT**.
-    // 
-    // *   If you leave **OperationClass** empty, the value of **OperationType** can be an SQL statement of any query language.
-    // 
-    // *   If you leave **OperationClass** and **OperationType** empty, all types of SQL statements are returned.
+    // >- If the **OperationClass** parameter is specified, the value of **OperationType** must belong to the corresponding language type. For example, if **OperationClass** is set to **DQL**, the value of **OperationType** must be a DQL-type SQL statement, such as **SELECT**.
+    // >- If the **OperationClass** parameter is not specified, the value of **OperationType** can be any type of SQL statement.
+    // >- If neither the **OperationClass** nor the **OperationType** parameter is specified, all types of SQL statements are returned.
     shared_ptr<string> operationType_ {};
-    // The keywords that are used to query audit logs.
+    // The query keywords.
     shared_ptr<string> queryKeywords_ {};
     // The source IP address.
     shared_ptr<string> sourceIP_ {};
-    // The beginning of the time range to query. Specify the time in the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm*Z format. The time must be in UTC.
+    // The start time of the query. Specify the time in the <i>yyyy-MM-dd</i>T<i>HH:mm</i>Z format. The time must be in UTC.
     // 
     // This parameter is required.
     shared_ptr<string> startTime_ {};
-    // The name of the database account that is used to connect to the database.
+    // The database username.
     shared_ptr<string> user_ {};
   };
 

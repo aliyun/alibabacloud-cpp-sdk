@@ -101,18 +101,17 @@ namespace Models
     shared_ptr<string> DBInstanceId_ {};
     // The returned message.
     shared_ptr<string> message_ {};
-    // The name of the namespace.
+    // The namespace.
     shared_ptr<string> namespace_ {};
-    // The queried namespace.
+    // The namespace information.
     shared_ptr<map<string, string>> namespaceInfo_ {};
-    // The region ID of the instance.
+    // The region ID.
     shared_ptr<string> regionId_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request was successful. Valid values:
-    // 
-    // *   **success**
-    // *   **fail**
+    // The execution status of the API operation. Valid values:
+    // - **success**: The execution is successful.
+    // - **fail**: The execution fails.
     shared_ptr<string> status_ {};
   };
 

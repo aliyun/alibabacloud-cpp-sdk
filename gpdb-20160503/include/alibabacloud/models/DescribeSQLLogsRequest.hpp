@@ -169,65 +169,62 @@ namespace Models
   protected:
     // The instance ID.
     // 
-    // > You can call the [DescribeDBInstances](https://help.aliyun.com/document_detail/86911.html) operation to query the IDs of all AnalyticDB for PostgreSQL instances within a region.
+    // > You can call the [DescribeDBInstances](https://help.aliyun.com/document_detail/86911.html) operation to query the IDs of all AnalyticDB for PostgreSQL instances in a specific region.
     // 
     // This parameter is required.
     shared_ptr<string> DBInstanceId_ {};
     // The name of the database.
     shared_ptr<string> database_ {};
-    // The end of the time range to query. Specify the time in the ISO 8601 standard in the *yyyy-MM-ddTHH:mmZ* format. The time must be in UTC.
+    // The end time of the query. Specify the time in the <i>YYYY-MM-DDThh:mmZ</i> format. The time must be in UTC.
     // 
-    // > The end time must be later than the start time. The maximum time range that can be specified is seven days.
+    // > The end time must be later than the start time. The interval between the start time and the end time cannot exceed seven days.
     // 
     // This parameter is required.
     shared_ptr<string> endTime_ {};
-    // The execution duration of the SQL statement. Unit: seconds.
+    // The execution duration. Unit: seconds.
     shared_ptr<string> executeCost_ {};
-    // The execution status of the SQL statement. Valid values:
+    // The execution state. Valid values:
     // 
-    // *   **1**: successful.
-    // *   **0**: failed.
+    // - **1**: Successful.
+    // - **0**: Failed.
     shared_ptr<string> executeState_ {};
-    // The maximum amount of time consumed by a slow query. Unit: seconds. Minimum value: 0.
+    // The maximum execution duration of slow SQL statements. The value must be greater than or equal to 0. Unit: seconds.
     shared_ptr<string> maxExecuteCost_ {};
-    // The minimum amount of time consumed by a slow query. Unit: seconds. Minimum value: 0.
+    // The minimum execution duration of slow SQL statements. The value must be greater than or equal to 0. Unit: seconds.
     shared_ptr<string> minExecuteCost_ {};
-    // The type of the query language. Valid values:
+    // The operation class. Valid values:
     // 
-    // *   **DQL**
-    // *   **DML**
-    // *   **DDL**
-    // *   **DCL**
-    // *   **TCL**
+    // - **DQL**
+    // - **DML**
+    // - **DDL**
+    // - **DCL**
+    // - **TCL**
     shared_ptr<string> operationClass_ {};
-    // The type of the SQL statement.
+    // The type of the executed SQL statement.
     // 
-    // > 
-    // 
-    // *   If **OperationClass** is specified, the value of **OperationType** must belong to the corresponding query language. For example, if **OperationClass** is set to **DQL**, the value of **OperationType** must be a **DQL** statement such as **SELECT**.
-    // 
-    // *   If **OperationClass** is not specified, the value of **OperationType** can be an SQL statement of any query language.
-    // *   If **OperationClass** and **OperationType** are not specified, all types of SQL statements are returned.
+    // >- If the **OperationClass** parameter is specified, the value of **OperationType** must belong to the corresponding language type. For example, if the value of **OperationClass** is **DQL**, the value of **OperationType** must be a DQL statement, such as **SELECT**.
+    // - If the **OperationClass** parameter is not specified, the value of **OperationType** can be any type of SQL statement.
+    // - If neither the **OperationClass** parameter nor the **OperationType** parameter is specified, all types of SQL statements are returned.
     shared_ptr<string> operationType_ {};
-    // The page number. Pages start from page 1. Default value: 1.
+    // The page number. The value must be greater than 0 and cannot exceed the maximum value of the Integer type. Default value: 1.
     shared_ptr<int32_t> pageNumber_ {};
     // The number of entries per page. Valid values:
     // 
-    // *   **30**
-    // *   **50**
-    // *   **100**
+    // - **30**
+    // - **50**
+    // - **100**
     // 
     // Default value: **30**.
     shared_ptr<int32_t> pageSize_ {};
-    // The keywords of the SQL statement.
+    // The SQL keyword.
     shared_ptr<string> queryKeywords_ {};
     // The source IP address.
     shared_ptr<string> sourceIP_ {};
-    // The beginning of the time range to query. Specify the time in the ISO 8601 standard in the *yyyy-MM-ddTHH:mmZ* format. The time must be in UTC.
+    // The start time of the query. Specify the time in the <i>YYYY-MM-DDThh:mmZ</i> format. The time must be in UTC.
     // 
     // This parameter is required.
     shared_ptr<string> startTime_ {};
-    // The name of the database account.
+    // The username.
     shared_ptr<string> user_ {};
   };
 

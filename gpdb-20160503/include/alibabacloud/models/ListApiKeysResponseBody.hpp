@@ -166,7 +166,7 @@ namespace Models
       shared_ptr<vector<Items::AuthServices>> authServices_ {};
       // The creation time.
       shared_ptr<string> createTime_ {};
-      // The description of the API key.
+      // The plugin description.
       shared_ptr<string> description_ {};
       // The ID of the API key.
       shared_ptr<string> keyId_ {};
@@ -216,11 +216,11 @@ namespace Models
 
 
   protected:
-    // The list of API keys.
+    // The list of items.
     shared_ptr<vector<ListApiKeysResponseBody::Items>> items_ {};
-    // The maximum number of records to return in this query.
+    // The maximum number of records to return in this request.
     shared_ptr<int32_t> maxResults_ {};
-    // The token for the next page in a paged query.
+    // The token for the next paging query.
     shared_ptr<string> nextToken_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
