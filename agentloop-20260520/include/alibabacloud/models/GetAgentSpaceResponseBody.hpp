@@ -2,6 +2,7 @@
 #ifndef ALIBABACLOUD_MODELS_GETAGENTSPACERESPONSEBODY_HPP_
 #define ALIBABACLOUD_MODELS_GETAGENTSPACERESPONSEBODY_HPP_
 #include <darabonba/Core.hpp>
+#include <vector>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud
@@ -22,6 +23,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(regionId, regionId_);
       DARABONBA_PTR_TO_JSON(requestId, requestId_);
       DARABONBA_PTR_TO_JSON(slsProject, slsProject_);
+      DARABONBA_PTR_TO_JSON(tags, tags_);
       DARABONBA_PTR_TO_JSON(updateTime, updateTime_);
     };
     friend void from_json(const Darabonba::Json& j, GetAgentSpaceResponseBody& obj) { 
@@ -34,6 +36,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(regionId, regionId_);
       DARABONBA_PTR_FROM_JSON(requestId, requestId_);
       DARABONBA_PTR_FROM_JSON(slsProject, slsProject_);
+      DARABONBA_PTR_FROM_JSON(tags, tags_);
       DARABONBA_PTR_FROM_JSON(updateTime, updateTime_);
     };
     GetAgentSpaceResponseBody() = default ;
@@ -47,6 +50,48 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+    class Tags : public Darabonba::Model {
+    public:
+      friend void to_json(Darabonba::Json& j, const Tags& obj) { 
+        DARABONBA_PTR_TO_JSON(key, key_);
+        DARABONBA_PTR_TO_JSON(value, value_);
+      };
+      friend void from_json(const Darabonba::Json& j, Tags& obj) { 
+        DARABONBA_PTR_FROM_JSON(key, key_);
+        DARABONBA_PTR_FROM_JSON(value, value_);
+      };
+      Tags() = default ;
+      Tags(const Tags &) = default ;
+      Tags(Tags &&) = default ;
+      Tags(const Darabonba::Json & obj) { from_json(obj, *this); };
+      virtual ~Tags() = default ;
+      Tags& operator=(const Tags &) = default ;
+      Tags& operator=(Tags &&) = default ;
+      virtual void validate() const override {
+      };
+      virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+      virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+      virtual bool empty() const override { return this->key_ == nullptr
+        && this->value_ == nullptr; };
+      // key Field Functions 
+      bool hasKey() const { return this->key_ != nullptr;};
+      void deleteKey() { this->key_ = nullptr;};
+      inline string getKey() const { DARABONBA_PTR_GET_DEFAULT(key_, "") };
+      inline Tags& setKey(string key) { DARABONBA_PTR_SET_VALUE(key_, key) };
+
+
+      // value Field Functions 
+      bool hasValue() const { return this->value_ != nullptr;};
+      void deleteValue() { this->value_ = nullptr;};
+      inline string getValue() const { DARABONBA_PTR_GET_DEFAULT(value_, "") };
+      inline Tags& setValue(string value) { DARABONBA_PTR_SET_VALUE(value_, value) };
+
+
+    protected:
+      shared_ptr<string> key_ {};
+      shared_ptr<string> value_ {};
+    };
+
     class MseNamespace : public Darabonba::Model {
     public:
       friend void to_json(Darabonba::Json& j, const MseNamespace& obj) { 
@@ -104,7 +149,7 @@ namespace Models
 
     virtual bool empty() const override { return this->agentSpace_ == nullptr
         && this->cmsWorkspace_ == nullptr && this->cmsWorkspaceBindType_ == nullptr && this->createTime_ == nullptr && this->description_ == nullptr && this->mseNamespace_ == nullptr
-        && this->regionId_ == nullptr && this->requestId_ == nullptr && this->slsProject_ == nullptr && this->updateTime_ == nullptr; };
+        && this->regionId_ == nullptr && this->requestId_ == nullptr && this->slsProject_ == nullptr && this->tags_ == nullptr && this->updateTime_ == nullptr; };
     // agentSpace Field Functions 
     bool hasAgentSpace() const { return this->agentSpace_ != nullptr;};
     void deleteAgentSpace() { this->agentSpace_ = nullptr;};
@@ -170,6 +215,15 @@ namespace Models
     inline GetAgentSpaceResponseBody& setSlsProject(string slsProject) { DARABONBA_PTR_SET_VALUE(slsProject_, slsProject) };
 
 
+    // tags Field Functions 
+    bool hasTags() const { return this->tags_ != nullptr;};
+    void deleteTags() { this->tags_ = nullptr;};
+    inline const vector<GetAgentSpaceResponseBody::Tags> & getTags() const { DARABONBA_PTR_GET_CONST(tags_, vector<GetAgentSpaceResponseBody::Tags>) };
+    inline vector<GetAgentSpaceResponseBody::Tags> getTags() { DARABONBA_PTR_GET(tags_, vector<GetAgentSpaceResponseBody::Tags>) };
+    inline GetAgentSpaceResponseBody& setTags(const vector<GetAgentSpaceResponseBody::Tags> & tags) { DARABONBA_PTR_SET_VALUE(tags_, tags) };
+    inline GetAgentSpaceResponseBody& setTags(vector<GetAgentSpaceResponseBody::Tags> && tags) { DARABONBA_PTR_SET_RVALUE(tags_, tags) };
+
+
     // updateTime Field Functions 
     bool hasUpdateTime() const { return this->updateTime_ != nullptr;};
     void deleteUpdateTime() { this->updateTime_ = nullptr;};
@@ -198,6 +252,7 @@ namespace Models
     shared_ptr<string> requestId_ {};
     // The name of the Simple Log Service project.
     shared_ptr<string> slsProject_ {};
+    shared_ptr<vector<GetAgentSpaceResponseBody::Tags>> tags_ {};
     // The update time.
     // 
     // Use the UTC time format: yyyy-MM-ddTHH:mm:ssZ

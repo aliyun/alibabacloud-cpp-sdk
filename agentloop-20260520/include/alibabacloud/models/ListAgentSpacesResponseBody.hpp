@@ -48,6 +48,7 @@ namespace Models
         DARABONBA_PTR_TO_JSON(mseNamespace, mseNamespace_);
         DARABONBA_PTR_TO_JSON(regionId, regionId_);
         DARABONBA_PTR_TO_JSON(slsProject, slsProject_);
+        DARABONBA_PTR_TO_JSON(tags, tags_);
         DARABONBA_PTR_TO_JSON(updateTime, updateTime_);
       };
       friend void from_json(const Darabonba::Json& j, AgentSpaces& obj) { 
@@ -58,6 +59,7 @@ namespace Models
         DARABONBA_PTR_FROM_JSON(mseNamespace, mseNamespace_);
         DARABONBA_PTR_FROM_JSON(regionId, regionId_);
         DARABONBA_PTR_FROM_JSON(slsProject, slsProject_);
+        DARABONBA_PTR_FROM_JSON(tags, tags_);
         DARABONBA_PTR_FROM_JSON(updateTime, updateTime_);
       };
       AgentSpaces() = default ;
@@ -71,6 +73,50 @@ namespace Models
       };
       virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
       virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+      class Tags : public Darabonba::Model {
+      public:
+        friend void to_json(Darabonba::Json& j, const Tags& obj) { 
+          DARABONBA_PTR_TO_JSON(key, key_);
+          DARABONBA_PTR_TO_JSON(value, value_);
+        };
+        friend void from_json(const Darabonba::Json& j, Tags& obj) { 
+          DARABONBA_PTR_FROM_JSON(key, key_);
+          DARABONBA_PTR_FROM_JSON(value, value_);
+        };
+        Tags() = default ;
+        Tags(const Tags &) = default ;
+        Tags(Tags &&) = default ;
+        Tags(const Darabonba::Json & obj) { from_json(obj, *this); };
+        virtual ~Tags() = default ;
+        Tags& operator=(const Tags &) = default ;
+        Tags& operator=(Tags &&) = default ;
+        virtual void validate() const override {
+        };
+        virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+        virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+        virtual bool empty() const override { return this->key_ == nullptr
+        && this->value_ == nullptr; };
+        // key Field Functions 
+        bool hasKey() const { return this->key_ != nullptr;};
+        void deleteKey() { this->key_ = nullptr;};
+        inline string getKey() const { DARABONBA_PTR_GET_DEFAULT(key_, "") };
+        inline Tags& setKey(string key) { DARABONBA_PTR_SET_VALUE(key_, key) };
+
+
+        // value Field Functions 
+        bool hasValue() const { return this->value_ != nullptr;};
+        void deleteValue() { this->value_ = nullptr;};
+        inline string getValue() const { DARABONBA_PTR_GET_DEFAULT(value_, "") };
+        inline Tags& setValue(string value) { DARABONBA_PTR_SET_VALUE(value_, value) };
+
+
+      protected:
+        // The tag key.
+        shared_ptr<string> key_ {};
+        // The tag value, which can be an empty string.
+        shared_ptr<string> value_ {};
+      };
+
       class MseNamespace : public Darabonba::Model {
       public:
         friend void to_json(Darabonba::Json& j, const MseNamespace& obj) { 
@@ -118,7 +164,7 @@ namespace Models
 
 
       protected:
-        // The attach method of the MSE namespace. AutoCreated indicates automatic creation by AgentLoop. UserSelected indicates that an existing namespace is selected and attached when the AgentSpace is created.
+        // The method used to attach the MSE namespace. AutoCreated indicates automatic creation by AgentLoop. UserSelected indicates that an existing namespace is selected and attached when the AgentSpace is created.
         shared_ptr<string> bindType_ {};
         // The ID of the MSE namespace.
         shared_ptr<string> namespaceId_ {};
@@ -128,7 +174,7 @@ namespace Models
 
       virtual bool empty() const override { return this->agentSpace_ == nullptr
         && this->cmsWorkspace_ == nullptr && this->createTime_ == nullptr && this->description_ == nullptr && this->mseNamespace_ == nullptr && this->regionId_ == nullptr
-        && this->slsProject_ == nullptr && this->updateTime_ == nullptr; };
+        && this->slsProject_ == nullptr && this->tags_ == nullptr && this->updateTime_ == nullptr; };
       // agentSpace Field Functions 
       bool hasAgentSpace() const { return this->agentSpace_ != nullptr;};
       void deleteAgentSpace() { this->agentSpace_ = nullptr;};
@@ -180,6 +226,15 @@ namespace Models
       inline AgentSpaces& setSlsProject(string slsProject) { DARABONBA_PTR_SET_VALUE(slsProject_, slsProject) };
 
 
+      // tags Field Functions 
+      bool hasTags() const { return this->tags_ != nullptr;};
+      void deleteTags() { this->tags_ = nullptr;};
+      inline const vector<AgentSpaces::Tags> & getTags() const { DARABONBA_PTR_GET_CONST(tags_, vector<AgentSpaces::Tags>) };
+      inline vector<AgentSpaces::Tags> getTags() { DARABONBA_PTR_GET(tags_, vector<AgentSpaces::Tags>) };
+      inline AgentSpaces& setTags(const vector<AgentSpaces::Tags> & tags) { DARABONBA_PTR_SET_VALUE(tags_, tags) };
+      inline AgentSpaces& setTags(vector<AgentSpaces::Tags> && tags) { DARABONBA_PTR_SET_RVALUE(tags_, tags) };
+
+
       // updateTime Field Functions 
       bool hasUpdateTime() const { return this->updateTime_ != nullptr;};
       void deleteUpdateTime() { this->updateTime_ = nullptr;};
@@ -204,6 +259,8 @@ namespace Models
       shared_ptr<string> regionId_ {};
       // The name of the Simple Log Service project.
       shared_ptr<string> slsProject_ {};
+      // Returns only the tags of AgentSpaces that are active in the current region and match the local instance. An empty array is returned when it is confirmed that there are no tags. This field is omitted for entries in other regions, inactive entries, or entries that do not match the local instance. Omission of this field does not indicate the absence of tags.
+      shared_ptr<vector<AgentSpaces::Tags>> tags_ {};
       // The update time.
       // 
       // Use the UTC time format: yyyy-MM-ddTHH:mm:ssZ
@@ -254,11 +311,11 @@ namespace Models
     shared_ptr<vector<ListAgentSpacesResponseBody::AgentSpaces>> agentSpaces_ {};
     // The maximum number of returned results.
     shared_ptr<int32_t> maxResults_ {};
-    // The pagination token. This parameter is empty if no next page is available.
+    // The pagination token. This parameter is empty if there are no more pages.
     shared_ptr<string> nextToken_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The total count.
+    // The total number of entries.
     shared_ptr<int32_t> total_ {};
   };
 

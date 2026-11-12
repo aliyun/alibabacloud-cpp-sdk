@@ -376,6 +376,61 @@ CreateDatasetResponse Client::createDataset(const string &agentSpace, const Crea
 }
 
 /**
+ * @summary Creates a named historical version for a dataset in a specified agent workspace to preserve the historical state of the dataset. You can call ListDatasetVersions to query version information. If a version is no longer needed, you can call DeleteDatasetVersion to delete the version.
+ *
+ * @param request CreateDatasetVersionRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CreateDatasetVersionResponse
+ */
+CreateDatasetVersionResponse Client::createDatasetVersionWithOptions(const string &agentSpace, const string &datasetName, const CreateDatasetVersionRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasClientToken()) {
+    query["clientToken"] = request.getClientToken();
+  }
+
+  json body = {};
+  if (!!request.hasDescription()) {
+    body["description"] = request.getDescription();
+  }
+
+  if (!!request.hasVersion()) {
+    body["version"] = request.getVersion();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "CreateDatasetVersion"},
+    {"version" , "2026-05-20"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/agentspace/" , Darabonba::Encode::Encoder::percentEncode(agentSpace) , "/dataset/" , Darabonba::Encode::Encoder::percentEncode(datasetName) , "/version")},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CreateDatasetVersionResponse>();
+}
+
+/**
+ * @summary Creates a named historical version for a dataset in a specified agent workspace to preserve the historical state of the dataset. You can call ListDatasetVersions to query version information. If a version is no longer needed, you can call DeleteDatasetVersion to delete the version.
+ *
+ * @param request CreateDatasetVersionRequest
+ * @return CreateDatasetVersionResponse
+ */
+CreateDatasetVersionResponse Client::createDatasetVersion(const string &agentSpace, const string &datasetName, const CreateDatasetVersionRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return createDatasetVersionWithOptions(agentSpace, datasetName, request, headers, runtime);
+}
+
+/**
  * @summary Creates an evaluation task.
  *
  * @description Calls the CreateEvaluationTask operation to create an evaluation task under a specified AgentSpace. The server validates AgentSpace permissions, initializes evaluation result storage, checks task name uniqueness, and asynchronously creates and executes an EvaluationRun based on `taskMode` and `runStrategies`.
@@ -1161,6 +1216,45 @@ DeleteDatasetResponse Client::deleteDataset(const string &agentSpace, const stri
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   map<string, string> headers = {};
   return deleteDatasetWithOptions(agentSpace, datasetName, request, headers, runtime);
+}
+
+/**
+ * @summary Deletes a historical version of a dataset in a specified agent workspace. After deletion, the version no longer appears in the list returned by ListDatasetVersions. This operation does not delete the dataset itself, the current data, or other historical versions.
+ *
+ * @param request DeleteDatasetVersionRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DeleteDatasetVersionResponse
+ */
+DeleteDatasetVersionResponse Client::deleteDatasetVersionWithOptions(const string &agentSpace, const string &datasetName, const string &version, const DeleteDatasetVersionRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DeleteDatasetVersion"},
+    {"version" , "2026-05-20"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/agentspace/" , Darabonba::Encode::Encoder::percentEncode(agentSpace) , "/dataset/" , Darabonba::Encode::Encoder::percentEncode(datasetName) , "/version/" , Darabonba::Encode::Encoder::percentEncode(version))},
+    {"method" , "DELETE"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DeleteDatasetVersionResponse>();
+}
+
+/**
+ * @summary Deletes a historical version of a dataset in a specified agent workspace. After deletion, the version no longer appears in the list returned by ListDatasetVersions. This operation does not delete the dataset itself, the current data, or other historical versions.
+ *
+ * @param request DeleteDatasetVersionRequest
+ * @return DeleteDatasetVersionResponse
+ */
+DeleteDatasetVersionResponse Client::deleteDatasetVersion(const string &agentSpace, const string &datasetName, const string &version, const DeleteDatasetVersionRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return deleteDatasetVersionWithOptions(agentSpace, datasetName, version, request, headers, runtime);
 }
 
 /**
@@ -2271,13 +2365,19 @@ GetPipelineStatsResponse Client::getPipelineStats(const string &agentSpace, cons
  *
  * @description Supports filtering by region.
  *
- * @param request ListAgentSpacesRequest
+ * @param tmpReq ListAgentSpacesRequest
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
  * @return ListAgentSpacesResponse
  */
-ListAgentSpacesResponse Client::listAgentSpacesWithOptions(const ListAgentSpacesRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
-  request.validate();
+ListAgentSpacesResponse Client::listAgentSpacesWithOptions(const ListAgentSpacesRequest &tmpReq, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  ListAgentSpacesShrinkRequest request = ListAgentSpacesShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasTag()) {
+    request.setTagShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getTag(), "tag", "json"));
+  }
+
   json query = {};
   if (!!request.hasAgentSpace()) {
     query["agentSpace"] = request.getAgentSpace();
@@ -2293,6 +2393,10 @@ ListAgentSpacesResponse Client::listAgentSpacesWithOptions(const ListAgentSpaces
 
   if (!!request.hasRegionId()) {
     query["regionId"] = request.getRegionId();
+  }
+
+  if (!!request.hasTagShrink()) {
+    query["tag"] = request.getTagShrink();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -2435,6 +2539,55 @@ ListContextStoresResponse Client::listContextStores(const string &agentSpace, co
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   map<string, string> headers = {};
   return listContextStoresWithOptions(agentSpace, request, headers, runtime);
+}
+
+/**
+ * @summary Performs a paged query to retrieve the historical versions of a dataset in a specified agent workspace and returns the version names, descriptions, and creation time. Deleted versions are not included in the list. Do not specify nextToken in the first request. For subsequent requests, use the nextToken value from the previous response for paging to retrieve the next page.
+ *
+ * @param request ListDatasetVersionsRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListDatasetVersionsResponse
+ */
+ListDatasetVersionsResponse Client::listDatasetVersionsWithOptions(const string &agentSpace, const string &datasetName, const ListDatasetVersionsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasMaxResults()) {
+    query["maxResults"] = request.getMaxResults();
+  }
+
+  if (!!request.hasNextToken()) {
+    query["nextToken"] = request.getNextToken();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ListDatasetVersions"},
+    {"version" , "2026-05-20"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/agentspace/" , Darabonba::Encode::Encoder::percentEncode(agentSpace) , "/dataset/" , Darabonba::Encode::Encoder::percentEncode(datasetName) , "/version")},
+    {"method" , "GET"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListDatasetVersionsResponse>();
+}
+
+/**
+ * @summary Performs a paged query to retrieve the historical versions of a dataset in a specified agent workspace and returns the version names, descriptions, and creation time. Deleted versions are not included in the list. Do not specify nextToken in the first request. For subsequent requests, use the nextToken value from the previous response for paging to retrieve the next page.
+ *
+ * @param request ListDatasetVersionsRequest
+ * @return ListDatasetVersionsResponse
+ */
+ListDatasetVersionsResponse Client::listDatasetVersions(const string &agentSpace, const string &datasetName, const ListDatasetVersionsRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return listDatasetVersionsWithOptions(agentSpace, datasetName, request, headers, runtime);
 }
 
 /**

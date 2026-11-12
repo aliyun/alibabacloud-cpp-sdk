@@ -129,6 +129,24 @@ namespace AgentLoop20260520
       Models::CreateDatasetResponse createDataset(const string &agentSpace, const Models::CreateDatasetRequest &request);
 
       /**
+       * @summary Creates a named historical version for a dataset in a specified agent workspace to preserve the historical state of the dataset. You can call ListDatasetVersions to query version information. If a version is no longer needed, you can call DeleteDatasetVersion to delete the version.
+       *
+       * @param request CreateDatasetVersionRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CreateDatasetVersionResponse
+       */
+      Models::CreateDatasetVersionResponse createDatasetVersionWithOptions(const string &agentSpace, const string &datasetName, const Models::CreateDatasetVersionRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Creates a named historical version for a dataset in a specified agent workspace to preserve the historical state of the dataset. You can call ListDatasetVersions to query version information. If a version is no longer needed, you can call DeleteDatasetVersion to delete the version.
+       *
+       * @param request CreateDatasetVersionRequest
+       * @return CreateDatasetVersionResponse
+       */
+      Models::CreateDatasetVersionResponse createDatasetVersion(const string &agentSpace, const string &datasetName, const Models::CreateDatasetVersionRequest &request);
+
+      /**
        * @summary Creates an evaluation task.
        *
        * @description Calls the CreateEvaluationTask operation to create an evaluation task under a specified AgentSpace. The server validates AgentSpace permissions, initializes evaluation result storage, checks task name uniqueness, and asynchronously creates and executes an EvaluationRun based on `taskMode` and `runStrategies`.
@@ -357,6 +375,24 @@ namespace AgentLoop20260520
        * @return DeleteDatasetResponse
        */
       Models::DeleteDatasetResponse deleteDataset(const string &agentSpace, const string &datasetName, const Models::DeleteDatasetRequest &request);
+
+      /**
+       * @summary Deletes a historical version of a dataset in a specified agent workspace. After deletion, the version no longer appears in the list returned by ListDatasetVersions. This operation does not delete the dataset itself, the current data, or other historical versions.
+       *
+       * @param request DeleteDatasetVersionRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DeleteDatasetVersionResponse
+       */
+      Models::DeleteDatasetVersionResponse deleteDatasetVersionWithOptions(const string &agentSpace, const string &datasetName, const string &version, const Models::DeleteDatasetVersionRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Deletes a historical version of a dataset in a specified agent workspace. After deletion, the version no longer appears in the list returned by ListDatasetVersions. This operation does not delete the dataset itself, the current data, or other historical versions.
+       *
+       * @param request DeleteDatasetVersionRequest
+       * @return DeleteDatasetVersionResponse
+       */
+      Models::DeleteDatasetVersionResponse deleteDatasetVersion(const string &agentSpace, const string &datasetName, const string &version, const Models::DeleteDatasetVersionRequest &request);
 
       /**
        * @summary Deletes an evaluation run.
@@ -835,12 +871,12 @@ namespace AgentLoop20260520
        *
        * @description Supports filtering by region.
        *
-       * @param request ListAgentSpacesRequest
+       * @param tmpReq ListAgentSpacesRequest
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
        * @return ListAgentSpacesResponse
        */
-      Models::ListAgentSpacesResponse listAgentSpacesWithOptions(const Models::ListAgentSpacesRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+      Models::ListAgentSpacesResponse listAgentSpacesWithOptions(const Models::ListAgentSpacesRequest &tmpReq, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
        * @summary Queries a list of AgentSpaces.
@@ -887,6 +923,24 @@ namespace AgentLoop20260520
        * @return ListContextStoresResponse
        */
       Models::ListContextStoresResponse listContextStores(const string &agentSpace, const Models::ListContextStoresRequest &request);
+
+      /**
+       * @summary Performs a paged query to retrieve the historical versions of a dataset in a specified agent workspace and returns the version names, descriptions, and creation time. Deleted versions are not included in the list. Do not specify nextToken in the first request. For subsequent requests, use the nextToken value from the previous response for paging to retrieve the next page.
+       *
+       * @param request ListDatasetVersionsRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListDatasetVersionsResponse
+       */
+      Models::ListDatasetVersionsResponse listDatasetVersionsWithOptions(const string &agentSpace, const string &datasetName, const Models::ListDatasetVersionsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Performs a paged query to retrieve the historical versions of a dataset in a specified agent workspace and returns the version names, descriptions, and creation time. Deleted versions are not included in the list. Do not specify nextToken in the first request. For subsequent requests, use the nextToken value from the previous response for paging to retrieve the next page.
+       *
+       * @param request ListDatasetVersionsRequest
+       * @return ListDatasetVersionsResponse
+       */
+      Models::ListDatasetVersionsResponse listDatasetVersions(const string &agentSpace, const string &datasetName, const Models::ListDatasetVersionsRequest &request);
 
       /**
        * @summary Queries a list of datasets.

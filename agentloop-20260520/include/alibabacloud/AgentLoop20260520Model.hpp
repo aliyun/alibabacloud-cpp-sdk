@@ -39,6 +39,9 @@
 #include <alibabacloud/models/CreateDatasetRequest.hpp>
 #include <alibabacloud/models/CreateDatasetResponseBody.hpp>
 #include <alibabacloud/models/CreateDatasetResponse.hpp>
+#include <alibabacloud/models/CreateDatasetVersionRequest.hpp>
+#include <alibabacloud/models/CreateDatasetVersionResponseBody.hpp>
+#include <alibabacloud/models/CreateDatasetVersionResponse.hpp>
 #include <alibabacloud/models/CreateEvaluationTaskRequest.hpp>
 #include <alibabacloud/models/CreateEvaluationTaskResponseBody.hpp>
 #include <alibabacloud/models/CreateEvaluationTaskResponse.hpp>
@@ -75,6 +78,9 @@
 #include <alibabacloud/models/DeleteDatasetRequest.hpp>
 #include <alibabacloud/models/DeleteDatasetResponseBody.hpp>
 #include <alibabacloud/models/DeleteDatasetResponse.hpp>
+#include <alibabacloud/models/DeleteDatasetVersionRequest.hpp>
+#include <alibabacloud/models/DeleteDatasetVersionResponseBody.hpp>
+#include <alibabacloud/models/DeleteDatasetVersionResponse.hpp>
 #include <alibabacloud/models/DeleteEvaluationRunRequest.hpp>
 #include <alibabacloud/models/DeleteEvaluationRunResponseBody.hpp>
 #include <alibabacloud/models/DeleteEvaluationRunResponse.hpp>
@@ -151,6 +157,7 @@
 #include <alibabacloud/models/GetPipelineStatsResponseBody.hpp>
 #include <alibabacloud/models/GetPipelineStatsResponse.hpp>
 #include <alibabacloud/models/ListAgentSpacesRequest.hpp>
+#include <alibabacloud/models/ListAgentSpacesShrinkRequest.hpp>
 #include <alibabacloud/models/ListAgentSpacesResponseBody.hpp>
 #include <alibabacloud/models/ListAgentSpacesResponse.hpp>
 #include <alibabacloud/models/ListContextStoreAPIKeysRequest.hpp>
@@ -159,6 +166,9 @@
 #include <alibabacloud/models/ListContextStoresRequest.hpp>
 #include <alibabacloud/models/ListContextStoresResponseBody.hpp>
 #include <alibabacloud/models/ListContextStoresResponse.hpp>
+#include <alibabacloud/models/ListDatasetVersionsRequest.hpp>
+#include <alibabacloud/models/ListDatasetVersionsResponseBody.hpp>
+#include <alibabacloud/models/ListDatasetVersionsResponse.hpp>
 #include <alibabacloud/models/ListDatasetsRequest.hpp>
 #include <alibabacloud/models/ListDatasetsShrinkRequest.hpp>
 #include <alibabacloud/models/ListDatasetsResponseBody.hpp>
