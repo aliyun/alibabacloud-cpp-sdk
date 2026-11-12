@@ -117,9 +117,7 @@ namespace Models
 
 
   protected:
-    // The auto-renewal status. Valid values:
-    // - true: Auto-renewal is enabled.
-    // - false: Auto-renewal is disabled.
+    // The auto-renewal status. Valid values: true (auto-renewal enabled) and false (auto-renewal disabled).
     shared_ptr<bool> autoRenewal_ {};
     // The list of instance IDs for which to query the auto-renewal status.
     shared_ptr<vector<string>> instanceIdList_ {};
@@ -131,7 +129,7 @@ namespace Models
     shared_ptr<int32_t> pageNo_ {};
     // The maximum number of entries per page. Maximum value: 500. Default value: 20.
     shared_ptr<int32_t> pageSize_ {};
-    // The resource type. Example: CorePackage indicates a core-hour package.
+    // The resource type. Valid value: CorePackage (core-hour package).
     shared_ptr<string> resourceType_ {};
     // The list of resource types.
     shared_ptr<vector<string>> resourceTypeList_ {};

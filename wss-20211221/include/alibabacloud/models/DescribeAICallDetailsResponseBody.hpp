@@ -150,15 +150,15 @@ namespace Models
 
 
       protected:
-        // 显式缓存创建积分，单位为积分，使用十进制字符串表示；真实零值为 0。
+        // The explicit cache creation points, in points, represented as a decimal string. A true zero value is 0.
         shared_ptr<string> explicitCacheCreation_ {};
-        // 显式缓存命中积分，单位为积分，使用十进制字符串表示；真实零值为 0。
+        // The explicit cache hit points, in points, represented as a decimal string. A true zero value is 0.
         shared_ptr<string> explicitCacheHit_ {};
-        // 隐式缓存命中积分，单位为积分，使用十进制字符串表示；真实零值为 0。
+        // The implicit cache hit points, in points, represented as a decimal string. A true zero value is 0.
         shared_ptr<string> implicitCacheHit_ {};
-        // 普通输入积分，单位为积分，使用十进制字符串表示；真实零值为 0。
+        // The normal input points, in points, represented as a decimal string. A true zero value is 0.
         shared_ptr<string> normalInput_ {};
-        // 输出积分，单位为积分，使用十进制字符串表示；真实零值为 0。
+        // The output points, in points, represented as a decimal string. A true zero value is 0.
         shared_ptr<string> output_ {};
       };
 
@@ -260,31 +260,31 @@ namespace Models
 
 
     protected:
-      // 售卖 deduction 记录中的原始 agent_type；未匹配或 ADB 查询失败时不返回。
+      // The product or agent type associated with the invocation, which retains the original value from the deduction record. If no match is found or the query fails, this parameter is not returned.
       shared_ptr<string> agentType_ {};
-      // 调用状态：SUCCESS、RATE_LIMITED、TIMEOUT 或 FAILED。
+      // The invocation status. Valid values: SUCCESS (successful, HTTP 2xx), RATE_LIMITED (throttled, HTTP 429), TIMEOUT (timed out, HTTP 504), and FAILED (other failure statuses).
       shared_ptr<string> callStatus_ {};
-      // 日志时间，ISO 8601。
+      // The time of the model invocation log, in ISO 8601 format and UTC+08:00 time zone.
       shared_ptr<string> callTime_ {};
-      // 首包时延，单位毫秒；失败或无首包数据时为空。
+      // The latency of the first token, in milliseconds. If the invocation fails or no first token data exists, this parameter is empty.
       shared_ptr<int64_t> firstTokenLatencyMs_ {};
-      // 本条调用日志的实际数据地域，取值为 cn-shanghai、cn-hangzhou、cn-hongkong、ap-southeast-1 或 us-east-1；杭州预发返回 cn-hangzhou。
+      // The actual data region of the invocation log.
       shared_ptr<string> gatewayRegion_ {};
-      // AI 网关返回的 HTTP 状态码。
+      // The HTTP status code returned by the AI gateway.
       shared_ptr<int32_t> httpStatusCode_ {};
-      // 原始输入 token 数，前端据此转换上下文规模。
+      // The number of original input tokens. If no valid data exists, this parameter is empty.
       shared_ptr<int64_t> inputToken_ {};
-      // 产品实例 ID。
+      // The instance ID of the product associated with the model invocation.
       shared_ptr<string> instanceId_ {};
-      // 实际调用模型。
+      // The ID of the actually invoked model. If the actual model is missing, the requested model is used as a fallback.
       shared_ptr<string> model_ {};
-      // 按请求 ID 和输入输出 token 匹配的实际抵扣积分，十进制字符串；积分查询失败或超时时为空。
+      // The actual deducted points matched, returned as a decimal string. A true zero value is returned as 0. If no match is found or the query fails, this parameter is not returned. Do not treat a missing value as zero.
       shared_ptr<string> points_ {};
-      // 本条调用已匹配抵扣记录的积分构成，与 Points 来自同一条记录。缺少有效明细时不返回此对象；对象存在时完整返回五项积分，五项之和等于 Points，真实零值返回字符串 0。
+      // The point breakdown of the matched deduction record for this invocation, which comes from the same record as Points. If valid details are missing, this object is not returned. If the object exists, all five point types are returned. The sum of the five point types equals Points, and a true zero value is returned as the string 0.
       shared_ptr<CallDetails::PointsBreakdown> pointsBreakdown_ {};
-      // AI 网关请求 ID，与外层 POP 请求 ID 不同。
+      // The request ID of the AI gateway invocation, which is different from the request ID of the outer API operation.
       shared_ptr<string> requestId_ {};
-      // 用户 WyId，用户名由前端组装。
+      // The ID of the user who initiated the model invocation. If no valid data exists, this parameter is empty.
       shared_ptr<string> wyId_ {};
     };
 
@@ -343,19 +343,19 @@ namespace Models
 
 
   protected:
-    // 调用明细列表。
+    // The list of AI invocation details on the current page. If no records exist, an empty array is returned.
     shared_ptr<vector<DescribeAICallDetailsResponseBody::CallDetails>> callDetails_ {};
-    // 当前页码。
+    // The current page number.
     shared_ptr<int32_t> pageNumber_ {};
-    // 当前页大小。
+    // The number of entries per page.
     shared_ptr<int32_t> pageSize_ {};
-    // 实际查询终点。翻页时应复用此值。
+    // The actual end time of the query, in ISO 8601 format and UTC+08:00 time zone. Reuse this value when you turn pages.
     shared_ptr<string> queryEndTime_ {};
-    // 实际查询起点。翻页时应复用此值。
+    // The actual start time of the query, in ISO 8601 format and UTC+08:00 time zone. Reuse this value when you turn pages.
     shared_ptr<string> queryStartTime_ {};
-    // POP 请求 ID。
+    // The request ID of the current API operation, which is used to troubleshoot issues.
     shared_ptr<string> requestId_ {};
-    // 满足条件的总记录数。
+    // The total number of invocation records that meet the query conditions, including records that do not match any deducted points.
     shared_ptr<int64_t> totalCount_ {};
   };
 

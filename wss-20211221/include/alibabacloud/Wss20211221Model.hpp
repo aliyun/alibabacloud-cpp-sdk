@@ -26,6 +26,9 @@
 #include <alibabacloud/models/DescribeInstanceAutoRenewalAttributeRequest.hpp>
 #include <alibabacloud/models/DescribeInstanceAutoRenewalAttributeResponseBody.hpp>
 #include <alibabacloud/models/DescribeInstanceAutoRenewalAttributeResponse.hpp>
+#include <alibabacloud/models/DescribeInstancesRequest.hpp>
+#include <alibabacloud/models/DescribeInstancesResponseBody.hpp>
+#include <alibabacloud/models/DescribeInstancesResponse.hpp>
 #include <alibabacloud/models/DescribeMultiPriceRequest.hpp>
 #include <alibabacloud/models/DescribeMultiPriceResponseBody.hpp>
 #include <alibabacloud/models/DescribeMultiPriceResponse.hpp>

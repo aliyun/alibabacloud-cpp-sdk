@@ -46,17 +46,17 @@ namespace Wss20211221
       Models::CreateMultiOrderResponse createMultiOrder(const Models::CreateMultiOrderRequest &request);
 
       /**
-       * @summary 查询 AI 调用明细
+       * @summary Performs a paging query for AI model invocation records based on specified conditions.
        *
-       * @description ## 请求说明
-       * - 该接口用于分页查询当前阿里云账号下指定业务版本、地域和时间范围内的AI模型调用明细。
-       * - 支持按模型调用请求ID、请求模型和用户ID进行筛选。
-       * - 查询结果按调用时间倒序返回。
-       * - 默认查询北京时间当日零点至当前时间的数据，查询区间不超过30天且不得早于当前时间向前推算3个自然月。
-       * - 调用方仅能查询当前调用身份所属主账号的数据，不能指定其他账号。
-       * - `PageNumber`与`PageSize`的乘积不得超过1000000。
-       * - `BizType`不传时默认为企业版。
-       * - `GatewayRegion`不传时国内站默认上海，国际站默认新加坡。
+       * @description ## Request description
+       * - This operation performs a paging query for AI model invocation details of the current Alibaba Cloud account within a specified business edition, region, and time range.
+       * - You can filter results by model invocation request ID, requested model, and user ID.
+       * - Query results are returned in descending order of invocation time.
+       * - By default, this operation queries data from 00:00:00 (UTC+8) of the current day to the current time. The query time range cannot exceed 30 days and cannot start earlier than three calendar months before the current time.
+       * - You can only query data for the primary account to which the current caller identity belongs. You cannot specify other accounts.
+       * - The product of PageNumber and PageSize cannot exceed 1,000,000.
+       * - If BizType is not specified, the default value is Enterprise Edition.
+       * - If GatewayRegion is not specified, the default value is Shanghai for the China site and Singapore for the international site.
        *
        * @param request DescribeAICallDetailsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -65,17 +65,17 @@ namespace Wss20211221
       Models::DescribeAICallDetailsResponse describeAICallDetailsWithOptions(const Models::DescribeAICallDetailsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询 AI 调用明细
+       * @summary Performs a paging query for AI model invocation records based on specified conditions.
        *
-       * @description ## 请求说明
-       * - 该接口用于分页查询当前阿里云账号下指定业务版本、地域和时间范围内的AI模型调用明细。
-       * - 支持按模型调用请求ID、请求模型和用户ID进行筛选。
-       * - 查询结果按调用时间倒序返回。
-       * - 默认查询北京时间当日零点至当前时间的数据，查询区间不超过30天且不得早于当前时间向前推算3个自然月。
-       * - 调用方仅能查询当前调用身份所属主账号的数据，不能指定其他账号。
-       * - `PageNumber`与`PageSize`的乘积不得超过1000000。
-       * - `BizType`不传时默认为企业版。
-       * - `GatewayRegion`不传时国内站默认上海，国际站默认新加坡。
+       * @description ## Request description
+       * - This operation performs a paging query for AI model invocation details of the current Alibaba Cloud account within a specified business edition, region, and time range.
+       * - You can filter results by model invocation request ID, requested model, and user ID.
+       * - Query results are returned in descending order of invocation time.
+       * - By default, this operation queries data from 00:00:00 (UTC+8) of the current day to the current time. The query time range cannot exceed 30 days and cannot start earlier than three calendar months before the current time.
+       * - You can only query data for the primary account to which the current caller identity belongs. You cannot specify other accounts.
+       * - The product of PageNumber and PageSize cannot exceed 1,000,000.
+       * - If BizType is not specified, the default value is Enterprise Edition.
+       * - If GatewayRegion is not specified, the default value is Shanghai for the China site and Singapore for the international site.
        *
        * @param request DescribeAICallDetailsRequest
        * @return DescribeAICallDetailsResponse
@@ -114,17 +114,17 @@ namespace Wss20211221
       Models::DescribeCreditPackageAgentsResponse describeCreditPackageAgents(const Models::DescribeCreditPackageAgentsRequest &request);
 
       /**
-       * @summary Queries the credit usage of users, credit packages, or agents based on a specified dimension.
+       * @summary Queries the credit usage of users, credit packages, or agents by specified dimension.
        *
        * @description ## Request description
        * This API queries credit usage details based on the dimension specified by `UsageType` (User, CreditPackage, Agent, or EndUser). The response includes the total amount, remaining amount, and used amount of the current credit package, hourly consumption samples, alert thresholds, and periodic quotas.
        * - **User**: The user dimension. Returns the total used amount and remaining amount of all active credit packages for the current user.
-       * - **CreditPackage**: The credit package dimension. Returns the total amount, remaining amount, and consumption samples of a specified credit package instance.
-       * - **Agent**: The agent dimension. Returns the cumulative used amount, current period used amount, quota, and alerts for a specified agent.
-       * - **EndUser**: The Wuying user dimension. Returns the shared credit usage, pay-as-you-go credit usage, and total credit usage for the current period of a Wuying user.
+       * - **CreditPackage**: The credit package dimension. Returns the total amount, remaining amount, and consumption samples of the specified credit package instance.
+       * - **Agent**: The agent dimension. Returns the cumulative used amount, current period used amount, quota, and alerts for the specified agent.
+       * - **EndUser**: The Wuying user dimension. Returns the shared credit usage, pay-as-you-go credit usage, and total credit usage for the current period of the Wuying user.
        * **Note**:
-       * - The `InstanceIds` parameter can be omitted when `UsageType` is set to `User`. Set it to the credit package instance ID when `UsageType` is `CreditPackage`, the agent ID when `UsageType` is `Agent`, and the Wuying ID when `UsageType` is `EndUser`.
-       * - Anonymous requests support the `FillInstance` parameter. If `InstanceIds` is not explicitly provided and `FillInstance` is set to `true`, the server automatically populates the bound `JVS_COPILOT` agent ID based on the currently logged-in `wyId`.
+       * - The `InstanceIds` parameter can be omitted when `UsageType=User`. Pass the credit package instance ID when `UsageType=CreditPackage`, the `AgentId` when `UsageType=Agent`, and the `WyId` when `UsageType=EndUser`.
+       * - Anonymous requests support the `FillInstance` parameter. If `InstanceIds` is not explicitly passed and `FillInstance=true`, the server automatically fills in the bound `JVS_COPILOT` AgentId based on the currently logged-in `wyId`.
        * - Time window constants: The statistical window for `dayUsedCredit` is `now - ONE_DAY_MILLIS`, and the statistical window for `weekUsedCredit` is `now - ONE_WEEK_MILLIS`.
        * - The consumption samples in `currentCreditConsumeList` are aggregated by hour and may have an asynchronous synchronization delay of up to 5 minutes.
        *
@@ -135,17 +135,17 @@ namespace Wss20211221
       Models::DescribeCreditUsageInfoResponse describeCreditUsageInfoWithOptions(const Models::DescribeCreditUsageInfoRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the credit usage of users, credit packages, or agents based on a specified dimension.
+       * @summary Queries the credit usage of users, credit packages, or agents by specified dimension.
        *
        * @description ## Request description
        * This API queries credit usage details based on the dimension specified by `UsageType` (User, CreditPackage, Agent, or EndUser). The response includes the total amount, remaining amount, and used amount of the current credit package, hourly consumption samples, alert thresholds, and periodic quotas.
        * - **User**: The user dimension. Returns the total used amount and remaining amount of all active credit packages for the current user.
-       * - **CreditPackage**: The credit package dimension. Returns the total amount, remaining amount, and consumption samples of a specified credit package instance.
-       * - **Agent**: The agent dimension. Returns the cumulative used amount, current period used amount, quota, and alerts for a specified agent.
-       * - **EndUser**: The Wuying user dimension. Returns the shared credit usage, pay-as-you-go credit usage, and total credit usage for the current period of a Wuying user.
+       * - **CreditPackage**: The credit package dimension. Returns the total amount, remaining amount, and consumption samples of the specified credit package instance.
+       * - **Agent**: The agent dimension. Returns the cumulative used amount, current period used amount, quota, and alerts for the specified agent.
+       * - **EndUser**: The Wuying user dimension. Returns the shared credit usage, pay-as-you-go credit usage, and total credit usage for the current period of the Wuying user.
        * **Note**:
-       * - The `InstanceIds` parameter can be omitted when `UsageType` is set to `User`. Set it to the credit package instance ID when `UsageType` is `CreditPackage`, the agent ID when `UsageType` is `Agent`, and the Wuying ID when `UsageType` is `EndUser`.
-       * - Anonymous requests support the `FillInstance` parameter. If `InstanceIds` is not explicitly provided and `FillInstance` is set to `true`, the server automatically populates the bound `JVS_COPILOT` agent ID based on the currently logged-in `wyId`.
+       * - The `InstanceIds` parameter can be omitted when `UsageType=User`. Pass the credit package instance ID when `UsageType=CreditPackage`, the `AgentId` when `UsageType=Agent`, and the `WyId` when `UsageType=EndUser`.
+       * - Anonymous requests support the `FillInstance` parameter. If `InstanceIds` is not explicitly passed and `FillInstance=true`, the server automatically fills in the bound `JVS_COPILOT` AgentId based on the currently logged-in `wyId`.
        * - Time window constants: The statistical window for `dayUsedCredit` is `now - ONE_DAY_MILLIS`, and the statistical window for `weekUsedCredit` is `now - ONE_WEEK_MILLIS`.
        * - The consumption samples in `currentCreditConsumeList` are aggregated by hour and may have an asynchronous synchronization delay of up to 5 minutes.
        *
@@ -243,6 +243,27 @@ namespace Wss20211221
        * @return DescribeInstanceAutoRenewalAttributeResponse
        */
       Models::DescribeInstanceAutoRenewalAttributeResponse describeInstanceAutoRenewalAttribute(const Models::DescribeInstanceAutoRenewalAttributeRequest &request);
+
+      /**
+       * @summary Queries sold instances and their quotas and properties by paging based on resource type, instance ID, business resource ID, and status.
+       *
+       * @description Queries sold instances and their quotas and properties by paging based on resource type, instance ID, business resource ID, and status.
+       *
+       * @param request DescribeInstancesRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DescribeInstancesResponse
+       */
+      Models::DescribeInstancesResponse describeInstancesWithOptions(const Models::DescribeInstancesRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Queries sold instances and their quotas and properties by paging based on resource type, instance ID, business resource ID, and status.
+       *
+       * @description Queries sold instances and their quotas and properties by paging based on resource type, instance ID, business resource ID, and status.
+       *
+       * @param request DescribeInstancesRequest
+       * @return DescribeInstancesResponse
+       */
+      Models::DescribeInstancesResponse describeInstances(const Models::DescribeInstancesRequest &request);
 
       /**
        * @summary Queries the prices of Elastic Desktop Service products for order types such as new purchases, renewals, configuration changes, and unsubscriptions.

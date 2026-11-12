@@ -156,7 +156,7 @@ namespace Models
 
 
         protected:
-          // The number of instances being deducted.
+          // The number of instances currently being deducted.
           shared_ptr<int32_t> deductingAmount_ {};
           // The number of instances pending to take effect.
           shared_ptr<int32_t> pendingAmount_ {};
@@ -387,13 +387,13 @@ namespace Models
 
 
       protected:
-        // The number of currently available instances for the reported resources.
+        // The number of currently available instances for the registered resources.
         shared_ptr<int32_t> availableAmount_ {};
         // The list of contact group names.
         shared_ptr<vector<string>> contactGroupNames_ {};
         // The hourly consumption samples of the current credit package.
         shared_ptr<vector<UsageInfo::CreditTrendList>> creditTrendList_ {};
-        // The time when the current instance expires, in the `YYYY-MM-DD HH:mm:ss` format.
+        // The time when the current instance expires, in the YYYY-MM-DD HH:mm:ss format.
         shared_ptr<string> currentInstanceExpiredTime_ {};
         // The instance ID of the currently active credit package.
         shared_ptr<string> currentInstanceId_ {};
@@ -405,17 +405,17 @@ namespace Models
         shared_ptr<int64_t> currentUsedCredit_ {};
         // The credit usage in the last day.
         shared_ptr<int64_t> dayUsedCredit_ {};
-        // The last trigger time.
+        // The last triggered time.
         shared_ptr<string> lastTriggeredAt_ {};
-        // The credit quota for the current period.
+        // The credit quota in the current period.
         shared_ptr<int64_t> periodCreditQuota_ {};
-        // The pay-as-you-go credits consumed in the current period.
+        // The pay-as-you-go credit consumption in the current period.
         shared_ptr<int64_t> periodPayGoUsedCredit_ {};
-        // The shared credits consumed in the current period.
+        // The shared credit consumption in the current period.
         shared_ptr<int64_t> periodSharedUsedCredit_ {};
         // The shared credit quota in the current active period.
         shared_ptr<int64_t> periodTotalCredit_ {};
-        // The total credits consumed in the current period.
+        // The total credit consumption in the current period.
         shared_ptr<int64_t> periodTotalUsedCredit_ {};
         // The shared credit usage in the current active period.
         shared_ptr<int64_t> periodUsedCredit_ {};
@@ -423,9 +423,9 @@ namespace Models
         shared_ptr<int64_t> remainCredit_ {};
         // The remaining credit information.
         shared_ptr<UsageInfo::RemainCreditInfo> remainCreditInfo_ {};
-        // The used quota for today.
+        // The used quota today.
         shared_ptr<string> todayUsed_ {};
-        // The cumulative total credits.
+        // The total cumulative credits.
         shared_ptr<int64_t> totalCredit_ {};
         // The cumulative used quota.
         shared_ptr<string> totalUsed_ {};
@@ -458,7 +458,7 @@ namespace Models
     protected:
       // The usage data details.
       shared_ptr<UsageInfoList::UsageInfo> usageInfo_ {};
-      // The primary key for usage. The value is `aliUid` when `UsageType` is `User`, the credit package instance ID when `UsageType` is `CreditPackage`, and the agent ID when `UsageType` is `Agent`.
+      // The primary key for usage. The value is `aliUid` when `UsageType=User`, the credit package instance ID when `UsageType=CreditPackage`, and `AgentId` when `UsageType=Agent`.
       shared_ptr<string> usageInfoKey_ {};
     };
 

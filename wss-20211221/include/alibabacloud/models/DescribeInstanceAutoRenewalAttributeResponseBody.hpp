@@ -91,11 +91,9 @@ namespace Models
     protected:
       // The ID of the Alibaba Cloud account to which the resource belongs.
       shared_ptr<int64_t> aliUid_ {};
-      // The auto-renewal status. Valid values:
-      // - true: Auto-renewal is enabled.
-      // - false: Auto-renewal is disabled.
+      // The auto-renewal status. Valid values: true (auto-renewal enabled) and false (auto-renewal disabled).
       shared_ptr<bool> autoRenewal_ {};
-      // The instance ID, which identifies the purchased instance.
+      // The instance ID, which is used to identify the purchased instance.
       shared_ptr<string> instanceId_ {};
     };
 
@@ -162,11 +160,11 @@ namespace Models
     shared_ptr<int32_t> maxResults_ {};
     // The mark for paging. Leave this parameter empty for the first query. For subsequent paging, pass the NextToken value returned in the previous response as is. Do not construct or decode the value.
     shared_ptr<string> nextToken_ {};
-    // The page number of the paging query, starting from 1.
+    // The page number for paging, starting from 1.
     shared_ptr<int32_t> pageNo_ {};
     // The maximum number of entries returned per page.
     shared_ptr<int32_t> pageSize_ {};
-    // The unique identifier of the request. You can use this ID to troubleshoot issues.
+    // The unique identifier of the request, which can be used to troubleshoot issues.
     shared_ptr<string> requestId_ {};
   };
 

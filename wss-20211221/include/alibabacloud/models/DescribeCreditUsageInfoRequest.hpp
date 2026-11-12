@@ -71,18 +71,18 @@ namespace Models
   protected:
     // The business type.
     shared_ptr<string> bizType_ {};
-    // The JSON string of the instance ID list. This parameter can be omitted when `UsageType` is set to `User`. Set it to the credit package instance ID when `UsageType` is `CreditPackage`, and the agent ID when `UsageType` is `Agent`.
+    // The JSON string of the instance ID list. This parameter can be omitted when `UsageType=User`. Pass the credit package instance ID when `UsageType=CreditPackage`, and pass the `AgentId` when `UsageType=Agent`.
     shared_ptr<vector<string>> instanceIds_ {};
-    // The operator Scenarios type. Valid values:
-    // - Not specified or NaturalMonthlyOwn: Natural monthly exclusive.
+    // The scenarios for operator usage. Valid values:
+    // - NaturalMonthlyOwn or not specified: Natural monthly exclusive.
     // - JzYearlyShare: Jz annual shared.
     // - JzYearlyOwn: Jz annual exclusive.
     shared_ptr<string> sceneType_ {};
     // The usage type. Valid values:
-    // - User: Returns the used amount, remaining amount, and consumption trend of the currently active credit packages for the user.
-    // - CreditPackage: Requires a credit package ID. Returns the total amount and remaining amount of the specified credit package.
-    // - Agent: Requires an agent ID. Returns the cumulative credit usage, cumulative allocated quota, and the percentage between the two.
-    // - EndUser: Requires a Wuying ID. Returns the shared credit usage, pay-as-you-go credit usage, and total credit usage for the current period of the Wuying user.
+    // - User: Returns the used amount, remaining amount, and consumption trend of the user\\"s currently active credit packages.
+    // - CreditPackage: Requires CreditPackageId. Returns the total amount and remaining amount of the specified credit package.
+    // - Agent: Requires AgentId. Returns the cumulative credit usage, cumulative allocated quota, and the percentage of both.
+    // - EndUser: Requires the Wuying ID. Returns the shared credit usage, pay-as-you-go credit usage, and total credit usage for the current period of the Wuying user.
     shared_ptr<string> usageType_ {};
   };
 
