@@ -1862,7 +1862,7 @@ namespace RdsAi20250507
       Models::ListCustomAgentResponse listCustomAgent(const Models::ListCustomAgentRequest &request);
 
       /**
-       * @summary Queries the list of Agent tools for a user.
+       * @summary Queries the list of user agent tools.
        *
        * @param runtime runtime options for this request RuntimeOptions
        * @return ListCustomAgentToolsResponse
@@ -1870,7 +1870,7 @@ namespace RdsAi20250507
       Models::ListCustomAgentToolsResponse listCustomAgentToolsWithOptions(const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the list of Agent tools for a user.
+       * @summary Queries the list of user agent tools.
        *
        * @return ListCustomAgentToolsResponse
        */
@@ -1934,11 +1934,11 @@ namespace RdsAi20250507
       Models::ListSkillResponse listSkill(const Models::ListSkillRequest &request);
 
       /**
-       * @summary Modifies the modules of an ApsaraDB RDS AI application instance.
+       * @summary Modifies the modules of an RDS AI application instance.
        *
-       * @description ### Applicable engine
-       * RDS PostgreSQL
-       * ### Related documentation
+       * @description ### Supported engines
+       * ApsaraDB RDS for PostgreSQL
+       * ### Related feature documentation
        * [RDS Supabase](https://help.aliyun.com/document_detail/2938735.html)
        *
        * @param tmpReq ModifyAppInstanceRequest
@@ -1948,11 +1948,11 @@ namespace RdsAi20250507
       Models::ModifyAppInstanceResponse modifyAppInstanceWithOptions(const Models::ModifyAppInstanceRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Modifies the modules of an ApsaraDB RDS AI application instance.
+       * @summary Modifies the modules of an RDS AI application instance.
        *
-       * @description ### Applicable engine
-       * RDS PostgreSQL
-       * ### Related documentation
+       * @description ### Supported engines
+       * ApsaraDB RDS for PostgreSQL
+       * ### Related feature documentation
        * [RDS Supabase](https://help.aliyun.com/document_detail/2938735.html)
        *
        * @param request ModifyAppInstanceRequest

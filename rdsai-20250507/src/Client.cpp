@@ -5116,7 +5116,7 @@ ListCustomAgentResponse Client::listCustomAgent(const ListCustomAgentRequest &re
 }
 
 /**
- * @summary Queries the list of Agent tools for a user.
+ * @summary Queries the list of user agent tools.
  *
  * @param runtime runtime options for this request RuntimeOptions
  * @return ListCustomAgentToolsResponse
@@ -5138,7 +5138,7 @@ ListCustomAgentToolsResponse Client::listCustomAgentToolsWithOptions(const Darab
 }
 
 /**
- * @summary Queries the list of Agent tools for a user.
+ * @summary Queries the list of user agent tools.
  *
  * @return ListCustomAgentToolsResponse
  */
@@ -5332,11 +5332,11 @@ ListSkillResponse Client::listSkill(const ListSkillRequest &request) {
 }
 
 /**
- * @summary Modifies the modules of an ApsaraDB RDS AI application instance.
+ * @summary Modifies the modules of an RDS AI application instance.
  *
- * @description ### Applicable engine
- * RDS PostgreSQL
- * ### Related documentation
+ * @description ### Supported engines
+ * ApsaraDB RDS for PostgreSQL
+ * ### Related feature documentation
  * [RDS Supabase](https://help.aliyun.com/document_detail/2938735.html)
  *
  * @param tmpReq ModifyAppInstanceRequest
@@ -5376,6 +5376,10 @@ ModifyAppInstanceResponse Client::modifyAppInstanceWithOptions(const ModifyAppIn
     query["InstanceName"] = request.getInstanceName();
   }
 
+  if (!!request.hasMigrationMode()) {
+    query["MigrationMode"] = request.getMigrationMode();
+  }
+
   if (!!request.hasRegionId()) {
     query["RegionId"] = request.getRegionId();
   }
@@ -5398,11 +5402,11 @@ ModifyAppInstanceResponse Client::modifyAppInstanceWithOptions(const ModifyAppIn
 }
 
 /**
- * @summary Modifies the modules of an ApsaraDB RDS AI application instance.
+ * @summary Modifies the modules of an RDS AI application instance.
  *
- * @description ### Applicable engine
- * RDS PostgreSQL
- * ### Related documentation
+ * @description ### Supported engines
+ * ApsaraDB RDS for PostgreSQL
+ * ### Related feature documentation
  * [RDS Supabase](https://help.aliyun.com/document_detail/2938735.html)
  *
  * @param request ModifyAppInstanceRequest

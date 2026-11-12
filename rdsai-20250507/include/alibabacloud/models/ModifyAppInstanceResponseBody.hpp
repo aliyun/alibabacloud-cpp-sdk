@@ -18,12 +18,14 @@ namespace Models
       DARABONBA_PTR_TO_JSON(Components, components_);
       DARABONBA_PTR_TO_JSON(InstanceName, instanceName_);
       DARABONBA_PTR_TO_JSON(RequestId, requestId_);
+      DARABONBA_PTR_TO_JSON(TargetInstanceName, targetInstanceName_);
     };
     friend void from_json(const Darabonba::Json& j, ModifyAppInstanceResponseBody& obj) { 
       DARABONBA_PTR_FROM_JSON(BranchName, branchName_);
       DARABONBA_PTR_FROM_JSON(Components, components_);
       DARABONBA_PTR_FROM_JSON(InstanceName, instanceName_);
       DARABONBA_PTR_FROM_JSON(RequestId, requestId_);
+      DARABONBA_PTR_FROM_JSON(TargetInstanceName, targetInstanceName_);
     };
     ModifyAppInstanceResponseBody() = default ;
     ModifyAppInstanceResponseBody(const ModifyAppInstanceResponseBody &) = default ;
@@ -81,7 +83,7 @@ namespace Models
     };
 
     virtual bool empty() const override { return this->branchName_ == nullptr
-        && this->components_ == nullptr && this->instanceName_ == nullptr && this->requestId_ == nullptr; };
+        && this->components_ == nullptr && this->instanceName_ == nullptr && this->requestId_ == nullptr && this->targetInstanceName_ == nullptr; };
     // branchName Field Functions 
     bool hasBranchName() const { return this->branchName_ != nullptr;};
     void deleteBranchName() { this->branchName_ = nullptr;};
@@ -112,6 +114,13 @@ namespace Models
     inline ModifyAppInstanceResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
+    // targetInstanceName Field Functions 
+    bool hasTargetInstanceName() const { return this->targetInstanceName_ != nullptr;};
+    void deleteTargetInstanceName() { this->targetInstanceName_ = nullptr;};
+    inline string getTargetInstanceName() const { DARABONBA_PTR_GET_DEFAULT(targetInstanceName_, "") };
+    inline ModifyAppInstanceResponseBody& setTargetInstanceName(string targetInstanceName) { DARABONBA_PTR_SET_VALUE(targetInstanceName_, targetInstanceName) };
+
+
   protected:
     // The reserved parameter.
     shared_ptr<string> branchName_ {};
@@ -121,6 +130,8 @@ namespace Models
     shared_ptr<string> instanceName_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};
+    // The reserved parameter.
+    shared_ptr<string> targetInstanceName_ {};
   };
 
   } // namespace Models

@@ -114,7 +114,7 @@ namespace Models
       shared_ptr<string> name_ {};
       // The Traditional Chinese description.
       shared_ptr<string> tc_ {};
-      // The read/write type of the tool.
+      // The tool read/write type.
       shared_ptr<string> type_ {};
       // The Chinese description.
       shared_ptr<string> zh_ {};

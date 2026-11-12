@@ -19,6 +19,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(DBInstanceName, DBInstanceName_);
       DARABONBA_PTR_TO_JSON(InstanceClass, instanceClass_);
       DARABONBA_PTR_TO_JSON(InstanceName, instanceName_);
+      DARABONBA_PTR_TO_JSON(MigrationMode, migrationMode_);
       DARABONBA_PTR_TO_JSON(RegionId, regionId_);
     };
     friend void from_json(const Darabonba::Json& j, ModifyAppInstanceShrinkRequest& obj) { 
@@ -28,6 +29,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(DBInstanceName, DBInstanceName_);
       DARABONBA_PTR_FROM_JSON(InstanceClass, instanceClass_);
       DARABONBA_PTR_FROM_JSON(InstanceName, instanceName_);
+      DARABONBA_PTR_FROM_JSON(MigrationMode, migrationMode_);
       DARABONBA_PTR_FROM_JSON(RegionId, regionId_);
     };
     ModifyAppInstanceShrinkRequest() = default ;
@@ -43,7 +45,7 @@ namespace Models
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->branchName_ == nullptr
         && this->clientToken_ == nullptr && this->componentsShrink_ == nullptr && this->DBInstanceName_ == nullptr && this->instanceClass_ == nullptr && this->instanceName_ == nullptr
-        && this->regionId_ == nullptr; };
+        && this->migrationMode_ == nullptr && this->regionId_ == nullptr; };
     // branchName Field Functions 
     bool hasBranchName() const { return this->branchName_ != nullptr;};
     void deleteBranchName() { this->branchName_ = nullptr;};
@@ -86,6 +88,13 @@ namespace Models
     inline ModifyAppInstanceShrinkRequest& setInstanceName(string instanceName) { DARABONBA_PTR_SET_VALUE(instanceName_, instanceName) };
 
 
+    // migrationMode Field Functions 
+    bool hasMigrationMode() const { return this->migrationMode_ != nullptr;};
+    void deleteMigrationMode() { this->migrationMode_ = nullptr;};
+    inline string getMigrationMode() const { DARABONBA_PTR_GET_DEFAULT(migrationMode_, "") };
+    inline ModifyAppInstanceShrinkRequest& setMigrationMode(string migrationMode) { DARABONBA_PTR_SET_VALUE(migrationMode_, migrationMode) };
+
+
     // regionId Field Functions 
     bool hasRegionId() const { return this->regionId_ != nullptr;};
     void deleteRegionId() { this->regionId_ = nullptr;};
@@ -96,15 +105,20 @@ namespace Models
   protected:
     // The reserved parameter.
     shared_ptr<string> branchName_ {};
-    // The client token that is used to ensure idempotence.
+    // The idempotency parameter.
     shared_ptr<string> clientToken_ {};
     // The list of modules.
     shared_ptr<string> componentsShrink_ {};
+    // The instance ID of the ApsaraDB RDS for PostgreSQL database connected to the AI application.
+    // 
+    // <notice>Only **newly purchased empty ApsaraDB RDS for PostgreSQL instances** are supported. The major engine version must be **17**, and the minor engine version must be **20250630 or later**.</notice>
     shared_ptr<string> DBInstanceName_ {};
-    // The instance type. Currently, only **rdsai.supabase.basic** is supported.
+    // The instance type. Only **rdsai.supabase.basic** is supported.
     shared_ptr<string> instanceClass_ {};
     // The instance ID of the AI application.
     shared_ptr<string> instanceName_ {};
+    // The reserved parameter.
+    shared_ptr<string> migrationMode_ {};
     // The region ID.
     shared_ptr<string> regionId_ {};
   };
