@@ -180,12 +180,12 @@ namespace Models
 
     protected:
       // The authorization resource scope. Valid values:
-      // - global: All resources under the project.
-      // - custom: Specified resources within the project scope.
+      // - global: Global resources under the project.
+      // - custom: Resources under a specified project scope.
       shared_ptr<string> authorizationResourceScope_ {};
       // The creation type of the authorization rule. Valid values:
       // - system_init: Created by the system.
-      // - user_custom: Created by the user.
+      // - user_custom: Created by a user.
       shared_ptr<string> authorizationRuleCreationType_ {};
       // The authorization rule ID.
       shared_ptr<string> authorizationRuleId_ {};
@@ -195,29 +195,29 @@ namespace Models
       // - privileged_cloud_account: Privileged cloud account scenario.
       // - asset: Asset scenario.
       shared_ptr<string> authorizationRuleScenarioLabel_ {};
-      // The subject ID associated with the authorization rule.
+      // The ID of the subject associated with the authorization rule.
       shared_ptr<string> authorizationRuleSubjectId_ {};
       // The subject scope of the authorization rule. Valid values:
       // - shared: Shared type, which supports all subjects, including accounts and applications.
       // - exclusive: Exclusive type.
       shared_ptr<string> authorizationRuleSubjectScope_ {};
-      // The subject type associated with the authorization rule. This parameter is valid only when the authorization rule subject scope is exclusive. Valid values:
+      // The subject type associated with the authorization rule. This parameter is valid only when the subject scope of the authorization rule is exclusive. Valid values:
       // - application: Application.
       // - user: Account.
       shared_ptr<string> authorizationRuleSubjectType_ {};
-      // The creation time, in UNIX timestamp format. Unit: milliseconds.
+      // The creation time. The value is a UNIX timestamp in milliseconds.
       shared_ptr<int64_t> createTime_ {};
       // The description of the authorization rule.
       shared_ptr<string> description_ {};
       // The instance ID.
       shared_ptr<string> instanceId_ {};
-      // The project ID associated with the authorization rule.
+      // The ID of the project associated with the authorization rule.
       shared_ptr<string> projectId_ {};
-      // The authorization rule status. Valid values:
+      // The status of the authorization rule. Valid values:
       // - enabled: Enabled.
       // - disabled: Disabled.
       shared_ptr<string> status_ {};
-      // The last update time, in UNIX timestamp format. Unit: milliseconds.
+      // The last update time. The value is a UNIX timestamp in milliseconds.
       shared_ptr<int64_t> updateTime_ {};
     };
 

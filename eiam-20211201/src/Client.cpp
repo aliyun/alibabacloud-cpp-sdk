@@ -1558,6 +1558,10 @@ CreateAuthorizationRuleResponse Client::createAuthorizationRuleWithOptions(const
     query["ProjectId"] = request.getProjectId();
   }
 
+  if (!!request.hasSubjectType()) {
+    query["SubjectType"] = request.getSubjectType();
+  }
+
   json body = {};
   if (!!request.hasClientToken()) {
     body["ClientToken"] = request.getClientToken();
@@ -8551,7 +8555,7 @@ GetAuthorizationResourceResponse Client::getAuthorizationResource(const GetAutho
 }
 
 /**
- * @summary Queries the information about an authorization rule.
+ * @summary Queries the details of an authorization rule.
  *
  * @param request GetAuthorizationRuleRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -8586,7 +8590,7 @@ GetAuthorizationRuleResponse Client::getAuthorizationRuleWithOptions(const GetAu
 }
 
 /**
- * @summary Queries the information about an authorization rule.
+ * @summary Queries the details of an authorization rule.
  *
  * @param request GetAuthorizationRuleRequest
  * @return GetAuthorizationRuleResponse
@@ -9974,7 +9978,7 @@ GetInstanceTrialStatusResponse Client::getInstanceTrialStatus(const GetInstanceT
 }
 
 /**
- * @summary Queries resource synchronization tasks.
+ * @summary Queries a resource synchronization task.
  *
  * @param request GetInventorySynchronizationJobRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -10009,7 +10013,7 @@ GetInventorySynchronizationJobResponse Client::getInventorySynchronizationJobWit
 }
 
 /**
- * @summary Queries resource synchronization tasks.
+ * @summary Queries a resource synchronization task.
  *
  * @param request GetInventorySynchronizationJobRequest
  * @return GetInventorySynchronizationJobResponse
@@ -12020,7 +12024,7 @@ ListClientPublicKeysResponse Client::listClientPublicKeys(const ListClientPublic
 }
 
 /**
- * @summary Invokes ListCloudAccountResources to perform a paged query of cloud account resources by using paging.
+ * @summary Invokes ListCloudAccountResources to perform a paged query of cloud account resources through paging.
  *
  * @param request ListCloudAccountResourcesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -12075,7 +12079,7 @@ ListCloudAccountResourcesResponse Client::listCloudAccountResourcesWithOptions(c
 }
 
 /**
- * @summary Invokes ListCloudAccountResources to perform a paged query of cloud account resources by using paging.
+ * @summary Invokes ListCloudAccountResources to perform a paged query of cloud account resources through paging.
  *
  * @param request ListCloudAccountResourcesRequest
  * @return ListCloudAccountResourcesResponse
@@ -12086,7 +12090,7 @@ ListCloudAccountResourcesResponse Client::listCloudAccountResources(const ListCl
 }
 
 /**
- * @summary Calls ListCloudAccountResourcesForCloudPermissionTemplate to perform a paging query for the list of cloud account resources associated with a specified cloud permission template.
+ * @summary Queries the list of cloud account resources associated with a specified cloud permission template by using paging.
  *
  * @param request ListCloudAccountResourcesForCloudPermissionTemplateRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -12137,7 +12141,7 @@ ListCloudAccountResourcesForCloudPermissionTemplateResponse Client::listCloudAcc
 }
 
 /**
- * @summary Calls ListCloudAccountResourcesForCloudPermissionTemplate to perform a paging query for the list of cloud account resources associated with a specified cloud permission template.
+ * @summary Queries the list of cloud account resources associated with a specified cloud permission template by using paging.
  *
  * @param request ListCloudAccountResourcesForCloudPermissionTemplateRequest
  * @return ListCloudAccountResourcesForCloudPermissionTemplateResponse
@@ -13547,7 +13551,7 @@ ListInstancesResponse Client::listInstances(const ListInstancesRequest &request)
  * @summary Queries resource synchronization tasks.
  *
  * @description You can use one of the following two methods to view the returned data:
- * - Method 1: When paged query the first page, you only need to set MaxResults to limit the number of returned entries. The NextToken value in the response is used as the token to query the next page. When paged query subsequent pages, set the NextToken parameter to the NextToken value obtained from the previous response, and set MaxResults to limit the number of returned entries. If no more pages exist, NextToken is not returned. The maximum value of MaxResults is 100.
+ * - Method 1: When paged query the first page, set only MaxResults to limit the number of returned entries. The NextToken value in the response is used as the token to query the next page. When paged query subsequent pages, set the NextToken parameter to the NextToken value returned in the previous response, and set MaxResults to limit the number of returned entries. If no more pages exist, NextToken is not returned. The maximum value of MaxResults is 100.
  * - Method 2: Set PageSize to specify the number of entries to return per page, and set PageNumber to specify the page number.
  * You can use only one of the two methods. Method 1 is recommended when a large number of entries are returned. If you set the MaxResults or NextToken parameter, the PageSize and PageNumber request parameters become invalid.
  *
@@ -13607,7 +13611,7 @@ ListInventorySynchronizationJobsResponse Client::listInventorySynchronizationJob
  * @summary Queries resource synchronization tasks.
  *
  * @description You can use one of the following two methods to view the returned data:
- * - Method 1: When paged query the first page, you only need to set MaxResults to limit the number of returned entries. The NextToken value in the response is used as the token to query the next page. When paged query subsequent pages, set the NextToken parameter to the NextToken value obtained from the previous response, and set MaxResults to limit the number of returned entries. If no more pages exist, NextToken is not returned. The maximum value of MaxResults is 100.
+ * - Method 1: When paged query the first page, set only MaxResults to limit the number of returned entries. The NextToken value in the response is used as the token to query the next page. When paged query subsequent pages, set the NextToken parameter to the NextToken value returned in the previous response, and set MaxResults to limit the number of returned entries. If no more pages exist, NextToken is not returned. The maximum value of MaxResults is 100.
  * - Method 2: Set PageSize to specify the number of entries to return per page, and set PageNumber to specify the page number.
  * You can use only one of the two methods. Method 1 is recommended when a large number of entries are returned. If you set the MaxResults or NextToken parameter, the PageSize and PageNumber request parameters become invalid.
  *

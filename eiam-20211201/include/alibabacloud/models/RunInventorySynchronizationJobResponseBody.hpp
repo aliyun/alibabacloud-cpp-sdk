@@ -48,9 +48,9 @@ namespace Models
 
 
   protected:
-    // The ID of the synchronization task.
+    // The ID of the synchronization job.
     shared_ptr<string> inventorySynchronizationJobId_ {};
-    // The request ID.
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
   };
 

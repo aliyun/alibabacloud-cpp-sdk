@@ -417,13 +417,13 @@ namespace Models
 
 
         protected:
-          // The creation result statistics.
+          // The creation statistics.
           shared_ptr<AssetStatistics::Created> created_ {};
-          // The deletion result statistics.
+          // The deletion statistics.
           shared_ptr<AssetStatistics::Deleted> deleted_ {};
-          // The unchanged result statistics.
+          // The statistics of unchanged assets.
           shared_ptr<AssetStatistics::Same> same_ {};
-          // The update result statistics.
+          // The update statistics.
           shared_ptr<AssetStatistics::Updated> updated_ {};
         };
 
@@ -755,13 +755,13 @@ namespace Models
 
 
         protected:
-          // The creation result statistics.
+          // The creation statistics.
           shared_ptr<AgentStatistics::Created> created_ {};
-          // The deletion result statistics.
+          // The deletion statistics.
           shared_ptr<AgentStatistics::Deleted> deleted_ {};
-          // The unchanged result statistics.
+          // The statistics of unchanged assets.
           shared_ptr<AgentStatistics::Same> same_ {};
-          // The update result statistics.
+          // The update statistics.
           shared_ptr<AgentStatistics::Updated> updated_ {};
         };
 
@@ -800,13 +800,13 @@ namespace Models
 
 
       protected:
-        // The agent synchronization result statistics.
+        // The agent synchronization statistics.
         shared_ptr<Result::AgentStatistics> agentStatistics_ {};
-        // The asset synchronization result statistics.
+        // The asset synchronization statistics.
         shared_ptr<Result::AssetStatistics> assetStatistics_ {};
         // The error code of the synchronization result.
         shared_ptr<string> errorCode_ {};
-        // The error message description of the synchronization result.
+        // The error message of the synchronization result.
         shared_ptr<string> errorMessage_ {};
       };
 
@@ -872,21 +872,21 @@ namespace Models
 
 
     protected:
-      // The synchronization job description.
+      // The description.
       shared_ptr<string> description_ {};
-      // The synchronization end time.
+      // The end time.
       shared_ptr<int64_t> endTime_ {};
-      // The synchronization target ID.
+      // The inventory source ID.
       shared_ptr<string> inventorySourceId_ {};
       // The ID of the synchronization task.
       shared_ptr<string> inventorySynchronizationJobId_ {};
       // The synchronization node task result.
       shared_ptr<InventorySynchronizationJob::Result> result_ {};
-      // The synchronization start time.
+      // The start time.
       shared_ptr<int64_t> startTime_ {};
-      // The synchronization job status.
+      // The status.
       shared_ptr<string> status_ {};
-      // The synchronization trigger type.
+      // The trigger type.
       shared_ptr<string> triggerType_ {};
     };
 

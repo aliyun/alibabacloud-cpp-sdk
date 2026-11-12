@@ -144,7 +144,7 @@ namespace Models
       shared_ptr<vector<string>> groupIds_ {};
       // The list of organizational unit IDs.
       shared_ptr<vector<string>> organizationalUnitIds_ {};
-      // The application scope type. Valid values: global and custom.
+      // The application scope type. Valid values: global, custom.
       shared_ptr<string> scopeType_ {};
       // The list of account IDs.
       shared_ptr<vector<string>> userIds_ {};

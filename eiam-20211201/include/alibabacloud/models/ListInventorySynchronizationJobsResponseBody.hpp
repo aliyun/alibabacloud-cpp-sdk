@@ -177,13 +177,13 @@ namespace Models
 
 
           protected:
-            // The number of failed creations.
+            // The number of failed items.
             shared_ptr<int64_t> failed_ {};
-            // The number of skipped creations.
+            // The number of skipped items.
             shared_ptr<int64_t> skipped_ {};
-            // The number of successful creations.
+            // The number of successful items.
             shared_ptr<int64_t> success_ {};
-            // The total number.
+            // The total number of items.
             shared_ptr<int64_t> total_ {};
           };
 
@@ -243,13 +243,13 @@ namespace Models
 
 
           protected:
-            // The number of failed creations.
+            // The number of failed items.
             shared_ptr<int64_t> failed_ {};
-            // The number of skipped creations.
+            // The number of skipped items.
             shared_ptr<int64_t> skipped_ {};
-            // The number of successful creations.
+            // The number of successful items.
             shared_ptr<int64_t> success_ {};
-            // The total number.
+            // The total number of items.
             shared_ptr<int64_t> total_ {};
           };
 
@@ -309,13 +309,13 @@ namespace Models
 
 
           protected:
-            // The number of failed creations.
+            // The number of failed items.
             shared_ptr<int64_t> failed_ {};
-            // The number of skipped creations.
+            // The number of skipped items.
             shared_ptr<int64_t> skipped_ {};
-            // The number of successful creations.
+            // The number of successful items.
             shared_ptr<int64_t> success_ {};
-            // The total number.
+            // The total number of items.
             shared_ptr<int64_t> total_ {};
           };
 
@@ -375,13 +375,13 @@ namespace Models
 
 
           protected:
-            // The number of failed creations.
+            // The number of failed items.
             shared_ptr<int64_t> failed_ {};
-            // The number of skipped creations.
+            // The number of skipped items.
             shared_ptr<int64_t> skipped_ {};
-            // The number of successful creations.
+            // The number of successful items.
             shared_ptr<int64_t> success_ {};
-            // The total number.
+            // The total number of items.
             shared_ptr<int64_t> total_ {};
           };
 
@@ -424,13 +424,13 @@ namespace Models
 
 
         protected:
-          // The statistics of the creation results.
+          // The statistics of the creation result.
           shared_ptr<AssetStatistics::Created> created_ {};
-          // The statistics of the deletion results.
+          // The statistics of the deletion result.
           shared_ptr<AssetStatistics::Deleted> deleted_ {};
-          // The statistics of the unchanged results.
+          // The statistics of unchanged items.
           shared_ptr<AssetStatistics::Same> same_ {};
-          // The statistics of the update results.
+          // The statistics of the update result.
           shared_ptr<AssetStatistics::Updated> updated_ {};
         };
 
@@ -515,13 +515,13 @@ namespace Models
 
 
           protected:
-            // The number of failed creations.
+            // The number of failed items.
             shared_ptr<int64_t> failed_ {};
-            // The number of skipped creations.
+            // The number of skipped items.
             shared_ptr<int64_t> skipped_ {};
-            // The number of successful creations.
+            // The number of successful items.
             shared_ptr<int64_t> success_ {};
-            // The total number.
+            // The total number of items.
             shared_ptr<int64_t> total_ {};
           };
 
@@ -581,13 +581,13 @@ namespace Models
 
 
           protected:
-            // The number of failed creations.
+            // The number of failed items.
             shared_ptr<int64_t> failed_ {};
-            // The number of skipped creations.
+            // The number of skipped items.
             shared_ptr<int64_t> skipped_ {};
-            // The number of successful creations.
+            // The number of successful items.
             shared_ptr<int64_t> success_ {};
-            // The total number.
+            // The total number of items.
             shared_ptr<int64_t> total_ {};
           };
 
@@ -647,13 +647,13 @@ namespace Models
 
 
           protected:
-            // The number of failed creations.
+            // The number of failed items.
             shared_ptr<int64_t> failed_ {};
-            // The number of skipped creations.
+            // The number of skipped items.
             shared_ptr<int64_t> skipped_ {};
-            // The number of successful creations.
+            // The number of successful items.
             shared_ptr<int64_t> success_ {};
-            // The total number.
+            // The total number of items.
             shared_ptr<int64_t> total_ {};
           };
 
@@ -713,13 +713,13 @@ namespace Models
 
 
           protected:
-            // The number of failed creations.
+            // The number of failed items.
             shared_ptr<int64_t> failed_ {};
-            // The number of skipped creations.
+            // The number of skipped items.
             shared_ptr<int64_t> skipped_ {};
-            // The number of successful creations.
+            // The number of successful items.
             shared_ptr<int64_t> success_ {};
-            // The total number.
+            // The total number of items.
             shared_ptr<int64_t> total_ {};
           };
 
@@ -762,13 +762,13 @@ namespace Models
 
 
         protected:
-          // The statistics of the creation results.
+          // The statistics of the creation result.
           shared_ptr<AgentStatistics::Created> created_ {};
-          // The statistics of the deletion results.
+          // The statistics of the deletion result.
           shared_ptr<AgentStatistics::Deleted> deleted_ {};
-          // The statistics of the unchanged results.
+          // The statistics of unchanged items.
           shared_ptr<AgentStatistics::Same> same_ {};
-          // The statistics of the update results.
+          // The statistics of the update result.
           shared_ptr<AgentStatistics::Updated> updated_ {};
         };
 
@@ -807,9 +807,9 @@ namespace Models
 
 
       protected:
-        // The statistics of the agent synchronization results.
+        // The statistics of the agent synchronization result.
         shared_ptr<Result::AgentStatistics> agentStatistics_ {};
-        // The statistics of the asset synchronization results.
+        // The statistics of the asset synchronization result.
         shared_ptr<Result::AssetStatistics> assetStatistics_ {};
         // The error code of the synchronization result.
         shared_ptr<string> errorCode_ {};
@@ -941,7 +941,7 @@ namespace Models
     shared_ptr<vector<ListInventorySynchronizationJobsResponseBody::InventorySynchronizationJobs>> inventorySynchronizationJobs_ {};
     // The maximum number of returned results.
     shared_ptr<int32_t> maxResults_ {};
-    // The pagination token returned by the current call, which is used to retrieve the next page.
+    // The pagination token returned by the current call for subsequent paged queries.
     shared_ptr<string> nextToken_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

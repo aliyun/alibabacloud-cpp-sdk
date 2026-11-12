@@ -20,6 +20,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(Description, description_);
       DARABONBA_PTR_TO_JSON(InstanceId, instanceId_);
       DARABONBA_PTR_TO_JSON(ProjectId, projectId_);
+      DARABONBA_PTR_TO_JSON(SubjectType, subjectType_);
     };
     friend void from_json(const Darabonba::Json& j, CreateAuthorizationRuleRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(AuthorizationResourceScope, authorizationResourceScope_);
@@ -29,6 +30,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(Description, description_);
       DARABONBA_PTR_FROM_JSON(InstanceId, instanceId_);
       DARABONBA_PTR_FROM_JSON(ProjectId, projectId_);
+      DARABONBA_PTR_FROM_JSON(SubjectType, subjectType_);
     };
     CreateAuthorizationRuleRequest() = default ;
     CreateAuthorizationRuleRequest(const CreateAuthorizationRuleRequest &) = default ;
@@ -43,7 +45,7 @@ namespace Models
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->authorizationResourceScope_ == nullptr
         && this->authorizationRuleName_ == nullptr && this->authorizationRuleScenarioLabel_ == nullptr && this->clientToken_ == nullptr && this->description_ == nullptr && this->instanceId_ == nullptr
-        && this->projectId_ == nullptr; };
+        && this->projectId_ == nullptr && this->subjectType_ == nullptr; };
     // authorizationResourceScope Field Functions 
     bool hasAuthorizationResourceScope() const { return this->authorizationResourceScope_ != nullptr;};
     void deleteAuthorizationResourceScope() { this->authorizationResourceScope_ = nullptr;};
@@ -93,11 +95,17 @@ namespace Models
     inline CreateAuthorizationRuleRequest& setProjectId(string projectId) { DARABONBA_PTR_SET_VALUE(projectId_, projectId) };
 
 
+    // subjectType Field Functions 
+    bool hasSubjectType() const { return this->subjectType_ != nullptr;};
+    void deleteSubjectType() { this->subjectType_ = nullptr;};
+    inline string getSubjectType() const { DARABONBA_PTR_GET_DEFAULT(subjectType_, "") };
+    inline CreateAuthorizationRuleRequest& setSubjectType(string subjectType) { DARABONBA_PTR_SET_VALUE(subjectType_, subjectType) };
+
+
   protected:
-    // The authorization resource scope. Valid values:
-    // 
-    // - global: all resources under the project.
-    // - custom: specified resources under the project.
+    // The scope of authorized resources. Valid values:
+    // - global: global resources under the project
+    // - custom: resources under a specified project scope
     shared_ptr<string> authorizationResourceScope_ {};
     // The name of the authorization rule. The name can be up to 64 characters in length.
     // 
@@ -105,7 +113,7 @@ namespace Models
     shared_ptr<string> authorizationRuleName_ {};
     // The scenario label of the authorization rule. The label can be up to 64 characters in length.
     shared_ptr<string> authorizationRuleScenarioLabel_ {};
-    // Ensures the idempotence of the request. Generate a parameter value from your client to ensure that the value is unique across different requests. ClientToken supports only ASCII characters and cannot exceed 64 characters in length. For more information, see References [How to ensure idempotence](https://www.alibabacloud.com/help/zh/ecs/developer-reference/how-to-ensure-idempotence).
+    // The client token that is used to ensure the idempotence of the request. You can generate the value from your client and make sure that the value is unique across different requests. The ClientToken parameter only supports ASCII characters and cannot exceed 64 characters in length. For more information, see References: [How to ensure idempotence](https://www.alibabacloud.com/help/zh/ecs/developer-reference/how-to-ensure-idempotence).
     // 
     // This parameter is required.
     shared_ptr<string> clientToken_ {};
@@ -115,10 +123,12 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
-    // The ID of the project associated with the authorization rule. If you are unsure which project to associate, you can associate the default project. The default project ID is iprj_system_default.
+    // The ID of the project associated with the authorization rule. If you are unsure about the project to associate, you can use the default project. The ID of the default project is iprj_system_default.
     // 
     // This parameter is required.
     shared_ptr<string> projectId_ {};
+    // The type of subject to which the authorization rule applies, such as user (for human users) or application (for machine users). When explicitly specified, only privileged cloud account rules with a custom resource scope are supported. If this field is omitted for custom scope rules in this scenario, the default value is user.
+    shared_ptr<string> subjectType_ {};
   };
 
   } // namespace Models

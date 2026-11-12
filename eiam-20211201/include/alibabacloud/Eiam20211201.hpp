@@ -2851,7 +2851,7 @@ namespace Eiam20211201
       Models::GetAuthorizationResourceResponse getAuthorizationResource(const Models::GetAuthorizationResourceRequest &request);
 
       /**
-       * @summary Queries the information about an authorization rule.
+       * @summary Queries the details of an authorization rule.
        *
        * @param request GetAuthorizationRuleRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2860,7 +2860,7 @@ namespace Eiam20211201
       Models::GetAuthorizationRuleResponse getAuthorizationRuleWithOptions(const Models::GetAuthorizationRuleRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the information about an authorization rule.
+       * @summary Queries the details of an authorization rule.
        *
        * @param request GetAuthorizationRuleRequest
        * @return GetAuthorizationRuleResponse
@@ -3386,7 +3386,7 @@ namespace Eiam20211201
       Models::GetInstanceTrialStatusResponse getInstanceTrialStatus(const Models::GetInstanceTrialStatusRequest &request);
 
       /**
-       * @summary Queries resource synchronization tasks.
+       * @summary Queries a resource synchronization task.
        *
        * @param request GetInventorySynchronizationJobRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3395,7 +3395,7 @@ namespace Eiam20211201
       Models::GetInventorySynchronizationJobResponse getInventorySynchronizationJobWithOptions(const Models::GetInventorySynchronizationJobRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries resource synchronization tasks.
+       * @summary Queries a resource synchronization task.
        *
        * @param request GetInventorySynchronizationJobRequest
        * @return GetInventorySynchronizationJobResponse
@@ -4065,7 +4065,7 @@ namespace Eiam20211201
       Models::ListClientPublicKeysResponse listClientPublicKeys(const Models::ListClientPublicKeysRequest &request);
 
       /**
-       * @summary Invokes ListCloudAccountResources to perform a paged query of cloud account resources by using paging.
+       * @summary Invokes ListCloudAccountResources to perform a paged query of cloud account resources through paging.
        *
        * @param request ListCloudAccountResourcesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -4074,7 +4074,7 @@ namespace Eiam20211201
       Models::ListCloudAccountResourcesResponse listCloudAccountResourcesWithOptions(const Models::ListCloudAccountResourcesRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Invokes ListCloudAccountResources to perform a paged query of cloud account resources by using paging.
+       * @summary Invokes ListCloudAccountResources to perform a paged query of cloud account resources through paging.
        *
        * @param request ListCloudAccountResourcesRequest
        * @return ListCloudAccountResourcesResponse
@@ -4082,7 +4082,7 @@ namespace Eiam20211201
       Models::ListCloudAccountResourcesResponse listCloudAccountResources(const Models::ListCloudAccountResourcesRequest &request);
 
       /**
-       * @summary Calls ListCloudAccountResourcesForCloudPermissionTemplate to perform a paging query for the list of cloud account resources associated with a specified cloud permission template.
+       * @summary Queries the list of cloud account resources associated with a specified cloud permission template by using paging.
        *
        * @param request ListCloudAccountResourcesForCloudPermissionTemplateRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -4091,7 +4091,7 @@ namespace Eiam20211201
       Models::ListCloudAccountResourcesForCloudPermissionTemplateResponse listCloudAccountResourcesForCloudPermissionTemplateWithOptions(const Models::ListCloudAccountResourcesForCloudPermissionTemplateRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Calls ListCloudAccountResourcesForCloudPermissionTemplate to perform a paging query for the list of cloud account resources associated with a specified cloud permission template.
+       * @summary Queries the list of cloud account resources associated with a specified cloud permission template by using paging.
        *
        * @param request ListCloudAccountResourcesForCloudPermissionTemplateRequest
        * @return ListCloudAccountResourcesForCloudPermissionTemplateResponse
@@ -4533,7 +4533,7 @@ namespace Eiam20211201
        * @summary Queries resource synchronization tasks.
        *
        * @description You can use one of the following two methods to view the returned data:
-       * - Method 1: When paged query the first page, you only need to set MaxResults to limit the number of returned entries. The NextToken value in the response is used as the token to query the next page. When paged query subsequent pages, set the NextToken parameter to the NextToken value obtained from the previous response, and set MaxResults to limit the number of returned entries. If no more pages exist, NextToken is not returned. The maximum value of MaxResults is 100.
+       * - Method 1: When paged query the first page, set only MaxResults to limit the number of returned entries. The NextToken value in the response is used as the token to query the next page. When paged query subsequent pages, set the NextToken parameter to the NextToken value returned in the previous response, and set MaxResults to limit the number of returned entries. If no more pages exist, NextToken is not returned. The maximum value of MaxResults is 100.
        * - Method 2: Set PageSize to specify the number of entries to return per page, and set PageNumber to specify the page number.
        * You can use only one of the two methods. Method 1 is recommended when a large number of entries are returned. If you set the MaxResults or NextToken parameter, the PageSize and PageNumber request parameters become invalid.
        *
@@ -4547,7 +4547,7 @@ namespace Eiam20211201
        * @summary Queries resource synchronization tasks.
        *
        * @description You can use one of the following two methods to view the returned data:
-       * - Method 1: When paged query the first page, you only need to set MaxResults to limit the number of returned entries. The NextToken value in the response is used as the token to query the next page. When paged query subsequent pages, set the NextToken parameter to the NextToken value obtained from the previous response, and set MaxResults to limit the number of returned entries. If no more pages exist, NextToken is not returned. The maximum value of MaxResults is 100.
+       * - Method 1: When paged query the first page, set only MaxResults to limit the number of returned entries. The NextToken value in the response is used as the token to query the next page. When paged query subsequent pages, set the NextToken parameter to the NextToken value returned in the previous response, and set MaxResults to limit the number of returned entries. If no more pages exist, NextToken is not returned. The maximum value of MaxResults is 100.
        * - Method 2: Set PageSize to specify the number of entries to return per page, and set PageNumber to specify the page number.
        * You can use only one of the two methods. Method 1 is recommended when a large number of entries are returned. If you set the MaxResults or NextToken parameter, the PageSize and PageNumber request parameters become invalid.
        *

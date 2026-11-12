@@ -75,9 +75,9 @@ namespace Models
 
 
   protected:
-    // The authorization resource scope. Valid values:
+    // The scope of authorized resources. Valid values:
     // - global: global resources under the project
-    // - custom: resources under a specified project scope
+    // - custom: resources within a specified project scope
     shared_ptr<string> authorizationResourceScope_ {};
     // The authorization rule ID.
     // 
@@ -85,7 +85,7 @@ namespace Models
     shared_ptr<string> authorizationRuleId_ {};
     // The name of the authorization rule. The name can be up to 64 characters in length.
     shared_ptr<string> authorizationRuleName_ {};
-    // Ensures the idempotence of the request. You can generate a parameter value on your client to ensure that the value is unique across different requests. The ClientToken parameter supports only ASCII characters and cannot exceed 64 characters in length. For more information, see References: [How to ensure idempotence](https://www.alibabacloud.com/help/zh/ecs/developer-reference/how-to-ensure-idempotence).
+    // Ensures the idempotence of the request. You can generate a client token on your client to ensure that the value is unique across different requests. The ClientToken parameter supports only ASCII characters and can be up to 64 characters in length. For more information, see References [How to ensure idempotence](https://www.alibabacloud.com/help/zh/ecs/developer-reference/how-to-ensure-idempotence).
     // 
     // This parameter is required.
     shared_ptr<string> clientToken_ {};

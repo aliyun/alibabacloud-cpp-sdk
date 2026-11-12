@@ -117,13 +117,13 @@ namespace Models
 
 
     protected:
-      // The AgentId of the WeCom custom application.
+      // The AgentId of the WeCom self-built application.
       shared_ptr<string> agentId_ {};
       // The authorization callback domain.
       shared_ptr<string> authorizeCallbackDomain_ {};
       // The WeCom contacts secret.
       shared_ptr<string> contactSecret_ {};
-      // The CorpSecret of the WeCom custom application.
+      // The CorpSecret of the WeCom self-built application.
       shared_ptr<string> corpSecret_ {};
       // The trusted domain.
       shared_ptr<string> trustableDomain_ {};
@@ -266,7 +266,7 @@ namespace Models
       shared_ptr<string> idPSsoUrl_ {};
       // The maximum clock skew.
       shared_ptr<int64_t> maxClockSkew_ {};
-      // Specifies whether to require the request to be signed.
+      // Specifies whether to require requests to be signed.
       shared_ptr<bool> requireRequestSigned_ {};
       // Specifies whether to require the external IdP to sign the assertion.
       shared_ptr<bool> wantAssertionsSigned_ {};
@@ -676,9 +676,9 @@ namespace Models
       shared_ptr<string> appId_ {};
       // The AppSecret of the Lark application.
       shared_ptr<string> appSecret_ {};
-      // The EncryptKey of the custom Lark application.
+      // The encryptKey of the custom Lark application.
       shared_ptr<string> encryptKey_ {};
-      // The VerificationToken of the custom Lark application.
+      // The verificationToken of the custom Lark application.
       shared_ptr<string> verificationToken_ {};
     };
 
@@ -882,7 +882,7 @@ namespace Models
     shared_ptr<string> logoUrl_ {};
     // The network access endpoint ID.
     shared_ptr<string> networkAccessEndpointId_ {};
-    // The OIDC-related configuration.
+    // The OIDC configuration.
     shared_ptr<UpdateIdentityProviderRequest::OidcConfig> oidcConfig_ {};
     // The SAML IdP configuration.
     shared_ptr<UpdateIdentityProviderRequest::SamlConfig> samlConfig_ {};
