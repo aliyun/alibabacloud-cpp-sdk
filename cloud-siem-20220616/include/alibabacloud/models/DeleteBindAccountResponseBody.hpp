@@ -59,7 +59,7 @@ namespace Models
 
 
     protected:
-      // The number of account bindings that are deleted. A value of 1 indicates that the operation was successful. A value of 0 or less indicates that the operation failed.
+      // The number of deleted account bindings. A value of 1 indicates success, and a value of 0 or less indicates failure.
       shared_ptr<int32_t> count_ {};
     };
 
@@ -82,9 +82,9 @@ namespace Models
 
 
   protected:
-    // The data returned.
+    // The response data.
     shared_ptr<DeleteBindAccountResponseBody::Data> data_ {};
-    // The request ID.
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
   };
 

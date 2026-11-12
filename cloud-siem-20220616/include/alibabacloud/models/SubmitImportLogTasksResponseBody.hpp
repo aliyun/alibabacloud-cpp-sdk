@@ -59,7 +59,7 @@ namespace Models
 
 
     protected:
-      // The number of log ingestion tasks that are successfully submitted.
+      // The number of log onboarding tasks that are successfully submitted.
       shared_ptr<int32_t> count_ {};
     };
 
@@ -82,7 +82,7 @@ namespace Models
 
 
   protected:
-    // The data returned.
+    // The response data.
     shared_ptr<SubmitImportLogTasksResponseBody::Data> data_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

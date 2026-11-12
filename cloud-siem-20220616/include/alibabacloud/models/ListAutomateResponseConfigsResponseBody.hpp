@@ -198,27 +198,22 @@ namespace Models
 
 
       protected:
-        // The action configuration of the automated response rule. The value is a JSON array.
+        // The action configuration of the automated response rule, in JSON array format.
         shared_ptr<string> actionConfig_ {};
-        // The handling action. Multiple values are separated by commas. Valid values:
-        // 
-        // - **doPlaybook**: executes a playbook.
-        // 
-        // - **changeEventStatus**: changes the status of an event.
-        // 
-        // - **changeThreatLevel**: changes the threat level of an event.
+        // The types of the actions. Multiple values are separated by commas. Valid values:
+        // - **doPlaybook**: Execute a playbook.
+        // - **changeEventStatus**: Change the event status.
+        // - **changeThreatLevel**: Change the event threat level.
         shared_ptr<string> actionType_ {};
-        // The ID of the Alibaba Cloud account that is associated with the rule.
+        // The ID of the primary Alibaba Cloud account associated with the SIEM rule.
         shared_ptr<int64_t> aliuid_ {};
         // The type of the automated response. Valid values:
-        // 
-        // - **event**
-        // 
-        // - **alert**
+        // - **event**: Event.
+        // - **alert**: Alert.
         shared_ptr<string> autoResponseType_ {};
         // The data type of the condition field in the automated response rule.
         shared_ptr<int32_t> dataType_ {};
-        // The trigger condition of the automated response rule. The value is in the JSON format.
+        // The cause of the automated response rule, in JSON format.
         shared_ptr<string> executionCondition_ {};
         // The time when the rule was created.
         shared_ptr<string> gmtCreate_ {};
@@ -226,19 +221,15 @@ namespace Models
         shared_ptr<string> gmtModified_ {};
         // The ID of the automated response rule.
         shared_ptr<int64_t> id_ {};
-        // The type of the response rule.
-        // 
-        // - preset: predefined
-        // 
-        // - custom: custom
+        // The type of the response rule. Valid values:
+        // - preset: Predefined.
+        // - custom: Custom.
         shared_ptr<string> responseRuleType_ {};
         // The name of the automated response rule.
         shared_ptr<string> ruleName_ {};
         // The status of the rule. Valid values:
-        // 
-        // - **0**: disabled
-        // 
-        // - **100**: enabled
+        // - **0**: Disabled.
+        // - **100**: Enabled.
         shared_ptr<int32_t> status_ {};
         // The ID of the user who created the rule.
         shared_ptr<int64_t> subUserId_ {};
@@ -291,7 +282,7 @@ namespace Models
 
 
       protected:
-        // The page number of the returned page.
+        // The current page number.
         shared_ptr<int32_t> currentPage_ {};
         // The number of entries returned per page.
         shared_ptr<int32_t> pageSize_ {};
@@ -366,19 +357,17 @@ namespace Models
 
 
   protected:
-    // The request status code.
+    // The status code of the request.
     shared_ptr<int32_t> code_ {};
-    // The data returned.
+    // The data returned in the response.
     shared_ptr<ListAutomateResponseConfigsResponseBody::Data> data_ {};
-    // The returned message.
+    // The message returned for the request.
     shared_ptr<string> message_ {};
-    // The request ID.
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request was successful. Valid values:
-    // 
-    // - **true**: The request was successful.
-    // 
-    // - **false**: The request failed.
+    // Indicates whether the request is successful. Valid values:
+    // - **true**: Successful.
+    // - **false**: Failed.
     shared_ptr<bool> success_ {};
   };
 

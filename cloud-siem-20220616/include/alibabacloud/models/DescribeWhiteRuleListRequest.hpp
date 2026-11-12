@@ -105,31 +105,27 @@ namespace Models
   protected:
     // The alert name.
     shared_ptr<string> alertName_ {};
-    // The alert type.
+    // The alerting type.
     shared_ptr<string> alertType_ {};
-    // The page number. The value must be greater than or equal to 1.
+    // The current page number. The value must be greater than or equal to 1.
     // 
     // This parameter is required.
     shared_ptr<int32_t> currentPage_ {};
-    // The universally unique identifier (UUID) of the event.
+    // The globally unique UUID of the incident.
     shared_ptr<string> incidentUuid_ {};
-    // The number of entries per page. The maximum value is 100.
+    // The number of entries per page. Maximum value: 100.
     // 
     // This parameter is required.
     shared_ptr<int32_t> pageSize_ {};
-    // The region where the data management center of Threat Analysis is deployed. You must select the region where your assets are located. Valid values:
-    // 
-    // - cn-hangzhou: Your assets are deployed in the Chinese mainland or in the China (Hong Kong) region.
-    // 
-    // - ap-southeast-1: Your assets are deployed in regions outside the Chinese mainland.
+    // The region where the data management center of Threat Analysis is located. You must select the region of the management center based on the region where your assets are located. Valid values:
+    // - cn-hangzhou: Assets are located in the Chinese mainland and Hong Kong (China).
+    // - ap-southeast-1: Assets are located outside China.
     shared_ptr<string> regionId_ {};
-    // The ID of the member. This parameter is used in a multi-account management scenario. An administrator can specify this parameter to query the data of a member.
+    // The ID of the user whose perspective the administrator switches to.
     shared_ptr<int64_t> roleFor_ {};
-    // The view type.
-    // 
-    // - 0: the view of the current Alibaba Cloud account.
-    // 
-    // - 1: the view of all accounts that are managed by the administrator account.
+    // The view type. Valid values:
+    // - 0: the view of the current Alibaba Cloud account
+    // - 1: the view of all accounts in the enterprise
     shared_ptr<int32_t> roleType_ {};
   };
 

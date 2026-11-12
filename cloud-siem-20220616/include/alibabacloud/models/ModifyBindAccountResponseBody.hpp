@@ -59,7 +59,7 @@ namespace Models
 
 
     protected:
-      // The number of account bindings that are modified. A value of 1 indicates that the operation is successful. A value of 0 or less indicates that the operation failed.
+      // The number of modified account bindings. A value of 1 indicates success. A value less than or equal to 0 indicates failure.
       shared_ptr<int32_t> count_ {};
     };
 
@@ -82,9 +82,9 @@ namespace Models
 
 
   protected:
-    // The return value of the request.
+    // The response data.
     shared_ptr<ModifyBindAccountResponseBody::Data> data_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

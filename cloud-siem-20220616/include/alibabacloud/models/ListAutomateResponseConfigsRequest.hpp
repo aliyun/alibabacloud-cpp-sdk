@@ -149,59 +149,46 @@ namespace Models
 
 
   protected:
-    // The type of the handling action. Valid values:
-    // 
-    // - **doPlaybook**: executes a playbook.
-    // 
-    // - **changeEventStatus**: changes the status of an event.
-    // 
-    // - **changeThreatLevel**: changes the threat level of an event.
+    // The type of the action. Valid values:
+    // - **doPlaybook**: Execute a playbook.
+    // - **changeEventStatus**: Change the event status.
+    // - **changeThreatLevel**: Change the event threat level.
     shared_ptr<string> actionType_ {};
     // The type of the automated response. Valid values:
-    // 
-    // - **event**
-    // 
-    // - **alert**
+    // - **event**: Event.
+    // - **alert**: Alert.
     shared_ptr<string> autoResponseType_ {};
-    // The page number. The value must be 1 or greater.
+    // The current page number. The value must be greater than or equal to 1.
     // 
     // This parameter is required.
     shared_ptr<int32_t> currentPage_ {};
     // The ID of the automated response rule.
     shared_ptr<int64_t> id_ {};
-    // The number of entries per page. The maximum value is 100.
+    // The number of entries per page. Maximum value: 100.
     // 
     // This parameter is required.
     shared_ptr<int32_t> pageSize_ {};
-    // The unique identifier of the playbook.
+    // The UUID of the playbook.
     shared_ptr<string> playbookUuid_ {};
-    // The region of the Data Management center. Select a region based on the region where your assets are located. Valid values:
-    // 
-    // - **cn-hangzhou**: your assets are in the Chinese mainland or China (Hong Kong).
-    // 
-    // - **ap-southeast-1**: your assets are in a region outside China.
+    // The region where the data management center of Threat Analysis is located. Select the region based on the region where your assets are located. Valid values:
+    // - **cn-hangzhou**: Assets are located in the Chinese mainland and Hong Kong (China).
+    // - **ap-southeast-1**: Assets are located outside the Chinese mainland.
     shared_ptr<string> regionId_ {};
-    // The type of the response rule.
-    // 
-    // - preset: predefined
-    // 
-    // - custom: custom
+    // The type of the response rule. Valid values:
+    // - preset: Predefined.
+    // - custom: Custom.
     shared_ptr<string> responseRuleType_ {};
-    // The ID of the member to which the administrator switches.
+    // The ID of the user whose perspective the administrator switches to.
     shared_ptr<int64_t> roleFor_ {};
-    // The view type.
-    // 
-    // - 0: the view of the current Alibaba Cloud account.
-    // 
-    // - 1: the view of all accounts that belong to the enterprise.
+    // The view type. Valid values:
+    // - 0: Current Alibaba Cloud account view.
+    // - 1: View of all accounts in the enterprise.
     shared_ptr<int32_t> roleType_ {};
     // The name of the automated response rule.
     shared_ptr<string> ruleName_ {};
     // The status of the rule. Valid values:
-    // 
-    // - **0**: disabled
-    // 
-    // - **100**: enabled
+    // - **0**: Disabled.
+    // - **100**: Enabled.
     shared_ptr<int32_t> status_ {};
     // The ID of the user who created the rule.
     shared_ptr<int64_t> subUserId_ {};

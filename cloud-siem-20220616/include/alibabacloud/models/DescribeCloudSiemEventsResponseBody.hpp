@@ -165,9 +165,9 @@ namespace Models
 
 
         protected:
-          // The number of alerts that are associated with the attack stage.
+          // The number of alerts associated with the attack stage.
           shared_ptr<int32_t> alertNum_ {};
-          // The ID of the ATT\\&CK attack stage.
+          // The ATT&CK attack stage ID.
           shared_ptr<string> tacticId_ {};
           // The name of the attack stage.
           shared_ptr<string> tacticName_ {};
@@ -332,23 +332,23 @@ namespace Models
 
 
       protected:
-        // The number of alerts that are associated with the event.
+        // The number of alerts associated with the event.
         shared_ptr<int32_t> alertNum_ {};
         // The ID of the Alibaba Cloud account to which the event belongs.
         shared_ptr<int64_t> aliuid_ {};
-        // The number of assets that are associated with the event.
+        // The number of assets associated with the event.
         shared_ptr<int32_t> assetNum_ {};
-        // The tags of the ATT\\&CK attack technique.
+        // The collection of ATT&CK attack technique tags.
         shared_ptr<vector<string>> attCkLabels_ {};
         // The list of attack stages.
         shared_ptr<vector<ResponseData::AttckStages>> attckStages_ {};
-        // The cloud services that generated the alerts, which are associated with the event.
+        // The products from which the alerts associated with the event originate.
         shared_ptr<vector<string>> dataSources_ {};
         // The description of the event.
         shared_ptr<string> description_ {};
         // The English description of the event.
         shared_ptr<string> descriptionEn_ {};
-        // The extended information about the event, in the JSON format.
+        // The extended information of the event in JSON format.
         shared_ptr<string> extContent_ {};
         // The time when the event occurred.
         shared_ptr<string> gmtCreate_ {};
@@ -358,39 +358,30 @@ namespace Models
         shared_ptr<string> incidentName_ {};
         // The English name of the event.
         shared_ptr<string> incidentNameEn_ {};
-        // The event type.
-        // 
-        // - net-attack: expert rule
-        // 
-        // - graph: graph computing
+        // The event type. Valid values:
+        // - net-attack: Expert rule.
+        // - graph: Graph computing.
         shared_ptr<string> incidentType_ {};
         // The globally unique UUID of the event.
         shared_ptr<string> incidentUuid_ {};
         // The linked account.
         shared_ptr<string> referAccount_ {};
-        // The remarks on the event.
+        // The remark for the event.
         shared_ptr<string> remark_ {};
         // The rule ID.
         shared_ptr<string> ruleId_ {};
         // The status of the event. Valid values:
-        // 
-        // - 0: unhandled
-        // 
-        // - 1: in progress
-        // 
-        // - 5: failed
-        // 
-        // - 10: handled
+        // - 0: Unhandled.
+        // - 1: Processing.
+        // - 5: Processing failed.
+        // - 10: Handled.
         shared_ptr<int32_t> status_ {};
         // The threat level. Valid values:
-        // 
-        // - serious: high
-        // 
-        // - suspicious: medium
-        // 
-        // - remind: low
+        // - serious: High.
+        // - suspicious: Medium.
+        // - remind: Low.
         shared_ptr<string> threatLevel_ {};
-        // The threat score of the event. The score ranges from 0 to 100. A higher score indicates a higher risk level.
+        // The threat score of the event. Valid values: 0 to 100. A higher score indicates a higher threat level.
         shared_ptr<float> threatScore_ {};
       };
 
@@ -441,7 +432,7 @@ namespace Models
 
 
       protected:
-        // The page number of the returned page.
+        // The current page number.
         shared_ptr<int32_t> currentPage_ {};
         // The number of entries returned per page.
         shared_ptr<int32_t> pageSize_ {};
@@ -518,17 +509,15 @@ namespace Models
   protected:
     // The request status code.
     shared_ptr<int32_t> code_ {};
-    // The return value of the request.
+    // The response data.
     shared_ptr<DescribeCloudSiemEventsResponseBody::Data> data_ {};
-    // The message returned for the request.
+    // The response message.
     shared_ptr<string> message_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request was successful. Valid values:
-    // 
-    // - true: successful
-    // 
-    // - false: failed
+    // Indicates whether the request is successful. Valid values:
+    // - true: Successful.
+    // - false: Failed.
     shared_ptr<bool> success_ {};
   };
 

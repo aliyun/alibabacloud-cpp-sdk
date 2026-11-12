@@ -125,27 +125,24 @@ namespace Models
 
 
     protected:
-      // The AccessKey ID of the account.
+      // The AccessId of the account.
       shared_ptr<string> accessId_ {};
-      // The ID of the cloud account.
+      // The cloud account ID.
       shared_ptr<string> accountId_ {};
-      // The name of the account.
+      // The account name.
       shared_ptr<string> accountName_ {};
       // The binding ID.
       shared_ptr<int64_t> bindId_ {};
-      // The code of the cloud service provider. Valid values:
-      // 
+      // The code of the multi-cloud provider. Valid values:
       // - qcloud: Tencent Cloud.
-      // 
       // - aliyun: Alibaba Cloud.
-      // 
       // - hcloud: Huawei Cloud.
       shared_ptr<string> cloudCode_ {};
       // The user who bound the account.
       shared_ptr<string> createUser_ {};
-      // The number of data sources that are bound to the account.
+      // The number of data sources bound to the account.
       shared_ptr<int64_t> dataSourceCount_ {};
-      // The time when the binding was modified.
+      // The modification time. The time is in the YYYY-MM-DD HH:mm:ss format.
       shared_ptr<string> modifyTime_ {};
     };
 

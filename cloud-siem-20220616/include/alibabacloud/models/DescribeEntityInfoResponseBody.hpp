@@ -99,21 +99,15 @@ namespace Models
     protected:
       // The logical ID of the entity.
       shared_ptr<int64_t> entityId_ {};
-      // The information about the entity.
+      // The entity information.
       Darabonba::Json entityInfo_ {};
-      // The type of the entity. Valid values:
-      // 
+      // The entity type. Valid values:
       // - ip: IP address
-      // 
-      // - domain: domain name
-      // 
+      // - domain: Domain name
       // - url: URL
-      // 
-      // - process: process
-      // 
-      // - file: file
-      // 
-      // - host: host
+      // - process: Process
+      // - file: File
+      // - host: Host
       shared_ptr<string> entityType_ {};
       // The threat intelligence information.
       Darabonba::Json tipInfo_ {};
@@ -161,17 +155,15 @@ namespace Models
   protected:
     // The status code of the request.
     shared_ptr<int32_t> code_ {};
-    // The data returned.
+    // The response data.
     shared_ptr<DescribeEntityInfoResponseBody::Data> data_ {};
-    // The message returned for the request.
+    // The response message.
     shared_ptr<string> message_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request was successful. Valid values:
-    // 
-    // - true: The request was successful.
-    // 
-    // - false: The request failed.
+    // Indicates whether the request is successful. Valid values:
+    // - true: successful
+    // - false: failed
     shared_ptr<bool> success_ {};
   };
 

@@ -305,27 +305,34 @@ namespace Models
 
 
       protected:
+        // The name of the associated alert.
         shared_ptr<string> alertName_ {};
         // The alert UUID.
         shared_ptr<string> alertUuid_ {};
-        // The SIEM primary account ID associated with the policy.
+        // The ID of the SIEM primary account associated with the policy.
         shared_ptr<int64_t> aliuid_ {};
-        // The policy status. Valid values:
+        // The status of the policy. Valid values:
+        // - 0: invalid
+        // - 1: valid
         shared_ptr<int32_t> effectiveStatus_ {};
         // The entity details in JSON array format.
         shared_ptr<vector<Darabonba::Json>> entity_ {};
         // The entity ID.
         shared_ptr<int64_t> entityId_ {};
-        // The entity type. Valid values:
+        // The type of the entity. Valid values:
+        // - ip: IP address
+        // - process: process
+        // - file: file
         shared_ptr<string> entityType_ {};
+        // The error code of the response task.
         shared_ptr<string> errorCode_ {};
         // The failure summary of the task.
         shared_ptr<string> errorMessage_ {};
-        // The finish time of the task.
+        // The end time of the task. Format: YYYY-MM-DD HH:mm:ss.
         shared_ptr<string> finishTime_ {};
         // The creation time.
         shared_ptr<string> gmtCreate_ {};
-        // The modification time.
+        // The update time.
         shared_ptr<string> gmtModified_ {};
         // The policy ID.
         shared_ptr<int64_t> id_ {};
@@ -333,24 +340,28 @@ namespace Models
         shared_ptr<string> incidentName_ {};
         // The globally unique UUID of the incident.
         shared_ptr<string> incidentUuid_ {};
-        // The unique identifier name of the playbook.
+        // The unique name of the playbook.
         shared_ptr<string> playbookName_ {};
-        // The playbook type. Valid values:
-        // - system: manual handling
+        // The type of the playbook. Valid values:
+        // - system: manual response
         // - custom: event-triggered playbook
         // - custom_alert: alert-triggered playbook
         // - soar-manual: manually run playbook
         // - soar-mdr: MDR-run playbook
         shared_ptr<string> playbookType_ {};
-        // The playbook UUID.
+        // The UUID of the playbook.
         shared_ptr<string> playbookUuid_ {};
-        // The disposition scope.
+        // The response scope.
         shared_ptr<vector<Darabonba::Json>> scope_ {};
-        // The SOAR response policy ID.
+        // The ID of the Security Orchestration, Automation, and Response (SOAR) response policy.
         shared_ptr<string> sophonTaskId_ {};
         // The playbook invocation status. Valid values:
+        // - 200: successful
+        // - 10: deleted
+        // - 5: failed
+        // - 0: initial status
         shared_ptr<int32_t> status_ {};
-        // The Alibaba Cloud account ID that configured the policy.
+        // The ID of the Alibaba Cloud account that configured the policy.
         shared_ptr<int64_t> subAliuid_ {};
         // The playbook trigger parameters in JSON format.
         shared_ptr<string> taskParam_ {};
@@ -405,9 +416,9 @@ namespace Models
 
 
       protected:
-        // The current page number of the list.
+        // The current page number.
         shared_ptr<int32_t> currentPage_ {};
-        // The number of records returned per page.
+        // The number of records per page.
         shared_ptr<int32_t> pageSize_ {};
         // The total number of records.
         shared_ptr<int64_t> totalCount_ {};
@@ -484,6 +495,7 @@ namespace Models
 
 
         protected:
+          // The group information.
           Darabonba::Json groupInfo_ {};
         };
 
@@ -578,17 +590,29 @@ namespace Models
 
 
       protected:
+        // The number of failed response records in the group.
         shared_ptr<int64_t> failedCount_ {};
+        // The first occurrence time of the response records in the group.
         shared_ptr<int64_t> firstOccurrenceTime_ {};
+        // The grouping dimension.
         shared_ptr<string> groupBy_ {};
+        // The grouping key value.
         shared_ptr<string> groupKey_ {};
+        // The group metadata.
         shared_ptr<Groups::GroupMeta> groupMeta_ {};
+        // The name of the response record group.
         shared_ptr<string> groupName_ {};
+        // The group title.
         shared_ptr<string> groupTitle_ {};
+        // The last occurrence time of handling records in the group.
         shared_ptr<int64_t> lastOccurrenceTime_ {};
+        // The latest modification time of handling records in the group.
         shared_ptr<int64_t> latestModifiedTime_ {};
+        // The number of in-progress response records in the group.
         shared_ptr<int64_t> runningCount_ {};
+        // The number of successful response records in the group.
         shared_ptr<int64_t> successCount_ {};
+        // The total number of response records in the group.
         shared_ptr<int64_t> totalCount_ {};
       };
 
@@ -622,6 +646,7 @@ namespace Models
 
 
     protected:
+      // The list of response record groups.
       shared_ptr<vector<Data::Groups>> groups_ {};
       // The pagination information.
       shared_ptr<Data::PageInfo> pageInfo_ {};
@@ -671,13 +696,15 @@ namespace Models
   protected:
     // The request status code.
     shared_ptr<int32_t> code_ {};
-    // The request return value.
+    // The response data.
     shared_ptr<ListDisposeStrategyResponseBody::Data> data_ {};
-    // The request return message.
+    // The response message.
     shared_ptr<string> message_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request was successful. Valid values:
+    // Indicates whether the request is successful. Valid values:
+    // - true: successful
+    // - false: failed
     shared_ptr<bool> success_ {};
   };
 

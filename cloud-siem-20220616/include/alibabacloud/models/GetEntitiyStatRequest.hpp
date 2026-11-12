@@ -149,43 +149,41 @@ namespace Models
 
 
   protected:
-    // The asset ID associated with the incident.
+    // The ID of the asset associated with the incident.
     shared_ptr<string> assetName_ {};
-    // The asset ID associated with the incident.
+    // The ID of the asset associated with the incident.
     shared_ptr<string> assetUuid_ {};
-    // The asset ID associated with the incident.
+    // The ID of the asset associated with the incident.
     shared_ptr<string> entityName_ {};
-    // The asset ID associated with the incident.
+    // The ID of the asset associated with the incident.
     shared_ptr<string> entityType_ {};
-    // The asset ID associated with the incident.
+    // The ID of the asset associated with the incident.
     shared_ptr<string> entityUuid_ {};
+    // The list of entity UUIDs. Separate multiple UUIDs with commas.
     shared_ptr<string> entityUuids_ {};
     // The incident ID.
     // 
     // This parameter is required.
     shared_ptr<string> incidentUuid_ {};
-    // The asset ID associated with the incident.
+    // The ID of the asset associated with the incident.
     shared_ptr<string> isAsset_ {};
     // The sort order of the incident list. Valid values:
-    // 
-    // - desc: descending order.
-    // - asc: ascending order.
+    // - desc: descending order
+    // - asc: ascending order
     shared_ptr<string> isMalwareEntity_ {};
-    // The region where the threat detection and response data management center resides. Select the management center based on the region of your assets. Valid values:
-    // 
-    // - cn-hangzhou: The assets belong to the Chinese mainland or Hong Kong (China).
-    // - ap-southeast-1: The assets belong to regions outside China.
+    // The region where the data management center of Threat Analysis is located. Select the region of the management center based on the region where your assets reside. Valid values:
+    // - cn-hangzhou: Assets reside in the Chinese mainland and Hong Kong (China).
+    // - ap-southeast-1: Assets reside in regions outside China.
     shared_ptr<string> regionId_ {};
-    // The user ID of the member to which the administrator switches the view.
+    // The ID of the user whose view the administrator switches to.
     shared_ptr<int64_t> roleFor_ {};
-    // The view type. Valid values:
-    // 
-    // - 0: single-account logon.
-    // - 1: global view.
-    // - 2: switched view.
-    // - 3: partial view.
+    // The role type. Valid values:
+    // - 0: single-account logon
+    // - 1: global view
+    // - 2: switched view
+    // - 3: local view
     shared_ptr<int32_t> roleType_ {};
-    // The entity tags. The value is a JSON array string in the following format: \\"[{\\"tagKey1\\":\\"tagValue1\\"},{\\"tagKey2\\":\\"tagValue2\\"}]\\"
+    // The entity tags. The value is a JSON array string in the following format: "[{"tagKey1":"tagValue1"},{"tagKey2":"tagValue2"}]".
     shared_ptr<string> tags_ {};
   };
 

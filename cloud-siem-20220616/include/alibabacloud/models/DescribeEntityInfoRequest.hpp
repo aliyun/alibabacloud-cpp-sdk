@@ -96,23 +96,19 @@ namespace Models
   protected:
     // The logical ID of the entity.
     shared_ptr<int64_t> entityId_ {};
-    // The feature value of the entity. You can perform a fuzzy search for the entity.
+    // The feature value of the entity. You can use this parameter to perform a fuzzy search for handled entities.
     shared_ptr<string> entityIdentity_ {};
-    // The globally unique UUID of the event.
+    // The globally unique UUID of the incident.
     shared_ptr<string> incidentUuid_ {};
-    // The region of the Data Management center. Select a region based on the region where your assets are located. Valid values:
-    // 
-    // - cn-hangzhou: Your assets are in the Chinese mainland or China (Hong Kong).
-    // 
-    // - ap-southeast-1: Your assets are in a region outside China.
+    // The region where the data management center of Threat Analysis is located. You must select the region of the management center based on the region where your assets are located. Valid values:
+    // - cn-hangzhou: Assets are located in the Chinese mainland and Hong Kong (China).
+    // - ap-southeast-1: Assets are located outside China.
     shared_ptr<string> regionId_ {};
-    // The user ID of the member. The administrator can use this ID to switch to the view of this member.
+    // The ID of the user whose perspective the administrator switches to.
     shared_ptr<int64_t> roleFor_ {};
-    // The view type.
-    // 
-    // - 0: the view of the current Alibaba Cloud account.
-    // 
-    // - 1: the view of all accounts that belong to the enterprise.
+    // The view type. Valid values:
+    // - 0: the view of the current Alibaba Cloud account
+    // - 1: the view of all accounts in the enterprise
     shared_ptr<int32_t> roleType_ {};
     // The ID of the SOAR response policy.
     shared_ptr<string> sophonTaskId_ {};

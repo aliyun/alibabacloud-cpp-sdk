@@ -76,7 +76,7 @@ namespace Models
 
 
     protected:
-      // The Medusa code for the alert data source.
+      // The Medusa code of the alert data source.
       shared_ptr<string> source_ {};
       // The name of the alert data source.
       shared_ptr<string> sourceName_ {};
@@ -124,17 +124,15 @@ namespace Models
   protected:
     // The status code of the request.
     shared_ptr<int32_t> code_ {};
-    // The data returned.
+    // The response data.
     shared_ptr<vector<DescribeAlertSourceWithEventResponseBody::Data>> data_ {};
-    // The returned message.
+    // The response message.
     shared_ptr<string> message_ {};
-    // The request ID.
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request was successful. Valid values:
-    // 
-    // - true: The request was successful.
-    // 
-    // - false: The request failed.
+    // Indicates whether the request is successful. Valid values:
+    // - true: Successful.
+    // - false: Failed.
     shared_ptr<bool> success_ {};
   };
 

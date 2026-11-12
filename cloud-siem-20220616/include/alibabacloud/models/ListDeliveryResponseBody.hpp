@@ -159,9 +159,9 @@ namespace Models
 
 
           protected:
-            // The key of the additional parameter.
+            // The identifier of the extended parameter.
             shared_ptr<string> key_ {};
-            // The value of the additional parameter.
+            // The value of the extended parameter.
             shared_ptr<string> value_ {};
           };
 
@@ -227,29 +227,25 @@ namespace Models
 
 
         protected:
-          // Indicates whether the log delivery switch can be operated. Only the delegated administrator for threat analysis can operate the switch. Valid values:
-          // 
+          // Specifies whether the log delivery switch can be operated. Only the delegated administrator of Threat Analysis can operate the log delivery switch. Valid values:
           // - true: The switch can be operated.
-          // 
           // - false: The switch cannot be operated.
           shared_ptr<bool> canOperateOrNot_ {};
-          // Additional parameters.
+          // The extended parameters.
           shared_ptr<vector<LogList::ExtraParameters>> extraParameters_ {};
           // The log code.
           shared_ptr<string> logCode_ {};
-          // This parameter is deprecated. You can ignore it.
+          // **[Deprecated]** This parameter is deprecated and can be ignored.
           shared_ptr<string> logName_ {};
-          // This parameter is deprecated. You can ignore it.
+          // **[Deprecated]** This parameter is deprecated and can be ignored.
           shared_ptr<string> logNameEn_ {};
-          // The language key of the log name. This key is used to display the log name in different languages.
+          // The language code of the log, which is used to display multilingual names.
           shared_ptr<string> logNameKey_ {};
           // The log delivery status. Valid values:
-          // 
-          // - true: Delivery is in progress.
-          // 
+          // - true: Delivery is in progress.  
           // - false: Delivery is disabled.
           shared_ptr<bool> status_ {};
-          // The topic of the log in the LogStore. This parameter is an index field in the LogStore and is used to differentiate logs.
+          // The topic of the log in the Logstore. It is an index field of the Logstore and can be used to distinguish different logs.
           shared_ptr<string> topic_ {};
         };
 
@@ -288,59 +284,36 @@ namespace Models
 
 
       protected:
-        // A list of logs for cloud products that do not have subcategories.
+        // The cloud services that do not have finer categories.
         shared_ptr<vector<ProductList::LogList>> logList_ {};
-        // A list of logs that are categorized. For example, Security Center logs are categorized into groups such as Host and Network. The group is the key, and the logs in the group are the value.
+        // The list of logs that have categories. For example, Security Center has groups such as host and network. The group information is the key, and the logs included in the group are the value.
         shared_ptr<map<string, vector<DataProductListLogMapValue>>> logMap_ {};
-        // The code of the cloud product. Valid values:
-        // 
+        // The code of the cloud service. Valid values:
         // - qcloud_waf
-        // 
-        // - qcloud_cfw
-        // 
+        // - qlcoud_cfw
         // - hcloud_waf
-        // 
         // - hcloud_cfw
-        // 
         // - ddos
-        // 
         // - sas
-        // 
         // - cfw
-        // 
         // - config
-        // 
         // - csk
-        // 
         // - fc
-        // 
         // - rds
-        // 
         // - nas
-        // 
         // - apigateway
-        // 
         // - cdn
-        // 
         // - mongodb
-        // 
         // - eip
-        // 
         // - slb
-        // 
         // - vpc
-        // 
         // - actiontrail
-        // 
         // - waf
-        // 
         // - bastionhost
-        // 
         // - oss
-        // 
         // - polardb
         shared_ptr<string> productCode_ {};
-        // This parameter is deprecated. You can ignore it.
+        // **[Deprecated]** This parameter is deprecated and can be ignored.
         shared_ptr<string> productName_ {};
       };
 
@@ -391,21 +364,19 @@ namespace Models
 
 
     protected:
-      // The URL of the dashboard on the log analysis page.
+      // The URL for dashboard display on the log analysis page.
       shared_ptr<string> dashboardUrl_ {};
-      // Indicates whether to display the delivery switch. The default value is true. Valid values:
-      // 
-      // - true: The delivery switch is displayed.
-      // 
-      // - false: The delivery switch is hidden.
+      // Specifies whether to display the delivery switch. Default value: true. Valid values:
+      // - true: Display the delivery switch.
+      // - false: Hide the delivery switch.
       shared_ptr<bool> displaySwitchOrNot_ {};
-      // The name of your LogStore for threat analysis. The format is \\`cloud_siem\\`.
+      // The name of the Logstore on the user side of Threat Analysis. Format: cloud_siem.
       shared_ptr<string> logStoreName_ {};
-      // A list of products.
+      // The list of products.
       shared_ptr<vector<Data::ProductList>> productList_ {};
-      // The name of your Simple Log Service (SLS) project for threat analysis. The format is \\`aliyun-cloudsiem-data-${aliUid}-${region}\\`.
+      // The name of the Log Service project on the user side of Threat Analysis. Format: aliyun-cloudsiem-data-${aliUid}-${region}.
       shared_ptr<string> projectName_ {};
-      // The URL of the Search & Analysis page in the SLS console.
+      // The URL for query and analysis on the log analysis page.
       shared_ptr<string> searchUrl_ {};
     };
 
@@ -428,7 +399,7 @@ namespace Models
 
 
   protected:
-    // The returned data.
+    // The detailed response data.
     shared_ptr<ListDeliveryResponseBody::Data> data_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

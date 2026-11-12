@@ -59,7 +59,7 @@ namespace Models
 
 
     protected:
-      // The number of account bindings that are added.
+      // The number of added account bindings.
       shared_ptr<int32_t> count_ {};
     };
 
@@ -82,9 +82,9 @@ namespace Models
 
 
   protected:
-    // The detailed information returned by the Threat Analysis service.
+    // The specific content returned by the Threat Analysis service.
     shared_ptr<BindAccountResponseBody::Data> data_ {};
-    // The request ID.
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
   };
 

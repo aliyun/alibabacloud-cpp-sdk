@@ -235,73 +235,58 @@ namespace Models
     shared_ptr<string> alertTitle_ {};
     // The type of the alert.
     shared_ptr<string> alertType_ {};
-    // The unique ID of the alert.
+    // The ID of the alert associated with the event.
     shared_ptr<string> alertUuid_ {};
     // The ID of the asset.
     shared_ptr<string> assetId_ {};
     // The name of the asset.
     shared_ptr<string> assetName_ {};
-    // The page number. The value must be greater than or equal to 1.
+    // The current page number of the list. The value must be greater than or equal to 1.
     // 
     // This parameter is required.
     shared_ptr<int32_t> currentPage_ {};
-    // The end of the time range to query. This value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
+    // The end time of the query. Unit: milliseconds.
     shared_ptr<int64_t> endTime_ {};
     // The ID of the entity.
     shared_ptr<string> entityId_ {};
     // The name of the entity.
     shared_ptr<string> entityName_ {};
-    // Specifies whether the threat is defended. Valid values:
-    // 
-    // - `0`: detected
-    // 
-    // - `1`: blocked
+    // Specifies whether the threat is blocked. Valid values:
+    // - 0: Detected.
+    // - 1: Blocked.
     shared_ptr<string> isDefend_ {};
-    // The alert type. Valid values:
-    // 
-    // - `system`: An alert generated from aggregated analysis
-    // 
-    // - `custom`: An alert generated from custom analysis
-    // 
-    // - `cfw`: firewall
-    // 
-    // - `waf`: web application firewall
-    // 
-    // - `edr`: endpoint detection and response
-    // 
-    // - `other`: other
+    // The alert query type. Valid values:
+    // - system: Aggregation analysis alert.
+    // - custom: Custom analysis alert.
+    // - cfw: Cloud Firewall.
+    // - waf: Web Application Firewall.
+    // - edr: Endpoint Detection and Response.
+    // - other: Other.
     shared_ptr<string> labelType_ {};
-    // The threat levels. This parameter is a JSON array. Valid values:
-    // 
-    // - `serious`: high
-    // 
-    // - `suspicious`: medium
-    // 
-    // - `remind`: low
+    // The threat level. The value is a JSON array. Valid values:
+    // - serious: High risk.
+    // - suspicious: Medium risk.
+    // - remind: Low risk.
     shared_ptr<vector<string>> level_ {};
     // The number of entries per page. Maximum value: 100.
     // 
     // This parameter is required.
     shared_ptr<int32_t> pageSize_ {};
-    // The region where the data management center of the threat analysis feature resides. You are required to specify this parameter based on the region where your assets reside. Valid values:
-    // 
-    // - `cn-hangzhou`: Your assets reside in the Chinese mainland or Hong Kong (China).
-    // 
-    // - `ap-southeast-1`: Your assets reside outside the Chinese mainland.
+    // The region where the data management center of Threat Analysis is located. Select the region of the management center based on the region where your assets are located. Valid values:
+    // - cn-hangzhou: Assets in the Chinese mainland and Hong Kong (China).
+    // - ap-southeast-1: Assets in regions outside China.
     shared_ptr<string> regionId_ {};
-    // The ID of the user who is used to switch the account to view the data of the member.
+    // The ID of the user whose view the administrator switches to.
     shared_ptr<int64_t> roleFor_ {};
-    // The view type of the alert. Valid values:
-    // 
-    // - `0`: current account
-    // 
-    // - `1`: all accounts
+    // The view type. Valid values:
+    // - 0: View of the current Alibaba Cloud account.
+    // - 1: View of all accounts in the enterprise.
     shared_ptr<int32_t> roleType_ {};
-    // The source of the alert.
+    // The source product of the alert associated with the event.
     shared_ptr<string> source_ {};
-    // The beginning of the time range to query. This value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
+    // The start time of the query. Unit: milliseconds.
     shared_ptr<int64_t> startTime_ {};
-    // The ID of the Alibaba Cloud account that is associated with the alert.
+    // The ID of the Alibaba Cloud account actually associated with the alert.
     shared_ptr<string> subUserId_ {};
   };
 

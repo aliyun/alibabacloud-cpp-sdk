@@ -21,7 +21,12 @@ namespace CloudSiem20220616
       string getEndpoint(const string &productId, const string &regionId, const string &endpointRule, const string &network, const string &suffix, const map<string, string> &endpointMap, const string &endpoint);
 
       /**
-       * @summary Adds a data source to an attached multicloud account.
+       * @summary Adds a data source under the bound multi-cloud account.
+       *
+       * @description Before calling this operation to add a data source, complete the following prerequisites in sequence:
+       * 1. Call the AddCloudVendorAccountAK operation of Security Center (Sas) to add the AccessKey pair configuration for the multi-cloud account.
+       * 2. Call the BindAccount operation to bind the multi-cloud account.
+       * 3. Call this operation (AddDataSource) to add a data source under the bound multi-cloud account.
        *
        * @param request AddDataSourceRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -30,7 +35,12 @@ namespace CloudSiem20220616
       Models::AddDataSourceResponse addDataSourceWithOptions(const Models::AddDataSourceRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Adds a data source to an attached multicloud account.
+       * @summary Adds a data source under the bound multi-cloud account.
+       *
+       * @description Before calling this operation to add a data source, complete the following prerequisites in sequence:
+       * 1. Call the AddCloudVendorAccountAK operation of Security Center (Sas) to add the AccessKey pair configuration for the multi-cloud account.
+       * 2. Call the BindAccount operation to bind the multi-cloud account.
+       * 3. Call this operation (AddDataSource) to add a data source under the bound multi-cloud account.
        *
        * @param request AddDataSourceRequest
        * @return AddDataSourceResponse
@@ -38,7 +48,12 @@ namespace CloudSiem20220616
       Models::AddDataSourceResponse addDataSource(const Models::AddDataSourceRequest &request);
 
       /**
-       * @summary Adds a log for a data source.
+       * @summary Adds logs.
+       *
+       * @description Before calling this operation to add logs for a data source, complete the following prerequisites in sequence:
+       * 1. Call the EnableAccessForCloudSiem operation to enable the SIEM service role.
+       * 2. Call the BindAccount operation to bind a multi-cloud account. You must provide the AccessKey of the third-party cloud provider.
+       * 3. Call the AddDataSource operation to create a data source instance and obtain the DataSourceInstanceId.
        *
        * @param request AddDataSourceLogRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -47,7 +62,12 @@ namespace CloudSiem20220616
       Models::AddDataSourceLogResponse addDataSourceLogWithOptions(const Models::AddDataSourceLogRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Adds a log for a data source.
+       * @summary Adds logs.
+       *
+       * @description Before calling this operation to add logs for a data source, complete the following prerequisites in sequence:
+       * 1. Call the EnableAccessForCloudSiem operation to enable the SIEM service role.
+       * 2. Call the BindAccount operation to bind a multi-cloud account. You must provide the AccessKey of the third-party cloud provider.
+       * 3. Call the AddDataSource operation to create a data source instance and obtain the DataSourceInstanceId.
        *
        * @param request AddDataSourceLogRequest
        * @return AddDataSourceLogResponse
@@ -55,7 +75,7 @@ namespace CloudSiem20220616
       Models::AddDataSourceLogResponse addDataSourceLog(const Models::AddDataSourceLogRequest &request);
 
       /**
-       * @summary Adds a log collection task to import log data into Threat Analysis for alerting and event analysis.
+       * @summary Adds a log ingestion task to ingest the corresponding log data into Threat Analysis for subsequent alerting and event analysis.
        *
        * @param request AddUserSourceLogConfigRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -64,7 +84,7 @@ namespace CloudSiem20220616
       Models::AddUserSourceLogConfigResponse addUserSourceLogConfigWithOptions(const Models::AddUserSourceLogConfigRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Adds a log collection task to import log data into Threat Analysis for alerting and event analysis.
+       * @summary Adds a log ingestion task to ingest the corresponding log data into Threat Analysis for subsequent alerting and event analysis.
        *
        * @param request AddUserSourceLogConfigRequest
        * @return AddUserSourceLogConfigResponse
@@ -72,7 +92,7 @@ namespace CloudSiem20220616
       Models::AddUserSourceLogConfigResponse addUserSourceLogConfig(const Models::AddUserSourceLogConfigRequest &request);
 
       /**
-       * @summary Binds a multicloud account from Multicloud Assets of Security Center to Threat Analysis.
+       * @summary Binds a multi-cloud account configured in the multi-cloud assets of Security Center to Threat Analysis.
        *
        * @param request BindAccountRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -81,7 +101,7 @@ namespace CloudSiem20220616
       Models::BindAccountResponse bindAccountWithOptions(const Models::BindAccountRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Binds a multicloud account from Multicloud Assets of Security Center to Threat Analysis.
+       * @summary Binds a multi-cloud account configured in the multi-cloud assets of Security Center to Threat Analysis.
        *
        * @param request BindAccountRequest
        * @return BindAccountResponse
@@ -89,7 +109,7 @@ namespace CloudSiem20220616
       Models::BindAccountResponse bindAccount(const Models::BindAccountRequest &request);
 
       /**
-       * @summary Stops log delivery from a connected cloud service. Once stopped, no new logs are added to your Logstore.
+       * @summary Disables log delivery for an integrated cloud service. After the delivery is disabled, no new logs of the corresponding type are written to the user\\"s Logstore.
        *
        * @param request CloseDeliveryRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -98,7 +118,7 @@ namespace CloudSiem20220616
       Models::CloseDeliveryResponse closeDeliveryWithOptions(const Models::CloseDeliveryRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Stops log delivery from a connected cloud service. Once stopped, no new logs are added to your Logstore.
+       * @summary Disables log delivery for an integrated cloud service. After the delivery is disabled, no new logs of the corresponding type are written to the user\\"s Logstore.
        *
        * @param request CloseDeliveryRequest
        * @return CloseDeliveryResponse
@@ -106,7 +126,7 @@ namespace CloudSiem20220616
       Models::CloseDeliveryResponse closeDelivery(const Models::CloseDeliveryRequest &request);
 
       /**
-       * @summary Deletes an automated response rule by its ID.
+       * @summary Deletes the automated response rule with the specified ID.
        *
        * @param request DeleteAutomateResponseConfigRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -115,7 +135,7 @@ namespace CloudSiem20220616
       Models::DeleteAutomateResponseConfigResponse deleteAutomateResponseConfigWithOptions(const Models::DeleteAutomateResponseConfigRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Deletes an automated response rule by its ID.
+       * @summary Deletes the automated response rule with the specified ID.
        *
        * @param request DeleteAutomateResponseConfigRequest
        * @return DeleteAutomateResponseConfigResponse
@@ -123,7 +143,7 @@ namespace CloudSiem20220616
       Models::DeleteAutomateResponseConfigResponse deleteAutomateResponseConfig(const Models::DeleteAutomateResponseConfigRequest &request);
 
       /**
-       * @summary Detaches the AccessKey of a multicloud account, such as a Tencent Cloud or Huawei Cloud account, from a threat analysis data source. You can then attach a new account.
+       * @summary Dissociates the AccessKey of a multi-cloud sub-account from the threat analysis data source module. After the dissociation, you can bind a different account.
        *
        * @param request DeleteBindAccountRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -132,7 +152,7 @@ namespace CloudSiem20220616
       Models::DeleteBindAccountResponse deleteBindAccountWithOptions(const Models::DeleteBindAccountRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Detaches the AccessKey of a multicloud account, such as a Tencent Cloud or Huawei Cloud account, from a threat analysis data source. You can then attach a new account.
+       * @summary Dissociates the AccessKey of a multi-cloud sub-account from the threat analysis data source module. After the dissociation, you can bind a different account.
        *
        * @param request DeleteBindAccountRequest
        * @return DeleteBindAccountResponse
@@ -140,7 +160,7 @@ namespace CloudSiem20220616
       Models::DeleteBindAccountResponse deleteBindAccount(const Models::DeleteBindAccountRequest &request);
 
       /**
-       * @summary You can customize rules for a specific ID.
+       * @summary Deletes a custom rule by the specified ID.
        *
        * @param request DeleteCustomizeRuleRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -149,7 +169,7 @@ namespace CloudSiem20220616
       Models::DeleteCustomizeRuleResponse deleteCustomizeRuleWithOptions(const Models::DeleteCustomizeRuleRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary You can customize rules for a specific ID.
+       * @summary Deletes a custom rule by the specified ID.
        *
        * @param request DeleteCustomizeRuleRequest
        * @return DeleteCustomizeRuleResponse
@@ -157,7 +177,7 @@ namespace CloudSiem20220616
       Models::DeleteCustomizeRuleResponse deleteCustomizeRule(const Models::DeleteCustomizeRuleRequest &request);
 
       /**
-       * @summary Call this operation to delete a data source that is no longer required.
+       * @summary Deletes a data source that is no longer in use.
        *
        * @param request DeleteDataSourceRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -166,7 +186,7 @@ namespace CloudSiem20220616
       Models::DeleteDataSourceResponse deleteDataSourceWithOptions(const Models::DeleteDataSourceRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Call this operation to delete a data source that is no longer required.
+       * @summary Deletes a data source that is no longer in use.
        *
        * @param request DeleteDataSourceRequest
        * @return DeleteDataSourceResponse
@@ -174,7 +194,7 @@ namespace CloudSiem20220616
       Models::DeleteDataSourceResponse deleteDataSource(const Models::DeleteDataSourceRequest &request);
 
       /**
-       * @summary Removes a log.
+       * @summary Deletes a log.
        *
        * @param request DeleteDataSourceLogRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -183,7 +203,7 @@ namespace CloudSiem20220616
       Models::DeleteDataSourceLogResponse deleteDataSourceLogWithOptions(const Models::DeleteDataSourceLogRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Removes a log.
+       * @summary Deletes a log.
        *
        * @param request DeleteDataSourceLogRequest
        * @return DeleteDataSourceLogResponse
@@ -191,7 +211,7 @@ namespace CloudSiem20220616
       Models::DeleteDataSourceLogResponse deleteDataSourceLog(const Models::DeleteDataSourceLogRequest &request);
 
       /**
-       * @summary Deletes an alert whitelist rule with the specified ID.
+       * @summary Deletes the alert whitelist rule with the specified ID.
        *
        * @param request DeleteWhiteRuleListRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -200,7 +220,7 @@ namespace CloudSiem20220616
       Models::DeleteWhiteRuleListResponse deleteWhiteRuleListWithOptions(const Models::DeleteWhiteRuleListRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Deletes an alert whitelist rule with the specified ID.
+       * @summary Deletes the alert whitelist rule with the specified ID.
        *
        * @param request DeleteWhiteRuleListRequest
        * @return DeleteWhiteRuleListResponse
@@ -208,7 +228,7 @@ namespace CloudSiem20220616
       Models::DeleteWhiteRuleListResponse deleteWhiteRuleList(const Models::DeleteWhiteRuleListRequest &request);
 
       /**
-       * @summary Describes the aggregate functions that are supported by custom rules.
+       * @summary Retrieves the list of aggregate functions supported by custom rules.
        *
        * @param request DescribeAggregateFunctionRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -217,7 +237,7 @@ namespace CloudSiem20220616
       Models::DescribeAggregateFunctionResponse describeAggregateFunctionWithOptions(const Models::DescribeAggregateFunctionRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Describes the aggregate functions that are supported by custom rules.
+       * @summary Retrieves the list of aggregate functions supported by custom rules.
        *
        * @param request DescribeAggregateFunctionRequest
        * @return DescribeAggregateFunctionResponse
@@ -225,7 +245,7 @@ namespace CloudSiem20220616
       Models::DescribeAggregateFunctionResponse describeAggregateFunction(const Models::DescribeAggregateFunctionRequest &request);
 
       /**
-       * @summary Queries the scenarios in which alerts can be whitelisted.
+       * @summary Retrieves alert allowlist scenarios.
        *
        * @param request DescribeAlertSceneRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -234,7 +254,7 @@ namespace CloudSiem20220616
       Models::DescribeAlertSceneResponse describeAlertSceneWithOptions(const Models::DescribeAlertSceneRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the scenarios in which alerts can be whitelisted.
+       * @summary Retrieves alert allowlist scenarios.
        *
        * @param request DescribeAlertSceneRequest
        * @return DescribeAlertSceneResponse
@@ -242,7 +262,7 @@ namespace CloudSiem20220616
       Models::DescribeAlertSceneResponse describeAlertScene(const Models::DescribeAlertSceneRequest &request);
 
       /**
-       * @summary Retrieves a list of alert whitelisting scenarios and objects.
+       * @summary Retrieves the alert whitelist scenarios and whitelist targets.
        *
        * @param request DescribeAlertSceneByEventRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -251,7 +271,7 @@ namespace CloudSiem20220616
       Models::DescribeAlertSceneByEventResponse describeAlertSceneByEventWithOptions(const Models::DescribeAlertSceneByEventRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Retrieves a list of alert whitelisting scenarios and objects.
+       * @summary Retrieves the alert whitelist scenarios and whitelist targets.
        *
        * @param request DescribeAlertSceneByEventRequest
        * @return DescribeAlertSceneByEventResponse
@@ -259,7 +279,7 @@ namespace CloudSiem20220616
       Models::DescribeAlertSceneByEventResponse describeAlertSceneByEvent(const Models::DescribeAlertSceneByEventRequest &request);
 
       /**
-       * @summary Retrieves a list of alert sources.
+       * @summary Retrieves a list of alert data sources.
        *
        * @param request DescribeAlertSourceRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -268,7 +288,7 @@ namespace CloudSiem20220616
       Models::DescribeAlertSourceResponse describeAlertSourceWithOptions(const Models::DescribeAlertSourceRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Retrieves a list of alert sources.
+       * @summary Retrieves a list of alert data sources.
        *
        * @param request DescribeAlertSourceRequest
        * @return DescribeAlertSourceResponse
@@ -276,7 +296,7 @@ namespace CloudSiem20220616
       Models::DescribeAlertSourceResponse describeAlertSource(const Models::DescribeAlertSourceRequest &request);
 
       /**
-       * @summary Retrieves the alert data sources associated with an event.
+       * @summary Retrieves the list of alert data sources associated with an incident.
        *
        * @param request DescribeAlertSourceWithEventRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -285,7 +305,7 @@ namespace CloudSiem20220616
       Models::DescribeAlertSourceWithEventResponse describeAlertSourceWithEventWithOptions(const Models::DescribeAlertSourceWithEventRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Retrieves the alert data sources associated with an event.
+       * @summary Retrieves the list of alert data sources associated with an incident.
        *
        * @param request DescribeAlertSourceWithEventRequest
        * @return DescribeAlertSourceWithEventResponse
@@ -310,7 +330,7 @@ namespace CloudSiem20220616
       Models::DescribeAlertTypeResponse describeAlertType(const Models::DescribeAlertTypeRequest &request);
 
       /**
-       * @summary Gets the list of alerts for a user.
+       * @summary Retrieves the list of alerts for the user.
        *
        * @param request DescribeAlertsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -319,7 +339,7 @@ namespace CloudSiem20220616
       Models::DescribeAlertsResponse describeAlertsWithOptions(const Models::DescribeAlertsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Gets the list of alerts for a user.
+       * @summary Retrieves the list of alerts for the user.
        *
        * @param request DescribeAlertsRequest
        * @return DescribeAlertsResponse
@@ -327,7 +347,7 @@ namespace CloudSiem20220616
       Models::DescribeAlertsResponse describeAlerts(const Models::DescribeAlertsRequest &request);
 
       /**
-       * @summary Queries the count of alerts for different severity levels.
+       * @summary Retrieves the counts of alerts by severity level.
        *
        * @param request DescribeAlertsCountRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -336,7 +356,7 @@ namespace CloudSiem20220616
       Models::DescribeAlertsCountResponse describeAlertsCountWithOptions(const Models::DescribeAlertsCountRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the count of alerts for different severity levels.
+       * @summary Retrieves the counts of alerts by severity level.
        *
        * @param request DescribeAlertsCountRequest
        * @return DescribeAlertsCountResponse
@@ -344,7 +364,7 @@ namespace CloudSiem20220616
       Models::DescribeAlertsCountResponse describeAlertsCount(const Models::DescribeAlertsCountRequest &request);
 
       /**
-       * @summary Queries for alerts that are associated with an entity.
+       * @summary Retrieves the list of alerts associated with an entity.
        *
        * @param request DescribeAlertsWithEntityRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -353,7 +373,7 @@ namespace CloudSiem20220616
       Models::DescribeAlertsWithEntityResponse describeAlertsWithEntityWithOptions(const Models::DescribeAlertsWithEntityRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries for alerts that are associated with an entity.
+       * @summary Retrieves the list of alerts associated with an entity.
        *
        * @param request DescribeAlertsWithEntityRequest
        * @return DescribeAlertsWithEntityResponse
@@ -361,7 +381,7 @@ namespace CloudSiem20220616
       Models::DescribeAlertsWithEntityResponse describeAlertsWithEntity(const Models::DescribeAlertsWithEntityRequest &request);
 
       /**
-       * @summary Retrieves the list of alerts associated with an incident.
+       * @summary Queries the list of alerts associated with an incident.
        *
        * @param request DescribeAlertsWithEventRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -370,7 +390,7 @@ namespace CloudSiem20220616
       Models::DescribeAlertsWithEventResponse describeAlertsWithEventWithOptions(const Models::DescribeAlertsWithEventRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Retrieves the list of alerts associated with an incident.
+       * @summary Queries the list of alerts associated with an incident.
        *
        * @param request DescribeAlertsWithEventRequest
        * @return DescribeAlertsWithEventResponse
@@ -378,7 +398,7 @@ namespace CloudSiem20220616
       Models::DescribeAlertsWithEventResponse describeAlertsWithEvent(const Models::DescribeAlertsWithEventRequest &request);
 
       /**
-       * @summary Checks whether an Alibaba Cloud account has granted permissions to Cloud SIEM and the AliyunServiceRoleForSasCloudSiem role has been created.
+       * @summary Checks whether the Alibaba Cloud account has authorized SIEM and created the AliyunServiceRoleForSasCloudSiem role.
        *
        * @param request DescribeAuthRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -387,7 +407,7 @@ namespace CloudSiem20220616
       Models::DescribeAuthResponse describeAuthWithOptions(const Models::DescribeAuthRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Checks whether an Alibaba Cloud account has granted permissions to Cloud SIEM and the AliyunServiceRoleForSasCloudSiem role has been created.
+       * @summary Checks whether the Alibaba Cloud account has authorized SIEM and created the AliyunServiceRoleForSasCloudSiem role.
        *
        * @param request DescribeAuthRequest
        * @return DescribeAuthResponse
@@ -395,7 +415,7 @@ namespace CloudSiem20220616
       Models::DescribeAuthResponse describeAuth(const Models::DescribeAuthRequest &request);
 
       /**
-       * @summary Returns the number of automated response rules.
+       * @summary Queries the number of automated response rules.
        *
        * @param request DescribeAutomateResponseConfigCounterRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -404,7 +424,7 @@ namespace CloudSiem20220616
       Models::DescribeAutomateResponseConfigCounterResponse describeAutomateResponseConfigCounterWithOptions(const Models::DescribeAutomateResponseConfigCounterRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Returns the number of automated response rules.
+       * @summary Queries the number of automated response rules.
        *
        * @param request DescribeAutomateResponseConfigCounterRequest
        * @return DescribeAutomateResponseConfigCounterResponse
@@ -412,7 +432,7 @@ namespace CloudSiem20220616
       Models::DescribeAutomateResponseConfigCounterResponse describeAutomateResponseConfigCounter(const Models::DescribeAutomateResponseConfigCounterRequest &request);
 
       /**
-       * @summary Retrieves the configurable fields and operators for automated response rules.
+       * @summary Retrieves the configurable fields and operators for automated rule policies.
        *
        * @param request DescribeAutomateResponseConfigFeatureRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -421,7 +441,7 @@ namespace CloudSiem20220616
       Models::DescribeAutomateResponseConfigFeatureResponse describeAutomateResponseConfigFeatureWithOptions(const Models::DescribeAutomateResponseConfigFeatureRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Retrieves the configurable fields and operators for automated response rules.
+       * @summary Retrieves the configurable fields and operators for automated rule policies.
        *
        * @param request DescribeAutomateResponseConfigFeatureRequest
        * @return DescribeAutomateResponseConfigFeatureResponse
@@ -429,7 +449,7 @@ namespace CloudSiem20220616
       Models::DescribeAutomateResponseConfigFeatureResponse describeAutomateResponseConfigFeature(const Models::DescribeAutomateResponseConfigFeatureRequest &request);
 
       /**
-       * @summary Queries a list of assets that are associated with an event.
+       * @summary Retrieves the list of assets associated with an incident.
        *
        * @param request DescribeCloudSiemAssetsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -438,7 +458,7 @@ namespace CloudSiem20220616
       Models::DescribeCloudSiemAssetsResponse describeCloudSiemAssetsWithOptions(const Models::DescribeCloudSiemAssetsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries a list of assets that are associated with an event.
+       * @summary Retrieves the list of assets associated with an incident.
        *
        * @param request DescribeCloudSiemAssetsRequest
        * @return DescribeCloudSiemAssetsResponse
@@ -480,7 +500,7 @@ namespace CloudSiem20220616
       Models::DescribeCloudSiemEventDetailResponse describeCloudSiemEventDetail(const Models::DescribeCloudSiemEventDetailRequest &request);
 
       /**
-       * @summary Retrieves a list of threat analysis events.
+       * @summary Retrieves a list of Cloud Threat Detection and Response (CTDR) events.
        *
        * @param request DescribeCloudSiemEventsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -489,7 +509,7 @@ namespace CloudSiem20220616
       Models::DescribeCloudSiemEventsResponse describeCloudSiemEventsWithOptions(const Models::DescribeCloudSiemEventsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Retrieves a list of threat analysis events.
+       * @summary Retrieves a list of Cloud Threat Detection and Response (CTDR) events.
        *
        * @param request DescribeCloudSiemEventsRequest
        * @return DescribeCloudSiemEventsResponse
@@ -565,7 +585,7 @@ namespace CloudSiem20220616
       Models::DescribeDataSourceInstanceResponse describeDataSourceInstance(const Models::DescribeDataSourceInstanceRequest &request);
 
       /**
-       * @summary Describes the parameters for a data source.
+       * @summary Retrieves the details of data source parameters.
        *
        * @param request DescribeDataSourceParametersRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -574,7 +594,7 @@ namespace CloudSiem20220616
       Models::DescribeDataSourceParametersResponse describeDataSourceParametersWithOptions(const Models::DescribeDataSourceParametersRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Describes the parameters for a data source.
+       * @summary Retrieves the details of data source parameters.
        *
        * @param request DescribeDataSourceParametersRequest
        * @return DescribeDataSourceParametersResponse
@@ -582,7 +602,7 @@ namespace CloudSiem20220616
       Models::DescribeDataSourceParametersResponse describeDataSourceParameters(const Models::DescribeDataSourceParametersRequest &request);
 
       /**
-       * @summary Retrieves the list of entities that require disposition and the list of playbooks.
+       * @summary Retrieves the list of entities and playbooks to be handled.
        *
        * @param request DescribeDisposeAndPlaybookRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -591,7 +611,7 @@ namespace CloudSiem20220616
       Models::DescribeDisposeAndPlaybookResponse describeDisposeAndPlaybookWithOptions(const Models::DescribeDisposeAndPlaybookRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Retrieves the list of entities that require disposition and the list of playbooks.
+       * @summary Retrieves the list of entities and playbooks to be handled.
        *
        * @param request DescribeDisposeAndPlaybookRequest
        * @return DescribeDisposeAndPlaybookResponse
@@ -837,7 +857,7 @@ namespace CloudSiem20220616
       Models::DescribeUserBuyStatusResponse describeUserBuyStatus(const Models::DescribeUserBuyStatusRequest &request);
 
       /**
-       * @summary Queries the purchase status of a user\\"s SIEM.
+       * @summary Queries the purchase status of the user\\"s SIEM.
        *
        * @param request DescribeUserSiemOrderStatusRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -846,7 +866,7 @@ namespace CloudSiem20220616
       Models::DescribeUserSiemOrderStatusResponse describeUserSiemOrderStatusWithOptions(const Models::DescribeUserSiemOrderStatusRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the purchase status of a user\\"s SIEM.
+       * @summary Queries the purchase status of the user\\"s SIEM.
        *
        * @param request DescribeUserSiemOrderStatusRequest
        * @return DescribeUserSiemOrderStatusResponse
@@ -871,7 +891,7 @@ namespace CloudSiem20220616
       Models::DescribeWafScopeResponse describeWafScope(const Models::DescribeWafScopeRequest &request);
 
       /**
-       * @summary Queries the rules in the alert whitelist.
+       * @summary Retrieves a list of alert allowlist rules.
        *
        * @param request DescribeWhiteRuleListRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -880,7 +900,7 @@ namespace CloudSiem20220616
       Models::DescribeWhiteRuleListResponse describeWhiteRuleListWithOptions(const Models::DescribeWhiteRuleListRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the rules in the alert whitelist.
+       * @summary Retrieves a list of alert allowlist rules.
        *
        * @param request DescribeWhiteRuleListRequest
        * @return DescribeWhiteRuleListResponse
@@ -960,9 +980,9 @@ namespace CloudSiem20220616
       Models::GetDataStorageResponse getDataStorage(const Models::GetDataStorageRequest &request);
 
       /**
-       * @summary Queries entity counts.
+       * @summary Queries the entity count.
        *
-       * @description The input parameter JsonConfig is a complex JSON configuration. A utility class is provided to assist with specific configuration examples. For more information, refer to [Demo](https://github.com/aliyun/cloud-siem-client/blob/master/src/main/java/com/aliyun/security/cloudsiem/client/sample/JobBuilderSample.java).
+       * @description The JsonConfig request parameter is a complex JSON configuration. A supporting utility class is provided with specific configuration examples. For more information, see [Demo](https://github.com/aliyun/cloud-siem-client/blob/master/src/main/java/com/aliyun/security/cloudsiem/client/sample/JobBuilderSample.java).
        *
        * @param request GetEntitiyStatRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -971,9 +991,9 @@ namespace CloudSiem20220616
       Models::GetEntitiyStatResponse getEntitiyStatWithOptions(const Models::GetEntitiyStatRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries entity counts.
+       * @summary Queries the entity count.
        *
-       * @description The input parameter JsonConfig is a complex JSON configuration. A utility class is provided to assist with specific configuration examples. For more information, refer to [Demo](https://github.com/aliyun/cloud-siem-client/blob/master/src/main/java/com/aliyun/security/cloudsiem/client/sample/JobBuilderSample.java).
+       * @description The JsonConfig request parameter is a complex JSON configuration. A supporting utility class is provided with specific configuration examples. For more information, see [Demo](https://github.com/aliyun/cloud-siem-client/blob/master/src/main/java/com/aliyun/security/cloudsiem/client/sample/JobBuilderSample.java).
        *
        * @param request GetEntitiyStatRequest
        * @return GetEntitiyStatResponse
@@ -998,7 +1018,11 @@ namespace CloudSiem20220616
       Models::GetStorageResponse getStorage(const Models::GetStorageRequest &request);
 
       /**
-       * @summary Lists the AccessKey IDs for attached multicloud accounts.
+       * @summary Queries the list of multi-cloud AccessKeyIds that are already bound.
+       *
+       * @description Before calling this operation to view the list of bound multi-cloud AccessKeys, complete the following preparations:
+       * 1. Activate the Cloud Threat Detection and Response (CTDR) service in Security Center.
+       * 2. Configure the SIEM AccessKey for threat detection and response.
        *
        * @param request ListAccountAccessIdRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1007,7 +1031,11 @@ namespace CloudSiem20220616
       Models::ListAccountAccessIdResponse listAccountAccessIdWithOptions(const Models::ListAccountAccessIdRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Lists the AccessKey IDs for attached multicloud accounts.
+       * @summary Queries the list of multi-cloud AccessKeyIds that are already bound.
+       *
+       * @description Before calling this operation to view the list of bound multi-cloud AccessKeys, complete the following preparations:
+       * 1. Activate the Cloud Threat Detection and Response (CTDR) service in Security Center.
+       * 2. Configure the SIEM AccessKey for threat detection and response.
        *
        * @param request ListAccountAccessIdRequest
        * @return ListAccountAccessIdResponse
@@ -1015,7 +1043,9 @@ namespace CloudSiem20220616
       Models::ListAccountAccessIdResponse listAccountAccessId(const Models::ListAccountAccessIdRequest &request);
 
       /**
-       * @summary Queries the accounts associated with a log.
+       * @summary Queries the list of accounts by log.
+       *
+       * @description Before calling this operation to query the list of accounts by log, you must activate the Cloud Threat Detection and Response (CTDR) service. You can activate the service by calling the EnableServiceForCloudSiem operation or through the threat analysis console in Security Center. This operation is unavailable if the service is not activated.
        *
        * @param request ListAccountsByLogRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1024,7 +1054,9 @@ namespace CloudSiem20220616
       Models::ListAccountsByLogResponse listAccountsByLogWithOptions(const Models::ListAccountsByLogRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the accounts associated with a log.
+       * @summary Queries the list of accounts by log.
+       *
+       * @description Before calling this operation to query the list of accounts by log, you must activate the Cloud Threat Detection and Response (CTDR) service. You can activate the service by calling the EnableServiceForCloudSiem operation or through the threat analysis console in Security Center. This operation is unavailable if the service is not activated.
        *
        * @param request ListAccountsByLogRequest
        * @return ListAccountsByLogResponse
@@ -1032,7 +1064,7 @@ namespace CloudSiem20220616
       Models::ListAccountsByLogResponse listAccountsByLog(const Models::ListAccountsByLogRequest &request);
 
       /**
-       * @summary Lists the cloud products supported by Threat Analysis for data ingestion.
+       * @summary Queries the list of cloud services that are supported for data ingestion by threat detection and response.
        *
        * @param request ListAllProdsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1041,7 +1073,7 @@ namespace CloudSiem20220616
       Models::ListAllProdsResponse listAllProdsWithOptions(const Models::ListAllProdsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Lists the cloud products supported by Threat Analysis for data ingestion.
+       * @summary Queries the list of cloud services that are supported for data ingestion by threat detection and response.
        *
        * @param request ListAllProdsRequest
        * @return ListAllProdsResponse
@@ -1066,7 +1098,7 @@ namespace CloudSiem20220616
       Models::ListAutomateResponseConfigsResponse listAutomateResponseConfigs(const Models::ListAutomateResponseConfigsRequest &request);
 
       /**
-       * @summary Lists multicloud accounts bound to Threat Analysis.
+       * @summary Lists the multi-cloud accounts that are bound to threat detection and response.
        *
        * @param request ListBindAccountRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1075,7 +1107,7 @@ namespace CloudSiem20220616
       Models::ListBindAccountResponse listBindAccountWithOptions(const Models::ListBindAccountRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Lists multicloud accounts bound to Threat Analysis.
+       * @summary Lists the multi-cloud accounts that are bound to threat detection and response.
        *
        * @param request ListBindAccountRequest
        * @return ListBindAccountResponse
@@ -1083,7 +1115,7 @@ namespace CloudSiem20220616
       Models::ListBindAccountResponse listBindAccount(const Models::ListBindAccountRequest &request);
 
       /**
-       * @summary Queries all bound data sources.
+       * @summary Enumerates all data sources.
        *
        * @param request ListBindDataSourcesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1092,7 +1124,7 @@ namespace CloudSiem20220616
       Models::ListBindDataSourcesResponse listBindDataSourcesWithOptions(const Models::ListBindDataSourcesRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries all bound data sources.
+       * @summary Enumerates all data sources.
        *
        * @param request ListBindDataSourcesRequest
        * @return ListBindDataSourcesResponse
@@ -1134,7 +1166,7 @@ namespace CloudSiem20220616
       Models::ListCloudSiemPredefinedRulesResponse listCloudSiemPredefinedRules(const Models::ListCloudSiemPredefinedRulesRequest &request);
 
       /**
-       * @summary Retrieves the list of test results for a custom rule.
+       * @summary Queries the list of test results for custom rules.
        *
        * @param request ListCustomizeRuleTestResultRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1143,7 +1175,7 @@ namespace CloudSiem20220616
       Models::ListCustomizeRuleTestResultResponse listCustomizeRuleTestResultWithOptions(const Models::ListCustomizeRuleTestResultRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Retrieves the list of test results for a custom rule.
+       * @summary Queries the list of test results for custom rules.
        *
        * @param request ListCustomizeRuleTestResultRequest
        * @return ListCustomizeRuleTestResultResponse
@@ -1151,7 +1183,7 @@ namespace CloudSiem20220616
       Models::ListCustomizeRuleTestResultResponse listCustomizeRuleTestResult(const Models::ListCustomizeRuleTestResultRequest &request);
 
       /**
-       * @summary Lists the logs for a data source.
+       * @summary Queries the logs of a data source.
        *
        * @param request ListDataSourceLogsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1160,7 +1192,7 @@ namespace CloudSiem20220616
       Models::ListDataSourceLogsResponse listDataSourceLogsWithOptions(const Models::ListDataSourceLogsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Lists the logs for a data source.
+       * @summary Queries the logs of a data source.
        *
        * @param request ListDataSourceLogsRequest
        * @return ListDataSourceLogsResponse
@@ -1168,7 +1200,7 @@ namespace CloudSiem20220616
       Models::ListDataSourceLogsResponse listDataSourceLogs(const Models::ListDataSourceLogsRequest &request);
 
       /**
-       * @summary Lists the types of multicloud data sources that Threat Analysis supports.
+       * @summary Enumerates the multi-cloud data source types that are supported by threat analysis.
        *
        * @param request ListDataSourceTypesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1177,7 +1209,7 @@ namespace CloudSiem20220616
       Models::ListDataSourceTypesResponse listDataSourceTypesWithOptions(const Models::ListDataSourceTypesRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Lists the types of multicloud data sources that Threat Analysis supports.
+       * @summary Enumerates the multi-cloud data source types that are supported by threat analysis.
        *
        * @param request ListDataSourceTypesRequest
        * @return ListDataSourceTypesResponse
@@ -1185,7 +1217,7 @@ namespace CloudSiem20220616
       Models::ListDataSourceTypesResponse listDataSourceTypes(const Models::ListDataSourceTypesRequest &request);
 
       /**
-       * @summary Lists the products and logs that are connected to threat analysis for an enterprise or a member, and the data shipping status of these logs.
+       * @summary Queries the products and logs integrated with Threat Analysis for the entire enterprise or regular members, along with the data delivery status of these logs.
        *
        * @param request ListDeliveryRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1194,7 +1226,7 @@ namespace CloudSiem20220616
       Models::ListDeliveryResponse listDeliveryWithOptions(const Models::ListDeliveryRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Lists the products and logs that are connected to threat analysis for an enterprise or a member, and the data shipping status of these logs.
+       * @summary Queries the products and logs integrated with Threat Analysis for the entire enterprise or regular members, along with the data delivery status of these logs.
        *
        * @param request ListDeliveryRequest
        * @return ListDeliveryResponse
@@ -1202,7 +1234,7 @@ namespace CloudSiem20220616
       Models::ListDeliveryResponse listDelivery(const Models::ListDeliveryRequest &request);
 
       /**
-       * @summary Retrieves the list of system-recommended response policies.
+       * @summary Queries the list of system-recommended response policies.
        *
        * @param tmpReq ListDisposeStrategyRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1211,7 +1243,7 @@ namespace CloudSiem20220616
       Models::ListDisposeStrategyResponse listDisposeStrategyWithOptions(const Models::ListDisposeStrategyRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Retrieves the list of system-recommended response policies.
+       * @summary Queries the list of system-recommended response policies.
        *
        * @param request ListDisposeStrategyRequest
        * @return ListDisposeStrategyResponse
@@ -1236,7 +1268,7 @@ namespace CloudSiem20220616
       Models::ListEntitiesResponse listEntities(const Models::ListEntitiesRequest &request);
 
       /**
-       * @summary Queries the log ingestion details for a specific product.
+       * @summary Queries the log onboarding details for the product.
        *
        * @param request ListImportedLogsByProdRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1245,7 +1277,7 @@ namespace CloudSiem20220616
       Models::ListImportedLogsByProdResponse listImportedLogsByProdWithOptions(const Models::ListImportedLogsByProdRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the log ingestion details for a specific product.
+       * @summary Queries the log onboarding details for the product.
        *
        * @param request ListImportedLogsByProdRequest
        * @return ListImportedLogsByProdResponse
@@ -1270,7 +1302,7 @@ namespace CloudSiem20220616
       Models::ListProjectLogStoresResponse listProjectLogStores(const Models::ListProjectLogStoresRequest &request);
 
       /**
-       * @summary Lists the Alibaba Cloud accounts that are managed by the multi-account control feature of Threat Analysis. An account must be managed to use features such as log collection and event handling.
+       * @summary Lists the Alibaba Cloud accounts that are managed by the multi-account management feature of Threat Analysis. Only managed accounts can use features such as log ingestion and event handling in Threat Analysis.
        *
        * @param request ListRdUsersRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1279,7 +1311,7 @@ namespace CloudSiem20220616
       Models::ListRdUsersResponse listRdUsersWithOptions(const Models::ListRdUsersRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Lists the Alibaba Cloud accounts that are managed by the multi-account control feature of Threat Analysis. An account must be managed to use features such as log collection and event handling.
+       * @summary Lists the Alibaba Cloud accounts that are managed by the multi-account management feature of Threat Analysis. Only managed accounts can use features such as log ingestion and event handling in Threat Analysis.
        *
        * @param request ListRdUsersRequest
        * @return ListRdUsersResponse
@@ -1287,7 +1319,12 @@ namespace CloudSiem20220616
       Models::ListRdUsersResponse listRdUsers(const Models::ListRdUsersRequest &request);
 
       /**
-       * @summary Modifies a bound Alibaba Cloud account.
+       * @summary Modifies a bound cloud account.
+       *
+       * @description Before calling this operation to modify a bound cloud account, complete the following steps in order:
+       * 1. Configure the AccessKey credentials of a third-party cloud provider (Tencent Cloud or Huawei Cloud) in Security Center (SAS).
+       * 2. Call the BindAccount operation to create a binding record and obtain the BindId.
+       * 3. Call this operation (ModifyBindAccount) with the BindId to modify the bound account.
        *
        * @param request ModifyBindAccountRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1296,7 +1333,12 @@ namespace CloudSiem20220616
       Models::ModifyBindAccountResponse modifyBindAccountWithOptions(const Models::ModifyBindAccountRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Modifies a bound Alibaba Cloud account.
+       * @summary Modifies a bound cloud account.
+       *
+       * @description Before calling this operation to modify a bound cloud account, complete the following steps in order:
+       * 1. Configure the AccessKey credentials of a third-party cloud provider (Tencent Cloud or Huawei Cloud) in Security Center (SAS).
+       * 2. Call the BindAccount operation to create a binding record and obtain the BindId.
+       * 3. Call this operation (ModifyBindAccount) with the BindId to modify the bound account.
        *
        * @param request ModifyBindAccountRequest
        * @return ModifyBindAccountResponse
@@ -1305,6 +1347,11 @@ namespace CloudSiem20220616
 
       /**
        * @summary Modifies the description of an existing data source.
+       *
+       * @description Before you call this operation to modify a data source, you must complete the following prerequisites in sequence:
+       * 1. Purchase the Cloud SIEM service.
+       * 2. Call the BindAccount operation to bind a third-party cloud account.
+       * 3. Call the AddDataSource operation to create a data source instance and obtain the data source ID (DataSourceInstanceId).
        *
        * @param request ModifyDataSourceRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1315,13 +1362,18 @@ namespace CloudSiem20220616
       /**
        * @summary Modifies the description of an existing data source.
        *
+       * @description Before you call this operation to modify a data source, you must complete the following prerequisites in sequence:
+       * 1. Purchase the Cloud SIEM service.
+       * 2. Call the BindAccount operation to bind a third-party cloud account.
+       * 3. Call the AddDataSource operation to create a data source instance and obtain the data source ID (DataSourceInstanceId).
+       *
        * @param request ModifyDataSourceRequest
        * @return ModifyDataSourceResponse
        */
       Models::ModifyDataSourceResponse modifyDataSource(const Models::ModifyDataSourceRequest &request);
 
       /**
-       * @summary Modifies the description of a data source log.
+       * @summary Modifies the description of logs added to a data source.
        *
        * @param request ModifyDataSourceLogRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1330,7 +1382,7 @@ namespace CloudSiem20220616
       Models::ModifyDataSourceLogResponse modifyDataSourceLogWithOptions(const Models::ModifyDataSourceLogRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Modifies the description of a data source log.
+       * @summary Modifies the description of logs added to a data source.
        *
        * @param request ModifyDataSourceLogRequest
        * @return ModifyDataSourceLogResponse
@@ -1338,7 +1390,7 @@ namespace CloudSiem20220616
       Models::ModifyDataSourceLogResponse modifyDataSourceLog(const Models::ModifyDataSourceLogRequest &request);
 
       /**
-       * @summary Enables log delivery for integrated cloud services.
+       * @summary Enables log delivery for onboarded cloud services.
        *
        * @param request OpenDeliveryRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1347,7 +1399,7 @@ namespace CloudSiem20220616
       Models::OpenDeliveryResponse openDeliveryWithOptions(const Models::OpenDeliveryRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Enables log delivery for integrated cloud services.
+       * @summary Enables log delivery for onboarded cloud services.
        *
        * @param request OpenDeliveryRequest
        * @return OpenDeliveryResponse
@@ -1440,7 +1492,7 @@ namespace CloudSiem20220616
       Models::PostEventWhiteruleListResponse postEventWhiteruleList(const Models::PostEventWhiteruleListRequest &request);
 
       /**
-       * @summary Finishes the test for a custom rule.
+       * @summary Ends the custom rule test.
        *
        * @param request PostFinishCustomizeRuleTestRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1449,7 +1501,7 @@ namespace CloudSiem20220616
       Models::PostFinishCustomizeRuleTestResponse postFinishCustomizeRuleTestWithOptions(const Models::PostFinishCustomizeRuleTestRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Finishes the test for a custom rule.
+       * @summary Ends the custom rule test.
        *
        * @param request PostFinishCustomizeRuleTestRequest
        * @return PostFinishCustomizeRuleTestResponse
@@ -1457,7 +1509,7 @@ namespace CloudSiem20220616
       Models::PostFinishCustomizeRuleTestResponse postFinishCustomizeRuleTest(const Models::PostFinishCustomizeRuleTestRequest &request);
 
       /**
-       * @summary Updates the statuses of custom rules.
+       * @summary Updates the status of a custom rule.
        *
        * @param request PostRuleStatusChangeRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1466,7 +1518,7 @@ namespace CloudSiem20220616
       Models::PostRuleStatusChangeResponse postRuleStatusChangeWithOptions(const Models::PostRuleStatusChangeRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Updates the statuses of custom rules.
+       * @summary Updates the status of a custom rule.
        *
        * @param request PostRuleStatusChangeRequest
        * @return PostRuleStatusChangeResponse
@@ -1491,7 +1543,7 @@ namespace CloudSiem20220616
       Models::RestoreCapacityResponse restoreCapacity(const Models::RestoreCapacityRequest &request);
 
       /**
-       * @summary Sets user settings, such as the storage duration and storage region.
+       * @summary Saves user-configured storage information such as the retention period and storage region.
        *
        * @param request SetStorageRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1500,7 +1552,7 @@ namespace CloudSiem20220616
       Models::SetStorageResponse setStorageWithOptions(const Models::SetStorageRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Sets user settings, such as the storage duration and storage region.
+       * @summary Saves user-configured storage information such as the retention period and storage region.
        *
        * @param request SetStorageRequest
        * @return SetStorageResponse
@@ -1508,7 +1560,7 @@ namespace CloudSiem20220616
       Models::SetStorageResponse setStorage(const Models::SetStorageRequest &request);
 
       /**
-       * @summary Submits a batch of log ingestion tasks.
+       * @summary Submits multiple onboarding tasks.
        *
        * @param request SubmitImportLogTasksRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1517,7 +1569,7 @@ namespace CloudSiem20220616
       Models::SubmitImportLogTasksResponse submitImportLogTasksWithOptions(const Models::SubmitImportLogTasksRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Submits a batch of log ingestion tasks.
+       * @summary Submits multiple onboarding tasks.
        *
        * @param request SubmitImportLogTasksRequest
        * @return SubmitImportLogTasksResponse
@@ -1525,7 +1577,7 @@ namespace CloudSiem20220616
       Models::SubmitImportLogTasksResponse submitImportLogTasks(const Models::SubmitImportLogTasksRequest &request);
 
       /**
-       * @summary Updates the status of an automated response rule.
+       * @summary Updates the status of automated response rules.
        *
        * @param request UpdateAutomateResponseConfigStatusRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1534,7 +1586,7 @@ namespace CloudSiem20220616
       Models::UpdateAutomateResponseConfigStatusResponse updateAutomateResponseConfigStatusWithOptions(const Models::UpdateAutomateResponseConfigStatusRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Updates the status of an automated response rule.
+       * @summary Updates the status of automated response rules.
        *
        * @param request UpdateAutomateResponseConfigStatusRequest
        * @return UpdateAutomateResponseConfigStatusResponse

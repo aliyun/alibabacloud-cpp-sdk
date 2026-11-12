@@ -158,13 +158,11 @@ namespace Models
 
 
       protected:
-        // Indicates whether a right operand is required. Valid values:
-        // 
-        // - true: A right operand is required.
-        // 
-        // - false: A right operand is not required.
+        // Specifies whether a right value is required. Valid values:
+        // - true: Required.
+        // - false: Not required.
         shared_ptr<bool> hasRightValue_ {};
-        // The position of the operator in the list of operators.
+        // The position of the operator in the operator list.
         shared_ptr<int32_t> index_ {};
         // The operator.
         shared_ptr<string> operator_ {};
@@ -174,9 +172,9 @@ namespace Models
         shared_ptr<string> operatorDescEn_ {};
         // The display name of the operator.
         shared_ptr<string> operatorName_ {};
-        // The data types that the operator supports. Multiple data types are separated by commas.
+        // The data types supported by the current operator, separated by commas.
         shared_ptr<string> supportDataType_ {};
-        // The scenarios that the operator supports. Multiple scenarios are separated by commas, such as aggregation. By default, this parameter is empty.
+        // The scenarios supported by the operator. Multiple scenarios are separated by commas, such as aggregation. Default value: empty.
         shared_ptr<vector<string>> supportTag_ {};
       };
 
@@ -218,9 +216,9 @@ namespace Models
 
 
       protected:
-        // The enumeration value of the right operand.
+        // The enumeration value of the right value.
         shared_ptr<string> value_ {};
-        // The Medusa code for the enumeration value of the right operand.
+        // The Medusa code of the right value enumeration.
         shared_ptr<string> valueMds_ {};
       };
 
@@ -263,9 +261,9 @@ namespace Models
       shared_ptr<string> dataType_ {};
       // The name of the condition field for the automated response rule.
       shared_ptr<string> feature_ {};
-      // The enumeration of the right operand that corresponds to the field.
+      // The enumeration values of the right value corresponding to the field.
       shared_ptr<vector<Data::RightValueEnums>> rightValueEnums_ {};
-      // The operators that the field supports.
+      // The list of operators supported by the field.
       shared_ptr<vector<Data::SupportOperators>> supportOperators_ {};
     };
 
@@ -311,17 +309,15 @@ namespace Models
   protected:
     // The status code.
     shared_ptr<int32_t> code_ {};
-    // The returned data.
+    // The response data.
     shared_ptr<vector<DescribeAutomateResponseConfigFeatureResponseBody::Data>> data_ {};
-    // The returned message.
+    // The message returned for the request.
     shared_ptr<string> message_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
     // Indicates whether the request is successful. Valid values:
-    // 
-    // - true: The request is successful.
-    // 
-    // - false: The request failed.
+    // - true: Successful.
+    // - false: Failed.
     shared_ptr<bool> success_ {};
   };
 

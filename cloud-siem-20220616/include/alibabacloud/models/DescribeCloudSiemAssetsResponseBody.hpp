@@ -147,11 +147,11 @@ namespace Models
 
 
         protected:
-          // The key of the alert property.
+          // The key of the detailed alert property.
           shared_ptr<string> key_ {};
-          // The name of the alert property.
+          // The name of the detailed alert data.
           shared_ptr<string> keyName_ {};
-          // The value of the alert property.
+          // The value of the detailed alert data.
           shared_ptr<string> values_ {};
         };
 
@@ -246,47 +246,38 @@ namespace Models
 
 
       protected:
-        // The UUID of the alert that is associated with the event.
+        // The UUID of the alert associated with the incident.
         shared_ptr<string> alertUuid_ {};
-        // The ID of the Alibaba Cloud account.
+        // The ID of the primary Alibaba Cloud account for SIEM.
         shared_ptr<int64_t> aliuid_ {};
         // The logical ID of the asset.
         shared_ptr<string> assetId_ {};
-        // The asset information, in a JSON array.
+        // The display information of the asset, in JSON array format.
         shared_ptr<vector<ResponseData::AssetInfo>> assetInfo_ {};
-        // The asset name.
+        // The name of the asset.
         shared_ptr<string> assetName_ {};
         // The asset type. Valid values:
-        // 
         // - ip: IP address
-        // 
         // - domain: domain name
-        // 
         // - url: URL
-        // 
         // - process: process
-        // 
         // - file: file
-        // 
         // - host: host
         shared_ptr<string> assetType_ {};
-        // The cloud service provider of the entity. Valid values:
-        // 
+        // The code of the cloud provider from which the entity originates. Valid values:
         // - aliyun: Alibaba Cloud
-        // 
         // - qcloud: Tencent Cloud
-        // 
         // - hcloud: Huawei Cloud
         shared_ptr<string> cloudCode_ {};
         // The time when the asset was synchronized.
         shared_ptr<string> gmtCreate_ {};
         // The time when the asset was last updated.
         shared_ptr<string> gmtModified_ {};
-        // The asset ID.
+        // The ID of the asset.
         shared_ptr<int64_t> id_ {};
-        // The UUID of the event.
+        // The UUID of the incident.
         shared_ptr<string> incidentUuid_ {};
-        // The ID of the linked account.
+        // The ID of the account associated with the asset.
         shared_ptr<int64_t> subUserId_ {};
       };
 
@@ -337,7 +328,7 @@ namespace Models
 
 
       protected:
-        // The page number of the returned page.
+        // The number of the current page.
         shared_ptr<int32_t> currentPage_ {};
         // The number of entries returned per page.
         shared_ptr<int32_t> pageSize_ {};
@@ -412,19 +403,17 @@ namespace Models
 
 
   protected:
-    // The HTTP status code.
+    // The status code of the request.
     shared_ptr<int32_t> code_ {};
-    // The data returned.
+    // The data returned in the response.
     shared_ptr<DescribeCloudSiemAssetsResponseBody::Data> data_ {};
-    // The returned message.
+    // The message returned for the request.
     shared_ptr<string> message_ {};
-    // The request ID.
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request was successful. Valid values:
-    // 
-    // - true: The request was successful.
-    // 
-    // - false: The request failed.
+    // Indicates whether the request is successful. Valid values:
+    // - true: successful
+    // - false: failed
     shared_ptr<bool> success_ {};
   };
 

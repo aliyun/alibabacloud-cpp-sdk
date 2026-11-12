@@ -76,9 +76,9 @@ namespace Models
 
 
     protected:
-      // The aggregate function.
+      // The aggregation function.
       shared_ptr<string> function_ {};
-      // The display name of the aggregate function.
+      // The display name of the aggregation function.
       shared_ptr<string> functionName_ {};
     };
 
@@ -122,19 +122,17 @@ namespace Models
 
 
   protected:
-    // The status code of the request.
+    // The status code.
     shared_ptr<int32_t> code_ {};
-    // The returned data.
+    // The response data.
     shared_ptr<vector<DescribeAggregateFunctionResponseBody::Data>> data_ {};
-    // The returned message.
+    // The response message.
     shared_ptr<string> message_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request was successful. Valid values:
-    // 
-    // - true: The request was successful.
-    // 
-    // - false: The request failed.
+    // Indicates whether the request is successful. Valid values:
+    // - true: The request is successful.
+    // - false: The request fails.
     shared_ptr<bool> success_ {};
   };
 

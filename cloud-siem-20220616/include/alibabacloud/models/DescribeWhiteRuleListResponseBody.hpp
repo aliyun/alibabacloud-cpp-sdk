@@ -217,19 +217,18 @@ namespace Models
 
 
             protected:
-              // Specifies whether the right operand is a constant or a runtime variable. A runtime variable obtains a value from the runtime context. Valid values:
+              // Specifies whether the right value is a constant or a runtime variable that obtains its value from the runtime context. Valid values:
               // 
-              // - true: runtime variable
-              // 
-              // - false: constant
+              // - true: Runtime variable.
+              // - false: Constant.
               shared_ptr<bool> isVar_ {};
-              // The remarks.
+              // The remark.
               shared_ptr<string> modifier_ {};
-              // The key-value pair for the remarks.
+              // The key-value pair for the remark.
               Darabonba::Json modifierParam_ {};
               // The data type.
               shared_ptr<string> type_ {};
-              // The value of the right operand.
+              // The right value.
               shared_ptr<string> value_ {};
             };
 
@@ -300,23 +299,21 @@ namespace Models
 
 
             protected:
-              // Indicates whether the left operand is a variable. Valid values:
+              // Specifies whether the left value is a variable. Valid values:
               // 
-              // - true: variable
-              // 
-              // - false: constant
+              // - true: Variable.
+              // - false: Constant.
               shared_ptr<bool> isVar_ {};
-              // The remarks.
+              // The remark.
               shared_ptr<string> modifier_ {};
-              // The key-value pair for the remarks.
+              // The key-value pair for the remark.
               Darabonba::Json modifierParam_ {};
-              // Specifies whether the value is a constant. Valid values:
+              // Specifies whether the left value is a constant. Valid values:
               // 
-              // - true: The value is a constant.
-              // 
-              // - false: The value is not a constant.
+              // - true: Yes.
+              // - false: No.
               shared_ptr<string> type_ {};
-              // The variable of the left operand.
+              // The variable name of the left value.
               shared_ptr<string> value_ {};
             };
 
@@ -362,31 +359,25 @@ namespace Models
 
 
           protected:
-            // Indicates whether to negate the result. Valid values:
+            // Specifies whether to negate the result. Valid values:
             // 
-            // - true: The result is negated.
-            // 
-            // - false: The result is not negated.
+            // - true: Negated.
+            // - false: Not negated.
             shared_ptr<bool> isNot_ {};
             // The condition ID.
             shared_ptr<int32_t> itemId_ {};
-            // The left operand of the condition.
+            // The left value of the condition.
             shared_ptr<Conditions::Left> left_ {};
-            // The operator. Valid values:
+            // The aggregation method for dispatch rule conditions. Valid values:
             // 
-            // - `=`: equals
-            // 
-            // - `<>`: does not equal
-            // 
-            // - `in`: includes
-            // 
-            // - `not in`: does not include
-            // 
-            // - `REGEXP`: matches a regular expression
-            // 
-            // - `NOT REGEXP`: does not match a regular expression
+            // - `=`: Equal to.
+            // - `<>`: Not equal to.
+            // - `in`: Included in.
+            // - `not in`: Not included in.
+            // - `REGEXP`: Matches the regular expression.
+            // - `NOT REGEXP`: Does not match the regular expression.
             shared_ptr<string> operator_ {};
-            // The right operand.
+            // The right value object.
             shared_ptr<Conditions::Right> right_ {};
           };
 
@@ -409,9 +400,9 @@ namespace Models
 
 
         protected:
-          // The array of rule conditions.
+          // The array of rule expressions.
           shared_ptr<vector<Expression::Conditions>> conditions_ {};
-          // The logical relation for the conditions.
+          // The logical relationship of the conditions.
           shared_ptr<string> logic_ {};
         };
 
@@ -515,33 +506,31 @@ namespace Models
       protected:
         // The alert name.
         shared_ptr<string> alertName_ {};
-        // The ID of the alert name.
+        // The identifier of the alert name.
         shared_ptr<string> alertNameId_ {};
-        // The alert type.
+        // The alerting type.
         shared_ptr<string> alertType_ {};
-        // The ID of the alert type.
+        // The alerting type identifier.
         shared_ptr<string> alertTypeId_ {};
         // The UUID of the alert.
         shared_ptr<string> alertUuid_ {};
-        // The ID of the Alibaba Cloud account that is used to purchase Threat Analysis.
+        // The Alibaba Cloud account ID that activated Cloud Threat Detection and Response (CTDR).
         shared_ptr<int64_t> aliuid_ {};
-        // The rule conditions, which are in the JSON array format.
+        // The rule set in JSON array format.
         shared_ptr<ResponseData::Expression> expression_ {};
         // The time when the rule was created.
         shared_ptr<string> gmtCreate_ {};
-        // The time when the rule was last modified.
+        // The time when the rule was updated.
         shared_ptr<string> gmtModified_ {};
-        // The unique ID of the whitelist rule.
+        // The unique ID of the allowlist rule.
         shared_ptr<int64_t> id_ {};
-        // The UUID of the event.
+        // The globally unique UUID of the incident.
         shared_ptr<string> incidentUuid_ {};
-        // The status of the rule. Valid values:
-        // 
-        // - 1: enabled
-        // 
-        // - 0: disabled
+        // The enabled status of the rule. Valid values:
+        // - 1: Enabled.
+        // - 0: Disabled.
         shared_ptr<int32_t> status_ {};
-        // The ID of the Alibaba Cloud account that is used to create the rule.
+        // The Alibaba Cloud account ID that created the rule.
         shared_ptr<int64_t> subAliuid_ {};
       };
 
@@ -669,17 +658,15 @@ namespace Models
   protected:
     // The status code of the request.
     shared_ptr<int32_t> code_ {};
-    // The return value.
+    // The data returned in the response.
     shared_ptr<DescribeWhiteRuleListResponseBody::Data> data_ {};
-    // The returned message.
+    // The message returned for the request.
     shared_ptr<string> message_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request was successful. Valid values:
-    // 
-    // - true: The request was successful.
-    // 
-    // - false: The request failed.
+    // Indicates whether the request is successful. Valid values:
+    // - true: Successful.
+    // - false: Failed.
     shared_ptr<bool> success_ {};
   };
 

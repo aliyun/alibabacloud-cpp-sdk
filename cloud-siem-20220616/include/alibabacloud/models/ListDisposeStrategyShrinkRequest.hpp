@@ -278,66 +278,87 @@ namespace Models
 
 
   protected:
+    // The UUID of the alert.
     shared_ptr<string> alertUuid_ {};
-    // The current page number, which must be greater than or equal to 1.
+    // The number of the current page. The value must be greater than or equal to 1.
     // 
     // This parameter is required.
     shared_ptr<int32_t> currentPage_ {};
-    // The policy status. Valid values:
+    // The status of the policy. Valid values:
+    // - 0: invalid
+    // - 1: valid
     shared_ptr<int32_t> effectiveStatus_ {};
-    // The query end time, in milliseconds.
+    // The end time of the query. Unit: milliseconds.
     // 
     // This parameter is required.
     shared_ptr<int64_t> endTime_ {};
-    // The entity characteristic value, which can be used for fuzzy match on response entities.
+    // The identity value of the entity. You can use this parameter to perform a fuzzy search for response entities.
     shared_ptr<string> entityIdentity_ {};
-    // The entity type. Valid values:
+    // The type of the entity. Valid values:
+    // - ip: IP address
+    // - process: process
+    // - file: file
     shared_ptr<string> entityType_ {};
+    // The list of entity UUIDs.
     shared_ptr<string> entityUuidListShrink_ {};
+    // The grouping dimension.
     shared_ptr<string> groupBy_ {};
+    // The grouping key value.
     shared_ptr<string> groupKey_ {};
-    // The event ID.
+    // The ID of the incident.
     shared_ptr<string> incidentUuid_ {};
+    // The maximum number of records to return in a single query.
     shared_ptr<int32_t> maxResults_ {};
+    // The token used to query the next page.
     shared_ptr<string> nextToken_ {};
-    // The sort direction. Valid values:
+    // The sort order. Valid values:
+    // - desc: descending order
+    // - asc: ascending order
     shared_ptr<string> order_ {};
-    // The field used to sort results. Valid values:
-    // - GmtModified: sorts results by update time.
-    // - GmtCreate: sorts results by creation time.
-    // - FinishTime: sorts results by policy end time.
+    // The field used for sorting. Valid values:
+    // - GmtModified: sort by update time
+    // - GmtCreate: sort by creation time
+    // - FinishTime: sort by policy end time
     shared_ptr<string> orderField_ {};
-    // The number of entries per page, with a maximum of 100.
+    // The number of entries per page. Maximum value: 100.
     // 
     // This parameter is required.
     shared_ptr<int32_t> pageSize_ {};
-    // The unique identifier name of the playbook.
+    // The unique name of the playbook.
     shared_ptr<string> playbookName_ {};
-    // The playbook type. Valid values:
-    // - system: manual handling
+    // The type of the playbook. Valid values:
+    // - system: manual response
     // - custom: event-triggered playbook
     // - custom_alert: alert-triggered playbook
     // - soar-manual: manually run playbook
     // - soar-mdr: MDR-run playbook
     shared_ptr<string> playbookTypes_ {};
-    // The playbook UUID.
+    // The UUID of the playbook.
     shared_ptr<string> playbookUuid_ {};
+    // The query mode.
     shared_ptr<string> queryMode_ {};
-    // The region where the data management center of Cloud Threat Detection and Response (CTDR) is located. Specify the management center based on the region of your assets. Valid values:
+    // The region where the data management center of Cloud Threat Detection and Response (CTDR) is located. You must select the region of the management center based on the region where your assets reside. Valid values:
+    // - cn-hangzhou: assets reside in the Chinese mainland and Hong Kong (China)
+    // - ap-southeast-1: assets reside in regions outside China
     shared_ptr<string> regionId_ {};
+    // The ID of the response rule.
     shared_ptr<string> responseRuleId_ {};
-    // The Alibaba Cloud account ID of the member to which the administrator switches the view.
+    // The Alibaba Cloud account ID of the member whose perspective the administrator switches to.
     shared_ptr<int64_t> roleFor_ {};
-    // The view type.
+    // The type of the view. Valid values:
+    // 
+    // - 0: view of the current Alibaba Cloud account
+    // - 1: view of all accounts in the enterprise
     shared_ptr<int32_t> roleType_ {};
-    // The SOAR response policy ID.
+    // The ID of the Security Orchestration, Automation, and Response (SOAR) response policy.
     shared_ptr<string> sophonTaskId_ {};
-    // The query start time, in milliseconds.
+    // The start time of the query. Unit: milliseconds.
     // 
     // This parameter is required.
     shared_ptr<int64_t> startTime_ {};
-    // The response policy status.
+    // The status of the response policy.
     shared_ptr<int32_t> status_ {};
+    // The ID of the response policy.
     shared_ptr<string> strategyId_ {};
   };
 

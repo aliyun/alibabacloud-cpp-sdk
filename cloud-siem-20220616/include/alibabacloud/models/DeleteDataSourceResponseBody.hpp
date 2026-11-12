@@ -59,7 +59,7 @@ namespace Models
 
 
     protected:
-      // The number of data sources that are deleted. A value of 1 indicates success. A value of 0 or less indicates failure.
+      // The number of deleted data sources. A value of 1 indicates success, and a value of 0 or less indicates failure.
       shared_ptr<int32_t> count_ {};
     };
 
@@ -82,7 +82,7 @@ namespace Models
 
 
   protected:
-    // The return value of the request.
+    // The response data.
     shared_ptr<DeleteDataSourceResponseBody::Data> data_ {};
     // The ID of the request.
     shared_ptr<string> requestId_ {};

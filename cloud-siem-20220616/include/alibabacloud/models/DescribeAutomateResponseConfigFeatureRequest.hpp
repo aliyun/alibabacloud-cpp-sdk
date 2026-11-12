@@ -66,25 +66,19 @@ namespace Models
 
 
   protected:
-    // The type of automated response. Valid values:
-    // 
-    // - event: event
-    // 
-    // - alert: alert
+    // The automated response type. Valid values:
+    // - event: Event.
+    // - alert: Alert.
     shared_ptr<string> autoResponseType_ {};
-    // The region where the Data Management center of threat analysis is deployed. Select a region based on the location of your assets. Valid values:
-    // 
-    // - cn-hangzhou: Assets in the Chinese mainland and Hong Kong (China).
-    // 
-    // - ap-southeast-1: Assets outside China.
+    // The region where the data management center of Threat Analysis is located. Select the region of the management center based on the region where your assets are located. Valid values:
+    // - cn-hangzhou: Assets are located in the Chinese mainland and Hong Kong (China).
+    // - ap-southeast-1: Assets are located in regions outside China.
     shared_ptr<string> regionId_ {};
-    // The user ID of the member. An administrator can use this parameter to switch to the perspective of the member.
+    // The ID of the user whose perspective the administrator switches to.
     shared_ptr<int64_t> roleFor_ {};
-    // The type of view. Valid values:
-    // 
-    // - 0: the view of the current Alibaba Cloud account.
-    // 
-    // - 1: the view of all accounts that are managed by the administrator account.
+    // The view type. Valid values:
+    // - 0: The view of the current Alibaba Cloud account.
+    // - 1: The view of all accounts in the enterprise.
     shared_ptr<int32_t> roleType_ {};
   };
 

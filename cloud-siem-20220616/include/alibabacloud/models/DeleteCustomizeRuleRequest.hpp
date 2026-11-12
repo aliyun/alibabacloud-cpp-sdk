@@ -66,15 +66,13 @@ namespace Models
 
 
   protected:
-    // The region where the product is deployed.
+    // The region where the product is located.
     shared_ptr<string> regionId_ {};
-    // The user ID of the member. This parameter is used when an administrator switches to the perspective of a member.
+    // The user ID of the member whose view the administrator switches to. This parameter allows the administrator to switch to the view of a specified member, bypassing the order validity check but still requiring permission verification. The target account must have activated Cloud SIEM, and the caller must have the required RAM permissions.
     shared_ptr<int64_t> roleFor_ {};
-    // The type of the view.
-    // 
-    // - 0: The view of the current Alibaba Cloud account.
-    // 
-    // - 1: The view of all accounts in your enterprise.
+    // The view type. Valid values:
+    // - 0: the view of the current Alibaba Cloud account
+    // - 1: the view of all accounts in the enterprise
     shared_ptr<int32_t> roleType_ {};
     // The ID of the custom rule.
     shared_ptr<int64_t> ruleId_ {};

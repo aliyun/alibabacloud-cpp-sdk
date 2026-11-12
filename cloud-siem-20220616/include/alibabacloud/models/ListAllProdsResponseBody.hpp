@@ -122,19 +122,16 @@ namespace Models
 
 
       protected:
-        // The multicloud code. Valid values:
-        // 
+        // The code of the cloud service provider. Valid values:
         // - qcloud: Tencent Cloud.
-        // 
         // - aliyun: Alibaba Cloud.
-        // 
         // - hcloud: Huawei Cloud.
         shared_ptr<string> cloudCode_ {};
-        // The number of ingested logs for the product.
+        // The number of logs that have been ingested for the product.
         shared_ptr<int32_t> importedLogCount_ {};
-        // The time when logs were last ingested for the product.
+        // The most recent time when logs were ingested for the product. The time is in the YYYY-MM-DD HH:mm:ss format.
         shared_ptr<string> modifyTime_ {};
-        // The code of the cloud product.
+        // The product code.
         shared_ptr<string> prodCode_ {};
         // The total number of logs for the product.
         shared_ptr<int32_t> totalLogCount_ {};
@@ -202,7 +199,7 @@ namespace Models
 
 
   protected:
-    // The data returned.
+    // The response data.
     shared_ptr<ListAllProdsResponseBody::Data> data_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

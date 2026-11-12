@@ -40,6 +40,7 @@ namespace Models
         DARABONBA_PTR_TO_JSON(CanBuy, canBuy_);
         DARABONBA_PTR_TO_JSON(Capacity, capacity_);
         DARABONBA_PTR_TO_JSON(CapacityOrderFrom, capacityOrderFrom_);
+        DARABONBA_PTR_TO_JSON(CreditsPostpaidInfo, creditsPostpaidInfo_);
         DARABONBA_PTR_TO_JSON(DeliveryCapacity, deliveryCapacity_);
         DARABONBA_PTR_TO_JSON(DurationDays, durationDays_);
         DARABONBA_PTR_TO_JSON(EndTime, endTime_);
@@ -61,6 +62,7 @@ namespace Models
         DARABONBA_PTR_FROM_JSON(CanBuy, canBuy_);
         DARABONBA_PTR_FROM_JSON(Capacity, capacity_);
         DARABONBA_PTR_FROM_JSON(CapacityOrderFrom, capacityOrderFrom_);
+        DARABONBA_PTR_FROM_JSON(CreditsPostpaidInfo, creditsPostpaidInfo_);
         DARABONBA_PTR_FROM_JSON(DeliveryCapacity, deliveryCapacity_);
         DARABONBA_PTR_FROM_JSON(DurationDays, durationDays_);
         DARABONBA_PTR_FROM_JSON(EndTime, endTime_);
@@ -86,11 +88,72 @@ namespace Models
       };
       virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
       virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+      class CreditsPostpaidInfo : public Darabonba::Model {
+      public:
+        friend void to_json(Darabonba::Json& j, const CreditsPostpaidInfo& obj) { 
+          DARABONBA_PTR_TO_JSON(BillingStatus, billingStatus_);
+          DARABONBA_PTR_TO_JSON(InstanceSource, instanceSource_);
+          DARABONBA_PTR_TO_JSON(UserSwitchStatus, userSwitchStatus_);
+        };
+        friend void from_json(const Darabonba::Json& j, CreditsPostpaidInfo& obj) { 
+          DARABONBA_PTR_FROM_JSON(BillingStatus, billingStatus_);
+          DARABONBA_PTR_FROM_JSON(InstanceSource, instanceSource_);
+          DARABONBA_PTR_FROM_JSON(UserSwitchStatus, userSwitchStatus_);
+        };
+        CreditsPostpaidInfo() = default ;
+        CreditsPostpaidInfo(const CreditsPostpaidInfo &) = default ;
+        CreditsPostpaidInfo(CreditsPostpaidInfo &&) = default ;
+        CreditsPostpaidInfo(const Darabonba::Json & obj) { from_json(obj, *this); };
+        virtual ~CreditsPostpaidInfo() = default ;
+        CreditsPostpaidInfo& operator=(const CreditsPostpaidInfo &) = default ;
+        CreditsPostpaidInfo& operator=(CreditsPostpaidInfo &&) = default ;
+        virtual void validate() const override {
+        };
+        virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+        virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+        virtual bool empty() const override { return this->billingStatus_ == nullptr
+        && this->instanceSource_ == nullptr && this->userSwitchStatus_ == nullptr; };
+        // billingStatus Field Functions 
+        bool hasBillingStatus() const { return this->billingStatus_ != nullptr;};
+        void deleteBillingStatus() { this->billingStatus_ = nullptr;};
+        inline int32_t getBillingStatus() const { DARABONBA_PTR_GET_DEFAULT(billingStatus_, 0) };
+        inline CreditsPostpaidInfo& setBillingStatus(int32_t billingStatus) { DARABONBA_PTR_SET_VALUE(billingStatus_, billingStatus) };
+
+
+        // instanceSource Field Functions 
+        bool hasInstanceSource() const { return this->instanceSource_ != nullptr;};
+        void deleteInstanceSource() { this->instanceSource_ = nullptr;};
+        inline string getInstanceSource() const { DARABONBA_PTR_GET_DEFAULT(instanceSource_, "") };
+        inline CreditsPostpaidInfo& setInstanceSource(string instanceSource) { DARABONBA_PTR_SET_VALUE(instanceSource_, instanceSource) };
+
+
+        // userSwitchStatus Field Functions 
+        bool hasUserSwitchStatus() const { return this->userSwitchStatus_ != nullptr;};
+        void deleteUserSwitchStatus() { this->userSwitchStatus_ = nullptr;};
+        inline int32_t getUserSwitchStatus() const { DARABONBA_PTR_GET_DEFAULT(userSwitchStatus_, 0) };
+        inline CreditsPostpaidInfo& setUserSwitchStatus(int32_t userSwitchStatus) { DARABONBA_PTR_SET_VALUE(userSwitchStatus_, userSwitchStatus) };
+
+
+      protected:
+        // The billing status of the instance. Valid values:
+        // - 1: Normal.
+        // - 2: Suspended due to overdue payment.
+        shared_ptr<int32_t> billingStatus_ {};
+        // The source of the instance. Valid values:
+        // - POSTPAID: Independent pay-as-you-go instance.
+        // - SUBSCRIPTION_DEFAULT_PAYG: Default pay-as-you-go instance for subscription.
+        shared_ptr<string> instanceSource_ {};
+        // The user switch status. Valid values:
+        // - 1: Enabled.
+        // - 0: Disabled.
+        shared_ptr<int32_t> userSwitchStatus_ {};
+      };
+
       virtual bool empty() const override { return this->asocInstanceId_ == nullptr
         && this->asocSubscriptionInstanceEndTime_ == nullptr && this->asocSubscriptionInstanceStartTime_ == nullptr && this->canBuy_ == nullptr && this->capacity_ == nullptr && this->capacityOrderFrom_ == nullptr
-        && this->deliveryCapacity_ == nullptr && this->durationDays_ == nullptr && this->endTime_ == nullptr && this->flowCapacity_ == nullptr && this->mainUserId_ == nullptr
-        && this->masterUserId_ == nullptr && this->rdId_ == nullptr && this->rdOrder_ == nullptr && this->sasInstanceId_ == nullptr && this->siemOrderFrom_ == nullptr
-        && this->siemOrderStatus_ == nullptr && this->subUserId_ == nullptr && this->userType_ == nullptr; };
+        && this->creditsPostpaidInfo_ == nullptr && this->deliveryCapacity_ == nullptr && this->durationDays_ == nullptr && this->endTime_ == nullptr && this->flowCapacity_ == nullptr
+        && this->mainUserId_ == nullptr && this->masterUserId_ == nullptr && this->rdId_ == nullptr && this->rdOrder_ == nullptr && this->sasInstanceId_ == nullptr
+        && this->siemOrderFrom_ == nullptr && this->siemOrderStatus_ == nullptr && this->subUserId_ == nullptr && this->userType_ == nullptr; };
       // asocInstanceId Field Functions 
       bool hasAsocInstanceId() const { return this->asocInstanceId_ != nullptr;};
       void deleteAsocInstanceId() { this->asocInstanceId_ = nullptr;};
@@ -131,6 +194,15 @@ namespace Models
       void deleteCapacityOrderFrom() { this->capacityOrderFrom_ = nullptr;};
       inline string getCapacityOrderFrom() const { DARABONBA_PTR_GET_DEFAULT(capacityOrderFrom_, "") };
       inline Data& setCapacityOrderFrom(string capacityOrderFrom) { DARABONBA_PTR_SET_VALUE(capacityOrderFrom_, capacityOrderFrom) };
+
+
+      // creditsPostpaidInfo Field Functions 
+      bool hasCreditsPostpaidInfo() const { return this->creditsPostpaidInfo_ != nullptr;};
+      void deleteCreditsPostpaidInfo() { this->creditsPostpaidInfo_ = nullptr;};
+      inline const Data::CreditsPostpaidInfo & getCreditsPostpaidInfo() const { DARABONBA_PTR_GET_CONST(creditsPostpaidInfo_, Data::CreditsPostpaidInfo) };
+      inline Data::CreditsPostpaidInfo getCreditsPostpaidInfo() { DARABONBA_PTR_GET(creditsPostpaidInfo_, Data::CreditsPostpaidInfo) };
+      inline Data& setCreditsPostpaidInfo(const Data::CreditsPostpaidInfo & creditsPostpaidInfo) { DARABONBA_PTR_SET_VALUE(creditsPostpaidInfo_, creditsPostpaidInfo) };
+      inline Data& setCreditsPostpaidInfo(Data::CreditsPostpaidInfo && creditsPostpaidInfo) { DARABONBA_PTR_SET_RVALUE(creditsPostpaidInfo_, creditsPostpaidInfo) };
 
 
       // deliveryCapacity Field Functions 
@@ -225,51 +297,53 @@ namespace Models
 
 
     protected:
-      // The Agentic SOC Credits instance ID. If SiemOrderFrom is CREDITS_PRE_PAY, this field returns the Credits subscription instance ID for prepaid orders. If SiemOrderFrom is CREDITS_POST_PAY, this field returns the Credits pay-as-you-go instance ID. This field is empty if no Credits instance is found. For legacy orders, the Security Center instance ID is returned by SasInstanceId.
+      // The ID of the Agentic SOC Credits instance. If SiemOrderFrom is CREDITS_PRE_PAY, the ID of the Credits subscription instance is returned. If SiemOrderFrom is CREDITS_POST_PAY, the ID of the Credits pay-as-you-go instance is returned. If no Credits instance is found, this field is empty. The Security Center instance ID for legacy orders is returned by SasInstanceId.
       shared_ptr<string> asocInstanceId_ {};
-      // The end time of the Agentic SOC Credits prepaid subscription, expressed as a 13-digit Unix timestamp in milliseconds. This field is returned only when SiemOrderFrom is CREDITS_PRE_PAY. In other cases, this field is empty.
+      // The end time of the Agentic SOC Credits subscription. The value is a UNIX timestamp in milliseconds (13 digits). This field is returned only when SiemOrderFrom is CREDITS_PRE_PAY. Otherwise, this field is empty.
       shared_ptr<int64_t> asocSubscriptionInstanceEndTime_ {};
-      // The start time of the Agentic SOC Credits prepaid subscription, expressed as a 13-digit Unix timestamp in milliseconds. This field is returned only when SiemOrderFrom is CREDITS_PRE_PAY. In other cases, this field is empty.
+      // The start time of the Agentic SOC Credits subscription. The value is a UNIX timestamp in milliseconds (13 digits). This field is returned only when SiemOrderFrom is CREDITS_PRE_PAY. Otherwise, this field is empty.
       shared_ptr<int64_t> asocSubscriptionInstanceStartTime_ {};
-      // Indicates whether the current account can perform order operations for threat detection and response. Valid values:
-      // - true: The account can purchase, upgrade, or change specifications.
-      // - false: The account cannot perform order operations for threat detection and response.
+      // Specifies whether the current account can perform operations on threat analysis orders. Valid values:
+      // - true: The account can purchase, upgrade, or change the configuration of threat analysis.
+      // - false: The account cannot perform operations on threat analysis orders.
       shared_ptr<bool> canBuy_ {};
-      // The SLS log storage capacity purchased for threat detection and response, in GB.
+      // The purchased Simple Log Service (SLS) capacity for threat analysis. Unit: GB.
       shared_ptr<int32_t> capacity_ {};
       // The source of the log storage capacity order. Valid values:
-      // - PRE_PAY_CAPACITY: a prepaid capacity order.
-      // - POST_PAY_CAPACITY: a pay-as-you-go capacity order.
+      // - PRE_PAY_CAPACITY: Prepaid capacity order.
+      // - POST_PAY_CAPACITY: Pay-as-you-go capacity order.
       // 
-      // The capacity order source is independent of the traffic order source indicated by SiemOrderFrom.
+      // The source of the capacity order is independent of the traffic order source represented by SiemOrderFrom.
       shared_ptr<string> capacityOrderFrom_ {};
-      // The SLS log storage capacity purchased for threat detection and response 1.0, in GB.
+      // The information about the Credits pay-as-you-go instance. This field is returned when a Credits pay-as-you-go instance is found, and can be returned simultaneously with a valid legacy traffic order.
+      shared_ptr<Data::CreditsPostpaidInfo> creditsPostpaidInfo_ {};
+      // The purchased SLS capacity for Threat Analysis 1.0. Unit: GB.
       shared_ptr<int32_t> deliveryCapacity_ {};
-      // The number of days until the threat detection and response service expires.
+      // The number of days until the threat analysis service expires.
       shared_ptr<int64_t> durationDays_ {};
-      // The expiration time of threat detection and response, expressed as a millisecond-level timestamp.
+      // The expiration time of threat analysis. The value is a UNIX timestamp in milliseconds.
       shared_ptr<int64_t> endTime_ {};
-      // The traffic capacity purchased for threat detection and response, in GB.
+      // The purchased traffic for threat analysis. Unit: GB.
       shared_ptr<int32_t> flowCapacity_ {};
-      // The Alibaba Cloud account ID that purchased threat detection and response.
+      // The Alibaba Cloud account ID that purchased threat analysis.
       shared_ptr<int64_t> mainUserId_ {};
-      // The master account ID of the resource directory.
+      // The ID of the master account in the resource directory.
       shared_ptr<int64_t> masterUserId_ {};
-      // The resource directory ID.
+      // The ID of the resource directory.
       shared_ptr<string> rdId_ {};
-      // Indicates whether the order is a SIEM public preview order.
+      // Specifies whether the order is a SIEM public preview order.
       shared_ptr<int32_t> rdOrder_ {};
       // The Security Center instance ID.
       shared_ptr<string> sasInstanceId_ {};
       // The source of the traffic order. Valid values:
-      // - PRE_PAY_FLOW: a prepaid traffic order for threat detection and response.
-      // - POST_PAY_FLOW: a pay-as-you-go traffic order for threat detection and response.
-      // - CREDITS_PRE_PAY: an Agentic SOC Credits prepaid subscription.
-      // - CREDITS_POST_PAY: an Agentic SOC Credits pay-as-you-go instance.
+      // - PRE_PAY_FLOW: Prepaid traffic order for threat analysis.
+      // - POST_PAY_FLOW: Pay-as-you-go traffic order for threat analysis.
+      // - CREDITS_PRE_PAY: Agentic SOC Credits subscription.
+      // - CREDITS_POST_PAY: Agentic SOC Credits pay-as-you-go instance.
       // 
-      // This field describes the traffic order source. The log storage capacity order source is independently indicated by CapacityOrderFrom.
+      // This field describes the source of the traffic order. The source of the log storage capacity order is independently represented by CapacityOrderFrom.
       shared_ptr<string> siemOrderFrom_ {};
-      // Indicates whether a valid SIEM order exists. Valid values:
+      // Specifies whether there is a valid SIEM order. Valid values:
       // - 1: The SIEM order is valid.
       // - 0: The SIEM order is invalid.
       shared_ptr<int32_t> siemOrderStatus_ {};
@@ -300,7 +374,7 @@ namespace Models
   protected:
     // The response data.
     shared_ptr<DescribeUserSiemOrderStatusResponseBody::Data> data_ {};
-    // The request ID.
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
   };
 

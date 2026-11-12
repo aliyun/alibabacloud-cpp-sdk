@@ -121,41 +121,35 @@ namespace Models
 
 
   protected:
-    // The page number. The value must be greater than or equal to 1.
+    // The current page number. The value must be greater than or equal to 1.
     // 
     // This parameter is required.
     shared_ptr<int32_t> currentPage_ {};
-    // The ID of the custom rule. You can obtain the rule ID from the rule list.
+    // The ID of the custom rule. You can obtain the rule ID by calling the rule list API operation.
     shared_ptr<string> detectionRuleId_ {};
-    // The end time.
+    // The end time. The value is a UNIX timestamp in milliseconds.
     shared_ptr<int64_t> endTime_ {};
     // The ID of the custom rule.
     shared_ptr<int64_t> id_ {};
-    // The number of entries per page. The maximum value is 100.
+    // The number of entries per page. Maximum value: 100.
     // 
     // This parameter is required.
     shared_ptr<int32_t> pageSize_ {};
-    // The region where the Data Management center of Threat Analysis is located. Select a region based on the region where your assets are deployed. Valid values:
-    // 
-    // - cn-hangzhou: assets in the Chinese mainland and China (Hong Kong)
-    // 
-    // - ap-southeast-1: assets outside China
+    // The region where the data management center of Threat Analysis is located. Select the region of the management center based on the region where your assets are located. Valid values:
+    // - cn-hangzhou: Assets are located in the Chinese mainland and Hong Kong (China).
+    // - ap-southeast-1: Assets are located outside the Chinese mainland.
     shared_ptr<string> regionId_ {};
-    // The user ID of a member. This parameter is used by an administrator to switch to the perspective of the member.
+    // The ID of the user whose view the administrator switches to.
     shared_ptr<int64_t> roleFor_ {};
-    // The type of the view.
-    // 
-    // - 0: the view of the current Alibaba Cloud account.
-    // 
-    // - 1: the view of all accounts that belong to the enterprise.
+    // The view type. Valid values:
+    // - 0: the view of the current Alibaba Cloud account
+    // - 1: the view of all accounts in the enterprise
     shared_ptr<int32_t> roleType_ {};
-    // The start time.
+    // The start time. The value is a UNIX timestamp in milliseconds.
     shared_ptr<int64_t> startTime_ {};
-    // The verification result for the accuracy of alert fields based on the alert template.
-    // 
-    // - true: The verification is passed. Alerts that are generated for enabled rules can be synchronized to the product.
-    // 
-    // - false: The verification failed. Alerts cannot be synchronized to the product.
+    // The verification result of the accuracy of alert fields based on the alert template. Valid values:
+    // - true: Passed. Alerts from enabled rules can be synchronized to the product side.
+    // - false: Failed. Alerts cannot pass the product-side verification.
     shared_ptr<string> verifyType_ {};
   };
 

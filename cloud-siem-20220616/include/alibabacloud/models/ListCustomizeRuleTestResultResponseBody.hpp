@@ -227,49 +227,42 @@ namespace Models
       protected:
         // The description of the alert.
         shared_ptr<string> alertDesc_ {};
-        // The details of the alert, in JSON format.
+        // The details of the alert in JSON format.
         shared_ptr<string> alertDetail_ {};
-        // The source product of the alert that is associated with the event.
+        // The product from which the alert associated with the event originates.
         shared_ptr<string> alertSrcProd_ {};
-        // The sub-module of the source product of the alert that is associated with the event.
+        // The submodule of the product from which the alert associated with the event originates.
         shared_ptr<string> alertSrcProdModule_ {};
-        // The ATT\\&CK attack technique tag.
+        // The ATT&CK technique tag.
         shared_ptr<string> attCk_ {};
-        // The name of the alert. This value corresponds to the name of the custom rule.
+        // The name of the alert, which corresponds to the name of the custom rule.
         shared_ptr<string> eventName_ {};
-        // The threat type. This parameter is equivalent to the alert type.
+        // The threat type, which is the alerting type.
         shared_ptr<string> eventType_ {};
         // The threat level. Valid values:
-        // 
         // - serious: high
-        // 
         // - suspicious: medium
-        // 
         // - remind: low
         shared_ptr<string> level_ {};
-        // The log source that corresponds to the rule.
+        // The log source corresponding to the rule.
         shared_ptr<string> logSource_ {};
-        // The time when the alert was recorded.
+        // The time when the alert is recorded. The format is YYYY-MM-DD HH:mm:ss.
         shared_ptr<string> logTime_ {};
-        // The log type that corresponds to the rule.
+        // The log type corresponding to the rule.
         shared_ptr<string> logType_ {};
-        // The ID of the main Alibaba Cloud account for Security Information and Event Management (SIEM) that is associated with the alert.
+        // The ID of the primary account associated with the alert in SIEM.
         shared_ptr<string> mainUserId_ {};
         // The status of the alert data. Valid values:
-        // 
-        // - test: business test
-        // 
-        // - online: published
+        // - test: business testing
+        // - online: online
         shared_ptr<string> onlineStatus_ {};
-        // The ID of the member account that is associated with the alert.
+        // The ID of the Alibaba Cloud account associated with the alert.
         shared_ptr<string> subUserId_ {};
         // The UUID of the alert.
         shared_ptr<string> uuid_ {};
-        // The result of verifying the alert based on the alert template.
-        // 
-        // - true: The verification is passed.
-        // 
-        // - false: The verification failed.
+        // The verification result of the alert based on the alert template. Valid values:
+        // - true: passed
+        // - false: failed
         shared_ptr<string> verifyType_ {};
       };
 
@@ -408,17 +401,15 @@ namespace Models
   protected:
     // The status code of the request.
     shared_ptr<int32_t> code_ {};
-    // The data returned.
+    // The data returned in the response.
     shared_ptr<ListCustomizeRuleTestResultResponseBody::Data> data_ {};
     // The message returned for the request.
     shared_ptr<string> message_ {};
-    // The request ID.
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request was successful. Valid values:
-    // 
-    // - true: The request was successful.
-    // 
-    // - false: The request failed.
+    // Indicates whether the request is successful. Valid values:
+    // - true: The request is successful.
+    // - false: The request fails.
     shared_ptr<bool> success_ {};
   };
 

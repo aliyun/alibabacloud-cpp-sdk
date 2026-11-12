@@ -57,19 +57,17 @@ namespace Models
 
 
   protected:
-    // The ID of the Alibaba Cloud account.
+    // The cloud account ID.
     // 
     // This parameter is required.
     shared_ptr<string> accountId_ {};
-    // The code of the multicloud environment.
+    // The code of the multi-cloud provider.
     // 
     // This parameter is required.
     shared_ptr<string> cloudCode_ {};
-    // The region where the Data Management center of Threat Analysis is located. Select a region based on the location of your assets. Valid values:
-    // 
-    // - cn-hangzhou: Your assets are in the Chinese mainland or China (Hong Kong).
-    // 
-    // - ap-southeast-1: Your assets are in a region outside China.
+    // The region where the threat analysis data management center resides. Select the management center region based on the region of your assets. Valid values:
+    // - cn-hangzhou: Your assets reside in the Chinese mainland or Hong Kong (China).
+    // - ap-southeast-1: Your assets reside in regions outside China.
     shared_ptr<string> regionId_ {};
   };
 

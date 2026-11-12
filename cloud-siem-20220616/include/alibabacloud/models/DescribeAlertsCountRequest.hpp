@@ -84,25 +84,22 @@ namespace Models
 
 
   protected:
-    // The end time of the query. The value is a UNIX timestamp. Unit: milliseconds.
+    // The end time of the query. Unit: milliseconds.
     shared_ptr<int64_t> endTime_ {};
     // The query type.
     shared_ptr<string> queryType_ {};
-    // The region of the data management center. Select the region where your assets are located. Valid values:
-    // 
-    // - cn-hangzhou: Your assets are in the Chinese mainland or China (Hong Kong).
-    // 
-    // - ap-southeast-1: Your assets are outside China.
+    // The region of the data management center for Threat Analysis. You must select the region of the management center based on the region where your assets are located. Valid values:
+    // - cn-hangzhou: Assets are located in the Chinese mainland and Hong Kong (China).
+    // - ap-southeast-1: Assets are located outside China.
     shared_ptr<string> regionId_ {};
-    // The user ID of a member. An administrator can specify this parameter to query alerts from the perspective of the member.
+    // The ID of the user whose perspective the administrator switches to.
     shared_ptr<int64_t> roleFor_ {};
-    // The view type.
+    // The view type. Valid values:
     // 
     // - 0: The view of the current Alibaba Cloud account.
-    // 
     // - 1: The view of all accounts in the enterprise.
     shared_ptr<int32_t> roleType_ {};
-    // The start time of the query. The value is a UNIX timestamp. Unit: milliseconds.
+    // The start time of the query. Unit: milliseconds.
     shared_ptr<int64_t> startTime_ {};
   };
 

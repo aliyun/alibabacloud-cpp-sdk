@@ -130,39 +130,35 @@ namespace Models
 
 
   protected:
-    // The number of the page to return. The value must be greater than or equal to 1.
+    // The page number of the current page. The value must be greater than or equal to 1.
     // 
     // This parameter is required.
     shared_ptr<int32_t> currentPage_ {};
-    // The end time of the query. The unit is milliseconds.
+    // The end time of the query. Unit: milliseconds.
     shared_ptr<int64_t> endTime_ {};
     // The ID of the entity.
     shared_ptr<int64_t> entityId_ {};
     // The ID of the entity.
     shared_ptr<string> entityUuid_ {};
-    // The globally unique ID of the event.
+    // The globally unique ID of the incident.
     shared_ptr<string> incidentUuid_ {};
-    // The number of entries to return on each page. The maximum value is 100.
+    // The number of entries per page. Maximum value: 100.
     // 
     // This parameter is required.
     shared_ptr<int32_t> pageSize_ {};
-    // The region of the data management center for threat analysis. Select a region based on the location of your assets. Valid values:
-    // 
-    // - cn-hangzhou: your assets are in the Chinese mainland and China (Hong Kong).
-    // 
-    // - ap-southeast-1: your assets are outside China.
+    // The region where the data management center of Threat Analysis is located. You must select the region of the management center based on the region where your assets are located. Valid values:
+    // - cn-hangzhou: Assets are located in the Chinese mainland and Hong Kong (China).
+    // - ap-southeast-1: Assets are located outside China.
     shared_ptr<string> regionId_ {};
-    // The user ID of the member to which the administrator switches.
+    // The ID of the user whose view the administrator switches to.
     shared_ptr<int64_t> roleFor_ {};
-    // The type of the view. Valid values:
-    // 
-    // - 0: the view of the current Alibaba Cloud account.
-    // 
-    // - 1: the view of all accounts that are managed by your enterprise.
+    // The view type. Valid values:
+    // - 0: the view of the current Alibaba Cloud account
+    // - 1: the view of all accounts in the enterprise
     shared_ptr<int32_t> roleType_ {};
-    // The ID of the Security Orchestration, Automation, and Response (SOAR) handling policy.
+    // The ID of the SOAR playbook.
     shared_ptr<string> sophonTaskId_ {};
-    // The start time of the query. The unit is milliseconds.
+    // The start time of the query. Unit: milliseconds.
     shared_ptr<int64_t> startTime_ {};
   };
 

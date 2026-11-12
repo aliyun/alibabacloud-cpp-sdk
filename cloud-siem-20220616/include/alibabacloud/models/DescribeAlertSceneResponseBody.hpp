@@ -127,13 +127,13 @@ namespace Models
 
 
       protected:
-        // The display name of the field of the entity that can be added to the whitelist.
+        // The display name of the entity attribute field that can be added to the allowlist.
         shared_ptr<string> name_ {};
-        // The field of the entity that can be added to the whitelist.
+        // The entity attribute field that can be added to the allowlist.
         shared_ptr<string> type_ {};
-        // The default right operand that is displayed for the whitelist rule.
+        // The default right value displayed for the allowlist rule.
         shared_ptr<string> value_ {};
-        // The available right operands for the whitelist rule.
+        // The optional right values for the allowlist rule.
         shared_ptr<vector<string>> values_ {};
       };
 
@@ -192,19 +192,19 @@ namespace Models
 
 
     protected:
-      // The display name of the alert. The value varies based on the language of the environment.
+      // The display value of the alert name, which varies based on the language environment.
       shared_ptr<string> alertName_ {};
-      // The ID of the alert name.
+      // The identifier of the alert name.
       shared_ptr<string> alertNameId_ {};
-      // The display title of the alert. The value varies based on the language of the environment.
+      // The display value of the alert title, which varies based on the language environment.
       shared_ptr<string> alertTile_ {};
-      // The ID of the alert title.
+      // The identifier of the alert title.
       shared_ptr<string> alertTileId_ {};
-      // The display name of the alert type. The value varies based on the language of the environment.
+      // The display value of the alert type, which varies based on the language environment.
       shared_ptr<string> alertType_ {};
-      // The ID of the alert type.
+      // The identifier of the alert type.
       shared_ptr<string> alertTypeId_ {};
-      // The objects that can be added to the whitelist.
+      // The allowlist targets.
       shared_ptr<vector<Data::Targets>> targets_ {};
     };
 
@@ -250,17 +250,15 @@ namespace Models
   protected:
     // The status code of the request.
     shared_ptr<int32_t> code_ {};
-    // The data returned.
+    // The response data.
     shared_ptr<vector<DescribeAlertSceneResponseBody::Data>> data_ {};
-    // The returned message.
+    // The response message of the request.
     shared_ptr<string> message_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request was successful. Valid values:
-    // 
-    // - true: The request was successful.
-    // 
-    // - false: The request failed.
+    // Indicates whether the request is successful. Valid values:
+    // - true: Successful.
+    // - false: Failed.
     shared_ptr<bool> success_ {};
   };
 

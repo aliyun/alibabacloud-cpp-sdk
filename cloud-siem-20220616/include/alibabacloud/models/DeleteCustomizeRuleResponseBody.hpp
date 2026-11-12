@@ -79,15 +79,13 @@ namespace Models
     shared_ptr<int32_t> code_ {};
     // The return value of the request.
     shared_ptr<int32_t> data_ {};
-    // The returned message.
+    // The response message.
     shared_ptr<string> message_ {};
-    // The request ID.
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request was successful. Valid values:
-    // 
-    // - true: The request was successful.
-    // 
-    // - false: The request failed.
+    // Indicates whether the request is successful. Valid values:
+    // - true: successful
+    // - false: failed
     shared_ptr<bool> success_ {};
   };
 

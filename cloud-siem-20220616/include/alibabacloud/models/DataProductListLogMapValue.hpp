@@ -82,7 +82,7 @@ namespace Models
 
 
     protected:
-      // The ID of the extended parameter.
+      // The identifier of the extended parameter.
       shared_ptr<string> key_ {};
       // The value of the extended parameter.
       shared_ptr<string> value_ {};
@@ -150,27 +150,25 @@ namespace Models
 
 
   protected:
-    // The code of the log.
+    // The log code.
     shared_ptr<string> logCode_ {};
-    // This parameter is deprecated.
+    // **[Deprecated]** This parameter is deprecated and can be ignored.
     shared_ptr<string> logName_ {};
-    // This parameter is deprecated.
+    // **[Deprecated]** This parameter is deprecated and can be ignored.
     shared_ptr<string> logNameEn_ {};
-    // The language code of the log that is used to indicate the language in which the log is displayed.
+    // The language code of the log, which is used to display multilingual names.
     shared_ptr<string> logNameKey_ {};
-    // The status of the log delivery. Valid values:
-    // 
-    // *   true: The logs are being delivered.
-    // *   false: The log delivery feature is disabled.
+    // The log delivery status. Valid values:
+    // - true: Delivery is in progress.  
+    // - false: Delivery is disabled.
     shared_ptr<bool> status_ {};
-    // Indicates whether the log delivery feature can be enabled or disabled. The feature can be enabled or disabled only by the administrator of the threat analysis feature. Valid values:
-    // 
-    // *   true
-    // *   false
+    // Specifies whether the log delivery switch can be operated. Only the delegated administrator of Threat Analysis can operate the log delivery switch. Valid values:
+    // - true: The switch can be operated.  
+    // - false: The switch cannot be operated.
     shared_ptr<bool> canOperateOrNot_ {};
-    // The topic of the log in the Logstore. The value is an index field in the Logstore that can be used to distinguish different logs.
+    // The topic of the log in the Logstore. It is an index field of the Logstore and can be used to distinguish different logs.
     shared_ptr<string> topic_ {};
-    // The extended parameter.
+    // The extended parameters.
     shared_ptr<vector<DataProductListLogMapValue::ExtraParameters>> extraParameters_ {};
   };
 

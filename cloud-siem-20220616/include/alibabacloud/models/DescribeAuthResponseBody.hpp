@@ -48,13 +48,11 @@ namespace Models
 
 
   protected:
-    // Indicates whether the permissions are granted.
-    // 
-    // - true: The permissions are granted.
-    // 
-    // - false: The permissions are not granted.
+    // The return value of the request. Valid values:
+    // - true: Permissions are enabled.
+    // - false: Permissions are not enabled.
     shared_ptr<bool> data_ {};
-    // The request ID.
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
   };
 

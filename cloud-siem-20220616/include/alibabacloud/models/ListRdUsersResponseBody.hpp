@@ -106,21 +106,19 @@ namespace Models
 
 
     protected:
-      // Indicates whether the account is delegated to view its own resources.
+      // Specifies whether the account is delegated to view its own resources.
       shared_ptr<bool> delegatedOrNot_ {};
-      // Indicates whether the account is managed by the multi-account control feature of Threat Analysis. Valid values:
-      // 
+      // Specifies whether the account is managed by the multi-account management feature of Threat Analysis. Valid values:
       // - true: The account is managed.
-      // 
       // - false: The account is not managed.
       shared_ptr<bool> joined_ {};
-      // The time when the account was added.
+      // The time when the account was added to management.
       shared_ptr<string> joinedTime_ {};
-      // The ID of the Alibaba Cloud account that purchased Threat Analysis.
+      // The Alibaba Cloud account ID that purchased Threat Analysis.
       shared_ptr<int64_t> mainUserId_ {};
-      // The ID of the member Alibaba Cloud account.
+      // The Alibaba Cloud account ID for Threat Analysis.
       shared_ptr<int64_t> subUserId_ {};
-      // The name of the member Alibaba Cloud account.
+      // The name of the Alibaba Cloud account managed by Threat Analysis.
       shared_ptr<string> subUserName_ {};
     };
 
@@ -143,7 +141,7 @@ namespace Models
 
 
   protected:
-    // The data returned.
+    // The response data.
     shared_ptr<vector<ListRdUsersResponseBody::Data>> data_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

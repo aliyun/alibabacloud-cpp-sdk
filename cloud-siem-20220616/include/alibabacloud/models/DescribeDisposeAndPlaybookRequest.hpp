@@ -121,25 +121,32 @@ namespace Models
 
 
   protected:
+    // Specifies whether to return only available playbooks.
     shared_ptr<bool> availableOnly_ {};
     // The current page number. The value must be greater than or equal to 1.
     shared_ptr<int32_t> currentPage_ {};
     // The entity type. Valid values:
+    // - ip: IP address.
+    // - process: Process.
+    // - file: File.
     shared_ptr<string> entityType_ {};
-    // The entity UUID.
+    // The UUID of the entity.
     shared_ptr<string> entityUuid_ {};
+    // The list of entity UUIDs. Separate multiple UUIDs with commas (,).
     shared_ptr<string> entityUuidList_ {};
-    // The incident UUID.
+    // The UUID of the incident.
     shared_ptr<string> incidentUuid_ {};
     // The number of entries per page. Maximum value: 100.
     shared_ptr<int32_t> pageSize_ {};
-    // The region where the threat analysis data management center is located. Specify the management center region based on the region of your assets. Valid values:
-    // - cn-hangzhou: Your assets are located in the Chinese mainland or Hong Kong (China).
-    // - ap-southeast-1: Your assets are located outside China.
+    // The region where the data management center of Threat Analysis is located. You must select the region of the management center based on the region where your assets are located. Valid values:
+    // - cn-hangzhou: Assets are located in the Chinese mainland and Hong Kong (China).
+    // - ap-southeast-1: Assets are located outside China.
     shared_ptr<string> regionId_ {};
-    // The user ID of the member to which the administrator switches the view.
+    // The ID of the user whose view the administrator switches to.
     shared_ptr<int64_t> roleFor_ {};
-    // The view type.
+    // The view type. Valid values:
+    // - 0: Current Alibaba Cloud account view.
+    // - 1: View of all accounts in the enterprise.
     shared_ptr<int32_t> roleType_ {};
   };
 

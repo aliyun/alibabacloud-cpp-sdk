@@ -112,47 +112,37 @@ namespace Models
 
 
   protected:
-    // The asset name.
+    // The name of the asset.
     shared_ptr<string> assetName_ {};
     // The asset type. Valid values:
-    // 
     // - ip: IP address
-    // 
     // - domain: domain name
-    // 
     // - url: URL
-    // 
     // - process: process
-    // 
     // - file: file
-    // 
     // - host: host
     shared_ptr<string> assetType_ {};
     // The UUID of the asset.
     shared_ptr<string> assetUuid_ {};
-    // The page number. The value must be greater than or equal to 1.
+    // The number of the current page. The value must be greater than or equal to 1.
     // 
     // This parameter is required.
     shared_ptr<int32_t> currentPage_ {};
-    // The UUID of the event.
+    // The UUID of the incident.
     shared_ptr<string> incidentUuid_ {};
-    // The number of entries to return on each page. The maximum value is 100.
+    // The number of entries per page. Maximum value: 100.
     // 
     // This parameter is required.
     shared_ptr<int32_t> pageSize_ {};
-    // The region where the Data Management center of Threat Analysis is deployed. Select a region based on the region where your assets are located. Valid values:
-    // 
-    // - cn-hangzhou: assets in the Chinese mainland or China (Hong Kong)
-    // 
-    // - ap-southeast-1: assets outside China
+    // The region where the data management center of Threat Analysis is located. You must select the region of the management center based on the region where the assets reside. Valid values:
+    // - cn-hangzhou: Assets are located in the Chinese mainland and Hong Kong (China).
+    // - ap-southeast-1: Assets are located in regions outside the Chinese mainland.
     shared_ptr<string> regionId_ {};
-    // The user ID of the member whose data you want to view. This parameter is available only when an administrator wants to switch to the perspective of a member.
+    // The ID of the user whose perspective the administrator switches to.
     shared_ptr<int64_t> roleFor_ {};
-    // The view type.
-    // 
-    // - 0: The view of the current Alibaba Cloud account.
-    // 
-    // - 1: The view of all accounts that belong to the enterprise.
+    // The type of the view. Valid values:
+    // - 0: the view of the current Alibaba Cloud account
+    // - 1: the view of all accounts in the enterprise
     shared_ptr<int32_t> roleType_ {};
   };
 

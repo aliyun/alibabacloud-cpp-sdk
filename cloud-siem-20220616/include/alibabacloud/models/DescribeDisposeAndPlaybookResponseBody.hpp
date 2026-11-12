@@ -240,33 +240,43 @@ namespace Models
 
 
         protected:
-          // Indicates whether the playbook is available.
+          // Specifies whether the playbook is available. Valid values:
+          // 
+          // - 1: Available.
+          // - 0: Unavailable.
           shared_ptr<string> available_ {};
           // The playbook description.
           shared_ptr<string> description_ {};
           // The display name of the playbook.
           shared_ptr<string> displayName_ {};
+          // The processing status.
           shared_ptr<string> disposeStatus_ {};
+          // The processing error message.
           shared_ptr<string> errorMessage_ {};
-          // The playbook name, which is the unique identifier of the playbook.
+          // The name of the playbook, which is the unique identifier of the playbook.
           shared_ptr<string> name_ {};
-          // The playbook opcode, which corresponds to the recommended playbook opcode for entity disposition.
+          // The playbook opcode, which corresponds to the recommended playbook opcode for processing the entity.
           shared_ptr<string> opCode_ {};
-          // Specifies whether the playbook is selected by default for one-click incident disposition. Valid values:
+          // Specifies whether the one-click processing for the event is selected by default. Valid values:
+          // 
+          // - 2: Selected. 
+          // - 1: Displayed but not selected.
           shared_ptr<string> opLevel_ {};
-          // The parameter list of the playbook and the corresponding parameter properties.
+          // The list of parameters and the corresponding parameter attributes of the playbook.
           shared_ptr<vector<Darabonba::Json>> paramConfig_ {};
           // The opcode configuration.
           shared_ptr<string> taskConfig_ {};
-          // The code that indicates why the playbook is unavailable.
+          // The code indicating why the playbook is unavailable. Valid values:
           // 
-          // Valid values:
-          // - PARAM_INVALID: The input parameters are invalid.
-          // - NO_INGESTION: The corresponding product is not connected.
+          // - PARAM_INVALID: The input parameters are invalid. 
+          // - NO_INGESTION: The corresponding service is not connected.
           shared_ptr<string> unAvailableCode_ {};
-          // The playbook UUID, which is the unique identifier of the playbook.
+          // The UUID of the playbook, which is the unique identifier of the playbook.
           shared_ptr<string> uuid_ {};
-          // Indicates whether the playbook is a WAF playbook. Valid values:
+          // Specifies whether the playbook is a WAF playbook. Valid values:
+          // 
+          // - true: Yes.
+          // - false: No.
           shared_ptr<bool> wafPlaybook_ {};
         };
 
@@ -356,28 +366,29 @@ namespace Models
       protected:
         // The number of alerts associated with the entity.
         shared_ptr<int32_t> alertNum_ {};
-        // The disposition object.
+        // The object to be processed.
         shared_ptr<string> dispose_ {};
         // The entity ID.
         shared_ptr<int64_t> entityId_ {};
         // The entity information.
         Darabonba::Json entityInfo_ {};
         // The entity type. Valid values:
-        // - ip: IP address
-        // - domain: domain name
-        // - url: URL
-        // - process: process
-        // - file: file
-        // - host: host
+        // - ip: IP address.
+        // - domain: Domain name.
+        // - url: URL.
+        // - process: Process.
+        // - file: File.
+        // - host: Host.
         shared_ptr<string> entityType_ {};
+        // The entity UUID.
         shared_ptr<string> entityUuid_ {};
-        // The key-value pairs of opcode and oplevel.
+        // The key-value pairs of opcode and opLevel.
         shared_ptr<map<string, string>> opcodeMap_ {};
-        // The recommended playbook opcodes for entity disposition.
+        // The recommended playbook code for processing the entity.
         shared_ptr<vector<string>> opcodeSet_ {};
-        // The list of playbooks that can dispose of the entity.
+        // The list of playbooks that can process the entity.
         shared_ptr<vector<ResponseData::PlaybookList>> playbookList_ {};
-        // The disposition scope, which is the list of user IDs that can perform the disposition.
+        // The processing scope and the list of user IDs that can be processed.
         shared_ptr<vector<Darabonba::Json>> scope_ {};
       };
 
@@ -430,7 +441,7 @@ namespace Models
       protected:
         // The current page number.
         shared_ptr<int32_t> currentPage_ {};
-        // The number of entries per page.
+        // The number of entries returned per page.
         shared_ptr<int32_t> pageSize_ {};
         // The total number of entries.
         shared_ptr<int64_t> totalCount_ {};
@@ -464,6 +475,7 @@ namespace Models
 
 
     protected:
+      // Indicates whether an available playbook for processing exists.
       shared_ptr<bool> available_ {};
       // The pagination information.
       shared_ptr<Data::PageInfo> pageInfo_ {};
@@ -511,7 +523,7 @@ namespace Models
 
 
   protected:
-    // The response status code.
+    // The request status code.
     shared_ptr<int32_t> code_ {};
     // The response data.
     shared_ptr<DescribeDisposeAndPlaybookResponseBody::Data> data_ {};
@@ -519,7 +531,9 @@ namespace Models
     shared_ptr<string> message_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request was successful. Valid values:
+    // Indicates whether the request is successful. Valid values:
+    // - true: Successful.
+    // - false: Failed.
     shared_ptr<bool> success_ {};
   };
 

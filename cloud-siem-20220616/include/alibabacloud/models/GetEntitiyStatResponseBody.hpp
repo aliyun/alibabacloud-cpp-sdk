@@ -103,6 +103,7 @@ namespace Models
 
 
     protected:
+      // The number of alerts associated with the entity.
       shared_ptr<int64_t> alertNum_ {};
       // The number of entities.
       shared_ptr<int32_t> entityNum_ {};
@@ -110,6 +111,7 @@ namespace Models
       shared_ptr<string> entityType_ {};
       // The entity UUID.
       shared_ptr<string> entityUuid_ {};
+      // The number of incidents associated with the entity.
       shared_ptr<int64_t> incidentNum_ {};
     };
 
@@ -153,7 +155,7 @@ namespace Models
 
 
   protected:
-    // The HTTP status code.
+    // The status code.
     shared_ptr<int32_t> code_ {};
     // The response data.
     shared_ptr<vector<GetEntitiyStatResponseBody::Data>> data_ {};
@@ -161,10 +163,9 @@ namespace Models
     shared_ptr<string> message_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request was successful. Valid values:
-    // 
-    // - true: The request was successful.
-    // - false: The request failed.
+    // Indicates whether the request is successful. Valid values:
+    // - true: The request is successful.
+    // - false: The request fails.
     shared_ptr<bool> success_ {};
   };
 

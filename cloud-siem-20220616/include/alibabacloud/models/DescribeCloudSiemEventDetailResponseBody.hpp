@@ -146,7 +146,7 @@ namespace Models
       protected:
         // The number of alerts associated with the attack stage.
         shared_ptr<int32_t> alertNum_ {};
-        // The ATT&CK attack stage ID.
+        // The ID of the ATT&CK attack stage.
         shared_ptr<string> tacticId_ {};
         // The name of the attack stage.
         shared_ptr<string> tacticName_ {};
@@ -317,7 +317,7 @@ namespace Models
       shared_ptr<int64_t> aliuid_ {};
       // The number of assets associated with the event.
       shared_ptr<int32_t> assetNum_ {};
-      // The collection of ATT&CK attack technique labels.
+      // The collection of ATT&CK attack technique tags.
       shared_ptr<vector<string>> attCkLabels_ {};
       // The list of attack stages.
       shared_ptr<vector<Data::AttckStages>> attckStages_ {};
@@ -338,32 +338,32 @@ namespace Models
       // The English name of the event.
       shared_ptr<string> incidentNameEn_ {};
       // The event type. Valid values:
-      // - net-attack: expert rule.
-      // - graph: graph computing.
-      // - singleToSingle: alert pass-through.
-      // - allToSingle: alert aggregation.
+      // - net-attack: expert rule
+      // - graph: graph computing
+      // - singleToSingle: alert pass-through
+      // - allToSingle: alert aggregation
       shared_ptr<string> incidentType_ {};
       // The globally unique UUID of the event.
       shared_ptr<string> incidentUuid_ {};
       // The associated account.
       shared_ptr<string> referAccount_ {};
-      // The remarks of the event.
+      // The remark for the event.
       shared_ptr<string> remark_ {};
       // The rule that generated the event.
       shared_ptr<string> ruleId_ {};
-      // The event status. Valid values:
+      // The status of the event. Valid values:
       // 
-      // - 0: unhandled.  
-      // - 1: handling. 
-      // - 5: handling failed. 
-      // - 10: handled.
+      // - 0: unhandled  
+      // - 1: processing 
+      // - 5: processing failed 
+      // - 10: handled
       shared_ptr<int32_t> status_ {};
       // The threat level. Valid values:
-      // - serious: high.
-      // - suspicious: medium.
-      // - remind: low.
+      // - serious: high
+      // - suspicious: medium
+      // - remind: low
       shared_ptr<string> threatLevel_ {};
-      // The threat score of the event, ranging from 0 to 100. A higher score indicates a higher risk level.
+      // The threat score of the event. Valid values: 0 to 100. A higher score indicates a higher risk level.
       shared_ptr<float> threatScore_ {};
     };
 
@@ -411,13 +411,13 @@ namespace Models
     shared_ptr<int32_t> code_ {};
     // The response data.
     shared_ptr<DescribeCloudSiemEventDetailResponseBody::Data> data_ {};
-    // The response message.
+    // The message returned in the response.
     shared_ptr<string> message_ {};
-    // The request ID.
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request was successful. Valid values:
-    // - true: successful.
-    // - false: failed.
+    // Indicates whether the request is successful. Valid values:
+    // - true: successful
+    // - false: failed
     shared_ptr<bool> success_ {};
   };
 

@@ -122,23 +122,21 @@ namespace Models
 
 
     protected:
-      // The attached AccessKey ID.
+      // The bound AccessKeyId.
       shared_ptr<string> accessId_ {};
-      // The MD5 value of the multicloud AccessKey ID.
+      // The MD5 value of the multi-cloud AccessKeyId.
       shared_ptr<string> accessIdMd5_ {};
-      // The ID of the Alibaba Cloud account.
+      // The cloud account ID.
       shared_ptr<string> accountId_ {};
-      // The information of the account to which the multicloud AccessKey ID belongs. The format is: Alibaba Cloud account ID|Alibaba Cloud account name|Multicloud AccessKey ID.
+      // The account information of the multi-cloud AccessKeyId. The format is Alibaba Cloud account ID|Alibaba Cloud account name|multi-cloud AccessKeyId.
       shared_ptr<string> accountStr_ {};
-      // Indicates whether the AccessKey ID is attached to threat analysis. Valid values:
-      // 
-      // - 0: Not attached.
-      // 
-      // - 1: Attached.
+      // Indicates whether the AccessKeyId is bound to threat detection and response. Valid values:
+      //  - 0: Not bound.
+      //  - 1: Bound.
       shared_ptr<int32_t> bound_ {};
-      // The code for the multicloud environment.
+      // The code of the multi-cloud provider.
       shared_ptr<string> cloudCode_ {};
-      // The ID of the Alibaba Cloud account that corresponds to the multicloud AccessKey ID.
+      // The Alibaba Cloud account ID that corresponds to the multi-cloud AccessKeyId.
       shared_ptr<int64_t> subUserId_ {};
     };
 
@@ -184,17 +182,15 @@ namespace Models
   protected:
     // The HTTP status code.
     shared_ptr<int32_t> code_ {};
-    // The data returned.
+    // The response data.
     shared_ptr<vector<ListAccountAccessIdResponseBody::Data>> data_ {};
-    // The returned message.
+    // The returned message description.
     shared_ptr<string> message_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
     // Indicates whether the request was successful. Valid values:
-    // 
-    // - true: The request was successful.
-    // 
-    // - false: The request failed.
+    // - true: Successful.
+    // - false: Failed.
     shared_ptr<bool> success_ {};
   };
 

@@ -126,15 +126,15 @@ namespace Models
       shared_ptr<string> alertType_ {};
       // The threat type category identifier.
       shared_ptr<string> alertTypeCategory_ {};
-      // The threat type category name in the language of the current request. Empty if no translation is available.
+      // The name of the threat type category in the requested language. This parameter is empty if the translation is missing.
       shared_ptr<string> alertTypeCategoryMds_ {};
       // The display order of the threat type category.
       shared_ptr<int32_t> alertTypeCategoryOrder_ {};
       // The Medusa code of the threat type.
       shared_ptr<string> alertTypeMds_ {};
-      // The English name of the threat type. Empty if no translation is available.
+      // The English name of the threat type. This parameter is empty if the translation is missing.
       shared_ptr<string> alertTypeNameEn_ {};
-      // The Chinese name of the threat type. Empty if no translation is available.
+      // The Chinese name of the threat type. This parameter is empty if the translation is missing.
       shared_ptr<string> alertTypeNameZh_ {};
     };
 
@@ -178,17 +178,17 @@ namespace Models
 
 
   protected:
-    // The request status code.
+    // The status code.
     shared_ptr<int32_t> code_ {};
     // The response data.
     shared_ptr<vector<DescribeAlertTypeResponseBody::Data>> data_ {};
-    // The response message.
+    // The returned message.
     shared_ptr<string> message_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
     // Indicates whether the request was successful. Valid values:
-    // - true: successful.
-    // - false: failed.
+    // - true: Successful.
+    // - false: Failed.
     shared_ptr<bool> success_ {};
   };
 

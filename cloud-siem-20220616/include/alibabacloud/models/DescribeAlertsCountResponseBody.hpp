@@ -116,7 +116,7 @@ namespace Models
     protected:
       // The total number of alerts.
       shared_ptr<int64_t> all_ {};
-      // The number of alerts for each severity level.
+      // The counts by severity level.
       shared_ptr<map<string, int64_t>> countMap_ {};
       // The number of high-risk alerts.
       shared_ptr<int64_t> high_ {};
@@ -168,19 +168,17 @@ namespace Models
 
 
   protected:
-    // The HTTP status code returned.
+    // The status code of the request.
     shared_ptr<int32_t> code_ {};
-    // The data returned.
+    // The return value of the request.
     shared_ptr<DescribeAlertsCountResponseBody::Data> data_ {};
-    // The message returned.
+    // The response message.
     shared_ptr<string> message_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request was successful. Valid values:
-    // 
-    // - true: The request was successful.
-    // 
-    // - false: The request failed.
+    // Indicates whether the request is successful. Valid values:
+    // - true: The request is successful.
+    // - false: The request fails.
     shared_ptr<bool> success_ {};
   };
 

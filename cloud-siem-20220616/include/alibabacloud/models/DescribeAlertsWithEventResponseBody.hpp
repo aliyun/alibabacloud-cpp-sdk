@@ -203,11 +203,11 @@ namespace Models
 
 
         protected:
-          // The key of the alert detail attribute.
+          // The key of the alert detail property.
           shared_ptr<string> key_ {};
-          // The name of the alert detail.
+          // The name of the alert detail data.
           shared_ptr<string> keyName_ {};
-          // The value of the alert detail.
+          // The value of the alert detail data.
           shared_ptr<string> values_ {};
         };
 
@@ -507,7 +507,7 @@ namespace Models
         shared_ptr<string> alertDesc_ {};
         // The Medusa code of the alert description.
         shared_ptr<string> alertDescCode_ {};
-        // The English description of the alert.
+        // The alert description in English.
         shared_ptr<string> alertDescEn_ {};
         // The alert details.
         shared_ptr<string> alertDetail_ {};
@@ -526,19 +526,19 @@ namespace Models
         shared_ptr<string> alertNameEn_ {};
         // The source product of the alert associated with the incident.
         shared_ptr<string> alertSrcProd_ {};
-        // The submodule of the source product of the alert associated with the incident.
+        // The source product submodule of the alert associated with the incident.
         shared_ptr<string> alertSrcProdModule_ {};
-        // The alert status. Valid values: 0: Pending. 1: Handled. 2: Being handled. 3: Whitelisted, false positive, or rejected. 999: Unknown.
+        // The alert status. Valid values: 0: Pending; 1: Processed; 2: Processing; 3: Whitelisted, false positive, or rejected; 999: Unknown.
         shared_ptr<string> alertStatus_ {};
         // The alert title.
         shared_ptr<string> alertTitle_ {};
-        // The English title of the alert.
+        // The alert title in English.
         shared_ptr<string> alertTitleEn_ {};
         // The alert type.
         shared_ptr<string> alertType_ {};
         // The Medusa code of the alert type.
         shared_ptr<string> alertTypeCode_ {};
-        // The English alert type.
+        // The alert type in English.
         shared_ptr<string> alertTypeEn_ {};
         // The UUID of the alert.
         shared_ptr<string> alertUuid_ {};
@@ -553,13 +553,13 @@ namespace Models
         shared_ptr<string> cloudCode_ {};
         // The detection rule ID.
         shared_ptr<string> detectionRuleId_ {};
-        // The time when the alert ended.
+        // The time when the alert ended. The format is YYYY-MM-DD HH:mm:ss.
         shared_ptr<string> endTime_ {};
         // The entity details.
         shared_ptr<string> entityList_ {};
-        // The extended information of the alert.
+        // The extended alert information.
         shared_ptr<string> extendContent_ {};
-        // The time when the alert was stored.
+        // The time when the alert was created.
         shared_ptr<string> gmtCreate_ {};
         // The time when the alert was last updated.
         shared_ptr<string> gmtModified_ {};
@@ -569,26 +569,26 @@ namespace Models
         shared_ptr<string> incidentUuid_ {};
         // The alert investigation report.
         shared_ptr<string> investigationReport_ {};
-        // Indicates whether the threat has been defended against. Valid values:
+        // Indicates whether the threat is blocked. Valid values:
         // 
         // - 0: Detected.
         // - 1: Blocked.
         shared_ptr<string> isDefend_ {};
-        // The time when the alert was logged.
+        // The time when the alert was recorded. The format is YYYY-MM-DD HH:mm:ss.
         shared_ptr<string> logTime_ {};
         // The UUID of the alert log.
         shared_ptr<string> logUuid_ {};
         // The ID of the SIEM primary account associated with the alert.
         shared_ptr<int64_t> mainUserId_ {};
-        // The time when the alert occurred.
+        // The time when the alert occurred. The format is YYYY-MM-DD HH:mm:ss.
         shared_ptr<string> occurTime_ {};
         // The product ID.
         shared_ptr<string> productId_ {};
-        // The time when the alert first occurred.
+        // The time when the alert first occurred. The format is YYYY-MM-DD HH:mm:ss.
         shared_ptr<string> startTime_ {};
-        // The Alibaba Cloud account ID that generated the alert.
+        // The ID of the Alibaba Cloud account that triggered the alert.
         shared_ptr<int64_t> subUserId_ {};
-        // The Alibaba Cloud account ID that generated the alert.
+        // The ID of the Alibaba Cloud account that triggered the alert.
         shared_ptr<string> subUserName_ {};
         // The cloud code. Valid values:
         // - aliyun: Alibaba Cloud.
@@ -644,9 +644,9 @@ namespace Models
 
 
       protected:
-        // The current page number of the list.
+        // The current page number.
         shared_ptr<int32_t> currentPage_ {};
-        // The number of records returned per page.
+        // The number of records per page.
         shared_ptr<int32_t> pageSize_ {};
         // The total number of records.
         shared_ptr<int64_t> totalCount_ {};
@@ -721,13 +721,13 @@ namespace Models
   protected:
     // The request status code.
     shared_ptr<int32_t> code_ {};
-    // The request return value.
+    // The response data.
     shared_ptr<DescribeAlertsWithEventResponseBody::Data> data_ {};
-    // The request return message.
+    // The response message.
     shared_ptr<string> message_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request was successful. Valid values:
+    // Indicates whether the request is successful. Valid values:
     // - true: Successful.
     // - false: Failed.
     shared_ptr<bool> success_ {};
