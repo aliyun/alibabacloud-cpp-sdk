@@ -191,7 +191,7 @@ namespace Models
         protected:
           // The run mode.
           shared_ptr<string> runMode_ {};
-          // The start position.
+          // The read start point.
           shared_ptr<string> startFrom_ {};
           // The backfill time range.
           shared_ptr<Config::TimeRange> timeRange_ {};
@@ -218,7 +218,7 @@ namespace Models
       protected:
         // The datasource config.
         shared_ptr<Source::Config> config_ {};
-        // The data source type.
+        // The type of the data source.
         shared_ptr<string> type_ {};
       };
 
@@ -289,15 +289,15 @@ namespace Models
 
 
       protected:
-        // The dataset list.
+        // The list of datasets.
         shared_ptr<vector<string>> datasets_ {};
         // SLS Logstore
         shared_ptr<string> logstore_ {};
-        // The sink name.
+        // The name of the output destination.
         shared_ptr<string> name_ {};
         // SLS Project
         shared_ptr<string> project_ {};
-        // The sink type.
+        // The type of the output destination.
         shared_ptr<string> type_ {};
       };
 
@@ -425,7 +425,7 @@ namespace Models
 
 
           protected:
-            // The service name list.
+            // The list of service names.
             shared_ptr<vector<string>> serviceNames_ {};
           };
 
@@ -629,7 +629,7 @@ namespace Models
                 shared_ptr<string> container_ {};
                 // The reference data type.
                 shared_ptr<string> kind_ {};
-                // The name of the field or dimension.
+                // The field or dimension name.
                 shared_ptr<string> name_ {};
                 // The JSON literal key path.
                 shared_ptr<vector<string>> path_ {};
@@ -795,9 +795,9 @@ namespace Models
             shared_ptr<vector<string>> keys_ {};
             // The mask character.
             shared_ptr<string> maskChar_ {};
-            // The data masking mode.
+            // The masking mode.
             shared_ptr<string> mode_ {};
-            // The built-in sensitive types.
+            // The built-in sensitive data types.
             shared_ptr<vector<string>> types_ {};
           };
 
@@ -996,7 +996,7 @@ namespace Models
           shared_ptr<string> expression_ {};
           // The list of fields.
           shared_ptr<vector<string>> fields_ {};
-          // The additional parameters.
+          // The extension parameters.
           Darabonba::Json parameters_ {};
           // The list of field projections.
           shared_ptr<vector<Config::Projections>> projections_ {};
@@ -1038,11 +1038,11 @@ namespace Models
 
 
       protected:
-        // The processor configuration.
+        // The configuration of the processor.
         shared_ptr<Processors::Config> config_ {};
-        // The processor name.
+        // The name of the processor.
         shared_ptr<string> name_ {};
-        // The processor type.
+        // The type of the processor.
         shared_ptr<string> type_ {};
       };
 
@@ -1191,7 +1191,7 @@ namespace Models
 
 
             protected:
-              // The service name list.
+              // The list of service names.
               shared_ptr<vector<string>> serviceNames_ {};
             };
 
@@ -1395,7 +1395,7 @@ namespace Models
                   shared_ptr<string> container_ {};
                   // The reference data type.
                   shared_ptr<string> kind_ {};
-                  // The name of the field or dimension.
+                  // The field or dimension name.
                   shared_ptr<string> name_ {};
                   // The JSON literal key path.
                   shared_ptr<vector<string>> path_ {};
@@ -1561,9 +1561,9 @@ namespace Models
               shared_ptr<vector<string>> keys_ {};
               // The mask character.
               shared_ptr<string> maskChar_ {};
-              // The data masking mode.
+              // The masking mode.
               shared_ptr<string> mode_ {};
-              // The built-in sensitive types.
+              // The built-in sensitive data types.
               shared_ptr<vector<string>> types_ {};
             };
 
@@ -1762,7 +1762,7 @@ namespace Models
             shared_ptr<string> expression_ {};
             // The list of fields.
             shared_ptr<vector<string>> fields_ {};
-            // The additional parameters.
+            // The extension parameters.
             Darabonba::Json parameters_ {};
             // The list of field projections.
             shared_ptr<vector<Config::Projections>> projections_ {};
@@ -1804,11 +1804,11 @@ namespace Models
 
 
         protected:
-          // The processor configuration.
+          // The configuration of the processor.
           shared_ptr<Processors::Config> config_ {};
-          // The processor name.
+          // The name of the processor.
           shared_ptr<string> name_ {};
-          // The processor type.
+          // The type of the processor.
           shared_ptr<string> type_ {};
         };
 
@@ -1831,7 +1831,7 @@ namespace Models
 
 
       protected:
-        // The name of the output.
+        // The output name.
         shared_ptr<string> name_ {};
         // The branch processors.
         shared_ptr<vector<Outputs::Processors>> processors_ {};
@@ -1941,7 +1941,7 @@ namespace Models
 
 
     protected:
-      // The creation time in UTC format that follows the ISO 8601 standard, such as 2026-08-10T05:00:00Z.
+      // The creation time in UTC, following the ISO 8601 format. Example: 2026-08-10T05:00:00Z.
       // 
       // This parameter is required.
       // 
@@ -1957,7 +1957,7 @@ namespace Models
       // 
       // This parameter is required.
       shared_ptr<vector<Pipeline::Outputs>> outputs_ {};
-      // The pipeline name.
+      // The name of the pipeline.
       // 
       // This parameter is required.
       shared_ptr<string> pipelineName_ {};
@@ -1969,7 +1969,7 @@ namespace Models
       // 
       // This parameter is required.
       shared_ptr<string> signalType_ {};
-      // The sinks.
+      // The output destinations.
       // 
       // This parameter is required.
       shared_ptr<vector<Pipeline::Sinks>> sinks_ {};
@@ -1983,7 +1983,7 @@ namespace Models
       shared_ptr<string> status_ {};
       // The status message.
       shared_ptr<string> statusMessage_ {};
-      // The update time in ISO 8601 format in UTC. Example: 2026-08-10T05:10:00Z.
+      // The update time in UTC, following the ISO 8601 format. Example: 2026-08-10T05:10:00Z.
       // 
       // This parameter is required.
       // 

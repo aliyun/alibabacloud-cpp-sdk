@@ -176,7 +176,7 @@ namespace Models
       shared_ptr<string> clusterId_ {};
       // The namespace where the probe is deployed.
       shared_ptr<string> clusterNamespace_ {};
-      // Specifies whether to disable the unique binding of the policy. If this parameter is set to true, you can create multiple policies for a single container cluster.
+      // Specifies whether to disable unique policy binding. If this feature is enabled, you can create multiple policies for a single container cluster.
       shared_ptr<bool> disablePolicyShare_ {};
       // The entity group ID.
       shared_ptr<string> entityGroupId_ {};
@@ -243,13 +243,13 @@ namespace Models
 
 
   protected:
-    // The policy creation version. Valid values: v1 and v2. If this parameter is not specified or is left empty, v2 is used. If v1 is specified, a v1-compatible environment is created for ECS and Cloud.
+    // The policy creation version. Valid values: v1 and v2. If you do not specify this parameter or leave it empty, v2 is used. If you specify v1, a v1-compatible environment is created for ECS and Cloud.
     shared_ptr<string> apiVersion_ {};
-    // The entity group used to create the policy. You can use the entity group for quick creation. The clusterId and vpcId parameters are independent of each other.
+    // The entity group used to create the policy. You can quickly create the policy by using the entity group. The clusterId and vpcId parameters are independent of each other.
     shared_ptr<CreateIntegrationPolicyRequest::EntityGroup> entityGroup_ {};
     // The policy name.
     shared_ptr<string> policyName_ {};
-    // The policy type. Valid values: CS, ECS, and Cloud.
+    // The policy type, such as CS, ECS, or Cloud.
     // 
     // This parameter is required.
     shared_ptr<string> policyType_ {};
@@ -257,7 +257,7 @@ namespace Models
     shared_ptr<string> resourceGroupId_ {};
     // The resource tags.
     shared_ptr<vector<CreateIntegrationPolicyRequest::Tags>> tags_ {};
-    // The workspace.
+    // The workspace. If you do not specify this parameter, a default workspace is created or used.
     shared_ptr<string> workspace_ {};
   };
 

@@ -228,9 +228,9 @@ namespace Models
       // 
       // This parameter is required.
       shared_ptr<string> rotationStartTime_ {};
-      // The length of the shift cycle. Used in conjunction with shiftRecurrenceFrequency, such as switching to the next on-call person every 3 days.
+      // The length of the shift recurrence cycle. Used in conjunction with shiftRecurrenceFrequency. For example, rotate to the next on-call person every 3 days.
       shared_ptr<int32_t> shiftLength_ {};
-      // The unit of the shift cycle. Used in conjunction with shiftRecurrenceFrequency, such as switching to the next on-call person every week.
+      // The unit of the shift recurrence frequency. Used in conjunction with shiftRecurrenceFrequency. For example, rotate to the next on-call person every 1 week.
       // 
       // This parameter is required.
       shared_ptr<string> shiftRecurrenceFrequency_ {};
@@ -238,7 +238,7 @@ namespace Models
       // 
       // This parameter is required.
       shared_ptr<string> startDate_ {};
-      // The time zone name. Uses the IANA Time Zone Database standard, such as Asia/Shanghai.
+      // The time zone name, which uses the IANA Time Zone Database standard. Example: Asia/Shanghai.
       // 
       // This parameter is required.
       shared_ptr<string> timeZone_ {};
@@ -283,7 +283,7 @@ namespace Models
     shared_ptr<string> oncallScheduleName_ {};
     // The list of rotations.
     shared_ptr<vector<UpdateOncallScheduleRequest::Rotations>> rotations_ {};
-    // The ID of the shift reminder chatbot.
+    // The ID of the shift reminder bot.
     shared_ptr<string> shiftRobotId_ {};
     // The list of substitution rules.
     shared_ptr<vector<UpdateOncallScheduleRequest::Substitudes>> substitudes_ {};

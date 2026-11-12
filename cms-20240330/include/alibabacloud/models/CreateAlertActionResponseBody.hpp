@@ -48,7 +48,7 @@ namespace Models
 
 
   protected:
-    // The ID of the alert action integration.
+    // The ID of the action integration.
     shared_ptr<string> alertActionId_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

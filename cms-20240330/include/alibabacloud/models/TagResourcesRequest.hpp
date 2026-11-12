@@ -71,9 +71,9 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> resourceType_ {};
-    // The labels.
+    // The tags.
     // 
-    // You can attach up to 20 labels.
+    // You can attach up to 20 tags.
     shared_ptr<vector<Tag>> tag_ {};
   };
 

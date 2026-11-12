@@ -124,7 +124,7 @@ namespace Models
 
 
       protected:
-        // The effective days of the week. Valid values: 0 to 6 (0 = Sunday, 6 = Saturday). The value 7 is not supported.
+        // The days of the week when the policy takes effect. Valid values: 0 to 6. 0 indicates Sunday, and 6 indicates Saturday. The value 7 is not supported.
         shared_ptr<vector<int32_t>> dayInWeek_ {};
         // The end time of the day in minutes. Valid values: 0 to 1439.
         shared_ptr<int32_t> endTimeInMinute_ {};
@@ -185,7 +185,7 @@ namespace Models
 
 
       protected:
-        // The channel type. Valid values: DING, WEIXIN, FEISHU, SLACK, TEAMS, WEBHOOK, CONTACT, GROUP, DUTY, and DING_COOL_APP.
+        // The type of the channel. Valid values: DING, WEIXIN, FEISHU, SLACK, TEAMS, WEBHOOK, CONTACT, GROUP, DUTY, and DING_COOL_APP.
         shared_ptr<string> channelType_ {};
         // The enabled sub-channels. Valid values: EMAIL, SMS, VOICE, DING, WEIXIN, FEISHU, and WEBHOOK.
         shared_ptr<vector<string>> enabledSubChannels_ {};
@@ -239,13 +239,13 @@ namespace Models
     protected:
       // The list of notification channels.
       shared_ptr<vector<Routes::Channels>> channels_ {};
-      // The digital employee name. This parameter is required when enableRca is set to true.
+      // The name of the digital employee. This parameter is required when enableRca is set to true.
       shared_ptr<string> digitalEmployeeName_ {};
       // The effective time range.
       shared_ptr<Routes::EffectTimeRange> effectTimeRange_ {};
-      // Specifies whether to enable root cause analysis (RCA).
+      // Specifies whether to enable Root Cause Analysis (RCA).
       shared_ptr<bool> enableRca_ {};
-      // The route-level event filter conditions.
+      // The route-level event filtering conditions.
       shared_ptr<FilterSetting> filterSetting_ {};
     };
 
@@ -307,13 +307,13 @@ namespace Models
 
 
     protected:
-      // The event fields by which events are grouped for noise reduction. Events in the same group are merged into a single notification. An empty array indicates no grouping.
+      // The event fields used for grouping and merging. Events in the same group are merged into a single notification. An empty array indicates that no grouping is applied.
       shared_ptr<vector<string>> groupingKeys_ {};
       // The check period in minutes.
       shared_ptr<int32_t> periodMin_ {};
-      // The silence duration in seconds.
+      // The mute period in seconds.
       shared_ptr<int32_t> silenceSec_ {};
-      // The number of trigger times.
+      // The number of triggers.
       shared_ptr<int32_t> times_ {};
     };
 

@@ -75,11 +75,11 @@ namespace Models
 
 
   protected:
-    // Specifies the keywords used to perform a fuzzy search by task name or task ID.
+    // The keywords used to perform a fuzzy search by task name or task ID.
     shared_ptr<string> keyWords_ {};
     // The maximum number of entries to return per page. Default value: 20. Maximum value: 100.
     shared_ptr<int32_t> maxResults_ {};
-    // The pagination token. Leave this parameter empty for the first request. For subsequent requests, pass the nextToken value returned in the previous response.
+    // The pagination token. Do not specify this parameter for the first request. For subsequent requests, specify the nextToken value returned from the previous request.
     shared_ptr<string> nextToken_ {};
     // The ID of the resource group.
     shared_ptr<string> resourceGroupId_ {};

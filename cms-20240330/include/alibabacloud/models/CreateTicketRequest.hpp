@@ -48,11 +48,11 @@ namespace Models
 
 
   protected:
-    // - The expiration time of the access token in seconds, which specifies how long the user can access page APIs. Default value: 86400 (one day). Valid values: 0 to 86400 (one day).
-    // - The actual access token expiration time is the minimum value of accessTokenExpirationTime and expirationTime.
-    // - If you call this operation by using a Security Token Service (STS) token, the actual access token expiration time is the minimum value of accessTokenExpirationTime, expirationTime, and the STS token expiration time.
+    // - The expiration time of the access token in seconds. This specifies the maximum duration for which a user can access page APIs. Default value: 86400 (one day). Valid values: 0 to 86400 (one day).
+    // - The actual expiration time of the access token is the minimum value of accessTokenExpirationTime and expirationTime.
+    // - If you call this operation by using Security Token Service (STS), the actual expiration time of the access token is the minimum value of accessTokenExpirationTime, expirationTime, and the STS token expiration time.
     shared_ptr<int64_t> accessTokenExpirationTime_ {};
-    // - The expiration time in seconds for the embedded page URL link. Default value: 86400 (one day). Valid values: 0 to 2592000 (30 days).
+    // - The expiration time of the embedded page URL in seconds. Default value: 86400 (one day). Valid values: 0 to 2592000 (30 days).
     shared_ptr<int64_t> expirationTime_ {};
   };
 

@@ -140,7 +140,7 @@ namespace Models
 
 
   protected:
-    // The UUID of the AI agent. This parameter is used to filter subscriptions of a specified AI agent.
+    // The UUID of the AI agent. This parameter is used to filter subscriptions for a specified AI agent.
     shared_ptr<string> agentUuid_ {};
     // The sort order of the returned versions. Valid values:
     // - asc: Ascending order. 
@@ -154,15 +154,13 @@ namespace Models
     shared_ptr<string> nextToken_ {};
     // The UUID of the notification policy. This parameter is used to filter subscriptions that are bound to a specified notification policy. The value is a 32-character string.
     shared_ptr<string> notifyStrategyUuid_ {};
-    // The field by which to sort the results.
+    // The sort field.
     shared_ptr<string> orderBy_ {};
     // The ID of the subscription.
     shared_ptr<string> subscriptionId_ {};
     // The name of the subscription.
     shared_ptr<string> subscriptionName_ {};
-    // The type of the subscription. Valid values:
-    // - NORMAL: Standard subscription.
-    // - AI_AGENT: AI agent subscription.
+    // The type of the subscription. Valid values: NORMAL (standard subscription) and AI_AGENT (AI agent subscription).
     shared_ptr<string> subscriptionType_ {};
     // **[Deprecated]** This is an internal reserved parameter. Do not use it.
     shared_ptr<bool> unbound_ {};

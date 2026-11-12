@@ -492,78 +492,75 @@ namespace Models
 
 
     protected:
-      // The permission type. Valid values:
-      // - readWrite
-      // - readOnly
-      // - httpReadOnly
+      // The access type. Valid values: readWrite, readOnly, and httpReadOnly.
       shared_ptr<string> accessType_ {};
-      // The number of days for automatic archiving after storage expires. A value of 0 indicates no archiving, and a value of 3650 indicates permanent retention.
+      // The number of days to automatically archive data after the storage expires. A value of 0 indicates that data is not archived. A value of 3650 indicates permanent retention.
       shared_ptr<int32_t> archiveDuration_ {};
-      // The authentication-free read policy. IP CIDR blocks and VPC IDs are supported.
+      // The auth-free read policy. IP CIDR blocks and VPC IDs are supported.
       shared_ptr<string> authFreeReadPolicy_ {};
-      // The authentication-free write policy. IP CIDR blocks and VPC IDs are supported.
+      // The auth-free write policy. IP CIDR blocks and VPC IDs are supported.
       shared_ptr<string> authFreeWritePolicy_ {};
-      // The authentication token string.
+      // The auth token.
       shared_ptr<string> authToken_ {};
-      // The instance creation time in UTC+0, in the format of yyyy-MM-ddTHH:mmZ.
+      // The time when the instance was created. The time is displayed in UTC+0 in the yyyy-MM-ddTHH:mmZ format.
       shared_ptr<string> createTime_ {};
-      // Indicates whether authentication-free read is enabled.
+      // Specifies whether auth-free read is enabled.
       shared_ptr<bool> enableAuthFreeRead_ {};
-      // Indicates whether authentication-free write is enabled.
+      // Specifies whether auth-free write is enabled.
       shared_ptr<bool> enableAuthFreeWrite_ {};
-      // Indicates whether the authentication token is enabled.
+      // Specifies whether the authentication token is enabled.
       shared_ptr<bool> enableAuthToken_ {};
       // The extended information.
       shared_ptr<map<string, string>> extraInfo_ {};
-      // The dashboard directory URL.
+      // The URL of the dashboard folder.
       shared_ptr<string> folderUrl_ {};
       // The instance ID of the attached managed Grafana instance.
       shared_ptr<string> grafanaInstanceId_ {};
-      // The name of the associated managed Grafana instance.
+      // The name of the bound managed Grafana instance.
       shared_ptr<string> grafanaInstanceName_ {};
-      // The HTTP public endpoint.
+      // The public HTTP endpoint.
       shared_ptr<string> httpApiInterUrl_ {};
-      // The HTTP internal endpoint.
+      // The internal HTTP endpoint.
       shared_ptr<string> httpApiInternalUrl_ {};
-      // The HTTP private endpoint.
+      // The HTTP private network endpoint.
       shared_ptr<string> httpApiIntraUrl_ {};
       // The Prometheus instance type.
       shared_ptr<string> instanceType_ {};
       // The billing method. Valid values:
-      // - POSTPAY: pay-as-you-go by metric reporting volume.
-      // - POSTPAY_GB: pay-as-you-go by metric write volume.
+      // - POSTPAY: Pay-as-you-go based on the volume of reported metrics.
+      // - POSTPAY_GB: Pay-as-you-go based on the volume of written metrics.
       shared_ptr<string> paymentType_ {};
-      // The time when the instance billing method was modified, in UTC format.
+      // The time when the billing method of the instance was updated (UTC format).
       shared_ptr<string> paymentTypeUpdateTime_ {};
-      // The product to which the Prometheus instance belongs (arms or cms).
+      // The product to which the Prometheus instance belongs, such as ARMS or CMS.
       shared_ptr<string> product_ {};
       // The instance ID.
       shared_ptr<string> prometheusInstanceId_ {};
       // The instance name.
       shared_ptr<string> prometheusInstanceName_ {};
-      // The PushGateway public endpoint.
+      // The public PushGateway endpoint.
       shared_ptr<string> pushGatewayInterUrl_ {};
-      // The PushGateway internal endpoint.
+      // The internal PushGateway endpoint.
       shared_ptr<string> pushGatewayInternalUrl_ {};
-      // The PushGateway private endpoint.
+      // The PushGateway private network endpoint.
       shared_ptr<string> pushGatewayIntraUrl_ {};
       // The region ID.
       shared_ptr<string> regionId_ {};
       // The public read endpoint.
       shared_ptr<string> remoteReadInterUrl_ {};
-      // The RemoteRead internal endpoint.
+      // The internal RemoteRead endpoint.
       shared_ptr<string> remoteReadInternalUrl_ {};
       // The private read endpoint.
       shared_ptr<string> remoteReadIntraUrl_ {};
       // The public write endpoint.
       shared_ptr<string> remoteWriteInterUrl_ {};
-      // The RemoteWrite internal endpoint.
+      // The internal RemoteWrite endpoint.
       shared_ptr<string> remoteWriteInternalUrl_ {};
       // The private write endpoint.
       shared_ptr<string> remoteWriteIntraUrl_ {};
       // The resource group ID.
       shared_ptr<string> resourceGroupId_ {};
-      // The fixed value: PrometheusInstance.
+      // The resource type. Fixed value: PrometheusInstance.
       shared_ptr<string> resourceType_ {};
       // The instance status.
       shared_ptr<string> status_ {};
@@ -602,9 +599,9 @@ namespace Models
 
 
   protected:
-    // The details of the Prometheus instance.
+    // The Prometheus instance details.
     shared_ptr<GetPrometheusInstanceResponseBody::PrometheusInstance> prometheusInstance_ {};
-    // The request ID.
+    // The unique identifier of the request.
     shared_ptr<string> requestId_ {};
   };
 

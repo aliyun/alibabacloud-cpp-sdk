@@ -126,9 +126,9 @@ namespace Models
 
 
     protected:
-      // The drill end time in Unix milliseconds. The end time must be later than the start time.
+      // The drill end time, in Unix milliseconds. Must be later than the start time, and the span from the start time cannot exceed 1 hour.
       shared_ptr<int64_t> endTime_ {};
-      // The drill start time in Unix milliseconds.
+      // The drill start time, in Unix milliseconds.
       shared_ptr<int64_t> startTime_ {};
     };
 
@@ -340,7 +340,7 @@ namespace Models
 
 
   protected:
-    // The action type.
+    // The operation type.
     // 
     // This parameter is required.
     shared_ptr<string> action_ {};
@@ -350,7 +350,7 @@ namespace Models
     shared_ptr<map<string, string>> annotations_ {};
     // The ARMS integration configuration.
     shared_ptr<ArmsIntegrationConfig> armsIntegrationConfig_ {};
-    // The business source. Valid values include managed_service_for_prometheus, umodel, application_insights, cloud_monitoring, and sls. Pass this field as needed for CREATE, UPDATE, and PATCH actions.
+    // The business source (optional). Examples include managed_service_for_prometheus, umodel, application_insights, cloud_monitoring, and sls. Pass as needed for CREATE, UPDATE, and PATCH.
     shared_ptr<string> bizSource_ {};
     // The condition aggregation configuration.
     shared_ptr<ConditionConfigUnified> conditionConfig_ {};
@@ -360,11 +360,11 @@ namespace Models
     shared_ptr<DatasourceConfigUnified> datasourceConfig_ {};
     // The display name.
     shared_ptr<string> displayName_ {};
-    // The alert drill evaluation time in Unix milliseconds. This field is required by the backend when drillMode is ONE_SHOT. The time cannot be later than the current time or earlier than 90 days ago.
+    // The alert drill time, in Unix milliseconds. Required by the backend when drillMode is ONE_SHOT. It cannot be later than the current time or earlier than 90 days ago.
     shared_ptr<int64_t> drillEvalTime_ {};
-    // The alert drill mode. This field is required by the backend when the action is DRILL_ALERT. Valid values: ONE_SHOT specifies a single point in time to simulate a complete lifecycle consisting of three events: OCCURRED, PERSISTENT, and RECOVERED. TIME_TRAVEL specifies a time range to simulate the lifecycle in multiple rounds based on the rule scheduling interval.
+    // The alert drill mode. Required by the backend when action is DRILL_ALERT. ONE_SHOT specifies a single time point to simulate a complete lifecycle (three events: OCCURRED, PERSISTENT, and RECOVERED). TIME_TRAVEL specifies a time period to simulate round by round according to the rule scheduling interval (OCCURRED, PERSISTENT, ..., RECOVERED).
     shared_ptr<string> drillMode_ {};
-    // The alert drill time range in Unix milliseconds. This field is required by the backend when drillMode is TIME_TRAVEL. The endTime must be later than the startTime and cannot be later than the current time. The lifecycle is simulated in multiple rounds based on the rule scheduling interval. The maximum number of rounds is 500. If the limit is exceeded, the backend returns a 400 error.
+    // The alert drill time range, in Unix milliseconds. Required by the backend when drillMode is TIME_TRAVEL. The endTime must be later than the startTime and cannot be later than the current time. The span between endTime and startTime cannot exceed 1 hour (the backend returns 400 if exceeded). Simulates round by round according to the rule scheduling interval, with a maximum of 500 rounds (the backend returns 400 if exceeded).
     shared_ptr<ManageAlertRulesUnifiedActionInput::DrillTimeRange> drillTimeRange_ {};
     // Specifies whether the rule is enabled.
     shared_ptr<bool> enabled_ {};
@@ -374,23 +374,23 @@ namespace Models
     shared_ptr<NotifyConfigUnified> notifyConfig_ {};
     // The observable resource configuration.
     shared_ptr<ObserveResourceConfig> observeResourceConfig_ {};
-    // **[Deprecated]** The ID of the monitored object instance. For new integrations, use observeResourceConfig.resources instead. This field is retained only for compatibility with legacy SDKs.
+    // **[Deprecated]** The monitored object instance ID. Use observeResourceConfig.resources for new integrations. Retained only for compatibility with legacy SDKs.
     shared_ptr<string> observeResourceInstanceId_ {};
-    // **[Deprecated]** The resource type of the monitored object. For new integrations, use observeResourceConfig.entityType instead. This field is retained only for compatibility with legacy SDKs.
+    // **[Deprecated]** The monitored object resource type. Use observeResourceConfig.entityType for new integrations. Retained only for compatibility with legacy SDKs.
     shared_ptr<string> observeResourceType_ {};
     // The query aggregation configuration.
     shared_ptr<QueryConfigUnified> queryConfig_ {};
-    // The root cause analysis (RCA) configuration. Pass this field as needed for CREATE, UPDATE, and PATCH actions.
+    // The root cause analysis (RCA) configuration (optional). Pass as needed for CREATE, UPDATE, and PATCH.
     shared_ptr<AlertRuleRcaConfig> rcaConfig_ {};
-    // The region ID. This aligns with V1 AlertRule.regionId. If not provided, the gateway callerRegionId is used.
+    // The region ID. Aligned with V1 AlertRule.regionId. The gateway callerRegionId is used if not provided.
     shared_ptr<string> regionId_ {};
-    // The schedule aggregation configuration.
+    // The scheduling aggregation configuration.
     shared_ptr<ScheduleConfigUnified> scheduleConfig_ {};
-    // The UUID of the rule. This field is required for UPDATE and PATCH actions.
+    // The rule UUID. Required for UPDATE and PATCH.
     shared_ptr<string> uuid_ {};
-    // The list of UUIDs for the rules to be deleted. This is used for the BATCH_DELETE action.
+    // The list of rule UUIDs to be deleted (BATCH_DELETE).
     shared_ptr<vector<string>> uuidList_ {};
-    // The workspace ID. This field is required for CREATE, UPDATE, PATCH, DELETE, ENABLE, DISABLE, BATCH_DELETE, BATCH_ENABLE, and BATCH_DISABLE actions. It identifies the CloudMonitor workspace to which the rule belongs.
+    // The workspace (for CREATE, UPDATE, and other actions).
     shared_ptr<string> workspace_ {};
   };
 

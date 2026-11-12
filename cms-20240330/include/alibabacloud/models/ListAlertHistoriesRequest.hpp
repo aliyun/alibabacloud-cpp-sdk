@@ -276,33 +276,33 @@ namespace Models
   protected:
     // The unique identifier (transId) of an alert history record.
     shared_ptr<string> alertHistoryId_ {};
-    // Filters the history records by a specific alert rule. Specify the unique identifier (ruleUuid) of the alert rule.
+    // Filters the history records of a specified alert rule. Specify the unique identifier (ruleUuid) of the alert rule.
     shared_ptr<string> alertRuleId_ {};
-    // The business source of the alert history. For example, `managed_service_for_prometheus` indicates the managed type of the Prometheus integration center. The default value is empty. Leave this parameter empty if you are unsure about the value.
+    // Specifies the business source of the alert history. For example, managed_service_for_prometheus indicates the managed type of the Prometheus integration center. Default value: empty. Leave this parameter empty if you are unsure how to specify it.
     shared_ptr<string> bizSource_ {};
-    // The namespace of CloudMonitor. Examples: acs_rds_dashboard and acs_ecs_dashboard.
+    // The namespace of CloudMonitor, such as acs_rds_dashboard and acs_ecs_dashboard.
     shared_ptr<string> cmsNamespace_ {};
     // The product category of CloudMonitor.
     shared_ptr<string> cmsProductCategory_ {};
-    // The keyword used for fuzzy matching and filtering based on the display name of the alert rule.
+    // Filters the records by performing fuzzy matching on the keywords in the display name of the alert rule.
     shared_ptr<string> displayNameKeyWord_ {};
-    // The unique key (instanceKey) used to identify the alert object instance.
+    // The unique key value (instanceKey) that identifies the alert object instance.
     shared_ptr<string> instanceKey_ {};
     // The filter condition for rule labels. The value is a JSON-formatted string that supports filtering by label key-value pairs.
     shared_ptr<AlertRuleLabelFilter> labelFilter_ {};
-    // The level of the most recent alert during the alert duration. Valid values: CRITICAL, WARN, and INFO.
+    // The level of the most recent alert during the alert duration. Valid values: CRITICAL (critical), WARN (warning), and INFO (info).
     shared_ptr<string> latestLevel_ {};
-    // The highest alert level reached during the alert duration. Valid values: CRITICAL, WARN, and INFO.
+    // The highest alert level reached during the alert duration. Valid values: CRITICAL (critical), WARN (warning), and INFO (info).
     shared_ptr<string> maxLevel_ {};
-    // The maximum number of results to return on each page. This parameter is not supported. Use pageSize and pageNumber for pagination.
+    // The maximum number of results returned per page in a paged query. This parameter is not supported. Use pageSize and pageNumber for paged queries.
     shared_ptr<int32_t> maxResults_ {};
-    // The migration status of the alert history.
+    // The migration status value of the alert history.
     shared_ptr<int32_t> migrationStatus_ {};
-    // The pagination token used for the next query. This parameter is not supported. Use pageSize and pageNumber for pagination.
+    // The paging token for querying the next page. This parameter is not supported. Use pageSize and pageNumber for a paging query.
     shared_ptr<string> nextToken_ {};
-    // Filters alert rules that contain specific notification recipients. Only rules that contain at least one of the notification recipients specified in notifyTargets are returned in the result list.
+    // Filters alert rules that contain specified notification recipients. Only rules that contain any notification recipient specified in notifyTargets are returned in the result list.
     shared_ptr<AlertRuleNotificationFilter> notificationFilter_ {};
-    // The relation type of the observed object. Examples: GROUP, INSTANCE, and TAG.
+    // The relation type of the observed object, such as GROUP, INSTANCE, and TAG.
     shared_ptr<string> observeRelationType_ {};
     // The dimension column (domain) of the observed object.
     shared_ptr<string> observeResourceDomain_ {};
@@ -310,19 +310,19 @@ namespace Models
     shared_ptr<bool> observeResourceGlobalScope_ {};
     // Filters the alert history by resource instance ID.
     shared_ptr<string> observeResourceInstanceId_ {};
-    // The type of the observed object. Examples: PROMETHEUS, APM, RUM, and cms_basic.
+    // The type of the observed object, such as PROMETHEUS, APM, RUM, and cms_basic.
     shared_ptr<string> observeResourceType_ {};
-    // The page number. Default value: 1.
+    // The page number for a paged query. Default value: 1.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of alert history records to return on each page. Default value: 10.
+    // The number of alert history records returned per page in a paged query. Default value: 10.
     shared_ptr<int32_t> pageSize_ {};
-    // The key used for data partitioning. Typically, you do not need to specify this parameter.
+    // The key value used for data partitioning. Typically, you do not need to specify this parameter.
     shared_ptr<string> partitionKey_ {};
-    // The start timestamp of the time range for the alert start time. The value is a UNIX timestamp in milliseconds. If not specified, the default value is the time 30 days ago.
+    // The start timestamp of the time range for the alert start time. The value is a UNIX timestamp in milliseconds. If not specified, the default value is 30 days ago.
     shared_ptr<int64_t> startTimeFrom_ {};
     // The end timestamp of the time range for the alert start time. The value is a UNIX timestamp in milliseconds. If not specified, the default value is the current time.
     shared_ptr<int64_t> startTimeTo_ {};
-    // The current status of the alert history. Valid values: OK and ALARM.
+    // The current status of the alert history. Valid values: OK (recovered) and ALARM (alerting).
     shared_ptr<string> status_ {};
     // The identifier of the workspace to which the alert history belongs. If not specified, the default workspace is used.
     shared_ptr<string> workspace_ {};

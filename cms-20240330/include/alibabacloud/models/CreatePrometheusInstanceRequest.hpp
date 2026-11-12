@@ -17,6 +17,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(archiveDuration, archiveDuration_);
       DARABONBA_PTR_TO_JSON(authFreeReadPolicy, authFreeReadPolicy_);
       DARABONBA_PTR_TO_JSON(authFreeWritePolicy, authFreeWritePolicy_);
+      DARABONBA_PTR_TO_JSON(dryrun, dryrun_);
       DARABONBA_PTR_TO_JSON(enableAuthFreeRead, enableAuthFreeRead_);
       DARABONBA_PTR_TO_JSON(enableAuthFreeWrite, enableAuthFreeWrite_);
       DARABONBA_PTR_TO_JSON(enableAuthToken, enableAuthToken_);
@@ -32,6 +33,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(archiveDuration, archiveDuration_);
       DARABONBA_PTR_FROM_JSON(authFreeReadPolicy, authFreeReadPolicy_);
       DARABONBA_PTR_FROM_JSON(authFreeWritePolicy, authFreeWritePolicy_);
+      DARABONBA_PTR_FROM_JSON(dryrun, dryrun_);
       DARABONBA_PTR_FROM_JSON(enableAuthFreeRead, enableAuthFreeRead_);
       DARABONBA_PTR_FROM_JSON(enableAuthFreeWrite, enableAuthFreeWrite_);
       DARABONBA_PTR_FROM_JSON(enableAuthToken, enableAuthToken_);
@@ -99,9 +101,9 @@ namespace Models
     };
 
     virtual bool empty() const override { return this->archiveDuration_ == nullptr
-        && this->authFreeReadPolicy_ == nullptr && this->authFreeWritePolicy_ == nullptr && this->enableAuthFreeRead_ == nullptr && this->enableAuthFreeWrite_ == nullptr && this->enableAuthToken_ == nullptr
-        && this->paymentType_ == nullptr && this->prometheusInstanceName_ == nullptr && this->resourceGroupId_ == nullptr && this->status_ == nullptr && this->storageDuration_ == nullptr
-        && this->tags_ == nullptr && this->workspace_ == nullptr; };
+        && this->authFreeReadPolicy_ == nullptr && this->authFreeWritePolicy_ == nullptr && this->dryrun_ == nullptr && this->enableAuthFreeRead_ == nullptr && this->enableAuthFreeWrite_ == nullptr
+        && this->enableAuthToken_ == nullptr && this->paymentType_ == nullptr && this->prometheusInstanceName_ == nullptr && this->resourceGroupId_ == nullptr && this->status_ == nullptr
+        && this->storageDuration_ == nullptr && this->tags_ == nullptr && this->workspace_ == nullptr; };
     // archiveDuration Field Functions 
     bool hasArchiveDuration() const { return this->archiveDuration_ != nullptr;};
     void deleteArchiveDuration() { this->archiveDuration_ = nullptr;};
@@ -121,6 +123,13 @@ namespace Models
     void deleteAuthFreeWritePolicy() { this->authFreeWritePolicy_ = nullptr;};
     inline string getAuthFreeWritePolicy() const { DARABONBA_PTR_GET_DEFAULT(authFreeWritePolicy_, "") };
     inline CreatePrometheusInstanceRequest& setAuthFreeWritePolicy(string authFreeWritePolicy) { DARABONBA_PTR_SET_VALUE(authFreeWritePolicy_, authFreeWritePolicy) };
+
+
+    // dryrun Field Functions 
+    bool hasDryrun() const { return this->dryrun_ != nullptr;};
+    void deleteDryrun() { this->dryrun_ = nullptr;};
+    inline bool getDryrun() const { DARABONBA_PTR_GET_DEFAULT(dryrun_, false) };
+    inline CreatePrometheusInstanceRequest& setDryrun(bool dryrun) { DARABONBA_PTR_SET_VALUE(dryrun_, dryrun) };
 
 
     // enableAuthFreeRead Field Functions 
@@ -196,36 +205,40 @@ namespace Models
 
 
   protected:
-    // The number of days that data is automatically archived after the storage period expires. A value of 0 indicates that data is not archived. Valid values for the archive duration:
+    // The number of days to automatically archive data after the storage period expires. A value of 0 indicates that data is not archived. Valid values for the archive duration:
     // * V1: 60 to 365 days.
-    // * V2: 60 to 3650 days (3650 indicates permanent retention).
+    // * V2: 60 to 3650 days. A value of 3650 indicates permanent retention.
     shared_ptr<int32_t> archiveDuration_ {};
-    // The authentication-free read policy. IP CIDR blocks and VPC IDs are supported.
+    // The authentication-free read policy. IP address ranges and VPC IDs are supported.
     shared_ptr<string> authFreeReadPolicy_ {};
     // The authentication-free write policy.
     shared_ptr<string> authFreeWritePolicy_ {};
-    // Specifies whether to enable authentication-free read. This parameter is supported only for V2 instances.
+    // Specifies whether to perform a dry run only. Valid values:
+    // * true: performs a dry run without creating the instance. The system checks whether required parameters are specified, the request format is valid, and service limits are met. If the request fails the check, an error is returned. If the request passes the check, the DryRunOperation error code is returned.
+    // * false: sends a normal request and creates the instance directly after the request passes the check. This is the default value.
+    shared_ptr<bool> dryrun_ {};
+    // Specifies whether to enable authentication-free read access. This feature is supported only in V2.
     shared_ptr<bool> enableAuthFreeRead_ {};
-    // Specifies whether to enable authentication-free write. This parameter is supported only for V2 instances.
+    // Specifies whether to enable authentication-free write access. This feature is supported only in V2.
     shared_ptr<bool> enableAuthFreeWrite_ {};
-    // Specifies whether to enable the authorization token. This parameter is supported only for V1 instances.
+    // Specifies whether to enable the authorization token. This feature is supported only in V1.
     shared_ptr<bool> enableAuthToken_ {};
-    // The billable methods. Valid values:
-    // * POSTPAY: pay-as-you-go by metric reporting volume.
-    // * POSTPAY_GB: pay-as-you-go by metric write volume.
-    // If this parameter is left empty, the default billing method configured by the user is used. If the user has not configured a default billing method, the system uses pay-as-you-go by metric reporting volume.
+    // Billable methods. Valid values:
+    // * POSTPAY: pay-as-you-go based on the volume of reported metrics.
+    // * POSTPAY_GB: pay-as-you-go based on the volume of written metrics.
+    // Note: If this parameter is left empty, the default billing method configured for the user is used. If no default billing method is configured, the system uses the pay-as-you-go billing method based on the volume of reported metrics by default.
     shared_ptr<string> paymentType_ {};
-    // The instance name.
+    // The name of the instance.
     // 
     // This parameter is required.
     shared_ptr<string> prometheusInstanceName_ {};
-    // The resource group ID.
+    // The ID of the resource group.
     shared_ptr<string> resourceGroupId_ {};
     // The instance status.
     shared_ptr<string> status_ {};
-    // The storage duration (in days):
-    // * By write volume: 90 or 180.
-    // * By metric reporting volume: 15, 30, 60, 90, or 180.
+    // The storage duration in days.
+    // * By written data volume: 90 and 180.
+    // * By reported metric volume: 15, 30, 60, 90, and 180.
     shared_ptr<int32_t> storageDuration_ {};
     // The tags.
     shared_ptr<vector<CreatePrometheusInstanceRequest::Tags>> tags_ {};

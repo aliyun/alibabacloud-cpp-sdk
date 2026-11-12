@@ -177,29 +177,29 @@ namespace Models
   protected:
     // The list of contact IDs.
     shared_ptr<vector<string>> contacts_ {};
-    // The list of custom webhook Notification Recipient IDs.
+    // The list of custom webhook notification recipient IDs.
     shared_ptr<vector<string>> customWebhooks_ {};
-    // The list of DingTalk Cool App webhook Notification Recipient IDs.
+    // The list of DingTalk cool app webhook notification recipient IDs.
     shared_ptr<vector<string>> dingCoolAppWebhooks_ {};
-    // The list of DingTalk webhook Notification Recipient IDs.
+    // The list of DingTalk webhook notification recipient IDs.
     shared_ptr<vector<string>> dingWebhooks_ {};
-    // The list of Lark webhook Notification Recipient IDs.
+    // The list of Lark webhook notification recipient IDs.
     shared_ptr<vector<string>> fsWebhooks_ {};
     // The list of contact group IDs.
     shared_ptr<vector<string>> groups_ {};
-    // The notification time window. Notifications are sent only within this time window.
+    // The notification time period during which notifications are sent.
     shared_ptr<AlertRuleTimeSpan> notifyTime_ {};
-    // The Qwen (Qwencloud) Notification Recipient configuration. Both the outer key and inner key are custom identity values. The inner Boolean value specifies whether the Notification Recipient is enabled.
+    // The Qwen notification recipient configuration. The outer and inner keys are custom identifiers, and the inner Boolean value specifies whether to enable the notification recipient.
     shared_ptr<map<string, Darabonba::Json>> qwencloudContacts_ {};
-    // Specifies whether to send recovery notifications. Each severity level in severityNotifications can independently override this setting.
+    // Specifies whether to send a recovery notification. This setting can be independently overridden for each severity level in severityNotifications.
     shared_ptr<bool> sendOk_ {};
-    // The Notification Recipients and channels configured by severity level. This parameter is mutually exclusive with the top-level contacts, groups, and similar parameters. The key is the severity level: CRITICAL, ERROR, WARNING, or INFO.
+    // The notification recipients and channels configured by severity level, which are mutually exclusive with top-level contacts and groups. The key is the severity level: CRITICAL, ERROR, WARNING, or INFO.
     shared_ptr<map<string, SeverityNotifyConfig>> severityNotifications_ {};
-    // The notification mute duration. Unit: seconds.
+    // The notification mute period, in seconds.
     shared_ptr<int64_t> silenceTime_ {};
-    // The list of Slack webhook Notification Recipient IDs.
+    // The list of Slack webhook notification recipient IDs.
     shared_ptr<vector<string>> slackWebhooks_ {};
-    // The list of WeChat webhook Notification Recipient IDs.
+    // The list of WeChat webhook notification recipient IDs.
     shared_ptr<vector<string>> wxWebhooks_ {};
   };
 

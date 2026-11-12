@@ -97,9 +97,9 @@ namespace Models
 
 
       protected:
-        // The Logstore name.
+        // The Simple Log Service Logstore name.
         shared_ptr<string> logstore_ {};
-        // The filter query.
+        // The filter statement.
         shared_ptr<string> query_ {};
       };
 
@@ -122,9 +122,9 @@ namespace Models
 
 
     protected:
-      // The Log Service Logstore configuration.
+      // The Simple Log Service Logstore information.
       shared_ptr<Source::Logstore> logstore_ {};
-      // The source type.
+      // The data source type.
       shared_ptr<string> type_ {};
     };
 
@@ -187,7 +187,7 @@ namespace Models
 
 
       protected:
-        // The dataset name.
+        // The dataset.
         shared_ptr<string> dataset_ {};
         // The workspace ID.
         shared_ptr<string> workspace_ {};
@@ -212,9 +212,9 @@ namespace Models
 
 
     protected:
-      // The destination dataset configuration.
+      // The dataset.
       shared_ptr<Sink::Dataset> dataset_ {};
-      // The sink type.
+      // The data sink type.
       shared_ptr<string> type_ {};
     };
 
@@ -288,7 +288,7 @@ namespace Models
       protected:
         // The node ID.
         shared_ptr<string> id_ {};
-        // The node parameters.
+        // The parameters.
         Darabonba::Json parameters_ {};
         // The node type.
         shared_ptr<string> type_ {};
@@ -305,7 +305,7 @@ namespace Models
 
 
     protected:
-      // The pipeline nodes.
+      // The nodes.
       shared_ptr<vector<Pipeline::Nodes>> nodes_ {};
     };
 
@@ -372,7 +372,7 @@ namespace Models
       protected:
         // The start timestamp.
         shared_ptr<int64_t> fromTime_ {};
-        // The execution interval.
+        // The time interval.
         shared_ptr<string> interval_ {};
       };
 
@@ -450,9 +450,9 @@ namespace Models
     protected:
       // The execution mode.
       shared_ptr<string> mode_ {};
-      // The one-time execution configuration.
+      // The configuration for one-time execution.
       shared_ptr<ExecutePolicy::RunOnce> runOnce_ {};
-      // The scheduled execution configuration.
+      // The configuration for scheduled execution.
       shared_ptr<ExecutePolicy::Scheduled> scheduled_ {};
     };
 
@@ -502,15 +502,15 @@ namespace Models
 
 
   protected:
-    // The pipeline description.
+    // The description.
     shared_ptr<string> description_ {};
     // The execution policy.
     shared_ptr<UpdatePipelineRequest::ExecutePolicy> executePolicy_ {};
     // The pipeline configuration.
     shared_ptr<UpdatePipelineRequest::Pipeline> pipeline_ {};
-    // The data sink configuration.
+    // The data sink.
     shared_ptr<UpdatePipelineRequest::Sink> sink_ {};
-    // The data source configuration.
+    // The data source.
     shared_ptr<UpdatePipelineRequest::Source> source_ {};
   };
 

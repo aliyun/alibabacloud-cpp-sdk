@@ -14,15 +14,15 @@ namespace Models
   public:
     friend void to_json(Darabonba::Json& j, const ScheduleValue& obj) { 
       DARABONBA_PTR_TO_JSON(contactId, contactId_);
-      DARABONBA_PTR_TO_JSON(contactName, contactName_);
       DARABONBA_PTR_TO_JSON(end, end_);
       DARABONBA_PTR_TO_JSON(start, start_);
+      DARABONBA_PTR_TO_JSON(contactName, contactName_);
     };
     friend void from_json(const Darabonba::Json& j, ScheduleValue& obj) { 
       DARABONBA_PTR_FROM_JSON(contactId, contactId_);
-      DARABONBA_PTR_FROM_JSON(contactName, contactName_);
       DARABONBA_PTR_FROM_JSON(end, end_);
       DARABONBA_PTR_FROM_JSON(start, start_);
+      DARABONBA_PTR_FROM_JSON(contactName, contactName_);
     };
     ScheduleValue() = default ;
     ScheduleValue(const ScheduleValue &) = default ;
@@ -36,19 +36,12 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->contactId_ == nullptr
-        && this->contactName_ == nullptr && this->end_ == nullptr && this->start_ == nullptr; };
+        && this->end_ == nullptr && this->start_ == nullptr && this->contactName_ == nullptr; };
     // contactId Field Functions 
     bool hasContactId() const { return this->contactId_ != nullptr;};
     void deleteContactId() { this->contactId_ = nullptr;};
     inline string getContactId() const { DARABONBA_PTR_GET_DEFAULT(contactId_, "") };
     inline ScheduleValue& setContactId(string contactId) { DARABONBA_PTR_SET_VALUE(contactId_, contactId) };
-
-
-    // contactName Field Functions 
-    bool hasContactName() const { return this->contactName_ != nullptr;};
-    void deleteContactName() { this->contactName_ = nullptr;};
-    inline string getContactName() const { DARABONBA_PTR_GET_DEFAULT(contactName_, "") };
-    inline ScheduleValue& setContactName(string contactName) { DARABONBA_PTR_SET_VALUE(contactName_, contactName) };
 
 
     // end Field Functions 
@@ -65,15 +58,22 @@ namespace Models
     inline ScheduleValue& setStart(string start) { DARABONBA_PTR_SET_VALUE(start_, start) };
 
 
+    // contactName Field Functions 
+    bool hasContactName() const { return this->contactName_ != nullptr;};
+    void deleteContactName() { this->contactName_ = nullptr;};
+    inline string getContactName() const { DARABONBA_PTR_GET_DEFAULT(contactName_, "") };
+    inline ScheduleValue& setContactName(string contactName) { DARABONBA_PTR_SET_VALUE(contactName_, contactName) };
+
+
   protected:
     // The ID of the on-call contact.
     shared_ptr<string> contactId_ {};
-    // The name of the on-call contact.
-    shared_ptr<string> contactName_ {};
     // The end time. Format: yyyy-MM-dd HH:mm:ss.
     shared_ptr<string> end_ {};
     // The start time. Format: yyyy-MM-dd HH:mm:ss.
     shared_ptr<string> start_ {};
+    // The name of the on-call contact.
+    shared_ptr<string> contactName_ {};
   };
 
   } // namespace Models

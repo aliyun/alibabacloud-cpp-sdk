@@ -111,7 +111,7 @@ namespace Models
     shared_ptr<string> name_ {};
     // The unique ID of the robot.
     shared_ptr<string> robotId_ {};
-    // The signature key of the robot.
+    // The signing key of the robot.
     shared_ptr<string> robotSignKey_ {};
     // The type of the robot.
     // 

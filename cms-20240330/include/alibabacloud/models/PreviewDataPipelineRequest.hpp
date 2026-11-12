@@ -189,7 +189,7 @@ namespace Models
     protected:
       // The datasource config.
       shared_ptr<Source::Config> config_ {};
-      // The type of the data source.
+      // The data source type.
       shared_ptr<string> type_ {};
     };
 
@@ -260,15 +260,15 @@ namespace Models
 
 
     protected:
-      // The list of datasets.
+      // The dataset list.
       shared_ptr<vector<string>> datasets_ {};
       // SLS Logstore
       shared_ptr<string> logstore_ {};
-      // The name of the output destination.
+      // The output destination name.
       shared_ptr<string> name_ {};
       // SLS Project
       shared_ptr<string> project_ {};
-      // The type of the output destination.
+      // The output destination type.
       shared_ptr<string> type_ {};
     };
 
@@ -768,7 +768,7 @@ namespace Models
           shared_ptr<string> maskChar_ {};
           // The data masking mode.
           shared_ptr<string> mode_ {};
-          // The built-in sensitive data types.
+          // The built-in sensitive types.
           shared_ptr<vector<string>> types_ {};
         };
 
@@ -1534,7 +1534,7 @@ namespace Models
             shared_ptr<string> maskChar_ {};
             // The data masking mode.
             shared_ptr<string> mode_ {};
-            // The built-in sensitive data types.
+            // The built-in sensitive types.
             shared_ptr<vector<string>> types_ {};
           };
 
@@ -1899,7 +1899,7 @@ namespace Models
     shared_ptr<vector<PreviewDataPipelineRequest::Sinks>> sinks_ {};
     // The data source.
     shared_ptr<PreviewDataPipelineRequest::Source> source_ {};
-    // The end time for the preview. The value is a UNIX timestamp in seconds.
+    // The end time for the preview, specified as a UNIX timestamp in seconds.
     shared_ptr<int64_t> toTime_ {};
   };
 

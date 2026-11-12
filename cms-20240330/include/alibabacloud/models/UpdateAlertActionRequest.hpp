@@ -112,7 +112,7 @@ namespace Models
       shared_ptr<map<string, string>> headers_ {};
       // The webhook request method.
       shared_ptr<string> method_ {};
-      // The alert callback URL.
+      // The URL for the alert callback.
       shared_ptr<string> url_ {};
     };
 
@@ -209,9 +209,9 @@ namespace Models
 
 
     protected:
-      // The integration key of PagerDuty.
+      // The integration key for PagerDuty.
       shared_ptr<string> key_ {};
-      // The integration webhook of PagerDuty. V1 and V2 are supported.
+      // The integration webhook URL for PagerDuty. Both V1 and V2 are supported.
       shared_ptr<string> url_ {};
     };
 
@@ -262,9 +262,9 @@ namespace Models
 
 
     protected:
-      // The resource type of Simple Message Queue (formerly MNS).
+      // The Simple Message Queue (formerly MNS) resource type.
       shared_ptr<string> mnsType_ {};
-      // The name of the resource.
+      // The resource name.
       // 
       // - If the resource type is queue, the resource name is the queue name.
       // - If the resource type is topic, the resource name is the topic name.
@@ -324,7 +324,7 @@ namespace Models
       shared_ptr<string> function_ {};
       // The region ID.
       shared_ptr<string> regionId_ {};
-      // The service name in Function Compute.
+      // The service name of Function Compute.
       shared_ptr<string> service_ {};
     };
 
@@ -594,9 +594,9 @@ namespace Models
 
 
   protected:
-    // The name of the alert action integration.
+    // The name of the action integration.
     shared_ptr<string> alertActionName_ {};
-    // The event bus.
+    // The event bus parameters.
     shared_ptr<UpdateAlertActionRequest::EbParam> ebParam_ {};
     // The elastic scaling parameters.
     shared_ptr<UpdateAlertActionRequest::EssParam> essParam_ {};
@@ -610,7 +610,7 @@ namespace Models
     shared_ptr<UpdateAlertActionRequest::PagerDutyParam> pagerDutyParam_ {};
     // The Simple Log Service parameters.
     shared_ptr<UpdateAlertActionRequest::SlsParam> slsParam_ {};
-    // The type of the alert action integration.
+    // The action integration type.
     shared_ptr<string> type_ {};
     // The webhook parameters.
     shared_ptr<UpdateAlertActionRequest::WebhookParam> webhookParam_ {};

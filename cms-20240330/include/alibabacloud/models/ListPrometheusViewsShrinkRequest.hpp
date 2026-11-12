@@ -121,11 +121,11 @@ namespace Models
 
 
   protected:
-    // Filters the results by region ID. Currently, only a single region ID is supported.
+    // The region IDs used for filtering. Currently, only a single region ID is supported.
     shared_ptr<string> filterRegionIds_ {};
-    // The maximum number of records to return.
+    // The maximum number of entries to return.
     shared_ptr<int32_t> maxResults_ {};
-    // The query token.
+    // The pagination token.
     shared_ptr<string> nextToken_ {};
     // The list of Prometheus view instance IDs.
     shared_ptr<string> prometheusViewIds_ {};
@@ -137,7 +137,7 @@ namespace Models
     shared_ptr<string> resourceType_ {};
     // The list of tags.
     shared_ptr<string> tagShrink_ {};
-    // The instance version.
+    // The instance version. Valid values: V1 and V2.
     shared_ptr<string> version_ {};
     // The name of the workspace.
     shared_ptr<string> workspace_ {};

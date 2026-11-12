@@ -283,27 +283,27 @@ namespace Models
 
 
     protected:
-      // The unique identifier of the alert history.
+      // The unique identifier of the alert history record.
       shared_ptr<string> alertHistoryId_ {};
-      // The unique identifier of the alert rule that generated the alert history.
+      // The unique identifier of the alert rule that generated the alert history record.
       shared_ptr<string> alertRuleId_ {};
-      // The snapshot of the annotations of the alert rule. The annotations are stored as key-value pairs and copied from the rule when the alert is triggered.
+      // The snapshot of the annotations of the alert rule, stored as key-value pairs and copied from the rule when the alert is triggered.
       shared_ptr<map<string, string>> annotations_ {};
       // The business source.
       shared_ptr<string> bizSource_ {};
-      // The cumulative number of alerts (alert events) during the alert duration.
+      // The cumulative number of alert events during the alert duration.
       shared_ptr<int64_t> count_ {};
-      // The end time (recovery time) of the alert. This field has a value only when the alert history enters the OK state. The value is a UNIX timestamp in milliseconds.
+      // The end time of the alert, which is the recovery time. This field has a value only when the alert history enters the OK state. The value is a UNIX timestamp in milliseconds.
       shared_ptr<int64_t> endTime_ {};
       // The creation time of the alert history record. The value is a UNIX timestamp in milliseconds.
       shared_ptr<int64_t> gmtCreate_ {};
       // The last modification time of the alert history record. The value is a UNIX timestamp in milliseconds.
       shared_ptr<int64_t> gmtModified_ {};
-      // The detailed information of the alert object. The information is stored as key-value pairs.
+      // The detailed information of the alert object, stored as key-value pairs.
       shared_ptr<map<string, string>> instanceDetail_ {};
-      // The unique key (instanceKey) used to identify the alert object instance.
+      // The unique key value (instanceKey) that identifies the alert object instance.
       shared_ptr<string> instanceKey_ {};
-      // The snapshot of the labels of the alert rule. The labels are stored as key-value pairs and copied from the rule when the alert is triggered.
+      // The snapshot of the labels of the alert rule, stored as key-value pairs and copied from the rule when the alert is triggered.
       shared_ptr<map<string, string>> labels_ {};
       // The level of the most recent alert during the alert duration, such as CRITICAL, WARN, or INFO.
       shared_ptr<string> latestLevel_ {};
@@ -311,23 +311,23 @@ namespace Models
       shared_ptr<string> maxLevel_ {};
       // The content of the latest alert message.
       shared_ptr<string> message_ {};
-      // Indicates whether the observed object is in the global scope. The value is copied from the rule when the alert history is created.
+      // Indicates whether the observed object is in the global scope. This value is copied from the rule when the alert history record is created.
       shared_ptr<bool> observeResourceGlobalScope_ {};
-      // The serialized string of the observed object list. The value is copied from the rule when the alert history is created.
+      // The serialized string of the observed object list. This value is copied from the rule when the alert history record is created.
       shared_ptr<string> observeResourceList_ {};
-      // The type of the observed object, such as PROMETHEUS, APM, RUM, or cms_basic. The value is copied from the rule when the alert history is created.
+      // The type of the observed object, such as PROMETHEUS, APM, RUM, or cms_basic. This value is copied from the rule when the alert history record is created.
       shared_ptr<string> observeResourceType_ {};
-      // The ID of the region to which the alert history belongs.
+      // The ID of the region to which the alert history record belongs.
       shared_ptr<string> regionId_ {};
       // The display name of the corresponding rule.
       shared_ptr<string> ruleDisplayName_ {};
-      // The notification sending configuration information corresponding to the alert history.
+      // The notification sending configuration information corresponding to the alert history record.
       shared_ptr<AlertRuleSend> send_ {};
-      // The start time of the alert history. The value is a UNIX timestamp in milliseconds.
+      // The start time of the alert history record. The value is a UNIX timestamp in milliseconds.
       shared_ptr<int64_t> startTime_ {};
       // The current alert status of the rule. Valid values: OK (recovered) and ALARM (alerting).
       shared_ptr<string> status_ {};
-      // The identifier of the workspace to which the alert history belongs.
+      // The identifier of the workspace to which the alert history record belongs.
       shared_ptr<string> workspace_ {};
     };
 
@@ -386,7 +386,7 @@ namespace Models
 
 
   protected:
-    // The list of alert histories that match the query conditions.
+    // The list of alert history records that match the query conditions.
     shared_ptr<vector<ListAlertHistoriesResponseBody::Data>> data_ {};
     // The maximum number of entries to return.
     shared_ptr<int32_t> maxResults_ {};

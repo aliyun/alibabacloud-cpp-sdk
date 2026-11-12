@@ -165,15 +165,15 @@ namespace Models
 
 
       protected:
-        // The first transition time in ISO 8601 format, including the UTC identifier or time zone offset.
+        // The first transition time in ISO 8601 format, including the UTC designator or time zone offset.
         shared_ptr<string> firstTransitionTime_ {};
-        // The last transition time in ISO 8601 format, including the UTC identifier or time zone offset.
+        // The last transition time in ISO 8601 format, including the UTC designator or time zone offset.
         shared_ptr<string> lastTransitionTime_ {};
-        // The details.
+        // The detailed information.
         shared_ptr<string> message_ {};
-        // The stage status.
+        // The phase status.
         shared_ptr<string> status_ {};
-        // The stage type.
+        // The phase type.
         shared_ptr<string> type_ {};
       };
 
@@ -363,15 +363,15 @@ namespace Models
 
 
     protected:
-      // The name of the addon for the integrated monitoring component.
+      // The name of the add-on integrated for monitoring.
       shared_ptr<string> addonName_ {};
       // The number of alert groups.
       shared_ptr<int64_t> alertRuleCount_ {};
-      // The component installation stage information.
+      // The component installation phase information.
       shared_ptr<vector<Release::Conditions>> conditions_ {};
       // The component configuration.
       shared_ptr<string> config_ {};
-      // The integration time in ISO 8601 format, including the UTC identifier or time zone offset.
+      // The integration time in ISO 8601 format, including the UTC designator or time zone offset.
       shared_ptr<string> createTime_ {};
       // The number of dashboards.
       shared_ptr<int64_t> dashboardCount_ {};
@@ -381,17 +381,17 @@ namespace Models
       shared_ptr<string> envType_ {};
       // The environment ID.
       shared_ptr<string> environmentId_ {};
-      // The number of plugins.
+      // The number of exporters.
       shared_ptr<int64_t> exporterCount_ {};
-      // Indicates whether a configuration exists.
+      // Indicates whether a configuration is available.
       shared_ptr<bool> haveConfig_ {};
       // The ID of the user who installed the component.
       shared_ptr<string> installUserId_ {};
       // The language.
       shared_ptr<string> language_ {};
-      // Indicates whether the component is managed.
+      // Indicates whether the component is a managed component.
       shared_ptr<bool> managed_ {};
-      // The ID of the parent add-on release.
+      // The parent AddonReleaseId.
       shared_ptr<string> parentAddonReleaseId_ {};
       // The policy environment ID.
       shared_ptr<string> policyId_ {};
@@ -399,15 +399,15 @@ namespace Models
       shared_ptr<string> regionId_ {};
       // The release ID after installation.
       shared_ptr<string> releaseId_ {};
-      // The name of the release.
+      // The release name.
       shared_ptr<string> releaseName_ {};
       // The component scenario.
       shared_ptr<string> scene_ {};
       // The component status.
       shared_ptr<string> status_ {};
-      // The update time in ISO 8601 format, including the UTC identifier or time zone offset.
+      // The update time in ISO 8601 format, including the UTC designator or time zone offset.
       shared_ptr<string> updateTime_ {};
-      // The ID of the owner.
+      // The ID of the owner user.
       shared_ptr<string> userId_ {};
       // The component version.
       shared_ptr<string> version_ {};

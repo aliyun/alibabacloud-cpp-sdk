@@ -144,13 +144,13 @@ namespace Models
   protected:
     // The email address.
     shared_ptr<string> email_ {};
-    // Specifies whether the email address is authenticated.
+    // Indicates whether the email address is verified.
     shared_ptr<bool> emailVerify_ {};
-    // An extension field used to store additional information.
+    // The extension field used to store additional information.
     Darabonba::Json extend_ {};
-    // The time when the contact was created.
+    // The creation time.
     shared_ptr<string> gmtCreate_ {};
-    // The time when the contact was last modified.
+    // The last modification time.
     shared_ptr<string> gmtModified_ {};
     // The unique identifier of the contact.
     shared_ptr<string> identifier_ {};
@@ -160,9 +160,9 @@ namespace Models
     shared_ptr<string> name_ {};
     // The mobile phone number.
     shared_ptr<string> phone_ {};
-    // The country code for the mobile phone number.
+    // The country code of the mobile phone number.
     shared_ptr<string> phoneCode_ {};
-    // Specifies whether the mobile phone number is authenticated.
+    // Indicates whether the mobile phone number is verified.
     shared_ptr<bool> phoneVerify_ {};
     // The source system of the contact.
     shared_ptr<string> source_ {};

@@ -167,15 +167,15 @@ namespace Models
 
 
       protected:
-        // The time when the phase first transitioned.
+        // The time of the first transition.
         shared_ptr<string> firstTransitionTime_ {};
-        // The time when the phase last transitioned.
+        // The time of the last transition.
         shared_ptr<string> lastTransitionTime_ {};
-        // The detailed message.
+        // The detailed information.
         shared_ptr<string> message_ {};
-        // The status of the phase.
+        // The phase status.
         shared_ptr<string> status_ {};
-        // The type of the phase.
+        // The phase type.
         shared_ptr<string> type_ {};
       };
 
@@ -369,49 +369,49 @@ namespace Models
       shared_ptr<string> addonName_ {};
       // The number of alert rules.
       shared_ptr<int64_t> alertRuleCount_ {};
-      // Information about the installation phases.
+      // The installation phase information.
       shared_ptr<vector<Release::Conditions>> conditions_ {};
-      // The configuration information of the component.
+      // The component configuration information.
       shared_ptr<string> config_ {};
-      // The time when the add-on was accessed.
+      // The provisioning time.
       shared_ptr<string> createTime_ {};
       // The number of dashboards.
       shared_ptr<int64_t> dashboardCount_ {};
-      // The details of the entity.
+      // The entity details.
       shared_ptr<EntityGroupBase> entityRules_ {};
-      // The type of the environment.
+      // The environment type.
       shared_ptr<string> envType_ {};
-      // The ID of the environment.
+      // The environment ID.
       shared_ptr<string> environmentId_ {};
-      // The number of plug-ins.
+      // The number of plugins.
       shared_ptr<int64_t> exporterCount_ {};
-      // Indicates whether a configuration exists.
+      // Specifies whether a configuration exists.
       shared_ptr<bool> haveConfig_ {};
-      // The ID of the user who accessed the add-on.
+      // The ID of the user who provisioned the component.
       shared_ptr<string> installUserId_ {};
       // The language.
       shared_ptr<string> language_ {};
-      // Indicates whether the component is a managed component.
+      // Specifies whether the component is managed.
       shared_ptr<bool> managed_ {};
-      // The ID of the parent add-on release.
+      // The parent AddonRelease ID.
       shared_ptr<string> parentAddonReleaseId_ {};
-      // The ID of the policy.
+      // The policy ID.
       shared_ptr<string> policyId_ {};
-      // The ID of the region.
+      // The region ID.
       shared_ptr<string> regionId_ {};
-      // The ID of the release.
+      // The release ID.
       shared_ptr<string> releaseId_ {};
       // The name of the release.
       shared_ptr<string> releaseName_ {};
-      // The scenario of the component.
+      // The component scenario.
       shared_ptr<string> scene_ {};
-      // The status of the component.
+      // The component status.
       shared_ptr<string> status_ {};
-      // The time when the release was last updated.
+      // The update time.
       shared_ptr<string> updateTime_ {};
-      // The ID of the user to which the release belongs.
+      // The ID of the user to whom the component belongs.
       shared_ptr<string> userId_ {};
-      // The version of the component.
+      // The component version.
       shared_ptr<string> version_ {};
       // The workspace.
       shared_ptr<string> workspace_ {};
@@ -443,11 +443,11 @@ namespace Models
 
 
   protected:
-    // The configuration of the component.
+    // The component configuration.
     shared_ptr<string> config_ {};
-    // The details of the release.
+    // The detailed information.
     shared_ptr<GetAddonReleaseResponseBody::Release> release_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

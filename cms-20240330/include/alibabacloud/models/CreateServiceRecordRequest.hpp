@@ -48,12 +48,11 @@ namespace Models
 
 
   protected:
-    // The entry content in JSON string format. The format may vary depending on the value of recordType.
+    // The content of the entry in JSON string format. The format may vary based on the recordType.
     // 
     // This parameter is required.
     shared_ptr<string> recordContent_ {};
-    // The type of the linked entry. Valid values:
-    // - logCorrelation: application log association.
+    // The type of the association entry. Valid values: logCorrelation, which indicates application log association.
     // 
     // This parameter is required.
     shared_ptr<string> recordType_ {};

@@ -163,23 +163,23 @@ namespace Models
 
 
     protected:
-      // The ID of the on-duty contact.
+      // The ID of the alert contact.
       shared_ptr<string> contactId_ {};
-      // The email address of the contact.
+      // The email address of the alert contact.
       shared_ptr<string> email_ {};
-      // Indicates whether the email address is activated.
+      // Indicates whether the email address is verified.
       shared_ptr<bool> emailVerify_ {};
-      // The contact groups to which the contact belongs.
+      // The alert contact groups to which the alert contact belongs.
       shared_ptr<vector<string>> groupList_ {};
-      // The IM user ID mapping. Multiple instant messaging tools are supported.
+      // The mapping of IM user IDs. Multiple instant messaging tools are supported.
       shared_ptr<map<string, string>> imUserIds_ {};
       // The language.
       shared_ptr<string> lang_ {};
-      // The name of the contact.
+      // The name of the alert contact.
       shared_ptr<string> name_ {};
-      // The mobile phone number of the contact.
+      // The phone number of the alert contact.
       shared_ptr<string> phone_ {};
-      // Indicates whether the mobile phone number of the contact is activated.
+      // Indicates whether the phone number is verified.
       shared_ptr<bool> phoneVerify_ {};
       // The update time. Format: yyyy-MM-dd HH:mm:ss.
       shared_ptr<string> updateTime_ {};
@@ -227,7 +227,7 @@ namespace Models
 
 
   protected:
-    // The list of contacts.
+    // The list of alert contacts.
     shared_ptr<vector<ListContactsResponseBody::Contacts>> contacts_ {};
     // The page number. Default value: 1.
     shared_ptr<int64_t> pageNumber_ {};

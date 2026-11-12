@@ -61,7 +61,7 @@ namespace Models
     shared_ptr<int32_t> maxResults_ {};
     // The pagination token.
     shared_ptr<string> nextToken_ {};
-    // The name of the pipeline.
+    // The pipeline name.
     shared_ptr<string> pipelineName_ {};
   };
 

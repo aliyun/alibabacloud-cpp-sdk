@@ -18,6 +18,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(entityType, entityType_);
       DARABONBA_PTR_TO_JSON(entityTypes, entityTypes_);
       DARABONBA_PTR_TO_JSON(gmtCreate, gmtCreate_);
+      DARABONBA_PTR_TO_JSON(includeRelatedEntities, includeRelatedEntities_);
       DARABONBA_PTR_TO_JSON(instanceIds, instanceIds_);
       DARABONBA_PTR_TO_JSON(nameRules, nameRules_);
       DARABONBA_PTR_TO_JSON(regionIds, regionIds_);
@@ -34,6 +35,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(entityType, entityType_);
       DARABONBA_PTR_FROM_JSON(entityTypes, entityTypes_);
       DARABONBA_PTR_FROM_JSON(gmtCreate, gmtCreate_);
+      DARABONBA_PTR_FROM_JSON(includeRelatedEntities, includeRelatedEntities_);
       DARABONBA_PTR_FROM_JSON(instanceIds, instanceIds_);
       DARABONBA_PTR_FROM_JSON(nameRules, nameRules_);
       DARABONBA_PTR_FROM_JSON(regionIds, regionIds_);
@@ -252,9 +254,9 @@ namespace Models
     };
 
     virtual bool empty() const override { return this->enabled_ == nullptr
-        && this->entityType_ == nullptr && this->entityTypes_ == nullptr && this->gmtCreate_ == nullptr && this->instanceIds_ == nullptr && this->nameRules_ == nullptr
-        && this->regionIds_ == nullptr && this->resourceGroupId_ == nullptr && this->ruleId_ == nullptr && this->ruleType_ == nullptr && this->scope_ == nullptr
-        && this->spl_ == nullptr && this->tagRules_ == nullptr && this->userId_ == nullptr; };
+        && this->entityType_ == nullptr && this->entityTypes_ == nullptr && this->gmtCreate_ == nullptr && this->includeRelatedEntities_ == nullptr && this->instanceIds_ == nullptr
+        && this->nameRules_ == nullptr && this->regionIds_ == nullptr && this->resourceGroupId_ == nullptr && this->ruleId_ == nullptr && this->ruleType_ == nullptr
+        && this->scope_ == nullptr && this->spl_ == nullptr && this->tagRules_ == nullptr && this->userId_ == nullptr; };
     // enabled Field Functions 
     bool hasEnabled() const { return this->enabled_ != nullptr;};
     void deleteEnabled() { this->enabled_ = nullptr;};
@@ -283,6 +285,13 @@ namespace Models
     void deleteGmtCreate() { this->gmtCreate_ = nullptr;};
     inline int64_t getGmtCreate() const { DARABONBA_PTR_GET_DEFAULT(gmtCreate_, 0L) };
     inline ObserveGroupDiscoverRule& setGmtCreate(int64_t gmtCreate) { DARABONBA_PTR_SET_VALUE(gmtCreate_, gmtCreate) };
+
+
+    // includeRelatedEntities Field Functions 
+    bool hasIncludeRelatedEntities() const { return this->includeRelatedEntities_ != nullptr;};
+    void deleteIncludeRelatedEntities() { this->includeRelatedEntities_ = nullptr;};
+    inline bool getIncludeRelatedEntities() const { DARABONBA_PTR_GET_DEFAULT(includeRelatedEntities_, false) };
+    inline ObserveGroupDiscoverRule& setIncludeRelatedEntities(bool includeRelatedEntities) { DARABONBA_PTR_SET_VALUE(includeRelatedEntities_, includeRelatedEntities) };
 
 
     // instanceIds Field Functions 
@@ -372,6 +381,8 @@ namespace Models
     shared_ptr<vector<string>> entityTypes_ {};
     // 规则创建时间（Unix 毫秒时间戳），控制台展示用。
     shared_ptr<int64_t> gmtCreate_ {};
+    // 是否自动纳管同 domain、同实体 group 且由指定关系直接出边关联的子实体，历史缺省为 false。
+    shared_ptr<bool> includeRelatedEntities_ {};
     // 手动指定的实例 ID 列表（枚举型，含 1.0 手动实例同步）。
     shared_ptr<vector<string>> instanceIds_ {};
     // 名称匹配规则。

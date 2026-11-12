@@ -116,23 +116,23 @@ namespace Models
 
 
   protected:
-    // The end offset of the time range for SLS_MULTI_QUERY (mutually exclusive with window).
+    // The end offset of the time range for SLS_MULTI_QUERY, which is mutually exclusive with window.
     shared_ptr<int64_t> end_ {};
-    // The query expression (PromQL for PROMETHEUS_MULTI_QUERY and SPL for SLS_MULTI_QUERY).
+    // The query expression, which is PromQL for PROMETHEUS_MULTI_QUERY and SPL for SLS_MULTI_QUERY.
     shared_ptr<string> expr_ {};
-    // The label filter conditions for UMODEL_METRICSET_MULTI_QUERY (optional and independent per query).
+    // The label filter conditions for UMODEL_METRICSET_MULTI_QUERY, which are optional and independent per query.
     shared_ptr<vector<LabelFilters>> labelFilters_ {};
     // The metric name for UMODEL_METRICSET_MULTI_QUERY.
     shared_ptr<string> metric_ {};
     // The metric set name for UMODEL_METRICSET_MULTI_QUERY.
     shared_ptr<string> metricSet_ {};
-    // The query name for PROMETHEUS_MULTI_QUERY or UMODEL_METRICSET_MULTI_QUERY (such as $A or $B, referenced by condition triggers).
+    // The query name for PROMETHEUS_MULTI_QUERY or UMODEL_METRICSET_MULTI_QUERY, such as $A or $B, which is referenced by condition triggers.
     shared_ptr<string> name_ {};
-    // The start offset of the time range for SLS_MULTI_QUERY (mutually exclusive with window).
+    // The start offset of the time range for SLS_MULTI_QUERY, which is mutually exclusive with window.
     shared_ptr<int64_t> start_ {};
-    // The time unit for SLS_MULTI_QUERY (day, hour, minute, or second).
+    // The time unit for SLS_MULTI_QUERY, which can be day, hour, minute, or second.
     shared_ptr<string> timeUnit_ {};
-    // The alignment window size for SLS_MULTI_QUERY (mutually exclusive with start and end).
+    // The alignment window size for SLS_MULTI_QUERY, which is mutually exclusive with start and end.
     shared_ptr<int64_t> window_ {};
   };
 

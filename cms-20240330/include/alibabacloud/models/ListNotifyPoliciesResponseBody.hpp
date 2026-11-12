@@ -79,15 +79,15 @@ namespace Models
 
 
   protected:
-    // The maximum number of entries returned in this request.
+    // The maximum number of records returned for this request.
     shared_ptr<int32_t> maxResults_ {};
-    // The pagination token for the next page. This parameter is empty if no more data is available.
+    // The pagination token for the next page. Empty if no more data is available.
     shared_ptr<string> nextToken_ {};
-    // The list of notify policies. Each entry is of the NotifyPolicySummary type (lightweight view).
+    // The list of notification policies. Each item is of the NotifyPolicySummary type, which is a lightweight view.
     shared_ptr<vector<NotifyPolicySummary>> notifyPolicyList_ {};
-    // The request ID. You can use this ID for troubleshooting and ticket submission.
+    // The unique ID of the request, used for troubleshooting and ticket tracking.
     shared_ptr<string> requestId_ {};
-    // The total number of entries. The actual total is returned on the first page. A fixed value of -1 is returned on subsequent pages.
+    // The total number of records. The actual total is returned for the first page, and -1 is returned for subsequent pages.
     shared_ptr<int64_t> totalCount_ {};
   };
 

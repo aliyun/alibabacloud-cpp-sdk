@@ -106,11 +106,11 @@ namespace Models
 
 
     protected:
-      // The notification template ID.
+      // The ID of the notification template.
       shared_ptr<string> alertNotifyTemplateId_ {};
-      // The notification template name.
+      // The name of the notification template.
       shared_ptr<string> alertNotifyTemplateName_ {};
-      // The template syntax type. The current template syntax is fixed to GO and uses the Go template syntax.
+      // Filters by template syntax type. The current template syntax is fixed to GO and uses Go template syntax.
       shared_ptr<string> programLang_ {};
       // The multilingual notification templates. The key is the language code: zh (Chinese) or en (English). The value is the template configuration object for the language. When a notification is sent, the corresponding template is selected based on the recipient\\"s language. The content format varies by type: Markdown for DING, WEIXIN, and FEISHU; HTML for EMAIL; plain text for SMS, CALL, and SLACK; and JSON for CUSTOM.
       shared_ptr<map<string, Darabonba::Json>> templates_ {};
@@ -172,7 +172,7 @@ namespace Models
     shared_ptr<vector<ListAlertNotifyTemplatesResponseBody::AlertNotifyTemplates>> alertNotifyTemplates_ {};
     // The page number.
     shared_ptr<int64_t> pageNumber_ {};
-    // The page size.
+    // The number of entries per page.
     shared_ptr<int64_t> pageSize_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

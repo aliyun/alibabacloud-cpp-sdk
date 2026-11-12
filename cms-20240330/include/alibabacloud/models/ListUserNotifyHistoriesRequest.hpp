@@ -250,17 +250,17 @@ namespace Models
 
 
   protected:
-    // The notification batch ID. Used to filter the notification history for notifications delivered in the same batch.
+    // The notification batch ID. Used to filter the notification history for notifications sent in the same batch.
     shared_ptr<string> batchId_ {};
-    // **[Deprecated]** This is an internal reserved parameter used only for business source filtering in internal platform scenarios. Do not pass this parameter in external calls.
+    // **[Deprecated]** This is an internal reserved parameter used only for business source filtering in internal platform scenarios. Do not specify this parameter in external calls.
     shared_ptr<string> bizSource_ {};
     // The notification channel. Valid values:
     // - ALI_YUNGE_SMS: text message
-    // - ALI_YUNGE_CALL: voice call
+    // - ALI_YUNGE_CALL: phone call
     // - ALI_YUNGE_MAIL: email
     // - ALI_YUNGE_ALIUID: internal message
     // - DING: DingTalk
-    // - DING_COOL_APP: DingTalk Cool App
+    // - DING_COOL_APP: DingTalk cool app
     // - FEISHU: Lark
     // - WEIXIN: WeCom
     // - SLACK: Slack
@@ -277,23 +277,23 @@ namespace Models
     // - ALIYUN_OPENAPI: OpenAPI
     shared_ptr<string> channel_ {};
     // The channel category. Valid values:
-    // - WEBHOOK: webhook-based channels, such as DingTalk, Lark, WeCom, Slack, Teams, and custom webhooks
-    // - YUNGE: Yunge communication channels, such as text messages, voice calls, and emails
+    // - WEBHOOK: webhook channels, such as DingTalk, Lark, WeCom, Slack, Teams, and custom webhooks.
+    // - YUNGE: communication channels, such as text messages, phone calls, and emails.
     shared_ptr<string> channelCategory_ {};
-    // The start time of the query. The value is a UNIX timestamp in seconds. Default value: 6 hours before the `to` parameter value.
+    // The start time of the query. The value is a UNIX timestamp in seconds. Default value: 6 hours before the to parameter.
     shared_ptr<int32_t> from_ {};
     // The contact group. Used to filter the notification history by contact group name.
     shared_ptr<string> group_ {};
     // The incident ID. Used to filter the notification history associated with a specified incident.
     shared_ptr<string> incidentId_ {};
     // Specifies whether to include notification records that have no actual delivery channel. Valid values:
-    // - true: The records are included.
-    // - false: The records are not included. Only records that were actually delivered through a channel are returned.
+    // - true: includes the records.
+    // - false: excludes the records and returns only records that were actually sent through a channel.
     // Default value: true.
     shared_ptr<bool> includeNoChannel_ {};
     // Specifies whether to sort the results in descending order of time. Valid values:
-    // - true: The results are sorted in descending order, with the latest records appearing first.
-    // - false: The results are sorted in ascending order.
+    // - true: descending order, with the latest records first.
+    // - false: ascending order.
     // Default value: true.
     shared_ptr<bool> isDesc_ {};
     // The maximum number of entries to return per page. Default value: 20.
@@ -304,11 +304,11 @@ namespace Models
     shared_ptr<string> notifyStrategyId_ {};
     // The notification policy name. Used to filter the notification history by notification policy name.
     shared_ptr<string> notifyStrategyName_ {};
-    // **[Deprecated]** This is an internal reserved parameter used only for dedicated notification history query paths in internal platform scenarios. Do not pass this parameter in external calls.
+    // **[Deprecated]** This is an internal reserved parameter used only for dedicated notification history query paths in internal platform scenarios. Do not specify this parameter in external calls.
     shared_ptr<string> partitionKey_ {};
-    // The recipient. Used to filter the notification history by recipient address, such as a phone number, email address, or webhook URL.
+    // The recipient. Used to filter the notification history by recipient address, such as a phone number, email address, or webhook address.
     shared_ptr<string> receiver_ {};
-    // The alert rule ID. Used to filter the notification history triggered by a specified alert rule. Exact match is applied.
+    // The alert rule ID. Used to filter the notification history triggered by a specified alert rule. Exact match is used.
     shared_ptr<string> ruleId_ {};
     // The alert rule name. Used to filter the notification history by rule name.
     shared_ptr<string> ruleName_ {};
@@ -321,20 +321,20 @@ namespace Models
     // - CRITICAL: critical
     // - ERROR: error
     // - WARNING: warning
-    // - INFO: information
+    // - INFO: info
     shared_ptr<string> severity_ {};
     // The subscription ID. Used to filter the notification history for a specified subscription. It is a 32-character string.
     shared_ptr<string> subscriptionId_ {};
     // The subscription name. Used to filter the notification history by subscription name.
     shared_ptr<string> subscriptionName_ {};
     // Specifies whether to filter by delivery result. Valid values:
-    // - true: Only successfully delivered records are returned.
-    // - false: Only failed delivery records are returned.
+    // - true: returns only successfully delivered records.
+    // - false: returns only failed delivery records.
     // If you do not specify this parameter, the results are not filtered by delivery result.
     shared_ptr<bool> success_ {};
     // The end time of the query. The value is a UNIX timestamp in seconds. Default value: the current time.
     shared_ptr<int32_t> to_ {};
-    // The workspace ID.
+    // The workspace identifier.
     // 
     // This parameter is required.
     shared_ptr<string> workspace_ {};

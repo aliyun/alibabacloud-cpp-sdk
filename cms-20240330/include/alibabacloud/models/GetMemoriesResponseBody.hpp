@@ -177,21 +177,21 @@ namespace Models
     protected:
       // The actor ID.
       shared_ptr<string> actorId_ {};
-      // The agent ID.
+      // The agent ID of the application.
       shared_ptr<string> agentId_ {};
       // The application ID.
       shared_ptr<string> appId_ {};
       // The creation time.
       shared_ptr<string> createdAt_ {};
-      // The memory hash.
+      // The memory hash value.
       shared_ptr<string> hash_ {};
       // The memory ID.
       shared_ptr<string> id_ {};
-      // The memory content.
+      // The memory.
       shared_ptr<string> memory_ {};
       // The metadata.
       Darabonba::Json metadata_ {};
-      // The role that sent the message.
+      // The role of the message initiator.
       shared_ptr<string> role_ {};
       // The run ID.
       shared_ptr<string> runId_ {};
@@ -250,11 +250,11 @@ namespace Models
 
 
     protected:
-      // The destination of the relation.
+      // The destination.
       shared_ptr<string> destination_ {};
-      // The type of the relation.
+      // The relationships.
       shared_ptr<string> relationship_ {};
-      // The source of the relation.
+      // The source.
       shared_ptr<string> source_ {};
     };
 
@@ -286,11 +286,11 @@ namespace Models
 
 
   protected:
-    // A list of relations.
+    // The relationships.
     shared_ptr<vector<GetMemoriesResponseBody::Relations>> relations_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // A list of results.
+    // The results.
     shared_ptr<vector<GetMemoriesResponseBody::Results>> results_ {};
   };
 

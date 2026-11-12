@@ -235,7 +235,7 @@ namespace Models
 
 
       protected:
-        // The days of the week when the rotation is active.
+        // The days of the week when the rotation takes effect.
         shared_ptr<vector<int32_t>> activeDays_ {};
         // The IDs of the contacts.
         shared_ptr<vector<string>> contacts_ {};
@@ -245,9 +245,9 @@ namespace Models
         shared_ptr<string> rotationName_ {};
         // The start time of the rotation. Format: HH:mm.
         shared_ptr<string> rotationStartTime_ {};
-        // The length of the shift interval. Used in conjunction with shiftRecurrenceFrequency. For example, a value of 3 indicates that the on-call personnel rotates every 3 days.
+        // The length of the shift cycle. This parameter is used together with shiftRecurrenceFrequency. For example, a value of 3 indicates that the on-call personnel changes every 3 days.
         shared_ptr<int32_t> shiftLength_ {};
-        // The unit of the shift interval. Used in conjunction with shiftLength. For example, a value of Week indicates that the on-call personnel rotates every week.
+        // The unit of the shift cycle. This parameter is used together with shiftLength. For example, a value of Week indicates that the on-call personnel changes every week.
         shared_ptr<string> shiftRecurrenceFrequency_ {};
         // The start date of the rotation. Format: yyyy-MM-dd.
         shared_ptr<string> startDate_ {};
@@ -310,7 +310,7 @@ namespace Models
       shared_ptr<string> oncallScheduleName_ {};
       // The list of rotations.
       shared_ptr<vector<OncallSchedules::Rotations>> rotations_ {};
-      // The ID of the chatbot that sends shift reminders.
+      // The ID of the robot that sends shift change reminders.
       shared_ptr<string> shiftRobotId_ {};
       // The list of substitution rules.
       shared_ptr<vector<OncallSchedules::Substitudes>> substitudes_ {};
@@ -346,7 +346,7 @@ namespace Models
   protected:
     // The list of on-call schedules.
     shared_ptr<vector<ListOncallSchedulesResponseBody::OncallSchedules>> oncallSchedules_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
     // The total number of records.
     shared_ptr<int32_t> total_ {};

@@ -241,7 +241,7 @@ namespace Models
 
 
     protected:
-      // The notification channel. The valid values are the same as those of the `channel` request parameter.
+      // The notification channel. The valid values are the same as those of the channel request parameter.
       shared_ptr<string> channel_ {};
       // The list of contacts. Multiple contacts are separated by commas.
       shared_ptr<string> contacts_ {};
@@ -252,16 +252,16 @@ namespace Models
       // The notification job ID.
       shared_ptr<string> jobId_ {};
       // Indicates whether the notification record has no actual delivery channel. Valid values:
-      // - true: The notification record has no actual delivery channel, and the notifyResult is NO_CHANNEL.
-      // - false: The notification record has an actual delivery channel.
+      // - true: the record has no channel, which means the notifyResult is NO_CHANNEL.
+      // - false: the record has an actual delivery channel.
       shared_ptr<bool> noChannel_ {};
       // The notification policy ID.
       shared_ptr<string> notifyStrategyId_ {};
       // The notification policy name.
       shared_ptr<string> notifyStrategyName_ {};
-      // The recipient address, such as a phone number, email address, or webhook URL, depending on the notification channel.
+      // The recipient address, such as a phone number, email address, or webhook address, depending on the notification channel.
       shared_ptr<string> receiver_ {};
-      // The notification delivery result details. This is the raw response content returned by the channel, such as the API response from a DingTalk or Lark bot.
+      // The details of the notification delivery result. This is the raw response content returned by the channel, such as the API response from a DingTalk or Lark bot.
       shared_ptr<string> result_ {};
       // The alert rule ID.
       shared_ptr<string> ruleId_ {};
@@ -276,7 +276,7 @@ namespace Models
       // - CRITICAL: critical
       // - ERROR: error
       // - WARNING: warning
-      // - INFO: information
+      // - INFO: info
       shared_ptr<string> severity_ {};
       // The incident status. Valid values:
       // - TRIGGERED: triggered
@@ -294,10 +294,10 @@ namespace Models
       // The subscription name.
       shared_ptr<string> subscriptionName_ {};
       // Indicates whether the notification was delivered successfully. Valid values:
-      // - true: The notification was delivered successfully.
-      // - false: The notification delivery failed.
+      // - true: the delivery was successful.
+      // - false: the delivery failed.
       shared_ptr<bool> success_ {};
-      // The time when the notification record was generated. The value is a UNIX timestamp in seconds.
+      // The time when the notification was recorded. The value is a UNIX timestamp in seconds.
       shared_ptr<int32_t> timestamp_ {};
       // The Alibaba Cloud account ID to which the notification record belongs.
       shared_ptr<string> userId_ {};
@@ -345,7 +345,7 @@ namespace Models
   protected:
     // The notification history list.
     shared_ptr<vector<ListUserNotifyHistoriesResponseBody::HistoryList>> historyList_ {};
-    // The maximum number of entries returned by this request.
+    // The maximum number of entries returned for the current request.
     shared_ptr<int32_t> maxResults_ {};
     // The pagination token for the next page. It is an opaque string generated and encrypted by the server. An empty value indicates that no more data is available.
     shared_ptr<string> nextToken_ {};

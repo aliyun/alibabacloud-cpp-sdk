@@ -87,9 +87,9 @@ namespace Models
 
 
     protected:
-      // The detailed configuration of the delivery target. The meanings of key/value pairs vary depending on the sinkType.
+      // The detailed configuration of the shipping destination. The meanings of keys and values vary based on the sink type.
       shared_ptr<map<string, string>> sinkConfigs_ {};
-      // The delivery target type.
+      // The type of the shipping destination.
       shared_ptr<string> sinkType_ {};
     };
 
@@ -166,27 +166,29 @@ namespace Models
 
 
   protected:
-    // The data source ID (Prometheus instance ID).
+    // The data source ID, which is the Prometheus instance ID.
     shared_ptr<string> dataSourceId_ {};
-    // The additional labels attached to all delivered metrics. The key is the label name and the value is the label value.
+    // The additional labels appended to all shipped metrics. The key is the label name, and the value is the label value.
     shared_ptr<map<string, string>> externalLabels_ {};
-    // The metric filter conditions. The entire value is replaced and incremental merging is not performed.
+    // The metric filtering conditions. The existing conditions are entirely replaced rather than incrementally merged.
     shared_ptr<map<string, string>> labelFilters_ {};
     // The metric filtering mode.
     shared_ptr<string> labelFiltersType_ {};
     // The resource group ID.
     shared_ptr<string> resourceGroupId_ {};
-    // The list of delivery targets.
+    // The list of shipping destinations.
     shared_ptr<vector<UpdateDeliveryTaskRequest::SinkList>> sinkList_ {};
-    // The task status. This parameter is used to start or stop a task. Valid values:
+    // The task status, which is used to start or stop the task. Valid values:
     // 
-    // - Enable: enables the task.
-    // - Disable: disables the task.
-    // - Running: the task is running.
+    // Enable: Starts the task.
+    // 
+    // Disable: Stops the task.
+    // 
+    // Running: The task is running.
     shared_ptr<string> status_ {};
     // The task description.
     shared_ptr<string> taskDescription_ {};
-    // The task name. The name can contain letters, digits, underscores (_), and hyphens (-), and can be in Chinese.
+    // The task name. Chinese characters, English letters, underscores (_), and hyphens (-) are supported.
     shared_ptr<string> taskName_ {};
   };
 

@@ -172,11 +172,11 @@ namespace Models
       shared_ptr<string> agentId_ {};
       // The creation time.
       shared_ptr<string> createdAt_ {};
-      // The memory hash value.
+      // The hash value of the memory.
       shared_ptr<string> hash_ {};
       // The memory ID.
       shared_ptr<string> id_ {};
-      // The memory content.
+      // The memory.
       shared_ptr<string> memory_ {};
       // The metadata.
       Darabonba::Json metadata_ {};
@@ -241,7 +241,7 @@ namespace Models
     protected:
       // The destination.
       shared_ptr<string> destination_ {};
-      // The relations.
+      // The relationships.
       shared_ptr<string> relationship_ {};
       // The source.
       shared_ptr<string> source_ {};
@@ -275,11 +275,11 @@ namespace Models
 
 
   protected:
-    // The relations.
+    // The relationships.
     shared_ptr<vector<SearchMemoriesResponseBody::Relations>> relations_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The returned results.
+    // The return values.
     shared_ptr<vector<SearchMemoriesResponseBody::Results>> results_ {};
   };
 

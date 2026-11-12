@@ -124,7 +124,7 @@ namespace Models
 
 
       protected:
-        // The effective days. Valid values: 0 to 6 (0 = Sunday, 6 = Saturday). The value 7 is not supported.
+        // The effective days of the week. Valid values: 0 to 6. A value of 0 indicates Sunday, and 6 indicates Saturday. The value 7 is not supported.
         shared_ptr<vector<int32_t>> dayInWeek_ {};
         // The end time of the day in minutes. Valid values: 0 to 1439.
         shared_ptr<int32_t> endTimeInMinute_ {};
@@ -185,13 +185,13 @@ namespace Models
 
 
       protected:
-        // The channel type. Valid values: DING, WEIXIN, FEISHU, SLACK, TEAMS, WEBHOOK, CONTACT, GROUP, DUTY, and DING_COOL_APP. Lowercase values are not supported. For email, text message, or phone call notifications, use CONTACT with enabledSubChannels.
+        // The type of the channel. Valid values: DING, WEIXIN, FEISHU, SLACK, TEAMS, WEBHOOK, CONTACT, GROUP, DUTY, and DING_COOL_APP. The values must be in uppercase. Lowercase values are not supported. For email, text messages, and voice calls, use CONTACT with enabledSubChannels.
         // 
         // This parameter is required.
         shared_ptr<string> channelType_ {};
-        // Required only for CONTACT, GROUP, or DUTY. The sub-channel types in uppercase. Valid values: EMAIL, SMS, VOICE, DING, WEIXIN, FEISHU, and WEBHOOK.
+        // Required only for CONTACT, GROUP, and DUTY. Valid values for sub-channels: EMAIL, SMS, VOICE, DING, WEIXIN, FEISHU, and WEBHOOK. The values must be in uppercase.
         shared_ptr<vector<string>> enabledSubChannels_ {};
-        // The list of receiver identifiers. At least one receiver is required. Specify a webhook UUID for WEBHOOK, a robot UUID for chatbots, or a contact ID for CONTACT.
+        // The list of receiver identifiers. At least one receiver is required. For WEBHOOK, specify the webhook UUID. For a chatbot, specify the chatbot UUID. For CONTACT, specify the contact ID.
         // 
         // This parameter is required.
         shared_ptr<vector<string>> receivers_ {};
@@ -243,13 +243,13 @@ namespace Models
     protected:
       // The list of notification channels.
       shared_ptr<vector<Routes::Channels>> channels_ {};
-      // The digital employee name. Required when enableRca is set to true.
+      // The name of the digital employee. This parameter is required when enableRca is set to true.
       shared_ptr<string> digitalEmployeeName_ {};
       // The effective time range.
       shared_ptr<Routes::EffectTimeRange> effectTimeRange_ {};
       // Specifies whether to enable Root Cause Analysis (RCA).
       shared_ptr<bool> enableRca_ {};
-      // The route-level event filter conditions.
+      // The route-level event filtering conditions.
       shared_ptr<FilterSetting> filterSetting_ {};
     };
 
@@ -311,13 +311,13 @@ namespace Models
 
 
     protected:
-      // The event fields by which events are grouped. Events in the same group are merged into a single notification. An empty array indicates no grouping.
+      // The event fields used for grouping and merging. Events in the same group are merged into a single notification. An empty array indicates no grouping.
       shared_ptr<vector<string>> groupingKeys_ {};
-      // This parameter does not take effect for this operation. You do not need to set this parameter.
+      // This parameter does not take effect for this API operation and does not need to be set.
       shared_ptr<int32_t> periodMin_ {};
-      // This parameter does not take effect for this operation. You do not need to set this parameter.
+      // This parameter does not take effect for this API operation and does not need to be set.
       shared_ptr<int32_t> silenceSec_ {};
-      // This parameter does not take effect for this operation. You do not need to set this parameter.
+      // This parameter does not take effect for this API operation and does not need to be set.
       shared_ptr<int32_t> times_ {};
     };
 
@@ -401,7 +401,7 @@ namespace Models
     shared_ptr<vector<NotifyStrategyConfig::CustomTemplateEntries>> customTemplateEntries_ {};
     // The description of the notification policy.
     shared_ptr<string> description_ {};
-    // The noise reduction settings.
+    // The grouping and merging settings.
     // 
     // This parameter is required.
     shared_ptr<NotifyStrategyConfig::GroupingSetting> groupingSetting_ {};

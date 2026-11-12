@@ -229,7 +229,7 @@ namespace Models
     shared_ptr<string> description_ {};
     // The effective period range.
     shared_ptr<MaintainWindowForView::EffectTimeRange> effectTimeRange_ {};
-    // The crontab expression.
+    // The Crontab expression.
     shared_ptr<string> effective_ {};
     // Indicates whether the mute policy is enabled.
     shared_ptr<bool> enable_ {};

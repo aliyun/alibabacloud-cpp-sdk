@@ -337,55 +337,55 @@ namespace Models
     shared_ptr<map<string, string>> annotations_ {};
     // The ARMS integration configuration.
     shared_ptr<ArmsIntegrationConfig> armsIntegrationConfig_ {};
-    // The business source (read-only, such as managed_service_for_prometheus / umodel / application_insights / cloud_monitoring / sls).
+    // The business source. This parameter is read-only. Examples include managed_service_for_prometheus, umodel, application_insights, cloud_monitoring, and sls.
     shared_ptr<string> bizSource_ {};
-    // The detection condition configuration aggregate (Prometheus simple / UModel / APM simple / APM composite).
+    // The detection condition configuration aggregation, including simple Prometheus, UModel, simple APM, and composite APM.
     shared_ptr<ConditionConfigUnified> conditionConfig_ {};
     // The content template.
     shared_ptr<string> contentTemplate_ {};
-    // The creation time (read-only), in ISO 8601 format.
+    // The creation time in ISO 8601 format. This parameter is read-only.
     shared_ptr<string> createdAt_ {};
-    // The datasource configuration aggregate (shared by PROMETHEUS / UMODEL / APM in a single object; fields are selected based on the type).
+    // The datasource config aggregation. The PROMETHEUS, UMODEL, and APM data sources share the same object, and fields are selected based on the type.
     shared_ptr<DatasourceConfigUnified> datasourceConfig_ {};
-    // The datasource type (read-only, derived).
+    // The data source type. This parameter is read-only and derived.
     shared_ptr<string> datasourceType_ {};
     // The display name.
     shared_ptr<string> displayName_ {};
-    // Specifies whether the alert rule is enabled.
+    // Specifies whether the rule is enabled.
     shared_ptr<bool> enabled_ {};
     // The labels.
     shared_ptr<map<string, string>> labels_ {};
-    // The rule manager (read-only). An empty value indicates a user-created rule. A non-empty value indicates that the rule was created and managed by the corresponding cloud service.
+    // The manager of the rule. This parameter is read-only. An empty value indicates a user-created rule. A non-empty value indicates that the rule is created and managed by the corresponding cloud service logic.
     shared_ptr<string> managedBy_ {};
-    // The notification configuration aggregate (currently only DIRECT_NOTIFY, corresponding to DirectNotifyConfig).
+    // The notification configuration aggregation. Currently, only DIRECT_NOTIFY is supported, which corresponds to DirectNotifyConfig.
     shared_ptr<NotifyConfigUnified> notifyConfig_ {};
-    // The notification policy ID (read-only, derived from the first entry in the notification policy list).
+    // The notification strategy ID. This parameter is read-only and derived from the first item in the notification strategy list.
     shared_ptr<string> notifyStrategyId_ {};
     // The observable resource configuration.
     shared_ptr<ObserveResourceConfig> observeResourceConfig_ {};
-    // **[Deprecated]** Specifies whether the rule applies to all resources of the resource type (read-only, derived). For new integrations, use observeResourceConfig.relationType to check whether the value is ALL for equivalent semantics.
+    // **[Deprecated]** Specifies whether the rule takes effect on all resources of this type. This parameter is read-only and derived. For new integrations, check whether observeResourceConfig.relationType is set to ALL to determine the equivalent semantics.
     shared_ptr<bool> observeResourceGlobalScope_ {};
-    // The observable resource ID list (read-only, derived).
+    // The list of observable resource IDs. This parameter is read-only and derived.
     shared_ptr<vector<string>> observeResourceList_ {};
-    // **[Deprecated]** The observable resource type (read-only, derived). For new integrations, use observeResourceConfig.entityType instead.
+    // **[Deprecated]** The observable resource type. This parameter is read-only and derived. For new integrations, use observeResourceConfig.entityType instead.
     shared_ptr<string> observeResourceType_ {};
-    // The partition key (read-only, maintained by the system for rule routing and sharding).
+    // The partition key. This parameter is read-only and maintained by the system for rule routing and sharding.
     shared_ptr<string> partitionKey_ {};
-    // The query configuration aggregate (PROMETHEUS_SINGLE_QUERY / UMODEL_METRICSET_QUERY / APM_MULTI_QUERY).
+    // The query configuration aggregation, including PROMETHEUS_SINGLE_QUERY, UMODEL_METRICSET_QUERY, and APM_MULTI_QUERY.
     shared_ptr<QueryConfigUnified> queryConfig_ {};
-    // The RCA (root cause analysis) configuration.
+    // The root cause analysis (RCA) configuration.
     shared_ptr<AlertRuleRcaConfig> rcaConfig_ {};
-    // The region ID (aligned with V1 AlertRule.regionId; priority: request body regionId > gateway callerRegionId).
+    // The region ID. This parameter is aligned with V1 AlertRule.regionId. Priority: regionId in the request body > callerRegionId in the gateway.
     shared_ptr<string> regionId_ {};
-    // The scheduling configuration aggregate (currently only FIXED is supported).
+    // The schedule configuration aggregation. Currently, only FIXED is supported.
     shared_ptr<ScheduleConfigUnified> scheduleConfig_ {};
-    // The severity levels covered by this rule, comma-separated (read-only, derived; consistent with the filter.severityLevels query parameter format).
+    // The severity levels covered by this rule, separated by commas. This parameter is read-only and derived. The format is consistent with the filter.severityLevels query parameter.
     shared_ptr<string> severityLevels_ {};
-    // The alert status (read-only).
+    // The alert status. This parameter is read-only.
     shared_ptr<string> status_ {};
-    // The update time (read-only), in ISO 8601 format.
+    // The update time in ISO 8601 format. This parameter is read-only.
     shared_ptr<string> updatedAt_ {};
-    // The rule UUID (system-generated, read-only).
+    // The UUID of the rule. This parameter is generated by the system and is read-only.
     shared_ptr<string> uuid_ {};
     // The workspace.
     shared_ptr<string> workspace_ {};

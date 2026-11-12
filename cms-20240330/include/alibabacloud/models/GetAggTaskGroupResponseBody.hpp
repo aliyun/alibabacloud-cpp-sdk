@@ -294,7 +294,7 @@ namespace Models
     protected:
       // The configuration of the aggregation task group.
       shared_ptr<string> aggTaskGroupConfig_ {};
-      // The summary of the aggregation task group configuration.
+      // The hash of the aggregation task group configuration.
       shared_ptr<string> aggTaskGroupConfigHash_ {};
       // The ID of the aggregation task group.
       shared_ptr<string> aggTaskGroupId_ {};
@@ -306,13 +306,13 @@ namespace Models
       shared_ptr<int32_t> delay_ {};
       // The description of the aggregation task group.
       shared_ptr<string> description_ {};
-      // The UNIX timestamp in seconds that corresponds to the start time of the scheduling. This parameter is not yet in effect.
+      // The UNIX timestamp in seconds for the scheduling start time. This parameter is not yet in effect.
       shared_ptr<int64_t> fromTime_ {};
-      // The maximum number of retries to execute the aggregation task.
+      // The maximum number of retries for executing the aggregation task.
       shared_ptr<int32_t> maxRetries_ {};
-      // The maximum runtime of the aggregation task, in seconds.
+      // The maximum retry time to execute the aggregation task.
       shared_ptr<int32_t> maxRunTimeInSeconds_ {};
-      // The dry run configuration.
+      // The precheck configuration.
       shared_ptr<string> precheckString_ {};
       // The region ID.
       shared_ptr<string> regionId_ {};
@@ -320,17 +320,17 @@ namespace Models
       shared_ptr<string> scheduleMode_ {};
       // The scheduling time expression.
       shared_ptr<string> scheduleTimeExpr_ {};
-      // The ID of the source Prometheus instance for the aggregation task group.
+      // The source Prometheus instance ID for the aggregation task group.
       shared_ptr<string> sourcePrometheusId_ {};
       // The status of the aggregation task group.
       shared_ptr<string> status_ {};
       // The tags of the resource group.
       shared_ptr<vector<AggTaskGroup::Tags>> tags_ {};
-      // The ID of the target Prometheus instance for the aggregation task group.
+      // The target Prometheus instance ID for the aggregation task group.
       shared_ptr<string> targetPrometheusId_ {};
-      // The UNIX timestamp in seconds that corresponds to the end time of the scheduling.
+      // The UNIX timestamp in seconds for the scheduling end time.
       shared_ptr<int64_t> toTime_ {};
-      // The time when the aggregation task group was updated. This is a timestamp.
+      // The update time of the aggregation task group. The value is a UNIX timestamp.
       shared_ptr<string> updateTime_ {};
       // The user to which the aggregation task group belongs.
       shared_ptr<string> userId_ {};
@@ -366,7 +366,7 @@ namespace Models
     shared_ptr<GetAggTaskGroupResponseBody::AggTaskGroup> aggTaskGroup_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request was successful.
+    // Indicates whether the request is successful.
     shared_ptr<bool> success_ {};
   };
 

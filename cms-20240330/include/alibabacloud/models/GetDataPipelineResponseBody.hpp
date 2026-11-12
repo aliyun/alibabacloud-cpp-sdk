@@ -191,7 +191,7 @@ namespace Models
         protected:
           // The run mode.
           shared_ptr<string> runMode_ {};
-          // The starting point for reading.
+          // The read start point.
           shared_ptr<string> startFrom_ {};
           // The backfill time range.
           shared_ptr<Config::TimeRange> timeRange_ {};
@@ -218,7 +218,7 @@ namespace Models
       protected:
         // The datasource config.
         shared_ptr<Source::Config> config_ {};
-        // The type of the data source.
+        // The data source type.
         shared_ptr<string> type_ {};
       };
 
@@ -293,11 +293,11 @@ namespace Models
         shared_ptr<vector<string>> datasets_ {};
         // SLS Logstore
         shared_ptr<string> logstore_ {};
-        // The name of the data sink.
+        // The name of the output destination.
         shared_ptr<string> name_ {};
         // SLS Project
         shared_ptr<string> project_ {};
-        // The type of the data sink.
+        // The type of the output destination.
         shared_ptr<string> type_ {};
       };
 
@@ -425,7 +425,7 @@ namespace Models
 
 
           protected:
-            // The service name list.
+            // The list of service names.
             shared_ptr<vector<string>> serviceNames_ {};
           };
 
@@ -787,9 +787,9 @@ namespace Models
 
 
           protected:
-            // The prefix retention length.
+            // The length of the prefix to retain.
             shared_ptr<int32_t> keepPrefix_ {};
-            // The suffix retention length.
+            // The length of the suffix to retain.
             shared_ptr<int32_t> keepSuffix_ {};
             // The sensitive keywords.
             shared_ptr<vector<string>> keys_ {};
@@ -797,7 +797,7 @@ namespace Models
             shared_ptr<string> maskChar_ {};
             // The data masking mode.
             shared_ptr<string> mode_ {};
-            // The built-in sensitive types.
+            // The built-in sensitive data type.
             shared_ptr<vector<string>> types_ {};
           };
 
@@ -1191,7 +1191,7 @@ namespace Models
 
 
             protected:
-              // The service name list.
+              // The list of service names.
               shared_ptr<vector<string>> serviceNames_ {};
             };
 
@@ -1553,9 +1553,9 @@ namespace Models
 
 
             protected:
-              // The prefix retention length.
+              // The length of the prefix to retain.
               shared_ptr<int32_t> keepPrefix_ {};
-              // The suffix retention length.
+              // The length of the suffix to retain.
               shared_ptr<int32_t> keepSuffix_ {};
               // The sensitive keywords.
               shared_ptr<vector<string>> keys_ {};
@@ -1563,7 +1563,7 @@ namespace Models
               shared_ptr<string> maskChar_ {};
               // The data masking mode.
               shared_ptr<string> mode_ {};
-              // The built-in sensitive types.
+              // The built-in sensitive data type.
               shared_ptr<vector<string>> types_ {};
             };
 
@@ -1768,7 +1768,7 @@ namespace Models
             shared_ptr<vector<Config::Projections>> projections_ {};
             // The data masking rule list.
             shared_ptr<vector<Config::Rules>> rules_ {};
-            // The pipeline processing scope.
+            // The effective scope of pipeline processing.
             shared_ptr<Config::Scope> scope_ {};
             // The SPL script.
             shared_ptr<string> script_ {};
@@ -1941,7 +1941,7 @@ namespace Models
 
 
     protected:
-      // The creation time in ISO 8601 format in UTC, such as 2026-08-10T05:00:00Z.
+      // The creation time in UTC, following the ISO 8601 format, such as 2026-08-10T05:00:00Z.
       // 
       // This parameter is required.
       // 
@@ -1969,7 +1969,7 @@ namespace Models
       // 
       // This parameter is required.
       shared_ptr<string> signalType_ {};
-      // The data sinks.
+      // The output destinations.
       // 
       // This parameter is required.
       shared_ptr<vector<Pipeline::Sinks>> sinks_ {};
@@ -1983,7 +1983,7 @@ namespace Models
       shared_ptr<string> status_ {};
       // The status message.
       shared_ptr<string> statusMessage_ {};
-      // The update time in ISO 8601 format in UTC, such as 2026-08-10T05:10:00Z.
+      // The update time in UTC, following the ISO 8601 format, such as 2026-08-10T05:10:00Z.
       // 
       // This parameter is required.
       // 

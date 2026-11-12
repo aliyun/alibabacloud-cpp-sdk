@@ -166,13 +166,13 @@ namespace Models
     shared_ptr<string> createTime_ {};
     // The description.
     shared_ptr<string> description_ {};
-    // Specifies whether it is enabled.
+    // Indicates whether it is enabled.
     shared_ptr<bool> enable_ {};
     // The filter configuration.
     shared_ptr<FilterSetting> filterSetting_ {};
     // The subscription settings.
     shared_ptr<string> integrationSetting_ {};
-    // The reporting entry key for the integration.
+    // The key for the integrated reporting endpoint.
     shared_ptr<string> token_ {};
     // The transform settings.
     shared_ptr<vector<TransformAction>> transformerSetting_ {};

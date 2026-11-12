@@ -57,9 +57,9 @@ namespace Models
 
 
   protected:
-    // The name of the add-on release.
+    // The add-on release name.
     shared_ptr<string> addonName_ {};
-    // The name of the AddonRelease.
+    // The add-on release name.
     shared_ptr<string> addonReleaseName_ {};
     // The storage type. Valid values: LogStore, Prometheus, TraceStore, EventStore, and EntityStore.
     shared_ptr<string> storageType_ {};

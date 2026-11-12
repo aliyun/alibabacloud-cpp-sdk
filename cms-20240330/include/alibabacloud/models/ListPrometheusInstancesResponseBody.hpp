@@ -202,13 +202,13 @@ namespace Models
       // - readOnly
       // - httpReadOnly
       shared_ptr<string> accessType_ {};
-      // The instance creation time in UTC+0, in the format of yyyy-MM-ddTHH:mmZ.
+      // The time when the instance was created. The time is displayed in UTC+0 and formatted as yyyy-MM-ddTHH:mmZ.
       shared_ptr<string> createTime_ {};
       // The instance type.
       shared_ptr<string> instanceType_ {};
-      // The payment type. Valid values:
-      // - POSTPAY: Pay-as-you-go by metric volume.
-      // - POSTPAY_GB: Pay-as-you-go by write volume.
+      // The billing method. Valid values:
+      // - POSTPAY: Pay-as-you-go based on the number of metrics.
+      // - POSTPAY_GB: Pay-as-you-go based on the amount of written data.
       // - PREPAY: Subscription.
       // - FREE: Free.
       shared_ptr<string> paymentType_ {};
@@ -224,7 +224,7 @@ namespace Models
       shared_ptr<string> resourceGroupId_ {};
       // The resource type.
       shared_ptr<string> resourceType_ {};
-      // The backend data storage status.
+      // The status of the backend data storage.
       shared_ptr<string> status_ {};
       // The supported authentication types.
       shared_ptr<vector<string>> supportAuthTypes_ {};

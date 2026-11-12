@@ -172,11 +172,11 @@ namespace Models
 
 
       protected:
-        // The key (label name) for the label filter.
+        // The key for label filtering, which is the label name.
         shared_ptr<string> name_ {};
         // The label filter operator, such as =, !=, =~, or !~.
         shared_ptr<string> operator_ {};
-        // The value for the label filter.
+        // The value for label filtering.
         shared_ptr<string> value_ {};
       };
 
@@ -227,13 +227,13 @@ namespace Models
 
 
       protected:
-        // The dimension in the APM metric.
+        // The dimension in APM metrics.
         shared_ptr<string> dim_ {};
         // The filter operation type. Valid values:
-        // * eq: Equal to.
-        // * neq: Not equal to.
-        // * match: Regex match.
-        // * nmatch: Regex not match.
+        // - eq: Equal to.
+        // - neq: Not equal to.
+        // - match: Regular expression match.
+        // - nmatch: Regular expression mismatch.
         shared_ptr<string> type_ {};
         // The value corresponding to the filter operation.
         shared_ptr<string> value_ {};
@@ -348,58 +348,35 @@ namespace Models
 
 
     protected:
-      // Applicable query type: APM_MULTI_QUERY.
-      // 
-      // The ID of the APM predefined metric.
+      // Applicable query type: APM_MULTI_QUERY. The ID of the APM predefined metric.
       shared_ptr<string> apmAlertMetricId_ {};
-      // Applicable query type: ARMS_MULTI_QUERY.
-      // 
-      // The dimension filter configuration for APM metrics. Must be used together with apmAlertMetricId.
+      // Applicable query type: ARMS_MULTI_QUERY. The dimension filter configuration for APM metrics. This field must be used together with apmAlertMetricId.
       shared_ptr<vector<Queries::ApmFilters>> apmFilters_ {};
-      // Applicable query type: ARMS_MULTI_QUERY.
-      // 
-      // The list of aggregation dimensions for the query, specifying which dimensions of the metric to aggregate by.
+      // Applicable query type: ARMS_MULTI_QUERY. The list of aggregation dimensions for the query, which specifies the metric dimensions used for aggregation.
       shared_ptr<vector<string>> apmGroupBy_ {};
-      // Applicable query type: ARMS_MULTI_QUERY.
-      // 
-      // The alert data duration.
+      // Applicable query type: ARMS_MULTI_QUERY. The alert data duration.
       shared_ptr<int64_t> duration_ {};
-      // Applicable query type: SLS_MULTI_QUERY.
-      // 
-      // The relative time offset end time.
-      // 
-      // If start and end are specified, do not specify window.
+      // Applicable query type: SLS_MULTI_QUERY. The relative end time of the time offset. If start and end are specified, do not specify window.
       shared_ptr<int64_t> end_ {};
-      // Applicable query types: APM_MULTI_QUERY, SLS_MULTI_QUERY.
-      // 
-      // The query expression.
-      // 
-      // - For APM_MULTI_QUERY, this field is optional and contains the PromQL generated for predefined metrics (used for data preview).
+      // Applicable query types: APM_MULTI_QUERY and SLS_MULTI_QUERY. The query expression.
+      // - For APM_MULTI_QUERY, this field is optional and contains the PromQL generated for predefined metrics, which is used to preview data.
       // - For SLS_MULTI_QUERY, this field contains the SQL query statement.
       shared_ptr<string> expr_ {};
-      // Valid only for METRIC_SET_MULTI_QUERY. The label filter conditions (optional, independent for each query).
+      // Valid only for METRIC_SET_MULTI_QUERY. The label filter conditions. This field is optional and independent for each query.
       shared_ptr<vector<Queries::LabelFilters>> labelFilters_ {};
       // Valid only for METRIC_SET_MULTI_QUERY. The metric name.
       shared_ptr<string> metric_ {};
       // Valid only for METRIC_SET_MULTI_QUERY. The metric set name.
       shared_ptr<string> metricSet_ {};
-      // The subquery name. Uniquely identifies the query within the same alert rule and can be referenced by the expression conditions in triggers.
+      // The subquery name, which uniquely identifies the query within the same alert rule and is referenced by the expression condition in triggers.
       shared_ptr<string> name_ {};
-      // The PromQL query statement. Used when type=APM_MULTI_QUERY.
+      // The PromQL query statement, used when type is APM_MULTI_QUERY.
       shared_ptr<string> promQl_ {};
-      // Applicable query type: SLS_MULTI_QUERY.
-      // 
-      // The relative time offset start time for SLS queries.
-      // 
-      // If start and end are specified, do not specify window. Example: start=15, timeUnit=minute indicates 15 minutes ago.
+      // Applicable query type: SLS_MULTI_QUERY. The relative start time of the time offset for the SLS query. If start and end are specified, do not specify window. For example, if start is set to 15 and timeUnit is set to minute, it indicates 15 minutes ago.
       shared_ptr<int64_t> start_ {};
-      // Applicable query type: SLS_MULTI_QUERY.
-      // 
-      // The time unit for the start, end, and window parameters: day/hour/minute/second.
+      // Applicable query type: SLS_MULTI_QUERY. The time unit for the start, end, and window parameters. Valid values: day, hour, minute, and second.
       shared_ptr<string> timeUnit_ {};
-      // Applicable query type: SLS_MULTI_QUERY.
-      // 
-      // The time frame query interval. If window is specified, do not specify start or end.
+      // Applicable query type: SLS_MULTI_QUERY. The time frame query interval. If window is specified, do not specify start and end.
       shared_ptr<int64_t> window_ {};
     };
 
@@ -494,11 +471,11 @@ namespace Models
 
 
     protected:
-      // The label name.
+      // The tag name.
       shared_ptr<string> name_ {};
-      // The comparison operator that determines how to match the label value.
+      // The comparison operator that determines how to match the tag value.
       shared_ptr<string> operator_ {};
-      // The label value.
+      // The tag value.
       shared_ptr<string> value_ {};
     };
 
@@ -576,7 +553,7 @@ namespace Models
         shared_ptr<string> field_ {};
         // The comparison operator.
         shared_ptr<string> operator_ {};
-        // The matching value.
+        // The matched value.
         shared_ptr<string> value_ {};
       };
 
@@ -860,52 +837,38 @@ namespace Models
 
 
   protected:
-    // Specified when type=METRIC_SET_QUERY or LOG_SET_QUERY. The aggregation function: AVG, MAX, MIN, SUM, or LAST.
+    // Specified when type is METRIC_SET_QUERY or LOG_SET_QUERY. The aggregation functions: AVG, MAX, MIN, SUM, and LAST.
     shared_ptr<string> aggregate_ {};
-    // Applicable query type: PROMQL_QUERY.
-    // 
-    // Specifies whether to perform alert detection after data is complete.
+    // Applicable query type: PROMQL_QUERY. Specifies whether to perform alert detection after the data is complete.
     shared_ptr<bool> checkAfterDataComplete_ {};
-    // Applicable query type: CMS_BASIC_QUERY.  
+    // The list of resource filter dimensions.  
     // 
-    // The list of resource filter dimensions.
+    // Applicable query type: CMS_BASIC_QUERY.
     shared_ptr<vector<map<string, string>>> dimensions_ {};
     // The domain to which the resource belongs.
     shared_ptr<string> domain_ {};
-    // Applicable query type: PROMQL_QUERY.
-    // 
-    // The alert data duration, in seconds.
+    // Applicable query type: PROMQL_QUERY. The alert data duration in seconds.
     shared_ptr<int64_t> duration_ {};
     // The array of entity field filters.
     shared_ptr<vector<AlertRuleQuery::EntityFields>> entityFields_ {};
     // The resource filter used to filter target resources.
     shared_ptr<AlertRuleQuery::EntityFilter> entityFilter_ {};
-    // Applicable query type: PROMQL_QUERY.
-    // 
-    // The query expression (PromQL).
+    // Applicable query type: PROMQL_QUERY. The query expression in PromQL.
     shared_ptr<string> expr_ {};
-    // Applicable query type: SLS_MULTI_QUERY.
-    // 
-    // The set join operation configuration for the results of subquery 1 (queries[0]) and subquery 2 (queries[1]).
+    // Applicable query type: SLS_MULTI_QUERY. The set join operation configuration for the results of subquery 1 (queries[0]) and subquery 2 (queries[1]).
     shared_ptr<AlertRuleSlsQueryJoin> firstJoin_ {};
-    // Applicable query type: SLS_MULTI_QUERY.
-    // 
-    // The list of group field names.
+    // Applicable query type: SLS_MULTI_QUERY. The list of group field names.
     shared_ptr<vector<string>> groupFieldList_ {};
-    // Applicable query type: CMS_BASIC_QUERY.
-    // 
-    // The associated application group ID. Valid only when relationType=GROUP.
+    // Applicable query type: CMS_BASIC_QUERY. The associated application group ID. This field is valid only when relationType is set to GROUP.
     shared_ptr<string> groupId_ {};
-    // Applicable query type: SLS_MULTI_QUERY.
-    // 
-    // The grouping type. Valid values:
-    // - none: no grouping
-    // - label: automatic label-based grouping
-    // - custom: custom label-based grouping
+    // Applicable query type: SLS_MULTI_QUERY. The group type. Valid values:
+    // - none: No grouping.
+    // - label: Automatic label grouping.
+    // - custom: Custom label grouping.
     shared_ptr<string> groupType_ {};
-    // The array of label filters.
+    // The array of tag filters.
     shared_ptr<vector<AlertRuleQuery::LabelFilters>> labelFilters_ {};
-    // Specified when type=LOG_SET_QUERY. The log set name.
+    // Specified when type is LOG_SET_QUERY. The log set name.
     shared_ptr<string> logSet_ {};
     // The list of mark tags for the alert rule, used for categorization and retrieval.
     shared_ptr<vector<AlertRuleQuery::MarkTags>> markTags_ {};
@@ -913,50 +876,35 @@ namespace Models
     shared_ptr<string> metric_ {};
     // The monitoring metrics set.
     shared_ptr<string> metricSet_ {};
-    // Applicable query type: CMS_BASIC_QUERY.
-    // 
-    // The namespace of the metric.
+    // Applicable query type: CMS_BASIC_QUERY. The namespace of the metric.
     shared_ptr<string> namespace_ {};
-    // Specified when type=METRIC_SET_QUERY or LOG_SET_QUERY. The query time offset in seconds. Used together with windowSecs to implement an offset query of [T - windowSecs - offsetSecs, T - offsetSecs]. Valid range: 0 to 86400.
+    // Specified when type is METRIC_SET_QUERY or LOG_SET_QUERY. The query time offset in seconds. This field is used together with windowSecs to implement offset queries for the [T - windowSecs - offsetSecs, T - offsetSecs] range. Valid values: 0 to 86400.
     shared_ptr<int64_t> offsetSecs_ {};
-    // Applicable query types: SLS_MULTI_QUERY, APM_MULTI_QUERY.
-    // 
-    // The list of subqueries.
-    // 
-    // For the SLS_MULTI_QUERY query type, a maximum of three subqueries are supported. The number and order of subqueries must match the sub-datasource configurations in datasource.dsList.
+    // Applicable query types: SLS_MULTI_QUERY and APM_MULTI_QUERY. The list of subqueries. For the SLS_MULTI_QUERY type, a maximum of three subqueries are supported, and the number and order of the subqueries must match the sub-datasource configurations in datasource.dsList.
     shared_ptr<vector<AlertRuleQuery::Queries>> queries_ {};
-    // Applicable query type: CMS_BASIC_QUERY.
-    // 
-    // The resource scope for the rule query. Valid values:
+    // Applicable query type: CMS_BASIC_QUERY. The resource scope for the rule query. Valid values:
     // - USER: All resources under the user UID.
     // - GROUP: Application group.
     // - INSTANCE: Specified instance list.
     shared_ptr<string> relationType_ {};
-    // Applicable query type: SLS_MULTI_QUERY.
-    // 
-    // The set join operation configuration for the results of subquery 2 (queries[2]) and subquery 3 (queries[3]).
+    // Applicable query type: SLS_MULTI_QUERY. The set join operation configuration for the results of subquery 2 (queries[2]) and subquery 3 (queries[3]).
     shared_ptr<AlertRuleSlsQueryJoin> secondJoin_ {};
     // The list of service IDs.
     shared_ptr<vector<string>> serviceIds_ {};
-    // The query type.
-    // 
-    // Valid values:
+    // The query type. Valid values:
     // - PROMQL_QUERY: PromQL query.
     // - SLS_MULTI_QUERY: SLS query.
     // - APM_MULTI_QUERY: APM query.
-    // - CMS_BASIC_QUERY: CloudMonitor Basic monitoring query.
-    // 
-    // Different query types have different valid fields in the query object. Refer to the "Applicable query type" description in each field for details.
-    // 
-    // The query type must match the datasource type. The mapping is as follows:
-    // - Prometheus datasource (PROMETHEUS_DS): PROMQL_QUERY
-    // - APM datasource (APM_DS): APM_MULTI_QUERY
-    // - SLS datasource (SLS_MULTI_DS): SLS_MULTI_QUERY
-    // - CloudMonitor Basic monitoring data datasource (CMS_BASIC_DS): CMS_BASIC_QUERY
+    // - CMS_BASIC_QUERY: CloudMonitor Basic query.
+    // Different query types have different valid fields in the query object. For details, see the Applicable query type description in each field. The query type must match the datasource type. The mappings are as follows:
+    // - Prometheus datasource (PROMETHEUS_DS): PROMQL_QUERY.
+    // - APM datasource (APM_DS): APM_MULTI_QUERY.
+    // - SLS datasource (SLS_MULTI_DS): SLS_MULTI_QUERY.
+    // - CloudMonitor Basic datasource (CMS_BASIC_DS): CMS_BASIC_QUERY.
     // 
     // This parameter is required.
     shared_ptr<string> type_ {};
-    // Specified when type=METRIC_SET_QUERY or LOG_SET_QUERY. The aggregation time window in seconds. Valid range: 60 to 86400.
+    // Specified when type is METRIC_SET_QUERY or LOG_SET_QUERY. The aggregation time window in seconds. Valid values: 60 to 86400.
     shared_ptr<int64_t> windowSecs_ {};
   };
 

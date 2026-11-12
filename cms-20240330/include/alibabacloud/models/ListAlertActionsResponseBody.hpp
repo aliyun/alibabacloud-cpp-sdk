@@ -142,7 +142,7 @@ namespace Models
         shared_ptr<map<string, string>> headers_ {};
         // The webhook request method.
         shared_ptr<string> method_ {};
-        // The alert callback URL.
+        // The URL of the alert callback.
         shared_ptr<string> url_ {};
       };
 
@@ -241,7 +241,7 @@ namespace Models
       protected:
         // The integration key for PagerDuty.
         shared_ptr<string> key_ {};
-        // The integration webhook URL for PagerDuty. Both V1 and V2 are supported.
+        // The integration webhook for PagerDuty. Both V1 and V2 are supported.
         shared_ptr<string> url_ {};
       };
 
@@ -292,7 +292,7 @@ namespace Models
 
 
       protected:
-        // The resource type in Simple Message Queue (formerly MNS).
+        // The resource type of Simple Message Queue (formerly MNS).
         shared_ptr<string> mnsType_ {};
         // The name of the resource.
         // 
@@ -460,9 +460,9 @@ namespace Models
 
 
       protected:
-        // The ID of the elastic scaling group.
+        // The ID of the Auto Scaling group.
         shared_ptr<string> essGroupId_ {};
-        // The ID of the elastic scaling rule.
+        // The ID of the Auto Scaling rule.
         shared_ptr<string> essRuleId_ {};
         // The region ID.
         shared_ptr<string> regionId_ {};
@@ -631,13 +631,13 @@ namespace Models
 
 
     protected:
-      // The unique identifiers of the alert action integrations.
+      // The unique identifiers of the action integrations.
       shared_ptr<string> alertActionId_ {};
-      // The name of the alert action integration.
+      // The name of the action integration.
       shared_ptr<string> alertActionName_ {};
       // The EventBridge parameters.
       shared_ptr<AlertActions::EbParam> ebParam_ {};
-      // The elastic scaling parameters.
+      // The Auto Scaling parameters.
       shared_ptr<AlertActions::EssParam> essParam_ {};
       // The Function Compute 3.0 parameters.
       shared_ptr<AlertActions::Fc3Param> fc3Param_ {};
@@ -649,7 +649,7 @@ namespace Models
       shared_ptr<AlertActions::PagerDutyParam> pagerDutyParam_ {};
       // The Simple Log Service parameters.
       shared_ptr<AlertActions::SlsParam> slsParam_ {};
-      // The type of the alert action integration.
+      // The type of the action integration.
       shared_ptr<string> type_ {};
       // The webhook parameters.
       shared_ptr<AlertActions::WebhookParam> webhookParam_ {};
@@ -695,7 +695,7 @@ namespace Models
 
 
   protected:
-    // The list of alert action integration configurations.
+    // The list of action integration configurations.
     shared_ptr<vector<ListAlertActionsResponseBody::AlertActions>> alertActions_ {};
     // The page number.
     shared_ptr<int64_t> pageNumber_ {};

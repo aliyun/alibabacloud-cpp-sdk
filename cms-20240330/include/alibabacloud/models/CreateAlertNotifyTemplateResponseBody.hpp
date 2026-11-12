@@ -50,7 +50,7 @@ namespace Models
   protected:
     // The ID of the notification template.
     shared_ptr<string> alertNotifyTemplateId_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

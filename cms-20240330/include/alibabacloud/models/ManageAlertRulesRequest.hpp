@@ -14,10 +14,12 @@ namespace Models
   class ManageAlertRulesRequest : public Darabonba::Model {
   public:
     friend void to_json(Darabonba::Json& j, const ManageAlertRulesRequest& obj) { 
+      DARABONBA_PTR_TO_JSON(DryRun, dryRun_);
       DARABONBA_PTR_TO_JSON(body, body_);
       DARABONBA_PTR_TO_JSON(callSource, callSource_);
     };
     friend void from_json(const Darabonba::Json& j, ManageAlertRulesRequest& obj) { 
+      DARABONBA_PTR_FROM_JSON(DryRun, dryRun_);
       DARABONBA_PTR_FROM_JSON(body, body_);
       DARABONBA_PTR_FROM_JSON(callSource, callSource_);
     };
@@ -32,8 +34,15 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { return this->body_ == nullptr
-        && this->callSource_ == nullptr; };
+    virtual bool empty() const override { return this->dryRun_ == nullptr
+        && this->body_ == nullptr && this->callSource_ == nullptr; };
+    // dryRun Field Functions 
+    bool hasDryRun() const { return this->dryRun_ != nullptr;};
+    void deleteDryRun() { this->dryRun_ = nullptr;};
+    inline bool getDryRun() const { DARABONBA_PTR_GET_DEFAULT(dryRun_, false) };
+    inline ManageAlertRulesRequest& setDryRun(bool dryRun) { DARABONBA_PTR_SET_VALUE(dryRun_, dryRun) };
+
+
     // body Field Functions 
     bool hasBody() const { return this->body_ != nullptr;};
     void deleteBody() { this->body_ = nullptr;};
@@ -51,9 +60,11 @@ namespace Models
 
 
   protected:
-    // The request body for managing alert rules. This body is shared by the CREATE, UPDATE, PATCH, and BATCH_DELETE operations. Specify fields based on the action.
+    // Specifies whether to perform a dry run. A dry run only validates the request and returns the validation result in dryRunResult without writing to the database, triggering template synchronization, or causing other side effects. Default value: false.
+    shared_ptr<bool> dryRun_ {};
+    // The aggregated request body for managing alert rules. This body is shared by the CREATE, UPDATE, PATCH, and BATCH_DELETE operations. Specify the fields based on the action.
     shared_ptr<ManageAlertRulesUnifiedActionInput> body_ {};
-    // The call source identifier that specifies the internal integration channel of the caller, such as bailian, integrationCenter, or managed_service_for_prometheus. This parameter isolates traffic from different sources. You do not need to specify this parameter for regular OpenAPI calls.
+    // The call source identifier. It identifies the internal integration channel to which the caller belongs, such as bailian, integrationCenter, or managed_service_for_prometheus, and is used to isolate traffic from different sources. Leave this parameter empty for regular OpenAPI calls.
     shared_ptr<string> callSource_ {};
   };
 

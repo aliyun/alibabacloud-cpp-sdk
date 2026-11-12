@@ -167,7 +167,7 @@ namespace Models
         shared_ptr<string> message_ {};
         // The metrics path.
         shared_ptr<string> metricsPath_ {};
-        // The invocation method.
+        // The scheme.
         shared_ptr<string> scheme_ {};
         // The scrape interval.
         shared_ptr<string> scrapeInterval_ {};
@@ -260,13 +260,13 @@ namespace Models
 
 
     protected:
-      // The addon name.
+      // The add-on name.
       shared_ptr<string> addonName_ {};
-      // The addon release name.
+      // The add-on release name.
       shared_ptr<string> addonReleaseName_ {};
-      // The addon version.
+      // The add-on version.
       shared_ptr<string> addonVersion_ {};
-      // The configuration YAML.
+      // The YAML configuration.
       shared_ptr<string> configYaml_ {};
       // The enabling status.
       shared_ptr<string> enableStatus_ {};

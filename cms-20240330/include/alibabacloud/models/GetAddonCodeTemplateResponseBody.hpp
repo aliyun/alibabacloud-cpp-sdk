@@ -97,7 +97,7 @@ namespace Models
   protected:
     // The list of code templates.
     shared_ptr<vector<GetAddonCodeTemplateResponseBody::Codes>> codes_ {};
-    // The ID of the request.
+    // Id of the request
     shared_ptr<string> requestId_ {};
   };
 

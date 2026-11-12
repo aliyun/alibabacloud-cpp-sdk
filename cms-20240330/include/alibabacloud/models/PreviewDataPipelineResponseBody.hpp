@@ -99,9 +99,9 @@ namespace Models
 
 
       protected:
-        // The name of the field.
+        // The field name.
         shared_ptr<string> name_ {};
-        // The type of the field.
+        // The field type.
         shared_ptr<string> type_ {};
       };
 
@@ -144,9 +144,9 @@ namespace Models
       shared_ptr<vector<Darabonba::Json>> data_ {};
       // The field metadata.
       shared_ptr<vector<Datasets::Meta>> meta_ {};
-      // The name of the dataset.
+      // The dataset name.
       shared_ptr<string> name_ {};
-      // The number of samples.
+      // The sample count.
       shared_ptr<int64_t> sampleCount_ {};
     };
 

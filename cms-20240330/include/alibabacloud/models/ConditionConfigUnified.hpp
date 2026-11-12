@@ -382,79 +382,79 @@ namespace Models
 
 
   protected:
-    // The minimum deviation or absolute deviation dead zone for dynamic baselines. This parameter takes effect only for baseline operators in UMODEL_METRICSET_CONDITION and APM_SIMPLE_CONDITION. If the absolute difference between the current value and the boundary is less than the absDeviation value, no alert is triggered. The unit is the same as the metric unit. The value must be greater than or equal to 0. A value of 0 indicates no limit.
+    // The minimum dynamic baseline deviation or absolute deviation dead zone (effective only for baseline operators in UMODEL_METRICSET_CONDITION and APM_SIMPLE_CONDITION). No alert is triggered if |current value - boundary| < absDeviation. The unit is the same as the metric. The value must be greater than or equal to 0. A value of 0 indicates no limit.
     shared_ptr<double> absDeviation_ {};
-    // The aggregation function used for APM_SIMPLE_CONDITION. For UModel conditions, this semantic has been migrated to QueryConfigUnified, and this field no longer takes effect.
+    // The aggregation function (APM_SIMPLE_CONDITION).
     shared_ptr<string> aggregate_ {};
-    // The consecutive trigger count threshold for SLS_MULTI_CONDITION. An alert is triggered only after the condition is met for the specified number of consecutive times. Default value: 1.
+    // The consecutive trigger count threshold (type=SLS_MULTI_CONDITION). An alert is triggered only after the condition is met N times. Default value: 1.
     shared_ptr<int32_t> alertCount_ {};
-    // The baseline period. This parameter takes effect only for baseline operators. Valid values: AUTO (automatic identification), DAILY (daily), WEEKLY (weekly), and NONE (no period). For weekly baselines, the backend automatically extends the historical training window to 14 days or more. Automatic identification cannot echo specific identification conclusions.
+    // The baseline period (effective only for baseline operators). Valid values: AUTO for automatic identification, DAILY for daily, WEEKLY for weekly, and NONE for no period. For weekly periods, the backend automatically expands the historical training window to 14 days or more. Automatic identification cannot return specific identification results.
     shared_ptr<string> baselinePeriod_ {};
-    // The list of multiple comparisons for APM_COMPOSITE_CONDITION.
+    // The multiple comparisons (APM_COMPOSITE_CONDITION).
     shared_ptr<vector<CompareList>> compareList_ {};
     // The multi-metric composite trigger configuration for CLOUD_MONITORING_CONDITION when escalationType is set to COMPOSITE. The relation, severity, times, and escalations parameters are required.
     shared_ptr<CloudMonitoringCompositeEscalation> compositeEscalation_ {};
-    // The count comparison operator for UMODEL_LOGSET_CONDITION.
+    // The count comparison operator (type=UMODEL_LOGSET_CONDITION).
     shared_ptr<string> countOperator_ {};
-    // The count threshold for UMODEL_LOGSET_CONDITION.
+    // The count threshold (type=UMODEL_LOGSET_CONDITION).
     shared_ptr<int64_t> countThreshold_ {};
-    // The duration in seconds. This parameter is directly used for PROMETHEUS_SIMPLE, UMODEL_METRICSET_CONDITION, and UMODEL_LOGSET_CONDITION. For UMODEL_METRICSET_MULTI_CONDITION, it serves as the global default value, and each trigger can override it with its own durationSecs value.
+    // The duration in seconds. This parameter is used by PROMETHEUS_SIMPLE and UMODEL_METRICSET.
     shared_ptr<int32_t> durationSecs_ {};
-    // Specifies whether to enable severity suppression for UMODEL_METRICSET_MULTI_CONDITION and PROMETHEUS_MULTI_CONDITION. Default value: true. When enabled, only the highest severity trigger is reported for the same entity.
+    // Specifies whether to enable severity-based suppression (type=UMODEL_METRICSET_MULTI_CONDITION / PROMETHEUS_MULTI_CONDITION). Default value: true. When enabled, only the highest severity trigger is reported for the same entity.
     shared_ptr<bool> enableSeveritySuppression_ {};
-    // The expression type for CLOUD_MONITORING_CONDITION. Valid values: SIMPLE, COMPOSITE, EXPRESS, and PROMETHEUS. The write path only supports SIMPLE and COMPOSITE. Specify the corresponding escalation sub-object based on the type.
+    // The expression type for CLOUD_MONITORING_CONDITION. Valid values: SIMPLE, COMPOSITE, EXPRESS, and PROMETHEUS. Only SIMPLE and COMPOSITE are supported in the write path. Specify the corresponding escalation sub-object based on the type.
     shared_ptr<string> escalationType_ {};
     // The expression trigger configuration for CLOUD_MONITORING_CONDITION when escalationType is set to EXPRESS. This parameter is output only in the read path.
     shared_ptr<CloudMonitoringExpressEscalation> expressEscalation_ {};
-    // The original V1 condition JSON string returned as a fallback when parsing fails in the read path and the type is UNKNOWN_CONDITION. The frontend displays this field as read-only when it is not empty.
+    // The original V1 condition JSON string returned when type is set to UNKNOWN_CONDITION and read path parsing fails as a fallback. The frontend displays this field as read-only when it is not empty.
     shared_ptr<string> legacyRaw_ {};
-    // The legacy type returned when the type is UNKNOWN_CONDITION. This indicates that the rule cannot be edited by using the new API. Submit a ticket to contact the CloudMonitor product team.
+    // The value returned when type is set to UNKNOWN_CONDITION, which indicates that this rule cannot be edited by using the new API. Submit a ticket to contact the CloudMonitor product team.
     shared_ptr<string> legacyType_ {};
-    // The log field name used for UMODEL_LOGSET_CONDITION when matchOperator is set to CONTAINS, EQUALS, or REGEX.
+    // The log field name. This parameter is used when type is set to UMODEL_LOGSET_CONDITION and matchOperator is set to CONTAINS, EQUALS, or REGEX.
     shared_ptr<string> matchField_ {};
-    // The log match operator for UMODEL_LOGSET_CONDITION.
+    // The log matching operator (type=UMODEL_LOGSET_CONDITION).
     shared_ptr<string> matchOperator_ {};
-    // The log match value used for UMODEL_LOGSET_CONDITION when matchOperator is set to CONTAINS, EQUALS, or REGEX.
+    // The log matching value. This parameter is used when type is set to UMODEL_LOGSET_CONDITION and matchOperator is set to CONTAINS, EQUALS, or REGEX.
     shared_ptr<string> matchValue_ {};
-    // The upper bound of the range used for UMODEL_METRICSET_CONDITION when operator is set to IN_RANGE or OUT_OF_RANGE.
+    // The upper bound of the range. This parameter is used for UMODEL_METRICSET_CONDITION when operator is set to IN_RANGE or OUT_OF_RANGE.
     shared_ptr<double> max_ {};
-    // The lower bound of the range used for UMODEL_METRICSET_CONDITION when operator is set to IN_RANGE or OUT_OF_RANGE.
+    // The lower bound of the range. This parameter is used for UMODEL_METRICSET_CONDITION when operator is set to IN_RANGE or OUT_OF_RANGE.
     shared_ptr<double> min_ {};
-    // The no-data alert level for SLS_MULTI_CONDITION. For APM and Prometheus conditions, this parameter has been migrated to noDataPolicy and noDataAlertSeverity.
+    // The no-data alert level (SLS_MULTI_CONDITION). APM and Prometheus conditions have been migrated to noDataPolicy and noDataAlertSeverity.
     shared_ptr<string> noDataAlertLevel_ {};
-    // The no-data alert severity. This parameter takes effect for PROMETHEUS_SIMPLE_CONDITION, PROMETHEUS_MULTI_CONDITION, UMODEL_METRICSET_CONDITION, and UMODEL_METRICSET_MULTI_CONDITION when noDataPolicy is set to NO_DATA_TO_ALERT. For UMODEL_METRICSET conditions, this field is required when noDataPolicy is set to NO_DATA_TO_ALERT, and must not be specified for other policies. SLS_MULTI_CONDITION still uses noDataAlertLevel.
+    // The no-data alert severity. This parameter takes effect for PROMETHEUS_SIMPLE_CONDITION and PROMETHEUS_MULTI_CONDITION when noDataPolicy is set to NO_DATA_TO_ALERT. SLS_MULTI_CONDITION still uses noDataAlertLevel.
     shared_ptr<string> noDataAlertSeverity_ {};
-    // The compensated value when no data is available for APM_SIMPLE_CONDITION and APM_COMPOSITE_CONDITION. This parameter is nullable.
+    // The compensated value when no data is available (APM_SIMPLE_CONDITION / APM_COMPOSITE_CONDITION). This parameter is nullable.
     shared_ptr<double> noDataAppendValue_ {};
-    // The tolerance duration in seconds before no data is determined. This parameter takes effect for UMODEL_METRICSET_CONDITION and UMODEL_METRICSET_MULTI_CONDITION when noDataPolicy is not empty. The noDataPolicy is applied only after no data is continuously reported for longer than this duration. This prevents empty query results in a single cycle caused by UModel data write jitter. The value must be a positive integer. If not specified, the backend uses the fallback value of max(collection interval × 2, 300).
+    // The tolerance duration in seconds before determining that no data is available. This parameter applies to UMODEL_METRICSET_CONDITION and UMODEL_METRICSET_MULTI_CONDITION, and takes effect when noDataPolicy is not empty. The no-data policy is applied only after the continuous no-data period exceeds this duration. This is used to offset single-cycle empty queries caused by UModel data write jitter. The value must be a positive integer. If not specified, the backend defaults to the maximum of twice the collection interval and 300.
     shared_ptr<int32_t> noDataDurationSecs_ {};
-    // The no-data processing policy for CLOUD_MONITORING_CONDITION, PROMETHEUS_MULTI_CONDITION, PROMETHEUS_SIMPLE_CONDITION, APM_SIMPLE_CONDITION, APM_COMPOSITE_CONDITION, UMODEL_METRICSET_CONDITION, and UMODEL_METRICSET_MULTI_CONDITION. Valid values: NO_DATA_TO_OK (treats no data as normal and recovers existing alerts), NO_DATA_TO_ALERT (triggers an alert for no data), KEEP_LAST_STATE (maintains the last state before no data), and APPEND_VALUE (APM only). If not specified, no-data determination is disabled, and the behavior remains the same as before this feature was released. UMODEL_METRICSET_CONDITION and UMODEL_METRICSET_MULTI_CONDITION do not support APPEND_VALUE because their data sources do not support backfilling.
+    // The no-data processing policy (CLOUD_MONITORING_CONDITION / PROMETHEUS_MULTI_CONDITION / PROMETHEUS_SIMPLE_CONDITION / APM_SIMPLE_CONDITION / APM_COMPOSITE_CONDITION). Valid values: NO_DATA_TO_OK, NO_DATA_TO_ALERT, KEEP_LAST_STATE, and APPEND_VALUE (APM only).
     shared_ptr<string> noDataPolicy_ {};
-    // The comparison operator. For UMODEL_METRICSET_CONDITION, valid values are GT (greater than), GE (greater than or equal to), LT (less than), LE (less than or equal to), EQ (equal to), NE (not equal to), IN_RANGE (within the range, requires min and max), OUT_OF_RANGE (outside the range, requires min and max), PRESENT (field exists), NOT_PRESENT (field does not exist), ABOVE_UPPER (dynamic baseline spike), BELOW_LOWER (dynamic baseline drop), and OUT_OF_BAND (bidirectional dynamic baseline, requires sensitivity, do not specify threshold, min, or max). This field is not used for UMODEL_LOGSET_CONDITION. For APM_SIMPLE_CONDITION, valid values are GT, GTE, LT, LTE, EQ, NE, YOY_UP, YOY_DOWN (YOY operators require yoyTimeUnit and yoyTimeValue), ABOVE_UPPER, BELOW_LOWER, and OUT_OF_BAND (dynamic baseline, requires sensitivity).
+    // The comparison operator (UMODEL_METRICSET_CONDITION or APM_SIMPLE_CONDITION).
     shared_ptr<string> operator_ {};
     // The PromQL trigger configuration for CLOUD_MONITORING_CONDITION when escalationType is set to PROMETHEUS. This parameter is output only in the read path.
     shared_ptr<CloudMonitoringPrometheusEscalation> prometheus_ {};
-    // The logical relation between conditions for APM_COMPOSITE_CONDITION.
+    // The logical relation between conditions (APM_COMPOSITE_CONDITION).
     shared_ptr<string> relation_ {};
-    // The dynamic baseline sensitivity for UMODEL_METRICSET_CONDITION and APM_SIMPLE_CONDITION. This parameter takes effect only when operator is set to ABOVE_UPPER, BELOW_LOWER, or OUT_OF_BAND. Valid values: HIGH (narrowest band and most sensitive), MEDIUM, and LOW (widest band and least sensitive).
+    // The dynamic baseline sensitivity (UMODEL_METRICSET_CONDITION / APM_SIMPLE_CONDITION). This parameter takes effect only when operator is set to ABOVE_UPPER, BELOW_LOWER, or OUT_OF_BAND. Valid values: HIGH for the narrowest and most sensitive band, MEDIUM, and LOW for the widest and least sensitive band.
     shared_ptr<string> sensitivity_ {};
-    // The severity level for UMODEL_METRICSET_CONDITION, UMODEL_LOGSET_CONDITION, PROMETHEUS_SIMPLE, and APM_COMPOSITE.
+    // The severity level (UMODEL / PROMETHEUS_SIMPLE / APM_COMPOSITE).
     shared_ptr<string> severity_ {};
     // The single-metric multi-level trigger configuration for CLOUD_MONITORING_CONDITION when escalationType is set to SIMPLE. The metricName, period, and escalations parameters are required.
     shared_ptr<CloudMonitoringSimpleEscalation> simpleEscalation_ {};
-    // The threshold used for UMODEL_METRICSET_CONDITION when a non-range operator is specified.
+    // The threshold (UMODEL_METRICSET_CONDITION).
     shared_ptr<double> threshold_ {};
-    // The list of multiple thresholds for APM_SIMPLE_CONDITION.
+    // The multi-threshold list (APM_SIMPLE_CONDITION).
     shared_ptr<vector<ThresholdList>> thresholdList_ {};
-    // The list of triggers. This field is polymorphic based on the type. CLOUD_MONITORING_CONDITION does not use this field; use simpleEscalation.escalations or compositeEscalation.escalations instead. For SLS_MULTI_CONDITION, each case includes matchField, matchOperator, matchValue, countOperator, countThreshold, and severity, and at least one case is required. For UMODEL_METRICSET_MULTI_CONDITION, each trigger includes severity, durationSecs, and an expression (SIMPLE or COMPOSITE). For PROMETHEUS_MULTI_CONDITION, each trigger includes severity, durationSecs, and an expression (SIMPLE or COMPOSITE). Triggers are sorted by severity priority, and the first matched trigger is executed.
+    // The trigger list. This parameter is polymorphic by type. CLOUD_MONITORING_CONDITION does not use this field; use simpleEscalation.escalations or compositeEscalation.escalations instead. For SLS_MULTI_CONDITION, each case includes matchField, matchOperator, matchValue, countOperator, countThreshold, and severity, and at least one case is required. For UMODEL_METRICSET_MULTI_CONDITION, each trigger includes severity, durationSecs, and an expression (SIMPLE or COMPOSITE). For PROMETHEUS_MULTI_CONDITION, each trigger includes severity, durationSecs, and an expression (SIMPLE or COMPOSITE). The triggers are sorted by severity priority, and the first match triggers the alert.
     shared_ptr<vector<Triggers>> triggers_ {};
-    // The detection condition type. Valid values and required fields: PROMETHEUS_SIMPLE_CONDITION (requires operator, threshold, durationSecs, and severity), UMODEL_METRICSET_CONDITION (requires operator, durationSecs, and severity; requires threshold for non-range operators; requires min and max when operator is IN_RANGE or OUT_OF_RANGE; noDataPolicy and noDataDurationSecs are optional, but noDataAlertSeverity is required when noDataPolicy is NO_DATA_TO_ALERT), UMODEL_LOGSET_CONDITION (requires matchOperator, durationSecs, and severity; requires matchField and matchValue when matchOperator is CONTAINS, EQUALS, or REGEX; countOperator and countThreshold are optional), UMODEL_METRICSET_MULTI_CONDITION (requires triggers; durationSecs as global default and enableSeveritySuppression are optional; noDataPolicy and noDataDurationSecs are optional, but noDataAlertSeverity is required when noDataPolicy is NO_DATA_TO_ALERT), APM_SIMPLE_CONDITION (requires operator and aggregate; requires thresholdList or threshold; requires yoyTimeUnit and yoyTimeValue when operator is YOY_UP or YOY_DOWN; noDataPolicy and noDataAppendValue are optional), APM_COMPOSITE_CONDITION (requires compareList, relation, and severity; noDataPolicy and noDataAppendValue are optional), CLOUD_MONITORING_CONDITION (requires escalationType; requires simpleEscalation when escalationType is SIMPLE; requires compositeEscalation when escalationType is COMPOSITE; noDataPolicy is optional), and UNKNOWN_CONDITION (read-only fallback, do not use in the write path). Non-enum values such as SLS_CONDITION or CMS_BASIC_CONDITION are prohibited. The backend returns an Invalidtype 400 error for invalid values.
+    // The detection condition type.
     // 
     // This parameter is required.
     shared_ptr<string> type_ {};
-    // The year-over-year time unit for APM_SIMPLE_CONDITION. This parameter takes effect only when operator is set to YOY_UP or YOY_DOWN.
+    // The year-over-year time unit (APM_SIMPLE_CONDITION). This parameter takes effect only when operator is set to YOY_UP or YOY_DOWN.
     shared_ptr<string> yoyTimeUnit_ {};
-    // The year-over-year time value for APM_SIMPLE_CONDITION. This parameter takes effect only when operator is set to YOY_UP or YOY_DOWN.
+    // The year-over-year time value (APM_SIMPLE_CONDITION). This parameter takes effect only when operator is set to YOY_UP or YOY_DOWN.
     shared_ptr<int32_t> yoyTimeValue_ {};
   };
 

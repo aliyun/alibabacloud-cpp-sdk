@@ -48,7 +48,7 @@ namespace Models
 
 
   protected:
-    // The instance ID.
+    // The ID of the instance.
     shared_ptr<string> prometheusInstanceId_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};

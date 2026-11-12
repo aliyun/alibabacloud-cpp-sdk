@@ -50,7 +50,7 @@ namespace Models
   protected:
     // The maximum number of results per page.
     shared_ptr<int32_t> maxResults_ {};
-    // The next page token.
+    // The next token.
     shared_ptr<string> nextToken_ {};
   };
 

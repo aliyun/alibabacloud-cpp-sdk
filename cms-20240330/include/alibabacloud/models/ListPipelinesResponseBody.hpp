@@ -116,7 +116,7 @@ namespace Models
       shared_ptr<string> createTime_ {};
       // The description.
       shared_ptr<string> description_ {};
-      // The name of the pipeline.
+      // The pipeline name.
       shared_ptr<string> pipelineName_ {};
       // The region ID.
       shared_ptr<string> regionId_ {};

@@ -161,7 +161,7 @@ namespace Models
   protected:
     // Indicates whether the policy is created.
     shared_ptr<bool> created_ {};
-    // The uploaded policy.
+    // The policy.
     shared_ptr<CreateIntegrationPolicyResponseBody::Policy> policy_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

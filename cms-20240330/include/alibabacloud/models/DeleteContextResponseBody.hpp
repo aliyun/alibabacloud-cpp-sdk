@@ -57,11 +57,11 @@ namespace Models
 
 
   protected:
-    // The unique identifier of the deleted context.
+    // The ID of the generated record or event.
     shared_ptr<string> contextId_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The deletion status. For example, deleted.
+    // The deletion status, such as deleted.
     shared_ptr<string> status_ {};
   };
 

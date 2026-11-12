@@ -20,6 +20,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(lang, lang_);
       DARABONBA_PTR_TO_JSON(name, name_);
       DARABONBA_PTR_TO_JSON(phone, phone_);
+      DARABONBA_PTR_TO_JSON(phoneCode, phoneCode_);
       DARABONBA_PTR_TO_JSON(workspace, workspace_);
     };
     friend void from_json(const Darabonba::Json& j, CreateContactRequest& obj) { 
@@ -29,6 +30,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(lang, lang_);
       DARABONBA_PTR_FROM_JSON(name, name_);
       DARABONBA_PTR_FROM_JSON(phone, phone_);
+      DARABONBA_PTR_FROM_JSON(phoneCode, phoneCode_);
       DARABONBA_PTR_FROM_JSON(workspace, workspace_);
     };
     CreateContactRequest() = default ;
@@ -44,7 +46,7 @@ namespace Models
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->contactId_ == nullptr
         && this->email_ == nullptr && this->imUserIds_ == nullptr && this->lang_ == nullptr && this->name_ == nullptr && this->phone_ == nullptr
-        && this->workspace_ == nullptr; };
+        && this->phoneCode_ == nullptr && this->workspace_ == nullptr; };
     // contactId Field Functions 
     bool hasContactId() const { return this->contactId_ != nullptr;};
     void deleteContactId() { this->contactId_ = nullptr;};
@@ -89,6 +91,13 @@ namespace Models
     inline CreateContactRequest& setPhone(string phone) { DARABONBA_PTR_SET_VALUE(phone_, phone) };
 
 
+    // phoneCode Field Functions 
+    bool hasPhoneCode() const { return this->phoneCode_ != nullptr;};
+    void deletePhoneCode() { this->phoneCode_ = nullptr;};
+    inline string getPhoneCode() const { DARABONBA_PTR_GET_DEFAULT(phoneCode_, "") };
+    inline CreateContactRequest& setPhoneCode(string phoneCode) { DARABONBA_PTR_SET_VALUE(phoneCode_, phoneCode) };
+
+
     // workspace Field Functions 
     bool hasWorkspace() const { return this->workspace_ != nullptr;};
     void deleteWorkspace() { this->workspace_ = nullptr;};
@@ -107,8 +116,10 @@ namespace Models
     shared_ptr<string> lang_ {};
     // The name of the contact.
     shared_ptr<string> name_ {};
-    // The mobile phone number. Currently, only mobile phone numbers in the Chinese mainland are supported.
+    // The mobile phone number. Currently, only mobile phone numbers in China are supported.
     shared_ptr<string> phone_ {};
+    // The country code.
+    shared_ptr<string> phoneCode_ {};
     // The name of the workspace.
     shared_ptr<string> workspace_ {};
   };

@@ -17,6 +17,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(archiveDuration, archiveDuration_);
       DARABONBA_PTR_TO_JSON(authFreeReadPolicy, authFreeReadPolicy_);
       DARABONBA_PTR_TO_JSON(authFreeWritePolicy, authFreeWritePolicy_);
+      DARABONBA_PTR_TO_JSON(dryrun, dryrun_);
       DARABONBA_PTR_TO_JSON(enableAuthFreeRead, enableAuthFreeRead_);
       DARABONBA_PTR_TO_JSON(enableAuthFreeWrite, enableAuthFreeWrite_);
       DARABONBA_PTR_TO_JSON(enableAuthToken, enableAuthToken_);
@@ -31,6 +32,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(archiveDuration, archiveDuration_);
       DARABONBA_PTR_FROM_JSON(authFreeReadPolicy, authFreeReadPolicy_);
       DARABONBA_PTR_FROM_JSON(authFreeWritePolicy, authFreeWritePolicy_);
+      DARABONBA_PTR_FROM_JSON(dryrun, dryrun_);
       DARABONBA_PTR_FROM_JSON(enableAuthFreeRead, enableAuthFreeRead_);
       DARABONBA_PTR_FROM_JSON(enableAuthFreeWrite, enableAuthFreeWrite_);
       DARABONBA_PTR_FROM_JSON(enableAuthToken, enableAuthToken_);
@@ -53,9 +55,9 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->archiveDuration_ == nullptr
-        && this->authFreeReadPolicy_ == nullptr && this->authFreeWritePolicy_ == nullptr && this->enableAuthFreeRead_ == nullptr && this->enableAuthFreeWrite_ == nullptr && this->enableAuthToken_ == nullptr
-        && this->paymentType_ == nullptr && this->prometheusInstanceName_ == nullptr && this->status_ == nullptr && this->storageDuration_ == nullptr && this->storeConfig_ == nullptr
-        && this->workspace_ == nullptr; };
+        && this->authFreeReadPolicy_ == nullptr && this->authFreeWritePolicy_ == nullptr && this->dryrun_ == nullptr && this->enableAuthFreeRead_ == nullptr && this->enableAuthFreeWrite_ == nullptr
+        && this->enableAuthToken_ == nullptr && this->paymentType_ == nullptr && this->prometheusInstanceName_ == nullptr && this->status_ == nullptr && this->storageDuration_ == nullptr
+        && this->storeConfig_ == nullptr && this->workspace_ == nullptr; };
     // archiveDuration Field Functions 
     bool hasArchiveDuration() const { return this->archiveDuration_ != nullptr;};
     void deleteArchiveDuration() { this->archiveDuration_ = nullptr;};
@@ -75,6 +77,13 @@ namespace Models
     void deleteAuthFreeWritePolicy() { this->authFreeWritePolicy_ = nullptr;};
     inline string getAuthFreeWritePolicy() const { DARABONBA_PTR_GET_DEFAULT(authFreeWritePolicy_, "") };
     inline UpdatePrometheusInstanceRequest& setAuthFreeWritePolicy(string authFreeWritePolicy) { DARABONBA_PTR_SET_VALUE(authFreeWritePolicy_, authFreeWritePolicy) };
+
+
+    // dryrun Field Functions 
+    bool hasDryrun() const { return this->dryrun_ != nullptr;};
+    void deleteDryrun() { this->dryrun_ = nullptr;};
+    inline bool getDryrun() const { DARABONBA_PTR_GET_DEFAULT(dryrun_, false) };
+    inline UpdatePrometheusInstanceRequest& setDryrun(bool dryrun) { DARABONBA_PTR_SET_VALUE(dryrun_, dryrun) };
 
 
     // enableAuthFreeRead Field Functions 
@@ -143,31 +152,36 @@ namespace Models
 
 
   protected:
-    // The number of days for automatic archiving after storage expires. A value of 0 indicates no archiving. Valid values for archive days:
-    // V1: 1 to 365 days. Only supported for billing by metric write volume.
-    // V2: 1 to 3650 days (3650 indicates permanent retention).
+    // The number of days to automatically archive and retain data after the storage period expires. A value of 0 indicates that data is not archived. Valid values for the archive retention period:
+    // V1: 1 to 365 days. Supported only for the pay-by-ingested-data billing method.
+    // V2: 1 to 3650 days. A value of 3650 indicates permanent retention.
     shared_ptr<int32_t> archiveDuration_ {};
-    // The authentication-free read policy. IP CIDR blocks and VPC IDs are supported.
+    // The authentication-free read policy. IP address ranges and VPC IDs are supported.
     shared_ptr<string> authFreeReadPolicy_ {};
-    // The authentication-free read policy. IP CIDR blocks and VPC IDs are supported.
+    // The authentication-free read policy. IP address ranges and VPC IDs are supported.
     shared_ptr<string> authFreeWritePolicy_ {};
+    // Specifies whether to only precheck the request. Valid values:
+    // 
+    // true: sends a precheck request without updating the instance. The system checks whether required parameters are specified, the request format is valid, and service limits are met. If the request fails the precheck, the corresponding error is returned. If the request passes the precheck, the DryRunOperation error code is returned.
+    // false: sends a regular request. If the request passes the precheck, the instance is updated. This is the default value.
+    shared_ptr<bool> dryrun_ {};
     // Specifies whether to enable authentication-free read.
     shared_ptr<bool> enableAuthFreeRead_ {};
     // Specifies whether to enable authentication-free write.
     shared_ptr<bool> enableAuthFreeWrite_ {};
     // Specifies whether to enable access token authentication.
     shared_ptr<bool> enableAuthToken_ {};
-    // The billing method. This can be modified only once during the instance lifetime:
-    // POSTPAY: pay-as-you-go by metric reporting volume.
-    // POSTPAY_GB: pay-as-you-go by metric write volume.
+    // The billing method. You can change the billing method only once during the lifecycle of the instance. Valid values:
+    // POSTPAY: pay-as-you-go based on the number of reported metrics.
+    // POSTPAY_GB: pay-as-you-go based on the volume of ingested data.
     shared_ptr<string> paymentType_ {};
-    // The instance name.
+    // The name of the instance.
     shared_ptr<string> prometheusInstanceName_ {};
-    // Instance storage database status of the instance. Only RUNNING is supported. If left empty, instance storage database status is not changed.
+    // The status of the instance storage database. Only RUNNING is supported. If this parameter is left empty, the status of the storage database is not changed.
     shared_ptr<string> status_ {};
-    // The storage duration (days):
-    // By write volume: 90, 180.
-    // By metric reporting volume: 15, 30, 60, 90, 180.
+    // The storage duration in days. Valid values:
+    // For the pay-by-ingested-data billing method: 90 and 180.
+    // For the pay-by-reported-metrics billing method: 15, 30, 60, 90, and 180.
     shared_ptr<int32_t> storageDuration_ {};
     // The Prometheus storage configuration.
     shared_ptr<PrometheusInstanceStoreConfig> storeConfig_ {};

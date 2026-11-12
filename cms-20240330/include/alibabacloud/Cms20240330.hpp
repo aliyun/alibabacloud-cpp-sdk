@@ -21,7 +21,7 @@ namespace Cms20240330
       string getEndpoint(const string &productId, const string &regionId, const string &endpointRule, const string &network, const string &suffix, const map<string, string> &endpointMap, const string &endpoint);
 
       /**
-       * @summary Activates the contact channel.
+       * @summary Activates a contact channel.
        *
        * @param request ActiveContactChannelRequest
        * @param headers map
@@ -31,7 +31,7 @@ namespace Cms20240330
       Models::ActiveContactChannelResponse activeContactChannelWithOptions(const Models::ActiveContactChannelRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Activates the contact channel.
+       * @summary Activates a contact channel.
        *
        * @param request ActiveContactChannelRequest
        * @return ActiveContactChannelResponse
@@ -189,7 +189,7 @@ namespace Cms20240330
       /**
        * @summary Creates a webhook.
        *
-       * @description Creates a webhook notification recipient.
+       * @description Creates a webhook Notification Recipient.
        *
        * @param request CreateAlertWebhookRequest
        * @param headers map
@@ -201,7 +201,7 @@ namespace Cms20240330
       /**
        * @summary Creates a webhook.
        *
-       * @description Creates a webhook notification recipient.
+       * @description Creates a webhook Notification Recipient.
        *
        * @param request CreateAlertWebhookRequest
        * @return CreateAlertWebhookResponse
@@ -393,7 +393,7 @@ namespace Cms20240330
       /**
        * @summary Creates an access center policy.
        *
-       * @description This operation creates an event integration.
+       * @description Creates an event integration.
        *
        * @param request CreateIntegrationPolicyRequest
        * @param headers map
@@ -405,7 +405,7 @@ namespace Cms20240330
       /**
        * @summary Creates an access center policy.
        *
-       * @description This operation creates an event integration.
+       * @description Creates an event integration.
        *
        * @param request CreateIntegrationPolicyRequest
        * @return CreateIntegrationPolicyResponse
@@ -415,7 +415,8 @@ namespace Cms20240330
       /**
        * @summary Creates a silence policy.
        *
-       * @description Creates a silence policy in a specified workspace. A silence policy filters events by using filterSetting. When the policy is enabled and the current time hits the configured effective period, the hit events do not trigger subscribe notifications, direct notifications, or global subscribe notifications, but the events are still stored normally. When you create a policy, maintainWindowName and filterSetting are required, and filterSetting must contain at least one condition. You can leave the effective period unconfigured, in which case the policy does not hit any events. If you configure effective, you must also configure at least one of startTime, endTime, or effectTimeRange. Otherwise, the validation failed. If the policy name already exists in the same workspace, InvalidParameterValue is returned. After the policy is created, the silence policy ID is returned.
+       * @description Creates a silence policy in a specified workspace. A silence policy filters events by using filterSetting. When the policy is enabled and the current time hits the configured effective period, the hit events do not trigger subscribe notifications, direct notifications, or global subscribe notifications, but the events are still stored normally.
+       * When you create a silence policy, maintainWindowName and filterSetting are required, and filterSetting must contain at least one condition. You can leave the effective period unconfigured, in which case the policy does not hit any events. If you configure effective, you must also configure at least one of startTime, endTime, or effectTimeRange. Otherwise, validation failed. If the policy name already exists in the same workspace, InvalidParameterValue is returned. After the policy is created, the silence policy ID is returned.
        *
        * @param request CreateMaintainWindowRequest
        * @param headers map
@@ -427,7 +428,8 @@ namespace Cms20240330
       /**
        * @summary Creates a silence policy.
        *
-       * @description Creates a silence policy in a specified workspace. A silence policy filters events by using filterSetting. When the policy is enabled and the current time hits the configured effective period, the hit events do not trigger subscribe notifications, direct notifications, or global subscribe notifications, but the events are still stored normally. When you create a policy, maintainWindowName and filterSetting are required, and filterSetting must contain at least one condition. You can leave the effective period unconfigured, in which case the policy does not hit any events. If you configure effective, you must also configure at least one of startTime, endTime, or effectTimeRange. Otherwise, the validation failed. If the policy name already exists in the same workspace, InvalidParameterValue is returned. After the policy is created, the silence policy ID is returned.
+       * @description Creates a silence policy in a specified workspace. A silence policy filters events by using filterSetting. When the policy is enabled and the current time hits the configured effective period, the hit events do not trigger subscribe notifications, direct notifications, or global subscribe notifications, but the events are still stored normally.
+       * When you create a silence policy, maintainWindowName and filterSetting are required, and filterSetting must contain at least one condition. You can leave the effective period unconfigured, in which case the policy does not hit any events. If you configure effective, you must also configure at least one of startTime, endTime, or effectTimeRange. Otherwise, validation failed. If the policy name already exists in the same workspace, InvalidParameterValue is returned. After the policy is created, the silence policy ID is returned.
        *
        * @param request CreateMaintainWindowRequest
        * @return CreateMaintainWindowResponse
@@ -497,7 +499,7 @@ namespace Cms20240330
       Models::CreateOncallScheduleResponse createOncallSchedule(const Models::CreateOncallScheduleRequest &request);
 
       /**
-       * @summary Create a pipeline.
+       * @summary Creates a pipeline.
        *
        * @param request CreatePipelineRequest
        * @param headers map
@@ -507,7 +509,7 @@ namespace Cms20240330
       Models::CreatePipelineResponse createPipelineWithOptions(const string &workspace, const Models::CreatePipelineRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Create a pipeline.
+       * @summary Creates a pipeline.
        *
        * @param request CreatePipelineRequest
        * @return CreatePipelineResponse
@@ -515,7 +517,7 @@ namespace Cms20240330
       Models::CreatePipelineResponse createPipeline(const string &workspace, const Models::CreatePipelineRequest &request);
 
       /**
-       * @summary Creates a Managed Service for Prometheus instance.
+       * @summary Creates a Prometheus monitoring instance.
        *
        * @param request CreatePrometheusInstanceRequest
        * @param headers map
@@ -525,7 +527,7 @@ namespace Cms20240330
       Models::CreatePrometheusInstanceResponse createPrometheusInstanceWithOptions(const Models::CreatePrometheusInstanceRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Creates a Managed Service for Prometheus instance.
+       * @summary Creates a Prometheus monitoring instance.
        *
        * @param request CreatePrometheusInstanceRequest
        * @return CreatePrometheusInstanceResponse
@@ -595,7 +597,7 @@ namespace Cms20240330
       Models::CreateServiceResponse createService(const string &workspace, const Models::CreateServiceRequest &request);
 
       /**
-       * @summary Creates application observability and prepares the prerequisite resources required for integration.
+       * @summary Creates application observability and completes prerequisite resource preparations for integration.
        *
        * @param request CreateServiceObservabilityRequest
        * @param headers map
@@ -605,7 +607,7 @@ namespace Cms20240330
       Models::CreateServiceObservabilityResponse createServiceObservabilityWithOptions(const string &workspace, const string &type, const Models::CreateServiceObservabilityRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Creates application observability and prepares the prerequisite resources required for integration.
+       * @summary Creates application observability and completes prerequisite resource preparations for integration.
        *
        * @param request CreateServiceObservabilityRequest
        * @return CreateServiceObservabilityResponse
@@ -613,7 +615,7 @@ namespace Cms20240330
       Models::CreateServiceObservabilityResponse createServiceObservability(const string &workspace, const string &type, const Models::CreateServiceObservabilityRequest &request);
 
       /**
-       * @summary Creates a service-linked entry for associating configurations with the application monitoring service, such as log association.
+       * @summary Creates a service association entry to configure associations for the application monitoring service, such as log associations.
        *
        * @param request CreateServiceRecordRequest
        * @param headers map
@@ -623,7 +625,7 @@ namespace Cms20240330
       Models::CreateServiceRecordResponse createServiceRecordWithOptions(const string &workspace, const string &serviceId, const Models::CreateServiceRecordRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Creates a service-linked entry for associating configurations with the application monitoring service, such as log association.
+       * @summary Creates a service association entry to configure associations for the application monitoring service, such as log associations.
        *
        * @param request CreateServiceRecordRequest
        * @return CreateServiceRecordResponse
@@ -636,10 +638,10 @@ namespace Cms20240330
        * @description Creates a service task for an application in a specified workspace.
        * Common use cases:
        * - heapdump: Triggers a JVM heap dump.
-       * - LiveDebug Probe: Dynamically instruments a target method (log, snapshot, metric, span, etc.).
-       * - LiveDebug Command: Performs a one-time active inspection (OGNL, decompilation, thread/memory information, etc.).
-       * - LiveDebug Code Replace: Performs hot code replacement.
-       * After successful creation, a taskId is returned. You can manage the task by using GetServiceTask, ListServiceTask, or DeleteServiceTask. After a LiveDebug task is created, the configuration is synchronously delivered to ConfigServer.
+       * - LiveDebug Probe: Dynamically instruments target methods (logs, snapshots, metrics, spans, etc.).
+       * - LiveDebug Command: One-time proactive inspection (OGNL, decompilation, thread or memory information, etc.).
+       * - LiveDebug Code Replace: Hot code replacement.
+       * After the task is created, a taskId is returned. You can subsequently manage the task by using GetServiceTask, ListServiceTask, or DeleteServiceTask. After a LiveDebug task is created, the configuration is synchronized to ConfigServer.
        *
        * @param request CreateServiceTaskRequest
        * @param headers map
@@ -654,10 +656,10 @@ namespace Cms20240330
        * @description Creates a service task for an application in a specified workspace.
        * Common use cases:
        * - heapdump: Triggers a JVM heap dump.
-       * - LiveDebug Probe: Dynamically instruments a target method (log, snapshot, metric, span, etc.).
-       * - LiveDebug Command: Performs a one-time active inspection (OGNL, decompilation, thread/memory information, etc.).
-       * - LiveDebug Code Replace: Performs hot code replacement.
-       * After successful creation, a taskId is returned. You can manage the task by using GetServiceTask, ListServiceTask, or DeleteServiceTask. After a LiveDebug task is created, the configuration is synchronously delivered to ConfigServer.
+       * - LiveDebug Probe: Dynamically instruments target methods (logs, snapshots, metrics, spans, etc.).
+       * - LiveDebug Command: One-time proactive inspection (OGNL, decompilation, thread or memory information, etc.).
+       * - LiveDebug Code Replace: Hot code replacement.
+       * After the task is created, a taskId is returned. You can subsequently manage the task by using GetServiceTask, ListServiceTask, or DeleteServiceTask. After a LiveDebug task is created, the configuration is synchronized to ConfigServer.
        *
        * @param request CreateServiceTaskRequest
        * @return CreateServiceTaskResponse
@@ -683,7 +685,7 @@ namespace Cms20240330
       Models::CreateSubscriptionResponse createSubscription(const Models::CreateSubscriptionRequest &request);
 
       /**
-       * @summary Generates a ticket for passwordless access if you need to share console pages with others without requiring logon or embed them in third-party systems. After generating the ticket by calling CreateTicket, you can construct a passwordless access link.
+       * @summary Creates a ticket for password-free access. You can use the ticket to construct a password-free URL to share console pages with other users or embed them into third-party systems.
        *
        * @param request CreateTicketRequest
        * @param headers map
@@ -693,7 +695,7 @@ namespace Cms20240330
       Models::CreateTicketResponse createTicketWithOptions(const Models::CreateTicketRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Generates a ticket for passwordless access if you need to share console pages with others without requiring logon or embed them in third-party systems. After generating the ticket by calling CreateTicket, you can construct a passwordless access link.
+       * @summary Creates a ticket for password-free access. You can use the ticket to construct a password-free URL to share console pages with other users or embed them into third-party systems.
        *
        * @param request CreateTicketRequest
        * @return CreateTicketResponse
@@ -759,7 +761,7 @@ namespace Cms20240330
       Models::DeleteAggTaskGroupResponse deleteAggTaskGroup(const string &instanceId, const string &groupId, const Models::DeleteAggTaskGroupRequest &request);
 
       /**
-       * @summary Deletes an alert action integration.
+       * @summary Deletes alert action integrations.
        *
        * @param tmpReq DeleteAlertActionsRequest
        * @param headers map
@@ -769,7 +771,7 @@ namespace Cms20240330
       Models::DeleteAlertActionsResponse deleteAlertActionsWithOptions(const Models::DeleteAlertActionsRequest &tmpReq, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Deletes an alert action integration.
+       * @summary Deletes alert action integrations.
        *
        * @param request DeleteAlertActionsRequest
        * @return DeleteAlertActionsResponse
@@ -865,7 +867,7 @@ namespace Cms20240330
       Models::DeleteCloudResourceResponse deleteCloudResource();
 
       /**
-       * @summary Deletes contact groups.
+       * @summary Deletes a contact group.
        *
        * @param tmpReq DeleteContactGroupsRequest
        * @param headers map
@@ -875,7 +877,7 @@ namespace Cms20240330
       Models::DeleteContactGroupsResponse deleteContactGroupsWithOptions(const Models::DeleteContactGroupsRequest &tmpReq, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Deletes contact groups.
+       * @summary Deletes a contact group.
        *
        * @param request DeleteContactGroupsRequest
        * @return DeleteContactGroupsResponse
@@ -883,7 +885,7 @@ namespace Cms20240330
       Models::DeleteContactGroupsResponse deleteContactGroups(const Models::DeleteContactGroupsRequest &request);
 
       /**
-       * @summary Deletes a contact.
+       * @summary Deletes contacts.
        *
        * @param tmpReq DeleteContactsRequest
        * @param headers map
@@ -893,7 +895,7 @@ namespace Cms20240330
       Models::DeleteContactsResponse deleteContactsWithOptions(const Models::DeleteContactsRequest &tmpReq, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Deletes a contact.
+       * @summary Deletes contacts.
        *
        * @param request DeleteContactsRequest
        * @return DeleteContactsResponse
@@ -1013,7 +1015,7 @@ namespace Cms20240330
       Models::DeleteDatasetResponse deleteDataset(const string &workspace, const string &datasetName, const Models::DeleteDatasetRequest &request);
 
       /**
-       * @summary Deletes a delivery task.
+       * @summary Deletes a data delivery task.
        *
        * @param request DeleteDeliveryTaskRequest
        * @param headers map
@@ -1023,7 +1025,7 @@ namespace Cms20240330
       Models::DeleteDeliveryTaskResponse deleteDeliveryTaskWithOptions(const string &taskId, const Models::DeleteDeliveryTaskRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Deletes a delivery task.
+       * @summary Deletes a data delivery task.
        *
        * @param request DeleteDeliveryTaskRequest
        * @return DeleteDeliveryTaskResponse
@@ -1249,7 +1251,7 @@ namespace Cms20240330
       Models::DeletePrometheusViewResponse deletePrometheusView(const string &prometheusViewId, const Models::DeletePrometheusViewRequest &request);
 
       /**
-       * @summary Deletes a Prometheus virtual instance by its ID.
+       * @summary Deletes a Prometheus virtual instance by virtual instance ID.
        *
        * @param request DeletePrometheusVirtualInstanceRequest
        * @param headers map
@@ -1259,7 +1261,7 @@ namespace Cms20240330
       Models::DeletePrometheusVirtualInstanceResponse deletePrometheusVirtualInstanceWithOptions(const string &prometheusInstanceId, const Models::DeletePrometheusVirtualInstanceRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Deletes a Prometheus virtual instance by its ID.
+       * @summary Deletes a Prometheus virtual instance by virtual instance ID.
        *
        * @param request DeletePrometheusVirtualInstanceRequest
        * @return DeletePrometheusVirtualInstanceResponse
@@ -1431,9 +1433,9 @@ namespace Cms20240330
       Models::DeleteWorkspaceResponse deleteWorkspace(const string &workspaceName, const Models::DeleteWorkspaceRequest &request);
 
       /**
-       * @summary Queries metric metadata.
+       * @summary Queries metadata.
        *
-       * @description Queries the details of CloudMonitor monitoring metrics metadata.
+       * @description Queries the metadata details of CloudMonitor monitoring metrics.
        *
        * @param tmpReq DescribeMetricMetaListRequest
        * @param headers map
@@ -1443,9 +1445,9 @@ namespace Cms20240330
       Models::DescribeMetricMetaListResponse describeMetricMetaListWithOptions(const Models::DescribeMetricMetaListRequest &tmpReq, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries metric metadata.
+       * @summary Queries metadata.
        *
-       * @description Queries the details of CloudMonitor monitoring metrics metadata.
+       * @description Queries the metadata details of CloudMonitor monitoring metrics.
        *
        * @param request DescribeMetricMetaListRequest
        * @return DescribeMetricMetaListResponse
@@ -1577,7 +1579,7 @@ namespace Cms20240330
       Models::EnableNotifyPolicyResponse enableNotifyPolicy(const string &uuid, const Models::EnableNotifyPolicyRequest &request);
 
       /**
-       * @summary Activates a subscription.
+       * @summary Starts a subscription.
        *
        * @param request EnableSubscriptionRequest
        * @param headers map
@@ -1587,12 +1589,34 @@ namespace Cms20240330
       Models::EnableSubscriptionResponse enableSubscriptionWithOptions(const string &subscriptionId, const Models::EnableSubscriptionRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Activates a subscription.
+       * @summary Starts a subscription.
        *
        * @param request EnableSubscriptionRequest
        * @return EnableSubscriptionResponse
        */
       Models::EnableSubscriptionResponse enableSubscription(const string &subscriptionId, const Models::EnableSubscriptionRequest &request);
+
+      /**
+       * @summary Retrieves or creates a shared Prometheus instance for a workspace.
+       *
+       * @description Retrieves or creates a shared Prometheus instance for a workspace. If the instance does not exist, it is created. If the instance already exists, it is directly returned. Currently, only shareScope=Workspace is supported. Each workspace corresponds to only one shared instance in the requested region, and the instance name is generated by the server. The caller identity is the user. If the workspace does not exist, a 404 error is returned.
+       *
+       * @param request EnsureSharedPrometheusInstanceRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return EnsureSharedPrometheusInstanceResponse
+       */
+      Models::EnsureSharedPrometheusInstanceResponse ensureSharedPrometheusInstanceWithOptions(const Models::EnsureSharedPrometheusInstanceRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Retrieves or creates a shared Prometheus instance for a workspace.
+       *
+       * @description Retrieves or creates a shared Prometheus instance for a workspace. If the instance does not exist, it is created. If the instance already exists, it is directly returned. Currently, only shareScope=Workspace is supported. Each workspace corresponds to only one shared instance in the requested region, and the instance name is generated by the server. The caller identity is the user. If the workspace does not exist, a 404 error is returned.
+       *
+       * @param request EnsureSharedPrometheusInstanceRequest
+       * @return EnsureSharedPrometheusInstanceResponse
+       */
+      Models::EnsureSharedPrometheusInstanceResponse ensureSharedPrometheusInstance(const Models::EnsureSharedPrometheusInstanceRequest &request);
 
       /**
        * @summary Executes SQL, SPL, and other queries.
@@ -1635,9 +1659,9 @@ namespace Cms20240330
       Models::GetAddonResponse getAddon(const string &addonName, const Models::GetAddonRequest &request);
 
       /**
-       * @summary Details of an add-on schema.
+       * @summary Retrieves the schema details of an add-on.
        *
-       * @description This topic provides an example of how to modify version `1` of alert template `123456`. In this example, the alert level is set to `Critical`, the statistical method is set to `Average`, the comparison operator for the alert threshold is set to `GreaterThanOrEqualToThreshold`, the alert threshold is set to `90`, and the number of retries is set to `3`. The response indicates that the alert template was successfully modified.
+       * @description This topic provides an example of modifying alert template `123456` of version `1`. The alert level is changed to `Critical`, the statistical method to `Average`, the threshold comparison operator to `GreaterThanOrEqualToThreshold`, the threshold to `90`, and the number of retries to `3`. The response indicates that the alert template was modified successfully.
        *
        * @param request GetAddonCodeTemplateRequest
        * @param headers map
@@ -1647,9 +1671,9 @@ namespace Cms20240330
       Models::GetAddonCodeTemplateResponse getAddonCodeTemplateWithOptions(const string &addonName, const Models::GetAddonCodeTemplateRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Details of an add-on schema.
+       * @summary Retrieves the schema details of an add-on.
        *
-       * @description This topic provides an example of how to modify version `1` of alert template `123456`. In this example, the alert level is set to `Critical`, the statistical method is set to `Average`, the comparison operator for the alert threshold is set to `GreaterThanOrEqualToThreshold`, the alert threshold is set to `90`, and the number of retries is set to `3`. The response indicates that the alert template was successfully modified.
+       * @description This topic provides an example of modifying alert template `123456` of version `1`. The alert level is changed to `Critical`, the statistical method to `Average`, the threshold comparison operator to `GreaterThanOrEqualToThreshold`, the threshold to `90`, and the number of retries to `3`. The response indicates that the alert template was modified successfully.
        *
        * @param request GetAddonCodeTemplateRequest
        * @return GetAddonCodeTemplateResponse
@@ -1657,7 +1681,7 @@ namespace Cms20240330
       Models::GetAddonCodeTemplateResponse getAddonCodeTemplate(const string &addonName, const Models::GetAddonCodeTemplateRequest &request);
 
       /**
-       * @summary Queries the details and accessed state of an add-on release.
+       * @summary Queries the details of an add-on release to check the accessed state.
        *
        * @param request GetAddonReleaseRequest
        * @param headers map
@@ -1667,7 +1691,7 @@ namespace Cms20240330
       Models::GetAddonReleaseResponse getAddonReleaseWithOptions(const string &releaseName, const string &policyId, const Models::GetAddonReleaseRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the details and accessed state of an add-on release.
+       * @summary Queries the details of an add-on release to check the accessed state.
        *
        * @param request GetAddonReleaseRequest
        * @return GetAddonReleaseResponse
@@ -1697,7 +1721,7 @@ namespace Cms20240330
       Models::GetAddonSchemaResponse getAddonSchema(const string &addonName, const Models::GetAddonSchemaRequest &request);
 
       /**
-       * @summary Queries an aggregation task group.
+       * @summary Queries the details of an aggregation task group.
        *
        * @param request GetAggTaskGroupRequest
        * @param headers map
@@ -1707,7 +1731,7 @@ namespace Cms20240330
       Models::GetAggTaskGroupResponse getAggTaskGroupWithOptions(const string &instanceId, const string &groupId, const Models::GetAggTaskGroupRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries an aggregation task group.
+       * @summary Queries the details of an aggregation task group.
        *
        * @param request GetAggTaskGroupRequest
        * @return GetAggTaskGroupResponse
@@ -2141,7 +2165,7 @@ namespace Cms20240330
       Models::GetOncallScheduleResponse getOncallSchedule(const string &oncallScheduleId, const Models::GetOncallScheduleRequest &request);
 
       /**
-       * @summary Queries a pipeline.
+       * @summary Queries pipelines.
        *
        * @param request GetPipelineRequest
        * @param headers map
@@ -2151,7 +2175,7 @@ namespace Cms20240330
       Models::GetPipelineResponse getPipelineWithOptions(const string &workspace, const string &pipelineName, const Models::GetPipelineRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries a pipeline.
+       * @summary Queries pipelines.
        *
        * @param request GetPipelineRequest
        * @return GetPipelineResponse
@@ -2159,9 +2183,9 @@ namespace Cms20240330
       Models::GetPipelineResponse getPipeline(const string &workspace, const string &pipelineName, const Models::GetPipelineRequest &request);
 
       /**
-       * @summary Queries the details of a specified Managed Service for Prometheus instance.
+       * @summary Queries the details of a specified Prometheus instance.
        *
-       * @description Retrieves the details of a Managed Service for Prometheus instance.
+       * @description Retrieves the details of a Prometheus instance.
        *
        * @param request GetPrometheusInstanceRequest
        * @param headers map
@@ -2171,9 +2195,9 @@ namespace Cms20240330
       Models::GetPrometheusInstanceResponse getPrometheusInstanceWithOptions(const string &prometheusInstanceId, const Models::GetPrometheusInstanceRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the details of a specified Managed Service for Prometheus instance.
+       * @summary Queries the details of a specified Prometheus instance.
        *
-       * @description Retrieves the details of a Managed Service for Prometheus instance.
+       * @description Retrieves the details of a Prometheus instance.
        *
        * @param request GetPrometheusInstanceRequest
        * @return GetPrometheusInstanceResponse
@@ -2181,7 +2205,7 @@ namespace Cms20240330
       Models::GetPrometheusInstanceResponse getPrometheusInstance(const string &prometheusInstanceId, const Models::GetPrometheusInstanceRequest &request);
 
       /**
-       * @summary Retrieves the user settings for Prometheus.
+       * @summary Queries the Prometheus user settings.
        *
        * @param request GetPrometheusUserSettingRequest
        * @param headers map
@@ -2191,7 +2215,7 @@ namespace Cms20240330
       Models::GetPrometheusUserSettingResponse getPrometheusUserSettingWithOptions(const Models::GetPrometheusUserSettingRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Retrieves the user settings for Prometheus.
+       * @summary Queries the Prometheus user settings.
        *
        * @param request GetPrometheusUserSettingRequest
        * @return GetPrometheusUserSettingResponse
@@ -2279,10 +2303,9 @@ namespace Cms20240330
       Models::GetServiceRecordResponse getServiceRecord(const string &workspace, const string &serviceId, const Models::GetServiceRecordRequest &request);
 
       /**
-       * @summary Queries the details of a single ServiceTask under a specified application.
+       * @summary Queries the details of a single service task for a specified application.
        *
-       * @description Queries the details of a single service task based on the taskId.
-       * The response content varies depending on the type: heapdump returns heap dump task information; LiveDebug returns task records and fields such as taskConfig (extraInfo).
+       * @description Queries the details of a single service task based on the task ID. The response content varies based on the task type. For heapdump, the heap dump task information is returned. For LiveDebug, the task records and fields such as taskConfig (extraInfo) are returned.
        *
        * @param request GetServiceTaskRequest
        * @param headers map
@@ -2292,10 +2315,9 @@ namespace Cms20240330
       Models::GetServiceTaskResponse getServiceTaskWithOptions(const string &workspace, const string &serviceId, const string &taskId, const Models::GetServiceTaskRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the details of a single ServiceTask under a specified application.
+       * @summary Queries the details of a single service task for a specified application.
        *
-       * @description Queries the details of a single service task based on the taskId.
-       * The response content varies depending on the type: heapdump returns heap dump task information; LiveDebug returns task records and fields such as taskConfig (extraInfo).
+       * @description Queries the details of a single service task based on the task ID. The response content varies based on the task type. For heapdump, the heap dump task information is returned. For LiveDebug, the task records and fields such as taskConfig (extraInfo) are returned.
        *
        * @param request GetServiceTaskRequest
        * @return GetServiceTaskResponse
@@ -2401,9 +2423,9 @@ namespace Cms20240330
       Models::GetWorkspaceResponse getWorkspace(const string &workspaceName, const Models::GetWorkspaceRequest &request);
 
       /**
-       * @summary Lists add-on releases.
+       * @summary Lists the releases of an add-on.
        *
-       * @description Queries the list of add-on configurations.
+       * @description Queries the list of integration configurations.
        *
        * @param request ListAddonReleasesRequest
        * @param headers map
@@ -2413,9 +2435,9 @@ namespace Cms20240330
       Models::ListAddonReleasesResponse listAddonReleasesWithOptions(const string &policyId, const Models::ListAddonReleasesRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Lists add-on releases.
+       * @summary Lists the releases of an add-on.
        *
-       * @description Queries the list of add-on configurations.
+       * @description Queries the list of integration configurations.
        *
        * @param request ListAddonReleasesRequest
        * @return ListAddonReleasesResponse
@@ -2481,9 +2503,9 @@ namespace Cms20240330
       Models::ListAlertActionsResponse listAlertActions(const Models::ListAlertActionsRequest &request);
 
       /**
-       * @summary Queries CloudMonitor 2.0 alert history records.
+       * @summary Queries the list of alert history records for the CloudMonitor 2.0 monitoring service by using paging.
        *
-       * @description Queries CloudMonitor 2.0 alert history records. You can filter the records by multiple dimensions such as alert rule, alert status, alert level, alert object, workspace, time range, label, notification recipient, observed object type, and data source type. You can also use the structured filter parameter to implement more flexible combined queries.
+       * @description Uses paging to retrieve the list of alert history records for the CloudMonitor 2.0 monitoring service. You can filter the records by multiple dimensions such as alert rule, alert status, alert level, alert object, workspace, time range, label, notification recipient, observed object type, and data source type. You can also use the structured filter parameter to implement more flexible combined queries.
        *
        * @param tmpReq ListAlertHistoriesRequest
        * @param headers map
@@ -2493,9 +2515,9 @@ namespace Cms20240330
       Models::ListAlertHistoriesResponse listAlertHistoriesWithOptions(const Models::ListAlertHistoriesRequest &tmpReq, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries CloudMonitor 2.0 alert history records.
+       * @summary Queries the list of alert history records for the CloudMonitor 2.0 monitoring service by using paging.
        *
-       * @description Queries CloudMonitor 2.0 alert history records. You can filter the records by multiple dimensions such as alert rule, alert status, alert level, alert object, workspace, time range, label, notification recipient, observed object type, and data source type. You can also use the structured filter parameter to implement more flexible combined queries.
+       * @description Uses paging to retrieve the list of alert history records for the CloudMonitor 2.0 monitoring service. You can filter the records by multiple dimensions such as alert rule, alert status, alert level, alert object, workspace, time range, label, notification recipient, observed object type, and data source type. You can also use the structured filter parameter to implement more flexible combined queries.
        *
        * @param request ListAlertHistoriesRequest
        * @return ListAlertHistoriesResponse
@@ -2521,9 +2543,9 @@ namespace Cms20240330
       Models::ListAlertNotifyTemplatesResponse listAlertNotifyTemplates(const Models::ListAlertNotifyTemplatesRequest &request);
 
       /**
-       * @summary Queries chatbots.
+       * @summary Queries robots.
        *
-       * @description Queries the list of alert chatbots under the current account. Alert chatbots serve as webhook endpoints for alert notifications and support types such as DingTalk, DingTalk Cool App, Lark, Slack, and WeChat. You can filter the results by chatbot ID, name, type, and workspace.
+       * @description Queries the alert robots under the current account. Alert robots act as webhook endpoints for alert notifications and support types such as DingTalk, DingTalk Cool App, Lark, Slack, and WeChat. You can filter the results by robot ID, name, type, and workspace.
        *
        * @param tmpReq ListAlertRobotsRequest
        * @param headers map
@@ -2533,9 +2555,9 @@ namespace Cms20240330
       Models::ListAlertRobotsResponse listAlertRobotsWithOptions(const Models::ListAlertRobotsRequest &tmpReq, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries chatbots.
+       * @summary Queries robots.
        *
-       * @description Queries the list of alert chatbots under the current account. Alert chatbots serve as webhook endpoints for alert notifications and support types such as DingTalk, DingTalk Cool App, Lark, Slack, and WeChat. You can filter the results by chatbot ID, name, type, and workspace.
+       * @description Queries the alert robots under the current account. Alert robots act as webhook endpoints for alert notifications and support types such as DingTalk, DingTalk Cool App, Lark, Slack, and WeChat. You can filter the results by robot ID, name, type, and workspace.
        *
        * @param request ListAlertRobotsRequest
        * @return ListAlertRobotsResponse
@@ -2601,7 +2623,7 @@ namespace Cms20240330
       Models::ListContactGroupsResponse listContactGroups(const Models::ListContactGroupsRequest &request);
 
       /**
-       * @summary Queries contacts.
+       * @summary Queries alert contacts.
        *
        * @description This topic provides an example of creating an alert contact group named `ECS_Group`.
        *
@@ -2613,7 +2635,7 @@ namespace Cms20240330
       Models::ListContactsResponse listContactsWithOptions(const Models::ListContactsRequest &tmpReq, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries contacts.
+       * @summary Queries alert contacts.
        *
        * @description This topic provides an example of creating an alert contact group named `ECS_Group`.
        *
@@ -2659,9 +2681,9 @@ namespace Cms20240330
       Models::ListContextStoresResponse listContextStores(const string &workspace, const Models::ListContextStoresRequest &request);
 
       /**
-       * @summary Queries data pipelines.
+       * @summary Queries a list of data pipelines.
        *
-       * @description Queries data pipelines in a specified workspace by using paging.
+       * @description Performs a paged query of data streams in a specified workspace. Supports paging.
        *
        * @param request ListDataPipelinesRequest
        * @param headers map
@@ -2671,9 +2693,9 @@ namespace Cms20240330
       Models::ListDataPipelinesResponse listDataPipelinesWithOptions(const string &workspace, const Models::ListDataPipelinesRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries data pipelines.
+       * @summary Queries a list of data pipelines.
        *
-       * @description Queries data pipelines in a specified workspace by using paging.
+       * @description Performs a paged query of data streams in a specified workspace. Supports paging.
        *
        * @param request ListDataPipelinesRequest
        * @return ListDataPipelinesResponse
@@ -2699,7 +2721,7 @@ namespace Cms20240330
       Models::ListDatasetsResponse listDatasets(const string &workspace, const Models::ListDatasetsRequest &request);
 
       /**
-       * @summary Retrieves a list of data delivery tasks.
+       * @summary Queries the list of data delivery tasks.
        *
        * @param tmpReq ListDeliveryTasksRequest
        * @param headers map
@@ -2709,7 +2731,7 @@ namespace Cms20240330
       Models::ListDeliveryTasksResponse listDeliveryTasksWithOptions(const Models::ListDeliveryTasksRequest &tmpReq, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Retrieves a list of data delivery tasks.
+       * @summary Queries the list of data delivery tasks.
        *
        * @param request ListDeliveryTasksRequest
        * @return ListDeliveryTasksResponse
@@ -2779,7 +2801,7 @@ namespace Cms20240330
       Models::ListIntegrationPolicyCollectorsResponse listIntegrationPolicyCollectors(const string &policyId, const Models::ListIntegrationPolicyCollectorsRequest &request);
 
       /**
-       * @summary Retrieves the custom service discovery rules of a Provisioning policy.
+       * @summary Retrieves the custom service discovery rules for an integration center policy.
        *
        * @param request ListIntegrationPolicyCustomScrapeJobRulesRequest
        * @param headers map
@@ -2789,7 +2811,7 @@ namespace Cms20240330
       Models::ListIntegrationPolicyCustomScrapeJobRulesResponse listIntegrationPolicyCustomScrapeJobRulesWithOptions(const string &policyId, const Models::ListIntegrationPolicyCustomScrapeJobRulesRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Retrieves the custom service discovery rules of a Provisioning policy.
+       * @summary Retrieves the custom service discovery rules for an integration center policy.
        *
        * @param request ListIntegrationPolicyCustomScrapeJobRulesRequest
        * @return ListIntegrationPolicyCustomScrapeJobRulesResponse
@@ -2859,10 +2881,9 @@ namespace Cms20240330
       Models::ListIntegrationPolicyServiceMonitorsResponse listIntegrationPolicyServiceMonitors(const string &policyId, const Models::ListIntegrationPolicyServiceMonitorsRequest &request);
 
       /**
-       * @summary Lists the storage requirements for an Integration Center policy.
+       * @summary Retrieves the storage requirements of an Integration Center policy.
        *
-       * @description When a policy is active, alert notifications are not sent for alerts that occur in the application group.
-       * This topic provides an example of creating a policy named `PauseNotify`. This policy pauses alert notifications for application group `7301****` from `1622949300000` to `1623208500000` (from `2021-06-06 11:15:00` to `2021-06-09 11:15:00` UTC+8).
+       * @description During the effective period of the policy, no alert notifications are sent for any alerts that occur in the application group. This topic provides an example on how to create a pause alert notification policy named `PauseNotify` for the application group `7301****`. The application group will pause alerts from `1622949300000` to `1623208500000` (UTC+8 `2021-06-06 11:15:00` to `2021-06-09 11:15:00`).
        *
        * @param request ListIntegrationPolicyStorageRequirementsRequest
        * @param headers map
@@ -2872,10 +2893,9 @@ namespace Cms20240330
       Models::ListIntegrationPolicyStorageRequirementsResponse listIntegrationPolicyStorageRequirementsWithOptions(const string &policyId, const Models::ListIntegrationPolicyStorageRequirementsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Lists the storage requirements for an Integration Center policy.
+       * @summary Retrieves the storage requirements of an Integration Center policy.
        *
-       * @description When a policy is active, alert notifications are not sent for alerts that occur in the application group.
-       * This topic provides an example of creating a policy named `PauseNotify`. This policy pauses alert notifications for application group `7301****` from `1622949300000` to `1623208500000` (from `2021-06-06 11:15:00` to `2021-06-09 11:15:00` UTC+8).
+       * @description During the effective period of the policy, no alert notifications are sent for any alerts that occur in the application group. This topic provides an example on how to create a pause alert notification policy named `PauseNotify` for the application group `7301****`. The application group will pause alerts from `1622949300000` to `1623208500000` (UTC+8 `2021-06-06 11:15:00` to `2021-06-09 11:15:00`).
        *
        * @param request ListIntegrationPolicyStorageRequirementsRequest
        * @return ListIntegrationPolicyStorageRequirementsResponse
@@ -2925,9 +2945,9 @@ namespace Cms20240330
       Models::ListMemoryStoresResponse listMemoryStores(const string &workspace, const Models::ListMemoryStoresRequest &request);
 
       /**
-       * @summary Lists notify policies.
+       * @summary Lists notification policies.
        *
-       * @description Queries the list of notify policies in a specified workspace with paging. You can filter results by name using fuzzy match. The response contains a list of NotifyPolicySummary lightweight views.
+       * @description Queries the list of notification policies in a specified workspace by using paging. Supports fuzzy filtering by name. Returns a list of NotifyPolicySummary lightweight views.
        *
        * @param request ListNotifyPoliciesRequest
        * @param headers map
@@ -2937,9 +2957,9 @@ namespace Cms20240330
       Models::ListNotifyPoliciesResponse listNotifyPoliciesWithOptions(const Models::ListNotifyPoliciesRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Lists notify policies.
+       * @summary Lists notification policies.
        *
-       * @description Queries the list of notify policies in a specified workspace with paging. You can filter results by name using fuzzy match. The response contains a list of NotifyPolicySummary lightweight views.
+       * @description Queries the list of notification policies in a specified workspace by using paging. Supports fuzzy filtering by name. Returns a list of NotifyPolicySummary lightweight views.
        *
        * @param request ListNotifyPoliciesRequest
        * @return ListNotifyPoliciesResponse
@@ -2947,7 +2967,7 @@ namespace Cms20240330
       Models::ListNotifyPoliciesResponse listNotifyPolicies(const Models::ListNotifyPoliciesRequest &request);
 
       /**
-       * @summary Queries the on-call contacts at a specified time.
+       * @summary Queries the on-call personnel at a specified time.
        *
        * @description This topic provides an example of creating an alert contact group named `ECS_Group`.
        *
@@ -2959,7 +2979,7 @@ namespace Cms20240330
       Models::ListOncallContactsResponse listOncallContactsWithOptions(const string &oncallScheduleId, const Models::ListOncallContactsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the on-call contacts at a specified time.
+       * @summary Queries the on-call personnel at a specified time.
        *
        * @description This topic provides an example of creating an alert contact group named `ECS_Group`.
        *
@@ -2969,7 +2989,7 @@ namespace Cms20240330
       Models::ListOncallContactsResponse listOncallContacts(const string &oncallScheduleId, const Models::ListOncallContactsRequest &request);
 
       /**
-       * @summary Queries on-call schedules.
+       * @summary Queries the on-call schedules.
        *
        * @param tmpReq ListOncallSchedulesRequest
        * @param headers map
@@ -2979,7 +2999,7 @@ namespace Cms20240330
       Models::ListOncallSchedulesResponse listOncallSchedulesWithOptions(const Models::ListOncallSchedulesRequest &tmpReq, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries on-call schedules.
+       * @summary Queries the on-call schedules.
        *
        * @param request ListOncallSchedulesRequest
        * @return ListOncallSchedulesResponse
@@ -3027,9 +3047,9 @@ namespace Cms20240330
       Models::ListPrometheusDashboardsResponse listPrometheusDashboards(const string &prometheusInstanceId, const Models::ListPrometheusDashboardsRequest &request);
 
       /**
-       * @summary Retrieves a list of Managed Service for Prometheus instances.
+       * @summary Retrieves a list of Prometheus instances.
        *
-       * @description Retrieves a list of Managed Service for Prometheus instances.
+       * @description Retrieves a list of Prometheus instances.
        *
        * @param tmpReq ListPrometheusInstancesRequest
        * @param headers map
@@ -3039,9 +3059,9 @@ namespace Cms20240330
       Models::ListPrometheusInstancesResponse listPrometheusInstancesWithOptions(const Models::ListPrometheusInstancesRequest &tmpReq, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Retrieves a list of Managed Service for Prometheus instances.
+       * @summary Retrieves a list of Prometheus instances.
        *
-       * @description Retrieves a list of Managed Service for Prometheus instances.
+       * @description Retrieves a list of Prometheus instances.
        *
        * @param request ListPrometheusInstancesRequest
        * @return ListPrometheusInstancesResponse
@@ -3049,9 +3069,9 @@ namespace Cms20240330
       Models::ListPrometheusInstancesResponse listPrometheusInstances(const Models::ListPrometheusInstancesRequest &request);
 
       /**
-       * @summary Queries a list of Prometheus view instances.
+       * @summary Retrieves a list of Prometheus view instances.
        *
-       * @description Queries a list of Prometheus view instances.
+       * @description Retrieves a list of Prometheus view instances.
        *
        * @param tmpReq ListPrometheusViewsRequest
        * @param headers map
@@ -3061,9 +3081,9 @@ namespace Cms20240330
       Models::ListPrometheusViewsResponse listPrometheusViewsWithOptions(const Models::ListPrometheusViewsRequest &tmpReq, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries a list of Prometheus view instances.
+       * @summary Retrieves a list of Prometheus view instances.
        *
-       * @description Queries a list of Prometheus view instances.
+       * @description Retrieves a list of Prometheus view instances.
        *
        * @param request ListPrometheusViewsRequest
        * @return ListPrometheusViewsResponse
@@ -3195,7 +3215,7 @@ namespace Cms20240330
       Models::ListTagResourcesResponse listTagResources(const Models::ListTagResourcesRequest &request);
 
       /**
-       * @summary Queries the alert notification delivery history in a specified workspace by using paging, and supports filtering by conditions such as notification channel, alert severity, subscription, alert rule, recipient, delivery result, and time range.
+       * @summary Queries the delivery history of alert notifications in a specified workspace. You can filter the results by notification channel, alert severity, subscription, alert rule, recipient, delivery result, and time range.
        *
        * @param request ListUserNotifyHistoriesRequest
        * @param headers map
@@ -3205,7 +3225,7 @@ namespace Cms20240330
       Models::ListUserNotifyHistoriesResponse listUserNotifyHistoriesWithOptions(const Models::ListUserNotifyHistoriesRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the alert notification delivery history in a specified workspace by using paging, and supports filtering by conditions such as notification channel, alert severity, subscription, alert rule, recipient, delivery result, and time range.
+       * @summary Queries the delivery history of alert notifications in a specified workspace. You can filter the results by notification channel, alert severity, subscription, alert rule, recipient, delivery result, and time range.
        *
        * @param request ListUserNotifyHistoriesRequest
        * @return ListUserNotifyHistoriesResponse
@@ -3289,9 +3309,9 @@ namespace Cms20240330
       Models::PreviewDataPipelineResponse previewDataPipeline(const string &workspace, const Models::PreviewDataPipelineRequest &request);
 
       /**
-       * @summary Renders templates written in Go template syntax by using the provided context data and returns the rendering results. This operation supports the simultaneous preview of multiple templates, such as title and content, to enable real-time preview in frontend template editors.
+       * @summary Renders template content in Go template syntax along with context data, and returns the rendering results for each template. Supports previewing multiple templates simultaneously, such as title and content, to enable real-time preview capabilities in frontend template editors.
        *
-       * @description Renders templates written in Go template syntax by using the provided context data and returns the rendering results. This operation supports the simultaneous preview of multiple templates, such as title and content, to enable real-time preview in frontend template editors.
+       * @description Renders template content in Go template syntax along with context data, and returns the rendering results for each template. Supports previewing multiple templates simultaneously, such as title and content, to enable real-time preview capabilities in frontend template editors.
        *
        * @param request PreviewNotifyTemplateRequest
        * @param headers map
@@ -3301,9 +3321,9 @@ namespace Cms20240330
       Models::PreviewNotifyTemplateResponse previewNotifyTemplateWithOptions(const Models::PreviewNotifyTemplateRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Renders templates written in Go template syntax by using the provided context data and returns the rendering results. This operation supports the simultaneous preview of multiple templates, such as title and content, to enable real-time preview in frontend template editors.
+       * @summary Renders template content in Go template syntax along with context data, and returns the rendering results for each template. Supports previewing multiple templates simultaneously, such as title and content, to enable real-time preview capabilities in frontend template editors.
        *
-       * @description Renders templates written in Go template syntax by using the provided context data and returns the rendering results. This operation supports the simultaneous preview of multiple templates, such as title and content, to enable real-time preview in frontend template editors.
+       * @description Renders template content in Go template syntax along with context data, and returns the rendering results for each template. Supports previewing multiple templates simultaneously, such as title and content, to enable real-time preview capabilities in frontend template editors.
        *
        * @param request PreviewNotifyTemplateRequest
        * @return PreviewNotifyTemplateResponse
@@ -3331,7 +3351,7 @@ namespace Cms20240330
       /**
        * @summary Queries alert rules.
        *
-       * @description This topic provides an example of querying the list of alert templates. The response shows that the list contains two alert templates: `ECS_Template1` and `ECS_Template2`.
+       * @description This topic provides an example of querying the alert template list. The response shows that the list contains two alert templates: `ECS_Template1` and `ECS_Template2`.
        *
        * @param tmpReq QueryAlertRulesRequest
        * @param headers map
@@ -3343,7 +3363,7 @@ namespace Cms20240330
       /**
        * @summary Queries alert rules.
        *
-       * @description This topic provides an example of querying the list of alert templates. The response shows that the list contains two alert templates: `ECS_Template1` and `ECS_Template2`.
+       * @description This topic provides an example of querying the alert template list. The response shows that the list contains two alert templates: `ECS_Template1` and `ECS_Template2`.
        *
        * @param request QueryAlertRulesRequest
        * @return QueryAlertRulesResponse
@@ -3389,8 +3409,8 @@ namespace Cms20240330
       /**
        * @summary Searches for memories based on query conditions and filters.
        *
-       * @description This topic provides an example on how to create a threshold alert rule for the cpu_total metric of the Elastic Computing Service `acs_ecs_dashboard` instance `i-uf6j91r34rnwawoo****`. The alert contact group of the alert rule is `ECS_Group`, the alert rule name is `test123`, the alert rule ID is `a151cd6023eacee2f0978e03863cc1697c89508****`, the statistical method for the Critical level is `Average`, the comparison operator for the Critical level is `GreaterThanOrEqualToThreshold`, the threshold for the Critical level is `90`, and the retry count for the Critical level is `3`.
-       * > 2024-08-15: Statistics validation is added. Only the Statistics value that corresponds to the metric can be specified. For information about how to obtain the value of this parameter, see [Cloud service monitoring metrics](https://www.alibabacloud.com/help/en/cms/support/appendix-1-metrics).
+       * @description This topic provides an example of setting a threshold alert rule for the `cpu_total` metric of the `i-uf6j91r34rnwawoo****` instance in the `acs_ecs_dashboard` namespace of Elastic Compute Service. The alert contact group for the alert rule is `ECS_Group`, the alert rule name is `test123`, the alert rule ID is `a151cd6023eacee2f0978e03863cc1697c89508****`, the statistical method for the Critical level is `Average`, the comparison operator for the Critical level is `GreaterThanOrEqualToThreshold`, the threshold for the Critical level is `90`, and the number of alert retries for the Critical level is `3`.
+       * > On August 15, 2024, Statistics validation was added. The statistical value can only be the Statistics corresponding to the metric. For more information about how to obtain the value of this parameter, see [cloud service monitoring metrics](https://www.alibabacloud.com/help/en/cms/support/appendix-1-metrics).
        *
        * @param request SearchMemoriesRequest
        * @param headers map
@@ -3402,8 +3422,8 @@ namespace Cms20240330
       /**
        * @summary Searches for memories based on query conditions and filters.
        *
-       * @description This topic provides an example on how to create a threshold alert rule for the cpu_total metric of the Elastic Computing Service `acs_ecs_dashboard` instance `i-uf6j91r34rnwawoo****`. The alert contact group of the alert rule is `ECS_Group`, the alert rule name is `test123`, the alert rule ID is `a151cd6023eacee2f0978e03863cc1697c89508****`, the statistical method for the Critical level is `Average`, the comparison operator for the Critical level is `GreaterThanOrEqualToThreshold`, the threshold for the Critical level is `90`, and the retry count for the Critical level is `3`.
-       * > 2024-08-15: Statistics validation is added. Only the Statistics value that corresponds to the metric can be specified. For information about how to obtain the value of this parameter, see [Cloud service monitoring metrics](https://www.alibabacloud.com/help/en/cms/support/appendix-1-metrics).
+       * @description This topic provides an example of setting a threshold alert rule for the `cpu_total` metric of the `i-uf6j91r34rnwawoo****` instance in the `acs_ecs_dashboard` namespace of Elastic Compute Service. The alert contact group for the alert rule is `ECS_Group`, the alert rule name is `test123`, the alert rule ID is `a151cd6023eacee2f0978e03863cc1697c89508****`, the statistical method for the Critical level is `Average`, the comparison operator for the Critical level is `GreaterThanOrEqualToThreshold`, the threshold for the Critical level is `90`, and the number of alert retries for the Critical level is `3`.
+       * > On August 15, 2024, Statistics validation was added. The statistical value can only be the Statistics corresponding to the metric. For more information about how to obtain the value of this parameter, see [cloud service monitoring metrics](https://www.alibabacloud.com/help/en/cms/support/appendix-1-metrics).
        *
        * @param request SearchMemoriesRequest
        * @return SearchMemoriesResponse
@@ -3411,7 +3431,7 @@ namespace Cms20240330
       Models::SearchMemoriesResponse searchMemories(const string &workspace, const string &memoryStoreName, const Models::SearchMemoriesRequest &request);
 
       /**
-       * @summary Attaches labels to resources.
+       * @summary Attaches tags to resources.
        *
        * @param request TagResourcesRequest
        * @param headers map
@@ -3421,7 +3441,7 @@ namespace Cms20240330
       Models::TagResourcesResponse tagResourcesWithOptions(const Models::TagResourcesRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Attaches labels to resources.
+       * @summary Attaches tags to resources.
        *
        * @param request TagResourcesRequest
        * @return TagResourcesResponse
@@ -3537,7 +3557,7 @@ namespace Cms20240330
       Models::UpdateAlertNotifyTemplateResponse updateAlertNotifyTemplate(const string &alertNotifyTemplateId, const Models::UpdateAlertNotifyTemplateRequest &request);
 
       /**
-       * @summary Updates an alert robot.
+       * @summary Updates a chatbot.
        *
        * @param request UpdateAlertRobotRequest
        * @param headers map
@@ -3547,7 +3567,7 @@ namespace Cms20240330
       Models::UpdateAlertRobotResponse updateAlertRobotWithOptions(const string &robotId, const Models::UpdateAlertRobotRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Updates an alert robot.
+       * @summary Updates a chatbot.
        *
        * @param request UpdateAlertRobotRequest
        * @return UpdateAlertRobotResponse
@@ -3627,7 +3647,7 @@ namespace Cms20240330
       Models::UpdateContactGroupResponse updateContactGroup(const string &contactGroupId, const Models::UpdateContactGroupRequest &request);
 
       /**
-       * @summary Updates a context.
+       * @summary Updates the context.
        *
        * @param request UpdateContextRequest
        * @param headers map
@@ -3637,7 +3657,7 @@ namespace Cms20240330
       Models::UpdateContextResponse updateContextWithOptions(const string &workspace, const string &contextStoreName, const string &contextId, const Models::UpdateContextRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Updates a context.
+       * @summary Updates the context.
        *
        * @param request UpdateContextRequest
        * @return UpdateContextResponse
@@ -3671,7 +3691,7 @@ namespace Cms20240330
       /**
        * @summary Updates a data pipeline.
        *
-       * @description Updates the specified data pipeline with a full candidate configuration.
+       * @description Modifies the specified data pipeline by using a complete candidate configuration.
        *
        * @param request UpdateDataPipelineRequest
        * @param headers map
@@ -3683,7 +3703,7 @@ namespace Cms20240330
       /**
        * @summary Updates a data pipeline.
        *
-       * @description Updates the specified data pipeline with a full candidate configuration.
+       * @description Modifies the specified data pipeline by using a complete candidate configuration.
        *
        * @param request UpdateDataPipelineRequest
        * @return UpdateDataPipelineResponse
@@ -3709,7 +3729,7 @@ namespace Cms20240330
       Models::UpdateDatasetResponse updateDataset(const string &workspace, const string &datasetName, const Models::UpdateDatasetRequest &request);
 
       /**
-       * @summary Updates a data delivery task.
+       * @summary Updates a data shipping task.
        *
        * @param request UpdateDeliveryTaskRequest
        * @param headers map
@@ -3719,7 +3739,7 @@ namespace Cms20240330
       Models::UpdateDeliveryTaskResponse updateDeliveryTaskWithOptions(const string &taskId, const Models::UpdateDeliveryTaskRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Updates a data delivery task.
+       * @summary Updates a data shipping task.
        *
        * @param request UpdateDeliveryTaskRequest
        * @return UpdateDeliveryTaskResponse
@@ -3867,7 +3887,7 @@ namespace Cms20240330
       Models::UpdateOncallScheduleResponse updateOncallSchedule(const string &oncallScheduleId, const Models::UpdateOncallScheduleRequest &request);
 
       /**
-       * @summary Update pipeline
+       * @summary Updates a pipeline.
        *
        * @param request UpdatePipelineRequest
        * @param headers map
@@ -3877,7 +3897,7 @@ namespace Cms20240330
       Models::UpdatePipelineResponse updatePipelineWithOptions(const string &workspace, const string &pipelineName, const Models::UpdatePipelineRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Update pipeline
+       * @summary Updates a pipeline.
        *
        * @param request UpdatePipelineRequest
        * @return UpdatePipelineResponse
@@ -3885,9 +3905,9 @@ namespace Cms20240330
       Models::UpdatePipelineResponse updatePipeline(const string &workspace, const string &pipelineName, const Models::UpdatePipelineRequest &request);
 
       /**
-       * @summary Updates the information of a Managed Service for Prometheus instance.
+       * @summary Updates a Prometheus instance.
        *
-       * @description Updates the information of a Managed Service for Prometheus instance.
+       * @description Updates the information of a Prometheus instance.
        *
        * @param request UpdatePrometheusInstanceRequest
        * @param headers map
@@ -3897,9 +3917,9 @@ namespace Cms20240330
       Models::UpdatePrometheusInstanceResponse updatePrometheusInstanceWithOptions(const string &prometheusInstanceId, const Models::UpdatePrometheusInstanceRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Updates the information of a Managed Service for Prometheus instance.
+       * @summary Updates a Prometheus instance.
        *
-       * @description Updates the information of a Managed Service for Prometheus instance.
+       * @description Updates the information of a Prometheus instance.
        *
        * @param request UpdatePrometheusInstanceRequest
        * @return UpdatePrometheusInstanceResponse
@@ -4027,7 +4047,7 @@ namespace Cms20240330
       Models::UpdateUmodelResponse updateUmodel(const string &workspace, const Models::UpdateUmodelRequest &request);
 
       /**
-       * @summary Upserts a common Umodel schema reference.
+       * @summary Updates the referenced public Umodel schema.
        *
        * @param request UpsertUmodelCommonSchemaRefRequest
        * @param headers map
@@ -4037,7 +4057,7 @@ namespace Cms20240330
       Models::UpsertUmodelCommonSchemaRefResponse upsertUmodelCommonSchemaRefWithOptions(const string &workspace, const Models::UpsertUmodelCommonSchemaRefRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Upserts a common Umodel schema reference.
+       * @summary Updates the referenced public Umodel schema.
        *
        * @param request UpsertUmodelCommonSchemaRefRequest
        * @return UpsertUmodelCommonSchemaRefResponse
@@ -4063,9 +4083,9 @@ namespace Cms20240330
       Models::UpsertUmodelDataResponse upsertUmodelData(const string &workspace, const Models::UpsertUmodelDataRequest &request);
 
       /**
-       * @summary Queries the on-call calendar of a specified on-call schedule within a given date range, and returns the contacts and start and end times of each on-call shift grouped by shift name.
+       * @summary Queries the on-call calendar of a specified on-call schedule within a given date range and returns the contacts and start and end times of each on-call period grouped by shift name.
        *
-       * @description Retrieves the on-call calendar. Returns the on-call arrangements of a specified on-call schedule within the queried date range. The response is grouped by shift name, where the key is the shift name and the value is a list of on-call shifts. Each shift includes the on-call contact and the start and end times.
+       * @description Queries the on-call calendar and returns the on-call arrangements for a specified on-call schedule within a given date range. The shift name is used as the key, and the value is the list of on-call periods for the shift. Each period includes the on-call contact and the start and end times.
        *
        * @param request ViewOncallScheduleRequest
        * @param headers map
@@ -4075,9 +4095,9 @@ namespace Cms20240330
       Models::ViewOncallScheduleResponse viewOncallScheduleWithOptions(const string &oncallScheduleId, const Models::ViewOncallScheduleRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the on-call calendar of a specified on-call schedule within a given date range, and returns the contacts and start and end times of each on-call shift grouped by shift name.
+       * @summary Queries the on-call calendar of a specified on-call schedule within a given date range and returns the contacts and start and end times of each on-call period grouped by shift name.
        *
-       * @description Retrieves the on-call calendar. Returns the on-call arrangements of a specified on-call schedule within the queried date range. The response is grouped by shift name, where the key is the shift name and the value is a list of on-call shifts. Each shift includes the on-call contact and the start and end times.
+       * @description Queries the on-call calendar and returns the on-call arrangements for a specified on-call schedule within a given date range. The shift name is used as the key, and the value is the list of on-call periods for the shift. Each period includes the on-call contact and the start and end times.
        *
        * @param request ViewOncallScheduleRequest
        * @return ViewOncallScheduleResponse

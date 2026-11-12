@@ -132,7 +132,7 @@ namespace Models
     shared_ptr<string> target_ {};
     // The transform type.
     shared_ptr<string> type_ {};
-    // The value to set.
+    // The set value.
     shared_ptr<string> value_ {};
     // The variable name.
     shared_ptr<string> variable_ {};

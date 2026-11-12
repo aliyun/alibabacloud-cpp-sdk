@@ -272,13 +272,13 @@ namespace Models
 
 
   protected:
-    // The expiration time of the notification block.
+    // The expiration time for suppressing notifications.
     shared_ptr<int64_t> blockingExpireTimestamp_ {};
     // The detailed content of the incident.
     shared_ptr<string> content_ {};
     // The list of escalation policies.
     shared_ptr<vector<IncidentEscalationPolicyForView>> escalations_ {};
-    // The group identifier.
+    // The identifier of the group.
     shared_ptr<string> groupUuid_ {};
     // The grouping key-value pairs.
     shared_ptr<map<string, string>> groupingKeys_ {};
@@ -288,7 +288,7 @@ namespace Models
     shared_ptr<string> notifyStrategyName_ {};
     // The UUID of the associated notification policy used to trigger notifications.
     shared_ptr<string> notifyStrategyUuid_ {};
-    // The operator information.
+    // The information about the operator.
     shared_ptr<ContactForIncidentView> operator_ {};
     // The list of owners.
     shared_ptr<vector<ContactForIncidentView>> owners_ {};
@@ -310,9 +310,9 @@ namespace Models
     shared_ptr<string> subscriptionName_ {};
     // The UUID of the subscription policy.
     shared_ptr<string> subscriptionUuid_ {};
-    // The array of tags.
+    // The tag array.
     shared_ptr<map<string, string>> tags_ {};
-    // The timestamp when the incident was created.
+    // The creation timestamp of the incident.
     shared_ptr<int64_t> time_ {};
     // The title of the incident.
     shared_ptr<string> title_ {};

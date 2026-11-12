@@ -87,7 +87,7 @@ namespace Models
 
 
   protected:
-    // The content type. Valid values:
+    // The data content type. Valid values:
     // - JSON
     // - FORM
     shared_ptr<string> contentType_ {};
@@ -101,9 +101,9 @@ namespace Models
     // - GET
     // - POST
     shared_ptr<string> method_ {};
-    // The name of the webhook.
+    // The webhook name.
     shared_ptr<string> name_ {};
-    // The URL of the alert callback.
+    // The alert callback URL.
     shared_ptr<string> url_ {};
   };
 

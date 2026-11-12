@@ -321,35 +321,35 @@ namespace Models
 
 
     protected:
-      // The creation time. The time is displayed in the ISO 8601 standard format (YYYY-MM-DDThh:mm:ssZ) in UTC.
+      // The creation time. The time follows the ISO 8601 standard in the YYYY-MM-DDThh:mm:ssZ format and is displayed in UTC.
       // 
       // Use the UTC time format: yyyy-MM-ddTHH:mm:ssZ
       shared_ptr<string> createTime_ {};
-      // The ID of the data source, which is the ID of the Prometheus instance.
+      // The data source ID, which is the Prometheus instance ID.
       shared_ptr<string> dataSourceId_ {};
       // The additional labels attached to all delivered metrics. The key is the label name, and the value is the label value.
       shared_ptr<map<string, string>> externalLabels_ {};
       // The extended information.
       shared_ptr<DeliveryTasks::ExtraInfo> extraInfo_ {};
-      // The metric filtering conditions, used in conjunction with labelFiltersType. The key is the metric label name, and the value is the matching value.
+      // The metric filter conditions, used in conjunction with labelFiltersType. The key is the metric label name, and the value is the matched value.
       shared_ptr<map<string, string>> labelFilters_ {};
-      // The metric filtering mode.
+      // The metric filter mode.
       shared_ptr<string> labelFiltersType_ {};
       // The ID of the resource group.
       shared_ptr<string> resourceGroupId_ {};
-      // The list of delivery sinks. You can configure multiple sinks.
+      // The list of delivery sinks. Multiple sinks are supported.
       shared_ptr<vector<DeliveryTasks::SinkList>> sinkList_ {};
       // The current status of the task.
       shared_ptr<string> status_ {};
       // The tags.
       shared_ptr<vector<DeliveryTasks::Tags>> tags_ {};
-      // The description of the task.
+      // The task description.
       shared_ptr<string> taskDescription_ {};
-      // The ID of the task.
+      // The task ID.
       shared_ptr<string> taskId_ {};
-      // The name of the task.
+      // The task name.
       shared_ptr<string> taskName_ {};
-      // The update time. The time is displayed in the ISO 8601 standard format (YYYY-MM-DDThh:mm:ssZ) in UTC.
+      // The update time. The time follows the ISO 8601 standard in the YYYY-MM-DDThh:mm:ssZ format and is displayed in UTC.
       // 
       // Use the UTC time format: yyyy-MM-ddTHH:mm:ssZ
       shared_ptr<string> updateTime_ {};
@@ -395,13 +395,13 @@ namespace Models
 
 
   protected:
-    // The list of delivery tasks.
+    // The list of data delivery tasks.
     shared_ptr<vector<ListDeliveryTasksResponseBody::DeliveryTasks>> deliveryTasks_ {};
-    // The maximum number of results returned. Maximum value: 100.
+    // The maximum number of results to return. Maximum value: 100.
     shared_ptr<int32_t> maxResults_ {};
     // The pagination token for the next page.
     shared_ptr<string> nextToken_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
     // The total number of tasks.
     shared_ptr<int32_t> totalCount_ {};

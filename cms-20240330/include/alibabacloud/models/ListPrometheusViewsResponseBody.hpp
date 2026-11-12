@@ -189,10 +189,10 @@ namespace Models
       // The time when the instance was created. The time is displayed in UTC+0 in the yyyy-MM-ddTHH:mmZ format.
       shared_ptr<string> createTime_ {};
       // The instance type. Valid values:
-      // - prom-view: new version of the aggregate view
-      // - global-view: legacy version of the aggregate view
+      // - prom-view: New version aggregate view.
+      // - global-view: Legacy version aggregate view.
       shared_ptr<string> instanceType_ {};
-      // The billing method. The value is fixed to FREE.
+      // The billing method. Currently, the value is fixed to FREE.
       shared_ptr<string> paymentType_ {};
       // The product to which the Prometheus instance belongs, such as ARMS or CMS.
       shared_ptr<string> product_ {};
@@ -210,7 +210,7 @@ namespace Models
       shared_ptr<string> resourceType_ {};
       // The status of the backend data storage.
       shared_ptr<string> status_ {};
-      // The ID of the user.
+      // The user ID.
       shared_ptr<string> userId_ {};
       // The version.
       shared_ptr<string> version_ {};
@@ -258,9 +258,9 @@ namespace Models
 
 
   protected:
-    // The maximum number of records to return.
+    // The maximum number of entries to return.
     shared_ptr<int32_t> maxResults_ {};
-    // The token for the next query.
+    // The pagination token for the next query.
     shared_ptr<string> nextToken_ {};
     // The list of Prometheus view instances.
     shared_ptr<vector<ListPrometheusViewsResponseBody::PrometheusViews>> prometheusViews_ {};

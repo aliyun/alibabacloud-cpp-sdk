@@ -17,6 +17,8 @@ namespace Models
       DARABONBA_PTR_TO_JSON(category, category_);
       DARABONBA_PTR_TO_JSON(dimension, dimension_);
       DARABONBA_PTR_TO_JSON(entityDomain, entityDomain_);
+      DARABONBA_PTR_TO_JSON(entityId, entityId_);
+      DARABONBA_PTR_TO_JSON(entityRole, entityRole_);
       DARABONBA_PTR_TO_JSON(entityType, entityType_);
       DARABONBA_PTR_TO_JSON(groupId, groupId_);
       DARABONBA_PTR_TO_JSON(instanceId, instanceId_);
@@ -30,6 +32,8 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(category, category_);
       DARABONBA_PTR_FROM_JSON(dimension, dimension_);
       DARABONBA_PTR_FROM_JSON(entityDomain, entityDomain_);
+      DARABONBA_PTR_FROM_JSON(entityId, entityId_);
+      DARABONBA_PTR_FROM_JSON(entityRole, entityRole_);
       DARABONBA_PTR_FROM_JSON(entityType, entityType_);
       DARABONBA_PTR_FROM_JSON(groupId, groupId_);
       DARABONBA_PTR_FROM_JSON(instanceId, instanceId_);
@@ -51,8 +55,9 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->category_ == nullptr
-        && this->dimension_ == nullptr && this->entityDomain_ == nullptr && this->entityType_ == nullptr && this->groupId_ == nullptr && this->instanceId_ == nullptr
-        && this->instanceName_ == nullptr && this->regionId_ == nullptr && this->resourceGroupId_ == nullptr && this->tags_ == nullptr && this->userId_ == nullptr; };
+        && this->dimension_ == nullptr && this->entityDomain_ == nullptr && this->entityId_ == nullptr && this->entityRole_ == nullptr && this->entityType_ == nullptr
+        && this->groupId_ == nullptr && this->instanceId_ == nullptr && this->instanceName_ == nullptr && this->regionId_ == nullptr && this->resourceGroupId_ == nullptr
+        && this->tags_ == nullptr && this->userId_ == nullptr; };
     // category Field Functions 
     bool hasCategory() const { return this->category_ != nullptr;};
     void deleteCategory() { this->category_ = nullptr;};
@@ -74,6 +79,20 @@ namespace Models
     void deleteEntityDomain() { this->entityDomain_ = nullptr;};
     inline string getEntityDomain() const { DARABONBA_PTR_GET_DEFAULT(entityDomain_, "") };
     inline ObserveGroupInstance& setEntityDomain(string entityDomain) { DARABONBA_PTR_SET_VALUE(entityDomain_, entityDomain) };
+
+
+    // entityId Field Functions 
+    bool hasEntityId() const { return this->entityId_ != nullptr;};
+    void deleteEntityId() { this->entityId_ = nullptr;};
+    inline string getEntityId() const { DARABONBA_PTR_GET_DEFAULT(entityId_, "") };
+    inline ObserveGroupInstance& setEntityId(string entityId) { DARABONBA_PTR_SET_VALUE(entityId_, entityId) };
+
+
+    // entityRole Field Functions 
+    bool hasEntityRole() const { return this->entityRole_ != nullptr;};
+    void deleteEntityRole() { this->entityRole_ = nullptr;};
+    inline string getEntityRole() const { DARABONBA_PTR_GET_DEFAULT(entityRole_, "") };
+    inline ObserveGroupInstance& setEntityRole(string entityRole) { DARABONBA_PTR_SET_VALUE(entityRole_, entityRole) };
 
 
     // entityType Field Functions 
@@ -141,6 +160,10 @@ namespace Models
     shared_ptr<map<string, string>> dimension_ {};
     // 实体域（如 acs）。
     shared_ptr<string> entityDomain_ {};
+    // UModel 实体 ID，与实体域和类型共同标识成员。
+    shared_ptr<string> entityId_ {};
+    // 实体角色，main 为主实体、related 为关联子实体。
+    shared_ptr<string> entityRole_ {};
     // 实体类型（如 acs.ecs.instance）。
     shared_ptr<string> entityType_ {};
     // 所属观测分组 ID。

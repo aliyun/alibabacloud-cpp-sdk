@@ -69,7 +69,7 @@ namespace Models
 
 
   protected:
-    // The values 0 to 6 indicate Sunday to Saturday.
+    // The day of the week, where 0 to 6 indicate Sunday to Saturday.
     shared_ptr<vector<int32_t>> dayInWeek_ {};
     // The end time in minutes.
     shared_ptr<int32_t> endTimeInMinute_ {};

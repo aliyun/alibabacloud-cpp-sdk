@@ -112,7 +112,7 @@ namespace Models
       shared_ptr<string> contentType_ {};
       // The request header information.
       shared_ptr<map<string, string>> headers_ {};
-      // The webhook request method.
+      // The HTTP method for the webhook request.
       shared_ptr<string> method_ {};
       // The alert callback URL.
       shared_ptr<string> url_ {};
@@ -165,9 +165,9 @@ namespace Models
 
 
     protected:
-      // The name of the Logstore in Simple Log Service.
+      // The name of the Simple Log Service Logstore.
       shared_ptr<string> logstore_ {};
-      // The name of the project in Simple Log Service.
+      // The name of the Simple Log Service project.
       shared_ptr<string> project_ {};
       // The region ID.
       shared_ptr<string> regionId_ {};
@@ -211,9 +211,9 @@ namespace Models
 
 
     protected:
-      // The integration key of PagerDuty.
+      // The integration key for PagerDuty.
       shared_ptr<string> key_ {};
-      // The integration webhook URL of PagerDuty. Both V1 and V2 are supported.
+      // The integration webhook URL for PagerDuty. Both V1 and V2 are supported.
       shared_ptr<string> url_ {};
     };
 
@@ -264,9 +264,9 @@ namespace Models
 
 
     protected:
-      // The resource type of Simple Message Queue (formerly MNS) (MSMQ).
+      // The Simple Message Queue (formerly MNS) resource type.
       shared_ptr<string> mnsType_ {};
-      // The name of the resource.
+      // The resource name.
       // 
       // - If the resource type is queue, the resource name is the queue name.
       // - If the resource type is topic, the resource name is the topic name.
@@ -603,9 +603,9 @@ namespace Models
 
 
   protected:
-    // The unique identifier of the alert action integration.
+    // The unique identifier of the action integration.
     shared_ptr<string> alertActionId_ {};
-    // The name of the alert action integration.
+    // The name of the action integration.
     // 
     // This parameter is required.
     shared_ptr<string> alertActionName_ {};
@@ -617,13 +617,13 @@ namespace Models
     shared_ptr<CreateAlertActionRequest::Fc3Param> fc3Param_ {};
     // The Function Compute parameters.
     shared_ptr<CreateAlertActionRequest::FcParam> fcParam_ {};
-    // The Simple Message Queue (formerly MNS) (MSMQ) parameters.
+    // The Simple Message Queue (formerly MNS) parameters.
     shared_ptr<CreateAlertActionRequest::MnsParam> mnsParam_ {};
     // The PagerDuty parameters.
     shared_ptr<CreateAlertActionRequest::PagerDutyParam> pagerDutyParam_ {};
     // The Simple Log Service parameters.
     shared_ptr<CreateAlertActionRequest::SlsParam> slsParam_ {};
-    // The type of the alert action integration.
+    // The action integration type.
     // 
     // This parameter is required.
     shared_ptr<string> type_ {};

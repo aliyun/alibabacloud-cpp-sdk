@@ -13,9 +13,11 @@ namespace Models
   class DeleteAlertNotifyTemplatesResponseBody : public Darabonba::Model {
   public:
     friend void to_json(Darabonba::Json& j, const DeleteAlertNotifyTemplatesResponseBody& obj) { 
+      DARABONBA_PTR_TO_JSON(deletedCount, deletedCount_);
       DARABONBA_PTR_TO_JSON(requestId, requestId_);
     };
     friend void from_json(const Darabonba::Json& j, DeleteAlertNotifyTemplatesResponseBody& obj) { 
+      DARABONBA_PTR_FROM_JSON(deletedCount, deletedCount_);
       DARABONBA_PTR_FROM_JSON(requestId, requestId_);
     };
     DeleteAlertNotifyTemplatesResponseBody() = default ;
@@ -29,7 +31,15 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { return this->requestId_ == nullptr; };
+    virtual bool empty() const override { return this->deletedCount_ == nullptr
+        && this->requestId_ == nullptr; };
+    // deletedCount Field Functions 
+    bool hasDeletedCount() const { return this->deletedCount_ != nullptr;};
+    void deleteDeletedCount() { this->deletedCount_ = nullptr;};
+    inline int32_t getDeletedCount() const { DARABONBA_PTR_GET_DEFAULT(deletedCount_, 0) };
+    inline DeleteAlertNotifyTemplatesResponseBody& setDeletedCount(int32_t deletedCount) { DARABONBA_PTR_SET_VALUE(deletedCount_, deletedCount) };
+
+
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
@@ -38,6 +48,8 @@ namespace Models
 
 
   protected:
+    // The actual number of deleted records.
+    shared_ptr<int32_t> deletedCount_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
   };

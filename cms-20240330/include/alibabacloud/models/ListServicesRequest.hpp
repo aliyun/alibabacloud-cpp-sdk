@@ -78,9 +78,9 @@ namespace Models
 
 
     protected:
-      // The tag key.
+      // The key of the tag.
       shared_ptr<string> key_ {};
-      // The tag value.
+      // The value of the tag.
       shared_ptr<string> value_ {};
     };
 
@@ -131,17 +131,17 @@ namespace Models
 
 
   protected:
-    // The maximum number of entries to return in this request.
+    // The maximum number of records to return for the current request.
     shared_ptr<int32_t> maxResults_ {};
     // The token for the next query. An empty value indicates the last page.
     shared_ptr<string> nextToken_ {};
-    // The resource group ID.
+    // The ID of the resource group.
     shared_ptr<string> resourceGroupId_ {};
-    // The application service name.
+    // The service name.
     shared_ptr<string> serviceName_ {};
-    // The service type.
+    // The type of the service.
     shared_ptr<string> serviceType_ {};
-    // The tags.
+    // The array of tags.
     shared_ptr<vector<ListServicesRequest::Tags>> tags_ {};
   };
 

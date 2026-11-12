@@ -114,26 +114,23 @@ namespace Models
   protected:
     // The language.
     shared_ptr<string> aliyunLang_ {};
-    // The category.
+    // The directory.
     shared_ptr<string> category_ {};
     // The keyword.
     shared_ptr<string> keywords_ {};
-    // Filters resources by label. The following labels are available:
-    // - metricCategory: the metric category description.
+    // Filters resources by label. The existing labels are described as follows:
+    // - metricCategory: the category description of the metric.
     // - alertEnable: specifies whether alerting is required.
     // - alertUnit: the recommended alert unit.
     // - unitFactor: the unit conversion factor.
     // - minAlertPeriod: the minimum alert period.
-    // - productCategory: the product type category.
+    // - productCategory: the product category.
     shared_ptr<string> labelsShrink_ {};
-    // The metadata source. Valid values:
-    // 
-    // - CMS: CloudMonitor Basic monitoring metrics.
-    // - PROM_BASIC: Prometheus CloudMonitor Basic monitoring metrics.
+    // The metadata source. Valid values: CMS for CloudMonitor Basic monitoring metrics, and PROM_BASIC for Prometheus CloudMonitor basic monitoring metrics.
     shared_ptr<string> metaFormat_ {};
     // The metric name.
     shared_ptr<string> metricName_ {};
-    // The namespace, which is used to distinguish between services.
+    // The namespace used to distinguish products.
     shared_ptr<string> namespace_ {};
     // The page number. Default value: 1.
     shared_ptr<int32_t> pageNumber_ {};

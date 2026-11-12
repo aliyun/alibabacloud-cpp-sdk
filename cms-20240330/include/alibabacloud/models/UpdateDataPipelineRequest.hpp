@@ -158,9 +158,9 @@ namespace Models
       protected:
         // The run mode.
         shared_ptr<string> runMode_ {};
-        // The start position.
+        // The start point for reading.
         shared_ptr<string> startFrom_ {};
-        // The backfill time range.
+        // The time range for backfilling.
         shared_ptr<Config::TimeRange> timeRange_ {};
       };
 
@@ -185,7 +185,7 @@ namespace Models
     protected:
       // The datasource config.
       shared_ptr<Source::Config> config_ {};
-      // The data source type.
+      // The type of the data source.
       shared_ptr<string> type_ {};
     };
 
@@ -256,15 +256,15 @@ namespace Models
 
 
     protected:
-      // The dataset list.
+      // The list of datasets.
       shared_ptr<vector<string>> datasets_ {};
       // SLS Logstore
       shared_ptr<string> logstore_ {};
-      // The output destination name.
+      // The name of the output destination.
       shared_ptr<string> name_ {};
       // SLS Project
       shared_ptr<string> project_ {};
-      // The output destination type.
+      // The type of the output destination.
       shared_ptr<string> type_ {};
     };
 
@@ -392,7 +392,7 @@ namespace Models
 
 
         protected:
-          // The service name list.
+          // The list of service names.
           shared_ptr<vector<string>> serviceNames_ {};
         };
 
@@ -596,7 +596,7 @@ namespace Models
               shared_ptr<string> container_ {};
               // The reference data type.
               shared_ptr<string> kind_ {};
-              // The name of the field or dimension.
+              // The field or dimension name.
               shared_ptr<string> name_ {};
               // The JSON literal key path.
               shared_ptr<vector<string>> path_ {};
@@ -670,9 +670,9 @@ namespace Models
         protected:
           // The additional field conditions.
           shared_ptr<vector<Scope::Conditions>> conditions_ {};
-          // The metric name scope.
+          // The scope of metric names.
           shared_ptr<Scope::MetricName> metricName_ {};
-          // The service name scope.
+          // The scope of service names.
           shared_ptr<Scope::ServiceName> serviceName_ {};
         };
 
@@ -754,9 +754,9 @@ namespace Models
 
 
         protected:
-          // The length of the retained prefix.
+          // The length of the prefix to retain.
           shared_ptr<int32_t> keepPrefix_ {};
-          // The length of the retained suffix.
+          // The length of the suffix to retain.
           shared_ptr<int32_t> keepSuffix_ {};
           // The sensitive keywords.
           shared_ptr<vector<string>> keys_ {};
@@ -1005,11 +1005,11 @@ namespace Models
 
 
     protected:
-      // The processor configuration.
+      // The configuration of the processor.
       shared_ptr<Processors::Config> config_ {};
-      // The processor name.
+      // The name of the processor.
       shared_ptr<string> name_ {};
-      // The processor type.
+      // The type of the processor.
       shared_ptr<string> type_ {};
     };
 
@@ -1158,7 +1158,7 @@ namespace Models
 
 
           protected:
-            // The service name list.
+            // The list of service names.
             shared_ptr<vector<string>> serviceNames_ {};
           };
 
@@ -1362,7 +1362,7 @@ namespace Models
                 shared_ptr<string> container_ {};
                 // The reference data type.
                 shared_ptr<string> kind_ {};
-                // The name of the field or dimension.
+                // The field or dimension name.
                 shared_ptr<string> name_ {};
                 // The JSON literal key path.
                 shared_ptr<vector<string>> path_ {};
@@ -1436,9 +1436,9 @@ namespace Models
           protected:
             // The additional field conditions.
             shared_ptr<vector<Scope::Conditions>> conditions_ {};
-            // The metric name scope.
+            // The scope of metric names.
             shared_ptr<Scope::MetricName> metricName_ {};
-            // The service name scope.
+            // The scope of service names.
             shared_ptr<Scope::ServiceName> serviceName_ {};
           };
 
@@ -1520,9 +1520,9 @@ namespace Models
 
 
           protected:
-            // The length of the retained prefix.
+            // The length of the prefix to retain.
             shared_ptr<int32_t> keepPrefix_ {};
-            // The length of the retained suffix.
+            // The length of the suffix to retain.
             shared_ptr<int32_t> keepSuffix_ {};
             // The sensitive keywords.
             shared_ptr<vector<string>> keys_ {};
@@ -1771,11 +1771,11 @@ namespace Models
 
 
       protected:
-        // The processor configuration.
+        // The configuration of the processor.
         shared_ptr<Processors::Config> config_ {};
-        // The processor name.
+        // The name of the processor.
         shared_ptr<string> name_ {};
-        // The processor type.
+        // The type of the processor.
         shared_ptr<string> type_ {};
       };
 
@@ -1798,7 +1798,7 @@ namespace Models
 
 
     protected:
-      // The name of the output.
+      // The output name.
       shared_ptr<string> name_ {};
       // The branch processors.
       shared_ptr<vector<Outputs::Processors>> processors_ {};
@@ -1875,7 +1875,7 @@ namespace Models
     shared_ptr<vector<UpdateDataPipelineRequest::Outputs>> outputs_ {};
     // The common processors.
     shared_ptr<vector<UpdateDataPipelineRequest::Processors>> processors_ {};
-    // The output destinations.
+    // The output destination.
     shared_ptr<vector<UpdateDataPipelineRequest::Sinks>> sinks_ {};
     // The data source.
     shared_ptr<UpdateDataPipelineRequest::Source> source_ {};

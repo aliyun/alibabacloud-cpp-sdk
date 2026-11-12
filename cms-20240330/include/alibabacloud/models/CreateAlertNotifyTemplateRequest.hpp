@@ -79,8 +79,6 @@ namespace Models
 
   protected:
     // The ID of the notification template.
-    // 
-    // This parameter is required.
     shared_ptr<string> alertNotifyTemplateId_ {};
     // The name of the notification template.
     shared_ptr<string> alertNotifyTemplateName_ {};

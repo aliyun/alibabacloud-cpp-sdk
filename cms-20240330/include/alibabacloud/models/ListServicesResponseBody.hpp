@@ -160,23 +160,23 @@ namespace Models
     protected:
       // The extended information.
       shared_ptr<string> attributes_ {};
-      // The creation time.
+      // The time when the service was created.
       shared_ptr<string> createTime_ {};
-      // The service description. This parameter is valid only when serviceType is set to RUM.
+      // The description of the service. This parameter is valid only when serviceType is set to RUM.
       shared_ptr<string> description_ {};
       // The display name. This parameter is valid only when serviceType is set to RUM.
       shared_ptr<string> displayName_ {};
-      // The ARMS application ID for backward compatibility.
+      // The legacy ARMS application ID for backward compatibility.
       shared_ptr<string> pid_ {};
-      // The resource group ID.
+      // The ID of the resource group.
       shared_ptr<string> resourceGroupId_ {};
-      // The service ID.
+      // The ID of the service.
       shared_ptr<string> serviceId_ {};
       // The service name.
       shared_ptr<string> serviceName_ {};
-      // The service status. This parameter is valid only when serviceType is set to RUM.
+      // The status of the service. This parameter is valid only when serviceType is set to RUM.
       shared_ptr<string> serviceStatus_ {};
-      // The service type.
+      // The type of the service.
       shared_ptr<string> serviceType_ {};
       // The workspace.
       shared_ptr<string> workspace_ {};
@@ -222,7 +222,7 @@ namespace Models
 
 
   protected:
-    // The maximum number of entries returned. Maximum value: 200.
+    // The maximum number of results to return. Maximum value: 200.
     shared_ptr<int32_t> maxResults_ {};
     // The pagination token.
     shared_ptr<string> nextToken_ {};

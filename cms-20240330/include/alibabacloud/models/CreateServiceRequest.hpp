@@ -179,7 +179,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> serviceType_ {};
-    // The tags.
+    // The tag array.
     shared_ptr<vector<CreateServiceRequest::Tags>> tags_ {};
   };
 

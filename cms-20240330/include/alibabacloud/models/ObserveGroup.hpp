@@ -35,6 +35,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(regionId, regionId_);
       DARABONBA_PTR_TO_JSON(resourceGroupId, resourceGroupId_);
       DARABONBA_PTR_TO_JSON(sourceOrigin, sourceOrigin_);
+      DARABONBA_PTR_TO_JSON(sourceReadOnly, sourceReadOnly_);
       DARABONBA_PTR_TO_JSON(tags, tags_);
       DARABONBA_PTR_TO_JSON(workspaceId, workspaceId_);
     };
@@ -57,6 +58,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(regionId, regionId_);
       DARABONBA_PTR_FROM_JSON(resourceGroupId, resourceGroupId_);
       DARABONBA_PTR_FROM_JSON(sourceOrigin, sourceOrigin_);
+      DARABONBA_PTR_FROM_JSON(sourceReadOnly, sourceReadOnly_);
       DARABONBA_PTR_FROM_JSON(tags, tags_);
       DARABONBA_PTR_FROM_JSON(workspaceId, workspaceId_);
     };
@@ -119,7 +121,7 @@ namespace Models
         && this->createTime_ == nullptr && this->description_ == nullptr && this->discoverRules_ == nullptr && this->entityCounts_ == nullptr && this->extraInfo_ == nullptr
         && this->favorited_ == nullptr && this->groupId_ == nullptr && this->groupName_ == nullptr && this->groupType_ == nullptr && this->health_ == nullptr
         && this->modifyTime_ == nullptr && this->ogEntityInfoEnabled_ == nullptr && this->ogEntityInfoPromInstances_ == nullptr && this->originGroupId_ == nullptr && this->regionId_ == nullptr
-        && this->resourceGroupId_ == nullptr && this->sourceOrigin_ == nullptr && this->tags_ == nullptr && this->workspaceId_ == nullptr; };
+        && this->resourceGroupId_ == nullptr && this->sourceOrigin_ == nullptr && this->sourceReadOnly_ == nullptr && this->tags_ == nullptr && this->workspaceId_ == nullptr; };
     // aliUid Field Functions 
     bool hasAliUid() const { return this->aliUid_ != nullptr;};
     void deleteAliUid() { this->aliUid_ = nullptr;};
@@ -252,6 +254,13 @@ namespace Models
     inline ObserveGroup& setSourceOrigin(string sourceOrigin) { DARABONBA_PTR_SET_VALUE(sourceOrigin_, sourceOrigin) };
 
 
+    // sourceReadOnly Field Functions 
+    bool hasSourceReadOnly() const { return this->sourceReadOnly_ != nullptr;};
+    void deleteSourceReadOnly() { this->sourceReadOnly_ = nullptr;};
+    inline bool getSourceReadOnly() const { DARABONBA_PTR_GET_DEFAULT(sourceReadOnly_, false) };
+    inline ObserveGroup& setSourceReadOnly(bool sourceReadOnly) { DARABONBA_PTR_SET_VALUE(sourceReadOnly_, sourceReadOnly) };
+
+
     // tags Field Functions 
     bool hasTags() const { return this->tags_ != nullptr;};
     void deleteTags() { this->tags_ = nullptr;};
@@ -305,6 +314,8 @@ namespace Models
     shared_ptr<string> resourceGroupId_ {};
     // 数据来源：native_2_0（2.0 原生）/ synced_from_1_0（从 1.0 应用分组同步）。
     shared_ptr<string> sourceOrigin_ {};
+    // 源云监控 1.0 分组是否已持久只读，true 时目标 2.0 分组可独立维护。
+    shared_ptr<bool> sourceReadOnly_ {};
     // 资源标签（阿里云标准标签），键值对数组。
     shared_ptr<vector<ObserveGroup::Tags>> tags_ {};
     // 分组归属的 workspace ID（workspace 级归属，创建后不可变）。

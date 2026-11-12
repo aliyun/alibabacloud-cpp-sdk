@@ -181,13 +181,13 @@ namespace Models
 
 
         protected:
-          // The description of the protocol.
+          // The protocol description.
           shared_ptr<string> description_ {};
-          // The display icon for the protocol.
+          // The protocol display icon.
           shared_ptr<string> icon_ {};
-          // The display name of the protocol.
+          // The protocol display name.
           shared_ptr<string> label_ {};
-          // The name of the protocol.
+          // The protocol name.
           shared_ptr<string> name_ {};
         };
 
@@ -221,7 +221,7 @@ namespace Models
 
 
         protected:
-          // The Prometheus Query Language (PromQL) for the check rule.
+          // The PromQL for the check rule.
           shared_ptr<vector<string>> promQL_ {};
         };
 
@@ -281,13 +281,13 @@ namespace Models
 
 
         protected:
-          // Indicates whether group mode is used.
+          // Specifies whether it is in group mode.
           shared_ptr<bool> entityGroupMode_ {};
           // The entity type.
           shared_ptr<string> entityType_ {};
-          // Indicates whether single-entity mode is used.
+          // Specifies whether it is in single-entity mode.
           shared_ptr<bool> singleEntityMode_ {};
-          // The field in the entity from which to fetch the VPC ID.
+          // The field used to extract the VPC ID information from the entity.
           shared_ptr<string> vpcIdFieldKey_ {};
         };
 
@@ -364,23 +364,23 @@ namespace Models
 
 
       protected:
-        // Indicates whether the alert rule is enabled by default after installation.
+        // Specifies whether alert rules are enabled after default installation.
         shared_ptr<string> alertDefaultStatus_ {};
-        // The default mode. This integration mode does not require attaching an entity.
+        // The default mode, which is an integration mode that does not require binding entities.
         shared_ptr<bool> bindDefaultPolicy_ {};
-        // Information about the attached target entity.
+        // The bound target entity information.
         shared_ptr<Policies::BindEntity> bindEntity_ {};
-        // Indicates whether the component is installed by default.
+        // Specifies whether to install by default.
         shared_ptr<bool> defaultInstall_ {};
-        // Indicates whether to enable internal authorization token allocation.
+        // Specifies whether to enable internal authorization token allocation.
         shared_ptr<bool> enableServiceAccount_ {};
         // The data check rule after the component is integrated.
         shared_ptr<Policies::MetricCheckRule> metricCheckRule_ {};
-        // Indicates whether to prompt for a workload restart after integration.
+        // Specifies whether to prompt to restart the workload after integration.
         shared_ptr<bool> needRestartAfterIntegration_ {};
-        // The list of supported client protocols.
+        // The list of supported client protocol information.
         shared_ptr<vector<Policies::Protocols>> protocols_ {};
-        // The name of the target component for redirection.
+        // The name of the target component to navigate to.
         shared_ptr<string> targetAddonName_ {};
       };
 
@@ -439,7 +439,7 @@ namespace Models
       protected:
         // The supported cluster types.
         shared_ptr<vector<string>> clusterTypes_ {};
-        // The probe dependency description. This is the component name. In later versions, this field is replaced by the collectors field.
+        // The probe dependency description and component name. This field is replaced by the collectors field in the new version.
         shared_ptr<map<string, bool>> features_ {};
         // The list of dependent services.
         shared_ptr<vector<string>> services_ {};
@@ -555,19 +555,19 @@ namespace Models
 
 
     protected:
-      // The list of attached CommonSchemas.
+      // The list of associated CommonSchemas.
       shared_ptr<vector<Environments::CommonSchemaRefs>> commonSchemaRefs_ {};
       // The dependency description.
       shared_ptr<Environments::Dependencies> dependencies_ {};
       // The description of the environment type.
       shared_ptr<string> description_ {};
-      // Indicates whether the environment type is enabled.
+      // Specifies whether it is enabled.
       shared_ptr<bool> enable_ {};
       // The display name of the environment type.
       shared_ptr<string> label_ {};
-      // The name of the environment type.
+      // The environment type name.
       shared_ptr<string> name_ {};
-      // Information about the control policy group for the component.
+      // The control policy combination information of the component.
       shared_ptr<Environments::Policies> policies_ {};
       // The policy type.
       shared_ptr<string> policyType_ {};
@@ -622,9 +622,9 @@ namespace Models
     protected:
       // The description.
       shared_ptr<string> description_ {};
-      // The name of the diagram.
+      // The diagram name.
       shared_ptr<string> name_ {};
-      // The URL of the diagram.
+      // The diagram URL.
       shared_ptr<string> url_ {};
     };
 
@@ -739,37 +739,35 @@ namespace Models
 
 
   protected:
-    // The alias of the component. This is the display name.
+    // The component alias and display name.
     shared_ptr<string> alias_ {};
-    // The categorization information of the component.
+    // The component category information.
     shared_ptr<vector<string>> categories_ {};
-    // A list of component diagrams.
+    // The list of component diagrams.
     shared_ptr<vector<AddonMeta::Dashboards>> dashboards_ {};
     // The description.
     shared_ptr<string> description_ {};
     // The list of supported environment types.
     shared_ptr<vector<AddonMeta::Environments>> environments_ {};
-    // The icon of the component.
+    // The component icon.
     shared_ptr<string> icon_ {};
     // The list of keywords.
     shared_ptr<vector<string>> keywords_ {};
     // The language. Valid values:
-    // 
-    // - zh: Chinese (default)
-    // 
-    // - en: English
+    // - zh: Chinese (default).
+    // - en: English.
     shared_ptr<string> language_ {};
-    // The last time the component was integrated.
+    // The last integration time of the component.
     shared_ptr<string> latestReleaseCreateTime_ {};
-    // The name of the component.
+    // The component name.
     shared_ptr<string> name_ {};
-    // Indicates whether the component can be installed only once under a policy.
+    // Specifies whether the component can be installed only once under the policy.
     shared_ptr<bool> once_ {};
     // The scenario.
     shared_ptr<string> scene_ {};
     // The version number.
     shared_ptr<string> version_ {};
-    // The sorting weight of the component.
+    // The component sorting weight.
     shared_ptr<int32_t> weight_ {};
   };
 

@@ -282,7 +282,7 @@ namespace Models
 
 
           protected:
-            // The operation to be performed.
+            // The operation performed.
             shared_ptr<string> op_ {};
             // The tag key of the instance.
             shared_ptr<string> tagKey_ {};
@@ -339,7 +339,7 @@ namespace Models
 
 
           protected:
-            // The operation to be performed.
+            // The operation performed.
             shared_ptr<string> op_ {};
             // The tag key of the instance.
             shared_ptr<string> tagKey_ {};
@@ -387,7 +387,7 @@ namespace Models
           protected:
             // The IP CIDR block.
             shared_ptr<string> ipCidr_ {};
-            // The key of the IP field.
+            // The key of the IP address field.
             shared_ptr<string> ipFieldKey_ {};
           };
 
@@ -444,7 +444,7 @@ namespace Models
             shared_ptr<string> fieldKey_ {};
             // The field content.
             shared_ptr<vector<string>> fieldValues_ {};
-            // The operation to be performed.
+            // The operation performed.
             shared_ptr<string> op_ {};
           };
 
@@ -497,7 +497,7 @@ namespace Models
 
 
           protected:
-            // The operation to be performed.
+            // The operation performed.
             shared_ptr<string> op_ {};
             // The tag key.
             shared_ptr<string> tagKey_ {};
@@ -596,9 +596,9 @@ namespace Models
           shared_ptr<vector<EntityRules::FieldRules>> fieldRules_ {};
           // The instance IDs.
           shared_ptr<vector<string>> instanceIds_ {};
-          // The IP matching rule.
+          // The IP address matching rule.
           shared_ptr<EntityRules::IpMatchRule> ipMatchRule_ {};
-          // The tags.
+          // The labels.
           shared_ptr<vector<EntityRules::Labels>> labels_ {};
           // The list of region IDs.
           shared_ptr<vector<string>> regionIds_ {};
@@ -882,7 +882,7 @@ namespace Models
       shared_ptr<vector<string>> addonNames_ {};
       // The policy version.
       shared_ptr<string> apiVersion_ {};
-      // The information about the bound resources.
+      // The bound resource information.
       shared_ptr<Policy::BindResource> bindResource_ {};
       // The installation status of umodel in the container environment.
       shared_ptr<bool> csUmodelStatus_ {};
@@ -892,7 +892,7 @@ namespace Models
       shared_ptr<Policy::ManagedInfo> managedInfo_ {};
       // The policy ID.
       shared_ptr<string> policyId_ {};
-      // The rule name.
+      // The policy name.
       shared_ptr<string> policyName_ {};
       // The access policy type.
       shared_ptr<string> policyType_ {};

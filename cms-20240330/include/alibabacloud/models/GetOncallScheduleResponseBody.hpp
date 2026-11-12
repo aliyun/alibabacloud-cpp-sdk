@@ -214,9 +214,9 @@ namespace Models
 
 
     protected:
-      // The days of the week when the rotation is active.
+      // The days of the week when the rotation takes effect.
       shared_ptr<vector<int32_t>> activeDays_ {};
-      // The contact ID.
+      // The IDs of the contacts.
       shared_ptr<vector<string>> contacts_ {};
       // The end time of the rotation. Format: HH:mm.
       shared_ptr<string> rotationEndTime_ {};
@@ -224,13 +224,13 @@ namespace Models
       shared_ptr<string> rotationName_ {};
       // The start time of the rotation. Format: HH:mm.
       shared_ptr<string> rotationStartTime_ {};
-      // The length of the shift rotation cycle. Used in combination with shiftRecurrenceFrequency. For example, set this parameter to 3 to rotate to the next on-call contact every 3 days.
+      // The length of the shift recurrence period. Used in conjunction with shiftRecurrenceFrequency. For example, rotate to the next on-call person every 3 days.
       shared_ptr<int32_t> shiftLength_ {};
-      // The unit of the shift rotation cycle. Used in combination with shiftRecurrenceFrequency. For example, set this parameter to Week to rotate to the next on-call contact every week.
+      // The unit of the shift recurrence frequency. Used in conjunction with shiftRecurrenceFrequency. For example, rotate to the next on-call person every 1 week.
       shared_ptr<string> shiftRecurrenceFrequency_ {};
       // The start date of the rotation. Format: yyyy-MM-dd.
       shared_ptr<string> startDate_ {};
-      // The time zone name based on the IANA Time Zone Database standard. Example: Asia/Shanghai.
+      // The name of the time zone. Uses the IANA Time Zone Database standard, such as Asia/Shanghai.
       shared_ptr<string> timeZone_ {};
     };
 
@@ -299,7 +299,7 @@ namespace Models
     shared_ptr<string> requestId_ {};
     // The list of rotations.
     shared_ptr<vector<GetOncallScheduleResponseBody::Rotations>> rotations_ {};
-    // The ID of the shift reminder chatbot.
+    // The ID of the robot for shift change reminders.
     shared_ptr<string> shiftRobotId_ {};
     // The list of substitution rules.
     shared_ptr<vector<GetOncallScheduleResponseBody::Substitudes>> substitudes_ {};

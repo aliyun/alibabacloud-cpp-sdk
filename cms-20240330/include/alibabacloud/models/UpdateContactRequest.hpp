@@ -19,6 +19,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(lang, lang_);
       DARABONBA_PTR_TO_JSON(name, name_);
       DARABONBA_PTR_TO_JSON(phone, phone_);
+      DARABONBA_PTR_TO_JSON(phoneCode, phoneCode_);
     };
     friend void from_json(const Darabonba::Json& j, UpdateContactRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(email, email_);
@@ -26,6 +27,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(lang, lang_);
       DARABONBA_PTR_FROM_JSON(name, name_);
       DARABONBA_PTR_FROM_JSON(phone, phone_);
+      DARABONBA_PTR_FROM_JSON(phoneCode, phoneCode_);
     };
     UpdateContactRequest() = default ;
     UpdateContactRequest(const UpdateContactRequest &) = default ;
@@ -39,7 +41,7 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->email_ == nullptr
-        && this->imUserIds_ == nullptr && this->lang_ == nullptr && this->name_ == nullptr && this->phone_ == nullptr; };
+        && this->imUserIds_ == nullptr && this->lang_ == nullptr && this->name_ == nullptr && this->phone_ == nullptr && this->phoneCode_ == nullptr; };
     // email Field Functions 
     bool hasEmail() const { return this->email_ != nullptr;};
     void deleteEmail() { this->email_ = nullptr;};
@@ -77,17 +79,26 @@ namespace Models
     inline UpdateContactRequest& setPhone(string phone) { DARABONBA_PTR_SET_VALUE(phone_, phone) };
 
 
+    // phoneCode Field Functions 
+    bool hasPhoneCode() const { return this->phoneCode_ != nullptr;};
+    void deletePhoneCode() { this->phoneCode_ = nullptr;};
+    inline string getPhoneCode() const { DARABONBA_PTR_GET_DEFAULT(phoneCode_, "") };
+    inline UpdateContactRequest& setPhoneCode(string phoneCode) { DARABONBA_PTR_SET_VALUE(phoneCode_, phoneCode) };
+
+
   protected:
     // The email address of the contact.
     shared_ptr<string> email_ {};
-    // The IM user ID mappings. Multiple instant messaging tools are supported.
+    // The instant messaging (IM) user ID mappings. Multiple IM tools are supported.
     shared_ptr<map<string, string>> imUserIds_ {};
     // The language.
     shared_ptr<string> lang_ {};
     // The name of the contact.
     shared_ptr<string> name_ {};
-    // The mobile phone number of the contact. Only mobile phone numbers in the Chinese mainland are supported.
+    // The mobile phone number of the contact. Only Chinese mobile phone numbers are supported.
     shared_ptr<string> phone_ {};
+    // The country code for the mobile phone number, typically +86 for China.
+    shared_ptr<string> phoneCode_ {};
   };
 
   } // namespace Models
