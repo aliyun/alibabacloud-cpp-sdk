@@ -89,9 +89,9 @@ namespace Models
       // - default: the built-in default account.
       // - user: a user-created account.
       shared_ptr<string> accountType_ {};
-      // The access key of the S3 account.
+      // The AccessKey ID of the S3 account.
       shared_ptr<string> userAccAk_ {};
-      // The secret key of the S3 account (displayed in masked format).
+      // The AccessKey secret of the S3 account (masked).
       shared_ptr<string> userAccSk_ {};
     };
 
@@ -141,7 +141,7 @@ namespace Models
     shared_ptr<int32_t> pageSize_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The list of S3 accounts.
+    // The S3 accounts.
     shared_ptr<vector<ListLakebaseS3AccountsResponseBody::S3Accounts>> s3Accounts_ {};
     // The total number of accounts.
     shared_ptr<int32_t> totalCount_ {};

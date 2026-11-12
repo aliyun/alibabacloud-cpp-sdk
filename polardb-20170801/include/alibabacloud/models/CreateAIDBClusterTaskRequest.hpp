@@ -240,26 +240,26 @@ namespace Models
     shared_ptr<string> DBClusterId_ {};
     // The instance type.
     shared_ptr<string> DBInstanceClass_ {};
-    // The data service mode. A value of custom indicates that custom OSS is used, and a value of cold_storage indicates that cold storage is used.
+    // The data service mode. A value of custom indicates that custom OSS is used. A value of cold_storage indicates that cold storage is used.
     shared_ptr<string> dataserviceMode_ {};
     // The ID of the training dataset. This parameter is required for fine-tuning.
     shared_ptr<string> datasetPath_ {};
     // The ID of the validation dataset. This parameter is required for evaluation.
     shared_ptr<string> evalDatasetPath_ {};
     // The type of the model service. Valid values:
-    //  * **aitrain**: model operator fine-tuning.
+    //  * **aitrain**: model operator tuning
     // 
     // This parameter is required.
     shared_ptr<string> kubeType_ {};
     // The name of the model.
-    // * **For a preset model, specify the name of the selected model.**
-    // * **For a custom model, specify the path of the model (the model trained in a cold storage instance).**
+    // * **For a preset model, specify the selected model name.**
+    // * **For a custom model, specify the path of the model (the trained model in a cold storage instance).**
     // 
     // This parameter is required.
     shared_ptr<string> modelName_ {};
     // The source of the model. Valid values:
-    // * **public**: preset model.
-    // * **custom**: custom model.
+    // * **public**: preset model
+    // * **custom**: custom model
     // 
     // This parameter is required.
     shared_ptr<string> modelSource_ {};
@@ -271,19 +271,19 @@ namespace Models
     shared_ptr<string> regionId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
-    // The runtime parameters. The value is a JSON string.
+    // The runtime parameters in JSON string format.
     // 
     // This parameter is required.
     shared_ptr<string> runningParameter_ {};
-    // The security group ID.
+    // The ID of the security group. This parameter is actually required. If it is not provided, the service returns InvalidEcsSecurityGroupId.Malformed (400).
     shared_ptr<string> securityGroupId_ {};
     // The description of the model service.
     shared_ptr<string> taskName_ {};
     // The model fine-tuning architecture.
     shared_ptr<string> tuneArch_ {};
-    // The VPC ID.
+    // The ID of the virtual private cloud (VPC). This parameter is actually required. If it is not provided, the service returns InvalidVpcId.Malformed (400).
     shared_ptr<string> VPCId_ {};
-    // The ID of the vSwitch.
+    // The ID of the vSwitch. This parameter is actually required and must belong to the VPC specified by VPCId.
     shared_ptr<string> vSwitchId_ {};
     // The zone ID.
     shared_ptr<string> zoneId_ {};

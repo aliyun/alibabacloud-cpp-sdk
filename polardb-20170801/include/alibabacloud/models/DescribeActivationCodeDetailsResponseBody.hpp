@@ -130,25 +130,25 @@ namespace Models
 
 
   protected:
-    // The effective time.
+    // The effective period.
     shared_ptr<string> activateAt_ {};
-    // The content of the activation code. Decode the Base64 content and save it to the license.lic file for PolarDB to read during startup.
+    // The content of the activation code. Decode this content from Base64 and save it to the license.lic file for PolarDB to read during startup.
     shared_ptr<string> certContentB64_ {};
     // The description of the activation code.
     shared_ptr<string> description_ {};
     // The expiration time.
     shared_ptr<string> expireAt_ {};
-    // The time when the activation code was created.
+    // The creation time.
     shared_ptr<string> gmtCreated_ {};
-    // The time when the activation code was last updated.
+    // The update time.
     shared_ptr<string> gmtModified_ {};
-    // The ID of the activation code.
+    // The activation code ID.
     shared_ptr<int32_t> id_ {};
     // The MAC address.
     shared_ptr<string> macAddress_ {};
     // The name of the activation code.
     shared_ptr<string> name_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
     // The unique identifier of the database.
     shared_ptr<string> systemIdentifier_ {};

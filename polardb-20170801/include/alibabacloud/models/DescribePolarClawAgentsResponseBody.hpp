@@ -117,7 +117,7 @@ namespace Models
 
 
       protected:
-        // The fallback model list.
+        // The list of fallback models.
         shared_ptr<vector<string>> fallbacks_ {};
         // The primary model.
         shared_ptr<string> primary_ {};
@@ -192,7 +192,7 @@ namespace Models
         shared_ptr<string> avatar_ {};
         // The avatar URL.
         shared_ptr<string> avatarUrl_ {};
-        // The emoji identifier in Unicode format such as U+1F99E, or a direct emoji character.
+        // The emoji identifier, in Unicode format such as U+1F99E or as a direct emoji character.
         shared_ptr<string> emoji_ {};
         // The identity name.
         shared_ptr<string> name_ {};
@@ -271,9 +271,9 @@ namespace Models
         shared_ptr<string> name_ {};
         // The file path.
         shared_ptr<string> path_ {};
-        // The file size, in bytes.
+        // The file size in bytes.
         shared_ptr<int64_t> size_ {};
-        // The last updated timestamp, in milliseconds.
+        // The timestamp of the last update in milliseconds.
         shared_ptr<int64_t> updatedAtMs_ {};
       };
 
@@ -345,11 +345,11 @@ namespace Models
 
 
     protected:
-      // Indicates whether this is the default agent.
+      // Indicates whether the agent is the default agent.
       shared_ptr<bool> default_ {};
-      // The agent file list.
+      // The list of agent files.
       shared_ptr<vector<Agents::Files>> files_ {};
-      // Agent ID
+      // The PolarClaw agent ID.
       shared_ptr<string> id_ {};
       // The identity information.
       shared_ptr<Agents::Identity> identity_ {};
@@ -433,11 +433,11 @@ namespace Models
     shared_ptr<int32_t> code_ {};
     // The default agent ID.
     shared_ptr<string> defaultId_ {};
-    // The primary agent key name.
+    // The main agent key name.
     shared_ptr<string> mainKey_ {};
     // The response message.
     shared_ptr<string> message_ {};
-    // Id of the request
+    // The request ID.
     shared_ptr<string> requestId_ {};
     // The routing scope.
     shared_ptr<string> scope_ {};

@@ -84,13 +84,15 @@ namespace Models
 
 
   protected:
-    // The ID of the cluster for which you want to query the database links.
+    // The ID of the cluster for which you want to query DBLink information.
     // 
-    // > You can call the [DescribeDBClusters](https://help.aliyun.com/document_detail/173433.html) operation to query PolarDB clusters.
+    // > You can call the [DescribeDBClusters](https://help.aliyun.com/document_detail/173433.html) operation to query the list of PolarDB clusters.
+    // 
+    // > Use only the ID of a supported PolarDB for PostgreSQL (Compatible with Oracle) cluster. Unsupported engines or versions return InvalidEngine.Unsupported.
     // 
     // This parameter is required.
     shared_ptr<string> DBClusterId_ {};
-    // The name of the database link. If you leave this parameter empty, the system returns all the database links.
+    // The name of the DBLink. If you do not specify this parameter, all DBLinks are returned.
     shared_ptr<string> DBLinkName_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};

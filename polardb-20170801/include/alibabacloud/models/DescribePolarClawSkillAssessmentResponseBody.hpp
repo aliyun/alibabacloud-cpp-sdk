@@ -50,7 +50,7 @@ namespace Models
   protected:
     // The assessment result.
     shared_ptr<string> assessmentResult_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

@@ -81,11 +81,11 @@ namespace Models
     shared_ptr<string> applicationId_ {};
     // The status code.
     shared_ptr<int32_t> code_ {};
-    // The message returned for the request.
+    // The response message.
     shared_ptr<string> message_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The configurations of the MCP servers.
+    // The MCP server configurations.
     Darabonba::Json servers_ {};
   };
 

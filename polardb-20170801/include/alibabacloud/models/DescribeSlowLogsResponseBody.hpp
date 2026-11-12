@@ -326,7 +326,7 @@ namespace Models
     shared_ptr<string> DBClusterId_ {};
     // The end date of the query.
     // 
-    // The date is in UTC. Format: YYYY-MM-DDZ.
+    // The date is in UTC and formatted as YYYY-MM-DDZ.
     shared_ptr<string> endTime_ {};
     // The database engine.
     shared_ptr<string> engine_ {};
@@ -339,9 +339,9 @@ namespace Models
     shared_ptr<string> requestId_ {};
     // The start date of the query.
     // 
-    // The date is in UTC. Format: YYYY-MM-DDZ.
+    // The date is in UTC and formatted as YYYY-MM-DDZ.
     shared_ptr<string> startTime_ {};
-    // The total number of records.
+    // The total number of entries.
     shared_ptr<int32_t> totalRecordCount_ {};
   };
 

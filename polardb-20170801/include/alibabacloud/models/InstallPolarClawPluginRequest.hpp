@@ -72,7 +72,7 @@ namespace Models
     shared_ptr<string> applicationId_ {};
     // The npm package name, including the version number.
     shared_ptr<string> npmPackage_ {};
-    // The plug-in ID.
+    // The plugin identifier.
     // 
     // This parameter is required.
     shared_ptr<string> pluginId_ {};

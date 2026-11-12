@@ -118,23 +118,20 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> DBClusterId_ {};
-    // The node type. Required when you query the PolarDB search node account
+    // The node type. This parameter is required when you query the accounts of PolarDB Search nodes. Valid values:
     // 
     // - Search
     shared_ptr<string> nodeType_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
-    // The page number of the returned page. The value must be an integer that is larger than 0. The default value is **1**.
+    // The page number. The value must be a positive integer that does not exceed the maximum value of the Integer type. Default value: **1**.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries returned per page. Valid values:
+    // The number of entries per page. Valid values:
+    // * **30**
+    // * **50**
+    // * **100**
     // 
-    // - **30**
-    // 
-    // - **50**
-    // 
-    // - **100**
-    // 
-    // The default value is **30**.
+    // Default value: **30**.
     shared_ptr<int32_t> pageSize_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};

@@ -159,13 +159,13 @@ namespace Models
 
 
   protected:
-    // The creation time (UTC).
+    // The creation time in UTC.
     shared_ptr<string> createTime_ {};
     // Indicates whether the parameter template is applied. Valid values: 0: No. 1: Yes.
     shared_ptr<int32_t> isApply_ {};
-    // The modification time (UTC).
+    // The modification time in UTC.
     shared_ptr<string> modifyTime_ {};
-    // The parameter details of the template. An empty array is returned if no data is available.
+    // The details of the parameters in the template. An empty array is returned if no data is available.
     shared_ptr<vector<DescribeLakebaseMountParameterGroupResponseBody::ParameterDetail>> parameterDetail_ {};
     // The description of the parameter template.
     shared_ptr<string> parameterGroupDesc_ {};

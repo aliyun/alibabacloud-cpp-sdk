@@ -75,15 +75,15 @@ namespace Models
 
 
   protected:
-    // The ID of the AgenticDB cluster.
+    // The AgenticDB cluster ID.
     // 
     // This parameter is required.
     shared_ptr<string> DBClusterId_ {};
-    // The default valid range is 3,600 to 2,592,000 seconds (1 hour to 30 days), inclusive, subject to the service configuration. Reducing the retention period may clear historical data. Extending the retention period does not restore cleared data.
+    // The retention period for historical data, in seconds.
     // 
     // This parameter is required.
     shared_ptr<int64_t> historyRetentionSeconds_ {};
-    // The ID of the target project.
+    // The project ID.
     // 
     // This parameter is required.
     shared_ptr<string> projectId_ {};

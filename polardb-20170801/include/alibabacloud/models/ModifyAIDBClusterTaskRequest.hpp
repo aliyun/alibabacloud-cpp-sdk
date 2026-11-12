@@ -103,10 +103,10 @@ namespace Models
 
 
   protected:
-    // The task ID.
+    // The task ID. Note: This parameter refers to the training task ID, not the cluster ID. You can obtain a valid value by calling CreateAIDBClusterTask.
     shared_ptr<string> DBClusterId_ {};
     // The operation to perform. Valid values:
-    // * **stop**: Stops training. This value takes effect only for tasks that are currently in the training state.
+    // * **stop**: Stops the training. This value takes effect only for tasks that are in the training state.
     shared_ptr<string> modifyMode_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};

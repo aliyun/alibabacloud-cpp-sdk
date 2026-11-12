@@ -61,11 +61,11 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> applicationId_ {};
-    // The ID of the plugin to disable.
+    // The ID of the plug-in to disable.
     // 
     // This parameter is required.
     shared_ptr<string> pluginId_ {};
-    // Specifies whether to restart the gateway. Default value: true.
+    // Specifies whether to restart the gateway after the plug-in is disabled. Default value: true.
     shared_ptr<bool> restart_ {};
   };
 

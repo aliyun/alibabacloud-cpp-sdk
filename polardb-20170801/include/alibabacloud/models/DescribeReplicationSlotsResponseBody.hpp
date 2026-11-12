@@ -155,13 +155,13 @@ namespace Models
       shared_ptr<string> slotStatus_ {};
       // The type of the replication slot.
       shared_ptr<string> slotType_ {};
-      // The child node name of the distributed instance.
+      // The name of the child node of the distributed instance.
       shared_ptr<string> subGroupName_ {};
-      // The replay lag value of the subscription.
+      // The replay lag of the subscription.
       shared_ptr<string> subReplayLag_ {};
-      // Indicates whether the replication slot is temporary. The value is returned as a string: true or false.
+      // Indicates whether the replication slot is temporary. The value is a string: true or false.
       shared_ptr<string> temporary_ {};
-      // The WAL latency value.
+      // The WAL latency.
       shared_ptr<string> walDelay_ {};
     };
 

@@ -16,11 +16,13 @@ namespace Models
     friend void to_json(Darabonba::Json& j, const DescribeDBClusterAccessWhitelistResponseBody& obj) { 
       DARABONBA_PTR_TO_JSON(DBClusterSecurityGroups, DBClusterSecurityGroups_);
       DARABONBA_PTR_TO_JSON(Items, items_);
+      DARABONBA_PTR_TO_JSON(ProjectItems, projectItems_);
       DARABONBA_PTR_TO_JSON(RequestId, requestId_);
     };
     friend void from_json(const Darabonba::Json& j, DescribeDBClusterAccessWhitelistResponseBody& obj) { 
       DARABONBA_PTR_FROM_JSON(DBClusterSecurityGroups, DBClusterSecurityGroups_);
       DARABONBA_PTR_FROM_JSON(Items, items_);
+      DARABONBA_PTR_FROM_JSON(ProjectItems, projectItems_);
       DARABONBA_PTR_FROM_JSON(RequestId, requestId_);
     };
     DescribeDBClusterAccessWhitelistResponseBody() = default ;
@@ -34,6 +36,101 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+    class ProjectItems : public Darabonba::Model {
+    public:
+      friend void to_json(Darabonba::Json& j, const ProjectItems& obj) { 
+        DARABONBA_PTR_TO_JSON(DBClusterProjectIPArray, DBClusterProjectIPArray_);
+      };
+      friend void from_json(const Darabonba::Json& j, ProjectItems& obj) { 
+        DARABONBA_PTR_FROM_JSON(DBClusterProjectIPArray, DBClusterProjectIPArray_);
+      };
+      ProjectItems() = default ;
+      ProjectItems(const ProjectItems &) = default ;
+      ProjectItems(ProjectItems &&) = default ;
+      ProjectItems(const Darabonba::Json & obj) { from_json(obj, *this); };
+      virtual ~ProjectItems() = default ;
+      ProjectItems& operator=(const ProjectItems &) = default ;
+      ProjectItems& operator=(ProjectItems &&) = default ;
+      virtual void validate() const override {
+      };
+      virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+      virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+      class DBClusterProjectIPArray : public Darabonba::Model {
+      public:
+        friend void to_json(Darabonba::Json& j, const DBClusterProjectIPArray& obj) { 
+          DARABONBA_PTR_TO_JSON(DefaultOpen, defaultOpen_);
+          DARABONBA_PTR_TO_JSON(ProjectId, projectId_);
+          DARABONBA_PTR_TO_JSON(Revision, revision_);
+          DARABONBA_PTR_TO_JSON(SecurityIps, securityIps_);
+        };
+        friend void from_json(const Darabonba::Json& j, DBClusterProjectIPArray& obj) { 
+          DARABONBA_PTR_FROM_JSON(DefaultOpen, defaultOpen_);
+          DARABONBA_PTR_FROM_JSON(ProjectId, projectId_);
+          DARABONBA_PTR_FROM_JSON(Revision, revision_);
+          DARABONBA_PTR_FROM_JSON(SecurityIps, securityIps_);
+        };
+        DBClusterProjectIPArray() = default ;
+        DBClusterProjectIPArray(const DBClusterProjectIPArray &) = default ;
+        DBClusterProjectIPArray(DBClusterProjectIPArray &&) = default ;
+        DBClusterProjectIPArray(const Darabonba::Json & obj) { from_json(obj, *this); };
+        virtual ~DBClusterProjectIPArray() = default ;
+        DBClusterProjectIPArray& operator=(const DBClusterProjectIPArray &) = default ;
+        DBClusterProjectIPArray& operator=(DBClusterProjectIPArray &&) = default ;
+        virtual void validate() const override {
+        };
+        virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+        virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+        virtual bool empty() const override { return this->defaultOpen_ == nullptr
+        && this->projectId_ == nullptr && this->revision_ == nullptr && this->securityIps_ == nullptr; };
+        // defaultOpen Field Functions 
+        bool hasDefaultOpen() const { return this->defaultOpen_ != nullptr;};
+        void deleteDefaultOpen() { this->defaultOpen_ = nullptr;};
+        inline bool getDefaultOpen() const { DARABONBA_PTR_GET_DEFAULT(defaultOpen_, false) };
+        inline DBClusterProjectIPArray& setDefaultOpen(bool defaultOpen) { DARABONBA_PTR_SET_VALUE(defaultOpen_, defaultOpen) };
+
+
+        // projectId Field Functions 
+        bool hasProjectId() const { return this->projectId_ != nullptr;};
+        void deleteProjectId() { this->projectId_ = nullptr;};
+        inline string getProjectId() const { DARABONBA_PTR_GET_DEFAULT(projectId_, "") };
+        inline DBClusterProjectIPArray& setProjectId(string projectId) { DARABONBA_PTR_SET_VALUE(projectId_, projectId) };
+
+
+        // revision Field Functions 
+        bool hasRevision() const { return this->revision_ != nullptr;};
+        void deleteRevision() { this->revision_ = nullptr;};
+        inline int64_t getRevision() const { DARABONBA_PTR_GET_DEFAULT(revision_, 0L) };
+        inline DBClusterProjectIPArray& setRevision(int64_t revision) { DARABONBA_PTR_SET_VALUE(revision_, revision) };
+
+
+        // securityIps Field Functions 
+        bool hasSecurityIps() const { return this->securityIps_ != nullptr;};
+        void deleteSecurityIps() { this->securityIps_ = nullptr;};
+        inline string getSecurityIps() const { DARABONBA_PTR_GET_DEFAULT(securityIps_, "") };
+        inline DBClusterProjectIPArray& setSecurityIps(string securityIps) { DARABONBA_PTR_SET_VALUE(securityIps_, securityIps) };
+
+
+      protected:
+        shared_ptr<bool> defaultOpen_ {};
+        shared_ptr<string> projectId_ {};
+        shared_ptr<int64_t> revision_ {};
+        shared_ptr<string> securityIps_ {};
+      };
+
+      virtual bool empty() const override { return this->DBClusterProjectIPArray_ == nullptr; };
+      // DBClusterProjectIPArray Field Functions 
+      bool hasDBClusterProjectIPArray() const { return this->DBClusterProjectIPArray_ != nullptr;};
+      void deleteDBClusterProjectIPArray() { this->DBClusterProjectIPArray_ = nullptr;};
+      inline const vector<ProjectItems::DBClusterProjectIPArray> & getDBClusterProjectIPArray() const { DARABONBA_PTR_GET_CONST(DBClusterProjectIPArray_, vector<ProjectItems::DBClusterProjectIPArray>) };
+      inline vector<ProjectItems::DBClusterProjectIPArray> getDBClusterProjectIPArray() { DARABONBA_PTR_GET(DBClusterProjectIPArray_, vector<ProjectItems::DBClusterProjectIPArray>) };
+      inline ProjectItems& setDBClusterProjectIPArray(const vector<ProjectItems::DBClusterProjectIPArray> & dBClusterProjectIPArray) { DARABONBA_PTR_SET_VALUE(DBClusterProjectIPArray_, dBClusterProjectIPArray) };
+      inline ProjectItems& setDBClusterProjectIPArray(vector<ProjectItems::DBClusterProjectIPArray> && dBClusterProjectIPArray) { DARABONBA_PTR_SET_RVALUE(DBClusterProjectIPArray_, dBClusterProjectIPArray) };
+
+
+    protected:
+      shared_ptr<vector<ProjectItems::DBClusterProjectIPArray>> DBClusterProjectIPArray_ {};
+    };
+
     class Items : public Darabonba::Model {
     public:
       friend void to_json(Darabonba::Json& j, const Items& obj) { 
@@ -195,7 +292,7 @@ namespace Models
     };
 
     virtual bool empty() const override { return this->DBClusterSecurityGroups_ == nullptr
-        && this->items_ == nullptr && this->requestId_ == nullptr; };
+        && this->items_ == nullptr && this->projectItems_ == nullptr && this->requestId_ == nullptr; };
     // DBClusterSecurityGroups Field Functions 
     bool hasDBClusterSecurityGroups() const { return this->DBClusterSecurityGroups_ != nullptr;};
     void deleteDBClusterSecurityGroups() { this->DBClusterSecurityGroups_ = nullptr;};
@@ -214,6 +311,15 @@ namespace Models
     inline DescribeDBClusterAccessWhitelistResponseBody& setItems(DescribeDBClusterAccessWhitelistResponseBody::Items && items) { DARABONBA_PTR_SET_RVALUE(items_, items) };
 
 
+    // projectItems Field Functions 
+    bool hasProjectItems() const { return this->projectItems_ != nullptr;};
+    void deleteProjectItems() { this->projectItems_ = nullptr;};
+    inline const DescribeDBClusterAccessWhitelistResponseBody::ProjectItems & getProjectItems() const { DARABONBA_PTR_GET_CONST(projectItems_, DescribeDBClusterAccessWhitelistResponseBody::ProjectItems) };
+    inline DescribeDBClusterAccessWhitelistResponseBody::ProjectItems getProjectItems() { DARABONBA_PTR_GET(projectItems_, DescribeDBClusterAccessWhitelistResponseBody::ProjectItems) };
+    inline DescribeDBClusterAccessWhitelistResponseBody& setProjectItems(const DescribeDBClusterAccessWhitelistResponseBody::ProjectItems & projectItems) { DARABONBA_PTR_SET_VALUE(projectItems_, projectItems) };
+    inline DescribeDBClusterAccessWhitelistResponseBody& setProjectItems(DescribeDBClusterAccessWhitelistResponseBody::ProjectItems && projectItems) { DARABONBA_PTR_SET_RVALUE(projectItems_, projectItems) };
+
+
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
@@ -224,6 +330,7 @@ namespace Models
   protected:
     shared_ptr<DescribeDBClusterAccessWhitelistResponseBody::DBClusterSecurityGroups> DBClusterSecurityGroups_ {};
     shared_ptr<DescribeDBClusterAccessWhitelistResponseBody::Items> items_ {};
+    shared_ptr<DescribeDBClusterAccessWhitelistResponseBody::ProjectItems> projectItems_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
   };

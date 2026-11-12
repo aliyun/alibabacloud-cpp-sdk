@@ -153,31 +153,31 @@ namespace Models
     protected:
       // The creation time.
       shared_ptr<string> gmtCreated_ {};
-      // The modification time.
+      // The update time.
       shared_ptr<string> gmtModified_ {};
-      // The ID of the gateway instance.
+      // The gateway instance ID.
       shared_ptr<string> gwClusterId_ {};
-      // The ID of the rate limit policy.
+      // The ID of the throttling policy.
       shared_ptr<string> policyId_ {};
       // The policy type.
       shared_ptr<string> policyType_ {};
-      // The maximum requests per minute (RPM).
+      // The limit on the number of requests per minute.
       shared_ptr<string> rateLimitRpm_ {};
-      // The maximum tokens per minute (TPM).
+      // The limit on the number of tokens per minute.
       shared_ptr<string> rateLimitTpm_ {};
-      // The ID of the object within the policy\\"s scope, such as a consumer group or a consumer.
+      // The ID of the throttling dimension, which is the consumer group ID or consumer ID.
       shared_ptr<string> scopeRefId_ {};
-      // The scope of the policy. Valid values:
+      // The throttling dimension. Valid values:
       // 
-      // - **ConsumerGroup**: The policy applies to a consumer group.
+      // - **ConsumerGroup**: consumer group
       // 
-      // - **Consumer**: The policy applies to a specific consumer.
+      // - **Consumer**: consumer
       shared_ptr<string> scopeType_ {};
-      // The status of the policy. Valid values:
+      // The status of the throttling policy. Valid values:
       // 
-      // - **Enabled**: The policy is enabled.
       // 
-      // - **Disabled**: The policy is disabled.
+      // - **Enabled**: enabled
+      // - **Disabled**: disabled
       shared_ptr<string> status_ {};
     };
 
@@ -228,17 +228,17 @@ namespace Models
 
 
   protected:
-    // An array of rate limit policy objects.
+    // The list of throttling policies.
     shared_ptr<vector<DescribeRateLimitPolicyResponseBody::Items>> items_ {};
-    // The returned page number.
+    // The page number.
     shared_ptr<string> pageNumber_ {};
-    // The number of entries returned on the current page.
+    // The number of entries on the current page.
     shared_ptr<string> pageRecordCount_ {};
-    // The number of entries returned per page.
+    // The number of entries per page. Valid values: 30, 50, and 100. Default value: 30.
     shared_ptr<string> pageSize_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The total number of matching entries.
+    // The total number of records.
     shared_ptr<string> totalRecordCount_ {};
   };
 

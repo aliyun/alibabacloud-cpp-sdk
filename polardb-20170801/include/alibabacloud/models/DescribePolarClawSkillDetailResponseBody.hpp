@@ -150,9 +150,9 @@ namespace Models
         shared_ptr<int64_t> comments_ {};
         // The number of downloads.
         shared_ptr<int64_t> downloads_ {};
-        // The total number of installations of all time.
+        // The total number of historical installations.
         shared_ptr<int64_t> installsAllTime_ {};
-        // The current number of installations.
+        // The number of current installations.
         shared_ptr<int64_t> installsCurrent_ {};
         // The number of stars.
         shared_ptr<int64_t> stars_ {};
@@ -217,19 +217,19 @@ namespace Models
 
 
     protected:
-      // The first publish timestamp in Unix milliseconds.
+      // The initial release timestamp in Unix milliseconds.
       shared_ptr<int64_t> createdAt_ {};
       // The display name.
       shared_ptr<string> displayName_ {};
-      // The Skill identifier.
+      // The skill identifier.
       shared_ptr<string> slug_ {};
       // The statistics information.
       shared_ptr<Skill::Stats> stats_ {};
-      // The brief description.
+      // The short description.
       shared_ptr<string> summary_ {};
       // The tag key-value pairs.
       Darabonba::Json tags_ {};
-      // The last update timestamp in Unix milliseconds.
+      // The last updated timestamp in Unix milliseconds.
       shared_ptr<int64_t> updatedAt_ {};
     };
 
@@ -293,7 +293,7 @@ namespace Models
       shared_ptr<string> displayName_ {};
       // The account identifier of the author.
       shared_ptr<string> handle_ {};
-      // The profile picture URL.
+      // The avatar URL.
       shared_ptr<string> image_ {};
       // The user ID of the author.
       shared_ptr<string> userId_ {};
@@ -348,7 +348,7 @@ namespace Models
     protected:
       // The version changelog.
       shared_ptr<string> changelog_ {};
-      // The version publish timestamp in Unix milliseconds.
+      // The version release timestamp in Unix milliseconds.
       shared_ptr<int64_t> createdAt_ {};
       // The version number.
       shared_ptr<string> version_ {};
@@ -421,11 +421,11 @@ namespace Models
     shared_ptr<DescribePolarClawSkillDetailResponseBody::LatestVersion> latestVersion_ {};
     // The response message.
     shared_ptr<string> message_ {};
-    // The Skill author information.
+    // The skill author information.
     shared_ptr<DescribePolarClawSkillDetailResponseBody::Owner> owner_ {};
-    // Id of the request
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // The core information of the Skill.
+    // The core skill information.
     shared_ptr<DescribePolarClawSkillDetailResponseBody::Skill> skill_ {};
   };
 

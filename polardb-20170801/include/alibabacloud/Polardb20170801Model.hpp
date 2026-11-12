@@ -1288,6 +1288,9 @@
 #include <alibabacloud/models/ModifyApplicationPromptRequest.hpp>
 #include <alibabacloud/models/ModifyApplicationPromptResponseBody.hpp>
 #include <alibabacloud/models/ModifyApplicationPromptResponse.hpp>
+#include <alibabacloud/models/ModifyApplicationSSLRequest.hpp>
+#include <alibabacloud/models/ModifyApplicationSSLResponseBody.hpp>
+#include <alibabacloud/models/ModifyApplicationSSLResponse.hpp>
 #include <alibabacloud/models/ModifyApplicationServerlessConfRequest.hpp>
 #include <alibabacloud/models/ModifyApplicationServerlessConfResponseBody.hpp>
 #include <alibabacloud/models/ModifyApplicationServerlessConfResponse.hpp>

@@ -255,7 +255,7 @@ namespace Models
 
 
     protected:
-      // The mount path in the container.
+      // The mount path inside the container.
       shared_ptr<string> containerMountPath_ {};
       // The ID of the storage endpoint.
       shared_ptr<string> endpointId_ {};
@@ -263,9 +263,9 @@ namespace Models
       shared_ptr<string> mountPath_ {};
       // The storage capacity.
       shared_ptr<string> storageCapacity_ {};
-      // The access address of the storage.
+      // The access endpoint of the storage.
       shared_ptr<string> storageEndpoint_ {};
-      // The storage instance ID.
+      // The ID of the storage instance.
       shared_ptr<string> storageInstanceId_ {};
       // The storage performance level.
       shared_ptr<string> storagePerformanceLevel_ {};
@@ -519,13 +519,13 @@ namespace Models
       shared_ptr<string> dbPassword_ {};
       // The username.
       shared_ptr<string> dbUser_ {};
-      // The name of the embedder model, such as text-embedding-v4. This parameter is required for mem0 applications.
+      // Required for mem0 applications. The name of the embedder model, such as text-embedding-v4.
       shared_ptr<string> embedderModel_ {};
       // The vector dimensions.
       shared_ptr<int32_t> embedderModelDimension_ {};
       // The graph LLM model.
       shared_ptr<string> graphLlmModel_ {};
-      // The name of the LLM model, such as qwen3-max. This parameter is required for mem0 applications.
+      // Required for mem0 applications. The name of the LLM model, such as qwen3-max.
       shared_ptr<string> llmModel_ {};
       // The memory type, such as multimodal.
       shared_ptr<string> memoryType_ {};
@@ -539,7 +539,7 @@ namespace Models
       shared_ptr<string> polarAIRerankerInstanceId_ {};
       // The project name, which corresponds to the schema in the database where project data is stored.
       shared_ptr<string> projectName_ {};
-      // The name of the reranker model, such as qwen3-rerank. This parameter is required for mem0 applications.
+      // Required for mem0 applications. The name of the reranker model, such as qwen3-rerank.
       shared_ptr<string> rerankerModel_ {};
       // The number of shards.
       shared_ptr<int32_t> shard_ {};
@@ -641,7 +641,7 @@ namespace Models
       shared_ptr<string> dashboardPassword_ {};
       // The password.
       shared_ptr<string> dbPassword_ {};
-      // The name of the LLM model, such as qwen3-max. This parameter is required for knowledge applications.
+      // Required for knowledge applications. The name of the LLM model, such as qwen3-max.
       shared_ptr<string> llmModel_ {};
       // The instance ID of the PolarAI embedding model.
       shared_ptr<string> polarAIEmbedderInstanceId_ {};
@@ -735,9 +735,9 @@ namespace Models
 
 
     protected:
-      // The frontend port. This parameter is optional. By default, the system automatically assigns a port that is not occupied by the gateway. You can call the DescribeApplicationAttribute operation to query the assigned port.
+      // The frontend port. This parameter is optional. By default, the system automatically assigns a port, avoiding ports already occupied by the gateway. You can call the DescribeApplicationAttribute operation to query the assigned port.
       shared_ptr<int32_t> frontPort_ {};
-      // The name of the port. Valid values: webui, hermesagent, dashboard, and ssh.
+      // The port name. Valid values: webui, hermesagent, dashboard, and ssh.
       shared_ptr<string> portName_ {};
     };
 
@@ -854,23 +854,22 @@ namespace Models
     protected:
       // The specifications of the application subcomponent.
       shared_ptr<string> componentClass_ {};
-      // The maximum number of application subcomponents of the same specifications. Default value: the value of ComponentReplica.
-      // - This parameter is supported only for raycluster.
+      // The maximum number of application subcomponents of the same specifications. Default value: the value of ComponentReplica. This parameter is supported only for raycluster.
       shared_ptr<int64_t> componentMaxReplica_ {};
       // The number of replicas for the application subcomponent. Default value: 1.
       shared_ptr<int64_t> componentReplica_ {};
       // The type of the application subcomponent.
-      // For supabase, valid values:
+      // Valid values for supabase:
       // - gateway
       // - backend
-      // For raycluster, valid values:
+      // Valid values for raycluster:
       // - head
       // - worker
       // - gpuworker
       shared_ptr<string> componentType_ {};
-      // The upper limit for component scaling.
+      // The upper limit for scaling the component.
       shared_ptr<string> scaleMax_ {};
-      // The lower limit for component scaling.
+      // The lower limit for scaling the component.
       shared_ptr<string> scaleMin_ {};
       // The list of security groups for the application subcomponent. Separate multiple security group IDs with commas (,).
       shared_ptr<string> securityGroups_ {};
@@ -1316,7 +1315,7 @@ namespace Models
   protected:
     // The ID of the associated existing model operator instance. This parameter takes effect only when ApplicationType is set to polarclaw.
     shared_ptr<string> AIDBClusterId_ {};
-    // The AgenticDB branch specifications.
+    // The specifications of the AgenticDB branch.
     shared_ptr<CreateApplicationRequest::AgenticDBBranchSpec> agenticDBBranchSpec_ {};
     // The ID of the AgenticDB cluster.
     shared_ptr<string> agenticDBClusterId_ {};
@@ -1324,6 +1323,7 @@ namespace Models
     // - supabase: Specify this value to create a managed Supabase application.
     // - raycluster: Specify this value to create a managed Ray Cluster application.
     // - polarclaw: Specify this value to create a managed PolarClaw application.
+    // - mem0: Specify this value to create a memory service application. The ApplicationId of this application type can be used in CreateApplicationPrompt. When you create this type of application, you must also configure the VPC, security group, and model or instance parameters as required.
     // 
     // This parameter is required.
     shared_ptr<string> applicationType_ {};
@@ -1336,46 +1336,46 @@ namespace Models
     shared_ptr<string> authProvider_ {};
     // The authentication provider configuration.
     shared_ptr<string> authProviderConfig_ {};
-    // Specifies whether an elastic IP address is automatically created and attached.
+    // Specifies whether automatic creation is enabled and whether to attach and associate with an EIP.
     shared_ptr<bool> autoAllocatePublicEip_ {};
-    // Specifies whether to enable automatic creation of a Polarlakebase cold storage instance. Valid values:
-    // * false (default): disables automatic creation.
-    // * true: enables automatic creation.
+    // Specifies whether to automatically create a Polarlakebase cold storage instance. Valid values:
+    // * false: Does not automatically create the instance. This is the default value.
+    // * true: Automatically creates the instance.
     shared_ptr<bool> autoCreatePolarFs_ {};
     // Specifies whether to enable auto-renewal.
     shared_ptr<bool> autoRenew_ {};
-    // Specifies whether to automatically use coupons. Valid values:
-    // - true: uses coupons. This is the default value.
-    // - false: does not use coupons.
+    // Specifies whether to automatically use a coupon. Valid values:
+    // - true: Uses the coupon. This is the default value.
+    // - false: Does not use the coupon.
     shared_ptr<bool> autoUseCoupon_ {};
     // The list of custom application subcomponents.
     shared_ptr<vector<CreateApplicationRequest::Components>> components_ {};
-    // The PolarDB instance ID on which the application depends.
+    // The ID of the PolarDB instance on which the application depends.
     shared_ptr<string> DBClusterId_ {};
     // The description or remark of the application.
     shared_ptr<string> description_ {};
-    // The list of expected DNAT entries for NAT mapping. This parameter must be specified together with VpcNatGatewayId. You can leave this parameter empty to indicate that no DNAT entries are created.
+    // The expected list of DNAT entries. This parameter must be specified together with VpcNatGatewayId. You can leave this parameter empty to indicate that no DNAT entries are created.
     shared_ptr<vector<CreateApplicationRequest::DnatEntries>> dnatEntries_ {};
-    // The dedicated NAT IP address allocated for DNAT, which is separate from the SNAT IP address. The IP address must belong to the gateway, be in the available state, and the vSwitch where the gateway resides must belong to the primary CIDR block reachable from the office network. This parameter must be specified together with VpcNatGatewayId. Prerequisite: An SNAT entry is bound to the vSwitch where the application resides.
+    // The dedicated NAT IP address allocated for DNAT, which is separate from the SNAT IP address. The IP address must belong to the NAT gateway, be in the available state, and the vSwitch where the gateway resides must belong to a primary CIDR block reachable from the office network. This parameter must be specified together with VpcNatGatewayId. Prerequisite: An SNAT entry is associated with the vSwitch where the application resides.
     shared_ptr<string> dnatIpAddress_ {};
-    // Specifies whether to perform a dry run. Default value: `false`. If you set this parameter to `true`, only parameter and resource validation is performed, and no resources are actually created.
+    // Specifies whether to perform a dry run. Default value: false. If you set this parameter to true, only parameter and resource validations are performed, and no resources are actually created.
     shared_ptr<bool> dryRun_ {};
     // The list of custom service endpoints. By default, a VPC endpoint is created.
     shared_ptr<vector<CreateApplicationRequest::Endpoints>> endpoints_ {};
-    // The required specification for knowledge applications.
+    // The required parameters for knowledge applications.
     shared_ptr<CreateApplicationRequest::KnowledgeApplicationSpec> knowledgeApplicationSpec_ {};
-    // The required specification for mem0 applications.
+    // The required parameters for mem0 applications.
     shared_ptr<CreateApplicationRequest::MemApplicationSpec> memApplicationSpec_ {};
     // The API of the model. This parameter takes effect only when ApplicationType is set to polarclaw.
     shared_ptr<string> modelApi_ {};
     // The API key of the model. This parameter takes effect only when ApplicationType is set to polarclaw.
     shared_ptr<string> modelApiKey_ {};
-    // The base URL of the model. This parameter takes effect only when ApplicationType is set to polarclaw.
+    // The endpoint of the model. This parameter takes effect only when ApplicationType is set to polarclaw.
     shared_ptr<string> modelBaseUrl_ {};
-    // The source of the model. Valid values:
-    // - bailian: Model Studio model.
-    // - custom: Custom model.
-    // - maas: PolarDB model operator.
+    // The model source. Valid values:
+    // * bailian: Model Studio model.
+    // * custom: Custom model.
+    // * maas: PolarDB model operator.
     shared_ptr<string> modelFrom_ {};
     // The name of the model. This parameter takes effect only when ApplicationType is set to polarclaw.
     shared_ptr<string> modelName_ {};
@@ -1385,9 +1385,7 @@ namespace Models
     shared_ptr<string> payType_ {};
     // The subscription period unit.
     shared_ptr<string> period_ {};
-    // The Polarlakebase cold storage or high-performance instance ID. Default value: empty. If you specify this parameter, the corresponding storage is mounted to the application.
-    // 
-    // Currently, only the following applications are supported:
+    // The ID of the Polarlakebase cold storage or high-performance instance. By default, this parameter is empty. If you specify this parameter, the corresponding storage is mounted to the application. This parameter is supported only for the following applications:
     // - supabase
     // - raycluster
     shared_ptr<string> polarFSInstanceId_ {};
@@ -1399,27 +1397,27 @@ namespace Models
     shared_ptr<string> resourceGroupId_ {};
     // The ID of the security group.
     shared_ptr<string> securityGroupId_ {};
-    // The name of the IP address whitelist group. Default value: `default`.
+    // The name of the IP address whitelist group. Default value: default.
     shared_ptr<string> securityIPArrayName_ {};
-    // The IP address whitelist. If you do not specify this parameter, the default value `127.0.0.1` is used.
+    // The IP address whitelist. If you do not specify this parameter, the default value 127.0.0.1 is used.
     shared_ptr<string> securityIPList_ {};
     // The type of the IP address.
     shared_ptr<string> securityIPType_ {};
     // The ID of the skill template.
     shared_ptr<string> skillTemplateId_ {};
-    // The list of application storages.
+    // The list of storage resources for the application.
     shared_ptr<vector<CreateApplicationRequest::Storages>> storages_ {};
     // The tags.
     shared_ptr<vector<CreateApplicationRequest::Tag>> tag_ {};
     // The target version.
     shared_ptr<string> targetVersion_ {};
-    // The subscription period.
+    // The subscription duration.
     shared_ptr<string> usedTime_ {};
     // The vSwitch ID. Default value: the current vSwitch in the primary zone of the instance.
     shared_ptr<string> vSwitchId_ {};
     // The ID of the virtual private cloud (VPC).
     shared_ptr<string> vpcId_ {};
-    // NAT mapping: the NAT gateway ID of the self-managed VPC NAT gateway. If you specify this parameter, NAT mapping is enabled when the instance is created. The gateway must be in the same VPC as the application, be of the private network type (intranet), and be in the active state.
+    // The VPC NAT gateway ID of the self-managed VPC NAT gateway for NAT mapping. If you specify this parameter, NAT mapping is enabled when the instance is created. The NAT gateway must be in the same VPC as the application, be of the private network (intranet) type, and be in the active state.
     shared_ptr<string> vpcNatGatewayId_ {};
     // The zone ID. Default value: the primary zone of the instance.
     shared_ptr<string> zoneId_ {};

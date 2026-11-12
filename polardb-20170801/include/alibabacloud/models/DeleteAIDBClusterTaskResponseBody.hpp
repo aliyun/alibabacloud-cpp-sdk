@@ -59,7 +59,7 @@ namespace Models
   protected:
     // The task ID.
     shared_ptr<string> DBClusterId_ {};
-    // The ID of the PolarDB database instance for the AI model service.
+    // The ID of the PolarDB instance for AI model services.
     shared_ptr<string> relativeDBClusterId_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

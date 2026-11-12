@@ -99,7 +99,7 @@ namespace Models
 
 
     protected:
-      // The release date.
+      // The release date in RFC 3339 UTC format.
       shared_ptr<string> releaseDate_ {};
       // The release notes.
       shared_ptr<string> releaseNote_ {};

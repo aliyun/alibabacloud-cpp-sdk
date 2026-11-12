@@ -57,13 +57,12 @@ namespace Models
 
 
   protected:
-    // The ID of the cluster.
-    // 
-    // > You can call the [DescribeDBClusters](https://help.aliyun.com/document_detail/98094.html) operation to query information about all clusters that are deployed in a specified region, such as the cluster ID.
+    // The cluster ID.
+    // > You can call the [DescribeDBClusters](https://help.aliyun.com/document_detail/98094.html) operation to query the information of all clusters in the target region, including the cluster ID.
     shared_ptr<string> DBClusterId_ {};
-    // The ID of the order.
+    // The ID of the generated order.
     shared_ptr<string> orderId_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

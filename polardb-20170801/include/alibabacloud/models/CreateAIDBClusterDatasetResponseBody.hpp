@@ -84,15 +84,15 @@ namespace Models
 
 
   protected:
-    // The ID of the PolarDB database cluster.
+    // The instance ID of the PolarDB database for the AI model service.
     shared_ptr<string> DBClusterId_ {};
-    // The dataset management service ID.
+    // The instance ID of the dataset management service.
     shared_ptr<string> dataServiceId_ {};
     // The dataset ID.
     shared_ptr<string> datasetId_ {};
-    // The dataset name.
+    // The name of the dataset.
     shared_ptr<string> datasetName_ {};
-    // The path to the dataset.
+    // The path of the dataset.
     shared_ptr<string> path_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

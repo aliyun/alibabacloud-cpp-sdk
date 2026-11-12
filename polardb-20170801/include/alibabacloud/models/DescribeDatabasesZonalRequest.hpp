@@ -121,29 +121,27 @@ namespace Models
 
 
   protected:
-    // The cluster ID.
+    // The ID of the edge cluster. Only edge clusters are supported. You can call the DescribeDBClustersZonal operation to obtain a list of valid edge clusters and call the DescribeEdgeCloudRegion operation to query the regions that support edge clusters.
     // 
     // This parameter is required.
     shared_ptr<string> DBClusterId_ {};
-    // The database name.
+    // The name of the database.
     shared_ptr<string> DBName_ {};
-    // The maximum number of entries to return for the current request.
+    // The maximum number of entries to return in this call.
     shared_ptr<int32_t> maxResults_ {};
-    // The query token. This is the NextToken value from the previous API call. If there are no more results, do not specify this parameter.
+    // The query token. Set the value to the NextToken value returned from the previous API call. If no subsequent query is required, do not specify this parameter.
     shared_ptr<string> nextToken_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
-    // The page number. The value must be an integer that is greater than 0 and does not exceed the maximum value of the Integer data type. The default value is 1.
+    // The page number. Valid values: integers greater than 0 and less than or equal to the maximum value of the Integer data type. Default value: 1.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries to return on each page. Valid values:
+    // The number of entries per page. Valid values:
     // 
     // - 30
-    // 
     // - 50
-    // 
     // - 100
     // 
-    // The default value is 30.
+    // Default value: 30.
     shared_ptr<int32_t> pageSize_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};

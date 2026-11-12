@@ -140,23 +140,23 @@ namespace Models
 
 
     protected:
-      // Effective period
+      // The effective period.
       shared_ptr<string> activateAt_ {};
-      // Activation code description
+      // The description of the activation code.
       shared_ptr<string> description_ {};
-      // Expiration time
+      // The expiration time.
       shared_ptr<string> expireAt_ {};
-      // Creation time
+      // The creation time.
       shared_ptr<string> gmtCreated_ {};
-      // Update time
+      // The update time.
       shared_ptr<string> gmtModified_ {};
-      // Activation code ID
+      // The ID of the activation code.
       shared_ptr<int32_t> id_ {};
-      // MAC address
+      // The MAC address.
       shared_ptr<string> macAddress_ {};
-      // Activation code name
+      // The name of the activation code.
       shared_ptr<string> name_ {};
-      // Unique identifier in the database
+      // The unique identifier of the database.
       shared_ptr<string> systemIdentifier_ {};
     };
 
@@ -200,15 +200,15 @@ namespace Models
 
 
   protected:
-    // List of activation codes
+    // The list of activation codes.
     shared_ptr<vector<DescribeActivationCodesResponseBody::Items>> items_ {};
-    // Current page number
+    // The current page number.
     shared_ptr<int32_t> pageNumber_ {};
-    // Number of records on the current page
+    // The number of entries on the current page.
     shared_ptr<int32_t> pageRecordCount_ {};
-    // The unique ID generated for this request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // Total number of records
+    // The total number of entries.
     shared_ptr<int32_t> totalRecordCount_ {};
   };
 

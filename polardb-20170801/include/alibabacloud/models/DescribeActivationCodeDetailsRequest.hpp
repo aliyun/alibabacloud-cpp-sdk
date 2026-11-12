@@ -84,7 +84,7 @@ namespace Models
 
 
   protected:
-    // The ID of the activation code.
+    // The activation code ID. This parameter is required. If it is not provided, the API returns a 400 error.
     shared_ptr<int32_t> activationCodeId_ {};
     // The Alibaba Cloud order ID, including virtual orders.
     // 

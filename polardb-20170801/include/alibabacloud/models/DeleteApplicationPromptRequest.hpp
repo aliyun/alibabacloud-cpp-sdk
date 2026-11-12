@@ -48,11 +48,11 @@ namespace Models
 
 
   protected:
-    // The Application ID.
+    // The application ID. The ID must point to an application with mem0 capabilities enabled. You can determine this by checking whether the MemApplicationAttribute returned by DescribeApplicationAttribute is not empty. Applications such as polarclaw, supabase, and polarclawsaas that do not have mem0 enabled do not support prompt operations.
     // 
     // This parameter is required.
     shared_ptr<string> applicationId_ {};
-    // The Prompt ID.
+    // The prompt ID.
     // 
     // This parameter is required.
     shared_ptr<string> promptId_ {};

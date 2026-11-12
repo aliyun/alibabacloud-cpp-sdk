@@ -168,9 +168,9 @@ namespace Models
 
 
   protected:
-    // The PolarDB instance ID that the application depends on.
+    // The PolarDB instance ID on which the application depends.
     shared_ptr<string> DBClusterId_ {};
-    // The page number. The value must be an integer greater than 0 and less than or equal to the maximum value of the Integer data type.
+    // The page number. The value must be an integer greater than 0 and no greater than the maximum value of the Integer data type.
     shared_ptr<int32_t> pageNumber_ {};
     // The number of entries per page. Valid values:
     // 

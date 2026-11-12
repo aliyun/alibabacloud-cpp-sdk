@@ -133,19 +133,15 @@ namespace Models
     protected:
       // The resource ID of the API key.
       shared_ptr<string> apiKeyId_ {};
-      // The masked API key value.
+      // The masked API key.
       shared_ptr<string> apiKeyMasked_ {};
-      // The time when the API key was created.
-      // 
-      // The time is in ISO 8601 format in UTC (format: YYYY-MM-DDTHH:mm:ssZ).
+      // The creation time. The time follows the ISO 8601 standard in the YYYY-MM-DDTHH:mm:ssZ format. The time is displayed in UTC.
       shared_ptr<string> createTime_ {};
-      // The description of the API key.
+      // The description.
       shared_ptr<string> description_ {};
-      // The time when the API key expires.
-      // 
-      // The time is in ISO 8601 format in UTC (format: YYYY-MM-DDTHH:mm:ssZ).
+      // The expiration time. The time follows the ISO 8601 standard in the YYYY-MM-DDTHH:mm:ssZ format. The time is displayed in UTC.
       shared_ptr<string> expireTime_ {};
-      // The status of the API key.
+      // The status.
       shared_ptr<string> status_ {};
       // The ID of the tenant to which the API key belongs.
       shared_ptr<string> tenantId_ {};
@@ -197,11 +193,11 @@ namespace Models
     shared_ptr<vector<DescribeAgenticDBTenantApiKeysResponseBody::Items>> items_ {};
     // The current page number.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries per page.
+    // The number of entries returned per page.
     shared_ptr<int32_t> pageSize_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The total number of entries returned.
+    // The total number of entries.
     shared_ptr<int32_t> totalCount_ {};
   };
 

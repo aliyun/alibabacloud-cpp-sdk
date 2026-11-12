@@ -20,6 +20,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(ProjectName, projectName_);
       DARABONBA_PTR_TO_JSON(RegionId, regionId_);
       DARABONBA_PTR_TO_JSON(TenantId, tenantId_);
+      DARABONBA_PTR_TO_JSON(ZoneId, zoneId_);
     };
     friend void from_json(const Darabonba::Json& j, CreateAgenticDBProjectRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(DBClusterId, DBClusterId_);
@@ -29,6 +30,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(ProjectName, projectName_);
       DARABONBA_PTR_FROM_JSON(RegionId, regionId_);
       DARABONBA_PTR_FROM_JSON(TenantId, tenantId_);
+      DARABONBA_PTR_FROM_JSON(ZoneId, zoneId_);
     };
     CreateAgenticDBProjectRequest() = default ;
     CreateAgenticDBProjectRequest(const CreateAgenticDBProjectRequest &) = default ;
@@ -43,7 +45,7 @@ namespace Models
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->DBClusterId_ == nullptr
         && this->defaultBranchName_ == nullptr && this->description_ == nullptr && this->historyRetentionSeconds_ == nullptr && this->projectName_ == nullptr && this->regionId_ == nullptr
-        && this->tenantId_ == nullptr; };
+        && this->tenantId_ == nullptr && this->zoneId_ == nullptr; };
     // DBClusterId Field Functions 
     bool hasDBClusterId() const { return this->DBClusterId_ != nullptr;};
     void deleteDBClusterId() { this->DBClusterId_ = nullptr;};
@@ -93,8 +95,15 @@ namespace Models
     inline CreateAgenticDBProjectRequest& setTenantId(string tenantId) { DARABONBA_PTR_SET_VALUE(tenantId_, tenantId) };
 
 
+    // zoneId Field Functions 
+    bool hasZoneId() const { return this->zoneId_ != nullptr;};
+    void deleteZoneId() { this->zoneId_ = nullptr;};
+    inline string getZoneId() const { DARABONBA_PTR_GET_DEFAULT(zoneId_, "") };
+    inline CreateAgenticDBProjectRequest& setZoneId(string zoneId) { DARABONBA_PTR_SET_VALUE(zoneId_, zoneId) };
+
+
   protected:
-    // The ID of the AgenticDB cluster.
+    // The ID of the AgenticDB cluster. The ID must have the pagc- prefix. You can obtain the ID after calling CreateDBCluster and specifying AgenticDbType=dedicated and ServerlessType=AgileServerless. A regular cluster ID with the pc- prefix is not supported. If an invalid ID is provided, the InvalidDBClusterId.NotFound error may be returned.
     // 
     // This parameter is required.
     shared_ptr<string> DBClusterId_ {};
@@ -102,9 +111,9 @@ namespace Models
     shared_ptr<string> defaultBranchName_ {};
     // The description of the project.
     shared_ptr<string> description_ {};
-    // The retention period for historical data to support creating branches at specific points in time. Default value: 604800 seconds (7 days). Valid values: 3600 to 2592000 seconds (1 hour to 30 days), inclusive. The actual range is subject to the service configuration.
+    // The retention period of historical data, in seconds.
     shared_ptr<int64_t> historyRetentionSeconds_ {};
-    // The name of the project. The name must be unique within the tenant.
+    // The name of the project. The name must be unique within the same tenant.
     // 
     // This parameter is required.
     shared_ptr<string> projectName_ {};
@@ -112,10 +121,12 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
-    // The ID of the tenant.
+    // The ID of the tenant. You can obtain the ID from the response after calling CreateAgenticDBTenant to create a tenant.
     // 
     // This parameter is required.
     shared_ptr<string> tenantId_ {};
+    // The ID of the zone where the project storage resides. The zone must be the same as the zone where the cluster compute resides. If this parameter is not specified, the zone where the cluster compute resides is used by default.
+    shared_ptr<string> zoneId_ {};
   };
 
   } // namespace Models

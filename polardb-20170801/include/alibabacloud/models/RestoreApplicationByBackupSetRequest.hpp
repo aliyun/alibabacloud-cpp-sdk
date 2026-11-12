@@ -72,7 +72,7 @@ namespace Models
     shared_ptr<string> applicationId_ {};
     // The application type.
     shared_ptr<string> applicationType_ {};
-    // The ID of the backup set used to restore the application.
+    // The ID of the backup set used to restore the application. This parameter is required. If it is not provided, the API returns InvalidBackupSetID.NotFound (404).
     shared_ptr<string> backupSetId_ {};
     // The region ID of the application.
     shared_ptr<string> regionId_ {};

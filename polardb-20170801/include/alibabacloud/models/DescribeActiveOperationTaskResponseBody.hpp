@@ -195,41 +195,41 @@ namespace Models
 
 
     protected:
-      // The time when the task was created. The time is in the `yyyy-MM-ddTHH:mmZ` format (UTC).
+      // The time when the task was created. The time is displayed in the `yyyy-MM-ddTHH:mmZ` format (UTC).
       shared_ptr<string> createdTime_ {};
       // The database engine type.
       shared_ptr<string> dbType_ {};
       // The database engine version.
       shared_ptr<string> dbVersion_ {};
-      // The latest deadline for adjusting the task execution time. The time is in the `yyyy-MM-ddTHH:mmZ` format (UTC).
+      // The latest deadline within the adjustable range for task execution time. The time is displayed in the `yyyy-MM-ddTHH:mmZ` format (UTC).
       shared_ptr<string> deadline_ {};
       // The task ID.
       shared_ptr<int32_t> id_ {};
       // The cluster name.
       shared_ptr<string> insName_ {};
-      // The modification time. The time is in the `yyyy-MM-ddTHH:mmZ` format (UTC).
+      // The time when the task was modified. The time is displayed in the `yyyy-MM-ddTHH:mmZ` format (UTC).
       shared_ptr<string> modifiedTime_ {};
-      // The preparation time before the transient disconnection. The time is in the `HH:mm:ss` format.
+      // The preparation time before the transient disconnection. The time is displayed in the `HH:mm:ss` format.
       shared_ptr<string> prepareInterval_ {};
       // The region where the task is located.
       shared_ptr<string> region_ {};
       // The task execution result.
       shared_ptr<string> resultInfo_ {};
-      // The time when the task is executed in the background. The time is in the `yyyy-MM-ddTHH:mmZ` format (UTC).
+      // The time when the task is executed in the background. The time is displayed in the `yyyy-MM-ddTHH:mmZ` format (UTC).
       shared_ptr<string> startTime_ {};
       // The task status.
       // * If you set `IsHistory` to **0**, the details of the pending task status are returned. Valid values:
       // 
-      //     * **2**: waiting for the user to set the task start time
-      //     * **3**: waiting to be processed
-      //     * **4**: being processed
+      //     * **2**: Waiting for the user to set the task start time.
+      //     * **3**: Waiting to be processed.
+      //     * **4**: The task is being processed.
       // 
       // * If you set `IsHistory` to **1**, the details of the historical task status are returned. Valid values:
-      //      * **5**: task completed and executed successfully
-      //      * **6**: task completed but execution failed
-      //      * **7**: task canceled
+      //      * **5**: The task is completed and executed successfully.
+      //      * **6**: The task is completed but failed.
+      //      * **7**: The task is canceled.
       shared_ptr<int32_t> status_ {};
-      // The time of the transient disconnection. The time is in the `yyyy-MM-ddTHH:mmZ` format (UTC).
+      // The time when the transient disconnection occurs. The time is displayed in the `yyyy-MM-ddTHH:mmZ` format (UTC).
       shared_ptr<string> switchTime_ {};
       // The task parameters.
       shared_ptr<string> taskParams_ {};
@@ -277,7 +277,7 @@ namespace Models
 
 
   protected:
-    // The task list.
+    // The list of tasks.
     shared_ptr<vector<DescribeActiveOperationTaskResponseBody::Items>> items_ {};
     // The page number.
     shared_ptr<int32_t> pageNumber_ {};

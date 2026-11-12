@@ -131,13 +131,13 @@ namespace Models
       shared_ptr<string> createTime_ {};
       // The ID of the user who performed the operation.
       shared_ptr<string> creator_ {};
-      // Indicates whether the change has been applied. Valid values: 0 (no) and 1 (yes).
+      // Indicates whether the change is applied. Valid values: 0: No. 1: Yes.
       shared_ptr<string> isApply_ {};
       // The modification time (UTC).
       shared_ptr<string> modifyTime_ {};
-      // The new value after the change. This parameter is empty for delete operations.
+      // The new value after the change. This value is empty if the change type is delete.
       shared_ptr<string> newValue_ {};
-      // The old value before the change. This parameter is empty for create operations.
+      // The old value before the change. This value is empty if the change type is create.
       shared_ptr<string> oldValue_ {};
       // The parameter name.
       shared_ptr<string> parameterName_ {};
@@ -162,7 +162,7 @@ namespace Models
 
 
   protected:
-    // The change records, sorted in descending order by CreateTime. An empty array is returned if no data is found.
+    // The change logs, sorted in descending order by CreateTime. An empty array is returned if no data is found.
     shared_ptr<vector<DescribeLakebaseMountParameterGroupChangeLogsResponseBody::ChangeLogs>> changeLogs_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

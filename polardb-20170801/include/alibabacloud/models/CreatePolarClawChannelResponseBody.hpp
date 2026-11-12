@@ -139,7 +139,7 @@ namespace Models
     shared_ptr<bool> pluginInstalled_ {};
     // **The request ID.**
     shared_ptr<string> requestId_ {};
-    // Indicates whether the gateway is restarted.
+    // Indicates whether the gateway has been restarted.
     shared_ptr<bool> restarted_ {};
   };
 

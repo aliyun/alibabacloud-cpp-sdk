@@ -171,7 +171,7 @@ namespace Models
     protected:
       // The cluster management endpoint.
       shared_ptr<string> polarDbProxy_ {};
-      // The file system name.
+      // The name of the file system.
       shared_ptr<string> polarFsCluster_ {};
       // The token value.
       shared_ptr<string> token_ {};
@@ -274,14 +274,14 @@ namespace Models
 
 
       protected:
-        // The protocol connection address.
+        // The protocol endpoint.
         shared_ptr<string> connectionString_ {};
         // The IP address.
         shared_ptr<string> IPAddress_ {};
         // The network type of the connection string. Valid values:
-        // * **Public**: Public network address.
-        // * **Private**: Private network address.
-        // * **Inner**: Private network address (classic network).
+        // * **Public**: public endpoint
+        // * **Private**: private endpoint
+        // * **Inner**: private endpoint (classic network)
         shared_ptr<string> netType_ {};
         // The port number.
         shared_ptr<string> port_ {};
@@ -317,11 +317,11 @@ namespace Models
 
 
     protected:
-      // The list of addresses.
+      // The address list.
       shared_ptr<vector<EndpointItems::AddressItems>> addressItems_ {};
       // The endpoint ID.
       shared_ptr<string> DBEndpointId_ {};
-      // The endpoint type, such as NAS or S3 Gateway.
+      // The endpoint type. Valid values: NAS, S3 gateway, etc.
       shared_ptr<string> endpointType_ {};
     };
 
@@ -718,11 +718,11 @@ namespace Models
   protected:
     // The acceleration type.
     shared_ptr<string> accelerateType_ {};
-    // The accelerated storage space. Unit: GB.
+    // The acceleration space. Unit: GB.
     shared_ptr<double> acceleratedStorageSpace_ {};
     // Indicates whether the acceleration cache is enabled. Valid values:
-    // - **ON**: Enabled.
-    // - **OFF**: Disabled.
+    // - **ON**: enabled
+    // - **OFF**: disabled
     shared_ptr<string> acceleratingEnable_ {};
     // The list of authorized RAM role ARNs, separated by commas.
     shared_ptr<string> authorizedUserArnIds_ {};
@@ -735,68 +735,76 @@ namespace Models
     // The bucket ID.
     shared_ptr<string> bucketId_ {};
     // The Polarlakebase edition. Valid values:
-    // - **high_performance**: High-performance Edition.
-    // - **basic**: Basic Edition.
-    // - **cold**: Cold Storage Edition.
+    // 
+    // - **high_performance**: high-performance edition
+    // 
+    // - **basic**: basic edition
+    // 
+    // - **cold**: cold storage edition
     shared_ptr<string> category_ {};
-    // The client download URL.
+    // The download URL of the client.
     shared_ptr<string> clientDownloadPath_ {};
     // The creation time.
-    // The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
+    // 
+    // The time is displayed in ISO 8601 format in UTC (YYYY-MM-DDTHH:mm:ssZ).
     shared_ptr<string> createTime_ {};
     // The custom bucket path.
     shared_ptr<string> customBucketPath_ {};
-    // The list of custom storage paths.
+    // The custom storage path list.
     shared_ptr<vector<DescribePolarFsAttributeResponseBody::CustomBucketPathList>> customBucketPathList_ {};
     // The endpoint ID.
     shared_ptr<string> DBEndpointId_ {};
-    // The database ecosystem type. Valid values: 
+    // The database engine type. Valid values: 
     // * **MySQL**
     // * **PostgreSQL**
     shared_ptr<string> DBType_ {};
-    // The list of endpoints, including endpoint information such as NAS and S3 Gateway.
+    // The endpoint list, including endpoint information such as NAS and S3 gateway.
     shared_ptr<vector<DescribePolarFsAttributeResponseBody::EndpointItems>> endpointItems_ {};
     // The expiration time of the cluster.
-    // > This parameter is returned only for subscription clusters whose billing method is **Prepaid**. For pay-as-you-go clusters whose billing method is **Postpaid**, an empty value is returned.
-    // The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
+    // 
+    // > This parameter is returned only for clusters whose billing method is **Prepaid** (subscription). For clusters whose billing method is **Postpaid** (pay-as-you-go), an empty value is returned.
+    // 
+    // The time is displayed in ISO 8601 format in UTC (YYYY-MM-DDTHH:mm:ssZ).
     shared_ptr<string> expireTime_ {};
     // Indicates whether the cluster has expired.
-    // > This parameter is returned only for subscription clusters whose billing method is **Prepaid**.
+    // > This parameter is returned only for clusters whose billing method is **Prepaid** (subscription).
     shared_ptr<string> expired_ {};
     // The file system ID.
     shared_ptr<string> fileSystemId_ {};
-    // The lock mode. Valid values:
-    // - **Unlock**: Unlocked.
-    // - **ManualLock**: Manually locked.
-    // - **LockByExpiration**: Automatically locked due to expiration.
+    // The lock mode. Valid values: 
+    // 
+    // - **Unlock**: The instance is not locked.
+    // - **ManualLock**: The instance is manually locked. 
+    // - **LockByExpiration**: The cluster is automatically locked due to expiration.
     shared_ptr<string> lockMode_ {};
     // The proxy endpoint ID.
     shared_ptr<string> maxscaleEndpointId_ {};
-    // The metadata service cluster endpoint.
+    // The cluster endpoint of the metadata service.
     shared_ptr<string> metaConnString_ {};
-    // The metadata instance name.
+    // The name of the metadata instance.
     shared_ptr<string> metaInstanceName_ {};
-    // The metadata proxy service cluster endpoint.
+    // The cluster endpoint of the metadata proxy service.
     shared_ptr<string> metaMxsConnString_ {};
-    // The metadata address for FUSE mounting (encrypted).
+    // The metadata endpoint for FUSE mounting (encrypted).
     shared_ptr<string> metaUrl_ {};
     // The minor version of the instance.
     shared_ptr<string> minorVersion_ {};
     // The mount configuration.
     shared_ptr<DescribePolarFsAttributeResponseBody::MountInfo> mountInfo_ {};
     // The billing method. Valid values:
-    // - **Postpaid**: Pay-as-you-go.
-    // - **Prepaid**: Subscription.
+    // 
+    // - **Postpaid**: pay-as-you-go
+    // - **Prepaid**: subscription
     shared_ptr<string> payType_ {};
     // The description of the Polarlakebase instance.
     shared_ptr<string> polarFsInstanceDescription_ {};
     // The Polarlakebase instance ID.
     shared_ptr<string> polarFsInstanceId_ {};
-    // The status of the Polarlakebase instance.
+    // The Polarlakebase instance status.
     shared_ptr<string> polarFsStatus_ {};
     // The instance version. Valid values:
-    // - **PolarFS 2.0**: 2.0.
-    // - **PolarFS 1.0**: 1.0.
+    // - **PolarFS 2.0**: 2.0
+    // - **PolarFS 1.0**: 1.0
     shared_ptr<string> polarFsType_ {};
     // The version.
     shared_ptr<string> polarFsVersion_ {};
@@ -804,27 +812,28 @@ namespace Models
     shared_ptr<string> regionId_ {};
     // The ID of the associated PolarDB cluster.
     shared_ptr<string> relativeDbClusterId_ {};
-    // The ID of the associated Polarlakebase instance.
+    // The associated Polarlakebase instance ID.
     shared_ptr<string> relativePfsClusterId_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
     // The resource group ID.
     shared_ptr<string> resourceGroupId_ {};
-    // The managed security group ID.
+    // The ID of the managed security group.
     shared_ptr<string> securityGroupId_ {};
     // The storage space. Unit: GB.
     shared_ptr<double> storageSpace_ {};
-    // The storage type. Valid values for High-performance Edition:
+    // The storage type of the high-performance edition. Valid values:
     // * **ESSDPL1**
     // * **ESSDPL0**
-    // Valid values for Basic Edition:
-    // * **city_redundancy**: Zone-redundant storage.
+    // 
+    // The storage type of the basic edition. Valid values:
+    // * **city_redundancy**: zone-redundant storage
     shared_ptr<string> storageType_ {};
     // The used storage space. Unit: bytes.
     shared_ptr<double> storageUsed_ {};
-    // The default user account name for S3 Gateway.
+    // The default user account name for the S3 gateway.
     shared_ptr<string> userDefaultAccName_ {};
-    // The default user account secret key for S3 Gateway (encrypted ciphertext).
+    // The default user account secret key for the S3 gateway (encrypted ciphertext).
     shared_ptr<string> userDefaultAccSk_ {};
     // The VPC ID.
     shared_ptr<string> VPCId_ {};

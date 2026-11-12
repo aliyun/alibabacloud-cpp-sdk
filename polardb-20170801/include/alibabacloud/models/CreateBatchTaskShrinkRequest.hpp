@@ -100,11 +100,11 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> instanceIdsShrink_ {};
-    // The per-instance parameter overrides (JSON object: instanceId -> param). This parameter is used in scenarios where multiple instances have different targets, such as different agent workspaces.
+    // The per-instance task parameters in JSON object format (instanceId -> param). This parameter is used in scenarios where multiple instances have different targets, such as different agent workspaces.
     shared_ptr<string> instanceParams_ {};
-    // The archive parameters.
+    // The task parameters.
     shared_ptr<string> param_ {};
-    // The region ID. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/98041.html) operation to view the regions of all clusters under the target account.
+    // The region ID. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/98041.html) operation to view the region information of all clusters under the account.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};

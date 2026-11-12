@@ -108,7 +108,7 @@ namespace Models
       protected:
         // The error code.
         shared_ptr<string> code_ {};
-        // The error message.
+        // The error details.
         shared_ptr<string> message_ {};
       };
 
@@ -171,17 +171,17 @@ namespace Models
     protected:
       // The timestamp when the task was created, in milliseconds.
       shared_ptr<int64_t> createdAtMs_ {};
-      // The error object. This parameter is returned only if the task fails.
+      // The error object. This object is returned when the task fails.
       shared_ptr<Task::Error> error_ {};
-      // The operation name.
+      // The name of the operation.
       shared_ptr<string> operation_ {};
-      // The task result object. This parameter is returned only if the task succeeds. The content of this object varies by operation.
+      // The task result object. This object is returned when the task succeeds. The content varies based on the operation.
       Darabonba::Json result_ {};
-      // The task state. Valid values: pending, running, succeeded, and failed.
+      // The task status. Valid values: pending, running, succeeded, and failed.
       shared_ptr<string> state_ {};
-      // The task ID, which is a universally unique identifier (UUID).
+      // The task ID (UUID).
       shared_ptr<string> taskId_ {};
-      // The timestamp when the task was last updated, in milliseconds.
+      // The timestamp when the task was updated, in milliseconds.
       shared_ptr<int64_t> updatedAtMs_ {};
     };
 
@@ -227,7 +227,7 @@ namespace Models
   protected:
     // The application ID.
     shared_ptr<string> applicationId_ {};
-    // The status code.
+    // The response status code.
     shared_ptr<int32_t> code_ {};
     // The response message.
     shared_ptr<string> message_ {};

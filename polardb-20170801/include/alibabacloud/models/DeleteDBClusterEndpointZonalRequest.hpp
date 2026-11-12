@@ -84,11 +84,11 @@ namespace Models
 
 
   protected:
-    // The cluster ID.
+    // The ID of the edge cluster. This operation supports only edge clusters. You can create an edge cluster by invoking the CreateDBCluster operation and setting CloudProvider to ENS, and invoke the DescribeEdgeCloudRegion operation to query active edge areas. Invocation notes: Constraints on edge clusters include that only edge clusters are supported, the cluster must be created by invoking CreateDBCluster with CloudProvider set to ENS, and active edge areas can be queried by invoking DescribeEdgeCloudRegion.
     // 
     // This parameter is required.
     shared_ptr<string> DBClusterId_ {};
-    // The custom cluster endpoint ID.
+    // The ID of the custom cluster endpoint.
     // 
     // This parameter is required.
     shared_ptr<string> DBEndpointId_ {};

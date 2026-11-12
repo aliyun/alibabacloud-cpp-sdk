@@ -50,7 +50,7 @@ namespace Models
   protected:
     // The instance ID of the dataset management service.
     shared_ptr<string> DBClusterId_ {};
-    // Id of the request
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

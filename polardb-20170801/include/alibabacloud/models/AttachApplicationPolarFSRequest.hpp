@@ -66,19 +66,18 @@ namespace Models
 
 
   protected:
-    // Application ID
+    // The application ID.
     // 
     // This parameter is required.
     shared_ptr<string> applicationId_ {};
-    // AccessKey ID of the Alibaba Cloud account or RAM user. Ensure that you granted permissions to this account or user when you created the PolarLakeBase instance.
+    // The AccessKey ID of the Alibaba Cloud account or RAM user. Ensure that the account or RAM user is authorized when you create the Polarlakebase instance.
     shared_ptr<string> polarFSAccessKeyId_ {};
-    // AccessKey secret of the Alibaba Cloud account or RAM user
+    // The AccessKey secret of the Alibaba Cloud account or RAM user.
     shared_ptr<string> polarFSAccessKeySecret_ {};
-    // PolarLakeBase cold-storage instance ID
+    // The instance ID of the Polarlakebase cold storage instance.
     // 
-    // Only the following applications support cold-storage instances:
-    // 
-    // - Supabase
+    // Currently, only the following applications support cold storage instances:
+    // - supabase
     // 
     // This parameter is required.
     shared_ptr<string> polarFSInstanceId_ {};

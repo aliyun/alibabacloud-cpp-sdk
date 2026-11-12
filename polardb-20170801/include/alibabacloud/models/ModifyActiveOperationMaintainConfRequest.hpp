@@ -149,35 +149,31 @@ namespace Models
 
 
   protected:
-    // The remarks for the operation.
+    // The remark for the operation.
     shared_ptr<string> comment_ {};
-    // The time of the cycle.
-    // 
-    // - If CycleType is set to Month, specify the day of the month. Valid values: 1 to 28. Use commas (,) to separate multiple days.
-    // 
-    // - If CycleType is set to Week, specify the day of the week. Valid values: 1 to 7. Use commas (,) to separate multiple days.
+    // The cycle time.
+    // - If CycleType is set to Month, the value is a number from 1 to 28, which indicates the day of the month. Multiple values are separated by commas (,).
+    // - If CycleType is set to Week, the value is a number from 1 to 7, which indicates the day of the week. Multiple values are separated by commas (,).
     // 
     // This parameter is required.
     shared_ptr<string> cycleTime_ {};
     // The cycle type. Valid values:
-    // 
-    // - Month
-    // 
-    // - Week
+    // - Month: Monthly.
+    // - Week: Weekly.
     // 
     // This parameter is required.
     shared_ptr<string> cycleType_ {};
-    // The end time of the maintenance window. Use the HH:mmZ format. The time is in UTC.
+    // The end time of the maintenance window. Specify the time in the HH:mmZ-HH:mmZ format. The time must be in UTC. Note: The format is explicitly declared as HH:mm:ssZ, and example values are updated to actual available formats such as 02:00:00Z and 06:00:00Z.
     // 
     // This parameter is required.
     shared_ptr<string> maintainEndTime_ {};
-    // The start time of the task. The time must be in UTC and in the yyyy-mm-ddThh:mm:ssZ format.
+    // The start time of the task. Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC. Note: The format is explicitly declared as HH:mm:ssZ, and example values are updated to actual available formats such as 02:00:00Z and 06:00:00Z.
     // 
     // This parameter is required.
     shared_ptr<string> maintainStartTime_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
-    // The ID of the region.
+    // The region ID.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
@@ -186,7 +182,9 @@ namespace Models
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
     shared_ptr<string> securityToken_ {};
-    // Specifies whether to enable the configuration. Valid values: 1 (Enable) and 2 (Disable).
+    // Specifies whether the configuration takes effect. Valid values:
+    // - 1: Yes.
+    // - 2: No.
     // 
     // This parameter is required.
     shared_ptr<int64_t> status_ {};

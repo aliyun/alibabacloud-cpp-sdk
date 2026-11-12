@@ -66,19 +66,19 @@ namespace Models
 
 
   protected:
-    // The ID of the Application.
+    // The application ID. You must specify an application with `ApplicationType` set to `mem0`. You can first call the CreateApplication operation with `ApplicationType` set to `mem0` to create an application, and then pass the returned ApplicationId to this operation. This parameter does not apply to other application types such as standard PolarClaw or Supabase.
     // 
     // This parameter is required.
     shared_ptr<string> applicationId_ {};
-    // The name of the Prompt.
+    // The prompt name.
     // 
     // This parameter is required.
     shared_ptr<string> promptName_ {};
-    // The type of the Prompt.
+    // The prompt type.
     // 
     // This parameter is required.
     shared_ptr<string> promptType_ {};
-    // The content of the Prompt.
+    // The prompt content.
     // 
     // This parameter is required.
     shared_ptr<string> promptValue_ {};

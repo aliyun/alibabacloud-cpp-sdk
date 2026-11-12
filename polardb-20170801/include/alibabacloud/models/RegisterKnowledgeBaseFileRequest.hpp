@@ -59,9 +59,11 @@ namespace Models
   protected:
     // The OSS object key of the uploaded file, excluding the oss://BucketName/ prefix.
     // 
+    // > Before calling this operation, upload the target file to OSS.
+    // 
     // This parameter is required.
     shared_ptr<string> filePath_ {};
-    // The knowledge base ID.
+    // The ID of the knowledge base. Create a knowledge space first, then create a knowledge base, and obtain this ID from the creation result.
     // 
     // This parameter is required.
     shared_ptr<string> knowledgeBaseId_ {};

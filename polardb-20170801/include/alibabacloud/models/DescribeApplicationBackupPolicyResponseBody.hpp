@@ -90,9 +90,9 @@ namespace Models
     shared_ptr<string> applicationType_ {};
     // The days of the week when automatic backups are performed. Separate multiple values with commas. Valid values: Monday, Tuesday, Wednesday, Thursday, Friday, Saturday, and Sunday.
     shared_ptr<string> preferredBackupPeriod_ {};
-    // The retention period of level-1 backups, in days.
+    // The retention period of level-1 backups. Unit: days.
     shared_ptr<int32_t> preferredBackupRetentionPeriod_ {};
-    // The time period when automatic backups are performed. The time is in the HH:mmZ-HH:mmZ format and in UTC.
+    // The time window when automatic backups are performed. The format is HH:mmZ-HH:mmZ in UTC.
     shared_ptr<string> preferredBackupTime_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

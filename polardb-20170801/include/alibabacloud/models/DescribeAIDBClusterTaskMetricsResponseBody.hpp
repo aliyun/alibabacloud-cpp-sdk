@@ -157,15 +157,17 @@ namespace Models
         shared_ptr<int32_t> currentStep_ {};
         // The epoch.
         shared_ptr<double> epoch_ {};
-        // The total number of steps.
+        // The global step.
         shared_ptr<int32_t> globalStep_ {};
         // The log time.
+        // 
+        // The time is in the ISO 8601 format and the UTC time zone. The seconds part can include a fractional component.
         shared_ptr<string> logTime_ {};
         // The metric details.
         Darabonba::Json metric_ {};
         // The metric type.
         shared_ptr<string> metricType_ {};
-        // The specific point in time when the monitoring metric was collected. The value is a UNIX timestamp. Unit: seconds.
+        // The specific time point of the monitoring metrics. The format is a UNIX timestamp in seconds.
         shared_ptr<string> timestamp_ {};
       };
 
@@ -262,23 +264,23 @@ namespace Models
   protected:
     // The cluster ID.
     shared_ptr<string> DBClusterId_ {};
-    // The end time of the query. The time is in the `yyyy-MM-ddTHH:mm:ssZ` format in UTC.
+    // The end time of the query. Format: `yyyy-MM-ddTHH:mm:ssZ` (UTC time).
     shared_ptr<string> endTime_ {};
     // The list.
     shared_ptr<DescribeAIDBClusterTaskMetricsResponseBody::Items> items_ {};
     // The metric type.
     shared_ptr<string> metricType_ {};
-    // The page number of the returned page. The default value is 1.
+    // The page number of the returned page. Default value: 1.
     shared_ptr<int64_t> pageNumber_ {};
-    // The total number of entries that match the query conditions. This parameter is optional and is not returned by default.
+    // The total number of entries that meet the query conditions. This parameter is optional and is not returned by default.
     shared_ptr<int32_t> pageRecordCount_ {};
     // The maximum number of entries returned for the current request.
     shared_ptr<int64_t> pageSize_ {};
     // The ID of the associated PolarDB cluster.
     shared_ptr<string> relativeDbClusterId_ {};
-    // Id of the request
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // The start time of the query. The time is in the `yyyy-MM-ddTHH:mm:ssZ` format in UTC.
+    // The start time of the query. Format: `yyyy-MM-ddTHH:mm:ssZ` (UTC time).
     shared_ptr<string> startTime_ {};
   };
 

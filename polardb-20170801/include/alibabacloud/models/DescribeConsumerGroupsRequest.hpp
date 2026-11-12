@@ -77,23 +77,20 @@ namespace Models
   protected:
     // The ID of the consumer group.
     shared_ptr<string> consumerGroupId_ {};
-    // The ID of the gateway instance.
+    // The ID of the gateway instance. Usage note: The description of the GwClusterId parameter in DescribeConsumerGroups is updated to specify that it is the AI gateway instance ID. You can obtain a valid ID by calling the CreateGateway or DescribeGatewayList operation.
     // 
     // This parameter is required.
     shared_ptr<string> gwClusterId_ {};
-    // The page number to return. The default value is 1.
+    // The page number. Default value: 1.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of records to return per page. Valid values:
+    // The number of entries per page. Valid values:
+    // * **30**
+    // * **50**
+    // * **100**
     // 
-    // - **30**
-    // 
-    // - **50**
-    // 
-    // - **100**
-    // 
-    // The default value is 30.
+    // Default value: 30.
     shared_ptr<int32_t> pageSize_ {};
-    // The ID of the region.
+    // The region ID.
     shared_ptr<string> regionId_ {};
   };
 

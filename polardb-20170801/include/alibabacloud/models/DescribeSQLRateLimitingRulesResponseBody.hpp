@@ -68,7 +68,7 @@ namespace Models
 
 
     protected:
-      // The list of rules.
+      // The rule list.
       shared_ptr<vector<string>> ruleList_ {};
     };
 
@@ -114,13 +114,12 @@ namespace Models
   protected:
     // The result set.
     shared_ptr<DescribeSQLRateLimitingRulesResponseBody::Data> data_ {};
-    // The maximum number of entries returned for the current request. Default value: 10.
+    // The maximum number of entries returned in this request. Default value: 10.
     shared_ptr<int32_t> maxResults_ {};
-    // The response message.
-    // 
-    // > If the request is successful, \\`Successful\\` is returned. If the request fails, an error message is returned.
+    // The message returned for the request.
+    // > If the request is successful, Successful is returned. If the request fails, an exception message such as an error code is returned.
     shared_ptr<string> message_ {};
-    // The token for the next page of results.
+    // The pagination token for the next page.
     shared_ptr<string> nextToken_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

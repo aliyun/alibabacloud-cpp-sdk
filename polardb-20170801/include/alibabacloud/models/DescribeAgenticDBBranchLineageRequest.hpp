@@ -94,7 +94,7 @@ namespace Models
 
 
   protected:
-    // The ID of the anchor branch. If this parameter is not specified, the primary branch of the project is used by default.
+    // The ID of the anchor branch. If you do not specify this parameter, the root branch of the project is used by default.
     shared_ptr<string> branchId_ {};
     // The ID of the AgenticDB cluster.
     // 
@@ -102,9 +102,9 @@ namespace Models
     shared_ptr<string> DBClusterId_ {};
     // Specifies whether to include branches in the Destroying state. Default value: false.
     shared_ptr<bool> includeDestroying_ {};
-    // The maximum number of levels to return in the view, including the anchor branch itself. Valid values: 1 to 20. Default value: 3. The server automatically allocates the budget for ancestor and descendant levels with a downward bias.
+    // The maximum number of levels for the returned view, including the anchor branch itself. Valid values: 1 to 20. Default value: 3. The server automatically allocates the upward and downward budgets based on a downward bias.
     shared_ptr<int32_t> maxViewDepth_ {};
-    // The project ID.
+    // The ID of the project.
     // 
     // This parameter is required.
     shared_ptr<string> projectId_ {};
@@ -112,7 +112,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
-    // The tenant ID.
+    // The ID of the tenant.
     // 
     // This parameter is required.
     shared_ptr<string> tenantId_ {};

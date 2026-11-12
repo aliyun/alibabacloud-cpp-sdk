@@ -70,7 +70,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> DBClusterId_ {};
-    // Specifies whether to perform a read-only capacity dry run.
+    // Specifies whether to perform only a read-only capacity dry run.
     shared_ptr<bool> dryRun_ {};
     // The region ID. Requests are routed to the region where the instance resides.
     // 

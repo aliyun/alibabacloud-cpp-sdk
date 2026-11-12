@@ -108,11 +108,11 @@ namespace Models
 
 
       protected:
-        // The time when the log was recorded.
+        // The log time. The time is displayed in the ISO 8601 standard in UTC. The seconds can contain a fractional part.
         shared_ptr<string> logTime_ {};
         // The log message.
         shared_ptr<string> message_ {};
-        // The specific point in time when the metric was recorded. The value is a UNIX timestamp. Unit: seconds.
+        // The specific time point of the monitoring metrics. The format is a UNIX timestamp in seconds.
         shared_ptr<string> timestamp_ {};
       };
 
@@ -186,19 +186,19 @@ namespace Models
 
 
   protected:
-    // The end of the time range to query.
+    // The end time of the query. The time is displayed in the ISO 8601 standard in the `YYYY-MM-DDTHH:mm:ssZ` format. The time is in UTC.
     shared_ptr<string> endTime_ {};
     // The list of logs.
     shared_ptr<DescribeAIDBClusterTaskLogFilesResponseBody::Items> items_ {};
-    // The page number of the returned page. The default value is 1.
+    // The page number. Default value: 1.
     shared_ptr<int64_t> pageNumber_ {};
-    // The total number of entries that meet the query conditions. This parameter is optional and may not be returned.
+    // The total number of entries that meet the query conditions. This parameter is optional and may not be returned by default.
     shared_ptr<int32_t> pageRecordCount_ {};
-    // The maximum number of records returned for the current request.
+    // The maximum number of entries returned for the current request.
     shared_ptr<int64_t> pageSize_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // The start of the time range to query. The time is in the `yyyy-MM-ddTHH:mm:ssZ` format and is displayed in UTC.
+    // The start time of the query. Specify the time in the `yyyy-MM-ddTHH:mm:ssZ` format. The time must be in UTC.
     shared_ptr<string> startTime_ {};
   };
 

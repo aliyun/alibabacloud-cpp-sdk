@@ -225,12 +225,7 @@ namespace Models
 
 
   protected:
-    // The cluster edition. Valid values:
-    // - Normal: Cluster Edition.
-    // - Basic: Single Node Edition.
-    // - ArchiveNormal: Archive Database.
-    // - SENormal: Standard Edition.
-    // - NormalMultimaster: Multi-master Cluster.
+    // The cluster edition. Valid values: Normal (Cluster Edition), Basic (Single Node Edition), ArchiveNormal (Archive Database Cluster Edition), SENormal (Standard Edition), and NormalMultimaster (Multi-master Cluster).
     shared_ptr<string> creationCategory_ {};
     // The cluster ID. Required for non-BUY scenarios.
     shared_ptr<string> DBClusterId_ {};
@@ -238,45 +233,25 @@ namespace Models
     shared_ptr<string> DBNodeClass_ {};
     // The list of node IDs to delete. Used when ModifyType is set to DELETE.
     shared_ptr<vector<string>> DBNodeIds_ {};
-    // The number of nodes. Valid for the BUY scenario. This value includes the read/write node. Minimum value: 1. Default value: 1.
+    // The number of nodes. Valid for the BUY scenario. This number includes read/write nodes. Minimum value: 1. Default value: 1.
     shared_ptr<int32_t> DBNodeNum_ {};
-    // The list of heterogeneous specification change nodes. Used for specification change scenarios to specify the target specifications for each node.
+    // The list of nodes for heterogeneous specification changes. Used in specification change scenarios to specify the target specifications for each node.
     shared_ptr<string> DBNodesShrink_ {};
     // The database engine type. Required for the BUY scenario. Valid values: MySQL, PostgreSQL, and Oracle.
     shared_ptr<string> DBType_ {};
     // The database engine version. Required for the BUY scenario. Valid values for MySQL: 5.6, 5.7, and 8.0. Valid values for PostgreSQL: 11 and 14. Valid values for Oracle: 11 and 14.
     shared_ptr<string> DBVersion_ {};
-    // Specifies whether to enable the hot standby cluster. Valid values:
-    // - ON: Enable.
-    // - OFF: Disable.
-    // 
-    // Valid for the BUY and specification change scenarios.
+    // Specifies whether to enable the hot standby cluster. Valid values: ON and OFF. Valid for the BUY and specification change scenarios.
     shared_ptr<string> hotStandbyCluster_ {};
-    // The specification change direction. Valid values:
-    // - ADD: add nodes.
-    // - DELETE: remove nodes.
-    // - UPGRADE: upgrade specifications.
-    // - DOWNGRADE: downgrade specifications.
-    // - HOT_STANDBY: hot standby change.
-    // - STORAGE: storage space change.
-    // - STORAGE_TYPE: storage type change.
+    // The modification type. Valid values: ADD (add nodes), DELETE (remove nodes), UPGRADE (upgrade), DOWNGRADE (downgrade), HOT_STANDBY (hot standby change), STORAGE (storage space change), and STORAGE_TYPE (storage type change).
     shared_ptr<string> modifyType_ {};
-    // The order type. Valid values:
-    // - BUY: new purchase.
-    // - CONVERT: billing method conversion.
-    // - RENEW: renewal.
-    // - UPGRADE: upgrade specifications or add nodes.
-    // - DOWNGRADE: downgrade specifications or remove nodes.
+    // The order type. Valid values: BUY (new purchase), CONVERT (billing method change), RENEW (renewal), UPGRADE (upgrade or add nodes), and DOWNGRADE (downgrade or remove nodes).
     // 
     // This parameter is required.
     shared_ptr<string> orderType_ {};
-    // The billing method. Required for the BUY and CONVERT scenarios. Valid values:
-    // - Prepaid: subscription.
-    // - Postpaid: pay-as-you-go.
+    // The billing method. Required for the BUY and CONVERT scenarios. Valid values: Prepaid (subscription) and Postpaid (pay-as-you-go).
     shared_ptr<string> payType_ {};
-    // The subscription cycle. Valid values:
-    // - Month: monthly.
-    // - Year: yearly.
+    // The subscription period. Valid values: Month and Year.
     shared_ptr<string> period_ {};
     // The provisioned IOPS. Used for the Standard Edition (SENormal) scenario.
     shared_ptr<string> provisionedIops_ {};
@@ -284,26 +259,17 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
-    // The serverless type. Valid values: AgileServerless.
+    // The Serverless type. Valid value: AgileServerless.
     shared_ptr<string> serverlessType_ {};
-    // The storage billing type. Valid values:
-    // - Prepaid: subscription.
-    // - Postpaid: pay-as-you-go.
+    // The storage billing method. Valid values: Prepaid (subscription) and Postpaid (pay-as-you-go).
     shared_ptr<string> storageChargeType_ {};
-    // The storage space, in GB. Used for prepaid storage or storage specification change scenarios.
+    // The storage space. Unit: GB. Used for prepaid storage or storage specification change scenarios.
     shared_ptr<string> storageSpace_ {};
-    // The storage type. Valid values:
-    // - PSL5: high performance.
-    // - PSL4: standard.
-    // - ESSDPL0
-    // - ESSDPL1
-    // - ESSDPL2
-    // - ESSDPL3
-    // - ESSDAUTOPL
+    // The storage type. Valid values: PSL5 (premium performance), PSL4 (standard performance), ESSDPL0, ESSDPL1, ESSDPL2, ESSDPL3, and ESSDAUTOPL.
     shared_ptr<string> storageType_ {};
-    // The subscription duration. Used together with Period. Valid for the BUY, CONVERT, and RENEW scenarios when the billing method is Prepaid.
+    // The purchase duration. Used in combination with Period. Valid for the BUY, CONVERT, and RENEW scenarios when the billing method is Prepaid.
     shared_ptr<string> usedTime_ {};
-    // The zone ID. We recommend that you specify this parameter for the BUY scenario.
+    // The zone ID. Recommended for the BUY scenario.
     shared_ptr<string> zoneId_ {};
   };
 

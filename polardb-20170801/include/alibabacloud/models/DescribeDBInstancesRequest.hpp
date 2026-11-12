@@ -117,7 +117,7 @@ namespace Models
     shared_ptr<string> DBClusterId_ {};
     // The network type of the instance. Valid values:
     // - **VPC**: VPC.
-    // - **Classic**: Classic network.
+    // - **Classic**: classic network.
     // 
     // > If you do not specify this parameter, instances of all network types are returned.
     shared_ptr<string> instanceNetworkType_ {};

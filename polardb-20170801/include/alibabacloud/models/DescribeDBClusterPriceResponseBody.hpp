@@ -367,9 +367,9 @@ namespace Models
     // * BUY: new purchase.
     // * UPGRADE: specification change.
     // * RENEW: renewal.
-    // * CONVERT: billing method conversion.
+    // * CONVERT: billing method change.
     shared_ptr<string> orderType_ {};
-    // The price details.
+    // The pricing details.
     shared_ptr<DescribeDBClusterPriceResponseBody::PriceInfo> priceInfo_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

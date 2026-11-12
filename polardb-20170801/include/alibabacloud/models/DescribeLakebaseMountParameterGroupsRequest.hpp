@@ -57,9 +57,7 @@ namespace Models
 
 
   protected:
-    // The instance category. Valid values:
-    // - basic: Basic Edition.
-    // - high_performance: High-performance Edition.
+    // The instance category. Valid values: basic (Basic Edition) and high_performance (High-performance Edition).
     shared_ptr<string> paramGroupCategory_ {};
     // The PolarFS instance ID.
     // 

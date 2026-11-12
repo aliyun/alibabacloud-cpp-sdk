@@ -232,44 +232,45 @@ namespace Models
 
 
     protected:
-      // The associated branch ID.
+      // The ID of the associated branch.
       shared_ptr<string> branchId_ {};
-      // The associated branch name.
+      // The name of the associated branch.
       shared_ptr<string> branchName_ {};
-      // The compute instance ID.
+      // The ID of the compute instance.
       shared_ptr<string> computeClusterId_ {};
-      // The number of compute nodes (fixed to 1 in the first phase).
+      // The number of compute nodes. The value is fixed to 1 in the first phase.
       shared_ptr<int32_t> computeNodeCount_ {};
-      // The creation time. The time is in ISO 8601 format and uses the UTC time zone (format: YYYY-MM-DDTHH:mm:ssZ).
+      // The creation time.
+      // 
+      // The time is displayed in ISO 8601 format in UTC (YYYY-MM-DDTHH:mm:ssZ).
       shared_ptr<string> createTime_ {};
       // The description.
       shared_ptr<string> description_ {};
-      // Indicates whether it is the default branch.
+      // Specifies whether the branch is the default branch.
       shared_ptr<bool> isDefaultBranch_ {};
       // The last activation time.
-      // The time is in ISO 8601 format and uses the UTC time zone (format: YYYY-MM-DDTHH:mm:ssZ).
       shared_ptr<string> lastActivatedAt_ {};
-      // The maximum compute unit.
+      // The maximum number of compute units.
       shared_ptr<string> maxCU_ {};
-      // The minimum compute unit.
+      // The minimum number of compute units.
       shared_ptr<string> minCU_ {};
       // The operator type.
       shared_ptr<string> operatorType_ {};
-      // The parent branch ID. An empty string indicates the root branch.
+      // The ID of the parent branch. An empty string indicates the root branch.
       shared_ptr<string> parentBranchId_ {};
-      // The parent branch name. An empty string indicates the root branch.
+      // The name of the parent branch. An empty string indicates the root branch.
       shared_ptr<string> parentBranchName_ {};
-      // The associated project ID.
+      // The ID of the associated project.
       shared_ptr<string> projectId_ {};
-      // The associated project name.
+      // The name of the associated project.
       shared_ptr<string> projectName_ {};
       // The status.
       shared_ptr<string> status_ {};
-      // The used data volume (in bytes).
+      // The used storage space in bytes.
       shared_ptr<int64_t> storageSize_ {};
-      // The associated tenant ID.
+      // The ID of the associated tenant.
       shared_ptr<string> tenantId_ {};
-      // The associated tenant name.
+      // The name of the associated tenant.
       shared_ptr<string> tenantName_ {};
     };
 

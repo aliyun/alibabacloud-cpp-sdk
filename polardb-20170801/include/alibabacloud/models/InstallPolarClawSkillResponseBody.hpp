@@ -138,9 +138,9 @@ namespace Models
     shared_ptr<string> message_ {};
     // Indicates whether the operation is successful. This parameter is returned when Async is set to false.
     shared_ptr<bool> ok_ {};
-    // The operation name. This parameter is returned when Async is set to true.
+    // The name of the operation. This parameter is returned when Async is set to true.
     shared_ptr<string> operation_ {};
-    // Id of the request
+    // The request ID.
     shared_ptr<string> requestId_ {};
     // The identifier of the installed skill. This parameter is returned during synchronous execution.
     shared_ptr<string> slug_ {};

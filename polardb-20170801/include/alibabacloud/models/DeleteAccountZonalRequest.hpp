@@ -90,7 +90,7 @@ namespace Models
     shared_ptr<string> accountName_ {};
     // The cluster ID.
     // 
-    // > Note: This parameter accepts only the ID of a PolarDB on ENS cluster (CloudProvider=ENS). For standard cloud clusters, use the DeleteAccount API. You can call the DescribeDBClustersZonal operation to query existing PolarDB on ENS clusters.
+    // > Note: This parameter accepts only the ID of a PolarDB on ENS cluster (CloudProvider=ENS). For standard cloud clusters, use the DeleteAccount operation. You can call DescribeDBClustersZonal to query existing PolarDB on ENS clusters.
     // 
     // This parameter is required.
     shared_ptr<string> DBClusterId_ {};

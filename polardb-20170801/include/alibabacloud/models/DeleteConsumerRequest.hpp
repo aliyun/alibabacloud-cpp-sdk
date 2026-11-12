@@ -57,7 +57,7 @@ namespace Models
 
 
   protected:
-    // The consumer ID.
+    // The ID of the consumer.
     // 
     // This parameter is required.
     shared_ptr<string> consumerId_ {};

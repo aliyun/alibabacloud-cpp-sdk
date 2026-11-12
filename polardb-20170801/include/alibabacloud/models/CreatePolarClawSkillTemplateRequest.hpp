@@ -84,7 +84,7 @@ namespace Models
 
 
   protected:
-    // The application ID.
+    // The application ID. This parameter is required. If this parameter is not provided, an InvalidApplicationId.Malformed (HTTP 400) error is returned.
     shared_ptr<string> applicationId_ {};
     // The application type.
     // 
@@ -92,7 +92,7 @@ namespace Models
     shared_ptr<string> applicationType_ {};
     // The region ID.
     // 
-    // > You can call the [DescribeRegions](https://help.aliyun.com/document_detail/98041.html) operation to query all available regions for the current account, including region IDs.
+    // > You can call the [DescribeRegions](https://help.aliyun.com/document_detail/98041.html) operation to view all available regions for the current account, including region IDs.
     shared_ptr<string> regionId_ {};
     // The description of the skill template.
     shared_ptr<string> skillTemplateDesc_ {};
@@ -100,7 +100,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> skillTemplateName_ {};
-    // The skill template parameters.
+    // The skill template parameters. Specify a standard JSON object string with the skill identifier as the key, such as {"skill1":{"skillName":"polarclawhub","version":"0.0.0"}}. JSON arrays or single-quote formats are not accepted.
     // 
     // This parameter is required.
     shared_ptr<string> skillTemplateParam_ {};

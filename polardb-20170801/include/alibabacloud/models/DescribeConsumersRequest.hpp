@@ -103,9 +103,9 @@ namespace Models
 
 
   protected:
-    // The ID of the consumer group.
+    // The consumer group ID.
     shared_ptr<string> consumerGroupId_ {};
-    // The ID of the consumer.
+    // The consumer ID.
     shared_ptr<string> consumerId_ {};
     // The name used to filter consumers.
     shared_ptr<string> consumerName_ {};

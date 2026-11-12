@@ -138,7 +138,7 @@ namespace Models
     shared_ptr<int32_t> isHistory_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
-    // The page number. The value must be greater than 0 and cannot exceed the maximum value of the Integer data type. Default value: **1**.
+    // The page number. The value must be a positive integer that does not exceed the maximum value of the Integer data type. Default value: **1**.
     shared_ptr<int32_t> pageNumber_ {};
     // The number of entries per page. Valid values: **30**, **50**, and **100**.
     // 
@@ -156,7 +156,7 @@ namespace Models
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
     shared_ptr<string> securityToken_ {};
-    // The task type. You can call the [DescribeActiveOperationTaskType](ID not yet generated) operation to query the task types of pending tasks.
+    // The task type. You can call the [DescribeActiveOperationTaskType](还未生成ID) operation to query the task types of pending tasks.
     // 
     // > * You can also enter **all** to view all pending tasks under your account.
     // * When `TaskType` is set to **all**, `Region` must also be set to **all**.

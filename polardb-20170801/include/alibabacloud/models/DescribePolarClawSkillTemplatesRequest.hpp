@@ -103,25 +103,25 @@ namespace Models
 
 
   protected:
-    // The application ID.
+    // The application ID. You can call the DescribeApplications operation to obtain a valid ApplicationId value. This parameter is conditionally required. If SkillTemplateId is not specified, you must provide a valid ApplicationId.
     shared_ptr<string> applicationId_ {};
     // The application type.
     // 
-    // > If you are calling this operation for the first time, you do not need to specify this parameter.
+    // > If you call this operation for the first time, you do not need to specify this parameter.
     shared_ptr<string> applicationType_ {};
-    // The end time of the query in UTC.
+    // The end time of the query. The time is in UTC.
     shared_ptr<string> endTime_ {};
-    // The current page number.
+    // The page number.
     shared_ptr<int32_t> pageNumber_ {};
     // The number of entries per page.
     shared_ptr<int32_t> pageSize_ {};
     // The region ID.
     // 
-    // > You can call the [DescribeRegions](https://help.aliyun.com/document_detail/98041.html) operation to query all available regions for the current account, including region IDs.
+    // > You can call the [DescribeRegions](https://help.aliyun.com/document_detail/98041.html) operation to query all available regions under the current account, including region IDs.
     shared_ptr<string> regionId_ {};
     // The skill template ID.
     shared_ptr<string> skillTemplateId_ {};
-    // The start time of the query in UTC.
+    // The start time of the query. The time is in UTC.
     shared_ptr<string> startTime_ {};
   };
 

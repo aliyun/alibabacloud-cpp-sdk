@@ -201,39 +201,37 @@ namespace Models
 
 
     protected:
-      // The ID of the compute cluster associated with the branch.
+      // The ID of the compute cluster for the branch.
       shared_ptr<string> branchComputeClusterId_ {};
-      // The branch description.
+      // The description of the branch.
       shared_ptr<string> branchDescription_ {};
-      // The branch ID.
+      // The ID of the branch.
       shared_ptr<string> branchId_ {};
-      // The branch name.
+      // The name of the branch.
       shared_ptr<string> branchName_ {};
       // The time when the branch was created.
       // 
-      // The time is in the ISO 8601 standard in the UTC time zone (format: YYYY-MM-DDTHH:mm:ssZ).
+      // The time follows the ISO 8601 standard in the YYYY-MM-DDTHH:mm:ssZ format. The time is displayed in UTC.
       shared_ptr<string> createTime_ {};
-      // The depth relative to the anchor branch. The anchor branch has a depth of 0. Ancestor branches have negative values, and descendant branches have positive values.
+      // The depth relative to the anchor branch. The depth of the anchor branch is 0. Ancestors have negative values, and descendants have positive values.
       shared_ptr<int32_t> depth_ {};
       // The total number of direct child branches.
       shared_ptr<int32_t> directChildCount_ {};
-      // Indicates whether more ancestor nodes exist but are not returned.
+      // Indicates whether there are more ancestor nodes that are not returned.
       shared_ptr<bool> hasMoreAncestors_ {};
-      // Indicates whether more child nodes exist but are not returned.
+      // Indicates whether there are more child nodes that are not returned.
       shared_ptr<bool> hasMoreChildren_ {};
       // Indicates whether the branch is the anchor branch.
       shared_ptr<bool> isAnchor_ {};
       // Indicates whether the branch is the default branch.
       shared_ptr<bool> isDefaultBranch_ {};
-      // Indicates whether the branch is the primary branch.
+      // Indicates whether the branch is the root branch.
       shared_ptr<bool> isRoot_ {};
       // The ID of the parent branch.
       shared_ptr<string> parentBranchId_ {};
       // The name of the parent branch.
       shared_ptr<string> parentBranchName_ {};
-      // The branch status. Valid values:
-      // - Active
-      // - Destroying
+      // The status of the branch. Valid values: Active and Destroying.
       shared_ptr<string> status_ {};
     };
 
@@ -303,17 +301,17 @@ namespace Models
     shared_ptr<string> anchorBranchId_ {};
     // The list of lineage nodes.
     shared_ptr<vector<DescribeAgenticDBBranchLineageResponseBody::Items>> items_ {};
-    // The total number of nodes returned.
+    // The total number of returned nodes.
     shared_ptr<int32_t> nodeCount_ {};
-    // The project ID.
+    // The ID of the project.
     shared_ptr<string> projectId_ {};
-    // The project name.
+    // The name of the project.
     shared_ptr<string> projectName_ {};
-    // The request ID.
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
-    // The ID of the primary branch.
+    // The ID of the root branch.
     shared_ptr<string> rootBranchId_ {};
-    // The tenant ID.
+    // The ID of the tenant.
     shared_ptr<string> tenantId_ {};
   };
 

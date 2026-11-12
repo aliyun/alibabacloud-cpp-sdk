@@ -90,15 +90,14 @@ namespace Models
     shared_ptr<string> encryptionDBRegion_ {};
     // Indicates whether encryption is enabled. Valid values:
     // 
-    // Enabled: Encryption is enabled. Disabled: Encryption is disabled.
+    // - Enabled: Encryption is enabled.
+    // - Disabled: Encryption is disabled.
     shared_ptr<string> encryptionDBStatus_ {};
-    // The custom key ID.
+    // The ID of the custom key.
     shared_ptr<string> encryptionKey_ {};
     // The status of the key. Valid values:
-    // 
-    // - **Enabled**
-    // 
-    // - **Disabled**
+    // - **Enabled**: Enabled.
+    // - **Disabled**: Disabled.
     shared_ptr<string> encryptionKeyStatus_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

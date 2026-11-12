@@ -84,11 +84,11 @@ namespace Models
 
 
   protected:
-    // The AgenticDB cluster ID.
+    // The AgenticDB cluster ID, which starts with pagc-. You must first call CreateDBCluster and set AgenticDbType to dedicated and ServerlessType to AgileServerless to create an AgenticDB cluster, and then pass the returned DBClusterId.
     // 
     // This parameter is required.
     shared_ptr<string> DBClusterId_ {};
-    // The usage description.
+    // The description of the purpose.
     shared_ptr<string> description_ {};
     // The expiration time in ISO 8601 format. If this parameter is not specified, the API key never expires.
     shared_ptr<string> expireTime_ {};
@@ -96,9 +96,9 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
-    // Specifies the ID of an existing tenant. If you specify this parameter, an API key is created only for the existing tenant in the current cluster. If the tenant does not exist, an error is returned and no tenant is created. If TenantName is also specified, the name must match the name of the tenant.
+    // The ID of the existing tenant.
     shared_ptr<string> tenantId_ {};
-    // The name of the tenant. The name must be unique within the cluster and must be 2 to 64 characters in length.
+    // The tenant name. It must be unique within the cluster and be 2 to 64 characters in length.
     shared_ptr<string> tenantName_ {};
   };
 

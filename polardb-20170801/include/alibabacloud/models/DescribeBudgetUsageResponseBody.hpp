@@ -147,19 +147,19 @@ namespace Models
     protected:
       // The usage percentage that triggers a budget alert.
       shared_ptr<string> alertThresholdPct_ {};
-      // The budget dimension reference ID to which the policy applies.
+      // The reference ID of the budget dimension to which the policy applies.
       shared_ptr<string> budgetDimensionRefId_ {};
       // The budget dimension type to which the policy applies.
       shared_ptr<string> budgetDimensionType_ {};
-      // The number of budget points set by the policy.
+      // The number of budget points configured in the policy.
       shared_ptr<string> budgetPoints_ {};
-      // The budget policy ID.
+      // The ID of the budget policy.
       shared_ptr<string> budgetPolicyId_ {};
       // The budget type.
       shared_ptr<string> budgetType_ {};
-      // The day of the month when the budget is reset. For example, 1 indicates the first day of each month.
+      // The day of the month on which the budget is reset. For example, 1 indicates the first day of each month.
       shared_ptr<string> resetDayOfMonth_ {};
-      // The budget policy status.
+      // The status of the budget policy.
       shared_ptr<string> status_ {};
     };
 
@@ -262,11 +262,11 @@ namespace Models
     shared_ptr<string> dimensionType_ {};
     // Indicates whether the budget is exceeded.
     shared_ptr<string> exceeded_ {};
-    // The creation time of the budget usage record in RFC 3339 UTC format.
+    // The creation time of the budget usage record, in RFC 3339 UTC format.
     shared_ptr<string> gmtCreated_ {};
-    // The last modification time of the budget usage record in RFC 3339 UTC format.
+    // The time when the budget usage record was last modified, in RFC 3339 UTC format.
     shared_ptr<string> gmtModified_ {};
-    // The gateway instance ID.
+    // The ID of the gateway instance.
     shared_ptr<string> gwClusterId_ {};
     // The list of associated budget policies.
     shared_ptr<vector<DescribeBudgetUsageResponseBody::Policies>> policies_ {};
@@ -274,9 +274,9 @@ namespace Models
     shared_ptr<string> requestId_ {};
     // The number of budget points used in the current statistical window.
     shared_ptr<string> usedPoints_ {};
-    // The end time of the budget statistical window in RFC 3339 UTC format.
+    // The end time of the budget statistical window, in RFC 3339 UTC format.
     shared_ptr<string> windowEndTime_ {};
-    // The start time of the budget statistical window in RFC 3339 UTC format.
+    // The start time of the budget statistical window, in RFC 3339 UTC format.
     shared_ptr<string> windowStartTime_ {};
   };
 

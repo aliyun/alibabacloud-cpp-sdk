@@ -114,13 +114,15 @@ namespace Models
   protected:
     // The ID of the compute instance bound to the default branch.
     shared_ptr<string> branchComputeClusterId_ {};
-    // The time when the project was created. The time is displayed in ISO 8601 format in UTC (YYYY-MM-DDTHH:mm:ssZ).
+    // The time when the project was created.
+    // 
+    // The time follows the ISO 8601 standard in the UTC time zone (format: YYYY-MM-DDTHH:mm:ssZ).
     shared_ptr<string> createTime_ {};
     // The ID of the default branch.
     shared_ptr<string> defaultBranchId_ {};
     // The name of the default branch.
     shared_ptr<string> defaultBranchName_ {};
-    // The retention period for recent records of the project. This parameter may be empty for older projects. To query the current effective value, call DescribeAgenticDBProjectHistoryRetention.
+    // The retention period of historical data, in seconds.
     shared_ptr<int64_t> historyRetentionSeconds_ {};
     // The ID of the new project.
     shared_ptr<string> projectId_ {};

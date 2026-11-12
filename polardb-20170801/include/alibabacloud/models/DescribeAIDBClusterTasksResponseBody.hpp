@@ -226,11 +226,11 @@ namespace Models
     protected:
       // The task completion time.
       // 
-      // The time follows the ISO 8601 standard and is displayed in UTC (format: YYYY-MM-DDTHH:mm:ssZ).
+      // The time follows the ISO 8601 standard in the YYYY-MM-DDTHH:mm:ssZ format. The time is displayed in UTC.
       shared_ptr<string> completedTime_ {};
       // The creation time.
       // 
-      // The time follows the ISO 8601 standard and is displayed in UTC (format: YYYY-MM-DDTHH:mm:ssZ).
+      // The time follows the ISO 8601 standard in the YYYY-MM-DDTHH:mm:ssZ format. The time is displayed in UTC.
       shared_ptr<string> creationTime_ {};
       // The node description.
       shared_ptr<string> DBNodeDescription_ {};
@@ -244,7 +244,7 @@ namespace Models
       shared_ptr<string> dataZoneId_ {};
       // The cluster engine.
       shared_ptr<string> engine_ {};
-      // The database engine version.
+      // The DPI engine version.
       shared_ptr<string> engineVersion_ {};
       // The model name.
       shared_ptr<string> modelName_ {};
@@ -252,11 +252,11 @@ namespace Models
       shared_ptr<string> modelPath_ {};
       // The model source.
       shared_ptr<string> modelSource_ {};
-      // The runtime parameters.
+      // The number of task executions.
       shared_ptr<string> runningTimes_ {};
       // The task start time.
       // 
-      // The time follows the ISO 8601 standard and is displayed in UTC (format: YYYY-MM-DDTHH:mm:ssZ).
+      // The time follows the ISO 8601 standard in the YYYY-MM-DDTHH:mm:ssZ format. The time is displayed in UTC.
       shared_ptr<string> startTime_ {};
       // The mode.
       shared_ptr<string> trainMode_ {};
@@ -344,23 +344,23 @@ namespace Models
   protected:
     // The cluster engine.
     shared_ptr<string> engine_ {};
-    // The database engine version.
+    // The DPI engine version.
     shared_ptr<string> engineVersion_ {};
     // The cluster endpoint details.
     shared_ptr<vector<DescribeAIDBClusterTasksResponseBody::Items>> items_ {};
     // The current page number.
     shared_ptr<int64_t> pageNumber_ {};
-    // The total number of entries on the current page.
+    // The total number of records on the current page.
     shared_ptr<string> pageRecordCount_ {};
-    // The number of entries per page.
+    // The number of records to display on each page.
     shared_ptr<string> pageSize_ {};
-    // The ID of the associated PolarDB cluster.
+    // The ID of the PolarDB cluster to which the resource belongs.
     shared_ptr<string> relativeDBClusterId_ {};
-    // Id of the request
+    // The request ID.
     shared_ptr<string> requestId_ {};
     // The task type.
     shared_ptr<string> taskType_ {};
-    // The total number of entries.
+    // The total number of records.
     shared_ptr<string> totalRecordCount_ {};
   };
 

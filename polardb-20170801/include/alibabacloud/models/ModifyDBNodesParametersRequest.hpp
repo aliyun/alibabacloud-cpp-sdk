@@ -134,21 +134,23 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> DBClusterId_ {};
-    // The IDs of the nodes. To specify multiple node IDs, separate the IDs with a comma (,).
+    // The node IDs. You can specify multiple node IDs separated by commas (,).
     // 
     // This parameter is required.
     shared_ptr<string> DBNodeIds_ {};
-    // Specifies whether to apply the parameter modifications and restart the node. Valid values: \\`false\\` (default): Schedules the task. \\`true\\`: Executes the task immediately.
+    // Specifies whether to execute the parameter modification and restart immediately or at a scheduled time. Valid values:
+    // - false: executes the task at a scheduled time. This is the default value.
+    // - true: executes the task immediately.
     shared_ptr<bool> fromTimeService_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
-    // The ID of the parameter template.
+    // The parameter template ID.
     shared_ptr<string> parameterGroupId_ {};
-    // A JSON string that contains the parameters and their values.
+    // The JSON string of parameters and their values. Only node-level parameters can be modified. You can call the DescribeDBClusterParameters operation and select parameters where IsNodeAvailable is set to 1 and IsModifiable is set to true. To modify cluster-level parameters, call the ModifyDBClusterParameters operation.
     shared_ptr<string> parameters_ {};
-    // The latest time to start the scheduled task. The time must be in the \\`YYYY-MM-DDThh:mm:ssZ\\` format and in UTC.
+    // The latest time to start the scheduled task. Specify the time in the YYYY-MM-DDThh:mm:ssZ format. The time is displayed in UTC.
     shared_ptr<string> plannedEndTime_ {};
-    // The earliest time to start the scheduled task. The time must be in the \\`YYYY-MM-DDThh:mm:ssZ\\` format and in UTC.
+    // The earliest time to execute the scheduled kernel version upgrade task. Specify the time in the YYYY-MM-DDThh:mm:ssZ format. The time is displayed in UTC.
     shared_ptr<string> plannedStartTime_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};

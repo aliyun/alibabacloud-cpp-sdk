@@ -48,9 +48,9 @@ namespace Models
 
 
   protected:
-    // The ID of the Prompt.
+    // The unique identifier of the prompt.
     shared_ptr<string> promptId_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

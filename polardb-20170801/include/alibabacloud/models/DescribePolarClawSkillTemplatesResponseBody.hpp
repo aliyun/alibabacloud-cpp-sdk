@@ -140,11 +140,11 @@ namespace Models
 
 
     protected:
-      // The time when the skill template was created in UTC.
+      // The time when the skill template was created. The time is in UTC.
       shared_ptr<string> created_ {};
       // The rule ID.
       shared_ptr<string> id_ {};
-      // The time when the skill template was last modified in UTC.
+      // The time when the skill template was last modified. The time is in UTC.
       shared_ptr<string> modified_ {};
       // The number of skills.
       shared_ptr<string> skillCounts_ {};
@@ -154,7 +154,9 @@ namespace Models
       shared_ptr<string> skillTemplateId_ {};
       // The skill template name.
       shared_ptr<string> skillTemplateName_ {};
-      // The skill templatetype. Valid values: 0: system template. 1: user template.
+      // The skill templatetype. Valid values:
+      // - 0: System template.
+      // - 1: User template.
       shared_ptr<string> skillTemplateType_ {};
       // The source application ID.
       shared_ptr<string> srcApplicationId_ {};
@@ -212,9 +214,9 @@ namespace Models
     shared_ptr<string> pageSize_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The skill template group.
+    // The skill templates.
     shared_ptr<vector<DescribePolarClawSkillTemplatesResponseBody::SkillTemplates>> skillTemplates_ {};
-    // The total number of entries. This parameter is returned only when you query a list.
+    // The total number of entries. This parameter is returned only for list queries.
     shared_ptr<string> totalCount_ {};
   };
 

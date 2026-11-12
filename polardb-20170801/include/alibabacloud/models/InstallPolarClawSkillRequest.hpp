@@ -103,7 +103,7 @@ namespace Models
 
 
   protected:
-    // The target agent in the workspace. If not specified, the default agent is used.
+    // The target agent in the workspace. If this parameter is not specified, the default agent is used.
     shared_ptr<string> agentId_ {};
     // The application ID.
     // 
@@ -117,9 +117,9 @@ namespace Models
     shared_ptr<string> skillVersion_ {};
     // The skill identifier.
     shared_ptr<string> slug_ {};
-    // The source. Default value: polarhub.
+    // The source.
     shared_ptr<string> source_ {};
-    // URL
+    // The URL for installing the skill. This parameter is not supported. If a value is provided, a 400 InvalidParameters error is returned.
     shared_ptr<string> url_ {};
   };
 

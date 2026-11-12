@@ -84,7 +84,7 @@ namespace Models
 
 
   protected:
-    // The instance category. Valid values:
+    // The instance edition. Valid values:
     // - basic: Basic Edition.
     // - high_performance: High-performance Edition.
     // 

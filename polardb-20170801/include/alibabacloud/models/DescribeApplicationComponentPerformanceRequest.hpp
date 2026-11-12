@@ -102,7 +102,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> componentId_ {};
-    // The end time of the query. The end time must be later than or equal to the start time. Specify the time in the ISO 8601 standard in the YYYY-MM-DDTHH:mmZ format. The time must be in UTC.
+    // The end time of the query. The end time must not be earlier than the start time. Specify the time in the ISO 8601 standard in the YYYY-MM-DDTHH:mmZ format. The time must be in UTC.
     // 
     // This parameter is required.
     shared_ptr<string> endTime_ {};
@@ -116,7 +116,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> startTime_ {};
-    // The type of the performance data.
+    // The type of performance data. Note: Add the valid values, the meaning of each value, and the correspondence with ApplicationType to the description of the Type parameter, and explicitly specify that this parameter should be omitted in most scenarios.
     shared_ptr<string> type_ {};
   };
 

@@ -61,7 +61,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> applicationId_ {};
-    // The application type, such as polarclaw.
+    // The application type, such as polarclaw. This parameter is required. If it is not provided, the service returns an InvalidApplicationType.Malformed (400) error. The value of this parameter must not include the polardb_ prefix, which differs from the format of the ApplicationType field returned by DescribeApplications. For example, if DescribeApplications returns polardb_polarclaw, set this parameter to polarclaw.
     shared_ptr<string> applicationType_ {};
     // The region ID of the application.
     shared_ptr<string> regionId_ {};

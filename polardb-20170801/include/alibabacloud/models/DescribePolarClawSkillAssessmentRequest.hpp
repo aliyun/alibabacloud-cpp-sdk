@@ -75,17 +75,17 @@ namespace Models
 
 
   protected:
-    // The ID of the application.
+    // The application ID.
     shared_ptr<string> applicationId_ {};
     // The region ID.
     // 
     // > You can call the [DescribeRegions](https://help.aliyun.com/document_detail/98041.html) operation to query all available regions for the current account, including region IDs.
     shared_ptr<string> regionId_ {};
-    // The name of the skill.
+    // The name of the skill. This parameter is required. If it is not provided, the API returns an InvalidParameter.SkillName error (HTTP 400).
     shared_ptr<string> skillName_ {};
-    // The version of the skill.
+    // The version of the skill. This parameter is required. If it is not provided, the API returns an InvalidParameter.SkillVersion error (HTTP 400).
     shared_ptr<string> skillVersion_ {};
-    // The source of the skill. Valid values: PUBLIC, SELF, and OTHER.
+    // The source of the skill. Valid values: PUBLIC, SELF, and OTHER. This parameter is required. If it is not provided, the API returns an InvalidParameter.Source error (HTTP 400).
     shared_ptr<string> source_ {};
   };
 

@@ -120,15 +120,11 @@ namespace Models
       shared_ptr<string> comment_ {};
       // The default value.
       shared_ptr<string> defaultValue_ {};
-      // Indicates whether the parameter takes effect dynamically. Valid values:
-      // - 1: Yes.
-      // - 0: No.
+      // Indicates whether the parameter takes effect dynamically. Valid values: 1 and 0.
       shared_ptr<string> isDynamic_ {};
-      // Indicates whether users are allowed to modify the parameter. Valid values:
-      // - 1: Yes.
-      // - 0: No.
+      // Indicates whether the parameter can be modified by users. Valid values: 1 and 0.
       shared_ptr<string> isUserChangeable_ {};
-      // The value range or enumerated values, such as [0-3600].
+      // The value range or valid values. Example: [0-3600].
       shared_ptr<string> optional_ {};
       // The parameter name.
       shared_ptr<string> parameterName_ {};

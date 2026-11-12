@@ -201,7 +201,7 @@ namespace Models
 
 
     protected:
-      // The client identifier.
+      // The client ID.
       shared_ptr<string> clientId_ {};
       // The client mode.
       shared_ptr<string> clientMode_ {};
@@ -346,7 +346,7 @@ namespace Models
 
 
     protected:
-      // The client identifier.
+      // The client ID.
       shared_ptr<string> clientId_ {};
       // The client mode.
       shared_ptr<string> clientMode_ {};
@@ -427,7 +427,7 @@ namespace Models
     shared_ptr<vector<ListPolarClawDevicePairsResponseBody::Paired>> paired_ {};
     // The list of pending pairing requests.
     shared_ptr<vector<ListPolarClawDevicePairsResponseBody::Pending>> pending_ {};
-    // Id of the request
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

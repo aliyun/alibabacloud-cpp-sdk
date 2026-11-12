@@ -48,9 +48,9 @@ namespace Models
 
 
   protected:
-    // The ID of the region where the task resides.
+    // The region ID of the task.
     shared_ptr<string> regionId_ {};
-    // The ID of the inspection task to query. This parameter is required.
+    // The ID of the inspection task to query. This parameter is required. If this parameter is not specified, the service returns the InvalidTaskId.Malformed error.
     shared_ptr<string> taskId_ {};
   };
 

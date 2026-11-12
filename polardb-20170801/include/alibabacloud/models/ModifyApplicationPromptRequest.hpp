@@ -66,17 +66,17 @@ namespace Models
 
 
   protected:
-    // The ID of the application.
+    // The application ID. Usage note: Only applications of the mem0 type support prompt operations. You can verify this by checking the ApplicationType field by calling DescribeApplicationAttribute.
     // 
     // This parameter is required.
     shared_ptr<string> applicationId_ {};
-    // The ID of the prompt.
+    // The prompt ID. The value is an identifier that starts with papt-.
     // 
     // This parameter is required.
     shared_ptr<string> promptId_ {};
-    // The name of the prompt.
+    // The prompt name.
     shared_ptr<string> promptName_ {};
-    // The content of the prompt.
+    // The prompt content.
     shared_ptr<string> promptValue_ {};
   };
 

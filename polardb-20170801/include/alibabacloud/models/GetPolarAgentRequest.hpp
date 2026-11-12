@@ -66,15 +66,15 @@ namespace Models
 
 
   protected:
-    // Additional information, as a JSON string.
+    // The additional information. The value is a JSON string.
     shared_ptr<string> extraInfo_ {};
-    // The session query. Get this value from the return value of the "Start a digital human" API.
+    // The session query. You can obtain this value from the response of the Start a digital human API.
     // 
     // This parameter is required.
     shared_ptr<string> query_ {};
-    // The session ID. Get this value from the return value of the "Start a digital human" API.
+    // The session ID. You can obtain this value from the response of the Start a digital human API.
     shared_ptr<string> sessionId_ {};
-    // The product type source. Valid value: polardb-console.
+    // The product type source. Valid values: polardb-console.
     shared_ptr<string> source_ {};
   };
 

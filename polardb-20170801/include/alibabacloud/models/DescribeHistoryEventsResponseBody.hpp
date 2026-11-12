@@ -340,18 +340,18 @@ namespace Models
 
       protected:
         // The cloud service type of the application group. Valid values:
-        // - **web**: Web application.
-        // - **native**: Native application.
+        // - **web**: Web applications.
+        // - **native**: Native applications.
         shared_ptr<string> cmsProduct_ {};
-        // The database type.
+        // The type of the database.
         shared_ptr<string> dbType_ {};
         // The pagination parameter.
         shared_ptr<string> detailImpact_ {};
-        // The instance operation details.
+        // The details of the instance operation.
         shared_ptr<string> detailReason_ {};
         // The end time of the query. The end time must be later than the start time, and the interval between the start time and the end time must be within 24 hours. Specify the time in the `YYYY-MM-DDThh:mmZ` format (UTC time).
         shared_ptr<string> endTime_ {};
-        // The system event category. Valid values:
+        // The category of the system event. Valid values:
         // - **Exception**: Exception events.
         // - **Optimize**: Optimization events.
         // - **Notification**: Notification events.
@@ -361,9 +361,9 @@ namespace Models
         shared_ptr<string> eventCode_ {};
         // The event details.
         shared_ptr<string> eventDetail_ {};
-        // The event ID.
+        // The ID of the event.
         shared_ptr<string> eventId_ {};
-        // The event impact overview.
+        // The impact overview of the event.
         shared_ptr<string> eventImpact_ {};
         // The event level. Valid values:
         // - **INFO**: Notification.
@@ -372,7 +372,7 @@ namespace Models
         shared_ptr<string> eventLevel_ {};
         // The source of the event operation.
         shared_ptr<string> eventReason_ {};
-        // The event status. Valid values:
+        // The status of the event. Valid values:
         // - **Inquiring**: Inquiring.
         // - **Scheduled**: Scheduled.
         // - **Running**: Running.
@@ -382,11 +382,11 @@ namespace Models
         shared_ptr<string> eventStatus_ {};
         // The system event type. Valid values: 
         // - **SystemMaintenance.Reboot**: The instance is restarted due to system maintenance.
-        // - **SystemMaintenance.Redeploy**: The instance is redeployed due to system maintenance.
-        // - **SystemFailure.Reboot**: The instance is restarted due to a system failure.
-        // - **SystemFailure.Redeploy**: The instance is redeployed due to a system failure.
-        // - **SystemFailure.Delete**: The instance is released due to a creation failure.
-        // - **InstanceFailure.Reboot**: The instance is restarted due to an instance failure.
+        // - **SystemMaintenance.Redeploy**: Redeployment of the instance due to system maintenance.
+        // - **SystemFailure.Reboot**: The instance is restarted due to a system fault.
+        // - **SystemFailure.Redeploy**: Redeployment of the instance due to a system fault.
+        // - **SystemFailure.Delete**: The instance is released because instance creation failed.
+        // - **InstanceFailure.Reboot**: The instance is restarted due to an instance fault.
         // - **InstanceExpiration.Stop**: The subscription instance is stopped due to expiration.
         // - **InstanceExpiration.Delete**: The subscription instance is released due to expiration.
         // - **AccountUnbalanced.Stop**: The pay-as-you-go instance is stopped due to an overdue payment.
@@ -402,24 +402,24 @@ namespace Models
         shared_ptr<int32_t> hasLifeCycle_ {};
         // The instance ID.
         shared_ptr<string> instanceId_ {};
-        // The instance name.
+        // The name of the instance.
         shared_ptr<string> instanceName_ {};
-        // Indicates whether the event is closed. Valid values:
+        // Indicates whether the item is closed. Valid values:
         // - **0**: Closed.
         // - **1**: Open.
         shared_ptr<int32_t> isClosed_ {};
-        // The product name.
+        // The name of the product.
         shared_ptr<string> product_ {};
         // The region ID.
         shared_ptr<string> regionId_ {};
-        // The resource type. Valid values:
+        // The type of the resource. Valid values:
         // - **Instance**: Instance resources.
         // - **Host**: Host resources.
         // - **User**: User resources.
         shared_ptr<string> resourceType_ {};
-        // The source data type.
+        // The type of the source data.
         shared_ptr<string> sourceType_ {};
-        // The start time of the query. Specify the time in the `yyyy-MM-ddTHH:mm:ssZ` format (UTC time).
+        // The start time of the query. Format: `yyyy-MM-ddTHH:mm:ssZ` (UTC time).
         shared_ptr<string> startTime_ {};
         // The ID of the user to which the resource belongs.
         shared_ptr<string> uid_ {};
@@ -489,17 +489,17 @@ namespace Models
     protected:
       // The data overview.
       shared_ptr<Items::Data> data_ {};
-      // The task ID.
+      // The ID of the task.
       shared_ptr<string> id_ {};
-      // The region ID of the region where the task resides.
+      // The region ID of the region where the task is located.
       shared_ptr<string> region_ {};
-      // The event source.
+      // The source of the event.
       shared_ptr<string> source_ {};
       // The database version.
       shared_ptr<string> specversion_ {};
-      // The name of the pending event.
+      // The name of the event to be processed.
       shared_ptr<string> subject_ {};
-      // The running time of the query task. Unit: seconds.
+      // The running time of the queried task. Unit: seconds.
       shared_ptr<string> time_ {};
       // The event type.
       shared_ptr<string> type_ {};
@@ -545,7 +545,7 @@ namespace Models
 
 
   protected:
-    // The event list.
+    // The list of events.
     shared_ptr<vector<DescribeHistoryEventsResponseBody::Items>> items_ {};
     // The page number. Default value: 1.
     shared_ptr<int32_t> pageNumber_ {};
@@ -557,7 +557,7 @@ namespace Models
     // 
     // - **100**
     shared_ptr<int32_t> pageSize_ {};
-    // The request ID.
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
     // The total number of entries.
     shared_ptr<int32_t> totalCount_ {};

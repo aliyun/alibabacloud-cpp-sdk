@@ -48,13 +48,13 @@ namespace Models
 
 
   protected:
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // The status of the session. Valid values:
+    // The session status. Valid values:
     // 
-    // - **1**: Enabled
+    // - **1**: Enabled.
     // 
-    // - **0**: Disabled
+    // - **0**: Disabled.
     shared_ptr<int64_t> status_ {};
   };
 

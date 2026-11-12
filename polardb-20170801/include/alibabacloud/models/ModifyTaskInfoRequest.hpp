@@ -103,7 +103,7 @@ namespace Models
 
 
   protected:
-    // The parameters for the task operation.
+    // The operation parameters for the task.
     shared_ptr<string> actionParams_ {};
     // The ID of the region where the task is located.
     // 
@@ -112,11 +112,11 @@ namespace Models
     shared_ptr<int64_t> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
     shared_ptr<string> securityToken_ {};
-    // The name of the task step to update.
+    // The name of the task step to modify. Usage note: These two parameters are required in actual calls. If they are not provided, the Param.Invalid error is returned.
     shared_ptr<string> stepName_ {};
-    // The name of the API operation associated with the task.
+    // The name of the API operation associated with the task. Usage note: These two parameters are required in actual calls. If they are not provided, the Param.Invalid error is returned. Usage note: Provide a complete list of valid values or instructions on how to obtain them (such as by calling an associated query API), and correct the current invalid example value CreateDBInstance to an actual valid TaskAction value.
     shared_ptr<string> taskAction_ {};
-    // The ID of the task to update.
+    // The ID of the task to modify.
     // 
     // This parameter is required.
     shared_ptr<string> taskId_ {};

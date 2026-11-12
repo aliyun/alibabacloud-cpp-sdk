@@ -66,13 +66,13 @@ namespace Models
 
 
   protected:
-    // The error code returned when the task update fails.
+    // The error code returned when the task modification fails.
     shared_ptr<string> errorCode_ {};
-    // The ID of the task that failed to be updated.
+    // The ID of the task that failed to be modified.
     shared_ptr<string> errorTaskId_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The number of successfully updated tasks.
+    // The number of successfully modified tasks.
     shared_ptr<string> successCount_ {};
   };
 

@@ -84,19 +84,19 @@ namespace Models
 
 
   protected:
-    // The consumer group ID. You can obtain the ID from the ConsumerGroupId parameter returned by the CreateConsumerGroup operation.
+    // The ID of the user group. You can obtain the ID from the ConsumerGroupId parameter returned by CreateConsumerGroup. This parameter is actually required. If it is not provided, the API returns an InvalidParameters.Format (400) error. Although the parameter is named ConsumerGroupName, you must pass the ConsumerGroupId in the cg-xxxx format. You can obtain the ID from the ConsumerGroupId field returned by CreateConsumerGroup or DescribeConsumerGroups.
     shared_ptr<string> consumerGroupName_ {};
-    // The gateway instance ID. You can obtain the ID from the GwClusterId parameter returned by the CreateGateway operation.
+    // The ID of the gateway instance. You can obtain the ID from the GwClusterId parameter returned by CreateGateway.
     // 
     // This parameter is required.
     shared_ptr<string> gwClusterId_ {};
-    // The key type. Default value: ApiKey. Valid values: ApiKey.
+    // The key type. Default value: ApiKey. Currently, only ApiKey is supported.
     shared_ptr<string> keyType_ {};
     // The username.
     // 
     // This parameter is required.
     shared_ptr<string> name_ {};
-    // The nickname.
+    // The nickname of the user.
     shared_ptr<string> nickName_ {};
     // The region ID.
     shared_ptr<string> regionId_ {};

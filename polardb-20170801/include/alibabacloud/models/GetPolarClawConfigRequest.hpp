@@ -48,11 +48,11 @@ namespace Models
 
 
   protected:
-    // The application ID.
+    // The application ID. Usage note: In the Prerequisites section, specify that the ApplicationId can be obtained by calling DescribeApplications (filtered by ApplicationType=polardb_polarclaw), and indicate the retrieval path in the description of the ApplicationId parameter.
     // 
     // This parameter is required.
     shared_ptr<string> applicationId_ {};
-    // The path to the configuration section to retrieve, specified in JSONPath dot notation. If this parameter is empty, the entire configuration is returned.
+    // Filters configuration sections by a JSONPath dot-notation path. If this parameter is left empty, all configurations are returned.
     shared_ptr<string> configPath_ {};
   };
 

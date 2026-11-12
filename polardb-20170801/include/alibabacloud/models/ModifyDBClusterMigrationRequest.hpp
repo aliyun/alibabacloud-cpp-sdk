@@ -121,19 +121,16 @@ namespace Models
 
 
   protected:
-    // The specific endpoints to be switched. The value is a JSON string that specifies the endpoints to be swapped.
-    // 
-    // > This parameter is valid only when SwapConnectionString is set to true.
+    // The specific endpoints to be switched. The value is a JSON string that contains the endpoints to be swapped in pairs.
+    // > This parameter takes effect only when SwapConnectionString is set to true.
     shared_ptr<string> connectionStrings_ {};
     // The ID of the PolarDB cluster.
     // 
     // This parameter is required.
     shared_ptr<string> DBClusterId_ {};
     // The ID of the new instance or cluster. Valid values:
-    // 
-    // - Before the switch, enter the PolarDB cluster ID to perform a switch.
-    // 
-    // - After the switch, enter the RDS instance ID to perform a rollback.
+    // * Before the switchover, enter the PolarDB cluster ID to perform the switchover.
+    // * After the switchover, enter the ApsaraDB RDS instance ID to perform a rollback.
     // 
     // This parameter is required.
     shared_ptr<string> newMasterInstanceId_ {};
@@ -142,15 +139,14 @@ namespace Models
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
     shared_ptr<string> securityToken_ {};
-    // The ID of the source RDS instance.
+    // The instance ID of the source ApsaraDB RDS instance.
     // 
     // This parameter is required.
     shared_ptr<string> sourceRDSDBInstanceId_ {};
-    // Specifies whether to switch the endpoint. Valid values:
+    // Specifies whether to switch the endpoints. Valid values:
     // 
-    // - **true**: Switches the endpoint. The application can connect to the database without changing its connection configuration.
-    // 
-    // - **false**: Does not switch the endpoint. The application must be changed to use the new PolarDB endpoint.
+    // - **true**: Switches the endpoints. You do not need to modify the connection configurations of your application.
+    // - **false**: Does not switch the endpoints. You must modify the connection configurations of your application to use the new PolarDB endpoints.
     // 
     // Default value: **false**.
     shared_ptr<string> swapConnectionString_ {};

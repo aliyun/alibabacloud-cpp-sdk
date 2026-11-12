@@ -100,13 +100,13 @@ namespace Models
     shared_ptr<string> applicationId_ {};
     // The response status code.
     shared_ptr<int32_t> code_ {};
-    // The configuration object.
+    // The configuration.
     Darabonba::Json config_ {};
-    // The configuration hash.
+    // The configuration hash, which is used as an optimistic lock for subsequent patch operations.
     shared_ptr<string> hash_ {};
     // The response message.
     shared_ptr<string> message_ {};
-    // The version of OpenClaw.
+    // The OpenClaw version.
     shared_ptr<string> openclawVersion_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

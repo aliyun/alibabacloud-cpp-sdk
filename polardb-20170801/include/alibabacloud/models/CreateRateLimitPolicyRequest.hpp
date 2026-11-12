@@ -96,17 +96,17 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> rateLimitTpm_ {};
-    // The ID of the region.
+    // The region ID.
     shared_ptr<string> regionId_ {};
-    // The ID of the consumer group or consumer.
+    // The ID of the throttling dimension (ConsumerGroup ID or Consumer ID).
     // 
     // This parameter is required.
     shared_ptr<string> scopeRefId_ {};
-    // The rate limiting dimension. Valid values:
+    // The throttling dimension. Valid values:
     // 
-    // - **ConsumerGroup**: Consumer group
+    // - **ConsumerGroup**: user group
     // 
-    // - **Consumer**: Consumer
+    // - **Consumer**: user
     // 
     // This parameter is required.
     shared_ptr<string> scopeType_ {};

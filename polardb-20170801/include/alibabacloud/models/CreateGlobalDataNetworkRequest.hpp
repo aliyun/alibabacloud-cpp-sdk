@@ -121,39 +121,33 @@ namespace Models
 
 
   protected:
-    // The description or remarks for the GDN.
+    // The description or remark of the GDN.
     shared_ptr<string> description_ {};
-    // Destination path
+    // The destination path.
     shared_ptr<string> destinationFileSystemPath_ {};
-    // Target PolarFileSystem (PolarFS) instance
+    // The destination Polarlakebase instance. Note: This parameter is required.
     shared_ptr<string> destinationId_ {};
-    // The region of the destination PolarFS instance.
+    // The region of the destination Polarlakebase instance.
     shared_ptr<string> destinationRegion_ {};
-    // The type of the destination instance. Valid values:
-    // 
-    // - **pfs**: PolarFS High-Performance Edition.
-    // 
-    // - **pcs**: PolarFS Cold Storage Edition.
+    // The destination type. Valid values:
+    //   - **pfs**: Polarlakebase High-performance Edition.
+    //   - **pcs**: Polarlakebase Cold Storage Edition.
     shared_ptr<string> destinationType_ {};
-    // Whether to freeze the source path during transmission. Valid values:
+    // Specifies whether to freeze the source path during data transmission. Valid values:
+    //   - **true**: Freezes the source path.
+    //   - **false**: Does not freeze the source path.
     // 
-    // - **true**: Freeze.
-    // 
-    // - **false**: Do not freeze.
-    // 
-    // > Currently only supports oss source.
+    // > Currently, only OSS sources are supported.
     shared_ptr<string> freezeSourceDuringSync_ {};
     // The source path.
     shared_ptr<string> sourceFileSystemPath_ {};
-    // Source PolarFileSystem (PolarFS) instance.
+    // The source Polarlakebase instance. Note: This parameter is required.
     shared_ptr<string> sourceId_ {};
-    // The region of the source PolarFS instance.
+    // The region of the source Polarlakebase instance.
     shared_ptr<string> sourceRegion_ {};
-    // The type of the source instance. Valid values:
-    // 
-    // - **pfs**: PolarFS High-Performance Edition.
-    // 
-    // - **pcs**: PolarFS Cold Storage Edition.
+    // The source type. Valid values:
+    //   - **pfs**: Polarlakebase High-performance Edition.
+    //   - **pcs**: Polarlakebase Cold Storage Edition.
     shared_ptr<string> sourceType_ {};
   };
 

@@ -57,11 +57,11 @@ namespace Models
 
 
   protected:
-    // The unique identifier of the knowledge base. You can obtain the ID from the response of the CreateKnowledgeBase operation.
+    // The unique identifier of the knowledge base. You can obtain it from the response of the CreateKnowledgeBase operation.
     // 
     // This parameter is required.
     shared_ptr<string> knowledgeBaseId_ {};
-    // The ID of the synchronization link to delete. You can obtain the ID from the response of the CreateKBSyncLink operation.
+    // The ID of the synchronization link to delete. You can obtain it from the response of the CreateKBSyncLink operation.
     // 
     // This parameter is required.
     shared_ptr<string> linkId_ {};

@@ -112,17 +112,17 @@ namespace Models
 
 
   protected:
-    // The type of the model operator.
+    // The model operator type.
     shared_ptr<string> kubeType_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
     // The current page number.
     shared_ptr<int64_t> pageNumber_ {};
-    // The number of entries per page.
+    // The number of items to display on each page.
     shared_ptr<int64_t> pageSize_ {};
     // The region ID.
     shared_ptr<string> regionId_ {};
-    // The instance ID of the associated PolarDB instance.
+    // The ID of the associated PolarDB cluster. This parameter is required. If you do not specify this parameter, the service returns the InvalidDBClusterId.NotFound (404) error.
     shared_ptr<string> relativeDBClusterId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};

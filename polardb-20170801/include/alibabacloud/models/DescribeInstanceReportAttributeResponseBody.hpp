@@ -106,7 +106,7 @@ namespace Models
       shared_ptr<string> riskLevel_ {};
       // The score of the inspection item.
       shared_ptr<int64_t> score_ {};
-      // The name of the inspection skill that generated the result.
+      // The name of the inspection skill that generated the inspection result.
       shared_ptr<string> skillName_ {};
       // The result summary of the inspection item.
       shared_ptr<string> summary_ {};
@@ -181,7 +181,7 @@ namespace Models
 
 
   protected:
-    // Indicates whether the report is the latest one.
+    // Indicates whether the report is the latest report.
     shared_ptr<bool> latest_ {};
     // The detailed description of the inspection report.
     shared_ptr<string> reportDescription_ {};

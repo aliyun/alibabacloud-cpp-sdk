@@ -94,13 +94,13 @@ namespace Models
 
 
   protected:
-    // The instance ID of the PolarFS cold storage instance attached to the dataset management service.
+    // The instance ID of the PolarFS cold storage instance that you attach to the dataset management service. Instructions to invoke: Note: This parameter is actually required. If it is not provided, the API returns InvalidDBClusterId.Malformed (400). Instructions to invoke: Valid ID format description: specifies the accepted prefix families (such as pcs-xxx), separator conventions (hyphen character vs. underscore character), and the corresponding resource types.
     shared_ptr<string> DBClusterId_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
     // The region ID.
     shared_ptr<string> regionId_ {};
-    // The instance ID of the database instance attached to the dataset management service.
+    // The instance ID of the database instance that you attach to the dataset management service.
     shared_ptr<string> relativeDBClusterId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};

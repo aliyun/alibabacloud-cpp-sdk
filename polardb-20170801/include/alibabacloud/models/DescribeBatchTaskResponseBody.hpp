@@ -225,9 +225,9 @@ namespace Models
     shared_ptr<string> applicationType_ {};
     // The batch ID of the scheduled task execution.
     shared_ptr<string> batchId_ {};
-    // Id of the request
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // The status of the task.
+    // The task status.
     shared_ptr<string> status_ {};
     // The list of subtasks.
     shared_ptr<vector<DescribeBatchTaskResponseBody::SubTasks>> subTasks_ {};
@@ -239,9 +239,9 @@ namespace Models
     shared_ptr<string> taskEnd_ {};
     // The description of the model service.
     shared_ptr<string> taskName_ {};
-    // The type of the task.
+    // The task type.
     shared_ptr<string> taskType_ {};
-    // The number of entries in the list.
+    // The total number of entries in the list.
     shared_ptr<int32_t> totalCount_ {};
   };
 

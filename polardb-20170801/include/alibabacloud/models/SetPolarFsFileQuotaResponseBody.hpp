@@ -50,7 +50,7 @@ namespace Models
   protected:
     // The Polarlakebase instance ID.
     shared_ptr<string> polarFsInstanceId_ {};
-    // Id of the request
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

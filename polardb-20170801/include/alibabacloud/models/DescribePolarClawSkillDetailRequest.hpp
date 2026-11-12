@@ -52,7 +52,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> applicationId_ {};
-    // The Skill identifier.
+    // The skill identifier.
     // 
     // This parameter is required.
     shared_ptr<string> slug_ {};

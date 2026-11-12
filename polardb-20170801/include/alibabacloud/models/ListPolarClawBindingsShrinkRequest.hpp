@@ -48,7 +48,7 @@ namespace Models
 
 
   protected:
-    // A list of agent IDs to filter the bindings.
+    // Filters by a list of agent IDs.
     shared_ptr<string> agentListShrink_ {};
     // The application ID.
     // 

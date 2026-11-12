@@ -66,15 +66,13 @@ namespace Models
 
 
   protected:
-    // The database engine. Set the value to polar_3fs.
+    // The engine. Set the value to polar_3fs.
     // 
     // This parameter is required.
     shared_ptr<string> engine_ {};
-    // The instance category. Valid values:
-    // - basic: Basic Edition.
-    // - high_performance: High-performance Edition.
+    // The instance category. Valid values: basic (Basic Edition) and high_performance (High-performance Edition).
     shared_ptr<string> paramGroupCategory_ {};
-    // The PolarFS instance ID.
+    // The PolarFS instance ID. You can call DescribePolarFs to query available PolarFS instances and use the returned PolarFsInstanceId.
     // 
     // This parameter is required.
     shared_ptr<string> polarFsInstanceId_ {};

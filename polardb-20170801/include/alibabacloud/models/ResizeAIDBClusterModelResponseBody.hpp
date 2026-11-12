@@ -107,13 +107,13 @@ namespace Models
     shared_ptr<int64_t> currentCapacity_ {};
     // The ID of the PolarDB AI 3.0 logical instance.
     shared_ptr<string> DBClusterId_ {};
-    // Indicates whether the current request only performs a capacity dry run.
+    // Indicates whether this request performs only a capacity dry run.
     shared_ptr<bool> dryRun_ {};
     // The capacity that can be directly borrowed from the large pool without reshaping. This parameter is returned only when DryRun is set to true.
     shared_ptr<int64_t> poolHitCapacity_ {};
     // The direct hit ratio of the large pool. Valid values: 0 to 1. This parameter is returned only when DryRun is set to true.
     shared_ptr<double> poolHitRatio_ {};
-    // Id of the request
+    // The request ID.
     shared_ptr<string> requestId_ {};
     // The positive difference between the target capacity and the current capacity. This parameter is returned only when DryRun is set to true.
     shared_ptr<int64_t> requiredDelta_ {};

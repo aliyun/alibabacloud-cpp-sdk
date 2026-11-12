@@ -48,9 +48,9 @@ namespace Models
 
 
   protected:
-    // The model API ID.
+    // The ID of the model API.
     shared_ptr<string> modelApiId_ {};
-    // Id of the request
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

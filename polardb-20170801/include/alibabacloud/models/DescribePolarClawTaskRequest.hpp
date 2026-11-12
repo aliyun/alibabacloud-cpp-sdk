@@ -52,7 +52,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> applicationId_ {};
-    // The asynchronous task ID.
+    // The ID of the asynchronous task.
     // 
     // This parameter is required.
     shared_ptr<string> taskId_ {};

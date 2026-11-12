@@ -75,7 +75,7 @@ namespace Models
     // This parameter is required.
     shared_ptr<string> pfsInstanceId_ {};
     // The region ID.
-    // >You can call the [DescribeRegions](https://help.aliyun.com/document_detail/98041.html) operation to query region IDs.
+    // >You can call the [DescribeRegions](https://help.aliyun.com/document_detail/98041.html) operation to view region IDs.
     shared_ptr<string> regionId_ {};
   };
 

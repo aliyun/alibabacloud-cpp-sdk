@@ -168,17 +168,17 @@ namespace Models
 
 
       protected:
-        // The value rule of the template, which can be a numeric range, an enumeration, or a regular expression. This rule must be interpreted in combination with the DataType field.
+        // The value validation rule of the template. The rule can be a numeric range, an enumeration, or a regular expression, and must be interpreted in combination with the data type.
         shared_ptr<string> checkingCode_ {};
         // The data type of the parameter value. Valid values: INT, DOUBLE, B/BYTE, MEMORY, PERCENT, TIME, BOOLEAN, and STRING. The MEMORY type supports percentages or capacities with units.
         shared_ptr<string> dataType_ {};
-        // The default value of the current active template, which is independent of the value modified by the user.
+        // The default value of the current active template. This value is independent of the value modified by the user.
         shared_ptr<string> defaultParameterValue_ {};
-        // The divisibility factor. If the value is not zero, the numeric value parsed based on the templatetype must be a multiple of this factor.
+        // The divisibility factor. If the value is not zero, the numeric value parsed based on the template type must be a multiple of this factor.
         shared_ptr<string> factor_ {};
-        // Specifies whether a restart is required for the modification to take effect. The value is true for static parameters and false for dynamic parameters.
+        // Specifies whether a restart is required for the parameter to take effect. The value is true for static parameters and false for dynamic parameters.
         shared_ptr<bool> forceRestart_ {};
-        // Specifies whether the user is allowed to modify the parameter.
+        // Specifies whether the parameter is modifiable.
         shared_ptr<bool> isModifiable_ {};
         // The parameter description.
         shared_ptr<string> parameterDescription_ {};
@@ -247,13 +247,13 @@ namespace Models
   protected:
     // The ID of the PolarDB primary cluster.
     shared_ptr<string> DBClusterId_ {};
-    // The Search engine version, which is not the MySQL version of the primary cluster.
+    // The Search engine version. This is not the MySQL version of the primary cluster.
     shared_ptr<string> DBVersion_ {};
     // The type of the Search engine.
     shared_ptr<string> engine_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The visible parameters and their modification statuses.
+    // The visible parameters and their modification status.
     shared_ptr<DescribeSearchParametersResponseBody::RunningParameters> runningParameters_ {};
   };
 

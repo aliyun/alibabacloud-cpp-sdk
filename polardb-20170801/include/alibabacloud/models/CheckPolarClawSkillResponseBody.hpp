@@ -86,7 +86,7 @@ namespace Models
     shared_ptr<string> OSSRegionId_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request is successful. Valid values:
+    // The request result. Valid values:
     // 
     // - **true**: The request is successful.
     // 

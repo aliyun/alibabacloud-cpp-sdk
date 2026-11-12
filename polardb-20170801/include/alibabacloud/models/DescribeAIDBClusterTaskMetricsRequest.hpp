@@ -103,41 +103,35 @@ namespace Models
 
 
   protected:
-    // The cluster ID.
+    // The cluster ID. Usage note: This parameter accepts only the ID of a training AIDB cluster created by calling CreateAIDBClusterTask. MaaS clusters with RunType set to maas are not supported.
     // 
     // This parameter is required.
     shared_ptr<string> DBClusterId_ {};
-    // The end time of the query. The time is in the `yyyy-MM-ddTHH:mm:ssZ` format in UTC.
+    // The end time of the query. Format: `yyyy-MM-ddTHH:mm:ssZ` (UTC time).
     // 
     // This parameter is required.
     shared_ptr<string> endTime_ {};
     // The metric type. Valid values:
-    // 
     // - `all`
-    // 
     // - `train`
-    // 
     // - `eval`
     // 
-    // > The default value is *all*.
+    // > Default value: *all*.
     shared_ptr<string> metricType_ {};
-    // The page number of the query result.
+    // The page number of the query results.
     shared_ptr<int64_t> pageNumber_ {};
-    // The number of records to return on each page. Valid values:
+    // The number of entries per page. Valid values:
+    // * **30**
+    // * **50**
+    // * **100**
     // 
-    // - **30**
-    // 
-    // - **50**
-    // 
-    // - **100**
-    // 
-    // The default value is 100.
+    // Default value: 100.
     shared_ptr<int64_t> pageSize_ {};
-    // The ID of the associated PolarDB instance.
+    // The instance ID of the associated PolarDB.
     shared_ptr<string> relativeDBClusterId_ {};
-    // Specifies whether to sort the results in reverse order. The default value is *false*.
+    // Specifies whether to sort the results in descending order. Default value: *false*.
     shared_ptr<bool> reverse_ {};
-    // The start time of the query. The time is in the `yyyy-MM-ddTHH:mm:ssZ` format in UTC.
+    // The start time of the query. Format: `yyyy-MM-ddTHH:mm:ssZ` (UTC time).
     // 
     // This parameter is required.
     shared_ptr<string> startTime_ {};

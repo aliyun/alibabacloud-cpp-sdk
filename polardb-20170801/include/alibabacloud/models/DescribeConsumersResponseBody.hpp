@@ -183,11 +183,11 @@ namespace Models
       shared_ptr<string> allowedModels_ {};
       // The complete API key. This value is returned only in the current response.
       shared_ptr<string> apiKey_ {};
-      // The ID of the consumer group.
+      // The consumer group ID.
       shared_ptr<string> consumerGroupId_ {};
-      // The name of the consumer group.
+      // The consumer group name.
       shared_ptr<string> consumerGroupName_ {};
-      // The ID of the consumer.
+      // The consumer ID.
       shared_ptr<string> consumerId_ {};
       // The creation time.
       shared_ptr<string> gmtCreated_ {};
@@ -199,9 +199,9 @@ namespace Models
       shared_ptr<int64_t> lifetimeTokenCount_ {};
       // The usage for the current month.
       shared_ptr<int64_t> mtdCostCount_ {};
-      // The cumulative total cost.
+      // The cumulative cost.
       shared_ptr<int64_t> mtdTokenCount_ {};
-      // The name of the consumer.
+      // The consumer name.
       shared_ptr<string> name_ {};
       // The nickname of the consumer.
       shared_ptr<string> nickName_ {};
@@ -254,7 +254,7 @@ namespace Models
 
 
   protected:
-    // The list of consumers.
+    // The consumer list.
     shared_ptr<vector<DescribeConsumersResponseBody::Items>> items_ {};
     // The page number.
     shared_ptr<int32_t> pageNumber_ {};
@@ -262,7 +262,7 @@ namespace Models
     shared_ptr<int32_t> pageRecordCount_ {};
     // The number of entries per page. Valid values: 30, 50, and 100. Default value: 30.
     shared_ptr<int32_t> pageSize_ {};
-    // Id of the request
+    // The request ID.
     shared_ptr<string> requestId_ {};
     // The total number of entries.
     shared_ptr<int32_t> totalRecordCount_ {};

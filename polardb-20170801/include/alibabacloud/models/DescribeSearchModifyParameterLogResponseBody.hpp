@@ -101,17 +101,15 @@ namespace Models
 
 
     protected:
-      // The time when the parameter was modified. The time is displayed in the yyyy-MM-ddTHH:mm:ssZ format in UTC.
+      // The time when the parameter was modified. Specify the time in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
       shared_ptr<string> modifyTime_ {};
-      // The new value of the parameter.
+      // The parameter value after the modification.
       shared_ptr<string> newParameterValue_ {};
-      // The original value of the parameter.
+      // The parameter value before the modification.
       shared_ptr<string> oldParameterValue_ {};
       // The name of the parameter.
       shared_ptr<string> parameterName_ {};
-      // The modification status. Valid values:
-      // - Syncing: The modification has not taken effect.
-      // - Applied: The modification has taken effect.
+      // The modification status. A value of Syncing indicates that the modification is not in effect. A value of Applied indicates that the modification is in effect.
       shared_ptr<string> status_ {};
     };
 
@@ -148,11 +146,11 @@ namespace Models
 
 
   protected:
-    // The type of the Search engine.
+    // The type of the search engine.
     shared_ptr<string> engine_ {};
-    // The database engine version of the Search DPI engine. This is not the MySQL version of the primary cluster.
+    // The database engine version of the Search DPI engine, which is not the MySQL version of the primary cluster.
     shared_ptr<string> engineVersion_ {};
-    // The parameter modification history. The records are returned in descending order of record IDs.
+    // The parameter modification history, returned in descending order of record ID.
     shared_ptr<vector<DescribeSearchModifyParameterLogResponseBody::Items>> items_ {};
     // The ID of the request.
     shared_ptr<string> requestId_ {};

@@ -140,7 +140,7 @@ namespace Models
     protected:
       // The start time of the task. Specify the time in the `YYYY-MM-DDThh:mm:ssZ` format. The time must be in UTC.
       shared_ptr<int64_t> beginTime_ {};
-      // The end time of the query. The end time must be later than the start time. Specify the time in the `YYYY-MM-DDThh:mmZ` format. The time must be in UTC.
+      // The end time. The end time must be later than the start time. Specify the time in the `YYYY-MM-DDThh:mmZ` format. The time must be in UTC.
       shared_ptr<int64_t> endTime_ {};
     };
 
@@ -410,17 +410,14 @@ namespace Models
     // Specifies whether the cluster is managed by an ACK cluster.
     shared_ptr<string> ackAdmin_ {};
     // Specifies whether to enable auto-renewal. Valid values:
-    // 
-    // - **true**: enables auto-renewal.
-    // - **false**: disables auto-renewal.
-    // 
+    // - **true**: enables auto-renewal
+    // - **false**: disables auto-renewal
     // Default value: **false**.
-    // 
     // > This parameter takes effect only when the **PayType** parameter is set to **Prepaid**.
     shared_ptr<string> autoRenew_ {};
-    // Specifies whether to automatically use coupons. Valid values:
-    // * true (default): uses coupons.
-    // * false: does not use coupons.
+    // Specifies whether to automatically apply coupons. Valid values:
+    // * **true** (default): applies coupons
+    // * **false**: does not apply coupons
     shared_ptr<bool> autoUseCoupon_ {};
     // The initial model capacity of the instance. The value must be a positive integer. A capacity unit of 1000 is equivalent to one L20N card.
     shared_ptr<int64_t> capacity_ {};
@@ -428,29 +425,29 @@ namespace Models
     shared_ptr<string> clientToken_ {};
     // Specifies whether to create a public endpoint.
     shared_ptr<string> createPublicEndpoint_ {};
-    // The description of the cluster. Fuzzy match is supported.
+    // The cluster description. Fuzzy match is supported.
     shared_ptr<string> DBClusterDescription_ {};
     // The PolarDB instance ID on which the application depends.
     shared_ptr<string> DBClusterId_ {};
-    // The node specifications.
+    // The node specifications. Call DescribeAvailableModels to query the specifications supported by the target ModelName, and select a DBNodeClass that is compatible with the model, such as polar.pg.g4.6xlarge.gu4.
     shared_ptr<string> DBNodeClass_ {};
     // The extension.
     shared_ptr<string> extension_ {};
     // The inference engine.
     shared_ptr<string> inferenceEngine_ {};
-    // The ID of the ACK cluster.
+    // The ACK cluster ID.
     shared_ptr<string> kubeClusterId_ {};
     // The Kubernetes configuration.
     shared_ptr<string> kubeConfig_ {};
-    // The management mode of the Kubernetes cluster.
+    // The Kubernetes cluster management mode.
     shared_ptr<string> kubeManagement_ {};
-    // aideploy
+    // The deployment type.
     shared_ptr<string> kubeType_ {};
     // The Kubernetes configuration.
     shared_ptr<string> kubernetesConfig_ {};
     // The management mode.
     shared_ptr<string> managementMode_ {};
-    // The name of the model.
+    // The model name.
     shared_ptr<string> modelName_ {};
     // The model operator space.
     shared_ptr<string> modelSpace_ {};
@@ -458,17 +455,15 @@ namespace Models
     shared_ptr<int64_t> ownerId_ {};
     // The password.
     shared_ptr<string> password_ {};
-    // The billing method. Valid values: 
-    // 
-    // - **Postpaid**: pay-as-you-go.
-    // - **Prepaid**: subscription.
+    // The billing method. Valid values:
+    // - **Postpaid**: pay-as-you-go
+    // - **Prepaid**: subscription
     // 
     // This parameter is required.
     shared_ptr<string> payType_ {};
-    // This parameter is required when the **PayType** parameter is set to **Prepaid**. Specifies the billing cycle of the subscription cluster. Valid values: 
-    // 
-    // - **Year**: yearly subscription.
-    // - **Month**: monthly subscription.
+    // If the billing method is **Prepaid**, this parameter is required. Specifies the billing cycle of the subscription cluster. Valid values:
+    // - **Year**: yearly. The unit is year when you select the subscription billing method.
+    // - **Month**: monthly. The unit is month when you select the subscription billing method.
     shared_ptr<string> period_ {};
     // The coupon code. If you do not specify this parameter, the default coupon is used.
     shared_ptr<string> promotionCode_ {};
@@ -478,7 +473,7 @@ namespace Models
     shared_ptr<string> regionId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
-    // The ID of the security group.
+    // The security group ID. This parameter is actually required. If it is not provided, the service returns MethodArgumentNotValidException (400). You can call the ECS DescribeSecurityGroups operation to obtain the security group ID.
     shared_ptr<string> securityGroupId_ {};
     // The storage space.
     shared_ptr<int32_t> storageSpace_ {};
@@ -486,15 +481,15 @@ namespace Models
     shared_ptr<string> storageType_ {};
     // The pay-as-you-go time ranges.
     shared_ptr<vector<CreateAIDBClusterRequest::TimeSlices>> timeSlices_ {};
-    // The subscription duration. This parameter is required when the **PayType** parameter is set to **Prepaid**.
-    // - If the **Period** parameter is set to **Month**, the value of **UsedTime** must be an integer in the range of `[1-9]`.
-    // - If the **Period** parameter is set to **Year**, the value of **UsedTime** must be an integer in the range of `[1-3]`.
+    // The subscription duration. This parameter is required when the billing method is **Prepaid**.
+    // - If **Period** is set to **Month**, the value of **UsedTime** is an integer ranging from `1` to `9`.
+    // - If **Period** is set to **Year**, the value of **UsedTime** is an integer ranging from `1` to `3`.
     shared_ptr<string> usedTime_ {};
-    // The ID of the VPC.
+    // The VPC ID.
     // 
     // This parameter is required.
     shared_ptr<string> VPCId_ {};
-    // The ID of the vSwitch.
+    // The vSwitch ID.
     // 
     // This parameter is required.
     shared_ptr<string> vSwitchId_ {};

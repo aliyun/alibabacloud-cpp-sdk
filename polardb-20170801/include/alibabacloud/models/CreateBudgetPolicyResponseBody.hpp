@@ -61,7 +61,7 @@ namespace Models
     shared_ptr<string> budgetPolicyId_ {};
     // The gateway instance ID.
     shared_ptr<string> gwClusterId_ {};
-    // Id of the request
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

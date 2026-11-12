@@ -57,11 +57,11 @@ namespace Models
 
 
   protected:
-    // The unique ID of the newly created synchronization channel.
+    // The ID of the synchronization link.
     shared_ptr<string> channelId_ {};
-    // The unique ID of the newly created GDN.
+    // The ID of the global database network (GDN).
     shared_ptr<string> networkId_ {};
-    // The unique request ID.
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

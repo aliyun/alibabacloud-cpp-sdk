@@ -121,22 +121,22 @@ namespace Models
 
 
   protected:
-    // The ID of the cluster that will become the primary cluster in the GDN.
-    // 
-    // You can call the [DescribeGlobalDatabaseNetwork](https://help.aliyun.com/document_detail/264580.html) operation to query the ID of the cluster in the GDN.
+    // The ID of the cluster to be switched to the primary cluster in the GDN.
+    // You can call the [DescribeGlobalDatabaseNetwork](https://help.aliyun.com/document_detail/264580.html) operation to view the cluster IDs in the GDN.
     shared_ptr<string> DBClusterId_ {};
-    // Specifies whether to forcibly switch over the primary and secondary clusters in the GDN. Valid values:
+    // Specifies whether to forcibly switch the primary and secondary clusters in the GDN. Valid values:
     // 
-    // *   **true**
-    // *   **false**
+    // - **true**: Forcibly switches the primary and secondary clusters in the GDN.
+    // 
+    // - **false**: Does not forcibly switch the primary and secondary clusters in the GDN.
     shared_ptr<bool> forced_ {};
-    // The ID of the GDN.
+    // The ID of the global database network (GDN).
     // 
     // This parameter is required.
     shared_ptr<string> GDNId_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
-    // The region ID of the cluster.
+    // The region ID.
     shared_ptr<string> regionId_ {};
     // The ID of the resource group.
     shared_ptr<string> resourceGroupId_ {};

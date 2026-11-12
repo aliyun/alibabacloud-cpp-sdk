@@ -158,11 +158,11 @@ namespace Models
 
 
     protected:
-      // The number of all undeleted branches in the project, including hibernated branches and branches not bound to compute nodes. This parameter is empty if not provided by earlier backend versions, which does not indicate zero branches.
+      // The number of undeleted branches.
       shared_ptr<int64_t> branchCount_ {};
-      // The creation time.
+      // The time when the project was created.
       // 
-      // The time follows the ISO 8601 standard in the UTC time zone (format: YYYY-MM-DDTHH:mm:ssZ).
+      // The time is in ISO 8601 format in the UTC time zone (YYYY-MM-DDTHH:mm:ssZ).
       shared_ptr<string> createTime_ {};
       // The ID of the associated AgenticDB cluster.
       shared_ptr<string> DBClusterId_ {};
@@ -170,11 +170,11 @@ namespace Models
       shared_ptr<string> defaultBranchId_ {};
       // The name of the default branch.
       shared_ptr<string> defaultBranchName_ {};
-      // The description.
+      // The description of the project.
       shared_ptr<string> description_ {};
-      // The retention period of recent records for the project. This parameter may be empty for earlier projects. To query the current effective value, call DescribeAgenticDBProjectHistoryRetention.
+      // The retention period of historical data, in seconds.
       shared_ptr<int64_t> historyRetentionSeconds_ {};
-      // Project ID
+      // The project ID.
       shared_ptr<string> projectId_ {};
       // The name of the project.
       shared_ptr<string> projectName_ {};
@@ -228,11 +228,11 @@ namespace Models
     shared_ptr<vector<DescribeAgenticDBProjectsResponseBody::Items>> items_ {};
     // The current page number.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries per page.
+    // The number of entries returned per page.
     shared_ptr<int32_t> pageSize_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The total number of entries.
+    // The total number of projects.
     shared_ptr<int32_t> totalCount_ {};
   };
 

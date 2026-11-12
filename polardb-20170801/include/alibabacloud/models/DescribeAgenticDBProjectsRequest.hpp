@@ -94,17 +94,17 @@ namespace Models
 
 
   protected:
-    // The ID of the AgenticDB cluster.
+    // The ID of the AgenticDB cluster. The ID starts with pagc-. You can create the cluster by calling CreateDBCluster and setting AgenticDbType to dedicated.
     // 
     // This parameter is required.
     shared_ptr<string> DBClusterId_ {};
     // The page number. Default value: 1.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries per page. Default value: 30. Maximum value: 100.
+    // The number of entries to return on each page. Default value: 30. Maximum value: 100.
     shared_ptr<int32_t> pageSize_ {};
-    // The project ID for exact match.
+    // The project ID for exact matching.
     shared_ptr<string> projectId_ {};
-    // The project name for fuzzy match.
+    // The project name for fuzzy matching.
     shared_ptr<string> projectName_ {};
     // The region ID.
     // 

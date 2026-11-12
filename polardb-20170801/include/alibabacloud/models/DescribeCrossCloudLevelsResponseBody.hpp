@@ -106,7 +106,7 @@ namespace Models
 
 
   protected:
-    // The list of specifications supported for cross-cloud scenarios.
+    // The list of specifications supported for cross-cloud.
     shared_ptr<vector<DescribeCrossCloudLevelsResponseBody::CrossCloudLevelList>> crossCloudLevelList_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

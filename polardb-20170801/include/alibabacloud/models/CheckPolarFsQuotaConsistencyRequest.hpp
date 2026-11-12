@@ -66,21 +66,19 @@ namespace Models
 
 
   protected:
-    // Specifies whether to repair an inconsistent quota. Valid values:
+    // Specifies whether to repair inconsistent quotas. Valid values:
     // 
-    // - false
-    // 
-    // - true
+    // * false
+    // * true
     shared_ptr<bool> enableRepair_ {};
     // Specifies whether to calculate the total usage of the directory in strict mode. Valid values:
     // 
-    // - false
-    // 
-    // - true
+    // * false
+    // * true
     shared_ptr<bool> enableStrictCalculate_ {};
-    // The directory path.
+    // The directory.
     shared_ptr<string> path_ {};
-    // The ID of the PolarFS instance.
+    // The PolarFS instance ID.
     // 
     // This parameter is required.
     shared_ptr<string> polarFsInstanceId_ {};

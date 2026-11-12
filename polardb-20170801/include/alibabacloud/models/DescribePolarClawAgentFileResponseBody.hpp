@@ -123,9 +123,9 @@ namespace Models
       shared_ptr<string> name_ {};
       // The file path.
       shared_ptr<string> path_ {};
-      // The file size, in bytes.
+      // The file size in bytes.
       shared_ptr<int64_t> size_ {};
-      // The last updated UNIX timestamp, in milliseconds.
+      // The last updated timestamp in milliseconds.
       shared_ptr<int64_t> updatedAtMs_ {};
     };
 
@@ -184,7 +184,7 @@ namespace Models
 
 
   protected:
-    // Agent ID
+    // The PolarClaw agent ID.
     shared_ptr<string> agentId_ {};
     // The application ID.
     shared_ptr<string> applicationId_ {};
@@ -194,7 +194,7 @@ namespace Models
     shared_ptr<DescribePolarClawAgentFileResponseBody::File> file_ {};
     // The response message.
     shared_ptr<string> message_ {};
-    // Id of the request
+    // The request ID.
     shared_ptr<string> requestId_ {};
     // The working directory path.
     shared_ptr<string> workspace_ {};

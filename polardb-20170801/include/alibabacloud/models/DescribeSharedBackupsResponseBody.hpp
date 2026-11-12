@@ -223,37 +223,31 @@ namespace Models
 
 
     protected:
-      // The end time of the backup, in UTC.
+      // The end time of the backup. The time is displayed in UTC.
       shared_ptr<string> backupEndTime_ {};
       // The backup set ID.
       shared_ptr<string> backupId_ {};
-      // The backup method. Only snapshot backup is supported. The value is fixed to **Snapshot**.
+      // The data backup method. Only snapshot backups are supported. The value is fixed as **Snapshot**.
       shared_ptr<string> backupMethod_ {};
-      // The backup mode. Valid values:
-      // 
-      // - **Automated**: automated backup
-      // 
-      // - **Manual**: manual backup
+      // The backup mode. Valid values: 
+      // * **Automated**: automatic backup
+      // * **Manual**: manual backup
       shared_ptr<string> backupMode_ {};
-      // The size of the backup set, in bytes.
+      // The size of the backup file. Unit: bytes.
       shared_ptr<string> backupSetSize_ {};
-      // The start time of the backup, in UTC.
+      // The start time of the backup. The time is displayed in UTC.
       shared_ptr<string> backupStartTime_ {};
       // The backup status. Valid values:
-      // 
-      // - **Success**: The backup is complete.
-      // 
-      // - **Failed**: The backup failed.
+      // * **Success**: The backup is completed.
+      // * **Failed**: The backup failed.
       shared_ptr<string> backupStatus_ {};
-      // The backup type. Only full backups are supported. The value is fixed to **FullBackup**.
+      // The backup type. Only full backups are supported. The value is fixed as **FullBackup**.
       shared_ptr<string> backupType_ {};
-      // The backup level. Valid values:
-      // 
-      // - **Level-1**: Level-1 backup.
-      // 
-      // - **Level-2**: Level-2 backup.
+      // The backup set level. Valid values:
+      // * **Level-1**: level-1 backup
+      // * **Level-2**: level-2 backup
       shared_ptr<string> backupsLevel_ {};
-      // The UNIX timestamp of the consistent snapshot, in seconds.
+      // The point in time of the consistent snapshot. The value is a UNIX timestamp. Unit: seconds.
       shared_ptr<string> consistentTime_ {};
       // The cluster ID.
       shared_ptr<string> DBClusterId_ {};
@@ -262,18 +256,16 @@ namespace Models
       // The database engine version.
       shared_ptr<string> DBVersion_ {};
       // The billing method. Valid values:
-      // 
-      // - **Postpaid**: pay-as-you-go.
-      // 
-      // - **Prepaid**: prepaid (subscription)
+      // * **Postpaid**: pay-as-you-go
+      // * **Prepaid**: subscription
       shared_ptr<string> payType_ {};
       // The region ID.
       shared_ptr<string> regionId_ {};
-      // The Serverless type. A value of **AgileServerless** indicates a Serverless cluster, while an empty value indicates a standard cluster.
+      // The Serverless type. A value of **AgileServerless** indicates that the current cluster is a Serverless cluster. An empty value indicates that the current cluster is one of the common clusters.
       shared_ptr<string> serverlessType_ {};
       // The share type.
       shared_ptr<string> shareType_ {};
-      // The UID of the account that shared the backup set.
+      // The UID of the sharer.
       shared_ptr<string> sharerUID_ {};
     };
 
@@ -317,7 +309,7 @@ namespace Models
 
 
   protected:
-    // A list of shared backup sets.
+    // The list of shared backup sets.
     shared_ptr<vector<DescribeSharedBackupsResponseBody::Items>> items_ {};
     // The page number.
     shared_ptr<string> pageNumber_ {};
@@ -325,7 +317,7 @@ namespace Models
     shared_ptr<string> pageRecordCount_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The total record count.
+    // The total number of entries.
     shared_ptr<string> totalRecordCount_ {};
   };
 

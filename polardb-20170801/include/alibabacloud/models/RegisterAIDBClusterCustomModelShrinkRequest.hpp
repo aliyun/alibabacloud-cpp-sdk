@@ -149,7 +149,7 @@ namespace Models
 
 
   protected:
-    // The startup environment variables of the container. The variable name cannot be empty or contain whitespace, and the variable value can be an empty string.
+    // The startup environment variables of the container. Variable names cannot be empty or contain whitespace. Variable values can be empty strings.
     shared_ptr<string> containerEnvShrink_ {};
     // The name of the OSS bucket.
     // 
@@ -163,9 +163,9 @@ namespace Models
     shared_ptr<string> DBInstanceClass_ {};
     // The direct startup command for the model container.
     shared_ptr<string> directCommand_ {};
-    // The display name in the candidate list and the initial invocation name for clients.
+    // The display name in the candidate list and the initial client invocation name.
     shared_ptr<string> displayModelName_ {};
-    // The full reference of the customer-owned inference image, in the format of registry/repository:tag.
+    // The full reference of the custom inference image, in the format of registry/repository:tag.
     shared_ptr<string> imageName_ {};
     // The inference engine. This parameter is required when configuring deployment parameters. Valid values: vllm and sglang.
     shared_ptr<string> inferenceEngine_ {};
@@ -173,15 +173,15 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> modelName_ {};
-    // The startup parameters of the model. The parameter key must start with --.
+    // The startup parameters of the model. Parameter keys must start with --.
     shared_ptr<string> modelParamsShrink_ {};
     // The region ID.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
-    // The password or temporary token for the customer\\"s image repository. This parameter is required when ImageName is specified.
+    // The password or temporary token for the image repository. This parameter is required when ImageName is specified.
     shared_ptr<string> registryPassword_ {};
-    // The username for the customer\\"s image repository. This parameter is required when ImageName is specified.
+    // The username for the image repository. This parameter is required when ImageName is specified.
     shared_ptr<string> registryUsername_ {};
   };
 

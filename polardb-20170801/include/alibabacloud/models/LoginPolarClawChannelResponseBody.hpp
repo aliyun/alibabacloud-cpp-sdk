@@ -100,13 +100,13 @@ namespace Models
     shared_ptr<int32_t> code_ {};
     // The response message.
     shared_ptr<string> message_ {};
-    // The name of the operation.
+    // The operation name.
     shared_ptr<string> operation_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The state of the asynchronous task.
+    // The task status.
     shared_ptr<string> state_ {};
-    // The ID of the asynchronous task.
+    // The asynchronous task ID.
     shared_ptr<string> taskId_ {};
   };
 

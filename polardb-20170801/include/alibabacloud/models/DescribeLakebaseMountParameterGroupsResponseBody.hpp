@@ -127,9 +127,7 @@ namespace Models
     protected:
       // The creation time in UTC.
       shared_ptr<string> createTime_ {};
-      // Indicates whether the parameter template is applied. Valid values:
-      // - 0: No.
-      // - 1: Yes.
+      // Indicates whether the parameter template is applied. Valid values: 0 (no) and 1 (yes).
       shared_ptr<string> isApply_ {};
       // The modification time in UTC.
       shared_ptr<string> modifyTime_ {};
@@ -137,13 +135,11 @@ namespace Models
       shared_ptr<int32_t> parameterCounts_ {};
       // The description of the parameter template.
       shared_ptr<string> parameterGroupDesc_ {};
-      // The ID of the parameter template.
+      // The parameter template ID.
       shared_ptr<string> parameterGroupId_ {};
       // The name of the parameter template.
       shared_ptr<string> parameterGroupName_ {};
-      // The templatetype. Valid values:
-      // - 0: System.
-      // - 1: User.
+      // The templatetype. Valid values: 0 (system) and 1 (user).
       shared_ptr<string> parameterGroupType_ {};
     };
 

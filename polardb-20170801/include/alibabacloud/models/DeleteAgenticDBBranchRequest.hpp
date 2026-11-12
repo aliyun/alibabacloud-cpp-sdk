@@ -75,15 +75,15 @@ namespace Models
 
 
   protected:
-    // The branch ID.
+    // The branch ID. You can obtain this ID by calling CreateAgenticDBBranch.
     // 
     // This parameter is required.
     shared_ptr<string> branchId_ {};
-    // The AgenticDB cluster ID.
+    // The AgenticDB cluster ID. You can obtain this ID by calling CreateDBCluster and setting AgenticDbType to dedicated. The ID starts with pagc-.
     // 
     // This parameter is required.
     shared_ptr<string> DBClusterId_ {};
-    // The project ID.
+    // The project ID. You can obtain this ID by calling CreateAgenticDBProject.
     // 
     // This parameter is required.
     shared_ptr<string> projectId_ {};
@@ -91,7 +91,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
-    // The tenant ID.
+    // The tenant ID. You can obtain this ID by calling CreateAgenticDBTenant or CreateAgenticDBProject.
     // 
     // This parameter is required.
     shared_ptr<string> tenantId_ {};

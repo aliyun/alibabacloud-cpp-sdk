@@ -84,17 +84,17 @@ namespace Models
 
 
   protected:
-    // The application ID.
+    // The ID of the application.
     // 
     // This parameter is required.
     shared_ptr<string> applicationId_ {};
-    // The application type, such as polarclaw.
+    // The application type, such as polarclaw. This parameter is required. If it is not provided, the service returns InvalidApplicationType.Malformed. Valid values: polarclaw, supabase, and polarclawsaas. Note: The ApplicationType field in the DescribeApplications response contains the polardb_ prefix (such as polardb_polarclaw). When you call this operation, remove the prefix and use the short format.
     shared_ptr<string> applicationType_ {};
     // The days of the week when automatic backups are performed. Separate multiple values with commas. Valid values: Monday, Tuesday, Wednesday, Thursday, Friday, Saturday, and Sunday.
     shared_ptr<string> preferredBackupPeriod_ {};
-    // The retention period of level-1 backups, in days.
+    // The retention period of level-1 backups. Unit: days.
     shared_ptr<string> preferredBackupRetentionPeriod_ {};
-    // The time window when automatic backups are performed. The format is HH:mmZ-HH:mmZ in UTC. The start time and end time must be on the hour and exactly one hour apart.
+    // The time window when automatic backups are performed. Specify the time in the HH:mmZ-HH:mmZ format in UTC. The start time and end time must be on the hour and exactly one hour apart.
     shared_ptr<string> preferredBackupTime_ {};
     // The region ID of the application.
     shared_ptr<string> regionId_ {};

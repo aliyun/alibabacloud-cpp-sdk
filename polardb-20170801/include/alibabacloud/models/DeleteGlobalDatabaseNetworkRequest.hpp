@@ -94,7 +94,7 @@ namespace Models
 
 
   protected:
-    // The ID of the GDN.
+    // The ID of the global database network (GDN).
     // 
     // This parameter is required.
     shared_ptr<string> GDNId_ {};

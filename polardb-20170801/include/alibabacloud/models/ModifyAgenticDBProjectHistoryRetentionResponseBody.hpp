@@ -75,15 +75,15 @@ namespace Models
 
 
   protected:
-    // DBClusterId
+    // The database cluster ID.
     shared_ptr<string> DBClusterId_ {};
-    // The current effective history retention period for the project. For the actual recoverable range, query the branch recovery window.
+    // The effective retention period for historical data, in seconds.
     shared_ptr<int64_t> historyRetentionSeconds_ {};
-    // ProjectId
+    // The project ID.
     shared_ptr<string> projectId_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // TenantId
+    // The tenant ID.
     shared_ptr<string> tenantId_ {};
   };
 

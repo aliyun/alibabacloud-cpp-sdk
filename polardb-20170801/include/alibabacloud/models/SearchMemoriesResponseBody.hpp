@@ -44,22 +44,34 @@ namespace Models
     public:
       friend void to_json(Darabonba::Json& j, const Results& obj) { 
         DARABONBA_PTR_TO_JSON(CreateTime, createTime_);
+        DARABONBA_PTR_TO_JSON(Event, event_);
         DARABONBA_PTR_TO_JSON(Id, id_);
+        DARABONBA_PTR_TO_JSON(Input, input_);
         DARABONBA_PTR_TO_JSON(Memory, memory_);
         DARABONBA_PTR_TO_JSON(MemoryAgentId, memoryAgentId_);
+        DARABONBA_PTR_TO_JSON(MemoryId, memoryId_);
         DARABONBA_PTR_TO_JSON(MemoryUserId, memoryUserId_);
         DARABONBA_PTR_TO_JSON(Metadata, metadata_);
+        DARABONBA_PTR_TO_JSON(NewMemory, newMemory_);
+        DARABONBA_PTR_TO_JSON(OldMemory, oldMemory_);
         DARABONBA_PTR_TO_JSON(Score, score_);
+        DARABONBA_PTR_TO_JSON(UpdateCount, updateCount_);
         DARABONBA_PTR_TO_JSON(UpdateTime, updateTime_);
       };
       friend void from_json(const Darabonba::Json& j, Results& obj) { 
         DARABONBA_PTR_FROM_JSON(CreateTime, createTime_);
+        DARABONBA_PTR_FROM_JSON(Event, event_);
         DARABONBA_PTR_FROM_JSON(Id, id_);
+        DARABONBA_PTR_FROM_JSON(Input, input_);
         DARABONBA_PTR_FROM_JSON(Memory, memory_);
         DARABONBA_PTR_FROM_JSON(MemoryAgentId, memoryAgentId_);
+        DARABONBA_PTR_FROM_JSON(MemoryId, memoryId_);
         DARABONBA_PTR_FROM_JSON(MemoryUserId, memoryUserId_);
         DARABONBA_PTR_FROM_JSON(Metadata, metadata_);
+        DARABONBA_PTR_FROM_JSON(NewMemory, newMemory_);
+        DARABONBA_PTR_FROM_JSON(OldMemory, oldMemory_);
         DARABONBA_PTR_FROM_JSON(Score, score_);
+        DARABONBA_PTR_FROM_JSON(UpdateCount, updateCount_);
         DARABONBA_PTR_FROM_JSON(UpdateTime, updateTime_);
       };
       Results() = default ;
@@ -74,8 +86,9 @@ namespace Models
       virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
       virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
       virtual bool empty() const override { return this->createTime_ == nullptr
-        && this->id_ == nullptr && this->memory_ == nullptr && this->memoryAgentId_ == nullptr && this->memoryUserId_ == nullptr && this->metadata_ == nullptr
-        && this->score_ == nullptr && this->updateTime_ == nullptr; };
+        && this->event_ == nullptr && this->id_ == nullptr && this->input_ == nullptr && this->memory_ == nullptr && this->memoryAgentId_ == nullptr
+        && this->memoryId_ == nullptr && this->memoryUserId_ == nullptr && this->metadata_ == nullptr && this->newMemory_ == nullptr && this->oldMemory_ == nullptr
+        && this->score_ == nullptr && this->updateCount_ == nullptr && this->updateTime_ == nullptr; };
       // createTime Field Functions 
       bool hasCreateTime() const { return this->createTime_ != nullptr;};
       void deleteCreateTime() { this->createTime_ = nullptr;};
@@ -83,11 +96,27 @@ namespace Models
       inline Results& setCreateTime(string createTime) { DARABONBA_PTR_SET_VALUE(createTime_, createTime) };
 
 
+      // event Field Functions 
+      bool hasEvent() const { return this->event_ != nullptr;};
+      void deleteEvent() { this->event_ = nullptr;};
+      inline string getEvent() const { DARABONBA_PTR_GET_DEFAULT(event_, "") };
+      inline Results& setEvent(string event) { DARABONBA_PTR_SET_VALUE(event_, event) };
+
+
       // id Field Functions 
       bool hasId() const { return this->id_ != nullptr;};
       void deleteId() { this->id_ = nullptr;};
       inline string getId() const { DARABONBA_PTR_GET_DEFAULT(id_, "") };
       inline Results& setId(string id) { DARABONBA_PTR_SET_VALUE(id_, id) };
+
+
+      // input Field Functions 
+      bool hasInput() const { return this->input_ != nullptr;};
+      void deleteInput() { this->input_ = nullptr;};
+      inline const vector<Darabonba::Json> & getInput() const { DARABONBA_PTR_GET_CONST(input_, vector<Darabonba::Json>) };
+      inline vector<Darabonba::Json> getInput() { DARABONBA_PTR_GET(input_, vector<Darabonba::Json>) };
+      inline Results& setInput(const vector<Darabonba::Json> & input) { DARABONBA_PTR_SET_VALUE(input_, input) };
+      inline Results& setInput(vector<Darabonba::Json> && input) { DARABONBA_PTR_SET_RVALUE(input_, input) };
 
 
       // memory Field Functions 
@@ -104,6 +133,13 @@ namespace Models
       inline Results& setMemoryAgentId(string memoryAgentId) { DARABONBA_PTR_SET_VALUE(memoryAgentId_, memoryAgentId) };
 
 
+      // memoryId Field Functions 
+      bool hasMemoryId() const { return this->memoryId_ != nullptr;};
+      void deleteMemoryId() { this->memoryId_ = nullptr;};
+      inline string getMemoryId() const { DARABONBA_PTR_GET_DEFAULT(memoryId_, "") };
+      inline Results& setMemoryId(string memoryId) { DARABONBA_PTR_SET_VALUE(memoryId_, memoryId) };
+
+
       // memoryUserId Field Functions 
       bool hasMemoryUserId() const { return this->memoryUserId_ != nullptr;};
       void deleteMemoryUserId() { this->memoryUserId_ = nullptr;};
@@ -118,11 +154,32 @@ namespace Models
       inline Results& setMetadata(string metadata) { DARABONBA_PTR_SET_VALUE(metadata_, metadata) };
 
 
+      // newMemory Field Functions 
+      bool hasNewMemory() const { return this->newMemory_ != nullptr;};
+      void deleteNewMemory() { this->newMemory_ = nullptr;};
+      inline string getNewMemory() const { DARABONBA_PTR_GET_DEFAULT(newMemory_, "") };
+      inline Results& setNewMemory(string newMemory) { DARABONBA_PTR_SET_VALUE(newMemory_, newMemory) };
+
+
+      // oldMemory Field Functions 
+      bool hasOldMemory() const { return this->oldMemory_ != nullptr;};
+      void deleteOldMemory() { this->oldMemory_ = nullptr;};
+      inline string getOldMemory() const { DARABONBA_PTR_GET_DEFAULT(oldMemory_, "") };
+      inline Results& setOldMemory(string oldMemory) { DARABONBA_PTR_SET_VALUE(oldMemory_, oldMemory) };
+
+
       // score Field Functions 
       bool hasScore() const { return this->score_ != nullptr;};
       void deleteScore() { this->score_ = nullptr;};
       inline string getScore() const { DARABONBA_PTR_GET_DEFAULT(score_, "") };
       inline Results& setScore(string score) { DARABONBA_PTR_SET_VALUE(score_, score) };
+
+
+      // updateCount Field Functions 
+      bool hasUpdateCount() const { return this->updateCount_ != nullptr;};
+      void deleteUpdateCount() { this->updateCount_ = nullptr;};
+      inline int32_t getUpdateCount() const { DARABONBA_PTR_GET_DEFAULT(updateCount_, 0) };
+      inline Results& setUpdateCount(int32_t updateCount) { DARABONBA_PTR_SET_VALUE(updateCount_, updateCount) };
 
 
       // updateTime Field Functions 
@@ -135,23 +192,35 @@ namespace Models
     protected:
       // The creation time.
       // 
-      // The time follows the ISO 8601 standard and is displayed in UTC (format: YYYY-MM-DDTHH:mm:ssZ).
+      // The time is in ISO 8601 format and follows the UTC time zone (format: YYYY-MM-DDTHH:mm:ssZ).
       shared_ptr<string> createTime_ {};
+      // The event information.
+      shared_ptr<string> event_ {};
       // The memory ID.
       shared_ptr<string> id_ {};
+      // The first input item in the result list.
+      shared_ptr<vector<Darabonba::Json>> input_ {};
       // The memory content.
       shared_ptr<string> memory_ {};
       // The agent to which the memory belongs.
       shared_ptr<string> memoryAgentId_ {};
+      // The first memory ID in the result set.
+      shared_ptr<string> memoryId_ {};
       // The user to whom the memory belongs.
       shared_ptr<string> memoryUserId_ {};
       // The metadata.
       shared_ptr<string> metadata_ {};
+      // The first new memory information in the result.
+      shared_ptr<string> newMemory_ {};
+      // The first old memory value in the result.
+      shared_ptr<string> oldMemory_ {};
       // The score.
       shared_ptr<string> score_ {};
+      // The number of update records.
+      shared_ptr<int32_t> updateCount_ {};
       // The update time.
       // 
-      // The time follows the ISO 8601 standard and is displayed in UTC (format: YYYY-MM-DDTHH:mm:ssZ).
+      // The time is in ISO 8601 format and follows the UTC time zone (format: YYYY-MM-DDTHH:mm:ssZ).
       shared_ptr<string> updateTime_ {};
     };
 
@@ -204,13 +273,13 @@ namespace Models
   protected:
     // The current page number.
     shared_ptr<string> page_ {};
-    // The number of entries per page.
+    // The number of records per page.
     shared_ptr<string> pageSize_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
     // The list of results.
     shared_ptr<vector<SearchMemoriesResponseBody::Results>> results_ {};
-    // The total number of entries that meet the conditions.
+    // The total number of records that meet the specified conditions.
     shared_ptr<string> total_ {};
     // The total number of pages.
     shared_ptr<string> totalPages_ {};

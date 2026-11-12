@@ -50,7 +50,7 @@ namespace Models
   protected:
     // The region ID of the instance.
     shared_ptr<string> regionId_ {};
-    // The ID of the instance inspection report to query.
+    // The ID of the instance inspection report.
     shared_ptr<string> reportId_ {};
   };
 

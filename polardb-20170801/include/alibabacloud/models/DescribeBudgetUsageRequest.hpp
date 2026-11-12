@@ -66,13 +66,13 @@ namespace Models
 
 
   protected:
-    // The budget dimension reference ID.
+    // The reference ID of the budget dimension. If BudgetDimensionType is set to Global, set this parameter to Global. If BudgetDimensionType is set to Consumer, set this parameter to the consumer ID returned by DescribeBudgetPolicies, such as consumer-xxx. If BudgetDimensionType is set to ConsumerGroup, set this parameter to the consumer group ID, such as cg-xxx.
     shared_ptr<string> budgetDimensionRefId_ {};
-    // The budget dimension type.
+    // The budget dimension type. Valid values: Global (global budget), Consumer (consumer budget), and ConsumerGroup (consumer group budget).
     shared_ptr<string> budgetDimensionType_ {};
-    // The ID of the gateway instance.
+    // The ID of the gateway instance to query. This parameter is required. If this parameter is not specified, the API returns InvalidPolarGatewayInstanceId.NotFound (404).
     shared_ptr<string> gwClusterId_ {};
-    // The region ID of the gateway instance.
+    // The ID of the region where the gateway instance resides.
     shared_ptr<string> regionId_ {};
   };
 

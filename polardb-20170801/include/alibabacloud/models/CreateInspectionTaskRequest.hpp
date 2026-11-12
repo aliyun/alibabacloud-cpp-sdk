@@ -80,7 +80,7 @@ namespace Models
     protected:
       // The ID of the PolarDB cluster to be inspected.
       shared_ptr<string> DBClusterId_ {};
-      // The ID of the region where the cluster to be inspected is located.
+      // The region ID of the cluster to be inspected.
       shared_ptr<string> regionId_ {};
     };
 
@@ -131,15 +131,15 @@ namespace Models
 
 
   protected:
-    // The cron expression for the inspection task, which specifies the periodic execution schedule.
+    // The cron expression of the inspection task, which specifies the periodic execution schedule.
     shared_ptr<string> cronExpression_ {};
     // The list of clusters associated with the inspection task.
     shared_ptr<vector<CreateInspectionTaskRequest::DBClusterList>> DBClusterList_ {};
-    // The ID of the region where the task is located.
+    // The region ID of the task.
     shared_ptr<string> regionId_ {};
     // The ID of the resource group.
     shared_ptr<string> resourceGroupId_ {};
-    // The ID of the inspection workspace.
+    // The ID of the inspection space. This parameter is required. If it is not provided, the API returns InvalidSpaceId.Malformed (HTTP 400).
     shared_ptr<string> spaceId_ {};
     // The description of the inspection task.
     shared_ptr<string> taskDescription_ {};

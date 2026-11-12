@@ -94,15 +94,15 @@ namespace Models
 
 
   protected:
-    // The ID of the PolarDB AI 3.0 logical instance.
+    // The PolarDB AI 3.0 logical instance ID. Note: This operation is only supported for clusters with RayCluster-pod-based workers. MaaS clusters in the Bailian resource pool do not support this operation. Use DescribeAIDBClusterAttribute to verify cluster compatibility before calling this API.
     // 
     // This parameter is required.
     shared_ptr<string> DBClusterId_ {};
     // The new customer-facing invocation name. If you do not specify this parameter, the existing invocation name is retained.
     shared_ptr<string> displayModelName_ {};
-    // Specifies whether to only preview the modification.
+    // Specifies whether to only preview the change.
     shared_ptr<bool> dryRun_ {};
-    // The target model name. Select a value from the ModelName values returned by DescribeAvailableModels.
+    // The target model name. Select a value from the ModelName parameter returned by DescribeAvailableModels.
     // 
     // This parameter is required.
     shared_ptr<string> modelName_ {};

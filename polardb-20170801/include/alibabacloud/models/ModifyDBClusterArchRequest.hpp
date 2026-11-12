@@ -91,20 +91,21 @@ namespace Models
     // The cluster ID.
     shared_ptr<string> DBClusterId_ {};
     // Specifies whether to enable the hot standby cluster. Valid values:
-    // 
-    // - **on**: Enables the hot standby cluster.
-    // - **equal**: Enables the peer cluster.
+    // - on: Enables the hot standby cluster.
+    // The equal (peer cluster) feature has been retired and is unavailable. Clusters with HotStandbyCluster set to StandbyClusterON do not support switching the high-availability mode by using this operation.
     shared_ptr<string> hotStandbyCluster_ {};
-    // The coupon code. If this parameter is not specified, the default coupon is used.
+    // The coupon code. If you do not specify this parameter, the default coupon is used.
     shared_ptr<string> promotionCode_ {};
     // The region ID.
     // 
-    // > You can call the [DescribeRegions](https://help.aliyun.com/document_detail/98041.html) operation to query region information.
+    // > You can call the [DescribeRegions](https://help.aliyun.com/document_detail/98041.html) operation to view region details.
     shared_ptr<string> regionId_ {};
     // The zone of the hot standby storage cluster. Valid values:
     // 
-    // - **auto** (default): Automatically selected.
-    // > When the HotStandbyCluster parameter is set to on, you can use the default value. When the HotStandbyCluster parameter is set to equal, you must specify a specific zone. You can call the [DescribeZones](https://help.aliyun.com/document_detail/98041.html) operation to query zone details.
+    // - **auto** (default): Automatically selects the zone.
+    // > You can use the default value when the HotStandbyCluster parameter is set to on. When the HotStandbyCluster parameter is set to equal, you must specify a zone. You can call the [DescribeZones](https://help.aliyun.com/document_detail/98041.html) operation to view zone details.
+    // 
+    // > When you specify a zone, you must not allocate a zone that is already in use by the cluster. You can query the currently active zones through the ZoneIds parameter of DescribeDBClusterAttribute.
     shared_ptr<string> standbyAZ_ {};
   };
 

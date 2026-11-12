@@ -91,7 +91,7 @@ namespace Models
     protected:
       // The storage bucket.
       shared_ptr<string> bucket_ {};
-      // The AccessKey ID of the storage bucket.
+      // The AccessKey ID for the storage bucket.
       shared_ptr<string> bucketAccessKeyId_ {};
       // The mapped path.
       shared_ptr<string> path_ {};
@@ -152,7 +152,7 @@ namespace Models
 
 
   protected:
-    // The instance-level default AccessKey ID.
+    // The default AccessKey ID for the instance.
     shared_ptr<string> defaultAccessKeyId_ {};
     // The page number.
     shared_ptr<string> pageNumber_ {};

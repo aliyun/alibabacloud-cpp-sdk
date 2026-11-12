@@ -108,19 +108,19 @@ namespace Models
 
 
     protected:
-      // The ID of the source cluster that the database link connects.
+      // The ID of the source cluster for the DBLink.
       shared_ptr<string> DBInstanceName_ {};
-      // The name of the database link.
+      // The name of the DBLink.
       shared_ptr<string> DBLinkName_ {};
-      // The name of the source database of the database link.
+      // The name of the source database for the DBLink.
       shared_ptr<string> sourceDBName_ {};
-      // The account of the destination database of the database link.
+      // The target database account for the DBLink.
       shared_ptr<string> targetAccount_ {};
-      // The ID of the destination cluster that the database link connects.
+      // The ID of the target cluster for the DBLink.
       // 
-      // > If the destination cluster is not a PolarDB for Oracle cluster, the returned value is empty.
+      // > If the target is not a PolarDB for PostgreSQL (Compatible with Oracle) cluster, this parameter is empty.
       shared_ptr<string> targetDBInstanceName_ {};
-      // The name of the destination database of the database link.
+      // The name of the target database for the DBLink.
       shared_ptr<string> targetDBName_ {};
     };
 
@@ -150,11 +150,11 @@ namespace Models
 
 
   protected:
-    // The ID of the cluster.
+    // The cluster ID.
     shared_ptr<string> DBInstanceName_ {};
-    // Details about the database links.
+    // The DBLink information set.
     shared_ptr<vector<DescribeDBLinksResponseBody::DBLinkInfos>> DBLinkInfos_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

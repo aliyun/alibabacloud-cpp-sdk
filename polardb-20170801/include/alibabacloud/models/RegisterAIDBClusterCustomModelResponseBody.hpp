@@ -105,11 +105,11 @@ namespace Models
   protected:
     // Indicates whether a new registration is created. A value of false indicates that an existing registration is updated.
     shared_ptr<bool> created_ {};
-    // The display name and the initial invocation name for clients.
+    // The display name and the initial client invocation name.
     shared_ptr<string> displayModelName_ {};
     // The import status of the image. The initial value is Importing after the image is registered.
     shared_ptr<string> imageImportStatus_ {};
-    // The registration ID of the model.
+    // The ID of the model registration.
     shared_ptr<int64_t> modelId_ {};
     // The registration key of the custom model.
     shared_ptr<string> modelName_ {};
@@ -117,7 +117,7 @@ namespace Models
     shared_ptr<string> modelType_ {};
     // The normalized OSS path.
     shared_ptr<string> ossPath_ {};
-    // Id of the request
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
   };
 

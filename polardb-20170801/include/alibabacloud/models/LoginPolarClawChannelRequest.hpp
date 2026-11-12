@@ -52,7 +52,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> applicationId_ {};
-    // The ID of the PolarClaw channel to log into.
+    // The ID of the channel to log on to.
     // 
     // This parameter is required.
     shared_ptr<string> channelId_ {};
