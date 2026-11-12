@@ -117,7 +117,7 @@ namespace Models
     shared_ptr<string> message_ {};
     // The ID of the submission request, which is used for troubleshooting.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the submission call is successful. This does not mean that the translation is completed.
+    // Indicates whether the submission call is successful. This does not indicate that the translation is complete.
     shared_ptr<bool> success_ {};
   };
 

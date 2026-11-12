@@ -124,7 +124,7 @@ namespace Models
 
 
   protected:
-    // The response code. A value of success indicates that the call is successful, and a value of failed indicates that the call fails.
+    // The response code. success indicates a successful call, and failed indicates a failed call.
     shared_ptr<string> code_ {};
     // The struct information of the returned result.
     shared_ptr<VideoGenerationResponseBody::Data> data_ {};
@@ -132,7 +132,7 @@ namespace Models
     shared_ptr<string> message_ {};
     // The request ID, which is used to identify a unique request call.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the call is successful. A value of true indicates success, and a value of false indicates failure.
+    // Indicates whether the call is successful. true indicates success, and false indicates failure.
     shared_ptr<bool> success_ {};
   };
 

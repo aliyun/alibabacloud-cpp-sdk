@@ -125,7 +125,7 @@ namespace Models
 
 
         protected:
-          // The determination result of the step. Valid values: PASS, FAIL, and UNABLE_TO_JUDGE.
+          // The judgment result. Valid values: PASS, FAIL, and UNABLE_TO_JUDGE.
           shared_ptr<string> result_ {};
           // The step ID.
           shared_ptr<string> stepId_ {};
@@ -171,11 +171,11 @@ namespace Models
 
 
       protected:
-        // The natural language summary, such as "1 rule: 1 PASS, all inspection items are compliant."
+        // The natural language summary, such as \\"1 rule: 1 PASS, all detection items are compliant\\".
         shared_ptr<string> evidence_ {};
-        // The overall determination result. Valid values: PASS and FAIL.
+        // The overall judgment. Valid values: PASS and FAIL.
         shared_ptr<string> overallResult_ {};
-        // The request ID returned as-is from the request.
+        // The request ID returned as-is.
         shared_ptr<string> reqId_ {};
         // The list of detection steps.
         shared_ptr<vector<Result::Steps>> steps_ {};
@@ -206,7 +206,7 @@ namespace Models
     protected:
       // The inspection result.
       shared_ptr<Data::Result> result_ {};
-      // The usage information. The key is the usage metric name and the value is the count.
+      // The usage information. The key is the usage name and the value is the count.
       shared_ptr<map<string, int64_t>> usageMap_ {};
     };
 
@@ -250,17 +250,17 @@ namespace Models
 
 
   protected:
-    // The error code. This parameter is not returned if the call is successful.
+    // The error code. This parameter is not returned when the call is successful.
     shared_ptr<string> code_ {};
     // The material display detection result.
     shared_ptr<MaterialInspectionResponseBody::Data> data_ {};
-    // The error message. This parameter is not returned if the call is successful.
+    // The error message. This parameter is not returned when the call is successful.
     shared_ptr<string> message_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};
     // Indicates whether the call is successful. Valid values:
     // - true: The call is successful.
-    // - false: The call failed.
+    // - false: The call fails.
     shared_ptr<bool> success_ {};
   };
 

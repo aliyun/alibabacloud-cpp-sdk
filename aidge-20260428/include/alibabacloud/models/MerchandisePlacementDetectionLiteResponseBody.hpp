@@ -193,7 +193,7 @@ namespace Models
         protected:
           // The bounding boxes corresponding to the SKU.
           shared_ptr<vector<Products::Boxes>> boxes_ {};
-          // The recognition code, which is obtained by removing the trailing _ce from the recognition name.
+          // The recognition code, which is obtained by removing the _ce suffix from the recognition name.
           shared_ptr<string> skuId_ {};
         };
 
@@ -271,7 +271,7 @@ namespace Models
             shared_ptr<vector<int64_t>> bbox2d_ {};
             // The target category.
             shared_ptr<string> label_ {};
-            // The confirmable short name or text of up to 24 characters. This field is an empty string when the text is unclear.
+            // The confirmable short name or text of up to 24 characters. This field is an empty string if the text is unclear.
             shared_ptr<string> text_ {};
           };
 
@@ -294,12 +294,12 @@ namespace Models
 
 
         protected:
-          // The coverage status. Valid values:
-          // - complete: The relevant visible targets are complete.
+          // The coverage status of the grounding. Valid values:
+          // - complete: All relevant visible targets are complete.
           // - partial: Only some targets are valid or recognizable.
-          // - Empty string: No valid supplementary grounding results are obtained.
+          // - Empty string: No valid supplementary grounding result is obtained.
           shared_ptr<string> coverage_ {};
-          // The target array, which contains up to 12 items. This array can be empty when no relevant targets are found.
+          // The array of targets, containing up to 12 items. This array can be empty if no relevant targets are found.
           shared_ptr<vector<Grounding::Regions>> regions_ {};
         };
 
@@ -340,13 +340,13 @@ namespace Models
 
 
       protected:
-        // The supplementary element grounding results.
+        // The supplementary element grounding result.
         shared_ptr<Result::Grounding> grounding_ {};
         // The product items.
         shared_ptr<vector<Result::Products>> products_ {};
-        // The deduplicated list of SkuIds.
+        // The deduplicated list of SkuId values.
         shared_ptr<vector<string>> skuIds_ {};
-        // The result type, which is fixed to sku.
+        // The result type. The value is fixed as sku.
         shared_ptr<string> type_ {};
       };
 
@@ -373,7 +373,7 @@ namespace Models
     protected:
       // The result.
       shared_ptr<Data::Result> result_ {};
-      // The usage map. The value is {"ProcessingCount":1} for a successful call, and an empty object for a failed call.
+      // The usage map. The value is {"ProcessingCount":1} if the call is successful, or an empty object if the call fails.
       shared_ptr<map<string, int64_t>> usageMap_ {};
     };
 
@@ -421,7 +421,7 @@ namespace Models
     shared_ptr<string> code_ {};
     // The returned result.
     shared_ptr<MerchandisePlacementDetectionLiteResponseBody::Data> data_ {};
-    // The response message or failure description.
+    // The return message or failure description.
     shared_ptr<string> message_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

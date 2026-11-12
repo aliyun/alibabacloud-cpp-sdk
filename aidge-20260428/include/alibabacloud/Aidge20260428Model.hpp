@@ -184,6 +184,9 @@
 #include <alibabacloud/models/UpdateDisplayKnowledgeShrinkRequest.hpp>
 #include <alibabacloud/models/UpdateDisplayKnowledgeResponseBody.hpp>
 #include <alibabacloud/models/UpdateDisplayKnowledgeResponse.hpp>
+#include <alibabacloud/models/VacancyDetectionRequest.hpp>
+#include <alibabacloud/models/VacancyDetectionResponseBody.hpp>
+#include <alibabacloud/models/VacancyDetectionResponse.hpp>
 #include <alibabacloud/models/VideoGenerationRequest.hpp>
 #include <alibabacloud/models/VideoGenerationShrinkRequest.hpp>
 #include <alibabacloud/models/VideoGenerationResponseBody.hpp>

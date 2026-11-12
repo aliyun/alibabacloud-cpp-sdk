@@ -65,7 +65,7 @@ namespace Models
 
 
     protected:
-      // The identifier of the asynchronous task, which is used for result query and notification association. Do not use the example prefix as a business validation rule.
+      // The identifier of the asynchronous task. This ID is used for result queries and notification association. Do not use the example prefix as a business validation rule.
       shared_ptr<string> taskId_ {};
     };
 
@@ -109,15 +109,15 @@ namespace Models
 
 
   protected:
-    // The response code for the submission call. The value success indicates a successful call.
+    // The response code for the submission call. A value of success indicates that the call is successful.
     shared_ptr<string> code_ {};
     // The submission result of the Image Translation Plus asynchronous task.
     shared_ptr<ImageTranslationPlusAsyncResponseBody::Data> data_ {};
-    // The error message, such as "The content contains sensitive data. Try another input."
+    // The error message, such as The content contains sensitive data. Try another input.
     shared_ptr<string> message_ {};
     // The unique identity of the request, used for troubleshooting and Tracing Analysis.
     shared_ptr<string> requestId_ {};
-    // Specifies whether the submission call is successful. This does not mean that the translation is completed. A value of true indicates success, and a value of false indicates failure.
+    // Indicates whether the submission call is successful. This does not indicate that the translation is complete. A value of true indicates success, and a value of false indicates failure.
     shared_ptr<bool> success_ {};
   };
 

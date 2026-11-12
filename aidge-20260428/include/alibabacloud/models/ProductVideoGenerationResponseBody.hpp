@@ -86,9 +86,9 @@ namespace Models
     protected:
       // The planning route written upon acceptance. Valid values: DIRECT (with script) and AUTO_PLAN (automatic planning).
       shared_ptr<string> route_ {};
-      // The current status.
+      // The current status of the task.
       shared_ptr<string> status_ {};
-      // The task ID of this service.
+      // The task ID of the service.
       shared_ptr<string> taskId_ {};
     };
 

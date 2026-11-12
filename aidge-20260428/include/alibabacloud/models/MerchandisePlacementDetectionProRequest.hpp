@@ -57,13 +57,13 @@ namespace Models
 
 
   protected:
-    // The HTTPS URL of the display image to detect.
+    // The HTTPS URL of the display image to be detected.
     // 
     // This parameter is required.
     shared_ptr<string> imageUrl_ {};
-    // The detection rule. When non-empty, this value takes priority as the model prompt.
+    // The detection rule. If this parameter is not empty, it is preferentially used as the model prompt.
     shared_ptr<string> rule_ {};
-    // The product type. This parameter must be set to Genki Forest when Rule is empty.
+    // The product type. If the Rule parameter is empty, you must set this parameter to Genki Forest.
     shared_ptr<string> type_ {};
   };
 

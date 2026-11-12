@@ -145,13 +145,13 @@ namespace Models
 
 
         protected:
-          // The recall rank.
+          // The retrieval rank.
           shared_ptr<int32_t> rank_ {};
-          // The similarity score, ranging from 0 to 1.
+          // The similarity score. Valid values: 0 to 1.
           shared_ptr<float> score_ {};
-          // The ID of the recalled product.
+          // The ID of the retrieved product.
           shared_ptr<string> skuId_ {};
-          // The name of the recalled product.
+          // The name of the retrieved product.
           shared_ptr<string> skuName_ {};
         };
 
@@ -202,11 +202,11 @@ namespace Models
 
 
         protected:
-          // The similarity score, ranging from 0 to 1.
+          // The similarity score. Valid values: 0 to 1.
           shared_ptr<float> score_ {};
-          // The ID of the recalled product.
+          // The ID of the retrieved product.
           shared_ptr<string> skuId_ {};
-          // The name of the recalled product.
+          // The name of the retrieved product.
           shared_ptr<string> skuName_ {};
         };
 
@@ -254,15 +254,15 @@ namespace Models
 
 
       protected:
-        // The detection box position coordinates in the format [x1,y1,x2,y2].
+        // The coordinates of the detection box in the [x1,y1,x2,y2] format.
         shared_ptr<vector<float>> bbox_ {};
-        // The failure reason for a single detection box. The value is null if the detection is successful.
+        // The reason for the failure of the detection box. This parameter is null if the detection is successful.
         shared_ptr<string> error_ {};
         // The index of the detection box.
         shared_ptr<int32_t> idx_ {};
-        // The top-1 recalled product for the detection box.
+        // The top-1 retrieved product for the detection box.
         shared_ptr<DataItem::Top1> top1_ {};
-        // The list of top-K recalled products for the detection box.
+        // The list of top-K retrieved products for the detection box.
         shared_ptr<vector<DataItem::Topk>> topk_ {};
       };
 
@@ -298,7 +298,7 @@ namespace Models
       shared_ptr<int32_t> boxCount_ {};
       // The list of retrieval details for each detection box.
       shared_ptr<vector<Data::DataItem>> data_ {};
-      // The usage information, where the key is the usage name and the value is the count.
+      // The usage information. The key is the usage metric name and the value is the count.
       shared_ptr<map<string, int64_t>> usageMap_ {};
     };
 
@@ -342,17 +342,17 @@ namespace Models
 
 
   protected:
-    // The error code. This parameter is not returned for successful calls.
+    // The error code. This parameter is not returned when the call is successful.
     shared_ptr<string> code_ {};
-    // The display detection result.
+    // The display detection results.
     shared_ptr<MerchandisePlacementDetectionResponseBody::Data> data_ {};
-    // The error message. This parameter is not returned for successful calls.
+    // The error message. This parameter is not returned when the call is successful.
     shared_ptr<string> message_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};
     // Indicates whether the call is successful. Valid values:
     // - true: The call is successful.
-    // - false: The call failed.
+    // - false: The call fails.
     shared_ptr<bool> success_ {};
   };
 

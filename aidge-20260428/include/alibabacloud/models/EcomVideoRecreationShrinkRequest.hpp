@@ -48,11 +48,11 @@ namespace Models
 
 
   protected:
-    // The input parameters for video replication.
+    // The video variation input parameters.
     // 
     // This parameter is required.
     shared_ptr<string> inputShrink_ {};
-    // The output specifications for the final video.
+    // The final video output specifications.
     shared_ptr<string> outputShrink_ {};
   };
 

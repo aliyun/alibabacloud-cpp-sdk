@@ -154,9 +154,9 @@ namespace Models
 
 
           protected:
-            // The x-coordinate of the region point.
+            // The x-coordinate of the area point.
             shared_ptr<double> x_ {};
-            // The y-coordinate of the region point.
+            // The y-coordinate of the area point.
             shared_ptr<double> y_ {};
           };
 
@@ -226,19 +226,19 @@ namespace Models
         protected:
           // Optional. The area proportion.
           shared_ptr<double> areaRate_ {};
-          // Optional. The purity metric for proprietary products. The specific business criteria are subject to the recognition service.
+          // Optional. The purity metric for proprietary products. The specific business definition is subject to the recognition service.
           shared_ptr<double> ownPurity_ {};
-          // Optional. The display plumpness metric.
+          // Optional. The display fullness metric.
           shared_ptr<double> plumpness_ {};
           // The display name of the scene. If omitted, the value is an empty string.
           shared_ptr<string> sceneActualName_ {};
           // The center point of the scene, which retains the original normalized coordinates. If omitted, the value is an empty array.
           shared_ptr<vector<double>> sceneCenter_ {};
-          // The list of region points. Each item is in the {x,y} format and retains the original normalized coordinates. If omitted, the value is an empty array.
+          // The list of area points. Each item is in the format of {x,y} and retains the original normalized coordinates. If omitted, the value is an empty array.
           shared_ptr<vector<Scenes::SceneLocation>> sceneLocation_ {};
           // The scene identifier. This parameter is required and cannot be empty.
           shared_ptr<string> sceneName_ {};
-          // Optional. The shelf distribution proportion metric. The specific business criteria are subject to the recognition service.
+          // Optional. The shelf distribution proportion metric. The specific business definition is subject to the recognition service.
           shared_ptr<double> shelfDistributionRate_ {};
         };
 
@@ -377,7 +377,7 @@ namespace Models
         shared_ptr<Result::Grounding> grounding_ {};
         // The list of recognized scenes.
         shared_ptr<vector<Result::Scenes>> scenes_ {};
-        // Fixed value: scene.
+        // The type. Fixed value: scene.
         shared_ptr<string> type_ {};
       };
 
@@ -452,7 +452,7 @@ namespace Models
     shared_ptr<string> code_ {};
     // The display scene detection result.
     shared_ptr<MerchandiseSceneDetectionResponseBody::Data> data_ {};
-    // The response message or failure description.
+    // The return message or failure description.
     shared_ptr<string> message_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

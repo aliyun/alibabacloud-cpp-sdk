@@ -182,7 +182,7 @@ namespace Models
         protected:
           // The coverage.
           shared_ptr<string> coverage_ {};
-          // The region list.
+          // The list of regions.
           shared_ptr<vector<Grounding::Regions>> regions_ {};
         };
 
@@ -226,7 +226,7 @@ namespace Models
         protected:
           // The non-empty category name.
           shared_ptr<string> clazz_ {};
-          // A finite numerical value. The source document does not specify a value range.
+          // A finite numerical value. The source document does not specify the value range.
           shared_ptr<float> confidence_ {};
         };
 
@@ -260,11 +260,11 @@ namespace Models
 
 
       protected:
-        // The classification details. This can be an empty array.
+        // The classification details, which can be an empty array.
         shared_ptr<vector<Result::Details>> details_ {};
         // The localization information.
         shared_ptr<Result::Grounding> grounding_ {};
-        // The non-empty scene classification array.
+        // The non-empty array of scene classifications.
         shared_ptr<vector<string>> scenes_ {};
       };
 
@@ -289,7 +289,7 @@ namespace Models
 
 
     protected:
-      // The scene recognition result details.
+      // The details of the scene recognition result.
       shared_ptr<Data::Result> result_ {};
       // The usage information.
       shared_ptr<map<string, int64_t>> usageMap_ {};

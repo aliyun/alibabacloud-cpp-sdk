@@ -220,11 +220,11 @@ namespace Models
           shared_ptr<PriceTags::Location> location_ {};
           // The original price.
           shared_ptr<string> originalPrice_ {};
-          // The selling price, retained as a string to avoid being parsed as a reserved word or reserved character.
+          // The selling price, retained as a string.
           shared_ptr<string> price_ {};
-          // The associated product code.
+          // The code of the associated product.
           shared_ptr<string> skuCode_ {};
-          // The associated product name.
+          // The name of the associated product.
           shared_ptr<string> skuName_ {};
         };
 
@@ -327,7 +327,7 @@ namespace Models
         protected:
           // The coverage.
           shared_ptr<string> coverage_ {};
-          // The region list.
+          // The list of regions.
           shared_ptr<vector<Grounding::Regions>> regions_ {};
         };
 
@@ -359,11 +359,11 @@ namespace Models
 
 
       protected:
-        // The localization information.
+        // The grounding information.
         shared_ptr<Result::Grounding> grounding_ {};
-        // The price tag list. This can be an empty array if no price tags are recognized under normal conditions.
+        // The list of price tags. This can be an empty array if no price tags are recognized.
         shared_ptr<vector<Result::PriceTags>> priceTags_ {};
-        // The value is fixed to priceTag.
+        // Fixed to priceTag.
         shared_ptr<string> type_ {};
       };
 
@@ -388,7 +388,7 @@ namespace Models
 
 
     protected:
-      // The detection and recognition result details.
+      // The details of the detection and recognition result.
       shared_ptr<Data::Result> result_ {};
       // The usage information.
       shared_ptr<map<string, int64_t>> usageMap_ {};
@@ -436,13 +436,13 @@ namespace Models
   protected:
     // The error code.
     shared_ptr<string> code_ {};
-    // The scenario recognition result.
+    // The recognition result.
     shared_ptr<MerchandisePriceTagDetectionResponseBody::Data> data_ {};
-    // The return message or failure description.
+    // The returned message or failure description.
     shared_ptr<string> message_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the call is successful.
+    // Indicates whether the call was successful.
     shared_ptr<bool> success_ {};
   };
 

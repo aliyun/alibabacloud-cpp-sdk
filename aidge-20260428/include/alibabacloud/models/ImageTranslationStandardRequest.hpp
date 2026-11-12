@@ -98,12 +98,12 @@ namespace Models
     shared_ptr<string> glossary_ {};
     // - Image URL: Must be publicly accessible over the Internet.
     // - Formats: PNG, JPEG, JPG, BMP, and WEBP.
-    // - Pixels: Both width and height must not exceed 4,000.
+    // - Pixels: Both width and height must not exceed 4,000 pixels.
     // - File size: The original file must be 10 MB or smaller.
     // 
     // This parameter is required.
     shared_ptr<string> imageUrl_ {};
-    // Specifies whether to translate the text on the product subject in the image. This parameter is optional. Default value: false. This helps protect information and prevents embedded information such as product names from being translated.
+    // Specifies whether to translate the text on the product subject in the image. This parameter is optional. Default value: true. This helps protect the subject information from being translated, avoiding the translation of embedded information such as product names.
     shared_ptr<bool> includingProductArea_ {};
     // The source language code. This parameter is required.   
     // <props="china">For supported language pairs, see [Language pair mapping table](https://www.alibabacloud.com/help/en/document_detail/3041883.html).      
@@ -119,7 +119,7 @@ namespace Models
     shared_ptr<string> targetLanguage_ {};
     // Specifies whether to translate brand names in the image. This parameter is optional. Default value: false. This helps protect brand name information from being translated.
     shared_ptr<bool> translatingBrandInTheProduct_ {};
-    // Specifies whether to return layer information such as text position, font, and color. If set to true, layer information is returned and can be used to integrate with image editors for secondary editing. Default value: false.
+    // Specifies whether to return layer information such as text position, font, and color. If this parameter is set to true, layer information is returned, which can be used to integrate with image editors for secondary editing. Default value: false.
     shared_ptr<bool> useImageEditor_ {};
   };
 

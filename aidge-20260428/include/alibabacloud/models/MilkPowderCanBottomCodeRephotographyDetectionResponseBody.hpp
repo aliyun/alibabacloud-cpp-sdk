@@ -153,9 +153,9 @@ namespace Models
 
 
           protected:
-            // The bounding box coordinates in the format of `[top-left x, top-left y, bottom-right x, bottom-right y]`. Valid values: 0 to 1000. The left value must be less than the right value, and the top value must be less than the bottom value.
+            // The bounding box coordinates in the format of `[top-left x, top-left y, bottom-right x, bottom-right y]`. The value range is 0 to 1000. The left coordinate is less than the right coordinate, and the top coordinate is less than the bottom coordinate.
             shared_ptr<vector<float>> bbox2d_ {};
-            // The target category. For valid values, see the following table.
+            // The target category. For enumerations, see the following table.
             shared_ptr<string> label_ {};
             // The confirmed short name or text of up to 24 characters. If the text is unclear, an empty string is returned.
             shared_ptr<string> text_ {};
@@ -216,9 +216,9 @@ namespace Models
       protected:
         // The localization information.
         shared_ptr<Result::Grounding> grounding_ {};
-        // Specifies whether the image is recaptured.
+        // Indicates whether the image is recaptured.
         shared_ptr<bool> isFake_ {};
-        // The detection type. The value is fixed to canBottom.
+        // The detection type, which is fixed to canBottom.
         shared_ptr<string> type_ {};
       };
 
@@ -245,7 +245,7 @@ namespace Models
     protected:
       // The details of the recapture detection result.
       shared_ptr<Data::Result> result_ {};
-      // The usage information. If the call is successful, the value is `{"ProcessingCount":1}`. If the call fails, an empty object is returned.
+      // The usage information. If the call is successful, the value is `{"ProcessingCount":1}`. If the call fails, the value is an empty object.
       shared_ptr<map<string, int64_t>> usageMap_ {};
     };
 
@@ -293,11 +293,11 @@ namespace Models
     shared_ptr<string> code_ {};
     // The recapture detection result.
     shared_ptr<MilkPowderCanBottomCodeRephotographyDetectionResponseBody::Data> data_ {};
-    // The response message or failure description.
+    // The return message or failure description.
     shared_ptr<string> message_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // Specifies whether the call is successful. A valid business conclusion does not mean that the review is passed.
+    // Indicates whether the call is successful. A valid business conclusion does not mean the review is passed.
     shared_ptr<bool> success_ {};
   };
 

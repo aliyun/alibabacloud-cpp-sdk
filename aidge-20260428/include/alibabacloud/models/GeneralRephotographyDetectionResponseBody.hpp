@@ -155,7 +155,7 @@ namespace Models
           protected:
             // The bounding box coordinates.
             shared_ptr<vector<float>> bbox2d_ {};
-            // The target category. For enumerations, see the following table.
+            // The target category. For valid values, see the following table.
             shared_ptr<string> label_ {};
             // The confirmed short name or text of up to 24 characters. This is an empty string if the text is unclear.
             shared_ptr<string> text_ {};
@@ -184,7 +184,7 @@ namespace Models
           // - `complete`: The relevant visible targets are complete.
           // - `partial`: Only some targets are valid or recognizable.
           shared_ptr<string> coverage_ {};
-          // The target array. It contains up to 12 items and can be empty if no relevant targets are found.
+          // The target array. A maximum of 12 items are returned. This can be empty if no relevant targets are found.
           shared_ptr<vector<Grounding::Regions>> regions_ {};
         };
 
@@ -218,7 +218,7 @@ namespace Models
         shared_ptr<Result::Grounding> grounding_ {};
         // Indicates whether the image is recaptured.
         shared_ptr<bool> isFake_ {};
-        // The detection type. The value is fixed to general.
+        // The detection type. Fixed to general.
         shared_ptr<string> type_ {};
       };
 
@@ -293,7 +293,7 @@ namespace Models
     shared_ptr<string> code_ {};
     // The recapture detection result.
     shared_ptr<GeneralRephotographyDetectionResponseBody::Data> data_ {};
-    // The return message or failure description.
+    // The response message or failure description.
     shared_ptr<string> message_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

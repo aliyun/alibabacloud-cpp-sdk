@@ -65,7 +65,7 @@ namespace Models
 
 
     protected:
-      // The ID of the asynchronous task. It is used for result queries and notification association. Do not use the example prefix as a business validation rule.
+      // The ID of the asynchronous task, which is used for result queries and notification association. Do not use the example prefix as a business validation rule.
       shared_ptr<string> taskId_ {};
     };
 
@@ -109,15 +109,15 @@ namespace Models
 
 
   protected:
-    // The response code for the submission call. A success example is success.
+    // The response code of the submission call. Example of a successful call: success.
     shared_ptr<string> code_ {};
-    // The submission result of the text translation asynchronous node.
+    // The commit result of the text translation asynchronous node.
     shared_ptr<TextTranslateAsyncResponseBody::Data> data_ {};
-    // The call description. A success example is Success. If the call fails, read the actual error message.
+    // The call description. Example of a successful call: Success. If the call fails, read the actual error message.
     shared_ptr<string> message_ {};
-    // The ID of the submission request. It is used for troubleshooting.
+    // The ID of the submission request, which is used for troubleshooting.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the submission call is successful. It does not indicate that the translation is complete.
+    // Indicates whether the submission call is successful. A successful call does not mean that the translation is complete.
     shared_ptr<bool> success_ {};
   };
 

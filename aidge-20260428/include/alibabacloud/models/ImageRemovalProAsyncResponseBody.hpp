@@ -65,7 +65,7 @@ namespace Models
 
 
     protected:
-      // The ID of the task used to query the asynchronous task result.
+      // The ID of the task, which is used to query the result of the asynchronous task.
       shared_ptr<string> taskId_ {};
     };
 
@@ -109,17 +109,15 @@ namespace Models
 
 
   protected:
-    // The error code. This parameter is not returned for successful calls.
+    // The error code. This parameter is not returned if the call is successful.
     shared_ptr<string> code_ {};
     // The submission result of the Intelligent Erasure Pro asynchronous task.
     shared_ptr<ImageRemovalProAsyncResponseBody::Data> data_ {};
-    // The error message. This parameter is not returned for successful calls. Example: "The parameters contain sensitive information. Please try another input."
+    // The error message. This parameter is not returned if the call is successful. Example: "The parameters contain sensitive information. Try another input."
     shared_ptr<string> message_ {};
-    // The request ID, which uniquely identifies the request.
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the call is successful. Valid values:
-    // - true: The call is successful.
-    // - false: The call fails.
+    // Indicates whether the call is successful. Valid values: true and false.
     shared_ptr<bool> success_ {};
   };
 

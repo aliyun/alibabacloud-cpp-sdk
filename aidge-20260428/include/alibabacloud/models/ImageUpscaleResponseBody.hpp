@@ -147,7 +147,7 @@ namespace Models
       protected:
         // The actual height of the generated image.
         shared_ptr<int32_t> imageHeight_ {};
-        // The result information of the high-definition upscaling for a single image.
+        // The result information of the upscaled image.
         shared_ptr<string> imageUrl_ {};
         // The actual width of the generated image.
         shared_ptr<int32_t> imageWidth_ {};
@@ -204,13 +204,13 @@ namespace Models
     protected:
       // The high-definition upscaling result data.
       shared_ptr<Data::DataItem> data_ {};
-      // The error code. Returned upon failure, such as InvalidParameter or DownstreamUnavailable.
+      // The error code returned when the request fails, such as InvalidParameter or DownstreamUnavailable.
       shared_ptr<string> errorCode_ {};
-      // The error message. Returned upon failure.
+      // The error message returned when the request fails.
       shared_ptr<string> errorMessage_ {};
-      // Indicates whether the operation is successful. A value of true indicates success, and a value of false indicates failure.
+      // Indicates whether the request is successful. Valid values: true and false.
       shared_ptr<bool> success_ {};
-      // The downstream task ID. This parameter is empty for synchronous operations.
+      // The ID of the downstream task. This parameter is left empty for synchronous API operations.
       shared_ptr<string> taskId_ {};
       // The usage information.
       shared_ptr<Data::UsageMap> usageMap_ {};
@@ -258,13 +258,13 @@ namespace Models
   protected:
     // The status code, such as success.
     shared_ptr<string> code_ {};
-    // The returned result struct information.
+    // The returned result struct.
     shared_ptr<ImageUpscaleResponseBody::Data> data_ {};
     // The returned message or error prompt.
     shared_ptr<string> message_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};
-    // Indicates whether the call is successful. A value of true indicates success, and a value of false indicates failure.
+    // Indicates whether the API call is successful. Valid values: true and false.
     shared_ptr<bool> success_ {};
   };
 

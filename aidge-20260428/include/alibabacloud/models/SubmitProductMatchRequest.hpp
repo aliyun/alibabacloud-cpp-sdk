@@ -94,11 +94,11 @@ namespace Models
 
 
   protected:
-    // The product brand. If this value is not specified, the system attempts to extract the brand from the shop name.
+    // The product brand. If missing, the service attempts to extract it from the shop name.
     shared_ptr<string> brandName_ {};
-    // The Miaojie product category. Currently used for extension and auditing purposes.
+    // The Miaojie product category, which is currently used for extension and auditing.
     shared_ptr<string> category_ {};
-    // The HTTP or HTTPS URL of the product main image.
+    // The HTTP/HTTPS URL of the product main image.
     // 
     // This parameter is required.
     shared_ptr<string> imageUrl_ {};
@@ -106,9 +106,9 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> itemId_ {};
-    // The HTTP or HTTPS URL of the product detail page.
+    // The HTTP/HTTPS URL of the product detail page.
     shared_ptr<string> productUrl_ {};
-    // The shop name. This value is also used as the extraction source when the brand name is missing.
+    // The shop name, which is also used as the extraction source when the brand is missing.
     // 
     // This parameter is required.
     shared_ptr<string> shopName_ {};

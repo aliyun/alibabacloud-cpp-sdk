@@ -102,7 +102,7 @@ namespace Models
       protected:
         // The number of processed images.
         shared_ptr<int64_t> processedImageCount_ {};
-        // The resolution of the processed images.
+        // The resolution of the image.
         shared_ptr<string> resolution_ {};
       };
 
@@ -139,13 +139,13 @@ namespace Models
 
 
     protected:
-      // The height of the result image in pixels.
+      // The actual height of the generated image.
       shared_ptr<string> imageHeight_ {};
-      // The URL of the virtual try-on result image.
+      // The URL of the generated image.
       shared_ptr<string> imageUrl_ {};
-      // The width of the result image in pixels.
+      // The actual width of the generated image.
       shared_ptr<string> imageWidth_ {};
-      // The usage details.
+      // The usage fields.
       shared_ptr<Data::UsageMap> usageMap_ {};
     };
 
@@ -189,17 +189,15 @@ namespace Models
 
 
   protected:
-    // The error code. This parameter is not returned when the call is successful.
+    // The error code. This parameter is not returned if the call is successful.
     shared_ptr<string> code_ {};
     // The returned result struct.
     shared_ptr<AiTryOnResponseBody::Data> data_ {};
-    // The error message. This parameter is not returned when the call is successful.
+    // The error message. This parameter is not returned if the call is successful.
     shared_ptr<string> message_ {};
-    // The ID of the request.
+    // The ID of the request, which is used to identify a unique API call.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the call was successful. Valid values:
-    // - true: The call was successful.
-    // - false: The call failed.
+    // Indicates whether the call is successful. A value of true indicates success, and a value of false indicates failure.
     shared_ptr<bool> success_ {};
   };
 
