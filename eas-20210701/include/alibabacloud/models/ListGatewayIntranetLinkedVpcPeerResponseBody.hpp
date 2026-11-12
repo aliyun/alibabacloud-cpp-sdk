@@ -102,10 +102,11 @@ namespace Models
 
 
       protected:
-        // The region where the peer VPC is located.
+        // The region where the peered VPC is located.
         shared_ptr<string> region_ {};
+        // The network connectivity status of the peered VPC.
         shared_ptr<string> status_ {};
-        // The ID of the peer VPC.
+        // The ID of the peered VPC.
         shared_ptr<string> vpcId_ {};
       };
 
@@ -128,9 +129,9 @@ namespace Models
 
 
     protected:
-      // A list of peer VPC IDs.
+      // The list of peered VPC IDs.
       shared_ptr<vector<PeerVpcList::PeerVpcs>> peerVpcs_ {};
-      // The VPC ID.
+      // The ID of the VPC.
       shared_ptr<string> vpcId_ {};
     };
 
@@ -160,11 +161,11 @@ namespace Models
 
 
   protected:
-    // The private gateway ID.
+    // The ID of the private gateway.
     shared_ptr<string> gatewayId_ {};
-    // A list of peer VPCs.
+    // The list of peered VPCs.
     shared_ptr<vector<ListGatewayIntranetLinkedVpcPeerResponseBody::PeerVpcList>> peerVpcList_ {};
-    // The request ID.
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
   };
 

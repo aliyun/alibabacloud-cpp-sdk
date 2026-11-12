@@ -38,7 +38,7 @@ namespace Models
 
 
   protected:
-    // The request body. The body includes the parameters that are set to create a stress testing task.
+    // The configuration parameters of the stress testing task.
     shared_ptr<string> body_ {};
   };
 

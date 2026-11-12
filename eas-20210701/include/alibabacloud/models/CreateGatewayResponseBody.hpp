@@ -70,7 +70,7 @@ namespace Models
     shared_ptr<string> clusterId_ {};
     // The ID of the private gateway.
     shared_ptr<string> gatewayId_ {};
-    // The message returned for the request.
+    // The message returned in the response.
     shared_ptr<string> message_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

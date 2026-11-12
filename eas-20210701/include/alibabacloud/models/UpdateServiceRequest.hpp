@@ -13,11 +13,15 @@ namespace Models
   class UpdateServiceRequest : public Darabonba::Model {
   public:
     friend void to_json(Darabonba::Json& j, const UpdateServiceRequest& obj) { 
+      DARABONBA_PTR_TO_JSON(ClientToken, clientToken_);
+      DARABONBA_PTR_TO_JSON(DryRun, dryRun_);
       DARABONBA_PTR_TO_JSON(MemberToUpdate, memberToUpdate_);
       DARABONBA_PTR_TO_JSON(UpdateType, updateType_);
       DARABONBA_PTR_TO_JSON(body, body_);
     };
     friend void from_json(const Darabonba::Json& j, UpdateServiceRequest& obj) { 
+      DARABONBA_PTR_FROM_JSON(ClientToken, clientToken_);
+      DARABONBA_PTR_FROM_JSON(DryRun, dryRun_);
       DARABONBA_PTR_FROM_JSON(MemberToUpdate, memberToUpdate_);
       DARABONBA_PTR_FROM_JSON(UpdateType, updateType_);
       DARABONBA_PTR_FROM_JSON(body, body_);
@@ -33,8 +37,22 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { return this->memberToUpdate_ == nullptr
-        && this->updateType_ == nullptr && this->body_ == nullptr; };
+    virtual bool empty() const override { return this->clientToken_ == nullptr
+        && this->dryRun_ == nullptr && this->memberToUpdate_ == nullptr && this->updateType_ == nullptr && this->body_ == nullptr; };
+    // clientToken Field Functions 
+    bool hasClientToken() const { return this->clientToken_ != nullptr;};
+    void deleteClientToken() { this->clientToken_ = nullptr;};
+    inline string getClientToken() const { DARABONBA_PTR_GET_DEFAULT(clientToken_, "") };
+    inline UpdateServiceRequest& setClientToken(string clientToken) { DARABONBA_PTR_SET_VALUE(clientToken_, clientToken) };
+
+
+    // dryRun Field Functions 
+    bool hasDryRun() const { return this->dryRun_ != nullptr;};
+    void deleteDryRun() { this->dryRun_ = nullptr;};
+    inline bool getDryRun() const { DARABONBA_PTR_GET_DEFAULT(dryRun_, false) };
+    inline UpdateServiceRequest& setDryRun(bool dryRun) { DARABONBA_PTR_SET_VALUE(dryRun_, dryRun) };
+
+
     // memberToUpdate Field Functions 
     bool hasMemberToUpdate() const { return this->memberToUpdate_ != nullptr;};
     void deleteMemberToUpdate() { this->memberToUpdate_ = nullptr;};
@@ -57,13 +75,24 @@ namespace Models
 
 
   protected:
-    shared_ptr<string> memberToUpdate_ {};
-    // The type of the service update. Valid values: merge and replace. By default, merge is used if you do not specify this parameter.
+    // The client token used to ensure the idempotence of the request.
+    shared_ptr<string> clientToken_ {};
+    // Specifies whether to only precheck the request.
     // 
-    // *   merge: If the JSON string configured for the existing service is `{"a":"b"}` and the JSON string specified in the body parameter is `{"c":"d"}`, the JSON string is `{"a":"b","c":"d"}` after the service update.
-    // *   replace: If the JSON string configured for the existing service is `{"a":"b"}` and the JSON string specified in the body parameter is `{"c":"d"}`, the JSON string is `{"c":"d"}` after the service update.
+    // - true: sends a precheck request without performing the actual operation. If the precheck fails, the corresponding error is returned. If the precheck succeeds, the error code DryRunOperation is returned.
+    // 
+    // - false: sends a normal request. This is the default value.
+    shared_ptr<bool> dryRun_ {};
+    // The type of the child service to update. Note: This parameter takes effect only for aggregated services.
+    shared_ptr<string> memberToUpdate_ {};
+    // The update type of the service. Both merge and replace modes are supported. If this parameter is not specified, the merge mode is used by default.
+    // 
+    // - merge: the merge mode. If the original service configuration JSON is
+    // `{"a":"b"}` and the updated configuration is `{"c":"d"}`, the final configuration in merge mode is `{"a":"b","c":"d"}`.
+    // - replace: the replace mode. If the original service configuration JSON is
+    // `{"a":"b"}` and the updated configuration is `{"c":"d"}`, the final configuration in replace mode is `{"c":"d"}`.
     shared_ptr<string> updateType_ {};
-    // The request body. The body includes the request parameters that you want to update. For more information about the request parameters, see [CreateService](https://help.aliyun.com/document_detail/412086.html).
+    // The updated configuration. For more information about parameter settings, see [CreateService](https://help.aliyun.com/document_detail/412086.html).
     shared_ptr<string> body_ {};
   };
 

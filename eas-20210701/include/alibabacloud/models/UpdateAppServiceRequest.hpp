@@ -101,35 +101,24 @@ namespace Models
     // The workspace ID.
     shared_ptr<string> workspaceId_ {};
     // The application type.
-    // 
-    // Valid values:
-    // 
-    // *   LLM: the large language model (LLM) application
-    // 
-    //     <!-- -->
-    // 
-    //     <!-- -->
-    // 
-    //     <!-- -->
     shared_ptr<string> appType_ {};
     // The application version.
     shared_ptr<string> appVersion_ {};
-    // The additional configurations that are required for service deployment.
+    // The additional configuration information required for deployment.
     Darabonba::Json config_ {};
-    // The number of instances. This value must be greater than 0.
+    // The number of instances. The value must be greater than 0.
     shared_ptr<int32_t> replicas_ {};
-    // The service specifications. Valid values:
-    // 
-    // *   llama_7b_fp16
-    // *   llama_7b_int8
-    // *   llama_13b_fp16
-    // *   llama_7b_int8
-    // *   chatglm_6b_fp16
-    // *   chatglm_6b_int8
-    // *   chatglm2_6b_fp16
-    // *   baichuan_7b_int8
-    // *   baichuan_13b_fp16
-    // *   baichuan_7b_fp16
+    // The service specification. Valid values:
+    // - llama_7b_fp16
+    // - llama_7b_int8
+    // - llama_13b_fp16
+    // - llama_7b_int8
+    // - chatglm_6b_fp16
+    // - chatglm_6b_int8
+    // - chatglm2_6b_fp16
+    // - baichuan_7b_int8
+    // - baichuan_13b_fp16
+    // - baichuan_7b_fp16
     shared_ptr<string> serviceSpec_ {};
   };
 

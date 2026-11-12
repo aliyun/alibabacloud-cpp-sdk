@@ -115,31 +115,27 @@ namespace Models
 
 
   protected:
-    // Specifies whether to enable public network access. The default value is false.
+    // Specifies whether to enable public network access. Default value: false.
     shared_ptr<bool> enableInternet_ {};
-    // Specifies whether to enable intranet access. The default value is true.
+    // Specifies whether to enable internal network access. Default value: true.
     shared_ptr<bool> enableIntranet_ {};
-    // Specifies whether to enable HTTP to HTTPS redirection. The default value is false.
+    // Specifies whether to enable HTTP to HTTPS redirection. Default value: false.
     shared_ptr<bool> enableSSLRedirection_ {};
-    // The instance type of the private gateway. Valid values:
-    // 
+    // The instance type used by the private gateway. Valid values:
     // - 2c4g
-    // 
     // - 4c8g
-    // 
     // - 8c16g
-    // 
     // - 16c32g
     shared_ptr<string> instanceType_ {};
-    // Specifies whether the gateway is the default private gateway.
+    // Specifies whether the private gateway is the default private gateway.
     shared_ptr<bool> isDefault_ {};
     // The alias of the private gateway.
     shared_ptr<string> name_ {};
-    // The number of private gateway nodes.
+    // The number of nodes in the private gateway.
     shared_ptr<int32_t> replicas_ {};
-    // The list of vSwitches. This parameter applies only to application-type dedicated gateways.
+    // The list of vSwitches. This parameter applies only to dedicated gateways for applications.
     shared_ptr<vector<string>> vSwitchIds_ {};
-    // The VPC where the gateway resides. This parameter applies only to application-type dedicated gateways.
+    // The ID of the VPC to which the gateway belongs. This parameter applies only to dedicated gateways for applications.
     shared_ptr<string> vpcId_ {};
   };
 

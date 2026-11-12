@@ -48,9 +48,9 @@ namespace Models
 
 
   protected:
-    // The whitelisted IP CIDR blocks in the VPC that can access the private gateway.
+    // The whitelist of IP address ranges that are allowed to access the VPC. This parameter is required. If this parameter is not specified, an InvalidParameter error is returned, indicating that AclPolicyList must be set.
     shared_ptr<string> aclPolicyListShrink_ {};
-    // The ID of the virtual private cloud (VPC). For more information about how to obtain the VPC ID, see DescribeVpcs.
+    // The ID of the VPC. For information about how to obtain the VPC ID, see DescribeVpcs.
     shared_ptr<string> vpcId_ {};
   };
 

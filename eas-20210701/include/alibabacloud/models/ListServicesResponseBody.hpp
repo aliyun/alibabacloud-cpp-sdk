@@ -79,9 +79,9 @@ namespace Models
 
 
   protected:
-    // The current page number.
+    // The current page number of the returned service list.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of services per page.
+    // The number of services returned on each page.
     shared_ptr<int32_t> pageSize_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

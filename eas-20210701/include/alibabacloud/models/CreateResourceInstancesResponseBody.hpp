@@ -60,9 +60,9 @@ namespace Models
 
 
   protected:
-    // A list of machine instance IDs.
+    // The list of machine instance IDs.
     shared_ptr<vector<string>> instanceIds_ {};
-    // The message returned for a successful operation.
+    // The message returned when the operation is successful.
     shared_ptr<string> message_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

@@ -111,17 +111,10 @@ namespace Models
 
       protected:
         // The effect.
-        // Valid values:
-        // - PreferNoSchedule
-        // - NoSchedule
-        // - NoExecute
         shared_ptr<string> effect_ {};
         // The key name.
         shared_ptr<string> key_ {};
-        // Relationship between key names and key values.
-        // Valid values:
-        // - Equal
-        // - Exists
+        // The relationship between the key name and the key value.
         shared_ptr<string> operator_ {};
         // The key value.
         shared_ptr<string> value_ {};
@@ -148,9 +141,9 @@ namespace Models
 
 
     protected:
-      // Tag tag key-value pairs for nodes.
+      // The set of label key-value pairs for nodes.
       shared_ptr<map<string, string>> nodeMatchLabels_ {};
-      // Tolerations for nodes.
+      // The list of tolerations for node taints.
       shared_ptr<vector<SelfManagedResourceOptions::NodeTolerations>> nodeTolerations_ {};
     };
 
@@ -173,9 +166,9 @@ namespace Models
 
 
   protected:
-    // The new name of the resource group after the update. The name can be up to 27 characters in length.
+    // The new name of the resource group. The name cannot exceed 27 characters in length.
     shared_ptr<string> resourceName_ {};
-    // The configuration items of the self-managed resource group.
+    // The configuration options for the self-managed resource group.
     shared_ptr<UpdateResourceRequest::SelfManagedResourceOptions> selfManagedResourceOptions_ {};
   };
 

@@ -57,11 +57,11 @@ namespace Models
 
 
   protected:
-    // The instance ID.
+    // The instance name.
     shared_ptr<string> instanceId_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The ID of the resource group.
+    // The resource group ID.
     shared_ptr<string> resourceId_ {};
   };
 

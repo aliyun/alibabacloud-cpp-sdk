@@ -88,17 +88,17 @@ namespace Models
 
 
     protected:
-      // The name of the scheduled auto-scaling task.
+      // The name of the scheduled scaling job.
       shared_ptr<string> name_ {};
-      // The cron expression that specifies when to run the scaling task. For more information about how to configure a cron expression, see the **Cron expressions** section.
+      // The cron expression for the scaling job. For information about how to configure a cron expression, see the **Supplementary request parameter descriptions** section.
       // 
       // This parameter is required.
       shared_ptr<string> schedule_ {};
-      // The target number of instances for the scaling task.
+      // The target number of instances for the scaling job.
       // 
       // This parameter is required.
       shared_ptr<int32_t> targetSize_ {};
-      // The time zone for the scheduled scaling task.
+      // The time zone configuration used to parse the execution time of the scheduled scaling job.
       shared_ptr<string> timeZone_ {};
     };
 
@@ -123,9 +123,9 @@ namespace Models
 
 
   protected:
-    // A list of cron expressions for dates to exclude.
+    // The list of cron expressions for the dates to be excluded.
     shared_ptr<vector<string>> excludeDates_ {};
-    // The scheduled scaling tasks.
+    // The scheduled scaling jobs.
     // 
     // This parameter is required.
     shared_ptr<vector<CreateServiceCronScalerRequest::ScaleJobs>> scaleJobs_ {};

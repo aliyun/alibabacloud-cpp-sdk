@@ -377,6 +377,9 @@
 #include <alibabacloud/models/UpdateServiceVersionRequest.hpp>
 #include <alibabacloud/models/UpdateServiceVersionResponseBody.hpp>
 #include <alibabacloud/models/UpdateServiceVersionResponse.hpp>
+#include <alibabacloud/models/UpdateServiceVersionRemarkRequest.hpp>
+#include <alibabacloud/models/UpdateServiceVersionRemarkResponseBody.hpp>
+#include <alibabacloud/models/UpdateServiceVersionRemarkResponse.hpp>
 #include <alibabacloud/models/UpdateVirtualResourceRequest.hpp>
 #include <alibabacloud/models/UpdateVirtualResourceResponseBody.hpp>
 #include <alibabacloud/models/UpdateVirtualResourceResponse.hpp>

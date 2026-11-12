@@ -48,9 +48,9 @@ namespace Models
 
 
   protected:
-    // The page number. Pages start from page 1. Default value: 1.
+    // The page number of the service list. Pages start from 1. Default value: 1.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries per page. Default value: 100.
+    // The number of services to return on each page during paging. Default value: 100.
     shared_ptr<int32_t> pageSize_ {};
   };
 

@@ -53,7 +53,7 @@ namespace Models
   protected:
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The zones that are supported by the region.
+    // The list of zones supported in the current region.
     shared_ptr<vector<string>> zones_ {};
   };
 

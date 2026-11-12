@@ -112,18 +112,28 @@ namespace Models
 
 
   protected:
-    // The filter used to query tasks. If you specify this parameter, the system returns tasks whose names or associated service names match the filter value.
+    // The filter parameter. If specified, the system searches for records that match the specified value in the EAS service name and stress testing task name.
     shared_ptr<string> filter_ {};
+    // The model ID.
     shared_ptr<string> modelId_ {};
+    // The sort order. Valid values:
+    // - desc: Descending order. This is the default value.
+    // - asc: Ascending order.
     shared_ptr<string> order_ {};
-    // The page number. Pages start from page 1. Default value: 1.
+    // The page number of the stress testing task list. Pages start from 1. Default value: 1.
     shared_ptr<string> pageNumber_ {};
-    // The name of the Elastic Algorithm Service (EAS) service that corresponds to the stress testing task. For more information about how to query the service name, see [ListServices](https://help.aliyun.com/document_detail/412109.html).
+    // The number of stress testing tasks to return on each page. Default value: 100.
     shared_ptr<string> pageSize_ {};
+    // The request method for stress testing. Valid values:
+    // - concurrency: Fixed concurrency mode.
+    // - requestRate: Fixed request rate mode.
+    // - peakThroughput: Peak throughput mode.
     shared_ptr<string> requestMethod_ {};
     // The name of the EAS service that corresponds to the stress testing task. For more information about how to query the service name, see [ListServices](https://help.aliyun.com/document_detail/412109.html).
     shared_ptr<string> serviceName_ {};
+    // The sort field.
     shared_ptr<string> sort_ {};
+    // The execution status used to filter stress testing tasks.
     shared_ptr<string> status_ {};
   };
 

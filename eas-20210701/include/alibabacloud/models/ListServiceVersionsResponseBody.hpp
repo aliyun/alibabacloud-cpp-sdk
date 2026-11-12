@@ -45,6 +45,7 @@ namespace Models
         DARABONBA_PTR_TO_JSON(ImageAvailable, imageAvailable_);
         DARABONBA_PTR_TO_JSON(ImageId, imageId_);
         DARABONBA_PTR_TO_JSON(Message, message_);
+        DARABONBA_PTR_TO_JSON(Remark, remark_);
         DARABONBA_PTR_TO_JSON(ServiceConfig, serviceConfig_);
         DARABONBA_PTR_TO_JSON(ServiceRunnable, serviceRunnable_);
       };
@@ -53,6 +54,7 @@ namespace Models
         DARABONBA_PTR_FROM_JSON(ImageAvailable, imageAvailable_);
         DARABONBA_PTR_FROM_JSON(ImageId, imageId_);
         DARABONBA_PTR_FROM_JSON(Message, message_);
+        DARABONBA_PTR_FROM_JSON(Remark, remark_);
         DARABONBA_PTR_FROM_JSON(ServiceConfig, serviceConfig_);
         DARABONBA_PTR_FROM_JSON(ServiceRunnable, serviceRunnable_);
       };
@@ -68,7 +70,8 @@ namespace Models
       virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
       virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
       virtual bool empty() const override { return this->buildTime_ == nullptr
-        && this->imageAvailable_ == nullptr && this->imageId_ == nullptr && this->message_ == nullptr && this->serviceConfig_ == nullptr && this->serviceRunnable_ == nullptr; };
+        && this->imageAvailable_ == nullptr && this->imageId_ == nullptr && this->message_ == nullptr && this->remark_ == nullptr && this->serviceConfig_ == nullptr
+        && this->serviceRunnable_ == nullptr; };
       // buildTime Field Functions 
       bool hasBuildTime() const { return this->buildTime_ != nullptr;};
       void deleteBuildTime() { this->buildTime_ = nullptr;};
@@ -97,6 +100,13 @@ namespace Models
       inline Versions& setMessage(string message) { DARABONBA_PTR_SET_VALUE(message_, message) };
 
 
+      // remark Field Functions 
+      bool hasRemark() const { return this->remark_ != nullptr;};
+      void deleteRemark() { this->remark_ = nullptr;};
+      inline string getRemark() const { DARABONBA_PTR_GET_DEFAULT(remark_, "") };
+      inline Versions& setRemark(string remark) { DARABONBA_PTR_SET_VALUE(remark_, remark) };
+
+
       // serviceConfig Field Functions 
       bool hasServiceConfig() const { return this->serviceConfig_ != nullptr;};
       void deleteServiceConfig() { this->serviceConfig_ = nullptr;};
@@ -112,29 +122,25 @@ namespace Models
 
 
     protected:
-      // The time when the service version was created. The time is displayed in UTC.
+      // The UTC time when the version was created.
       shared_ptr<string> buildTime_ {};
-      // Indicates whether the image is available. Valid values:
-      // 
-      // - true: The image is available.
-      // 
-      // - false: The image is unavailable.
-      // 
-      // - unknown: The availability of the image is unknown.
+      // The availability of the image. Valid values:
+      // - true: Available.
+      // - false: Unavailable.
+      // - unknown: Unknown.
       shared_ptr<string> imageAvailable_ {};
       // The image ID.
       shared_ptr<int32_t> imageId_ {};
-      // The returned message.
+      // The summary of the service.
       shared_ptr<string> message_ {};
-      // The service deployment configurations. This parameter is returned only if the service is deployed by using a custom image.
+      // The remarks.
+      shared_ptr<string> remark_ {};
+      // The deployment configuration of the service. This field is returned only for custom image deployments.
       shared_ptr<string> serviceConfig_ {};
-      // Indicates whether Elastic Algorithm service (EAS) is activated. Valid values:
-      // 
-      // - true: EAS is activated.
-      // 
-      // - false: EAS is not activated.
-      // 
-      // - unknown: The activation of EAS is unknown.
+      // Indicates whether the EAS service is enabled. Valid values:
+      // - true: Enabled.
+      // - false: Disabled.
+      // - unknown: Unknown.
       shared_ptr<string> serviceRunnable_ {};
     };
 
@@ -178,15 +184,15 @@ namespace Models
 
 
   protected:
-    // The page number.
+    // The current page number of the returned historical versions.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries per page.
+    // The number of historical versions returned on each page.
     shared_ptr<int32_t> pageSize_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The total number of entries returned.
+    // The total number of versions.
     shared_ptr<int64_t> totalCount_ {};
-    // The historical versions of the service.
+    // The list of versions.
     shared_ptr<vector<ListServiceVersionsResponseBody::Versions>> versions_ {};
   };
 

@@ -14,13 +14,17 @@ namespace Models
   class CreateServiceRequest : public Darabonba::Model {
   public:
     friend void to_json(Darabonba::Json& j, const CreateServiceRequest& obj) { 
+      DARABONBA_PTR_TO_JSON(ClientToken, clientToken_);
       DARABONBA_PTR_TO_JSON(Develop, develop_);
+      DARABONBA_PTR_TO_JSON(DryRun, dryRun_);
       DARABONBA_PTR_TO_JSON(Labels, labels_);
       DARABONBA_PTR_TO_JSON(WorkspaceId, workspaceId_);
       DARABONBA_PTR_TO_JSON(body, body_);
     };
     friend void from_json(const Darabonba::Json& j, CreateServiceRequest& obj) { 
+      DARABONBA_PTR_FROM_JSON(ClientToken, clientToken_);
       DARABONBA_PTR_FROM_JSON(Develop, develop_);
+      DARABONBA_PTR_FROM_JSON(DryRun, dryRun_);
       DARABONBA_PTR_FROM_JSON(Labels, labels_);
       DARABONBA_PTR_FROM_JSON(WorkspaceId, workspaceId_);
       DARABONBA_PTR_FROM_JSON(body, body_);
@@ -36,13 +40,27 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { return this->develop_ == nullptr
-        && this->labels_ == nullptr && this->workspaceId_ == nullptr && this->body_ == nullptr; };
+    virtual bool empty() const override { return this->clientToken_ == nullptr
+        && this->develop_ == nullptr && this->dryRun_ == nullptr && this->labels_ == nullptr && this->workspaceId_ == nullptr && this->body_ == nullptr; };
+    // clientToken Field Functions 
+    bool hasClientToken() const { return this->clientToken_ != nullptr;};
+    void deleteClientToken() { this->clientToken_ = nullptr;};
+    inline string getClientToken() const { DARABONBA_PTR_GET_DEFAULT(clientToken_, "") };
+    inline CreateServiceRequest& setClientToken(string clientToken) { DARABONBA_PTR_SET_VALUE(clientToken_, clientToken) };
+
+
     // develop Field Functions 
     bool hasDevelop() const { return this->develop_ != nullptr;};
     void deleteDevelop() { this->develop_ = nullptr;};
     inline string getDevelop() const { DARABONBA_PTR_GET_DEFAULT(develop_, "") };
     inline CreateServiceRequest& setDevelop(string develop) { DARABONBA_PTR_SET_VALUE(develop_, develop) };
+
+
+    // dryRun Field Functions 
+    bool hasDryRun() const { return this->dryRun_ != nullptr;};
+    void deleteDryRun() { this->dryRun_ = nullptr;};
+    inline bool getDryRun() const { DARABONBA_PTR_GET_DEFAULT(dryRun_, false) };
+    inline CreateServiceRequest& setDryRun(bool dryRun) { DARABONBA_PTR_SET_VALUE(dryRun_, dryRun) };
 
 
     // labels Field Functions 
@@ -69,31 +87,21 @@ namespace Models
 
 
   protected:
+    // The client token that is used to ensure the idempotence of the request.
+    shared_ptr<string> clientToken_ {};
     // Specifies whether to enter development mode.
-    // 
-    // Valid values:
-    // 
-    // *   true
-    // 
-    //     <!-- -->
-    // 
-    //     <!-- -->
-    // 
-    //     <!-- -->
-    // 
-    // *   false
-    // 
-    //     <!-- -->
-    // 
-    //     <!-- -->
-    // 
-    //     <!-- -->
     shared_ptr<string> develop_ {};
-    // The custom label.
+    // Specifies whether to only perform a dry run for this request.
+    // 
+    // - true: A check request is sent, and no actual operation is performed. If the check fails, the corresponding error is returned. If the check succeeds, the error code DryRunOperation is returned.
+    // 
+    // - false (default): A normal request is sent.
+    shared_ptr<bool> dryRun_ {};
+    // The user-defined labels.
     shared_ptr<map<string, string>> labels_ {};
     // The workspace ID.
     shared_ptr<string> workspaceId_ {};
-    // The request body. For more information about the key request parameters, see **Table 1. Request body parameters** and **Table 2. Metadata parameters**. For more information about all related parameters, see [Parameters of model services](https://help.aliyun.com/document_detail/450525.html).
+    // The request body. For instructions on key request parameter settings, see **Table 1. Request body parameters** and **Table 2. Metadata parameters** below. For more details about parameter settings, see [All related metric description for service models](https://help.aliyun.com/document_detail/450525.html).
     shared_ptr<string> body_ {};
   };
 

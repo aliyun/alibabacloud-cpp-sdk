@@ -132,13 +132,13 @@ namespace Models
 
 
       protected:
-        // The effect of the toleration.
+        // The effect.
         shared_ptr<string> effect_ {};
-        // The key of the toleration.
+        // The key.
         shared_ptr<string> key_ {};
-        // The toleration operator, which defines the relationship between the key and value.
+        // The operator that defines the relationship between the key and the value.
         shared_ptr<string> operator_ {};
-        // The toleration value.
+        // The value.
         shared_ptr<string> value_ {};
       };
 
@@ -179,11 +179,11 @@ namespace Models
     protected:
       // The ID of the self-managed cluster.
       shared_ptr<string> externalClusterId_ {};
-      // The node labels to match, specified as key-value pairs.
+      // The label key-value pairs for nodes.
       shared_ptr<map<string, string>> nodeMatchLabels_ {};
-      // A list of tolerations for node taints.
+      // The list of tolerations for node taints.
       shared_ptr<vector<SelfManagedResourceOptions::NodeTolerations>> nodeTolerations_ {};
-      // The name of the RAM role that grants PAI-EAS the required permissions.
+      // The name of the RAM role to which PAI-EAS-related permissions are granted.
       shared_ptr<string> roleName_ {};
     };
 
@@ -273,45 +273,36 @@ namespace Models
 
   protected:
     // Specifies whether to enable auto-renewal. Valid values:
-    // 
-    // - `false` (default): Auto-renewal is disabled.
-    // 
-    // - `true`: Auto-renewal is enabled.
+    // - false (default): disables auto-renewal.
+    // - true: enables auto-renewal.
     shared_ptr<bool> autoRenewal_ {};
     // The billing method. Valid values:
-    // 
-    // - `PrePaid`: subscription.
-    // 
-    // - `PostPaid`: pay-as-you-go.
-    // 
-    // > This parameter is required when `ResourceType` is set to `Dedicated`.
+    // - PrePaid: subscription.
+    // - PostPaid: pay-as-you-go.
+    // > This parameter is required when ResourceType is set to Dedicated.
     shared_ptr<string> chargeType_ {};
     // The number of instances.
-    // 
-    // > This parameter is required when `ResourceType` is set to `Dedicated`.
+    // > This parameter is required when ResourceType is set to Dedicated.
     shared_ptr<int32_t> ecsInstanceCount_ {};
     // The ECS instance type.
-    // 
-    // > This parameter is required when `ResourceType` is set to `Dedicated`.
+    // > This parameter is required when ResourceType is set to Dedicated.
     shared_ptr<string> ecsInstanceType_ {};
     // The user-defined labels.
     shared_ptr<map<string, string>> labels_ {};
     // The name of the resource group.
     shared_ptr<string> resourceName_ {};
     // The type of the resource group. Valid values:
-    // 
-    // - `Dedicated`: a dedicated resource group.
-    // 
-    // - `SelfManaged`: a self-managed resource group.
-    // 
-    // > You must be whitelisted to use self-managed resource groups.
+    // - Dedicated: dedicated resource group.
+    // - SelfManaged: self-managed resource group.
+    // > To use a self-managed resource group, you must apply to be added to the whitelist.
     shared_ptr<string> resourceType_ {};
     // The configuration options for the self-managed resource group.
     shared_ptr<CreateResourceRequest::SelfManagedResourceOptions> selfManagedResourceOptions_ {};
-    // The size of the system disk, in GiB. The value must be between 200 and 2,000. If unspecified, the default is 200 GiB.
+    // The size of the system cloud disk. Unit: GiB. Valid values: 200 to 2000. Default value: 200.
     shared_ptr<int32_t> systemDiskSize_ {};
+    // The usage mode of the resource group. Valid values: inference (inference service resource group) and sandbox (sandbox resource group).
     shared_ptr<string> usageMode_ {};
-    // The zone in which to create the instance.
+    // The zone to which the instance belongs.
     shared_ptr<string> zone_ {};
   };
 

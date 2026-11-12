@@ -48,9 +48,9 @@ namespace Models
 
 
   protected:
-    // A message that indicates the result of the operation.
+    // The response message that describes the result of the request.
     shared_ptr<string> message_ {};
-    // The unique request ID. Use this ID for troubleshooting and traceability.
+    // The request ID. It is a unique identifier returned for each request and is used for troubleshooting and tracking.
     shared_ptr<string> requestId_ {};
   };
 

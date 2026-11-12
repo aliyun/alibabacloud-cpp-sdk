@@ -142,9 +142,9 @@ namespace Models
     protected:
       // The number of available stress testing instances.
       shared_ptr<int64_t> availableAgent_ {};
-      // The time when the stress testing task was created.
+      // The time when the stress testing task was created. The time is in UTC and follows the RFC3339 format.
       shared_ptr<string> createTime_ {};
-      // A summary of the task.
+      // The summary information of the service.
       shared_ptr<string> message_ {};
       // The region where the stress testing task is located.
       shared_ptr<string> region_ {};
@@ -156,7 +156,7 @@ namespace Models
       shared_ptr<string> taskId_ {};
       // The name of the stress testing task.
       shared_ptr<string> taskName_ {};
-      // The time when the stress testing task was last updated.
+      // The time when the stress testing task was updated. The time is in UTC and follows the RFC3339 format.
       shared_ptr<string> updateTime_ {};
     };
 
@@ -200,15 +200,15 @@ namespace Models
 
 
   protected:
-    // The page number of the returned list of tasks.
+    // The page number of the returned stress testing task list.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of tasks to return on each page.
+    // The number of stress testing tasks returned on each page.
     shared_ptr<int32_t> pageSize_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
     // The list of tasks.
     shared_ptr<vector<ListBenchmarkTaskResponseBody::Tasks>> tasks_ {};
-    // The total number of tasks.
+    // The total number of tasks queried.
     shared_ptr<int32_t> totalCount_ {};
   };
 

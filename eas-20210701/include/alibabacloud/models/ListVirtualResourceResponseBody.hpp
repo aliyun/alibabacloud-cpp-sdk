@@ -103,15 +103,15 @@ namespace Models
 
 
     protected:
-      // The time when the virtual resource group was created.
+      // The time when the virtual resource group was created, in UTC in RFC 3339 format.
       shared_ptr<string> createTime_ {};
       // The number of deployed services.
       shared_ptr<int32_t> serviceCount_ {};
-      // The time when the virtual resource group was last updated.
+      // The time when the virtual resource group was last updated, in UTC in RFC 3339 format.
       shared_ptr<string> updateTime_ {};
-      // The ID of the virtual resource group.
+      // The virtual resource group ID.
       shared_ptr<string> virtualResourceId_ {};
-      // The name of the virtual resource group.
+      // The virtual resource group name.
       shared_ptr<string> virtualResourceName_ {};
     };
 
@@ -155,9 +155,9 @@ namespace Models
 
 
   protected:
-    // The page number of the returned list of virtual resource groups.
+    // The page number of the returned virtual resource group list.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of virtual resource groups returned on each page.
+    // The number of virtual resource groups displayed per page.
     shared_ptr<int32_t> pageSize_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

@@ -66,9 +66,9 @@ namespace Models
 
 
   protected:
-    // The returned message.
+    // The message returned for the request.
     shared_ptr<string> message_ {};
-    // The ID of the region where the stress testing task is performed.
+    // The region where the stress testing task resides.
     shared_ptr<string> region_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

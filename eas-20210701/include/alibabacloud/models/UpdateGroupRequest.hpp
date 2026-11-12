@@ -132,9 +132,7 @@ namespace Models
     shared_ptr<map<string, string>> labels_ {};
     // The VPC configuration.
     shared_ptr<UpdateGroupRequest::Network> network_ {};
-    // The traffic mode. Valid values:
-    // - auto: automatically assigns weights based on the proportion of instances.
-    // - customized: distributes traffic based on custom fixed weights.
+    // The traffic mode. Valid values: auto and customized. In auto mode, weights are automatically allocated based on the proportion of instances. In customized mode, traffic is distributed based on custom fixed weights.
     shared_ptr<string> trafficMode_ {};
   };
 

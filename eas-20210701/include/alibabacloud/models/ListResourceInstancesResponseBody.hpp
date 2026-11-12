@@ -81,9 +81,9 @@ namespace Models
   protected:
     // The list of instances.
     shared_ptr<vector<ResourceInstance>> instances_ {};
-    // The page number of the returned list of instances.
+    // The page number of the returned machine instance list in the resource group.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of instances returned on each page.
+    // The number of machines returned on each page.
     shared_ptr<int32_t> pageSize_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

@@ -81,13 +81,13 @@ namespace Models
   protected:
     // The list of service groups.
     shared_ptr<vector<Group>> groups_ {};
-    // The current page number of the returned group list.
+    // The current page number of the group list.
     shared_ptr<int64_t> pageNumber_ {};
-    // The number of groups displayed per page.
+    // The number of groups returned on each page.
     shared_ptr<int64_t> pageSize_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The total number of service groups.
+    // The total count.
     shared_ptr<int64_t> totalCount_ {};
   };
 

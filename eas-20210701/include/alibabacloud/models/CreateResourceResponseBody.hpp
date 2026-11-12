@@ -87,15 +87,15 @@ namespace Models
 
 
   protected:
-    // The ID of the cluster that contains the resource group.
+    // The ID of the cluster to which the resource group belongs.
     shared_ptr<string> clusterId_ {};
-    // The instance IDs.
+    // The list of instance IDs.
     shared_ptr<vector<string>> instanceIds_ {};
     // The UID of the resource group owner.
     shared_ptr<string> ownerUid_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The resource group ID.
+    // The ID of the resource group.
     shared_ptr<string> resourceId_ {};
     // The name of the resource group.
     shared_ptr<string> resourceName_ {};

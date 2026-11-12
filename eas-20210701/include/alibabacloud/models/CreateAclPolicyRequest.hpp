@@ -70,9 +70,9 @@ namespace Models
 
 
     protected:
-      // The comment on the IP CIDR block in the VPC that can access the private gateway.
+      // The description of the IP address segment that is allowed to access the VPC.
       shared_ptr<string> comment_ {};
-      // The IP CIDR block in the VPC that can access the private gateway.
+      // The IP address segment that is allowed to access the VPC.
       // 
       // This parameter is required.
       shared_ptr<string> entry_ {};
@@ -97,7 +97,7 @@ namespace Models
 
 
   protected:
-    // The whitelisted IP CIDR blocks in the VPC that can access the private gateway.
+    // The whitelist of IP address segments that are allowed to access the VPC.
     // 
     // This parameter is required.
     shared_ptr<vector<CreateAclPolicyRequest::AclPolicyList>> aclPolicyList_ {};

@@ -79,15 +79,15 @@ namespace Models
 
 
   protected:
-    // The page number.
+    // The page number of the returned service list.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries per page.
+    // The number of services returned on each page.
     shared_ptr<int32_t> pageSize_ {};
-    // The request ID.
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
-    // The services.
+    // The list of services.
     shared_ptr<vector<Service>> services_ {};
-    // The total number of entries returned.
+    // The total number of services.
     shared_ptr<int32_t> totalCount_ {};
   };
 

@@ -122,15 +122,15 @@ namespace Models
     protected:
       // The instance type of the public resource group.
       shared_ptr<string> instanceType_ {};
-      // The scheduling priority of the resource. A larger value indicates a higher priority.
+      // The scheduling priority of the resource. A larger value indicates a higher scheduling priority.
       shared_ptr<int32_t> priority_ {};
-      // The ID of the Lingjun resource quota.
+      // The Lingjun resource quota ID.
       shared_ptr<string> quotaId_ {};
-      // The region where the resource is located.
+      // The region where the resource resides.
       shared_ptr<string> region_ {};
-      // The ID of the dedicated resource group.
+      // The dedicated resource group ID.
       shared_ptr<string> resourceId_ {};
-      // The maximum price for a spot instance in the public resource group.
+      // The maximum price for spot instances in the public resource group.
       shared_ptr<float> spotPriceLimit_ {};
     };
 
@@ -205,21 +205,21 @@ namespace Models
 
 
   protected:
-    // The time when the virtual resource group was created.
+    // The time when the virtual resource group was created, in UTC in RFC 3339 format.
     shared_ptr<string> createTime_ {};
     // Indicates whether the protection period for spot instances is disabled.
     shared_ptr<bool> disableSpotProtectionPeriod_ {};
-    // The collection of features for the virtual resource group. This identifies the attributes that the resource group supports.
+    // The set of features of the virtual resource group, which identifies the capabilities supported by the resource group.
     shared_ptr<vector<string>> features_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The list of resources in the virtual resource group.
+    // The list of resources contained in the virtual resource group.
     shared_ptr<vector<DescribeVirtualResourceResponseBody::Resources>> resources_ {};
     // The number of deployed services.
     shared_ptr<int32_t> serviceCount_ {};
-    // The time when the virtual resource group was last updated.
+    // The time when the virtual resource group was last updated, in UTC in RFC 3339 format.
     shared_ptr<string> updateTime_ {};
-    // The ID of the virtual resource group.
+    // The virtual resource group ID.
     shared_ptr<string> virtualResourceId_ {};
     // The name of the virtual resource group.
     shared_ptr<string> virtualResourceName_ {};

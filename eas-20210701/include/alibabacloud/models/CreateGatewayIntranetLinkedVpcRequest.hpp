@@ -66,13 +66,13 @@ namespace Models
 
 
   protected:
-    // The ID of the Alibaba Cloud account to which the VPC belongs.
+    // The Alibaba Cloud account ID to which the VPC belongs.
     shared_ptr<string> accountId_ {};
-    // Specifies whether to enable authoritative DNS parsing. The default value is false.
+    // Specifies whether to enable authoritative DNS resolution. Default value: false.
     shared_ptr<bool> enableAuthoritativeDns_ {};
-    // The ID of the virtual switch. For more information, see [DescribeVpcs](https://help.aliyun.com/document_detail/448581.html).
+    // The ID of the vSwitch. To obtain the vSwitch ID, refer to [DescribeVpcs](https://help.aliyun.com/document_detail/448581.html).
     shared_ptr<string> vSwitchId_ {};
-    // The ID of the virtual private cloud (VPC). For more information, see [DescribeVpcs](https://help.aliyun.com/document_detail/448581.html).
+    // The ID of the VPC. To obtain the VPC ID, refer to [DescribeVpcs](https://help.aliyun.com/document_detail/448581.html).
     shared_ptr<string> vpcId_ {};
   };
 

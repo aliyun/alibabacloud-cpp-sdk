@@ -105,7 +105,7 @@ namespace Models
     protected:
       // The number of instances to update in each batch.
       shared_ptr<string> batchSize_ {};
-      // The wait interval after each batch completes.
+      // The wait interval after each batch update is completed.
       shared_ptr<string> interval_ {};
     };
 
@@ -137,11 +137,11 @@ namespace Models
 
 
   protected:
-    // The configuration for the Batch strategy.
+    // The configuration for automatic batching.
     shared_ptr<CreateServiceRolloutRequest::Batch> batch_ {};
-    // The configuration for the Partition strategy.
+    // The configuration for manual batching.
     shared_ptr<CreateServiceRolloutRequest::Partition> partition_ {};
-    // Specifies whether to pause the rollout.
+    // Specifies whether to pause the update.
     shared_ptr<bool> paused_ {};
   };
 

@@ -73,9 +73,9 @@ namespace Models
 
 
     protected:
-      // The attributes of the plug-in.
+      // The plugin attributes.
       shared_ptr<map<string, string>> attributes_ {};
-      // The name of the plug-in.
+      // The plugin name.
       shared_ptr<string> name_ {};
     };
 
@@ -98,7 +98,7 @@ namespace Models
 
 
   protected:
-    // The information about the plug-in.
+    // The plugin information.
     shared_ptr<vector<ListTenantAddonsResponseBody::Addons>> addons_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

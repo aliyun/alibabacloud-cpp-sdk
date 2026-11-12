@@ -123,9 +123,9 @@ namespace Models
 
 
       protected:
-        // The key of the gateway tag.
+        // The key of the gateway label.
         shared_ptr<string> labelKey_ {};
-        // The value of the gateway tag.
+        // The value of the gateway label.
         shared_ptr<string> labelValue_ {};
       };
 
@@ -242,12 +242,10 @@ namespace Models
 
     protected:
       // The billing method. Valid values:
-      // 
-      // - PrePaid: Subscription.
-      // 
-      // - PostPaid: Pay-as-you-go.
+      // - PrePaid: subscription.
+      // - PostPaid: pay-as-you-go.
       shared_ptr<string> chargeType_ {};
-      // The time when the private gateway was created. The time is in UTC.
+      // The time when the private gateway was created. The time is displayed in UTC.
       shared_ptr<string> createTime_ {};
       // The ID of the private gateway.
       shared_ptr<string> gatewayId_ {};
@@ -255,25 +253,25 @@ namespace Models
       shared_ptr<string> gatewayName_ {};
       // The instance type used by the private gateway.
       shared_ptr<string> instanceType_ {};
-      // The public network endpoint.
+      // The domain name for public network access.
       shared_ptr<string> internetDomain_ {};
       // Indicates whether public network access is enabled.
       shared_ptr<bool> internetEnabled_ {};
-      // The internal network endpoint.
+      // The domain name for internal network access.
       shared_ptr<string> intranetDomain_ {};
       // Indicates whether internal network access is enabled.
       shared_ptr<bool> intranetEnabled_ {};
-      // Indicates whether it is the default private gateway.
+      // Indicates whether the private gateway is the default private gateway.
       shared_ptr<bool> isDefault_ {};
-      // The list of gateway tags.
+      // The list of gateway labels.
       shared_ptr<vector<Gateways::Labels>> labels_ {};
-      // The number of nodes for the private gateway.
+      // The number of nodes in the private gateway.
       shared_ptr<int32_t> replicas_ {};
       // Indicates whether HTTP to HTTPS redirection is enabled.
       shared_ptr<bool> SSLRedirectionEnabled_ {};
       // The status of the private gateway.
       shared_ptr<string> status_ {};
-      // The time when the private gateway was last updated. The time is in UTC.
+      // The time when the private gateway was updated. The time is displayed in UTC.
       shared_ptr<string> updateTime_ {};
     };
 
@@ -319,11 +317,11 @@ namespace Models
   protected:
     // The list of private gateways.
     shared_ptr<vector<ListGatewayResponseBody::Gateways>> gateways_ {};
-    // The page number of the returned page.
+    // The page number of the returned gateway list.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries returned per page.
+    // The number of gateways returned on each page.
     shared_ptr<int32_t> pageSize_ {};
-    // The request ID.
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
     // The total number of gateways.
     shared_ptr<int64_t> totalCount_ {};

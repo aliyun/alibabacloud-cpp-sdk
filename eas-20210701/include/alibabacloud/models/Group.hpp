@@ -110,9 +110,13 @@ namespace Models
 
 
     protected:
+      // The dedicated gateway ID.
       shared_ptr<string> gatewayId_ {};
+      // The security group ID.
       shared_ptr<string> securityGroupId_ {};
+      // The vSwitch ID.
       shared_ptr<string> vSwitchId_ {};
+      // The VPC ID.
       shared_ptr<string> vpcId_ {};
     };
 
@@ -154,7 +158,9 @@ namespace Models
 
 
     protected:
+      // The label key.
       shared_ptr<string> labelKey_ {};
+      // The label value.
       shared_ptr<string> labelValue_ {};
     };
 
@@ -258,27 +264,31 @@ namespace Models
 
 
   protected:
-    // The access token for the traffic entry of the service group.
+    // The access token for the traffic ingress of the service group.
     shared_ptr<string> accessToken_ {};
+    // The UID of the account that created the service group.
     shared_ptr<string> callerUid_ {};
-    // The region in which the service group resides.
+    // The ID of the cluster where the service group is located.
     shared_ptr<string> clusterId_ {};
-    // The time when the service group was created. The time is in UTC.
+    // The time when the service group was created. The time is displayed in UTC.
     shared_ptr<string> createTime_ {};
     // The public endpoint of the service group.
     shared_ptr<string> internetEndpoint_ {};
     // The internal endpoint of the service group.
     shared_ptr<string> intranetEndpoint_ {};
+    // The list of labels for the service group.
     shared_ptr<vector<Group::Labels>> labels_ {};
     // The name of the service group.
     shared_ptr<string> name_ {};
+    // The virtual private cloud (VPC) configuration of the service group.
     shared_ptr<Group::Network> network_ {};
+    // The UID of the parent account that created the service group.
     shared_ptr<string> parentUid_ {};
-    // The queue services contained in the service group.
+    // The queue services included in the service group.
     shared_ptr<string> queueService_ {};
     // The traffic mode.
     shared_ptr<string> trafficMode_ {};
-    // The time when the service group was last updated. The time is in UTC.
+    // The time when the service group was updated. The time is displayed in UTC.
     shared_ptr<string> updateTime_ {};
   };
 

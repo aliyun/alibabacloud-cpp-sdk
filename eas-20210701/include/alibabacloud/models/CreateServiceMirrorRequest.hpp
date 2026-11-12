@@ -51,9 +51,9 @@ namespace Models
 
 
   protected:
-    // The percentage of the traffic that is mirrored to the destination service. Valid values: 0 to 100.
+    // The ratio. Valid values: 0 to 100.
     shared_ptr<int32_t> ratio_ {};
-    // The instances.
+    // The list of service instances.
     shared_ptr<vector<string>> target_ {};
   };
 

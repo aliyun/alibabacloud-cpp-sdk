@@ -70,9 +70,9 @@ namespace Models
 
 
     protected:
-      // The region where the VPC peer resides.
+      // The region where the peered VPC resides.
       shared_ptr<string> region_ {};
-      // The ID of the VPC peer. To obtain the VPC ID, see [DescribeVpcs](https://help.aliyun.com/document_detail/35739.html).
+      // The ID of the peered VPC. For information about how to obtain the VPC ID, see [DescribeVpcs](https://help.aliyun.com/document_detail/35739.html).
       shared_ptr<string> vpcId_ {};
     };
 
@@ -95,9 +95,9 @@ namespace Models
 
 
   protected:
-    // The list of VPC peers.
+    // The list of peered VPCs.
     shared_ptr<vector<CreateGatewayIntranetLinkedVpcPeerRequest::PeerVpcs>> peerVpcs_ {};
-    // The VPC ID. To obtain the VPC ID, see [ListGatewayIntranetLinkedVpc](https://help.aliyun.com/document_detail/2621223.html).
+    // The ID of the VPC. For information about how to obtain the VPC ID, see [ListGatewayIntranetLinkedVpc](https://help.aliyun.com/document_detail/2621223.html).
     shared_ptr<string> vpcId_ {};
   };
 

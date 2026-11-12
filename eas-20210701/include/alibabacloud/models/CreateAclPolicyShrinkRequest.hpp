@@ -48,7 +48,7 @@ namespace Models
 
 
   protected:
-    // The whitelisted IP CIDR blocks in the VPC that can access the private gateway.
+    // The whitelist of IP address segments that are allowed to access the VPC.
     // 
     // This parameter is required.
     shared_ptr<string> aclPolicyListShrink_ {};

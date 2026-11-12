@@ -143,33 +143,31 @@ namespace Models
 
 
   protected:
-    // Filters instances by billing method. Valid values:
-    // 
-    // - PrePaid: subscription.
-    // 
-    // - PostPaid: pay-as-you-go.
+    // The billing method of the machines to filter. Valid values:
+    // - PrePaid: Subscription.
+    // - PostPaid: Pay-as-you-go.
     shared_ptr<string> chargeType_ {};
-    // A keyword for the search. You can search by instance ID or IP address.
+    // The search keyword. You can search by machine ID or IP address.
     shared_ptr<string> filter_ {};
-    // The IP address of the instance.
+    // The IP address of the machine.
     shared_ptr<string> instanceIP_ {};
-    // Filter by instance ID. For more information, see [ListResourceInstances](https://help.aliyun.com/document_detail/412129.html).
+    // Filters the results by instance ID. For information about how to obtain the instance ID, see [ListResourceInstances](https://help.aliyun.com/document_detail/412129.html).
     shared_ptr<string> instanceId_ {};
-    // Filter by instance name.
+    // Filters the results by instance name.
     shared_ptr<string> instanceName_ {};
-    // The status of the instance.
+    // The status of the machine.
     shared_ptr<string> instanceStatus_ {};
-    // Filter by label.
+    // Filters the results by label.
     shared_ptr<map<string, string>> label_ {};
     // The sort order.
     shared_ptr<string> order_ {};
-    // The page number. The value starts from 1. The default value is 1.
+    // The page number of the machine instance list in the dedicated resource group. Pages start from 1. Default value: 1.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of instances to return on each page. Default value: 100.
+    // The paging Settings for the number of machines to return on each page in a paged query. Default value: 100.
     shared_ptr<int32_t> pageSize_ {};
-    // The sort field.
+    // The field used for sorting.
     shared_ptr<string> sort_ {};
-    // The zone of the instance.
+    // The zone of the machine.
     shared_ptr<string> zone_ {};
   };
 

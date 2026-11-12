@@ -225,11 +225,11 @@ namespace Models
 
 
     protected:
-      // The number of instances that use dedicated or self-managed resource groups.
+      // The number of instances that use dedicated resource groups or self-managed resource groups.
       shared_ptr<int32_t> dedicated_ {};
       // The number of instances that use public resource groups.
       shared_ptr<int32_t> public_ {};
-      // The number of instances that use a Lingjun quota.
+      // The number of instances that use Lingjun quotas.
       shared_ptr<int32_t> quota_ {};
     };
 
@@ -621,61 +621,61 @@ namespace Models
 
 
   protected:
-    // The access token for the service.
+    // The request token of the service.
     shared_ptr<string> accessToken_ {};
-    // The application configuration for the service.
+    // The configuration information of the application service.
     shared_ptr<string> appConfig_ {};
-    // The application specification name for the service.
+    // The specification name of the application service.
     shared_ptr<string> appSpecName_ {};
-    // The application type of the service.
+    // The type of the application service.
     shared_ptr<string> appType_ {};
-    // The application version of the service.
+    // The version of the application service.
     shared_ptr<string> appVersion_ {};
-    // Indicates whether auto scaling is enabled for the service.
+    // Specifies whether elastic scaling is enabled for the service.
     shared_ptr<bool> autoscalerEnabled_ {};
     // The UID of the account that created the service.
     shared_ptr<string> callerUid_ {};
-    // The number of CPU cores requested for each instance.
+    // The number of CPUs requested for each instance.
     shared_ptr<int32_t> cpu_ {};
-    // The time when the service was created, in RFC 3339 format (UTC).
+    // The time when the service was created. The time is displayed in UTC and follows the RFC 3339 format.
     shared_ptr<string> createTime_ {};
-    // Indicates whether scheduled scaling is enabled for the service.
+    // Specifies whether scheduled scaling is enabled for the service.
     shared_ptr<bool> cronscalerEnabled_ {};
-    // The current version of the running model.
+    // The version of the model that is currently running.
     shared_ptr<int32_t> currentVersion_ {};
-    // Additional information about the service.
+    // The extra information of the service.
     shared_ptr<string> extraData_ {};
-    // The percentage of GPU computing power requested for each instance when GPU sharing is enabled.
+    // The GPU compute capacity requested by each instance after GPU sharing is enabled.
     shared_ptr<int32_t> GPUCorePercentage_ {};
-    // The amount of GPU memory requested for each instance when GPU sharing is enabled.
+    // The GPU memory size requested by each instance after GPU sharing is enabled.
     shared_ptr<int32_t> GPUMemory_ {};
-    // The ID of the dedicated gateway for the service. This field is returned only for services that are bound to a dedicated gateway.
+    // The dedicated gateway ID of the service. This information is available only for services bound to a dedicated gateway.
     shared_ptr<string> gateway_ {};
     // The number of GPUs requested for each instance.
     shared_ptr<int32_t> gpu_ {};
-    // The image used by the service.
+    // The data image of the service.
     shared_ptr<string> image_ {};
-    // A breakdown of the instance count by resource type.
+    // The distribution of instances across different resource types.
     shared_ptr<Service::InstanceCountInResource> instanceCountInResource_ {};
-    // The internet endpoint of the service. This field is returned only by the `DescribeService` operation.
+    // The public endpoint of the service. This field is returned only in the DescribeService operation.
     shared_ptr<string> internetEndpoint_ {};
-    // The intranet endpoint of the service. This field is returned only by the `DescribeService` operation.
+    // The internal endpoint of the service. This field is returned only in the DescribeService operation.
     shared_ptr<string> intranetEndpoint_ {};
-    // The labels of the service.
+    // The list of service labels.
     shared_ptr<vector<Service::Labels>> labels_ {};
     // The latest version of the service.
     shared_ptr<int32_t> latestVersion_ {};
-    // The amount of memory requested for each instance, in MB.
+    // The memory requested for each instance, in MB.
     shared_ptr<int32_t> memory_ {};
-    // A message that provides information about the service status.
+    // The summary information of the service.
     shared_ptr<string> message_ {};
-    // The namespace where the service is located.
+    // The namespace of the service.
     shared_ptr<string> namespace_ {};
-    // The UID of the primary account used to create the service.
+    // The UID of the primary account to which the account that created the service belongs.
     shared_ptr<string> parentUid_ {};
-    // The number of pending instances for the service.
+    // The number of pending instances of the service.
     shared_ptr<int32_t> pendingInstance_ {};
-    // The quota ID of the service. This field is returned only for services that are deployed on a Lingjun resource quota.
+    // The quota ID of the service. This information is available only for services deployed on Lingjun resource quotas.
     shared_ptr<string> quotaId_ {};
     // The reason for the service status.
     shared_ptr<string> reason_ {};
@@ -683,23 +683,23 @@ namespace Models
     shared_ptr<string> region_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The resource group to which the service belongs.
+    // The resource group of the service.
     shared_ptr<string> resource_ {};
     // The alias of the resource group to which the service belongs.
     shared_ptr<string> resourceAlias_ {};
-    // Indicates whether a burstable resource pool is enabled for the service.
+    // Specifies whether the elastic resource pool is enabled for the service.
     shared_ptr<bool> resourceBurstable_ {};
-    // The role of the service.
+    // The service role.
     shared_ptr<string> role_ {};
-    // Additional attributes of the service role. This field is returned only by the `DescribeService` operation.
+    // The additional attributes of the service role. This field is returned only in the DescribeService operation.
     shared_ptr<string> roleAttrs_ {};
     // The number of running instances of the service.
     shared_ptr<int32_t> runningInstance_ {};
-    // The safety lock status of the service.
+    // The service safety lock.
     shared_ptr<string> safetyLock_ {};
-    // The internet endpoint for synchronous requests to an asynchronous service. This field is returned only by the `DescribeService` operation.
+    // The public endpoint for synchronous requests of asynchronous services. This field is returned only in the DescribeService operation.
     shared_ptr<string> secondaryInternetEndpoint_ {};
-    // The intranet endpoint for synchronous requests to an asynchronous service. This field is returned only by the `DescribeService` operation.
+    // The internal endpoint for synchronous requests of asynchronous services. This field is returned only in the DescribeService operation.
     shared_ptr<string> secondaryIntranetEndpoint_ {};
     // The configuration of the service.
     shared_ptr<string> serviceConfig_ {};
@@ -709,22 +709,23 @@ namespace Models
     shared_ptr<string> serviceId_ {};
     // The name of the service.
     shared_ptr<string> serviceName_ {};
-    // The service ID. This value is the same as `ServiceId`.
+    // The ID of the service. This value is the same as ServiceId.
     shared_ptr<string> serviceUid_ {};
     // The deployment source of the service.
     shared_ptr<string> source_ {};
     // The status of the service.
     shared_ptr<string> status_ {};
-    // The total number of instances for the service.
+    // The total number of instances of the service.
     shared_ptr<int32_t> totalInstance_ {};
-    // The traffic state of the service.
+    // The traffic status.
     shared_ptr<string> trafficState_ {};
-    // The time when the service was last updated, in RFC 3339 format (UTC).
+    // The time when the service was updated. The time is displayed in UTC and follows the RFC 3339 format.
     shared_ptr<string> updateTime_ {};
-    // The traffic weight for the canary release of the service.
+    // The weight for the canary release of the service.
     shared_ptr<int32_t> weight_ {};
+    // The workload type of the service.
     shared_ptr<string> workloadType_ {};
-    // The ID of the workspace to which the service belongs.
+    // The workspace ID of the service.
     shared_ptr<string> workspaceId_ {};
   };
 

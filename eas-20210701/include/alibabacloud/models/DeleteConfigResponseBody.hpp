@@ -48,9 +48,9 @@ namespace Models
 
 
   protected:
-    // The number of configurations deleted.
+    // The number of deleted configurations.
     shared_ptr<int32_t> deleted_ {};
-    // A message indicating the operation result.
+    // The operation result message.
     shared_ptr<string> message_ {};
   };
 

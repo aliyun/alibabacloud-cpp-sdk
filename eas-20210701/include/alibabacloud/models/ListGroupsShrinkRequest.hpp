@@ -103,19 +103,19 @@ namespace Models
 
 
   protected:
-    // The filter name. Fuzzy match is supported.
+    // The name filter. Fuzzy match is supported.
     shared_ptr<string> filter_ {};
-    // The user-defined labels.
+    // The custom labels.
     shared_ptr<string> labelsShrink_ {};
-    // The sort order of the results.
+    // The sort order.
     shared_ptr<string> order_ {};
     // The current page number of the service group list. Default value: 1.
     shared_ptr<string> pageNumber_ {};
-    // The number of service groups to display on each page in a paged query. Settings for paging default to 100.
+    // The Settings for the number of service groups to return on each page during paging in a paged query. Default value: 100.
     shared_ptr<string> pageSize_ {};
-    // The field by which to sort the results.
+    // The sort field.
     shared_ptr<string> sort_ {};
-    // The traffic allocation method used to filter service groups.
+    // The traffic distribution mode filter.
     shared_ptr<string> trafficMode_ {};
     // The workspace ID.
     shared_ptr<string> workspaceId_ {};

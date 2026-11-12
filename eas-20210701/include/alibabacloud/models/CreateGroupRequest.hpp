@@ -92,13 +92,13 @@ namespace Models
 
 
     protected:
-      // The dedicated gateway ID.
+      // The dedicated gateway ID. This parameter is required. If this parameter is not specified, the request fails.
       shared_ptr<string> gatewayId_ {};
       // The security group ID.
       shared_ptr<string> securityGroupId_ {};
       // The vSwitch ID.
       shared_ptr<string> vSwitchId_ {};
-      // The VPC ID.
+      // The VPC ID. This parameter is required when GatewayId is set to an ALB gateway, and you must specify the VPC ID associated with the gateway. You can call the ListGatewayIntranetLinkedVpc operation to query the association.
       shared_ptr<string> vpcId_ {};
     };
 
@@ -139,9 +139,9 @@ namespace Models
   protected:
     // The user-defined labels.
     shared_ptr<map<string, string>> labels_ {};
-    // The name of the group.
+    // The name of the service group. Only lowercase letters, digits, and underscores are allowed. The format is [a-z0-9_]+.
     shared_ptr<string> name_ {};
-    // The virtual private cloud (VPC) configuration.
+    // The VPC configuration.
     shared_ptr<CreateGroupRequest::Network> network_ {};
     // The workspace ID.
     shared_ptr<string> workSpaceId_ {};

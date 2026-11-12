@@ -48,9 +48,9 @@ namespace Models
 
 
   protected:
-    // The label of the service to be cloned.
+    // The labels for the copied service.
     shared_ptr<string> labelsShrink_ {};
-    // The request body. For more information, see [CreateService](https://help.aliyun.com/document_detail/412086.html).
+    // The request body. For more information about parameter settings, see [CreateService](https://help.aliyun.com/document_detail/412086.html).
     shared_ptr<string> body_ {};
   };
 

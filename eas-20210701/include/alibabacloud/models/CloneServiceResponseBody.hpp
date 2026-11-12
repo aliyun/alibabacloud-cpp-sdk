@@ -84,17 +84,17 @@ namespace Models
 
 
   protected:
-    // The public endpoint of the service.
+    // The public network access endpoint.
     shared_ptr<string> internetEndpoint_ {};
-    // The private endpoint of the service.
+    // The internal endpoint.
     shared_ptr<string> intranetEndpoint_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};
-    // The service ID.
+    // The ID of the service.
     shared_ptr<string> serviceId_ {};
-    // The service name.
+    // The name of the service.
     shared_ptr<string> serviceName_ {};
-    // The service status.
+    // The status of the service.
     shared_ptr<string> status_ {};
   };
 

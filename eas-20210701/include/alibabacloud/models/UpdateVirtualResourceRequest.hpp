@@ -109,24 +109,20 @@ namespace Models
 
     protected:
       // The instance type of the public resource group.
-      // 
-      // >  You must specify one and only one of the InstanceType, ResourceId, and QuotaId parameters.
+      // >Notice: You must specify exactly one of the following fields: InstanceType, ResourceId, and QuotaId.
       shared_ptr<string> instanceType_ {};
-      // The priority of resource scheduling. A greater number indicates a higher priority.
+      // The scheduling priority of the resource. A larger value indicates a higher scheduling priority.
       shared_ptr<int32_t> priority_ {};
-      // The ID of the Lingjun resource quota.
-      // 
-      // >  You must specify one and only one of the InstanceType, ResourceId, and QuotaId parameters.
+      // The Lingjun resource quota ID.
+      // >Notice: You must specify exactly one of the following fields: InstanceType, ResourceId, and QuotaId.
       shared_ptr<string> quotaId_ {};
-      // The region in which the resource resides.
+      // The region where the resource resides.
       shared_ptr<string> region_ {};
-      // The ID of the dedicated resource group. For information about how to obtain the ID of a dedicated resource group, see [ListResources](https://help.aliyun.com/document_detail/412133.html).
-      // 
-      // >  You must specify one and only one of the InstanceType, ResourceId, and QuotaId parameters.
+      // The ID of the dedicated resource group. For more information about how to query the ID of a dedicated resource group, see [ListResources](https://help.aliyun.com/document_detail/412133.html).
+      // >Notice: You must specify exactly one of the following fields: InstanceType, ResourceId, and QuotaId.
       shared_ptr<string> resourceId_ {};
-      // The maximum price of preemptible instances in a public resource group.
-      // 
-      // >  If you leave this parameter empty, preemptible instances are not used.
+      // The maximum price for spot instances in the public resource group.
+      // <notice>If not specified, spot instances are not used.
       shared_ptr<float> spotPriceLimit_ {};
     };
 
@@ -156,11 +152,10 @@ namespace Models
 
 
   protected:
-    // Specifies whether to disable the retention period of preemptible instances.
+    // Specifies whether to disable the protection period for spot instances.
     shared_ptr<bool> disableSpotProtectionPeriod_ {};
-    // The resources in the virtual resource group.
-    // 
-    // >  If you specify this parameter, previous data is overwritten.
+    // The list of resources contained in the virtual resource group.
+    // >Notice: If specified, the previous data is overwritten.
     shared_ptr<vector<UpdateVirtualResourceRequest::Resources>> resources_ {};
     // The new name of the virtual resource group.
     shared_ptr<string> virtualResourceName_ {};

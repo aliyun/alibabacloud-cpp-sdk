@@ -57,17 +57,16 @@ namespace Models
 
 
   protected:
-    // The scheduling behavior to update for the instance in the dedicated resource group. Valid values:
-    // 
-    // - Uncordon: Allows services to be scheduled to the instance.
-    // 
-    // - Cordon: Prevents services from being scheduled to the instance.
-    // 
-    // - Drain: Evicts the service instances that are running on the instance.
+    // Updates the schedulable behavior of the machine instance in the dedicated resource group. Valid values:
+    // - Uncordon: Allows services to be scheduled to this instance.
+    // - Cordon: Prevents services from being scheduled to this instance.
+    // - Drain: Evicts service instances that are already scheduled to this instance.
     // 
     // This parameter is required.
     shared_ptr<string> action_ {};
+    // The size of the system cloud disk after scaling, in GiB.
     shared_ptr<string> newDiskSize_ {};
+    // Takes effect when Action is set to Cordon or Drain. Records the reason for the operation.
     shared_ptr<string> reason_ {};
   };
 

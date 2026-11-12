@@ -102,7 +102,9 @@ namespace Models
 
 
     protected:
+      // The gateway label key.
       shared_ptr<string> labelKey_ {};
+      // The gateway label value.
       shared_ptr<string> labelValue_ {};
     };
 
@@ -240,7 +242,7 @@ namespace Models
 
 
   protected:
-    // The billing method.
+    // The billing method. Valid values:
     shared_ptr<string> chargeType_ {};
     // The time when the dedicated gateway was created. The time is in UTC.
     shared_ptr<string> createTime_ {};
@@ -256,13 +258,15 @@ namespace Models
     shared_ptr<string> internetDomain_ {};
     // Indicates whether public network access is enabled.
     shared_ptr<bool> internetEnabled_ {};
-    // The status of public network access enablement or disablement.
+    // The status of public network access. Valid values:
     shared_ptr<string> internetStatus_ {};
     // The internal access domain name.
     shared_ptr<string> intranetDomain_ {};
+    // Indicates whether internal network access is enabled. A value of true indicates that internal network access is enabled. A value of false indicates that internal network access is not enabled.
     shared_ptr<bool> intranetEnabled_ {};
-    // Indicates whether the dedicated gateway is the default one.
+    // Indicates whether the dedicated gateway is the default gateway.
     shared_ptr<bool> isDefault_ {};
+    // The list of gateway labels.
     shared_ptr<vector<DescribeGatewayResponseBody::Labels>> labels_ {};
     // The number of nodes in the dedicated gateway.
     shared_ptr<int32_t> replicas_ {};
@@ -270,7 +274,7 @@ namespace Models
     shared_ptr<string> requestId_ {};
     // Indicates whether HTTP-to-HTTPS redirection is enabled.
     shared_ptr<bool> SSLRedirectionEnabled_ {};
-    // The status of the dedicated gateway.
+    // The status of the dedicated gateway. Valid values:
     shared_ptr<string> status_ {};
     // The time when the dedicated gateway was last updated. The time is in UTC.
     shared_ptr<string> updateTime_ {};

@@ -84,11 +84,17 @@ namespace Models
 
 
   protected:
+    // The artifact reference name.
     shared_ptr<string> artifactRef_ {};
+    // The creation time of the artifact release record.
     shared_ptr<string> createdAt_ {};
+    // The artifact description.
     shared_ptr<string> description_ {};
+    // The container image address used by the artifact.
     shared_ptr<string> image_ {};
+    // The artifact type.
     shared_ptr<string> type_ {};
+    // The artifact version.
     shared_ptr<string> version_ {};
   };
 

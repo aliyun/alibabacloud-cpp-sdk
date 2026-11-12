@@ -281,92 +281,75 @@ namespace Models
 
 
   protected:
+    // Filters services by visibility. PUBLIC indicates a public service, and PRIVATE indicates a private service.
     shared_ptr<string> accessibility_ {};
-    // Specifies whether to enable Auto Scaling for the service.
+    // Specifies whether elastic scaling is enabled for the service.
     shared_ptr<bool> autoscalerEnabled_ {};
     // The UID of the account that created the service.
     shared_ptr<string> callerUid_ {};
-    // Specifies whether to enable scheduled auto scaling for the service.
+    // Specifies whether scheduled scaling is enabled for the service.
     shared_ptr<bool> cronscalerEnabled_ {};
-    // The keyword for a fuzzy search. This parameter supports fuzzy searches by service name only.
+    // The fuzzy match field. Only fuzzy matching by service name is supported.
     shared_ptr<string> filter_ {};
-    // The private gateway ID.
+    // The ID of the private gateway.
     shared_ptr<string> gateway_ {};
-    // The name of the service group. To learn how to obtain this name, see [ListServices](https://help.aliyun.com/document_detail/412109.html).
+    // The name of the service group. For information about how to obtain the service group name, see [ListServices](https://help.aliyun.com/document_detail/412109.html).
     shared_ptr<string> groupName_ {};
-    // Specifies whether to include services that do not belong to any workspace. The default value is true.
+    // Specifies whether to include services that do not belong to any workspace. Default value: true.
     shared_ptr<bool> includeNoWorkspace_ {};
-    // Filters services by label.
+    // The label used to filter services.
     shared_ptr<map<string, string>> label_ {};
     // The sort order. Valid values:
-    // 
-    // - `desc` (default): descending.
-    // 
-    // - `asc`: ascending.
+    // - desc: Descending order. This is the default value.
+    // - asc: Ascending order.
     shared_ptr<string> order_ {};
-    // The page number of the results to return. The default value is 1.
+    // The page number of the service list to return. Default value: 1.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of services to return per page. The default value is 100.
+    // The number of services to return on each page during a paged query. Default value: 100.
     shared_ptr<int32_t> pageSize_ {};
-    // The UID of the primary service. This parameter applies to member services in a service group.
+    // The ID of the primary service that corresponds to the band member service.
     shared_ptr<string> parentServiceUid_ {};
     // The quota ID.
     shared_ptr<string> quotaId_ {};
     // The custom name of the resource group.
     shared_ptr<string> resourceAliasName_ {};
-    // Specifies whether to enable a burstable resource pool for the service.
+    // Specifies whether the burstable resource pool is enabled for the service.
     shared_ptr<bool> resourceBurstable_ {};
-    // The ID of the resource group. To learn how to query for this ID, see [ListResources](https://help.aliyun.com/document_detail/412133.html).
+    // The ID of the resource group. For information about how to query the resource group ID, see [ListResources](https://help.aliyun.com/document_detail/412133.html).
     shared_ptr<string> resourceId_ {};
-    // The name or ID of the service\\"s resource group.
+    // The name or ID of the resource group to which the service belongs.
     shared_ptr<string> resourceName_ {};
-    // The type of resource the service uses. Valid values:
-    // 
+    // The type of resource used by the service. Valid values:
     // - PublicResource
-    // 
     // - DedicatedResource
-    // 
     // - Lingjun
-    // 
     // - SelfManagedLingjun
     shared_ptr<string> resourceType_ {};
     // The service role.
     shared_ptr<string> role_ {};
-    // The service name.
+    // The name of the service.
     shared_ptr<string> serviceName_ {};
-    // The status of the service.
+    // The running status of the service.
     shared_ptr<string> serviceStatus_ {};
     // The service type. Valid values:
-    // 
     // - Async
-    // 
     // - Standard
-    // 
     // - Queue
-    // 
     // - LLM
-    // 
     // - RAG
-    // 
     // - Serverless
-    // 
     // - LLMGatewayService
-    // 
-    // - OfflineTask
-    // 
+    // - Offline Task
     // - SDCluster
-    // 
     // - ScalableJob
-    // 
     // - ScalableJobService
-    // 
     // - AssistantJob
     shared_ptr<string> serviceType_ {};
-    // The service UID.
+    // The UID of the service.
     shared_ptr<string> serviceUid_ {};
-    // The sort field. By default, results are sorted by timestamp in descending order.
+    // The sort field. By default, timestamp fields are sorted in descending order.
     shared_ptr<string> sort_ {};
-    // Specifies whether the service accepts group traffic. This parameter applies only to services within a service group.
+    // Specifies whether to receive group traffic. This parameter is valid only for group services.
     shared_ptr<string> trafficState_ {};
     // The workspace ID.
     shared_ptr<string> workspaceId_ {};

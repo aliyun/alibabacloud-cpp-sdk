@@ -94,19 +94,19 @@ namespace Models
 
 
   protected:
-    // The public endpoint of the created service.
+    // The public endpoint of the newly created service.
     shared_ptr<string> internetEndpoint_ {};
-    // The internal endpoint of the created service.
+    // The internal endpoint of the newly created service.
     shared_ptr<string> intranetEndpoint_ {};
-    // The region ID of the created service.
+    // The region ID of the newly created service.
     shared_ptr<string> region_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The ID of the created service.
+    // The ID of the newly created service.
     shared_ptr<string> serviceId_ {};
-    // The name of the created service.
+    // The name of the newly created service.
     shared_ptr<string> serviceName_ {};
-    // The service state.
+    // The current status of the new service.
     shared_ptr<string> status_ {};
   };
 

@@ -48,15 +48,12 @@ namespace Models
 
 
   protected:
-    // A message that indicates the result of the request. Possible values include:
-    // 
-    // - "Rollout updated successfully"
-    // 
-    // - "Rollout paused successfully"
-    // 
-    // - "Rollout resumed successfully"
+    // The returned message. Describes the request processing result. Valid values:
+    // - "Rollout updated successfully": The rollout policy is updated.
+    // - "Rollout paused successfully": The rollout is paused.
+    // - "Rollout resumed successfully": The rollout is resumed.
     shared_ptr<string> message_ {};
-    // A unique identifier for the request. You can use this request ID for troubleshooting and tracking.
+    // The request ID. The unique identifier returned for each request, used for troubleshooting and tracking.
     shared_ptr<string> requestId_ {};
   };
 

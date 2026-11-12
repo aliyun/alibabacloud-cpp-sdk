@@ -136,23 +136,23 @@ namespace Models
 
 
     protected:
-      // The expiration date of the certificate.
+      // The certificate expiration date in the YYYY-MM-DD format.
       shared_ptr<string> certificateEndDate_ {};
-      // The ID of the SSL certificate attached to the domain name. To obtain the certificate ID, upload or purchase a certificate in the [Digital Certificate Management Service](https://yundunnext.console.aliyun.com/?spm=5176.2020520163.console-base_help.2.4b3baJixaJixOc\\&p=cas) console.
+      // The ID of the SSL certificate bound to the domain name. Obtain the certificate ID after uploading or purchasing a certificate in [Certificate Management Service](https://yundunnext.console.aliyun.com/?spm=5176.2020520163.console-base_help.2.4b3baJixaJixOc&p=cas).
       shared_ptr<string> certificateId_ {};
-      // The name of the SSL certificate.
+      // The SSL certificate name.
       shared_ptr<string> certificateName_ {};
-      // The issuance date of the certificate.
+      // The certificate issuance date in the YYYY-MM-DD format.
       shared_ptr<string> certificateStartDate_ {};
-      // The status of the domain name.
+      // The domain name status.
       shared_ptr<string> certificateStatus_ {};
-      // The time when the domain name was created.
+      // The time when the domain name was created, in UTC and RFC 3339 format.
       shared_ptr<string> createTime_ {};
       // The custom domain name.
       shared_ptr<string> domain_ {};
-      // The type of the domain name.
+      // The domain name type.
       shared_ptr<string> type_ {};
-      // The time when the domain name was last updated.
+      // The time when the domain name was last updated, in UTC and RFC 3339 format.
       shared_ptr<string> updateTime_ {};
     };
 
@@ -184,7 +184,7 @@ namespace Models
   protected:
     // The list of custom domain names.
     shared_ptr<vector<ListGatewayDomainsResponseBody::CustomDomains>> customDomains_ {};
-    // The message returned for the request.
+    // The response message.
     shared_ptr<string> message_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
