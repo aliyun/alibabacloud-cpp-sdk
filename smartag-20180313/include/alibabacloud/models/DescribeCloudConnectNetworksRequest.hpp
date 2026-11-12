@@ -168,25 +168,25 @@ namespace Models
 
 
   protected:
-    // The ID of the CCN.
+    // The instance ID of the Cloud Connect Network (CCN).
     shared_ptr<string> ccnId_ {};
-    // The name of the CCN.
+    // The name of the Cloud Connect Network (CCN) instance.
     // 
-    // The name must be 2 to 100 characters long, start with a letter or a Chinese character, and can contain digits, underscores (_), periods (.), and hyphens (-).
+    // The name must be 2 to 100 characters in length, and can contain digits, underscores (_), periods (.), and hyphens (-). It must start with a letter or a Chinese character.
     shared_ptr<string> name_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
     // The page number. Default value: **1**.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries to return on each page. Default value: **10**. Maximum value: **50**.
+    // The number of entries to return on each page for paging in a paged query. Default value: **10**. Maximum value: **50**.
     shared_ptr<int32_t> pageSize_ {};
-    // The ID of the region where the CCN is located.
+    // The ID of the region to which the Cloud Connect Network (CCN) instance belongs.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
-    // The tags to filter CCN instances.
+    // The labels used to query Cloud Connect Network (CCN) instances.
     shared_ptr<vector<DescribeCloudConnectNetworksRequest::Tag>> tag_ {};
   };
 

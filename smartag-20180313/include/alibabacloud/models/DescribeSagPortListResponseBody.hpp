@@ -92,29 +92,21 @@ namespace Models
     protected:
       // The time when the query task was created.
       shared_ptr<string> createTime_ {};
-      // The error code. 200 indicates that the query task is successful.
+      // The error code. A value of 200 indicates that the query task is successful.
       shared_ptr<string> errorCode_ {};
-      // The error message. Successful indicates that the query task is successful.
+      // The error message. A value of Successful indicates that the query task is successful.
       shared_ptr<string> errorMessage_ {};
-      // Asynchronous task states:
+      // The status of the asynchronous task. Valid values:
       // 
       // - **Initialized**: The query task is initialized.
-      // 
-      // - **Offline**: The SAG device is disconnected from Alibaba Cloud and Alibaba Cloud has not assigned the query task to the SAG device. When the SAG device is connected to Alibaba Cloud, Alibaba Cloud continues to assign the query task to the SAG device.
-      // 
-      // - **Succeed**: Alibaba Cloud has assigned the query task to the SAG device.
-      // 
-      // - **Processing**: Alibaba Cloud is assigning the query task to the SAG device.
-      // 
-      // - **VersionNotSupport**: not supported by the current version of the SAG device.
-      // 
-      // - **BuildRequestError**: not supported by the control and management center in the cloud.
-      // 
-      // - **HardwareError**: Alibaba Cloud failed to assign the query task to the SAG device because the SAG device is faulty.
-      // 
+      // - **Offline**: The Smart Access Gateway device is offline and the query task is not delivered. The task will be delivered after the device goes online.
+      // - **Succeed**: The query task is delivered.
+      // - **Processing**: The query task is being delivered.
+      // - **VersionNotSupport**: The current version of the Smart Access Gateway device does not support this feature.
+      // - **BuildRequestError**: The management and control system does not support this operation.
+      // - **HardwareError**: The query task failed to be delivered due to a device error.
       // - **TaskNotExist**: The query task does not exist.
-      // 
-      // - **OfflineNotConfiged**: The SAG device is disconnected from Alibaba Cloud and Alibaba Cloud has not assigned the query task to the SAG device. When the SAG device is connected to Alibaba Cloud, Alibaba Cloud does not assign the query task to the SAG device.
+      // - **OfflineNotConfiged**: The Smart Access Gateway device is offline and the query task is not delivered. The task will not be delivered after the device goes online.
       shared_ptr<string> state_ {};
     };
 
@@ -174,29 +166,24 @@ namespace Models
 
 
     protected:
-      // The Mac address of the port.
+      // The MAC address of the port.
       shared_ptr<string> mac_ {};
-      // The name of the port.
+      // The port name.
       shared_ptr<string> portName_ {};
-      // Port role:
+      // The port role. Valid values:
       // 
-      // - **NONE**: No role is assigned to the port.
-      // 
-      // - **WAN**: The port is used as a WAN port. The WAN port supports a Dynamic Host Configuration Protocol (DHCP) client, PPPoE, or a static IP address to access the Internet.
-      // 
-      // - **LAN**: The port is used as a LAN port. The LAN port supports a DHCP server or a static IP address to connect to a local terminal or switch.
-      // 
-      // - **ECC**: The port is used as a leased line port to connect to a leased line.
-      // 
-      // - **MGT**: The port is used as the management port.
+      // - **NONE**: The port role is unassigned.
+      // - **WAN**: The port is a WAN port. A WAN port is used to connect to the Internet and supports DHCP client, PPPoE, and static IP access methods.
+      // - **LAN**: The port is a LAN port. A LAN port is used to connect to local clients or switches and supports DHCP server and static IP access methods.
+      // - **ECC**: The port is a dedicated connection port used to connect to a dedicated connection.
+      // - **MGT**: The port is a management port.
+      // - **CELLULAR**: The port is a 4G port.
       shared_ptr<string> role_ {};
-      // Port states:
+      // The port status. Valid values:
       // 
       // - **Up**: The port is enabled.
-      // 
       // - **Down**: The port is disabled.
-      // 
-      // - **Unavailable**: The SAG device is disconnected from Alibaba Cloud.
+      // - **Unavailable**: The device is offline.
       shared_ptr<string> status_ {};
     };
 
@@ -228,11 +215,11 @@ namespace Models
 
 
   protected:
-    // The list of the port information.
+    // The list of port information.
     shared_ptr<vector<DescribeSagPortListResponseBody::Ports>> ports_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // The state of the query task.
+    // The status of the query task.
     shared_ptr<vector<DescribeSagPortListResponseBody::TaskStates>> taskStates_ {};
   };
 

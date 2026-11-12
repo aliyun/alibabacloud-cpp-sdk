@@ -84,13 +84,13 @@ namespace Models
 
 
   protected:
-    // The instance ID of the flow log.
+    // The flow log instance ID.
     // 
     // This parameter is required.
     shared_ptr<string> flowLogId_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
-    // The ID of the region to which the flow log belongs.
+    // The region ID of the flow log.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};

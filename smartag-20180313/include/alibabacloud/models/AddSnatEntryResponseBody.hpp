@@ -48,9 +48,9 @@ namespace Models
 
 
   protected:
-    // The ID of the SNAT instance.
+    // The SNAT instance ID.
     shared_ptr<string> instanceId_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

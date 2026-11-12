@@ -238,7 +238,7 @@ namespace Models
 
 
   protected:
-    // The description of the traffic classification rule for the QoS policy.
+    // The description of the traffic classification rule.
     shared_ptr<string> description_ {};
     // The destination CIDR block.
     shared_ptr<string> destCidr_ {};
@@ -246,13 +246,13 @@ namespace Models
     shared_ptr<string> destPortRange_ {};
     shared_ptr<CreateQosPolicyResponseBody::DpiGroupIds> dpiGroupIds_ {};
     shared_ptr<CreateQosPolicyResponseBody::DpiSignatureIds> dpiSignatureIds_ {};
-    // The time when the traffic classification rule expires.
+    // The end time when the traffic classification rule of the quality of service (QoS) policy takes effect. The time follows the ISO 8601 standard and uses the UTC+8 time zone, in the YYYY-MM-DDThh:mm:ss+0800 format.
     shared_ptr<string> endTime_ {};
-    // The protocol type to which the traffic classification rule applies.
+    // The protocol type applied to the traffic classification rule.
     shared_ptr<string> ipProtocol_ {};
-    // The name of the traffic classification rule for the QoS policy.
+    // The name of the traffic classification rule.
     shared_ptr<string> name_ {};
-    // The priority of the rate limiting rule to which the traffic classification rule belongs.
+    // The priority of the bandwidth throttling rule to which the traffic classification rule belongs.
     shared_ptr<int32_t> priority_ {};
     // The instance ID of the QoS policy.
     shared_ptr<string> qosId_ {};
@@ -264,7 +264,7 @@ namespace Models
     shared_ptr<string> sourceCidr_ {};
     // The source port range.
     shared_ptr<string> sourcePortRange_ {};
-    // The time when the traffic classification rule takes effect.
+    // The effective start time of the traffic classification rule for the QoS policy. The time is expressed in the ISO 8601 standard and uses the UTC+8 time zone in the YYYY-MM-DDThh:mm:ss+0800 format.
     shared_ptr<string> startTime_ {};
   };
 

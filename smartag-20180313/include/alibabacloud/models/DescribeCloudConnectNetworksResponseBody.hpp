@@ -62,36 +62,54 @@ namespace Models
         friend void to_json(Darabonba::Json& j, const CloudConnectNetwork& obj) { 
           DARABONBA_PTR_TO_JSON(AssociatedCenId, associatedCenId_);
           DARABONBA_PTR_TO_JSON(AssociatedCenOwnerId, associatedCenOwnerId_);
+          DARABONBA_PTR_TO_JSON(AssociatedCenStatus, associatedCenStatus_);
           DARABONBA_PTR_TO_JSON(AssociatedCloudBoxCount, associatedCloudBoxCount_);
+          DARABONBA_PTR_TO_JSON(AssociatedVpcStatus, associatedVpcStatus_);
           DARABONBA_PTR_TO_JSON(AvailableCloudBoxCount, availableCloudBoxCount_);
           DARABONBA_PTR_TO_JSON(CcnId, ccnId_);
+          DARABONBA_PTR_TO_JSON(CenStatusErrorCode, cenStatusErrorCode_);
+          DARABONBA_PTR_TO_JSON(CenStatusErrorMessage, cenStatusErrorMessage_);
           DARABONBA_PTR_TO_JSON(CidrBlock, cidrBlock_);
           DARABONBA_PTR_TO_JSON(CreateTime, createTime_);
           DARABONBA_PTR_TO_JSON(Description, description_);
           DARABONBA_PTR_TO_JSON(InterworkingStatus, interworkingStatus_);
           DARABONBA_PTR_TO_JSON(Name, name_);
           DARABONBA_PTR_TO_JSON(NewAgw, newAgw_);
+          DARABONBA_PTR_TO_JSON(ProcessingCenId, processingCenId_);
           DARABONBA_PTR_TO_JSON(ResourceGroupId, resourceGroupId_);
           DARABONBA_PTR_TO_JSON(SnatCidrBlock, snatCidrBlock_);
           DARABONBA_PTR_TO_JSON(Subnet, subnet_);
           DARABONBA_PTR_TO_JSON(Tags, tags_);
+          DARABONBA_PTR_TO_JSON(TrNetworkConfig, trNetworkConfig_);
+          DARABONBA_PTR_TO_JSON(VpcNetworkConfig, vpcNetworkConfig_);
+          DARABONBA_PTR_TO_JSON(VpcStatusErrorCode, vpcStatusErrorCode_);
+          DARABONBA_PTR_TO_JSON(VpcStatusErrorMessage, vpcStatusErrorMessage_);
         };
         friend void from_json(const Darabonba::Json& j, CloudConnectNetwork& obj) { 
           DARABONBA_PTR_FROM_JSON(AssociatedCenId, associatedCenId_);
           DARABONBA_PTR_FROM_JSON(AssociatedCenOwnerId, associatedCenOwnerId_);
+          DARABONBA_PTR_FROM_JSON(AssociatedCenStatus, associatedCenStatus_);
           DARABONBA_PTR_FROM_JSON(AssociatedCloudBoxCount, associatedCloudBoxCount_);
+          DARABONBA_PTR_FROM_JSON(AssociatedVpcStatus, associatedVpcStatus_);
           DARABONBA_PTR_FROM_JSON(AvailableCloudBoxCount, availableCloudBoxCount_);
           DARABONBA_PTR_FROM_JSON(CcnId, ccnId_);
+          DARABONBA_PTR_FROM_JSON(CenStatusErrorCode, cenStatusErrorCode_);
+          DARABONBA_PTR_FROM_JSON(CenStatusErrorMessage, cenStatusErrorMessage_);
           DARABONBA_PTR_FROM_JSON(CidrBlock, cidrBlock_);
           DARABONBA_PTR_FROM_JSON(CreateTime, createTime_);
           DARABONBA_PTR_FROM_JSON(Description, description_);
           DARABONBA_PTR_FROM_JSON(InterworkingStatus, interworkingStatus_);
           DARABONBA_PTR_FROM_JSON(Name, name_);
           DARABONBA_PTR_FROM_JSON(NewAgw, newAgw_);
+          DARABONBA_PTR_FROM_JSON(ProcessingCenId, processingCenId_);
           DARABONBA_PTR_FROM_JSON(ResourceGroupId, resourceGroupId_);
           DARABONBA_PTR_FROM_JSON(SnatCidrBlock, snatCidrBlock_);
           DARABONBA_PTR_FROM_JSON(Subnet, subnet_);
           DARABONBA_PTR_FROM_JSON(Tags, tags_);
+          DARABONBA_PTR_FROM_JSON(TrNetworkConfig, trNetworkConfig_);
+          DARABONBA_PTR_FROM_JSON(VpcNetworkConfig, vpcNetworkConfig_);
+          DARABONBA_PTR_FROM_JSON(VpcStatusErrorCode, vpcStatusErrorCode_);
+          DARABONBA_PTR_FROM_JSON(VpcStatusErrorMessage, vpcStatusErrorMessage_);
         };
         CloudConnectNetwork() = default ;
         CloudConnectNetwork(const CloudConnectNetwork &) = default ;
@@ -104,6 +122,324 @@ namespace Models
         };
         virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
         virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+        class VpcNetworkConfig : public Darabonba::Model {
+        public:
+          friend void to_json(Darabonba::Json& j, const VpcNetworkConfig& obj) { 
+            DARABONBA_PTR_TO_JSON(CidrAllocationMode, cidrAllocationMode_);
+            DARABONBA_PTR_TO_JSON(RegionBindingList, regionBindingList_);
+            DARABONBA_PTR_TO_JSON(Subnet, subnet_);
+          };
+          friend void from_json(const Darabonba::Json& j, VpcNetworkConfig& obj) { 
+            DARABONBA_PTR_FROM_JSON(CidrAllocationMode, cidrAllocationMode_);
+            DARABONBA_PTR_FROM_JSON(RegionBindingList, regionBindingList_);
+            DARABONBA_PTR_FROM_JSON(Subnet, subnet_);
+          };
+          VpcNetworkConfig() = default ;
+          VpcNetworkConfig(const VpcNetworkConfig &) = default ;
+          VpcNetworkConfig(VpcNetworkConfig &&) = default ;
+          VpcNetworkConfig(const Darabonba::Json & obj) { from_json(obj, *this); };
+          virtual ~VpcNetworkConfig() = default ;
+          VpcNetworkConfig& operator=(const VpcNetworkConfig &) = default ;
+          VpcNetworkConfig& operator=(VpcNetworkConfig &&) = default ;
+          virtual void validate() const override {
+          };
+          virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+          virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+          class RegionBindingList : public Darabonba::Model {
+          public:
+            friend void to_json(Darabonba::Json& j, const RegionBindingList& obj) { 
+              DARABONBA_PTR_TO_JSON(RegionBinding, regionBinding_);
+            };
+            friend void from_json(const Darabonba::Json& j, RegionBindingList& obj) { 
+              DARABONBA_PTR_FROM_JSON(RegionBinding, regionBinding_);
+            };
+            RegionBindingList() = default ;
+            RegionBindingList(const RegionBindingList &) = default ;
+            RegionBindingList(RegionBindingList &&) = default ;
+            RegionBindingList(const Darabonba::Json & obj) { from_json(obj, *this); };
+            virtual ~RegionBindingList() = default ;
+            RegionBindingList& operator=(const RegionBindingList &) = default ;
+            RegionBindingList& operator=(RegionBindingList &&) = default ;
+            virtual void validate() const override {
+            };
+            virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+            virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+            class RegionBinding : public Darabonba::Model {
+            public:
+              friend void to_json(Darabonba::Json& j, const RegionBinding& obj) { 
+                DARABONBA_PTR_TO_JSON(RegionId, regionId_);
+                DARABONBA_PTR_TO_JSON(RelayCidrBlock, relayCidrBlock_);
+                DARABONBA_PTR_TO_JSON(Status, status_);
+                DARABONBA_PTR_TO_JSON(VpcCidrBlock, vpcCidrBlock_);
+                DARABONBA_PTR_TO_JSON(VpcId, vpcId_);
+              };
+              friend void from_json(const Darabonba::Json& j, RegionBinding& obj) { 
+                DARABONBA_PTR_FROM_JSON(RegionId, regionId_);
+                DARABONBA_PTR_FROM_JSON(RelayCidrBlock, relayCidrBlock_);
+                DARABONBA_PTR_FROM_JSON(Status, status_);
+                DARABONBA_PTR_FROM_JSON(VpcCidrBlock, vpcCidrBlock_);
+                DARABONBA_PTR_FROM_JSON(VpcId, vpcId_);
+              };
+              RegionBinding() = default ;
+              RegionBinding(const RegionBinding &) = default ;
+              RegionBinding(RegionBinding &&) = default ;
+              RegionBinding(const Darabonba::Json & obj) { from_json(obj, *this); };
+              virtual ~RegionBinding() = default ;
+              RegionBinding& operator=(const RegionBinding &) = default ;
+              RegionBinding& operator=(RegionBinding &&) = default ;
+              virtual void validate() const override {
+              };
+              virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+              virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+              virtual bool empty() const override { return this->regionId_ == nullptr
+        && this->relayCidrBlock_ == nullptr && this->status_ == nullptr && this->vpcCidrBlock_ == nullptr && this->vpcId_ == nullptr; };
+              // regionId Field Functions 
+              bool hasRegionId() const { return this->regionId_ != nullptr;};
+              void deleteRegionId() { this->regionId_ = nullptr;};
+              inline string getRegionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
+              inline RegionBinding& setRegionId(string regionId) { DARABONBA_PTR_SET_VALUE(regionId_, regionId) };
+
+
+              // relayCidrBlock Field Functions 
+              bool hasRelayCidrBlock() const { return this->relayCidrBlock_ != nullptr;};
+              void deleteRelayCidrBlock() { this->relayCidrBlock_ = nullptr;};
+              inline string getRelayCidrBlock() const { DARABONBA_PTR_GET_DEFAULT(relayCidrBlock_, "") };
+              inline RegionBinding& setRelayCidrBlock(string relayCidrBlock) { DARABONBA_PTR_SET_VALUE(relayCidrBlock_, relayCidrBlock) };
+
+
+              // status Field Functions 
+              bool hasStatus() const { return this->status_ != nullptr;};
+              void deleteStatus() { this->status_ = nullptr;};
+              inline string getStatus() const { DARABONBA_PTR_GET_DEFAULT(status_, "") };
+              inline RegionBinding& setStatus(string status) { DARABONBA_PTR_SET_VALUE(status_, status) };
+
+
+              // vpcCidrBlock Field Functions 
+              bool hasVpcCidrBlock() const { return this->vpcCidrBlock_ != nullptr;};
+              void deleteVpcCidrBlock() { this->vpcCidrBlock_ = nullptr;};
+              inline string getVpcCidrBlock() const { DARABONBA_PTR_GET_DEFAULT(vpcCidrBlock_, "") };
+              inline RegionBinding& setVpcCidrBlock(string vpcCidrBlock) { DARABONBA_PTR_SET_VALUE(vpcCidrBlock_, vpcCidrBlock) };
+
+
+              // vpcId Field Functions 
+              bool hasVpcId() const { return this->vpcId_ != nullptr;};
+              void deleteVpcId() { this->vpcId_ = nullptr;};
+              inline string getVpcId() const { DARABONBA_PTR_GET_DEFAULT(vpcId_, "") };
+              inline RegionBinding& setVpcId(string vpcId) { DARABONBA_PTR_SET_VALUE(vpcId_, vpcId) };
+
+
+            protected:
+              shared_ptr<string> regionId_ {};
+              shared_ptr<string> relayCidrBlock_ {};
+              shared_ptr<string> status_ {};
+              shared_ptr<string> vpcCidrBlock_ {};
+              shared_ptr<string> vpcId_ {};
+            };
+
+            virtual bool empty() const override { return this->regionBinding_ == nullptr; };
+            // regionBinding Field Functions 
+            bool hasRegionBinding() const { return this->regionBinding_ != nullptr;};
+            void deleteRegionBinding() { this->regionBinding_ = nullptr;};
+            inline const vector<RegionBindingList::RegionBinding> & getRegionBinding() const { DARABONBA_PTR_GET_CONST(regionBinding_, vector<RegionBindingList::RegionBinding>) };
+            inline vector<RegionBindingList::RegionBinding> getRegionBinding() { DARABONBA_PTR_GET(regionBinding_, vector<RegionBindingList::RegionBinding>) };
+            inline RegionBindingList& setRegionBinding(const vector<RegionBindingList::RegionBinding> & regionBinding) { DARABONBA_PTR_SET_VALUE(regionBinding_, regionBinding) };
+            inline RegionBindingList& setRegionBinding(vector<RegionBindingList::RegionBinding> && regionBinding) { DARABONBA_PTR_SET_RVALUE(regionBinding_, regionBinding) };
+
+
+          protected:
+            shared_ptr<vector<RegionBindingList::RegionBinding>> regionBinding_ {};
+          };
+
+          virtual bool empty() const override { return this->cidrAllocationMode_ == nullptr
+        && this->regionBindingList_ == nullptr && this->subnet_ == nullptr; };
+          // cidrAllocationMode Field Functions 
+          bool hasCidrAllocationMode() const { return this->cidrAllocationMode_ != nullptr;};
+          void deleteCidrAllocationMode() { this->cidrAllocationMode_ = nullptr;};
+          inline string getCidrAllocationMode() const { DARABONBA_PTR_GET_DEFAULT(cidrAllocationMode_, "") };
+          inline VpcNetworkConfig& setCidrAllocationMode(string cidrAllocationMode) { DARABONBA_PTR_SET_VALUE(cidrAllocationMode_, cidrAllocationMode) };
+
+
+          // regionBindingList Field Functions 
+          bool hasRegionBindingList() const { return this->regionBindingList_ != nullptr;};
+          void deleteRegionBindingList() { this->regionBindingList_ = nullptr;};
+          inline const VpcNetworkConfig::RegionBindingList & getRegionBindingList() const { DARABONBA_PTR_GET_CONST(regionBindingList_, VpcNetworkConfig::RegionBindingList) };
+          inline VpcNetworkConfig::RegionBindingList getRegionBindingList() { DARABONBA_PTR_GET(regionBindingList_, VpcNetworkConfig::RegionBindingList) };
+          inline VpcNetworkConfig& setRegionBindingList(const VpcNetworkConfig::RegionBindingList & regionBindingList) { DARABONBA_PTR_SET_VALUE(regionBindingList_, regionBindingList) };
+          inline VpcNetworkConfig& setRegionBindingList(VpcNetworkConfig::RegionBindingList && regionBindingList) { DARABONBA_PTR_SET_RVALUE(regionBindingList_, regionBindingList) };
+
+
+          // subnet Field Functions 
+          bool hasSubnet() const { return this->subnet_ != nullptr;};
+          void deleteSubnet() { this->subnet_ = nullptr;};
+          inline string getSubnet() const { DARABONBA_PTR_GET_DEFAULT(subnet_, "") };
+          inline VpcNetworkConfig& setSubnet(string subnet) { DARABONBA_PTR_SET_VALUE(subnet_, subnet) };
+
+
+        protected:
+          shared_ptr<string> cidrAllocationMode_ {};
+          shared_ptr<VpcNetworkConfig::RegionBindingList> regionBindingList_ {};
+          shared_ptr<string> subnet_ {};
+        };
+
+        class TrNetworkConfig : public Darabonba::Model {
+        public:
+          friend void to_json(Darabonba::Json& j, const TrNetworkConfig& obj) { 
+            DARABONBA_PTR_TO_JSON(CidrAllocationMode, cidrAllocationMode_);
+            DARABONBA_PTR_TO_JSON(RegionBindingList, regionBindingList_);
+            DARABONBA_PTR_TO_JSON(Subnet, subnet_);
+          };
+          friend void from_json(const Darabonba::Json& j, TrNetworkConfig& obj) { 
+            DARABONBA_PTR_FROM_JSON(CidrAllocationMode, cidrAllocationMode_);
+            DARABONBA_PTR_FROM_JSON(RegionBindingList, regionBindingList_);
+            DARABONBA_PTR_FROM_JSON(Subnet, subnet_);
+          };
+          TrNetworkConfig() = default ;
+          TrNetworkConfig(const TrNetworkConfig &) = default ;
+          TrNetworkConfig(TrNetworkConfig &&) = default ;
+          TrNetworkConfig(const Darabonba::Json & obj) { from_json(obj, *this); };
+          virtual ~TrNetworkConfig() = default ;
+          TrNetworkConfig& operator=(const TrNetworkConfig &) = default ;
+          TrNetworkConfig& operator=(TrNetworkConfig &&) = default ;
+          virtual void validate() const override {
+          };
+          virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+          virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+          class RegionBindingList : public Darabonba::Model {
+          public:
+            friend void to_json(Darabonba::Json& j, const RegionBindingList& obj) { 
+              DARABONBA_PTR_TO_JSON(RegionBinding, regionBinding_);
+            };
+            friend void from_json(const Darabonba::Json& j, RegionBindingList& obj) { 
+              DARABONBA_PTR_FROM_JSON(RegionBinding, regionBinding_);
+            };
+            RegionBindingList() = default ;
+            RegionBindingList(const RegionBindingList &) = default ;
+            RegionBindingList(RegionBindingList &&) = default ;
+            RegionBindingList(const Darabonba::Json & obj) { from_json(obj, *this); };
+            virtual ~RegionBindingList() = default ;
+            RegionBindingList& operator=(const RegionBindingList &) = default ;
+            RegionBindingList& operator=(RegionBindingList &&) = default ;
+            virtual void validate() const override {
+            };
+            virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+            virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+            class RegionBinding : public Darabonba::Model {
+            public:
+              friend void to_json(Darabonba::Json& j, const RegionBinding& obj) { 
+                DARABONBA_PTR_TO_JSON(CidrBlock, cidrBlock_);
+                DARABONBA_PTR_TO_JSON(RegionId, regionId_);
+                DARABONBA_PTR_TO_JSON(RelayCidrBlock, relayCidrBlock_);
+                DARABONBA_PTR_TO_JSON(Status, status_);
+                DARABONBA_PTR_TO_JSON(TransitRouterId, transitRouterId_);
+              };
+              friend void from_json(const Darabonba::Json& j, RegionBinding& obj) { 
+                DARABONBA_PTR_FROM_JSON(CidrBlock, cidrBlock_);
+                DARABONBA_PTR_FROM_JSON(RegionId, regionId_);
+                DARABONBA_PTR_FROM_JSON(RelayCidrBlock, relayCidrBlock_);
+                DARABONBA_PTR_FROM_JSON(Status, status_);
+                DARABONBA_PTR_FROM_JSON(TransitRouterId, transitRouterId_);
+              };
+              RegionBinding() = default ;
+              RegionBinding(const RegionBinding &) = default ;
+              RegionBinding(RegionBinding &&) = default ;
+              RegionBinding(const Darabonba::Json & obj) { from_json(obj, *this); };
+              virtual ~RegionBinding() = default ;
+              RegionBinding& operator=(const RegionBinding &) = default ;
+              RegionBinding& operator=(RegionBinding &&) = default ;
+              virtual void validate() const override {
+              };
+              virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+              virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+              virtual bool empty() const override { return this->cidrBlock_ == nullptr
+        && this->regionId_ == nullptr && this->relayCidrBlock_ == nullptr && this->status_ == nullptr && this->transitRouterId_ == nullptr; };
+              // cidrBlock Field Functions 
+              bool hasCidrBlock() const { return this->cidrBlock_ != nullptr;};
+              void deleteCidrBlock() { this->cidrBlock_ = nullptr;};
+              inline string getCidrBlock() const { DARABONBA_PTR_GET_DEFAULT(cidrBlock_, "") };
+              inline RegionBinding& setCidrBlock(string cidrBlock) { DARABONBA_PTR_SET_VALUE(cidrBlock_, cidrBlock) };
+
+
+              // regionId Field Functions 
+              bool hasRegionId() const { return this->regionId_ != nullptr;};
+              void deleteRegionId() { this->regionId_ = nullptr;};
+              inline string getRegionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
+              inline RegionBinding& setRegionId(string regionId) { DARABONBA_PTR_SET_VALUE(regionId_, regionId) };
+
+
+              // relayCidrBlock Field Functions 
+              bool hasRelayCidrBlock() const { return this->relayCidrBlock_ != nullptr;};
+              void deleteRelayCidrBlock() { this->relayCidrBlock_ = nullptr;};
+              inline string getRelayCidrBlock() const { DARABONBA_PTR_GET_DEFAULT(relayCidrBlock_, "") };
+              inline RegionBinding& setRelayCidrBlock(string relayCidrBlock) { DARABONBA_PTR_SET_VALUE(relayCidrBlock_, relayCidrBlock) };
+
+
+              // status Field Functions 
+              bool hasStatus() const { return this->status_ != nullptr;};
+              void deleteStatus() { this->status_ = nullptr;};
+              inline string getStatus() const { DARABONBA_PTR_GET_DEFAULT(status_, "") };
+              inline RegionBinding& setStatus(string status) { DARABONBA_PTR_SET_VALUE(status_, status) };
+
+
+              // transitRouterId Field Functions 
+              bool hasTransitRouterId() const { return this->transitRouterId_ != nullptr;};
+              void deleteTransitRouterId() { this->transitRouterId_ = nullptr;};
+              inline string getTransitRouterId() const { DARABONBA_PTR_GET_DEFAULT(transitRouterId_, "") };
+              inline RegionBinding& setTransitRouterId(string transitRouterId) { DARABONBA_PTR_SET_VALUE(transitRouterId_, transitRouterId) };
+
+
+            protected:
+              shared_ptr<string> cidrBlock_ {};
+              shared_ptr<string> regionId_ {};
+              shared_ptr<string> relayCidrBlock_ {};
+              shared_ptr<string> status_ {};
+              shared_ptr<string> transitRouterId_ {};
+            };
+
+            virtual bool empty() const override { return this->regionBinding_ == nullptr; };
+            // regionBinding Field Functions 
+            bool hasRegionBinding() const { return this->regionBinding_ != nullptr;};
+            void deleteRegionBinding() { this->regionBinding_ = nullptr;};
+            inline const vector<RegionBindingList::RegionBinding> & getRegionBinding() const { DARABONBA_PTR_GET_CONST(regionBinding_, vector<RegionBindingList::RegionBinding>) };
+            inline vector<RegionBindingList::RegionBinding> getRegionBinding() { DARABONBA_PTR_GET(regionBinding_, vector<RegionBindingList::RegionBinding>) };
+            inline RegionBindingList& setRegionBinding(const vector<RegionBindingList::RegionBinding> & regionBinding) { DARABONBA_PTR_SET_VALUE(regionBinding_, regionBinding) };
+            inline RegionBindingList& setRegionBinding(vector<RegionBindingList::RegionBinding> && regionBinding) { DARABONBA_PTR_SET_RVALUE(regionBinding_, regionBinding) };
+
+
+          protected:
+            shared_ptr<vector<RegionBindingList::RegionBinding>> regionBinding_ {};
+          };
+
+          virtual bool empty() const override { return this->cidrAllocationMode_ == nullptr
+        && this->regionBindingList_ == nullptr && this->subnet_ == nullptr; };
+          // cidrAllocationMode Field Functions 
+          bool hasCidrAllocationMode() const { return this->cidrAllocationMode_ != nullptr;};
+          void deleteCidrAllocationMode() { this->cidrAllocationMode_ = nullptr;};
+          inline string getCidrAllocationMode() const { DARABONBA_PTR_GET_DEFAULT(cidrAllocationMode_, "") };
+          inline TrNetworkConfig& setCidrAllocationMode(string cidrAllocationMode) { DARABONBA_PTR_SET_VALUE(cidrAllocationMode_, cidrAllocationMode) };
+
+
+          // regionBindingList Field Functions 
+          bool hasRegionBindingList() const { return this->regionBindingList_ != nullptr;};
+          void deleteRegionBindingList() { this->regionBindingList_ = nullptr;};
+          inline const TrNetworkConfig::RegionBindingList & getRegionBindingList() const { DARABONBA_PTR_GET_CONST(regionBindingList_, TrNetworkConfig::RegionBindingList) };
+          inline TrNetworkConfig::RegionBindingList getRegionBindingList() { DARABONBA_PTR_GET(regionBindingList_, TrNetworkConfig::RegionBindingList) };
+          inline TrNetworkConfig& setRegionBindingList(const TrNetworkConfig::RegionBindingList & regionBindingList) { DARABONBA_PTR_SET_VALUE(regionBindingList_, regionBindingList) };
+          inline TrNetworkConfig& setRegionBindingList(TrNetworkConfig::RegionBindingList && regionBindingList) { DARABONBA_PTR_SET_RVALUE(regionBindingList_, regionBindingList) };
+
+
+          // subnet Field Functions 
+          bool hasSubnet() const { return this->subnet_ != nullptr;};
+          void deleteSubnet() { this->subnet_ = nullptr;};
+          inline string getSubnet() const { DARABONBA_PTR_GET_DEFAULT(subnet_, "") };
+          inline TrNetworkConfig& setSubnet(string subnet) { DARABONBA_PTR_SET_VALUE(subnet_, subnet) };
+
+
+        protected:
+          shared_ptr<string> cidrAllocationMode_ {};
+          shared_ptr<TrNetworkConfig::RegionBindingList> regionBindingList_ {};
+          shared_ptr<string> subnet_ {};
+        };
+
         class Tags : public Darabonba::Model {
         public:
           friend void to_json(Darabonba::Json& j, const Tags& obj) { 
@@ -180,9 +516,11 @@ namespace Models
         };
 
         virtual bool empty() const override { return this->associatedCenId_ == nullptr
-        && this->associatedCenOwnerId_ == nullptr && this->associatedCloudBoxCount_ == nullptr && this->availableCloudBoxCount_ == nullptr && this->ccnId_ == nullptr && this->cidrBlock_ == nullptr
-        && this->createTime_ == nullptr && this->description_ == nullptr && this->interworkingStatus_ == nullptr && this->name_ == nullptr && this->newAgw_ == nullptr
-        && this->resourceGroupId_ == nullptr && this->snatCidrBlock_ == nullptr && this->subnet_ == nullptr && this->tags_ == nullptr; };
+        && this->associatedCenOwnerId_ == nullptr && this->associatedCenStatus_ == nullptr && this->associatedCloudBoxCount_ == nullptr && this->associatedVpcStatus_ == nullptr && this->availableCloudBoxCount_ == nullptr
+        && this->ccnId_ == nullptr && this->cenStatusErrorCode_ == nullptr && this->cenStatusErrorMessage_ == nullptr && this->cidrBlock_ == nullptr && this->createTime_ == nullptr
+        && this->description_ == nullptr && this->interworkingStatus_ == nullptr && this->name_ == nullptr && this->newAgw_ == nullptr && this->processingCenId_ == nullptr
+        && this->resourceGroupId_ == nullptr && this->snatCidrBlock_ == nullptr && this->subnet_ == nullptr && this->tags_ == nullptr && this->trNetworkConfig_ == nullptr
+        && this->vpcNetworkConfig_ == nullptr && this->vpcStatusErrorCode_ == nullptr && this->vpcStatusErrorMessage_ == nullptr; };
         // associatedCenId Field Functions 
         bool hasAssociatedCenId() const { return this->associatedCenId_ != nullptr;};
         void deleteAssociatedCenId() { this->associatedCenId_ = nullptr;};
@@ -197,11 +535,25 @@ namespace Models
         inline CloudConnectNetwork& setAssociatedCenOwnerId(string associatedCenOwnerId) { DARABONBA_PTR_SET_VALUE(associatedCenOwnerId_, associatedCenOwnerId) };
 
 
+        // associatedCenStatus Field Functions 
+        bool hasAssociatedCenStatus() const { return this->associatedCenStatus_ != nullptr;};
+        void deleteAssociatedCenStatus() { this->associatedCenStatus_ = nullptr;};
+        inline string getAssociatedCenStatus() const { DARABONBA_PTR_GET_DEFAULT(associatedCenStatus_, "") };
+        inline CloudConnectNetwork& setAssociatedCenStatus(string associatedCenStatus) { DARABONBA_PTR_SET_VALUE(associatedCenStatus_, associatedCenStatus) };
+
+
         // associatedCloudBoxCount Field Functions 
         bool hasAssociatedCloudBoxCount() const { return this->associatedCloudBoxCount_ != nullptr;};
         void deleteAssociatedCloudBoxCount() { this->associatedCloudBoxCount_ = nullptr;};
         inline string getAssociatedCloudBoxCount() const { DARABONBA_PTR_GET_DEFAULT(associatedCloudBoxCount_, "") };
         inline CloudConnectNetwork& setAssociatedCloudBoxCount(string associatedCloudBoxCount) { DARABONBA_PTR_SET_VALUE(associatedCloudBoxCount_, associatedCloudBoxCount) };
+
+
+        // associatedVpcStatus Field Functions 
+        bool hasAssociatedVpcStatus() const { return this->associatedVpcStatus_ != nullptr;};
+        void deleteAssociatedVpcStatus() { this->associatedVpcStatus_ = nullptr;};
+        inline string getAssociatedVpcStatus() const { DARABONBA_PTR_GET_DEFAULT(associatedVpcStatus_, "") };
+        inline CloudConnectNetwork& setAssociatedVpcStatus(string associatedVpcStatus) { DARABONBA_PTR_SET_VALUE(associatedVpcStatus_, associatedVpcStatus) };
 
 
         // availableCloudBoxCount Field Functions 
@@ -216,6 +568,20 @@ namespace Models
         void deleteCcnId() { this->ccnId_ = nullptr;};
         inline string getCcnId() const { DARABONBA_PTR_GET_DEFAULT(ccnId_, "") };
         inline CloudConnectNetwork& setCcnId(string ccnId) { DARABONBA_PTR_SET_VALUE(ccnId_, ccnId) };
+
+
+        // cenStatusErrorCode Field Functions 
+        bool hasCenStatusErrorCode() const { return this->cenStatusErrorCode_ != nullptr;};
+        void deleteCenStatusErrorCode() { this->cenStatusErrorCode_ = nullptr;};
+        inline string getCenStatusErrorCode() const { DARABONBA_PTR_GET_DEFAULT(cenStatusErrorCode_, "") };
+        inline CloudConnectNetwork& setCenStatusErrorCode(string cenStatusErrorCode) { DARABONBA_PTR_SET_VALUE(cenStatusErrorCode_, cenStatusErrorCode) };
+
+
+        // cenStatusErrorMessage Field Functions 
+        bool hasCenStatusErrorMessage() const { return this->cenStatusErrorMessage_ != nullptr;};
+        void deleteCenStatusErrorMessage() { this->cenStatusErrorMessage_ = nullptr;};
+        inline string getCenStatusErrorMessage() const { DARABONBA_PTR_GET_DEFAULT(cenStatusErrorMessage_, "") };
+        inline CloudConnectNetwork& setCenStatusErrorMessage(string cenStatusErrorMessage) { DARABONBA_PTR_SET_VALUE(cenStatusErrorMessage_, cenStatusErrorMessage) };
 
 
         // cidrBlock Field Functions 
@@ -260,6 +626,13 @@ namespace Models
         inline CloudConnectNetwork& setNewAgw(bool newAgw) { DARABONBA_PTR_SET_VALUE(newAgw_, newAgw) };
 
 
+        // processingCenId Field Functions 
+        bool hasProcessingCenId() const { return this->processingCenId_ != nullptr;};
+        void deleteProcessingCenId() { this->processingCenId_ = nullptr;};
+        inline string getProcessingCenId() const { DARABONBA_PTR_GET_DEFAULT(processingCenId_, "") };
+        inline CloudConnectNetwork& setProcessingCenId(string processingCenId) { DARABONBA_PTR_SET_VALUE(processingCenId_, processingCenId) };
+
+
         // resourceGroupId Field Functions 
         bool hasResourceGroupId() const { return this->resourceGroupId_ != nullptr;};
         void deleteResourceGroupId() { this->resourceGroupId_ = nullptr;};
@@ -290,22 +663,63 @@ namespace Models
         inline CloudConnectNetwork& setTags(CloudConnectNetwork::Tags && tags) { DARABONBA_PTR_SET_RVALUE(tags_, tags) };
 
 
+        // trNetworkConfig Field Functions 
+        bool hasTrNetworkConfig() const { return this->trNetworkConfig_ != nullptr;};
+        void deleteTrNetworkConfig() { this->trNetworkConfig_ = nullptr;};
+        inline const CloudConnectNetwork::TrNetworkConfig & getTrNetworkConfig() const { DARABONBA_PTR_GET_CONST(trNetworkConfig_, CloudConnectNetwork::TrNetworkConfig) };
+        inline CloudConnectNetwork::TrNetworkConfig getTrNetworkConfig() { DARABONBA_PTR_GET(trNetworkConfig_, CloudConnectNetwork::TrNetworkConfig) };
+        inline CloudConnectNetwork& setTrNetworkConfig(const CloudConnectNetwork::TrNetworkConfig & trNetworkConfig) { DARABONBA_PTR_SET_VALUE(trNetworkConfig_, trNetworkConfig) };
+        inline CloudConnectNetwork& setTrNetworkConfig(CloudConnectNetwork::TrNetworkConfig && trNetworkConfig) { DARABONBA_PTR_SET_RVALUE(trNetworkConfig_, trNetworkConfig) };
+
+
+        // vpcNetworkConfig Field Functions 
+        bool hasVpcNetworkConfig() const { return this->vpcNetworkConfig_ != nullptr;};
+        void deleteVpcNetworkConfig() { this->vpcNetworkConfig_ = nullptr;};
+        inline const CloudConnectNetwork::VpcNetworkConfig & getVpcNetworkConfig() const { DARABONBA_PTR_GET_CONST(vpcNetworkConfig_, CloudConnectNetwork::VpcNetworkConfig) };
+        inline CloudConnectNetwork::VpcNetworkConfig getVpcNetworkConfig() { DARABONBA_PTR_GET(vpcNetworkConfig_, CloudConnectNetwork::VpcNetworkConfig) };
+        inline CloudConnectNetwork& setVpcNetworkConfig(const CloudConnectNetwork::VpcNetworkConfig & vpcNetworkConfig) { DARABONBA_PTR_SET_VALUE(vpcNetworkConfig_, vpcNetworkConfig) };
+        inline CloudConnectNetwork& setVpcNetworkConfig(CloudConnectNetwork::VpcNetworkConfig && vpcNetworkConfig) { DARABONBA_PTR_SET_RVALUE(vpcNetworkConfig_, vpcNetworkConfig) };
+
+
+        // vpcStatusErrorCode Field Functions 
+        bool hasVpcStatusErrorCode() const { return this->vpcStatusErrorCode_ != nullptr;};
+        void deleteVpcStatusErrorCode() { this->vpcStatusErrorCode_ = nullptr;};
+        inline string getVpcStatusErrorCode() const { DARABONBA_PTR_GET_DEFAULT(vpcStatusErrorCode_, "") };
+        inline CloudConnectNetwork& setVpcStatusErrorCode(string vpcStatusErrorCode) { DARABONBA_PTR_SET_VALUE(vpcStatusErrorCode_, vpcStatusErrorCode) };
+
+
+        // vpcStatusErrorMessage Field Functions 
+        bool hasVpcStatusErrorMessage() const { return this->vpcStatusErrorMessage_ != nullptr;};
+        void deleteVpcStatusErrorMessage() { this->vpcStatusErrorMessage_ = nullptr;};
+        inline string getVpcStatusErrorMessage() const { DARABONBA_PTR_GET_DEFAULT(vpcStatusErrorMessage_, "") };
+        inline CloudConnectNetwork& setVpcStatusErrorMessage(string vpcStatusErrorMessage) { DARABONBA_PTR_SET_VALUE(vpcStatusErrorMessage_, vpcStatusErrorMessage) };
+
+
       protected:
         shared_ptr<string> associatedCenId_ {};
         shared_ptr<string> associatedCenOwnerId_ {};
+        shared_ptr<string> associatedCenStatus_ {};
         shared_ptr<string> associatedCloudBoxCount_ {};
+        shared_ptr<string> associatedVpcStatus_ {};
         shared_ptr<string> availableCloudBoxCount_ {};
         shared_ptr<string> ccnId_ {};
+        shared_ptr<string> cenStatusErrorCode_ {};
+        shared_ptr<string> cenStatusErrorMessage_ {};
         shared_ptr<string> cidrBlock_ {};
         shared_ptr<int64_t> createTime_ {};
         shared_ptr<string> description_ {};
         shared_ptr<string> interworkingStatus_ {};
         shared_ptr<string> name_ {};
         shared_ptr<bool> newAgw_ {};
+        shared_ptr<string> processingCenId_ {};
         shared_ptr<string> resourceGroupId_ {};
         shared_ptr<string> snatCidrBlock_ {};
         shared_ptr<string> subnet_ {};
         shared_ptr<CloudConnectNetwork::Tags> tags_ {};
+        shared_ptr<CloudConnectNetwork::TrNetworkConfig> trNetworkConfig_ {};
+        shared_ptr<CloudConnectNetwork::VpcNetworkConfig> vpcNetworkConfig_ {};
+        shared_ptr<string> vpcStatusErrorCode_ {};
+        shared_ptr<string> vpcStatusErrorMessage_ {};
       };
 
       virtual bool empty() const override { return this->cloudConnectNetwork_ == nullptr; };
@@ -365,11 +779,11 @@ namespace Models
     shared_ptr<DescribeCloudConnectNetworksResponseBody::CloudConnectNetworks> cloudConnectNetworks_ {};
     // The page number.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries per page.
+    // The number of entries to return on each page for paging in a paged query.
     shared_ptr<int32_t> pageSize_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The total number of entries that match the query.
+    // The total number of entries.
     shared_ptr<int32_t> totalCount_ {};
   };
 

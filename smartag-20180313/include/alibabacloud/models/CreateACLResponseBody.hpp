@@ -66,13 +66,13 @@ namespace Models
 
 
   protected:
-    // The access control instance ID.
+    // The ID of the access control instance.
     shared_ptr<string> aclId_ {};
-    // The type of the Smart Access Gateway instance associated with the access control instance.
+    // The type of the Smart Access Gateway (SAG) instance associated with the access control instance.
     shared_ptr<string> aclType_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The resource group ID of the access control instance.
+    // The ID of the resource group to which the access control instance belongs.
     shared_ptr<string> resourceGroupId_ {};
   };
 

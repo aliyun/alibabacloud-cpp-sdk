@@ -108,25 +108,20 @@ namespace Models
 
 
     protected:
-      // The list of CIDR blocks that overlap with each other.
+      // The list of conflicting CIDR blocks.
       shared_ptr<vector<string>> conflictCidrs_ {};
-      // The cost of the route.
-      // 
-      // The number on the left side of the forward slash (/) indicates the administrative distance (AD) of the routing protocol.
-      // 
-      // The number on the right side of the forward slash (/) indicates the metric value.
+      // The routing cost value. The number to the left of the forward slash (/) indicates the administrative distance (AD) of the routing protocol. The number to the right of the forward slash (/) indicates the metric.
       shared_ptr<string> cost_ {};
       // The destination CIDR block.
       shared_ptr<string> destinationCidr_ {};
       // The next hop.
       shared_ptr<string> nextHop_ {};
-      // The name of the port. If the port name is -1, data is transferred through a VPN tunnel to Alibaba Cloud.
+      // The port name. A value of -1 indicates that data traffic enters Alibaba Cloud through a VPN connection.
       shared_ptr<string> portName_ {};
-      // The routing protocol. Valid values:
-      // 
-      // *   **STATIC**: a static routing protocol.
-      // *   **OSPF**: the Open Shortest Path First (OSPF) dynamic routing protocol.
-      // *   **BGP**: the Border Gateway Protocol (BGP) dynamic routing protocol.
+      // The routing protocol type. Valid values:
+      // - **STATIC**: Static routing protocol.
+      // - **OSPF**: OSPF dynamic routing protocol.
+      // - **BGP**: BGP dynamic routing protocol.
       shared_ptr<string> routeProtocol_ {};
     };
 
@@ -149,9 +144,9 @@ namespace Models
 
 
   protected:
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // The routes.
+    // The list of routes.
     shared_ptr<vector<DescribeSagRouteListResponseBody::Routes>> routes_ {};
   };
 

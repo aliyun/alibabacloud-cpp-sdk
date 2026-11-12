@@ -20,6 +20,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(RegionId, regionId_);
       DARABONBA_PTR_TO_JSON(ResourceOwnerAccount, resourceOwnerAccount_);
       DARABONBA_PTR_TO_JSON(ResourceOwnerId, resourceOwnerId_);
+      DARABONBA_PTR_TO_JSON(RestoreTime, restoreTime_);
       DARABONBA_PTR_TO_JSON(SmartAGId, smartAGId_);
     };
     friend void from_json(const Darabonba::Json& j, UpgradeSmartAccessGatewayRequest& obj) { 
@@ -30,6 +31,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(RegionId, regionId_);
       DARABONBA_PTR_FROM_JSON(ResourceOwnerAccount, resourceOwnerAccount_);
       DARABONBA_PTR_FROM_JSON(ResourceOwnerId, resourceOwnerId_);
+      DARABONBA_PTR_FROM_JSON(RestoreTime, restoreTime_);
       DARABONBA_PTR_FROM_JSON(SmartAGId, smartAGId_);
     };
     UpgradeSmartAccessGatewayRequest() = default ;
@@ -45,7 +47,7 @@ namespace Models
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->autoPay_ == nullptr
         && this->bandWidthSpec_ == nullptr && this->ownerAccount_ == nullptr && this->ownerId_ == nullptr && this->regionId_ == nullptr && this->resourceOwnerAccount_ == nullptr
-        && this->resourceOwnerId_ == nullptr && this->smartAGId_ == nullptr; };
+        && this->resourceOwnerId_ == nullptr && this->restoreTime_ == nullptr && this->smartAGId_ == nullptr; };
     // autoPay Field Functions 
     bool hasAutoPay() const { return this->autoPay_ != nullptr;};
     void deleteAutoPay() { this->autoPay_ = nullptr;};
@@ -95,6 +97,13 @@ namespace Models
     inline UpgradeSmartAccessGatewayRequest& setResourceOwnerId(int64_t resourceOwnerId) { DARABONBA_PTR_SET_VALUE(resourceOwnerId_, resourceOwnerId) };
 
 
+    // restoreTime Field Functions 
+    bool hasRestoreTime() const { return this->restoreTime_ != nullptr;};
+    void deleteRestoreTime() { this->restoreTime_ = nullptr;};
+    inline string getRestoreTime() const { DARABONBA_PTR_GET_DEFAULT(restoreTime_, "") };
+    inline UpgradeSmartAccessGatewayRequest& setRestoreTime(string restoreTime) { DARABONBA_PTR_SET_VALUE(restoreTime_, restoreTime) };
+
+
     // smartAGId Field Functions 
     bool hasSmartAGId() const { return this->smartAGId_ != nullptr;};
     void deleteSmartAGId() { this->smartAGId_ = nullptr;};
@@ -103,26 +112,31 @@ namespace Models
 
 
   protected:
-    // Indicates whether to automatically pay the bill for a subscription instance.
+    // Specifies whether automatic payment is enabled for the bills of upfront instances. Valid values:
     // 
-    // Valid values: **true | false**. Default value: false
+    // - **true**: Yes.
+    // 
+    // - **false**: No.
     // 
     // This parameter is required.
     shared_ptr<bool> autoPay_ {};
-    // The bandwidth of the SAG instance.
+    // The bandwidth of the Smart Access Gateway instance. 
     // 
-    // *   Value range for an SAG-100WM device: 2 to 50. Unit: Mbit/s
-    // *   Value range for an SAG-1000 device: 10 to 500. Unit: Mbit/s
+    // - If the device specification is sag-100wm, the value ranges from 2 to 50 Mbit/s.
+    //           
+    // - If the device specification is sag-1000, the value ranges from 10 to 500 Mbit/s.
     shared_ptr<int64_t> bandWidthSpec_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
-    // The ID of the region to which the SAG instance belongs.
+    // The region ID of the Smart Access Gateway.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
-    // The ID of the SAG instance.
+    // The revert epoch for a temporary upgrade. This parameter specifies the expiration epoch of the temporary bandwidth upgrade. By default, if this parameter is left empty, the upgrade remains effective until the end-of-life (EOL) of the instance. If a specific epoch is specified, the bandwidth automatically reverts to the pre-upgrade configuration at the specified epoch.
+    shared_ptr<string> restoreTime_ {};
+    // The Smart Access Gateway instance ID.
     // 
     // This parameter is required.
     shared_ptr<string> smartAGId_ {};

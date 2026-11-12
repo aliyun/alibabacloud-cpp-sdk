@@ -140,13 +140,11 @@ namespace Models
 
 
   protected:
-    // The public IP address.
-    // 
-    // >  If the DNAT entry is used to forward packets transmitted over the Internet, the DNAT entry automatically recognizes the current public IP address.
+    // The external public IP address.
+    // > If the DNAT type is Internet, the system automatically identifies the current public IP address. You do not need to specify this parameter.
     shared_ptr<string> externalIp_ {};
     // The public port.
-    // 
-    // Valid values: **1 to 65535**.
+    // Valid values: **1-65535**.
     // 
     // This parameter is required.
     shared_ptr<string> externalPort_ {};
@@ -154,38 +152,35 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> internalIp_ {};
-    // The destination private port.
-    // 
-    // Valid values: **1 to 65535**.
+    // The destination private port number.
+    // Valid values: **1-65535**.
     // 
     // This parameter is required.
     shared_ptr<string> internalPort_ {};
-    // The protocol used in DNAT. Valid values:
-    // 
-    // *   **TCP**: forwards TCP packets.
-    // *   **UDP**: The NAT gateway forwards UDP packets.
-    // *   **Any**: forwards packets of all protocols.
+    // The protocol type. Valid values:
+    // - **TCP**: forwards TCP packets.
+    // - **UDP**: forwards UDP packets.
+    // - **Any**: forwards packets of all protocols.
     // 
     // This parameter is required.
     shared_ptr<string> ipProtocol_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
-    // The ID of the region where the SAG instance is deployed.
+    // The region ID of the Smart Access Gateway instance.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
-    // The ID of the SAG instance.
+    // The ID of the Smart Access Gateway instance.
     // 
-    // >  Only SAG instances used to manage SAG devices support DNAT.
+    // > Currently, only hardware instances are supported.
     // 
     // This parameter is required.
     shared_ptr<string> sagId_ {};
-    // The type of the DNAT entry. Valid values:
-    // 
-    // *   **Intranet**: translates the destination IP address to a specific internal IP address. This is the default value.
-    // *   **Internet**: translates the destination IP address to a specific public IP address.
+    // The DNAT type. Valid values:
+    // - **Intranet**: private network DNAT. This is the default value.
+    // - **Internet**: public network DNAT.
     shared_ptr<string> type_ {};
   };
 

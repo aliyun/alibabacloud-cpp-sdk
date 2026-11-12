@@ -197,76 +197,75 @@ namespace Models
   protected:
     // The OSPF area ID.
     // 
-    // The value must be an integer from **1** to **2147483647**.
+    // Valid values: **1** to **2147483647**.
     // 
     // This parameter is required.
     shared_ptr<int32_t> areaId_ {};
-    // The authentication method. Valid values:
+    // The authentication type. Valid values:
     // 
-    // - **NONE**: No authentication is configured.
-    // - **CLEARTEXT**: Plaintext authentication is used.
-    // - **MD5**: MD5 authentication is used.
+    // - **NONE**: disables authentication.
+    // 
+    // - **CLEARTEXT**: uses plaintext authentication.
+    // 
+    // - **MD5**: uses MD5 authentication.
     // 
     // This parameter is required.
     shared_ptr<string> authenticationType_ {};
-    // Specifies whether to query only the SAG instances that belong to other Alibaba Cloud accounts. Valid values:
+    // Specifies whether to query only cross-account Smart Access Gateway instances. Valid values:
     // 
-    // - **false** (default): No.
-    // - **true**: Yes.
+    // - **false** (default): no.
+    // 
+    // - **true**: yes.
     shared_ptr<bool> crossAccount_ {};
-    // The dead interval. Unit: seconds.
+    // The OSPF dead interval. Unit: seconds.
     // 
-    // The value must be an integer from **1** to **65535**.
+    // Valid values: **1** to **65535**.
     // 
     // This parameter is required.
     shared_ptr<int32_t> deadTime_ {};
     // The interval at which Hello packets are sent. Unit: seconds.
     // 
-    // The value must be an integer from **1** to **65535**.
+    // Valid values: **1** to **65535**.
     // 
     // This parameter is required.
     shared_ptr<int32_t> helloTime_ {};
     // The port name.
     // 
-    // > This parameter is not in use.
+    // > This parameter does not take effect.
     shared_ptr<string> interfaceName_ {};
-    // The MD5 key.
+    // The value of the MD5 key.
     // 
-    // The value must be 1 to **47** characters in length.
+    // Valid values: **1** to **47**.
     // 
-    // > This parameter is required only when you set **AuthenticationType** to **MD5**.
+    // > This parameter is required only when **AuthenticationType** is set to **MD5**.
     shared_ptr<string> md5Key_ {};
-    // The MD5 key ID.
+    // The ID of the MD5 key.
     // 
-    // The value must be an integer from 1 to **2147483647**.
+    // Valid values: **1** to **2147483647**.
     // 
-    // > This parameter is required only when you set **AuthenticationType** to **MD5**.
+    // > This parameter is required only when **AuthenticationType** is set to **MD5**.
     shared_ptr<int32_t> md5KeyId_ {};
-    // The network segment.
-    // 
-    // > This parameter is not in use.
+    // The CIDR block.
+    // > This parameter does not take effect.
     shared_ptr<string> networks_ {};
-    // The cost of the OSPF route.
-    // 
-    // > This parameter is not in use.
+    // The OSPF route cost.
+    // > This parameter does not take effect.
     shared_ptr<int32_t> ospfCost_ {};
-    // The OSPF network type.
-    // 
-    // > This parameter is not in use.
+    // The OSPF area type.
+    // > This parameter does not take effect.
     shared_ptr<string> ospfNetworkType_ {};
     // The password for plaintext authentication.
     // 
     // The password must be 1 to 8 characters in length and can contain letters, digits, hyphens (-), and underscores (_).
     // 
-    // > This parameter is required only when you set **AuthenticationType** to **CLEARTEXT**.
+    // > This parameter is required only when **AuthenticationType** is set to **CLEARTEXT**.
     shared_ptr<string> password_ {};
     // The route redistribution protocol.
-    // 
-    // > This parameter is not in use.
+    // > This parameter does not take effect.
     shared_ptr<string> redistributeProtocol_ {};
-    // The ID of the region where the SAG instance is deployed.
+    // The region ID of the Smart Access Gateway instance.
     // 
-    // For more information, see [DescribeRegions](https://help.aliyun.com/document_detail/69813.html).
+    // You can call the [DescribeRegions](https://help.aliyun.com/document_detail/69813.html) operation to obtain region IDs.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
@@ -276,11 +275,11 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> routerId_ {};
-    // The ID of the SAG instance.
+    // The Smart Access Gateway instance ID.
     // 
     // This parameter is required.
     shared_ptr<string> sagInsId_ {};
-    // The serial number of the SAG device.
+    // The serial number of the Smart Access Gateway device.
     // 
     // This parameter is required.
     shared_ptr<string> sagSn_ {};

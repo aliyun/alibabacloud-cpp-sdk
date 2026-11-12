@@ -146,7 +146,7 @@ namespace Models
 
 
   protected:
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
     shared_ptr<DescribeSmartAccessGatewayVersionsResponseBody::SmartAGVersions> smartAGVersions_ {};
   };

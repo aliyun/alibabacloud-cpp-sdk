@@ -103,35 +103,35 @@ namespace Models
 
 
   protected:
-    // The ID of the new resource group.
+    // The ID of the destination resource group.
     // 
-    // You can log on to the [Resource Management console](https://resourcemanager.console.aliyun.com/resource-groups) to view resource group IDs.
+    // You can view the resource group ID in the [Resource Management console](https://resourcemanager.console.aliyun.com/resource-groups).
     // 
     // This parameter is required.
     shared_ptr<string> newResourceGroupId_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
-    // The ID of the region where the SAG instance is deployed.
+    // The region ID of the Smart Access Gateway instance.
     // 
-    // You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to query the most recent region list.
+    // You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to query region IDs.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
-    // The ID of the resource.
+    // The resource ID.
     // 
     // This parameter is required.
     shared_ptr<string> resourceId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
-    // The type of the resource. Valid values:
+    // The resource type. Valid values:
     // 
-    // *   **smartag**: an SAG CPE or SAG vCPE instance
-    // *   **smartag_s**: an SAG app instance
-    // *   **acl**: an access control list (ACL)
-    // *   **flowlog**: a flow log
-    // *   **qos**: a quality of service (QoS) policy
-    // *   **ccn**: a Cloud Connect Network (CCN) instance
-    // *   **abwp**: a bandwidth plan for application acceleration
+    // - **smartag**: Smart Access Gateway hardware instance or vCPE instance.
+    // - **smartag_s**: SAG app instance.
+    // - **acl**: Access control instance.
+    // - **flowlog**: Flow log instance.
+    // - **qos**: QoS policy instance.
+    // - **ccn**: Cloud Connect Network (CCN) instance.
+    // - **abwp**: Bandwidth plan for application acceleration instance.
     // 
     // This parameter is required.
     shared_ptr<string> resourceType_ {};

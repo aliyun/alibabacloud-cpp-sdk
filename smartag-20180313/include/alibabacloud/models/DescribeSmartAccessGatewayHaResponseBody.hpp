@@ -212,25 +212,25 @@ namespace Models
 
 
   protected:
-    // The serial number of the standby SAG device.
+    // The serial number of the standby device.
     shared_ptr<string> backupDeviceId_ {};
-    // Indicates whether device-based HA is enabled. Valid values:
+    // The device-level backup state. Valid values:
     // 
-    // *   **ON**: enabled
-    // *   **OFF**: disabled
+    // - **ON**: Enabled.
+    // - **OFF**: Disabled.
     shared_ptr<string> deviceLevelBackupState_ {};
-    // The deployment mode of the SAG devices that have HA enabled. Valid values:
+    // The device-level high-availability type. Valid values:
     // 
-    // *   **warm_backup**: active-active mode.
-    // *   **cold_backup**: active-standby mode.
-    // *   **no_backup**: HA is disabled.
+    // - **warm_backup**: Active-active mode.
+    // - **cold_backup**: Active-standby mode.
+    // - **no_backup**: No backup.
     shared_ptr<string> deviceLevelBackupType_ {};
     shared_ptr<DescribeSmartAccessGatewayHaResponseBody::LinkBackupInfoList> linkBackupInfoList_ {};
-    // The serial number of the active SAG device.
+    // The serial number of the active device.
     shared_ptr<string> mainDeviceId_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // The ID of the SAG instance.
+    // The instance ID of the Smart Access Gateway.
     shared_ptr<string> smartAGId_ {};
   };
 

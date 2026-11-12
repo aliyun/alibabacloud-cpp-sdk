@@ -105,25 +105,25 @@ namespace Models
   protected:
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
-    // The new logon password for the SAG device.
+    // The new logon password for the Smart Access Gateway device.
     // 
-    // The password must be 8 to 30 characters in length and can contain letters, digits, and underscores (_).
+    // Password format requirements: The password must be 8 to 30 characters in length and can contain uppercase letters, lowercase letters, digits, and underscores (_).
     // 
-    // >  In the example, asterisks (\\*) are used to conceal the real password. This does not mean that the password supports asterisks (\\*). The actual format requirement prevails.
+    // > The example shows a partially masked synthetic format for demonstration purposes and does not correspond to a real device password. An asterisk (\\*) indicates a masked character and does not mean that asterisks (\\*) are supported in passwords. When entering a password, refer to the password format requirements.
     // 
     // This parameter is required.
     shared_ptr<string> password_ {};
-    // The ID of the region where the SAG instance is deployed.
+    // The region ID of the Smart Access Gateway instance.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
-    // The ID of the SAG instance.
+    // The instance ID of the Smart Access Gateway instance.
     // 
     // This parameter is required.
     shared_ptr<string> smartAGId_ {};
-    // The serial number (SN) of the SAG device.
+    // The serial number of the Smart Access Gateway device.
     // 
     // This parameter is required.
     shared_ptr<string> smartAGSn_ {};

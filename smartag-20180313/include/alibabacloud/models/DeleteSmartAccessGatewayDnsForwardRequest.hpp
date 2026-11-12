@@ -66,19 +66,19 @@ namespace Models
 
 
   protected:
-    // The ID of the DNS forwarding rule.
+    // The instance ID.
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
-    // The ID of the region where the SAG instance is deployed.
+    // The ID of the region where the Smart Access Gateway instance resides.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
-    // The ID of the SAG instance.
+    // The ID of the gateway instance.
     // 
     // This parameter is required.
     shared_ptr<string> sagInsId_ {};
-    // The serial number (SN) of the device.
+    // The SN of the device.
     // 
     // This parameter is required.
     shared_ptr<string> sagSn_ {};

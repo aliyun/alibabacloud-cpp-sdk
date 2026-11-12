@@ -151,45 +151,37 @@ namespace Models
 
 
     protected:
-      // The range of the destination CIDR block.
+      // The destination CIDR block.
       shared_ptr<string> destCidr_ {};
-      // The range of destination ports.
+      // The destination port range. Valid values: **-1** or **1** to **65535**.
       // 
-      // Valid values: **1** to **65535** and **-1**.
+      // Examples of the destination port range format:
       // 
-      // Examples of the format of the destination port range:
-      // 
-      // *   **1/200**: a port range from 1 to 200.
-      // *   **80/80**: port 80.
-      // *   **-1/-1**: all ports.
+      // - **1/200**: indicates ports 1 to 200.
+      // - **80/80**: indicates port 80.
+      // - **-1/-1**: indicates that ports are not restricted.
       shared_ptr<string> destPortRange_ {};
-      // The end time of the valid time of the 5-tuple.
-      // 
-      // The time must be in UTC+8.
+      // The expiration time of the 5-tuple rules. The time is displayed in Beijing time. Format: UTC+8.
       shared_ptr<int64_t> endTime_ {};
-      // The type of the protocol that is applied to the 5-tuple rule.
+      // The protocol type applied to the 5-tuple rules.
       shared_ptr<string> ipProtocol_ {};
-      // The priority of the traffic throttling rule that is applied to the 5-tuple.rule.
-      // 
-      // A smaller value indicates a higher priority.
+      // The priority of the rate limiting rule to which the 5-tuple rules belong. A smaller value indicates a higher priority.
       shared_ptr<int32_t> priority_ {};
-      // The description of the 5-tuple.
+      // The description of the 5-tuple rules.
       shared_ptr<string> qosPolicieDescription_ {};
-      // The name of the 5-tuple.
+      // The name of the 5-tuple rules.
       shared_ptr<string> qosPolicieName_ {};
-      // The range of the source CIDR block.
+      // The source CIDR block.
       shared_ptr<string> sourceCidr_ {};
-      // The range of source ports.
+      // The source port range. Valid values: **-1** or **1** to **65535**.
       // 
-      // Valid values: **1** to **65535** and **-1**.
+      // Examples of the source port range format:
       // 
-      // Examples of the format of the source port range:
-      // 
-      // *   **1/200**: a port range from 1 to 200.
-      // *   **80/80**: port 80.
-      // *   **-1/-1**: all ports.
+      // - **1/200**: indicates ports 1 to 200.
+      // - **80/80**: indicates port 80.
+      // - **-1/-1**: indicates that ports are not restricted.
       shared_ptr<string> sourcePortRange_ {};
-      // The start time of the valid time of the 5-tuple.
+      // The start of the effective period for the 5-tuple rules. The time is displayed in Beijing time. Format: UTC+8.
       shared_ptr<int64_t> startTime_ {};
     };
 
@@ -304,33 +296,31 @@ namespace Models
 
 
     protected:
-      // The type of traffic throttling. Valid values:
+      // The rate limiting type. Valid values:
       // 
-      // *   **Absolute**: throttles traffic based on a specific range of bandwidth.
-      // *   **Percent**: throttles traffic based on a specific range of bandwidth percentage.
+      // - **Absolute**: by bandwidth value.
+      // - **Percent**: by percentage.
       shared_ptr<string> limitType_ {};
       // The maximum bandwidth. Unit: Mbit/s.
       shared_ptr<int32_t> maxBandwidthAbs_ {};
-      // The maximum bandwidth percentage that the traffic is throttled to.
+      // The maximum bandwidth percentage.
       shared_ptr<int32_t> maxBandwidthPercent_ {};
       // The minimum bandwidth. Unit: Mbit/s.
       shared_ptr<int32_t> minBandwidthAbs_ {};
       // The minimum bandwidth percentage.
       shared_ptr<int32_t> minBandwidthPercent_ {};
-      // Bandwidth type when traffic is throttled to a percentage of the total bandwidth of the network.
+      // The bandwidth type when rate limiting is based on percentage. Valid values:
       // 
-      // *   **CcnBandwidth**: Cloud Connect Network (CCN) bandwidth.
-      // *   **InternetUpBandwidth**: Internet upstream bandwidth.
+      // - **CcnBandwidth**: Cloud Connect Network (CCN) bandwidth.
+      // - **InternetUpBandwidth**: Internet upstream bandwidth.
       shared_ptr<string> percentSourceType_ {};
-      // The priority of the traffic throttling rule.
-      // 
-      // Valid values are from **1** to **3**. A smaller value indicates a higher priority.
+      // The priority of the rate limiting rule. Valid values: **1** to **3**. A smaller value indicates a higher priority.
       shared_ptr<int32_t> priority_ {};
-      // The description of the traffic throttling rule.
+      // The description of the rate limiting rule.
       shared_ptr<string> qosCarDescription_ {};
-      // The ID of the traffic throttling rule.
+      // The ID of the rate limiting rule.
       shared_ptr<string> qosCarId_ {};
-      // The name of the traffic throttling rule.
+      // The name of the rate limiting rule.
       shared_ptr<string> qosCarName_ {};
     };
 
@@ -383,17 +373,17 @@ namespace Models
 
 
   protected:
-    // The number of Smart Access Gateway (SAG) instances that have exceptional configurations.
+    // The number of Smart Access Gateway instances with configuration errors.
     shared_ptr<int32_t> errorConfigSmartAGCount_ {};
-    // The traffic throttling rule applied to the QoS policies that have exceptional configurations.
+    // The rate limiting rules with configuration errors in the QoS policy.
     shared_ptr<vector<GetQosAttributeResponseBody::QosCars>> qosCars_ {};
-    // The description of the QoS policy.
+    // The description of the QoS policy instance.
     shared_ptr<string> qosDescription_ {};
-    // The name of the QoS policy.
+    // The name of the QoS policy instance.
     shared_ptr<string> qosName_ {};
-    // List of QoS policies based on 5-tuple.
+    // The list of 5-tuple rules for the QoS policy instance.
     shared_ptr<vector<GetQosAttributeResponseBody::QosPolicies>> qosPolicies_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

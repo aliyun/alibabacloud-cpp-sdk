@@ -257,54 +257,56 @@ namespace Models
 
 
   protected:
-    // The ID of the ACL.
+    // The instance ID of the access control instance.
     shared_ptr<string> aclId_ {};
-    // The ID of the ACL rule.
+    // The ID of the access control rule.
     shared_ptr<string> acrId_ {};
-    // The description of the ACL rule.
+    // The description of the access control rule.
     shared_ptr<string> description_ {};
     // The destination CIDR block.
     // 
-    // For example: 192.168.10.0/24.
+    // The destination CIDR block must be in CIDR format. Example: 192.168.10.0/24.
     shared_ptr<string> destCidr_ {};
     // The destination port range.
     shared_ptr<string> destPortRange_ {};
-    // The direction of traffic to which the ACL rule applies. Valid values:
+    // The direction in which the access control rule is applied. Valid values:
     // 
-    // - **in**: inbound. Traffic from an external network to the local branch where the SAG instance is deployed.
-    // - **out**: outbound. Traffic from the local branch where the SAG instance is deployed to an external network.
+    // - **in**: inbound. Traffic from external networks to the local branch where the Smart Access Gateway instance is deployed.
+    // - **out**: outbound. Traffic from the local branch where the Smart Access Gateway instance is deployed to external networks.
     shared_ptr<string> direction_ {};
     shared_ptr<AddACLRuleResponseBody::DpiGroupIds> dpiGroupIds_ {};
     shared_ptr<AddACLRuleResponseBody::DpiSignatureIds> dpiSignatureIds_ {};
-    // The UNIX timestamp when the ACL rule was created.
+    // The timestamp when the access control rule was created.
     // 
-    // This value is a long integer. If rules have the same priority, the one with the earlier timestamp takes precedence.
+    // The timestamp is of the Long type. If multiple rules have the same priority, the rule with the smaller timestamp takes effect first.
     shared_ptr<int64_t> gmtCreate_ {};
-    // The protocol to which the ACL rule applies.
+    // The protocol to which the access control rule is applied.
     shared_ptr<string> ipProtocol_ {};
-    // The name of the ACL rule.
+    // The name of the access control rule.
     shared_ptr<string> name_ {};
-    // The authorization policy of the ACL rule.
+    // The authorization policy of the access control rule.
     // 
-    // - **accept**: allows access.
-    // - **drop**: denies access.
+    // - **accept**: Allows the traffic.
+    // 
+    // - **drop**: Denies the traffic.
     shared_ptr<string> policy_ {};
-    // The priority of the ACL rule.
+    // The priority of the access control rule.
     // 
-    // A smaller value indicates a higher priority. If multiple rules have the same priority, the rule that is first delivered to the Smart Access Gateway device takes precedence.
+    // A smaller value indicates a higher priority. If multiple rules have the same priority, the rule that is first delivered to the Smart Access Gateway device takes effect first.
     shared_ptr<int32_t> priority_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
     // The source CIDR block.
     // 
-    // The source CIDR block is in the CIDR format. For example: 192.168.1.0/24.
+    // The source CIDR block must be in CIDR format. Example: 192.168.1.0/24.
     shared_ptr<string> sourceCidr_ {};
     // The source port range.
     shared_ptr<string> sourcePortRange_ {};
-    // The type of the ACL rule.
+    // The type of the access control rule.
     // 
-    // - **LAN**: private network. The ACL rule controls traffic on private networks.
-    // - **WAN**: public network. The ACL rule controls traffic on public networks.
+    // - **LAN**: private network, indicating the Settings of access control rules for traffic with a private endpoint.
+    // 
+    // - **WAN**: public network, indicating the Settings of access control rules for traffic with public IP addresses.
     shared_ptr<string> type_ {};
   };
 

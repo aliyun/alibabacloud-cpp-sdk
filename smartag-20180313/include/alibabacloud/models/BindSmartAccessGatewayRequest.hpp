@@ -103,21 +103,21 @@ namespace Models
 
 
   protected:
-    // The ID of the CCN instance with which you want to associate the SAG instance.
+    // The ID of the Cloud Connect Network (CCN).
     // 
     // This parameter is required.
     shared_ptr<string> ccnId_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
-    // The ID of the region where the SAG instance is deployed.
+    // The region ID of the Smart Access Gateway.
     shared_ptr<string> regionId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
-    // The ID of the SAG instance.
+    // The ID of the Smart Access Gateway (SAG) instance.
     // 
     // This parameter is required.
     shared_ptr<string> smartAGId_ {};
-    // The ID of the Alibaba Cloud account to which the SAG instance belongs.
+    // The user ID of the Smart Access Gateway instance.
     shared_ptr<int64_t> smartAGUid_ {};
   };
 

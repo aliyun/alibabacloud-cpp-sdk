@@ -244,79 +244,75 @@ namespace Models
 
 
   protected:
-    // The ID of the ACL with which the SAG instance is associated.
+    // The instance ID of the access control instance attached to the Smart Access Gateway instance.
     shared_ptr<string> aclIds_ {};
-    // The ID of the CCN instance with which the SAG instance is associated.
+    // The instance ID of the Cloud Connect Network (CCN) attached to the Smart Access Gateway instance.
     shared_ptr<string> associatedCcnId_ {};
-    // The name of the associated CCN instance.
-    // 
-    // The name must be 2 to 100 characters in length, and can contain letters, digits, periods (.), underscores (_), and hyphens (-). It must start with a letter.
+    // The name of the associated Cloud Connect Network (CCN) instance. The name must be 2 to 100 characters in length. It must start with a letter or a Chinese character, and can contain digits, underscores (_), periods (.), and hyphens (-).
     shared_ptr<string> associatedCcnName_ {};
-    // The business status of the SAG instance. Valid values:
+    // The service status of the Smart Access Gateway instance. Valid values:
     // 
-    // *   **Normal**: running as expected.
-    // *   **Arrearage**: locked due to overdue payments.
+    // - **Normal**: Normal.
+    // - **Arrearage**: Locked due to overdue payment.
     shared_ptr<string> businessState_ {};
-    // Specifies whether the SAG instance can be associated with a quality of service (QoS) policy. Valid values:
+    // Specifies whether the Smart Access Gateway instance can be associated with a quality of service (QoS) policy instance. Valid values:
     // 
-    // *   **true**: yes
-    // *   **false**: no
+    // - **true**: Yes.
+    // - **false**: No.
     // 
-    // Specifies whether to query SAG instances that cannot be associated with QoS policies.
+    // This parameter is used to query Smart Access Gateway instances based on whether they can be associated with a QoS policy instance.
     shared_ptr<bool> canAssociateQos_ {};
-    // The model of SAG device. Valid values:
+    // The device specification of the Smart Access Gateway device. Valid values:
     // 
-    // *   **sag-1000**
-    // *   **sag-100wm**
+    // - **sag-1000**.
+    // - **sag-100wm**.
     shared_ptr<string> hardwareType_ {};
-    // The type of the SAG instance. Valid values:
+    // The type of the Smart Access Gateway instance. Valid values:
     // 
-    // *   **software**: an SAG app instance
-    // *   **hardware**: an SAG CPE instance
+    // - **software**: SAG app instance.
+    // - **hardware**: Smart Access Gateway hardware instance.
     shared_ptr<string> instanceType_ {};
-    // The name of the SAG instance.
+    // The name of the Smart Access Gateway instance.
     // 
-    // The name must be 2 to 128 characters in length, and can contain letters, digits, underscores (_), and hyphens (-). The name must start with a letter.
+    // The name must be 2 to 128 characters in length, and can contain digits, underscores (_), and hyphens (-). It must start with a letter or a Chinese character.
     shared_ptr<string> name_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
-    // The number of the page to return. Default value: **1**.
+    // The page number. Default value: **1**.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries to return on each page. Default value: **10**. Valid values: **1** to **50**.
+    // The number of entries to return on each page in a paging query. Default value: **10**. Valid values: **1** to **50**.
     shared_ptr<int32_t> pageSize_ {};
-    // The ID of the region where the SAG instance is deployed.
+    // The ID of the region to which the Smart Access Gateway instance belongs.
     shared_ptr<string> regionId_ {};
-    // The ID of the resource group to which the SAG instance belongs.
+    // The ID of the resource group to which the Smart Access Gateway instance belongs.
     shared_ptr<string> resourceGroupId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
-    // The serial number of the SAG device.
+    // The serial number of the Smart Access Gateway device.
     shared_ptr<string> serialNumber_ {};
-    // The ID of the SAG instance.
+    // The instance ID of the Smart Access Gateway.
     shared_ptr<string> smartAGId_ {};
-    // The IDs of the SAG instances.
+    // The list of Smart Access Gateway instance IDs.
     shared_ptr<vector<string>> smartAGIds_ {};
-    // The software version of the SAG device.
+    // The software version running on the Smart Access Gateway device.
     shared_ptr<string> softwareVersion_ {};
-    // The status of the SAG instance. Valid values:
+    // The status of the Smart Access Gateway instance. Valid values:
     // 
-    // *   **Ordered**: Your order has been placed.
-    // *   **Delivered**: Your order has been shipped.
-    // *   **Received**: You have received the SAG device.
-    // *   **Returning**: The order is being returned.
-    // *   **Active**: The SAG device is active.
-    // *   **init**: The SAG device is being initialized.
-    // *   **Offline**: The SAG device is disconnected.
+    // - **Ordered**: Ordered.
+    // - **Delivered**: Delivered.
+    // - **Received**: Received.
+    // - **Returning**: Returning.
+    // - **Active**: Active.
+    // - **Init**: Initializing.
+    // - **Offline**: Offline.
     shared_ptr<string> status_ {};
-    // The ID of the ACL rule.
-    // 
-    // Specifies that the SAG instance which is not associated with the ACL is queried. Separate ACL IDs with commas (,).
+    // The ID of the access control instance. This parameter is used to query Smart Access Gateway instances that are not associated with the specified access control instance. Separate multiple access control instance IDs with commas (,).
     shared_ptr<string> unboundAclIds_ {};
     // The version filter. Valid values:
     // 
-    // *   **greater**: later than the current version
-    // *   **less**: earlier than the current version
-    // *   **equals**: equal to the current version
+    // - **greater**: Greater than the current version.
+    // - **less**: Less than the current version.
+    // - **equals**: Equal to the current version.
     shared_ptr<string> versionComparator_ {};
   };
 

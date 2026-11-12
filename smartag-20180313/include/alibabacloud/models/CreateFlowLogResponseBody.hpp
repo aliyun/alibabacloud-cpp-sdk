@@ -57,11 +57,11 @@ namespace Models
 
 
   protected:
-    // The ID of the flow log.
+    // The ID of the flow log instance.
     shared_ptr<string> flowLogId_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // The ID of the resource group to which the flow log belongs.
+    // The ID of the resource group to which the flow log instance belongs.
     shared_ptr<string> resourceGroupId_ {};
   };
 

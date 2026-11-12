@@ -94,17 +94,17 @@ namespace Models
 
 
   protected:
-    // The ID of the CCN instance.
+    // The Cloud Connect Network (CCN) instance ID.
     // 
     // This parameter is required.
     shared_ptr<string> ccnInstanceId_ {};
-    // The ID of the CEN instance.
+    // The Cloud Enterprise Network (CEN) instance ID.
     // 
     // This parameter is required.
     shared_ptr<string> cenInstanceId_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
-    // The ID of the region where the CCN instance is deployed.
+    // The region ID.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};

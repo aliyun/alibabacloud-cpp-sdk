@@ -66,13 +66,13 @@ namespace Models
 
 
   protected:
-    // The ID of the order that you placed to purchase the SAG app instance.
+    // The order ID for purchasing the Smart Access Gateway app instance.
     shared_ptr<string> orderId_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // The ID of the resource group to which the SAG app instance belongs.
+    // The ID of the resource group to which the Smart Access Gateway app instance belongs.
     shared_ptr<string> resourceGroupId_ {};
-    // The ID of the SAG app instance.
+    // The instance ID of the Smart Access Gateway app.
     shared_ptr<string> smartAGId_ {};
   };
 

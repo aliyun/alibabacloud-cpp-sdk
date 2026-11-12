@@ -114,11 +114,11 @@ namespace Models
   protected:
     // The IP address of the primary DNS server.
     // 
-    // >  If you do not set this parameter, the IP address of the existing DNS server will be cleared.
+    // > If you do not specify this parameter, the DNS configuration is cleared.
     shared_ptr<string> masterDns_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
-    // The ID of the region where the SAG instance is deployed.
+    // The region ID of the Smart Access Gateway instance.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
@@ -126,13 +126,13 @@ namespace Models
     shared_ptr<int64_t> resourceOwnerId_ {};
     // The IP address of the secondary DNS server.
     // 
-    // >  If you do not set this parameter, the IP address of the existing DNS server will be cleared.
+    // > If you do not specify this parameter, the secondary DNS configuration is cleared.
     shared_ptr<string> slaveDns_ {};
-    // The ID of the SAG instance.
+    // The instance ID of the Smart Access Gateway.
     // 
     // This parameter is required.
     shared_ptr<string> smartAGId_ {};
-    // The serial number of the SAG device associated with the SAG instance.
+    // The serial number of the bound Smart Access Gateway device.
     // 
     // This parameter is required.
     shared_ptr<string> smartAGSn_ {};

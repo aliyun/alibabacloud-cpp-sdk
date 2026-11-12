@@ -134,17 +134,17 @@ namespace Models
     protected:
       // The domain name.
       shared_ptr<string> domain_ {};
-      // The ID of the instance.
+      // The instance ID.
       shared_ptr<string> instanceId_ {};
       // The primary DNS server.
       shared_ptr<string> masterIp_ {};
       // The forwarding mode.
       shared_ptr<string> mode_ {};
-      // The number of the egress port.
+      // The outbound port index.
       shared_ptr<int32_t> outboundPortIndex_ {};
-      // The egress port.
+      // The outbound port.
       shared_ptr<string> outboundPortName_ {};
-      // The type of the egress port.
+      // The outbound port type.
       shared_ptr<string> outboundPortType_ {};
       // The secondary DNS server.
       shared_ptr<string> slaveIp_ {};
@@ -197,13 +197,13 @@ namespace Models
 
 
   protected:
-    // The error code. A value of 200 indicates that the call is successful.
+    // The error code. A value of 200 indicates that the task was queried successfully.
     shared_ptr<string> code_ {};
-    // The information returned for the request.
+    // The business data.
     shared_ptr<AddSmartAccessGatewayDnsForwardResponseBody::Data> data_ {};
     // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
-    // The response message.
+    // The returned message.
     shared_ptr<string> message_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};

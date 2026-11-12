@@ -94,21 +94,19 @@ namespace Models
 
 
   protected:
-    // The ID of ACL.
+    // The ID of the access control list.
     // 
     // This parameter is required.
     shared_ptr<string> aclId_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
-    // The ID of the region where the ACL is created.
-    // 
-    // You can call the [DescribeRegions](https://help.aliyun.com/document_detail/69813.html) operation to query the most recent region list.
+    // The region ID.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
-    // The ID of the SAG instance to be associated with the ACL.
+    // The ID of the Smart Access Gateway instance to which you want to attach the access control list.
     // 
     // This parameter is required.
     shared_ptr<string> smartAGId_ {};

@@ -84,28 +84,29 @@ namespace Models
 
 
   protected:
-    // The type of instance for which the DPI feature is configured:
+    // The type of the instance for which the DPI feature is configured. Valid values:
     // 
-    // - **acl**: a Resource Access Management instance.
+    // - **acl**: an access control instance.
     // - **qos**: a QoS policy instance.
     // 
     // This parameter is required.
     shared_ptr<string> dpiConfigType_ {};
-    // The maximum number of configuration errors to return on each page.
+    // The maximum number of entries allowed per page in a paged query.
     // 
     // Valid values: **1** to **100**.
     // 
     // Default value: **10**.
     shared_ptr<int32_t> maxResults_ {};
-    // The token for the next page of results.
+    // The token used to start the next query.
     shared_ptr<string> nextToken_ {};
-    // The ID of the region where the Smart Access Gateway instance is deployed. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/69813.html) operation to query the regions and their IDs that Smart Access Gateway supports.
+    // The region ID of the Smart Access Gateway instance.
+    // You can invoke the [DescribeRegions](https://help.aliyun.com/document_detail/69813.html) operation to query the regions supported by Smart Access Gateway and the corresponding region IDs.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
-    // The ID of the instance for which the DPI feature is configured.
+    // The instance ID for which the DPI feature is configured.
     shared_ptr<string> ruleInstanceId_ {};
-    // The ID of the Smart Access Gateway instance.
+    // The instance ID of the Smart Access Gateway.
     shared_ptr<string> smartAGId_ {};
   };
 

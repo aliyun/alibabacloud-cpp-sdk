@@ -100,13 +100,13 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> qosId_ {};
-    // The ID of the region to which the QoS policy belongs.
+    // The region ID of the QoS policy.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
-    // The ID of the SAG instance to which the QoS policy is to be applied.
+    // The Smart Access Gateway instance ID to which the QoS policy is applied.
     // 
     // This parameter is required.
     shared_ptr<string> smartAGId_ {};

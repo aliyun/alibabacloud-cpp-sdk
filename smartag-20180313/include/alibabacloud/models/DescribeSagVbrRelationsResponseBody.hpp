@@ -79,11 +79,11 @@ namespace Models
 
 
     protected:
-      // The ID of the SAG instance.
+      // The instance ID of the Smart Access Gateway.
       shared_ptr<string> sagInstanceId_ {};
-      // The ID of the Alibaba Cloud account to which the SAG instance belongs.
+      // The ID of the Alibaba Cloud account to which the Smart Access Gateway instance belongs.
       shared_ptr<string> sagUid_ {};
-      // The ID of the VBR.
+      // The instance ID of the virtual border router (VBR) used for routing.
       shared_ptr<string> vbrInstanceId_ {};
     };
 
@@ -106,9 +106,9 @@ namespace Models
 
 
   protected:
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the specified VBR is associated with an SAG instance.
+    // The association information.
     shared_ptr<vector<DescribeSagVbrRelationsResponseBody::SagVbrRelations>> sagVbrRelations_ {};
   };
 

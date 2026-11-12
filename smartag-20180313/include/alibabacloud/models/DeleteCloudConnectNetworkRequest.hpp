@@ -84,13 +84,13 @@ namespace Models
 
 
   protected:
-    // The ID of the CCN instance.
+    // The ID of the Cloud Connect Network (CCN).
     // 
     // This parameter is required.
     shared_ptr<string> ccnId_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
-    // The ID of the region where the CCN instance is deployed.
+    // The ID of the region to which the Cloud Connect Network (CCN) belongs.
     shared_ptr<string> regionId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};

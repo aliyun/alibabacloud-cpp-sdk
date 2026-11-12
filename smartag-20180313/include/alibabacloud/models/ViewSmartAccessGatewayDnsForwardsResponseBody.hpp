@@ -137,20 +137,18 @@ namespace Models
     protected:
       // The domain name.
       shared_ptr<string> domain_ {};
-      // The ID of the instance.
+      // The instance ID.
       shared_ptr<string> instanceId_ {};
       // The primary DNS server.
       shared_ptr<string> masterIp_ {};
       // The forwarding mode.
-      // 
-      // > 
-      // *   This parameter is not in use. Ignore this parameter.
+      // > - Invalid field. Ignore this field.
       shared_ptr<string> mode_ {};
-      // The number of the egress port.
+      // The outbound interface index.
       shared_ptr<int32_t> outboundPortIndex_ {};
-      // The egress port.
+      // The outbound interface.
       shared_ptr<string> outboundPortName_ {};
-      // The type of the egress port.
+      // The outbound interface type.
       shared_ptr<string> outboundPortType_ {};
       // The secondary DNS server.
       shared_ptr<string> slaveIp_ {};
@@ -213,13 +211,13 @@ namespace Models
   protected:
     // The response code.
     shared_ptr<string> code_ {};
-    // The total number of entries returned.
+    // The total number of entries.
     shared_ptr<int32_t> count_ {};
-    // A DNS forwarding list.
+    // The list of DNS forwarding instances.
     shared_ptr<vector<ViewSmartAccessGatewayDnsForwardsResponseBody::Data>> data_ {};
     // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
-    // The response message.
+    // The returned message.
     shared_ptr<string> message_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};

@@ -535,7 +535,7 @@ namespace Models
 
 
     protected:
-      // The reason for the lock.
+      // The lock reason.
       shared_ptr<string> lockReason_ {};
       // The lock type. Valid value: **FinancialLocked**.
       shared_ptr<string> lockType_ {};
@@ -907,122 +907,113 @@ namespace Models
 
 
   protected:
-    // The peak bandwidth of application acceleration for the SAG instance. Unit: Mbit/s.
+    // The peak bandwidth for application acceleration of the Smart Access Gateway instance. Unit: Mbit/s.
     shared_ptr<int64_t> accelerateBandwidth_ {};
-    // The ID of the access point of the SAG instance.
+    // The ID of the access point for the Smart Access Gateway instance.
     shared_ptr<string> accessPointId_ {};
     shared_ptr<DescribeSmartAccessGatewayAttributeResponseBody::AclIds> aclIds_ {};
-    // The status of the application acceleration bandwidth package instance.
+    // The status of the bandwidth plan for application acceleration instance. Valid values:
     // 
     // - **Abnormal**: Abnormal.
     // - **Normal**: Normal.
     shared_ptr<string> applicationBandwidthPackageBussinessStatus_ {};
-    // The ID of the application acceleration bandwidth package associated with the SAG instance.
+    // The ID of the bandwidth plan for application acceleration associated with the Smart Access Gateway instance.
     shared_ptr<string> applicationBandwidthPackageId_ {};
-    // The name of the application acceleration bandwidth package associated with the SAG instance.
+    // The name of the bandwidth plan for application acceleration associated with the Smart Access Gateway instance.
     shared_ptr<string> applicationBandwidthPackageName_ {};
-    // The lock information of the application acceleration bandwidth package instance.
+    // The lock information of the bandwidth plan for application acceleration instance.
     shared_ptr<DescribeSmartAccessGatewayAttributeResponseBody::ApplicationBandwidthPackageOperationLocks> applicationBandwidthPackageOperationLocks_ {};
-    // The ID of the CCN instance associated with the SAG instance.
+    // The ID of the Cloud Connect Network (CCN) instance associated with the Smart Access Gateway instance.
     shared_ptr<string> associatedCcnId_ {};
-    // The name of the Cloud Connect Network (CCN) instance associated with the SAG instance.
+    // The name of the Cloud Connect Network (CCN) instance associated with the Smart Access Gateway instance.
     shared_ptr<string> associatedCcnName_ {};
-    // The public IP address of the standby SAG device.
+    // The public IP address of the standby Smart Access Gateway device.
     shared_ptr<string> backupBoxControllerIp_ {};
-    // The public IP address of the primary SAG device.
+    // The public IP address of the active Smart Access Gateway device.
     shared_ptr<string> boxControllerIp_ {};
-    // The private CIDR block used for communication between the on-premises network or clients and the cloud.
+    // The private CIDR block of the on-premises network or client that needs to communicate with Alibaba Cloud.
     shared_ptr<string> cidrBlock_ {};
-    // The ID of the city where the SAG device is located.
+    // The ID of the city where the Smart Access Gateway device is located.
     shared_ptr<string> city_ {};
-    // The creation timestamp of the SAG instance.
+    // The creation timestamp of the Smart Access Gateway instance.
     shared_ptr<int64_t> createTime_ {};
-    // The data plan of the SAG instance. Unit: GB.
+    // The data plan of the Smart Access Gateway instance. Unit: GB.
     // 
-    // > Currently, only 5 GB of complimentary data traffic is provided for each account per month.
+    // > Currently, only 5 GB of free data traffic is provided per account each month.
     shared_ptr<int64_t> dataPlan_ {};
-    // The description of the SAG instance.
+    // The description of the Smart Access Gateway instance.
     shared_ptr<string> description_ {};
     shared_ptr<DescribeSmartAccessGatewayAttributeResponseBody::Devices> devices_ {};
-    // Indicates whether the optimized retransmission feature is enabled for the SAG instance.
-    // 
+    // Indicates whether the optimized retransmission feature is enabled for the Smart Access Gateway instance. Valid values:
     // - **true**: Enabled.
     // - **false**: Disabled.
     shared_ptr<bool> enableOptimization_ {};
-    // Indicates whether connection log auditing is enabled for the SAG APP instance. Valid values:
+    // Indicates whether connection log auditing is enabled for the Smart Access Gateway app instance. Valid values:
     // 
-    // - **true**: Connection log auditing is enabled for the SAG APP instance.
+    // - **true**: Enables connection log auditing for the Smart Access Gateway app instance.
     // 
-    // - **false**: Connection log auditing is disabled for the SAG APP instance.
+    // - **false**: Shutdown connection log auditing for the Smart Access Gateway app instance.
     shared_ptr<bool> enableSoftwareConnectionAudit_ {};
-    // The expiration timestamp of the SAG instance.
+    // The UNIX timestamp when the Smart Access Gateway instance expires.
     shared_ptr<int64_t> endTime_ {};
     shared_ptr<DescribeSmartAccessGatewayAttributeResponseBody::FlowLogIds> flowLogIds_ {};
     shared_ptr<DescribeSmartAccessGatewayAttributeResponseBody::IRIds> IRIds_ {};
-    // The type of the SAG instance.
-    // 
-    // - **sag-1000**: The instance is a hardware SAG instance with a SAG-1000 device.
-    // - **sag-10wm**: The instance is a hardware SAG instance with a SAG-100WM device.
-    // - **sag-software**: The instance is an SAG APP instance.
-    // - **sag-vcpe**: The instance is an SAG vCPE instance.
+    // The type of the Smart Access Gateway instance. Valid values:
+    // - **sag-1000**: The instance is a Smart Access Gateway hardware instance and the associated device is a SAG-1000 device.
+    // - **sag-10wm**: The instance is a Smart Access Gateway hardware instance and the associated device is a SAG-100WM device.
+    // - **sag-software**: The instance is a SAG app instance.
+    // - **sag-vcpe**: The instance is a Smart Access Gateway vCPE instance.
     shared_ptr<string> instanceType_ {};
-    // The status of the IPsec-VPN connection.
-    // 
+    // The connection status of the IPsec-VPN. Valid values:
     // - **up**: The IPsec-VPN connection is normal.
     // - **down**: The IPsec-VPN connection is abnormal.
     shared_ptr<string> ipsecStatus_ {};
     shared_ptr<DescribeSmartAccessGatewayAttributeResponseBody::Links> links_ {};
-    // The peak bandwidth of the SAG instance. Unit: Mbit/s.
+    // The peak bandwidth of the Smart Access Gateway instance. Unit: Mbit/s.
     shared_ptr<string> maxBandwidth_ {};
-    // The name of the SAG instance.
+    // The name of the Smart Access Gateway instance.
     shared_ptr<string> name_ {};
-    // The optimized retransmission type of the SAG instance. After the optimized retransmission type is enabled, the default value is **fec**.
+    // The optimized retransmission type of the Smart Access Gateway instance. After optimized retransmission is enabled, the default value is **fec**.
     shared_ptr<bool> optimizationType_ {};
-    // The location of the SAG device.
+    // The location of the device.
     shared_ptr<string> position_ {};
     shared_ptr<DescribeSmartAccessGatewayAttributeResponseBody::QosIds> qosIds_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The ID of the reseller instance.
+    // The instance ID of the reseller.
     shared_ptr<string> resellerInstanceId_ {};
     // The ID of the reseller account.
     shared_ptr<string> resellerUid_ {};
-    // The ID of the resource group to which the SAG instance belongs.
+    // The ID of the resource group to which the Smart Access Gateway instance belongs.
     shared_ptr<string> resourceGroupId_ {};
-    // The routing synchronization method of the SAG instance.
-    // 
+    // The on-premises route synchronization method of the Smart Access Gateway instance. Valid values:
     // - **static**: Static routing.
-    // 
-    // - **dynamic**: Dynamic routing.
+    // - **dynamic**: Dynamic route.
     shared_ptr<string> routingStrategy_ {};
-    // The time threshold for locking the SAG device when it goes offline.
-    // 
-    // Unit: seconds.
+    // The time threshold for locking the Smart Access Gateway device when it goes offline. Unit: seconds.
     shared_ptr<int32_t> securityLockThreshold_ {};
-    // The serial number of the SAG device.
+    // The serial number of the Smart Access Gateway device.
     shared_ptr<string> serialNumber_ {};
-    // The ID of the SAG instance.
+    // The instance ID of the Smart Access Gateway.
     shared_ptr<string> smartAGId_ {};
-    // The status of the SAG instance.
-    // 
+    // The instance status of the Smart Access Gateway. Valid values:
     // - **Ordered**: Pending delivery.
-    // - **Delivered**: Delivered.
+    // - **Delivered**: Delivered. 
     // - **Received**: Activated.
     // - **Unconfirmed**: Pending confirmation.
-    // - **Active**: Available.
+    // - **Active**: Available. 
     // - **Offline**: Offline.
-    // - **Arrearage**: Locked due to overdue payment.
+    // - **Arrearage**: Locked due to overdue payments.
     shared_ptr<string> status_ {};
-    // The serial number of the SAG device that is currently responsible for transmitting traffic.
+    // The serial number of the Smart Access Gateway device that is currently primarily responsible for traffic transmission.
     shared_ptr<string> trafficMasterSn_ {};
-    // The maximum upstream bandwidth of the 4G public network for the SAG device. Unit: Mbit/s.
+    // The maximum upstream bandwidth over the 4G public network for the Smart Access Gateway device. Unit: Mbit/s.
     shared_ptr<int32_t> upBandwidth4G_ {};
-    // The maximum upstream bandwidth of the WAN port for the SAG device. Unit: Mbit/s.
+    // The maximum upstream bandwidth of the WAN port for the Smart Access Gateway device. Unit: Mbit/s.
     shared_ptr<int32_t> upBandwidthWan_ {};
-    // The number of client accounts of the SAG instance.
+    // The number of client accounts for the Smart Access Gateway instance.
     shared_ptr<int32_t> userCount_ {};
-    // The status of the aliVPN connection.
-    // 
+    // The connection status of aliVPN. Valid values:
     // - **up**: The aliVPN connection is normal.
     // - **down**: The aliVPN connection is abnormal.
     shared_ptr<string> vpnStatus_ {};

@@ -57,11 +57,11 @@ namespace Models
 
 
   protected:
-    // The ID of the SAG instance that you want to delete.
+    // The instance ID of the Smart Access Gateway instance that you want to delete.
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
-    // The ID of the region where the SAG instance is deployed.
+    // The region ID of the Smart Access Gateway instance.
     shared_ptr<string> regionId_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
   };

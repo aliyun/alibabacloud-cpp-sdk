@@ -117,27 +117,17 @@ namespace Models
 
 
   protected:
-    // The application group ID.
-    // 
-    // You can query information about one or more application groups by specifying their IDs. You can query up to 10 application groups at a time.
+    // The list of application group IDs. You can specify one or more application group IDs to query their information. You can query up to 10 application groups at a time.
     shared_ptr<vector<string>> dpiGroupIds_ {};
-    // The application group name.
-    // 
-    // You can query information about one or more application groups by specifying their names. You can query up to 10 application groups at a time.
+    // The list of application group names. You can specify one or more application group names to query their information. You can query up to 10 application groups at a time.
     shared_ptr<vector<string>> dpiGroupNames_ {};
-    // The number of application groups to return on each page.
-    // 
-    // Valid values: **1** to **100**.
-    // 
-    // Default value: **20**.
+    // The number of application groups to return on each page in a paged query. This parameter is used for paging. Valid values: 1 to 100. Default value: 20.
     shared_ptr<int32_t> maxResults_ {};
-    // The token for the next page of results.
+    // The token used to start the next query.
     shared_ptr<string> nextToken_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
-    // The region ID.
-    // 
-    // Call the [DescribeRegions](https://help.aliyun.com/document_detail/69813.html) operation to query the regions and their IDs that Smart Access Gateway supports.
+    // The region ID. You can call the DescribeRegions operation to query the regions supported by Smart Access Gateway and their corresponding region IDs.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};

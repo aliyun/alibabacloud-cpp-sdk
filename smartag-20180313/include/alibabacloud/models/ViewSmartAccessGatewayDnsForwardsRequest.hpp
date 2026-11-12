@@ -57,15 +57,15 @@ namespace Models
 
 
   protected:
-    // The ID of the region in which the SAG instance resides.
+    // The region ID of the Smart Access Gateway instance.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
-    // The ID of the instance.
+    // The ID of the Smart Access Gateway instance.
     // 
     // This parameter is required.
     shared_ptr<string> sagInsId_ {};
-    // The serial number (SN) of the device.
+    // The serial number of the device.
     // 
     // This parameter is required.
     shared_ptr<string> sagSn_ {};

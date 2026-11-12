@@ -145,9 +145,9 @@ namespace Models
 
 
   protected:
-    // The total number of the SAG instances.
+    // The total number of entries.
     shared_ptr<int32_t> count_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
     shared_ptr<DescribeUnbindFlowLogSagsResponseBody::Sags> sags_ {};
   };

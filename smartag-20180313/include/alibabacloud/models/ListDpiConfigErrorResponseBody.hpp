@@ -114,14 +114,14 @@ namespace Models
 
 
       protected:
-        // A list of IDs of application groups that have configuration errors.
+        // The IDs of the application groups that have configuration exceptions.
         shared_ptr<vector<string>> dpiGroupIds_ {};
-        // A list of IDs of applications that have configuration errors.
+        // The IDs of the applications that have configuration exceptions.
         shared_ptr<vector<string>> dpiSignatureIds_ {};
-        // The ID of the rule that is associated with the application that has a configuration error.
+        // The instance IDs of the rules associated with the applications that have configuration exceptions.
         // 
-        // - If you query DPI configuration errors for Resource Access Management, this parameter indicates the ID of the Resource Access Management rule instance that has a configuration error.
-        // - If you query DPI configuration errors for a QoS policy, this parameter indicates the ID of the quintuple rule instance that has a configuration error.
+        // - If you are querying the access control DPI configuration exception information, the instance ID of the access control rule instance that has a configuration exception is displayed.
+        // - If you are querying the QoS policy DPI configuration exception information, the instance ID of the 5-tuple-based quintuple rules instance that has a configuration exception is displayed.
         shared_ptr<string> ruleId_ {};
       };
 
@@ -158,17 +158,17 @@ namespace Models
 
 
     protected:
-      // The type of the configuration error.
+      // The type of the configuration exception. Valid values:
       // 
-      // - DeviceNotSupported: The Smart Access Gateway device does not support the DPI feature.
-      // - VersionNotSupported: The DPI version of the Smart Access Gateway device is too old.
-      // - **NotEnable**: The DPI feature is disabled for the Smart Access Gateway device.
+      // - **DeviceNotSupported**: The SAG device does not support the DPI feature.
+      // - **VersionNotSupported**: The DPI version running Smart Access Gateway device is too low.
+      // - **NotEnable**: The DPI feature is not enabled Smart Access Gateway device.
       shared_ptr<string> errorType_ {};
-      // A list of rule configuration errors.
+      // The list of DPI configuration exceptions.
       shared_ptr<vector<DpiConfigError::RuleConfigErrorList>> ruleConfigErrorList_ {};
       // The serial number of the Smart Access Gateway device.
       shared_ptr<string> SN_ {};
-      // The ID of the Smart Access Gateway instance.
+      // The instance ID of the Smart Access Gateway.
       shared_ptr<string> smartAGId_ {};
     };
 
@@ -212,15 +212,15 @@ namespace Models
 
 
   protected:
-    // A list of DPI configuration errors.
+    // The list of DPI configuration exceptions.
     shared_ptr<vector<ListDpiConfigErrorResponseBody::DpiConfigError>> dpiConfigError_ {};
-    // The maximum number of configuration errors to return on each page.
+    // The maximum number of entries allowed per page in a paged query.
     shared_ptr<int32_t> maxResults_ {};
-    // The token for the next page of results.
+    // The token used to start the next query.
     shared_ptr<string> nextToken_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The total number of DPI configuration errors.
+    // The total number of DPI configuration exception entries.
     shared_ptr<int32_t> total_ {};
   };
 

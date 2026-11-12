@@ -176,53 +176,55 @@ namespace Models
 
 
   protected:
-    // The output interval under active connections. Valid values: **60 to 6000**. Unit: seconds. Default value: **300**.
+    // The output interval for active flows. Valid values: **60** to **6000**. Unit: seconds. Default value: **300**.
     shared_ptr<int32_t> activeAging_ {};
-    // The description of the flow log.
+    // The description of the flow log instance.
     shared_ptr<string> description_ {};
-    // The output interval under inactive connections. Valid values: **10 to 600**. Unit: seconds. Default value: **15**.
+    // The output interval for inactive flows. Valid values: **10** to **600**. Unit: seconds. Default value: **15**.
     shared_ptr<int32_t> inactiveAging_ {};
-    // The Logstore in Log Service.
+    // The name of the Simple Log Service Logstore.
     // 
-    // If OutputType is set to **sls** or **all**, this parameter is required.
+    // This parameter is required when the output type of the flow log is **sls** or **all**.
     shared_ptr<string> logstoreName_ {};
-    // The name of the flow log.
+    // The name of the flow log instance.
     shared_ptr<string> name_ {};
-    // The IP address of the NetFlow collector where the flow log is stored.
+    // The IP address of the NetFlow server that stores the flow log.
     // 
-    // If OutputType is set to **netflow** or **all**, this parameter is required.
+    // This parameter is required when the output type of the flow log is **netflow** or **all**.
     shared_ptr<string> netflowServerIp_ {};
-    // The port number of the NetFlow collector where the flow log is stored. Default value: **9995**.
+    // The server port of the NetFlow server that stores the flow log. Default value: **9995**.
     // 
-    // If OutputType is set to **netflow** or **all**, this parameter is required.
+    // This parameter is required when the output type of the flow log is **netflow** or **all**.
     shared_ptr<int32_t> netflowServerPort_ {};
-    // The version of the NetFlow collector where the flow log is stored. Valid values: **V5**, **V9**, and **V10**. Default value: **V9**.
+    // The version of the NetFlow protocol used to store the flow log. Valid values: **V5**, **V9**, and **V10**. Default value: **V9**.
     // 
-    // If OutputType is set to **netflow** or **all**, this parameter is required.
+    // This parameter is required when the output type of the flow log is **netflow** or **all**.
     shared_ptr<string> netflowVersion_ {};
-    // The type of the flow log. Valid values:
+    // The output type of the flow log. Valid values:
     // 
-    // *   **sls**: The flow log is stored in Log Service.
-    // *   **netflow**: The flow log is stored on a NetFlow collector.
-    // *   **all**: The flow log is stored both in Log Service and on a NetFlow collector.
+    // - **sls**: The flow log is stored in Simple Log Service.
+    // 
+    // - **netflow**: The flow log is stored on the NetFlow server that you configure.
+    // 
+    // - **all**: The flow log is stored in both Simple Log Service and the NetFlow server that you configure.
     shared_ptr<string> outputType_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
-    // The project in Log Service.
+    // The name of the Simple Log Service project.
     // 
-    // If OutputType is set to **sls** or **all**, this parameter is required.
+    // This parameter is required when the output type of the flow log is **sls** or **all**.
     shared_ptr<string> projectName_ {};
-    // The ID of the region to which the flow log belongs.
+    // The region ID of the flow log instance.
     // 
-    // You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to query the most recent region list.
+    // You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to obtain the region ID.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
-    // The ID of the region where Log Service is deployed.
+    // The region ID of Simple Log Service.
     // 
-    // If OutputType is set to **sls** or **all**, this parameter is required.
+    // This parameter is required when the output type of the flow log is **sls** or **all**.
     shared_ptr<string> slsRegionId_ {};
   };
 

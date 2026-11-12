@@ -48,13 +48,11 @@ namespace Models
 
 
   protected:
-    // The ID of the QoS policy.
+    // The instance ID of the QoS policy.
     // 
     // This parameter is required.
     shared_ptr<string> qosId_ {};
-    // The ID of the region where the QoS policy is deployed.
-    // 
-    // You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to query the most recent region list.
+    // The region ID of the QoS policy instance. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to query region IDs.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};

@@ -105,7 +105,7 @@ namespace Models
   protected:
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
-    // The region ID of the SAG instance.
+    // The region ID of the Smart Access Gateway instance.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
@@ -113,17 +113,17 @@ namespace Models
     shared_ptr<int64_t> resourceOwnerId_ {};
     // The routing protocol. Valid values:
     // 
-    // *   **STATIC**: static routing protocol
-    // *   **OSPF**: Open Shortest Path First protocol (OSPF)
-    // *   **BGP**: Border Gateway Protocol (BGP)
+    // - **STATIC**: static routing protocol
+    // - **OSPF**: OSPF dynamic routing protocol
+    // - **BGP**: BGP dynamic routing protocol
     // 
     // This parameter is required.
     shared_ptr<string> routeProtocol_ {};
-    // The ID of the SAG instance.
+    // The ID of the Smart Access Gateway instance.
     // 
     // This parameter is required.
     shared_ptr<string> smartAGId_ {};
-    // The serial number of the SAG device that is associated with the SAG instance.
+    // The serial number of the associated Smart Access Gateway device.
     // 
     // This parameter is required.
     shared_ptr<string> smartAGSn_ {};

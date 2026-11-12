@@ -84,32 +84,33 @@ namespace Models
 
 
   protected:
-    // Specifies whether to query only the SAG instances that belong to another Alibaba Cloud account. Valid values:
+    // Specifies whether to query only Smart Access Gateway instances that belong to other Alibaba Cloud accounts. Valid values:
     // 
-    // *   **false** (default)
-    // *   **true**
+    // - **false** (default): no.
+    // 
+    // - **true**: yes.
     shared_ptr<bool> crossAccount_ {};
-    // The new password used to log on to the SAG device.
+    // The new logon password for the Smart Access Gateway device.
     // 
-    // The password must be 8 to 30 characters in length and can contain letters, digits, and underscores (_).
+    // Password format requirements: The password must be 8 to 30 characters in length and can contain uppercase letters, lowercase letters, digits, and underscores (_).
     // 
-    // > In the example, asterisks (\\*) are used to conceal the real password. This does not mean that the password supports asterisks (\\*). The actual format requirement prevails.
+    // > Asterisks (*) are used in the sample value to mask the actual password. This does not mean that asterisks are supported in passwords. Specify the password based on the format requirements.
     // 
     // This parameter is required.
     shared_ptr<string> password_ {};
-    // The region ID of the SAG instance.
+    // The ID of the region where the Smart Access Gateway instance resides.
     // 
-    // You can call the [DescribeRegions](https://help.aliyun.com/document_detail/69813.html) operation to query the most recent region list.
+    // You can call the [DescribeRegions](https://help.aliyun.com/document_detail/69813.html) operation to query region IDs.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
-    // The ID of the Alibaba Cloud account to which the SAG instance belongs.
+    // The ID of the Alibaba Cloud account to which the Smart Access Gateway instance belongs.
     shared_ptr<string> resourceUid_ {};
-    // The ID of the Smart Access Gateway (SAG) instance.
+    // The Smart Access Gateway instance ID.
     // 
     // This parameter is required.
     shared_ptr<string> sagInsId_ {};
-    // The serial number of the SAG device.
+    // The serial number of the Smart Access Gateway device.
     // 
     // This parameter is required.
     shared_ptr<string> sagSn_ {};

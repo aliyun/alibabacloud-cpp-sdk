@@ -96,21 +96,20 @@ namespace Models
     protected:
       // The time when the query task was created.
       shared_ptr<string> createTime_ {};
-      // The error code returned. A value of 200 indicates that the query task is successful.
+      // The error code. A value of 200 indicates that the query task is successful.
       shared_ptr<string> errorCode_ {};
       // The error message. A value of Successful indicates that the query task is successful.
       shared_ptr<string> errorMessage_ {};
-      // The state of the query task. Valid values:
-      // 
-      // *   **Initialized**: The query task is initialized.
-      // *   **Offline**: The SAG device is disconnected from Alibaba Cloud and Alibaba Cloud has not assigned the query task to the SAG device. After the SAG device is connected to Alibaba Cloud, Alibaba Cloud assigns the query task to the SAG device.
-      // *   **Succeed**: Alibaba Cloud has assigned the query task to the SAG device.
-      // *   **Processing**: Alibaba Cloud is assigning the query task to the SAG device.
-      // *   **VersionNotSupport**: The query task is not supported by the current version of the SAG device.
-      // *   **BuildRequestError**: The query task is not supported by the controller of the SAG device.
-      // *   **HardwareError**: Alibaba Cloud failed to assign the query task to the SAG device because the SAG device is faulty.
-      // *   **TaskNotExist**: The query task does not exist.
-      // *   **OfflineNotConfiged**: The SAG device is disconnected from Alibaba Cloud and Alibaba Cloud has not assigned the query task to the SAG device. Alibaba Cloud does not assign the query task to the SAG device even after the SAG device is connected to Alibaba Cloud.
+      // The status of the asynchronous task. Valid values:
+      // - **Initialized**: The query task is initialized.
+      // - **Offline**: The Smart Access Gateway device is offline and the query task is not delivered. The task will be delivered after the device goes online.
+      // - **Succeed**: The query task is delivered successfully.
+      // - **Processing**: The query task is being delivered.
+      // - **VersionNotSupport**: The current version of the Smart Access Gateway device does not support the feature.
+      // - **BuildRequestError**: The control plane does not support the operation.
+      // - **HardwareError**: The query task failed to be delivered due to a device error.
+      // - **TaskNotExist**: The query task does not exist.
+      // - **OfflineNotConfiged**: The Smart Access Gateway device is offline and the query task is not delivered. The task will not be delivered after the device goes online.
       shared_ptr<string> state_ {};
     };
 
@@ -154,15 +153,15 @@ namespace Models
 
 
   protected:
-    // The IP address of the management port gateway.
+    // The gateway IP address of the management port.
     shared_ptr<string> gateway_ {};
     // The IP address of the management port.
     shared_ptr<string> IP_ {};
-    // The subnet gateway of the IP address of the management port.
+    // The subnet mask of the management port.
     shared_ptr<string> mask_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // The state of the query task.
+    // The status of the query task.
     shared_ptr<vector<DescribeSagManagementPortResponseBody::TaskStates>> taskStates_ {};
   };
 

@@ -108,21 +108,21 @@ namespace Models
   protected:
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
-    // The region where the SAG APP instance is deployed.
+    // The region ID of the Smart Access Gateway app instance.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
-    // The ID of the SAG APP instance.
+    // The instance ID of the Smart Access Gateway app instance.
     // 
     // This parameter is required.
     shared_ptr<string> smartAGId_ {};
-    // The month during which the data transfer statistics are collected.
+    // The statistical date in the YYYYMM format.
     // 
-    // If you do not specify a month, the current month is queried.
+    // > If this parameter is not specified, the current month is used by default.
     shared_ptr<string> statisticsDate_ {};
-    // The list of usernames of client accounts. Maximum value of N: 50.
+    // The list of usernames. The list can contain up to 50 usernames.
     // 
     // This parameter is required.
     shared_ptr<vector<string>> userNames_ {};

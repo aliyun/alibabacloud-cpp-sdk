@@ -92,13 +92,13 @@ namespace Models
 
 
     protected:
-      // The ID of the application group.
+      // The application group ID.
       shared_ptr<string> dpiGroupId_ {};
-      // The name of the application group.
+      // The application group name.
       shared_ptr<string> dpiGroupName_ {};
-      // The minimum version of the deep packet inspection (DPI) engine that supports the application group.
+      // The minimum database engine version of the DPI engine that supports the application group.
       shared_ptr<string> minEngineVersion_ {};
-      // The minimum version of the signature database that supports the application group.
+      // The minimum signature database version that supports the application group.
       shared_ptr<string> minSignatureDbVersion_ {};
     };
 
@@ -137,11 +137,11 @@ namespace Models
   protected:
     // The list of application groups.
     shared_ptr<vector<ListDpiGroupsResponseBody::DpiGroup>> dpiGroup_ {};
-    // The token for the next page of results.
+    // The token used to start the next query.
     shared_ptr<string> nextToken_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The total number of application groups returned.
+    // The total number of application groups returned by the current query.
     shared_ptr<int32_t> totalCount_ {};
   };
 

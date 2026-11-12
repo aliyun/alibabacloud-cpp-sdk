@@ -62,11 +62,11 @@ namespace Models
 
 
   protected:
-    // The active and standby DNS servers that the SAG app instance uses when it connects to private networks.
+    // The primary and secondary DNS configurations used when the client of the Smart Access Gateway app instance connects to a private network.
     shared_ptr<vector<string>> appDNS_ {};
-    // The active and standby DNS servers that the SAG app instance uses when it disconnects from private networks.
+    // The primary and secondary DNS configurations used when the client of the Smart Access Gateway app instance disconnects from a private network.
     shared_ptr<vector<string>> recoveredDNS_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

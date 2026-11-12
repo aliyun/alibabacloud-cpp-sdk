@@ -88,13 +88,13 @@ namespace Models
 
 
     protected:
-      // The ID of the SAG instance.
+      // The instance ID of the Smart Access Gateway instance.
       shared_ptr<string> instanceId_ {};
-      // The name of the SAG instance.
+      // The name of the Smart Access Gateway instance.
       shared_ptr<string> name_ {};
-      // The ID of the region where the SAG instance is deployed.
+      // The region ID of the Smart Access Gateway instance.
       shared_ptr<string> regionId_ {};
-      // The data transfer rate of the SAG instance. Unit: bit/s
+      // The traffic rate of the Smart Access Gateway instance. Unit: bps.
       shared_ptr<string> trafficRate_ {};
     };
 
@@ -117,9 +117,9 @@ namespace Models
 
 
   protected:
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // The information about the data transfer rate of the SAG instance.
+    // The list of traffic rate information for Smart Access Gateway instances.
     shared_ptr<vector<DescribeSagTrafficTopNResponseBody::TrafficTopN>> trafficTopN_ {};
   };
 

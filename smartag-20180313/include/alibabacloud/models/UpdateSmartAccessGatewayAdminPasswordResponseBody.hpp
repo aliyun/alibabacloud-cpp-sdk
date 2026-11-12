@@ -66,16 +66,17 @@ namespace Models
 
 
   protected:
-    // The response code. A value of 200 indicates that the task is successful.
+    // The response code. A value of 200 indicates that the query task is successful.
     shared_ptr<string> code_ {};
-    // The response message. A value of Successful indicates that the task is successful.
+    // The response message. A value of Successful indicates that the query task is successful.
     shared_ptr<string> message_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the call is successful. Valid values:
+    // Indicates whether the modification is successful. Valid values:
     // 
-    // *   **true**
-    // *   **false**
+    // - **true**: yes.
+    // 
+    // - **false**: no.
     shared_ptr<bool> success_ {};
   };
 

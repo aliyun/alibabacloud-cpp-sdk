@@ -162,19 +162,19 @@ namespace Models
 
 
   protected:
-    // The error code. The 200 error code indicates that the query task is successful.
+    // The error code. 200 indicates that the query task succeeded.
     shared_ptr<string> code_ {};
-    // The error message. The Successful error message indicates that the query task is successful.
+    // The error message. Successful indicates that the query task succeeded.
     shared_ptr<string> message_ {};
     shared_ptr<DescribeSagRemoteAccessResponseBody::RemoteAccesses> remoteAccesses_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // The ID of the SAG instance.
+    // The Smart Access Gateway instance ID.
     shared_ptr<string> smartAGId_ {};
-    // Indicates whether the query task is successful. Valid values:
+    // Indicates whether the query task succeeded.
     // 
-    // *   **true**: The query task is successful.
-    // *   **false**: The query task failed.
+    // - **true**: The query task succeeded.
+    // - **false**: The query task failed.
     shared_ptr<bool> success_ {};
   };
 

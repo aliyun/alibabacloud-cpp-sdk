@@ -33,6 +33,7 @@
 #include <alibabacloud/models/AssociateSmartAGWithApplicationBandwidthPackageResponseBody.hpp>
 #include <alibabacloud/models/AssociateSmartAGWithApplicationBandwidthPackageResponse.hpp>
 #include <alibabacloud/models/AttachCcnInstanceToCenRequest.hpp>
+#include <alibabacloud/models/AttachCcnInstanceToCenShrinkRequest.hpp>
 #include <alibabacloud/models/AttachCcnInstanceToCenResponseBody.hpp>
 #include <alibabacloud/models/AttachCcnInstanceToCenResponse.hpp>
 #include <alibabacloud/models/BindSerialNumberRequest.hpp>
@@ -312,6 +313,7 @@
 #include <alibabacloud/models/DescribeUserOnlineClientsResponseBody.hpp>
 #include <alibabacloud/models/DescribeUserOnlineClientsResponse.hpp>
 #include <alibabacloud/models/DetachCcnInstanceFromCenRequest.hpp>
+#include <alibabacloud/models/DetachCcnInstanceFromCenShrinkRequest.hpp>
 #include <alibabacloud/models/DetachCcnInstanceFromCenResponseBody.hpp>
 #include <alibabacloud/models/DetachCcnInstanceFromCenResponse.hpp>
 #include <alibabacloud/models/DiagnoseSmartAccessGatewayRequest.hpp>
