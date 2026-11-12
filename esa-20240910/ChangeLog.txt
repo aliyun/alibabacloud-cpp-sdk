@@ -1,6 +1,9 @@
 2026-11-12 Version: 3.16.1
 - Generated cpp 2024-09-10 for ESA.
 
+2026-11-12 Version: 3.16.1
+- Generated cpp 2024-09-10 for ESA.
+
 2026-11-11 Version: 3.16.0
 - Support API CreateErrorPagesRedirectRule.
 - Support API DeleteErrorPagesRedirectRule.
