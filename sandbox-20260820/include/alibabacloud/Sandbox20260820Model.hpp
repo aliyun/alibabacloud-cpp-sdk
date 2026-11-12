@@ -148,6 +148,7 @@
 #include <alibabacloud/models/ListTemplateCacheResponseBody.hpp>
 #include <alibabacloud/models/ListTemplateCacheResponse.hpp>
 #include <alibabacloud/models/ListTemplatesRequest.hpp>
+#include <alibabacloud/models/ListTemplatesShrinkRequest.hpp>
 #include <alibabacloud/models/ListTemplatesResponseBody.hpp>
 #include <alibabacloud/models/ListTemplatesResponse.hpp>
 #include <alibabacloud/models/ListVolumesRequest.hpp>

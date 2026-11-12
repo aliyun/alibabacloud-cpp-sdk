@@ -81,15 +81,15 @@ namespace Models
 
 
   protected:
-    // The response code. The value is 200 if the request is successful.
+    // The response code. A value of 200 indicates success.
     shared_ptr<string> code_ {};
-    // The response message. The value is success if the request is successful.
+    // The response message. A value of success indicates success.
     shared_ptr<string> message_ {};
     // The quota configuration information.
     shared_ptr<Quota> quota_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The current quota usage of the team. This field is omitted when the usage is unavailable. If the query is successful and no quota is consumed, three zero values are returned.
+    // The current quota usage of the team.
     shared_ptr<QuotaUsage> usage_ {};
   };
 

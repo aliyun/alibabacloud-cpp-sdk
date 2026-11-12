@@ -4,6 +4,7 @@
 #include <darabonba/Core.hpp>
 #include <map>
 #include <alibabacloud/models/E2BNetwork.hpp>
+#include <vector>
 #include <alibabacloud/models/InnerSandboxRuntimeConfig.hpp>
 #include <alibabacloud/models/InnerCreateSandboxVolumeMounts.hpp>
 using namespace std;
@@ -23,6 +24,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(envVars, envVars_);
       DARABONBA_PTR_TO_JSON(metadata, metadata_);
       DARABONBA_PTR_TO_JSON(network, network_);
+      DARABONBA_PTR_TO_JSON(resourceTags, resourceTags_);
       DARABONBA_PTR_TO_JSON(runtime, runtime_);
       DARABONBA_PTR_TO_JSON(secure, secure_);
       DARABONBA_PTR_TO_JSON(snapshotID, snapshotID_);
@@ -39,6 +41,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(envVars, envVars_);
       DARABONBA_PTR_FROM_JSON(metadata, metadata_);
       DARABONBA_PTR_FROM_JSON(network, network_);
+      DARABONBA_PTR_FROM_JSON(resourceTags, resourceTags_);
       DARABONBA_PTR_FROM_JSON(runtime, runtime_);
       DARABONBA_PTR_FROM_JSON(secure, secure_);
       DARABONBA_PTR_FROM_JSON(snapshotID, snapshotID_);
@@ -59,10 +62,54 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+    class ResourceTags : public Darabonba::Model {
+    public:
+      friend void to_json(Darabonba::Json& j, const ResourceTags& obj) { 
+        DARABONBA_PTR_TO_JSON(key, key_);
+        DARABONBA_PTR_TO_JSON(value, value_);
+      };
+      friend void from_json(const Darabonba::Json& j, ResourceTags& obj) { 
+        DARABONBA_PTR_FROM_JSON(key, key_);
+        DARABONBA_PTR_FROM_JSON(value, value_);
+      };
+      ResourceTags() = default ;
+      ResourceTags(const ResourceTags &) = default ;
+      ResourceTags(ResourceTags &&) = default ;
+      ResourceTags(const Darabonba::Json & obj) { from_json(obj, *this); };
+      virtual ~ResourceTags() = default ;
+      ResourceTags& operator=(const ResourceTags &) = default ;
+      ResourceTags& operator=(ResourceTags &&) = default ;
+      virtual void validate() const override {
+      };
+      virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+      virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+      virtual bool empty() const override { return this->key_ == nullptr
+        && this->value_ == nullptr; };
+      // key Field Functions 
+      bool hasKey() const { return this->key_ != nullptr;};
+      void deleteKey() { this->key_ = nullptr;};
+      inline string getKey() const { DARABONBA_PTR_GET_DEFAULT(key_, "") };
+      inline ResourceTags& setKey(string key) { DARABONBA_PTR_SET_VALUE(key_, key) };
+
+
+      // value Field Functions 
+      bool hasValue() const { return this->value_ != nullptr;};
+      void deleteValue() { this->value_ = nullptr;};
+      inline string getValue() const { DARABONBA_PTR_GET_DEFAULT(value_, "") };
+      inline ResourceTags& setValue(string value) { DARABONBA_PTR_SET_VALUE(value_, value) };
+
+
+    protected:
+      // The tag key.
+      shared_ptr<string> key_ {};
+      // The tag value.
+      shared_ptr<string> value_ {};
+    };
+
     virtual bool empty() const override { return this->allowInternetAccess_ == nullptr
         && this->autoPause_ == nullptr && this->autoResume_ == nullptr && this->envVars_ == nullptr && this->metadata_ == nullptr && this->network_ == nullptr
-        && this->runtime_ == nullptr && this->secure_ == nullptr && this->snapshotID_ == nullptr && this->snapshotName_ == nullptr && this->teamID_ == nullptr
-        && this->templateID_ == nullptr && this->timeout_ == nullptr && this->volumeMounts_ == nullptr; };
+        && this->resourceTags_ == nullptr && this->runtime_ == nullptr && this->secure_ == nullptr && this->snapshotID_ == nullptr && this->snapshotName_ == nullptr
+        && this->teamID_ == nullptr && this->templateID_ == nullptr && this->timeout_ == nullptr && this->volumeMounts_ == nullptr; };
     // allowInternetAccess Field Functions 
     bool hasAllowInternetAccess() const { return this->allowInternetAccess_ != nullptr;};
     void deleteAllowInternetAccess() { this->allowInternetAccess_ = nullptr;};
@@ -109,6 +156,15 @@ namespace Models
     inline E2BNetwork getNetwork() { DARABONBA_PTR_GET(network_, E2BNetwork) };
     inline InnerCreateSandboxInput& setNetwork(const E2BNetwork & network) { DARABONBA_PTR_SET_VALUE(network_, network) };
     inline InnerCreateSandboxInput& setNetwork(E2BNetwork && network) { DARABONBA_PTR_SET_RVALUE(network_, network) };
+
+
+    // resourceTags Field Functions 
+    bool hasResourceTags() const { return this->resourceTags_ != nullptr;};
+    void deleteResourceTags() { this->resourceTags_ = nullptr;};
+    inline const vector<InnerCreateSandboxInput::ResourceTags> & getResourceTags() const { DARABONBA_PTR_GET_CONST(resourceTags_, vector<InnerCreateSandboxInput::ResourceTags>) };
+    inline vector<InnerCreateSandboxInput::ResourceTags> getResourceTags() { DARABONBA_PTR_GET(resourceTags_, vector<InnerCreateSandboxInput::ResourceTags>) };
+    inline InnerCreateSandboxInput& setResourceTags(const vector<InnerCreateSandboxInput::ResourceTags> & resourceTags) { DARABONBA_PTR_SET_VALUE(resourceTags_, resourceTags) };
+    inline InnerCreateSandboxInput& setResourceTags(vector<InnerCreateSandboxInput::ResourceTags> && resourceTags) { DARABONBA_PTR_SET_RVALUE(resourceTags_, resourceTags) };
 
 
     // runtime Field Functions 
@@ -184,6 +240,8 @@ namespace Models
     shared_ptr<map<string, string>> metadata_ {};
     // The network configuration.
     shared_ptr<E2BNetwork> network_ {};
+    // The resource tags.
+    shared_ptr<vector<InnerCreateSandboxInput::ResourceTags>> resourceTags_ {};
     // The runtime configuration.
     shared_ptr<InnerSandboxRuntimeConfig> runtime_ {};
     // Specifies whether authentication is required to access the sandbox envd.
@@ -196,7 +254,7 @@ namespace Models
     shared_ptr<string> teamID_ {};
     // The unique identifier of the template.
     shared_ptr<string> templateID_ {};
-    // The timeout period, in seconds.
+    // The timeout period in seconds.
     shared_ptr<int32_t> timeout_ {};
     // The volume mount configuration.
     shared_ptr<InnerCreateSandboxVolumeMounts> volumeMounts_ {};

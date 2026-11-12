@@ -539,7 +539,7 @@ DescribeApiKeyResponse Client::describeApiKey(const string &apiKeyID, const Desc
 }
 
 /**
- * @summary Queries the quota configurations of a specified team.
+ * @summary Queries the quota configuration of a specified team.
  *
  * @param request DescribeQuotaRequest
  * @param headers map
@@ -572,7 +572,7 @@ DescribeQuotaResponse Client::describeQuotaWithOptions(const DescribeQuotaReques
 }
 
 /**
- * @summary Queries the quota configurations of a specified team.
+ * @summary Queries the quota configuration of a specified team.
  *
  * @param request DescribeQuotaRequest
  * @return DescribeQuotaResponse
@@ -998,15 +998,21 @@ ListTemplateCacheResponse Client::listTemplateCache(const ListTemplateCacheReque
 }
 
 /**
- * @summary Performs a paged query to retrieve the template list with paging.
+ * @summary Performs a paging query on the template list.
  *
- * @param request ListTemplatesRequest
+ * @param tmpReq ListTemplatesRequest
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
  * @return ListTemplatesResponse
  */
-ListTemplatesResponse Client::listTemplatesWithOptions(const ListTemplatesRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
-  request.validate();
+ListTemplatesResponse Client::listTemplatesWithOptions(const ListTemplatesRequest &tmpReq, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  ListTemplatesShrinkRequest request = ListTemplatesShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasResourceTags()) {
+    request.setResourceTagsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getResourceTags(), "resourceTags", "json"));
+  }
+
   json query = {};
   if (!!request.hasMaxResults()) {
     query["maxResults"] = request.getMaxResults();
@@ -1014,6 +1020,10 @@ ListTemplatesResponse Client::listTemplatesWithOptions(const ListTemplatesReques
 
   if (!!request.hasNextToken()) {
     query["nextToken"] = request.getNextToken();
+  }
+
+  if (!!request.hasResourceTagsShrink()) {
+    query["resourceTags"] = request.getResourceTagsShrink();
   }
 
   if (!!request.hasTeamID()) {
@@ -1039,7 +1049,7 @@ ListTemplatesResponse Client::listTemplatesWithOptions(const ListTemplatesReques
 }
 
 /**
- * @summary Performs a paged query to retrieve the template list with paging.
+ * @summary Performs a paging query on the template list.
  *
  * @param request ListTemplatesRequest
  * @return ListTemplatesResponse

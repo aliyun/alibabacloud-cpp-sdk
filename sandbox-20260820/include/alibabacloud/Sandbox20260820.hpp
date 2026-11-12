@@ -237,7 +237,7 @@ namespace Sandbox20260820
       Models::DescribeApiKeyResponse describeApiKey(const string &apiKeyID, const Models::DescribeApiKeyRequest &request);
 
       /**
-       * @summary Queries the quota configurations of a specified team.
+       * @summary Queries the quota configuration of a specified team.
        *
        * @param request DescribeQuotaRequest
        * @param headers map
@@ -247,7 +247,7 @@ namespace Sandbox20260820
       Models::DescribeQuotaResponse describeQuotaWithOptions(const Models::DescribeQuotaRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the quota configurations of a specified team.
+       * @summary Queries the quota configuration of a specified team.
        *
        * @param request DescribeQuotaRequest
        * @return DescribeQuotaResponse
@@ -399,17 +399,17 @@ namespace Sandbox20260820
       Models::ListTemplateCacheResponse listTemplateCache(const Models::ListTemplateCacheRequest &request);
 
       /**
-       * @summary Performs a paged query to retrieve the template list with paging.
+       * @summary Performs a paging query on the template list.
        *
-       * @param request ListTemplatesRequest
+       * @param tmpReq ListTemplatesRequest
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
        * @return ListTemplatesResponse
        */
-      Models::ListTemplatesResponse listTemplatesWithOptions(const Models::ListTemplatesRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+      Models::ListTemplatesResponse listTemplatesWithOptions(const Models::ListTemplatesRequest &tmpReq, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Performs a paged query to retrieve the template list with paging.
+       * @summary Performs a paging query on the template list.
        *
        * @param request ListTemplatesRequest
        * @return ListTemplatesResponse

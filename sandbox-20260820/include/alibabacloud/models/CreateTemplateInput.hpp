@@ -3,6 +3,7 @@
 #define ALIBABACLOUD_MODELS_CREATETEMPLATEINPUT_HPP_
 #include <darabonba/Core.hpp>
 #include <alibabacloud/models/CreateTemplateBuildConfig.hpp>
+#include <vector>
 #include <alibabacloud/models/CreateTemplateRuntimeConfig.hpp>
 using namespace std;
 using json = nlohmann::json;
@@ -17,12 +18,14 @@ namespace Models
     friend void to_json(Darabonba::Json& j, const CreateTemplateInput& obj) { 
       DARABONBA_PTR_TO_JSON(buildConfig, buildConfig_);
       DARABONBA_PTR_TO_JSON(name, name_);
+      DARABONBA_PTR_TO_JSON(resourceTags, resourceTags_);
       DARABONBA_PTR_TO_JSON(runtimeConfig, runtimeConfig_);
       DARABONBA_PTR_TO_JSON(teamID, teamID_);
     };
     friend void from_json(const Darabonba::Json& j, CreateTemplateInput& obj) { 
       DARABONBA_PTR_FROM_JSON(buildConfig, buildConfig_);
       DARABONBA_PTR_FROM_JSON(name, name_);
+      DARABONBA_PTR_FROM_JSON(resourceTags, resourceTags_);
       DARABONBA_PTR_FROM_JSON(runtimeConfig, runtimeConfig_);
       DARABONBA_PTR_FROM_JSON(teamID, teamID_);
     };
@@ -37,8 +40,52 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+    class ResourceTags : public Darabonba::Model {
+    public:
+      friend void to_json(Darabonba::Json& j, const ResourceTags& obj) { 
+        DARABONBA_PTR_TO_JSON(key, key_);
+        DARABONBA_PTR_TO_JSON(value, value_);
+      };
+      friend void from_json(const Darabonba::Json& j, ResourceTags& obj) { 
+        DARABONBA_PTR_FROM_JSON(key, key_);
+        DARABONBA_PTR_FROM_JSON(value, value_);
+      };
+      ResourceTags() = default ;
+      ResourceTags(const ResourceTags &) = default ;
+      ResourceTags(ResourceTags &&) = default ;
+      ResourceTags(const Darabonba::Json & obj) { from_json(obj, *this); };
+      virtual ~ResourceTags() = default ;
+      ResourceTags& operator=(const ResourceTags &) = default ;
+      ResourceTags& operator=(ResourceTags &&) = default ;
+      virtual void validate() const override {
+      };
+      virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+      virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+      virtual bool empty() const override { return this->key_ == nullptr
+        && this->value_ == nullptr; };
+      // key Field Functions 
+      bool hasKey() const { return this->key_ != nullptr;};
+      void deleteKey() { this->key_ = nullptr;};
+      inline string getKey() const { DARABONBA_PTR_GET_DEFAULT(key_, "") };
+      inline ResourceTags& setKey(string key) { DARABONBA_PTR_SET_VALUE(key_, key) };
+
+
+      // value Field Functions 
+      bool hasValue() const { return this->value_ != nullptr;};
+      void deleteValue() { this->value_ = nullptr;};
+      inline string getValue() const { DARABONBA_PTR_GET_DEFAULT(value_, "") };
+      inline ResourceTags& setValue(string value) { DARABONBA_PTR_SET_VALUE(value_, value) };
+
+
+    protected:
+      // The key of the tag.
+      shared_ptr<string> key_ {};
+      // The value of the tag.
+      shared_ptr<string> value_ {};
+    };
+
     virtual bool empty() const override { return this->buildConfig_ == nullptr
-        && this->name_ == nullptr && this->runtimeConfig_ == nullptr && this->teamID_ == nullptr; };
+        && this->name_ == nullptr && this->resourceTags_ == nullptr && this->runtimeConfig_ == nullptr && this->teamID_ == nullptr; };
     // buildConfig Field Functions 
     bool hasBuildConfig() const { return this->buildConfig_ != nullptr;};
     void deleteBuildConfig() { this->buildConfig_ = nullptr;};
@@ -53,6 +100,15 @@ namespace Models
     void deleteName() { this->name_ = nullptr;};
     inline string getName() const { DARABONBA_PTR_GET_DEFAULT(name_, "") };
     inline CreateTemplateInput& setName(string name) { DARABONBA_PTR_SET_VALUE(name_, name) };
+
+
+    // resourceTags Field Functions 
+    bool hasResourceTags() const { return this->resourceTags_ != nullptr;};
+    void deleteResourceTags() { this->resourceTags_ = nullptr;};
+    inline const vector<CreateTemplateInput::ResourceTags> & getResourceTags() const { DARABONBA_PTR_GET_CONST(resourceTags_, vector<CreateTemplateInput::ResourceTags>) };
+    inline vector<CreateTemplateInput::ResourceTags> getResourceTags() { DARABONBA_PTR_GET(resourceTags_, vector<CreateTemplateInput::ResourceTags>) };
+    inline CreateTemplateInput& setResourceTags(const vector<CreateTemplateInput::ResourceTags> & resourceTags) { DARABONBA_PTR_SET_VALUE(resourceTags_, resourceTags) };
+    inline CreateTemplateInput& setResourceTags(vector<CreateTemplateInput::ResourceTags> && resourceTags) { DARABONBA_PTR_SET_RVALUE(resourceTags_, resourceTags) };
 
 
     // runtimeConfig Field Functions 
@@ -72,13 +128,15 @@ namespace Models
 
 
   protected:
-    // The build configuration of the template. The build process is specified in blocks by action. If this parameter is not specified, the service automatically infers the configuration based on the source image: public runtime images are used directly without building, and other images automatically execute copy and envdInject.
+    // The build configuration of the template. This configuration specifies the build process in action-based blocks. If this parameter is not specified, the service automatically derives the configuration based on the source image. Public runtime images are used directly without building. For other images, the copy and envdInject actions are automatically executed.
     shared_ptr<CreateTemplateBuildConfig> buildConfig_ {};
-    // The template name, which must be unique within the same team.
+    // The name of the template. The name must be unique within the same team.
     shared_ptr<string> name_ {};
-    // The runtime configuration of the template. This configuration determines the specifications and environment of sandbox instances created from this template.
+    // The resource tags.
+    shared_ptr<vector<CreateTemplateInput::ResourceTags>> resourceTags_ {};
+    // The runtime configuration of the template. This configuration determines the specifications and environment of the sandbox instances created from the template.
     shared_ptr<CreateTemplateRuntimeConfig> runtimeConfig_ {};
-    // The ID of the team to which the template belongs, in UUID format. If this parameter is not specified, the default team of the current account is used.
+    // The ID of the team to which the template belongs. The ID is in UUID format. If this parameter is not specified, the default team of the current account is used.
     shared_ptr<string> teamID_ {};
   };
 

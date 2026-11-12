@@ -359,7 +359,7 @@ namespace Models
   protected:
     // The access endpoint.
     shared_ptr<string> accessEndpoint_ {};
-    // Specifies whether the sandbox is allowed to access the external network.
+    // Specifies whether the sandbox is allowed to access the Internet.
     shared_ptr<bool> allowInternetAccess_ {};
     // The vCPU specifications.
     shared_ptr<int32_t> cpuCount_ {};
@@ -371,13 +371,13 @@ namespace Models
     shared_ptr<string> endAt_ {};
     // The environment variables.
     shared_ptr<map<string, string>> envVars_ {};
-    // The authentication token for accessing the envd daemon process in the sandbox, in UUID format. This token is automatically generated only when secure is set to true.
+    // The authentication credential for accessing the envd daemon process in the sandbox in UUID format. This credential is automatically generated only when secure is set to true.
     shared_ptr<string> envdAccessToken_ {};
     // The Function Compute function name.
     shared_ptr<string> fcFunctionName_ {};
     // The Function Compute instance ID.
     shared_ptr<string> fcInstanceID_ {};
-    // The Function Compute session ID of the sandbox, in UUID format. This ID is used to locate the underlying session when pausing, resuming, or deleting the sandbox.
+    // The Function Compute session ID of the sandbox in UUID format. This ID is used to locate the underlying session when pausing, resuming, or deleting the sandbox.
     shared_ptr<string> fcSessionID_ {};
     // The sandbox version.
     shared_ptr<int32_t> generation_ {};
@@ -400,15 +400,15 @@ namespace Models
     // The start time.
     shared_ptr<string> startedAt_ {};
     // The sandbox state. Valid values:
-    // - running: Running.
-    // - pausing: Pausing.
-    // - paused: Paused.
-    // - resuming: Resuming.
-    // - pause_fail: Pause failed.
-    // - resume_fail: Resume failed.
-    // - snapshotting: Snapshotting.
-    // - snapshot_failed: Snapshot failed.
-    // - terminated: Terminated.
+    // - running: The sandbox is running.
+    // - pausing: The sandbox is being paused.
+    // - paused: The sandbox is paused.
+    // - resuming: The sandbox is being resumed.
+    // - pause_fail: The pause operation failed.
+    // - resume_fail: The resume operation failed.
+    // - snapshotting: A snapshot is being created.
+    // - snapshot_failed: Snapshot creation failed.
+    // - terminated: The sandbox is terminated.
     shared_ptr<string> state_ {};
     // The unique identifier of the team.
     shared_ptr<string> teamID_ {};
