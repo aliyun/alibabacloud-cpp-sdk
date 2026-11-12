@@ -2,11 +2,13 @@
 #include <alibabacloud/Ens20171110.hpp>
 #include <alibabacloud/Utils.hpp>
 #include <alibabacloud/Openapi.hpp>
+#include <alibabacloud/gateway/POP.hpp>
 #include <map>
 #include <darabonba/Runtime.hpp>
 using namespace std;
 using namespace Darabonba;
 using json = nlohmann::json;
+using namespace AlibabaCloud::Gateway;
 using namespace AlibabaCloud::OpenApi;
 using namespace AlibabaCloud::Ens20171110::Models;
 using OpenApiClient = AlibabaCloud::OpenApi::Client;
@@ -17,6 +19,9 @@ namespace Ens20171110
 {
 
 AlibabaCloud::Ens20171110::Client::Client(Config &config): OpenApiClient(config){
+  this->_productId = "Ens";
+  shared_ptr<POP> gatewayClient = make_shared<POP>();
+  this->_spi = gatewayClient;
   this->_endpointRule = "regional";
   this->_endpointMap = json({
     {"cn-beijing" , "ens.aliyuncs.com"},
@@ -207,7 +212,7 @@ AddNetworkInterfaceToInstanceResponse Client::addNetworkInterfaceToInstance(cons
 }
 
 /**
- * @summary Adds a public elastic IP address (EIP) to a SNAT rule.
+ * @summary Adds a public EIP to a SNAT rule.
  *
  * @param request AddSnatIpForSnatEntryRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -242,7 +247,7 @@ AddSnatIpForSnatEntryResponse Client::addSnatIpForSnatEntryWithOptions(const Add
 }
 
 /**
- * @summary Adds a public elastic IP address (EIP) to a SNAT rule.
+ * @summary Adds a public EIP to a SNAT rule.
  *
  * @param request AddSnatIpForSnatEntryRequest
  * @return AddSnatIpForSnatEntryResponse
@@ -711,13 +716,13 @@ AttachInstancesToNodePoolResponse Client::attachInstancesToNodePool(const Attach
 }
 
 /**
- * @summary Attaches an SSH key pair to a batch of specified instances. A maximum of 30 instances can be specified in a single call.
+ * @summary Attaches an SSH key pair to up to 30 specified instances in a single request.
  *
  * @description ## Operation description
- * This batch operation attaches a key pair to instances. You can only perform this operation on stopped instances.
- * - You can attach the key pair to a maximum of 30 instances in a single call.
- * - You must specify at least one of the KeyPairName and KeyPairId parameters.
- * - Specify KeyPairId when you call this operation. The KeyPairName parameter will be deprecated.
+ * This batch API operation attaches a key pair to instances. You can only perform this operation on stopped instances.
+ * - A maximum of 30 instances can be specified in a single request.
+ * - At least one of key_pair_name and key_pair_id must be specified.
+ * - Pass key_pair_id when you call this operation. The key_pair_name parameter will be deprecated.
  *
  * @param tmpReq AttachKeyPairRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -762,13 +767,13 @@ AttachKeyPairResponse Client::attachKeyPairWithOptions(const AttachKeyPairReques
 }
 
 /**
- * @summary Attaches an SSH key pair to a batch of specified instances. A maximum of 30 instances can be specified in a single call.
+ * @summary Attaches an SSH key pair to up to 30 specified instances in a single request.
  *
  * @description ## Operation description
- * This batch operation attaches a key pair to instances. You can only perform this operation on stopped instances.
- * - You can attach the key pair to a maximum of 30 instances in a single call.
- * - You must specify at least one of the KeyPairName and KeyPairId parameters.
- * - Specify KeyPairId when you call this operation. The KeyPairName parameter will be deprecated.
+ * This batch API operation attaches a key pair to instances. You can only perform this operation on stopped instances.
+ * - A maximum of 30 instances can be specified in a single request.
+ * - At least one of key_pair_name and key_pair_id must be specified.
+ * - Pass key_pair_id when you call this operation. The key_pair_name parameter will be deprecated.
  *
  * @param request AttachKeyPairRequest
  * @return AttachKeyPairResponse
@@ -1187,7 +1192,7 @@ CleanDistDataResponse Client::cleanDistData(const CleanDistDataRequest &request)
 }
 
 /**
- * @summary Copies an SDG across edge zones by calling CopySDG.
+ * @summary Copies an SDG across edge zones.
  *
  * @param tmpReq CopySDGRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1220,7 +1225,7 @@ CopySDGResponse Client::copySDGWithOptions(const CopySDGRequest &tmpReq, const D
 }
 
 /**
- * @summary Copies an SDG across edge zones by calling CopySDG.
+ * @summary Copies an SDG across edge zones.
  *
  * @param request CopySDGRequest
  * @return CopySDGResponse
@@ -1295,7 +1300,7 @@ CopySnapshotResponse Client::copySnapshot(const CopySnapshotRequest &request) {
 }
 
 /**
- * @summary Creates ARM board card servers by calling CreateARMServerInstances.
+ * @summary Creates ARM board servers.
  *
  * @param request CreateARMServerInstancesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1398,7 +1403,7 @@ CreateARMServerInstancesResponse Client::createARMServerInstancesWithOptions(con
 }
 
 /**
- * @summary Creates ARM board card servers by calling CreateARMServerInstances.
+ * @summary Creates ARM board servers.
  *
  * @param request CreateARMServerInstancesRequest
  * @return CreateARMServerInstancesResponse
@@ -1455,7 +1460,7 @@ CreateApplicationResponse Client::createApplication(const CreateApplicationReque
 }
 
 /**
- * @summary Creates a classic VPC.
+ * @summary Creates a classic virtual private cloud (VPC).
  *
  * @param request CreateClassicNetworkRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1498,7 +1503,7 @@ CreateClassicNetworkResponse Client::createClassicNetworkWithOptions(const Creat
 }
 
 /**
- * @summary Creates a classic VPC.
+ * @summary Creates a classic virtual private cloud (VPC).
  *
  * @param request CreateClassicNetworkRequest
  * @return CreateClassicNetworkResponse
@@ -1701,7 +1706,7 @@ CreateClusterNodePoolResponse Client::createClusterNodePool(const CreateClusterN
 }
 
 /**
- * @summary Creates a pay-as-you-go or subscription data cloud disk by calling CreateDisk.
+ * @summary Creates a pay-as-you-go or subscription data cloud disk.
  *
  * @param request CreateDiskRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1768,7 +1773,7 @@ CreateDiskResponse Client::createDiskWithOptions(const CreateDiskRequest &reques
 }
 
 /**
- * @summary Creates a pay-as-you-go or subscription data cloud disk by calling CreateDisk.
+ * @summary Creates a pay-as-you-go or subscription data cloud disk.
  *
  * @param request CreateDiskRequest
  * @return CreateDiskResponse
@@ -4637,9 +4642,9 @@ DeleteEpnInstanceResponse Client::deleteEpnInstance(const DeleteEpnInstanceReque
 }
 
 /**
- * @summary Calls DeleteFileSystem to delete a NAS service.
+ * @summary Deletes a NAS file system.
  *
- * @description Deletes a NAS file system. Before deleting the file system, call DeleteMountTarget to delete all mount targets of the file system. After DeleteMountTarget succeeds, there is an eventual consistency window. Poll DescribeFileSystems to confirm that MountTargets is empty before calling this API operation.
+ * @description Deletes a NAS file system. Before deletion, you must call DeleteMountTarget to delete all mount targets of the file system. After a successful DeleteMountTarget call, an eventual consistency window exists. Poll DescribeFileSystems to confirm that MountTargets is empty before you call this operation.
  *
  * @param request DeleteFileSystemRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4666,9 +4671,9 @@ DeleteFileSystemResponse Client::deleteFileSystemWithOptions(const DeleteFileSys
 }
 
 /**
- * @summary Calls DeleteFileSystem to delete a NAS service.
+ * @summary Deletes a NAS file system.
  *
- * @description Deletes a NAS file system. Before deleting the file system, call DeleteMountTarget to delete all mount targets of the file system. After DeleteMountTarget succeeds, there is an eventual consistency window. Poll DescribeFileSystems to confirm that MountTargets is empty before calling this API operation.
+ * @description Deletes a NAS file system. Before deletion, you must call DeleteMountTarget to delete all mount targets of the file system. After a successful DeleteMountTarget call, an eventual consistency window exists. Poll DescribeFileSystems to confirm that MountTargets is empty before you call this operation.
  *
  * @param request DeleteFileSystemRequest
  * @return DeleteFileSystemResponse
@@ -4919,9 +4924,9 @@ DeleteLoadBalancerListenerResponse Client::deleteLoadBalancerListener(const Dele
 }
 
 /**
- * @summary Deletes a mount target.
+ * @summary Deletes an existing mount target.
  *
- * @description After you delete a mount target, the mount target cannot be restored. Proceed with caution.
+ * @description A deleted mount target cannot be recovered. Proceed with caution.
  *
  * @param request DeleteMountTargetRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4960,9 +4965,9 @@ DeleteMountTargetResponse Client::deleteMountTargetWithOptions(const DeleteMount
 }
 
 /**
- * @summary Deletes a mount target.
+ * @summary Deletes an existing mount target.
  *
- * @description After you delete a mount target, the mount target cannot be restored. Proceed with caution.
+ * @description A deleted mount target cannot be recovered. Proceed with caution.
  *
  * @param request DeleteMountTargetRequest
  * @return DeleteMountTargetResponse
@@ -5103,7 +5108,7 @@ DeleteNetworkAclResponse Client::deleteNetworkAcl(const DeleteNetworkAclRequest 
 }
 
 /**
- * @summary Deletes a network access control list (ACL) rule.
+ * @summary Invokes the DeleteNetworkAclEntry operation to delete network ACL rules.
  *
  * @param request DeleteNetworkAclEntryRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -5134,7 +5139,7 @@ DeleteNetworkAclEntryResponse Client::deleteNetworkAclEntryWithOptions(const Del
 }
 
 /**
- * @summary Deletes a network access control list (ACL) rule.
+ * @summary Invokes the DeleteNetworkAclEntry operation to delete network ACL rules.
  *
  * @param request DeleteNetworkAclEntryRequest
  * @return DeleteNetworkAclEntryResponse
@@ -5145,7 +5150,7 @@ DeleteNetworkAclEntryResponse Client::deleteNetworkAclEntry(const DeleteNetworkA
 }
 
 /**
- * @summary Deletes an elastic network interface (ENI).
+ * @summary Deletes one or more elastic network interface controllers (NICs).
  *
  * @param tmpReq DeleteNetworkInterfacesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -5182,7 +5187,7 @@ DeleteNetworkInterfacesResponse Client::deleteNetworkInterfacesWithOptions(const
 }
 
 /**
- * @summary Deletes an elastic network interface (ENI).
+ * @summary Deletes one or more elastic network interface controllers (NICs).
  *
  * @param request DeleteNetworkInterfacesRequest
  * @return DeleteNetworkInterfacesResponse
@@ -5281,7 +5286,7 @@ DeleteObjectResponse Client::deleteObject(const DeleteObjectRequest &request) {
 }
 
 /**
- * @summary Deletes an SDG by calling DeleteSDG.
+ * @summary Deletes an SDG.
  *
  * @description If all SDGs associated with the original cloud disk are deleted, the original cloud disk is automatically cleaned up.
  *
@@ -5320,7 +5325,7 @@ DeleteSDGResponse Client::deleteSDGWithOptions(const DeleteSDGRequest &tmpReq, c
 }
 
 /**
- * @summary Deletes an SDG by calling DeleteSDG.
+ * @summary Deletes an SDG.
  *
  * @description If all SDGs associated with the original cloud disk are deleted, the original cloud disk is automatically cleaned up.
  *
@@ -6993,7 +6998,7 @@ DescribeDiskIopsListResponse Client::describeDiskIopsList(const DescribeDiskIops
 }
 
 /**
- * @summary Queries information about one or more created disks.
+ * @summary Queries the details of one or more created cloud disks.
  *
  * @param request DescribeDisksRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -7080,7 +7085,7 @@ DescribeDisksResponse Client::describeDisksWithOptions(const DescribeDisksReques
 }
 
 /**
- * @summary Queries information about one or more created disks.
+ * @summary Queries the details of one or more created cloud disks.
  *
  * @param request DescribeDisksRequest
  * @return DescribeDisksResponse
@@ -7301,7 +7306,7 @@ DescribeEnsEipAddressesResponse Client::describeEnsEipAddresses(const DescribeEn
 }
 
 /**
- * @summary Invokes the DescribeEnsNetDistrict operation to query the regions where EPS resources can be created.
+ * @summary Invokes DescribeEnsNetDistrict to query the regions where EPS resources can be created.
  *
  * @param request DescribeEnsNetDistrictRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -7340,7 +7345,7 @@ DescribeEnsNetDistrictResponse Client::describeEnsNetDistrictWithOptions(const D
 }
 
 /**
- * @summary Invokes the DescribeEnsNetDistrict operation to query the regions where EPS resources can be created.
+ * @summary Invokes DescribeEnsNetDistrict to query the regions where EPS resources can be created.
  *
  * @param request DescribeEnsNetDistrictRequest
  * @return DescribeEnsNetDistrictResponse
@@ -7383,7 +7388,7 @@ DescribeEnsNetLevelResponse Client::describeEnsNetLevel() {
 }
 
 /**
- * @summary Queries the information about ISPs and number of ISPs in an area.
+ * @summary Queries the supported districts and ISPs, and their quantities.
  *
  * @param request DescribeEnsNetSaleDistrictRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -7418,7 +7423,7 @@ DescribeEnsNetSaleDistrictResponse Client::describeEnsNetSaleDistrictWithOptions
 }
 
 /**
- * @summary Queries the information about ISPs and number of ISPs in an area.
+ * @summary Queries the supported districts and ISPs, and their quantities.
  *
  * @param request DescribeEnsNetSaleDistrictRequest
  * @return DescribeEnsNetSaleDistrictResponse
@@ -7429,7 +7434,7 @@ DescribeEnsNetSaleDistrictResponse Client::describeEnsNetSaleDistrict(const Desc
 }
 
 /**
- * @summary Queries whether a node supports IPv6.
+ * @summary Queries whether an edge zone supports IPv6.
  *
  * @param request DescribeEnsRegionIdIpv6InfoRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -7460,7 +7465,7 @@ DescribeEnsRegionIdIpv6InfoResponse Client::describeEnsRegionIdIpv6InfoWithOptio
 }
 
 /**
- * @summary Queries whether a node supports IPv6.
+ * @summary Queries whether an edge zone supports IPv6.
  *
  * @param request DescribeEnsRegionIdIpv6InfoRequest
  * @return DescribeEnsRegionIdIpv6InfoResponse
@@ -7471,7 +7476,7 @@ DescribeEnsRegionIdIpv6InfoResponse Client::describeEnsRegionIdIpv6Info(const De
 }
 
 /**
- * @summary Queries edge zone resource information by calling DescribeEnsRegionIdResource.
+ * @summary Queries the resource status of edge zones.
  *
  * @description ****
  *
@@ -7524,7 +7529,7 @@ DescribeEnsRegionIdResourceResponse Client::describeEnsRegionIdResourceWithOptio
 }
 
 /**
- * @summary Queries edge zone resource information by calling DescribeEnsRegionIdResource.
+ * @summary Queries the resource status of edge zones.
  *
  * @description ****
  *
@@ -9105,7 +9110,9 @@ DescribeInstanceVncUrlResponse Client::describeInstanceVncUrl(const DescribeInst
 /**
  * @summary Queries the details of one or more instances.
  *
- * @description - API call frequency: 800 calls per second.
+ * @description - API rate limit: 800 calls per second.
+ * - Per-user rate limit: 100 calls per second.
+ * - Request parameters act as filters and are combined with the logical AND operator. If a parameter is left empty, the filter does not take effect. However, if the InstanceIds parameter is an empty JSON array, the filter is considered valid and an empty result is returned.
  *
  * @param tmpReq DescribeInstancesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -9240,7 +9247,9 @@ DescribeInstancesResponse Client::describeInstancesWithOptions(const DescribeIns
 /**
  * @summary Queries the details of one or more instances.
  *
- * @description - API call frequency: 800 calls per second.
+ * @description - API rate limit: 800 calls per second.
+ * - Per-user rate limit: 100 calls per second.
+ * - Request parameters act as filters and are combined with the logical AND operator. If a parameter is left empty, the filter does not take effect. However, if the InstanceIds parameter is an empty JSON array, the filter is considered valid and an empty result is returned.
  *
  * @param request DescribeInstancesRequest
  * @return DescribeInstancesResponse
@@ -9457,10 +9466,10 @@ DescribeLoadBalancerHTTPSListenerAttributeResponse Client::describeLoadBalancerH
 }
 
 /**
- * @summary Queries monitoring data of an edge load balancer (ELB) instance.
+ * @summary Queries Layer 4 listener-level monitoring data for a load balancer.
  *
- * @description - up to 100 times per second per account.
- * - up to 10 times per second per user.
+ * @description - API call rate: 100 calls per second.
+ * - Call rate per user: 10 calls per second.
  *
  * @param request DescribeLoadBalancerListenMonitorRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -9487,10 +9496,10 @@ DescribeLoadBalancerListenMonitorResponse Client::describeLoadBalancerListenMoni
 }
 
 /**
- * @summary Queries monitoring data of an edge load balancer (ELB) instance.
+ * @summary Queries Layer 4 listener-level monitoring data for a load balancer.
  *
- * @description - up to 100 times per second per account.
- * - up to 10 times per second per user.
+ * @description - API call rate: 100 calls per second.
+ * - Call rate per user: 10 calls per second.
  *
  * @param request DescribeLoadBalancerListenMonitorRequest
  * @return DescribeLoadBalancerListenMonitorResponse
@@ -9791,7 +9800,7 @@ DescribeMeasurementDataResponse Client::describeMeasurementData(const DescribeMe
 }
 
 /**
- * @summary Queries mount target information.
+ * @summary Queries the details of mount targets.
  *
  * @param request DescribeMountTargetsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -9838,7 +9847,7 @@ DescribeMountTargetsResponse Client::describeMountTargetsWithOptions(const Descr
 }
 
 /**
- * @summary Queries mount target information.
+ * @summary Queries the details of mount targets.
  *
  * @param request DescribeMountTargetsRequest
  * @return DescribeMountTargetsResponse
@@ -11053,7 +11062,7 @@ DescribeSelfImagesResponse Client::describeSelfImages(const DescribeSelfImagesRe
 }
 
 /**
- * @summary Queries the real-time status of the instance devices or containers that are being scheduled and occupied by the specified UUID.
+ * @summary Queries the real-time status of instance devices or containers that are being scheduled for the specified UUID.
  *
  * @param request DescribeServcieScheduleRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -11092,7 +11101,7 @@ DescribeServcieScheduleResponse Client::describeServcieScheduleWithOptions(const
 }
 
 /**
- * @summary Queries the real-time status of the instance devices or containers that are being scheduled and occupied by the specified UUID.
+ * @summary Queries the real-time status of instance devices or containers that are being scheduled for the specified UUID.
  *
  * @param request DescribeServcieScheduleRequest
  * @return DescribeServcieScheduleResponse
@@ -11188,6 +11197,94 @@ DescribeServerLoadBalancerMonitorResponse Client::describeServerLoadBalancerMoni
 DescribeServerLoadBalancerMonitorResponse Client::describeServerLoadBalancerMonitor(const DescribeServerLoadBalancerMonitorRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return describeServerLoadBalancerMonitorWithOptions(request, runtime);
+}
+
+/**
+ * @summary Queries the billing records of shared disks that use SDG.
+ *
+ * @param tmpReq DescribeSharedDiskRecordsRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DescribeSharedDiskRecordsResponse
+ */
+DescribeSharedDiskRecordsResponse Client::describeSharedDiskRecordsWithOptions(const DescribeSharedDiskRecordsRequest &tmpReq, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  DescribeSharedDiskRecordsShrinkRequest request = DescribeSharedDiskRecordsShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasDiskIds()) {
+    request.setDiskIdsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getDiskIds(), "DiskIds", "json"));
+  }
+
+  if (!!tmpReq.hasNamespaces()) {
+    request.setNamespacesShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getNamespaces(), "Namespaces", "json"));
+  }
+
+  if (!!tmpReq.hasRegionIds()) {
+    request.setRegionIdsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getRegionIds(), "RegionIds", "json"));
+  }
+
+  if (!!tmpReq.hasSdgIds()) {
+    request.setSdgIdsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getSdgIds(), "SdgIds", "json"));
+  }
+
+  json query = {};
+  if (!!request.hasDiskIdsShrink()) {
+    query["DiskIds"] = request.getDiskIdsShrink();
+  }
+
+  if (!!request.hasEndTime()) {
+    query["EndTime"] = request.getEndTime();
+  }
+
+  if (!!request.hasNamespacesShrink()) {
+    query["Namespaces"] = request.getNamespacesShrink();
+  }
+
+  if (!!request.hasPageNumber()) {
+    query["PageNumber"] = request.getPageNumber();
+  }
+
+  if (!!request.hasPageSize()) {
+    query["PageSize"] = request.getPageSize();
+  }
+
+  if (!!request.hasRegionIdsShrink()) {
+    query["RegionIds"] = request.getRegionIdsShrink();
+  }
+
+  if (!!request.hasSdgIdsShrink()) {
+    query["SdgIds"] = request.getSdgIdsShrink();
+  }
+
+  if (!!request.hasStartTime()) {
+    query["StartTime"] = request.getStartTime();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DescribeSharedDiskRecords"},
+    {"version" , "2017-11-10"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DescribeSharedDiskRecordsResponse>();
+}
+
+/**
+ * @summary Queries the billing records of shared disks that use SDG.
+ *
+ * @param request DescribeSharedDiskRecordsRequest
+ * @return DescribeSharedDiskRecordsResponse
+ */
+DescribeSharedDiskRecordsResponse Client::describeSharedDiskRecords(const DescribeSharedDiskRecordsRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return describeSharedDiskRecordsWithOptions(request, runtime);
 }
 
 /**
@@ -11693,7 +11790,7 @@ DetachDiskResponse Client::detachDisk(const DetachDiskRequest &request) {
 }
 
 /**
- * @summary Detaches a shared data group (SDG).
+ * @summary Unmounts the SDG.
  *
  * @param tmpReq DetachInstanceSDGRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -11734,7 +11831,7 @@ DetachInstanceSDGResponse Client::detachInstanceSDGWithOptions(const DetachInsta
 }
 
 /**
- * @summary Detaches a shared data group (SDG).
+ * @summary Unmounts the SDG.
  *
  * @param request DetachInstanceSDGRequest
  * @return DetachInstanceSDGResponse
@@ -11869,7 +11966,7 @@ DetachNetworkInterfaceResponse Client::detachNetworkInterface(const DetachNetwor
 }
 
 /**
- * @summary Distributes pushed data to the Edge Node Service (ENS) instances of the application. You can specify multiple canary release policies, decompress files, and restart containers.
+ * @summary Distributes pre-pushed data to the edge resource instances of an application. The target edge resources support multiple canary release strategies, file extraction, and container restarts.
  *
  * @param request DistApplicationDataRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -11908,7 +12005,7 @@ DistApplicationDataResponse Client::distApplicationDataWithOptions(const DistApp
 }
 
 /**
- * @summary Distributes pushed data to the Edge Node Service (ENS) instances of the application. You can specify multiple canary release policies, decompress files, and restart containers.
+ * @summary Distributes pre-pushed data to the edge resource instances of an application. The target edge resources support multiple canary release strategies, file extraction, and container restarts.
  *
  * @param request DistApplicationDataRequest
  * @return DistApplicationDataResponse
@@ -11919,7 +12016,7 @@ DistApplicationDataResponse Client::distApplicationData(const DistApplicationDat
 }
 
 /**
- * @summary Migrates an instance across nodes after an O&M event occurs on the instance.
+ * @summary Migrates an instance across nodes after an O&M event occurs.
  *
  * @description - This O&M operation currently supports only the following event type: Instance:SystemUpgrade.Migrate (migration required for underlying upgrades).
  *
@@ -11976,7 +12073,7 @@ EventMigrateInstanceResponse Client::eventMigrateInstanceWithOptions(const Event
 }
 
 /**
- * @summary Migrates an instance across nodes after an O&M event occurs on the instance.
+ * @summary Migrates an instance across nodes after an O&M event occurs.
  *
  * @description - This O&M operation currently supports only the following event type: Instance:SystemUpgrade.Migrate (migration required for underlying upgrades).
  *
@@ -12051,9 +12148,9 @@ EventRebootInstanceResponse Client::eventRebootInstance(const EventRebootInstanc
 }
 
 /**
- * @summary Redeploys a specified instance either immediately or at a scheduled time.
+ * @summary Redeploys a specified resource immediately or at a scheduled time.
  *
- * @description - This O\\&M operation supports only the following event types: `Instance:SystemFailure.Redeploy` (redeployment due to a system failure) and `Instance:SystemMaintenance.Redeploy` (redeployment for system maintenance).
+ * @description - This O&M operation currently supports only the following event types: Instance:SystemFailure.Redeploy (instance redeployment due to system failures) and Instance:SystemMaintenance.Redeploy (instance redeployment due to system maintenance).
  *
  * @param request EventRedeployInstanceRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -12100,9 +12197,9 @@ EventRedeployInstanceResponse Client::eventRedeployInstanceWithOptions(const Eve
 }
 
 /**
- * @summary Redeploys a specified instance either immediately or at a scheduled time.
+ * @summary Redeploys a specified resource immediately or at a scheduled time.
  *
- * @description - This O\\&M operation supports only the following event types: `Instance:SystemFailure.Redeploy` (redeployment due to a system failure) and `Instance:SystemMaintenance.Redeploy` (redeployment for system maintenance).
+ * @description - This O&M operation currently supports only the following event types: Instance:SystemFailure.Redeploy (instance redeployment due to system failures) and Instance:SystemMaintenance.Redeploy (instance redeployment due to system maintenance).
  *
  * @param request EventRedeployInstanceRequest
  * @return EventRedeployInstanceResponse
@@ -12443,7 +12540,7 @@ GetClusterAddonInstanceResponse Client::getClusterAddonInstance(const GetCluster
 }
 
 /**
- * @summary Queries the storage usage of the previous billing cycle and the cumulative number of calls for the current month by bucket.
+ * @summary Queries the storage usage in the previous billing cycle and the cumulative number of calls for the current month.
  *
  * @param request GetOssStorageAndAccByBucketsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -12470,7 +12567,7 @@ GetOssStorageAndAccByBucketsResponse Client::getOssStorageAndAccByBucketsWithOpt
 }
 
 /**
- * @summary Queries the storage usage of the previous billing cycle and the cumulative number of calls for the current month by bucket.
+ * @summary Queries the storage usage in the previous billing cycle and the cumulative number of calls for the current month.
  *
  * @param request GetOssStorageAndAccByBucketsRequest
  * @return GetOssStorageAndAccByBucketsResponse
@@ -12481,9 +12578,9 @@ GetOssStorageAndAccByBucketsResponse Client::getOssStorageAndAccByBuckets(const 
 }
 
 /**
- * @summary Queries the storage and bandwidth usage within a specific time range.
+ * @summary Queries the calculated storage and bandwidth usage for a specified time period.
  *
- * @description The query and aggregation granularity of bandwidth and storage usage cannot exceed one day. Data aggregation is to collect the maximum values of usage data within a period of time.
+ * @description The aggregation granularity for bandwidth and storage usage queries cannot exceed one day. Aggregate data is processed by taking the maximum value of the data points within a specified time period.
  *
  * @param request GetOssUsageDataRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -12510,9 +12607,9 @@ GetOssUsageDataResponse Client::getOssUsageDataWithOptions(const GetOssUsageData
 }
 
 /**
- * @summary Queries the storage and bandwidth usage within a specific time range.
+ * @summary Queries the calculated storage and bandwidth usage for a specified time period.
  *
- * @description The query and aggregation granularity of bandwidth and storage usage cannot exceed one day. Data aggregation is to collect the maximum values of usage data within a period of time.
+ * @description The aggregation granularity for bandwidth and storage usage queries cannot exceed one day. Aggregate data is processed by taking the maximum value of the data points within a specified time period.
  *
  * @param request GetOssUsageDataRequest
  * @return GetOssUsageDataResponse
@@ -12965,7 +13062,7 @@ LeaveSecurityGroupResponse Client::leaveSecurityGroup(const LeaveSecurityGroupRe
 }
 
 /**
- * @summary Queries the list of association information for AIC public keys. Paging is supported.
+ * @summary Queries the associate information list of AIC public keys, and supports paging and paged query.
  *
  * @param request ListAICPublicKeyDeliveriesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -13016,7 +13113,7 @@ ListAICPublicKeyDeliveriesResponse Client::listAICPublicKeyDeliveriesWithOptions
 }
 
 /**
- * @summary Queries the list of association information for AIC public keys. Paging is supported.
+ * @summary Queries the associate information list of AIC public keys, and supports paging and paged query.
  *
  * @param request ListAICPublicKeyDeliveriesRequest
  * @return ListAICPublicKeyDeliveriesResponse
@@ -13027,7 +13124,7 @@ ListAICPublicKeyDeliveriesResponse Client::listAICPublicKeyDeliveries(const List
 }
 
 /**
- * @summary Queries a list of AIC public key information that meets the specified conditions. Paging is supported.
+ * @summary Queries a list of AIC public keys that meet the specified conditions and supports paging.
  *
  * @param request ListAICPublicKeysRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -13074,7 +13171,7 @@ ListAICPublicKeysResponse Client::listAICPublicKeysWithOptions(const ListAICPubl
 }
 
 /**
- * @summary Queries a list of AIC public key information that meets the specified conditions. Paging is supported.
+ * @summary Queries a list of AIC public keys that meet the specified conditions and supports paging.
  *
  * @param request ListAICPublicKeysRequest
  * @return ListAICPublicKeysResponse
@@ -14271,10 +14368,10 @@ ModifyInstanceBootConfigurationResponse Client::modifyInstanceBootConfiguration(
 }
 
 /**
- * @summary Invokes ModifyInstanceChargeType to convert the billing method of one or more Edge Node Service (ENS) instances. You can convert between instance-level pay-as-you-go and subscription instances. For instance-level pay-as-you-go instances, you can also convert pay-as-you-go cloud disks created with the instances to subscription cloud disks.
+ * @summary Modifies the billing method of one or more Edge Node Service (ENS) instances. You can convert instance-level pay-as-you-go instances to subscription instances and vice versa. For instance-level pay-as-you-go instances, you can also convert the pay-as-you-go cloud disks created with the instances to subscription cloud disks.
  *
- * @description Before you call this operation, make sure that you fully understand the billing methods and pricing of Edge Node Service (ENS).
- * The target instance must be in the Running or Stopped state and must not have an overdue payment before you can change the billing method.
+ * @description Make sure that you fully understand the billing methods and pricing of ENS before you call this operation.
+ * The target instance must be in the Running or Stopped state and have no overdue payments before you can change its billing method.
  *
  * @param tmpReq ModifyInstanceChargeTypeRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -14339,10 +14436,10 @@ ModifyInstanceChargeTypeResponse Client::modifyInstanceChargeTypeWithOptions(con
 }
 
 /**
- * @summary Invokes ModifyInstanceChargeType to convert the billing method of one or more Edge Node Service (ENS) instances. You can convert between instance-level pay-as-you-go and subscription instances. For instance-level pay-as-you-go instances, you can also convert pay-as-you-go cloud disks created with the instances to subscription cloud disks.
+ * @summary Modifies the billing method of one or more Edge Node Service (ENS) instances. You can convert instance-level pay-as-you-go instances to subscription instances and vice versa. For instance-level pay-as-you-go instances, you can also convert the pay-as-you-go cloud disks created with the instances to subscription cloud disks.
  *
- * @description Before you call this operation, make sure that you fully understand the billing methods and pricing of Edge Node Service (ENS).
- * The target instance must be in the Running or Stopped state and must not have an overdue payment before you can change the billing method.
+ * @description Make sure that you fully understand the billing methods and pricing of ENS before you call this operation.
+ * The target instance must be in the Running or Stopped state and have no overdue payments before you can change its billing method.
  *
  * @param request ModifyInstanceChargeTypeRequest
  * @return ModifyInstanceChargeTypeResponse
@@ -14861,7 +14958,7 @@ ModifyVSwitchAttributeResponse Client::modifyVSwitchAttribute(const ModifyVSwitc
 }
 
 /**
- * @summary Deploys an SDG that is already attached to an instance to the corresponding AIC.
+ * @summary Deploys the attached SDG to the corresponding AIC.
  *
  * @param tmpReq MountInstanceSDGRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -14902,7 +14999,7 @@ MountInstanceSDGResponse Client::mountInstanceSDGWithOptions(const MountInstance
 }
 
 /**
- * @summary Deploys an SDG that is already attached to an instance to the corresponding AIC.
+ * @summary Deploys the attached SDG to the corresponding AIC.
  *
  * @param request MountInstanceSDGRequest
  * @return MountInstanceSDGResponse
@@ -17033,9 +17130,9 @@ RunServiceScheduleResponse Client::runServiceSchedule(const RunServiceScheduleRe
 }
 
 /**
- * @summary Saves the cloud disk of a specified device as a Shared Data Group (SDG).
+ * @summary Saves the cloud disk of a specified device as an SDG.
  *
- * @description Saves a Shared Data Group (SDG). SDGs in the failed status cannot be saved. Before calling this operation, call DescribeSDGs to query the current status.
+ * @description Saves an SDG. You cannot save an SDG that is in the failed state. Before calling this operation, call DescribeSDGs to check the current status.
  *
  * @param request SaveSDGRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -17062,9 +17159,9 @@ SaveSDGResponse Client::saveSDGWithOptions(const SaveSDGRequest &request, const 
 }
 
 /**
- * @summary Saves the cloud disk of a specified device as a Shared Data Group (SDG).
+ * @summary Saves the cloud disk of a specified device as an SDG.
  *
- * @description Saves a Shared Data Group (SDG). SDGs in the failed status cannot be saved. Before calling this operation, call DescribeSDGs to query the current status.
+ * @description Saves an SDG. You cannot save an SDG that is in the failed state. Before calling this operation, call DescribeSDGs to check the current status.
  *
  * @param request SaveSDGRequest
  * @return SaveSDGResponse
@@ -17465,10 +17562,10 @@ SetLoadBalancerStatusResponse Client::setLoadBalancerStatus(const SetLoadBalance
 }
 
 /**
- * @summary Modifies the configuration of a TCP listener.
+ * @summary Modifies the configurations of a TCP listener.
  *
- * @description - API call rate limit: 100 calls per second.
- * - Per-user call rate limit: 10 calls per second.
+ * @description - API rate limit: 100 calls per second.
+ * - Rate limit per user: 10 calls per second.
  *
  * @param request SetLoadBalancerTCPListenerAttributeRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -17477,6 +17574,10 @@ SetLoadBalancerStatusResponse Client::setLoadBalancerStatus(const SetLoadBalance
 SetLoadBalancerTCPListenerAttributeResponse Client::setLoadBalancerTCPListenerAttributeWithOptions(const SetLoadBalancerTCPListenerAttributeRequest &request, const Darabonba::RuntimeOptions &runtime) {
   request.validate();
   json query = {};
+  if (!!request.hasBackendServerPort()) {
+    query["BackendServerPort"] = request.getBackendServerPort();
+  }
+
   if (!!request.hasDescription()) {
     query["Description"] = request.getDescription();
   }
@@ -17559,10 +17660,10 @@ SetLoadBalancerTCPListenerAttributeResponse Client::setLoadBalancerTCPListenerAt
 }
 
 /**
- * @summary Modifies the configuration of a TCP listener.
+ * @summary Modifies the configurations of a TCP listener.
  *
- * @description - API call rate limit: 100 calls per second.
- * - Per-user call rate limit: 10 calls per second.
+ * @description - API rate limit: 100 calls per second.
+ * - Rate limit per user: 10 calls per second.
  *
  * @param request SetLoadBalancerTCPListenerAttributeRequest
  * @return SetLoadBalancerTCPListenerAttributeResponse
@@ -17573,10 +17674,10 @@ SetLoadBalancerTCPListenerAttributeResponse Client::setLoadBalancerTCPListenerAt
 }
 
 /**
- * @summary Modifies the configurations of a UDP listener.
+ * @summary Modifies the configuration of a UDP listener.
  *
  * @description - API call rate: 100 calls per second.
- * - Rate limit per user: 10 calls per second.
+ * - Call rate per user: 10 calls per second.
  *
  * @param request SetLoadBalancerUDPListenerAttributeRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -17585,6 +17686,10 @@ SetLoadBalancerTCPListenerAttributeResponse Client::setLoadBalancerTCPListenerAt
 SetLoadBalancerUDPListenerAttributeResponse Client::setLoadBalancerUDPListenerAttributeWithOptions(const SetLoadBalancerUDPListenerAttributeRequest &request, const Darabonba::RuntimeOptions &runtime) {
   request.validate();
   json query = {};
+  if (!!request.hasBackendServerPort()) {
+    query["BackendServerPort"] = request.getBackendServerPort();
+  }
+
   if (!!request.hasDescription()) {
     query["Description"] = request.getDescription();
   }
@@ -17655,10 +17760,10 @@ SetLoadBalancerUDPListenerAttributeResponse Client::setLoadBalancerUDPListenerAt
 }
 
 /**
- * @summary Modifies the configurations of a UDP listener.
+ * @summary Modifies the configuration of a UDP listener.
  *
  * @description - API call rate: 100 calls per second.
- * - Rate limit per user: 10 calls per second.
+ * - Call rate per user: 10 calls per second.
  *
  * @param request SetLoadBalancerUDPListenerAttributeRequest
  * @return SetLoadBalancerUDPListenerAttributeResponse
@@ -17915,7 +18020,7 @@ StartLoadBalancerListenerResponse Client::startLoadBalancerListener(const StartL
 }
 
 /**
- * @summary Starts the elastic IP address (EIP) specified in a source network address translation (SNAT) entry.
+ * @summary Starts the disabled EIP in an SNAT rule.
  *
  * @param request StartSnatIpForSnatEntryRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -17950,7 +18055,7 @@ StartSnatIpForSnatEntryResponse Client::startSnatIpForSnatEntryWithOptions(const
 }
 
 /**
- * @summary Starts the elastic IP address (EIP) specified in a source network address translation (SNAT) entry.
+ * @summary Starts the disabled EIP in an SNAT rule.
  *
  * @param request StartSnatIpForSnatEntryRequest
  * @return StartSnatIpForSnatEntryResponse
@@ -18163,7 +18268,7 @@ StopLoadBalancerListenerResponse Client::stopLoadBalancerListener(const StopLoad
 }
 
 /**
- * @summary Disables an elastic IP address (EIP) in a source network address translation (SNAT) entry.
+ * @summary Invokes StopSnatIpForSnatEntry to disable the SnatIp running in an SNAT rule.
  *
  * @param request StopSnatIpForSnatEntryRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -18198,7 +18303,7 @@ StopSnatIpForSnatEntryResponse Client::stopSnatIpForSnatEntryWithOptions(const S
 }
 
 /**
- * @summary Disables an elastic IP address (EIP) in a source network address translation (SNAT) entry.
+ * @summary Invokes StopSnatIpForSnatEntry to disable the SnatIp running in an SNAT rule.
  *
  * @param request StopSnatIpForSnatEntryRequest
  * @return StopSnatIpForSnatEntryResponse
@@ -18557,7 +18662,7 @@ UnassociateNetworkCidrBlockResponse Client::unassociateNetworkCidrBlock(const Un
 }
 
 /**
- * @summary Calls UnloadRegionSDG to delete preloaded data.
+ * @summary Deletes preloaded data.
  *
  * @param tmpReq UnloadRegionSDGRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -18606,7 +18711,7 @@ UnloadRegionSDGResponse Client::unloadRegionSDGWithOptions(const UnloadRegionSDG
 }
 
 /**
- * @summary Calls UnloadRegionSDG to delete preloaded data.
+ * @summary Deletes preloaded data.
  *
  * @param request UnloadRegionSDGRequest
  * @return UnloadRegionSDGResponse
@@ -18617,7 +18722,7 @@ UnloadRegionSDGResponse Client::unloadRegionSDG(const UnloadRegionSDGRequest &re
 }
 
 /**
- * @summary Unmounts a shared data group (SDG) from instances.
+ * @summary Unmounts an SDG from the corresponding instance and restores it to the attached state.
  *
  * @param tmpReq UnmountInstanceSDGRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -18658,7 +18763,7 @@ UnmountInstanceSDGResponse Client::unmountInstanceSDGWithOptions(const UnmountIn
 }
 
 /**
- * @summary Unmounts a shared data group (SDG) from instances.
+ * @summary Unmounts an SDG from the corresponding instance and restores it to the attached state.
  *
  * @param request UnmountInstanceSDGRequest
  * @return UnmountInstanceSDGResponse

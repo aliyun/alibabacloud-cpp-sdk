@@ -66,7 +66,7 @@ namespace Models
 
 
   protected:
-    // The CIDR block of the network. You can use the following CIDR blocks or their subsets as the CIDR block of the network:
+    // The CIDR block of the network. You can use one of the following CIDR blocks or their subsets as the CIDR block of the network:
     // 
     // - 10.0.0.0/8 (default).
     // - 172.16.0.0/12.
@@ -76,17 +76,17 @@ namespace Models
     shared_ptr<string> cidrBlock_ {};
     // The description of the network. The description must meet the following rules:
     // 
-    // * It must be 2 to 256 characters in length. It must start with a letter or a Chinese character, and cannot start with http:// or https://.
+    // * The description must be 2 to 256 characters in length. It must start with a letter or a Chinese character, and cannot start with http:// or https://.
     shared_ptr<string> description_ {};
-    // The edge zone ID of ENS.
+    // The ID of the Edge Node Service (ENS) edge node.
     // 
     // This parameter is required.
     shared_ptr<string> ensRegionId_ {};
     // The name of the network. The name must meet the following rules:
     // 
-    // - It must be 2 to 128 characters in length, and can contain English and Chinese characters.
-    // - It must start with an uppercase or lowercase letter or a Chinese character, and cannot start with http:// or https://.
-    // - It can contain digits, colons (:), underscores (_), and hyphens (-).
+    // - The name must be 2 to 128 characters in length.
+    // - The name must start with an uppercase or lowercase letter or a Chinese character, and cannot start with http:// or https://.
+    // - The name can contain digits, colons (:), underscores (_), and hyphens (-).
     shared_ptr<string> networkName_ {};
   };
 

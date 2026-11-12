@@ -57,15 +57,15 @@ namespace Models
 
 
   protected:
-    // The disk ID in the format of d-***********.
+    // The disk ID. Format: d-***********.
     // 
     // This parameter is required.
     shared_ptr<string> diskId_ {};
-    // The end time in the format of yyyy-MM-dd HH:mm:ss. The time span between the start time and end time cannot exceed one day.
+    // The end time. The time span between the start time and the end time cannot exceed one day. Format: yyyy-MM-dd HH:mm:ss.
     // 
     // This parameter is required.
     shared_ptr<string> endTime_ {};
-    // The start time in the format of yyyy-MM-dd HH:mm:ss.
+    // The start time. Format: yyyy-MM-dd HH:mm:ss.
     // 
     // This parameter is required.
     shared_ptr<string> startTime_ {};

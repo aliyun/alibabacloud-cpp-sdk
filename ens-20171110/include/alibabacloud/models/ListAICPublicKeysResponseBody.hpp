@@ -166,15 +166,15 @@ namespace Models
 
 
   protected:
-    // The current page number in the paginated query.
+    // The current page number.
     shared_ptr<int64_t> pageNumber_ {};
-    // The number of records to display per page.
+    // The number of entries to return on each page.
     shared_ptr<int64_t> pageSize_ {};
     // The list of public keys.
     shared_ptr<vector<ListAICPublicKeysResponseBody::PublicKeys>> publicKeys_ {};
     // The unique identifier of the request.
     shared_ptr<string> requestId_ {};
-    // The total number of records.
+    // The total number of entries.
     shared_ptr<int64_t> totalCount_ {};
   };
 

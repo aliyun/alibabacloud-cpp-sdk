@@ -272,7 +272,7 @@ namespace Models
   protected:
     // The index number of the scheduled target virtual device (container pod).
     shared_ptr<int32_t> index_ {};
-    // The target instance ID for scheduling.
+    // The ID of the target instance.
     shared_ptr<string> instanceId_ {};
     // The IP address of the scheduled target instance.
     shared_ptr<string> instanceIp_ {};
@@ -282,9 +282,9 @@ namespace Models
     shared_ptr<DescribeServcieScheduleResponseBody::PodAbstractInfo> podAbstractInfo_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the resource has been created.
+    // Indicates whether it has been created.
     shared_ptr<bool> requestRepeated_ {};
-    // The TCP service port range of the scheduled target virtual machine instance or container. Valid values are in the ${from}-${to} format, such as 80-88.
+    // The TCP service port range of the scheduled target virtual machine instance or container. Format: ${from}-${to}. Example: 80-88.
     shared_ptr<string> tcpPorts_ {};
   };
 

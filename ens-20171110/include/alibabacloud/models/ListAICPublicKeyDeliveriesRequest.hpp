@@ -84,7 +84,7 @@ namespace Models
 
 
   protected:
-    // The instance ID.
+    // The ID of the instance.
     shared_ptr<string> instanceId_ {};
     // The group of the public key.
     shared_ptr<string> keyGroup_ {};
@@ -94,7 +94,7 @@ namespace Models
     shared_ptr<string> keyType_ {};
     // The current page number.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of records to display per page.
+    // The number of entries to return on each page.
     shared_ptr<int32_t> pageSize_ {};
   };
 

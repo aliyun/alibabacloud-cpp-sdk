@@ -1488,12 +1488,12 @@ namespace Models
 
 
   protected:
-    // The business code returned. A value of 0 indicates success.
+    // The returned business code. A value of 0 indicates success.
     shared_ptr<int32_t> code_ {};
     shared_ptr<DescribeInstancesResponseBody::Instances> instances_ {};
     // The page number of the instance list.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries per page that was specified in the request.
+    // The number of entries per page.
     shared_ptr<int32_t> pageSize_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

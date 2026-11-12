@@ -69,13 +69,12 @@ namespace Models
 
 
     protected:
-      // The ID of the node.
+      // The ID of the edge zone.
       shared_ptr<string> ensRegionId_ {};
-      // Specifies whether IPv6 is supported. Valid values:
+      // Indicates whether IPv6 is supported. Valid values:
       // 
-      // - true
-      // 
-      // - false
+      // - true: Supported.
+      // - false: Not supported.
       shared_ptr<bool> supportIpv6_ {};
     };
 
@@ -100,7 +99,7 @@ namespace Models
   protected:
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // IPv6 support information.
+    // The IPv6 support information.
     shared_ptr<DescribeEnsRegionIdIpv6InfoResponseBody::SupportIpv6Info> supportIpv6Info_ {};
   };
 

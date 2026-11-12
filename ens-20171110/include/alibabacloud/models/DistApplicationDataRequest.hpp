@@ -57,15 +57,15 @@ namespace Models
 
 
   protected:
-    // The ID of the application. To obtain the application ID, call the ListApplications operation.
+    // The application ID. To obtain the application ID, see ListApplications.
     // 
     // This parameter is required.
     shared_ptr<string> appId_ {};
-    // The list of data files that you want to distribute. The value must be a JSON string.
+    // The list of data files to distribute, formatted as a JSON array string.
     // 
     // This parameter is required.
     shared_ptr<string> data_ {};
-    // The canary release policy. The value must be a JSON string. You can specify multiple distribution policies. By default, all data files are distributed.
+    // The canary release distribution strategy, formatted as a JSON string. Multiple distribution strategies are supported. Default value: full distribution.
     shared_ptr<string> distStrategy_ {};
   };
 

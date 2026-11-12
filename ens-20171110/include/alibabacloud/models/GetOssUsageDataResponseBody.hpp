@@ -116,19 +116,19 @@ namespace Models
 
 
     protected:
-      // The inbound bandwidth over the internal network. Unit: bit/s.
+      // The inbound bandwidth over the internal network. Unit: Bps.
       shared_ptr<int64_t> lanRxBw_ {};
-      // The outbound bandwidth over the internal network. Unit: bit/s.
+      // The outbound bandwidth over the internal network. Unit: Bps.
       shared_ptr<int64_t> lanTxBw_ {};
-      // The number of time points within a day.
+      // The sequence number of the time point within a day.
       shared_ptr<int64_t> point_ {};
-      // The point in time, in UTC. Format: 2010-01-21T09:50:23Z.
+      // The time point in UTC. Format: 2010-01-21T09:50:23Z.
       shared_ptr<string> pointTs_ {};
       // The storage usage. Unit: bytes.
       shared_ptr<int64_t> storageUsageByte_ {};
-      // The outbound bandwidth over the Internet. Unit: bit/s.
+      // The inbound bandwidth over the Internet. Unit: Bps.
       shared_ptr<int64_t> wanRxBw_ {};
-      // The outbound bandwidth over the Internet. Unit: bit/s.
+      // The outbound bandwidth over the Internet. Unit: Bps.
       shared_ptr<int64_t> wanTxBw_ {};
     };
 
@@ -153,7 +153,7 @@ namespace Models
   protected:
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The array of usage data.
+    // The usage array.
     shared_ptr<vector<GetOssUsageDataResponseBody::UsageList>> usageList_ {};
   };
 

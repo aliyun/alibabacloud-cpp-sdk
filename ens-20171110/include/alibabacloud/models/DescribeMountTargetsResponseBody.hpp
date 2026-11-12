@@ -124,10 +124,10 @@ namespace Models
       shared_ptr<string> netWorkId_ {};
       // The status of the mount target. Valid values:
       // 
-      // - active: The mount target is available.
-      // - inactive: The mount target is unavailable.
-      // - pending: The task is queued.
-      // - deleting: The mount target is being deleted.
+      // - active: Available.
+      // - inactive: Unavailable.
+      // - pending: Queuing.
+      // - deleting: Deleting.
       shared_ptr<string> status_ {};
     };
 
@@ -171,14 +171,14 @@ namespace Models
 
 
   protected:
-    // The information about the mount targets.
+    // The collection of mount targets.
     shared_ptr<vector<DescribeMountTargetsResponseBody::MountTargets>> mountTargets_ {};
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries returned per page.
+    // The number of entries per page.
     shared_ptr<int32_t> pageSize_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The total number of entries.
+    // The total count.
     shared_ptr<int32_t> totalCount_ {};
   };
 

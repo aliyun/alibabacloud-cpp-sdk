@@ -59,18 +59,15 @@ namespace Models
   protected:
     // The region code.
     // 
-    // If this parameter is left empty, only the edge zones under the specified NetLevelCode are queried.
+    // If this parameter is empty, only the edge zones under the specified NetLevelCode are queried.
     // 
-    // If this parameter is specified, only the child edge zones under the specified NetDistrictCode are queried.
+    // If this parameter is not empty, only the child edge zones under the specified NetDistrictCode are queried.
     shared_ptr<string> netDistrictCode_ {};
     // The region code.
     shared_ptr<bool> netDistrictCodeNode_ {};
     // The region level. Valid values:
-    // 
     // - **Big**: Area.
-    // 
     // - **Middle**: Province.
-    // 
     // - **Small**: City.
     // 
     // This parameter is required.

@@ -57,7 +57,7 @@ namespace Models
 
 
   protected:
-    // The ID of the edge node.
+    // The ID of the edge zone.
     // 
     // This parameter is required.
     shared_ptr<string> ensRegionId_ {};

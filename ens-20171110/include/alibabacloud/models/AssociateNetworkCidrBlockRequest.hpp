@@ -80,7 +80,7 @@ namespace Models
     // This parameter is required.
     shared_ptr<string> networkId_ {};
     // The secondary IPv4 CIDR block to be added. The CIDR block must meet the following requirements:
-    // - The CIDR block must be within the 10.0.0.0/8, 172.16.0.0/12, or 192.168.0.0/16 range.
+    // - The CIDR block must fall within the 10.0.0.0/8, 172.16.0.0/12, or 192.168.0.0/16 range.
     // - The secondary CIDR block must not overlap with the primary CIDR block or existing secondary CIDR blocks of the network.
     shared_ptr<string> secondaryCidrBlock_ {};
   };

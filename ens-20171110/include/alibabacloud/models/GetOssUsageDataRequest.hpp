@@ -66,17 +66,15 @@ namespace Models
 
 
   protected:
-    // The name of the logical Object Storage Service (OSS) bucket.
+    // The name of the OSS logical bucket.
     shared_ptr<string> bucket_ {};
-    // The end of the time range to query. The time must be in UTC. Format: 2010-01-21T09:50:23Z.
+    // The end time in UTC. Format: 2010-01-21T09:50:23Z.
     // 
     // This parameter is required.
     shared_ptr<string> endTime_ {};
-    // The aggregation granularity. Unit: minutes.
-    // 
-    // Default value: 5. Valid values: 5 to 1440.
+    // The time aggregation granularity. Unit: minutes. Default value: 5. Valid values: 5 to 1440.
     shared_ptr<string> period_ {};
-    // The beginning of the time range to query. The time must be in UTC. Format: 2010-01-21T09:50:23Z.
+    // The start time in UTC. Format: 2010-01-21T09:50:23Z.
     // 
     // This parameter is required.
     shared_ptr<string> startTime_ {};

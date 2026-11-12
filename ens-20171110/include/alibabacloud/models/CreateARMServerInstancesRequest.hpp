@@ -256,28 +256,33 @@ namespace Models
     // This parameter is required.
     shared_ptr<int32_t> amount_ {};
     // Specifies whether to enable auto-renewal.
+    // 
+    // - true
+    // - false (default)
     shared_ptr<bool> autoRenew_ {};
-    // Specifies whether to use coupons. Valid values:
+    // Specifies whether to use vouchers. Valid values:
+    // 
+    // - true: Uses vouchers.
+    // 
+    // - false (default): Does not use vouchers.
     shared_ptr<bool> autoUseCoupon_ {};
-    // The IPv4 CIDR block used by the instance, in CIDR notation.
+    // The IPv4 CIDR block used by the instance.
     shared_ptr<string> cidr_ {};
     // The ENS edge zone ID.
     // 
     // This parameter is required.
     shared_ptr<string> ensRegionId_ {};
-    // One or more environment variables to set during EAIS instance initialization.
+    // Sets one or more environment variables when the EAIS instance is initialized.
     shared_ptr<string> environmentVar_ {};
-    // The refresh rate, in Hz. Valid values: 30 and 60.
+    // The refresh rate. Unit: Hz. Valid values: 30 and 60.
     shared_ptr<int32_t> frequency_ {};
     // The image ID.
     // 
     // This parameter is required.
     shared_ptr<string> imageId_ {};
-    // The instance billing cycle. Valid values:
-    // - Hour
-    // - Day
+    // The billing cycle of the instance. Valid values: Hour and Day.
     shared_ptr<string> instanceBillingCycle_ {};
-    // The instance type of the AIC container instance. Valid values:
+    // The AIC container instance specifications. Valid values:
     // 
     // - aic.cf52r.c1.np
     // 
@@ -323,21 +328,27 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> instanceType_ {};
-    // The key pair name.
+    // The name of the key pair.
     shared_ptr<string> keyPairName_ {};
     // The namespace.
     shared_ptr<string> nameSpace_ {};
-    // The billing type. Valid values: **PrePaid** (subscription).
+    // The billing method. Valid values: **PrePaid** (subscription).
+    // 
+    // > Only subscription is currently supported.
     // 
     // This parameter is required.
     shared_ptr<string> payType_ {};
-    // The duration for which you want to purchase the resource.
+    // The subscription duration of the resource.
     // 
-    // - If you do not specify PeriodUnit, the resource is purchased on a monthly basis by default. Currently, only Days and Month are supported.
+    // - If you do not specify PeriodUnit, the default billing cycle is month. Only Day and Month are supported.
     // - If PeriodUnit is set to Day, Period can only be set to 3.
     // - If PeriodUnit is set to Month, Period can be set to 1 to 9 or 12.
     shared_ptr<int32_t> period_ {};
-    // The unit of the purchase duration.
+    // The unit of the subscription duration.
+    // 
+    // - If you do not specify PeriodUnit, the default billing cycle is month. Only Day and Month are supported.
+    // - If PeriodUnit is set to Day, Period can only be set to 3.
+    // - If PeriodUnit is set to Month, Period can be set to 1 to 9 or 12.
     shared_ptr<string> periodUnit_ {};
     // The resolution. Valid values:
     // 
@@ -361,7 +372,7 @@ namespace Models
     shared_ptr<string> resolution_ {};
     // The service name.
     shared_ptr<string> serverName_ {};
-    // The ARM board specification. Valid values:
+    // The ARM board specifications. Valid values:
     // 
     // - cas.cf53r
     // - cas.cf52r

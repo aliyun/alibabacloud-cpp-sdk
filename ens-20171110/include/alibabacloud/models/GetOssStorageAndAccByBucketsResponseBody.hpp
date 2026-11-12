@@ -79,9 +79,9 @@ namespace Models
 
 
     protected:
-      // The number of access requests.
+      // The number of accesses.
       shared_ptr<int64_t> acc_ {};
-      // The OSS bucket name.
+      // The name of the bucket.
       shared_ptr<string> bucket_ {};
       // The storage usage, in bytes.
       shared_ptr<int64_t> storageUsageByte_ {};

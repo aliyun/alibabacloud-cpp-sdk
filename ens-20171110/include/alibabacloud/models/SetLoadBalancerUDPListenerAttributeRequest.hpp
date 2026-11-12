@@ -13,6 +13,7 @@ namespace Models
   class SetLoadBalancerUDPListenerAttributeRequest : public Darabonba::Model {
   public:
     friend void to_json(Darabonba::Json& j, const SetLoadBalancerUDPListenerAttributeRequest& obj) { 
+      DARABONBA_PTR_TO_JSON(BackendServerPort, backendServerPort_);
       DARABONBA_PTR_TO_JSON(Description, description_);
       DARABONBA_PTR_TO_JSON(EipTransmit, eipTransmit_);
       DARABONBA_PTR_TO_JSON(EstablishedTimeout, establishedTimeout_);
@@ -28,6 +29,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(UnhealthyThreshold, unhealthyThreshold_);
     };
     friend void from_json(const Darabonba::Json& j, SetLoadBalancerUDPListenerAttributeRequest& obj) { 
+      DARABONBA_PTR_FROM_JSON(BackendServerPort, backendServerPort_);
       DARABONBA_PTR_FROM_JSON(Description, description_);
       DARABONBA_PTR_FROM_JSON(EipTransmit, eipTransmit_);
       DARABONBA_PTR_FROM_JSON(EstablishedTimeout, establishedTimeout_);
@@ -53,10 +55,17 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { return this->description_ == nullptr
-        && this->eipTransmit_ == nullptr && this->establishedTimeout_ == nullptr && this->healthCheckConnectPort_ == nullptr && this->healthCheckConnectTimeout_ == nullptr && this->healthCheckExp_ == nullptr
-        && this->healthCheckInterval_ == nullptr && this->healthCheckReq_ == nullptr && this->healthyThreshold_ == nullptr && this->listenerPort_ == nullptr && this->loadBalancerId_ == nullptr
-        && this->scheduler_ == nullptr && this->unhealthyThreshold_ == nullptr; };
+    virtual bool empty() const override { return this->backendServerPort_ == nullptr
+        && this->description_ == nullptr && this->eipTransmit_ == nullptr && this->establishedTimeout_ == nullptr && this->healthCheckConnectPort_ == nullptr && this->healthCheckConnectTimeout_ == nullptr
+        && this->healthCheckExp_ == nullptr && this->healthCheckInterval_ == nullptr && this->healthCheckReq_ == nullptr && this->healthyThreshold_ == nullptr && this->listenerPort_ == nullptr
+        && this->loadBalancerId_ == nullptr && this->scheduler_ == nullptr && this->unhealthyThreshold_ == nullptr; };
+    // backendServerPort Field Functions 
+    bool hasBackendServerPort() const { return this->backendServerPort_ != nullptr;};
+    void deleteBackendServerPort() { this->backendServerPort_ = nullptr;};
+    inline int32_t getBackendServerPort() const { DARABONBA_PTR_GET_DEFAULT(backendServerPort_, 0) };
+    inline SetLoadBalancerUDPListenerAttributeRequest& setBackendServerPort(int32_t backendServerPort) { DARABONBA_PTR_SET_VALUE(backendServerPort_, backendServerPort) };
+
+
     // description Field Functions 
     bool hasDescription() const { return this->description_ != nullptr;};
     void deleteDescription() { this->description_ = nullptr;};
@@ -149,6 +158,8 @@ namespace Models
 
 
   protected:
+    // The port used by the backend server of the load balancing instance. Valid values: 1 to 65535.
+    shared_ptr<int32_t> backendServerPort_ {};
     // The name of the listener. The name must be **1** to **80** characters in length.
     // > The name cannot start with `http://` or `https://`.
     shared_ptr<string> description_ {};
@@ -159,14 +170,14 @@ namespace Models
     shared_ptr<string> eipTransmit_ {};
     // The connection timeout period. Valid values: **10** to **900**. Default value: **900**. Unit: seconds.
     shared_ptr<int32_t> establishedTimeout_ {};
-    // The port used for health checks. Valid values: **1** to **65535**. If no Settings are specified for this parameter, the backend service port (BackendServerPort) is used.
+    // The port used for health checks. Valid values: **1** to **65535**. If you do not specify this parameter in the Settings, the backend service port (BackendServerPort) is used.
     shared_ptr<int32_t> healthCheckConnectPort_ {};
     // The timeout period for a health check response. If a backend ENS instance does not respond within the specified timeout period, the health check fails.
     // - Default value: 5.
     // - Valid values: **1** to **300**.
     // - Unit: seconds.
     // 
-    // > If the value of HealthCheckConnectTimeout is less than the value of HealthCheckInterval, HealthCheckConnectTimeout is invalid and the timeout period is the value of HealthCheckInterval.
+    // > If the value of HealthCheckConnectTimeout is less than the value of HealthCheckInterval, HealthCheckConnectTimeout is ignored and the value of HealthCheckInterval is used as the timeout period.
     shared_ptr<int32_t> healthCheckConnectTimeout_ {};
     // The response string for UDP health checks. The string can contain only letters and digits and can be up to 64 characters in length.
     shared_ptr<string> healthCheckExp_ {};
@@ -190,8 +201,8 @@ namespace Models
     // - **rr**: Requests are evenly and sequentially distributed to backend servers.
     // - **sch**: Consistent hashing based on source IP addresses. Requests from the same source IP address are distributed to the same backend server.
     // - **tch**: Consistent hashing based on quadruples (source IP address, destination IP address, source port, and destination port). Requests from the same stream are distributed to the same backend server.
-    // - **qch**: Consistent hashing based on QUIC connection IDs. Requests with the same QUIC connection ID are distributed to the same backend server.
-    // - **iqch**: Consistent hashing based on specific three bytes of the iQUIC CID. Requests with the same second to fourth bytes are distributed to the same backend server.
+    // - **qch**: Consistent hashing based on QUIC Connection IDs. Requests with the same QUIC Connection ID are distributed to the same backend server.
+    // - **iqch**: Consistent hashing based on specific three bytes of the iQUIC CID. Requests with the same 2nd to 4th bytes are distributed to the same backend server.
     shared_ptr<string> scheduler_ {};
     // The number of consecutive failed health checks that must occur before a backend server is declared unhealthy (from success to fail). Valid values: **2** to **10**.
     shared_ptr<int32_t> unhealthyThreshold_ {};

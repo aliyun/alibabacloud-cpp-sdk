@@ -62,13 +62,13 @@ namespace Models
 
 
   protected:
-    // The list of destination edge zones.
+    // The list of destination nodes.
     // 
     // This parameter is required.
     shared_ptr<vector<string>> destinationRegionIds_ {};
     // The list of namespaces.
     shared_ptr<vector<string>> namespaces_ {};
-    // The ID of the SDG from which to delete preloaded data.
+    // The ID of the SDG for which preloaded data is deleted.
     // 
     // This parameter is required.
     shared_ptr<string> SDGId_ {};

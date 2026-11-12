@@ -241,23 +241,28 @@ namespace Models
 
 
   protected:
-    // The list of EIP addresses used to filter instances.
+    // The list of elastic IP addresses used to filter instances.
     shared_ptr<string> eipAddressesShrink_ {};
     // The region ID.
     shared_ptr<string> ensRegionId_ {};
-    // The list of edge zone IDs. This parameter is a formatted JSON array that contains up to 100 IDs separated by commas (,).
+    // The list of edge zone IDs. The parameter is a JSON array that contains up to 100 IDs separated by commas (,).
     shared_ptr<string> ensRegionIds_ {};
-    // The Edge Node Service ID. You can use this ID to query the instances created under the edge service.
+    // The edge service ID. You can use this ID to query instances created under the edge service.
     shared_ptr<string> ensServiceId_ {};
     // The image ID.
     shared_ptr<string> imageId_ {};
     // The instance ID.
     shared_ptr<string> instanceId_ {};
-    // The list of instance IDs. This parameter is a formatted JSON array that contains up to 100 IDs separated by commas (,).
+    // The list of instance IDs. The parameter is a JSON array that contains up to 100 IDs separated by commas (,).
     shared_ptr<string> instanceIds_ {};
     // The instance name.
     shared_ptr<string> instanceName_ {};
-    // The filter type. Valid values:
+    // The resource type used for filtering. Valid values:
+    // 
+    // - EnsInstance: Independently purchased instance.
+    // - EnsService: Edge service instance.
+    // - BuildMachine: Image builder.
+    // - EnsPostPaidInstance: Independently purchased pay-as-you-go instance.
     shared_ptr<string> instanceResourceType_ {};
     // The instance type.
     shared_ptr<string> instanceType_ {};
@@ -265,25 +270,31 @@ namespace Models
     shared_ptr<string> intranetIp_ {};
     // The network ID.
     shared_ptr<string> networkId_ {};
-    // The sorting parameter in JSON format.
+    // The sorting parameters in JSON format.
+    // 
+    // You can sort instances by name, expiration time, edge zone ID, or creation time. Multiple parameters can be combined.
     shared_ptr<string> orderByParams_ {};
-    // The page number of the instance status list. The value starts from **1**.
+    // The page number of the instance status list. The starting value is **1**.
+    // 
+    // Default value: **1**.
     shared_ptr<int32_t> pageNumber_ {};
     // The number of entries per page for a paged query. Maximum value: **100**.
+    // 
+    // Default value: **10**.
     shared_ptr<string> pageSize_ {};
-    // The search keyword. Supports parameters such as **ip**, **InstanceName**, and **InstanceId**.
+    // The search keyword. Supported parameters include **ip**, **InstanceName**, and **InstanceId**.
     shared_ptr<string> searchKey_ {};
     // The security group ID.
     shared_ptr<string> securityGroupId_ {};
-    // The business status of the instance, which does not represent the actual running status of the instance.
+    // The service status of the instance, which does not represent the actual running status of the instance.
     shared_ptr<string> serviceStatusShrink_ {};
     // The instance status. Valid values:
     // 
-    // - Running: Running.
-    // - Stopped: Stopped.
-    // - Expired: Expired.
+    // - Running: The instance is running.
+    // - Stopped: The instance is stopped.
+    // - Expired: The instance has expired.
     shared_ptr<string> status_ {};
-    // The resource tags. This operation does not return tag information. Use this parameter in combination with the APIs in the tag category.
+    // The resource tags. This operation does not support returning tag information. You can use it in combination with tag-related operations.
     shared_ptr<string> tagsShrink_ {};
     // The vSwitch ID.
     shared_ptr<string> vSwitchId_ {};

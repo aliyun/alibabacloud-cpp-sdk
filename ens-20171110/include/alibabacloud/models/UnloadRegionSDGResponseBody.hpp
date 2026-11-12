@@ -116,7 +116,7 @@ namespace Models
 
 
         protected:
-          // The ID of the destination edge zone.
+          // The ID of the destination node.
           shared_ptr<string> destinationRegionId_ {};
           // The error message.
           shared_ptr<string> errorMessage_ {};
@@ -152,7 +152,7 @@ namespace Models
         shared_ptr<int64_t> failedCount_ {};
         // The list of failure details.
         shared_ptr<vector<Result::FailedItems>> failedItems_ {};
-        // The number of successes.
+        // The number of successful requests.
         shared_ptr<int64_t> successCount_ {};
       };
 
@@ -182,13 +182,13 @@ namespace Models
 
 
     protected:
-      // The response message. A value of success indicates a successful request.
+      // The response message. The value is success if the request is successful.
       shared_ptr<string> message_ {};
       // The execution result of the synchronous request.
       shared_ptr<Data::Result> result_ {};
-      // Indicates whether all requests were successful. Valid values:
+      // Indicates whether all requests are successful. Valid values:
       // 
-      // - true: All requests were successful.
+      // - true: All requests are successful.
       // - false: Some requests failed.
       shared_ptr<bool> success_ {};
     };
@@ -212,7 +212,7 @@ namespace Models
 
 
   protected:
-    // The returned Data object.
+    // The Data object.
     shared_ptr<UnloadRegionSDGResponseBody::Data> data_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

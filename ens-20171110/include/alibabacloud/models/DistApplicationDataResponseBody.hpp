@@ -200,10 +200,10 @@ namespace Models
 
   protected:
     shared_ptr<DistApplicationDataResponseBody::DistInstanceIds> distInstanceIds_ {};
-    // The total number of ENS instance IDs.
+    // The total number of target edge resource instance IDs.
     shared_ptr<int32_t> distInstanceTotalCount_ {};
     shared_ptr<DistApplicationDataResponseBody::DistResults> distResults_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

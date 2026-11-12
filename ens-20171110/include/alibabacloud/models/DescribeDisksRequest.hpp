@@ -167,64 +167,64 @@ namespace Models
 
 
   protected:
-    // The disk category.
+    // The category of the cloud disk. Valid values:
     // 
-    // - cloud_efficiency: ultra cloud disk
-    // - cloud_ssd: all-flash cloud disk
-    // - local_hdd: local HDD
-    // - local_ssd: local SSD
+    // - cloud_efficiency: Ultra cloud disk.
+    // - cloud_ssd: All-flash cloud disk.
+    // - local_hdd: Local HDD.
+    // - local_ssd: Local SSD.
     shared_ptr<string> category_ {};
-    // The billing type.
+    // The billing method. Valid values:
     // 
-    // - prepay: subscription
-    // - postpay: pay-as-you-go
+    // - prepay: Subscription.
+    // - postpay: Pay-as-you-go.
     shared_ptr<string> diskChargeType_ {};
-    // The ID of the cloud disk.
+    // The cloud disk ID.
     shared_ptr<string> diskId_ {};
-    // The disk IDs.
+    // The IDs of the cloud disks.
     shared_ptr<string> diskIds_ {};
-    // The name of the disk.
+    // The name of the cloud disk.
     shared_ptr<string> diskName_ {};
-    // The disk purchase method.
+    // The purchase method of the cloud disk. Valid values:
     // 
-    // - ServiceDisk: disk created by an edge service
-    // - ResoureDisk: purchased with an instance
-    // - PostPayDisk: purchased separately
+    // - ServiceDisk: Created by Edge Node Service.
+    // - ResoureDisk: Purchased with an instance.
+    // - PostPayDisk: Purchased separately.
     shared_ptr<string> diskType_ {};
     // The ID of the ENS edge zone.
     shared_ptr<string> ensRegionId_ {};
-    // The list of edge zones.
+    // The list of edge zone IDs.
     shared_ptr<string> ensRegionIds_ {};
-    // The instance to which the cloud disk is mounted.
+    // The ID of the instance to which the cloud disk is attached.
     shared_ptr<string> instanceId_ {};
-    // The sorting parameter. Format example: {"EnsRegionId":"desc"}. By default, results are sorted by edge zone ID in descending order.
+    // The sorting parameter. Format example: {"EnsRegionId":"desc"}. By default, the results are sorted in descending order of edge zone ID.
     shared_ptr<string> orderByParams_ {};
-    // The page number of the query list. Minimum value: **1**.
+    // The page number of the query list. The minimum value is **1**.
     // 
     // Default value: **1**.
     shared_ptr<string> pageNumber_ {};
-    // The number of entries per page for a paged query. Maximum value: **50**.
+    // The number of entries per page. Maximum value: **50**.
     // 
     // Default value: **10**.
     shared_ptr<string> pageSize_ {};
     // The snapshot ID.
     shared_ptr<string> snapshotId_ {};
-    // The disk status.
+    // The status of the cloud disk. Valid values:
     // 
-    // - In-use: in use
-    // - Available: to be mounted
-    // - Attaching: being mounted
-    // - Detaching: being unmounted
-    // - Creating: being created
-    // - ReIniting: being reset
-    // - Deleting: being released
-    // - Deleted: released
-    // - Expiring: about to expire
+    // - In-use: In use.
+    // - Available: Unattached.
+    // - Attaching: Attaching.
+    // - Detaching: Detaching.
+    // - Creating: Creating.
+    // - ReIniting: Reinitializing.
+    // - Deleting: Releasing.
+    // - Deleted: Released.
+    // - Expiring: Expiring.
     shared_ptr<string> status_ {};
-    // The disk property.
+    // The type of the cloud disk. Valid values:
     // 
-    // - system: system cloud disk
-    // - data: data cloud disk
+    // - system: System cloud disk.
+    // - data: Data cloud disk.
     shared_ptr<string> type_ {};
   };
 

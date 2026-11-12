@@ -55,7 +55,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<vector<string>> destinationRegionIds_ {};
-    // The ID of the SDG to copy.
+    // The ID of the SDG to be copied.
     // 
     // This parameter is required.
     shared_ptr<string> SDGId_ {};

@@ -134,21 +134,21 @@ namespace Models
 
 
     protected:
-      // The business time in the format of yyyy-MM-dd HH:mm:ss.
+      // The business time. Format: yyyy-MM-dd HH:mm:ss.
       shared_ptr<string> bizTime_ {};
       // The disk ID.
       shared_ptr<string> diskId_ {};
-      // The read throughput (in bytes).
+      // The read throughput. Unit: bytes.
       shared_ptr<int64_t> readBytes_ {};
-      // The read latency (in microseconds).
+      // The read latency. Unit: microseconds.
       shared_ptr<int64_t> readLatency_ {};
       // The read IOPS.
       shared_ptr<int64_t> readOps_ {};
-      // The edge zone ID.
+      // The region ID.
       shared_ptr<string> regionId_ {};
-      // The write throughput (in bytes).
+      // The write throughput. Unit: bytes.
       shared_ptr<int64_t> writeBytes_ {};
-      // The write latency (in microseconds).
+      // The write latency. Unit: microseconds.
       shared_ptr<int64_t> writeLatency_ {};
       // The write IOPS.
       shared_ptr<int64_t> writeOps_ {};

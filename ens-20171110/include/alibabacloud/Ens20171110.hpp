@@ -86,7 +86,7 @@ namespace Ens20171110
       Models::AddNetworkInterfaceToInstanceResponse addNetworkInterfaceToInstance(const Models::AddNetworkInterfaceToInstanceRequest &request);
 
       /**
-       * @summary Adds a public elastic IP address (EIP) to a SNAT rule.
+       * @summary Adds a public EIP to a SNAT rule.
        *
        * @param request AddSnatIpForSnatEntryRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -95,7 +95,7 @@ namespace Ens20171110
       Models::AddSnatIpForSnatEntryResponse addSnatIpForSnatEntryWithOptions(const Models::AddSnatIpForSnatEntryRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Adds a public elastic IP address (EIP) to a SNAT rule.
+       * @summary Adds a public EIP to a SNAT rule.
        *
        * @param request AddSnatIpForSnatEntryRequest
        * @return AddSnatIpForSnatEntryResponse
@@ -273,13 +273,13 @@ namespace Ens20171110
       Models::AttachInstancesToNodePoolResponse attachInstancesToNodePool(const Models::AttachInstancesToNodePoolRequest &request);
 
       /**
-       * @summary Attaches an SSH key pair to a batch of specified instances. A maximum of 30 instances can be specified in a single call.
+       * @summary Attaches an SSH key pair to up to 30 specified instances in a single request.
        *
        * @description ## Operation description
-       * This batch operation attaches a key pair to instances. You can only perform this operation on stopped instances.
-       * - You can attach the key pair to a maximum of 30 instances in a single call.
-       * - You must specify at least one of the KeyPairName and KeyPairId parameters.
-       * - Specify KeyPairId when you call this operation. The KeyPairName parameter will be deprecated.
+       * This batch API operation attaches a key pair to instances. You can only perform this operation on stopped instances.
+       * - A maximum of 30 instances can be specified in a single request.
+       * - At least one of key_pair_name and key_pair_id must be specified.
+       * - Pass key_pair_id when you call this operation. The key_pair_name parameter will be deprecated.
        *
        * @param tmpReq AttachKeyPairRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -288,13 +288,13 @@ namespace Ens20171110
       Models::AttachKeyPairResponse attachKeyPairWithOptions(const Models::AttachKeyPairRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Attaches an SSH key pair to a batch of specified instances. A maximum of 30 instances can be specified in a single call.
+       * @summary Attaches an SSH key pair to up to 30 specified instances in a single request.
        *
        * @description ## Operation description
-       * This batch operation attaches a key pair to instances. You can only perform this operation on stopped instances.
-       * - You can attach the key pair to a maximum of 30 instances in a single call.
-       * - You must specify at least one of the KeyPairName and KeyPairId parameters.
-       * - Specify KeyPairId when you call this operation. The KeyPairName parameter will be deprecated.
+       * This batch API operation attaches a key pair to instances. You can only perform this operation on stopped instances.
+       * - A maximum of 30 instances can be specified in a single request.
+       * - At least one of key_pair_name and key_pair_id must be specified.
+       * - Pass key_pair_id when you call this operation. The key_pair_name parameter will be deprecated.
        *
        * @param request AttachKeyPairRequest
        * @return AttachKeyPairResponse
@@ -453,7 +453,7 @@ namespace Ens20171110
       Models::CleanDistDataResponse cleanDistData(const Models::CleanDistDataRequest &request);
 
       /**
-       * @summary Copies an SDG across edge zones by calling CopySDG.
+       * @summary Copies an SDG across edge zones.
        *
        * @param tmpReq CopySDGRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -462,7 +462,7 @@ namespace Ens20171110
       Models::CopySDGResponse copySDGWithOptions(const Models::CopySDGRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Copies an SDG across edge zones by calling CopySDG.
+       * @summary Copies an SDG across edge zones.
        *
        * @param request CopySDGRequest
        * @return CopySDGResponse
@@ -487,7 +487,7 @@ namespace Ens20171110
       Models::CopySnapshotResponse copySnapshot(const Models::CopySnapshotRequest &request);
 
       /**
-       * @summary Creates ARM board card servers by calling CreateARMServerInstances.
+       * @summary Creates ARM board servers.
        *
        * @param request CreateARMServerInstancesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -496,7 +496,7 @@ namespace Ens20171110
       Models::CreateARMServerInstancesResponse createARMServerInstancesWithOptions(const Models::CreateARMServerInstancesRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Creates ARM board card servers by calling CreateARMServerInstances.
+       * @summary Creates ARM board servers.
        *
        * @param request CreateARMServerInstancesRequest
        * @return CreateARMServerInstancesResponse
@@ -521,7 +521,7 @@ namespace Ens20171110
       Models::CreateApplicationResponse createApplication(const Models::CreateApplicationRequest &request);
 
       /**
-       * @summary Creates a classic VPC.
+       * @summary Creates a classic virtual private cloud (VPC).
        *
        * @param request CreateClassicNetworkRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -530,7 +530,7 @@ namespace Ens20171110
       Models::CreateClassicNetworkResponse createClassicNetworkWithOptions(const Models::CreateClassicNetworkRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Creates a classic VPC.
+       * @summary Creates a classic virtual private cloud (VPC).
        *
        * @param request CreateClassicNetworkRequest
        * @return CreateClassicNetworkResponse
@@ -584,7 +584,7 @@ namespace Ens20171110
       Models::CreateClusterNodePoolResponse createClusterNodePool(const Models::CreateClusterNodePoolRequest &request);
 
       /**
-       * @summary Creates a pay-as-you-go or subscription data cloud disk by calling CreateDisk.
+       * @summary Creates a pay-as-you-go or subscription data cloud disk.
        *
        * @param request CreateDiskRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -593,7 +593,7 @@ namespace Ens20171110
       Models::CreateDiskResponse createDiskWithOptions(const Models::CreateDiskRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Creates a pay-as-you-go or subscription data cloud disk by calling CreateDisk.
+       * @summary Creates a pay-as-you-go or subscription data cloud disk.
        *
        * @param request CreateDiskRequest
        * @return CreateDiskResponse
@@ -1459,9 +1459,9 @@ namespace Ens20171110
       Models::DeleteEpnInstanceResponse deleteEpnInstance(const Models::DeleteEpnInstanceRequest &request);
 
       /**
-       * @summary Calls DeleteFileSystem to delete a NAS service.
+       * @summary Deletes a NAS file system.
        *
-       * @description Deletes a NAS file system. Before deleting the file system, call DeleteMountTarget to delete all mount targets of the file system. After DeleteMountTarget succeeds, there is an eventual consistency window. Poll DescribeFileSystems to confirm that MountTargets is empty before calling this API operation.
+       * @description Deletes a NAS file system. Before deletion, you must call DeleteMountTarget to delete all mount targets of the file system. After a successful DeleteMountTarget call, an eventual consistency window exists. Poll DescribeFileSystems to confirm that MountTargets is empty before you call this operation.
        *
        * @param request DeleteFileSystemRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1470,9 +1470,9 @@ namespace Ens20171110
       Models::DeleteFileSystemResponse deleteFileSystemWithOptions(const Models::DeleteFileSystemRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Calls DeleteFileSystem to delete a NAS service.
+       * @summary Deletes a NAS file system.
        *
-       * @description Deletes a NAS file system. Before deleting the file system, call DeleteMountTarget to delete all mount targets of the file system. After DeleteMountTarget succeeds, there is an eventual consistency window. Poll DescribeFileSystems to confirm that MountTargets is empty before calling this API operation.
+       * @description Deletes a NAS file system. Before deletion, you must call DeleteMountTarget to delete all mount targets of the file system. After a successful DeleteMountTarget call, an eventual consistency window exists. Poll DescribeFileSystems to confirm that MountTargets is empty before you call this operation.
        *
        * @param request DeleteFileSystemRequest
        * @return DeleteFileSystemResponse
@@ -1577,9 +1577,9 @@ namespace Ens20171110
       Models::DeleteLoadBalancerListenerResponse deleteLoadBalancerListener(const Models::DeleteLoadBalancerListenerRequest &request);
 
       /**
-       * @summary Deletes a mount target.
+       * @summary Deletes an existing mount target.
        *
-       * @description After you delete a mount target, the mount target cannot be restored. Proceed with caution.
+       * @description A deleted mount target cannot be recovered. Proceed with caution.
        *
        * @param request DeleteMountTargetRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1588,9 +1588,9 @@ namespace Ens20171110
       Models::DeleteMountTargetResponse deleteMountTargetWithOptions(const Models::DeleteMountTargetRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Deletes a mount target.
+       * @summary Deletes an existing mount target.
        *
-       * @description After you delete a mount target, the mount target cannot be restored. Proceed with caution.
+       * @description A deleted mount target cannot be recovered. Proceed with caution.
        *
        * @param request DeleteMountTargetRequest
        * @return DeleteMountTargetResponse
@@ -1649,7 +1649,7 @@ namespace Ens20171110
       Models::DeleteNetworkAclResponse deleteNetworkAcl(const Models::DeleteNetworkAclRequest &request);
 
       /**
-       * @summary Deletes a network access control list (ACL) rule.
+       * @summary Invokes the DeleteNetworkAclEntry operation to delete network ACL rules.
        *
        * @param request DeleteNetworkAclEntryRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1658,7 +1658,7 @@ namespace Ens20171110
       Models::DeleteNetworkAclEntryResponse deleteNetworkAclEntryWithOptions(const Models::DeleteNetworkAclEntryRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Deletes a network access control list (ACL) rule.
+       * @summary Invokes the DeleteNetworkAclEntry operation to delete network ACL rules.
        *
        * @param request DeleteNetworkAclEntryRequest
        * @return DeleteNetworkAclEntryResponse
@@ -1666,7 +1666,7 @@ namespace Ens20171110
       Models::DeleteNetworkAclEntryResponse deleteNetworkAclEntry(const Models::DeleteNetworkAclEntryRequest &request);
 
       /**
-       * @summary Deletes an elastic network interface (ENI).
+       * @summary Deletes one or more elastic network interface controllers (NICs).
        *
        * @param tmpReq DeleteNetworkInterfacesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1675,7 +1675,7 @@ namespace Ens20171110
       Models::DeleteNetworkInterfacesResponse deleteNetworkInterfacesWithOptions(const Models::DeleteNetworkInterfacesRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Deletes an elastic network interface (ENI).
+       * @summary Deletes one or more elastic network interface controllers (NICs).
        *
        * @param request DeleteNetworkInterfacesRequest
        * @return DeleteNetworkInterfacesResponse
@@ -1717,7 +1717,7 @@ namespace Ens20171110
       Models::DeleteObjectResponse deleteObject(const Models::DeleteObjectRequest &request);
 
       /**
-       * @summary Deletes an SDG by calling DeleteSDG.
+       * @summary Deletes an SDG.
        *
        * @description If all SDGs associated with the original cloud disk are deleted, the original cloud disk is automatically cleaned up.
        *
@@ -1728,7 +1728,7 @@ namespace Ens20171110
       Models::DeleteSDGResponse deleteSDGWithOptions(const Models::DeleteSDGRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Deletes an SDG by calling DeleteSDG.
+       * @summary Deletes an SDG.
        *
        * @description If all SDGs associated with the original cloud disk are deleted, the original cloud disk is automatically cleaned up.
        *
@@ -2352,7 +2352,7 @@ namespace Ens20171110
       Models::DescribeDiskIopsListResponse describeDiskIopsList(const Models::DescribeDiskIopsListRequest &request);
 
       /**
-       * @summary Queries information about one or more created disks.
+       * @summary Queries the details of one or more created cloud disks.
        *
        * @param request DescribeDisksRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2361,7 +2361,7 @@ namespace Ens20171110
       Models::DescribeDisksResponse describeDisksWithOptions(const Models::DescribeDisksRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries information about one or more created disks.
+       * @summary Queries the details of one or more created cloud disks.
        *
        * @param request DescribeDisksRequest
        * @return DescribeDisksResponse
@@ -2435,7 +2435,7 @@ namespace Ens20171110
       Models::DescribeEnsEipAddressesResponse describeEnsEipAddresses(const Models::DescribeEnsEipAddressesRequest &request);
 
       /**
-       * @summary Invokes the DescribeEnsNetDistrict operation to query the regions where EPS resources can be created.
+       * @summary Invokes DescribeEnsNetDistrict to query the regions where EPS resources can be created.
        *
        * @param request DescribeEnsNetDistrictRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2444,7 +2444,7 @@ namespace Ens20171110
       Models::DescribeEnsNetDistrictResponse describeEnsNetDistrictWithOptions(const Models::DescribeEnsNetDistrictRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Invokes the DescribeEnsNetDistrict operation to query the regions where EPS resources can be created.
+       * @summary Invokes DescribeEnsNetDistrict to query the regions where EPS resources can be created.
        *
        * @param request DescribeEnsNetDistrictRequest
        * @return DescribeEnsNetDistrictResponse
@@ -2467,7 +2467,7 @@ namespace Ens20171110
       Models::DescribeEnsNetLevelResponse describeEnsNetLevel();
 
       /**
-       * @summary Queries the information about ISPs and number of ISPs in an area.
+       * @summary Queries the supported districts and ISPs, and their quantities.
        *
        * @param request DescribeEnsNetSaleDistrictRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2476,7 +2476,7 @@ namespace Ens20171110
       Models::DescribeEnsNetSaleDistrictResponse describeEnsNetSaleDistrictWithOptions(const Models::DescribeEnsNetSaleDistrictRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the information about ISPs and number of ISPs in an area.
+       * @summary Queries the supported districts and ISPs, and their quantities.
        *
        * @param request DescribeEnsNetSaleDistrictRequest
        * @return DescribeEnsNetSaleDistrictResponse
@@ -2484,7 +2484,7 @@ namespace Ens20171110
       Models::DescribeEnsNetSaleDistrictResponse describeEnsNetSaleDistrict(const Models::DescribeEnsNetSaleDistrictRequest &request);
 
       /**
-       * @summary Queries whether a node supports IPv6.
+       * @summary Queries whether an edge zone supports IPv6.
        *
        * @param request DescribeEnsRegionIdIpv6InfoRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2493,7 +2493,7 @@ namespace Ens20171110
       Models::DescribeEnsRegionIdIpv6InfoResponse describeEnsRegionIdIpv6InfoWithOptions(const Models::DescribeEnsRegionIdIpv6InfoRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries whether a node supports IPv6.
+       * @summary Queries whether an edge zone supports IPv6.
        *
        * @param request DescribeEnsRegionIdIpv6InfoRequest
        * @return DescribeEnsRegionIdIpv6InfoResponse
@@ -2501,7 +2501,7 @@ namespace Ens20171110
       Models::DescribeEnsRegionIdIpv6InfoResponse describeEnsRegionIdIpv6Info(const Models::DescribeEnsRegionIdIpv6InfoRequest &request);
 
       /**
-       * @summary Queries edge zone resource information by calling DescribeEnsRegionIdResource.
+       * @summary Queries the resource status of edge zones.
        *
        * @description ****
        *
@@ -2512,7 +2512,7 @@ namespace Ens20171110
       Models::DescribeEnsRegionIdResourceResponse describeEnsRegionIdResourceWithOptions(const Models::DescribeEnsRegionIdResourceRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries edge zone resource information by calling DescribeEnsRegionIdResource.
+       * @summary Queries the resource status of edge zones.
        *
        * @description ****
        *
@@ -3056,7 +3056,9 @@ namespace Ens20171110
       /**
        * @summary Queries the details of one or more instances.
        *
-       * @description - API call frequency: 800 calls per second.
+       * @description - API rate limit: 800 calls per second.
+       * - Per-user rate limit: 100 calls per second.
+       * - Request parameters act as filters and are combined with the logical AND operator. If a parameter is left empty, the filter does not take effect. However, if the InstanceIds parameter is an empty JSON array, the filter is considered valid and an empty result is returned.
        *
        * @param tmpReq DescribeInstancesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3067,7 +3069,9 @@ namespace Ens20171110
       /**
        * @summary Queries the details of one or more instances.
        *
-       * @description - API call frequency: 800 calls per second.
+       * @description - API rate limit: 800 calls per second.
+       * - Per-user rate limit: 100 calls per second.
+       * - Request parameters act as filters and are combined with the logical AND operator. If a parameter is left empty, the filter does not take effect. However, if the InstanceIds parameter is an empty JSON array, the filter is considered valid and an empty result is returned.
        *
        * @param request DescribeInstancesRequest
        * @return DescribeInstancesResponse
@@ -3161,10 +3165,10 @@ namespace Ens20171110
       Models::DescribeLoadBalancerHTTPSListenerAttributeResponse describeLoadBalancerHTTPSListenerAttribute(const Models::DescribeLoadBalancerHTTPSListenerAttributeRequest &request);
 
       /**
-       * @summary Queries monitoring data of an edge load balancer (ELB) instance.
+       * @summary Queries Layer 4 listener-level monitoring data for a load balancer.
        *
-       * @description - up to 100 times per second per account.
-       * - up to 10 times per second per user.
+       * @description - API call rate: 100 calls per second.
+       * - Call rate per user: 10 calls per second.
        *
        * @param request DescribeLoadBalancerListenMonitorRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3173,10 +3177,10 @@ namespace Ens20171110
       Models::DescribeLoadBalancerListenMonitorResponse describeLoadBalancerListenMonitorWithOptions(const Models::DescribeLoadBalancerListenMonitorRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries monitoring data of an edge load balancer (ELB) instance.
+       * @summary Queries Layer 4 listener-level monitoring data for a load balancer.
        *
-       * @description - up to 100 times per second per account.
-       * - up to 10 times per second per user.
+       * @description - API call rate: 100 calls per second.
+       * - Call rate per user: 10 calls per second.
        *
        * @param request DescribeLoadBalancerListenMonitorRequest
        * @return DescribeLoadBalancerListenMonitorResponse
@@ -3304,7 +3308,7 @@ namespace Ens20171110
       Models::DescribeMeasurementDataResponse describeMeasurementData(const Models::DescribeMeasurementDataRequest &request);
 
       /**
-       * @summary Queries mount target information.
+       * @summary Queries the details of mount targets.
        *
        * @param request DescribeMountTargetsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3313,7 +3317,7 @@ namespace Ens20171110
       Models::DescribeMountTargetsResponse describeMountTargetsWithOptions(const Models::DescribeMountTargetsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries mount target information.
+       * @summary Queries the details of mount targets.
        *
        * @param request DescribeMountTargetsRequest
        * @return DescribeMountTargetsResponse
@@ -3703,7 +3707,7 @@ namespace Ens20171110
       Models::DescribeSelfImagesResponse describeSelfImages(const Models::DescribeSelfImagesRequest &request);
 
       /**
-       * @summary Queries the real-time status of the instance devices or containers that are being scheduled and occupied by the specified UUID.
+       * @summary Queries the real-time status of instance devices or containers that are being scheduled for the specified UUID.
        *
        * @param request DescribeServcieScheduleRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3712,7 +3716,7 @@ namespace Ens20171110
       Models::DescribeServcieScheduleResponse describeServcieScheduleWithOptions(const Models::DescribeServcieScheduleRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the real-time status of the instance devices or containers that are being scheduled and occupied by the specified UUID.
+       * @summary Queries the real-time status of instance devices or containers that are being scheduled for the specified UUID.
        *
        * @param request DescribeServcieScheduleRequest
        * @return DescribeServcieScheduleResponse
@@ -3764,6 +3768,23 @@ namespace Ens20171110
        * @return DescribeServerLoadBalancerMonitorResponse
        */
       Models::DescribeServerLoadBalancerMonitorResponse describeServerLoadBalancerMonitor(const Models::DescribeServerLoadBalancerMonitorRequest &request);
+
+      /**
+       * @summary Queries the billing records of shared disks that use SDG.
+       *
+       * @param tmpReq DescribeSharedDiskRecordsRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DescribeSharedDiskRecordsResponse
+       */
+      Models::DescribeSharedDiskRecordsResponse describeSharedDiskRecordsWithOptions(const Models::DescribeSharedDiskRecordsRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Queries the billing records of shared disks that use SDG.
+       *
+       * @param request DescribeSharedDiskRecordsRequest
+       * @return DescribeSharedDiskRecordsResponse
+       */
+      Models::DescribeSharedDiskRecordsResponse describeSharedDiskRecords(const Models::DescribeSharedDiskRecordsRequest &request);
 
       /**
        * @summary Queries snapshot information by calling DescribeSnapshots.
@@ -3919,7 +3940,7 @@ namespace Ens20171110
       Models::DetachDiskResponse detachDisk(const Models::DetachDiskRequest &request);
 
       /**
-       * @summary Detaches a shared data group (SDG).
+       * @summary Unmounts the SDG.
        *
        * @param tmpReq DetachInstanceSDGRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3928,7 +3949,7 @@ namespace Ens20171110
       Models::DetachInstanceSDGResponse detachInstanceSDGWithOptions(const Models::DetachInstanceSDGRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Detaches a shared data group (SDG).
+       * @summary Unmounts the SDG.
        *
        * @param request DetachInstanceSDGRequest
        * @return DetachInstanceSDGResponse
@@ -3996,7 +4017,7 @@ namespace Ens20171110
       Models::DetachNetworkInterfaceResponse detachNetworkInterface(const Models::DetachNetworkInterfaceRequest &request);
 
       /**
-       * @summary Distributes pushed data to the Edge Node Service (ENS) instances of the application. You can specify multiple canary release policies, decompress files, and restart containers.
+       * @summary Distributes pre-pushed data to the edge resource instances of an application. The target edge resources support multiple canary release strategies, file extraction, and container restarts.
        *
        * @param request DistApplicationDataRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -4005,7 +4026,7 @@ namespace Ens20171110
       Models::DistApplicationDataResponse distApplicationDataWithOptions(const Models::DistApplicationDataRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Distributes pushed data to the Edge Node Service (ENS) instances of the application. You can specify multiple canary release policies, decompress files, and restart containers.
+       * @summary Distributes pre-pushed data to the edge resource instances of an application. The target edge resources support multiple canary release strategies, file extraction, and container restarts.
        *
        * @param request DistApplicationDataRequest
        * @return DistApplicationDataResponse
@@ -4013,7 +4034,7 @@ namespace Ens20171110
       Models::DistApplicationDataResponse distApplicationData(const Models::DistApplicationDataRequest &request);
 
       /**
-       * @summary Migrates an instance across nodes after an O&M event occurs on the instance.
+       * @summary Migrates an instance across nodes after an O&M event occurs.
        *
        * @description - This O&M operation currently supports only the following event type: Instance:SystemUpgrade.Migrate (migration required for underlying upgrades).
        *
@@ -4024,7 +4045,7 @@ namespace Ens20171110
       Models::EventMigrateInstanceResponse eventMigrateInstanceWithOptions(const Models::EventMigrateInstanceRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Migrates an instance across nodes after an O&M event occurs on the instance.
+       * @summary Migrates an instance across nodes after an O&M event occurs.
        *
        * @description - This O&M operation currently supports only the following event type: Instance:SystemUpgrade.Migrate (migration required for underlying upgrades).
        *
@@ -4055,9 +4076,9 @@ namespace Ens20171110
       Models::EventRebootInstanceResponse eventRebootInstance(const Models::EventRebootInstanceRequest &request);
 
       /**
-       * @summary Redeploys a specified instance either immediately or at a scheduled time.
+       * @summary Redeploys a specified resource immediately or at a scheduled time.
        *
-       * @description - This O\\&M operation supports only the following event types: `Instance:SystemFailure.Redeploy` (redeployment due to a system failure) and `Instance:SystemMaintenance.Redeploy` (redeployment for system maintenance).
+       * @description - This O&M operation currently supports only the following event types: Instance:SystemFailure.Redeploy (instance redeployment due to system failures) and Instance:SystemMaintenance.Redeploy (instance redeployment due to system maintenance).
        *
        * @param request EventRedeployInstanceRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -4066,9 +4087,9 @@ namespace Ens20171110
       Models::EventRedeployInstanceResponse eventRedeployInstanceWithOptions(const Models::EventRedeployInstanceRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Redeploys a specified instance either immediately or at a scheduled time.
+       * @summary Redeploys a specified resource immediately or at a scheduled time.
        *
-       * @description - This O\\&M operation supports only the following event types: `Instance:SystemFailure.Redeploy` (redeployment due to a system failure) and `Instance:SystemMaintenance.Redeploy` (redeployment for system maintenance).
+       * @description - This O&M operation currently supports only the following event types: Instance:SystemFailure.Redeploy (instance redeployment due to system failures) and Instance:SystemMaintenance.Redeploy (instance redeployment due to system maintenance).
        *
        * @param request EventRedeployInstanceRequest
        * @return EventRedeployInstanceResponse
@@ -4199,7 +4220,7 @@ namespace Ens20171110
       Models::GetClusterAddonInstanceResponse getClusterAddonInstance(const Models::GetClusterAddonInstanceRequest &request);
 
       /**
-       * @summary Queries the storage usage of the previous billing cycle and the cumulative number of calls for the current month by bucket.
+       * @summary Queries the storage usage in the previous billing cycle and the cumulative number of calls for the current month.
        *
        * @param request GetOssStorageAndAccByBucketsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -4208,7 +4229,7 @@ namespace Ens20171110
       Models::GetOssStorageAndAccByBucketsResponse getOssStorageAndAccByBucketsWithOptions(const Models::GetOssStorageAndAccByBucketsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the storage usage of the previous billing cycle and the cumulative number of calls for the current month by bucket.
+       * @summary Queries the storage usage in the previous billing cycle and the cumulative number of calls for the current month.
        *
        * @param request GetOssStorageAndAccByBucketsRequest
        * @return GetOssStorageAndAccByBucketsResponse
@@ -4216,9 +4237,9 @@ namespace Ens20171110
       Models::GetOssStorageAndAccByBucketsResponse getOssStorageAndAccByBuckets(const Models::GetOssStorageAndAccByBucketsRequest &request);
 
       /**
-       * @summary Queries the storage and bandwidth usage within a specific time range.
+       * @summary Queries the calculated storage and bandwidth usage for a specified time period.
        *
-       * @description The query and aggregation granularity of bandwidth and storage usage cannot exceed one day. Data aggregation is to collect the maximum values of usage data within a period of time.
+       * @description The aggregation granularity for bandwidth and storage usage queries cannot exceed one day. Aggregate data is processed by taking the maximum value of the data points within a specified time period.
        *
        * @param request GetOssUsageDataRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -4227,9 +4248,9 @@ namespace Ens20171110
       Models::GetOssUsageDataResponse getOssUsageDataWithOptions(const Models::GetOssUsageDataRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the storage and bandwidth usage within a specific time range.
+       * @summary Queries the calculated storage and bandwidth usage for a specified time period.
        *
-       * @description The query and aggregation granularity of bandwidth and storage usage cannot exceed one day. Data aggregation is to collect the maximum values of usage data within a period of time.
+       * @description The aggregation granularity for bandwidth and storage usage queries cannot exceed one day. Aggregate data is processed by taking the maximum value of the data points within a specified time period.
        *
        * @param request GetOssUsageDataRequest
        * @return GetOssUsageDataResponse
@@ -4395,7 +4416,7 @@ namespace Ens20171110
       Models::LeaveSecurityGroupResponse leaveSecurityGroup(const Models::LeaveSecurityGroupRequest &request);
 
       /**
-       * @summary Queries the list of association information for AIC public keys. Paging is supported.
+       * @summary Queries the associate information list of AIC public keys, and supports paging and paged query.
        *
        * @param request ListAICPublicKeyDeliveriesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -4404,7 +4425,7 @@ namespace Ens20171110
       Models::ListAICPublicKeyDeliveriesResponse listAICPublicKeyDeliveriesWithOptions(const Models::ListAICPublicKeyDeliveriesRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the list of association information for AIC public keys. Paging is supported.
+       * @summary Queries the associate information list of AIC public keys, and supports paging and paged query.
        *
        * @param request ListAICPublicKeyDeliveriesRequest
        * @return ListAICPublicKeyDeliveriesResponse
@@ -4412,7 +4433,7 @@ namespace Ens20171110
       Models::ListAICPublicKeyDeliveriesResponse listAICPublicKeyDeliveries(const Models::ListAICPublicKeyDeliveriesRequest &request);
 
       /**
-       * @summary Queries a list of AIC public key information that meets the specified conditions. Paging is supported.
+       * @summary Queries a list of AIC public keys that meet the specified conditions and supports paging.
        *
        * @param request ListAICPublicKeysRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -4421,7 +4442,7 @@ namespace Ens20171110
       Models::ListAICPublicKeysResponse listAICPublicKeysWithOptions(const Models::ListAICPublicKeysRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries a list of AIC public key information that meets the specified conditions. Paging is supported.
+       * @summary Queries a list of AIC public keys that meet the specified conditions and supports paging.
        *
        * @param request ListAICPublicKeysRequest
        * @return ListAICPublicKeysResponse
@@ -4821,10 +4842,10 @@ namespace Ens20171110
       Models::ModifyInstanceBootConfigurationResponse modifyInstanceBootConfiguration(const Models::ModifyInstanceBootConfigurationRequest &request);
 
       /**
-       * @summary Invokes ModifyInstanceChargeType to convert the billing method of one or more Edge Node Service (ENS) instances. You can convert between instance-level pay-as-you-go and subscription instances. For instance-level pay-as-you-go instances, you can also convert pay-as-you-go cloud disks created with the instances to subscription cloud disks.
+       * @summary Modifies the billing method of one or more Edge Node Service (ENS) instances. You can convert instance-level pay-as-you-go instances to subscription instances and vice versa. For instance-level pay-as-you-go instances, you can also convert the pay-as-you-go cloud disks created with the instances to subscription cloud disks.
        *
-       * @description Before you call this operation, make sure that you fully understand the billing methods and pricing of Edge Node Service (ENS).
-       * The target instance must be in the Running or Stopped state and must not have an overdue payment before you can change the billing method.
+       * @description Make sure that you fully understand the billing methods and pricing of ENS before you call this operation.
+       * The target instance must be in the Running or Stopped state and have no overdue payments before you can change its billing method.
        *
        * @param tmpReq ModifyInstanceChargeTypeRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -4833,10 +4854,10 @@ namespace Ens20171110
       Models::ModifyInstanceChargeTypeResponse modifyInstanceChargeTypeWithOptions(const Models::ModifyInstanceChargeTypeRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Invokes ModifyInstanceChargeType to convert the billing method of one or more Edge Node Service (ENS) instances. You can convert between instance-level pay-as-you-go and subscription instances. For instance-level pay-as-you-go instances, you can also convert pay-as-you-go cloud disks created with the instances to subscription cloud disks.
+       * @summary Modifies the billing method of one or more Edge Node Service (ENS) instances. You can convert instance-level pay-as-you-go instances to subscription instances and vice versa. For instance-level pay-as-you-go instances, you can also convert the pay-as-you-go cloud disks created with the instances to subscription cloud disks.
        *
-       * @description Before you call this operation, make sure that you fully understand the billing methods and pricing of Edge Node Service (ENS).
-       * The target instance must be in the Running or Stopped state and must not have an overdue payment before you can change the billing method.
+       * @description Make sure that you fully understand the billing methods and pricing of ENS before you call this operation.
+       * The target instance must be in the Running or Stopped state and have no overdue payments before you can change its billing method.
        *
        * @param request ModifyInstanceChargeTypeRequest
        * @return ModifyInstanceChargeTypeResponse
@@ -5047,7 +5068,7 @@ namespace Ens20171110
       Models::ModifyVSwitchAttributeResponse modifyVSwitchAttribute(const Models::ModifyVSwitchAttributeRequest &request);
 
       /**
-       * @summary Deploys an SDG that is already attached to an instance to the corresponding AIC.
+       * @summary Deploys the attached SDG to the corresponding AIC.
        *
        * @param tmpReq MountInstanceSDGRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -5056,7 +5077,7 @@ namespace Ens20171110
       Models::MountInstanceSDGResponse mountInstanceSDGWithOptions(const Models::MountInstanceSDGRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Deploys an SDG that is already attached to an instance to the corresponding AIC.
+       * @summary Deploys the attached SDG to the corresponding AIC.
        *
        * @param request MountInstanceSDGRequest
        * @return MountInstanceSDGResponse
@@ -5739,9 +5760,9 @@ namespace Ens20171110
       Models::RunServiceScheduleResponse runServiceSchedule(const Models::RunServiceScheduleRequest &request);
 
       /**
-       * @summary Saves the cloud disk of a specified device as a Shared Data Group (SDG).
+       * @summary Saves the cloud disk of a specified device as an SDG.
        *
-       * @description Saves a Shared Data Group (SDG). SDGs in the failed status cannot be saved. Before calling this operation, call DescribeSDGs to query the current status.
+       * @description Saves an SDG. You cannot save an SDG that is in the failed state. Before calling this operation, call DescribeSDGs to check the current status.
        *
        * @param request SaveSDGRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -5750,9 +5771,9 @@ namespace Ens20171110
       Models::SaveSDGResponse saveSDGWithOptions(const Models::SaveSDGRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Saves the cloud disk of a specified device as a Shared Data Group (SDG).
+       * @summary Saves the cloud disk of a specified device as an SDG.
        *
-       * @description Saves a Shared Data Group (SDG). SDGs in the failed status cannot be saved. Before calling this operation, call DescribeSDGs to query the current status.
+       * @description Saves an SDG. You cannot save an SDG that is in the failed state. Before calling this operation, call DescribeSDGs to check the current status.
        *
        * @param request SaveSDGRequest
        * @return SaveSDGResponse
@@ -5869,10 +5890,10 @@ namespace Ens20171110
       Models::SetLoadBalancerStatusResponse setLoadBalancerStatus(const Models::SetLoadBalancerStatusRequest &request);
 
       /**
-       * @summary Modifies the configuration of a TCP listener.
+       * @summary Modifies the configurations of a TCP listener.
        *
-       * @description - API call rate limit: 100 calls per second.
-       * - Per-user call rate limit: 10 calls per second.
+       * @description - API rate limit: 100 calls per second.
+       * - Rate limit per user: 10 calls per second.
        *
        * @param request SetLoadBalancerTCPListenerAttributeRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -5881,10 +5902,10 @@ namespace Ens20171110
       Models::SetLoadBalancerTCPListenerAttributeResponse setLoadBalancerTCPListenerAttributeWithOptions(const Models::SetLoadBalancerTCPListenerAttributeRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Modifies the configuration of a TCP listener.
+       * @summary Modifies the configurations of a TCP listener.
        *
-       * @description - API call rate limit: 100 calls per second.
-       * - Per-user call rate limit: 10 calls per second.
+       * @description - API rate limit: 100 calls per second.
+       * - Rate limit per user: 10 calls per second.
        *
        * @param request SetLoadBalancerTCPListenerAttributeRequest
        * @return SetLoadBalancerTCPListenerAttributeResponse
@@ -5892,10 +5913,10 @@ namespace Ens20171110
       Models::SetLoadBalancerTCPListenerAttributeResponse setLoadBalancerTCPListenerAttribute(const Models::SetLoadBalancerTCPListenerAttributeRequest &request);
 
       /**
-       * @summary Modifies the configurations of a UDP listener.
+       * @summary Modifies the configuration of a UDP listener.
        *
        * @description - API call rate: 100 calls per second.
-       * - Rate limit per user: 10 calls per second.
+       * - Call rate per user: 10 calls per second.
        *
        * @param request SetLoadBalancerUDPListenerAttributeRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -5904,10 +5925,10 @@ namespace Ens20171110
       Models::SetLoadBalancerUDPListenerAttributeResponse setLoadBalancerUDPListenerAttributeWithOptions(const Models::SetLoadBalancerUDPListenerAttributeRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Modifies the configurations of a UDP listener.
+       * @summary Modifies the configuration of a UDP listener.
        *
        * @description - API call rate: 100 calls per second.
-       * - Rate limit per user: 10 calls per second.
+       * - Call rate per user: 10 calls per second.
        *
        * @param request SetLoadBalancerUDPListenerAttributeRequest
        * @return SetLoadBalancerUDPListenerAttributeResponse
@@ -6012,7 +6033,7 @@ namespace Ens20171110
       Models::StartLoadBalancerListenerResponse startLoadBalancerListener(const Models::StartLoadBalancerListenerRequest &request);
 
       /**
-       * @summary Starts the elastic IP address (EIP) specified in a source network address translation (SNAT) entry.
+       * @summary Starts the disabled EIP in an SNAT rule.
        *
        * @param request StartSnatIpForSnatEntryRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -6021,7 +6042,7 @@ namespace Ens20171110
       Models::StartSnatIpForSnatEntryResponse startSnatIpForSnatEntryWithOptions(const Models::StartSnatIpForSnatEntryRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Starts the elastic IP address (EIP) specified in a source network address translation (SNAT) entry.
+       * @summary Starts the disabled EIP in an SNAT rule.
        *
        * @param request StartSnatIpForSnatEntryRequest
        * @return StartSnatIpForSnatEntryResponse
@@ -6113,7 +6134,7 @@ namespace Ens20171110
       Models::StopLoadBalancerListenerResponse stopLoadBalancerListener(const Models::StopLoadBalancerListenerRequest &request);
 
       /**
-       * @summary Disables an elastic IP address (EIP) in a source network address translation (SNAT) entry.
+       * @summary Invokes StopSnatIpForSnatEntry to disable the SnatIp running in an SNAT rule.
        *
        * @param request StopSnatIpForSnatEntryRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -6122,7 +6143,7 @@ namespace Ens20171110
       Models::StopSnatIpForSnatEntryResponse stopSnatIpForSnatEntryWithOptions(const Models::StopSnatIpForSnatEntryRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Disables an elastic IP address (EIP) in a source network address translation (SNAT) entry.
+       * @summary Invokes StopSnatIpForSnatEntry to disable the SnatIp running in an SNAT rule.
        *
        * @param request StopSnatIpForSnatEntryRequest
        * @return StopSnatIpForSnatEntryResponse
@@ -6261,7 +6282,7 @@ namespace Ens20171110
       Models::UnassociateNetworkCidrBlockResponse unassociateNetworkCidrBlock(const Models::UnassociateNetworkCidrBlockRequest &request);
 
       /**
-       * @summary Calls UnloadRegionSDG to delete preloaded data.
+       * @summary Deletes preloaded data.
        *
        * @param tmpReq UnloadRegionSDGRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -6270,7 +6291,7 @@ namespace Ens20171110
       Models::UnloadRegionSDGResponse unloadRegionSDGWithOptions(const Models::UnloadRegionSDGRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Calls UnloadRegionSDG to delete preloaded data.
+       * @summary Deletes preloaded data.
        *
        * @param request UnloadRegionSDGRequest
        * @return UnloadRegionSDGResponse
@@ -6278,7 +6299,7 @@ namespace Ens20171110
       Models::UnloadRegionSDGResponse unloadRegionSDG(const Models::UnloadRegionSDGRequest &request);
 
       /**
-       * @summary Unmounts a shared data group (SDG) from instances.
+       * @summary Unmounts an SDG from the corresponding instance and restores it to the attached state.
        *
        * @param tmpReq UnmountInstanceSDGRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -6287,7 +6308,7 @@ namespace Ens20171110
       Models::UnmountInstanceSDGResponse unmountInstanceSDGWithOptions(const Models::UnmountInstanceSDGRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Unmounts a shared data group (SDG) from instances.
+       * @summary Unmounts an SDG from the corresponding instance and restores it to the attached state.
        *
        * @param request UnmountInstanceSDGRequest
        * @return UnmountInstanceSDGResponse

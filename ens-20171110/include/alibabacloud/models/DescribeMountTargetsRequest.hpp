@@ -85,9 +85,9 @@ namespace Models
     shared_ptr<string> fileSystemId_ {};
     // The name of the mount target.
     shared_ptr<string> mountTargetName_ {};
-    // The page number. Starting value: 1. Default value: 1.
+    // The page number. Pages start from 1. Default value: 1.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries to return on each page. Maximum value: 100. Default value: 10.
+    // The number of entries per page. Maximum value: 100. Default value: 10.
     shared_ptr<int32_t> pageSize_ {};
   };
 

@@ -96,7 +96,7 @@ namespace Models
 
 
     protected:
-      // The status code of the operation. A value of 200 indicates that the operation was successful.
+      // The status code of the operation. A value of 200 indicates that the operation is successful.
       shared_ptr<int32_t> code_ {};
       // The instance ID.
       shared_ptr<string> instanceId_ {};
@@ -153,7 +153,7 @@ namespace Models
 
 
   protected:
-    // The number of instances to which the key pair failed to be attached.
+    // The number of instances from which the key pair failed to be detached.
     shared_ptr<int32_t> failCount_ {};
     // The ID of the key pair.
     shared_ptr<string> keyPairId_ {};
@@ -161,9 +161,9 @@ namespace Models
     shared_ptr<string> keyPairName_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The result set that indicates the success or failure of the key pair attachment for each instance.
+    // The results indicating whether the key pair was successfully or unsuccessfully detached from the instances.
     shared_ptr<vector<AttachKeyPairResponseBody::Results>> results_ {};
-    // The total number of instances to which the key pair is attached.
+    // The total number of instances from which the key pair was detached.
     shared_ptr<int32_t> totalCount_ {};
   };
 

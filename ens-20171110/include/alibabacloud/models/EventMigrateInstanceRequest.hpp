@@ -97,7 +97,7 @@ namespace Models
     // The data migration policy. Valid values:
     // - abandon: Does not migrate data. This is the default value.
     // - force_transfer: forcible migration of EPS resource.
-    // - try_transfer: Attempts to migrate data.
+    // - try_transfer: Tries to migrate data.
     shared_ptr<string> dataPolicy_ {};
     // The ID of the system event.
     // 
@@ -105,8 +105,8 @@ namespace Models
     shared_ptr<string> eventId_ {};
     // The type of the O&M task. Valid values:
     // 
-    // - immediate: Executes the task immediately.
-    // - scheduled: Executes the task at a scheduled time.
+    // - immediate: Immediate execution.
+    // - scheduled: Scheduled execution.
     // 
     // This parameter is required.
     shared_ptr<string> opsType_ {};
@@ -114,10 +114,9 @@ namespace Models
     // 
     // The password must be 8 to 30 characters in length and must contain uppercase letters, lowercase letters, and digits.
     // 
-    // Note: You cannot specify a password when you schedule the execution time.
+    // Note: You cannot specify a password for scheduled execution.
     shared_ptr<string> password_ {};
-    // The scheduled execution time. The value is a timestamp in milliseconds.
-    // This parameter is required when OpsType is set to scheduled.
+    // The scheduled execution time. The value is a timestamp in milliseconds. This parameter is required when OpsType is set to scheduled.
     shared_ptr<int64_t> planTime_ {};
     // The scheduled UTC time.
     shared_ptr<string> planUtcTime_ {};

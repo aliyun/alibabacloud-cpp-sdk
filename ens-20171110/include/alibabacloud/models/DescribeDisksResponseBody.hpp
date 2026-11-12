@@ -417,11 +417,11 @@ namespace Models
     shared_ptr<DescribeDisksResponseBody::Disks> disks_ {};
     // The current page number.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries per page for a paged query. Maximum value: **50**. Default value: **10**.
+    // The number of entries per page. Maximum value: **50**. Default value: **10**.
     shared_ptr<int32_t> pageSize_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The total number of pages for a paged query.
+    // The total number of pages.
     shared_ptr<int32_t> totalCount_ {};
   };
 

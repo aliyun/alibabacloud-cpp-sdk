@@ -41,7 +41,7 @@ namespace Models
 
 
   protected:
-    // The IDs of the elastic network interfaces (ENIs).
+    // The list of IDs of elastic network interface controllers (NICs).
     // 
     // This parameter is required.
     shared_ptr<vector<string>> networkInterfaceIds_ {};

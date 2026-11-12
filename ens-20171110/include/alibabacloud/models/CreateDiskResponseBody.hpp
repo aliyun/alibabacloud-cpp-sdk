@@ -63,6 +63,8 @@ namespace Models
     // The collection of instance IDs.
     shared_ptr<vector<string>> instanceIds_ {};
     // The order ID. Multiple IDs are separated by commas (,).
+    // 
+    // > Order IDs are returned only for subscription resources. No order ID is returned for pay-as-you-go resources.
     shared_ptr<string> orderId_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

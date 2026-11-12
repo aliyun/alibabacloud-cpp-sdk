@@ -150,9 +150,9 @@ namespace Models
       protected:
         // The number of failed edge zones.
         shared_ptr<int64_t> failedCount_ {};
-        // The list of failed edge zone details.
+        // The list of details about failed edge zones.
         shared_ptr<vector<Result::FailedItems>> failedItems_ {};
-        // The number of successful operations.
+        // The number of successful edge zones.
         shared_ptr<int64_t> successCount_ {};
       };
 
@@ -182,14 +182,14 @@ namespace Models
 
 
     protected:
-      // The response message. The value success indicates a successful request.
+      // The response message. The value is success if the request is successful.
       shared_ptr<string> message_ {};
-      // The execution result of the synchronous request.
+      // The execution result of the synchronization request.
       shared_ptr<Data::Result> result_ {};
-      // Indicates whether all requests were successful. Valid values:
+      // Indicates whether all requests are successful. Valid values:
       // 
-      // - **true**: All requests were successful.
-      // - **false**: Some tasks failed.
+      // - **true**: All requests are successful.
+      // - **false**: One or more tasks failed.
       shared_ptr<bool> success_ {};
     };
 
@@ -212,7 +212,7 @@ namespace Models
 
 
   protected:
-    // The returned Data object.
+    // The Data object.
     shared_ptr<CopySDGResponseBody::Data> data_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

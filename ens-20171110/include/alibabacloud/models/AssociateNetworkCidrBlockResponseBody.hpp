@@ -60,6 +60,7 @@ namespace Models
     // The allocated secondary CIDR block.
     shared_ptr<string> cidrBlock_ {};
     // The IP address type of the secondary CIDR block. Valid values:
+    // 
     // - IPV4: IPv4 address.
     // - IPV6: IPv6 address.
     shared_ptr<string> ipVersion_ {};

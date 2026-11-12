@@ -75,21 +75,21 @@ namespace Models
 
 
   protected:
-    // The end of the time range to query.
+    // The end time.
     // 
     // This parameter is required.
     shared_ptr<string> endTime_ {};
-    // The ID of the ELB instance.
+    // The load balancer instance ID.
     // 
     // This parameter is required.
     shared_ptr<string> loadBalancerId_ {};
-    // The network protocol, such as tcp or udp.
+    // The network protocol, such as TCP or UDP.
     shared_ptr<string> proto_ {};
-    // The beginning of the time range to query.
+    // The start time.
     // 
     // This parameter is required.
     shared_ptr<string> startTime_ {};
-    // The virtual IP address (VIP) port of the ELB instance.
+    // The VIP port of the load balancer instance.
     // 
     // This parameter is required.
     shared_ptr<string> VPort_ {};

@@ -252,7 +252,7 @@ namespace Models
       shared_ptr<string> conns_ {};
       // The number of dropped connections.
       shared_ptr<string> dropConns_ {};
-      // The ID of the node to which the ELB instance belongs.
+      // The ID of the edge zone.
       shared_ptr<string> ensRegionId_ {};
       // The number of inactive connections.
       shared_ptr<string> inActConns_ {};
@@ -264,9 +264,9 @@ namespace Models
       shared_ptr<string> inDropPkts_ {};
       // The number of inbound packets.
       shared_ptr<string> inPkts_ {};
-      // The number of unavailable servers that are attached to the monitored ELB instance.
+      // The number of unavailable backend servers associated with the listener.
       shared_ptr<string> inValidRsNum_ {};
-      // The ID of the ELB instance.
+      // The load balancing instance.
       shared_ptr<string> loadBalancerId_ {};
       // The outbound traffic.
       shared_ptr<string> outBytes_ {};
@@ -278,13 +278,13 @@ namespace Models
       shared_ptr<string> outPkts_ {};
       // The network protocol.
       shared_ptr<string> proto_ {};
-      // The VIP port of the ELB instance.
+      // The VIP port of the instance.
       shared_ptr<string> VPort_ {};
-      // The number of available servers that are attached to the monitored ELB instance.
+      // The number of available backend servers associated with the listener.
       shared_ptr<string> validRsNum_ {};
-      // The virtual IP address (VIP) of the instance.
+      // The VIP of the instance.
       shared_ptr<string> vip_ {};
-      // The ID of the tunnel.
+      // The tunnel ID.
       shared_ptr<string> vni_ {};
     };
 
@@ -307,7 +307,7 @@ namespace Models
 
 
   protected:
-    // The TCP/UDP monitoring data of the ELB instance.
+    // The array of Layer 4 monitoring data for the load balancer.
     shared_ptr<vector<DescribeLoadBalancerListenMonitorResponseBody::LoadBalancerMonitorListenData>> loadBalancerMonitorListenData_ {};
     // Id of the request.
     shared_ptr<string> requestId_ {};

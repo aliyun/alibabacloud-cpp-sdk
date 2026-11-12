@@ -639,6 +639,10 @@
 #include <alibabacloud/models/DescribeServerLoadBalancerMonitorRequest.hpp>
 #include <alibabacloud/models/DescribeServerLoadBalancerMonitorResponseBody.hpp>
 #include <alibabacloud/models/DescribeServerLoadBalancerMonitorResponse.hpp>
+#include <alibabacloud/models/DescribeSharedDiskRecordsRequest.hpp>
+#include <alibabacloud/models/DescribeSharedDiskRecordsShrinkRequest.hpp>
+#include <alibabacloud/models/DescribeSharedDiskRecordsResponseBody.hpp>
+#include <alibabacloud/models/DescribeSharedDiskRecordsResponse.hpp>
 #include <alibabacloud/models/DescribeSnapshotsRequest.hpp>
 #include <alibabacloud/models/DescribeSnapshotsResponseBody.hpp>
 #include <alibabacloud/models/DescribeSnapshotsResponse.hpp>

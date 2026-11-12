@@ -182,14 +182,14 @@ namespace Models
 
 
     protected:
-      // The response message. The value success is returned if the request is successful.
+      // The response message. The value is success if the request is successful.
       shared_ptr<string> message_ {};
       // The execution result of the synchronous request.
       shared_ptr<Data::Result> result_ {};
-      // Indicates whether all requests are successful. Valid values:
+      // Indicates whether all requests were successful. Valid values:
       // 
-      // - **true**: All successful.
-      // - **false**: Some tasks failed.
+      // - **true**: All requests were successful.
+      // - **false**: One or more tasks failed.
       shared_ptr<bool> success_ {};
     };
 

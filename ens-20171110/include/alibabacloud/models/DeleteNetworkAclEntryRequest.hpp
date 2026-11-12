@@ -38,7 +38,7 @@ namespace Models
 
 
   protected:
-    // The ID of the network ACL for which you want to delete a rule.
+    // The ID of the network ACL entry to be deleted.
     shared_ptr<string> networkAclEntryId_ {};
   };
 
