@@ -68,6 +68,10 @@
 #include <alibabacloud/models/AddUserToDataAgentWorkspaceRequest.hpp>
 #include <alibabacloud/models/AddUserToDataAgentWorkspaceResponseBody.hpp>
 #include <alibabacloud/models/AddUserToDataAgentWorkspaceResponse.hpp>
+#include <alibabacloud/models/BatchCreateDataLakePartitionsRequest.hpp>
+#include <alibabacloud/models/BatchCreateDataLakePartitionsShrinkRequest.hpp>
+#include <alibabacloud/models/BatchCreateDataLakePartitionsResponseBody.hpp>
+#include <alibabacloud/models/BatchCreateDataLakePartitionsResponse.hpp>
 #include <alibabacloud/models/CheckDataAgentMemoryConfigRequest.hpp>
 #include <alibabacloud/models/CheckDataAgentMemoryConfigResponseBody.hpp>
 #include <alibabacloud/models/CheckDataAgentMemoryConfigResponse.hpp>
@@ -256,6 +260,9 @@
 #include <alibabacloud/models/GetListMcpServerToolsResultRequest.hpp>
 #include <alibabacloud/models/GetListMcpServerToolsResultResponseBody.hpp>
 #include <alibabacloud/models/GetListMcpServerToolsResultResponse.hpp>
+#include <alibabacloud/models/GetMyAgenticNotificationChannelAuthorizeUrlRequest.hpp>
+#include <alibabacloud/models/GetMyAgenticNotificationChannelAuthorizeUrlResponseBody.hpp>
+#include <alibabacloud/models/GetMyAgenticNotificationChannelAuthorizeUrlResponse.hpp>
 #include <alibabacloud/models/GetNotebookAndSubmitTaskRequest.hpp>
 #include <alibabacloud/models/GetNotebookAndSubmitTaskResponseBody.hpp>
 #include <alibabacloud/models/GetNotebookAndSubmitTaskResponse.hpp>
@@ -367,6 +374,9 @@
 #include <alibabacloud/models/ListKnowledgeBasesRequest.hpp>
 #include <alibabacloud/models/ListKnowledgeBasesResponseBody.hpp>
 #include <alibabacloud/models/ListKnowledgeBasesResponse.hpp>
+#include <alibabacloud/models/ListMyAgenticNotificationChannelConfigsRequest.hpp>
+#include <alibabacloud/models/ListMyAgenticNotificationChannelConfigsResponseBody.hpp>
+#include <alibabacloud/models/ListMyAgenticNotificationChannelConfigsResponse.hpp>
 #include <alibabacloud/models/ListOneMetaOssieModelsRequest.hpp>
 #include <alibabacloud/models/ListOneMetaOssieModelsResponseBody.hpp>
 #include <alibabacloud/models/ListOneMetaOssieModelsResponse.hpp>
@@ -457,6 +467,9 @@
 #include <alibabacloud/models/UpdateKnowledgeBaseRequest.hpp>
 #include <alibabacloud/models/UpdateKnowledgeBaseResponseBody.hpp>
 #include <alibabacloud/models/UpdateKnowledgeBaseResponse.hpp>
+#include <alibabacloud/models/UpdateMyAgenticNotificationChannelConfigRequest.hpp>
+#include <alibabacloud/models/UpdateMyAgenticNotificationChannelConfigResponseBody.hpp>
+#include <alibabacloud/models/UpdateMyAgenticNotificationChannelConfigResponse.hpp>
 #include <alibabacloud/models/UpdateOneMetaOssieModelRequest.hpp>
 #include <alibabacloud/models/UpdateOneMetaOssieModelResponseBody.hpp>
 #include <alibabacloud/models/UpdateOneMetaOssieModelResponse.hpp>

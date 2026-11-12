@@ -167,50 +167,47 @@ namespace Models
 
 
   protected:
-    // **[Optimized]** This field is now automatically retrieved in the background. You do not need to specify it.
+    // **[Optimized]** This field is now automatically retrieved in the background. You do not need to specify this field.
     shared_ptr<string> agentId_ {};
-    // **[Optimized]** This field is now automatically retrieved in the background. You do not need to specify it when calling the API.
+    // **[Optimized]** This field is now automatically retrieved in the background. You do not need to specify this field when you call the API operation.
     shared_ptr<string> DMSUnit_ {};
-    // The data source information. This parameter can be left empty. You can pass only one data source in this parameter. We recommend that you use the DataSources parameter instead.
+    // The data source information. This parameter can be left empty. You can specify only one data source for this parameter. We recommend that you use the DataSources parameter instead.
     shared_ptr<string> dataSourceShrink_ {};
     // The detailed data source information. This parameter can be left empty.
     shared_ptr<string> dataSourcesShrink_ {};
-    // The content of the message sent to the agent in the current request.
+    // The content of the message sent to the agent.
     // 
     // This parameter is required.
     shared_ptr<string> message_ {};
-    // The message type. Default value: `[primary]`.  
+    // The message type. Default value: primary.
     // 
-    // - For regular interactions with the agent, set the message type to `[primary]`.
-    // 
-    // - If the message responds to a human-in-the-loop question from the agent, set the type to `[additional]`.
-    // 
-    // - If the message triggers report generation, set the type to `[report]`.
-    // 
-    // - If the message cancels the current session, set the type to `[cancel]`.
+    // - In normal interactions with the agent, the message type is primary.
+    // - When the message responds to a human-in-the-loop question from the agent, the type must be additional.
+    // - When the message triggers report generation, the type must be report.
+    // - When the message cancels the current session, the type must be cancel.
     shared_ptr<string> messageType_ {};
     // The parent session ID.
     shared_ptr<string> parentSessionId_ {};
-    // The specific question asked by the agent to the user through human-in-the-loop. This field is required when the message type is `additional`.
+    // The specific question asked by the agent to the user through human-in-the-loop. This field is required when the message type is additional.
     shared_ptr<string> question_ {};
-    // The quoted content passed in the current request. This is typically used during interactions with the agent.
+    // The current quoted content. This parameter is typically used during interactions with the agent.
     shared_ptr<string> quotedMessage_ {};
     // **Important**
     // 
-    // If this message replies to an agent message, such as an agent clarifying a question through ASK_HUMAN, you must accurately pass the checkpoint sequence number carried in that agent message to `reply_to`. If this message is not a targeted reply, such as requesting the agent to perform further in-depth analysis after the initial analysis is complete, you can leave `reply_to` empty or set it to "0".  
+    // If this message is a reply to an agent message, such as an agent clarifying a question through ASK_HUMAN, you must accurately pass the checkpoint sequence number carried in the agent message to reply_to. If this message is not a targeted reply, such as requesting the agent to perform further in-depth analysis after the analysis is complete, you can leave reply_to empty or set it to 0.  
     // 
     // This field affects how the agent decides to process the message. Passing an incorrect value may lead to suboptimal analysis results.
     shared_ptr<string> replyTo_ {};
-    // The special configurations for the current session. For the same session, only the configurations passed in the first SendMessage request take effect.
+    // The special configurations for the current session. For the same session, only the configurations passed during the first SendMessage call take effect.
     shared_ptr<string> sessionConfigShrink_ {};
-    // The session ID. This is an optional field used for multi-turn sessions.
-    // - You can start a session without specifying this field. The response will include the session ID for the current session.
-    // - You can also manually create a session ID by calling the CreateDataAgentSession operation and include the ID when initiating the session.
-    // - If you need multi-turn conversations, such as follow-up questions or confirming execution plans, include the session ID returned by the previous SendChatMessage operation in this request.
+    // The session ID. This field is optional and is used for multi-turn sessions.
+    // - You can start a session without specifying this field. The response will contain the session ID of the current session.
+    // - You can also manually create a session ID by calling the CreateDataAgentSession operation and include the ID when you initiate the session.
+    // - If you need multi-turn conversations, such as follow-up questions or confirming execution plans, include the session ID returned by the previous SendChatMessage operation in this operation.
     shared_ptr<string> sessionId_ {};
     // The configuration items that affect only the current task.
     shared_ptr<string> taskConfigShrink_ {};
-    // The Object Storage Service (OSS) bucket of the user. If this parameter is left empty, the analysis process is securely stored in the built-in storage.
+    // The OSS bucket of the user. If you leave this parameter empty, the analysis process is securely stored in the built-in storage.
     shared_ptr<string> userOssBucket_ {};
     // The workspace ID.
     shared_ptr<string> workspaceId_ {};

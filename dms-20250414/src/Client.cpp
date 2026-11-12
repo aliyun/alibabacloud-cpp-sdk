@@ -296,6 +296,84 @@ AddUserToDataAgentWorkspaceResponse Client::addUserToDataAgentWorkspace(const Ad
 }
 
 /**
+ * @summary 批量新建湖仓表分区
+ *
+ * @param tmpReq BatchCreateDataLakePartitionsRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return BatchCreateDataLakePartitionsResponse
+ */
+BatchCreateDataLakePartitionsResponse Client::batchCreateDataLakePartitionsWithOptions(const BatchCreateDataLakePartitionsRequest &tmpReq, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  BatchCreateDataLakePartitionsShrinkRequest request = BatchCreateDataLakePartitionsShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasPartitionInputs()) {
+    request.setPartitionInputsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getPartitionInputs(), "PartitionInputs", "json"));
+  }
+
+  json query = {};
+  if (!!request.hasCatalogName()) {
+    query["CatalogName"] = request.getCatalogName();
+  }
+
+  if (!!request.hasDbName()) {
+    query["DbName"] = request.getDbName();
+  }
+
+  if (!!request.hasIfNotExists()) {
+    query["IfNotExists"] = request.getIfNotExists();
+  }
+
+  if (!!request.hasNeedResult()) {
+    query["NeedResult"] = request.getNeedResult();
+  }
+
+  if (!!request.hasTableName()) {
+    query["TableName"] = request.getTableName();
+  }
+
+  if (!!request.hasTid()) {
+    query["Tid"] = request.getTid();
+  }
+
+  if (!!request.hasWorkspaceId()) {
+    query["WorkspaceId"] = request.getWorkspaceId();
+  }
+
+  json body = {};
+  if (!!request.hasPartitionInputsShrink()) {
+    body["PartitionInputs"] = request.getPartitionInputsShrink();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "BatchCreateDataLakePartitions"},
+    {"version" , "2025-04-14"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<BatchCreateDataLakePartitionsResponse>();
+}
+
+/**
+ * @summary 批量新建湖仓表分区
+ *
+ * @param request BatchCreateDataLakePartitionsRequest
+ * @return BatchCreateDataLakePartitionsResponse
+ */
+BatchCreateDataLakePartitionsResponse Client::batchCreateDataLakePartitions(const BatchCreateDataLakePartitionsRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return batchCreateDataLakePartitionsWithOptions(request, runtime);
+}
+
+/**
  * @summary CheckDataAgentMemoryConfig - Queries the memory generation and usage configuration of a DataAgent.
  *
  * @param request CheckDataAgentMemoryConfigRequest
@@ -3645,6 +3723,48 @@ GetListMcpServerToolsResultResponse Client::getListMcpServerToolsResult(const Ge
 }
 
 /**
+ * @summary Retrieves the OAuth authorization URL required for the current user to bind a Lark account. After the user completes the authorization, the system automatically binds their Lark account.
+ *
+ * @param request GetMyAgenticNotificationChannelAuthorizeUrlRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetMyAgenticNotificationChannelAuthorizeUrlResponse
+ */
+GetMyAgenticNotificationChannelAuthorizeUrlResponse Client::getMyAgenticNotificationChannelAuthorizeUrlWithOptions(const GetMyAgenticNotificationChannelAuthorizeUrlRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasChannel()) {
+    query["Channel"] = request.getChannel();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "GetMyAgenticNotificationChannelAuthorizeUrl"},
+    {"version" , "2025-04-14"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetMyAgenticNotificationChannelAuthorizeUrlResponse>();
+}
+
+/**
+ * @summary Retrieves the OAuth authorization URL required for the current user to bind a Lark account. After the user completes the authorization, the system automatically binds their Lark account.
+ *
+ * @param request GetMyAgenticNotificationChannelAuthorizeUrlRequest
+ * @return GetMyAgenticNotificationChannelAuthorizeUrlResponse
+ */
+GetMyAgenticNotificationChannelAuthorizeUrlResponse Client::getMyAgenticNotificationChannelAuthorizeUrl(const GetMyAgenticNotificationChannelAuthorizeUrlRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return getMyAgenticNotificationChannelAuthorizeUrlWithOptions(request, runtime);
+}
+
+/**
  * @summary Submits a task to schedule and run a Notebook file.
  *
  * @param request GetNotebookAndSubmitTaskRequest
@@ -6101,6 +6221,56 @@ ListKnowledgeBasesResponse Client::listKnowledgeBases(const ListKnowledgeBasesRe
 }
 
 /**
+ * @summary Queries the personal notification channel configurations of the current user in the current tenant, including channel status and bound identity information.
+ *
+ * @param request ListMyAgenticNotificationChannelConfigsRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListMyAgenticNotificationChannelConfigsResponse
+ */
+ListMyAgenticNotificationChannelConfigsResponse Client::listMyAgenticNotificationChannelConfigsWithOptions(const ListMyAgenticNotificationChannelConfigsRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasChannel()) {
+    query["Channel"] = request.getChannel();
+  }
+
+  if (!!request.hasMaxResults()) {
+    query["MaxResults"] = request.getMaxResults();
+  }
+
+  if (!!request.hasNextToken()) {
+    query["NextToken"] = request.getNextToken();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ListMyAgenticNotificationChannelConfigs"},
+    {"version" , "2025-04-14"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListMyAgenticNotificationChannelConfigsResponse>();
+}
+
+/**
+ * @summary Queries the personal notification channel configurations of the current user in the current tenant, including channel status and bound identity information.
+ *
+ * @param request ListMyAgenticNotificationChannelConfigsRequest
+ * @return ListMyAgenticNotificationChannelConfigsResponse
+ */
+ListMyAgenticNotificationChannelConfigsResponse Client::listMyAgenticNotificationChannelConfigs(const ListMyAgenticNotificationChannelConfigsRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return listMyAgenticNotificationChannelConfigsWithOptions(request, runtime);
+}
+
+/**
  * @summary Retrieves a list of OSSIE models.
  *
  * @param request ListOneMetaOssieModelsRequest
@@ -7044,10 +7214,10 @@ SearchAgenticDatabaseResponse Client::searchAgenticDatabase(const SearchAgenticD
  * @summary Sends a user message to a specified session or cancels the session.
  *
  * @description ## Request description
- * - The default value of `message_type` is `primary`. Set it to `additional` or `cancel` when you need to append information or cancel the session.
- * - The `reply_to` field specifies the agent message to which this message responds. The default value is `0`.
- * - The `question` field is required when `message_type` is set to `additional`.
- * - You can use `quoted_message` to quote previous user messages.
+ * - The default value of message_type is primary. Set this parameter to additional or cancel when you need to append information or cancel the session.
+ * - The reply_to field specifies the agent message to which this message responds. The default value is 0.
+ * - The question field is required when message_type is set to additional.
+ * - You can use quoted_message to quote previous messages from the user.
  *
  * @param tmpReq SendChatMessageRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -7155,10 +7325,10 @@ SendChatMessageResponse Client::sendChatMessageWithOptions(const SendChatMessage
  * @summary Sends a user message to a specified session or cancels the session.
  *
  * @description ## Request description
- * - The default value of `message_type` is `primary`. Set it to `additional` or `cancel` when you need to append information or cancel the session.
- * - The `reply_to` field specifies the agent message to which this message responds. The default value is `0`.
- * - The `question` field is required when `message_type` is set to `additional`.
- * - You can use `quoted_message` to quote previous user messages.
+ * - The default value of message_type is primary. Set this parameter to additional or cancel when you need to append information or cancel the session.
+ * - The reply_to field specifies the agent message to which this message responds. The default value is 0.
+ * - The question field is required when message_type is set to additional.
+ * - You can use quoted_message to quote previous messages from the user.
  *
  * @param request SendChatMessageRequest
  * @return SendChatMessageResponse
@@ -8194,6 +8364,56 @@ UpdateKnowledgeBaseResponse Client::updateKnowledgeBaseWithOptions(const UpdateK
 UpdateKnowledgeBaseResponse Client::updateKnowledgeBase(const UpdateKnowledgeBaseRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return updateKnowledgeBaseWithOptions(request, runtime);
+}
+
+/**
+ * @summary Updates the notification channel switch or Lark account binding information for the current user.
+ *
+ * @param request UpdateMyAgenticNotificationChannelConfigRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return UpdateMyAgenticNotificationChannelConfigResponse
+ */
+UpdateMyAgenticNotificationChannelConfigResponse Client::updateMyAgenticNotificationChannelConfigWithOptions(const UpdateMyAgenticNotificationChannelConfigRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasChannel()) {
+    body["Channel"] = request.getChannel();
+  }
+
+  if (!!request.hasConfig()) {
+    body["Config"] = request.getConfig();
+  }
+
+  if (!!request.hasEnabled()) {
+    body["Enabled"] = request.getEnabled();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"body" , Utils::Utils::parseToMap(body)}
+  }).get<map<string, json>>());
+  Params params = Params(json({
+    {"action" , "UpdateMyAgenticNotificationChannelConfig"},
+    {"version" , "2025-04-14"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<UpdateMyAgenticNotificationChannelConfigResponse>();
+}
+
+/**
+ * @summary Updates the notification channel switch or Lark account binding information for the current user.
+ *
+ * @param request UpdateMyAgenticNotificationChannelConfigRequest
+ * @return UpdateMyAgenticNotificationChannelConfigResponse
+ */
+UpdateMyAgenticNotificationChannelConfigResponse Client::updateMyAgenticNotificationChannelConfig(const UpdateMyAgenticNotificationChannelConfigRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return updateMyAgenticNotificationChannelConfigWithOptions(request, runtime);
 }
 
 /**

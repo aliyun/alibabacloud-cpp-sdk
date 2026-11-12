@@ -25,6 +25,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(PayNum, payNum_);
       DARABONBA_PTR_TO_JSON(Region, region_);
       DARABONBA_PTR_TO_JSON(State, state_);
+      DARABONBA_PTR_TO_JSON(Tags, tags_);
     };
     friend void from_json(const Darabonba::Json& j, DmsGatewayOrder& obj) { 
       DARABONBA_PTR_FROM_JSON(BizType, bizType_);
@@ -39,6 +40,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(PayNum, payNum_);
       DARABONBA_PTR_FROM_JSON(Region, region_);
       DARABONBA_PTR_FROM_JSON(State, state_);
+      DARABONBA_PTR_FROM_JSON(Tags, tags_);
     };
     DmsGatewayOrder() = default ;
     DmsGatewayOrder(const DmsGatewayOrder &) = default ;
@@ -54,7 +56,7 @@ namespace Models
     virtual bool empty() const override { return this->bizType_ == nullptr
         && this->chargeType_ == nullptr && this->commodityCode_ == nullptr && this->expireTime_ == nullptr && this->freeOrder_ == nullptr && this->gmtCreate_ == nullptr
         && this->instanceId_ == nullptr && this->instanceType_ == nullptr && this->orderId_ == nullptr && this->payNum_ == nullptr && this->region_ == nullptr
-        && this->state_ == nullptr; };
+        && this->state_ == nullptr && this->tags_ == nullptr; };
     // bizType Field Functions 
     bool hasBizType() const { return this->bizType_ != nullptr;};
     void deleteBizType() { this->bizType_ = nullptr;};
@@ -139,6 +141,13 @@ namespace Models
     inline DmsGatewayOrder& setState(string state) { DARABONBA_PTR_SET_VALUE(state_, state) };
 
 
+    // tags Field Functions 
+    bool hasTags() const { return this->tags_ != nullptr;};
+    void deleteTags() { this->tags_ = nullptr;};
+    inline string getTags() const { DARABONBA_PTR_GET_DEFAULT(tags_, "") };
+    inline DmsGatewayOrder& setTags(string tags) { DARABONBA_PTR_SET_VALUE(tags_, tags) };
+
+
   protected:
     shared_ptr<string> bizType_ {};
     shared_ptr<string> chargeType_ {};
@@ -152,6 +161,7 @@ namespace Models
     shared_ptr<int32_t> payNum_ {};
     shared_ptr<string> region_ {};
     shared_ptr<string> state_ {};
+    shared_ptr<string> tags_ {};
   };
 
   } // namespace Models
