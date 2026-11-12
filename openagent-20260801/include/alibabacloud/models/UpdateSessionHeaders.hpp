@@ -52,7 +52,7 @@ namespace Models
 
   protected:
     shared_ptr<map<string, string>> commonHeaders_ {};
-    // The idempotency key for the request. Use the same value when you retry the same update request.
+    // The idempotency key for the request. Use the same value when retrying the same update request.
     shared_ptr<string> xOpenAgentIdempotencyKey_ {};
   };
 

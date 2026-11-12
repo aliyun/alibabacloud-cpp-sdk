@@ -243,9 +243,9 @@ namespace Models
             shared_ptr<string> approvalId_ {};
             // The approval URL.
             shared_ptr<string> approvalUrl_ {};
-            // Specifies whether the interrupt can be canceled.
+            // Indicates whether it can be canceled.
             shared_ptr<bool> cancellable_ {};
-            // The change digest.
+            // The change summary.
             shared_ptr<string> changeDigest_ {};
             // The approval title.
             shared_ptr<string> title_ {};
@@ -319,19 +319,23 @@ namespace Models
         protected:
           // The interrupt data.
           shared_ptr<Interrupts::Data> data_ {};
-          // The expiration time of the interrupt, in ISO 8601 format.
+          // The interrupt expiration time in ISO 8601 format.
           shared_ptr<string> expiresAt_ {};
           // The interrupt ID.
           shared_ptr<string> id_ {};
-          // The interrupt prompt.
+          // The interrupt message.
           shared_ptr<string> message_ {};
           // The extended information.
           Darabonba::Json metadata_ {};
-          // The reason for the interrupt: `tool_call` (tool calling requires processing), `input_required` (user input is required), `confirmation` (confirmation is required), or `out_of_band_approval` (waiting for out-of-band approval).
+          // The interrupt reason. Valid values:
+          // - `tool_call`: tool invocation requires handling
+          // - `input_required`: user input is required
+          // - `confirmation`: confirmation is required
+          // - `out_of_band_approval`: waiting for out-of-band approval
           shared_ptr<string> reason_ {};
-          // The JSON Schema that the payload must conform to when resuming the interrupt.
+          // The JSON schema that the payload must comply with when resuming this interrupt.
           Darabonba::Json responseSchema_ {};
-          // The ID used to invoke the tool calling.
+          // The tool invocation ID.
           shared_ptr<string> toolCallId_ {};
         };
 
@@ -354,9 +358,11 @@ namespace Models
 
 
       protected:
-        // The list of interrupts.
+        // The interrupt list.
         shared_ptr<vector<Outcome::Interrupts>> interrupts_ {};
-        // The outcome type: `success` (completed successfully) or `interrupt` (waiting for interrupt processing).
+        // The result type. Valid values:
+        // - `success`: successfully completed
+        // - `interrupt`: waiting for interrupt handling
         shared_ptr<string> type_ {};
       };
 
@@ -407,7 +413,7 @@ namespace Models
 
 
     protected:
-      // The time when the run was created, in ISO 8601 format.
+      // The run creation time in ISO 8601 format.
       shared_ptr<string> createdAt_ {};
       // The run outcome.
       shared_ptr<Data::Outcome> outcome_ {};
@@ -415,9 +421,16 @@ namespace Models
       shared_ptr<string> runId_ {};
       // The session ID.
       shared_ptr<string> sessionId_ {};
-      // The run status: `PENDING` (pending execution), `RUNNING` (running), `WAITING_USER` (waiting for interrupt processing), `COMPLETED` (completed), `FAILED` (failed), `CANCELLED` (canceled), or `REJECTED` (rejected).
+      // The run status. Valid values:
+      // - `PENDING`: pending execution
+      // - `RUNNING`: running
+      // - `WAITING_USER`: waiting for interrupt handling
+      // - `COMPLETED`: completed
+      // - `FAILED`: failed
+      // - `CANCELLED`: canceled
+      // - `REJECTED`: rejected
       shared_ptr<string> status_ {};
-      // The time when the run was last updated, in ISO 8601 format.
+      // The last update time of the run in ISO 8601 format.
       shared_ptr<string> updatedAt_ {};
     };
 
@@ -451,7 +464,7 @@ namespace Models
     shared_ptr<GetRunResponseBody::Data> data_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request was successful.
+    // Indicates whether the request is successful.
     shared_ptr<bool> success_ {};
   };
 

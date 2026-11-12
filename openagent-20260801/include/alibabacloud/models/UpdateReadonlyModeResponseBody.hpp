@@ -98,15 +98,15 @@ namespace Models
 
 
     protected:
-      // The name of the configuration. The value is fixed to readonly.
+      // The configuration name. The value is fixed to readonly.
       shared_ptr<string> configName_ {};
       // Indicates whether a configuration record already exists.
       shared_ptr<bool> exists_ {};
       // The last update time in ISO 8601 format.
       shared_ptr<string> gmtUpdate_ {};
-      // The currently active configuration value, returned as the string true or false.
+      // The current effective configuration value. The value is returned as a string, either true or false.
       shared_ptr<string> value_ {};
-      // The type of the configuration value. The value is BOOL for this API operation.
+      // The type of the configuration value. The value is BOOL for this operation.
       shared_ptr<string> valueType_ {};
     };
 
@@ -136,9 +136,9 @@ namespace Models
 
 
   protected:
-    // The currently active configuration information.
+    // The current effective configuration information.
     shared_ptr<UpdateReadonlyModeResponseBody::Data> data_ {};
-    // The request ID, which is used to locate and troubleshoot issues.
+    // The request ID used to locate and troubleshoot issues.
     shared_ptr<string> requestId_ {};
     // Indicates whether the request is successful. A value of true indicates success.
     shared_ptr<bool> success_ {};

@@ -48,9 +48,9 @@ namespace Models
 
 
   protected:
-    // The maximum number of sessions to return per page. The value must be a positive integer.
+    // The maximum number of sessions to return per page. Set this parameter to a positive integer.
     shared_ptr<string> maxResults_ {};
-    // The pagination token. Do not specify this parameter for the first request. For subsequent requests, pass the nextToken value returned in the previous response. Do not parse or construct this value.
+    // The pagination token. Do not pass this parameter in the first request. For subsequent requests, pass the nextToken returned in the previous response. Do not parse or construct the token.
     shared_ptr<string> nextToken_ {};
   };
 

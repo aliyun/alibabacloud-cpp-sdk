@@ -59,9 +59,9 @@ namespace Models
   protected:
     // The maximum number of timeline entries to return per page. The value must be a positive integer.
     shared_ptr<string> maxResults_ {};
-    // The pagination token. Do not specify this parameter for the first request. For subsequent requests, use the value returned from the previous page.
+    // The pagination token. Do not specify this parameter in the first request. For subsequent requests, use the value returned from the previous response.
     shared_ptr<string> nextToken_ {};
-    // Filters messages by the specified run ID.
+    // Filters messages by a specified run ID.
     shared_ptr<string> runId_ {};
   };
 

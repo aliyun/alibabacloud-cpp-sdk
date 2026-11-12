@@ -52,7 +52,7 @@ namespace Models
 
   protected:
     shared_ptr<map<string, string>> commonHeaders_ {};
-    // The idempotency key of the request. Use the same value and the same business parameters when retrying the same cancellation request.
+    // The idempotency key for the request. Use the same value and the same business parameters when you retry the same cancellation request.
     shared_ptr<string> xOpenAgentIdempotencyKey_ {};
   };
 

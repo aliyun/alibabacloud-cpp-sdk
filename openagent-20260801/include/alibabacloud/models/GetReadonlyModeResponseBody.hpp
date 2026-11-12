@@ -104,7 +104,7 @@ namespace Models
       shared_ptr<bool> exists_ {};
       // The last update time in ISO 8601 format. The value is null if no configuration record exists.
       shared_ptr<string> gmtUpdate_ {};
-      // The current effective read-only mode, returned as a string. A value of true indicates that the mode is enabled, and a value of false indicates that the mode is disabled. The value is true if not configured.
+      // The current read-only mode in effect, returned as a string. A value of true indicates that the mode is enabled, and a value of false indicates that the mode is disabled. The default value is true if not configured.
       shared_ptr<string> value_ {};
       // The configuration value type. The value is fixed to BOOL.
       shared_ptr<string> valueType_ {};

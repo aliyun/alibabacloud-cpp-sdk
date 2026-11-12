@@ -2,6 +2,7 @@
 #include <alibabacloud/OpenAgent20260801.hpp>
 #include <alibabacloud/Utils.hpp>
 #include <alibabacloud/Openapi.hpp>
+#include <alibabacloud/gateway/POP.hpp>
 #include <map>
 #include <darabonba/Runtime.hpp>
 #include <darabonba/Convert.hpp>
@@ -9,6 +10,7 @@
 using namespace std;
 using namespace Darabonba;
 using json = nlohmann::json;
+using namespace AlibabaCloud::Gateway;
 using namespace AlibabaCloud::OpenApi;
 using namespace AlibabaCloud::OpenApi::Models;
 using OpenApiClient = AlibabaCloud::OpenApi::Client;
@@ -20,6 +22,9 @@ namespace OpenAgent20260801
 {
 
 AlibabaCloud::OpenAgent20260801::Client::Client(Config &config): OpenApiClient(config){
+  this->_productId = "OpenAgent";
+  shared_ptr<POP> gatewayClient = make_shared<POP>();
+  this->_spi = gatewayClient;
   this->_endpointRule = "regional";
   checkConfig(config);
   this->_endpoint = getEndpoint("openagent", _regionId, _endpointRule, _network, _suffix, _endpointMap, _endpoint);
@@ -209,7 +214,7 @@ DeleteSessionResponse Client::deleteSession(const string &sessionId, const Delet
 /**
  * @summary Queries the read-only mode.
  *
- * @description Queries the read-only mode switch for the current account. The read-only mode is enabled by default if it is not configured.
+ * @description Queries the read-only mode switch of the current account. It is enabled by default if not configured.
  *
  * @param request GetReadonlyModeRequest
  * @param headers map
@@ -238,7 +243,7 @@ GetReadonlyModeResponse Client::getReadonlyModeWithOptions(const GetReadonlyMode
 /**
  * @summary Queries the read-only mode.
  *
- * @description Queries the read-only mode switch for the current account. The read-only mode is enabled by default if it is not configured.
+ * @description Queries the read-only mode switch of the current account. It is enabled by default if not configured.
  *
  * @param request GetReadonlyModeRequest
  * @return GetReadonlyModeResponse
@@ -295,7 +300,7 @@ GetRunResponse Client::getRun(const string &sessionId, const string &runId, cons
 /**
  * @summary Queries a session.
  *
- * @description Queries the title, status, pinning information, and the ID and status of the most recent run of a specified session.
+ * @description Queries the title, status, and pinned state of a specified session, along with the ID and status of its last run.
  *
  * @param request GetSessionRequest
  * @param headers map
@@ -324,7 +329,7 @@ GetSessionResponse Client::getSessionWithOptions(const string &sessionId, const 
 /**
  * @summary Queries a session.
  *
- * @description Queries the title, status, pinning information, and the ID and status of the most recent run of a specified session.
+ * @description Queries the title, status, and pinned state of a specified session, along with the ID and status of its last run.
  *
  * @param request GetSessionRequest
  * @return GetSessionResponse
@@ -338,7 +343,7 @@ GetSessionResponse Client::getSession(const string &sessionId, const GetSessionR
 /**
  * @summary Lists messages.
  *
- * @description Performs a paging query on the message timeline of a specified session. Use the returned nextToken to retrieve the next page.
+ * @description Queries the message timeline of a specified session in pages. Use the returned nextToken to retrieve the next page.
  *
  * @param request ListMessagesRequest
  * @param headers map
@@ -381,7 +386,7 @@ ListMessagesResponse Client::listMessagesWithOptions(const string &sessionId, co
 /**
  * @summary Lists messages.
  *
- * @description Performs a paging query on the message timeline of a specified session. Use the returned nextToken to retrieve the next page.
+ * @description Queries the message timeline of a specified session in pages. Use the returned nextToken to retrieve the next page.
  *
  * @param request ListMessagesRequest
  * @return ListMessagesResponse
@@ -395,7 +400,7 @@ ListMessagesResponse Client::listMessages(const string &sessionId, const ListMes
 /**
  * @summary Lists sessions.
  *
- * @description Uses paging to query the list of sessions accessible to the current identity used to invoke. Use the returned nextToken to retrieve the next page.
+ * @description Performs a paging query for the list of sessions accessible to the current invoke identity. Use the returned nextToken to retrieve the next page.
  *
  * @param request ListSessionsRequest
  * @param headers map
@@ -434,7 +439,7 @@ ListSessionsResponse Client::listSessionsWithOptions(const ListSessionsRequest &
 /**
  * @summary Lists sessions.
  *
- * @description Uses paging to query the list of sessions accessible to the current identity used to invoke. Use the returned nextToken to retrieve the next page.
+ * @description Performs a paging query for the list of sessions accessible to the current invoke identity. Use the returned nextToken to retrieve the next page.
  *
  * @param request ListSessionsRequest
  * @return ListSessionsResponse
@@ -458,6 +463,10 @@ ListSessionsResponse Client::listSessions(const ListSessionsRequest &request) {
 FutureGenerator<SendMessageResponse> Client::sendMessageWithSSE(const string &sessionId, const SendMessageRequest &request, const SendMessageHeaders &headers, const Darabonba::RuntimeOptions &runtime) {
   request.validate();
   json body = {};
+  if (!!request.hasAttachments()) {
+    body["attachments"] = request.getAttachments();
+  }
+
   if (!!request.hasContent()) {
     body["content"] = request.getContent();
   }
@@ -528,6 +537,10 @@ return Darabonba::FutureGenerator<json>(__retrun);
 SendMessageResponse Client::sendMessageWithOptions(const string &sessionId, const SendMessageRequest &request, const SendMessageHeaders &headers, const Darabonba::RuntimeOptions &runtime) {
   request.validate();
   json body = {};
+  if (!!request.hasAttachments()) {
+    body["attachments"] = request.getAttachments();
+  }
+
   if (!!request.hasContent()) {
     body["content"] = request.getContent();
   }
@@ -637,7 +650,7 @@ UpdateReadonlyModeResponse Client::updateReadonlyMode(const UpdateReadonlyModeRe
 /**
  * @summary Updates the title or pinned status of a session.
  *
- * @description Updates the title or pinned status of a specified session. Specify at least one of the title and pinned fields. Unspecified fields remain unchanged.
+ * @description Updates the title or pinned status of a specified session. You must specify at least one of the title and pinned parameters. Fields that are not specified remain unchanged.
  *
  * @param request UpdateSessionRequest
  * @param headers UpdateSessionHeaders
@@ -685,7 +698,7 @@ UpdateSessionResponse Client::updateSessionWithOptions(const string &sessionId, 
 /**
  * @summary Updates the title or pinned status of a session.
  *
- * @description Updates the title or pinned status of a specified session. Specify at least one of the title and pinned fields. Unspecified fields remain unchanged.
+ * @description Updates the title or pinned status of a specified session. You must specify at least one of the title and pinned parameters. Fields that are not specified remain unchanged.
  *
  * @param request UpdateSessionRequest
  * @return UpdateSessionResponse

@@ -186,7 +186,7 @@ namespace Models
 
 
             protected:
-              // The tool parameters in the form of a JSON string.
+              // The tool parameters as a JSON string.
               shared_ptr<string> arguments_ {};
               // The name of the function or tool.
               shared_ptr<string> name_ {};
@@ -234,15 +234,15 @@ namespace Models
 
 
           protected:
-            // The encrypted content of the tool invocation. The example is only a placeholder value.
+            // The encrypted content of the tool invocation. The example is a placeholder value only.
             shared_ptr<string> encryptedValue_ {};
-            // The information about the function to be executed.
+            // The information about the function to execute.
             shared_ptr<ToolCalls::Function> function_ {};
             // The tool invocation ID.
             shared_ptr<string> id_ {};
             // The extended metadata of the tool invocation.
             Darabonba::Json metadata_ {};
-            // The type of the tool invocation. The value is fixed to `function`.
+            // The tool invocation type. The value is fixed to `function`.
             shared_ptr<string> type_ {};
           };
 
@@ -322,9 +322,9 @@ namespace Models
             protected:
               // The ID of the processed interrupt.
               shared_ptr<string> interruptId_ {};
-              // The processing result for the corresponding interrupt, which must comply with the responseSchema of the interrupt.
+              // The processing result for the corresponding interrupt. The result must comply with the responseSchema of the interrupt.
               Darabonba::Json payload_ {};
-              // The response method for the current interrupt. Valid values: `resolved` (the answer, confirmation, or tool result required by the interrupt has been submitted, including the `payload`) and `cancelled` (the interrupt has been canceled, excluding the `payload`).
+              // The response method for this interrupt. Valid values: `resolved` (the answer, confirmation, or tool result required by the interrupt has been submitted, which includes the `payload`) and `cancelled` (the interrupt has been canceled, which does not include the `payload`).
               shared_ptr<string> status_ {};
             };
 
@@ -365,7 +365,7 @@ namespace Models
             shared_ptr<string> resolvedAt_ {};
             // The submitted processing results for each interrupt.
             shared_ptr<vector<ResumeInput::Resume>> resume_ {};
-            // The ID of the original run that was resumed.
+            // The ID of the original run that is resumed.
             shared_ptr<string> runId_ {};
             // The source of the resume request. Valid values: `USER` (submitted by a user) and `INTERNAL` (submitted by an internal process).
             shared_ptr<string> source_ {};
@@ -547,15 +547,15 @@ namespace Models
               protected:
                 // The list of API operations that require approval.
                 shared_ptr<vector<Data::ApiCalls>> apiCalls_ {};
-                // The associated approval ID.
+                // The ID of the associated approval request.
                 shared_ptr<string> approvalId_ {};
-                // The URL of the approval page. The example URL cannot be used for actual approval.
+                // The URL of the approval page. The example URL cannot be used for actual approvals.
                 shared_ptr<string> approvalUrl_ {};
                 // Specifies whether the approval can be canceled.
                 shared_ptr<bool> cancellable_ {};
-                // The digest identifier of the change pending approval.
+                // The summary identifier of the change pending approval.
                 shared_ptr<string> changeDigest_ {};
-                // The title of the approval item.
+                // The title of the approval request.
                 shared_ptr<string> title_ {};
               };
 
@@ -639,7 +639,7 @@ namespace Models
               shared_ptr<string> reason_ {};
               // The JSON schema that the resume result payload must follow.
               Darabonba::Json responseSchema_ {};
-              // The ID of the tool invocation associated with the interrupt.
+              // The tool invocation ID associated with the interrupt.
               shared_ptr<string> toolCallId_ {};
             };
 
@@ -664,7 +664,7 @@ namespace Models
           protected:
             // The list of historical interrupts.
             shared_ptr<vector<InterruptOutcome::Interrupts>> interrupts_ {};
-            // The type of the interrupt result. The value is fixed to `interrupt`.
+            // The interrupt result type. The value is fixed to `interrupt`.
             shared_ptr<string> type_ {};
           };
 
@@ -771,13 +771,13 @@ namespace Models
           shared_ptr<string> activityType_ {};
           // The message content. The structure is determined by the message type.
           Darabonba::Json content_ {};
-          // The encrypted content. The example is an invalid placeholder value and does not contain real ciphertext.
+          // The encrypted content. The example is an invalid placeholder value and does not contain actual ciphertext.
           shared_ptr<string> encryptedValue_ {};
-          // The error description when tool execution fails.
+          // The error description when the tool execution fails.
           shared_ptr<string> error_ {};
           // The message ID.
           shared_ptr<string> id_ {};
-          // The result information of historical interrupts.
+          // The result information of the historical interrupt.
           shared_ptr<Message::InterruptOutcome> interruptOutcome_ {};
           // The extended metadata of the message.
           Darabonba::Json metadata_ {};
@@ -787,7 +787,7 @@ namespace Models
           shared_ptr<Message::ResumeInput> resumeInput_ {};
           // The role of the message. Valid values: `user` (user message), `assistant` (assistant message), `tool` (tool result), `activity` (activity message), `reasoning` (reasoning message), and `interrupt` (interrupt record).
           shared_ptr<string> role_ {};
-          // The ID of the tool invocation associated with the tool result.
+          // The tool invocation ID associated with the tool result.
           shared_ptr<string> toolCallId_ {};
           // The list of tool invocations initiated by the agent.
           shared_ptr<vector<Message::ToolCalls>> toolCalls_ {};
@@ -812,7 +812,7 @@ namespace Models
 
 
       protected:
-        // The message object. Different message types are distinguished by role, and each type uses the corresponding fields.
+        // The message object. Message types are distinguished by role, and each type uses its corresponding fields.
         shared_ptr<Timeline::Message> message_ {};
         // The ID of the run to which the message belongs.
         shared_ptr<string> runId_ {};
@@ -855,9 +855,9 @@ namespace Models
       shared_ptr<string> nextToken_ {};
       // The ID of the session to which the messages belong.
       shared_ptr<string> sessionId_ {};
-      // The message records returned in a timeline.
+      // The message records returned in chronological order.
       shared_ptr<vector<Data::Timeline>> timeline_ {};
-      // The number of timeline records on the current page, which is equal to the length of the timeline array.
+      // The number of timeline records on the current page. The value is equal to the length of the timeline array.
       shared_ptr<int32_t> total_ {};
     };
 
@@ -891,7 +891,7 @@ namespace Models
     shared_ptr<ListMessagesResponseBody::Data> data_ {};
     // The request ID, which is used to locate and troubleshoot issues.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request is successful. A value of true indicates success.
+    // Indicates whether the request was successful. A value of true indicates success.
     shared_ptr<bool> success_ {};
   };
 

@@ -48,9 +48,9 @@ namespace Models
 
 
   protected:
-    // Specifies whether to pin the session. If you do not specify this parameter, the pinned status remains unchanged.
+    // Specifies whether to pin the session. If this parameter is not specified, the pinned status remains unchanged.
     shared_ptr<bool> pinned_ {};
-    // The new title of the session. If you do not need to update the title, do not specify this parameter.
+    // The updated title of the session. If you do not need to update the title, you can leave this parameter empty.
     shared_ptr<string> title_ {};
   };
 

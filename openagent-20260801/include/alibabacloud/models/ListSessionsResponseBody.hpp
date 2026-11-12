@@ -154,26 +154,13 @@ namespace Models
         shared_ptr<string> createdAt_ {};
         // The ID of the most recent run.
         shared_ptr<string> lastRunId_ {};
-        // The status of the most recent run. Valid values:
-        // - `PENDING`: Pending.
-        // - `RUNNING`: Running.
-        // - `WAITING_USER`: Waiting for interrupt handling.
-        // - `COMPLETED`: Completed.
-        // - `FAILED`: Failed.
-        // - `CANCELLED`: Cancelled.
-        // - `REJECTED`: Rejected.
+        // The status of the most recent run. Valid values: `PENDING` (pending), `RUNNING` (running), `WAITING_USER` (waiting for interruption handling), `COMPLETED` (completed), `FAILED` (failed), `CANCELLED` (cancelled), and `REJECTED` (rejected).
         shared_ptr<string> lastRunStatus_ {};
-        // Specifies whether the session is pinned.
+        // Indicates whether the session is pinned.
         shared_ptr<bool> pinned_ {};
         // The session ID.
         shared_ptr<string> sessionId_ {};
-        // The session status. Valid values:
-        // - `IDLE`: Idle.
-        // - `ACTIVE`: Active.
-        // - `WAITING_USER_INPUT`: Waiting for user input.
-        // - `WAITING_APPROVAL`: Waiting for user confirmation.
-        // - `WAITING_OUT_OF_BAND_APPROVAL`: Waiting for out-of-band approval.
-        // - `CLOSED`: Closed.
+        // The session status. Valid values: `IDLE` (idle), `ACTIVE` (running), `WAITING_USER_INPUT` (waiting for user input), `WAITING_APPROVAL` (waiting for user confirmation), `WAITING_OUT_OF_BAND_APPROVAL` (waiting for out-of-band approval), and `CLOSED` (closed).
         shared_ptr<string> status_ {};
         // The session title.
         shared_ptr<string> title_ {};
@@ -245,7 +232,7 @@ namespace Models
     shared_ptr<ListSessionsResponseBody::Data> data_ {};
     // The request ID, which is used to locate and troubleshoot issues.
     shared_ptr<string> requestId_ {};
-    // Specifies whether the request is successful. A value of true indicates success.
+    // Indicates whether the request is successful. A value of true indicates success.
     shared_ptr<bool> success_ {};
   };
 
