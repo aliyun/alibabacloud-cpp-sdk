@@ -177,7 +177,7 @@ namespace Models
 
 
       protected:
-        // The session start time in ISO 8601 format.
+        // The start time of the session in ISO 8601 format.
         shared_ptr<string> resourceSessionStartTime_ {};
         // The user ID.
         shared_ptr<string> userId_ {};
@@ -261,13 +261,13 @@ namespace Models
         shared_ptr<string> cpu_ {};
         // The number of GPUs.
         shared_ptr<string> gpu_ {};
-        // The GPU memory size. Unit: MB.
+        // The GPU memory size in MB.
         shared_ptr<int32_t> gpuMemory_ {};
-        // The GPU specification description.
+        // The description of the GPU specifications.
         shared_ptr<string> gpuSpec_ {};
-        // The memory size. Unit: MB.
+        // The memory size in MB.
         shared_ptr<int32_t> memory_ {};
-        // The workstation instance type.
+        // The workstation specifications.
         shared_ptr<string> serverInstanceType_ {};
       };
 
@@ -309,9 +309,7 @@ namespace Models
 
 
       protected:
-        // Indicates whether the IP address is the primary private IP address. Valid values:
-        // - true: The IP address is the primary private IP address.
-        // - false: The IP address is a secondary private IP address.
+        // Indicates whether the IP address is the primary private IP address. A value of true indicates that it is the primary private IP address. A value of false indicates that it is a secondary private IP address.
         shared_ptr<bool> primary_ {};
         // The private IP address.
         shared_ptr<string> privateIpAddress_ {};
@@ -357,7 +355,7 @@ namespace Models
       protected:
         // The instance ID.
         shared_ptr<string> instanceId_ {};
-        // The ID of the network interface controller (NIC).
+        // The ID of the ENI.
         shared_ptr<string> networkInterfaceId_ {};
       };
 
@@ -426,15 +424,15 @@ namespace Models
 
 
       protected:
-        // The type of the data cloud disk.
+        // The category of the data cloud disk.
         shared_ptr<string> dataDiskCategory_ {};
         // The ID of the data cloud disk.
         shared_ptr<string> dataDiskId_ {};
-        // The sequence number of the data cloud disk.
+        // The serial number of the data cloud disk.
         shared_ptr<string> dataDiskNo_ {};
-        // The performance level (PL) of the data cloud disk.
+        // The performance level of the data cloud disk.
         shared_ptr<string> dataDiskPerformanceLevel_ {};
-        // The size of the data cloud disk. Unit: GB.
+        // The size of the data cloud disk, in GB.
         shared_ptr<int32_t> dataDiskSize_ {};
       };
 
@@ -759,15 +757,15 @@ namespace Models
 
 
     protected:
-      // The status of adding the workstation to a virtual node pool.
+      // The status of adding to the virtual node pool.
       shared_ptr<string> addVirtualNodePoolStatus_ {};
       // The UID of the tenant.
       shared_ptr<int64_t> aliUid_ {};
-      // The bandwidth size. Unit: Mbit/s.
+      // The bandwidth, in Mbit/s.
       shared_ptr<int32_t> bandwidth_ {};
-      // The region.
+      // The region ID.
       shared_ptr<string> bizRegionId_ {};
-      // The payment method.
+      // The billing method.
       shared_ptr<string> chargeType_ {};
       // The creation time in ISO 8601 format.
       shared_ptr<string> createTime_ {};
@@ -795,13 +793,13 @@ namespace Models
       shared_ptr<string> officeSiteId_ {};
       // The name of the office network.
       shared_ptr<string> officeSiteName_ {};
-      // The network type of the office network.
+      // The network type.
       shared_ptr<string> officeSiteType_ {};
       // The type of the operating system.
       shared_ptr<string> osType_ {};
       // The list of policy group IDs.
       shared_ptr<vector<string>> policyGroupIdList_ {};
-      // The set of private IP addresses, including the primary IP address and secondary IP addresses.
+      // The set of private IP addresses, including the primary and secondary IP addresses.
       shared_ptr<vector<WuyingServerList::PrivateIpSets>> privateIpSets_ {};
       // The resource session status.
       shared_ptr<string> resourceSessionStatus_ {};
@@ -817,15 +815,15 @@ namespace Models
       shared_ptr<string> subPayType_ {};
       // Whether ASP streaming connection is supported.
       shared_ptr<bool> supportASP_ {};
-      // The system cloud disk type.
+      // The category of the system cloud disk.
       shared_ptr<string> systemDiskCategory_ {};
-      // The system cloud disk ID.
+      // The ID of the system cloud disk.
       shared_ptr<string> systemDiskId_ {};
-      // The performance level (PL) of the system cloud disk.
+      // The performance level of the system cloud disk.
       shared_ptr<string> systemDiskPerformanceLevel_ {};
-      // The system cloud disk size. Unit: GB.
+      // The size of the system cloud disk in GB.
       shared_ptr<int32_t> systemDiskSize_ {};
-      // The timer group ID.
+      // The ID of the scheduled task group.
       shared_ptr<string> timerGroupId_ {};
       // The list of authorized users.
       shared_ptr<vector<string>> users_ {};
@@ -833,13 +831,13 @@ namespace Models
       shared_ptr<string> virtualKubeletIp_ {};
       // The virtual node pool ID.
       shared_ptr<string> virtualNodePoolId_ {};
-      // Indicates whether a VirtualKubelet upgrade is needed.
+      // Indicates whether a Virtual Kubelet upgrade is required.
       shared_ptr<bool> vkUpgradeNeeded_ {};
       // The Virtual Kubelet version.
       shared_ptr<string> vkVersion_ {};
       // The workstation ID.
       shared_ptr<string> wuyingServerId_ {};
-      // The workstation name.
+      // The name of the workstation.
       shared_ptr<string> wuyingServerName_ {};
       // The zone ID.
       shared_ptr<string> zoneId_ {};
@@ -887,13 +885,13 @@ namespace Models
   protected:
     // The page number.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries per page.
+    // The page size.
     shared_ptr<int32_t> pageSize_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The total number of entries returned.
+    // The total count.
     shared_ptr<int32_t> totalCount_ {};
-    // The list of workstation information.
+    // The workstation information list.
     shared_ptr<vector<ListWuyingServerResponseBody::WuyingServerList>> wuyingServerList_ {};
   };
 

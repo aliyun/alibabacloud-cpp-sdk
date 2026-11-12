@@ -140,29 +140,31 @@ namespace Models
 
 
   protected:
-    // The error code returned when the request fails. For example, `Client.Forbidden` indicates that the client is forbidden from establishing a connection.
+    // The error code returned when the request fails. For example, Client.Forbidden indicates that the client is forbidden from establishing a connection.
     shared_ptr<string> code_ {};
-    // The expiration time of the MQTT connection password. It is returned as a string representing a UNIX timestamp in milliseconds.
+    // The expiration time of the MQTT connection password. It is a UNIX timestamp in milliseconds and is returned as a string.
     shared_ptr<string> expireTimeStamp_ {};
     // The error message returned when the request fails, which corresponds to the error code.
     shared_ptr<string> message_ {};
-    // The access endpoint for the MQTT client. Use the endpoint returned by this operation to establish a connection.
+    // The access endpoint for the MQTT client. Use the endpoint returned in this response to establish a connection.
     shared_ptr<string> mqttEndpoint_ {};
     // The MQTT group ID, used to concatenate the MQTT ClientId.
     shared_ptr<string> mqttGroupId_ {};
     // The MQTT instance ID, used for token authentication.
     shared_ptr<string> mqttInstanceId_ {};
-    // The password used to establish an MQTT connection. It consists of publish and subscribe tokens in the format of `W|PublishToken|R|SubscribeToken`. Use the complete password returned by the operation. The desensitized examples in the documentation cannot be used for connections.
+    // The password used to establish an MQTT connection. It consists of publish and subscribe tokens in the format of W|PublishToken|R|SubscribeToken. Use the complete password returned in the response. The desensitized examples in the documentation cannot be used for connections.
     shared_ptr<string> mqttPassword_ {};
-    // The username used to establish an MQTT connection. The format is `Token|AccessKeyId|InstanceId`. AccessKeyId and InstanceId are identifiers used by the server to generate credentials. Use the complete username returned by the operation.
+    // The username used to establish an MQTT connection. The format is Token|AccessKeyId|InstanceId. AccessKeyId and InstanceId are identifiers used by the server to generate credentials. Use the complete username returned in the response.
     shared_ptr<string> mqttUsername_ {};
-    // The VPC access endpoint for MQTT, used by clients that meet the VPC network access requirements.
+    // The VPC access endpoint for MQTT. It is used by clients that meet the VPC network access requirements.
     shared_ptr<string> mqttVPCEndpoint_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request is successful. `true` indicates success, and `false` indicates failure.
+    // Indicates whether the request is successful. Valid values:
+    // - true: The request is successful.
+    // - false: The request fails.
     shared_ptr<string> success_ {};
-    // The topic list. Each list element contains `topic` (the topic name), `type` (the topic type), and `permission` (the permission). The list returned by this operation includes topics for publishing, tenant subscription, device subscription, and system subscription. The publish permission is `W`, and the subscribe permission is `R`.
+    // The topic list. Each element in the list contains topic (the topic name), type (the topic type), and permission (the permission). The list returned by this operation includes topics for publishing, tenant subscription, device subscription, and system subscription. The publish permission is W, and the subscribe permission is R.
     shared_ptr<string> topicList_ {};
   };
 

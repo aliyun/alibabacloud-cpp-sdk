@@ -235,15 +235,15 @@ namespace Models
     shared_ptr<string> bizRegionId_ {};
     // The business type.
     shared_ptr<int32_t> bizType_ {};
-    // The billing type.
+    // The billing method.
     shared_ptr<string> chargeType_ {};
-    // The end time of the creation time range, in ISO 8601 format. This time point is exclusive.
+    // The end time of the creation time range. The time is in ISO 8601 format and exclusive.
     shared_ptr<string> createTimeEnd_ {};
-    // The start time of the creation time range, in ISO 8601 format. This time point is inclusive.
+    // The start time of the creation time range. The time is in ISO 8601 format and inclusive.
     shared_ptr<string> createTimeStart_ {};
-    // The end time of the expiration time range, in ISO 8601 format. This time point is exclusive.
+    // The end time of the expiration time range. The time is in ISO 8601 format and exclusive.
     shared_ptr<string> expiredTimeEnd_ {};
-    // The start time of the expiration time range, in ISO 8601 format. This time point is inclusive.
+    // The start time of the expiration time range. The time is in ISO 8601 format and inclusive.
     shared_ptr<string> expiredTimeStart_ {};
     // The image ID.
     shared_ptr<string> imageId_ {};
@@ -253,11 +253,11 @@ namespace Models
     shared_ptr<string> officeSiteId_ {};
     // The page number.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries per page.
+    // The page size.
     shared_ptr<int32_t> pageSize_ {};
     // The product type.
     shared_ptr<string> productType_ {};
-    // The workstation instance type.
+    // The workstation specifications.
     shared_ptr<string> serverInstanceType_ {};
     // The workstation status.
     shared_ptr<string> status_ {};

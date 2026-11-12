@@ -245,19 +245,19 @@ namespace Models
       shared_ptr<string> appInstanceGroupName_ {};
       // The specification type of the delivery group.
       shared_ptr<string> appInstanceType_ {};
-      // The list of deployed applications in the image of the delivery group. The `AppId` and `AppName` parameters in the request only determine whether the delivery group is selected, and do not restrict this list to the matched applications.
+      // The list of deployed applications in the image of the delivery group. The AppId and AppName parameters in the request only determine whether the delivery group is selected, and do not trim this list to the matched applications.
       shared_ptr<vector<AppInstanceGroupModels::Apps>> apps_ {};
-      // The expiration time of the delivery group. For delivery groups purchased as resources, the expiration time of their resources is returned. For other delivery groups, the expiration time of the delivery group itself is returned. The time is in ISO 8601 date and time format, including milliseconds and time zone offset. The returned time zone offset is +00:00. Format: yyyy-MM-ddTHH:mm:ss.SSS+HH:mm.
+      // The expiration time of the delivery group. For delivery groups sold as resources, the expiration time of their resources is returned. For other delivery groups, the expiration time of the delivery group itself is returned. The time is in the ISO 8601 date and time format, including milliseconds and time zone offset. The returned time zone offset is +00:00. Format: yyyy-MM-ddTHH:mm:ss.SSS+HH:mm.
       shared_ptr<string> expiredTime_ {};
-      // The creation time of the delivery group. The time is in ISO 8601 date and time format, including milliseconds and time zone offset. The returned time zone offset is +00:00. Format: yyyy-MM-ddTHH:mm:ss.SSS+HH:mm.
+      // The creation time of the delivery group. The time is in the ISO 8601 date and time format, including milliseconds and time zone offset. The returned time zone offset is +00:00. Format: yyyy-MM-ddTHH:mm:ss.SSS+HH:mm.
       shared_ptr<string> gmtCreate_ {};
       // The ID of the region to which the delivery group belongs.
       shared_ptr<string> regionId_ {};
-      // The status of the delivery group. This operation only returns delivery groups in the following states:
+      // The status of the delivery group. This operation only returns delivery groups in the following status:
       // 
-      // - `PUBLISHED`: The delivery group is published and listed, and can be included in the query results of this operation. This status does not indicate that a specified user has obtained access permissions.
+      // - PUBLISHED: Published and listed. Delivery groups in this status can be included in the query results of this operation. This status does not indicate that a specified user has obtained access permissions.
       shared_ptr<string> status_ {};
-      // Indicates whether mixed authorization for users and user groups is supported.
+      // Specifies whether mixed authorization for users and user groups is supported.
       shared_ptr<bool> supportUserGroupMixedAuth_ {};
       // The authorization mode for users and user groups.
       shared_ptr<string> userGroupAuthMode_ {};
@@ -303,15 +303,15 @@ namespace Models
 
 
   protected:
-    // The list of published delivery groups on the current page, sorted in descending order of creation time. An empty list is returned if no results match or if the requested page exceeds the result range.
+    // The list of published delivery groups on the current page, sorted in descending order of creation time. If no results match or the requested page exceeds the result range, an empty list is returned.
     shared_ptr<vector<ListPublishedAppInstanceGroupResponseBody::AppInstanceGroupModels>> appInstanceGroupModels_ {};
     // The page number specified in the current request.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of delivery groups per page specified in the request. This value does not represent the actual number of entries returned on the current page. The actual number on the current page may be less than this value.
+    // The number of delivery groups per page specified in the request. Unit: delivery groups. This value does not represent the actual number of entries returned on the current page. The actual number on the current page may be less than this value.
     shared_ptr<int32_t> pageSize_ {};
-    // The unique identifier of the request, which can be used to troubleshoot request issues.
+    // The unique identifier of the current request, which can be used to troubleshoot request issues.
     shared_ptr<string> requestId_ {};
-    // The total number of delivery groups that meet all filter conditions. This value is not the number of entries returned on the current page. Each delivery group is counted only once. If no results match, the value is `0`.
+    // The total number of delivery groups that meet all filter conditions. Unit: delivery groups. This value is not the number of entries returned on the current page. Each delivery group is counted only once. If no results match, the value is 0.
     shared_ptr<int32_t> totalCount_ {};
   };
 

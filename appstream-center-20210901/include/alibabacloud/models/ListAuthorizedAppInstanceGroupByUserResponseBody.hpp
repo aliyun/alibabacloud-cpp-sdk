@@ -142,15 +142,15 @@ namespace Models
 
 
       protected:
-        // The URL of the application icon.
+        // The URL of the app icon.
         shared_ptr<string> appIcon_ {};
-        // The application ID. When you call the [GetConnectionTicket](~~GetConnectionTicket~~) operation to obtain the connection ticket for the application, specify this value.
+        // The app ID. When you call the [GetConnectionTicket](~~GetConnectionTicket~~) operation to obtain the connection ticket for the app, specify this value.
         shared_ptr<string> appId_ {};
-        // The application name.
+        // The app name.
         shared_ptr<string> appName_ {};
-        // The application version number.
+        // The app version number.
         shared_ptr<string> appVersion_ {};
-        // The application version name.
+        // The app version name.
         shared_ptr<string> appVersionName_ {};
       };
 
@@ -237,7 +237,7 @@ namespace Models
 
 
     protected:
-      // The ID of the application image used by the delivery group.
+      // The ID of the app image used by the delivery group.
       shared_ptr<string> appCenterImageId_ {};
       // The delivery group ID. When you call the [GetConnectionTicket](~~GetConnectionTicket~~) operation, you can specify this value to indicate the delivery group to connect to.
       shared_ptr<string> appInstanceGroupId_ {};
@@ -245,21 +245,21 @@ namespace Models
       shared_ptr<string> appInstanceGroupName_ {};
       // The specification type of the delivery group.
       shared_ptr<string> appInstanceType_ {};
-      // The list of applications deployed in the delivery group. This list includes all applications deployed in the delivery group image and is not affected by the AppId and AppName request parameters.
+      // The list of apps deployed in the delivery group. This list includes all apps deployed in the delivery group image and is not affected by the AppId and AppName request parameters.
       shared_ptr<vector<AppInstanceGroupModels::Apps>> apps_ {};
-      // The expiration time of the delivery group. The time is in ISO 8601 format with milliseconds and a time zone offset of +00:00. Format: yyyy-MM-ddTHH:mm:ss.SSS+HH:mm.
+      // The expiration time of the delivery group. The time is displayed in ISO 8601 format, including milliseconds and time zone offset. The returned time zone offset is +00:00. Format: yyyy-MM-ddTHH:mm:ss.SSS+HH:mm.
       shared_ptr<string> expiredTime_ {};
-      // The creation time of the delivery group. The time is in ISO 8601 format with milliseconds and a time zone offset of +00:00. Format: yyyy-MM-ddTHH:mm:ss.SSS+HH:mm.
+      // The creation time of the delivery group. The time is displayed in ISO 8601 format, including milliseconds and time zone offset. The returned time zone offset is +00:00. Format: yyyy-MM-ddTHH:mm:ss.SSS+HH:mm.
       shared_ptr<string> gmtCreate_ {};
       // The region ID of the delivery group. For more information about supported regions, see [Limits](https://help.aliyun.com/document_detail/426036.html).
       shared_ptr<string> regionId_ {};
       // The status of the delivery group. Valid values:
       // 
-      // - DEPLOYING: Deploying. The delivery group is creating or starting resources and cannot be connected to.
+      // - DEPLOYING: Deploying. The delivery group is creating or starting resources and cannot be connected.
       // - DEPLOYED: Deployed. Resources are ready but the delivery group is not published for external services.
-      // - PUBLISHED: Published. The delivery group is published and users can connect to it.
-      // - STOPPING: Unpublishing. The delivery group is stopping services.
-      // - STOPPED: Unpublished. The delivery group has stopped services and users cannot connect to it.
+      // - PUBLISHED: Published. The delivery group is published and users can connect to and use it.
+      // - STOPPING: Delisting. The delivery group is stopping services.
+      // - STOPPED: Delisted. The delivery group has stopped services and users cannot connect to it.
       // - MAINTAINING: Updating. The delivery group is undergoing maintenance or changes.
       // - FAILED: Publishing failed. Resource initialization failed.
       // - MAINTAIN_FAILED: Update failed. Maintenance or changes were not successful.
@@ -267,7 +267,7 @@ namespace Models
       // 
       // > Deleted delivery groups are not returned.
       shared_ptr<string> status_ {};
-      // Specifies whether mixed authorization of users and user groups is supported.
+      // Specifies whether mixed authorization for users and user groups is supported.
       shared_ptr<bool> supportUserGroupMixedAuth_ {};
       // The authorization mode for users and user groups.
       shared_ptr<string> userGroupAuthMode_ {};
@@ -317,7 +317,7 @@ namespace Models
     shared_ptr<vector<ListAuthorizedAppInstanceGroupByUserResponseBody::AppInstanceGroupModels>> appInstanceGroupModels_ {};
     // The current page number. The value is the same as the PageNumber request parameter.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of delivery groups returned per page. The value is the same as the PageSize request parameter.
+    // The number of delivery groups returned on each page. The value is the same as the PageSize request parameter.
     shared_ptr<int32_t> pageSize_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

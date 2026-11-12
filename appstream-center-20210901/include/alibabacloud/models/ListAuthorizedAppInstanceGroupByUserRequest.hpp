@@ -112,35 +112,35 @@ namespace Models
 
 
   protected:
-    // The application ID. Fuzzy match is supported. Delivery groups in which the IDs of deployed applications contain this string are returned. You can obtain the application ID from the Apps list returned by this operation.
+    // The app ID. Fuzzy match is supported. Delivery groups in which the IDs of deployed apps contain this string are returned. You can obtain the app ID from the Apps list returned by this operation.
     // 
-    // If this parameter is not specified, delivery groups are not filtered by application ID.
+    // If this parameter is not specified, delivery groups are not filtered by app ID.
     shared_ptr<string> appId_ {};
     // The delivery group ID. Fuzzy match is supported. Delivery groups whose IDs contain this string are returned. You can call the [ListAppInstanceGroup](~~ListAppInstanceGroup~~) operation to obtain the ID.
     // 
     // If this parameter is not specified, delivery groups are not filtered by delivery group ID.
     shared_ptr<string> appInstanceGroupId_ {};
-    // The delivery group name. Fuzzy match is supported. For example, if you specify Office applications, delivery groups whose names contain Office applications (such as My office applications and Office applications A) are returned.
+    // The delivery group name. Fuzzy match is supported. For example, if you specify `Office apps`, delivery groups whose names contain `Office apps` (such as `My office apps` and `Office apps A`) are queried.
     // 
     // If this parameter is not specified, delivery groups are not filtered by delivery group name.
     shared_ptr<string> appInstanceGroupName_ {};
-    // The application name. Fuzzy match is supported. Delivery groups in which the names of deployed applications contain this string are returned.
+    // The app name. Fuzzy match is supported. Delivery groups in which the names of deployed apps contain this string are returned.
     // 
-    // If this parameter is not specified, delivery groups are not filtered by application name.
+    // If this parameter is not specified, delivery groups are not filtered by app name.
     shared_ptr<string> appName_ {};
-    // The username. Exact match is used to query the delivery groups for which the user has been granted delivery group-level authorization.
+    // The username. Exact match is used based on the username to query the delivery groups for which the user has been granted delivery group-level authorization.
     // 
-    // > This parameter is required. If this parameter is not specified, the InvalidParameter.UserId error code is returned.
+    // > This parameter is required. If this parameter is not specified, the error code `InvalidParameter.UserId` is returned.
     // 
     // This parameter is required.
     shared_ptr<string> endUserId_ {};
     // The office network ID.
     shared_ptr<string> officeSiteId_ {};
-    // The page number. Pages start from 1.
+    // The page number. Pages start from page 1.
     // 
     // This parameter is required.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of delivery groups to return per page. Valid values: 1 to 100.
+    // The number of delivery groups to return on each page. Valid values: 1 to 100.
     // 
     // This parameter is required.
     shared_ptr<int32_t> pageSize_ {};
@@ -148,7 +148,7 @@ namespace Models
     // 
     // Valid values:
     // 
-    // - CloudApp: Wuying Cloud App.
+    // - CloudApp: Cloud App.
     // - CloudBrowser: Cloud Browser.
     // - WuyingServer: Enterprise Edition workstation.
     // - WuyingWorkstation: Personal Edition Linggou container workstation.

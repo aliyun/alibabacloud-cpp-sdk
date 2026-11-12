@@ -211,23 +211,23 @@ namespace Models
 
 
   protected:
-    // The application image ID. You can obtain this value from the Image Management page in the WUYING Workspace console.
+    // The ID of the app image. You can obtain the ID from the Image Management page in the WUYING Cloud App console.
     shared_ptr<string> appCenterImageId_ {};
-    // The delivery group ID.
+    // The ID of the app instance group.
     shared_ptr<string> appInstanceGroupId_ {};
-    // The delivery group name. Fuzzy match is used for the query. For example, if you set the delivery group name to `OfficeApp`, all delivery groups whose names contain `OfficeApp` are returned, such as `MyOfficeApp` and `OfficeAppA`.
+    // The name of the app instance group. Fuzzy match is supported. For example, if you specify `Office App`, app instance groups whose names contain `Office App` are queried, such as `My Office App` and `Office App A`.
     shared_ptr<string> appInstanceGroupName_ {};
-    // The region ID of the delivery group. For more information about supported regions, see [Limits](https://help.aliyun.com/document_detail/426036.html).
+    // The ID of the region to which the app instance group belongs. For more information about supported regions, see [Limits](https://help.aliyun.com/document_detail/426036.html).
     shared_ptr<string> bizRegionId_ {};
-    // The list of excluded authorized user group IDs.
+    // The list of excluded authorization user group IDs.
     shared_ptr<vector<string>> excludedUserGroupIds_ {};
-    // The specification type ID of the purchased resource. You can call the [ListNodeInstanceType](~~ListNodeInstanceType~~) operation to obtain this value.
+    // The ID of the instance type for the purchased resources. You can obtain the ID by calling the [ListNodeInstanceType](~~ListNodeInstanceType~~) operation.
     shared_ptr<string> nodeInstanceType_ {};
-    // The office network ID.
+    // The ID of the office network.
     shared_ptr<string> officeSiteId_ {};
-    // The page number of the query results to display.
+    // The page number.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of query results per page. Maximum value: `100`.
+    // The number of entries to return on each page. The value cannot exceed `100`.
     shared_ptr<int32_t> pageSize_ {};
     // The product type.
     // 
@@ -235,7 +235,7 @@ namespace Models
     shared_ptr<string> productType_ {};
     // The region ID.
     shared_ptr<string> regionId_ {};
-    // The list of delivery group statuses.
+    // The statuses of the app instance groups.
     shared_ptr<vector<string>> status_ {};
     // The list of tags.
     shared_ptr<vector<ListAppInstanceGroupRequest::Tag>> tag_ {};

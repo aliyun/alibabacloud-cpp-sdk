@@ -127,9 +127,9 @@ namespace Models
 
 
     protected:
-      // Indicates whether the configuration is valid. The value is true if all validation items pass.
+      // Indicates whether the configuration is valid. The value is true if all validation checks pass.
       shared_ptr<bool> valid_ {};
-      // The list of validation errors. This list is empty if Valid is true.
+      // The list of validation errors. This list is empty when Valid is true.
       shared_ptr<vector<Data::ValidationErrors>> validationErrors_ {};
     };
 
@@ -152,7 +152,7 @@ namespace Models
 
 
   protected:
-    // The validation result of the LLM template configuration, which includes whether the configuration is valid and a list of validation errors.
+    // The validation result of the LLM template configuration, including whether the configuration is valid and the list of validation errors.
     shared_ptr<ValidateLlmTemplateConfigResponseBody::Data> data_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

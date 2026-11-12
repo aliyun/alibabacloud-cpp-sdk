@@ -144,7 +144,7 @@ namespace Models
 
 
   protected:
-    // The list of bookmarks on the current page.
+    // The bookmarks on the current page.
     shared_ptr<vector<ListBrowserBookmarksResponseBody::Data>> data_ {};
     // The current page number.
     shared_ptr<int32_t> pageNumber_ {};

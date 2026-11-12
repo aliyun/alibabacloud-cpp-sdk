@@ -50,6 +50,15 @@ namespace Models
   protected:
     // The delivery group ID.
     // 
+    // Note:
+    // - The delivery group must meet the following status requirements:
+    // 1. ChargeType=PostPaid
+    // 2. NodePool.StrategyType=NODE_SCALING_BY_SCHEDULE
+    // 3. Status=PUBLISHED
+    // 4. The current time is not within the NodePool.RecurrenceSchedules window.
+    // - You can call the ListAppInstanceGroup or GetAppInstanceGroup operation to query the current status of the delivery group.
+    // - You can call the CreateAppInstanceGroup operation to create a delivery group that meets the requirements.
+    // 
     // This parameter is required.
     shared_ptr<string> appInstanceGroupId_ {};
     // The product type.
