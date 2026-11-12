@@ -57,10 +57,17 @@ namespace Models
 
 
   protected:
+    // agentname
+    // 
     // This parameter is required.
     shared_ptr<string> agentName_ {};
+    // The cluster ID.
+    // 
     // This parameter is required.
     shared_ptr<string> clusterId_ {};
+    // The strategy for synchronizing scheduled tasks. Valid values:  
+    // - 1: Migrates both the content and the scheduling time of local scheduled tasks from the agent to the cloud.  
+    // - 2: Migrates only the scheduling time to the cloud. When the scheduled time arrives, the platform notifies the agent, and the agent executes the task based on the local task content. The task content is always retained locally.
     shared_ptr<int32_t> migrateStrategy_ {};
   };
 

@@ -146,13 +146,13 @@ namespace Models
 
 
         protected:
-          // The height of the node. This parameter is optional.
+          // The height of the node. This field is optional.
           shared_ptr<float> height_ {};
-          // The width of the node. This parameter is optional.
+          // The width of the node. This field is optional.
           shared_ptr<float> width_ {};
-          // The x-coordinate of the node.
+          // The X-axis coordinate of the node.
           shared_ptr<float> x_ {};
-          // The y-coordinate of the node.
+          // The Y-axis coordinate of the node.
           shared_ptr<float> y_ {};
         };
 
@@ -213,37 +213,27 @@ namespace Models
       protected:
         // The application name.
         shared_ptr<string> appName_ {};
-        // The coordinates of the node.
+        // The coordinate information of the node.
         shared_ptr<Nodes::Coordinate> coordinate_ {};
-        // The unique ID for the job execution (node).
+        // The ID.
         shared_ptr<string> id_ {};
-        // The job ID.
+        // The task ID.
         shared_ptr<int64_t> jobId_ {};
-        // The job type.
+        // The task type.
         shared_ptr<string> jobType_ {};
-        // The job name.
+        // The task name.
         shared_ptr<string> name_ {};
-        // The execution status of the job. Valid values:
-        // 
-        // - 0: Unknown
-        // 
-        // - 1: Waiting
-        // 
-        // - 2: Queued
-        // 
-        // - 3: Running
-        // 
-        // - 4: Succeeded
-        // 
-        // - 5: Failed
-        // 
-        // - 6: Killed
-        // 
-        // - 7: Held
-        // 
-        // - 8: Marked as successful
-        // 
-        // - 9: Skipped
+        // The task execution status. Valid values:
+        // - 0: unknown
+        // - 1: waiting 
+        // - 2: queued
+        // - 3: running
+        // - 4: success
+        // - 5: failed
+        // - 6: killed
+        // - 7: held
+        // - 8: mark_success
+        // - 9: skipped
         shared_ptr<int32_t> status_ {};
       };
 
@@ -285,9 +275,9 @@ namespace Models
 
 
       protected:
-        // The ID of the source node.
+        // The task execution ID of the source node.
         shared_ptr<string> source_ {};
-        // The ID of the target node.
+        // The task execution ID of the target node.
         shared_ptr<string> target_ {};
       };
 
@@ -312,9 +302,9 @@ namespace Models
 
 
     protected:
-      // A list of edges in the workflow DAG.
+      // The list of edges in the workflow.
       shared_ptr<vector<Data::Edges>> edges_ {};
-      // A list of nodes in the workflow DAG.
+      // The node information.
       shared_ptr<vector<Data::Nodes>> nodes_ {};
     };
 
@@ -360,17 +350,15 @@ namespace Models
   protected:
     // The response code.
     shared_ptr<int32_t> code_ {};
-    // The data returned for the request.
+    // The query result.
     shared_ptr<GetWorkflowExecutionDAGResponseBody::Data> data_ {};
     // The error message.
     shared_ptr<string> message_ {};
-    // The ID of the request.
+    // Id of the request
     shared_ptr<string> requestId_ {};
-    // Indicates whether the API call succeeded.
-    // 
-    // - `true`: The call succeeded.
-    // 
-    // - `false`: The call failed.
+    // Indicates whether the call is successful. Valid values:
+    // - true: The call is successful.
+    // - false: The call fails.
     shared_ptr<bool> success_ {};
   };
 

@@ -293,11 +293,11 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> appName_ {};
-    // The retry interval upon node failure.
+    // The retry interval for a failed job.
     shared_ptr<int32_t> attemptInterval_ {};
     // The custom calendar.
     shared_ptr<string> calendar_ {};
-    // The child node IDs, separated by commas.
+    // The IDs of child jobs. Separate multiple IDs with commas.
     shared_ptr<string> childJobId_ {};
     // The cluster ID.
     // 
@@ -305,35 +305,35 @@ namespace Models
     shared_ptr<string> clusterId_ {};
     // The dependency strategy.
     shared_ptr<int32_t> dependentStrategy_ {};
-    // The node description.
+    // The job description.
     shared_ptr<string> description_ {};
     // The client blocking strategy. Valid values:
-    // - 1: serial execution on a single machine
+    // - 1: single-machine serial execution
     // - 2: ignore subsequent scheduling
     // - 3: override previous scheduling
     shared_ptr<int32_t> executorBlockStrategy_ {};
-    // The jobhandler name.
+    // The name of the job handler.
     shared_ptr<string> jobHandler_ {};
-    // The node ID.
+    // The job ID.
     // 
     // This parameter is required.
     shared_ptr<int64_t> jobId_ {};
-    // The node label information.
+    // The tag information of the job.
     shared_ptr<string> label_ {};
-    // The maximum number of retry attempts upon node failure.
+    // The maximum number of retries for a failed job.
     shared_ptr<int32_t> maxAttempt_ {};
-    // The maximum concurrency of the node.
-    // >The maximum number of instances that can run simultaneously for the same node. A value of 1 indicates that repeated execution is not allowed. If the concurrency limit is exceeded, the current scheduling is skipped.
+    // The maximum number of concurrent instances for a job.
+    // > The maximum number of instances that can run concurrently for the same job. A value of 1 indicates that repeated execution is not allowed. If the concurrency limit is exceeded, the current scheduling is skipped.
     shared_ptr<int32_t> maxConcurrency_ {};
-    // The node name.
+    // The job name.
     shared_ptr<string> name_ {};
     // The notification configuration.
     shared_ptr<string> noticeConfigShrink_ {};
     // The notification contact configuration.
     shared_ptr<string> noticeContactsShrink_ {};
-    // The node parameters.
+    // The job parameters.
     shared_ptr<string> parameters_ {};
-    // The execution priority of the node. Valid values:
+    // The execution priority of the job. Valid values:
     // 
     // - 1: low
     // - 5: medium
@@ -349,21 +349,21 @@ namespace Models
     // - 5: least frequently used
     // - 6: least recently used
     // - 7: consistent hashing
-    // - 8: shard broadcast
+    // - 8: sharding broadcast
     shared_ptr<int32_t> routeStrategy_ {};
-    // The script configured for non-BEAN nodes.
+    // The script configuration for non-BEAN jobs.
     shared_ptr<string> script_ {};
-    // The scheduling start time.
+    // The start time of the scheduling.
     shared_ptr<int64_t> startTime_ {};
     // The start time type.
     shared_ptr<string> startTimeType_ {};
-    // The time expression. Set the time expression based on the selected time type.
+    // The time expression. Configure the time expression based on the selected time type.
     // 
-    // - none: No value is required.
+    // - none: not required
     // - cron: Enter a standard cron expression. Online verification is supported.
-    // - api: No value is required.
-    // - fixed_rate: Enter a fixed frequency value in seconds. For example, 30 indicates that the node is triggered every 30 seconds.
-    // - one_time: Enter a scheduling time in the format of yyyy-MM-dd HH:mm:ss or a timestamp in milliseconds. For example, "2022-10-10 10:10:00".
+    // - api: not required
+    // - fixed_rate: Enter a fixed frequency value in seconds. For example, 30 indicates that the job is triggered every 30 seconds.
+    // - one_time: Enter the scheduling time in the yyyy-MM-dd HH:mm:ss format or a timestamp in milliseconds, such as "2022-10-10 10:10:00".
     shared_ptr<string> timeExpression_ {};
     // The time type. Valid values:
     // 
@@ -374,11 +374,11 @@ namespace Models
     // - 100: api
     shared_ptr<int32_t> timeType_ {};
     // The time zone.
-    // > Default value: the time zone of the SchedulerX server.
+    // > By default, the time zone of the SchedulerX server is used.
     shared_ptr<string> timezone_ {};
-    // The node weight.
+    // The weight of the job.
     shared_ptr<int32_t> weight_ {};
-    // The extended properties of the node.
+    // The extended properties of the job.
     shared_ptr<string> XAttrs_ {};
   };
 

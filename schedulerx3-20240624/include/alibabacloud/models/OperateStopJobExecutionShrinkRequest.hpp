@@ -75,6 +75,7 @@ namespace Models
 
 
   protected:
+    // The application ID.
     shared_ptr<int64_t> appGroupId_ {};
     // The application name.
     // 
@@ -88,7 +89,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> jobExecutionId_ {};
-    // The subtask IDs.
+    // The subtask ID.
     shared_ptr<string> taskListShrink_ {};
   };
 

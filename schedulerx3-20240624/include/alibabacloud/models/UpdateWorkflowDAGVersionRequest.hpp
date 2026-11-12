@@ -74,11 +74,11 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> clusterId_ {};
-    // The Workflow DAG version.
+    // The workflow DAG version number.
     // 
     // This parameter is required.
     shared_ptr<string> dagVersion_ {};
-    // The Workflow ID.
+    // The workflow ID.
     // 
     // This parameter is required.
     shared_ptr<int64_t> workflowId_ {};

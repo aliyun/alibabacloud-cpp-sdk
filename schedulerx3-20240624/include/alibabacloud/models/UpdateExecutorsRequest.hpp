@@ -70,13 +70,13 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> appName_ {};
-    // The Cluster ID.
+    // The cluster ID.
     // 
     // This parameter is required.
     shared_ptr<string> clusterId_ {};
-    // The Worker type.
+    // The executor type.
     shared_ptr<string> workerType_ {};
-    // A JSON-formatted string that contains a list of Workers.
+    // The list of specified machines in JSON format.
     shared_ptr<string> workers_ {};
   };
 

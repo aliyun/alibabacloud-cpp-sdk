@@ -115,19 +115,20 @@ namespace Models
     shared_ptr<string> clusterId_ {};
     // Specifies whether to enable logging.
     // 
-    // - `true`: Enables logging.
+    // - true: Enabled.
     // 
-    // - `false`: Disables logging.
+    // - false: Disabled.
     shared_ptr<bool> enableLog_ {};
+    // The label routing strategy.
     shared_ptr<int32_t> labelRouteStrategy_ {};
-    // The task execution queue size.
-    // 
-    // > Sets the maximum number of concurrent task instances in the application group. Additional task instances are queued for execution and not discarded.
+    // The size of the task execution queue.
+    // > The maximum number of task instances that can run concurrently for an application. Task instances that exceed the concurrency limit are not discarded, but are placed in a queue to wait for execution.
     shared_ptr<int32_t> maxConcurrency_ {};
     // The title.
     // 
     // This parameter is required.
     shared_ptr<string> title_ {};
+    // The primary key ID of the worker group.
     shared_ptr<int32_t> workerId_ {};
   };
 

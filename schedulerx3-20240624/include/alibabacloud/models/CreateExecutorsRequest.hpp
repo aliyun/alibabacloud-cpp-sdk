@@ -66,19 +66,19 @@ namespace Models
 
 
   protected:
-    // The name of the application.
+    // The application name.
     // 
     // This parameter is required.
     shared_ptr<string> appName_ {};
-    // The ID of the cluster.
+    // The cluster ID.
     // 
     // This parameter is required.
     shared_ptr<string> clusterId_ {};
-    // The worker type. The only valid value is `k8s_service`.
+    // The executor type.
     // 
     // This parameter is required.
     shared_ptr<string> workerType_ {};
-    // A JSON string that contains an array of workers.
+    // The list of specified machines in JSON format.
     // 
     // This parameter is required.
     shared_ptr<string> workers_ {};

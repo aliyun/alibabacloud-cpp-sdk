@@ -84,9 +84,9 @@ namespace Models
 
 
     protected:
-      // The name of the calendar.
+      // The calendar name.
       shared_ptr<string> calendarName_ {};
-      // A JSON string that represents an array of objects. Each object specifies the days for a particular month.
+      // The months.
       shared_ptr<string> months_ {};
       // The year.
       shared_ptr<int32_t> year_ {};
@@ -134,17 +134,15 @@ namespace Models
   protected:
     // The response code.
     shared_ptr<int32_t> code_ {};
-    // - The data returned.
+    // The calendar information for the specified year.
     shared_ptr<GetCalendarResponseBody::Data> data_ {};
     // The error message.
     shared_ptr<string> message_ {};
-    // The request ID.
+    // Id of the request
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request was successful.
-    // 
-    // - **true**
-    // 
-    // - **false**
+    // Indicates whether the call was successful.
+    // - **true**: The call was successful.
+    // - **false**: The call failed.
     shared_ptr<bool> success_ {};
   };
 

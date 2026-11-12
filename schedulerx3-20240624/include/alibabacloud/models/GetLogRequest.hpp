@@ -155,29 +155,28 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> clusterId_ {};
-    // The end time. This value is a UNIX timestamp.
+    // The end time.
     shared_ptr<int64_t> endTime_ {};
     // The job execution ID.
     shared_ptr<string> jobExecutionId_ {};
-    // The keyword to search for.
+    // The search keyword.
     shared_ptr<string> keyword_ {};
     // The log level.
     shared_ptr<string> level_ {};
-    // The number of log entries to return.
+    // The LineNum.
     shared_ptr<int32_t> lineNum_ {};
     // The log ID.
     shared_ptr<int64_t> logId_ {};
     // The offset.
     shared_ptr<int32_t> offset_ {};
-    // Specifies whether to sort the results in descending order.
+    // Specifies whether to sort the results in descending order. Valid values:
     // 
-    // - **true**: sorts the results in descending order.
-    // 
-    // - **false**: sorts the results in ascending order.
+    // - **true**: Sorts the results in descending order.
+    // - **false**: Sorts the results in ascending order.
     shared_ptr<bool> reverse_ {};
-    // The time when the job was scheduled. This value is a UNIX timestamp.
+    // The scheduling time.
     shared_ptr<int64_t> scheduleTime_ {};
-    // The start time. This value is a UNIX timestamp.
+    // The start time.
     shared_ptr<int64_t> startTime_ {};
     // The worker address.
     shared_ptr<string> workerAddr_ {};

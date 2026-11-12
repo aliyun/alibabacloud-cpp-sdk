@@ -136,7 +136,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> clusterId_ {};
-    // The end time.
+    // The end time in the YYYY-MM-DD HH:mm:ss format.
     shared_ptr<string> endTime_ {};
     // The job execution ID.
     shared_ptr<string> jobExecutionId_ {};
@@ -148,7 +148,7 @@ namespace Models
     shared_ptr<int32_t> pageNum_ {};
     // The number of entries per page.
     shared_ptr<int32_t> pageSize_ {};
-    // The start time.
+    // The start time. Format: YYYY-MM-DD HH:mm:ss.
     shared_ptr<string> startTime_ {};
     // The job execution status. Valid values:
     // - 0: **UNKNOWN**.

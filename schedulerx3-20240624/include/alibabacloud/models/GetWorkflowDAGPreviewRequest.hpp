@@ -66,19 +66,19 @@ namespace Models
 
 
   protected:
-    // The name of the application.
+    // The application name.
     // 
     // This parameter is required.
     shared_ptr<string> appName_ {};
-    // The unique identifier for the cluster.
+    // The cluster ID.
     // 
     // This parameter is required.
     shared_ptr<string> clusterId_ {};
-    // The version of the workflow DAG.
+    // The version number of the workflow DAG.
     // 
     // This parameter is required.
     shared_ptr<string> dagVersion_ {};
-    // The unique identifier for the workflow.
+    // The workflow ID.
     shared_ptr<int64_t> workflowId_ {};
   };
 

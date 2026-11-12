@@ -65,7 +65,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> clusterId_ {};
-    // The workflow execution ID.
+    // The workflow instance ID.
     // 
     // This parameter is required.
     shared_ptr<int64_t> workflowExecutionId_ {};

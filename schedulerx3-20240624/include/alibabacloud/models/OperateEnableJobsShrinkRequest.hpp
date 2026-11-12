@@ -66,6 +66,7 @@ namespace Models
 
 
   protected:
+    // The application ID.
     shared_ptr<int64_t> appGroupId_ {};
     // The application name.
     // 
@@ -75,6 +76,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> clusterId_ {};
+    // The list of task IDs to operate on.
     shared_ptr<string> jobIdsShrink_ {};
   };
 

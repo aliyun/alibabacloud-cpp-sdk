@@ -177,7 +177,7 @@ namespace Models
 
 
   protected:
-    // The billing type.
+    // The billing method.
     shared_ptr<string> chargeType_ {};
     // The name of the cluster.
     // 
@@ -188,7 +188,7 @@ namespace Models
     // - scx.small.x1
     // - scx.small.x2
     // - scx.medium.x1
-    // - scx.medium.x2.
+    // - scx.medium.x2
     shared_ptr<string> clusterSpec_ {};
     // The cluster type.
     shared_ptr<int32_t> clusterType_ {};
@@ -200,11 +200,11 @@ namespace Models
     shared_ptr<string> pricingCycle_ {};
     // The source.
     shared_ptr<string> source_ {};
-    // The list of tags. A maximum of 20 tags are supported.
+    // The list of tags. You can add up to 20 tags.
     shared_ptr<vector<CreateClusterShrinkRequest::Tag>> tag_ {};
-    // The information about the vSwitches.
+    // The vSwitch information.
     shared_ptr<string> vSwitchesShrink_ {};
-    // The ID of the VPC.
+    // The VPC ID.
     shared_ptr<string> vpcId_ {};
   };
 

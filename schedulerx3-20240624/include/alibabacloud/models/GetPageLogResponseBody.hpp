@@ -147,12 +147,19 @@ namespace Models
 
 
       protected:
+        // The application name.
         shared_ptr<string> appName_ {};
+        // The job execution ID.
         shared_ptr<string> jobExecutionId_ {};
+        // The job name.
         shared_ptr<string> jobName_ {};
+        // The content output by the current command in the current output stream.
         shared_ptr<string> log_ {};
+        // The print time in the yyyy-MM-dd HH:mm:ss format.
         shared_ptr<string> time_ {};
+        // The user ID.
         shared_ptr<string> userId_ {};
+        // The worker address.
         shared_ptr<string> workerAddr_ {};
       };
 
@@ -189,9 +196,13 @@ namespace Models
 
 
     protected:
+      // The current page number.
       shared_ptr<int32_t> pageNum_ {};
+      // The number of entries per page.
       shared_ptr<int32_t> pageSize_ {};
+      // The list of log records on the current page.
       shared_ptr<vector<Data::Records>> records_ {};
+      // The total number of entries.
       shared_ptr<int32_t> total_ {};
     };
 
@@ -235,10 +246,17 @@ namespace Models
 
 
   protected:
+    // The response code.
     shared_ptr<int32_t> code_ {};
+    // The paginated log results.
     shared_ptr<GetPageLogResponseBody::Data> data_ {};
+    // The error message.
     shared_ptr<string> message_ {};
+    // Id of the request
     shared_ptr<string> requestId_ {};
+    // Indicates whether the call was successful. Valid values:
+    // - **true**: The call was successful.
+    // - **false**: The call failed.
     shared_ptr<bool> success_ {};
   };
 

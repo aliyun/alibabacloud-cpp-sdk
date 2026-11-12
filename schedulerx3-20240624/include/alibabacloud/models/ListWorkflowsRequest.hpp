@@ -121,31 +121,29 @@ namespace Models
 
 
   protected:
-    // The name of the application.
+    // The application name.
     shared_ptr<string> appName_ {};
-    // The ID of the cluster.
+    // The cluster ID.
     // 
     // This parameter is required.
     shared_ptr<string> clusterId_ {};
-    // The description of the workflow.
+    // The workflow description.
     shared_ptr<string> description_ {};
-    // The maximum number of entries to return. The default value is 10.
+    // The maximum number of entries to return for this request. Default value: 10.
     shared_ptr<int32_t> maxResults_ {};
-    // The name of the workflow.
+    // The workflow name.
     shared_ptr<string> name_ {};
-    // The pagination token that is used in the next request to retrieve a new page of results. You do not need to specify this parameter for the first request. If the return value is empty, no more data is returned.
+    // The token that specifies the position where the current call returns the read data. An empty value indicates that all data has been read. You do not need to specify this parameter for the first query.
     shared_ptr<string> nextToken_ {};
     // The page number.
     shared_ptr<int32_t> pageNum_ {};
-    // The number of entries per page.
+    // The page size.
     shared_ptr<int32_t> pageSize_ {};
-    // The status of the workflow. If this parameter is not specified, workflows in the `disabled` state are returned by default. Valid values:
-    // 
-    // - `0`: disabled
-    // 
-    // - `1`: enabled
+    // The workflow status. Default value: 0. Valid values:
+    // - 0: Disabled.
+    // - 1: Enabled.
     shared_ptr<int32_t> status_ {};
-    // The ID of the workflow.
+    // The workflow ID.
     shared_ptr<int64_t> workflowId_ {};
   };
 

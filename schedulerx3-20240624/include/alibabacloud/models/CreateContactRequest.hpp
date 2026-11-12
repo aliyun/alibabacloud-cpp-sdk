@@ -57,15 +57,16 @@ namespace Models
 
 
   protected:
-    // 渠道参数配置 JSON 字符串。IM 类型示例：{"channels":[{"channelType":"dingtalk","clientId":"xxx","clientSecret":"xxx","targetType":"group","targetId":"xxx","robotCode":"xxx"}]}
+    // The JSON character string for channel parameter settings. Example for the IM type: {"channels":[{"channelType":"dingtalk","clientId":"xxx","clientSecret":"xxx","targetType":"group","targetId":"xxx","robotCode":"xxx"}]}
     // 
     // This parameter is required.
     shared_ptr<string> config_ {};
-    // 联系人名称（用户自定义，用于展示），同一用户下不可重名
+    // The name of the alert contact.
     // 
     // This parameter is required.
     shared_ptr<string> contactName_ {};
-    // 渠道大类，当前支持 IM
+    // The contact type.
+    // - IM: Configures an IM channel notification contact.
     // 
     // This parameter is required.
     shared_ptr<string> type_ {};

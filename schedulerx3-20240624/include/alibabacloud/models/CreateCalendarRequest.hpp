@@ -79,13 +79,13 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> calendarName_ {};
-    // A client token to ensure request idempotence. Generate a unique value for this parameter on your client. The token can contain only ASCII characters. Note: If you do not specify this parameter, the system automatically uses the Request ID as the client token. The Request ID may be different for each request.
+    // The client token that is used to ensure the idempotence of the request. You can generate the value from your client and make sure that the value is unique across different requests. The client token supports only ASCII characters. Note: If you do not specify this parameter, the system automatically uses the RequestId of the API request as the client token. The RequestId of each API request may be different.
     shared_ptr<string> clientToken_ {};
-    // The Cluster ID. You can call the [ListClusters](https://help.aliyun.com/document_detail/28147.html) operation to query Cluster IDs.
+    // The ID of the cluster. You can call [ListClusters](https://help.aliyun.com/document_detail/28147.html) to query the cluster ID.
     // 
     // This parameter is required.
     shared_ptr<string> clusterId_ {};
-    // The days of each month, specified in a JSON array.
+    // The calendar for each month in JSON array format.
     // 
     // This parameter is required.
     shared_ptr<string> months_ {};

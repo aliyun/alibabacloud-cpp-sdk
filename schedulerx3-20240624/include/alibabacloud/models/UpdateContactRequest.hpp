@@ -66,13 +66,15 @@ namespace Models
 
 
   protected:
-    // 渠道参数配置 JSON 字符串（可选，传入则更新）
+    // The JSON character string for channel parameter settings. This parameter is optional. If specified, the settings are updated.
     shared_ptr<string> config_ {};
+    // The name of the contact to update.
+    // 
     // This parameter is required.
     shared_ptr<string> contactName_ {};
-    // 是否启用（true/false，可选）
+    // Specifies whether to enable or disable the notification channel for the contact.
     shared_ptr<bool> enabled_ {};
-    // 渠道大类（可选，传入则更新）
+    // The type of the contact.
     shared_ptr<string> type_ {};
   };
 

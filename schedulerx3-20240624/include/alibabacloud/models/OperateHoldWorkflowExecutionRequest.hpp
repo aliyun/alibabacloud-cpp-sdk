@@ -57,15 +57,15 @@ namespace Models
 
 
   protected:
-    // The name of the application.
+    // The application name.
     // 
     // This parameter is required.
     shared_ptr<string> appName_ {};
-    // The ID of the cluster.
+    // The cluster ID.
     // 
     // This parameter is required.
     shared_ptr<string> clusterId_ {};
-    // The ID of the Workflow Execution.
+    // The workflow instance ID.
     // 
     // This parameter is required.
     shared_ptr<int64_t> workflowExecutionId_ {};

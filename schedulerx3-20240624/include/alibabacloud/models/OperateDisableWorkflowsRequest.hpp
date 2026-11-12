@@ -68,7 +68,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> clusterId_ {};
-    // A list of workflow IDs.
+    // The list of workflow IDs.
     // 
     // This parameter is required.
     shared_ptr<vector<int64_t>> workflowIds_ {};

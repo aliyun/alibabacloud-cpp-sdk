@@ -60,13 +60,13 @@ namespace Models
 
 
   protected:
-    // The name of the application.
+    // The application name.
     shared_ptr<string> appName_ {};
-    // The ID of the cluster where the Workflow is located.
+    // A short description of struct
     // 
     // This parameter is required.
     shared_ptr<string> clusterId_ {};
-    // An array of Workflow IDs to export.
+    // The workflow ID.
     shared_ptr<vector<int64_t>> workflowId_ {};
   };
 

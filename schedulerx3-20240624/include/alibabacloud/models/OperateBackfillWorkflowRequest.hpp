@@ -83,11 +83,11 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> clusterId_ {};
-    // The end date of the backfill, in YYYY-MM-DD format.
+    // The end date for backfilling data. The format is YYYY-MM-DD.
     // 
     // This parameter is required.
     shared_ptr<string> endDate_ {};
-    // The start date of the backfill, in YYYY-MM-DD format.
+    // The start date for backfilling data. The format is YYYY-MM-DD.
     // 
     // This parameter is required.
     shared_ptr<string> startDate_ {};

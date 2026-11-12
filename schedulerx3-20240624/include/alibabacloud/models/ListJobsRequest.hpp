@@ -2,6 +2,7 @@
 #ifndef ALIBABACLOUD_MODELS_LISTJOBSREQUEST_HPP_
 #define ALIBABACLOUD_MODELS_LISTJOBSREQUEST_HPP_
 #include <darabonba/Core.hpp>
+#include <vector>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud
@@ -23,6 +24,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(PageNum, pageNum_);
       DARABONBA_PTR_TO_JSON(PageSize, pageSize_);
       DARABONBA_PTR_TO_JSON(Status, status_);
+      DARABONBA_PTR_TO_JSON(TimeType, timeType_);
       DARABONBA_PTR_TO_JSON(WorkflowId, workflowId_);
     };
     friend void from_json(const Darabonba::Json& j, ListJobsRequest& obj) { 
@@ -36,6 +38,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(PageNum, pageNum_);
       DARABONBA_PTR_FROM_JSON(PageSize, pageSize_);
       DARABONBA_PTR_FROM_JSON(Status, status_);
+      DARABONBA_PTR_FROM_JSON(TimeType, timeType_);
       DARABONBA_PTR_FROM_JSON(WorkflowId, workflowId_);
     };
     ListJobsRequest() = default ;
@@ -51,7 +54,8 @@ namespace Models
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->appName_ == nullptr
         && this->clusterId_ == nullptr && this->description_ == nullptr && this->jobHandler_ == nullptr && this->jobId_ == nullptr && this->jobName_ == nullptr
-        && this->label_ == nullptr && this->pageNum_ == nullptr && this->pageSize_ == nullptr && this->status_ == nullptr && this->workflowId_ == nullptr; };
+        && this->label_ == nullptr && this->pageNum_ == nullptr && this->pageSize_ == nullptr && this->status_ == nullptr && this->timeType_ == nullptr
+        && this->workflowId_ == nullptr; };
     // appName Field Functions 
     bool hasAppName() const { return this->appName_ != nullptr;};
     void deleteAppName() { this->appName_ = nullptr;};
@@ -122,6 +126,15 @@ namespace Models
     inline ListJobsRequest& setStatus(string status) { DARABONBA_PTR_SET_VALUE(status_, status) };
 
 
+    // timeType Field Functions 
+    bool hasTimeType() const { return this->timeType_ != nullptr;};
+    void deleteTimeType() { this->timeType_ = nullptr;};
+    inline const vector<int32_t> & getTimeType() const { DARABONBA_PTR_GET_CONST(timeType_, vector<int32_t>) };
+    inline vector<int32_t> getTimeType() { DARABONBA_PTR_GET(timeType_, vector<int32_t>) };
+    inline ListJobsRequest& setTimeType(const vector<int32_t> & timeType) { DARABONBA_PTR_SET_VALUE(timeType_, timeType) };
+    inline ListJobsRequest& setTimeType(vector<int32_t> && timeType) { DARABONBA_PTR_SET_RVALUE(timeType_, timeType) };
+
+
     // workflowId Field Functions 
     bool hasWorkflowId() const { return this->workflowId_ != nullptr;};
     void deleteWorkflowId() { this->workflowId_ = nullptr;};
@@ -132,19 +145,19 @@ namespace Models
   protected:
     // The application name.
     shared_ptr<string> appName_ {};
-    // The cluster ID.
+    // The cluster.
     // 
     // This parameter is required.
     shared_ptr<string> clusterId_ {};
     // The description.
     shared_ptr<string> description_ {};
-    // The `jobhandler` name.
+    // The jobhandler name.
     shared_ptr<string> jobHandler_ {};
-    // The task ID.
+    // The job ID.
     shared_ptr<int64_t> jobId_ {};
-    // The task name.
+    // The job name.
     shared_ptr<string> jobName_ {};
-    // The task label filter condition.
+    // The job label condition.
     shared_ptr<string> label_ {};
     // The page number.
     shared_ptr<int32_t> pageNum_ {};
@@ -152,6 +165,8 @@ namespace Models
     shared_ptr<int32_t> pageSize_ {};
     // The status.
     shared_ptr<string> status_ {};
+    // The list of time types.
+    shared_ptr<vector<int32_t>> timeType_ {};
     // The workflow ID.
     shared_ptr<int64_t> workflowId_ {};
   };

@@ -72,7 +72,7 @@ namespace Models
     shared_ptr<string> clusterId_ {};
     // The executor address.
     shared_ptr<string> executorAddr_ {};
-    // The job execution ID.
+    // The task execution ID.
     shared_ptr<string> jobExecutionId_ {};
   };
 

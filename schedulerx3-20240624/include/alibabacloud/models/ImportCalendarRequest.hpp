@@ -70,7 +70,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> clusterId_ {};
-    // The days of each month, in JSON format.
+    // The month.
     // 
     // This parameter is required.
     shared_ptr<string> months_ {};

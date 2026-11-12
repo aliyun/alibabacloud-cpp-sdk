@@ -65,7 +65,7 @@ namespace Models
 
 
     protected:
-      // 新建联系人的 id，后续 Update/Delete 时使用
+      // The contact ID.
       shared_ptr<int64_t> contactId_ {};
     };
 
@@ -109,10 +109,17 @@ namespace Models
 
 
   protected:
+    // The response code.
     shared_ptr<int32_t> code_ {};
+    // The returned result.
     shared_ptr<CreateContactResponseBody::Data> data_ {};
+    // The error message.
     shared_ptr<string> message_ {};
+    // Id of the request
     shared_ptr<string> requestId_ {};
+    // Indicates whether the call is successful. Valid values:
+    // - true: The call is successful.
+    // - false: The call fails.
     shared_ptr<bool> success_ {};
   };
 

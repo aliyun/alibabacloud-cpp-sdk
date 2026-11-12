@@ -48,7 +48,7 @@ namespace Models
 
 
   protected:
-    // The name of the App Group.
+    // The application name.
     // 
     // This parameter is required.
     shared_ptr<string> appName_ {};

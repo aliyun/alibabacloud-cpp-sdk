@@ -38,6 +38,8 @@ namespace Models
 
 
   protected:
+    // The name of the alert contact.
+    // 
     // This parameter is required.
     shared_ptr<string> contactName_ {};
   };

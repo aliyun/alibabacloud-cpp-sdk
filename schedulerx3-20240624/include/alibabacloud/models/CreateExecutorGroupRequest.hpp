@@ -149,22 +149,47 @@ namespace Models
 
 
   protected:
+    // The client secret.
     shared_ptr<string> apiKey_ {};
+    // The authentication type.
     shared_ptr<string> authType_ {};
+    // The auto scaling configuration.
     shared_ptr<bool> autoScale_ {};
+    // The cluster ID.
+    // 
     // This parameter is required.
     shared_ptr<string> clusterId_ {};
+    // The CloudMonitor Service (CMS) workspace ID.
     shared_ptr<string> cmsWorkspaceId_ {};
+    // The description of the worker group.
     shared_ptr<string> description_ {};
+    // The integration method of the executor. Valid values: manual (indicates manual entry) and acs (indicates ACS integration).
     shared_ptr<string> integrationType_ {};
+    // The name of the worker group.
+    // 
     // This parameter is required.
     shared_ptr<string> name_ {};
+    // The network type. Valid values: public and private.
     shared_ptr<string> network_ {};
+    // The backend protocol. Valid values:
+    // 
+    // - **HTTP** (default): Supports association with HTTPS, HTTP, and QUIC listeners.
+    // 
+    // - **HTTPS**: Supports association with HTTPS listeners.
+    // 
+    // - **gRPC**: Supports association with HTTPS and QUIC listeners.
+    // 
+    // > If **ServerGroupType** is set to **Fc**, you do not need to configure the backend protocol.
     shared_ptr<string> protocol_ {};
+    // The worker type.
+    // 
     // This parameter is required.
     shared_ptr<string> workerType_ {};
+    // The list of workers in JSON format.
+    // 
     // This parameter is required.
     shared_ptr<string> workers_ {};
+    // The extended configuration of the executor group.
     shared_ptr<string> XAttrs_ {};
   };
 

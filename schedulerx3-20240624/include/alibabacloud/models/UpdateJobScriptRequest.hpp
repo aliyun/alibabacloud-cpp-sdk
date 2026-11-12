@@ -83,13 +83,13 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> clusterId_ {};
-    // The job ID.
+    // The task ID.
     // 
     // This parameter is required.
     shared_ptr<int64_t> jobId_ {};
     // The script content.
     shared_ptr<string> scriptContent_ {};
-    // The description of the script version.
+    // The script version description.
     // 
     // This parameter is required.
     shared_ptr<string> versionDescription_ {};

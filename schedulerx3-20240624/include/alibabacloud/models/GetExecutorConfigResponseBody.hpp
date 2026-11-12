@@ -75,38 +75,26 @@ namespace Models
 
 
     protected:
-      // The default global configuration for Data Integration tasks. This configuration specifies the default handling policies for different types of DDL messages. Example:
-      // `{"RENAMECOLUMN":"WARNING","DROPTABLE":"WARNING","CREATETABLE":"WARNING","MODIFYCOLUMN":"WARNING","TRUNCATETABLE":"WARNING","DROPCOLUMN":"WARNING","ADDCOLUMN":"WARNING","RENAMETABLE":"WARNING"}`
+      // The default global configuration content for the Data Integration synchronization Solutions node, which specifies the default processing policy for different DDL message types. Example:
+      // {"RENAMECOLUMN":"WARNING","DROPTABLE":"WARNING","CREATETABLE":"WARNING","MODIFYCOLUMN":"WARNING","TRUNCATETABLE":"WARNING","DROPCOLUMN":"WARNING","ADDCOLUMN":"WARNING","RENAMETABLE":"WARNING"}
       // 
-      // The DDL message types are as follows:
+      // DDL message types:
+      // - RENAMECOLUMN: Rename a column.
+      // - DROPTABLE: Delete a table.
+      // - CREATETABLE: Create a table.
+      // - MODIFYCOLUMN: Modify a column type.
+      // - TRUNCATETABLE: Truncate a table.
+      // - DROPCOLUMN: Delete a column.
+      // - ADDCOLUMN: Add a column.
+      // - RENAMETABLE: Rename a table.
       // 
-      // - RENAMECOLUMN: `RENAME COLUMN`
-      // 
-      // - DROPTABLE: `DROP TABLE`
-      // 
-      // - CREATETABLE: `CREATE TABLE`
-      // 
-      // - MODIFYCOLUMN: `MODIFY COLUMN`
-      // 
-      // - TRUNCATETABLE: `TRUNCATE TABLE`
-      // 
-      // - DROPCOLUMN: `DROP COLUMN`
-      // 
-      // - ADDCOLUMN: `ADD COLUMN`
-      // 
-      // - RENAMETABLE: `RENAME TABLE`
-      // 
-      // When DataWorks receives a DDL message, it applies one of the following handling policies:
-      // 
-      // - WARNING: Discards the message and logs a warning in the Real-time Synchronization Task log.
-      // 
-      // - IGNORE: Discards the message without sending it to the Destination Data Source.
-      // 
-      // - CRITICAL: Causes the Real-time Synchronization Task to fail.
-      // 
-      // - NORMAL: Forwards the message to the Destination Data Source. Because handling of DDL messages can vary by Destination Data Source, DataWorks only forwards the message.
+      // When DataWorks receives a DDL message of the corresponding type, the processing policy is as follows:
+      // - WARNING: Discard the message directly and record alerting information in the real-time synchronization log, indicating that the message was discarded due to an execute error.
+      // - IGNORE: Discard the message directly without sending it to the destination data source.
+      // - CRITICAL: Set the real-time synchronization node to the error state and stop the node.
+      // - NORMAL: Forward the message to the destination data source for processing. Because different destination data sources may have a different processing policy for DDL messages, DataWorks only forwards the message.
       shared_ptr<string> config_ {};
-      // The type of the Executor.
+      // The executor type.
       shared_ptr<string> executorType_ {};
     };
 
@@ -150,13 +138,13 @@ namespace Models
 
 
   protected:
-    // The status code returned for the request.
+    // The response code.
     shared_ptr<int32_t> code_ {};
-    // The configuration data for the Executor.
+    // The query result.
     shared_ptr<GetExecutorConfigResponseBody::Data> data_ {};
-    // The error message returned if the request fails.
+    // The error message.
     shared_ptr<string> message_ {};
-    // The ID of the request.
+    // Id of the request
     shared_ptr<string> requestId_ {};
     // Indicates whether the request was successful.
     shared_ptr<bool> success_ {};

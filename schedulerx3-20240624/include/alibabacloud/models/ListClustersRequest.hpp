@@ -78,7 +78,9 @@ namespace Models
 
 
     protected:
+      // The tag key.
       shared_ptr<string> key_ {};
+      // The tag value.
       shared_ptr<string> value_ {};
     };
 
@@ -133,11 +135,13 @@ namespace Models
     shared_ptr<string> clusterId_ {};
     // The cluster name.
     shared_ptr<string> clusterName_ {};
+    // The cluster type.
     shared_ptr<int32_t> clusterType_ {};
     // The page number.
     shared_ptr<int32_t> pageNum_ {};
-    // The number of entries per page in a paged query.
+    // The number of entries per page in a paging query.
     shared_ptr<int32_t> pageSize_ {};
+    // The list of tags used to filter clusters.
     shared_ptr<vector<ListClustersRequest::Tag>> tag_ {};
   };
 

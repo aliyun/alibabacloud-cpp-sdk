@@ -66,11 +66,17 @@ namespace Models
 
 
   protected:
+    // The cluster ID.
+    // 
     // This parameter is required.
     shared_ptr<string> clusterId_ {};
+    // Specifies whether to synchronously delete tasks.
     shared_ptr<bool> deleteJobs_ {};
+    // The ID.
+    // 
     // This parameter is required.
     shared_ptr<int32_t> id_ {};
+    // The name of the executor group.
     shared_ptr<string> name_ {};
   };
 

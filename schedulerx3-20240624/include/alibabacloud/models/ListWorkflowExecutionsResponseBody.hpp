@@ -180,45 +180,32 @@ namespace Models
       protected:
         // The application name.
         shared_ptr<string> appName_ {};
-        // The data time of the workflow execution.
+        // The node data timestamp. The time is in the YYYY-MM-DD HH:mm:ss format.
         shared_ptr<string> dataTime_ {};
-        // The end time of the workflow execution.
+        // The task end time. The time is in the YYYY-MM-DD HH:mm:ss format.
         shared_ptr<string> endTime_ {};
         // The executor ID.
         shared_ptr<string> executor_ {};
-        // The schedule time of the workflow execution.
+        // The task scheduling time. The time is in the YYYY-MM-DD HH:mm:ss format.
         shared_ptr<string> scheduleTime_ {};
-        // The start time of the workflow execution.
+        // The start time. The time is in the YYYY-MM-DD HH:mm:ss format.
         shared_ptr<string> startTime_ {};
-        // The status of the workflow execution. Valid values:
-        // 
-        // - 0: UNKNOWN
-        // 
-        // - 1: WAITING
-        // 
-        // - 2: READY
-        // 
-        // - 3: RUNNING
-        // 
-        // - 4: SUCCESS
-        // 
-        // - 5: FAILED
-        // 
-        // - 6: PAUSED
-        // 
-        // - 7: SUBMITTED
-        // 
-        // - 8: REJECTED
-        // 
-        // - 9: ACCEPTED
-        // 
-        // - 10: PARTIAL_FAILED
-        // 
-        // - 11: SKIPPED
-        // 
-        // - 12: REMOVED
+        // The task execution status. Valid values:
+        // - 0: UNKNOWN (Unknown).
+        // - 1: WAITING (Waiting).
+        // - 2: READY (Ready).
+        // - 3: RUNNING (Running).
+        // - 4: SUCCESS (Successful).
+        // - 5: FAILED (Failed).
+        // - 6: PAUSED (Paused).
+        // - 7: SUBMITTED (Submitted).
+        // - 8: REJECTED (Rejected).
+        // - 9: ACCEPTED (Accepted).
+        // - 10: PARTIAL_FAILED (Partially failed).
+        // - 11: SKIPPED (Skipped).
+        // - 12: REMOVED (Removed).
         shared_ptr<int32_t> status_ {};
-        // The workflow execution ID.
+        // The workflow instance ID.
         shared_ptr<string> workflowExecutionId_ {};
         // The workflow ID.
         shared_ptr<string> workflowId_ {};
@@ -261,11 +248,11 @@ namespace Models
     protected:
       // The page number.
       shared_ptr<int32_t> pageNumber_ {};
-      // The number of entries returned per page.
+      // The number of entries per page.
       shared_ptr<int32_t> pageSize_ {};
-      // -
+      // The workflow execution records on the current page.
       shared_ptr<vector<Data::Records>> records_ {};
-      // The total number of matching workflow executions.
+      // The total number of entries.
       shared_ptr<int32_t> total_ {};
     };
 
@@ -324,25 +311,23 @@ namespace Models
 
 
   protected:
-    // The response code. A value of `200` indicates a successful request.
+    // The total number of entries that meet the request conditions. This parameter is optional and is not returned by default.
     shared_ptr<int32_t> code_ {};
-    // -
+    // The paginated results of workflow execution records.
     shared_ptr<ListWorkflowExecutionsResponseBody::Data> data_ {};
-    // The maximum number of entries to return per page.
+    // The maximum number of entries to return for this request. Default value: 10.
     shared_ptr<int32_t> maxResults_ {};
-    // The response message. If the request fails, this parameter provides details about the error.
+    // The position from which the current call returns data. An empty value indicates that all data has been read.
     // 
     // This parameter is required.
     shared_ptr<string> message_ {};
-    // The token to retrieve the next page of results. If this parameter is not returned, all results have been returned.
+    // The token that specifies the position from which the query starts. An empty value indicates that all data has been read. You do not need to specify this parameter for the first query.
     shared_ptr<string> nextToken_ {};
-    // The unique request ID. Use this ID to troubleshoot issues.
+    // Id of the request
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request was successful. Valid values:
-    // 
-    // - `true`: The request was successful.
-    // 
-    // - `false`: The request failed.
+    // Indicates whether the call is successful. Valid values:
+    // - true: The call is successful.
+    // - false: The call fails.
     shared_ptr<bool> success_ {};
   };
 

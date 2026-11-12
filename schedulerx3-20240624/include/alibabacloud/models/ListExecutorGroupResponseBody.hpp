@@ -158,7 +158,9 @@ namespace Models
 
 
         protected:
+          // The name of the application.
           shared_ptr<string> appName_ {};
+          // The description of the application.
           shared_ptr<string> description_ {};
         };
 
@@ -296,23 +298,45 @@ namespace Models
 
 
       protected:
+        // The client key.
         shared_ptr<string> apiKey_ {};
+        // The authentication type.
         shared_ptr<string> authType_ {};
+        // Specifies whether to enable **automatic start and stop**. Valid values:
+        // - true: Enabled. If no tasks are scheduled for a period of time, the agent automatically hibernates. If tasks are scheduled for a period of time, the agent wakes up in advance.
+        // - false: Disabled.
         shared_ptr<bool> autoScale_ {};
+        // The list of referenced applications.
         shared_ptr<vector<Records::CiteList>> citeList_ {};
+        // The CloudMonitor workspace.
         shared_ptr<string> cmsWorkspaceId_ {};
+        // The current number of tasks.
         shared_ptr<int32_t> currentJobs_ {};
+        // The description of the executor group.
         shared_ptr<string> description_ {};
         shared_ptr<int32_t> enableJobs_ {};
+        // The integration method. Valid values:
+        // - manual
+        // - acs_sandbox
+        // - k8s_service
         shared_ptr<string> integrationType_ {};
+        // The maximum number of tasks.
         shared_ptr<int32_t> maxJobs_ {};
+        // The name of the executor group.
         shared_ptr<string> name_ {};
+        // The network configuration.
         shared_ptr<string> network_ {};
+        // The protocol.
         shared_ptr<string> protocol_ {};
+        // The list of resolved workers.
         shared_ptr<string> resolvedWorkers_ {};
+        // The ID of the executor group.
         shared_ptr<int64_t> workerId_ {};
+        // The executor type.
         shared_ptr<string> workerType_ {};
+        // The list of specified machines in JSON format.
         shared_ptr<string> workers_ {};
+        // The extended parameters.
         shared_ptr<string> XAttrs_ {};
       };
 
@@ -349,9 +373,13 @@ namespace Models
 
 
     protected:
+      // The current page number.
       shared_ptr<int32_t> pageNumber_ {};
+      // The number of entries per page.
       shared_ptr<int32_t> pageSize_ {};
+      // -
       shared_ptr<vector<Data::Records>> records_ {};
+      // The total number of entries.
       shared_ptr<int32_t> total_ {};
     };
 
@@ -410,13 +438,21 @@ namespace Models
 
 
   protected:
+    // The total count of data under the current request conditions. This parameter is optional and is not returned by default.
     shared_ptr<int32_t> code_ {};
+    // The query results.
     shared_ptr<ListExecutorGroupResponseBody::Data> data_ {};
+    // The maximum number of entries to return for this request. Default value: 10.
     shared_ptr<int32_t> maxResults_ {};
+    // The position from which the current call returns data. An empty value indicates that all data has been read.
+    // 
     // This parameter is required.
     shared_ptr<string> message_ {};
+    // The token that specifies the position from which the current call returns data. An empty value indicates that all data has been read. You do not need to specify this parameter for the first query.
     shared_ptr<string> nextToken_ {};
+    // Id of the request
     shared_ptr<string> requestId_ {};
+    // Indicates whether the request is successful.
     shared_ptr<bool> success_ {};
   };
 

@@ -158,39 +158,37 @@ namespace Models
 
 
   protected:
-    // The name of the application.
+    // The application name.
     shared_ptr<string> appName_ {};
-    // The unique identifier for the cluster.
+    // The cluster ID.
     // 
     // This parameter is required.
     shared_ptr<string> clusterId_ {};
-    // The end of the query\\"s time range, specified as a Unix timestamp in milliseconds.
+    // The end time.
     shared_ptr<int64_t> endTime_ {};
-    // The severity level for filtering events.
+    // The event.
     shared_ptr<string> event_ {};
-    // The type of event to retrieve.
+    // The event type.
     shared_ptr<string> eventType_ {};
-    // The unique identifier for the job execution.
+    // The job execution ID.
     shared_ptr<int64_t> jobExecutionId_ {};
-    // The name of the job.
+    // The job name.
     shared_ptr<string> jobName_ {};
-    // A keyword to search for in log events.
+    // The keyword.
     shared_ptr<string> keyword_ {};
-    // The page number to retrieve.
+    // The page number.
     shared_ptr<int32_t> pageNum_ {};
-    // The maximum number of results to return per page.
+    // The page size.
     shared_ptr<int32_t> pageSize_ {};
-    // Specifies the sort order of events.
-    // 
-    // - **true**: Sorts events in descending order.
-    // 
-    // - **false**: Sorts events in ascending order.
+    // Specifies whether to sort the results in descending order. Valid values:
+    // - **true**: Sorts the results in descending order.
+    // - **false**: Sorts the results in ascending order.
     shared_ptr<bool> reverse_ {};
-    // The start of the query\\"s time range, specified as a Unix timestamp in milliseconds.
+    // The start time. Specify a UNIX timestamp in milliseconds.
     shared_ptr<int64_t> startTime_ {};
-    // The unique identifier for the workflow execution.
+    // The workflow execution ID.
     shared_ptr<int64_t> workflowExecutionId_ {};
-    // The name of the workflow.
+    // The workflow name.
     shared_ptr<string> workflowName_ {};
   };
 

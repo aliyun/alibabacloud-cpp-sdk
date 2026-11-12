@@ -80,17 +80,15 @@ namespace Models
   protected:
     // The response code.
     shared_ptr<int32_t> code_ {};
-    // -
+    // The list of calendar names.
     shared_ptr<vector<string>> data_ {};
     // The error message.
     shared_ptr<string> message_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request was successful.
-    // 
-    // - **true**: The request succeeded.
-    // 
-    // - **false**: The request failed.
+    // Indicates whether the call was successful.
+    // - **true**: The call was successful.
+    // - **false**: The call failed.
     shared_ptr<bool> success_ {};
   };
 

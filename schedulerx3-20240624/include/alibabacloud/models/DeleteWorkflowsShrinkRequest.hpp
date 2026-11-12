@@ -74,9 +74,9 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> clusterId_ {};
-    // If set to `true`, all jobs within the specified workflows are also deleted.
+    // Specifies whether to delete all jobs in the workflow.
     shared_ptr<bool> deleteJobs_ {};
-    // A list of workflow IDs to delete.
+    // The list of workflow IDs.
     // 
     // This parameter is required.
     shared_ptr<string> workflowIdsShrink_ {};

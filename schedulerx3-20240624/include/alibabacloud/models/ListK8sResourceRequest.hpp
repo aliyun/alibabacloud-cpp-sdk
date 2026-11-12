@@ -75,19 +75,19 @@ namespace Models
 
 
   protected:
-    // The Cluster ID.
+    // The cluster ID.
     // 
     // This parameter is required.
     shared_ptr<string> clusterId_ {};
-    // The ID of the Kubernetes cluster used for synchronizing namespaces. The cluster is added to the service mesh specified by ServiceMeshId. This parameter is required when you query a k8s namespace or a k8s service.
+    // The ID of the Kubernetes cluster for which namespaces are synchronized. The Kubernetes cluster is added to the service mesh specified by ServiceMeshId. This parameter is required when you query Kubernetes namespaces or services.
     shared_ptr<string> k8sClusterId_ {};
-    // The name of the namespace in the k8s cluster. This parameter is required when you query a k8s service.
+    // The namespace ID of the Kubernetes cluster. This parameter is required when you query Kubernetes services.
     shared_ptr<string> k8sNamespace_ {};
     // The resource type.
     // 
     // This parameter is required.
     shared_ptr<string> resourceType_ {};
-    // The VPC ID. This parameter is required if ResourceType is set to \\"cluster\\".
+    // The VPC ID. This parameter is required when ResourceType is set to cluster.
     shared_ptr<string> vpcId_ {};
   };
 

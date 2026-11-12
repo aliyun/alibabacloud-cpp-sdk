@@ -76,9 +76,9 @@ namespace Models
 
 
     protected:
-      // The ID of the k8s resource.
+      // The ID of the Kubernetes resource.
       shared_ptr<string> resourceId_ {};
-      // The name of the k8s resource.
+      // The name of the Kubernetes resource.
       shared_ptr<string> resourceName_ {};
     };
 
@@ -124,17 +124,15 @@ namespace Models
   protected:
     // The response code.
     shared_ptr<int32_t> code_ {};
-    // - An array of k8s resources.
+    // The list of Kubernetes resources.
     shared_ptr<vector<ListK8sResourceResponseBody::Data>> data_ {};
     // The error message.
     shared_ptr<string> message_ {};
-    // The Request ID.
+    // Id of the request
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request was successful.
-    // 
-    // - **true**: The request was successful.
-    // 
-    // - **false**: The request failed.
+    // Indicates whether the call was successful. Valid values:
+    // - **true**: The call was successful.
+    // - **false**: The call failed.
     shared_ptr<bool> success_ {};
   };
 

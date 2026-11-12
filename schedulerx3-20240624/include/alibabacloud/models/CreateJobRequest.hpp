@@ -124,7 +124,7 @@ namespace Models
 
 
     protected:
-      // The Notification Recipient type. Valid values:
+      // The notification recipient type. Valid values:
       // 
       // - 1: alert contact
       // 
@@ -249,42 +249,42 @@ namespace Models
       shared_ptr<int32_t> endEarly_ {};
       // Specifies whether to enable the early completion alert.
       shared_ptr<bool> endEarlyEnable_ {};
-      // Specifies whether to enable the failure alert. Valid values:
+      // Specifies whether to enable failure alerts. Valid values:
       // 
-      // - **true**: Enabled.
-      // - **false**: Disabled.
+      // - **true**: enables failure alerts.
+      // - **false**: disables failure alerts.
       shared_ptr<bool> failEnable_ {};
       // The number of consecutive failures.
-      // > An alert is sent only when the number of consecutive failures exceeds the configured value.
+      // > An alert is triggered only when the number of consecutive failures exceeds the specified value.
       shared_ptr<int32_t> failLimitTimes_ {};
-      // Specifies whether to enable the no-available-machine alert. Valid values:
-      // - **true**: Enabled.
-      // - **false**: Disabled.
+      // Specifies whether to enable alerts for unavailable workers. Valid values:
+      // - **true**: enables alerts for unavailable workers.
+      // - **false**: disables alerts for unavailable workers.
       shared_ptr<bool> missWorkerEnable_ {};
-      // The notification channel. Valid values:
+      // The notification channels. Valid values:
       // - sms: SMS
       // - phone: phone call
       // - mail: email
       // - webhook: webhook
       // > Separate multiple notification channels with commas.
       shared_ptr<string> sendChannel_ {};
-      // Specifies whether to enable the success notification. Valid values:
+      // Specifies whether to enable success notifications. Valid values:
       // 
-      // - true: Enabled.
-      // - false: Disabled.
+      // - true: enables success notifications.
+      // - false: disables success notifications.
       shared_ptr<bool> successNotice_ {};
       // The timeout period. Unit: seconds.
       shared_ptr<int64_t> timeout_ {};
       // Specifies whether to enable the timeout alert. Valid values:
       // 
-      // - **true**: Enabled.
+      // - **true**: enabled
       // 
-      // - **false**: Disabled.
+      // - **false**: disabled
       shared_ptr<bool> timeoutEnable_ {};
-      // Specifies whether to enable the timeout termination. Valid values:
+      // Specifies whether to enable the timeout termination feature. Valid values:
       // 
-      // - **true**: Enabled.
-      // - **false**: Disabled.
+      // - **true**: enables the timeout termination feature.
+      // - **false**: disables the timeout termination feature.
       shared_ptr<bool> timeoutKillEnable_ {};
     };
 
@@ -348,9 +348,9 @@ namespace Models
       shared_ptr<float> height_ {};
       // The width.
       shared_ptr<float> width_ {};
-      // The X coordinate.
+      // The X-coordinate.
       shared_ptr<float> x_ {};
-      // The Y coordinate.
+      // The Y-coordinate.
       shared_ptr<float> y_ {};
     };
 
@@ -575,40 +575,40 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> appName_ {};
-    // The retry interval upon failure. Unit: seconds. Default value: 30.
+    // The retry interval for errors. Unit: seconds. Default value: 30.
     shared_ptr<int32_t> attemptInterval_ {};
-    // The custom calendar. This parameter is optional for the cron time type.
+    // The custom calendar. You can specify a custom calendar for the cron type.
     shared_ptr<string> calendar_ {};
-    // The child node IDs. Separate multiple IDs with commas.
+    // The IDs of child jobs. Separate multiple IDs with commas.
     shared_ptr<string> childJobId_ {};
     // The cluster ID.
     // 
     // This parameter is required.
     shared_ptr<string> clusterId_ {};
-    // The node coordinate in the workflow.
+    // The coordinates of the node in the workflow.
     shared_ptr<CreateJobRequest::Coordinate> coordinate_ {};
     // The dependency strategy.
     shared_ptr<int32_t> dependentStrategy_ {};
-    // The node description.
+    // The job description.
     shared_ptr<string> description_ {};
     // The client blocking strategy. Valid values:
     // - 1: serial execution on a single machine
     // - 2: ignore subsequent scheduling
-    // - 3: override previous scheduling
+    // - 3: overwrite previous scheduling
     shared_ptr<int32_t> executorBlockStrategy_ {};
-    // The jobhandler name.
+    // The name of the job handler.
     shared_ptr<string> jobHandler_ {};
-    // The node type.
+    // The job type.
     // 
     // This parameter is required.
     shared_ptr<string> jobType_ {};
-    // The node label information.
+    // The job label information.
     shared_ptr<string> label_ {};
-    // The maximum number of retry attempts upon failure. Set this parameter based on your business requirements.
+    // The maximum number of retries for errors. Set this parameter based on your business requirements.
     shared_ptr<int32_t> maxAttempt_ {};
-    // The maximum number of concurrent instances.
+    // The maximum concurrency.
     shared_ptr<int32_t> maxConcurrency_ {};
-    // The node name.
+    // The job name.
     // 
     // This parameter is required.
     shared_ptr<string> name_ {};
@@ -616,7 +616,7 @@ namespace Models
     shared_ptr<CreateJobRequest::NoticeConfig> noticeConfig_ {};
     // The notification contact configuration.
     shared_ptr<vector<CreateJobRequest::NoticeContacts>> noticeContacts_ {};
-    // The node parameters.
+    // The job parameters.
     shared_ptr<string> parameters_ {};
     // The priority. Valid values:
     // - 1: low
@@ -625,31 +625,31 @@ namespace Models
     // - 15: very high
     shared_ptr<int32_t> priority_ {};
     // The routing strategy. Valid values:
-    // - 1: round robin
+    // - 1: round-robin
     // - 2: random
     // - 3: first
     // - 4: last
     // - 5: least frequently used
     // - 6: least recently used
     // - 7: consistent hashing
-    // - 8: shard broadcast
+    // - 8: sharding broadcast
     shared_ptr<int32_t> routeStrategy_ {};
-    // The script content for non-BEAN node types. Use this field to pass the script content.
+    // The script content for non-BEAN job types.
     shared_ptr<string> script_ {};
-    // The start time.
+    // The start time. Use a UNIX timestamp in milliseconds.
     shared_ptr<int64_t> startTime_ {};
     // The start time type.
     shared_ptr<int32_t> startTimeType_ {};
-    // The node status. Default value: enabled. Valid values:
+    // The job status. Default value: enabled. Valid values:
     // - 0: disabled
     // - 1: enabled
     shared_ptr<int32_t> status_ {};
-    // The time expression. Set this parameter based on the selected time type.
-    // - **none**: No value is required.
-    // - **cron**: Specify a standard cron expression. Online verification is supported.
-    // - **api**: No value is required.
-    // - **fixed_rate**: Specify a fixed frequency value in seconds. For example, 200 indicates that the node is triggered every 200 seconds.
-    // - **one_time**: Specify a scheduling time in the format of yyyy-MM-dd HH:mm:ss or a timestamp in milliseconds. For example, "2022-10-10 10:10:00".
+    // The time expression. Set the time expression based on the selected time type.
+    // - **none**: Leave this parameter empty.
+    // - **cron**: Enter a standard cron expression. Online verification is supported.
+    // - **api**: Leave this parameter empty.
+    // - **fixed_rate**: Enter a specific fixed frequency value. Unit: seconds. For example, 200 indicates that the job is triggered once every 200 seconds.
+    // - **one_time**: Enter the scheduling time in the yyyy-MM-dd HH:mm:ss format or a timestamp in milliseconds. Example: "2022-10-10 10:10:00".
     shared_ptr<string> timeExpression_ {};
     // The time type. Valid values:
     // - -1: none<br/>
@@ -662,11 +662,11 @@ namespace Models
     shared_ptr<int32_t> timeType_ {};
     // The time zone.
     shared_ptr<string> timezone_ {};
-    // The node weight.
+    // The job weight.
     shared_ptr<int32_t> weight_ {};
-    // The configuration for K8s node types. This parameter is required for K8s node types.
-    // Job node: {"resource":"job"}
-    // Shell node: {"image":"busybox","resource":"shell"}
+    // The extended attributes. This parameter is required for Kubernetes job types.
+    // Job: {"resource":"job"}
+    // Shell: {"image":"busybox","resource":"shell"}
     shared_ptr<string> XAttrs_ {};
   };
 

@@ -2,11 +2,13 @@
 #include <alibabacloud/SchedulerX320240624.hpp>
 #include <alibabacloud/Utils.hpp>
 #include <alibabacloud/Openapi.hpp>
+#include <alibabacloud/gateway/POP.hpp>
 #include <map>
 #include <darabonba/Runtime.hpp>
 using namespace std;
 using namespace Darabonba;
 using json = nlohmann::json;
+using namespace AlibabaCloud::Gateway;
 using namespace AlibabaCloud::OpenApi;
 using namespace AlibabaCloud::OpenApi::Models;
 using OpenApiClient = AlibabaCloud::OpenApi::Client;
@@ -18,6 +20,9 @@ namespace SchedulerX320240624
 {
 
 AlibabaCloud::SchedulerX320240624::Client::Client(Config &config): OpenApiClient(config){
+  this->_productId = "SchedulerX3";
+  shared_ptr<POP> gatewayClient = make_shared<POP>();
+  this->_spi = gatewayClient;
   this->_endpointRule = "regional";
   checkConfig(config);
   this->_endpoint = getEndpoint("schedulerx3", _regionId, _endpointRule, _network, _suffix, _endpointMap, _endpoint);
@@ -37,7 +42,7 @@ string Client::getEndpoint(const string &productId, const string &regionId, cons
 }
 
 /**
- * @summary Creates an app.
+ * @summary Creates an application.
  *
  * @param request CreateAppRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -96,7 +101,7 @@ CreateAppResponse Client::createAppWithOptions(const CreateAppRequest &request, 
 }
 
 /**
- * @summary Creates an app.
+ * @summary Creates an application.
  *
  * @param request CreateAppRequest
  * @return CreateAppResponse
@@ -109,7 +114,7 @@ CreateAppResponse Client::createApp(const CreateAppRequest &request) {
 /**
  * @summary Creates a custom calendar.
  *
- * @description Creates a custom calendar for SchedulerX.
+ * @description Creates a custom calendar.
  *
  * @param request CreateCalendarRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -158,7 +163,7 @@ CreateCalendarResponse Client::createCalendarWithOptions(const CreateCalendarReq
 /**
  * @summary Creates a custom calendar.
  *
- * @description Creates a custom calendar for SchedulerX.
+ * @description Creates a custom calendar.
  *
  * @param request CreateCalendarRequest
  * @return CreateCalendarResponse
@@ -259,9 +264,9 @@ CreateClusterResponse Client::createCluster(const CreateClusterRequest &request)
 }
 
 /**
- * @summary 创建通知联系人
+ * @summary Creates a notification contact.
  *
- * @description 创建自定义联系人
+ * @description Creates a custom contact.
  *
  * @param request CreateContactRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -300,9 +305,9 @@ CreateContactResponse Client::createContactWithOptions(const CreateContactReques
 }
 
 /**
- * @summary 创建通知联系人
+ * @summary Creates a notification contact.
  *
- * @description 创建自定义联系人
+ * @description Creates a custom contact.
  *
  * @param request CreateContactRequest
  * @return CreateContactResponse
@@ -313,7 +318,7 @@ CreateContactResponse Client::createContact(const CreateContactRequest &request)
 }
 
 /**
- * @summary Create a data source
+ * @summary Creates a data source.
  *
  * @param request CreateDatasourceRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -364,7 +369,7 @@ CreateDatasourceResponse Client::createDatasourceWithOptions(const CreateDatasou
 }
 
 /**
- * @summary Create a data source
+ * @summary Creates a data source.
  *
  * @param request CreateDatasourceRequest
  * @return CreateDatasourceResponse
@@ -375,9 +380,9 @@ CreateDatasourceResponse Client::createDatasource(const CreateDatasourceRequest 
 }
 
 /**
- * @summary 添加执行器组
+ * @summary Adds an executor group.
  *
- * @description 手动导入执行器
+ * @description Manually imports executors.
  *
  * @param request CreateExecutorGroupRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -456,9 +461,9 @@ CreateExecutorGroupResponse Client::createExecutorGroupWithOptions(const CreateE
 }
 
 /**
- * @summary 添加执行器组
+ * @summary Adds an executor group.
  *
- * @description 手动导入执行器
+ * @description Manually imports executors.
  *
  * @param request CreateExecutorGroupRequest
  * @return CreateExecutorGroupResponse
@@ -469,9 +474,9 @@ CreateExecutorGroupResponse Client::createExecutorGroup(const CreateExecutorGrou
 }
 
 /**
- * @summary Imports one or more executors.
+ * @summary Manually imports executors.
  *
- * @description Imports one or more executors.
+ * @description Manually imports executors.
  *
  * @param request CreateExecutorsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -514,9 +519,9 @@ CreateExecutorsResponse Client::createExecutorsWithOptions(const CreateExecutors
 }
 
 /**
- * @summary Imports one or more executors.
+ * @summary Manually imports executors.
  *
- * @description Imports one or more executors.
+ * @description Manually imports executors.
  *
  * @param request CreateExecutorsRequest
  * @return CreateExecutorsResponse
@@ -527,7 +532,7 @@ CreateExecutorsResponse Client::createExecutors(const CreateExecutorsRequest &re
 }
 
 /**
- * @summary Creates a node.
+ * @summary Creates a job.
  *
  * @param tmpReq CreateJobRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -684,7 +689,7 @@ CreateJobResponse Client::createJobWithOptions(const CreateJobRequest &tmpReq, c
 }
 
 /**
- * @summary Creates a node.
+ * @summary Creates a job.
  *
  * @param request CreateJobRequest
  * @return CreateJobResponse
@@ -777,7 +782,7 @@ CreateWorkflowResponse Client::createWorkflow(const CreateWorkflowRequest &reque
 }
 
 /**
- * @summary Deletes an App Group.
+ * @summary Deletes an application group.
  *
  * @param request DeleteAppRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -812,7 +817,7 @@ DeleteAppResponse Client::deleteAppWithOptions(const DeleteAppRequest &request, 
 }
 
 /**
- * @summary Deletes an App Group.
+ * @summary Deletes an application group.
  *
  * @param request DeleteAppRequest
  * @return DeleteAppResponse
@@ -823,7 +828,7 @@ DeleteAppResponse Client::deleteApp(const DeleteAppRequest &request) {
 }
 
 /**
- * @summary Deletes the specified calendar.
+ * @summary Deletes a specified calendar.
  *
  * @param request DeleteCalendarRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -862,7 +867,7 @@ DeleteCalendarResponse Client::deleteCalendarWithOptions(const DeleteCalendarReq
 }
 
 /**
- * @summary Deletes the specified calendar.
+ * @summary Deletes a specified calendar.
  *
  * @param request DeleteCalendarRequest
  * @return DeleteCalendarResponse
@@ -873,7 +878,7 @@ DeleteCalendarResponse Client::deleteCalendar(const DeleteCalendarRequest &reque
 }
 
 /**
- * @summary Deletes a cluster.
+ * @summary Releases and deletes a cluster.
  *
  * @param request DeleteClusterRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -904,7 +909,7 @@ DeleteClusterResponse Client::deleteClusterWithOptions(const DeleteClusterReques
 }
 
 /**
- * @summary Deletes a cluster.
+ * @summary Releases and deletes a cluster.
  *
  * @param request DeleteClusterRequest
  * @return DeleteClusterResponse
@@ -915,9 +920,9 @@ DeleteClusterResponse Client::deleteCluster(const DeleteClusterRequest &request)
 }
 
 /**
- * @summary 删除通知联系人
+ * @summary Deletes a notification contact.
  *
- * @description 删除自定义联系人
+ * @description Deletes a custom contact.
  *
  * @param request DeleteContactRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -948,9 +953,9 @@ DeleteContactResponse Client::deleteContactWithOptions(const DeleteContactReques
 }
 
 /**
- * @summary 删除通知联系人
+ * @summary Deletes a notification contact.
  *
- * @description 删除自定义联系人
+ * @description Deletes a custom contact.
  *
  * @param request DeleteContactRequest
  * @return DeleteContactResponse
@@ -961,7 +966,7 @@ DeleteContactResponse Client::deleteContact(const DeleteContactRequest &request)
 }
 
 /**
- * @summary Delete data source
+ * @summary Deletes a data source.
  *
  * @param request DeleteDatasourceRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -996,7 +1001,7 @@ DeleteDatasourceResponse Client::deleteDatasourceWithOptions(const DeleteDatasou
 }
 
 /**
- * @summary Delete data source
+ * @summary Deletes a data source.
  *
  * @param request DeleteDatasourceRequest
  * @return DeleteDatasourceResponse
@@ -1007,7 +1012,7 @@ DeleteDatasourceResponse Client::deleteDatasource(const DeleteDatasourceRequest 
 }
 
 /**
- * @summary 添加执行器组
+ * @summary Adds an executor group.
  *
  * @param request DeleteExecutorGroupRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1050,7 +1055,7 @@ DeleteExecutorGroupResponse Client::deleteExecutorGroupWithOptions(const DeleteE
 }
 
 /**
- * @summary 添加执行器组
+ * @summary Adds an executor group.
  *
  * @param request DeleteExecutorGroupRequest
  * @return DeleteExecutorGroupResponse
@@ -1061,7 +1066,7 @@ DeleteExecutorGroupResponse Client::deleteExecutorGroup(const DeleteExecutorGrou
 }
 
 /**
- * @summary Deletes nodes in batches.
+ * @summary Deletes tasks in batches.
  *
  * @param tmpReq DeleteJobsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1110,7 +1115,7 @@ DeleteJobsResponse Client::deleteJobsWithOptions(const DeleteJobsRequest &tmpReq
 }
 
 /**
- * @summary Deletes nodes in batches.
+ * @summary Deletes tasks in batches.
  *
  * @param request DeleteJobsRequest
  * @return DeleteJobsResponse
@@ -1121,7 +1126,7 @@ DeleteJobsResponse Client::deleteJobs(const DeleteJobsRequest &request) {
 }
 
 /**
- * @summary Deletes a Workflow.
+ * @summary Deletes a workflow.
  *
  * @param request DeleteWorkflowRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1164,7 +1169,7 @@ DeleteWorkflowResponse Client::deleteWorkflowWithOptions(const DeleteWorkflowReq
 }
 
 /**
- * @summary Deletes a Workflow.
+ * @summary Deletes a workflow.
  *
  * @param request DeleteWorkflowRequest
  * @return DeleteWorkflowResponse
@@ -1175,7 +1180,7 @@ DeleteWorkflowResponse Client::deleteWorkflow(const DeleteWorkflowRequest &reque
 }
 
 /**
- * @summary Deletes one or more workflows.
+ * @summary Deletes multiple workflows.
  *
  * @param tmpReq DeleteWorkflowsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1224,7 +1229,7 @@ DeleteWorkflowsResponse Client::deleteWorkflowsWithOptions(const DeleteWorkflows
 }
 
 /**
- * @summary Deletes one or more workflows.
+ * @summary Deletes multiple workflows.
  *
  * @param request DeleteWorkflowsRequest
  * @return DeleteWorkflowsResponse
@@ -1235,7 +1240,7 @@ DeleteWorkflowsResponse Client::deleteWorkflows(const DeleteWorkflowsRequest &re
 }
 
 /**
- * @summary Exports job information in bulk.
+ * @summary Exports export task information in batches.
  *
  * @param tmpReq ExportJobsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1284,7 +1289,7 @@ ExportJobsResponse Client::exportJobsWithOptions(const ExportJobsRequest &tmpReq
 }
 
 /**
- * @summary Exports job information in bulk.
+ * @summary Exports export task information in batches.
  *
  * @param request ExportJobsRequest
  * @return ExportJobsResponse
@@ -1295,7 +1300,7 @@ ExportJobsResponse Client::exportJobs(const ExportJobsRequest &request) {
 }
 
 /**
- * @summary Exports the definitions of one or more Workflows in JSON format. The exported data includes the basic information, all Nodes, and the Directed Acyclic Graph (DAG) dependencies for each Workflow.
+ * @summary Exports a workflow in JSON format, including the basic information of the workflow, information about all nodes in the workflow, and the DAG dependencies of the workflow.
  *
  * @param tmpReq ExportWorkflowsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1340,7 +1345,7 @@ ExportWorkflowsResponse Client::exportWorkflowsWithOptions(const ExportWorkflows
 }
 
 /**
- * @summary Exports the definitions of one or more Workflows in JSON format. The exported data includes the basic information, all Nodes, and the Directed Acyclic Graph (DAG) dependencies for each Workflow.
+ * @summary Exports a workflow in JSON format, including the basic information of the workflow, information about all nodes in the workflow, and the DAG dependencies of the workflow.
  *
  * @param request ExportWorkflowsRequest
  * @return ExportWorkflowsResponse
@@ -1351,7 +1356,7 @@ ExportWorkflowsResponse Client::exportWorkflows(const ExportWorkflowsRequest &re
 }
 
 /**
- * @summary Retrieves the details of a specified application.
+ * @summary Retrieves a specified application.
  *
  * @param request GetAppRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1386,7 +1391,7 @@ GetAppResponse Client::getAppWithOptions(const GetAppRequest &request, const Dar
 }
 
 /**
- * @summary Retrieves the details of a specified application.
+ * @summary Retrieves a specified application.
  *
  * @param request GetAppRequest
  * @return GetAppResponse
@@ -1397,7 +1402,7 @@ GetAppResponse Client::getApp(const GetAppRequest &request) {
 }
 
 /**
- * @summary Retrieves the details of a specified calendar.
+ * @summary Retrieves the calendar.
  *
  * @param request GetCalendarRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1436,7 +1441,7 @@ GetCalendarResponse Client::getCalendarWithOptions(const GetCalendarRequest &req
 }
 
 /**
- * @summary Retrieves the details of a specified calendar.
+ * @summary Retrieves the calendar.
  *
  * @param request GetCalendarRequest
  * @return GetCalendarResponse
@@ -1447,7 +1452,7 @@ GetCalendarResponse Client::getCalendar(const GetCalendarRequest &request) {
 }
 
 /**
- * @summary Obtains the details of a cluster.
+ * @summary Retrieves the details of a cluster.
  *
  * @param request GetClusterRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1474,7 +1479,7 @@ GetClusterResponse Client::getClusterWithOptions(const GetClusterRequest &reques
 }
 
 /**
- * @summary Obtains the details of a cluster.
+ * @summary Retrieves the details of a cluster.
  *
  * @param request GetClusterRequest
  * @return GetClusterResponse
@@ -1485,7 +1490,7 @@ GetClusterResponse Client::getCluster(const GetClusterRequest &request) {
 }
 
 /**
- * @summary Retrieves the information about a specified machine.
+ * @summary Retrieves the information of a specified machine.
  *
  * @param request GetDesigateInfoRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1512,7 +1517,7 @@ GetDesigateInfoResponse Client::getDesigateInfoWithOptions(const GetDesigateInfo
 }
 
 /**
- * @summary Retrieves the information about a specified machine.
+ * @summary Retrieves the information of a specified machine.
  *
  * @param request GetDesigateInfoRequest
  * @return GetDesigateInfoResponse
@@ -1523,12 +1528,12 @@ GetDesigateInfoResponse Client::getDesigateInfo(const GetDesigateInfoRequest &re
 }
 
 /**
- * @summary Retrieves the configuration for a specified Executor.
+ * @summary Retrieves the configuration information of a specified executor.
  *
  * @description # Add the enhancement plugin
- * Add the Enhancement Plugin to your `pom.xml` file to extend the Executor\\"s capabilities.
- * **Note**: Place this plugin **before** the `xxl-job-core` dependency in the `pom.xml` file.
- * **For more information, see**: [Plugin Version Documentation](https://help.aliyun.com/zh/schedulerx/schedulerx-xxljob/product-overview/plugin-version-description)
+ * Add the enhancement plugin to the `pom.xml` file to enhance the capabilities of the executor.
+ * **Note**: Make sure that the plugin is placed **above** the `xxl-job-core` dependency in the pom file.
+ * **For more information**, refer to [Plugin version description](https://www.alibabacloud.com/help/en/schedulerx/schedulerx-xxljob/product-overview/plugin-version-description).
  *
  * @param request GetExecutorConfigRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1563,12 +1568,12 @@ GetExecutorConfigResponse Client::getExecutorConfigWithOptions(const GetExecutor
 }
 
 /**
- * @summary Retrieves the configuration for a specified Executor.
+ * @summary Retrieves the configuration information of a specified executor.
  *
  * @description # Add the enhancement plugin
- * Add the Enhancement Plugin to your `pom.xml` file to extend the Executor\\"s capabilities.
- * **Note**: Place this plugin **before** the `xxl-job-core` dependency in the `pom.xml` file.
- * **For more information, see**: [Plugin Version Documentation](https://help.aliyun.com/zh/schedulerx/schedulerx-xxljob/product-overview/plugin-version-description)
+ * Add the enhancement plugin to the `pom.xml` file to enhance the capabilities of the executor.
+ * **Note**: Make sure that the plugin is placed **above** the `xxl-job-core` dependency in the pom file.
+ * **For more information**, refer to [Plugin version description](https://www.alibabacloud.com/help/en/schedulerx/schedulerx-xxljob/product-overview/plugin-version-description).
  *
  * @param request GetExecutorConfigRequest
  * @return GetExecutorConfigResponse
@@ -1579,7 +1584,7 @@ GetExecutorConfigResponse Client::getExecutorConfig(const GetExecutorConfigReque
 }
 
 /**
- * @summary Returns the details of a Task Execution.
+ * @summary Retrieves the details of a task execution.
  *
  * @param request GetJobExecutionRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1622,7 +1627,7 @@ GetJobExecutionResponse Client::getJobExecutionWithOptions(const GetJobExecution
 }
 
 /**
- * @summary Returns the details of a Task Execution.
+ * @summary Retrieves the details of a task execution.
  *
  * @param request GetJobExecutionRequest
  * @return GetJobExecutionResponse
@@ -1633,12 +1638,12 @@ GetJobExecutionResponse Client::getJobExecution(const GetJobExecutionRequest &re
 }
 
 /**
- * @summary Retrieves the execution details of a sharding task.
+ * @summary Retrieves the details of a sharding task execution.
  *
- * @description # Import the enhanced plugin
- * Add the enhanced plugin to the `pom.xml` file to improve the capabilities of the Executor.
- * **Note**: Make sure this plugin is placed **above** the `xxl-job-core` dependency in the pom file.
- * **For more information, refer to**: [Plugin version description](https://www.alibabacloud.com/help/en/schedulerx/schedulerx-xxljob/product-overview/plugin-version-description)
+ * @description # Import the enhancement plugin
+ * Add the enhancement plugin to the `pom.xml` file to improve the capabilities of the Executor.
+ * **Note**: Make sure that the plugin is placed **above** the `xxl-job-core` dependency in the pom file.
+ * **For more information, see**: [Plugin version description](https://www.alibabacloud.com/help/en/schedulerx/schedulerx-xxljob/product-overview/plugin-version-description)
  *
  * @param request GetJobExecutionProgressRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1665,12 +1670,12 @@ GetJobExecutionProgressResponse Client::getJobExecutionProgressWithOptions(const
 }
 
 /**
- * @summary Retrieves the execution details of a sharding task.
+ * @summary Retrieves the details of a sharding task execution.
  *
- * @description # Import the enhanced plugin
- * Add the enhanced plugin to the `pom.xml` file to improve the capabilities of the Executor.
- * **Note**: Make sure this plugin is placed **above** the `xxl-job-core` dependency in the pom file.
- * **For more information, refer to**: [Plugin version description](https://www.alibabacloud.com/help/en/schedulerx/schedulerx-xxljob/product-overview/plugin-version-description)
+ * @description # Import the enhancement plugin
+ * Add the enhancement plugin to the `pom.xml` file to improve the capabilities of the Executor.
+ * **Note**: Make sure that the plugin is placed **above** the `xxl-job-core` dependency in the pom file.
+ * **For more information, see**: [Plugin version description](https://www.alibabacloud.com/help/en/schedulerx/schedulerx-xxljob/product-overview/plugin-version-description)
  *
  * @param request GetJobExecutionProgressRequest
  * @return GetJobExecutionProgressResponse
@@ -1681,12 +1686,12 @@ GetJobExecutionProgressResponse Client::getJobExecutionProgress(const GetJobExec
 }
 
 /**
- * @summary Retrieves the thread dump for a specific job execution.
+ * @summary Queries the task execution stack.
  *
- * @description # Add the enhancement plugin
- * Add the Enhancement Plugin to your `pom.xml` file to extend the executor\\"s capabilities.
- * **Note**: Place this plugin **above** the `xxl-job-core` dependency.
- * **For more information, see**: [Plugin versioning documentation](https://help.aliyun.com/zh/schedulerx/schedulerx-xxljob/product-overview/plugin-version-description)
+ * @description # Import the enhancement plug-in
+ * Add the enhancement plug-in to the `pom.xml` file to enhance the capabilities of the executor.
+ * **Note**: Make sure that the plug-in is placed **above** the `xxl-job-core` dependency in the POM file.
+ * **For more information, see**: [Plug-in version description](https://www.alibabacloud.com/help/en/schedulerx/schedulerx-xxljob/product-overview/plugin-version-description)
  *
  * @param request GetJobExecutionThreadDumpRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1713,12 +1718,12 @@ GetJobExecutionThreadDumpResponse Client::getJobExecutionThreadDumpWithOptions(c
 }
 
 /**
- * @summary Retrieves the thread dump for a specific job execution.
+ * @summary Queries the task execution stack.
  *
- * @description # Add the enhancement plugin
- * Add the Enhancement Plugin to your `pom.xml` file to extend the executor\\"s capabilities.
- * **Note**: Place this plugin **above** the `xxl-job-core` dependency.
- * **For more information, see**: [Plugin versioning documentation](https://help.aliyun.com/zh/schedulerx/schedulerx-xxljob/product-overview/plugin-version-description)
+ * @description # Import the enhancement plug-in
+ * Add the enhancement plug-in to the `pom.xml` file to enhance the capabilities of the executor.
+ * **Note**: Make sure that the plug-in is placed **above** the `xxl-job-core` dependency in the POM file.
+ * **For more information, see**: [Plug-in version description](https://www.alibabacloud.com/help/en/schedulerx/schedulerx-xxljob/product-overview/plugin-version-description)
  *
  * @param request GetJobExecutionThreadDumpRequest
  * @return GetJobExecutionThreadDumpResponse
@@ -1729,7 +1734,7 @@ GetJobExecutionThreadDumpResponse Client::getJobExecutionThreadDump(const GetJob
 }
 
 /**
- * @summary Retrieves log entries.
+ * @summary Queries logs.
  *
  * @param request GetLogRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1756,7 +1761,7 @@ GetLogResponse Client::getLogWithOptions(const GetLogRequest &request, const Dar
 }
 
 /**
- * @summary Retrieves log entries.
+ * @summary Queries logs.
  *
  * @param request GetLogRequest
  * @return GetLogResponse
@@ -1767,7 +1772,7 @@ GetLogResponse Client::getLog(const GetLogRequest &request) {
 }
 
 /**
- * @summary Query Events.
+ * @summary Queries events.
  *
  * @param request GetLogEventRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1794,7 +1799,7 @@ GetLogEventResponse Client::getLogEventWithOptions(const GetLogEventRequest &req
 }
 
 /**
- * @summary Query Events.
+ * @summary Queries events.
  *
  * @param request GetLogEventRequest
  * @return GetLogEventResponse
@@ -1805,12 +1810,12 @@ GetLogEventResponse Client::getLogEvent(const GetLogEventRequest &request) {
 }
 
 /**
- * @summary 获取分页日志
+ * @summary Retrieves paginated logs.
  *
- * @description # 引入增强插件
- * 在`pom.xml`文件中添加增强插件以提升Executor的能力。
- * **注意**：请确保该插件在pom中放置在`xxl-job-core` 依赖的**上方**。
- * **详细信息请参考**：[插件版本说明文档](https://help.aliyun.com/zh/schedulerx/schedulerx-xxljob/product-overview/plugin-version-description)
+ * @description # Add the enhancement plugin
+ * Add the enhancement plugin to the pom.xml file to enhance the capabilities of the executor.
+ * **Note**: Make sure that this plugin is placed **above** the xxl-job-core dependency in the pom file.
+ * **For more information, see**: [Plugin version description](https://www.alibabacloud.com/help/en/schedulerx/schedulerx-xxljob/product-overview/plugin-version-description)
  *
  * @param request GetPageLogRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1881,12 +1886,12 @@ GetPageLogResponse Client::getPageLogWithOptions(const GetPageLogRequest &reques
 }
 
 /**
- * @summary 获取分页日志
+ * @summary Retrieves paginated logs.
  *
- * @description # 引入增强插件
- * 在`pom.xml`文件中添加增强插件以提升Executor的能力。
- * **注意**：请确保该插件在pom中放置在`xxl-job-core` 依赖的**上方**。
- * **详细信息请参考**：[插件版本说明文档](https://help.aliyun.com/zh/schedulerx/schedulerx-xxljob/product-overview/plugin-version-description)
+ * @description # Add the enhancement plugin
+ * Add the enhancement plugin to the pom.xml file to enhance the capabilities of the executor.
+ * **Note**: Make sure that this plugin is placed **above** the xxl-job-core dependency in the pom file.
+ * **For more information, see**: [Plugin version description](https://www.alibabacloud.com/help/en/schedulerx/schedulerx-xxljob/product-overview/plugin-version-description)
  *
  * @param request GetPageLogRequest
  * @return GetPageLogResponse
@@ -1897,7 +1902,7 @@ GetPageLogResponse Client::getPageLog(const GetPageLogRequest &request) {
 }
 
 /**
- * @summary Retrieves the basic information for a specified workflow.
+ * @summary Retrieves the basic information of a workflow.
  *
  * @param request GetWorkflowRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1936,7 +1941,7 @@ GetWorkflowResponse Client::getWorkflowWithOptions(const GetWorkflowRequest &req
 }
 
 /**
- * @summary Retrieves the basic information for a specified workflow.
+ * @summary Retrieves the basic information of a workflow.
  *
  * @param request GetWorkflowRequest
  * @return GetWorkflowResponse
@@ -1947,7 +1952,7 @@ GetWorkflowResponse Client::getWorkflow(const GetWorkflowRequest &request) {
 }
 
 /**
- * @summary Gets the Directed Acyclic Graph (DAG) of a workflow.
+ * @summary Retrieves the DAG information of a workflow.
  *
  * @param request GetWorkflowDAGRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1986,7 +1991,7 @@ GetWorkflowDAGResponse Client::getWorkflowDAGWithOptions(const GetWorkflowDAGReq
 }
 
 /**
- * @summary Gets the Directed Acyclic Graph (DAG) of a workflow.
+ * @summary Retrieves the DAG information of a workflow.
  *
  * @param request GetWorkflowDAGRequest
  * @return GetWorkflowDAGResponse
@@ -1997,7 +2002,7 @@ GetWorkflowDAGResponse Client::getWorkflowDAG(const GetWorkflowDAGRequest &reque
 }
 
 /**
- * @summary Gets the DAG for a previous workflow version.
+ * @summary Retrieves the DAG of a historical workflow version.
  *
  * @param request GetWorkflowDAGPreviewRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2040,7 +2045,7 @@ GetWorkflowDAGPreviewResponse Client::getWorkflowDAGPreviewWithOptions(const Get
 }
 
 /**
- * @summary Gets the DAG for a previous workflow version.
+ * @summary Retrieves the DAG of a historical workflow version.
  *
  * @param request GetWorkflowDAGPreviewRequest
  * @return GetWorkflowDAGPreviewResponse
@@ -2051,7 +2056,7 @@ GetWorkflowDAGPreviewResponse Client::getWorkflowDAGPreview(const GetWorkflowDAG
 }
 
 /**
- * @summary Retrieve the DAG information for a workflow instance.
+ * @summary Retrieves the DAG information of a workflow instance.
  *
  * @param request GetWorkflowExecutionDAGRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2090,7 +2095,7 @@ GetWorkflowExecutionDAGResponse Client::getWorkflowExecutionDAGWithOptions(const
 }
 
 /**
- * @summary Retrieve the DAG information for a workflow instance.
+ * @summary Retrieves the DAG information of a workflow instance.
  *
  * @param request GetWorkflowExecutionDAGRequest
  * @return GetWorkflowExecutionDAGResponse
@@ -2101,9 +2106,9 @@ GetWorkflowExecutionDAGResponse Client::getWorkflowExecutionDAG(const GetWorkflo
 }
 
 /**
- * @summary 导入agent中的定时任务到scheduler平台（SSE），该接口禁止使用xxljob的clusterid调用，不支持XXLJOB相关集群，这个接口仅限AI任务调度集群使用。
+ * @summary Imports scheduled tasks from an agent to the scheduler platform (SSE). You cannot call this API operation by using the cluster ID of an XXL-JOB cluster, and XXL-JOB clusters are not supported. This API operation is exclusively available for AI task scheduling clusters.
  *
- * @description 导入agent中的定时任务到scheduler平台（SSE），该接口禁止使用xxljob的clusterid调用，不支持XXLJOB相关集群，这个接口仅限AI任务调度集群使用。
+ * @description Imports scheduled tasks from an agent to the scheduler platform (SSE). You cannot call this API operation by using the cluster ID of an XXL-JOB cluster, and XXL-JOB clusters are not supported. This API operation is exclusively available for AI task scheduling clusters.
  *
  * @param request ImportAgentJobsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2156,9 +2161,9 @@ return Darabonba::FutureGenerator<json>(__retrun);
 }
 
 /**
- * @summary 导入agent中的定时任务到scheduler平台（SSE），该接口禁止使用xxljob的clusterid调用，不支持XXLJOB相关集群，这个接口仅限AI任务调度集群使用。
+ * @summary Imports scheduled tasks from an agent to the scheduler platform (SSE). You cannot call this API operation by using the cluster ID of an XXL-JOB cluster, and XXL-JOB clusters are not supported. This API operation is exclusively available for AI task scheduling clusters.
  *
- * @description 导入agent中的定时任务到scheduler平台（SSE），该接口禁止使用xxljob的clusterid调用，不支持XXLJOB相关集群，这个接口仅限AI任务调度集群使用。
+ * @description Imports scheduled tasks from an agent to the scheduler platform (SSE). You cannot call this API operation by using the cluster ID of an XXL-JOB cluster, and XXL-JOB clusters are not supported. This API operation is exclusively available for AI task scheduling clusters.
  *
  * @param request ImportAgentJobsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2197,9 +2202,9 @@ ImportAgentJobsResponse Client::importAgentJobsWithOptions(const ImportAgentJobs
 }
 
 /**
- * @summary 导入agent中的定时任务到scheduler平台（SSE），该接口禁止使用xxljob的clusterid调用，不支持XXLJOB相关集群，这个接口仅限AI任务调度集群使用。
+ * @summary Imports scheduled tasks from an agent to the scheduler platform (SSE). You cannot call this API operation by using the cluster ID of an XXL-JOB cluster, and XXL-JOB clusters are not supported. This API operation is exclusively available for AI task scheduling clusters.
  *
- * @description 导入agent中的定时任务到scheduler平台（SSE），该接口禁止使用xxljob的clusterid调用，不支持XXLJOB相关集群，这个接口仅限AI任务调度集群使用。
+ * @description Imports scheduled tasks from an agent to the scheduler platform (SSE). You cannot call this API operation by using the cluster ID of an XXL-JOB cluster, and XXL-JOB clusters are not supported. This API operation is exclusively available for AI task scheduling clusters.
  *
  * @param request ImportAgentJobsRequest
  * @return ImportAgentJobsResponse
@@ -2264,7 +2269,7 @@ ImportCalendarResponse Client::importCalendar(const ImportCalendarRequest &reque
 }
 
 /**
- * @summary Imports jobs in bulk.
+ * @summary Imports tasks in batches.
  *
  * @param request ImportJobsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2307,7 +2312,7 @@ ImportJobsResponse Client::importJobsWithOptions(const ImportJobsRequest &reques
 }
 
 /**
- * @summary Imports jobs in bulk.
+ * @summary Imports tasks in batches.
  *
  * @param request ImportJobsRequest
  * @return ImportJobsResponse
@@ -2318,7 +2323,7 @@ ImportJobsResponse Client::importJobs(const ImportJobsRequest &request) {
 }
 
 /**
- * @summary Imports one or more workflows.
+ * @summary Imports a workflow.
  *
  * @param request ImportWorkflowsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2361,7 +2366,7 @@ ImportWorkflowsResponse Client::importWorkflowsWithOptions(const ImportWorkflows
 }
 
 /**
- * @summary Imports one or more workflows.
+ * @summary Imports a workflow.
  *
  * @param request ImportWorkflowsRequest
  * @return ImportWorkflowsResponse
@@ -2410,7 +2415,7 @@ ListAlarmEventResponse Client::listAlarmEvent(const ListAlarmEventRequest &reque
 }
 
 /**
- * @summary Returns a list of application names.
+ * @summary Retrieves the list of application names.
  *
  * @param request ListAppNamesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2437,7 +2442,7 @@ ListAppNamesResponse Client::listAppNamesWithOptions(const ListAppNamesRequest &
 }
 
 /**
- * @summary Returns a list of application names.
+ * @summary Retrieves the list of application names.
  *
  * @param request ListAppNamesRequest
  * @return ListAppNamesResponse
@@ -2448,7 +2453,7 @@ ListAppNamesResponse Client::listAppNames(const ListAppNamesRequest &request) {
 }
 
 /**
- * @summary Get the list of applications.
+ * @summary Retrieves a list of applications.
  *
  * @param request ListAppsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2475,7 +2480,7 @@ ListAppsResponse Client::listAppsWithOptions(const ListAppsRequest &request, con
 }
 
 /**
- * @summary Get the list of applications.
+ * @summary Retrieves a list of applications.
  *
  * @param request ListAppsRequest
  * @return ListAppsResponse
@@ -2486,7 +2491,7 @@ ListAppsResponse Client::listApps(const ListAppsRequest &request) {
 }
 
 /**
- * @summary Lists all Calendar names.
+ * @summary Retrieves a list of calendar names.
  *
  * @param request ListCalendarNamesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2513,7 +2518,7 @@ ListCalendarNamesResponse Client::listCalendarNamesWithOptions(const ListCalenda
 }
 
 /**
- * @summary Lists all Calendar names.
+ * @summary Retrieves a list of calendar names.
  *
  * @param request ListCalendarNamesRequest
  * @return ListCalendarNamesResponse
@@ -2624,9 +2629,9 @@ ListClustersResponse Client::listClusters(const ListClustersRequest &request) {
 }
 
 /**
- * @summary 查询通知联系人列表
+ * @summary Queries the list of notification contacts.
  *
- * @description 查看联系人
+ * @description Views the contacts.
  *
  * @param request ListContactsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2665,9 +2670,9 @@ ListContactsResponse Client::listContactsWithOptions(const ListContactsRequest &
 }
 
 /**
- * @summary 查询通知联系人列表
+ * @summary Queries the list of notification contacts.
  *
- * @description 查看联系人
+ * @description Views the contacts.
  *
  * @param request ListContactsRequest
  * @return ListContactsResponse
@@ -2678,7 +2683,7 @@ ListContactsResponse Client::listContacts(const ListContactsRequest &request) {
 }
 
 /**
- * @summary Retrieve the data source list
+ * @summary Retrieves a list of data sources.
  *
  * @param request ListDatasourcesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2733,7 +2738,7 @@ ListDatasourcesResponse Client::listDatasourcesWithOptions(const ListDatasources
 }
 
 /**
- * @summary Retrieve the data source list
+ * @summary Retrieves a list of data sources.
  *
  * @param request ListDatasourcesRequest
  * @return ListDatasourcesResponse
@@ -2744,12 +2749,12 @@ ListDatasourcesResponse Client::listDatasources(const ListDatasourcesRequest &re
 }
 
 /**
- * @summary 获取执行器组列表
+ * @summary Queries the list of executor groups.
  *
- * @description # 引入增强插件
- * 在`pom.xml`文件中添加增强插件以提升Executor的能力。
- * **注意**：请确保该插件在pom中放置在`xxl-job-core` 依赖的**上方**。
- * **详细信息请参考**：[插件版本说明文档](https://help.aliyun.com/zh/schedulerx/schedulerx-xxljob/product-overview/plugin-version-description)
+ * @description # Import the enhancement plugin
+ * Add the enhancement plugin to the `pom.xml` file to enhance the capabilities of the executor.
+ * **Note**: Make sure that this plugin is placed **above** the `xxl-job-core` dependency in the pom file.
+ * **For more information, see**: [Plugin version description](https://www.alibabacloud.com/help/en/schedulerx/schedulerx-xxljob/product-overview/plugin-version-description)
  *
  * @param request ListExecutorGroupRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2782,6 +2787,10 @@ ListExecutorGroupResponse Client::listExecutorGroupWithOptions(const ListExecuto
     query["PageSize"] = request.getPageSize();
   }
 
+  if (!!request.hasTimeType()) {
+    query["TimeType"] = request.getTimeType();
+  }
+
   if (!!request.hasWorkerType()) {
     query["WorkerType"] = request.getWorkerType();
   }
@@ -2804,12 +2813,12 @@ ListExecutorGroupResponse Client::listExecutorGroupWithOptions(const ListExecuto
 }
 
 /**
- * @summary 获取执行器组列表
+ * @summary Queries the list of executor groups.
  *
- * @description # 引入增强插件
- * 在`pom.xml`文件中添加增强插件以提升Executor的能力。
- * **注意**：请确保该插件在pom中放置在`xxl-job-core` 依赖的**上方**。
- * **详细信息请参考**：[插件版本说明文档](https://help.aliyun.com/zh/schedulerx/schedulerx-xxljob/product-overview/plugin-version-description)
+ * @description # Import the enhancement plugin
+ * Add the enhancement plugin to the `pom.xml` file to enhance the capabilities of the executor.
+ * **Note**: Make sure that this plugin is placed **above** the `xxl-job-core` dependency in the pom file.
+ * **For more information, see**: [Plugin version description](https://www.alibabacloud.com/help/en/schedulerx/schedulerx-xxljob/product-overview/plugin-version-description)
  *
  * @param request ListExecutorGroupRequest
  * @return ListExecutorGroupResponse
@@ -2940,7 +2949,7 @@ ListJobExecutionsResponse Client::listJobExecutions(const ListJobExecutionsReque
 }
 
 /**
- * @summary Lists the script history for a job.
+ * @summary Retrieves the task script history list.
  *
  * @param request ListJobScriptHistoryRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2987,7 +2996,7 @@ ListJobScriptHistoryResponse Client::listJobScriptHistoryWithOptions(const ListJ
 }
 
 /**
- * @summary Lists the script history for a job.
+ * @summary Retrieves the task script history list.
  *
  * @param request ListJobScriptHistoryRequest
  * @return ListJobScriptHistoryResponse
@@ -2998,7 +3007,7 @@ ListJobScriptHistoryResponse Client::listJobScriptHistory(const ListJobScriptHis
 }
 
 /**
- * @summary Retrieves a list of tasks.
+ * @summary Retrieves a list of jobs.
  *
  * @param request ListJobsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3047,6 +3056,10 @@ ListJobsResponse Client::listJobsWithOptions(const ListJobsRequest &request, con
     query["Status"] = request.getStatus();
   }
 
+  if (!!request.hasTimeType()) {
+    query["TimeType"] = request.getTimeType();
+  }
+
   if (!!request.hasWorkflowId()) {
     query["WorkflowId"] = request.getWorkflowId();
   }
@@ -3069,7 +3082,7 @@ ListJobsResponse Client::listJobsWithOptions(const ListJobsRequest &request, con
 }
 
 /**
- * @summary Retrieves a list of tasks.
+ * @summary Retrieves a list of jobs.
  *
  * @param request ListJobsRequest
  * @return ListJobsResponse
@@ -3080,12 +3093,12 @@ ListJobsResponse Client::listJobs(const ListJobsRequest &request) {
 }
 
 /**
- * @summary Lists k8s resources.
+ * @summary Retrieves Kubernetes resources.
  *
- * @description # Add the enhancement plugin
- * Add the enhancement plugin to your `pom.xml` file to extend the Executor\\"s capabilities.
- * **Note**: Place this plugin **above** the `xxl-job-core` dependency in your pom.xml file.
- * **For more information:** [Plugin version release notes](https://help.aliyun.com/zh/schedulerx/schedulerx-xxljob/product-overview/plugin-version-description)
+ * @description # Add the enhancement plug-in
+ * Add the enhancement plug-in to the `pom.xml` file to enhance the capabilities of the executor.
+ * **Note**: Make sure that this plug-in is placed **above** the `xxl-job-core` dependency in the POM file.
+ * **For more information, see**: [Plug-in version descriptions](https://www.alibabacloud.com/help/en/schedulerx/schedulerx-xxljob/product-overview/plugin-version-description)
  *
  * @param request ListK8sResourceRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3132,12 +3145,12 @@ ListK8sResourceResponse Client::listK8sResourceWithOptions(const ListK8sResource
 }
 
 /**
- * @summary Lists k8s resources.
+ * @summary Retrieves Kubernetes resources.
  *
- * @description # Add the enhancement plugin
- * Add the enhancement plugin to your `pom.xml` file to extend the Executor\\"s capabilities.
- * **Note**: Place this plugin **above** the `xxl-job-core` dependency in your pom.xml file.
- * **For more information:** [Plugin version release notes](https://help.aliyun.com/zh/schedulerx/schedulerx-xxljob/product-overview/plugin-version-description)
+ * @description # Add the enhancement plug-in
+ * Add the enhancement plug-in to the `pom.xml` file to enhance the capabilities of the executor.
+ * **Note**: Make sure that this plug-in is placed **above** the `xxl-job-core` dependency in the POM file.
+ * **For more information, see**: [Plug-in version descriptions](https://www.alibabacloud.com/help/en/schedulerx/schedulerx-xxljob/product-overview/plugin-version-description)
  *
  * @param request ListK8sResourceRequest
  * @return ListK8sResourceResponse
@@ -3148,7 +3161,7 @@ ListK8sResourceResponse Client::listK8sResource(const ListK8sResourceRequest &re
 }
 
 /**
- * @summary Retrieves a list of labels for an Executor.
+ * @summary Retrieves the list of labels for an executor.
  *
  * @param request ListLablesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3175,7 +3188,7 @@ ListLablesResponse Client::listLablesWithOptions(const ListLablesRequest &reques
 }
 
 /**
- * @summary Retrieves a list of labels for an Executor.
+ * @summary Retrieves the list of labels for an executor.
  *
  * @param request ListLablesRequest
  * @return ListLablesResponse
@@ -3186,7 +3199,7 @@ ListLablesResponse Client::listLables(const ListLablesRequest &request) {
 }
 
 /**
- * @summary Obtain the zone list.
+ * @summary Queries the list of zones.
  *
  * @param runtime runtime options for this request RuntimeOptions
  * @return ListRegionZoneResponse
@@ -3208,7 +3221,7 @@ ListRegionZoneResponse Client::listRegionZoneWithOptions(const Darabonba::Runtim
 }
 
 /**
- * @summary Obtain the zone list.
+ * @summary Queries the list of zones.
  *
  * @return ListRegionZoneResponse
  */
@@ -3218,7 +3231,7 @@ ListRegionZoneResponse Client::listRegionZone() {
 }
 
 /**
- * @summary Obtain the List of all Regions.
+ * @summary Retrieves a list of all regions.
  *
  * @param runtime runtime options for this request RuntimeOptions
  * @return ListRegionsResponse
@@ -3240,7 +3253,7 @@ ListRegionsResponse Client::listRegionsWithOptions(const Darabonba::RuntimeOptio
 }
 
 /**
- * @summary Obtain the List of all Regions.
+ * @summary Retrieves a list of all regions.
  *
  * @return ListRegionsResponse
  */
@@ -3250,7 +3263,7 @@ ListRegionsResponse Client::listRegions() {
 }
 
 /**
- * @summary Lists scheduled events.
+ * @summary Queries scheduling events.
  *
  * @param request ListScheduleEventRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3277,7 +3290,7 @@ ListScheduleEventResponse Client::listScheduleEventWithOptions(const ListSchedul
 }
 
 /**
- * @summary Lists scheduled events.
+ * @summary Queries scheduling events.
  *
  * @param request ListScheduleEventRequest
  * @return ListScheduleEventResponse
@@ -3288,7 +3301,7 @@ ListScheduleEventResponse Client::listScheduleEvent(const ListScheduleEventReque
 }
 
 /**
- * @summary Retrieves the next five scheduled times based on the specified time type and time expression.
+ * @summary Retrieves the next five scheduling times for a specified time type and expression.
  *
  * @param request ListScheduleTimesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3315,7 +3328,7 @@ ListScheduleTimesResponse Client::listScheduleTimesWithOptions(const ListSchedul
 }
 
 /**
- * @summary Retrieves the next five scheduled times based on the specified time type and time expression.
+ * @summary Retrieves the next five scheduling times for a specified time type and expression.
  *
  * @param request ListScheduleTimesRequest
  * @return ListScheduleTimesResponse
@@ -3412,7 +3425,7 @@ ListWorkflowExecutionsResponse Client::listWorkflowExecutions(const ListWorkflow
 }
 
 /**
- * @summary Lists the versions for a specified workflow.
+ * @summary Retrieves a list of workflow versions.
  *
  * @param request ListWorkflowVersionsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3459,7 +3472,7 @@ ListWorkflowVersionsResponse Client::listWorkflowVersionsWithOptions(const ListW
 }
 
 /**
- * @summary Lists the versions for a specified workflow.
+ * @summary Retrieves a list of workflow versions.
  *
  * @param request ListWorkflowVersionsRequest
  * @return ListWorkflowVersionsResponse
@@ -3470,7 +3483,7 @@ ListWorkflowVersionsResponse Client::listWorkflowVersions(const ListWorkflowVers
 }
 
 /**
- * @summary Lists your workflows.
+ * @summary Retrieves a list of workflows.
  *
  * @param request ListWorkflowsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3537,7 +3550,7 @@ ListWorkflowsResponse Client::listWorkflowsWithOptions(const ListWorkflowsReques
 }
 
 /**
- * @summary Lists your workflows.
+ * @summary Retrieves a list of workflows.
  *
  * @param request ListWorkflowsRequest
  * @return ListWorkflowsResponse
@@ -3548,7 +3561,7 @@ ListWorkflowsResponse Client::listWorkflows(const ListWorkflowsRequest &request)
 }
 
 /**
- * @summary Backfills historical data for a specified workflow.
+ * @summary Backfills the historical data of a workflow.
  *
  * @param request OperateBackfillWorkflowRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3595,7 +3608,7 @@ OperateBackfillWorkflowResponse Client::operateBackfillWorkflowWithOptions(const
 }
 
 /**
- * @summary Backfills historical data for a specified workflow.
+ * @summary Backfills the historical data of a workflow.
  *
  * @param request OperateBackfillWorkflowRequest
  * @return OperateBackfillWorkflowResponse
@@ -3606,7 +3619,7 @@ OperateBackfillWorkflowResponse Client::operateBackfillWorkflow(const OperateBac
 }
 
 /**
- * @summary Connect to a data source
+ * @summary Tests the connection to a data source.
  *
  * @param request OperateConnectDatasourceRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3649,7 +3662,7 @@ OperateConnectDatasourceResponse Client::operateConnectDatasourceWithOptions(con
 }
 
 /**
- * @summary Connect to a data source
+ * @summary Tests the connection to a data source.
  *
  * @param request OperateConnectDatasourceRequest
  * @return OperateConnectDatasourceResponse
@@ -3732,7 +3745,7 @@ OperateDesignateExecutorsResponse Client::operateDesignateExecutors(const Operat
 }
 
 /**
- * @summary Disables nodes in batches.
+ * @summary Disables tasks in batches.
  *
  * @param tmpReq OperateDisableJobsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3781,7 +3794,7 @@ OperateDisableJobsResponse Client::operateDisableJobsWithOptions(const OperateDi
 }
 
 /**
- * @summary Disables nodes in batches.
+ * @summary Disables tasks in batches.
  *
  * @param request OperateDisableJobsRequest
  * @return OperateDisableJobsResponse
@@ -3792,9 +3805,9 @@ OperateDisableJobsResponse Client::operateDisableJobs(const OperateDisableJobsRe
 }
 
 /**
- * @summary Disables one or more workflows.
+ * @summary Disables a workflow.
  *
- * @description Disables one or more specified workflows.
+ * @description Manually imports an executor.
  *
  * @param tmpReq OperateDisableWorkflowsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3839,9 +3852,9 @@ OperateDisableWorkflowsResponse Client::operateDisableWorkflowsWithOptions(const
 }
 
 /**
- * @summary Disables one or more workflows.
+ * @summary Disables a workflow.
  *
- * @description Disables one or more specified workflows.
+ * @description Manually imports an executor.
  *
  * @param request OperateDisableWorkflowsRequest
  * @return OperateDisableWorkflowsResponse
@@ -3852,7 +3865,7 @@ OperateDisableWorkflowsResponse Client::operateDisableWorkflows(const OperateDis
 }
 
 /**
- * @summary Starts nodes in batches.
+ * @summary Enables multiple tasks.
  *
  * @param tmpReq OperateEnableJobsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3901,7 +3914,7 @@ OperateEnableJobsResponse Client::operateEnableJobsWithOptions(const OperateEnab
 }
 
 /**
- * @summary Starts nodes in batches.
+ * @summary Enables multiple tasks.
  *
  * @param request OperateEnableJobsRequest
  * @return OperateEnableJobsResponse
@@ -3912,7 +3925,7 @@ OperateEnableJobsResponse Client::operateEnableJobs(const OperateEnableJobsReque
 }
 
 /**
- * @summary Enables one or more workflows.
+ * @summary Enables a workflow.
  *
  * @param tmpReq OperateEnableWorkflowsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3957,7 +3970,7 @@ OperateEnableWorkflowsResponse Client::operateEnableWorkflowsWithOptions(const O
 }
 
 /**
- * @summary Enables one or more workflows.
+ * @summary Enables a workflow.
  *
  * @param request OperateEnableWorkflowsRequest
  * @return OperateEnableWorkflowsResponse
@@ -3968,7 +3981,7 @@ OperateEnableWorkflowsResponse Client::operateEnableWorkflows(const OperateEnabl
 }
 
 /**
- * @summary Runs a node once.
+ * @summary Runs a task once.
  *
  * @param request OperateExecuteJobRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4023,7 +4036,7 @@ OperateExecuteJobResponse Client::operateExecuteJobWithOptions(const OperateExec
 }
 
 /**
- * @summary Runs a node once.
+ * @summary Runs a task once.
  *
  * @param request OperateExecuteJobRequest
  * @return OperateExecuteJobResponse
@@ -4034,9 +4047,9 @@ OperateExecuteJobResponse Client::operateExecuteJob(const OperateExecuteJobReque
 }
 
 /**
- * @summary Executes a workflow.
+ * @summary Runs a workflow.
  *
- * @description This operation starts a new workflow instance.
+ * @description Manually imports an executor.
  *
  * @param request OperateExecuteWorkflowRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4075,9 +4088,9 @@ OperateExecuteWorkflowResponse Client::operateExecuteWorkflowWithOptions(const O
 }
 
 /**
- * @summary Executes a workflow.
+ * @summary Runs a workflow.
  *
- * @description This operation starts a new workflow instance.
+ * @description Manually imports an executor.
  *
  * @param request OperateExecuteWorkflowRequest
  * @return OperateExecuteWorkflowResponse
@@ -4088,7 +4101,7 @@ OperateExecuteWorkflowResponse Client::operateExecuteWorkflow(const OperateExecu
 }
 
 /**
- * @summary Holds a pending job execution.
+ * @summary Suspends task instances that have not yet been executed.
  *
  * @param request OperateHoldJobExecutionRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4127,7 +4140,7 @@ OperateHoldJobExecutionResponse Client::operateHoldJobExecutionWithOptions(const
 }
 
 /**
- * @summary Holds a pending job execution.
+ * @summary Suspends task instances that have not yet been executed.
  *
  * @param request OperateHoldJobExecutionRequest
  * @return OperateHoldJobExecutionResponse
@@ -4138,7 +4151,7 @@ OperateHoldJobExecutionResponse Client::operateHoldJobExecution(const OperateHol
 }
 
 /**
- * @summary Puts a Workflow Execution on hold, suspending all its unexecuted nodes.
+ * @summary Suspends a workflow instance, which suspends the unexecuted nodes in the workflow.
  *
  * @param request OperateHoldWorkflowExecutionRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4177,7 +4190,7 @@ OperateHoldWorkflowExecutionResponse Client::operateHoldWorkflowExecutionWithOpt
 }
 
 /**
- * @summary Puts a Workflow Execution on hold, suspending all its unexecuted nodes.
+ * @summary Suspends a workflow instance, which suspends the unexecuted nodes in the workflow.
  *
  * @param request OperateHoldWorkflowExecutionRequest
  * @return OperateHoldWorkflowExecutionResponse
@@ -4188,7 +4201,7 @@ OperateHoldWorkflowExecutionResponse Client::operateHoldWorkflowExecution(const 
 }
 
 /**
- * @summary Marks a job execution as successful.
+ * @summary Marks a job instance as successful.
  *
  * @param request OperateMarkSuccessJobExecutionRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4227,7 +4240,7 @@ OperateMarkSuccessJobExecutionResponse Client::operateMarkSuccessJobExecutionWit
 }
 
 /**
- * @summary Marks a job execution as successful.
+ * @summary Marks a job instance as successful.
  *
  * @param request OperateMarkSuccessJobExecutionRequest
  * @return OperateMarkSuccessJobExecutionResponse
@@ -4238,7 +4251,7 @@ OperateMarkSuccessJobExecutionResponse Client::operateMarkSuccessJobExecution(co
 }
 
 /**
- * @summary Marks a workflow execution as successful.
+ * @summary Marks a workflow instance as successful.
  *
  * @param request OperateMarkSuccessWorkflowExecutionRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4277,7 +4290,7 @@ OperateMarkSuccessWorkflowExecutionResponse Client::operateMarkSuccessWorkflowEx
 }
 
 /**
- * @summary Marks a workflow execution as successful.
+ * @summary Marks a workflow instance as successful.
  *
  * @param request OperateMarkSuccessWorkflowExecutionRequest
  * @return OperateMarkSuccessWorkflowExecutionResponse
@@ -4288,7 +4301,7 @@ OperateMarkSuccessWorkflowExecutionResponse Client::operateMarkSuccessWorkflowEx
 }
 
 /**
- * @summary Reruns historical data for a node.
+ * @summary Reruns historical data for a task.
  *
  * @param request OperateRerunJobRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4343,7 +4356,7 @@ OperateRerunJobResponse Client::operateRerunJobWithOptions(const OperateRerunJob
 }
 
 /**
- * @summary Reruns historical data for a node.
+ * @summary Reruns historical data for a task.
  *
  * @param request OperateRerunJobRequest
  * @return OperateRerunJobResponse
@@ -4354,7 +4367,7 @@ OperateRerunJobResponse Client::operateRerunJob(const OperateRerunJobRequest &re
 }
 
 /**
- * @summary Reruns a failed job instance.
+ * @summary Reruns failed task instances.
  *
  * @param tmpReq OperateRetryJobExecutionRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4411,7 +4424,7 @@ OperateRetryJobExecutionResponse Client::operateRetryJobExecutionWithOptions(con
 }
 
 /**
- * @summary Reruns a failed job instance.
+ * @summary Reruns failed task instances.
  *
  * @param request OperateRetryJobExecutionRequest
  * @return OperateRetryJobExecutionResponse
@@ -4422,7 +4435,7 @@ OperateRetryJobExecutionResponse Client::operateRetryJobExecution(const OperateR
 }
 
 /**
- * @summary Retries a workflow execution.
+ * @summary Reruns a workflow instance.
  *
  * @param request OperateRetryWorkflowExecutionRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4465,7 +4478,7 @@ OperateRetryWorkflowExecutionResponse Client::operateRetryWorkflowExecutionWithO
 }
 
 /**
- * @summary Retries a workflow execution.
+ * @summary Reruns a workflow instance.
  *
  * @param request OperateRetryWorkflowExecutionRequest
  * @return OperateRetryWorkflowExecutionResponse
@@ -4476,7 +4489,7 @@ OperateRetryWorkflowExecutionResponse Client::operateRetryWorkflowExecution(cons
 }
 
 /**
- * @summary Skips a job execution.
+ * @summary Skips a task instance.
  *
  * @param request OperateSkipJobExecutionRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4515,7 +4528,7 @@ OperateSkipJobExecutionResponse Client::operateSkipJobExecutionWithOptions(const
 }
 
 /**
- * @summary Skips a job execution.
+ * @summary Skips a task instance.
  *
  * @param request OperateSkipJobExecutionRequest
  * @return OperateSkipJobExecutionResponse
@@ -4590,7 +4603,7 @@ OperateStopJobExecutionResponse Client::operateStopJobExecution(const OperateSto
 }
 
 /**
- * @summary Stops a running workflow execution.
+ * @summary Stops a running workflow instance.
  *
  * @param request OperateStopWorkflowExecutionRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4629,7 +4642,7 @@ OperateStopWorkflowExecutionResponse Client::operateStopWorkflowExecutionWithOpt
 }
 
 /**
- * @summary Stops a running workflow execution.
+ * @summary Stops a running workflow instance.
  *
  * @param request OperateStopWorkflowExecutionRequest
  * @return OperateStopWorkflowExecutionResponse
@@ -4640,7 +4653,7 @@ OperateStopWorkflowExecutionResponse Client::operateStopWorkflowExecution(const 
 }
 
 /**
- * @summary Resumes a Job Execution that is in the Hold state.
+ * @summary Resumes a suspended task instance.
  *
  * @param request OperateUnholdJobExecutionRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4679,7 +4692,7 @@ OperateUnholdJobExecutionResponse Client::operateUnholdJobExecutionWithOptions(c
 }
 
 /**
- * @summary Resumes a Job Execution that is in the Hold state.
+ * @summary Resumes a suspended task instance.
  *
  * @param request OperateUnholdJobExecutionRequest
  * @return OperateUnholdJobExecutionResponse
@@ -4690,7 +4703,7 @@ OperateUnholdJobExecutionResponse Client::operateUnholdJobExecution(const Operat
 }
 
 /**
- * @summary Resumes a workflow execution that is on hold.
+ * @summary Resumes the execution of a suspended workflow instance.
  *
  * @param request OperateUnholdWorkflowExecutionRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4729,7 +4742,7 @@ OperateUnholdWorkflowExecutionResponse Client::operateUnholdWorkflowExecutionWit
 }
 
 /**
- * @summary Resumes a workflow execution that is on hold.
+ * @summary Resumes the execution of a suspended workflow instance.
  *
  * @param request OperateUnholdWorkflowExecutionRequest
  * @return OperateUnholdWorkflowExecutionResponse
@@ -4740,7 +4753,7 @@ OperateUnholdWorkflowExecutionResponse Client::operateUnholdWorkflowExecution(co
 }
 
 /**
- * @summary Resumes a skipped job execution.
+ * @summary Resumes a skipped task instance.
  *
  * @param request OperateUnskipJobExecutionRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4779,7 +4792,7 @@ OperateUnskipJobExecutionResponse Client::operateUnskipJobExecutionWithOptions(c
 }
 
 /**
- * @summary Resumes a skipped job execution.
+ * @summary Resumes a skipped task instance.
  *
  * @param request OperateUnskipJobExecutionRequest
  * @return OperateUnskipJobExecutionResponse
@@ -4790,7 +4803,7 @@ OperateUnskipJobExecutionResponse Client::operateUnskipJobExecution(const Operat
 }
 
 /**
- * @summary Synchronizes jobs.
+ * @summary Synchronizes nodes.
  *
  * @param tmpReq SyncJobsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4843,7 +4856,7 @@ SyncJobsResponse Client::syncJobsWithOptions(const SyncJobsRequest &tmpReq, cons
 }
 
 /**
- * @summary Synchronizes jobs.
+ * @summary Synchronizes nodes.
  *
  * @param request SyncJobsRequest
  * @return SyncJobsResponse
@@ -5036,9 +5049,9 @@ UpdateClusterResponse Client::updateCluster(const UpdateClusterRequest &request)
 }
 
 /**
- * @summary 更新通知联系人
+ * @summary Updates a notification contact.
  *
- * @description 更新通知联系人
+ * @description Updates a notification contact.
  *
  * @param request UpdateContactRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -5081,9 +5094,9 @@ UpdateContactResponse Client::updateContactWithOptions(const UpdateContactReques
 }
 
 /**
- * @summary 更新通知联系人
+ * @summary Updates a notification contact.
  *
- * @description 更新通知联系人
+ * @description Updates a notification contact.
  *
  * @param request UpdateContactRequest
  * @return UpdateContactResponse
@@ -5094,7 +5107,7 @@ UpdateContactResponse Client::updateContact(const UpdateContactRequest &request)
 }
 
 /**
- * @summary Update data source
+ * @summary Updates a datasource.
  *
  * @param request UpdateDatasourceRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -5145,7 +5158,7 @@ UpdateDatasourceResponse Client::updateDatasourceWithOptions(const UpdateDatasou
 }
 
 /**
- * @summary Update data source
+ * @summary Updates a datasource.
  *
  * @param request UpdateDatasourceRequest
  * @return UpdateDatasourceResponse
@@ -5156,12 +5169,12 @@ UpdateDatasourceResponse Client::updateDatasource(const UpdateDatasourceRequest 
 }
 
 /**
- * @summary 更新执行器组
+ * @summary Updates an executor group.
  *
- * @description # 引入增强插件
- * 在`pom.xml`文件中添加增强插件以提升Executor的能力。
- * **注意**：请确保该插件在pom中放置在`xxl-job-core` 依赖的**上方**。
- * **详细信息请参考**：[插件版本说明文档](https://help.aliyun.com/zh/schedulerx/schedulerx-xxljob/product-overview/plugin-version-description)
+ * @description # Import the enhancement plugin
+ * Add the enhancement plugin to the `pom.xml` file to improve the capabilities of the executor.
+ * **Note**: Make sure that the plugin is placed **above** the `xxl-job-core` dependency in the POM file.
+ * **For more information, see**: [Plugin version description](https://www.alibabacloud.com/help/en/schedulerx/schedulerx-xxljob/product-overview/plugin-version-description)
  *
  * @param request UpdateExecutorGroupRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -5240,12 +5253,12 @@ UpdateExecutorGroupResponse Client::updateExecutorGroupWithOptions(const UpdateE
 }
 
 /**
- * @summary 更新执行器组
+ * @summary Updates an executor group.
  *
- * @description # 引入增强插件
- * 在`pom.xml`文件中添加增强插件以提升Executor的能力。
- * **注意**：请确保该插件在pom中放置在`xxl-job-core` 依赖的**上方**。
- * **详细信息请参考**：[插件版本说明文档](https://help.aliyun.com/zh/schedulerx/schedulerx-xxljob/product-overview/plugin-version-description)
+ * @description # Import the enhancement plugin
+ * Add the enhancement plugin to the `pom.xml` file to improve the capabilities of the executor.
+ * **Note**: Make sure that the plugin is placed **above** the `xxl-job-core` dependency in the POM file.
+ * **For more information, see**: [Plugin version description](https://www.alibabacloud.com/help/en/schedulerx/schedulerx-xxljob/product-overview/plugin-version-description)
  *
  * @param request UpdateExecutorGroupRequest
  * @return UpdateExecutorGroupResponse
@@ -5256,12 +5269,12 @@ UpdateExecutorGroupResponse Client::updateExecutorGroup(const UpdateExecutorGrou
 }
 
 /**
- * @summary Updates the configuration of one or more Executors.
+ * @summary Updates an executor.
  *
- * @description # Add the enhancement plugin
- * Add the enhancement plugin to the `pom.xml` file to extend the capabilities of the Executor.
- * **Note**: Place this plugin **above** the `xxl-job-core` dependency in the pom.xml file.
- * **For more information, see the** [Plugin Version Description Document](https://help.aliyun.com/zh/schedulerx/schedulerx-xxljob/product-overview/plugin-version-description).
+ * @description # Import the enhancement plug-in
+ * Add the enhancement plug-in to the `pom.xml` file to enhance the capabilities of the executor.
+ * **Note**: Make sure that the plug-in is placed **above** the `xxl-job-core` dependency in the POM file.
+ * **For more information**, see [Plug-in version description](https://www.alibabacloud.com/help/en/schedulerx/schedulerx-xxljob/product-overview/plugin-version-description).
  *
  * @param request UpdateExecutorsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -5304,12 +5317,12 @@ UpdateExecutorsResponse Client::updateExecutorsWithOptions(const UpdateExecutors
 }
 
 /**
- * @summary Updates the configuration of one or more Executors.
+ * @summary Updates an executor.
  *
- * @description # Add the enhancement plugin
- * Add the enhancement plugin to the `pom.xml` file to extend the capabilities of the Executor.
- * **Note**: Place this plugin **above** the `xxl-job-core` dependency in the pom.xml file.
- * **For more information, see the** [Plugin Version Description Document](https://help.aliyun.com/zh/schedulerx/schedulerx-xxljob/product-overview/plugin-version-description).
+ * @description # Import the enhancement plug-in
+ * Add the enhancement plug-in to the `pom.xml` file to enhance the capabilities of the executor.
+ * **Note**: Make sure that the plug-in is placed **above** the `xxl-job-core` dependency in the POM file.
+ * **For more information**, see [Plug-in version description](https://www.alibabacloud.com/help/en/schedulerx/schedulerx-xxljob/product-overview/plugin-version-description).
  *
  * @param request UpdateExecutorsRequest
  * @return UpdateExecutorsResponse
@@ -5320,7 +5333,7 @@ UpdateExecutorsResponse Client::updateExecutors(const UpdateExecutorsRequest &re
 }
 
 /**
- * @summary Updates node information.
+ * @summary Updates the job information.
  *
  * @param tmpReq UpdateJobRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -5469,7 +5482,7 @@ UpdateJobResponse Client::updateJobWithOptions(const UpdateJobRequest &tmpReq, c
 }
 
 /**
- * @summary Updates node information.
+ * @summary Updates the job information.
  *
  * @param request UpdateJobRequest
  * @return UpdateJobResponse
@@ -5480,7 +5493,7 @@ UpdateJobResponse Client::updateJob(const UpdateJobRequest &request) {
 }
 
 /**
- * @summary Update task instance
+ * @summary Updates a job instance.
  *
  * @param request UpdateJobExecutionRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -5523,7 +5536,7 @@ UpdateJobExecutionResponse Client::updateJobExecutionWithOptions(const UpdateJob
 }
 
 /**
- * @summary Update task instance
+ * @summary Updates a job instance.
  *
  * @param request UpdateJobExecutionRequest
  * @return UpdateJobExecutionResponse
@@ -5534,7 +5547,7 @@ UpdateJobExecutionResponse Client::updateJobExecution(const UpdateJobExecutionRe
 }
 
 /**
- * @summary Updates a job script.
+ * @summary Updates the task execution script.
  *
  * @param request UpdateJobScriptRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -5581,7 +5594,7 @@ UpdateJobScriptResponse Client::updateJobScriptWithOptions(const UpdateJobScript
 }
 
 /**
- * @summary Updates a job script.
+ * @summary Updates the task execution script.
  *
  * @param request UpdateJobScriptRequest
  * @return UpdateJobScriptResponse
@@ -5592,7 +5605,7 @@ UpdateJobScriptResponse Client::updateJobScript(const UpdateJobScriptRequest &re
 }
 
 /**
- * @summary Updates an existing workflow.
+ * @summary Updates a workflow.
  *
  * @param request UpdateWorkflowRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -5663,7 +5676,7 @@ UpdateWorkflowResponse Client::updateWorkflowWithOptions(const UpdateWorkflowReq
 }
 
 /**
- * @summary Updates an existing workflow.
+ * @summary Updates a workflow.
  *
  * @param request UpdateWorkflowRequest
  * @return UpdateWorkflowResponse
@@ -5674,7 +5687,7 @@ UpdateWorkflowResponse Client::updateWorkflow(const UpdateWorkflowRequest &reque
 }
 
 /**
- * @summary Updates a workflow\\"s Directed Acyclic Graph (DAG), including node coordinates and edges.
+ * @summary Updates the directed acyclic graph (DAG) information of a workflow, including node coordinates and edges.
  *
  * @param tmpReq UpdateWorkflowDAGRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -5727,7 +5740,7 @@ UpdateWorkflowDAGResponse Client::updateWorkflowDAGWithOptions(const UpdateWorkf
 }
 
 /**
- * @summary Updates a workflow\\"s Directed Acyclic Graph (DAG), including node coordinates and edges.
+ * @summary Updates the directed acyclic graph (DAG) information of a workflow, including node coordinates and edges.
  *
  * @param request UpdateWorkflowDAGRequest
  * @return UpdateWorkflowDAGResponse
@@ -5738,7 +5751,7 @@ UpdateWorkflowDAGResponse Client::updateWorkflowDAG(const UpdateWorkflowDAGReque
 }
 
 /**
- * @summary Updates the Directed Acyclic Graph (DAG) version for a Workflow.
+ * @summary Switches the workflow DAG version.
  *
  * @param request UpdateWorkflowDAGVersionRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -5781,7 +5794,7 @@ UpdateWorkflowDAGVersionResponse Client::updateWorkflowDAGVersionWithOptions(con
 }
 
 /**
- * @summary Updates the Directed Acyclic Graph (DAG) version for a Workflow.
+ * @summary Switches the workflow DAG version.
  *
  * @param request UpdateWorkflowDAGVersionRequest
  * @return UpdateWorkflowDAGVersionResponse

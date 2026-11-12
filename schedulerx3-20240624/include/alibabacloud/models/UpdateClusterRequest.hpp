@@ -63,6 +63,7 @@ namespace Models
     shared_ptr<string> clusterId_ {};
     // The cluster name.
     shared_ptr<string> clusterName_ {};
+    // The instance-level IP whitelist.
     shared_ptr<string> ipWhitelist_ {};
   };
 

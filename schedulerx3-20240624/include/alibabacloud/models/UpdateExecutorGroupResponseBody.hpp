@@ -139,14 +139,26 @@ namespace Models
 
 
     protected:
+      // The authentication type. Valid values:
+      // - **Anonymous**: No authentication is required.
+      // - **Application**: Authentication is required.
+      // > The default value is **Anonymous**.
       shared_ptr<string> authType_ {};
+      // The workflow description.
       shared_ptr<string> description_ {};
+      // The Kubernetes services that failed to be imported.
       shared_ptr<string> failedService_ {};
+      // The workflow name.
       shared_ptr<string> name_ {};
+      // The network data.
       shared_ptr<string> network_ {};
+      // The protocol types supported by the domain name. HTTP: Only the HTTP protocol is supported. HTTPS: Only the HTTPS protocol is supported. HTTP,HTTPS: Both HTTP and HTTPS protocols are supported.
       shared_ptr<string> protocol_ {};
+      // The worker ID of the deployment task. You can obtain this ID by calling the [ListWorkerResource](https://help.aliyun.com/document_detail/2712224.html) operation.
       shared_ptr<int64_t> workerId_ {};
+      // The executor type.
       shared_ptr<string> workerType_ {};
+      // The list of specified machines in JSON format.
       shared_ptr<string> workers_ {};
     };
 
@@ -190,10 +202,17 @@ namespace Models
 
 
   protected:
+    // The response code.
     shared_ptr<int32_t> code_ {};
+    // The updated executor group information.
     shared_ptr<UpdateExecutorGroupResponseBody::Data> data_ {};
+    // The error message.
     shared_ptr<string> message_ {};
+    // Id of the request
     shared_ptr<string> requestId_ {};
+    // Indicates whether the call was successful. Valid values:
+    // - true: The call was successful.
+    // - false: The call failed.
     shared_ptr<bool> success_ {};
   };
 

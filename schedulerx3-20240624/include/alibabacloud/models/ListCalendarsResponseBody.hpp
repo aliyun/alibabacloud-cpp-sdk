@@ -110,9 +110,9 @@ namespace Models
 
 
       protected:
-        // The name of the calendar.
+        // The calendar name.
         shared_ptr<string> calendarName_ {};
-        // A JSON string that represents an array of months and their corresponding days.
+        // The calendar for each month in JSON array format.
         shared_ptr<string> months_ {};
         // The year.
         shared_ptr<int32_t> year_ {};
@@ -151,11 +151,11 @@ namespace Models
 
 
     protected:
-      // The maximum number of entries returned per page.
+      // The maximum number of entries to return for the current request. Default value: 10.
       shared_ptr<int32_t> maxResults_ {};
-      // The token for the next page of results. If this parameter is not returned, all results have been retrieved.
+      // The token that is returned by the server when the data that meets the query conditions is not completely read. You can use this token to continue reading the remaining data. You do not need to specify this parameter for the first query.
       shared_ptr<string> nextToken_ {};
-      // A list of calendars.
+      // The list of records.
       shared_ptr<vector<Data::Records>> records_ {};
       // The total number of entries.
       shared_ptr<int64_t> total_ {};
@@ -203,17 +203,15 @@ namespace Models
   protected:
     // The response code.
     shared_ptr<int32_t> code_ {};
-    // - The returned data.
+    // The calendar list and pagination information.
     shared_ptr<ListCalendarsResponseBody::Data> data_ {};
     // The error message.
     shared_ptr<string> message_ {};
-    // The ID of the request.
+    // Id of the request
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request was successful.
-    // 
-    // - **true**: The request succeeded.
-    // 
-    // - **false**: The request failed.
+    // Indicates whether the call is successful.
+    // - **true**: The call is successful.
+    // - **false**: The call failed.
     shared_ptr<bool> success_ {};
   };
 

@@ -57,10 +57,11 @@ namespace Models
 
 
   protected:
+    // The name of the alert contact.
     shared_ptr<string> contactName_ {};
-    // 页码，从 1 开始，默认 1
+    // The page number.
     shared_ptr<int32_t> pageNum_ {};
-    // 每页条数，默认 20，最大 100
+    // The number of entries per page.
     shared_ptr<int32_t> pageSize_ {};
   };
 

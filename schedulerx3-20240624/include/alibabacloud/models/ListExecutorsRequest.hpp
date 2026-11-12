@@ -75,6 +75,7 @@ namespace Models
 
 
   protected:
+    // The application group ID.
     shared_ptr<int64_t> appGroupId_ {};
     // The application name.
     // 

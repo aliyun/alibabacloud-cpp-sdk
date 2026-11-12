@@ -141,19 +141,18 @@ namespace Models
 
 
       protected:
-        // Data source connection parameters.
+        // The connection parameters of the data source.
         shared_ptr<string> connectionParams_ {};
-        // DataSource ID.
+        // The data source ID.
         shared_ptr<int64_t> datasourceId_ {};
-        // Job description.
+        // The task description.
         shared_ptr<string> description_ {};
-        // Job name.
+        // The task name.
         shared_ptr<string> name_ {};
-        // Specific pronunciation rule Type. Options:
-        // 
-        // - replacement: A rule that directly replaces Word with Pronunciation.
+        // The specific pronunciation rule type. Valid values:
+        // - replacement: A rule that directly replaces a word with its pronunciation.
         shared_ptr<int32_t> type_ {};
-        // Updater.
+        // The updater.
         shared_ptr<string> updater_ {};
       };
 
@@ -204,17 +203,17 @@ namespace Models
 
 
     protected:
-      // Maximum Data Volume to read in this request. Default Value is 10.
+      // The maximum number of entries to return for this request. Default value: 10.
       shared_ptr<int32_t> maxResults_ {};
-      // When the data matching the query conditions has not been fully read, the server returns a nextToken. You can use this nextToken to continue reading subsequent data. This parameter is not required for the first query.
+      // The token used to retrieve the next page of results. If the data that meets the query conditions is not completely read, the server returns this token. You can use this token to continue reading the subsequent data. You do not need to specify this parameter for the first query.
       shared_ptr<string> nextToken_ {};
-      // Page number.
+      // The page number.
       shared_ptr<int32_t> pageNumber_ {};
-      // Page size.
+      // The page size.
       shared_ptr<int32_t> pageSize_ {};
-      // -
+      // The list of data source records on the current page.
       shared_ptr<vector<Data::Records>> records_ {};
-      // Total number of records.
+      // The total number of entries.
       shared_ptr<int32_t> total_ {};
     };
 
@@ -258,17 +257,17 @@ namespace Models
 
 
   protected:
-    // Response code.
+    // The response code.
     shared_ptr<int32_t> code_ {};
-    // Returned data.
+    // The returned data.
     shared_ptr<ListDatasourcesResponseBody::Data> data_ {};
-    // Error message.
+    // The error message.
     shared_ptr<string> message_ {};
-    // ID of the request
+    // Id of the request
     shared_ptr<string> requestId_ {};
-    // Indicates whether the invocation succeeded.
-    // - **true**: The invocation succeeded.
-    // - **false**: Failed to invoke.
+    // Indicates whether the call was successful. Valid values:
+    // - **true**: The call was successful.
+    // - **false**: The call failed.
     shared_ptr<bool> success_ {};
   };
 

@@ -94,6 +94,7 @@ namespace Models
 
 
   protected:
+    // The application ID.
     shared_ptr<int64_t> appId_ {};
     // The application name.
     // 
@@ -103,19 +104,19 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> clusterId_ {};
-    // The data timestamp.
+    // The data timestamp, in the HH:mm:ss format.
     // 
     // This parameter is required.
     shared_ptr<string> dataTime_ {};
-    // The end time.
+    // The end time, specified as a UNIX timestamp in milliseconds.
     // 
     // This parameter is required.
     shared_ptr<int64_t> endDate_ {};
-    // The node ID.
+    // The job ID.
     // 
     // This parameter is required.
     shared_ptr<int64_t> jobId_ {};
-    // The start time.
+    // The start time, specified as a UNIX timestamp in milliseconds.
     // 
     // This parameter is required.
     shared_ptr<int64_t> startDate_ {};

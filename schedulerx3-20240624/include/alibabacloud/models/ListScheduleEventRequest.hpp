@@ -160,27 +160,20 @@ namespace Models
   protected:
     // The application name.
     shared_ptr<string> appName_ {};
-    // The Cluster ID.
+    // The cluster ID.
     // 
     // This parameter is required.
     shared_ptr<string> clusterId_ {};
-    // The end of the time range to query events. This is a Unix timestamp in milliseconds.
+    // The end time of the retrieved events, specified as a UNIX timestamp in milliseconds.
     shared_ptr<int64_t> endTime_ {};
-    // The event status to filter by. Valid values:
-    // 
-    // - Scheduled
-    // 
-    // - Running
-    // 
-    // - Succeeded
-    // 
-    // - Failed
-    // 
-    // - Failing_Auto_Retry
-    // 
-    // - Skip_Schedule
-    // 
-    // - Execute_Log
+    // The event ID. Valid values:
+    // - Scheduled.
+    // - Running.
+    // - Succeed.
+    // - Failed.
+    // - Failing_Auto_Retry.
+    // - Skip_Schedule.
+    // - Execute_Log.
     shared_ptr<string> event_ {};
     // The event type.
     shared_ptr<string> eventType_ {};
@@ -188,15 +181,15 @@ namespace Models
     shared_ptr<string> jobExecutionId_ {};
     // The job name.
     shared_ptr<string> jobName_ {};
-    // The search keyword.
+    // The query keyword.
     shared_ptr<string> keyword_ {};
-    // The page number.
+    // The current page number.
     shared_ptr<int32_t> pageNum_ {};
-    // The number of events to return per page.
+    // The number of entries per page.
     shared_ptr<int32_t> pageSize_ {};
-    // Specifies whether to sort the results in descending order. Set to `true` for descending order or `false` for ascending order. Default is `false`.
+    // Specifies whether to sort the results in descending order.
     shared_ptr<bool> reverse_ {};
-    // The start of the time range to query events. This is a Unix timestamp in milliseconds.
+    // The start time of the retrieved events, specified as a UNIX timestamp in milliseconds.
     shared_ptr<int64_t> startTime_ {};
     // The workflow execution ID.
     shared_ptr<int64_t> workflowExecutionId_ {};

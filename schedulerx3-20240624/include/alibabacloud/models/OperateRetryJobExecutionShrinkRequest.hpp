@@ -84,6 +84,7 @@ namespace Models
 
 
   protected:
+    // The application ID.
     shared_ptr<int64_t> appGroupId_ {};
     // The application name.
     // 
@@ -97,8 +98,8 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> jobExecutionId_ {};
-    // The list of subtask execution IDs (for broadcast jobs).
-    // >To rerun a subtask of a broadcast job, set this field to the execution ID of the corresponding subtask.
+    // The list of subtask execution IDs for sharded broadcast tasks.
+    // > To rerun a subtask of a sharded broadcast task, set this field to the execution ID of the corresponding subtask.
     shared_ptr<string> taskListShrink_ {};
     // Specifies whether to trigger downstream nodes.
     shared_ptr<bool> triggerChild_ {};

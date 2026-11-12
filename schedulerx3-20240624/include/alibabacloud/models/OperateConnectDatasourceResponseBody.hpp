@@ -66,15 +66,15 @@ namespace Models
 
 
   protected:
-    // Response code
+    // The response code.
     shared_ptr<int32_t> code_ {};
-    // Error message.
+    // The error message.
     shared_ptr<string> message_ {};
-    // ID of the request
+    // Id of the request
     shared_ptr<string> requestId_ {};
-    // Indicates whether the invocation succeeded.  
-    // - true: The invocation succeeded.  
-    // - false: The invocation failed.
+    // Indicates whether the call was successful. Valid values:
+    // - true: The call was successful.
+    // - false: The call failed.
     shared_ptr<bool> success_ {};
   };
 

@@ -79,13 +79,13 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> appName_ {};
-    // The ID of the cluster.
+    // The cluster ID.
     // 
     // This parameter is required.
     shared_ptr<string> clusterId_ {};
-    // The maximum number of results to return. The default value is 10.
+    // The maximum number of results to return for this request. Default value: 10.
     shared_ptr<int32_t> maxResults_ {};
-    // The token to retrieve the next page of results. Omit this parameter for the first request.
+    // The pagination token that indicates the position from which the current call returns results. An empty value indicates that all data has been retrieved. You do not need to specify this parameter for the first request.
     shared_ptr<string> nextToken_ {};
     // The workflow ID.
     // 

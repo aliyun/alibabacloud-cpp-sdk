@@ -94,6 +94,7 @@ namespace Models
 
 
   protected:
+    // The application ID.
     shared_ptr<int64_t> appGroupId_ {};
     // The application name.
     // 
@@ -105,13 +106,13 @@ namespace Models
     shared_ptr<string> clusterId_ {};
     // The instance parameters.
     shared_ptr<string> instanceParameters_ {};
-    // The node ID.
+    // The job ID.
     // 
     // This parameter is required.
     shared_ptr<int64_t> jobId_ {};
     // The label of the specified machine.
     shared_ptr<string> label_ {};
-    // The workerAddr of the specified machine.
+    // The worker address of the specified machine.
     shared_ptr<string> worker_ {};
   };
 

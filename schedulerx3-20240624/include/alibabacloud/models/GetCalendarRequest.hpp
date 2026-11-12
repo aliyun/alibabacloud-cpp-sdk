@@ -57,11 +57,11 @@ namespace Models
 
 
   protected:
-    // The name of the calendar.
+    // The calendar name.
     // 
     // This parameter is required.
     shared_ptr<string> calendarName_ {};
-    // The ID of the cluster.
+    // The cluster ID.
     // 
     // This parameter is required.
     shared_ptr<string> clusterId_ {};

@@ -111,17 +111,17 @@ namespace Models
 
 
     protected:
-      // The App Group ID.
+      // The task group ID.
       shared_ptr<int64_t> appGroupId_ {};
       // The application type.
       shared_ptr<int32_t> appType_ {};
-      // A list of Kubernetes Services that failed to import.
+      // The Kubernetes services that failed to be imported.
       shared_ptr<string> failedService_ {};
-      // The ID of the worker. You can obtain this ID by calling the [ListWorkerResource](https://help.aliyun.com/document_detail/2712224.html) operation.
+      // The worker ID of the deployment task. You can obtain this ID by calling the [ListWorkerResource](https://help.aliyun.com/document_detail/2712224.html) operation.
       shared_ptr<int64_t> workerId_ {};
-      // The worker type.
+      // The executor type.
       shared_ptr<string> workerType_ {};
-      // A JSON string that represents the list of imported workers.
+      // The list of specified machines in JSON format.
       shared_ptr<string> workers_ {};
     };
 
@@ -167,17 +167,15 @@ namespace Models
   protected:
     // The response code.
     shared_ptr<int32_t> code_ {};
-    // The returned data.
+    // The returned result.
     shared_ptr<CreateExecutorsResponseBody::Data> data_ {};
-    // The response message.
+    // The error message.
     shared_ptr<string> message_ {};
-    // The unique ID of the request.
+    // Id of the request
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request succeeded.
-    // 
-    // - true: The request succeeded.
-    // 
-    // - false: The request failed.
+    // Indicates whether the call is successful. Valid values:
+    // - true: The call is successful.
+    // - false: The call failed.
     shared_ptr<bool> success_ {};
   };
 

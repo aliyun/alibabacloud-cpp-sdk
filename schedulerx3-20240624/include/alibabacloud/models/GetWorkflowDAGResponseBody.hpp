@@ -146,13 +146,13 @@ namespace Models
 
 
         protected:
-          // Optional. The height of the Node.
+          // The height of the node. This field is optional.
           shared_ptr<float> height_ {};
-          // Optional. The width of the Node.
+          // The width of the node. This field is optional.
           shared_ptr<float> width_ {};
-          // The x-coordinate of the Node.
+          // The X-axis coordinate of the node.
           shared_ptr<float> x_ {};
-          // The y-coordinate of the Node.
+          // The Y-axis coordinate of the node.
           shared_ptr<float> y_ {};
         };
 
@@ -211,23 +211,21 @@ namespace Models
 
 
       protected:
-        // The Application Name.
+        // The application name.
         shared_ptr<string> appName_ {};
-        // The coordinates of the Node.
+        // The coordinate information of the node.
         shared_ptr<Nodes::Coordinate> coordinate_ {};
-        // The Dependency Strategy.
+        // The dependency policy.
         shared_ptr<int32_t> dependentStrategy_ {};
-        // The Job ID.
+        // The task ID.
         shared_ptr<int64_t> id_ {};
-        // The Job type.
+        // The task type.
         shared_ptr<string> jobType_ {};
-        // The Job name.
+        // The task name.
         shared_ptr<string> name_ {};
-        // The Job Status.
-        // 
-        // - 0: Disabled
-        // 
-        // - 1: Enabled
+        // The task status. Valid values:
+        // - 0: Disabled.
+        // - 1: Enabled.
         shared_ptr<int32_t> status_ {};
       };
 
@@ -269,9 +267,9 @@ namespace Models
 
 
       protected:
-        // The Job ID of the source Node.
+        // The task ID of the source node of the edge.
         shared_ptr<int64_t> source_ {};
-        // The Job ID of the target Node.
+        // The task ID of the target node of the edge.
         shared_ptr<int64_t> target_ {};
       };
 
@@ -296,9 +294,9 @@ namespace Models
 
 
     protected:
-      // A list of Edges in the Workflow DAG.
+      // The list of workflow edges.
       shared_ptr<vector<Data::Edges>> edges_ {};
-      // A list of Nodes in the Workflow DAG.
+      // The returned data type.
       shared_ptr<vector<Data::Nodes>> nodes_ {};
     };
 
@@ -342,15 +340,15 @@ namespace Models
 
 
   protected:
-    // The Response Code.
+    // The response code.
     shared_ptr<int32_t> code_ {};
-    // The returned data.
+    // The query result.
     shared_ptr<GetWorkflowDAGResponseBody::Data> data_ {};
-    // The Error Message.
+    // The error message.
     shared_ptr<string> message_ {};
-    // The Request ID.
+    // Id of the request
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request succeeded.
+    // Indicates whether the request is successful.
     shared_ptr<bool> success_ {};
   };
 

@@ -130,17 +130,31 @@ namespace Models
 
 
   protected:
+    // The application name.
     shared_ptr<string> appName_ {};
+    // The cluster ID.
+    // 
     // This parameter is required.
     shared_ptr<string> clusterId_ {};
+    // The end timestamp in milliseconds.
     shared_ptr<int64_t> endTime_ {};
+    // The job execution ID.
     shared_ptr<string> jobExecutionId_ {};
+    // The job name.
     shared_ptr<string> jobName_ {};
+    // The search keyword.
     shared_ptr<string> keyword_ {};
+    // The page number.
     shared_ptr<int32_t> pageNum_ {};
+    // The number of entries per page.
     shared_ptr<int32_t> pageSize_ {};
+    // Specifies whether to sort the results in descending order. Valid values:
+    // - **true**: Sorts the results in descending order.
+    // - **false**: Sorts the results in ascending order.
     shared_ptr<bool> reverse_ {};
+    // The start timestamp in milliseconds.
     shared_ptr<int64_t> startTime_ {};
+    // The executor address.
     shared_ptr<string> workerAddr_ {};
   };
 

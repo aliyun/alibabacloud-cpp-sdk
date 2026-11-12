@@ -84,21 +84,21 @@ namespace Models
 
 
   protected:
-    // Cluster ID.
+    // The cluster ID.
     // 
     // This parameter is required.
     shared_ptr<string> clusterId_ {};
-    // Data source connection parameters
+    // The datasource connection parameters.
     shared_ptr<string> connectionParams_ {};
-    // DataSource ID, which can be obtained by calling the ListDatasources API.
+    // The datasource ID. You can obtain this ID by calling the ListDatasources operation.
     // 
     // This parameter is required.
     shared_ptr<int64_t> datasourceId_ {};
-    // Data source description
+    // The datasource description.
     shared_ptr<string> description_ {};
-    // Datasource Name
+    // The datasource name.
     shared_ptr<string> name_ {};
-    // Database password
+    // The database password.
     shared_ptr<string> password_ {};
   };
 

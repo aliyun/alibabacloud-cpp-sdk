@@ -66,19 +66,19 @@ namespace Models
 
 
   protected:
-    // AppName
+    // The application name.
     // 
     // This parameter is required.
     shared_ptr<string> appName_ {};
-    // Cluster ID.
+    // The cluster ID.
     // 
     // This parameter is required.
     shared_ptr<string> clusterId_ {};
-    // Job execution ID.
+    // The job execution ID.
     // 
     // This parameter is required.
     shared_ptr<string> jobExecutionId_ {};
-    // Schedule time
+    // The scheduling time.
     shared_ptr<int64_t> scheduleTime_ {};
   };
 

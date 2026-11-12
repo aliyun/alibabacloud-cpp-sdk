@@ -454,15 +454,15 @@ namespace Models
         shared_ptr<int64_t> appGroupId_ {};
         // The application name.
         shared_ptr<string> appName_ {};
-        // The error retry interval, in seconds.
+        // The retry interval upon errors, in seconds.
         shared_ptr<int32_t> attemptInterval_ {};
         // The calendar.
         shared_ptr<string> calendar_ {};
-        // The child task ID.
+        // The child job ID.
         shared_ptr<string> childJobId_ {};
         // The cleanup mode.
         shared_ptr<string> cleanMode_ {};
-        // The timestamp when the task was created.
+        // The timestamp when the job was created.
         shared_ptr<int64_t> createTime_ {};
         // The creator.
         shared_ptr<string> creator_ {};
@@ -474,67 +474,66 @@ namespace Models
         shared_ptr<int32_t> currentExecuteStatus_ {};
         // The data offset.
         shared_ptr<int32_t> dataOffset_ {};
-        // The dependency check policy.
+        // The dependency check strategy.
         shared_ptr<int32_t> dependentStrategy_ {};
-        // The task description.
+        // The job description.
         shared_ptr<string> description_ {};
         // The client blocking strategy. Valid values:
-        // - 1: Serial execution on a single machine.
-        // - 2: Ignore subsequent scheduling.
-        // - 3: Override previous scheduling.
+        // - 1: Standalone serial.
+        // - 2: Ignore subsequent schedules.
+        // - 3: Override previous schedules.
         shared_ptr<string> executorBlockStrategy_ {};
-        // The `jobhandler` name.
+        // The jobhandler name.
         shared_ptr<string> jobHandler_ {};
-        // The task ID.
+        // The job ID.
         shared_ptr<int64_t> jobId_ {};
-        // The task type.
+        // The job type.
         shared_ptr<string> jobType_ {};
-        // The task label information.
+        // The job label information.
         shared_ptr<string> label_ {};
-        // The end time of the last execution.
+        // The end time of the last execution. The format is YYYY-MM-DD HH:mm:ss.
         shared_ptr<string> lastExecuteEndTime_ {};
         // The result of the last execution. Valid values:
-        // - 4: Succeeded.
-        // - 5: Failed.
+        // - 4: Success.
+        // - 5: Failure.
         shared_ptr<int32_t> lastExecuteStatus_ {};
-        // The maximum number of error retries. Set this parameter based on your business requirements.
+        // The maximum number of retries upon errors.
         shared_ptr<int32_t> maxAttempt_ {};
         // The overall concurrency threshold.
         shared_ptr<int32_t> maxConcurrency_ {};
-        // The task name.
+        // The job name.
         shared_ptr<string> name_ {};
         // The node type.
         shared_ptr<int32_t> nodeType_ {};
-        // The `Notice` configuration.
+        // The notice configuration.
         shared_ptr<string> noticeConfig_ {};
         // The notification contacts.
         shared_ptr<string> noticeContacts_ {};
-        // The task parameters.
+        // The job parameters.
         shared_ptr<string> parameters_ {};
-        // The execution job priority.
+        // The execution priority of the job.
         shared_ptr<int32_t> priority_ {};
         // The routing strategy. Valid values:
-        // - 1: Round-robin.
+        // - 1: Round robin.
         // - 2: Random.
         // - 3: First.
         // - 4: Last.
         // - 5: Least frequently used.
         // - 6: Least recently used.
         // - 7: Consistent hashing.
-        // - 8: Shard broadcast.
+        // - 8: Sharding broadcast.
         shared_ptr<int32_t> routeStrategy_ {};
         // The script content.
         shared_ptr<string> script_ {};
         // The start time type.
         shared_ptr<int32_t> startTimeType_ {};
-        // The task status. Valid values:
-        // - 0: DISABLE (Disabled).
-        // - 1: ENABLE (Enabled).
+        // The job status. Valid values:
+        // - 0: DISABLE.
+        // - 1: ENABLE.
         shared_ptr<int32_t> status_ {};
-        // The time expression.
+        // The time expression. When cron scheduling is used, the Quartz cron format (second minute hour day month week) is used.
         shared_ptr<string> timeExpression_ {};
-        // The time type. The following types are supported:
-        // 
+        // The time type. Valid values:
         // - -1: none.
         // - 1: cron.
         // - 3: fix_rate.
@@ -545,11 +544,11 @@ namespace Models
         shared_ptr<string> timeZone_ {};
         // The time zone.
         shared_ptr<string> timezone_ {};
-        // The timestamp when the task was last updated.
+        // The timestamp when the job was updated.
         shared_ptr<int64_t> updateTime_ {};
         // The updater.
         shared_ptr<string> updater_ {};
-        // The task weight.
+        // The job weight.
         shared_ptr<int32_t> weight_ {};
         // The workflow ID.
         shared_ptr<int64_t> workflowId_ {};
@@ -595,9 +594,9 @@ namespace Models
       shared_ptr<int32_t> pageNumber_ {};
       // The page size.
       shared_ptr<int32_t> pageSize_ {};
-      // -
+      // The list of job records on the current page.
       shared_ptr<vector<Data::Records>> records_ {};
-      // The total number of entries.
+      // The total count.
       shared_ptr<int32_t> total_ {};
     };
 
@@ -643,11 +642,11 @@ namespace Models
   protected:
     // The response code.
     shared_ptr<int32_t> code_ {};
-    // -
+    // The paginated job results.
     shared_ptr<ListJobsResponseBody::Data> data_ {};
     // The error message.
     shared_ptr<string> message_ {};
-    // The request ID generated by Alibaba Cloud for this request. You can use this ID to troubleshoot issues.
+    // The ID of the request. It is a unique identifier generated by Alibaba Cloud for the request and can be used for troubleshooting.
     shared_ptr<string> requestId_ {};
     // Indicates whether the call was successful. Valid values:
     // - true: The call was successful.

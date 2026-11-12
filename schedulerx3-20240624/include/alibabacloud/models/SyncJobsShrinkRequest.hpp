@@ -75,23 +75,23 @@ namespace Models
 
 
   protected:
-    // A list of job IDs.
+    // The list of node IDs.
     // 
     // This parameter is required.
     shared_ptr<string> jobIdsShrink_ {};
-    // The name of the source application that contains the jobs.
+    // The name of the original application where the nodes are located.
     // 
     // This parameter is required.
     shared_ptr<string> originalAppName_ {};
-    // The ID of the source cluster that contains the jobs.
+    // The ID of the original cluster where the nodes are located.
     // 
     // This parameter is required.
     shared_ptr<string> originalClusterId_ {};
-    // The name of the destination application.
+    // The name of the target application to which the nodes are synchronized.
     // 
     // This parameter is required.
     shared_ptr<string> targetAppName_ {};
-    // The ID of the destination cluster.
+    // The ID of the target cluster to which the nodes are synchronized.
     // 
     // This parameter is required.
     shared_ptr<string> targetClusterId_ {};

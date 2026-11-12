@@ -83,11 +83,11 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> clusterId_ {};
-    // The directed acyclic graph (DAG) of the workflow.
+    // The workflow DAG information.
     // 
     // This parameter is required.
     shared_ptr<string> dagShrink_ {};
-    // The version of the DAG. To obtain this value, call the [ListDAGVersions](https://help.aliyun.com/document_detail/465989.html) operation.
+    // The workflow version number. You can call the [ListDAGVersions](https://help.aliyun.com/document_detail/465989.html) operation to obtain the value of this parameter.
     shared_ptr<string> dagVersion_ {};
     // The workflow ID.
     // 

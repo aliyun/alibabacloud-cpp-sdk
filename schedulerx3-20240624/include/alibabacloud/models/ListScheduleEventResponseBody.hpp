@@ -176,9 +176,9 @@ namespace Models
       protected:
         // The application name.
         shared_ptr<string> appName_ {};
-        // The event content.
+        // The content.
         shared_ptr<string> content_ {};
-        // The event status.
+        // The event ID.
         shared_ptr<string> event_ {};
         // The event type.
         shared_ptr<string> eventType_ {};
@@ -186,11 +186,11 @@ namespace Models
         shared_ptr<string> jobExecutionId_ {};
         // The job name.
         shared_ptr<string> jobName_ {};
-        // The timestamp of the event. The time is in the `yyyy-MM-dd HH:mm:ss` format.
+        // The log printing time, in the `yyyy-MM-dd HH:mm:ss` format.
         shared_ptr<string> time_ {};
         // The worker address.
         shared_ptr<string> workerAddr_ {};
-        // The workflow execution ID.
+        // The workflow execution record ID.
         shared_ptr<string> workflowExecutionId_ {};
         // The workflow name.
         shared_ptr<string> workflowName_ {};
@@ -233,9 +233,9 @@ namespace Models
       shared_ptr<int32_t> pageNumber_ {};
       // The number of entries per page.
       shared_ptr<int32_t> pageSize_ {};
-      // The array of event records.
+      // The result set.
       shared_ptr<vector<Data::Records>> records_ {};
-      // The total number of entries.
+      // The total number of records.
       shared_ptr<int64_t> total_ {};
     };
 
@@ -281,16 +281,14 @@ namespace Models
   protected:
     // The response code.
     shared_ptr<int32_t> code_ {};
-    // The returned data.
+    // The paginated results of scheduling events.
     shared_ptr<ListScheduleEventResponseBody::Data> data_ {};
-    // The returned error message.
+    // The error message.
     shared_ptr<string> message_ {};
-    // The unique identifier for the request, which is used to troubleshoot issues.
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the call was successful.
-    // 
-    // - **true**: The call succeeded.
-    // 
+    // Indicates whether the call was successful. Valid values:
+    // - **true**: The call was successful.
     // - **false**: The call failed.
     shared_ptr<bool> success_ {};
   };

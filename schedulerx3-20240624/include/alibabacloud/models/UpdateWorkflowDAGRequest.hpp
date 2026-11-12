@@ -138,13 +138,13 @@ namespace Models
 
 
         protected:
-          // Optional. The height of the node.
+          // The node height. This parameter is optional.
           shared_ptr<float> height_ {};
-          // Optional. The width of the node.
+          // The node width. This parameter is optional.
           shared_ptr<float> width_ {};
-          // The x-coordinate.
+          // The X coordinate.
           shared_ptr<float> x_ {};
-          // The y-coordinate.
+          // The Y coordinate.
           shared_ptr<float> y_ {};
         };
 
@@ -174,11 +174,11 @@ namespace Models
 
 
       protected:
-        // The logical expression of the node.
+        // The logical node expression.
         shared_ptr<string> content_ {};
-        // The coordinates of the node.
+        // The node coordinates.
         shared_ptr<Nodes::Coordinate> coordinate_ {};
-        // The job ID.
+        // The node ID.
         shared_ptr<int64_t> id_ {};
       };
 
@@ -220,9 +220,9 @@ namespace Models
 
 
       protected:
-        // The job ID of the source node.
+        // The ID of the source node for the edge.
         shared_ptr<int64_t> source_ {};
-        // The job ID of the target node.
+        // The ID of the target node for the edge.
         shared_ptr<int64_t> target_ {};
       };
 
@@ -247,9 +247,9 @@ namespace Models
 
 
     protected:
-      // A list of edges in the workflow.
+      // The list of workflow edges.
       shared_ptr<vector<Dag::Edges>> edges_ {};
-      // A list of nodes in the workflow.
+      // The list of workflow nodes.
       shared_ptr<vector<Dag::Nodes>> nodes_ {};
     };
 
@@ -301,11 +301,11 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> clusterId_ {};
-    // The directed acyclic graph (DAG) of the workflow.
+    // The workflow DAG information.
     // 
     // This parameter is required.
     shared_ptr<UpdateWorkflowDAGRequest::Dag> dag_ {};
-    // The version of the DAG. To obtain this value, call the [ListDAGVersions](https://help.aliyun.com/document_detail/465989.html) operation.
+    // The workflow version number. You can call the [ListDAGVersions](https://help.aliyun.com/document_detail/465989.html) operation to obtain the value of this parameter.
     shared_ptr<string> dagVersion_ {};
     // The workflow ID.
     // 

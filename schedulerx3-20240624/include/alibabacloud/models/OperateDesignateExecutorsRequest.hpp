@@ -101,6 +101,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<vector<string>> addressList_ {};
+    // The application ID.
     shared_ptr<int64_t> appGroupId_ {};
     // The application name.
     // 
@@ -110,17 +111,17 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> clusterId_ {};
-    // The type of the designated machine. Valid values:
-    // - **1**: designated worker.
-    // - **2**: designated label.
+    // The type of machine to designate. Valid values:
+    // - **1**: Designates a worker.
+    // - **2**: Designates a label.
     // 
     // This parameter is required.
     shared_ptr<int32_t> designateType_ {};
-    // The task ID.
+    // The job ID.
     // 
     // This parameter is required.
     shared_ptr<int64_t> jobId_ {};
-    // Specifies whether to enable failover.
+    // Specifies whether failover is enabled.
     shared_ptr<bool> transferable_ {};
   };
 

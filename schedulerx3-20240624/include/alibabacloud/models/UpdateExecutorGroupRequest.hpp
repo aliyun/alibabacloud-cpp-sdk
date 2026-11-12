@@ -149,20 +149,35 @@ namespace Models
 
 
   protected:
+    // The client secret.
     shared_ptr<string> apiKey_ {};
+    // The authentication type.
     shared_ptr<string> authType_ {};
+    // Specifies whether to enable auto scaling.
     shared_ptr<bool> autoScale_ {};
+    // The cluster ID.
+    // 
     // This parameter is required.
     shared_ptr<string> clusterId_ {};
+    // The CMS workspace ID.
     shared_ptr<string> cmsWorkspaceId_ {};
+    // The description of the executor group.
     shared_ptr<string> description_ {};
+    // The ID.
+    // 
     // This parameter is required.
     shared_ptr<string> id_ {};
+    // The name of the executor group.
     shared_ptr<string> name_ {};
+    // The network configuration.
     shared_ptr<string> network_ {};
+    // The protocol.
     shared_ptr<string> protocol_ {};
+    // The executor type.
     shared_ptr<string> workerType_ {};
+    // The list of specified machines in JSON format.
     shared_ptr<string> workers_ {};
+    // The extended configuration of the executor group.
     shared_ptr<string> XAttrs_ {};
   };
 
