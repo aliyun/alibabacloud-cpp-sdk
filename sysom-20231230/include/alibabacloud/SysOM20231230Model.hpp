@@ -212,6 +212,12 @@
 #include <alibabacloud/models/ListClustersRequest.hpp>
 #include <alibabacloud/models/ListClustersResponseBody.hpp>
 #include <alibabacloud/models/ListClustersResponse.hpp>
+#include <alibabacloud/models/ListCopilotSessionMessagesRequest.hpp>
+#include <alibabacloud/models/ListCopilotSessionMessagesResponseBody.hpp>
+#include <alibabacloud/models/ListCopilotSessionMessagesResponse.hpp>
+#include <alibabacloud/models/ListCopilotSessionsRequest.hpp>
+#include <alibabacloud/models/ListCopilotSessionsResponseBody.hpp>
+#include <alibabacloud/models/ListCopilotSessionsResponse.hpp>
 #include <alibabacloud/models/ListDiagnosisRequest.hpp>
 #include <alibabacloud/models/ListDiagnosisResponseBody.hpp>
 #include <alibabacloud/models/ListDiagnosisResponse.hpp>
@@ -284,6 +290,9 @@
 #include <alibabacloud/models/UpdateClusterAgentConfigRequest.hpp>
 #include <alibabacloud/models/UpdateClusterAgentConfigResponseBody.hpp>
 #include <alibabacloud/models/UpdateClusterAgentConfigResponse.hpp>
+#include <alibabacloud/models/UpdateCopilotSessionRequest.hpp>
+#include <alibabacloud/models/UpdateCopilotSessionResponseBody.hpp>
+#include <alibabacloud/models/UpdateCopilotSessionResponse.hpp>
 #include <alibabacloud/models/UpdateEventsAttentionRequest.hpp>
 #include <alibabacloud/models/UpdateEventsAttentionResponseBody.hpp>
 #include <alibabacloud/models/UpdateEventsAttentionResponse.hpp>

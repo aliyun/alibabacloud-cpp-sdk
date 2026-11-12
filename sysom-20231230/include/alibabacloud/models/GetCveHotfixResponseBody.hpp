@@ -142,9 +142,9 @@ namespace Models
         protected:
           // The architecture.
           shared_ptr<string> arch_ {};
-          // The distribution. This value is null if the distribution is not registered.
+          // The distribution. The value is null if the distribution is not registered.
           shared_ptr<string> distro_ {};
-          // The compatible full kernel version.
+          // The adapted full kernel version.
           shared_ptr<string> kernelVersion_ {};
           // The RPM package identifier.
           shared_ptr<string> rpmNevra_ {};
@@ -190,15 +190,15 @@ namespace Models
 
 
       protected:
-        // The hotfix description.
+        // The description of the hotfix.
         shared_ptr<string> description_ {};
-        // The hotfix name.
+        // The name of the hotfix.
         shared_ptr<string> hotfixName_ {};
-        // The hotfix module name.
+        // The module name of the hotfix.
         shared_ptr<string> moduleName_ {};
-        // The list of published packages that meet the kernel requirements.
+        // The list of published packages that meet the kernel conditions.
         shared_ptr<vector<Hotfix::Packages>> packages_ {};
-        // The hotfix version.
+        // The version of the hotfix.
         shared_ptr<string> version_ {};
       };
 
@@ -262,7 +262,7 @@ namespace Models
   protected:
     // The status code.
     // - If `code == Success`, the authorization is successful.
-    // - Other status codes indicate that the authorization failed. If the authorization failed, check the `message` field for the detailed fault information.
+    // - Other status codes indicate that the authorization failed. If the authorization fails, check the `message` field for the detailed fault message.
     shared_ptr<string> code_ {};
     // The returned data.
     shared_ptr<vector<GetCveHotfixResponseBody::Data>> data_ {};

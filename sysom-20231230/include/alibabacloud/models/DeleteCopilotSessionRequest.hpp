@@ -48,7 +48,10 @@ namespace Models
 
 
   protected:
+    // The agent identifier.
     shared_ptr<string> agentId_ {};
+    // The session ID.
+    // 
     // This parameter is required.
     shared_ptr<string> sessionId_ {};
   };

@@ -126,7 +126,9 @@ namespace Models
 
 
     protected:
+      // The tag key.
       shared_ptr<string> key_ {};
+      // The tag value.
       shared_ptr<string> value_ {};
     };
 
@@ -179,6 +181,7 @@ namespace Models
 
 
   protected:
+    // The list of tags.
     shared_ptr<vector<InstallAgentWithTypeRequest::Tag>> tag_ {};
     // The ID of the component to install.
     // 
@@ -188,7 +191,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> agentVersion_ {};
-    // The configuration ID of the component to install.
+    // The ID of the component configuration to install.
     shared_ptr<string> configId_ {};
     // The instance type.
     // 

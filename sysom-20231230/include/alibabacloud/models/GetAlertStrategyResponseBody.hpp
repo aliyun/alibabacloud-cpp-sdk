@@ -75,11 +75,13 @@ namespace Models
           DARABONBA_PTR_TO_JSON(clusters, clusters_);
           DARABONBA_ANY_TO_JSON(destinations, destinations_);
           DARABONBA_ANY_TO_JSON(items, items_);
+          DARABONBA_PTR_TO_JSON(levels, levels_);
         };
         friend void from_json(const Darabonba::Json& j, Strategy& obj) { 
           DARABONBA_PTR_FROM_JSON(clusters, clusters_);
           DARABONBA_ANY_FROM_JSON(destinations, destinations_);
           DARABONBA_ANY_FROM_JSON(items, items_);
+          DARABONBA_PTR_FROM_JSON(levels, levels_);
         };
         Strategy() = default ;
         Strategy(const Strategy &) = default ;
@@ -93,7 +95,7 @@ namespace Models
         virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
         virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
         virtual bool empty() const override { return this->clusters_ == nullptr
-        && this->destinations_ == nullptr && this->items_ == nullptr; };
+        && this->destinations_ == nullptr && this->items_ == nullptr && this->levels_ == nullptr; };
         // clusters Field Functions 
         bool hasClusters() const { return this->clusters_ != nullptr;};
         void deleteClusters() { this->clusters_ = nullptr;};
@@ -121,13 +123,24 @@ namespace Models
         inline Strategy& setItems(Darabonba::Json && items) { DARABONBA_SET_RVALUE(items_, items) };
 
 
+        // levels Field Functions 
+        bool hasLevels() const { return this->levels_ != nullptr;};
+        void deleteLevels() { this->levels_ = nullptr;};
+        inline const vector<string> & getLevels() const { DARABONBA_PTR_GET_CONST(levels_, vector<string>) };
+        inline vector<string> getLevels() { DARABONBA_PTR_GET(levels_, vector<string>) };
+        inline Strategy& setLevels(const vector<string> & levels) { DARABONBA_PTR_SET_VALUE(levels_, levels) };
+        inline Strategy& setLevels(vector<string> && levels) { DARABONBA_PTR_SET_RVALUE(levels_, levels) };
+
+
       protected:
-        // The clusters that receive alerts.
+        // The collection of clusters that receive alerts.
         shared_ptr<vector<string>> clusters_ {};
         // The alert contacts.
         Darabonba::Json destinations_ {};
-        // The list of anomaly items that trigger alerts.
+        // The list of anomaly items that receive alerts.
         Darabonba::Json items_ {};
+        // The collection of alert levels.
+        shared_ptr<vector<string>> levels_ {};
       };
 
       virtual bool empty() const override { return this->createdAt_ == nullptr
@@ -198,7 +211,7 @@ namespace Models
       shared_ptr<bool> enabled_ {};
       // The alert policy ID.
       shared_ptr<int64_t> id_ {};
-      // The Kubernetes label.
+      // The K8s labels.
       shared_ptr<bool> k8sLabel_ {};
       // The policy name.
       shared_ptr<string> name_ {};
@@ -245,7 +258,7 @@ namespace Models
   protected:
     // The status code.
     // - If `code == Success`, the authorization is successful.
-    // - Other status codes indicate that the authorization failed. If the authorization fails, check the `message` field for the detailed fault message.
+    // - Other status codes indicate that the authorization failed. If the authorization failed, check the `message` field to obtain the detailed fault information.
     shared_ptr<string> code_ {};
     // The returned data.
     shared_ptr<GetAlertStrategyResponseBody::Data> data_ {};

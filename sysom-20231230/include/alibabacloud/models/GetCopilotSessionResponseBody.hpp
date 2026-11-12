@@ -146,17 +146,17 @@ namespace Models
 
 
       protected:
-        // 本次定时执行的 Run ID
+        // The ID of this scheduled execution. It is used to associate with the scheduled execution record. Multiple triggers of the same scheduled task use different runIds.
         shared_ptr<string> runId_ {};
-        // 计划触发时间，ISO 8601 含时区偏移
+        // The scheduled trigger time, in ISO 8601 format with a time zone. This field is empty if no record exists.
         shared_ptr<string> scheduledAt_ {};
-        // Copilot 开始处理时间，ISO 8601 含时区偏移
+        // The time when the processing of this schedule started, in ISO 8601 format with a time zone.
         shared_ptr<string> startedAt_ {};
-        // 任务 ID；任务删除后仍保留
+        // The ID of the associated scheduled task.
         shared_ptr<int64_t> taskId_ {};
-        // 触发时的任务名称快照
+        // The name of the scheduled task when this trigger occurred. Subsequent changes to the task name do not change this snapshot.
         shared_ptr<string> taskName_ {};
-        // 任务的 cron 时区
+        // The scheduling time zone of the scheduled task.
         shared_ptr<string> timezone_ {};
       };
 
@@ -253,13 +253,21 @@ namespace Models
 
 
       protected:
+        // The time when the execution turn was created, in ISO 8601 format.
         shared_ptr<string> createdAt_ {};
+        // The time when the execution turn ended, in ISO 8601 format. This field is empty if the execution has not ended.
         shared_ptr<string> finishedAt_ {};
+        // The cumulative number of input tokens in this execution turn.
         shared_ptr<int64_t> inputTokens_ {};
+        // The cumulative number of output tokens in this execution turn.
         shared_ptr<int64_t> outputTokens_ {};
+        // The ID of the form that is waiting for user input. It is used when you submit user input. This field is empty if no form needs to be filled out.
         shared_ptr<string> pendingInputId_ {};
+        // The execution status.
         shared_ptr<string> status_ {};
+        // The ID of the execution turn. It is used when you submit user input, reconnect, or stop the execution.
         shared_ptr<string> turnId_ {};
+        // The time when the execution turn was last updated, in ISO 8601 format.
         shared_ptr<string> updatedAt_ {};
       };
 
@@ -356,13 +364,21 @@ namespace Models
 
 
       protected:
+        // The time when the execution turn was created, in ISO 8601 format.
         shared_ptr<string> createdAt_ {};
+        // The time when the execution turn ended, in ISO 8601 format. This field is empty if the execution has not ended.
         shared_ptr<string> finishedAt_ {};
+        // The cumulative number of input tokens in this execution turn.
         shared_ptr<int64_t> inputTokens_ {};
+        // The cumulative number of output tokens in this execution turn.
         shared_ptr<int64_t> outputTokens_ {};
+        // The ID of the form that is waiting for user input. It is used when you submit user input. This field is empty if no form needs to be filled out.
         shared_ptr<string> pendingInputId_ {};
+        // The execution status.
         shared_ptr<string> status_ {};
+        // The ID of the execution turn. It is used when you submit user input, reconnect, or stop the execution.
         shared_ptr<string> turnId_ {};
+        // The time when the execution turn was last updated, in ISO 8601 format.
         shared_ptr<string> updatedAt_ {};
       };
 
@@ -446,18 +462,32 @@ namespace Models
 
 
     protected:
+      // The execution information of the turn that currently occupies the session.
       shared_ptr<Data::ActiveTurn> activeTurn_ {};
+      // The time when the session was created, in ISO 8601 format.
       shared_ptr<string> createdAt_ {};
-      // 十进制事件序号字符串，范围 0..9223372036854775807；避免 JavaScript 精度丢失
+      // The cursor of the latest persisted event in the current session.
       shared_ptr<string> cursor_ {};
+      // The information about the most recent execution turn.
       shared_ptr<Data::LastTurn> lastTurn_ {};
+      // The session title.
       shared_ptr<string> name_ {};
-      // 定时任务触发快照；非定时会话为空
+      // The snapshot information captured when the scheduled task was triggered.
       shared_ptr<Data::ScheduledTask> scheduledTask_ {};
+      // The session ID.
       shared_ptr<string> sessionId_ {};
-      // 会话初始来源：chat、scheduled_task、alert；后续追问不改变来源
+      // The session source. Valid values:
+      // - openapi: API call.
+      // - cron: Scheduled task.
+      // - im_dingtalk: DingTalk.
+      // - im_feishu: Lark.
+      // - alert: Alert.
       shared_ptr<string> sessionType_ {};
+      // The session status. Valid values:
+      // - active: The session is not archived.
+      // - archived: The session is archived.
       shared_ptr<string> status_ {};
+      // The time when the session was last updated, in ISO 8601 format.
       shared_ptr<string> updatedAt_ {};
     };
 
@@ -494,9 +524,15 @@ namespace Models
 
 
   protected:
+    // The status code.
     shared_ptr<string> code_ {};
+    // The returned data.
     shared_ptr<GetCopilotSessionResponseBody::Data> data_ {};
+    // The error message.
+    // - If `code == Success`, this field is empty.
+    // - Otherwise, this field contains the request error message.
     shared_ptr<string> message_ {};
+    // The request ID. You can use it for end-to-end diagnostics.
     shared_ptr<string> requestId_ {};
   };
 

@@ -70,7 +70,7 @@ namespace Models
   protected:
     // The status code.
     // - If `code == Success`, the authorization is successful.
-    // - Other status codes indicate that the authorization failed. If the authorization fails, check the `message` field for the detailed fault message.
+    // - Other status codes indicate that the authorization failed. If the authorization failed, check the `message` field for the detailed fault message.
     shared_ptr<string> code_ {};
     // The returned data.
     Darabonba::Json data_ {};

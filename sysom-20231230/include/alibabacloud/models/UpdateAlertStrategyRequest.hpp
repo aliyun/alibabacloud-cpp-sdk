@@ -44,11 +44,13 @@ namespace Models
         DARABONBA_PTR_TO_JSON(clusters, clusters_);
         DARABONBA_PTR_TO_JSON(destinations, destinations_);
         DARABONBA_PTR_TO_JSON(items, items_);
+        DARABONBA_PTR_TO_JSON(levels, levels_);
       };
       friend void from_json(const Darabonba::Json& j, Strategy& obj) { 
         DARABONBA_PTR_FROM_JSON(clusters, clusters_);
         DARABONBA_PTR_FROM_JSON(destinations, destinations_);
         DARABONBA_PTR_FROM_JSON(items, items_);
+        DARABONBA_PTR_FROM_JSON(levels, levels_);
       };
       Strategy() = default ;
       Strategy(const Strategy &) = default ;
@@ -62,7 +64,7 @@ namespace Models
       virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
       virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
       virtual bool empty() const override { return this->clusters_ == nullptr
-        && this->destinations_ == nullptr && this->items_ == nullptr; };
+        && this->destinations_ == nullptr && this->items_ == nullptr && this->levels_ == nullptr; };
       // clusters Field Functions 
       bool hasClusters() const { return this->clusters_ != nullptr;};
       void deleteClusters() { this->clusters_ = nullptr;};
@@ -90,13 +92,24 @@ namespace Models
       inline Strategy& setItems(vector<string> && items) { DARABONBA_PTR_SET_RVALUE(items_, items) };
 
 
+      // levels Field Functions 
+      bool hasLevels() const { return this->levels_ != nullptr;};
+      void deleteLevels() { this->levels_ = nullptr;};
+      inline const vector<string> & getLevels() const { DARABONBA_PTR_GET_CONST(levels_, vector<string>) };
+      inline vector<string> getLevels() { DARABONBA_PTR_GET(levels_, vector<string>) };
+      inline Strategy& setLevels(const vector<string> & levels) { DARABONBA_PTR_SET_VALUE(levels_, levels) };
+      inline Strategy& setLevels(vector<string> && levels) { DARABONBA_PTR_SET_RVALUE(levels_, levels) };
+
+
     protected:
-      // The collection of clusters that receive alerts.
+      // The list of clusters that receive alerts.
       shared_ptr<vector<string>> clusters_ {};
       // The alert contacts.
       shared_ptr<vector<int32_t>> destinations_ {};
-      // The collection of exception items that trigger alerts.
+      // The list of anomaly items that trigger alerts.
       shared_ptr<vector<string>> items_ {};
+      // The list of alert severity levels.
+      shared_ptr<vector<string>> levels_ {};
     };
 
     virtual bool empty() const override { return this->enabled_ == nullptr
@@ -147,9 +160,9 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<int64_t> id_ {};
-    // The Kubernetes label.
+    // The Kubernetes labels.
     shared_ptr<bool> k8sLabel_ {};
-    // The alert policy name.
+    // The alerting Policy Name.
     // 
     // This parameter is required.
     shared_ptr<string> name_ {};

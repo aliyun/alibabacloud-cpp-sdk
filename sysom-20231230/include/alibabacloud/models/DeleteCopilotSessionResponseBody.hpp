@@ -73,7 +73,9 @@ namespace Models
 
 
     protected:
+      // Indicates whether the session was deleted.
       shared_ptr<bool> deleted_ {};
+      // The ID of the deleted session.
       shared_ptr<string> sessionId_ {};
     };
 
@@ -110,9 +112,15 @@ namespace Models
 
 
   protected:
+    // The status code.
+    // - If `code` is `Success`, the authorization is successful.
+    // - Other status codes indicate that the authorization failed. If the authorization fails, check the `message` field for the detailed fault message.
     shared_ptr<string> code_ {};
+    // The returned data.
     shared_ptr<DeleteCopilotSessionResponseBody::Data> data_ {};
+    // The error message returned when the code is not Success.
     shared_ptr<string> message_ {};
+    // The request ID, which can be used for end-to-end diagnostics.
     shared_ptr<string> requestId_ {};
   };
 
