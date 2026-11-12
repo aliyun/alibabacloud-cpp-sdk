@@ -21,9 +21,9 @@ namespace WebsiteBuild20250429
       string getEndpoint(const string &productId, const string &regionId, const string &endpointRule, const string &network, const string &suffix, const map<string, string> &endpointMap, const string &endpoint);
 
       /**
-       * @summary Performs resource allocation for a Supabase instance.
+       * @summary Allocates a Supabase instance to a resource allocation.
        *
-       * @description Queries the information about the Supabase instance associated with a resource.
+       * @description Queries the Supabase instance information of a resource.
        *
        * @param request AllocateSupabaseForAdminRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -32,9 +32,9 @@ namespace WebsiteBuild20250429
       Models::AllocateSupabaseForAdminResponse allocateSupabaseForAdminWithOptions(const Models::AllocateSupabaseForAdminRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Performs resource allocation for a Supabase instance.
+       * @summary Allocates a Supabase instance to a resource allocation.
        *
-       * @description Queries the information about the Supabase instance associated with a resource.
+       * @description Queries the Supabase instance information of a resource.
        *
        * @param request AllocateSupabaseForAdminRequest
        * @return AllocateSupabaseForAdminResponse
@@ -1096,9 +1096,9 @@ namespace WebsiteBuild20250429
       Models::GetAppInstanceEntitlementResponse getAppInstanceEntitlement(const Models::GetAppInstanceEntitlementRequest &request);
 
       /**
-       * @summary Queries the details of application instances.
+       * @summary Queries application instance information.
        *
-       * @description Queries the details of application instances.
+       * @description Queries application instance information.
        *
        * @param request GetAppInstanceForAdminRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1107,9 +1107,9 @@ namespace WebsiteBuild20250429
       Models::GetAppInstanceForAdminResponse getAppInstanceForAdminWithOptions(const Models::GetAppInstanceForAdminRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the details of application instances.
+       * @summary Queries application instance information.
        *
-       * @description Queries the details of application instances.
+       * @description Queries application instance information.
        *
        * @param request GetAppInstanceForAdminRequest
        * @return GetAppInstanceForAdminResponse
@@ -1199,6 +1199,41 @@ namespace WebsiteBuild20250429
        * @return GetAppPluginConfigResponse
        */
       Models::GetAppPluginConfigResponse getAppPluginConfig(const Models::GetAppPluginConfigRequest &request);
+
+      /**
+       * @summary Retrieves the plugin configuration of a Wanxiaozhi site for internal services and returns an encrypted configuration string.
+       *
+       * @description ## Request description
+       * - The service design of this operation is exclusively for internal platform services to read the plugin configuration of a specific site by using a service identity.
+       * - Authentication relies entirely on gateway RAM control and is available only to trusted internal service accounts.
+       * - If the specified plugin is not installed on the site or the request parameters are empty, the operation returns a success status with an empty Module. Clients that invoke the operation should treat this as unconfigured.
+       * - The returned `PluginConfig` field contains an AES-encrypted JSON character string. Clients that invoke the operation must perform decryption before use.
+       * - To invoke in user mode, continue to use the `GetAppPluginConfig` operation instead of this operation.
+       * - The `BizId` and `PluginId` parameters are both required in the contract. Passing empty character strings is not blocked by the gateway but causes the backend to return an empty Module. This is a fault-tolerance behavior, and clients that invoke the operation should not rely on it.
+       * - This operation supports HTTPS and RPC-style POST requests, with parameters passed through formData.
+       *
+       * @param request GetAppPluginConfigForAdminRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetAppPluginConfigForAdminResponse
+       */
+      Models::GetAppPluginConfigForAdminResponse getAppPluginConfigForAdminWithOptions(const Models::GetAppPluginConfigForAdminRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Retrieves the plugin configuration of a Wanxiaozhi site for internal services and returns an encrypted configuration string.
+       *
+       * @description ## Request description
+       * - The service design of this operation is exclusively for internal platform services to read the plugin configuration of a specific site by using a service identity.
+       * - Authentication relies entirely on gateway RAM control and is available only to trusted internal service accounts.
+       * - If the specified plugin is not installed on the site or the request parameters are empty, the operation returns a success status with an empty Module. Clients that invoke the operation should treat this as unconfigured.
+       * - The returned `PluginConfig` field contains an AES-encrypted JSON character string. Clients that invoke the operation must perform decryption before use.
+       * - To invoke in user mode, continue to use the `GetAppPluginConfig` operation instead of this operation.
+       * - The `BizId` and `PluginId` parameters are both required in the contract. Passing empty character strings is not blocked by the gateway but causes the backend to return an empty Module. This is a fault-tolerance behavior, and clients that invoke the operation should not rely on it.
+       * - This operation supports HTTPS and RPC-style POST requests, with parameters passed through formData.
+       *
+       * @param request GetAppPluginConfigForAdminRequest
+       * @return GetAppPluginConfigForAdminResponse
+       */
+      Models::GetAppPluginConfigForAdminResponse getAppPluginConfigForAdmin(const Models::GetAppPluginConfigForAdminRequest &request);
 
       /**
        * @summary Queries the publish status.
@@ -1369,9 +1404,9 @@ namespace WebsiteBuild20250429
       Models::GetAppSupabaseAuthConfigResponse getAppSupabaseAuthConfig(const Models::GetAppSupabaseAuthConfigRequest &request);
 
       /**
-       * @summary Retrieves information about a Supabase instance.
+       * @summary Retrieves the information about a Supabase instance.
        *
-       * @description Queries application instance information.
+       * @description Queries the information about an application instance.
        *
        * @param request GetAppSupabaseInstanceRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1380,9 +1415,9 @@ namespace WebsiteBuild20250429
       Models::GetAppSupabaseInstanceResponse getAppSupabaseInstanceWithOptions(const Models::GetAppSupabaseInstanceRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Retrieves information about a Supabase instance.
+       * @summary Retrieves the information about a Supabase instance.
        *
-       * @description Queries application instance information.
+       * @description Queries the information about an application instance.
        *
        * @param request GetAppSupabaseInstanceRequest
        * @return GetAppSupabaseInstanceResponse
@@ -1938,7 +1973,7 @@ namespace WebsiteBuild20250429
       Models::ListAppInstanceDomainsResponse listAppInstanceDomains(const Models::ListAppInstanceDomainsRequest &request);
 
       /**
-       * @summary Queries a list of application instances.
+       * @summary Queries the list of application instances.
        *
        * @param tmpReq ListAppInstancesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1947,7 +1982,7 @@ namespace WebsiteBuild20250429
       Models::ListAppInstancesResponse listAppInstancesWithOptions(const Models::ListAppInstancesRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries a list of application instances.
+       * @summary Queries the list of application instances.
        *
        * @param request ListAppInstancesRequest
        * @return ListAppInstancesResponse

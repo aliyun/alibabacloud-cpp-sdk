@@ -13,9 +13,11 @@ namespace Models
   class GetTempDownloadUrlRequest : public Darabonba::Model {
   public:
     friend void to_json(Darabonba::Json& j, const GetTempDownloadUrlRequest& obj) { 
+      DARABONBA_PTR_TO_JSON(BizId, bizId_);
       DARABONBA_PTR_TO_JSON(OssKey, ossKey_);
     };
     friend void from_json(const Darabonba::Json& j, GetTempDownloadUrlRequest& obj) { 
+      DARABONBA_PTR_FROM_JSON(BizId, bizId_);
       DARABONBA_PTR_FROM_JSON(OssKey, ossKey_);
     };
     GetTempDownloadUrlRequest() = default ;
@@ -29,7 +31,15 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { return this->ossKey_ == nullptr; };
+    virtual bool empty() const override { return this->bizId_ == nullptr
+        && this->ossKey_ == nullptr; };
+    // bizId Field Functions 
+    bool hasBizId() const { return this->bizId_ != nullptr;};
+    void deleteBizId() { this->bizId_ = nullptr;};
+    inline string getBizId() const { DARABONBA_PTR_GET_DEFAULT(bizId_, "") };
+    inline GetTempDownloadUrlRequest& setBizId(string bizId) { DARABONBA_PTR_SET_VALUE(bizId_, bizId) };
+
+
     // ossKey Field Functions 
     bool hasOssKey() const { return this->ossKey_ != nullptr;};
     void deleteOssKey() { this->ossKey_ = nullptr;};
@@ -38,7 +48,9 @@ namespace Models
 
 
   protected:
-    // The key of the OSS object.
+    // The business ID.
+    shared_ptr<string> bizId_ {};
+    // The OSS object key.
     shared_ptr<string> ossKey_ {};
   };
 

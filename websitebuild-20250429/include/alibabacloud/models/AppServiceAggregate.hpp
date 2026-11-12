@@ -212,7 +212,7 @@ namespace Models
     shared_ptr<string> bizId_ {};
     // The deletion flag.
     shared_ptr<int32_t> deleted_ {};
-    // The end time. It is in ISO 8601 format and uses the UTC time zone (Z).
+    // The end time in ISO 8601 format in the UTC time zone (Z).
     shared_ptr<string> endTime_ {};
     // esp bizId
     shared_ptr<string> espBizId_ {};
@@ -228,17 +228,17 @@ namespace Models
     shared_ptr<string> name_ {};
     // The list of flow nodes.
     shared_ptr<vector<TreeNode>> nodeList_ {};
-    // Uniquely identifies an operation.
+    // The address used to uniquely identify an operation.
     shared_ptr<AppOperationAddress> operationAddress_ {};
     // The configuration information of the application service.
     shared_ptr<AppServiceProfile> profile_ {};
     // The service type.
     shared_ptr<string> serviceType_ {};
-    // The description of the service type.
+    // The service type description.
     shared_ptr<string> serviceTypeText_ {};
     // The application identifier.
     shared_ptr<string> slug_ {};
-    // The start time. It is a UNIX timestamp in milliseconds.
+    // The start time as a UNIX timestamp in milliseconds.
     shared_ptr<string> startTime_ {};
     // The status.
     shared_ptr<string> status_ {};

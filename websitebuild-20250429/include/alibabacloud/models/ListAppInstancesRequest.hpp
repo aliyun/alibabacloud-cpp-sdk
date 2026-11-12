@@ -14,6 +14,7 @@ namespace Models
   class ListAppInstancesRequest : public Darabonba::Model {
   public:
     friend void to_json(Darabonba::Json& j, const ListAppInstancesRequest& obj) { 
+      DARABONBA_PTR_TO_JSON(ApplicationType, applicationType_);
       DARABONBA_PTR_TO_JSON(BizId, bizId_);
       DARABONBA_PTR_TO_JSON(BizIds, bizIds_);
       DARABONBA_PTR_TO_JSON(EndTimeBegin, endTimeBegin_);
@@ -30,6 +31,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(StatusList, statusList_);
     };
     friend void from_json(const Darabonba::Json& j, ListAppInstancesRequest& obj) { 
+      DARABONBA_PTR_FROM_JSON(ApplicationType, applicationType_);
       DARABONBA_PTR_FROM_JSON(BizId, bizId_);
       DARABONBA_PTR_FROM_JSON(BizIds, bizIds_);
       DARABONBA_PTR_FROM_JSON(EndTimeBegin, endTimeBegin_);
@@ -56,10 +58,17 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { return this->bizId_ == nullptr
-        && this->bizIds_ == nullptr && this->endTimeBegin_ == nullptr && this->endTimeEnd_ == nullptr && this->extend_ == nullptr && this->maxResults_ == nullptr
-        && this->nextToken_ == nullptr && this->orderColumn_ == nullptr && this->orderType_ == nullptr && this->pageNum_ == nullptr && this->pageSize_ == nullptr
-        && this->query_ == nullptr && this->queryMode_ == nullptr && this->statusList_ == nullptr; };
+    virtual bool empty() const override { return this->applicationType_ == nullptr
+        && this->bizId_ == nullptr && this->bizIds_ == nullptr && this->endTimeBegin_ == nullptr && this->endTimeEnd_ == nullptr && this->extend_ == nullptr
+        && this->maxResults_ == nullptr && this->nextToken_ == nullptr && this->orderColumn_ == nullptr && this->orderType_ == nullptr && this->pageNum_ == nullptr
+        && this->pageSize_ == nullptr && this->query_ == nullptr && this->queryMode_ == nullptr && this->statusList_ == nullptr; };
+    // applicationType Field Functions 
+    bool hasApplicationType() const { return this->applicationType_ != nullptr;};
+    void deleteApplicationType() { this->applicationType_ = nullptr;};
+    inline string getApplicationType() const { DARABONBA_PTR_GET_DEFAULT(applicationType_, "") };
+    inline ListAppInstancesRequest& setApplicationType(string applicationType) { DARABONBA_PTR_SET_VALUE(applicationType_, applicationType) };
+
+
     // bizId Field Functions 
     bool hasBizId() const { return this->bizId_ != nullptr;};
     void deleteBizId() { this->bizId_ = nullptr;};
@@ -163,6 +172,11 @@ namespace Models
 
 
   protected:
+    // The application type. Valid values: 
+    // - PC_WebSite: web application. 
+    // - Mini_Program: mini program. 
+    // If this parameter is not specified or left empty, applications are not filtered by type. For compatibility, historical missing, NULL, or empty types are treated as PC_WebSite.
+    shared_ptr<string> applicationType_ {};
     // The business ID.
     shared_ptr<string> bizId_ {};
     // The list of business IDs for the application instances.
@@ -173,9 +187,7 @@ namespace Models
     shared_ptr<string> endTimeEnd_ {};
     // The extended information.
     shared_ptr<string> extend_ {};
-    // The maximum number of results returned per query.
-    // 
-    // Valid values: 10 to 100. Default value: 20.
+    // The maximum number of results returned per query. Valid values: 10 to 100. Default value: 20.
     shared_ptr<int32_t> maxResults_ {};
     // The token used to start the next query. This parameter is empty if no next query exists.
     shared_ptr<string> nextToken_ {};
@@ -187,9 +199,10 @@ namespace Models
     shared_ptr<int32_t> pageNum_ {};
     // The number of entries per page. Default value: 10.
     shared_ptr<int32_t> pageSize_ {};
-    // The query parameters.
+    // The query parameter.
     shared_ptr<string> query_ {};
-    // The query mode. A value of CONTENT_CREATION indicates a lightweight query for the content creation site selector, which queries only published sites and does not load aggregated information such as profiles, services, and AI staff.
+    // The query mode. Valid values: 
+    // - CONTENT_CREATION: specifies a lightweight query for the content creation site selector. It queries only published sites and does not load aggregated information such as profiles, services, and AI staff.
     shared_ptr<string> queryMode_ {};
     // The status range.
     shared_ptr<vector<string>> statusList_ {};

@@ -235,9 +235,7 @@ namespace Models
     shared_ptr<string> dynamicMessage_ {};
     // The returned error arguments.
     shared_ptr<vector<Darabonba::Json>> errorArgs_ {};
-    // The maximum number of results returned per query.
-    // 
-    // Valid values: 10 to 100. Default value: 20.
+    // The maximum number of results returned per query. Valid values: 10 to 100. Default value: 20.
     shared_ptr<int32_t> maxResults_ {};
     // Indicates whether a next page exists.
     shared_ptr<bool> nextPage_ {};
@@ -249,7 +247,7 @@ namespace Models
     shared_ptr<bool> prePage_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};
-    // In addition to the pagination limit, the server processes a maximum of the latest 1,000 records for the current query. If the number of results exceeds 1,000, **ResultLimit** is set to **true**. Narrow the time range and search again. Otherwise, **ResultLimit** is set to **false**.
+    // In addition to the pagination limit, the server processes a maximum of the latest 1,000 records for the current query. If the number of results exceeds 1,000, **ResultLimit** is **true**. In this case, narrow the time range and search again. Otherwise, **ResultLimit** is **false**.
     shared_ptr<bool> resultLimit_ {};
     // The root error code.
     shared_ptr<string> rootErrorCode_ {};

@@ -40,6 +40,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(GmtPublish, gmtPublish_);
       DARABONBA_PTR_TO_JSON(IconUrl, iconUrl_);
       DARABONBA_PTR_TO_JSON(Name, name_);
+      DARABONBA_PTR_TO_JSON(Offline, offline_);
       DARABONBA_PTR_TO_JSON(PartnerDetail, partnerDetail_);
       DARABONBA_PTR_TO_JSON(Profile, profile_);
       DARABONBA_PTR_TO_JSON(ResourceGroupId, resourceGroupId_);
@@ -77,6 +78,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(GmtPublish, gmtPublish_);
       DARABONBA_PTR_FROM_JSON(IconUrl, iconUrl_);
       DARABONBA_PTR_FROM_JSON(Name, name_);
+      DARABONBA_PTR_FROM_JSON(Offline, offline_);
       DARABONBA_PTR_FROM_JSON(PartnerDetail, partnerDetail_);
       DARABONBA_PTR_FROM_JSON(Profile, profile_);
       DARABONBA_PTR_FROM_JSON(ResourceGroupId, resourceGroupId_);
@@ -141,9 +143,13 @@ namespace Models
 
 
     protected:
-      // The tag key of the instance. Valid values of N: **1** to **20**. The value cannot be an empty string. The value can be up to 64 characters in length, and cannot start with `aliyun` or `acs:`. The value cannot contain `http://` or `https://`.
+      // The tag key of the instance. Valid values of N: **1** to **20**. If you specify this parameter, it cannot be an empty string.
+      // 
+      // The tag key can be up to 64 characters in length. It cannot start with `aliyun` or `acs:`, and cannot contain `http://` or `https://`.
       shared_ptr<string> tagKey_ {};
-      // The tag value of the instance. Valid values of N: **1** to **20**. The value can be an empty string. The value can be up to 128 characters in length, and cannot start with `aliyun` or `acs:`. The value cannot contain `http://` or `https://`.
+      // The tag value of the instance. Valid values of N: **1** to **20**. If you specify this parameter, it can be an empty string.
+      // 
+      // The tag value can be up to 128 characters in length. It cannot start with `aliyun` or `acs:`, and cannot contain `http://` or `https://`.
       shared_ptr<string> tagValue_ {};
     };
 
@@ -311,7 +317,7 @@ namespace Models
       shared_ptr<PartnerDetail::BindData> bindData_ {};
       // The partner ID.
       shared_ptr<string> partnerId_ {};
-      // The partner binding status. Valid values: BOUND (bound) and UNBOUND (unbound).
+      // The partner binding status. Valid values: BOUND (bound) and UNBOUND (to be bound).
       shared_ptr<string> status_ {};
     };
 
@@ -343,7 +349,7 @@ namespace Models
 
 
     protected:
-      // The number of conversation turns. A value of 0 indicates an empty conversation.
+      // The number of user conversation turns. A value of 0 indicates an empty conversation.
       shared_ptr<int64_t> chatNum_ {};
     };
 
@@ -352,9 +358,9 @@ namespace Models
         && this->buildType_ == nullptr && this->conversationInfo_ == nullptr && this->createTime_ == nullptr && this->deleted_ == nullptr && this->description_ == nullptr
         && this->designSpecBizId_ == nullptr && this->designSpecId_ == nullptr && this->domain_ == nullptr && this->endTime_ == nullptr && this->espBizId_ == nullptr
         && this->gmtDelete_ == nullptr && this->gmtModified_ == nullptr && this->gmtPublish_ == nullptr && this->iconUrl_ == nullptr && this->name_ == nullptr
-        && this->partnerDetail_ == nullptr && this->profile_ == nullptr && this->resourceGroupId_ == nullptr && this->siteHost_ == nullptr && this->slug_ == nullptr
-        && this->sourceType_ == nullptr && this->startTime_ == nullptr && this->status_ == nullptr && this->statusText_ == nullptr && this->tags_ == nullptr
-        && this->templateRecord_ == nullptr && this->thumbnailUrl_ == nullptr && this->userId_ == nullptr && this->version_ == nullptr; };
+        && this->offline_ == nullptr && this->partnerDetail_ == nullptr && this->profile_ == nullptr && this->resourceGroupId_ == nullptr && this->siteHost_ == nullptr
+        && this->slug_ == nullptr && this->sourceType_ == nullptr && this->startTime_ == nullptr && this->status_ == nullptr && this->statusText_ == nullptr
+        && this->tags_ == nullptr && this->templateRecord_ == nullptr && this->thumbnailUrl_ == nullptr && this->userId_ == nullptr && this->version_ == nullptr; };
     // aiStaffList Field Functions 
     bool hasAiStaffList() const { return this->aiStaffList_ != nullptr;};
     void deleteAiStaffList() { this->aiStaffList_ = nullptr;};
@@ -510,6 +516,13 @@ namespace Models
     inline AppInstanceAggregate& setName(string name) { DARABONBA_PTR_SET_VALUE(name_, name) };
 
 
+    // offline Field Functions 
+    bool hasOffline() const { return this->offline_ != nullptr;};
+    void deleteOffline() { this->offline_ = nullptr;};
+    inline bool getOffline() const { DARABONBA_PTR_GET_DEFAULT(offline_, false) };
+    inline AppInstanceAggregate& setOffline(bool offline) { DARABONBA_PTR_SET_VALUE(offline_, offline) };
+
+
     // partnerDetail Field Functions 
     bool hasPartnerDetail() const { return this->partnerDetail_ != nullptr;};
     void deletePartnerDetail() { this->partnerDetail_ = nullptr;};
@@ -619,7 +632,7 @@ namespace Models
   protected:
     // The list of AI staff associated with the application.
     shared_ptr<vector<AppAiStaff>> aiStaffList_ {};
-    // The operation address of the application.
+    // The application operation address.
     shared_ptr<AppOperationAddress> appOperationAddress_ {};
     // The list of service instances associated with the application.
     shared_ptr<vector<AppServiceAggregate>> appServiceList_ {};
@@ -631,7 +644,7 @@ namespace Models
     shared_ptr<string> bizId_ {};
     // The build type.
     shared_ptr<string> buildType_ {};
-    // The associated conversation information. The value is null if no conversation is associated.
+    // The associated conversation information. This field is null if no associated conversation exists.
     shared_ptr<AppInstanceAggregate::ConversationInfo> conversationInfo_ {};
     // The creation time.
     shared_ptr<string> createTime_ {};
@@ -641,7 +654,7 @@ namespace Models
     shared_ptr<string> description_ {};
     // The business ID of the design specification.
     shared_ptr<string> designSpecBizId_ {};
-    // The ID of the design configuration.
+    // The ID of the design configuration sheet.
     shared_ptr<string> designSpecId_ {};
     // The primary domain name.
     shared_ptr<string> domain_ {};
@@ -653,13 +666,15 @@ namespace Models
     shared_ptr<string> gmtDelete_ {};
     // The modification time.
     shared_ptr<string> gmtModified_ {};
-    // The publish time.
+    // The publication time.
     shared_ptr<string> gmtPublish_ {};
     // The URL of the application icon.
     shared_ptr<string> iconUrl_ {};
     // The application name.
     shared_ptr<string> name_ {};
-    // The partner details.
+    // The current offline status. A value of true explicitly indicates that the website is currently offline. A value of false indicates that the website is not offline, and historical offline reasons do not determine the current status. If the current status cannot be determined or the legacy response does not contain this field, the caller must not default the unknown status to online.
+    shared_ptr<bool> offline_ {};
+    // The details.
     shared_ptr<AppInstanceAggregate::PartnerDetail> partnerDetail_ {};
     // The configuration and runtime information of the application instance.
     shared_ptr<AppInstanceProfile> profile_ {};

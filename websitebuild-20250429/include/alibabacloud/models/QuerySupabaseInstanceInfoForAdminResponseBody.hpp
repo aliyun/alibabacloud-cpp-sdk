@@ -303,40 +303,41 @@ namespace Models
       shared_ptr<string> anonKey_ {};
       // The business ID.
       shared_ptr<string> bizId_ {};
-      // The creation time of the database instance.
+      // The time when the database instance was created.
       shared_ptr<string> dbInstanceCreateTime_ {};
       // The database instance ID.
       shared_ptr<string> dbInstanceId_ {};
       // The public URL of the database.
       shared_ptr<string> dbPublicUrl_ {};
-      // The database type. Valid values: rds, polardb.
+      // The database type. Valid values: rds and polardb.
       shared_ptr<string> dbType_ {};
-      // The additional information.
+      // The extra information.
       shared_ptr<string> extra_ {};
-      // The completion time of the instance creation.
+      // The time when the instance creation was completed.
       shared_ptr<string> instanceCreateFinishedTime_ {};
-      // The creation status of the instance.
+      // The instance creation status.
       shared_ptr<string> instanceCreateStatus_ {};
       // The deletion flag.
       shared_ptr<int32_t> isDeleted_ {};
       // The access password for the RDS database.
       shared_ptr<string> rdsDatabasePassword_ {};
+      // The read-only business schema name parsed by the Builder trusted binding. This name cannot be used as input for tenant switching.
       shared_ptr<string> schemaName_ {};
       // The service key.
       shared_ptr<string> serviceKey_ {};
-      // The status. Valid values: 0: Paused. 1: Running.
+      // The status. Valid values: 0 (Paused) and 1 (Running).
       shared_ptr<int32_t> status_ {};
-      // The password for the Supabase Dashboard.
+      // The Supabase Dashboard password.
       shared_ptr<string> supabaseDashboardPassword_ {};
-      // The username for the Supabase Dashboard.
+      // The Supabase Dashboard username.
       shared_ptr<string> supabaseDashboardUserName_ {};
-      // The creation time of the Supabase instance.
+      // The time when the Supabase instance was created.
       shared_ptr<string> supabaseInstanceCreateTime_ {};
       // The Supabase instance ID.
       shared_ptr<string> supabaseInstanceId_ {};
       // Supabase Kong URL
       shared_ptr<string> supabaseKongUrl_ {};
-      // The private endpoint of the Supabase instance.
+      // The private network endpoint of the Supabase instance.
       shared_ptr<string> supabasePrivateIp_ {};
       // The public network connection endpoint of the Supabase instance.
       shared_ptr<string> supabasePublicIp_ {};
@@ -344,6 +345,7 @@ namespace Models
       shared_ptr<string> supabasePublicUrl_ {};
       // The tenant ID.
       shared_ptr<string> tenantId_ {};
+      // The read-only tenant mode. A value of schema indicates the legacy Builder pool, and a value of db or agenticdb indicates the new platform. The history record can be empty.
       shared_ptr<string> tenantMode_ {};
       // The user ID.
       shared_ptr<string> userId_ {};
@@ -434,16 +436,16 @@ namespace Models
 
 
   protected:
-    // The details about the access denial.
+    // The detailed reason for access denial.
     shared_ptr<string> accessDeniedDetail_ {};
-    // Indicates whether retries are allowed.
+    // Specifies whether retries are allowed.
     shared_ptr<bool> allowRetry_ {};
     // The application name.
     shared_ptr<string> appName_ {};
     // The dynamic error code.
     shared_ptr<string> dynamicCode_ {};
     // The dynamic error message, which is used to replace `%s` in the **ErrMessage** response parameter.
-    // > If **ErrMessage** returns **The Value of Input Parameter %s is not valid** and **DynamicMessage** returns **DtsJobId**, the specified **DtsJobId** request parameter is invalid.
+    // > If **ErrMessage** returns **The Value of Input Parameter %s is not valid** and **DynamicMessage** returns **DtsJobId**, the **DtsJobId** request parameter is invalid.
     shared_ptr<string> dynamicMessage_ {};
     // The returned error parameters.
     shared_ptr<vector<Darabonba::Json>> errorArgs_ {};
@@ -453,7 +455,7 @@ namespace Models
     shared_ptr<string> requestId_ {};
     // The error code.
     shared_ptr<string> rootErrorCode_ {};
-    // The exception message.
+    // The error message.
     shared_ptr<string> rootErrorMsg_ {};
     // The reserved parameter.
     shared_ptr<bool> synchro_ {};

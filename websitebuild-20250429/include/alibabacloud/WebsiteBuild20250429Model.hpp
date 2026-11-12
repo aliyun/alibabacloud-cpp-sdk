@@ -212,6 +212,9 @@
 #include <alibabacloud/models/GetAppPluginConfigRequest.hpp>
 #include <alibabacloud/models/GetAppPluginConfigResponseBody.hpp>
 #include <alibabacloud/models/GetAppPluginConfigResponse.hpp>
+#include <alibabacloud/models/GetAppPluginConfigForAdminRequest.hpp>
+#include <alibabacloud/models/GetAppPluginConfigForAdminResponseBody.hpp>
+#include <alibabacloud/models/GetAppPluginConfigForAdminResponse.hpp>
 #include <alibabacloud/models/GetAppPublishStatusRequest.hpp>
 #include <alibabacloud/models/GetAppPublishStatusResponseBody.hpp>
 #include <alibabacloud/models/GetAppPublishStatusResponse.hpp>

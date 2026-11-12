@@ -2,11 +2,13 @@
 #include <alibabacloud/WebsiteBuild20250429.hpp>
 #include <alibabacloud/Utils.hpp>
 #include <alibabacloud/Openapi.hpp>
+#include <alibabacloud/gateway/POP.hpp>
 #include <map>
 #include <darabonba/Runtime.hpp>
 using namespace std;
 using namespace Darabonba;
 using json = nlohmann::json;
+using namespace AlibabaCloud::Gateway;
 using namespace AlibabaCloud::OpenApi;
 using namespace AlibabaCloud::OpenApi::Models;
 using OpenApiClient = AlibabaCloud::OpenApi::Client;
@@ -18,6 +20,9 @@ namespace WebsiteBuild20250429
 {
 
 AlibabaCloud::WebsiteBuild20250429::Client::Client(Config &config): OpenApiClient(config){
+  this->_productId = "WebsiteBuild";
+  shared_ptr<POP> gatewayClient = make_shared<POP>();
+  this->_spi = gatewayClient;
   this->_endpointRule = "regional";
   this->_endpointMap = json({
     {"cn-zhangjiakou" , "websitebuild.aliyuncs.com"},
@@ -41,9 +46,9 @@ string Client::getEndpoint(const string &productId, const string &regionId, cons
 }
 
 /**
- * @summary Performs resource allocation for a Supabase instance.
+ * @summary Allocates a Supabase instance to a resource allocation.
  *
- * @description Queries the information about the Supabase instance associated with a resource.
+ * @description Queries the Supabase instance information of a resource.
  *
  * @param request AllocateSupabaseForAdminRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -98,9 +103,9 @@ AllocateSupabaseForAdminResponse Client::allocateSupabaseForAdminWithOptions(con
 }
 
 /**
- * @summary Performs resource allocation for a Supabase instance.
+ * @summary Allocates a Supabase instance to a resource allocation.
  *
- * @description Queries the information about the Supabase instance associated with a resource.
+ * @description Queries the Supabase instance information of a resource.
  *
  * @param request AllocateSupabaseForAdminRequest
  * @return AllocateSupabaseForAdminResponse
@@ -3124,9 +3129,9 @@ GetAppInstanceEntitlementResponse Client::getAppInstanceEntitlement(const GetApp
 }
 
 /**
- * @summary Queries the details of application instances.
+ * @summary Queries application instance information.
  *
- * @description Queries the details of application instances.
+ * @description Queries application instance information.
  *
  * @param request GetAppInstanceForAdminRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3161,9 +3166,9 @@ GetAppInstanceForAdminResponse Client::getAppInstanceForAdminWithOptions(const G
 }
 
 /**
- * @summary Queries the details of application instances.
+ * @summary Queries application instance information.
  *
- * @description Queries the details of application instances.
+ * @description Queries application instance information.
  *
  * @param request GetAppInstanceForAdminRequest
  * @return GetAppInstanceForAdminResponse
@@ -3359,6 +3364,70 @@ GetAppPluginConfigResponse Client::getAppPluginConfigWithOptions(const GetAppPlu
 GetAppPluginConfigResponse Client::getAppPluginConfig(const GetAppPluginConfigRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return getAppPluginConfigWithOptions(request, runtime);
+}
+
+/**
+ * @summary Retrieves the plugin configuration of a Wanxiaozhi site for internal services and returns an encrypted configuration string.
+ *
+ * @description ## Request description
+ * - The service design of this operation is exclusively for internal platform services to read the plugin configuration of a specific site by using a service identity.
+ * - Authentication relies entirely on gateway RAM control and is available only to trusted internal service accounts.
+ * - If the specified plugin is not installed on the site or the request parameters are empty, the operation returns a success status with an empty Module. Clients that invoke the operation should treat this as unconfigured.
+ * - The returned `PluginConfig` field contains an AES-encrypted JSON character string. Clients that invoke the operation must perform decryption before use.
+ * - To invoke in user mode, continue to use the `GetAppPluginConfig` operation instead of this operation.
+ * - The `BizId` and `PluginId` parameters are both required in the contract. Passing empty character strings is not blocked by the gateway but causes the backend to return an empty Module. This is a fault-tolerance behavior, and clients that invoke the operation should not rely on it.
+ * - This operation supports HTTPS and RPC-style POST requests, with parameters passed through formData.
+ *
+ * @param request GetAppPluginConfigForAdminRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetAppPluginConfigForAdminResponse
+ */
+GetAppPluginConfigForAdminResponse Client::getAppPluginConfigForAdminWithOptions(const GetAppPluginConfigForAdminRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasBizId()) {
+    body["BizId"] = request.getBizId();
+  }
+
+  if (!!request.hasPluginId()) {
+    body["PluginId"] = request.getPluginId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"body" , Utils::Utils::parseToMap(body)}
+  }).get<map<string, json>>());
+  Params params = Params(json({
+    {"action" , "GetAppPluginConfigForAdmin"},
+    {"version" , "2025-04-29"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetAppPluginConfigForAdminResponse>();
+}
+
+/**
+ * @summary Retrieves the plugin configuration of a Wanxiaozhi site for internal services and returns an encrypted configuration string.
+ *
+ * @description ## Request description
+ * - The service design of this operation is exclusively for internal platform services to read the plugin configuration of a specific site by using a service identity.
+ * - Authentication relies entirely on gateway RAM control and is available only to trusted internal service accounts.
+ * - If the specified plugin is not installed on the site or the request parameters are empty, the operation returns a success status with an empty Module. Clients that invoke the operation should treat this as unconfigured.
+ * - The returned `PluginConfig` field contains an AES-encrypted JSON character string. Clients that invoke the operation must perform decryption before use.
+ * - To invoke in user mode, continue to use the `GetAppPluginConfig` operation instead of this operation.
+ * - The `BizId` and `PluginId` parameters are both required in the contract. Passing empty character strings is not blocked by the gateway but causes the backend to return an empty Module. This is a fault-tolerance behavior, and clients that invoke the operation should not rely on it.
+ * - This operation supports HTTPS and RPC-style POST requests, with parameters passed through formData.
+ *
+ * @param request GetAppPluginConfigForAdminRequest
+ * @return GetAppPluginConfigForAdminResponse
+ */
+GetAppPluginConfigForAdminResponse Client::getAppPluginConfigForAdmin(const GetAppPluginConfigForAdminRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return getAppPluginConfigForAdminWithOptions(request, runtime);
 }
 
 /**
@@ -3782,9 +3851,9 @@ GetAppSupabaseAuthConfigResponse Client::getAppSupabaseAuthConfig(const GetAppSu
 }
 
 /**
- * @summary Retrieves information about a Supabase instance.
+ * @summary Retrieves the information about a Supabase instance.
  *
- * @description Queries application instance information.
+ * @description Queries the information about an application instance.
  *
  * @param request GetAppSupabaseInstanceRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3815,9 +3884,9 @@ GetAppSupabaseInstanceResponse Client::getAppSupabaseInstanceWithOptions(const G
 }
 
 /**
- * @summary Retrieves information about a Supabase instance.
+ * @summary Retrieves the information about a Supabase instance.
  *
- * @description Queries application instance information.
+ * @description Queries the information about an application instance.
  *
  * @param request GetAppSupabaseInstanceRequest
  * @return GetAppSupabaseInstanceResponse
@@ -4418,14 +4487,20 @@ GetOssUploadPolicyResponse Client::getOssUploadPolicy(const GetOssUploadPolicyRe
  */
 GetTempDownloadUrlResponse Client::getTempDownloadUrlWithOptions(const GetTempDownloadUrlRequest &request, const Darabonba::RuntimeOptions &runtime) {
   request.validate();
+  json query = {};
+  if (!!request.hasBizId()) {
+    query["BizId"] = request.getBizId();
+  }
+
   json body = {};
   if (!!request.hasOssKey()) {
     body["OssKey"] = request.getOssKey();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)},
     {"body" , Utils::Utils::parseToMap(body)}
-  }).get<map<string, json>>());
+  }));
   Params params = Params(json({
     {"action" , "GetTempDownloadUrl"},
     {"version" , "2025-04-29"},
@@ -5310,7 +5385,7 @@ ListAppInstanceDomainsResponse Client::listAppInstanceDomains(const ListAppInsta
 }
 
 /**
- * @summary Queries a list of application instances.
+ * @summary Queries the list of application instances.
  *
  * @param tmpReq ListAppInstancesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -5329,6 +5404,10 @@ ListAppInstancesResponse Client::listAppInstancesWithOptions(const ListAppInstan
   }
 
   json query = {};
+  if (!!request.hasApplicationType()) {
+    query["ApplicationType"] = request.getApplicationType();
+  }
+
   if (!!request.hasBizId()) {
     query["BizId"] = request.getBizId();
   }
@@ -5403,7 +5482,7 @@ ListAppInstancesResponse Client::listAppInstancesWithOptions(const ListAppInstan
 }
 
 /**
- * @summary Queries a list of application instances.
+ * @summary Queries the list of application instances.
  *
  * @param request ListAppInstancesRequest
  * @return ListAppInstancesResponse

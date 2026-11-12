@@ -172,15 +172,15 @@ namespace Models
 
 
     protected:
-      // Specifies whether retries are allowed after the independent server fails to be enabled.
+      // Specifies whether retries are allowed after the independent server fails to start.
       shared_ptr<bool> canRetry_ {};
-      // The code of the region where the independent server is deployed.
+      // The code of the deployment area for the independent server.
       shared_ptr<string> deployArea_ {};
-      // The type of the DNS record used when an independent IP address is bound to a domain name.
+      // The DNS record type used when binding a domain name to an independent IP address.
       shared_ptr<string> dnsRecordType_ {};
-      // The eligibility status of the independent server. UPGRADE_REQUIRED indicates that an upgrade is required, AVAILABLE indicates that the feature can be enabled, and UNAVAILABLE indicates that the feature is currently unavailable.
+      // The eligibility status of the independent server. Valid values: UPGRADE_REQUIRED (an upgrade is required), AVAILABLE (the feature can be enabled), and UNAVAILABLE (the feature is currently unavailable).
       shared_ptr<string> eligibility_ {};
-      // The status of the independent server. NOT_ENABLED indicates that the feature is not enabled, ENABLING indicates that the feature is being enabled, ACTIVE indicates that the feature is enabled, and FAILED indicates that the feature failed to be enabled.
+      // The status of the independent server. Valid values: NOT_ENABLED (not enabled), ENABLING (enabling), ACTIVE (enabled), and FAILED (failed to enable).
       shared_ptr<string> enableStatus_ {};
       // The independent IP address assigned after the independent server is enabled.
       shared_ptr<string> independentIp_ {};
@@ -399,15 +399,15 @@ namespace Models
     shared_ptr<string> commodityCode_ {};
     // The contact information or instructions for customer service.
     shared_ptr<string> customerService_ {};
-    // The code of the region where the application is deployed.
+    // The code of the application deployment area.
     shared_ptr<string> deployArea_ {};
     // The ICP filing number of the bound custom domain name. Separate multiple ICP filing numbers with commas (,).
     shared_ptr<string> icpbaNo_ {};
     // The independent server information. This information is computed in real time by DescribeAppInstance and is not populated in list operations.
     shared_ptr<AppInstanceProfile::IndependentDeployment> independentDeployment_ {};
-    // The ID of the associated Lingxiao instance.
+    // The associated Lingxiao instance ID.
     shared_ptr<string> instanceId_ {};
-    // Specifies whether the current user is included in the grayscale whitelist for the ChatBI feature.
+    // Specifies whether the current user is included in the canary release whitelist for the ChatBI feature.
     shared_ptr<bool> openChatBi_ {};
     // The time when the order was placed. The format is yyyy-MM-dd HH:mm:ss.
     shared_ptr<string> ordTime_ {};
@@ -419,11 +419,11 @@ namespace Models
     shared_ptr<string> previewUrl_ {};
     // The configuration identifier of the SEO site.
     shared_ptr<string> seoSite_ {};
-    // Specifies whether to enable the watermark for shared rendering. A value of 1 indicates that the feature is enabled, and a value of 0 indicates that the feature is disabled. If this parameter is not configured, it is left empty.
+    // Specifies whether to enable the share rendering watermark. Valid values: 1 (enabled) and 0 (disabled). If not configured, this parameter is empty.
     shared_ptr<string> shareRenderWatermark_ {};
     // The site version code.
     shared_ptr<string> siteVersion_ {};
-    // The display name of the site version, which includes the deployment region.
+    // The display name of the site version, which includes the deployment area.
     shared_ptr<string> siteVersionText_ {};
     // The identifier of the creation or synchronization source.
     shared_ptr<string> source_ {};
@@ -431,7 +431,7 @@ namespace Models
     shared_ptr<string> templateEtag_ {};
     // The ID of the template used by the current application.
     shared_ptr<string> templateId_ {};
-    // The upgrade status of the instance. DOING indicates that the upgrade is in progress, SUCC indicates that the upgrade is successful, and FAIL indicates that the upgrade failed.
+    // The upgrade status of the instance. Valid values: DOING (upgrading), SUCC (upgraded successfully), and FAIL (upgrade failed).
     shared_ptr<string> upgradeStatus_ {};
   };
 

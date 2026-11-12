@@ -180,6 +180,7 @@ namespace Models
       shared_ptr<string> dbPublicUrl_ {};
       // The instance creation status.
       shared_ptr<string> instanceCreateStatus_ {};
+      // The read-only business schema name resolved by Builder trusted binding, which cannot be used as input for tenant switching.
       shared_ptr<string> schemaName_ {};
       // The service key.
       shared_ptr<string> serviceKey_ {};
@@ -187,8 +188,9 @@ namespace Models
       shared_ptr<int32_t> status_ {};
       // The Supabase instance ID.
       shared_ptr<string> supabaseInstanceId_ {};
-      // The public URL of the Supabase instance.
+      // The public URL of Supabase.
       shared_ptr<string> supabasePublicUrl_ {};
+      // The read-only tenant mode. The schema is the legacy Builder pool, and db/agenticdb is the new platform. History records can be empty.
       shared_ptr<string> tenantMode_ {};
     };
 
@@ -277,18 +279,18 @@ namespace Models
 
 
   protected:
-    // The detailed reason why access is denied.
+    // The detailed reason for access denial.
     shared_ptr<string> accessDeniedDetail_ {};
-    // Indicates whether a retry is allowed.
+    // Indicates whether retries are allowed.
     shared_ptr<bool> allowRetry_ {};
     // The application name.
     shared_ptr<string> appName_ {};
     // The dynamic error code.
     shared_ptr<string> dynamicCode_ {};
-    // The dynamic error message, which is used to replace the `%s` placeholder in the **ErrMessage** return parameter.
-    // > If **ErrMessage** returns **The Value of Input Parameter %s is not valid** and **DynamicMessage** returns **DtsJobId**, the value of the request parameter **DtsJobId** is invalid.
+    // The dynamic error message, which is used to replace `%s` in the error message of the **ErrMessage** response parameter.
+    // > If **ErrMessage** returns **The Value of Input Parameter %s is not valid** and **DynamicMessage** returns **DtsJobId**, it indicates that the **DtsJobId** request parameter is invalid.
     shared_ptr<string> dynamicMessage_ {};
-    // The error parameters returned.
+    // The returned error parameters.
     shared_ptr<vector<Darabonba::Json>> errorArgs_ {};
     // The task object.
     shared_ptr<GetAppSupabaseInstanceResponseBody::Module> module_ {};
@@ -298,7 +300,7 @@ namespace Models
     shared_ptr<string> rootErrorCode_ {};
     // The exception message.
     shared_ptr<string> rootErrorMsg_ {};
-    // A reserved parameter.
+    // The backup parameter.
     shared_ptr<bool> synchro_ {};
   };
 
