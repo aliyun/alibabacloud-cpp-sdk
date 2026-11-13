@@ -203,7 +203,7 @@ namespace Models
 
 
         protected:
-          // The key of the alert detail property.
+          // The key of the alert detail attribute.
           shared_ptr<string> key_ {};
           // The name of the alert detail data.
           shared_ptr<string> keyName_ {};
@@ -514,9 +514,9 @@ namespace Models
         // The alert details.
         shared_ptr<vector<ResponseData::AlertInfoList>> alertInfoList_ {};
         // The threat level. Valid values:
-        // - serious: High.
-        // - suspicious: Medium.
-        // - remind: Low.
+        // - serious: High risk.
+        // - suspicious: Medium risk.
+        // - remind: Low risk.
         shared_ptr<string> alertLevel_ {};
         // The alert name.
         shared_ptr<string> alertName_ {};
@@ -528,7 +528,7 @@ namespace Models
         shared_ptr<string> alertSrcProd_ {};
         // The source product submodule of the alert associated with the incident.
         shared_ptr<string> alertSrcProdModule_ {};
-        // The alert status. Valid values: 0: Pending; 1: Processed; 2: Processing; 3: Whitelisted, false positive, or rejected; 999: Unknown.
+        // The alert status. Valid values: 0: pending; 1: handled; 2: processing; 3: whitelisted, false positive, or rejected; 999: unknown.
         shared_ptr<string> alertStatus_ {};
         // The alert title.
         shared_ptr<string> alertTitle_ {};
@@ -557,11 +557,11 @@ namespace Models
         shared_ptr<string> endTime_ {};
         // The entity details.
         shared_ptr<string> entityList_ {};
-        // The extended alert information.
+        // The extended information of the alert.
         shared_ptr<string> extendContent_ {};
-        // The time when the alert was created.
+        // The time when the alert was recorded.
         shared_ptr<string> gmtCreate_ {};
-        // The time when the alert was last updated.
+        // The last update time of the alert.
         shared_ptr<string> gmtModified_ {};
         // The unique ID of the alert.
         shared_ptr<int64_t> id_ {};
@@ -574,11 +574,11 @@ namespace Models
         // - 0: Detected.
         // - 1: Blocked.
         shared_ptr<string> isDefend_ {};
-        // The time when the alert was recorded. The format is YYYY-MM-DD HH:mm:ss.
+        // The time when the alert was logged. The format is YYYY-MM-DD HH:mm:ss.
         shared_ptr<string> logTime_ {};
         // The UUID of the alert log.
         shared_ptr<string> logUuid_ {};
-        // The ID of the SIEM primary account associated with the alert.
+        // The ID of the main account associated with the alert in SIEM.
         shared_ptr<int64_t> mainUserId_ {};
         // The time when the alert occurred. The format is YYYY-MM-DD HH:mm:ss.
         shared_ptr<string> occurTime_ {};

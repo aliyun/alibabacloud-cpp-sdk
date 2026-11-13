@@ -1309,7 +1309,7 @@ DescribeAlertsWithEntityResponse Client::describeAlertsWithEntity(const Describe
 }
 
 /**
- * @summary Queries the list of alerts associated with an incident.
+ * @summary Retrieves the list of alerts associated with an incident.
  *
  * @param request DescribeAlertsWithEventRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1352,6 +1352,14 @@ DescribeAlertsWithEventResponse Client::describeAlertsWithEventWithOptions(const
 
   if (!!request.hasEntityName()) {
     body["EntityName"] = request.getEntityName();
+  }
+
+  if (!!request.hasGroupBy()) {
+    body["GroupBy"] = request.getGroupBy();
+  }
+
+  if (!!request.hasGroupByValue()) {
+    body["GroupByValue"] = request.getGroupByValue();
   }
 
   if (!!request.hasIncidentUuid()) {
@@ -1412,7 +1420,7 @@ DescribeAlertsWithEventResponse Client::describeAlertsWithEventWithOptions(const
 }
 
 /**
- * @summary Queries the list of alerts associated with an incident.
+ * @summary Retrieves the list of alerts associated with an incident.
  *
  * @param request DescribeAlertsWithEventRequest
  * @return DescribeAlertsWithEventResponse
@@ -3265,7 +3273,7 @@ GetCapacityResponse Client::getCapacity(const GetCapacityRequest &request) {
 /**
  * @summary Retrieves the details of user data storage on the Log Management page.
  *
- * @description The input parameter JsonConfig is a complex JSON configuration. A utility class is provided to help with specific configuration examples. For more information, see [Demo](https://github.com/aliyun/cloud-siem-client/blob/master/src/main/java/com/aliyun/security/cloudsiem/client/sample/JobBuilderSample.java).
+ * @description The JsonConfig request parameter represents highly complex JSON configurations. To simplify this, we provide a supporting utility class with specific configuration examples. For more information, refer to [Demo](https://github.com/aliyun/cloud-siem-client/blob/master/src/main/java/com/aliyun/security/cloudsiem/client/sample/JobBuilderSample.java).
  *
  * @param request GetDataStorageRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3306,7 +3314,7 @@ GetDataStorageResponse Client::getDataStorageWithOptions(const GetDataStorageReq
 /**
  * @summary Retrieves the details of user data storage on the Log Management page.
  *
- * @description The input parameter JsonConfig is a complex JSON configuration. A utility class is provided to help with specific configuration examples. For more information, see [Demo](https://github.com/aliyun/cloud-siem-client/blob/master/src/main/java/com/aliyun/security/cloudsiem/client/sample/JobBuilderSample.java).
+ * @description The JsonConfig request parameter represents highly complex JSON configurations. To simplify this, we provide a supporting utility class with specific configuration examples. For more information, refer to [Demo](https://github.com/aliyun/cloud-siem-client/blob/master/src/main/java/com/aliyun/security/cloudsiem/client/sample/JobBuilderSample.java).
  *
  * @param request GetDataStorageRequest
  * @return GetDataStorageResponse
@@ -3319,7 +3327,7 @@ GetDataStorageResponse Client::getDataStorage(const GetDataStorageRequest &reque
 /**
  * @summary Queries the entity count.
  *
- * @description The JsonConfig request parameter is a complex JSON configuration. A supporting utility class is provided with specific configuration examples. For more information, see [Demo](https://github.com/aliyun/cloud-siem-client/blob/master/src/main/java/com/aliyun/security/cloudsiem/client/sample/JobBuilderSample.java).
+ * @description The JsonConfig request parameter is a complex JSON configuration. A utility class is provided to assist with specific configuration examples. For more information, refer to [Demo](https://github.com/aliyun/cloud-siem-client/blob/master/src/main/java/com/aliyun/security/cloudsiem/client/sample/JobBuilderSample.java).
  *
  * @param request GetEntitiyStatRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3400,7 +3408,7 @@ GetEntitiyStatResponse Client::getEntitiyStatWithOptions(const GetEntitiyStatReq
 /**
  * @summary Queries the entity count.
  *
- * @description The JsonConfig request parameter is a complex JSON configuration. A supporting utility class is provided with specific configuration examples. For more information, see [Demo](https://github.com/aliyun/cloud-siem-client/blob/master/src/main/java/com/aliyun/security/cloudsiem/client/sample/JobBuilderSample.java).
+ * @description The JsonConfig request parameter is a complex JSON configuration. A utility class is provided to assist with specific configuration examples. For more information, refer to [Demo](https://github.com/aliyun/cloud-siem-client/blob/master/src/main/java/com/aliyun/security/cloudsiem/client/sample/JobBuilderSample.java).
  *
  * @param request GetEntitiyStatRequest
  * @return GetEntitiyStatResponse

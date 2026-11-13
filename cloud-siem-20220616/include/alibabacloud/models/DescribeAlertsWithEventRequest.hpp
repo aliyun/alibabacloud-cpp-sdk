@@ -23,6 +23,8 @@ namespace Models
       DARABONBA_PTR_TO_JSON(EndTime, endTime_);
       DARABONBA_PTR_TO_JSON(EntityId, entityId_);
       DARABONBA_PTR_TO_JSON(EntityName, entityName_);
+      DARABONBA_PTR_TO_JSON(GroupBy, groupBy_);
+      DARABONBA_PTR_TO_JSON(GroupByValue, groupByValue_);
       DARABONBA_PTR_TO_JSON(IncidentUuid, incidentUuid_);
       DARABONBA_PTR_TO_JSON(IsDefend, isDefend_);
       DARABONBA_PTR_TO_JSON(Level, level_);
@@ -44,6 +46,8 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(EndTime, endTime_);
       DARABONBA_PTR_FROM_JSON(EntityId, entityId_);
       DARABONBA_PTR_FROM_JSON(EntityName, entityName_);
+      DARABONBA_PTR_FROM_JSON(GroupBy, groupBy_);
+      DARABONBA_PTR_FROM_JSON(GroupByValue, groupByValue_);
       DARABONBA_PTR_FROM_JSON(IncidentUuid, incidentUuid_);
       DARABONBA_PTR_FROM_JSON(IsDefend, isDefend_);
       DARABONBA_PTR_FROM_JSON(Level, level_);
@@ -68,9 +72,9 @@ namespace Models
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->alertName_ == nullptr
         && this->alertTitle_ == nullptr && this->alertType_ == nullptr && this->assetId_ == nullptr && this->assetName_ == nullptr && this->currentPage_ == nullptr
-        && this->endTime_ == nullptr && this->entityId_ == nullptr && this->entityName_ == nullptr && this->incidentUuid_ == nullptr && this->isDefend_ == nullptr
-        && this->level_ == nullptr && this->pageSize_ == nullptr && this->regionId_ == nullptr && this->roleFor_ == nullptr && this->roleType_ == nullptr
-        && this->source_ == nullptr && this->startTime_ == nullptr && this->subUserId_ == nullptr; };
+        && this->endTime_ == nullptr && this->entityId_ == nullptr && this->entityName_ == nullptr && this->groupBy_ == nullptr && this->groupByValue_ == nullptr
+        && this->incidentUuid_ == nullptr && this->isDefend_ == nullptr && this->level_ == nullptr && this->pageSize_ == nullptr && this->regionId_ == nullptr
+        && this->roleFor_ == nullptr && this->roleType_ == nullptr && this->source_ == nullptr && this->startTime_ == nullptr && this->subUserId_ == nullptr; };
     // alertName Field Functions 
     bool hasAlertName() const { return this->alertName_ != nullptr;};
     void deleteAlertName() { this->alertName_ = nullptr;};
@@ -132,6 +136,20 @@ namespace Models
     void deleteEntityName() { this->entityName_ = nullptr;};
     inline string getEntityName() const { DARABONBA_PTR_GET_DEFAULT(entityName_, "") };
     inline DescribeAlertsWithEventRequest& setEntityName(string entityName) { DARABONBA_PTR_SET_VALUE(entityName_, entityName) };
+
+
+    // groupBy Field Functions 
+    bool hasGroupBy() const { return this->groupBy_ != nullptr;};
+    void deleteGroupBy() { this->groupBy_ = nullptr;};
+    inline string getGroupBy() const { DARABONBA_PTR_GET_DEFAULT(groupBy_, "") };
+    inline DescribeAlertsWithEventRequest& setGroupBy(string groupBy) { DARABONBA_PTR_SET_VALUE(groupBy_, groupBy) };
+
+
+    // groupByValue Field Functions 
+    bool hasGroupByValue() const { return this->groupByValue_ != nullptr;};
+    void deleteGroupByValue() { this->groupByValue_ = nullptr;};
+    inline string getGroupByValue() const { DARABONBA_PTR_GET_DEFAULT(groupByValue_, "") };
+    inline DescribeAlertsWithEventRequest& setGroupByValue(string groupByValue) { DARABONBA_PTR_SET_VALUE(groupByValue_, groupByValue) };
 
 
     // incidentUuid Field Functions 
@@ -227,6 +245,10 @@ namespace Models
     shared_ptr<string> entityId_ {};
     // The entity name.
     shared_ptr<string> entityName_ {};
+    // The aggregation drill-down dimension. Valid values: ALERT_NAME and ALERT_TYPE. This parameter is used together with GroupByValue.
+    shared_ptr<string> groupBy_ {};
+    // The original grouping key returned by DescribeAlertsGroup. The name can contain up to 300 characters, and the type can contain up to 100 characters. Exact match is performed based on the original field.
+    shared_ptr<string> groupByValue_ {};
     // The incident ID.
     shared_ptr<string> incidentUuid_ {};
     // Specifies whether the threat is blocked. Valid values:
@@ -234,20 +256,20 @@ namespace Models
     // - 0: Detected.
     // - 1: Blocked.
     shared_ptr<string> isDefend_ {};
-    // The threat level. The value is a JSON array. Valid values:
-    // - serious: High.
-    // - suspicious: Medium.
-    // - remind: Low.
+    // The threat level. The value is formatted as a JSON array. Valid values:
+    // - serious: High risk.
+    // - suspicious: Medium risk.
+    // - remind: Low risk.
     shared_ptr<vector<string>> level_ {};
     // The number of entries per page. Maximum value: 100.
     // 
     // This parameter is required.
     shared_ptr<int32_t> pageSize_ {};
-    // The region where the data management center of Threat Analysis is located. You must select the region of the management center based on the region where your assets are located. Valid values:
+    // The region where the data management center of Threat Analysis is deployed. You must select the region of the management center based on the region where your assets are deployed. Valid values:
     // - cn-hangzhou: Assets are located in the Chinese mainland and Hong Kong (China).
-    // - ap-southeast-1: Assets are located outside China.
+    // - ap-southeast-1: Assets are located outside the Chinese mainland.
     shared_ptr<string> regionId_ {};
-    // The ID of the member account in the resource directory.
+    // The ID of the member accounts in the resource folder.
     shared_ptr<int64_t> roleFor_ {};
     // The view type. Valid values:
     // 
@@ -258,7 +280,7 @@ namespace Models
     shared_ptr<string> source_ {};
     // The start time of the query. Unit: milliseconds.
     shared_ptr<int64_t> startTime_ {};
-    // The ID of the account associated with the alert.
+    // The ID of the linked account associated with the alert.
     shared_ptr<int64_t> subUserId_ {};
   };
 

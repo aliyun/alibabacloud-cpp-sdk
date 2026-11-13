@@ -186,7 +186,7 @@ namespace Models
         // - host: Host logs.
         // - security: Security logs.
         shared_ptr<string> logDeliveryGroup_ {};
-        // Indicates whether log delivery can be toggled. Log delivery cannot be enabled if the service is not purchased. Valid values:
+        // Indicates whether log delivery can be enabled or disabled. Log delivery is unavailable if the service has not been purchased. Valid values:
         // - allow: Allowed.
         // - deny: Not allowed.
         shared_ptr<string> logDeliveryPermission_ {};
@@ -194,19 +194,19 @@ namespace Models
         // - enable: Log delivery is enabled.
         // - disable: Log delivery is disabled.
         shared_ptr<string> logDeliveryStatus_ {};
-        // The time when the log delivery was last modified. The time is in the YYYY-MM-DDTHH:mm:ss format.
+        // The time of the last log delivery operation. The time is in the YYYY-MM-DDTHH:mm:ss format.
         shared_ptr<string> logDeliveryUpdateTime_ {};
         // The log name.
         shared_ptr<string> logName_ {};
         // JSON Array ["key":"product_code", "value":"ctdr"]
         shared_ptr<string> logSearchConditions_ {};
-        // Indicates whether the Logstore where the log resides exists. Valid values:
+        // Indicates whether the Logstore where the log is stored exists. Valid values:
         // - true: The Logstore exists.
         // - false: The Logstore does not exist.
         shared_ptr<bool> logStoreExisted_ {};
-        // The name of the Logstore where the log resides.
+        // The name of the Logstore where the log is stored.
         shared_ptr<string> logStoreName_ {};
-        // The storage duration of the Logstore where the log resides. Logs are stored for at least 30 days.
+        // The storage duration of the Logstore where the log is stored. The minimum storage duration is 30 days.
         shared_ptr<int32_t> logStoreTtl_ {};
       };
 
@@ -305,17 +305,17 @@ namespace Models
 
 
       protected:
-        // The log type of the normalized log.
+        // The log type of normalized logs.
         shared_ptr<string> activityName_ {};
-        // The category of the normalized log.
+        // The category of normalized logs.
         shared_ptr<string> categoryName_ {};
-        // The number of times the normalized dataset is referenced in the threat analysis access center.
+        // The number of times the normalized dataset is referenced in the Threat Analysis integration center.
         shared_ptr<int32_t> detectionRuleReferenceCount_ {};
-        // The product IDs in the threat analysis access center.
+        // The product IDs in the Threat Analysis integration center.
         shared_ptr<vector<string>> detectionRuleReferenceProductIds_ {};
         // JSON Array ["key":"product_code", "value":"ctdr"]
         shared_ptr<string> logSearchConditions_ {};
-        // The Logstore where threat analysis stores normalized logs.
+        // The Logstore where Threat Analysis stores normalized logs.
         shared_ptr<string> logStoreName_ {};
         // Indicates whether the normalized dataset exists. Valid values:
         // - true: The dataset exists.
@@ -453,23 +453,23 @@ namespace Models
       shared_ptr<double> coldStorageUsedCapacity_ {};
       // The storage region of user-side logs.
       shared_ptr<string> dataStorageRegionId_ {};
-      // Indicates whether the storage region can be modified. By default, the storage region cannot be modified. Contact the product manager to reset the region. The region can be reset only once. Valid values:
+      // Specifies whether the storage region can be modified. By default, the storage region cannot be modified. To reset the region, contact the product manager. The region can be reset only once. Valid values:
       // - allow: The storage region can be modified.
       // - deny: The storage region cannot be modified.
       shared_ptr<string> dataStorageRegionPermission_ {};
-      // The storage capacity purchased in the prepaid scenario.
+      // The purchased storage capacity for subscription instances.
       shared_ptr<int64_t> dataStorageTotalCapacity_ {};
       // The storage capacity used in user log management.
       shared_ptr<double> dataStorageUsedCapacity_ {};
-      // The storage usage details for log management users.
+      // The details of storage used by the user for log management.
       shared_ptr<string> dataStorageUsedCapacityDetail_ {};
-      // The name of the Simple Log Service (SLS) project that stores user logs.
+      // The name of the Simple Log Service project that stores user logs.
       shared_ptr<string> logProject_ {};
-      // The details of Logstores for normalized data.
+      // The Logstore details of normalized data.
       shared_ptr<vector<Data::NormalizationLogStores>> normalizationLogStores_ {};
       // The details of normalized datasets.
       shared_ptr<vector<Data::NormalizationLogViews>> normalizationLogViews_ {};
-      // The details of raw log storage for Security Center.
+      // The storage details of raw logs in Security Center.
       shared_ptr<vector<Data::SasLogStores>> sasLogStores_ {};
     };
 
@@ -492,9 +492,9 @@ namespace Models
 
 
   protected:
-    // The returned details.
+    // The detailed response data.
     shared_ptr<GetDataStorageResponseBody::Data> data_ {};
-    // The request ID.
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
   };
 
