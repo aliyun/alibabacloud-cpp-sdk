@@ -48,9 +48,9 @@ namespace Models
 
 
   protected:
-    // The ID of the process definition.
+    // The ID of the flow definition.
     shared_ptr<string> id_ {};
-    // The request ID.
+    // **The API request ID.**
     shared_ptr<string> requestId_ {};
   };
 

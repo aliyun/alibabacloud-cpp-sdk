@@ -115,11 +115,10 @@ namespace Models
 
 
       protected:
-        // Specifies the scheduled nodes whose instances can trigger the quality evaluation task after running successfully. This setting takes effect when type is ByScheduledTaskInstance.
+        // The IDs of the scheduled nodes whose successful instance execution triggers the check. This parameter takes effect only when Type is set to ByScheduledTaskInstance.
         shared_ptr<vector<int64_t>> taskIds_ {};
-        // The trigger condition of the task. Valid values:
-        // 
-        // *   ByScheduledTaskInstance: The task is triggered when the instance of an auto triggered node is successfully run.
+        // The type of event that triggers the execution of the quality check task. Valid values:
+        // - ByScheduledTaskInstance: A scheduled instance completes successfully.
         shared_ptr<string> type_ {};
       };
 
@@ -179,23 +178,21 @@ namespace Models
 
 
       protected:
-        // The type of the database to which the table belongs. Valid values:
-        // 
-        // *   maxcompute
-        // *   emr
-        // *   cdh
-        // *   hologres
-        // *   analyticdb_for_postgresql
-        // *   analyticdb_for_mysql
-        // *   starrocks
+        // The database type to which the table belongs, applicable when the dataset is of the table type. Valid values:
+        // - maxcompute
+        // - emr
+        // - cdh
+        // - hologres
+        // - analyticdb_for_postgresql
+        // - analyticdb_for_mysql
+        // - starrocks
         shared_ptr<string> databaseType_ {};
-        // The configuration of the partitioned table.
+        // The partition settings of the partitioned table.
         shared_ptr<string> partitionSpec_ {};
-        // The ID of the table in Data Map.
+        // The unique ID of the table in DataWorks Data Map.
         shared_ptr<string> tableGuid_ {};
-        // The type of the monitored object. Valid values:
-        // 
-        // *   Table
+        // The monitored object type.
+        // - Table
         shared_ptr<string> type_ {};
       };
 
@@ -290,11 +287,11 @@ namespace Models
 
 
           protected:
-            // The extended information in the JSON format. For example, the DingTalk chatbot can remind all members in a DingTalk group by using the at sign (@).
+            // The extension information in JSON format. For example, DingTalk chatbots support mentioning all users.
             shared_ptr<string> extension_ {};
-            // The alert recipient configuration.
+            // The notification recipient type.
             shared_ptr<string> receiverType_ {};
-            // The alert recipients.
+            // The notification recipient values.
             shared_ptr<vector<string>> receiverValues_ {};
           };
 
@@ -328,7 +325,7 @@ namespace Models
 
 
           protected:
-            // The alert notification methods.
+            // The notification channel.
             shared_ptr<vector<string>> channels_ {};
           };
 
@@ -353,9 +350,9 @@ namespace Models
 
 
         protected:
-          // The alert notification methods.
+          // The notification channel.
           shared_ptr<vector<NotificationsItem::NotificationChannels>> notificationChannels_ {};
-          // The alert recipient configurations.
+          // The notification recipient configuration.
           shared_ptr<vector<NotificationsItem::NotificationReceivers>> notificationReceivers_ {};
         };
 
@@ -378,9 +375,9 @@ namespace Models
 
 
       protected:
-        // The trigger condition of the alert notification.
+        // The alert trigger condition.
         shared_ptr<string> condition_ {};
-        // The configurations for the alert notification.
+        // The specific message notification settings.
         shared_ptr<vector<Notifications::NotificationsItem>> notifications_ {};
       };
 
@@ -422,9 +419,10 @@ namespace Models
 
 
       protected:
-        // The trigger configuration of the callback event.
+        // The trigger condition of the hook.
         shared_ptr<string> condition_ {};
-        // The subsequent action type. BlockTaskInstance: blocks execution of a DataWorks task instance.
+        // The type of the subsequent action. Valid values:
+        // - BlockTaskInstance: Blocks the execution of the DataWorks task instance.
         shared_ptr<string> type_ {};
       };
 
@@ -510,25 +508,25 @@ namespace Models
 
 
     protected:
-      // The ID of the data source that is used for task running.
+      // The ID of the data source used to execute the data quality check task.
       shared_ptr<int64_t> dataSourceId_ {};
-      // The callback settings during the lifecycle of the data quality evaluation task instance. Currently, only one hook that blocks a scheduled task is supported.
+      // The callback settings for the lifecycle of the data quality check task instance. Currently, only one hook that blocks the scheduled task is supported.
       shared_ptr<vector<Task::Hooks>> hooks_ {};
-      // The ID of the data quality monitoring task.
+      // The ID of the data quality check task.
       shared_ptr<int64_t> id_ {};
-      // The name of the data quality monitoring task. The name can be up to 255 characters in length and can contain digits, English letters, Chinese characters, and half-width or full-width punctuation marks.
+      // The name of the data quality check task. The name can contain digits, letters, Chinese characters, and half-width or full-width punctuation marks, and can be up to 255 characters in length.
       shared_ptr<string> name_ {};
-      // The subscription configurations for alert notifications.
+      // The alert subscription configuration of the data quality check task.
       shared_ptr<vector<Task::Notifications>> notifications_ {};
-      // The DataWorks workspace ID.
+      // The ID of the DataWorks workspace.
       shared_ptr<int64_t> projectId_ {};
-      // The settings used when accessing the data source. Currently, only the EMR YARN queue and the SQL engine used to collect EMR tables can be specified. Supported SQL engines: SPARK_SQL, KYUUBI, PRESTO_SQL, and HIVE_SQL.
+      // The settings used when the data source is accessed. Currently, you can only specify the YARN queue for EMR and set the SQL engine to SPARK_SQL, KYUUBI, PRESTO_SQL, or HIVE_SQL when collecting EMR tables.
       shared_ptr<string> runtimeConf_ {};
-      // The monitored object of the data quality monitoring task.
+      // The monitored object of the data quality check task.
       shared_ptr<Task::Target> target_ {};
-      // The DataWorks tenant ID.
+      // The ID of the DataWorks tenant.
       shared_ptr<int64_t> tenantId_ {};
-      // The trigger configuration of the data quality monitoring task.
+      // The trigger configuration of the data quality check task.
       shared_ptr<Task::Trigger> trigger_ {};
     };
 
@@ -572,15 +570,15 @@ namespace Models
 
 
   protected:
-    // The time at which the instance was generated.
+    // The creation time of the task instance.
     shared_ptr<int64_t> createTime_ {};
-    // The time at which the instance finished running.
+    // The end time of the task instance.
     shared_ptr<int64_t> finishTime_ {};
-    // The instance ID.
+    // The task instance ID.
     shared_ptr<int64_t> id_ {};
-    // The status of the instance.
+    // The current running status.
     shared_ptr<string> status_ {};
-    // The snapshot of the configurations for the data quality monitoring task when the task starts.
+    // The snapshot of the data quality check task at the start of the check.
     shared_ptr<DataQualityEvaluationTaskInstance::Task> task_ {};
   };
 

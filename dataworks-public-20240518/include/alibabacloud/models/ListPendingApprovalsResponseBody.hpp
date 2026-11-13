@@ -180,11 +180,11 @@ namespace Models
 
 
           protected:
-            // ResourceSchema.name that the resource parsing depends on.
+            // The ResourceSchema.name on which the resource parsing depends.
             shared_ptr<string> defSchema_ {};
-            // ResourceSchema.version that the resource parsing depends on.
+            // The ResourceSchema.version on which the resource parsing depends.
             shared_ptr<string> defVersion_ {};
-            // Resource metadata. The data content is constrained by ResourceSchema.
+            // The resource metadata. The data content is constrained by ResourceSchema.
             Darabonba::Json metaData_ {};
           };
 
@@ -226,18 +226,18 @@ namespace Models
 
 
           protected:
-            // Principal ID.
+            // The ID of the principal.
             // 
-            // Note: The semantics of the ID vary depending on the principalType:
-            // - RamUser: DataWorks UserId
-            // - RamRole: DataWorks UserId prefixed with "ROLE_"
-            // - DataworksTenantMember: DataWorks UserId
+            // Note: When principalType is of different types, it corresponds to different semantics:
+            // - RamUser: DataWorks user ID
+            // - RamRole: DataWorks user ID starting with "ROLE_"
+            // - DataworksTenantMember: DataWorks user ID
             // - DataworksTenantRole: DataWorks tenant roleCode
             // - DataworksProjectRole: DataWorks workspace roleCode
-            // - DataworksProjectMember: DataWorks UserId
+            // - DataworksProjectMember: DataWorks user ID
             // - DlfRole: DlfNext role name
             shared_ptr<string> principalId_ {};
-            // Principal type. Enumeration:
+            // The type of the principal. Valid values:
             // 
             // - RamRole
             // - RamUser
@@ -360,41 +360,45 @@ namespace Models
 
 
         protected:
-          // Resource operation permissions requested in the application.
+          // The requested resource operation permissions.
           shared_ptr<vector<string>> accessTypes_ {};
-          // Authorization method.
+          // The authorization method.
           shared_ptr<string> authMethod_ {};
-          // Creation time.
-          shared_ptr<int64_t> createTime_ {};
-          // Resource type.
-          shared_ptr<string> defSchema_ {};
-          // Permission expiration date, millisecond timestamp.
-          shared_ptr<int64_t> expirationTime_ {};
-          // Resource operation permissions finally approved.
-          shared_ptr<vector<string>> finalAccessTypes_ {};
-          // Authorization principal description.
-          shared_ptr<Contents::Grantee> grantee_ {};
-          // Unique identifier of the request content.
-          shared_ptr<string> id_ {};
-          // **Process instance ID.**
-          shared_ptr<string> processInstanceId_ {};
-          // Resource declaration.
-          shared_ptr<Contents::Resource> resource_ {};
-          // Minimum permission resource type.
-          shared_ptr<string> resourceName_ {};
-          // Approval status. Enumeration:
+          // The creation time.
           // 
-          // - WaitApproval: Pending approval
-          // - Confirmed: Pending authorization
-          // - RejectApproval: Approval rejected
-          // - AuthorizeSucceed: Authorization succeeded
-          // - AuthorizeFailed: Authorization failed
-          // - Deleted: Deleted
-          // - Canceled: Canceled
+          // The format is `yyyy-MM-dd HH:mm:ss`, such as `2025-09-11 10:13:21`. This example does not include a time zone identifier.
+          shared_ptr<int64_t> createTime_ {};
+          // The resource type.
+          shared_ptr<string> defSchema_ {};
+          // The expiration date of the permissions. The value is a UNIX timestamp in milliseconds.
+          shared_ptr<int64_t> expirationTime_ {};
+          // The resource operation permissions that received final approval.
+          shared_ptr<vector<string>> finalAccessTypes_ {};
+          // The description of the authorization principal.
+          shared_ptr<Contents::Grantee> grantee_ {};
+          // The unique identifier of the application content.
+          shared_ptr<string> id_ {};
+          // **The approval process instance ID.**
+          shared_ptr<string> processInstanceId_ {};
+          // The resource declaration.
+          shared_ptr<Contents::Resource> resource_ {};
+          // The least privilege resource type.
+          shared_ptr<string> resourceName_ {};
+          // The approval status. Valid values:
+          // 
+          // - WaitApproval: pending approval
+          // - Confirmed: pending authorization
+          // - RejectApproval: approval rejected
+          // - AuthorizeSucceed: authorization succeeded
+          // - AuthorizeFailed: authorization failed
+          // - Deleted: deleted
+          // - Canceled: withdrawn
           shared_ptr<string> status_ {};
-          // Tenant ID.
+          // The ID of the tenant.
           shared_ptr<string> tenantId_ {};
-          // Update time.
+          // The update time.
+          // 
+          // The format is `yyyy-MM-dd HH:mm:ss`, such as `2022-07-06 19:13:05`. This example does not include a time zone identifier.
           shared_ptr<int64_t> updateTime_ {};
         };
 
@@ -445,25 +449,25 @@ namespace Models
 
 
       protected:
-        // Time when the request was submitted.
+        // The time when the application was initiated.
         shared_ptr<int64_t> applicationTime_ {};
-        // Request content.
+        // The application content.
         shared_ptr<vector<DataItem::Contents>> contents_ {};
-        // Resource type.
+        // The resource type.
         shared_ptr<string> defSchema_ {};
-        // Process instance ID.
+        // The approval process instance ID.
         shared_ptr<string> processInstanceId_ {};
-        // Reason for the request.
+        // The reason for the application.
         shared_ptr<string> reason_ {};
-        // Approval status. Enumeration:
+        // The approval status. Valid values:
         // 
-        // - WaitApproval: Pending approval
-        // - Confirmed: Pending authorization
-        // - RejectApproval: Approval rejected
-        // - AuthorizeSucceed: Authorization succeeded
-        // - AuthorizeFailed: Authorization failed
-        // - Deleted: Deleted
-        // - Canceled: Canceled
+        // - WaitApproval: pending approval
+        // - Confirmed: pending authorization
+        // - RejectApproval: approval rejected
+        // - AuthorizeSucceed: authorization succeeded
+        // - AuthorizeFailed: authorization failed
+        // - Deleted: deleted
+        // - Canceled: withdrawn
         shared_ptr<string> status_ {};
       };
 
@@ -500,13 +504,13 @@ namespace Models
 
 
     protected:
-      // Data list in the paginated results.
+      // The list of data in the paginated results.
       shared_ptr<vector<Data::DataItem>> data_ {};
-      // Whether more data is available.
+      // Indicates whether more data is available.
       shared_ptr<bool> hasMore_ {};
-      // Cursor.
+      // The cursor.
       shared_ptr<string> nextToken_ {};
-      // Page size (default: 10, maximum: 200).
+      // The number of entries per page. Default value: 10. Maximum value: 200.
       shared_ptr<int32_t> pageSize_ {};
     };
 
@@ -529,9 +533,9 @@ namespace Models
 
 
   protected:
-    // Paginated results.
+    // The paginated results.
     shared_ptr<ListPendingApprovalsResponseBody::Data> data_ {};
-    // API request ID, generated as UUID.
+    // The ID of the API request, generated by using a UUID.
     shared_ptr<string> requestId_ {};
   };
 

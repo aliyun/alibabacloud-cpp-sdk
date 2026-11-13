@@ -125,9 +125,9 @@ namespace Models
     shared_ptr<string> bizdateFrom_ {};
     // The end business date of the rule instance.
     shared_ptr<string> bizdateTo_ {};
-    // The earliest time when the data quality evaluation result was generated.
+    // The earliest time when the data quality check results were generated.
     shared_ptr<int64_t> createTimeFrom_ {};
-    // The latest time when the data quality evaluation result was generated.
+    // The latest time when the data quality check results were generated.
     shared_ptr<int64_t> createTimeTo_ {};
     // The data quality evaluation task ID.
     shared_ptr<int64_t> dataQualityEvaluationTaskId_ {};
@@ -135,9 +135,9 @@ namespace Models
     shared_ptr<int64_t> dataQualityEvaluationTaskInstanceId_ {};
     // The data quality rule ID.
     shared_ptr<int64_t> dataQualityRuleId_ {};
-    // The page number for the paging query. Default value: 1.
+    // The page number. Default value: 1.
     shared_ptr<int32_t> pageNumber_ {};
-    // The page size for the paging query. Default value: 10.
+    // The number of results per page. Default value: 10.
     shared_ptr<int32_t> pageSize_ {};
     // The DataWorks workspace ID.
     shared_ptr<int64_t> projectId_ {};

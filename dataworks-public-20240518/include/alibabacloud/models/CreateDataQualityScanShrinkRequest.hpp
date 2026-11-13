@@ -134,25 +134,25 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> clientToken_ {};
-    // The compute engine used at runtime. If not specified, the data source defined in the Spec is used.
+    // The compute engine used when the data quality monitor runs. This parameter is optional. If it is not specified, the data source connection specified in the Spec is used.
     shared_ptr<string> computeResourceShrink_ {};
     // The description of the data quality monitor.
     shared_ptr<string> description_ {};
-    // The Hook configurations after the data quality monitoring run ends.
+    // The configuration for hooks that run after the data quality monitor finishes.
     shared_ptr<string> hooksShrink_ {};
-    // The data quality monitoring name.
+    // The name of the data quality monitor.
     shared_ptr<string> name_ {};
-    // The ID of the user who owns of the data quality monitor.
+    // The user ID of the owner of the data quality monitor.
     shared_ptr<string> owner_ {};
-    // The definition of execution parameters for the data quality monitoring.
+    // The execution parameter definitions of the data quality monitor.
     shared_ptr<string> parametersShrink_ {};
-    // The DataWorks workspace ID. You can log on to the [DataWorks console](https://dataworks.console.aliyun.com/overview) and go to the workspace configuration page to obtain the workspace ID. This parameter is required to specify the target DataWorks workspace for this API operation.
+    // The ID of the DataWorks workspace. You can log on to the [DataWorks console](https://dataworks.console.aliyun.com/overview) and go to the Workspace Management page to obtain the workspace ID. This parameter specifies the DataWorks workspace for the API call.
     shared_ptr<int64_t> projectId_ {};
-    // The resource group used during execution of the data quality monitoring.
+    // The resource group used when the data quality monitor runs.
     shared_ptr<string> runtimeResourceShrink_ {};
-    // Spec code for the content of the data quality monitoring. For more information, see [Data quality Spec configuration description](https://help.aliyun.com/document_detail/2963394.html).
+    // The Spec code that defines the data quality monitor. For more information, see [Data quality spec configuration guide](https://help.aliyun.com/document_detail/2963394.html).
     shared_ptr<string> spec_ {};
-    // The trigger configurations of the data quality monitoring task.
+    // The trigger settings of the data quality monitor.
     shared_ptr<string> triggerShrink_ {};
   };
 

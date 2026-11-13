@@ -128,7 +128,7 @@ namespace Models
       protected:
         // The name of the bound custom skill.
         shared_ptr<string> name_ {};
-        // The ID of the official skill.
+        // The official skill ID.
         shared_ptr<string> skillId_ {};
         // The source of the skill.
         shared_ptr<string> source_ {};
@@ -298,13 +298,13 @@ namespace Models
 
 
     protected:
-      // The version of the updated agent definition.
+      // The updated agent definition version.
       shared_ptr<int32_t> agentVersion_ {};
       // The bound expert suites.
       shared_ptr<vector<Agent::ExpertSuites>> expertSuites_ {};
-      // The creation time of the agent. It is a UNIX timestamp in milliseconds.
+      // The time when the agent was created. The value is a UNIX timestamp in milliseconds.
       shared_ptr<int64_t> gmtCreateTime_ {};
-      // The last modified time of the agent. It is a UNIX timestamp in milliseconds.
+      // The time when the agent was last modified. The value is a UNIX timestamp in milliseconds.
       shared_ptr<int64_t> gmtModifiedTime_ {};
       // The name of the agent.
       shared_ptr<string> name_ {};

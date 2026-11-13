@@ -130,26 +130,25 @@ namespace Models
 
 
   protected:
-    // Entity attributes. Complex values are represented as JSON strings.
+    // The entity properties. Complex values are represented as JSON strings.
     shared_ptr<map<string, string>> attributes_ {};
-    // Comment
+    // The comment.
     shared_ptr<string> comment_ {};
-    // Creation time as a millisecond-level timestamp
+    // The creation time. The value is a timestamp in milliseconds.
     shared_ptr<int64_t> createTime_ {};
-    // Custom attribute values. The key is the custom attribute identifier. The value is a list of attribute values.
+    // The custom attribute values. The key is the custom attribute identifier, and the value is a list of attribute values.
     shared_ptr<map<string, vector<string>>> customAttributes_ {};
-    // Entity type
+    // The entity type.
     shared_ptr<string> entityType_ {};
-    // Entity ID
+    // The entity ID.
     shared_ptr<string> id_ {};
-    // Attribute definition of the custom entity.
-    // >Notice: For historical reasons, this property is not returned and its value is empty. We recommend that you use the GetMetaEntityDef API to obtain the entity type definition.
+    // The property definition of the custom entity. <notice>This legacy property is not populated. To retrieve the entity type definition, call GetMetaEntityDef.</notice>
     shared_ptr<MetaEntityDef> metaEntityDef_ {};
-    // Modification time as a millisecond-level timestamp
+    // The modification time. The value is a timestamp in milliseconds.
     shared_ptr<int64_t> modifyTime_ {};
-    // Entity name
+    // The entity name.
     shared_ptr<string> name_ {};
-    // Owner ID. The default value is the Alibaba Cloud UID of the creator.
+    // The owner ID. Default value: the Alibaba Cloud UID of the creator.
     shared_ptr<string> ownerId_ {};
   };
 

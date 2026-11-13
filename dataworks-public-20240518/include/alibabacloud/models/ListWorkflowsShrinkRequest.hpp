@@ -121,11 +121,13 @@ namespace Models
 
 
   protected:
-    // The project environment.
+    // The project environment. Valid values:
+    // - Prod: Production.
+    // - Dev: Development.
     shared_ptr<string> envType_ {};
     // The list of workflow IDs. You can specify multiple workflow IDs to query multiple workflows at a time.
     shared_ptr<string> idsShrink_ {};
-    // The name. Fuzzy match is supported.
+    // The workflow name. Fuzzy match is supported.
     shared_ptr<string> name_ {};
     // The account ID of the owner.
     shared_ptr<string> owner_ {};
@@ -137,14 +139,14 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<int64_t> projectId_ {};
-    // The sort field. You can sort by fields such as modification time and creation time. The format is \\"SortField+SortOrder(Desc/Asc)\\", where Asc can be omitted. Valid values for the sort field:
+    // The sort field. You can sort workflows by fields such as modification time and creation time. The format is \\"SortField+SortOrder(Desc/Asc)\\". You can omit Asc. Valid values for the sort field:
     // - ModifyTime (Desc/Asc)
     // - CreateTime (Desc/Asc)
     // - Id (Desc/Asc)
     // 
     // Default value: Id Desc.
     shared_ptr<string> sortBy_ {};
-    // The list of tags. If a workflow matches any of the specified tags, it is returned in the result.
+    // The list of tags. If you specify multiple tags, workflows that match at least one of the tags are returned.
     shared_ptr<string> tagsShrink_ {};
     // The trigger type. Valid values:
     // - Scheduler

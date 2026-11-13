@@ -150,19 +150,19 @@ namespace Models
 
 
       protected:
-        // **The creator ID.**
+        // **The ID of the creator.**
         shared_ptr<string> creatorId_ {};
         // **The description.**
         shared_ptr<string> description_ {};
         // **The display name.**
         shared_ptr<string> displayName_ {};
-        // **The creation time (UNIX timestamp in milliseconds).**
+        // **The creation time (millisecond timestamp).**
         shared_ptr<int64_t> gmtCreateTime_ {};
-        // **The last modification time (UNIX timestamp in milliseconds).**
+        // **The last modified time (millisecond timestamp).**
         shared_ptr<int64_t> gmtModifiedTime_ {};
-        // **The last modifier ID.**
+        // **The ID of the last modifier.**
         shared_ptr<string> modifierId_ {};
-        // **The agent name.**
+        // **The name of the agent.**
         shared_ptr<string> name_ {};
         // **The visibility level.**
         shared_ptr<string> visibility_ {};
@@ -203,11 +203,11 @@ namespace Models
     protected:
       // The list of custom agents.
       shared_ptr<vector<PagingInfo::Agents>> agents_ {};
-      // The maximum number of entries returned in this response.
+      // The maximum number of entries returned for this request.
       shared_ptr<int32_t> maxResults_ {};
       // The token for the next page. An empty value indicates that the last page is reached.
       shared_ptr<string> nextToken_ {};
-      // The total number of entries that meet the query conditions.
+      // The total number of entries that meet the conditions.
       shared_ptr<int32_t> totalCount_ {};
     };
 

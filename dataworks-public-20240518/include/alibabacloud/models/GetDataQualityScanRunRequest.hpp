@@ -38,7 +38,7 @@ namespace Models
 
 
   protected:
-    // The data quality monitoring run record ID.
+    // The ID of the data quality monitor run record.
     shared_ptr<int64_t> id_ {};
   };
 

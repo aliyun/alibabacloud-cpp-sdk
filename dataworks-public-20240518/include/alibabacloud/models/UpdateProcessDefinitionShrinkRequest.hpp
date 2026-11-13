@@ -94,21 +94,21 @@ namespace Models
 
 
   protected:
-    // A list of approval nodes. This parameter does not apply to system policies.
+    // The list of approval nodes. Note: System policies do not take effect.
     shared_ptr<string> approvalNodesShrink_ {};
-    // An idempotent parameter. It ensures that retried requests do not result in duplicate operations.
+    // The idempotency token. Used to prevent duplicate operations caused by multiple calls.
     shared_ptr<string> clientToken_ {};
-    // The description of the process definition.
+    // The description of the approval process definition.
     shared_ptr<string> description_ {};
-    // The ID of the process definition.
+    // The ID of the approval process definition.
     // 
     // This parameter is required.
     shared_ptr<string> id_ {};
-    // The name of the process definition.
+    // The name of the approval process definition.
     shared_ptr<string> name_ {};
-    // The notification service configurations.
+    // The notification service declaration.
     shared_ptr<string> notificationServicesShrink_ {};
-    // A list of rule conditions. This parameter does not apply to system policies.
+    // The list of conditional rules. Note: System policies do not take effect.
     shared_ptr<string> ruleConditionsShrink_ {};
   };
 

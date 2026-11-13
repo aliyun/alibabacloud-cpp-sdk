@@ -60,11 +60,11 @@ namespace Models
 
 
   protected:
-    // The remarks.
+    // The comment.
     shared_ptr<string> comment_ {};
-    // The list of node instance IDs.
+    // The list of task instance IDs.
     shared_ptr<vector<int64_t>> ids_ {};
-    // Specifies whether to rerun instances with the latest configuration.
+    // Specifies whether to rerun the task instance with the latest configuration.
     shared_ptr<bool> useLatestConfig_ {};
   };
 

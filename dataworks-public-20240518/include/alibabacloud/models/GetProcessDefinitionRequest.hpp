@@ -38,7 +38,7 @@ namespace Models
 
 
   protected:
-    // The ID of the process definition.
+    // The process definition ID.
     // 
     // This parameter is required.
     shared_ptr<string> id_ {};

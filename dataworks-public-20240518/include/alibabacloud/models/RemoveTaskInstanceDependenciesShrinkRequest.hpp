@@ -57,13 +57,13 @@ namespace Models
 
 
   protected:
-    // The remarks.
+    // The comment.
     shared_ptr<string> comment_ {};
-    // The instance ID.
+    // The node instance ID.
     // 
     // This parameter is required.
     shared_ptr<int64_t> id_ {};
-    // The IDs of ancestor instances of the instance
+    // The list of upstream node instance IDs.
     shared_ptr<string> upstreamTaskInstanceIdsShrink_ {};
   };
 

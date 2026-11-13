@@ -60,7 +60,7 @@ namespace Models
 
 
   protected:
-    // The task attributes.
+    // The task properties.
     shared_ptr<map<string, string>> attributes_ {};
     // The task ID.
     shared_ptr<string> id_ {};

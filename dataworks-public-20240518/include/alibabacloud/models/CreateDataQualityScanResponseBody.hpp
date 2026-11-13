@@ -48,9 +48,9 @@ namespace Models
 
 
   protected:
-    // Returns the ID of the created data source sharing rule, which uniquely identifies the rule.
+    // The ID of the created data source sharing rule, which is the unique identifier of the data source sharing rule.
     shared_ptr<int64_t> id_ {};
-    // Id of the request
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

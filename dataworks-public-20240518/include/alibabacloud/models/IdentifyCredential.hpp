@@ -115,21 +115,16 @@ namespace Models
       shared_ptr<string> instanceName_ {};
       // The data source password.
       shared_ptr<string> password_ {};
-      // The user role for the data source. Valid values are:
-      // 
-      // - `Admin`
-      // 
-      // - `RegularUser`
+      // The data source user type. Valid values:
+      // - Admin: administrator.
+      // - RegularUser: regular user.
       shared_ptr<string> role_ {};
-      // The data source type. Supported values are:
-      // 
-      // - `hive`
-      // 
-      // - `lindorm_for_engine`
-      // 
-      // - `starrocks`
+      // The data source type. Valid values:
+      // - hive
+      // - lindorm_for_engine
+      // - starrocks
       shared_ptr<string> type_ {};
-      // The data source user name.
+      // The data source username.
       shared_ptr<string> userName_ {};
     };
 
@@ -168,17 +163,14 @@ namespace Models
   protected:
     // The data source.
     shared_ptr<IdentifyCredential::DataSource> dataSource_ {};
-    // The project ID. This parameter is optional.
+    // The workspace ID. This parameter is optional.
     shared_ptr<string> projectId_ {};
-    // The user UID. If the `UserType` is `Role`, you must prefix this value with `ROLE_`.
+    // The user ID. For a role, add the ROLE_ prefix.
     shared_ptr<string> userId_ {};
-    // The user type. Supported values are:
-    // 
-    // - primary account: `PrimaryAccount`
-    // 
-    // - subaccount: `SubAccount`
-    // 
-    // - role: `Role`
+    // The user type. Valid values:
+    // - PrimaryAccount: Alibaba Cloud account.
+    // - SubAccount: RAM user.
+    // - Role: role.
     shared_ptr<string> userType_ {};
   };
 

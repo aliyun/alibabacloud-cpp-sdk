@@ -109,9 +109,9 @@ namespace Models
 
 
       protected:
-        // The IDs of the visible projects.
+        // The IDs of the projects in which the skill is visible.
         shared_ptr<vector<string>> projectIds_ {};
-        // The IDs of the visible users. This field is returned only when Visibility is set to USER.
+        // The IDs of the users who can see the skill. This field takes effect when Visibility is set to USER.
         shared_ptr<vector<string>> userIds_ {};
       };
 
@@ -184,11 +184,11 @@ namespace Models
 
 
     protected:
-      // The content of the SKILL.md file.
+      // The body of the SKILL.md file.
       shared_ptr<string> body_ {};
       // The ID of the creator.
       shared_ptr<string> creatorId_ {};
-      // The skill description.
+      // The description of the skill.
       shared_ptr<string> description_ {};
       // The creation time. The value is a UNIX timestamp in milliseconds.
       // 
@@ -200,7 +200,7 @@ namespace Models
       shared_ptr<string> gmtModifiedTime_ {};
       // The ID of the last modifier.
       shared_ptr<string> modifierId_ {};
-      // The skill name.
+      // The name of the skill.
       shared_ptr<string> name_ {};
       // The visibility level.
       shared_ptr<string> visibility_ {};

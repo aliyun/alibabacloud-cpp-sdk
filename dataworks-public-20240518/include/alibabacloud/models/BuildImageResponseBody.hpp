@@ -73,7 +73,7 @@ namespace Models
     protected:
       // The image build execution ID.
       shared_ptr<string> processId_ {};
-      // Indicates whether the build was successfully triggered.
+      // Indicates whether the image build was triggered successfully.
       shared_ptr<bool> success_ {};
     };
 
@@ -105,7 +105,7 @@ namespace Models
   protected:
     // The API request result.
     shared_ptr<BuildImageResponseBody::Data> data_ {};
-    // The request ID, which is used to locate logs and troubleshoot issues.
+    // The request ID, used to locate logs and troubleshoot issues.
     shared_ptr<string> requestId_ {};
     // Indicates whether the request is successful.
     shared_ptr<bool> success_ {};

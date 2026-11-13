@@ -152,99 +152,58 @@ namespace Models
 
 
   protected:
-    // The ID of the task.
+    // The list of task IDs. You can query multiple tasks at a time by specifying task IDs.
     shared_ptr<vector<int64_t>> ids_ {};
-    // The name of the task. Fuzzy match is supported.
+    // The name. Fuzzy match is supported.
     shared_ptr<string> name_ {};
     // The account ID of the task owner.
     shared_ptr<string> owner_ {};
-    // The page number. Pages start from page 1. Default value: 1.
+    // The page number. Pages start from 1. Default value: 1.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries per page. Default value: 10.
+    // The number of entries per page. Default value: 10. Maximum value: 1000.
     shared_ptr<int32_t> pageSize_ {};
-    // The workspace environment.
-    // 
-    // Valid values:
-    // 
-    // - Prod
-    // 
-    // - Dev
+    // The project environment.
     shared_ptr<string> projectEnv_ {};
-    // The workspace ID.
+    // The project ID.
     // 
     // This parameter is required.
     shared_ptr<int64_t> projectId_ {};
-    // The information about the resource group. Set this parameter to the ID of a resource group for scheduling.
+    // The resource group information. Specify the identifier of the scheduling resource group.
     shared_ptr<string> runtimeResource_ {};
-    // The field that is used to sort tasks. This parameter is configured in the format of "Sorting field Sorting order". You can set the sorting order to Desc or Asc. If you do not specify the sorting order, Asc is used by default. Valid values:
+    // The sort field. You can sort by fields such as modification time and creation time. The format is "Sort field + Sort order (Desc/Asc)". Asc can be omitted. Valid values for the sort field:
     // 
     // - `ModifyTime (Desc/Asc)`
-    // 
     // - `CreateTime (Desc/Asc)`
-    // 
     // - `Id (Desc/Asc)`
     // 
-    //   Default value: `Id Desc`.
+    // Default value: `Id Desc`.
     shared_ptr<string> sortBy_ {};
-    // The type of the task. Valid values:
+    // The task type. Examples:
     // 
     // - ODPS_SQL
-    // 
     // - SPARK
-    // 
     // - PY_ODPS
-    // 
     // - PY_ODPS3
-    // 
     // - ODPS_SCRIPT
-    // 
     // - ODPS_MR
-    // 
     // - COMPONENT_SQL
-    // 
     // - EMR_HIVE
-    // 
     // - EMR_MR
-    // 
     // - EMR_SPARK_SQL
-    // 
     // - EMR_SPARK
-    // 
     // - EMR_SHELL
-    // 
     // - EMR_PRESTO
-    // 
     // - EMR_IMPALA
-    // 
     // - SPARK_STREAMING
-    // 
     // - EMR_KYUUBI
-    // 
     // - EMR_TRINO
-    // 
     // - HOLOGRES_SQL
-    // 
     // - HOLOGRES_SYNC_DDL
-    // 
     // - HOLOGRES_SYNC_DATA
     shared_ptr<string> taskType_ {};
-    // The run mode when triggered. Valid only if TriggerType is Scheduler.
-    // 
-    // Valid values:
-    // 
-    // - Pause
-    // 
-    // - Skip
-    // 
-    // - Normal
+    // The running mode upon triggering. This parameter takes effect only when TriggerType is set to Scheduler.
     shared_ptr<string> triggerRecurrence_ {};
     // The trigger type.
-    // 
-    // Valid values:
-    // 
-    // - Scheduler: Triggered by schedule.
-    // 
-    // - Manual: Triggered manually.
     shared_ptr<string> triggerType_ {};
     // The ID of the workflow to which the task belongs.
     shared_ptr<int64_t> workflowId_ {};

@@ -123,9 +123,9 @@ namespace Models
       shared_ptr<string> message_ {};
       // The operation time. The value is a 64-bit timestamp.
       shared_ptr<int64_t> operateTime_ {};
-      // The ID of the process.
+      // The process ID.
       shared_ptr<string> processId_ {};
-      // The publishing status of the image. Valid values:
+      // The image publishing status. Valid values:
       // - Untest: Not tested.
       // - Testing: Testing.
       // - TestFailed: Test failed.
@@ -140,9 +140,9 @@ namespace Models
       // - AccelerateSuccess: Acceleration succeeded.
       // - AccelerateFailed: Acceleration failed.
       shared_ptr<string> publishStage_ {};
-      // The ID of the resource group.
+      // The resource group ID.
       shared_ptr<int64_t> resourceGroupId_ {};
-      // The status of the test process. Valid values:
+      // The test process status. Valid values:
       // - running: Running.
       // - completed: Completed.
       // - failed: Failed.
@@ -176,7 +176,7 @@ namespace Models
 
 
   protected:
-    // The ID of the request. You can use the ID to locate logs and troubleshoot issues.
+    // The request ID. You can use the ID to locate logs and troubleshoot issues.
     shared_ptr<string> requestId_ {};
     // Indicates whether the request is successful.
     shared_ptr<bool> success_ {};

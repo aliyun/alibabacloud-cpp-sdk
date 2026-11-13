@@ -50,7 +50,7 @@ namespace Models
   protected:
     // The remarks.
     shared_ptr<string> comment_ {};
-    // The list of nodes.
+    // The list of tasks.
     shared_ptr<string> tasksShrink_ {};
   };
 

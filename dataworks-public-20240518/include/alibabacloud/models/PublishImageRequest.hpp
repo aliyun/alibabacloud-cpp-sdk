@@ -52,7 +52,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> id_ {};
-    // The image publish execution ID, which is used as an idempotence identifier.
+    // The ID of the image publishing execution, which is used as an idempotency token.
     shared_ptr<string> processId_ {};
   };
 

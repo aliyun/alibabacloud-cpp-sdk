@@ -149,42 +149,38 @@ namespace Models
   protected:
     // The dataset version description.
     shared_ptr<string> comment_ {};
-    // Creation time, represented by a timestamp in milliseconds
+    // The creation timestamp in milliseconds.
     shared_ptr<int64_t> createTime_ {};
     // The creator ID.
     shared_ptr<string> creatorId_ {};
-    // The corresponding dataset ID.
+    // The associated dataset ID.
     shared_ptr<string> datasetId_ {};
     // The dataset version ID.
     shared_ptr<string> id_ {};
-    // The storage import configuration for the dataset. The required configuration varies by storage type.
-    // 
-    // 
+    // The storage import configuration of the dataset. The required configuration information varies based on the storage type.
     // <details>
     // <summary>NAS</summary>
-    // For values, see the response of the File Storage NAS DescribeFileSystems API.
-    // 
+    // For valid values, refer to the response of the DescribeFileSystems API operation.
     // 
     // ```JSON
     // {
-    //   "fileSystemId": "3b6XXX89c9", // The file system ID.
-    //   "fileSystemStorageType": "Performance", // The file system storage type.
-    //   "vpcId": "vpc-uf66oxxxrqge1t2gson7s" // The VPC ID of the mount point.
+    //   "fileSystemId": "3b6XXX89c9", // File system ID
+    //   "fileSystemStorageType": "Performance", // Storage specification of the file system
+    //   "vpcId": "vpc-uf66oxxxrqge1t2gson7s" // VPC ID of the mount target
     // }
     // ```
     // 
-    // 
     // </details>
     shared_ptr<map<string, string>> importInfo_ {};
-    // The PAI dataset label.
+    // The PAI dataset labels.
     shared_ptr<vector<DatasetLabel>> labels_ {};
-    // Modification time, represented by a timestamp in milliseconds
+    // The modification timestamp in milliseconds.
     shared_ptr<int64_t> modifyTime_ {};
-    // The mount path. Defaults to /mnt/data.
+    // The mount path. Default value: /mnt/data.
     shared_ptr<string> mountPath_ {};
-    // Storage type (read-only); consistent with the corresponding property of the parent dataset.
+    // The storage type. This property is read-only and remains consistent with the corresponding property of the associated dataset.
     shared_ptr<string> storageType_ {};
-    // URL
+    // The URL.
     shared_ptr<string> url_ {};
     // The dataset version number.
     shared_ptr<int32_t> versionNumber_ {};

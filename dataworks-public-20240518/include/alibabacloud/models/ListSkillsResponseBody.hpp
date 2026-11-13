@@ -137,7 +137,7 @@ namespace Models
         shared_ptr<string> description_ {};
         // The creation time.
         // 
-        // The format is a 13-digit number, such as `1780555634000`.
+        // The value is a 13-digit number, such as `1780555634000`.
         // 
         // Use the UTC time format: yyyy-MM-ddTHH:mmZ
         shared_ptr<string> gmtCreateTime_ {};
@@ -182,13 +182,13 @@ namespace Models
 
 
     protected:
-      // The maximum number of entries returned in this request.
+      // The maximum number of entries returned in the current response.
       shared_ptr<int32_t> maxResults_ {};
-      // The token for the next page. An empty value indicates that the last page has been reached.
+      // The token for the next page. An empty value indicates that the last page is reached.
       shared_ptr<string> nextToken_ {};
       // The list of skills.
       shared_ptr<vector<PagingInfo::Skills>> skills_ {};
-      // The total number of matching entries.
+      // The total number of entries that meet the specified conditions.
       shared_ptr<int32_t> totalCount_ {};
     };
 

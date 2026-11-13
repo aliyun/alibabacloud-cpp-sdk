@@ -66,15 +66,15 @@ namespace Models
 
 
   protected:
-    // The compute units (CUs) for the build.
+    // The number of compute units (CUs) for the image build.
     shared_ptr<double> cu_ {};
     // The image ID.
     // 
     // This parameter is required.
     shared_ptr<string> id_ {};
-    // Specifies the image build execution ID, which is used as an idempotence token.
+    // The image build execution ID, used as an idempotence token.
     shared_ptr<string> processId_ {};
-    // The unique identifier of the resource group.
+    // The unique identifier of the general-purpose resource group.
     // 
     // This parameter is required.
     shared_ptr<string> resourceGroupId_ {};

@@ -257,7 +257,7 @@ namespace Models
             shared_ptr<string> forwardPort_ {};
             // The name of the port forwarding configuration.
             shared_ptr<string> name_ {};
-            // The NAT gateway ID.
+            // The ID of the NAT gateway.
             shared_ptr<string> natGatewayId_ {};
             // The public key used for SSH access.
             shared_ptr<string> SSHPublicKey_ {};
@@ -298,11 +298,11 @@ namespace Models
         protected:
           // The list of port forwarding configurations.
           shared_ptr<vector<UserVpc::ForwardInfos>> forwardInfos_ {};
-          // The security group ID.
+          // The ID of the security group.
           shared_ptr<string> securityGroupId_ {};
-          // The vSwitch ID.
+          // The ID of the vSwitch.
           shared_ptr<string> vSwitchId_ {};
-          // The VPC ID.
+          // The ID of the VPC.
           shared_ptr<string> vpcId_ {};
         };
 
@@ -380,9 +380,9 @@ namespace Models
 
 
         protected:
-          // The custom mount attributes of the dataset. The content is passed as mount options.
+          // The custom mount properties of the dataset. The content is passed as mount options.
           shared_ptr<string> extOptions_ {};
-          // The dataset identifier.
+          // The identifier of the dataset.
           shared_ptr<string> identifier_ {};
           // The mount path of the dataset in the instance.
           shared_ptr<string> mountPath_ {};
@@ -390,7 +390,7 @@ namespace Models
           shared_ptr<bool> readOnly_ {};
           // The URI of the storage service directory used for direct mounting.
           shared_ptr<string> uri_ {};
-          // The dataset version number.
+          // The version number of the dataset.
           shared_ptr<int32_t> version_ {};
         };
 
@@ -523,7 +523,7 @@ namespace Models
 
 
               protected:
-                // The temporary AccessKey ID used for credential injection.
+                // The temporary access key ID used for credential injection.
                 shared_ptr<string> accessKeyId_ {};
                 // The account ID of the proxied user.
                 shared_ptr<string> id_ {};
@@ -576,7 +576,7 @@ namespace Models
 
 
             protected:
-              // The Alibaba Cloud account ID of the entity to which the assumed role belongs.
+              // The Alibaba Cloud account ID of the principal to which the assumed role belongs.
               shared_ptr<string> assumeRoleFor_ {};
               // The policy used to further restrict the permissions of the role.
               shared_ptr<string> policy_ {};
@@ -618,9 +618,9 @@ namespace Models
           protected:
             // The identifier key of the credential configuration.
             shared_ptr<string> key_ {};
-            // The roles in the credential configuration.
+            // The list of roles in the credential configuration.
             shared_ptr<vector<Configs::Roles>> roles_ {};
-            // The credential configuration type. Valid values:
+            // The type of the credential configuration. Valid values:
             // - Role: single role assumption
             // - RoleChain: role chain assumption
             shared_ptr<string> type_ {};
@@ -652,9 +652,9 @@ namespace Models
 
 
         protected:
-          // The environment variable role key.
+          // The environment variable key for the role.
           shared_ptr<string> aliyunEnvRoleKey_ {};
-          // The credential configurations.
+          // The list of credential configurations.
           shared_ptr<vector<CredentialConfig::Configs>> configs_ {};
           // Specifies whether credential injection is enabled.
           shared_ptr<bool> enable_ {};
@@ -804,7 +804,7 @@ namespace Models
         shared_ptr<Instances::CredentialConfig> credentialConfig_ {};
         // The number of compute units (CUs) used by the instance.
         shared_ptr<int32_t> cu_ {};
-        // The datasets mounted to the instance.
+        // The list of datasets mounted to the instance.
         shared_ptr<vector<Instances::Datasets>> datasets_ {};
         // The reason why the instance entered the failed state.
         shared_ptr<string> failReason_ {};
@@ -818,9 +818,9 @@ namespace Models
         shared_ptr<string> instanceId_ {};
         // The name of the personal development environment instance.
         shared_ptr<string> instanceName_ {};
-        // The account ID of the user that owns the instance.
+        // The account ID of the user who owns the instance.
         shared_ptr<string> ownerId_ {};
-        // The DataWorks workspace ID.
+        // The ID of the DataWorks workspace.
         shared_ptr<int64_t> projectId_ {};
         // The name of the DataWorks workspace.
         shared_ptr<string> projectName_ {};
@@ -873,7 +873,7 @@ namespace Models
       shared_ptr<vector<PagingInfo::Instances>> instances_ {};
       // The current page number.
       shared_ptr<int32_t> pageNumber_ {};
-      // The number of entries returned on the current page.
+      // The number of entries returned per page.
       shared_ptr<int32_t> pageSize_ {};
       // The total number of entries that meet the query conditions.
       shared_ptr<int32_t> totalCount_ {};
@@ -912,13 +912,13 @@ namespace Models
 
 
   protected:
-    // The maximum number of entries returned in the current response.
+    // The maximum number of entries used for this response.
     shared_ptr<int32_t> maxResults_ {};
     // The pagination token for the next page. An empty value indicates that no more results are available.
     shared_ptr<string> nextToken_ {};
     // The pagination information.
     shared_ptr<ListServerIdeInstancesResponseBody::PagingInfo> pagingInfo_ {};
-    // The request ID.
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
   };
 

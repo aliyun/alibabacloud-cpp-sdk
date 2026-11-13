@@ -103,7 +103,7 @@ namespace Models
 
 
   protected:
-    // The ID of the data source associated with the crawler. The data source must be bound to a DataWorks workspace, and the data source type must match the Type value.
+    // The ID of the data source associated with the crawler. The data source must be bound to a DataWorks workspace, and the data source type must match the Type.
     // 
     // This parameter is required.
     shared_ptr<int64_t> dataSourceId_ {};
@@ -113,7 +113,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> name_ {};
-    // The extended configuration for the crawler type. The key names, value types, required fields, default values, and valid values are determined by the SupportedOptionKeys value returned by GetCrawlerTypeCapabilities.
+    // The extended configuration for the crawler type. The key names, value types, required status, default values, and valid values are subject to the SupportedOptionKeys value returned by GetCrawlerTypeCapabilities.
     shared_ptr<string> optionsShrink_ {};
     // The ID of the Serverless 2.0 resource group used to run the collection task. Whether this parameter is required depends on the RequireResourceGroup value returned by GetCrawlerTypeCapabilities.
     shared_ptr<string> resourceGroupId_ {};
@@ -121,7 +121,7 @@ namespace Models
     shared_ptr<string> scheduleConfigShrink_ {};
     // The collection scope configuration. If this parameter is not specified, the DefaultScopeUnit value returned by GetCrawlerTypeCapabilities is used.
     shared_ptr<string> scopeShrink_ {};
-    // The crawler type. Call GetCrawlerTypeCapabilities to query the valid values supported in the current region.
+    // The type of the crawler. You can call GetCrawlerTypeCapabilities to query the valid values supported in the current region.
     // 
     // This parameter is required.
     shared_ptr<string> type_ {};

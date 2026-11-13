@@ -140,20 +140,20 @@ namespace Models
 
 
       protected:
-        // The cron expression. This parameter takes effect only when type is set to Scheduler.
+        // The cron expression. This parameter takes effect only when Type is set to Scheduler.
         shared_ptr<string> cron_ {};
-        // The time when the periodic trigger expires. This parameter takes effect only when type is set to Scheduler. Format: `yyyy-mm-dd hh:mm:ss`.
+        // The expiration time of the periodic trigger. This parameter takes effect only when Type is set to Scheduler. Format: `yyyy-mm-dd hh:mm:ss`.
         shared_ptr<string> endTime_ {};
-        // The running mode when the node is triggered. This parameter takes effect only when type is set to Scheduler. Valid values:
-        // - Pause: paused
-        // - Skip: dry run
-        // - Normal: normal execution
+        // The run mode when the task is triggered. This parameter takes effect only when Type is set to Scheduler. Valid values:
+        // - Pause: Paused.
+        // - Skip: Dry run.
+        // - Normal: Normal execution.
         shared_ptr<string> recurrence_ {};
-        // The time when the periodic trigger takes effect. This parameter takes effect only when type is set to Scheduler. Format: `yyyy-mm-dd hh:mm:ss`.
+        // The start time for periodic triggers. This parameter takes effect only when Type is set to Scheduler. Format: `yyyy-mm-dd hh:mm:ss`.
         shared_ptr<string> startTime_ {};
         // The trigger type. Valid values:
-        // - Scheduler: triggered by scheduling cycle
-        // - Manual: manually triggered
+        // - Scheduler: Triggered by a scheduling cycle.
+        // - Manual: Manually triggered.
         shared_ptr<string> type_ {};
       };
 
@@ -250,11 +250,11 @@ namespace Models
 
 
       protected:
-        // The compute unit (CU) consumption configured for node execution.
+        // The number of compute units (CUs) consumed by the task run configuration.
         shared_ptr<string> cu_ {};
-        // The image ID configured for node execution.
+        // The ID of the image configured for task execution.
         shared_ptr<string> image_ {};
-        // The identifier of the schedule resource group configured for node execution.
+        // The identifier of the scheduling resource group configured for task execution.
         shared_ptr<string> resourceGroupId_ {};
       };
 
@@ -286,7 +286,7 @@ namespace Models
 
 
       protected:
-        // The data source name.
+        // The name of the data source.
         shared_ptr<string> name_ {};
       };
 
@@ -396,36 +396,36 @@ namespace Models
     protected:
       // The associated data source information.
       shared_ptr<Tasks::DataSource> dataSource_ {};
-      // The description.
+      // The description of the task.
       shared_ptr<string> description_ {};
       // The project environment. Valid values:
-      // - Prod: production
-      // - Dev: development
+      // - Prod: Production.
+      // - Dev: Development.
       shared_ptr<string> envType_ {};
-      // The node ID.
+      // The ID of the task.
       // 
       // This parameter is required.
       shared_ptr<int64_t> id_ {};
-      // The name.
+      // The name of the task.
       shared_ptr<string> name_ {};
-      // The account ID of the node owner.
+      // The account ID of the task owner.
       shared_ptr<string> owner_ {};
       // The retry time interval, in seconds.
       shared_ptr<int32_t> rerunInterval_ {};
-      // Specifies whether the node can be rerun. Valid values:
-      // - AllDenied: The node cannot be rerun regardless of whether it succeeds or fails.
-      // - FailureAllowed: The node can be rerun only after it fails.
-      // - AllAllowed: The node can be rerun regardless of whether it succeeds or fails.
+      // Specifies whether the task can be rerun. Valid values:
+      // - AllDenied: The task cannot be rerun after either success or failure.
+      // - FailureAllowed: The task can be rerun only after failure.
+      // - AllAllowed: The task can be rerun after either success or failure.
       shared_ptr<string> rerunMode_ {};
-      // The number of retries. This parameter takes effect only when the node is configured to allow reruns.
+      // The number of retries. This parameter takes effect only when the task is configured to allow reruns.
       shared_ptr<int32_t> rerunTimes_ {};
-      // The runtime environment configuration, such as resource group information.
+      // The runtime environment configurations, such as the resource group information.
       shared_ptr<Tasks::RuntimeResource> runtimeResource_ {};
-      // The list of node tags.
+      // The list of task tags.
       shared_ptr<vector<Tasks::Tags>> tags_ {};
-      // The timeout period for node execution, in seconds. The value must be greater than 3600.
+      // The timeout period for task execution, in seconds. The value must be greater than 3600.
       shared_ptr<int32_t> timeout_ {};
-      // The trigger configuration of the node.
+      // The task trigger type.
       shared_ptr<Tasks::Trigger> trigger_ {};
     };
 
@@ -450,7 +450,7 @@ namespace Models
   protected:
     // The remarks.
     shared_ptr<string> comment_ {};
-    // The list of nodes.
+    // The list of tasks.
     shared_ptr<vector<BatchUpdateTasksRequest::Tasks>> tasks_ {};
   };
 

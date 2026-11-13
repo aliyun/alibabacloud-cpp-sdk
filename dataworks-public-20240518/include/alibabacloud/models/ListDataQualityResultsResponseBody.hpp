@@ -174,7 +174,7 @@ namespace Models
 
 
           protected:
-            // 表类型的数据集，表所属的数据库类型：
+            // The database type of the table dataset. Valid values:
             // - maxcompute
             // - emr
             // - cdh
@@ -183,9 +183,9 @@ namespace Models
             // - analyticdb_for_mysql
             // - starrocks
             shared_ptr<string> databaseType_ {};
-            // 表在数据地图中的唯一ID。
+            // The unique ID of the table in DataWorks Data Map.
             shared_ptr<string> tableGuid_ {};
-            // 监控对象类型：
+            // The type of the monitored object. Valid values:
             // - Table
             shared_ptr<string> type_ {};
           };
@@ -246,28 +246,28 @@ namespace Models
 
 
           protected:
-            // 采样的指标名称：
-            // - Count：表行数
-            // - Min：字段最小值
-            // - Max：字段最大值
-            // - Avg：字段均值
-            // - DistinctCount：字段唯一值个数
-            // - DistinctPercent：字段唯一值个数与数据行数占比
-            // - DuplicatedCount：字段重复值个数
-            // - DuplicatedPercent：字段重复值个数与数据行数占比
-            // - TableSize：表大小
-            // - NullValueCount：字段为空的行数
-            // - NullValuePercent：字段为空的比例
-            // - GroupCount：按字段值聚合后每个值与对应的数据行数
-            // - CountNotIn：枚举值不匹配行数
-            // - CountDistinctNotIn：枚举值不匹配唯一值个数
-            // - UserDefinedSql：通过自定义SQL做样本采集
+            // The name of the sampling metric. Valid values:
+            // - Count: The number of rows in the table.
+            // - Min: The minimum value of the field.
+            // - Max: The maximum value of the field.
+            // - Avg: The average value of the field.
+            // - DistinctCount: The number of unique values in the field.
+            // - DistinctPercent: The ratio of unique values to the total number of rows in the field.
+            // - DuplicatedCount: The number of duplicate values in the field.
+            // - DuplicatedPercent: The ratio of duplicate values to the total number of rows in the field.
+            // - TableSize: The table size.
+            // - NullValueCount: The number of rows with null values in the field.
+            // - NullValuePercent: The ratio of null values in the field.
+            // - GroupCount: The number of rows corresponding to each value after aggregation by field value.
+            // - CountNotIn: The number of rows that do not match the enumerated values.
+            // - CountDistinctNotIn: The number of unique values that do not match the enumerated values.
+            // - UserDefinedSql: Sample collection through custom SQL.
             shared_ptr<string> metric_ {};
-            // 样本采集时，所需的参数。
+            // The parameters required for sample collection.
             shared_ptr<string> metricParameters_ {};
-            // 采样时，对不关注的数据进行二次过滤的条件，最多16777215个字符。
+            // The conditions used to filter out unneeded data during sampling. It can be up to 16,777,215 characters in length.
             shared_ptr<string> samplingFilter_ {};
-            // 具体执行采样语句前，插入执行的一些运行时参数设置语句，最长1000个字符。目前只支持MaxCompute。
+            // The runtime parameter setting statements inserted before the sampling statement is executed. It can be up to 1,000 characters in length. Only MaxCompute is supported.
             shared_ptr<string> settingConfig_ {};
           };
 
@@ -309,9 +309,9 @@ namespace Models
 
 
           protected:
-            // 如果是自定义SQL规则，需要用户指定SQL来过滤问题数据。
+            // The SQL statement specified by the user to filter error data for custom SQL rules.
             shared_ptr<string> errorDataFilter_ {};
-            // 处理器类型。
+            // The handler type. Valid values:
             // - SaveErrorData
             shared_ptr<string> type_ {};
           };
@@ -409,17 +409,17 @@ namespace Models
 
 
               protected:
-                // 阈值表达式。
+                // The threshold expression.
                 // 
-                // 波动率类型规则必须使用表达式方式表示波动阈值。如：
+                // For fluctuation rules, you must use an expression to represent the fluctuation threshold. Examples:
                 // 
-                // - 波动上升大于0.01： $checkValue > 0.01 
-                // - 波动下降大于0.01：$checkValue < -0.01 
-                // - 波动率绝对值：abs($checkValue) > 0.01
+                // - Fluctuation increase greater than 0.01: $checkValue > 0.01 
+                // - Fluctuation decrease greater than 0.01: $checkValue < -0.01 
+                // - Absolute value of fluctuation rate: abs($checkValue) > 0.01
                 // 
-                // 固定值类型规则也可以使用表达式方式配置阈值，如果同时配置，表达式优先级高于Operator和Value。
+                // For fixed value rules, you can also use an expression to configure the threshold. If both are configured, the expression takes precedence over Operator and Value.
                 shared_ptr<string> expression_ {};
-                // 比较符：
+                // The comparison operator. Valid values:
                 // - \\>
                 // - \\>=
                 // - \\<
@@ -427,7 +427,7 @@ namespace Models
                 // - !=
                 // - =
                 shared_ptr<string> operator_ {};
-                // 阈值数值。
+                // The threshold value.
                 shared_ptr<string> value_ {};
               };
 
@@ -478,17 +478,17 @@ namespace Models
 
 
               protected:
-                // 阈值表达式。
+                // The threshold expression.
                 // 
-                // 波动率类型规则必须使用表达式方式表示波动阈值。如：
+                // For fluctuation rules, you must use an expression to represent the fluctuation threshold. Examples:
                 // 
-                // - 波动上升大于0.01： $checkValue > 0.01 
-                // - 波动下降大于0.01：$checkValue < -0.01 
-                // - 波动率绝对值：abs($checkValue) > 0.01
+                // - Fluctuation increase greater than 0.01: $checkValue > 0.01 
+                // - Fluctuation decrease greater than 0.01: $checkValue < -0.01 
+                // - Absolute value of fluctuation rate: abs($checkValue) > 0.01
                 // 
-                // 固定值类型规则也可以使用表达式方式配置阈值，如果同时配置，表达式优先级高于Operator和Value。
+                // For fixed value rules, you can also use an expression to configure the threshold. If both are configured, the expression takes precedence over Operator and Value.
                 shared_ptr<string> expression_ {};
-                // 比较符：
+                // The comparison operator. Valid values:
                 // - \\>
                 // - \\>=
                 // - \\<
@@ -496,7 +496,7 @@ namespace Models
                 // - !=
                 // - =
                 shared_ptr<string> operator_ {};
-                // 阈值数值。
+                // The threshold value.
                 shared_ptr<string> value_ {};
               };
 
@@ -547,17 +547,17 @@ namespace Models
 
 
               protected:
-                // 阈值表达式。
+                // The threshold expression.
                 // 
-                // 波动率类型规则必须使用表达式方式表示波动阈值。如：
+                // For fluctuation rules, you must use an expression to represent the fluctuation threshold. Examples:
                 // 
-                // - 波动上升大于0.01： $checkValue > 0.01 
-                // - 波动下降大于0.01：$checkValue < -0.01 
-                // - 波动率绝对值：abs($checkValue) > 0.01
+                // - Fluctuation increase greater than 0.01: $checkValue > 0.01 
+                // - Fluctuation decrease greater than 0.01: $checkValue < -0.01 
+                // - Absolute value of fluctuation rate: abs($checkValue) > 0.01
                 // 
-                // 固定值类型规则也可以使用表达式方式配置阈值，如果同时配置，表达式优先级高于Operator和Value。
+                // For fixed value rules, you can also use an expression to configure the threshold. If both are configured, the expression takes precedence over Operator and Value.
                 shared_ptr<string> expression_ {};
-                // 比较符：
+                // The comparison operator. Valid values:
                 // - \\>
                 // - \\>=
                 // - \\<
@@ -565,7 +565,7 @@ namespace Models
                 // - !=
                 // - =
                 shared_ptr<string> operator_ {};
-                // 阈值数值。
+                // The threshold value.
                 shared_ptr<string> value_ {};
               };
 
@@ -599,11 +599,11 @@ namespace Models
 
 
             protected:
-              // 严重警告的阈值设置。
+              // The threshold settings for critical warnings.
               shared_ptr<Thresholds::Critical> critical_ {};
-              // 期望的阈值设置。
+              // The expected threshold settings.
               shared_ptr<Thresholds::Expected> expected_ {};
-              // 普通警告的阈值设置。
+              // The threshold settings for common warnings.
               shared_ptr<Thresholds::Warned> warned_ {};
             };
 
@@ -633,11 +633,11 @@ namespace Models
 
 
           protected:
-            // 有些类型的阈值需要查询出一些参考样本，然后对参考样本的值进行汇总得出进行比较的阈值，这里使用一个表达式来表示参考样本的查询方式。
+            // The expression used to query reference samples for certain types of thresholds. The values of the reference samples are aggregated to obtain the threshold for comparison.
             shared_ptr<string> referencedSamplesFilter_ {};
-            // 阈值设置。
+            // The threshold settings.
             shared_ptr<CheckingConfig::Thresholds> thresholds_ {};
-            // 阈值计算方式：
+            // The threshold calculation method. Valid values:
             // - Fixed
             // - Fluctation
             // - FluctationDiscreate
@@ -736,29 +736,29 @@ namespace Models
 
 
         protected:
-          // 样本校验设置。
+          // The sample check settings.
           shared_ptr<Rule::CheckingConfig> checkingConfig_ {};
-          // 规则描述信息，最长500个字符。
+          // The description of the rule. It can be up to 500 characters in length.
           shared_ptr<string> description_ {};
-          // 规则是否启用。
+          // Specifies whether the rule is enabled.
           shared_ptr<bool> enabled_ {};
-          // 质量规则校验问题处理器。
+          // The error handlers for data quality rule checks.
           shared_ptr<vector<Rule::ErrorHandlers>> errorHandlers_ {};
-          // 规则ID。
+          // The rule ID.
           shared_ptr<int64_t> id_ {};
-          // 规则名称，数字、英文字母、汉字、半角全角标点符号组合，最长255个字符。
+          // The rule name. The name can contain digits, letters, Chinese characters, and half-width or full-width punctuation marks. It can be up to 255 characters in length.
           shared_ptr<string> name_ {};
-          // DataWorks项目空间ID。
+          // The DataWorks workspace ID.
           shared_ptr<int64_t> projectId_ {};
-          // 样本采集所需的设置。
+          // The settings required for sample collection.
           shared_ptr<Rule::SamplingConfig> samplingConfig_ {};
-          // 规则对于业务的等级（对应页面上的强弱规则）：
+          // The severity level of the rule for the business, which corresponds to strong and weak rules on the page. Valid values:
           // - High
           // - Normal
           shared_ptr<string> severity_ {};
-          // 规则所监控的对象。
+          // The object monitored by the rule.
           shared_ptr<Rule::Target> target_ {};
-          // 创建规则时所引用的规则模板Code。
+          // The code of the rule template referenced when the rule was created.
           shared_ptr<string> templateCode_ {};
         };
 
@@ -809,11 +809,11 @@ namespace Models
 
 
         protected:
-          // 最终用来与阈值比较的值。
+          // The final value used for comparison with the threshold.
           shared_ptr<string> checkedValue_ {};
-          // 使用引用的样本，用来参与CheckedValue计算的基准值。
+          // The referenced sample value used as the baseline for calculating the checked value.
           shared_ptr<string> referencedValue_ {};
-          // 最终的比较结果状态：
+          // The final comparison result status. Valid values:
           // - Error
           // - Passed
           // - Warned
@@ -878,24 +878,24 @@ namespace Models
 
 
       protected:
-        // 校验结果生成时间。
+        // The time when the check result was generated.
         shared_ptr<int64_t> createTime_ {};
-        // 本次校验的详情。
+        // The details of this check.
         shared_ptr<vector<DataQualityResults::Details>> details_ {};
-        // 校验结果ID。
+        // The check result ID.
         shared_ptr<int64_t> id_ {};
-        // 校验开始时，规则配置快照。
+        // The snapshot of the rule configuration at the start of the check.
         shared_ptr<DataQualityResults::Rule> rule_ {};
-        // 本次校验所使用的样本值。
+        // The sample value used for this check.
         shared_ptr<string> sample_ {};
-        // 校验结果状态：
+        // The status of the check result. Valid values:
         // - Running
         // - Error
         // - Passed
         // - Warned
         // - Critical
         shared_ptr<string> status_ {};
-        // 校验任务实例ID。
+        // The ID of the data quality evaluation task instance.
         shared_ptr<int64_t> taskInstanceId_ {};
       };
 
@@ -932,13 +932,13 @@ namespace Models
 
 
     protected:
-      // 质量校验结果列表。
+      // The list of data quality check results.
       shared_ptr<vector<PagingInfo::DataQualityResults>> dataQualityResults_ {};
-      // 页码。
+      // The page number.
       shared_ptr<int32_t> pageNumber_ {};
-      // 页大小。
+      // The number of entries per page.
       shared_ptr<int32_t> pageSize_ {};
-      // 总条数。
+      // The total number of entries.
       shared_ptr<int32_t> totalCount_ {};
     };
 
@@ -961,9 +961,9 @@ namespace Models
 
 
   protected:
-    // 数据质量校验结果分页查询结果。
+    // The paginated data quality check results.
     shared_ptr<ListDataQualityResultsResponseBody::PagingInfo> pagingInfo_ {};
-    // API请求ID。
+    // The API request ID.
     shared_ptr<string> requestId_ {};
   };
 

@@ -48,7 +48,7 @@ namespace Models
 
 
   protected:
-    // The remarks.
+    // The comment.
     shared_ptr<string> comment_ {};
     // The list of workflow instance IDs.
     // 

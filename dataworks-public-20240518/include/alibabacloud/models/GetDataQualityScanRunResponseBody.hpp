@@ -150,12 +150,10 @@ namespace Models
 
 
         protected:
-          // If the trigger mode is set to BySchedule, the scheduling task ID must be specified.
+          // The IDs of the scheduling tasks that trigger the data quality monitoring task when the trigger method is set to BySchedule.
           shared_ptr<vector<int64_t>> taskIds_ {};
-          // The trigger method of the data quality monitor.
-          // 
+          // The trigger method of the data quality monitoring task. Valid values:
           // - ByManual
-          // 
           // - BySchedule
           shared_ptr<string> type_ {};
         };
@@ -207,11 +205,11 @@ namespace Models
 
 
         protected:
-          // Reserved CUs for the resource group.
+          // The reserved compute units (CUs) of the resource group.
           shared_ptr<float> cu_ {};
-          // The resource group ID.
+          // The ID of the resource group.
           shared_ptr<string> id_ {};
-          // The image ID of the run configuration.
+          // The ID of the image used for the run configuration.
           shared_ptr<string> image_ {};
         };
 
@@ -297,12 +295,11 @@ namespace Models
 
 
         protected:
-          // The hook trigger condition. Currently, only one type of expression syntax is supported:
+          // The condition that triggers the hook. Currently, only one expression syntax is supported:
           // 
-          // - Specify combinations of severity levels and validation statuses for multiple rules, such as `results.any { r -> r.status == \\"Fail\\" && r.rule.severity == \\"Normal\\" || r.status == \\"Error\\" && r.rule.severity == \\"High\\" || r.status == \\"Warn\\" && r.rule.severity == \\"High\\" }`. This means the hook is triggered if any executed rule has Fail with Normal severity, Error with High severity, or Warn with High severity. In the conditional expression, the severity value matches that in the Spec code, and the status value matches that in DataQualityResult.
+          // * Specify multiple groups of rule severity types and rule check statuses. For example, `results.any { r -> r.status == \\"Fail\\" && r.rule.severity == \\"Normal\\" || r.status == \\"Error\\" && r.rule.severity == \\"High\\" || r.status == \\"Warn\\" && r.rule.severity == \\"High\\" }` indicates that the condition is met if the check result of a rule with the severity of Normal is Fail, the check result of a rule with the severity of High is Error, or the check result of a rule with the severity of High is Warn among the executed rules. The enum values of severity in the conditional expression are the same as those in the spec, and the enum values of status are the same as those in DataQualityResult.
           shared_ptr<string> condition_ {};
-          // The type of the hook.
-          // 
+          // The hook type. Valid values:
           // - BlockTaskInstance
           shared_ptr<string> type_ {};
         };
@@ -381,17 +378,14 @@ namespace Models
 
 
           protected:
-            // The type of the compute engine. Only EMR compute engines support these settings.
-            // 
+            // The type of the engine used. Only the E-MapReduce (EMR) compute engine supports this setting. Valid values:
             // - Hive
-            // 
             // - Spark
-            // 
             // - Kyuubi
             shared_ptr<string> engine_ {};
-            // Additional parameters for the Hive engine. Currently, only mapreduce.job.queuename is supported to specify the queue.
+            // The additional parameter settings when the Hive engine is used. Currently, only the queue can be configured by using mapreduce.job.queuename.
             Darabonba::Json hiveConf_ {};
-            // Additional parameters for the Spark engine. Currently, only spark.yarn.queue is supported to specify the queue.
+            // The additional parameter settings when the Spark engine is used. Currently, only the queue can be configured by using spark.yarn.queue.
             Darabonba::Json sparkConf_ {};
           };
 
@@ -421,15 +415,13 @@ namespace Models
 
 
         protected:
-          // The workspace environment to which the compute engine belongs.
-          // 
+          // The workspace environment to which the compute engine belongs. Valid values:
           // - Prod
-          // 
           // - Dev
           shared_ptr<string> envType_ {};
-          // The name of the computing resource, which corresponds to the Name attribute in the ComputeResource data structure of the computing resource API.
+          // The name of the compute resource. This corresponds to the Name property in the ComputeResource data structure of the compute resource API.
           shared_ptr<string> name_ {};
-          // The additional runtime settings of the data quality monitor.
+          // The additional runtime settings for the data quality monitoring task.
           shared_ptr<ComputeResource::Runtime> runtime_ {};
         };
 
@@ -553,35 +545,39 @@ namespace Models
 
 
       protected:
-        // The computing resource settings of the data quality monitor.
+        // The compute resource settings of the data quality monitoring task.
         shared_ptr<Scan::ComputeResource> computeResource_ {};
-        // The creation time of the data quality monitor.
+        // The time when the data quality monitoring task was created.
+        // 
+        // The value is a 13-digit number, such as `1706247622000`.
         shared_ptr<int64_t> createTime_ {};
-        // The creator of the data quality monitor.
+        // The user who created the data quality monitoring task.
         shared_ptr<string> createUser_ {};
-        // The description of the data quality validation task. Maximum length: 65,535 characters.
+        // The description of the data quality check task. The description can be up to 65,535 characters in length.
         shared_ptr<string> description_ {};
-        // The hook configurations after the data quality monitor stops.
+        // The configuration for hooks that run after the data quality monitor finishes.
         shared_ptr<vector<Scan::Hooks>> hooks_ {};
-        // The data quality monitor ID.
+        // The ID of the data quality monitor.
         shared_ptr<int64_t> id_ {};
-        // The last update time of the data quality monitor.
+        // The time when the data quality monitoring task was updated.
+        // 
+        // The value is a 13-digit number, such as `1706247622000`.
         shared_ptr<int64_t> modifyTime_ {};
-        // The last updater of the data quality monitor.
+        // The user who last updated the data quality monitoring task.
         shared_ptr<string> modifyUser_ {};
-        // The name of the data quality validation task. It can contain digits, letters, Chinese characters, and both half-width and full-width punctuation marks, with a maximum length of 255 characters.
+        // The name of the data quality check task. The name can contain digits, letters, Chinese characters, and half-width or full-width punctuation marks, and can be up to 255 characters in length.
         shared_ptr<string> name_ {};
-        // The owner of the data quality monitor.
+        // The owner of the data quality monitoring task.
         shared_ptr<string> owner_ {};
-        // The parameter settings of the data quality monitor.
+        // The parameter settings of the data quality monitoring task.
         shared_ptr<vector<Scan::Parameters>> parameters_ {};
         // The project ID.
         shared_ptr<int64_t> projectId_ {};
-        // The resource group used for running the data quality monitor.
+        // The resource group used when the data quality monitoring task runs.
         shared_ptr<Scan::RuntimeResource> runtimeResource_ {};
-        // The data quality monitor Spec. For more information, see [Data quality Spec configuration description](https://help.aliyun.com/document_detail/2963394.html).
+        // The spec of the data quality monitoring task. For more information, see [Data quality spec configuration guide](https://help.aliyun.com/document_detail/2963394.html).
         shared_ptr<string> spec_ {};
-        // The trigger configurations of the data quality monitor.
+        // The trigger configuration of the data quality monitoring task.
         shared_ptr<Scan::Trigger> trigger_ {};
       };
 
@@ -659,18 +655,14 @@ namespace Models
 
 
         protected:
-          // The final value used for comparison with the threshold.
+          // The final value used to compare with the threshold.
           shared_ptr<string> checkValue_ {};
-          // The reference sample used as the baseline for calculating the CheckedValue.
+          // The baseline value from the referenced sample used to calculate CheckedValue.
           shared_ptr<string> referenceValue_ {};
-          // The final comparison result status.
-          // 
+          // The status of the final comparison result. Valid values:
           // - Pass
-          // 
           // - Error
-          // 
           // - Warn
-          // 
           // - Fail
           shared_ptr<string> status_ {};
         };
@@ -715,24 +707,21 @@ namespace Models
 
 
       protected:
-        // The time when the validation result is generated.
+        // The time when the check result was generated.
+        // 
+        // The value is a 13-digit number, such as `1725506795000`.
         shared_ptr<int64_t> createTime_ {};
-        // The information about the data quality check.
+        // The details of the current check.
         shared_ptr<vector<Results::Details>> details_ {};
-        // The snapshot of the rule Spec at the start of the validation.
+        // The snapshot of the rule spec at the start of the check.
         shared_ptr<string> rule_ {};
-        // The sample value used in the validation.
+        // The sample value used for the current check.
         shared_ptr<string> sample_ {};
-        // The validation result status.
-        // 
+        // The status of the check result. Valid values:
         // - Pass
-        // 
         // - Running
-        // 
         // - Error
-        // 
         // - Warn
-        // 
         // - Fail
         shared_ptr<string> status_ {};
       };
@@ -840,28 +829,27 @@ namespace Models
 
 
     protected:
-      // The time when the data quality monitor starts running.
+      // The time when the data quality monitoring run started.
+      // 
+      // The value is a 13-digit number, such as `1706247622000`.
       shared_ptr<int64_t> createTime_ {};
-      // The time when the data quality monitor stops.
+      // The time when the data quality monitoring run ended.
+      // 
+      // The value is a 13-digit number, such as `1706247622000`.
       shared_ptr<int64_t> finishTime_ {};
-      // The running record ID.
+      // The ID of the run record.
       shared_ptr<int64_t> id_ {};
-      // The parameter settings used during the actual running.
+      // The parameter settings used during the actual run.
       shared_ptr<vector<DataQualityScanRun::Parameters>> parameters_ {};
-      // The validation results of each rule.
+      // The check results for individual rules.
       shared_ptr<vector<DataQualityScanRun::Results>> results_ {};
-      // The snapshot of the data quality monitor configuration at the start of the validation.
+      // The snapshot of the data quality monitoring configuration at the start of the check.
       shared_ptr<DataQualityScanRun::Scan> scan_ {};
-      // The current running status.
-      // 
+      // The current run status. Valid values:
       // - Pass
-      // 
       // - Running
-      // 
       // - Error
-      // 
       // - Warn
-      // 
       // - Fail
       shared_ptr<string> status_ {};
     };
@@ -885,7 +873,7 @@ namespace Models
 
 
   protected:
-    // Data quality monitoring running records.
+    // The run record of the data quality monitor.
     shared_ptr<GetDataQualityScanRunResponseBody::DataQualityScanRun> dataQualityScanRun_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

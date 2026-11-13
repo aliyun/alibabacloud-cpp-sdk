@@ -609,6 +609,12 @@
 #include <alibabacloud/models/GetJobStatusRequest.hpp>
 #include <alibabacloud/models/GetJobStatusResponseBody.hpp>
 #include <alibabacloud/models/GetJobStatusResponse.hpp>
+#include <alibabacloud/models/GetKnowledgeBaseRequest.hpp>
+#include <alibabacloud/models/GetKnowledgeBaseResponseBody.hpp>
+#include <alibabacloud/models/GetKnowledgeBaseResponse.hpp>
+#include <alibabacloud/models/GetKnowledgePointRequest.hpp>
+#include <alibabacloud/models/GetKnowledgePointResponseBody.hpp>
+#include <alibabacloud/models/GetKnowledgePointResponse.hpp>
 #include <alibabacloud/models/GetLineageRelationshipRequest.hpp>
 #include <alibabacloud/models/GetLineageRelationshipResponseBody.hpp>
 #include <alibabacloud/models/GetLineageRelationshipResponse.hpp>
@@ -907,6 +913,12 @@
 #include <alibabacloud/models/ListImagesShrinkRequest.hpp>
 #include <alibabacloud/models/ListImagesResponseBody.hpp>
 #include <alibabacloud/models/ListImagesResponse.hpp>
+#include <alibabacloud/models/ListKnowledgeBasesRequest.hpp>
+#include <alibabacloud/models/ListKnowledgeBasesResponseBody.hpp>
+#include <alibabacloud/models/ListKnowledgeBasesResponse.hpp>
+#include <alibabacloud/models/ListKnowledgePointsRequest.hpp>
+#include <alibabacloud/models/ListKnowledgePointsResponseBody.hpp>
+#include <alibabacloud/models/ListKnowledgePointsResponse.hpp>
 #include <alibabacloud/models/ListLineageRelationshipsRequest.hpp>
 #include <alibabacloud/models/ListLineageRelationshipsResponseBody.hpp>
 #include <alibabacloud/models/ListLineageRelationshipsResponse.hpp>
@@ -1123,6 +1135,10 @@
 #include <alibabacloud/models/ResumeTaskInstancesShrinkRequest.hpp>
 #include <alibabacloud/models/ResumeTaskInstancesResponseBody.hpp>
 #include <alibabacloud/models/ResumeTaskInstancesResponse.hpp>
+#include <alibabacloud/models/RetrieveKnowledgePointsRequest.hpp>
+#include <alibabacloud/models/RetrieveKnowledgePointsShrinkRequest.hpp>
+#include <alibabacloud/models/RetrieveKnowledgePointsResponseBody.hpp>
+#include <alibabacloud/models/RetrieveKnowledgePointsResponse.hpp>
 #include <alibabacloud/models/RevokeMemberProjectRolesRequest.hpp>
 #include <alibabacloud/models/RevokeMemberProjectRolesShrinkRequest.hpp>
 #include <alibabacloud/models/RevokeMemberProjectRolesResponseBody.hpp>
@@ -1388,6 +1404,10 @@
 #include <alibabacloud/models/UpdateWorkflowDefinitionRequest.hpp>
 #include <alibabacloud/models/UpdateWorkflowDefinitionResponseBody.hpp>
 #include <alibabacloud/models/UpdateWorkflowDefinitionResponse.hpp>
+#include <alibabacloud/models/UploadAgentSessionFileRequest.hpp>
+#include <alibabacloud/models/UploadAgentSessionFileShrinkRequest.hpp>
+#include <alibabacloud/models/UploadAgentSessionFileResponseBody.hpp>
+#include <alibabacloud/models/UploadAgentSessionFileResponse.hpp>
 #include <alibabacloud/models/UploadSemanticFileRequest.hpp>
 #include <alibabacloud/models/UploadSemanticFileResponseBody.hpp>
 #include <alibabacloud/models/UploadSemanticFileResponse.hpp>

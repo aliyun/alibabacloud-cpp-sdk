@@ -189,45 +189,36 @@ namespace Models
         protected:
           // The code of the deployment stage.
           shared_ptr<string> code_ {};
-          // The stage description.
+          // The description of the deployment stage.
           shared_ptr<string> description_ {};
-          // Additional information about the deployment stage.
+          // The additional supplementary information about the deployment stage.
           Darabonba::Json detail_ {};
-          // The error message returned if the deployment stage fails.
+          // The error message returned when an error occurs during a deployment stage.
           shared_ptr<string> message_ {};
-          // The stage name.
+          // The name of the deployment stage.
           shared_ptr<string> name_ {};
           // The status of the deployment stage.
           // 
           // Valid values:
           // 
-          // - `Init`: Initializing
-          // 
-          // - `Running`: Running
-          // 
-          // - `Success`: Succeeded
-          // 
-          // - `Fail`: Failed
-          // 
-          // - `Termination`: Terminated
-          // 
-          // - `Cancel`: Canceled
+          // - Init: Initialized.
+          // - Running: Running.
+          // - Success: Succeeded.
+          // - Fail: Failed.
+          // - Termination: Terminated.
+          // - Cancel: Canceled.
           shared_ptr<string> status_ {};
           // The step number of the deployment stage.
           shared_ptr<int32_t> step_ {};
-          // The type of the deployment stage.
+          // The type of the deployment stage. This parameter categorizes the operation type of the deployment stage.
           // 
           // Valid values:
           // 
-          // - `Deploy`: A deploy operation
-          // 
-          // - `Check`: A check operation
-          // 
-          // - `Offline`: An offline operation
-          // 
-          // - `Build`: A build operation
-          // 
-          // - `Delete`: A delete operation
+          // - Deploy: Deployment operation.
+          // - Check: Check operation.
+          // - Offline: Undeployment operation.
+          // - Build: Build operation.
+          // - Delete: Delete operation.
           shared_ptr<string> type_ {};
         };
 
@@ -300,37 +291,34 @@ namespace Models
 
 
       protected:
-        // The creation timestamp of the deployment pipeline run.
+        // The timestamp when the deployment package was created.
         shared_ptr<int64_t> createTime_ {};
-        // The creator of the deployment pipeline run.
+        // The creator of the deployment pipeline.
         shared_ptr<string> creator_ {};
-        // The description of the deployment pipeline run.
+        // The description of the deployment pipeline.
         shared_ptr<string> description_ {};
-        // The ID of the deployment pipeline run.
+        // The ID of the deployment pipeline.
         shared_ptr<string> id_ {};
-        // The error message returned if the deployment pipeline run fails.
+        // The error message returned when an error occurs during a deployment stage.
         shared_ptr<string> message_ {};
-        // The last modification timestamp of the deployment pipeline run.
+        // The time when the deployment pipeline was updated.
+        // 
+        // The value is a 13-digit timestamp, such as `1702736654000`.
         shared_ptr<int64_t> modifyTime_ {};
-        // The project ID.
+        // The ID of the project.
         shared_ptr<int64_t> projectId_ {};
-        // A list of deployment stages.
+        // The list of deployment stages.
         shared_ptr<vector<PipelineRuns::Stages>> stages_ {};
-        // The status of the deployment pipeline run.
+        // The status of the deployment pipeline.
         // 
         // Valid values:
         // 
-        // - `Init`: Initializing
-        // 
-        // - `Running`: Running
-        // 
-        // - `Success`: Succeeded
-        // 
-        // - `Fail`: Failed
-        // 
-        // - `Termination`: Terminated
-        // 
-        // - `Cancel`: Canceled
+        // - Init: Initialized.
+        // - Running: Running.
+        // - Success: Succeeded.
+        // - Fail: Failed.
+        // - Termination: Terminated.
+        // - Cancel: Canceled.
         shared_ptr<string> status_ {};
       };
 
@@ -367,13 +355,13 @@ namespace Models
 
 
     protected:
-      // The returned page number.
+      // The page number of the returned page.
       shared_ptr<int32_t> pageNumber_ {};
       // The number of entries per page.
       shared_ptr<int32_t> pageSize_ {};
-      // A list of deployment pipeline runs.
+      // The list of deployment pipelines.
       shared_ptr<vector<PagingInfo::PipelineRuns>> pipelineRuns_ {};
-      // The total number of entries that meet the filter criteria.
+      // The total number of entries that meet the filter conditions.
       shared_ptr<int32_t> totalCount_ {};
     };
 
@@ -398,7 +386,7 @@ namespace Models
   protected:
     // The pagination information.
     shared_ptr<ListPipelineRunsResponseBody::PagingInfo> pagingInfo_ {};
-    // The request ID. Use this ID to locate logs and troubleshoot issues.
+    // The ID of the request. You can use the ID to locate logs and troubleshoot issues.
     shared_ptr<string> requestId_ {};
   };
 

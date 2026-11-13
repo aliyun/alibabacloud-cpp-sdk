@@ -139,11 +139,15 @@ namespace Models
 
 
       protected:
-        // The exclusion regular expression for the collection scope.
+        // The regular expression used to exclude items from the crawl scope.
         shared_ptr<string> excludeRegex_ {};
-        // The collection scope entries.
+        // The crawl scope items.
         shared_ptr<vector<string>> items_ {};
-        // The collection scope granularity. Valid values: PROJECT, DATABASE, INSTANCE, CATALOG.
+        // The crawl scope granularity. Valid values:
+        // - PROJECT
+        // - DATABASE
+        // - INSTANCE
+        // - CATALOG
         shared_ptr<string> unit_ {};
       };
 
@@ -187,7 +191,9 @@ namespace Models
       protected:
         // The cron expression.
         shared_ptr<string> cronExpress_ {};
-        // The schedule type. Valid values: MANUAL, NORMAL.
+        // The scheduling type. Valid values:
+        // - MANUAL
+        // - NORMAL
         shared_ptr<string> type_ {};
       };
 
@@ -336,41 +342,51 @@ namespace Models
 
 
     protected:
-      // The creation time, in millisecond-level UNIX timestamp.
+      // The creation time. The value is a UNIX timestamp in milliseconds.
       shared_ptr<int64_t> createTime_ {};
       // The data source ID.
       shared_ptr<int64_t> dataSourceId_ {};
-      // Indicates whether AI metadata description is enabled.
+      // Indicates whether AI metadata descriptions are enabled.
       shared_ptr<bool> enableAiComment_ {};
-      // The DataWorks environment type. Valid values: Dev, Prod.
+      // The DataWorks environment type. Valid values:
+      // - Dev
+      // - Prod
       shared_ptr<string> envType_ {};
       // The crawler ID.
       shared_ptr<int64_t> id_ {};
-      // The latest run status. Valid values: WAITING, RUNNING, SUCCESS, ERROR, SHUTDOWN. This value may be empty if the crawler has not been run.
+      // The latest run status. Valid values:
+      // - WAITING
+      // - RUNNING
+      // - SUCCESS
+      // - ERROR
+      // - SHUTDOWN
+      // This parameter may be empty if the crawler has not been run.
       shared_ptr<string> lastRunStatus_ {};
-      // The DataWorks task instance ID associated with the latest run. This value may be empty if the crawler has not been run.
+      // The DataWorks task instance ID associated with the latest run. This parameter may be empty if the crawler has not been run.
       shared_ptr<int64_t> lastRunTaskInstanceId_ {};
-      // The meta entity ID associated with the crawler, which can be used to connect to metadata query APIs.
+      // The ID of the meta-entity associated with the crawler. You can use this ID in metadata query APIs.
       shared_ptr<string> metaEntityId_ {};
-      // The modification time, in millisecond-level UNIX timestamp.
+      // The modification time. The value is a UNIX timestamp in milliseconds.
       shared_ptr<int64_t> modifyTime_ {};
       // The crawler name.
       shared_ptr<string> name_ {};
-      // The extended configuration for the crawler type.
+      // The extension configuration for the crawler type.
       shared_ptr<map<string, string>> options_ {};
       // The DataWorks user ID of the crawler owner.
       shared_ptr<string> owner_ {};
       // The DataWorks workspace ID.
       shared_ptr<int64_t> projectId_ {};
-      // The Serverless 2.0 resource group ID used to run the collection task.
+      // The ID of the Serverless 2.0 resource group used to run the crawl task.
       shared_ptr<string> resourceGroupId_ {};
-      // The schedule configuration.
+      // The schedule settings.
       shared_ptr<Crawler::ScheduleConfig> scheduleConfig_ {};
-      // The collection scope configuration.
+      // The crawl scope configuration.
       shared_ptr<Crawler::Scope> scope_ {};
-      // The crawler status. The value is VALID if the crawler configuration is valid and the associated data source exists. Otherwise, the value is INVALID.
+      // The crawler status. Valid values:
+      // - VALID: The crawler configuration is valid and the associated data source exists.
+      // - INVALID: The crawler configuration is invalid or the associated data source does not exist.
       shared_ptr<string> status_ {};
-      // The DataWorks scheduling task ID associated with the crawler, which can be used to call GetTask to query the task definition.
+      // The DataWorks scheduled task ID associated with the crawler. You can call GetTask to query the task definition.
       shared_ptr<int64_t> taskId_ {};
       // The crawler type.
       shared_ptr<string> type_ {};
@@ -404,9 +420,9 @@ namespace Models
   protected:
     // The metadata crawler details.
     shared_ptr<GetCrawlerResponseBody::Crawler> crawler_ {};
-    // The request ID. Used for locating logs and troubleshooting issues.
+    // The request ID. You can use the ID to locate logs and troubleshoot issues.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request was successful.
+    // Indicates whether the request is successful.
     shared_ptr<bool> success_ {};
   };
 

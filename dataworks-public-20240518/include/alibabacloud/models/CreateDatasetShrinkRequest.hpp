@@ -94,35 +94,35 @@ namespace Models
 
 
   protected:
-    // The description of the dataset. The value can be up to 1024 characters in length.
+    // The description of the dataset. It cannot exceed 1,024 characters in length.
     shared_ptr<string> comment_ {};
     // The data type. Valid values:
-    // - COMMON: general-purpose (default).
-    // - PIC: image.
-    // - TEXT: text.
-    // - TABLE: table.
-    // - VIDEO: video.
-    // - AUDIO: audio.
-    // - INDEX: index.
+    // - COMMON: General (default).
+    // - PIC: Image.
+    // - TEXT: Text.
+    // - TABLE: Table.
+    // - VIDEO: Video.
+    // - AUDIO: Audio.
+    // - INDEX: Index.
     shared_ptr<string> dataType_ {};
     // The initial version of the dataset.
     // 
     // This parameter is required.
     shared_ptr<string> initVersionShrink_ {};
-    // The name of the dataset. The value must be a non-empty string that is up to 128 characters in length.
+    // The name of the dataset. It must be a non-empty string and cannot exceed 128 characters in length.
     // 
     // This parameter is required.
     shared_ptr<string> name_ {};
-    // The origin of the dataset. Only DataWorks is supported.
+    // The source of the dataset. Currently, only DataWorks is supported.
     shared_ptr<string> origin_ {};
-    // The ID of the DataWorks workspace.
+    // The DataWorks workspace ID.
     // 
     // This parameter is required.
     shared_ptr<int64_t> projectId_ {};
     // The storage type. Valid values:
     // - OSS: Object Storage Service.
-    // - NAS: general-purpose NAS file storage.
-    // - EXTREMENAS: extreme NAS file storage.
+    // - NAS: General-purpose NAS file storage.
+    // - EXTREMENAS: Extreme NAS file storage.
     // - DLF_LANCE: Data Lake Formation.
     // 
     // This parameter is required.

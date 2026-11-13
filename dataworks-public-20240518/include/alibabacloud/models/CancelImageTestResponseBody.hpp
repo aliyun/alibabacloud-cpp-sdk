@@ -71,7 +71,7 @@ namespace Models
 
 
     protected:
-      // The execution ID of the canceled image test.
+      // The ID of the canceled image test execution.
       shared_ptr<string> processId_ {};
       // Indicates whether the trigger was successful.
       shared_ptr<bool> success_ {};
@@ -103,11 +103,11 @@ namespace Models
 
 
   protected:
-    // The API request result.
+    // The result of the API request.
     shared_ptr<CancelImageTestResponseBody::Data> data_ {};
     // The request ID, which is used to locate logs and troubleshoot issues.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request was successful.
+    // Indicates whether the request is successful.
     shared_ptr<bool> success_ {};
   };
 

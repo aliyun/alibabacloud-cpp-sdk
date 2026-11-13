@@ -185,29 +185,19 @@ namespace Models
 
 
         protected:
-          // The CRON expression of the task. This parameter takes effect only if the Type parameter is set to Scheduler.
+          // The cron expression. This parameter takes effect only when type is set to Scheduler.
           shared_ptr<string> cron_ {};
-          // The end time of the time range during which the task is periodically scheduled. This parameter takes effect only if the Type parameter is set to Scheduler.
+          // The expiration time for periodic triggers. This parameter takes effect only when type is set to Scheduler.
+          // 
+          // The format is `yyyy-MM-dd HH:mm:ss`, such as `9999-01-01 00:00:00`. The example does not include a time zone identifier.
           shared_ptr<string> endTime_ {};
-          // The running mode of the task after it is triggered. This parameter takes effect only if the Type parameter is set to Scheduler.
-          // 
-          // Valid values:
-          // 
-          // - Pause
-          // 
-          // - Skip
-          // 
-          // - Normal
+          // The running mode upon trigger. This parameter takes effect only when type is set to Scheduler.
           shared_ptr<string> recurrence_ {};
-          // The start time of the time range during which the task is periodically scheduled. This parameter takes effect only if the Type parameter is set to Scheduler.
+          // The effective time for periodic triggers. This parameter takes effect only when type is set to Scheduler.
+          // 
+          // The format is `yyyy-MM-dd HH:mm:ss`, such as `1970-01-01 00:00:00`. The example does not include a time zone identifier.
           shared_ptr<string> startTime_ {};
           // The trigger type.
-          // 
-          // Valid values:
-          // 
-          // - Scheduler: scheduling cycle-based trigger
-          // 
-          // - Manual: manual trigger
           shared_ptr<string> type_ {};
         };
 
@@ -258,11 +248,11 @@ namespace Models
 
 
         protected:
-          // The default number of compute units (CUs) configured for task running.
+          // The number of compute units (CUs) consumed by the task run configuration.
           shared_ptr<string> cu_ {};
-          // The ID of the image configured for task running.
+          // The ID of the image configured for the task runtime.
           shared_ptr<string> image_ {};
-          // The ID of the resource group for scheduling configured for task running.
+          // The identifier of the scheduling resource group configured for the task runtime.
           shared_ptr<string> resourceGroupId_ {};
         };
 
@@ -475,64 +465,52 @@ namespace Models
         // The baseline ID.
         shared_ptr<int64_t> baselineId_ {};
         // The creation time.
+        // 
+        // The value is a 13-digit number, such as `1710239005403`.
         shared_ptr<int64_t> createTime_ {};
-        // The account ID of the creator.
+        // The account ID of the user who created the task.
         shared_ptr<string> createUser_ {};
-        // The information about the associated data source.
+        // The associated data source information.
         shared_ptr<Tasks::DataSource> dataSource_ {};
-        // The description of the task.
+        // The description.
         shared_ptr<string> description_ {};
-        // The task ID.
+        // The unique identifier of the task.
         shared_ptr<int64_t> id_ {};
         // The instance generation mode. Valid values:
-        // 
-        // - T+1
-        // 
-        // - Immediately
+        // - T+1: Generated on the next day.
+        // - Immediately: Generated immediately.
         shared_ptr<string> instanceMode_ {};
         // The modification time.
+        // 
+        // The value is a 13-digit number, such as `1710239005403`.
         shared_ptr<int64_t> modifyTime_ {};
-        // The account ID of the modifier.
+        // The account ID of the user who modified the task.
         shared_ptr<string> modifyUser_ {};
-        // The name of the task.
+        // The name.
         shared_ptr<string> name_ {};
         // The account ID of the task owner.
         shared_ptr<string> owner_ {};
-        // The priority of the task. Valid values: 1 to 8. A larger value indicates a higher priority. Default value: 1.
+        // The task priority. Valid values: 1 to 8. A larger value indicates a higher priority. Default value: 1.
         shared_ptr<int32_t> priority_ {};
-        // The environment of the workspace.
-        // 
-        // Valid values:
-        // 
-        // - Prod: production environment
-        // 
-        // - Dev: development environment
+        // The project environment.
         shared_ptr<string> projectEnv_ {};
-        // The workspace ID.
+        // The project ID.
         shared_ptr<int64_t> projectId_ {};
-        // The rerun interval. Unit: seconds.
+        // The retry time interval, in seconds.
         shared_ptr<int32_t> rerunInterval_ {};
-        // The rerun mode.
-        // 
-        // Valid values:
-        // 
-        // - AllDenied: The task cannot be rerun regardless of whether the task is successfully run or fails to run.
-        // 
-        // - FailureAllowed: The task can be rerun only after it fails to run.
-        // 
-        // - AllAllowed: The task can be rerun regardless of whether it is successfully run or fails to run.
+        // The rerun configuration of the task.
         shared_ptr<string> rerunMode_ {};
-        // The number of times that the task is rerun. This parameter takes effect only if the RerunMode parameter is set to AllAllowed or FailureAllowed.
+        // The number of retries. This parameter takes effect only when the task is configured to allow reruns.
         shared_ptr<int32_t> rerunTimes_ {};
-        // The configurations of the runtime environment, such as the resource group information.
+        // The runtime environment configuration, such as the resource group information.
         shared_ptr<Tasks::RuntimeResource> runtimeResource_ {};
         // The list of script parameters.
         shared_ptr<string> scriptParameters_ {};
-        // The timeout period of task running. Unit: seconds.
+        // The task execution timeout period, in seconds.
         shared_ptr<int32_t> timeout_ {};
-        // The method to trigger task scheduling.
+        // The trigger type of the task.
         shared_ptr<Tasks::Trigger> trigger_ {};
-        // The type of the task.
+        // The task type.
         shared_ptr<string> type_ {};
         // The ID of the workflow to which the task belongs.
         shared_ptr<int64_t> workflowId_ {};
@@ -575,9 +553,9 @@ namespace Models
       shared_ptr<int32_t> pageNumber_ {};
       // The number of entries per page.
       shared_ptr<int32_t> pageSize_ {};
-      // The tasks.
+      // The list of tasks.
       shared_ptr<vector<PagingInfo::Tasks>> tasks_ {};
-      // The total number of entries returned.
+      // The total number of entries.
       shared_ptr<int32_t> totalCount_ {};
     };
 
@@ -602,7 +580,7 @@ namespace Models
   protected:
     // The pagination information.
     shared_ptr<ListTasksResponseBody::PagingInfo> pagingInfo_ {};
-    // The request ID.
+    // The request ID. You can use this ID to locate logs and troubleshoot issues.
     shared_ptr<string> requestId_ {};
   };
 

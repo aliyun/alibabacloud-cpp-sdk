@@ -52,7 +52,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> id_ {};
-    // The execution ID of the image test to cancel.
+    // The ID of the image test execution to cancel.
     shared_ptr<string> processId_ {};
   };
 

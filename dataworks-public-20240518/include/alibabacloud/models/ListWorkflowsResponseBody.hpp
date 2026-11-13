@@ -173,14 +173,14 @@ namespace Models
           // 
           // The format is `yyyy-MM-dd HH:mm:ss`, such as `9999-01-01 00:00:00`. The example does not include a time zone identifier.
           shared_ptr<string> endTime_ {};
-          // The running mode upon triggering. This parameter takes effect only when Type is set to Scheduler. Valid values:
+          // The running mode when the workflow is triggered. This parameter takes effect only when Type is set to Scheduler. Valid values:
           // - Pause: Paused.
           // - Skip: Dry run.
           // - Normal: Normal execution.
           shared_ptr<string> recurrence_ {};
-          // The effective period of the epoch trigger. This parameter takes effect only when Type is set to Scheduler.
+          // The effective time of the periodic trigger. This parameter takes effect only when Type is set to Scheduler.
           // 
-          // The format is `yyyy-MM-dd HH:mm:ss`, such as `1970-01-01 00:00:00`. The example does not include a time zone identity.
+          // The format is `yyyy-MM-dd HH:mm:ss`, such as `1970-01-01 00:00:00`. The example does not include a time zone identifier.
           shared_ptr<string> startTime_ {};
           // The trigger type. Valid values:
           // - Scheduler: Triggered by a scheduling cycle.
@@ -343,19 +343,21 @@ namespace Models
         shared_ptr<string> clientUniqueCode_ {};
         // The creation time.
         // 
-        // The value is a 13-digit timestamp, such as `1710239005403`.
+        // The value is a 13-digit number, such as `1710239005403`.
         shared_ptr<int64_t> createTime_ {};
         // The account ID of the user who created the workflow.
         shared_ptr<string> createUser_ {};
         // The description.
         shared_ptr<string> description_ {};
-        // The project environment.
+        // The project environment. Valid values:
+        // - Prod: Production.
+        // - Dev: Development.
         shared_ptr<string> envType_ {};
         // The unique identifier of the workflow.
         shared_ptr<int64_t> id_ {};
         // The modification time.
         // 
-        // The value is a 13-digit timestamp, such as `1710239005403`.
+        // The value is a 13-digit number, such as `1710239005403`.
         shared_ptr<int64_t> modifyTime_ {};
         // The account ID of the user who last modified the workflow.
         shared_ptr<string> modifyUser_ {};

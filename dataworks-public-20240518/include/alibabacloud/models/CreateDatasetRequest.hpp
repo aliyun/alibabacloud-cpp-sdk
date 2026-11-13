@@ -100,24 +100,24 @@ namespace Models
 
 
     protected:
-      // The description. The value can be up to 1024 characters in length.
+      // The description. It cannot exceed 1,024 characters in length.
       shared_ptr<string> comment_ {};
-      // The storage import configuration of the dataset. The required configuration varies depending on the storage type.
+      // The storage import configuration for the dataset. The required configuration information varies based on the storage type.
       // <details>
       // <summary>NAS</summary>
-      // The values can be obtained from the response of the File Storage NAS API DescribeFileSystems operation.
+      // For the values, refer to the response of the DescribeFileSystems API operation.
       // 
       // ```JSON
       // {
-      //   "fileSystemId": "3b6XXX89c9", // File system ID
-      //   "fileSystemStorageType": "Performance", // Storage specification of the file system
-      //   "vpcId": "vpc-uf66oxxxrqge1t2gson7s" // VPC ID of the mount target
+      //   "fileSystemId": "3b6XXX89c9", // The ID of the file system.
+      //   "fileSystemStorageType": "Performance", // The storage specification of the file system.
+      //   "vpcId": "vpc-uf66oxxxrqge1t2gson7s" // The VPC ID of the mount target.
       // }
       // ```
       // 
       // </details>
       shared_ptr<map<string, string>> importInfo_ {};
-      // The mount path. The value must start with /mnt/. Default value: /mnt/data.
+      // The mount path. It must start with /mnt/. Default value: /mnt/data.
       shared_ptr<string> mountPath_ {};
       // The URL.
       // 
@@ -180,35 +180,35 @@ namespace Models
 
 
   protected:
-    // The description of the dataset. The value can be up to 1024 characters in length.
+    // The description of the dataset. It cannot exceed 1,024 characters in length.
     shared_ptr<string> comment_ {};
     // The data type. Valid values:
-    // - COMMON: general-purpose (default).
-    // - PIC: image.
-    // - TEXT: text.
-    // - TABLE: table.
-    // - VIDEO: video.
-    // - AUDIO: audio.
-    // - INDEX: index.
+    // - COMMON: General (default).
+    // - PIC: Image.
+    // - TEXT: Text.
+    // - TABLE: Table.
+    // - VIDEO: Video.
+    // - AUDIO: Audio.
+    // - INDEX: Index.
     shared_ptr<string> dataType_ {};
     // The initial version of the dataset.
     // 
     // This parameter is required.
     shared_ptr<CreateDatasetRequest::InitVersion> initVersion_ {};
-    // The name of the dataset. The value must be a non-empty string that is up to 128 characters in length.
+    // The name of the dataset. It must be a non-empty string and cannot exceed 128 characters in length.
     // 
     // This parameter is required.
     shared_ptr<string> name_ {};
-    // The origin of the dataset. Only DataWorks is supported.
+    // The source of the dataset. Currently, only DataWorks is supported.
     shared_ptr<string> origin_ {};
-    // The ID of the DataWorks workspace.
+    // The DataWorks workspace ID.
     // 
     // This parameter is required.
     shared_ptr<int64_t> projectId_ {};
     // The storage type. Valid values:
     // - OSS: Object Storage Service.
-    // - NAS: general-purpose NAS file storage.
-    // - EXTREMENAS: extreme NAS file storage.
+    // - NAS: General-purpose NAS file storage.
+    // - EXTREMENAS: Extreme NAS file storage.
     // - DLF_LANCE: Data Lake Formation.
     // 
     // This parameter is required.

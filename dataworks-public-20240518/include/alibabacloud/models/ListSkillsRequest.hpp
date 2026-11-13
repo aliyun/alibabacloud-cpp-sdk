@@ -69,13 +69,13 @@ namespace Models
 
 
   protected:
-    // The maximum number of entries to return in this request.
+    // The maximum number of entries to return in the current request.
     shared_ptr<int32_t> maxResults_ {};
-    // The pagination token. Do not pass this parameter for the first query. For subsequent queries, pass the NextToken returned in the previous response to obtain the next page.
+    // The pagination token. Do not specify this parameter in the first request. In subsequent requests, specify the `NextToken` value returned in the previous response to retrieve the next page.
     shared_ptr<string> nextToken_ {};
-    // The search keyword for fuzzy matching by skill name.
+    // The search keyword used for fuzzy matching by skill name.
     shared_ptr<string> q_ {};
-    // The visibility levels used to filter results. Multiple values can be specified.
+    // The visibility levels used to filter the results. You can specify multiple values.
     shared_ptr<vector<string>> visibility_ {};
   };
 

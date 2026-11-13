@@ -154,18 +154,18 @@ namespace Models
         // 
         // The format is `yyyy-MM-dd HH:mm:ss`, such as `1970-01-01 00:00:00`. The example does not include a time zone identifier.
         shared_ptr<string> endTime_ {};
-        // The running mode when the trigger is fired. This parameter takes effect only when Type is set to Scheduler. Valid values:
-        // - Pause: paused
-        // - Skip: dry run
-        // - Normal: normal execution
+        // The running mode when the workflow is triggered. This parameter takes effect only when Type is set to Scheduler. Valid values:
+        // - Pause: paused.
+        // - Skip: dry run.
+        // - Normal: normal running.
         shared_ptr<string> recurrence_ {};
-        // The time when periodic triggering takes effect. This parameter takes effect only when Type is set to Scheduler.
+        // The start time for periodic triggers. This parameter takes effect only when Type is set to Scheduler.
         // 
         // The format is `yyyy-MM-dd HH:mm:ss`, such as `1970-01-01 00:00:00`. The example does not include a time zone identifier.
         shared_ptr<string> startTime_ {};
-        // The type of the trigger method. Valid values:
-        // - Scheduler: triggered by a scheduling cycle
-        // - Manual: triggered manually
+        // The trigger type. Valid values:
+        // - Scheduler: triggered by a scheduling period.
+        // - Manual: manually triggered.
         shared_ptr<string> type_ {};
       };
 
@@ -277,11 +277,11 @@ namespace Models
 
 
         protected:
-          // The CU consumption configured for task execution.
+          // The number of compute units (CUs) consumed during task execution.
           shared_ptr<string> cu_ {};
           // The ID of the image configured for task execution.
           shared_ptr<string> image_ {};
-          // The identifier of the resource group for scheduling configured for task execution.
+          // The identifier of the scheduling resource group configured for task execution.
           shared_ptr<string> resourceGroupId_ {};
         };
 
@@ -484,7 +484,7 @@ namespace Models
       protected:
         // The ID of the baseline.
         shared_ptr<int64_t> baselineId_ {};
-        // The client unique code of the task, which is used to implement asynchronous and idempotent operations. If you do not specify this parameter when creating the task, the system automatically generates a code and uniquely binds it to the resource ID. If you specify this parameter when updating or deleting the resource, it must be the same as the client unique code used during creation.
+        // The client unique code of the task, which is used to implement asynchronous and idempotent operations. If you do not specify this parameter when creating the task, the system automatically generates one and uniquely binds the code to the resource ID. If you specify this parameter when updating or deleting the resource, it must be the same as the client unique code used during creation.
         shared_ptr<string> clientUniqueCode_ {};
         // The creation time.
         // 
@@ -497,16 +497,16 @@ namespace Models
         // The description.
         shared_ptr<string> description_ {};
         // The project environment. Valid values:
-        // - Prod: Production environment.
-        // - Dev: Development environment.
+        // - Prod: production.
+        // - Dev: development.
         shared_ptr<string> envType_ {};
         // The ID of the task.
         shared_ptr<int64_t> id_ {};
-        // The update time.
+        // The modification time.
         // 
         // The value is a 13-digit number, such as `1710239005403`.
         shared_ptr<int64_t> modifyTime_ {};
-        // The account ID of the user who updated the task.
+        // The account ID of the user who modified the task.
         shared_ptr<string> modifyUser_ {};
         // The name of the task.
         shared_ptr<string> name_ {};
@@ -518,21 +518,21 @@ namespace Models
         shared_ptr<int64_t> projectId_ {};
         // The retry time interval, in seconds.
         shared_ptr<int32_t> rerunInterval_ {};
-        // The configuration that specifies whether the task can be rerun. Valid values:
+        // Specifies whether the task can be rerun. Valid values:
         // - AllDenied: The task cannot be rerun regardless of whether it succeeds or fails.
         // - FailureAllowed: The task can be rerun only when it fails.
-        // - AllAllowed: The task can be rerun regardless of whether it succeeds or fails.
+        // - AllAllowed: The task can be rerun after either success or failure.
         shared_ptr<string> rerunMode_ {};
-        // The number of retries. This parameter takes effect only when the task is configured to be rerunnable.
+        // The number of retries. This parameter takes effect only when the task is configured to allow reruns.
         shared_ptr<int32_t> rerunTimes_ {};
         // The runtime environment configuration, such as the resource group information.
         shared_ptr<Tasks::RuntimeResource> runtimeResource_ {};
         // The timeout period for task execution, in seconds.
         shared_ptr<int32_t> timeout_ {};
-        // The running mode when the trigger is fired. Valid values:
-        // - Pause: paused
-        // - Skip: dry run
-        // - Normal: normal execution
+        // The running mode when the task is triggered. Valid values:
+        // - Pause: paused.
+        // - Skip: dry run.
+        // - Normal: normal running.
         shared_ptr<string> triggerRecurrence_ {};
         // The type of the task.
         shared_ptr<string> type_ {};
@@ -698,10 +698,10 @@ namespace Models
 
       protected:
         // The dependency type. Valid values:
-        // - CrossCycleDependsOnChildren: cross-cycle dependency on first-level child nodes
-        // - CrossCycleDependsOnSelf: cross-cycle dependency on the node itself
-        // - CrossCycleDependsOnOtherNode: cross-cycle dependency on other nodes
-        // - Normal: same-cycle dependency
+        // - CrossCycleDependsOnChildren: cross-cycle dependency on first-level child nodes.
+        // - CrossCycleDependsOnSelf: cross-cycle dependency on the node itself.
+        // - CrossCycleDependsOnOtherNode: cross-cycle dependency on other nodes.
+        // - Normal: same-cycle dependency.
         shared_ptr<string> type_ {};
         // The output identifier of the upstream task. This field is returned when the dependency type is same-cycle dependency and the input content is configured.
         shared_ptr<string> upstreamOutput_ {};
@@ -844,7 +844,7 @@ namespace Models
 
 
     protected:
-      // The client unique code of the workflow, which is used to implement asynchronous and idempotent operations. If you do not specify this parameter when creating the workflow, the system automatically generates a code and uniquely binds it to the resource ID. If you specify this parameter when updating or deleting the resource, it must be the same as the client unique code used during creation.
+      // The client unique code of the workflow, which is used to implement asynchronous and idempotent operations. If you do not specify this parameter when creating the workflow, the system automatically generates one and uniquely binds the code to the resource ID. If you specify this parameter when updating or deleting the resource, it must be the same as the client unique code used during creation.
       shared_ptr<string> clientUniqueCode_ {};
       // The creation time.
       // 
@@ -857,16 +857,16 @@ namespace Models
       // The description.
       shared_ptr<string> description_ {};
       // The project environment. Valid values:
-      // - Prod: Production environment.
-      // - Dev: Development environment.
+      // - Prod: production.
+      // - Dev: development.
       shared_ptr<string> envType_ {};
       // The unique identifier of the workflow.
       shared_ptr<int64_t> id_ {};
-      // The update time.
+      // The modification time.
       // 
       // The value is a 13-digit number, such as `1710239005403`.
       shared_ptr<int64_t> modifyTime_ {};
-      // The account ID of the user who updated the workflow.
+      // The account ID of the user who modified the workflow.
       shared_ptr<string> modifyUser_ {};
       // The name.
       shared_ptr<string> name_ {};
@@ -882,7 +882,7 @@ namespace Models
       shared_ptr<vector<Workflow::Tags>> tags_ {};
       // The list of tasks.
       shared_ptr<vector<Workflow::Tasks>> tasks_ {};
-      // The trigger configuration.
+      // The trigger method.
       shared_ptr<Workflow::Trigger> trigger_ {};
     };
 

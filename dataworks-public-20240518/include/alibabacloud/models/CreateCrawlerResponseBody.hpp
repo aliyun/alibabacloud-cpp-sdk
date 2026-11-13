@@ -59,9 +59,9 @@ namespace Models
   protected:
     // The ID of the newly created metadata crawler.
     shared_ptr<int64_t> id_ {};
-    // The request ID. Used to locate logs and troubleshoot issues.
+    // The request ID. You can use the ID to locate logs and troubleshoot issues.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request was successful.
+    // Indicates whether the request is successful.
     shared_ptr<bool> success_ {};
   };
 

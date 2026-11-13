@@ -78,9 +78,9 @@ namespace Models
 
 
     protected:
-      // The list of visible project IDs. This parameter takes effect when Visibility is set to `PROJECT`.
+      // The IDs of the projects in which the MCP server is visible. This parameter takes effect only when Visibility is set to `PROJECT`.
       shared_ptr<vector<string>> projectIds_ {};
-      // The list of visible user IDs. This parameter takes effect when Visibility is set to `USER`.
+      // The IDs of the users who can see the MCP server. This parameter takes effect only when Visibility is set to `USER`.
       shared_ptr<vector<string>> userIds_ {};
     };
 
@@ -178,13 +178,13 @@ namespace Models
   protected:
     // The connection configuration of the MCP server.
     shared_ptr<CreateMcpServerRequest::Config> config_ {};
-    // The name of the MCP server. It must be unique at the tenant level. It must start with a lowercase letter and can contain only lowercase letters (`a-z`), digits (`0-9`), underscores (`_`), and hyphens (`-`).
+    // The name of the MCP server. The name must be unique at the tenant level. It must start with a lowercase letter and can contain only lowercase letters, digits, underscores (_), and hyphens (-).
     // 
     // This parameter is required.
     shared_ptr<string> name_ {};
     // The visibility level.
     shared_ptr<string> visibility_ {};
-    // The visibility scope. Specify the corresponding fields based on the value of Visibility.
+    // The visibility scope. Specify the corresponding field based on the value of Visibility.
     shared_ptr<CreateMcpServerRequest::VisibilityScope> visibilityScope_ {};
   };
 

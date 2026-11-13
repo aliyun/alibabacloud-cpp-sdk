@@ -155,19 +155,19 @@ namespace Models
         protected:
           // The resource type.
           // 
-          // Note: The resource types supported for applications are constrained by [ResourceSchema](https://help.aliyun.com/zh/dataworks/developer-reference/resourceschema-template-instructions).name.
+          // Note: The resource types supported by the system are constrained by [ResourceSchema](https://www.alibabacloud.com/help/en/dataworks/developer-reference/resourceschema-template-instructions).name.
           // 
-          // See also: [ResourceSchema documentation on the international site](https://www.alibabacloud.com/help/zh/dataworks/developer-reference/resourceschema-template-instructions)
+          // Appendix: [ResourceSchema documentation for the international site](https://www.alibabacloud.com/help/zh/dataworks/developer-reference/resourceschema-template-instructions)
           shared_ptr<string> defSchema_ {};
-          // The resource parsing version, which is constrained by [ResourceSchema](https://help.aliyun.com/zh/dataworks/developer-reference/resourceschema-template-instructions).version.
+          // The resource parsing version is constrained by [ResourceSchema](https://www.alibabacloud.com/help/en/dataworks/developer-reference/resourceschema-template-instructions).version.
           // 
-          // See also: [ResourceSchema documentation on the international site](https://www.alibabacloud.com/help/zh/dataworks/developer-reference/resourceschema-template-instructions)
+          // [ResourceSchema documentation for the international site](https://www.alibabacloud.com/help/zh/dataworks/developer-reference/resourceschema-template-instructions)
           shared_ptr<string> defVersion_ {};
           // The resource metadata declaration.
           // 
-          // Note: The metadata is constrained by [ResourceSchema](https://help.aliyun.com/zh/dataworks/developer-reference/resourceschema-template-instructions).resources. A valid resource declaration must include the full-path metadata declaration from level 0 to the validLeaf level.
+          // Note: The metadata is constrained by [ResourceSchema](https://www.alibabacloud.com/help/en/dataworks/developer-reference/resourceschema-template-instructions).resources. A valid resource declaration must include the full-path metadata declaration from level 0 to the validLeaf level.
           // 
-          // See also: [ResourceSchema documentation on the international site](https://www.alibabacloud.com/help/zh/dataworks/developer-reference/resourceschema-template-instructions)
+          // Appendix: [ResourceSchema documentation for the international site](https://www.alibabacloud.com/help/zh/dataworks/developer-reference/resourceschema-template-instructions)
           shared_ptr<string> metaData_ {};
         };
 
@@ -209,15 +209,15 @@ namespace Models
 
 
         protected:
-          // The grantee principal ID. The ID has different meanings depending on the principal type:
+          // The authorization principal ID. The mapped ID has different semantics for different principal types:
           // 
-          // - RamUser: DataWorks UserId.
+          // - RamUser: the DataWorks user ID.
           // 
-          // - RamRole: DataWorks UserId prefixed with "ROLE_".
+          // - RamRole: the DataWorks user ID starting with "ROLE_".
           // 
-          // - DlfRole: DlfNext role name.
+          // - DlfRole: the DlfNext role name.
           shared_ptr<string> principalId_ {};
-          // The grantee principal type. Valid values:
+          // The authorization principal type. Valid values:
           // 
           // - RamUser
           // - RamRole
@@ -338,57 +338,57 @@ namespace Models
       protected:
         // The list of requested permissions.
         // 
-        // Note: Different levels of resources support different permission application types, all constrained by [ResourceSchema](https://help.aliyun.com/zh/dataworks/developer-reference/resourceschema-template-instructions).isValidLeaf, accessTypeRestrictions, and authMethodAccessTypes.
+        // Note: Different levels of resources support different types of permission requests, which are uniformly constrained by [ResourceSchema](https://www.alibabacloud.com/help/en/dataworks/developer-reference/resourceschema-template-instructions).isValidLeaf, accessTypeRestrictions, and authMethodAccessTypes.
         // 
-        // See also: [ResourceSchema documentation on the international site](https://www.alibabacloud.com/help/zh/dataworks/developer-reference/resourceschema-template-instructions)
+        // Appendix: [ResourceSchema documentation for the international site](https://www.alibabacloud.com/help/zh/dataworks/developer-reference/resourceschema-template-instructions)
         shared_ptr<vector<string>> accessTypes_ {};
-        // The authorization method. Currently, only SEVERLESS_STARROCKS supports specifying the authorization method: ranger or starrocksManager.
+        // The authorization method. Currently, only SEVERLESS_STARROCKS supports specifying the authorization method: ranger and starrocksManager.
         // 
-        // Note: Different resources support different authorization methods, all constrained by [ResourceSchema](https://help.aliyun.com/zh/dataworks/developer-reference/resourceschema-template-instructions).authMethods.
+        // Note: Different resources support different authorization methods, which are uniformly constrained by [ResourceSchema](https://www.alibabacloud.com/help/en/dataworks/developer-reference/resourceschema-template-instructions).authMethods.
         // 
-        // See also: [ResourceSchema documentation on the international site](https://www.alibabacloud.com/help/zh/dataworks/developer-reference/resourceschema-template-instructions)
+        // Appendix: [ResourceSchema documentation for the international site](https://www.alibabacloud.com/help/zh/dataworks/developer-reference/resourceschema-template-instructions)
         shared_ptr<string> authMethod_ {};
         // The creation time.
         shared_ptr<int64_t> createTime_ {};
         // The resource type.
         // 
-        // Note: The resource types supported for applications are constrained by [ResourceSchema](https://help.aliyun.com/zh/dataworks/developer-reference/resourceschema-template-instructions).name.
+        // Note: The resource types supported by the system are constrained by [ResourceSchema](https://www.alibabacloud.com/help/en/dataworks/developer-reference/resourceschema-template-instructions).name.
         // 
-        // See also: [ResourceSchema documentation on the international site](https://www.alibabacloud.com/help/zh/dataworks/developer-reference/resourceschema-template-instructions)
+        // Appendix: [ResourceSchema documentation for the international site](https://www.alibabacloud.com/help/zh/dataworks/developer-reference/resourceschema-template-instructions)
         shared_ptr<string> defSchema_ {};
-        // The permission expiration date, as a millisecond timestamp.
+        // The expiration date of the permission. The value is a UNIX timestamp in milliseconds.
         shared_ptr<int64_t> expirationTime_ {};
         // The list of resource operation permissions that are finally approved.
         shared_ptr<vector<string>> finalAccessTypes_ {};
-        // The grantee description.
+        // The description of the authorization principal. 
         // 
-        // Note: The grantee principal types supported by the system are constrained by [ResourceSchema](https://help.aliyun.com/zh/dataworks/developer-reference/resourceschema-template-instructions).authPrincipal.
+        // Note: The authorization principal types supported by the system are constrained by [ResourceSchema](https://www.alibabacloud.com/help/en/dataworks/developer-reference/resourceschema-template-instructions).authPrincipal.
         // 
-        // See also: [ResourceSchema documentation on the international site](https://www.alibabacloud.com/help/zh/dataworks/developer-reference/resourceschema-template-instructions)
+        // Appendix: [ResourceSchema documentation for the international site](https://www.alibabacloud.com/help/zh/dataworks/developer-reference/resourceschema-template-instructions)
         shared_ptr<Contents::Grantee> grantee_ {};
-        // The unique identifier of the application content.
+        // The unique identifier of the request item.
         shared_ptr<string> id_ {};
-        // The approval process instance ID of the submitted application.
+        // The ID of the approval process instance for the request.
         shared_ptr<string> processInstanceId_ {};
-        // The resource declaration. The resource description is constrained by [ResourceSchema](https://help.aliyun.com/zh/dataworks/developer-reference/resourceschema-template-instructions).
+        // The resource declaration. The resource description is constrained by [ResourceSchema](https://www.alibabacloud.com/help/en/dataworks/developer-reference/resourceschema-template-instructions).
         // 
-        // See also: [ResourceSchema documentation on the international site](https://www.alibabacloud.com/help/zh/dataworks/developer-reference/resourceschema-template-instructions)
+        // Appendix: [ResourceSchema documentation for the international site](https://www.alibabacloud.com/help/zh/dataworks/developer-reference/resourceschema-template-instructions)
         shared_ptr<Contents::Resource> resource_ {};
-        // The minimum-permission resource type.
+        // The least privilege resource type.
         // 
-        // Note: The minimum-permission resource type is constrained by [ResourceSchema](https://help.aliyun.com/zh/dataworks/developer-reference/resourceschema-template-instructions).resources[*].isValidLeaf being true.
+        // Note: The least privilege resource types are constrained by [ResourceSchema](https://www.alibabacloud.com/help/en/dataworks/developer-reference/resourceschema-template-instructions).resources[*].isValidLeaf being true.
         // 
-        // See also: [ResourceSchema documentation on the international site](https://www.alibabacloud.com/help/zh/dataworks/developer-reference/resourceschema-template-instructions)
+        // Appendix: [ResourceSchema documentation for the international site](https://www.alibabacloud.com/help/zh/dataworks/developer-reference/resourceschema-template-instructions)
         shared_ptr<string> resourceName_ {};
         // The approval status. Valid values:
         // 
-        // - WaitApproval: Pending approval.
-        // - Confirmed: Pending authorization.
-        // - RejectApproval: Approval rejected.
-        // - AuthorizeSucceed: Authorization succeeded.
-        // - AuthorizeFailed: Authorization failed.
-        // - Deleted: Deleted.
-        // - Canceled: Canceled.
+        // - WaitApproval: pending approval
+        // - Confirmed: pending authorization
+        // - RejectApproval: approval rejected
+        // - AuthorizeSucceed: authorization succeeded
+        // - AuthorizeFailed: authorization failed
+        // - Deleted: deleted
+        // - Canceled: canceled
         shared_ptr<string> status_ {};
         // The tenant ID.
         shared_ptr<string> tenantId_ {};
@@ -443,29 +443,29 @@ namespace Models
 
 
     protected:
-      // The time when the application was submitted, as a millisecond timestamp.
+      // The time when the request was submitted. The value is a UNIX timestamp in milliseconds.
       shared_ptr<int64_t> applicationTime_ {};
-      // The list of application contents.
+      // The list of request items.
       shared_ptr<vector<Data::Contents>> contents_ {};
       // The resource type.
       // 
-      // Note: The resource types supported for applications are constrained by [ResourceSchema](https://help.aliyun.com/zh/dataworks/developer-reference/resourceschema-template-instructions).name.
+      // Note: The resource types supported by the system are constrained by [ResourceSchema](https://www.alibabacloud.com/help/en/dataworks/developer-reference/resourceschema-template-instructions).name.
       // 
-      // See also: [ResourceSchema documentation on the international site](https://www.alibabacloud.com/help/zh/dataworks/developer-reference/resourceschema-template-instructions)
+      // Appendix: [ResourceSchema documentation for the international site](https://www.alibabacloud.com/help/zh/dataworks/developer-reference/resourceschema-template-instructions)
       shared_ptr<string> defSchema_ {};
       // The process instance ID.
       shared_ptr<string> processInstanceId_ {};
-      // The application reason.
+      // The reason for the request.
       shared_ptr<string> reason_ {};
       // The approval status. Valid values:
       // 
-      // - WaitApproval: Pending approval.
-      // - Confirmed: Pending authorization.
-      // - RejectApproval: Approval rejected.
-      // - AuthorizeSucceed: Authorization succeeded.
-      // - AuthorizeFailed: Authorization failed.
-      // - Deleted: Deleted.
-      // - Canceled: Canceled.
+      // - WaitApproval: pending approval
+      // - Confirmed: pending authorization
+      // - RejectApproval: approval rejected
+      // - AuthorizeSucceed: authorization succeeded
+      // - AuthorizeFailed: authorization failed
+      // - Deleted: deleted
+      // - Canceled: canceled
       shared_ptr<string> status_ {};
     };
 
@@ -488,9 +488,9 @@ namespace Models
 
 
   protected:
-    // The process instance and associated application content.
+    // The process instance and the associated request details.
     shared_ptr<GetApplicationContentsResponseBody::Data> data_ {};
-    // The request ID, which is used for locating logs and troubleshooting.
+    // The request ID. You can use this ID to locate logs and troubleshoot issues.
     shared_ptr<string> requestId_ {};
   };
 

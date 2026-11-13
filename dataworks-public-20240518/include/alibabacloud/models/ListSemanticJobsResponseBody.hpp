@@ -195,29 +195,29 @@ namespace Models
 
 
       protected:
-        // The user identifier of the semantic job creator.
+        // The user identifier of the creator of the semantic job.
         shared_ptr<string> creator_ {};
-        // The creation time, expressed as a UNIX timestamp in milliseconds.
+        // The creation time. The value is a UNIX timestamp in milliseconds.
         shared_ptr<int64_t> gmtCreate_ {};
-        // The last modification time, expressed as a UNIX timestamp in milliseconds.
+        // The last modification time. The value is a UNIX timestamp in milliseconds.
         shared_ptr<int64_t> gmtModified_ {};
         // The internal unique ID of the job definition.
         shared_ptr<int64_t> id_ {};
-        // The job name. Used for RunSemanticJob, DeleteSemanticJob, ListSemanticJobRuns, and DownloadSemanticResults.
+        // The job name. This name is used in RunSemanticJob, DeleteSemanticJob, ListSemanticJobRuns, and DownloadSemanticResults.
         shared_ptr<string> name_ {};
-        // The workspace ID to which the job belongs. Used for GetSemanticJobDetail, GetSemanticJobLog, and KillSemanticJob.
+        // The ID of the workspace to which the job belongs. This ID is used in GetSemanticJobDetail, GetSemanticJobLog, and KillSemanticJob.
         shared_ptr<int64_t> projectId_ {};
-        // The list of uploaded file IDs associated with the job.
+        // The list of IDs of the uploaded files associated with the job.
         shared_ptr<vector<string>> referenceFileIds_ {};
-        // The list of external reference file URIs associated with the job.
+        // The list of URIs of the external reference files associated with the job.
         shared_ptr<vector<string>> referenceFileUris_ {};
-        // The resource group identifier used when running this job.
+        // The identifier of the resource group used to run the job.
         shared_ptr<string> resourceGroupId_ {};
-        // The input datasource config saved with the node. This configuration determines the analysis scope at runtime.
+        // The input data source configuration saved for the job. The job uses this configuration to determine the analysis scope at runtime.
         Darabonba::Json source_ {};
-        // The Source.type data source type saved with the job.
+        // The data source type saved in the Source.type field of the job.
         shared_ptr<string> type_ {};
-        // The user identifier of the semantic job creator.
+        // The user identifier of the creator of the semantic job.
         shared_ptr<string> userId_ {};
       };
 
@@ -254,13 +254,13 @@ namespace Models
 
 
     protected:
-      // The page number returned, starting from 1.
+      // The page number of the returned page. Pages start from 1.
       shared_ptr<int32_t> pageNumber_ {};
-      // The number of job definitions per page returned.
+      // The number of job definitions returned on each page.
       shared_ptr<int32_t> pageSize_ {};
       // The list of job definitions.
       shared_ptr<vector<Data::SemanticJobs>> semanticJobs_ {};
-      // The total number of job definitions that meet the conditions in the current tenant.
+      // The total number of job definitions that meet the query conditions in the current tenant.
       shared_ptr<int64_t> totalCount_ {};
     };
 
@@ -290,11 +290,11 @@ namespace Models
 
 
   protected:
-    // The paginated result of job definitions. Use the Name field of a list item to run, delete, query run records, or download results. Use the ProjectId field to query run details, logs, or stop a run.
+    // The paged results of job definitions. Use the Name of a list item to run or delete a job, query its run records, or download its results. Use the ProjectId to query run details and logs, or stop a run.
     shared_ptr<ListSemanticJobsResponseBody::Data> data_ {};
-    // The request ID. Used for locating logs and troubleshooting issues.
+    // The request ID. You can use the ID to locate logs and troubleshoot issues.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request was successful.
+    // Indicates whether the request is successful.
     shared_ptr<bool> success_ {};
   };
 

@@ -124,15 +124,15 @@ namespace Models
     protected:
       // The information about the associated data source.
       shared_ptr<TaskInstances::DataSource> dataSource_ {};
-      // The instance ID.
+      // The node instance ID.
       // 
       // This parameter is required.
       shared_ptr<int64_t> id_ {};
-      // The priority of the instance. Valid values: 1, 3, 5, 7, and 8.
+      // The runtime priority of the instance. Valid values: 1, 3, 5, 7, and 8.
       // 
       // A larger value indicates a higher priority. Default value: 1.
       shared_ptr<int32_t> priority_ {};
-      // The resource group information. Set this parameter to the ID of a resource group for scheduling.
+      // The resource group information. Specify the identifier of the scheduling resource group.
       shared_ptr<string> runtimeResource_ {};
     };
 
@@ -157,7 +157,7 @@ namespace Models
   protected:
     // The remarks.
     shared_ptr<string> comment_ {};
-    // The instances.
+    // The list of node instances.
     shared_ptr<vector<UpdateTaskInstancesRequest::TaskInstances>> taskInstances_ {};
   };
 

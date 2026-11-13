@@ -89,24 +89,18 @@ namespace Models
 
 
     protected:
-      // The conditional expression. Format: ((#type==\\"typeValue\\")). For example: ((#odpsProject==\\"PX_BEIJING_TEST\\")).
+      // The conditional expression, such as `((#type==\\"typeValue\\"))` or `((#odpsProject==\\"PX_BEIJING_TEST\\"))`.
       shared_ptr<string> expression_ {};
-      // The phase in which the rule takes effect. Valid values:
-      // 
-      // - **Deployment**: Determines whether the approval policy applies when an application is submitted.
-      // 
-      // - **Running**: Determines whether to skip the approval during the approval process. This phase is supported only for MaxCompute.
+      // The stage where the rule takes effect. Valid values:
+      // - **Deployment**: Used to determine whether the approval policy is matched when the application is submitted.
+      // - **Running**: Used to determine whether to skip approval while the approval process runs. [Supported only for MaxCompute]
       shared_ptr<string> scope_ {};
-      // The type of the condition. Valid values:
+      // The condition type. Valid values:
       // 
-      // - `odpsProject`
-      // 
+      // - `odpsProject` 
       // - `hologresInstanceId`
-      // 
-      // - `sensibleLevel`
-      // 
-      // - `tableGuid`
-      // 
+      // - `sensibleLevel` 
+      // - `tableGuid` 
       // - `projectId`
       shared_ptr<string> type_ {};
     };
@@ -161,16 +155,13 @@ namespace Models
       // The notification channel. Valid values:
       // 
       // - Mail
-      // 
       // - Sms
-      // 
       // - DingRobot
-      // 
       // - Weixin
       shared_ptr<string> channel_ {};
-      // Additional information in JSON format. For example, use {"atAll":"true"} to specify whether to notify all members.
+      // The extended information in JSON format. For example, `{"atAll":"true"}` specifies whether to mention all users.
       shared_ptr<string> extension_ {};
-      // The webhook URL. This parameter is required when `Channel` is set to `DingRobot` or `Weixin`.
+      // The Webhook URL. This parameter is required when the channel is DingRobot or Weixin.
       shared_ptr<string> receiver_ {};
     };
 
@@ -232,41 +223,31 @@ namespace Models
 
 
     protected:
-      // The approver type for the node. Valid values:
-      // 
-      // 
-      // 
-      // 
-      // - `DataWorksProjectRole`: A workspace role.
-      // - `DataWorksProjectMember`: A workspace member.
-      // - `TableAdministrator`: A table owner.
-      // - `TableOrProjectAdministrator`: The administrator of the table or workspace.
-      // - `AliyunResourceOwner`: An Alibaba Cloud account.
-      // - `MaxComputeRole`: A MaxCompute administrator.
-      // - `DLFAdmin`: A DlfLegacy administrator.
-      // - `DLFNextAdmin`: A DLFNext administrator.
-      // - `TenantRole`: A tenant role.
-      // - `EmrAdministrator`: An EMR administrator.
-      // - `LindormAdministrator`: A Lindorm administrator.
-      // - `AliyunRamUser`: A RAM user.
+      // The type of approver for the node. Valid values:
+      // - DataWorksProjectRole: Workspace role
+      // - DataWorksProjectMember: Workspace member
+      // - TableAdministrator: Table owner
+      // - TableOrProjectAdministrator: Table or workspace administrator
+      // - AliyunResourceOwner: Alibaba Cloud account
+      // - MaxComputeRole: MaxCompute administrator
+      // - DLFAdmin: DLF legacy administrator
+      // - DLFNextAdmin: DLFNext administrator
+      // - TenantRole: Tenant role
+      // - EmrAdministrator: EMR administrator
+      // - LindormAdministrator: Lindorm administrator
+      // - AliyunRamUser: RAM user
       shared_ptr<string> accountType_ {};
-      // Specifies the approvers. The required value depends on the `AccountType`:
-      // 
-      // - If `AccountType` is `DataWorksProjectMember`, this parameter specifies the user IDs of workspace members.
-      // 
-      // - If `AccountType` is `DataWorksProjectRole`, this parameter specifies the codes of workspace roles.
-      // 
-      // - If `AccountType` is `MaxComputeRole`, this parameter specifies the MaxCompute roles.
-      // 
-      // - If `AccountType` is `TenantRole`, this parameter specifies the codes of tenant roles.
-      // 
-      // - If `AccountType` is `AliyunRamUser`, this parameter specifies the user IDs of RAM users.
+      // The assignees. The semantics vary based on the AccountType:
+      // - DataWorksProjectMember: Specifies the user ID of the workspace member.
+      // - DataWorksProjectRole: Specifies the code of the workspace role.
+      // - MaxComputeRole: Specifies the MaxCompute role.
+      // - TenantRole: Specifies the code of the tenant role.
+      // - AliyunRamUser: Specifies the RAM user ID.
       shared_ptr<string> assignees_ {};
-      // Additional properties that are required for specific `AccountType` values:
+      // The extension properties. Different additional declarations are required based on the AccountType:
       // 
-      // - If `AccountType` is `DataWorksProjectMember`: The key is `projectId` and the value is the user ID of a workspace member. Use commas (,) to separate multiple user IDs.
-      // 
-      // - If `AccountType` is `MaxComputeRole`: The key is the MaxCompute project name and the value is the role name in MaxCompute. Use commas (,) to separate multiple role names.
+      // - `DataWorksProjectMember`: The key is projectId, and the value is the user ID of the workspace member. Separate multiple values with commas.
+      // - `MaxComputeRole`: The key is the MaxCompute project, and the value is the role name in MaxCompute. Separate multiple values with commas.
       Darabonba::Json extensionProperties_ {};
       // The name of the node.
       shared_ptr<string> name_ {};
@@ -331,21 +312,21 @@ namespace Models
 
 
   protected:
-    // A list of approval nodes. This parameter does not apply to system policies.
+    // The list of approval nodes. Note: System policies do not take effect.
     shared_ptr<vector<UpdateProcessDefinitionRequest::ApprovalNodes>> approvalNodes_ {};
-    // An idempotent parameter. It ensures that retried requests do not result in duplicate operations.
+    // The idempotency token. Used to prevent duplicate operations caused by multiple calls.
     shared_ptr<string> clientToken_ {};
-    // The description of the process definition.
+    // The description of the approval process definition.
     shared_ptr<string> description_ {};
-    // The ID of the process definition.
+    // The ID of the approval process definition.
     // 
     // This parameter is required.
     shared_ptr<string> id_ {};
-    // The name of the process definition.
+    // The name of the approval process definition.
     shared_ptr<string> name_ {};
-    // The notification service configurations.
+    // The notification service declaration.
     shared_ptr<vector<UpdateProcessDefinitionRequest::NotificationServices>> notificationServices_ {};
-    // A list of rule conditions. This parameter does not apply to system policies.
+    // The list of conditional rules. Note: System policies do not take effect.
     shared_ptr<vector<UpdateProcessDefinitionRequest::RuleConditions>> ruleConditions_ {};
   };
 

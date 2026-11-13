@@ -83,7 +83,7 @@ namespace Models
 
 
     protected:
-      // The technical parameters of the column, where the key is the parameter name and the value is a string. Objects or arrays are represented as JSON strings.
+      // The technical parameters of the column. The key is the parameter name and the value is a string. Objects or arrays are represented as JSON strings.
       shared_ptr<map<string, string>> parameters_ {};
     };
 
@@ -129,7 +129,7 @@ namespace Models
     protected:
       // The custom attribute values, where the key is the custom attribute identifier and the value is a list of attribute values.
       shared_ptr<map<string, vector<string>>> customAttributes_ {};
-      // The business description of the column. This is supported only by MaxCompute, HMS (EMR cluster), and DLF types.
+      // The business description of the column. This parameter is supported only by MaxCompute, HMS (EMR clusters), and DLF.
       shared_ptr<string> description_ {};
     };
 
@@ -232,17 +232,17 @@ namespace Models
     shared_ptr<Column::BusinessMetadata> businessMetadata_ {};
     // The comment.
     shared_ptr<string> comment_ {};
-    // Indicates whether the column is a foreign key. This is supported only by the MaxCompute type.
+    // Specifies whether the column is a foreign key. This parameter is supported only by MaxCompute.
     shared_ptr<bool> foreignKey_ {};
     // The ID. For more information, see [Metadata entity concepts](https://help.aliyun.com/document_detail/2880092.html).
     // 
-    // The format is `${EntityType}:${Instance ID or URL-encoded URL}:${Data catalog identifier}:${Database name}:${Schema name}:${Table name}:${Column name}`. Use an empty string as a placeholder for non-existent levels.
+    // The format is `${EntityType}:${Instance ID or URL-encoded JDBC URL}:${Catalog identifier}:${Database name}:${Schema name}:${Table name}:${Column name}`. Use an empty string as a placeholder for non-existent levels.
     // 
-    // > For MaxCompute and DLF types, use an empty string as a placeholder for the instance ID. For the MaxCompute type, the database name is the MaxCompute project name. Projects with the three-tier model enabled must provide the schema name. For projects without the three-tier model enabled, use an empty string as a placeholder for the schema name.
+    // > For MaxCompute and DLF, use an empty string as a placeholder for the instance ID. For MaxCompute, the database name is the MaxCompute project name. If the three-level model is enabled for the project, the schema name is required. Otherwise, use an empty string as a placeholder for the schema name.
     // 
-    // > For the StarRocks type, the data catalog identifier is the catalog name. For the DLF type, the data catalog identifier is the catalog ID. Other types do not support the catalog level, and an empty string can be used as a placeholder.
+    // > For StarRocks, the catalog identifier is the catalog name. For DLF, the catalog identifier is the catalog ID. Other types do not support the catalog level, so use an empty string as a placeholder.
     // 
-    // The ID formats for several common types are as follows:
+    // The following are the ID formats for several common types:
     // 
     // `maxcompute-column:::project_name:[schema_name]:table_name:column_name`
     // 
@@ -260,21 +260,21 @@ namespace Models
     // `catalog_id`: The DLF catalog ID.   
     // `project_name`: The MaxCompute project name.   
     // `database_name`: The database name.   
-    // `schema_name`: The schema name. For the MaxCompute type, this is required only if the three-tier model is enabled for the project. Otherwise, use an empty string as a placeholder.    
+    // `schema_name`: The schema name. For MaxCompute, this is required only if the three-level model is enabled for the project. Otherwise, use an empty string as a placeholder.    
     // `table_name`: The table name.   
     // `column_name`: The column name.
     shared_ptr<string> id_ {};
     // The name.
     shared_ptr<string> name_ {};
-    // Indicates whether the column is a partition key.
+    // Specifies whether the column is a partition key.
     shared_ptr<bool> partitionKey_ {};
     // The position.
     shared_ptr<int32_t> position_ {};
-    // Indicates whether the column is a primary key. This is supported only by the MaxCompute type.
+    // Specifies whether the column is a primary key. This parameter is supported only by MaxCompute.
     shared_ptr<bool> primaryKey_ {};
-    // The statistical metrics of the column, where the key is the metric name and the value is the statistical value in string format. Current metrics include the number of production runs in the last 30 days (prodRunCount30d) and the number of downstream dependent tasks (downstreamTaskCount30d). Metrics without statistical values are not returned.
+    // The statistical metrics of the column. The key is the metric name and the value is the statistical value in string format. Current metrics include the number of production runs in the last 30 days (prodRunCount30d) and the number of downstream tasks that depend on the column (downstreamTaskCount30d). Metrics without statistical values are not returned.
     shared_ptr<map<string, string>> statisticsInfos_ {};
-    // The table ID. For more information, see the `Table` object.
+    // The ID of the table. For more information, see the `Table` object.
     shared_ptr<string> tableId_ {};
     // The technical metadata.
     shared_ptr<Column::TechnicalMetadata> technicalMetadata_ {};

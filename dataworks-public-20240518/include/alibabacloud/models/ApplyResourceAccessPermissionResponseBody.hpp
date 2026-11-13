@@ -51,9 +51,9 @@ namespace Models
 
 
   protected:
-    // The list of request order IDs.
+    // The list of application IDs.
     shared_ptr<vector<string>> data_ {};
-    // The request ID. Used for log identification and troubleshooting.
+    // The request ID. Used to locate logs and troubleshoot issues.
     shared_ptr<string> requestId_ {};
   };
 

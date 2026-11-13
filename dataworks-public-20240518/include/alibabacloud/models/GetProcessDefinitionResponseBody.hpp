@@ -116,24 +116,18 @@ namespace Models
 
 
       protected:
-        // A conditional expression is in the format `((#type==\\"typeValue\\"))`, such as `((#odpsProject==\\"PX_BEIJING_TEST\\"))`.
+        // The conditional expression in the `((#type==\\"typeValue\\"))` format, such as `((#odpsProject==\\"PX_BEIJING_TEST\\"))`.
         shared_ptr<string> expression_ {};
-        // rule effective stage:
-        // 
-        // - `Deployment` determines whether an application matches this approval policy upon submission.
-        // 
-        // - `Running` is used to determine whether an approval process is approval-free. This feature is supported only for the MaxCompute type.
+        // The effective stage of the rule. Valid values:
+        // - `Deployment`: Used to determine whether the approval policy is matched when an application is submitted.
+        // - `Running`: Used to determine whether to skip approval while the approval process runs. This value is supported only for the MaxCompute type.
         shared_ptr<string> scope_ {};
-        // The condition type. This is an enumeration:
+        // The condition type. Valid values:
         // 
-        // - `odpsProject`,
-        // 
+        // - `odpsProject` 
         // - `hologresInstanceId`
-        // 
-        // - `sensibleLevel`,
-        // 
-        // - `tableGuid`,
-        // 
+        // - `sensibleLevel` 
+        // - `tableGuid` 
         // - `projectId`
         shared_ptr<string> type_ {};
       };
@@ -185,19 +179,15 @@ namespace Models
 
 
       protected:
-        // Notification channel, an enumeration:
-        // 
+        // The notification channel. Valid values:
         // - Mail
-        // 
         // - Sms
-        // 
         // - DingRobot
-        // 
         // - Weixin
         shared_ptr<string> channel_ {};
-        // Additional information in JSON format, such as `{"atAll":"true"}` to specify whether to @all members.
+        // The extended information in JSON format, such as `{"atAll":"true"}`, which specifies whether to mention all members.
         shared_ptr<string> extension_ {};
-        // You must specify WebhookUrl when Channel is DingRobot or Weixin.
+        // The receiver. If `Channel` is set to `DingRobot` or `Weixin`, you must specify `WebhookUrl`.
         shared_ptr<string> receiver_ {};
       };
 
@@ -270,53 +260,35 @@ namespace Models
 
 
       protected:
-        // **Node approver type**:
-        // 
-        // - DataWorksProjectRole project role
-        // 
-        // - DataWorksProjectMember project member
-        // 
-        // - TableAdministrator table administrator
-        // 
-        // - TableOrProjectAdministrator Table or project administrator
-        // 
-        // - AliyunResourceOwner Alibaba Cloud account
-        // 
-        // - MaxComputeRole MC Administrator
-        // 
-        // - DLFAdmin and DlfLegacy administrator
-        // 
-        // - DLFNext Administrator
-        // 
-        // - TenantRole tenant role
-        // 
-        // - EmrAdministrator Emr administrator
-        // 
-        // - LindormAdministrator Lindorm Administrator
-        // 
-        // - AliyunRamUser RAM user
+        // **The type of approver for the node**. Valid values:
+        // - DataWorksProjectRole: Workspace role.
+        // - DataWorksProjectMember: Workspace member.
+        // - TableAdministrator: Table owner.
+        // - TableOrProjectAdministrator: Table or workspace administrator.
+        // - AliyunResourceOwner: Alibaba Cloud account.
+        // - MaxComputeRole: MaxCompute administrator.
+        // - DLFAdmin: DLF legacy administrator.
+        // - DLFNextAdmin: DLFNext administrator.
+        // - TenantRole: Tenant role.
+        // - EmrAdministrator: EMR administrator.
+        // - LindormAdministrator: Lindorm administrator.
+        // - AliyunRamUser: RAM user.
         shared_ptr<string> accountType_ {};
-        // **`AccountType` has different semantics for different types**:
-        // 
-        // - DataWorksProjectMember specifies the project member\\"s UserId.
-        // 
-        // - DataWorksProjectRole specifies the code of the project role.
-        // 
-        // - MaxComputeRole specifies the MaxCompute role.
-        // 
-        // - TenantRole specifies the tenant role code.
-        // 
-        // - AliyunRamUser specifies the RAM user ID.
+        // **The semantics vary based on the `AccountType` value**:
+        // - DataWorksProjectMember: Specifies the user ID of the workspace member.
+        // - DataWorksProjectRole: Specifies the code of the workspace role.
+        // - MaxComputeRole: Specifies the MaxCompute role.
+        // - TenantRole: Specifies the code of the tenant role.
+        // - AliyunRamUser: Specifies the RAM user ID.
         shared_ptr<vector<string>> assignees_ {};
-        // When `AccountType `is set to different types, you must provide different additional declarations:
+        // The additional declarations required for different `AccountType` values:
         // 
-        // - DataWorksProjectMember: The key is projectId, and the value is the UserIds of project members, separated by commas.
-        // 
-        // - MaxComputeRole: The key is a MaxCompute project and the value is a role name in MaxCompute. Multiple role names are separated by a comma.
+        // - DataWorksProjectMember: The key is `projectId`, and the value is the user ID of the workspace member. Separate multiple values with commas.
+        // - MaxComputeRole: The key is the MaxCompute project, and the value is the role name in MaxCompute. Separate multiple values with commas.
         Darabonba::Json extensionProperties_ {};
-        // Node ID
+        // The node ID.
         shared_ptr<string> id_ {};
-        // **Node Name**
+        // **The node name.**
         shared_ptr<string> name_ {};
       };
 
@@ -400,57 +372,42 @@ namespace Models
 
 
     protected:
-      // Approval node list
+      // The list of approval nodes.
       shared_ptr<vector<ProcessDefinition::ApprovalNodes>> approvalNodes_ {};
       // The description of the business process.
       shared_ptr<string> description_ {};
-      // Enable
+      // Indicates whether the policy is enabled.
       shared_ptr<bool> enabled_ {};
-      // Process definition ID
+      // The process definition ID.
       shared_ptr<string> id_ {};
-      // System Default Policy
+      // Indicates whether the policy is the default system policy.
       shared_ptr<bool> isSystem_ {};
-      // Process definition name
+      // The name of the process definition.
       shared_ptr<string> name_ {};
-      // Notification Service Statement
+      // The notification service configurations.
       shared_ptr<vector<ProcessDefinition::NotificationServices>> notificationServices_ {};
-      // List of rule conditions
+      // The list of effective rules for the approval policy.
       shared_ptr<vector<ProcessDefinition::RuleConditions>> ruleConditions_ {};
-      // Subtype:
-      // 
+      // The subtype. Valid values:
       // - Table
-      // 
       // - Column
-      // 
       // - Database
-      // 
       // - Schema
-      // 
       // - Default
       shared_ptr<string> subType_ {};
-      // Process definition type. Valid values:
+      // The process definition type. Valid values:
       // 
       // - MaxCompute
-      // 
       // - DataService
-      // 
       // - Extension
-      // 
       // - Hologres
-      // 
-      // - DlfV1 (Custom creation not supported).
-      // 
-      // - EMR (Custom creation not supported).
-      // 
-      // - DataAssetGovernance (Custom creation not supported).
-      // 
-      // - Lindorm (Custom creation not supported).
-      // 
-      // - StarRocks (Custom creation not supported).
-      // 
-      // - DlfNext (Custom creation not supported).
-      // 
-      // - DataWorks (Custom creation not supported).
+      // - DlfV1: Custom creation is not supported.
+      // - Emr: Custom creation is not supported.
+      // - DataAssetGovernance: Custom creation is not supported.
+      // - Lindorm: Custom creation is not supported.
+      // - StarRocks: Custom creation is not supported.
+      // - DlfNext: Custom creation is not supported.
+      // - DataWorks: Custom creation is not supported.
       shared_ptr<string> type_ {};
     };
 
@@ -473,9 +430,9 @@ namespace Models
 
 
   protected:
-    // Process definition
+    // The process definition.
     shared_ptr<GetProcessDefinitionResponseBody::ProcessDefinition> processDefinition_ {};
-    // API request ID
+    // The API request ID.
     shared_ptr<string> requestId_ {};
   };
 

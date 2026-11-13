@@ -232,15 +232,15 @@ namespace Models
 
 
   protected:
-    // The business date. Typically, this is 00:00:00 of the day before the scheduled time of the periodic instance, in the format of a millisecond-level timestamp, such as 1743350400000.
+    // The business date. Typically, this is 00:00:00 of the day before the scheduled time of the scheduled instance, in the format of a millisecond-level timestamp, such as 1743350400000.
     // 
     // This parameter is required.
     shared_ptr<int64_t> bizdate_ {};
-    // The filter conditions in JSON format. Multiple filter conditions are combined with the AND logical operator. Supported fields: `startedTimeStart`, `startedTimeEnd`, `finishedTimeStart`, `finishedTimeEnd`, `createTimeStart`, and `createTimeEnd`.
+    // The filter conditions. The value must be in JSON format. Multiple filter conditions are connected by the logical AND operator. Supported fields: `startedTimeStart`, `startedTimeEnd`, `finishedTimeStart`, `finishedTimeEnd`, `createTimeStart`, and `createTimeEnd`.
     shared_ptr<string> filter_ {};
-    // The task instance ID. A task instance may be rerun. If you specify this parameter, the response includes historical rerun records, which are distinguished by RunNumber.
+    // The task instance ID. Task instances may be rerun. If you specify this parameter, the response includes historical information about reruns. Each piece of historical information is distinguished by RunNumber.
     shared_ptr<int64_t> id_ {};
-    // The task instance IDs. You can specify multiple task instance IDs to query task instances in batches.
+    // The list of task instance IDs. You can use this parameter to query multiple task instances in batches based on task instance IDs.
     shared_ptr<string> idsShrink_ {};
     // The account ID of the task owner.
     shared_ptr<string> owner_ {};
@@ -248,9 +248,9 @@ namespace Models
     shared_ptr<int32_t> pageNumber_ {};
     // The number of entries per page. Default value: 10. Maximum value: 500.
     shared_ptr<int32_t> pageSize_ {};
-    // The project environment. Valid values:
-    // - Prod: production
-    // - Dev: development
+    // The project environment.
+    // - Prod: Production.
+    // - Dev: Development.
     shared_ptr<string> projectEnv_ {};
     // The project ID.
     // 
@@ -258,7 +258,7 @@ namespace Models
     shared_ptr<int64_t> projectId_ {};
     // The resource group information. Specify the identifier of the scheduling resource group.
     shared_ptr<string> runtimeResource_ {};
-    // The sort field. Fields such as scheduled time and start time are supported. The format is \\"Sort field + Sort order (Desc/Asc)\\", where Asc can be omitted. Valid values for the sort field:
+    // The sort field. Fields such as scheduled time and start time are supported. The format is "Sort field + Sort order (Desc/Asc)" (Asc can be omitted). The valid values for the sort field are as follows:
     // 
     // - `TriggerTime (Desc/Asc)`
     // 
@@ -270,46 +270,46 @@ namespace Models
     // 
     // - `Id (Desc/Asc)`
     // 
-    //   Default value: `Id Desc`
+    //   Default value: `Id Desc`.
     shared_ptr<string> sortBy_ {};
     // The status of the task instance. Valid values:
-    // - `NotRun`: not run
-    // - `Running`: running
-    // - `Failure`: failed
-    // - `Success`: successful
-    // - `WaitTime`: waiting for scheduled time
-    // - `WaitResource`: waiting for resources
+    // - `NotRun`: Not run.
+    // - `Running`: Running.
+    // - `Failure`: Failed.
+    // - `Success`: Successful.
+    // - `WaitTime`: Waiting for scheduled time.
+    // - `WaitResource`: Waiting for resources.
     shared_ptr<string> status_ {};
     // The ID of the task.
     shared_ptr<int64_t> taskId_ {};
-    // The task IDs. You can specify multiple task IDs to query task instances in batches.
+    // The list of task IDs. You can use this parameter to query task instances in batches based on task IDs.
     shared_ptr<string> taskIdsShrink_ {};
-    // The task name. Fuzzy match is supported.
+    // The name of the task. Fuzzy match is supported.
     shared_ptr<string> taskName_ {};
-    // The task type. For the valid values of TaskType for each node, see [DataWorks node types](https://help.aliyun.com/document_detail/600169.html).
+    // The task type. For the valid values of TaskType for different nodes, see [DataWorks nodes](https://help.aliyun.com/document_detail/600169.html).
     shared_ptr<string> taskType_ {};
-    // The run mode upon triggering. This parameter takes effect only when TriggerType is set to Scheduler. Valid values:
-    // - Pause: pause
-    // - Skip: dry run
-    // - Normal: normal run
+    // The running mode upon triggering. This parameter takes effect only when TriggerType is set to Scheduler.
+    // - Pause: Paused.
+    // - Skip: Dry run.
+    // - Normal: Normal execution.
     shared_ptr<string> triggerRecurrence_ {};
-    // The trigger type. Valid values:
-    // - Scheduler: periodic scheduling
-    // - Manual: manual
+    // The trigger type.
+    // - Scheduler: Triggered by periodic scheduling.
+    // - Manual: Triggered manually.
     shared_ptr<string> triggerType_ {};
-    // The unified workflow instance ID. This value is the same for all task instances within a specific business date under a single trigger.
+    // The unified workflow instance ID. The value of this field is the same for all task instances within a specific business date under a single trigger.
     shared_ptr<int64_t> unifiedWorkflowInstanceId_ {};
-    // The ID of the associated workflow.
+    // The ID of the workflow to which the task belongs.
     shared_ptr<int64_t> workflowId_ {};
-    // The ID of the associated workflow instance.
+    // The ID of the workflow instance.
     shared_ptr<int64_t> workflowInstanceId_ {};
-    // The type of the workflow instance. Valid values:
-    // - SmokeTest: test
-    // - Manual: manual task
-    // - SupplementData: data backfill
-    // - ManualWorkflow: manual workflow
-    // - Normal: periodic scheduling
-    // - TriggerWorkflow: triggered workflow
+    // The type of the workflow instance.
+    // - SmokeTest: Test.
+    // - Manual: Manual task.
+    // - SupplementData: Data backfill.
+    // - ManualWorkflow: Manual workflow.
+    // - Normal: Periodic scheduling.
+    // - TriggerWorkflow: Triggered workflow.
     shared_ptr<string> workflowInstanceType_ {};
   };
 

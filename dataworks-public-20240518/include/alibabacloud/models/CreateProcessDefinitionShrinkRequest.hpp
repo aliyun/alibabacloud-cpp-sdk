@@ -116,15 +116,15 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> approvalNodesShrink_ {};
-    // The idempotency token. We recommend that you use a UUID.
+    // The client token that is used to ensure idempotence. We recommend using a UUID.
     shared_ptr<string> clientToken_ {};
-    // The description of the process definition.
+    // The description of the flow definition.
     // 
     // This parameter is required.
     shared_ptr<string> description_ {};
-    // Specifies whether to enable the process definition.
+    // Specifies whether to enable the flow definition.
     shared_ptr<bool> enabled_ {};
-    // The name of the process definition.
+    // The name of the flow definition.
     // 
     // This parameter is required.
     shared_ptr<string> name_ {};
@@ -142,7 +142,7 @@ namespace Models
     // - Schema
     // - Default
     shared_ptr<string> subType_ {};
-    // The type of the process definition. Valid values:
+    // The type of the flow definition. Valid values:
     // 
     // 1. MaxCompute
     // 2. DataService

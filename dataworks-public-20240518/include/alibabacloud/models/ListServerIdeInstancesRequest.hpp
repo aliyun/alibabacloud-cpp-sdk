@@ -122,13 +122,13 @@ namespace Models
     shared_ptr<int32_t> pageNumber_ {};
     // The number of entries to return on each page.
     shared_ptr<int32_t> pageSize_ {};
-    // The DataWorks workspace ID.
+    // The ID of the DataWorks workspace.
     shared_ptr<int64_t> projectId_ {};
-    // The account ID of the user that owns the instance.
+    // The account ID of the user who owns the instance. This parameter is used to filter instances.
     shared_ptr<string> relatedUserId_ {};
-    // The DataWorks resource group identifier. You can use the numeric ID of the resource group or the full identifier in the Serverless_res_group_{tenantId}_{resgId} format.
+    // The identifier of the DataWorks resource group. You can specify the numeric ID of the resource group or the full identifier in the Serverless_res_group_{tenantId}_{resgId} format.
     shared_ptr<string> resourceGroupId_ {};
-    // The instance subtype. Valid values:
+    // The subtype of the instance. Valid values:
     // - PERSONAL_DEV: personal development environment
     // - DATA_AGENT: Data Agent
     shared_ptr<string> subType_ {};
