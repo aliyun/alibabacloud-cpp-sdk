@@ -84,7 +84,7 @@ namespace Models
 
 
   protected:
-    // Instance ID of the instance. You can call the DescribeDBInstances operation to query instance ID.
+    // The instance ID. You can call the DescribeDBInstances operation to query the instance ID.
     // 
     // This parameter is required.
     shared_ptr<string> DBInstanceId_ {};
@@ -93,7 +93,7 @@ namespace Models
     // This parameter is required.
     shared_ptr<string> migrateTaskId_ {};
     shared_ptr<int64_t> ownerId_ {};
-    // The ID of the resource group.
+    // The resource group ID.
     shared_ptr<string> resourceGroupId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};

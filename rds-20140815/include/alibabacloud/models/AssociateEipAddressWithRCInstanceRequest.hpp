@@ -63,7 +63,7 @@ namespace Models
     shared_ptr<string> allocationId_ {};
     // The RDS Custom instance ID.
     shared_ptr<string> instanceId_ {};
-    // The region ID. You can call the DescribeRegions operation to query available regions.
+    // The region ID. You can call the DescribeRegions operation to query the region ID.
     shared_ptr<string> regionId_ {};
   };
 

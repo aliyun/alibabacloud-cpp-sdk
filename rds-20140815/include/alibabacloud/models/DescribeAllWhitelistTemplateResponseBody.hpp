@@ -203,17 +203,17 @@ namespace Models
 
 
     protected:
-      // The current page number.
+      // The page number.
       shared_ptr<int32_t> currPageNumbers_ {};
       // Indicates whether the queried data has a next page. Valid values:
       // 
-      // - **true**: Yes.
-      // - **false**: No.
+      // - **true**: yes.
+      // - **false**: no.
       shared_ptr<bool> hasNext_ {};
       // Indicates whether the queried data has a previous page. Valid values:
       // 
-      // - **true**: Yes.
-      // - **false**: No.
+      // - **true**: yes.
+      // - **false**: no.
       shared_ptr<bool> hasPrev_ {};
       // The number of entries per page.
       shared_ptr<int32_t> maxRecordsPerPage_ {};
@@ -275,10 +275,10 @@ namespace Models
     // The response code. Valid values:
     // 
     // - **200**: Normal.
-    // - **400**: Client error.
+    // - **400**: Client fault.
     // - **401**: Failed to authenticate.
     // - **404**: Requested page not found.
-    // - **500**: Server error.
+    // - **500**: Server fault.
     shared_ptr<string> code_ {};
     // The returned data.
     shared_ptr<DescribeAllWhitelistTemplateResponseBody::Data> data_ {};
@@ -290,12 +290,12 @@ namespace Models
     shared_ptr<int32_t> httpStatusCode_ {};
     // The returned message.
     shared_ptr<string> message_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request was successful. Valid values:
+    // Indicates whether the request is successful. Valid values:
     // 
-    // - **true**: Successful.
-    // - **false**: Failed.
+    // - **true**: The request is successful.
+    // - **false**: The request fails.
     shared_ptr<bool> success_ {};
   };
 

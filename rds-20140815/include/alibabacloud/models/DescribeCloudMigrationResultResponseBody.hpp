@@ -214,10 +214,10 @@ namespace Models
       // 
       // - **precheck**: precheck
       // - **basebackup**: full backup
-      // - **startup**: link setup
+      // - **startup**: link building
       // - **increment**: incremental synchronization
-      // - **switch**: cloud cutover
-      // - **success**: cloud migration completed
+      // - **switch**: switchover
+      // - **success**: migration completed
       shared_ptr<string> migrateStage_ {};
       // The replication task information.
       shared_ptr<string> replicationInfo_ {};
@@ -227,7 +227,7 @@ namespace Models
       // - **catchup**: catching up
       // - **streaming**: streaming
       // - **disconnect**: disconnected
-      // - **finish**: completed
+      // - **finish**: finished
       shared_ptr<string> replicationState_ {};
       // The username.
       shared_ptr<string> sourceAccount_ {};
@@ -242,9 +242,9 @@ namespace Models
       shared_ptr<string> sourcePassword_ {};
       // The port of the self-managed PostgreSQL database.
       shared_ptr<int64_t> sourcePort_ {};
-      // The cutover time.
+      // The switchover time.
       shared_ptr<string> switchTime_ {};
-      // A reserved parameter. The value is empty.
+      // A reserved parameter. The query result is empty.
       shared_ptr<string> targetEip_ {};
       // The instance ID of the target instance.
       shared_ptr<string> targetInstanceName_ {};

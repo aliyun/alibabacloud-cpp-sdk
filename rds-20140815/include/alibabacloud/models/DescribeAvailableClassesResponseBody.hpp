@@ -104,7 +104,7 @@ namespace Models
         shared_ptr<int32_t> maxValue_ {};
         // The minimum storage space. Unit: GB.
         shared_ptr<int32_t> minValue_ {};
-        // The minimum step size for adjusting the storage space. The storage space increases in fixed increments of 5 GB.
+        // The minimum step size for adjusting the storage space. The storage space increases in increments of 5 GB.
         shared_ptr<int32_t> step_ {};
       };
 
@@ -127,9 +127,9 @@ namespace Models
 
 
     protected:
-      // The instance specification.
+      // The instance type.
       shared_ptr<string> DBInstanceClass_ {};
-      // The instance storage range.
+      // The instance storage space range.
       shared_ptr<DBInstanceClasses::DBInstanceStorageRange> DBInstanceStorageRange_ {};
     };
 
@@ -152,7 +152,7 @@ namespace Models
 
 
   protected:
-    // The list of available instance specifications.
+    // The available instance types for the instance.
     shared_ptr<vector<DescribeAvailableClassesResponseBody::DBInstanceClasses>> DBInstanceClasses_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

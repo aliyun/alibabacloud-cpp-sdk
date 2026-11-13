@@ -79,7 +79,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> from_ {};
-    // The page number. Valid values: integers greater than **0** and less than or equal to the maximum value of the Integer type.
+    // The page number. Valid values: integers greater than **0** and less than or equal to the maximum value of the Integer data type.
     // 
     // Default value: **1**.
     shared_ptr<int32_t> pageNumber_ {};
@@ -95,9 +95,9 @@ namespace Models
     // This parameter is required.
     shared_ptr<string> to_ {};
     // Specifies whether the query results include confirmed notifications. Valid values:
-    // - **true**: Includes confirmed notifications.
-    // - **false**: Does not include confirmed notifications.
-    // > Confirmed notifications are those that have been marked as confirmed by calling the ConfirmNotify operation.
+    // - **true**: The query results include confirmed notifications.
+    // - **false**: The query results do not include confirmed notifications.
+    // > Confirmed notifications are notifications that have been marked as confirmed by calling the ConfirmNotify operation.
     // 
     // This parameter is required.
     shared_ptr<bool> withConfirmed_ {};

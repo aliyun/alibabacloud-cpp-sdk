@@ -98,12 +98,12 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<int32_t> crossBackupId_ {};
-    // The instance ID. You can call the DescribeDBInstances operation to query the instance ID.
+    // Instance ID of the instance. You can call the DescribeDBInstances operation to query instance ID.
     shared_ptr<string> DBInstanceId_ {};
     shared_ptr<int64_t> ownerId_ {};
     // The region ID.
     shared_ptr<string> regionId_ {};
-    // The resource group ID.
+    // The ID of the resource group.
     shared_ptr<string> resourceGroupId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};

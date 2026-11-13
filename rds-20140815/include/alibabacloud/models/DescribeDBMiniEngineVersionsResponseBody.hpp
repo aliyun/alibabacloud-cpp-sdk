@@ -178,12 +178,12 @@ namespace Models
       shared_ptr<string> engineVersion_ {};
       // The expiration date of the minor engine version. The date is in the YYYYMMDD format.
       shared_ptr<string> expireDate_ {};
-      // The expiration status of the minor Milvus version. Valid values:
+      // The expiration status of the minor engine version. Valid values:
       // 
-      // - **vaild**: The minor Milvus version is valid.
-      // - **expired**: The minor Milvus version has expired.
+      // - **vaild**: The minor engine version is valid.
+      // - **expired**: The minor engine version has expired.
       // 
-      // > If the offline status is Offline, the minor Milvus version is offline and the expiration status is ignored. If the offline status is Online and the expiration status is expired, the minor Milvus version has reached its end of life. If the offline status is Online and the expiration status is vaild, the minor Milvus version is still within its lifecycle.
+      // > If the deprecation status is Offline, the minor engine version is deprecated and the expiration status is ignored. If the deprecation status is Online and the expiration status is expired, the minor engine version has reached its end of life. If the deprecation status is Online and the expiration status is vaild, the minor engine version is still within its lifecycle.
       shared_ptr<string> expireStatus_ {};
       // An internal parameter. You can ignore this parameter.
       shared_ptr<bool> isHotfixVersion_ {};
@@ -191,25 +191,25 @@ namespace Models
       shared_ptr<string> minorVersion_ {};
       // The instance edition that corresponds to the minor engine version. Valid values:
       // * **Basic**: Basic Edition.
-      // * **HighAvailability**: High-availability Edition.
+      // * **HighAvailability**: high-availability series.
       // * **Finance**: RDS Enterprise Edition.
       shared_ptr<string> nodeType_ {};
       // The URL of the release notes for the minor engine version.
       shared_ptr<string> releaseNote_ {};
       // The release type. Valid values:
-      // * **LTS**: Long-term support (LTS) version.
-      // * **BETA**: Beta version.
+      // * **LTS**: long-term support version
+      // * **BETA**: beta version
       shared_ptr<string> releaseType_ {};
-      // The offline status of the minor Milvus version. Valid values:
-      // - **Offline**: The minor Milvus version is offline.
-      // - **Online**: The minor Milvus version is online.
+      // The deprecation status of the minor engine version. Valid values:
+      // - **Offline**: The minor engine version is deprecated.
+      // - **Online**: The minor engine version is active.
       // 
-      // > If the offline status is Offline, the minor Milvus version is offline and the expiration status is ignored. If the offline status is Online and the expiration status is expired, the minor Milvus version has reached its end of life. If the offline status is Online and the expiration status is vaild, the minor Milvus version is still within its lifecycle.
+      // > If the deprecation status is Offline, the minor engine version is deprecated and the expiration status is ignored. If the deprecation status is Online and the expiration status is expired, the minor engine version has reached its end of life. If the deprecation status is Online and the expiration status is vaild, the minor engine version is still within its lifecycle.
       shared_ptr<string> statusDesc_ {};
       // Instance tag that corresponds to the minor engine version. Valid values:
       // 
-      // - **pgsql_docker_image**: Instance tag for general instances.
-      // - **pgsql_babelfish_image**: Instance tag for Babelfish-enabled instances.
+      // - **pgsql_docker_image**: instance tag for general instances
+      // - **pgsql_babelfish_image**: instance tag for Babelfish-enabled instances
       // 
       // > This parameter is returned only for **PostgreSQL**.
       shared_ptr<string> tag_ {};
@@ -270,9 +270,9 @@ namespace Models
     shared_ptr<vector<DescribeDBMiniEngineVersionsResponseBody::MinorVersionItems>> minorVersionItems_ {};
     // The current page number.
     shared_ptr<int32_t> pageNumbers_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // The total number of entries returned.
+    // The total number of entries.
     shared_ptr<int32_t> totalCount_ {};
   };
 

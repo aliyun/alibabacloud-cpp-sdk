@@ -89,11 +89,11 @@ namespace Models
     // true: enables the feature.
     // false: disables the feature.
     // Note
-    // An error is returned if you specify any value for a disk that does not support the performance burst feature.
+    // If you specify any value for a disk that does not support the performance burst feature, an error is returned.
     shared_ptr<bool> burstingEnabled_ {};
     // Specifies whether to release the disk when the instance is released. Default value: null. A value of null indicates that the current value remains unchanged.
     // 
-    // You cannot configure this parameter for cloud disks that have the multi-attach feature enabled.
+    // This parameter is not supported for cloud disks that have the multi-attach feature enabled.
     // 
     // An error is returned if you set the DeleteWithInstance parameter to false in the following scenarios:
     // 
@@ -108,9 +108,9 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> diskId_ {};
-    // The cloud disk name. The name must be 2 to 128 characters in length and can contain characters in the Letter category of Unicode, such as English letters, Chinese characters, and digits. It can also contain colons (:), underscores (_), periods (.), and hyphens (-).
+    // The name of the disk. The name must be 2 to 128 characters in length. It can contain letters and digits in the Unicode Letter category, as well as colons (:), underscores (_), periods (.), and hyphens (-).
     shared_ptr<string> diskName_ {};
-    // The region ID. You can call the DescribeRegions operation to query the most recent region list.
+    // The region ID. You can call the DescribeRegions operation to query the region ID.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};

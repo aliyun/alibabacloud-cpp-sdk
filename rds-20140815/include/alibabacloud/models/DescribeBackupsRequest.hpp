@@ -124,26 +124,26 @@ namespace Models
     // The ID of the backup set.
     shared_ptr<string> backupId_ {};
     // The backup mode. Valid values:
-    // * **Automated**: automatic backup
-    // * **Manual**: manual backup
+    // * **Automated**: Automatic backup.
+    // * **Manual**: Manual backup.
     shared_ptr<string> backupMode_ {};
     // The status of the backup set. Valid values:
     // * **Success**: The backup is completed.
     // * **Failed**: The backup failed.
     shared_ptr<string> backupStatus_ {};
     // The backup type. Valid values:
-    // * **FullBackup**: full backup
-    // * **IncrementalBackup**: incremental backup
+    // * **FullBackup**: Full backup.
+    // * **IncrementalBackup**: Incremental backup.
     shared_ptr<string> backupType_ {};
-    // Instance ID of the instance. You can call the DescribeDBInstances operation to query instance ID.
+    // The ID of the instance. You can call the DescribeDBInstances operation to obtain the instance ID.
     // 
     // This parameter is required.
     shared_ptr<string> DBInstanceId_ {};
     // The end time of the query. The end time must be later than the start time. Specify the time in the <i>yyyy-MM-dd</i>T<i>HH:mm</i>Z format. The time must be in UTC.
     // 
-    // > When you call this operation to query backup sets, keep the time range short. A long time range may cause a timeout.
+    // > To prevent timeouts, specify a shorter time range when you call this operation to query backup sets.
     shared_ptr<string> endTime_ {};
-    // The page number. Valid values: an integer greater than 0 and less than or equal to the maximum integer value.
+    // The page number. Valid values: integers greater than 0 and less than or equal to the maximum integer value.
     // 
     // Default value: **1**.
     shared_ptr<int32_t> pageNumber_ {};

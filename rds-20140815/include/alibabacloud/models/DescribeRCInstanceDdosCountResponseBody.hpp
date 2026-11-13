@@ -78,9 +78,9 @@ namespace Models
 
 
     protected:
-      // The number of instances under blackhole filtering.
+      // The number of instances that are in the blackhole filtering status.
       shared_ptr<string> blackholeCount_ {};
-      // The number of instances that are undergoing traffic scrubbing.
+      // The number of instances for which traffic is being scrubbed.
       shared_ptr<string> defenseCount_ {};
       // The total number of instances.
       shared_ptr<string> instacenCount_ {};

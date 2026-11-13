@@ -217,13 +217,13 @@ namespace Models
 
   protected:
     shared_ptr<DescribeParameterGroupsResponseBody::ParameterGroups> parameterGroups_ {};
-    // The request ID.
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
     // **[Deprecated]** Indicates whether the specified region has parameter templates. Valid values:
     // 
-    // * true: No parameter templates exist.
-    // * false: Parameter templates exist.
-    // >Warning: This parameter is deprecated and is not recommended.
+    // * true: The region does not have parameter templates.
+    // * false: The region has parameter templates.
+    // >Warning: This parameter is deprecated. We recommend that you do not use it.
     shared_ptr<bool> signalForOptimizeParams_ {};
   };
 

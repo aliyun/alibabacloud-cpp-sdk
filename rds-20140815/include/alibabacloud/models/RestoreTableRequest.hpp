@@ -121,37 +121,37 @@ namespace Models
 
 
   protected:
-    // The backup set ID. You can call the DescribeBackups operation to query the backup set list.
+    // The ID of the backup set. You can call the DescribeBackups operation to query backup sets.
     // 
-    // > You must specify at least one of **BackupId** and **RestoreTime**.
+    // > You must specify at least one of the **BackupId** and **RestoreTime** parameters.
     shared_ptr<string> backupId_ {};
-    // The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length.
+    // The client token that is used to ensure the idempotence of the request and prevent duplicate submissions. You can use the client to generate the value, and you must ensure that the value is unique among different requests. The value can be up to 64 ASCII characters in length and cannot contain non-ASCII characters.
     shared_ptr<string> clientToken_ {};
     // The instance ID.
     // 
     // This parameter is required.
     shared_ptr<string> DBInstanceId_ {};
     // Specifies whether to enable fast restoration for individual databases and tables. Valid values:
-    // * **true**: Enabled.
-    // * **false**: Disabled.
+    // * **true**: enables fast restoration.
+    // * **false**: disables fast restoration.
     // 
-    // > For more information about fast restoration for individual databases and tables, see [Restore individual databases and tables](https://help.aliyun.com/document_detail/103175.html).
+    // > For more information about fast restoration for individual databases and tables, see [Restore databases and tables](https://help.aliyun.com/document_detail/103175.html).
     shared_ptr<bool> instantRecovery_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
-    // Any point in time within the backup retention period. Format: <i>yyyy-MM-dd</i>T<i>HH:mm:ss</i>Z (UTC).
+    // The point in time to which you want to restore data. The point in time must be within the backup retention period. Specify the time in the <i>yyyy-MM-dd</i>T<i>HH:mm:ss</i>Z format. The time must be in UTC.
     // 
-    // > * You must specify at least one of **BackupId** and **RestoreTime**.
+    // > * You must specify at least one of the **BackupId** and **RestoreTime** parameters.
     // > * [Log backup](https://help.aliyun.com/document_detail/98818.html) must be enabled for the instance.
     shared_ptr<string> restoreTime_ {};
-    // The databases and tables to restore.
-    // > ApsaraDB RDS for PostgreSQL supports only the restoration of specific databases, not specific tables.
+    // The databases and tables to be restored.
+    // > ApsaraDB RDS for PostgreSQL supports restoring only specific databases and does not support restoring specific tables.
     // 
-    // - ApsaraDB RDS for MySQL format: ```[{"type":"db","name":"<Database 1 name>","newname":"<New database 1 name>","tables":[{"type":"table","name":"<Table 1 name in database 1>","newname":"<New table 1 name>"},{"type":"table","name":"<Table 2 name in database 1>","newname":"<New table 2 name>"}]},{"type":"db","name":"<Database 2 name>","newname":"<New database 2 name>","tables":[{"type":"table","name":"<Table 3 name in database 2>","newname":"<New table 3 name>"},{"type":"table","name":"<Table 4 name in database 2>","newname":"<New table 4 name>"}]}]```
+    // - Format for ApsaraDB RDS for MySQL: ```[{"type":"db","name":"<Name of Database 1>","newname":"<New name of Database 1>","tables":[{"type":"table","name":"<Name of Table 1 in Database 1>","newname":"<New name of Table 1>"},{"type":"table","name":"<Name of Table 2 in Database 1>","newname":"<New name of Table 2>"}]},{"type":"db","name":"<Name of Database 2>","newname":"<New name of Database 2>","tables":[{"type":"table","name":"<Name of Table 3 in Database 2>","newname":"<New name of Table 3>"},{"type":"table","name":"<Name of Table 4 in Database 2>","newname":"<New name of Table 4>"}]}]```
     // 
-    // - ApsaraDB RDS for PostgreSQL format: ```[{"type":"db","name":"<Database 1 name>","newname":"<New database 1 name>"}]```
+    // - Format for ApsaraDB RDS for PostgreSQL: ```[{"type":"db","name":"<Name of Database 1>","newname":"<New name of Database 1>"}]```
     // 
     // This parameter is required.
     shared_ptr<string> tableMeta_ {};

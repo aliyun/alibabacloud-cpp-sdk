@@ -75,18 +75,16 @@ namespace Models
 
 
   protected:
-    // The ID of the target instance. You can invoke the DescribeDBInstances operation to query the instance ID.
+    // The instance ID of the target instance. You can call the DescribeDBInstances operation to query the instance ID.
     // 
     // This parameter is required.
     shared_ptr<string> DBInstanceName_ {};
-    // Set the value to 1, which specifies a forced switchover.
+    // Set the value to 1 to force the switchover.
     shared_ptr<string> forceSwitch_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
-    // The reserved parameter. This parameter does not take effect.
+    // Reserved parameter. This parameter does not take effect.
     shared_ptr<string> switchTime_ {};
-    // The switchover time mode for cloud migration.
-    // 
-    // Set the value to 0, which specifies an immediate switchover.
+    // The switchover mode for cloud migration. Set the value to 0, which indicates an immediate switchover.
     shared_ptr<string> switchTimeMode_ {};
   };
 

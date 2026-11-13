@@ -75,7 +75,7 @@ namespace Models
 
 
   protected:
-    // Indicates whether the resource is available. Valid values:
+    // Specifies whether the disk space is available. Valid values:
     // 
     // - **true**: Available.
     // 
@@ -83,7 +83,7 @@ namespace Models
     shared_ptr<string> available_ {};
     // The instance ID.
     shared_ptr<string> DBInstanceId_ {};
-    // The transmission type of the database instance.
+    // The transfer type of the database instance.
     shared_ptr<string> DBInstanceTransType_ {};
     // The maximum capacity of the local disk. Unit: GB.
     shared_ptr<int64_t> localUpgradeDiskLimit_ {};

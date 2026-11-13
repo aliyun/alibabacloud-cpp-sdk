@@ -90,7 +90,7 @@ namespace Models
     shared_ptr<string> insName_ {};
     // The region ID. You can call the DescribeRegions operation to query the region ID.
     shared_ptr<string> regionId_ {};
-    // The resource group ID. For more information about resource groups, see What is a resource group.
+    // The ID of the resource group. For more information about resource groups, see What is a resource group?
     shared_ptr<string> resourceGroupId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};

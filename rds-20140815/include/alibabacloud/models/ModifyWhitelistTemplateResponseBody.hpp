@@ -68,8 +68,8 @@ namespace Models
 
     protected:
       // The returned status. Valid values:
-      // - **ok**: Normal response.
-      // - **error**: Error response.
+      // - **ok**: Normal.
+      // - **error**: Error.
       shared_ptr<string> status_ {};
     };
 
@@ -136,12 +136,12 @@ namespace Models
     shared_ptr<int32_t> httpStatusCode_ {};
     // The returned message.
     shared_ptr<string> message_ {};
-    // The request ID. The ID is unique for each request and can be used for troubleshooting.
+    // The ID of the request. Each request has a unique ID to facilitate troubleshooting.
     shared_ptr<string> requestId_ {};
     // Indicates whether the request was successful. Valid values:
     // 
-    // - **true**: The request was successful.
-    // - **false**: The request failed.
+    // - **true**: Successful.
+    // - **false**: Failed.
     shared_ptr<bool> success_ {};
   };
 

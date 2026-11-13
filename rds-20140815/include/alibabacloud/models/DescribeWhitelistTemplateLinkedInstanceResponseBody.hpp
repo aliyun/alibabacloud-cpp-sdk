@@ -136,7 +136,7 @@ namespace Models
     // The response code. Valid values:
     // - **200**: Normal.
     // - **400**: Client fault.
-    // - **401**: Authentication failed.
+    // - **401**: Identity verification failed. Please authenticate.
     // - **404**: The requested page is not found.
     // - **500**: Server fault.
     shared_ptr<string> code_ {};
@@ -149,12 +149,12 @@ namespace Models
     shared_ptr<int32_t> httpStatusCode_ {};
     // The returned message.
     shared_ptr<string> message_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request is successful. Valid values:
+    // Indicates whether the request was successful. Valid values:
     // 
-    // - **true**: The request is successful.
-    // - **false**: The request fails.
+    // - **true**: Successful.
+    // - **false**: Failed.
     shared_ptr<bool> success_ {};
   };
 

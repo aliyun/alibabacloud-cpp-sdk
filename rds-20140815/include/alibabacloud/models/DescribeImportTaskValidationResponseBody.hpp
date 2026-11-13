@@ -74,8 +74,8 @@ namespace Models
     shared_ptr<string> status_ {};
     // Indicates whether the request is successful. Valid values:
     // 
-    // - **true**: The request is successful.
-    // - **false**: The request failed.
+    // - **true**: Successful.
+    // - **false**: Failed.
     shared_ptr<bool> success_ {};
   };
 

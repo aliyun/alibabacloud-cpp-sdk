@@ -94,15 +94,15 @@ namespace Models
 
 
   protected:
-    // The client token that is used to ensure the idempotence of the request. You can generate the token on your client. Make sure that the token is unique among different requests. The ClientToken parameter supports only ASCII characters.
+    // The client token that is used to ensure the idempotence of the request. You can generate the token on your client and ensure that it is unique across different requests. The client token supports only ASCII characters.
     shared_ptr<string> clientToken_ {};
-    // The instance ID. You can call the DescribeDBInstances operation to query the instance ID.
+    // The ID of the instance. You can call the DescribeDBInstances operation to query the instance ID.
     // 
     // This parameter is required.
     shared_ptr<string> DBInstanceId_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
-    // The resource group ID. This parameter can be left empty.
+    // The ID of the resource group. This parameter can be left empty.
     shared_ptr<string> resourceGroupId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};

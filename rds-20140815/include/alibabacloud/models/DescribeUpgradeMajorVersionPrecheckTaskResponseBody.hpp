@@ -158,17 +158,17 @@ namespace Models
 
 
     protected:
-      // The time when the check is performed. The value is a UNIX timestamp. Unit: milliseconds.
+      // The time when the pre-check is performed. The time is displayed as a UNIX timestamp. Unit: milliseconds.
       shared_ptr<string> checkTime_ {};
-      // The content of the check report for the major engine version upgrade.
+      // The content of the pre-check report for the major engine version upgrade.
       shared_ptr<string> detail_ {};
-      // The expiration time of the check report. The value is a UNIX timestamp. Unit: milliseconds.
+      // The expiration time of the pre-check report. The time is displayed as a UNIX timestamp. Unit: milliseconds.
       shared_ptr<string> effectiveTime_ {};
-      // The recommended minimum disk capacity for the upgrade. Unit: GB.
+      // The minimum recommended disk capacity for the upgrade. Unit: GB.
       // 
       // > This parameter is returned only for ApsaraDB RDS for PostgreSQL instances.
       shared_ptr<int32_t> recommendDiskSize_ {};
-      // The recommended minimum memory size for the upgrade. Unit: GB.
+      // The minimum recommended memory size for the upgrade. Unit: GB.
       // 
       // > This parameter is returned only for ApsaraDB RDS for PostgreSQL instances.
       shared_ptr<int32_t> recommendLeastMemSize_ {};
@@ -178,18 +178,20 @@ namespace Models
       // 
       // > This parameter is returned only for ApsaraDB RDS for PostgreSQL instances.
       shared_ptr<int32_t> recommendMemSize_ {};
-      // The result of the check for the major engine version upgrade. Valid values:
-      // - Success: The check is successful.
-      // - Fail: The check fails.
-      // - warning: A warning is returned. You must check the report to determine whether to continue the upgrade.
+      // The result of the pre-check for the major engine version upgrade.
       // 
-      // > If the check result is **Fail**, check the value of the **Detail** parameter, troubleshoot the error, and try again. For more information about common errors and solutions, see [Interpret check reports for major engine version upgrades of ApsaraDB RDS for PostgreSQL instances](https://help.aliyun.com/document_detail/218391.html).
+      // Valid values:
+      // - Success: The pre-check is successful.
+      // - Fail: The pre-check fails.
+      // - warning: A warning is returned. You must check the report to determine whether to proceed with the upgrade.
+      // 
+      // > If the result is **Fail**, check the value of the **Detail** parameter to troubleshoot the error and try again. For more information about common errors and solutions, see [Interpret pre-check reports for ApsaraDB RDS for PostgreSQL major engine version upgrades](https://help.aliyun.com/document_detail/218391.html).
       shared_ptr<string> result_ {};
       // The current major engine version of the instance.
       shared_ptr<string> sourceMajorVersion_ {};
       // The major engine version of the target instance.
       shared_ptr<string> targetMajorVersion_ {};
-      // The ID of the check task before the major engine version upgrade.
+      // The ID of the pre-check task for the major engine version upgrade.
       shared_ptr<int32_t> taskId_ {};
       // The mode of the major engine version upgrade.
       shared_ptr<string> upgradeMode_ {};
@@ -235,7 +237,7 @@ namespace Models
 
 
   protected:
-    // The list of attributes in the check reports for major engine version upgrades.
+    // The list of attributes in the pre-check report for the major engine version upgrade.
     shared_ptr<vector<DescribeUpgradeMajorVersionPrecheckTaskResponseBody::Items>> items_ {};
     // The page number.
     shared_ptr<int32_t> pageNumber_ {};
@@ -243,7 +245,7 @@ namespace Models
     shared_ptr<int32_t> pageRecordCount_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The total number of entries in the upgrade check report.
+    // The total number of entries in the pre-check report for the major engine version upgrade.
     shared_ptr<int32_t> totalRecordCount_ {};
   };
 

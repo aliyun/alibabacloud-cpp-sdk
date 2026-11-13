@@ -107,9 +107,9 @@ namespace Models
       // * **COMPLETED**: Completed.
       // * **EXECUTING**: Failed.
       shared_ptr<string> status_ {};
-      // The effective period of the parameter modification.
+      // The effective period of the parameter modifications.
       shared_ptr<string> switchTime_ {};
-      // The ID of the scheduled parameter modification task.
+      // The ID of the scheduled task for modifying parameters.
       shared_ptr<string> taskId_ {};
     };
 

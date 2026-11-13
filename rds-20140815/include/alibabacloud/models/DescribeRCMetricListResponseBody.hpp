@@ -96,9 +96,9 @@ namespace Models
   protected:
     // The returned status code.
     shared_ptr<string> code_ {};
-    // The monitoring data points.
+    // The list of monitoring data.
     shared_ptr<string> datapoints_ {};
-    // The returned message.
+    // The message returned for the request.
     // 
     // > If the request is successful, **Successful** is returned. If the request fails, an error message such as an error code is returned.
     shared_ptr<string> message_ {};

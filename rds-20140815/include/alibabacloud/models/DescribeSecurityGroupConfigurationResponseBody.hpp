@@ -158,7 +158,7 @@ namespace Models
     // The instance ID.
     shared_ptr<string> DBInstanceName_ {};
     shared_ptr<DescribeSecurityGroupConfigurationResponseBody::Items> items_ {};
-    // The request ID.
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
   };
 

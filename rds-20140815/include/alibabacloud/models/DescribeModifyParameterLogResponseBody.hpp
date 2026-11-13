@@ -213,7 +213,7 @@ namespace Models
   protected:
     // The instance ID.
     shared_ptr<string> DBInstanceId_ {};
-    // The database engine type.
+    // The database engine.
     shared_ptr<string> engine_ {};
     // The database engine version.
     shared_ptr<string> engineVersion_ {};
@@ -222,7 +222,7 @@ namespace Models
     shared_ptr<int32_t> pageNumber_ {};
     // The number of entries per page.
     shared_ptr<int32_t> pageRecordCount_ {};
-    // The request ID.
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
     // The total number of log records.
     shared_ptr<int32_t> totalRecordCount_ {};

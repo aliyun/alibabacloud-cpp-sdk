@@ -84,18 +84,18 @@ namespace Models
 
 
   protected:
-    // The parameter overview information.
+    // Specifies whether to return the parameter overview information. Valid values:
     // 
-    // - **false**: Returns parameter overview information. This is the default value.
+    // - **false**: returns the parameter overview information. This is the default value.
     // 
-    // - **true**: Does not return parameter overview information.
+    // - **true**: does not return the parameter overview information.
     shared_ptr<bool> enableDetail_ {};
     shared_ptr<int64_t> ownerId_ {};
     // The region ID. You can call the DescribeRegions operation to query the region ID.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
-    // The resource group ID.
+    // The ID of the resource group.
     shared_ptr<string> resourceGroupId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};

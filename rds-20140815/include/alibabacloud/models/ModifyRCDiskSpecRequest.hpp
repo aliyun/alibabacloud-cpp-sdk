@@ -86,23 +86,23 @@ namespace Models
   protected:
     // Specifies whether to enable automatic payment. Valid values:
     // - **true** (default): Automatic payment is enabled. Make sure that your account balance is sufficient.
-    // - **false**: Only an order is generated, and no payment is made.
+    // - **false**: Only an order is generated and no payment is made.
     // 
-    // > If the balance of your payment method is insufficient, you can change the Settings of the parameter AutoPay to false. An unpaid order is generated. You can logon to the ApsaraDB RDS console to complete the payment.
+    // > If the balance of your payment method is insufficient, you can set the AutoPay parameter to false to generate an unpaid order. Then, you can log on to the ApsaraDB RDS console to complete the payment.
     // >
     shared_ptr<bool> autoPay_ {};
     // The new category of the cloud disk. Valid values:
-    // - **cloud_essd** (default): ESSD cloud disk.
+    // - **cloud_essd** (default): ESSD.
     // - **cloud_auto**: ESSD AutoPL cloud disk.
     // - **cloud_ssd**: standard SSD.
     shared_ptr<string> diskCategory_ {};
     // The ID of the cloud disk.
     shared_ptr<string> diskId_ {};
-    // Specifies whether to perform a dry run for this operation. Valid values:
-    // * **true**: A dry run is performed, and the modification is not executed. The check items include request parameters, request format, business limits, and inventory.
-    // * **false** (default): A normal request is sent, and the modification is executed after the check is passed.
+    // Specifies whether to perform a precheck before the specification change. Valid values:
+    // * **true**: A precheck is performed, but the specification change is not executed. The precheck checks items such as request parameters, request format, service limits, and inventory.
+    // * **false** (default): A normal request is sent, and the specification change is executed immediately after the precheck succeeds.
     shared_ptr<bool> dryRun_ {};
-    // The new performance level (PL) of the ESSD cloud disk. Valid values:
+    // The new performance level (PL) of the ESSD. Valid values:
     // 
     // - **PL1** (default): A single disk delivers up to 50,000 random read/write IOPS.
     // 

@@ -98,7 +98,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> DBInstanceId_ {};
-    // This parameter is deprecated. You do not need to configure it.
+    // Deprecated. You do not need to configure this parameter.
     shared_ptr<string> DBProxyEngineType_ {};
     shared_ptr<int64_t> ownerId_ {};
     // The region ID. You can call the DescribeRegions operation to query the ID.

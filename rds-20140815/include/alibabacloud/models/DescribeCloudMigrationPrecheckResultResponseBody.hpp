@@ -168,7 +168,7 @@ namespace Models
 
 
     protected:
-      // The content of the pre-check report for cloud migration.
+      // The content of the cloud migration precheck report.
       shared_ptr<string> detail_ {};
       // The time when the task was created.
       shared_ptr<string> gmtCreated_ {};
@@ -237,7 +237,7 @@ namespace Models
 
 
   protected:
-    // The list of pre-check reports for one-click cloud migration.
+    // The list of cloud migration precheck reports.
     shared_ptr<vector<DescribeCloudMigrationPrecheckResultResponseBody::Items>> items_ {};
     // The page number.
     shared_ptr<int64_t> pageNumber_ {};
@@ -245,7 +245,7 @@ namespace Models
     shared_ptr<int64_t> pageSize_ {};
     // The ID of the request.
     shared_ptr<string> requestId_ {};
-    // The total number of entries returned.
+    // The total number of returned entries.
     shared_ptr<int32_t> totalSize_ {};
   };
 

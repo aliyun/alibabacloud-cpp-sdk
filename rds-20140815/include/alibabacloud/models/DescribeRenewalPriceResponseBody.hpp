@@ -329,7 +329,7 @@ namespace Models
         shared_ptr<string> checkErrMsg_ {};
         // The error code.
         shared_ptr<string> errorCode_ {};
-        // Indicates whether the request was successful.
+        // Indicates whether the request is successful.
         shared_ptr<string> success_ {};
       };
 
@@ -392,7 +392,7 @@ namespace Models
 
 
     protected:
-      // The pricing information.
+      // The promotion information.
       shared_ptr<PriceInfo::ActivityInfo> activityInfo_ {};
       shared_ptr<PriceInfo::Coupons> coupons_ {};
       // The currency.
@@ -434,9 +434,9 @@ namespace Models
 
 
   protected:
-    // The pricing information.
+    // The price information.
     shared_ptr<DescribeRenewalPriceResponseBody::PriceInfo> priceInfo_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
     shared_ptr<DescribeRenewalPriceResponseBody::Rules> rules_ {};
   };

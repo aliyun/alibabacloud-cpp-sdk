@@ -351,11 +351,11 @@ namespace Models
         shared_ptr<string> detailReason_ {};
         // The end time of the alert.
         shared_ptr<string> endTime_ {};
-        // The system event categorization. Valid values:
-        // - **Exception**: abnormal event
+        // The category of the system event. Valid values:
+        // - **Exception**: exception events
         // - **Optimize**: optimization events
-        // - **Notification**: notification event
-        // - **Maintenance**: scheduled maintenance event
+        // - **Notification**: notification events
+        // - **Maintenance**: scheduled maintenance events
         shared_ptr<string> eventCategory_ {};
         // The event code.
         shared_ptr<string> eventCode_ {};
@@ -385,7 +385,7 @@ namespace Models
         // - **SystemMaintenance.Redeploy**: The instance undergoes redeployment due to system maintenance.
         // - **SystemFailure.Reboot**: The instance is restarted due to a system fault.
         // - **SystemFailure.Redeploy**: The instance undergoes redeployment due to a system fault.
-        // - **SystemFailure.Delete**: The instance is released because instance creation failed.
+        // - **SystemFailure.Delete**: The instance is released due to a failed creation.
         // - **InstanceFailure.Reboot**: The instance is restarted due to an instance fault.
         // - **InstanceExpiration.Stop**: The subscription instance is stopped due to expiration.
         // - **InstanceExpiration.Delete**: The subscription instance is released due to expiration.
@@ -404,9 +404,9 @@ namespace Models
         shared_ptr<string> instanceId_ {};
         // The name of the instance.
         shared_ptr<string> instanceName_ {};
-        // Indicates whether the event is successfully closed. Valid values:
-        // - **0**: closed
-        // - **1**: open
+        // Indicates whether the event is closed. Valid values:
+        // - **0**: no
+        // - **1**: yes
         shared_ptr<int32_t> isClosed_ {};
         // The name of the product.
         shared_ptr<string> product_ {};
@@ -551,7 +551,7 @@ namespace Models
     shared_ptr<int32_t> pageNumber_ {};
     // The number of entries per page.
     shared_ptr<int32_t> pageSize_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
     // The total number of entries.
     shared_ptr<int32_t> totalCount_ {};

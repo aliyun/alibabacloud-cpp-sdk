@@ -104,15 +104,15 @@ namespace Models
 
   protected:
     // The backup type. Valid values:
-    // * **DataBackupPolicy**: data backup
-    // * **LogBackupPolicy**: log backup
+    // * **DataBackupPolicy**: data backup.
+    // * **LogBackupPolicy**: log backup.
     shared_ptr<string> backupPolicyMode_ {};
     // The backup compression method. Valid values:
-    // * **0**: no compression
-    // * **1**: zlib compression
-    // * **2**: parallel zlib compression
-    // * **4**: QuickLZ compression with database and table restoration enabled
-    // * **8**: QuickLZ compression without database and table restoration supported
+    // * **0**: no compression.
+    // * **1**: zlib compression.
+    // * **2**: parallel zlib compression.
+    // * **4**: quicklz compression with database and table restoration enabled.
+    // * **8**: quicklz compression without database and table restoration supported.
     shared_ptr<string> compressType_ {};
     // The instance ID. You can call the DescribeDBInstances operation to obtain the ID.
     // 
@@ -120,11 +120,11 @@ namespace Models
     shared_ptr<string> DBInstanceId_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
-    // The data retention policy for archived backups of a deleted **ApsaraDB RDS for MySQL** instance. Valid values:
+    // The data retention policy for archive backups of deleted **ApsaraDB RDS for MySQL** instances. Valid values:
     // 
-    // * **None**: does not retain archived backups
-    // * **Lastest**: retains only the last archived backup
-    // * **All**: retains all archived backups
+    // * **None**: do not retain.
+    // * **Lastest**: retain the last one.
+    // * **All**: retain all.
     shared_ptr<string> releasedKeepPolicy_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};

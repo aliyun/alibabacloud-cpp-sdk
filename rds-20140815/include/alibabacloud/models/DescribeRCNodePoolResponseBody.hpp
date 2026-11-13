@@ -202,7 +202,7 @@ namespace Models
       protected:
         // The category of the system cloud disk. Only **cloud_essd** (ESSD) is supported.
         shared_ptr<string> category_ {};
-        // The performance level of the ESSD cloud disk. Valid values:
+        // The performance level of the cloud disk. Valid values:
         // 
         // - **PL0**: A single cloud disk delivers up to 10,000 random read/write IOPS.
         // - **PL1**: A single cloud disk delivers up to 50,000 random read/write IOPS.
@@ -280,14 +280,14 @@ namespace Models
       protected:
         // The category of the data cloud disk. Only **cloud_essd** (ESSD cloud disk) is supported.
         shared_ptr<string> category_ {};
-        // A reserved parameter. This parameter is not supported.
+        // A reserved parameter. This parameter is not currently supported.
         shared_ptr<bool> deleteWithInstance_ {};
-        // Indicates whether the cloud disk is encrypted. Valid values:
+        // Specifies whether to encrypt the cloud disk. Valid values:
         // 
-        // - **true**: The cloud disk is encrypted.
-        // - **false** (default): The cloud disk is not encrypted.
+        // - **true**: yes
+        // - **false** (default): no
         shared_ptr<string> encrypted_ {};
-        // The performance level of the ESSD cloud disk. Valid values:
+        // The performance level of the cloud disk. Valid values:
         // 
         // - **PL0**: A single cloud disk delivers up to 10,000 random read/write IOPS.
         // - **PL1**: A single cloud disk delivers up to 50,000 random read/write IOPS.
@@ -522,18 +522,18 @@ namespace Models
 
 
     protected:
-      // Indicates whether automatic payment is enabled. Valid values:
+      // Specifies whether to enable automatic payment. Valid values:
       // - **true** (default): Automatic payment is enabled. Make sure that your account balance is sufficient.
-      // - **false**: Only an order is generated and no payment is made.
+      // - **false**: An order is generated but no payment is made.
       shared_ptr<bool> autoPay_ {};
-      // Indicates whether auto-renewal is enabled for the instance. Valid values:
+      // Specifies whether to enable auto-renewal for the instance. Valid values:
       // 
-      // * **true** (default): Auto-renewal is enabled.
-      // * **false**: Auto-renewal is disabled.
+      // * **true** (default): yes
+      // * **false**: no
       shared_ptr<bool> autoRenew_ {};
       // The ID of the RDS Custom container cluster.
       shared_ptr<string> clusterId_ {};
-      // Indicates whether joining an ACK cluster is allowed.
+      // Specifies whether the node pool is allowed to join an ACK cluster.
       shared_ptr<string> createMode_ {};
       // The list of data cloud disks.
       shared_ptr<vector<NodePoolList::DataDisk>> dataDisk_ {};
@@ -546,18 +546,18 @@ namespace Models
       // The ID of the image used by the instance.
       shared_ptr<string> imageId_ {};
       // The billing method. Valid values:
-      // * **Prepaid**: Subscription.
-      // * **Postpaid**: Pay-as-you-go.
+      // * **Prepaid**: subscription
+      // * **Postpaid**: pay-as-you-go
       shared_ptr<string> instanceChargeType_ {};
       // The name of the instance.
       shared_ptr<string> instanceName_ {};
       // The instance type.
       shared_ptr<string> instanceType_ {};
-      // A reserved parameter. This parameter is not supported.
+      // A reserved parameter. This parameter is not currently supported.
       shared_ptr<string> internetChargeType_ {};
-      // A reserved parameter. This parameter is not supported.
+      // A reserved parameter. This parameter is not currently supported.
       shared_ptr<int32_t> internetMaxBandwidthOut_ {};
-      // A reserved parameter. This parameter is not supported.
+      // A reserved parameter. This parameter is not currently supported.
       shared_ptr<string> ioOptimized_ {};
       // The name of the key pair.
       shared_ptr<string> keyPairName_ {};
@@ -569,21 +569,21 @@ namespace Models
       shared_ptr<string> password_ {};
       // The subscription duration.
       shared_ptr<int32_t> period_ {};
-      // The unit of the subscription duration for the subscription Billable methods. Valid values:
-      // - **Year**: Year.
-      // - **Month** (default): Month.
+      // The unit of the billing duration for the subscription billing method. Valid values:
+      // - **Year**: year
+      // - **Month** (default): month
       shared_ptr<string> periodUnit_ {};
       // The region ID of the instance.
       shared_ptr<string> regionId_ {};
-      // The ID of the resource group.
+      // The resource group ID.
       shared_ptr<string> resourceGroupId_ {};
-      // A reserved parameter. This parameter is not supported.
+      // A reserved parameter. This parameter is not currently supported.
       shared_ptr<string> securityEnhancementStrategy_ {};
-      // The ID of the security group.
+      // The security group ID.
       shared_ptr<string> securityGroupId_ {};
-      // A reserved parameter. This parameter is not supported.
+      // A reserved parameter. This parameter is not currently supported.
       shared_ptr<string> spotStrategy_ {};
-      // The specifications of the system cloud disk.
+      // The system cloud disk specifications.
       shared_ptr<NodePoolList::SystemDisk> systemDisk_ {};
       // The list of tags.
       shared_ptr<vector<NodePoolList::Tag>> tag_ {};

@@ -450,9 +450,12 @@ namespace Models
 
 
   protected:
+    // The instance ID.
     shared_ptr<string> DBInstanceId_ {};
     shared_ptr<DescribeModifyPGHbaConfigLogResponseBody::HbaLogItems> hbaLogItems_ {};
+    // The number of history records.
     shared_ptr<int32_t> logItemCount_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

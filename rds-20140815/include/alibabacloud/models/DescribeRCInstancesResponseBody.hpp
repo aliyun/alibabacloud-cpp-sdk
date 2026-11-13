@@ -253,8 +253,8 @@ namespace Models
         shared_ptr<string> resourceId_ {};
         // The resource type. Valid values:
         // 
-        // - `ALIYUN::RDS::INSTANCE`: ApsaraDB RDS instance
-        // - `ALIYUN::RDS::CUSTOM`: RDS Custom instance
+        // - `ALIYUN::RDS::INSTANCE`: ApsaraDB RDS instance.
+        // - `ALIYUN::RDS::CUSTOM`: RDS Custom instance.
         shared_ptr<string> resourceType_ {};
         // The tag key.
         shared_ptr<string> tagKey_ {};
@@ -322,8 +322,8 @@ namespace Models
         shared_ptr<string> resourceId_ {};
         // The resource type. Valid values:
         // 
-        // - `ALIYUN::RDS::INSTANCE`: ApsaraDB RDS instance
-        // - `ALIYUN::RDS::CUSTOM`: RDS Custom instance
+        // - `ALIYUN::RDS::INSTANCE`: ApsaraDB RDS instance.
+        // - `ALIYUN::RDS::CUSTOM`: RDS Custom instance.
         shared_ptr<string> resourceType_ {};
         // The tag key.
         shared_ptr<string> tagKey_ {};
@@ -599,34 +599,34 @@ namespace Models
       shared_ptr<string> clusterName_ {};
       // The number of vCPUs.
       shared_ptr<int32_t> cpu_ {};
-      // Specifies whether the instance is allowed to join an ACK cluster. If the parameter settings are **1**, the created instance can be added to an ACK cluster by calling the **AttachRCInstances** API operation to efficiently manage containerized applications. Valid values:
+      // Specifies whether the instance can be added to an ACK cluster. If the parameter settings are **1**, the created instance can be added to an ACK cluster by calling the **AttachRCInstances** API operation to efficiently manage containerized applications. Valid values:
       // 
-      // - **1**: yes
-      // - **0** (default): no
+      // - **1**: yes.
+      // - **0**: no. This is the default value.
       shared_ptr<string> createMode_ {};
       // The database type.
       shared_ptr<string> dbType_ {};
       // The deployment set ID.
       shared_ptr<string> deploymentSetId_ {};
-      // The description.
+      // The description of the instance.
       shared_ptr<string> description_ {};
       // The hostname of the instance.
       shared_ptr<string> ecsHostName_ {};
-      // The time when the instance expires. The time follows the ISO 8601 standard and uses the UTC+0 time zone in the `yyyy-MM-ddTHH:mm:ssZ` format.
+      // The time when the instance expires. The time is displayed in UTC and follows the ISO 8601 standard in the `yyyy-MM-ddTHH:mm:ssZ` format.
       // 
-      // > The expiration time displayed in the console is 8 hours ahead of this time.
+      // > The expiration time displayed in the console is 8 hours ahead of the UTC time.
       shared_ptr<string> expiredTime_ {};
-      // The time when the task was created in GMT.
+      // The time when the instance was created in GMT.
       shared_ptr<string> gmtCreated_ {};
       // The IP address of the host.
       shared_ptr<string> hostIp_ {};
-      // The hostname of the host.
+      // The hostname.
       shared_ptr<string> hostName_ {};
       // The image ID.
       shared_ptr<string> imageId_ {};
-      // The billing method. Valid values:
-      // * **PrePaid**: subscription
-      // * **PostPaid**: pay-as-you-go
+      // The billing method of the instance. Valid values:
+      // * **PrePaid**: subscription.
+      // * **PostPaid**: pay-as-you-go.
       shared_ptr<string> instanceChargeType_ {};
       // The instance ID.
       shared_ptr<string> instanceId_ {};
@@ -646,7 +646,7 @@ namespace Models
       shared_ptr<string> nodeType_ {};
       // The name of the operating system.
       shared_ptr<string> OSName_ {};
-      // The type of the operating system. The operating system can be Windows Server or Linux. Valid values:
+      // The type of the operating system, which can be Windows Server or Linux. Valid values:
       // 
       // - windows
       // - linux
@@ -657,14 +657,14 @@ namespace Models
       shared_ptr<string> regionId_ {};
       // The security group ID.
       shared_ptr<string> securityGroupId_ {};
-      // The bidding strategy for the pay-as-you-go instance. Valid values:
+      // The bidding policy for the pay-as-you-go instance. Valid values:
       // 
       // - **NoSpot**: The instance is a regular pay-as-you-go instance.
       // - **SpotAsPriceGo**: The system automatically places bids based on the current market price.
       shared_ptr<string> spotStrategy_ {};
       // The last start time of the instance. The time is displayed in UTC and follows the ISO 8601 standard in the `yyyy-MM-ddTHH:mmZ` format.
       shared_ptr<string> startTime_ {};
-      // The instance status. Valid values:
+      // The status of the instance. Valid values:
       // 
       // - **Pending**: The instance is being created.
       // - **Running**: The instance is running.
@@ -674,15 +674,15 @@ namespace Models
       // 
       // > The instance status returned by this operation may be delayed. If the status differs from the value returned by the **DescribeRCInstanceAttribute** operation, the value returned by the **DescribeRCInstanceAttribute** operation prevails.
       shared_ptr<string> status_ {};
-      // The stop mode of the instance. KeepCharging indicates the standard mode. StopCharging indicates the economical mode. Not-applicable indicates that the instance does not support the economical mode.
+      // The stop mode of the instance. KeepCharging indicates the standard stop mode. StopCharging indicates the economical stop mode. Not-applicable indicates that the instance does not support the economical stop mode.
       shared_ptr<string> stoppedMode_ {};
-      // The queried instance and tag details.
+      // The details of the queried instances and tags.
       shared_ptr<vector<RCInstances::TagResources>> tagResources_ {};
-      // The tag details.
+      // The details of the tags.
       shared_ptr<vector<RCInstances::Tags>> tags_ {};
       // The VPC attributes.
       shared_ptr<RCInstances::VpcAttributes> vpcAttributes_ {};
-      // The ID of the VPC.
+      // The ID of the virtual private cloud (VPC).
       shared_ptr<string> vpcId_ {};
       // The zone ID.
       shared_ptr<string> zoneId_ {};

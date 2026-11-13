@@ -139,10 +139,9 @@ namespace Models
       shared_ptr<string> cidrBlock_ {};
       // The description of the vSwitch.
       shared_ptr<string> description_ {};
-      // Indicates whether the vSwitch is the default vSwitch.
-      // 
-      // * **true**: The vSwitch is the default vSwitch.
-      // * **false**: The vSwitch is not the default vSwitch.
+      // Indicates whether the vSwitch is the default vSwitch. Valid values:
+      // * **true**: yes
+      // * **false**: no
       shared_ptr<bool> isDefault_ {};
       // The ID of the zone to which the vSwitch belongs.
       shared_ptr<string> izNo_ {};
@@ -151,9 +150,9 @@ namespace Models
       // * **Pending**: The vSwitch is being configured.
       // * **Available**: The vSwitch is available.
       shared_ptr<string> status_ {};
-      // The vSwitch ID.
+      // The ID of the vSwitch.
       shared_ptr<string> vSwitchId_ {};
-      // The vSwitch name.
+      // The name of the vSwitch.
       shared_ptr<string> vSwitchName_ {};
     };
 
@@ -199,13 +198,13 @@ namespace Models
   protected:
     // The current page number.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries per page. This value corresponds to the value specified for the **PageSize** request parameter.
+    // The number of entries per page. The value corresponds to the **PageSize** request parameter.
     shared_ptr<int32_t> pageSize_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The total number of entries returned.
+    // The total number of entries.
     shared_ptr<int32_t> totalCount_ {};
-    // The list of vSwitch information.
+    // The list of vSwitches.
     shared_ptr<vector<DescribeVSwitchesResponseBody::VSwitchs>> vSwitchs_ {};
   };
 

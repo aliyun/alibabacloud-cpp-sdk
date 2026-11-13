@@ -73,9 +73,9 @@ namespace Models
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
     // The network type of the whitelist. Valid values:
-    // * **Classic**: the classic network in enhanced whitelist mode
-    // * **VPC**: the VPC in enhanced whitelist mode
-    // * **MIX**: the standard whitelist mode
+    // * **Classic**: classic network in enhanced whitelist mode
+    // * **VPC**: VPC in enhanced whitelist mode
+    // * **MIX**: standard whitelist mode
     // 
     // By default, the IP addresses in the whitelists of all network types are returned.
     shared_ptr<string> whitelistNetworkType_ {};

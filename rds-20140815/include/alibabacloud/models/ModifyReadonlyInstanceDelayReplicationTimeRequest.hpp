@@ -84,7 +84,7 @@ namespace Models
 
 
   protected:
-    // The ID of the read-only instance. You can call DescribeDBInstances to query the instance ID.
+    // Instance ID of the read-only instance. You can call the DescribeDBInstances operation to query instance ID.
     // 
     // This parameter is required.
     shared_ptr<string> DBInstanceId_ {};
@@ -93,7 +93,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> readSQLReplicationTime_ {};
-    // The ID of the resource group. You can call DescribeDBInstanceAttribute to query the resource group ID.
+    // The ID of the resource group. You can call the DescribeDBInstanceAttribute operation to query the ID.
     shared_ptr<string> resourceGroupId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};

@@ -217,7 +217,7 @@ namespace Models
       // - The name must start with a letter or a Chinese character and can contain letters, Chinese characters, digits, underscores (_), and hyphens (-).
       // - The name cannot start with `http://` or `https://`.
       shared_ptr<string> DBInstanceDescription_ {};
-      // The storage capacity of the new unit node. Unit: GB. The storage capacity increases in increments of 5 GB. For more information about the valid values, see [Primary instance types](https://help.aliyun.com/document_detail/26312.html). You can also call the DescribeAvailableResource operation to query the available storage capacity range for the target instance type.
+      // The storage capacity of the new unit node. Unit: GB. The storage capacity increases in increments of 5 GB. For more information about the valid values, see [Instance types](https://help.aliyun.com/document_detail/26312.html). You can also call the DescribeAvailableResource operation to query the available storage capacity range for the target instance type.
       shared_ptr<int64_t> DBInstanceStorage_ {};
       // The instance storage type. Valid values:
       // * **local_ssd**: Premium Local SSD (recommended).
@@ -232,7 +232,7 @@ namespace Models
       shared_ptr<string> DBInstanceStorageType_ {};
       // The instance type of the new unit node. For more information about the valid values, see [Primary instance types](https://help.aliyun.com/document_detail/26312.html). You can also call the DescribeAvailableResource operation to query the available instance types in the target region.
       shared_ptr<string> dbInstanceClass_ {};
-      // The resolution policy for primary key conflicts that occur during synchronization on the new unit node. Valid values:
+      // The conflict resolution policy for primary key conflicts that occur during synchronization on the new unit node. Valid values:
       // * **overwrite**: overwrites the conflicting primary keys in the destination node.
       // * **interrupt**: interrupts the synchronization task, reports an error, and exits.
       // * **ignore**: ignores the conflicting primary keys in the current node.
@@ -245,7 +245,7 @@ namespace Models
       // * **large**
       // * **micro**
       // 
-      // > For more information about the differences between specifications, see [Data synchronization link specifications](https://help.aliyun.com/document_detail/26605.html).
+      // > For more information about the differences between the specifications, see [Data synchronization link specifications](https://help.aliyun.com/document_detail/26605.html).
       // 
       // This parameter is required.
       shared_ptr<string> dtsInstanceClass_ {};
@@ -267,9 +267,9 @@ namespace Models
       // 
       // This parameter is required.
       shared_ptr<string> regionID_ {};
-      // The [IP whitelist](https://help.aliyun.com/document_detail/43185.html) of the new unit node. Separate multiple entries with commas (,). Duplicate entries are not allowed. A maximum of 1,000 entries are supported. The following two formats are supported:
+      // The [IP whitelist](https://help.aliyun.com/document_detail/43185.html) of the new unit node. Separate multiple entries with commas (,). Duplicate entries are not allowed. You can add up to 1,000 entries. The following formats are supported:
       // * IP address format, such as `10.10.10.10`.
-      // * CIDR block format, such as `10.10.10.10/24` (Classless Inter-Domain Routing, where **24** indicates the length of the prefix in the address, ranging from **1** to **32**).
+      // * CIDR format, such as `10.10.10.10/24`. **24** indicates the length of the prefix in the CIDR block, and the valid values are **1** to **32**.
       shared_ptr<string> securityIPList_ {};
       // The vSwitch ID of the new unit node.
       shared_ptr<string> vSwitchID_ {};
@@ -277,11 +277,11 @@ namespace Models
       shared_ptr<string> vpcID_ {};
       // The zone ID of the new unit node. You can call the DescribeRegions operation to query the zone ID.
       shared_ptr<string> zoneID_ {};
-      // The active zone ID of the secondary node for the new unit node. You can call the DescribeRegions operation to query the active zone ID.
+      // The active zone ID of the secondary node for the new unit node. You can invoke the DescribeRegions operation to query the active zone ID.
       // * If this value is the same as the **ZoneId** of the current unit node, it is a single-zone deployment.
       // * If this value is different from the **ZoneId** of the current unit node, it is a multi-zone deployment.
       shared_ptr<string> zoneIDSlave1_ {};
-      // The active zone ID of the logger node for the new unit node. You can call the DescribeRegions operation to query the active zone ID.
+      // The active zone ID of the logger node for the new unit node. You can invoke the DescribeRegions operation to query the active zone ID.
       // * If this value is the same as the **ZoneId** of the current unit node, it is a single-zone deployment.
       // * If this value is different from the **ZoneId** of the current unit node, it is a multi-zone deployment.
       shared_ptr<string> zoneIDSlave2_ {};
@@ -402,10 +402,10 @@ namespace Models
 
 
   protected:
-    // The ID of the primary instance. You can call the DescribeDBInstances operation to query the ID. This instance serves as the central node (primary node) of the ApsaraDB RDS global active database cluster.
+    // The ID of the primary instance. You can call the DescribeDBInstances operation to query the instance ID. This instance serves as the central node (primary node) of the ApsaraDB RDS GAD cluster.
     // 
-    // > * A primary instance ID can serve as the central node of only one ApsaraDB RDS global active database cluster.
-    // > * Only primary ApsaraDB RDS for MySQL instances in the China (Hangzhou), China (Shanghai), China (Qingdao), China (Beijing), China (Zhangjiakou), China (Shenzhen), and China (Chengdu) regions can serve as the central node of an ApsaraDB RDS global active database cluster.
+    // > * A primary instance ID can serve as the central node of only one ApsaraDB RDS GAD cluster.
+    // > * Only primary ApsaraDB RDS for MySQL instances in the China (Hangzhou), China (Shanghai), China (Qingdao), China (Beijing), China (Zhangjiakou), China (Shenzhen), and China (Chengdu) regions can serve as the central node of an ApsaraDB RDS GAD cluster.
     // 
     // This parameter is required.
     shared_ptr<string> centralDBInstanceId_ {};
@@ -413,7 +413,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> centralRdsDtsAdminAccount_ {};
-    // The password of the privileged account for the central node.
+    // The password of the privileged account of the central node.
     // 
     // This parameter is required.
     shared_ptr<string> centralRdsDtsAdminPassword_ {};
@@ -421,10 +421,10 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> centralRegionId_ {};
-    // The JSON array of database information in the central node. All database information in the array is used for synchronization to the current unit node (secondary node). Parameter description:
+    // The JSON array of database information in the central node. All database information in the array is used for synchronization to the current unit node (secondary node). Metric description:
     // * **name**: the name of the database.
-    // * **all**: specifies whether to synchronize all data in the current database or table. Valid values: **true** and **false**.
-    // * **Table**: the name of the table. If the **all** parameter is set to **false**, you must also include the names of the tables to be synchronized in the JSON array.
+    // * **all**: specifies whether to perform synchronization for all data in the current database or table. Valid values: **true** and **false**.
+    // * **Table**: the name of the table. If the **all** parameter is set to **false**, you must also include the names of the tables that require synchronization in the JSON array.
     // 
     // Example: `{
     //    "testdb": {
@@ -445,7 +445,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> DBList_ {};
-    // The name of the ApsaraDB RDS global active database cluster.
+    // The name of the ApsaraDB RDS GAD cluster.
     shared_ptr<string> description_ {};
     // The resource group ID.
     shared_ptr<string> resourceGroupId_ {};

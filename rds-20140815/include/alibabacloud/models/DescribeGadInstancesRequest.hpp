@@ -57,15 +57,16 @@ namespace Models
 
 
   protected:
-    // The ID of the GAD cluster.
-    // * If you do not specify this parameter, the IDs of all GAD clusters under the current account are returned.
+    // The ID of the ApsaraDB RDS global active database cluster.
+    // * If you do not specify this parameter, the IDs of all clusters under the current account are returned.
     // * If you specify this parameter, the details of the specified cluster are returned.
     // 
-    // > You can leave this parameter empty in the first call to obtain the IDs of all GAD clusters under the current account, and then specify a cluster ID to view the details of the cluster.
+    // 
+    // > You can leave this parameter empty in the first call to obtain the IDs of all clusters under the current account, and then specify a cluster ID to view the details of the cluster.
     shared_ptr<string> gadInstanceName_ {};
     // The region ID. You can call the DescribeRegions operation to query the region ID.
     shared_ptr<string> regionId_ {};
-    // The resource group ID.
+    // The ID of the resource group.
     shared_ptr<string> resourceGroupId_ {};
   };
 

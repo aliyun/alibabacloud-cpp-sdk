@@ -169,7 +169,7 @@ namespace Models
 
 
   protected:
-    // None.
+    // The list of import tasks.
     shared_ptr<vector<ListImportTasksResponseBody::Items>> items_ {};
     // The number of entries per page. Valid values: **1 to 100**.
     // 

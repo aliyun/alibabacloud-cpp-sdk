@@ -95,9 +95,9 @@ namespace Models
     shared_ptr<string> regionId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
-    // The availability check method of the instance. Valid values:
-    // - **SHORT**: Short connection.
-    // - **LONG**: Long connection.
+    // The availability detection method of the instance. Valid values:
+    // - **SHORT**: short connection
+    // - **LONG**: long connection
     shared_ptr<string> tcpConnectionType_ {};
   };
 

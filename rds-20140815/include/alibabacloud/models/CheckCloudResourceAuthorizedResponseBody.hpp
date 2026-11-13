@@ -63,7 +63,7 @@ namespace Models
     shared_ptr<int32_t> authorizationState_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The global resource descriptor of the role, which is used to specify a specific role. For details, see [RAM role overview](https://help.aliyun.com/document_detail/93689.html).
+    // The global resource descriptor of the role, used to specify a specific role. For details, see [RAM role overview](https://help.aliyun.com/document_detail/93689.html).
     shared_ptr<string> roleArn_ {};
   };
 

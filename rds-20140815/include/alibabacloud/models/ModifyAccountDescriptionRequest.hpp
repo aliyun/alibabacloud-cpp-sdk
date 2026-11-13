@@ -94,16 +94,16 @@ namespace Models
 
 
   protected:
-    // The description of the account. The description must be 2 to 256 characters in length. It must start with a Chinese character or a letter and can contain digits, Chinese characters, letters, underscores (_), and hyphens (-).
-    // > The description cannot start with http:// or https://.
+    // The account description. It must be 2 to 256 characters in length. It must start with a Chinese character or an English letter and can contain digits, Chinese characters, English letters, underscores (_), and hyphens (-).
+    // >It cannot start with http:// or https://.
     // 
     // This parameter is required.
     shared_ptr<string> accountDescription_ {};
-    // The account name. You can call DescribeAccounts to obtain the account name.
+    // The name of the account. You can call the DescribeAccounts operation to query the account name.
     // 
     // This parameter is required.
     shared_ptr<string> accountName_ {};
-    // The instance ID. You can call DescribeDBInstances to obtain the instance ID.
+    // The instance ID. You can call the DescribeDBInstances operation to query the instance ID.
     // 
     // This parameter is required.
     shared_ptr<string> DBInstanceId_ {};

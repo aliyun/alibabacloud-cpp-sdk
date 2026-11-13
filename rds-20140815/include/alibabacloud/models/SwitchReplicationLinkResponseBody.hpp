@@ -66,7 +66,7 @@ namespace Models
 
 
   protected:
-    // The instance ID of the disaster recovery instance.
+    // The disaster recovery instance ID.
     shared_ptr<string> DBInstanceId_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

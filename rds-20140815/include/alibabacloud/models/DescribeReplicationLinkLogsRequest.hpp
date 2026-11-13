@@ -92,13 +92,13 @@ namespace Models
     shared_ptr<int64_t> pageNumber_ {};
     // The maximum number of entries per page.
     shared_ptr<int64_t> pageSize_ {};
-    // The task ID. This ID is returned when you call the **CreateReplicationLink** operation to create a disaster recovery instance.
+    // The task ID. This is the task ID returned when you call the **CreateReplicationLink** operation to create a disaster recovery instance.
     shared_ptr<int64_t> taskId_ {};
-    // The task name. This is the name of the task when you call the **CreateReplicationLink** operation to create a disaster recovery instance.
+    // The task name. This is the task name specified when you call the **CreateReplicationLink** operation to create a disaster recovery instance.
     shared_ptr<string> taskName_ {};
     // The task type. Valid values:
-    // - **create**: Creates a synchronization link.
-    // - **create-dryrun**: Performs a precheck for creating a synchronization link.
+    // - **create**: Creates a replication link.
+    // - **create-dryrun**: Performs a precheck for creating a replication link.
     // 
     // This parameter is required.
     shared_ptr<string> taskType_ {};

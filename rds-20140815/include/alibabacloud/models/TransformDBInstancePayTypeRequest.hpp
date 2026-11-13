@@ -151,36 +151,36 @@ namespace Models
   protected:
     // Specifies whether to enable auto-renewal. Valid values:
     // 
-    // * **true**: Enables auto-renewal.
-    // * **false**: Disables auto-renewal.
+    // * **true**: enables auto-renewal.
+    // * **false**: disables auto-renewal.
     // 
     // > * This parameter takes effect only when you change the billing method from pay-as-you-go to subscription.
     // > * Any string other than **true** is processed as **false**.
     shared_ptr<string> autoRenew_ {};
     // Specifies whether to use vouchers to offset fees. Valid values:
     // 
-    // - **true**: Uses vouchers.
-    // - **false**: Does not use vouchers. This is the default value.
+    // - **true**: uses vouchers.
+    // - **false**: does not use vouchers. This is the default value.
     shared_ptr<bool> autoUseCoupon_ {};
-    // The extended business parameters.
+    // The business extension parameters.
     shared_ptr<string> businessInfo_ {};
-    // The client token that is used to ensure the idempotence of the request and prevent duplicate submissions. You can use the client to generate the value, but you must ensure that it is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length.
+    // Ensures the idempotence of the request and prevents duplicate requests. The client generates the value of this parameter. The value must be unique across different requests and can be up to 64 ASCII characters in length. The value cannot contain non-ASCII characters.
     shared_ptr<string> clientToken_ {};
-    // Instance ID of the instance. You can call the DescribeDBInstances operation to query instance ID.
+    // The instance ID. You can call the DescribeDBInstances operation to query the ID.
     // 
     // This parameter is required.
     shared_ptr<string> DBInstanceId_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
     // The billing method to which the instance is changed. Valid values:
-    // * **Postpaid**: Pay-as-you-go.
-    // * **Prepaid**: Subscription.
+    // * **Postpaid**: pay-as-you-go
+    // * **Prepaid**: subscription
     // 
     // This parameter is required.
     shared_ptr<string> payType_ {};
-    // The subscription type of the subscription instance. Valid values:
-    // * **Year**: Yearly subscription.
-    // * **Month**: Monthly subscription.
+    // Specifies the subscription type of the subscription instance. Valid values:
+    // * **Year**: yearly subscription
+    // * **Month**: monthly subscription
     // 
     // > This parameter is required if the **PayType** parameter is set to **Prepaid**.
     shared_ptr<string> period_ {};
@@ -188,9 +188,9 @@ namespace Models
     shared_ptr<string> promotionCode_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
-    // The subscription duration. Valid values:
-    // * If the **Period** parameter is set to **Year**, the value of the UsedTime parameter ranges from **1** to **5**.
-    // * If the **Period** parameter is set to **Month**, the value of the UsedTime parameter ranges from **1** to **11**.
+    // Specifies the subscription duration. Valid values:
+    // * If the **Period** parameter is set to **Year**, set the value to **1** to **5**.
+    // * If the **Period** parameter is set to **Month**, set the value to **1** to **11**.
     // 
     // > This parameter is required if the **PayType** parameter is set to **Prepaid**.
     shared_ptr<int32_t> usedTime_ {};

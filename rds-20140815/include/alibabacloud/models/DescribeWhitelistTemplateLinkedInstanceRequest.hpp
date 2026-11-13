@@ -75,7 +75,7 @@ namespace Models
 
 
   protected:
-    // The region ID. You can call the DescribeRegions operation to query the region ID.
+    // The region ID. You can call the DescribeRegions operation to query the ID.
     shared_ptr<string> regionId_ {};
     // The ID of the resource group. This parameter can be left empty.
     shared_ptr<string> resourceGroupId_ {};

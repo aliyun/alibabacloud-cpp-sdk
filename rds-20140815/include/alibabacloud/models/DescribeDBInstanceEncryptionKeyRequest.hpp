@@ -118,12 +118,12 @@ namespace Models
     shared_ptr<string> encryptionKey_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
-    // The region ID of the instance. You can call the DescribeRegions operation to query the region ID.
+    // The region ID of the instance. You can call the DescribeRegions operation to obtain the region ID.
     shared_ptr<string> regionId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
     shared_ptr<string> securityToken_ {};
-    // The ID of the destination region. You can call the DescribeRegions operation to query the region ID.
+    // The ID of the destination region. You can call the DescribeRegions operation to obtain the region ID.
     shared_ptr<string> targetRegionId_ {};
   };
 

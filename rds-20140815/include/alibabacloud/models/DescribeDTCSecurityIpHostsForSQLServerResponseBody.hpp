@@ -149,7 +149,7 @@ namespace Models
     // The number of entries in the distributed transaction whitelist.
     shared_ptr<string> ipHostPairNum_ {};
     shared_ptr<DescribeDTCSecurityIpHostsForSQLServerResponseBody::Items> items_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

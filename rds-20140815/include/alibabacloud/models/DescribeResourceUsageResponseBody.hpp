@@ -176,15 +176,15 @@ namespace Models
 
 
   protected:
-    // The storage space occupied by archive backups. Unit: bytes.
+    // The storage space occupied by archived backups. Unit: bytes.
     shared_ptr<int64_t> archiveBackupSize_ {};
-    // The total storage space occupied by data backups, excluding archive backups. Unit: bytes.
+    // The total storage space occupied by data backups, excluding archived backups. Unit: bytes.
     // 
     // > For **SQL Server** instances, this parameter indicates the total size of physical backups and snapshot backups.
     shared_ptr<int64_t> backupDataSize_ {};
-    // The storage space occupied by snapshot backups of **SQL Server** instances. Unit: bytes. A value of 0 indicates that no data is available.
+    // The storage space occupied by snapshot backups for **SQL Server** instances. Unit: bytes. A value of 0 indicates that no data is available.
     shared_ptr<string> backupEcsSnapshotSize_ {};
-    // The total storage space occupied by log backups, excluding archive backups. Unit: bytes.
+    // The total storage space occupied by log backups, excluding archived backups. Unit: bytes.
     shared_ptr<int64_t> backupLogSize_ {};
     // The size of data files in backup sets stored in OSS. Unit: bytes. A value of 0 indicates that no data is available.
     // 
@@ -202,11 +202,11 @@ namespace Models
     shared_ptr<int64_t> dataSize_ {};
     // The used storage space, which is the sum of DataSize and LogSize. Unit: bytes. A value of -1 indicates that no data is available.
     shared_ptr<int64_t> diskUsed_ {};
-    // The database engine.
+    // The database engine type.
     shared_ptr<string> engine_ {};
     // The storage space occupied by logs. Unit: bytes. A value of -1 indicates that no data is available.
     shared_ptr<int64_t> logSize_ {};
-    // The storage space occupied by backups that you are billed for after the free quota is deducted. Unit: bytes.
+    // The storage space occupied by backups that are billed after the free quota is deducted. Unit: bytes.
     shared_ptr<int64_t> paidBackupSize_ {};
     // The ID of the request.
     shared_ptr<string> requestId_ {};

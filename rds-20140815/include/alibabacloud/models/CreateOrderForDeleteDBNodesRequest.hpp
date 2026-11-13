@@ -181,15 +181,14 @@ namespace Models
   protected:
     // Specifies whether to enable automatic payment. Valid values:
     // 
-    // 1. **true**: enables automatic payment. You must ensure that your account balance is sufficient.
+    // - **true**: Enables automatic payment. You must ensure that your account balance is sufficient.
+    // - **false**: Generates an unpaid order without deducting fees.
     // 
-    // 1. **false**: generates an unpaid order without deducting fees.
-    // 
-    // > Default value: true. If your payment method has an insufficient balance, you can change the Settings of the AutoPay parameter to false. In this case, an unpaid order is generated, and you can logon to the ApsaraDB RDS console to pay for the order.
+    // Default value: true. If your payment method has an insufficient balance, you can set the AutoPay parameter to false to generate an unpaid order. Then, you can log on to the ApsaraDB RDS console to complete the payment.
     shared_ptr<bool> autoPay_ {};
     // The business extension parameters.
     shared_ptr<string> businessInfo_ {};
-    // The client token that is used to ensure the idempotence of the request and prevent duplicate submissions. You can use the client to generate the value, but you must ensure that it is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length.
+    // The client token that is used to ensure the idempotence of the request and prevent duplicate submissions. You can use the client to generate the value, but you must ensure that it is unique among different requests. The token can be up to 64 characters in length and cannot contain non-ASCII characters.
     shared_ptr<string> clientToken_ {};
     // The commodity code. Valid values:
     // 
@@ -208,9 +207,7 @@ namespace Models
     shared_ptr<string> DBInstanceId_ {};
     // The list of node IDs.
     shared_ptr<vector<string>> DBNodeId_ {};
-    // The current database engine version. Valid values:
-    // 
-    // MySQL: **5.5, 5.6, 5.7, and 8.0**
+    // The current database engine version. Valid values for MySQL: **5.5**, **5.6**, **5.7**, and **8.0**.
     shared_ptr<string> engineVersion_ {};
     // The database node type. Valid values:
     // - **Master**: primary node

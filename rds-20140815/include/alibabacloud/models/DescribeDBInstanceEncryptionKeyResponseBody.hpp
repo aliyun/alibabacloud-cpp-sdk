@@ -172,7 +172,7 @@ namespace Models
       shared_ptr<string> aliasName_ {};
       // The creator of the key.
       shared_ptr<string> creator_ {};
-      // The estimated time when the key is deleted. Format: yyyy-MM-ddTHH:mm:ssZ (UTC).
+      // The scheduled deletion time of the key. Format: yyyy-MM-ddTHH:mm:ssZ (UTC).
       shared_ptr<string> deleteDate_ {};
       // The description of the key.
       shared_ptr<string> description_ {};
@@ -192,10 +192,9 @@ namespace Models
       shared_ptr<string> materialExpireTime_ {};
       // The source of the key.
       shared_ptr<string> origin_ {};
-      // The usage of the key:
-      // 
-      // - **TDE**: transparent data encryption.
-      // - **DiskEncryption**: cloud disk encryption.
+      // The usage scenario of the key. Valid values:
+      // - **TDE**: transparent data encryption
+      // - **DiskEncryption**: cloud disk encryption
       shared_ptr<string> usedBy_ {};
     };
 
@@ -277,7 +276,7 @@ namespace Models
   protected:
     // The creator of the key.
     shared_ptr<string> creator_ {};
-    // The estimated time when the key is deleted. Format: yyyy-MM-ddTHH:mm:ssZ (UTC).
+    // The scheduled deletion time of the key. Format: yyyy-MM-ddTHH:mm:ssZ (UTC).
     shared_ptr<string> deleteDate_ {};
     // The description of the key.
     shared_ptr<string> description_ {};

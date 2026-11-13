@@ -229,16 +229,16 @@ namespace Models
       // - **After**: Upgrade after the cutover.
       // - **Before**: Upgrade before the cutover.
       shared_ptr<string> collectStatMode_ {};
-      // The detailed information of the task.
+      // The details of the task.
       shared_ptr<string> detail_ {};
       // The end time of the major engine version upgrade.
       // 
-      // The value is a UNIX timestamp. Unit: milliseconds.
+      // The time is displayed as a UNIX timestamp. Unit: milliseconds.
       shared_ptr<string> endTime_ {};
-      // The final result of the task.
-      // * **Success**: Successful.
-      // * **Failed**: Failed.
-      // * **Running**: In progress.
+      // Indicates whether the task is successful.
+      // * **Success**: The task is successful.
+      // * **Failed**: The task failed.
+      // * **Running**: The task is running.
       shared_ptr<string> result_ {};
       // The ID of the original instance before the upgrade.
       shared_ptr<string> sourceInsName_ {};
@@ -246,15 +246,15 @@ namespace Models
       shared_ptr<string> sourceMajorVersion_ {};
       // The start time of the major engine version upgrade.
       // 
-      // The value is a UNIX timestamp. Unit: milliseconds.
+      // The time is displayed as a UNIX timestamp. Unit: milliseconds.
       shared_ptr<string> startTime_ {};
-      // The end time of the switchover from the original instance to the new instance.
+      // The end time of the instance switchover from the original instance to the new instance.
       // 
-      // The value is a UNIX timestamp. Unit: milliseconds.
+      // The time is displayed as a UNIX timestamp. Unit: milliseconds.
       shared_ptr<string> switchEndTime_ {};
-      // The time when the service is switched over from the original instance to the new instance.
+      // The time of the instance switchover from the original instance to the new instance.
       // 
-      // The value is a UNIX timestamp. Unit: milliseconds.
+      // The time is displayed as a UNIX timestamp. Unit: milliseconds.
       shared_ptr<string> switchTime_ {};
       // The ID of the new instance after the upgrade.
       shared_ptr<string> targetInsName_ {};
@@ -271,8 +271,8 @@ namespace Models
       // The upgrade mode.
       // 
       // Valid values:
-      // - **clone**: No cutover.
-      // - **switch**: Cutover.
+      // - **clone**: No cutover is performed.
+      // - **switch**: A cutover is performed.
       shared_ptr<string> upgradeMode_ {};
       // Indicates whether a cutover is performed.
       // 
@@ -280,17 +280,17 @@ namespace Models
       // - **false**: No.
       shared_ptr<bool> cutOver_ {};
       // The estimated synchronization time for the logical replication latency. Unit: seconds.
-      // > This parameter is only applicable to **zero-downtime** major engine version upgrades.
+      // > This parameter is applicable only to **zero-downtime** major engine version upgrades.
       shared_ptr<int32_t> totalLogicRepDelayTime_ {};
       // The logical replication latency. Unit: MB.
       // 
-      // > This parameter is only applicable to **zero-downtime** major engine version upgrades.
+      // > This parameter is applicable only to **zero-downtime** major engine version upgrades.
       shared_ptr<int32_t> totalLogicRepLatencyMB_ {};
-      // The temporary **internal endpoint** of the higher-version instance for zero-downtime major engine version upgrades. The format is `****.pg.rds.aliyuncs.com`.
-      // > This parameter is only applicable to **zero-downtime** major engine version upgrades.
+      // The temporary internal endpoint of the new instance with a later major engine version during a zero-downtime major engine version upgrade. The format is `****.pg.rds.aliyuncs.com`.
+      // > This parameter is applicable only to **zero-downtime** major engine version upgrades.
       shared_ptr<string> zeroDownTimeConnectionString_ {};
-      // The port of the higher-version instance, which is the same as the port of the source instance.
-      // > This parameter is only applicable to **zero-downtime** major engine version upgrades.
+      // The port of the new instance with a later major engine version, which is the same as the port of the source instance.
+      // > This parameter is applicable only to **zero-downtime** major engine version upgrades.
       shared_ptr<int32_t> zeroDownTimePort_ {};
     };
 

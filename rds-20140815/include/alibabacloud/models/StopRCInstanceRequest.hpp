@@ -66,11 +66,11 @@ namespace Models
 
 
   protected:
-    // Specifies whether to force a shutdown. Valid values:
+    // Specifies whether to force shutdown. Valid values:
     // 
-    // - **true**: Forces a shutdown.
+    // -   **true**: Forces the instance to shut down.
     // 
-    // - **false** (default): Performs a normal shutdown.
+    // -   **false** (default): Shuts down the instance normally.
     shared_ptr<bool> forceStop_ {};
     // The instance ID.
     // 
@@ -80,12 +80,12 @@ namespace Models
     shared_ptr<string> regionId_ {};
     // The stop mode configured when the instance is stopped. Valid values:
     // 
-    //   - StopCharging: Economical mode. After economical mode is enabled:
+    //   - StopCharging: economical mode. After economical mode is enabled:
     //     - Billing for compute resources is suspended.
     //     - Billing for the system cloud disk and data cloud disks continues.
-    //     - Because compute resources are reclaimed, the instance may fail to start due to insufficient inventory. Try again later or change the instance type. 
+    //     - Because compute resources are reclaimed, the instance may fail to start due to insufficient resources. In this case, try again later or change the instance type. 
     // 
-    //   - KeepCharging: Standard mode. The instance continues to be billed after it is stopped.
+    //   - KeepCharging: standard mode. The instance continues to be billed after it is stopped.
     shared_ptr<string> stoppedMode_ {};
   };
 

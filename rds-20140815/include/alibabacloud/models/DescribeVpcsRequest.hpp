@@ -146,7 +146,7 @@ namespace Models
     shared_ptr<int32_t> pageNumber_ {};
     // The number of entries per page. Default value: 20.
     shared_ptr<int32_t> pageSize_ {};
-    // The cloud product type.
+    // The cloud service type.
     shared_ptr<string> product_ {};
     // The region ID.
     shared_ptr<string> regionId_ {};

@@ -194,13 +194,13 @@ namespace Models
 
   protected:
     shared_ptr<DescribeDBInstancesByExpireTimeResponseBody::Items> items_ {};
-    // The page number. Valid values: an integer greater than **0** and less than or equal to the maximum value of the Integer data type.
+    // The page number. Valid values: any integer greater than **0** and up to the maximum value of the Integer type.
     // 
     // Default value: **1**.
     shared_ptr<int32_t> pageNumber_ {};
     // The number of instances on the current page.
     shared_ptr<int32_t> pageRecordCount_ {};
-    // The request ID.
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
     // The total number of entries.
     shared_ptr<int32_t> totalRecordCount_ {};

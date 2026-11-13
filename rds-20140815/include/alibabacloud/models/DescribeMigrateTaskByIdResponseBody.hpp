@@ -121,32 +121,31 @@ namespace Models
 
 
   protected:
-    // The type of the OSS backup migration task. Valid values:
+    // The type of the backup-to-cloud task. Valid values:
     // 
-    // - **FULL**: restores data by using a full log file.
-    // - **UPDF**: restores incremental data by using differential or log log files.
+    // - **FULL**: restores data by using a full backup file.
+    // - **UPDF**: restores incremental data by using an incremental backup file or a log file.
     shared_ptr<string> backupMode_ {};
-    // The time when the OSS backup migration task was created. The time follows the ISO 8601 standard in the <i>yyyy-MM-dd</i>T<i>HH:mm:ss</i>Z format. The time is displayed in UTC.
+    // The time when the backup-to-cloud task was created. The time follows the <i>yyyy-MM-dd</i>T<i>HH:mm:ss</i>Z format. The time is displayed in UTC.
     shared_ptr<string> createTime_ {};
     // The instance ID.
     shared_ptr<string> DBInstanceName_ {};
     // The name of the database.
     shared_ptr<string> DBName_ {};
-    // The description of the OSS backup migration task.
+    // The description of the backup-to-cloud task.
     shared_ptr<string> description_ {};
-    // The time when the OSS backup migration task ended. The time follows the ISO 8601 standard in the <i>yyyy-MM-dd</i>T<i>HH:mm:ss</i>Z format. The time is displayed in UTC.
+    // The time when the backup-to-cloud task ended. The time follows the <i>yyyy-MM-dd</i>T<i>HH:mm:ss</i>Z format. The time is displayed in UTC.
     shared_ptr<string> endTime_ {};
     // Specifies whether the import overwrites the existing database. Valid values: 
     // 
-    // - **False**: no
-    // - **True**: yes
+    // - **False**: no.
+    // - **True**: yes.
     shared_ptr<string> isDBReplaced_ {};
-    // The ID of the OSS backup migration task.
+    // The ID of the OSS backup-to-cloud task.
     shared_ptr<string> migrateTaskId_ {};
     // The ID of the request.
     shared_ptr<string> requestId_ {};
-    // The status of the OSS backup migration task. Valid values:
-    // 
+    // The status of the backup-to-cloud task. Valid values:
     // - **NoStart**: The task is not started.
     // - **Running**: The task is running.
     // - **Success**: The task is successful.

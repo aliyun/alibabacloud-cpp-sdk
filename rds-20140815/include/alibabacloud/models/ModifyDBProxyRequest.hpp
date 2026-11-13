@@ -230,9 +230,9 @@ namespace Models
   protected:
     // Specifies whether to enable or disable the database proxy. Valid values:
     // 
-    // * **Startup**: enables the proxy service.
-    // * **Shutdown**: disables the proxy service.
-    // * **Modify**: modifies the proxy service.
+    // * **Startup**: Enables the proxy service.
+    // * **Shutdown**: Disables the proxy service.
+    // * **Modify**: Modifies the proxy service.
     // 
     // This parameter is required.
     shared_ptr<string> configDBProxyService_ {};
@@ -244,13 +244,13 @@ namespace Models
     shared_ptr<string> DBProxyEngineType_ {};
     // The number of proxy instances to enable. Valid values: **1** to **16**. Default value: **1**.
     // 
-    // > More proxy instances can process more requests. You can check the load of proxy instances based on monitoring data and specify an appropriate number of proxy instances.
+    // > More proxy instances can process more requests. You can check the load of the proxy instances based on monitoring data and then adjust the Settings to an appropriate number of proxy instances.
     shared_ptr<string> DBProxyInstanceNum_ {};
     // The type of the database proxy instance. Valid values:
     // - **common**: general-purpose database proxy
-    // - **exclusive**: dedicated proxy (default)
+    // - **exclusive**: dedicated database proxy (default)
     shared_ptr<string> DBProxyInstanceType_ {};
-    // The proxy nodes.
+    // The list of proxy nodes.
     shared_ptr<vector<ModifyDBProxyRequest::DBProxyNodes>> DBProxyNodes_ {};
     // The network type of the instance. Only VPC is supported. Valid value: **VPC**.
     // 
@@ -258,10 +258,10 @@ namespace Models
     shared_ptr<string> instanceNetworkType_ {};
     shared_ptr<int64_t> ownerId_ {};
     // Specifies whether to enable connection keep-alive. Valid values:
-    // - **Enabled**: enables connection keep-alive.
-    // - **Disabled**: disables connection keep-alive.
+    // - **Enabled**: Enables connection keep-alive.
+    // - **Disabled**: Disables connection keep-alive.
     // 
-    // > - This parameter is supported only for ApsaraDB RDS for MySQL.
+    // > - Only ApsaraDB RDS for MySQL supports this parameter.
     // > - When you modify the connection keep-alive status, set **ConfigDBProxyService** to **Modify**.
     shared_ptr<string> persistentConnectionStatus_ {};
     // The region ID. You can call the DescribeRegions operation to query the region ID.
@@ -270,11 +270,11 @@ namespace Models
     shared_ptr<string> resourceGroupId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
-    // The ID of the VPC to which the instance belongs. You can call the DescribeDBInstanceAttribute operation to query the VPC ID.
+    // The ID of the VPC to which the instance belongs. You can invoke the DescribeDBInstanceAttribute operation to query the VPC ID.
     // 
     // > This parameter is required when you enable the database proxy.
     shared_ptr<string> VPCId_ {};
-    // The ID of the vSwitch to which the instance belongs. You can call the DescribeDBInstanceAttribute operation to query the vSwitch ID.
+    // The ID of the vSwitch to which the instance belongs. You can invoke the DescribeDBInstanceAttribute operation to query the vSwitch ID.
     // 
     // > This parameter is required when you enable the database proxy.
     shared_ptr<string> vSwitchId_ {};

@@ -342,9 +342,9 @@ namespace Models
 
 
   protected:
-    // The instance series. Valid values:
+    // The instance edition. Valid values:
     // - **Basic**: Basic Edition
-    // - **HighAvailability**: high availability series
+    // - **HighAvailability**: High-availability Edition
     // - **cluster**: Cluster Edition
     // - **serverless_basic**: Serverless
     shared_ptr<string> category_ {};
@@ -390,15 +390,15 @@ namespace Models
     // * **True**: The instance has expired.
     // * **False**: The instance has not expired.
     shared_ptr<string> expired_ {};
-    // The JSON string of instance filter parameters and their values.
+    // The filter conditions and their values in JSON format.
     shared_ptr<string> filter_ {};
     // Specifies whether to return the instance edition information. Valid values:
     // * **0**: no
     // * **1**: yes
     shared_ptr<int32_t> instanceLevel_ {};
     // The network type of the instance. Valid values:
-    // * **VPC**: VPC
-    // * **Classic**: classic network
+    // * **VPC**: instances in a VPC
+    // * **Classic**: instances in the classic network
     // 
     // By default, instances of all network types are returned.
     shared_ptr<string> instanceNetworkType_ {};
@@ -407,11 +407,11 @@ namespace Models
     // Default value: **30**.
     // > If you specify this parameter, the **PageSize** and **PageNumber** parameters become invalid.
     shared_ptr<int32_t> maxResults_ {};
-    // The pagination token. The value is the **NextToken** parameter value returned from the previous call to the **DescribeDBInstances** operation. If the results are displayed across multiple pages, you can pass this value in the next call to display the next page.
+    // The pagination token. The value is the **NextToken** parameter value returned from the previous call to the **DescribeDBInstances** operation. If the results are paginated, you can pass this value in the next call to retrieve the next page of results.
     shared_ptr<string> nextToken_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
-    // The page number. Valid values: any integer greater than 0 and less than or equal to the maximum value of the Integer type.
+    // The page number. Valid values: any integer greater than 0 and less than or equal to the maximum integer value.
     // 
     // Default value: **1**.
     shared_ptr<int32_t> pageNumber_ {};
@@ -423,9 +423,9 @@ namespace Models
     // * **Postpaid**: pay-as-you-go
     // * **Prepaid**: subscription
     shared_ptr<string> payType_ {};
-    // Reserved parameter. You do not need to configure this parameter.
+    // Reserved parameter. No configuration is required.
     shared_ptr<bool> queryAutoRenewal_ {};
-    // The region ID. You can call the DescribeRegions operation to obtain the region ID.
+    // The region ID. You can call the DescribeRegions operation to query available regions.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
@@ -433,9 +433,9 @@ namespace Models
     shared_ptr<string> resourceGroupId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
-    // The search key. You can perform a fuzzy search based on the instance ID or instance description.
+    // The search key. You can perform a fuzzy search based on the instance ID or description.
     shared_ptr<string> searchKey_ {};
-    // The tags that are added to the instances to be queried, including TagKey and TagValue. You can specify up to 5 tags in a single request. Format: {"key1":"value1","key2":"value2"...}. If an instance matches any of the specified tags, the instance information is returned.
+    // The tags used to query instances. Each tag includes a tag key and a tag value. You can specify up to 5 tags in a single request. Format: {"key1":"value1","key2":"value2"...}. If an instance matches any of the specified tags, the instance information is returned.
     shared_ptr<string> tags_ {};
     // The vSwitch ID.
     shared_ptr<string> vSwitchId_ {};
@@ -443,7 +443,7 @@ namespace Models
     shared_ptr<string> vpcId_ {};
     // The zone ID.
     shared_ptr<string> zoneId_ {};
-    // **[Deprecated]** You do not need to configure this parameter.
+    // **[Deprecated]** This parameter is deprecated and does not need to be configured.
     shared_ptr<string> proxyId_ {};
   };
 

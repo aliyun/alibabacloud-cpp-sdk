@@ -84,7 +84,7 @@ namespace Models
 
 
   protected:
-    // The client token that is used to ensure the idempotence of the request and prevent duplicate submissions. You can generate the value of this parameter on the client side. Make sure that the value is unique across different requests. The value can be up to 64 ASCII characters in length and cannot contain non-ASCII characters.
+    // The client token that is used to ensure the idempotence of the request and prevent duplicate submissions. You can generate the value of this parameter on the client side. The value must be unique across different requests and can be up to 64 ASCII characters in length. It cannot contain non-ASCII characters.
     shared_ptr<string> clientToken_ {};
     // The instance ID. You can call the DescribeDBInstances operation to query the instance ID.
     // 

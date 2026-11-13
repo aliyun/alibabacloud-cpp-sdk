@@ -113,25 +113,25 @@ namespace Models
 
   protected:
     shared_ptr<int64_t> ownerId_ {};
-    // The description of the parameter template that is copied to the destination region.
+    // The description of the parameter template copied to the destination region.
     shared_ptr<string> parameterGroupDesc_ {};
-    // The ID of the source parameter template. You can call the [DescribeParameterGroups](https://help.aliyun.com/document_detail/144491.html) operation to query the parameter template ID.
+    // The ID of the source parameter template. You can call the DescribeParameterGroups operation to query parameter template IDs.
     // 
     // This parameter is required.
     shared_ptr<string> parameterGroupId_ {};
-    // The name of the parameter template that is copied to the destination region.
+    // The name of the parameter template copied to the destination region.
     // 
     // This parameter is required.
     shared_ptr<string> parameterGroupName_ {};
-    // The region ID of the source parameter template. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) operation to query the region ID.
+    // The region ID of the source parameter template. You can call the DescribeRegions operation to query region IDs.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
-    // The resource group ID. This parameter can be left empty.
+    // The ID of the resource group. This parameter can be left empty.
     shared_ptr<string> resourceGroupId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
-    // The ID of the destination region. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) operation to query the region ID.
+    // The region ID of the destination. You can call the DescribeRegions operation to query region IDs.
     // 
     // This parameter is required.
     shared_ptr<string> targetRegionId_ {};

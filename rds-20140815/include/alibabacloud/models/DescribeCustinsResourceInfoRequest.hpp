@@ -75,7 +75,7 @@ namespace Models
 
 
   protected:
-    // The instance IDs. You can call the [DescribeDBInstances](https://help.aliyun.com/document_detail/26232.html) operation to query the instance IDs.
+    // The IDs of the instances. You can call the [DescribeDBInstances](https://help.aliyun.com/document_detail/26232.html) operation to query the instance IDs.
     // 
     // This parameter is required.
     shared_ptr<string> DBInstanceIds_ {};

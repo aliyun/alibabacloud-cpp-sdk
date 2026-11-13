@@ -66,22 +66,21 @@ namespace Models
 
 
   protected:
-    // Specifies whether to release the cloud disk when the instance is released. Valid values:
+    // Specifies whether the cloud disk is released together with the instance when the instance is released. Valid values:
     // 
     // - true: The cloud disk is released.
     // - false: The cloud disk is not released. The cloud disk is retained and converted to a pay-as-you-go data cloud disk.
-    // 
     // Default value: false.
     // 
     // When you configure this parameter, take note of the following items:
     // 
-    // If you set DeleteWithInstance to false and the instance is locked for security reasons (the "LockReason" : "security" attribute is included in OperationLocks), the cloud disk is released along with the instance regardless of this parameter setting.
+    // If you set DeleteWithInstance to false and the instance is locked for security reasons (OperationLocks contains "LockReason" : "security"), this property of the cloud disk is ignored and the cloud disk is released together with the instance.
     // 
-    // If the cloud disk you want to attach is an elastic ephemeral disk, you must set DeleteWithInstance to true.
+    // If the cloud disk to be attached is an elastic ephemeral disk, you must set DeleteWithInstance to true.
     // 
     // This parameter cannot be configured for cloud disks that have the multi-attach feature enabled.
     shared_ptr<bool> deleteWithInstance_ {};
-    // The ID of the cloud disk to be attached. The cloud disk (DiskId) and the instance (InstanceId) must be in the same zone.
+    // The ID of the cloud disk to be attached. The cloud disk specified by DiskId and the instance specified by InstanceId must be in the same zone.
     // 
     // This parameter is required.
     shared_ptr<string> diskId_ {};

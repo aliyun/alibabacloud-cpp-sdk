@@ -86,12 +86,12 @@ namespace Models
   protected:
     // The name of the database account.
     shared_ptr<string> accountName_ {};
-    // The instance ID. You can call DescribeDBInstances to obtain the instance ID.
-    // >SQL Server 2017 Cluster Edition instances are not supported.
+    // Instance ID of the instance. You can call the DescribeDBInstances operation to obtain instance ID.
+    // > ApsaraDB RDS for SQL Server 2017 Cluster Edition instances are not supported.
     // 
     // This parameter is required.
     shared_ptr<string> DBInstanceId_ {};
-    // The page number. Default value: **1**. The value must be a positive integer that does not exceed the maximum value of the Integer data type.
+    // The page number. Default value: **1**. The value must be a positive integer that does not exceed the maximum value of the Integer type.
     shared_ptr<int32_t> pageNumber_ {};
     // The number of entries per page. Valid values: **30** to **200**. Default value: **30**.
     shared_ptr<int32_t> pageSize_ {};

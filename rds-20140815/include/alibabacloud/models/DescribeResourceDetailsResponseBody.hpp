@@ -84,7 +84,7 @@ namespace Models
 
 
     protected:
-      // The security group name.
+      // The name of the security group.
       shared_ptr<string> securityGroupName_ {};
     };
 
@@ -199,7 +199,7 @@ namespace Models
     shared_ptr<int64_t> backupLogSize_ {};
     // The backup size. Unit: MB.
     shared_ptr<int64_t> backupSize_ {};
-    // The storage capacity.
+    // The disk capacity.
     shared_ptr<int64_t> dbInstanceStorage_ {};
     // The name of the proxy instance.
     shared_ptr<string> dbProxyInstanceName_ {};
@@ -207,7 +207,7 @@ namespace Models
     shared_ptr<int64_t> diskUsed_ {};
     // The instance storage type.
     shared_ptr<string> instanceStorageType_ {};
-    // The whitelist group specifications.
+    // The whitelist group specifications of the ApsaraDB RDS instance.
     shared_ptr<vector<DescribeResourceDetailsResponseBody::RdsEcsSecurityGroupRel>> rdsEcsSecurityGroupRel_ {};
     // The region ID.
     shared_ptr<string> region_ {};
@@ -215,11 +215,11 @@ namespace Models
     shared_ptr<string> requestId_ {};
     // The resource group ID.
     shared_ptr<string> resourceGroupId_ {};
-    // The [IP address whitelist](https://help.aliyun.com/document_detail/43185.html) of the instance. Separate multiple entries with commas (,). Duplicate entries are not allowed. You can add up to 1,000 entries. The following two formats are supported:
-    // * IP address format, such as 10.10.XX.XX.
-    // * CIDR format, such as 10.10.XX.XX/24. In this format, 24 indicates the length of the prefix in the IP address, and the value ranges from 1 to 32.
+    // The [IP address whitelist](https://help.aliyun.com/document_detail/43185.html) of the instance. Separate multiple entries with commas (,). Duplicate entries are not allowed. You can add up to 1,000 entries. The following formats are supported:
+    // * IP addresses, such as 10.10.XX.XX.
+    // * CIDR blocks, such as 10.10.XX.XX/24. In this example, 24 indicates the length of the prefix in the Classless Inter-Domain Routing (CIDR) block. The prefix length ranges from 1 to 32.
     // 
-    // If this parameter is not specified, the default whitelist of the original instance is used.
+    // If you do not specify this parameter, the default whitelist of the original instance is used.
     shared_ptr<string> securityIPList_ {};
     // The vSwitch ID.
     // 

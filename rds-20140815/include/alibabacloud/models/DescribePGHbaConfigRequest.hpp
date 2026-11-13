@@ -94,11 +94,15 @@ namespace Models
 
 
   protected:
+    // A reserved parameter. You do not need to configure this parameter.
     shared_ptr<string> clientToken_ {};
+    // The instance ID. You can call DescribeDBInstances to obtain the instance ID.
+    // 
     // This parameter is required.
     shared_ptr<string> DBInstanceId_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
+    // The resource group ID.
     shared_ptr<string> resourceGroupId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};

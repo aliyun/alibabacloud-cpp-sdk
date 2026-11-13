@@ -150,36 +150,36 @@ namespace Models
 
   protected:
     // The number of days for the classic network address reservation. Valid values: **1** to **120**. Unit: days. Default value: **7**.
-    // >This parameter is required when the **RetainClassic** parameter is set to **True**.
+    // >If you set **RetainClassic** to **True**, this parameter is required.
     shared_ptr<string> classicExpiredDays_ {};
     // Instance ID of the instance. You can call the DescribeDBInstances operation to query instance ID.
     // 
     // This parameter is required.
     shared_ptr<string> DBInstanceId_ {};
-    // The target network type. Set the value to **VPC**, which indicates a virtual private cloud (VPC).
+    // The target network type. Set the value to **VPC**.
     // 
     // This parameter is required.
     shared_ptr<string> instanceNetworkType_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
-    // Settings for the internal network IP address of the instance. The IP address must be within the address range of the specified vSwitch. By default, the system automatically allocates an IP address based on the **VPCId** and **VSwitchId** parameters.
+    // Settings for the internal network IP address of the instance. The IP address must be within the address range of the specified vSwitch. By default, the system automatically allocates an IP address based on **VPCId** and **VSwitchId**.
     shared_ptr<string> privateIpAddress_ {};
     // The number of days for the classic network address reservation for read/write splitting. Valid values: **1** to **120**. Unit: days. Default value: **7**.
-    // >This parameter takes effect only when the instance has a read/write splitting address of the classic network type and the **RetainClassic** parameter is set to **True**.
+    // >This parameter takes effect only when the instance has a read/write splitting endpoint of the classic network type and **RetainClassic** is set to **True**.
     shared_ptr<int32_t> readWriteSplittingClassicExpiredDays_ {};
-    // Settings for the internal network IP address of the read/write splitting endpoint for the instance. The IP address must be within the address range of the specified vSwitch. By default, the system automatically allocates an IP address based on the **VPCId** and **VSwitchId** parameters.
+    // Settings for the internal network IP address of the read/write splitting endpoint for the instance. The IP address must be within the address range of the specified vSwitch. By default, the system automatically allocates an IP address based on **VPCId** and **VSwitchId**.
     // 
-    // >This parameter takes effect only when the instance has a read/write splitting address of the classic network type.
+    // >This parameter takes effect only when the instance has a read/write splitting endpoint of the classic network type.
     shared_ptr<string> readWriteSplittingPrivateIpAddress_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
     // Specifies whether to retain the classic network endpoint. Valid values:
     // * **True**: Retains the classic network endpoint.
-    // * **False**: Does not retain the classic network endpoint. This is the default value.
+    // * **False** (default): Does not retain the classic network endpoint.
     shared_ptr<string> retainClassic_ {};
     // The VPC ID.
     shared_ptr<string> VPCId_ {};
-    // The ID of the vSwitch. This parameter is required when the **VPCId** parameter is specified.
+    // The vSwitch ID. If you specify **VPCId**, this parameter is required.
     shared_ptr<string> vSwitchId_ {};
   };
 

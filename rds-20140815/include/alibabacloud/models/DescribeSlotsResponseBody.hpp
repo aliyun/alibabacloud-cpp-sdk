@@ -127,25 +127,25 @@ namespace Models
     protected:
       // The name of the database where the replication slot resides.
       shared_ptr<string> database_ {};
-      // The plugin used by the replication slot.
+      // The plug-in used by the replication slot.
       shared_ptr<string> plugin_ {};
       // The name of the replication slot.
       shared_ptr<string> slotName_ {};
       // The status of the replication slot. Valid values:
-      // - ACTIVE: active
-      // - INACTIVE: inactive
+      // - ACTIVE: Active.
+      // - INACTIVE: Inactive.
       shared_ptr<string> slotStatus_ {};
       // The type of the replication slot. Valid values:
-      // - physical: physical
-      // - logical: logical
+      // - physical: Physical.
+      // - logical: Logical.
       shared_ptr<string> slotType_ {};
-      // The latency of the logical subscription for the subscriber that corresponds to the current replication slot, in seconds.
+      // The logical subscription latency of the subscriber corresponding to the replication slot. Unit: seconds.
       shared_ptr<string> subReplayLag_ {};
-      // Indicates whether the replication slot is temporary. Valid values:
+      // Specifies whether the replication slot is temporary. Valid values:
       // - true: Yes.
       // - false: No.
       shared_ptr<string> temporary_ {};
-      // The volume of accumulated logs in the replication slot.
+      // The amount of accumulated logs in the replication slot.
       shared_ptr<string> walDelay_ {};
     };
 
@@ -168,9 +168,9 @@ namespace Models
 
 
   protected:
-    // The request ID.
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
-    // The list of replication slots for the instance.
+    // The list of replication slots of the instance.
     shared_ptr<vector<DescribeSlotsResponseBody::Slots>> slots_ {};
   };
 

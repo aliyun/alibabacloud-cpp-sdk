@@ -156,7 +156,7 @@ namespace Models
       shared_ptr<string> requires_ {};
       // The Alibaba Cloud account ID.
       // 
-      // > This parameter is returned only for exclusive extensions (extensions written by users). Each Alibaba Cloud account displays only its own exclusive extensions.
+      // > This parameter is returned only for exclusive plugins (plugins written by users). Each Alibaba Cloud account can view only its own exclusive plugins.
       shared_ptr<string> uid_ {};
     };
 
@@ -263,10 +263,9 @@ namespace Models
 
     protected:
       // The category of the extension. Valid values:
-      // 
       // - **external_access**: external access
       // - **index_support**: index support
-      // - **information_sta**t: information statistics
+      // - **information_stat**: information statistics
       // - **geography_space**: geospatial
       // - **vector_engine**: vector engine
       // - **timing_engine**: time series engine
@@ -287,15 +286,14 @@ namespace Models
       // The owner of the extension.
       shared_ptr<string> owner_ {};
       // The priority of the extension. Valid values:
-      // 
-      // - **0**: displayed by default
-      // - **1**: displayed with priority
+      // - **0**: default display
+      // - **1**: priority display
       shared_ptr<string> priority_ {};
       // The extensions on which this extension depends when it is installed.
       shared_ptr<string> requires_ {};
       // The Alibaba Cloud account ID.
       // 
-      // > This parameter is returned only for exclusive extensions (extensions written by users). Each Alibaba Cloud account displays only its own exclusive extensions.
+      // > This parameter is returned only for exclusive plugins (plugins written by users). Each Alibaba Cloud account can view only its own exclusive plugins.
       shared_ptr<string> uid_ {};
     };
 
@@ -338,9 +336,9 @@ namespace Models
   protected:
     // The list of installed extensions in the specified database.
     shared_ptr<vector<DescribePostgresExtensionsResponseBody::InstalledExtensions>> installedExtensions_ {};
-    // The overview information about the extensions.
+    // The overview information about extensions.
     Darabonba::Json overview_ {};
-    // The request ID.
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
     // The list of uninstalled extensions in the specified database.
     shared_ptr<vector<DescribePostgresExtensionsResponseBody::UninstalledExtensions>> uninstalledExtensions_ {};

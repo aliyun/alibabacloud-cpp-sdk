@@ -121,8 +121,8 @@ namespace Models
     // The database engine. Valid values: **MySQL** and **PostgreSQL**.
     shared_ptr<string> engine_ {};
     // The database engine version. Valid values:
-    // * MySQL: **8.0**, **5.7**, **5.6**, and **5.5**.
-    // * PostgreSQL: **17.0**, **16.0**, **15.0**, **14.0**, **13.0**, **12.0**, **11.0**, and **10.0**.
+    // * MySQL: **8.0**, **5.7**, **5.6**, and **5.5**
+    // * PostgreSQL: **17.0**, **16.0**, **15.0**, **14.0**, **13.0**, **12.0**, **11.0**, and **10.0**
     shared_ptr<string> engineVersion_ {};
     // The minor engine version number of the instance. Specify this parameter to query the details of a specific minor engine version.
     // 
@@ -130,7 +130,7 @@ namespace Models
     shared_ptr<string> minorVersionTag_ {};
     // The instance edition. Valid values:
     // * **Basic**: Basic Edition.
-    // * **HighAvailability**: High-availability Edition.
+    // * **HighAvailability**: high-availability series.
     // * **cluster**: Cluster Edition.
     // * **Finance**: RDS Enterprise Edition.
     shared_ptr<string> nodeType_ {};
@@ -140,12 +140,12 @@ namespace Models
     shared_ptr<string> regionId_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
     // The instance storage type. Valid values:
-    // * **local_ssd**: premium local SSD.
-    // * **general_essd**: premium performance disk.
-    // * **cloud_ssd**: standard SSD.
-    // * **cloud_essd**: PL1 ESSD.
-    // * **cloud_essd2**: PL2 ESSD.
-    // * **cloud_essd3**: PL3 ESSD.
+    // * **local_ssd**: premium local SSD
+    // * **general_essd**: premium performance disk
+    // * **cloud_ssd**: standard SSD cloud disk
+    // * **cloud_essd**: PL1 ESSD cloud disk
+    // * **cloud_essd2**: PL2 ESSD cloud disk
+    // * **cloud_essd3**: PL3 ESSD cloud disk
     shared_ptr<string> storageType_ {};
   };
 

@@ -189,20 +189,20 @@ namespace Models
     // The JSON array that describes the information about the backup file in the OSS bucket. Example:
     // `{"Bucket":"test", "Object":"test/test_db_employees.xb","Location":"ap-southeast-1"}`
     // 
-    // Parameters in the array:
-    // * **Bucket**: the name of the OSS bucket where the backup file is stored. You can call the [GetBucket](https://help.aliyun.com/document_detail/31965.html) operation to query the name.
-    // * **Object**: the detailed path of the directory where the backup file is stored. You can call the [GetObject](https://help.aliyun.com/document_detail/31980.html) operation to query the path.
+    // The following list describes the parameters in the array:
+    // * **Bucket**: the name of the OSS bucket where the backup file is stored. You can call the [GetBucket](https://help.aliyun.com/document_detail/31965.html) operation to query the bucket name.
+    // * **Object**: the detailed path of the directory where the backup file is stored. You can call the [GetObject](https://help.aliyun.com/document_detail/31980.html) operation to query the object path.
     // * **Location**: the region ID of the OSS bucket. You can call the [GetBucketLocation](https://help.aliyun.com/document_detail/31967.html) operation to query the region ID.
     // 
-    // This parameter is required when **Mode** is set to **oss**. For **Location**, specify the region ID of the OSS bucket. You can call the GetBucketLocation operation to query the region ID.
+    // This parameter is required when **Mode** is set to **oss**. For **Location**, enter the region ID of the OSS bucket. You can call the GetBucketLocation operation to query the region ID.
     shared_ptr<string> backupFile_ {};
     // The region ID of the OSS bucket where the backup file of the self-managed MySQL 5.7 database is stored. You can call the DescribeRegions operation to query the most recent region list.
     shared_ptr<string> bucketRegion_ {};
     // Specifies whether to automatically set up replication. Valid values:
-    // - true: yes. The MasterInfo parameter is required.
-    // - false: no.
+    // - true: Yes. The `MasterInfo` parameter is required.
+    // - false: No.
     // 
-    // > This parameter takes effect only for native replication instances. You must specify the DBInstanceId parameter when you call this operation.
+    // > This parameter takes effect only for native replication instances. You must specify the `DBInstanceId` parameter when you call the operation.
     shared_ptr<bool> buildReplication_ {};
     // The description of the user backup to be imported.
     shared_ptr<string> comment_ {};
@@ -210,24 +210,25 @@ namespace Models
     shared_ptr<string> DBInstanceId_ {};
     // The version of the MySQL database. Valid values: **5.7** and **8.0**.
     shared_ptr<string> engineVersion_ {};
-    // The case-sensitive JSON array that provides the master information for setting up MySQL replication. Example:
+    // The case-sensitive JSON array that contains the primary node information for setting up MySQL replication. Example:
     // 
     // ```
     // {"masterIp":"172.20.xx.xx","masterPort":"3306","masterUser":"replica","masterPassword":"W33uopkehBQ="}
+    // 
     // ```
     // 
-    // Parameters in the array:
-    // - masterIp: the IP address of the primary database.
-    // - masterPort: the port of the primary database.
-    // - masterUser: the replication account of the primary database.
-    // - masterPassword: the password of the replication account of the primary database. The password must be Base64-encoded.
+    // The following list describes the parameters in the array:
+    // - `masterIp`: the IP address of the primary node.
+    // - `masterPort`: the port of the primary node.
+    // - `masterUser`: the replication account of the primary node.
+    // - `masterPassword`: the password of the replication account of the primary node. The password must be Base64-encoded.
     // 
-    // > This parameter takes effect only for native replication instances. You must specify the DBInstanceId parameter when you call this operation.
+    // > This parameter takes effect only for native replication instances. You must specify the `DBInstanceId` parameter when you call the operation.
     shared_ptr<string> masterInfo_ {};
     // The import mode. Valid values:
     // 
-    // - oss: downloads the backup from OSS and imports it.
-    // - stream: imports the backup over the network.
+    // - oss: Downloads and imports the backup from OSS.
+    // - stream: Imports the backup over the network.
     shared_ptr<string> mode_ {};
     shared_ptr<int64_t> ownerId_ {};
     // The region ID of the ApsaraDB RDS instance. You can call the DescribeRegions operation to query the most recent region list.
@@ -237,7 +238,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
-    // The resource group ID. You can call the DescribeDBInstanceAttribute operation to query the resource group ID.
+    // The ID of the resource group. You can call the DescribeDBInstanceAttribute operation to query the resource group ID.
     shared_ptr<string> resourceGroupId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
@@ -251,16 +252,18 @@ namespace Models
     // The case-sensitive JSON array that provides the source information of the full backup. Example:
     // 
     // ```
-    // {"sourceIp":"172.20.xx.xx","sourcePort":"9999"}
+    // {"sourceIp":"172.20.xx
+    // .xx","sourcePort":"9999"}
+    // 
     // ```
     // 
-    // Parameters in the array:
+    // The following list describes the parameters in the array:
     // 
-    // - sourceIp: the source IP address.
+    // - `sourceIp`: the source IP address.
     // 
-    // - sourcePort: the port listened by Netcat on the source.
+    // - `sourcePort`: the port listened by Netcat on the source.
     // 
-    // > This parameter takes effect only for native replication instances. You must specify the DBInstanceId parameter when you call this operation.
+    // > This parameter takes effect only for native replication instances. You must specify the `DBInstanceId` parameter when you call the operation.
     shared_ptr<string> sourceInfo_ {};
     // The zone ID. You can call the DescribeRegions operation to query the most recent zone list.
     // 

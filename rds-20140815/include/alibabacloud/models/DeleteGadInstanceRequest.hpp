@@ -57,13 +57,13 @@ namespace Models
 
 
   protected:
-    // The ID of the ApsaraDB RDS global active database cluster that you want to delete. You can call DescribeGadInstances to query the cluster ID.
+    // The ID of the ApsaraDB RDS global active database cluster to be deleted. You can call the DescribeGadInstances operation to query the ID.
     // 
     // This parameter is required.
     shared_ptr<string> gadInstanceName_ {};
-    // The region ID of the central node (primary node) in the cluster. You can call DescribeGadInstances to query the region ID.
+    // The region ID of the central node of the cluster. You can call the DescribeGadInstances operation to query the region ID.
     shared_ptr<string> regionId_ {};
-    // The resource group ID. You can call the DescribeDBInstanceAttribute operation to query the resource group ID.
+    // The ID of the resource group. You can call the DescribeDBInstanceAttribute operation to obtain the ID.
     shared_ptr<string> resourceGroupId_ {};
   };
 

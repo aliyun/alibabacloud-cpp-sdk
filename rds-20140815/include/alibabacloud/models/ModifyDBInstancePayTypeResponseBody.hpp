@@ -38,7 +38,7 @@ namespace Models
 
 
   protected:
-    // The ID of the order.
+    // The ID of the generated order.
     shared_ptr<int64_t> orderId_ {};
   };
 

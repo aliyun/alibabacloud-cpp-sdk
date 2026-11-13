@@ -130,37 +130,37 @@ namespace Models
 
 
   protected:
-    // The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length.
+    // The client token that is used to ensure the idempotence of the request and prevent duplicate submissions. You can use the client to generate the value, and you must ensure that the value is unique across different requests. The value can contain a maximum of 64 ASCII characters and cannot contain non-ASCII characters.
     shared_ptr<string> clientToken_ {};
     // The instance ID.
     // 
     // This parameter is required.
     shared_ptr<string> DBInstanceId_ {};
-    // Specifies whether to forcefully restart the database after the modification. Valid values:
-    // * **true**: forcefully restarts the database. If any of the modified parameters require a restart to take effect, you must set this parameter to true. Otherwise, the modification does not take effect.
-    // * **false**: does not forcefully restart the database.
+    // Specifies whether to restart the database after the parameters are modified. Valid values:
+    // * **true**: forces a restart. If any of the modified parameters require a restart, you must set this parameter to true. Otherwise, the modifications do not take effect.
+    // * **false**: does not force a restart.
     // 
     // Default value: **false**.
     shared_ptr<bool> forcerestart_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
-    // The parameter template ID.
+    // The ID of the parameter template.
     // 
-    // > * If you specify this parameter, you do not need to specify **Parameters**.
-    // > * If applying the parameter template requires a restart of the instance, you must specify **Forcerestart**.
+    // > * If you specify this parameter, you do not need to specify the **Parameters** parameter.
+    // > * If the instance must be restarted to apply the parameter template, you must specify the **Forcerestart** parameter.
     shared_ptr<string> parameterGroupId_ {};
-    // The JSON string that consists of parameters and their values. All parameter values are of the string type. Format: {"Parameter name 1":"Parameter value 1","Parameter name 2":"Parameter value 2"...}. You can call the DescribeParameterTemplates operation to query parameter names and values.
-    // >If you specify this parameter, you do not need to specify **ParameterGroupId**.
+    // The JSON string of parameters and their values. All parameter values are of the string type. Format: {"ParameterName1":"ParameterValue1","ParameterName2":"ParameterValue2"...}. You can call the DescribeParameterTemplates operation to query parameter names and values.
+    // >If you specify this parameter, you do not need to specify the **ParameterGroupId** parameter.
     shared_ptr<string> parameters_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
-    // The scheduled time for the modification to take effect. Format: <i>yyyy-MM-dd</i>T<i>HH:mm:ss</i>Z (UTC).
-    // >The specified time must be later than the current time when you call this operation.
+    // The time when the parameter modifications take effect. Specify the time in the <i>yyyy-MM-dd</i>T<i>HH:mm:ss</i>Z format. The time must be in UTC.
+    // >The specified time must be later than the current time.
     shared_ptr<string> switchTime_ {};
-    // The time at which the modification takes effect. Valid values:
-    // * **Immediate**: default value. The modification takes effect immediately.
-    // * **MaintainTime**: The modification takes effect during the maintenance window of the instance. You can call the ModifyDBInstanceMaintainTime operation to modify the maintenance window.
-    // * **ScheduleTime**: The modification takes effect at a manually specified time. If you set this parameter to ScheduleTime, you must also specify **SwitchTime**.
+    // The time when the parameter modifications take effect. Valid values:
+    // * **Immediate**: takes effect immediately. This is the default value.
+    // * **MaintainTime**: takes effect within the maintenance window of the instance. You can call the ModifyDBInstanceMaintainTime operation to modify the maintenance window.
+    // * **ScheduleTime**: takes effect at a specified time. If you set this parameter to ScheduleTime, you must also specify the **SwitchTime** parameter.
     shared_ptr<string> switchTimeMode_ {};
   };
 

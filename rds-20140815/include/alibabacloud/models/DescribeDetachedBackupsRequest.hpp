@@ -130,7 +130,7 @@ namespace Models
 
 
   protected:
-    // The ID of the backup set.
+    // The backup set ID.
     shared_ptr<string> backupId_ {};
     // The backup mode. Valid values:
     // 
@@ -141,13 +141,13 @@ namespace Models
     // - **Success**: The backup is completed.
     // - **Failed**: The backup failed.
     shared_ptr<string> backupStatus_ {};
-    // Instance ID of the instance. You can call the DescribeDBInstances operation to query instance ID.
+    // The instance ID. You can call the DescribeDBInstances operation to query the ID.
     shared_ptr<string> DBInstanceId_ {};
     // The end time of the query. The end time must be later than the start time.
     // 
     // Format: <i>yyyy-MM-dd</i>T<i>HH:mm</i>Z (UTC time).
     shared_ptr<string> endTime_ {};
-    // The page number. Valid values: any integer greater than 0 and less than or equal to the maximum integer value.
+    // The page number. Valid values: integers greater than 0 and up to the maximum value of the Integer data type.
     // 
     // > Default value: 1.
     shared_ptr<int32_t> pageNumber_ {};
@@ -162,7 +162,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> region_ {};
-    // The ID of the resource group.
+    // The resource group ID.
     shared_ptr<string> resourceGroupId_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
     // The start time of the query.

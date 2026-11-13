@@ -111,9 +111,9 @@ namespace Models
     shared_ptr<string> DBInstanceId_ {};
     // The custom account password policy for ApsaraDB RDS for SQL Server. Supported policies:
     // 
-    // - Set only the maximum password age. The password must be changed after this period: `{"accountSecurityPolicy": {"MaximumPasswordAge": <maximum_age>}}`
-    // - Set only the minimum password age. The password cannot be changed again within this period: `{"accountSecurityPolicy": {"MinimumPasswordAge": <minimum_age>}}`
-    // - Set both the maximum and minimum password ages: `{"accountSecurityPolicy": {"MaximumPasswordAge": <maximum_age>, "MinimumPasswordAge": <minimum_age>}}`
+    // - Specify only the maximum password age, after which the password must be changed: `{"accountSecurityPolicy": {"MaximumPasswordAge": maximum age}}`
+    // - Specify only the minimum password age, during which the password cannot be changed: `{"accountSecurityPolicy": {"MaximumPasswordAge": minimum age}}`
+    // - Specify both the maximum and minimum password ages: `{"accountSecurityPolicy": {"MaximumPasswordAge": maximum age, "MinimumPasswordAge": minimum age}}`
     // 
     // > The minimum password age (valid values: 0 to 998) cannot be greater than the maximum password age (valid values: 0 to 999).
     // 

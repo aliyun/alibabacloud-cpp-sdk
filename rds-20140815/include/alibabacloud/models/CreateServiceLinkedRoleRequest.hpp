@@ -76,7 +76,7 @@ namespace Models
 
   protected:
     shared_ptr<int64_t> ownerId_ {};
-    // The region ID. You can call DescribeRegions to query the available regions.
+    // The region ID. You can call the DescribeRegions operation to query available regions.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
@@ -84,9 +84,9 @@ namespace Models
     shared_ptr<int64_t> resourceOwnerId_ {};
     // The service-linked role. Valid values:
     // 
-    // - **AliyunServiceRoleForRds**: the service-linked role associate with ApsaraDB RDS for MySQL.
-    // - **AliyunServiceRoleForRdsPgsqlOnEcs**: the service-linked role associate with ApsaraDB RDS for PostgreSQL.
-    // - **AliyunServiceRoleForRDSProxyOnEcs**: the service-linked role associate with the database proxy of ApsaraDB RDS for PostgreSQL.
+    // - **AliyunServiceRoleForRds**: the service-linked role for ApsaraDB RDS for MySQL.
+    // - **AliyunServiceRoleForRdsPgsqlOnEcs**: the service-linked role for ApsaraDB RDS for PostgreSQL.
+    // - **AliyunServiceRoleForRDSProxyOnEcs**: the service-linked role for the ApsaraDB RDS for PostgreSQL database proxy.
     // 
     // This parameter is required.
     shared_ptr<string> serviceLinkedRole_ {};

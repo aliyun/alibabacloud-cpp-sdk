@@ -120,7 +120,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
-    // The list of instance IDs. You can remove labels from N instances at a time. Valid values of N: **1** to **50**.
+    // The instance IDs. You can remove tags from up to N instances at a time. Valid values of N: **1** to **50**.
     // 
     // This parameter is required.
     shared_ptr<vector<string>> resourceId_ {};
@@ -128,7 +128,7 @@ namespace Models
     shared_ptr<int64_t> resourceOwnerId_ {};
     // The resource type. Valid values:
     // 
-    // - **INSTANCE**: Regular ApsaraDB RDS instance.
+    // - **INSTANCE**: regular ApsaraDB RDS instance.
     // - **CUSTOM**: ApsaraDB RDS Custom instance.
     // - **CUSTOMDEPLOYMENTSET**: ApsaraDB RDS Custom deployment set.
     // - **CUSTOMDISK**: ApsaraDB RDS Custom cloud disk.
@@ -136,7 +136,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> resourceType_ {};
-    // The tag keys. You can remove N tag keys at a time. Valid values of N: **1** to **20**. Empty strings are not allowed.
+    // The tag keys. You can remove up to N tag keys at a time. Valid values of N: **1** to **20**. Empty strings are not allowed.
     shared_ptr<vector<string>> tagKey_ {};
   };
 

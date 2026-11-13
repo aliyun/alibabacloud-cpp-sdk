@@ -121,7 +121,7 @@ namespace Models
 
 
   protected:
-    // The prefix of the read/write splitting endpoint. The prefix must be unique and can contain only lowercase letters and hyphens. It must start with a letter and be up to 30 characters in length.
+    // The prefix of the read/write splitting endpoint. The prefix must be unique and can contain only lowercase letters and hyphens. It must start with a letter and cannot exceed 30 characters in length.
     // > By default, the prefix consists of the instance name and the "rw" string.
     shared_ptr<string> connectionStringPrefix_ {};
     // Instance ID of the primary instance. You can call the DescribeDBInstances operation to query instance ID.
@@ -129,14 +129,14 @@ namespace Models
     // This parameter is required.
     shared_ptr<string> DBInstanceId_ {};
     // The read weight distribution mode. Valid values:
-    // * **Standard**: automatically distributes weights based on instance specifications.
-    // * **Custom**: uses custom weights.
+    // * **Standard**: The system automatically assigns weights based on instance specifications.
+    // * **Custom**: You manually assign weights.
     // 
     // > You must specify at least one of the **MaxDelayTime** and **DistributionType** parameters.
     shared_ptr<string> distributionType_ {};
     // The latency threshold, in seconds. If the latency of a read-only instance exceeds this threshold, read traffic is not routed to the instance. If you do not specify this parameter, the original value is retained.
     // 
-    // > * The **MaxDelayTime** parameter does not apply to SQL Server 2017 Cluster Edition instances.
+    // > * The **MaxDelayTime** parameter does not apply to ApsaraDB RDS for SQL Server 2017 Cluster Edition instances.
     // > * You must specify at least one of the **MaxDelayTime** and **DistributionType** parameters.
     shared_ptr<string> maxDelayTime_ {};
     shared_ptr<string> ownerAccount_ {};

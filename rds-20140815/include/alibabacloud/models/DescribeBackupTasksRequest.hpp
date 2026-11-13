@@ -129,11 +129,11 @@ namespace Models
     // 
     // Default value: all statuses.
     shared_ptr<string> backupJobStatus_ {};
-    // The backup pattern. Valid values:
+    // The backup mode. Valid values:
     // * **Automated**: automatic backup
     // * **Manual**: manual backup
     shared_ptr<string> backupMode_ {};
-    // The client token that is used to ensure the idempotence of the request and prevent duplicate submissions. You can generate the value of this parameter on the client side. The value must be unique across different requests and can be up to 64 ASCII characters in length. It cannot contain non-ASCII characters.
+    // The client token that is used to ensure the idempotence of the request and prevent duplicate submissions. You can use the client to generate the value, but you must ensure that it is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length.
     shared_ptr<string> clientToken_ {};
     // Instance ID of the instance. You can call the DescribeDBInstances operation to query instance ID.
     // 

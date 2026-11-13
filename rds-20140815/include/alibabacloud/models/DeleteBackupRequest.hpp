@@ -84,12 +84,12 @@ namespace Models
 
 
   protected:
-    // The backup set ID. You can call DescribeBackups to query the backup set ID. Separate multiple values with commas (,). You can specify up to 100 values at a time.
-    // >Only backup sets whose **StoreStatus** is **Enabled** in the DescribeBackups response can be deleted.
+    // The ID of the backup set. You can call the DescribeBackups operation to query the ID. Separate multiple IDs with commas (,). You can specify up to 100 IDs in a single request.
+    // > Only backup sets whose **StoreStatus** is **Enabled** in the DescribeBackups response can be deleted.
     // 
     // This parameter is required.
     shared_ptr<string> backupId_ {};
-    // The instance ID. You can call DescribeDBInstances to query the instance ID.
+    // Instance ID of the instance. You can call the DescribeDBInstances operation to query instance ID.
     // 
     // This parameter is required.
     shared_ptr<string> DBInstanceId_ {};

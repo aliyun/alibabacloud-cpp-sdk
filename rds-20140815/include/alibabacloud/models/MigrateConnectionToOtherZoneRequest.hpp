@@ -75,11 +75,11 @@ namespace Models
 
 
   protected:
-    // The endpoint of the instance. This endpoint is specified during creation and is used to generate a connection string.
+    // The connection endpoint of the instance. This endpoint is specified during creation and is used to generate a connection string.
     // 
     // This parameter is required.
     shared_ptr<string> connectionString_ {};
-    // Instance ID of the instance. You can call the DescribeDBInstances operation to query instance ID.
+    // The instance ID. You can call the DescribeDBInstances operation to query the instance ID.
     // 
     // This parameter is required.
     shared_ptr<string> DBInstanceId_ {};

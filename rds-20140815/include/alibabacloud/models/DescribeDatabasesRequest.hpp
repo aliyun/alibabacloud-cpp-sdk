@@ -120,12 +120,12 @@ namespace Models
     shared_ptr<string> DBName_ {};
     // The status of the database. Valid values:
     // * **Creating**: The database is being created.
-    // * **Running**: The database is in use.
+    // * **Running**: The database is running.
     // * **Deleting**: The database is being deleted.
     shared_ptr<string> DBStatus_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
-    // The page number. Valid values: any integer greater than 0 and less than or equal to the maximum integer value.
+    // The page number. Valid values: a positive integer that does not exceed the maximum value of the Integer type.
     // 
     // Default value: **1**.
     shared_ptr<int32_t> pageNumber_ {};

@@ -130,25 +130,24 @@ namespace Models
 
 
   protected:
-    // Instance ID of the instance. You can call the DescribeDBInstances operation to query instance ID.
+    // The instance ID. You can call the DescribeDBInstances operation to query the ID.
     // 
     // This parameter is required.
     shared_ptr<string> DBInstanceId_ {};
-    // A reserved parameter. You do not need to specify this parameter.
+    // The reserved parameter. You do not need to configure this parameter.
     shared_ptr<string> DBProxyEngineType_ {};
     // The type of the database proxy instance. Valid values:
     // - common: general-purpose database proxy
     // - exclusive: dedicated database proxy
     shared_ptr<string> DBProxyInstanceType_ {};
-    // The aggregation dimension. You cannot specify both service and server at the same time. Valid values:
-    // 
+    // The aggregation dimension. Valid values:
     // - service: aggregates monitoring metrics by proxy endpoint.
-    // 
     // - node: aggregates monitoring metrics by proxy node.
-    // 
     // - server: aggregates monitoring metrics by database node.
+    // 
+    // You cannot specify both service and server at the same time.
     shared_ptr<string> dimension_ {};
-    // The end time of the query. The end time must be later than the start time. Specify the time in the <i>yyyy-MM-dd</i>T<i>HH:mm:ss</i>Z format. The time must be in UTC.
+    // The end time of the query. The end time must be later than or equal to the start time. Specify the time in the <i>yyyy-MM-dd</i>T<i>HH:mm:ss</i>Z format. The time must be in UTC.
     // 
     // This parameter is required.
     shared_ptr<string> endTime_ {};
@@ -166,12 +165,12 @@ namespace Models
     // - **Maxscale_MemUsage**: memory utilization
     // - **Maxscale_CpuUsage**: CPU utilization
     // 
-    // To query multiple performance metrics, separate the metrics with commas (,). You can query up to six performance metrics at a time.
+    // To query multiple performance metrics, separate them with commas (,). You can query up to six performance metrics at a time.
     // 
     // This parameter is required.
     shared_ptr<string> metricsName_ {};
     shared_ptr<int64_t> ownerId_ {};
-    // The region ID. You can call the DescribeRegions operation to query the region ID.
+    // The region ID. You can call the DescribeRegions operation to query the ID.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};

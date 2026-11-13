@@ -95,37 +95,38 @@ namespace Models
 
   protected:
     // The backup method. Valid values:
-    // * **Logical**: logical backup (supported only for ApsaraDB RDS for MySQL instances with local SSDs)
-    // * **Physical**: physical backup (supported for ApsaraDB RDS for MySQL instances with local SSDs, ApsaraDB RDS for SQL Server, and ApsaraDB RDS for PostgreSQL)
-    // * **Snapshot**: snapshot backup (supported for ApsaraDB RDS for MySQL instances with cloud disks, ApsaraDB RDS for SQL Server, ApsaraDB RDS for PostgreSQL, and ApsaraDB RDS for MariaDB)
+    // * **Logical**: logical backup. This value is supported only for ApsaraDB RDS for MySQL instances with local SSDs.
+    // * **Physical**: physical backup. This value is supported for ApsaraDB RDS for MySQL instances with local SSDs, ApsaraDB RDS for SQL Server instances, and ApsaraDB RDS for PostgreSQL instances.
+    // * **Snapshot**: snapshot backup. This value is supported for ApsaraDB RDS for MySQL instances with cloud disks, ApsaraDB RDS for SQL Server instances, ApsaraDB RDS for PostgreSQL instances, and ApsaraDB RDS for MariaDB instances.
     // 
     // Default value: **Physical**.
     // 
-    // > * When you use logical backup, the database must contain data.
-    // > * ApsaraDB RDS for MariaDB instances support only snapshot backup, but you must set this parameter to **Physical**.
+    // > * When you use logical backup, the databases must contain data.
+    // > * ApsaraDB RDS for MariaDB instances support only snapshot backup. However, you must set this parameter to **Physical** for these instances.
     shared_ptr<string> backupMethod_ {};
-    // - **SQL Server**: When the BackupStrategy parameter is set to db, the BackupMethod parameter is set to Physical, and the BackupType parameter is set to FullBackup, you can specify the retention period of the backup set. Valid values: 7 to 730 days, and -1 (long-term retention (LTR)).
-    // - **MySQL**: You can specify the retention period of the backup set. Valid values: 7 to 730 days, and -1 (long-term retention (LTR)).
+    // The retention period of the backup set.
+    // - **ApsaraDB RDS for SQL Server**: When the BackupStrategy parameter is set to db, the BackupMethod parameter is set to Physical, and the BackupType parameter is set to FullBackup, you can specify the retention period of the backup set. Valid values: 7 to 730 days, and -1 (long-term retention (LTR)).
+    // - **ApsaraDB RDS for MySQL**: You can specify the retention period of the backup set. Valid values: 7 to 730 days, and -1 (long-term retention (LTR)).
     shared_ptr<int64_t> backupRetentionPeriod_ {};
     // The backup strategy. Valid values:
-    // * **db**: database-level backup
-    // * **instance**: instance-level backup
+    // * **db**: database-level backup.
+    // * **instance**: instance-level backup.
     // 
     // > This parameter takes effect only when the following conditions are met:
     // > - For ApsaraDB RDS for MySQL: The **BackupMethod** parameter is set to **Logical**.
     // > - For ApsaraDB RDS for SQL Server: The **BackupType** parameter is set to **FullBackup**.
     shared_ptr<string> backupStrategy_ {};
     // The backup type for ApsaraDB RDS for SQL Server instances. Valid values:
-    // * **Auto** (default): automatically selects full backup or incremental backup
-    // * **FullBackup**: full backup
+    // * **Auto**: The system automatically selects full backup or incremental backup. This is the default value.
+    // * **FullBackup**: full backup.
     // 
     // > This parameter takes effect only when the **BackupMethod** parameter is set to **Physical**.
     shared_ptr<string> backupType_ {};
-    // The instance ID. You can call the DescribeDBInstances operation to obtain the instance ID.
+    // Instance ID of the instance. You can call the DescribeDBInstances operation to query instance ID.
     // 
     // This parameter is required.
     shared_ptr<string> DBInstanceId_ {};
-    // The list of databases. Separate multiple databases with commas (,).
+    // The names of the databases. Separate multiple database names with commas (,).
     // > This parameter takes effect only when the **BackupStrategy** parameter is set to **db**.
     shared_ptr<string> DBName_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};

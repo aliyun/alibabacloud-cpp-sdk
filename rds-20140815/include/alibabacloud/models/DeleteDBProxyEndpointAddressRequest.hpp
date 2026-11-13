@@ -80,7 +80,7 @@ namespace Models
     // This parameter is required.
     shared_ptr<string> DBInstanceId_ {};
     // The network type of the database proxy endpoint that you want to delete. Valid values:
-    // * **Public**: public network
+    // * **Public**: Internet
     // * **VPC**: internal network (VPC)
     // * **Classic**: internal network (classic network)
     // 
@@ -91,11 +91,11 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> DBProxyConnectStringNetType_ {};
-    // The ID of the database proxy endpoint. You can call the DescribeDBProxyEndpoint operation to query the ID.
+    // The ID of the database proxy endpoint. You can call the DescribeDBProxyEndpoint operation to query the endpoint ID.
     // 
     // This parameter is required.
     shared_ptr<string> DBProxyEndpointId_ {};
-    // **[Deprecated]** This parameter is deprecated. You do not need to configure it.
+    // **[Deprecated]** This parameter is deprecated and does not need to be configured.
     shared_ptr<string> DBProxyEngineType_ {};
     // The region ID. You can call the DescribeRegions operation to query the region ID.
     shared_ptr<string> regionId_ {};

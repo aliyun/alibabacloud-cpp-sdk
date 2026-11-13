@@ -119,7 +119,9 @@ namespace Models
     protected:
       // The creation time. The format is YYYY-MM-DDTHH:mm:ssZ.
       shared_ptr<string> createdTime_ {};
-      // The cycle time. Multiple values are separated by commas. If cycleType is Week, valid values are 1 to 7, which represent Monday to Sunday. If cycleType is Month, valid values are 1 to 28.
+      // The cycle time. Multiple values are separated by commas.
+      // - If cycleType is Week, valid values are 1 to 7, which represent Monday to Sunday.
+      // - If cycleType is Month, valid values are 1 to 28.
       shared_ptr<string> cycleTime_ {};
       // The cycle type. Valid values: Month and Week.
       shared_ptr<string> cycleType_ {};
@@ -129,7 +131,7 @@ namespace Models
       shared_ptr<string> maintainStartTime_ {};
       // The modification time. The format is YYYY-MM-DDTHH:mm:ssZ, such as 2018-05-30T14:30:00Z.
       shared_ptr<string> modifiedTime_ {};
-      // Specifies whether the configuration takes effect. Valid values: 
+      // Specifies whether the configuration is valid. Valid values: 
       // - 1: Valid. 
       // - 2: Invalid.
       shared_ptr<int32_t> status_ {};
@@ -163,7 +165,7 @@ namespace Models
   protected:
     // The configuration information.
     shared_ptr<DescribeActiveOperationMaintainConfResponseBody::Config> config_ {};
-    // Specifies whether the configuration has been set. The value is 0 when you access the configuration for the first time. Valid values:
+    // Specifies whether the configuration has been set. The value is 0 for the first access. Valid values:
     // - 1: Yes. 
     // - 0: No.
     shared_ptr<int32_t> hasConfig_ {};

@@ -206,21 +206,21 @@ namespace Models
   protected:
     // The instance ID.
     shared_ptr<string> DBInstanceId_ {};
-    // The High-availability Mode. Valid values:
+    // The high-availability mode. Valid values:
     // * **RPO**: Data consistency is prioritized. The instance ensures data reliability to minimize data loss. This mode is suitable for users who have high requirements for data consistency.
-    // * **RTO**: Instance availability is prioritized. The instance recovers services as quickly as possible to maximize uptime. This mode is suitable for users who have high requirements for database uptime.
+    // * **RTO**: Instance availability is prioritized. The instance recovers services as quickly as possible to maximize availability. This mode is suitable for users who have high requirements for database uptime.
     // 
-    // > This parameter is returned only for MySQL instances.
+    // >This parameter is returned only for ApsaraDB RDS for MySQL instances.
     shared_ptr<string> HAMode_ {};
     shared_ptr<DescribeDBInstanceHAConfigResponseBody::HostInstanceInfos> hostInstanceInfos_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
     // The data replication mode. Valid values:
-    // * **Sync**: Synchronous.
-    // * **Semi-sync**: Semi-synchronous.
-    // * **Async**: Asynchronous.
+    // * **Sync**: synchronous mode.
+    // * **Semi-sync**: semi-synchronous.
+    // * **Async**: asynchronous replication.
     // 
-    // > This parameter is returned only for MySQL instances.
+    // >This parameter is returned only for ApsaraDB RDS for MySQL instances.
     shared_ptr<string> syncMode_ {};
   };
 

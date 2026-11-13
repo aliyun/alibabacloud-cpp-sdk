@@ -151,7 +151,7 @@ namespace Models
     // - **PREPAY**: subscription
     shared_ptr<string> chargeType_ {};
     // The expiration time.
-    // > This parameter is not returned if the billing method is changed to pay-as-you-go.
+    // >This parameter is not returned if the billing method is changed to pay-as-you-go.
     shared_ptr<vector<string>> expiredTime_ {};
     // The reserved parameter. This parameter is not supported.
     shared_ptr<vector<ModifyRCInstanceChargeTypeResponseBody::FeeOfInstances>> feeOfInstances_ {};

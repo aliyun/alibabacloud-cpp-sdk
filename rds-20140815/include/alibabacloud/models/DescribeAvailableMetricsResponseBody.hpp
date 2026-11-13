@@ -141,17 +141,17 @@ namespace Models
       // The description of the enhanced monitoring metric.
       shared_ptr<string> description_ {};
       // The category of the enhanced monitoring metric. Valid values:
-      // - **os**: operating system metrics
-      // - **db**: database metrics
+      // - **os**: operating system metrics.
+      // - **db**: database metrics.
       shared_ptr<string> dimension_ {};
       // The key of the group to which the enhanced monitoring metric belongs.
       shared_ptr<string> groupKey_ {};
       // The name of the group to which the enhanced monitoring metric belongs.
       shared_ptr<string> groupKeyType_ {};
-      // The statistical method of the enhanced monitoring metric. Valid values:
-      // - **avg**: average value
-      // - **min**: minimum value
-      // - **max**: maximum value
+      // The statistical method for the enhanced monitoring metric. Valid values:
+      // - **avg**: average value.
+      // - **min**: minimum value.
+      // - **max**: maximum value.
       shared_ptr<string> method_ {};
       // The key of the enhanced monitoring metric.
       shared_ptr<string> metricsKey_ {};

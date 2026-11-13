@@ -76,7 +76,6 @@ namespace Models
 
   protected:
     // The encryption algorithm. Valid values:
-    // 
     // - AES_128_CBC
     // - AES_128_GCM
     // - AES_128_CTR
@@ -90,15 +89,13 @@ namespace Models
     // - SM4_128_CTR
     // - SM4_128_ECB
     shared_ptr<string> algorithm_ {};
-    // The custom Key Management Service (KMS) master key ID.
+    // The custom KMS master key ID.
     // Note
     // This parameter takes effect only when the column encryption key pattern is set to kms_key. If this parameter is not specified, the current column encryption key settings of the database remain unchanged.
     shared_ptr<string> encryptionKey_ {};
     // The column encryption key mode. Valid values:
-    // 
-    // - client_key: configures a user-generated random key on the client side.
-    // - kms_key: configures a custom key by using Alibaba Cloud KMS.
-    // 
+    // - client_key: Configures a user-generated random key on the client side.
+    // - kms_key: Configures a custom key by using Alibaba Cloud Key Management Service (KMS).
     // Note
     // After an instance is configured to use a KMS key, you can no longer configure a random key on the client side.
     shared_ptr<string> encryptionKeyMode_ {};

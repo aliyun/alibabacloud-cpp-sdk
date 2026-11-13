@@ -141,17 +141,17 @@ namespace Models
       // The description of the enhanced metric.
       shared_ptr<string> description_ {};
       // The category of the enhanced metric. Valid values:
-      // - **os**: operating system metrics.
-      // - **db**: database metrics.
+      // - **os**: Operating system metrics.
+      // - **db**: Database metrics.
       shared_ptr<string> dimension_ {};
       // The key of the group to which the enhanced metric belongs.
       shared_ptr<string> groupKey_ {};
       // The name of the group to which the enhanced metric belongs.
       shared_ptr<string> groupKeyType_ {};
-      // The statistical method for the enhanced metric. Valid values:
-      // - **avg**: average value.
-      // - **min**: minimum value.
-      // - **max**: maximum value.
+      // The statistical method of the enhanced metric. Valid values:
+      // - **avg**: Average value.
+      // - **min**: Minimum value.
+      // - **max**: Maximum value.
       shared_ptr<string> method_ {};
       // The key of the enhanced metric.
       shared_ptr<string> metricsKey_ {};
@@ -200,7 +200,7 @@ namespace Models
     shared_ptr<string> DBInstanceName_ {};
     // The list of enhanced metrics that are enabled for the instance.
     shared_ptr<vector<DescribeDBInstanceMetricsResponseBody::Items>> items_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
     // The total number of enhanced metrics that are enabled for the instance.
     shared_ptr<int32_t> totalRecordCount_ {};

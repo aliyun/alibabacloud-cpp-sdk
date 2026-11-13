@@ -101,7 +101,7 @@ namespace Models
       // The usage of the key. Valid values:
       // 
       // - **DiskEncryption**: cloud disk encryption.
-      // - **TDE**: transparent data encryption.
+      // - **TDE**: Transparent Data Encryption (TDE).
       shared_ptr<string> keyUsedBy_ {};
       // The instance status. Valid values:
       // 
@@ -110,7 +110,7 @@ namespace Models
       // - **DELETING**: The instance is being deleted.
       // - **RESTARTING**: The instance is being restarted.
       // - **CLASS_CHANGING**: The instance is undergoing a specification change.
-      // - **INS_MAINTAINING**: The instance is undergoing maintenance.
+      // - **INS_MAINTAINING**: The instance is under maintenance.
       // - **BACKUP_RECOVERING**: The instance is being restored from a backup.
       // - **NET_MODIFYING**: The network configuration of the instance is being changed.
       shared_ptr<string> status_ {};

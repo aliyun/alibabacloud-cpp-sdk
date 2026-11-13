@@ -111,11 +111,11 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> connectionStringPrefix_ {};
-    // The ID of the endpoint. You can call the DescribeDBInstanceEndpoints operation to query the ID.
+    // The endpoint ID of the instance. You can call the DescribeDBInstanceEndpoints operation to query the endpoint ID.
     // 
     // This parameter is required.
     shared_ptr<string> DBInstanceEndpointId_ {};
-    // Instance ID of the instance. You can call the DescribeDBInstances operation to query instance ID.
+    // The instance ID. You can call the DescribeDBInstances operation to query the instance ID.
     // 
     // This parameter is required.
     shared_ptr<string> DBInstanceId_ {};
@@ -127,7 +127,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> port_ {};
-    // The ID of the resource group. You can call the DescribeDBInstanceAttribute operation to obtain the ID.
+    // The resource group ID. You can call the DescribeDBInstanceAttribute operation to query the resource group ID.
     shared_ptr<string> resourceGroupId_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
   };

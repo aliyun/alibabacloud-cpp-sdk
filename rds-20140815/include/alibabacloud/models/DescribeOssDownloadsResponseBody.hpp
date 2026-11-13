@@ -210,7 +210,7 @@ namespace Models
     shared_ptr<DescribeOssDownloadsResponseBody::Items> items_ {};
     // The ID of the migration task.
     shared_ptr<string> migrateTaskId_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

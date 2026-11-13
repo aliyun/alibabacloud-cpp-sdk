@@ -130,25 +130,25 @@ namespace Models
 
 
   protected:
-    // Specifies whether to enable the overall cross-region backup feature, which includes data backup and log backup. Valid values:
-    // * **0**: disabled
-    // * **1**: enabled
+    // Specifies whether to enable the overall cross-region backup switch, which includes data backup and log backup. Valid values:
+    // * **0**: disabled.
+    // * **1**: enabled.
     // 
-    // > When you enable cross-region backup, you must specify the destination region ID.
+    // >When you enable cross-region backup, you must specify the destination region ID.
     shared_ptr<string> backupEnabled_ {};
-    // The ID of the destination region for cross-region backup.
+    // The ID of the destination region for cross-region backups.
     shared_ptr<string> crossBackupRegion_ {};
-    // The retention type of cross-region backups. Only **1** is supported, which indicates that all backups are retained.
+    // The retention type for cross-region backups. Valid value: **1**, which indicates that all backups are retained.
     shared_ptr<string> crossBackupType_ {};
     // The instance ID.
     // 
     // This parameter is required.
     shared_ptr<string> DBInstanceId_ {};
-    // Specifies whether to enable cross-region log backup. Valid values:
-    // * **0**: disabled
-    // * **1**: enabled
+    // Specifies whether to enable the cross-region log backup switch. Valid values:
+    // * **0**: disabled.
+    // * **1**: enabled.
     // 
-    // > You can configure this parameter only when the overall cross-region backup feature is enabled.
+    // >You can configure this parameter only when the overall cross-region backup switch is enabled.
     shared_ptr<string> logBackupEnabled_ {};
     shared_ptr<int64_t> ownerId_ {};
     // The region ID of the source instance. You can call the DescribeRegions operation to query region IDs.
@@ -157,9 +157,9 @@ namespace Models
     shared_ptr<string> regionId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
-    // The retention method for cross-region backups. Only **1** is supported, which indicates that backups are retained based on a specified retention period.
+    // The retention method for cross-region backups. Valid value: **1**, which indicates that backups are retained based on a specified retention period.
     shared_ptr<int32_t> retentType_ {};
-    // The retention period of cross-region backups. Valid values: **7 to 1825**. Unit: days.
+    // The number of days to retain cross-region backups. Valid values: **7 to 1825**.
     shared_ptr<int32_t> retention_ {};
   };
 

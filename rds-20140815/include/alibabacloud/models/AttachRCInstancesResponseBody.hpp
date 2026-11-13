@@ -85,9 +85,9 @@ namespace Models
       shared_ptr<string> code_ {};
       // The instance ID of the RDS Custom instance.
       shared_ptr<string> instanceId_ {};
-      // The returned message of the request.
+      // The returned message.
       // 
-      // > If the request is successful, **Successful** is returned. If the request fails, an error message such as an error code is returned.
+      // > If the request is successful, this parameter returns **Successful**. If the request fails, this parameter returns exception information, such as an error code.
       shared_ptr<string> message_ {};
     };
 

@@ -136,15 +136,15 @@ namespace Models
         // The instance ID.
         shared_ptr<string> DBInstanceName_ {};
         // The ID of the dedicated cluster.
-        // > An empty value is returned for instances that are not deployed in a dedicated cluster.
+        // > An empty value is returned for instances that do not belong to a dedicated cluster.
         shared_ptr<string> dedicatedHostGroupId_ {};
         // The ID of the host in the dedicated cluster.
-        // > An empty value is returned for instances that are not deployed in a dedicated cluster.
+        // > An empty value is returned for instances that do not belong to a dedicated cluster.
         shared_ptr<string> dedicatedHostId_ {};
         // The unique identifier of the instance.
-        // > **-1** is returned for instances that are not deployed in a dedicated cluster.
+        // > **-1** is returned for instances that do not belong to a dedicated cluster.
         shared_ptr<string> nodeId_ {};
-        // The role of the node. Valid values:
+        // The node type. Valid values:
         // * **Master**: primary node.
         // * **Slave**: secondary node.
         shared_ptr<string> role_ {};
@@ -212,7 +212,7 @@ namespace Models
         shared_ptr<string> connectionString_ {};
         // The instance ID.
         shared_ptr<string> DBInstanceName_ {};
-        // The network endpoint type of the instance. Valid values:
+        // The type of the network endpoint for the instance. Valid values:
         // 
         // * **vpc**: internal endpoint.
         // * **public**: public endpoint.
@@ -290,11 +290,11 @@ namespace Models
 
 
   protected:
-    // An internal parameter. You can ignore this parameter.
+    // The internal parameter. You can ignore this parameter.
     shared_ptr<string> code_ {};
     // The topology details.
     shared_ptr<GetDBInstanceTopologyResponseBody::Data> data_ {};
-    // An internal parameter. You can ignore this parameter.
+    // The internal parameter. You can ignore this parameter.
     shared_ptr<string> message_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

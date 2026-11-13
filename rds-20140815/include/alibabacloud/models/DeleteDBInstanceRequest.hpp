@@ -84,7 +84,7 @@ namespace Models
 
 
   protected:
-    // The instance ID. You can call DescribeDBInstances to query the instance ID.
+    // Instance ID of the instance. You can call the DescribeDBInstances operation to query instance ID.
     // 
     // This parameter is required.
     shared_ptr<string> DBInstanceId_ {};
@@ -92,11 +92,11 @@ namespace Models
     shared_ptr<int64_t> ownerId_ {};
     // The data retention policy for archived backups after the instance is released. Valid values:
     // 
-    // * **None**: No archived backups are retained.
-    // * **Lastest**: Only the last archived backup is retained.
-    // * **All**: All archived backups are retained.
+    // * **None**: Not retained.
+    // * **Lastest**: Retain the last one.
+    // * **All**: Retain all.
     // 
-    // >This parameter is supported only for ApsaraDB RDS for MySQL instances with Premium Local SSDs.
+    // >This is supported only for ApsaraDB RDS for MySQL instance with Premium Local SSDs.
     shared_ptr<string> releasedKeepPolicy_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};

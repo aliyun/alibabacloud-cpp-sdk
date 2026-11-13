@@ -70,7 +70,7 @@ namespace Models
     // - 0: Not authorized.
     // - 1: Authorized.
     shared_ptr<int32_t> authorizationState_ {};
-    // The error message.
+    // The error message returned by the API.
     shared_ptr<string> message_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

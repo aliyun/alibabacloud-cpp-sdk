@@ -48,9 +48,9 @@ namespace Models
 
 
   protected:
-    // The interval at which monitoring data is collected. Unit: seconds.
+    // The data collection interval for monitoring. Unit: seconds.
     shared_ptr<string> period_ {};
-    // The request ID.
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
   };
 

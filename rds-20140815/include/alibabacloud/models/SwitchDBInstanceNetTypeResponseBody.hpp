@@ -61,7 +61,7 @@ namespace Models
     shared_ptr<string> newConnectionString_ {};
     // The database endpoint before the switch.
     shared_ptr<string> oldConnectionString_ {};
-    // The request ID.
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
   };
 

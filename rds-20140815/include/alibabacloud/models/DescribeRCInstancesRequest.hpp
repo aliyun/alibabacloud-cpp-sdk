@@ -171,7 +171,7 @@ namespace Models
     shared_ptr<string> clusterId_ {};
     // The description used to filter instances.
     shared_ptr<string> description_ {};
-    // The keyword used to perform a fuzzy match on the instance description.
+    // The keyword used for fuzzy matching of the instance description.
     shared_ptr<string> descriptionForFuzzy_ {};
     // The host IP address used to filter instances.
     shared_ptr<string> hostIp_ {};
@@ -179,11 +179,11 @@ namespace Models
     shared_ptr<string> imageId_ {};
     // The instance ID. This parameter is used to query a single instance.
     // 
-    // > If no instance ID is specified (neither **InstanceId** nor **InstanceIds** is specified), the details of all RDS Custom instances in the specified region are returned.
+    // > If no instance ID is specified (neither **InstanceId** nor **InstanceIds** is passed), the details of all RDS Custom instances in the specified region are returned.
     shared_ptr<string> instanceId_ {};
     // The instance IDs.
     // 
-    // This parameter is used to query multiple instances at a time. Separate multiple instance IDs with commas (,). You can specify up to 100 instance IDs. Input format: `["InstanceId1","InstanceId2"]`.
+    // This parameter is used to query multiple instances at a time. Separate multiple instance IDs with commas (,). You can specify up to 100 instance IDs. Format: `["Instance ID 1","Instance ID 2"]`.
     // 
     // > If both **InstanceIds** and **InstanceId** are specified, the value of **InstanceIds** prevails.
     shared_ptr<string> instanceIds_ {};
@@ -193,7 +193,7 @@ namespace Models
     // 
     // Starting value: 1. Default value: 1.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries per page in a paging query.
+    // The number of entries per page set in the paging settings for a paged query.
     // 
     // Maximum value: 100. Default value: 10.
     shared_ptr<int32_t> pageSize_ {};
@@ -209,9 +209,9 @@ namespace Models
     // - **Stopping**: The instance is being stopped.
     // - **Stopped**: The instance is stopped.
     shared_ptr<string> status_ {};
-    // The tags used to filter instances. Input format: `{"TagKey":"TagValue"}`.
+    // The tags used to filter instances. Format: `{"TagKey":"TagValue"}`.
     shared_ptr<string> tag_ {};
-    // The ID of the VPC.
+    // The ID of the virtual private cloud (VPC).
     shared_ptr<string> vpcId_ {};
   };
 

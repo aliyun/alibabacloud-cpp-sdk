@@ -120,9 +120,9 @@ namespace Models
 
 
     protected:
-      // The destination IP address range for outbound authorization. Both CIDR format and IPv4 format IP address ranges are supported.
+      // The destination IP address range for outbound authorization. CIDR format and IPv4 format IP addresses are supported.
       shared_ptr<string> destCidrIp_ {};
-      // The protocol type. This parameter is not case-sensitive. Valid values: 
+      // The protocol type. The value is not case-sensitive. Valid values: 
       //          
       // - **ICMP**
       // - **GRE**
@@ -132,19 +132,19 @@ namespace Models
       shared_ptr<string> ipProtocol_ {};
       // The authorization policy.
       shared_ptr<string> policy_ {};
-      // The destination port range for the transport layer protocol. Valid values:
-      // - TCP or UDP: **1** to **65535**. Separate the start port and the end port with a forward slash (/). Example: **1/200**. Invalid example: **200/1**.
+      // The range of destination ports for the transport layer protocol. Valid values:
+      // - TCP or UDP: **1** to **65535**. Use a forward slash (/) to separate the start port and the end port. Correct example: **1/200**. Incorrect example: **200/1**.
       // - ICMP: **-1/-1**.
       // - GRE: **-1/-1**.
       // - ALL: **-1/-1**.
       shared_ptr<string> portRange_ {};
-      // The rule priority. Valid values: 1 to 100. A smaller value indicates a higher priority. If multiple security group rules have the same priority, the drop rule takes precedence.
+      // The priority of the rule. Valid values: 1 to 100. A smaller value indicates a higher priority. If multiple rules have the same priority, the drop rule takes precedence.
       shared_ptr<int32_t> priority_ {};
-      // The source IP address range for inbound authorization. Both CIDR format and IPv4 format IP address ranges are supported.
+      // The source IP address range for inbound authorization. CIDR format and IPv4 format IP addresses are supported.
       shared_ptr<string> sourceCidrIp_ {};
-      // The source port range for the transport layer protocol. Valid values:
+      // The range of source ports for the transport layer protocol. Valid values:
       // 
-      // - TCP or UDP: **1** to **65535**. Separate the start port and the end port with a forward slash (/). Example: **1/200**. Invalid example: **200/1**.
+      // - TCP or UDP: **1** to **65535**. Use a forward slash (/) to separate the start port and the end port. Correct example: **1/200**. Incorrect example: **200/1**.
       // - ICMP: **-1/-1**.
       // - GRE: **-1/-1**.
       // - ALL: **-1/-1**.
@@ -184,16 +184,16 @@ namespace Models
 
 
   protected:
-    // The rule direction. Valid values:
+    // The direction of the rule. Valid values:
     // 
-    // - **ingress**: inbound traffic to the security group.
-    // - **egress**: outbound traffic from the security group.
+    // - **ingress**: inbound
+    // - **egress**: outbound
     shared_ptr<string> direction_ {};
     // The region ID.
     shared_ptr<string> regionId_ {};
     // The security group ID.
     shared_ptr<string> securityGroupId_ {};
-    // The security group information.
+    // The security group rules.
     shared_ptr<vector<AuthorizeRCSecurityGroupPermissionRequest::SecurityGroupPermissions>> securityGroupPermissions_ {};
   };
 

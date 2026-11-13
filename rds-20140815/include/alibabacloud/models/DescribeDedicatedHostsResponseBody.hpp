@@ -400,7 +400,7 @@ namespace Models
 
 
   protected:
-    // The host group ID.
+    // The dedicated host group ID.
     shared_ptr<string> dedicatedHostGroupId_ {};
     shared_ptr<DescribeDedicatedHostsResponseBody::DedicatedHosts> dedicatedHosts_ {};
     // The request ID.

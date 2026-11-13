@@ -57,11 +57,11 @@ namespace Models
 
 
   protected:
-    // The queue number for the rebuild. When the number is 0, the rebuild migration starts.
+    // The queue number for the rebuild task. When the number is 0, the rebuild and migration process starts.
     shared_ptr<int32_t> migrationId_ {};
-    // The request ID.
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
-    // The task ID.
+    // The ID of the task.
     shared_ptr<int32_t> taskId_ {};
   };
 

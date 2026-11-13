@@ -131,30 +131,30 @@ namespace Models
 
   protected:
     // Specifies whether the host allows instance allocation. Valid values:
-    // * **0**: Not allowed.
-    // * **1**: Allowed.
+    // * **0**: Instance allocation is not allowed.
+    // * **1**: Instance allocation is allowed.
     shared_ptr<string> allocationStatus_ {};
-    // The dedicated cluster ID. You can call the DescribeDedicatedHostGroups operation to obtain the dedicated cluster ID.
+    // The dedicated cluster ID. You can call the DescribeDedicatedHostGroups operation to query the ID.
     shared_ptr<string> dedicatedHostGroupId_ {};
-    // The host ID of the dedicated cluster.
+    // The dedicated host ID.
     shared_ptr<string> dedicatedHostId_ {};
-    // The host status. Valid values:
+    // The status of the host. Valid values:
     //  * **0**: Creating.
     //  * **1**: Running.
     //  * **2**: Down.
-    //  * **3**: Down and offline (host replacement in progress).
+    //  * **3**: Down and being replaced.
     //  * **4**: Offline.
     //  * **5**: Deleted.
     //  * **6**: Restarting.
     shared_ptr<string> hostStatus_ {};
     // The storage type of the host. Valid values:
-    // * **dhg_cloud_ssd**: ESSD cloud disk.
+    // * **dhg_cloud_ssd**: standard SSD.
     // * **dhg_local_ssd**: local SSD.
     shared_ptr<string> hostType_ {};
     // The order ID.
     shared_ptr<int64_t> orderId_ {};
     shared_ptr<int64_t> ownerId_ {};
-    // The region ID. You can call the DescribeRegions operation to query the region ID.
+    // The region ID. You can call the DescribeRegions operation to query region IDs.
     shared_ptr<string> regionId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};

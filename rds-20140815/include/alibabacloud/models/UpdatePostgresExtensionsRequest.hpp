@@ -112,17 +112,17 @@ namespace Models
 
 
   protected:
-    // The client token that is used to ensure the idempotence of the request and prevent duplicate requests. You can generate the value of this parameter on the client side. The value must be unique across different requests and can contain a maximum of 64 ASCII characters. The value cannot contain non-ASCII characters.
+    // The client token that is used to ensure the idempotence of the request and prevent duplicate requests. You can generate the value on the client side. The value must be unique across different requests and can be up to 64 ASCII characters in length. The value cannot contain non-ASCII characters.
     shared_ptr<string> clientToken_ {};
     // Instance ID of the instance. You can call the DescribeDBInstances operation to query instance ID.
     // 
     // This parameter is required.
     shared_ptr<string> DBInstanceId_ {};
-    // The name of the database in the instance. You can call the DescribeDatabases operation to query the name.
+    // The names of the databases in the instance. You can call the DescribeDatabases operation to query the names.
     // 
     // This parameter is required.
     shared_ptr<string> DBNames_ {};
-    // The names of the plug-ins. Separate multiple plug-in names with commas (,).
+    // The names of the extensions. Separate multiple extension names with commas (,).
     // 
     // This parameter is required.
     shared_ptr<string> extensions_ {};

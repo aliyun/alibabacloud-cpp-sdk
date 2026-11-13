@@ -65,7 +65,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> RCInstanceIds_ {};
-    // The region ID. You can call the DescribeRegions operation to query the region ID.
+    // The region ID. You can call the DescribeRegions operation to obtain the region ID.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};

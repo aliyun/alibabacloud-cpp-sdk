@@ -103,16 +103,16 @@ namespace Models
 
 
   protected:
-    // Specifies whether to enable fuzzy match. Valid values:
+    // Specifies whether to enable fuzzy search. Valid values:
     // 
-    // - **true**: Enabled.
-    // - **false**: Disabled.
+    // - **true**: enables fuzzy search.
+    // - **false**: disables fuzzy search.
     shared_ptr<bool> fuzzySearch_ {};
     // The number of entries per page. Valid values: 10, 30, and 50.
     // 
     // This parameter is required.
     shared_ptr<int32_t> maxRecordsPerPage_ {};
-    // The current page number.
+    // The page number.
     // 
     // This parameter is required.
     shared_ptr<int32_t> pageNumbers_ {};
@@ -122,7 +122,7 @@ namespace Models
     shared_ptr<string> resourceGroupId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
-    // The name of the whitelist template. Specify this parameter for fuzzy match. You can call the DescribeWhitelistTemplate operation to obtain the template name.
+    // The name of the whitelist template. Specify this parameter to perform a fuzzy search. You can call the DescribeWhitelistTemplate operation to obtain the template name.
     shared_ptr<string> templateName_ {};
   };
 

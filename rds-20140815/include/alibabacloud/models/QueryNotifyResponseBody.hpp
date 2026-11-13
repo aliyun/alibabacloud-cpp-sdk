@@ -189,11 +189,11 @@ namespace Models
       protected:
         // The ID of the current Alibaba Cloud account.
         shared_ptr<int64_t> aliUid_ {};
-        // Indicates whether the notification has been received. This indicates whether the [ConfirmNotify](https://help.aliyun.com/document_detail/610444.html) operation was called to mark the notification as confirmed. Valid values:
-        // * **true**: Yes.
-        // * **false**: No.
+        // Indicates whether the notification has been received. This means whether the [ConfirmNotify](https://help.aliyun.com/document_detail/610444.html) operation has been called to mark the notification as confirmed. Valid values:
+        // * **true**: The notification has been received.
+        // * **false**: The notification has not been received.
         shared_ptr<bool> confirmFlag_ {};
-        // The UID of the user who received the notification under the current Alibaba Cloud account. This user called the [ConfirmNotify](https://help.aliyun.com/document_detail/610444.html) operation to mark the notification as confirmed.
+        // The UID of the user who received the notification under the current Alibaba Cloud account and called the [ConfirmNotify](https://help.aliyun.com/document_detail/610444.html) operation to mark the notification as confirmed.
         // 
         // A value of **0** indicates that the notification was automatically received by the system.
         shared_ptr<int64_t> confirmor_ {};
@@ -205,21 +205,21 @@ namespace Models
         shared_ptr<int64_t> id_ {};
         // The number of times that duplicate notifications were blocked.
         shared_ptr<string> idempotentCount_ {};
-        // The ID used to ensure the idempotence of the notification and prevent duplicate notifications.
+        // The ID used to ensure the idempotence of the notification and prevent duplicate notifications from being sent.
         shared_ptr<string> idempotentId_ {};
         // The level of the notification. Valid values:
         // * **help**: Help level.
-        // * **success**: Success level.
+        // * **success**: Execution success level.
         // * **warning**: Warning level.
-        // * **error**: Error level.
-        // * **loading**: In progress.
-        // * **notice**: Notice level.
+        // * **error**: Execution failure level.
+        // * **loading**: Task in progress.
+        // * **notice**: Normal level.
         shared_ptr<string> level_ {};
-        // The elements in the notification template, which consist of a JSON string. The parameters contained in the JSON string vary based on the **TemplateName**.
-        // * If **TemplateName** is **RenewalRecommend**:
+        // The elements in the notification template. The elements are formatted as a JSON string. The parameters contained in the JSON string vary based on the **TemplateName** value.
+        // * If **TemplateName** is set to **RenewalRecommend**:
         //     * **instanceName**: the ID of the instance that is about to expire.
         //     * **reservedTime**: the number of remaining days.
-        // * If **TemplateName** is **InstanceCreateFailed**:
+        // * If **TemplateName** is set to **InstanceCreateFailed**:
         //     * **orderId**: the order ID for purchasing the instance.
         //     * **reason**: the reason why the instance failed to be created.
         shared_ptr<string> notifyElement_ {};

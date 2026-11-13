@@ -163,15 +163,15 @@ namespace Models
     shared_ptr<string> encryptionKey_ {};
     // The column encryption key mode. Valid values:
     // 
-    // - client_key: A user-generated random key configured on the client side.
-    // - kms_key: A custom key configured by using Alibaba Cloud KMS.
+    // - client_key: Use a user-generated random key configured on the client side.
+    // - kms_key: Use a custom key configured by using Alibaba Cloud KMS.
     // 
     // Note
     // After an instance is configured to use a KMS key, you can no longer use a random key configured on the client side.
     shared_ptr<string> encryptionKeyMode_ {};
     // The column encryption status. Valid values:
-    // - 1: Encryption is enabled.
-    // - 0: Encryption is disabled.
+    // - 1: Enable encryption.
+    // - 0: Disable encryption.
     // 
     // This parameter is required.
     shared_ptr<string> encryptionStatus_ {};
@@ -181,9 +181,9 @@ namespace Models
     shared_ptr<int64_t> ownerId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
-    // The global resource descriptor of the role, used to specify the specific role. For details, see RAM role overview.
+    // The global resource descriptor of the role, used to specify a specific role. For details, see RAM role overview.
     // Note
-    // This parameter takes effect only when the column encryption key pattern is set to kms_key. If you do not specify this parameter, the internal default value is used.
+    // This parameter takes effect only when the column encryption key mode is kms_key. If this parameter is not specified, the internal default value is used.
     shared_ptr<string> roleArn_ {};
     // Specifies whether to enable the whitelist mode. A value of true indicates that only columns in the whitelist are encrypted. A value of false indicates that all columns are encrypted.
     shared_ptr<bool> whiteListMode_ {};

@@ -190,10 +190,10 @@ namespace Models
     // The task level. Default value: all. Valid values:
     // 
     // - **all**: all tasks.
-    // - **S0**: exception recovery tasks.
+    // - **S0**: exception fix tasks.
     // - **S1**: system O&M tasks.
     shared_ptr<string> changeLevel_ {};
-    // The database engine. Default value: all. Valid values: mysql, pgsql, mssql, and others.
+    // The database engine. Default value: all. Valid values include mysql, pgsql, and mssql.
     shared_ptr<string> dbType_ {};
     // The instance name. This parameter is optional. If you specify this parameter, you can specify only one instance name.
     shared_ptr<string> insName_ {};
@@ -205,7 +205,7 @@ namespace Models
     shared_ptr<int32_t> pageSize_ {};
     // The product name. Valid values: RDS, POLARDB, MongoDB, and Redis. For an ApsaraDB RDS instance, set the value to RDS.
     shared_ptr<string> productId_ {};
-    // The region ID of the pending event. You can call the DescribeRegions operation to query the region ID.
+    // The region ID of the pending event. You can call the DescribeRegions operation to obtain the region ID.
     // > A value of **all** specifies all region IDs.
     shared_ptr<string> region_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
@@ -214,16 +214,16 @@ namespace Models
     // The task status, which is used to filter the returned tasks. Valid values:
     // * **-1**: all tasks.
     // * **3**: pending tasks.
-    // * **4**: tasks in progress.
+    // * **4**: in-progress tasks.
     // * **5**: successfully completed tasks.
     // * **6**: failed tasks.
     // * **7**: canceled tasks.
     shared_ptr<int32_t> status_ {};
     // The task type. Valid values:
     // 
-    // * **rds_apsaradb_ha**: primary and secondary node switch.
+    // * **rds_apsaradb_ha**: primary/secondary node switch.
     // * **rds_apsaradb_transfer**: instance migration.
-    // * **rds_apsaradb_upgrade**: minor engine version update.
+    // * **rds_apsaradb_upgrade**: minor version update.
     // * **rds_apsaradb_maxscale**: proxy minor version upgrade.
     // * **all**: all task types.
     shared_ptr<string> taskType_ {};

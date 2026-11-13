@@ -102,7 +102,7 @@ namespace Models
         shared_ptr<string> expireTime_ {};
         // The permission type. A value of restrictedAccess indicates restricted access, which requires data masking.
         shared_ptr<string> privilege_ {};
-        // The account name.
+        // The name of the account.
         shared_ptr<string> userName_ {};
       };
 
@@ -117,7 +117,7 @@ namespace Models
 
 
     protected:
-      // The list of user encryption or masking permissions.
+      // The list of encryption or data masking permissions for the user.
       shared_ptr<vector<Data::UserPrivilege>> userPrivilege_ {};
     };
 

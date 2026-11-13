@@ -75,14 +75,14 @@ namespace Models
 
 
   protected:
-    // The instance ID. You can call DescribeDBInstances to query the instance ID.
+    // The instance ID. You can call the DescribeDBInstances operation to query the instance ID.
     // 
     // This parameter is required.
     shared_ptr<string> DBInstanceId_ {};
     shared_ptr<int64_t> ownerId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
-    // The ECS security group ID. You can associate up to 10 security groups with an instance. Separate multiple security group IDs with commas (,). To disassociate all ECS security groups, pass an empty string. You can call DescribeSecurityGroups to query ECS security group IDs.
+    // The ID of the ECS security group. You can associate up to 10 security groups. Separate multiple security group IDs with commas (,). To clear the ECS security groups, pass an empty string. You can call the DescribeSecurityGroups operation to query the ECS security group ID.
     // 
     // This parameter is required.
     shared_ptr<string> securityGroupId_ {};

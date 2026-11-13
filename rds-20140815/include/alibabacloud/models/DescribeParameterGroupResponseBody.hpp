@@ -382,7 +382,7 @@ namespace Models
   protected:
     shared_ptr<DescribeParameterGroupResponseBody::ParamGroup> paramGroup_ {};
     shared_ptr<DescribeParameterGroupResponseBody::RelatedCustinsInfo> relatedCustinsInfo_ {};
-    // The request ID.
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
   };
 

@@ -120,6 +120,7 @@ namespace Models
     // This parameter is required.
     shared_ptr<string> storageAutoScale_ {};
     // The threshold percentage that triggers automatic storage expansion. When the percentage of remaining storage space reaches the specified threshold, automatic storage expansion is triggered. Valid values:
+    // 
     // * **10**
     // * **20**
     // * **30**
@@ -130,8 +131,9 @@ namespace Models
     shared_ptr<int32_t> storageThreshold_ {};
     // The upper limit for automatic storage expansion. The value must be greater than or equal to the current total storage capacity of the instance.
     // 
-    // - Upper limit for ESSDs: 32,000 GB
-    // - Upper limit for standard SSDs: 6,000 GB
+    // - Upper limit for ESSDs: 32,000 GB.
+    // - Upper limit for standard SSDs: 6,000 GB.
+    // 
     // >This parameter is required when **StorageAutoScale** is set to **Enable**.
     shared_ptr<int32_t> storageUpperBound_ {};
   };

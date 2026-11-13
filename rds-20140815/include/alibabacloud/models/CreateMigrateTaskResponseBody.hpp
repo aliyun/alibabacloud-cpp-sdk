@@ -90,9 +90,9 @@ namespace Models
     shared_ptr<string> backupMode_ {};
     // The instance ID.
     shared_ptr<string> DBInstanceId_ {};
-    // The name of the database.
+    // The database name.
     shared_ptr<string> DBName_ {};
-    // The ID of the migration task.
+    // The migration task ID.
     shared_ptr<string> migrateTaskId_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

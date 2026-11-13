@@ -134,9 +134,9 @@ namespace Models
 
 
     protected:
-      // The tag key. You can create up to N tag keys at a time. Valid values of N: **1** to **20**. The tag key cannot be an empty string.
+      // The tag key. You can create up to N tag keys at a time. Valid values of N: **1** to **20**. Empty strings are not allowed.
       shared_ptr<string> key_ {};
-      // The tag value that corresponds to the tag key. You can create up to N tag values at a time. Valid values of N: **1** to **20**. The tag value can be an empty string.
+      // The tag value that corresponds to the tag key. You can create up to N tag values at a time. Valid values of N: **1** to **20**. Empty strings are allowed.
       shared_ptr<string> value_ {};
     };
 
@@ -189,12 +189,12 @@ namespace Models
     protected:
       // The category of the system cloud disk. Only **cloud_essd** (ESSD) is supported.
       shared_ptr<string> category_ {};
-      // The performance level of the ESSD cloud disk. Valid values:
+      // The performance level of the ESSD cloud disk (not standard SSD). Valid values:
       // 
-      // - **PL0**: An ESSD can deliver up to 10,000 random read/write IOPS.
-      // - **PL1**: An ESSD can deliver up to 50,000 random read/write IOPS.
-      // - **PL2**: An ESSD can deliver up to 100,000 random read/write IOPS.
-      // - **PL3**: An ESSD can deliver up to 1,000,000 random read/write IOPS.
+      // - **PL0**: A single ESSD can deliver up to 10,000 random read/write IOPS.
+      // - **PL1**: A single ESSD can deliver up to 50,000 random read/write IOPS.
+      // - **PL2**: A single ESSD can deliver up to 100,000 random read/write IOPS.
+      // - **PL3**: A single ESSD can deliver up to 1,000,000 random read/write IOPS.
       shared_ptr<string> performanceLevel_ {};
       // The size of the system cloud disk. Unit: GiB. Valid values: 20 to 2048.
       shared_ptr<int32_t> size_ {};
@@ -265,22 +265,21 @@ namespace Models
 
 
     protected:
-      // The data cloud disk type. Currently, only **cloud_essd** (ESSD cloud disk) is supported.
+      // The category of the data cloud disk. Only **cloud_essd** (ESSD cloud disk, not standard SSD) is supported.
       shared_ptr<string> category_ {};
-      // Reserved parameter. Not supported.
+      // The reserved parameter. This parameter is not supported.
       shared_ptr<bool> deleteWithInstance_ {};
       // Specifies whether to encrypt the data cloud disk. Valid values:
       // 
-      // - **true**: yes.
-      // - **false**: no.
-      // Default value: **false**.
+      // - **true**: Yes.
+      // - **false**: No. This is the default value.
       shared_ptr<string> encrypted_ {};
-      // The performance level of the ESSD cloud disk. Valid values:
+      // The performance level of the ESSD cloud disk (not standard SSD). Valid values:
       // 
-      // - **PL0**: An ESSD can deliver up to 10,000 random read/write IOPS.
-      // - **PL1**: An ESSD can deliver up to 50,000 random read/write IOPS.
-      // - **PL2**: An ESSD can deliver up to 100,000 random read/write IOPS.
-      // - **PL3**: An ESSD can deliver up to 1,000,000 random read/write IOPS.
+      // - **PL0**: A single ESSD can deliver up to 10,000 random read/write IOPS.
+      // - **PL1**: A single ESSD can deliver up to 50,000 random read/write IOPS.
+      // - **PL2**: A single ESSD can deliver up to 100,000 random read/write IOPS.
+      // - **PL3**: A single ESSD can deliver up to 1,000,000 random read/write IOPS.
       shared_ptr<string> performanceLevel_ {};
       // The size of the data cloud disk. Unit: GiB. Valid values: 20 to 65536.
       shared_ptr<int32_t> size_ {};
@@ -545,48 +544,48 @@ namespace Models
     shared_ptr<int32_t> amount_ {};
     // Specifies whether to enable automatic payment. Valid values:
     // 
-    // - **true**: Automatic payment is enabled. Make sure that your account balance is sufficient.
+    // - **true**: Automatic payment is enabled. You must ensure that your account balance is sufficient.
     // - **false**: Only an order is generated and no payment is made.
     // 
     // 
-    // > Default value: **true**. If the balance of your payment method is insufficient, you can set the AutoPay parameter to false. In this case, an unpaid order is generated, and you can log on to the ApsaraDB RDS console to complete the payment.
+    // > Default value: true. If your payment method has insufficient balance, you can set the AutoPay parameter to false. In this case, an unpaid order is generated, and you can log on to the ApsaraDB RDS console to complete the payment.
     // >
     shared_ptr<bool> autoPay_ {};
     // Specifies whether to enable auto-renewal for the instance. This parameter is valid only when you create a subscription instance. Valid values:
-    // * **true**: yes.
-    // * **false**: no.
+    // * **true**: Yes.
+    // * **false**: No.
     // 
-    // > * If the subscription duration is one month, the auto-renewal cycle is 1 month.
-    // > * If the subscription duration is one year, the auto-renewal cycle is 1 year.
+    // > * If you purchase the instance on a monthly basis, the epoch of the Unified Auto Renewal Cycle is one month.
+    // > * If you purchase the instance on a yearly basis, the epoch of the Unified Auto Renewal Cycle is one year.
     shared_ptr<bool> autoRenew_ {};
     // The client token that is used to ensure the idempotence of the request and prevent duplicate submissions. You can use the client to generate the value, but you must ensure that it is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length.
     shared_ptr<string> clientToken_ {};
-    // The RDS Custom container cluster ID.
+    // The ID of the RDS Custom container cluster.
     // 
     // This parameter is required.
     shared_ptr<string> clusterId_ {};
-    // Specifies whether the instance is allowed to join an ACK cluster. When this parameter is set to **1**, the created instance can be added to an ACK cluster for efficient management of containerized applications.
+    // Specifies whether to allow the instance to join an ACK cluster. If the parameter settings are set to **1**, the created instance can be added to an ACK cluster for efficient management of containerized applications. Valid values:
     // 
-    // - **1**: yes.
-    // - **0** (default): no.
+    // - **1**: Yes.
+    // - **0**: No. This is the default value.
     shared_ptr<string> createMode_ {};
-    // The data cloud disks.
+    // The list of data cloud disks.
     shared_ptr<vector<CreateRCNodePoolRequest::DataDisk>> dataDisk_ {};
     // The deployment set ID.
     shared_ptr<string> deploymentSetId_ {};
     // The instance description. The description must be 2 to 256 characters in length and cannot start with http:// or https://.
     shared_ptr<string> description_ {};
     // Specifies whether to perform a dry run before creating the instance. Valid values:
-    // * **true**: A dry run is performed and no instance is created. The system checks the request parameters, request format, service limits, and available resources.
-    // * **false** (default): A normal request is sent and the instance is created if the request passes the dry run.
+    // * **true**: Performs a dry run without creating the instance. The system checks items such as request parameters, request format, business limits, and resource inventory.
+    // * **false**: Does not perform a dry run and sends a normal request. If the request passes the check, the instance is directly created. This is the default value.
     shared_ptr<bool> dryRun_ {};
     // The hostname of the instance.
     shared_ptr<string> hostName_ {};
     // The image ID of the instance.
     shared_ptr<string> imageId_ {};
     // The billing method. Valid values:
-    // * **Prepaid**: subscription.
-    // * **Postpaid**: pay-as-you-go.
+    // * **Prepaid**: Subscription.
+    // * **Postpaid**: Pay-as-you-go.
     shared_ptr<string> instanceChargeType_ {};
     // The instance name.
     shared_ptr<string> instanceName_ {};
@@ -594,13 +593,13 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> instanceType_ {};
-    // Reserved parameter. Not supported.
+    // The reserved parameter. This parameter is not supported.
     shared_ptr<string> internetChargeType_ {};
-    // Reserved parameter. Not supported.
+    // The reserved parameter. This parameter is not supported.
     shared_ptr<int32_t> internetMaxBandwidthOut_ {};
-    // Reserved parameter. Not supported.
+    // The reserved parameter. This parameter is not supported.
     shared_ptr<string> ioOptimized_ {};
-    // The key pair name. Only one key pair name is supported.
+    // The key pair name. Only one name is supported.
     shared_ptr<string> keyPairName_ {};
     // The node pool name.
     shared_ptr<string> nodePoolName_ {};
@@ -608,9 +607,9 @@ namespace Models
     shared_ptr<string> password_ {};
     // The subscription duration of the resource. Default value: **1**.
     shared_ptr<int32_t> period_ {};
-    // The time unit of the subscription billing method. Valid values:
-    // - **Year**: year.
-    // - **Month** (default): month.
+    // The time unit of the billing for the subscription Billable methods. Valid values:
+    // - **Year**: Year.
+    // - **Month**: Month. Default value.
     shared_ptr<string> periodUnit_ {};
     // The region ID.
     // 
@@ -618,23 +617,23 @@ namespace Models
     shared_ptr<string> regionId_ {};
     // The resource group ID.
     shared_ptr<string> resourceGroupId_ {};
-    // Reserved parameter. Not supported.
+    // The reserved parameter. This parameter is not supported.
     shared_ptr<string> securityEnhancementStrategy_ {};
-    // The security group ID. You can specify an existing security group ID. If the specified security group does not exist, a security group is automatically created.
+    // The security group ID. You can specify an existing security group ID. If the specified security group does not exist, the system performs automatic creation of a security group.
     shared_ptr<string> securityGroupId_ {};
-    // Reserved parameter. Not supported.
+    // The reserved parameter. This parameter is not supported.
     shared_ptr<string> spotStrategy_ {};
     // The supported scenario. This parameter is required when the **createMode** parameter is set to **1**. Only **edge** is supported.
     shared_ptr<string> supportCase_ {};
     // The system cloud disk.
     shared_ptr<CreateRCNodePoolRequest::SystemDisk> systemDisk_ {};
-    // The tags.
+    // The list of tags.
     shared_ptr<vector<CreateRCNodePoolRequest::Tag>> tag_ {};
-    // Reserved parameter. Not supported.
+    // The reserved parameter. This parameter is not supported.
     shared_ptr<string> userData_ {};
     // The vSwitch ID.
     // 
-    // > The vSwitch must be in the same zone as the RDS instance.
+    // > The vSwitch must reside in the same zone as the RDS instance.
     // 
     // This parameter is required.
     shared_ptr<string> vSwitchId_ {};

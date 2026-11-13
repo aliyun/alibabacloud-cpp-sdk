@@ -226,38 +226,38 @@ namespace Models
     // 
     // The token can contain only ASCII characters and cannot exceed 64 characters in length.
     shared_ptr<string> clientToken_ {};
-    // The name of the destination instance. The name must be 2 to 256 characters in length. It must start with a Chinese or English letter and can contain digits, Chinese characters, English letters, underscores (_), and hyphens (-).
-    // >The name cannot start with http:// or https://.
+    // The name of the target instance. The name must be 2 to 256 characters in length. It must start with a Chinese character or an English letter and can contain digits, Chinese characters, English letters, underscores (_), and hyphens (-).
+    // > The name cannot start with http:// or https://.
     shared_ptr<string> DBInstanceDescription_ {};
     // The instance ID. You can call the DescribeDBInstances operation to query the instance ID.
     // 
     // This parameter is required.
     shared_ptr<string> DBInstanceId_ {};
-    // The network connectivity type of the instance. Valid values:
+    // The network connection type of the instance. Valid values:
     // * **Internet**: public network connection.
     // * **Intranet**: internal network connection.
     shared_ptr<string> DBInstanceNetType_ {};
-    // The network type of the destination instance. Valid values:
+    // The network type of the target instance. Valid values:
     // 
     // * **VPC**: VPC.
     // * **Classic**: classic network.
     // 
-    // By default, an instance in the classic network is created.
-    // >If the instance is a cloud disk instance, you must set this parameter to **VPC**. If you set this parameter to **VPC**, you must also specify the **VpcId** and **VSwitchId** parameters.
+    // By default, instances of the classic network type are created.
+    // > You must specify this parameter and set it to **VPC** when the instance is a cloud disk instance. When this parameter is set to **VPC**, you must also specify the **VpcId** and **VSwitchId** parameters.
     shared_ptr<string> instanceNetworkType_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
-    // The billing method of the destination instance. Valid values:
+    // The billing method of the target instance. Valid values:
     // * **Postpaid**: pay-as-you-go.
     // * **Prepaid**: subscription.
     // 
     // This parameter is required.
     shared_ptr<string> payType_ {};
-    // The subscription period of the subscription instance. Valid values:
+    // The subscription period of the instance. Valid values:
     // * **Year**: yearly subscription.
     // * **Month**: monthly subscription.
     // 
-    // >You must specify this parameter when **PayType** is set to **Prepaid**.
+    // > You must specify this parameter when **PayType** is set to **Prepaid**.
     shared_ptr<string> period_ {};
     // The region ID. You can call the DescribeRegions operation to query the region ID.
     // 
@@ -267,36 +267,36 @@ namespace Models
     shared_ptr<string> resourceGroupId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
-    // The [IP address whitelist](https://help.aliyun.com/document_detail/43185.html) of the instance. Separate multiple entries with commas (,). Duplicate entries are not allowed. A maximum of 1,000 entries are supported. The following formats are supported:
+    // The [IP whitelist](https://help.aliyun.com/document_detail/43185.html) of the instance. Separate multiple entries with commas (,). Entries must be unique. A maximum of 1,000 entries are supported. The following formats are supported:
     // * IP address format, such as 10.10.XX.XX.
-    // * CIDR format, such as 10.10.XX.XX/24. In this format, 24 indicates the length of the prefix in the CIDR block, and the length ranges from 1 to 32.
+    // * CIDR format, such as 10.10.XX.XX/24. In Classless Inter-Domain Routing (CIDR), 24 indicates the prefix length of the address, which ranges from 1 to 32.
     // 
-    // If you do not specify this parameter, the default whitelist of the original instance is used.
+    // If this parameter is not specified, the IP whitelist of the default group of the original instance is used.
     shared_ptr<string> securityIPList_ {};
     shared_ptr<string> securityToken_ {};
     // The subscription duration. Valid values:
-    // * If the **Period** parameter is set to **Year**, the value of the **UsedTime** parameter ranges from **1** to **5**.
-    // * If the **Period** parameter is set to **Month**, the value of the **UsedTime** parameter ranges from **1** to **11**.
+    // * When the **Period** parameter is set to **Year**, the value of **UsedTime** ranges from **1** to **5**.
+    // * When the **Period** parameter is set to **Month**, the value of **UsedTime** ranges from **1** to **11**.
     // 
-    // >You must specify this parameter when **PayType** is set to **Prepaid**.
+    // > You must specify this parameter when **PayType** is set to **Prepaid**.
     shared_ptr<string> usedTime_ {};
-    // The VPC ID of the destination instance. You must specify this parameter when **InstanceNetworkType** is set to **VPC**.
-    // >If you specify this parameter, you must also specify the **ZoneId** parameter.
+    // The VPC ID of the target instance. You must specify this parameter when **InstanceNetworkType** is set to **VPC**.
+    // > If you specify this parameter, you must also specify the **ZoneId** parameter.
     shared_ptr<string> VPCId_ {};
-    // The vSwitch ID. The zone where the vSwitch is located must match the zone ID specified by the **ZoneId** parameter.
+    // The vSwitch ID. The zone of the vSwitch must match the zone ID specified in the **ZoneId** parameter.
     // 
-    // > - The **InstanceNetworkType** parameter must be set to **VPC**.
-    // > - If you specify the ZoneSlaveId1 (secondary zone ID) parameter, you must specify two vSwitch IDs and separate them with a comma (,).
+    // > - The network type **InstanceNetworkType** must be set to **VPC**.
+    // > - If you specify the ZoneIdSlave1 parameter (secondary zone ID), you must specify two vSwitch IDs and separate them with a comma (,).
     shared_ptr<string> vSwitchId_ {};
-    // The zone ID of the primary node. You can call the DescribeRegions operation to query the zone ID.
+    // The zone ID of the primary node. You can call the DescribeRegions operation to query zone IDs.
     // 
-    // >If you specify a VPC and a vSwitch, you must specify this parameter to match the zone of the vSwitch.
+    // > If you specify a VPC and a vSwitch, you must specify this parameter to match the zone of the vSwitch.
     shared_ptr<string> zoneId_ {};
-    // The secondary zone 1.
-    // >You must specify this parameter for instances that are not of the Basic Edition.
+    // The ID of secondary zone 1.
+    // > You must specify this parameter for instances that are not of the Basic Edition.
     shared_ptr<string> zoneIdSlave1_ {};
-    // The secondary zone 2.
-    // >You can specify this parameter only for instances of the Enterprise Edition.
+    // The ID of secondary zone 2.
+    // > You can specify this parameter only for instances of the RDS Enterprise Edition.
     shared_ptr<string> zoneIdSlave2_ {};
   };
 

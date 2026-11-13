@@ -140,16 +140,16 @@ namespace Models
 
 
   protected:
-    // The number of remaining available days of the instance. Valid values: **0** to **180**.
+    // The number of remaining available days for the instance. Valid values: **0** to **180**.
     shared_ptr<int32_t> expirePeriod_ {};
     // The expiration status of the instance. Valid values:
     // 
-    // - **True**: The instance has expired.
-    // - **False**: The instance has not expired.
+    // - **True**: Expired.
+    // - **False**: Not expired.
     shared_ptr<bool> expired_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
-    // The page number. Valid values: an integer greater than **0** and less than or equal to the maximum value of the Integer data type.
+    // The page number. Valid values: any integer greater than **0** and up to the maximum value of the Integer type.
     // 
     // Default value: **1**.
     shared_ptr<int32_t> pageNumber_ {};
@@ -159,11 +159,11 @@ namespace Models
     shared_ptr<int32_t> pageSize_ {};
     // The region ID. You can call the DescribeRegions operation to query the region ID.
     shared_ptr<string> regionId_ {};
-    // The resource group ID. You can call the DescribeDBInstanceAttribute operation to query the resource group ID.
+    // The ID of the resource group. You can call the DescribeDBInstanceAttribute operation to query the resource group ID.
     shared_ptr<string> resourceGroupId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
-    // The tags added to the instances to be queried, including TagKey and TagValue. You can specify up to 5 tags in a single request. Format: `{"key1":"value1","key2":"value2"...}`.
+    // The tags of the instances to be queried, including TagKey and TagValue. You can specify up to 5 tags in a single request. Format: `{"key1":"value1","key2":"value2"...}`.
     shared_ptr<string> tags_ {};
     // **[Deprecated]** This parameter is deprecated and does not need to be configured.
     shared_ptr<string> proxyId_ {};

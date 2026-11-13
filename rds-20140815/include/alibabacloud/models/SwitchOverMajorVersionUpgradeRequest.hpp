@@ -121,7 +121,7 @@ namespace Models
 
 
   protected:
-    // The client token that is used to ensure the idempotence of the request and prevent duplicate submissions. You can use the client to generate the token, but you must ensure that it is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length.
+    // Specifies the client token that is used to ensure the idempotence of the request and prevent duplicate submissions. You can use the client to generate the value, but you must ensure that it is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length.
     shared_ptr<string> clientToken_ {};
     // The name of the instance.
     shared_ptr<string> DBInstanceName_ {};
@@ -136,9 +136,9 @@ namespace Models
     // Specifies the maximum tolerance time for the switchover. If the switchover exceeds this time, it is canceled. Unit: seconds. Valid values: 10 to 3600.
     shared_ptr<int32_t> switchoverTimeout_ {};
     // Specifies the operation type for the switchover. Valid values:
-    // * switch: Switchover.
-    // * cancel: Cancel.
-    // * interrupt: Interrupt.
+    // * switch: switches the traffic.
+    // * cancel: cancels the switchover.
+    // * interrupt: interrupts the switchover.
     shared_ptr<string> type_ {};
   };
 

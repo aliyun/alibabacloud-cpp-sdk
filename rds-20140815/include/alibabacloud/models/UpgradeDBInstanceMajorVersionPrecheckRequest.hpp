@@ -66,12 +66,12 @@ namespace Models
 
 
   protected:
-    // The instance ID. You can call DescribeDBInstances to query the instance ID.
+    // Instance ID of the instance. You can call the DescribeDBInstances operation to query instance ID.
     // 
     // This parameter is required.
     shared_ptr<string> DBInstanceId_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
-    // The major engine version of the target instance. The version must be later than the current major engine version of the instance.
+    // The major engine version of the target instance. The value must be greater than the major engine version of the current instance.
     // 
     // This parameter is required.
     shared_ptr<string> targetMajorVersion_ {};

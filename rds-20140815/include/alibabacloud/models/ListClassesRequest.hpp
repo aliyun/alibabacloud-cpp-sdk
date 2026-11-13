@@ -117,22 +117,22 @@ namespace Models
     // The commodity code of the instance to query.
     // 
     // <props="china">
-    // * **bards**: Pay-as-you-go primary instance.
-    // * **rds**: Subscription primary instance.
-    // * **rords**: Pay-as-you-go read-only instance.
-    // * **rds_rordspre_public_cn**: Subscription read-only instance.
+    // * **bards**: pay-as-you-go primary instance
+    // * **rds**: subscription primary instance
+    // * **rords**: pay-as-you-go read-only instance
+    // * **rds_rordspre_public_cn**: subscription read-only instance
     // 
     // 
     // <props="intl">
-    // * **bards_intl**: Pay-as-you-go primary instance.
-    // * **rds_intl**: Subscription primary instance.
-    // * **rords_intl**: Pay-as-you-go read-only instance.
-    // * **rds_rordspre_public_intl**: Subscription read-only instance.
+    // * **bards_intl**: pay-as-you-go primary instance
+    // * **rds_intl**: subscription primary instance
+    // * **rords_intl**: pay-as-you-go read-only instance
+    // * **rds_rordspre_public_intl**: subscription read-only instance
     // 
     // This parameter is required.
     shared_ptr<string> commodityCode_ {};
-    // The instance ID. You can call the DescribeDBInstances operation to obtain the instance ID.
-    // > When you query the list of instance types for read-only instances, which means you specify the commodity code of a read-only instance for the **CommodityCode** parameter, this parameter is required.
+    // The instance ID. You can call the DescribeDBInstances operation to obtain the ID.
+    // > When you query the instance types of read-only instances, which means you specify the commodity code of a read-only instance for the **CommodityCode** parameter, this parameter is required.
     shared_ptr<string> DBInstanceId_ {};
     // The database engine type. Valid values:
     // * **MySQL**
@@ -141,16 +141,16 @@ namespace Models
     // * **MariaDB**
     shared_ptr<string> engine_ {};
     // The order type to query. Valid values:
-    // * **BUY**: Purchase.
-    // * **UPGRADE**: Upgrade.
-    // * **RENEW**: Renewal.
-    // * **CONVERT**: Billing method conversion.
+    // * **BUY**: purchase
+    // * **UPGRADE**: upgrade
+    // * **RENEW**: renewal
+    // * **CONVERT**: billing method conversion
     // 
     // This parameter is required.
     shared_ptr<string> orderType_ {};
     shared_ptr<int64_t> ownerId_ {};
     // The region ID. You can call the DescribeRegions operation to obtain the region ID.
-    // > If you use an Alibaba Cloud international site account, this parameter is required.
+    // > If you use an Alibaba Cloud International site account, this parameter is required.
     shared_ptr<string> regionId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};

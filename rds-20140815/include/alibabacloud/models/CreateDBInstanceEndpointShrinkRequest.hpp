@@ -142,15 +142,13 @@ namespace Models
   protected:
     // The client token that is used to ensure the idempotence of the request and prevent duplicate submissions. You can use the client to generate the value, and you must ensure that the value is unique among different requests. The value can contain only ASCII characters and cannot exceed 64 characters in length.
     shared_ptr<string> clientToken_ {};
-    // The prefix of the internal endpoint.
-    // 
-    // When you create an endpoint, an internal endpoint is automatically created. This parameter specifies the prefix of the internal endpoint.
+    // The prefix of the internal endpoint. Creating an endpoint automatically creates an internal endpoint. This parameter specifies the prefix of the internal endpoint.
     // 
     // This parameter is required.
     shared_ptr<string> connectionStringPrefix_ {};
     // The custom description of the endpoint.
     shared_ptr<string> DBInstanceEndpointDescription_ {};
-    // The endpoint type. Valid values:
+    // The type of the endpoint. Valid values:
     // 
     // - Primary: the read/write endpoint of the instance.
     // 
@@ -158,30 +156,28 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> DBInstanceEndpointType_ {};
-    // The instance ID. You can call the DescribeDBInstances operation to query the instance ID.
+    // Instance ID of the instance. You can call the DescribeDBInstances operation to query instance ID.
     // 
     // This parameter is required.
     shared_ptr<string> DBInstanceId_ {};
-    // The list of nodes associated with the endpoint.
+    // The list of node information for the endpoint.
     // 
     // This parameter is required.
     shared_ptr<string> nodeItemsShrink_ {};
-    // The port number for the internal network connection. You can specify a custom port number when you create an internal network connection.
-    // 
-    // Valid values: 3000 to 5999.
+    // The port number for the internal connection. You can specify a custom port number when you create an internal connection. Valid values: 3000 to 5999.
     // 
     // This parameter is required.
     shared_ptr<string> port_ {};
-    // The IP address for the internal network connection.
+    // The IP address for the internal connection.
     shared_ptr<string> privateIpAddress_ {};
-    // The resource group ID. You can call the DescribeDBInstanceAttribute operation to query the resource group ID.
+    // The ID of the resource group. You can call the DescribeDBInstanceAttribute operation to query the ID.
     shared_ptr<string> resourceGroupId_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
-    // The ID of the vSwitch for the internal network connection.
+    // The vSwitch ID for the internal connection.
     // 
     // This parameter is required.
     shared_ptr<string> vSwitchId_ {};
-    // The ID of the VPC for the internal network connection.
+    // The VPC ID for the internal connection.
     // 
     // This parameter is required.
     shared_ptr<string> vpcId_ {};

@@ -137,18 +137,51 @@ namespace Models
 
 
     protected:
+      // The IP address or CIDR block from which users are allowed to connect to the database. A value of 0.0.0.0/0 allows users to connect from any IP address.
+      // 
       // This parameter is required.
       shared_ptr<string> address_ {};
+      // The name of the database. Specifies the databases that users are allowed to access. A value of all allows users to access all databases.
+      // 
+      // To specify multiple databases, separate them with commas (,).
+      // 
       // This parameter is required.
       shared_ptr<string> database_ {};
+      // The subnet mask. If **Address** is an IP address, you can use this parameter to specify the subnet mask for that IP address.
       shared_ptr<string> mask_ {};
+      // The authentication method. Valid values:
+      // - **trust**
+      // - **reject**
+      // - **scram-sha-256**
+      // - **md5**
+      // - **password**
+      // - **gss**
+      // - **sspi**
+      // - **ldap**
+      // - **radius**
+      // - **cert**
+      // - **pam**
+      // 
       // This parameter is required.
       shared_ptr<string> method_ {};
+      // The optional parameters for the authentication method. This parameter is required when LDAP authentication is used. For more information about this parameter, see [Authentication Methods](https://www.postgresql.org/docs/11/auth-methods.html).
       shared_ptr<string> option_ {};
+      // The priority of the record. Valid values: 0 to 10000. A value of 0 indicates the highest priority.
+      // 
+      // This parameter identifies each record. When adding a record, the PriorityId value must not duplicate that of any existing record. When modifying or deleting a record, the PriorityId value must match that of an existing record to locate the target record.
+      // 
       // This parameter is required.
       shared_ptr<int32_t> priorityId_ {};
+      // The connection type. Valid values:
+      // - **host**: The record matches TCP/IP connections, including both SSL and non-SSL connections.
+      // - **hostssl**: The record matches only TCP/IP connections established over SSL.
+      // - **hostnossl**: The record matches only TCP/IP connections established without SSL.
+      // > If you use the hostssl connection type, you must enable SSL encryption. For more information, see [SSL encryption](https://help.aliyun.com/document_detail/229518.html).
+      // 
       // This parameter is required.
       shared_ptr<string> type_ {};
+      // The users that are allowed to access the database. Enter the usernames of the instance. To specify multiple users, separate them with commas (,).
+      // 
       // This parameter is required.
       shared_ptr<string> user_ {};
     };
@@ -215,11 +248,22 @@ namespace Models
 
 
   protected:
+    // A reserved parameter. You do not need to configure this parameter.
     shared_ptr<string> clientToken_ {};
+    // The instance ID. You can call DescribeDBInstances to query the instance ID.
+    // 
     // This parameter is required.
     shared_ptr<string> DBInstanceId_ {};
+    // The list of AD domain service information entries.
+    // 
     // This parameter is required.
     shared_ptr<vector<ModifyPGHbaConfigRequest::HbaItem>> hbaItem_ {};
+    // The operation type. The following methods are supported for modifying AD domain service information:
+    // - **add**: Adds one or more records. The PriorityId value of the new records cannot duplicate that of existing records.
+    // - **delete**: Deletes one or more records. Records whose **PriorityId** values match those specified are deleted from the current configuration.
+    // - **modify**: Modifies one or more records. Records whose **PriorityId** values match those specified are modified in the current configuration.
+    // - **update**: Performs a full update. The current configuration is overwritten with the configuration you specify.
+    // 
     // This parameter is required.
     shared_ptr<string> opsType_ {};
     shared_ptr<string> ownerAccount_ {};

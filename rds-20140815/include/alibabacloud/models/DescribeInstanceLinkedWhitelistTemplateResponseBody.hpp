@@ -159,7 +159,7 @@ namespace Models
     protected:
       // The name of the instance.
       shared_ptr<string> insName_ {};
-      // The paginated whitelist template information.
+      // The information about the whitelist templates returned in pages.
       shared_ptr<vector<Data::Templates>> templates_ {};
     };
 
@@ -231,7 +231,7 @@ namespace Models
     // Indicates whether the request is successful. Valid values:
     // 
     // - **true**: The request is successful.
-    // - **false**: The request failed.
+    // - **false**: The request fails.
     shared_ptr<bool> success_ {};
   };
 

@@ -330,11 +330,11 @@ namespace Models
     shared_ptr<DescribeSQLLogReportListResponseBody::Items> items_ {};
     // The page number.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of SQL log running reports on the current page.
+    // The number of SQL log operation reports on the current page.
     shared_ptr<int32_t> pageRecordCount_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The total number of entries returned.
+    // The total number of entries.
     shared_ptr<int32_t> totalRecordCount_ {};
   };
 

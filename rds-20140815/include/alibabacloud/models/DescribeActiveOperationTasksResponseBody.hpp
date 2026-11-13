@@ -321,21 +321,21 @@ namespace Models
       shared_ptr<string> allowCancel_ {};
       // Indicates whether the execution time can be modified. A value of 1 indicates that the execution time can be modified. A value of 0 indicates that the execution time cannot be modified.
       shared_ptr<string> allowChange_ {};
-      // The event level code. Valid values: S1 (system O&M) and S0 (exception recovery).
+      // The event level code. Valid values: S1 (system O&M) and S0 (risk fix).
       shared_ptr<string> changeLevel_ {};
       // The event level in English.
       shared_ptr<string> changeLevelEn_ {};
       // The event level in Chinese.
       shared_ptr<string> changeLevelZh_ {};
-      // The time when the task was created. The time is displayed in UTC in the YYYY-MM-DDTHH:mm:ssZ format.
+      // The creation time. The time is displayed in UTC. Format: YYYY-MM-DDTHH:mm:ssZ.
       shared_ptr<string> createdTime_ {};
       // The current zone.
       shared_ptr<string> currentAVZ_ {};
       // The database engine, such as mysql, pgsql, or mssql.
       shared_ptr<string> dbType_ {};
-      // The kernel version.
+      // The kernel version number.
       shared_ptr<string> dbVersion_ {};
-      // The latest time to which the task execution time can be adjusted. The time is displayed in UTC in the YYYY-MM-DDTHH:mm:ssZ format.
+      // The deadline for adjusting the task execution time. The time is displayed in UTC. Format: YYYY-MM-DDTHH:mm:ssZ.
       shared_ptr<string> deadline_ {};
       // The task ID.
       shared_ptr<int32_t> id_ {};
@@ -349,34 +349,34 @@ namespace Models
       shared_ptr<string> insComment_ {};
       // The instance name.
       shared_ptr<string> insName_ {};
-      // The time when the task was modified. The time is displayed in UTC in the YYYY-MM-DDTHH:mm:ssZ format.
+      // The modification time. The time is displayed in UTC. Format: YYYY-MM-DDTHH:mm:ssZ.
       shared_ptr<string> modifiedTime_ {};
-      // The preparation time required between the start time and the switchover time. The time is in the HH:mm:ss format.
+      // The preparation time required between the start time and the switchover time. Format: HH:mm:ss.
       shared_ptr<string> prepareInterval_ {};
       // The region ID of the pending event.
       shared_ptr<string> region_ {};
       // The execution result information.
       shared_ptr<string> resultInfo_ {};
-      // The time when the backend executes the task. The time is displayed in UTC in the YYYY-MM-DDTHH:mm:ssZ format.
+      // The time when the backend executes the task. The time is displayed in UTC. Format: YYYY-MM-DDTHH:mm:ssZ.
       shared_ptr<string> startTime_ {};
       // The task status. Valid values:
       // * **3**: pending tasks.
-      // * **4**: tasks in progress.
+      // * **4**: in-progress tasks.
       // * **5**: successfully completed tasks.
       // * **6**: failed tasks.
       // * **7**: canceled tasks.
       shared_ptr<int32_t> status_ {};
       // The instance shards.
       shared_ptr<vector<string>> subInsNames_ {};
-      // The time when the backend initiates the switchover. The time is displayed in UTC in the YYYY-MM-DDTHH:mm:ssZ format.
+      // The time when the backend initiates the switchover. The time is displayed in UTC. Format: YYYY-MM-DDTHH:mm:ssZ.
       shared_ptr<string> switchTime_ {};
       // The task parameters.
       shared_ptr<string> taskParams_ {};
       // The task type. Valid values:
       // 
-      // * **rds_apsaradb_ha**: primary and secondary node switch.
+      // * **rds_apsaradb_ha**: primary/secondary node switch.
       // * **rds_apsaradb_transfer**: instance migration.
-      // * **rds_apsaradb_upgrade**: minor engine version update.
+      // * **rds_apsaradb_upgrade**: minor version update.
       // * **rds_apsaradb_maxscale**: proxy minor version upgrade.
       shared_ptr<string> taskType_ {};
       // The task cause in English.

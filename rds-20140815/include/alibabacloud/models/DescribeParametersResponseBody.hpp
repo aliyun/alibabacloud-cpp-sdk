@@ -352,7 +352,7 @@ namespace Models
     shared_ptr<string> engine_ {};
     // The database engine version.
     shared_ptr<string> engineVersion_ {};
-    // The information about the parameter template.
+    // The parameter template information.
     shared_ptr<DescribeParametersResponseBody::ParamGroupInfo> paramGroupInfo_ {};
     // The ID of the request.
     shared_ptr<string> requestId_ {};

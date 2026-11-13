@@ -57,7 +57,7 @@ namespace Models
 
 
   protected:
-    // Indicates whether the service-linked role (SLR) has been created.
+    // Indicates whether a service-linked role (SLR) has been created.
     shared_ptr<string> hasServiceLinkedRole_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

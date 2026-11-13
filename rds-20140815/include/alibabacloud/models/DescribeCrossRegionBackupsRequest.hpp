@@ -149,10 +149,10 @@ namespace Models
 
 
   protected:
-    // The ID of the user backup.
+    // The backup ID.
     shared_ptr<int32_t> backupId_ {};
     // The ID of the cross-region backup file.
-    // >You must specify either **CrossBackupId** or the start and end time parameters (**StartTime** and **EndTime**).
+    // > You must specify either **CrossBackupId** or the time range parameters (**StartTime** and **EndTime**).
     shared_ptr<int32_t> crossBackupId_ {};
     // The ID of the destination region for cross-region backup.
     shared_ptr<string> crossBackupRegion_ {};
@@ -162,10 +162,10 @@ namespace Models
     shared_ptr<string> DBInstanceId_ {};
     // The end time of the query. Specify the time in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time must be in UTC.
     // 
-    // > If the time zone is not UTC+0, you must subtract 8 hours from the actual time.
+    // > For time zones other than UTC+0, subtract 8 hours from the local time.
     shared_ptr<string> endTime_ {};
     shared_ptr<int64_t> ownerId_ {};
-    // The page number. Valid values: any integer greater than 0 and less than or equal to the maximum value of the Integer type.
+    // The page number. Valid values: any integer greater than 0 and less than or equal to the maximum integer value.
     // 
     // Default value: **1**.
     shared_ptr<int32_t> pageNumber_ {};
@@ -181,13 +181,13 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
-    // The ID of the resource group.
+    // The resource group ID.
     shared_ptr<string> resourceGroupId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
     // The start time of the query. Specify the time in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time must be in UTC.
     // 
-    // > If the time zone is not UTC+0, you must subtract 8 hours from the actual time.
+    // > For time zones other than UTC+0, subtract 8 hours from the local time.
     shared_ptr<string> startTime_ {};
   };
 

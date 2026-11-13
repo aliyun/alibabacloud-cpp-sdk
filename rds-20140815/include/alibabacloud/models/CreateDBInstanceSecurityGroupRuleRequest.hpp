@@ -125,13 +125,13 @@ namespace Models
     shared_ptr<string> ipProtocol_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<string> ownerId_ {};
-    // The range of destination ports for the transport layer protocol (TCP or UDP) specified in the security group rule. Valid values: 1 to 65535. Separate the start port and the end port with a forward slash (/). Example: 1/200.
+    // The range of destination ports that are open for the transport layer protocol (TCP or UDP) in the security group. Valid values: 1 to 65535. Separate the start port and the end port with a forward slash (/). Example: 1/200.
     // 
     // This parameter is required.
     shared_ptr<string> portRange_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
-    // The source IP address range. IP address ranges in CIDR format and IPv4 format are supported.
+    // The source IP address range. CIDR blocks and IPv4 addresses are supported.
     shared_ptr<string> sourceCidrIp_ {};
   };
 

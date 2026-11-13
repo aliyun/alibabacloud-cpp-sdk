@@ -149,7 +149,7 @@ namespace Models
 
 
   protected:
-    // The instance ID. You can call the DescribeDBInstances operation to query the instance ID.
+    // The instance ID. You can call the DescribeDBInstances operation to query the ID.
     // 
     // This parameter is required.
     shared_ptr<string> DBInstanceId_ {};
@@ -167,24 +167,24 @@ namespace Models
     // This parameter is required.
     shared_ptr<string> DBProxyInstanceType_ {};
     // The list of proxy nodes.
-    // > This parameter is required when the current proxy instance is active in a multi-zone deployment.
+    // > This parameter is required when the current proxy instance is deployed across multiple active zones.
     shared_ptr<string> DBProxyNodesShrink_ {};
-    // The specified time when the modifications take effect. Specify the time in the <i>yyyy-MM-dd</i>T<i>HH:mm:ss</i>Z format. The time must be in UTC.
+    // The specific time when the modification takes effect. Specify the time in the <i>yyyy-MM-dd</i>T<i>HH:mm:ss</i>Z format. The time must be in UTC.
     // > This parameter is required when **EffectiveTime** is set to **SpecificTime**.
     shared_ptr<string> effectiveSpecificTime_ {};
-    // The time when the modifications take effect. Valid values:
+    // The time when the modification takes effect. Valid values:
     // 
-    // * **Immediate**: The modifications take effect immediately.
-    // * **MaintainTime**: The modifications take effect within the maintenance window. For more information, see ModifyDBInstanceMaintainTime.
-    // * **SpecificTime**: The modifications take effect at a specified time.
+    // * **Immediate**: The modification immediately takes effect.
+    // * **MaintainTime**: The modification takes effect within the maintenance window. For more information, see ModifyDBInstanceMaintainTime.
+    // * **SpecificTime**: The modification takes effect at a specified time.
     // 
     // Default value: **MaintainTime**.
     shared_ptr<string> effectiveTime_ {};
-    // The list of zones to which the proxy is migrated.
-    // > Currently, only ApsaraDB RDS for MySQL instances with cloud disks support proxy instance migration across zones.
+    // The list of active zones for proxy migration.
+    // > Currently, only ApsaraDB RDS for MySQL instances with cloud disks support migrating proxy instances to other active zones.
     shared_ptr<string> migrateAZShrink_ {};
     shared_ptr<int64_t> ownerId_ {};
-    // The region ID. You can call the DescribeRegions operation to query the region ID.
+    // The region ID. You can call the DescribeRegions operation to query the ID.
     shared_ptr<string> regionId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};

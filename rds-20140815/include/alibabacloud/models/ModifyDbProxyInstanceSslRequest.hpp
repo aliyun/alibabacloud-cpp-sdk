@@ -84,7 +84,7 @@ namespace Models
 
 
   protected:
-    // A reserved parameter. No configuration is required.
+    // A reserved parameter. You do not need to specify this parameter.
     shared_ptr<string> DBProxyEngineType_ {};
     // The instance ID. You can call the DescribeDBInstances operation to query the instance ID.
     // 
@@ -100,10 +100,10 @@ namespace Models
     shared_ptr<string> dbProxyEndpointId_ {};
     // The operation to perform on Secure Sockets Layer (SSL) encryption. Valid values:
     // * 0: Disables Secure Sockets Layer (SSL) encryption.
-    // * 1: Enables Secure Sockets Layer (SSL) encryption or modifies the Secure Sockets Layer (SSL) encryption endpoint.
+    // * 1: Enables Secure Sockets Layer (SSL) encryption or modifies the endpoint for Secure Sockets Layer (SSL) encryption.
     // * 2: Updates the certificate validity period.
     // 
-    // > Performing the preceding operations restarts the instance. Proceed with caution.
+    // >Performing the preceding operations restarts the instance. Proceed with caution.
     // 
     // This parameter is required.
     shared_ptr<string> dbProxySslEnabled_ {};

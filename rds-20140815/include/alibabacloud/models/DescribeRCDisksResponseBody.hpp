@@ -370,94 +370,89 @@ namespace Models
 
 
     protected:
-      // The time when the disk was attached.
+      // The time when the cloud disk was attached.
       shared_ptr<string> attachedTime_ {};
-      // Indicates whether burstable performance is enabled. Valid values:
-      // 
+      // Specifies whether bursting is enabled. Valid values:
       // - true: Yes.
       // - false: No.
-      // This parameter is supported only when DiskCategory is set to cloud_auto. For more information, see ESSD AutoPL cloud disks.
+      // This parameter is supported only when DiskCategory is set to cloud_auto. For more information, see ESSD AutoPL disks.
       shared_ptr<bool> burstingEnabled_ {};
-      // The disk category. Valid values:
+      // The category of the cloud disk. Valid values:
       // 
-      // - **cloud_efficiency**: Ultra cloud disk.
-      // - **cloud_ssd**: Standard SSD cloud disk.
-      // - **cloud_essd**: ESSD cloud disk.
-      // - **cloud_auto**: Premium performance disk.
+      // - **cloud_efficiency**: ultra disk
+      // - **cloud_ssd**: standard SSD
+      // - **cloud_essd**: ESSD
+      // - **cloud_auto**: premium performance disk
       shared_ptr<string> category_ {};
-      // The time when the cloud disk was created. The time follows the ISO 8601 standard and is displayed in UTC.
+      // The time when the cloud disk was created. The time is displayed in UTC and follows the ISO 8601 standard.
       shared_ptr<string> creationTime_ {};
-      // Indicates whether automatic snapshots are deleted along with the cloud disk. Valid values:
+      // Specifies whether to delete automatic snapshots when the cloud disk is released. Valid values:
       // - true: Deletes the snapshots on the cloud disk.
       // - false: Retains the snapshots on the cloud disk.
       shared_ptr<bool> deleteAutoSnapshot_ {};
-      // Indicates whether the disk is released when the instance is released. Valid values:
-      // 
-      // - true: The disk is released when the instance is released.
-      // - false: The disk is retained when the instance is released.
+      // Specifies whether to release the cloud disk when the instance is released. Valid values:
+      // - true: Releases the cloud disk when the instance is released.
+      // - false: Retains the cloud disk when the instance is released.
       shared_ptr<bool> deleteWithInstance_ {};
-      // The disk description.
+      // The description of the cloud disk.
       shared_ptr<string> description_ {};
-      // The mount point of the disk.
+      // The mount point of the cloud disk.
       shared_ptr<string> device_ {};
-      // The billing method of the disk.
+      // The billing method of the cloud disk.
       // 
-      // Only **PostPaid** (pay-as-you-go) is supported.
+      // Only **PostPaid** is supported: pay-as-you-go.
       shared_ptr<string> diskChargeType_ {};
-      // The disk ID.
+      // The cloud disk ID.
       shared_ptr<string> diskId_ {};
-      // The disk name.
+      // The cloud disk name.
       shared_ptr<string> diskName_ {};
-      // Indicates whether the cloud disk is encrypted. Valid values:
+      // Specifies whether to filter only encrypted cloud disks. Valid values:
       // - true: Yes.
-      // - false: No.
+      // - false (default): No.
       shared_ptr<bool> encrypted_ {};
       // A reserved parameter.
       shared_ptr<string> expiredTime_ {};
-      // The provisioned read and write IOPS of the ESSD AutoPL cloud disk. Valid values: 0 to min{50,000, 1,000 × capacity - baseline performance}. Baseline performance = min{1,800 + 50 × capacity, 50,000}.
-      // 
+      // The provisioned read and write IOPS of the ESSD AutoPL disk. Valid values: 0 to min{50,000, 1,000 × Capacity - Baseline performance}. Baseline performance = min{1,800 + 50 × Capacity, 50,000}.
       // This parameter is supported only when Category is set to cloud_auto.
       shared_ptr<int64_t> IOPS_ {};
-      // The ID of the image used to create the RDS Custom instance. This parameter has a value only if the cloud disk was created from an image. Otherwise, the value is empty. The value remains unchanged throughout the lifecycle of the cloud disk.
+      // The ID of the image used to create the RDS Custom instance. This parameter has a value only if the cloud disk was created from an image. Otherwise, this parameter is empty. The value remains unchanged throughout the lifecycle of the cloud disk.
       shared_ptr<string> imageId_ {};
       // The instance ID.
       shared_ptr<string> instanceId_ {};
-      // The performance level of the ESSD cloud disk (not standard SSD). Valid values:
+      // The performance level of the ESSD. Valid values:
       // 
-      // - PL0: A single disk can deliver up to 10,000 random read/write IOPS.
-      // - PL1: A single disk can deliver up to 50,000 random read/write IOPS.
-      // - PL2: A single disk can deliver up to 100,000 random read/write IOPS.
-      // - PL3: A single disk can deliver up to 1,000,000 random read/write IOPS.
+      // - PL0: up to 10,000 random read/write IOPS per disk
+      // - PL1: up to 50,000 random read/write IOPS per disk
+      // - PL2: up to 100,000 random read/write IOPS per disk
+      // - PL3: up to 1,000,000 random read/write IOPS per disk
       shared_ptr<string> performanceLevel_ {};
-      // Indicates whether the disk is removable.
+      // Specifies whether the cloud disk is detachable.
       shared_ptr<bool> portable_ {};
       // The region ID.
       shared_ptr<string> regionId_ {};
-      // The ID of the resource group to which the disk belongs.
+      // The ID of the resource group to which the cloud disk belongs.
       shared_ptr<string> resourceGroupId_ {};
-      // The serial number of the disk.
+      // The serial number of the cloud disk.
       shared_ptr<string> serialNumber_ {};
-      // The disk size. Unit: GiB.
+      // The size of the cloud disk. Unit: GiB.
       shared_ptr<int64_t> size_ {};
-      // The ID of the snapshot used to create the cloud disk.
-      // 
-      // If no snapshot was specified when the cloud disk was created, the value is empty. The value remains unchanged throughout the lifecycle of the cloud disk.
+      // The ID of the snapshot used to create the cloud disk. If no snapshot was specified when the cloud disk was created, this parameter is empty. The value remains unchanged throughout the lifecycle of the cloud disk.
       shared_ptr<string> sourceSnapshotId_ {};
-      // The disk status. Valid values:
+      // The cloud disk status. Valid values:
       // - In_use: In use.
-      // - Available: Available.
+      // - Available: Unattached.
       // - Attaching: Attaching.
       // - Detaching: Detaching.
       // - Creating: Creating.
       // - ReIniting: Initializing.
       shared_ptr<string> status_ {};
-      // The ID of the dedicated block storage cluster to which the cloud disk belongs. If the cloud disk is in a public cloud block storage cluster, the value is empty.
+      // The ID of the dedicated block storage cluster to which the cloud disk belongs. If the cloud disk is in a public cloud block storage cluster, this parameter is empty.
       shared_ptr<string> storageClusterId_ {};
       // The storage set ID.
       shared_ptr<string> storageSetId_ {};
-      // The tags.
+      // The list of tags.
       shared_ptr<vector<Disks::Tag>> tag_ {};
-      // The disk type. Valid values:
+      // The cloud disk type. Valid values:
       // - system: System cloud disk.
       // - data: Data cloud disk.
       shared_ptr<string> type_ {};

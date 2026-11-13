@@ -88,9 +88,9 @@ namespace Models
 
 
     protected:
-      // The TagKey of the first tag to unbind. The tags to unbind include TagKey and TagValue. You can specify up to 5 pairs at a time. TagKey cannot be empty. TagValue can be empty.
+      // The key of the first tag to be removed. You can specify up to 5 tag key-value pairs at a time. TagKey cannot be empty, but TagValue can be empty.
       shared_ptr<string> key_ {};
-      // The TagValue of the first tag to unbind. The tags to unbind include TagKey and TagValue. You can specify up to 5 pairs at a time. TagKey cannot be empty. TagValue can be empty.
+      // The value of the first tag to be removed. You can specify up to 5 tag key-value pairs at a time. TagKey cannot be empty, but TagValue can be empty.
       shared_ptr<string> value_ {};
     };
 
@@ -178,7 +178,7 @@ namespace Models
 
   protected:
     shared_ptr<vector<RemoveTagsFromResourceRequest::Tag>> tag_ {};
-    // The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length.
+    // The client token that is used to ensure the idempotence of the request and prevent duplicate submissions. You can use the client to generate the value, but you must ensure that it is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length.
     shared_ptr<string> clientToken_ {};
     // The instance ID.
     // 
@@ -190,14 +190,13 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
-    // The resource group ID. You can call the ListResourceGroups operation to obtain the resource group ID.
+    // The ID of the resource group. You can call the ListResourceGroups operation to query the resource group ID.
     shared_ptr<string> resourceGroupId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
-    // The tags to unbind, including TagKey and TagValue. Format: {"key1":"value1"}.
-    // >TagKey cannot be empty. TagValue can be empty.
+    // The tags to be removed, including TagKey and TagValue. Format: {"key1":"value1"}. >TagKey cannot be empty, but TagValue can be empty.
     shared_ptr<string> tags_ {};
-    // The proxy mode ID.
+    // The ID of the proxy mode.
     shared_ptr<string> proxyId_ {};
   };
 

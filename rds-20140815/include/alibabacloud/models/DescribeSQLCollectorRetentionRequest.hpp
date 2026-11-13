@@ -94,13 +94,13 @@ namespace Models
 
 
   protected:
-    // Instance ID of the instance. You can call the DescribeDBInstances operation to obtain instance ID.
+    // The instance ID. You can call the DescribeDBInstances operation to obtain the instance ID.
     // 
     // This parameter is required.
     shared_ptr<string> DBInstanceId_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
-    // The ID of the resource group. You can call the DescribeDBInstanceAttribute operation to obtain the ID.
+    // The resource group ID. You can call the DescribeDBInstanceAttribute operation to obtain the resource group ID.
     shared_ptr<string> resourceGroupId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};

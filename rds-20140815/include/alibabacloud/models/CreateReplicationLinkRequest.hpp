@@ -144,10 +144,10 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> DBInstanceId_ {};
-    // Specifies whether to perform a dry run for creating the synchronization link of the disaster recovery instance. Valid values:
+    // Specifies whether to perform a dry run before creating the data synchronization link for the disaster recovery instance. Valid values:
     // 
-    // - **true**: Executes a dry run without creating the instance. The system checks items such as request parameters, request format, business limits, and inventory.
-    // - **false** (default): Sends a normal request and creates the instance after the check is passed.
+    // - **true**: performs a dry run without creating the instance. The system checks items such as request parameters, request format, service limits, and inventory.
+    // - **false** (default): sends a regular request and creates the instance directly if the request passes the check.
     // 
     // This parameter is required.
     shared_ptr<bool> dryRun_ {};
@@ -155,11 +155,11 @@ namespace Models
     shared_ptr<string> replicatorAccount_ {};
     // The password of the synchronization account.
     shared_ptr<string> replicatorPassword_ {};
-    // The endpoint of the PostgreSQL source instance or the IP address of the SQL Server source instance.
+    // The connection endpoint of the source PostgreSQL instance or the IP address of the source SQL Server instance.
     shared_ptr<string> sourceAddress_ {};
     // The category of the source instance. Valid values:
-    // - **other**: Other. (**Not supported for SQL Server.**)
-    // - **aliyunRDS**: ApsaraDB RDS instance.
+    // - **other**: other instances. (**Not supported by SQL Server**)
+    // - **aliyunRDS**: ApsaraDB RDS instances.
     shared_ptr<string> sourceCategory_ {};
     // The name of the source instance. This parameter is required when **SourceCategory** is set to **aliyunRDS**.
     shared_ptr<string> sourceInstanceName_ {};
@@ -169,7 +169,7 @@ namespace Models
     shared_ptr<int64_t> sourcePort_ {};
     // The IP address of the SQL Server disaster recovery instance.
     shared_ptr<string> targetAddress_ {};
-    // The ID of a successful dry run task.
+    // The ID of the successful dry run task.
     shared_ptr<int64_t> taskId_ {};
     // The name of the dry run task. You can specify a custom name. If you do not specify this parameter, the system automatically generates a name.
     shared_ptr<string> taskName_ {};

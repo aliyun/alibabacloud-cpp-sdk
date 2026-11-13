@@ -57,11 +57,11 @@ namespace Models
 
 
   protected:
-    // The instance ID. You can call [DescribeDBInstances](https://help.aliyun.com/document_detail/610396.html) to query the instance ID.
+    // Instance ID of the instance. You can call the [DescribeDBInstances](https://help.aliyun.com/document_detail/610396.html) operation to query instance ID.
     // 
     // This parameter is required.
     shared_ptr<string> DBInstanceId_ {};
-    // The database name.
+    // The name of the database.
     // 
     // You cannot delete multiple databases at a time.
     // 

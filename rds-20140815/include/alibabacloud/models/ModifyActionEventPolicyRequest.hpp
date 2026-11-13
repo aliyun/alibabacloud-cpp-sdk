@@ -75,14 +75,14 @@ namespace Models
 
 
   protected:
-    // Specifies whether to enable the historical events feature. Valid values:
+    // Specifies whether to enable the event history feature. Valid values:
     // * **True**
     // * **False**
     // 
     // This parameter is required.
     shared_ptr<string> enableEventLog_ {};
     shared_ptr<int64_t> ownerId_ {};
-    // The region ID. You can call DescribeRegions to query the available regions.
+    // The region ID. You can call the DescribeRegions operation to query the region ID.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};

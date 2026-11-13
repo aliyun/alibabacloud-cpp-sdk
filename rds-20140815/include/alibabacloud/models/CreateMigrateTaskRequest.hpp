@@ -141,7 +141,7 @@ namespace Models
 
   protected:
     // The type of the cloud migration task. Valid values:
-    // * **FULL**: restores data by using a full backup file. This value is applicable to the first migration or full data recovery scenarios.
+    // * **FULL**: restores data by using a full backup file. This value is applicable to initial migration or full data recovery scenarios.
     // * **UPDF**: restores incremental data by using an incremental backup file or log file. This value is applicable to incremental synchronization scenarios based on an existing full backup.
     // 
     // This parameter is required.
@@ -153,7 +153,7 @@ namespace Models
     // 
     // Default value: **AsyncExecuteDBCheck** (compatible with SQL Server 2008 R2).
     shared_ptr<string> checkDBMode_ {};
-    // The instance ID. You can call the DescribeDBInstances operation to query the ID.
+    // The instance ID. You can call the DescribeDBInstances operation to query the instance ID.
     // 
     // This parameter is required.
     shared_ptr<string> DBInstanceId_ {};
@@ -174,21 +174,21 @@ namespace Models
     shared_ptr<string> isOnlineDB_ {};
     // Specifies whether to retain the database- and table-level Change Data Capture (CDC) switches and change table data. This parameter takes effect only when IsOnlineDB is set to True. Regardless of the value of this parameter, CDC jobs are not rebuilt.
     shared_ptr<bool> keepCDC_ {};
-    // The ID of the migration task. Valid values:
+    // The migration task ID. Valid values:
     // 
-    // - If **BackupMode** is set to **FULL**, leave this parameter empty. This ensures compatibility with SQL Server 2008 R2.
-    // - If **BackupMode** is set to **UPDF**, set this parameter to the ID of the corresponding FULL task. You can call the DescribeMigrateTasks operation to query the ID.
+    // - If **BackupMode** is set to **FULL**, leave this parameter empty (compatible with SQL Server 2008 R2).
+    // - If **BackupMode** is set to **UPDF**, set this parameter to the ID of the corresponding FULL task. You can call the DescribeMigrateTasks operation to query the task ID.
     shared_ptr<string> migrateTaskId_ {};
-    // The shared URL of the backup file in OSS. The URL must be encoded. If multiple URLs exist, separate them with vertical bars (|) and then encode the string before passing it as the parameter value.
+    // The shared URL of the backup file in OSS. The URL must be encoded. If multiple URLs exist, separate them with vertical bars (|) and encode the string before passing it as the parameter value.
     // 
     // > This parameter is required for SQL Server 2008 R2.
     shared_ptr<string> OSSUrls_ {};
-    // The components of the OSS file. The value consists of the following three parts separated by colons (:):
+    // The components of the OSS object. The value consists of the following three parts separated by colons (:):
     // - **OSS endpoint**: oss-ap-southeast-1.aliyuncs.com.
     // - **OSS bucket name**: rdsmssqlsingapore.
     // - **Backup file name in OSS**: autotest_2008R2_TestMigration_FULL.bak.
     // 
-    // > This parameter is required for SQL Server versions later than 2008 R2.
+    // > This parameter is required for SQL Server versions later than SQL Server 2008 R2.
     shared_ptr<string> ossObjectPositions_ {};
     shared_ptr<int64_t> ownerId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};

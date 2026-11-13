@@ -61,7 +61,7 @@ namespace Models
     shared_ptr<string> connectionString_ {};
     // The instance ID.
     shared_ptr<string> dbInstanceName_ {};
-    // The request ID.
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
   };
 

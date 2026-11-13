@@ -97,24 +97,24 @@ namespace Models
     // Specifies whether to enable automatic payment. Valid values:
     // - **true** (default): Automatic payment is enabled. Make sure that your account balance is sufficient.
     // - **false**: Only an order is generated and no payment is deducted.
-    // > If your payment method has an insufficient balance, you can set AutoPay to false. An unpaid order is generated, and you can log on to the ApsaraDB RDS console to complete the payment.
+    // > If your payment method has an insufficient balance, you can set the AutoPay parameter to false. An unpaid order is generated, and you can log on to the ApsaraDB RDS console to complete the payment.
     // >
     shared_ptr<bool> autoPay_ {};
     // The cloud disk ID.
     shared_ptr<string> diskId_ {};
-    // Specifies whether to perform a precheck on the operation. Valid values:
+    // Specifies whether to perform a precheck on this operation. Valid values:
     // * **true**: A precheck is performed, and the operation is not executed. Check items include request parameters, request format, business limits, and inventory.
-    // * **false** (default): A normal request is sent, and the operation is executed immediately after the precheck is passed.
+    // * **false** (default): A normal request is sent, and the operation is executed after the request passes the precheck.
     shared_ptr<bool> dryRun_ {};
     // The instance ID.
     shared_ptr<string> instanceId_ {};
-    // The new size of the disk after expansion. Unit: GiB.
+    // The size of the cloud disk after expansion. Unit: GiB.
     shared_ptr<int64_t> newSize_ {};
     // The region ID of the instance.
     shared_ptr<string> regionId_ {};
-    // The method used to expand the disk. Valid values:
-    // - **offline** (default): Offline expansion. You must restart the instance for the expansion to take effect.
-    // - **online**: Online expansion. The expansion takes effect without restarting the instance.
+    // The method used to expand the cloud disk. Valid values:
+    // - **offline** (default): Offline expansion. After the expansion, you must restart the instance for the changes to take effect.
+    // - **online**: Online expansion. The expansion is completed without the need to restart the instance.
     shared_ptr<string> type_ {};
   };
 

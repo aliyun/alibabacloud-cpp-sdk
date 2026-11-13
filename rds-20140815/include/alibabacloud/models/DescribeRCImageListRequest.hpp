@@ -104,7 +104,6 @@ namespace Models
 
   protected:
     // The system architecture of the image. Valid values:
-    // 
     // - x86_64
     // - arm64
     shared_ptr<string> architecture_ {};

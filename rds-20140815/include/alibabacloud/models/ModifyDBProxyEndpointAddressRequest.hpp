@@ -112,7 +112,7 @@ namespace Models
 
 
   protected:
-    // The instance ID. You can call the DescribeDBInstances operation to query the ID.
+    // Instance ID of the instance. You can call the DescribeDBInstances operation to query instance ID.
     // 
     // This parameter is required.
     shared_ptr<string> DBInstanceId_ {};
@@ -121,19 +121,19 @@ namespace Models
     // * **VPC** (default): VPC
     // 
     // 
-    // > This parameter is required when the database engine is RDS MySQL.
+    // > This parameter is required when the database engine is ApsaraDB RDS for MySQL.
     shared_ptr<string> DBProxyConnectStringNetType_ {};
     // The ID of the database proxy endpoint. You can call the DescribeDBProxyEndpoint operation to query the ID.
     // 
     // This parameter is required.
     shared_ptr<string> DBProxyEndpointId_ {};
-    // **[Deprecated]** You do not need to configure this parameter.
+    // Deprecated. You do not need to specify this parameter.
     shared_ptr<string> DBProxyEngineType_ {};
     // The prefix of the new database proxy endpoint. You can customize the prefix.
-    // >You must specify at least one of the **DBProxyNewConnectString** and **DBProxyNewConnectStringPort** parameters.
+    // > You must specify at least one of the **DBProxyNewConnectString** and **DBProxyNewConnectStringPort** parameters.
     shared_ptr<string> DBProxyNewConnectString_ {};
     // The port of the new database proxy endpoint. You can customize the port.
-    // >You must specify at least one of the **DBProxyNewConnectString** and **DBProxyNewConnectStringPort** parameters.
+    // > You must specify at least one of the **DBProxyNewConnectString** and **DBProxyNewConnectStringPort** parameters.
     shared_ptr<string> DBProxyNewConnectStringPort_ {};
     shared_ptr<int64_t> ownerId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};

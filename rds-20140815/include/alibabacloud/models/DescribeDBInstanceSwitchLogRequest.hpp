@@ -121,7 +121,7 @@ namespace Models
 
 
   protected:
-    // The instance ID. You can call DescribeDBInstances to obtain the instance ID.
+    // The instance ID. You can call the DescribeDBInstances operation to query the ID.
     shared_ptr<string> DBInstanceId_ {};
     // The end time of the query. The end time must be later than the start time. Format: yyyy-MM-ddTHH:mmZ (UTC).
     // 
@@ -129,12 +129,12 @@ namespace Models
     shared_ptr<string> endTime_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
-    // The page number. Valid values: values greater than 0 and not exceeding the maximum value of Integer.
+    // The page number. Valid values: integers greater than 0 and up to the maximum value of the Integer data type.
     // Default value: 1.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries per page. Maximum value: 100. Default value: 30.
+    // The number of entries per page. Valid values: integers less than or equal to 100. Default value: 30.
     shared_ptr<int32_t> pageSize_ {};
-    // The region ID. You can call DescribeRegions to obtain the region ID.
+    // The region ID. You can call the DescribeRegions operation to query the region ID.
     Darabonba::Bytes regionId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};

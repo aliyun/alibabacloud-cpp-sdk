@@ -48,9 +48,9 @@ namespace Models
 
 
   protected:
-    // The order ID.
+    // The ID of the order.
     shared_ptr<int64_t> orderId_ {};
-    // The request ID.
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
   };
 

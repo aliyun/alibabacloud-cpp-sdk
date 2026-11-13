@@ -70,9 +70,9 @@ namespace Models
     shared_ptr<string> imageName_ {};
     // The RDS Custom instance ID.
     shared_ptr<string> instanceId_ {};
-    // The region ID. You can call the DescribeRegions operation to query the region ID.
+    // The region ID. You can call the DescribeRegions operation to query available regions.
     shared_ptr<string> regionId_ {};
-    // The ID of the snapshot used to create the custom image. You can call the DescribeRCSnapshots operation to query the snapshot ID.
+    // The ID of the snapshot used to create the custom image. You can call the DescribeRCSnapshots operation to query snapshot IDs.
     shared_ptr<string> snapshotId_ {};
   };
 

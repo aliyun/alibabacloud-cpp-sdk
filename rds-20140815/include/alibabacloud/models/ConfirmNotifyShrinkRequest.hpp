@@ -48,7 +48,7 @@ namespace Models
 
 
   protected:
-    // The Alibaba Cloud account ID of the user who confirms the notification. You can also set this parameter to **0**, which indicates that the notification is automatically confirmed by the system.
+    // The Alibaba Cloud account ID of the user who confirms the notification. You can also specify **0** to indicate that the notification is automatically confirmed by the system.
     // 
     // This parameter is required.
     shared_ptr<int64_t> confirmor_ {};

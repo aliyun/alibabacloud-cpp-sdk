@@ -131,15 +131,15 @@ namespace Models
 
   protected:
     // The instance edition. Valid values:
-    // * Regular instances
-    //     * **Basic**: Basic Edition
+    // * Standard instances
+    //     * **Basic**: Basic series
     //     * **HighAvailability**: high availability series
-    //     * **cluster**: Cluster Edition (only applicable to MySQL and PostgreSQL)
-    //     * **AlwaysOn**: AlwaysOn
+    //     * **cluster**: Cluster Edition (only for MySQL and PostgreSQL)
+    //     * **AlwaysOn**: Cluster Edition for SQL Server
     //     * **Finance**: RDS Enterprise Edition
     // * Serverless instances
-    //     * **serverless_basic**: Serverless Basic Edition (only applicable to MySQL and PostgreSQL)
-    //     * **serverless_standard**: Serverless high availability series (only applicable to MySQL and PostgreSQL)
+    //     * **serverless_basic**: Serverless Basic series (only for MySQL and PostgreSQL)
+    //     * **serverless_standard**: Serverless high availability series (only for MySQL and PostgreSQL)
     //     * **serverless_ha**: SQL Server Serverless high availability series
     // 
     //     > This parameter is required when you create a serverless instance.
@@ -148,31 +148,31 @@ namespace Models
     shared_ptr<string> category_ {};
     // The commodity code of the instance. Valid values:
     // 
-    // - **bards**: pay-as-you-go primary instances on the China site
-    // - **rds**: subscription primary instances on the China site
-    // - **rords**: pay-as-you-go read-only instances on the China site
-    // - **rds_rordspre_public_cn**: subscription read-only instances on the China site
-    // - **bards_intl**: pay-as-you-go primary instances on the international site
-    // - **rds_intl**: subscription primary instances on the international site
-    // - **rords_intl**: pay-as-you-go read-only instances on the international site
-    // - **rds_rordspre_public_intl**: subscription read-only instances on the international site
-    // - **rds_serverless_public_cn**: serverless instances on the China site
-    // - **rds_serverless_public_intl**: serverless instances on the international site
+    // - **bards**: pay-as-you-go primary instance (Alibaba Cloud China site)
+    // - **rds**: subscription primary instance (Alibaba Cloud China site)
+    // - **rords**: pay-as-you-go read-only instance (Alibaba Cloud China site)
+    // - **rds_rordspre_public_cn**: subscription read-only instance (Alibaba Cloud China site)
+    // - **bards_intl**: pay-as-you-go primary instance (Alibaba Cloud International site)
+    // - **rds_intl**: subscription primary instance (Alibaba Cloud International site)
+    // - **rords_intl**: pay-as-you-go read-only instance (Alibaba Cloud International site)
+    // - **rds_rordspre_public_intl**: subscription read-only instance (Alibaba Cloud International site)
+    // - **rds_serverless_public_cn**: serverless instance (Alibaba Cloud China site)
+    // - **rds_serverless_public_intl**: serverless instance (Alibaba Cloud International site)
     // 
     // > This parameter is required when you query read-only instances.
     shared_ptr<string> commodityCode_ {};
     // The instance ID. You can call the DescribeDBInstances operation to query the instance ID.
     shared_ptr<string> DBInstanceId_ {};
     // The instance storage type. Valid values:
-    // * **general_essd**: Premium ESSD
+    // * **general_essd**: premium performance disk
     // * **local_ssd**: premium local SSD
-    // * **cloud_ssd**: standard SSD
+    // * **cloud_ssd**: standard SSD cloud disk
     // * **cloud_essd0**: PL0 ESSD
     // * **cloud_essd**: PL1 ESSD
     // * **cloud_essd2**: PL2 ESSD
     // * **cloud_essd3**: PL3 ESSD
     // 
-    // > Serverless instances support only PL1 ESSDs. You must set this parameter to **cloud_essd**.
+    // > Serverless instances support only PL1 ESSD. You must set this parameter to **cloud_essd**.
     // 
     // This parameter is required.
     shared_ptr<string> DBInstanceStorageType_ {};
@@ -185,7 +185,7 @@ namespace Models
     // This parameter is required.
     shared_ptr<string> engine_ {};
     // The database engine version of the instance. Valid values:
-    // - Regular instances
+    // - Standard instances
     //     - MySQL: **5.5, 5.6, 5.7, and 8.0**
     //     - SQL Server: **2008r2, 08r2_ent_ha, 2012, 2012_ent_ha, 2012_std_ha, 2012_web, 2014_std_ha, 2016_ent_ha, 2016_std_ha, 2016_web, 2017_std_ha, 2017_ent, 2019_std_ha, and 2019_ent**
     //     - PostgreSQL: **10.0, 11.0, 12.0, 13.0, 14.0, 15.0, 16.0, and 17.0**
@@ -206,7 +206,7 @@ namespace Models
     // 
     // > ApsaraDB RDS for MariaDB does not support serverless instances.
     shared_ptr<string> instanceChargeType_ {};
-    // The order type. Set the value to **BUY**.
+    // The order type. Valid value: **BUY**.
     shared_ptr<string> orderType_ {};
     // The region ID of the instance. You can call the DescribeDBInstanceAttribute operation to query the region ID.
     // 

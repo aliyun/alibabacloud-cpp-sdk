@@ -66,9 +66,9 @@ namespace Models
 
 
   protected:
-    // A reserved parameter. This parameter is not supported.
+    // A reserved parameter that is not currently supported.
     shared_ptr<bool> deleteWithInstance_ {};
-    // The ID of the cloud disk to detach.
+    // The ID of the cloud disk to be detached.
     // 
     // This parameter is required.
     shared_ptr<string> diskId_ {};

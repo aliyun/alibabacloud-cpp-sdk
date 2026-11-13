@@ -58,12 +58,12 @@ namespace Models
 
   protected:
     // Indicates whether the account is authorized. Valid values:
-    // * 0: Not authorized.
-    // * 1: Authorized.
+    // - 0: Not authorized.
+    // - 1: Authorized.
     shared_ptr<string> authorizationState_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The ARN of the backup encryption service-linked role.
+    // The ARN of the service-linked role for backup encryption.
     shared_ptr<string> roleARN_ {};
   };
 

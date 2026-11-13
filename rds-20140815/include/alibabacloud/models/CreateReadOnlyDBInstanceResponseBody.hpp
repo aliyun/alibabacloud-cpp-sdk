@@ -75,13 +75,13 @@ namespace Models
 
 
   protected:
-    // The internal database connection address of the read-only instance.
+    // The internal database endpoint of the created read-only instance.
     shared_ptr<string> connectionString_ {};
-    // The read-only instance ID.
+    // The instance ID of the created read-only instance.
     shared_ptr<string> DBInstanceId_ {};
     // The order ID.
     shared_ptr<string> orderId_ {};
-    // The internal database connection port of the read-only instance.
+    // The internal database port of the created read-only instance.
     shared_ptr<string> port_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

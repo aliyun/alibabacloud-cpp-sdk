@@ -172,13 +172,13 @@ namespace Models
 
 
       protected:
-        // The basic protection Mitigation Threshold for the assets that are assigned public IP addresses. Unit: Mbit/s.
+        // The basic DDoS mitigation threshold of the assets that are assigned public IP addresses. Unit: Mbit/s.
         shared_ptr<int32_t> blackholeThreshold_ {};
-        // The traffic scrubbing threshold for the assets that are assigned public IP addresses. Unit: Mbit/s.
+        // The traffic scrubbing threshold of the assets that are assigned public IP addresses. Unit: Mbit/s.
         shared_ptr<int32_t> defenseBpsThreshold_ {};
-        // The packet rate scrubbing threshold for the assets that are assigned public IP addresses. Unit: pps.
+        // The packet count scrubbing threshold of the assets that are assigned public IP addresses. Unit: pps.
         shared_ptr<int32_t> defensePpsThreshold_ {};
-        // The burstable Mitigation Threshold for the assets that are assigned public IP addresses. Unit: Mbit/s.
+        // The burstable DDoS mitigation threshold of the assets that are assigned public IP addresses. Unit: Mbit/s.
         shared_ptr<int32_t> elasticThreshold_ {};
         // The IP address of the assets that are assigned public IP addresses.
         shared_ptr<string> instanceIp_ {};
@@ -188,17 +188,17 @@ namespace Models
         // - **blackholed**: Black Hole Activated
         // - **normal**: Normal
         shared_ptr<string> ipStatus_ {};
-        // The IP version of the instance. Valid values:
+        // The IP protocol version of the instance. Valid values:
         // 
         // - **v4**
         // - **v6**
         shared_ptr<string> ipVersion_ {};
-        // Indicates whether the public IP asset is attached to Anti-DDoS Origin. Valid values:
+        // Indicates whether the asset that is assigned a public IP address is bound to Anti-DDoS Origin. Valid values:
         // 
         // - **true**: Yes.
         // - **false**: No.
         shared_ptr<bool> isBgppack_ {};
-        // Indicates whether best-effort protection is enabled for the assets that are assigned public IP addresses in Anti-DDoS Origin. Valid values:
+        // Indicates whether the asset that is assigned a public IP address is protected by the best-effort protection feature of Anti-DDoS Origin. Valid values:
         // 
         // - **0**: Best-effort protection is disabled.
         // - **1**: Best-effort protection is enabled.
@@ -247,14 +247,14 @@ namespace Models
 
 
     protected:
-      // The instance ID of the RDS Custom instance.
+      // The instance ID of the Custom instance.
       shared_ptr<string> instanceId_ {};
       // The name of the RDS Custom instance.
       shared_ptr<string> instanceName_ {};
       // The DDoS mitigation status of the instance. Valid values:
       // 
-      // - **normal**: Normal.
-      // - **abnormal**: Under attack.
+      // - **normal**: Normal
+      // - **abnormal**: Under attack
       shared_ptr<string> instanceStatus_ {};
       // The type of the assets that are assigned public IP addresses. Set the value to **ecs**.
       shared_ptr<string> instanceType_ {};

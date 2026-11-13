@@ -199,9 +199,9 @@ namespace Models
     shared_ptr<string> dedicatedHostGroupId_ {};
     // The effective period. This parameter is only supported for instances in a dedicated cluster. Valid values:
     // 
-    // * **Immediate**: The changes take effect immediately.
-    // * **MaintainTime**: The changes take effect within the maintenance window. For more information, see ModifyDBInstanceMaintainTime.
-    // * **SpecificTime**: The changes take effect at a specified time.
+    // * **Immediate**: The operation takes effect immediately.
+    // * **MaintainTime**: The operation takes effect within the maintenance window. For more information, see ModifyDBInstanceMaintainTime.
+    // * **SpecificTime**: The operation takes effect at a specified time.
     // 
     // Default value: MaintainTime.
     shared_ptr<string> effectiveTime_ {};
@@ -212,7 +212,7 @@ namespace Models
     shared_ptr<string> regionId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
-    // The specified time when the changes take effect. This parameter is only supported for instances in a dedicated cluster. Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
+    // The specified time when the switchover is performed. This parameter is only supported for instances in a dedicated cluster. Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
     // 
     // > You must specify this parameter when **EffectiveTime** is set to **Specified**.
     shared_ptr<string> specifiedTime_ {};
@@ -220,7 +220,7 @@ namespace Models
     shared_ptr<int32_t> storage_ {};
     // The instance type of the target instance. This parameter is only supported for instances in a dedicated cluster.
     shared_ptr<string> targetDBInstanceClass_ {};
-    // **[Deprecated]** This parameter is deprecated and does not need to be specified.
+    // **[Deprecated]** This parameter is deprecated and does not need to be configured.
     shared_ptr<string> targetDedicatedHostIdForLog_ {};
     // The ID of the destination host for the primary node. This parameter is only supported for instances in a dedicated cluster.
     // 

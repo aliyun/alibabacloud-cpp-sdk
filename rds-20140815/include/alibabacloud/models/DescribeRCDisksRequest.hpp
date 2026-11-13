@@ -82,9 +82,9 @@ namespace Models
 
 
     protected:
-      // The tag key. Empty values and duplicates are not allowed.
+      // The tag key. Empty or duplicate values are **not allowed**.
       shared_ptr<string> key_ {};
-      // The tag value. Empty values are allowed.
+      // The tag value. Empty values are **allowed**.
       shared_ptr<string> value_ {};
     };
 
@@ -150,9 +150,9 @@ namespace Models
 
 
   protected:
-    // The disk IDs. The value is a JSON array that supports up to 100 IDs separated by commas (,). Example: ["DiskId1", "DiskId2"].
+    // The disk IDs. The value is a JSON array that supports up to 100 IDs separated by commas (,). Format: `["disk ID 1", "disk ID 2"]`.
     shared_ptr<string> diskIds_ {};
-    // The type of the cloud disk or elastic ephemeral disk to query. Valid values:
+    // The type of cloud disk or elastic ephemeral disk to query. Valid values:
     // - all: Queries both system cloud disks and data cloud disks.
     // - system: Queries only system cloud disks.
     // - data: Queries only data cloud disks.
@@ -170,7 +170,7 @@ namespace Models
     shared_ptr<string> regionId_ {};
     // The disk status. Valid values:
     // - In_use: In use.
-    // - Available: Available.
+    // - Available: Unattached.
     // - Attaching: Attaching.
     // - Detaching: Detaching.
     // - Creating: Creating.
@@ -178,7 +178,7 @@ namespace Models
     // - All: All statuses.
     // Default value: All.
     shared_ptr<string> status_ {};
-    // The tags.
+    // The list of tags.
     shared_ptr<vector<DescribeRCDisksRequest::Tag>> tag_ {};
   };
 

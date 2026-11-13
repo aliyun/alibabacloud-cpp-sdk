@@ -121,15 +121,15 @@ namespace Models
 
 
   protected:
-    // The username of the Active Directory (AD) domain.
+    // The username of the AD domain account.
     shared_ptr<string> ADAccountName_ {};
-    // The Domain Name System (DNS) name of the Active Directory (AD) domain.
+    // The Domain Name System (DNS) name of the AD domain.
     shared_ptr<string> ADDNS_ {};
-    // The password of the Active Directory (AD) domain.
+    // The password of the AD domain account.
     shared_ptr<string> ADPassword_ {};
-    // The IP address of the Active Directory (AD) domain.
+    // The IP address of the AD domain.
     shared_ptr<string> ADServerIpAddress_ {};
-    // The client token that is used to ensure the idempotence of the request and prevent duplicate submissions. You can generate the value of this parameter on the client side. The value must be unique across different requests and can be up to 64 ASCII characters in length. The value cannot contain non-ASCII characters.
+    // The client token that is used to ensure the idempotence of the request and prevent duplicate submissions. You can generate the token on the client side. The token must be unique across different requests. It can be up to 64 ASCII characters in length and cannot contain non-ASCII characters.
     shared_ptr<string> clientToken_ {};
     // The instance ID. You can call the DescribeDBInstances operation to query the instance ID.
     // 

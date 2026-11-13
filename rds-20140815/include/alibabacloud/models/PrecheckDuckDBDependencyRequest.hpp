@@ -75,14 +75,18 @@ namespace Models
 
 
   protected:
-    // The primary instance ID.
+    // The instance ID of the primary instance.
     // 
     // This parameter is required.
     shared_ptr<string> DBInstanceId_ {};
     shared_ptr<int64_t> ownerId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
-    // The target node mode for the precheck. primary indicates the primary node. readOnly indicates a read-only node. If you do not specify this parameter, the default value is readOnly.
+    // The target node mode for the precheck. Valid values:
+    // - primary: the primary node.
+    // - readOnly: a read-only node.
+    // 
+    // Default value: readOnly.
     shared_ptr<string> targetMode_ {};
   };
 

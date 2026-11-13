@@ -121,30 +121,30 @@ namespace Models
 
 
   protected:
-    // Queries target user backups by user backup ID.
+    // The ID of the user backup.
     shared_ptr<string> backupId_ {};
-    // Queries target user backups by comment.
-    // > You can enter a partial comment of the target user backup for fuzzy match.
+    // The comment of the user backup.
+    // > You can enter a partial comment of the target user backup for a fuzzy match.
     shared_ptr<string> comment_ {};
-    // Queries target user backups by the OSS download URL of the user backup file. For more information about how to obtain the OSS download URL of a user backup file, see [Obtain the URL of an uploaded object](https://help.aliyun.com/document_detail/39607.html).
+    // The OSS download URL of the user backup file. For more information about how to obtain the OSS download URL of a user backup file, see [Obtain the URL of an uploaded object](https://help.aliyun.com/document_detail/39607.html).
     shared_ptr<string> ossUrl_ {};
     shared_ptr<int64_t> ownerId_ {};
     // The region ID. You can call the DescribeRegions operation to query the region ID.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
-    // The resource group ID. You can call the DescribeDBInstanceAttribute operation to query the resource group ID.
+    // The ID of the resource group. You can call the DescribeDBInstanceAttribute operation to query the resource group ID.
     shared_ptr<string> resourceGroupId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
-    // Queries target user backups by the status of the user backup file. Valid values:
+    // The status of the user backup file. Valid values:
     // * **Importing**: The backup is being imported.
     // * **Failed**: The import failed.
-    // * **CheckSuccess**: The verification passed.
-    // * **BackupSuccess**: The import succeeded.
+    // * **CheckSuccess**: The verification is successful.
+    // * **BackupSuccess**: The import is successful.
     // * **Deleted**: The backup is deleted.
     shared_ptr<string> status_ {};
-    // Queries target user backups by tag.
+    // The tags of the user backup.
     shared_ptr<string> tags_ {};
   };
 

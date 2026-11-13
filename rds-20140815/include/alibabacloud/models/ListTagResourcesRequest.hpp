@@ -83,9 +83,9 @@ namespace Models
 
     protected:
       // The tag key. You can query N tag keys at a time. Valid values of N: **1** to **20**. Empty strings are not allowed.
-      // >You must specify at least one of the **ResourceId** and **Tag.Key** parameters.
+      // > You must specify at least one of the **ResourceId** and **Tag.Key** parameters.
       shared_ptr<string> key_ {};
-      // The tag value that corresponds to the tag key. You can query N tag values at a time. Valid values of N: **1** to **20**. Empty strings are allowed.
+      // The tag value corresponding to the tag key. You can query N tag values at a time. Valid values of N: **1** to **20**. Empty strings are allowed.
       shared_ptr<string> value_ {};
     };
 
@@ -153,25 +153,25 @@ namespace Models
 
 
   protected:
-    // The token used to return more results. You do not need to specify this parameter for the first query. If a query does not return all results, pass in the token returned from the previous query to continue the query.
+    // The token used to return more results. You do not need to specify this parameter for the first query. If a query does not return all results, you can pass the token returned from the previous query to continue the query.
     shared_ptr<string> nextToken_ {};
     shared_ptr<int64_t> ownerId_ {};
-    // The region ID. You can call the DescribeRegions operation to query available region IDs.
+    // The region ID. You can call the DescribeRegions operation to view available region IDs.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
-    // The list of instance IDs. You can query tags for multiple instances at a time. Valid values of the number of instances: **1** to **50**.
-    // >You must specify at least one of the **ResourceId** and **Tag.Key** parameters.
+    // The instance IDs. You can query the labels of multiple instances at a time. Valid values: **1** to **50**.
+    // > You must specify at least one of the **ResourceId** and **Tag.Key** parameters.
     shared_ptr<vector<string>> resourceId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
     // The resource type. Valid values:
     // 
-    // - **INSTANCE**: regular ApsaraDB RDS instance.
-    // - **CUSTOM**: RDS Custom instance.
-    // - **CUSTOMDEPLOYMENTSET**: RDS Custom deployment set.
-    // - **CUSTOMDISK**: RDS Custom cloud disk.
-    // - **CUSTOMSNAPSHOT**: RDS Custom snapshot.
+    // - **INSTANCE**: regular ApsaraDB RDS instance
+    // - **CUSTOM**: RDS Custom instance
+    // - **CUSTOMDEPLOYMENTSET**: RDS Custom deployment set
+    // - **CUSTOMDISK**: RDS Custom cloud disk
+    // - **CUSTOMSNAPSHOT**: RDS Custom snapshot
     // 
     // This parameter is required.
     shared_ptr<string> resourceType_ {};

@@ -49,8 +49,8 @@ namespace Models
 
   protected:
     // Specifies the language of the **LocalName** parameter in the response. Valid values:
-    // * **zh-CN**: Chinese
-    // * **en-US**: English
+    // * **zh-CN**: Chinese.
+    // * **en-US**: English.
     // 
     // Default value: **en-US**.
     shared_ptr<string> acceptLanguage_ {};

@@ -85,15 +85,15 @@ namespace Models
 
   protected:
     shared_ptr<int64_t> ownerId_ {};
-    // The parameter template ID. You can call the DescribeParameterGroups operation to query the parameter template ID.
+    // The ID of the parameter template. You can call the DescribeParameterGroups operation to query parameter template IDs.
     // 
     // This parameter is required.
     shared_ptr<string> parameterGroupId_ {};
-    // The region ID. You can call the DescribeRegions operation to query the region ID.
+    // The region ID. You can call the DescribeRegions operation to query region IDs.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
-    // The resource group ID. You can call the DescribeDBInstanceAttribute operation to query the resource group ID.
+    // The ID of the resource group. You can call the DescribeDBInstanceAttribute operation to query the resource group ID.
     shared_ptr<string> resourceGroupId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};

@@ -714,32 +714,32 @@ namespace Models
     shared_ptr<bool> advancedBackupPolicyEnabled_ {};
     shared_ptr<DescribeBackupPolicyResponseBody::AdvancedDataPolicies> advancedDataPolicies_ {};
     shared_ptr<DescribeBackupPolicyResponseBody::AdvancedLogPolicies> advancedLogPolicies_ {};
-    // The number of archived backups retained for an **ApsaraDB RDS for MySQL** instance.
+    // The number of archive backups retained for the **ApsaraDB RDS for MySQL** instance.
     shared_ptr<string> archiveBackupKeepCount_ {};
-    // The retention cycle of archived backups for an **ApsaraDB RDS for MySQL** instance.
+    // The retention period of archive backups for the **ApsaraDB RDS for MySQL** instance.
     shared_ptr<string> archiveBackupKeepPolicy_ {};
-    // The number of days for which archived backups are retained for an **ApsaraDB RDS for MySQL** instance.
+    // The number of days for which archive backups are retained for the **ApsaraDB RDS for MySQL** instance.
     shared_ptr<string> archiveBackupRetentionPeriod_ {};
     // The backup interval. Unit: minutes.
-    // * For an ApsaraDB RDS for MySQL instance, this parameter indicates the [snapshot backup frequency](https://help.aliyun.com/document_detail/98818.html) rather than the snapshot backup cycle.
-    // * For an ApsaraDB RDS for SQL Server instance, this parameter indicates the log backup frequency.
+    // * For ApsaraDB RDS for MySQL instances: the [snapshot backup frequency](https://help.aliyun.com/document_detail/98818.html), not the snapshot backup cycle.
+    // * For ApsaraDB RDS for SQL Server instances: the log backup frequency.
     shared_ptr<string> backupInterval_ {};
     // Indicates whether log backup is enabled. Valid values:
-    // * **Enable**: yes
-    // * **Disabled**: no
+    // * **Enable**: yes.
+    // * **Disabled**: no.
     // 
-    // **For an ApsaraDB RDS for SQL Server instance:**
+    // **For ApsaraDB RDS for SQL Server instances:**
     // 
-    // - **Enable** is returned only when instance log backup frequency of the instance is set to **Every 5 Minutes**.
-    // - **Disabled** is returned when instance log backup frequency is set to **Every 30 Minutes** or **Same as Data Backup**. **Refer to the value of BackupInterval**.
+    // - **Enable** is returned only when instance log backup frequency is **every 5 minutes**.
+    // - **Disabled** is returned when instance log backup frequency is **every 30 minutes** or **the same as the data backup frequency**. **Refer to the value of BackupInterval**.
     shared_ptr<string> backupLog_ {};
-    // The backup method for an **ApsaraDB RDS for SQL Server instance with cloud disks**. Valid values:
-    // * **Physical**: physical backup
-    // * **Snapshot**: snapshot backup
+    // The backup method for **ApsaraDB RDS for SQL Server instances with cloud disks**. Valid values:
+    // * **Physical**: physical backup.
+    // * **Snapshot**: snapshot backup.
     shared_ptr<string> backupMethod_ {};
-    // The secondary node backup setting for an **ApsaraDB RDS for SQL Server Cluster Edition** instance. Valid values:
-    // - **1**: prefer secondary node
-    // - **2**: force primary node
+    // The secondary node backup setting for **ApsaraDB RDS for SQL Server Cluster Edition** instances. Valid values:
+    // - **1**: prefer secondary node.
+    // - **2**: force primary node.
     // 
     // > This parameter is returned only when SupportModifyBackupPriority is set to True.
     shared_ptr<int32_t> backupPriority_ {};
@@ -747,95 +747,95 @@ namespace Models
     shared_ptr<int32_t> backupRetentionPeriod_ {};
     // Indicates whether backup within seconds is enabled for **ApsaraDB RDS for MySQL** and **ApsaraDB RDS for PostgreSQL** instances. Valid values:
     // 
-    // - **Flash**: enabled
-    // - **Standard**: disabled
+    // - **Flash**: enabled.
+    // - **Standard**: disabled.
     // 
-    // > This parameter takes effect only when the **BackupPolicyMode** parameter is set to **DataBackupPolicy**.
+    // > This parameter takes effect only when **BackupPolicyMode** is set to **DataBackupPolicy**.
     shared_ptr<string> category_ {};
     // The backup compression method. Valid values:
-    // * **0**: no compression
-    // * **1**: zlib compression
-    // * **2**: parallel zlib compression
-    // * **4**: QuickLZ compression with database and table restoration enabled
-    // * **8**: QuickLZ compression without database and table restoration supported
+    // * **0**: no compression.
+    // * **1**: zlib compression.
+    // * **2**: parallel zlib compression.
+    // * **4**: quicklz compression with database and table restoration enabled.
+    // * **8**: quicklz compression without database and table restoration supported.
     shared_ptr<string> compressType_ {};
     // Indicates whether log backup is enabled. Valid values:
-    // * **1**: enabled
-    // * **0**: disabled
+    // * **1**: enabled.
+    // * **0**: disabled.
     // 
-    // **For an ApsaraDB RDS for SQL Server instance:**
-    // - **1** is returned only when instance log backup frequency of the instance is set to **Every 5 Minutes**.
-    // - **0** is returned when instance log backup frequency is set to **Every 30 Minutes** or **Same as Data Backup**. **Refer to the value of BackupInterval**.
+    // **For ApsaraDB RDS for SQL Server instances:**
+    // - **1** is returned only when instance log backup frequency is **every 5 minutes**.
+    // - **0** is returned when instance log backup frequency is **every 30 minutes** or **the same as the data backup frequency**. **Refer to the value of BackupInterval**.
     shared_ptr<string> enableBackupLog_ {};
     // Indicates whether immutable backup is enabled. This parameter takes effect only when Engine is set to PostgreSQL.
     shared_ptr<bool> enableImmutableBackup_ {};
-    // Indicates whether incremental backup is enabled for an **ApsaraDB RDS for SQL Server** instance. Valid values:
-    // * **True**: yes
-    // * **False**: no
+    // Indicates whether incremental backup is enabled for the **ApsaraDB RDS for SQL Server** instance. Valid values:
+    // * **True**: yes.
+    // * **False**: no.
     shared_ptr<bool> enableIncrementDataBackup_ {};
-    // Indicates whether point-in-time recovery (PITR) is enabled for an **ApsaraDB RDS for MySQL** instance. PITR is an upgraded version of log backup. Valid values:
-    // - **True**: yes
-    // - **False**: no
+    // Indicates whether point-in-time recovery (PITR) is enabled for the **ApsaraDB RDS for MySQL** instance. PITR is an upgraded version of log backup. Valid values:
+    // - **True**: yes.
+    // - **False**: no.
     // 
     // > For more information, see [Configure a point-in-time recovery policy](https://help.aliyun.com/document_detail/2666046.html).
     shared_ptr<bool> enablePitrProtection_ {};
-    // Indicates whether binary logs are forcibly deleted when the storage usage of an **ApsaraDB RDS for MySQL** instance exceeds 80% or the remaining storage is less than 5 GB. Valid values:
+    // Indicates whether binary logs are forcibly deleted when the storage usage of the **ApsaraDB RDS for MySQL** instance exceeds 80% or the remaining storage is less than 5 GB. Valid values:
     // 
-    // * **Disable**: no
-    // * **Enable**: yes
+    // * **Disable**: no.
+    // * **Enable**: yes.
     shared_ptr<string> highSpaceUsageProtection_ {};
-    // The interval for high-frequency incremental backups. Unit: minutes. Valid values: 60, 120, 240, 360, and 720.
+    // The high-frequency incremental backup interval. Unit: minutes. Valid values: 60, 120, 240, 360, and 720.
     shared_ptr<int32_t> incBackupInterval_ {};
-    // The number of hours for which local binary log backups are retained for an **ApsaraDB RDS for MySQL** instance.
+    // The number of hours for which binary log backups are retained for the **ApsaraDB RDS for MySQL** instance.
     shared_ptr<int32_t> localLogRetentionHours_ {};
-    // The maximum storage usage of binary logs for an **ApsaraDB RDS for MySQL** instance.
+    // The maximum storage usage of binary logs for the **ApsaraDB RDS for MySQL** instance.
     shared_ptr<string> localLogRetentionSpace_ {};
-    // The log backup frequency for an **ApsaraDB RDS for SQL Server** instance. Valid values:
+    // The log backup frequency for the **ApsaraDB RDS for SQL Server** instance. Valid values:
     // 
-    // * **LogInterval**: every 30 minutes
+    // * **LogInterval**: every 30 minutes.
     // * Default value: the same as the data backup cycle specified by **PreferredBackupPeriod**.
     shared_ptr<string> logBackupFrequency_ {};
-    // The number of local binary logs retained for an **ApsaraDB RDS for MySQL** instance.
+    // The number of local binary logs retained for the **ApsaraDB RDS for MySQL** instance.
     shared_ptr<int32_t> logBackupLocalRetentionNumber_ {};
     // The number of days for which log backups are retained.
     shared_ptr<int32_t> logBackupRetentionPeriod_ {};
-    // The number of days to which an **ApsaraDB RDS for MySQL** instance can be restored by using PITR.
+    // The number of days for which point-in-time recovery is supported for the **ApsaraDB RDS for MySQL** instance.
     shared_ptr<int32_t> pitrRetentionPeriod_ {};
     // The data backup cycle. Separate multiple values with commas (,). Valid values:
-    // * **Monday**: Monday
-    // * **Tuesday**: Tuesday
-    // * **Wednesday**: Wednesday
-    // * **Thursday**: Thursday
-    // * **Friday**: Friday
-    // * **Saturday**: Saturday
-    // * **Sunday**: Sunday
+    // * **Monday**: Monday.
+    // * **Tuesday**: Tuesday.
+    // * **Wednesday**: Wednesday.
+    // * **Thursday**: Thursday.
+    // * **Friday**: Friday.
+    // * **Saturday**: Saturday.
+    // * **Sunday**: Sunday.
     shared_ptr<string> preferredBackupPeriod_ {};
     // The data backup time. Format: <i>HH:mm</i>Z-<i>HH:mm</i>Z (UTC).
     shared_ptr<string> preferredBackupTime_ {};
-    // The time of the next backup. Format: <i>yyyy-MM-dd</i>T<i>HH:mm</i>Z (UTC).
+    // The next backup time. Format: <i>yyyy-MM-dd</i>T<i>HH:mm</i>Z (UTC).
     shared_ptr<string> preferredNextBackupTime_ {};
-    // The data retention policy for archived backups of a deleted **ApsaraDB RDS for MySQL** instance. Valid values:
-    // * **None**: does not retain archived backups
-    // * **Lastest**: retains only the last archived backup
-    // * **All**: retains all archived backups
+    // The data retention policy for archive backups of deleted **ApsaraDB RDS for MySQL** instances. Valid values:
+    // * **None**: do not retain.
+    // * **Lastest**: retain the last one.
+    // * **All**: retain all.
     shared_ptr<string> releasedKeepPolicy_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the secondary node backup option can be modified for an **ApsaraDB RDS for SQL Server** instance. Valid values:
+    // Indicates whether the secondary node backup option can be modified for the **ApsaraDB RDS for SQL Server** instance. Valid values:
     // 
-    // - **True**: yes
-    // - **False**: no
+    // - **True**: yes.
+    // - **False**: no.
     shared_ptr<bool> supportModifyBackupPriority_ {};
     // The reserved parameter.
     shared_ptr<int32_t> supportReleasedKeep_ {};
-    // Indicates whether snapshot backup is supported for an **ApsaraDB RDS for SQL Server** instance. Valid values:
+    // Indicates whether snapshot backup is supported for the **ApsaraDB RDS for SQL Server** instance. Valid values:
     // 
-    // - **1**: yes
-    // - **0**: no
+    // - **1**: yes.
+    // - **0**: no.
     shared_ptr<int32_t> supportVolumeShadowCopy_ {};
-    // Indicates whether the [5-minute log backup feature](https://help.aliyun.com/document_detail/95717.html) is supported for an **ApsaraDB RDS for SQL Server** instance. Valid values:
-    // - **0**: not supported
-    // - **1**: supported
+    // Indicates whether the [5-minute log backup feature](https://help.aliyun.com/document_detail/95717.html) is supported for the **ApsaraDB RDS for SQL Server** instance. Valid values:
+    // - **0**: not supported.
+    // - **1**: supported.
     shared_ptr<int64_t> supportsHighFrequencyBackup_ {};
   };
 

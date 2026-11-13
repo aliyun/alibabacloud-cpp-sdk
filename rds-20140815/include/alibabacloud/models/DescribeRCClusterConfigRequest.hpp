@@ -59,10 +59,11 @@ namespace Models
   protected:
     // The region ID.
     shared_ptr<string> regionId_ {};
-    // The validity period of the temporary KubeConfig. Unit: minutes. Valid values: 15 (15 minutes) to 4320 (3 days).
-    // > If you do not specify this parameter, the system automatically determines a longer validity period. The specific expiration time is determined by the value of the `expiration` field in the response.
+    // The validity period of the temporary KubeConfig file, in minutes. Valid values: 15 to 4320.
+    // > If you do not specify this parameter, the system automatically determines a longer validity period. You can check the specific expiration time in the value of the `expiration` field in the response.
     shared_ptr<int32_t> temporaryDurationMinutes_ {};
-    // The ID of the VPC.
+    // The ID of the virtual private cloud (VPC).
+    // 
     // > Reserved parameter.
     shared_ptr<string> vpcId_ {};
   };

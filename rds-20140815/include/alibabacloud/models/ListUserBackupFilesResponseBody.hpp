@@ -236,7 +236,7 @@ namespace Models
       shared_ptr<string> creationTime_ {};
       // The database engine.
       shared_ptr<string> engine_ {};
-      // The database engine version.
+      // The database version.
       shared_ptr<string> engineVersion_ {};
       // The time when the user backup was successfully imported. The time is in the UNIX timestamp format. Unit: milliseconds.
       shared_ptr<string> finishTime_ {};
@@ -263,8 +263,8 @@ namespace Models
       // The status of the user backup file. Valid values:
       // * **Importing**: The backup is being imported.
       // * **Failed**: The import failed.
-      // * **CheckSuccess**: The verification passed.
-      // * **BackupSuccess**: The import succeeded.
+      // * **CheckSuccess**: The verification is successful.
+      // * **BackupSuccess**: The import is successful.
       // * **Deleted**: The backup is deleted.
       shared_ptr<string> status_ {};
       // The zone ID of the user backup.
@@ -292,7 +292,7 @@ namespace Models
   protected:
     // The list of user backup file details.
     shared_ptr<vector<ListUserBackupFilesResponseBody::Records>> records_ {};
-    // The request ID.
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
   };
 

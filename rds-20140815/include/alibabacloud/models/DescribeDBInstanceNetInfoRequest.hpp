@@ -114,7 +114,7 @@ namespace Models
   protected:
     // The client token that is used to ensure the idempotence of the request and prevent duplicate submissions. You can generate the value of this parameter on the client side. The value must be unique across different requests and can be up to 64 ASCII characters in length. The value cannot contain non-ASCII characters.
     shared_ptr<string> clientToken_ {};
-    // The instance ID. You can call the DescribeDBInstances operation to query the ID.
+    // The instance ID. You can call the DescribeDBInstances operation to query the instance ID.
     // 
     // This parameter is required.
     shared_ptr<string> DBInstanceId_ {};
@@ -126,7 +126,7 @@ namespace Models
     shared_ptr<string> DBInstanceNetRWSplitType_ {};
     // The reserved parameter. You do not need to configure this parameter.
     shared_ptr<int32_t> flag_ {};
-    // The name of the group to which the general-purpose ApsaraDB RDS for MySQL instance in the dedicated cluster belongs.
+    // The name of the group to which the general-purpose ApsaraDB RDS for MySQL instance in a dedicated cluster belongs.
     shared_ptr<string> generalGroupName_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};

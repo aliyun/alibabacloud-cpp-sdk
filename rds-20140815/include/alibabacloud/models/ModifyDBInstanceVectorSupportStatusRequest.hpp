@@ -48,7 +48,7 @@ namespace Models
 
 
   protected:
-    // Instance ID of the instance. You can call the DescribeDBInstances operation to query instance ID.
+    // The ID of the instance. You can call the DescribeDBInstances operation to query the instance ID.
     // 
     // This parameter is required.
     shared_ptr<string> DBInstanceId_ {};

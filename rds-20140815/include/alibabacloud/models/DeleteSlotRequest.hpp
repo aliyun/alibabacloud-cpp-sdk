@@ -112,11 +112,9 @@ namespace Models
 
 
   protected:
-    // The client token that is used to ensure the idempotence of the request.
-    // 
-    // You can generate the value from your client and make sure that the value is unique across different requests. The client token supports only ASCII characters.
+    // The client token that is used to ensure the idempotence of the request. You can generate the parameter value on your client and ensure that it is unique across different requests. The ClientToken parameter supports only ASCII characters.
     shared_ptr<string> clientToken_ {};
-    // Instance ID of the target instance. You can call the DescribeDBInstances operation to query instance ID.
+    // The instance ID. You can call the DescribeDBInstances operation to query the instance ID.
     // 
     // This parameter is required.
     shared_ptr<string> DBInstanceId_ {};
@@ -131,8 +129,8 @@ namespace Models
     // This parameter is required.
     shared_ptr<string> slotName_ {};
     // The status of the replication slot. You can call the DescribeSlots operation to query the status. Valid values:
-    // - **ACTIVE**: The replication slot is active.
-    // - **INACTIVE**: The replication slot is inactive.
+    // - **ACTIVE**: Active.
+    // - **INACTIVE**: Inactive.
     // 
     // This parameter is required.
     shared_ptr<string> slotStatus_ {};

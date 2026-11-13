@@ -75,7 +75,7 @@ namespace Models
 
 
   protected:
-    // The backup set ID.
+    // The ID of the backup set.
     shared_ptr<string> backupId_ {};
     // The instance ID.
     // 

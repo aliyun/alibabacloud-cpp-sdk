@@ -103,7 +103,7 @@ namespace Models
 
 
   protected:
-    // Instance ID of the instance. You can call the DescribeDBInstances operation to query instance ID.
+    // The instance ID. You can call the DescribeDBInstances operation to query the instance ID.
     // 
     // This parameter is required.
     shared_ptr<string> DBInstanceId_ {};
@@ -113,11 +113,11 @@ namespace Models
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
     // The specified time. Specify the time in the <i>yyyy-MM-dd</i>T<i>HH:mm:ss</i>Z format. The time must be in UTC.
-    // >If you set **UpgradeTime** to **SpecifyTime**, you must specify this parameter.
+    // >This parameter is required when **UpgradeTime** is set to **SpecifyTime**.
     shared_ptr<string> switchTime_ {};
     // The target minor engine version.
     shared_ptr<string> targetMinorVersion_ {};
-    // The time when you want to perform the upgrade. Valid values:
+    // The time when the upgrade is performed. Valid values:
     // 
     // * **MaintainTime** (default): The upgrade is performed within the [maintenance window](https://help.aliyun.com/document_detail/610402.html).
     // * **Immediate**: The upgrade is performed immediately.

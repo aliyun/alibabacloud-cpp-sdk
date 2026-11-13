@@ -275,7 +275,7 @@ namespace Models
       shared_ptr<string> cpuIncreaseRatioValue_ {};
       // The instance ID.
       shared_ptr<string> DBInstanceId_ {};
-      // The maximum number of I/O requests per second.
+      // The maximum number of I/O operations per second.
       shared_ptr<string> iopsAdjustableMaxValue_ {};
       // The deadline for maximum connection adjustment.
       shared_ptr<string> maxConnAdjustDeadline_ {};
@@ -287,11 +287,11 @@ namespace Models
       shared_ptr<string> maxConnIncreaseRatioValue_ {};
       // The deadline for maximum IOPS adjustment.
       shared_ptr<string> maxIopsAdjustDeadline_ {};
-      // The maximum number of I/O requests per second.
+      // The maximum number of I/O operations per second.
       shared_ptr<string> maxIopsIncreaseRatio_ {};
-      // The maximum number of I/O requests per second.
+      // The maximum number of I/O operations per second.
       shared_ptr<string> maxIopsIncreaseRatioValue_ {};
-      // The maximum adjustable ratio for the memory.
+      // The maximum adjustable ratio for memory.
       shared_ptr<string> memAdjustableMaxRatio_ {};
       // The maximum value of the resource to be evaluated.
       shared_ptr<string> memAdjustableMaxValue_ {};
@@ -305,7 +305,7 @@ namespace Models
       shared_ptr<string> originCpu_ {};
       // The maximum number of concurrent connections.
       shared_ptr<string> originMaxConn_ {};
-      // The maximum number of I/O requests per second.
+      // The maximum number of I/O operations per second.
       shared_ptr<string> originMaxIops_ {};
       // The actual memory used. Unit: MB.
       shared_ptr<string> originMemory_ {};

@@ -59,9 +59,9 @@ namespace Models
   protected:
     // The ID of the user backup.
     shared_ptr<string> backupId_ {};
-    // The request ID.
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the user backup is imported. If the import is successful, **true** is returned. Otherwise, an error message is returned.
+    // Indicates whether the user backup was imported. If the import was successful, **true** is returned. Otherwise, an error message is returned.
     shared_ptr<bool> status_ {};
   };
 

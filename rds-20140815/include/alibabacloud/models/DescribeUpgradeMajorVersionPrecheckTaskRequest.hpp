@@ -118,20 +118,22 @@ namespace Models
     shared_ptr<string> DBInstanceId_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
-    // The page number of the check report for the major version upgrade.
+    // The page number of the pre-check report for the major engine version upgrade.
     // 
     // Valid values: an integer greater than 0 and less than or equal to the maximum value of the Integer data type. Default value: 1.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries to return on each page for the check report before a major engine version upgrade. Valid values:
+    // The number of entries to return on each page for the pre-check report of the major engine version upgrade.
+    // 
+    // Valid values:
     // - 30 (default)
     // - 50
     // - 100
     shared_ptr<int32_t> pageSize_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
-    // The target major engine version of target instance. The value must be later than the current major engine version of target instance.
+    // The major engine version of the target instance. The value must be later than the major engine version of the current instance.
     shared_ptr<string> targetMajorVersion_ {};
-    // The ID of the pre-upgrade check task. You can obtain the task ID from the **TaskId** response parameter after you call the UpgradeDBInstanceMajorVersionPrecheck operation to perform a pre-upgrade check.
+    // The ID of the pre-check task for the major engine version upgrade. After you call the UpgradeDBInstanceMajorVersionPrecheck operation to perform a pre-check, you can obtain the task ID from the **TaskId** response parameter.
     shared_ptr<int32_t> taskId_ {};
   };
 

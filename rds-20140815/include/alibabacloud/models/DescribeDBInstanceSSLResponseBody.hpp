@@ -222,96 +222,96 @@ namespace Models
 
 
   protected:
-    // The authentication method of the ApsaraDB RDS for PostgreSQL instance with cloud disks. Valid values:
+    // The authentication method for an ApsaraDB RDS for PostgreSQL instance with cloud disks. Valid values:
     // - **cert**
     // - **prefer**
     // - **verify-ca**
     // - **verify-full** (supported by ApsaraDB RDS for PostgreSQL 12 and later)
     shared_ptr<string> ACL_ {};
-    // The server certificate type of the ApsaraDB RDS for PostgreSQL instance with cloud disks. Valid values:
-    // - **aliyun**: The cloud certificate is used.
-    // - **custom**: A custom certificate is used.
+    // The type of the server certificate for an ApsaraDB RDS for PostgreSQL instance with cloud disks. Valid values:
+    // - **aliyun**: cloud certificate.
+    // - **custom**: custom certificate.
     shared_ptr<string> CAType_ {};
-    // The public key of the client certificate authority (CA) for the ApsaraDB RDS for PostgreSQL instance with cloud disks.
+    // The public key of the client certificate authority (CA) for an ApsaraDB RDS for PostgreSQL instance with cloud disks.
     shared_ptr<string> clientCACert_ {};
-    // The expiration time of the public key of the client certificate authorization authority (CA) for the ApsaraDB RDS for PostgreSQL instance with cloud disks. The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
+    // The expiration time of the public key of the client certificate authority (CA) for an ApsaraDB RDS for PostgreSQL instance with cloud disks. The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
     // 
     // This parameter is not supported. You can ignore this parameter.
     shared_ptr<string> clientCACertExpireTime_ {};
-    // The client certificate revocation certificate file of the ApsaraDB RDS for PostgreSQL instance with cloud disks.
+    // The client certificate revocation list file for an ApsaraDB RDS for PostgreSQL instance with cloud disks.
     shared_ptr<string> clientCertRevocationList_ {};
-    // The endpoint that is protected by SSL.
+    // The SSL-protected endpoint.
     shared_ptr<string> connectionString_ {};
-    // Indicates whether the [forced Secure Sockets Layer (SSL) encryption feature](https://help.aliyun.com/document_detail/95715.html) is enabled for the ApsaraDB RDS for SQL Server instance. Valid values:
+    // Indicates whether the [forced SSL encryption](https://help.aliyun.com/document_detail/95715.html) feature is enabled for an ApsaraDB RDS for SQL Server instance. Valid values:
     // 
-    // - **1**: Enabled.
-    // - **0**: Disabled.
+    // - **1**: enabled.
+    // - **0**: disabled.
     shared_ptr<string> forceEncryption_ {};
-    // The current SSL link configuration status of the ApsaraDB RDS for PostgreSQL instance with cloud disks. Valid values:
+    // The current SSL configuration status for an ApsaraDB RDS for PostgreSQL instance with cloud disks. Valid values:
     // 
-    // - **success**: Successful.
-    // - **setting**: Being configured.
-    // - **failed**: Failed.
+    // - **success**: successful.
+    // - **setting**: configuring.
+    // - **failed**: failed.
     shared_ptr<string> lastModifyStatus_ {};
-    // The reason for the current SSL link configuration status of the ApsaraDB RDS for PostgreSQL instance with cloud disks.
+    // The reason for the current SSL configuration status of an ApsaraDB RDS for PostgreSQL instance with cloud disks.
     shared_ptr<string> modifyStatusReason_ {};
-    // The authentication method for replication permissions of the ApsaraDB RDS for PostgreSQL instance with cloud disks. Valid values:
+    // The authentication method for the replication permission of an ApsaraDB RDS for PostgreSQL instance with cloud disks. Valid values:
     // - **cert**
     // - **prefer**
     // - **verify-ca**
     // - **verify-full** (supported by ApsaraDB RDS for PostgreSQL 12 and later)
     shared_ptr<string> replicationACL_ {};
-    // The request ID.
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
     // Indicates whether the SSL certificate needs to be updated. Valid values:
     // 
-    // > The SSL certificate is valid for one year. If the certificate is not renewed after it expires, client programs that use encrypted connections cannot connect to the instance.
+    // > The validity period of an SSL certificate is one year. If you do not update the certificate after it expires, client programs that use encrypted connections cannot connect to the instance.
     // <details>
     // <summary>MySQL and SQL Server</summary>
     // 
-    // - **No**: No update is required.
-    // - **Yes**: An update is required.
+    // - **No**: The certificate does not need to be updated.
+    // - **Yes**: The certificate needs to be updated.
     // </details>
     // 
     // <details>
     // <summary>PostgreSQL</summary>
     // 
-    // - **0**: No update is required.
-    // - **1**: An update is required.
+    // - **0**: The certificate does not need to be updated.
+    // - **1**: The certificate needs to be updated.
     // 
     // </details>
     shared_ptr<string> requireUpdate_ {};
-    // The list of server certificates that need to be updated for the ApsaraDB RDS for PostgreSQL instance with cloud disks.
+    // The list of server certificates that need to be updated for an ApsaraDB RDS for PostgreSQL instance with cloud disks.
     shared_ptr<string> requireUpdateItem_ {};
-    // The reason why the certificates need to be updated for the ApsaraDB RDS for PostgreSQL instance with cloud disks.
+    // The reason why the certificate needs to be updated for an ApsaraDB RDS for PostgreSQL instance with cloud disks.
     shared_ptr<string> requireUpdateReason_ {};
-    // The creation time of the server certificate for the ApsaraDB RDS for PostgreSQL instance with cloud disks. This parameter is valid only when CAType is set to aliyun.
+    // The time when the server certificate was created for an ApsaraDB RDS for PostgreSQL instance with cloud disks. This parameter is valid only when CAType is set to aliyun.
     shared_ptr<string> SSLCreateTime_ {};
     // The SSL encryption status. Valid values:
     // <details>
     // <summary>MySQL and SQL Server</summary>
     // 
-    // - **Yes**: Enabled.
-    // - **No**: Disabled.
+    // - **Yes**: enabled.
+    // - **No**: disabled.
     // </details>
     // 
     // <details>
     // <summary>PostgreSQL</summary>
     // 
-    // - **on**: Enabled.
-    // - **off**: Disabled.
+    // - **on**: enabled.
+    // - **off**: disabled.
     // 
     // </details>
     shared_ptr<string> SSLEnabled_ {};
     // The expiration time of the SSL certificate. The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
     shared_ptr<string> SSLExpireTime_ {};
-    // The URL of the CA certificate that is used to issue the server certificate for the ApsaraDB RDS for PostgreSQL instance with cloud disks.
+    // The URL of the CA certificate that issued the server certificate for an ApsaraDB RDS for PostgreSQL instance with cloud disks.
     shared_ptr<string> serverCAUrl_ {};
-    // The content of the server certificate for the ApsaraDB RDS for PostgreSQL instance with cloud disks.
+    // The content of the server certificate for an ApsaraDB RDS for PostgreSQL instance with cloud disks.
     shared_ptr<string> serverCert_ {};
-    // The private key of the server certificate for the ApsaraDB RDS for PostgreSQL instance with cloud disks.
+    // The private key of the server certificate for an ApsaraDB RDS for PostgreSQL instance with cloud disks.
     shared_ptr<string> serverKey_ {};
-    // The specified [minimum TLS version](https://help.aliyun.com/document_detail/95715.html) for the ApsaraDB RDS for SQL Server instance. Valid values: 1.0, 1.1, and 1.2.
+    // The specified [minimum TLS version](https://help.aliyun.com/document_detail/95715.html) for an ApsaraDB RDS for SQL Server instance. Valid values: 1.0, 1.1, and 1.2.
     shared_ptr<string> tlsVersion_ {};
   };
 

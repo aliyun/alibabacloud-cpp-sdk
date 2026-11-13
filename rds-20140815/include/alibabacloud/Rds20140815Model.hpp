@@ -1229,6 +1229,9 @@
 #include <alibabacloud/models/SwitchReplicationLinkRequest.hpp>
 #include <alibabacloud/models/SwitchReplicationLinkResponseBody.hpp>
 #include <alibabacloud/models/SwitchReplicationLinkResponse.hpp>
+#include <alibabacloud/models/SwitchToPrimaryInstanceRequest.hpp>
+#include <alibabacloud/models/SwitchToPrimaryInstanceResponseBody.hpp>
+#include <alibabacloud/models/SwitchToPrimaryInstanceResponse.hpp>
 #include <alibabacloud/models/SyncRCKeyPairRequest.hpp>
 #include <alibabacloud/models/SyncRCKeyPairResponseBody.hpp>
 #include <alibabacloud/models/SyncRCKeyPairResponse.hpp>

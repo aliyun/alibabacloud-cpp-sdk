@@ -103,25 +103,25 @@ namespace Models
 
 
   protected:
-    // The O&M task IDs. Separate multiple IDs with commas (,).
-    // > You can call DescribeActiveOperationTasks to obtain O&M task IDs.
+    // The IDs of the O&M tasks. Separate multiple IDs with commas (,).
+    // > You can call the DescribeActiveOperationTasks operation to obtain the O&M task IDs.
     // 
     // This parameter is required.
     shared_ptr<string> ids_ {};
-    // Specifies whether to immediately start the execution scheduling.
-    // - 0: No. This is the default value.
-    // - 1: Yes.
-    // > - If the value is 0, the SwitchTime parameter takes effect. If the value is 1, the SwitchTime parameter does not take effect. The task start time is set to the current time, and the switchover time is automatically calculated based on the new start time.
-    // > - Immediately starting the execution scheduling does not mean an immediate switchover. Instead, the task immediately enters the Preparing state. After the preparation is complete, the switchover is performed. You can call DescribeActiveOperationTasks and check the value of the PrepareInterval response parameter to obtain the preparation time.
+    // Specifies whether to immediately schedule the tasks for execution. Valid values:
+    // - 0: no. This is the default value.
+    // - 1: yes.
+    // > - If you set this parameter to 0, the SwitchTime parameter takes effect. If you set this parameter to 1, the SwitchTime parameter does not take effect. The start time of the tasks is set to the current time, and the switchover time is automatically calculated based on the new start time.
+    // > - Immediately scheduling the tasks for execution does not mean an immediate switchover. Instead, the tasks immediately enter the Preparing state. After the preparation is complete, the switchover is performed. You can call the DescribeActiveOperationTasks operation and check the value of the PrepareInterval response parameter to obtain the preparation time.
     shared_ptr<int32_t> immediateStart_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
     shared_ptr<string> securityToken_ {};
-    // The scheduled switchover time to set. Specify the time in the yyyy-MM-ddTHH:mm:ssZ format (UTC).
+    // The scheduled switchover time to set. Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
     // 
-    // > The time cannot be later than the latest operation time. You can call DescribeActiveOperationTasks and check the value of the Deadline response parameter to obtain the latest operation time.
+    // > The time cannot be later than the deadline. You can call the DescribeActiveOperationTasks operation and check the value of the Deadline response parameter to obtain the deadline.
     // 
     // This parameter is required.
     shared_ptr<string> switchTime_ {};

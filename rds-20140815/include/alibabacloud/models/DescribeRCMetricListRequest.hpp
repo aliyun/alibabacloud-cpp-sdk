@@ -121,7 +121,7 @@ namespace Models
 
 
   protected:
-    // The dimensions used to query the monitoring data of specified resources in batches for Custom for SQL Server. Format: a collection of `key:value` pairs.
+    // The dimensions used to batch query the monitoring data of specified resources for Custom for SQL Server. Format: a collection of `key:value` pairs.
     shared_ptr<string> dimensions_ {};
     // The end time of the query. Format: `2024-08-06 10:15:00`. The end time must be later than the start time.
     shared_ptr<string> endTime_ {};
@@ -129,9 +129,11 @@ namespace Models
     shared_ptr<string> express_ {};
     // The instance ID. This parameter is required.
     shared_ptr<string> instanceId_ {};
-    // The number of records to return on each page for paging in a paged query. Default value: 1000.
+    // The number of records to return on each page for paging in a paged query.
+    // 
+    // Default value: 1000.
     shared_ptr<string> length_ {};
-    // The [monitored metric](https://cms.console.aliyun.com/metric-meta/acs_ecs_dashboard/ecs).
+    // The [metrics to monitor](https://cms.console.aliyun.com/metric-meta/acs_ecs_dashboard/ecs).
     // 
     // This parameter is required.
     shared_ptr<string> metricName_ {};

@@ -48,9 +48,9 @@ namespace Models
 
 
   protected:
-    // The database names, in the format of "db1,db2".
+    // The names of the databases, in the format of "db1,db2".
     shared_ptr<string> databaseNames_ {};
-    // The request ID.
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
   };
 

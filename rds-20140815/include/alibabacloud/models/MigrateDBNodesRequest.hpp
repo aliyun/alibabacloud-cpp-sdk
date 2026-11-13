@@ -88,7 +88,7 @@ namespace Models
     protected:
       // The ID of the node.
       shared_ptr<string> nodeId_ {};
-      // The ID of the zone where the node resides.
+      // The zone ID of the node.
       shared_ptr<string> zoneId_ {};
     };
 
@@ -168,13 +168,13 @@ namespace Models
 
 
   protected:
-    // The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must ensure that it is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length.
+    // The client token that is used to ensure the idempotence of the request and prevent duplicate submissions. You can generate the value of this parameter on the client side. The value must be unique across different requests and can contain a maximum of 64 ASCII characters. The value cannot contain non-ASCII characters.
     shared_ptr<string> clientToken_ {};
     // Instance ID of the instance. You can call the [DescribeDBInstances](https://help.aliyun.com/document_detail/26232.html) operation to query instance ID.
     // 
     // This parameter is required.
     shared_ptr<string> DBInstanceId_ {};
-    // The list of nodes in the cluster.
+    // The list of cluster nodes.
     shared_ptr<vector<MigrateDBNodesRequest::DBNode>> DBNode_ {};
     // The time when the migration takes effect. Valid values:
     // * **Immediately**: The migration takes effect immediately. This is the default value.
@@ -187,7 +187,7 @@ namespace Models
     shared_ptr<int64_t> ownerId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
-    // The time when the modification is performed. Perform the modification during off-peak hours. Specify the time in the <i>yyyy-MM-dd</i>T<i>HH:mm:ss</i>Z format. The time must be in UTC.
+    // The time when the modification takes effect. We recommend that you perform the modification during off-peak hours. Specify the time in the <i>yyyy-MM-dd</i>T<i>HH:mm:ss</i>Z format. The time must be in UTC.
     shared_ptr<string> switchTime_ {};
     // The ID of the vSwitch.
     shared_ptr<string> vSwitchId_ {};

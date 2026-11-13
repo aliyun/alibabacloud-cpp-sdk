@@ -241,7 +241,7 @@ namespace Models
 
 
     protected:
-      // The allowed operation information. In actual use, the operation action is matched in this information based on currentStepName and status. If no action is matched, the current status of the task does not support the operation. Example:
+      // The information about allowed operations. During actual use, the operation action is matched in this information based on currentStepName and status. If no action is matched, the current task status does not support the operation. Example:
       // ```
       //   "steps": [
       //     {
@@ -276,7 +276,7 @@ namespace Models
       // - **System**: System.
       // - **User**: User.
       shared_ptr<string> callerUid_ {};
-      // The name of the current step. If this parameter is empty, the task has not started.
+      // The name of the currently executed step. If this parameter is empty, the task has not started.
       shared_ptr<string> currentStepName_ {};
       // The database type.
       shared_ptr<string> dbType_ {};
@@ -292,7 +292,7 @@ namespace Models
       shared_ptr<string> product_ {};
       // The current progress.
       shared_ptr<float> progress_ {};
-      // The cause of the current task.
+      // The reason why the current task was initiated.
       shared_ptr<string> reasonCode_ {};
       // The region ID.
       shared_ptr<string> regionId_ {};
@@ -302,9 +302,9 @@ namespace Models
       shared_ptr<string> startTime_ {};
       // The task status. Valid values:
       // - Scheduled: Pending execution.
-      // - Running: Running.
-      // - Succeed: Succeeded.
-      // - Failed: Failed.
+      // - Running: Executing.
+      // - Succeed: Executed successfully.
+      // - Failed: Execution failed.
       // - Cancelling: Cancelling.
       // - Canceled: Canceled.
       // - Waiting: Waiting for the scheduled time.
@@ -361,11 +361,11 @@ namespace Models
   protected:
     // The task list.
     shared_ptr<vector<DescribeHistoryTasksResponseBody::Items>> items_ {};
-    // The page number of the query result.
+    // The page number of the returned page.
     shared_ptr<int32_t> pageNumber_ {};
     // The number of entries per page.
     shared_ptr<int32_t> pageSize_ {};
-    // The unique request ID. If you encounter any issues, provide this request ID for troubleshooting.
+    // The unique ID of the request. If you encounter any issues, provide this request ID to the technical support team for troubleshooting.
     shared_ptr<string> requestId_ {};
     // The total number of tasks that meet the specified conditions, regardless of pagination.
     shared_ptr<int32_t> totalCount_ {};

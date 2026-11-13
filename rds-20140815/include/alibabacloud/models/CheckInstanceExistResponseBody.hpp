@@ -48,9 +48,9 @@ namespace Models
 
 
   protected:
-    // Indicates whether the specified instance exists. Valid values:
-    // * **true**: Target instance exists.
-    // * **false**: Target instance does not exist.
+    // Indicates whether the target instance exists. Valid values:
+    // - **true**: The instance exists.
+    // - **false**: The instance does not exist.
     shared_ptr<bool> isExistInstance_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

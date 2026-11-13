@@ -140,7 +140,7 @@ namespace Models
 
 
   protected:
-    // The instance ID. You can call the DescribeDBInstances operation to query the instance ID.
+    // The ID of the instance. You can call the DescribeDBInstances operation to query the instance ID.
     // 
     // This parameter is required.
     shared_ptr<string> dbInstanceId_ {};
@@ -168,7 +168,7 @@ namespace Models
     // The type of the source platform. Valid values:
     // - ECS
     shared_ptr<string> sourcePlatform_ {};
-    // The port number for backup transmission.
+    // The port number used for backup transmission.
     // 
     // This parameter is required.
     shared_ptr<int32_t> streamPort_ {};
@@ -176,7 +176,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> user_ {};
-    // The path to the XtraBackup tool on the source instance.
+    // The path of the XtraBackup tool on the source instance.
     shared_ptr<string> xtrabackupPath_ {};
   };
 

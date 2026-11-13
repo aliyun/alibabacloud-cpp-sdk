@@ -94,7 +94,7 @@ namespace Models
 
   protected:
     shared_ptr<DescribeCharacterSetNameResponseBody::CharacterSetNameItems> characterSetNameItems_ {};
-    // The type of the database engine.
+    // The database engine type.
     shared_ptr<string> engine_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

@@ -65,7 +65,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
-    // The resource group ID. You can leave this parameter empty.
+    // The resource group ID. This parameter can be left empty.
     shared_ptr<string> resourceGroupId_ {};
   };
 

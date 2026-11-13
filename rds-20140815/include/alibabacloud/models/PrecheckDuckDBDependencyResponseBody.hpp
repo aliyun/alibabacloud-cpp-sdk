@@ -97,13 +97,13 @@ namespace Models
 
 
     protected:
-      // Indicates whether the issue can be fixed with one click.
+      // Specifies whether the item can be fixed with one click.
       // 
-      // - **true**: Yes. You can call the [ModifyDBInstanceConfig](https://help.aliyun.com/document_detail/2623684.html) operation to fix the issue with one click.
+      // - **true**: Yes. You can call the [ModifyDBInstanceConfig](https://help.aliyun.com/document_detail/2623684.html) operation to fix the item with one click.
       // - **false**: No.
       // 
       // 
-      // >Notice: If the major version of the database instance does not meet the requirements, you must [manually upgrade](https://help.aliyun.com/document_detail/2623684.html) the major version.
+      // >Notice: If the major engine version of the database instance does not meet the requirements, you must [manually upgrade](https://help.aliyun.com/document_detail/2623684.html) the instance.
       shared_ptr<bool> allowAutoModify_ {};
       // The current value of the check item.
       shared_ptr<string> currentValue_ {};
@@ -115,7 +115,7 @@ namespace Models
       // 
       // - **Parameter**: parameter.
       // - **MinorVersion**: minor engine version.
-      // - **MajorVersion**: major database version.
+      // - **MajorVersion**: major engine version.
       shared_ptr<string> type_ {};
     };
 
@@ -138,12 +138,12 @@ namespace Models
 
 
   protected:
-    // The check items that do not meet the prerequisites for creating a DuckDB-based analytical instance.
+    // The items that do not meet the prerequisites for creating a DuckDB-based analytical instance.
     shared_ptr<vector<PrecheckDuckDBDependencyResponseBody::FailedCheckItems>> failedCheckItems_ {};
-    // Indicates whether the precheck for creating a DuckDB-based analytical instance is passed. Valid values:
+    // Specifies whether the primary instance passes the precheck for creating a DuckDB-based analytical instance. Valid values:
     // 
-    // - **true**: Yes.
-    // - **false**: No.
+    // - **true**: yes.
+    // - **false**: no.
     shared_ptr<bool> result_ {};
   };
 

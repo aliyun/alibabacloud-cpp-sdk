@@ -86,8 +86,8 @@ namespace Models
       // The instance IDs.
       shared_ptr<string> RCInstanceId_ {};
       // The node status. Valid values:
-      // * **Success**: Successful.
-      // * **Failed**: Failed.
+      // * **Success**: The operation succeeded.
+      // * **Failed**: The operation failed.
       shared_ptr<string> status_ {};
     };
 

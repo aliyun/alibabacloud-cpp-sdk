@@ -140,7 +140,7 @@ namespace Models
       shared_ptr<string> cpu_ {};
       // The instance ID.
       shared_ptr<string> dbInstanceId_ {};
-      // The effective time. Valid values:
+      // The effective period. Valid values:
       // * **Immediate** (default): takes effect immediately.
       // * **MaintainTime**: takes effect within the maintenance window. For more information, see [ModifyDBInstanceMaintainTime](https://help.aliyun.com/document_detail/610402.html).
       shared_ptr<string> effectiveTime_ {};

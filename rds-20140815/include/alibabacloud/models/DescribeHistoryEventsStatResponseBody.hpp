@@ -70,11 +70,11 @@ namespace Models
 
 
     protected:
-      // The categorization of system events. Valid values:
-      // - **Exception**: abnormal events.
-      // - **Optimize**: optimization events.
-      // - **Notification**: notification events.
-      // - **Maintenance**: scheduled O&M events.
+      // The category of the system event. Valid values:
+      // - **Exception**: Exception events.
+      // - **Optimize**: Optimization events.
+      // - **Notification**: Notification events.
+      // - **Maintenance**: Scheduled O&M events.
       shared_ptr<string> eventCategory_ {};
       // The total number of entries.
       shared_ptr<int32_t> totalCount_ {};

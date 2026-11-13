@@ -103,29 +103,29 @@ namespace Models
 
 
   protected:
-    // The instance ID of the destination instance. You can call the DescribeDBInstances operation to query the instance ID.
+    // The ID of the target instance. You can invoke the DescribeDBInstances operation to query the instance ID.
     // 
     // This parameter is required.
     shared_ptr<string> DBInstanceName_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
-    // The username. The database account created in the [Create a migration account](https://help.aliyun.com/document_detail/369500.html) step.
+    // The username of the database account created in the [Create a migration account](https://help.aliyun.com/document_detail/369500.html) step.
     // 
     // This parameter is required.
     shared_ptr<string> sourceAccount_ {};
     // The category of the source instance. Valid values:
-    // - **aliyunRDS**: Alibaba Cloud RDS instance.
+    // - **aliyunRDS**: ApsaraDB RDS instance.
     // - **other**: Other.
     // 
     // This parameter is required.
     shared_ptr<string> sourceCategory_ {};
     // The internal or public IP address of the self-managed PostgreSQL database.
     // 
-    // - For the one-click cloud migration scenario of a self-managed PostgreSQL database on an ECS instance, set this parameter to the private IP address of the ECS instance. For more information, see [View IP addresses](https://help.aliyun.com/document_detail/98677.html).
-    // - For the one-click cloud migration scenario of a self-managed PostgreSQL database in an IDC, set this parameter to the internal IP address of the IDC.
+    // - In the one-click cloud migration scenario for a self-managed PostgreSQL database on an ECS instance, set this parameter to the private IP address of the ECS instance. For more information, see [View IP addresses](https://help.aliyun.com/document_detail/98677.html).
+    // - In the one-click cloud migration scenario for a self-managed PostgreSQL database in an IDC, set this parameter to the internal IP address of the IDC.
     // 
     // This parameter is required.
     shared_ptr<string> sourceIpAddress_ {};
-    // The password. The password of the database account created in the [Create a migration account](https://help.aliyun.com/document_detail/369500.html) step.
+    // The password of the database account created in the [Create a migration account](https://help.aliyun.com/document_detail/369500.html) step.
     // 
     // This parameter is required.
     shared_ptr<string> sourcePassword_ {};

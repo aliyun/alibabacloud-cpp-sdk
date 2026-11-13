@@ -140,21 +140,21 @@ namespace Models
 
 
   protected:
-    // The user to which the plug-in belongs. Only privileged accounts are supported.
+    // The user to which the extensions belong. Only privileged accounts are supported.
     // 
     // This parameter is required.
     shared_ptr<string> accountName_ {};
-    // The client token that is used to ensure the idempotence of the request and prevent duplicate requests. You can use the client to generate the value, but you must ensure that it is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length.
+    // The client token that is used to ensure the idempotence of the request and prevent duplicate submissions. You can generate the value of this parameter on the client side. The value must be unique across different requests and can be up to 64 ASCII characters in length. The value cannot contain non-ASCII characters.
     shared_ptr<string> clientToken_ {};
-    // Instance ID of the instance. You can call the DescribeDBInstances operation to obtain instance ID.
+    // The ID of the instance. You can call the DescribeDBInstances operation to obtain the instance ID.
     // 
     // This parameter is required.
     shared_ptr<string> DBInstanceId_ {};
-    // The name of the database on the instance. You can call the DescribeDatabases operation to obtain the name.
+    // The name of the database in the instance. You can call the DescribeDatabases operation to obtain the database name.
     // 
     // This parameter is required.
     shared_ptr<string> DBNames_ {};
-    // The plug-ins to be installed. Separate multiple plug-ins with commas (,).
+    // The extensions to be installed. Separate multiple extensions with commas (,).
     // If you do not specify the **SourceDatabase** request parameter, you must specify this parameter.
     shared_ptr<string> extensions_ {};
     shared_ptr<string> ownerAccount_ {};
@@ -163,13 +163,13 @@ namespace Models
     shared_ptr<string> resourceGroupId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
-    // Specifies whether security risk of installing specific plug-ins on instances with outdated minor engine versions is confirmed. You can install the plug-ins only after you confirm security risk.
+    // Specifies whether security risk of installing specific extensions on instances with outdated minor engine versions is confirmed. You can install the extensions only after you confirm security risk.
     // Valid values:
     // - true
     // - false
-    // > For information about the related risks, see [Limits on creating plug-ins in ApsaraDB RDS for PostgreSQL](https://help.aliyun.com/document_detail/2587815.html).
+    // > For more information about security risk description, see [Restrictions on creating extensions in ApsaraDB RDS for PostgreSQL](https://help.aliyun.com/document_detail/2587815.html).
     shared_ptr<bool> riskConfirmed_ {};
-    // The source database from which plug-ins are synchronized to the destination database. If you do not specify the **Extensions** request parameter, you must specify this parameter.
+    // The source database from which extensions are synchronized to the destination database. If you do not specify the **Extensions** request parameter, you must specify this parameter.
     shared_ptr<string> sourceDatabase_ {};
   };
 

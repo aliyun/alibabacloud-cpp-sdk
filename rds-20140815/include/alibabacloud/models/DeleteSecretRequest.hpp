@@ -121,14 +121,14 @@ namespace Models
 
 
   protected:
-    // The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length.
+    // The client token that is used to ensure the idempotence of the request and prevent duplicate submissions. You can generate the value of this parameter on the client side. The value must be unique across different requests and can be up to 64 ASCII characters in length. The value cannot contain non-ASCII characters.
     shared_ptr<string> clientToken_ {};
     // The instance ID. You can call the DescribeDBInstances operation to query the instance ID.
     // >This parameter must be specified together with **SecretName**.
     shared_ptr<string> dbInstanceId_ {};
     // The database engine type.
     // 
-    // > This parameter currently supports only the value MySQL.
+    // > Currently, only MySQL is supported.
     // 
     // This parameter is required.
     shared_ptr<string> engine_ {};
@@ -141,12 +141,12 @@ namespace Models
     shared_ptr<string> resourceGroupId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
-    // The user credential of the Data API account that has been created. You can call the createSecret operation to query the value of this parameter.
-    // >You must specify either **SecretName** or this parameter.
+    // The ARN of the user credential for the created Data API account. You can call the CreateSecret operation to obtain the value of this parameter.
+    // >You must specify either this parameter or **SecretName**.
     shared_ptr<string> secretArn_ {};
     // The name of the user credential.
     // 
-    // > * You must specify either **SecretArn** or this parameter.
+    // > * You must specify either this parameter or **SecretArn**.
     // > * This parameter must be specified together with **DbInstanceId**.
     shared_ptr<string> secretName_ {};
   };

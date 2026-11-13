@@ -55,9 +55,9 @@ namespace Models
     // * **1095**: 3 years.
     // * **1825**: 5 years.
     // 
-    // > Log retention period of SQL Explorer logs for ApsaraDB RDS for PostgreSQL and ApsaraDB RDS for SQL Server is fixed at 30 days.
+    // > Log retention period of SQL Explorer logs for ApsaraDB RDS for PostgreSQL and ApsaraDB RDS for SQL Server instances is fixed at 30 days.
     shared_ptr<string> configValue_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

@@ -183,7 +183,7 @@ namespace Models
         shared_ptr<string> defaultAlgo_ {};
         // Indicates whether the rule is enabled.
         shared_ptr<string> enabled_ {};
-        // The algorithms for the rule. Multiple algorithms are supported. Additional parameters can be added for masking algorithms. Format: {name: Algorithm 1}, {name: Algorithm 2, params: {encryption position, number of encrypted digits}}.
+        // The rule algorithms. Multiple algorithms can be selected. Additional parameters can be added for masking algorithms. Format: {name: algorithm 1}, {name: algorithm 2, params: {encryption position, number of encrypted digits}}.
         shared_ptr<string> maskingAlgo_ {};
         // The rule configuration.
         shared_ptr<Rules::RuleConfig> ruleConfig_ {};

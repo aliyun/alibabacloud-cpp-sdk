@@ -264,7 +264,7 @@ namespace Models
     protected:
       // The name of the replication channel.
       shared_ptr<string> channelName_ {};
-      // The executed GTID set.
+      // The set of executed GTIDs.
       shared_ptr<string> executedGtidSet_ {};
       // The last error code.
       shared_ptr<int32_t> lastErrno_ {};
@@ -276,11 +276,11 @@ namespace Models
       shared_ptr<int32_t> lastSqlErrno_ {};
       // The last error message of the SQL thread.
       shared_ptr<string> lastSqlError_ {};
-      // The address of the primary database.
+      // The address of the primary instance.
       shared_ptr<string> masterHost_ {};
-      // The account of the primary database.
+      // The account of the primary instance.
       shared_ptr<string> masterUser_ {};
-      // The UUID of the primary database.
+      // The UUID of the primary instance.
       shared_ptr<string> masterUuid_ {};
       // The databases included in replication.
       shared_ptr<string> replicateDoDb_ {};
@@ -389,13 +389,13 @@ namespace Models
 
 
   protected:
-    // Indicates whether native replication mode is enabled. Valid values:
+    // Indicates whether the native replication mode is enabled. Valid values:
     // - **ON**: Enabled.
     // - **OFF**: Disabled.
     shared_ptr<string> externalReplication_ {};
-    // The executed global transaction identifier.
+    // The executed global transaction identifier (GTID).
     shared_ptr<string> gtidExecuted_ {};
-    // The import status, which indicates whether full data is successfully imported.
+    // The import status, which indicates whether the full data is successfully imported.
     shared_ptr<string> importStatus_ {};
     // The current replication delay, in seconds.
     shared_ptr<string> replicationDelay_ {};

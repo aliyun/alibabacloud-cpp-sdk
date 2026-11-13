@@ -157,7 +157,7 @@ namespace Models
 
 
   protected:
-    // The page number of the query result.
+    // The page number.
     shared_ptr<int64_t> pageNumber_ {};
     // The number of entries per page.
     shared_ptr<int64_t> pageSize_ {};

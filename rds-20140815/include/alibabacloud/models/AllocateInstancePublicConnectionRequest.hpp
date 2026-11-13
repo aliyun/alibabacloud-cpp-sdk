@@ -121,25 +121,25 @@ namespace Models
 
 
   protected:
-    // The TDS port number of Babelfish for RDS PostgreSQL.
-    // > This parameter is applicable only to ApsaraDB RDS for PostgreSQL instances. For more information about Babelfish for RDS PostgreSQL, see [Introduction to Babelfish](https://help.aliyun.com/document_detail/428613.html).
+    // The TDS port number for Babelfish for ApsaraDB RDS for PostgreSQL.
+    // > This parameter applies only to ApsaraDB RDS for PostgreSQL instances. For more information about Babelfish for ApsaraDB RDS for PostgreSQL, see [Babelfish overview](https://help.aliyun.com/document_detail/428613.html).
     shared_ptr<string> babelfishPort_ {};
-    // The prefix of the public endpoint. The complete public endpoint is in the format of `Prefix.DPI engine.rds.aliyuncs.com`. Example: `test1234.mysql.rds.aliyuncs.com`.
+    // The prefix of the public endpoint. A complete public endpoint is in the following format: `Prefix.Engine name.rds.aliyuncs.com`. Example: `test1234.mysql.rds.aliyuncs.com`.
     // 
-    // > The prefix must be 5 to 40 characters in length and cannot contain Chinese characters or invalid characters (\\~!#%^&*=+|{}\\":",<>/?). The prefix can contain letters, digits, and hyphens (-).
+    // > The prefix must be 5 to 40 characters in length and cannot contain Chinese characters or invalid characters (\\~!#%^&*=+|{};:\\"",<>/?). Use letters, digits, and hyphens (-).
     // 
     // This parameter is required.
     shared_ptr<string> connectionStringPrefix_ {};
-    // The instance ID. You can call DescribeDBInstances to query the instance ID.
+    // The ID of the instance. You can call the DescribeDBInstances operation to query the instance ID.
     // 
     // This parameter is required.
     shared_ptr<string> DBInstanceId_ {};
-    // The name of the group to which the general-purpose ApsaraDB RDS for MySQL instance in a dedicated cluster belongs.
+    // The name of the group to which the general-purpose ApsaraDB RDS for MySQL instance in the dedicated cluster belongs.
     shared_ptr<string> generalGroupName_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
     // The PgBouncer port.
-    // > This parameter is applicable only to ApsaraDB RDS for PostgreSQL instances.
+    // > This parameter applies only to ApsaraDB RDS for PostgreSQL instances.
     shared_ptr<string> PGBouncerPort_ {};
     // The public port. Valid values: **1000 to 5999**.
     // 

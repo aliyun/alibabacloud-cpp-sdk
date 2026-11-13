@@ -392,19 +392,19 @@ namespace Models
     protected:
       // A reserved parameter.
       shared_ptr<bool> deleteWithInstance_ {};
-      // Indicates whether the cloud disk is encrypted. Valid values:
+      // Specifies whether the cloud disk is encrypted. Valid values:
       // 
       // - **true**: Yes.
       // - **false**: No.
       shared_ptr<string> encrypted_ {};
-      // The category of the system cloud disk. Valid values:
+      // The system cloud disk type. Valid values:
       // 
-      // - **cloud_efficiency**: ultra disk.
-      // - **cloud_ssd**: standard SSD.
+      // - **cloud_efficiency**: Ultra disk.
+      // - **cloud_ssd**: Standard SSD.
       // - **cloud_essd**: ESSD.
-      // - **cloud_auto**: premium performance disk.
+      // - **cloud_auto**: Premium performance disk.
       shared_ptr<string> systemDiskCategory_ {};
-      // The performance level of the system cloud disk when it is an ESSD. Valid values:
+      // The performance level of the ESSD. Valid values:
       // 
       // - **PL0**
       // - **PL1**
@@ -638,13 +638,13 @@ namespace Models
       shared_ptr<string> allocationId_ {};
       // The Internet bandwidth throttling of the EIP. Unit: Mbit/s.
       shared_ptr<int32_t> bandwidth_ {};
-      // The billing method for network usage of the instance. Valid values:
+      // The billing method for network usage of the Internet-facing instance. Valid values:
       // 
-      // - **paybytraffic**: pay-by-traffic.
-      // - **paybybandwidth**: pay-by-bandwidth.
+      // - **paybytraffic**: Pay-by-traffic.
+      // - **paybybandwidth**: Pay-by-bandwidth.
       // > In **pay-by-traffic** mode, the peak inbound and outbound bandwidth values are upper limits and are not guaranteed. During resource contention, the peak bandwidth may be limited. If your business requires guaranteed bandwidth, use the **pay-by-bandwidth** mode.
       shared_ptr<string> internetChargeType_ {};
-      // The EIP address.
+      // The elastic IP address.
       shared_ptr<string> ipAddress_ {};
     };
 
@@ -1207,24 +1207,24 @@ namespace Models
 
 
   protected:
-    // Indicates whether auto-renewal is enabled for the instance. Valid values:
+    // Specifies whether auto-renewal is enabled for the instance. Valid values:
     // 
     // * **true**: Yes.
     // * **false**: No.
     shared_ptr<bool> autoRenew_ {};
     // The ID of the cluster to which the instance belongs.
-    // > This parameter will be deprecated. To ensure compatibility, use other parameters instead.
+    // > This parameter will be deprecated soon. To improve compatibility, use other parameters instead.
     shared_ptr<string> clusterId_ {};
     // The number of vCPUs.
     shared_ptr<int32_t> cpu_ {};
-    // Indicates whether the instance is added to an ACK cluster. Valid values:
+    // Specifies whether the instance is added to an ACK cluster. Valid values:
     // 
     // - **1**: Yes.
     // - **0**: No.
     shared_ptr<int32_t> createMode_ {};
     // The time when the instance was created. The time is displayed in UTC and follows the ISO 8601 standard in the yyyy-MM-ddTHH:mmZ format.
     shared_ptr<string> creationTime_ {};
-    // The performance mode of the burstable instance.
+    // The running mode of the burstable instance.
     shared_ptr<string> creditSpecification_ {};
     shared_ptr<DescribeRCInstanceAttributeResponseBody::DataDisks> dataDisks_ {};
     // The database engine type. Valid values:
@@ -1234,7 +1234,7 @@ namespace Models
     shared_ptr<string> dbType_ {};
     // The dedicated host attributes.
     shared_ptr<DescribeRCInstanceAttributeResponseBody::DedicatedHostAttribute> dedicatedHostAttribute_ {};
-    // Indicates whether release protection is enabled. Valid values:
+    // Specifies whether release protection is enabled. Valid values:
     // * **true**: Enabled.
     // * **false**: Disabled.
     shared_ptr<bool> deletionProtection_ {};
@@ -1246,9 +1246,9 @@ namespace Models
     shared_ptr<string> diskType_ {};
     // The corresponding ECS instance family.
     shared_ptr<string> ecsInstanceType_ {};
-    // The information about the associated elastic IP address (EIP).
+    // The elastic IP address (EIP) association information.
     shared_ptr<DescribeRCInstanceAttributeResponseBody::EipAddress> eipAddress_ {};
-    // Indicates whether the jumbo frame feature is enabled for the instance. Valid values:
+    // Specifies whether the jumbo frame feature is enabled for the instance. Valid values:
     // 
     // - **true**: Enabled.
     // 
@@ -1258,20 +1258,20 @@ namespace Models
     shared_ptr<string> expiredTime_ {};
     // The number of GPUs.
     shared_ptr<int32_t> gpu_ {};
-    // The GPU type.
+    // The GPU types.
     shared_ptr<string> gpuTypes_ {};
     // The hostname of the instance.
     shared_ptr<string> hostName_ {};
     // The host storage type. Valid values:
-    // * **dhg_cloud_ssd**: standard SSD.
-    // * **dhg_local_ssd**: local SSD.
+    // * **dhg_cloud_ssd**: Standard SSD.
+    // * **dhg_local_ssd**: Local SSD.
     shared_ptr<string> hostType_ {};
     // The ID of the image that the instance runs.
     shared_ptr<string> imageId_ {};
     shared_ptr<DescribeRCInstanceAttributeResponseBody::InnerIpAddress> innerIpAddress_ {};
-    // The billing method of the instance. Valid values:
-    // * **PrePaid**: subscription.
-    // * **PostPaid**: pay-as-you-go.
+    // The billing method. Valid values:
+    // * **PrePaid**: Subscription.
+    // * **PostPaid**: Pay-as-you-go.
     shared_ptr<string> instanceChargeType_ {};
     // The instance ID.
     shared_ptr<string> instanceId_ {};
@@ -1279,26 +1279,26 @@ namespace Models
     shared_ptr<string> instanceName_ {};
     // The network type. Valid values: 
     //          
-    // - **classic**: classic network.
-    // - **vpc**: virtual private cloud (VPC).
+    // - **classic**: Classic network.
+    // - **vpc**: Virtual private cloud (VPC).
     shared_ptr<string> instanceNetworkType_ {};
     // The instance type.
     shared_ptr<string> instanceType_ {};
     // The billing method for Internet bandwidth. Valid values:
     // 
-    // - **PayByBandwidth**: pay-by-bandwidth.
-    // - **PayByTraffic**: pay-by-traffic.
+    // - **PayByBandwidth**: Pay-by-bandwidth.
+    // - **PayByTraffic**: Pay-by-traffic.
     // 
-    // > In the **pay-by-traffic** pattern, the peak inbound and outbound bandwidth values are upper limits and are not guaranteed. During resource contention, the peak bandwidth may be limited. If your business requires guaranteed bandwidth, use the **pay-by-bandwidth** pattern.
+    // > In **pay-by-traffic** mode, the peak inbound and outbound bandwidth values are upper limits and are not guaranteed. During resource contention, the peak bandwidth may be limited. If your business requires guaranteed Internet bandwidth, use the **pay-by-bandwidth** mode.
     shared_ptr<string> internetChargeType_ {};
     // The maximum inbound public bandwidth. Unit: Mbit/s.
     shared_ptr<int32_t> internetMaxBandwidthIn_ {};
     // The maximum outbound public bandwidth. Unit: Mbit/s.
     shared_ptr<int32_t> internetMaxBandwidthOut_ {};
-    // Indicates whether the instance is an I/O optimized instance. Valid values:
+    // Specifies whether the instance is I/O optimized. Valid values:
     // 
-    // - **optimized**: I/O optimization.
-    // - **none**: No I/O optimization.
+    // - **optimized**: I/O optimized.
+    // - **none**: Not I/O optimized.
     shared_ptr<string> ioOptimized_ {};
     // The name of the key pair.
     shared_ptr<string> keyPairName_ {};
@@ -1319,24 +1319,24 @@ namespace Models
     shared_ptr<string> serialNumber_ {};
     // The bidding policy for the pay-as-you-go instance. Valid values:
     // 
-    // - **NoSpot**: The instance is a regular pay-as-you-go instance.
-    // - **SpotAsPriceGo**: The system automatically bids based on the current market price.
+    // - **NoSpot**: Regular pay-as-you-go instance.
+    // - **SpotAsPriceGo**: The system automatically places a bid based on the current market price.
     shared_ptr<string> spotStrategy_ {};
     // The instance status. Valid values:
     // 
-    // - **Pending**: The instance is being created.
-    // - **Running**: The instance is running.
-    // - **Starting**: The instance is starting.
-    // - **Stopping**: The instance is pausing.
-    // - **Stopped**: The instance is in a pause state.
+    // - **Pending**: Creating.
+    // - **Running**: Running.
+    // - **Starting**: Starting.
+    // - **Stopping**: Stopping.
+    // - **Stopped**: Stopped.
     shared_ptr<string> status_ {};
-    // Indicates whether the instance continues to be billed after it is stopped. Valid values:
+    // Specifies whether the instance continues to be billed after it is stopped. Valid values:
     // 
     // - **KeepCharging**: The instance continues to be billed after it is stopped, and resources are reserved.
-    // - **StopCharging**: The instance is not billed after it is stopped. After the instance is stopped, resources such as vCPUs, memory, and public IP addresses are released. Whether the instance can be successfully restarted depends on resource availability in the current region.
-    // - **Not-applicable**: The instance does not support the no fees for stopped instances feature.
+    // - **StopCharging**: The instance is not billed after it is stopped. After the instance is stopped, resources such as vCPUs, memory, and public IP addresses are released. A successful restart depends on resource availability in the current region.
+    // - **Not-applicable**: The no fees for stopped instances feature is not supported for this instance.
     shared_ptr<string> stoppedMode_ {};
-    // The specifications of the system cloud disk.
+    // The system cloud disk specifications.
     shared_ptr<DescribeRCInstanceAttributeResponseBody::SystemDisk> systemDisk_ {};
     shared_ptr<DescribeRCInstanceAttributeResponseBody::Tags> tags_ {};
     // The custom data of the instance, which is a Base64-encoded string.
@@ -1344,7 +1344,7 @@ namespace Models
     // > If the instance does not have custom data, an empty string is returned.
     shared_ptr<string> userData_ {};
     // The VLAN ID of the instance.
-    // > This parameter will be deprecated soon. To improve compatibility, use other parameters instead.
+    // > This parameter is being deprecated. To improve compatibility, use other parameters instead.
     shared_ptr<string> vlanId_ {};
     // The VPC attributes.
     shared_ptr<DescribeRCInstanceAttributeResponseBody::VpcAttributes> vpcAttributes_ {};

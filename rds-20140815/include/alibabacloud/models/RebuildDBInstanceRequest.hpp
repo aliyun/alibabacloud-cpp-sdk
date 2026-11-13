@@ -103,23 +103,22 @@ namespace Models
 
 
   protected:
-    // The instance ID in the dedicated cluster.
+    // The ID of the instance in the dedicated cluster.
     // 
     // This parameter is required.
     shared_ptr<string> DBInstanceId_ {};
-    // The dedicated cluster ID. You can call DescribeDedicatedHostGroups to query the dedicated cluster ID.
+    // The ID of the dedicated cluster. You can call the DescribeDedicatedHostGroups operation to obtain the dedicated cluster ID.
     // 
     // This parameter is required.
     shared_ptr<string> dedicatedHostGroupId_ {};
-    // The ID of the host on which the secondary instance is to be rebuilt.
-    // >If you do not specify this parameter, the secondary instance is preferentially rebuilt on the original host. If the original host does not have sufficient space, the system selects a host that does not contain the primary instance. If no host with sufficient space is found, an insufficient space error is returned.
+    // The ID of the host on which you want to rebuild the secondary instance. If you do not specify this parameter, the system preferentially rebuilds the secondary instance on the original host. If the original host does not have sufficient storage space, the system selects a host that does not contain the primary instance. If sufficient storage space is still unavailable, an insufficient storage space error is returned.
     shared_ptr<string> dedicatedHostId_ {};
     shared_ptr<int64_t> ownerId_ {};
-    // The type of secondary instance to rebuild. Valid values:
+    // The type of the secondary instance that you want to rebuild. Valid values:
     // * **FOLLOWER**: secondary node.
     // * **LOG**: log node.
     shared_ptr<string> rebuildNodeType_ {};
-    // The region ID. You can call DescribeRegions to query the region ID.
+    // The region ID. You can call the DescribeRegions operation to obtain the region ID.
     shared_ptr<string> regionId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};

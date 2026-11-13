@@ -168,18 +168,18 @@ namespace Models
       shared_ptr<string> classCode_ {};
       // The instance family. For more information, see [Instance families](https://help.aliyun.com/document_detail/57184.html).
       shared_ptr<string> classGroup_ {};
-      // The number of CPU cores for the instance type. Unit: cores.
+      // The number of CPU cores for the instance type.
       shared_ptr<string> cpu_ {};
       // The encrypted memory size of the security-enhanced instance family. Unit: GB.
       shared_ptr<string> encryptedMemory_ {};
-      // The architecture type of the instance type. Valid values:
+      // The architecture type of the instance type.
       // 
       // - If the instance uses the **x86** architecture, this parameter is left empty by default.
       // - If the instance uses the **arm** architecture, **arm** is returned.
       shared_ptr<string> instructionSetArch_ {};
       // The maximum number of connections for the instance type.
       shared_ptr<string> maxConnections_ {};
-      // The maximum I/O bandwidth for the instance type. Unit: Mbps.
+      // The maximum I/O bandwidth for the instance type. Unit: Mbit/s.
       shared_ptr<string> maxIOMBPS_ {};
       // The maximum IOPS for the instance type. Unit: operations per second.
       shared_ptr<string> maxIOPS_ {};
@@ -188,10 +188,10 @@ namespace Models
       // The price of the instance type.
       // 
       // <props="china">
-      // * Unit: cents (CNY).
+      // * Unit: cent (CNY).
       // 
       // <props="intl">
-      // * Unit: cents (USD).
+      // * Unit: cent (USD).
       // 
       // 
       // > * If you specify a pay-as-you-go commodity code for the **CommodityCode** parameter, this parameter displays the hourly price.
@@ -199,15 +199,15 @@ namespace Models
       shared_ptr<string> referencePrice_ {};
       // The instance edition. Valid values:
       // * Regular instances
-      //     * **Basic**: Basic Edition.
-      //     * **HighAvailability**: High-availability Edition.
-      //     * **cluster**: Cluster Edition for MySQL or PostgreSQL.
-      //     * **AlwaysOn**: Cluster Edition for SQL Server.
-      //     * **Finance**: RDS Enterprise Edition.
+      //     * **Basic**: Basic Edition
+      //     * **HighAvailability**: high-availability series
+      //     * **cluster**: Cluster Edition for MySQL or PostgreSQL
+      //     * **AlwaysOn**: Cluster Edition for SQL Server
+      //     * **Finance**: RDS Enterprise Edition
       // * Serverless instances
-      //     * **serverless_basic**: Serverless Basic Edition. (Applicable only to MySQL and PostgreSQL)
-      //     * **serverless_standard**: Serverless High-availability Edition. (Applicable only to MySQL and PostgreSQL)
-      //     * **serverless_ha**: Serverless High-availability Edition for SQL Server.
+      //     * **serverless_basic**: Serverless Basic Edition (applicable only to MySQL and PostgreSQL)
+      //     * **serverless_standard**: Serverless high-availability series (applicable only to MySQL and PostgreSQL)
+      //     * **serverless_ha**: SQL Server Serverless high-availability series
       shared_ptr<string> category_ {};
       // The instance storage type.
       shared_ptr<string> storageType_ {};

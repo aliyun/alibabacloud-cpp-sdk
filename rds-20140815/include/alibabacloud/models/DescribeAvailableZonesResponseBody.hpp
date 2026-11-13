@@ -171,7 +171,7 @@ namespace Models
           protected:
             // The instance edition.
             shared_ptr<string> category_ {};
-            // The list of available storage types.
+            // The list of supported storage types.
             shared_ptr<vector<SupportedCategorys::SupportedStorageTypes>> supportedStorageTypes_ {};
           };
 
@@ -194,7 +194,7 @@ namespace Models
 
 
         protected:
-          // The list of available instance editions.
+          // The list of supported instance editions.
           shared_ptr<vector<SupportedEngineVersions::SupportedCategorys>> supportedCategorys_ {};
           // The database engine version.
           shared_ptr<string> version_ {};
@@ -219,9 +219,9 @@ namespace Models
 
 
       protected:
-        // The database engine.
+        // The database engine type.
         shared_ptr<string> engine_ {};
-        // The list of available database engine versions.
+        // The list of supported database engine versions.
         shared_ptr<vector<SupportedEngines::SupportedEngineVersions>> supportedEngineVersions_ {};
       };
 
@@ -253,7 +253,7 @@ namespace Models
     protected:
       // The region ID.
       shared_ptr<string> regionId_ {};
-      // The list of available database engines.
+      // The list of supported database engine types.
       shared_ptr<vector<AvailableZones::SupportedEngines>> supportedEngines_ {};
       // The zone ID.
       shared_ptr<string> zoneId_ {};

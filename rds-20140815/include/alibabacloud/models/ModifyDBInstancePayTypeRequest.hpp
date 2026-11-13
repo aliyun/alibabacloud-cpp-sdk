@@ -79,20 +79,20 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> DBInstanceId_ {};
-    // The billing method. Set the value to **Prepaid**, which specifies the subscription billing method.
+    // The billing method. Set the value to **Prepaid**, which indicates the subscription billing method.
     // 
     // This parameter is required.
     shared_ptr<string> payType_ {};
-    // The unit of the subscription duration. Valid values:
-    // - **Year**
-    // - **Month**
+    // The subscription period. Valid values:
+    // - **Year**: yearly subscription
+    // - **Month**: monthly subscription
     // 
     // This parameter is required.
     shared_ptr<string> period_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
-    // The subscription duration:
-    // - If **Period** is set to **Year**, valid values are 1 to 5.
-    // - If **Period** is set to **Month**, valid values are 1 to 11.
+    // The subscription duration. Valid values:
+    // - If the **Period** parameter is set to **Year**, valid values are 1 to 5.
+    // - If the **Period** parameter is set to **Month**, valid values are 1 to 11.
     shared_ptr<int32_t> usedTime_ {};
   };
 

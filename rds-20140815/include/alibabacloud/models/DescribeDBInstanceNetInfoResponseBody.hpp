@@ -468,7 +468,7 @@ namespace Models
     // The request ID.
     shared_ptr<string> requestId_ {};
     // The whitelist mode. Valid values:
-    // * **normal**: general mode.
+    // * **normal**: standard mode.
     // * **safety**: enhanced whitelist mode.
     shared_ptr<string> securityIPMode_ {};
   };

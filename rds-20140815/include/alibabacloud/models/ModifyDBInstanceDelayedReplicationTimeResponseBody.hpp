@@ -68,7 +68,7 @@ namespace Models
   protected:
     // The instance ID of the read-only instance.
     shared_ptr<string> DBInstanceId_ {};
-    // The replication delay time of the read-only instance. Unit: seconds.
+    // The replication delay time for the read-only instance. Unit: seconds.
     shared_ptr<string> readSQLReplicationTime_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

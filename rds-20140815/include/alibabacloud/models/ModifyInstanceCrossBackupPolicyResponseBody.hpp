@@ -112,27 +112,27 @@ namespace Models
 
 
   protected:
-    // Indicates whether the overall cross-region backup feature is enabled. Valid values:
-    // * **Disable**: The feature is disabled.
-    // * **Enable**: The feature is enabled.
+    // The status of the overall cross-region backup switch. Valid values:
+    // * **Disable**: disabled.
+    // * **Enable**: enabled.
     shared_ptr<string> backupEnabled_ {};
-    // The ID of the destination region for cross-region backup.
+    // The ID of the destination region for cross-region backups.
     shared_ptr<string> crossBackupRegion_ {};
-    // The retention type of cross-region backups. Default value: **1**, which indicates that all backups are retained.
+    // The retention type for cross-region backups. Default value: **1**, which indicates that all backups are retained.
     shared_ptr<string> crossBackupType_ {};
     // The instance ID.
     shared_ptr<string> DBInstanceId_ {};
-    // Indicates whether cross-region log backup is enabled. Valid values:
-    // * **Disable**: Cross-region log backup is disabled.
-    // * **Enable**: Cross-region log backup is enabled.
+    // The status of the cross-region log backup switch. Valid values:
+    // * **Disable**: disabled.
+    // * **Enable**: enabled.
     shared_ptr<string> logBackupEnabled_ {};
     // The region ID of the source instance. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/26243.html) operation to query region IDs.
     shared_ptr<string> regionId_ {};
-    // The request ID.
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
     // The retention method for cross-region backups. Default value: **1**, which indicates that backups are retained based on a specified retention period.
     shared_ptr<int32_t> retentType_ {};
-    // The retention period of cross-region backups. Valid values: **7 to 1825**. Unit: days.
+    // The number of days to retain cross-region backups. Valid values: **7 to 1825**.
     shared_ptr<int32_t> retention_ {};
   };
 

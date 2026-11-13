@@ -158,7 +158,7 @@ namespace Models
       protected:
         // The ID of the node in the cluster.
         shared_ptr<string> DBInstanceID_ {};
-        // The JSON array that contains the Data Transmission Service (DTS) synchronization information.
+        // The JSON array that contains Data Transmission Service (DTS) synchronization information.
         // > Each unit node (secondary node) synchronizes data with the central node (primary node) through DTS. This parameter contains the DTS synchronization link ID and request ID.
         shared_ptr<string> dtsInstance_ {};
         // The database engine of the node in the cluster.
@@ -168,15 +168,15 @@ namespace Models
         shared_ptr<string> engineVersion_ {};
         // The region ID of the node in the cluster.
         shared_ptr<string> regionId_ {};
-        // The resource group ID.
+        // The ID of the resource group.
         shared_ptr<string> resourceGroupId_ {};
-        // The role of the node in the GAD cluster. Valid values:
-        // * **CENTRAL**: the central node, which is the only primary node in the cluster. All unit nodes synchronize data from this node.
-        // * **UNIT**: the unit node. A cluster can have up to 10 unit nodes, and all unit nodes synchronize data from the central node.
+        // The node type in the ApsaraDB RDS global active database cluster. Valid values:
+        // * **CENTRAL**: The central node, which is the only primary node in the cluster. All unit nodes synchronize data from this node.
+        // * **UNIT**: The unit node. A cluster can contain up to 10 unit nodes, and all unit nodes synchronize data from the central node.
         shared_ptr<string> role_ {};
         // The status of the node. Valid values:
-        // * **activation**: running
-        // * **creating**: being created
+        // * **activation**: The node is running.
+        // * **creating**: The node is being created.
         shared_ptr<string> status_ {};
       };
 
@@ -241,17 +241,17 @@ namespace Models
       shared_ptr<string> description_ {};
       // The list of nodes in the cluster.
       shared_ptr<vector<GadInstances::GadInstanceMembers>> gadInstanceMembers_ {};
-      // The ID of the GAD cluster.
+      // The ID of the ApsaraDB RDS global active database cluster.
       shared_ptr<string> gadInstanceName_ {};
       // The time when the cluster was last modified. The time follows the ISO 8601 standard in the <i>yyyy-MM-dd</i>T<i>HH:mm:ss</i>Z format. The time is displayed in UTC.
       shared_ptr<string> modificationTime_ {};
-      // The database engine of the GAD cluster.
+      // The database engine of the ApsaraDB RDS global active database cluster.
       // > Only **mysql** is supported.
       shared_ptr<string> service_ {};
       // The status of the cluster. Valid values:
-      // * **activation**: running
-      // * **creating**: being created
-      // * **replica_adding**: adding nodes
+      // * **activation**: The cluster is running.
+      // * **creating**: The cluster is being created.
+      // * **replica_adding**: Nodes are being added to the cluster.
       shared_ptr<string> status_ {};
     };
 
@@ -274,7 +274,7 @@ namespace Models
 
 
   protected:
-    // The list of GAD clusters.
+    // The list of ApsaraDB RDS global active database clusters.
     shared_ptr<vector<DescribeGadInstancesResponseBody::GadInstances>> gadInstances_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

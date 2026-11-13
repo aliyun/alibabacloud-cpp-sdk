@@ -144,14 +144,13 @@ namespace Models
     shared_ptr<string> account_ {};
     // The kernel version number.
     shared_ptr<string> dbVersion_ {};
-    // The task details.
+    // The detailed information about the task.
     shared_ptr<string> detail_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
     // The category of the source instance. Valid values:
-    // 
-    // - **ECS**: Alibaba Cloud ECS.
-    // - **other**: Other.
+    // - **ECS**: an Alibaba Cloud ECS instance.
+    // - **other**: an instance of another type.
     shared_ptr<string> sourceCategory_ {};
     // The source IP address.
     shared_ptr<string> sourceIp_ {};
@@ -159,13 +158,13 @@ namespace Models
     shared_ptr<string> sourcePort_ {};
     // The task status.
     shared_ptr<string> status_ {};
-    // The name of the destination disaster recovery instance for the switchover.
+    // The name of the target disaster recovery instance for the switchover.
     shared_ptr<string> targetInstanceName_ {};
     // The task ID.
     shared_ptr<int64_t> taskId_ {};
     // The task name.
     shared_ptr<string> taskName_ {};
-    // The task type, which is used to query tasks of specific types. Separate multiple values with commas (,). A maximum of 30 values are supported. By default, this parameter is left empty, which indicates that no limit is applied.
+    // The task type. This parameter is used to query tasks of a specific type. Separate multiple task types with commas (,). You can specify up to 30 task types. By default, this parameter is left empty, which indicates that no limit is applied.
     shared_ptr<string> taskType_ {};
   };
 

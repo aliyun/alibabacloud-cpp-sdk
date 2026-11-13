@@ -134,14 +134,15 @@ namespace Models
     // * **0**: no compression.
     // * **1**: zlib compression.
     // * **2**: parallel zlib compression.
-    // * **4**: quicklz compression. Database and table restoration is enabled.
-    // * **8**: quicklz compression for MySQL 8.0. Database and table restoration is not supported.
+    // * **4**: QuickLZ compression. Database and table restoration is enabled.
+    // * **8**: QuickLZ compression for ApsaraDB RDS for MySQL 8.0. Database and table restoration is not supported.
     shared_ptr<string> compressType_ {};
     // The instance ID.
     shared_ptr<string> DBInstanceID_ {};
-    // Indicates whether log backup is enabled. Valid values:
+    // Indicates whether instance log backup is enabled. Valid values:
     // * **1**: enabled.
     // * **0**: disabled.
+    // 
     // 
     // > Log backup is enabled by default and cannot be disabled for ApsaraDB RDS for SQL Server instances.
     shared_ptr<string> enableBackupLog_ {};
@@ -151,15 +152,15 @@ namespace Models
     shared_ptr<bool> enablePitrProtection_ {};
     // Indicates whether binary log files are unconditionally deleted when the storage usage of the **ApsaraDB RDS for MySQL** instance exceeds 80% or the remaining storage is less than 5 GB.
     shared_ptr<string> highSpaceUsageProtection_ {};
-    // The high-frequency incremental backup interval. Unit: minutes. Valid values: 60, 120, 240, 360, and 720.
+    // The high-frequency incremental backup interval, in minutes. Valid values: 60, 120, 240, 360, and 720.
     shared_ptr<int32_t> incBackupInterval_ {};
-    // The number of hours for which log backups are retained locally on the **ApsaraDB RDS for MySQL** instance.
+    // The number of hours for which instance log backups are retained locally on the **ApsaraDB RDS for MySQL** instance.
     shared_ptr<int32_t> localLogRetentionHours_ {};
-    // The maximum usage of the local binary log loop space for the **ApsaraDB RDS for MySQL** instance.
+    // The maximum usage of the local log circular space for the **ApsaraDB RDS for MySQL** instance.
     shared_ptr<string> localLogRetentionSpace_ {};
     // The number of local binary log files retained on the **ApsaraDB RDS for MySQL** instance.
     shared_ptr<int32_t> logBackupLocalRetentionNumber_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

@@ -107,7 +107,7 @@ namespace Models
     shared_ptr<string> resourceGroupId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
-    // The storage capacity after scaling. Unit: GB.
+    // The storage capacity after the expansion. Unit: GB.
     shared_ptr<int32_t> storage_ {};
   };
 

@@ -123,7 +123,7 @@ namespace Models
   protected:
     // The modification mode of the parameter template. Valid values:
     // * **Collectivity**: adds or modifies parameters. This is the default value.
-    // >The parameters specified in the **Parameters** parameter are added to the current parameter template, or the existing parameters in the current parameter template are modified. Other parameters in the current parameter template remain unaffected.
+    // >The parameters specified in the **Parameters** parameter are added to the current parameter template, or the existing parameters in the current parameter template are modified. Other parameters in the current parameter template are not affected.
     // 
     // * **Individual**: overwrites parameters.
     // >The content in the current parameter template is replaced with the content specified in the **Parameters** parameter.
@@ -132,7 +132,7 @@ namespace Models
     // The description of the parameter template. The description must be 0 to 200 characters in length.
     // >If you do not specify this parameter, the original description of the parameter template is retained.
     shared_ptr<string> parameterGroupDesc_ {};
-    // The ID of the parameter template. You can call the DescribeParameterGroups operation to query the ID of the parameter template.
+    // The ID of the parameter template. You can call the DescribeParameterGroups operation to query the parameter template ID.
     // 
     // This parameter is required.
     shared_ptr<string> parameterGroupId_ {};
@@ -142,7 +142,7 @@ namespace Models
     // 
     // >If you do not specify this parameter, the original name of the parameter template is retained.
     shared_ptr<string> parameterGroupName_ {};
-    // The JSON string of parameters and values. Format: {"Parameter 1":"Value 1","Parameter 2":"Value 2"...}. For more information about the parameters that can be modified, see [Set the parameters of an ApsaraDB RDS for MySQL instance](https://help.aliyun.com/document_detail/96063.html) or [Set the parameters of an ApsaraDB RDS for PostgreSQL instance](https://help.aliyun.com/document_detail/96751.html).
+    // The JSON string of parameters and their values. Format: {"Parameter 1":"Value 1","Parameter 2":"Value 2"...}. For more information about the parameters that can be modified, see [Configure the parameters of an ApsaraDB RDS for MySQL instance](https://help.aliyun.com/document_detail/96063.html) or [Configure the parameters of an ApsaraDB RDS for PostgreSQL instance](https://help.aliyun.com/document_detail/96751.html).
     // 
     // > * If the **ModifyMode** parameter is set to **Individual**, the specified parameters overwrite the original parameters in the parameter template.
     // > * If the **ModifyMode** parameter is set to **Collectivity**, the specified parameters are added to or modified in the original parameter template.
@@ -153,7 +153,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
-    // The ID of the resource group. You can call the DescribeDBInstanceAttribute operation to query the ID of the resource group.
+    // The ID of the resource group. You can call the DescribeDBInstanceAttribute operation to query the resource group ID.
     shared_ptr<string> resourceGroupId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};

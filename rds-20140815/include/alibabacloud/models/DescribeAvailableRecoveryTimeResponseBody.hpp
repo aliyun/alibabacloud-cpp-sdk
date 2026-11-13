@@ -77,13 +77,13 @@ namespace Models
   protected:
     // The ID of the cross-region backup file.
     shared_ptr<int32_t> crossBackupId_ {};
-    // The start time of the time range to which data can be restored from the cross-region backup file. Format: yyyy-MM-ddTHH:mm:ssZ (UTC).
+    // The start time of the restorable time range for the cross-region backup file. Format: yyyy-MM-ddTHH:mm:ssZ (GMT time).
     shared_ptr<string> recoveryBeginTime_ {};
-    // The end time of the time range to which data can be restored from the cross-region backup file. Format: yyyy-MM-ddTHH:mm:ssZ (UTC).
+    // The end time of the restorable time range for the cross-region backup file. Format: yyyy-MM-ddTHH:mm:ssZ (GMT time).
     shared_ptr<string> recoveryEndTime_ {};
     // The region of the source instance.
     shared_ptr<string> regionId_ {};
-    // The request ID.
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
   };
 

@@ -88,14 +88,14 @@ namespace Models
     shared_ptr<string> imageId_ {};
     // The instance ID.
     shared_ptr<string> instanceId_ {};
-    // Reserved parameter. Not supported.
+    // A reserved parameter. This parameter is not supported.
     shared_ptr<bool> isLocalDisk_ {};
-    // The name of the new key pair. If you do not specify this parameter, you must reset the key pair after the operating system is reinstalled.
+    // The name of the new key pair. If you do not specify this parameter, you must configure a key pair after the operating system is reinstalled.
     shared_ptr<string> keyPairName_ {};
-    // The new logon password for the RDS Custom instance. If you do not specify this parameter, you must reset the logon password after the operating system is reinstalled.
+    // The new logon password for the RDS Custom instance. If you do not specify this parameter, you must set a logon password after the operating system is reinstalled.
     // 
     // - The password must be 8 to 30 characters in length.
-    // - The password must contain at least three of the following character types: uppercase letters, lowercase letters, digits, and special characters. Special characters include: ()`~!@#$%^&*-_+=.
+    // - The password must contain characters from at least three of the following categories: uppercase letters, lowercase letters, digits, and special characters. Special characters include: ()`~!@#$%^&*-_+=.
     shared_ptr<string> password_ {};
     // The region ID.
     shared_ptr<string> regionId_ {};

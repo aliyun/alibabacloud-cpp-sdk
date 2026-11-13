@@ -135,11 +135,11 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> DBProxyConnectStringNetType_ {};
-    // The ID of the database proxy endpoint. You can call the DescribeDBProxyEndpoint operation to query the ID.
+    // The ID of the database proxy endpoint. You can call the DescribeDBProxyEndpoint operation to query the endpoint ID.
     // 
     // This parameter is required.
     shared_ptr<string> DBProxyEndpointId_ {};
-    // A reserved parameter. No configuration is required.
+    // Reserved parameter. No configuration is required.
     shared_ptr<string> DBProxyEngineType_ {};
     // The port number of the new database proxy endpoint. Default values:
     // 
@@ -148,13 +148,13 @@ namespace Models
     shared_ptr<string> DBProxyNewConnectStringPort_ {};
     // The region ID. You can call the DescribeRegions operation to query the region ID.
     shared_ptr<string> regionId_ {};
-    // The resource group ID.
+    // The ID of the resource group.
     shared_ptr<string> resourceGroupId_ {};
-    // The VPC ID of the new database proxy endpoint. You can call the DescribeDBInstanceAttribute operation to query the VPC ID.
+    // The ID of the VPC to which the new database proxy endpoint belongs. You can call the DescribeDBInstanceAttribute operation to query the VPC ID.
     // 
     // > This parameter is required when **DBProxyConnectStringNetType** is set to **VPC**.
     shared_ptr<string> VPCId_ {};
-    // The vSwitch ID of the new database proxy endpoint. You can call the DescribeDBInstanceAttribute operation to query the vSwitch ID.
+    // The ID of the vSwitch to which the new database proxy endpoint belongs. You can call the DescribeDBInstanceAttribute operation to query the vSwitch ID.
     // 
     // > This parameter is required when **DBProxyConnectStringNetType** is set to **VPC**.
     shared_ptr<string> vSwitchId_ {};

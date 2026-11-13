@@ -195,7 +195,7 @@ namespace Models
   protected:
     // The database engine.
     shared_ptr<string> engine_ {};
-    // The database engine version.
+    // The version of the database engine.
     shared_ptr<string> engineVersion_ {};
     // The number of parameters.
     shared_ptr<string> parameterCount_ {};
