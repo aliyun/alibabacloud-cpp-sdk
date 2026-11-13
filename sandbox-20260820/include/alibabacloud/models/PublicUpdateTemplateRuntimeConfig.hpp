@@ -4,6 +4,7 @@
 #include <darabonba/Core.hpp>
 #include <alibabacloud/models/PublicUpdateTemplateLogConfig.hpp>
 #include <alibabacloud/models/PublicUpdateTemplateSandboxConfig.hpp>
+#include <vector>
 #include <alibabacloud/models/PublicUpdateTemplateVPCConfig.hpp>
 using namespace std;
 using json = nlohmann::json;
@@ -22,6 +23,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(logConfig, logConfig_);
       DARABONBA_PTR_TO_JSON(memorySize, memorySize_);
       DARABONBA_PTR_TO_JSON(sandboxConfig, sandboxConfig_);
+      DARABONBA_PTR_TO_JSON(vpcBindings, vpcBindings_);
       DARABONBA_PTR_TO_JSON(vpcConfig, vpcConfig_);
     };
     friend void from_json(const Darabonba::Json& j, PublicUpdateTemplateRuntimeConfig& obj) { 
@@ -31,6 +33,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(logConfig, logConfig_);
       DARABONBA_PTR_FROM_JSON(memorySize, memorySize_);
       DARABONBA_PTR_FROM_JSON(sandboxConfig, sandboxConfig_);
+      DARABONBA_PTR_FROM_JSON(vpcBindings, vpcBindings_);
       DARABONBA_PTR_FROM_JSON(vpcConfig, vpcConfig_);
     };
     PublicUpdateTemplateRuntimeConfig() = default ;
@@ -46,7 +49,7 @@ namespace Models
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->cpu_ == nullptr
         && this->diskSize_ == nullptr && this->internetAccess_ == nullptr && this->logConfig_ == nullptr && this->memorySize_ == nullptr && this->sandboxConfig_ == nullptr
-        && this->vpcConfig_ == nullptr; };
+        && this->vpcBindings_ == nullptr && this->vpcConfig_ == nullptr; };
     // cpu Field Functions 
     bool hasCpu() const { return this->cpu_ != nullptr;};
     void deleteCpu() { this->cpu_ = nullptr;};
@@ -93,6 +96,15 @@ namespace Models
     inline PublicUpdateTemplateRuntimeConfig& setSandboxConfig(PublicUpdateTemplateSandboxConfig && sandboxConfig) { DARABONBA_PTR_SET_RVALUE(sandboxConfig_, sandboxConfig) };
 
 
+    // vpcBindings Field Functions 
+    bool hasVpcBindings() const { return this->vpcBindings_ != nullptr;};
+    void deleteVpcBindings() { this->vpcBindings_ = nullptr;};
+    inline const vector<string> & getVpcBindings() const { DARABONBA_PTR_GET_CONST(vpcBindings_, vector<string>) };
+    inline vector<string> getVpcBindings() { DARABONBA_PTR_GET(vpcBindings_, vector<string>) };
+    inline PublicUpdateTemplateRuntimeConfig& setVpcBindings(const vector<string> & vpcBindings) { DARABONBA_PTR_SET_VALUE(vpcBindings_, vpcBindings) };
+    inline PublicUpdateTemplateRuntimeConfig& setVpcBindings(vector<string> && vpcBindings) { DARABONBA_PTR_SET_RVALUE(vpcBindings_, vpcBindings) };
+
+
     // vpcConfig Field Functions 
     bool hasVpcConfig() const { return this->vpcConfig_ != nullptr;};
     void deleteVpcConfig() { this->vpcConfig_ = nullptr;};
@@ -103,18 +115,20 @@ namespace Models
 
 
   protected:
-    // The number of vCPUs.
+    // The number of vCPU cores.
     shared_ptr<float> cpu_ {};
-    // The system cloud disk size, in MB.
+    // The size of the system cloud disk in MB.
     shared_ptr<int32_t> diskSize_ {};
     // Specifies whether the sandbox is allowed to access the Internet.
     shared_ptr<bool> internetAccess_ {};
     // The log configuration.
     shared_ptr<PublicUpdateTemplateLogConfig> logConfig_ {};
-    // The memory size, in MB.
+    // The memory size in MB.
     shared_ptr<int32_t> memorySize_ {};
     // The sandbox configuration.
     shared_ptr<PublicUpdateTemplateSandboxConfig> sandboxConfig_ {};
+    // Supported only for generation 2 templates. Omitting this field or setting it to null retains the original list. A non-empty array replaces the entire allowed set. An explicit empty array [] clears the inbound VPC restrictions for the new version. This field is independent of vpcConfig. An empty request body {}, an empty runtimeConfig, or a runtimeConfig containing only vpcBindings: null returns a 400 error and does not clear the bindings. The actual JSON received by the server prevails. An empty array omitted by the SDK cannot clear the list. If the target is a generation 1 template, explicitly passing an empty or non-empty array returns a 400 error. If non-empty bindings already exist, you must first clear them on the generation 2 template and wait for the update to succeed before switching to generation 1.
+    shared_ptr<vector<string>> vpcBindings_ {};
     // The VPC network configuration.
     shared_ptr<PublicUpdateTemplateVPCConfig> vpcConfig_ {};
   };

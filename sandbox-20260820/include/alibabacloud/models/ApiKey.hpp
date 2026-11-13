@@ -32,6 +32,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(teamPlan, teamPlan_);
       DARABONBA_PTR_TO_JSON(userID, userID_);
       DARABONBA_PTR_TO_JSON(username, username_);
+      DARABONBA_PTR_TO_JSON(vpcBindings, vpcBindings_);
     };
     friend void from_json(const Darabonba::Json& j, ApiKey& obj) { 
       DARABONBA_PTR_FROM_JSON(apiKeyID, apiKeyID_);
@@ -51,6 +52,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(teamPlan, teamPlan_);
       DARABONBA_PTR_FROM_JSON(userID, userID_);
       DARABONBA_PTR_FROM_JSON(username, username_);
+      DARABONBA_PTR_FROM_JSON(vpcBindings, vpcBindings_);
     };
     ApiKey() = default ;
     ApiKey(const ApiKey &) = default ;
@@ -67,7 +69,7 @@ namespace Models
         && this->apiKeyMask_ == nullptr && this->apiKeyName_ == nullptr && this->apiKeyValue_ == nullptr && this->createdTime_ == nullptr && this->expireTime_ == nullptr
         && this->ipBlacklist_ == nullptr && this->ipWhitelist_ == nullptr && this->lastUsedTime_ == nullptr && this->resourceGroupID_ == nullptr && this->source_ == nullptr
         && this->status_ == nullptr && this->teamID_ == nullptr && this->teamName_ == nullptr && this->teamPlan_ == nullptr && this->userID_ == nullptr
-        && this->username_ == nullptr; };
+        && this->username_ == nullptr && this->vpcBindings_ == nullptr; };
     // apiKeyID Field Functions 
     bool hasApiKeyID() const { return this->apiKeyID_ != nullptr;};
     void deleteApiKeyID() { this->apiKeyID_ = nullptr;};
@@ -191,49 +193,52 @@ namespace Models
     inline ApiKey& setUsername(string username) { DARABONBA_PTR_SET_VALUE(username_, username) };
 
 
+    // vpcBindings Field Functions 
+    bool hasVpcBindings() const { return this->vpcBindings_ != nullptr;};
+    void deleteVpcBindings() { this->vpcBindings_ = nullptr;};
+    inline const vector<string> & getVpcBindings() const { DARABONBA_PTR_GET_CONST(vpcBindings_, vector<string>) };
+    inline vector<string> getVpcBindings() { DARABONBA_PTR_GET(vpcBindings_, vector<string>) };
+    inline ApiKey& setVpcBindings(const vector<string> & vpcBindings) { DARABONBA_PTR_SET_VALUE(vpcBindings_, vpcBindings) };
+    inline ApiKey& setVpcBindings(vector<string> && vpcBindings) { DARABONBA_PTR_SET_RVALUE(vpcBindings_, vpcBindings) };
+
+
   protected:
     // The unique identifier of the API key, in UUID format.
     shared_ptr<string> apiKeyID_ {};
-    // The masked value of the API key. The prefix and the first and last four characters are retained, and the middle portion is replaced with four asterisks. This value is used for secure display in the user interface.
+    // The masked value of the API key. It retains the prefix and the first and last four characters, and replaces the middle characters with four asterisks for secure display in the user interface.
     shared_ptr<string> apiKeyMask_ {};
-    // The name of the API key. The name can be up to 128 characters in length and can contain letters, digits, spaces, hyphens (-), underscores (_), and periods (.).
+    // The name of the API key. The name can be up to 128 characters in length and can contain only letters, digits, spaces, hyphens (-), underscores (_), and half-width periods (.).
     shared_ptr<string> apiKeyName_ {};
-    // The plaintext value of the API key, prefixed with e2b_. This value is returned only in responses from the create, import, and reset operations. Other operations do not return this value.
+    // The plaintext value of the API key, which starts with e2b_. This value is returned only in the responses of the create, import, and reset operations, and is not returned by other operations.
     shared_ptr<string> apiKeyValue_ {};
-    // The time when the API key was created, in UTC and RFC 3339 format.
+    // The creation time of the API key, in UTC and RFC 3339 format.
     shared_ptr<string> createdTime_ {};
-    // The time when the API key expires, in UTC and RFC 3339 format. An empty value indicates that the API key never expires.
+    // The expiration time of the API key, in UTC and RFC 3339 format. An empty value indicates that the API key never expires.
     shared_ptr<string> expireTime_ {};
-    // The IP blacklist. After configuration, IP addresses in the list cannot use this API key. This parameter is mutually exclusive with ipWhitelist.
+    // The IP address blacklist. After configuration, the IP addresses in the list cannot use the API key. This parameter is mutually exclusive with ipWhitelist.
     shared_ptr<vector<IPConfig>> ipBlacklist_ {};
-    // The IP address whitelist. After configuration, only IP addresses in the list can use this API key. This parameter is mutually exclusive with ipBlacklist.
+    // The IP address whitelist. After configuration, only the IP addresses in the list can use the API key. This parameter is mutually exclusive with ipBlacklist.
     shared_ptr<vector<IPConfig>> ipWhitelist_ {};
-    // The time when the API key was last used, in UTC and RFC 3339 format. An empty value indicates that the API key has never been used.
+    // The time when the API key was last used, in UTC and RFC 3339 format. This value is empty if the API key has never been used.
     shared_ptr<string> lastUsedTime_ {};
-    // The Alibaba Cloud resource group ID to which the team belongs.
+    // The ID of the Alibaba Cloud resource group to which the team belongs.
     shared_ptr<string> resourceGroupID_ {};
-    // The source of the API key. Valid values:
-    // - generated: The API key is generated by the service.
-    // - custom: The API key is imported by the user.
+    // The source of the API key. Valid values: generated (generated by the service) and custom (imported by the user).
     shared_ptr<string> source_ {};
-    // The status of the API key. Valid values:
-    // - active: The API key is enabled.
-    // - inactive: The API key is disabled. A disabled API key cannot be used to access sandbox services.
+    // The status of the API key. Valid values: active (enabled) and inactive (disabled). A disabled API key can no longer be used to access the sandbox service.
     shared_ptr<string> status_ {};
     // The ID of the team to which the resource belongs, in UUID format.
     shared_ptr<string> teamID_ {};
-    // The team name.
+    // The name of the team.
     shared_ptr<string> teamName_ {};
-    // The team plan. Valid values:
-    // - eco: economy
-    // - std: standard
-    // - pro: professional
-    // - ent: enterprise
+    // The team plan edition. Valid values: eco (Economy), std (Standard), pro (Professional), and ent (Enterprise).
     shared_ptr<string> teamPlan_ {};
     // The user ID of the resource creator, in UUID format.
     shared_ptr<string> userID_ {};
     // The username of the API key creator.
     shared_ptr<string> username_ {};
+    // The set of source VPC IDs allowed for this API key. An omitted or empty array indicates that no VPC source restrictions are configured. If the array is not empty, requests must meet both this VPC restriction and the configured IP source policies. This list is retained when credentials are rotated by calling ResetApiKey.
+    shared_ptr<vector<string>> vpcBindings_ {};
   };
 
   } // namespace Models

@@ -28,6 +28,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(teamID, teamID_);
       DARABONBA_PTR_TO_JSON(teamName, teamName_);
       DARABONBA_PTR_TO_JSON(templateID, templateID_);
+      DARABONBA_PTR_TO_JSON(templateType, templateType_);
     };
     friend void from_json(const Darabonba::Json& j, GetTemplateResponseBody& obj) { 
       DARABONBA_PTR_FROM_JSON(code, code_);
@@ -42,6 +43,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(teamID, teamID_);
       DARABONBA_PTR_FROM_JSON(teamName, teamName_);
       DARABONBA_PTR_FROM_JSON(templateID, templateID_);
+      DARABONBA_PTR_FROM_JSON(templateType, templateType_);
     };
     GetTemplateResponseBody() = default ;
     GetTemplateResponseBody(const GetTemplateResponseBody &) = default ;
@@ -101,7 +103,7 @@ namespace Models
     virtual bool empty() const override { return this->code_ == nullptr
         && this->createdTime_ == nullptr && this->message_ == nullptr && this->name_ == nullptr && this->requestId_ == nullptr && this->resourceGroupID_ == nullptr
         && this->resourceTags_ == nullptr && this->runtimeConfig_ == nullptr && this->status_ == nullptr && this->teamID_ == nullptr && this->teamName_ == nullptr
-        && this->templateID_ == nullptr; };
+        && this->templateID_ == nullptr && this->templateType_ == nullptr; };
     // code Field Functions 
     bool hasCode() const { return this->code_ != nullptr;};
     void deleteCode() { this->code_ = nullptr;};
@@ -192,6 +194,13 @@ namespace Models
     inline GetTemplateResponseBody& setTemplateID(string templateID) { DARABONBA_PTR_SET_VALUE(templateID_, templateID) };
 
 
+    // templateType Field Functions 
+    bool hasTemplateType() const { return this->templateType_ != nullptr;};
+    void deleteTemplateType() { this->templateType_ = nullptr;};
+    inline string getTemplateType() const { DARABONBA_PTR_GET_DEFAULT(templateType_, "") };
+    inline GetTemplateResponseBody& setTemplateType(string templateType) { DARABONBA_PTR_SET_VALUE(templateType_, templateType) };
+
+
   protected:
     // The error code. The value is 200 if the request is successful.
     shared_ptr<string> code_ {};
@@ -199,7 +208,7 @@ namespace Models
     shared_ptr<string> createdTime_ {};
     // The response message.
     shared_ptr<string> message_ {};
-    // The name of the template.
+    // The template name.
     shared_ptr<string> name_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};
@@ -209,14 +218,16 @@ namespace Models
     shared_ptr<vector<GetTemplateResponseBody::ResourceTags>> resourceTags_ {};
     // The runtime configuration of the template.
     shared_ptr<PublicTemplateRuntimeConfig> runtimeConfig_ {};
-    // The status of the template.
+    // The template status.
     shared_ptr<PublicTemplateStatus> status_ {};
     // The team ID.
     shared_ptr<string> teamID_ {};
-    // The name of the team.
+    // The team name.
     shared_ptr<string> teamName_ {};
     // The unique identifier of the template.
     shared_ptr<string> templateID_ {};
+    // The templatetype. The default value is runtime template if it is not returned.
+    shared_ptr<string> templateType_ {};
   };
 
   } // namespace Models

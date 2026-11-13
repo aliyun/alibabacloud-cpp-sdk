@@ -4,6 +4,7 @@
 #include <darabonba/Core.hpp>
 #include <alibabacloud/models/CreateTemplateLogConfig.hpp>
 #include <alibabacloud/models/CreateTemplateSandboxConfig.hpp>
+#include <vector>
 #include <alibabacloud/models/CreateTemplateVPCConfig.hpp>
 using namespace std;
 using json = nlohmann::json;
@@ -22,6 +23,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(logConfig, logConfig_);
       DARABONBA_PTR_TO_JSON(memorySize, memorySize_);
       DARABONBA_PTR_TO_JSON(sandboxConfig, sandboxConfig_);
+      DARABONBA_PTR_TO_JSON(vpcBindings, vpcBindings_);
       DARABONBA_PTR_TO_JSON(vpcConfig, vpcConfig_);
     };
     friend void from_json(const Darabonba::Json& j, CreateTemplateRuntimeConfig& obj) { 
@@ -31,6 +33,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(logConfig, logConfig_);
       DARABONBA_PTR_FROM_JSON(memorySize, memorySize_);
       DARABONBA_PTR_FROM_JSON(sandboxConfig, sandboxConfig_);
+      DARABONBA_PTR_FROM_JSON(vpcBindings, vpcBindings_);
       DARABONBA_PTR_FROM_JSON(vpcConfig, vpcConfig_);
     };
     CreateTemplateRuntimeConfig() = default ;
@@ -46,7 +49,7 @@ namespace Models
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->cpu_ == nullptr
         && this->diskSize_ == nullptr && this->internetAccess_ == nullptr && this->logConfig_ == nullptr && this->memorySize_ == nullptr && this->sandboxConfig_ == nullptr
-        && this->vpcConfig_ == nullptr; };
+        && this->vpcBindings_ == nullptr && this->vpcConfig_ == nullptr; };
     // cpu Field Functions 
     bool hasCpu() const { return this->cpu_ != nullptr;};
     void deleteCpu() { this->cpu_ = nullptr;};
@@ -93,6 +96,15 @@ namespace Models
     inline CreateTemplateRuntimeConfig& setSandboxConfig(CreateTemplateSandboxConfig && sandboxConfig) { DARABONBA_PTR_SET_RVALUE(sandboxConfig_, sandboxConfig) };
 
 
+    // vpcBindings Field Functions 
+    bool hasVpcBindings() const { return this->vpcBindings_ != nullptr;};
+    void deleteVpcBindings() { this->vpcBindings_ = nullptr;};
+    inline const vector<string> & getVpcBindings() const { DARABONBA_PTR_GET_CONST(vpcBindings_, vector<string>) };
+    inline vector<string> getVpcBindings() { DARABONBA_PTR_GET(vpcBindings_, vector<string>) };
+    inline CreateTemplateRuntimeConfig& setVpcBindings(const vector<string> & vpcBindings) { DARABONBA_PTR_SET_VALUE(vpcBindings_, vpcBindings) };
+    inline CreateTemplateRuntimeConfig& setVpcBindings(vector<string> && vpcBindings) { DARABONBA_PTR_SET_RVALUE(vpcBindings_, vpcBindings) };
+
+
     // vpcConfig Field Functions 
     bool hasVpcConfig() const { return this->vpcConfig_ != nullptr;};
     void deleteVpcConfig() { this->vpcConfig_ = nullptr;};
@@ -103,19 +115,21 @@ namespace Models
 
 
   protected:
-    // The CPU specification of the sandboxed container instance, in cores.
+    // The CPU specifications of the sandbox instance, in cores.
     shared_ptr<float> cpu_ {};
-    // The disk specification of the sandboxed container instance, in MB.
+    // The disk specifications of the sandbox instance, in MB.
     shared_ptr<int32_t> diskSize_ {};
-    // Specifies whether the sandboxed container instance is allowed to access the Internet.
+    // Specifies whether the sandbox instance is allowed to access the Internet.
     shared_ptr<bool> internetAccess_ {};
-    // The log delivery configuration of the sandboxed container instance.
+    // The log delivery configuration of the sandbox instance.
     shared_ptr<CreateTemplateLogConfig> logConfig_ {};
-    // The memory specification of the sandboxed container instance, in MB.
+    // The memory specifications of the sandbox instance, in MB.
     shared_ptr<int32_t> memorySize_ {};
-    // The image and startup configuration of the sandboxed container instance.
+    // The image and startup configuration of the sandbox instance.
     shared_ptr<CreateTemplateSandboxConfig> sandboxConfig_ {};
-    // The VPC configuration of the sandboxed container instance.
+    // The list of allowed inbound source VPCs. This feature is supported only for generation 2 templates (sandboxConfig.generation=2). A non-empty array specifies the set of source VPCs that are allowed to access the sandbox data endpoint. Omitting the field, setting it to null, or providing an empty array indicates that no inbound bindings are configured. This setting is independent of the egress network vpcConfig and does not modify the API key source policy. A null value is treated as omitted to maintain compatibility with SDK requests where the field is not set. For generation 1 templates, explicitly providing an empty or non-empty array returns a 400 error. You can update or clear the list by calling UpdateTemplate. The changes take effect after a new version is successfully built, and existing sandboxes continue to use the original functions and policies.
+    shared_ptr<vector<string>> vpcBindings_ {};
+    // The VPC configuration of the sandbox instance.
     shared_ptr<CreateTemplateVPCConfig> vpcConfig_ {};
   };
 

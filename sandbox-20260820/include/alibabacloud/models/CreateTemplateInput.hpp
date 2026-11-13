@@ -21,6 +21,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(resourceTags, resourceTags_);
       DARABONBA_PTR_TO_JSON(runtimeConfig, runtimeConfig_);
       DARABONBA_PTR_TO_JSON(teamID, teamID_);
+      DARABONBA_PTR_TO_JSON(templateType, templateType_);
     };
     friend void from_json(const Darabonba::Json& j, CreateTemplateInput& obj) { 
       DARABONBA_PTR_FROM_JSON(buildConfig, buildConfig_);
@@ -28,6 +29,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(resourceTags, resourceTags_);
       DARABONBA_PTR_FROM_JSON(runtimeConfig, runtimeConfig_);
       DARABONBA_PTR_FROM_JSON(teamID, teamID_);
+      DARABONBA_PTR_FROM_JSON(templateType, templateType_);
     };
     CreateTemplateInput() = default ;
     CreateTemplateInput(const CreateTemplateInput &) = default ;
@@ -85,7 +87,7 @@ namespace Models
     };
 
     virtual bool empty() const override { return this->buildConfig_ == nullptr
-        && this->name_ == nullptr && this->resourceTags_ == nullptr && this->runtimeConfig_ == nullptr && this->teamID_ == nullptr; };
+        && this->name_ == nullptr && this->resourceTags_ == nullptr && this->runtimeConfig_ == nullptr && this->teamID_ == nullptr && this->templateType_ == nullptr; };
     // buildConfig Field Functions 
     bool hasBuildConfig() const { return this->buildConfig_ != nullptr;};
     void deleteBuildConfig() { this->buildConfig_ = nullptr;};
@@ -127,8 +129,15 @@ namespace Models
     inline CreateTemplateInput& setTeamID(string teamID) { DARABONBA_PTR_SET_VALUE(teamID_, teamID) };
 
 
+    // templateType Field Functions 
+    bool hasTemplateType() const { return this->templateType_ != nullptr;};
+    void deleteTemplateType() { this->templateType_ = nullptr;};
+    inline string getTemplateType() const { DARABONBA_PTR_GET_DEFAULT(templateType_, "") };
+    inline CreateTemplateInput& setTemplateType(string templateType) { DARABONBA_PTR_SET_VALUE(templateType_, templateType) };
+
+
   protected:
-    // The build configuration of the template. This configuration specifies the build process in action-based blocks. If this parameter is not specified, the service automatically derives the configuration based on the source image. Public runtime images are used directly without building. For other images, the copy and envdInject actions are automatically executed.
+    // The build configuration of the template. This configuration specifies the build process in action-based chunks. If this parameter is not specified, the service automatically derives the configuration based on the source image. Public runtime images are used directly without building. For other images, the copy and envdInject actions are automatically executed.
     shared_ptr<CreateTemplateBuildConfig> buildConfig_ {};
     // The name of the template. The name must be unique within the same team.
     shared_ptr<string> name_ {};
@@ -136,8 +145,10 @@ namespace Models
     shared_ptr<vector<CreateTemplateInput::ResourceTags>> resourceTags_ {};
     // The runtime configuration of the template. This configuration determines the specifications and environment of the sandbox instances created from the template.
     shared_ptr<CreateTemplateRuntimeConfig> runtimeConfig_ {};
-    // The ID of the team to which the template belongs. The ID is in UUID format. If this parameter is not specified, the default team of the current account is used.
+    // The ID of the team to which the template belongs. The ID must be in UUID format. If this parameter is not specified, the default team of the current account is used.
     shared_ptr<string> teamID_ {};
+    // The templatetype. Set this parameter to layer to build a layer template.
+    shared_ptr<string> templateType_ {};
   };
 
   } // namespace Models

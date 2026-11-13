@@ -109,11 +109,7 @@ namespace Models
     shared_ptr<string> nextToken_ {};
     // The ID of the resource group.
     shared_ptr<string> resourceGroupID_ {};
-    // Filters by storage volume status. Valid values:
-    // - CREATING: The storage volume is being created.
-    // - AVAILABLE: The storage volume is available.
-    // - ERROR: The storage volume is in an error state.
-    // - DELETING: The storage volume is being deleted.
+    // Filters storage volumes by status. Valid values: CREATING (creating), AVAILABLE (available), ERROR (error), and DELETING (deleting).
     shared_ptr<string> status_ {};
     // Filters storage volumes by storage class. Valid values: OSS, AGENTIC_BUCKET, AGENTIC_FS, and JUICE_FS.
     shared_ptr<string> storageClass_ {};

@@ -25,6 +25,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(teamID, teamID_);
       DARABONBA_PTR_TO_JSON(teamName, teamName_);
       DARABONBA_PTR_TO_JSON(templateID, templateID_);
+      DARABONBA_PTR_TO_JSON(templateType, templateType_);
     };
     friend void from_json(const Darabonba::Json& j, PublicTemplate& obj) { 
       DARABONBA_PTR_FROM_JSON(createdTime, createdTime_);
@@ -36,6 +37,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(teamID, teamID_);
       DARABONBA_PTR_FROM_JSON(teamName, teamName_);
       DARABONBA_PTR_FROM_JSON(templateID, templateID_);
+      DARABONBA_PTR_FROM_JSON(templateType, templateType_);
     };
     PublicTemplate() = default ;
     PublicTemplate(const PublicTemplate &) = default ;
@@ -94,7 +96,7 @@ namespace Models
 
     virtual bool empty() const override { return this->createdTime_ == nullptr
         && this->name_ == nullptr && this->resourceGroupID_ == nullptr && this->resourceTags_ == nullptr && this->runtimeConfig_ == nullptr && this->status_ == nullptr
-        && this->teamID_ == nullptr && this->teamName_ == nullptr && this->templateID_ == nullptr; };
+        && this->teamID_ == nullptr && this->teamName_ == nullptr && this->templateID_ == nullptr && this->templateType_ == nullptr; };
     // createdTime Field Functions 
     bool hasCreatedTime() const { return this->createdTime_ != nullptr;};
     void deleteCreatedTime() { this->createdTime_ = nullptr;};
@@ -164,25 +166,34 @@ namespace Models
     inline PublicTemplate& setTemplateID(string templateID) { DARABONBA_PTR_SET_VALUE(templateID_, templateID) };
 
 
+    // templateType Field Functions 
+    bool hasTemplateType() const { return this->templateType_ != nullptr;};
+    void deleteTemplateType() { this->templateType_ = nullptr;};
+    inline string getTemplateType() const { DARABONBA_PTR_GET_DEFAULT(templateType_, "") };
+    inline PublicTemplate& setTemplateType(string templateType) { DARABONBA_PTR_SET_VALUE(templateType_, templateType) };
+
+
   protected:
     // The time when the template was created, in UTC and RFC 3339 format.
     shared_ptr<string> createdTime_ {};
-    // The name of the template, which is unique within a team.
+    // The template name, which is unique within a team.
     shared_ptr<string> name_ {};
     // The ID of the Alibaba Cloud resource group to which the team belongs.
     shared_ptr<string> resourceGroupID_ {};
     // The resource tags.
     shared_ptr<vector<PublicTemplate::ResourceTags>> resourceTags_ {};
-    // The runtime configuration of the template, which determines the specifications and environment of the sandbox instances created from the template.
+    // The runtime configuration of the template, which determines the specifications and environment of sandbox instances created from this template.
     shared_ptr<PublicTemplateRuntimeConfig> runtimeConfig_ {};
     // The current status of the template.
     shared_ptr<PublicTemplateStatus> status_ {};
     // The ID of the team to which the resource belongs, in UUID format.
     shared_ptr<string> teamID_ {};
-    // The name of the team.
+    // The team name.
     shared_ptr<string> teamName_ {};
-    // The ID of the sandbox template.
+    // The sandbox template ID.
     shared_ptr<string> templateID_ {};
+    // The templatetype. An empty value indicates a runtime template.
+    shared_ptr<string> templateType_ {};
   };
 
   } // namespace Models

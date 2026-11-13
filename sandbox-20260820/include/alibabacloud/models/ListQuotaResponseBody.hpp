@@ -90,11 +90,11 @@ namespace Models
   protected:
     // The response code. A value of 200 indicates success.
     shared_ptr<string> code_ {};
-    // The maximum number of entries returned per page. This field is returned only if a positive integer is specified for maxResults in the request.
+    // The maximum number of entries to return per page. This field is returned only if a positive integer is specified for maxResults in the request.
     shared_ptr<int32_t> maxResults_ {};
-    // The response message. The value is success if the request is successful.
+    // The response message. A value of success indicates success.
     shared_ptr<string> message_ {};
-    // The pagination token for the next page, which can be used in subsequent queries.
+    // The pagination token for the next page.
     shared_ptr<string> nextToken_ {};
     // The list of quota configurations.
     shared_ptr<vector<Quota>> quotas_ {};

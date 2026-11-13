@@ -4,6 +4,7 @@
 #include <darabonba/Core.hpp>
 #include <alibabacloud/models/PublicTemplateLogConfig.hpp>
 #include <alibabacloud/models/PublicTemplateSandboxConfig.hpp>
+#include <vector>
 #include <alibabacloud/models/PublicTemplateVPCConfig.hpp>
 using namespace std;
 using json = nlohmann::json;
@@ -22,6 +23,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(logConfig, logConfig_);
       DARABONBA_PTR_TO_JSON(memorySize, memorySize_);
       DARABONBA_PTR_TO_JSON(sandboxConfig, sandboxConfig_);
+      DARABONBA_PTR_TO_JSON(vpcBindings, vpcBindings_);
       DARABONBA_PTR_TO_JSON(vpcConfig, vpcConfig_);
     };
     friend void from_json(const Darabonba::Json& j, PublicTemplateRuntimeConfig& obj) { 
@@ -31,6 +33,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(logConfig, logConfig_);
       DARABONBA_PTR_FROM_JSON(memorySize, memorySize_);
       DARABONBA_PTR_FROM_JSON(sandboxConfig, sandboxConfig_);
+      DARABONBA_PTR_FROM_JSON(vpcBindings, vpcBindings_);
       DARABONBA_PTR_FROM_JSON(vpcConfig, vpcConfig_);
     };
     PublicTemplateRuntimeConfig() = default ;
@@ -46,7 +49,7 @@ namespace Models
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->cpu_ == nullptr
         && this->diskSize_ == nullptr && this->internetAccess_ == nullptr && this->logConfig_ == nullptr && this->memorySize_ == nullptr && this->sandboxConfig_ == nullptr
-        && this->vpcConfig_ == nullptr; };
+        && this->vpcBindings_ == nullptr && this->vpcConfig_ == nullptr; };
     // cpu Field Functions 
     bool hasCpu() const { return this->cpu_ != nullptr;};
     void deleteCpu() { this->cpu_ = nullptr;};
@@ -93,6 +96,15 @@ namespace Models
     inline PublicTemplateRuntimeConfig& setSandboxConfig(PublicTemplateSandboxConfig && sandboxConfig) { DARABONBA_PTR_SET_RVALUE(sandboxConfig_, sandboxConfig) };
 
 
+    // vpcBindings Field Functions 
+    bool hasVpcBindings() const { return this->vpcBindings_ != nullptr;};
+    void deleteVpcBindings() { this->vpcBindings_ = nullptr;};
+    inline const vector<string> & getVpcBindings() const { DARABONBA_PTR_GET_CONST(vpcBindings_, vector<string>) };
+    inline vector<string> getVpcBindings() { DARABONBA_PTR_GET(vpcBindings_, vector<string>) };
+    inline PublicTemplateRuntimeConfig& setVpcBindings(const vector<string> & vpcBindings) { DARABONBA_PTR_SET_VALUE(vpcBindings_, vpcBindings) };
+    inline PublicTemplateRuntimeConfig& setVpcBindings(vector<string> && vpcBindings) { DARABONBA_PTR_SET_RVALUE(vpcBindings_, vpcBindings) };
+
+
     // vpcConfig Field Functions 
     bool hasVpcConfig() const { return this->vpcConfig_ != nullptr;};
     void deleteVpcConfig() { this->vpcConfig_ = nullptr;};
@@ -115,7 +127,9 @@ namespace Models
     shared_ptr<int32_t> memorySize_ {};
     // The image and startup configuration of the sandbox instance.
     shared_ptr<PublicTemplateSandboxConfig> sandboxConfig_ {};
-    // The VPC configuration of the sandbox instance.
+    // The set of allowed inbound source VPCs configured for Generation 2 templates. An omitted or empty array indicates that no inbound VPC bindings are configured, and this field can be omitted for historical records without configurations. This configuration is independent of the egress network vpcConfig. Subsequent template updates do not overwrite the bindings of functions used by existing sandboxes. When the feature switch is enabled, POST /init requests without query parameters to the standard E2B sandbox envd port 49983 are temporarily exempt from VPC source checks, while other authentication mechanisms remain in effect.
+    shared_ptr<vector<string>> vpcBindings_ {};
+    // The virtual private cloud (VPC) configuration of the sandbox instance.
     shared_ptr<PublicTemplateVPCConfig> vpcConfig_ {};
   };
 

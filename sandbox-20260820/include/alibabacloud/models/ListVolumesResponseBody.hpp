@@ -92,7 +92,7 @@ namespace Models
     shared_ptr<string> code_ {};
     // The maximum number of entries per page for the current query.
     shared_ptr<int32_t> maxResults_ {};
-    // The response message. A value of success indicates that the request was successful.
+    // The response message. The value is success if the request is successful.
     shared_ptr<string> message_ {};
     // The pagination token for the next page, which is used for subsequent queries.
     shared_ptr<string> nextToken_ {};

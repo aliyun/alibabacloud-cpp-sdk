@@ -41,7 +41,7 @@ namespace Models
 
 
   protected:
-    // The request parameters for updating the API key.
+    // The request parameters for updating an API key.
     shared_ptr<UpdateApiKeyInput> body_ {};
   };
 

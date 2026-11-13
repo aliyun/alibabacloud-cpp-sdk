@@ -51,6 +51,7 @@
 #include <alibabacloud/models/ImportApiKeyInput.hpp>
 #include <alibabacloud/models/InnerCreateSandboxVolumeMounts.hpp>
 #include <alibabacloud/models/InnerCreateSandboxInput.hpp>
+#include <alibabacloud/models/MetricData.hpp>
 #include <alibabacloud/models/PublicListedSandbox.hpp>
 #include <alibabacloud/models/PublicTemplateLogConfig.hpp>
 #include <alibabacloud/models/PublicTemplateRegistryNetworkConfig.hpp>
@@ -78,6 +79,7 @@
 #include <alibabacloud/models/PublicUpdateTemplateInput.hpp>
 #include <alibabacloud/models/Quota.hpp>
 #include <alibabacloud/models/QuotaUsage.hpp>
+#include <alibabacloud/models/ResourceUsage.hpp>
 #include <alibabacloud/models/SandboxLifecycleEvent.hpp>
 #include <alibabacloud/models/UpdateApiKeyInput.hpp>
 #include <alibabacloud/models/UpdateCustomDomainInput.hpp>
@@ -126,6 +128,14 @@
 #include <alibabacloud/models/DescribeTemplateCacheRequest.hpp>
 #include <alibabacloud/models/DescribeTemplateCacheResponseBody.hpp>
 #include <alibabacloud/models/DescribeTemplateCacheResponse.hpp>
+#include <alibabacloud/models/GetMetricDataRequest.hpp>
+#include <alibabacloud/models/GetMetricDataShrinkRequest.hpp>
+#include <alibabacloud/models/GetMetricDataResponseBody.hpp>
+#include <alibabacloud/models/GetMetricDataResponse.hpp>
+#include <alibabacloud/models/GetResourceUsageRequest.hpp>
+#include <alibabacloud/models/GetResourceUsageShrinkRequest.hpp>
+#include <alibabacloud/models/GetResourceUsageResponseBody.hpp>
+#include <alibabacloud/models/GetResourceUsageResponse.hpp>
 #include <alibabacloud/models/GetTeamRequest.hpp>
 #include <alibabacloud/models/GetTeamResponseBody.hpp>
 #include <alibabacloud/models/GetTeamResponse.hpp>

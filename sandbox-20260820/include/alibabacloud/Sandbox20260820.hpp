@@ -59,6 +59,8 @@ namespace Sandbox20260820
       /**
        * @summary Creates a template.
        *
+       * @description Creates a template. runtimeConfig.vpcBindings is supported only for second-generation templates. A null value is treated as omitted. First-generation templates return a 400 error if an empty or non-empty array is explicitly provided. Inbound bindings are independent of the egress vpcConfig and API key source policies. When the feature switch is enabled, POST /init requests without query parameters to the standard envd port 49983 of the E2B sandbox are temporarily exempt from VPC source checks, while other authentication mechanisms remain in effect.
+       *
        * @param request CreateTemplateRequest
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
@@ -68,6 +70,8 @@ namespace Sandbox20260820
 
       /**
        * @summary Creates a template.
+       *
+       * @description Creates a template. runtimeConfig.vpcBindings is supported only for second-generation templates. A null value is treated as omitted. First-generation templates return a 400 error if an empty or non-empty array is explicitly provided. Inbound bindings are independent of the egress vpcConfig and API key source policies. When the feature switch is enabled, POST /init requests without query parameters to the standard envd port 49983 of the E2B sandbox are temporarily exempt from VPC source checks, while other authentication mechanisms remain in effect.
        *
        * @param request CreateTemplateRequest
        * @return CreateTemplateResponse
@@ -273,6 +277,50 @@ namespace Sandbox20260820
       Models::DescribeTemplateCacheResponse describeTemplateCache(const string &templateID, const Models::DescribeTemplateCacheRequest &request);
 
       /**
+       * @summary 查询监控指标
+       *
+       * @description 查看某一时刻的监控指标，或查询一段时间内的变化趋势。支持按账号、团队、模板或沙箱查询。
+       *
+       * @param tmpReq GetMetricDataRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetMetricDataResponse
+       */
+      Models::GetMetricDataResponse getMetricDataWithOptions(const Models::GetMetricDataRequest &tmpReq, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查询监控指标
+       *
+       * @description 查看某一时刻的监控指标，或查询一段时间内的变化趋势。支持按账号、团队、模板或沙箱查询。
+       *
+       * @param request GetMetricDataRequest
+       * @return GetMetricDataResponse
+       */
+      Models::GetMetricDataResponse getMetricData(const Models::GetMetricDataRequest &request);
+
+      /**
+       * @summary Queries resource usage.
+       *
+       * @description Queries the CPU, memory, and disk usage over a specified period. You can view the cumulative usage and usage trends by account, team, or template.
+       *
+       * @param tmpReq GetResourceUsageRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetResourceUsageResponse
+       */
+      Models::GetResourceUsageResponse getResourceUsageWithOptions(const Models::GetResourceUsageRequest &tmpReq, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Queries resource usage.
+       *
+       * @description Queries the CPU, memory, and disk usage over a specified period. You can view the cumulative usage and usage trends by account, team, or template.
+       *
+       * @param request GetResourceUsageRequest
+       * @return GetResourceUsageResponse
+       */
+      Models::GetResourceUsageResponse getResourceUsage(const Models::GetResourceUsageRequest &request);
+
+      /**
        * @summary Queries the details of a specified team.
        *
        * @param request GetTeamRequest
@@ -345,7 +393,7 @@ namespace Sandbox20260820
       Models::ListApiKeysResponse listApiKeys(const Models::ListApiKeysRequest &request);
 
       /**
-       * @summary Performs a paging query to retrieve the quota configuration list for the current account.
+       * @summary Queries the quota configuration list for the current account by using paging.
        *
        * @param request ListQuotaRequest
        * @param headers map
@@ -355,7 +403,7 @@ namespace Sandbox20260820
       Models::ListQuotaResponse listQuotaWithOptions(const Models::ListQuotaRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Performs a paging query to retrieve the quota configuration list for the current account.
+       * @summary Queries the quota configuration list for the current account by using paging.
        *
        * @param request ListQuotaRequest
        * @return ListQuotaResponse
@@ -381,7 +429,7 @@ namespace Sandbox20260820
       Models::ListTeamsResponse listTeams(const Models::ListTeamsRequest &request);
 
       /**
-       * @summary Performs a paged query on template caches with paging support.
+       * @summary Queries template caches by paging.
        *
        * @param request ListTemplateCacheRequest
        * @param headers map
@@ -391,7 +439,7 @@ namespace Sandbox20260820
       Models::ListTemplateCacheResponse listTemplateCacheWithOptions(const Models::ListTemplateCacheRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Performs a paged query on template caches with paging support.
+       * @summary Queries template caches by paging.
        *
        * @param request ListTemplateCacheRequest
        * @return ListTemplateCacheResponse
@@ -399,7 +447,7 @@ namespace Sandbox20260820
       Models::ListTemplateCacheResponse listTemplateCache(const Models::ListTemplateCacheRequest &request);
 
       /**
-       * @summary Performs a paging query on the template list.
+       * @summary Performs a paging query to retrieve the template list.
        *
        * @param tmpReq ListTemplatesRequest
        * @param headers map
@@ -409,7 +457,7 @@ namespace Sandbox20260820
       Models::ListTemplatesResponse listTemplatesWithOptions(const Models::ListTemplatesRequest &tmpReq, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Performs a paging query on the template list.
+       * @summary Performs a paging query to retrieve the template list.
        *
        * @param request ListTemplatesRequest
        * @return ListTemplatesResponse
@@ -417,7 +465,7 @@ namespace Sandbox20260820
       Models::ListTemplatesResponse listTemplates(const Models::ListTemplatesRequest &request);
 
       /**
-       * @summary Queries the list of storage volumes by using paging.
+       * @summary Queries a list of storage volumes by using paging.
        *
        * @param request ListVolumesRequest
        * @param headers map
@@ -427,7 +475,7 @@ namespace Sandbox20260820
       Models::ListVolumesResponse listVolumesWithOptions(const Models::ListVolumesRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the list of storage volumes by using paging.
+       * @summary Queries a list of storage volumes by using paging.
        *
        * @param request ListVolumesRequest
        * @return ListVolumesResponse
@@ -436,6 +484,8 @@ namespace Sandbox20260820
 
       /**
        * @summary Resets a specified API key.
+       *
+       * @description Rotates the credential value of an API key while retaining the original API key ID, IP address whitelist, IP address blacklist, and vpcBindings source policy. The apiKey field in the response returns the retained policy.
        *
        * @param request ResetApiKeyRequest
        * @param headers map
@@ -447,6 +497,8 @@ namespace Sandbox20260820
       /**
        * @summary Resets a specified API key.
        *
+       * @description Rotates the credential value of an API key while retaining the original API key ID, IP address whitelist, IP address blacklist, and vpcBindings source policy. The apiKey field in the response returns the retained policy.
+       *
        * @param request ResetApiKeyRequest
        * @return ResetApiKeyResponse
        */
@@ -454,6 +506,8 @@ namespace Sandbox20260820
 
       /**
        * @summary Updates the configuration of a specified API key.
+       *
+       * @description Updates an API key. IP blacklists and whitelists follow a paired replacement rule. If you commit a non-null array for one list and omit the other list or set it to null, the omitted list is cleared. If both lists are omitted or set to null, they are retained. The vpcBindings field is updated independently. If it is omitted or set to null, the current value is retained. A non-empty array replaces the current value, and an empty array [] clears it. Updates to IP addresses and VPCs do not clear each other. Source restrictions are retained if the source is null or if you update only other fields. An empty request body {} clears the IP address whitelist, IP blacklist, and VPC restrictions. You can also explicitly commit empty IP and VPC arrays to clear all source restrictions. To update the access policy, you must commit only the permissionPolicy and expectedPolicyVersion fields. Do not include other fields, including source fields with null values.
        *
        * @param request UpdateApiKeyRequest
        * @param headers map
@@ -464,6 +518,8 @@ namespace Sandbox20260820
 
       /**
        * @summary Updates the configuration of a specified API key.
+       *
+       * @description Updates an API key. IP blacklists and whitelists follow a paired replacement rule. If you commit a non-null array for one list and omit the other list or set it to null, the omitted list is cleared. If both lists are omitted or set to null, they are retained. The vpcBindings field is updated independently. If it is omitted or set to null, the current value is retained. A non-empty array replaces the current value, and an empty array [] clears it. Updates to IP addresses and VPCs do not clear each other. Source restrictions are retained if the source is null or if you update only other fields. An empty request body {} clears the IP address whitelist, IP blacklist, and VPC restrictions. You can also explicitly commit empty IP and VPC arrays to clear all source restrictions. To update the access policy, you must commit only the permissionPolicy and expectedPolicyVersion fields. Do not include other fields, including source fields with null values.
        *
        * @param request UpdateApiKeyRequest
        * @return UpdateApiKeyResponse
@@ -509,6 +565,8 @@ namespace Sandbox20260820
       /**
        * @summary Updates a template.
        *
+       * @description Updates a template. For Generation 2 templates, runtimeConfig.vpcBindings supports omission or null retention, full replacement with a non-empty array, or clearing with an empty array. The new list takes effect upon a successful build of the new version. Existing sandboxes continue to use the original functions and policies. If the build fails, the previously effective version is retained. For Generation 1 templates, explicitly passing an empty or non-empty array returns a 400 error. Before switching to Generation 1, you must clear the bindings and wait for the update to succeed. When the feature switch is enabled, POST /init requests without query parameters to the standard envd port 49983 of E2B sandboxes are temporarily exempt from VPC source checks, while other authentication mechanisms remain in effect.
+       *
        * @param request UpdateTemplateRequest
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
@@ -518,6 +576,8 @@ namespace Sandbox20260820
 
       /**
        * @summary Updates a template.
+       *
+       * @description Updates a template. For Generation 2 templates, runtimeConfig.vpcBindings supports omission or null retention, full replacement with a non-empty array, or clearing with an empty array. The new list takes effect upon a successful build of the new version. Existing sandboxes continue to use the original functions and policies. If the build fails, the previously effective version is retained. For Generation 1 templates, explicitly passing an empty or non-empty array returns a 400 error. Before switching to Generation 1, you must clear the bindings and wait for the update to succeed. When the feature switch is enabled, POST /init requests without query parameters to the standard envd port 49983 of E2B sandboxes are temporarily exempt from VPC source checks, while other authentication mechanisms remain in effect.
        *
        * @param request UpdateTemplateRequest
        * @return UpdateTemplateResponse

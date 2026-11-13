@@ -124,6 +124,8 @@ CreateTeamResponse Client::createTeam(const CreateTeamRequest &request) {
 /**
  * @summary Creates a template.
  *
+ * @description Creates a template. runtimeConfig.vpcBindings is supported only for second-generation templates. A null value is treated as omitted. First-generation templates return a 400 error if an empty or non-empty array is explicitly provided. Inbound bindings are independent of the egress vpcConfig and API key source policies. When the feature switch is enabled, POST /init requests without query parameters to the standard envd port 49983 of the E2B sandbox are temporarily exempt from VPC source checks, while other authentication mechanisms remain in effect.
+ *
  * @param request CreateTemplateRequest
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
@@ -151,6 +153,8 @@ CreateTemplateResponse Client::createTemplateWithOptions(const CreateTemplateReq
 
 /**
  * @summary Creates a template.
+ *
+ * @description Creates a template. runtimeConfig.vpcBindings is supported only for second-generation templates. A null value is treated as omitted. First-generation templates return a 400 error if an empty or non-empty array is explicitly provided. Inbound bindings are independent of the egress vpcConfig and API key source policies. When the feature switch is enabled, POST /init requests without query parameters to the standard envd port 49983 of the E2B sandbox are temporarily exempt from VPC source checks, while other authentication mechanisms remain in effect.
  *
  * @param request CreateTemplateRequest
  * @return CreateTemplateResponse
@@ -629,6 +633,188 @@ DescribeTemplateCacheResponse Client::describeTemplateCache(const string &templa
 }
 
 /**
+ * @summary 查询监控指标
+ *
+ * @description 查看某一时刻的监控指标，或查询一段时间内的变化趋势。支持按账号、团队、模板或沙箱查询。
+ *
+ * @param tmpReq GetMetricDataRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetMetricDataResponse
+ */
+GetMetricDataResponse Client::getMetricDataWithOptions(const GetMetricDataRequest &tmpReq, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  GetMetricDataShrinkRequest request = GetMetricDataShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasGroupBy()) {
+    request.setGroupByShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getGroupBy(), "groupBy", "json"));
+  }
+
+  if (!!tmpReq.hasMetricNames()) {
+    request.setMetricNamesShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getMetricNames(), "metricNames", "json"));
+  }
+
+  json query = {};
+  if (!!request.hasEndTime()) {
+    query["endTime"] = request.getEndTime();
+  }
+
+  if (!!request.hasGroupByShrink()) {
+    query["groupBy"] = request.getGroupByShrink();
+  }
+
+  if (!!request.hasMetricNamesShrink()) {
+    query["metricNames"] = request.getMetricNamesShrink();
+  }
+
+  if (!!request.hasPeriod()) {
+    query["period"] = request.getPeriod();
+  }
+
+  if (!!request.hasSandboxID()) {
+    query["sandboxID"] = request.getSandboxID();
+  }
+
+  if (!!request.hasSandboxPlan()) {
+    query["sandboxPlan"] = request.getSandboxPlan();
+  }
+
+  if (!!request.hasStartTime()) {
+    query["startTime"] = request.getStartTime();
+  }
+
+  if (!!request.hasTeamID()) {
+    query["teamID"] = request.getTeamID();
+  }
+
+  if (!!request.hasTemplateID()) {
+    query["templateID"] = request.getTemplateID();
+  }
+
+  if (!!request.hasTime()) {
+    query["time"] = request.getTime();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "GetMetricData"},
+    {"version" , "2026-08-20"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/pop/2026-08-20/metrics")},
+    {"method" , "GET"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetMetricDataResponse>();
+}
+
+/**
+ * @summary 查询监控指标
+ *
+ * @description 查看某一时刻的监控指标，或查询一段时间内的变化趋势。支持按账号、团队、模板或沙箱查询。
+ *
+ * @param request GetMetricDataRequest
+ * @return GetMetricDataResponse
+ */
+GetMetricDataResponse Client::getMetricData(const GetMetricDataRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return getMetricDataWithOptions(request, headers, runtime);
+}
+
+/**
+ * @summary Queries resource usage.
+ *
+ * @description Queries the CPU, memory, and disk usage over a specified period. You can view the cumulative usage and usage trends by account, team, or template.
+ *
+ * @param tmpReq GetResourceUsageRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetResourceUsageResponse
+ */
+GetResourceUsageResponse Client::getResourceUsageWithOptions(const GetResourceUsageRequest &tmpReq, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  GetResourceUsageShrinkRequest request = GetResourceUsageShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasGroupBy()) {
+    request.setGroupByShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getGroupBy(), "groupBy", "json"));
+  }
+
+  if (!!tmpReq.hasUsageNames()) {
+    request.setUsageNamesShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getUsageNames(), "usageNames", "json"));
+  }
+
+  json query = {};
+  if (!!request.hasEndTime()) {
+    query["endTime"] = request.getEndTime();
+  }
+
+  if (!!request.hasGranularity()) {
+    query["granularity"] = request.getGranularity();
+  }
+
+  if (!!request.hasGroupByShrink()) {
+    query["groupBy"] = request.getGroupByShrink();
+  }
+
+  if (!!request.hasSandboxPlan()) {
+    query["sandboxPlan"] = request.getSandboxPlan();
+  }
+
+  if (!!request.hasStartTime()) {
+    query["startTime"] = request.getStartTime();
+  }
+
+  if (!!request.hasTeamID()) {
+    query["teamID"] = request.getTeamID();
+  }
+
+  if (!!request.hasTemplateID()) {
+    query["templateID"] = request.getTemplateID();
+  }
+
+  if (!!request.hasUsageNamesShrink()) {
+    query["usageNames"] = request.getUsageNamesShrink();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "GetResourceUsage"},
+    {"version" , "2026-08-20"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/pop/2026-08-20/resource-usage")},
+    {"method" , "GET"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetResourceUsageResponse>();
+}
+
+/**
+ * @summary Queries resource usage.
+ *
+ * @description Queries the CPU, memory, and disk usage over a specified period. You can view the cumulative usage and usage trends by account, team, or template.
+ *
+ * @param request GetResourceUsageRequest
+ * @return GetResourceUsageResponse
+ */
+GetResourceUsageResponse Client::getResourceUsage(const GetResourceUsageRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return getResourceUsageWithOptions(request, headers, runtime);
+}
+
+/**
  * @summary Queries the details of a specified team.
  *
  * @param request GetTeamRequest
@@ -827,7 +1013,7 @@ ListApiKeysResponse Client::listApiKeys(const ListApiKeysRequest &request) {
 }
 
 /**
- * @summary Performs a paging query to retrieve the quota configuration list for the current account.
+ * @summary Queries the quota configuration list for the current account by using paging.
  *
  * @param request ListQuotaRequest
  * @param headers map
@@ -864,7 +1050,7 @@ ListQuotaResponse Client::listQuotaWithOptions(const ListQuotaRequest &request, 
 }
 
 /**
- * @summary Performs a paging query to retrieve the quota configuration list for the current account.
+ * @summary Queries the quota configuration list for the current account by using paging.
  *
  * @param request ListQuotaRequest
  * @return ListQuotaResponse
@@ -937,7 +1123,7 @@ ListTeamsResponse Client::listTeams(const ListTeamsRequest &request) {
 }
 
 /**
- * @summary Performs a paged query on template caches with paging support.
+ * @summary Queries template caches by paging.
  *
  * @param request ListTemplateCacheRequest
  * @param headers map
@@ -986,7 +1172,7 @@ ListTemplateCacheResponse Client::listTemplateCacheWithOptions(const ListTemplat
 }
 
 /**
- * @summary Performs a paged query on template caches with paging support.
+ * @summary Queries template caches by paging.
  *
  * @param request ListTemplateCacheRequest
  * @return ListTemplateCacheResponse
@@ -998,7 +1184,7 @@ ListTemplateCacheResponse Client::listTemplateCache(const ListTemplateCacheReque
 }
 
 /**
- * @summary Performs a paging query on the template list.
+ * @summary Performs a paging query to retrieve the template list.
  *
  * @param tmpReq ListTemplatesRequest
  * @param headers map
@@ -1049,7 +1235,7 @@ ListTemplatesResponse Client::listTemplatesWithOptions(const ListTemplatesReques
 }
 
 /**
- * @summary Performs a paging query on the template list.
+ * @summary Performs a paging query to retrieve the template list.
  *
  * @param request ListTemplatesRequest
  * @return ListTemplatesResponse
@@ -1061,7 +1247,7 @@ ListTemplatesResponse Client::listTemplates(const ListTemplatesRequest &request)
 }
 
 /**
- * @summary Queries the list of storage volumes by using paging.
+ * @summary Queries a list of storage volumes by using paging.
  *
  * @param request ListVolumesRequest
  * @param headers map
@@ -1122,7 +1308,7 @@ ListVolumesResponse Client::listVolumesWithOptions(const ListVolumesRequest &req
 }
 
 /**
- * @summary Queries the list of storage volumes by using paging.
+ * @summary Queries a list of storage volumes by using paging.
  *
  * @param request ListVolumesRequest
  * @return ListVolumesResponse
@@ -1135,6 +1321,8 @@ ListVolumesResponse Client::listVolumes(const ListVolumesRequest &request) {
 
 /**
  * @summary Resets a specified API key.
+ *
+ * @description Rotates the credential value of an API key while retaining the original API key ID, IP address whitelist, IP address blacklist, and vpcBindings source policy. The apiKey field in the response returns the retained policy.
  *
  * @param request ResetApiKeyRequest
  * @param headers map
@@ -1163,6 +1351,8 @@ ResetApiKeyResponse Client::resetApiKeyWithOptions(const string &apiKeyID, const
 /**
  * @summary Resets a specified API key.
  *
+ * @description Rotates the credential value of an API key while retaining the original API key ID, IP address whitelist, IP address blacklist, and vpcBindings source policy. The apiKey field in the response returns the retained policy.
+ *
  * @param request ResetApiKeyRequest
  * @return ResetApiKeyResponse
  */
@@ -1174,6 +1364,8 @@ ResetApiKeyResponse Client::resetApiKey(const string &apiKeyID, const ResetApiKe
 
 /**
  * @summary Updates the configuration of a specified API key.
+ *
+ * @description Updates an API key. IP blacklists and whitelists follow a paired replacement rule. If you commit a non-null array for one list and omit the other list or set it to null, the omitted list is cleared. If both lists are omitted or set to null, they are retained. The vpcBindings field is updated independently. If it is omitted or set to null, the current value is retained. A non-empty array replaces the current value, and an empty array [] clears it. Updates to IP addresses and VPCs do not clear each other. Source restrictions are retained if the source is null or if you update only other fields. An empty request body {} clears the IP address whitelist, IP blacklist, and VPC restrictions. You can also explicitly commit empty IP and VPC arrays to clear all source restrictions. To update the access policy, you must commit only the permissionPolicy and expectedPolicyVersion fields. Do not include other fields, including source fields with null values.
  *
  * @param request UpdateApiKeyRequest
  * @param headers map
@@ -1202,6 +1394,8 @@ UpdateApiKeyResponse Client::updateApiKeyWithOptions(const string &apiKeyID, con
 
 /**
  * @summary Updates the configuration of a specified API key.
+ *
+ * @description Updates an API key. IP blacklists and whitelists follow a paired replacement rule. If you commit a non-null array for one list and omit the other list or set it to null, the omitted list is cleared. If both lists are omitted or set to null, they are retained. The vpcBindings field is updated independently. If it is omitted or set to null, the current value is retained. A non-empty array replaces the current value, and an empty array [] clears it. Updates to IP addresses and VPCs do not clear each other. Source restrictions are retained if the source is null or if you update only other fields. An empty request body {} clears the IP address whitelist, IP blacklist, and VPC restrictions. You can also explicitly commit empty IP and VPC arrays to clear all source restrictions. To update the access policy, you must commit only the permissionPolicy and expectedPolicyVersion fields. Do not include other fields, including source fields with null values.
  *
  * @param request UpdateApiKeyRequest
  * @return UpdateApiKeyResponse
@@ -1295,6 +1489,8 @@ UpdateTeamResponse Client::updateTeam(const string &teamID, const UpdateTeamRequ
 /**
  * @summary Updates a template.
  *
+ * @description Updates a template. For Generation 2 templates, runtimeConfig.vpcBindings supports omission or null retention, full replacement with a non-empty array, or clearing with an empty array. The new list takes effect upon a successful build of the new version. Existing sandboxes continue to use the original functions and policies. If the build fails, the previously effective version is retained. For Generation 1 templates, explicitly passing an empty or non-empty array returns a 400 error. Before switching to Generation 1, you must clear the bindings and wait for the update to succeed. When the feature switch is enabled, POST /init requests without query parameters to the standard envd port 49983 of E2B sandboxes are temporarily exempt from VPC source checks, while other authentication mechanisms remain in effect.
+ *
  * @param request UpdateTemplateRequest
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
@@ -1328,6 +1524,8 @@ UpdateTemplateResponse Client::updateTemplateWithOptions(const string &templateI
 
 /**
  * @summary Updates a template.
+ *
+ * @description Updates a template. For Generation 2 templates, runtimeConfig.vpcBindings supports omission or null retention, full replacement with a non-empty array, or clearing with an empty array. The new list takes effect upon a successful build of the new version. Existing sandboxes continue to use the original functions and policies. If the build fails, the previously effective version is retained. For Generation 1 templates, explicitly passing an empty or non-empty array returns a 400 error. Before switching to Generation 1, you must clear the bindings and wait for the update to succeed. When the feature switch is enabled, POST /init requests without query parameters to the standard envd port 49983 of E2B sandboxes are temporarily exempt from VPC source checks, while other authentication mechanisms remain in effect.
  *
  * @param request UpdateTemplateRequest
  * @return UpdateTemplateResponse

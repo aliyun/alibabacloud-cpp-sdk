@@ -20,6 +20,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(ipBlacklist, ipBlacklist_);
       DARABONBA_PTR_TO_JSON(ipWhitelist, ipWhitelist_);
       DARABONBA_PTR_TO_JSON(status, status_);
+      DARABONBA_PTR_TO_JSON(vpcBindings, vpcBindings_);
     };
     friend void from_json(const Darabonba::Json& j, UpdateApiKeyInput& obj) { 
       DARABONBA_PTR_FROM_JSON(apiKeyName, apiKeyName_);
@@ -27,6 +28,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(ipBlacklist, ipBlacklist_);
       DARABONBA_PTR_FROM_JSON(ipWhitelist, ipWhitelist_);
       DARABONBA_PTR_FROM_JSON(status, status_);
+      DARABONBA_PTR_FROM_JSON(vpcBindings, vpcBindings_);
     };
     UpdateApiKeyInput() = default ;
     UpdateApiKeyInput(const UpdateApiKeyInput &) = default ;
@@ -40,7 +42,7 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->apiKeyName_ == nullptr
-        && this->expireTime_ == nullptr && this->ipBlacklist_ == nullptr && this->ipWhitelist_ == nullptr && this->status_ == nullptr; };
+        && this->expireTime_ == nullptr && this->ipBlacklist_ == nullptr && this->ipWhitelist_ == nullptr && this->status_ == nullptr && this->vpcBindings_ == nullptr; };
     // apiKeyName Field Functions 
     bool hasApiKeyName() const { return this->apiKeyName_ != nullptr;};
     void deleteApiKeyName() { this->apiKeyName_ = nullptr;};
@@ -80,19 +82,30 @@ namespace Models
     inline UpdateApiKeyInput& setStatus(string status) { DARABONBA_PTR_SET_VALUE(status_, status) };
 
 
+    // vpcBindings Field Functions 
+    bool hasVpcBindings() const { return this->vpcBindings_ != nullptr;};
+    void deleteVpcBindings() { this->vpcBindings_ = nullptr;};
+    inline const vector<string> & getVpcBindings() const { DARABONBA_PTR_GET_CONST(vpcBindings_, vector<string>) };
+    inline vector<string> getVpcBindings() { DARABONBA_PTR_GET(vpcBindings_, vector<string>) };
+    inline UpdateApiKeyInput& setVpcBindings(const vector<string> & vpcBindings) { DARABONBA_PTR_SET_VALUE(vpcBindings_, vpcBindings) };
+    inline UpdateApiKeyInput& setVpcBindings(vector<string> && vpcBindings) { DARABONBA_PTR_SET_RVALUE(vpcBindings_, vpcBindings) };
+
+
   protected:
-    // The new name of the API key. The name can be up to 128 characters in length and can contain letters, digits, spaces, hyphens (-), underscores (_), and periods (.).
+    // The new name of the API key. The name can be up to 128 characters in length and can contain only letters, digits, spaces, hyphens (-), underscores (_), and periods (.).
     shared_ptr<string> apiKeyName_ {};
-    // The expiration time of the API key, in UTC, in RFC 3339 format. Leave this parameter empty to indicate that the API key never expires.
+    // The expiration time of the API key in UTC. The time must be in RFC 3339 format. An empty value indicates that the API key never expires.
     shared_ptr<string> expireTime_ {};
-    // The IP blacklist. If specified, the existing blacklist is entirely overwritten. This parameter is mutually exclusive with ipWhitelist.
+    // The IP address blacklist. If you specify this parameter, the existing blacklist is completely overwritten. This parameter is mutually exclusive with ipWhitelist.
     shared_ptr<vector<IPConfig>> ipBlacklist_ {};
-    // The IP whitelist. If specified, the existing whitelist is entirely overwritten. This parameter is mutually exclusive with ipBlacklist.
+    // The IP address whitelist. If you specify this parameter, the existing whitelist is completely overwritten. This parameter is mutually exclusive with ipBlacklist.
     shared_ptr<vector<IPConfig>> ipWhitelist_ {};
     // The new status of the API key. Valid values:
     // - active: Enabled.
     // - inactive: Disabled.
     shared_ptr<string> status_ {};
+    // The set of allowed source VPC IDs. This set is updated independently of the IP blacklists and whitelists. If you omit this parameter or set it to null, the original set is retained. A non-empty array completely replaces the original set. An explicit empty array [] purges the VPC restrictions. Updating only this parameter does not affect the IP address lists, and updating the IP address lists does not affect the VPC restrictions. An empty request body {} purges all IP address and VPC source restrictions. You can update this parameter along with other parameters such as the name.
+    shared_ptr<vector<string>> vpcBindings_ {};
   };
 
   } // namespace Models
