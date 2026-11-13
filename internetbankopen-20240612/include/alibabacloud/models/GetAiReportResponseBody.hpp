@@ -108,13 +108,13 @@ namespace Models
 
 
       protected:
-        // The expiration time of the report content retention period. The time is in UTC RFC 3339 format, ends with Z, and may contain fractional seconds. No download URL is issued after this time. If the delivery is not suspended, EXPIRED is returned. If the delivery is also suspended, UNAVAILABLE is returned preferentially. This is the content expiration time, not the single-link expiration time.
+        // The expiration time of the report content retention period. The time is in UTC RFC 3339 format, ends with Z, and may contain fractional seconds. No download URL is issued after this time. If the delivery is not suspended, EXPIRED is returned. If the delivery is also suspended, UNAVAILABLE is returned preferentially. This is the content expiration time, not the expiration time of a single URL.
         shared_ptr<string> contentExpiresAt_ {};
         // The temporary signed download URL. Use the URL before UrlExpiresAt. The validity period of the signed URL does not exceed 300 seconds and is no later than ContentExpiresAt. If the URL expires but the content has not expired, you can query again to obtain a new URL. The example only shows the URL format and is not a real downloadable link. Use the complete URL in the actual response. Do not concatenate the URL yourself or share it publicly.
         shared_ptr<string> downloadUrl_ {};
         // The unique ID of the report. You can use this ID as the reportId parameter to query the report again. This is the report asset ID, not an internal task ID.
         shared_ptr<string> reportId_ {};
-        // The expiration time of the current DownloadUrl. The time is in UTC RFC 3339 format, ends with Z, and may contain fractional seconds. You cannot continue to use the URL after it expires, and this time is no later than ContentExpiresAt.
+        // The expiration time of the current DownloadUrl. The time is in UTC RFC 3339 format, ends with Z, and may contain fractional seconds. You cannot use the URL after it expires, and this time is no later than ContentExpiresAt.
         shared_ptr<string> urlExpiresAt_ {};
       };
 
@@ -141,9 +141,9 @@ namespace Models
       shared_ptr<Data::Report> report_ {};
       // The report status. Valid values:
       // - NOT_APPLICABLE: The product does not include a report.
-      // - WAITING_DATA: The data call result is not yet determined.
+      // - WAITING_DATA: The data call result is not determined.
       // - NO_DATA: No data is found, and no per-use report is generated.
-      // - WAITING_PERIOD: The query result for the callId of a periodic product. You must obtain the ReportId by calling ListProductReports and then query the status.
+      // - WAITING_PERIOD: The query result for the callId of a periodic product. You must obtain the ReportId by calling ListProductReports and then query the report.
       // - QUEUED: The report task is queued.
       // - RUNNING: The report task is being processed.
       // - AVAILABLE: The report is available, and the Report object is returned in this response.
@@ -174,9 +174,9 @@ namespace Models
 
 
   protected:
-    // The report query result, which includes ReportStatus. The Report object is included only when the report is available.
+    // The report query result, which contains ReportStatus. The Report object is included only when the report is available.
     shared_ptr<GetAiReportResponseBody::Data> data_ {};
-    // The unique identity of the request, which is used for Tracing Analysis and troubleshooting. Provide this identity when you troubleshoot exceptions.
+    // The unique identity of the request, which is used for Tracing Analysis and troubleshooting. Provide this ID when you troubleshoot exceptions.
     shared_ptr<string> requestId_ {};
   };
 
