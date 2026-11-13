@@ -52,7 +52,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> regionNo_ {};
-    // The source IP address of the caller.
+    // The source IP address of the requester.
     shared_ptr<string> sourceIp_ {};
   };
 

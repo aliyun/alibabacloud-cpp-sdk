@@ -153,32 +153,32 @@ namespace Models
     // - **1**: Abnormal connection.
     // - **2**: Command execution.
     // - **3**: Brute-force attack.
-    // - **4**: Scanning.
+    // - **4**: Scan.
     // - **5**: Other.
     // - **6**: Information leakage.
     // - **7**: DoS attack.
     // - **8**: Overflow attack.
     // - **9**: Web attack.
-    // - **10**: Trojan backdoor.
-    // - **11**: Viruses and worms.
+    // - **10**: Trojan or backdoor.
+    // - **11**: Virus or worm.
     // - **12**: Mining behavior.
     // - **13**: Reverse shell.
     // 
-    // > If you do not specify this parameter, all attack types are queried.
+    // > If this parameter is not specified, all attack types are queried.
     shared_ptr<int64_t> attackType_ {};
     // The page number for a paged query.
     shared_ptr<string> currentPage_ {};
-    // The destination IP address to query. If you specify this parameter, the system queries intrusion prevention events that involve this destination IP address.
+    // The destination IP address to query. If you specify this parameter, the intrusion prevention events that involve this destination IP address are queried.
     shared_ptr<string> dstIP_ {};
     // The end time of the query. The value is a UNIX timestamp in seconds.
     // 
     // This parameter is required.
     shared_ptr<string> endTime_ {};
-    // The type of the Cloud Firewall. Valid values:
+    // The type of Cloud Firewall. Valid values:
     // - **VpcFirewall**: virtual private cloud (VPC) firewalls.
     // - **InternetFirewall** (default): the Internet Border firewall.
     shared_ptr<string> firewallType_ {};
-    // The language of the response message.
+    // The language for receiving messages.
     shared_ptr<string> lang_ {};
     // The log type.
     shared_ptr<string> logType_ {};
@@ -186,19 +186,19 @@ namespace Models
     // 
     // Default value: **6**, which indicates that 6 entries are returned on each page. Maximum value: **10**.
     shared_ptr<string> pageSize_ {};
-    // The defense status of the Cloud Firewall. Valid values:
+    // The defense status of Cloud Firewall. Valid values:
     // - **1**: Alert.
     // - **2**: Block.
     // 
-    // > If you do not specify this parameter, all defense statuses are queried.
+    // > If you do not specify this parameter, events of all defense statuses are queried.
     shared_ptr<string> ruleResult_ {};
     // The tracing code.
     // 
     // This parameter is required.
     shared_ptr<string> sourceCode_ {};
-    // The source IP address of the requester.
+    // The source IP address of the visitor.
     shared_ptr<string> sourceIp_ {};
-    // The source IP address to query. If you specify this parameter, the system queries intrusion prevention events that involve this source IP address.
+    // The source IP address to query. If you specify this parameter, the intrusion prevention events that involve this source IP address are queried.
     shared_ptr<string> srcIP_ {};
     // The start time of the query. The value is a UNIX timestamp in seconds.
     // 

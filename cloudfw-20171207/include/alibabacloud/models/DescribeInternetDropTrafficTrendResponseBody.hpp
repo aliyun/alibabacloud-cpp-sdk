@@ -158,27 +158,27 @@ namespace Models
 
 
     protected:
-      // The number of sessions dropped by access control list (ACL) rules.
+      // The number of corresponding intrusion prevention events.
       shared_ptr<int64_t> aclDrop_ {};
-      // The current time point. The time is in the `YYYY-MM-DD HH:mm:ss` format.
+      // The current time point. The time format is YYYY-MM-DD HH:mm:ss.
       shared_ptr<string> dataTime_ {};
-      // The ratio of dropped sessions to total sessions for this data point.
+      // The list of queried traffic points.
       shared_ptr<string> dropRatio_ {};
-      // The number of dropped sessions for the corresponding data point in the previous cycle.
+      // The value range of the object: **[0,10000\\]**.
       shared_ptr<int64_t> dropRing_ {};
-      // The drop ratio for the corresponding data point in the previous cycle.
+      // The rate of network traffic. Unit: kbit/s.
       shared_ptr<string> dropRingRatio_ {};
-      // The number of dropped sessions.
+      // The number of blocked sessions.
       shared_ptr<int64_t> dropSession_ {};
-      // The number of sessions dropped by the intrusion prevention system (IPS).
+      // The number of queried IP addresses.
       shared_ptr<int64_t> ipsDrop_ {};
-      // The corresponding time point in the previous cycle. The time is in the `YYYY-MM-DD HH:mm:ss` format.
+      // The corresponding time point in the previous period. The time format is YYYY-MM-DD HH:mm:ss.
       shared_ptr<string> ringDataTime_ {};
-      // The timestamp for the corresponding data point in the previous cycle. This value is a Unix timestamp that represents the number of seconds that have elapsed since 00:00:00 UTC on January 1, 1970.
+      // The dynamic packet drop time. The value is a UNIX timestamp in seconds, which indicates the number of seconds that have elapsed since January 1, 1970 (UTC).
       shared_ptr<int64_t> ringTime_ {};
       // The timestamp.
       shared_ptr<int64_t> time_ {};
-      // The total number of sessions.
+      // The total number of requests.
       shared_ptr<int64_t> totalSession_ {};
     };
 
@@ -224,13 +224,13 @@ namespace Models
   protected:
     // The data list.
     shared_ptr<vector<DescribeInternetDropTrafficTrendResponseBody::DataList>> dataList_ {};
-    // The peak number of dropped sessions in the specified period.
+    // The maximum number of dropped sessions in the corresponding period (peak value).
     shared_ptr<int64_t> dropSessionMax_ {};
-    // The average drop ratio for the entire query period, expressed as a percentage.
+    // The traffic multiplication mode. Valid values: - **0**: priority mode. - **1**: load balancing mode.
     shared_ptr<string> ratioAverage_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The average drop ratio from the previous cycle, expressed as a percentage.
+    // The traffic rate. Unit: %.
     shared_ptr<string> ringRatioAverage_ {};
   };
 

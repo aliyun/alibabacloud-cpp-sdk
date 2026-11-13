@@ -53,7 +53,7 @@ namespace Models
     // - **zh** (default): Chinese
     // - **en**: English
     shared_ptr<string> lang_ {};
-    // The source IP address of the requester.
+    // The source IP address of the request.
     shared_ptr<string> sourceIp_ {};
   };
 

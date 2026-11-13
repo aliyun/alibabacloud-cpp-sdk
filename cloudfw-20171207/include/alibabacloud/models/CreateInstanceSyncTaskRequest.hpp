@@ -50,7 +50,7 @@ namespace Models
   protected:
     // The language type.
     shared_ptr<string> lang_ {};
-    // The source IP address of the visitor.
+    // The source IP address of the requester.
     shared_ptr<string> sourceIp_ {};
   };
 

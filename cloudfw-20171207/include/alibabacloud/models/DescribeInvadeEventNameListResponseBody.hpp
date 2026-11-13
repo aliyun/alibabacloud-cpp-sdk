@@ -106,9 +106,9 @@ namespace Models
 
 
   protected:
-    // A list of anomalous activity names.
+    // The list of abnormal event names.
     shared_ptr<vector<DescribeInvadeEventNameListResponseBody::EventNameList>> eventNameList_ {};
-    // A list of vulnerability names.
+    // The list of vulnerability names.
     shared_ptr<vector<string>> nameList_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

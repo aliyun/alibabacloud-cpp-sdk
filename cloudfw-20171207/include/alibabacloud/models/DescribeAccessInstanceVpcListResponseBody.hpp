@@ -85,11 +85,11 @@ namespace Models
 
 
     protected:
-      // Indicates whether the VPC is managed by Cloud Firewall.
+      // Indicates whether the VPC is a firewall-managed VPC.
       shared_ptr<bool> firewallVpc_ {};
-      // The ID of the VPC instance.
+      // The ID of the VPC-connected instance.
       shared_ptr<string> vpcId_ {};
-      // The name of the VPC instance.
+      // The name of the VPC-connected instance.
       shared_ptr<string> vpcName_ {};
     };
 

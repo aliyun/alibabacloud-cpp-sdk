@@ -68,9 +68,9 @@ namespace Models
   protected:
     // The ID of the request.
     shared_ptr<string> requestId_ {};
-    // The number of risk domain names.
+    // The number of risky domain names.
     shared_ptr<int64_t> riskDomainCount_ {};
-    // The number of risk IP addresses.
+    // The number of risky IP addresses.
     shared_ptr<int64_t> riskIpCount_ {};
     // The total number of entries.
     shared_ptr<int64_t> totalCount_ {};

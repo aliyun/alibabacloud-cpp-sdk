@@ -48,9 +48,11 @@ namespace Models
 
 
   protected:
-    // The UID of the member accounts.
+    // The UID of the member account.
     shared_ptr<string> memberUid_ {};
-    // The instance ID of the virtual private cloud (VPC) firewall.
+    // The instance ID of the VPC border firewall.
+    // 
+    // **Note**: This parameter is required. If it is not provided, the API returns ErrorFirewallId (-360133). You can call DescribeVpcFirewallList to obtain a valid instance ID.
     shared_ptr<string> vpcFirewallId_ {};
   };
 

@@ -183,7 +183,7 @@ namespace Models
 
 
     protected:
-      // The end time. The time is a UNIX timestamp accurate to seconds, representing a full hour or a full day.
+      // The end time. The time is a UNIX timestamp accurate to seconds, which represents an exact hour or day.
       shared_ptr<int64_t> endTime_ {};
       // The number of Internet instances.
       shared_ptr<int64_t> internetInstanceCnt_ {};
@@ -192,19 +192,19 @@ namespace Models
       // Indicates whether the fee is reduced. A value of 0 indicates that the fee is not reduced. A value greater than 0 indicates that the fee is reduced. If the fee is reduced, no bill is generated.
       // > This parameter is valid only when you query hourly data.
       shared_ptr<int32_t> isDerated_ {};
-      // The usage duration of Simple Log Service. Unit: TB × h.
+      // The usage duration of Simple Log Service. Unit: TB×h.
       shared_ptr<int64_t> logStorage_ {};
       // The number of NAT instances.
       shared_ptr<int64_t> natInstanceCnt_ {};
       // The NAT traffic. Unit: GB.
       shared_ptr<float> natTraffic_ {};
-      // The usage duration of sensitive data leak detection. Unit: h.
+      // The usage duration of sensitive data leak detection. Unit: hours.
       shared_ptr<int64_t> sdl_ {};
       // The sensitive data detection traffic. Unit: GB.
       shared_ptr<float> sdlTraffic_ {};
-      // The start time. The time is a UNIX timestamp accurate to seconds, representing a full hour or a full day.
+      // The start time. The time is a UNIX timestamp accurate to seconds, which represents an exact hour or day.
       shared_ptr<int64_t> startTime_ {};
-      // The usage duration of threat intelligence. Unit: h.
+      // The usage duration of threat intelligence. Unit: hours.
       shared_ptr<int64_t> threatIntelligence_ {};
       // The number of VPC instances.
       shared_ptr<int64_t> vpcInstanceCnt_ {};

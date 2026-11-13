@@ -94,23 +94,22 @@ namespace Models
 
 
   protected:
-    // The number of the page to return.
+    // The page number.
     shared_ptr<string> currentPage_ {};
-    // The language of the response. Valid values:
+    // The language of the response message. Valid values:
     // 
     // - **zh** (default): Chinese.
-    // 
     // - **en**: English.
     shared_ptr<string> lang_ {};
-    // The Alibaba Cloud account ID of the resource owner.
+    // The Alibaba Cloud account ID to which the resource belongs.
     shared_ptr<int64_t> memberUid_ {};
-    // The number of entries to return on each page.
+    // The number of entries per page.
     shared_ptr<string> pageSize_ {};
     // The public IP address of the instance.
     shared_ptr<string> publicIp_ {};
-    // The ID of the resource.
+    // The resource ID.
     shared_ptr<string> resourceId_ {};
-    // The status of the asset.
+    // The status.
     shared_ptr<string> status_ {};
   };
 

@@ -92,11 +92,11 @@ namespace Models
 
 
     protected:
-      // The comment.
+      // The remark.
       shared_ptr<string> comment_ {};
       // The domain name.
       shared_ptr<string> domainName_ {};
-      // Indicates whether the domain name is one of the malicious domain names. Valid values: 0: Not malicious. 1: Malicious.
+      // Indicates whether the domain name is malicious. Valid values: 0: Not malicious. 1: Malicious.
       shared_ptr<bool> isMalicious_ {};
       // The operation time. The value is a UNIX timestamp accurate to seconds, such as 1672502400.
       shared_ptr<int32_t> operationTime_ {};

@@ -118,8 +118,8 @@ namespace Models
     protected:
       // The address family of the prefix list. Valid values:
       // 
-      // - IPv4.
-      // - IPv6.
+      // - IPv4
+      // - IPv6
       shared_ptr<string> addressFamily_ {};
       // The number of associated resources.
       shared_ptr<int32_t> associationCount_ {};
@@ -154,7 +154,7 @@ namespace Models
 
 
   protected:
-    // An array of prefix lists.
+    // The array of prefix list information.
     shared_ptr<vector<DescribePrefixListsResponseBody::PrefixList>> prefixList_ {};
     // The ID of the request.
     shared_ptr<string> requestId_ {};

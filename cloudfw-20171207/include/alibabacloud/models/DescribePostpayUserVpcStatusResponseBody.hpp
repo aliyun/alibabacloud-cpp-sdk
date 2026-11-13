@@ -65,7 +65,7 @@ namespace Models
     // - **init**: The module is being enabled.
     // - **closed**: The module is disabled.
     shared_ptr<string> status_ {};
-    // The number of days that protection is disabled. This parameter is valid only when the module is enabled.
+    // The number of days when protection was not enabled. This parameter is valid only when the module is enabled.
     shared_ptr<int64_t> unprotectedDate_ {};
   };
 

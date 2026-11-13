@@ -50,7 +50,7 @@ namespace Models
   protected:
     // The ID of the Cloud Firewall instance.
     shared_ptr<string> instanceId_ {};
-    // The language in which messages are received. Valid values:
+    // The language in which you want to receive messages. Valid values:
     // 
     // - **zh** (default): Chinese.
     // - **en**: English.

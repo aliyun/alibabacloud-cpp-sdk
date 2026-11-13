@@ -121,23 +121,23 @@ namespace Models
 
 
   protected:
-    // The total number of public IP addresses exposed to the Internet.
+    // The total number of open public IP addresses.
     shared_ptr<int32_t> internetIpNum_ {};
-    // The total number of ports exposed to the Internet.
+    // The total number of open ports.
     shared_ptr<int32_t> internetPortNum_ {};
-    // The number of risky public IP addresses exposed to the Internet.
+    // The number of risky open public IP addresses.
     shared_ptr<int32_t> internetRiskIpNum_ {};
     // The number of risky ports.
     shared_ptr<int32_t> internetRiskPortNum_ {};
     // The number of risky applications.
     shared_ptr<int32_t> internetRiskServiceNum_ {};
-    // The total number of applications exposed to the Internet.
+    // The total number of open applications.
     shared_ptr<int32_t> internetServiceNum_ {};
-    // The number of public IP addresses of Server Load Balancer (SLB) instances.
+    // The number of SLB public IP addresses.
     shared_ptr<int32_t> internetSlbIpNum_ {};
-    // The number of public ports of SLB instances.
+    // The number of SLB public ports.
     shared_ptr<int32_t> internetSlbIpPortNum_ {};
-    // The number of ports that are not protected by an access control list (ACL).
+    // The number of ports that are not protected by access control lists (ACLs).
     shared_ptr<int32_t> internetUnprotectedPortNum_ {};
     // The ID of the request.
     shared_ptr<string> requestId_ {};

@@ -114,29 +114,27 @@ namespace Models
       shared_ptr<int32_t> appId_ {};
       // The application name.
       shared_ptr<string> appName_ {};
-      // Indicates whether the application is common. Valid values:
+      // Specifies whether the application is common. Valid values:
       // 
-      // - **1**: common
+      // - 1: Common.
       // 
-      // - **0**: not common
+      // - 0: Uncommon.
       // 
-      // -
+      // - Empty (default): All.
       shared_ptr<int32_t> popular_ {};
-      // The protocols supported by the application.
+      // The list of protocol types.
       shared_ptr<vector<string>> protocols_ {};
-      // The risk level. Valid values:
+      // The risk assessment level. Valid values:
       // 
-      // - **1**: Low
-      // 
-      // - **2**: Medium
-      // 
-      // - **3**: High
+      // - **1**: Low-risk.
+      // - **2**: Medium-risk.
+      // - **3**: High-risk.
       shared_ptr<int32_t> riskLevel_ {};
-      // Indicates whether the application supports `FQDN`. Valid values:
+      // Specifies whether **FQDN** is supported. Valid values:
       // 
-      // - **0**: No
+      // - **0**: Not supported.
       // 
-      // - **1**: Yes
+      // - **1**: Supported.
       shared_ptr<int32_t> supportFqdn_ {};
     };
 
@@ -166,11 +164,11 @@ namespace Models
 
 
   protected:
-    // The list of ACL applications.
+    // The list of access control applications.
     shared_ptr<vector<DescribeAclAppsResponseBody::AclApps>> aclApps_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The total count.
+    // The total number of entries.
     shared_ptr<int64_t> totalCount_ {};
   };
 

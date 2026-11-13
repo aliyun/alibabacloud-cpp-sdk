@@ -175,7 +175,7 @@ namespace Models
 
 
     protected:
-      // The inbound bandwidth. Unit: bps.
+      // The inbound bandwidth. Unit: bit/s.
       shared_ptr<int64_t> inBps_ {};
       // The IP address.
       shared_ptr<string> ip_ {};
@@ -183,23 +183,23 @@ namespace Models
       shared_ptr<string> natFirewallId_ {};
       // The name of the NAT firewall.
       shared_ptr<string> natFirewallName_ {};
-      // The ID of the NAT Gateway.
+      // The ID of the NAT gateway.
       shared_ptr<string> natGatewayId_ {};
-      // The name of the NAT Gateway.
+      // The name of the NAT gateway.
       shared_ptr<string> natGatewayName_ {};
       // The number of new connections.
       shared_ptr<string> newConn_ {};
-      // The outbound bandwidth. Unit: bps.
+      // The outbound bandwidth. Unit: bit/s.
       shared_ptr<int64_t> outBps_ {};
       // The region.
       shared_ptr<string> regionNo_ {};
-      // The ID of the asset instance.
+      // The asset instance ID.
       shared_ptr<string> resourceInstanceId_ {};
       // The name of the asset instance.
       shared_ptr<string> resourceInstanceName_ {};
       // The total number of sessions.
       shared_ptr<string> sessionCount_ {};
-      // The total bandwidth. Unit: bps.
+      // The total bandwidth. Unit: bit/s.
       shared_ptr<int64_t> totalBps_ {};
     };
 
@@ -236,13 +236,13 @@ namespace Models
 
 
   protected:
-    // The number of results.
+    // The number of returned results.
     shared_ptr<int64_t> dataCount_ {};
-    // The list of data.
+    // The data list.
     shared_ptr<vector<DescribeNatFirewallTimeTopResponseBody::DataList>> dataList_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // The point in time when the traffic data was collected. This is a UNIX timestamp. Unit: seconds.
+    // The point in time for the traffic. The value is a UNIX timestamp in seconds.
     shared_ptr<string> trafficTime_ {};
   };
 

@@ -66,7 +66,7 @@ namespace Models
 
 
   protected:
-    // The language of the response.
+    // The language in which messages are received.
     shared_ptr<string> lang_ {};
     // The page number.
     // 

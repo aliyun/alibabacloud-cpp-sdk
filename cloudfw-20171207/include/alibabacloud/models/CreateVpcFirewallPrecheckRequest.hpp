@@ -94,7 +94,7 @@ namespace Models
 
 
   protected:
-    // The ID of the Cloud Enterprise Network (CEN) instance.
+    // The CEN instance ID.
     shared_ptr<string> cenId_ {};
     // The language of the request and response. Valid values:
     // 
@@ -102,7 +102,7 @@ namespace Models
     // 
     // - **en**: English.
     shared_ptr<string> lang_ {};
-    // The UID of the member account of Cloud Firewall.
+    // The UID of the Cloud Firewall member account.
     shared_ptr<string> memberUid_ {};
     // The type of the network instance. Valid values:
     // 
@@ -114,9 +114,9 @@ namespace Models
     shared_ptr<string> networkInstanceType_ {};
     // The region.
     shared_ptr<string> region_ {};
-    // The ID of the transit router instance.
+    // The transit router instance ID.
     shared_ptr<string> transitRouterId_ {};
-    // The ID of the VPC instance.
+    // The VPC-connected instance ID.
     shared_ptr<string> vpcId_ {};
   };
 

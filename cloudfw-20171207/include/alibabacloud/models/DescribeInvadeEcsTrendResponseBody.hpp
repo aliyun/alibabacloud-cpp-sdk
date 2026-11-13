@@ -133,7 +133,7 @@ namespace Models
   protected:
     // The data list.
     shared_ptr<vector<DescribeInvadeEcsTrendResponseBody::DataList>> dataList_ {};
-    // The end of the time range. This is a UNIX timestamp. Unit: seconds.
+    // The end time. The value is a UNIX timestamp in seconds.
     shared_ptr<int64_t> endTime_ {};
     // The time interval.
     shared_ptr<int32_t> interval_ {};
@@ -141,7 +141,7 @@ namespace Models
     shared_ptr<int32_t> invadeEcsCount_ {};
     // The ID of the request.
     shared_ptr<string> requestId_ {};
-    // The start of the time range. This is a UNIX timestamp. Unit: seconds.
+    // The start time. The value is a UNIX timestamp in seconds.
     shared_ptr<int64_t> startTime_ {};
   };
 

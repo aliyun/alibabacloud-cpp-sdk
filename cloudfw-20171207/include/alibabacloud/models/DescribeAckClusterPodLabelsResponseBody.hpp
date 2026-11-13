@@ -95,7 +95,7 @@ namespace Models
 
 
   protected:
-    // A list of ACK labels.
+    // The list of ACK tags.
     shared_ptr<vector<DescribeAckClusterPodLabelsResponseBody::AckLabels>> ackLabels_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

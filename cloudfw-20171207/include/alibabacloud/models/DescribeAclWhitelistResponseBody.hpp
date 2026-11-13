@@ -77,13 +77,13 @@ namespace Models
   protected:
     // Indicates whether the whitelist is enabled. Valid values:
     // - **true**: Enabled.
-    // - **false**: Not enabled.
+    // - **false**: Disabled.
     shared_ptr<bool> domainGroupUseDns_ {};
     // Indicates whether domain name DNS is supported in NAT scenarios. Valid values:
     // - **true**: Supported.
     // - **false**: Not supported.
     shared_ptr<bool> natDomainGroupUseDns_ {};
-    // The request ID.
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
     // Indicates whether the message type is supported. Valid values:
     // - **true**: Supported.

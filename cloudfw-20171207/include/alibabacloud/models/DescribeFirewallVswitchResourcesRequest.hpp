@@ -70,13 +70,13 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> firewallType_ {};
-    // The language of the response message.
+    // The language in which messages are received.
     shared_ptr<string> lang_ {};
     // The region.
     // 
     // This parameter is required.
     shared_ptr<string> regionNo_ {};
-    // The ID of the VPC instance.
+    // The VPC instance ID.
     // 
     // This parameter is required.
     shared_ptr<string> vpcId_ {};

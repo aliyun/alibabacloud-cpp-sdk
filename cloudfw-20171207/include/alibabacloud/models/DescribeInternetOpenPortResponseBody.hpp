@@ -275,19 +275,19 @@ namespace Models
       shared_ptr<int64_t> inBytes_ {};
       // The outbound traffic.
       shared_ptr<int64_t> outBytes_ {};
-      // The open port.
+      // The open ports.
       shared_ptr<int32_t> port_ {};
-      // The security threat.
+      // The security risk.
       shared_ptr<string> probRisk_ {};
-      // The description of the security threat.
+      // The description of the security risk.
       shared_ptr<string> probRiskDesc_ {};
       // The protocol.
       shared_ptr<string> protocol_ {};
-      // The number of public IP addresses that have the port open.
+      // The number of open public IP addresses.
       shared_ptr<int32_t> publicIpNum_ {};
       // The risk level.
       shared_ptr<int32_t> riskLevel_ {};
-      // The description of the risk.
+      // The risk description.
       shared_ptr<string> riskReason_ {};
       // The list of applications.
       shared_ptr<vector<string>> serviceNameList_ {};
@@ -295,13 +295,13 @@ namespace Models
       shared_ptr<int32_t> suggestLevel_ {};
       // The total traffic. Unit: bytes.
       shared_ptr<int64_t> totalBytes_ {};
-      // The percentage of traffic in the last 24 hours. Valid values: **1** to **100**.
+      // The traffic proportion. Valid values: **1** to **100**.
       shared_ptr<string> trafficPercent1Day_ {};
-      // The percentage of traffic in the last 30 days.
+      // The traffic proportion over the last 30 days.
       shared_ptr<string> trafficPercent30Day_ {};
-      // The percentage of traffic in the last 7 days.
+      // The traffic proportion over the last 7 days.
       shared_ptr<string> trafficPercent7Day_ {};
-      // The reason why the protocol is not identified when the protocol is detected as Unknown.
+      // The reason why the protocol is not identified when the recognized protocol is Unknown.
       shared_ptr<vector<string>> unknownReason_ {};
     };
 

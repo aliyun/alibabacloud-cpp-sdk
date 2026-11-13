@@ -75,7 +75,7 @@ namespace Models
 
 
   protected:
-    // The UID of the Alibaba Cloud account that owns the resource.
+    // The Alibaba Cloud UID of the resource owner.
     shared_ptr<int64_t> memberUid_ {};
     // The page number.
     shared_ptr<int32_t> pageNo_ {};
@@ -85,7 +85,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> regionNo_ {};
-    // The ID of the VPC instance.
+    // The ID of the VPC-connected instance.
     shared_ptr<string> vpcId_ {};
   };
 

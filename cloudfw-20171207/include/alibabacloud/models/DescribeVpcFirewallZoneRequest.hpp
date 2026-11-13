@@ -100,13 +100,13 @@ namespace Models
     shared_ptr<string> environment_ {};
     // The language type.
     shared_ptr<string> lang_ {};
-    // The UID of the Cloud Firewall member accounts.
+    // The UID of the Cloud Firewall member account.
     shared_ptr<string> memberUid_ {};
     // The region ID.
     shared_ptr<string> regionNo_ {};
-    // The source IP address of the request.
+    // The source IP address of the requester.
     shared_ptr<string> sourceIp_ {};
-    // The transit router instance ID.
+    // The ID of the transit router instance used for forward routing.
     shared_ptr<string> transitRouterId_ {};
   };
 

@@ -57,11 +57,11 @@ namespace Models
 
 
   protected:
-    // The type of the access instance.
+    // The type of the synchronization node.
     shared_ptr<string> accessInstanceType_ {};
-    // The language of the response.
+    // The language type for receiving messages.
     shared_ptr<string> lang_ {};
-    // The region of the access instance.
+    // The region of the synchronization node.
     shared_ptr<string> regionNo_ {};
   };
 

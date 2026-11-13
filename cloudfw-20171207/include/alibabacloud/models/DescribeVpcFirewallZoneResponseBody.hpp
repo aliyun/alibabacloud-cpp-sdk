@@ -60,12 +60,9 @@ namespace Models
 
 
   protected:
-    // The deployment mode of the virtual private cloud (VPC) firewall service. Valid values:
-    // 
-    // - **PrimaryStandby**: active/standby mode.
-    // - **MultiPrimary**: active-active mode.
+    // The deployment mode of the VPC firewall service. Valid values: **PrimaryStandby** (primary/secondary mode) and **MultiPrimary** (active-active mode).
     shared_ptr<string> firewallServiceMode_ {};
-    // The request ID.
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
     // The list of zones.
     shared_ptr<vector<vector<DescribeVpcFirewallZoneResponseBody::ZoneList>>> zoneList_ {};

@@ -50,7 +50,7 @@ namespace Models
   protected:
     // The ID of the request.
     shared_ptr<string> requestId_ {};
-    // The border instance ID of the virtual private cloud (VPC) firewalls.
+    // The instance ID of the VPC firewall.
     shared_ptr<string> vpcFirewallId_ {};
   };
 

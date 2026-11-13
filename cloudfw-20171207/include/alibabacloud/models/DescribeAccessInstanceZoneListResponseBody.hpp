@@ -72,7 +72,7 @@ namespace Models
 
 
     protected:
-      // The name of the zone in the local language.
+      // The local name of the zone.
       shared_ptr<string> localName_ {};
       // The zone ID.
       shared_ptr<string> zoneId_ {};

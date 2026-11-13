@@ -52,7 +52,7 @@ namespace Models
     shared_ptr<string> lang_ {};
     // The ID of the Internet NAT gateway instance to be associated. This parameter is required. If this parameter is not specified, the ErrorParamsNotEnough error (HTTP 400, Parameters are insufficient.) is returned.
     // 
-    // > The backend does not verify the ID format. Instead, it queries the instance in the private network asset table of Cloud Firewall under the current account. If the instance is not found, the ErrorParamsInvalid error (HTTP 400, Invalid Params) is returned. Common causes include: the resource type is not a NAT gateway, the resource is not managed by Cloud Firewall, or the asynchronous asset synchronization for a newly created NAT gateway is not completed.
+    // > The backend does not verify the ID format. Instead, it queries the instance in the private network asset table of Cloud Firewall based on the current account. If the instance is not found, the ErrorParamsInvalid error (HTTP 400, Invalid Params) is returned. Common causes include: the resource type is not a NAT gateway, the resource is not managed by Cloud Firewall, or the asynchronous asset synchronization for a newly created NAT gateway is not completed.
     shared_ptr<string> resourceId_ {};
   };
 

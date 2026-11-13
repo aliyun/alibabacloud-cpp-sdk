@@ -75,15 +75,15 @@ namespace Models
 
 
   protected:
-    // The number of packets blocked by access control list (ACL) policies.
+    // The number of blocks by ACL policies.
     shared_ptr<int64_t> aclDropCnt_ {};
-    // The number of packets blocked by the intrusion prevention system (IPS).
+    // The number of IPS protections.
     shared_ptr<int64_t> ipsDropCnt_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The total number of blocked packets.
+    // The total number of protections.
     shared_ptr<int64_t> totalDropCnt_ {};
-    // The number of packets blocked by the vulnerability prevention feature.
+    // The number of Vulnerability Prevention blocks.
     shared_ptr<int64_t> vulnDropCnt_ {};
   };
 

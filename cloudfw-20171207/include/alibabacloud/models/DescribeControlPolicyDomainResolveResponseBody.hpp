@@ -92,7 +92,7 @@ namespace Models
     protected:
       // The domain name.
       shared_ptr<string> domain_ {};
-      // The list of IP addresses.
+      // The IP address list.
       shared_ptr<vector<string>> ipAddrList_ {};
       // The supported IP address version.
       shared_ptr<int32_t> ipVersion_ {};
@@ -119,7 +119,7 @@ namespace Models
 
 
   protected:
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
     // The domain name resolution results.
     shared_ptr<vector<DescribeControlPolicyDomainResolveResponseBody::ResolveResult>> resolveResult_ {};

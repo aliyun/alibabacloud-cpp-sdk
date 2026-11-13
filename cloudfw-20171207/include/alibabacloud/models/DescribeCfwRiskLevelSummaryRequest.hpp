@@ -61,7 +61,6 @@ namespace Models
     // - **ecs**
     shared_ptr<string> instanceType_ {};
     // The language in which messages are received. Valid values:
-    // 
     // - **zh** (default): Chinese
     // - **en**: English
     shared_ptr<string> lang_ {};

@@ -144,7 +144,7 @@ namespace Models
 
 
         protected:
-          // The information about the failed precheck item.
+          // The information about the check failure.
           shared_ptr<string> info_ {};
           // The name of the precheck item.
           shared_ptr<string> name_ {};
@@ -152,11 +152,11 @@ namespace Models
           // 
           // - **running**: The precheck is in progress.
           // 
-          // - **passed**: The precheck is passed.
+          // - **passed**: The precheck passed.
           // 
           // - **failed**: The precheck failed.
           shared_ptr<string> status_ {};
-          // The suggested solution.
+          // The recommended solution.
           shared_ptr<string> suggestion_ {};
         };
 
@@ -199,7 +199,7 @@ namespace Models
         shared_ptr<string> name_ {};
         // The execution status of each precheck item.
         shared_ptr<vector<PrecheckEntityGroups::PrecheckEntities>> precheckEntities_ {};
-        // The status of the precheck. Valid values:
+        // The status of the precheck entity group. Valid values:
         // 
         // - **running**
         // 
@@ -256,17 +256,17 @@ namespace Models
 
 
     protected:
-      // The ID of the firewall instance.
+      // The firewall instance ID.
       shared_ptr<string> firewallId_ {};
-      // The ID of the network instance.
+      // The network instance ID.
       shared_ptr<string> networkInstanceId_ {};
-      // The list of precheck item groups.
+      // The list of precheck entity groups.
       shared_ptr<vector<PrecheckDetail::PrecheckEntityGroups>> precheckEntityGroups_ {};
-      // The status of the precheck. Valid values:
+      // The precheck status. Valid values:
       // 
       // - **running**: The precheck is in progress.
       // 
-      // - **passed**: The precheck is passed.
+      // - **passed**: The precheck passed.
       // 
       // - **failed**: The precheck failed.
       shared_ptr<string> precheckStatus_ {};
@@ -302,7 +302,7 @@ namespace Models
 
 
   protected:
-    // Indicates whether a task exists.
+    // Indicates whether the task exists.
     shared_ptr<bool> isFound_ {};
     // The details of the precheck.
     shared_ptr<DescribeNatFirewallPrecheckDetailResponseBody::PrecheckDetail> precheckDetail_ {};

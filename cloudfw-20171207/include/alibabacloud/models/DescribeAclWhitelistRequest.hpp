@@ -48,12 +48,12 @@ namespace Models
 
 
   protected:
-    // The language of the messages to receive. Valid values:
+    // The language of the response message. Valid values:
     // 
     // - **zh** (default): Chinese
     // - **en**: English
     shared_ptr<string> lang_ {};
-    // The source IP address of the visitor.
+    // The source IP address of the caller.
     shared_ptr<string> sourceIp_ {};
   };
 

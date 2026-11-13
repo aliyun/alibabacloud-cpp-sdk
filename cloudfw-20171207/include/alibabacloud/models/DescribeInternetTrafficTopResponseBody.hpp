@@ -114,11 +114,11 @@ namespace Models
     protected:
       // The country name.
       shared_ptr<string> dataName_ {};
-      // The inbound percentage.
+      // The inbound traffic percentage.
       shared_ptr<string> dataValue_ {};
       // Indicates whether the item is subscribed.
       shared_ptr<bool> isSubscribed_ {};
-      // The label list.
+      // The list of labels.
       shared_ptr<vector<string>> labelList_ {};
       // The number of sessions.
       shared_ptr<int64_t> sessionCount_ {};
@@ -161,11 +161,11 @@ namespace Models
   protected:
     // The number of traffic data records.
     shared_ptr<int32_t> dataCount_ {};
-    // The traffic data list.
+    // The list of traffic data.
     shared_ptr<vector<DescribeInternetTrafficTopResponseBody::DataList>> dataList_ {};
     // The traffic data type.
     shared_ptr<string> dataType_ {};
-    // The request ID.
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
   };
 

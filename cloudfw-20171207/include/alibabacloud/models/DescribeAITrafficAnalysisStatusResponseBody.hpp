@@ -52,9 +52,8 @@ namespace Models
     shared_ptr<string> requestId_ {};
     // The enabling status. Valid values:
     // 
-    // - **open**
-    // 
-    // - **close**
+    // - **open**: Enabled.
+    // - **close**: Disabled.
     shared_ptr<string> status_ {};
   };
 

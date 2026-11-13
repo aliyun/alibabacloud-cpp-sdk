@@ -176,14 +176,14 @@ namespace Models
     // - **TCP**
     // - **UDP**
     shared_ptr<string> ipProtocol_ {};
-    // The UID of Alibaba Cloud member accounts.
+    // The UID of the Alibaba Cloud member accounts.
     shared_ptr<int64_t> memberUid_ {};
     // The port number.
     shared_ptr<int32_t> port_ {};
     // The primary DNS server.
     // > If PrivateDnsType is set to Custom, you must provide PrimaryDns and StandbyDns.
     shared_ptr<string> primaryDns_ {};
-    // The ID of the primary vSwitch. This parameter is required. If this parameter is not specified, -200103 is returned. The region and zone of the primary and secondary vSwitches specified by PrimaryVSwitchId and StandbyVSwitchId must support private DNS firewalls.
+    // The ID of the primary vSwitch. This parameter is required. If this parameter is not specified, the error code -200103 is returned. The region and zone of the primary and secondary vSwitches specified by PrimaryVSwitchId and StandbyVSwitchId must support private DNS firewalls.
     shared_ptr<string> primaryVSwitchId_ {};
     // The IP address of the primary vSwitch.
     shared_ptr<string> primaryVSwitchIp_ {};
@@ -201,7 +201,7 @@ namespace Models
     // 
     // > If PrivateDnsType is set to Custom, you must provide PrimaryDns and StandbyDns.
     shared_ptr<string> standbyDns_ {};
-    // The ID of the secondary vSwitch. The zones of the primary and secondary vSwitches specified by PrimaryVSwitchId and StandbyVSwitchId must support private DNS. Otherwise, -200534 is returned. The region must also be in the support list.
+    // The ID of the secondary vSwitch. The zones of the primary and secondary vSwitches specified by PrimaryVSwitchId and StandbyVSwitchId must support private DNS. Otherwise, the error code -200534 is returned. The region must also be in the supported list.
     shared_ptr<string> standbyVSwitchId_ {};
     // The IP address of the secondary vSwitch.
     shared_ptr<string> standbyVSwitchIp_ {};

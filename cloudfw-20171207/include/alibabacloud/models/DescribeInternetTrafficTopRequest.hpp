@@ -146,7 +146,7 @@ namespace Models
     shared_ptr<string> dataType_ {};
     // The traffic direction.
     shared_ptr<string> direction_ {};
-    // The end time. Specify a UNIX timestamp in seconds.
+    // The end time. Use a UNIX timestamp in seconds.
     // 
     // This parameter is required.
     shared_ptr<string> endTime_ {};
@@ -154,13 +154,13 @@ namespace Models
     shared_ptr<string> lang_ {};
     // The maximum number of top entries. Default value: 50. Valid values: 1 to 50.
     shared_ptr<string> limit_ {};
-    // The rule protection result.
+    // The rule defense result.
     shared_ptr<string> ruleResult_ {};
     // The rule source.
     shared_ptr<string> ruleSource_ {};
-    // Specifies whether to display country names.
+    // Specifies whether to display the country name.
     shared_ptr<string> showCountryName_ {};
-    // The sort method.
+    // The sort order.
     shared_ptr<string> sort_ {};
     // The tracing code.
     // 
@@ -168,7 +168,7 @@ namespace Models
     shared_ptr<string> sourceCode_ {};
     // The source IP address.
     shared_ptr<string> sourceIp_ {};
-    // The start time. Specify a UNIX timestamp in seconds.
+    // The start time. Use a UNIX timestamp in seconds.
     // 
     // This parameter is required.
     shared_ptr<string> startTime_ {};

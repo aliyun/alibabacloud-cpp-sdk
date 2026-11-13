@@ -66,10 +66,10 @@ namespace Models
 
 
   protected:
-    // The language of the content within the response. Valid values:
+    // The language of the response message. Valid values:
     // 
     // - **zh** (default): Chinese
-    // - **en**: English.
+    // - **en**: English
     shared_ptr<string> lang_ {};
     // The ID of the NAT gateway.
     // 

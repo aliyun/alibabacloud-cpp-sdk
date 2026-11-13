@@ -61,9 +61,7 @@ namespace Models
     shared_ptr<int32_t> httpStatusCode_ {};
     // The ID of the request.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request is successful. Valid values:
-    // - true: The request is successful.
-    // - false: The request failed.
+    // Indicates whether the request is successful.
     shared_ptr<bool> success_ {};
   };
 

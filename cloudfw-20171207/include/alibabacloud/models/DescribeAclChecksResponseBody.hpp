@@ -154,9 +154,9 @@ namespace Models
         shared_ptr<string> checkName_ {};
         // The status of the ACL check item.
         shared_ptr<string> checkStatus_ {};
-        // The type of ACL check.
+        // The ACL check type.
         shared_ptr<string> checkType_ {};
-        // The UNIX timestamp of the last check, in seconds.
+        // The timestamp of the latest check. Unit: seconds.
         shared_ptr<string> lastCheckTime_ {};
         // The risk level.
         shared_ptr<string> level_ {};
@@ -183,7 +183,7 @@ namespace Models
 
 
     protected:
-      // The type of ACL check.
+      // The ACL check type.
       shared_ptr<string> aclType_ {};
       // The list of ACL check records.
       shared_ptr<vector<CheckRecords::Records>> records_ {};

@@ -221,7 +221,7 @@ namespace Models
 
 
     protected:
-      // The public IP address.
+      // The IP address.
       shared_ptr<string> IP_ {};
       // The inbound bandwidth. Unit: bit/s.
       shared_ptr<int64_t> inBps_ {};
@@ -235,7 +235,7 @@ namespace Models
       shared_ptr<string> natIP_ {};
       // The number of new connections.
       shared_ptr<int64_t> newConn_ {};
-      // The outbound traffic. Unit: bit/s.
+      // The outbound bandwidth. Unit: bit/s.
       shared_ptr<int64_t> outBps_ {};
       // The outbound packet forwarding rate. Unit: pps.
       shared_ptr<int64_t> outPps_ {};
@@ -243,9 +243,9 @@ namespace Models
       shared_ptr<string> privateIP_ {};
       // The region ID.
       shared_ptr<string> regionNo_ {};
-      // The ID of the asset instance.
+      // The instance ID of the resource.
       shared_ptr<string> resourceInstanceId_ {};
-      // The name of the asset.
+      // The name of the asset instance.
       shared_ptr<string> resourceInstanceName_ {};
       // The type of the public IP address.
       shared_ptr<string> resourceType_ {};
@@ -255,7 +255,7 @@ namespace Models
       shared_ptr<int64_t> totalBps_ {};
       // The total number of packets.
       shared_ptr<int64_t> totalPps_ {};
-      // The ID of the virtual private cloud (VPC) instance.
+      // The instance ID of the VPC-connected instance.
       shared_ptr<string> vpcId_ {};
     };
 
@@ -292,13 +292,13 @@ namespace Models
 
 
   protected:
-    // The number of entries returned.
+    // The number of returned entries.
     shared_ptr<int32_t> dataCount_ {};
-    // The list of data entries.
+    // The returned data list.
     shared_ptr<vector<DescribeInternetTimeTopResponseBody::DataList>> dataList_ {};
-    // The request ID.
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
-    // The timestamp of the traffic data. Unit: seconds.
+    // The traffic time. The value is a UNIX timestamp in seconds.
     shared_ptr<int32_t> trafficTime_ {};
   };
 

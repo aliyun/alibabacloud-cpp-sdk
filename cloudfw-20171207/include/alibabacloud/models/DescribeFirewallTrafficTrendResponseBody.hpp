@@ -92,13 +92,13 @@ namespace Models
 
 
     protected:
-      // The Internet firewall traffic at the time of peak total traffic.
+      // The traffic of the Internet firewall at the time when the total traffic peaks.
       shared_ptr<int64_t> internetBps_ {};
-      // The NAT firewall traffic at the time of peak total traffic.
+      // The traffic of the NAT firewall at the time when the total traffic peaks.
       shared_ptr<int64_t> natBps_ {};
       // The peak total traffic.
       shared_ptr<int64_t> totalBps_ {};
-      // The VPC firewall traffic at the time of peak total traffic.
+      // The traffic of the VPC firewall at the time when the total traffic peaks.
       shared_ptr<int64_t> vpcBps_ {};
     };
 
@@ -167,17 +167,17 @@ namespace Models
 
 
     protected:
-      // The Internet firewall traffic.
+      // The traffic of the Internet firewall.
       shared_ptr<int64_t> internetBps_ {};
-      // The NAT firewall traffic.
+      // The traffic of the NAT firewall.
       shared_ptr<int64_t> natBps_ {};
-      // The time when the traffic occurred. The value is a UNIX timestamp in seconds.
+      // The time when the traffic is generated. The value is a UNIX timestamp in seconds.
       // 
-      // If the data at this point in time has not been processed, the values of other fields are -1.
+      // If the data for this time point is not processed, the values of other fields are -1.
       shared_ptr<int64_t> time_ {};
-      // The total firewall traffic.
+      // The total traffic of the firewall.
       shared_ptr<int64_t> totalBps_ {};
-      // The VPC firewall traffic.
+      // The traffic of the VPC firewall.
       shared_ptr<int64_t> vpcBps_ {};
     };
 
@@ -216,11 +216,11 @@ namespace Models
 
 
   protected:
-    // The returned data list.
+    // The list of returned data.
     shared_ptr<vector<DescribeFirewallTrafficTrendResponseBody::DataList>> dataList_ {};
-    // The timestamp when the peak total traffic occurred. The value is a UNIX timestamp in seconds.
+    // The timestamp when the total traffic peaks. The value is a UNIX timestamp in seconds.
     shared_ptr<int64_t> maxBandwidthTime_ {};
-    // The traffic distribution at the time of peak total traffic.
+    // The traffic distribution at the time when the total traffic peaks.
     shared_ptr<DescribeFirewallTrafficTrendResponseBody::MaxBandwidthTimeBps> maxBandwidthTimeBps_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

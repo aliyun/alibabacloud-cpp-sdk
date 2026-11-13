@@ -227,8 +227,8 @@ namespace Models
     protected:
       // The access point IP address used by the ACK cluster connector to access the ACK cluster over the internal network.
       shared_ptr<string> ackClientHostIp_ {};
-      // The ID of the ACK cluster. Value sources:
-      // - [DescribeAckClusters](~~DescribeAckClusters~~): Lists ACK clusters.
+      // The ID of the ACK cluster. You can obtain the value from the following API operation:
+      // - [DescribeAckClusters](~~DescribeAckClusters~~): Queries the list of ACK clusters.
       shared_ptr<string> clusterId_ {};
       // The name of the ACK cluster.
       shared_ptr<string> clusterName_ {};
@@ -244,26 +244,26 @@ namespace Models
       shared_ptr<string> createTime_ {};
       // The Alibaba Cloud UID of the account to which the ACK cluster resources belong.
       shared_ptr<string> memberUid_ {};
-      // The primary vSwitch of the ACK cluster connector. Value sources:
-      // - [DescribeAccessInstanceVSwitchList](~~DescribeAccessInstanceVSwitchList~~): Lists the vSwitches of synchronization nodes.
+      // The ID of the primary vSwitch for the ACK cluster connector. You can obtain the value from the following API operation:
+      // - [DescribeAccessInstanceVSwitchList](~~DescribeAccessInstanceVSwitchList~~): Queries the list of vSwitches for synchronization nodes.
       shared_ptr<string> primaryVswitchId_ {};
-      // The IP address of the primary vSwitch of the ACK cluster connector.
+      // The IP address of the primary vSwitch for the ACK cluster connector.
       shared_ptr<string> primaryVswitchIp_ {};
-      // The zone of the primary vSwitch of the ACK cluster connector. Value sources:
-      // - [DescribeAccessInstanceZoneList](~~DescribeAccessInstanceZoneList~~): Lists the zones of the vSwitches for synchronization nodes.
+      // The zone ID of the primary vSwitch for the ACK cluster connector. You can obtain the value from the following API operation:
+      // - [DescribeAccessInstanceZoneList](~~DescribeAccessInstanceZoneList~~): Queries the list of zones for the vSwitches of synchronization nodes.
       shared_ptr<string> primaryVswitchZoneId_ {};
-      // The region ID of the ACK cluster connector. Value sources:
-      // - [DescribeAccessInstanceRegionList](~~DescribeAccessInstanceRegionList~~): Queries the list of regions for synchronization nodes.
+      // The region ID of the ACK cluster connector. You can obtain the value from the following API operation:
+      // - [DescribeAccessInstanceRegionList](~~DescribeAccessInstanceRegionList~~): Queries the regions of synchronization nodes.
       // 
       // > For more information about the regions where Cloud Firewall supports ACK cluster connectors, see [ACK cluster synchronization nodes](https://help.aliyun.com/document_detail/2865120.html).
       shared_ptr<string> regionNo_ {};
-      // The secondary vSwitch of the ACK cluster connector. Value sources:
-      // - [DescribeAccessInstanceVSwitchList](~~DescribeAccessInstanceVSwitchList~~): Lists the vSwitches of synchronization nodes.
+      // The ID of the secondary vSwitch for the ACK cluster connector. You can obtain the value from the following API operation:
+      // - [DescribeAccessInstanceVSwitchList](~~DescribeAccessInstanceVSwitchList~~): Queries the list of vSwitches for synchronization nodes.
       shared_ptr<string> standbyVswitchId_ {};
-      // The IP address of the secondary vSwitch of the ACK cluster connector.
+      // The IP address of the secondary vSwitch for the ACK cluster connector.
       shared_ptr<string> standbyVswitchIp_ {};
-      // The zone of the secondary vSwitch of the ACK cluster connector. Value sources:
-      // - [DescribeAccessInstanceZoneList](~~DescribeAccessInstanceZoneList~~): Lists the zones of the vSwitches for synchronization nodes.
+      // The zone ID of the secondary vSwitch for the ACK cluster connector. You can obtain the value from the following API operation:
+      // - [DescribeAccessInstanceZoneList](~~DescribeAccessInstanceZoneList~~): Queries the list of zones for the vSwitches of synchronization nodes.
       shared_ptr<string> standbyVswitchZoneId_ {};
       // The unique ID of the task that creates the ACK cluster connector.
       shared_ptr<string> taskId_ {};
@@ -292,7 +292,7 @@ namespace Models
 
 
   protected:
-    // The ACK cluster connector response body.
+    // The ACK cluster connector details.
     shared_ptr<CreateAckClusterConnectorResponseBody::AckClusterConnector> ackClusterConnector_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

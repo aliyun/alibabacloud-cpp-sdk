@@ -61,9 +61,9 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> aclUuid_ {};
-    // The language of the request and response. Valid values: **zh** for Chinese and **en** for English.
+    // The language of the request and response. Valid values: - **zh**: Chinese. - **en**: English.
     shared_ptr<string> lang_ {};
-    // The source IP address of the request.
+    // The source IP address.
     shared_ptr<string> sourceIp_ {};
   };
 

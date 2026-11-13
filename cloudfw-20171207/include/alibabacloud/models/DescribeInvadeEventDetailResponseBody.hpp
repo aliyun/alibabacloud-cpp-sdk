@@ -104,7 +104,7 @@ namespace Models
 
 
     protected:
-      // The parameters for the operation.
+      // The operation parameters.
       shared_ptr<string> args_ {};
       // The operation.
       shared_ptr<string> operate_ {};
@@ -148,7 +148,7 @@ namespace Models
 
 
     protected:
-      // The parameters for the operation.
+      // The operation parameters.
       shared_ptr<string> args_ {};
       // The operation.
       shared_ptr<string> operate_ {};
@@ -297,31 +297,31 @@ namespace Models
 
 
   protected:
-    // The instance ID of the asset.
+    // The asset instance ID.
     shared_ptr<string> assetsInstanceId_ {};
-    // The name of the asset.
+    // The asset name.
     shared_ptr<string> assetsInstanceName_ {};
-    // The description of the event.
+    // The event description.
     shared_ptr<string> eventDesc_ {};
-    // The details of the event.
+    // The event details.
     shared_ptr<string> eventDetail_ {};
-    // The key of the event.
+    // The event key.
     shared_ptr<string> eventKey_ {};
-    // The name of the event.
+    // The event name.
     shared_ptr<string> eventName_ {};
-    // The UUID of the threat detection event.
+    // The UUID of the compromise awareness event.
     shared_ptr<string> eventUuid_ {};
-    // The time when the event first occurred. This value is a UNIX timestamp. Unit: seconds.
+    // The time when the event first occurred. The value is a UNIX timestamp accurate to seconds.
     shared_ptr<int32_t> firstTime_ {};
     // Indicates whether the event is ignored.
     shared_ptr<bool> isIgnore_ {};
-    // The time when the event last occurred. This value is a UNIX timestamp. Unit: seconds.
+    // The time when the event last occurred. The value is a UNIX timestamp accurate to seconds.
     shared_ptr<int32_t> lastTime_ {};
     // The list of remediation operations.
     shared_ptr<vector<DescribeInvadeEventDetailResponseBody::OperationList>> operationList_ {};
     // The private IP address.
     shared_ptr<string> privateIP_ {};
-    // The handling status of the event.
+    // The processing status.
     shared_ptr<int32_t> processStatus_ {};
     // The public IP address.
     shared_ptr<string> publicIP_ {};
@@ -331,7 +331,7 @@ namespace Models
     shared_ptr<string> regionNo_ {};
     // The ID of the request.
     shared_ptr<string> requestId_ {};
-    // The risk level of the event.
+    // The risk level.
     shared_ptr<int32_t> riskLevel_ {};
     // The list of unhandled operations.
     shared_ptr<vector<DescribeInvadeEventDetailResponseBody::UnhandleOperationList>> unhandleOperationList_ {};

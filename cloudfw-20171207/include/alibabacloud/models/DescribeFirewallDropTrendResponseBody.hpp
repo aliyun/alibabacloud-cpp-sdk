@@ -105,9 +105,7 @@ namespace Models
       shared_ptr<int64_t> internetDropSession_ {};
       // The number of sessions blocked by the NAT firewall.
       shared_ptr<int64_t> natDropSession_ {};
-      // The time when the traffic occurred. The value is a UNIX timestamp in seconds.
-      // 
-      // If the data at this point in time has not been processed, the values of all other fields are -1.
+      // The time when the traffic occurred. The value is a UNIX timestamp in seconds. If the data for this time point is not processed, the values of other fields are -1.
       shared_ptr<int64_t> time_ {};
       // The total number of sessions blocked by the firewall.
       shared_ptr<int64_t> totalDropSession_ {};
@@ -148,11 +146,11 @@ namespace Models
 
 
   protected:
-    // The returned data list.
+    // The list of returned data.
     shared_ptr<vector<DescribeFirewallDropTrendResponseBody::DataList>> dataList_ {};
-    // The maximum number of total blocked sessions.
+    // The maximum number of blocked sessions.
     shared_ptr<int64_t> maxDropSession_ {};
-    // The time when the maximum number of total blocked sessions occurred. The value is a UNIX timestamp in seconds, such as 1672502400.
+    // The time when the maximum number of blocked sessions occurred. The value is a UNIX timestamp in seconds, such as 1672502400.
     shared_ptr<int64_t> maxDropTime_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

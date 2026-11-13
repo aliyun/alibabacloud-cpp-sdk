@@ -66,7 +66,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> sourceCode_ {};
-    // The source IP address of the request.
+    // The source IP address of the requester.
     shared_ptr<string> sourceIp_ {};
   };
 

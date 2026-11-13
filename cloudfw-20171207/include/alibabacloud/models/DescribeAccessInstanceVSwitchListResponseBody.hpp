@@ -137,9 +137,9 @@ namespace Models
         shared_ptr<int64_t> availableIpAddressCount_ {};
         // The IPv4 CIDR block of the vSwitch.
         shared_ptr<string> cidrBlock_ {};
-        // Indicates whether the vSwitch is in a VPC that is managed by Cloud Firewall.
+        // Indicates whether the VPC is managed by a firewall.
         shared_ptr<bool> firewallVSwitch_ {};
-        // The ID of the vSwitch.
+        // The vSwitch ID.
         shared_ptr<string> vSwitchId_ {};
         // The name of the vSwitch.
         shared_ptr<string> vSwitchName_ {};
@@ -166,7 +166,7 @@ namespace Models
 
 
     protected:
-      // The list of vSwitches.
+      // The vSwitches.
       shared_ptr<vector<Zones::VSwitchList>> vSwitchList_ {};
       // The zone ID.
       shared_ptr<string> zoneId_ {};
@@ -220,7 +220,7 @@ namespace Models
     shared_ptr<string> requestId_ {};
     // The total number of entries.
     shared_ptr<int64_t> totalCount_ {};
-    // The list of zones.
+    // The zones.
     shared_ptr<vector<DescribeAccessInstanceVSwitchListResponseBody::Zones>> zones_ {};
   };
 

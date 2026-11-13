@@ -102,7 +102,7 @@ namespace Models
     protected:
       // The sort order.
       shared_ptr<string> dir_ {};
-      // The sorting key.
+      // The sort field.
       shared_ptr<string> sortKey_ {};
     };
 
@@ -233,37 +233,37 @@ namespace Models
 
 
   protected:
-    // The ID of the asset. Fuzzy search is supported.
+    // The asset ID. Supports fuzzy search.
     shared_ptr<string> assetsInstanceId_ {};
-    // The name of the asset. Fuzzy search is supported.
+    // The asset name. Supports fuzzy search.
     shared_ptr<string> assetsInstanceName_ {};
-    // The type of the asset for an exact match. If you leave this parameter empty, all asset types are queried.
+    // The asset type. Supports exact match. If not specified, all asset types are queried.
     shared_ptr<string> assetsType_ {};
-    // The page number of the returned page.
+    // The current page number.
     shared_ptr<string> currentPage_ {};
-    // The end of the time range to query. The value is a UNIX timestamp. Unit: seconds.
+    // The end time of the query. The value is a UNIX timestamp in seconds.
     shared_ptr<string> endTime_ {};
-    // The language of the content.
+    // The language type.
     shared_ptr<string> lang_ {};
-    // The number of the page to return.
+    // The number of entries per page.
     shared_ptr<string> pageSize_ {};
-    // The port for an exact match. The value must be an integer from 1 to 65535. If you leave this parameter empty, all ports are queried.
+    // The port number. Supports exact match for ports from 1 to 65535. If not specified, all ports are queried.
     shared_ptr<string> port_ {};
-    // The public IP address for an exact match. If you leave this parameter empty, all public IP addresses are queried.
+    // The public IP address. Supports exact match. If not specified, all public IP addresses are queried.
     shared_ptr<string> publicIp_ {};
     // The region ID.
     shared_ptr<string> regionNo_ {};
-    // The risk level. If you leave this parameter empty, all risk levels are queried.
+    // The risk level. If not specified, all risk levels are queried.
     shared_ptr<string> riskLevel_ {};
-    // The name of the application for an exact match. If you leave this parameter empty, all applications are queried.
+    // The application name. Supports exact match. If not specified, all applications are queried.
     shared_ptr<string> serviceName_ {};
-    // The name of the application for a fuzzy match. If you leave this parameter empty, all applications are queried.
+    // The application name. Supports fuzzy match. If not specified, all applications are queried.
     shared_ptr<string> serviceNameFuzzy_ {};
-    // The sorting conditions.
+    // The sort list.
     shared_ptr<vector<DescribeInternetOpenDetailRequest::SortList>> sortList_ {};
-    // The source IP address of the access request.
+    // The source IP address.
     shared_ptr<string> sourceIp_ {};
-    // The start of the time range to query. The value is a UNIX timestamp. Unit: seconds.
+    // The start time of the query. The value is a UNIX timestamp in seconds.
     shared_ptr<string> startTime_ {};
     // The recommended policy level.
     shared_ptr<string> suggestLevel_ {};

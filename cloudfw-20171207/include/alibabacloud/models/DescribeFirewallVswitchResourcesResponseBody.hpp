@@ -118,7 +118,7 @@ namespace Models
 
 
       protected:
-        // The ID of the firewall instance.
+        // The firewall instance ID.
         shared_ptr<string> firewallId_ {};
         // The name of the Cloud Firewall.
         shared_ptr<string> firewallName_ {};
@@ -206,7 +206,7 @@ namespace Models
       shared_ptr<string> availableIpCount_ {};
       // The IPv4 CIDR block.
       shared_ptr<string> cidrBlock_ {};
-      // The details of the event.
+      // The event details.
       shared_ptr<string> detail_ {};
       // The list of firewalls.
       shared_ptr<vector<VswitchList::FirewallList>> firewallList_ {};
@@ -214,9 +214,9 @@ namespace Models
       shared_ptr<string> routeTableId_ {};
       // The type of the route table. Valid values:
       // 
-      // - **Custom**: a custom route table.
+      // - **Custom**: custom route table
       // 
-      // - **System**: a system route table.
+      // - **System**: system route table
       shared_ptr<string> routeTableType_ {};
       // The configuration status.
       shared_ptr<string> status_ {};
@@ -224,7 +224,7 @@ namespace Models
       shared_ptr<string> vswitchId_ {};
       // The name of the vSwitch.
       shared_ptr<string> vswitchName_ {};
-      // The ID of the zone.
+      // The zone ID.
       shared_ptr<string> zoneId_ {};
     };
 

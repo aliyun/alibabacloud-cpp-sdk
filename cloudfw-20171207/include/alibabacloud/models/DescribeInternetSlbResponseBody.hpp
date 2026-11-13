@@ -81,9 +81,9 @@ namespace Models
 
 
     protected:
-      // The page number of the returned page.
+      // The current page number.
       shared_ptr<int32_t> currentPage_ {};
-      // The number of entries returned on the current page.
+      // The number of entries per page.
       shared_ptr<int32_t> pageSize_ {};
       // The total number of entries.
       shared_ptr<int32_t> totalCount_ {};
@@ -213,7 +213,7 @@ namespace Models
     protected:
       // The access control ID.
       shared_ptr<string> aclId_ {};
-      // The status of access control.
+      // The access control status.
       shared_ptr<string> aclStatus_ {};
       // The access control type.
       shared_ptr<string> aclType_ {};
@@ -263,7 +263,7 @@ namespace Models
 
 
   protected:
-    // The list of data.
+    // The data list.
     shared_ptr<vector<DescribeInternetSlbResponseBody::DataList>> dataList_ {};
     // The pagination information.
     shared_ptr<DescribeInternetSlbResponseBody::PageInfo> pageInfo_ {};

@@ -123,7 +123,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> sourceCode_ {};
-    // The source IP address.
+    // The source IP address of the visitor.
     shared_ptr<string> sourceIp_ {};
   };
 

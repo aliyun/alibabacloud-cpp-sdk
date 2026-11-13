@@ -69,27 +69,24 @@ namespace Models
 
 
   protected:
-    // The list of IP addresses to query. Separate multiple IP addresses with commas (,). You can query up to 20 IP addresses at a time. This parameter is required in practice. If this parameter is not specified, the API returns a 400 error.
+    // The list of IP addresses to query. Separate multiple IP addresses with commas (,). You can query up to 20 IP addresses at a time. This parameter is actually required. If you do not specify this parameter, the API returns a 400 error.
     // 
     // >- IPv4 example: 47.97.XX.XX.
     // >- IPv6 example: 2001:db8:ffff:ffff:ffff:XXXX:ffff.
     shared_ptr<vector<string>> ipAddrList_ {};
-    // The IP version of the assets protected by Cloud Firewall.
-    // 
-    // Valid values:
+    // The IP version of the asset protected by Cloud Firewall. Valid values:
     // 
     // - **4** (default): IPv4
-    // 
     // - **6**: IPv6
     // 
     // This parameter is required.
     shared_ptr<int32_t> ipVersion_ {};
-    // The language type of the response message. Valid values:
+    // The language of the notification. Valid values:
     // 
     // - **zh** (default): Chinese
     // - **en**: English
     shared_ptr<string> lang_ {};
-    // The source IP address of the request.
+    // The source IP address of the requester.
     shared_ptr<string> sourceIp_ {};
   };
 

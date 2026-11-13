@@ -85,32 +85,26 @@ namespace Models
 
   protected:
     // The language of the request and response. Valid values:
-    // 
     // - **zh** (default): Chinese
-    // 
     // - **en**: English
     shared_ptr<string> lang_ {};
     // The type of the list. Valid values:
-    // 
-    // - **1**: user-defined
-    // 
-    // - **2**: address book
+    // - **1**: custom type
+    // - **2**: address book type
     // 
     // This parameter is required.
     shared_ptr<int64_t> listType_ {};
     // The value that corresponds to the list type.
     shared_ptr<string> listValue_ {};
-    // The UID of the member account.
+    // The UID of the member accounts of the current Alibaba Cloud account.
     shared_ptr<int64_t> memberUid_ {};
-    // The instance ID of the VPC firewall.
+    // The instance ID of the virtual private cloud (VPC) firewalls at the border.
     // 
     // This parameter is required.
     shared_ptr<string> vpcFirewallId_ {};
     // The type of the whitelist. Valid values:
-    // 
-    // - **1**: destination
-    // 
-    // - **2**: source
+    // - **1**: destination type
+    // - **2**: source type
     // 
     // This parameter is required.
     shared_ptr<int64_t> whiteType_ {};

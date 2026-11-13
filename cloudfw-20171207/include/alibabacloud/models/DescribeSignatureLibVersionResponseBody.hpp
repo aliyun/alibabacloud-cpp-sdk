@@ -83,7 +83,7 @@ namespace Models
     protected:
       // The type.
       shared_ptr<string> type_ {};
-      // The update time of the signature library version. The value is a UNIX timestamp accurate to seconds.
+      // The update time of the signature library version. The value is a UNIX timestamp in seconds.
       shared_ptr<int64_t> updateTime_ {};
       // The version.
       shared_ptr<string> version_ {};

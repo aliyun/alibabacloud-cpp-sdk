@@ -608,19 +608,20 @@ namespace Models
 
         protected:
           // The action that Cloud Firewall performs on the traffic in the access control policy. Valid values:
+          // 
           // - **accept**: allows the traffic.
           // - **drop**: blocks the traffic.
           // - **log**: monitors the traffic.
           shared_ptr<string> aclAction_ {};
           // The unique ID of the access control policy.
           shared_ptr<string> aclUuid_ {};
-          // The list of addresses in the address book.
+          // The address list information of the address book.
           shared_ptr<vector<string>> addressList_ {};
           // The number of addresses in the address book.
           shared_ptr<int32_t> addressListCount_ {};
-          // The ID of the application for the traffic in the access control policy.
+          // The application ID of the traffic in the access control policy.
           shared_ptr<string> applicationId_ {};
-          // The application type supported by the access control policy. Valid values:
+          // The Protocol Type supported by the access control policy. Valid values:
           // - **FTP**
           // - **HTTP**
           // - **HTTPS**
@@ -637,11 +638,11 @@ namespace Models
           // - **SSL**
           // - **VNC**
           // 
-          // > The valid values of the application type depend on the protocol type specified by Proto. If Proto is set to TCP, ApplicationNameList supports all the preceding application types. If both ApplicationNameList and ApplicationName are specified, ApplicationNameList takes precedence.
+          // > The valid values of this parameter depend on the value of the Proto parameter. If Proto is set to TCP, ApplicationNameList supports all the preceding Protocol Types. If both ApplicationNameList and ApplicationName are specified, ApplicationNameList takes precedence.
           shared_ptr<string> applicationName_ {};
           // The list of application types supported by the access control policy.
           shared_ptr<vector<string>> applicationNameList_ {};
-          // Specifies whether to automatically add the public IP addresses of newly tagged ECS instances to the address book. Newly tagged ECS instances include newly purchased ECS instances with tags configured and ECS instances with modified tags.
+          // Specifies whether to automatically add the public IP addresses of newly matched ECS instances to the address book. Newly matched ECS instances refer to newly purchased ECS instances with tags configured or ECS instances with modified tags.
           shared_ptr<int32_t> autoAddTagEcs_ {};
           // The time when the policy was created. The value is a UNIX timestamp measured in seconds.
           shared_ptr<int64_t> createTime_ {};
@@ -649,135 +650,162 @@ namespace Models
           shared_ptr<string> description_ {};
           // The destination port of the traffic in the access control policy.
           shared_ptr<string> destPort_ {};
-          // The type of the destination port in the access control policy. Valid values:
-          // - **port**: port
-          // - **group**: port address book
+          // The destination port type in the access control policy. Valid values:
+          // - **port**: port.
+          // - **group**: port address book.
           shared_ptr<string> destPortGroup_ {};
           // The list of ports in the destination port address book.
           shared_ptr<vector<string>> destPortGroupPorts_ {};
-          // The type of the destination port in the access control policy. Valid values:
-          // - **port**: port
-          // - **group**: port address book
+          // The destination port type in the access control policy. Valid values:
+          // - **port**: port.
+          // - **group**: port address book.
           shared_ptr<string> destPortType_ {};
-          // The destination address in the access control policy. Fuzzy match is supported. The value of this parameter varies based on the destination type (DestinationType).
-          // - If DestinationType is set to `net`, the value is a CIDR block. Example: 10.0.3.0/24.
-          // - If DestinationType is set to `domain`, the value is a domain name. Example: aliyun.
-          // - If DestinationType is set to `group`, the value is the name of an address book. Example: db_group.
-          // - If DestinationType is set to `location`, the value is an area name. For more information about the area positional encoding, see AddControlPolicy. Example: ["BJ11", "ZB"].
+          // The destination address in the access control policy. Fuzzy match is supported. The value of this parameter varies based on the destination type.
           // 
-          // > If the Settings for this parameter are not specified, all types of destination addresses are queried.
+          // - If DestinationType is set to `net`, the destination address is a CIDR block. Example: 10.0.3.0/24.
+          // 
+          // - If DestinationType is set to `domain`, the destination address is a domain name. Example: aliyun.
+          // 
+          // - If DestinationType is set to `group`, the destination address is the name of an address book. Example: db_group.
+          // 
+          // - If DestinationType is set to `location`, the destination address is an area name. For more information about specific area positional encoding, see AddControlPolicy. Example: ["BJ11", "ZB"].
+          // 
+          // > If this parameter is not specified, all types of destination addresses are queried.
           shared_ptr<string> destination_ {};
           // The list of CIDR blocks in the destination address book of the access control policy.
           shared_ptr<vector<string>> destinationGroupCidrs_ {};
-          // The type of the destination address book in the access control policy. Valid values:
-          // - **ip**: IP address book that contains one or more CIDR blocks
-          // - **tag**: ECS tag-based address book that contains the IP addresses of one or more ECS tags
-          // - **domain**: domain name address book that contains one or more domain names
-          // - **threat**: threat intelligence address book that contains one or more malicious IP addresses or domain names
-          // - **backsrc**: back-to-origin address book that contains the back-to-origin addresses of one or more Anti-DDoS or WAF instances
+          // The destination address book type in the access control policy. Valid values:
+          // 
+          // - **ip**: IP address book, which contains one or more CIDR blocks.
+          // 
+          // - **tag**: ECS tag-based address book, which contains IP addresses of one or more ECS tags.
+          // 
+          // - **domain**: domain name address book, which contains one or more domain names.
+          // 
+          // - **threat**: threat intelligence address book, which contains one or more malicious IP addresses or domain names.
+          // 
+          // - **backsrc**: back-to-origin address book, which contains back-to-origin IP addresses of one or more Anti-DDoS or WAF instances.
           shared_ptr<string> destinationGroupType_ {};
-          // The type of the destination address in the access control policy. Valid values:
-          // - **net**: destination CIDR block
-          // - **group**: destination address book
-          // - **domain**: destination domain name
+          // The destination address type in the access control policy. Valid values:
+          // 
+          // - **net**: destination CIDR block.
+          // - **group**: destination address book.
+          // - **domain**: destination domain name.
           shared_ptr<string> destinationType_ {};
           // The traffic direction controlled by the access control policy. Valid values:
-          // - **in**: inbound traffic
-          // - **out**: outbound traffic
+          // 
+          // - **in**: Inbound traffic.
+          // - **out**: Outbound traffic.
           shared_ptr<string> direction_ {};
           // The DNS resolution result.
           shared_ptr<string> dnsResult_ {};
           // The timestamp of the DNS resolution. The value is a UNIX timestamp measured in seconds.
           shared_ptr<int64_t> dnsResultTime_ {};
           // The domain name resolution mode of the access control policy. Valid values:
-          // - **FQDN**: FQDN-based resolution
-          // - **DNS**: DNS-based dynamic resolution
-          // - **FQDN_AND_DNS**: FQDN- and DNS-based dynamic resolution
+          // 
+          // * **FQDN**: FQDN-based resolution.
+          // * **DNS**: DNS-based dynamic resolution.
+          // * **FQDN_AND_DNS**: FQDN- and DNS-based dynamic resolution.
           shared_ptr<int32_t> domainResolveType_ {};
           // The end time of the query. The value is a UNIX timestamp measured in seconds.
           shared_ptr<int64_t> endTime_ {};
           // The name of the address book.
           shared_ptr<string> groupName_ {};
           // The type of the address book. Valid values:
-          // - **ip**: IP address book
-          // - **domain**: domain name address book
-          // - **port**: port address book
-          // - **tag**: ECS tag-based address book
-          // - **allCloud**: cloud service address book
-          // - **threat**: threat intelligence address book
+          // 
+          // - **ip**: IP address book.
+          // 
+          // - **domain**: domain name address book.
+          // 
+          // - **port**: port address book.
+          // 
+          // - **tag**: ECS tag-based address book.
+          // 
+          // - **allCloud**: cloud service address book.
+          // 
+          // - **threat**: threat intelligence address book.
           shared_ptr<string> groupType_ {};
           // The unique ID of the address book.
           // 
           // > Value source: [List address books](~~DescribeAddressBook~~).
           shared_ptr<string> groupUuid_ {};
-          // The timestamp of the latest time of hits. The value is in the UNIX timestamp format measured in seconds.
+          // The UNIX timestamp of the last hit. The value is a UNIX timestamp measured in seconds.
           shared_ptr<int64_t> hitLastTime_ {};
-          // The number of hits of the access control policy.
+          // The number of hits for the access control policy.
           shared_ptr<int64_t> hitTimes_ {};
           // The IP version of the asset protected by Cloud Firewall. Valid values:
-          // - **4**: IPv4 (default).
+          // 
+          // - **4**: IPv4. This is the default value.
           // - **6**: IPv6.
           shared_ptr<int32_t> ipVersion_ {};
           // The time when the policy was last modified. The value is a UNIX timestamp measured in seconds.
           shared_ptr<int64_t> modifyTime_ {};
           // The ID of the NAT gateway.
           shared_ptr<string> natGatewayId_ {};
-          // The priority of the access control policy.
-          // The priority starts from 1 and increases in ascending order. A smaller priority number indicates a higher priority.
+          // The priority of the access control policy. The priority value starts from 1 and increments sequentially. A smaller value indicates a higher priority.
           shared_ptr<int32_t> order_ {};
           // The protocol type of the traffic in the access control policy. Valid values:
+          // 
           // - **TCP**
           // - **UDP**
           // - **ICMP**
-          // - **ANY**: all protocol types
+          // - **ANY**: all protocol types.
           // > If this parameter is not specified, all protocol types are queried.
           shared_ptr<string> proto_ {};
           // The number of times the address book is referenced.
           shared_ptr<int32_t> referenceCount_ {};
-          // The status of the access control policy. By default, a policy is enabled after it is created. Valid values:
-          // - **true**: The policy is enabled.
-          // - **false**: The policy is disabled.
+          // The enabling status of the access control policy. By default, a policy is enabled after it is created. Valid values:
+          // 
+          // - **true**: The access control policy is enabled.
+          // - **false**: The access control policy is disabled.
           shared_ptr<string> release_ {};
-          // The set of recurrence days for the Policy Validity Period of the access control policy.
+          // The recurrence days of the Policy Validity Period for the access control policy.
           // - If RepeatType is set to `Permanent`, `None`, or `Daily`, RepeatDays is an empty set. Example: [].
           // - If RepeatType is set to `Weekly`, RepeatDays cannot be empty. Example: [0, 6].
-          // > If the Settings for RepeatType are `Weekly`, the values in RepeatDays cannot be duplicate.
+          // > When RepeatType is set to `Weekly`, the values in RepeatDays cannot be duplicate.
           // - If RepeatType is set to `Monthly`, RepeatDays cannot be empty. Example: [1, 31].
-          // > If the Settings for RepeatType are `Monthly`, the values in RepeatDays cannot be duplicate.
+          // > When RepeatType is set to `Monthly`, the values in RepeatDays cannot be duplicate.
           shared_ptr<vector<int64_t>> repeatDays_ {};
-          // The recurrence end time of the policy validity period. The time must be in the 24-hour HH:mm format, such as 23:30. It must be on the hour or half hour, and at least 30 minutes later than the recurrence start time.
+          // The recurrence end time of the policy validity period. The time must be in the HH:mm 24-hour format, such as 23:30. It must be on the hour or half-hour, and at least 30 minutes later than the recurrence start time.
           // > If RepeatType is set to `Permanent` or `None`, RepeatEndTime is empty. If RepeatType is set to `Daily`, `Weekly`, or `Monthly`, RepeatEndTime must be specified.
           shared_ptr<string> repeatEndTime_ {};
-          // The recurrence start time of the policy validity period. The time must be in the 24-hour HH:mm format, such as 08:00. It must be on the hour or half hour, and at least 30 minutes earlier than the recurrence end time.
+          // The recurrence start time of the policy validity period. The time must be in the HH:mm 24-hour format, such as 08:00. It must be on the hour or half-hour, and at least 30 minutes earlier than the recurrence end time.
           // > If RepeatType is set to `Permanent` or `None`, RepeatStartTime is empty. If RepeatType is set to `Daily`, `Weekly`, or `Monthly`, RepeatStartTime must be specified.
           shared_ptr<string> repeatStartTime_ {};
           // The recurrence type of the Policy Validity Period for the access control policy. Valid values:
-          // - **Permanent**: always (default)
-          // - **None**: specified single time
-          // - **Daily**: every day
-          // - **Weekly**: every week
-          // - **Monthly**: every month
+          // - **Permanent**: always. This is the default value.
+          // - **None**: specified single time.
+          // - **Daily**: every day.
+          // - **Weekly**: every week.
+          // - **Monthly**: every month.
           shared_ptr<string> repeatType_ {};
           // The source address in the access control policy. Valid values:
-          // - If **SourceType** is set to `net`, the value is a source CIDR block. Example: 10.2.4.0/24.
-          // - If **SourceType** is set to `group`, the value is the name of a source address book. Example: db_group.
+          // 
+          // - If **SourceType** is set to `net`, the value of Source is a source CIDR block. Example: 10.2.4.0/24.
+          // 
+          // - If **SourceType** is set to `group`, the value of Source is the name of a source address book. Example: db_group.
           shared_ptr<string> source_ {};
           // The list of CIDR blocks in the source address book of the access control policy.
           shared_ptr<vector<string>> sourceGroupCidrs_ {};
-          // The type of the source address book in the access control policy. Valid values:
-          // - **ip**: IP address book that contains one or more CIDR blocks
-          // - **tag**: ECS tag-based address book that contains the IP addresses of one or more ECS tags
-          // - **domain**: domain name address book that contains one or more domain names
-          // - **threat**: threat intelligence address book that contains one or more malicious IP addresses or domain names
-          // - **backsrc**: back-to-origin address book that contains the back-to-origin addresses of one or more Anti-DDoS or WAF instances
+          // The source address book type in the access control policy. Valid values:
+          // 
+          // - **ip**: IP address book, which contains one or more CIDR blocks.
+          // 
+          // - **tag**: ECS tag-based address book, which contains IP addresses of one or more ECS tags.
+          // 
+          // - **domain**: domain name address book, which contains one or more domain names.
+          // 
+          // - **threat**: threat intelligence address book, which contains one or more malicious IP addresses or domain names.
+          // 
+          // - **backsrc**: back-to-origin address book, which contains back-to-origin IP addresses of one or more Anti-DDoS or WAF instances.
           shared_ptr<string> sourceGroupType_ {};
-          // The type of the source address in the access control policy. Valid values:
-          // - **net**: source CIDR block
-          // - **group**: source address book
-          // - **location**: source region
+          // The source address type in the access control policy. Valid values:
+          // 
+          // - **net**: source CIDR block.
+          // - **group**: source address book.
+          // - **location**: source location.
           shared_ptr<string> sourceType_ {};
-          // The number of access control policy quotas consumed. This value is the sum of the quotas consumed by each policy.
-          // The number of quotas consumed by a single policy = Number of source CIDR blocks × Number of destination addresses (number of CIDR blocks, regions, or domain names) × Number of applications × Number of port ranges.
+          // The number of access control policy quotas consumed. This value is the sum of quotas consumed by each policy. The number of quotas consumed by a single policy = Number of source CIDR blocks × Number of destination addresses (CIDR blocks, locations, or domain names) × Number of applications × Number of port ranges.
           shared_ptr<int32_t> spreadCnt_ {};
           // The start time of the query. The value is a UNIX timestamp measured in seconds.
           shared_ptr<int64_t> startTime_ {};
@@ -785,7 +813,7 @@ namespace Models
           shared_ptr<vector<Acl::TagList>> tagList_ {};
           // The relationship between multiple ECS tags.
           shared_ptr<string> tagRelation_ {};
-          // The instance ID of the border virtual private cloud (VPC) firewalls.
+          // The instance ID of the virtual private cloud (VPC) firewalls.
           shared_ptr<string> vpcFirewallId_ {};
         };
 
@@ -888,18 +916,28 @@ namespace Models
       // The list of ACL check results.
       shared_ptr<vector<CheckRecord::Acls>> acls_ {};
       // The name of the ACL check. Valid values:
-      // - **PolicyHitCountZero**: policies with no traffic hits
-      // - **PolicySourceDestinationSame**: Invalid policy with the same source and destination
-      // - **PolicyDuplicate**: Duplicate or redundant policy
-      // - **PolicyConflict**: Policy that conflicts with business
-      // - **DefaultPolicyNotDeny**: default policy that does not use the Deny All whitelist mechanism
-      // - **PolicyPortHighRisk**: policies that allow traffic on high-risk ports
-      // - **PolicyTooLoose**: overly loose control policy
-      // - **AddressBookIpSeparated**: duplicate, overlapping, or scattered IP address books
-      // - **AddressBookPortSeparated**: duplicate, overlapping, or scattered port address books
-      // - **AddressBookDomainValid**: validity check for domain name address books
+      // 
+      // - **PolicyHitCountZero**: Policies with no traffic hits.
+      // 
+      // - **PolicySourceDestinationSame**: Invalid policy with the same source and destination objects.
+      // 
+      // - **PolicyDuplicate**: Duplicate or redundant policy.
+      // 
+      // - **PolicyConflict**: Policy that conflicts with business.
+      // 
+      // - **DefaultPolicyNotDeny**: The default policy does not use the deny-all whitelist mechanism.
+      // 
+      // - **PolicyPortHighRisk**: Risky policies that allow traffic on high-risk ports.
+      // 
+      // - **PolicyTooLoose**: Overly loose control policy.
+      // 
+      // - **AddressBookIpSeparated**: Duplicate, overlapping, or scattered IP address books.
+      // 
+      // - **AddressBookPortSeparated**: Duplicate, overlapping, or scattered port address books.
+      // 
+      // - **AddressBookDomainValid**: Validity check for domain name address books.
       shared_ptr<string> checkName_ {};
-      // The description of the rule.
+      // The rule description.
       shared_ptr<string> description_ {};
       // The timestamp of the last check. The value is a UNIX timestamp measured in seconds.
       shared_ptr<string> lastCheckTime_ {};

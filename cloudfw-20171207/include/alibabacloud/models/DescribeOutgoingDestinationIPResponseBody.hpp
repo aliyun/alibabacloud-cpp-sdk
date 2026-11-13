@@ -166,27 +166,23 @@ namespace Models
 
 
       protected:
-        // The category of the threat intelligence tag. Valid values:
+        // The categorization of the intelligence tags label. Valid values:
         // 
-        // - **Suspicious**
-        // 
-        // - **Malicious**
-        // 
-        // - **Trusted**
+        // - **Suspicious**: Suspicious.
+        // - **Malicious**: Malicious.
+        // - **Trusted**: Trusted.
         shared_ptr<string> classId_ {};
-        // The risk level. Valid values:
+        // The risk assessment level. Valid values:
         // 
-        // - **1**: Low
-        // 
-        // - **2**: Medium
-        // 
-        // - **3**: High
+        // - **1**: Low risk.
+        // - **2**: Medium risk.
+        // - **3**: High risk.
         shared_ptr<int32_t> riskLevel_ {};
-        // The description of the threat intelligence tag.
+        // The description of the intelligence tags label.
         shared_ptr<string> tagDescribe_ {};
-        // The ID of the threat intelligence tag.
+        // The ID of the intelligence tags label.
         shared_ptr<string> tagId_ {};
-        // The name of the threat intelligence tag.
+        // The name of the intelligence label sign.
         shared_ptr<string> tagName_ {};
       };
 
@@ -239,43 +235,28 @@ namespace Models
 
 
       protected:
-        // The application protocol detected for the connection. Valid values:
-        // 
+        // The Protocol Type supported by the access control policy. Valid values:
         // - **FTP**
-        // 
         // - **HTTP**
-        // 
         // - **HTTPS**
-        // 
         // - **Memcache**
-        // 
         // - **MongoDB**
-        // 
         // - **MQTT**
-        // 
         // - **MySQL**
-        // 
         // - **RDP**
-        // 
         // - **Redis**
-        // 
         // - **SMTP**
-        // 
         // - **SMTPS**
-        // 
         // - **SSH**
-        // 
         // - **SSL_No_Cert**
-        // 
         // - **SSL**
-        // 
         // - **VNC**
         // 
-        // >
+        // > The valid values of this parameter depend on the value of the Proto parameter. If Proto is set to TCP, ApplicationNameList supports all the preceding Protocol Types. If both ApplicationNameList and ApplicationName are specified, ApplicationNameList takes precedence.
         shared_ptr<string> applicationName_ {};
-        // The application port.
+        // The port of the application.
         shared_ptr<int32_t> port_ {};
-        // A list of reasons why the application protocol was not identified.
+        // The list of reasons why the protocol is not analyzed when the identified protocol is Unknown.
         shared_ptr<vector<string>> unknownReason_ {};
       };
 
@@ -511,97 +492,92 @@ namespace Models
 
 
     protected:
-      // Indicates whether an access control policy is applied. Valid values:
+      // Specifies whether to overwrite the access control policy. Valid values:
       // 
-      // - **Uncovered**: No policy is applied.
+      // - **Uncovered**: Not covered.
       // 
-      // - **FullCoverage**: A policy is applied.
+      // - **FullCoverage**: Covered.
       shared_ptr<string> aclCoverage_ {};
-      // Details of the ACL recommendation.
+      // The recommendation information for the ACL.
       shared_ptr<string> aclRecommendDetail_ {};
       // The health status of the access control policy. Valid values:
       // 
       // - **Normal**: Healthy.
-      // 
       // - **Abnormal**: Unhealthy.
       shared_ptr<string> aclStatus_ {};
-      // A list of address books that contain this destination IP address.
+      // The address book information.
       shared_ptr<vector<DstIPList::AddressGroupList>> addressGroupList_ {};
       // The list of application ports.
       // 
-      // > This response returns a maximum of 99 application ports. If more than 99 ports exist, only the first 99 are returned.
+      // > The list displays only the first 99 application ports. If the number of outbound application ports exceeds 99, only the first 99 entries are displayed.
       shared_ptr<vector<DstIPList::ApplicationPortList>> applicationPortList_ {};
-      // The total number of assets that initiated outgoing connections to this destination IP.
+      // The total number of assets that initiate outbound connections.
       shared_ptr<int64_t> assetCount_ {};
-      // The threat intelligence category of the destination IP address. Valid values:
+      // The categorization of the intelligence tags label. Valid values:
       // 
-      // - **Suspicious**
-      // 
-      // - **Malicious**
-      // 
-      // - **Trusted**
+      // - **Suspicious**: Suspicious.
+      // - **Malicious**: Malicious.
+      // - **Trusted**: Trusted.
       shared_ptr<string> categoryClassId_ {};
-      // The ID of the service category. Valid values:
+      // The category ID of the product. Valid values:
       // 
-      // - **Aliyun**: The destination is an Alibaba Cloud product.
+      // - **Aliyun**: Alibaba Cloud service.
       // 
-      // - **NotAliyun**: The destination is a non-Alibaba Cloud product.
+      // - **NotAliyun**: Non-Alibaba Cloud service.
       shared_ptr<string> categoryId_ {};
-      // The service category of the destination IP address. Valid values:
+      // The category name of the product. Valid values:
       // 
-      // - **Alibaba Cloud product**
+      // - **Alibaba Cloud service**
       // 
-      // - **non-Alibaba Cloud product**
+      // - **Non-Alibaba Cloud service**
       shared_ptr<string> categoryName_ {};
-      // The destination IP address of the outgoing connection.
+      // The destination IP address of the domain name for outbound connections.
       shared_ptr<string> dstIP_ {};
-      // The name of the rule group.
+      // The name of the group in the rule.
       shared_ptr<string> groupName_ {};
       // Indicates whether an access control rule exists. Valid values:
       // 
-      // - **true**: An access control rule exists.
-      // 
-      // - **false**: No access control rule exists.
+      // - **true**: Yes.
+      // - **false**: No.
       shared_ptr<string> hasAcl_ {};
-      // Indicates whether an ACL is recommended. Valid values:
+      // Indicates whether an ACL recommendation is available. Valid values:
       // 
-      // - **true**: An ACL is recommended.
+      // - **true**: Yes.
       // 
-      // - **false**: No ACL is recommended.
+      // - **false**: No.
       shared_ptr<bool> hasAclRecommend_ {};
-      // The total inbound traffic in bytes.
+      // The inbound traffic. Unit: bytes.
       shared_ptr<int64_t> inBytes_ {};
-      // Indicates whether the destination IP address is added to the allowlist. Valid values:
+      // Indicates whether the IP address is added to the whitelist. Valid values:
+      // - **true**: Added.
       // 
-      // - **true**: The destination IP address is on the allowlist.
-      // 
-      // - **false**: The destination IP address is not on the allowlist.
+      // - **false**: Not added.
       shared_ptr<bool> isMarkNormal_ {};
-      // The geographical location of the destination IP address.
+      // The region name.
       shared_ptr<string> locationName_ {};
-      // The total outbound traffic in bytes.
+      // The outbound traffic. Unit: bytes.
       shared_ptr<int64_t> outBytes_ {};
-      // The total number of private assets that initiated outgoing connections to this destination IP.
+      // The total number of private network assets that initiate outbound connections.
       shared_ptr<int64_t> privateAssetCount_ {};
       // The UUID of the ACL rule.
       shared_ptr<string> ruleId_ {};
       // The name of the ACL rule.
       shared_ptr<string> ruleName_ {};
-      // The reason for the security recommendation.
+      // The security reason.
       shared_ptr<string> securityReason_ {};
-      // The recommended security action for the outgoing connection. Valid values:
+      // The security policy for the domain name for outbound connections. Valid values:
       // 
-      // - **pass**: Allows the connection.
+      // - **pass**: Allow.
       // 
-      // - **alert**: Rejects the connection.
+      // - **alert**: Deny.
       // 
-      // - **drop**: Drops the connection.
+      // - **drop**: Monitor.
       shared_ptr<string> securitySuggest_ {};
       // The number of requests.
       shared_ptr<int64_t> sessionCount_ {};
-      // A list of tags associated with the destination IP.
+      // The list of tags.
       shared_ptr<vector<DstIPList::TagList>> tagList_ {};
-      // The total traffic volume in bytes.
+      // The total traffic. Unit: bytes.
       shared_ptr<string> totalBytes_ {};
     };
 
@@ -631,11 +607,11 @@ namespace Models
 
 
   protected:
-    // A list of destination IP addresses for outgoing connections.
+    // The list of IP addresses for outbound connections.
     shared_ptr<vector<DescribeOutgoingDestinationIPResponseBody::DstIPList>> dstIPList_ {};
-    // The request ID.
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
-    // The total number of outgoing IPs.
+    // The total number of outbound IP addresses.
     shared_ptr<int32_t> totalCount_ {};
   };
 

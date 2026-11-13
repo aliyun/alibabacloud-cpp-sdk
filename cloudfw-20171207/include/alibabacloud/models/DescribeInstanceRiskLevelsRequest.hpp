@@ -121,10 +121,9 @@ namespace Models
   protected:
     // The list of instances.
     shared_ptr<vector<DescribeInstanceRiskLevelsRequest::Instances>> instances_ {};
-    // The language of the response. Valid values:
+    // The language in which messages are received. Valid values:
     // 
     // - **zh** (default): Chinese
-    // 
     // - **en**: English
     shared_ptr<string> lang_ {};
   };

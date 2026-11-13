@@ -160,27 +160,27 @@ namespace Models
 
 
     protected:
-      // The status of private IP tracing.
+      // The private IP tracing status.
       shared_ptr<string> assocInfoStatus_ {};
       // The error message.
       shared_ptr<string> errorMsg_ {};
-      // The Alibaba Cloud account ID of the resource owner.
+      // The Alibaba Cloud account ID to which the resource belongs.
       shared_ptr<int64_t> memberUid_ {};
-      // A list of protected IP addresses.
+      // The list of protected IP addresses.
       shared_ptr<vector<string>> protectedIpList_ {};
-      // The ID of the region.
+      // The region ID.
       shared_ptr<string> regionId_ {};
-      // The ID of the instance.
+      // The instance ID.
       shared_ptr<string> resourceId_ {};
-      // The name of the instance.
+      // The instance name.
       shared_ptr<string> resourceName_ {};
-      // The status of the association.
+      // The status.
       shared_ptr<string> status_ {};
-      // A list of unprotected IP addresses.
+      // The list of unprotected IP addresses.
       shared_ptr<vector<string>> unprotectedIpList_ {};
-      // The ID of the VPC.
+      // The VPC instance ID.
       shared_ptr<string> vpcId_ {};
-      // The name of the VPC.
+      // The VPC instance name.
       shared_ptr<string> vpcName_ {};
     };
 
@@ -217,13 +217,13 @@ namespace Models
 
 
   protected:
-    // A list of details about private IP tracing for the intrusion prevention system (IPS).
+    // The IPS private IP tracing list.
     shared_ptr<vector<DescribeIpsPrivateAssocResponseBody::IpsPrivateAssoc>> ipsPrivateAssoc_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // The total number of entries returned.
+    // The total number of returned entries.
     shared_ptr<int64_t> totalCount_ {};
-    // The total number of assets that have private IP tracing for the IPS enabled.
+    // The total number of instances for which IPS private IP tracing is enabled.
     shared_ptr<int64_t> totalOpenCount_ {};
   };
 

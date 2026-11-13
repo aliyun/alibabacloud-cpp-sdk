@@ -50,7 +50,7 @@ namespace Models
   protected:
     // The unique ID of the access control policy.
     shared_ptr<string> aclUuid_ {};
-    // The request ID.
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
   };
 

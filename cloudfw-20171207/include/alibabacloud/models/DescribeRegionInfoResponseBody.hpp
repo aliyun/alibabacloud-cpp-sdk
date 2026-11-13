@@ -108,7 +108,7 @@ namespace Models
     shared_ptr<vector<DescribeRegionInfoResponseBody::DataList>> dataList_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The total number of entries returned.
+    // The total count.
     shared_ptr<int32_t> totalCount_ {};
   };
 

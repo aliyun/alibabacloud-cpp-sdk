@@ -93,7 +93,7 @@ namespace Models
       shared_ptr<int64_t> consumedQuota_ {};
       // The total quota.
       shared_ptr<int64_t> totalQuota_ {};
-      // The time when the quota was last updated. This value is a UNIX timestamp. Unit: seconds.
+      // The last update time of the quota. Unit: seconds.
       shared_ptr<string> updateTime_ {};
     };
 

@@ -84,21 +84,21 @@ namespace Models
 
 
   protected:
-    // The traffic direction.
+    // The direction.
     shared_ptr<string> direction_ {};
-    // The end time of the query, specified as a timestamp in seconds.
+    // The end time of the query. The value is a UNIX timestamp in seconds.
     // 
     // This parameter is required.
     shared_ptr<string> endTime_ {};
-    // The language of the response.
+    // The language type.
     shared_ptr<string> lang_ {};
-    // The traceability code.
+    // The tracing code.
     // 
     // This parameter is required.
     shared_ptr<string> sourceCode_ {};
     // The source IP address.
     shared_ptr<string> sourceIp_ {};
-    // The start time, specified as a timestamp in seconds.
+    // The start time. The value is a UNIX timestamp in seconds.
     // 
     // This parameter is required.
     shared_ptr<string> startTime_ {};

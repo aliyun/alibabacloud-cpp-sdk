@@ -48,7 +48,7 @@ namespace Models
 
 
   protected:
-    // The dry run ID.
+    // The precheck ID.
     shared_ptr<string> preCheckId_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

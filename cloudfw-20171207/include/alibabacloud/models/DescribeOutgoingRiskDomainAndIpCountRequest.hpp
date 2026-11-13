@@ -48,9 +48,9 @@ namespace Models
 
 
   protected:
-    // The end of the time range to query. The value is a UNIX timestamp that is accurate to the second.
+    // The end time of the query. Specify the time as a UNIX timestamp in seconds.
     shared_ptr<int64_t> endTime_ {};
-    // The beginning of the time range to query. The value is a UNIX timestamp that is accurate to the second.
+    // The start time of the query. Specify the time as a UNIX timestamp in seconds.
     shared_ptr<int64_t> startTime_ {};
   };
 

@@ -104,9 +104,8 @@ namespace Models
       protected:
         // The IP address of the server.
         shared_ptr<string> ip_ {};
-        // The threat level. Valid value:
-        // 
-        // - **medium**: medium
+        // The risk level. Valid values:
+        // - **medium**: Medium
         shared_ptr<string> level_ {};
         // The type.
         shared_ptr<string> type_ {};
@@ -138,13 +137,12 @@ namespace Models
 
 
     protected:
-      // The list of threats for the ECS instances.
+      // The list of ECS instance risks.
       shared_ptr<vector<InstanceRisks::Details>> details_ {};
       // The ID of the Cloud Firewall instance.
       shared_ptr<string> instanceId_ {};
-      // The threat level. Valid value:
-      // 
-      // - **medium**: medium
+      // The risk level. Valid values:
+      // - **medium**: Medium
       shared_ptr<string> level_ {};
     };
 
@@ -167,7 +165,7 @@ namespace Models
 
 
   protected:
-    // The list of instance threats.
+    // The list of instance risks.
     shared_ptr<vector<DescribeInstanceRiskLevelsResponseBody::InstanceRisks>> instanceRisks_ {};
     // The ID of the request.
     shared_ptr<string> requestId_ {};

@@ -70,13 +70,13 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> currentPage_ {};
-    // The language of the response.
+    // The language type for receiving messages.
     shared_ptr<string> lang_ {};
     // The number of entries per page.
     // 
     // This parameter is required.
     shared_ptr<string> pageSize_ {};
-    // The source IP address of the request.
+    // The source IP address.
     shared_ptr<string> sourceIp_ {};
   };
 
