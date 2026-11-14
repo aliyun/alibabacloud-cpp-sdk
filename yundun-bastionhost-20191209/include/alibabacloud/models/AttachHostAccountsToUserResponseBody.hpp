@@ -106,16 +106,16 @@ namespace Models
 
 
       protected:
-        // The result returned for the operation of authorizing host accounts for the user. Valid values:
+        // The result returned for the operation of granting the user access to host accounts. Valid values:
         // - **OK**: The operation is successful.
         // - **UNEXPECTED**: An unknown error occurred.
         // - **INVALID_ARGUMENT**: A request parameter is invalid.
-        // - **OBJECT_NOT_FOUND**: The object on which the operation is performed does not exist.
-        // - **OBJECT_AlREADY_EXISTS**: The object on which the operation is performed already exists.
+        // - **OBJECT_NOT_FOUND**: The object on which you want to perform the operation does not exist.
+        // - **OBJECT_AlREADY_EXISTS**: The object on which you want to perform the operation already exists.
         shared_ptr<string> code_ {};
         // The ID of the host account.
         shared_ptr<string> hostAccountId_ {};
-        // **[Deprecated]** This parameter is deprecated. You can ignore it.
+        // **[Deprecated]** This parameter is deprecated. You can ignore this parameter.
         shared_ptr<string> message_ {};
       };
 
@@ -164,19 +164,19 @@ namespace Models
       // - **UNEXPECTED**: An unknown error occurred.
       // - **INVALID_ARGUMENT**: A request parameter is invalid.
       // 
-      //     > Check the request parameters, ensure that they are correct, and then call the operation again.
+      //     > Check the request parameters and call the API operation again after you ensure that the parameters are valid.
       // 
-      // - **OBJECT_NOT_FOUND**: The object on which the operation is performed does not exist.
+      // - **OBJECT_NOT_FOUND**: The object on which you want to perform the operation does not exist.
       // 
-      //     > Check whether the ID of the Bastionhost instance exists, whether the host exists, and whether the host ID is correct, and then call the operation again.
+      //     > Check whether the ID of the Bastionhost instance exists, whether the host exists, and whether the host ID is correct, and then call the API operation again.
       // 
-      // - **OBJECT_AlREADY_EXISTS**: The object on which the operation is performed already exists.
+      // - **OBJECT_AlREADY_EXISTS**: The object on which you want to perform the operation already exists.
       shared_ptr<string> code_ {};
-      // The results returned for the operation of authorizing host accounts for the user.
+      // The results returned for the operation of granting the user access to host accounts.
       shared_ptr<vector<Results::HostAccounts>> hostAccounts_ {};
       // The ID of the host.
       shared_ptr<string> hostId_ {};
-      // **[Deprecated]** This parameter is deprecated. You can ignore it.
+      // **[Deprecated]** This parameter is deprecated. You can ignore this parameter.
       shared_ptr<string> message_ {};
       // The ID of the user.
       shared_ptr<string> userId_ {};

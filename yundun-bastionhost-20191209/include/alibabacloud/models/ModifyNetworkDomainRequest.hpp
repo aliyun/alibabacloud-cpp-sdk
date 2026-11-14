@@ -120,7 +120,7 @@ namespace Models
     protected:
       // The new address of the proxy server.
       shared_ptr<string> address_ {};
-      // The type of the proxy server node to be modified. Valid values:
+      // The node type of the proxy server. Valid values:
       // 
       // - **Master**: Primary proxy server.
       // - **Slave**: Secondary proxy server.
@@ -225,7 +225,7 @@ namespace Models
     // The information about the proxy servers in the network domain.
     shared_ptr<vector<ModifyNetworkDomainRequest::Proxies>> proxies_ {};
     // The region ID of the Bastionhost instance to which the network domain to be modified belongs.
-    // > For more information about the mapping between region IDs and region names, see [Regions and zones](https://help.aliyun.com/document_detail/40654.html).
+    // > For the mappings between region IDs and region names, see [Regions and zones](https://help.aliyun.com/document_detail/40654.html).
     shared_ptr<string> regionId_ {};
   };
 

@@ -13,16 +13,20 @@ namespace Models
   class ListOperationTicketsRequest : public Darabonba::Model {
   public:
     friend void to_json(Darabonba::Json& j, const ListOperationTicketsRequest& obj) { 
+      DARABONBA_PTR_TO_JSON(ApprovalStatus, approvalStatus_);
       DARABONBA_PTR_TO_JSON(AssetAddress, assetAddress_);
       DARABONBA_PTR_TO_JSON(InstanceId, instanceId_);
+      DARABONBA_PTR_TO_JSON(OperationTicketId, operationTicketId_);
       DARABONBA_PTR_TO_JSON(PageNumber, pageNumber_);
       DARABONBA_PTR_TO_JSON(PageSize, pageSize_);
       DARABONBA_PTR_TO_JSON(ProjectId, projectId_);
       DARABONBA_PTR_TO_JSON(RegionId, regionId_);
     };
     friend void from_json(const Darabonba::Json& j, ListOperationTicketsRequest& obj) { 
+      DARABONBA_PTR_FROM_JSON(ApprovalStatus, approvalStatus_);
       DARABONBA_PTR_FROM_JSON(AssetAddress, assetAddress_);
       DARABONBA_PTR_FROM_JSON(InstanceId, instanceId_);
+      DARABONBA_PTR_FROM_JSON(OperationTicketId, operationTicketId_);
       DARABONBA_PTR_FROM_JSON(PageNumber, pageNumber_);
       DARABONBA_PTR_FROM_JSON(PageSize, pageSize_);
       DARABONBA_PTR_FROM_JSON(ProjectId, projectId_);
@@ -39,8 +43,16 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { return this->assetAddress_ == nullptr
-        && this->instanceId_ == nullptr && this->pageNumber_ == nullptr && this->pageSize_ == nullptr && this->projectId_ == nullptr && this->regionId_ == nullptr; };
+    virtual bool empty() const override { return this->approvalStatus_ == nullptr
+        && this->assetAddress_ == nullptr && this->instanceId_ == nullptr && this->operationTicketId_ == nullptr && this->pageNumber_ == nullptr && this->pageSize_ == nullptr
+        && this->projectId_ == nullptr && this->regionId_ == nullptr; };
+    // approvalStatus Field Functions 
+    bool hasApprovalStatus() const { return this->approvalStatus_ != nullptr;};
+    void deleteApprovalStatus() { this->approvalStatus_ = nullptr;};
+    inline int32_t getApprovalStatus() const { DARABONBA_PTR_GET_DEFAULT(approvalStatus_, 0) };
+    inline ListOperationTicketsRequest& setApprovalStatus(int32_t approvalStatus) { DARABONBA_PTR_SET_VALUE(approvalStatus_, approvalStatus) };
+
+
     // assetAddress Field Functions 
     bool hasAssetAddress() const { return this->assetAddress_ != nullptr;};
     void deleteAssetAddress() { this->assetAddress_ = nullptr;};
@@ -53,6 +65,13 @@ namespace Models
     void deleteInstanceId() { this->instanceId_ = nullptr;};
     inline string getInstanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
     inline ListOperationTicketsRequest& setInstanceId(string instanceId) { DARABONBA_PTR_SET_VALUE(instanceId_, instanceId) };
+
+
+    // operationTicketId Field Functions 
+    bool hasOperationTicketId() const { return this->operationTicketId_ != nullptr;};
+    void deleteOperationTicketId() { this->operationTicketId_ = nullptr;};
+    inline string getOperationTicketId() const { DARABONBA_PTR_GET_DEFAULT(operationTicketId_, "") };
+    inline ListOperationTicketsRequest& setOperationTicketId(string operationTicketId) { DARABONBA_PTR_SET_VALUE(operationTicketId_, operationTicketId) };
 
 
     // pageNumber Field Functions 
@@ -84,6 +103,10 @@ namespace Models
 
 
   protected:
+    // The approval status. Valid values:
+    // - 1: Pending approval.
+    // - 2: Processed.
+    shared_ptr<int32_t> approvalStatus_ {};
     // The address of the O&M asset for exact search.
     shared_ptr<string> assetAddress_ {};
     // The instance ID of the Bastionhost instance.
@@ -91,16 +114,18 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
-    // The page number of the page to return in a paged query. Default value: **1**.
+    // The ID of the O&M ticket.
+    shared_ptr<string> operationTicketId_ {};
+    // The page number for a paged query. Default value: **1**.
     shared_ptr<string> pageNumber_ {};
     // The maximum number of entries to return on each page in a paged query.  
-    // The maximum value of the PageSize parameter is 1000. The default value is 20. If this parameter is left empty, 20 entries are returned by default.
+    // The maximum value of the PageSize parameter is 1000. Default value: 20. If the PageSize parameter is left empty, 20 entries are returned by default.
     // > We recommend that you specify a value for the PageSize parameter.
     shared_ptr<string> pageSize_ {};
     // The project ID.
     shared_ptr<int64_t> projectId_ {};
     // The region ID of the Bastionhost instance.
-    // > For more information about the mapping between region IDs and region names, see [Regions and zones](https://help.aliyun.com/document_detail/40654.html).
+    // > For the mappings between region IDs and region names, see [Regions and zones](https://help.aliyun.com/document_detail/40654.html).
     shared_ptr<string> regionId_ {};
   };
 

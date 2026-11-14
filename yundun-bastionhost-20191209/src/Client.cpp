@@ -2,11 +2,13 @@
 #include <alibabacloud/YundunBastionhost20191209.hpp>
 #include <alibabacloud/Utils.hpp>
 #include <alibabacloud/Openapi.hpp>
+#include <alibabacloud/gateway/POP.hpp>
 #include <map>
 #include <darabonba/Runtime.hpp>
 using namespace std;
 using namespace Darabonba;
 using json = nlohmann::json;
+using namespace AlibabaCloud::Gateway;
 using namespace AlibabaCloud::OpenApi;
 using OpenApiClient = AlibabaCloud::OpenApi::Client;
 using namespace AlibabaCloud::OpenApi::Utils::Models;
@@ -17,6 +19,9 @@ namespace YundunBastionhost20191209
 {
 
 AlibabaCloud::YundunBastionhost20191209::Client::Client(Config &config): OpenApiClient(config){
+  this->_productId = "Yundun-bastionhost";
+  shared_ptr<POP> gatewayClient = make_shared<POP>();
+  this->_spi = gatewayClient;
   this->_endpointRule = "regional";
   this->_endpointMap = json({
     {"cn-qingdao" , "yundun-bastionhost.aliyuncs.com"},
@@ -700,7 +705,7 @@ AttachHostAccountsToHostShareKeyResponse Client::attachHostAccountsToHostShareKe
 }
 
 /**
- * @summary Authorizes assets for a user. After the authorization, the user can use Bastionhost to perform O&M operations on the authorized assets.
+ * @summary Grants a user access to assets. After the authorization, the user can use Bastionhost to perform O&M operations on the authorized assets.
  *
  * @param request AttachHostAccountsToUserRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -743,7 +748,7 @@ AttachHostAccountsToUserResponse Client::attachHostAccountsToUserWithOptions(con
 }
 
 /**
- * @summary Authorizes assets for a user. After the authorization, the user can use Bastionhost to perform O&M operations on the authorized assets.
+ * @summary Grants a user access to assets. After the authorization, the user can use Bastionhost to perform O&M operations on the authorized assets.
  *
  * @param request AttachHostAccountsToUserRequest
  * @return AttachHostAccountsToUserResponse
@@ -978,7 +983,7 @@ AttachMembersToProjectResponse Client::attachMembersToProject(const AttachMember
 }
 
 /**
- * @summary Associates project authorization administrators.
+ * @summary Associates administrators with a project authorization.
  *
  * @param request AttachProjectManagersToProjectAuthorizationRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1021,7 +1026,7 @@ AttachProjectManagersToProjectAuthorizationResponse Client::attachProjectManager
 }
 
 /**
- * @summary Associates project authorization administrators.
+ * @summary Associates administrators with a project authorization.
  *
  * @param request AttachProjectManagersToProjectAuthorizationRequest
  * @return AttachProjectManagersToProjectAuthorizationResponse
@@ -3510,7 +3515,7 @@ DescribeInstanceAttributeResponse Client::describeInstanceAttribute(const Descri
 }
 
 /**
- * @summary Queries the list of instances.
+ * @summary Queries a list of instances.
  *
  * @param request DescribeInstancesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3569,7 +3574,7 @@ DescribeInstancesResponse Client::describeInstancesWithOptions(const DescribeIns
 }
 
 /**
- * @summary Queries the list of instances.
+ * @summary Queries a list of instances.
  *
  * @param request DescribeInstancesRequest
  * @return DescribeInstancesResponse
@@ -3580,7 +3585,7 @@ DescribeInstancesResponse Client::describeInstances(const DescribeInstancesReque
 }
 
 /**
- * @summary Queries the Alibaba Cloud regions that support Bastionhost instances.
+ * @summary Queries the Alibaba Cloud regions supported by Bastionhost instances.
  *
  * @param request DescribeRegionsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3615,7 +3620,7 @@ DescribeRegionsResponse Client::describeRegionsWithOptions(const DescribeRegions
 }
 
 /**
- * @summary Queries the Alibaba Cloud regions that support Bastionhost instances.
+ * @summary Queries the Alibaba Cloud regions supported by Bastionhost instances.
  *
  * @param request DescribeRegionsRequest
  * @return DescribeRegionsResponse
@@ -3850,7 +3855,7 @@ DetachHostAccountsFromUserResponse Client::detachHostAccountsFromUser(const Deta
 }
 
 /**
- * @summary Removes authorized hosts and host accounts from a user group.
+ * @summary Removes the hosts and host accounts authorized for a user group.
  *
  * @param request DetachHostAccountsFromUserGroupRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3897,7 +3902,7 @@ DetachHostAccountsFromUserGroupResponse Client::detachHostAccountsFromUserGroupW
 }
 
 /**
- * @summary Removes authorized hosts and host accounts from a user group.
+ * @summary Removes the hosts and host accounts authorized for a user group.
  *
  * @param request DetachHostAccountsFromUserGroupRequest
  * @return DetachHostAccountsFromUserGroupResponse
@@ -5802,8 +5807,8 @@ ImportKMSSecretsForHostResponse Client::importKMSSecretsForHost(const ImportKMSS
 /**
  * @summary Retrieves the list of commands that require approval.
  *
- * @description This API operation allows administrators to retrieve the list of commands that require approval.
- * The queries per second (QPS) limit for a single user is 10. If the limit is exceeded, API calls are throttled, which may affect your services. Call this operation as needed.
+ * @description This operation allows administrators to retrieve the list of commands that require approval.
+ * The queries per second (QPS) limit for a single user is 10 calls per second. If the limit is exceeded, API calls are throttled, which may affect your services. Call this operation at a reasonable frequency.
  *
  * @param request ListApproveCommandsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -5812,6 +5817,14 @@ ImportKMSSecretsForHostResponse Client::importKMSSecretsForHost(const ImportKMSS
 ListApproveCommandsResponse Client::listApproveCommandsWithOptions(const ListApproveCommandsRequest &request, const Darabonba::RuntimeOptions &runtime) {
   request.validate();
   json query = {};
+  if (!!request.hasApprovalStatus()) {
+    query["ApprovalStatus"] = request.getApprovalStatus();
+  }
+
+  if (!!request.hasApproveCommandId()) {
+    query["ApproveCommandId"] = request.getApproveCommandId();
+  }
+
   if (!!request.hasInstanceId()) {
     query["InstanceId"] = request.getInstanceId();
   }
@@ -5852,8 +5865,8 @@ ListApproveCommandsResponse Client::listApproveCommandsWithOptions(const ListApp
 /**
  * @summary Retrieves the list of commands that require approval.
  *
- * @description This API operation allows administrators to retrieve the list of commands that require approval.
- * The queries per second (QPS) limit for a single user is 10. If the limit is exceeded, API calls are throttled, which may affect your services. Call this operation as needed.
+ * @description This operation allows administrators to retrieve the list of commands that require approval.
+ * The queries per second (QPS) limit for a single user is 10 calls per second. If the limit is exceeded, API calls are throttled, which may affect your services. Call this operation at a reasonable frequency.
  *
  * @param request ListApproveCommandsRequest
  * @return ListApproveCommandsResponse
@@ -7730,10 +7743,10 @@ ListOperationHostsResponse Client::listOperationHosts(const ListOperationHostsRe
 }
 
 /**
- * @summary Retrieves a list of O&M tickets pending approval.
+ * @summary Queries the list of O&M tickets pending approval.
  *
- * @description This API operation allows administrators to retrieve a list of O&M tickets pending approval.
- * The QPS limit for a single user is 10 calls per second. If the limit is exceeded, API calls are throttled, which may affect your services. Make API calls at a reasonable rate.
+ * @description This operation is used by administrators to query the list of O&M tickets pending approval.
+ * The QPS limit for a single user is 10 calls per second. If the limit is exceeded, API calls are throttled, which may affect your business. Make API calls at a reasonable frequency.
  *
  * @param request ListOperationTicketsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -7742,12 +7755,20 @@ ListOperationHostsResponse Client::listOperationHosts(const ListOperationHostsRe
 ListOperationTicketsResponse Client::listOperationTicketsWithOptions(const ListOperationTicketsRequest &request, const Darabonba::RuntimeOptions &runtime) {
   request.validate();
   json query = {};
+  if (!!request.hasApprovalStatus()) {
+    query["ApprovalStatus"] = request.getApprovalStatus();
+  }
+
   if (!!request.hasAssetAddress()) {
     query["AssetAddress"] = request.getAssetAddress();
   }
 
   if (!!request.hasInstanceId()) {
     query["InstanceId"] = request.getInstanceId();
+  }
+
+  if (!!request.hasOperationTicketId()) {
+    query["OperationTicketId"] = request.getOperationTicketId();
   }
 
   if (!!request.hasPageNumber()) {
@@ -7784,10 +7805,10 @@ ListOperationTicketsResponse Client::listOperationTicketsWithOptions(const ListO
 }
 
 /**
- * @summary Retrieves a list of O&M tickets pending approval.
+ * @summary Queries the list of O&M tickets pending approval.
  *
- * @description This API operation allows administrators to retrieve a list of O&M tickets pending approval.
- * The QPS limit for a single user is 10 calls per second. If the limit is exceeded, API calls are throttled, which may affect your services. Make API calls at a reasonable rate.
+ * @description This operation is used by administrators to query the list of O&M tickets pending approval.
+ * The QPS limit for a single user is 10 calls per second. If the limit is exceeded, API calls are throttled, which may affect your business. Make API calls at a reasonable frequency.
  *
  * @param request ListOperationTicketsRequest
  * @return ListOperationTicketsResponse
@@ -9530,7 +9551,7 @@ ModifyHostsPortResponse Client::modifyHostsPort(const ModifyHostsPortRequest &re
 }
 
 /**
- * @summary Moves hosts to a different project in a batch.
+ * @summary Updates the project ownership of multiple hosts.
  *
  * @param request ModifyHostsProjectRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -9577,7 +9598,7 @@ ModifyHostsProjectResponse Client::modifyHostsProjectWithOptions(const ModifyHos
 }
 
 /**
- * @summary Moves hosts to a different project in a batch.
+ * @summary Updates the project ownership of multiple hosts.
  *
  * @param request ModifyHostsProjectRequest
  * @return ModifyHostsProjectResponse
@@ -11450,7 +11471,7 @@ SetPolicyApprovalConfigResponse Client::setPolicyApprovalConfig(const SetPolicyA
 }
 
 /**
- * @summary Sets the effective asset scope for a specified control policy.
+ * @summary Sets the asset scope for a specified control policy.
  *
  * @param request SetPolicyAssetScopeRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -11509,7 +11530,7 @@ SetPolicyAssetScopeResponse Client::setPolicyAssetScopeWithOptions(const SetPoli
 }
 
 /**
- * @summary Sets the effective asset scope for a specified control policy.
+ * @summary Sets the asset scope for a specified control policy.
  *
  * @param request SetPolicyAssetScopeRequest
  * @return SetPolicyAssetScopeResponse
@@ -12014,7 +12035,7 @@ UntagResourcesResponse Client::untagResources(const UntagResourcesRequest &reque
 }
 
 /**
- * @summary Tests the connectivity to the Active Directory (AD) authentication server configured for a Bastionhost instance. Use this operation to validate your AD settings before you save them.
+ * @summary Verifies the AD service configuration of an instance.
  *
  * @param request VerifyInstanceADAuthServerRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -12085,7 +12106,7 @@ VerifyInstanceADAuthServerResponse Client::verifyInstanceADAuthServerWithOptions
 }
 
 /**
- * @summary Tests the connectivity to the Active Directory (AD) authentication server configured for a Bastionhost instance. Use this operation to validate your AD settings before you save them.
+ * @summary Verifies the AD service configuration of an instance.
  *
  * @param request VerifyInstanceADAuthServerRequest
  * @return VerifyInstanceADAuthServerResponse
@@ -12096,7 +12117,7 @@ VerifyInstanceADAuthServerResponse Client::verifyInstanceADAuthServer(const Veri
 }
 
 /**
- * @summary Tests the connectivity to the Lightweight Directory Access Protocol (LDAP) authentication server configured for a Bastionhost instance. Use this operation to validate your LDAP settings before you save them.
+ * @summary Verifies the LDAP service configuration of an instance.
  *
  * @param request VerifyInstanceLDAPAuthServerRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -12163,7 +12184,7 @@ VerifyInstanceLDAPAuthServerResponse Client::verifyInstanceLDAPAuthServerWithOpt
 }
 
 /**
- * @summary Tests the connectivity to the Lightweight Directory Access Protocol (LDAP) authentication server configured for a Bastionhost instance. Use this operation to validate your LDAP settings before you save them.
+ * @summary Verifies the LDAP service configuration of an instance.
  *
  * @param request VerifyInstanceLDAPAuthServerRequest
  * @return VerifyInstanceLDAPAuthServerResponse

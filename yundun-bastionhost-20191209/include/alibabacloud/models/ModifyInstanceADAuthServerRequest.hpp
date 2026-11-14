@@ -232,7 +232,7 @@ namespace Models
 
 
   protected:
-    // The server account.
+    // The account of the server.
     // 
     // This parameter is required.
     shared_ptr<string> account_ {};
@@ -248,25 +248,25 @@ namespace Models
     shared_ptr<string> emailMapping_ {};
     // The filter condition for users.
     shared_ptr<string> filter_ {};
-    // The instance ID of the Bastionhost instance.
-    // > You can invoke the [DescribeInstances](https://help.aliyun.com/document_detail/153281.html) operation to obtain this parameter.
+    // The ID of the Bastionhost instance.
+    // > You can call the [DescribeInstances](https://help.aliyun.com/document_detail/153281.html) operation to query the instance ID.
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
-    // Specifies whether the AD authentication server is the default server. A value of true indicates that the server is the default AD authentication server. A value of false indicates that the server is not the default AD authentication server.
+    // Specifies whether the AD authentication server is the default server. Valid values: true and false. A value of true indicates that the server is the default AD authentication server, and a value of false indicates that the server is not the default AD authentication server.
     shared_ptr<string> isDefault_ {};
     // Specifies whether SSL is supported. Valid values:
     // 
     // - **true**: Supported.
     // - **false**: Not supported.
     shared_ptr<string> isSSL_ {};
-    // Specifies whether to synchronize the email address. A value of true indicates that the email address is synchronized. A value of false indicates that the email address is not synchronized.
+    // Specifies whether to synchronize the email address. Valid values: true and false. A value of true indicates that the email address is synchronized, and a value of false indicates that the email address is not synchronized.
     shared_ptr<string> isSyncEmailAttr_ {};
-    // Specifies whether to synchronize the mobile phone number. A value of true indicates that the mobile phone number is synchronized. A value of false indicates that the mobile phone number is not synchronized.
+    // Specifies whether to synchronize the mobile phone number. Valid values: true and false. A value of true indicates that the mobile phone number is synchronized, and a value of false indicates that the mobile phone number is not synchronized.
     shared_ptr<string> isSyncMobileAttr_ {};
-    // Specifies whether to synchronize the display name. A value of true indicates that the display name is synchronized. A value of false indicates that the display name is not synchronized.
+    // Specifies whether to synchronize the display name. Valid values: true and false. A value of true indicates that the display name is synchronized, and a value of false indicates that the display name is not synchronized.
     shared_ptr<string> isSyncNameAttr_ {};
-    // Specifies whether to synchronize the organization to which the user belongs as a user group. A value of true indicates that the organization is synchronized as a user group. A value of false indicates that the organization is not synchronized as a user group.
+    // Specifies whether to synchronize the organization to which the user belongs as a user group. Valid values: true and false. A value of true indicates that the organization is synchronized as a user group, and a value of false indicates that the organization is not synchronized as a user group.
     shared_ptr<string> isSyncOuAsUserGroup_ {};
     // The server attribute name that maps to the user mobile phone number.
     shared_ptr<string> mobileMapping_ {};
@@ -289,7 +289,7 @@ namespace Models
     shared_ptr<string> serverName_ {};
     // The address of the standby server.
     shared_ptr<string> standbyServer_ {};
-    // The interval at which user snapshots are automatically synchronized, in hours. Valid values: 0, and 4 to 168. A value of 0 indicates that automatic synchronization is disabled.
+    // The interval at which user snapshots are automatically synchronized. Unit: hours. Valid values: 0, and 4 to 168. A value of 0 indicates that automatic synchronization is disabled.
     shared_ptr<string> syncInterval_ {};
     shared_ptr<string> userSourceId_ {};
   };

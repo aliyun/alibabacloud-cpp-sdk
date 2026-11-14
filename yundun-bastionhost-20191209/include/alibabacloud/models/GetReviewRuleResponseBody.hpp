@@ -119,16 +119,16 @@ namespace Models
 
 
       protected:
-        // The project description.
+        // The description of the project.
         shared_ptr<string> description_ {};
         // Specifies whether the project is the default project. Valid values:
         // - **true**: Yes.
         // 
         // - **false**: No.
         shared_ptr<bool> isDefault_ {};
-        // The project name.
+        // The name of the project.
         shared_ptr<string> name_ {};
-        // The project ID.
+        // The ID of the project.
         shared_ptr<int64_t> projectId_ {};
       };
 
@@ -179,11 +179,11 @@ namespace Models
 
 
       protected:
-        // If the value of PrincipalType is RamUser, the returned value is the RAM user ID of the associated auditor. If the value of PrincipalType is RamRole, the returned value is the ARN of the RAM role of the associated auditor.
+        // If the PrincipalType parameter is set to RamUser, this parameter returns the ID of the RAM user that acts as the auditor. If the PrincipalType parameter is set to RamRole, this parameter returns the ARN of the RAM role that acts as the auditor.
         shared_ptr<string> principalId_ {};
-        // The display name of the RAM user or RAM role of the associated auditor.
+        // The display name of the RAM user or RAM role that acts as the auditor.
         shared_ptr<string> principalName_ {};
-        // The auditor type. Valid values:
+        // The type of the auditor. Valid values:
         // 
         // - **RamUser**: Resource Access Management (RAM) user.
         // 
@@ -252,17 +252,17 @@ namespace Models
     protected:
       // The description of the audit policy.
       shared_ptr<string> description_ {};
-      // The auditor information associated with the audit policy.
+      // The information about the auditors associated with the audit policy.
       shared_ptr<vector<ReviewRule::Principals>> principals_ {};
-      // The array of project IDs specified as auditable in the audit policy. This parameter is valid only when the value of ScopeType is 2.
+      // The array of project IDs that can be audited based on the audit policy. This parameter is valid only when the value of ScopeType is 2.
       shared_ptr<vector<int64_t>> projectIds_ {};
-      // The auditable project information.
+      // The information about the projects that can be audited.
       shared_ptr<vector<ReviewRule::Projects>> projects_ {};
-      // The audit policy ID.
+      // The ID of the audit policy.
       shared_ptr<string> reviewRuleId_ {};
       // The name of the audit policy.
       shared_ptr<string> reviewRuleName_ {};
-      // The type of the auditable asset scope rule specified in the audit policy. Valid values:
+      // The type of the asset scope rule specified in the audit policy. Valid values:
       // 
       // - **1**: All projects.
       // 

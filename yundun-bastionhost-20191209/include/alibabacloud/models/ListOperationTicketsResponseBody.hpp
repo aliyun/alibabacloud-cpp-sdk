@@ -39,6 +39,7 @@ namespace Models
       friend void to_json(Darabonba::Json& j, const OperationTickets& obj) { 
         DARABONBA_PTR_TO_JSON(ApplyUserId, applyUserId_);
         DARABONBA_PTR_TO_JSON(ApplyUsername, applyUsername_);
+        DARABONBA_PTR_TO_JSON(ApprovalStatus, approvalStatus_);
         DARABONBA_PTR_TO_JSON(ApproveComment, approveComment_);
         DARABONBA_PTR_TO_JSON(AssetAccountId, assetAccountId_);
         DARABONBA_PTR_TO_JSON(AssetAccountName, assetAccountName_);
@@ -60,6 +61,7 @@ namespace Models
       friend void from_json(const Darabonba::Json& j, OperationTickets& obj) { 
         DARABONBA_PTR_FROM_JSON(ApplyUserId, applyUserId_);
         DARABONBA_PTR_FROM_JSON(ApplyUsername, applyUsername_);
+        DARABONBA_PTR_FROM_JSON(ApprovalStatus, approvalStatus_);
         DARABONBA_PTR_FROM_JSON(ApproveComment, approveComment_);
         DARABONBA_PTR_FROM_JSON(AssetAccountId, assetAccountId_);
         DARABONBA_PTR_FROM_JSON(AssetAccountName, assetAccountName_);
@@ -90,10 +92,10 @@ namespace Models
       virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
       virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
       virtual bool empty() const override { return this->applyUserId_ == nullptr
-        && this->applyUsername_ == nullptr && this->approveComment_ == nullptr && this->assetAccountId_ == nullptr && this->assetAccountName_ == nullptr && this->assetAddress_ == nullptr
-        && this->assetId_ == nullptr && this->assetName_ == nullptr && this->assetNetworkDomainId_ == nullptr && this->assetOs_ == nullptr && this->assetSource_ == nullptr
-        && this->assetSourceInstanceId_ == nullptr && this->createdTime_ == nullptr && this->effectCount_ == nullptr && this->effectEndTime_ == nullptr && this->effectStartTime_ == nullptr
-        && this->operationTicketId_ == nullptr && this->protocolName_ == nullptr && this->state_ == nullptr; };
+        && this->applyUsername_ == nullptr && this->approvalStatus_ == nullptr && this->approveComment_ == nullptr && this->assetAccountId_ == nullptr && this->assetAccountName_ == nullptr
+        && this->assetAddress_ == nullptr && this->assetId_ == nullptr && this->assetName_ == nullptr && this->assetNetworkDomainId_ == nullptr && this->assetOs_ == nullptr
+        && this->assetSource_ == nullptr && this->assetSourceInstanceId_ == nullptr && this->createdTime_ == nullptr && this->effectCount_ == nullptr && this->effectEndTime_ == nullptr
+        && this->effectStartTime_ == nullptr && this->operationTicketId_ == nullptr && this->protocolName_ == nullptr && this->state_ == nullptr; };
       // applyUserId Field Functions 
       bool hasApplyUserId() const { return this->applyUserId_ != nullptr;};
       void deleteApplyUserId() { this->applyUserId_ = nullptr;};
@@ -106,6 +108,13 @@ namespace Models
       void deleteApplyUsername() { this->applyUsername_ = nullptr;};
       inline string getApplyUsername() const { DARABONBA_PTR_GET_DEFAULT(applyUsername_, "") };
       inline OperationTickets& setApplyUsername(string applyUsername) { DARABONBA_PTR_SET_VALUE(applyUsername_, applyUsername) };
+
+
+      // approvalStatus Field Functions 
+      bool hasApprovalStatus() const { return this->approvalStatus_ != nullptr;};
+      void deleteApprovalStatus() { this->approvalStatus_ = nullptr;};
+      inline int32_t getApprovalStatus() const { DARABONBA_PTR_GET_DEFAULT(approvalStatus_, 0) };
+      inline OperationTickets& setApprovalStatus(int32_t approvalStatus) { DARABONBA_PTR_SET_VALUE(approvalStatus_, approvalStatus) };
 
 
       // approveComment Field Functions 
@@ -228,54 +237,58 @@ namespace Models
 
 
     protected:
-      // The ID of the O&M applicant.
+      // The ID of the user who submitted the O&M ticket.
       shared_ptr<string> applyUserId_ {};
-      // The username of the O&M applicant.
+      // The username of the user who submitted the O&M ticket.
       shared_ptr<string> applyUsername_ {};
-      // The remarks entered by the O&M engineer when applying for O&M.
+      // The approval status. Valid values:
+      // - 1: Pending approval.
+      // - 2: Processed.
+      shared_ptr<int32_t> approvalStatus_ {};
+      // The remarks entered by the O&M engineer when submitting the O&M ticket.
       shared_ptr<string> approveComment_ {};
-      // The ID of the asset account for which O&M is requested.
+      // The ID of the asset account requested for O&M.
       shared_ptr<string> assetAccountId_ {};
-      // The logon name of the asset account for which O&M is requested.
+      // The logon name of the asset account requested for O&M.
       shared_ptr<string> assetAccountName_ {};
-      // The address of the asset for which O&M is requested.
+      // The address of the asset requested for O&M.
       shared_ptr<string> assetAddress_ {};
-      // The ID of the asset for which O&M is requested.
+      // The ID of the asset requested for O&M.
       shared_ptr<string> assetId_ {};
-      // The name of the asset for which O&M is requested.
+      // The name of the asset requested for O&M.
       shared_ptr<string> assetName_ {};
-      // The ID of the network domain to which the asset for which O&M is requested belongs.
+      // The ID of the network domain to which the asset requested for O&M belongs.
       shared_ptr<string> assetNetworkDomainId_ {};
-      // The operating system type of the asset for which O&M is requested.
+      // The operating system type of the asset requested for O&M.
       shared_ptr<string> assetOs_ {};
-      // The name of the asset source to which the asset for which O&M is requested belongs. Valid values:
-      // - **Local**: local host
-      // - **Ecs**: ECS instance
-      // - **Rds**: ApsaraDB RDS instance
-      // - name of a third-party asset source
+      // The name of the asset source to which the asset requested for O&M belongs. Valid values:
+      // - **Local**: Local host.
+      // - **Ecs**: ECS instance.
+      // - **Rds**: ApsaraDB RDS instance.
+      // - The name of a third-party asset source.
       shared_ptr<string> assetSource_ {};
-      // The ID of the asset source to which the asset for which O&M is requested belongs.
+      // The ID of the asset source to which the asset requested for O&M belongs.
       shared_ptr<string> assetSourceInstanceId_ {};
-      // The time when the application was submitted. The value is a UNIX timestamp in seconds.
+      // The time when the O&M ticket was submitted. The value is a UNIX timestamp in seconds.
       shared_ptr<int64_t> createdTime_ {};
       // The limit on the number of logons requested by the O&M engineer. Valid values:
       // 
-      // - **0**: No limit is imposed on the number of logons. The O&M engineer can log on an unlimited number of times within the validity period.
+      // - **0**: No limit on the number of logons. The O&M engineer can log on an unlimited number of times within the validity period.
       // - **1**: The O&M engineer is allowed to log on only once within the validity period.
       shared_ptr<int32_t> effectCount_ {};
-      // The end time of the approved O&M period specified by the O&M engineer. The value is a UNIX timestamp in seconds.
-      // > A value of 0 indicates that the O&M engineer did not specify a time when submitting the application.
+      // The end time of the O&M session specified by the O&M engineer. The value is a UNIX timestamp in seconds.
+      // > A value of 0 indicates that the O&M engineer did not specify an end time when submitting the ticket.
       shared_ptr<int32_t> effectEndTime_ {};
-      // The start time of the approved O&M period specified by the O&M engineer. The value is a UNIX timestamp in seconds.
-      // > A value of 0 indicates that the O&M engineer did not specify a time when submitting the application.
+      // The start time of the O&M session specified by the O&M engineer. The value is a UNIX timestamp in seconds.
+      // > A value of 0 indicates that the O&M engineer did not specify a start time when submitting the ticket.
       shared_ptr<int32_t> effectStartTime_ {};
       // The ID of the O&M ticket pending approval.
       shared_ptr<string> operationTicketId_ {};
-      // The name of the protocol for the O&M request.
+      // The name of the protocol requested for O&M.
       shared_ptr<string> protocolName_ {};
       // The approval status. Valid values:
       // 
-      // - Normal: pending approval
+      // - Normal: Pending approval.
       shared_ptr<string> state_ {};
     };
 

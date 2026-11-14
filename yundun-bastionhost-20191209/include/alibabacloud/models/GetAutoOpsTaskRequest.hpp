@@ -66,13 +66,13 @@ namespace Models
 
 
   protected:
-    // The instance ID of the bastion host.
-    // > You can invoke the [DescribeInstances](https://help.aliyun.com/document_detail/153281.html) operation to obtain this parameter.
+    // The instance ID of the Bastionhost instance.
+    // > You can invoke the [DescribeInstances](https://help.aliyun.com/document_detail/153281.html) operation to query the value of this parameter.
     shared_ptr<string> instanceId_ {};
     // The project ID.
     shared_ptr<int64_t> projectId_ {};
-    // The region ID of the bastion host.
-    // > For the mapping between region IDs and region names, see [Regions and zones](https://help.aliyun.com/document_detail/40654.html).
+    // The region ID of the Bastionhost instance.
+    // > For more information about the mapping between region IDs and region names, see [Regions and zones](https://help.aliyun.com/document_detail/40654.html).
     shared_ptr<string> regionId_ {};
     // The ID of the O&M task to query.
     // 

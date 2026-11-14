@@ -221,7 +221,7 @@ namespace YundunBastionhost20191209
       Models::AttachHostAccountsToHostShareKeyResponse attachHostAccountsToHostShareKey(const Models::AttachHostAccountsToHostShareKeyRequest &request);
 
       /**
-       * @summary Authorizes assets for a user. After the authorization, the user can use Bastionhost to perform O&M operations on the authorized assets.
+       * @summary Grants a user access to assets. After the authorization, the user can use Bastionhost to perform O&M operations on the authorized assets.
        *
        * @param request AttachHostAccountsToUserRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -230,7 +230,7 @@ namespace YundunBastionhost20191209
       Models::AttachHostAccountsToUserResponse attachHostAccountsToUserWithOptions(const Models::AttachHostAccountsToUserRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Authorizes assets for a user. After the authorization, the user can use Bastionhost to perform O&M operations on the authorized assets.
+       * @summary Grants a user access to assets. After the authorization, the user can use Bastionhost to perform O&M operations on the authorized assets.
        *
        * @param request AttachHostAccountsToUserRequest
        * @return AttachHostAccountsToUserResponse
@@ -310,7 +310,7 @@ namespace YundunBastionhost20191209
       Models::AttachMembersToProjectResponse attachMembersToProject(const Models::AttachMembersToProjectRequest &request);
 
       /**
-       * @summary Associates project authorization administrators.
+       * @summary Associates administrators with a project authorization.
        *
        * @param request AttachProjectManagersToProjectAuthorizationRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -319,7 +319,7 @@ namespace YundunBastionhost20191209
       Models::AttachProjectManagersToProjectAuthorizationResponse attachProjectManagersToProjectAuthorizationWithOptions(const Models::AttachProjectManagersToProjectAuthorizationRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Associates project authorization administrators.
+       * @summary Associates administrators with a project authorization.
        *
        * @param request AttachProjectManagersToProjectAuthorizationRequest
        * @return AttachProjectManagersToProjectAuthorizationResponse
@@ -1057,7 +1057,7 @@ namespace YundunBastionhost20191209
       Models::DescribeInstanceAttributeResponse describeInstanceAttribute(const Models::DescribeInstanceAttributeRequest &request);
 
       /**
-       * @summary Queries the list of instances.
+       * @summary Queries a list of instances.
        *
        * @param request DescribeInstancesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1066,7 +1066,7 @@ namespace YundunBastionhost20191209
       Models::DescribeInstancesResponse describeInstancesWithOptions(const Models::DescribeInstancesRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the list of instances.
+       * @summary Queries a list of instances.
        *
        * @param request DescribeInstancesRequest
        * @return DescribeInstancesResponse
@@ -1074,7 +1074,7 @@ namespace YundunBastionhost20191209
       Models::DescribeInstancesResponse describeInstances(const Models::DescribeInstancesRequest &request);
 
       /**
-       * @summary Queries the Alibaba Cloud regions that support Bastionhost instances.
+       * @summary Queries the Alibaba Cloud regions supported by Bastionhost instances.
        *
        * @param request DescribeRegionsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1083,7 +1083,7 @@ namespace YundunBastionhost20191209
       Models::DescribeRegionsResponse describeRegionsWithOptions(const Models::DescribeRegionsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the Alibaba Cloud regions that support Bastionhost instances.
+       * @summary Queries the Alibaba Cloud regions supported by Bastionhost instances.
        *
        * @param request DescribeRegionsRequest
        * @return DescribeRegionsResponse
@@ -1159,7 +1159,7 @@ namespace YundunBastionhost20191209
       Models::DetachHostAccountsFromUserResponse detachHostAccountsFromUser(const Models::DetachHostAccountsFromUserRequest &request);
 
       /**
-       * @summary Removes authorized hosts and host accounts from a user group.
+       * @summary Removes the hosts and host accounts authorized for a user group.
        *
        * @param request DetachHostAccountsFromUserGroupRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1168,7 +1168,7 @@ namespace YundunBastionhost20191209
       Models::DetachHostAccountsFromUserGroupResponse detachHostAccountsFromUserGroupWithOptions(const Models::DetachHostAccountsFromUserGroupRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Removes authorized hosts and host accounts from a user group.
+       * @summary Removes the hosts and host accounts authorized for a user group.
        *
        * @param request DetachHostAccountsFromUserGroupRequest
        * @return DetachHostAccountsFromUserGroupResponse
@@ -1791,8 +1791,8 @@ namespace YundunBastionhost20191209
       /**
        * @summary Retrieves the list of commands that require approval.
        *
-       * @description This API operation allows administrators to retrieve the list of commands that require approval.
-       * The queries per second (QPS) limit for a single user is 10. If the limit is exceeded, API calls are throttled, which may affect your services. Call this operation as needed.
+       * @description This operation allows administrators to retrieve the list of commands that require approval.
+       * The queries per second (QPS) limit for a single user is 10 calls per second. If the limit is exceeded, API calls are throttled, which may affect your services. Call this operation at a reasonable frequency.
        *
        * @param request ListApproveCommandsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1803,8 +1803,8 @@ namespace YundunBastionhost20191209
       /**
        * @summary Retrieves the list of commands that require approval.
        *
-       * @description This API operation allows administrators to retrieve the list of commands that require approval.
-       * The queries per second (QPS) limit for a single user is 10. If the limit is exceeded, API calls are throttled, which may affect your services. Call this operation as needed.
+       * @description This operation allows administrators to retrieve the list of commands that require approval.
+       * The queries per second (QPS) limit for a single user is 10 calls per second. If the limit is exceeded, API calls are throttled, which may affect your services. Call this operation at a reasonable frequency.
        *
        * @param request ListApproveCommandsRequest
        * @return ListApproveCommandsResponse
@@ -2271,10 +2271,10 @@ namespace YundunBastionhost20191209
       Models::ListOperationHostsResponse listOperationHosts(const Models::ListOperationHostsRequest &request);
 
       /**
-       * @summary Retrieves a list of O&M tickets pending approval.
+       * @summary Queries the list of O&M tickets pending approval.
        *
-       * @description This API operation allows administrators to retrieve a list of O&M tickets pending approval.
-       * The QPS limit for a single user is 10 calls per second. If the limit is exceeded, API calls are throttled, which may affect your services. Make API calls at a reasonable rate.
+       * @description This operation is used by administrators to query the list of O&M tickets pending approval.
+       * The QPS limit for a single user is 10 calls per second. If the limit is exceeded, API calls are throttled, which may affect your business. Make API calls at a reasonable frequency.
        *
        * @param request ListOperationTicketsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2283,10 +2283,10 @@ namespace YundunBastionhost20191209
       Models::ListOperationTicketsResponse listOperationTicketsWithOptions(const Models::ListOperationTicketsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Retrieves a list of O&M tickets pending approval.
+       * @summary Queries the list of O&M tickets pending approval.
        *
-       * @description This API operation allows administrators to retrieve a list of O&M tickets pending approval.
-       * The QPS limit for a single user is 10 calls per second. If the limit is exceeded, API calls are throttled, which may affect your services. Make API calls at a reasonable rate.
+       * @description This operation is used by administrators to query the list of O&M tickets pending approval.
+       * The QPS limit for a single user is 10 calls per second. If the limit is exceeded, API calls are throttled, which may affect your business. Make API calls at a reasonable frequency.
        *
        * @param request ListOperationTicketsRequest
        * @return ListOperationTicketsResponse
@@ -2764,7 +2764,7 @@ namespace YundunBastionhost20191209
       Models::ModifyHostsPortResponse modifyHostsPort(const Models::ModifyHostsPortRequest &request);
 
       /**
-       * @summary Moves hosts to a different project in a batch.
+       * @summary Updates the project ownership of multiple hosts.
        *
        * @param request ModifyHostsProjectRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2773,7 +2773,7 @@ namespace YundunBastionhost20191209
       Models::ModifyHostsProjectResponse modifyHostsProjectWithOptions(const Models::ModifyHostsProjectRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Moves hosts to a different project in a batch.
+       * @summary Updates the project ownership of multiple hosts.
        *
        * @param request ModifyHostsProjectRequest
        * @return ModifyHostsProjectResponse
@@ -3295,7 +3295,7 @@ namespace YundunBastionhost20191209
       Models::SetPolicyApprovalConfigResponse setPolicyApprovalConfig(const Models::SetPolicyApprovalConfigRequest &request);
 
       /**
-       * @summary Sets the effective asset scope for a specified control policy.
+       * @summary Sets the asset scope for a specified control policy.
        *
        * @param request SetPolicyAssetScopeRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3304,7 +3304,7 @@ namespace YundunBastionhost20191209
       Models::SetPolicyAssetScopeResponse setPolicyAssetScopeWithOptions(const Models::SetPolicyAssetScopeRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Sets the effective asset scope for a specified control policy.
+       * @summary Sets the asset scope for a specified control policy.
        *
        * @param request SetPolicyAssetScopeRequest
        * @return SetPolicyAssetScopeResponse
@@ -3456,7 +3456,7 @@ namespace YundunBastionhost20191209
       Models::UntagResourcesResponse untagResources(const Models::UntagResourcesRequest &request);
 
       /**
-       * @summary Tests the connectivity to the Active Directory (AD) authentication server configured for a Bastionhost instance. Use this operation to validate your AD settings before you save them.
+       * @summary Verifies the AD service configuration of an instance.
        *
        * @param request VerifyInstanceADAuthServerRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3465,7 +3465,7 @@ namespace YundunBastionhost20191209
       Models::VerifyInstanceADAuthServerResponse verifyInstanceADAuthServerWithOptions(const Models::VerifyInstanceADAuthServerRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Tests the connectivity to the Active Directory (AD) authentication server configured for a Bastionhost instance. Use this operation to validate your AD settings before you save them.
+       * @summary Verifies the AD service configuration of an instance.
        *
        * @param request VerifyInstanceADAuthServerRequest
        * @return VerifyInstanceADAuthServerResponse
@@ -3473,7 +3473,7 @@ namespace YundunBastionhost20191209
       Models::VerifyInstanceADAuthServerResponse verifyInstanceADAuthServer(const Models::VerifyInstanceADAuthServerRequest &request);
 
       /**
-       * @summary Tests the connectivity to the Lightweight Directory Access Protocol (LDAP) authentication server configured for a Bastionhost instance. Use this operation to validate your LDAP settings before you save them.
+       * @summary Verifies the LDAP service configuration of an instance.
        *
        * @param request VerifyInstanceLDAPAuthServerRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3482,7 +3482,7 @@ namespace YundunBastionhost20191209
       Models::VerifyInstanceLDAPAuthServerResponse verifyInstanceLDAPAuthServerWithOptions(const Models::VerifyInstanceLDAPAuthServerRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Tests the connectivity to the Lightweight Directory Access Protocol (LDAP) authentication server configured for a Bastionhost instance. Use this operation to validate your LDAP settings before you save them.
+       * @summary Verifies the LDAP service configuration of an instance.
        *
        * @param request VerifyInstanceLDAPAuthServerRequest
        * @return VerifyInstanceLDAPAuthServerResponse

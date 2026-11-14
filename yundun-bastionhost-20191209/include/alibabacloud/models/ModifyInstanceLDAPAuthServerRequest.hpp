@@ -158,7 +158,7 @@ namespace Models
 
 
   protected:
-    // The account of the server.
+    // The server account.
     // 
     // This parameter is required.
     shared_ptr<string> account_ {};
@@ -166,12 +166,12 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> baseDN_ {};
-    // The server attribute name that corresponds to the user email address.
+    // The server attribute name that maps to the user email address.
     shared_ptr<string> emailMapping_ {};
     // The filter condition for users.
     shared_ptr<string> filter_ {};
     // The instance ID of the Bastionhost instance.
-    // > You can call the [DescribeInstances](https://help.aliyun.com/document_detail/153281.html) operation to query the parameter value.
+    // > You can call the [DescribeInstances](https://help.aliyun.com/document_detail/153281.html) operation to query the instance ID.
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
@@ -180,13 +180,13 @@ namespace Models
     // - **true**: Supported.
     // - **false**: Not supported.
     shared_ptr<string> isSSL_ {};
-    // The server attribute name that corresponds to the user logon name.
+    // The server attribute name that maps to the user logon name.
     shared_ptr<string> loginNameMapping_ {};
-    // The server attribute name that corresponds to the user mobile phone number.
+    // The server attribute name that maps to the user mobile phone number.
     shared_ptr<string> mobileMapping_ {};
-    // The server attribute name that corresponds to the username.
+    // The server attribute name that maps to the username.
     shared_ptr<string> nameMapping_ {};
-    // The password of the server account. This parameter is required when you add an LDAP authentication server. When you modify the information of an LDAP authentication server, if you do not specify this parameter, the current password is retained.
+    // The password of the server account. This parameter is required when you add an LDAP authentication server. If you do not specify this parameter when you modify the LDAP authentication server, the current password is retained.
     shared_ptr<string> password_ {};
     // The port used to access the server.
     // 

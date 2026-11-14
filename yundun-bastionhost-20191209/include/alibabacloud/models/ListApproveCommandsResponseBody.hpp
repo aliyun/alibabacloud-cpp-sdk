@@ -37,6 +37,7 @@ namespace Models
     class ApproveCommands : public Darabonba::Model {
     public:
       friend void to_json(Darabonba::Json& j, const ApproveCommands& obj) { 
+        DARABONBA_PTR_TO_JSON(ApprovalStatus, approvalStatus_);
         DARABONBA_PTR_TO_JSON(ApproveCommandId, approveCommandId_);
         DARABONBA_PTR_TO_JSON(AssetAccountName, assetAccountName_);
         DARABONBA_PTR_TO_JSON(AssetIp, assetIp_);
@@ -50,6 +51,7 @@ namespace Models
         DARABONBA_PTR_TO_JSON(State, state_);
       };
       friend void from_json(const Darabonba::Json& j, ApproveCommands& obj) { 
+        DARABONBA_PTR_FROM_JSON(ApprovalStatus, approvalStatus_);
         DARABONBA_PTR_FROM_JSON(ApproveCommandId, approveCommandId_);
         DARABONBA_PTR_FROM_JSON(AssetAccountName, assetAccountName_);
         DARABONBA_PTR_FROM_JSON(AssetIp, assetIp_);
@@ -73,9 +75,17 @@ namespace Models
       };
       virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
       virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-      virtual bool empty() const override { return this->approveCommandId_ == nullptr
-        && this->assetAccountName_ == nullptr && this->assetIp_ == nullptr && this->assetName_ == nullptr && this->clientIp_ == nullptr && this->clientUser_ == nullptr
-        && this->command_ == nullptr && this->createTime_ == nullptr && this->protocolName_ == nullptr && this->sessionId_ == nullptr && this->state_ == nullptr; };
+      virtual bool empty() const override { return this->approvalStatus_ == nullptr
+        && this->approveCommandId_ == nullptr && this->assetAccountName_ == nullptr && this->assetIp_ == nullptr && this->assetName_ == nullptr && this->clientIp_ == nullptr
+        && this->clientUser_ == nullptr && this->command_ == nullptr && this->createTime_ == nullptr && this->protocolName_ == nullptr && this->sessionId_ == nullptr
+        && this->state_ == nullptr; };
+      // approvalStatus Field Functions 
+      bool hasApprovalStatus() const { return this->approvalStatus_ != nullptr;};
+      void deleteApprovalStatus() { this->approvalStatus_ = nullptr;};
+      inline int32_t getApprovalStatus() const { DARABONBA_PTR_GET_DEFAULT(approvalStatus_, 0) };
+      inline ApproveCommands& setApprovalStatus(int32_t approvalStatus) { DARABONBA_PTR_SET_VALUE(approvalStatus_, approvalStatus) };
+
+
       // approveCommandId Field Functions 
       bool hasApproveCommandId() const { return this->approveCommandId_ != nullptr;};
       void deleteApproveCommandId() { this->approveCommandId_ = nullptr;};
@@ -154,13 +164,17 @@ namespace Models
 
 
     protected:
+      // The approval status. Valid values:
+      // - 1: Pending.
+      // - 2: Processed.
+      shared_ptr<int32_t> approvalStatus_ {};
       // The ID of the command pending approval.
       shared_ptr<string> approveCommandId_ {};
-      // The name of the asset account.
+      // The name of the asset account used for O&M.
       shared_ptr<string> assetAccountName_ {};
-      // The IP address of the O&M asset.
+      // The IP address of the asset for O&M.
       shared_ptr<string> assetIp_ {};
-      // The name of the O&M asset.
+      // The name of the asset for O&M.
       shared_ptr<string> assetName_ {};
       // The source IP address from which the application is submitted.
       shared_ptr<string> clientIp_ {};
@@ -170,12 +184,12 @@ namespace Models
       shared_ptr<string> command_ {};
       // The time when the application was submitted. Unit: seconds. The value is a UNIX timestamp.
       shared_ptr<string> createTime_ {};
-      // The name of the O&M protocol.
+      // The name of the protocol used for O&M.
       shared_ptr<string> protocolName_ {};
       // The ID of the O&M session that triggered the approval.
       shared_ptr<string> sessionId_ {};
-      // The approval status.
-      // **Wait**: Pending approval.
+      // The approval status. Valid values:
+      // - **Wait**: Pending.
       shared_ptr<string> state_ {};
     };
 
