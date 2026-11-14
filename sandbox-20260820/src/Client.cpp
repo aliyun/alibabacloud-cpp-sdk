@@ -124,7 +124,7 @@ CreateTeamResponse Client::createTeam(const CreateTeamRequest &request) {
 /**
  * @summary Creates a template.
  *
- * @description Creates a template. runtimeConfig.vpcBindings is supported only for second-generation templates. A null value is treated as omitted. First-generation templates return a 400 error if an empty or non-empty array is explicitly provided. Inbound bindings are independent of the egress vpcConfig and API key source policies. When the feature switch is enabled, POST /init requests without query parameters to the standard envd port 49983 of the E2B sandbox are temporarily exempt from VPC source checks, while other authentication mechanisms remain in effect.
+ * @description Creates a template. If runtimeConfig.vpcBindings is null, it is treated as omitted. Inbound bindings are independent of the egress vpcConfig and API key source policy.
  *
  * @param request CreateTemplateRequest
  * @param headers map
@@ -154,7 +154,7 @@ CreateTemplateResponse Client::createTemplateWithOptions(const CreateTemplateReq
 /**
  * @summary Creates a template.
  *
- * @description Creates a template. runtimeConfig.vpcBindings is supported only for second-generation templates. A null value is treated as omitted. First-generation templates return a 400 error if an empty or non-empty array is explicitly provided. Inbound bindings are independent of the egress vpcConfig and API key source policies. When the feature switch is enabled, POST /init requests without query parameters to the standard envd port 49983 of the E2B sandbox are temporarily exempt from VPC source checks, while other authentication mechanisms remain in effect.
+ * @description Creates a template. If runtimeConfig.vpcBindings is null, it is treated as omitted. Inbound bindings are independent of the egress vpcConfig and API key source policy.
  *
  * @param request CreateTemplateRequest
  * @return CreateTemplateResponse
@@ -243,6 +243,46 @@ CreateVolumeResponse Client::createVolume(const CreateVolumeRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   map<string, string> headers = {};
   return createVolumeWithOptions(request, headers, runtime);
+}
+
+/**
+ * @summary Creates a warm pool.
+ *
+ * @param request CreateWarmPoolRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CreateWarmPoolResponse
+ */
+CreateWarmPoolResponse Client::createWarmPoolWithOptions(const string &teamID, const CreateWarmPoolRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"body" , Utils::Utils::parseToMap(request.getBody())}
+  }));
+  Params params = Params(json({
+    {"action" , "CreateWarmPool"},
+    {"version" , "2026-08-20"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/pop/2026-08-20/teams/" , Darabonba::Encode::Encoder::percentEncode(teamID) , "/warmPools")},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CreateWarmPoolResponse>();
+}
+
+/**
+ * @summary Creates a warm pool.
+ *
+ * @param request CreateWarmPoolRequest
+ * @return CreateWarmPoolResponse
+ */
+CreateWarmPoolResponse Client::createWarmPool(const string &teamID, const CreateWarmPoolRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return createWarmPoolWithOptions(teamID, request, headers, runtime);
 }
 
 /**
@@ -504,6 +544,45 @@ DeleteVolumeResponse Client::deleteVolume(const string &volumeID, const DeleteVo
 }
 
 /**
+ * @summary Deletes a warm pool.
+ *
+ * @param request DeleteWarmPoolRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DeleteWarmPoolResponse
+ */
+DeleteWarmPoolResponse Client::deleteWarmPoolWithOptions(const string &teamID, const string &templateID, const DeleteWarmPoolRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DeleteWarmPool"},
+    {"version" , "2026-08-20"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/pop/2026-08-20/teams/" , Darabonba::Encode::Encoder::percentEncode(teamID) , "/warmPools/" , Darabonba::Encode::Encoder::percentEncode(templateID))},
+    {"method" , "DELETE"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "none"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DeleteWarmPoolResponse>();
+}
+
+/**
+ * @summary Deletes a warm pool.
+ *
+ * @param request DeleteWarmPoolRequest
+ * @return DeleteWarmPoolResponse
+ */
+DeleteWarmPoolResponse Client::deleteWarmPool(const string &teamID, const string &templateID, const DeleteWarmPoolRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return deleteWarmPoolWithOptions(teamID, templateID, request, headers, runtime);
+}
+
+/**
  * @summary Queries the details of a specified API key.
  *
  * @param request DescribeApiKeyRequest
@@ -630,6 +709,45 @@ DescribeTemplateCacheResponse Client::describeTemplateCache(const string &templa
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   map<string, string> headers = {};
   return describeTemplateCacheWithOptions(templateID, request, headers, runtime);
+}
+
+/**
+ * @summary Queries the warm pool.
+ *
+ * @param request DescribeWarmPoolRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DescribeWarmPoolResponse
+ */
+DescribeWarmPoolResponse Client::describeWarmPoolWithOptions(const string &teamID, const string &templateID, const DescribeWarmPoolRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DescribeWarmPool"},
+    {"version" , "2026-08-20"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/pop/2026-08-20/teams/" , Darabonba::Encode::Encoder::percentEncode(teamID) , "/warmPools/" , Darabonba::Encode::Encoder::percentEncode(templateID))},
+    {"method" , "GET"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DescribeWarmPoolResponse>();
+}
+
+/**
+ * @summary Queries the warm pool.
+ *
+ * @param request DescribeWarmPoolRequest
+ * @return DescribeWarmPoolResponse
+ */
+DescribeWarmPoolResponse Client::describeWarmPool(const string &teamID, const string &templateID, const DescribeWarmPoolRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return describeWarmPoolWithOptions(teamID, templateID, request, headers, runtime);
 }
 
 /**
@@ -1320,6 +1438,55 @@ ListVolumesResponse Client::listVolumes(const ListVolumesRequest &request) {
 }
 
 /**
+ * @summary Queries the list of warm pools.
+ *
+ * @param request ListWarmPoolsRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListWarmPoolsResponse
+ */
+ListWarmPoolsResponse Client::listWarmPoolsWithOptions(const string &teamID, const ListWarmPoolsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasMaxResults()) {
+    query["maxResults"] = request.getMaxResults();
+  }
+
+  if (!!request.hasNextToken()) {
+    query["nextToken"] = request.getNextToken();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ListWarmPools"},
+    {"version" , "2026-08-20"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/pop/2026-08-20/teams/" , Darabonba::Encode::Encoder::percentEncode(teamID) , "/warmPools")},
+    {"method" , "GET"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListWarmPoolsResponse>();
+}
+
+/**
+ * @summary Queries the list of warm pools.
+ *
+ * @param request ListWarmPoolsRequest
+ * @return ListWarmPoolsResponse
+ */
+ListWarmPoolsResponse Client::listWarmPools(const string &teamID, const ListWarmPoolsRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return listWarmPoolsWithOptions(teamID, request, headers, runtime);
+}
+
+/**
  * @summary Resets a specified API key.
  *
  * @description Rotates the credential value of an API key while retaining the original API key ID, IP address whitelist, IP address blacklist, and vpcBindings source policy. The apiKey field in the response returns the retained policy.
@@ -1489,7 +1656,7 @@ UpdateTeamResponse Client::updateTeam(const string &teamID, const UpdateTeamRequ
 /**
  * @summary Updates a template.
  *
- * @description Updates a template. For Generation 2 templates, runtimeConfig.vpcBindings supports omission or null retention, full replacement with a non-empty array, or clearing with an empty array. The new list takes effect upon a successful build of the new version. Existing sandboxes continue to use the original functions and policies. If the build fails, the previously effective version is retained. For Generation 1 templates, explicitly passing an empty or non-empty array returns a 400 error. Before switching to Generation 1, you must clear the bindings and wait for the update to succeed. When the feature switch is enabled, POST /init requests without query parameters to the standard envd port 49983 of E2B sandboxes are temporarily exempt from VPC source checks, while other authentication mechanisms remain in effect.
+ * @description Updates a template. For runtimeConfig.vpcBindings, you can omit the field or set it to null to retain the current bindings, provide a non-empty array to replace the entire list, or provide an empty array [] to clear the list. The new list takes effect when the new version is successfully built. Existing sandboxes continue to use the original configuration. If the build fails, the original effective version is retained.
  *
  * @param request UpdateTemplateRequest
  * @param headers map
@@ -1525,7 +1692,7 @@ UpdateTemplateResponse Client::updateTemplateWithOptions(const string &templateI
 /**
  * @summary Updates a template.
  *
- * @description Updates a template. For Generation 2 templates, runtimeConfig.vpcBindings supports omission or null retention, full replacement with a non-empty array, or clearing with an empty array. The new list takes effect upon a successful build of the new version. Existing sandboxes continue to use the original functions and policies. If the build fails, the previously effective version is retained. For Generation 1 templates, explicitly passing an empty or non-empty array returns a 400 error. Before switching to Generation 1, you must clear the bindings and wait for the update to succeed. When the feature switch is enabled, POST /init requests without query parameters to the standard envd port 49983 of E2B sandboxes are temporarily exempt from VPC source checks, while other authentication mechanisms remain in effect.
+ * @description Updates a template. For runtimeConfig.vpcBindings, you can omit the field or set it to null to retain the current bindings, provide a non-empty array to replace the entire list, or provide an empty array [] to clear the list. The new list takes effect when the new version is successfully built. Existing sandboxes continue to use the original configuration. If the build fails, the original effective version is retained.
  *
  * @param request UpdateTemplateRequest
  * @return UpdateTemplateResponse
@@ -1580,6 +1747,46 @@ UpdateVolumeResponse Client::updateVolume(const string &volumeID, const UpdateVo
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   map<string, string> headers = {};
   return updateVolumeWithOptions(volumeID, request, headers, runtime);
+}
+
+/**
+ * @summary Updates the capacity policy of a warm pool.
+ *
+ * @param request UpdateWarmPoolRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return UpdateWarmPoolResponse
+ */
+UpdateWarmPoolResponse Client::updateWarmPoolWithOptions(const string &teamID, const string &templateID, const UpdateWarmPoolRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"body" , Utils::Utils::parseToMap(request.getBody())}
+  }));
+  Params params = Params(json({
+    {"action" , "UpdateWarmPool"},
+    {"version" , "2026-08-20"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/pop/2026-08-20/teams/" , Darabonba::Encode::Encoder::percentEncode(teamID) , "/warmPools/" , Darabonba::Encode::Encoder::percentEncode(templateID))},
+    {"method" , "PUT"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<UpdateWarmPoolResponse>();
+}
+
+/**
+ * @summary Updates the capacity policy of a warm pool.
+ *
+ * @param request UpdateWarmPoolRequest
+ * @return UpdateWarmPoolResponse
+ */
+UpdateWarmPoolResponse Client::updateWarmPool(const string &teamID, const string &templateID, const UpdateWarmPoolRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return updateWarmPoolWithOptions(teamID, templateID, request, headers, runtime);
 }
 } // namespace AlibabaCloud
 } // namespace Sandbox20260820

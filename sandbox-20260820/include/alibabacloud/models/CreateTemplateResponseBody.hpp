@@ -72,7 +72,7 @@ namespace Models
     shared_ptr<string> message_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};
-    // The unique identifier of the created template.
+    // The unique ID of the created template.
     shared_ptr<string> templateID_ {};
   };
 

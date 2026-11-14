@@ -115,21 +115,21 @@ namespace Models
 
 
   protected:
-    // The CPU specification of the sandbox instance, in cores.
+    // The CPU specifications of the sandbox instance, in cores.
     shared_ptr<float> cpu_ {};
-    // The disk specification of the sandbox instance, in MB.
+    // The disk specifications of the sandbox instance, in MB.
     shared_ptr<int32_t> diskSize_ {};
     // Specifies whether the sandbox instance is allowed to access the Internet.
     shared_ptr<bool> internetAccess_ {};
     // The log delivery configuration of the sandbox instance.
     shared_ptr<PublicTemplateLogConfig> logConfig_ {};
-    // The memory specification of the sandbox instance, in MB.
+    // The memory specifications of the sandbox instance, in MB.
     shared_ptr<int32_t> memorySize_ {};
     // The image and startup configuration of the sandbox instance.
     shared_ptr<PublicTemplateSandboxConfig> sandboxConfig_ {};
-    // The set of allowed inbound source VPCs configured for Generation 2 templates. An omitted or empty array indicates that no inbound VPC bindings are configured, and this field can be omitted for historical records without configurations. This configuration is independent of the egress network vpcConfig. Subsequent template updates do not overwrite the bindings of functions used by existing sandboxes. When the feature switch is enabled, POST /init requests without query parameters to the standard E2B sandbox envd port 49983 are temporarily exempt from VPC source checks, while other authentication mechanisms remain in effect.
+    // The collection of inbound source VPCs allowed by the current template configuration. Omitting this field or providing an empty array indicates that no inbound VPC bindings are configured. This configuration is independent of the egress network vpcConfig. Subsequent template updates do not change the inbound VPC bindings of existing sandbox instances.
     shared_ptr<vector<string>> vpcBindings_ {};
-    // The virtual private cloud (VPC) configuration of the sandbox instance.
+    // The VPC configuration of the sandbox instance.
     shared_ptr<PublicTemplateVPCConfig> vpcConfig_ {};
   };
 

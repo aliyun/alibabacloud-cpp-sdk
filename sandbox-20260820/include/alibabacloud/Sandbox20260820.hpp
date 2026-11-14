@@ -59,7 +59,7 @@ namespace Sandbox20260820
       /**
        * @summary Creates a template.
        *
-       * @description Creates a template. runtimeConfig.vpcBindings is supported only for second-generation templates. A null value is treated as omitted. First-generation templates return a 400 error if an empty or non-empty array is explicitly provided. Inbound bindings are independent of the egress vpcConfig and API key source policies. When the feature switch is enabled, POST /init requests without query parameters to the standard envd port 49983 of the E2B sandbox are temporarily exempt from VPC source checks, while other authentication mechanisms remain in effect.
+       * @description Creates a template. If runtimeConfig.vpcBindings is null, it is treated as omitted. Inbound bindings are independent of the egress vpcConfig and API key source policy.
        *
        * @param request CreateTemplateRequest
        * @param headers map
@@ -71,7 +71,7 @@ namespace Sandbox20260820
       /**
        * @summary Creates a template.
        *
-       * @description Creates a template. runtimeConfig.vpcBindings is supported only for second-generation templates. A null value is treated as omitted. First-generation templates return a 400 error if an empty or non-empty array is explicitly provided. Inbound bindings are independent of the egress vpcConfig and API key source policies. When the feature switch is enabled, POST /init requests without query parameters to the standard envd port 49983 of the E2B sandbox are temporarily exempt from VPC source checks, while other authentication mechanisms remain in effect.
+       * @description Creates a template. If runtimeConfig.vpcBindings is null, it is treated as omitted. Inbound bindings are independent of the egress vpcConfig and API key source policy.
        *
        * @param request CreateTemplateRequest
        * @return CreateTemplateResponse
@@ -113,6 +113,24 @@ namespace Sandbox20260820
        * @return CreateVolumeResponse
        */
       Models::CreateVolumeResponse createVolume(const Models::CreateVolumeRequest &request);
+
+      /**
+       * @summary Creates a warm pool.
+       *
+       * @param request CreateWarmPoolRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CreateWarmPoolResponse
+       */
+      Models::CreateWarmPoolResponse createWarmPoolWithOptions(const string &teamID, const Models::CreateWarmPoolRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Creates a warm pool.
+       *
+       * @param request CreateWarmPoolRequest
+       * @return CreateWarmPoolResponse
+       */
+      Models::CreateWarmPoolResponse createWarmPool(const string &teamID, const Models::CreateWarmPoolRequest &request);
 
       /**
        * @summary Deletes a specified API key.
@@ -223,6 +241,24 @@ namespace Sandbox20260820
       Models::DeleteVolumeResponse deleteVolume(const string &volumeID, const Models::DeleteVolumeRequest &request);
 
       /**
+       * @summary Deletes a warm pool.
+       *
+       * @param request DeleteWarmPoolRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DeleteWarmPoolResponse
+       */
+      Models::DeleteWarmPoolResponse deleteWarmPoolWithOptions(const string &teamID, const string &templateID, const Models::DeleteWarmPoolRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Deletes a warm pool.
+       *
+       * @param request DeleteWarmPoolRequest
+       * @return DeleteWarmPoolResponse
+       */
+      Models::DeleteWarmPoolResponse deleteWarmPool(const string &teamID, const string &templateID, const Models::DeleteWarmPoolRequest &request);
+
+      /**
        * @summary Queries the details of a specified API key.
        *
        * @param request DescribeApiKeyRequest
@@ -275,6 +311,24 @@ namespace Sandbox20260820
        * @return DescribeTemplateCacheResponse
        */
       Models::DescribeTemplateCacheResponse describeTemplateCache(const string &templateID, const Models::DescribeTemplateCacheRequest &request);
+
+      /**
+       * @summary Queries the warm pool.
+       *
+       * @param request DescribeWarmPoolRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DescribeWarmPoolResponse
+       */
+      Models::DescribeWarmPoolResponse describeWarmPoolWithOptions(const string &teamID, const string &templateID, const Models::DescribeWarmPoolRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Queries the warm pool.
+       *
+       * @param request DescribeWarmPoolRequest
+       * @return DescribeWarmPoolResponse
+       */
+      Models::DescribeWarmPoolResponse describeWarmPool(const string &teamID, const string &templateID, const Models::DescribeWarmPoolRequest &request);
 
       /**
        * @summary 查询监控指标
@@ -483,6 +537,24 @@ namespace Sandbox20260820
       Models::ListVolumesResponse listVolumes(const Models::ListVolumesRequest &request);
 
       /**
+       * @summary Queries the list of warm pools.
+       *
+       * @param request ListWarmPoolsRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListWarmPoolsResponse
+       */
+      Models::ListWarmPoolsResponse listWarmPoolsWithOptions(const string &teamID, const Models::ListWarmPoolsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Queries the list of warm pools.
+       *
+       * @param request ListWarmPoolsRequest
+       * @return ListWarmPoolsResponse
+       */
+      Models::ListWarmPoolsResponse listWarmPools(const string &teamID, const Models::ListWarmPoolsRequest &request);
+
+      /**
        * @summary Resets a specified API key.
        *
        * @description Rotates the credential value of an API key while retaining the original API key ID, IP address whitelist, IP address blacklist, and vpcBindings source policy. The apiKey field in the response returns the retained policy.
@@ -565,7 +637,7 @@ namespace Sandbox20260820
       /**
        * @summary Updates a template.
        *
-       * @description Updates a template. For Generation 2 templates, runtimeConfig.vpcBindings supports omission or null retention, full replacement with a non-empty array, or clearing with an empty array. The new list takes effect upon a successful build of the new version. Existing sandboxes continue to use the original functions and policies. If the build fails, the previously effective version is retained. For Generation 1 templates, explicitly passing an empty or non-empty array returns a 400 error. Before switching to Generation 1, you must clear the bindings and wait for the update to succeed. When the feature switch is enabled, POST /init requests without query parameters to the standard envd port 49983 of E2B sandboxes are temporarily exempt from VPC source checks, while other authentication mechanisms remain in effect.
+       * @description Updates a template. For runtimeConfig.vpcBindings, you can omit the field or set it to null to retain the current bindings, provide a non-empty array to replace the entire list, or provide an empty array [] to clear the list. The new list takes effect when the new version is successfully built. Existing sandboxes continue to use the original configuration. If the build fails, the original effective version is retained.
        *
        * @param request UpdateTemplateRequest
        * @param headers map
@@ -577,7 +649,7 @@ namespace Sandbox20260820
       /**
        * @summary Updates a template.
        *
-       * @description Updates a template. For Generation 2 templates, runtimeConfig.vpcBindings supports omission or null retention, full replacement with a non-empty array, or clearing with an empty array. The new list takes effect upon a successful build of the new version. Existing sandboxes continue to use the original functions and policies. If the build fails, the previously effective version is retained. For Generation 1 templates, explicitly passing an empty or non-empty array returns a 400 error. Before switching to Generation 1, you must clear the bindings and wait for the update to succeed. When the feature switch is enabled, POST /init requests without query parameters to the standard envd port 49983 of E2B sandboxes are temporarily exempt from VPC source checks, while other authentication mechanisms remain in effect.
+       * @description Updates a template. For runtimeConfig.vpcBindings, you can omit the field or set it to null to retain the current bindings, provide a non-empty array to replace the entire list, or provide an empty array [] to clear the list. The new list takes effect when the new version is successfully built. Existing sandboxes continue to use the original configuration. If the build fails, the original effective version is retained.
        *
        * @param request UpdateTemplateRequest
        * @return UpdateTemplateResponse
@@ -601,6 +673,24 @@ namespace Sandbox20260820
        * @return UpdateVolumeResponse
        */
       Models::UpdateVolumeResponse updateVolume(const string &volumeID, const Models::UpdateVolumeRequest &request);
+
+      /**
+       * @summary Updates the capacity policy of a warm pool.
+       *
+       * @param request UpdateWarmPoolRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return UpdateWarmPoolResponse
+       */
+      Models::UpdateWarmPoolResponse updateWarmPoolWithOptions(const string &teamID, const string &templateID, const Models::UpdateWarmPoolRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Updates the capacity policy of a warm pool.
+       *
+       * @param request UpdateWarmPoolRequest
+       * @return UpdateWarmPoolResponse
+       */
+      Models::UpdateWarmPoolResponse updateWarmPool(const string &teamID, const string &templateID, const Models::UpdateWarmPoolRequest &request);
   };
 } // namespace AlibabaCloud
 } // namespace Sandbox20260820

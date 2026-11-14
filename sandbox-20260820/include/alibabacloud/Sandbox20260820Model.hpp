@@ -30,6 +30,9 @@
 #include <alibabacloud/models/JuiceFSVolumeConfig.hpp>
 #include <alibabacloud/models/OSSVolumeConfig.hpp>
 #include <alibabacloud/models/CreateVolumeInput.hpp>
+#include <alibabacloud/models/WarmPoolScheduledPolicyInput.hpp>
+#include <alibabacloud/models/WarmPoolCapacityPolicyInput.hpp>
+#include <alibabacloud/models/CreateWarmPoolInput.hpp>
 #include <alibabacloud/models/CustomDomainResp.hpp>
 #include <alibabacloud/models/E2BLifecycle.hpp>
 #include <alibabacloud/models/E2BListedSandbox.hpp>
@@ -77,6 +80,10 @@
 #include <alibabacloud/models/PublicUpdateTemplateVPCConfig.hpp>
 #include <alibabacloud/models/PublicUpdateTemplateRuntimeConfig.hpp>
 #include <alibabacloud/models/PublicUpdateTemplateInput.hpp>
+#include <alibabacloud/models/WarmPoolScheduledPolicy.hpp>
+#include <alibabacloud/models/WarmPoolCapacityPolicy.hpp>
+#include <alibabacloud/models/PublicWarmPool.hpp>
+#include <alibabacloud/models/PublicWarmPoolConfig.hpp>
 #include <alibabacloud/models/Quota.hpp>
 #include <alibabacloud/models/QuotaUsage.hpp>
 #include <alibabacloud/models/ResourceUsage.hpp>
@@ -86,6 +93,8 @@
 #include <alibabacloud/models/UpdateTeamInput.hpp>
 #include <alibabacloud/models/UpdateTemplateInput.hpp>
 #include <alibabacloud/models/UpdateVolumeInput.hpp>
+#include <alibabacloud/models/UpdateWarmPoolInput.hpp>
+#include <alibabacloud/models/WarmPoolCurrentError.hpp>
 #include <alibabacloud/models/CreateApiKeyRequest.hpp>
 #include <alibabacloud/models/CreateApiKeyResponseBody.hpp>
 #include <alibabacloud/models/CreateApiKeyResponse.hpp>
@@ -101,6 +110,9 @@
 #include <alibabacloud/models/CreateVolumeRequest.hpp>
 #include <alibabacloud/models/CreateVolumeResponseBody.hpp>
 #include <alibabacloud/models/CreateVolumeResponse.hpp>
+#include <alibabacloud/models/CreateWarmPoolRequest.hpp>
+#include <alibabacloud/models/CreateWarmPoolResponseBody.hpp>
+#include <alibabacloud/models/CreateWarmPoolResponse.hpp>
 #include <alibabacloud/models/DeleteApiKeyRequest.hpp>
 #include <alibabacloud/models/DeleteApiKeyResponseBody.hpp>
 #include <alibabacloud/models/DeleteApiKeyResponse.hpp>
@@ -119,6 +131,8 @@
 #include <alibabacloud/models/DeleteVolumeRequest.hpp>
 #include <alibabacloud/models/DeleteVolumeResponseBody.hpp>
 #include <alibabacloud/models/DeleteVolumeResponse.hpp>
+#include <alibabacloud/models/DeleteWarmPoolRequest.hpp>
+#include <alibabacloud/models/DeleteWarmPoolResponse.hpp>
 #include <alibabacloud/models/DescribeApiKeyRequest.hpp>
 #include <alibabacloud/models/DescribeApiKeyResponseBody.hpp>
 #include <alibabacloud/models/DescribeApiKeyResponse.hpp>
@@ -128,6 +142,9 @@
 #include <alibabacloud/models/DescribeTemplateCacheRequest.hpp>
 #include <alibabacloud/models/DescribeTemplateCacheResponseBody.hpp>
 #include <alibabacloud/models/DescribeTemplateCacheResponse.hpp>
+#include <alibabacloud/models/DescribeWarmPoolRequest.hpp>
+#include <alibabacloud/models/DescribeWarmPoolResponseBody.hpp>
+#include <alibabacloud/models/DescribeWarmPoolResponse.hpp>
 #include <alibabacloud/models/GetMetricDataRequest.hpp>
 #include <alibabacloud/models/GetMetricDataShrinkRequest.hpp>
 #include <alibabacloud/models/GetMetricDataResponseBody.hpp>
@@ -164,6 +181,9 @@
 #include <alibabacloud/models/ListVolumesRequest.hpp>
 #include <alibabacloud/models/ListVolumesResponseBody.hpp>
 #include <alibabacloud/models/ListVolumesResponse.hpp>
+#include <alibabacloud/models/ListWarmPoolsRequest.hpp>
+#include <alibabacloud/models/ListWarmPoolsResponseBody.hpp>
+#include <alibabacloud/models/ListWarmPoolsResponse.hpp>
 #include <alibabacloud/models/ResetApiKeyRequest.hpp>
 #include <alibabacloud/models/ResetApiKeyResponseBody.hpp>
 #include <alibabacloud/models/ResetApiKeyResponse.hpp>
@@ -182,5 +202,8 @@
 #include <alibabacloud/models/UpdateVolumeRequest.hpp>
 #include <alibabacloud/models/UpdateVolumeResponseBody.hpp>
 #include <alibabacloud/models/UpdateVolumeResponse.hpp>
+#include <alibabacloud/models/UpdateWarmPoolRequest.hpp>
+#include <alibabacloud/models/UpdateWarmPoolResponseBody.hpp>
+#include <alibabacloud/models/UpdateWarmPoolResponse.hpp>
 
 #endif
