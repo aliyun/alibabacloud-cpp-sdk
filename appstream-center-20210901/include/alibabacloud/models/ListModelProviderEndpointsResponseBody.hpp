@@ -135,15 +135,15 @@ namespace Models
       protected:
         // The API compatibility type, such as openai-compatible or anthropic-compatible.
         shared_ptr<string> apiType_ {};
-        // The API base URL, such as https://coding.dashscope.aliyuncs.com/v1.
+        // The base URL of the API, such as https://coding.dashscope.aliyuncs.com/v1.
         shared_ptr<string> baseUrl_ {};
-        // The endpoint description, such as Coding Plan - OpenAI compatible protocol.
+        // The description of the endpoint, such as Coding Plan - OpenAI-compatible protocol.
         shared_ptr<string> description_ {};
-        // The endpoint identifier name, such as coding-openai or cn-beijing.
+        // The identifier name of the endpoint, such as coding-openai or cn-beijing.
         shared_ptr<string> name_ {};
         // The provider URL.
         shared_ptr<string> providerUrl_ {};
-        // The list of tags used for categorization and filtering, such as coding-plan, on-demand, or cn-beijing.
+        // The list of tags used for classification and filtering, such as coding-plan, on-demand, or cn-beijing.
         shared_ptr<vector<string>> tags_ {};
       };
 
@@ -180,13 +180,13 @@ namespace Models
 
 
     protected:
-      // The provider description, such as Alibaba Cloud Bailian.
+      // The description of the provider, such as Alibaba Cloud Model Studio.
       shared_ptr<string> description_ {};
-      // The list of all endpoints under the provider.
+      // The list of all endpoints under this provider.
       shared_ptr<vector<Data::Endpoints>> endpoints_ {};
-      // The provider name, such as bailian or moonshot.
+      // The name of the provider, such as bailian or moonshot.
       shared_ptr<string> providerName_ {};
-      // The provider website URL, which is used to direct users to obtain an API key.
+      // The URL of the provider\\"s official website, which directs users to obtain an API key.
       shared_ptr<string> providerUrl_ {};
     };
 
@@ -209,9 +209,9 @@ namespace Models
 
 
   protected:
-    // The returned data object.
+    // The data object.
     shared_ptr<vector<ListModelProviderEndpointsResponseBody::Data>> data_ {};
-    // The request ID, which uniquely identifies the request.
+    // The unique ID of the request.
     shared_ptr<string> requestId_ {};
   };
 

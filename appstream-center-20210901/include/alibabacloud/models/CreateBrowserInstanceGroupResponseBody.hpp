@@ -71,7 +71,7 @@ namespace Models
     protected:
       // The ID of the newly created cloud browser group. The return of this ID does not indicate that the resource is ready.
       shared_ptr<string> browserInstanceGroupId_ {};
-      // The order ID generated for this creation.
+      // The ID of the order generated for this creation.
       shared_ptr<string> orderId_ {};
     };
 

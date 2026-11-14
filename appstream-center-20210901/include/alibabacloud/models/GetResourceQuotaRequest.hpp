@@ -66,24 +66,24 @@ namespace Models
 
 
   protected:
-    // The business region ID. If this parameter is omitted, the general quota that is not limited by region is queried. The quotas of different regions are not added together. This parameter must be consistent with the business region for What to do next.
+    // The business region ID. If this parameter is omitted, the general quota that is not limited by region is queried, and the quotas of different regions are not added together. This parameter must be consistent with the business region of What to do next.
     shared_ptr<string> bizRegionId_ {};
-    // The billing method query condition. If this parameter is omitted, the general quota that is not limited by billing method is queried. The quotas of different billing methods are not added together. Valid values:
+    // The billing method query condition. If this parameter is omitted, the general quota that is not limited by billing method is queried, and the quotas of different billing methods are not added together. Valid values:
     // 
-    // - PrePaid: subscription.
-    // - PostPaid: pay-as-you-go.
+    // - `PrePaid`: subscription.
+    // - `PostPaid`: pay-as-you-go.
     shared_ptr<string> chargeType_ {};
-    // The product type. Set this parameter to the following value when you call the operation:
+    // The product type. Set this parameter to the following fixed value when you call the operation:
     // 
-    // - CloudApp: WUYING Cloud App.
+    // - `CloudApp`: WUYING Cloud App.
     // 
     // This parameter is required.
     shared_ptr<string> productType_ {};
     // The business resource type to query. Valid values:
     // 
-    // - AppInstanceGroup: the quantity quota for delivery groups. Unit: count.
-    // - AppAuthUser: the quantity quota for authorized users. Unit: users.
-    // - PoolNodeAmount: the quantity quota for purchased resource nodes. Unit: count.
+    // - `AppInstanceGroup`: the quantity quota for delivery groups. Unit: groups.
+    // - `AppAuthUser`: the quantity quota for authorized users. Unit: users.
+    // - `PoolNodeAmount`: the quantity quota for purchased resource nodes. Unit: nodes.
     // 
     // This parameter is required.
     shared_ptr<string> resourceType_ {};

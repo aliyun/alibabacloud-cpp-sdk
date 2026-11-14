@@ -107,15 +107,15 @@ namespace Models
 
 
     protected:
-      // The app instance group ID.
+      // The ID of the app instance group.
       shared_ptr<string> appInstanceGroupId_ {};
       // The number of monthly active users in the statistical month. Unit: users.
       shared_ptr<int64_t> mau_ {};
-      // The business region ID to which the report data belongs.
+      // The ID of the business region to which the report data belongs.
       shared_ptr<string> regionId_ {};
-      // The statistical cutoff date used for the month. Format: `yyyy-MM-dd`. For the last month, this is usually the day before the requested `EndDate`. The date is interpreted as a calendar date in the Asia/Shanghai (UTC+8) time zone.
+      // The statistical cutoff date used for the month. Format: `yyyy-MM-dd`. For the last month, the date is usually the day before the requested EndDate. The date is interpreted as a natural date in the Asia/Shanghai (UTC+8) time zone.
       shared_ptr<string> statDate_ {};
-      // The statistical month. Format: `yyyy-MM`. The month is interpreted as a calendar month in the Asia/Shanghai (UTC+8) time zone.
+      // The statistical month. Format: `yyyy-MM`. The month is interpreted as a natural month in the Asia/Shanghai (UTC+8) time zone.
       shared_ptr<string> statMonth_ {};
     };
 
@@ -174,7 +174,7 @@ namespace Models
 
 
   protected:
-    // The business status code. A value of `200` indicates that the request is processed successfully. Other values indicate that the request fails to be processed.
+    // The business status code. A value of 200 indicates that the request is successful. Other values indicate that the request failed.
     shared_ptr<string> code_ {};
     // The total number of entries that meet the query conditions.
     shared_ptr<int32_t> count_ {};

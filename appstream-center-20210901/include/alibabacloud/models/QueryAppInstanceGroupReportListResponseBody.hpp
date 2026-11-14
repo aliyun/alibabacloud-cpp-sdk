@@ -87,24 +87,21 @@ namespace Models
 
 
     protected:
-      // The ID of the app instance group.
+      // The delivery group ID.
       shared_ptr<string> appInstanceGroupId_ {};
-      // The name of the app instance group.
+      // The delivery group name.
       shared_ptr<string> appInstanceGroupName_ {};
-      // The current status of the app instance group.
-      // 
-      // Valid values:
-      // 
-      // - `DEPLOYING`: Deploying.
-      // - `DEPLOYED`: Deployed but not published.
-      // - `PUBLISHED`: Published and available to provide services based on the current configurations.
-      // - `STOPPING`: Stopping.
-      // - `STOPPED`: Stopped.
-      // - `MAINTAINING`: Maintaining.
-      // - `FAILED`: Deployment or running failed.
-      // - `MAINTAIN_FAILED`: Maintenance failed.
-      // - `DELETING`: Deleting.
-      // - `DELETED`: Deleted.
+      // The current status of the delivery group. Valid values:
+      // - `DEPLOYING`: deploying
+      // - `DEPLOYED`: deployed but not published
+      // - `PUBLISHED`: published and available to provide services based on the current configuration
+      // - `STOPPING`: stopping
+      // - `STOPPED`: stopped
+      // - `MAINTAINING`: maintaining
+      // - `FAILED`: deployment or execution failed
+      // - `MAINTAIN_FAILED`: maintenance failed
+      // - `DELETING`: deleting
+      // - `DELETED`: deleted
       shared_ptr<string> status_ {};
     };
 
@@ -157,7 +154,7 @@ namespace Models
   protected:
     // The business status code. A value of `200` indicates that the request is processed. Other values indicate that the processing failed.
     shared_ptr<string> code_ {};
-    // The list of app instance group report data.
+    // The list of delivery group report data.
     shared_ptr<vector<QueryAppInstanceGroupReportListResponseBody::IndexData>> indexData_ {};
     // The description of the request processing result. If the request is successful, `success` is usually returned.
     shared_ptr<string> message_ {};

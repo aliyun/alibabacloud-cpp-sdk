@@ -105,11 +105,11 @@ namespace Models
 
 
     protected:
-      // The JSON configuration object of the model provider template.
+      // The JSON object for the model provider template configuration.
       shared_ptr<string> config_ {};
       // The description of the model provider template.
       shared_ptr<string> description_ {};
-      // Indicates whether the WUYING secure gateway proxy is enabled.
+      // Indicates whether the Wuying security gateway proxy is enabled.
       shared_ptr<bool> enableWuyingProxy_ {};
       // The name of the model provider template.
       shared_ptr<string> name_ {};

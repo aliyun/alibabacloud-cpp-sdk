@@ -107,11 +107,11 @@ namespace Models
       shared_ptr<string> message_ {};
       // The agent runtime ID. The ID mappings are as follows:
       // 
-      // JVS Computer: the JVS Computer ID, in the format of jvs-xxxx.
+      // JVS Computer: JVS Computer ID, in the format of jvs-xxxx.
       // 
-      // OpenClaw: the cloud desktop ID, in the format of ecd-xxxx.
+      // OpenClaw: Cloud desktop ID, in the format of ecd-xxxx.
       // 
-      // Hermes Agent: the Hermes Agent ID, in the format of jvs-xxxx.
+      // Hermes Agent: Hermes Agent ID, in the format of jvs-xxxx.
       shared_ptr<string> runtimeId_ {};
       // Indicates whether the execution is successful.
       shared_ptr<bool> success_ {};

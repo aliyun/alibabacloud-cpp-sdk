@@ -125,13 +125,13 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<vector<DeliverToUserSlsRequest::DeliveryScopes>> deliveryScopes_ {};
-    // The name of an existing SLS project. Either this parameter or ProjectName must be specified.
+    // The name of the existing SLS project. You must specify either this parameter or ProjectName.
     shared_ptr<string> existedProjectName_ {};
-    // The LogStore name.
+    // The name of the Logstore.
     shared_ptr<string> logStoreName_ {};
-    // The SLS project name. Either this parameter or ExistedProjectName must be specified.
+    // The name of the SLS project. You must specify either this parameter or ExistedProjectName.
     shared_ptr<string> projectName_ {};
-    // The region ID of the SLS instance.
+    // The region ID of SLS.
     // 
     // This parameter is required.
     shared_ptr<string> slsRegionId_ {};

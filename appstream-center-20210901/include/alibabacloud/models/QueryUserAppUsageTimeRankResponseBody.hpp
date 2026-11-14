@@ -92,13 +92,13 @@ namespace Models
 
 
     protected:
-      // The application ID.
+      // The ID of the application.
       shared_ptr<string> appId_ {};
-      // The application name.
+      // The name of the application.
       shared_ptr<string> appName_ {};
       // The cumulative usage duration of the application within the statistical range. Unit: seconds.
       shared_ptr<string> appTimeCnt_ {};
-      // The application version. The current version may not return this value, and callers should not rely on this field. A non-empty value indicates the application version.
+      // The version of the application. The current version may not return this value, and callers should not rely on this field. A non-empty value indicates the application version.
       shared_ptr<string> appVersion_ {};
     };
 
@@ -135,7 +135,7 @@ namespace Models
 
 
   protected:
-    // The business status code. A value of `200` indicates that the request is processed successfully. Other values indicate that the processing failed.
+    // The business status code. A value of `200` indicates that the request was processed successfully. Other values indicate that the processing failed.
     shared_ptr<string> code_ {};
     // The ranking list of user application usage duration, sorted in descending order of cumulative usage duration.
     shared_ptr<vector<QueryUserAppUsageTimeRankResponseBody::IndexData>> indexData_ {};

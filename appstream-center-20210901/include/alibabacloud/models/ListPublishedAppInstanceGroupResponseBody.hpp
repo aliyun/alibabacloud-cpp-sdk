@@ -247,7 +247,7 @@ namespace Models
       shared_ptr<string> appInstanceType_ {};
       // The list of deployed applications in the image of the delivery group. The AppId and AppName parameters in the request only determine whether the delivery group is selected, and do not trim this list to the matched applications.
       shared_ptr<vector<AppInstanceGroupModels::Apps>> apps_ {};
-      // The expiration time of the delivery group. For delivery groups sold as resources, the expiration time of their resources is returned. For other delivery groups, the expiration time of the delivery group itself is returned. The time is in the ISO 8601 date and time format, including milliseconds and time zone offset. The returned time zone offset is +00:00. Format: yyyy-MM-ddTHH:mm:ss.SSS+HH:mm.
+      // The expiration time of the delivery group. For delivery groups sold as resources, the expiration time of their resources is returned. For other delivery groups, the expiration time of the delivery groups themselves is returned. The time is in the ISO 8601 date and time format, including milliseconds and time zone offset. The returned time zone offset is +00:00. Format: yyyy-MM-ddTHH:mm:ss.SSS+HH:mm.
       shared_ptr<string> expiredTime_ {};
       // The creation time of the delivery group. The time is in the ISO 8601 date and time format, including milliseconds and time zone offset. The returned time zone offset is +00:00. Format: yyyy-MM-ddTHH:mm:ss.SSS+HH:mm.
       shared_ptr<string> gmtCreate_ {};
@@ -257,7 +257,7 @@ namespace Models
       // 
       // - PUBLISHED: Published and listed. Delivery groups in this status can be included in the query results of this operation. This status does not indicate that a specified user has obtained access permissions.
       shared_ptr<string> status_ {};
-      // Specifies whether mixed authorization for users and user groups is supported.
+      // Indicates whether mixed authorization of users and user groups is supported.
       shared_ptr<bool> supportUserGroupMixedAuth_ {};
       // The authorization mode for users and user groups.
       shared_ptr<string> userGroupAuthMode_ {};
@@ -307,7 +307,7 @@ namespace Models
     shared_ptr<vector<ListPublishedAppInstanceGroupResponseBody::AppInstanceGroupModels>> appInstanceGroupModels_ {};
     // The page number specified in the current request.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of delivery groups per page specified in the request. Unit: delivery groups. This value does not represent the actual number of entries returned on the current page. The actual number on the current page may be less than this value.
+    // The number of delivery groups per page specified in the request. Unit: delivery groups. This value does not indicate the actual number of entries returned on the current page. The actual number on the current page may be less than this value.
     shared_ptr<int32_t> pageSize_ {};
     // The unique identifier of the current request, which can be used to troubleshoot request issues.
     shared_ptr<string> requestId_ {};

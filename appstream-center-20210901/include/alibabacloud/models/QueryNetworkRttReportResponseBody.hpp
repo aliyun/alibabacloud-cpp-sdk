@@ -157,11 +157,11 @@ namespace Models
       shared_ptr<string> appInstanceGroupId_ {};
       // The number of users that meet the low-RTT criteria of the report. Unit: users. The current API operation does not return the specific threshold.
       shared_ptr<int64_t> lowRttUserCount_ {};
-      // The ratio of low-RTT users to the total number of users involved in the statistics. Valid values: 0 to 1. To obtain the percentage, multiply the value by 100.
+      // The ratio of low-RTT users to the total number of users included in the statistics. Valid values: 0 to 1. To obtain the percentage, multiply the value by 100.
       shared_ptr<double> lowRttUserRate_ {};
       // The ID of the business region to which the report data belongs.
       shared_ptr<string> regionId_ {};
-      // The average RTT of all users involved in the statistics. Unit: milliseconds.
+      // The average RTT of all users included in the statistics. Unit: milliseconds.
       shared_ptr<double> rttAvg_ {};
       // The maximum value among the average RTTs of all users. Unit: milliseconds.
       shared_ptr<double> rttMax_ {};
@@ -171,7 +171,7 @@ namespace Models
       shared_ptr<string> statEndDate_ {};
       // The start time of the statistical window. Format: `yyyy-MM-dd HH:mm:ss`. The string itself does not carry a time zone and is interpreted as Asia/Shanghai (UTC+8).
       shared_ptr<string> statStartDate_ {};
-      // The total number of users involved in the RTT calculation for the current statistical window. Unit: users.
+      // The total number of users included in the RTT calculation for the current statistical window. Unit: users.
       shared_ptr<int64_t> totalUserCount_ {};
     };
 
@@ -230,11 +230,11 @@ namespace Models
 
 
   protected:
-    // The business status code. `200` indicates that the request is processed successfully. Other values indicate that the processing failed.
+    // The business status code. A value of 200 indicates that the request is successful. Other values indicate that the request failed.
     shared_ptr<string> code_ {};
     // The total number of records that meet the query conditions.
     shared_ptr<int32_t> count_ {};
-    // The description of the request processing result. If the request is successful, `success` is usually returned.
+    // The description of the request processing result. The value success is usually returned when the request is successful.
     shared_ptr<string> message_ {};
     // The list of network RTT report data.
     shared_ptr<vector<QueryNetworkRttReportResponseBody::NetworkRttReportDataModel>> networkRttReportDataModel_ {};

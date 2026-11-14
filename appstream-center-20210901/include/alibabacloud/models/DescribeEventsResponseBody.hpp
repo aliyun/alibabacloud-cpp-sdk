@@ -157,7 +157,7 @@ namespace Models
       shared_ptr<string> appInstanceGroupId_ {};
       // The name of the delivery group associated with the event. This field may be empty if the event is not associated with a delivery group.
       shared_ptr<string> appInstanceGroupName_ {};
-      // The event detail text. The content varies based on the `EventType` and may be empty. For example, a session release event may return a JSON text that describes the release cause.
+      // The event detail text. The content varies with `EventType` and may be empty. For example, a session release event may return JSON text that describes the release reason.
       shared_ptr<string> detailInfo_ {};
       // The unique identifier of the event.
       shared_ptr<string> eventId_ {};
@@ -242,7 +242,7 @@ namespace Models
     shared_ptr<int32_t> pageSize_ {};
     // The unique identifier of the request, which can be used to troubleshoot request issues.
     shared_ptr<string> requestId_ {};
-    // The total number of events that meet all filter conditions within the 30-day retrievable window. Unit: entries.
+    // The total number of events that meet all filter conditions within the 30-day retrievable window. Unit: records.
     shared_ptr<int32_t> totalCount_ {};
   };
 

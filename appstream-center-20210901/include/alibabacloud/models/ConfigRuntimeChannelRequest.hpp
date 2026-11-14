@@ -110,9 +110,9 @@ namespace Models
     shared_ptr<string> agentPlatform_ {};
     // The agent provider.
     // 
-    // - JVS Computer: Set to OpenClaw.
-    // - OpenClaw: Set to OpenClaw.
-    // - Hermes Agent: Set to HermesAgent.
+    // - JVS Computer: Enter OpenClaw.
+    // - OpenClaw: Enter OpenClaw.
+    // - Hermes Agent: Enter HermesAgent.
     // 
     // This parameter is required.
     shared_ptr<string> agentProvider_ {};
@@ -120,7 +120,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> code_ {};
-    // The JSON string for channel configuration.
+    // The channel configuration JSON string.
     // 
     // - Example of the simple configuration mode:
     // ```json

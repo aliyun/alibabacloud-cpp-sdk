@@ -177,27 +177,27 @@ namespace Models
 
 
   protected:
-    // This parameter is currently applicable only to cloud desktop scenarios. Specifies whether to clear user personal data. If you set this parameter to true, the created image clears data in all directories under C:\\Users except the Administrator and Public directories.
+    // This parameter is applicable only to cloud desktop instances. Specifies whether to clear personal user data. If you set this parameter to true, the created image clears the data in all directories under C:\\Users except the Administrator and Public directories.
     shared_ptr<bool> autoCleanUserdata_ {};
     // This parameter is not publicly available.
     shared_ptr<int32_t> bizType_ {};
-    // Specifies whether to copy user profile data.
+    // Specifies whether to copy personal user data.
     shared_ptr<bool> copyProfile_ {};
-    // The image description.
+    // The description of the image.
     shared_ptr<string> description_ {};
-    // The type of disk data included in the image. By default, the image includes both the system cloud disk and data cloud disk of the instance.
+    // The types of disk data included in the image. By default, the image includes the system cloud disk and data cloud disks of the instance.
     shared_ptr<string> diskType_ {};
-    // The image name.
+    // The name of the image.
     shared_ptr<string> imageName_ {};
     // The WUYING instance ID. The instance can be a cloud desktop instance or a workstation instance. To ensure data consistency in the image, stop the instance before creating the image.
     shared_ptr<string> instanceId_ {};
-    // The instance type.
+    // The type of the instance.
     shared_ptr<string> instanceType_ {};
     // This parameter is not publicly available.
     shared_ptr<string> productType_ {};
-    // The sub-instance ID. This parameter does not apply to cloud desktop scenarios. In workstation scenarios, specify the persistent session ID to identify a specific instance.
+    // The sub-instance ID. This parameter is not applicable to cloud desktop scenarios. In workstation scenarios, you must specify the persistent session ID to locate a specific instance.
     shared_ptr<string> subInstanceId_ {};
-    // The tag list.
+    // The list of tags.
     shared_ptr<vector<CreateImageByInstanceRequest::TagList>> tagList_ {};
   };
 

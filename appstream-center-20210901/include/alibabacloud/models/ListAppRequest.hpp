@@ -145,75 +145,75 @@ namespace Models
 
 
   protected:
-    // The application ID for exact query. If this parameter is omitted, applications are not filtered by application ID.
+    // The application ID used for exact match. If omitted, applications are not filtered by application ID.
     shared_ptr<string> appId_ {};
-    // The application name filter. Contains matching is supported.
+    // The application name used for filtering. Contains matching is supported.
     shared_ptr<string> appName_ {};
     // The source type of the application. Valid values:
     // 
-    // - **USER_APP**: User-created applications.
-    // - **SYS_APP**: System-provided applications.
-    // - **VIRTUAL_APP**: Virtual applications.
+    // - **USER_APP**: user-created applications
+    // - **SYS_APP**: system-provided applications
+    // - **VIRTUAL_APP**: virtual applications
     shared_ptr<string> appType_ {};
     // Filters by a single business type. If specified together with BizTypeList, the intersection is used. Valid values:
     // 
-    // - **1**: Basic products.
-    // - **2**: Personal cloud.
-    // - **3**: Cloud office.
-    // - **4**: Cloud Flow.
-    // - **10**: Personal Edition.
-    // - **20**: Business Edition.
-    // - **60**: Linggou Team Edition.
+    // - **1**: basic products
+    // - **2**: personal cloud
+    // - **3**: cloud office
+    // - **4**: Cloud Flow
+    // - **10**: Personal Edition
+    // - **20**: Business Edition
+    // - **60**: Linggou Team Edition
     shared_ptr<int32_t> bizType_ {};
-    // The list of business types for filtering. A match with any business type in the list is considered a match. If specified together with BizType, the single-value condition must still be met.
+    // The list of business types for filtering. An application is matched if it belongs to any business type in the list. If specified together with BizType, the single-value condition must still be met.
     shared_ptr<vector<int32_t>> bizTypeList_ {};
     // The form of the application. Valid values:
     // 
-    // - **CLIENT_BASE**: Client applications.
-    // - **WEB_BASE**: Browser applications.
-    // - **CLOUD_NATIVE_BASE**: Cloud-native applications.
-    // - **PORT_SERVICE_BASE**: Port service applications.
-    // - **AGENT_SERVICE_BASE**: Agent applications.
+    // - **CLIENT_BASE**: client applications
+    // - **WEB_BASE**: browser applications
+    // - **CLOUD_NATIVE_BASE**: cloud-native applications
+    // - **PORT_SERVICE_BASE**: port service applications
+    // - **AGENT_SERVICE_BASE**: agent applications
     shared_ptr<string> originAppType_ {};
     // The type of operating system used by the application. Valid values:
     // 
-    // - **Unknown**: The operating system is unknown.
-    // - **Windows**: Windows operating system.
-    // - **Linux**: Linux operating system.
-    // - **Android**: Android operating system.
+    // - **Unknown**: unknown operating system
+    // - **Windows**: Windows operating system
+    // - **Linux**: Linux operating system
+    // - **Android**: Android operating system
     shared_ptr<string> osType_ {};
-    // The page number for the query. Start from 1. If this parameter is omitted, set to 0, or set to 1, the first page is queried.
+    // The page number. We recommend that you start from 1. If this parameter is omitted, set to 0, or set to 1, the first page is queried.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of records to return on each page. If this parameter is omitted or set to a value less than 1, the value 10 is used.
+    // The number of entries to return on each page. If this parameter is omitted or set to a value less than 1, the value 10 is used.
     shared_ptr<int32_t> pageSize_ {};
     // Filters by a single associated product. If specified together with ProductTypeList, the intersection is used. Valid values:
     // 
-    // - **CloudGame**: Cloud game.
-    // - **CloudApp**: Wuying cloud application.
-    // - **CloudBrowser**: Secure browser.
-    // - **CloudDesktop**: Wuying cloud desktop.
-    // - **ImageBuilder**: Image builder resources.
-    // - **ImageValidate**: Image validation resources.
-    // - **AndroidCloud**: Android cloud.
-    // - **GpuRender**: GPU rendering.
-    // - **AndroidGpuRender**: Android cloud GPU rendering.
-    // - **WuyingServer**: Enterprise Edition workstation.
-    // - **GpuProxy**: GPU remote rendering proxy.
-    // - **GpuCache**: GPU remote rendering cache.
-    // - **AIAgent**: AI Agent service.
-    // - **HostedDesktop**: Hosted desktop.
-    // - **WuyingWorkstation**: Personal Edition container workstation.
-    // - **WuyingWorkstationBusiness**: Business Edition container workstation.
-    // - **WuyingWorkstationTeam**: Linggou Team Edition container workstation.
+    // - **CloudGame**: cloud gaming
+    // - **CloudApp**: Wuying Cloud Application
+    // - **CloudBrowser**: secure browser
+    // - **CloudDesktop**: Wuying Cloud Computer
+    // - **ImageBuilder**: image builder resources
+    // - **ImageValidate**: image validation resources
+    // - **AndroidCloud**: Android cloud
+    // - **GpuRender**: GPU rendering
+    // - **AndroidGpuRender**: Android cloud GPU rendering
+    // - **WuyingServer**: Enterprise Edition workstation
+    // - **GpuProxy**: GPU remote rendering proxy
+    // - **GpuCache**: GPU remote rendering cache
+    // - **AIAgent**: AI agent service
+    // - **HostedDesktop**: hosted computer
+    // - **WuyingWorkstation**: Personal Edition container workstation
+    // - **WuyingWorkstationBusiness**: Business Edition container workstation
+    // - **WuyingWorkstationTeam**: Linggou Team Edition container workstation
     shared_ptr<string> productType_ {};
-    // The list of associated products for filtering. A match with any product in the list is considered a match. If specified together with ProductType, the single-value condition must still be met.
+    // The list of associated products for filtering. An application is matched if it belongs to any product in the list. If specified together with ProductType, the single-value condition must still be met.
     shared_ptr<vector<string>> productTypeList_ {};
     // The subtype of the application. Valid values:
     // 
-    // - **PWA**: Progressive web applications.
-    // - **SAAS**: Software as a Service (SaaS) applications.
-    // - **SANDBOX**: Sandbox applications.
-    // - **CONTAINER**: Container applications.
+    // - **PWA**: progressive web applications
+    // - **SAAS**: SaaS applications
+    // - **SANDBOX**: sandbox applications
+    // - **CONTAINER**: container applications
     shared_ptr<string> subAppType_ {};
   };
 

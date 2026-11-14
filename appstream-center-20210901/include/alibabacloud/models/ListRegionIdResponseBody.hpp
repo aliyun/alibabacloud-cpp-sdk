@@ -93,11 +93,11 @@ namespace Models
     shared_ptr<int32_t> count_ {};
     // The list of region IDs available for image services under the selected product for the current account.
     shared_ptr<vector<string>> data_ {};
-    // The error or result message. This parameter describes the cause when a request fails. A successful response may not contain this field.
+    // The error or result message. This parameter is used to describe the cause when the request fails. A successful response may not contain this field.
     shared_ptr<string> message_ {};
-    // The unique identifier of the request. You can provide this value for troubleshooting.
+    // The unique identifier of the request. You can provide this value when you troubleshoot issues.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request was processed successfully. A value of true indicates that the request was processed successfully. To check whether an asynchronous task is completed, you must query the task status separately.
+    // Indicates whether the request was processed successfully. A value of true indicates that the request was processed successfully. To determine whether an asynchronous task is completed, you must query the task status separately.
     shared_ptr<bool> success_ {};
   };
 

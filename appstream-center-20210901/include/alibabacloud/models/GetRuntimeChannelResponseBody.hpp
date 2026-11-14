@@ -144,13 +144,13 @@ namespace Models
       shared_ptr<string> code_ {};
       // The channel configuration JSON string.
       // 
-      // Currently, only the simple configuration mode is supported. You must pass AppKey and AppSecret.
+      // Currently, only the simple configuration mode is supported. You must specify the AppKey and AppSecret.
       shared_ptr<string> config_ {};
       // The configuration mode.
       shared_ptr<string> configMode_ {};
-      // The QR code configuration notification page URL (returned only for ENTERPRISE/ENTERPRISE_JVS platforms).
+      // The QR code configuration notification page URL (returned only for the ENTERPRISE or ENTERPRISE_JVS platform).
       shared_ptr<string> qrCodeNotifyUrl_ {};
-      // The QR code configuration status (returned only when not in a desired state).
+      // The QR code configuration status (returned only in non-terminal states).
       shared_ptr<string> qrCodeStatus_ {};
       // The risk type (returned only when **includeRiskInfo=true**).
       shared_ptr<string> riskType_ {};
@@ -188,7 +188,7 @@ namespace Models
     shared_ptr<vector<GetRuntimeChannelResponseBody::Data>> data_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The total number of entries returned.
+    // The total count.
     shared_ptr<int32_t> totalCount_ {};
   };
 

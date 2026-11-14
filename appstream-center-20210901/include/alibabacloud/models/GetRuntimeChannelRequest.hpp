@@ -75,27 +75,27 @@ namespace Models
 
 
   protected:
-    // The Agent platform.
+    // The agent platform.
     shared_ptr<string> agentPlatform_ {};
-    // The Agent provider.
+    // The agent provider.
     // 
-    // - JVS Computer: Set to OpenClaw.
-    // - OpenClaw: Set to OpenClaw.
-    // - Hermes Agent: Set to HermesAgent.
+    // - JVS Computer: Enter OpenClaw.
+    // - OpenClaw: Enter OpenClaw.
+    // - Hermes Agent: Enter HermesAgent.
     // 
     // This parameter is required.
     shared_ptr<string> agentProvider_ {};
     // Specifies whether to include risk information.
     shared_ptr<bool> includeRiskInfo_ {};
-    // The Agent runtime ID. The ID mapping is as follows:
+    // The agent runtime ID. The ID mappings are as follows:
     // 
-    // - JVS Computer: JVS Computer ID, in the format of jvs-xxxx.
-    // - OpenClaw: Cloud computer ID, in the format of ecd-xxxx.
-    // - Hermes Agent: Hermes Agent ID, in the format of jvs-xxxx.
+    // - JVS Computer: the JVS Computer ID, in the format of jvs-xxxx.
+    // - OpenClaw: the cloud desktop ID, in the format of ecd-xxxx.
+    // - Hermes Agent: the Hermes Agent ID, in the format of jvs-xxxx.
     // 
     // This parameter is required.
     shared_ptr<string> runtimeId_ {};
-    // The Agent runtime type.
+    // The agent runtime type.
     // 
     // This parameter is required.
     shared_ptr<string> runtimeType_ {};

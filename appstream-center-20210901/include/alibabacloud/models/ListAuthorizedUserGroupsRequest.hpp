@@ -94,15 +94,15 @@ namespace Models
 
 
   protected:
-    // The ID of the delivery group.
+    // The ID of the app instance group.
     shared_ptr<string> appInstanceGroupId_ {};
-    // The ID of the delivery group set. You must specify either AppInstanceGroupSetId or AppInstanceGroupId, but not both.
+    // The ID of the app instance group set. You must specify either AppInstanceGroupSetId or AppInstanceGroupId, but not both.
     shared_ptr<string> appInstanceGroupSetId_ {};
-    // The ID of the user group. This parameter is used for exact match.
+    // The ID of the user group. Exact match is supported.
     shared_ptr<string> groupId_ {};
-    // The name of the user group. This parameter is used for fuzzy match.
+    // The name of the user group. Fuzzy match is supported.
     shared_ptr<string> groupName_ {};
-    // The page number, starting from 1.
+    // The page number. Pages start from 1.
     // 
     // This parameter is required.
     shared_ptr<int32_t> pageNumber_ {};

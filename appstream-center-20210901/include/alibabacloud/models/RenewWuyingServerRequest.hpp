@@ -79,14 +79,14 @@ namespace Models
     shared_ptr<bool> autoPay_ {};
     // The renewal duration.
     shared_ptr<int32_t> period_ {};
-    // The unit of the renewal duration.
+    // The unit for the renewal period.
     shared_ptr<string> periodUnit_ {};
-    // The discount ID.
+    // The promotion ID.
     shared_ptr<string> promotionId_ {};
     // The workstation ID.
     // 
     // > 
-    // > - The workstation must have a completed order payment (AutoPay=true during creation or manually paid through the console payment page) before it can be renewed. Calling this API for an unpaid workstation returns WuyingServerError.NotFound.
+    // > - A workstation can be renewed only after the order payment is completed (AutoPay=true during creation or manual payment is made through the console payment page). Calling this API for an unpaid workstation returns WuyingServerError.NotFound.
     shared_ptr<string> wuyingServerId_ {};
   };
 

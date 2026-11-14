@@ -179,40 +179,40 @@ namespace Models
 
 
   protected:
-    // The application image ID. The current session instance type query does not filter based on this parameter. Omit this parameter. Do not infer image compatibility based on whether this parameter is specified.
+    // The application image ID. The current session specification query does not filter based on this parameter. Omit this parameter. Do not infer image compatibility based on whether this parameter is specified.
     shared_ptr<string> appCenterImageId_ {};
-    // The session instance type code. Exact match is performed based on the complete code. If this parameter and `AppInstanceTypeList` are specified at the same time, the results are filtered by intersection. You can perform a conditional query without this condition first, and then select the returned codes.
+    // The session specification code. Exact match is performed based on the complete code. If this parameter and `AppInstanceTypeList` are specified at the same time, the results are filtered by intersection. You can perform a conditional query without this parameter by using this operation first, and then select the returned codes.
     shared_ptr<string> appInstanceType_ {};
-    // The instance type family code. Exact match is performed based on the complete code. Use the instance type family value from the query results. Do not extract it from the instance type name.
+    // The specification family code. Exact match is performed based on the complete code. Use the specification family value from the query results. Do not extract it from the specification name.
     shared_ptr<string> appInstanceTypeFamily_ {};
-    // The list of session instance type codes. A maximum of 100 items are supported. This parameter takes effect by intersection with other filtering conditions. If this parameter and `AppInstanceType` are specified at the same time, the results must also match the single code.
+    // The list of session specification codes. Up to 100 items are supported. This parameter takes effect by intersection with other filtering conditions. If this parameter and `AppInstanceType` are specified at the same time, the results must also match the single code.
     shared_ptr<vector<string>> appInstanceTypeList_ {};
-    // The business region ID. If this parameter is omitted, the region of the current request is used. The available instance types may vary by region and account. You can call the [ListRegions](https://api.aliyun.com/document/appstream-center/2021-09-01/ListRegions) operation to obtain the business region ID.
+    // The business region ID. If this parameter is omitted, the region of the current request is used. The specifications that can be queried may vary by region and account. You can call [ListRegions](https://api.aliyun.com/document/appstream-center/2021-09-01/ListRegions) to obtain the business region.
     shared_ptr<string> bizRegionId_ {};
-    // The instance type category filtering condition. If this parameter is omitted, no category filtering condition is added. Valid values:
+    // The specification category filtering condition. If this parameter is omitted, no category filtering condition is added. Valid values:
     // 
-    // - `Cpu`: CPU instance type.
-    // - `Gpu`: GPU instance type.
+    // - `Cpu`: CPU specification.
+    // - `Gpu`: GPU specification.
     shared_ptr<string> category_ {};
-    // The billing method used to filter available instance types. If this parameter is omitted, no billing method condition is added. Valid values:
+    // The billing method for filtering available specifications. If this parameter is omitted, no billing method condition is added. Valid values:
     // 
-    // - `PrePaid`: subscription.
-    // - `PostPaid`: pay-as-you-go.
+    // - `PrePaid`: Subscription.
+    // - `PostPaid`: Pay-as-you-go.
     shared_ptr<string> chargeType_ {};
     // The number of CPU cores for exact filtering. Use a decimal numeric string. Unit: cores. If this parameter is omitted, the number of CPU cores is not limited.
     shared_ptr<string> cpu_ {};
     // The GPU memory capacity for exact filtering. Unit: MB. If this parameter is omitted, the GPU memory capacity is not limited.
     shared_ptr<int32_t> gpuMemory_ {};
-    // The language of the instance type name.
+    // The language for the specification name.
     // 
-    // - `zh-CN`: Use the Chinese name of the instance type.
-    // - Other values or omitted: Use the instance type code as the name.
+    // - `zh-CN`: Use the Chinese name of the specification.
+    // - Other values or omitted: Use the specification code as the name.
     // 
-    // This parameter only affects the display of `InstanceTypeName` and does not change the instance type code.
+    // This parameter only affects the display of `InstanceTypeName` and does not change the specification code.
     shared_ptr<string> language_ {};
     // The memory capacity for exact filtering. Unit: MB. If this parameter is omitted, the memory capacity is not limited.
     shared_ptr<int32_t> memory_ {};
-    // The operating system type. In the Wuying Cloud Application (CloudApp) scenario, set the value to:
+    // The operating system type. Use the following value for the Wuying Cloud Application (CloudApp) scenario:
     // 
     // - `Windows`: Windows operating system.
     // 
@@ -220,7 +220,7 @@ namespace Models
     shared_ptr<string> osType_ {};
     // The page number. Explicitly specify a page number starting from 1. If this parameter is omitted, the default value 0 is used to query the first batch of results. For subsequent pages, request in the order of 1, 2, and 3.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of instance types returned per page. Unit: entries. Default value: 200. Explicitly set a positive integer that meets your business requirements. The default value here does not represent the maximum value allowed by the service.
+    // The number of specifications returned per page. Unit: entries. Default value: 200. Explicitly set a positive integer that meets your business needs. The default value here does not represent the maximum value allowed by the service.
     shared_ptr<int32_t> pageSize_ {};
     // The product type. Set the value to the following fixed value when you call this operation:
     // 
@@ -228,10 +228,10 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> productType_ {};
-    // Specifies whether to query the instance type inventory at the same time. Default value: `false`.
+    // Specifies whether to query the specification inventory at the same time. Default value: `false`.
     // 
-    // - `true`: Queries the inventory and returns InventoryInfo when the inventory information is available.
-    // - `false`: Queries only the instance types and does not query the inventory.
+    // - `true`: Queries the inventory and returns InventoryInfo when inventory information is available.
+    // - `false`: Queries only the specifications and does not query the inventory.
     shared_ptr<bool> queryInventory_ {};
   };
 

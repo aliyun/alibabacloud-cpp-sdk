@@ -84,7 +84,7 @@ namespace Models
   protected:
     // The task information for this billing method conversion.
     shared_ptr<ModifyAppInstanceGroupChargeTypeResponseBody::AppInstanceGroupModel> appInstanceGroupModel_ {};
-    // The unique ID of the request, which can be used to troubleshoot request issues.
+    // The unique ID of the request. You can use this ID to troubleshoot request issues.
     shared_ptr<string> requestId_ {};
   };
 

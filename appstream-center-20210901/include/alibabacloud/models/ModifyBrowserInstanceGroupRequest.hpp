@@ -514,13 +514,13 @@ namespace Models
       protected:
         // The clipboard policy.
         shared_ptr<string> clipboard_ {};
-        // The clipboard read length limit.
+        // The read length limit for the clipboard.
         shared_ptr<int32_t> clipboardReadLimit_ {};
         // The clipboard control scope.
         shared_ptr<string> clipboardScope_ {};
         // The clipboard size unit.
         shared_ptr<string> clipboardSizeUnit_ {};
-        // The clipboard write length limit.
+        // The write length limit for the clipboard.
         shared_ptr<int32_t> clipboardWriteLimit_ {};
         // The file clipboard policy.
         shared_ptr<string> fileClipboard_ {};
@@ -528,25 +528,25 @@ namespace Models
         shared_ptr<string> richTextClipboard_ {};
         // The rich text clipboard limit.
         shared_ptr<int32_t> richTextClipboardLimit_ {};
-        // The rich text clipboard read size.
+        // The outbound size limit for rich text in the clipboard.
         shared_ptr<int32_t> richTextClipboardReadLimit_ {};
-        // The rich text clipboard read size unit.
+        // The outbound size unit for rich text in the clipboard.
         shared_ptr<string> richTextClipboardReadSizeUnit_ {};
         // The rich text clipboard size unit.
         shared_ptr<string> richTextClipboardSizeUnit_ {};
-        // The rich text clipboard write size.
+        // The inbound size limit for rich text in the clipboard.
         shared_ptr<int32_t> richTextClipboardWriteLimit_ {};
-        // The rich text clipboard write size unit.
+        // The inbound size unit for rich text in the clipboard.
         shared_ptr<string> richTextClipboardWriteSizeUnit_ {};
         // The text clipboard policy.
         shared_ptr<string> textClipboard_ {};
-        // The text clipboard read size.
+        // The outbound size limit for text in the clipboard.
         shared_ptr<int32_t> textClipboardReadLimit_ {};
-        // The text clipboard read size unit.
+        // The outbound size unit for text in the clipboard.
         shared_ptr<string> textClipboardReadSizeUnit_ {};
-        // The text clipboard write size.
+        // The inbound size limit for text in the clipboard.
         shared_ptr<int32_t> textClipboardWriteLimit_ {};
-        // The text clipboard write size unit.
+        // The inbound size unit for text in the clipboard.
         shared_ptr<string> textClipboardWriteSizeUnit_ {};
       };
 
@@ -771,7 +771,7 @@ namespace Models
       shared_ptr<string> appContentProtection_ {};
       // The server-side access IP address whitelist.
       shared_ptr<vector<Policy::AuthorizeAccessPolicyRules>> authorizeAccessPolicyRules_ {};
-      // The logon client type control.
+      // The client type control for logon.
       shared_ptr<vector<Policy::ClientTypes>> clientTypes_ {};
       // The clipboard policies.
       shared_ptr<Policy::ClipboardPolicy> clipboardPolicy_ {};
@@ -779,15 +779,15 @@ namespace Models
       shared_ptr<string> disconnectKeepSession_ {};
       // The session retention duration upon disconnection.
       shared_ptr<int32_t> disconnectKeepSessionTime_ {};
-      // The floating ball file manager switch.
+      // The switch for the file manager in the floating button.
       shared_ptr<string> fileManager_ {};
       // The file transfer policy for the web client.
       shared_ptr<string> html5FileTransfer_ {};
-      // The cloud browser dual-screen switch.
+      // The dual-screen switch for the cloud browser.
       shared_ptr<string> multiScreen_ {};
-      // The no-operation disconnect policy.
+      // The policy for disconnecting upon inactivity.
       shared_ptr<string> noOperationDisconnect_ {};
-      // The no-operation disconnect time in seconds.
+      // The inactivity disconnect time, in seconds.
       shared_ptr<int32_t> noOperationDisconnectTime_ {};
       // The policy ID.
       shared_ptr<string> policyId_ {};
@@ -911,7 +911,7 @@ namespace Models
       shared_ptr<vector<string>> removeRestrictedURLIds_ {};
       // The restricted domain name configurations.
       shared_ptr<vector<Network::RestrictedURLs>> restrictedURLs_ {};
-      // The file path for network-restricted URLs.
+      // The file path for network restricted URLs.
       shared_ptr<string> restrictedURLsFilePath_ {};
     };
 
@@ -1002,7 +1002,7 @@ namespace Models
       protected:
         // The folder to which the bookmark belongs.
         shared_ptr<string> bookmarkFolder_ {};
-        // The bookmark ID. This parameter is required only for modification scenarios.
+        // The bookmark ID. This parameter is required only for update scenarios.
         shared_ptr<string> bookmarkId_ {};
         // The bookmark name.
         // 
@@ -1154,7 +1154,7 @@ namespace Models
 
 
   protected:
-    // Specifies whether to send notification emails for authorization and deauthorization.
+    // Specifies whether to send notification emails for authorization and revocation.
     shared_ptr<bool> authNotificationEnabled_ {};
     // The browser configuration.
     shared_ptr<ModifyBrowserInstanceGroupRequest::BrowserConfig> browserConfig_ {};
@@ -1164,7 +1164,7 @@ namespace Models
     shared_ptr<string> browserInstanceGroupId_ {};
     // The name of the cloud browser.
     shared_ptr<string> cloudBrowserName_ {};
-    // The maximum resource count. This parameter takes effect only for the pay-as-you-go billing method based on monthly active users.
+    // The maximum resource count. This parameter takes effect for the pay-as-you-go billing method based on monthly active users.
     shared_ptr<int32_t> maxAmount_ {};
     // The network configurations.
     shared_ptr<ModifyBrowserInstanceGroupRequest::Network> network_ {};

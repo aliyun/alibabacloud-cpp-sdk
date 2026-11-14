@@ -77,13 +77,13 @@ namespace Models
   protected:
     // The ID of the application adaptation to be processed. **Required**. It must point to the same application adaptation as AppId and AppVersionId.
     shared_ptr<string> adaptorId_ {};
-    // The ID of the application. **Required**. It must match the application corresponding to AdaptorId.
+    // The application ID. **Required**. It must correspond to the same application as AdaptorId.
     shared_ptr<string> appId_ {};
-    // The ID of the application version. **Required**. It must match the application version corresponding to AdaptorId. This parameter is not the image version ID.
+    // The application version ID. **Required**. It must correspond to the same application version as AdaptorId. This parameter is not the image version ID.
     shared_ptr<string> appVersionId_ {};
-    // The ID of the image to be dissociated. **Must be provided together with VersionId**. If both parameters are not specified at the same time, the adaptation deletion process starts.
+    // The ID of the image to be dissociated. **Must be provided together with VersionId**. If they are not both specified, the adaptation deletion process is initiated.
     shared_ptr<string> imageId_ {};
-    // The ID of the image version to be dissociated. It must be provided together with ImageId and belong to the specified image.
+    // The ID of the image version to be dissociated. It must be provided together with ImageId and belong to the image.
     shared_ptr<string> versionId_ {};
   };
 

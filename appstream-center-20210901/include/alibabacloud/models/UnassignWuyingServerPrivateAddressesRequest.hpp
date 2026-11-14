@@ -51,7 +51,7 @@ namespace Models
 
 
   protected:
-    // The list of secondary private IP addresses to unbind.
+    // The list of secondary private IP addresses to disassociate.
     // 
     // This parameter is required.
     shared_ptr<vector<string>> privateIpAddresses_ {};

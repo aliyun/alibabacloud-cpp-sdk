@@ -97,9 +97,9 @@ namespace Models
     shared_ptr<string> productType_ {};
     // This parameter is not publicly available.
     shared_ptr<string> retryType_ {};
-    // The source region from which the image is copied. If this parameter is not specified, a random region is selected.
+    // The source region from which the image is copied. If you do not specify this parameter, a region is randomly selected.
     shared_ptr<string> sourceRegion_ {};
-    // The image version ID. If this parameter is not specified, the latest image version is used.
+    // The image version ID. If you do not specify this parameter, the latest image version is used by default.
     shared_ptr<string> versionId_ {};
   };
 

@@ -158,44 +158,44 @@ namespace Models
 
 
   protected:
-    // The business region ID. Example: cn-hangzhou.
+    // The business region ID, such as cn-hangzhou.
     shared_ptr<string> bizRegionId_ {};
     // The business line to which the image belongs. Default value: 1.
     shared_ptr<int32_t> bizType_ {};
-    // The boot mode of the image. Valid values:
-    // - BIOS: legacy BIOS boot.
+    // The image boot mode. Valid values:
+    // - BIOS: Legacy BIOS boot.
     // - UEFI: UEFI boot.
     shared_ptr<string> bootMode_ {};
     // The description of the image.
     shared_ptr<string> description_ {};
     // Specifies whether to enable the image security check. Valid values:
-    // - true: enables the security check.
-    // - false: disables the security check.
+    // - true: Enabled.
+    // - false: Disabled.
     shared_ptr<bool> enableSecurityCheck_ {};
     // Specifies whether the image is a GPU image. Valid values:
-    // - true: yes.
-    // - false: no.
+    // - true: Yes.
+    // - false: No.
     shared_ptr<bool> gpuCategory_ {};
     // The GPU driver type. Valid values:
     // - gpu_grid9: GRID 9 driver.
     // - gpu_grid12: GRID 12 driver.
-    // - gpu_custom: custom driver.
+    // - gpu_custom: Custom driver.
     shared_ptr<string> gpuDriverType_ {};
     // The name of the image after it is imported. This parameter cannot be empty.
     shared_ptr<string> imageName_ {};
     // The operating system license type. Valid values:
-    // - Auto: automatically selected.
-    // - Aliyun: provided by Alibaba Cloud.
-    // - BYOL: Bring Your Own License.
+    // - Auto: Automatically selected.
+    // - Aliyun: Provided by Alibaba Cloud.
+    // - BYOL: Bring your own license.
     // Default value: Auto.
     shared_ptr<string> licenseType_ {};
     // The operating system type of the image file. It must be consistent with the actual operating system of the image, such as Windows or Linux.
     shared_ptr<string> osType_ {};
     // The complete OSS object URL of the image file to be imported, including the bucket domain name and file path. The file must be uploaded before you call this operation. Example: https://BucketName.oss-cn-hangzhou.aliyuncs.com/FilePath.
     shared_ptr<string> ossObjectPath_ {};
-    // The product type. Currently, only CloudDesktop (cloud desktop) is supported.
+    // The product type. Currently, only CloudDesktop (Cloud Desktop) is supported.
     shared_ptr<string> productType_ {};
-    // The connection protocol of the image. Valid values: ASP and HDX. Default value: ASP.
+    // The image connection protocol. Valid values: ASP and HDX. Default value: ASP.
     shared_ptr<string> protocolType_ {};
     // The size of the system cloud disk. Unit: GiB.
     shared_ptr<int32_t> systemDiskSize_ {};

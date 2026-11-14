@@ -103,9 +103,9 @@ namespace Models
 
 
     protected:
-      // The ID of the delivery group.
+      // The ID of the app instance group.
       shared_ptr<string> appInstanceGroupId_ {};
-      // The ID of the delivery group set.
+      // The ID of the app instance group set.
       shared_ptr<string> appInstanceGroupSetId_ {};
       // The authorization mode.
       shared_ptr<string> authMode_ {};
@@ -159,11 +159,11 @@ namespace Models
     shared_ptr<int32_t> pageNumber_ {};
     // The maximum number of entries returned per page.
     shared_ptr<int32_t> pageSize_ {};
-    // The request ID.
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
     // The total number of entries.
     shared_ptr<int32_t> totalCount_ {};
-    // The list of user group information.
+    // The list of user groups.
     shared_ptr<vector<ListAuthorizedUserGroupsResponseBody::UserGroups>> userGroups_ {};
   };
 

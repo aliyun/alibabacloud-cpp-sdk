@@ -66,19 +66,19 @@ namespace Models
 
 
   protected:
-    // The error code returned when an error occurs during the call. A normal result is not guaranteed to contain this field. You should not use the return of a specific success code as a prerequisite for obtaining the quota.
+    // The error code returned when the call fails. A normal result is not guaranteed to contain this field. You should not use the return of a specific success code as a prerequisite for obtaining the quota.
     shared_ptr<string> code_ {};
-    // The maximum resource count quota applicable to the current query conditions. This is not the usage or remaining quota.
+    // The maximum resource count quota applicable under the current query conditions. It is not the usage or remaining quota.
     // 
-    // - `ResourceType=AppInstanceGroup`: Unit: count.
+    // - `ResourceType=AppInstanceGroup`: Unit: groups.
     // - `ResourceType=AppAuthUser`: Unit: users.
-    // - `ResourceType=PoolNodeAmount`: Unit: count.
+    // - `ResourceType=PoolNodeAmount`: Unit: nodes.
     // 
     // If no smaller limit is obtained, `2147483647` is returned. This does not mean that the resource inventory is unlimited.
     shared_ptr<int64_t> data_ {};
-    // The error message returned when an error occurs during the call. This message and the error code help you identify the cause of the error.
+    // The error message returned when the call fails. It is used together with the error code to help locate the cause.
     shared_ptr<string> message_ {};
-    // The unique identifier for the request. You can use this ID to troubleshoot issues.
+    // The unique identifier of the request, which can be used to troubleshoot request issues.
     shared_ptr<string> requestId_ {};
   };
 

@@ -62,17 +62,17 @@ namespace Models
 
 
   protected:
-    // The list of resource IDs. A maximum of 50 resource IDs are supported. You do not need to specify this parameter when the resource type is tenant ID.
+    // The list of resource IDs. A maximum of 50 resource IDs are supported. This parameter is not required when the resource type is tenant ID.
     shared_ptr<vector<string>> resourceIds_ {};
     // The resource type.
     // 
     // This parameter is required.
     shared_ptr<string> resourceType_ {};
-    // The list of tags. System tags and custom tags are supported. You can specify up to 10 tags.
+    // The list of tag keys. Both system tags and custom tags are supported. A maximum of 10 tag keys can be passed.
     // 
-    // Enumerated values for system tags:
-    // - `System/Scheduler/GRAYSCALE`: canary release tag.
-    // - `System/Scheduler/STOP_NEW_USER_CONNECTION`: tag that prevents newly bound users in a delivery group from establishing connections.
+    // Valid values for system tags:
+    // - `System/Scheduler/GRAYSCALE`: Canary release tag.
+    // - `System/Scheduler/STOP_NEW_USER_CONNECTION`: Tag that prevents new users bound to the delivery group from establishing connections.
     // 
     // This parameter is required.
     shared_ptr<vector<string>> tagKeys_ {};

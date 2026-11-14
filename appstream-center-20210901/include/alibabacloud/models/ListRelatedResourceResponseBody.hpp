@@ -140,7 +140,7 @@ namespace Models
     shared_ptr<string> message_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request is successful. A value of true indicates that the request is successful, and a value of false indicates that the request fails.
+    // Indicates whether the request is successful.
     shared_ptr<bool> success_ {};
   };
 

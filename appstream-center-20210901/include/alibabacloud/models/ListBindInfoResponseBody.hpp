@@ -200,11 +200,11 @@ namespace Models
 
 
   protected:
-    // The list of binding information returned.
+    // The list of returned binding information.
     shared_ptr<vector<ListBindInfoResponseBody::BindInfoModels>> bindInfoModels_ {};
-    // The page number of the query results currently displayed.
+    // The current page number of the query results.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of query results per page.
+    // The number of entries returned on each page.
     shared_ptr<int32_t> pageSize_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

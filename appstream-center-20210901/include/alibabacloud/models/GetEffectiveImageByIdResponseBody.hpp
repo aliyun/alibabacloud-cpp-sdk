@@ -746,7 +746,7 @@ namespace Models
         protected:
           // The adapter ID.
           shared_ptr<string> adaptorId_ {};
-          // The adapter message.
+          // The adaptor message.
           shared_ptr<string> adaptorMessage_ {};
           // The adaptation mode.
           shared_ptr<string> adaptorMode_ {};
@@ -770,13 +770,13 @@ namespace Models
           shared_ptr<string> appVersionNumber_ {};
           // The business line ID of the application.
           shared_ptr<int32_t> bizType_ {};
-          // The name of the OSS bucket where the application files are stored.
+          // The name of the OSS bucket where the application files are located.
           shared_ptr<string> bucketName_ {};
-          // The level-2 application category, such as design software, office, or browser. This parameter is not available to the public.
+          // The level-2 application category, such as design software, office, and browsers. This parameter is not available to the public.
           shared_ptr<int32_t> categoryId_ {};
-          // The level-1 application category, such as cloud application or cloud game. This parameter is not available to the public.
+          // The level-1 application category, such as cloud applications and cloud games. This parameter is not available to the public.
           shared_ptr<int32_t> categoryType_ {};
-          // The control parameter. This parameter can be configured by tenants and internal administrators and is not available to the public.
+          // The control parameters that can be configured by tenants and administrators. This parameter is not available to the public.
           shared_ptr<string> controlParam_ {};
           // The path of the executable file. This parameter is not available to the public.
           shared_ptr<string> executeFileAddress_ {};
@@ -786,7 +786,7 @@ namespace Models
           shared_ptr<string> filePath_ {};
           // The file size. Unit: KB.
           shared_ptr<int64_t> fileSize_ {};
-          // The optimization parameter configured in the backend by internal administrators.
+          // The optimization parameters configured in the backend by administrators.
           shared_ptr<string> optimizeParam_ {};
           // The original application type.
           shared_ptr<string> originAppType_ {};
@@ -798,11 +798,11 @@ namespace Models
           shared_ptr<string> productType_ {};
           // The runtime environment.
           shared_ptr<string> runtimeEnv_ {};
-          // Specifies whether silent installation is enabled. This parameter can be configured by tenants and internal administrators and is not available to the public.
+          // Specifies whether silent installation is enabled. This parameter can be configured by tenants and administrators, but is not available to the public.
           shared_ptr<string> silenceFlag_ {};
-          // The silent installation parameter. This parameter is not available to the public.
+          // The silent installation parameters. This parameter is not available to the public.
           shared_ptr<string> silenceParam_ {};
-          // The application adaptation status. For example, ADAPT_DONE indicates that the adaptation is complete.
+          // The application adaptation status. For example, ADAPT_DONE indicates that the adaptation is completed.
           shared_ptr<string> status_ {};
           // The sub-application type.
           shared_ptr<string> subAppType_ {};
@@ -1086,12 +1086,7 @@ namespace Models
         shared_ptr<string> baseImageId_ {};
         // The base image version ID.
         shared_ptr<string> baseImageVersion_ {};
-        // The business line to which the image belongs. Valid values:
-        // - 1: Basic business.
-        // - 2: Personal Edition.
-        // - 3: Cloud Office.
-        // - 4: Cloud Streaming.
-        // - 10: Standard Edition.
+        // The business line to which the image belongs. 1: basic business. 2: Personal Edition. 3: Cloud Office. 4: Cloud Streaming. 10: Standard Edition.
         shared_ptr<int32_t> bizType_ {};
         // The name of the OSS bucket where the image file is stored.
         shared_ptr<string> bucketName_ {};
@@ -1103,11 +1098,11 @@ namespace Models
         shared_ptr<string> fotaVersion_ {};
         // The creation time. The time is in RFC 3339 format. The Z in the example indicates the UTC time zone.
         shared_ptr<string> gmtCreate_ {};
-        // The last update time. The time follows the RFC 3339 format. The Z in the example indicates the UTC time zone.
+        // The last update time. The time is in RFC 3339 format. The Z in the example indicates the UTC time zone.
         shared_ptr<string> gmtModified_ {};
         // The image creation method. For example, BUILDER_MANUAL indicates manual creation.
         shared_ptr<string> imageCreateMode_ {};
-        // The image extension information, including disk specifications and GPU driver information. VHD or Container images use the extension information of their base image and base version.
+        // The image extended information, including disk specifications and GPU driver information. VHD or Container images use the extended information of their base image and base version.
         shared_ptr<ImageInfoRegionModelList::ImageExtendInfoModel> imageExtendInfoModel_ {};
         // The image ID.
         shared_ptr<string> imageId_ {};
@@ -1118,31 +1113,22 @@ namespace Models
         // The image source. For example, center indicates the central image service.
         shared_ptr<string> imageSource_ {};
         // The image type. Valid values:
-        // - System: System image.
-        // - User: Custom image.
-        // - Shared: Shared image.
-        // - Community: Community image.
+        // - System: system images.
+        // - User: custom images.
+        // - Shared: shared images.
+        // - Community: community images.
         shared_ptr<string> imageType_ {};
         // The image language.
         shared_ptr<string> language_ {};
         // The ID of the latest version of the image.
         shared_ptr<string> latestVersionId_ {};
-        // Indicates whether the returned version is the active version. Valid values: true: Yes. false: No.
+        // Indicates whether the returned version is the online version. Valid values: true: Yes. false: No.
         shared_ptr<bool> onlineVersion_ {};
         // The ID of the current online version of the image.
         shared_ptr<string> onlineVersionId_ {};
-        // The operating system type of the image. Valid values:
-        // - Windows: Windows operating system.
-        // - Linux: Linux operating system.
-        // - Android: Android operating system.
-        // - Unknown: Unknown operating system.
+        // The operating system type of the image. Windows: Windows system. Linux: Linux system. Android: Android system. Unknown: unknown system.
         shared_ptr<string> osType_ {};
-        // The image packaging type. Valid values:
-        // - Ecs: ECS image.
-        // - Vhd: Virtual disk image.
-        // - Container: Container image.
-        // - Ecs_Container: Combined ECS and container image.
-        // - K8s_Node: Kubernetes node image.
+        // The image packaging type. Ecs: ECS image. Vhd: virtual disk image. Container: container image. Ecs_Container: combined ECS and container image. K8s_Node: Kubernetes node image.
         shared_ptr<string> packageType_ {};
         // The parent image ID, which indicates the image inheritance relationship. System images do not have parent images.
         shared_ptr<string> parentImageId_ {};
@@ -1150,24 +1136,17 @@ namespace Models
         shared_ptr<string> parentImageVersion_ {};
         // The operating system platform ID. For example, 33 indicates Windows Server 2022.
         shared_ptr<int32_t> platform_ {};
-        // The name of the operating system platform, which corresponds to Platform.
+        // The operating system platform name, which corresponds to Platform.
         shared_ptr<string> platformName_ {};
-        // The product type to which the image belongs, such as CloudDesktop (Cloud Desktop), CloudApp (Cloud App), or WuyingServer (WUYING Workspace Enterprise Edition workstation).
+        // The product type to which the image belongs, such as CloudDesktop (Cloud Desktop), CloudApp (Cloud App), and WuyingServer (WUYING Workspace Enterprise Edition workstation).
         shared_ptr<string> productType_ {};
         // The extended properties of the image version in key-value pairs.
         shared_ptr<map<string, string>> propertyMap_ {};
-        // The connection protocol used by the image. Valid values:
-        // - ASP: Alibaba Cloud Streaming Protocol.
-        // - HDX: HDX protocol.
+        // The connection protocol used by the image. ASP: Alibaba Cloud Streaming Protocol. HDX: HDX protocol.
         shared_ptr<string> protocolType_ {};
         // The ID of the region to which the image information belongs.
         shared_ptr<string> regionId_ {};
-        // The image status. Valid values:
-        // - INIT: Initializing.
-        // - CREATING: Creating.
-        // - AVAILABLE: Available.
-        // - CREATE_FAILED: Creation failed.
-        // - DELETE: Deleted.
+        // The image status. INIT: initializing. CREATING: creating. AVAILABLE: available. CREATE_FAILED: creation failed. DELETE: deleted.
         shared_ptr<string> status_ {};
         // The image version ID.
         shared_ptr<string> versionId_ {};
@@ -1385,12 +1364,7 @@ namespace Models
     protected:
       // The ID of the Alibaba Cloud account to which the image belongs. The account ID for a system image is 0.
       shared_ptr<int64_t> aliUid_ {};
-      // The business line to which the image belongs. Valid values:
-      // - 1: Basic business.
-      // - 2: Personal Edition.
-      // - 3: Cloud Office.
-      // - 4: Cloud Streaming.
-      // - 10: Standard Edition.
+      // The business line to which the image belongs. 1: basic business. 2: Personal Edition. 3: Cloud Office. 4: Cloud Streaming. 10: Standard Edition.
       shared_ptr<int32_t> bizType_ {};
       // The image description.
       shared_ptr<string> description_ {};
@@ -1400,23 +1374,23 @@ namespace Models
       shared_ptr<string> environmentId_ {};
       // The creation time. The time is in RFC 3339 format. The Z in the example indicates the UTC time zone.
       shared_ptr<string> gmtCreate_ {};
-      // The last update time. The time follows the RFC 3339 format. The Z in the example indicates the UTC time zone.
+      // The last update time. The time is in RFC 3339 format. The Z in the example indicates the UTC time zone.
       shared_ptr<string> gmtModified_ {};
       // The URL of the image icon.
       shared_ptr<string> imageIconUrl_ {};
       // The image ID.
       shared_ptr<string> imageId_ {};
-      // The details of the image version that actually takes effect in each region. For the same region, the configured newer version takes precedence.
+      // The details of the image versions that actually take effect in each region. For the same region, the configured newer version takes precedence.
       shared_ptr<vector<Data::ImageInfoRegionModelList>> imageInfoRegionModelList_ {};
       // The image name.
       shared_ptr<string> imageName_ {};
       // The list of region IDs supported by the image.
       shared_ptr<vector<string>> imageRegionList_ {};
       // The image type. Valid values:
-      // - System: System image.
-      // - User: Custom image.
-      // - Shared: Shared image.
-      // - Community: Community image.
+      // - System: system images.
+      // - User: custom images.
+      // - Shared: shared images.
+      // - Community: community images.
       shared_ptr<string> imageType_ {};
       // The ID of the latest version of the image.
       shared_ptr<string> latestVersionId_ {};
@@ -1430,35 +1404,19 @@ namespace Models
       shared_ptr<bool> onlineVersionVolumeEncryptionEnabled_ {};
       // The KMS key ID used when disk encryption is enabled for the online version.
       shared_ptr<string> onlineVersionVolumeEncryptionKey_ {};
-      // The operating system type of the image. Valid values:
-      // - Windows: Windows operating system.
-      // - Linux: Linux operating system.
-      // - Android: Android operating system.
-      // - Unknown: Unknown operating system.
+      // The operating system type of the image. Windows: Windows system. Linux: Linux system. Android: Android system. Unknown: unknown system.
       shared_ptr<string> osType_ {};
-      // The image packaging type. Valid values:
-      // - Ecs: ECS image.
-      // - Vhd: Virtual disk image.
-      // - Container: Container image.
-      // - Ecs_Container: Combined ECS and container image.
-      // - K8s_Node: Kubernetes node image.
+      // The image packaging type. Ecs: ECS image. Vhd: virtual disk image. Container: container image. Ecs_Container: combined ECS and container image. K8s_Node: Kubernetes node image.
       shared_ptr<string> packageType_ {};
       // The parent image ID, which indicates the image inheritance relationship. System images do not have parent images.
       shared_ptr<string> parentImageId_ {};
-      // The product type to which the image belongs, such as CloudDesktop (Cloud Desktop), CloudApp (Cloud App), or WuyingServer (WUYING Workspace Enterprise Edition workstation).
+      // The product type to which the image belongs, such as CloudDesktop (Cloud Desktop), CloudApp (Cloud App), and WuyingServer (WUYING Workspace Enterprise Edition workstation).
       shared_ptr<string> productType_ {};
-      // The connection protocol used by the image. Valid values:
-      // - ASP: Alibaba Cloud Streaming Protocol.
-      // - HDX: HDX protocol.
+      // The connection protocol used by the image. ASP: Alibaba Cloud Streaming Protocol. HDX: HDX protocol.
       shared_ptr<string> protocolType_ {};
-      // The rating score of the image, out of 100.
+      // The rating score of the image, with a maximum score of 100.
       shared_ptr<int32_t> rating_ {};
-      // The image status. Valid values:
-      // - INIT: Initializing.
-      // - CREATING: Creating.
-      // - AVAILABLE: Available.
-      // - CREATE_FAILED: Creation failed.
-      // - DELETE: Deleted.
+      // The image status. INIT: initializing. CREATING: creating. AVAILABLE: available. CREATE_FAILED: creation failed. DELETE: deleted.
       shared_ptr<string> status_ {};
       // The list of image tags.
       shared_ptr<vector<Data::TagList>> tagList_ {};
@@ -1506,13 +1464,13 @@ namespace Models
 
 
   protected:
-    // The response code returned by the API. A value of 200 indicates success. If the call fails, the corresponding error code is returned.
+    // The status code returned by the API. A value of 200 indicates success. If the call fails, the corresponding error code is returned.
     shared_ptr<string> code_ {};
     // The image information returned by the query.
     shared_ptr<GetEffectiveImageByIdResponseBody::Data> data_ {};
     // The message returned by the API.
     shared_ptr<string> message_ {};
-    // The request ID used to locate and troubleshoot the request.
+    // The request ID, which is used to locate and troubleshoot the request.
     shared_ptr<string> requestId_ {};
     // Indicates whether the API call is successful. Valid values: true: Successful. false: Failed.
     shared_ptr<bool> success_ {};

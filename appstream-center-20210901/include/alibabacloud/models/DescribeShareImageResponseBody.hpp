@@ -68,7 +68,7 @@ namespace Models
 
 
     protected:
-      // The list of Alibaba Cloud account IDs to which the image is shared.
+      // The list of Alibaba Cloud account IDs with which the image is shared.
       shared_ptr<vector<int64_t>> aliUidList_ {};
     };
 
@@ -114,7 +114,7 @@ namespace Models
   protected:
     // The error code.
     shared_ptr<string> code_ {};
-    // The returned object.
+    // The response object.
     shared_ptr<DescribeShareImageResponseBody::Data> data_ {};
     // The message returned by the request.
     shared_ptr<string> message_ {};

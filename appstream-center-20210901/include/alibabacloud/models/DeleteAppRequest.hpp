@@ -48,9 +48,9 @@ namespace Models
 
 
   protected:
-    // The ID of the application to be deleted. **This parameter is required**, and the application must belong to the current account. You must dissociate the image references from the target application or version before deletion.
+    // The ID of the application to be deleted. **This parameter is required**, and the application must belong to the current account. You must disassociate the image references from the target application or version before deletion.
     shared_ptr<string> appId_ {};
-    // The ID of the application version to be deleted. If specified, only the adapter corresponding to this application version is deleted. If omitted, the entire application and its adapters are deleted. If the application has no other adapters after the version is deleted, the application record is also deleted.
+    // The ID of the application version to be deleted. If specified, only the adapters corresponding to this application version are deleted. If omitted, the entire application and its adapters are deleted. If the application has no other adapters after the version is deleted, the application record is also deleted.
     shared_ptr<string> appVersionId_ {};
   };
 

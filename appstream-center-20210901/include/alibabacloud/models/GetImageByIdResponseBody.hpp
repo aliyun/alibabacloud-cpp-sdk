@@ -244,7 +244,7 @@ namespace Models
 
 
       protected:
-        // The ID of the Alibaba Cloud account to which the image belongs. The account ID for a system image is 0.
+        // The ID of the Alibaba Cloud account to which the image belongs. The account ID for system images is 0.
         shared_ptr<int64_t> aliUid_ {};
         // The ID of the ECS image corresponding to the region.
         shared_ptr<string> ecsImageId_ {};
@@ -254,17 +254,17 @@ namespace Models
         shared_ptr<string> gmtModified_ {};
         // The image ID.
         shared_ptr<string> imageId_ {};
-        // The processing information reported by the region distribution task.
+        // The processing message reported by the region distribution task.
         shared_ptr<string> message_ {};
         // The distribution progress of the image in the region, expressed as a percentage.
         shared_ptr<string> progress_ {};
         // The ID of the region where the image is distributed.
         shared_ptr<string> regionId_ {};
         // The region distribution status. Valid values:
-        // - CREATING: Distributing.
-        // - AVAILABLE: Available.
-        // - CREATE_FAILED: Distribution failed.
-        // - DELETE: Deleted.
+        // - CREATING: Distributing
+        // - AVAILABLE: Available
+        // - CREATE_FAILED: Distribution failed
+        // - DELETE: Deleted
         shared_ptr<string> status_ {};
         // The logical ID of the image on the unit side, which can be different from the central image ID.
         shared_ptr<string> unitImageId_ {};
@@ -383,7 +383,7 @@ namespace Models
 
 
       protected:
-        // The ID of the Alibaba Cloud account to which the image belongs. The account ID for a system image is 0.
+        // The ID of the Alibaba Cloud account to which the image belongs. The account ID for system images is 0.
         shared_ptr<int64_t> aliUid_ {};
         // The size of the data cloud disk. Unit: GiB.
         shared_ptr<int32_t> dataDiskSize_ {};
@@ -398,11 +398,11 @@ namespace Models
         // The image ID.
         shared_ptr<string> imageId_ {};
         // The image package type. Valid values:
-        // - Ecs: ECS image.
-        // - Vhd: Virtual disk image.
-        // - Container: Container image.
-        // - Ecs_Container: ECS and container combined image.
-        // - K8s_Node: Kubernetes node image.
+        // - Ecs: ECS image
+        // - Vhd: Virtual disk image
+        // - Container: Container image
+        // - Ecs_Container: ECS and container composite image
+        // - K8s_Node: Kubernetes node image
         shared_ptr<string> packageType_ {};
         // The size of the system cloud disk. Unit: GiB.
         shared_ptr<int32_t> systemDiskSize_ {};
@@ -770,7 +770,7 @@ namespace Models
 
 
       protected:
-        // The adapter ID.
+        // The adaptor ID.
         shared_ptr<string> adaptorId_ {};
         // The adaptor message.
         shared_ptr<string> adaptorMessage_ {};
@@ -800,9 +800,9 @@ namespace Models
         shared_ptr<string> appVersionName_ {};
         // The version number.
         shared_ptr<string> appVersionNumber_ {};
-        // The ID of the business line to which the application belongs.
+        // The number of the business line to which the application belongs.
         shared_ptr<int32_t> bizType_ {};
-        // The name of the OSS bucket where the application files are stored.
+        // The name of the OSS bucket where the application file is stored.
         shared_ptr<string> bucketName_ {};
         // The level-2 category of the application.
         shared_ptr<int32_t> categoryId_ {};
@@ -810,11 +810,11 @@ namespace Models
         shared_ptr<int32_t> categoryType_ {};
         // The control parameters that can be configured by tenants and administrators.
         shared_ptr<string> controlParam_ {};
-        // The ID of the disk where the application files are stored.
+        // The ID of the disk where the application file is stored.
         shared_ptr<string> diskId_ {};
         // The path of the executable file after the cloud application is installed.
         shared_ptr<string> executeFileAddress_ {};
-        // The extended information of the adapted application.
+        // The extension information of the adapted application.
         shared_ptr<string> extend_ {};
         // The file name.
         shared_ptr<string> fileName_ {};
@@ -826,11 +826,11 @@ namespace Models
         shared_ptr<string> gmtCreate_ {};
         // The last update time.
         shared_ptr<string> gmtModified_ {};
-        // The optimization parameters configured in the administrator backend.
+        // The optimization parameters that can be configured by administrators in the backend.
         shared_ptr<string> optimizeParam_ {};
         // The original application type.
         shared_ptr<string> originAppType_ {};
-        // The operating system type supported by the application.
+        // The operating system type applicable to the application.
         shared_ptr<string> osType_ {};
         // The product type to which the application belongs.
         shared_ptr<string> productType_ {};
@@ -1107,11 +1107,11 @@ namespace Models
     protected:
       // The list of adapted applications for the image version.
       shared_ptr<vector<Data::AdaptorInfoBOList>> adaptorInfoBOList_ {};
-      // The ID of the Alibaba Cloud account to which the image belongs. The account ID for a system image is 0.
+      // The ID of the Alibaba Cloud account to which the image belongs. The account ID for system images is 0.
       shared_ptr<int64_t> aliUid_ {};
       // The ID of the base image.
       shared_ptr<string> baseImageId_ {};
-      // The ID of the base image version.
+      // The base image version ID.
       shared_ptr<string> baseImageVersion_ {};
       // The business line to which the image belongs. Valid values:
       // - 1: basic business
@@ -1120,7 +1120,7 @@ namespace Models
       // - 4: cloud streaming
       // - 10: standard edition
       shared_ptr<int32_t> bizType_ {};
-      // The name of the OSS bucket where the image files are stored.
+      // The name of the OSS bucket where the image file is stored.
       shared_ptr<string> bucketName_ {};
       // The description of the image.
       shared_ptr<string> description_ {};
@@ -1134,7 +1134,7 @@ namespace Models
       shared_ptr<string> gmtModified_ {};
       // The image creation method. For example, BUILDER_MANUAL indicates manual creation.
       shared_ptr<string> imageCreateMode_ {};
-      // The image extended information, including disk specifications and GPU driver information. For VHD or container images, the extended information of the base image and base version is used.
+      // The image extended information, which includes cloud disk specifications and GPU driver information. For VHD or container images, the extended information of the base image and base version is used.
       shared_ptr<Data::ImageExtendInfoModel> imageExtendInfoModel_ {};
       // The image ID.
       shared_ptr<string> imageId_ {};
@@ -1152,11 +1152,11 @@ namespace Models
       // - Shared: shared image
       // - Community: community image
       shared_ptr<string> imageType_ {};
-      // The image language. If the encapsulation type is VHD or Container, this property is inherited from the image with the ECS encapsulation type in the image combination.
+      // The image language. If the packaging type is VHD or Container, this property is inherited from the image with the ECS packaging type in the same image combination.
       shared_ptr<string> language_ {};
       // The ID of the latest image version.
       shared_ptr<string> latestVersionId_ {};
-      // Indicates whether the returned version is the active version. Valid values:
+      // Indicates whether the returned version is the online version. Valid values:
       // - true: Yes.
       // - false: No.
       shared_ptr<bool> onlineVersion_ {};
@@ -1169,30 +1169,30 @@ namespace Models
       // - Unknown: unknown system
       shared_ptr<string> osType_ {};
       // The image package type. Valid values:
-      // - Ecs: ECS image.
-      // - Vhd: Virtual disk image.
-      // - Container: Container image.
-      // - Ecs_Container: ECS and container combined image.
-      // - K8s_Node: Kubernetes node image.
+      // - Ecs: ECS image
+      // - Vhd: Virtual disk image
+      // - Container: Container image
+      // - Ecs_Container: ECS and container composite image
+      // - K8s_Node: Kubernetes node image
       shared_ptr<string> packageType_ {};
       // The ID of the parent image, which indicates the image inheritance relationship. System images do not have parent images.
       shared_ptr<string> parentImageId_ {};
-      // The ID of the parent image version.
+      // The parent image version ID.
       shared_ptr<string> parentImageVersion_ {};
       // The operating system platform ID. For example, 33 indicates Windows Server 2022.
       shared_ptr<int32_t> platform_ {};
       // The name of the operating system platform, which corresponds to Platform.
       shared_ptr<string> platformName_ {};
-      // The product type to which the image belongs, such as CloudDesktop (Cloud Desktop), CloudApp (Cloud Application), or WuyingServer (WUYING Workspace Enterprise Edition workstation).
+      // The product type to which the image belongs, such as CloudDesktop (Cloud Desktop), CloudApp (cloud application), and WuyingServer (WUYING Workspace Enterprise Edition workstation).
       shared_ptr<string> productType_ {};
-      // The extended properties of the image version, in key-value pair format.
+      // The extended properties of the image version in key-value pairs.
       shared_ptr<map<string, string>> propertyMap_ {};
       // The connection protocol used by the image. Valid values:
       // - ASP: Alibaba Cloud Streaming Protocol
       // - HDX: HDX protocol
       shared_ptr<string> protocolType_ {};
       // The image status. Valid values:
-      // - INIT: Initialized.
+      // - INIT: Initial.
       // - CREATING: Creating.
       // - AVAILABLE: Available.
       // - CREATE_FAILED: Creation failed.
@@ -1242,11 +1242,11 @@ namespace Models
 
 
   protected:
-    // The response code. A value of 200 indicates success. If the call fails, the corresponding error code is returned.
+    // The response code. 200 indicates success. If the call fails, the corresponding error code is returned.
     shared_ptr<string> code_ {};
     // The image information returned by the query.
     shared_ptr<GetImageByIdResponseBody::Data> data_ {};
-    // The response message.
+    // The message returned by the API.
     shared_ptr<string> message_ {};
     // The request ID, which is used to locate and troubleshoot the request.
     shared_ptr<string> requestId_ {};

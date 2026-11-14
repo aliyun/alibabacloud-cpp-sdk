@@ -38,7 +38,7 @@ namespace Models
 
 
   protected:
-    // The ID of the cloud browser group. This parameter is required. Specify the ID of a browser group that is created within the current account.
+    // The ID of the cloud browser group. This parameter is required. Specify the ID of a browser group that is created under the current account.
     shared_ptr<string> browserInstanceGroupId_ {};
   };
 

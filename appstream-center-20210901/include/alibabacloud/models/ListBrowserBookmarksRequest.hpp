@@ -77,11 +77,11 @@ namespace Models
   protected:
     // The ID of the cloud browser group. You must specify either this parameter or BrowserInstanceGroupSetId, but not both.
     shared_ptr<string> browserInstanceGroupId_ {};
-    // The ID of the browser delivery group set. You must specify either this parameter or BrowserInstanceGroupId, but not both.
+    // The ID of the browser delivery group set. You must specify either BrowserInstanceGroupSetId or BrowserInstanceGroupId, but not both.
     shared_ptr<string> browserInstanceGroupSetId_ {};
-    // The keyword used for partial matching of the bookmark name or URL. The matching is case-insensitive for English characters. The keyword can be up to 1,024 characters in length after leading and trailing spaces are removed. If this parameter is not specified or contains only spaces, no filtering is performed. Special characters are matched literally.
+    // The keyword used for substring matching in the bookmark name or URL. Matching is case-insensitive for English letters. The value can contain up to 1,024 characters after leading and trailing whitespace is trimmed. If this parameter is not specified or contains only whitespace, no filtering is applied. Special characters are matched literally.
     shared_ptr<string> keyword_ {};
-    // The page number of the page to return. Pages start from page 1.
+    // The number of the page to return. Pages start from 1.
     shared_ptr<int32_t> pageNumber_ {};
     // The number of entries to return on each page. Valid values: 1 to 200.
     shared_ptr<int32_t> pageSize_ {};

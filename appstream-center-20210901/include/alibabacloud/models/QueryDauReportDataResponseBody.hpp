@@ -91,7 +91,7 @@ namespace Models
     protected:
       // The number of active users within the statistical epoch. Unit: users.
       shared_ptr<int64_t> dau_ {};
-      // The statistics date. Format: yyyy-MM-dd. The string does not contain a time zone and is interpreted as a natural date in the Asia/Shanghai (UTC+8) time zone.
+      // The statistics date. Format: `yyyy-MM-dd`. The string does not contain a time zone and is interpreted as a calendar date in the Asia/Shanghai (UTC+8) time zone.
       shared_ptr<string> statDate_ {};
       // The number of active users who generated sessions through streaming access within the statistical epoch. Unit: users.
       shared_ptr<int64_t> streamingDau_ {};
@@ -152,13 +152,13 @@ namespace Models
 
 
   protected:
-    // The business status code. A value of 200 indicates that the request is processed successfully. Other values indicate that the processing failed.
+    // The business status code. A value of `200` indicates that the request is successful. Other values indicate that the request failed.
     shared_ptr<string> code_ {};
     // The total number of records that meet the query conditions.
     shared_ptr<int32_t> count_ {};
     // The list of daily active user report data.
     shared_ptr<vector<QueryDauReportDataResponseBody::DauReportDataModel>> dauReportDataModel_ {};
-    // The description of the request processing result. Typically, success is returned if the request is successful.
+    // The description of the request processing result. Typically, `success` is returned when the request is successful.
     shared_ptr<string> message_ {};
     // The page number corresponding to the current response.
     shared_ptr<int32_t> pageNumber_ {};

@@ -87,11 +87,11 @@ namespace Models
 
 
     protected:
-      // The EIP ID.
+      // The ID of the EIP.
       shared_ptr<string> eipId_ {};
       // The public IP address.
       shared_ptr<string> ipAddress_ {};
-      // The network interface controller (NIC) ID.
+      // The ID of the network interface.
       shared_ptr<string> networkInterfaceId_ {};
       // The port range.
       shared_ptr<string> serverPortRange_ {};
@@ -116,7 +116,7 @@ namespace Models
 
 
   protected:
-    // The EIP information.
+    // The elastic IP address (EIP) information.
     shared_ptr<DescribeWuyingServerEipInfoResponseBody::EipInfoModel> eipInfoModel_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};

@@ -84,17 +84,17 @@ namespace Models
 
 
   protected:
-    // The ID of the app instance group, which is used to filter data for a specified app instance group. If this parameter is not provided, data is not filtered by app instance group.
+    // The app instance group ID, which is used to filter data for a specified app instance group. If this parameter is not provided, data is not filtered by app instance group.
     shared_ptr<string> appInstanceGroupId_ {};
     // The business region ID, which is used to filter application usage data. If this parameter is not provided, data is not filtered by business region. You can call [ListRegions](~~ListRegions~~) to obtain the value.
     shared_ptr<string> bizRegionId_ {};
-    // The end date for statistics in the yyyyMMdd format. If this parameter is not provided, it defaults to yesterday. The date cannot be earlier than StartDate or 90 days before the call date. The query range includes this date. The date is interpreted as a calendar date in the Asia/Shanghai (UTC+8) time zone.
+    // The end date for statistics, in yyyyMMdd format. If this parameter is not provided, it defaults to yesterday. The date cannot be earlier than StartDate or 90 days before the call date. The query range includes this date. The date is interpreted as a calendar date in the Asia/Shanghai (UTC+8) time zone.
     shared_ptr<string> endDate_ {};
     // The region ID for OpenAPI access, which is used for request authentication and routing. To filter business data by region, use BizRegionId.
     shared_ptr<string> regionId_ {};
-    // The start date for statistics in the yyyyMMdd format. If this parameter is not provided, it defaults to yesterday. The date cannot be earlier than 90 days before the call date. The query range includes this date. The date is interpreted as a calendar date in the Asia/Shanghai (UTC+8) time zone.
+    // The start date for statistics, in yyyyMMdd format. If this parameter is not provided, it defaults to yesterday. The date cannot be earlier than 90 days before the call date. The query range includes this date. The date is interpreted as a calendar date in the Asia/Shanghai (UTC+8) time zone.
     shared_ptr<string> startDate_ {};
-    // The ID of the end user to query. This parameter must be explicitly provided. If it is not provided, no matching records are usually returned.
+    // The ID of the end user to be queried. This parameter must be explicitly provided. If it is not provided, no matching records are usually returned.
     shared_ptr<string> userId_ {};
   };
 

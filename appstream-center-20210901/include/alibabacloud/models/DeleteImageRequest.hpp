@@ -38,7 +38,7 @@ namespace Models
 
 
   protected:
-    // The WUYING image ID.
+    // The ID of the WUYING image.
     shared_ptr<string> imageId_ {};
   };
 

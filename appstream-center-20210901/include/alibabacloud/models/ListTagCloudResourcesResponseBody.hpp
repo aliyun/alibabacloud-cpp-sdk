@@ -144,7 +144,7 @@ namespace Models
       shared_ptr<string> resourceId_ {};
       // The cloud resource type.
       shared_ptr<string> resourceType_ {};
-      // The list of tags.
+      // The tag list.
       shared_ptr<vector<ResourceTags::Tags>> tags_ {};
     };
 
@@ -181,13 +181,13 @@ namespace Models
 
 
   protected:
-    // The pagination token that indicates whether more results exist.
+    // Indicates whether a token for the next query is available based on NextToken.
     shared_ptr<string> nextToken_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The list of tags bound to resources.
+    // The tags bound to the resource.
     shared_ptr<vector<ListTagCloudResourcesResponseBody::ResourceTags>> resourceTags_ {};
-    // The total number of entries.
+    // The total count.
     shared_ptr<int32_t> totalCount_ {};
   };
 

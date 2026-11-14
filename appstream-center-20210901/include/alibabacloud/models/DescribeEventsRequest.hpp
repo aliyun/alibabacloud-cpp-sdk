@@ -176,50 +176,50 @@ namespace Models
 
 
   protected:
-    // The delivery group ID, used to filter events of a specific delivery group. If you do not specify this parameter, events are not filtered by delivery group. You can call the [ListAppInstanceGroup](~~ListAppInstanceGroup~~) operation to obtain the ID.
+    // The delivery group ID, which is used to filter events of the delivery group. If this parameter is not specified, events are not filtered by delivery group. You can call the [ListAppInstanceGroup](~~ListAppInstanceGroup~~) operation to obtain the ID.
     shared_ptr<string> appInstanceGroupId_ {};
-    // The delivery group name. If the name contains only letters, digits, underscores, or hyphens, events are filtered by name prefix. If the name contains spaces or other special characters, events are filtered by the exact name. If you do not specify this parameter, events are not filtered by name.
+    // The delivery group name. If the name contains only letters, digits, underscores, or hyphens, events are filtered by name prefix. If the name contains spaces or other special characters, events are filtered by the exact value. If this parameter is not specified, events are not filtered by name.
     shared_ptr<string> appInstanceGroupName_ {};
-    // The application instance ID, used to filter events associated with a specific instance. If you do not specify this parameter, events are not filtered by application instance. To obtain this value, first call the [ListAppInstanceGroup](~~ListAppInstanceGroup~~) operation to obtain the delivery group ID, and then use the ID as `AppInstanceGroupId` to call the [ListAppInstances](~~ListAppInstances~~) operation.
+    // The application instance ID, which is used to filter events associated with the instance. If this parameter is not specified, events are not filtered by application instance. To obtain this value, first call the [ListAppInstanceGroup](~~ListAppInstanceGroup~~) operation to obtain the delivery group ID, and then use the ID as `AppInstanceGroupId` to call the [ListAppInstances](~~ListAppInstances~~) operation.
     shared_ptr<string> appInstanceId_ {};
-    // The business region ID of the event, used for exact filtering. If you do not specify this parameter, events are not filtered by business region. You can call the [ListRegions](~~ListRegions~~) operation to obtain the ID.
+    // The business region ID of the event, which is used to filter events. If this parameter is not specified, events are not filtered by business region. You can call the [ListRegions](~~ListRegions~~) operation to obtain the ID.
     shared_ptr<string> bizRegionId_ {};
-    // The end time of the query. **Required**. The format is the same as that of `StartTime`. We recommend that you always include the time zone offset. The query includes this time, and the end time cannot be earlier than the `StartTime`. A time range later than the call time does not generate future events.
+    // The end time of the query. **Required**. The format is the same as `StartTime`. We recommend that you always include the time zone offset. The query includes this time, and the end time cannot be earlier than `StartTime`. A time range later than the call time does not generate future events.
     // 
     // This parameter is required.
     shared_ptr<string> endTime_ {};
-    // The event ID, used to query a specific event. If you do not specify this parameter, events are not filtered by event ID.
+    // The event ID, which is used to query a single event. If this parameter is not specified, events are not filtered by event ID.
     shared_ptr<string> eventId_ {};
-    // The event type identifier, used to filter events. Different products may generate different event types. This operation does not restrict the value to a fixed enumeration. You should use the EventType values retrieved from EventList as filter values.
+    // The event type identifier, which is used to filter events. Different products may generate different event types. This operation does not restrict the value to a fixed enumeration. You should use the `EventList.EventType` value obtained from previous queries as the filter value.
     shared_ptr<string> eventType_ {};
     // A compatibility field. The current version does not read this parameter. Use `PageSize` to control the number of records on each page.
     shared_ptr<int32_t> maxResults_ {};
-    // The private IP address of the member elastic network interface (ENI) of the cloud resource, used to filter related events. If you do not specify this parameter, events are not filtered by IP address.
+    // The private IP address of the member elastic network interface (ENI) of the cloud resource, which is used to filter related events. If this parameter is not specified, events are not filtered by IP address.
     shared_ptr<string> memberEniIp_ {};
     // A compatibility field. The current version does not read this parameter and does not support token-based pagination. Use `PageNumber`.
     shared_ptr<string> nextToken_ {};
-    // The office network ID, used to filter events generated within a specific office network. If you do not specify this parameter, events are not filtered by office network.
+    // The office network ID, which is used to filter events generated within the office network. If this parameter is not specified, events are not filtered by office network.
     shared_ptr<string> officeSiteId_ {};
     // The page number to query. Pages start from 1. Default value: 1. This parameter is used together with `PageSize`.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of events to return on each page. Default value: 10. This operation does not declare a fixed upper limit. We recommend that you set this parameter to a reasonable positive integer based on your actual needs.
+    // The number of events to return on each page. Default value: 10. The current operation does not declare a fixed upper limit. We recommend that you set this parameter to a reasonable positive integer based on your actual needs.
     shared_ptr<int32_t> pageSize_ {};
-    // The product type. The value is case-insensitive. If you specify an invalid value, the request fails. If you do not specify this parameter, events are not filtered by product type. Only the following public product values are supported:
+    // The product type. The value is case-insensitive. If you specify an unsupported value, the request fails. If this parameter is not specified, events are not filtered by product type. Only the following public product values are supported:
     // 
     // - `CloudApp`: Wuying Cloud Application.
     // - `CloudBrowser`: Cloud Browser.
-    // - `WuyingServer`: Enterprise Edition Workstation.
-    // - `WuyingWorkstation`: Personal Edition Linggou Container Workstation.
-    // - `WuyingWorkstationTeam`: Linggou Team Edition Container Workstation.
-    // - `WuyingWorkstationBusiness`: Linggou Dedicated Edition Container Workstation.
+    // - `WuyingServer`: Enterprise Edition workstation.
+    // - `WuyingWorkstation`: Personal Edition Linggou container workstation.
+    // - `WuyingWorkstationTeam`: Linggou Team Edition container workstation.
+    // - `WuyingWorkstationBusiness`: Linggou Dedicated Edition container workstation.
     // - `AndroidCloud`: Cloud Phone.
     // - `AIAgent`: AgentBay (AI agent).
     shared_ptr<string> productType_ {};
-    // The start time of the query. **Required**. Use the ISO 8601 format: `yyyy-MM-dd\\"T\\"HH:mm:ss`. You can include three-digit milliseconds and use `Z` or `±HH:mm` to specify the time zone. We recommend that you always include the time zone offset. The query includes this time, and the start time must be earlier than or equal to the `EndTime`. The service only retains and retrieves events that occurred within 30 days before the call time.
+    // The start time of the query. **Required**. Use the ISO 8601 format: `yyyy-MM-dd\\"T\\"HH:mm:ss`. You can include three-digit milliseconds and use `Z` or `±HH:mm` to specify the time zone. We recommend that you always include the time zone offset. The query includes this time, and the start time must be earlier than or equal to `EndTime`. The service only retains and retrieves events that occurred within 30 days before the call time.
     // 
     // This parameter is required.
     shared_ptr<string> startTime_ {};
-    // The end user ID, used to filter events generated by a specific user. If you do not specify this parameter, events are not filtered by user.
+    // The end user ID, which is used to filter events generated by the user. If this parameter is not specified, events are not filtered by user.
     shared_ptr<string> userId_ {};
   };
 

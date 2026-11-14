@@ -114,12 +114,7 @@ namespace Models
   protected:
     // The business type. This parameter is required when SmartModel is set to true.
     shared_ptr<int32_t> bizType_ {};
-    // The display language of the model. Valid values:
-    // - zh-CN: Simplified Chinese.
-    // - en-US: English.
-    // - ja-JP: Japanese.
-    // - zh-TW: Traditional Chinese.
-    // Default value: zh-CN. Currently, zh-TW returns Simplified Chinese, and ja-JP returns English. If the model is not included in Alibaba Cloud Model Studio or the English text is missing, the original source text is retained without automatic translation.
+    // The display language of the model. Valid values: zh-CN (Simplified Chinese), en-US (English), ja-JP (Japanese), and zh-TW (Traditional Chinese). Default value: zh-CN. Currently, zh-TW returns Simplified Chinese, and ja-JP returns English. If the model is not recorded in Model Studio or the English copy is missing, the original source copy is retained without automatic translation.
     shared_ptr<string> language_ {};
     // The model code for filtering. Fuzzy match is supported.
     shared_ptr<string> llmCode_ {};
@@ -127,16 +122,13 @@ namespace Models
     shared_ptr<string> llmTemplateIdsShrink_ {};
     // The associated model group ID.
     shared_ptr<string> modelTemplateId_ {};
-    // The page number. Pages start from 1. A value of 0 returns the same result as 1.
+    // The page number. Pages start from page 1. If you set this parameter to 0, the system returns the same result as when you set it to 1.
     shared_ptr<int32_t> pageNumber_ {};
     // The number of entries per page.
     shared_ptr<int32_t> pageSize_ {};
     // The model provider template ID.
     shared_ptr<string> providerTemplateId_ {};
-    // Specifies whether to query smart models. Valid values:
-    // - true: Only LLMs under system-preset smart models are returned. In this case, BizType is required.
-    // - false: Smart models are not specifically filtered.
-    // Default value: false.
+    // Specifies whether to query smart models. If you set this parameter to true, only LLMs under system-preset smart models are returned, and BizType is required. Default value: false.
     shared_ptr<bool> smartModel_ {};
   };
 

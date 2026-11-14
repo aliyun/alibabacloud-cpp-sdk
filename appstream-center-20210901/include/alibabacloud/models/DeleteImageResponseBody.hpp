@@ -76,14 +76,15 @@ namespace Models
 
   protected:
     // The status code. Valid values:
-    // - `200`: Success.
-    // - `400`: Error.
+    // 
+    // - `200`: The request is successful.
+    // - `400`: An error occurred.
     shared_ptr<string> code_ {};
-    // Indicates whether the deletion was successful.
+    // Indicates whether the deletion is successful.
     shared_ptr<bool> data_ {};
     // The error message returned when an error occurs.
     shared_ptr<string> message_ {};
-    // The request ID.
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
     // Indicates whether the request is successful.
     shared_ptr<bool> success_ {};

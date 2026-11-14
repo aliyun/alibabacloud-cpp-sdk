@@ -84,7 +84,7 @@ namespace Models
 
 
     protected:
-      // The WUYING image ID.
+      // The ID of the WUYING image.
       shared_ptr<string> imageId_ {};
       // The ID of the image creation task.
       shared_ptr<string> taskId_ {};
@@ -132,15 +132,15 @@ namespace Models
 
 
   protected:
-    // The error code returned if the request failed.
+    // The error code returned when an error occurs.
     shared_ptr<string> code_ {};
     // The returned object.
     shared_ptr<CreateImageByInstanceResponseBody::Data> data_ {};
-    // The error message returned if the request failed.
+    // The error message returned when an error occurs.
     shared_ptr<string> message_ {};
-    // The request ID.
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request was successful. A value of true indicates success. A value of false indicates failure.
+    // Indicates whether the request is successful. A value of true indicates success, and a value of false indicates failure.
     shared_ptr<bool> success_ {};
   };
 

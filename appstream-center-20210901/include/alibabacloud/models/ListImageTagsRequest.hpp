@@ -57,11 +57,11 @@ namespace Models
 
 
   protected:
-    // The label categorization to query.
+    // The tag categorization to query.
     shared_ptr<string> category_ {};
     // A compatibility field. The current version does not use this field to specify the number of returned entries.
     shared_ptr<int32_t> maxResults_ {};
-    // The token used to determine whether a next query is available. This parameter is not currently supported.
+    // The token used to determine whether the next query is available. This parameter is not supported.
     shared_ptr<string> nextToken_ {};
   };
 

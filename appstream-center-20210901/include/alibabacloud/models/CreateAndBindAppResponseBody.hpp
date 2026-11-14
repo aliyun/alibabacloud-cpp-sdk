@@ -93,13 +93,13 @@ namespace Models
 
 
     protected:
-      // The application ID, which is used to query the application or dissociate the image later.
+      // The application ID, which is used for subsequent application queries or to dissociate the application from the image.
       shared_ptr<string> appId_ {};
       // The application version ID, which is used to locate a specified version of the application. This field is not the image version ID.
       shared_ptr<string> appVersionId_ {};
-      // The image ID, which is used to query or modify the image later.
+      // The image ID, which is used for subsequent image queries or modifications.
       shared_ptr<string> imageId_ {};
-      // The image version ID, which is used to query or manage a specified version of the image.
+      // The image version ID, which is used to query or operate on a specified version of the image.
       shared_ptr<string> versionId_ {};
     };
 
@@ -143,15 +143,15 @@ namespace Models
 
 
   protected:
-    // The error code. This field is returned when the request fails. A successful response may not contain this field.
+    // The error code. This field is returned when the request fails and may not be included in a successful response.
     shared_ptr<string> code_ {};
-    // The business data returned by the operation.
+    // The business data returned by this operation.
     shared_ptr<CreateAndBindAppResponseBody::Data> data_ {};
-    // The error or result message. This field describes the cause when the request fails. A successful response may not contain this field.
+    // The error or result message. This field is used to describe the cause when the request fails and may not be included in a successful response.
     shared_ptr<string> message_ {};
-    // The unique identifier of the request. Provide this value when you troubleshoot issues.
+    // The unique identifier of the request, which can be provided for troubleshooting.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request is processed successfully. A value of true indicates that the request is processed successfully. To determine whether an asynchronous task is completed, query the task status separately.
+    // Indicates whether the request was processed successfully. A value of true indicates that the request was processed successfully. To check whether an asynchronous task is completed, you must query the task status separately.
     shared_ptr<bool> success_ {};
   };
 

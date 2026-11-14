@@ -112,7 +112,7 @@ namespace Models
 
 
   protected:
-    // Specifies whether to send notification emails for authorization and deauthorization.
+    // Specifies whether to send notification emails for authorization and revocation.
     shared_ptr<bool> authNotificationEnabled_ {};
     // The browser configuration.
     shared_ptr<string> browserConfigShrink_ {};
@@ -122,7 +122,7 @@ namespace Models
     shared_ptr<string> browserInstanceGroupId_ {};
     // The name of the cloud browser.
     shared_ptr<string> cloudBrowserName_ {};
-    // The maximum resource count. This parameter takes effect only for the pay-as-you-go billing method based on monthly active users.
+    // The maximum resource count. This parameter takes effect for the pay-as-you-go billing method based on monthly active users.
     shared_ptr<int32_t> maxAmount_ {};
     // The network configurations.
     shared_ptr<string> networkShrink_ {};

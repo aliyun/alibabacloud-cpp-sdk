@@ -62,7 +62,7 @@ namespace Models
 
 
     protected:
-      // The list of available zone IDs for the specified product type and operating system type in the current region. When creating a resource that requires a vSwitch, select a vSwitch in one of these zones.
+      // The list of available zone IDs for the specified product type and operating system type in the current region. When you create a resource and specify a vSwitch, select a vSwitch located in one of these zones.
       shared_ptr<vector<string>> zones_ {};
     };
 
@@ -87,7 +87,7 @@ namespace Models
   protected:
     // The zone query result.
     shared_ptr<ListZonesResponseBody::ListZonesModel> listZonesModel_ {};
-    // The request ID. You can use this ID to locate and troubleshoot issues.
+    // The unique identifier of the request, which can be used to troubleshoot request issues.
     shared_ptr<string> requestId_ {};
   };
 

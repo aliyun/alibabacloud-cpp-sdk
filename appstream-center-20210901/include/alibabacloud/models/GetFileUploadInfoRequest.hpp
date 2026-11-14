@@ -38,7 +38,7 @@ namespace Models
 
 
   protected:
-    // The file type. Currently supported values: BrowserBookmarks and BrowserRestrictionUrls.
+    // The file type. Valid values: BrowserBookmarks and BrowserRestrictionUrls.
     // 
     // This parameter is required.
     shared_ptr<string> fileType_ {};

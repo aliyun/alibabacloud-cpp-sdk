@@ -131,21 +131,21 @@ namespace Models
 
 
     protected:
-      // The URL of the application icon. This value is empty if the deployment details of the application cannot be obtained.
+      // The access URL of the application icon. This parameter is empty when the deployment details of the application cannot be obtained.
       shared_ptr<string> appIcon_ {};
       // The application ID.
       shared_ptr<string> appId_ {};
-      // The ID of the delivery group to which the application belongs.
+      // The ID of the app instance group to which the application belongs.
       shared_ptr<string> appInstanceGroupId_ {};
-      // The name of the delivery group to which the application belongs. If the delivery group information cannot be obtained, the value is the same as AppInstanceGroupId.
+      // The name of the app instance group to which the application belongs. If the app instance group information cannot be obtained, the returned value is the same as the AppInstanceGroupId.
       shared_ptr<string> appInstanceGroupName_ {};
-      // The application name. If the deployment details of the application cannot be obtained, the value is the same as AppId.
+      // The application name. If the deployment details of the application cannot be obtained, the returned value is the same as the AppId.
       shared_ptr<string> appName_ {};
-      // The application version. This value is empty if the deployment details of the application cannot be obtained.
+      // The application version. This parameter is empty when the deployment details of the application cannot be obtained.
       shared_ptr<string> appVersion_ {};
-      // The application version name. This value is empty if the deployment details of the application cannot be obtained.
+      // The application version name. This parameter is empty when the deployment details of the application cannot be obtained.
       shared_ptr<string> appVersionName_ {};
-      // The number of authorized users for the application within its delivery group. This value is empty if the deployment details of the application cannot be obtained.
+      // The number of users authorized to access the application in the app instance group to which the application belongs. This parameter is empty when the deployment details of the application cannot be obtained.
       shared_ptr<int32_t> authorizedUserCount_ {};
     };
 
@@ -189,15 +189,15 @@ namespace Models
 
 
   protected:
-    // The list of applications authorized to the user. Each record corresponds to one application within one delivery group.
+    // The list of applications authorized for the user. Each record corresponds to an application within an app instance group.
     shared_ptr<vector<ListAuthorizedAppsByUserResponseBody::Apps>> apps_ {};
     // The page number of the returned results.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of records per page.
+    // The number of entries returned on each page.
     shared_ptr<int32_t> pageSize_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The total number of authorization records that match the query conditions.
+    // The total number of authorization records that meet the query conditions.
     shared_ptr<int32_t> totalCount_ {};
   };
 

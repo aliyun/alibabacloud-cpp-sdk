@@ -75,7 +75,7 @@ namespace Models
 
 
   protected:
-    // The business status code. A value of 200 indicates that the request is processed successfully. Other values indicate that the request fails.
+    // The business status code. A value of `200` indicates that the request is processed. Other values indicate that the request fails.
     shared_ptr<string> code_ {};
     // The returned image ID.
     shared_ptr<string> data_ {};

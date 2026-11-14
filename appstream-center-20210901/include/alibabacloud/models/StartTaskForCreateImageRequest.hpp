@@ -196,21 +196,21 @@ namespace Models
 
 
   protected:
-    // The image creation mode. Currently, use the following mode:
+    // The image creation mode. Use the following mode:
     // 
     // - **BUILDER_MANUAL**: Manually enter the creation environment to install applications and configure the image.
     shared_ptr<string> imageCreateMode_ {};
     // The ID of the image. This parameter is not exposed by default.
     shared_ptr<string> imageId_ {};
-    // The WUYING instance ID. The instance can be a cloud desktop instance or a workstation instance. To ensure data consistency in the image, stop the instance before initiating image creation.
+    // The WUYING instance ID. The instance can be a cloud desktop instance or a workstation instance. To ensure data consistency in the image, stop the instance before starting the image creation task.
     shared_ptr<string> instanceId_ {};
     // The step to jump to.
     shared_ptr<string> jumpStep_ {};
     // The resource type.
     shared_ptr<string> performanceType_ {};
-    // The product type. Set this parameter to the following fixed value when you call the operation:
+    // The product type. Set this parameter to the following value when you call this operation:
     // 
-    // - CloudApp: WUYING Cloud App.
+    // - `CloudApp`: WUYING Cloud App.
     shared_ptr<string> productType_ {};
     // The list of resources required for image creation, such as the download URLs of applications to be installed. You can specify up to 100 items. The ResourceType and Resource of each item must correspond to each other.
     shared_ptr<vector<StartTaskForCreateImageRequest::ResourceList>> resourceList_ {};
@@ -223,11 +223,11 @@ namespace Models
     shared_ptr<string> runMode_ {};
     // The source region where the image is created. If you do not specify this parameter, a region is randomly selected.
     shared_ptr<string> sourceRegion_ {};
-    // The sub-instance ID. This parameter is not applicable to cloud desktop scenarios. In workstation scenarios, pass the persistent session ID to ensure that a specific instance is located.
+    // The sub-instance ID. This parameter is not applicable to cloud desktop scenarios. In workstation scenarios, you must specify the persistent session ID to locate a specific instance.
     shared_ptr<string> subInstanceId_ {};
     // The size of the system cloud disk. Unit: GB.
     shared_ptr<int32_t> systemDiskSize_ {};
-    // The image version. This parameter is currently not exposed.
+    // The ID of the image version. This parameter is not exposed.
     shared_ptr<string> versionId_ {};
   };
 

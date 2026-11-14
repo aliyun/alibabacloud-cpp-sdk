@@ -66,15 +66,15 @@ namespace Models
 
 
   protected:
-    // The delivery group ID.
+    // The ID of the app instance group.
     // 
     // This parameter is required.
     shared_ptr<string> appInstanceGroupId_ {};
-    // The page number of the query results to display, starting from 1.
+    // The number of the page to return. Pages start from 1.
     // 
     // This parameter is required.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of query results per page. Valid values: 1 to 200.
+    // The number of entries to return on each page. Valid values: 1 to 200.
     // 
     // This parameter is required.
     shared_ptr<int32_t> pageSize_ {};

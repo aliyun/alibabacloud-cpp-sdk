@@ -170,7 +170,7 @@ namespace Models
           protected:
             // The price in string format, such as 0.2.
             shared_ptr<string> price_ {};
-            // The name of the price item, such as input, output, or image generation.
+            // The name of the price, such as input, output, or image generation.
             shared_ptr<string> priceName_ {};
             // The price unit, such as per image or per 1,000 tokens.
             shared_ptr<string> priceUnit_ {};
@@ -287,9 +287,9 @@ namespace Models
 
 
         protected:
-          // The upper limit of the multiplier. An empty value indicates no upper limit. For example, if the minimum value is 1 and the maximum value is empty, it is displayed as starting from 1x.
+          // The upper limit of the multiplier. An empty value indicates no upper limit. For example, if the minimum multiplier is 1 and the maximum multiplier is empty, it is displayed as starting from 1x.
           shared_ptr<float> max_ {};
-          // The lower limit of the multiplier. If this value is equal to the maximum value, the multiplier is fixed. For example, if both the minimum and maximum values are 2, it is displayed as 2x.
+          // The lower limit of the multiplier. When this value is equal to the maximum multiplier, it represents a fixed multiplier. For example, if both the minimum and maximum multipliers are 2, it is displayed as 2x.
           shared_ptr<float> min_ {};
         };
 
@@ -421,7 +421,7 @@ namespace Models
         shared_ptr<vector<LlmInfoList::Prices>> prices_ {};
         // The time when the model was published, in ISO 8601 format, such as 2026-03-04T06:25:17.000+00:00.
         shared_ptr<string> publishedTime_ {};
-        // Indicates whether the model is recommended. This is a tri-state value: true indicates that the model is recommended for display, false indicates that the model is explicitly not recommended, and null indicates that the status is not applicable, such as for non-Bailian models or unannotated models.
+        // Specifies whether the model is recommended. This is a tri-state parameter. A value of true indicates that the model is recommended for display. A value of false indicates that the model is explicitly not recommended. A value of null indicates that the parameter is not applicable, such as for non-Bailian models or unannotated models.
         shared_ptr<bool> recommended_ {};
         // The model risk type. This parameter is returned only when includeRiskInfo is set to true.
         shared_ptr<string> riskType_ {};
@@ -438,7 +438,7 @@ namespace Models
 
 
     protected:
-      // The LLM information list.
+      // The list of LLM information.
       shared_ptr<vector<Data::LlmInfoList>> llmInfoList_ {};
     };
 
@@ -482,13 +482,13 @@ namespace Models
 
 
   protected:
-    // The paginated data object that contains a list of LLM information.
+    // The paginated data object that contains the list of LLM information.
     shared_ptr<ListModelProviderLlmCodesResponseBody::Data> data_ {};
     // The current page number.
     shared_ptr<int32_t> pageNumber_ {};
     // The number of entries per page.
     shared_ptr<int32_t> pageSize_ {};
-    // The unique ID of the request.
+    // The request ID, which is used to uniquely identify the request.
     shared_ptr<string> requestId_ {};
     // The total number of records after filtering.
     shared_ptr<int32_t> totalCount_ {};

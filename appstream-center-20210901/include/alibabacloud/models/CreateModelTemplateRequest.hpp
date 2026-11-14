@@ -84,9 +84,9 @@ namespace Models
 
 
   protected:
-    // The Agent platform.
+    // The agent platform.
     shared_ptr<string> agentPlatform_ {};
-    // The Agent provider name.
+    // The name of the agent provider.
     // 
     // This parameter is required.
     shared_ptr<string> agentProvider_ {};
@@ -94,13 +94,13 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<int32_t> bizType_ {};
-    // The template group description.
+    // The description of the template group.
     shared_ptr<string> description_ {};
-    // The template group name.
+    // The name of the template group.
     // 
     // This parameter is required.
     shared_ptr<string> name_ {};
-    // The authorization scope. This parameter is optional and effective only for Common model groups. Valid values: ALL_USER and USER_MIXED (strictly uppercase). If not specified, Common model groups default to USER_MIXED. Non-Common groups ignore this parameter and use RESOURCE_MIXED.
+    // The authorization scope. This parameter is optional and takes effect only for Common model groups. Valid values: ALL_USER and USER_MIXED. The value must be strictly uppercase. If this parameter is not specified, the default value for Common groups is USER_MIXED. For non-Common groups, this parameter is ignored and fixed to RESOURCE_MIXED.
     shared_ptr<string> refScope_ {};
   };
 

@@ -285,7 +285,7 @@ namespace Models
     shared_ptr<string> code_ {};
     // The image information returned by the query.
     shared_ptr<GetImageDistributeInfoResponseBody::Data> data_ {};
-    // The processing information returned by the API.
+    // The processing message returned by the API.
     shared_ptr<string> message_ {};
     // The request ID, which is used to locate and troubleshoot the request.
     shared_ptr<string> requestId_ {};

@@ -80,7 +80,7 @@ namespace Models
 
 
     protected:
-      // The label categorization.
+      // The tag categorization.
       shared_ptr<string> category_ {};
       // The tag value.
       shared_ptr<string> tag_ {};
@@ -149,7 +149,7 @@ namespace Models
     shared_ptr<int32_t> maxResults_ {};
     // The error message returned when an error occurs.
     shared_ptr<string> message_ {};
-    // The token for the next query.
+    // The token used to start the next query.
     shared_ptr<string> nextToken_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

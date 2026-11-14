@@ -100,11 +100,11 @@ namespace Models
     protected:
       // The total number of nodes for the record.
       shared_ptr<int64_t> nodeCount_ {};
-      // The number of pay-as-you-go nodes in the record.
+      // The number of pay-as-you-go nodes for the record.
       shared_ptr<int64_t> postpaidNodeCount_ {};
-      // The number of subscription nodes in the record.
+      // The number of subscription nodes for the record.
       shared_ptr<int64_t> prepaidNodeCount_ {};
-      // The statistical time. The 1d granularity returns the time in the yyyy-MM-dd format. The 1m, 30m, and 6h granularities return the time in the yyyy-MM-dd HH:mm format. The string itself does not carry a time zone and is interpreted in the Asia/Shanghai (UTC+8) time zone.
+      // The statistical time. The `1d` granularity returns `yyyy-MM-dd`. The `1m`, `30m`, and `6h` granularities return `yyyy-MM-dd HH:mm`. The string itself does not carry a time zone and is interpreted as Asia/Shanghai (UTC+8).
       shared_ptr<string> statDate_ {};
     };
 
@@ -163,15 +163,15 @@ namespace Models
 
 
   protected:
-    // The business status code. A value of 200 indicates that the request is successful. Other values indicate that the request failed.
+    // The business status code. A value of `200` indicates that the request is successful. Other values indicate that the request failed.
     shared_ptr<string> code_ {};
     // The total number of records that meet the query conditions.
     shared_ptr<int32_t> count_ {};
-    // The description of the request processing result. If the request is successful, success is usually returned.
+    // The description of the request processing result. If the request is successful, `success` is usually returned.
     shared_ptr<string> message_ {};
-    // The page number corresponding to the current response.
+    // The page number of the current response.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries per page used in the current response.
+    // The number of entries per page in the current response.
     shared_ptr<int32_t> pageSize_ {};
     // The list of node report data.
     shared_ptr<vector<QueryNodeReportDataResponseBody::ReportDataModel>> reportDataModel_ {};

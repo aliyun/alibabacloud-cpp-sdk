@@ -121,7 +121,7 @@ namespace Models
 
 
   protected:
-    // The return code of the API. A value of 200 indicates success. If the call fails, the corresponding error code is returned.
+    // The response code. A value of 200 indicates success. If the call fails, the corresponding error code is returned.
     shared_ptr<string> code_ {};
     // The image identifiers returned for the import request.
     shared_ptr<ImportImageResponseBody::Data> data_ {};
@@ -129,9 +129,9 @@ namespace Models
     shared_ptr<string> message_ {};
     // The request ID, which is used to locate and troubleshoot the request.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the API call was successful. Valid values:
-    // - true: successful.
-    // - false: failed.
+    // Indicates whether the API call is successful. Valid values:
+    // - true: Successful.
+    // - false: Failed.
     shared_ptr<bool> success_ {};
   };
 

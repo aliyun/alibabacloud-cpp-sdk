@@ -224,29 +224,29 @@ namespace Models
       shared_ptr<int64_t> aliUid_ {};
       // The URL used to access the application icon.
       shared_ptr<string> appIconUrl_ {};
-      // The application ID, which is used to query the application or unbind an image later.
+      // The application ID, which is used for subsequent application queries or unbinding images.
       shared_ptr<string> appId_ {};
       // The display name of the application.
       shared_ptr<string> appName_ {};
-      // The theme color saved for the application. If no theme color is specified when the application is created, #FFFFFF (white) is saved by default. The saved value is returned during a query. This field may not be configured for legacy applications.
+      // The theme color saved for the application. If no theme color is specified when the application is created, #FFFFFF (white) is saved by default. The saved value is returned during queries. This field may not be configured for legacy applications.
       shared_ptr<string> appThemeColor_ {};
       // The source type of the application. Valid values:
       // 
-      // - **USER_APP**: User-created applications.
-      // - **SYS_APP**: System-provided applications.
-      // - **VIRTUAL_APP**: Virtual applications.
+      // - **USER_APP**: user-created applications
+      // - **SYS_APP**: system-provided applications
+      // - **VIRTUAL_APP**: virtual applications
       shared_ptr<string> appType_ {};
       // The business type to which the application belongs. Valid values:
       // 
-      // - **1**: Basic products.
-      // - **2**: Personal cloud.
-      // - **3**: Cloud office.
-      // - **4**: Cloud Flow.
-      // - **10**: Personal Edition.
-      // - **20**: Business Edition.
-      // - **60**: Linggou Team Edition.
+      // - **1**: basic products
+      // - **2**: personal cloud
+      // - **3**: cloud office
+      // - **4**: Cloud Flow
+      // - **10**: Personal Edition
+      // - **20**: Business Edition
+      // - **60**: Linggou Team Edition
       shared_ptr<int32_t> bizType_ {};
-      // Indicates whether the current application is not referenced by any image. A value of true indicates that no image references the application. A value of false indicates that the application is still referenced by an image. You must remove the reference before deleting the application.
+      // Indicates whether the current application is not referenced by any image. A value of true indicates that no image references the application. A value of false indicates that the application is still referenced by an image, and you must remove the reference before deleting the application.
       shared_ptr<bool> deletable_ {};
       // The path of the executable file saved when the application is created or modified. This field is returned only if the path is configured for the application. An example is the installation path of a Windows business application.
       shared_ptr<string> executeFileAddress_ {};
@@ -256,49 +256,49 @@ namespace Models
       shared_ptr<string> gmtModified_ {};
       // The form of the application. Valid values:
       // 
-      // - **CLIENT_BASE**: Client applications.
-      // - **WEB_BASE**: Browser applications.
-      // - **CLOUD_NATIVE_BASE**: Cloud-native applications.
-      // - **PORT_SERVICE_BASE**: Port service applications.
-      // - **AGENT_SERVICE_BASE**: Agent applications.
+      // - **CLIENT_BASE**: client applications
+      // - **WEB_BASE**: browser applications
+      // - **CLOUD_NATIVE_BASE**: cloud-native applications
+      // - **PORT_SERVICE_BASE**: port service applications
+      // - **AGENT_SERVICE_BASE**: agent applications
       shared_ptr<string> originAppType_ {};
       // The type of operating system used by the application. Valid values:
       // 
-      // - **Unknown**: The operating system is unknown.
-      // - **Windows**: Windows operating system.
-      // - **Linux**: Linux operating system.
-      // - **Android**: Android operating system.
+      // - **Unknown**: unknown operating system
+      // - **Windows**: Windows operating system
+      // - **Linux**: Linux operating system
+      // - **Android**: Android operating system
       shared_ptr<string> osType_ {};
       // The product to which the resource belongs. Valid values:
       // 
-      // - **CloudGame**: Cloud game.
-      // - **CloudApp**: Wuying cloud application.
-      // - **CloudBrowser**: Secure browser.
-      // - **CloudDesktop**: Wuying cloud desktop.
-      // - **ImageBuilder**: Image builder resources.
-      // - **ImageValidate**: Image validation resources.
-      // - **AndroidCloud**: Android cloud.
-      // - **GpuRender**: GPU rendering.
-      // - **AndroidGpuRender**: Android cloud GPU rendering.
-      // - **WuyingServer**: Enterprise Edition workstation.
-      // - **GpuProxy**: GPU remote rendering proxy.
-      // - **GpuCache**: GPU remote rendering cache.
-      // - **AIAgent**: AI Agent service.
-      // - **HostedDesktop**: Hosted desktop.
-      // - **WuyingWorkstation**: Personal Edition container workstation.
-      // - **WuyingWorkstationBusiness**: Business Edition container workstation.
-      // - **WuyingWorkstationTeam**: Linggou Team Edition container workstation.
+      // - **CloudGame**: cloud gaming
+      // - **CloudApp**: Wuying Cloud Application
+      // - **CloudBrowser**: secure browser
+      // - **CloudDesktop**: Wuying Cloud Computer
+      // - **ImageBuilder**: image builder resources
+      // - **ImageValidate**: image validation resources
+      // - **AndroidCloud**: Android cloud
+      // - **GpuRender**: GPU rendering
+      // - **AndroidGpuRender**: Android cloud GPU rendering
+      // - **WuyingServer**: Enterprise Edition workstation
+      // - **GpuProxy**: GPU remote rendering proxy
+      // - **GpuCache**: GPU remote rendering cache
+      // - **AIAgent**: AI agent service
+      // - **HostedDesktop**: hosted computer
+      // - **WuyingWorkstation**: Personal Edition container workstation
+      // - **WuyingWorkstationBusiness**: Business Edition container workstation
+      // - **WuyingWorkstationTeam**: Linggou Team Edition container workstation
       shared_ptr<string> productType_ {};
-      // The command-line parameters used when the application is started.
+      // The command-line arguments used when the application starts.
       shared_ptr<string> silenceParam_ {};
       // The status of the application record. The current list queries only valid and undeleted applications.
       shared_ptr<string> status_ {};
       // The subtype of the application. Valid values:
       // 
-      // - **PWA**: Progressive web applications.
-      // - **SAAS**: Software as a Service (SaaS) applications.
-      // - **SANDBOX**: Sandbox applications.
-      // - **CONTAINER**: Container applications.
+      // - **PWA**: progressive web applications
+      // - **SAAS**: SaaS applications
+      // - **SANDBOX**: sandbox applications
+      // - **CONTAINER**: container applications
       shared_ptr<string> subAppType_ {};
     };
 
@@ -370,15 +370,15 @@ namespace Models
     shared_ptr<int32_t> count_ {};
     // The application records on the current page.
     shared_ptr<vector<ListAppResponseBody::Data>> data_ {};
-    // The error or result message. This field describes the cause when a request fails. A successful response may not contain this field.
+    // The error or result message. This field describes the cause when the request fails. A successful response may not contain this field.
     shared_ptr<string> message_ {};
-    // The page number of this query. The name of this response field is PageNmuber.
+    // The page number of the current query. Note that the name of this response field is PageNmuber.
     shared_ptr<int32_t> pageNmuber_ {};
-    // The number of records per page in this paged query.
+    // The number of entries returned per page in the paged query.
     shared_ptr<int32_t> pageSize_ {};
     // The unique identifier of the request. You can provide this value for troubleshooting.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request was processed successfully. A value of true indicates that the request was processed successfully. To check whether an asynchronous task is completed, query the task status separately.
+    // Indicates whether the request was processed successfully. A value of true indicates that the current request was processed successfully. To check whether an asynchronous task is completed, you must query the task status separately.
     shared_ptr<bool> success_ {};
   };
 

@@ -86,9 +86,9 @@ namespace Models
     shared_ptr<int32_t> bizType_ {};
     // The source image ID.
     shared_ptr<string> imageId_ {};
-    // The product type, such as cloud desktop, cloud application, or workstation.
+    // The product type, such as cloud desktop, cloud application, and workstation.
     shared_ptr<string> productType_ {};
-    // The Alibaba Cloud account IDs to remove from the share list.
+    // The Alibaba Cloud account IDs to remove from sharing.
     shared_ptr<vector<int64_t>> removeAccount_ {};
   };
 

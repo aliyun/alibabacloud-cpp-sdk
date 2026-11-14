@@ -135,7 +135,7 @@ namespace Models
 
 
       protected:
-        // The number of user quotas.
+        // The user quota.
         shared_ptr<int32_t> userQuota_ {};
       };
 
@@ -298,18 +298,16 @@ namespace Models
 
 
         protected:
-          // The watermark switch. The value is case-insensitive. Valid values:
-          // 
+          // Specifies whether to enable the watermark. Values are case-insensitive. Valid values:
           // - `ON`: Enables the watermark.
           // - `OFF`: Disables the watermark.
           // 
-          // If the watermark is disabled, the watermark content type list is not used.
+          // When the watermark is disabled, the watermark content type list is not used.
           shared_ptr<string> watermarkSwitch_ {};
           // The list of watermark content types. Valid values:
-          // 
-          // - `EndUserId`: The user identifier.
-          // - `InstanceGroupId`: The delivery group identifier.
-          // - `ClientTime`: The current time of the client.
+          // - `EndUserId`: the user identifier.
+          // - `InstanceGroupId`: the delivery group identifier.
+          // - `ClientTime`: the current time of the client.
           // 
           // Use the watermark types supported by the browser and the client.
           shared_ptr<vector<string>> watermarkTypes_ {};
@@ -375,12 +373,12 @@ namespace Models
 
 
         protected:
-          // The clipboard transfer direction. The value is not case-sensitive. Valid values:
+          // The clipboard transfer direction. The value is case-insensitive. Valid values:
           // 
-          // - `off`: Prohibits transfer in both directions.
+          // - `off`: Disables transfer in both directions.
           // - `read`: Allows copy and paste from the local PC to the cloud browser.
           // - `write`: Allows copy and paste from the cloud browser to the local PC.
-          // - `readwrite`: Allows transfer in both directions.
+          // - `readwrite`: Enables transfer in both directions.
           shared_ptr<string> clipboard_ {};
         };
 
@@ -572,7 +570,7 @@ namespace Models
         shared_ptr<vector<Policy::ClientTypes>> clientTypes_ {};
         // Sets the clipboard transfer direction, content type, and size limit. `read` indicates transfer from the local PC to the cloud browser, and `write` indicates transfer from the cloud browser to the local PC.
         shared_ptr<Policy::ClipboardPolicy> clipboardPolicy_ {};
-        // The dual-screen switch for the cloud browser.
+        // The dual-screen switch for cloud browsers.
         shared_ptr<string> multiScreen_ {};
         // The video display policy for browser sessions.
         shared_ptr<Policy::VideoPolicy> videoPolicy_ {};
@@ -634,11 +632,11 @@ namespace Models
         // - `ALLOW_ALL`: Allows all domain names.
         // - `ALLOW_LIST`: Allows only websites in the whitelist.
         // 
-        // The returned value reflects the existing configuration of the browser instance group.
+        // The returned value reflects the existing configurations of the browser instance group.
         shared_ptr<string> accessRestriction_ {};
         // The ID of the office network to which the browser instance group belongs.
         shared_ptr<string> officeSiteId_ {};
-        // The list of vSwitch IDs used by the browser instance group. This parameter is available for scenarios where a custom network is configured.
+        // The list of vSwitch IDs used by the browser instance group. This parameter is available for scenarios where custom networks are configured.
         shared_ptr<vector<string>> vSwitchIds_ {};
       };
 
@@ -770,7 +768,7 @@ namespace Models
         shared_ptr<string> browserParam_ {};
         // The cookie synchronization configuration. A value of `true` indicates that synchronization is enabled. A value of `false` indicates that synchronization is disabled.
         shared_ptr<string> cookiesSync_ {};
-        // The homepage URL that opens when the browser starts.
+        // The URL of the homepage that opens when the browser starts.
         shared_ptr<string> homepage_ {};
       };
 
@@ -1029,7 +1027,7 @@ namespace Models
       shared_ptr<BrowserInstanceGroupModels::AuthorizedUserInfo> authorizedUserInfo_ {};
       // The business region where the browser instance group is located.
       shared_ptr<string> bizRegionId_ {};
-      // The current configuration of the browser.
+      // The current configurations of the browser.
       shared_ptr<BrowserInstanceGroupModels::BrowserConfig> browserConfig_ {};
       // The ID of the cloud browser instance group.
       shared_ptr<string> browserInstanceGroupId_ {};
@@ -1057,10 +1055,9 @@ namespace Models
       shared_ptr<BrowserInstanceGroupModels::Network> network_ {};
       // The operating system type of the browser instance group. The current MAU product scenario uses Windows.
       shared_ptr<string> osType_ {};
-      // The policy configuration returned for the browser instance group. The policy fields are used to view existing settings and do not indicate that all corresponding creation parameters are configurable.
+      // The policy configurations returned for the browser instance group. The policy fields are used to view existing settings and do not indicate that all corresponding creation parameters are configurable.
       shared_ptr<BrowserInstanceGroupModels::Policy> policy_ {};
-      // The status of the browser group. Valid values:
-      // 
+      // The browser group status. Valid values:
       // - `DEPLOYING`: Deploying.
       // - `PUBLISHED`: Published.
       // - `FAILED`: Failed.
@@ -1071,26 +1068,24 @@ namespace Models
       // - `DELETING`: Deleting.
       // - `UNAVAILABLE`: Unavailable.
       shared_ptr<string> status_ {};
-      // The sub-billing method. In the MAU scenario, `mau` is returned, which indicates billing by monthly active users.
+      // The sub-billing type. In the MAU scenario, `mau` is returned, which indicates billing by monthly active users.
       shared_ptr<string> subPayType_ {};
-      // Indicates whether mixed authorization of users and user groups is supported. A value of `true` indicates that it is supported, and a value of `false` indicates that it is not supported. Evaluate this parameter based on the current authorization mode.
+      // Specifies whether mixed authorization of users and user groups is supported. A value of `true` indicates that mixed authorization is supported, and a value of `false` indicates that mixed authorization is not supported. Evaluate this parameter based on the current authorization mode.
       shared_ptr<bool> supportUserGroupMixedAuth_ {};
       // The list of resource tags returned.
       shared_ptr<vector<BrowserInstanceGroupModels::Tags>> tags_ {};
       // The version of the browser. Valid values:
-      // 
       // - `Basic`: Basic Edition.
       // - `Pro`: Premium Edition.
       // 
       // In the MAU scenario, the value is `Pro`.
       shared_ptr<string> tier_ {};
-      // The session timer configuration returned. This is used to view the effective settings and does not indicate that the create operation supports configuring this parameter.
+      // The session timer configuration returned. This parameter is used to view the effective settings and does not indicate that the create operation supports configuring this parameter.
       shared_ptr<vector<BrowserInstanceGroupModels::Timers>> timers_ {};
       // The current authorization mode. Valid values:
-      // 
-      // - `Mixed`: Mixed authorization of users and user groups.
-      // - `User`: User authorization.
-      // - `UserGroup`: User group authorization.
+      // - `Mixed`: mixed authorization of users and user groups.
+      // - `User`: user authorization.
+      // - `UserGroup`: user group authorization.
       shared_ptr<string> userGroupAuthMode_ {};
       // The user quota information.
       shared_ptr<BrowserInstanceGroupModels::UserLimit> userLimit_ {};
@@ -1142,7 +1137,7 @@ namespace Models
     shared_ptr<int32_t> pageNumber_ {};
     // The number of entries per page.
     shared_ptr<int32_t> pageSize_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
     // The total number of browser groups that meet the filter conditions.
     shared_ptr<int32_t> totalCount_ {};

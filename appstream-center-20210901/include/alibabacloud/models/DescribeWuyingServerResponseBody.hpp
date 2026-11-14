@@ -127,9 +127,7 @@ namespace Models
 
 
       protected:
-        // Indicates whether the IP address is the primary private IP address. Valid values:
-        // - true: The IP address is the primary private IP address.
-        // - false: The IP address is a secondary private IP address.
+        // Indicates whether the IP address is the primary private IP address. Valid values: true: The IP address is the primary private IP address. false: The IP address is a secondary private IP address.
         shared_ptr<bool> primary_ {};
         // The private IP address.
         shared_ptr<string> privateIpAddress_ {};
@@ -283,17 +281,17 @@ namespace Models
 
 
     protected:
-      // The bandwidth size, in Mbit/s.
+      // The bandwidth. Unit: Mbit/s.
       shared_ptr<int32_t> bandwidth_ {};
       // The region ID.
       shared_ptr<string> bizRegionId_ {};
-      // The billing type.
+      // The billing method.
       shared_ptr<string> chargeType_ {};
-      // The creation time, in US English date and time format with a 12-hour clock.
+      // The creation time. The time is displayed in the 12-hour US English date and time format.
       shared_ptr<string> createTime_ {};
-      // The maximum number of private IP addresses per NIC, including the primary IP address.
+      // The maximum number of private IP addresses per elastic network interface (ENI), including the primary IP address.
       shared_ptr<int32_t> eniPrivateIpAddressQuantity_ {};
-      // The expiration time, in US English date and time format with a 12-hour clock.
+      // The expiration time. The time is displayed in the 12-hour US English date and time format.
       shared_ptr<string> expiredTime_ {};
       // The image ID.
       shared_ptr<string> imageId_ {};
@@ -315,9 +313,9 @@ namespace Models
       shared_ptr<string> status_ {};
       // Whether ASP streaming connection is supported.
       shared_ptr<bool> supportASP_ {};
-      // The type of the system cloud disk.
+      // The category of the system cloud disk.
       shared_ptr<string> systemDiskCategory_ {};
-      // The size of the system cloud disk, in GB.
+      // The size of the system cloud disk. Unit: GB.
       shared_ptr<int32_t> systemDiskSize_ {};
       // The ID of the development host.
       shared_ptr<string> wuyingServerId_ {};

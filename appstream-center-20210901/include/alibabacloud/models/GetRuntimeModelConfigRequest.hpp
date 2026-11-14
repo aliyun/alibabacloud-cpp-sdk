@@ -16,6 +16,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(AgentPlatform, agentPlatform_);
       DARABONBA_PTR_TO_JSON(AgentProvider, agentProvider_);
       DARABONBA_PTR_TO_JSON(IncludeRiskInfo, includeRiskInfo_);
+      DARABONBA_PTR_TO_JSON(Language, language_);
       DARABONBA_PTR_TO_JSON(RuntimeId, runtimeId_);
       DARABONBA_PTR_TO_JSON(RuntimeType, runtimeType_);
       DARABONBA_PTR_TO_JSON(SmartModel, smartModel_);
@@ -24,6 +25,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(AgentPlatform, agentPlatform_);
       DARABONBA_PTR_FROM_JSON(AgentProvider, agentProvider_);
       DARABONBA_PTR_FROM_JSON(IncludeRiskInfo, includeRiskInfo_);
+      DARABONBA_PTR_FROM_JSON(Language, language_);
       DARABONBA_PTR_FROM_JSON(RuntimeId, runtimeId_);
       DARABONBA_PTR_FROM_JSON(RuntimeType, runtimeType_);
       DARABONBA_PTR_FROM_JSON(SmartModel, smartModel_);
@@ -40,7 +42,8 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->agentPlatform_ == nullptr
-        && this->agentProvider_ == nullptr && this->includeRiskInfo_ == nullptr && this->runtimeId_ == nullptr && this->runtimeType_ == nullptr && this->smartModel_ == nullptr; };
+        && this->agentProvider_ == nullptr && this->includeRiskInfo_ == nullptr && this->language_ == nullptr && this->runtimeId_ == nullptr && this->runtimeType_ == nullptr
+        && this->smartModel_ == nullptr; };
     // agentPlatform Field Functions 
     bool hasAgentPlatform() const { return this->agentPlatform_ != nullptr;};
     void deleteAgentPlatform() { this->agentPlatform_ = nullptr;};
@@ -60,6 +63,13 @@ namespace Models
     void deleteIncludeRiskInfo() { this->includeRiskInfo_ = nullptr;};
     inline bool getIncludeRiskInfo() const { DARABONBA_PTR_GET_DEFAULT(includeRiskInfo_, false) };
     inline GetRuntimeModelConfigRequest& setIncludeRiskInfo(bool includeRiskInfo) { DARABONBA_PTR_SET_VALUE(includeRiskInfo_, includeRiskInfo) };
+
+
+    // language Field Functions 
+    bool hasLanguage() const { return this->language_ != nullptr;};
+    void deleteLanguage() { this->language_ = nullptr;};
+    inline string getLanguage() const { DARABONBA_PTR_GET_DEFAULT(language_, "") };
+    inline GetRuntimeModelConfigRequest& setLanguage(string language) { DARABONBA_PTR_SET_VALUE(language_, language) };
 
 
     // runtimeId Field Functions 
@@ -92,7 +102,9 @@ namespace Models
     shared_ptr<string> agentProvider_ {};
     // Specifies whether to include risk information.
     shared_ptr<bool> includeRiskInfo_ {};
-    // The ID of the agent runtime. The ID mappings are as follows:
+    // The model display language. Valid values: zh-CN, en-US, ja-JP, and zh-TW. The value is case-insensitive, and leading and trailing spaces are removed. If this parameter is not specified, left empty, or set to an unsupported value, the default value zh-CN is used. The model pool description mapping is returned based on the normalized interface language, and falls back to Chinese if a translation is missing. Bailian and existing dynamic configurations still use Chinese for zh-CN and zh-TW, and English for en-US and ja-JP. This parameter is used for the names and descriptions of system intelligence tiers, as well as general model descriptions. Template fallback text, custom names, and runtime configurations retain their original values. The values zh_CN, en_US, ja_JP, and zh_TW are also supported, and en and ja are compatible. The value is case-insensitive, and leading and trailing spaces are removed. An invalid language value falls back to Chinese and does not cause a parameter error to be returned for Language. The names and descriptions of the four system intelligence tiers (Auto, Standard, Advanced, and Ultimate) support all four languages, and Chinese is retained for missing Japanese and Traditional Chinese items. User template names retain their original values.
+    shared_ptr<string> language_ {};
+    // The agent runtime ID. The ID mappings are as follows:
     // 
     // JVS Computer: JVS Computer ID, in the format of jvs-xxxx.
     // 
@@ -102,14 +114,14 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> runtimeId_ {};
-    // The type of the agent runtime.
+    // The agent runtime type.
     // 
     // This parameter is required.
     shared_ptr<string> runtimeType_ {};
     // The smart model filter. Valid values:
     // - true: Queries the system wuying-preset provider models based on the business type of the runtime.
     // - false: Excludes wuying-preset from the effective configuration.
-    // - Empty: Returns both smart and non-smart models in the effective configuration.
+    // - Not specified: Returns both smart and non-smart models in the effective configuration.
     // The business type is read by the server from runtime.biz_type, and the BizType input parameter is not required. Risk information is still independently controlled by IncludeRiskInfo.
     shared_ptr<bool> smartModel_ {};
   };

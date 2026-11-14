@@ -132,19 +132,19 @@ namespace Models
     protected:
       // The AccessKey ID of the STS temporary access credential.
       shared_ptr<string> accessKeyId_ {};
-      // The AccessKey Secret of the STS temporary access credential. It is used together with AccessKeyId and StsToken.
+      // The AccessKey secret of the STS temporary access credential. This parameter is used together with AccessKeyId and StsToken.
       shared_ptr<string> accessKeySecret_ {};
       // The name of the destination OSS bucket for the upload.
       shared_ptr<string> bucketName_ {};
       // Not supported.
       shared_ptr<string> expiration_ {};
-      // The OSS directory prefix where files are allowed to be uploaded. The path of the uploaded object must be located under this directory.
+      // The OSS directory prefix where files are allowed to be uploaded. The path of the uploaded object must be located in this directory.
       shared_ptr<string> filePath_ {};
       // The OSS endpoint for public network access.
       shared_ptr<string> ossPoint_ {};
       // The internal OSS endpoint.
       shared_ptr<string> ossPointInternal_ {};
-      // The STS temporary security token. It is used together with AccessKeyId and AccessKeySecret for file uploads.
+      // The STS temporary security token. This parameter is used together with AccessKeyId and AccessKeySecret for file upload.
       shared_ptr<string> stsToken_ {};
     };
 
@@ -188,17 +188,17 @@ namespace Models
 
 
   protected:
-    // The return code of the API. A value of 200 indicates success. If the call fails, the corresponding error code is returned.
+    // The response code of the API. A value of 200 indicates success. If the call fails, the corresponding error code is returned.
     shared_ptr<string> code_ {};
-    // The file upload endpoint and temporary credentials.
+    // The file upload address and temporary credentials.
     shared_ptr<GetUploadInfoResponseBody::Data> data_ {};
-    // The message returned by the API.
+    // The processing message returned by the API.
     shared_ptr<string> message_ {};
-    // The ID of the request. It is used to locate and troubleshoot the request.
+    // The request ID, which is used to locate and troubleshoot the request.
     shared_ptr<string> requestId_ {};
     // Indicates whether the API call is successful. Valid values:
-    // - true: The call is successful.
-    // - false: The call fails.
+    // - true: Successful.
+    // - false: Failed.
     shared_ptr<bool> success_ {};
   };
 

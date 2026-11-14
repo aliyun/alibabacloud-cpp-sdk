@@ -142,9 +142,9 @@ namespace Models
 
 
         protected:
-          // The available quantity in the zone obtained in this query. Unit: instances. This value is an inventory snapshot and does not indicate that resources have been reserved for the current account.
+          // The available quantity in the zone obtained in this query. Unit: count. This value is an inventory snapshot and does not indicate that resources have been reserved for the current account.
           shared_ptr<string> amount_ {};
-          // The zone ID, which can be queried by calling the [ListZones](https://api.aliyun.com/document/appstream-center/2021-09-01/ListZones) operation.
+          // The zone ID, which can be queried by calling [ListZones](https://api.aliyun.com/document/appstream-center/2021-09-01/ListZones).
           shared_ptr<string> zoneId_ {};
         };
 
@@ -176,7 +176,7 @@ namespace Models
       protected:
         // The business region ID corresponding to the inventory query.
         shared_ptr<string> regionId_ {};
-        // The instance type inventory status obtained in the current query.
+        // The specification inventory status obtained in the current query.
         // 
         // - `Available`: The total inventory of the queried zones is greater than 0.
         // - `SoldOut`: The total inventory of the queried zones is not greater than 0.
@@ -283,33 +283,33 @@ namespace Models
 
 
     protected:
-      // The session instance type code, which can be used as the session instance type parameter for subsequent operations.
+      // The session specification code, which can be used as the session specification parameter for subsequent operations.
       shared_ptr<string> appInstanceType_ {};
-      // The instance type family code to which the session instance type belongs.
+      // The specification family code to which the session specification belongs.
       shared_ptr<string> appInstanceTypeFamily_ {};
-      // The number of CPU cores included in the instance type, represented by a numeric string. Unit: cores.
+      // The number of CPU cores included in the specification, represented by a numeric string. Unit: cores.
       shared_ptr<string> cpu_ {};
-      // The data cloud disk capacity of the instance type. Unit: GB.
+      // The data cloud disk capacity of the specification. Unit: GB.
       shared_ptr<int64_t> dataDiskSize_ {};
-      // Not enabled yet. The example value is only used to demonstrate the format and does not represent the actual number of GPUs returned by this operation.
+      // Not enabled yet. The example value is only used to display the format and does not represent the actual number of GPUs returned by this operation.
       shared_ptr<string> gpu_ {};
-      // The GPU memory capacity of the instance type. Unit: MB.
+      // The GPU memory capacity of the specification. Unit: MB.
       shared_ptr<int64_t> gpuMemory_ {};
-      // The display value or display range of the GPU memory. Display it as the returned text. Do not directly use it as a numeric value for capacity conversion.
+      // The display value or display range of the GPU memory. It should be displayed as the returned text and should not be directly used as a numerical value for capacity conversion.
       shared_ptr<string> gpuSpec_ {};
-      // The identifier of the instance type record. When integrating with pricing or creation operations, use `AppInstanceType`. Do not use this field to replace the instance type code.
+      // The identifier of the specification record. When you connect to the price inquiry or creation operation, use `AppInstanceType`. Do not use this field to replace the specification code.
       shared_ptr<int64_t> id_ {};
-      // The display name of the instance type. The Chinese name is used only when `Language` is set to `zh-CN`. For other values or when omitted, the instance type code is used.
+      // The display name of the specification. The Chinese name is used only when `Language=zh-CN`. For other values or when omitted, the specification code is used.
       shared_ptr<string> instanceTypeName_ {};
-      // The inventory information of the instance type. This parameter is returned only when the inventory is queried and the relevant information is obtained. If this parameter is not returned, it does not mean that the inventory is 0.
+      // The inventory information of the specification. It is returned only when the inventory is queried and relevant information is obtained. If it is not returned, it does not mean that the inventory is 0.
       shared_ptr<AppInstanceTypeModels::InventoryInfo> inventoryInfo_ {};
-      // The memory capacity of the instance type. Unit: MB.
+      // The memory capacity of the specification. Unit: MB.
       shared_ptr<int64_t> memory_ {};
-      // The type of the product to which the instance type belongs. The current document displays the following values:
+      // The type of the product to which the specification belongs. The current document displays the following value:
       // 
       // - `CloudApp`: Wuying Cloud Application.
       shared_ptr<string> productType_ {};
-      // The system cloud disk capacity of the instance type. Unit: GB.
+      // The system cloud disk capacity of the specification. Unit: GB.
       shared_ptr<int64_t> systemDiskSize_ {};
     };
 
@@ -353,7 +353,7 @@ namespace Models
 
 
   protected:
-    // The list of session instance types on the current page.
+    // The list of session specifications on the current page.
     shared_ptr<vector<ListAppInstanceTypeResponseBody::AppInstanceTypeModels>> appInstanceTypeModels_ {};
     // The page number used in this query, which corresponds to the request parameters and the total number of entries.
     shared_ptr<int32_t> pageNumber_ {};
@@ -361,7 +361,7 @@ namespace Models
     shared_ptr<int32_t> pageSize_ {};
     // The unique identifier of the request, which can be used to troubleshoot request issues.
     shared_ptr<string> requestId_ {};
-    // The total number of instance types that meet all filtering conditions, not the number of entries on the current page.
+    // The total number of specifications that meet all filtering conditions, not the number of entries on the current page.
     shared_ptr<int32_t> totalCount_ {};
   };
 

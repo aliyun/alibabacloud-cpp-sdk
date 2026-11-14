@@ -127,21 +127,21 @@ namespace Models
 
 
     protected:
-      // The agent display name, which is determined by both the agent platform and the agent provider. For example, OpenClaw under the ENTERPRISE platform is displayed as OpenClaw, and OpenClaw under the JVS platform is displayed as JVS Claw.
+      // The display name of the agent, which is determined by both the agent platform and the agent provider. For example, OpenClaw under the ENTERPRISE platform is displayed as OpenClaw, and OpenClaw under the JVS platform is displayed as JVS Claw.
       shared_ptr<string> agentDisplayName_ {};
       // The agent platform, such as ENTERPRISE_AGENTIC_COMPUTER.
       shared_ptr<string> agentPlatform_ {};
       // The agent provider, such as AgenticComputer.
       shared_ptr<string> agentProvider_ {};
-      // The number of expired runtime resources in the group. A runtime is counted as expired if its resource status is Expired or Ceased, case-insensitive.
+      // The number of expired runtime resources in this group. A runtime is counted as expired if its resource status is Expired or Ceased, case-insensitive.
       shared_ptr<int32_t> expiredCount_ {};
-      // The number of runtime resources without channel configurations in the group, which is the total number of runtime resources minus the number of runtime resources with channel configurations.
+      // The number of runtime resources without a configured channel in this group, which is the total number of runtime resources minus the number of runtime resources with a configured channel.
       shared_ptr<int32_t> noChannelConfiguredRuntimeCount_ {};
-      // The number of runtime resources without model configurations in the group. A runtime is considered to have a model configured if a model is configured for the runtime itself or its associated resource group.
+      // The number of runtime resources without a configured model in this group. A runtime is considered to have a configured model if either the runtime itself or its associated resource group has a model configured.
       shared_ptr<int32_t> noModelConfiguredRuntimeCount_ {};
-      // The number of risky runtime resources in the group, deduplicated by runtime ID. A runtime is counted as risky if it has any of the following risks: model configuration modified, third-party channel configuration modified, or agent being uninstalled.
+      // The number of risky runtime resources in this group, deduplicated by runtime ID. A runtime is counted as risky if it has any of the following risks: the model configuration is modified, the third-party channel configuration is modified, or the agent is being uninstalled.
       shared_ptr<int32_t> riskyRuntimeCount_ {};
-      // The total number of runtime resources in the group, deduplicated by runtime ID.
+      // The total number of runtime resources in this group, deduplicated by runtime ID.
       shared_ptr<int32_t> totalRuntimeCount_ {};
     };
 
@@ -173,7 +173,7 @@ namespace Models
   protected:
     // The list of runtime statistics grouped by agent platform and agent provider. If AgentProvider is specified but no matching runtimes are found, a record with all statistical values set to 0 is returned.
     shared_ptr<vector<GetAgentRuntimeStatisticResponseBody::Data>> data_ {};
-    // The request ID, which uniquely identifies the request.
+    // The request ID, which is used to uniquely identify the request.
     shared_ptr<string> requestId_ {};
     // The number of returned statistics records, which is the length of the Data list.
     shared_ptr<int32_t> totalCount_ {};

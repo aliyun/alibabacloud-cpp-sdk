@@ -205,9 +205,9 @@ namespace Models
 
 
           protected:
-            // The upper limit of the multiplier. If this parameter is empty, it indicates that there is no upper limit. For example, if Min is 1 and Max is empty, it is displayed as 1x and above.
+            // The upper limit of the multiplier. If this parameter is empty, it indicates no upper limit. For example, if Min=1 and Max is empty, it is displayed as starting from 1x.
             shared_ptr<float> max_ {};
-            // The lower limit of the multiplier. When it is equal to Max, it is a fixed multiplier. For example, if Min and Max are both 2, it is displayed as 2x.
+            // The lower limit of the multiplier. When it is equal to Max, it is a fixed multiplier. For example, if Min=Max=2, it is displayed as 2x.
             shared_ptr<float> min_ {};
           };
 
@@ -291,7 +291,7 @@ namespace Models
           shared_ptr<string> name_ {};
           // The published time in ISO 8601 format.
           shared_ptr<string> publishedTime_ {};
-          // The model risk type. This parameter is returned only when the IncludeRiskInfo request parameter is set to true.
+          // The model risk type. This parameter is returned only when the request parameter IncludeRiskInfo is set to true.
           shared_ptr<string> riskType_ {};
         };
 
@@ -330,11 +330,11 @@ namespace Models
       protected:
         // The list of model information.
         shared_ptr<vector<ModelProviderList::LlmInfoList>> llmInfoList_ {};
-        // The ID of the model provider template.
+        // The ID of the model service provider template.
         shared_ptr<string> modelProviderTemplateId_ {};
-        // The name of the model provider template.
+        // The name of the model service provider template.
         shared_ptr<string> name_ {};
-        // The name of the model provider.
+        // The name of the model service provider.
         shared_ptr<string> providerName_ {};
       };
 
@@ -387,7 +387,7 @@ namespace Models
     protected:
       // The default model, in the format of providerName/llmCode.
       shared_ptr<string> defaultModel_ {};
-      // The list of model providers.
+      // The list of model service providers.
       shared_ptr<vector<Data::ModelProviderList>> modelProviderList_ {};
       // The ID of the configured model group.
       shared_ptr<string> modelTemplateId_ {};
@@ -395,7 +395,7 @@ namespace Models
       shared_ptr<string> modelTemplateName_ {};
       // The model template association type.
       shared_ptr<string> modelTemplateRefType_ {};
-      // The ID of the resource group to which the runtime belongs. If the runtime does not belong to any resource group, the value is null.
+      // The ID of the resource group to which the runtime belongs. This value is null if the runtime does not belong to a resource group.
       shared_ptr<string> resourceGroupId_ {};
     };
 

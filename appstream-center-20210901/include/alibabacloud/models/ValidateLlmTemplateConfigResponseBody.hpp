@@ -127,9 +127,9 @@ namespace Models
 
 
     protected:
-      // Indicates whether the configuration is valid. The value is true if all validation checks pass.
+      // Indicates whether the configuration is valid. The value is true if all validation items pass.
       shared_ptr<bool> valid_ {};
-      // The list of validation errors. This list is empty when Valid is true.
+      // The list of validation errors. This list is empty if Valid is true.
       shared_ptr<vector<Data::ValidationErrors>> validationErrors_ {};
     };
 

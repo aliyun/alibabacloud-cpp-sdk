@@ -75,15 +75,15 @@ namespace Models
 
 
   protected:
-    // The error code. Returned when the request fails. A successful response may not contain this field.
+    // The error code. This field is returned when the request fails. A successful response may not contain this field.
     shared_ptr<string> code_ {};
     // Indicates whether the operation is successful. A value of true indicates that the operation is successful.
     shared_ptr<bool> data_ {};
-    // The error or result message. Used to describe the cause when the request fails. A successful response may not contain this field.
+    // The error or result message. This field describes the cause when the request fails. A successful response may not contain this field.
     shared_ptr<string> message_ {};
     // The unique identifier of the request. You can provide this value for troubleshooting.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request is successful. A value of true indicates that the request is successful. To check whether an asynchronous task is completed, you must query the task status separately.
+    // Indicates whether the request is successful. A value of true indicates that the request is successful. To check whether an asynchronous task is completed, query the task status separately.
     shared_ptr<bool> success_ {};
   };
 

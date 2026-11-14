@@ -79,7 +79,7 @@ namespace Models
     shared_ptr<string> code_ {};
     // Indicates whether the operation was successful. A value of true indicates that the operation was successful.
     shared_ptr<bool> data_ {};
-    // The error or result message. This field describes the cause when a request fails. A successful response may not contain this field.
+    // The error message or result prompt. This field describes the cause when a request fails. A successful response may not contain this field.
     shared_ptr<string> message_ {};
     // The unique identifier of the request. You can provide this value for troubleshooting.
     shared_ptr<string> requestId_ {};

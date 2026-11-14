@@ -131,21 +131,21 @@ namespace Models
 
 
     protected:
-      // The URL of the application icon.
+      // The access URL of the application icon.
       shared_ptr<string> appIcon_ {};
-      // The application ID. Pass this value together with `AppInstanceGroupId` when you invoke the [AuthorizeUsersForApp](~~AuthorizeUsersForApp~~) operation to authorize users for this application.
+      // The application ID. When you invoke the [AuthorizeUsersForApp](~~AuthorizeUsersForApp~~) operation to grant authorization to a user for this application, pass this value together with `AppInstanceGroupId`.
       shared_ptr<string> appId_ {};
-      // The ID of the published delivery group to which this application belongs.
+      // The ID of the published delivery group to which the application belongs.
       shared_ptr<string> appInstanceGroupId_ {};
-      // The name of the published delivery group to which this application belongs.
+      // The name of the published delivery group to which the application belongs.
       shared_ptr<string> appInstanceGroupName_ {};
       // The application name.
       shared_ptr<string> appName_ {};
       // The application version number.
       shared_ptr<string> appVersion_ {};
-      // The application version name, which is the name assigned to this version when the application was published.
+      // The application version name, which is the name set for this version when the application is published.
       shared_ptr<string> appVersionName_ {};
-      // The number of users authorized by application for this application within its delivery group. Only users authorized through [AuthorizeUsersForApp](~~AuthorizeUsersForApp~~) by application are counted. The value is `0` if no users have been authorized by application.
+      // The number of users currently authorized for this application on a per-application basis within the associated delivery group. Only users authorized on a per-application basis through [AuthorizeUsersForApp](~~AuthorizeUsersForApp~~) are counted. If no users are authorized on a per-application basis, `0` is returned.
       shared_ptr<int32_t> authorizedUserCount_ {};
     };
 
@@ -189,15 +189,15 @@ namespace Models
 
 
   protected:
-    // The list of application records on the current page. Each record corresponds to a deployed application in a published delivery group. The list is sorted by the creation time of the delivery group in descending order. An empty list is returned if no results match or the requested page exceeds the result range.
+    // The list of application records on the current page. Each record corresponds to a deployed application in a published delivery group, sorted in descending order of the creation time of the associated delivery group. If no matching results are found or the requested page exceeds the result range, an empty list is returned.
     shared_ptr<vector<ListPublishedAppsResponseBody::Apps>> apps_ {};
-    // The page number specified in this request.
+    // The page number specified in the current request.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of records per page specified in this request. This value does not represent the actual number of records returned on the current page. The actual number may be less than this value.
+    // The number of records per page specified in the current request. This value does not represent the actual number of records returned on the current page. The actual number on the current page may be less than this value.
     shared_ptr<int32_t> pageSize_ {};
-    // The request ID. You can use this ID to locate and troubleshoot issues.
+    // The unique identifier of the current request, which can be used to troubleshoot request issues.
     shared_ptr<string> requestId_ {};
-    // The total number of records that match all filter conditions. Records are counted on a per-delivery-group-plus-application basis. If the same application appears in multiple published delivery groups, each combination is counted separately. This value does not represent the number of records returned on the current page. The value is `0` if no results match.
+    // The total number of records that meet all filter conditions. The count is based on the "delivery group + application" combination. If the same application appears in multiple published delivery groups, it is counted separately. This value is not the number of records returned on the current page. If no matching results are found, the value is `0`.
     shared_ptr<int32_t> totalCount_ {};
   };
 

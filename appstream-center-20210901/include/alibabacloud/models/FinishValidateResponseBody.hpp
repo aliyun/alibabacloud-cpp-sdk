@@ -79,11 +79,13 @@ namespace Models
     shared_ptr<string> code_ {};
     // Indicates whether the operation was successful.
     shared_ptr<bool> data_ {};
-    // The error or result message. This field describes the cause of a failed request and may not be included in a successful response.
+    // The error or result message. It describes the cause of a failed request. This field may not be included in a successful response.
     shared_ptr<string> message_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the call was successful. Valid values: true: The call was successful. false: The call failed.
+    // Indicates whether the call was successful. Valid values:
+    // - true: The call was successful.
+    // - false: The call failed.
     shared_ptr<bool> success_ {};
   };
 

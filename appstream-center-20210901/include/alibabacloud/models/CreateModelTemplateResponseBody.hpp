@@ -59,7 +59,7 @@ namespace Models
 
 
     protected:
-      // The model group ID.
+      // The ID of the model group.
       shared_ptr<string> modelTemplateId_ {};
     };
 

@@ -148,9 +148,9 @@ namespace Models
     shared_ptr<vector<ListBrowserBookmarksResponseBody::Data>> data_ {};
     // The current page number.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries returned per page.
+    // The number of entries returned on each page.
     shared_ptr<int32_t> pageSize_ {};
-    // The request ID, which is used to troubleshoot issues.
+    // The request ID.
     shared_ptr<string> requestId_ {};
     // The total number of bookmarks that meet the filtering conditions.
     shared_ptr<int32_t> totalCount_ {};
