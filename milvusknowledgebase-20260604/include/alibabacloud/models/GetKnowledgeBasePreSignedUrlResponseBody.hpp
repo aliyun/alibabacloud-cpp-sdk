@@ -87,11 +87,11 @@ namespace Models
 
 
     protected:
-      // The bucket name.
+      // The name of the bucket.
       shared_ptr<string> bucketName_ {};
       // The validity period of the pre-signed URL in seconds.
       shared_ptr<int32_t> expiresIn_ {};
-      // The list of pre-signed PUT URLs. **The order corresponds one-to-one with the `Documents` in the request.**
+      // The list of pre-signed PUT URLs. **The order corresponds one-to-one with the `Documents` in the request**.
       shared_ptr<vector<string>> preSignedUrls_ {};
     };
 
@@ -135,7 +135,7 @@ namespace Models
 
 
   protected:
-    // The details of the permission verification failure.
+    // The details of the access denial.
     shared_ptr<string> accessDeniedDetail_ {};
     // The business status code.
     shared_ptr<int32_t> code_ {};
@@ -143,7 +143,7 @@ namespace Models
     shared_ptr<GetKnowledgeBasePreSignedUrlResponseBody::Data> data_ {};
     // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
-    // Indicates whether the request was successful.
+    // Indicates whether the request is successful.
     shared_ptr<bool> success_ {};
   };
 

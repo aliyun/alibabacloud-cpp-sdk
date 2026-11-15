@@ -2,12 +2,14 @@
 #include <alibabacloud/MilvusKnowledgeBase20260604.hpp>
 #include <alibabacloud/Utils.hpp>
 #include <alibabacloud/Openapi.hpp>
+#include <alibabacloud/gateway/POP.hpp>
 #include <map>
 #include <darabonba/Runtime.hpp>
 #include <darabonba/encode/Encoder.hpp>
 using namespace std;
 using namespace Darabonba;
 using json = nlohmann::json;
+using namespace AlibabaCloud::Gateway;
 using namespace AlibabaCloud::OpenApi;
 using OpenApiClient = AlibabaCloud::OpenApi::Client;
 using namespace AlibabaCloud::OpenApi::Utils::Models;
@@ -18,6 +20,9 @@ namespace MilvusKnowledgeBase20260604
 {
 
 AlibabaCloud::MilvusKnowledgeBase20260604::Client::Client(Config &config): OpenApiClient(config){
+  this->_productId = "MilvusKnowledgeBase";
+  shared_ptr<POP> gatewayClient = make_shared<POP>();
+  this->_spi = gatewayClient;
   this->_endpointRule = "regional";
   checkConfig(config);
   this->_endpoint = getEndpoint("milvusknowledgebase", _regionId, _endpointRule, _network, _suffix, _endpointMap, _endpoint);
@@ -37,10 +42,10 @@ string Client::getEndpoint(const string &productId, const string &regionId, cons
 }
 
 /**
- * @summary Registers files that are uploaded to the knowledge base storage as knowledge base documents and **automatically triggers parsing** (chunking and embedding). Two import types are supported:
- * - `LOCAL_UPLOAD`: Works with the `GetKnowledgeBasePreSignedUrl` direct upload flow. This operation only registers the file and does not verify whether the file is actually uploaded. Therefore, you must complete the PUT upload before calling this operation.
- * - `OSS_IMPORT`: Imports files from an external OSS bucket. The operation creates an asynchronous import task and returns a `knowledge_import_task_id`. The system downloads and registers the files in the background.
- * A maximum of 100 files can be registered in a single request.
+ * @summary Registers files that have been uploaded to the knowledge base storage as knowledge base documents and **automatically triggers parsing** (chunking and embedding). Supports two types of import:
+ * - `LOCAL_UPLOAD`: Used with the `GetKnowledgeBasePreSignedUrl` direct upload process. This operation only registers the files and does not verify whether the files have been actually uploaded. Therefore, you must complete the PUT upload first.
+ * - `OSS_IMPORT`: Imports files from an external OSS bucket. This operation creates an asynchronous import task and returns the `knowledge_import_task_id`. The system downloads and registers the files in the background.
+ * A maximum of 100 files can be processed at a time.
  *
  * @param request AddDocumentsRequest
  * @param headers map
@@ -101,10 +106,10 @@ AddDocumentsResponse Client::addDocumentsWithOptions(const string &datasetId, co
 }
 
 /**
- * @summary Registers files that are uploaded to the knowledge base storage as knowledge base documents and **automatically triggers parsing** (chunking and embedding). Two import types are supported:
- * - `LOCAL_UPLOAD`: Works with the `GetKnowledgeBasePreSignedUrl` direct upload flow. This operation only registers the file and does not verify whether the file is actually uploaded. Therefore, you must complete the PUT upload before calling this operation.
- * - `OSS_IMPORT`: Imports files from an external OSS bucket. The operation creates an asynchronous import task and returns a `knowledge_import_task_id`. The system downloads and registers the files in the background.
- * A maximum of 100 files can be registered in a single request.
+ * @summary Registers files that have been uploaded to the knowledge base storage as knowledge base documents and **automatically triggers parsing** (chunking and embedding). Supports two types of import:
+ * - `LOCAL_UPLOAD`: Used with the `GetKnowledgeBasePreSignedUrl` direct upload process. This operation only registers the files and does not verify whether the files have been actually uploaded. Therefore, you must complete the PUT upload first.
+ * - `OSS_IMPORT`: Imports files from an external OSS bucket. This operation creates an asynchronous import task and returns the `knowledge_import_task_id`. The system downloads and registers the files in the background.
+ * A maximum of 100 files can be processed at a time.
  *
  * @param request AddDocumentsRequest
  * @return AddDocumentsResponse
@@ -116,7 +121,7 @@ AddDocumentsResponse Client::addDocuments(const string &datasetId, const AddDocu
 }
 
 /**
- * @summary Generates an **OSS pre-signed PUT URL** pointing to the knowledge base dedicated storage for each file in `Documents`. The caller uses the URL to upload file content directly to Object Storage Service (OSS), and then calls `AddDocuments` to register the files. A maximum of 100 files can be processed per request.
+ * @summary Generates an **Object Storage Service (OSS) pre-signed PUT URL** pointing to the dedicated storage of the knowledge base for each file in `Documents`. Callers use the URL to upload file content directly to OSS and then call `AddDocuments` to complete the registration. A maximum of 100 files can be processed at a time.
  *
  * @param request GetKnowledgeBasePreSignedUrlRequest
  * @param headers map
@@ -157,7 +162,7 @@ GetKnowledgeBasePreSignedUrlResponse Client::getKnowledgeBasePreSignedUrlWithOpt
 }
 
 /**
- * @summary Generates an **OSS pre-signed PUT URL** pointing to the knowledge base dedicated storage for each file in `Documents`. The caller uses the URL to upload file content directly to Object Storage Service (OSS), and then calls `AddDocuments` to register the files. A maximum of 100 files can be processed per request.
+ * @summary Generates an **Object Storage Service (OSS) pre-signed PUT URL** pointing to the dedicated storage of the knowledge base for each file in `Documents`. Callers use the URL to upload file content directly to OSS and then call `AddDocuments` to complete the registration. A maximum of 100 files can be processed at a time.
  *
  * @param request GetKnowledgeBasePreSignedUrlRequest
  * @return GetKnowledgeBasePreSignedUrlResponse
@@ -169,9 +174,9 @@ GetKnowledgeBasePreSignedUrlResponse Client::getKnowledgeBasePreSignedUrl(const 
 }
 
 /**
- * @summary Retrieves documents from a knowledge base.
+ * @summary Searches a knowledge base.
  *
- * @description Retrieves documents from a specified knowledge base by question or image. Use DRAFT, LATEST_PUBLISHED, or vN display names for the version. Pass tag filter conditions using the actual backend operators.
+ * @description Searches a specified knowledge base by using a text query or an image. For the version parameter, use the display name DRAFT, LATEST_PUBLISHED, or vN. Pass tag filter conditions based on the actual operators used by the backend.
  *
  * @param request SearchKnowledgeBaseRequest
  * @param headers map
@@ -189,8 +194,16 @@ SearchKnowledgeBaseResponse Client::searchKnowledgeBaseWithOptions(const string 
     body["enableKnowledgeGraph"] = request.getEnableKnowledgeGraph();
   }
 
+  if (!!request.hasEvidencePageToken()) {
+    body["evidencePageToken"] = request.getEvidencePageToken();
+  }
+
   if (!!request.hasImage()) {
     body["image"] = request.getImage();
+  }
+
+  if (!!request.hasIncludeWiki()) {
+    body["includeWiki"] = request.getIncludeWiki();
   }
 
   if (!!request.hasPageNumber()) {
@@ -244,9 +257,9 @@ SearchKnowledgeBaseResponse Client::searchKnowledgeBaseWithOptions(const string 
 }
 
 /**
- * @summary Retrieves documents from a knowledge base.
+ * @summary Searches a knowledge base.
  *
- * @description Retrieves documents from a specified knowledge base by question or image. Use DRAFT, LATEST_PUBLISHED, or vN display names for the version. Pass tag filter conditions using the actual backend operators.
+ * @description Searches a specified knowledge base by using a text query or an image. For the version parameter, use the display name DRAFT, LATEST_PUBLISHED, or vN. Pass tag filter conditions based on the actual operators used by the backend.
  *
  * @param request SearchKnowledgeBaseRequest
  * @return SearchKnowledgeBaseResponse

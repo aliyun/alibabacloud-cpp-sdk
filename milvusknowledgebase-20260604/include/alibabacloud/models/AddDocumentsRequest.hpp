@@ -128,19 +128,19 @@ namespace Models
 
 
     protected:
-      // Not supported. Ignore this parameter.
+      // This parameter is not supported and is ignored.
       shared_ptr<string> appId_ {};
-      // Not supported. Ignore this parameter.
+      // This parameter is not supported and is ignored.
       shared_ptr<string> appPassword_ {};
-      // Not supported. Ignore this parameter.
+      // This parameter is not supported and is ignored.
       shared_ptr<string> dingDocMcpLink_ {};
-      // Not supported. Ignore this parameter.
+      // This parameter is not supported and is ignored.
       shared_ptr<string> dingTableMcpLink_ {};
-      // Not supported. Ignore this parameter.
+      // This parameter is not supported and is ignored.
       shared_ptr<string> knowledgeId_ {};
-      // Not supported. Ignore this parameter.
+      // This parameter is not supported and is ignored.
       shared_ptr<string> knowledgeType_ {};
-      // Not supported. Ignore this parameter.
+      // This parameter is not supported and is ignored.
       shared_ptr<string> userId_ {};
     };
 
@@ -150,11 +150,13 @@ namespace Models
         DARABONBA_PTR_TO_JSON(Name, name_);
         DARABONBA_PTR_TO_JSON(Path, path_);
         DARABONBA_PTR_TO_JSON(Size, size_);
+        DARABONBA_PTR_TO_JSON(StrategyId, strategyId_);
       };
       friend void from_json(const Darabonba::Json& j, Documents& obj) { 
         DARABONBA_PTR_FROM_JSON(Name, name_);
         DARABONBA_PTR_FROM_JSON(Path, path_);
         DARABONBA_PTR_FROM_JSON(Size, size_);
+        DARABONBA_PTR_FROM_JSON(StrategyId, strategyId_);
       };
       Documents() = default ;
       Documents(const Documents &) = default ;
@@ -168,7 +170,7 @@ namespace Models
       virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
       virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
       virtual bool empty() const override { return this->name_ == nullptr
-        && this->path_ == nullptr && this->size_ == nullptr; };
+        && this->path_ == nullptr && this->size_ == nullptr && this->strategyId_ == nullptr; };
       // name Field Functions 
       bool hasName() const { return this->name_ != nullptr;};
       void deleteName() { this->name_ = nullptr;};
@@ -190,13 +192,22 @@ namespace Models
       inline Documents& setSize(int64_t size) { DARABONBA_PTR_SET_VALUE(size_, size) };
 
 
+      // strategyId Field Functions 
+      bool hasStrategyId() const { return this->strategyId_ != nullptr;};
+      void deleteStrategyId() { this->strategyId_ = nullptr;};
+      inline string getStrategyId() const { DARABONBA_PTR_GET_DEFAULT(strategyId_, "") };
+      inline Documents& setStrategyId(string strategyId) { DARABONBA_PTR_SET_VALUE(strategyId_, strategyId) };
+
+
     protected:
       // The name of the document.
       shared_ptr<string> name_ {};
-      // The document path. This is the file name or relative path used during upload, which must be consistent with the pre-signed request.
+      // The document path, which is the file name or relative path used during upload. It must be consistent with the pre-signed request.
       shared_ptr<string> path_ {};
       // The size of the file.
       shared_ptr<int64_t> size_ {};
+      // The ID of the processing strategy.
+      shared_ptr<string> strategyId_ {};
     };
 
     class Dedup : public Darabonba::Model {
@@ -319,11 +330,11 @@ namespace Models
     shared_ptr<string> importType_ {};
     // The ID of the knowledge base.
     shared_ptr<string> knowledgeBaseId_ {};
-    // The batch label configuration. The key must be a label field defined in the knowledge base. The value supports string, int64, float32, bool, and list types.
+    // The batch tag configuration. The key must be a tag field defined in the knowledge base. The value supports the string, int64, float32, bool, and list data types.
     Darabonba::Json metaFields_ {};
     // The ID of the processing strategy.
     shared_ptr<string> strategyId_ {};
-    // Not supported. Ignore this parameter.
+    // This parameter is not supported and is ignored.
     shared_ptr<AddDocumentsRequest::DingTalkConfiguration> dingTalkConfiguration_ {};
     // Defaults to root when omitted.
     shared_ptr<string> parentId_ {};

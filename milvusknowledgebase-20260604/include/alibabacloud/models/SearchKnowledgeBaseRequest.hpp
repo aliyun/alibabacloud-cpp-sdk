@@ -16,7 +16,9 @@ namespace Models
     friend void to_json(Darabonba::Json& j, const SearchKnowledgeBaseRequest& obj) { 
       DARABONBA_PTR_TO_JSON(documentIds, documentIds_);
       DARABONBA_PTR_TO_JSON(enableKnowledgeGraph, enableKnowledgeGraph_);
+      DARABONBA_PTR_TO_JSON(evidencePageToken, evidencePageToken_);
       DARABONBA_PTR_TO_JSON(image, image_);
+      DARABONBA_PTR_TO_JSON(includeWiki, includeWiki_);
       DARABONBA_PTR_TO_JSON(pageNumber, pageNumber_);
       DARABONBA_PTR_TO_JSON(pageSize, pageSize_);
       DARABONBA_PTR_TO_JSON(query, query_);
@@ -29,7 +31,9 @@ namespace Models
     friend void from_json(const Darabonba::Json& j, SearchKnowledgeBaseRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(documentIds, documentIds_);
       DARABONBA_PTR_FROM_JSON(enableKnowledgeGraph, enableKnowledgeGraph_);
+      DARABONBA_PTR_FROM_JSON(evidencePageToken, evidencePageToken_);
       DARABONBA_PTR_FROM_JSON(image, image_);
+      DARABONBA_PTR_FROM_JSON(includeWiki, includeWiki_);
       DARABONBA_PTR_FROM_JSON(pageNumber, pageNumber_);
       DARABONBA_PTR_FROM_JSON(pageSize, pageSize_);
       DARABONBA_PTR_FROM_JSON(query, query_);
@@ -149,7 +153,7 @@ namespace Models
     protected:
       // The list of tag conditions.
       shared_ptr<vector<TagFilter::Conditions>> conditions_ {};
-      // The logical relation between conditions.
+      // The condition relation.
       shared_ptr<string> relation_ {};
     };
 
@@ -157,6 +161,7 @@ namespace Models
     public:
       friend void to_json(Darabonba::Json& j, const RetrievalConfig& obj) { 
         DARABONBA_PTR_TO_JSON(candidateCount, candidateCount_);
+        DARABONBA_PTR_TO_JSON(enableEvidenceCompletion, enableEvidenceCompletion_);
         DARABONBA_PTR_TO_JSON(enableQueryExpansion, enableQueryExpansion_);
         DARABONBA_PTR_TO_JSON(minScore, minScore_);
         DARABONBA_PTR_TO_JSON(semanticWeight, semanticWeight_);
@@ -164,6 +169,7 @@ namespace Models
       };
       friend void from_json(const Darabonba::Json& j, RetrievalConfig& obj) { 
         DARABONBA_PTR_FROM_JSON(candidateCount, candidateCount_);
+        DARABONBA_PTR_FROM_JSON(enableEvidenceCompletion, enableEvidenceCompletion_);
         DARABONBA_PTR_FROM_JSON(enableQueryExpansion, enableQueryExpansion_);
         DARABONBA_PTR_FROM_JSON(minScore, minScore_);
         DARABONBA_PTR_FROM_JSON(semanticWeight, semanticWeight_);
@@ -181,12 +187,19 @@ namespace Models
       virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
       virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
       virtual bool empty() const override { return this->candidateCount_ == nullptr
-        && this->enableQueryExpansion_ == nullptr && this->minScore_ == nullptr && this->semanticWeight_ == nullptr && this->translationLanguages_ == nullptr; };
+        && this->enableEvidenceCompletion_ == nullptr && this->enableQueryExpansion_ == nullptr && this->minScore_ == nullptr && this->semanticWeight_ == nullptr && this->translationLanguages_ == nullptr; };
       // candidateCount Field Functions 
       bool hasCandidateCount() const { return this->candidateCount_ != nullptr;};
       void deleteCandidateCount() { this->candidateCount_ = nullptr;};
       inline int32_t getCandidateCount() const { DARABONBA_PTR_GET_DEFAULT(candidateCount_, 0) };
       inline RetrievalConfig& setCandidateCount(int32_t candidateCount) { DARABONBA_PTR_SET_VALUE(candidateCount_, candidateCount) };
+
+
+      // enableEvidenceCompletion Field Functions 
+      bool hasEnableEvidenceCompletion() const { return this->enableEvidenceCompletion_ != nullptr;};
+      void deleteEnableEvidenceCompletion() { this->enableEvidenceCompletion_ = nullptr;};
+      inline bool getEnableEvidenceCompletion() const { DARABONBA_PTR_GET_DEFAULT(enableEvidenceCompletion_, false) };
+      inline RetrievalConfig& setEnableEvidenceCompletion(bool enableEvidenceCompletion) { DARABONBA_PTR_SET_VALUE(enableEvidenceCompletion_, enableEvidenceCompletion) };
 
 
       // enableQueryExpansion Field Functions 
@@ -220,13 +233,15 @@ namespace Models
 
 
     protected:
-      // The number of candidate results to recall.
+      // The number of candidates to recall.
       shared_ptr<int32_t> candidateCount_ {};
+      // Specifies whether to enable multi-hop evidence completion. Default value: false. For pilot knowledge bases, this feature can be used on the first page of DRAFT text retrieval. The pageSize can be 5, 10, or 20, which requires a minimum candidateCount of 40, 48, or 64, respectively. When enabled, results are returned by document.
+      shared_ptr<bool> enableEvidenceCompletion_ {};
       // Specifies whether to enable query expansion.
       shared_ptr<bool> enableQueryExpansion_ {};
       // The minimum relevance score.
       shared_ptr<float> minScore_ {};
-      // The weight of semantic relevance.
+      // The weight for semantic relevance.
       shared_ptr<float> semanticWeight_ {};
       // The list of translation languages.
       shared_ptr<vector<string>> translationLanguages_ {};
@@ -288,8 +303,9 @@ namespace Models
     };
 
     virtual bool empty() const override { return this->documentIds_ == nullptr
-        && this->enableKnowledgeGraph_ == nullptr && this->image_ == nullptr && this->pageNumber_ == nullptr && this->pageSize_ == nullptr && this->query_ == nullptr
-        && this->rerankModelId_ == nullptr && this->rerankModelName_ == nullptr && this->retrievalConfig_ == nullptr && this->tagFilter_ == nullptr && this->version_ == nullptr; };
+        && this->enableKnowledgeGraph_ == nullptr && this->evidencePageToken_ == nullptr && this->image_ == nullptr && this->includeWiki_ == nullptr && this->pageNumber_ == nullptr
+        && this->pageSize_ == nullptr && this->query_ == nullptr && this->rerankModelId_ == nullptr && this->rerankModelName_ == nullptr && this->retrievalConfig_ == nullptr
+        && this->tagFilter_ == nullptr && this->version_ == nullptr; };
     // documentIds Field Functions 
     bool hasDocumentIds() const { return this->documentIds_ != nullptr;};
     void deleteDocumentIds() { this->documentIds_ = nullptr;};
@@ -306,6 +322,13 @@ namespace Models
     inline SearchKnowledgeBaseRequest& setEnableKnowledgeGraph(bool enableKnowledgeGraph) { DARABONBA_PTR_SET_VALUE(enableKnowledgeGraph_, enableKnowledgeGraph) };
 
 
+    // evidencePageToken Field Functions 
+    bool hasEvidencePageToken() const { return this->evidencePageToken_ != nullptr;};
+    void deleteEvidencePageToken() { this->evidencePageToken_ = nullptr;};
+    inline string getEvidencePageToken() const { DARABONBA_PTR_GET_DEFAULT(evidencePageToken_, "") };
+    inline SearchKnowledgeBaseRequest& setEvidencePageToken(string evidencePageToken) { DARABONBA_PTR_SET_VALUE(evidencePageToken_, evidencePageToken) };
+
+
     // image Field Functions 
     bool hasImage() const { return this->image_ != nullptr;};
     void deleteImage() { this->image_ = nullptr;};
@@ -313,6 +336,13 @@ namespace Models
     inline SearchKnowledgeBaseRequest::Image getImage() { DARABONBA_PTR_GET(image_, SearchKnowledgeBaseRequest::Image) };
     inline SearchKnowledgeBaseRequest& setImage(const SearchKnowledgeBaseRequest::Image & image) { DARABONBA_PTR_SET_VALUE(image_, image) };
     inline SearchKnowledgeBaseRequest& setImage(SearchKnowledgeBaseRequest::Image && image) { DARABONBA_PTR_SET_RVALUE(image_, image) };
+
+
+    // includeWiki Field Functions 
+    bool hasIncludeWiki() const { return this->includeWiki_ != nullptr;};
+    void deleteIncludeWiki() { this->includeWiki_ = nullptr;};
+    inline bool getIncludeWiki() const { DARABONBA_PTR_GET_DEFAULT(includeWiki_, false) };
+    inline SearchKnowledgeBaseRequest& setIncludeWiki(bool includeWiki) { DARABONBA_PTR_SET_VALUE(includeWiki_, includeWiki) };
 
 
     // pageNumber Field Functions 
@@ -380,17 +410,21 @@ namespace Models
     shared_ptr<vector<string>> documentIds_ {};
     // Specifies whether to enable the knowledge graph.
     shared_ptr<bool> enableKnowledgeGraph_ {};
-    // The image retrieval input.
+    // The evidence page token. This parameter is optional and conditionally returned. It can only be passed when includeWiki is set to true. Omit this parameter for the first evidence page, and pass the evidenceNextToken from the previous page as is for subsequent pages. The candidate pool, subject, parameters, and page size are fixed, and the token expires in 5 minutes without renewal. An expired token returns a 409 error and does not trigger an automatic re-search. The pageNumber parameter only controls the legacy results. Constraint: {"minLength":1,"maxLength":4096}.
+    shared_ptr<string> evidencePageToken_ {};
+    // The image search input.
     shared_ptr<SearchKnowledgeBaseRequest::Image> image_ {};
+    // Specifies whether to use Wiki evidence. This parameter is optional and conditionally returned, and is added for backward compatibility. Default value: false. If set to true, a unified evidenceResults field is additionally returned without disguising Wiki content as original text. Constraint: {"default":false}.
+    shared_ptr<bool> includeWiki_ {};
     // The page number.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries per page.
+    // The number of items per page.
     shared_ptr<int32_t> pageSize_ {};
-    // The query for retrieval.
+    // The search query.
     shared_ptr<string> query_ {};
     // The rerank model ID.
     shared_ptr<int64_t> rerankModelId_ {};
-    // The name of the rerank model that the tenant has activated. If both rerankModelName and rerankModelId are specified, this parameter takes precedence.
+    // The name of the rerank model activated for the tenant. If both rerankModelId and this parameter are specified, this parameter takes precedence.
     shared_ptr<string> rerankModelName_ {};
     // The retrieval configuration.
     shared_ptr<SearchKnowledgeBaseRequest::RetrievalConfig> retrievalConfig_ {};

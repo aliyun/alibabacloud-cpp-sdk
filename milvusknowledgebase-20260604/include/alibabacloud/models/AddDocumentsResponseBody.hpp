@@ -193,9 +193,9 @@ namespace Models
 
 
       protected:
-        // The chunk count.
+        // The number of chunks.
         shared_ptr<int32_t> chunkCount_ {};
-        // The chunk method.
+        // The chunking method.
         shared_ptr<string> chunkMethod_ {};
         // The ID of the knowledge base.
         shared_ptr<string> datasetId_ {};
@@ -215,7 +215,7 @@ namespace Models
         shared_ptr<string> suffix_ {};
         // The thumbnail.
         shared_ptr<string> thumbnail_ {};
-        // The token count.
+        // The number of tokens.
         shared_ptr<int32_t> tokenCount_ {};
       };
 
@@ -301,9 +301,9 @@ namespace Models
 
 
   protected:
-    // The details of the permission verification failure.
+    // The access denial details.
     shared_ptr<string> accessDeniedDetail_ {};
-    // The status code.
+    // The response status code.
     shared_ptr<int32_t> code_ {};
     // The response data.
     shared_ptr<AddDocumentsResponseBody::Data> data_ {};
@@ -313,7 +313,7 @@ namespace Models
     shared_ptr<string> message_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request was successful.
+    // Indicates whether the request is successful.
     shared_ptr<bool> success_ {};
   };
 

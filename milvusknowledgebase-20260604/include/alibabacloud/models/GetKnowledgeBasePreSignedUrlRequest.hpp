@@ -81,11 +81,11 @@ namespace Models
 
 
     protected:
-      // The display name of the file. If not specified, the file name from Path is used.
+      // The display name of the file. If not specified, the file name from Path is used by default.
       shared_ptr<string> name_ {};
-      // The file name or relative path for local upload scenarios. The value cannot start with `direct_upload/` or `uploaded/`, cannot contain empty segments, `.`, or `..`, and must be 1024 bytes or less.
+      // The **file name or relative path** for local upload scenarios. The path cannot start with `direct_upload/` or `uploaded/`, cannot contain empty segments, `.`, or `..`, and must be less than or equal to 1,024 bytes in length.
       shared_ptr<string> path_ {};
-      // The file size in bytes.
+      // The size of the file in bytes.
       shared_ptr<int64_t> size_ {};
     };
 
@@ -115,11 +115,11 @@ namespace Models
 
 
   protected:
-    // The list of files to upload. You can specify 1 to 100 files.
+    // The list of files to be uploaded. You can specify 1 to 100 files.
     shared_ptr<vector<GetKnowledgeBasePreSignedUrlRequest::Documents>> documents_ {};
     // The validity period of the pre-signed URL in seconds. Default value: `3600`.
     shared_ptr<int32_t> expiresIn_ {};
-    // The knowledge base ID. Either this parameter or datasetId must be specified. This parameter takes priority.
+    // The ID of the knowledge base. This parameter and datasetId are mutually exclusive. If both are specified, this parameter takes precedence.
     shared_ptr<string> knowledgeBaseId_ {};
   };
 
