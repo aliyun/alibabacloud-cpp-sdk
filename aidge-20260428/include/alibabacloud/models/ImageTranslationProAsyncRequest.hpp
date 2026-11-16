@@ -103,13 +103,13 @@ namespace Models
 
 
   protected:
-    // The business order number of the caller. This number is recorded upon acceptance and returned as-is when you query the asynchronous task result.
+    // The business order ID of the caller. This ID is recorded when the request is accepted and returned as-is when you query the asynchronous task result.
     shared_ptr<string> bizId_ {};
     // The ID of the intervention glossary. You must create the glossary in the console and provide its ID. If this parameter is left empty, the translation results are not modified.
     shared_ptr<string> glossary_ {};
-    // • Image URL: Must be accessible over the Internet.   
-    // • Format: PNG, JPEG, JPG, BMP, or WEBP.   
-    // • Pixels: Both width and height must not exceed 4,000.  
+    // • Image URL: The URL must be publicly accessible over the Internet.   
+    // • Formats: PNG, JPEG, JPG, BMP, and WebP.   
+    // • Pixels: The width and height must not exceed 4,000 pixels.  
     // • File size: The original file size must be less than or equal to 10 MB.
     // 
     // This parameter is required.
@@ -126,7 +126,7 @@ namespace Models
     shared_ptr<string> targetLanguage_ {};
     // Specifies whether to translate brand names in the image. Default value: false, which indicates that brand names are not translated.
     shared_ptr<bool> translatingBrandInTheProduct_ {};
-    // Specifies whether to return layout information such as the position, font, and color of the text. When this parameter is set to true, layer information is returned, which can be used for secondary editing in an image editor. Default value: false.
+    // Specifies whether to return layout information such as the position, font, and color of the text. If you set this parameter to true, layer information is returned, which can be used for secondary editing when you integrate an image editor. Default value: true.
     shared_ptr<bool> useImageEditor_ {};
   };
 

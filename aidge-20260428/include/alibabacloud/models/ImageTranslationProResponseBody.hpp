@@ -510,7 +510,7 @@ namespace Models
               shared_ptr<int32_t> fontsize_ {};
               // The horizontal layout method. Valid values: center, left, and right.
               shared_ptr<string> horizontalLayout_ {};
-              // The coordinates of the image repair area.
+              // The coordinates of the image inpainting area.
               shared_ptr<Texts::ImageRect> imageRect_ {};
               // The code of the target language for translation.
               shared_ptr<string> language_ {};
@@ -518,7 +518,7 @@ namespace Models
               shared_ptr<int32_t> lineCount_ {};
               // The coordinates of the text box area.
               shared_ptr<Texts::TextRect> textRect_ {};
-              // Indicates whether the text item is valid. If this value is missing or set to false, the text item is invalid.
+              // Indicates whether the TextItem is valid. If this value does not exist or is false, the item is invalid.
               shared_ptr<bool> valid_ {};
               // The translated text content.
               shared_ptr<string> value_ {};
@@ -591,7 +591,7 @@ namespace Models
             shared_ptr<string> horizontalLayout_ {};
             // The number of lines in the text box.
             shared_ptr<int32_t> lineCount_ {};
-            // The list of translated texts, where each element corresponds to the translation result in a target language.
+            // The list of translated texts. Each element corresponds to the translation result in a target language.
             shared_ptr<vector<TextAreas::Texts>> texts_ {};
             // The vertical layout method. Valid values: center, top, and down.
             shared_ptr<string> verticalLayout_ {};
@@ -731,11 +731,11 @@ namespace Models
         protected:
           // The list of font types.
           shared_ptr<vector<string>> font_ {};
-          // The coordinate information of the product bounding box area.
+          // The coordinate information of the product area bounding box.
           shared_ptr<EditInfo::GoodsRects> goodsRects_ {};
           // The list of target languages for translation.
           shared_ptr<vector<string>> languages_ {};
-          // The URL of the image with all text erased.
+          // The URL of the image with all text masked.
           shared_ptr<string> repairedUrl_ {};
           // The collection of global IDs for the translated images.
           shared_ptr<vector<string>> resultImageIds_ {};
@@ -775,7 +775,7 @@ namespace Models
         shared_ptr<GenFiles::EditInfo> editInfo_ {};
         // The collection of translation results.
         shared_ptr<vector<GenFiles::ResultList>> resultList_ {};
-        // The URL of the source image.
+        // The URL of the original image.
         shared_ptr<string> srcImage_ {};
       };
 
@@ -822,7 +822,7 @@ namespace Models
       shared_ptr<vector<Data::ResultList>> resultList_ {};
       // The ID of the asynchronous task. This parameter is not returned for synchronous calls.
       shared_ptr<string> taskId_ {};
-      // The usage information, which includes the number of processed images.
+      // The usage information, including the number of processed images.
       shared_ptr<map<string, int64_t>> usageMap_ {};
     };
 
@@ -866,13 +866,13 @@ namespace Models
 
 
   protected:
-    // The response code. A value of 200 indicates a successful call. For other response codes, refer to the error code information.
+    // The response code. A value of 200 indicates a successful call. For other response codes, see Error codes.
     shared_ptr<string> code_ {};
     // The translation result data. ResultList contains the URLs of the translation results, and EditInfo in GenFiles contains the recognized text information.
     shared_ptr<ImageTranslationProResponseBody::Data> data_ {};
-    // The error message. "Success" is returned for successful calls. Specific error messages are returned for exceptions, such as "The content contains sensitive data. Try another input."
+    // The error message. Success is returned for a successful call. For an exception, a specific error message is returned, such as "The content contains sensitive data. Try another input."
     shared_ptr<string> message_ {};
-    // The request ID, which is used to uniquely identify a request.
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
     // Indicates whether the call is successful. A value of true indicates success, and a value of false indicates failure.
     shared_ptr<bool> success_ {};

@@ -166,15 +166,15 @@ namespace Models
         shared_ptr<string> errorCode_ {};
         // The reason for the failure.
         shared_ptr<string> errorMessage_ {};
-        // The index in the original request array.
+        // The index of the item in the original request array.
         shared_ptr<int32_t> index_ {};
         // The record ID.
         shared_ptr<int64_t> recordId_ {};
-        // The SKU ID. This field is empty for deletion results.
+        // The SKU ID. This parameter is empty in the deletion result.
         shared_ptr<string> skuId_ {};
-        // The record status. This field is empty for deletion results.
+        // The record status. This parameter is empty in the deletion result.
         shared_ptr<string> status_ {};
-        // Indicates whether the deletion was successful.
+        // Indicates whether the operation was successful.
         shared_ptr<bool> success_ {};
       };
 
@@ -277,13 +277,13 @@ namespace Models
       shared_ptr<string> ragId_ {};
       // The number of visible records after deletion.
       shared_ptr<int32_t> remainingCount_ {};
-      // The processing results for each record.
+      // The processing result of each record.
       shared_ptr<vector<Data::Results>> results_ {};
       // Indicates whether the business processing was successful.
       shared_ptr<bool> success_ {};
-      // The asynchronous task ID. This field is empty for synchronous API operations.
+      // The ID of the asynchronous task. This parameter is empty for synchronous API operations.
       shared_ptr<string> taskId_ {};
-      // The usage information. This field is empty for free API operations.
+      // The usage information. This parameter is empty for free API operations.
       shared_ptr<map<string, int64_t>> usageMap_ {};
     };
 

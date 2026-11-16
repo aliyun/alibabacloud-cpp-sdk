@@ -22,6 +22,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(Platform, platform_);
       DARABONBA_PTR_TO_JSON(ProductAttributes, productAttributes_);
       DARABONBA_PTR_TO_JSON(ProductCategory, productCategory_);
+      DARABONBA_PTR_TO_JSON(Prompt, prompt_);
       DARABONBA_PTR_TO_JSON(SourceLanguage, sourceLanguage_);
       DARABONBA_PTR_TO_JSON(SourceText, sourceText_);
       DARABONBA_PTR_TO_JSON(TargetLanguage, targetLanguage_);
@@ -36,6 +37,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(Platform, platform_);
       DARABONBA_PTR_FROM_JSON(ProductAttributes, productAttributes_);
       DARABONBA_PTR_FROM_JSON(ProductCategory, productCategory_);
+      DARABONBA_PTR_FROM_JSON(Prompt, prompt_);
       DARABONBA_PTR_FROM_JSON(SourceLanguage, sourceLanguage_);
       DARABONBA_PTR_FROM_JSON(SourceText, sourceText_);
       DARABONBA_PTR_FROM_JSON(TargetLanguage, targetLanguage_);
@@ -53,8 +55,8 @@ namespace Models
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->bulletPointCount_ == nullptr
         && this->contentType_ == nullptr && this->enableTranslation_ == nullptr && this->maxLength_ == nullptr && this->minLength_ == nullptr && this->operation_ == nullptr
-        && this->platform_ == nullptr && this->productAttributes_ == nullptr && this->productCategory_ == nullptr && this->sourceLanguage_ == nullptr && this->sourceText_ == nullptr
-        && this->targetLanguage_ == nullptr; };
+        && this->platform_ == nullptr && this->productAttributes_ == nullptr && this->productCategory_ == nullptr && this->prompt_ == nullptr && this->sourceLanguage_ == nullptr
+        && this->sourceText_ == nullptr && this->targetLanguage_ == nullptr; };
     // bulletPointCount Field Functions 
     bool hasBulletPointCount() const { return this->bulletPointCount_ != nullptr;};
     void deleteBulletPointCount() { this->bulletPointCount_ = nullptr;};
@@ -118,6 +120,13 @@ namespace Models
     inline GenerateProductContentRequest& setProductCategory(string productCategory) { DARABONBA_PTR_SET_VALUE(productCategory_, productCategory) };
 
 
+    // prompt Field Functions 
+    bool hasPrompt() const { return this->prompt_ != nullptr;};
+    void deletePrompt() { this->prompt_ = nullptr;};
+    inline string getPrompt() const { DARABONBA_PTR_GET_DEFAULT(prompt_, "") };
+    inline GenerateProductContentRequest& setPrompt(string prompt) { DARABONBA_PTR_SET_VALUE(prompt_, prompt) };
+
+
     // sourceLanguage Field Functions 
     bool hasSourceLanguage() const { return this->sourceLanguage_ != nullptr;};
     void deleteSourceLanguage() { this->sourceLanguage_ = nullptr;};
@@ -162,6 +171,7 @@ namespace Models
     shared_ptr<string> productAttributes_ {};
     // The product category. Default value: an empty string. The length is 0 to 100 characters. It helps understand the category during generation and eliminates ambiguity during rewriting.
     shared_ptr<string> productCategory_ {};
+    shared_ptr<string> prompt_ {};
     // The source language. Valid values: zh and en. Automatic language identification is not supported. Supported source languages: Chinese (zh) and English (en).
     // 
     // This parameter is required.

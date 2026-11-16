@@ -109,11 +109,11 @@ namespace Models
 
 
   protected:
-    // The response code. A value of success indicates that the task is submitted successfully.
+    // The response code. A value of success indicates that the task is submitted.
     shared_ptr<string> code_ {};
     // The submission result of the Image Translation Pro asynchronous task.
     shared_ptr<ImageTranslationProAsyncResponseBody::Data> data_ {};
-    // The call description. A successful call returns Success. For a failed call, read the actual error message.
+    // The call description. A successful call returns Success. If the call fails, read the actual error message.
     shared_ptr<string> message_ {};
     // The ID of the submission request, which is used for troubleshooting.
     shared_ptr<string> requestId_ {};

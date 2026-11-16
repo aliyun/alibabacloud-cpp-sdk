@@ -63,7 +63,7 @@ namespace Models
     shared_ptr<string> imageUrl_ {};
     // The optional system prompt.
     shared_ptr<string> systemPrompt_ {};
-    // The optional user prompt. If this parameter is empty, the complete vacancy detection prompt is used. Plain text and JSON containing only text in messages or content are supported.
+    // The optional user prompt. If this parameter is left empty, the complete vacancy detection prompt is used. Plain text and JSON containing only text in messages/content are supported.
     shared_ptr<string> userPrompt_ {};
   };
 
