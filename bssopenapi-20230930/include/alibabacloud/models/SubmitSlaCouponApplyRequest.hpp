@@ -76,9 +76,9 @@ namespace Models
 
 
     protected:
-      // The list of accounts to access. If this parameter is left empty, all accounts under the current entity ID are selected.
+      // The list of accessed accounts. If this parameter is left empty, all accounts under the current entity ID are selected.
       shared_ptr<vector<int64_t>> accountIds_ {};
-      // The ID of the enterprise entity.
+      // The enterprise entity ID.
       shared_ptr<string> ecId_ {};
     };
 
@@ -117,7 +117,7 @@ namespace Models
 
 
   protected:
-    // Optional. The IDs of the damaged records.
+    // The damaged record IDs.
     shared_ptr<vector<string>> damagedIds_ {};
     // The list of enterprises and accounts. If this parameter is left empty, the current account is queried.
     shared_ptr<vector<SubmitSlaCouponApplyRequest::EcIdAccountIds>> ecIdAccountIds_ {};
@@ -125,7 +125,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<int32_t> month_ {};
-    // The ID of the primary marketplace. If this parameter is left empty, the marketplace ID of the current user is used by default.
+    // The level-1 marketplace ID. If this parameter is left empty, the marketplace ID of the current user is used by default.
     shared_ptr<string> nbid_ {};
   };
 

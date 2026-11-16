@@ -238,7 +238,7 @@ namespace Models
       shared_ptr<string> balance_ {};
       // The order number or bill number.
       shared_ptr<string> billNumber_ {};
-      // The external transaction serial number.
+      // The external transaction reference number.
       shared_ptr<string> channelTransactionNumber_ {};
       // The currency of the transaction amount.
       shared_ptr<string> currency_ {};
@@ -252,25 +252,25 @@ namespace Models
       shared_ptr<int64_t> fundAccountOwnerAccountId_ {};
       // The fund type.
       shared_ptr<string> fundType_ {};
-      // The primary marketplace.
+      // The primary sales channel.
       shared_ptr<string> nbid_ {};
       // The remark.
       shared_ptr<string> remark_ {};
       // The site.
       shared_ptr<string> site_ {};
-      // The corresponding transaction account, such as the Alipay top-up account or the counterparty account for a transfer.
+      // The corresponding transaction account, such as the Alipay top-up account or the peer account for transfers.
       shared_ptr<string> transactionAccount_ {};
       // The transaction amount.
       shared_ptr<string> transactionAmount_ {};
-      // The list of transaction channels. If you specify this parameter, transactions are queried by channel. If you do not specify this parameter, all channels are queried by default. Valid values:
-      // - ACCT_CASH: User balance.
+      // The list of transaction channels. If you specify transaction channels, the query returns results of the specified channels. If this parameter is not specified, all transaction channels are queried by default. Valid values:
+      // - ACCT_CASH: Account balance.
       // - ALIPAY: Alipay.
       // - ALIPAY_ZHIFUTONG: Alipay Zhifutong.
-      // - OFFLINE_REMIT: Corporate remittance.
+      // - OFFLINE_REMIT: Offline remittance.
       // - REFUND: Credit limit refund.
       // - UNION_PAY_BANK: Online banking.
-      // - CREDIT_CARD: Credit card. Available only on the international site.
-      // - AYPAL: PayPal. Available only on the international site.
+      // - CREDIT_CARD: Credit card. (Available only on the international site.)
+      // - PAYPAL: PayPal. (Available only on the international site.)
       shared_ptr<string> transactionChannel_ {};
       // The transaction direction. Valid values: in (income) and out (expense).
       shared_ptr<string> transactionDirection_ {};
@@ -278,14 +278,14 @@ namespace Models
       shared_ptr<int64_t> transactionNumber_ {};
       // The formatted string of the transaction time.
       shared_ptr<string> transactionTime_ {};
-      // The transaction type. If you specify a transaction type, the query returns results of the corresponding type. If no results exist, an empty result is returned. If you do not specify this parameter, all types are returned by default. Valid values:
+      // The transaction type. If you specify a transaction type, the query returns results of the specified type. If no results exist, an empty result is returned. If this parameter is not specified, all transaction types are returned by default. Valid values:
       // - CHARGE: Top-up.
       // - WITHDRAW: Withdrawal.
       // - REFUND: Refund.
       // - PAY: Payment.
       // - TRANSFER: Transfer.
       // - ADJUST: Adjustment.
-      // - PAY_FAILED: Refund for failed order.
+      // - PAY_FAILED: Refund for an invalid order.
       shared_ptr<string> transactionType_ {};
     };
 
@@ -344,7 +344,7 @@ namespace Models
     shared_ptr<vector<GetFundAccountTransactionDetailsResponseBody::Data>> data_ {};
     // The metadata of the response structure.
     Darabonba::Json metadata_ {};
-    // The page size.
+    // The number of entries per page.
     shared_ptr<int32_t> pageSize_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

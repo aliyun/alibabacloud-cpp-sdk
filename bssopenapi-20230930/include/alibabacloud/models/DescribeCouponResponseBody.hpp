@@ -351,9 +351,9 @@ namespace Models
       shared_ptr<string> couponTypeName_ {};
       // The currency.
       shared_ptr<string> currency_ {};
-      // The end time in ISO 8601 format. The time is displayed in UTC.
+      // The end time in ISO 8601 format. The time zone is UTC.
       shared_ptr<string> endTime_ {};
-      // Indicates whether the coupon is limited to first-time purchases.
+      // Indicates whether a first-purchase limit applies.
       shared_ptr<bool> firstBuy_ {};
       // The time when the coupon was issued.
       shared_ptr<string> gmtCreate_ {};
@@ -369,19 +369,19 @@ namespace Models
       shared_ptr<string> remark_ {};
       // The list of shared accounts.
       shared_ptr<vector<Data::ShareUidList>> shareUidList_ {};
-      // Specifies whether the tag deduction button is displayed.
+      // Indicates whether the tag deduction button is displayed.
       shared_ptr<bool> showSetDeductTagButton_ {};
       // The site.
       shared_ptr<string> site_ {};
       // The site name.
       shared_ptr<string> siteName_ {};
-      // The start time in ISO 8601 format. The time is displayed in UTC.
+      // The start time in ISO 8601 format. The time zone is UTC.
       shared_ptr<string> startTime_ {};
       // The status.
       shared_ptr<string> status_ {};
       // The applicable account.
       shared_ptr<string> suitAccount_ {};
-      // The applicable product type: all for all products, white for specified applicable products, and black for specified inapplicable products.
+      // The applicable product type. Valid values: all: Applicable to all products. white: Applicable to specified products. black: Not applicable to specified products.
       shared_ptr<string> suitItemType_ {};
       // The application scope of the coupon.
       shared_ptr<string> universalType_ {};
@@ -433,7 +433,7 @@ namespace Models
     shared_ptr<int32_t> currentPage_ {};
     // The data list.
     shared_ptr<vector<DescribeCouponResponseBody::Data>> data_ {};
-    // The page size.
+    // The number of items per page.
     shared_ptr<int32_t> pageSize_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

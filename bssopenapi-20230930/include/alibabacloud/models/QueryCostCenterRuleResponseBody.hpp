@@ -137,11 +137,11 @@ namespace Models
       protected:
         // The condition filter key.
         shared_ptr<string> code_ {};
-        // The condition filter key name (deprecated).
+        // **[Deprecated]** The name of the condition filter key.
         shared_ptr<string> codeName_ {};
-        // The association between the code and value.
+        // The association between code and value.
         shared_ptr<string> selectType_ {};
-        // The attribute value type corresponding to the module Code. Valid values:
+        // The property value type corresponding to the module code. Valid values:
         // - single_float: single value type.
         // - range_float: range value type.
         shared_ptr<vector<string>> values_ {};
@@ -195,7 +195,7 @@ namespace Models
       shared_ptr<string> expressionType_ {};
       // The sub-condition filter.
       shared_ptr<FilterExpression::FilterValues> filterValues_ {};
-      // The filter condition (deprecated).
+      // **[Deprecated]** The filter condition.
       Darabonba::Json operand_ {};
       // The conditional expression.
       shared_ptr<vector<Darabonba::Json>> operands_ {};
@@ -288,7 +288,7 @@ namespace Models
 
 
   protected:
-    // The cost center ID.
+    // The ID of the cost center.
     shared_ptr<int64_t> costCenterId_ {};
     // The rule expression.
     shared_ptr<QueryCostCenterRuleResponseBody::FilterExpression> filterExpression_ {};
@@ -299,20 +299,20 @@ namespace Models
     // The ID of the cost center automatic allocation rule.
     shared_ptr<int64_t> id_ {};
     // The deletion status. Valid values:
-    // * **0**: Active.
-    // * **1**: Inactive.
+    // * **0**: active.
+    // * **1**: inactive.
     shared_ptr<int32_t> isDeleted_ {};
-    // The response struct metadata.
+    // The metadata of the response structure.
     Darabonba::Json metadata_ {};
-    // The owner of the cost center.
+    // The owner account of the cost center.
     shared_ptr<int64_t> ownerAccountId_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};
-    // The root cost center ID.
+    // The ID of the root cost center.
     shared_ptr<int64_t> rootCostCenterId_ {};
     // The status. Valid values:
-    // - on: Active.
-    // - off: Inactive.
+    // - on: valid.
+    // - off: invalid.
     shared_ptr<string> status_ {};
   };
 

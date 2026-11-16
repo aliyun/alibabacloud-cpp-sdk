@@ -68,13 +68,13 @@ namespace Models
 
 
   protected:
-    // Whether the alert is enabled
+    // Indicates whether the low balance alert is enabled.
     shared_ptr<bool> alarmEnabled_ {};
-    // Response structure metadata
+    // The metadata of the response struct.
     Darabonba::Json metadata_ {};
-    // Request ID
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
-    // Alert threshold
+    // The alert threshold.
     shared_ptr<string> thresholdAmount_ {};
   };
 

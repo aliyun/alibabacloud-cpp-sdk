@@ -210,13 +210,13 @@ namespace Models
     shared_ptr<int64_t> expireStartDate_ {};
     // Specifies whether to include shared coupons.
     shared_ptr<bool> includeShare_ {};
-    // The maximum number of entries to return for a single request.
+    // The maximum number of entries to return for a single query.
     shared_ptr<int32_t> maxResults_ {};
-    // The first-level site information.
+    // The level-1 site information.
     shared_ptr<string> nbid_ {};
-    // The token for the next query. If this parameter is empty, no more pages are available.
+    // The token used to start the next query. If this parameter is left empty, no more pages exist.
     shared_ptr<string> nextToken_ {};
-    // The page size.
+    // The number of items per page.
     // 
     // This parameter is required.
     shared_ptr<int32_t> pageSize_ {};

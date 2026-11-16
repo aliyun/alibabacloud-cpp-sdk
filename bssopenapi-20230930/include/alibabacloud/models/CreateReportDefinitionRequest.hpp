@@ -2,7 +2,6 @@
 #ifndef ALIBABACLOUD_MODELS_CREATEREPORTDEFINITIONREQUEST_HPP_
 #define ALIBABACLOUD_MODELS_CREATEREPORTDEFINITIONREQUEST_HPP_
 #include <darabonba/Core.hpp>
-#include <vector>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud
@@ -25,7 +24,6 @@ namespace Models
       DARABONBA_PTR_TO_JSON(OssBucketPath, ossBucketPath_);
       DARABONBA_PTR_TO_JSON(ReportSourceType, reportSourceType_);
       DARABONBA_PTR_TO_JSON(ReportType, reportType_);
-      DARABONBA_PTR_TO_JSON(SelectedFields, selectedFields_);
       DARABONBA_PTR_TO_JSON(SendWithAttach, sendWithAttach_);
       DARABONBA_PTR_TO_JSON(SplitFileOnUserId, splitFileOnUserId_);
     };
@@ -41,7 +39,6 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(OssBucketPath, ossBucketPath_);
       DARABONBA_PTR_FROM_JSON(ReportSourceType, reportSourceType_);
       DARABONBA_PTR_FROM_JSON(ReportType, reportType_);
-      DARABONBA_PTR_FROM_JSON(SelectedFields, selectedFields_);
       DARABONBA_PTR_FROM_JSON(SendWithAttach, sendWithAttach_);
       DARABONBA_PTR_FROM_JSON(SplitFileOnUserId, splitFileOnUserId_);
     };
@@ -59,7 +56,7 @@ namespace Models
     virtual bool empty() const override { return this->beginBillingCycle_ == nullptr
         && this->includeMembers_ == nullptr && this->mcProject_ == nullptr && this->mcTableName_ == nullptr && this->nbid_ == nullptr && this->notSendOnNoData_ == nullptr
         && this->ossBucketName_ == nullptr && this->ossBucketOwnerAccountId_ == nullptr && this->ossBucketPath_ == nullptr && this->reportSourceType_ == nullptr && this->reportType_ == nullptr
-        && this->selectedFields_ == nullptr && this->sendWithAttach_ == nullptr && this->splitFileOnUserId_ == nullptr; };
+        && this->sendWithAttach_ == nullptr && this->splitFileOnUserId_ == nullptr; };
     // beginBillingCycle Field Functions 
     bool hasBeginBillingCycle() const { return this->beginBillingCycle_ != nullptr;};
     void deleteBeginBillingCycle() { this->beginBillingCycle_ = nullptr;};
@@ -137,15 +134,6 @@ namespace Models
     inline CreateReportDefinitionRequest& setReportType(string reportType) { DARABONBA_PTR_SET_VALUE(reportType_, reportType) };
 
 
-    // selectedFields Field Functions 
-    bool hasSelectedFields() const { return this->selectedFields_ != nullptr;};
-    void deleteSelectedFields() { this->selectedFields_ = nullptr;};
-    inline const vector<string> & getSelectedFields() const { DARABONBA_PTR_GET_CONST(selectedFields_, vector<string>) };
-    inline vector<string> getSelectedFields() { DARABONBA_PTR_GET(selectedFields_, vector<string>) };
-    inline CreateReportDefinitionRequest& setSelectedFields(const vector<string> & selectedFields) { DARABONBA_PTR_SET_VALUE(selectedFields_, selectedFields) };
-    inline CreateReportDefinitionRequest& setSelectedFields(vector<string> && selectedFields) { DARABONBA_PTR_SET_RVALUE(selectedFields_, selectedFields) };
-
-
     // sendWithAttach Field Functions 
     bool hasSendWithAttach() const { return this->sendWithAttach_ != nullptr;};
     void deleteSendWithAttach() { this->sendWithAttach_ = nullptr;};
@@ -161,9 +149,9 @@ namespace Models
 
 
   protected:
-    // The start billing cycle for data push. After the subscription is created, the system automatically pushes data from the start billing cycle to the current time. This parameter is invalid for monthly billing PDF subscriptions, and historical data is not pushed again. Data within the most recent year can be pushed.
+    // The start billing cycle for data push. After the subscription is created, the system automatically pushes data from the start billing cycle to the current time. This parameter is invalid for monthly billing PDF subscriptions, and historical data is not pushed again. Data within the recent year can be pushed at most.
     shared_ptr<string> beginBillingCycle_ {};
-    // Specifies whether to include enterprise multi-account members in bills for email subscriptions.
+    // The email subscription configuration. Specifies whether to include enterprise multi-account members in bills.
     shared_ptr<string> includeMembers_ {};
     // The name of the MC project.
     shared_ptr<string> mcProject_ {};
@@ -171,30 +159,28 @@ namespace Models
     shared_ptr<string> mcTableName_ {};
     // The ID of the level-1 site. If this parameter is left empty, the ID of the site to which the current user belongs is used by default.
     shared_ptr<string> nbid_ {};
-    // Specifies whether to skip sending emails when no bills are generated for email subscriptions.
+    // The email subscription configuration. Specifies whether to skip sending emails when no bills are generated.
     shared_ptr<string> notSendOnNoData_ {};
     // The name of the OSS bucket that stores the files.
     shared_ptr<string> ossBucketName_ {};
-    // The UID of the OSS owner that stores the files. Specify this parameter if the subscription is made by a bidder or reseller and the files need to be pushed to the OSS bucket of a RAM user. The RAM user must be a subordinate account of the calling account and must be granted the AliyunConsumeDump2OSSRole permission. Regular users do not need to specify this parameter. The default value is the calling account.
+    // The UID of the OSS owner that stores the files. Specify this parameter when a BID or reseller subscription needs to push files to the OSS bucket of a RAM user. The RAM user must be a subordinate account of the calling account and must be granted the AliyunConsumeDump2OSSRole permission. Regular users do not need to specify this parameter. The default value is the calling account.
     shared_ptr<int64_t> ossBucketOwnerAccountId_ {};
     // The storage path in the OSS bucket.
     shared_ptr<string> ossBucketPath_ {};
     // The subscription source. Valid values: OSS, MC, and MSC_EMAIL.
     shared_ptr<string> reportSourceType_ {};
     // The subscription type. Valid values:
-    // - consumeDetailBillV2: consumption details. Supported only for OSS and MC subscriptions.
-    // - splitDetailBillV2: split details. Supported only for OSS and MC subscriptions.
-    // - costDetailBillV2: cost details. Supported only for OSS and MC subscriptions.
-    // - monthBillOverview: monthly bill overview. Supported only for OSS and MSC_EMAIL subscriptions.
-    // - focus: focus bills. Supported only for OSS and MC subscriptions.
+    // - consumeDetailBillV2: consumption details (supported only by OSS and MC subscriptions).
+    // - splitDetailBillV2: split details (supported only by OSS and MC subscriptions).
+    // - costDetailBillV2: cost details (supported only by OSS and MC subscriptions).
+    // - monthBillOverview: monthly bill summary (supported only by OSS and MSC_EMAIL subscriptions).
+    // - focus: focus bills (supported only by OSS and MC subscriptions).
     // 
     // This parameter is required.
     shared_ptr<string> reportType_ {};
-    // The fields to which the user subscribes.
-    shared_ptr<vector<string>> selectedFields_ {};
-    // Specifies whether to include bill attachments in emails for email subscriptions.
+    // The email subscription configuration. Specifies whether to include bill attachments in emails.
     shared_ptr<string> sendWithAttach_ {};
-    // Specifies whether to split attachments by user ID for email subscriptions.
+    // The email subscription configuration. Specifies whether to split attachments by user ID.
     shared_ptr<string> splitFileOnUserId_ {};
   };
 

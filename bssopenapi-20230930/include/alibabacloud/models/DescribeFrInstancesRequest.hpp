@@ -104,7 +104,7 @@ namespace Models
 
 
     protected:
-      // The list of accessed accounts. If this parameter is left empty, all accounts under the current entity ID are selected.
+      // The list of accounts to access. If this parameter is left empty, all accounts under the current entity ID are selected.
       shared_ptr<vector<int64_t>> accountIds_ {};
       // The enterprise entity ID.
       // 
@@ -254,13 +254,13 @@ namespace Models
     shared_ptr<string> cycleType_ {};
     // The list of enterprises and accounts. If this parameter is left empty, the current account is queried.
     shared_ptr<vector<DescribeFrInstancesRequest::EcIdAccountIds>> ecIdAccountIds_ {};
-    // The end time, specified as a UNIX timestamp in milliseconds.
+    // The end time. The value is a UNIX timestamp in milliseconds.
     shared_ptr<int64_t> endTime_ {};
-    // The resource dimension.
+    // The resource dimension to query.
     shared_ptr<string> group_ {};
     // The instance name.
     shared_ptr<string> instanceId_ {};
-    // The label value of the resource plan instance tag.
+    // The tag value of the resource plan instance.
     shared_ptr<string> instanceTag_ {};
     // The primary marketplace ID. If this parameter is left empty, the marketplace ID of the current user is used by default.
     shared_ptr<string> nbid_ {};
@@ -272,11 +272,11 @@ namespace Models
     shared_ptr<string> productCode_ {};
     // The sort field.
     shared_ptr<string> sortField_ {};
-    // The sorting collation.
+    // The sorting rule.
     shared_ptr<string> sortRule_ {};
-    // The specifications.
+    // The specification.
     shared_ptr<string> spec_ {};
-    // The start time, specified as a UNIX timestamp in milliseconds.
+    // The start time. The value is a UNIX timestamp in milliseconds.
     shared_ptr<int64_t> startTime_ {};
     // The resource status.
     shared_ptr<string> status_ {};

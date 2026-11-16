@@ -48,7 +48,6 @@
 #include <alibabacloud/models/CreateInvoiceResponseBody.hpp>
 #include <alibabacloud/models/CreateInvoiceResponse.hpp>
 #include <alibabacloud/models/CreateReportDefinitionRequest.hpp>
-#include <alibabacloud/models/CreateReportDefinitionShrinkRequest.hpp>
 #include <alibabacloud/models/CreateReportDefinitionResponseBody.hpp>
 #include <alibabacloud/models/CreateReportDefinitionResponse.hpp>
 #include <alibabacloud/models/DeleteCostCenterRequest.hpp>
@@ -125,6 +124,10 @@
 #include <alibabacloud/models/GetSavingPlanUserDeductRuleShrinkRequest.hpp>
 #include <alibabacloud/models/GetSavingPlanUserDeductRuleResponseBody.hpp>
 #include <alibabacloud/models/GetSavingPlanUserDeductRuleResponse.hpp>
+#include <alibabacloud/models/ListConsumeSummaryRequest.hpp>
+#include <alibabacloud/models/ListConsumeSummaryShrinkRequest.hpp>
+#include <alibabacloud/models/ListConsumeSummaryResponseBody.hpp>
+#include <alibabacloud/models/ListConsumeSummaryResponse.hpp>
 #include <alibabacloud/models/ListCouponDeductTagRequest.hpp>
 #include <alibabacloud/models/ListCouponDeductTagShrinkRequest.hpp>
 #include <alibabacloud/models/ListCouponDeductTagResponseBody.hpp>
@@ -144,6 +147,10 @@
 #include <alibabacloud/models/ListReportDefinitionsRequest.hpp>
 #include <alibabacloud/models/ListReportDefinitionsResponseBody.hpp>
 #include <alibabacloud/models/ListReportDefinitionsResponse.hpp>
+#include <alibabacloud/models/ListSplitSummaryRequest.hpp>
+#include <alibabacloud/models/ListSplitSummaryShrinkRequest.hpp>
+#include <alibabacloud/models/ListSplitSummaryResponseBody.hpp>
+#include <alibabacloud/models/ListSplitSummaryResponse.hpp>
 #include <alibabacloud/models/ModifyCostCenterRequest.hpp>
 #include <alibabacloud/models/ModifyCostCenterShrinkRequest.hpp>
 #include <alibabacloud/models/ModifyCostCenterResponseBody.hpp>

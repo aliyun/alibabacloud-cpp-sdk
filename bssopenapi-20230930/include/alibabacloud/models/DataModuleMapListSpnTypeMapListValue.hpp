@@ -35,13 +35,13 @@ namespace Models
     class ShowModules : public Darabonba::Model {
     public:
       friend void to_json(Darabonba::Json& j, const ShowModules& obj) { 
-        DARABONBA_PTR_TO_JSON(ModuleId, moduleId_);
         DARABONBA_PTR_TO_JSON(ModuleCode, moduleCode_);
+        DARABONBA_PTR_TO_JSON(ModuleId, moduleId_);
         DARABONBA_PTR_TO_JSON(ModuleName, moduleName_);
       };
       friend void from_json(const Darabonba::Json& j, ShowModules& obj) { 
-        DARABONBA_PTR_FROM_JSON(ModuleId, moduleId_);
         DARABONBA_PTR_FROM_JSON(ModuleCode, moduleCode_);
+        DARABONBA_PTR_FROM_JSON(ModuleId, moduleId_);
         DARABONBA_PTR_FROM_JSON(ModuleName, moduleName_);
       };
       ShowModules() = default ;
@@ -55,20 +55,20 @@ namespace Models
       };
       virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
       virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-      virtual bool empty() const override { return this->moduleId_ == nullptr
-        && this->moduleCode_ == nullptr && this->moduleName_ == nullptr; };
-      // moduleId Field Functions 
-      bool hasModuleId() const { return this->moduleId_ != nullptr;};
-      void deleteModuleId() { this->moduleId_ = nullptr;};
-      inline int64_t getModuleId() const { DARABONBA_PTR_GET_DEFAULT(moduleId_, 0L) };
-      inline ShowModules& setModuleId(int64_t moduleId) { DARABONBA_PTR_SET_VALUE(moduleId_, moduleId) };
-
-
+      virtual bool empty() const override { return this->moduleCode_ == nullptr
+        && this->moduleId_ == nullptr && this->moduleName_ == nullptr; };
       // moduleCode Field Functions 
       bool hasModuleCode() const { return this->moduleCode_ != nullptr;};
       void deleteModuleCode() { this->moduleCode_ = nullptr;};
       inline string getModuleCode() const { DARABONBA_PTR_GET_DEFAULT(moduleCode_, "") };
       inline ShowModules& setModuleCode(string moduleCode) { DARABONBA_PTR_SET_VALUE(moduleCode_, moduleCode) };
+
+
+      // moduleId Field Functions 
+      bool hasModuleId() const { return this->moduleId_ != nullptr;};
+      void deleteModuleId() { this->moduleId_ = nullptr;};
+      inline int64_t getModuleId() const { DARABONBA_PTR_GET_DEFAULT(moduleId_, 0L) };
+      inline ShowModules& setModuleId(int64_t moduleId) { DARABONBA_PTR_SET_VALUE(moduleId_, moduleId) };
 
 
       // moduleName Field Functions 
@@ -79,21 +79,21 @@ namespace Models
 
 
     protected:
-      shared_ptr<int64_t> moduleId_ {};
       shared_ptr<string> moduleCode_ {};
+      shared_ptr<int64_t> moduleId_ {};
       shared_ptr<string> moduleName_ {};
     };
 
     class FilterModules : public Darabonba::Model {
     public:
       friend void to_json(Darabonba::Json& j, const FilterModules& obj) { 
-        DARABONBA_PTR_TO_JSON(ModuleId, moduleId_);
         DARABONBA_PTR_TO_JSON(ModuleCode, moduleCode_);
+        DARABONBA_PTR_TO_JSON(ModuleId, moduleId_);
         DARABONBA_PTR_TO_JSON(ModuleName, moduleName_);
       };
       friend void from_json(const Darabonba::Json& j, FilterModules& obj) { 
-        DARABONBA_PTR_FROM_JSON(ModuleId, moduleId_);
         DARABONBA_PTR_FROM_JSON(ModuleCode, moduleCode_);
+        DARABONBA_PTR_FROM_JSON(ModuleId, moduleId_);
         DARABONBA_PTR_FROM_JSON(ModuleName, moduleName_);
       };
       FilterModules() = default ;
@@ -107,20 +107,20 @@ namespace Models
       };
       virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
       virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-      virtual bool empty() const override { return this->moduleId_ == nullptr
-        && this->moduleCode_ == nullptr && this->moduleName_ == nullptr; };
-      // moduleId Field Functions 
-      bool hasModuleId() const { return this->moduleId_ != nullptr;};
-      void deleteModuleId() { this->moduleId_ = nullptr;};
-      inline int64_t getModuleId() const { DARABONBA_PTR_GET_DEFAULT(moduleId_, 0L) };
-      inline FilterModules& setModuleId(int64_t moduleId) { DARABONBA_PTR_SET_VALUE(moduleId_, moduleId) };
-
-
+      virtual bool empty() const override { return this->moduleCode_ == nullptr
+        && this->moduleId_ == nullptr && this->moduleName_ == nullptr; };
       // moduleCode Field Functions 
       bool hasModuleCode() const { return this->moduleCode_ != nullptr;};
       void deleteModuleCode() { this->moduleCode_ = nullptr;};
       inline string getModuleCode() const { DARABONBA_PTR_GET_DEFAULT(moduleCode_, "") };
       inline FilterModules& setModuleCode(string moduleCode) { DARABONBA_PTR_SET_VALUE(moduleCode_, moduleCode) };
+
+
+      // moduleId Field Functions 
+      bool hasModuleId() const { return this->moduleId_ != nullptr;};
+      void deleteModuleId() { this->moduleId_ = nullptr;};
+      inline int64_t getModuleId() const { DARABONBA_PTR_GET_DEFAULT(moduleId_, 0L) };
+      inline FilterModules& setModuleId(int64_t moduleId) { DARABONBA_PTR_SET_VALUE(moduleId_, moduleId) };
 
 
       // moduleName Field Functions 
@@ -131,8 +131,8 @@ namespace Models
 
 
     protected:
-      shared_ptr<int64_t> moduleId_ {};
       shared_ptr<string> moduleCode_ {};
+      shared_ptr<int64_t> moduleId_ {};
       shared_ptr<string> moduleName_ {};
     };
 

@@ -2,11 +2,13 @@
 #include <alibabacloud/BssOpenApi20230930.hpp>
 #include <alibabacloud/Utils.hpp>
 #include <alibabacloud/Openapi.hpp>
+#include <alibabacloud/gateway/POP.hpp>
 #include <map>
 #include <darabonba/Runtime.hpp>
 using namespace std;
 using namespace Darabonba;
 using json = nlohmann::json;
+using namespace AlibabaCloud::Gateway;
 using namespace AlibabaCloud::OpenApi;
 using OpenApiClient = AlibabaCloud::OpenApi::Client;
 using namespace AlibabaCloud::OpenApi::Utils::Models;
@@ -17,6 +19,9 @@ namespace BssOpenApi20230930
 {
 
 AlibabaCloud::BssOpenApi20230930::Client::Client(Config &config): OpenApiClient(config){
+  this->_productId = "BssOpenApi";
+  shared_ptr<POP> gatewayClient = make_shared<POP>();
+  this->_spi = gatewayClient;
   this->_endpointRule = "regional";
   this->_endpointMap = json({
     {"cn-hangzhou" , "business.aliyuncs.com"},
@@ -790,36 +795,30 @@ CreateInvoiceResponse Client::createInvoice(const CreateInvoiceRequest &request)
  *
  * @description When you call this operation, note the following items:
  * - You can subscribe to only one type of billing file at a time.
- * - Except for monthly billing PDFs, starting from the day after the subscription is created, a billing file containing all detailed data from the beginning of the current month to the current day is pushed daily. A full billing file for the entire previous billing cycle is pushed before the 4th day of each month.
- * - Monthly billing PDFs for the previous month are pushed before the 4th day of each month.
- * - Billing files generated on a daily basis may be delayed. Delayed bills are pushed on the day after they are generated and may include bills that were delayed and generated on the previous day. Pull the full files for the previous month at the beginning of each month.
- * > Apply for the billing subscription permissions as described in the documentation: [Billing subscription](https://www.alibabacloud.com/help/en/user-center/user-guide/billing-subscription).
- * - This subscription and the billing subscription in the Expenses and Costs console are the same feature, and subscriptions are interoperable.
+ * - Except for monthly billing PDF files, starting from the day after the subscription is created, a billing file that contains all detailed data from the beginning of the current month to the current day is pushed every day. A full billing file for the entire previous billing cycle is pushed before the 4th day of each month.
+ * - Monthly billing PDF files for the previous month are pushed before the 4th day of each month.
+ * - Billing files generated on a daily basis may be delayed. Delayed billing files are pushed on the day after they are generated, and may also include billing files that were delayed and generated on the previous day. Pull the full files for the previous month at the beginning of each month.
+ * > Apply for permissions by following the instructions in [Billing subscription](https://www.alibabacloud.com/help/en/user-center/user-guide/billing-subscription).
+ * - This subscription and the billing subscription feature in Expenses and Costs are the same feature, and subscriptions are interoperable.
  * - When you subscribe to a directory under a bucket, make sure that the directory naming conventions are met:
- *     - Emojis are not allowed. Use valid UTF-8 characters.
- *     - The forward slash (/) is used to separate paths and create subdirectories. Do not start the path with a forward slash (/) or a backslash (\\), and do not use consecutive forward slashes.
- *     - Subdirectories named .. are not allowed.
- *     - The total length must be 1 to 254 characters.
+ *     - Do not use emojis. Use valid UTF-8 characters.
+ *     - Use forward slashes (/) to separate paths and quickly create subdirectories. Do not start a path with a forward slash (/) or a backslash (\\), and do not use consecutive forward slashes.
+ *     - Do not use subdirectories named `..`.
+ *     - Limit the total length to 1 to 254 characters.
  * - File names:
  *     - Example: **consumeDetailBillV2** (billing item details)
  *     
- *         - Format of the file name pushed daily: `{Account UID}_{Site ID}_{Bill type}_{YYYYMM|YYYYMMDD}`. Example: `169**_2688801000001_consumeDetailBillV2_20190312`.
+ *         - Format of the file name pushed every day: `{Account UID}_{Site ID}_{Billing type}_{YYYYMM|YYYYMMDD}`. Example: `169**_2688801000001_consumeDetailBillV2_20190312`.
  *     
- *         - Format of the complete file name pushed at the beginning of the next month: `{Account UID}_{Site ID}_{Bill type}_{YYYYMM|YYYYMM}`. Example: `169**_2688801000001_consumeDetailBillV2_201903`.
+ *         - Format of the complete file name pushed at the beginning of the next month: `{Account UID}_{Site ID}_{Billing type}_{YYYYMM|YYYYMM}`. Example: `169**_2688801000001_consumeDetailBillV2_201903`.
  * - Monthly billing PDF files are in the .pdf format, and other files are in the .csv format. When the data volume is large, the system automatically splits an exported bill into multiple files and compresses them into one or more ZIP files. The ZIP file names follow the same format.
  *
- * @param tmpReq CreateReportDefinitionRequest
+ * @param request CreateReportDefinitionRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return CreateReportDefinitionResponse
  */
-CreateReportDefinitionResponse Client::createReportDefinitionWithOptions(const CreateReportDefinitionRequest &tmpReq, const Darabonba::RuntimeOptions &runtime) {
-  tmpReq.validate();
-  CreateReportDefinitionShrinkRequest request = CreateReportDefinitionShrinkRequest();
-  Utils::Utils::convert(tmpReq, request);
-  if (!!tmpReq.hasSelectedFields()) {
-    request.setSelectedFieldsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getSelectedFields(), "SelectedFields", "json"));
-  }
-
+CreateReportDefinitionResponse Client::createReportDefinitionWithOptions(const CreateReportDefinitionRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
   json query = {};
   if (!!request.hasBeginBillingCycle()) {
     query["BeginBillingCycle"] = request.getBeginBillingCycle();
@@ -851,10 +850,6 @@ CreateReportDefinitionResponse Client::createReportDefinitionWithOptions(const C
 
   if (!!request.hasReportType()) {
     query["ReportType"] = request.getReportType();
-  }
-
-  if (!!request.hasSelectedFieldsShrink()) {
-    query["SelectedFields"] = request.getSelectedFieldsShrink();
   }
 
   if (!!request.hasSendWithAttach()) {
@@ -901,22 +896,22 @@ CreateReportDefinitionResponse Client::createReportDefinitionWithOptions(const C
  *
  * @description When you call this operation, note the following items:
  * - You can subscribe to only one type of billing file at a time.
- * - Except for monthly billing PDFs, starting from the day after the subscription is created, a billing file containing all detailed data from the beginning of the current month to the current day is pushed daily. A full billing file for the entire previous billing cycle is pushed before the 4th day of each month.
- * - Monthly billing PDFs for the previous month are pushed before the 4th day of each month.
- * - Billing files generated on a daily basis may be delayed. Delayed bills are pushed on the day after they are generated and may include bills that were delayed and generated on the previous day. Pull the full files for the previous month at the beginning of each month.
- * > Apply for the billing subscription permissions as described in the documentation: [Billing subscription](https://www.alibabacloud.com/help/en/user-center/user-guide/billing-subscription).
- * - This subscription and the billing subscription in the Expenses and Costs console are the same feature, and subscriptions are interoperable.
+ * - Except for monthly billing PDF files, starting from the day after the subscription is created, a billing file that contains all detailed data from the beginning of the current month to the current day is pushed every day. A full billing file for the entire previous billing cycle is pushed before the 4th day of each month.
+ * - Monthly billing PDF files for the previous month are pushed before the 4th day of each month.
+ * - Billing files generated on a daily basis may be delayed. Delayed billing files are pushed on the day after they are generated, and may also include billing files that were delayed and generated on the previous day. Pull the full files for the previous month at the beginning of each month.
+ * > Apply for permissions by following the instructions in [Billing subscription](https://www.alibabacloud.com/help/en/user-center/user-guide/billing-subscription).
+ * - This subscription and the billing subscription feature in Expenses and Costs are the same feature, and subscriptions are interoperable.
  * - When you subscribe to a directory under a bucket, make sure that the directory naming conventions are met:
- *     - Emojis are not allowed. Use valid UTF-8 characters.
- *     - The forward slash (/) is used to separate paths and create subdirectories. Do not start the path with a forward slash (/) or a backslash (\\), and do not use consecutive forward slashes.
- *     - Subdirectories named .. are not allowed.
- *     - The total length must be 1 to 254 characters.
+ *     - Do not use emojis. Use valid UTF-8 characters.
+ *     - Use forward slashes (/) to separate paths and quickly create subdirectories. Do not start a path with a forward slash (/) or a backslash (\\), and do not use consecutive forward slashes.
+ *     - Do not use subdirectories named `..`.
+ *     - Limit the total length to 1 to 254 characters.
  * - File names:
  *     - Example: **consumeDetailBillV2** (billing item details)
  *     
- *         - Format of the file name pushed daily: `{Account UID}_{Site ID}_{Bill type}_{YYYYMM|YYYYMMDD}`. Example: `169**_2688801000001_consumeDetailBillV2_20190312`.
+ *         - Format of the file name pushed every day: `{Account UID}_{Site ID}_{Billing type}_{YYYYMM|YYYYMMDD}`. Example: `169**_2688801000001_consumeDetailBillV2_20190312`.
  *     
- *         - Format of the complete file name pushed at the beginning of the next month: `{Account UID}_{Site ID}_{Bill type}_{YYYYMM|YYYYMM}`. Example: `169**_2688801000001_consumeDetailBillV2_201903`.
+ *         - Format of the complete file name pushed at the beginning of the next month: `{Account UID}_{Site ID}_{Billing type}_{YYYYMM|YYYYMM}`. Example: `169**_2688801000001_consumeDetailBillV2_201903`.
  * - Monthly billing PDF files are in the .pdf format, and other files are in the .csv format. When the data volume is large, the system automatically splits an exported bill into multiple files and compresses them into one or more ZIP files. The ZIP file names follow the same format.
  *
  * @param request CreateReportDefinitionRequest
@@ -1154,7 +1149,7 @@ DeleteReportDefinitionResponse Client::deleteReportDefinition(const DeleteReport
 }
 
 /**
- * @summary Queries a list of coupons.
+ * @summary Queries the list of coupons.
  *
  * @param tmpReq DescribeCouponRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1259,7 +1254,7 @@ DescribeCouponResponse Client::describeCouponWithOptions(const DescribeCouponReq
 }
 
 /**
- * @summary Queries a list of coupons.
+ * @summary Queries the list of coupons.
  *
  * @param request DescribeCouponRequest
  * @return DescribeCouponResponse
@@ -1270,7 +1265,7 @@ DescribeCouponResponse Client::describeCoupon(const DescribeCouponRequest &reque
 }
 
 /**
- * @summary Queries the list of products available for a coupon.
+ * @summary Queries the products available for a coupon.
  *
  * @param tmpReq DescribeCouponItemListRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1327,7 +1322,7 @@ DescribeCouponItemListResponse Client::describeCouponItemListWithOptions(const D
 }
 
 /**
- * @summary Queries the list of products available for a coupon.
+ * @summary Queries the products available for a coupon.
  *
  * @param request DescribeCouponItemListRequest
  * @return DescribeCouponItemListResponse
@@ -1338,7 +1333,7 @@ DescribeCouponItemListResponse Client::describeCouponItemList(const DescribeCoup
 }
 
 /**
- * @summary Queries resource plan deduction records.
+ * @summary Queries the deduction records of resource plans.
  *
  * @param tmpReq DescribeDeductLogsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1425,7 +1420,7 @@ DescribeDeductLogsResponse Client::describeDeductLogsWithOptions(const DescribeD
 }
 
 /**
- * @summary Queries resource plan deduction records.
+ * @summary Queries the deduction records of resource plans.
  *
  * @param request DescribeDeductLogsRequest
  * @return DescribeDeductLogsResponse
@@ -1736,7 +1731,7 @@ GetFundAccountCanRecycleAmountResponse Client::getFundAccountCanRecycleAmount(co
 }
 
 /**
- * @summary Query the transferable amount of a fund account
+ * @summary Queries the transferable amount of a fund account.
  *
  * @param request GetFundAccountCanTransferAmountRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1771,7 +1766,7 @@ GetFundAccountCanTransferAmountResponse Client::getFundAccountCanTransferAmountW
 }
 
 /**
- * @summary Query the transferable amount of a fund account
+ * @summary Queries the transferable amount of a fund account.
  *
  * @param request GetFundAccountCanTransferAmountRequest
  * @return GetFundAccountCanTransferAmountResponse
@@ -1824,7 +1819,7 @@ GetFundAccountCanWithdrawAmountResponse Client::getFundAccountCanWithdrawAmount(
 }
 
 /**
- * @summary Query Fund Account Low Balance Alert
+ * @summary Queries the low balance alert for a fund account.
  *
  * @param request GetFundAccountLowAvailableAmountAlarmRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1855,7 +1850,7 @@ GetFundAccountLowAvailableAmountAlarmResponse Client::getFundAccountLowAvailable
 }
 
 /**
- * @summary Query Fund Account Low Balance Alert
+ * @summary Queries the low balance alert for a fund account.
  *
  * @param request GetFundAccountLowAvailableAmountAlarmRequest
  * @return GetFundAccountLowAvailableAmountAlarmResponse
@@ -2276,6 +2271,98 @@ GetSavingPlanUserDeductRuleResponse Client::getSavingPlanUserDeductRule(const Ge
 }
 
 /**
+ * @summary Queries the consumption summary for a specified billing month or billing date, and supports viewing expenses by dimensions such as billing item, resource, product, and account.
+ *
+ * @description 1. The final billing details for the current month will be issued at 12:00 on the 3rd day of the following month. Query results before this time are for reference only and should not be used as a basis for reconciliation (minor scenarios that may occur during the month include but are not limited to delayed billing, refunds, adjustments, and overdue payment write-offs).
+ * 2. Billing details are updated with a 24-hour delay compared to actual expense consumption, and information related to instance IDs (resource names) is updated with a 48-hour delay.
+ * 3. Billing data does not support providing specific expenses for each attached resource (such as domain names, buckets, and EIPs) of split-type cloud products (such as CDN, OSS, and Internet Shared Bandwidth). To view data including attached resources, go to split bills.
+ * 4. Data for the last 18 months is supported.
+ * 5. Amounts, usage, and durations are returned as character strings. Use decimal numeric types to process amounts to avoid precision loss caused by binary floating-point numbers.
+ * 6. Whether a field has a value depends on the aggregation dimension, product Billable methods, and billing data. Null values or unreturned fields do not indicate that the value is zero.
+ * 7. This operation uses the field Glossary of the new version of bills. For related concepts, see [Differences and field descriptions of the new version of bills](https://www.alibabacloud.com/help/en/user-center/v2-version-bill-field-description). The English paths in the help documentation are OSS subscribe fields. The parameter names, field names, and return structures of this operation are subject to this topic.
+ *
+ * @param tmpReq ListConsumeSummaryRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListConsumeSummaryResponse
+ */
+ListConsumeSummaryResponse Client::listConsumeSummaryWithOptions(const ListConsumeSummaryRequest &tmpReq, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  ListConsumeSummaryShrinkRequest request = ListConsumeSummaryShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasCommonFilters()) {
+    request.setCommonFiltersShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getCommonFilters(), "CommonFilters", "json"));
+  }
+
+  if (!!tmpReq.hasEcIdAccountIds()) {
+    request.setEcIdAccountIdsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getEcIdAccountIds(), "EcIdAccountIds", "json"));
+  }
+
+  if (!!tmpReq.hasPeriod()) {
+    request.setPeriodShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getPeriod(), "Period", "json"));
+  }
+
+  json query = {};
+  if (!!request.hasCommonFiltersShrink()) {
+    query["CommonFilters"] = request.getCommonFiltersShrink();
+  }
+
+  if (!!request.hasDimensionType()) {
+    query["DimensionType"] = request.getDimensionType();
+  }
+
+  if (!!request.hasEcIdAccountIdsShrink()) {
+    query["EcIdAccountIds"] = request.getEcIdAccountIdsShrink();
+  }
+
+  if (!!request.hasMaxResults()) {
+    query["MaxResults"] = request.getMaxResults();
+  }
+
+  if (!!request.hasNextToken()) {
+    query["NextToken"] = request.getNextToken();
+  }
+
+  if (!!request.hasPeriodShrink()) {
+    query["Period"] = request.getPeriodShrink();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ListConsumeSummary"},
+    {"version" , "2023-09-30"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListConsumeSummaryResponse>();
+}
+
+/**
+ * @summary Queries the consumption summary for a specified billing month or billing date, and supports viewing expenses by dimensions such as billing item, resource, product, and account.
+ *
+ * @description 1. The final billing details for the current month will be issued at 12:00 on the 3rd day of the following month. Query results before this time are for reference only and should not be used as a basis for reconciliation (minor scenarios that may occur during the month include but are not limited to delayed billing, refunds, adjustments, and overdue payment write-offs).
+ * 2. Billing details are updated with a 24-hour delay compared to actual expense consumption, and information related to instance IDs (resource names) is updated with a 48-hour delay.
+ * 3. Billing data does not support providing specific expenses for each attached resource (such as domain names, buckets, and EIPs) of split-type cloud products (such as CDN, OSS, and Internet Shared Bandwidth). To view data including attached resources, go to split bills.
+ * 4. Data for the last 18 months is supported.
+ * 5. Amounts, usage, and durations are returned as character strings. Use decimal numeric types to process amounts to avoid precision loss caused by binary floating-point numbers.
+ * 6. Whether a field has a value depends on the aggregation dimension, product Billable methods, and billing data. Null values or unreturned fields do not indicate that the value is zero.
+ * 7. This operation uses the field Glossary of the new version of bills. For related concepts, see [Differences and field descriptions of the new version of bills](https://www.alibabacloud.com/help/en/user-center/v2-version-bill-field-description). The English paths in the help documentation are OSS subscribe fields. The parameter names, field names, and return structures of this operation are subject to this topic.
+ *
+ * @param request ListConsumeSummaryRequest
+ * @return ListConsumeSummaryResponse
+ */
+ListConsumeSummaryResponse Client::listConsumeSummary(const ListConsumeSummaryRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return listConsumeSummaryWithOptions(request, runtime);
+}
+
+/**
  * @summary 查询优惠券设置的抵扣标签
  *
  * @param tmpReq ListCouponDeductTagRequest
@@ -2584,7 +2671,7 @@ ListInvoiceTitleResponse Client::listInvoiceTitle() {
 }
 
 /**
- * @summary View subscribed report list
+ * @summary Queries the list of subscribed reports.
  *
  * @param request ListReportDefinitionsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2615,7 +2702,7 @@ ListReportDefinitionsResponse Client::listReportDefinitionsWithOptions(const Lis
 }
 
 /**
- * @summary View subscribed report list
+ * @summary Queries the list of subscribed reports.
  *
  * @param request ListReportDefinitionsRequest
  * @return ListReportDefinitionsResponse
@@ -2623,6 +2710,106 @@ ListReportDefinitionsResponse Client::listReportDefinitionsWithOptions(const Lis
 ListReportDefinitionsResponse Client::listReportDefinitions(const ListReportDefinitionsRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return listReportDefinitionsWithOptions(request, runtime);
+}
+
+/**
+ * @summary Queries the split bill summary for a specified billing month or date. This operation supports viewing the costs of resources and split items, and filtering by product, account, financial unit, resource group, and tag.
+ *
+ * @description 1. This operation aggregates split bill records by day or month. It can be used to view the cost attribution of split resources. For products that support automatic splitting, you can view costs by attached resource, such as OSS buckets, CDN domain names, and EIPs of Internet Shared Bandwidth. For the supported scope, refer to [Split bill details](https://www.alibabacloud.com/help/en/user-center/splitting-bill).
+ * 2. The final split bill data for the current month is generated at 12:00 on the fourth day of the next month. Query results before this time are for reference only and must not be used as the final basis for reconciliation. The generation of costs for attached resources is delayed. If the data is incomplete, query again after the update.
+ * 3. Amounts, usage, and durations are returned as character strings. Use decimal numeric types to process amounts and avoid precision loss caused by binary floating-point numbers.
+ * 4. Whether a field has a value depends on the product billing method, splitting rules, and bill data. A null value or an unreturned field does not mean the value is zero. Information such as public IP, private IP, and resource names also depends on the resource information query capabilities of the product.
+ * 5. This operation uses the field terminology of the new bill version. For related concepts, refer to [Differences and field descriptions of the new bill version](https://www.alibabacloud.com/help/en/user-center/v2-version-bill-field-description). The parameter names and response structure of this operation are subject to this topic.
+ *
+ * @param tmpReq ListSplitSummaryRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListSplitSummaryResponse
+ */
+ListSplitSummaryResponse Client::listSplitSummaryWithOptions(const ListSplitSummaryRequest &tmpReq, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  ListSplitSummaryShrinkRequest request = ListSplitSummaryShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasCommonFilters()) {
+    request.setCommonFiltersShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getCommonFilters(), "CommonFilters", "json"));
+  }
+
+  if (!!tmpReq.hasCostCategoriesFilters()) {
+    request.setCostCategoriesFiltersShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getCostCategoriesFilters(), "CostCategoriesFilters", "json"));
+  }
+
+  if (!!tmpReq.hasEcIdAccountIds()) {
+    request.setEcIdAccountIdsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getEcIdAccountIds(), "EcIdAccountIds", "json"));
+  }
+
+  if (!!tmpReq.hasPeriod()) {
+    request.setPeriodShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getPeriod(), "Period", "json"));
+  }
+
+  if (!!tmpReq.hasTagFilters()) {
+    request.setTagFiltersShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getTagFilters(), "TagFilters", "json"));
+  }
+
+  json query = {};
+  if (!!request.hasCommonFiltersShrink()) {
+    query["CommonFilters"] = request.getCommonFiltersShrink();
+  }
+
+  if (!!request.hasCostCategoriesFiltersShrink()) {
+    query["CostCategoriesFilters"] = request.getCostCategoriesFiltersShrink();
+  }
+
+  if (!!request.hasEcIdAccountIdsShrink()) {
+    query["EcIdAccountIds"] = request.getEcIdAccountIdsShrink();
+  }
+
+  if (!!request.hasMaxResults()) {
+    query["MaxResults"] = request.getMaxResults();
+  }
+
+  if (!!request.hasNextToken()) {
+    query["NextToken"] = request.getNextToken();
+  }
+
+  if (!!request.hasPeriodShrink()) {
+    query["Period"] = request.getPeriodShrink();
+  }
+
+  if (!!request.hasTagFiltersShrink()) {
+    query["TagFilters"] = request.getTagFiltersShrink();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ListSplitSummary"},
+    {"version" , "2023-09-30"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListSplitSummaryResponse>();
+}
+
+/**
+ * @summary Queries the split bill summary for a specified billing month or date. This operation supports viewing the costs of resources and split items, and filtering by product, account, financial unit, resource group, and tag.
+ *
+ * @description 1. This operation aggregates split bill records by day or month. It can be used to view the cost attribution of split resources. For products that support automatic splitting, you can view costs by attached resource, such as OSS buckets, CDN domain names, and EIPs of Internet Shared Bandwidth. For the supported scope, refer to [Split bill details](https://www.alibabacloud.com/help/en/user-center/splitting-bill).
+ * 2. The final split bill data for the current month is generated at 12:00 on the fourth day of the next month. Query results before this time are for reference only and must not be used as the final basis for reconciliation. The generation of costs for attached resources is delayed. If the data is incomplete, query again after the update.
+ * 3. Amounts, usage, and durations are returned as character strings. Use decimal numeric types to process amounts and avoid precision loss caused by binary floating-point numbers.
+ * 4. Whether a field has a value depends on the product billing method, splitting rules, and bill data. A null value or an unreturned field does not mean the value is zero. Information such as public IP, private IP, and resource names also depends on the resource information query capabilities of the product.
+ * 5. This operation uses the field terminology of the new bill version. For related concepts, refer to [Differences and field descriptions of the new bill version](https://www.alibabacloud.com/help/en/user-center/v2-version-bill-field-description). The parameter names and response structure of this operation are subject to this topic.
+ *
+ * @param request ListSplitSummaryRequest
+ * @return ListSplitSummaryResponse
+ */
+ListSplitSummaryResponse Client::listSplitSummary(const ListSplitSummaryRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return listSplitSummaryWithOptions(request, runtime);
 }
 
 /**
@@ -3012,9 +3199,9 @@ QueryCostCenterResourceResponse Client::queryCostCenterResource(const QueryCostC
 }
 
 /**
- * @summary Queries the automatic allocation rules of a cost center.
+ * @summary Queries cost center rules.
  *
- * @description Queries a parent cost center and its child cost centers.
+ * @description Queries the parent cost center and its child cost centers.
  *
  * @param request QueryCostCenterRuleRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3055,9 +3242,9 @@ QueryCostCenterRuleResponse Client::queryCostCenterRuleWithOptions(const QueryCo
 }
 
 /**
- * @summary Queries the automatic allocation rules of a cost center.
+ * @summary Queries cost center rules.
  *
- * @description Queries a parent cost center and its child cost centers.
+ * @description Queries the parent cost center and its child cost centers.
  *
  * @param request QueryCostCenterRuleRequest
  * @return QueryCostCenterRuleResponse
@@ -3130,9 +3317,9 @@ QueryCostCenterShareRuleResponse Client::queryCostCenterShareRule(const QueryCos
 }
 
 /**
- * @summary Queries the SLA compensation list for a user.
+ * @summary Queries the SLA compensation list for users.
  *
- * @description Queries the SLA compensation details list for a user. Only data from the last two months is available.
+ * @description Provides the list of SLA compensation details for users, including only data from the last two months.
  *
  * @param request QueryMonthlySlaListRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3193,9 +3380,9 @@ QueryMonthlySlaListResponse Client::queryMonthlySlaListWithOptions(const QueryMo
 }
 
 /**
- * @summary Queries the SLA compensation list for a user.
+ * @summary Queries the SLA compensation list for users.
  *
- * @description Queries the SLA compensation details list for a user. Only data from the last two months is available.
+ * @description Provides the list of SLA compensation details for users, including only data from the last two months.
  *
  * @param request QueryMonthlySlaListRequest
  * @return QueryMonthlySlaListResponse

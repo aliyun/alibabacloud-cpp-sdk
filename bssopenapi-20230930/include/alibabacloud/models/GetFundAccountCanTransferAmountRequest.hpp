@@ -48,11 +48,11 @@ namespace Models
 
 
   protected:
-    // Currency
+    // The currency.
     // 
     // This parameter is required.
     shared_ptr<string> currency_ {};
-    // Transfer source account ID. If not specified, the account ID owned by the current account is used by default.
+    // The ID of the source fund account. If you do not specify this parameter, the ID of the fund account owned by the current account is used by default.
     shared_ptr<string> fundAccountId_ {};
   };
 

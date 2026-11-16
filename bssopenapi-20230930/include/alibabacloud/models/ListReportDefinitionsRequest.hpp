@@ -38,7 +38,7 @@ namespace Models
 
 
   protected:
-    // Primary sales site ID. If empty, the current user\\"s site ID is used by default
+    // The primary marketplace ID. If this parameter is left empty, the marketplace ID of the current user is used by default.
     shared_ptr<string> nbid_ {};
   };
 

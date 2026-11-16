@@ -132,13 +132,13 @@ namespace Models
 
 
   protected:
-    // The start billing cycle for data push. After the subscription is created, the system automatically pushes data from the start billing cycle to the current time. This parameter is invalid for monthly billing PDF subscriptions, and historical data is not pushed again. Data within the most recent year can be pushed.
+    // The start billing cycle for data push. After the subscription is created, the system automatically pushes data from the start billing cycle to the current time. This parameter is invalid for monthly billing PDF subscriptions, and historical data is not pushed again. Data within the recent year can be pushed at most.
     shared_ptr<string> beginBillingCycle_ {};
     // The metadata of the response structure.
     Darabonba::Json metadata_ {};
     // The name of the OSS bucket that stores the files.
     shared_ptr<string> ossBucketName_ {};
-    // The UID of the OSS owner that stores the files. Specify this parameter if the subscription is made by a bidder or reseller and the files need to be pushed to the OSS bucket of a RAM user. The RAM user must be a subordinate account of the calling account and must be granted the AliyunConsumeDump2OSSRole permission. Regular users do not need to specify this parameter. The default value is the calling account.
+    // The UID of the OSS owner that stores the files. Specify this parameter when a BID or reseller subscription needs to push files to the OSS bucket of a RAM user. The RAM user must be a subordinate account of the calling account and must be granted the AliyunConsumeDump2OSSRole permission. Regular users do not need to specify this parameter. The default value is the calling account.
     shared_ptr<int64_t> ossBucketOwnerAccountId_ {};
     // The storage path in the OSS bucket.
     shared_ptr<string> ossBucketPath_ {};
@@ -149,15 +149,15 @@ namespace Models
     // The ID of the billing subscription task.
     shared_ptr<int64_t> reportTaskId_ {};
     // The subscription type. Valid values:
-    // - consumeDetailBillV2: consumption details. Supported only for OSS and MC subscriptions.
-    // - splitDetailBillV2: split details. Supported only for OSS and MC subscriptions.
-    // - costDetailBillV2: cost details. Supported only for OSS and MC subscriptions.
-    // - monthBillOverview: monthly bill overview. Supported only for OSS and MSC_EMAIL subscriptions.
-    // - focus: focus bills. Supported only for OSS and MC subscriptions.
+    // - consumeDetailBillV2: consumption details (supported only by OSS and MC subscriptions).
+    // - splitDetailBillV2: split details (supported only by OSS and MC subscriptions).
+    // - costDetailBillV2: cost details (supported only by OSS and MC subscriptions).
+    // - monthBillOverview: monthly bill summary (supported only by OSS and MSC_EMAIL subscriptions).
+    // - focus: focus bills (supported only by OSS and MC subscriptions).
     shared_ptr<string> reportType_ {};
-    // The request ID.
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
-    // The time when the subscription was created. The format is YYYY-MM-DD HH:mm:ss.
+    // The time when the subscription was created. The time is in the YYYY-MM-DD HH:mm:ss format.
     shared_ptr<string> subscribeCreateTime_ {};
   };
 

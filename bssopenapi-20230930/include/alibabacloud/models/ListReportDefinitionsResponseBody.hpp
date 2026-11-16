@@ -37,7 +37,6 @@ namespace Models
     class ReportDefinitions : public Darabonba::Model {
     public:
       friend void to_json(Darabonba::Json& j, const ReportDefinitions& obj) { 
-        DARABONBA_PTR_TO_JSON(AutoTagFields, autoTagFields_);
         DARABONBA_PTR_TO_JSON(BeginBillingCycle, beginBillingCycle_);
         DARABONBA_PTR_TO_JSON(OssBucketName, ossBucketName_);
         DARABONBA_PTR_TO_JSON(OssBucketOwnerAccountId, ossBucketOwnerAccountId_);
@@ -46,11 +45,9 @@ namespace Models
         DARABONBA_PTR_TO_JSON(ReportSourceType, reportSourceType_);
         DARABONBA_PTR_TO_JSON(ReportTaskId, reportTaskId_);
         DARABONBA_PTR_TO_JSON(ReportType, reportType_);
-        DARABONBA_PTR_TO_JSON(SelectedFields, selectedFields_);
         DARABONBA_PTR_TO_JSON(SubscribeCreateTime, subscribeCreateTime_);
       };
       friend void from_json(const Darabonba::Json& j, ReportDefinitions& obj) { 
-        DARABONBA_PTR_FROM_JSON(AutoTagFields, autoTagFields_);
         DARABONBA_PTR_FROM_JSON(BeginBillingCycle, beginBillingCycle_);
         DARABONBA_PTR_FROM_JSON(OssBucketName, ossBucketName_);
         DARABONBA_PTR_FROM_JSON(OssBucketOwnerAccountId, ossBucketOwnerAccountId_);
@@ -59,7 +56,6 @@ namespace Models
         DARABONBA_PTR_FROM_JSON(ReportSourceType, reportSourceType_);
         DARABONBA_PTR_FROM_JSON(ReportTaskId, reportTaskId_);
         DARABONBA_PTR_FROM_JSON(ReportType, reportType_);
-        DARABONBA_PTR_FROM_JSON(SelectedFields, selectedFields_);
         DARABONBA_PTR_FROM_JSON(SubscribeCreateTime, subscribeCreateTime_);
       };
       ReportDefinitions() = default ;
@@ -73,16 +69,9 @@ namespace Models
       };
       virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
       virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-      virtual bool empty() const override { return this->autoTagFields_ == nullptr
-        && this->beginBillingCycle_ == nullptr && this->ossBucketName_ == nullptr && this->ossBucketOwnerAccountId_ == nullptr && this->ossBucketPath_ == nullptr && this->reportSourceName_ == nullptr
-        && this->reportSourceType_ == nullptr && this->reportTaskId_ == nullptr && this->reportType_ == nullptr && this->selectedFields_ == nullptr && this->subscribeCreateTime_ == nullptr; };
-      // autoTagFields Field Functions 
-      bool hasAutoTagFields() const { return this->autoTagFields_ != nullptr;};
-      void deleteAutoTagFields() { this->autoTagFields_ = nullptr;};
-      inline bool getAutoTagFields() const { DARABONBA_PTR_GET_DEFAULT(autoTagFields_, false) };
-      inline ReportDefinitions& setAutoTagFields(bool autoTagFields) { DARABONBA_PTR_SET_VALUE(autoTagFields_, autoTagFields) };
-
-
+      virtual bool empty() const override { return this->beginBillingCycle_ == nullptr
+        && this->ossBucketName_ == nullptr && this->ossBucketOwnerAccountId_ == nullptr && this->ossBucketPath_ == nullptr && this->reportSourceName_ == nullptr && this->reportSourceType_ == nullptr
+        && this->reportTaskId_ == nullptr && this->reportType_ == nullptr && this->subscribeCreateTime_ == nullptr; };
       // beginBillingCycle Field Functions 
       bool hasBeginBillingCycle() const { return this->beginBillingCycle_ != nullptr;};
       void deleteBeginBillingCycle() { this->beginBillingCycle_ = nullptr;};
@@ -139,15 +128,6 @@ namespace Models
       inline ReportDefinitions& setReportType(string reportType) { DARABONBA_PTR_SET_VALUE(reportType_, reportType) };
 
 
-      // selectedFields Field Functions 
-      bool hasSelectedFields() const { return this->selectedFields_ != nullptr;};
-      void deleteSelectedFields() { this->selectedFields_ = nullptr;};
-      inline const vector<string> & getSelectedFields() const { DARABONBA_PTR_GET_CONST(selectedFields_, vector<string>) };
-      inline vector<string> getSelectedFields() { DARABONBA_PTR_GET(selectedFields_, vector<string>) };
-      inline ReportDefinitions& setSelectedFields(const vector<string> & selectedFields) { DARABONBA_PTR_SET_VALUE(selectedFields_, selectedFields) };
-      inline ReportDefinitions& setSelectedFields(vector<string> && selectedFields) { DARABONBA_PTR_SET_RVALUE(selectedFields_, selectedFields) };
-
-
       // subscribeCreateTime Field Functions 
       bool hasSubscribeCreateTime() const { return this->subscribeCreateTime_ != nullptr;};
       void deleteSubscribeCreateTime() { this->subscribeCreateTime_ = nullptr;};
@@ -156,30 +136,26 @@ namespace Models
 
 
     protected:
-      // Whether to enable tag fields
-      shared_ptr<bool> autoTagFields_ {};
-      // Push start billing cycle. After the subscription is successfully created, the system automatically pushes data from the start billing cycle to the current time. This parameter is invalid for monthly billing PDF subscriptions and does not re-push historical data. A maximum of data from the last 1 year can be pushed.
+      // The start billing cycle for data push. After a successful subscription, the system automatically pushes data from the start billing cycle to the current time. This parameter is invalid for monthly bill PDF subscriptions and historical data is not pushed again. Data for up to the last year can be pushed.
       shared_ptr<string> beginBillingCycle_ {};
-      // Name of the OSS bucket where files are stored.
+      // The name of the OSS bucket where files are stored.
       shared_ptr<string> ossBucketName_ {};
-      // UID of the OSS owner that stores the files. Specify this parameter if you subscribe as a BID/ReSeller and want to push data to the OSS of a sub-account. The specified account must be a sub-account of the calling account and must be granted the AliyunConsumeDump2OSSRole permission. Regular users do not need to specify this parameter. The default value is the calling account.
+      // The UID of the OSS bucket owner. Specify this parameter if the subscription is made by a bidder or reseller and data needs to be pushed to the OSS bucket of a RAM user. The target account must be a RAM user of the calling account and must be granted the AliyunConsumeDump2OSSRole permission. Regular users do not need to specify this parameter. By default, the calling account is used.
       shared_ptr<int64_t> ossBucketOwnerAccountId_ {};
-      // OSS bucket storage path.
+      // The storage path in the OSS bucket.
       shared_ptr<string> ossBucketPath_ {};
-      // Name of the subscription source.
+      // The name of the subscription source.
       shared_ptr<string> reportSourceName_ {};
-      // Type of the subscription source. Valid values: OSS and MC.
+      // The type of the subscription source, such as OSS or MC.
       shared_ptr<string> reportSourceType_ {};
-      // Billing subscription task ID.
+      // The ID of the bill subscription task.
       shared_ptr<int64_t> reportTaskId_ {};
-      // Subscription type. Valid values:
-      // - BillingItemDetailForBillingPeriod: billing item consumption details.
-      // - InstanceDetailForBillingPeriod: instance consumption details.
-      // - BillingItemDetailMonthly: billing item consumption summary by billing cycle.
+      // The subscription type. Valid values:
+      // - BillingItemDetailForBillingPeriod: billing item consumption details
+      // - InstanceDetailForBillingPeriod: instance consumption details
+      // - BillingItemDetailMonthly: billing item consumption summary by billing cycle
       shared_ptr<string> reportType_ {};
-      // Specified subscribed fields
-      shared_ptr<vector<string>> selectedFields_ {};
-      // Time when the subscription was created.
+      // The time when the subscription was created.
       shared_ptr<string> subscribeCreateTime_ {};
     };
 
@@ -211,11 +187,11 @@ namespace Models
 
 
   protected:
-    // Response structure metadata
+    // The metadata of the response structure.
     Darabonba::Json metadata_ {};
-    // Report definition list
+    // The data list.
     shared_ptr<vector<ListReportDefinitionsResponseBody::ReportDefinitions>> reportDefinitions_ {};
-    // Request ID.
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

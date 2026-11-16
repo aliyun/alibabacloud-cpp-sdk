@@ -139,13 +139,13 @@ namespace Models
     shared_ptr<int64_t> couponId_ {};
     // The current page number.
     shared_ptr<int32_t> currentPage_ {};
-    // The list of enterprise entities and accounts. If this parameter is left empty, the current account is queried.
+    // The list of enterprises and accounts. If this parameter is left empty, the current account is queried.
     shared_ptr<vector<DescribeCouponItemListRequest::EcIdAccountIds>> ecIdAccountIds_ {};
-    // The product name. Fuzzy matching is supported.
+    // The product name. Fuzzy match is supported.
     shared_ptr<string> name_ {};
-    // The level-1 sales channel ID. If this parameter is left empty, the channel ID of the current user is used by default.
+    // The primary marketplace ID. If this parameter is left empty, the marketplace ID of the current user is used by default.
     shared_ptr<string> nbid_ {};
-    // The number of entries per page.
+    // The number of items per page.
     shared_ptr<int32_t> pageSize_ {};
   };
 

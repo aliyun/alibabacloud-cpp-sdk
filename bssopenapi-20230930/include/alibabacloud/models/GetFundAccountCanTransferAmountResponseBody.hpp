@@ -151,31 +151,31 @@ namespace Models
 
 
   protected:
-    // Available amount
+    // The available amount.
     shared_ptr<string> availableAmount_ {};
-    // Cash ledger balance
+    // The cash ledger balance.
     shared_ptr<string> cashAmount_ {};
-    // Currency
+    // The currency.
     shared_ptr<string> currency_ {};
-    // Enterprise entity ID of the account owner
+    // The enterprise entity ID of the fund account owner.
     shared_ptr<string> fundAccountEcid_ {};
-    // Account ID
+    // The fund account ID.
     shared_ptr<int64_t> fundAccountId_ {};
-    // Account name
+    // The fund account name.
     shared_ptr<string> fundAccountName_ {};
-    // Alibaba Cloud account ID of the fund account owner
+    // The Alibaba Cloud account ID of the fund account owner.
     shared_ptr<int64_t> fundAccountOwnerAccountId_ {};
-    // Transferable amount
+    // The maximum transferable amount.
     shared_ptr<string> maxTransferableAmount_ {};
-    // Response metadata
+    // The metadata of the response structure.
     Darabonba::Json metadata_ {};
-    // Primary marketplace
+    // The primary sales site.
     shared_ptr<string> nbid_ {};
-    // Request ID
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // Site
+    // The site.
     shared_ptr<string> site_ {};
-    // Transfer ledger balance
+    // The transfer ledger balance.
     shared_ptr<string> transferAmount_ {};
   };
 

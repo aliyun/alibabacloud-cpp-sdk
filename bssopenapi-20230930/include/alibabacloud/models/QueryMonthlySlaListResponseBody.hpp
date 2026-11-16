@@ -153,26 +153,23 @@ namespace Models
     protected:
       // The service availability.
       shared_ptr<double> availableRate_ {};
-      // The unique identifier of the damaged record, which is used to call the applyCoupon operation for targeted claim.
+      // The unique identifier of the damage record, which is used for targeted claims.
       shared_ptr<string> damagedId_ {};
-      // The instance ID.
+      // The ID of the instance.
       shared_ptr<string> instanceId_ {};
       // The month in the yyyyMM format.
       shared_ptr<int32_t> month_ {};
-      // The monthly service charge.
+      // The monthly service fee.
       shared_ptr<double> monthlyServiceCharge_ {};
       // The compensation description.
       shared_ptr<string> payDescription_ {};
-      // The compensation ratio, in percentage (%).
+      // The compensation ratio, in percentage.
       shared_ptr<double> payRate_ {};
-      // The compensation status. Valid values:
-      // - 0: not compensated.
-      // - 1: compensated.
-      // - 2: no compensation required.
+      // The compensation status. Valid values: 0: Not compensated. 1: Compensated. 2: No compensation required.
       shared_ptr<int32_t> payStatus_ {};
-      // The product code.
+      // The code of the product.
       shared_ptr<string> productCode_ {};
-      // The compensation amount that should be paid.
+      // The compensation amount to be paid.
       shared_ptr<double> shouldPaySum_ {};
     };
 
@@ -227,13 +224,13 @@ namespace Models
   protected:
     // The current page number.
     shared_ptr<int32_t> currentPage_ {};
-    // The data list.
+    // The list of data.
     shared_ptr<vector<QueryMonthlySlaListResponseBody::Data>> data_ {};
-    // The response metadata.
+    // The metadata of the response structure.
     Darabonba::Json metadata_ {};
     // The number of entries per page.
     shared_ptr<int32_t> pageSize_ {};
-    // The request ID.
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
     // The total number of records.
     shared_ptr<int32_t> totalCount_ {};
