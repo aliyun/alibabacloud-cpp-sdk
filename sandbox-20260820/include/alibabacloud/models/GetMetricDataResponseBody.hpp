@@ -69,13 +69,13 @@ namespace Models
 
 
   protected:
-    // 成功时为 200。失败时为对应的错误码。
+    // The status code. A value of 200 indicates success. If the request fails, the corresponding error code is returned.
     shared_ptr<string> code_ {};
-    // 本次请求的结果说明。
+    // The message returned for the request.
     shared_ptr<string> message_ {};
-    // 各指标的查询结果及对应的时间和分组。
+    // The query results of each metric, along with the corresponding time and grouping information.
     shared_ptr<MetricData> metricData_ {};
-    // 本次请求的唯一标识。
+    // The unique identifier of the request.
     shared_ptr<string> requestId_ {};
   };
 

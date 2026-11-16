@@ -39,6 +39,24 @@ namespace Sandbox20260820
       Models::CreateApiKeyResponse createApiKey(const Models::CreateApiKeyRequest &request);
 
       /**
+       * @summary Creates a custom domain name.
+       *
+       * @param request CreateCustomDomainRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CreateCustomDomainResponse
+       */
+      Models::CreateCustomDomainResponse createCustomDomainWithOptions(const Models::CreateCustomDomainRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Creates a custom domain name.
+       *
+       * @param request CreateCustomDomainRequest
+       * @return CreateCustomDomainResponse
+       */
+      Models::CreateCustomDomainResponse createCustomDomain(const Models::CreateCustomDomainRequest &request);
+
+      /**
        * @summary Creates a team.
        *
        * @param request CreateTeamRequest
@@ -149,6 +167,24 @@ namespace Sandbox20260820
        * @return DeleteApiKeyResponse
        */
       Models::DeleteApiKeyResponse deleteApiKey(const string &apiKeyID, const Models::DeleteApiKeyRequest &request);
+
+      /**
+       * @summary Deletes a custom domain name.
+       *
+       * @param request DeleteCustomDomainRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DeleteCustomDomainResponse
+       */
+      Models::DeleteCustomDomainResponse deleteCustomDomainWithOptions(const string &domainName, const Models::DeleteCustomDomainRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Deletes a custom domain name.
+       *
+       * @param request DeleteCustomDomainRequest
+       * @return DeleteCustomDomainResponse
+       */
+      Models::DeleteCustomDomainResponse deleteCustomDomain(const string &domainName, const Models::DeleteCustomDomainRequest &request);
 
       /**
        * @summary Deletes the quota configuration for a specified team.
@@ -331,9 +367,27 @@ namespace Sandbox20260820
       Models::DescribeWarmPoolResponse describeWarmPool(const string &teamID, const string &templateID, const Models::DescribeWarmPoolRequest &request);
 
       /**
-       * @summary 查询监控指标
+       * @summary Queries custom domain names.
        *
-       * @description 查看某一时刻的监控指标，或查询一段时间内的变化趋势。支持按账号、团队、模板或沙箱查询。
+       * @param request GetCustomDomainRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetCustomDomainResponse
+       */
+      Models::GetCustomDomainResponse getCustomDomainWithOptions(const string &domainName, const Models::GetCustomDomainRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Queries custom domain names.
+       *
+       * @param request GetCustomDomainRequest
+       * @return GetCustomDomainResponse
+       */
+      Models::GetCustomDomainResponse getCustomDomain(const string &domainName, const Models::GetCustomDomainRequest &request);
+
+      /**
+       * @summary Queries monitoring metrics.
+       *
+       * @description Views monitoring metrics at a specific point in time or queries trends over a period of time. Supports querying by account, team, template, or sandbox.
        *
        * @param tmpReq GetMetricDataRequest
        * @param headers map
@@ -343,9 +397,9 @@ namespace Sandbox20260820
       Models::GetMetricDataResponse getMetricDataWithOptions(const Models::GetMetricDataRequest &tmpReq, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询监控指标
+       * @summary Queries monitoring metrics.
        *
-       * @description 查看某一时刻的监控指标，或查询一段时间内的变化趋势。支持按账号、团队、模板或沙箱查询。
+       * @description Views monitoring metrics at a specific point in time or queries trends over a period of time. Supports querying by account, team, template, or sandbox.
        *
        * @param request GetMetricDataRequest
        * @return GetMetricDataResponse
@@ -445,6 +499,24 @@ namespace Sandbox20260820
        * @return ListApiKeysResponse
        */
       Models::ListApiKeysResponse listApiKeys(const Models::ListApiKeysRequest &request);
+
+      /**
+       * @summary Performs a paging query of custom domain names.
+       *
+       * @param request ListCustomDomainsRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListCustomDomainsResponse
+       */
+      Models::ListCustomDomainsResponse listCustomDomainsWithOptions(const Models::ListCustomDomainsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Performs a paging query of custom domain names.
+       *
+       * @param request ListCustomDomainsRequest
+       * @return ListCustomDomainsResponse
+       */
+      Models::ListCustomDomainsResponse listCustomDomains(const Models::ListCustomDomainsRequest &request);
 
       /**
        * @summary Queries the quota configuration list for the current account by using paging.
@@ -597,6 +669,24 @@ namespace Sandbox20260820
        * @return UpdateApiKeyResponse
        */
       Models::UpdateApiKeyResponse updateApiKey(const string &apiKeyID, const Models::UpdateApiKeyRequest &request);
+
+      /**
+       * @summary Updates a custom domain name.
+       *
+       * @param request UpdateCustomDomainRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return UpdateCustomDomainResponse
+       */
+      Models::UpdateCustomDomainResponse updateCustomDomainWithOptions(const string &domainName, const Models::UpdateCustomDomainRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Updates a custom domain name.
+       *
+       * @param request UpdateCustomDomainRequest
+       * @return UpdateCustomDomainResponse
+       */
+      Models::UpdateCustomDomainResponse updateCustomDomain(const string &domainName, const Models::UpdateCustomDomainRequest &request);
 
       /**
        * @summary Updates the quota configuration.

@@ -82,6 +82,46 @@ CreateApiKeyResponse Client::createApiKey(const CreateApiKeyRequest &request) {
 }
 
 /**
+ * @summary Creates a custom domain name.
+ *
+ * @param request CreateCustomDomainRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CreateCustomDomainResponse
+ */
+CreateCustomDomainResponse Client::createCustomDomainWithOptions(const CreateCustomDomainRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"body" , Utils::Utils::parseToMap(request.getBody())}
+  }));
+  Params params = Params(json({
+    {"action" , "CreateCustomDomain"},
+    {"version" , "2026-08-20"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/pop/2026-08-20/custom-domains")},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CreateCustomDomainResponse>();
+}
+
+/**
+ * @summary Creates a custom domain name.
+ *
+ * @param request CreateCustomDomainRequest
+ * @return CreateCustomDomainResponse
+ */
+CreateCustomDomainResponse Client::createCustomDomain(const CreateCustomDomainRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return createCustomDomainWithOptions(request, headers, runtime);
+}
+
+/**
  * @summary Creates a team.
  *
  * @param request CreateTeamRequest
@@ -322,6 +362,45 @@ DeleteApiKeyResponse Client::deleteApiKey(const string &apiKeyID, const DeleteAp
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   map<string, string> headers = {};
   return deleteApiKeyWithOptions(apiKeyID, request, headers, runtime);
+}
+
+/**
+ * @summary Deletes a custom domain name.
+ *
+ * @param request DeleteCustomDomainRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DeleteCustomDomainResponse
+ */
+DeleteCustomDomainResponse Client::deleteCustomDomainWithOptions(const string &domainName, const DeleteCustomDomainRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DeleteCustomDomain"},
+    {"version" , "2026-08-20"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/pop/2026-08-20/custom-domains/" , Darabonba::Encode::Encoder::percentEncode(domainName))},
+    {"method" , "DELETE"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DeleteCustomDomainResponse>();
+}
+
+/**
+ * @summary Deletes a custom domain name.
+ *
+ * @param request DeleteCustomDomainRequest
+ * @return DeleteCustomDomainResponse
+ */
+DeleteCustomDomainResponse Client::deleteCustomDomain(const string &domainName, const DeleteCustomDomainRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return deleteCustomDomainWithOptions(domainName, request, headers, runtime);
 }
 
 /**
@@ -751,9 +830,48 @@ DescribeWarmPoolResponse Client::describeWarmPool(const string &teamID, const st
 }
 
 /**
- * @summary 查询监控指标
+ * @summary Queries custom domain names.
  *
- * @description 查看某一时刻的监控指标，或查询一段时间内的变化趋势。支持按账号、团队、模板或沙箱查询。
+ * @param request GetCustomDomainRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetCustomDomainResponse
+ */
+GetCustomDomainResponse Client::getCustomDomainWithOptions(const string &domainName, const GetCustomDomainRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "GetCustomDomain"},
+    {"version" , "2026-08-20"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/pop/2026-08-20/custom-domains/" , Darabonba::Encode::Encoder::percentEncode(domainName))},
+    {"method" , "GET"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetCustomDomainResponse>();
+}
+
+/**
+ * @summary Queries custom domain names.
+ *
+ * @param request GetCustomDomainRequest
+ * @return GetCustomDomainResponse
+ */
+GetCustomDomainResponse Client::getCustomDomain(const string &domainName, const GetCustomDomainRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return getCustomDomainWithOptions(domainName, request, headers, runtime);
+}
+
+/**
+ * @summary Queries monitoring metrics.
+ *
+ * @description Views monitoring metrics at a specific point in time or queries trends over a period of time. Supports querying by account, team, template, or sandbox.
  *
  * @param tmpReq GetMetricDataRequest
  * @param headers map
@@ -832,9 +950,9 @@ GetMetricDataResponse Client::getMetricDataWithOptions(const GetMetricDataReques
 }
 
 /**
- * @summary 查询监控指标
+ * @summary Queries monitoring metrics.
  *
- * @description 查看某一时刻的监控指标，或查询一段时间内的变化趋势。支持按账号、团队、模板或沙箱查询。
+ * @description Views monitoring metrics at a specific point in time or queries trends over a period of time. Supports querying by account, team, template, or sandbox.
  *
  * @param request GetMetricDataRequest
  * @return GetMetricDataResponse
@@ -1128,6 +1246,55 @@ ListApiKeysResponse Client::listApiKeys(const ListApiKeysRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   map<string, string> headers = {};
   return listApiKeysWithOptions(request, headers, runtime);
+}
+
+/**
+ * @summary Performs a paging query of custom domain names.
+ *
+ * @param request ListCustomDomainsRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListCustomDomainsResponse
+ */
+ListCustomDomainsResponse Client::listCustomDomainsWithOptions(const ListCustomDomainsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasMaxResults()) {
+    query["maxResults"] = request.getMaxResults();
+  }
+
+  if (!!request.hasNextToken()) {
+    query["nextToken"] = request.getNextToken();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ListCustomDomains"},
+    {"version" , "2026-08-20"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/pop/2026-08-20/custom-domains")},
+    {"method" , "GET"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListCustomDomainsResponse>();
+}
+
+/**
+ * @summary Performs a paging query of custom domain names.
+ *
+ * @param request ListCustomDomainsRequest
+ * @return ListCustomDomainsResponse
+ */
+ListCustomDomainsResponse Client::listCustomDomains(const ListCustomDomainsRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return listCustomDomainsWithOptions(request, headers, runtime);
 }
 
 /**
@@ -1571,6 +1738,46 @@ UpdateApiKeyResponse Client::updateApiKey(const string &apiKeyID, const UpdateAp
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   map<string, string> headers = {};
   return updateApiKeyWithOptions(apiKeyID, request, headers, runtime);
+}
+
+/**
+ * @summary Updates a custom domain name.
+ *
+ * @param request UpdateCustomDomainRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return UpdateCustomDomainResponse
+ */
+UpdateCustomDomainResponse Client::updateCustomDomainWithOptions(const string &domainName, const UpdateCustomDomainRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"body" , Utils::Utils::parseToMap(request.getBody())}
+  }));
+  Params params = Params(json({
+    {"action" , "UpdateCustomDomain"},
+    {"version" , "2026-08-20"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/pop/2026-08-20/custom-domains/" , Darabonba::Encode::Encoder::percentEncode(domainName))},
+    {"method" , "PUT"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<UpdateCustomDomainResponse>();
+}
+
+/**
+ * @summary Updates a custom domain name.
+ *
+ * @param request UpdateCustomDomainRequest
+ * @return UpdateCustomDomainResponse
+ */
+UpdateCustomDomainResponse Client::updateCustomDomain(const string &domainName, const UpdateCustomDomainRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return updateCustomDomainWithOptions(domainName, request, headers, runtime);
 }
 
 /**

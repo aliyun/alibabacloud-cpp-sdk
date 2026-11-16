@@ -98,6 +98,8 @@
 #include <alibabacloud/models/CreateApiKeyRequest.hpp>
 #include <alibabacloud/models/CreateApiKeyResponseBody.hpp>
 #include <alibabacloud/models/CreateApiKeyResponse.hpp>
+#include <alibabacloud/models/CreateCustomDomainRequest.hpp>
+#include <alibabacloud/models/CreateCustomDomainResponse.hpp>
 #include <alibabacloud/models/CreateTeamRequest.hpp>
 #include <alibabacloud/models/CreateTeamResponseBody.hpp>
 #include <alibabacloud/models/CreateTeamResponse.hpp>
@@ -116,6 +118,9 @@
 #include <alibabacloud/models/DeleteApiKeyRequest.hpp>
 #include <alibabacloud/models/DeleteApiKeyResponseBody.hpp>
 #include <alibabacloud/models/DeleteApiKeyResponse.hpp>
+#include <alibabacloud/models/DeleteCustomDomainRequest.hpp>
+#include <alibabacloud/models/DeleteCustomDomainResponseBody.hpp>
+#include <alibabacloud/models/DeleteCustomDomainResponse.hpp>
 #include <alibabacloud/models/DeleteQuotaRequest.hpp>
 #include <alibabacloud/models/DeleteQuotaResponseBody.hpp>
 #include <alibabacloud/models/DeleteQuotaResponse.hpp>
@@ -145,6 +150,8 @@
 #include <alibabacloud/models/DescribeWarmPoolRequest.hpp>
 #include <alibabacloud/models/DescribeWarmPoolResponseBody.hpp>
 #include <alibabacloud/models/DescribeWarmPoolResponse.hpp>
+#include <alibabacloud/models/GetCustomDomainRequest.hpp>
+#include <alibabacloud/models/GetCustomDomainResponse.hpp>
 #include <alibabacloud/models/GetMetricDataRequest.hpp>
 #include <alibabacloud/models/GetMetricDataShrinkRequest.hpp>
 #include <alibabacloud/models/GetMetricDataResponseBody.hpp>
@@ -165,6 +172,9 @@
 #include <alibabacloud/models/ListApiKeysRequest.hpp>
 #include <alibabacloud/models/ListApiKeysResponseBody.hpp>
 #include <alibabacloud/models/ListApiKeysResponse.hpp>
+#include <alibabacloud/models/ListCustomDomainsRequest.hpp>
+#include <alibabacloud/models/ListCustomDomainsResponseBody.hpp>
+#include <alibabacloud/models/ListCustomDomainsResponse.hpp>
 #include <alibabacloud/models/ListQuotaRequest.hpp>
 #include <alibabacloud/models/ListQuotaResponseBody.hpp>
 #include <alibabacloud/models/ListQuotaResponse.hpp>
@@ -190,6 +200,8 @@
 #include <alibabacloud/models/UpdateApiKeyRequest.hpp>
 #include <alibabacloud/models/UpdateApiKeyResponseBody.hpp>
 #include <alibabacloud/models/UpdateApiKeyResponse.hpp>
+#include <alibabacloud/models/UpdateCustomDomainRequest.hpp>
+#include <alibabacloud/models/UpdateCustomDomainResponse.hpp>
 #include <alibabacloud/models/UpdateQuotaRequest.hpp>
 #include <alibabacloud/models/UpdateQuotaResponseBody.hpp>
 #include <alibabacloud/models/UpdateQuotaResponse.hpp>
