@@ -107,7 +107,7 @@ namespace Models
       shared_ptr<string> categoryName_ {};
       // The category level.
       shared_ptr<int64_t> level_ {};
-      // The parent category ID.
+      // The ID of the parent category.
       shared_ptr<int64_t> parentId_ {};
       // The total number of subcategories.
       shared_ptr<int64_t> subTotal_ {};
@@ -174,11 +174,11 @@ namespace Models
       // The category name.
       shared_ptr<string> categoryName_ {};
       // The category level. Valid values:
-      // - **0**: level-1 category.
-      // - **1**: level-2 category.
-      // - **2**: level-3 category.
+      // - **0**: Level-1 category.
+      // - **1**: Level-2 category.
+      // - **2**: Level-3 category.
       shared_ptr<int64_t> level_ {};
-      // The parent category ID.
+      // The ID of the parent category.
       shared_ptr<int64_t> parentId_ {};
     };
 

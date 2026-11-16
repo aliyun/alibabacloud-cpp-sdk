@@ -122,7 +122,7 @@ namespace Models
 
 
         protected:
-          // The dynamic metadata content.
+          // The content of the dynamic metadata.
           shared_ptr<string> data_ {};
           // The entity ID.
           shared_ptr<string> entityId_ {};
@@ -350,17 +350,17 @@ namespace Models
         shared_ptr<string> businessType_ {};
         // The category ID.
         shared_ptr<int64_t> categoryId_ {};
-        // The category name.
+        // The name of the category.
         shared_ptr<string> categoryName_ {};
-        // The cover URL.
+        // The URL of the cover image.
         shared_ptr<string> coverURL_ {};
-        // The creation time of the media asset.
+        // The time when the media asset was created.
         shared_ptr<string> createTime_ {};
-        // The content description.
+        // The description of the content.
         shared_ptr<string> description_ {};
         // The entity ID.
         shared_ptr<string> entityId_ {};
-        // The media asset URL.
+        // The URL of the media asset.
         shared_ptr<string> inputURL_ {};
         // The media asset ID.
         shared_ptr<string> mediaId_ {};
@@ -368,7 +368,7 @@ namespace Models
         shared_ptr<string> mediaTags_ {};
         // The media type of the media asset.
         shared_ptr<string> mediaType_ {};
-        // The modification time of the media asset.
+        // The time when the media asset was modified.
         shared_ptr<string> modifiedTime_ {};
         // The snapshots.
         shared_ptr<string> snapshots_ {};
@@ -376,7 +376,7 @@ namespace Models
         shared_ptr<string> source_ {};
         // The sprite images.
         shared_ptr<string> spriteImages_ {};
-        // The resource status.
+        // The status of the resource.
         shared_ptr<string> status_ {};
         // The title.
         shared_ptr<string> title_ {};
@@ -561,13 +561,13 @@ namespace Models
           shared_ptr<string> createTime_ {};
           // The duration.
           shared_ptr<string> duration_ {};
-          // The file name.
+          // The name of the file.
           shared_ptr<string> fileName_ {};
-          // The file size in bytes.
+          // The size of the file in bytes.
           shared_ptr<string> fileSize_ {};
-          // The file status.
+          // The status of the file.
           shared_ptr<string> fileStatus_ {};
-          // The file type.
+          // The type of the file.
           shared_ptr<string> fileType_ {};
           // The OSS URL of the file.
           shared_ptr<string> fileUrl_ {};
@@ -596,7 +596,7 @@ namespace Models
 
 
       protected:
-        // The basic file information, including the duration and size.
+        // The basic information of the file, including the duration and size.
         shared_ptr<FileInfoList::FileBasicInfo> fileBasicInfo_ {};
       };
 
@@ -639,7 +639,7 @@ namespace Models
     protected:
       // The list of media files.
       shared_ptr<vector<MediaInfoList::FileInfoList>> fileInfoList_ {};
-      // The basic media asset information.
+      // The basic information of the media asset.
       shared_ptr<MediaInfoList::MediaBasicInfo> mediaBasicInfo_ {};
       // The dynamic data of the media asset.
       shared_ptr<MediaInfoList::MediaDynamicInfo> mediaDynamicInfo_ {};
@@ -696,15 +696,15 @@ namespace Models
   protected:
     // The return code.
     shared_ptr<string> code_ {};
-    // The collection of media assets that meet the requirements.
+    // The collection of matching media assets.
     shared_ptr<vector<SearchMediaResponseBody::MediaInfoList>> mediaInfoList_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The scroll token.
+    // The pagination token.
     shared_ptr<string> scrollToken_ {};
-    // Indicates whether the call is successful.
+    // Indicates whether the call was successful.
     shared_ptr<string> success_ {};
-    // The total number of media assets that meet the requirements.
+    // The total number of matching media assets.
     shared_ptr<int64_t> total_ {};
   };
 

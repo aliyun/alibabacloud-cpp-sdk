@@ -48,9 +48,9 @@ namespace Models
 
 
   protected:
-    // The Intelligent Cloud Editing (ICE) media asset ID.
+    // The ID of the ICE media asset.
     shared_ptr<string> mediaId_ {};
-    // The request ID.
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
   };
 

@@ -103,7 +103,7 @@ namespace Models
 
 
   protected:
-    // The user-level idempotency token, which can be up to 40 characters in length. If the same user submits the request repeatedly with the same token, the original task is returned.
+    // The user-level idempotency token, which can be up to 40 characters in length. If the same user repeatedly submits a request with the same token, the original task is returned.
     shared_ptr<string> clientToken_ {};
     // The job description, which is used to record the business purpose or processing requirements.
     shared_ptr<string> description_ {};
@@ -111,7 +111,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> input_ {};
-    // The job parameters JSON string. It must include at least SourceLanguage and TargetLanguage. You can also configure primary subtitle erasure, voice translation, on-screen text translation, and final editing.
+    // The job parameters JSON string. It must include at least SourceLanguage and TargetLanguage. You can also configure primary subtitle removal, voice translation, on-screen text translation, lip sync, and final editing.
     // 
     // This parameter is required.
     shared_ptr<string> jobParameters_ {};
@@ -119,11 +119,11 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> jobType_ {};
-    // The output configuration JSON string. OssUri is the optional customer OSS output directory. If OssUri is not specified, a signed URL for the service-owned output is returned.
+    // The output configuration JSON string. OssUri is the optional OSS output directory for the customer. If OssUri is not specified, a signed URL for the service-owned output is returned.
     shared_ptr<string> output_ {};
     // The job title. If not specified, the service generates a default title.
     shared_ptr<string> title_ {};
-    // The user-defined data JSON string. When specifying an MNS queue to receive asynchronous notifications, set `NotifyAddress` to the pure queue name starting with `yike-callback-` instead of the full queue URL. You can optionally set `NotifyMnsEndpoint` to the MNS endpoint of the task account.
+    // The user-defined data JSON string. When specifying a Message Service (MNS) queue to receive asynchronous notifications, set NotifyAddress to the pure queue name starting with yike-callback- instead of the full queue URL. You can optionally set NotifyMnsEndpoint to the MNS endpoint of the task account.
     shared_ptr<string> userData_ {};
   };
 

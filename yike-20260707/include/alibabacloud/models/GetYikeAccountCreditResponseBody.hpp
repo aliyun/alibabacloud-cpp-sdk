@@ -83,11 +83,10 @@ namespace Models
       // The end time.
       shared_ptr<string> endTime_ {};
       // The membership level. Valid values:
-      // 
-      // - basic: Basic Edition.
-      // - standard: Standard Edition.
-      // - professional: Ultimate Edition.
-      // - ultra: Ultra Edition.
+      // - basic: Basic Edition
+      // - standard: Standard Edition
+      // - professional: Ultimate Edition
+      // - ultra: Supreme Edition
       shared_ptr<string> membership_ {};
       // The start time.
       shared_ptr<string> startTime_ {};
@@ -167,17 +166,17 @@ namespace Models
 
 
     protected:
-      // The total granted credits.
+      // The total granted credit quota.
       shared_ptr<double> grantedCreditQuota_ {};
-      // The remaining granted credits.
+      // The granted credit balance.
       shared_ptr<double> grantedCreditQuotaUsage_ {};
-      // The total credits of the booster pack.
+      // The total credit quota of the top-up package.
       shared_ptr<double> packCreditQuota_ {};
-      // The remaining credits of the booster pack.
+      // The credit balance of the top-up package.
       shared_ptr<double> packCreditQuotaUsage_ {};
-      // The total credits of the membership plan.
+      // The total credit quota of the membership plan.
       shared_ptr<double> resourceCreditQuota_ {};
-      // The remaining credits of the membership plan.
+      // The credit balance of the membership plan.
       shared_ptr<double> resourceCreditQuotaUsage_ {};
     };
 

@@ -86,15 +86,15 @@ namespace Models
   protected:
     // The large language model (LLM) used to execute the agent task.
     shared_ptr<string> model_ {};
-    // The callback URL. Currently, only HTTP and HTTPS addresses are supported.
+    // The callback URL. Only HTTP and HTTPS URLs are supported.
     shared_ptr<string> notifyUrl_ {};
-    // The prompt. Defined by the business as needed.
+    // The prompt. The specific content is defined by your business.
     // 
     // This parameter is required.
     shared_ptr<string> prompt_ {};
-    // The skill identifier, provided by the skill provider.
+    // The skill identifier used for the task, which is provided by the skill provider.
     shared_ptr<string> skill_ {};
-    // The custom user data. This value is returned as-is in the callback.
+    // The user-defined information. This information is returned as-is in the callback.
     shared_ptr<string> userData_ {};
     // The workspace ID.
     shared_ptr<string> workspaceId_ {};

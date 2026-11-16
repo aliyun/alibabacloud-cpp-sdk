@@ -15,12 +15,14 @@ namespace Models
     friend void to_json(Darabonba::Json& j, const CreateInfiniteCanvasRequest& obj) { 
       DARABONBA_PTR_TO_JSON(CoverUrl, coverUrl_);
       DARABONBA_PTR_TO_JSON(ProductionId, productionId_);
+      DARABONBA_PTR_TO_JSON(ProjectId, projectId_);
       DARABONBA_PTR_TO_JSON(Title, title_);
       DARABONBA_PTR_TO_JSON(WorkspaceId, workspaceId_);
     };
     friend void from_json(const Darabonba::Json& j, CreateInfiniteCanvasRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(CoverUrl, coverUrl_);
       DARABONBA_PTR_FROM_JSON(ProductionId, productionId_);
+      DARABONBA_PTR_FROM_JSON(ProjectId, projectId_);
       DARABONBA_PTR_FROM_JSON(Title, title_);
       DARABONBA_PTR_FROM_JSON(WorkspaceId, workspaceId_);
     };
@@ -36,7 +38,7 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->coverUrl_ == nullptr
-        && this->productionId_ == nullptr && this->title_ == nullptr && this->workspaceId_ == nullptr; };
+        && this->productionId_ == nullptr && this->projectId_ == nullptr && this->title_ == nullptr && this->workspaceId_ == nullptr; };
     // coverUrl Field Functions 
     bool hasCoverUrl() const { return this->coverUrl_ != nullptr;};
     void deleteCoverUrl() { this->coverUrl_ = nullptr;};
@@ -49,6 +51,13 @@ namespace Models
     void deleteProductionId() { this->productionId_ = nullptr;};
     inline string getProductionId() const { DARABONBA_PTR_GET_DEFAULT(productionId_, "") };
     inline CreateInfiniteCanvasRequest& setProductionId(string productionId) { DARABONBA_PTR_SET_VALUE(productionId_, productionId) };
+
+
+    // projectId Field Functions 
+    bool hasProjectId() const { return this->projectId_ != nullptr;};
+    void deleteProjectId() { this->projectId_ = nullptr;};
+    inline string getProjectId() const { DARABONBA_PTR_GET_DEFAULT(projectId_, "") };
+    inline CreateInfiniteCanvasRequest& setProjectId(string projectId) { DARABONBA_PTR_SET_VALUE(projectId_, projectId) };
 
 
     // title Field Functions 
@@ -68,8 +77,10 @@ namespace Models
   protected:
     // The cover URL.
     shared_ptr<string> coverUrl_ {};
-    // The project ID.
+    // The project ID. **[Deprecated]** Use ProjectId instead.
     shared_ptr<string> productionId_ {};
+    // The project ID. This field takes precedence.
+    shared_ptr<string> projectId_ {};
     // The project title.
     // 
     // This parameter is required.

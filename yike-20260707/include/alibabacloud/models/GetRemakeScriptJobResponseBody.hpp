@@ -105,21 +105,21 @@ namespace Models
 
 
     protected:
-      // The error code. Returned when the status is Failed.
+      // The error code. This parameter is returned when the status is Failed.
       shared_ptr<string> errorCode_ {};
-      // The error message. Returned when the status is Failed.
+      // The error message. This parameter is of the String type and is returned when the status is Failed.
       shared_ptr<string> errorMessage_ {};
-      // The job ID.
+      // The task ID.
       shared_ptr<string> jobId_ {};
       // The URL of the file that contains the script rewriting result. The file content is the creative script in JSON format.
       shared_ptr<string> result_ {};
-      // The status. Valid values:
+      // The file status. Valid values:
       // 
-      // - Created: The task is created.
-      // - Executing: The task is executing.
-      // - Finished: The task is finished.
-      // - Failed: The task failed.
-      // - Deleted: The task is deleted.
+      // - Created: Created.
+      // - Executing: Executing.
+      // - Finished: Finished.
+      // - Failed: Failed.
+      // - Deleted: Deleted.
       shared_ptr<string> status_ {};
       // The user-defined parameter, which is a string in JSON format.
       shared_ptr<string> userData_ {};

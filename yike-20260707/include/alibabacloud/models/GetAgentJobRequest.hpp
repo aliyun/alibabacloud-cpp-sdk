@@ -38,7 +38,7 @@ namespace Models
 
 
   protected:
-    // The task ID.
+    // The job ID.
     // 
     // This parameter is required.
     shared_ptr<string> jobId_ {};

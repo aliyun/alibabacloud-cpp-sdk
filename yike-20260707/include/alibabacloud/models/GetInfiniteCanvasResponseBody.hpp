@@ -138,7 +138,7 @@ namespace Models
 
 
   protected:
-    // The infinite canvas details.
+    // The details of the infinite canvas.
     shared_ptr<GetInfiniteCanvasResponseBody::InfiniteCanvas> infiniteCanvas_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

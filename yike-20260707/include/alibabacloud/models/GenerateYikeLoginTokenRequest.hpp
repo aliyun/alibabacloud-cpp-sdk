@@ -105,12 +105,12 @@ namespace Models
   protected:
     // Specifies whether automatic creation of a project is enabled. Default value: false.
     shared_ptr<string> autoCreateProduction_ {};
-    // The token expiration time, in seconds. Default value: 30 days.
+    // The expiration time of the token, in seconds. Default value: 30 days.
     shared_ptr<string> expires_ {};
     // The nickname.
     // 
     // - Format check: The maximum length is 50 characters.
-    // - Special format validation: Chinese characters, English characters, digits, _ \\ / () ] [
+    // - Special format check: Chinese and English characters, digits, and _ \\ / () ] [.
     shared_ptr<string> nickName_ {};
     // The role of the user in the project.
     shared_ptr<string> productionAuth_ {};

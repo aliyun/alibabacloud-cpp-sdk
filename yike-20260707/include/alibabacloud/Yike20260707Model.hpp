@@ -2,9 +2,15 @@
 #ifndef ALIBABACLOUD_YIKE20260707MODEL_HPP_
 #define ALIBABACLOUD_YIKE20260707MODEL_HPP_
 #include <darabonba/Core.hpp>
+#include <alibabacloud/models/AddProjectMembersRequest.hpp>
+#include <alibabacloud/models/AddProjectMembersResponseBody.hpp>
+#include <alibabacloud/models/AddProjectMembersResponse.hpp>
 #include <alibabacloud/models/BatchGetMediasRequest.hpp>
 #include <alibabacloud/models/BatchGetMediasResponseBody.hpp>
 #include <alibabacloud/models/BatchGetMediasResponse.hpp>
+#include <alibabacloud/models/BatchGetVideoCharacterReplaceJobsRequest.hpp>
+#include <alibabacloud/models/BatchGetVideoCharacterReplaceJobsResponseBody.hpp>
+#include <alibabacloud/models/BatchGetVideoCharacterReplaceJobsResponse.hpp>
 #include <alibabacloud/models/CancelGenerationJobRequest.hpp>
 #include <alibabacloud/models/CancelGenerationJobResponseBody.hpp>
 #include <alibabacloud/models/CancelGenerationJobResponse.hpp>
@@ -14,6 +20,12 @@
 #include <alibabacloud/models/CreateInfiniteCanvasRequest.hpp>
 #include <alibabacloud/models/CreateInfiniteCanvasResponseBody.hpp>
 #include <alibabacloud/models/CreateInfiniteCanvasResponse.hpp>
+#include <alibabacloud/models/CreateProjectRequest.hpp>
+#include <alibabacloud/models/CreateProjectResponseBody.hpp>
+#include <alibabacloud/models/CreateProjectResponse.hpp>
+#include <alibabacloud/models/CreateWorkspaceRequest.hpp>
+#include <alibabacloud/models/CreateWorkspaceResponseBody.hpp>
+#include <alibabacloud/models/CreateWorkspaceResponse.hpp>
 #include <alibabacloud/models/DeleteAssetCategoryRequest.hpp>
 #include <alibabacloud/models/DeleteAssetCategoryResponseBody.hpp>
 #include <alibabacloud/models/DeleteAssetCategoryResponse.hpp>
@@ -23,6 +35,9 @@
 #include <alibabacloud/models/DeleteMediasRequest.hpp>
 #include <alibabacloud/models/DeleteMediasResponseBody.hpp>
 #include <alibabacloud/models/DeleteMediasResponse.hpp>
+#include <alibabacloud/models/DeleteProjectRequest.hpp>
+#include <alibabacloud/models/DeleteProjectResponseBody.hpp>
+#include <alibabacloud/models/DeleteProjectResponse.hpp>
 #include <alibabacloud/models/GenerateYikeLoginTokenRequest.hpp>
 #include <alibabacloud/models/GenerateYikeLoginTokenResponseBody.hpp>
 #include <alibabacloud/models/GenerateYikeLoginTokenResponse.hpp>
@@ -44,9 +59,15 @@
 #include <alibabacloud/models/GetMediaComprehensionJobRequest.hpp>
 #include <alibabacloud/models/GetMediaComprehensionJobResponseBody.hpp>
 #include <alibabacloud/models/GetMediaComprehensionJobResponse.hpp>
+#include <alibabacloud/models/GetProjectRequest.hpp>
+#include <alibabacloud/models/GetProjectResponseBody.hpp>
+#include <alibabacloud/models/GetProjectResponse.hpp>
 #include <alibabacloud/models/GetRemakeScriptJobRequest.hpp>
 #include <alibabacloud/models/GetRemakeScriptJobResponseBody.hpp>
 #include <alibabacloud/models/GetRemakeScriptJobResponse.hpp>
+#include <alibabacloud/models/GetVideoCharacterReplaceJobRequest.hpp>
+#include <alibabacloud/models/GetVideoCharacterReplaceJobResponseBody.hpp>
+#include <alibabacloud/models/GetVideoCharacterReplaceJobResponse.hpp>
 #include <alibabacloud/models/GetVideoCreativeGenerationJobRequest.hpp>
 #include <alibabacloud/models/GetVideoCreativeGenerationJobResponseBody.hpp>
 #include <alibabacloud/models/GetVideoCreativeGenerationJobResponse.hpp>
@@ -56,6 +77,9 @@
 #include <alibabacloud/models/GetVideoGenerationJobRequest.hpp>
 #include <alibabacloud/models/GetVideoGenerationJobResponseBody.hpp>
 #include <alibabacloud/models/GetVideoGenerationJobResponse.hpp>
+#include <alibabacloud/models/GetVideoRemakeJobRequest.hpp>
+#include <alibabacloud/models/GetVideoRemakeJobResponseBody.hpp>
+#include <alibabacloud/models/GetVideoRemakeJobResponse.hpp>
 #include <alibabacloud/models/GetVideoRenderJobRequest.hpp>
 #include <alibabacloud/models/GetVideoRenderJobResponseBody.hpp>
 #include <alibabacloud/models/GetVideoRenderJobResponse.hpp>
@@ -77,6 +101,15 @@
 #include <alibabacloud/models/ListInfiniteCanvasesRequest.hpp>
 #include <alibabacloud/models/ListInfiniteCanvasesResponseBody.hpp>
 #include <alibabacloud/models/ListInfiniteCanvasesResponse.hpp>
+#include <alibabacloud/models/ListProjectsRequest.hpp>
+#include <alibabacloud/models/ListProjectsResponseBody.hpp>
+#include <alibabacloud/models/ListProjectsResponse.hpp>
+#include <alibabacloud/models/ListWorkspacesRequest.hpp>
+#include <alibabacloud/models/ListWorkspacesResponseBody.hpp>
+#include <alibabacloud/models/ListWorkspacesResponse.hpp>
+#include <alibabacloud/models/PrecheckVideoCharacterReplaceJobRequest.hpp>
+#include <alibabacloud/models/PrecheckVideoCharacterReplaceJobResponseBody.hpp>
+#include <alibabacloud/models/PrecheckVideoCharacterReplaceJobResponse.hpp>
 #include <alibabacloud/models/SearchMediaRequest.hpp>
 #include <alibabacloud/models/SearchMediaResponseBody.hpp>
 #include <alibabacloud/models/SearchMediaResponse.hpp>
@@ -92,6 +125,9 @@
 #include <alibabacloud/models/SubmitRemakeScriptJobRequest.hpp>
 #include <alibabacloud/models/SubmitRemakeScriptJobResponseBody.hpp>
 #include <alibabacloud/models/SubmitRemakeScriptJobResponse.hpp>
+#include <alibabacloud/models/SubmitVideoCharacterReplaceJobRequest.hpp>
+#include <alibabacloud/models/SubmitVideoCharacterReplaceJobResponseBody.hpp>
+#include <alibabacloud/models/SubmitVideoCharacterReplaceJobResponse.hpp>
 #include <alibabacloud/models/SubmitVideoCreativeGenerationJobRequest.hpp>
 #include <alibabacloud/models/SubmitVideoCreativeGenerationJobResponseBody.hpp>
 #include <alibabacloud/models/SubmitVideoCreativeGenerationJobResponse.hpp>
@@ -101,6 +137,9 @@
 #include <alibabacloud/models/SubmitVideoGenerationJobRequest.hpp>
 #include <alibabacloud/models/SubmitVideoGenerationJobResponseBody.hpp>
 #include <alibabacloud/models/SubmitVideoGenerationJobResponse.hpp>
+#include <alibabacloud/models/SubmitVideoRemakeJobRequest.hpp>
+#include <alibabacloud/models/SubmitVideoRemakeJobResponseBody.hpp>
+#include <alibabacloud/models/SubmitVideoRemakeJobResponse.hpp>
 #include <alibabacloud/models/SubmitVideoRenderJobRequest.hpp>
 #include <alibabacloud/models/SubmitVideoRenderJobResponseBody.hpp>
 #include <alibabacloud/models/SubmitVideoRenderJobResponse.hpp>
@@ -116,5 +155,8 @@
 #include <alibabacloud/models/UpdateMediaRequest.hpp>
 #include <alibabacloud/models/UpdateMediaResponseBody.hpp>
 #include <alibabacloud/models/UpdateMediaResponse.hpp>
+#include <alibabacloud/models/UpdateProjectRequest.hpp>
+#include <alibabacloud/models/UpdateProjectResponseBody.hpp>
+#include <alibabacloud/models/UpdateProjectResponse.hpp>
 
 #endif

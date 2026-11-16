@@ -124,21 +124,21 @@ namespace Models
 
 
     protected:
-      // The business error code returned when the task fails. This field is typically not returned for non-failure states.
+      // The business error code returned when the job fails. This field is typically not returned when the job is not in a failed state.
       shared_ptr<string> errorCode_ {};
-      // The business error message returned when the task fails. This field is typically not returned for non-failure states.
+      // The business error message returned when the job fails. This field is typically not returned when the job is not in a failed state.
       shared_ptr<string> errorMessage_ {};
-      // The normalized input configuration JSON string saved at submission time.
+      // The normalized JSON string of the input configuration saved during submission.
       shared_ptr<string> input_ {};
-      // The video text erasure task ID.
+      // The ID of the video text removal job.
       shared_ptr<string> jobId_ {};
-      // The normalized text erasure parameter JSON string.
+      // The normalized JSON string of the text removal parameters.
       shared_ptr<string> jobParameters_ {};
-      // The task type. The value is fixed to VIDEO_DETEXT.
+      // The job type. The value is fixed as VIDEO_DETEXT.
       shared_ptr<string> jobType_ {};
-      // The task result JSON string. When Status is Finished, deserialize this field and read AiResult.DetextVideoURL to obtain the URL of the video after text erasure. The video URL is not guaranteed to be included when the task has not completed successfully. If Output.OssUri is specified at submission time, the result is stored in the specified OSS location. Otherwise, a signed URL is returned.
+      // The JSON character string of the task result. When Status is Finished, deserialize the sequence of this field and read AiResult.DetextVideoURL to obtain the URL of the video with text removed. If the node is not successfully completed, the video URL is not guaranteed to be included. If Output.OssUri is specified during commit, the result is stored in the specified OSS bucket. Otherwise, a signed URL is returned.
       shared_ptr<string> output_ {};
-      // The task status. Valid values: Created, Queuing, Executing, Finished, and Failed.
+      // The job status. Valid values: Created, Queuing, Executing, Finished, and Failed.
       shared_ptr<string> status_ {};
     };
 
@@ -161,7 +161,7 @@ namespace Models
 
 
   protected:
-    // The video text erasure task.
+    // The video text removal job.
     shared_ptr<GetVideoDetextJobResponseBody::Job> job_ {};
     // The request ID, which is used for Tracing Analysis and troubleshooting.
     shared_ptr<string> requestId_ {};

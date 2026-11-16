@@ -100,13 +100,13 @@ namespace Models
 
 
     protected:
-      // The online editing project ID.
+      // The ID of the online editing project.
       shared_ptr<string> editingProjectId_ {};
-      // The media asset ID of the output video.
+      // The media asset ID of the produced video.
       shared_ptr<string> mediaId_ {};
       // The output language. Valid values: CN, EN, and YUE.
       shared_ptr<string> outputLanguage_ {};
-      // The signed download URL of the output video. The URL is time-limited.
+      // The download URL of the produced video. The URL is signed and time-sensitive.
       shared_ptr<string> outputUrl_ {};
     };
 
@@ -172,21 +172,21 @@ namespace Models
 
 
   protected:
-    // The job creation time in UTC format (yyyy-MM-dd\\"T\\"HH:mm:ss\\"Z\\").
+    // The time when the job was created. The time is displayed in UTC in the yyyy-MM-dd\\"T\\"HH:mm:ss\\"Z\\" format.
     shared_ptr<string> createTime_ {};
-    // The error code. This parameter is returned only when the job status is Failed.
+    // The error code. This field is returned only when the job status is Failed.
     shared_ptr<string> errorCode_ {};
-    // The job completion time in UTC format.
+    // The time when the job was completed. The time is displayed in UTC.
     shared_ptr<string> finishTime_ {};
     // The job ID.
     shared_ptr<string> jobId_ {};
-    // The task results of the node. This parameter is valid only when the job status is Succeeded. Each element represents the output for a single language.
+    // The task result. This field is valid only when the node status is Succeeded. Each element represents a single-language video output.
     shared_ptr<vector<GetVideoCreativeGenerationJobResponseBody::JobResult>> jobResult_ {};
     // The job status. Valid values: Running, Succeeded, and Failed.
     shared_ptr<string> jobStatus_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};
-    // The custom user data, which is returned as-is.
+    // The user-defined parameter. This value is returned as is.
     shared_ptr<string> userData_ {};
   };
 

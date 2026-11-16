@@ -41,9 +41,60 @@ string Client::getEndpoint(const string &productId, const string &regionId, cons
 }
 
 /**
- * @summary Retrieves information about multiple media assets in a batch.
+ * @summary Adds members to a project.
  *
- * @description ## Request description.
+ * @description Adds users under the same Alibaba Cloud account to a specified project in the default workspace of the Alibaba Cloud account, and grants the Edit permission by default. ProjectId specifies the project ID. YikeUserIds specifies a comma-separated list of Yike user IDs, which are not Alibaba Cloud UIDs. Currently, only the default workspace of the Alibaba Cloud account is supported, and projects in newly created workspaces are not supported. This operation follows the behavior of the original member API operation: adding an existing member resets the project permissions. Regular members are assigned the Edit permission, and SuperAdmins of the default workspace retain the Manage permission. Only Alibaba Cloud accounts that have activated ProductionOpenAPI are supported. Default Alibaba Cloud account projects (pd_Alibaba Cloud account ID) are not supported.
+ *
+ * @param request AddProjectMembersRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return AddProjectMembersResponse
+ */
+AddProjectMembersResponse Client::addProjectMembersWithOptions(const AddProjectMembersRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasProjectId()) {
+    query["ProjectId"] = request.getProjectId();
+  }
+
+  if (!!request.hasYikeUserIds()) {
+    query["YikeUserIds"] = request.getYikeUserIds();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "AddProjectMembers"},
+    {"version" , "2026-07-07"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<AddProjectMembersResponse>();
+}
+
+/**
+ * @summary Adds members to a project.
+ *
+ * @description Adds users under the same Alibaba Cloud account to a specified project in the default workspace of the Alibaba Cloud account, and grants the Edit permission by default. ProjectId specifies the project ID. YikeUserIds specifies a comma-separated list of Yike user IDs, which are not Alibaba Cloud UIDs. Currently, only the default workspace of the Alibaba Cloud account is supported, and projects in newly created workspaces are not supported. This operation follows the behavior of the original member API operation: adding an existing member resets the project permissions. Regular members are assigned the Edit permission, and SuperAdmins of the default workspace retain the Manage permission. Only Alibaba Cloud accounts that have activated ProductionOpenAPI are supported. Default Alibaba Cloud account projects (pd_Alibaba Cloud account ID) are not supported.
+ *
+ * @param request AddProjectMembersRequest
+ * @return AddProjectMembersResponse
+ */
+AddProjectMembersResponse Client::addProjectMembers(const AddProjectMembersRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return addProjectMembersWithOptions(request, runtime);
+}
+
+/**
+ * @summary Retrieves the information of multiple media assets.
+ *
+ * @description ## Request description
+ * This API operation queries media asset content understanding jobs.
  *
  * @param request BatchGetMediasRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -86,9 +137,10 @@ BatchGetMediasResponse Client::batchGetMediasWithOptions(const BatchGetMediasReq
 }
 
 /**
- * @summary Retrieves information about multiple media assets in a batch.
+ * @summary Retrieves the information of multiple media assets.
  *
- * @description ## Request description.
+ * @description ## Request description
+ * This API operation queries media asset content understanding jobs.
  *
  * @param request BatchGetMediasRequest
  * @return BatchGetMediasResponse
@@ -99,7 +151,53 @@ BatchGetMediasResponse Client::batchGetMedias(const BatchGetMediasRequest &reque
 }
 
 /**
- * @summary Cancels an AI generation task.
+ * @summary Queries video character replacement jobs in batches.
+ *
+ * @description Queries the status and results of video character replacement jobs in batches. JobIds is a comma-separated string of job IDs. The response includes a JobList. The input parameters for each job are located in the AppInputConfig field. For the single query operation GetVideoCharacterReplaceJob, the corresponding field is AppParams. When the Status is Finished, you can retrieve the output media assets from Result.
+ *
+ * @param request BatchGetVideoCharacterReplaceJobsRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return BatchGetVideoCharacterReplaceJobsResponse
+ */
+BatchGetVideoCharacterReplaceJobsResponse Client::batchGetVideoCharacterReplaceJobsWithOptions(const BatchGetVideoCharacterReplaceJobsRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasJobIds()) {
+    query["JobIds"] = request.getJobIds();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "BatchGetVideoCharacterReplaceJobs"},
+    {"version" , "2026-07-07"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<BatchGetVideoCharacterReplaceJobsResponse>();
+}
+
+/**
+ * @summary Queries video character replacement jobs in batches.
+ *
+ * @description Queries the status and results of video character replacement jobs in batches. JobIds is a comma-separated string of job IDs. The response includes a JobList. The input parameters for each job are located in the AppInputConfig field. For the single query operation GetVideoCharacterReplaceJob, the corresponding field is AppParams. When the Status is Finished, you can retrieve the output media assets from Result.
+ *
+ * @param request BatchGetVideoCharacterReplaceJobsRequest
+ * @return BatchGetVideoCharacterReplaceJobsResponse
+ */
+BatchGetVideoCharacterReplaceJobsResponse Client::batchGetVideoCharacterReplaceJobs(const BatchGetVideoCharacterReplaceJobsRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return batchGetVideoCharacterReplaceJobsWithOptions(request, runtime);
+}
+
+/**
+ * @summary Cancels a generation task.
  *
  * @param request CancelGenerationJobRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -130,7 +228,7 @@ CancelGenerationJobResponse Client::cancelGenerationJobWithOptions(const CancelG
 }
 
 /**
- * @summary Cancels an AI generation task.
+ * @summary Cancels a generation task.
  *
  * @param request CancelGenerationJobRequest
  * @return CancelGenerationJobResponse
@@ -143,7 +241,7 @@ CancelGenerationJobResponse Client::cancelGenerationJob(const CancelGenerationJo
 /**
  * @summary Creates a media asset category.
  *
- * @description Categories support up to three levels, and each level supports up to 100 subcategories.
+ * @description Categories support up to three levels of hierarchy, and each level supports up to 100 subcategories.
  *
  * @param request CreateAssetCategoryRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -180,7 +278,7 @@ CreateAssetCategoryResponse Client::createAssetCategoryWithOptions(const CreateA
 /**
  * @summary Creates a media asset category.
  *
- * @description Categories support up to three levels, and each level supports up to 100 subcategories.
+ * @description Categories support up to three levels of hierarchy, and each level supports up to 100 subcategories.
  *
  * @param request CreateAssetCategoryRequest
  * @return CreateAssetCategoryResponse
@@ -193,8 +291,8 @@ CreateAssetCategoryResponse Client::createAssetCategory(const CreateAssetCategor
 /**
  * @summary Creates an infinite canvas.
  *
- * @description ## Operation description
- * This API operation is used to query media asset content understanding jobs.
+ * @description ## Request description
+ * This API queries media asset content understanding jobs.
  *
  * @param request CreateInfiniteCanvasRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -209,6 +307,10 @@ CreateInfiniteCanvasResponse Client::createInfiniteCanvasWithOptions(const Creat
 
   if (!!request.hasProductionId()) {
     query["ProductionId"] = request.getProductionId();
+  }
+
+  if (!!request.hasProjectId()) {
+    query["ProjectId"] = request.getProjectId();
   }
 
   if (!!request.hasTitle()) {
@@ -239,8 +341,8 @@ CreateInfiniteCanvasResponse Client::createInfiniteCanvasWithOptions(const Creat
 /**
  * @summary Creates an infinite canvas.
  *
- * @description ## Operation description
- * This API operation is used to query media asset content understanding jobs.
+ * @description ## Request description
+ * This API queries media asset content understanding jobs.
  *
  * @param request CreateInfiniteCanvasRequest
  * @return CreateInfiniteCanvasResponse
@@ -251,9 +353,109 @@ CreateInfiniteCanvasResponse Client::createInfiniteCanvas(const CreateInfiniteCa
 }
 
 /**
+ * @summary Creates a project.
+ *
+ * @description Creates a project in a specified workspace and returns the ProjectId. If WorkspaceId is not specified, the default workspace of the current account is used. After the project is created, you can call GetProject to query the details or call ListProjects to list projects.
+ *
+ * @param request CreateProjectRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CreateProjectResponse
+ */
+CreateProjectResponse Client::createProjectWithOptions(const CreateProjectRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasTitle()) {
+    query["Title"] = request.getTitle();
+  }
+
+  if (!!request.hasWorkspaceId()) {
+    query["WorkspaceId"] = request.getWorkspaceId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "CreateProject"},
+    {"version" , "2026-07-07"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CreateProjectResponse>();
+}
+
+/**
+ * @summary Creates a project.
+ *
+ * @description Creates a project in a specified workspace and returns the ProjectId. If WorkspaceId is not specified, the default workspace of the current account is used. After the project is created, you can call GetProject to query the details or call ListProjects to list projects.
+ *
+ * @param request CreateProjectRequest
+ * @return CreateProjectResponse
+ */
+CreateProjectResponse Client::createProject(const CreateProjectRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return createProjectWithOptions(request, runtime);
+}
+
+/**
+ * @summary Creates a studio.
+ *
+ * @description Creates a studio and triggers automatic creation of a default project for the studio. Returns the WorkspaceId and the ProjectId of the default project. You can directly use the ProjectId without creating the default project again.
+ *
+ * @param request CreateWorkspaceRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CreateWorkspaceResponse
+ */
+CreateWorkspaceResponse Client::createWorkspaceWithOptions(const CreateWorkspaceRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasTitle()) {
+    query["Title"] = request.getTitle();
+  }
+
+  if (!!request.hasUserCountLimit()) {
+    query["UserCountLimit"] = request.getUserCountLimit();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "CreateWorkspace"},
+    {"version" , "2026-07-07"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CreateWorkspaceResponse>();
+}
+
+/**
+ * @summary Creates a studio.
+ *
+ * @description Creates a studio and triggers automatic creation of a default project for the studio. Returns the WorkspaceId and the ProjectId of the default project. You can directly use the ProjectId without creating the default project again.
+ *
+ * @param request CreateWorkspaceRequest
+ * @return CreateWorkspaceResponse
+ */
+CreateWorkspaceResponse Client::createWorkspace(const CreateWorkspaceRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return createWorkspaceWithOptions(request, runtime);
+}
+
+/**
  * @summary Deletes a media asset category.
  *
- * @description This operation also deletes all subcategories (including second-level and third-level categories). Proceed with caution.
+ * @description This operation also deletes its subcategories, including level-2 and level-3 subcategories. Proceed with caution.
  *
  * @param request DeleteAssetCategoryRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -286,7 +488,7 @@ DeleteAssetCategoryResponse Client::deleteAssetCategoryWithOptions(const DeleteA
 /**
  * @summary Deletes a media asset category.
  *
- * @description This operation also deletes all subcategories (including second-level and third-level categories). Proceed with caution.
+ * @description This operation also deletes its subcategories, including level-2 and level-3 subcategories. Proceed with caution.
  *
  * @param request DeleteAssetCategoryRequest
  * @return DeleteAssetCategoryResponse
@@ -299,8 +501,8 @@ DeleteAssetCategoryResponse Client::deleteAssetCategory(const DeleteAssetCategor
 /**
  * @summary Deletes an infinite canvas.
  *
- * @description ## Operation description
- * This API operation is used to query media asset content understanding jobs.
+ * @description ## Request description
+ * This API operation queries media asset content understanding jobs.
  *
  * @param request DeleteInfiniteCanvasRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -333,8 +535,8 @@ DeleteInfiniteCanvasResponse Client::deleteInfiniteCanvasWithOptions(const Delet
 /**
  * @summary Deletes an infinite canvas.
  *
- * @description ## Operation description
- * This API operation is used to query media asset content understanding jobs.
+ * @description ## Request description
+ * This API operation queries media asset content understanding jobs.
  *
  * @param request DeleteInfiniteCanvasRequest
  * @return DeleteInfiniteCanvasResponse
@@ -399,9 +601,57 @@ DeleteMediasResponse Client::deleteMedias(const DeleteMediasRequest &request) {
 }
 
 /**
- * @summary Retrieves a login token for an enterprise account.
+ * @summary Deletes a project.
  *
- * @description >Notice:  The AI generation-related API operations in the 2026-03-19 API version will be deprecated soon. Upgrade to the 2026-07-07 API version.</notice>
+ * @description Deletes a project by ProjectId. The caller must have project management permissions.
+ * Default projects cannot be deleted. If you attempt to delete a default project, DefaultProductionNotSupported is returned. This operation marks the project as deleted and does not physically delete all assets in the project.
+ *
+ * @param request DeleteProjectRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DeleteProjectResponse
+ */
+DeleteProjectResponse Client::deleteProjectWithOptions(const DeleteProjectRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasProjectId()) {
+    query["ProjectId"] = request.getProjectId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DeleteProject"},
+    {"version" , "2026-07-07"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DeleteProjectResponse>();
+}
+
+/**
+ * @summary Deletes a project.
+ *
+ * @description Deletes a project by ProjectId. The caller must have project management permissions.
+ * Default projects cannot be deleted. If you attempt to delete a default project, DefaultProductionNotSupported is returned. This operation marks the project as deleted and does not physically delete all assets in the project.
+ *
+ * @param request DeleteProjectRequest
+ * @return DeleteProjectResponse
+ */
+DeleteProjectResponse Client::deleteProject(const DeleteProjectRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return deleteProjectWithOptions(request, runtime);
+}
+
+/**
+ * @summary Retrieves the logon token for an enterprise account.
+ *
+ * @description >Notice:  The AI generation-related API operations in the current 2026-03-19 API version will be retired soon. Upgrade to the 2026-07-07 API version.
  *
  * @param request GenerateYikeLoginTokenRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -460,9 +710,9 @@ GenerateYikeLoginTokenResponse Client::generateYikeLoginTokenWithOptions(const G
 }
 
 /**
- * @summary Retrieves a login token for an enterprise account.
+ * @summary Retrieves the logon token for an enterprise account.
  *
- * @description >Notice:  The AI generation-related API operations in the 2026-03-19 API version will be deprecated soon. Upgrade to the 2026-07-07 API version.</notice>
+ * @description >Notice:  The AI generation-related API operations in the current 2026-03-19 API version will be retired soon. Upgrade to the 2026-07-07 API version.
  *
  * @param request GenerateYikeLoginTokenRequest
  * @return GenerateYikeLoginTokenResponse
@@ -473,7 +723,7 @@ GenerateYikeLoginTokenResponse Client::generateYikeLoginToken(const GenerateYike
 }
 
 /**
- * @summary Queries an agent asynchronous task.
+ * @summary Queries an asynchronous task of the agent node.
  *
  * @param request GetAgentJobRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -504,7 +754,7 @@ GetAgentJobResponse Client::getAgentJobWithOptions(const GetAgentJobRequest &req
 }
 
 /**
- * @summary Queries an agent asynchronous task.
+ * @summary Queries an asynchronous task of the agent node.
  *
  * @param request GetAgentJobRequest
  * @return GetAgentJobResponse
@@ -515,7 +765,7 @@ GetAgentJobResponse Client::getAgentJob(const GetAgentJobRequest &request) {
 }
 
 /**
- * @summary Retrieves the information of a specified category and the list of its subcategories (immediate child categories).
+ * @summary Retrieves the details of a specified category and a list of its subcategories.
  *
  * @param request GetAssetCategoryRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -546,7 +796,7 @@ GetAssetCategoryResponse Client::getAssetCategoryWithOptions(const GetAssetCateg
 }
 
 /**
- * @summary Retrieves the information of a specified category and the list of its subcategories (immediate child categories).
+ * @summary Retrieves the details of a specified category and a list of its subcategories.
  *
  * @param request GetAssetCategoryRequest
  * @return GetAssetCategoryResponse
@@ -601,8 +851,8 @@ GetImageGenerationJobResponse Client::getImageGenerationJob(const GetImageGenera
 /**
  * @summary Queries an infinite canvas.
  *
- * @description ## Description
- * This API is used to query a media asset content understanding job.
+ * @description ## Request description
+ * This API queries media asset content understanding jobs.
  *
  * @param request GetInfiniteCanvasRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -635,8 +885,8 @@ GetInfiniteCanvasResponse Client::getInfiniteCanvasWithOptions(const GetInfinite
 /**
  * @summary Queries an infinite canvas.
  *
- * @description ## Description
- * This API is used to query a media asset content understanding job.
+ * @description ## Request description
+ * This API queries media asset content understanding jobs.
  *
  * @param request GetInfiniteCanvasRequest
  * @return GetInfiniteCanvasResponse
@@ -647,10 +897,10 @@ GetInfiniteCanvasResponse Client::getInfiniteCanvas(const GetInfiniteCanvasReque
 }
 
 /**
- * @summary Queries a media asset.
+ * @summary Queries media assets.
  *
- * @description ## Operation description
- * This API operation is used to query a media content analysis job.
+ * @description ## Request description
+ * This API operation queries media asset content understanding jobs.
  *
  * @param request GetMediaRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -693,10 +943,10 @@ GetMediaResponse Client::getMediaWithOptions(const GetMediaRequest &request, con
 }
 
 /**
- * @summary Queries a media asset.
+ * @summary Queries media assets.
  *
- * @description ## Operation description
- * This API operation is used to query a media content analysis job.
+ * @description ## Request description
+ * This API operation queries media asset content understanding jobs.
  *
  * @param request GetMediaRequest
  * @return GetMediaResponse
@@ -755,6 +1005,52 @@ GetMediaComprehensionJobResponse Client::getMediaComprehensionJob(const GetMedia
 }
 
 /**
+ * @summary Queries the details of a project.
+ *
+ * @description Queries the basic information of a project and the project permissions of the current caller by ProjectId. The project information is located in the Project object of the response and does not include the project asset list.
+ *
+ * @param request GetProjectRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetProjectResponse
+ */
+GetProjectResponse Client::getProjectWithOptions(const GetProjectRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasProjectId()) {
+    query["ProjectId"] = request.getProjectId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "GetProject"},
+    {"version" , "2026-07-07"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetProjectResponse>();
+}
+
+/**
+ * @summary Queries the details of a project.
+ *
+ * @description Queries the basic information of a project and the project permissions of the current caller by ProjectId. The project information is located in the Project object of the response and does not include the project asset list.
+ *
+ * @param request GetProjectRequest
+ * @return GetProjectResponse
+ */
+GetProjectResponse Client::getProject(const GetProjectRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return getProjectWithOptions(request, runtime);
+}
+
+/**
  * @summary Queries a creative script generation task.
  *
  * @param request GetRemakeScriptJobRequest
@@ -797,7 +1093,55 @@ GetRemakeScriptJobResponse Client::getRemakeScriptJob(const GetRemakeScriptJobRe
 }
 
 /**
- * @summary Queries a video creative generation job.
+ * @summary Queries a video character replacement task.
+ *
+ * @description Queries the status and result of a single task by using the JobId returned by the submit operation. When Status is Finished, you can read the output media assets in Result. Executing indicates that the task is still running.
+ * This operation uses AppParams to return the task input parameters. The corresponding field name in the batch query operation is AppInputConfig. The output results are categorized into ImageResult, VideoResult, and AudioResult. Each item contains MediaId and OutputUrl.
+ *
+ * @param request GetVideoCharacterReplaceJobRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetVideoCharacterReplaceJobResponse
+ */
+GetVideoCharacterReplaceJobResponse Client::getVideoCharacterReplaceJobWithOptions(const GetVideoCharacterReplaceJobRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasJobId()) {
+    query["JobId"] = request.getJobId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "GetVideoCharacterReplaceJob"},
+    {"version" , "2026-07-07"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetVideoCharacterReplaceJobResponse>();
+}
+
+/**
+ * @summary Queries a video character replacement task.
+ *
+ * @description Queries the status and result of a single task by using the JobId returned by the submit operation. When Status is Finished, you can read the output media assets in Result. Executing indicates that the task is still running.
+ * This operation uses AppParams to return the task input parameters. The corresponding field name in the batch query operation is AppInputConfig. The output results are categorized into ImageResult, VideoResult, and AudioResult. Each item contains MediaId and OutputUrl.
+ *
+ * @param request GetVideoCharacterReplaceJobRequest
+ * @return GetVideoCharacterReplaceJobResponse
+ */
+GetVideoCharacterReplaceJobResponse Client::getVideoCharacterReplaceJob(const GetVideoCharacterReplaceJobRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return getVideoCharacterReplaceJobWithOptions(request, runtime);
+}
+
+/**
+ * @summary Queries video creative generation jobs.
  *
  * @param request GetVideoCreativeGenerationJobRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -828,7 +1172,7 @@ GetVideoCreativeGenerationJobResponse Client::getVideoCreativeGenerationJobWithO
 }
 
 /**
- * @summary Queries a video creative generation job.
+ * @summary Queries video creative generation jobs.
  *
  * @param request GetVideoCreativeGenerationJobRequest
  * @return GetVideoCreativeGenerationJobResponse
@@ -839,9 +1183,9 @@ GetVideoCreativeGenerationJobResponse Client::getVideoCreativeGenerationJob(cons
 }
 
 /**
- * @summary Queries the status, input parameters, and video result of a video text erasure task.
+ * @summary Queries the status, input parameters, and video results of a video text removal job.
  *
- * @description Queries the status, input, parameters, and desired state result of a video text erasure task based on `JobId`.
+ * @description Queries the status, input, parameters, and final results of a video text removal job based on the `JobId`.
  *
  * @param request GetVideoDetextJobRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -872,9 +1216,9 @@ GetVideoDetextJobResponse Client::getVideoDetextJobWithOptions(const GetVideoDet
 }
 
 /**
- * @summary Queries the status, input parameters, and video result of a video text erasure task.
+ * @summary Queries the status, input parameters, and video results of a video text removal job.
  *
- * @description Queries the status, input, parameters, and desired state result of a video text erasure task based on `JobId`.
+ * @description Queries the status, input, parameters, and final results of a video text removal job based on the `JobId`.
  *
  * @param request GetVideoDetextJobRequest
  * @return GetVideoDetextJobResponse
@@ -885,7 +1229,7 @@ GetVideoDetextJobResponse Client::getVideoDetextJob(const GetVideoDetextJobReque
 }
 
 /**
- * @summary Queries a video generation task.
+ * @summary Queries a video generation job.
  *
  * @param request GetVideoGenerationJobRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -920,7 +1264,7 @@ GetVideoGenerationJobResponse Client::getVideoGenerationJobWithOptions(const Get
 }
 
 /**
- * @summary Queries a video generation task.
+ * @summary Queries a video generation job.
  *
  * @param request GetVideoGenerationJobRequest
  * @return GetVideoGenerationJobResponse
@@ -928,6 +1272,52 @@ GetVideoGenerationJobResponse Client::getVideoGenerationJobWithOptions(const Get
 GetVideoGenerationJobResponse Client::getVideoGenerationJob(const GetVideoGenerationJobRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return getVideoGenerationJobWithOptions(request, runtime);
+}
+
+/**
+ * @summary Queries a content understanding and creative script generation task.
+ *
+ * @description Queries the task status based on the JobId returned by SubmitVideoRemakeJob. Upon completion, returns the download URLs of the JSON files for the video content understanding results and the creative script. If the task fails, returns ErrorCode and ErrorMessage.
+ *
+ * @param request GetVideoRemakeJobRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetVideoRemakeJobResponse
+ */
+GetVideoRemakeJobResponse Client::getVideoRemakeJobWithOptions(const GetVideoRemakeJobRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasJobId()) {
+    query["JobId"] = request.getJobId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "GetVideoRemakeJob"},
+    {"version" , "2026-07-07"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetVideoRemakeJobResponse>();
+}
+
+/**
+ * @summary Queries a content understanding and creative script generation task.
+ *
+ * @description Queries the task status based on the JobId returned by SubmitVideoRemakeJob. Upon completion, returns the download URLs of the JSON files for the video content understanding results and the creative script. If the task fails, returns ErrorCode and ErrorMessage.
+ *
+ * @param request GetVideoRemakeJobRequest
+ * @return GetVideoRemakeJobResponse
+ */
+GetVideoRemakeJobResponse Client::getVideoRemakeJob(const GetVideoRemakeJobRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return getVideoRemakeJobWithOptions(request, runtime);
 }
 
 /**
@@ -975,7 +1365,7 @@ GetVideoRenderJobResponse Client::getVideoRenderJob(const GetVideoRenderJobReque
 /**
  * @summary Queries the status, input parameters, and multilingual outputs of a video translation job.
  *
- * @description Queries the status, input, parameters, and final results of a video translation job by `JobId`.
+ * @description Queries the status, input, parameters, and final results of a video translation job based on JobId.
  *
  * @param request GetVideoTranslationJobRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1008,7 +1398,7 @@ GetVideoTranslationJobResponse Client::getVideoTranslationJobWithOptions(const G
 /**
  * @summary Queries the status, input parameters, and multilingual outputs of a video translation job.
  *
- * @description Queries the status, input, parameters, and final results of a video translation job by `JobId`.
+ * @description Queries the status, input, parameters, and final results of a video translation job based on JobId.
  *
  * @param request GetVideoTranslationJobRequest
  * @return GetVideoTranslationJobResponse
@@ -1019,7 +1409,7 @@ GetVideoTranslationJobResponse Client::getVideoTranslationJob(const GetVideoTran
 }
 
 /**
- * @summary Retrieves the membership plan and credit information for a Yike primary account.
+ * @summary Retrieves the membership plan and credit information of the Yike main account.
  *
  * @param request GetYikeAccountCreditRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1043,7 +1433,7 @@ GetYikeAccountCreditResponse Client::getYikeAccountCreditWithOptions(const GetYi
 }
 
 /**
- * @summary Retrieves the membership plan and credit information for a Yike primary account.
+ * @summary Retrieves the membership plan and credit information of the Yike main account.
  *
  * @param request GetYikeAccountCreditRequest
  * @return GetYikeAccountCreditResponse
@@ -1054,7 +1444,7 @@ GetYikeAccountCreditResponse Client::getYikeAccountCredit(const GetYikeAccountCr
 }
 
 /**
- * @summary Queries the actual credit consumption of a task.
+ * @summary Queries the actual credits consumed by a task.
  *
  * @param request GetYikeJobCreditRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1085,7 +1475,7 @@ GetYikeJobCreditResponse Client::getYikeJobCreditWithOptions(const GetYikeJobCre
 }
 
 /**
- * @summary Queries the actual credit consumption of a task.
+ * @summary Queries the actual credits consumed by a task.
  *
  * @param request GetYikeJobCreditRequest
  * @return GetYikeJobCreditResponse
@@ -1096,10 +1486,10 @@ GetYikeJobCreditResponse Client::getYikeJobCredit(const GetYikeJobCreditRequest 
 }
 
 /**
- * @summary Imports a media asset.
+ * @summary Imports media assets.
  *
  * @description ## Request description
- * This API is used to query media content analysis jobs.
+ * This API operation queries media content understanding jobs.
  *
  * @param request ImportMediaRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1152,6 +1542,10 @@ ImportMediaResponse Client::importMediaWithOptions(const ImportMediaRequest &req
     query["Overwrite"] = request.getOverwrite();
   }
 
+  if (!!request.hasProjectId()) {
+    query["ProjectId"] = request.getProjectId();
+  }
+
   if (!!request.hasRegisterConfig()) {
     query["RegisterConfig"] = request.getRegisterConfig();
   }
@@ -1186,10 +1580,10 @@ ImportMediaResponse Client::importMediaWithOptions(const ImportMediaRequest &req
 }
 
 /**
- * @summary Imports a media asset.
+ * @summary Imports media assets.
  *
  * @description ## Request description
- * This API is used to query media content analysis jobs.
+ * This API operation queries media content understanding jobs.
  *
  * @param request ImportMediaRequest
  * @return ImportMediaResponse
@@ -1200,7 +1594,7 @@ ImportMediaResponse Client::importMedia(const ImportMediaRequest &request) {
 }
 
 /**
- * @summary Retrieves a paged list of categories.
+ * @summary Retrieves a paginated list of categories.
  *
  * @param request ListAssetCategoriesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1235,7 +1629,7 @@ ListAssetCategoriesResponse Client::listAssetCategoriesWithOptions(const ListAss
 }
 
 /**
- * @summary Retrieves a paged list of categories.
+ * @summary Retrieves a paginated list of categories.
  *
  * @param request ListAssetCategoriesRequest
  * @return ListAssetCategoriesResponse
@@ -1249,7 +1643,7 @@ ListAssetCategoriesResponse Client::listAssetCategories(const ListAssetCategorie
  * @summary Queries the list of infinite canvases.
  *
  * @description ## Request description
- * This API operation queries media asset content understanding jobs.
+ * This operation queries media asset content understanding jobs.
  *
  * @param request ListInfiniteCanvasesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1307,7 +1701,7 @@ ListInfiniteCanvasesResponse Client::listInfiniteCanvasesWithOptions(const ListI
  * @summary Queries the list of infinite canvases.
  *
  * @description ## Request description
- * This API operation queries media asset content understanding jobs.
+ * This operation queries media asset content understanding jobs.
  *
  * @param request ListInfiniteCanvasesRequest
  * @return ListInfiniteCanvasesResponse
@@ -1318,7 +1712,165 @@ ListInfiniteCanvasesResponse Client::listInfiniteCanvases(const ListInfiniteCanv
 }
 
 /**
- * @summary Queries media assets that match the specified parameters.
+ * @summary Queries the list of projects.
+ *
+ * @description Queries the list of projects accessible to the current caller. You can use WorkspaceId to filter projects by workspace.
+ * For pagination, specify both PageNo and PageSize with valid positive integers starting from 1. If valid values are not provided for both parameters, the query defaults to page 1 with 10 entries per page. The response returns ProjectList but does not return TotalCount. MaxResults and NextToken are retained for compatibility and are not used for current pagination.
+ *
+ * @param request ListProjectsRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListProjectsResponse
+ */
+ListProjectsResponse Client::listProjectsWithOptions(const ListProjectsRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasPageNo()) {
+    query["PageNo"] = request.getPageNo();
+  }
+
+  if (!!request.hasPageSize()) {
+    query["PageSize"] = request.getPageSize();
+  }
+
+  if (!!request.hasWorkspaceId()) {
+    query["WorkspaceId"] = request.getWorkspaceId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ListProjects"},
+    {"version" , "2026-07-07"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListProjectsResponse>();
+}
+
+/**
+ * @summary Queries the list of projects.
+ *
+ * @description Queries the list of projects accessible to the current caller. You can use WorkspaceId to filter projects by workspace.
+ * For pagination, specify both PageNo and PageSize with valid positive integers starting from 1. If valid values are not provided for both parameters, the query defaults to page 1 with 10 entries per page. The response returns ProjectList but does not return TotalCount. MaxResults and NextToken are retained for compatibility and are not used for current pagination.
+ *
+ * @param request ListProjectsRequest
+ * @return ListProjectsResponse
+ */
+ListProjectsResponse Client::listProjects(const ListProjectsRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return listProjectsWithOptions(request, runtime);
+}
+
+/**
+ * @summary Queries a list of workspaces.
+ *
+ * @description Queries a list of workspaces accessible to the current caller. Pagination is supported by using PageNo and PageSize. The default value of PageNo is 1, and the default value of PageSize is 10. The response includes WorkspaceList and TotalCount. The ID of the default project for a workspace is returned in the DefaultProjectId field.
+ *
+ * @param request ListWorkspacesRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListWorkspacesResponse
+ */
+ListWorkspacesResponse Client::listWorkspacesWithOptions(const ListWorkspacesRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasPageNo()) {
+    query["PageNo"] = request.getPageNo();
+  }
+
+  if (!!request.hasPageSize()) {
+    query["PageSize"] = request.getPageSize();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ListWorkspaces"},
+    {"version" , "2026-07-07"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListWorkspacesResponse>();
+}
+
+/**
+ * @summary Queries a list of workspaces.
+ *
+ * @description Queries a list of workspaces accessible to the current caller. Pagination is supported by using PageNo and PageSize. The default value of PageNo is 1, and the default value of PageSize is 10. The response includes WorkspaceList and TotalCount. The ID of the default project for a workspace is returned in the DefaultProjectId field.
+ *
+ * @param request ListWorkspacesRequest
+ * @return ListWorkspacesResponse
+ */
+ListWorkspacesResponse Client::listWorkspaces(const ListWorkspacesRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return listWorkspacesWithOptions(request, runtime);
+}
+
+/**
+ * @summary Pre-validates a video character replacement task.
+ *
+ * @description Validates the input materials of a specified application before submitting a task. AppParams is a JSON-serialized string. The field names must be consistent with the input definition of the application corresponding to AppId. Image, audio, and video materials must match the input types and be accessible.
+ * If Status is Success, the validation passes and Result is an empty array. If Status is Failed, Result returns the failed parameter Key and ErrorCode for each item. This operation does not create a task. After the validation passes, call SubmitVideoCharacterReplaceJob to submit the task.
+ *
+ * @param request PrecheckVideoCharacterReplaceJobRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return PrecheckVideoCharacterReplaceJobResponse
+ */
+PrecheckVideoCharacterReplaceJobResponse Client::precheckVideoCharacterReplaceJobWithOptions(const PrecheckVideoCharacterReplaceJobRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasAppId()) {
+    query["AppId"] = request.getAppId();
+  }
+
+  if (!!request.hasAppParams()) {
+    query["AppParams"] = request.getAppParams();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "PrecheckVideoCharacterReplaceJob"},
+    {"version" , "2026-07-07"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<PrecheckVideoCharacterReplaceJobResponse>();
+}
+
+/**
+ * @summary Pre-validates a video character replacement task.
+ *
+ * @description Validates the input materials of a specified application before submitting a task. AppParams is a JSON-serialized string. The field names must be consistent with the input definition of the application corresponding to AppId. Image, audio, and video materials must match the input types and be accessible.
+ * If Status is Success, the validation passes and Result is an empty array. If Status is Failed, Result returns the failed parameter Key and ErrorCode for each item. This operation does not create a task. After the validation passes, call SubmitVideoCharacterReplaceJob to submit the task.
+ *
+ * @param request PrecheckVideoCharacterReplaceJobRequest
+ * @return PrecheckVideoCharacterReplaceJobResponse
+ */
+PrecheckVideoCharacterReplaceJobResponse Client::precheckVideoCharacterReplaceJob(const PrecheckVideoCharacterReplaceJobRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return precheckVideoCharacterReplaceJobWithOptions(request, runtime);
+}
+
+/**
+ * @summary Retrieves media asset information that matches the specified parameters.
  *
  * @param request SearchMediaRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1347,6 +1899,10 @@ SearchMediaResponse Client::searchMediaWithOptions(const SearchMediaRequest &req
     query["PageSize"] = request.getPageSize();
   }
 
+  if (!!request.hasProjectId()) {
+    query["ProjectId"] = request.getProjectId();
+  }
+
   if (!!request.hasScrollToken()) {
     query["ScrollToken"] = request.getScrollToken();
   }
@@ -1373,7 +1929,7 @@ SearchMediaResponse Client::searchMediaWithOptions(const SearchMediaRequest &req
 }
 
 /**
- * @summary Queries media assets that match the specified parameters.
+ * @summary Retrieves media asset information that matches the specified parameters.
  *
  * @param request SearchMediaRequest
  * @return SearchMediaResponse
@@ -1384,7 +1940,7 @@ SearchMediaResponse Client::searchMedia(const SearchMediaRequest &request) {
 }
 
 /**
- * @summary Submits an agent asynchronous node.
+ * @summary Submits an asynchronous task for an agent node.
  *
  * @param request SubmitAgentJobRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1435,7 +1991,7 @@ SubmitAgentJobResponse Client::submitAgentJobWithOptions(const SubmitAgentJobReq
 }
 
 /**
- * @summary Submits an agent asynchronous node.
+ * @summary Submits an asynchronous task for an agent node.
  *
  * @param request SubmitAgentJobRequest
  * @return SubmitAgentJobResponse
@@ -1446,7 +2002,7 @@ SubmitAgentJobResponse Client::submitAgentJob(const SubmitAgentJobRequest &reque
 }
 
 /**
- * @summary Submits an image generation request.
+ * @summary Submits an image generation task.
  *
  * @param request SubmitImageGenerationJobRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1513,7 +2069,7 @@ SubmitImageGenerationJobResponse Client::submitImageGenerationJobWithOptions(con
 }
 
 /**
- * @summary Submits an image generation request.
+ * @summary Submits an image generation task.
  *
  * @param request SubmitImageGenerationJobRequest
  * @return SubmitImageGenerationJobResponse
@@ -1586,7 +2142,7 @@ SubmitMediaComprehensionJobResponse Client::submitMediaComprehensionJob(const Su
 /**
  * @summary Submits a creative script generation task.
  *
- * @description This operation generates a new voiceover script based on content understanding results and new product or avatar information. It also supports passing custom parameters through the UserData field, which are returned as-is in callbacks.
+ * @description This API generates a new voiceover script based on content understanding results and new product or avatar information. It also supports passing custom parameters through the UserData field, which are returned as-is in the callback.
  *
  * @param request SubmitRemakeScriptJobRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1627,7 +2183,7 @@ SubmitRemakeScriptJobResponse Client::submitRemakeScriptJobWithOptions(const Sub
 /**
  * @summary Submits a creative script generation task.
  *
- * @description This operation generates a new voiceover script based on content understanding results and new product or avatar information. It also supports passing custom parameters through the UserData field, which are returned as-is in callbacks.
+ * @description This API generates a new voiceover script based on content understanding results and new product or avatar information. It also supports passing custom parameters through the UserData field, which are returned as-is in the callback.
  *
  * @param request SubmitRemakeScriptJobRequest
  * @return SubmitRemakeScriptJobResponse
@@ -1635,6 +2191,66 @@ SubmitRemakeScriptJobResponse Client::submitRemakeScriptJobWithOptions(const Sub
 SubmitRemakeScriptJobResponse Client::submitRemakeScriptJob(const SubmitRemakeScriptJobRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return submitRemakeScriptJobWithOptions(request, runtime);
+}
+
+/**
+ * @summary Submits a video character replacement task.
+ *
+ * @description Submits a video character replacement node via asynchronous commit. Invoke PrecheckVideoCharacterReplaceJob with the same AppId and AppParams to validate the input assets first.
+ * The returned JobId only indicates that the node is submitted, not completed. Use GetVideoCharacterReplaceJob or BatchGetVideoCharacterReplaceJobs to query the status and output results. ProjectId specifies the project, and FolderId specifies the file folder.
+ *
+ * @param request SubmitVideoCharacterReplaceJobRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return SubmitVideoCharacterReplaceJobResponse
+ */
+SubmitVideoCharacterReplaceJobResponse Client::submitVideoCharacterReplaceJobWithOptions(const SubmitVideoCharacterReplaceJobRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasAppId()) {
+    body["AppId"] = request.getAppId();
+  }
+
+  if (!!request.hasAppParams()) {
+    body["AppParams"] = request.getAppParams();
+  }
+
+  if (!!request.hasFolderId()) {
+    body["FolderId"] = request.getFolderId();
+  }
+
+  if (!!request.hasProjectId()) {
+    body["ProjectId"] = request.getProjectId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"body" , Utils::Utils::parseToMap(body)}
+  }).get<map<string, json>>());
+  Params params = Params(json({
+    {"action" , "SubmitVideoCharacterReplaceJob"},
+    {"version" , "2026-07-07"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<SubmitVideoCharacterReplaceJobResponse>();
+}
+
+/**
+ * @summary Submits a video character replacement task.
+ *
+ * @description Submits a video character replacement node via asynchronous commit. Invoke PrecheckVideoCharacterReplaceJob with the same AppId and AppParams to validate the input assets first.
+ * The returned JobId only indicates that the node is submitted, not completed. Use GetVideoCharacterReplaceJob or BatchGetVideoCharacterReplaceJobs to query the status and output results. ProjectId specifies the project, and FolderId specifies the file folder.
+ *
+ * @param request SubmitVideoCharacterReplaceJobRequest
+ * @return SubmitVideoCharacterReplaceJobResponse
+ */
+SubmitVideoCharacterReplaceJobResponse Client::submitVideoCharacterReplaceJob(const SubmitVideoCharacterReplaceJobRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return submitVideoCharacterReplaceJobWithOptions(request, runtime);
 }
 
 /**
@@ -1712,9 +2328,9 @@ SubmitVideoCreativeGenerationJobResponse Client::submitVideoCreativeGenerationJo
 }
 
 /**
- * @summary Submits an asynchronous video text removal job. Supports full-frame removal, time range–based removal, and region-based removal.
+ * @summary Submits an asynchronous video text erasure task that supports full-area erasure, time ranges, and specified regions.
  *
- * @description Submits an asynchronous video text removal job. The input can be an accessible video URL or a Yike media asset ID. You can configure the removal time range and text regions.
+ * @description Submits an asynchronous video text erasure task. The input can be an accessible video URL or a Yike video media asset ID. You can configure the erasure time range and text region.
  *
  * @param request SubmitVideoDetextJobRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1761,9 +2377,9 @@ SubmitVideoDetextJobResponse Client::submitVideoDetextJobWithOptions(const Submi
 }
 
 /**
- * @summary Submits an asynchronous video text removal job. Supports full-frame removal, time range–based removal, and region-based removal.
+ * @summary Submits an asynchronous video text erasure task that supports full-area erasure, time ranges, and specified regions.
  *
- * @description Submits an asynchronous video text removal job. The input can be an accessible video URL or a Yike media asset ID. You can configure the removal time range and text regions.
+ * @description Submits an asynchronous video text erasure task. The input can be an accessible video URL or a Yike video media asset ID. You can configure the erasure time range and text region.
  *
  * @param request SubmitVideoDetextJobRequest
  * @return SubmitVideoDetextJobResponse
@@ -1860,6 +2476,60 @@ SubmitVideoGenerationJobResponse Client::submitVideoGenerationJob(const SubmitVi
 }
 
 /**
+ * @summary Submits a content understanding and creative script generation task.
+ *
+ * @description Submits the original video and remake information such as new products and characters to asynchronously complete video content understanding and creative script generation. Uses the returned JobId to call GetVideoRemakeJob to query the progress and outputs. Video rendering requires a separate call to SubmitVideoRenderJob.
+ *
+ * @param request SubmitVideoRemakeJobRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return SubmitVideoRemakeJobResponse
+ */
+SubmitVideoRemakeJobResponse Client::submitVideoRemakeJobWithOptions(const SubmitVideoRemakeJobRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasInput()) {
+    query["Input"] = request.getInput();
+  }
+
+  if (!!request.hasRemakeParams()) {
+    query["RemakeParams"] = request.getRemakeParams();
+  }
+
+  if (!!request.hasUserData()) {
+    query["UserData"] = request.getUserData();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "SubmitVideoRemakeJob"},
+    {"version" , "2026-07-07"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<SubmitVideoRemakeJobResponse>();
+}
+
+/**
+ * @summary Submits a content understanding and creative script generation task.
+ *
+ * @description Submits the original video and remake information such as new products and characters to asynchronously complete video content understanding and creative script generation. Uses the returned JobId to call GetVideoRemakeJob to query the progress and outputs. Video rendering requires a separate call to SubmitVideoRenderJob.
+ *
+ * @param request SubmitVideoRemakeJobRequest
+ * @return SubmitVideoRemakeJobResponse
+ */
+SubmitVideoRemakeJobResponse Client::submitVideoRemakeJob(const SubmitVideoRemakeJobRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return submitVideoRemakeJobWithOptions(request, runtime);
+}
+
+/**
  * @summary Submits a video rendering and compositing task.
  *
  * @param request SubmitVideoRenderJobRequest
@@ -1910,9 +2580,9 @@ SubmitVideoRenderJobResponse Client::submitVideoRenderJob(const SubmitVideoRende
 }
 
 /**
- * @summary Submits an asynchronous video translation task that supports subtitle translation, voice translation, primary subtitle erasure, and on-screen text translation.
+ * @summary Submits an asynchronous video translation task that supports subtitle translation, voice translation, primary subtitle removal, and on-screen text translation.
  *
- * @description Submits an asynchronous video translation task. The input supports media URLs or Yike media asset IDs. The task parameters are used to select the source language, target language, and the translation capabilities to enable.
+ * @description Submits an asynchronous video translation task. The input supports a media URL or a Yike media asset ID. The task parameters are used to select the source language, target language, and the translation capabilities to be enabled.
  *
  * @param request SubmitVideoTranslationJobRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1971,9 +2641,9 @@ SubmitVideoTranslationJobResponse Client::submitVideoTranslationJobWithOptions(c
 }
 
 /**
- * @summary Submits an asynchronous video translation task that supports subtitle translation, voice translation, primary subtitle erasure, and on-screen text translation.
+ * @summary Submits an asynchronous video translation task that supports subtitle translation, voice translation, primary subtitle removal, and on-screen text translation.
  *
- * @description Submits an asynchronous video translation task. The input supports media URLs or Yike media asset IDs. The task parameters are used to select the source language, target language, and the translation capabilities to enable.
+ * @description Submits an asynchronous video translation task. The input supports a media URL or a Yike media asset ID. The task parameters are used to select the source language, target language, and the translation capabilities to be enabled.
  *
  * @param request SubmitVideoTranslationJobRequest
  * @return SubmitVideoTranslationJobResponse
@@ -1986,7 +2656,7 @@ SubmitVideoTranslationJobResponse Client::submitVideoTranslationJob(const Submit
 /**
  * @summary Updates a media asset category.
  *
- * @description After creating a media asset category, you can call this operation to locate and update the name of the category by category ID.
+ * @description After you create a media asset category, you can call this operation to update the name of the category by specifying its ID.
  *
  * @param request UpdateAssetCategoryRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2023,7 +2693,7 @@ UpdateAssetCategoryResponse Client::updateAssetCategoryWithOptions(const UpdateA
 /**
  * @summary Updates a media asset category.
  *
- * @description After creating a media asset category, you can call this operation to locate and update the name of the category by category ID.
+ * @description After you create a media asset category, you can call this operation to update the name of the category by specifying its ID.
  *
  * @param request UpdateAssetCategoryRequest
  * @return UpdateAssetCategoryResponse
@@ -2036,8 +2706,8 @@ UpdateAssetCategoryResponse Client::updateAssetCategory(const UpdateAssetCategor
 /**
  * @summary Updates the information of an infinite canvas.
  *
- * @description ## Operation description
- * This API operation is used to query media asset content understanding jobs.
+ * @description ## Request description
+ * This API queries media asset content understanding jobs.
  *
  * @param request UpdateInfiniteCanvasRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2078,8 +2748,8 @@ UpdateInfiniteCanvasResponse Client::updateInfiniteCanvasWithOptions(const Updat
 /**
  * @summary Updates the information of an infinite canvas.
  *
- * @description ## Operation description
- * This API operation is used to query media asset content understanding jobs.
+ * @description ## Request description
+ * This API queries media asset content understanding jobs.
  *
  * @param request UpdateInfiniteCanvasRequest
  * @return UpdateInfiniteCanvasResponse
@@ -2092,8 +2762,8 @@ UpdateInfiniteCanvasResponse Client::updateInfiniteCanvas(const UpdateInfiniteCa
 /**
  * @summary Updates media asset information.
  *
- * @description ## Operation description
- * This API operation is used to query media content understanding jobs.
+ * @description ## Request description
+ * This API queries media asset content understanding jobs.
  *
  * @param request UpdateMediaRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2166,8 +2836,8 @@ UpdateMediaResponse Client::updateMediaWithOptions(const UpdateMediaRequest &req
 /**
  * @summary Updates media asset information.
  *
- * @description ## Operation description
- * This API operation is used to query media content understanding jobs.
+ * @description ## Request description
+ * This API queries media asset content understanding jobs.
  *
  * @param request UpdateMediaRequest
  * @return UpdateMediaResponse
@@ -2175,6 +2845,56 @@ UpdateMediaResponse Client::updateMediaWithOptions(const UpdateMediaRequest &req
 UpdateMediaResponse Client::updateMedia(const UpdateMediaRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return updateMediaWithOptions(request, runtime);
+}
+
+/**
+ * @summary Updates the name of a project.
+ *
+ * @description Updates the name of a project specified by ProjectId. Use Title to specify the new name. This operation only supports modifying the project name. You cannot modify the description or cover image. The caller must have edit permissions for the project.
+ *
+ * @param request UpdateProjectRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return UpdateProjectResponse
+ */
+UpdateProjectResponse Client::updateProjectWithOptions(const UpdateProjectRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasProjectId()) {
+    query["ProjectId"] = request.getProjectId();
+  }
+
+  if (!!request.hasTitle()) {
+    query["Title"] = request.getTitle();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "UpdateProject"},
+    {"version" , "2026-07-07"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<UpdateProjectResponse>();
+}
+
+/**
+ * @summary Updates the name of a project.
+ *
+ * @description Updates the name of a project specified by ProjectId. Use Title to specify the new name. This operation only supports modifying the project name. You cannot modify the description or cover image. The caller must have edit permissions for the project.
+ *
+ * @param request UpdateProjectRequest
+ * @return UpdateProjectResponse
+ */
+UpdateProjectResponse Client::updateProject(const UpdateProjectRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return updateProjectWithOptions(request, runtime);
 }
 } // namespace AlibabaCloud
 } // namespace Yike20260707

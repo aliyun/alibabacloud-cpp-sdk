@@ -124,27 +124,27 @@ namespace Models
 
 
     protected:
-      // The ID of the online editing project, which can be used for secondary editing of the produced video.
+      // The ID of the online editing project, which can be used for secondary editing of the final video.
       shared_ptr<string> editingProjectId_ {};
-      // The error code. This parameter is returned when the job is in the Failed state.
+      // The error code, returned when the task status is Failed.
       shared_ptr<string> errorCode_ {};
-      // The error message. This parameter is returned when the job is in the Failed state.
+      // The error message of the String type, returned when the task status is Failed.
       shared_ptr<string> errorMessage_ {};
       // The job ID.
       shared_ptr<string> jobId_ {};
-      // The voiceover language of the produced video.
+      // The voiceover language of the final video.
       shared_ptr<string> language_ {};
       // The download URL of the rendered and composited video.
       shared_ptr<string> result_ {};
-      // The job status. Valid values:
+      // The file status. Valid values:
       // 
-      // - Created: The job is created.
-      // - Executing: The job is being executed.
-      // - Finished: The job is completed.
-      // - Failed: The job failed.
-      // - Deleted: The job is deleted.
+      // - Created: The file is created.
+      // - Executing: The file is executing.
+      // - Finished: The file is finished.
+      // - Failed: The file has failed.
+      // - Deleted: The file is deleted.
       shared_ptr<string> status_ {};
-      // The user-defined parameter, which is a JSON-formatted string.
+      // The user-defined parameters in JSON format.
       shared_ptr<string> userData_ {};
     };
 

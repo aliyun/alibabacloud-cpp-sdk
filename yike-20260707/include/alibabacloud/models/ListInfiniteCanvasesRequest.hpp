@@ -94,7 +94,7 @@ namespace Models
 
 
   protected:
-    // The keyword used to query site monitoring tasks. Note: Fuzzy match is supported based on the task name or task address.
+    // The keyword used to query site monitoring tasks. Note: Fuzzy match is supported based on the task name or task URL.
     shared_ptr<string> keyword_ {};
     // The current page number. Default value: 1.
     shared_ptr<int32_t> pageNo_ {};
@@ -102,11 +102,13 @@ namespace Models
     shared_ptr<int32_t> pageSize_ {};
     // The project ID.
     shared_ptr<string> productionId_ {};
-    // The sort field and sort order. Separate multiple values with commas (,).
+    // The sort fields and sort orders. Separate multiple values with commas (,).
     shared_ptr<string> sortBy_ {};
-    // The sort direction. Valid values:
-    // - Asc: ascending order
-    // - Desc: descending order
+    // The sort direction.
+    // 
+    // Valid values:
+    // - Asc: Ascending order.
+    // - Desc: Descending order.
     // 
     // Default value: Desc.
     shared_ptr<string> sortOrder_ {};

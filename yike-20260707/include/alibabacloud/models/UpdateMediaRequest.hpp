@@ -133,8 +133,9 @@ namespace Models
     // Specifies whether to update the Tags field in append mode.
     shared_ptr<bool> appendTags_ {};
     shared_ptr<string> bizConfig_ {};
+    // The category ID.
     shared_ptr<int64_t> categoryId_ {};
-    // The cover image URL. This parameter is valid only for video media assets.
+    // The URL of the cover image. This parameter is valid only for video media assets.
     shared_ptr<string> coverURL_ {};
     // The description.
     shared_ptr<string> description_ {};
@@ -142,13 +143,13 @@ namespace Models
     shared_ptr<string> dynamicMetaData_ {};
     // The media type of the media asset.
     shared_ptr<string> inputURL_ {};
-    // The media asset ID.
+    // The ID of the media asset.
     shared_ptr<string> mediaId_ {};
-    // The tags. Separate multiple tags with commas (,).
+    // The tags. Separate multiple tags with commas.
     shared_ptr<string> mediaTags_ {};
     // The title.
     shared_ptr<string> title_ {};
-    // The user data. Maximum length: 1024 bytes.
+    // The user data. Maximum size: 1,024 bytes.
     shared_ptr<string> userData_ {};
   };
 

@@ -91,9 +91,9 @@ namespace Models
       shared_ptr<int64_t> categoryId_ {};
       // The media asset category information.
       shared_ptr<string> categoryName_ {};
-      // The category level. The first-level category has a level of 0, the second-level category has a level of 1, and the third-level category has a level of 2.
+      // The level of the category. The level is 0 for level-1 categories, 1 for level-2 categories, and 2 for level-3 categories.
       shared_ptr<int64_t> level_ {};
-      // The parent category ID. If the ParentId parameter is set to empty or a value less than 1, the default return value is -1, which indicates that the created category is a root directory.
+      // The ID of the parent category. If the ParentId parameter is left empty or set to a value less than 1, the default return value is -1, which indicates that the created category is the root folder.
       shared_ptr<int64_t> parentId_ {};
     };
 

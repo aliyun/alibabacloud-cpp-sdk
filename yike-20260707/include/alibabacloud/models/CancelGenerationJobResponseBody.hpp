@@ -61,7 +61,7 @@ namespace Models
     shared_ptr<string> jobId_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};
-    // The task status. The value is Canceled.
+    // The task status, which is Canceled.
     shared_ptr<string> status_ {};
   };
 

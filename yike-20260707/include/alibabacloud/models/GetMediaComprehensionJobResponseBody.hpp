@@ -120,23 +120,23 @@ namespace Models
     protected:
       // The error code. This parameter is returned when the status is `Failed`.
       shared_ptr<string> errorCode_ {};
-      // The error message. This parameter is of the String type and is returned when the job status is Failed.
+      // The error message. The value is a string. This parameter is returned when the status is Failed.
       shared_ptr<string> errorMessage_ {};
       // The job ID.
       shared_ptr<string> jobId_ {};
       // The media asset ID.
       shared_ptr<string> mediaId_ {};
-      // The analysis result. The value is a JSON string.
+      // The analysis result, which is a JSON-formatted string.
       shared_ptr<string> result_ {};
-      // The job status. Valid values:
+      // The file status. Valid values:
       // 
-      // - **Created**: The job is created.
-      // - **Executing**: The job is being executed.
-      // - **Finished**: The job is completed.
-      // - **Failed**: The job failed.
-      // - **Deleted**: The job is deleted.
+      // - **Created**: Created.
+      // - **Executing**: Executing.
+      // - **Finished**: Finished.
+      // - **Failed**: Failed.
+      // - **Deleted**: Deleted.
       shared_ptr<string> state_ {};
-      // The user-defined parameter. The value is a JSON string.
+      // The user-defined parameter, which is a JSON-formatted string.
       shared_ptr<string> userData_ {};
     };
 
@@ -216,23 +216,23 @@ namespace Models
 
 
     protected:
-      // The error code. This parameter is returned when the job status is Failed.
+      // The error code. This parameter is returned when the status is Failed.
       shared_ptr<string> errorCode_ {};
-      // The error message. This parameter is of the String type and is returned when the job status is Failed.
+      // The error message. The value is a string. This parameter is returned when the status is Failed.
       shared_ptr<string> errorMessage_ {};
       // The list of media asset IDs. If the input is a URL, the registered media asset IDs are returned.
       shared_ptr<vector<string>> mediaIds_ {};
       // The URL of the analysis result file. The file content is in JSON format.
       shared_ptr<string> result_ {};
-      // The job status. Valid values:
+      // The file status. Valid values:
       // 
-      // - **Created**: The job is created.
-      // - **Executing**: The job is being executed.
-      // - **Finished**: The job is completed.
-      // - **Failed**: The job failed.
-      // - **Deleted**: The job is deleted.
+      // - **Created**: Created.
+      // - **Executing**: Executing.
+      // - **Finished**: Finished.
+      // - **Failed**: Failed.
+      // - **Deleted**: Deleted.
       shared_ptr<string> status_ {};
-      // The user-defined parameter. The value is a JSON string.
+      // The user-defined parameter, which is a JSON-formatted string.
       shared_ptr<string> userData_ {};
     };
 

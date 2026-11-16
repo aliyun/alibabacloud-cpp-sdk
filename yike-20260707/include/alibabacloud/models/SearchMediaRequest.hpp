@@ -18,6 +18,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(Match, match_);
       DARABONBA_PTR_TO_JSON(PageNo, pageNo_);
       DARABONBA_PTR_TO_JSON(PageSize, pageSize_);
+      DARABONBA_PTR_TO_JSON(ProjectId, projectId_);
       DARABONBA_PTR_TO_JSON(ScrollToken, scrollToken_);
       DARABONBA_PTR_TO_JSON(SortBy, sortBy_);
     };
@@ -27,6 +28,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(Match, match_);
       DARABONBA_PTR_FROM_JSON(PageNo, pageNo_);
       DARABONBA_PTR_FROM_JSON(PageSize, pageSize_);
+      DARABONBA_PTR_FROM_JSON(ProjectId, projectId_);
       DARABONBA_PTR_FROM_JSON(ScrollToken, scrollToken_);
       DARABONBA_PTR_FROM_JSON(SortBy, sortBy_);
     };
@@ -42,8 +44,8 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->bizConfig_ == nullptr
-        && this->categoryId_ == nullptr && this->match_ == nullptr && this->pageNo_ == nullptr && this->pageSize_ == nullptr && this->scrollToken_ == nullptr
-        && this->sortBy_ == nullptr; };
+        && this->categoryId_ == nullptr && this->match_ == nullptr && this->pageNo_ == nullptr && this->pageSize_ == nullptr && this->projectId_ == nullptr
+        && this->scrollToken_ == nullptr && this->sortBy_ == nullptr; };
     // bizConfig Field Functions 
     bool hasBizConfig() const { return this->bizConfig_ != nullptr;};
     void deleteBizConfig() { this->bizConfig_ = nullptr;};
@@ -79,6 +81,13 @@ namespace Models
     inline SearchMediaRequest& setPageSize(int32_t pageSize) { DARABONBA_PTR_SET_VALUE(pageSize_, pageSize) };
 
 
+    // projectId Field Functions 
+    bool hasProjectId() const { return this->projectId_ != nullptr;};
+    void deleteProjectId() { this->projectId_ = nullptr;};
+    inline string getProjectId() const { DARABONBA_PTR_GET_DEFAULT(projectId_, "") };
+    inline SearchMediaRequest& setProjectId(string projectId) { DARABONBA_PTR_SET_VALUE(projectId_, projectId) };
+
+
     // scrollToken Field Functions 
     bool hasScrollToken() const { return this->scrollToken_ != nullptr;};
     void deleteScrollToken() { this->scrollToken_ = nullptr;};
@@ -94,22 +103,24 @@ namespace Models
 
 
   protected:
-    // The business configuration. The value is a JSON string that can contain ProductionId (project ID).
+    // The business configuration. A JSON string that can contain ProductionId (project ID).
     shared_ptr<string> bizConfig_ {};
     // The category ID. You can obtain the category ID by using one of the following methods:
     // 
     // - When you create a category by calling the CreateAssetCategory operation, the category ID is the value of the CategoryId response parameter.
     // - When you query categories by calling the ListAssetCategories operation, the category ID is the value of the CategoryId parameter in the corresponding returned entry.
     shared_ptr<int64_t> categoryId_ {};
-    // The filter conditions. For the syntax rules, see [Media asset search protocol](https://www.alibabacloud.com/help/en/ims/developer-reference/media-asset-search-filter-description).
+    // The filter conditions. For syntax rules, see [Media asset search protocol](https://www.alibabacloud.com/help/en/ims/developer-reference/media-asset-search-filter-description).
     shared_ptr<string> match_ {};
-    // The current page number. Default value: 1.
+    // The page number. Default value: 1.
     shared_ptr<int32_t> pageNo_ {};
     // The number of entries to return on each page. Default value: 10. Maximum value: 50.
     shared_ptr<int32_t> pageSize_ {};
-    // The pagination token, which is a 32-character string. You do not need to specify this parameter when you send a search request for the first time. If the search request returns data, the server returns this parameter to record the position of the current search data. Record the returned value and specify this parameter in subsequent searches based on the following requirements or recommendations: This parameter is required if you need to traverse all data that matches the search conditions. If the value of the PageNo parameter exceeds 200, specify this parameter to optimize search performance. You can only page forward, and the maximum paging distance is 1,000 media assets.
+    // The project ID.
+    shared_ptr<string> projectId_ {};
+    // The scroll token, which is a 32-character string. You do not need to specify this parameter when you make a search request for the first time. If the search request returns data, the server returns this parameter to record the position of the current search data. Record the returned value and specify this parameter in subsequent searches based on the following requirements or suggestions: This parameter is required to traverse all data that matches the search conditions. If the value of the PageNo parameter exceeds 200, specify this parameter to optimize search performance. You can only scroll forward. The maximum scroll distance is 1,000 media assets.
     shared_ptr<string> scrollToken_ {};
-    // The sort fields and sort orders. Separate multiple values with commas (,). Format: field1:Desc,field2:Asc. The sort direction can only be Asc or Desc.
+    // The sort fields and sort order. Separate multiple fields with commas (,). Format: field1:Desc,field2:Asc. The sort direction can only be Asc or Desc.
     shared_ptr<string> sortBy_ {};
   };
 

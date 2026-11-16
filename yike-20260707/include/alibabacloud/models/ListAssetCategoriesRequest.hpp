@@ -50,7 +50,7 @@ namespace Models
   protected:
     // The current page number. Default value: 1.
     shared_ptr<int32_t> pageNo_ {};
-    // The page size. Default value: 10.
+    // The number of entries per page. Default value: 10.
     shared_ptr<int32_t> pageSize_ {};
   };
 

@@ -78,17 +78,11 @@ namespace Models
 
 
     protected:
-      // The task ID.
+      // The job ID.
       shared_ptr<string> jobId_ {};
-      // The task output JSON string. Different tasks return different structures, which are defined by the business side.
+      // The output JSON string of the job. The returned structure varies by job and is defined by the service provider.
       shared_ptr<string> output_ {};
-      // The task status. Valid values:
-      // 
-      // - Created
-      // - Queuing
-      // - Executing
-      // - Finished
-      // - Failed
+      // The job status. Valid values: Created, Queuing, Executing, Finished, and Failed.
       shared_ptr<string> status_ {};
     };
 
@@ -111,7 +105,7 @@ namespace Models
 
 
   protected:
-    // The task information.
+    // The job information.
     shared_ptr<GetAgentJobResponseBody::Job> job_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};

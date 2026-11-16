@@ -57,7 +57,7 @@ namespace Models
 
 
   protected:
-    // The business error code. It is an empty string if the submission is successful.
+    // The business error code. The value is an empty string if the job is submitted successfully.
     shared_ptr<string> errorCode_ {};
     // The job ID.
     shared_ptr<string> jobId_ {};

@@ -24,6 +24,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(MediaTags, mediaTags_);
       DARABONBA_PTR_TO_JSON(MediaType, mediaType_);
       DARABONBA_PTR_TO_JSON(Overwrite, overwrite_);
+      DARABONBA_PTR_TO_JSON(ProjectId, projectId_);
       DARABONBA_PTR_TO_JSON(RegisterConfig, registerConfig_);
       DARABONBA_PTR_TO_JSON(Title, title_);
       DARABONBA_PTR_TO_JSON(UserData, userData_);
@@ -41,6 +42,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(MediaTags, mediaTags_);
       DARABONBA_PTR_FROM_JSON(MediaType, mediaType_);
       DARABONBA_PTR_FROM_JSON(Overwrite, overwrite_);
+      DARABONBA_PTR_FROM_JSON(ProjectId, projectId_);
       DARABONBA_PTR_FROM_JSON(RegisterConfig, registerConfig_);
       DARABONBA_PTR_FROM_JSON(Title, title_);
       DARABONBA_PTR_FROM_JSON(UserData, userData_);
@@ -60,7 +62,7 @@ namespace Models
     virtual bool empty() const override { return this->bizConfig_ == nullptr
         && this->categoryId_ == nullptr && this->coverURL_ == nullptr && this->description_ == nullptr && this->dynamicMetaData_ == nullptr && this->entityId_ == nullptr
         && this->importSource_ == nullptr && this->inputURL_ == nullptr && this->mediaTags_ == nullptr && this->mediaType_ == nullptr && this->overwrite_ == nullptr
-        && this->registerConfig_ == nullptr && this->title_ == nullptr && this->userData_ == nullptr && this->yikeAssetConfig_ == nullptr; };
+        && this->projectId_ == nullptr && this->registerConfig_ == nullptr && this->title_ == nullptr && this->userData_ == nullptr && this->yikeAssetConfig_ == nullptr; };
     // bizConfig Field Functions 
     bool hasBizConfig() const { return this->bizConfig_ != nullptr;};
     void deleteBizConfig() { this->bizConfig_ = nullptr;};
@@ -138,6 +140,13 @@ namespace Models
     inline ImportMediaRequest& setOverwrite(bool overwrite) { DARABONBA_PTR_SET_VALUE(overwrite_, overwrite) };
 
 
+    // projectId Field Functions 
+    bool hasProjectId() const { return this->projectId_ != nullptr;};
+    void deleteProjectId() { this->projectId_ = nullptr;};
+    inline string getProjectId() const { DARABONBA_PTR_GET_DEFAULT(projectId_, "") };
+    inline ImportMediaRequest& setProjectId(string projectId) { DARABONBA_PTR_SET_VALUE(projectId_, projectId) };
+
+
     // registerConfig Field Functions 
     bool hasRegisterConfig() const { return this->registerConfig_ != nullptr;};
     void deleteRegisterConfig() { this->registerConfig_ = nullptr;};
@@ -168,10 +177,11 @@ namespace Models
 
   protected:
     shared_ptr<string> bizConfig_ {};
+    // The category ID.
     shared_ptr<int64_t> categoryId_ {};
-    // The cover image URL. This parameter is valid only for video media assets.
+    // The URL of the cover image. This parameter is valid only for video media assets.
     shared_ptr<string> coverURL_ {};
-    // The description of the media asset.
+    // The description.
     shared_ptr<string> description_ {};
     // The dynamic metadata.
     shared_ptr<string> dynamicMetaData_ {};
@@ -181,17 +191,19 @@ namespace Models
     shared_ptr<string> importSource_ {};
     // The URL of the media asset.
     shared_ptr<string> inputURL_ {};
-    // The tags of the media asset. Separate multiple tags with commas (,).
+    // The tags. Separate multiple tags with commas.
     shared_ptr<string> mediaTags_ {};
     // The type of the media asset.
     shared_ptr<string> mediaType_ {};
     // Specifies whether to overwrite existing media assets.
     shared_ptr<bool> overwrite_ {};
+    // The project ID.
+    shared_ptr<string> projectId_ {};
     // The configuration for registering the media asset.
     shared_ptr<string> registerConfig_ {};
-    // The title of the media asset.
+    // The title.
     shared_ptr<string> title_ {};
-    // The user data. Maximum length: 1024 bytes.
+    // The user data. Maximum size: 1024 bytes.
     shared_ptr<string> userData_ {};
     shared_ptr<string> yikeAssetConfig_ {};
   };

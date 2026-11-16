@@ -66,13 +66,13 @@ namespace Models
 
 
   protected:
-    // The business configuration. It is a JSON string that can contain ProductionId (the project ID).
+    // The business configuration. A JSON string that can include ProductionId (the project ID).
     shared_ptr<string> bizConfig_ {};
-    // Specifies whether to delete physical files at the same time.
+    // Specifies whether to delete the physical files at the same time.
     shared_ptr<bool> deletePhysicalFiles_ {};
-    // Not supported.
+    // This parameter is not supported.
     shared_ptr<string> inputURLs_ {};
-    // The media asset IDs, separated by commas. Invalid IDs are added to IgnoredList.
+    // The media asset IDs, separated by commas. Invalid IDs are added to the IgnoredList.
     shared_ptr<string> mediaIds_ {};
   };
 

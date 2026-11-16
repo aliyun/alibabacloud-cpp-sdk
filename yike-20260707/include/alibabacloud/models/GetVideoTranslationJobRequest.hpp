@@ -38,7 +38,7 @@ namespace Models
 
 
   protected:
-    // The video translation job ID returned by SubmitVideoTranslationJob.
+    // The ID of the video translation job returned by SubmitVideoTranslationJob.
     // 
     // This parameter is required.
     shared_ptr<string> jobId_ {};
