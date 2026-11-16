@@ -75,15 +75,15 @@ namespace Models
 
 
   protected:
-    // The maximum number of entries to return. Default value: 20. Maximum value: 100.
+    // The maximum number of results to return. Default value: 20. Maximum value: 100.
     shared_ptr<int32_t> maxResults_ {};
     // The pagination token.
     shared_ptr<string> nextToken_ {};
-    // The status used to filter results.
+    // The status used to filter the results.
     shared_ptr<string> status_ {};
-    // The lower bound of the window start time in UNIX seconds.
+    // The lower bound of the window start time, in UNIX seconds.
     shared_ptr<int64_t> windowStartTimeBegin_ {};
-    // The upper bound of the window start time in UNIX seconds.
+    // The upper bound of the window start time, in UNIX seconds.
     shared_ptr<int64_t> windowStartTimeEnd_ {};
   };
 

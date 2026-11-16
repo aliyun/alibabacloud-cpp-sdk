@@ -231,7 +231,7 @@ namespace Models
     protected:
       // The SPL statement for aggregation analysis.
       shared_ptr<string> aggQuery_ {};
-      // The list of data types for each column. This field provides a mapping from column names to data types, such as string, long, double, and json.
+      // The mapping from column names to data types, such as string, long, double, or json.
       shared_ptr<vector<string>> columnTypes_ {};
       // The number of matched log entries.
       shared_ptr<int32_t> count_ {};
@@ -241,25 +241,25 @@ namespace Models
       shared_ptr<double> cpuSec_ {};
       // The query duration in milliseconds.
       shared_ptr<int64_t> elapsedMillisecond_ {};
-      // Specifies whether an SQL query is used.
+      // Indicates whether an SQL query is used.
       shared_ptr<bool> hasSQL_ {};
-      // Specifies whether nanosecond-level ordering is enabled.
+      // Indicates whether nanosecond-level ordering is enabled.
       shared_ptr<bool> isAccurate_ {};
       // The list of result column names.
       shared_ptr<vector<string>> keys_ {};
-      // The maximum number of rows returned in the result.
+      // The maximum number of returned rows.
       shared_ptr<int32_t> limited_ {};
-      // The identifier of the query mode.
+      // The query mode identifier.
       shared_ptr<int32_t> mode_ {};
-      // The number of bytes of processed data.
+      // The number of processed data bytes.
       shared_ptr<int64_t> processedBytes_ {};
       // The number of processed log rows.
       shared_ptr<int64_t> processedRows_ {};
-      // The Simple Log Service (SLS) query progress. A value of Complete indicates that the query is completed.
+      // The Simple Log Service (SLS) query progress. A value of Complete indicates that the query is finished.
       shared_ptr<string> progress_ {};
-      // The number of bytes of scanned raw data.
+      // The number of scanned raw data bytes.
       shared_ptr<int64_t> scanBytes_ {};
-      // The dataset schema of the final pipeline output. The keys are field names, and the type in the values supports text, long, double, and json. The field order is determined by the keys.
+      // The dataset schema for the final output of the pipeline. The keys are field names, and the type in the values supports text, long, double, and json. The field order is determined by the keys field.
       shared_ptr<map<string, MetaSchemaValue>> schema_ {};
       // The column types and aggregation information.
       shared_ptr<vector<Darabonba::Json>> terms_ {};
@@ -295,11 +295,11 @@ namespace Models
 
 
   protected:
-    // The collection of sample rows for the preview result. Each row is a key-value structure. The array contains only the first N rows, up to 5 rows by default, and does not reflect the complete write plan.
+    // The collection of sample rows. This array of maps includes only the first N rows (up to 5 rows by default) and does not reflect the complete write plan.
     shared_ptr<vector<map<string, string>>> data_ {};
     // The query metadata.
     shared_ptr<PreviewPipelineResponseBody::Meta> meta_ {};
-    // The request ID. You can use this ID to locate the request when you troubleshoot issues.
+    // The request ID used to locate the request during troubleshooting.
     shared_ptr<string> requestId_ {};
   };
 

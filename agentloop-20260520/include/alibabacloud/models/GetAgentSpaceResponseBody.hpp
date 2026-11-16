@@ -88,7 +88,9 @@ namespace Models
 
 
     protected:
+      // The tag key.
       shared_ptr<string> key_ {};
+      // The tag value, which can be an empty string.
       shared_ptr<string> value_ {};
     };
 
@@ -139,7 +141,7 @@ namespace Models
 
 
     protected:
-      // The attach type of the MSE namespace. AutoCreated indicates automatic creation by AgentLoop. UserSelected indicates that an existing namespace is selected and attached when the AgentSpace is created.
+      // The attach type of the MSE namespace. AutoCreated indicates automatic creation by AgentLoop. UserSelected indicates that you select and attach an existing namespace when creating the AgentSpace.
       shared_ptr<string> bindType_ {};
       // The ID of the MSE namespace.
       shared_ptr<string> namespaceId_ {};
@@ -252,6 +254,7 @@ namespace Models
     shared_ptr<string> requestId_ {};
     // The name of the Simple Log Service project.
     shared_ptr<string> slsProject_ {};
+    // The complete standard tags of the active AgentSpace in the current region. An empty array is returned if it is confirmed that no tags exist. This field is omitted if the AgentSpace is not active or the tags cannot be determined. The omission of this field does not indicate that no tags exist.
     shared_ptr<vector<GetAgentSpaceResponseBody::Tags>> tags_ {};
     // The update time.
     // 

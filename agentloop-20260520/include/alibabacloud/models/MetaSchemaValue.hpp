@@ -38,7 +38,7 @@ namespace Models
 
 
   protected:
-    // The dataset field types. Valid values: text, long, double, and json.
+    // The dataset field type. Valid values: text, long, double, and json.
     shared_ptr<string> type_ {};
   };
 

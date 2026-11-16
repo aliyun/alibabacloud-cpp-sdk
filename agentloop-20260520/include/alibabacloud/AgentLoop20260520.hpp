@@ -129,7 +129,7 @@ namespace AgentLoop20260520
       Models::CreateDatasetResponse createDataset(const string &agentSpace, const Models::CreateDatasetRequest &request);
 
       /**
-       * @summary Creates a named historical version for a dataset in a specified agent workspace to preserve the historical state of the dataset. You can call ListDatasetVersions to query version information. If a version is no longer needed, you can call DeleteDatasetVersion to delete the version.
+       * @summary Creates a named historical version for a dataset in a specified agent workspace to preserve the historical state of the dataset. You can call ListDatasetVersions to query version information. When a version is no longer needed, you can call DeleteDatasetVersion to delete it.
        *
        * @param request CreateDatasetVersionRequest
        * @param headers map
@@ -139,7 +139,7 @@ namespace AgentLoop20260520
       Models::CreateDatasetVersionResponse createDatasetVersionWithOptions(const string &agentSpace, const string &datasetName, const Models::CreateDatasetVersionRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Creates a named historical version for a dataset in a specified agent workspace to preserve the historical state of the dataset. You can call ListDatasetVersions to query version information. If a version is no longer needed, you can call DeleteDatasetVersion to delete the version.
+       * @summary Creates a named historical version for a dataset in a specified agent workspace to preserve the historical state of the dataset. You can call ListDatasetVersions to query version information. When a version is no longer needed, you can call DeleteDatasetVersion to delete it.
        *
        * @param request CreateDatasetVersionRequest
        * @return CreateDatasetVersionResponse
@@ -209,7 +209,7 @@ namespace AgentLoop20260520
       /**
        * @summary Creates an experiment plan.
        *
-       * @description Creates an experiment plan in a specified AgentSpace. You can use this operation to define the configuration for an offline or online experiment, including the data source, optional evaluators, and experiment groups required for online experiments. After the plan is created, call CreateExperimentRun to initiate the execution.
+       * @description Calls CreateExperimentPlan to create an experiment plan in a specified AgentSpace. This operation is used to define the configuration for an offline or online experiment, including the data source, optional evaluators, and experiment groups required for online experiments. After the plan is created, call CreateExperimentRun to initiate the execution.
        *
        * @param request CreateExperimentPlanRequest
        * @param headers map
@@ -221,7 +221,7 @@ namespace AgentLoop20260520
       /**
        * @summary Creates an experiment plan.
        *
-       * @description Creates an experiment plan in a specified AgentSpace. You can use this operation to define the configuration for an offline or online experiment, including the data source, optional evaluators, and experiment groups required for online experiments. After the plan is created, call CreateExperimentRun to initiate the execution.
+       * @description Calls CreateExperimentPlan to create an experiment plan in a specified AgentSpace. This operation is used to define the configuration for an offline or online experiment, including the data source, optional evaluators, and experiment groups required for online experiments. After the plan is created, call CreateExperimentRun to initiate the execution.
        *
        * @param request CreateExperimentPlanRequest
        * @return CreateExperimentPlanResponse
@@ -377,7 +377,7 @@ namespace AgentLoop20260520
       Models::DeleteDatasetResponse deleteDataset(const string &agentSpace, const string &datasetName, const Models::DeleteDatasetRequest &request);
 
       /**
-       * @summary Deletes a historical version of a dataset in a specified agent workspace. After deletion, the version no longer appears in the list returned by ListDatasetVersions. This operation does not delete the dataset itself, the current data, or other historical versions.
+       * @summary Deletes a historical version of a dataset in a specified agent space. After the deletion, the version no longer appears in the list returned by ListDatasetVersions. This operation does not delete the dataset itself, current data, or other historical versions.
        *
        * @param request DeleteDatasetVersionRequest
        * @param headers map
@@ -387,7 +387,7 @@ namespace AgentLoop20260520
       Models::DeleteDatasetVersionResponse deleteDatasetVersionWithOptions(const string &agentSpace, const string &datasetName, const string &version, const Models::DeleteDatasetVersionRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Deletes a historical version of a dataset in a specified agent workspace. After deletion, the version no longer appears in the list returned by ListDatasetVersions. This operation does not delete the dataset itself, the current data, or other historical versions.
+       * @summary Deletes a historical version of a dataset in a specified agent space. After the deletion, the version no longer appears in the list returned by ListDatasetVersions. This operation does not delete the dataset itself, current data, or other historical versions.
        *
        * @param request DeleteDatasetVersionRequest
        * @return DeleteDatasetVersionResponse
@@ -831,7 +831,9 @@ namespace AgentLoop20260520
       Models::GetPipelineResponse getPipeline(const string &agentSpace, const string &pipelineName, const Models::GetPipelineRequest &request);
 
       /**
-       * @summary Queries the details of a single pipeline run.
+       * @summary Queries the details of a single run, including the data window, execute status, retry information, run statistics, and fault message.
+       *
+       * @description Invokes GetPipelineRun to retrieve the details of a single pipeline run, including the data window, execute status, retry information, run statistics, and fault message.
        *
        * @param request GetPipelineRunRequest
        * @param headers map
@@ -841,7 +843,9 @@ namespace AgentLoop20260520
       Models::GetPipelineRunResponse getPipelineRunWithOptions(const string &agentSpace, const string &pipelineName, const string &runId, const Models::GetPipelineRunRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the details of a single pipeline run.
+       * @summary Queries the details of a single run, including the data window, execute status, retry information, run statistics, and fault message.
+       *
+       * @description Invokes GetPipelineRun to retrieve the details of a single pipeline run, including the data window, execute status, retry information, run statistics, and fault message.
        *
        * @param request GetPipelineRunRequest
        * @return GetPipelineRunResponse
@@ -925,7 +929,7 @@ namespace AgentLoop20260520
       Models::ListContextStoresResponse listContextStores(const string &agentSpace, const Models::ListContextStoresRequest &request);
 
       /**
-       * @summary Performs a paged query to retrieve the historical versions of a dataset in a specified agent workspace and returns the version names, descriptions, and creation time. Deleted versions are not included in the list. Do not specify nextToken in the first request. For subsequent requests, use the nextToken value from the previous response for paging to retrieve the next page.
+       * @summary Performs a paged query to retrieve the historical versions of a dataset in a specified agent space and returns the version names, descriptions, and creation time. Deleted versions are not returned in the list. Do not specify nextToken in the first request. For subsequent requests, use the nextToken from the previous response to continue paging.
        *
        * @param request ListDatasetVersionsRequest
        * @param headers map
@@ -935,7 +939,7 @@ namespace AgentLoop20260520
       Models::ListDatasetVersionsResponse listDatasetVersionsWithOptions(const string &agentSpace, const string &datasetName, const Models::ListDatasetVersionsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Performs a paged query to retrieve the historical versions of a dataset in a specified agent workspace and returns the version names, descriptions, and creation time. Deleted versions are not included in the list. Do not specify nextToken in the first request. For subsequent requests, use the nextToken value from the previous response for paging to retrieve the next page.
+       * @summary Performs a paged query to retrieve the historical versions of a dataset in a specified agent space and returns the version names, descriptions, and creation time. Deleted versions are not returned in the list. Do not specify nextToken in the first request. For subsequent requests, use the nextToken from the previous response to continue paging.
        *
        * @param request ListDatasetVersionsRequest
        * @return ListDatasetVersionsResponse
@@ -1015,7 +1019,7 @@ namespace AgentLoop20260520
       Models::ListEvaluatorSkillsResponse listEvaluatorSkills(const string &name, const Models::ListEvaluatorSkillsRequest &request);
 
       /**
-       * @summary Queries a list of evaluators.
+       * @summary Queries the list of evaluators.
        *
        * @param request ListEvaluatorsRequest
        * @param headers map
@@ -1025,7 +1029,7 @@ namespace AgentLoop20260520
       Models::ListEvaluatorsResponse listEvaluatorsWithOptions(const Models::ListEvaluatorsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries a list of evaluators.
+       * @summary Queries the list of evaluators.
        *
        * @param request ListEvaluatorsRequest
        * @return ListEvaluatorsResponse
@@ -1035,7 +1039,7 @@ namespace AgentLoop20260520
       /**
        * @summary Queries the list of experiment plans.
        *
-       * @description Calls ListExperimentPlans to query the list of experiment plans under a specified AgentSpace for the current account. Supports fuzzy match by plan name, filtering by status, and pagination by using `offset`/`limit`.
+       * @description Calls ListExperimentPlans to query the list of experiment plans under a specified AgentSpace for the current account. This operation supports fuzzy match by plan name, filtering by status, and pagination by using `offset` and `limit`.
        *
        * @param request ListExperimentPlansRequest
        * @param headers map
@@ -1047,7 +1051,7 @@ namespace AgentLoop20260520
       /**
        * @summary Queries the list of experiment plans.
        *
-       * @description Calls ListExperimentPlans to query the list of experiment plans under a specified AgentSpace for the current account. Supports fuzzy match by plan name, filtering by status, and pagination by using `offset`/`limit`.
+       * @description Calls ListExperimentPlans to query the list of experiment plans under a specified AgentSpace for the current account. This operation supports fuzzy match by plan name, filtering by status, and pagination by using `offset` and `limit`.
        *
        * @param request ListExperimentPlansRequest
        * @return ListExperimentPlansResponse
@@ -1077,7 +1081,7 @@ namespace AgentLoop20260520
       Models::ListExperimentRunsResponse listExperimentRuns(const string &agentSpace, const Models::ListExperimentRunsRequest &request);
 
       /**
-       * @summary Performs a paging query on the run records of a specified optimization task. To obtain complete result references and frozen outputs, call GetOptimizeRun.
+       * @summary Queries the run records of a specified optimization task by using paging. Complete result references and frozen outputs are queried by calling GetOptimizeRun.
        *
        * @param request ListOptimizeRunsRequest
        * @param headers map
@@ -1087,7 +1091,7 @@ namespace AgentLoop20260520
       Models::ListOptimizeRunsResponse listOptimizeRunsWithOptions(const string &agentSpace, const string &optimizeTaskName, const Models::ListOptimizeRunsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Performs a paging query on the run records of a specified optimization task. To obtain complete result references and frozen outputs, call GetOptimizeRun.
+       * @summary Queries the run records of a specified optimization task by using paging. Complete result references and frozen outputs are queried by calling GetOptimizeRun.
        *
        * @param request ListOptimizeRunsRequest
        * @return ListOptimizeRunsResponse
@@ -1095,7 +1099,7 @@ namespace AgentLoop20260520
       Models::ListOptimizeRunsResponse listOptimizeRuns(const string &agentSpace, const string &optimizeTaskName, const Models::ListOptimizeRunsRequest &request);
 
       /**
-       * @summary Queries optimization tasks in a specified AgentSpace by using paging and returns the task status, configurations, and scheduling checkpoints.
+       * @summary Performs a paging query on the optimization tasks in a specified AgentSpace and returns the task status, configurations, and scheduling checkpoints.
        *
        * @param request ListOptimizeTasksRequest
        * @param headers map
@@ -1105,7 +1109,7 @@ namespace AgentLoop20260520
       Models::ListOptimizeTasksResponse listOptimizeTasksWithOptions(const string &agentSpace, const Models::ListOptimizeTasksRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries optimization tasks in a specified AgentSpace by using paging and returns the task status, configurations, and scheduling checkpoints.
+       * @summary Performs a paging query on the optimization tasks in a specified AgentSpace and returns the task status, configurations, and scheduling checkpoints.
        *
        * @param request ListOptimizeTasksRequest
        * @return ListOptimizeTasksResponse
@@ -1113,7 +1117,9 @@ namespace AgentLoop20260520
       Models::ListOptimizeTasksResponse listOptimizeTasks(const string &agentSpace, const Models::ListOptimizeTasksRequest &request);
 
       /**
-       * @summary Queries the run history. Supports filtering by status, trigger type, and time range, and cursor-based pagination.
+       * @summary Queries the run history. Supports filtering by status, trigger type, and time range, and uses cursor-based pagination.
+       *
+       * @description Calls the ListPipelineRuns operation to query the pipeline run history. You can filter the results by status, trigger type, and time range, and use cursor-based pagination.
        *
        * @param request ListPipelineRunsRequest
        * @param headers map
@@ -1123,7 +1129,9 @@ namespace AgentLoop20260520
       Models::ListPipelineRunsResponse listPipelineRunsWithOptions(const string &agentSpace, const string &pipelineName, const Models::ListPipelineRunsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the run history. Supports filtering by status, trigger type, and time range, and cursor-based pagination.
+       * @summary Queries the run history. Supports filtering by status, trigger type, and time range, and uses cursor-based pagination.
+       *
+       * @description Calls the ListPipelineRuns operation to query the pipeline run history. You can filter the results by status, trigger type, and time range, and use cursor-based pagination.
        *
        * @param request ListPipelineRunsRequest
        * @return ListPipelineRunsResponse
@@ -1170,8 +1178,8 @@ namespace AgentLoop20260520
        * @summary Previews a pipeline. Runs a trial query based on the specified data source, node orchestration, and time range without creating pipeline resources, and returns a small amount of sample data to authenticate parameter settings and preview processing results.
        *
        * @description ## Request description
-       * - **agentSpace** must be an AgentSpace instance created under the current account.
-       * - **source.type** currently supports only the `logstore` type, and `logstore.project` and `logstore.logstore` must be authorized within the AgentSpace and reside in the same region.
+       * - **agentSpace** must be an existing AgentSpace instance under the current account.
+       * - **source.type** currently supports only the `logstore` type. The `logstore.project` and `logstore.logstore` must be authorized within the AgentSpace and reside in the same region.
        * - **pipeline.nodes** must contain at least one `Source` node and cannot be empty.
        * - **fromTime** and **toTime** are UNIX timestamps in seconds. **fromTime** must be earlier than **toTime**.
        * - A maximum of 5 records are returned, and internal fields of the data source system are automatically filtered out.
@@ -1187,8 +1195,8 @@ namespace AgentLoop20260520
        * @summary Previews a pipeline. Runs a trial query based on the specified data source, node orchestration, and time range without creating pipeline resources, and returns a small amount of sample data to authenticate parameter settings and preview processing results.
        *
        * @description ## Request description
-       * - **agentSpace** must be an AgentSpace instance created under the current account.
-       * - **source.type** currently supports only the `logstore` type, and `logstore.project` and `logstore.logstore` must be authorized within the AgentSpace and reside in the same region.
+       * - **agentSpace** must be an existing AgentSpace instance under the current account.
+       * - **source.type** currently supports only the `logstore` type. The `logstore.project` and `logstore.logstore` must be authorized within the AgentSpace and reside in the same region.
        * - **pipeline.nodes** must contain at least one `Source` node and cannot be empty.
        * - **fromTime** and **toTime** are UNIX timestamps in seconds. **fromTime** must be earlier than **toTime**.
        * - A maximum of 5 records are returned, and internal fields of the data source system are automatically filtered out.

@@ -88,9 +88,9 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> agentSpace_ {};
-    // The number of entries per page. Default value: 20. Maximum value: 100.
+    // The number of entries returned per page. Default value: 20. Maximum value: 100.
     shared_ptr<int32_t> maxResults_ {};
-    // The fuzzy match condition for the evaluator name.
+    // The fuzzy search condition for the evaluator name.
     shared_ptr<string> name_ {};
     // The pagination token for the next page.
     shared_ptr<string> nextToken_ {};

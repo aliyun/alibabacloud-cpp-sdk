@@ -125,23 +125,23 @@ namespace Models
 
 
   protected:
-    // The scheduling checkpoint, which stores states such as the general scheduling watermark.
+    // The scheduling checkpoint that stores states such as the general scheduling watermark.
     Darabonba::Json checkpoint_ {};
-    // The type-specific configuration. Optional prompts for ExperienceMining or SkillOptimize support only inline Markdown. The body is saved to inputs.prompt.content, which must be a non-empty UTF-8 string of up to 16 KiB.
+    // The type-specific configuration. Optional prompts for ExperienceMining or SkillOptimize support only inline Markdown. The main text is stored in inputs.prompt.content, which must be non-empty UTF-8 and up to 16 KiB in size.
     Darabonba::Json config_ {};
     // The creation time.
     shared_ptr<string> createTime_ {};
     // The next scheduling trigger time.
     shared_ptr<string> nextTriggerTime_ {};
-    // The optimization task name.
+    // The name of the optimization task.
     shared_ptr<string> optimizeTaskName_ {};
     // The region ID.
     shared_ptr<string> regionId_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The task status. Valid values: Enabled, Disabled.
+    // The task status. Valid values: Enabled and Disabled.
     shared_ptr<string> status_ {};
-    // The optimization task type.
+    // The type of the optimization task.
     shared_ptr<string> type_ {};
     // The update time.
     shared_ptr<string> updateTime_ {};

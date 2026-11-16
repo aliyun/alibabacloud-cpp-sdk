@@ -153,9 +153,9 @@ namespace Models
 
 
     protected:
-      // The list of annotations.
+      // The list of annotation tags.
       shared_ptr<vector<string>> annotations_ {};
-      // The creation time, in seconds-level UNIX timestamp.
+      // The creation time. The value is a UNIX timestamp in seconds.
       shared_ptr<int64_t> createdAt_ {};
       // The evaluator description.
       shared_ptr<string> description_ {};
@@ -171,7 +171,7 @@ namespace Models
       Darabonba::Json properties_ {};
       // The evaluator type.
       shared_ptr<string> type_ {};
-      // The update time, in seconds-level UNIX timestamp.
+      // The update time. The value is a UNIX timestamp in seconds.
       shared_ptr<int64_t> updatedAt_ {};
     };
 
@@ -217,13 +217,13 @@ namespace Models
   protected:
     // The list of evaluator summaries.
     shared_ptr<vector<ListEvaluatorsResponseBody::Evaluators>> evaluators_ {};
-    // The number of entries per page used in this request.
+    // The number of entries per page used for this request.
     shared_ptr<int32_t> maxResults_ {};
     // The pagination token for the next page.
     shared_ptr<string> nextToken_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The total number of evaluators that match the filter conditions.
+    // The total number of evaluators that meet the conditions.
     shared_ptr<int32_t> total_ {};
   };
 

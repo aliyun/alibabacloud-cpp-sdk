@@ -98,7 +98,7 @@ namespace Models
 
 
   protected:
-    // The maximum number of entries returned.
+    // The maximum number of returned entries.
     shared_ptr<int32_t> maxResults_ {};
     // The token for the next page.
     shared_ptr<string> nextToken_ {};
@@ -110,7 +110,7 @@ namespace Models
     shared_ptr<vector<ExperimentPlanData>> plans_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The total number of records that match the filter conditions.
+    // The total number of records that meet the conditions.
     shared_ptr<int32_t> total_ {};
   };
 

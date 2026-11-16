@@ -199,57 +199,49 @@ namespace Models
 
 
   protected:
-    // The name of the AgentSpace to which the pipeline belongs.
+    // The name of the AgentSpace.
     shared_ptr<string> agentSpaceName_ {};
-    // The current retry count.
+    // The current number of retries.
     shared_ptr<int32_t> attempt_ {};
     // The semantic error code.
     shared_ptr<string> errorCode_ {};
     // The error message.
     shared_ptr<string> errorMessage_ {};
-    // The finish time, in ISO 8601 UTC format.
+    // The finish time in ISO 8601 UTC format.
     // 
     // Use the UTC time format: yyyy-MM-ddTHH:mm:ss.SSSZ
     shared_ptr<string> finishTime_ {};
-    // The start of the data window, in UNIX seconds.
+    // The start time of the data window, in UNIX seconds.
     shared_ptr<int64_t> fromTime_ {};
     // The maximum number of retries.
     shared_ptr<int32_t> maxAttempts_ {};
-    // The next retry time, in ISO 8601 UTC format.
+    // The next retry time in ISO 8601 UTC format.
     // 
     // Use the UTC time format: yyyy-MM-ddTHH:mm:ss.SSSZ
     shared_ptr<string> nextRetryTime_ {};
     // The name of the pipeline.
     shared_ptr<string> pipelineName_ {};
-    // The request ID, which is used to locate and troubleshoot issues.
+    // The ID of the request, which is used to locate the request during troubleshooting.
     shared_ptr<string> requestId_ {};
-    // The inline run results. This field is returned only when output.inline is set to true at trigger time.
+    // The inline run results, which are returned only when output.inline is set to true during triggering.
     Darabonba::Json results_ {};
     // Run Id
     shared_ptr<string> runId_ {};
-    // The execution start time, in ISO 8601 UTC format.
+    // The execution start time in ISO 8601 UTC format.
     // 
     // Use the UTC time format: yyyy-MM-ddTHH:mm:ss.SSSZ
     shared_ptr<string> startTime_ {};
-    // The run statistics, including processedRows (number of processed rows), processedBytes (number of processed bytes), outputRows (number of output rows), outputBytes (number of output bytes), elapsedMs (elapsed time in milliseconds), cpuSec (CPU seconds), cpuCores (number of CPU cores), and tokenCount (number of tokens consumed).
+    // The run statistics, including processedRows (number of processed rows), processedBytes (number of processed bytes), outputRows (number of output rows), outputBytes (number of output bytes), elapsedMs (elapsed time in milliseconds), cpuSec (CPU seconds), cpuCores (number of CPU cores), and tokenCount (number of consumed tokens).
     Darabonba::Json stats_ {};
-    // The run status. Valid values:
-    // - Pending
-    // - Running
-    // - Succeeded
-    // - Failed
-    // - Cancelled
+    // The status of the run. Valid values: Pending, Running, Succeeded, Failed, and Cancelled.
     shared_ptr<string> status_ {};
-    // The end of the data window, in UNIX seconds.
+    // The end time of the data window, in UNIX seconds.
     shared_ptr<int64_t> toTime_ {};
-    // The trigger time, in ISO 8601 UTC format.
+    // The trigger time in ISO 8601 UTC format.
     // 
     // Use the UTC time format: yyyy-MM-ddTHH:mm:ss.SSSZ
     shared_ptr<string> triggerTime_ {};
-    // The trigger type. Valid values:
-    // - Scheduled
-    // - Manual
-    // - RunOnce
+    // The trigger type. Valid values: Scheduled, Manual, and RunOnce.
     shared_ptr<string> triggerType_ {};
   };
 

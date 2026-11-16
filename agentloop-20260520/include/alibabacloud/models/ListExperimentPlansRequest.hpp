@@ -84,17 +84,17 @@ namespace Models
 
 
   protected:
-    // The number of entries to return. Default value: 20.
+    // The maximum number of entries to return. Default value: 20.
     shared_ptr<int32_t> limit_ {};
-    // Optional. Use `offset` and `limit` for pagination instead.
+    // Optional. For pagination, use `offset` and `limit` instead.
     shared_ptr<int32_t> maxResults_ {};
-    // Optional. Use `offset` and `limit` for pagination instead.
+    // Optional. For pagination, use `offset` and `limit` instead.
     shared_ptr<string> nextToken_ {};
     // The offset. Default value: 0.
     shared_ptr<int32_t> offset_ {};
-    // Fuzzy matches experiment plans by plan name.
+    // The plan name used for fuzzy match.
     shared_ptr<string> planName_ {};
-    // Filters experiment plans by exact status.
+    // The exact status used for filtering.
     shared_ptr<string> status_ {};
   };
 

@@ -237,7 +237,7 @@ namespace Models
       shared_ptr<string> errorCode_ {};
       // The error message.
       shared_ptr<string> errorMessage_ {};
-      // The execution summary and finite-state information. To obtain complete result references, frozen outputs, and publish receipts, call GetOptimizeRun.
+      // The execution summary and finite-state information. Complete result references, frozen outputs, and publish receipts can be obtained by calling GetOptimizeRun.
       Darabonba::Json extra_ {};
       // The completion time.
       shared_ptr<string> finishTime_ {};
@@ -249,7 +249,7 @@ namespace Models
       shared_ptr<string> optimizeTaskName_ {};
       // The current execution progress. The fields are defined by the task type.
       Darabonba::Json progress_ {};
-      // The initial start time.
+      // The first start time.
       shared_ptr<string> startTime_ {};
       // The execution status.
       shared_ptr<string> status_ {};
@@ -257,11 +257,11 @@ namespace Models
       shared_ptr<int64_t> trajectoryCount_ {};
       // The trigger type.
       shared_ptr<string> triggerType_ {};
-      // The snapshot of the task type.
+      // The task type snapshot.
       shared_ptr<string> type_ {};
-      // The end time of the analysis window in UNIX seconds.
+      // The end time of the analysis window, in UNIX seconds.
       shared_ptr<int64_t> windowEndTime_ {};
-      // The start time of the analysis window in UNIX seconds.
+      // The start time of the analysis window, in UNIX seconds.
       shared_ptr<int64_t> windowStartTime_ {};
     };
 
@@ -313,7 +313,7 @@ namespace Models
     shared_ptr<vector<ListOptimizeRunsResponseBody::OptimizeRuns>> optimizeRuns_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The total number of entries.
+    // The total count.
     shared_ptr<int32_t> totalCount_ {};
   };
 

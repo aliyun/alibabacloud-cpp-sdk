@@ -144,23 +144,23 @@ namespace Models
 
 
     protected:
-      // The scheduling checkpoint that stores states such as the general scheduling watermark.
+      // The scheduling checkpoint, which stores states such as the general scheduling watermark.
       Darabonba::Json checkpoint_ {};
       // The type-specific configuration. For ExperienceMining and SkillOptimize, optional prompts support only inline Markdown, and the body is stored in inputs.prompt.content (non-empty UTF-8, up to 16 KiB).
       Darabonba::Json config_ {};
-      // The creation time.
+      // The time when the task was created.
       shared_ptr<string> createTime_ {};
-      // The next scheduling trigger time.
+      // The next scheduled trigger time.
       shared_ptr<string> nextTriggerTime_ {};
       // The name of the optimization task.
       shared_ptr<string> optimizeTaskName_ {};
       // The region ID.
       shared_ptr<string> regionId_ {};
-      // The task status.
+      // The status of the task.
       shared_ptr<string> status_ {};
       // The type of the optimization task. Valid values: ExperienceMining, SkillOptimize, EfficiencyAnalysis, SOPGeneration, EvalMining, PolicyMining, and AssetMining.
       shared_ptr<string> type_ {};
-      // The update time.
+      // The time when the task was updated.
       shared_ptr<string> updateTime_ {};
     };
 
@@ -204,15 +204,15 @@ namespace Models
 
 
   protected:
-    // The maximum number of results per page.
+    // The maximum number of results returned per page.
     shared_ptr<int32_t> maxResults_ {};
-    // The pagination token for the next page.
+    // The token for the next page.
     shared_ptr<string> nextToken_ {};
     // The list of optimization tasks.
     shared_ptr<vector<ListOptimizeTasksResponseBody::OptimizeTasks>> optimizeTasks_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The total count.
+    // The total number of tasks.
     shared_ptr<int32_t> totalCount_ {};
   };
 

@@ -20,6 +20,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(evaluatorProgress, evaluatorProgress_);
       DARABONBA_PTR_TO_JSON(evaluators, evaluators_);
       DARABONBA_PTR_TO_JSON(failedCount, failedCount_);
+      DARABONBA_ANY_TO_JSON(qualityMetrics, qualityMetrics_);
       DARABONBA_PTR_TO_JSON(requestId, requestId_);
       DARABONBA_PTR_TO_JSON(runId, runId_);
       DARABONBA_PTR_TO_JSON(runName, runName_);
@@ -37,6 +38,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(evaluatorProgress, evaluatorProgress_);
       DARABONBA_PTR_FROM_JSON(evaluators, evaluators_);
       DARABONBA_PTR_FROM_JSON(failedCount, failedCount_);
+      DARABONBA_ANY_FROM_JSON(qualityMetrics, qualityMetrics_);
       DARABONBA_PTR_FROM_JSON(requestId, requestId_);
       DARABONBA_PTR_FROM_JSON(runId, runId_);
       DARABONBA_PTR_FROM_JSON(runName, runName_);
@@ -114,20 +116,20 @@ namespace Models
 
 
     protected:
-      // The evaluator name.
+      // The name of the evaluator.
       shared_ptr<string> evaluatorName_ {};
-      // The number of failed items for this evaluator.
+      // The number of failed items for the evaluator.
       shared_ptr<int32_t> failedCount_ {};
-      // The number of successful items for this evaluator.
+      // The number of successful items for the evaluator.
       shared_ptr<int32_t> successCount_ {};
-      // The total number of items for this evaluator.
+      // The total number of items for the evaluator.
       shared_ptr<int32_t> totalCount_ {};
     };
 
     virtual bool empty() const override { return this->createdAt_ == nullptr
         && this->dataEndTime_ == nullptr && this->dataStartTime_ == nullptr && this->evaluatorProgress_ == nullptr && this->evaluators_ == nullptr && this->failedCount_ == nullptr
-        && this->requestId_ == nullptr && this->runId_ == nullptr && this->runName_ == nullptr && this->runType_ == nullptr && this->status_ == nullptr
-        && this->successCount_ == nullptr && this->taskId_ == nullptr && this->totalCount_ == nullptr && this->updatedAt_ == nullptr; };
+        && this->qualityMetrics_ == nullptr && this->requestId_ == nullptr && this->runId_ == nullptr && this->runName_ == nullptr && this->runType_ == nullptr
+        && this->status_ == nullptr && this->successCount_ == nullptr && this->taskId_ == nullptr && this->totalCount_ == nullptr && this->updatedAt_ == nullptr; };
     // createdAt Field Functions 
     bool hasCreatedAt() const { return this->createdAt_ != nullptr;};
     void deleteCreatedAt() { this->createdAt_ = nullptr;};
@@ -170,6 +172,15 @@ namespace Models
     void deleteFailedCount() { this->failedCount_ = nullptr;};
     inline int32_t getFailedCount() const { DARABONBA_PTR_GET_DEFAULT(failedCount_, 0) };
     inline GetEvaluationRunResponseBody& setFailedCount(int32_t failedCount) { DARABONBA_PTR_SET_VALUE(failedCount_, failedCount) };
+
+
+    // qualityMetrics Field Functions 
+    bool hasQualityMetrics() const { return this->qualityMetrics_ != nullptr;};
+    void deleteQualityMetrics() { this->qualityMetrics_ = nullptr;};
+    inline     const Darabonba::Json & getQualityMetrics() const { DARABONBA_GET(qualityMetrics_) };
+    Darabonba::Json & getQualityMetrics() { DARABONBA_GET(qualityMetrics_) };
+    inline GetEvaluationRunResponseBody& setQualityMetrics(const Darabonba::Json & qualityMetrics) { DARABONBA_SET_VALUE(qualityMetrics_, qualityMetrics) };
+    inline GetEvaluationRunResponseBody& setQualityMetrics(Darabonba::Json && qualityMetrics) { DARABONBA_SET_RVALUE(qualityMetrics_, qualityMetrics) };
 
 
     // requestId Field Functions 
@@ -236,35 +247,37 @@ namespace Models
 
 
   protected:
-    // The creation time, in seconds-level UNIX timestamp.
+    // The creation time. The value is a UNIX timestamp in seconds.
     shared_ptr<int64_t> createdAt_ {};
-    // The end time of the run data window, in seconds-level UNIX timestamp.
+    // The end time of the run data window. The value is a UNIX timestamp in seconds.
     shared_ptr<int64_t> dataEndTime_ {};
-    // The start time of the run data window, in seconds-level UNIX timestamp.
+    // The start time of the run data window. The value is a UNIX timestamp in seconds.
     shared_ptr<int64_t> dataStartTime_ {};
-    // The list of progress entries by evaluator.
+    // The progress list by evaluator dimension.
     shared_ptr<vector<GetEvaluationRunResponseBody::EvaluatorProgress>> evaluatorProgress_ {};
-    // The snapshot of the evaluator configuration at the time the run was created, in JSON string format.
+    // The snapshot of the evaluator configuration when the run is created. The value is a JSON string.
     shared_ptr<string> evaluators_ {};
     // The number of failed items.
     shared_ptr<int32_t> failedCount_ {};
-    // The request ID.
+    // The snapshot of the evaluator quality scores and coverage for the current run. This field is empty if the feature is not enabled.
+    Darabonba::Json qualityMetrics_ {};
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
-    // The run ID.
+    // The ID of the run.
     shared_ptr<string> runId_ {};
-    // The run name.
+    // The name of the run.
     shared_ptr<string> runName_ {};
-    // The run type.
+    // The type of the run.
     shared_ptr<string> runType_ {};
-    // The run status.
+    // The status of the run.
     shared_ptr<string> status_ {};
     // The number of successful items.
     shared_ptr<int32_t> successCount_ {};
-    // The evaluation task ID.
+    // The ID of the evaluation task.
     shared_ptr<string> taskId_ {};
-    // The total number of evaluation items.
+    // The total number of evaluated items.
     shared_ptr<int32_t> totalCount_ {};
-    // The update time, in seconds-level UNIX timestamp.
+    // The update time. The value is a UNIX timestamp in seconds.
     shared_ptr<int64_t> updatedAt_ {};
   };
 

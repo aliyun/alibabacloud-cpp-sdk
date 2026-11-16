@@ -128,7 +128,7 @@ namespace Models
 
 
         protected:
-          // The list of enrichment columns. This parameter is retained for backward compatibility. The current implementation outputs only the fixed column agent_trajectory, and this parameter no longer affects the output.
+          // The list of enrichment columns. This parameter is retained for compatibility. The current implementation outputs only the fixed column agent_trajectory, so this parameter no longer affects the output.
           shared_ptr<vector<string>> columns_ {};
           // Specifies whether to enable trajectory enrichment.
           shared_ptr<bool> enabled_ {};
@@ -145,7 +145,7 @@ namespace Models
 
 
       protected:
-        // The trajectory enrichment configuration. It mounts trajectory data into the scrubbing result based on trace_id. When writing to a dataset, the data is stored in the fixed column agent_trajectory, and the column value is the trajectory JSON content.
+        // The trajectory enrichment configuration. It mounts trajectory data into the scrubbing result based on trace_id. When writing to the dataset, the data is stored in the fixed column agent_trajectory, where the column value is the trajectory JSON content.
         shared_ptr<Trajectory::Enrich> enrich_ {};
       };
 
@@ -244,7 +244,7 @@ namespace Models
       protected:
         // The name of the field.
         shared_ptr<string> name_ {};
-        // The data type of the field. Valid values: text, long, double, and json.
+        // The type of the field. Valid values: text, long, double, and json.
         shared_ptr<string> type_ {};
       };
 
@@ -338,15 +338,15 @@ namespace Models
 
 
     protected:
-      // The dataset datasource config in the current AgentSpace.
+      // The Dataset datasource config under the current AgentSpace.
       shared_ptr<Source::Dataset> dataset_ {};
-      // The input fields and their data types. This parameter applies to all data source types.
+      // The input fields and their types. This applies to all data source types.
       shared_ptr<vector<Source::InputFields>> inputFields_ {};
       // The Simple Log Service (SLS) Logstore datasource config.
       shared_ptr<Source::Logstore> logstore_ {};
-      // The trajectory data configuration. This parameter is optional and takes effect only when type is set to trace. It obtains ATIF standard trajectory data from the trajectory scrubbing service and extends the data by feature.
+      // The trajectory data configuration. This is optional and takes effect only when the type is trace. It retrieves ATIF standard trajectory data from the trajectory scrubbing service and extends it by feature.
       shared_ptr<Source::Trajectory> trajectory_ {};
-      // The data source type. Currently, only SLS is supported.
+      // The data source type. Currently, SLS is supported.
       shared_ptr<string> type_ {};
     };
 
@@ -547,9 +547,9 @@ namespace Models
 
 
           protected:
-            // The destination dataset of the route.
+            // The destination dataset for the route.
             shared_ptr<Sink::Dataset> dataset_ {};
-            // The route destination type. Only dataset is supported.
+            // The route destination type. Currently, only dataset is supported.
             shared_ptr<string> type_ {};
           };
 
@@ -583,7 +583,7 @@ namespace Models
           shared_ptr<string> expression_ {};
           // The route ID.
           shared_ptr<string> id_ {};
-          // The write destination of the route.
+          // The sink for the route.
           shared_ptr<Routes::Sink> sink_ {};
         };
 
@@ -673,7 +673,7 @@ namespace Models
         protected:
           // The default destination dataset.
           shared_ptr<DefaultSink::Dataset> dataset_ {};
-          // The default destination type. Only dataset is supported.
+          // The default destination type. Currently, only dataset is supported.
           shared_ptr<string> type_ {};
         };
 
@@ -705,9 +705,9 @@ namespace Models
 
 
       protected:
-        // The default write destination used when no conditional route is matched.
+        // The default sink used when no conditional route is matched.
         shared_ptr<Condition::DefaultSink> defaultSink_ {};
-        // The route matching mode. Only all is supported.
+        // The route matching mode. Currently, only all is supported.
         shared_ptr<string> matchMode_ {};
         // The list of conditional routes.
         shared_ptr<vector<Condition::Routes>> routes_ {};
@@ -741,11 +741,11 @@ namespace Models
 
 
     protected:
-      // The conditional routing configuration. This parameter is used only when sink.type is set to condition.
+      // The conditional routing configuration, which is used only when sink.type is set to condition.
       shared_ptr<Sink::Condition> condition_ {};
       // The destination dataset configuration.
       shared_ptr<Sink::Dataset> dataset_ {};
-      // The destination type. Currently, only dataset is supported.
+      // The destination type. Currently, dataset is supported.
       shared_ptr<string> type_ {};
     };
 
@@ -819,7 +819,7 @@ namespace Models
       protected:
         // The ID of the node.
         shared_ptr<string> id_ {};
-        // The parameters of the node in a key-value structure, which vary based on the node type.
+        // The parameters of the node. This is a key-value structure that varies based on the node type.
         Darabonba::Json parameters_ {};
         // The type of the node.
         shared_ptr<string> type_ {};
@@ -903,7 +903,7 @@ namespace Models
 
 
       protected:
-        // The start time of the scheduling as a UNIX timestamp in milliseconds.
+        // The scheduling start time as a UNIX timestamp in milliseconds.
         shared_ptr<int64_t> fromTime_ {};
         // The scheduling interval. Valid values: 1h, 6h, 12h, and 1d.
         shared_ptr<string> interval_ {};
@@ -947,9 +947,9 @@ namespace Models
 
 
       protected:
-        // The start time of the data processing window as a UNIX timestamp in seconds. The value must be earlier than toTime.
+        // The start time of the data processing window as a UNIX timestamp in seconds. The value must be less than the toTime value.
         shared_ptr<int64_t> fromTime_ {};
-        // The end time of the data processing window as a UNIX timestamp in seconds. The value must be later than fromTime.
+        // The end time of the data processing window as a UNIX timestamp in seconds. The value must be greater than the fromTime value.
         shared_ptr<int64_t> toTime_ {};
       };
 
@@ -981,7 +981,7 @@ namespace Models
 
 
       protected:
-        // The bootstrap historical start time as a UNIX timestamp in seconds. It shares the same precision as runOnce or scheduled.fromTime, and millisecond values greater than or equal to 1e12 are automatically converted. The cursor starts from the grid-aligned time and catches up window by window. After catching up, it switches to a minute interval. By default, it starts from the current time and processes only incremental data.
+        // The bootstrap historical start point as a UNIX timestamp in seconds. It shares the same precision as runOnce or scheduled fromTime. Millisecond values greater than or equal to 1e12 are automatically converted. The cursor starts from this time aligned to the grid and catches up window by window. After catching up, it switches to minute intervals. By default, it starts from the current time and processes only incremental data.
         shared_ptr<int64_t> fromTime_ {};
       };
 
@@ -1022,13 +1022,13 @@ namespace Models
 
 
     protected:
-      // The continuous execution configuration, which is used when the type is trace. The processing frequency is a fixed value managed by the server.
+      // The continuous execution configuration. This is used when the type is trace. The processing frequency is a fixed value managed by the server.
       shared_ptr<ExecutePolicy::Continuous> continuous_ {};
       // The scheduling mode. Valid values: RunOnce (single execution) and Scheduled (periodic scheduling).
       shared_ptr<string> mode_ {};
-      // The single execution configuration. This parameter is required only when the mode is set to RunOnce.
+      // The single execution configuration. This parameter is required only when the mode is RunOnce.
       shared_ptr<ExecutePolicy::RunOnce> runOnce_ {};
-      // The periodic scheduling configuration. This parameter is required only when the mode is set to Scheduled.
+      // The periodic scheduling configuration. This parameter is required only when the mode is Scheduled.
       shared_ptr<ExecutePolicy::Scheduled> scheduled_ {};
     };
 
@@ -1093,19 +1093,19 @@ namespace Models
 
 
   protected:
-    // The description of the pipeline, which can be up to 256 characters in length.
+    // The description of the pipeline. Maximum length: 256 characters.
     shared_ptr<string> description_ {};
-    // The execution policy.
+    // The scheduling method.
     shared_ptr<CreatePipelineRequest::ExecutePolicy> executePolicy_ {};
     // The pipeline configuration for node orchestration.
     shared_ptr<CreatePipelineRequest::Pipeline> pipeline_ {};
-    // The name of the pipeline. The name must be 3 to 63 characters in length and can contain only lowercase letters, digits, and hyphens (-).
+    // The name of the pipeline. The name must be 3 to 63 characters in length and can contain only lowercase letters, digits, and hyphens.
     shared_ptr<string> pipelineName_ {};
-    // The pipeline sink, which specifies the data write destination.
+    // The pipeline sink, which is the data write destination.
     shared_ptr<CreatePipelineRequest::Sink> sink_ {};
     // The pipeline data source.
     shared_ptr<CreatePipelineRequest::Source> source_ {};
-    // The idempotency token, which is a unique string generated by the client to ensure the idempotence of the creation operation.
+    // The idempotency token. It is a unique string generated by the client to ensure the idempotence of the create operation.
     shared_ptr<string> clientToken_ {};
   };
 

@@ -83,7 +83,7 @@ namespace Models
     shared_ptr<string> nextToken_ {};
     // The region ID.
     shared_ptr<string> regionId_ {};
-    // Filters only active AgentSpaces in the current region. Multiple conditions use the AND operator, and keys must be unique. Omitting the value matches the existence of the key, and an empty character string is an exact match for an empty value. An empty array is equivalent to not using label filtering and retains the original cross-region resources.
+    // Filters only active AgentSpaces in the current region. Multiple conditions are combined with AND, and keys must be unique. Omitting the value matches the existence of the key, and an empty character string is an exact match for an empty value. An empty array is equivalent to not using label filtering and retains the original cross-region resources.
     shared_ptr<string> tagShrink_ {};
   };
 

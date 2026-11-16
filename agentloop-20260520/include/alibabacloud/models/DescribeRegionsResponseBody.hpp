@@ -135,9 +135,9 @@ namespace Models
 
 
   protected:
-    // The maximum number of entries returned per request.
+    // The maximum number of records returned in a single request.
     shared_ptr<int32_t> maxResults_ {};
-    // The pagination token. If no more pages are available, this parameter is empty.
+    // The pagination token. This value is empty if no more pages are available.
     shared_ptr<string> nextToken_ {};
     // The region information.
     shared_ptr<vector<DescribeRegionsResponseBody::Regions>> regions_ {};

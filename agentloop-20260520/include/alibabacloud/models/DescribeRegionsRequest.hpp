@@ -63,7 +63,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> language_ {};
-    // The maximum number of entries to return in a single request.
+    // The maximum number of results to return.
     shared_ptr<int32_t> maxResults_ {};
     // The pagination token.
     shared_ptr<string> nextToken_ {};

@@ -122,7 +122,7 @@ namespace Models
 
 
         protected:
-          // The list of enrichment columns. This parameter is retained for compatibility. The current implementation outputs only the fixed agent_trajectory column, and this parameter no longer affects the output.
+          // The list of enrichment columns. This parameter is retained for compatibility. The current implementation outputs only the fixed column agent_trajectory, and this parameter no longer affects the output.
           shared_ptr<vector<string>> columns_ {};
           // Specifies whether to enable trajectory enrichment.
           shared_ptr<bool> enabled_ {};
@@ -139,7 +139,7 @@ namespace Models
 
 
       protected:
-        // Trajectory enrichment: mounts trajectory data into the cleaning results based on the trace_id. When writing data to a dataset, the data is stored in the fixed agent_trajectory column, and the column value is the JSON content of the trajectory.
+        // The trajectory enrichment configuration. Trajectory data is mounted into the cleaning results based on trace_id. When data is written to the dataset, it is stored in the fixed column agent_trajectory, where the column value is the trajectory JSON content.
         shared_ptr<Trajectory::Enrich> enrich_ {};
       };
 
@@ -190,11 +190,11 @@ namespace Models
 
 
       protected:
-        // The name of the Simple Log Service Logstore.
+        // The name of the SLS Logstore.
         shared_ptr<string> logstore_ {};
-        // The name of the Simple Log Service project.
+        // The name of the SLS project.
         shared_ptr<string> project_ {};
-        // The filtered query statement (Simple Log Service query and analysis syntax).
+        // The filtered query statement (SLS query and analysis syntax).
         shared_ptr<string> query_ {};
       };
 
@@ -238,7 +238,7 @@ namespace Models
       protected:
         // The name of the field.
         shared_ptr<string> name_ {};
-        // The type of the field. Valid values: text, long, double, and json.
+        // The data type of the field. Valid values: text, long, double, and json.
         shared_ptr<string> type_ {};
       };
 
@@ -282,7 +282,7 @@ namespace Models
       protected:
         // The name of the source dataset.
         shared_ptr<string> dataset_ {};
-        // The filter condition for the dataset data.
+        // The data filter condition for the dataset.
         shared_ptr<string> filter_ {};
       };
 
@@ -336,11 +336,11 @@ namespace Models
       shared_ptr<Source::Dataset> dataset_ {};
       // The input fields and their data types. This applies to all data source types.
       shared_ptr<vector<Source::InputFields>> inputFields_ {};
-      // The Simple Log Service Logstore datasource config.
+      // The Simple Log Service (SLS) Logstore datasource config.
       shared_ptr<Source::Logstore> logstore_ {};
-      // The configuration of trajectory data. This parameter is optional and takes effect only when the type is set to trace. It retrieves ATIF standard trajectory data from the trajectory cleaning service and extends the data based on features.
+      // The trajectory data configuration. This parameter is optional and takes effect only when the type is trace. It obtains ATIF standard trajectory data from the trajectory cleaning service and extends it based on features.
       shared_ptr<Source::Trajectory> trajectory_ {};
-      // The type of the data source. Simple Log Service is currently supported.
+      // The type of the data source. Currently, SLS is supported.
       shared_ptr<string> type_ {};
     };
 

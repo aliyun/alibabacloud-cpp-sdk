@@ -71,9 +71,9 @@ namespace Models
 
 
     protected:
-      // Indicates whether runtime recall is allowed after the experience library is updated.
+      // Specifies whether runtime recall is allowed after the experience library is updated.
       shared_ptr<bool> runtimeRecallEnabled_ {};
-      // The runtime recall property version that takes effect after this update.
+      // The version of the runtime recall attributes that takes effect after the current update.
       shared_ptr<int64_t> runtimeRecallRevision_ {};
     };
 
@@ -103,11 +103,11 @@ namespace Models
 
 
   protected:
-    // The configuration properties after updating the runtime recall switch. This block is not returned for other library update operations.
+    // The attributes returned after the runtime recall switch is updated. This block is not returned for other library update operations.
     shared_ptr<UpdateContextStoreResponseBody::Config> config_ {};
-    // The request ID. You can use this ID to locate the request when troubleshooting issues.
+    // The request ID. It is used to locate the request when you troubleshoot issues.
     shared_ptr<string> requestId_ {};
-    // The strategy version number that takes effect after the update for the memory type. If the strategy remains unchanged, the version number is the same as before the update.
+    // The strategy version number that takes effect after the update for the memory type. If the strategy remains unchanged, the version is the same as the one before the update.
     shared_ptr<int32_t> strategyVersion_ {};
   };
 

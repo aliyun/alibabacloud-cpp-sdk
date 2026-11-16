@@ -57,9 +57,9 @@ namespace Models
 
 
   protected:
-    // The description of the version. This parameter is optional. If this parameter is not specified, an empty string is used.
+    // The description of the version. This parameter is optional. If you do not specify this parameter, an empty string is used.
     shared_ptr<string> description_ {};
-    // The name of the version to be created, which is used to identify the version within the current dataset. The name cannot be empty after leading and trailing whitespaces are removed. The length of the UTF-8 encoded name cannot exceed 128 bytes, and the name cannot contain forward slashes (/).
+    // The name of the version to be created, which is used to identify the version within the current dataset. The name cannot be empty after leading and trailing whitespaces are removed. The length cannot exceed 128 bytes in UTF-8 encoding, and the name cannot contain forward slashes (/).
     // 
     // This parameter is required.
     shared_ptr<string> version_ {};

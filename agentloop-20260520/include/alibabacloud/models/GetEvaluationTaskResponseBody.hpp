@@ -25,6 +25,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(dataType, dataType_);
       DARABONBA_PTR_TO_JSON(description, description_);
       DARABONBA_PTR_TO_JSON(evaluators, evaluators_);
+      DARABONBA_ANY_TO_JSON(qualityMetrics, qualityMetrics_);
       DARABONBA_PTR_TO_JSON(regionId, regionId_);
       DARABONBA_PTR_TO_JSON(requestId, requestId_);
       DARABONBA_PTR_TO_JSON(runStrategyConfig, runStrategyConfig_);
@@ -44,6 +45,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(dataType, dataType_);
       DARABONBA_PTR_FROM_JSON(description, description_);
       DARABONBA_PTR_FROM_JSON(evaluators, evaluators_);
+      DARABONBA_ANY_FROM_JSON(qualityMetrics, qualityMetrics_);
       DARABONBA_PTR_FROM_JSON(regionId, regionId_);
       DARABONBA_PTR_FROM_JSON(requestId, requestId_);
       DARABONBA_PTR_FROM_JSON(runStrategyConfig, runStrategyConfig_);
@@ -67,9 +69,9 @@ namespace Models
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->agentSpace_ == nullptr
         && this->channel_ == nullptr && this->config_ == nullptr && this->createdAt_ == nullptr && this->dataFilter_ == nullptr && this->dataType_ == nullptr
-        && this->description_ == nullptr && this->evaluators_ == nullptr && this->regionId_ == nullptr && this->requestId_ == nullptr && this->runStrategyConfig_ == nullptr
-        && this->status_ == nullptr && this->tags_ == nullptr && this->taskId_ == nullptr && this->taskMode_ == nullptr && this->taskName_ == nullptr
-        && this->updatedAt_ == nullptr; };
+        && this->description_ == nullptr && this->evaluators_ == nullptr && this->qualityMetrics_ == nullptr && this->regionId_ == nullptr && this->requestId_ == nullptr
+        && this->runStrategyConfig_ == nullptr && this->status_ == nullptr && this->tags_ == nullptr && this->taskId_ == nullptr && this->taskMode_ == nullptr
+        && this->taskName_ == nullptr && this->updatedAt_ == nullptr; };
     // agentSpace Field Functions 
     bool hasAgentSpace() const { return this->agentSpace_ != nullptr;};
     void deleteAgentSpace() { this->agentSpace_ = nullptr;};
@@ -128,6 +130,15 @@ namespace Models
     inline vector<Evaluator> getEvaluators() { DARABONBA_PTR_GET(evaluators_, vector<Evaluator>) };
     inline GetEvaluationTaskResponseBody& setEvaluators(const vector<Evaluator> & evaluators) { DARABONBA_PTR_SET_VALUE(evaluators_, evaluators) };
     inline GetEvaluationTaskResponseBody& setEvaluators(vector<Evaluator> && evaluators) { DARABONBA_PTR_SET_RVALUE(evaluators_, evaluators) };
+
+
+    // qualityMetrics Field Functions 
+    bool hasQualityMetrics() const { return this->qualityMetrics_ != nullptr;};
+    void deleteQualityMetrics() { this->qualityMetrics_ = nullptr;};
+    inline     const Darabonba::Json & getQualityMetrics() const { DARABONBA_GET(qualityMetrics_) };
+    Darabonba::Json & getQualityMetrics() { DARABONBA_GET(qualityMetrics_) };
+    inline GetEvaluationTaskResponseBody& setQualityMetrics(const Darabonba::Json & qualityMetrics) { DARABONBA_SET_VALUE(qualityMetrics_, qualityMetrics) };
+    inline GetEvaluationTaskResponseBody& setQualityMetrics(Darabonba::Json && qualityMetrics) { DARABONBA_SET_RVALUE(qualityMetrics_, qualityMetrics) };
 
 
     // regionId Field Functions 
@@ -198,15 +209,15 @@ namespace Models
 
 
   protected:
-    // The AgentSpace name.
+    // The name of the AgentSpace.
     shared_ptr<string> agentSpace_ {};
     // The source of the task.
     shared_ptr<string> channel_ {};
-    // The data source and execution configuration. Tasks with `dataType=trace` typically contain backend-populated `project`, `storeName`, and `dataScope` fields.
+    // The data source and execution configurations. Tasks with `dataType=trace` typically include the `project`, `storeName`, and `dataScope` fields populated by the backend.
     shared_ptr<map<string, string>> config_ {};
-    // The creation time, in seconds as a UNIX timestamp.
+    // The creation time, represented as a UNIX timestamp in seconds.
     shared_ptr<int64_t> createdAt_ {};
-    // The evaluation data filter conditions, returned by the backend as a JSON string.
+    // The filter conditions for evaluation data. The backend returns this value as a JSON string.
     shared_ptr<string> dataFilter_ {};
     // The data source type of the evaluation object.
     shared_ptr<string> dataType_ {};
@@ -214,23 +225,25 @@ namespace Models
     shared_ptr<string> description_ {};
     // The list of evaluator configurations.
     shared_ptr<vector<Evaluator>> evaluators_ {};
+    // The quality score and coverage snapshot of the most recent evaluator run. This field is empty when the feature is not enabled.
+    Darabonba::Json qualityMetrics_ {};
     // The region to which the task belongs.
     shared_ptr<string> regionId_ {};
-    // The request ID.
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
-    // The structured run strategy configuration, including the parsed backfill strategy and continuous evaluation strategy.
+    // The structured configuration of the run strategy, including the parsed backfill strategy and continuous evaluation strategy.
     shared_ptr<RunStrategies> runStrategyConfig_ {};
-    // The evaluation task status.
+    // The status of the evaluation task.
     shared_ptr<string> status_ {};
-    // The key-value pairs of task tags. Empty if not set.
+    // The key-value pairs of task tags. This field is empty when no tags are set.
     shared_ptr<map<string, string>> tags_ {};
-    // The evaluation task ID.
+    // The ID of the evaluation task.
     shared_ptr<string> taskId_ {};
-    // The evaluation task mode.
+    // The mode of the evaluation task.
     shared_ptr<string> taskMode_ {};
-    // The task name.
+    // The name of the task.
     shared_ptr<string> taskName_ {};
-    // The last update time, in seconds as a UNIX timestamp.
+    // The last update time, represented as a UNIX timestamp in seconds.
     shared_ptr<int64_t> updatedAt_ {};
   };
 

@@ -70,9 +70,9 @@ namespace Models
     shared_ptr<int32_t> maxResults_ {};
     // The pagination token.
     shared_ptr<string> nextToken_ {};
-    // The task status.
+    // Filters the results by status.
     shared_ptr<string> status_ {};
-    // The task type.
+    // Filters the results by task type.
     shared_ptr<string> type_ {};
   };
 

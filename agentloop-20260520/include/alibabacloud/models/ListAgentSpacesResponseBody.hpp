@@ -164,7 +164,7 @@ namespace Models
 
 
       protected:
-        // The method used to attach the MSE namespace. AutoCreated indicates automatic creation by AgentLoop. UserSelected indicates that an existing namespace is selected and attached when the AgentSpace is created.
+        // The attach method for the MSE namespace. AutoCreated indicates automatic creation by AgentLoop. UserSelected indicates that an existing namespace is selected and attached when the AgentSpace is created.
         shared_ptr<string> bindType_ {};
         // The ID of the MSE namespace.
         shared_ptr<string> namespaceId_ {};
@@ -259,7 +259,7 @@ namespace Models
       shared_ptr<string> regionId_ {};
       // The name of the Simple Log Service project.
       shared_ptr<string> slsProject_ {};
-      // Returns only the tags of AgentSpaces that are active in the current region and match the local instance. An empty array is returned when it is confirmed that there are no tags. This field is omitted for entries in other regions, inactive entries, or entries that do not match the local instance. Omission of this field does not indicate the absence of tags.
+      // Returns only AgentSpace tags that are active in the current region and match the local instance. An empty array is returned when it is confirmed that no tags exist. This field is omitted for entries in other regions, inactive entries, or entries that do not match the local instance. Omission of this field does not indicate the absence of tags.
       shared_ptr<vector<AgentSpaces::Tags>> tags_ {};
       // The update time.
       // 
@@ -307,11 +307,11 @@ namespace Models
 
 
   protected:
-    // The information about the AgentSpaces.
+    // The AgentSpaces information.
     shared_ptr<vector<ListAgentSpacesResponseBody::AgentSpaces>> agentSpaces_ {};
     // The maximum number of returned results.
     shared_ptr<int32_t> maxResults_ {};
-    // The pagination token. This parameter is empty if there are no more pages.
+    // The pagination token. This parameter is empty if no next page exists.
     shared_ptr<string> nextToken_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

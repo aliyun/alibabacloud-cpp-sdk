@@ -87,15 +87,15 @@ namespace Models
 
 
     protected:
-      // The skill file content.
+      // The content of the skill file.
       // 
       // This parameter is required.
       shared_ptr<string> content_ {};
-      // The skill file name.
+      // The name of the skill file.
       // 
       // This parameter is required.
       shared_ptr<string> name_ {};
-      // The file remark.
+      // The remark for the file.
       shared_ptr<string> remark_ {};
     };
 
@@ -146,7 +146,7 @@ namespace Models
 
 
   protected:
-    // The AgentSpace name.
+    // The name of the AgentSpace.
     // 
     // This parameter is required.
     shared_ptr<string> agentSpace_ {};
@@ -154,11 +154,11 @@ namespace Models
     shared_ptr<string> description_ {};
     // The display name of the skill.
     shared_ptr<string> displayName_ {};
-    // Specifies whether to enable the skill.
+    // Specifies whether the skill is enabled.
     shared_ptr<bool> enable_ {};
-    // The list of skill files. When provided, the skill file content is updated.
+    // The list of skill files. If specified, the content of the skill files is updated.
     shared_ptr<vector<UpdateEvaluatorSkillRequest::Files>> files_ {};
-    // The idempotency token. CloudSpec declares this query parameter, but the backend does not currently perform idempotency comparison.
+    // The idempotency token. CloudSpec declares this query parameter, but the backend does not currently perform idempotency checks.
     shared_ptr<string> clientToken_ {};
   };
 
