@@ -84,17 +84,17 @@ namespace Models
 
 
   protected:
-    // The business error code. The value `OK` is returned if the request was successful.
+    // The business error code. `OK` is returned if the request is successful.
     shared_ptr<string> code_ {};
-    // The HTTP status code. The value `200` is returned if the request was successful.
+    // The HTTP status code. `200` is returned if the request is successful.
     shared_ptr<int32_t> httpStatusCode_ {};
-    // The additional information. The value `success` is returned if the request was successful.
+    // The additional information. `success` is returned if the request is successful.
     shared_ptr<string> message_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the call was successful. Valid values: true and false.
+    // Indicates whether the call was successful. Valid values: true: The call was successful. false: The call failed.
     shared_ptr<bool> success_ {};
-    // The task ID. Use this ID to call the GetImageTaskResult operation to query the results.
+    // The task ID, which is used to call the `GetImageTaskResult` operation to query the result.
     shared_ptr<string> taskId_ {};
   };
 

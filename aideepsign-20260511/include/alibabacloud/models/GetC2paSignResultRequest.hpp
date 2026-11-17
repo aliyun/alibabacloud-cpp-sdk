@@ -38,7 +38,7 @@ namespace Models
 
 
   protected:
-    // The opaque task ID returned by CreateC2paSignTask, up to 64 characters in length.
+    // The opaque task ID returned by CreateC2paSignTask. The ID can be up to 64 characters in length.
     // 
     // This parameter is required.
     shared_ptr<string> taskId_ {};

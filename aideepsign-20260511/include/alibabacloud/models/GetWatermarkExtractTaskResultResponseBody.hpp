@@ -121,28 +121,28 @@ namespace Models
 
 
   protected:
-    // The average extraction confidence, ranging from 0 to 1. This parameter is returned only when Status is succeeded.
+    // The average extraction confidence level, which ranges from 0 to 1. This field is returned only when Status is succeeded.
     shared_ptr<double> avgAcc_ {};
-    // The business error code. OK is returned if the request is successful.
+    // The business error code. `OK` is returned if the request is successful.
     shared_ptr<string> code_ {};
     // Indicates whether a watermark is detected.
     shared_ptr<bool> detected_ {};
     // The HTTP status code. 200 is returned if the request is successful.
     shared_ptr<int32_t> httpStatusCode_ {};
-    // The failure reason when the task fails. This parameter is returned only when Status is failed.
+    // The cause of the task failure. This field is returned only when Status is failed.
     shared_ptr<string> message_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};
     // The task status. Valid values:
-    // - running: In progress.
-    // - succeeded: Completed.
-    // - failed: Failed.
+    // - running: The task is running.
+    // - succeeded: The task is completed.
+    // - failed: The task failed.
     shared_ptr<string> status_ {};
     // Indicates whether the request is successful.
     shared_ptr<bool> success_ {};
-    // The dark watermark extraction task ID.
+    // The ID of the invisible watermark extraction task.
     shared_ptr<string> taskId_ {};
-    // The extracted watermark content. This parameter is returned only when `Status` is `succeeded` and `Detected=true`.
+    // The extracted watermark content. This field is returned only when `Status` is `succeeded` and `Detected=true`.
     shared_ptr<string> watermarkContent_ {};
   };
 

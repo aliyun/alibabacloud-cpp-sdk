@@ -19,6 +19,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(FailedCount, failedCount_);
       DARABONBA_PTR_TO_JSON(HttpStatusCode, httpStatusCode_);
       DARABONBA_PTR_TO_JSON(Message, message_);
+      DARABONBA_PTR_TO_JSON(ObjectKey, objectKey_);
       DARABONBA_PTR_TO_JSON(ReportFileUrl, reportFileUrl_);
       DARABONBA_PTR_TO_JSON(ReportObjectKey, reportObjectKey_);
       DARABONBA_PTR_TO_JSON(RequestId, requestId_);
@@ -37,6 +38,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(FailedCount, failedCount_);
       DARABONBA_PTR_FROM_JSON(HttpStatusCode, httpStatusCode_);
       DARABONBA_PTR_FROM_JSON(Message, message_);
+      DARABONBA_PTR_FROM_JSON(ObjectKey, objectKey_);
       DARABONBA_PTR_FROM_JSON(ReportFileUrl, reportFileUrl_);
       DARABONBA_PTR_FROM_JSON(ReportObjectKey, reportObjectKey_);
       DARABONBA_PTR_FROM_JSON(RequestId, requestId_);
@@ -61,8 +63,9 @@ namespace Models
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->code_ == nullptr
         && this->errorCode_ == nullptr && this->errorMessage_ == nullptr && this->failedCount_ == nullptr && this->httpStatusCode_ == nullptr && this->message_ == nullptr
-        && this->reportFileUrl_ == nullptr && this->reportObjectKey_ == nullptr && this->requestId_ == nullptr && this->signedFileUrl_ == nullptr && this->status_ == nullptr
-        && this->succeededCount_ == nullptr && this->success_ == nullptr && this->taskId_ == nullptr && this->taskType_ == nullptr && this->totalCount_ == nullptr; };
+        && this->objectKey_ == nullptr && this->reportFileUrl_ == nullptr && this->reportObjectKey_ == nullptr && this->requestId_ == nullptr && this->signedFileUrl_ == nullptr
+        && this->status_ == nullptr && this->succeededCount_ == nullptr && this->success_ == nullptr && this->taskId_ == nullptr && this->taskType_ == nullptr
+        && this->totalCount_ == nullptr; };
     // code Field Functions 
     bool hasCode() const { return this->code_ != nullptr;};
     void deleteCode() { this->code_ = nullptr;};
@@ -103,6 +106,13 @@ namespace Models
     void deleteMessage() { this->message_ = nullptr;};
     inline string getMessage() const { DARABONBA_PTR_GET_DEFAULT(message_, "") };
     inline GetC2paSignResultResponseBody& setMessage(string message) { DARABONBA_PTR_SET_VALUE(message_, message) };
+
+
+    // objectKey Field Functions 
+    bool hasObjectKey() const { return this->objectKey_ != nullptr;};
+    void deleteObjectKey() { this->objectKey_ = nullptr;};
+    inline string getObjectKey() const { DARABONBA_PTR_GET_DEFAULT(objectKey_, "") };
+    inline GetC2paSignResultResponseBody& setObjectKey(string objectKey) { DARABONBA_PTR_SET_VALUE(objectKey_, objectKey) };
 
 
     // reportFileUrl Field Functions 
@@ -176,35 +186,37 @@ namespace Models
 
 
   protected:
-    // The business error code for the API call. OK is returned when the call succeeds.
+    // The business error code for this API call. OK is returned when the call is successful.
     shared_ptr<string> code_ {};
-    // The error code for task failure. This parameter is returned only when Status is FAILED.
+    // The error code for a failed task. This parameter is returned only when Status is FAILED.
     shared_ptr<string> errorCode_ {};
-    // The error message for task failure. This parameter is returned only when Status is FAILED.
+    // The error message for a failed task. This parameter is returned only when Status is FAILED.
     shared_ptr<string> errorMessage_ {};
     // The number of objects that failed to be signed, were skipped, or were terminated in the Bucket task. This parameter is returned only when the Bucket task is in the SUCCEEDED or CANCELED state.
     shared_ptr<int64_t> failedCount_ {};
-    // The HTTP status code. 200 is returned when the API call succeeds.
+    // The HTTP status code. 200 is returned when the API call is successful.
     shared_ptr<int32_t> httpStatusCode_ {};
-    // The additional information. success is returned when the API call succeeds.
+    // The additional information. success is returned when the API call is successful.
     shared_ptr<string> message_ {};
-    // The temporary download URL returned when a Bucket task enters the CANCELED state and the JSON report is successfully generated. The report covers only the objects discovered before termination.
+    // The destination object key returned when the signing results are written to the user Bucket. This parameter is returned only when a single-file task succeeds.
+    shared_ptr<string> objectKey_ {};
+    // The temporary download URL returned when a Bucket task enters the CANCELED state and the JSON report is generated successfully. The report covers only the objects discovered before termination.
     shared_ptr<string> reportFileUrl_ {};
     // The object key of the final standard JSON report for the Bucket task. This parameter is returned only when the Bucket task succeeds.
     shared_ptr<string> reportObjectKey_ {};
-    // The request ID of the OpenAPI call.
+    // The request ID of this OpenAPI invocation.
     shared_ptr<string> requestId_ {};
-    // The temporary download URL of the signature file. This parameter is returned only when Status is SUCCEEDED.
+    // The temporary download URL of the signed file. This parameter is returned only when Status is SUCCEEDED.
     shared_ptr<string> signedFileUrl_ {};
-    // The task status. Valid values: PROCESSING, SUCCEEDED, and FAILED.
+    // The status of the task. Valid values: PROCESSING, SUCCEEDED, and FAILED.
     shared_ptr<string> status_ {};
     // The number of successfully signed objects in the Bucket task. This parameter is returned only when the Bucket task is in the SUCCEEDED or CANCELED state.
     shared_ptr<int64_t> succeededCount_ {};
     // Indicates whether the query call is successful. This value may still be true even if the task itself fails.
     shared_ptr<bool> success_ {};
-    // The C2PA signing task ID.
+    // The ID of the C2PA signing task.
     shared_ptr<string> taskId_ {};
-    // The task type. Valid values: FILE and BUCKET.
+    // The type of the task. Valid values: FILE and BUCKET.
     shared_ptr<string> taskType_ {};
     // The total number of objects scanned by the Bucket task. This parameter is returned only when the Bucket task is in the SUCCEEDED or CANCELED state.
     shared_ptr<int64_t> totalCount_ {};

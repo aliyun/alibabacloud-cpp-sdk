@@ -88,9 +88,9 @@ namespace Models
 
 
     protected:
-      // The media type for the first item. Valid values: first_frame, last_frame, reference_image, reference_video, reference_audio, file, and link.
+      // The material type for the first item. Valid values: first_frame, last_frame, reference_image, reference_video, reference_audio, file, and link.
       shared_ptr<string> type_ {};
-      // The media URL for the first item. You can specify a public HTTP or HTTPS URL, a temporary oss:// URL, or inline data in the format of data:{mime};base64,....
+      // The material URL for the first item. The value can be a public HTTP or HTTPS URL, a temporary oss:// URL, or inline data in the data:{mime};base64,... format.
       shared_ptr<string> url_ {};
     };
 
@@ -182,19 +182,19 @@ namespace Models
     shared_ptr<bool> audio_ {};
     // The idempotency parameter.
     shared_ptr<string> clientToken_ {};
-    // The video duration in seconds. Valid values: an integer in the range of [2, 30], -1 (intelligent duration), and 0 (the server uses the default value of 5 seconds).
+    // The duration of the video in seconds. Valid values: an integer from 2 to 30, -1 for intelligent duration, and 0 for the server default of 5 seconds.
     shared_ptr<int32_t> duration_ {};
     // The model name. Valid values: wan3.0-video (default) and wan3.0-video-prime (high-speed version).
     shared_ptr<string> model_ {};
-    // The video description prompt. Either this parameter or Media is required. For pure text-to-video generation, only Prompt is required.
+    // The video description prompt. Either this parameter or Media is required. For text-to-video generation, only Prompt is required.
     shared_ptr<string> prompt_ {};
-    // Specifies whether to enable intelligent rewriting (prompt_extend). Default value: true.
+    // Specifies whether to enable intelligent prompt rewriting. Default value: true.
     shared_ptr<bool> promptExtend_ {};
-    // The aspect ratio. Valid values: adaptive (default), 16:9, 4:3, 1:1, 3:4, and 9:16.
+    // The aspect ratio of the video. Valid values: adaptive, 16:9, 4:3, 1:1, 3:4, and 9:16. Default value: adaptive.
     shared_ptr<string> ratio_ {};
-    // The resolution. Valid values: 1080P (default), 720P, and 480P.
+    // The video resolution. Valid values: 1080P, 720P, and 480P. Default value: 1080P.
     shared_ptr<string> resolution_ {};
-    // The random seed. Valid values: -1 (random), an integer in the range of [0, 2147483647], and 0 (the server uses a random seed by default).
+    // The random seed. Valid values: -1 (random) or an integer from 0 to 2147483647. A value of 0 is a valid reproducible seed. If not specified, the server uses a random seed by default.
     shared_ptr<int32_t> seed_ {};
     // Specifies whether to add a Model Studio watermark. Default value: false.
     shared_ptr<bool> watermark_ {};

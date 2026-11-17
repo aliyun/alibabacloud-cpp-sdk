@@ -84,17 +84,17 @@ namespace Models
 
 
   protected:
-    // The business error code. The value OK is returned if the request is successful.
+    // The **business error code**. "OK" is returned if the request is successful.
     shared_ptr<string> code_ {};
-    // The HTTP status code. The value 200 is returned if the request is successful.
+    // The **HTTP status code**. 200 is returned if the request is successful.
     shared_ptr<string> httpStatusCode_ {};
-    // The response message.
+    // The returned message.
     shared_ptr<string> message_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
     // Indicates whether the request is successful.
     shared_ptr<bool> success_ {};
-    // The invisible watermark embedding task ID. Use this ID to call GetWatermarkEmbedTaskResult to query the result.
+    // The ID of the invisible watermark embedding task. You can use this ID to call the GetWatermarkEmbedTaskResult operation to query the result.
     shared_ptr<string> taskId_ {};
   };
 

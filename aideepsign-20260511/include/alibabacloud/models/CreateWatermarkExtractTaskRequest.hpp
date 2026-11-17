@@ -66,15 +66,15 @@ namespace Models
 
 
   protected:
-    // A reserved idempotency field. Idempotency is not supported. Passing in a value does not cause an error, but it does not produce an idempotency effect.
+    // The reserved idempotency field. This field is not supported. Passing this field does not cause an error, but it does not take effect.
     shared_ptr<string> clientToken_ {};
-    // The file type. Valid values: `image` and `video`. The value must be the same as the `FileType` used when the watermark was embedded.
+    // The file type. Valid values: `image`, `video`, and `audio`. The value must be the same as the `FileType` used when the watermark was embedded.
     // 
     // This parameter is required.
     shared_ptr<string> fileType_ {};
-    // The URL of the file from which the watermark is to be extracted. Images and videos are supported. Only the `http/https` protocol is supported. Videos must be no longer than 10 minutes and no larger than 100 MB.
+    // The URL of the file from which you want to extract the watermark. Images and videos are supported. Only the `http` and `https` protocols are supported.
     shared_ptr<string> fileUrl_ {};
-    // A reserved field. No valid values are available. Do not pass in this parameter.
+    // The reserved field. No valid values are available. Do not pass this field when you call this operation.
     shared_ptr<string> reserved_ {};
   };
 

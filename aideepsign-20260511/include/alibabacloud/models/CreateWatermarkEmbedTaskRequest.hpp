@@ -84,25 +84,23 @@ namespace Models
 
 
   protected:
-    // A reserved idempotency field. This field is not supported. Passing a value does not cause an error, but it does not produce an idempotency effect.
+    // The reserved idempotency field. This field is not supported. Passing this field does not cause an error, but it does not produce an idempotency effect.
     shared_ptr<string> clientToken_ {};
-    // The file type. Valid values:
-    // - image: image.
-    // - video: video.
-    // 
-    // The value must match the actual file type.
+    // The file type. Valid values: image, video, and audio. The value must match the actual file type. When the input is audio, the output is always in WAV format.
     // 
     // This parameter is required.
     shared_ptr<string> fileType_ {};
-    // The URL of the file to be processed. Images and videos are supported. Only the HTTP and HTTPS protocols are supported. Videos must be no longer than 10 minutes and no larger than 100 MB.
+    // The URL of the file to be processed. Images and videos are supported. Only HTTP and HTTPS protocols are supported. Videos must be shorter than 10 minutes and smaller than 100 MB.
     shared_ptr<string> fileUrl_ {};
-    // The embedding strength. Valid values: 0 to 5. A higher strength provides better robustness but lower visual quality.
+    // The embedding strength. Valid values: integers from 0 to 3. A higher strength provides better robustness but lower visual quality.
     // 
     // This parameter is required.
     shared_ptr<string> level_ {};
-    // A reserved field. No valid values are available. Do not specify this parameter.
+    // The reserved field. No valid values are available. Do not pass this field when calling the operation.
     shared_ptr<string> reserved_ {};
-    // The watermark content. The embedded content can be restored to the original text by calling the extraction operation.
+    // The watermark content. The embedded text can be restored from the output file by calling the extraction operation.
+    // 
+    // This parameter is required.
     shared_ptr<string> watermarkContent_ {};
   };
 

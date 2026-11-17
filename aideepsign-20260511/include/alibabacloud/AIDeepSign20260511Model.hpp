@@ -35,6 +35,9 @@
 #include <alibabacloud/models/CreateWatermarkExtractTaskRequest.hpp>
 #include <alibabacloud/models/CreateWatermarkExtractTaskResponseBody.hpp>
 #include <alibabacloud/models/CreateWatermarkExtractTaskResponse.hpp>
+#include <alibabacloud/models/CreateWatermarkSignTaskRequest.hpp>
+#include <alibabacloud/models/CreateWatermarkSignTaskResponseBody.hpp>
+#include <alibabacloud/models/CreateWatermarkSignTaskResponse.hpp>
 #include <alibabacloud/models/DetectAigcImageRequest.hpp>
 #include <alibabacloud/models/DetectAigcImageResponseBody.hpp>
 #include <alibabacloud/models/DetectAigcImageResponse.hpp>
@@ -68,6 +71,9 @@
 #include <alibabacloud/models/GetWatermarkExtractTaskResultRequest.hpp>
 #include <alibabacloud/models/GetWatermarkExtractTaskResultResponseBody.hpp>
 #include <alibabacloud/models/GetWatermarkExtractTaskResultResponse.hpp>
+#include <alibabacloud/models/GetWatermarkSignTaskResultRequest.hpp>
+#include <alibabacloud/models/GetWatermarkSignTaskResultResponseBody.hpp>
+#include <alibabacloud/models/GetWatermarkSignTaskResultResponse.hpp>
 #include <alibabacloud/models/PauseC2paBucketSignTaskRequest.hpp>
 #include <alibabacloud/models/PauseC2paBucketSignTaskResponseBody.hpp>
 #include <alibabacloud/models/PauseC2paBucketSignTaskResponse.hpp>

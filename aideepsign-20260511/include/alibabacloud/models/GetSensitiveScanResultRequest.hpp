@@ -38,7 +38,7 @@ namespace Models
 
 
   protected:
-    // The task ID returned by `CreateSensitiveScanTask`.
+    // The task ID, which is returned by `CreateSensitiveScanTask`.
     // 
     // This parameter is required.
     shared_ptr<string> taskId_ {};

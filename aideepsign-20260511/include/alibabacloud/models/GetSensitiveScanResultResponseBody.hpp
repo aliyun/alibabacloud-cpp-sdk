@@ -194,15 +194,15 @@ namespace Models
 
 
       protected:
-        // The name of the bucket to which the object belongs.
+        // **The name of the bucket to which the object belongs.**
         shared_ptr<string> bucketName_ {};
-        // The sensitive data category name.
+        // **The sensitive data category name.**
         shared_ptr<string> categoryName_ {};
-        // The name of the scanned object.
+        // **The name of the scanned object.**
         shared_ptr<string> name_ {};
-        // The overall risk level name.
+        // **The overall risk level name.**
         shared_ptr<string> riskLevelName_ {};
-        // The list of sensitive data rules that are hit.
+        // The list of matched sensitive data rules.
         shared_ptr<vector<OssObjectDetail::RuleList>> ruleList_ {};
       };
 
@@ -217,7 +217,7 @@ namespace Models
 
 
     protected:
-      // The name of the scanned object.
+      // The scan object name.
       shared_ptr<Result::OssObjectDetail> ossObjectDetail_ {};
     };
 
@@ -276,22 +276,19 @@ namespace Models
 
 
   protected:
-    // The business error code. The value "OK" is returned when the request succeeds.
+    // The business error code. If the request is successful, "OK" is returned.
     shared_ptr<string> code_ {};
-    // The HTTP status code. The value 200 is returned when the request succeeds.
+    // The HTTP status code. If the request is successful, 200 is returned.
     shared_ptr<int32_t> httpStatusCode_ {};
-    // The additional information. The value "success" is returned when the request succeeds.
+    // The additional information. If the request is successful, "success" is returned.
     shared_ptr<string> message_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The scan result. This parameter is returned only when the status is completed.
+    // The scan results. This parameter is returned only when the task status is `completed`.
     shared_ptr<GetSensitiveScanResultResponseBody::Result> result_ {};
-    // The task status. Valid values:
-    // - running: The task is running.
-    // - completed: The task is completed.
-    // - terminated: The task is terminated or failed.
+    // The task status. Valid values: `running` (running), `completed` (completed), and `terminated` (terminated or failed).
     shared_ptr<string> status_ {};
-    // Indicates whether the request was successful.
+    // Indicates whether the request is successful.
     shared_ptr<bool> success_ {};
   };
 

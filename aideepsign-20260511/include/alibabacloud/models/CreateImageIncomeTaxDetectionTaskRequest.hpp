@@ -50,7 +50,7 @@ namespace Models
   protected:
     // The idempotency parameter.
     shared_ptr<string> clientToken_ {};
-    // The URL of the income tax screenshot to detect. Only HTTP/HTTPS URLs are supported. The image size cannot exceed 10 MB. External images are not supported. Only URLs accessible from the Chinese mainland public network are supported.
+    // The URL of the individual income tax screenshot to be detected. Only HTTP and HTTPS protocols are supported, and the image size cannot exceed 10 MB. Images from outside the Chinese mainland are not supported. Only URLs accessible from the public network within the Chinese mainland are supported.
     shared_ptr<string> imageUrl_ {};
   };
 

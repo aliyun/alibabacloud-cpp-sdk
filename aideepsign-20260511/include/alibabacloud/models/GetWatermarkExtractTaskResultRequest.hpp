@@ -48,9 +48,9 @@ namespace Models
 
 
   protected:
-    // A reserved idempotence field. This field is not supported. Passing in a value does not cause an error, but it does not produce an idempotence effect.
+    // The reserved idempotency parameter. This parameter is not supported. Passing this parameter does not cause an error but does not provide idempotency.
     shared_ptr<string> clientToken_ {};
-    // The dark watermark task ID returned by the CreateWatermarkExtractTask operation.
+    // The ID of the invisible watermark task, which is returned by the CreateWatermarkExtractTask operation.
     // 
     // This parameter is required.
     shared_ptr<string> taskId_ {};

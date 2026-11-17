@@ -38,7 +38,7 @@ namespace Models
 
 
   protected:
-    // The URL of the image to detect. Only HTTP/HTTPS protocols are supported. You must provide at least one of `ImageUrl` and `ObjectKey`.
+    // The URL of the image to be detected. Only the HTTP and HTTPS protocols are supported. Specify at least one of ImageUrl and ObjectKey.
     shared_ptr<string> imageUrl_ {};
   };
 

@@ -48,9 +48,9 @@ namespace Models
 
 
   protected:
-    // The idempotency token.
+    // The idempotency parameter.
     shared_ptr<string> clientToken_ {};
-    // The URL of the image to be detected. Only HTTP/HTTPS protocols are supported.
+    // The URL of the image to be detected. Only HTTP and HTTPS protocols are supported.
     shared_ptr<string> imageUrl_ {};
   };
 

@@ -78,11 +78,11 @@ namespace Models
 
 
     protected:
-      // The confidence score. Value range: 0 to 1. A higher value indicates a higher probability.
+      // **Confidence score**. Valid values: 0 to 1. A larger value indicates a higher probability.
       shared_ptr<string> confidence_ {};
-      // The detection label. Valid values:
-      // - `ai_generated`: AI-generated.
-      // - `non_ai_generated`: Not AI-generated.
+      // **Detection label**. Valid values:
+      // - ai_generated: AI-generated.
+      // - non_ai_generated: Non-AI-generated.
       shared_ptr<string> label_ {};
     };
 
@@ -135,17 +135,17 @@ namespace Models
   protected:
     // The list of AIGC detection result labels.
     shared_ptr<vector<DetectAigcImageResponseBody::Body>> body_ {};
-    // The business error code. The value `OK` is returned if the request is successful.
+    // The business error code. If the request is successful, OK is returned.
     shared_ptr<string> code_ {};
-    // The HTTP status code. The value `200` is returned if the request is successful.
+    // The HTTP status code. If the request is successful, 200 is returned.
     shared_ptr<int32_t> httpStatusCode_ {};
-    // The additional information. The value `success` is returned if the request is successful.
+    // The additional information. If the request is successful, success is returned.
     shared_ptr<string> message_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
     // Indicates whether the call was successful. Valid values:
-    // - true: Successful.
-    // - false: Failed.
+    // - true: The call was successful.
+    // - false: The call failed.
     shared_ptr<bool> success_ {};
   };
 
