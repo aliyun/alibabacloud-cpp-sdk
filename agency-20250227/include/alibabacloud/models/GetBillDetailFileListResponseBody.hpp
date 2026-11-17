@@ -112,11 +112,11 @@ namespace Models
       // The file URL.
       shared_ptr<string> fileUrl_ {};
       // The OSS file push status. Valid values:
-      // - 1: pending
-      // - 2: processing
-      // - 3: completed.
+      // - 1: Pending.
+      // - 2: Processing.
+      // - 3: Completed.
       shared_ptr<string> status_ {};
-      // The type. Valid values: customer acquisition or channel expansion.
+      // The type. Valid values: Customer Acquisition, Channel Expansion.
       shared_ptr<string> type_ {};
     };
 

@@ -81,9 +81,9 @@ namespace Models
     shared_ptr<string> contactName_ {};
     // The content of the note.
     shared_ptr<string> noteContent_ {};
-    // The note ID. This parameter is required.
+    // The ID of the note. This parameter is required.
     shared_ptr<int64_t> noteId_ {};
-    // The touch date. The value is a UNIX timestamp in milliseconds.
+    // The time when the contact was made. The value is a timestamp in milliseconds.
     shared_ptr<int64_t> touchDate_ {};
   };
 

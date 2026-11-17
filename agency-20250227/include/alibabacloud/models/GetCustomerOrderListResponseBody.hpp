@@ -69,6 +69,7 @@ namespace Models
         DARABONBA_PTR_TO_JSON(ProductName, productName_);
         DARABONBA_PTR_TO_JSON(ProjectId, projectId_);
         DARABONBA_PTR_TO_JSON(RamAccountForCustomerManagers, ramAccountForCustomerManagers_);
+        DARABONBA_PTR_TO_JSON(RebateType, rebateType_);
       };
       friend void from_json(const Darabonba::Json& j, Data& obj) { 
         DARABONBA_PTR_FROM_JSON(AmountDiscount, amountDiscount_);
@@ -89,6 +90,7 @@ namespace Models
         DARABONBA_PTR_FROM_JSON(ProductName, productName_);
         DARABONBA_PTR_FROM_JSON(ProjectId, projectId_);
         DARABONBA_PTR_FROM_JSON(RamAccountForCustomerManagers, ramAccountForCustomerManagers_);
+        DARABONBA_PTR_FROM_JSON(RebateType, rebateType_);
       };
       Data() = default ;
       Data(const Data &) = default ;
@@ -105,7 +107,7 @@ namespace Models
         && this->amountDue_ == nullptr && this->createdAt_ == nullptr && this->customerAccount_ == nullptr && this->customerClassification_ == nullptr && this->customerUid_ == nullptr
         && this->deductedAmountByCoupons_ == nullptr && this->discountedPrice_ == nullptr && this->orderId_ == nullptr && this->orderStatus_ == nullptr && this->orderType_ == nullptr
         && this->paidAt_ == nullptr && this->payType_ == nullptr && this->price_ == nullptr && this->productCode_ == nullptr && this->productName_ == nullptr
-        && this->projectId_ == nullptr && this->ramAccountForCustomerManagers_ == nullptr; };
+        && this->projectId_ == nullptr && this->ramAccountForCustomerManagers_ == nullptr && this->rebateType_ == nullptr; };
       // amountDiscount Field Functions 
       bool hasAmountDiscount() const { return this->amountDiscount_ != nullptr;};
       void deleteAmountDiscount() { this->amountDiscount_ = nullptr;};
@@ -234,6 +236,13 @@ namespace Models
       inline Data& setRamAccountForCustomerManagers(vector<string> && ramAccountForCustomerManagers) { DARABONBA_PTR_SET_RVALUE(ramAccountForCustomerManagers_, ramAccountForCustomerManagers) };
 
 
+      // rebateType Field Functions 
+      bool hasRebateType() const { return this->rebateType_ != nullptr;};
+      void deleteRebateType() { this->rebateType_ = nullptr;};
+      inline int32_t getRebateType() const { DARABONBA_PTR_GET_DEFAULT(rebateType_, 0) };
+      inline Data& setRebateType(int32_t rebateType) { DARABONBA_PTR_SET_VALUE(rebateType_, rebateType) };
+
+
     protected:
       // The order discount.
       shared_ptr<double> amountDiscount_ {};
@@ -276,6 +285,7 @@ namespace Models
       shared_ptr<int64_t> projectId_ {};
       // The employee who follows up with the customer.
       shared_ptr<vector<string>> ramAccountForCustomerManagers_ {};
+      shared_ptr<int32_t> rebateType_ {};
     };
 
     virtual bool empty() const override { return this->accessDeniedDetail_ == nullptr

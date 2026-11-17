@@ -86,15 +86,15 @@ namespace Models
   protected:
     // The contact information.
     shared_ptr<string> contactInformation_ {};
-    // The name of the contact.
+    // The contact name.
     shared_ptr<string> contactName_ {};
-    // The name of the customer.
+    // The customer name.
     shared_ptr<string> customerName_ {};
-    // The UID of the customer.
+    // The customer UID.
     shared_ptr<string> customerUid_ {};
-    // The content of the note.
+    // The note content.
     shared_ptr<string> noteContent_ {};
-    // The touch time. This value is a UNIX timestamp in milliseconds.
+    // The contact time (timestamp, in milliseconds).
     shared_ptr<int64_t> touchDate_ {};
   };
 

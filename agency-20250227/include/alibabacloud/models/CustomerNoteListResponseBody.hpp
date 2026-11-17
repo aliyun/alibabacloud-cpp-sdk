@@ -244,17 +244,17 @@ namespace Models
         shared_ptr<int64_t> creator_ {};
         // The logon name of the creator.
         shared_ptr<string> creatorName_ {};
-        // The creation time in the format of yyyy-MM-dd HH:mm:ss.
+        // The creation time. Format: yyyy-MM-dd HH:mm:ss.
         shared_ptr<string> gmtCreate_ {};
         // The content of the note.
         shared_ptr<string> noteContent_ {};
-        // The ID of the note.
+        // The note ID.
         shared_ptr<int64_t> noteId_ {};
-        // The type of the note (CUSTOMER).
+        // The note type. Valid value: CUSTOMER.
         shared_ptr<string> noteType_ {};
-        // The label of the note type.
+        // The name of the note type.
         shared_ptr<string> noteTypeLabel_ {};
-        // The touch date (timestamp).
+        // The contact date. The value is a timestamp.
         shared_ptr<string> touchDate_ {};
       };
 
@@ -343,7 +343,7 @@ namespace Models
 
 
     protected:
-      // The details of the access denied error returned by the POP API when the caller does not have the required RAM permissions.
+      // The details of the access denial returned by the POP API when the RAM user lacks the required permissions.
       shared_ptr<string> accessDeniedDetail_ {};
       // The result code.
       shared_ptr<string> code_ {};
@@ -353,9 +353,9 @@ namespace Models
       shared_ptr<int32_t> httpStatusCode_ {};
       // The prompt message.
       shared_ptr<string> message_ {};
-      // The prompt message, same as message.
+      // The prompt message. This parameter is the same as Message.
       shared_ptr<string> msg_ {};
-      // The pagination information compatible with the legacy interface (deprecated).
+      // **[Deprecated]** The pagination information compatible with the legacy fenxiao-service API.
       shared_ptr<Data::PageInfo> pageInfo_ {};
       // The current page number.
       shared_ptr<int32_t> pageNo_ {};
@@ -422,7 +422,7 @@ namespace Models
 
 
   protected:
-    // The details of the access denied error returned by the POP API when the caller does not have the required RAM permissions.
+    // The details of the access denial returned by the POP API when the RAM user lacks the required permissions.
     shared_ptr<string> accessDeniedDetail_ {};
     // The result code.
     shared_ptr<string> code_ {};
@@ -432,7 +432,7 @@ namespace Models
     shared_ptr<int32_t> httpStatusCode_ {};
     // The prompt message.
     shared_ptr<string> message_ {};
-    // The prompt message, same as message.
+    // The prompt message. This parameter is the same as Message.
     shared_ptr<string> msg_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

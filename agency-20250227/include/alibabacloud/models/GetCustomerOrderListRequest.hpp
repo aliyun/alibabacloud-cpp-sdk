@@ -32,6 +32,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(ProductName, productName_);
       DARABONBA_PTR_TO_JSON(ProjectId, projectId_);
       DARABONBA_PTR_TO_JSON(RamAccountForCustomerManager, ramAccountForCustomerManager_);
+      DARABONBA_PTR_TO_JSON(RebateType, rebateType_);
     };
     friend void from_json(const Darabonba::Json& j, GetCustomerOrderListRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(CustomerAccount, customerAccount_);
@@ -52,6 +53,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(ProductName, productName_);
       DARABONBA_PTR_FROM_JSON(ProjectId, projectId_);
       DARABONBA_PTR_FROM_JSON(RamAccountForCustomerManager, ramAccountForCustomerManager_);
+      DARABONBA_PTR_FROM_JSON(RebateType, rebateType_);
     };
     GetCustomerOrderListRequest() = default ;
     GetCustomerOrderListRequest(const GetCustomerOrderListRequest &) = default ;
@@ -68,7 +70,7 @@ namespace Models
         && this->customerUid_ == nullptr && this->orderCreateAfter_ == nullptr && this->orderCreateBefore_ == nullptr && this->orderId_ == nullptr && this->orderPayAfter_ == nullptr
         && this->orderPayBefore_ == nullptr && this->orderStatus_ == nullptr && this->orderTypeList_ == nullptr && this->pageNo_ == nullptr && this->pageSize_ == nullptr
         && this->payAmountAfter_ == nullptr && this->payAmountBefore_ == nullptr && this->payType_ == nullptr && this->productCode_ == nullptr && this->productName_ == nullptr
-        && this->projectId_ == nullptr && this->ramAccountForCustomerManager_ == nullptr; };
+        && this->projectId_ == nullptr && this->ramAccountForCustomerManager_ == nullptr && this->rebateType_ == nullptr; };
     // customerAccount Field Functions 
     bool hasCustomerAccount() const { return this->customerAccount_ != nullptr;};
     void deleteCustomerAccount() { this->customerAccount_ = nullptr;};
@@ -197,6 +199,13 @@ namespace Models
     inline GetCustomerOrderListRequest& setRamAccountForCustomerManager(string ramAccountForCustomerManager) { DARABONBA_PTR_SET_VALUE(ramAccountForCustomerManager_, ramAccountForCustomerManager) };
 
 
+    // rebateType Field Functions 
+    bool hasRebateType() const { return this->rebateType_ != nullptr;};
+    void deleteRebateType() { this->rebateType_ = nullptr;};
+    inline int32_t getRebateType() const { DARABONBA_PTR_GET_DEFAULT(rebateType_, 0) };
+    inline GetCustomerOrderListRequest& setRebateType(int32_t rebateType) { DARABONBA_PTR_SET_VALUE(rebateType_, rebateType) };
+
+
   protected:
     // The customer account.
     shared_ptr<string> customerAccount_ {};
@@ -243,6 +252,7 @@ namespace Models
     shared_ptr<int64_t> projectId_ {};
     // The employee who follows up with the customer.
     shared_ptr<string> ramAccountForCustomerManager_ {};
+    shared_ptr<int32_t> rebateType_ {};
   };
 
   } // namespace Models

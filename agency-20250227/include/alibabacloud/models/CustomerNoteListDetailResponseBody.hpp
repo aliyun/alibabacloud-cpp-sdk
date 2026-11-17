@@ -161,17 +161,17 @@ namespace Models
 
 
       protected:
-        // The attachment signature.
+        // The download URL of the attachment.
         shared_ptr<string> downloadUrl_ {};
-        // The attachment ID.
+        // The ID of the attachment.
         shared_ptr<int64_t> id_ {};
-        // The attachment name.
+        // The name of the attachment.
         shared_ptr<string> name_ {};
-        // The attachment signature.
+        // The signature of the attachment.
         shared_ptr<string> signature_ {};
-        // The attachment size in bytes.
+        // The size of the attachment. Unit: bytes.
         shared_ptr<int64_t> size_ {};
-        // The attachment type.
+        // The type of the attachment.
         shared_ptr<string> type_ {};
       };
 
@@ -280,33 +280,33 @@ namespace Models
 
 
     protected:
-      // The AI parsing result (JSON string).
+      // The AI analysis result. The value is a JSON string.
       shared_ptr<string> aiResult_ {};
-      // The attachment list.
+      // The list of attachments.
       shared_ptr<vector<Data::Attachment>> attachment_ {};
       // The contact information.
       shared_ptr<string> contactInformation_ {};
-      // The contact name.
+      // The name of the contact.
       shared_ptr<string> contactName_ {};
       // The UID of the creator.
       shared_ptr<int64_t> creator_ {};
       // The logon name of the creator.
       shared_ptr<string> creatorName_ {};
-      // The customer name.
+      // The name of the customer.
       shared_ptr<string> customerName_ {};
-      // The customer UID.
+      // The UID of the customer.
       shared_ptr<int64_t> customerUid_ {};
-      // The creation time in the yyyy-MM-dd HH:mm:ss format.
+      // The time when the note was created. Format: yyyy-MM-dd HH:mm:ss.
       shared_ptr<string> gmtCreate_ {};
-      // The note content.
+      // The content of the note.
       shared_ptr<string> noteContent_ {};
-      // The note ID.
+      // The ID of the note.
       shared_ptr<int64_t> noteId_ {};
-      // The note type (CUSTOMER).
+      // The type of the note.
       shared_ptr<string> noteType_ {};
-      // The note type label.
+      // The name of the note type.
       shared_ptr<string> noteTypeLabel_ {};
-      // The touch date (timestamp).
+      // The contact date. The value is a timestamp.
       shared_ptr<string> touchDate_ {};
     };
 
@@ -365,19 +365,19 @@ namespace Models
 
 
   protected:
-    // The access denied details returned by the POP API when RAM permissions are missing.
+    // The detailed information about the access denial returned in the POP API response when the RAM user lacks the required permissions.
     shared_ptr<string> accessDeniedDetail_ {};
     // The status code.
     shared_ptr<string> code_ {};
     // The returned data.
     shared_ptr<CustomerNoteListDetailResponseBody::Data> data_ {};
-    // The HTTP status code returned by the POP API.
+    // The HTTP status code used in the POP API response.
     shared_ptr<int32_t> httpStatusCode_ {};
     // The prompt message.
     shared_ptr<string> message_ {};
-    // The prompt message. This is the same as Message.
+    // The prompt message, which is the same as Message.
     shared_ptr<string> msg_ {};
-    // The request ID.
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
   };
 

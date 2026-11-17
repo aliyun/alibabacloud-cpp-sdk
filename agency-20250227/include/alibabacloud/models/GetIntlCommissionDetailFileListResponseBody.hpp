@@ -108,11 +108,11 @@ namespace Models
 
 
       protected:
-        // The OSS file push status. Valid values: init, processing, succeeded, or failed.
+        // The push status of the file to OSS. Valid values: Initialized, Processing, Succeeded, Failed.
         shared_ptr<string> bucketSyncStatus_ {};
-        // The commission policy name.
+        // The name of the policy.
         shared_ptr<string> commissionPolicyName_ {};
-        // The file name.
+        // The name of the file.
         shared_ptr<string> fileName_ {};
       };
 
@@ -142,7 +142,7 @@ namespace Models
 
 
     protected:
-      // The bill month.
+      // The billing month.
       shared_ptr<string> billMonth_ {};
       // The file list object.
       shared_ptr<vector<Data::FileList>> fileList_ {};
@@ -194,11 +194,11 @@ namespace Models
     shared_ptr<string> code_ {};
     // The data.
     shared_ptr<GetIntlCommissionDetailFileListResponseBody::Data> data_ {};
-    // The message information.
+    // The message.
     shared_ptr<string> message_ {};
     // RequestId
     shared_ptr<string> requestId_ {};
-    // Indicates whether the operation was successful.
+    // Indicates whether the call is successful.
     shared_ptr<bool> success_ {};
   };
 

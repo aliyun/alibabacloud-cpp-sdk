@@ -38,7 +38,7 @@ namespace Agency20250227
       Models::CustomerNoteCreateResponse customerNoteCreate(const Models::CustomerNoteCreateRequest &request);
 
       /**
-       * @summary Edits a customer note.
+       * @summary Updates a customer note.
        *
        * @param request CustomerNoteEditRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -47,7 +47,7 @@ namespace Agency20250227
       Models::CustomerNoteEditResponse customerNoteEditWithOptions(const Models::CustomerNoteEditRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Edits a customer note.
+       * @summary Updates a customer note.
        *
        * @param request CustomerNoteEditRequest
        * @return CustomerNoteEditResponse
@@ -55,7 +55,7 @@ namespace Agency20250227
       Models::CustomerNoteEditResponse customerNoteEdit(const Models::CustomerNoteEditRequest &request);
 
       /**
-       * @summary Queries a paged query list of customer notes with paging support.
+       * @summary Queries the customer note list by using paging.
        *
        * @param request CustomerNoteListRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -64,7 +64,7 @@ namespace Agency20250227
       Models::CustomerNoteListResponse customerNoteListWithOptions(const Models::CustomerNoteListRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries a paged query list of customer notes with paging support.
+       * @summary Queries the customer note list by using paging.
        *
        * @param request CustomerNoteListRequest
        * @return CustomerNoteListResponse
@@ -89,7 +89,7 @@ namespace Agency20250227
       Models::CustomerNoteListDetailResponse customerNoteListDetail(const Models::CustomerNoteListDetailRequest &request);
 
       /**
-       * @summary Queries exported bill files.
+       * @summary Queries the bill export file of a China partner for a specific billing cycle. The system pushes the file to the OSS bucket specified by the partner.
        *
        * @param request GetBillDetailFileListRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -98,7 +98,7 @@ namespace Agency20250227
       Models::GetBillDetailFileListResponse getBillDetailFileListWithOptions(const Models::GetBillDetailFileListRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries exported bill files.
+       * @summary Queries the bill export file of a China partner for a specific billing cycle. The system pushes the file to the OSS bucket specified by the partner.
        *
        * @param request GetBillDetailFileListRequest
        * @return GetBillDetailFileListResponse
@@ -140,10 +140,10 @@ namespace Agency20250227
       Models::GetCustomerOrderListResponse getCustomerOrderList(const Models::GetCustomerOrderListRequest &request);
 
       /**
-       * @summary Downloads the commission details of an international partner.
+       * @summary Downloads the commission details of international partners.
        *
-       * @description Ensure that the current caller identity is a T1 distribution partner. 
-       * <notice>Available only for international site.</notice>.
+       * @description Ensure that the current caller account is a T1 distribution partner. 
+       * <notice>Available only on the international site.</notice>
        *
        * @param request GetIntlCommissionDetailFileListRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -152,10 +152,10 @@ namespace Agency20250227
       Models::GetIntlCommissionDetailFileListResponse getIntlCommissionDetailFileListWithOptions(const Models::GetIntlCommissionDetailFileListRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Downloads the commission details of an international partner.
+       * @summary Downloads the commission details of international partners.
        *
-       * @description Ensure that the current caller identity is a T1 distribution partner. 
-       * <notice>Available only for international site.</notice>.
+       * @description Ensure that the current caller account is a T1 distribution partner. 
+       * <notice>Available only on the international site.</notice>
        *
        * @param request GetIntlCommissionDetailFileListRequest
        * @return GetIntlCommissionDetailFileListResponse

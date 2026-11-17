@@ -84,17 +84,17 @@ namespace Models
 
 
   protected:
-    // The details of the access denial returned by the POP API when RAM permissions are not granted.
+    // The details about the access denial. This parameter is returned by the POP API operation when the RAM user does not have the required permissions.
     shared_ptr<string> accessDeniedDetail_ {};
     // The status code.
     shared_ptr<string> code_ {};
-    // The HTTP status code returned by the POP API.
+    // The HTTP status code returned by the POP API operation.
     shared_ptr<int32_t> httpStatusCode_ {};
-    // The message returned by the operation.
+    // The message returned by the API operation.
     shared_ptr<string> message_ {};
-    // Same as Message.
+    // The message. This parameter is the same as Message.
     shared_ptr<string> msg_ {};
-    // The request ID.
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
   };
 

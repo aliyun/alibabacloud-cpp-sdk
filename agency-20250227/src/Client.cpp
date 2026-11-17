@@ -2,11 +2,13 @@
 #include <alibabacloud/Agency20250227.hpp>
 #include <alibabacloud/Utils.hpp>
 #include <alibabacloud/Openapi.hpp>
+#include <alibabacloud/gateway/POP.hpp>
 #include <map>
 #include <darabonba/Runtime.hpp>
 using namespace std;
 using namespace Darabonba;
 using json = nlohmann::json;
+using namespace AlibabaCloud::Gateway;
 using namespace AlibabaCloud::OpenApi;
 using OpenApiClient = AlibabaCloud::OpenApi::Client;
 using namespace AlibabaCloud::OpenApi::Utils::Models;
@@ -17,6 +19,9 @@ namespace Agency20250227
 {
 
 AlibabaCloud::Agency20250227::Client::Client(Config &config): OpenApiClient(config){
+  this->_productId = "Agency";
+  shared_ptr<POP> gatewayClient = make_shared<POP>();
+  this->_spi = gatewayClient;
   this->_endpointRule = "regional";
   this->_endpointMap = json({
     {"ap-northeast-1" , "agency.aliyuncs.com"},
@@ -74,8 +79,7 @@ AlibabaCloud::Agency20250227::Client::Client(Config &config): OpenApiClient(conf
     {"me-east-1" , "agency.aliyuncs.com"},
     {"rus-west-1-pop" , "agency.aliyuncs.com"},
     {"us-east-1" , "agency.aliyuncs.com"},
-    {"us-west-1" , "agency.aliyuncs.com"},
-    {"ap-southeast-1" , "agency.ap-southeast-1.aliyuncs.com"}
+    {"us-west-1" , "agency.aliyuncs.com"}
   }).get<map<string, string>>();
   checkConfig(config);
   this->_endpoint = getEndpoint("agency", _regionId, _endpointRule, _network, _suffix, _endpointMap, _endpoint);
@@ -157,7 +161,7 @@ CustomerNoteCreateResponse Client::customerNoteCreate(const CustomerNoteCreateRe
 }
 
 /**
- * @summary Edits a customer note.
+ * @summary Updates a customer note.
  *
  * @param request CustomerNoteEditRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -204,7 +208,7 @@ CustomerNoteEditResponse Client::customerNoteEditWithOptions(const CustomerNoteE
 }
 
 /**
- * @summary Edits a customer note.
+ * @summary Updates a customer note.
  *
  * @param request CustomerNoteEditRequest
  * @return CustomerNoteEditResponse
@@ -215,7 +219,7 @@ CustomerNoteEditResponse Client::customerNoteEdit(const CustomerNoteEditRequest 
 }
 
 /**
- * @summary Queries a paged query list of customer notes with paging support.
+ * @summary Queries the customer note list by using paging.
  *
  * @param request CustomerNoteListRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -254,7 +258,7 @@ CustomerNoteListResponse Client::customerNoteListWithOptions(const CustomerNoteL
 }
 
 /**
- * @summary Queries a paged query list of customer notes with paging support.
+ * @summary Queries the customer note list by using paging.
  *
  * @param request CustomerNoteListRequest
  * @return CustomerNoteListResponse
@@ -307,7 +311,7 @@ CustomerNoteListDetailResponse Client::customerNoteListDetail(const CustomerNote
 }
 
 /**
- * @summary Queries exported bill files.
+ * @summary Queries the bill export file of a China partner for a specific billing cycle. The system pushes the file to the OSS bucket specified by the partner.
  *
  * @param request GetBillDetailFileListRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -362,7 +366,7 @@ GetBillDetailFileListResponse Client::getBillDetailFileListWithOptions(const Get
 }
 
 /**
- * @summary Queries exported bill files.
+ * @summary Queries the bill export file of a China partner for a specific billing cycle. The system pushes the file to the OSS bucket specified by the partner.
  *
  * @param request GetBillDetailFileListRequest
  * @return GetBillDetailFileListResponse
@@ -526,6 +530,10 @@ GetCustomerOrderListResponse Client::getCustomerOrderListWithOptions(const GetCu
     query["RamAccountForCustomerManager"] = request.getRamAccountForCustomerManager();
   }
 
+  if (!!request.hasRebateType()) {
+    query["RebateType"] = request.getRebateType();
+  }
+
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
   }).get<map<string, map<string, string>>>());
@@ -555,10 +563,10 @@ GetCustomerOrderListResponse Client::getCustomerOrderList(const GetCustomerOrder
 }
 
 /**
- * @summary Downloads the commission details of an international partner.
+ * @summary Downloads the commission details of international partners.
  *
- * @description Ensure that the current caller identity is a T1 distribution partner. 
- * <notice>Available only for international site.</notice>.
+ * @description Ensure that the current caller account is a T1 distribution partner. 
+ * <notice>Available only on the international site.</notice>
  *
  * @param request GetIntlCommissionDetailFileListRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -613,10 +621,10 @@ GetIntlCommissionDetailFileListResponse Client::getIntlCommissionDetailFileListW
 }
 
 /**
- * @summary Downloads the commission details of an international partner.
+ * @summary Downloads the commission details of international partners.
  *
- * @description Ensure that the current caller identity is a T1 distribution partner. 
- * <notice>Available only for international site.</notice>.
+ * @description Ensure that the current caller account is a T1 distribution partner. 
+ * <notice>Available only on the international site.</notice>
  *
  * @param request GetIntlCommissionDetailFileListRequest
  * @return GetIntlCommissionDetailFileListResponse

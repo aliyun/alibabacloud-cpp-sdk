@@ -57,7 +57,7 @@ namespace Models
 
 
   protected:
-    // The UID of the customer.
+    // The customer UID.
     shared_ptr<string> customerUid_ {};
     // The page number. Pages start from 1.
     shared_ptr<int32_t> pageNum_ {};
