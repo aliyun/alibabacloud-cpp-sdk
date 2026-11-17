@@ -152,7 +152,7 @@ namespace Models
     // Specifies whether to enable automatic payment. Valid values:
     // 
     // - **true**: enables automatic payment. Make sure that your account balance is sufficient. If your account balance is insufficient, an abnormal order is generated and can only be canceled.
-    // - **false** (default): generates an order without charging.
+    // - **false** (default): generates an order without deducting fees.
     shared_ptr<bool> autoPay_ {};
     // Specifies whether to enable auto-renewal. Valid values:
     // 
@@ -163,7 +163,7 @@ namespace Models
     shared_ptr<int32_t> autoRenewDuration_ {};
     // The client token that is used to ensure the idempotence of the request.
     // 
-    // The client generates the value. The value must be unique among different requests.
+    // You can use the client to generate the value, but you must make sure that it is unique among different requests.
     shared_ptr<string> clientToken_ {};
     // The billing method of the instance. Valid values:
     // 
@@ -173,8 +173,8 @@ namespace Models
     shared_ptr<int64_t> ownerId_ {};
     // The subscription duration.
     // 
-    // - If **PricingCycle** is set to **Month**, valid values of **Period** are **1 to 9**.
-    // - If **PricingCycle** is set to **Year**, valid values of **Period** are **1 to 5**.
+    // - If **PricingCycle** is set to **Month**, valid values for **Period** are **1** to **9**.
+    // - If **PricingCycle** is set to **Year**, valid values for **Period** are **1** to **5**.
     shared_ptr<int32_t> period_ {};
     // The instance ID of the Express Connect circuit.
     // 
@@ -182,12 +182,12 @@ namespace Models
     shared_ptr<string> physicalConnectionId_ {};
     // The billing cycle of the subscription. Valid values:
     // 
-    // - **Month** (default): billed on a monthly basis.
-    // - **Year**: billed on a yearly basis.
+    // - **Month** (default): monthly subscription.
+    // - **Year**: yearly subscription.
     shared_ptr<string> pricingCycle_ {};
     // The region ID of the Express Connect circuit. 
     // 
-    // You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to query region IDs.
+    // You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to obtain the region ID.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};

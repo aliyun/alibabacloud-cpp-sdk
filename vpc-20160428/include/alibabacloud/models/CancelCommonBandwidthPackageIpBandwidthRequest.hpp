@@ -15,6 +15,8 @@ namespace Models
     friend void to_json(Darabonba::Json& j, const CancelCommonBandwidthPackageIpBandwidthRequest& obj) { 
       DARABONBA_PTR_TO_JSON(BandwidthPackageId, bandwidthPackageId_);
       DARABONBA_PTR_TO_JSON(EipId, eipId_);
+      DARABONBA_PTR_TO_JSON(IpInstanceId, ipInstanceId_);
+      DARABONBA_PTR_TO_JSON(IpType, ipType_);
       DARABONBA_PTR_TO_JSON(OwnerAccount, ownerAccount_);
       DARABONBA_PTR_TO_JSON(OwnerId, ownerId_);
       DARABONBA_PTR_TO_JSON(RegionId, regionId_);
@@ -24,6 +26,8 @@ namespace Models
     friend void from_json(const Darabonba::Json& j, CancelCommonBandwidthPackageIpBandwidthRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(BandwidthPackageId, bandwidthPackageId_);
       DARABONBA_PTR_FROM_JSON(EipId, eipId_);
+      DARABONBA_PTR_FROM_JSON(IpInstanceId, ipInstanceId_);
+      DARABONBA_PTR_FROM_JSON(IpType, ipType_);
       DARABONBA_PTR_FROM_JSON(OwnerAccount, ownerAccount_);
       DARABONBA_PTR_FROM_JSON(OwnerId, ownerId_);
       DARABONBA_PTR_FROM_JSON(RegionId, regionId_);
@@ -42,8 +46,8 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->bandwidthPackageId_ == nullptr
-        && this->eipId_ == nullptr && this->ownerAccount_ == nullptr && this->ownerId_ == nullptr && this->regionId_ == nullptr && this->resourceOwnerAccount_ == nullptr
-        && this->resourceOwnerId_ == nullptr; };
+        && this->eipId_ == nullptr && this->ipInstanceId_ == nullptr && this->ipType_ == nullptr && this->ownerAccount_ == nullptr && this->ownerId_ == nullptr
+        && this->regionId_ == nullptr && this->resourceOwnerAccount_ == nullptr && this->resourceOwnerId_ == nullptr; };
     // bandwidthPackageId Field Functions 
     bool hasBandwidthPackageId() const { return this->bandwidthPackageId_ != nullptr;};
     void deleteBandwidthPackageId() { this->bandwidthPackageId_ = nullptr;};
@@ -56,6 +60,20 @@ namespace Models
     void deleteEipId() { this->eipId_ = nullptr;};
     inline string getEipId() const { DARABONBA_PTR_GET_DEFAULT(eipId_, "") };
     inline CancelCommonBandwidthPackageIpBandwidthRequest& setEipId(string eipId) { DARABONBA_PTR_SET_VALUE(eipId_, eipId) };
+
+
+    // ipInstanceId Field Functions 
+    bool hasIpInstanceId() const { return this->ipInstanceId_ != nullptr;};
+    void deleteIpInstanceId() { this->ipInstanceId_ = nullptr;};
+    inline string getIpInstanceId() const { DARABONBA_PTR_GET_DEFAULT(ipInstanceId_, "") };
+    inline CancelCommonBandwidthPackageIpBandwidthRequest& setIpInstanceId(string ipInstanceId) { DARABONBA_PTR_SET_VALUE(ipInstanceId_, ipInstanceId) };
+
+
+    // ipType Field Functions 
+    bool hasIpType() const { return this->ipType_ != nullptr;};
+    void deleteIpType() { this->ipType_ = nullptr;};
+    inline string getIpType() const { DARABONBA_PTR_GET_DEFAULT(ipType_, "") };
+    inline CancelCommonBandwidthPackageIpBandwidthRequest& setIpType(string ipType) { DARABONBA_PTR_SET_VALUE(ipType_, ipType) };
 
 
     // ownerAccount Field Functions 
@@ -94,17 +112,23 @@ namespace Models
 
 
   protected:
-    // The instance ID of the Internet Shared Bandwidth instance.
+    // The instance ID of the Internet Shared Bandwidth.
     // 
     // This parameter is required.
     shared_ptr<string> bandwidthPackageId_ {};
-    // The instance ID of the EIP that has been added to the Internet Shared Bandwidth instance.
-    // 
-    // This parameter is required.
+    // The ID of the EIP that is added to the Internet Shared Bandwidth instance. This parameter applies only to EIPs. For IPv6 addresses, use IpInstanceId.
     shared_ptr<string> eipId_ {};
+    // The ID of the public IP address instance for which you want to cancel the maximum available bandwidth setting in the Internet Shared Bandwidth instance. This parameter and `EipId` are mutually exclusive. We recommend that you use this parameter for new workloads. If IpType is set to **VpcIpv6**, specify the IPv6 instance ID.
+    shared_ptr<string> ipInstanceId_ {};
+    // The resource type of the public IP address for which you want to cancel the maximum available bandwidth setting in the Internet Shared Bandwidth instance. Valid values:
+    // - **EIP**: the public IP address of an EIP.
+    // - **VpcIpv6**: the IPv6 address of a VPC.
+    // 
+    // If you do not specify this parameter, **EIP** is used.
+    shared_ptr<string> ipType_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
-    // The region ID of the Internet Shared Bandwidth instance. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to query the region ID.
+    // The region ID of the Internet Shared Bandwidth instance. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to query region IDs.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};

@@ -128,7 +128,7 @@ namespace Models
         // - **0**: unavailable.
         // - **1**: available.
         shared_ptr<string> enabled_ {};
-        // The instance ID of the next hop.
+        // The next hop instance ID.
         shared_ptr<string> nextHopId_ {};
         // The next hop type. Valid values:
         // 
@@ -136,12 +136,12 @@ namespace Models
         // - **HaVip**: high-availability virtual IP address.
         // - **VpnGateway**: VPN gateway.
         // - **NatGateway**: NAT gateway.
-        // - **NetworkInterface**: secondary elastic network interfaces (ENIs).
+        // - **NetworkInterface**: secondary elastic network interface (ENI).
         // - **RouterInterface**: vRouter interface.
         // - **IPv6Gateway**: IPv6 gateway.
         // - **Attachment**: transit router.
         shared_ptr<string> nextHopType_ {};
-        // The weight of the route entry.
+        // The weight of the route.
         shared_ptr<string> weight_ {};
       };
 
@@ -200,29 +200,29 @@ namespace Models
 
 
     protected:
-      // The description of the route entry.
+      // The description of the route.
       shared_ptr<string> description_ {};
-      // The destination CIDR block of the route entry.
+      // The destination CIDR block of the route.
       shared_ptr<string> destinationCidrBlock_ {};
-      // The name of the route entry.
+      // The name of the route.
       // 
-      // The name must be 2 to 128 characters in length and must start with a letter or a Chinese character. It can contain digits, periods (.), underscores (_), and hyphens (-).
+      // The name must be 2 to 128 characters in length, and must start with a letter or a Chinese character. It can contain digits, periods (.), underscores (_), and hyphens (-).
       shared_ptr<string> name_ {};
-      // The instance ID of the next hop.
+      // The next hop instance ID.
       shared_ptr<string> nextHopId_ {};
-      // The next hop type. Valid values:
+      // The type of the next hop. Valid values:
       // 
       // - **EcsInstance**: ECS instance.
-      // - **NetworkInterface**: elastic network interfaces (ENIs).
+      // - **NetworkInterface**: elastic network interface (ENI).
       // - **Local**: local.
       shared_ptr<string> nextHopType_ {};
       // The next hop information.
       shared_ptr<vector<GatewayRouteEntryModels::NextHops>> nextHops_ {};
-      // The status of the route entry. Valid values:
+      // The status of the route. Valid values:
       // 
-      // - **Pending**: being configured.
-      // - **Available**: available.
-      // - **Modifying**: being modified.
+      // - **Pending**: The route is being configured.
+      // - **Available**: The route is available.
+      // - **Modifying**: The route is being modified.
       shared_ptr<string> status_ {};
     };
 
@@ -259,15 +259,15 @@ namespace Models
 
 
   protected:
-    // The details of the route entries in the gateway route table.
+    // The details of the routes in the gateway route table.
     shared_ptr<vector<ListGatewayRouteTableEntriesResponseBody::GatewayRouteEntryModels>> gatewayRouteEntryModels_ {};
-    // The pagination token. Valid values:
-    // - If **NextToken** is empty, no subsequent query exists.
-    // - If **NextToken** is returned, the value indicates the token for the next query.
+    // The pagination token that is used to retrieve the next page of results. Valid values:
+    // - If **NextToken** is empty, no more results are available.
+    // - If **NextToken** returns a value, the value is the token used to start the next query.
     shared_ptr<string> nextToken_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The total number of entries returned.
+    // The total number of entries.
     shared_ptr<string> totalCount_ {};
   };
 

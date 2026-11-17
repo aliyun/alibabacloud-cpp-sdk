@@ -84,15 +84,13 @@ namespace Models
 
 
   protected:
-    // The instance ID of the IPv4 gateway to query.
+    // The instance ID of the IPv4 gateway.
     // 
     // This parameter is required.
     shared_ptr<string> ipv4GatewayId_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
-    // The region ID of the IPv4 gateway to query.
-    // 
-    // You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to query the most recent region list.
+    // The region ID of the IPv4 gateway. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to obtain the region ID.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};

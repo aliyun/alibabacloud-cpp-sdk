@@ -84,11 +84,11 @@ namespace Models
 
 
     protected:
-      // The ID of the associated resource to disassociate.
+      // The ID of the associated resource to be disassociated.
       shared_ptr<string> resourceId_ {};
-      // The type of the associated resource to disassociate. Set the value to **VSwitch**.
+      // The type of the associated resource to be disassociated. Valid value: **VSwitch** (vSwitch).
       // 
-      // Valid values of **N**: 0 to 29. You can disassociate up to 30 resources at a time.
+      // The value of **N** ranges from 0 to 29, indicating that you can disassociate a maximum of 30 resources.
       shared_ptr<string> resourceType_ {};
     };
 
@@ -163,15 +163,15 @@ namespace Models
   protected:
     // The client token that is used to ensure the idempotence of the request.
     // 
-    // The client generates the value. The value must be unique among different requests and cannot exceed 64 ASCII characters in length.
+    // You can use the client to generate the token, but you must ensure that the token is unique among different requests. The token can contain a maximum of 64 ASCII characters.
     // 
-    // > If you do not specify this parameter, the system uses the **RequestId** of the API request as the **ClientToken**. The **RequestId** may be different for each API request.
+    // > If you do not specify this parameter, the system automatically uses the **RequestId** of the API request as the **ClientToken**. The **RequestId** of each API request is unique.
     shared_ptr<string> clientToken_ {};
-    // Specifies whether to perform a dry run. Valid values:
-    // * **true**: performs a dry run. The system checks the request for potential issues without performing the actual operation.
-    // * **false** (default): performs the actual request.
+    // Specifies whether to precheck the request. Valid values:
+    // * **true**: prechecks the request.
+    // * **false** (default): sends the request.
     shared_ptr<bool> dryRun_ {};
-    // The ID of the network ACL to disassociate from the associated resources.
+    // The ID of the network ACL from which you want to disassociate the resources.
     // 
     // This parameter is required.
     shared_ptr<string> networkAclId_ {};
@@ -179,7 +179,7 @@ namespace Models
     shared_ptr<int64_t> ownerId_ {};
     // The region ID of the network ACL.
     // 
-    // You can call [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) to query the most recent region list.
+    // You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to query region IDs.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};

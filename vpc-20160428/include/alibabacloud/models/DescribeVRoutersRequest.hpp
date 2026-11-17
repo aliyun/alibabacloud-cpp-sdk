@@ -105,19 +105,17 @@ namespace Models
   protected:
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
-    // The page number of the list. Default value: **1**.
+    // The page number. Default value: **1**.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries per page in a paged query. Maximum value: **50**. Default value: **10**.
+    // The number of entries per page in a paging query. Maximum value: **50**. Default value: **10**.
     shared_ptr<int32_t> pageSize_ {};
-    // The ID of the region where the vRouter resides.
-    // 
-    // You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to query the region ID.
+    // The region ID of the vRouter. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to obtain the region ID.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
-    // The ID of the vRouter to query.
+    // The ID of the vRouter.
     shared_ptr<string> VRouterId_ {};
   };
 

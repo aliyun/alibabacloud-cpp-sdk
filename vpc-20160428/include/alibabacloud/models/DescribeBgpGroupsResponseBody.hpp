@@ -276,9 +276,9 @@ namespace Models
 
   protected:
     shared_ptr<DescribeBgpGroupsResponseBody::BgpGroups> bgpGroups_ {};
-    // The page number of the list.
+    // The page number.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries per page in a paged query.
+    // The number of entries per page in a paging query.
     shared_ptr<int32_t> pageSize_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

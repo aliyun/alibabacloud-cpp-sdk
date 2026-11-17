@@ -195,36 +195,36 @@ namespace Models
 
 
   protected:
-    // The backend domain name to be modified for FULLNAT address translation.
+    // The backend domain name for FULLNAT address translation.
     shared_ptr<string> accessDomain_ {};
-    // The backend IP address to be modified for FULLNAT address translation.
+    // The backend IP address for FULLNAT address translation.
     shared_ptr<string> accessIp_ {};
-    // The backend port to be modified for FULLNAT port mapping. Valid values: **1** to **65535**.
+    // The backend port of the FULLNAT port mapping. Valid values: **1** to **65535**.
     shared_ptr<string> accessPort_ {};
     // The client token that is used to ensure the idempotence of the request.
     // 
-    // You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters.
+    // You can use the client to generate the value, and you must ensure that the value is unique among different requests. The client token can contain only ASCII characters.
     // 
-    // > If you do not specify this parameter, the system automatically uses the **RequestId** as the **ClientToken**. The **RequestId** may be different for each API request.
+    // > If you do not specify this parameter, the system automatically uses the **RequestId** of the API request as the **ClientToken**. The **RequestId** of each API request may be different.
     shared_ptr<string> clientToken_ {};
-    // Specifies whether to perform a dry run. Valid values:
+    // Specifies whether to perform only a dry run for this request. Valid values:
     // 
-    // - **true**: performs a dry run without modifying the FULLNAT entry. The system checks the AccessKey pair, the authorization of the Resource Access Management (RAM) user, and the required parameters. If the check fails, the corresponding error is returned. If the check succeeds, the `DryRunOperation` error code is returned.
-    // - **false** (default): sends a Normal request. If the check succeeds, a 2xx HTTP status code is returned and the FULLNAT entry is modified.
+    // - **true**: performs a dry run without modifying the FULLNAT entry. The system checks whether your AccessKey pair is valid, the authorization of the Resource Access Management (RAM) user, and whether the required parameters are specified. If the request fails the dry run, an error message is returned. If the request passes the dry run, the `DryRunOperation` error code is returned.
+    // - **false** (default): sends a Normal request. If the request passes the dry run, a 2xx HTTP status code is returned and the FULLNAT entry is modified.
     shared_ptr<bool> dryRun_ {};
     // The new description of the FULLNAT entry.
     // 
-    // The description can be empty or 2 to 256 characters in length. It cannot start with `http://` or `https://`.
+    // The description can be left empty, or must be 2 to 256 characters in length. It cannot start with `http://` or `https://`.
     shared_ptr<string> fullNatEntryDescription_ {};
-    // The ID of the FULLNAT entry to be modified.
+    // The ID of the FULLNAT entry that you want to modify.
     // 
     // This parameter is required.
     shared_ptr<string> fullNatEntryId_ {};
     // The new name of the FULLNAT entry.
     // 
-    // The name must be 2 to 128 characters in length and must start with a letter or a Chinese character. It cannot start with `http://` or `https://`.
+    // The name must be 2 to 128 characters in length, and must start with a letter or a Chinese character. It cannot start with `http://` or `https://`.
     shared_ptr<string> fullNatEntryName_ {};
-    // The ID of the FULLNAT table to which the FULLNAT entry belongs.
+    // The ID of the FULLNAT table.
     // 
     // This parameter is required.
     shared_ptr<string> fullNatTableId_ {};
@@ -233,11 +233,11 @@ namespace Models
     // - **TCP**: forwards TCP packets. 
     // - **UDP**: forwards UDP packets.
     shared_ptr<string> ipProtocol_ {};
-    // The NAT IP address to be modified.
+    // The NAT IP address.
     shared_ptr<string> natIp_ {};
-    // The frontend port to be modified for FULLNAT port mapping. Valid values: **1** to **65535**.
+    // The frontend port of the FULLNAT port mapping. Valid values: **1** to **65535**.
     shared_ptr<string> natIpPort_ {};
-    // The ID of the elastic network interfaces (ENIs), also known as the network interface controller (NIC), to be modified.
+    // The ID of the network interface controller (NIC) that you want to modify.
     shared_ptr<string> networkInterfaceId_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};

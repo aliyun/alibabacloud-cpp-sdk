@@ -173,9 +173,9 @@ namespace Models
     shared_ptr<string> allocateIpv6Addr_ {};
     // The business status of the IPv6 Translation Service instance. Valid values:
     // 
-    // - **Normal**: normal.
+    // - **Normal**: Normal.
     // 
-    // - **FinancialLocked**: locked.
+    // - **FinancialLocked**: Locked.
     shared_ptr<string> businessStatus_ {};
     // The ID of the IPv6 Translation Service instance.
     shared_ptr<string> ipv6TranslatorId_ {};
@@ -183,39 +183,39 @@ namespace Models
     shared_ptr<string> name_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
-    // The page number of the list. Default value: **1**.
+    // The page number. Default value: **1**.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries per page in paging query. Maximum value: **50**. Default value: **10**.
+    // The number of entries per page. Maximum value: **50**. Default value: **10**.
     shared_ptr<int32_t> pageSize_ {};
-    // The billing transform type of the IPv6 Translation Service instance. Valid values:
+    // The billing method of the IPv6 Translation Service instance. Valid values:
     // 
-    // - **Prepay**: subscription.
+    // - **Prepay**: Subscription.
     // 
-    // - **Postpay**: pay-as-you-go.
+    // - **Postpay**: Pay-as-you-go.
     shared_ptr<string> payType_ {};
-    // The region of the IPv6 Translation Service instance. You can call [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) to obtain the region ID.
+    // The region of the IPv6 Translation Service instance. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to query the region ID.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
-    // The specification of the IPv6 Translation Service instance. Valid values: **small**.
+    // The specifications of the IPv6 Translation Service instance. Valid value: **small** (Small).
     shared_ptr<string> spec_ {};
     // The status of the IPv6 Translation Service instance. Valid values:
     // 
-    // - **init**: initializing.
+    // - **init**: The instance is being initialized.
     // 
-    // - **provisioning**: being provisioned.
+    // - **provisioning**: The instance is being provisioned.
     // 
-    // - **active**: available.
+    // - **active**: The instance is active.
     // 
-    // - **updating**: being updated.
+    // - **updating**: The instance is being updated.
     // 
-    // - **upgrading**: being upgraded.
+    // - **upgrading**: The instance is being upgraded.
     // 
-    // - **deleting**: being deleted.
+    // - **deleting**: The instance is being deleted.
     // 
-    // - **deleted**: deleted.
+    // - **deleted**: The instance is deleted.
     shared_ptr<string> status_ {};
   };
 

@@ -164,9 +164,8 @@ namespace Models
 
   protected:
     // Specifies whether to perform a dry run. Valid values:
-    // 
-    // - **true**: performs a dry run without withdrawing the published routing entry. The system checks the required parameters, request format, and business limits. If the check fails, the corresponding error is returned. If the check succeeds, the error code `DryRunOperation` is returned.
-    // - **false** (default): sends a normal request. If the check succeeds, an HTTP 2xx status code is returned and the operation to withdraw the VPC published routing entry is performed.
+    // - **true**: performs a dry run without withdrawing the VPC published route entry. The system checks the required parameters, request format, and business limitations. If the check fails, the corresponding error is returned. If the check passes, the error code `DryRunOperation` is returned.
+    // - **false** (default): sends a Normal request. If the check passes, an HTTP 2xx status code is returned and the operation is performed.
     shared_ptr<bool> dryRun_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
@@ -175,8 +174,10 @@ namespace Models
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
     // The list of route entries to withdraw. You can specify up to 50 route entries.
+    // 
+    // This parameter is required.
     shared_ptr<vector<WithdrawVpcPublishedRouteEntriesRequest::RouteEntries>> routeEntries_ {};
-    // The publish route entry target instance ID.
+    // The target instance ID for the routing publish operation.
     // 
     // This parameter is required.
     shared_ptr<string> targetInstanceId_ {};

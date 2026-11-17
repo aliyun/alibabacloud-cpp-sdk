@@ -90,13 +90,13 @@ namespace Models
 
 
     protected:
-      // The tag key of the resource. You can specify up to 20 tag keys. The tag key cannot be an empty string.
+      // The tag key of the resource. You can specify up to 20 tag keys. If you specify this parameter, you cannot specify an empty string.
       // 
-      // The tag key can be up to 128 characters in length and cannot start with `aliyun` or `acs:`. It cannot contain `http://` or `https://`.
+      // A tag key can be up to 128 characters in length. It cannot start with `aliyun` or `acs:`, and cannot contain `http://` or `https://`.
       shared_ptr<string> key_ {};
-      // The tag value of the resource. You can specify up to 20 tag values. The tag value can be an empty string.
+      // The tag value of the resource. You can specify up to 20 tag values. If you specify this parameter, you can specify an empty string.
       // 
-      // The tag value can be up to 128 characters in length and cannot start with `aliyun` or `acs:`. It cannot contain `http://` or `https://`.
+      // A tag value can be up to 128 characters in length. It cannot start with `aliyun` or `acs:`, and cannot contain `http://` or `https://`.
       shared_ptr<string> value_ {};
     };
 
@@ -191,23 +191,21 @@ namespace Models
 
 
   protected:
-    // The ID of the IPv4 gateway instance that you want to query.
+    // The ID of the IPv4 gateway to query.
     shared_ptr<string> ipv4GatewayId_ {};
-    // The name of the IPv4 gateway instance that you want to query.
+    // The name of the IPv4 gateway to query.
     // 
-    // The name must be 1 to 128 characters in length and cannot start with `http://` or `https://`.
+    // The name must be 1 to 128 characters in length, and cannot start with `http://` or `https://`.
     shared_ptr<string> ipv4GatewayName_ {};
-    // The number of entries per page for a paged query. Valid values: **1** to **100**. Default value: **10**.
+    // The number of entries to return on each page. Valid values: **1** to **100**. Default value: **10**.
     shared_ptr<int32_t> maxResults_ {};
-    // The pagination token. Valid values:
-    // - If this is the first query or no subsequent query exists, leave this parameter empty.
-    // - If a subsequent query exists, set this parameter to the NextToken value returned by the previous API call.
+    // The token that is used for the next query. Valid values:
+    // - If this is your first query or no next query is to be sent, ignore this parameter.
+    // - If a next query is to be sent, set the value to the NextToken value returned from the previous API call.
     shared_ptr<string> nextToken_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
-    // The region ID of the IPv4 gateways that you want to query.
-    // 
-    // You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to obtain the region ID.
+    // The region ID of the IPv4 gateways to query. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to obtain the region ID.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
@@ -215,9 +213,9 @@ namespace Models
     shared_ptr<string> resourceGroupId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
-    // The tag list.
+    // The tags.
     shared_ptr<vector<ListIpv4GatewaysRequest::Tags>> tags_ {};
-    // The ID of the VPC associated with the IPv4 gateway instance that you want to query.
+    // The ID of the VPC associated with the IPv4 gateway to query.
     shared_ptr<string> vpcId_ {};
   };
 

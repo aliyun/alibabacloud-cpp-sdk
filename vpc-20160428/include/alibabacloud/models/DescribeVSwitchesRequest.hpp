@@ -16,6 +16,7 @@ namespace Models
     friend void to_json(Darabonba::Json& j, const DescribeVSwitchesRequest& obj) { 
       DARABONBA_PTR_TO_JSON(DryRun, dryRun_);
       DARABONBA_PTR_TO_JSON(EnableIpv6, enableIpv6_);
+      DARABONBA_PTR_TO_JSON(Ipv6Only, ipv6Only_);
       DARABONBA_PTR_TO_JSON(IsDefault, isDefault_);
       DARABONBA_PTR_TO_JSON(OwnerAccount, ownerAccount_);
       DARABONBA_PTR_TO_JSON(OwnerId, ownerId_);
@@ -36,6 +37,7 @@ namespace Models
     friend void from_json(const Darabonba::Json& j, DescribeVSwitchesRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(DryRun, dryRun_);
       DARABONBA_PTR_FROM_JSON(EnableIpv6, enableIpv6_);
+      DARABONBA_PTR_FROM_JSON(Ipv6Only, ipv6Only_);
       DARABONBA_PTR_FROM_JSON(IsDefault, isDefault_);
       DARABONBA_PTR_FROM_JSON(OwnerAccount, ownerAccount_);
       DARABONBA_PTR_FROM_JSON(OwnerId, ownerId_);
@@ -102,21 +104,21 @@ namespace Models
 
 
     protected:
-      // The tag key of the resource. You can specify up to 20 tag keys. The tag key cannot be an empty string.
+      // The tag key of the resource. You can specify up to 20 tag keys. If you specify this parameter, you cannot specify an empty string.
       // 
-      // The tag key can be up to 128 characters in length and cannot start with `aliyun` or `acs:`. It cannot contain `http://` or `https://`.
+      // A tag key can be up to 128 characters in length. It cannot start with `aliyun` or `acs:`, and cannot contain `http://` or `https://`.
       shared_ptr<string> key_ {};
-      // The tag value of the resource. You can specify up to 20 tag values. The tag value can be an empty string.
+      // The tag value of the resource. You can specify up to 20 tag values. If you specify this parameter, you can specify an empty string.
       // 
-      // The tag value can be up to 128 characters in length and cannot start with `aliyun` or `acs:`. It cannot contain `http://` or `https://`.
+      // A tag value can be up to 128 characters in length. It cannot start with `aliyun` or `acs:`, and cannot contain `http://` or `https://`.
       shared_ptr<string> value_ {};
     };
 
     virtual bool empty() const override { return this->dryRun_ == nullptr
-        && this->enableIpv6_ == nullptr && this->isDefault_ == nullptr && this->ownerAccount_ == nullptr && this->ownerId_ == nullptr && this->pageNumber_ == nullptr
-        && this->pageSize_ == nullptr && this->regionId_ == nullptr && this->resourceGroupId_ == nullptr && this->resourceOwnerAccount_ == nullptr && this->resourceOwnerId_ == nullptr
-        && this->routeTableId_ == nullptr && this->tag_ == nullptr && this->vSwitchId_ == nullptr && this->vSwitchName_ == nullptr && this->vSwitchOwnerId_ == nullptr
-        && this->vpcId_ == nullptr && this->zoneId_ == nullptr; };
+        && this->enableIpv6_ == nullptr && this->ipv6Only_ == nullptr && this->isDefault_ == nullptr && this->ownerAccount_ == nullptr && this->ownerId_ == nullptr
+        && this->pageNumber_ == nullptr && this->pageSize_ == nullptr && this->regionId_ == nullptr && this->resourceGroupId_ == nullptr && this->resourceOwnerAccount_ == nullptr
+        && this->resourceOwnerId_ == nullptr && this->routeTableId_ == nullptr && this->tag_ == nullptr && this->vSwitchId_ == nullptr && this->vSwitchName_ == nullptr
+        && this->vSwitchOwnerId_ == nullptr && this->vpcId_ == nullptr && this->zoneId_ == nullptr; };
     // dryRun Field Functions 
     bool hasDryRun() const { return this->dryRun_ != nullptr;};
     void deleteDryRun() { this->dryRun_ = nullptr;};
@@ -129,6 +131,13 @@ namespace Models
     void deleteEnableIpv6() { this->enableIpv6_ = nullptr;};
     inline bool getEnableIpv6() const { DARABONBA_PTR_GET_DEFAULT(enableIpv6_, false) };
     inline DescribeVSwitchesRequest& setEnableIpv6(bool enableIpv6) { DARABONBA_PTR_SET_VALUE(enableIpv6_, enableIpv6) };
+
+
+    // ipv6Only Field Functions 
+    bool hasIpv6Only() const { return this->ipv6Only_ != nullptr;};
+    void deleteIpv6Only() { this->ipv6Only_ = nullptr;};
+    inline bool getIpv6Only() const { DARABONBA_PTR_GET_DEFAULT(ipv6Only_, false) };
+    inline DescribeVSwitchesRequest& setIpv6Only(bool ipv6Only) { DARABONBA_PTR_SET_VALUE(ipv6Only_, ipv6Only) };
 
 
     // isDefault Field Functions 
@@ -246,35 +255,41 @@ namespace Models
 
 
   protected:
-    // Specifies whether to perform a dry run. Valid values:
-    // - **true**: performs a dry run. The system checks the required parameters, request syntax, and business restrictions. If the check fails, the corresponding error is returned. If the check succeeds, the `DryRunOperation` error code is returned.
-    // - **false** (default): performs a dry run and sends the request. If the check succeeds, an HTTP 2xx status code is returned and the operation is performed.
+    // Specifies whether to only precheck the request. Valid values:
+    // - **true**: The system prechecks the request without creating resources. The system checks whether required parameters are specified, the request format is valid, and service limits are met. If the request fails the precheck, the corresponding error is returned. If the request passes the precheck, the `DryRunOperation` error code is returned.
+    // - **false** (default): The system sends a normal request. If the request passes the precheck, an HTTP 2xx status code is returned and the operation is performed.
     shared_ptr<bool> dryRun_ {};
-    // Specifies whether to query vSwitches that have IPv6 CIDR blocks enabled in the specified region. Valid values:
+    // Specifies whether to query the vSwitches that have IPv6 CIDR blocks enabled in the specified region. Valid values:
     // 
-    // - **true**: queries vSwitches that have IPv6 CIDR blocks enabled in the specified region.
+    // - **true**: Queries the vSwitches that have IPv6 CIDR blocks enabled in the specified region.
     // 
-    // - **false**: does not query vSwitches that have IPv6 CIDR blocks enabled in the specified region.
+    // - **false**: Does not query the vSwitches that have IPv6 CIDR blocks enabled in the specified region.
     // 
-    // If you do not specify this parameter, the system queries all vSwitches in the specified region.
+    // If you do not specify this parameter, the system queries all vSwitches in the specified region by default.
     shared_ptr<bool> enableIpv6_ {};
+    // Specifies whether to query the IPv6 single-stack vSwitches in the specified region. Valid values:
+    // - true: Queries the IPv6 single-stack vSwitches in the specified region.
+    // - false: Does not query the IPv6 single-stack vSwitches in the specified region.
+    // 
+    // If you do not specify this parameter, the system queries all vSwitches in the specified region by default.
+    shared_ptr<bool> ipv6Only_ {};
     // Specifies whether to query the default vSwitch in the specified region. Valid values: 
     // 
-    // - **true**: queries the default vSwitch in the specified region.  
+    // - **true**: Queries the default vSwitch in the specified region.  
     // 
-    // - **false**: does not query the default vSwitch in the specified region.  
+    // - **false**: Does not query the default vSwitch in the specified region.  
     // 
-    // If you do not specify this parameter, the system queries all vSwitches in the specified region.
+    // If you do not specify this parameter, the system queries all vSwitches in the specified region by default.
     shared_ptr<bool> isDefault_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
-    // The page number. Default value: **1**.
+    // The page number of the list. Default value: **1**.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries per page for paging queries. Maximum value: **50**. Default value: **10**.
+    // The number of entries per page for a paged query. Maximum value: **50**. Default value: **10**.
     shared_ptr<int32_t> pageSize_ {};
-    // The ID of the region to which the vSwitch belongs. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to query the region ID.
+    // The ID of the region to which the vSwitch belongs. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to query region IDs.
     // 
-    // > Specify at least one of the **RegionId** and **VpcId** parameters.
+    // > You must specify at least one of the **RegionId** and **VpcId** parameters.
     shared_ptr<string> regionId_ {};
     // The ID of the resource group to which the vSwitch belongs.
     shared_ptr<string> resourceGroupId_ {};
@@ -284,7 +299,7 @@ namespace Models
     shared_ptr<string> routeTableId_ {};
     // The tags of the resource.
     shared_ptr<vector<DescribeVSwitchesRequest::Tag>> tag_ {};
-    // The ID of the vSwitch that you want to query.
+    // The ID of the vSwitch to be queried.
     shared_ptr<string> vSwitchId_ {};
     // The name of the vSwitch.
     // 
@@ -292,11 +307,11 @@ namespace Models
     shared_ptr<string> vSwitchName_ {};
     // The Alibaba Cloud account ID of the resource ownership.
     shared_ptr<int64_t> vSwitchOwnerId_ {};
-    // The ID of the VPC to which the vSwitches that you want to query belong. 
+    // The ID of the VPC to which the vSwitch to be queried belongs. 
     // 
-    // > Specify at least one of the **RegionId** and **VpcId** parameters.
+    // > You must specify at least one of the **RegionId** and **VpcId** parameters.
     shared_ptr<string> vpcId_ {};
-    // The ID of the zone to which the vSwitch belongs. You can call the [DescribeZones](https://help.aliyun.com/document_detail/36064.html) operation to query the zone ID.
+    // The ID of the zone to which the vSwitch belongs. You can call the [DescribeZones](https://help.aliyun.com/document_detail/36064.html) operation to query zone IDs.
     shared_ptr<string> zoneId_ {};
   };
 

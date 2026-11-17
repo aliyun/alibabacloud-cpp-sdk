@@ -221,22 +221,22 @@ namespace Models
     shared_ptr<bool> compress_ {};
     // The current number of connections.
     shared_ptr<int32_t> connections_ {};
-    // The time when the SSL-VPN server was created.
+    // The creation time of the SSL server.
     shared_ptr<int64_t> createTime_ {};
     // Indicates whether two-factor authentication is enabled.
     // 
-    // - **true**: enabled.
+    // - **true**: Enabled.
     // 
-    // - **false** (default): not enabled.
+    // - **false** (default): Disabled.
     shared_ptr<bool> enableMultiFactorAuth_ {};
     // The ID of the IDaaS application.
     shared_ptr<string> IDaaSApplicationId_ {};
-    // The instance ID of the IDaaS EIAM instance.
+    // The instance ID of the IDaaS EIAM.
     shared_ptr<string> IDaaSInstanceId_ {};
     // The version of the IDaaS EIAM instance.
     // 
-    // - This parameter is returned only when the SSL server is bound to an IDaaS EIAM 2.0 instance. The value is **EIAM 2.0**.
-    // - If the SSL server is bound to an IDaaS EIAM 1.0 instance, this parameter is not returned.
+    // - This parameter is returned only when the SSL server is bound to an IDaaS EIAM 2.0 instance. Valid value: **EIAM 2.0**.
+    // - This parameter is not returned if the SSL server is bound to an IDaaS EIAM 1.0 instance.
     shared_ptr<string> IDaaSInstanceVersion_ {};
     // The public IP address.
     shared_ptr<string> internetIp_ {};
@@ -244,21 +244,21 @@ namespace Models
     shared_ptr<string> localSubnet_ {};
     // The maximum number of connections.
     shared_ptr<int32_t> maxConnections_ {};
-    // The name of the SSL-VPN server.
+    // The name of the SSL server.
     shared_ptr<string> name_ {};
-    // The port of the SSL-VPN server.
+    // The port of the SSL server.
     shared_ptr<int32_t> port_ {};
-    // The protocol used by the SSL-VPN server.
+    // The protocol used by the SSL server.
     shared_ptr<string> proto_ {};
-    // The region ID of the SSL-VPN server.
+    // The region ID of the SSL server.
     shared_ptr<string> regionId_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The ID of the resource group to which the SSL-VPN server belongs.
+    // The ID of the resource group to which the SSL server belongs.
     // 
-    // The SSL-VPN server belongs to the same resource group as the associated VPN gateway instance. You can call the [ListResourceGroups](https://help.aliyun.com/document_detail/158855.html) operation to query resource group information.
+    // The SSL server belongs to the same resource group as its associated VPN gateway. You can call the [ListResourceGroups](https://help.aliyun.com/document_detail/158855.html) operation to query resource group information.
     shared_ptr<string> resourceGroupId_ {};
-    // The ID of the SSL-VPN server.
+    // The ID of the SSL server.
     shared_ptr<string> sslVpnServerId_ {};
     // The instance ID of the VPN gateway.
     shared_ptr<string> vpnGatewayId_ {};

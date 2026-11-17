@@ -505,9 +505,9 @@ namespace Models
       // 
       // - **Available**: available.
       // 
-      // - **Modifying**: being modified.
+      // - **Modifying**: configuring.
       shared_ptr<string> status_ {};
-      // The ID of the VPC associated with the network ACL.
+      // The ID of the VPC with which the network ACL is associated.
       shared_ptr<string> vpcId_ {};
     };
 

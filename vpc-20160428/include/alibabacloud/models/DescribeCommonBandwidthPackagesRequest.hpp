@@ -96,11 +96,11 @@ namespace Models
     protected:
       // The tag key of the resource. You can specify up to 20 tag keys. The tag key cannot be an empty string.
       // 
-      // A tag key can be up to 128 characters in length. It cannot start with `aliyun` or `acs:`, and cannot contain `http://` or `https://`.
+      // A tag key can be up to 128 characters in length and cannot start with `aliyun` or `acs:`. It cannot contain `http://` or `https://`.
       shared_ptr<string> key_ {};
       // The tag value of the resource. You can specify up to 20 tag values. The tag value can be an empty string.
       // 
-      // The tag value can be up to 128 characters in length. It cannot start with `aliyun` or `acs:`, and cannot contain `http://` or `https://`.
+      // A tag value can be up to 128 characters in length and cannot start with `aliyun` or `acs:`. It cannot contain `http://` or `https://`.
       shared_ptr<string> value_ {};
     };
 
@@ -213,40 +213,40 @@ namespace Models
     shared_ptr<string> bandwidthPackageId_ {};
     // Specifies whether to perform a dry run. Valid values:
     // 
-    // - **true**: Sends a check request without querying instance information. The system checks whether the required parameters are specified, whether the request format is valid, and whether the instance status is valid. If the check fails, the corresponding error is returned. If the check succeeds, `DryRunOperation` is returned.
+    // - **true**: sends a check request and does not query instance information. The check items include whether required parameters are specified, the request format, and the instance status. If the check fails, an error is returned. If the check succeeds, `DryRunOperation` is returned.
     // 
-    // - **false** (default): Sends a normal request. After the request passes the check, an HTTP 2xx status code is returned and the operation is performed.
+    // - **false** (default): sends a normal request. If the request passes the check, an HTTP 2xx status code is returned and the operation is performed.
     shared_ptr<bool> dryRun_ {};
-    // Specifies whether to include pending subscription data. Valid values:
-    // -  **false** (default): Does not include pending subscription data.
-    // - **true**: Includes pending subscription data.
+    // Specifies whether to include inactive subscription data. Valid values:
+    // - **false** (default): Does not include inactive subscription data.
+    // - **true**: Includes inactive subscription data.
     shared_ptr<bool> includeReservationData_ {};
     // The name of the Internet Shared Bandwidth instance.
     // The name must be 0 to 128 characters in length and cannot start with `http://` or `https://`.
     shared_ptr<string> name_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
-    // The page number of the list. Default value: **1**.
+    // The number of the page to return. Default value: **1**.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries per page for paging queries. Maximum value: **50**. Default value: **10**.
+    // The number of entries to return on each page. Maximum value: **50**. Default value: **10**.
     shared_ptr<int32_t> pageSize_ {};
     // The region ID of the Internet Shared Bandwidth instance. 
     // 
-    // You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to query the region ID.
+    // You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to query region IDs.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
-    // The resource group ID.
+    // The ID of the resource group.
     shared_ptr<string> resourceGroupId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
     // Specifies whether to enable Anti-DDoS (Enhanced). Valid values:
-    // - **false**: Disabled.
-    // - **true**: Enabled.
+    // - **false**: disables Anti-DDoS (Enhanced).
+    // - **true**: enables Anti-DDoS (Enhanced).
     // 
-    // > This parameter is deprecated.
+    // > **[Deprecated]** This parameter is deprecated.
     shared_ptr<bool> securityProtectionEnabled_ {};
-    // The list of tags associated with the Internet Shared Bandwidth instance.
+    // The tags of the Internet Shared Bandwidth instance.
     shared_ptr<vector<DescribeCommonBandwidthPackagesRequest::Tag>> tag_ {};
   };
 

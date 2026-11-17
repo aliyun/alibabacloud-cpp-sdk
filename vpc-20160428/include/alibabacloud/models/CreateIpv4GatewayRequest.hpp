@@ -90,13 +90,13 @@ namespace Models
 
 
     protected:
-      // The tag key of the resource. You can specify up to 20 tag keys. The tag key cannot be an empty string.
+      // The tag key of the resource. You can specify up to 20 tag keys. If you specify this parameter, you cannot specify an empty string.
       // 
-      // The tag key can be up to 128 characters in length and cannot start with `aliyun` or `acs:`. It cannot contain `http://` or `https://`.
+      // A tag key can be up to 128 characters in length and cannot start with `aliyun` or `acs:`. It cannot contain `http://` or `https://`.
       shared_ptr<string> key_ {};
-      // The tag value of the resource. You can specify up to 20 tag values. The tag value can be an empty string.
+      // The tag value of the resource. You can specify up to 20 tag values. If you specify this parameter, you can specify an empty string.
       // 
-      // The tag value can be up to 128 characters in length and cannot start with `aliyun` or `acs:`. It cannot contain `http://` or `https://`.
+      // A tag value can be up to 128 characters in length and cannot start with `aliyun` or `acs:`. It cannot contain `http://` or `https://`.
       shared_ptr<string> value_ {};
     };
 
@@ -193,13 +193,13 @@ namespace Models
   protected:
     // The client token that is used to ensure the idempotence of the request.
     // 
-    // You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters.
+    // You can use the client to generate the value, but you must ensure that it is unique among different requests. The client token can contain only ASCII characters.
     // 
-    // > If you do not specify this parameter, the system automatically uses the **RequestId** of the API request as the **ClientToken**. The **RequestId** may be different for each API request.
+    // > If you do not specify this parameter, the system automatically uses the **RequestId** of the API request as the **ClientToken**. The **RequestId** of each API request is unique.
     shared_ptr<string> clientToken_ {};
-    // Specifies whether to perform a dry run. Valid values:
-    // - **true**: performs a dry run. The system checks the required parameters, request syntax, and business restrictions. If the request fails the dry run, an error message is returned. If the request passes the dry run, the `DryRunOperation` error code is returned.
-    // - **false** (default): performs a dry run and sends the request. If the request passes the dry run, an HTTP 2xx status code is returned and the IPv4 gateway is created.
+    // Specifies whether to only precheck the request. Valid values:
+    // - **true**: prechecks the request without creating the IPv4 gateway. The system checks whether required parameters are specified, the request format is valid, and service limits are met. If the request fails the precheck, an error is returned. If the request passes the precheck, the `DryRunOperation` error code is returned.
+    // - **false** (default): sends the request. If the request passes the precheck, an HTTP 2xx status code is returned and the IPv4 gateway is created.
     shared_ptr<bool> dryRun_ {};
     // The description of the IPv4 gateway.
     // 
@@ -213,19 +213,19 @@ namespace Models
     shared_ptr<int64_t> ownerId_ {};
     // The region ID of the IPv4 gateway.
     // 
-    // You can call [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) to query the most recent region list.
+    // You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to query region IDs.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
-    // The resource group ID.
+    // The ID of the resource group.
     shared_ptr<string> resourceGroupId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
     // The tags of the resource.
     shared_ptr<vector<CreateIpv4GatewayRequest::Tag>> tag_ {};
-    // The ID of the VPC in which you want to create the IPv4 gateway.
+    // The ID of the VPC where the IPv4 gateway is created.
     // 
-    // You can create only one IPv4 gateway in a VPC.
+    // You can create only one IPv4 gateway in each VPC.
     // 
     // This parameter is required.
     shared_ptr<string> vpcId_ {};

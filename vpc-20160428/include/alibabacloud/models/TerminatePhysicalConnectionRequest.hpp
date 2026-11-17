@@ -102,7 +102,7 @@ namespace Models
     shared_ptr<string> clientToken_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
-    // The instance ID of the Express Connect circuit.
+    // The instance ID of the Express Connect circuit instance.
     // 
     // This parameter is required.
     shared_ptr<string> physicalConnectionId_ {};

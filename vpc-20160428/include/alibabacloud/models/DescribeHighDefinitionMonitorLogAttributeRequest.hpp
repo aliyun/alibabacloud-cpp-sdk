@@ -94,7 +94,7 @@ namespace Models
 
 
   protected:
-    // The instance ID for which you want to query high-precision second-level monitoring.
+    // The instance ID for which to query high-precision second-level monitoring.
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};

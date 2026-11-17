@@ -105,21 +105,21 @@ namespace Models
   protected:
     // The client token that is used to ensure the idempotence of the request.
     // 
-    // You can use the client to generate the token, but you must make sure that the token is unique among different requests. The ClientToken value can contain only ASCII characters.
+    // You can use the client to generate the value, and you must ensure that the value is unique among different requests. The client token can contain only ASCII characters.
     // 
-    // > If you do not specify this parameter, the system uses the **RequestId** of the API request as the **ClientToken**. The **RequestId** of each API request may be different.
+    // > If you do not specify this parameter, the system automatically uses the **RequestId** of the API request as the **ClientToken**. The **RequestId** of each API request may be different.
     shared_ptr<string> clientToken_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
     // The region ID of the NAT gateway.
     // 
-    // You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to query the region ID.
+    // You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to query region IDs.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
-    // The ID of the SNAT entry to delete.
+    // The ID of the SNAT entry that you want to delete.
     // 
     // This parameter is required.
     shared_ptr<string> snatEntryId_ {};

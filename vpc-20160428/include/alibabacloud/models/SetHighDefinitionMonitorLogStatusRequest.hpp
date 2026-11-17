@@ -121,34 +121,32 @@ namespace Models
 
 
   protected:
-    // The instance ID of the instance for which you want to configure high-definition second-level monitoring.
+    // The instance ID for which you want to configure high-precision second-level monitoring.
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
     // The type of the instance. Set the value to **EIP**.
     shared_ptr<string> instanceType_ {};
-    // The name of the LogProject in Simple Log Service.
+    // The name of the LogProject.
     // 
     // This parameter is required.
     shared_ptr<string> logProject_ {};
-    // The name of the LogStore in Simple Log Service.
+    // The name of the Logstore.
     // 
     // This parameter is required.
     shared_ptr<string> logStore_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
-    // The region ID of the instance.
-    // 
-    // You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to query the region ID.
+    // The region ID of the instance. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to query region IDs.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
-    // The high-definition second-level monitoring status of the instance. Valid values:
+    // The status of high-precision second-level monitoring for the instance. Valid values:
     // 
-    // - **ON**: Enables high-definition second-level monitoring.
-    // - **OFF**: Disables high-definition second-level monitoring.
+    // - **ON**: enables high-precision second-level monitoring.
+    // - **OFF**: disables high-precision second-level monitoring.
     // 
     // This parameter is required.
     shared_ptr<string> status_ {};

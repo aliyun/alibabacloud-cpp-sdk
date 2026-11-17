@@ -193,34 +193,34 @@ namespace Models
 
 
     protected:
-      // Indicates whether the IPv4 gateway instance is activated. Valid values:
+      // Indicates whether the IPv4 gateway is activated. Valid values:
       // 
-      // - **true**: activated.
-      // - **false**: not activated.
+      // - **true**: The IPv4 gateway is activated.
+      // - **false**: The IPv4 gateway is not activated.
       shared_ptr<bool> enabled_ {};
       // The time when the IPv4 gateway was created.
       shared_ptr<string> gmtCreate_ {};
-      // The description of the IPv4 gateway instance.
+      // The description of the IPv4 gateway.
       shared_ptr<string> ipv4GatewayDescription_ {};
       // The instance ID of the IPv4 gateway.
       shared_ptr<string> ipv4GatewayId_ {};
-      // The name of the IPv4 gateway instance.
+      // The name of the IPv4 gateway.
       shared_ptr<string> ipv4GatewayName_ {};
-      // The ID of the route table associated with the IPv4 gateway instance.
+      // The ID of the route table associated with the IPv4 gateway.
       shared_ptr<string> ipv4GatewayRouteTableId_ {};
       // The ID of the resource group to which the IPv4 gateway belongs.
       shared_ptr<string> resourceGroupId_ {};
-      // The status of the IPv4 gateway instance. Valid values:
+      // The status of the IPv4 gateway. Valid values:
       // 
-      // - **Creating**: being created.
-      // - **Created**: created and available.
-      // - **Modifying**: being modified.
-      // - **Deleting**: being deleted.
-      // - **Deleted**: deleted.
+      // - **Creating**: The IPv4 gateway is being created.
+      // - **Created**: The IPv4 gateway is created and available.
+      // - **Modifying**: The IPv4 gateway is being modified.
+      // - **Deleting**: The IPv4 gateway is being deleted.
+      // - **Deleted**: The IPv4 gateway is deleted.
       shared_ptr<string> status_ {};
-      // The tag list.
+      // The tags.
       shared_ptr<vector<Ipv4GatewayModels::Tags>> tags_ {};
-      // The ID of the VPC associated with the IPv4 gateway instance.
+      // The ID of the VPC associated with the IPv4 gateway.
       shared_ptr<string> vpcId_ {};
     };
 
@@ -257,11 +257,11 @@ namespace Models
 
 
   protected:
-    // The list of IPv4 gateway instances.
+    // The list of IPv4 gateways.
     shared_ptr<vector<ListIpv4GatewaysResponseBody::Ipv4GatewayModels>> ipv4GatewayModels_ {};
-    // The pagination token. Valid values:
-    // - If **NextToken** is empty, no subsequent query exists.
-    // - If **NextToken** is returned, the value indicates the token for the next query.
+    // The token that is used for the next query. Valid values:
+    // - If **NextToken** is empty, no next query is to be sent.
+    // - If **NextToken** is returned, the value indicates the token used for the next query.
     shared_ptr<string> nextToken_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

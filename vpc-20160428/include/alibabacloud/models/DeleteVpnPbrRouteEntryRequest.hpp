@@ -151,24 +151,24 @@ namespace Models
   protected:
     // The client token that is used to ensure the idempotence of the request.
     // 
-    // You can use the client to generate the token, but you must make sure that the token is unique among different requests. The ClientToken value can contain only ASCII characters.
+    // Generate a value for this parameter in your client to ensure that the value is unique across different requests. The client token only supports ASCII characters.
     // 
-    // > If you do not specify this parameter, the system uses the **RequestId** of the API request as the **ClientToken**. The **RequestId** may be different for each API request.
+    // > If you do not specify this parameter, the system automatically uses the **RequestId** of the API request as the **ClientToken**. The **RequestId** of each API request is different.
     shared_ptr<string> clientToken_ {};
     // The next hop of the policy-based route.
     // 
     // This parameter is required.
     shared_ptr<string> nextHop_ {};
-    // The tunneling protocol. Set the value to **Ipsec** (IPsec tunneling protocol).
+    // The tunneling protocol. Valid value: **Ipsec** (IPsec tunnel).
     shared_ptr<string> overlayMode_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
-    // The policy priority of the policy-based route.
+    // Policy priority of the policy-based route.
     // 
-    // - If no policy priority was previously configured for the policy-based route, you do not need to specify this parameter.
-    // - If a policy priority was previously configured for the policy-based route, you can choose whether to specify this parameter.
+    // - If the policy-based route does not have a priority configured, you can leave this parameter empty.
+    // - If the policy-based route has a priority configured, you can specify this parameter or leave it empty.
     // 
-    //     If you specify this parameter, enter the policy priority that was previously configured for the policy-based route. If you enter a different value, the operation fails.
+    //     If you specify this parameter, you must set it to policy priority that is already configured for the policy-based route. If you set it to another value, the call to this operation fails.
     shared_ptr<int32_t> priority_ {};
     // The region ID of the VPN gateway instance. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to query the region ID.
     // 
@@ -184,7 +184,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> routeSource_ {};
-    // The instance ID of the VPN gateway.
+    // The VPN gateway instance ID.
     // 
     // This parameter is required.
     shared_ptr<string> vpnGatewayId_ {};

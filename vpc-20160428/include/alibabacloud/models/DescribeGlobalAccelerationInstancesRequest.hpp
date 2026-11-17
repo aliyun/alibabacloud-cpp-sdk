@@ -167,31 +167,31 @@ namespace Models
 
 
   protected:
-    // The bandwidth type of the Alibaba Cloud Global Accelerator (GA) instance. Valid values: 
+    // The bandwidth type of the Global Accelerator (GA) instance. Valid values: 
     //            
-    // - **Sharing**: Queries shared-bandwidth instances.
+    // - **Sharing**: Shared bandwidth instance.
     //   
-    // - **Exclusive** (default): Queries dedicated-bandwidth instances.
+    // - **Exclusive** (default): Exclusive bandwidth instance.
     shared_ptr<string> bandwidthType_ {};
-    // The ID of the Alibaba Cloud Global Accelerator (GA) instance.
+    // The ID of the Global Accelerator (GA) instance.
     shared_ptr<string> globalAccelerationInstanceId_ {};
-    // Specifies whether to include reservation data that has not taken effect. Valid values:
+    // Specifies whether to include subscription data that has not taken effect. Valid values:
     // 
-    // - **false** (default): Does not include reservation data that has not taken effect.
+    // - **false** (default): Does not include subscription data that has not taken effect.
     // 
-    // - **true**: Includes reservation data that has not taken effect.
+    // - **true**: Includes subscription data that has not taken effect.
     shared_ptr<bool> includeReservationData_ {};
-    // The public IP address of the Alibaba Cloud Global Accelerator (GA) instance.
+    // The public IP address of the Global Accelerator (GA) instance.
     shared_ptr<string> ipAddress_ {};
-    // The name of the Alibaba Cloud Global Accelerator (GA) instance.
+    // The name of the Global Accelerator (GA) instance.
     shared_ptr<string> name_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
-    // The page number. Default value: **1**.
+    // The page number of the list. Default value: **1**.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries per page for paging queries. Maximum value: **100**. Default value: **10**.
+    // The number of entries per page for a paged query. Maximum value: **100**. Default value: **10**.
     shared_ptr<int32_t> pageSize_ {};
-    // The region where the Alibaba Cloud Global Accelerator (GA) instance resides. You can invoke the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to query the region ID.
+    // The region where the Global Accelerator (GA) instance resides. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to query the region ID.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
@@ -199,25 +199,25 @@ namespace Models
     shared_ptr<int64_t> resourceOwnerId_ {};
     // The instance ID of the backend service.
     shared_ptr<string> serverId_ {};
-    // The backend service region. Valid values: 
+    // The region of the backend service. Valid values: 
     // 
-    // - **china-mainland**: the Chinese mainland.
+    // - **china-mainland**: The Chinese mainland.
     // 
     // - **north-america**: North America.
     //    
-    // - **asia-pacific**: Asia Pacific.
+    // - **asia-pacific**: Asia-Pacific.
     //    
     // - **europe**: Europe.
     shared_ptr<string> serviceLocation_ {};
-    // The instance status of the Alibaba Cloud Global Accelerator (GA) instance. Valid values: 
+    // The status of the Global Accelerator (GA) instance. Valid values: 
     // 
-    // - **Available**: active.
+    // - **Available**: Available.
     // 
     // - **Inuse**: Allocated.
     //    
-    // - **Associating**: Being attached.
+    // - **Associating**: Associating.
     //    
-    // - **Unassociating**: Being disassociated.
+    // - **Unassociating**: Unassociating.
     shared_ptr<string> status_ {};
   };
 

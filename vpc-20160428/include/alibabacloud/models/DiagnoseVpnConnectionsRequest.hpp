@@ -99,9 +99,9 @@ namespace Models
 
 
   protected:
-    // The page number of the list. Default value: **1**.
+    // The page number. Default value: **1**.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries per page in a paged query. Default value: **10**.
+    // The number of entries per page in a paging query. Default value: **10**.
     shared_ptr<int32_t> pageSize_ {};
     // The region ID of the IPsec-VPN connection.
     // 
@@ -110,11 +110,11 @@ namespace Models
     // This parameter is required.
     shared_ptr<string> regionId_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
-    // The list of tunnel IDs.
+    // The IDs of the tunnels.
     shared_ptr<vector<string>> tunnelIds_ {};
-    // The list of IPsec-VPN connection IDs.
+    // The IDs of the IPsec-VPN connections.
     shared_ptr<vector<string>> vpnConnectionIds_ {};
-    // The instance ID of the VPN gateway.
+    // The VPN gateway instance ID.
     shared_ptr<string> vpnGatewayId_ {};
   };
 

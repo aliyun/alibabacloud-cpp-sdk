@@ -132,9 +132,9 @@ namespace Models
   protected:
     // The client token that is used to ensure the idempotence of the request.
     // 
-    // You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters.
+    // Generate a parameter value from your client to ensure that the value is unique across different requests. The ClientToken parameter supports only ASCII characters.
     // 
-    // > If you do not specify this parameter, the system automatically uses the **RequestId** as the **ClientToken**. The **RequestId** may be different for each API request.
+    // > If you do not specify this parameter, the system automatically uses the **RequestId** of the API request as the **ClientToken**. The **RequestId** of each API request is different.
     shared_ptr<string> clientToken_ {};
     // The ID of the network instance to query.
     // 
@@ -142,11 +142,11 @@ namespace Models
     shared_ptr<string> instanceId_ {};
     // The type of the network instance to query. Valid values:
     // 
-    // - **VPC**: virtual private cloud (VPC).
+    // - **VPC**: virtual private cloud (VPC)
     // 
-    // - **VBR**: Virtual Border Router.
+    // - **VBR**: Virtual Border Router (VBR)
     // 
-    // - **CCN**: Cloud Connect Network.
+    // - **CCN**: Cloud Connect Network (CCN)
     // 
     // This parameter is required.
     shared_ptr<string> instanceType_ {};
@@ -154,13 +154,13 @@ namespace Models
     shared_ptr<int64_t> ownerId_ {};
     // The page number. Default value: **1**.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries per page for paging. Maximum value: **50**. Default value: **10**.
+    // The number of entries per page in a paging query. Maximum value: **50**. Default value: **10**.
     shared_ptr<int32_t> pageSize_ {};
-    // The region of the network instance to query.
+    // The region ID of the network instance to query.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
-    // The ID of the resource group to which the network instance belongs.
+    // The ID of the resource group that contains the network instance to query.
     shared_ptr<string> resourceGroupId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};

@@ -64,6 +64,7 @@ namespace Models
           DARABONBA_PTR_TO_JSON(AllocationTime, allocationTime_);
           DARABONBA_PTR_TO_JSON(AssociatedInstanceId, associatedInstanceId_);
           DARABONBA_PTR_TO_JSON(AssociatedInstanceType, associatedInstanceType_);
+          DARABONBA_PTR_TO_JSON(CommonBandwidthPackageInfo, commonBandwidthPackageInfo_);
           DARABONBA_PTR_TO_JSON(Ipv6Address, ipv6Address_);
           DARABONBA_PTR_TO_JSON(Ipv6AddressDescription, ipv6AddressDescription_);
           DARABONBA_PTR_TO_JSON(Ipv6AddressId, ipv6AddressId_);
@@ -85,6 +86,7 @@ namespace Models
           DARABONBA_PTR_FROM_JSON(AllocationTime, allocationTime_);
           DARABONBA_PTR_FROM_JSON(AssociatedInstanceId, associatedInstanceId_);
           DARABONBA_PTR_FROM_JSON(AssociatedInstanceType, associatedInstanceType_);
+          DARABONBA_PTR_FROM_JSON(CommonBandwidthPackageInfo, commonBandwidthPackageInfo_);
           DARABONBA_PTR_FROM_JSON(Ipv6Address, ipv6Address_);
           DARABONBA_PTR_FROM_JSON(Ipv6AddressDescription, ipv6AddressDescription_);
           DARABONBA_PTR_FROM_JSON(Ipv6AddressId, ipv6AddressId_);
@@ -310,11 +312,63 @@ namespace Models
           shared_ptr<string> reservationOrderType_ {};
         };
 
+        class CommonBandwidthPackageInfo : public Darabonba::Model {
+        public:
+          friend void to_json(Darabonba::Json& j, const CommonBandwidthPackageInfo& obj) { 
+            DARABONBA_PTR_TO_JSON(BandwidthPackageBandwidth, bandwidthPackageBandwidth_);
+            DARABONBA_PTR_TO_JSON(BandwidthPackageId, bandwidthPackageId_);
+            DARABONBA_PTR_TO_JSON(CommonBandwidthPackageIpBandwidth, commonBandwidthPackageIpBandwidth_);
+          };
+          friend void from_json(const Darabonba::Json& j, CommonBandwidthPackageInfo& obj) { 
+            DARABONBA_PTR_FROM_JSON(BandwidthPackageBandwidth, bandwidthPackageBandwidth_);
+            DARABONBA_PTR_FROM_JSON(BandwidthPackageId, bandwidthPackageId_);
+            DARABONBA_PTR_FROM_JSON(CommonBandwidthPackageIpBandwidth, commonBandwidthPackageIpBandwidth_);
+          };
+          CommonBandwidthPackageInfo() = default ;
+          CommonBandwidthPackageInfo(const CommonBandwidthPackageInfo &) = default ;
+          CommonBandwidthPackageInfo(CommonBandwidthPackageInfo &&) = default ;
+          CommonBandwidthPackageInfo(const Darabonba::Json & obj) { from_json(obj, *this); };
+          virtual ~CommonBandwidthPackageInfo() = default ;
+          CommonBandwidthPackageInfo& operator=(const CommonBandwidthPackageInfo &) = default ;
+          CommonBandwidthPackageInfo& operator=(CommonBandwidthPackageInfo &&) = default ;
+          virtual void validate() const override {
+          };
+          virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+          virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+          virtual bool empty() const override { return this->bandwidthPackageBandwidth_ == nullptr
+        && this->bandwidthPackageId_ == nullptr && this->commonBandwidthPackageIpBandwidth_ == nullptr; };
+          // bandwidthPackageBandwidth Field Functions 
+          bool hasBandwidthPackageBandwidth() const { return this->bandwidthPackageBandwidth_ != nullptr;};
+          void deleteBandwidthPackageBandwidth() { this->bandwidthPackageBandwidth_ = nullptr;};
+          inline int64_t getBandwidthPackageBandwidth() const { DARABONBA_PTR_GET_DEFAULT(bandwidthPackageBandwidth_, 0L) };
+          inline CommonBandwidthPackageInfo& setBandwidthPackageBandwidth(int64_t bandwidthPackageBandwidth) { DARABONBA_PTR_SET_VALUE(bandwidthPackageBandwidth_, bandwidthPackageBandwidth) };
+
+
+          // bandwidthPackageId Field Functions 
+          bool hasBandwidthPackageId() const { return this->bandwidthPackageId_ != nullptr;};
+          void deleteBandwidthPackageId() { this->bandwidthPackageId_ = nullptr;};
+          inline string getBandwidthPackageId() const { DARABONBA_PTR_GET_DEFAULT(bandwidthPackageId_, "") };
+          inline CommonBandwidthPackageInfo& setBandwidthPackageId(string bandwidthPackageId) { DARABONBA_PTR_SET_VALUE(bandwidthPackageId_, bandwidthPackageId) };
+
+
+          // commonBandwidthPackageIpBandwidth Field Functions 
+          bool hasCommonBandwidthPackageIpBandwidth() const { return this->commonBandwidthPackageIpBandwidth_ != nullptr;};
+          void deleteCommonBandwidthPackageIpBandwidth() { this->commonBandwidthPackageIpBandwidth_ = nullptr;};
+          inline int64_t getCommonBandwidthPackageIpBandwidth() const { DARABONBA_PTR_GET_DEFAULT(commonBandwidthPackageIpBandwidth_, 0L) };
+          inline CommonBandwidthPackageInfo& setCommonBandwidthPackageIpBandwidth(int64_t commonBandwidthPackageIpBandwidth) { DARABONBA_PTR_SET_VALUE(commonBandwidthPackageIpBandwidth_, commonBandwidthPackageIpBandwidth) };
+
+
+        protected:
+          shared_ptr<int64_t> bandwidthPackageBandwidth_ {};
+          shared_ptr<string> bandwidthPackageId_ {};
+          shared_ptr<int64_t> commonBandwidthPackageIpBandwidth_ {};
+        };
+
         virtual bool empty() const override { return this->addressType_ == nullptr
-        && this->allocationTime_ == nullptr && this->associatedInstanceId_ == nullptr && this->associatedInstanceType_ == nullptr && this->ipv6Address_ == nullptr && this->ipv6AddressDescription_ == nullptr
-        && this->ipv6AddressId_ == nullptr && this->ipv6AddressName_ == nullptr && this->ipv6GatewayId_ == nullptr && this->ipv6InternetBandwidth_ == nullptr && this->ipv6Isp_ == nullptr
-        && this->networkType_ == nullptr && this->realBandwidth_ == nullptr && this->resourceGroupId_ == nullptr && this->serviceManaged_ == nullptr && this->status_ == nullptr
-        && this->tags_ == nullptr && this->vSwitchId_ == nullptr && this->vpcId_ == nullptr; };
+        && this->allocationTime_ == nullptr && this->associatedInstanceId_ == nullptr && this->associatedInstanceType_ == nullptr && this->commonBandwidthPackageInfo_ == nullptr && this->ipv6Address_ == nullptr
+        && this->ipv6AddressDescription_ == nullptr && this->ipv6AddressId_ == nullptr && this->ipv6AddressName_ == nullptr && this->ipv6GatewayId_ == nullptr && this->ipv6InternetBandwidth_ == nullptr
+        && this->ipv6Isp_ == nullptr && this->networkType_ == nullptr && this->realBandwidth_ == nullptr && this->resourceGroupId_ == nullptr && this->serviceManaged_ == nullptr
+        && this->status_ == nullptr && this->tags_ == nullptr && this->vSwitchId_ == nullptr && this->vpcId_ == nullptr; };
         // addressType Field Functions 
         bool hasAddressType() const { return this->addressType_ != nullptr;};
         void deleteAddressType() { this->addressType_ = nullptr;};
@@ -341,6 +395,15 @@ namespace Models
         void deleteAssociatedInstanceType() { this->associatedInstanceType_ = nullptr;};
         inline string getAssociatedInstanceType() const { DARABONBA_PTR_GET_DEFAULT(associatedInstanceType_, "") };
         inline Ipv6Address& setAssociatedInstanceType(string associatedInstanceType) { DARABONBA_PTR_SET_VALUE(associatedInstanceType_, associatedInstanceType) };
+
+
+        // commonBandwidthPackageInfo Field Functions 
+        bool hasCommonBandwidthPackageInfo() const { return this->commonBandwidthPackageInfo_ != nullptr;};
+        void deleteCommonBandwidthPackageInfo() { this->commonBandwidthPackageInfo_ = nullptr;};
+        inline const Ipv6Address::CommonBandwidthPackageInfo & getCommonBandwidthPackageInfo() const { DARABONBA_PTR_GET_CONST(commonBandwidthPackageInfo_, Ipv6Address::CommonBandwidthPackageInfo) };
+        inline Ipv6Address::CommonBandwidthPackageInfo getCommonBandwidthPackageInfo() { DARABONBA_PTR_GET(commonBandwidthPackageInfo_, Ipv6Address::CommonBandwidthPackageInfo) };
+        inline Ipv6Address& setCommonBandwidthPackageInfo(const Ipv6Address::CommonBandwidthPackageInfo & commonBandwidthPackageInfo) { DARABONBA_PTR_SET_VALUE(commonBandwidthPackageInfo_, commonBandwidthPackageInfo) };
+        inline Ipv6Address& setCommonBandwidthPackageInfo(Ipv6Address::CommonBandwidthPackageInfo && commonBandwidthPackageInfo) { DARABONBA_PTR_SET_RVALUE(commonBandwidthPackageInfo_, commonBandwidthPackageInfo) };
 
 
         // ipv6Address Field Functions 
@@ -457,6 +520,7 @@ namespace Models
         shared_ptr<string> allocationTime_ {};
         shared_ptr<string> associatedInstanceId_ {};
         shared_ptr<string> associatedInstanceType_ {};
+        shared_ptr<Ipv6Address::CommonBandwidthPackageInfo> commonBandwidthPackageInfo_ {};
         shared_ptr<string> ipv6Address_ {};
         shared_ptr<string> ipv6AddressDescription_ {};
         shared_ptr<string> ipv6AddressId_ {};
@@ -531,7 +595,7 @@ namespace Models
     shared_ptr<DescribeIpv6AddressesResponseBody::Ipv6Addresses> ipv6Addresses_ {};
     // The page number. Default value: **1**.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries per page for paging queries. Maximum value: **50**. Default value: **10**.
+    // The number of entries per page in a paging query. Maximum value: **50**. Default value: **10**.
     shared_ptr<int32_t> pageSize_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

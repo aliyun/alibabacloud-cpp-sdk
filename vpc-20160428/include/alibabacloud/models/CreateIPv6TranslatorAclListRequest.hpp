@@ -98,10 +98,11 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> aclName_ {};
+    // The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, and you must ensure that the token is unique among different requests.
     shared_ptr<string> clientToken_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
-    // The region of the IPv6 Translation Service instance. You can call the DescribeRegions operation to query region IDs.
+    // The region ID of the IPv6 Translation Service instance. You can call the DescribeRegions operation to query the region ID.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};

@@ -149,34 +149,34 @@ namespace Models
 
 
   protected:
-    // Specifies whether automatic payment is enabled for the subscription bill. Valid values: **true|false**.
+    // Specifies whether automatic payment is enabled for subscription bills. Valid values: **true** and **false**.
     shared_ptr<bool> autoPay_ {};
-    // The billing bandwidth of the IPv6 Translation Service instance, in Mbit/s. Valid values: **1** to **200**. If you do not set the bandwidth for translation mapping entries, the mapping entries in the instance share this bandwidth. 
+    // The bandwidth of the IPv6 Translation Service instance. Unit: Mbit/s. Valid values: **1** to **200**. If you do not specify the bandwidth for an IPv6 translation mapping entry, all IPv6 translation mapping entries in the instance share this bandwidth. 
     // 
     // > If you do not specify the bandwidth, the default value is 10 Mbit/s.
     shared_ptr<int32_t> bandwidth_ {};
-    // The client token that is used to ensure the idempotence of the request. The client token must be unique among different requests and cannot exceed 64 ASCII characters in length.
+    // The client token that is used to ensure the idempotence of the request. The client token must be unique across different requests and can contain a maximum of 64 ASCII characters.
     shared_ptr<string> clientToken_ {};
     // The subscription duration. Valid values:
     // 
     // - If the billing cycle is **Month**, valid values are **1** to **9**.  
-    // - If the billing cycle is **Year**, the value is **3**.
+    // - If the billing cycle is **Year**, the valid value is **3**.
     shared_ptr<int32_t> duration_ {};
-    // The name of the IPv6 Translation Service instance. The name defaults to the instance ID. The name must be 2 to 100 characters in length and must start with a letter or a Chinese character. It can contain digits, periods (.), underscores (_), and hyphens (-), but cannot start with `http://` or `https://`.
+    // The name of the IPv6 Translation Service instance. Default value: the instance ID. The name must be 2 to 100 characters in length, and must start with a letter or a Chinese character. It can contain digits, periods (.), underscores (_), and hyphens (-). It cannot start with `http://` or `https://`.
     shared_ptr<string> name_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
-    // The payment method of the IPv6 Translation Service instance. Valid values: 
+    // The billing method of the IPv6 Translation Service instance. Valid values: 
     // 
     // - **PREPAY**: subscription.
     // 
     // - **POSTPAY**: pay-as-you-go.
     shared_ptr<string> payType_ {};
-    // The billing cycle for subscription. Valid values: 
+    // The billing cycle of the subscription instance. Valid values: 
     // 
-    // - **Month** (default): monthly subscription.
+    // - **Month** (default): billed on a monthly basis.
     // 
-    // - **Year**: yearly subscription.
+    // - **Year**: billed on a yearly basis.
     shared_ptr<string> pricingCycle_ {};
     // The region of the IPv6 Translation Service instance. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to query region IDs.
     // 
@@ -184,7 +184,7 @@ namespace Models
     shared_ptr<string> regionId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
-    // The specification of the IPv6 Translation Service instance. Valid values: **small**.
+    // The specification of the IPv6 Translation Service instance. Valid value: **small**.
     shared_ptr<string> spec_ {};
   };
 

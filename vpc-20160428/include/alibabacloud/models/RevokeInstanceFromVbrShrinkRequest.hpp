@@ -84,31 +84,29 @@ namespace Models
 
 
   protected:
-    // The scope of VBR instances for which the VPC-connected instance authorization is being revoked. Valid values:
+    // The scope of VBR instances from which the authorization of the VPC-connected instance is revoked. Valid values:
     // 
-    // - **ALL**: Revokes the VPC-connected instance authorization for all VBR instances in the specified region. In this case, the **VbrInstanceIds** parameter can be left empty.
+    // - **ALL**: revokes the authorization between the VPC-connected instance and all VBR instances in the specified region. In this case, the **VbrInstanceIds** parameter can be left empty.
     // 
-    // - **Specify**: Revokes the VPC-connected instance authorization for the specified VBR instances. In this case, the **VbrInstanceIds** parameter is required.
+    // - **Specify**: revokes the authorization between the VPC-connected instance and the specified VBR instances. In this case, the **VbrInstanceIds** parameter is required.
     // 
     // This parameter is required.
     shared_ptr<string> grantType_ {};
-    // The instance ID of the VPC-connected instance for which you want to revoke the authorization.
+    // The VPC-connected instance ID for which you want to revoke the authorization.
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
-    // The region ID of the VPC-connected instance for which you want to revoke the authorization.
-    // 
-    // You can invoke the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to query the region ID.
+    // The region ID of the VPC-connected instance for which you want to revoke the authorization. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to query region IDs.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
-    // The list of VBR instance IDs for which the VPC-connected instance authorization is being revoked.
+    // The list of VBR instance IDs from which the authorization of the VPC-connected instance is revoked.
     shared_ptr<string> vbrInstanceIdsShrink_ {};
-    // The Alibaba Cloud account ID of the VBR instance for which the authorization is being revoked.
+    // The ID of the Alibaba Cloud account that owns the VBR instance from which the authorization is revoked.
     // 
     // This parameter is required.
     shared_ptr<string> vbrOwnerUid_ {};
-    // The region ID of the VBR instance for which the VPC-connected instance authorization is being revoked.
+    // The region ID of the VBR instance from which the authorization of the VPC-connected instance is revoked.
     // 
     // This parameter is required.
     shared_ptr<string> vbrRegionNo_ {};

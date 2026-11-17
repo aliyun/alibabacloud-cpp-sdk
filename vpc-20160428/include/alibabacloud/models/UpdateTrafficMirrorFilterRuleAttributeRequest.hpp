@@ -169,27 +169,27 @@ namespace Models
   protected:
     // The client token that is used to ensure the idempotence of the request.
     // 
-    // You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters.
+    // You can use the client to generate the value, and you must ensure that the value is unique among different requests. The client token can contain only ASCII characters.
     // 
-    // > If you do not specify this parameter, the system automatically uses the **RequestId** as the **ClientToken**. The **RequestId** may be different for each request.
+    // > If you do not specify this parameter, the system automatically uses the **RequestId** of the API request as the **ClientToken**. The **RequestId** of each API request may be different.
     shared_ptr<string> clientToken_ {};
-    // The destination CIDR block of the network traffic for the inbound or outbound rule to be modified.
+    // The destination CIDR block of the network traffic for the inbound or outbound rule to be updated.
     shared_ptr<string> destinationCidrBlock_ {};
-    // The destination port range of the network traffic for the inbound or outbound rule to be modified.
+    // The destination port range of the network traffic for the inbound or outbound rule to be updated.
     // 
-    // > If **Protocol** is set to **ICMP**, the port range cannot be modified.
+    // > If **Protocol** is set to **ICMP**, you cannot update the port range.
     shared_ptr<string> destinationPortRange_ {};
-    // Specifies whether to perform only a dry run, without performing the actual request. Valid values:
+    // Specifies whether to only precheck the request. Valid values:
     // 
-    // - **true**: performs only a dry run. The system checks the request for potential issues, including missing parameter values, incorrect request syntax, and service limits. If the request fails the dry run, an error code is returned. If the request passes the dry run, the `DryRunOperation` error code is returned.
+    // - **true**: prechecks the request without updating the configuration of the inbound or outbound rule. The system checks whether the required parameters are specified, the request format is valid, and the service limits are met. If the request fails the precheck, the corresponding error is returned. If the request passes the precheck, the `DryRunOperation` error code is returned.
     // 
-    // - **false** (default): performs a dry run and performs the actual request. If the request passes the dry run, a 2xx HTTP status code is returned and the configuration of the inbound or outbound rule is modified.
+    // - **false** (default): sends the request. If the request passes the precheck, a 2xx HTTP status code is returned and the configuration of the inbound or outbound rule is updated.
     shared_ptr<bool> dryRun_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
-    // The priority of the inbound or outbound rule to be modified. A smaller value indicates a higher priority.
+    // The priority of the inbound or outbound rule to be updated. A smaller value indicates a higher priority.
     shared_ptr<int32_t> priority_ {};
-    // The Protocol Type of the network traffic to be mirrored by the inbound or outbound rule. Valid values:
+    // The protocol type of the network traffic to be mirrored by the inbound or outbound rule to be updated. Valid values:
     // 
     // - **ALL**: all protocols.
     // 
@@ -201,24 +201,24 @@ namespace Models
     shared_ptr<string> protocol_ {};
     // The region ID of the traffic mirror.
     // 
-    // You can call [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) to query the most recent region list. For more information about regions that support traffic mirroring, see [Traffic mirroring overview](https://help.aliyun.com/document_detail/207513.html).
+    // You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to query the most recent region list. For more information about the regions that support traffic mirroring, see [Traffic mirroring overview](https://help.aliyun.com/document_detail/207513.html).
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
-    // The collection policy of the inbound or outbound rule to be modified. Valid values:
+    // The collection policy of the inbound or outbound rule to be updated. Valid values:
     // 
     // - **accept**: collects network traffic.
     // 
     // - **drop**: does not collect network traffic.
     shared_ptr<string> ruleAction_ {};
-    // The source CIDR block of the network traffic for the inbound or outbound rule to be modified.
+    // The source CIDR block of the network traffic for the inbound or outbound rule to be updated.
     shared_ptr<string> sourceCidrBlock_ {};
-    // The source port range of the network traffic for the inbound or outbound rule to be modified.
-    // > If **Protocol** is set to **ICMP**, the port range cannot be modified.
+    // The source port range of the network traffic for the inbound or outbound rule to be updated.
+    // > If **Protocol** is set to **ICMP**, you cannot update the port range.
     shared_ptr<string> sourcePortRange_ {};
-    // The instance ID of the inbound or outbound rule of the traffic mirroring filter.
+    // The instance ID of the inbound or outbound traffic mirroring rule.
     // 
     // This parameter is required.
     shared_ptr<string> trafficMirrorFilterRuleId_ {};

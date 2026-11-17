@@ -124,8 +124,8 @@ namespace Models
     // The CIDR block.
     // >You cannot specify both **CidrBlock** and **CidrMask**. Specify only one of them.
     shared_ptr<string> cidrBlock_ {};
-    // The subnet mask of the CIDR block.
-    // After you enter the subnet mask, the system automatically allocates a CIDR block.
+    // The mask of the CIDR block.
+    // After you specify the mask, the system automatically allocates a CIDR block.
     // 
     // Valid values: **24** to **28**.
     // 
@@ -133,17 +133,17 @@ namespace Models
     shared_ptr<int32_t> cidrMask_ {};
     // The client token that is used to ensure the idempotence of the request.
     // 
-    // You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters.
+    // You can use the client to generate the value, but you must ensure that it is unique among different requests. The client token can contain only ASCII characters.
     // 
-    // > If you do not specify this parameter, the system automatically uses the **RequestId** as the **ClientToken**. The **RequestId** may be different for each API request.
+    // > If you do not specify this parameter, the system automatically uses the **RequestId** of the API request as the **ClientToken**. The **RequestId** of each API request is unique.
     shared_ptr<string> clientToken_ {};
-    // Specifies whether to perform only a dry run, without performing the actual request. Valid values:
-    // - **true**: performs only a dry run. The system checks the request for potential issues, including missing parameter values, incorrect request syntax, and service limits. If the request fails the dry run, an error code is returned. If the request passes the dry run, the `DryRunOperation` error code is returned.
-    // - **false** (default): performs a dry run and performs the actual request. If the request passes the dry run, an HTTP 2xx status code is returned and the operation is performed.
+    // Specifies whether to only perform a dry run on the request. Valid values:
+    // - **true**: performs a dry run without adding the CIDR block. The system checks whether required parameters are specified, the request format is valid, and the service limits are met. If the request fails the dry run, the corresponding error is returned. If the request passes the dry run, the `DryRunOperation` error code is returned.
+    // - **false** (default): sends the request. If the request passes the dry run, the HTTP 2xx status code is returned and the operation is performed.
     shared_ptr<bool> dryRun_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
-    // The instance ID of the IPAM pool.
+    // The instance ID of the IP address pool.
     // 
     // This parameter is required.
     shared_ptr<string> publicIpAddressPoolId_ {};

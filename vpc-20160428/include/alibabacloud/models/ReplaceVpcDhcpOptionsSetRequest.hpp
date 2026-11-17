@@ -114,29 +114,29 @@ namespace Models
   protected:
     // The client token that is used to ensure the idempotence of the request.
     // 
-    // You can use the client to generate the token, but you must make sure that the token is unique among different requests. The ClientToken value can contain only ASCII characters.
+    // You can generate the parameter value on your client. Make sure that the client token is unique among different requests. The client token can contain only ASCII characters.
     // 
     // > If you do not specify this parameter, the system automatically uses the **RequestId** of the API request as the **ClientToken**. The **RequestId** of each API request may be different.
     shared_ptr<string> clientToken_ {};
-    // The ID of the DHCP options set to change.
+    // The ID of the DHCP options set.
     // 
     // This parameter is required.
     shared_ptr<string> dhcpOptionsSetId_ {};
     // Specifies whether to perform a dry run. Valid values:
     // 
-    // - **true**: performs a dry run. The system checks the request for potential issues, including invalid AccessKey pairs, unauthorized Resource Access Management (RAM) users, and missing parameter values. If the request fails the dry run, the corresponding error is returned. If the request passes the dry run, the DryRunOperation error code is returned.
+    // - **true**: performs a dry run and does not replace the DHCP options set associated with the VPC. The system checks whether your AccessKey pair is valid, the authorization of the Resource Access Management (RAM) user, and whether the required parameters are specified. If the request fails the dry run, an error message is returned. If the request passes the dry run, the DryRunOperation error code is returned.
     // 
-    // - **false** (default): sends a Normal request. If the request passes the authorization and parameter check, a 2XX HTTP status code is returned and the DHCP options set associated with the VPC is directly changed.
+    // - **false** (default): sends a normal request. If the request passes the check, a 2xx HTTP status code is returned and the DHCP options set associated with the VPC is replaced.
     shared_ptr<bool> dryRun_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
-    // The region where the DHCP options set resides. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to query the region ID.
+    // The region ID of the DHCP options set. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to query region IDs.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
-    // The ID of the VPC whose association you want to change.
+    // The ID of the VPC.
     // 
     // This parameter is required.
     shared_ptr<string> vpcId_ {};

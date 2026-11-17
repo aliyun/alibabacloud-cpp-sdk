@@ -84,23 +84,23 @@ namespace Models
 
 
     protected:
-      // The filter condition. You can specify up to 5 filter conditions. The following filter conditions are supported:
+      // The filter condition. You can specify up to five filter conditions. Supported filter conditions:
       // 
-      // * **PhysicalConnectionId**: instance ID of the Express Connect circuit instance.
+      // * **PhysicalConnectionId**: instance ID of the Express Connect circuit.
       // 
-      // * **VbrId**: instance ID of the Virtual Border Router instance.
+      // * **VbrId**: instance ID of the VBR.
       // 
-      // * **Status**: the status of the Virtual Border Router.
+      // * **Status**: the status of the VBR.
       // 
-      // * **Name**: the name of the Virtual Border Router.
+      // * **Name**: the name of the VBR.
       // 
       // * **AccessPointId**: instance ID of the access point.
       // 
       // * **eccId**: instance ID of the Express Cloud Connect instance.
       // 
-      // * **type**: the type of the Virtual Border Router.
+      // * **type**: the type of the VBR.
       shared_ptr<string> key_ {};
-      // The filter values based on the specified Key. You can specify multiple filter values for a single Key. The relationship between multiple filter values is OR, which means that a match with any one of the filter values is considered a match for the filter condition.
+      // The filter value corresponding to the filter condition. You can specify multiple filter values for a single filter condition. The filter values are evaluated by using the OR logical operator. If a resource matches one of the filter values, it matches the filter condition.
       shared_ptr<vector<string>> value_ {};
     };
 
@@ -169,15 +169,15 @@ namespace Models
     // The list of filter conditions.
     shared_ptr<vector<DescribeVirtualBorderRoutersForPhysicalConnectionRequest::Filter>> filter_ {};
     shared_ptr<int64_t> ownerId_ {};
-    // The page number of the list. Default value: **1**.
+    // The page number. Default value: **1**.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries per page in a paged query. Maximum value: **50**. Default value: **10**.
+    // The number of entries per page during paging in a paged query. Maximum value: **50**. Default value: **10**.
     shared_ptr<int32_t> pageSize_ {};
     // The ID of the Express Connect circuit.
     // 
     // This parameter is required.
     shared_ptr<string> physicalConnectionId_ {};
-    // The region where the Express Connect circuit resides. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to obtain the region ID.
+    // The region where the Express Connect circuit is located. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to query region IDs.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};

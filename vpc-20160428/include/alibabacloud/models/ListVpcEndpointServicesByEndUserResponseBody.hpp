@@ -105,13 +105,13 @@ namespace Models
     protected:
       // The default access policy.
       shared_ptr<string> defaultPolicyDocument_ {};
-      // The domain name of the cloud service associated with the endpoint service in the queried region.
+      // The domain name of the Alibaba Cloud service to which the endpoint service belongs in the queried region.
       shared_ptr<string> serviceDomain_ {};
       // The instance ID of the endpoint service.
       shared_ptr<string> serviceId_ {};
       // The name of the endpoint service.
       shared_ptr<string> serviceName_ {};
-      // Indicates whether the endpoint service supports access policies. Valid values:
+      // Specifies whether the endpoint service supports access policies. Valid values:
       // 
       // - **false**: Access policies are not supported.
       // - **true**: Access policies are supported.
@@ -158,17 +158,17 @@ namespace Models
 
 
   protected:
-    // The number of entries per page in a paged query.
+    // The maximum number of entries returned per page.
     shared_ptr<int64_t> maxResults_ {};
-    // The token for the next query. Valid values:
-    // - If **NextToken** is empty, no next query exists.
-    // - If **NextToken** is returned, the value indicates the token for the next query.
+    // The token for the next query.
+    // - If **NextToken** is empty, no subsequent query is available.
+    // - If **NextToken** has a value, the value is the token used to start the next query.
     shared_ptr<string> nextToken_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
     // The list of available endpoint services.
     shared_ptr<vector<ListVpcEndpointServicesByEndUserResponseBody::Services>> services_ {};
-    // The total number of entries returned.
+    // The total number of entries.
     shared_ptr<string> totalCount_ {};
   };
 

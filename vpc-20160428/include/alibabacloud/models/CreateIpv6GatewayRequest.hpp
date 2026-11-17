@@ -90,13 +90,13 @@ namespace Models
 
 
     protected:
-      // The tag key of the resource. You can specify up to 20 tag keys. The tag key cannot be an empty string.
+      // The tag key of the resource. You can specify up to 20 tag keys. If you specify this parameter, you cannot enter an empty string.
       // 
-      // The tag key can be up to 128 characters in length and cannot start with `aliyun` or `acs:`. It cannot contain `http://` or `https://`.
+      // A tag key can be up to 128 characters in length. It cannot start with `aliyun` or `acs:`, and cannot contain `http://` or `https://`.
       shared_ptr<string> key_ {};
-      // The tag value of the resource. You can specify up to 20 tag values. The tag value can be an empty string.
+      // The tag value of the resource. You can specify up to 20 tag values. If you specify this parameter, you can enter an empty string.
       // 
-      // The tag value can be up to 128 characters in length and cannot start with `aliyun` or `acs:`. It cannot contain `http://` or `https://`.
+      // A tag value can be up to 128 characters in length. It cannot start with `aliyun` or `acs:`, and cannot contain `http://` or `https://`.
       shared_ptr<string> value_ {};
     };
 
@@ -193,14 +193,15 @@ namespace Models
   protected:
     // The client token that is used to ensure the idempotence of the request.
     // 
-    // You can use the client to generate the token, but you must make sure that the token is unique among different requests. The ClientToken value can contain only ASCII characters.
+    // You can use the client to generate the value, but you must make sure that the value is unique among different requests. The client token can contain only ASCII characters.
     // 
-    // > If you do not specify this parameter, the system uses the **RequestId** of the API request as the **ClientToken**. The **RequestId** may be different for each API request.
+    // > If you do not specify this parameter, the system automatically uses the **RequestId** of the API request as the **ClientToken**. The **RequestId** of each API request is unique.
     shared_ptr<string> clientToken_ {};
     // The description of the IPv6 gateway.
     // 
     // The description must be 0 to 256 characters in length and cannot start with `http://` or `https://`.
     shared_ptr<string> description_ {};
+    // Specifies whether to perform a dry run without performing the actual operation.
     shared_ptr<bool> dryRun_ {};
     // The name of the IPv6 gateway.
     // 
@@ -208,7 +209,7 @@ namespace Models
     shared_ptr<string> name_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
-    // The region ID of the IPv6 gateway. You can call [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) to query the most recent region list.
+    // The region ID of the IPv6 gateway. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to query region IDs.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
@@ -220,7 +221,7 @@ namespace Models
     shared_ptr<int64_t> resourceOwnerId_ {};
     // The tags of the resource.
     shared_ptr<vector<CreateIpv6GatewayRequest::Tag>> tag_ {};
-    // The ID of the VPC for which you want to enable IPv6.
+    // The ID of the VPC for which you want to enable IPv6 gateway.
     // 
     // This parameter is required.
     shared_ptr<string> vpcId_ {};

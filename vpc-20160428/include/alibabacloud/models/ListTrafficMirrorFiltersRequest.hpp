@@ -88,13 +88,13 @@ namespace Models
 
 
     protected:
-      // The tag key of the resource. You can specify up to 20 tag keys. The tag key cannot be an empty string.
+      // The tag key of the resource. You can specify up to 20 tag keys. If you specify this parameter, you cannot specify an empty string.
       // 
-      // The tag key can be up to 128 characters in length. It cannot start with `aliyun` or `acs:`, and cannot contain `http://` or `https://`.
+      // A tag key can be up to 128 characters in length. It cannot start with `aliyun` or `acs:`, and cannot contain `http://` or `https://`.
       shared_ptr<string> key_ {};
-      // The tag value of the resource. You can specify up to 20 tag values. The tag value can be an empty string.
+      // The tag value of the resource. You can specify up to 20 tag values. If you specify this parameter, you can specify an empty string.
       // 
-      // The tag value can be up to 128 characters in length. It cannot start with `aliyun` or `acs:`, and cannot contain `http://` or `https://`.
+      // A tag value can be up to 128 characters in length. It cannot start with `aliyun` or `acs:`, and cannot contain `http://` or `https://`.
       shared_ptr<string> value_ {};
     };
 
@@ -183,29 +183,27 @@ namespace Models
 
 
   protected:
-    // The maximum number of entries to return in this request.
-    // 
-    // Valid values: **1** to **100**. Default value: **10**.
+    // The maximum number of entries to return for the current request. Valid values: **1** to **100**. Default value: **10**.
     shared_ptr<int32_t> maxResults_ {};
-    // The token for the next query. Valid values:
-    // - You do not need to specify this parameter for the first request or if no next query exists.
-    // - If a next query exists, set the value to the NextToken value returned in the previous API call.
+    // The token that indicates whether a next query is available. Valid values:
+    // - For the first query or when no subsequent query is required, leave this parameter empty.
+    // - If a subsequent query is required, set the value to the NextToken value returned by the previous API call.
     shared_ptr<string> nextToken_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
-    // The region ID of the traffic mirror filter.
+    // The region ID of the traffic mirror.
     // 
-    // You can call [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) to query the most recent region list. For more information about regions that support traffic mirroring, see [Traffic mirroring overview](https://help.aliyun.com/document_detail/207513.html).
+    // You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to query region IDs. For more information about the regions that support traffic mirroring, see [Traffic mirroring overview](https://help.aliyun.com/document_detail/207513.html).
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
-    // The ID of the resource group to which the traffic mirroring filter belongs.
+    // The ID of the resource group to which the traffic mirroring belongs.
     shared_ptr<string> resourceGroupId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
-    // The tags.
+    // The list of tags.
     shared_ptr<vector<ListTrafficMirrorFiltersRequest::Tags>> tags_ {};
-    // The instance IDs of traffic mirror filters. The maximum value of **N** is **100**, which means that you can query up to 100 traffic mirror filters at a time.
+    // The instance IDs of the traffic mirror filters. The maximum value of **N** is **100**, which means that you can query up to 100 filters at a time.
     shared_ptr<vector<string>> trafficMirrorFilterIds_ {};
     // The name of the traffic mirror filter.
     shared_ptr<string> trafficMirrorFilterName_ {};

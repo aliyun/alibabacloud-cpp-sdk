@@ -106,11 +106,11 @@ namespace Models
 
 
       protected:
-        // The publish status of the route entry in the publish target.
+        // The publication status of the route at the publication target.
         shared_ptr<string> publishStatus_ {};
-        // The instance ID of the route publish target.
+        // The instance ID of the route publication target.
         shared_ptr<string> publishTargetInstanceId_ {};
-        // The route publish target.
+        // The route publication target.
         shared_ptr<string> publishTargetType_ {};
       };
 
@@ -147,11 +147,11 @@ namespace Models
 
 
     protected:
-      // The destination CIDR block of the route entry.
+      // The destination CIDR block of the route.
       shared_ptr<string> destinationCidrBlock_ {};
-      // The ID of the route entry.
+      // The ID of the route.
       shared_ptr<string> routeEntryId_ {};
-      // The list of publish status information for the route entry in publish targets.
+      // The list of publication status information of the route at the publication targets.
       shared_ptr<vector<RouteEntries::RoutePublishTargets>> routePublishTargets_ {};
       // The route table ID.
       shared_ptr<string> routeTableId_ {};
@@ -183,14 +183,14 @@ namespace Models
 
 
   protected:
-    // The token for the next query. Valid values:
+    // The token used to retrieve the next page of results. Valid values:
     // 
-    // - If **NextToken** is empty, no next query exists.
-    // - If **NextToken** has a value, the value indicates the token for the next query.
+    // - If **NextToken** is empty, no more results are available.
+    // - If **NextToken** is returned, the value is the token used to start the next query.
     shared_ptr<string> nextToken_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The list of route entry publish status information.
+    // The list of route publication status information.
     shared_ptr<vector<ListVpcPublishedRouteEntriesResponseBody::RouteEntries>> routeEntries_ {};
   };
 

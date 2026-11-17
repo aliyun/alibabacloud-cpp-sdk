@@ -94,19 +94,19 @@ namespace Models
 
 
   protected:
-    // Specifies whether to perform a dry run. Valid values:
-    // - **true**: performs a dry run without querying the vSwitch configuration. The system checks the required parameters, request format, and service limits. If the check fails, the corresponding error is returned. If the check succeeds, the error code `DryRunOperation` is returned.
-    // - **false** (default): performs a dry run and sends the request. After the request passes the check, an HTTP 2xx status code is returned and the vSwitch configuration is queried.
+    // Specifies whether to only precheck the request. Valid values:
+    // - **true**: The system prechecks the request without querying the configuration information of the vSwitch. The system checks whether required parameters are specified, the request format is valid, and service limits are met. If the request fails the precheck, the corresponding error is returned. If the request passes the precheck, the `DryRunOperation` error code is returned.
+    // - **false** (default): The system sends a normal request. If the request passes the precheck, an HTTP 2xx status code is returned and the configuration information of the vSwitch is queried.
     shared_ptr<bool> dryRun_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
     // The region ID of the VPC to which the route table belongs.
     // 
-    // You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to query the region ID.
+    // You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to query region IDs.
     shared_ptr<string> regionId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
-    // The ID of the vSwitch to query.
+    // The ID of the vSwitch.
     // 
     // This parameter is required.
     shared_ptr<string> vSwitchId_ {};

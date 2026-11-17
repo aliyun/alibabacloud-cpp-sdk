@@ -303,15 +303,15 @@ namespace Models
     shared_ptr<DescribeNatGatewayAssociateNetworkInterfacesResponseBody::AssociateNetworkInterfaces> associateNetworkInterfaces_ {};
     // The number of associated ENIs.
     shared_ptr<int32_t> count_ {};
-    // The number of entries per page for a paginated query. Valid values: **1** to **100**. Default value: **20**.
+    // The number of entries to return on each page. Valid values: **1** to **100**. Default value: **20**.
     shared_ptr<int32_t> maxResults_ {};
     // The instance ID of the VPC NAT gateway.
     shared_ptr<string> natGatewayId_ {};
-    // The pagination token. Valid values:
+    // The token that is used for the next query. Valid values:
     // 
-    // - If **NextToken** is empty, no subsequent query exists.
+    // - If **NextToken** is empty, no next query is to be sent.
     // 
-    // - If **NextToken** is returned, the value indicates the token for the next query.
+    // - If **NextToken** is returned, the value indicates the token that is used for the next query.
     shared_ptr<string> nextToken_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

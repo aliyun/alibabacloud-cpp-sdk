@@ -48,7 +48,7 @@ namespace Models
 
 
   protected:
-    // The number of EPs that can be created.
+    // The number of endpoints that can be created.
     shared_ptr<int64_t> quota_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

@@ -140,11 +140,11 @@ namespace Models
     protected:
       // The CIDR block of the IP prefix to which the NAT IP address belongs.
       shared_ptr<string> ipv4Prefix_ {};
-      // Indicates whether the NAT IP address is the default one. Valid values:
+      // Specifies whether the NAT IP address is the default NAT IP address. Valid values:
       // 
-      // - **true**: The NAT IP address is the default one.
+      // - **true**: The NAT IP address is the default NAT IP address.
       // 
-      // - **false**: The NAT IP address is not the default one.
+      // - **false**: The NAT IP address is not the default NAT IP address.
       shared_ptr<bool> isDefault_ {};
       // The instance ID of the VPC NAT gateway to which the NAT IP address belongs.
       shared_ptr<string> natGatewayId_ {};
@@ -160,12 +160,12 @@ namespace Models
       shared_ptr<string> natIpName_ {};
       // The status of the NAT IP address. Valid values:
       // 
-      // - **Available**: available.
-      // - **Deleted**: deleted.
-      // - **Deleting**: being deleted.
-      // - **Creating**: being created.
-      // - **Associated**: associated with an SNAT or DNAT entry.
-      // - **Associating**: being associated with an SNAT or DNAT entry.
+      // - **Available**: Available.
+      // - **Deleted**: Deleted.
+      // - **Deleting**: Deleting.
+      // - **Creating**: Creating.
+      // - **Associated**: Associated with an SNAT or DNAT entry.
+      // - **Associating**: Being associated with an SNAT or DNAT entry.
       shared_ptr<string> natIpStatus_ {};
     };
 
@@ -204,9 +204,9 @@ namespace Models
   protected:
     // The list of NAT IP addresses.
     shared_ptr<vector<ListNatIpsResponseBody::NatIps>> natIps_ {};
-    // The pagination token that is used in the next request to retrieve a new page of results. Valid values:
-    // - If **NextToken** is empty, no next query exists.
-    // - If **NextToken** is returned, the value indicates the token for the next query.
+    // The token that is used to start the next query. Valid values:
+    // - If **NextToken** is empty, no next query is available.
+    // - If **NextToken** has a return value, the value indicates the token used to start the next query.
     shared_ptr<string> nextToken_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

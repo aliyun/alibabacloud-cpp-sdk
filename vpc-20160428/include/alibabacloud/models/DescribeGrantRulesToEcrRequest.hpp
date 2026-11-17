@@ -78,9 +78,7 @@ namespace Models
 
 
     protected:
-      // The tag key of the resource. You must specify at least 1 tag key and can specify at most 20 tag keys. The tag key cannot be an empty string.
-      // 
-      // A tag key can be up to 128 characters in length. It cannot start with `aliyun` or `acs:`, and cannot contain `http://` or `https://`.
+      // The tag key of the resource. You must specify at least one tag key and can specify up to 20 tag keys. The tag key cannot be an empty string. A tag key can be up to 128 characters in length. It cannot start with `aliyun` or `acs:`, and cannot contain `http://` or `https://`.
       shared_ptr<string> key_ {};
       // The tag value.
       shared_ptr<string> value_ {};
@@ -133,17 +131,15 @@ namespace Models
 
 
   protected:
-    // VBR ID。
+    // The VBR ID.
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
-    // The page number of the list. Default value: 1.
+    // The page number. Default value: 1.
     shared_ptr<int64_t> pageNumber_ {};
-    // The number of entries per page in a paged query. Maximum value: **50**. Default value: **10**.
+    // The number of entries returned per page during paging in a paged query. Maximum value: **50**. Default value: **10**.
     shared_ptr<int64_t> pageSize_ {};
-    // The region ID.
-    // 
-    // You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to query the region ID.
+    // The region ID. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to query region IDs.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};

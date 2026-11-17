@@ -84,7 +84,7 @@ namespace Models
 
 
   protected:
-    // The flow log ID.
+    // The ID of the flow log.
     // 
     // This parameter is required.
     shared_ptr<string> flowLogId_ {};
@@ -92,7 +92,7 @@ namespace Models
     shared_ptr<int64_t> ownerId_ {};
     // The region ID of the flow log.
     // 
-    // You can call [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) to query the region ID.
+    // You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to obtain the region ID.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};

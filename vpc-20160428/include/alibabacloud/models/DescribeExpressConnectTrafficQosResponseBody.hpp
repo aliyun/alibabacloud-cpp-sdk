@@ -207,37 +207,37 @@ namespace Models
         // 
         // * When the QoS queue type is **Medium**, this parameter is required. Valid values: **1** to **100**.
         // 
-        // * When the QoS queue type is **Default**, this parameter is set to "-".
+        // * When the QoS queue type is **Default**, the value of this parameter is "-".
         shared_ptr<string> bandwidthPercent_ {};
-        // The QoS policy ID.
+        // The ID of the QoS policy.
         shared_ptr<string> qosId_ {};
         // The description of the QoS queue.
         // 
-        // The description is **0** to **256** characters in length and cannot start with `http://` or `https://`.
+        // The description must be **0** to **256** characters in length, and cannot start with `http://` or `https://`.
         shared_ptr<string> queueDescription_ {};
-        // The QoS queue ID.
+        // The ID of the QoS queue.
         shared_ptr<string> queueId_ {};
         // The name of the QoS queue.
         // 
-        // The name is **0** to **128** characters in length and cannot start with `http://` or `https://`.
+        // The name must be **0** to **128** characters in length, and cannot start with `http://` or `https://`.
         shared_ptr<string> queueName_ {};
-        // The QoS queue type. Valid values:
+        // The type of the QoS queue. Valid values:
         // 
-        // - **High**: high-priority queue.
+        // - **High**: High-priority queue.
         // 
-        // - **Medium**: medium-priority queue.
+        // - **Medium**: Medium-priority queue.
         // 
-        // - **Default**: default-priority queue.
+        // - **Default**: Default-priority queue.
         // 
-        // > The default-priority queue cannot be created.
+        // > You cannot create a default-priority queue.
         shared_ptr<string> queueType_ {};
         // The status of the QoS queue. Valid values:
         // 
-        // - **Normal**: available.
+        // - **Normal**: The queue is available.
         // 
-        // - **Configuring**: being configured.
+        // - **Configuring**: The queue is being configured.
         // 
-        // - **Deleting**: being deleted.
+        // - **Deleting**: The queue is being deleted.
         shared_ptr<string> status_ {};
       };
 
@@ -303,13 +303,13 @@ namespace Models
         shared_ptr<int32_t> instanceProgressing_ {};
         // The status of the associated instance. Valid values:
         // 
-        // - **Normal**: available.
+        // - **Normal**: The instance is available.
         // 
-        // - **Configuring**: being configured.
+        // - **Configuring**: The instance is being configured.
         // 
-        // - **Deleting**: being deleted.
+        // - **Deleting**: The instance is being deleted.
         shared_ptr<string> instanceStatus_ {};
-        // The type of the associated instance. Valid values: **PHYSICALCONNECTION**: Express Connect circuit.
+        // The type of the associated instance. Valid value: **PHYSICALCONNECTION** (Express Connect circuit).
         shared_ptr<string> instanceType_ {};
       };
 
@@ -392,25 +392,25 @@ namespace Models
       shared_ptr<int32_t> progressing_ {};
       // The description of the QoS policy. 
       // 
-      // The description is **0** to **256** characters in length and cannot start with `http://` or `https://`.
+      // The description must be **0** to **256** characters in length, and cannot start with `http://` or `https://`.
       shared_ptr<string> qosDescription_ {};
-      // The QoS policy ID.
+      // The ID of the QoS policy.
       shared_ptr<string> qosId_ {};
       // The name of the QoS policy. 
       // 
-      // The name is **0** to **128** characters in length and cannot start with `http://` or `https://`.
+      // The name must be **0** to **128** characters in length, and cannot start with `http://` or `https://`.
       shared_ptr<string> qosName_ {};
       // The list of QoS queues.
       shared_ptr<vector<QosList::QueueList>> queueList_ {};
-      // The resource group ID.
+      // The ID of the resource group.
       shared_ptr<string> resourceGroupId_ {};
       // The status of the QoS policy. Valid values:
       // 
-      // - **Normal**: available.
+      // - **Normal**: The QoS policy is available.
       // 
-      // - **Configuring**: being configured.
+      // - **Configuring**: The QoS policy is being configured.
       // 
-      // > A QoS policy in the Configuring state restricts most create, update, and delete operations on QoS policies, QoS queues, and QoS rules.
+      // > When a QoS policy is in the Configuring state, most creation, update, and deletion operations for QoS policies, QoS queues, and QoS rules are restricted.
       shared_ptr<string> status_ {};
       // The tags of the resource.
       shared_ptr<vector<QosList::Tags>> tags_ {};
@@ -465,13 +465,13 @@ namespace Models
   protected:
     // The number of entries on the current page.
     shared_ptr<string> count_ {};
-    // The number of entries per page for paginated queries. Valid values: **1** to **100**. Default value: **20**.
+    // The number of entries to return per page. Valid values: **1** to **100**. Default value: **20**.
     shared_ptr<int32_t> maxResults_ {};
-    // The pagination token. Valid values:
+    // The token for the next query. Valid values:
     // 
-    // - Leave this parameter empty for the first query or if no subsequent query is required.
+    // - Leave empty for the first query or when no next query is required.
     // 
-    // - If a next query is to be sent, set the value to the **NextToken** value returned in the previous API call.
+    // - If a next query is required, set the value to the **NextToken** value returned by the previous API call.
     shared_ptr<string> nextToken_ {};
     // The list of QoS policies.
     shared_ptr<vector<DescribeExpressConnectTrafficQosResponseBody::QosList>> qosList_ {};

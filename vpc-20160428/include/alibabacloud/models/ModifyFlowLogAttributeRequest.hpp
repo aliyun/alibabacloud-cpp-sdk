@@ -130,19 +130,19 @@ namespace Models
 
 
   protected:
-    // The new sampling interval of the flow log. Unit: minutes. Valid values: **1**, **5**, and **10**.
+    // The sampling interval of the flow log. Unit: minutes. Valid values: **1**, **5**, and **10**.
     shared_ptr<int32_t> aggregationInterval_ {};
-    // The new description of the flow log.
+    // The description of the flow log.
     // 
-    // The description must be 1 to 256 characters in length and cannot start with `http://` or `https://`.
+    // The description must be 1 to 256 characters in length, and cannot start with `http://` or `https://`.
     shared_ptr<string> description_ {};
     // The flow log ID.
     // 
     // This parameter is required.
     shared_ptr<string> flowLogId_ {};
-    // The new name of the flow log.
+    // The name of the flow log.
     // 
-    // The name must be 1 to 128 characters in length and cannot start with `http://` or `https://`.
+    // The name must be 1 to 128 characters in length, and cannot start with `http://` or `https://`.
     shared_ptr<string> flowLogName_ {};
     // The IP version of the traffic captured by the flow log.
     shared_ptr<string> ipVersion_ {};
@@ -151,7 +151,7 @@ namespace Models
     shared_ptr<int64_t> ownerId_ {};
     // The region ID of the flow log.
     // 
-    // You can call [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) to query the most recent region list.
+    // You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to obtain the region ID.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};

@@ -75,16 +75,16 @@ namespace Models
 
 
   protected:
-    // The ID of the EIP instance.
+    // The ID of the EIP.
     shared_ptr<string> allocationId_ {};
     // The allocated EIP. This parameter is returned only if **InstanceChargeType** is set to **PostPaid**.
     shared_ptr<string> eipAddress_ {};
-    // The order ID. <props="china">This parameter is returned if InstanceChargeType (the billing method of the EIP) is set to PrePaid (subscription). If AutoPay (automatic payment) is not enabled, go to the [Order Center](https://usercenter2.aliyun.com/order/list) to complete the payment.
-    // <props="intl">This parameter is returned if InstanceChargeType (the billing method of the EIP) is set to PrePaid (subscription). If AutoPay (automatic payment) is not enabled, go to the [Order Center](https://usercenter2-intl.aliyun.com/order/list) to complete the payment.
+    // The order ID. <props="china">This parameter is returned if InstanceChargeType (the billing method of the EIP) is set to PrePaid (subscription). If AutoPay (automatic payment) is disabled, go to the [User Center](https://usercenter2.aliyun.com/order/list) to complete the payment.
+    // <props="intl">This parameter is returned if InstanceChargeType (the billing method of the EIP) is set to PrePaid (subscription). If AutoPay (automatic payment) is disabled, go to the [User Center](https://usercenter2-intl.aliyun.com/order/list) to complete the payment.
     shared_ptr<int64_t> orderId_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The resource group ID. This parameter is returned only if **InstanceChargeType** is set to **PostPaid**.
+    // The ID of the resource group. This parameter is returned only if **InstanceChargeType** is set to **PostPaid**.
     shared_ptr<string> resourceGroupId_ {};
   };
 

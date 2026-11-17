@@ -163,41 +163,37 @@ namespace Models
 
 
   protected:
-    // The client token that is used to ensure the idempotence of the request.
+    // The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length.
     // 
-    // You can use the client to generate the value, but you must make sure that the value is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length.
-    // 
-    // > If you do not specify this parameter, the system uses **RequestId** as **ClientToken**. The value of **RequestId** may differ for each API request.
+    // > If you do not specify this parameter, the system automatically uses the **RequestId** of the API request as the **ClientToken**. The **RequestId** of each API request may be different.
     shared_ptr<string> clientToken_ {};
-    // Specifies whether to perform a dry run. Valid values:
+    // Specifies whether to perform a dry run on the request. Valid values:
     // 
-    // - **true**: performs a dry run without querying the NAT CIDR block list. The system checks the request for potential issues, including missing required parameters, invalid parameter values, and the authorization status of the RAM user. If the check fails, the corresponding error is returned. If the check succeeds, the DryRunOperation error code is returned.
+    // - **true**: performs a dry run without querying the NAT CIDR blocks. The system checks whether your AccessKey pair is valid, the authorization of the Resource Access Management (RAM) user, and whether the required parameters are specified. If the request fails the check, the corresponding error is returned. If the request passes the check, the DryRunOperation error code is returned.
     // 
-    // - **false** (default): sends a normal request, and the NAT CIDR block list is returned after the request passes the check with an HTTP 2xx status code.
+    // - **false**: sends a normal request. This is the default value. If the request passes the check, an HTTP 2xx status code is returned and the NAT CIDR blocks are queried.
     shared_ptr<bool> dryRun_ {};
-    // The number of entries per page for a paged query. Valid values: **1** to **100**. Default value: **20**.
+    // The number of entries to return on each page. Valid values: **1** to **100**. Default value: **20**.
     shared_ptr<string> maxResults_ {};
-    // The instance ID of the VPC NAT gateway whose NAT CIDR blocks you want to query.
+    // The instance ID of the VPC NAT gateway for which you want to query NAT CIDR blocks.
     // 
     // This parameter is required.
     shared_ptr<string> natGatewayId_ {};
-    // The NAT CIDR block to query.
+    // The NAT CIDR block that you want to query.
     shared_ptr<string> natIpCidr_ {};
-    // The name of the NAT CIDR block to query. Valid values of **N**: **1** to **20**.
+    // The name of the NAT CIDR block that you want to query. **N** ranges from **1** to **20**.
     shared_ptr<vector<string>> natIpCidrName_ {};
-    // The status of the NAT CIDR block to query. Set the value to **Available**, which indicates that the NAT CIDR block is available.
+    // The status of the NAT CIDR block that you want to query. Valid values: **Available**, which indicates that the NAT CIDR block is active.
     shared_ptr<string> natIpCidrStatus_ {};
-    // The NAT CIDR block to query. Valid values of **N**: **1** to **20**.
+    // The NAT CIDR block that you want to query. **N** ranges from **1** to **20**.
     shared_ptr<vector<string>> natIpCidrs_ {};
-    // The pagination token that is used in the next request to retrieve a new page of results. Valid values:
-    // - If this is the first request or no subsequent requests exist, you do not need to specify this parameter.
-    // - If a subsequent request exists, set the value to the NextToken value returned in the previous API call.
+    // The token for the next query. Valid values:
+    // - If this is your first query or no next query is to be sent, ignore this parameter.
+    // - If a next query is to be sent, set the value to the NextToken value that is returned from the last API call.
     shared_ptr<string> nextToken_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
-    // The region ID of the VPC NAT gateway to which the NAT CIDR blocks belong.
-    // 
-    // You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to query the most recent region list.
+    // The region ID of the VPC NAT gateway to which the NAT CIDR blocks belong. You can invoke the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to obtain the region ID.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};

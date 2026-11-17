@@ -84,9 +84,9 @@ namespace Models
 
 
   protected:
-    // The time when the gateway endpoint was created. The time is displayed in UTC in the YYYY-MM-DDThh:mm:ssZ format.
+    // The time when the gateway endpoint was created. The time is displayed in UTC and follows the ISO 8601 standard in the YYYY-MM-DDThh:mm:ssZ format.
     shared_ptr<string> creationTime_ {};
-    // The endpoint instance ID of the gateway endpoint instance.
+    // The ID of the gateway endpoint instance.
     shared_ptr<string> endpointId_ {};
     // The name of the gateway endpoint.
     shared_ptr<string> endpointName_ {};
@@ -94,7 +94,7 @@ namespace Models
     shared_ptr<string> requestId_ {};
     // The ID of the resource group to which the gateway endpoint belongs.
     shared_ptr<string> resourceGroupId_ {};
-    // The service name of the endpoint service.
+    // The name of the endpoint service.
     shared_ptr<string> serviceName_ {};
   };
 

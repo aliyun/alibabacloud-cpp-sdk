@@ -48,7 +48,7 @@ namespace Models
 
 
   protected:
-    // The QoS policy ID.
+    // The ID of the QoS policy.
     shared_ptr<string> qosId_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

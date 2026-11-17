@@ -48,12 +48,12 @@ namespace Models
 
 
   protected:
-    // The request ID.
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the call is successful.
+    // Indicates whether the request was successful.
     // 
-    // - **true**: The call is successful.
-    // - **false**: The call failed.
+    // - **true**: The request was successful.
+    // - **false**: The request failed.
     shared_ptr<string> success_ {};
   };
 

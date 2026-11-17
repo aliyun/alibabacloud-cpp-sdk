@@ -102,13 +102,13 @@ namespace Models
 
 
     protected:
-      // The tag key of the resource. You can specify up to 20 tag keys. Do not specify an empty string for this parameter.
+      // The tag key of the resource. You can specify up to 20 tag keys. If you specify this parameter, do not enter an empty string.
       // 
-      // A tag key can be up to 128 characters in length and cannot start with `aliyun` or `acs:`. It cannot contain `http://` or `https://`.
+      // A tag key can be up to 128 characters in length. It cannot start with `aliyun` or `acs:`, and cannot contain `http://` or `https://`.
       shared_ptr<string> key_ {};
-      // The tag value of the resource. You can specify up to 20 tag values. The tag value can be an empty string.
+      // The tag value of the resource. You can specify up to 20 tag values. If you specify this parameter, you can enter an empty string.
       // 
-      // The tag value can be up to 128 characters in length and cannot start with `aliyun` or `acs:`. It cannot contain `http://` or `https://`.
+      // A tag value can be up to 128 characters in length. It cannot start with `aliyun` or `acs:`, and cannot contain `http://` or `https://`.
       shared_ptr<string> value_ {};
     };
 
@@ -261,19 +261,19 @@ namespace Models
     // The IP version of the traffic captured by the flow log.
     shared_ptr<string> ipVersion_ {};
     shared_ptr<string> logFormat_ {};
-    // The name of the Logstore that stores the captured traffic.
-    // - The Logstore name can contain only lowercase letters, digits, hyphens (-), and underscores (_).
-    // - The name must start and end with a lowercase letter or digit.
+    // The name of the Log Service Logstore that is used to store the captured traffic.
+    // - The name can contain only lowercase letters, digits, hyphens (-), and underscores (_).
+    // - The name must start and end with a lowercase letter or a digit.
     // - The name must be 3 to 63 characters in length.
     shared_ptr<string> logStoreName_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
-    // The name of the project that manages the captured traffic.
-    // - The project name can contain only lowercase letters, digits, and hyphens (-).
-    // - The name must start and end with a lowercase letter or digit.
+    // The name of the Log Service project that is used to manage the captured traffic.
+    // - The name can contain only lowercase letters, digits, and hyphens (-).
+    // - The name must start and end with a lowercase letter or a digit.
     // - The name must be 3 to 63 characters in length.
     shared_ptr<string> projectName_ {};
-    // The region ID of the flow log. You can call [DescribeRegions](https://help.aliyun.com/document_detail/448570.html) to query the most recent region list.
+    // The region ID of the flow log. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/448570.html) operation to query region IDs.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
@@ -285,38 +285,38 @@ namespace Models
     shared_ptr<string> resourceId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
-    // The type of the resource whose traffic you want to capture. Valid values:
+    // The type of the resource whose traffic you want to catch. Valid values:
     // 
-    // - **NetworkInterface**: network interface controllers (NICs).
+    // - **NetworkInterface**: elastic network interfaces (ENIs), which act as a network interface controller (NIC).
     //   
-    // - **VSwitch**: all network interface controllers (NICs) in a vSwitch.
+    // - **VSwitch**: all elastic network interfaces (ENIs) in the vSwitch.
     //   
-    // - **VPC**: all network interface controllers (NICs) in a virtual private cloud (VPC).
+    // - **VPC**: all elastic network interfaces (ENIs) in the virtual private cloud (VPC).
     // 
     // This parameter is required.
     shared_ptr<string> resourceType_ {};
     // The tags of the resource.
     shared_ptr<vector<CreateFlowLogRequest::Tag>> tag_ {};
-    // The traffic path to collect. Valid values:
+    // The traffic path to catch. Valid values:
     // 
-    // - **all** (default): all scenarios.
-    // - **internetGateway**: traffic to access the Internet.
-    // - **natGateway**: traffic through NAT gateway.
-    // - **vpnGateway**: traffic through VPN gateway.
-    // - **transitRouter**: traffic through TR.
-    // - **gatewayEndpoint**: traffic through gateway endpoint to access Alibaba Cloud services.
-    // - **vbr**: traffic through Virtual Border Router (VBR) to access Express Connect circuits.
-    // - **ecr**: traffic through Express Connect Router (ECR).
-    // - **ipv4Gateway**: traffic through IPv4 gateway to access the Internet.
-    // - **gatewayLoadBalancerEndpoint**: traffic through Gateway Load Balancer endpoint (GWLBe).
+    // - **all** (default): catches all traffic.
+    // -   **internetGateway**: catches traffic to access the Internet.
+    // -   **natGateway**: catches traffic through NAT gateways.
+    // -   **vpnGateway**: catches traffic through VPN gateways.
+    // -   **transitRouter**: catches traffic through TR.
+    // -   **gatewayEndpoint**: catches traffic through gateway endpoints to access cloud services.
+    // -   **vbr**: catches traffic through the border router (VBR) to access Express Connect circuits.
+    // -   **ecr**: catches traffic through the Express Connect Router (ECR).
+    // -   **ipv4Gateway**: catches traffic to access the Internet through IPv4 gateways.
+    // -   **gatewayLoadBalancerEndpoint**: catches traffic through the Gateway Load Balancer endpoint (GWLBe).
     shared_ptr<vector<string>> trafficPath_ {};
-    // The traffic type to collect. Valid values:
+    // The traffic type to catch. Valid values:
     // 
     // - **All**: all traffic.
     //   
     // - **Allow**: traffic allowed by access control.
     //   
-    // - **Drop**: traffic denied by access control.
+    // - **Drop**: traffic that access control rules deny.
     // 
     // This parameter is required.
     shared_ptr<string> trafficType_ {};

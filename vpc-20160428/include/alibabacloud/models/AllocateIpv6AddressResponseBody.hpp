@@ -72,7 +72,7 @@ namespace Models
     shared_ptr<string> ipv6AddressId_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The resource group ID.
+    // The ID of the resource group.
     shared_ptr<string> resourceGroupId_ {};
   };
 

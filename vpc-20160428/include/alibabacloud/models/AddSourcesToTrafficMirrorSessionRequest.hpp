@@ -117,21 +117,21 @@ namespace Models
   protected:
     // The client token that is used to ensure the idempotence of the request.
     // 
-    // You can use the client to generate the token, but you must make sure that the token is unique among different requests. The ClientToken value can contain only ASCII characters.
+    // You can use the client to generate the value, and you must make sure that the value is unique among different requests. The client token can contain only ASCII characters.
     // 
     // > If you do not specify this parameter, the system automatically uses the **RequestId** of the API request as the **ClientToken**. The **RequestId** of each API request may be different.
     shared_ptr<string> clientToken_ {};
-    // Specifies whether to perform a dry run. Valid values:
+    // Specifies whether to only precheck the request. Valid values:
     // 
-    // - **true**: performs a dry run. The system checks the required parameters, request syntax, and limits. If the request fails the dry run, an error message is returned. If the request passes the dry run, the `DryRunOperation` error code is returned.
+    // - **true**: prechecks the request without adding the traffic mirror sources. The system checks whether the required parameters are specified, the request format, and the limits. If the request fails the precheck, the corresponding error is returned. If the request passes the precheck, the `DryRunOperation` error code is returned.
     // 
-    // - **false** (default): performs a dry run and sends the request. If the request passes the dry run, the traffic mirror source is added.
+    // - **false** (default): sends the request. After the request passes the precheck, the traffic mirror sources are added.
     shared_ptr<bool> dryRun_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
     // The region ID of the traffic mirror session.
     // 
-    // You can call [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) to query the most recent region list.
+    // You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to query the most recent region list.
     // 
     // For more information about the regions that support traffic mirroring, see [Traffic mirroring overview](https://help.aliyun.com/document_detail/207513.html).
     // 
@@ -143,7 +143,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> trafficMirrorSessionId_ {};
-    // The instance ID of the traffic mirror source to add. Currently, elastic network interfaces (ENIs) are supported as traffic mirror sources. The default value of **N** is **1**, which indicates that you can add only one traffic mirror source to a traffic mirror session.
+    // The instance IDs of the traffic mirror sources that you want to add. Currently, elastic network interfaces (ENIs) are supported as traffic mirror sources. The default value of **N** is **1**, which indicates that you can add only one traffic mirror source to a traffic mirror session.
     // 
     // This parameter is required.
     shared_ptr<vector<string>> trafficMirrorSourceIds_ {};

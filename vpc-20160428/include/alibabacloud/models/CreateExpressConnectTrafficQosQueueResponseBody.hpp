@@ -61,7 +61,7 @@ namespace Models
     shared_ptr<string> qosId_ {};
     // The ID of the QoS queue.
     shared_ptr<string> queueId_ {};
-    // The request ID.
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
   };
 

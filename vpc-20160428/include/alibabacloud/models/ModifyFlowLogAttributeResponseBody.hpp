@@ -54,7 +54,7 @@ namespace Models
     // 
     // - **true**: The operation is successful.
     // 
-    // - **false**: The operation failed.
+    // - **false**: The operation fails.
     shared_ptr<string> success_ {};
   };
 

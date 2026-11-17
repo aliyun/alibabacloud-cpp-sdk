@@ -470,16 +470,16 @@ namespace Models
     shared_ptr<DescribeFlowLogsResponseBody::FlowLogs> flowLogs_ {};
     // The page number.
     shared_ptr<string> pageNumber_ {};
-    // The number of entries per page in paging query.
+    // The number of entries per page for paging in a paged query.
     shared_ptr<string> pageSize_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the call is successful. Valid values:
+    // Indicates whether the call was successful. Valid values:
     // 
-    // - **true**: The call is successful.
+    // - **true**: The call was successful.
     // - **false**: The call failed.
     shared_ptr<string> success_ {};
-    // The total number of entries returned.
+    // The total number of flow logs returned.
     shared_ptr<string> totalCount_ {};
   };
 

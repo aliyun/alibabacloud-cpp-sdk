@@ -716,13 +716,13 @@ namespace Models
 
   protected:
     shared_ptr<DescribeNetworkAclsResponseBody::NetworkAcls> networkAcls_ {};
-    // The page number of the list.
+    // The page number.
     shared_ptr<string> pageNumber_ {};
-    // The number of entries per page in a paged query. Paging is used to return results.
+    // The number of entries per page for a paging query.
     shared_ptr<string> pageSize_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The total number of ACLs in the list.
+    // The total number of network ACLs.
     shared_ptr<string> totalCount_ {};
   };
 

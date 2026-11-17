@@ -215,19 +215,19 @@ namespace Models
   protected:
     // The client token that is used to ensure the idempotence of the request.
     // 
-    // You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters.
+    // You can use the client to generate the value, but you must ensure that it is unique among different requests. The client token can contain only ASCII characters.
     // 
-    // > If you do not specify this parameter, the system automatically uses the **RequestId** as the **ClientToken**. The **RequestId** may be different for each API request.
+    // > If you do not specify this parameter, the system automatically uses the **RequestId** of the API request as the **ClientToken**. The **RequestId** of each API request may be different.
     shared_ptr<string> clientToken_ {};
-    // The destination IP address IPv4 CIDR block for traffic matching in the QoS rule.
+    // The destination IPv4 CIDR block of the destination IP address that matches the traffic of the QoS rule.
     // 
-    // > This parameter cannot be specified together with **SrcIPv6Cidr** or **DstIPv6Cidr**.
+    // > You cannot specify this parameter together with the **SrcIPv6Cidr** or **DstIPv6Cidr** parameter.
     shared_ptr<string> dstCidr_ {};
-    // The destination IP address IPv6 CIDR block for traffic matching in the QoS rule.
+    // The destination IPv6 CIDR block of the destination IP address that matches the traffic of the QoS rule.
     // 
-    // > This parameter cannot be specified together with **SrcCidr** or **DstCidr**.
+    // > You cannot specify this parameter together with the **SrcCidr** or **DstCidr** parameter.
     shared_ptr<string> dstIPv6Cidr_ {};
-    // The destination port range for traffic matching in the QoS rule. Valid values: **0** to **65535**. Set the value to -1 if no matching is required. Currently, only a single port number can be specified. The start and end port numbers must be the same. The destination port range is fixed for each protocol type. Valid values:
+    // The destination port range that matches the traffic of the QoS rule. Valid values: **0** to **65535**. A value of -1 indicates that all ports are matched. Currently, you can specify only a single port number. The start port and end port must be the same. The destination port range is fixed for different protocol types. Valid values:
     // 
     // - **ALL**: -1/-1. Not editable.
     // 
@@ -261,11 +261,11 @@ namespace Models
     // 
     // - **Redis**: 6379/6379. Not editable.
     shared_ptr<string> dstPortRange_ {};
-    // The DSCP value for traffic matching in the QoS rule. Valid values: **0** to **63**. Set the value to -1 if no matching is required.
+    // The Differentiated Services Code Point (DSCP) value that matches the traffic of the QoS rule. Valid values: **0** to **63**. A value of -1 indicates that the DSCP value is not matched.
     shared_ptr<int32_t> matchDscp_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
-    // The priority of the QoS rule. Valid values: **1** to **9000**. A larger value indicates a higher priority. The priority of each QoS rule must be unique within the same QoS policy.
+    // The priority of the QoS rule. Valid values: **1** to **9000**. A greater value indicates a higher priority. The priorities of QoS rules in the same QoS policy must be unique.
     shared_ptr<int32_t> priority_ {};
     // The protocol type of the QoS rule. Valid values:
     // 
@@ -301,11 +301,11 @@ namespace Models
     // 
     // - **Redis**
     shared_ptr<string> protocol_ {};
-    // The QoS policy ID.
+    // The ID of the QoS policy.
     // 
     // This parameter is required.
     shared_ptr<string> qosId_ {};
-    // The QoS queue ID.
+    // The ID of the QoS queue.
     // 
     // This parameter is required.
     shared_ptr<string> queueId_ {};
@@ -315,14 +315,14 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
-    // The new DSCP value to remark in the traffic. Valid values: **0** to **63**. Set the value to -1 if no remarking is required.
+    // The DSCP value to which the traffic is remarked. Valid values: **0** to **63**. A value of -1 indicates that the DSCP value is not modified.
     shared_ptr<int32_t> remarkingDscp_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     // The description of the QoS rule.
     // 
     // The description must be 0 to 256 characters in length and cannot start with `http://` or `https://`.
     shared_ptr<string> ruleDescription_ {};
-    // The QoS rule ID.
+    // The ID of the QoS rule.
     // 
     // This parameter is required.
     shared_ptr<string> ruleId_ {};
@@ -330,15 +330,15 @@ namespace Models
     // 
     // The name must be 0 to 128 characters in length and cannot start with `http://` or `https://`.
     shared_ptr<string> ruleName_ {};
-    // The source IPv4 CIDR block for traffic matching in the QoS rule.
+    // The source IPv4 CIDR block that matches the traffic of the QoS rule.
     // 
-    // > This parameter cannot be specified together with **SrcIPv6Cidr** or **DstIPv6Cidr**.
+    // > You cannot specify this parameter together with the **SrcIPv6Cidr** or **DstIPv6Cidr** parameter.
     shared_ptr<string> srcCidr_ {};
-    // The source IPv6 CIDR block for traffic matching in the QoS rule.
+    // The source IPv6 CIDR block that matches the traffic of the QoS rule.
     // 
-    // > This parameter cannot be specified together with **SrcCidr** or **DstCidr**.
+    // > You cannot specify this parameter together with the **SrcCidr** or **DstCidr** parameter.
     shared_ptr<string> srcIPv6Cidr_ {};
-    // The source port range for traffic matching in the QoS rule. Valid values: **0** to **65535**. Set the value to -1 if no matching is required. Currently, only a single port number can be specified. The start and end port numbers must be the same.
+    // The source port range that matches the traffic of the QoS rule. Valid values: **0** to **65535**. A value of -1 indicates that all ports are matched. Currently, you can specify only a single port number. The start port and end port must be the same.
     shared_ptr<string> srcPortRange_ {};
   };
 

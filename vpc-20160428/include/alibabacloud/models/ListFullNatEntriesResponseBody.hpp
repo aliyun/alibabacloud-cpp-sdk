@@ -199,32 +199,32 @@ namespace Models
 
 
     protected:
-      // The backend domain name for FULLNAT address translation in the FULLNAT entry.
+      // The backend domain name used for FULLNAT address translation in the FULLNAT entry.
       shared_ptr<string> accessDomain_ {};
-      // The backend IP address for FULLNAT address translation in the FULLNAT entry.
+      // The backend IP address used for FULLNAT address translation in the FULLNAT entry.
       shared_ptr<string> accessIp_ {};
-      // The backend port for port mapping in the FULLNAT entry. Valid values: **1** to **65535**.
+      // The backend port used for port mapping in the FULLNAT entry. Valid values: **1** to **65535**.
       shared_ptr<string> accessPort_ {};
       // The time when the FULLNAT entry was created.
       shared_ptr<string> creationTime_ {};
-      // The IP address resolved from the backend domain name for address translation in the FULLNAT entry.
+      // The IP address resolved from the backend domain name used for address translation in the FULLNAT entry.
       shared_ptr<string> domainResolve_ {};
       // The description of the FULLNAT entry.
       // 
-      // The description must be 2 to 128 characters in length, and must start with a letter or Chinese character. The description cannot start with `http://` or `https://`.
+      // The description must be 2 to 128 characters in length, and must start with a letter or a Chinese character. It cannot start with `http://` or `https://`.
       shared_ptr<string> fullNatEntryDescription_ {};
       // The ID of the FULLNAT entry.
       shared_ptr<string> fullNatEntryId_ {};
-      // The name of the FULLNAT entry.
+      // The name of the FULLNAT entry. 
       // 
-      // The name must be 2 to 128 characters in length, and can contain letters, digits, hyphens (-), and underscores (_). The name must start with a letter or Chinese character.
+      // The name must be 2 to 128 characters in length, and must start with a letter or a Chinese character. It can contain digits, hyphens (-), and underscores (_).
       shared_ptr<string> fullNatEntryName_ {};
       // The status of the FULLNAT entry. Valid values:
       // 
-      // - **Pending**: being configured.
-      // - **Available**: available.
-      // - **Deleting**: being deleted.
-      // - **Deleted**: deleted.
+      // - **Pending**: The entry is being configured.
+      // - **Available**: The entry is available.
+      // - **Deleting**: The entry is being deleted.
+      // - **Deleted**: The entry is deleted.
       shared_ptr<string> fullNatEntryStatus_ {};
       // The ID of the FULLNAT table to which the FULLNAT entry belongs.
       shared_ptr<string> fullNatTableId_ {};
@@ -233,13 +233,13 @@ namespace Models
       // - **TCP**: forwards TCP packets. 
       // - **UDP**: forwards UDP packets.
       shared_ptr<string> ipProtocol_ {};
-      // The NAT IP address that provides address translation in the FULLNAT entry.
+      // The NAT IP address used for address translation in the FULLNAT entry.
       shared_ptr<string> natIp_ {};
-      // The frontend port for port mapping in the FULLNAT entry. Valid values: **1** to **65535**.
+      // The frontend port used for port mapping in the FULLNAT entry. Valid values: **1** to **65535**.
       shared_ptr<string> natIpPort_ {};
-      // The elastic network interface (ENI) ID.
+      // The ID of the elastic network interfaces (ENIs), which is a network interface controller (NIC).
       shared_ptr<string> networkInterfaceId_ {};
-      // The type of the elastic network interface (ENI). The value is **Endpoint** (reverse endpoint).
+      // The type of the elastic network interfaces (ENIs), which is a network interface controller (NIC). Currently, only **Endpoint** (reverse endpoint) is supported.
       shared_ptr<string> networkInterfaceType_ {};
     };
 
@@ -298,7 +298,7 @@ namespace Models
 
 
   protected:
-    // The list of FULLNAT entries.
+    // The list of queried FULLNAT entries.
     shared_ptr<vector<ListFullNatEntriesResponseBody::FullNatEntries>> fullNatEntries_ {};
     // The ID of the FULLNAT table to which the queried FULLNAT entries belong.
     shared_ptr<string> fullNatTableId_ {};
@@ -306,14 +306,14 @@ namespace Models
     shared_ptr<int64_t> maxResults_ {};
     // The instance ID of the VPC NAT gateway.
     shared_ptr<string> natGatewayId_ {};
-    // The pagination token that is used in the next request to retrieve a new page of results. Valid values:
+    // The token that is used for the next query. Valid values:
     // 
-    // - If **NextToken** is empty, no next query exists.
-    // - If **NextToken** is returned, the value indicates the token for the next query.
+    // - If **NextToken** is empty, no next query is to be sent.
+    // - If **NextToken** is returned, the value indicates the token used to start the next query.
     shared_ptr<string> nextToken_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The total number of FULLNAT entries returned.
+    // The total number of queried FULLNAT entries.
     shared_ptr<int64_t> totalCount_ {};
   };
 

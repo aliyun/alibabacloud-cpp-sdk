@@ -120,16 +120,16 @@ namespace Models
     shared_ptr<int64_t> ownerId_ {};
     // The region ID of the VPC to which the route table belongs. 
     // 
-    // You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to query the region ID.
+    // You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to query region IDs.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
-    // Specifies whether to receive dynamic routes by enabling or disabling route propagation. Valid values:
+    // Specifies whether to accept dynamic routes by enabling or disabling route propagation. Valid values:
     // 
-    // - **true** (default): enabled.
-    // - **false**: disabled.
+    // - **true** (default): enables route propagation.
+    // - **false**: disables route propagation.
     shared_ptr<bool> routePropagationEnable_ {};
     // The ID of the route table.
     // 

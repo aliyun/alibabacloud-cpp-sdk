@@ -57,9 +57,9 @@ namespace Models
 
 
   protected:
-    // The request ID.
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
-    // The ID of the resource group to which the traffic mirroring instance belongs.
+    // The ID of the resource group to which the traffic mirroring belongs.
     shared_ptr<string> resourceGroupId_ {};
     // The instance ID of the traffic mirror session.
     shared_ptr<string> trafficMirrorSessionId_ {};

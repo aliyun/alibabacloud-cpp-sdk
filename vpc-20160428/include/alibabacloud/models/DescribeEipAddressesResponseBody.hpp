@@ -69,6 +69,7 @@ namespace Models
           DARABONBA_PTR_TO_JSON(BizType, bizType_);
           DARABONBA_PTR_TO_JSON(BusinessStatus, businessStatus_);
           DARABONBA_PTR_TO_JSON(ChargeType, chargeType_);
+          DARABONBA_PTR_TO_JSON(CommonBandwidthPackageIpBandwidth, commonBandwidthPackageIpBandwidth_);
           DARABONBA_PTR_TO_JSON(DeletionProtection, deletionProtection_);
           DARABONBA_PTR_TO_JSON(Description, description_);
           DARABONBA_PTR_TO_JSON(EipBandwidth, eipBandwidth_);
@@ -113,6 +114,7 @@ namespace Models
           DARABONBA_PTR_FROM_JSON(BizType, bizType_);
           DARABONBA_PTR_FROM_JSON(BusinessStatus, businessStatus_);
           DARABONBA_PTR_FROM_JSON(ChargeType, chargeType_);
+          DARABONBA_PTR_FROM_JSON(CommonBandwidthPackageIpBandwidth, commonBandwidthPackageIpBandwidth_);
           DARABONBA_PTR_FROM_JSON(DeletionProtection, deletionProtection_);
           DARABONBA_PTR_FROM_JSON(Description, description_);
           DARABONBA_PTR_FROM_JSON(EipBandwidth, eipBandwidth_);
@@ -332,14 +334,14 @@ namespace Models
 
         virtual bool empty() const override { return this->allocationId_ == nullptr
         && this->allocationTime_ == nullptr && this->bandwidth_ == nullptr && this->bandwidthPackageBandwidth_ == nullptr && this->bandwidthPackageId_ == nullptr && this->bandwidthPackageType_ == nullptr
-        && this->bizType_ == nullptr && this->businessStatus_ == nullptr && this->chargeType_ == nullptr && this->deletionProtection_ == nullptr && this->description_ == nullptr
-        && this->eipBandwidth_ == nullptr && this->expiredTime_ == nullptr && this->HDMonitorStatus_ == nullptr && this->hasReservationData_ == nullptr && this->ISP_ == nullptr
-        && this->instanceId_ == nullptr && this->instanceRegionId_ == nullptr && this->instanceType_ == nullptr && this->internetChargeType_ == nullptr && this->ipAddress_ == nullptr
-        && this->mode_ == nullptr && this->name_ == nullptr && this->netmode_ == nullptr && this->operationLocks_ == nullptr && this->privateIpAddress_ == nullptr
-        && this->publicIpAddressPoolId_ == nullptr && this->regionId_ == nullptr && this->reservationActiveTime_ == nullptr && this->reservationBandwidth_ == nullptr && this->reservationInternetChargeType_ == nullptr
-        && this->reservationOrderType_ == nullptr && this->resourceGroupId_ == nullptr && this->secondLimited_ == nullptr && this->securityProtectionTypes_ == nullptr && this->segmentInstanceId_ == nullptr
-        && this->serviceID_ == nullptr && this->serviceManaged_ == nullptr && this->status_ == nullptr && this->tags_ == nullptr && this->vpcId_ == nullptr
-        && this->zone_ == nullptr; };
+        && this->bizType_ == nullptr && this->businessStatus_ == nullptr && this->chargeType_ == nullptr && this->commonBandwidthPackageIpBandwidth_ == nullptr && this->deletionProtection_ == nullptr
+        && this->description_ == nullptr && this->eipBandwidth_ == nullptr && this->expiredTime_ == nullptr && this->HDMonitorStatus_ == nullptr && this->hasReservationData_ == nullptr
+        && this->ISP_ == nullptr && this->instanceId_ == nullptr && this->instanceRegionId_ == nullptr && this->instanceType_ == nullptr && this->internetChargeType_ == nullptr
+        && this->ipAddress_ == nullptr && this->mode_ == nullptr && this->name_ == nullptr && this->netmode_ == nullptr && this->operationLocks_ == nullptr
+        && this->privateIpAddress_ == nullptr && this->publicIpAddressPoolId_ == nullptr && this->regionId_ == nullptr && this->reservationActiveTime_ == nullptr && this->reservationBandwidth_ == nullptr
+        && this->reservationInternetChargeType_ == nullptr && this->reservationOrderType_ == nullptr && this->resourceGroupId_ == nullptr && this->secondLimited_ == nullptr && this->securityProtectionTypes_ == nullptr
+        && this->segmentInstanceId_ == nullptr && this->serviceID_ == nullptr && this->serviceManaged_ == nullptr && this->status_ == nullptr && this->tags_ == nullptr
+        && this->vpcId_ == nullptr && this->zone_ == nullptr; };
         // allocationId Field Functions 
         bool hasAllocationId() const { return this->allocationId_ != nullptr;};
         void deleteAllocationId() { this->allocationId_ = nullptr;};
@@ -401,6 +403,13 @@ namespace Models
         void deleteChargeType() { this->chargeType_ = nullptr;};
         inline string getChargeType() const { DARABONBA_PTR_GET_DEFAULT(chargeType_, "") };
         inline EipAddress& setChargeType(string chargeType) { DARABONBA_PTR_SET_VALUE(chargeType_, chargeType) };
+
+
+        // commonBandwidthPackageIpBandwidth Field Functions 
+        bool hasCommonBandwidthPackageIpBandwidth() const { return this->commonBandwidthPackageIpBandwidth_ != nullptr;};
+        void deleteCommonBandwidthPackageIpBandwidth() { this->commonBandwidthPackageIpBandwidth_ = nullptr;};
+        inline string getCommonBandwidthPackageIpBandwidth() const { DARABONBA_PTR_GET_DEFAULT(commonBandwidthPackageIpBandwidth_, "") };
+        inline EipAddress& setCommonBandwidthPackageIpBandwidth(string commonBandwidthPackageIpBandwidth) { DARABONBA_PTR_SET_VALUE(commonBandwidthPackageIpBandwidth_, commonBandwidthPackageIpBandwidth) };
 
 
         // deletionProtection Field Functions 
@@ -650,6 +659,7 @@ namespace Models
         shared_ptr<string> bizType_ {};
         shared_ptr<string> businessStatus_ {};
         shared_ptr<string> chargeType_ {};
+        shared_ptr<string> commonBandwidthPackageIpBandwidth_ {};
         shared_ptr<bool> deletionProtection_ {};
         shared_ptr<string> description_ {};
         shared_ptr<string> eipBandwidth_ {};

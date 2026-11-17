@@ -98,13 +98,13 @@ namespace Models
 
 
     protected:
-      // The tag key of the resource. You can specify up to 20 tag keys. The tag key cannot be an empty string.
+      // The tag key of the resource. You can specify up to 20 tag keys. If you specify this parameter, you cannot specify an empty string.
       // 
-      // The tag key can be up to 128 characters in length and cannot start with `aliyun` or `acs:`. It cannot contain `http://` or `https://`.
+      // A tag key can be up to 128 characters in length. It cannot start with `aliyun` or `acs:`, and cannot contain `http://` or `https://`.
       shared_ptr<string> key_ {};
-      // The tag value of the resource. You can specify up to 20 tag values. The tag value can be an empty string.
+      // The tag value of the resource. You can specify up to 20 tag values. If you specify this parameter, you can specify an empty string.
       // 
-      // The tag value can be up to 128 characters in length and cannot start with `aliyun` or `acs:`. It cannot contain `http://` or `https://`.
+      // A tag value can be up to 128 characters in length. It cannot start with `aliyun` or `acs:`, and cannot contain `http://` or `https://`.
       shared_ptr<string> value_ {};
     };
 
@@ -229,16 +229,16 @@ namespace Models
   protected:
     // The ID of the DHCP options set.
     shared_ptr<string> dhcpOptionsSetId_ {};
-    // Specifies whether to perform a dry run. Valid values:
+    // Specifies whether to perform a dry run for the request. Valid values:
     // 
-    // - **true**: performs a dry run. The system checks the request for potential issues, including invalid AccessKey pairs, unauthorized Resource Access Management (RAM) users, and missing parameter values. If the request fails the dry run, the corresponding error message is returned. If the request passes the dry run, the `DryRunOperation` error code is returned.
+    // - **true**: Sends a check request and does not query the resource status. The system checks whether your AccessKey pair is valid, whether the Resource Access Management (RAM) user has authorization, and whether required parameters are specified. If the check fails, the system returns an error. If the check succeeds, the system returns the `DryRunOperation` error code.
     // 
-    // - **false** (default): sends a Normal request, and the resource status is directly queried after the request passes the authorization check. An HTTP 2xx status code is returned.
+    // - **false** (default): Sends a normal request and queries the resource status after the check succeeds and an HTTP 2xx status code is returned.
     shared_ptr<bool> dryRun_ {};
-    // Specifies whether to query VPCs that have IPv6 CIDR blocks enabled in the specified region. The default value is empty, which means no filtering is performed based on IPv6 enablement. Valid values:
+    // Specifies whether to query VPCs for which IPv6 CIDR blocks are enabled in the specified region. By default, this parameter is empty, which means VPCs are not filtered based on whether IPv6 CIDR blocks are enabled. Valid values:
     // 
-    // - **false**: IPv6 is not enabled.
-    // - **true**: IPv6 is enabled.
+    // - **false**: IPv6 CIDR blocks are not enabled.
+    // - **true**: IPv6 CIDR blocks are enabled.
     shared_ptr<bool> enableIpv6_ {};
     // Specifies whether to query the default VPC in the specified region. Valid values: 
     // 
@@ -248,13 +248,13 @@ namespace Models
     shared_ptr<bool> isDefault_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
-    // The page number. Default value: **1**.
+    // The page number of the list. Default value: **1**.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries per page in paging queries. Maximum value: **50**. Default value: **10**.
+    // The number of entries per page for paging. Maximum value: **50**. Default value: **10**.
     shared_ptr<int32_t> pageSize_ {};
     // The region ID of the VPC. 
     // 
-    // You can call the [DescribeRegions](https://help.aliyun.com/document_detail/448570.html) operation to query the region ID.
+    // You can call the [DescribeRegions](https://help.aliyun.com/document_detail/448570.html) operation to query region IDs.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
@@ -270,7 +270,7 @@ namespace Models
     shared_ptr<string> vpcId_ {};
     // The name of the VPC.
     shared_ptr<string> vpcName_ {};
-    // The Alibaba Cloud account ID that owns the VPC.
+    // The Alibaba Cloud account ID of the VPC.
     shared_ptr<int64_t> vpcOwnerId_ {};
   };
 

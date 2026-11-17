@@ -112,7 +112,7 @@ namespace Models
     protected:
       // The CIDR block.
       shared_ptr<string> cidrBlock_ {};
-      // The time when the CIDR block was created. The time is in the `YYYY-MM-DDThh:mm:ssZ` format.
+      // The creation time. The time follows the `YYYY-MM-DDThh:mm:ssZ` format.
       shared_ptr<string> creationTime_ {};
       // The instance ID of the IPAM pool.
       shared_ptr<string> publicIpAddressPoolId_ {};
@@ -160,15 +160,15 @@ namespace Models
 
 
   protected:
-    // The pagination token. Valid values:
-    // - If **NextToken** is empty, no subsequent query exists.
-    // - If **NextToken** is returned, the value indicates the token for the next query.
+    // The token used to retrieve the next page of results. Valid values:
+    // - If **NextToken** is empty, no subsequent requests are to be sent.
+    // - If **NextToken** has a return value, the value indicates the token used to start the next query.
     shared_ptr<string> nextToken_ {};
     // The list of CIDR blocks in the IP address pool.
     shared_ptr<vector<ListPublicIpAddressPoolCidrBlocksResponseBody::PublicIpPoolCidrBlockList>> publicIpPoolCidrBlockList_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The total number of entries returned.
+    // The total number of entries returned for the current request.
     shared_ptr<int32_t> totalCount_ {};
   };
 

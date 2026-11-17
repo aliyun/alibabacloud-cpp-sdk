@@ -130,9 +130,9 @@ namespace Models
 
 
   protected:
-    // The ID of the BGP group to which the BGP peer that you want to query belongs.
+    // The ID of the BGP group to which the BGP peer belongs.
     shared_ptr<string> bgpGroupId_ {};
-    // The ID of the BGP peer that you want to query.
+    // The ID of the BGP peer.
     shared_ptr<string> bgpPeerId_ {};
     // Specifies whether the BGP group is the default BGP group. Valid values:
     // 
@@ -143,19 +143,19 @@ namespace Models
     shared_ptr<bool> isDefault_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
-    // The page number of the list. Default value: **1**.
+    // The page number. Default value: **1**.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries per page in a paged query. Maximum value: **50**. Default value: **10**.
+    // The number of entries per page in a paging query. Maximum value: **50**. Default value: **10**.
     shared_ptr<int32_t> pageSize_ {};
-    // The region ID of the BGP group to which the BGP peer that you want to query belongs. 
+    // The region ID of the BGP group to which the BGP peer belongs. 
     // 
-    // You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to query the region ID.
+    // You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to query region IDs.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
-    // The ID of the Virtual Border Router (VBR) associated with the BGP peer that you want to query.
+    // The ID of the Virtual Border Router (VBR) associated with the BGP peer.
     shared_ptr<string> routerId_ {};
   };
 

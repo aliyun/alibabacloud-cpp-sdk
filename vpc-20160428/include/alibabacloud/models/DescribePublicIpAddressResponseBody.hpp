@@ -123,7 +123,7 @@ namespace Models
     shared_ptr<int32_t> pageNumber_ {};
     // The number of entries per page in a paged query.
     shared_ptr<int32_t> pageSize_ {};
-    // The range of public IP addresses in a virtual private cloud (VPC) in the specified region.
+    // The range of public IP addresses in a virtual private cloud (VPC) within the specified region.
     shared_ptr<vector<string>> publicIpAddress_ {};
     // The region ID of the public IP address.
     shared_ptr<string> regionId_ {};

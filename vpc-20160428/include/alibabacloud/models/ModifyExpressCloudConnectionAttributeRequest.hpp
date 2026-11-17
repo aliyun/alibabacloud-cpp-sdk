@@ -130,13 +130,13 @@ namespace Models
 
 
   protected:
-    // The local BGP autonomous system (AS) number to be configured on the Smart Access Gateway device.
+    // The local BGP Autonomous System (AS) number to be configured on the Smart Access Gateway (SAG) device.
     shared_ptr<string> bgpAs_ {};
-    // The cloud-side IP address used for peering with the Smart Access Gateway device.
+    // The cloud-side IP address used to connect the Smart Access Gateway (SAG) device to Alibaba Cloud.
     shared_ptr<string> ceIp_ {};
-    // The description of the Express Cloud Connection instance.
+    // The description of the Express Cloud Connection.
     shared_ptr<string> description_ {};
-    // The instance ID of the Express Cloud Connection instance.
+    // The Express Cloud Connection instance ID.
     // 
     // This parameter is required.
     shared_ptr<string> eccId_ {};
@@ -144,7 +144,7 @@ namespace Models
     shared_ptr<string> name_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
-    // The local IP address of the Smart Access Gateway device used for peering with the cloud.
+    // The local IP address of the Smart Access Gateway (SAG) device used to connect to Alibaba Cloud.
     shared_ptr<string> peIp_ {};
     // The region ID of the Express Cloud Connection instance.
     // 

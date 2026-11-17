@@ -160,49 +160,49 @@ namespace Models
   protected:
     // The client token that is used to ensure the idempotence of the request.
     // 
-    // You can use the client to generate the token, but you must make sure that the token is unique among different requests. The ClientToken value can contain only ASCII characters.
+    // You can use the client to generate the value, but you must ensure that it is unique among different requests. The client token can contain only ASCII characters.
     // 
-    // > If you do not specify this parameter, the system uses the **RequestId** of the API request as the **ClientToken**. The **RequestId** may be different for each API request.
+    // > If you do not specify this parameter, the system automatically uses the **RequestId** of the API request as the **ClientToken**. The **RequestId** of each API request is unique.
     shared_ptr<string> clientToken_ {};
-    // Specifies whether to perform a dry run. Valid values:
+    // Specifies whether to perform a dry run on the request. Valid values:
     // 
-    // - **true**: sends a dry run request. The system checks the AccessKey pair, the authorization of the Resource Access Management (RAM) user, and the required parameters. If the request fails the dry run, the corresponding error is returned. If the request passes the dry run, the `DryRunOperation` error code is returned.
+    // - **true**: The system performs a dry run on the request without creating the NAT IP address. The system checks whether your AccessKey pair is valid, whether the Resource Access Management (RAM) user has the required authorization, and whether the required parameters are specified. If the request fails the dry run, the corresponding error code is returned. If the request passes the dry run, the `DryRunOperation` error code is returned.
     // 
-    // - **false** (default): sends a normal request. If the request passes the dry run, a 2xx HTTP status code is returned and the NAT IP address is created.
+    // - **false** (default): The system sends a normal request. If the request passes the dry run, a 2xx HTTP status code is returned and the NAT IP address is created.
     shared_ptr<bool> dryRun_ {};
-    // The IP prefix CIDR block to create.
+    // The IP prefix CIDR block.
     // 
-    // The IP prefix CIDR block must be within the reserved CIDR block of the vSwitch where the NAT gateway resides, and the reserved CIDR block must not be occupied. The IP prefix mask must be /28.
+    // The IP prefix CIDR block must fall within the reserved CIDR block of the vSwitch to which the NAT gateway belongs, and the reserved CIDR block must not be occupied. The mask of the IP prefix must be /28.
     shared_ptr<string> ipv4Prefix_ {};
-    // The number of IP prefixes to automatically assign.
+    // The number of IP prefixes to be automatically allocated.
     // 
-    // The IP prefixes are randomly assigned from unallocated reserved CIDR blocks of the vSwitch where the NAT gateway resides. Valid values: 1 to 10.
+    // The IP prefixes are randomly allocated from the unallocated reserved CIDR block of the vSwitch to which the NAT gateway belongs. Valid values: 1 to 10.
     shared_ptr<int32_t> ipv4PrefixCount_ {};
     // The instance ID of the VPC NAT gateway to which the NAT IP address belongs.
     // 
     // This parameter is required.
     shared_ptr<string> natGatewayId_ {};
-    // The NAT IP address to create.
+    // The NAT IP address.
     // 
-    // If you do not specify this parameter, the system randomly assigns an IP address from the NAT CIDR block.
+    // If you do not specify an IP address, the system randomly allocates an IP address from the NAT CIDR block.
     shared_ptr<string> natIp_ {};
-    // The NAT CIDR block from which the NAT IP address is created.
+    // The CIDR block from which the NAT IP address is created.
     // 
     // This parameter is required.
     shared_ptr<string> natIpCidr_ {};
-    // The description of the NAT IP address to create.
+    // The description of the NAT IP address.
     // 
-    // The description must be 2 to 256 characters in length and must start with a letter or Chinese character. It cannot start with `http://` or `https://`.
+    // The description must be 2 to 256 characters in length, and must start with a letter or a Chinese character. It cannot start with `http://` or `https://`.
     shared_ptr<string> natIpDescription_ {};
-    // The name of the NAT IP address to create.
+    // The name of the NAT IP address.
     // 
-    // The name must be 2 to 128 characters in length and must start with a letter or Chinese character. It can contain digits, periods (.), underscores (_), and hyphens (-). It cannot start with `http://` or `https://`.
+    // The name must be 2 to 128 characters in length, and must start with a letter or a Chinese character. It can contain digits, periods (.), underscores (_), and hyphens (-). It cannot start with `http://` or `https://`.
     shared_ptr<string> natIpName_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
-    // The region ID of the VPC NAT gateway instance to which the NAT IP address belongs.
+    // The region ID of the NAT gateway instance to which the NAT IP address belongs.
     // 
-    // You can call [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) to query the region ID.
+    // You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to obtain the region ID.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};

@@ -103,20 +103,18 @@ namespace Models
 
 
   protected:
-    // The type of the private IP address to check. Valid values:
+    // The IP version of the private IP address to be queried. Valid values:
     // 
-    // - **ipv4**: IPv4. This parameter is optional when the private IP address is of the IPv4 type.
-    // - **ipv6**: IPv6. This parameter is required when the private IP address is of the IPv6 type.
+    // - **ipv4**: IPv4. This parameter is optional when the private IP address to be queried is an IPv4 address.
+    // - **ipv6**: IPv6. This parameter is required when the private IP address to be queried is an IPv6 address.
     shared_ptr<string> ipVersion_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
-    // The private IP address to check. The private IP address must belong to the vSwitch specified by the **VSwitchId** parameter.
+    // The private IP address whose availability you want to check. The private IP address must belong to the vSwitch specified by the **VSwitchId** parameter.
     // 
     // This parameter is required.
     shared_ptr<string> privateIpAddress_ {};
-    // The region ID of the vSwitch to which the private IP address belongs.
-    // 
-    // You can call [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) to obtain the region ID.
+    // The region ID of the vSwitch to which the private IP address belongs. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to query region IDs.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};

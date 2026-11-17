@@ -114,30 +114,30 @@ namespace Models
   protected:
     // The timestamp when the destination route was created. Unit: milliseconds.
     // 
-    // The timestamp follows the UNIX time format, which represents the total number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC, to the time when the destination route was created.
+    // The timestamp is in the UNIX format, which represents the total duration from 00:00:00 on January 1, 1970 (UTC) to the time when the destination route was created.
     shared_ptr<int64_t> createTime_ {};
     // The description of the destination route.
     shared_ptr<string> description_ {};
     // The next hop of the destination route.
     shared_ptr<string> nextHop_ {};
-    // The tunneling protocol. Set the value to **Ipsec** (IPsec tunneling protocol).
+    // The tunnel protocol. Set the value to **Ipsec** (IPsec tunnel protocol).
     shared_ptr<string> overlayMode_ {};
-    // The request ID.
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
     // The destination CIDR block of the destination route.
     shared_ptr<string> routeDest_ {};
-    // The publish status of the destination route.
+    // The publish status of the destination route. Valid values:
     // 
-    // - **published**: The destination route is published to the VPC route table.
+    // - **published**: The destination route is published to the route table of the VPC.
     // 
-    // - **normal**: The destination route is not published to the VPC route table.
+    // - **normal**: The destination route is not published to the route table of the VPC.
     shared_ptr<string> state_ {};
     // The instance ID of the VPN gateway.
     shared_ptr<string> vpnInstanceId_ {};
     // The weight of the destination route. Valid values:
     // 
-    // - **100**: The destination route has a high priority.
-    // - **0**: The destination route has a low priority.
+    // - **100**: The destination route has a higher priority.
+    // - **0**: The destination route has a lower priority.
     shared_ptr<int32_t> weight_ {};
   };
 

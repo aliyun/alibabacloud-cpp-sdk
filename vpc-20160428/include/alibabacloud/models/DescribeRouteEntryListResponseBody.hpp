@@ -418,13 +418,14 @@ namespace Models
 
 
   protected:
-    // The pagination token that is used in the next request to retrieve a new page of results. Valid values:
-    // - If **NextToken** is empty, no subsequent request exists.
-    // - If **NextToken** is returned, the value indicates the token for the next query.
+    // The pagination token for the next query. Valid values:
+    // - If **NextToken** is empty, no subsequent query is required.
+    // - If **NextToken** returns a value, the value indicates the token for the next query.
     shared_ptr<string> nextToken_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
     shared_ptr<DescribeRouteEntryListResponseBody::RouteEntrys> routeEntrys_ {};
+    // The total number of entries.
     shared_ptr<int32_t> totalCount_ {};
   };
 

@@ -112,27 +112,27 @@ namespace Models
 
 
   protected:
-    // The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. The ClientToken value can contain only ASCII characters.
-    // > If you do not specify this parameter, the system uses the RequestId of the API request as the ClientToken. The RequestId may be different for each API request.
+    // The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among multiple requests. The client token can contain only ASCII characters.
+    // > If you do not specify this parameter, the system automatically uses the RequestId of the API request as the client token. The RequestId of each API request may be different.
     // > -
     shared_ptr<string> clientToken_ {};
-    // Specifies whether to perform a dry run. Valid values:
+    // Specifies whether to perform a dry run on this request. Valid values:
     // 
-    // - **true**: performs a dry run without actually deleting the Internet bandwidth. The system checks the required parameters, request syntax, and business restrictions. If the check fails, the corresponding error message is returned. If the check succeeds, `DryRunOperation` is returned.
+    // - **true**: performs a dry run on this request without deleting the IPsec server. The system checks whether all required parameters are specified, the request format is valid, and service limits are met. If the request fails the check, the corresponding error message is returned. If the request passes the check, `DryRunOperation` is returned.
     // 
-    // - **false** (default): performs a dry run and sends the request. If the check succeeds, the Internet bandwidth is deleted.
+    // - **false** (default): sends a regular request and deletes the IPsec server after the request passes the check.
     shared_ptr<bool> dryRun_ {};
     // The ID of the IPv6 address.
     // 
-    // > You must specify either **Ipv6AddressId** or **Ipv6InternetBandwidthId**.
+    // > You must specify either the **Ipv6AddressId** parameter or the **Ipv6InternetBandwidthId** parameter.
     shared_ptr<string> ipv6AddressId_ {};
-    // The Internet bandwidth instance ID of the IPv6 address.
+    // The instance ID of the Internet bandwidth for the IPv6 address.
     shared_ptr<string> ipv6InternetBandwidthId_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
     // The region ID of the IPv6 gateway.
     // 
-    // You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to query the region ID.
+    // You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to query the most recent region list.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};

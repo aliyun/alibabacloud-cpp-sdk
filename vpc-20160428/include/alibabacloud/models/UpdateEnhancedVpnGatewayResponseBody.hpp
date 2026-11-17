@@ -308,44 +308,44 @@ namespace Models
 
 
   protected:
-    // Indicates whether BGP route automatic propagation to the VPC is enabled. Valid values:
-    // - **true**: Automatic propagation is enabled.
+    // Indicates whether BGP routes are automatically propagated to the VPC. Valid values:
+    // - **true**: automatic propagation
     // 
-    // - **false**: Automatic propagation is not enabled.
+    // - **false**: no automatic propagation
     shared_ptr<bool> autoPropagate_ {};
-    // The timestamp when the enhanced VPN gateway instance was created. Unit: milliseconds.<br>
-    // The timestamp follows the UNIX time format, which represents the total number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
+    // The timestamp of when the enhanced VPN gateway instance was created. Unit: milliseconds. <br>
+    // The timestamp follows the UNIX time format. It is the total number of milliseconds that have elapsed since the UNIX epoch (January 1, 1970, 00:00:00 UTC) to the time when the enhanced VPN gateway instance was created.
     shared_ptr<int64_t> createTime_ {};
     // The description of the enhanced VPN gateway instance.
     shared_ptr<string> description_ {};
     // The ID of the second vSwitch associated with the enhanced VPN gateway instance.
     shared_ptr<string> disasterRecoveryVSwitchId_ {};
-    // The enabling status of the BGP feature for the enhanced VPN gateway. Valid values:<br>
-    // - **true**: enabled.
+    // The enabling status of the BGP feature for the enhanced VPN gateway. Valid values: <br>
+    // - **true**: enabled
     // 
-    // - **false**: disabled.
+    // - **false**: disabled
     shared_ptr<bool> enableBgp_ {};
     shared_ptr<UpdateEnhancedVpnGatewayResponseBody::EniInstanceIds> eniInstanceIds_ {};
     // The type of the enhanced VPN gateway. Valid values:
     // 
-    // - **Enhanced.SiteToSite**: enhanced site-to-cloud VPN that supports only IPsec functionality.
+    // - **Enhanced.SiteToSite**: enhanced site-to-cloud VPN, which supports only the IPsec feature
     shared_ptr<string> gatewayType_ {};
     // The name of the enhanced VPN gateway instance.
     shared_ptr<string> name_ {};
     // The network type of the enhanced VPN gateway. Valid values:
-    // - **public** (default): public VPN gateway.
+    // - **public** (default): Internet VPN gateway
     shared_ptr<string> networkType_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The ID of the resource group to which the enhanced VPN gateway instance belongs.<br>
-    // You can call [ListResourceGroups](https://help.aliyun.com/document_detail/158855.html) to query resource group information.
+    // The ID of the resource group to which the enhanced VPN gateway instance belongs. <br>
+    // You can call the [ListResourceGroups](https://help.aliyun.com/document_detail/158855.html) operation to query resource group information.
     shared_ptr<string> resourceGroupId_ {};
-    // The status of the enhanced VPN gateway.
-    // - **init**: initializing.
-    // - **provisioning**: preparing.
-    // - **active**: normal.
-    // - **updating**: updating.
-    // - **deleting**: deleting.
+    // The status of the enhanced VPN gateway. Valid values:
+    // - **init**: initializing
+    // - **provisioning**: preparing
+    // - **active**: active
+    // - **updating**: updating
+    // - **deleting**: deleting
     shared_ptr<string> status_ {};
     // The list of features supported by the enhanced VPN gateway.
     shared_ptr<string> tag_ {};
@@ -356,9 +356,9 @@ namespace Models
     shared_ptr<string> vpcId_ {};
     // The ID of the enhanced VPN gateway instance.
     shared_ptr<string> vpnGatewayId_ {};
-    // The type of the enhanced VPN gateway.
+    // The type of the enhanced VPN gateway. Valid values:
     // 
-    // - **Normal** (default): standard.
+    // - **Normal** (default): standard
     shared_ptr<string> vpnType_ {};
   };
 

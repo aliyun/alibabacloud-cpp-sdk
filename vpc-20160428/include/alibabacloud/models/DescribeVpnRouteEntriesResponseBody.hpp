@@ -67,6 +67,7 @@ namespace Models
           DARABONBA_PTR_TO_JSON(CreateTime, createTime_);
           DARABONBA_PTR_TO_JSON(NextHop, nextHop_);
           DARABONBA_PTR_TO_JSON(NextHopTunnelId, nextHopTunnelId_);
+          DARABONBA_PTR_TO_JSON(PrefixListId, prefixListId_);
           DARABONBA_PTR_TO_JSON(RouteDest, routeDest_);
           DARABONBA_PTR_TO_JSON(RouteEntryType, routeEntryType_);
           DARABONBA_PTR_TO_JSON(Source, source_);
@@ -80,6 +81,7 @@ namespace Models
           DARABONBA_PTR_FROM_JSON(CreateTime, createTime_);
           DARABONBA_PTR_FROM_JSON(NextHop, nextHop_);
           DARABONBA_PTR_FROM_JSON(NextHopTunnelId, nextHopTunnelId_);
+          DARABONBA_PTR_FROM_JSON(PrefixListId, prefixListId_);
           DARABONBA_PTR_FROM_JSON(RouteDest, routeDest_);
           DARABONBA_PTR_FROM_JSON(RouteEntryType, routeEntryType_);
           DARABONBA_PTR_FROM_JSON(Source, source_);
@@ -99,8 +101,9 @@ namespace Models
         virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
         virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
         virtual bool empty() const override { return this->asPath_ == nullptr
-        && this->community_ == nullptr && this->createTime_ == nullptr && this->nextHop_ == nullptr && this->nextHopTunnelId_ == nullptr && this->routeDest_ == nullptr
-        && this->routeEntryType_ == nullptr && this->source_ == nullptr && this->state_ == nullptr && this->vpnInstanceId_ == nullptr && this->weight_ == nullptr; };
+        && this->community_ == nullptr && this->createTime_ == nullptr && this->nextHop_ == nullptr && this->nextHopTunnelId_ == nullptr && this->prefixListId_ == nullptr
+        && this->routeDest_ == nullptr && this->routeEntryType_ == nullptr && this->source_ == nullptr && this->state_ == nullptr && this->vpnInstanceId_ == nullptr
+        && this->weight_ == nullptr; };
         // asPath Field Functions 
         bool hasAsPath() const { return this->asPath_ != nullptr;};
         void deleteAsPath() { this->asPath_ = nullptr;};
@@ -134,6 +137,13 @@ namespace Models
         void deleteNextHopTunnelId() { this->nextHopTunnelId_ = nullptr;};
         inline string getNextHopTunnelId() const { DARABONBA_PTR_GET_DEFAULT(nextHopTunnelId_, "") };
         inline VpnRouteEntry& setNextHopTunnelId(string nextHopTunnelId) { DARABONBA_PTR_SET_VALUE(nextHopTunnelId_, nextHopTunnelId) };
+
+
+        // prefixListId Field Functions 
+        bool hasPrefixListId() const { return this->prefixListId_ != nullptr;};
+        void deletePrefixListId() { this->prefixListId_ = nullptr;};
+        inline string getPrefixListId() const { DARABONBA_PTR_GET_DEFAULT(prefixListId_, "") };
+        inline VpnRouteEntry& setPrefixListId(string prefixListId) { DARABONBA_PTR_SET_VALUE(prefixListId_, prefixListId) };
 
 
         // routeDest Field Functions 
@@ -184,6 +194,7 @@ namespace Models
         shared_ptr<int64_t> createTime_ {};
         shared_ptr<string> nextHop_ {};
         shared_ptr<string> nextHopTunnelId_ {};
+        shared_ptr<string> prefixListId_ {};
         shared_ptr<string> routeDest_ {};
         shared_ptr<string> routeEntryType_ {};
         shared_ptr<string> source_ {};
@@ -340,13 +351,13 @@ namespace Models
 
 
   protected:
-    // The page number of the list.
+    // The page number.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries per page for paging queries.
+    // The number of entries returned per page for paging in a paged query.
     shared_ptr<int32_t> pageSize_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The total number of entries in the list.
+    // The total number of entries returned.
     shared_ptr<int32_t> totalCount_ {};
     shared_ptr<DescribeVpnRouteEntriesResponseBody::VpnRouteCounts> vpnRouteCounts_ {};
     shared_ptr<DescribeVpnRouteEntriesResponseBody::VpnRouteEntries> vpnRouteEntries_ {};

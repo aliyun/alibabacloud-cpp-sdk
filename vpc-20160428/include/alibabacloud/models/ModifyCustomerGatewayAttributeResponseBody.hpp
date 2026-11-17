@@ -100,11 +100,11 @@ namespace Models
     shared_ptr<string> customerGatewayId_ {};
     // The description of the customer gateway.
     shared_ptr<string> description_ {};
-    // The public IP address of the on-premises data center gateway device.
+    // The public IP address of the gateway device in the on-premises data center.
     shared_ptr<string> ipAddress_ {};
     // The name of the customer gateway.
     shared_ptr<string> name_ {};
-    // The request ID.
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
     // The ID of the resource group to which the customer gateway belongs.
     // 

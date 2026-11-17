@@ -130,13 +130,13 @@ namespace Models
 
 
   protected:
-    // The destination CIDR block of the route entry. IPv4 and IPv6 CIDR blocks are supported.
+    // The destination CIDR block of the route. Both IPv4 and IPv6 CIDR blocks are supported.
     shared_ptr<string> destinationCidrBlock_ {};
-    // The number of entries per page in a paged query. Valid values: **1** to **500**. Default value: **50**.
+    // The number of entries to return on each page. Valid values: **1** to **500**. Default value: **50**.
     shared_ptr<int32_t> maxResults_ {};
-    // The token for the next query. Valid values:
-    // - If **NextToken** is empty, no next query exists.
-    // - If **NextToken** has a value, the value indicates the token for the next query.
+    // The token used to retrieve the next page of results. Valid values:
+    // - If **NextToken** is empty, no more results are available.
+    // - If **NextToken** is returned, the value is the token used to start the next query.
     shared_ptr<string> nextToken_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
@@ -148,9 +148,9 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> routeTableId_ {};
-    // The instance ID of the route publish target.
+    // The instance ID of the route publication target.
     shared_ptr<string> targetInstanceId_ {};
-    // The type of the route publish target.
+    // The type of the route publication target.
     // 
     // This parameter is required.
     shared_ptr<string> targetType_ {};

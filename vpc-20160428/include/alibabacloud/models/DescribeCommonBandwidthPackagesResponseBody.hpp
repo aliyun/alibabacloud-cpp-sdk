@@ -258,12 +258,18 @@ namespace Models
             friend void to_json(Darabonba::Json& j, const PublicIpAddresse& obj) { 
               DARABONBA_PTR_TO_JSON(AllocationId, allocationId_);
               DARABONBA_PTR_TO_JSON(BandwidthPackageIpRelationStatus, bandwidthPackageIpRelationStatus_);
+              DARABONBA_PTR_TO_JSON(CommonBandwidthPackageIpBandwidth, commonBandwidthPackageIpBandwidth_);
               DARABONBA_PTR_TO_JSON(IpAddress, ipAddress_);
+              DARABONBA_PTR_TO_JSON(IpInstanceId, ipInstanceId_);
+              DARABONBA_PTR_TO_JSON(IpType, ipType_);
             };
             friend void from_json(const Darabonba::Json& j, PublicIpAddresse& obj) { 
               DARABONBA_PTR_FROM_JSON(AllocationId, allocationId_);
               DARABONBA_PTR_FROM_JSON(BandwidthPackageIpRelationStatus, bandwidthPackageIpRelationStatus_);
+              DARABONBA_PTR_FROM_JSON(CommonBandwidthPackageIpBandwidth, commonBandwidthPackageIpBandwidth_);
               DARABONBA_PTR_FROM_JSON(IpAddress, ipAddress_);
+              DARABONBA_PTR_FROM_JSON(IpInstanceId, ipInstanceId_);
+              DARABONBA_PTR_FROM_JSON(IpType, ipType_);
             };
             PublicIpAddresse() = default ;
             PublicIpAddresse(const PublicIpAddresse &) = default ;
@@ -277,7 +283,7 @@ namespace Models
             virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
             virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
             virtual bool empty() const override { return this->allocationId_ == nullptr
-        && this->bandwidthPackageIpRelationStatus_ == nullptr && this->ipAddress_ == nullptr; };
+        && this->bandwidthPackageIpRelationStatus_ == nullptr && this->commonBandwidthPackageIpBandwidth_ == nullptr && this->ipAddress_ == nullptr && this->ipInstanceId_ == nullptr && this->ipType_ == nullptr; };
             // allocationId Field Functions 
             bool hasAllocationId() const { return this->allocationId_ != nullptr;};
             void deleteAllocationId() { this->allocationId_ = nullptr;};
@@ -292,6 +298,13 @@ namespace Models
             inline PublicIpAddresse& setBandwidthPackageIpRelationStatus(string bandwidthPackageIpRelationStatus) { DARABONBA_PTR_SET_VALUE(bandwidthPackageIpRelationStatus_, bandwidthPackageIpRelationStatus) };
 
 
+            // commonBandwidthPackageIpBandwidth Field Functions 
+            bool hasCommonBandwidthPackageIpBandwidth() const { return this->commonBandwidthPackageIpBandwidth_ != nullptr;};
+            void deleteCommonBandwidthPackageIpBandwidth() { this->commonBandwidthPackageIpBandwidth_ = nullptr;};
+            inline string getCommonBandwidthPackageIpBandwidth() const { DARABONBA_PTR_GET_DEFAULT(commonBandwidthPackageIpBandwidth_, "") };
+            inline PublicIpAddresse& setCommonBandwidthPackageIpBandwidth(string commonBandwidthPackageIpBandwidth) { DARABONBA_PTR_SET_VALUE(commonBandwidthPackageIpBandwidth_, commonBandwidthPackageIpBandwidth) };
+
+
             // ipAddress Field Functions 
             bool hasIpAddress() const { return this->ipAddress_ != nullptr;};
             void deleteIpAddress() { this->ipAddress_ = nullptr;};
@@ -299,10 +312,27 @@ namespace Models
             inline PublicIpAddresse& setIpAddress(string ipAddress) { DARABONBA_PTR_SET_VALUE(ipAddress_, ipAddress) };
 
 
+            // ipInstanceId Field Functions 
+            bool hasIpInstanceId() const { return this->ipInstanceId_ != nullptr;};
+            void deleteIpInstanceId() { this->ipInstanceId_ = nullptr;};
+            inline string getIpInstanceId() const { DARABONBA_PTR_GET_DEFAULT(ipInstanceId_, "") };
+            inline PublicIpAddresse& setIpInstanceId(string ipInstanceId) { DARABONBA_PTR_SET_VALUE(ipInstanceId_, ipInstanceId) };
+
+
+            // ipType Field Functions 
+            bool hasIpType() const { return this->ipType_ != nullptr;};
+            void deleteIpType() { this->ipType_ = nullptr;};
+            inline string getIpType() const { DARABONBA_PTR_GET_DEFAULT(ipType_, "") };
+            inline PublicIpAddresse& setIpType(string ipType) { DARABONBA_PTR_SET_VALUE(ipType_, ipType) };
+
+
           protected:
             shared_ptr<string> allocationId_ {};
             shared_ptr<string> bandwidthPackageIpRelationStatus_ {};
+            shared_ptr<string> commonBandwidthPackageIpBandwidth_ {};
             shared_ptr<string> ipAddress_ {};
+            shared_ptr<string> ipInstanceId_ {};
+            shared_ptr<string> ipType_ {};
           };
 
           virtual bool empty() const override { return this->publicIpAddresse_ == nullptr; };
@@ -597,9 +627,9 @@ namespace Models
 
   protected:
     shared_ptr<DescribeCommonBandwidthPackagesResponseBody::CommonBandwidthPackages> commonBandwidthPackages_ {};
-    // The page number of the list.
+    // The page number of the returned page.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries per page for paging queries.
+    // The number of entries per page.
     shared_ptr<int32_t> pageSize_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

@@ -259,18 +259,18 @@ namespace Models
 
 
   protected:
-    // The list of Express Connect circuits associated with the VBR, which contains the following parameters:
+    // The list of Express Connect circuits associated with the VBR. The list includes the following parameters:
     // 
-    // - **VlanId**: The VLAN ID of the VBR instance.
-    // - **CircuitCode**: The circuit encoding provided by the carrier for the Express Connect circuit.
-    // - **LocalGatewayIp**: The Alibaba Cloud-side IP address of the VBR instance.
-    // - **PeerGatewayIp**: The client-side IP address of the VBR instance.
-    // - **PeeringSubnetMask**: The subnet mask for the Alibaba Cloud-side and client-side IP addresses of the VBR instance.
-    // - **LocalIpv6GatewayIp**: The Alibaba Cloud-side IPv6 address of the VBR instance.
-    // - **PeerIpv6GatewayIp**: The client-side IPv6 address of the VBR instance.
-    // - **PeeringIpv6SubnetMask**: The subnet mask for the Alibaba Cloud-side and client-side IPv6 addresses of the VBR instance.
-    // - **ipv6Enable**: Enables IPv6.
-    // - **PhysicalConnectionId**: The Express Connect circuit instance ID.
+    // - **VlanId**: the VLAN ID of the VBR instance.
+    // - **CircuitCode**: the circuit encoding provided by the carrier for the Express Connect circuit.
+    // - **LocalGatewayIp**: the IP address of the VBR on the Alibaba Cloud side.
+    // - **PeerGatewayIp**: the IP address of the VBR on the customer side.
+    // - **PeeringSubnetMask**: the subnet mask of the IP addresses of the VBR on the Alibaba Cloud side and the customer side.
+    // - **LocalIpv6GatewayIp**: the IPv6 address of the VBR on the Alibaba Cloud side.
+    // - **PeerIpv6GatewayIp**: the IPv6 address of the VBR on the customer side.
+    // - **PeeringIpv6SubnetMask**: the subnet mask of the IPv6 addresses of the VBR on the Alibaba Cloud side and the customer side.
+    // - **ipv6Enable**: specifies whether to enable IPv6.
+    // - **PhysicalConnectionId**: the instance ID of the Express Connect circuit.
     shared_ptr<string> associatedPhysicalConnections_ {};
     // The bandwidth value. Unit: Mbit/s.
     shared_ptr<int32_t> bandwidth_ {};
@@ -280,82 +280,82 @@ namespace Models
     shared_ptr<string> circuitCode_ {};
     // The client token that is used to ensure the idempotence of the request.
     // 
-    // Generate a parameter value from your client to ensure uniqueness across different requests. ClientToken supports only ASCII characters.
+    // You can use the client to generate the value, but you must ensure that it is unique among different requests. The client token can contain only ASCII characters.
     // 
-    // > If you do not specify this parameter, the system uses the **RequestId** of the API request as the **ClientToken**. The **RequestId** may be different for each API request.
+    // > If you do not specify this parameter, the system automatically uses the **RequestId** of the API request as the **ClientToken**. The **RequestId** of each API request is unique.
     shared_ptr<string> clientToken_ {};
     // The description of the VBR.
     // 
-    // The description must be 2 to 256 characters in length and must start with a letter or Chinese character. It cannot start with `http://` or `https://`.
+    // The description must be 2 to 256 characters in length, and must start with a letter or a Chinese character. It cannot start with `http://` or `https://`.
     shared_ptr<string> description_ {};
-    // The detection multiplier, which specifies the maximum number of consecutive packet losses allowed by the receiver from the sender. This parameter is used to detect whether the link is normal.
+    // The detection time multiplier, which is the maximum number of consecutive packet losses allowed by the receiver to detect whether the link is normal.
     // 
-    // Valid values: **3 to 10**.
+    // Valid values: **3** to **10**.
     shared_ptr<int64_t> detectMultiplier_ {};
-    // Specifies whether to enable IPv6. Valid values:
+    // Specifies whether to enable IPv6.
     // 
-    // - **true**: Enabled.
+    // - **true**: enables IPv6.
     // 
-    // - **false** (default): Disabled.
+    // - **false** (default): disables IPv6.
     shared_ptr<bool> enableIpv6_ {};
-    // The Alibaba Cloud-side IP address of the VBR instance.
+    // The IP address of the VBR on the Alibaba Cloud side.
     // 
-    // This property can be specified or modified only by the VBR owner.
+    // Only the owner of the VBR can specify or modify this property.
     shared_ptr<string> localGatewayIp_ {};
-    // The Alibaba Cloud-side IPv6 address of the VBR instance.
+    // The IPv6 address of the VBR on the Alibaba Cloud side.
     shared_ptr<string> localIpv6GatewayIp_ {};
-    // The receive interval of BFD packets. Valid values: **200 to 1000**. Unit: ms.
+    // The interval at which BFD packets are received. Valid values: **200** to **1000**. Unit: milliseconds.
     shared_ptr<int64_t> minRxInterval_ {};
-    // The alert interval for sending Bidirectional Forwarding Detection (BFD) packets. Valid values: **200 to 1000**. Unit: ms.
+    // The send interval for Bidirectional Forwarding Detection (BFD) packets. Valid values: **200** to **1000**. Unit: milliseconds.
     shared_ptr<int64_t> minTxInterval_ {};
-    // The MTU value supported by the VBR. Valid values: 1500 and 8500.
-    // This value can be set only when the VBR is attached to an Express Connect Router (ECR). This value also affects all other VBRs and VPCs within the same ECR.
+    // The maximum transmission unit (MTU) value supported by the VBR. Valid values: 1500 and 8500.
+    // You can set this value only when the VBR is associated with an Express Connect Router (ECR). This value also affects all other VBRs and VPCs within the same ECR.
     shared_ptr<int32_t> mtu_ {};
     // The name of the VBR.
     // 
-    // The name must be 2 to 128 characters in length and must start with a letter or Chinese character. It can contain digits, underscores (_), and hyphens (-). It cannot start with `http://` or `https://`.
+    // The name must be 2 to 128 characters in length, and must start with a letter or a Chinese character. It can contain digits, underscores (_), and hyphens (-). It cannot start with `http://` or `https://`.
     shared_ptr<string> name_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
-    // The client-side IP address of the VBR instance.
+    // The IP address of the VBR on the customer side.
     // 
-    // This property can be specified or modified only by the VBR owner.
+    // Only the owner of the VBR can specify or modify this property.
     shared_ptr<string> peerGatewayIp_ {};
-    // The client-side IPv6 address of the VBR instance.
+    // The IPv6 address of the VBR on the customer side.
     // 
-    // - This property can be specified or modified only by the VBR owner.
+    // - Only the owner of the VBR can specify or modify this property.
     // 
-    // - This parameter is required when the Express Connect circuit owner creates a VBR instance. It is not required when creating a VBR instance for another account.
+    // - This parameter is required when you create a VBR for the owner of the Express Connect circuit. This parameter is not required when you create a VBR for another account.
     shared_ptr<string> peerIpv6GatewayIp_ {};
-    // The subnet mask for the Alibaba Cloud-side and client-side IPv6 addresses of the VBR instance.
+    // The subnet mask of the IPv6 addresses of the VBR on the Alibaba Cloud side and the customer side.
     // 
     // The two IPv6 addresses must be in the same subnet.
     shared_ptr<string> peeringIpv6SubnetMask_ {};
-    // The subnet mask for the Alibaba Cloud-side and client-side IP addresses of the VBR instance. This property can be specified or modified only by the VBR owner.
+    // The subnet mask of the IP addresses of the VBR on the Alibaba Cloud side and the customer side. Only the owner of the VBR can specify or modify this property.
     // 
     // The two IP addresses must be in the same subnet.
     shared_ptr<string> peeringSubnetMask_ {};
     // The region ID of the VBR.
     // 
-    // You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to query the region ID.
+    // You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to query region IDs.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
-    // Specifies whether to allow inter-IDC service access. Valid values:
+    // Specifies whether to allow service access between data centers.
     // 
-    // - true: Allowed.
+    // - true: allows service access between data centers.
     // 
-    // - false (default): Not allowed.
+    // - false (default): does not allow service access between data centers.
     shared_ptr<bool> sitelinkEnable_ {};
-    // The VBR instance ID.
+    // The instance ID of the VBR.
     // 
     // This parameter is required.
     shared_ptr<string> vbrId_ {};
-    // The VLAN ID of the VBR. Valid values: **0 to 2999**. 
+    // The VLAN ID of the VBR. Valid values: **0** to **2999**. 
     // 
-    // > Only the owner of the Express Connect circuit can specify this parameter. The VLAN IDs of two VBRs on the same Express Connect circuit must be different.
+    // > Only the owner of the Express Connect circuit can specify this parameter. The VLAN IDs of two VBRs under the same Express Connect circuit must be different.
     shared_ptr<int32_t> vlanId_ {};
   };
 

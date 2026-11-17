@@ -94,13 +94,13 @@ namespace Models
 
 
     protected:
-      // The destination CIDR block of the custom route entry that failed to be added.
+      // The destination CIDR block of the custom route entry that fails to be added.
       shared_ptr<string> dstCidrBlock_ {};
-      // The error code of the failure.
+      // The error code for the failure.
       shared_ptr<string> failedCode_ {};
-      // The error message of the failure.
+      // The specific error message for the failure.
       shared_ptr<string> failedMessage_ {};
-      // The ID of the next hop instance of the custom route entry that failed to be added.
+      // The ID of the next hop instance for the custom route entry that fails to be added.
       shared_ptr<string> nextHop_ {};
     };
 
@@ -146,15 +146,15 @@ namespace Models
 
 
   protected:
-    // The number of route entries that failed to be added.
+    // The number of route entries that fail to be added.
     shared_ptr<int32_t> failedCount_ {};
-    // The details of the route entries that failed to be added.
+    // The details of the route entries that fail to be added.
     shared_ptr<vector<CreateRouteEntriesResponseBody::FailedRouteEntries>> failedRouteEntries_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The routing instance IDs returned for the custom route entries that were successfully added.
+    // The instance IDs returned for the custom route entry (routing) that is successfully added.
     shared_ptr<vector<string>> routeEntryIds_ {};
-    // The number of route entries that were successfully added.
+    // The number of route entries that are successfully added.
     shared_ptr<int32_t> successCount_ {};
   };
 

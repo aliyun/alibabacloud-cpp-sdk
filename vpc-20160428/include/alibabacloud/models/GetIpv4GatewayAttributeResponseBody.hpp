@@ -177,7 +177,7 @@ namespace Models
 
 
   protected:
-    // The time when the IPv4 gateway was created.
+    // The creation time.
     shared_ptr<string> createTime_ {};
     // Indicates whether the IPv4 gateway is activated. Valid values:
     // 
@@ -185,19 +185,19 @@ namespace Models
     // 
     // - **false**: The IPv4 gateway is not activated.
     shared_ptr<bool> enabled_ {};
-    // The description of the IPv4 gateway instance.
+    // The description of the IPv4 gateway.
     shared_ptr<string> ipv4GatewayDescription_ {};
     // The instance ID of the IPv4 gateway.
     shared_ptr<string> ipv4GatewayId_ {};
-    // The name of the IPv4 gateway instance.
+    // The name of the IPv4 gateway.
     shared_ptr<string> ipv4GatewayName_ {};
-    // The ID of the route table associated with the IPv4 gateway instance.
+    // The ID of the route table associated with the IPv4 gateway.
     shared_ptr<string> ipv4GatewayRouteTableId_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
     // The ID of the resource group to which the IPv4 gateway belongs.
     shared_ptr<string> resourceGroupId_ {};
-    // The status of the IPv4 gateway instance. Valid values:
+    // The status of the IPv4 gateway. Valid values:
     // 
     // - **Creating**: The IPv4 gateway is being created.
     // 
@@ -211,9 +211,9 @@ namespace Models
     // 
     // - **Activating**: The IPv4 gateway is being activated.
     shared_ptr<string> status_ {};
-    // The tag list.
+    // The tags.
     shared_ptr<vector<GetIpv4GatewayAttributeResponseBody::Tags>> tags_ {};
-    // The ID of the VPC associated with the IPv4 gateway instance.
+    // The ID of the VPC associated with the IPv4 gateway.
     shared_ptr<string> vpcId_ {};
   };
 

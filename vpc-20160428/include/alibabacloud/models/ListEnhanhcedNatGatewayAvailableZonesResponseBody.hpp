@@ -97,7 +97,7 @@ namespace Models
   protected:
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The list of zones.
+    // The zones.
     shared_ptr<vector<ListEnhanhcedNatGatewayAvailableZonesResponseBody::Zones>> zones_ {};
   };
 

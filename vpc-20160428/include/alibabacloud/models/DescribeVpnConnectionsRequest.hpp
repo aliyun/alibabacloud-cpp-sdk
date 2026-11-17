@@ -97,10 +97,6 @@ namespace Models
       // You can specify up to 20 tag keys at a time.
       shared_ptr<string> key_ {};
       // The tag value.
-      // 
-      // The tag value can be up to 128 characters in length and can be an empty string. It cannot start with `aliyun` or `acs:`, or contain `http://` or `https://`.
-      // 
-      // Each tag key corresponds to one tag value. You can specify up to 20 tag values at a time.
       shared_ptr<string> value_ {};
     };
 
@@ -205,13 +201,9 @@ namespace Models
     shared_ptr<int32_t> pageSize_ {};
     // The region ID of the IPsec-VPN connection.
     // 
-    // You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to query region IDs.
-    // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
     // The ID of the resource group to which the IPsec-VPN connection belongs.
-    // 
-    // You can call the [ListResourceGroups](https://help.aliyun.com/document_detail/158855.html) operation to query resource group IDs.
     shared_ptr<string> resourceGroupId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};

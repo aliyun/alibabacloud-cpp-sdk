@@ -634,19 +634,19 @@ namespace Models
       shared_ptr<string> networkAclName_ {};
       // The Alibaba Cloud account ID to which the network ACL belongs.
       // 
-      // >Notice: This value is of the Long type. Precision loss may occur in certain languages. Use this value with caution.
+      // >Notice: This value is of the Long type. Precision loss may occur in some programming languages. Use it with caution.
       shared_ptr<int64_t> ownerId_ {};
       // The region ID of the network ACL.
       shared_ptr<string> regionId_ {};
       shared_ptr<NetworkAclAttribute::Resources> resources_ {};
       // The status of the associated resource. Valid values:
       // 
-      // - **Available**: available.
+      // - **Available**: The resource is available.
       // 
-      // - **Modifying**: being modified.
+      // - **Modifying**: The resource is being configured.
       shared_ptr<string> status_ {};
       shared_ptr<NetworkAclAttribute::Tags> tags_ {};
-      // The ID of the VPC associated with the network ACL.
+      // The ID of the virtual private cloud (VPC) associated with the network ACL.
       shared_ptr<string> vpcId_ {};
     };
 

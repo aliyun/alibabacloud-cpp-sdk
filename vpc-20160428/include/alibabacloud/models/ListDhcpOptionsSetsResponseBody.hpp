@@ -175,19 +175,19 @@ namespace Models
       protected:
         // The hostname suffix.
         shared_ptr<string> domainName_ {};
-        // The IP address of the DNS server.
+        // The IP addresses of the DNS servers.
         shared_ptr<string> domainNameServers_ {};
         // The lease time of the IPv6 DHCP options set.
         // 
-        // - If the lease time is in hours, the unit is h. Valid values: **24h** to **1176h** and **87600h** to **175200h**. Default value: **24h**.
+        // - If the lease time is set in hours, the unit is h. Valid values: **24h** to **1176h** and **87600h** to **175200h**. Default value: **24h**.
         // 
-        // - If the lease time is in days, the unit is d. Valid values: **1d** to **49d** and **3650d** to **7300d**. Default value: **1d**.
+        // - If the lease time is set in days, the unit is d. Valid values: **1d** to **49d** and **3650d** to **7300d**. Default value: **1d**.
         shared_ptr<string> ipv6LeaseTime_ {};
         // The lease time of the IPv4 DHCP options set.
         // 
-        // - If the lease time is in hours, the unit is h. Valid values: **24h** to **1176h** and **87600h** to **175200h**. Default value: **87600h**.
+        // - If the lease time is set in hours, the unit is h. Valid values: **24h** to **1176h** and **87600h** to **175200h**. Default value: **87600h**.
         // 
-        // - If the lease time is in days, the unit is d. Valid values: **1d** to **49d** and **3650d** to **7300d**. Default value: **3650d**.
+        // - If the lease time is set in days, the unit is d. Valid values: **1d** to **49d** and **3650d** to **7300d**. Default value: **3650d**.
         shared_ptr<string> leaseTime_ {};
       };
 
@@ -273,7 +273,7 @@ namespace Models
       shared_ptr<int32_t> associateVpcCount_ {};
       // The creation time.
       shared_ptr<string> creationTime_ {};
-      // The DHCP options configuration.
+      // The configuration information of the DHCP options.
       shared_ptr<DhcpOptionsSets::DhcpOptions> dhcpOptions_ {};
       // The description of the DHCP options set.
       shared_ptr<string> dhcpOptionsSetDescription_ {};
@@ -287,13 +287,13 @@ namespace Models
       shared_ptr<string> resourceGroupId_ {};
       // The status of the DHCP options set. Valid values:
       // 
-      // - **Available**: available.
+      // - **Available**: Available.
       // 
-      // - **InUse**: in use.
+      // - **InUse**: In use.
       // 
-      // - **Pending**: being configured.
+      // - **Pending**: Being configured.
       // 
-      // - **Deleted**: deleted.
+      // - **Deleted**: Deleted.
       shared_ptr<string> status_ {};
       // The list of tags.
       shared_ptr<vector<DhcpOptionsSets::Tags>> tags_ {};
@@ -332,15 +332,15 @@ namespace Models
 
 
   protected:
-    // The list of DHCP options sets.
+    // The information about the DHCP options sets.
     shared_ptr<vector<ListDhcpOptionsSetsResponseBody::DhcpOptionsSets>> dhcpOptionsSets_ {};
-    // The pagination token. Valid values:
-    // - If **NextToken** is empty, no subsequent query exists.
-    // - If **NextToken** is returned, the value indicates the token for the next query.
+    // The token for the next query. Valid values:
+    // - If **NextToken** is empty, no subsequent query is required.
+    // - If **NextToken** returns a value, the value is the token for the next query.
     shared_ptr<string> nextToken_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The total number of entries returned.
+    // The total number of entries.
     shared_ptr<string> totalCount_ {};
   };
 

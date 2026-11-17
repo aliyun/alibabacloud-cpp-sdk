@@ -92,11 +92,11 @@ namespace Models
     protected:
       // The tag key of the instance. You can specify up to 20 tag keys. The tag key cannot be an empty string.
       // 
-      // The tag key can be up to 64 characters in length and cannot start with `aliyun` or `acs:`. It cannot contain `http://` or `https://`.
+      // The tag key can be up to 64 characters in length. It cannot start with `aliyun` or `acs:`, and cannot contain `http://` or `https://`.
       shared_ptr<string> key_ {};
       // The tag key of the instance. You can specify up to 20 tag keys. The tag key cannot be an empty string.
       // 
-      // The tag key can be up to 64 characters in length and cannot start with `aliyun` or `acs:`. It cannot contain `http://` or `https://`.
+      // The tag key can be up to 64 characters in length. It cannot start with `aliyun` or `acs:`, and cannot contain `http://` or `https://`.
       shared_ptr<string> value_ {};
     };
 
@@ -138,16 +138,16 @@ namespace Models
 
 
     protected:
-      // The valid values of Filter Key:
+      // The filter key. Valid values:
       // 
       // - ResourceId
-      // >Specify the ID of the EPS resource in Value.
+      // >Set the value to the ID of the EPS resource that you want to query.
       // - NetworkInterfaceId
-      // >Specify the ID of the network interface controller (NIC) in Value.
+      // >Set the value to the ID of the elastic network interfaces (ENIs) and network interface controller (NIC) that you want to query.
       // - ResourceOwnerId
-      // >Specify the UID of the user to whom the EPS resource ownership belongs in Value.
+      // >Set the value to the UID of the user for the resource ownership of the EPS resource that you want to query.
       shared_ptr<string> key_ {};
-      // You can specify multiple values separated by commas.
+      // The filter value. You can specify multiple values separated by commas (,).
       shared_ptr<string> value_ {};
     };
 
@@ -248,35 +248,35 @@ namespace Models
     // 
     // You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters.
     // 
-    // > If you do not specify this parameter, the system automatically uses the **RequestId** of the API request as the **ClientToken**. The **RequestId** may be different for each API request.
+    // > If you do not specify this parameter, the system automatically uses the **RequestId** of the API request as the **ClientToken**. The **RequestId** of each API request is unique.
     shared_ptr<string> clientToken_ {};
-    // The filter information. You can specify key-value pairs to filter the query results.
+    // The filter conditions. You can specify key-value pairs to filter the query results.
     shared_ptr<vector<DescribeNatGatewayAssociateNetworkInterfacesRequest::Filter>> filter_ {};
-    // The number of entries per page for a paginated query. Valid values: **1** to **100**. Default value: **20**.
+    // The number of entries to return on each page. Valid values: **1** to **100**. Default value: **20**.
     shared_ptr<int32_t> maxResults_ {};
-    // The ID of the NAT gateway to query.
+    // The ID of the NAT gateway that you want to query.
     // 
     // This parameter is required.
     shared_ptr<string> natGatewayId_ {};
-    // The pagination token. Valid values:
+    // The token that is used for the next query. Valid values:
     // 
-    // - If this is the first query or no subsequent query exists, leave this parameter empty.
+    // - If this is your first query or no next query is to be sent, ignore this parameter.
     // 
-    // - If a subsequent query exists, set this parameter to the **NextToken** value returned by the previous API call.
+    // - If a next query is to be sent, set the value to the **NextToken** value that is returned from the last invoke or API call.
     shared_ptr<string> nextToken_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
     // The region ID of the NAT gateway.
     // 
-    // You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to query the region ID.
+    // You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to query region IDs.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
-    // The resource group ID.
+    // The ID of the resource group.
     shared_ptr<string> resourceGroupId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
-    // The list of resource tags.
+    // The resource tags.
     shared_ptr<vector<DescribeNatGatewayAssociateNetworkInterfacesRequest::Tag>> tag_ {};
   };
 

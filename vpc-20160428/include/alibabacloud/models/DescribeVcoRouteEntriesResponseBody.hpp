@@ -96,8 +96,8 @@ namespace Models
       shared_ptr<string> routeEntryType_ {};
       // The source of the BGP route.
       // 
-      // - **CLOUD**: The BGP route is learned by the IPsec-VPN connection from the transit router.
-      // - **VPN_BGP**: The BGP route is learned by the IPsec-VPN connection from the on-premises data center.
+      // - **CLOUD**: The BGP route is learned by the IPsec-VPN connection from a transit router.
+      // - **VPN_BGP**: The BGP route is learned by the IPsec-VPN connection from an on-premises data center.
       shared_ptr<string> source_ {};
     };
 
@@ -109,6 +109,7 @@ namespace Models
         DARABONBA_PTR_TO_JSON(CreateTime, createTime_);
         DARABONBA_PTR_TO_JSON(NextHop, nextHop_);
         DARABONBA_PTR_TO_JSON(NextHopTunnelIdList, nextHopTunnelIdList_);
+        DARABONBA_PTR_TO_JSON(PrefixListId, prefixListId_);
         DARABONBA_PTR_TO_JSON(RouteDest, routeDest_);
         DARABONBA_PTR_TO_JSON(RouteEntryType, routeEntryType_);
         DARABONBA_PTR_TO_JSON(Source, source_);
@@ -122,6 +123,7 @@ namespace Models
         DARABONBA_PTR_FROM_JSON(CreateTime, createTime_);
         DARABONBA_PTR_FROM_JSON(NextHop, nextHop_);
         DARABONBA_PTR_FROM_JSON(NextHopTunnelIdList, nextHopTunnelIdList_);
+        DARABONBA_PTR_FROM_JSON(PrefixListId, prefixListId_);
         DARABONBA_PTR_FROM_JSON(RouteDest, routeDest_);
         DARABONBA_PTR_FROM_JSON(RouteEntryType, routeEntryType_);
         DARABONBA_PTR_FROM_JSON(Source, source_);
@@ -141,8 +143,9 @@ namespace Models
       virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
       virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
       virtual bool empty() const override { return this->asPath_ == nullptr
-        && this->community_ == nullptr && this->createTime_ == nullptr && this->nextHop_ == nullptr && this->nextHopTunnelIdList_ == nullptr && this->routeDest_ == nullptr
-        && this->routeEntryType_ == nullptr && this->source_ == nullptr && this->state_ == nullptr && this->vpnConnectionId_ == nullptr && this->weight_ == nullptr; };
+        && this->community_ == nullptr && this->createTime_ == nullptr && this->nextHop_ == nullptr && this->nextHopTunnelIdList_ == nullptr && this->prefixListId_ == nullptr
+        && this->routeDest_ == nullptr && this->routeEntryType_ == nullptr && this->source_ == nullptr && this->state_ == nullptr && this->vpnConnectionId_ == nullptr
+        && this->weight_ == nullptr; };
       // asPath Field Functions 
       bool hasAsPath() const { return this->asPath_ != nullptr;};
       void deleteAsPath() { this->asPath_ = nullptr;};
@@ -178,6 +181,13 @@ namespace Models
       inline vector<string> getNextHopTunnelIdList() { DARABONBA_PTR_GET(nextHopTunnelIdList_, vector<string>) };
       inline VcoRouteEntries& setNextHopTunnelIdList(const vector<string> & nextHopTunnelIdList) { DARABONBA_PTR_SET_VALUE(nextHopTunnelIdList_, nextHopTunnelIdList) };
       inline VcoRouteEntries& setNextHopTunnelIdList(vector<string> && nextHopTunnelIdList) { DARABONBA_PTR_SET_RVALUE(nextHopTunnelIdList_, nextHopTunnelIdList) };
+
+
+      // prefixListId Field Functions 
+      bool hasPrefixListId() const { return this->prefixListId_ != nullptr;};
+      void deletePrefixListId() { this->prefixListId_ = nullptr;};
+      inline string getPrefixListId() const { DARABONBA_PTR_GET_DEFAULT(prefixListId_, "") };
+      inline VcoRouteEntries& setPrefixListId(string prefixListId) { DARABONBA_PTR_SET_VALUE(prefixListId_, prefixListId) };
 
 
       // routeDest Field Functions 
@@ -229,15 +239,17 @@ namespace Models
       shared_ptr<string> community_ {};
       // The timestamp when the destination route was created.
       // 
-      // The timestamp is in the UNIX format and represents the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
+      // The timestamp follows the UNIX time format. It represents the total number of seconds that have elapsed since 00:00:00 UTC on January 1, 1970.
       shared_ptr<int64_t> createTime_ {};
       // The next hop of the route.
       shared_ptr<string> nextHop_ {};
-      // The list of next-hop tunnels.
+      // The list of next hop tunnels.
       // 
       // > - This information is returned only for IPsec-VPN connections in dual-tunnel mode.
-      // > - Tunnel information is returned only when the tunnel status is **Phase 2 negotiations succeeded**.
+      // > - Tunnel information is returned only when the tunnel status is **Phase 2 negotiation succeeded**.
       shared_ptr<vector<string>> nextHopTunnelIdList_ {};
+      // The instance ID of the prefix list.
+      shared_ptr<string> prefixListId_ {};
       // The destination CIDR block of the route.
       shared_ptr<string> routeDest_ {};
       // The type of the route.
@@ -247,19 +259,19 @@ namespace Models
       shared_ptr<string> routeEntryType_ {};
       // The source of the BGP route.
       // 
-      // - **CLOUD**: The BGP route is learned by the IPsec-VPN connection from the transit router.
-      // - **VPN_BGP**: The BGP route is learned by the IPsec-VPN connection from the on-premises data center.
+      // - **CLOUD**: The BGP route is learned by the IPsec-VPN connection from a transit router.
+      // - **VPN_BGP**: The BGP route is learned by the IPsec-VPN connection from an on-premises data center.
       shared_ptr<string> source_ {};
       // The status of the route.
       // 
-      // - **published**: The destination route has been published to the transit router instance.
+      // - **published**: The destination route is published to the transit router.
       // - **Active**: The BGP route is available.
       shared_ptr<string> state_ {};
       // The ID of the IPsec-VPN connection.
       shared_ptr<string> vpnConnectionId_ {};
       // The weight of the destination route.
       // 
-      // > This parameter is not in use.
+      // > This parameter does not take effect.
       shared_ptr<int32_t> weight_ {};
     };
 
@@ -312,13 +324,13 @@ namespace Models
 
 
   protected:
-    // The page number of the list.
+    // The page number.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries per page for paging queries.
+    // The number of entries returned per page.
     shared_ptr<int32_t> pageSize_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The total number of entries returned.
+    // The total number of entries.
     shared_ptr<int32_t> totalCount_ {};
     // The list of routes.
     shared_ptr<vector<DescribeVcoRouteEntriesResponseBody::VcoRouteEntries>> vcoRouteEntries_ {};

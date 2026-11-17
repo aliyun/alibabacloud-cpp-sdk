@@ -176,29 +176,29 @@ namespace Models
 
 
   protected:
-    // Specifies whether to delete the health check IP addresses configured on the router interface. Valid values:
+    // Specifies whether to delete the health check IP address configured on the router interface. Valid values:
     // 
-    // - **true**: Deletes the health check IP addresses.
+    // - **true**: deletes the health check IP address.
     //  
-    // - **false** (default): Does not delete the health check IP addresses.
+    // - **false** (default): does not delete the health check IP address.
     shared_ptr<bool> deleteHealthCheckIp_ {};
     // The description of the router interface. 
     // 
     // The description must be 2 to 256 characters in length and must start with a letter or a Chinese character. It cannot start with `http://` or `https://`.
     shared_ptr<string> description_ {};
-    // The health check rate. Unit: milliseconds. Recommended value: **2000**. This parameter specifies the interval between consecutive probe packets sent during a health check.
+    // The health check interval. Unit: milliseconds. The recommended value is **2000**. This value specifies the time interval at which consecutive probe packets are sent during a health check.
     // 
-    // In this example, **HcThreshold** is set to **8** and **HcRate** is set to **2000**. This means that during a health check, a probe packet is sent from **HealthCheckSourceIp** (the source IP address for health checks) to **HealthCheckTargetIp** (the destination IP address for health checks) every 2000 milliseconds. If 8 consecutive probe packets receive no response, the health check fails.
+    // In this example, **HcThreshold** is set to **8** and **HcRate** is set to **2000**. This means that a probe packet is sent from **HealthCheckSourceIp** (the source IP address for health checks) to **HealthCheckTargetIp** (the destination IP address for health checks) every 2,000 milliseconds during a health check. If no response is received for eight consecutive probe packets, the health check fails.
     shared_ptr<int32_t> hcRate_ {};
-    // The health check threshold. Unit: packets. Recommended value: **8**. This parameter specifies the number of probe packets sent during a health check.
+    // The health check threshold. Unit: packets. The recommended value is **8**. This value specifies the number of probe packets sent during a health check.
     shared_ptr<int32_t> hcThreshold_ {};
-    // The source IP address for health checks. The IP address must be an unused IP address in the local VPC.
+    // The source IP address for health checks. It must be an unused IP address in the local VPC.
     // 
     // > You can specify this parameter in Express Connect circuit scenarios.
     shared_ptr<string> healthCheckSourceIp_ {};
     // The destination IP address for health checks. 
     // 
-    // > This parameter is required if **HealthCheckSourceIp** is specified.
+    // > This parameter is required after you specify **HealthCheckSourceIp**.
     shared_ptr<string> healthCheckTargetIp_ {};
     // The name of the router interface.
     // 
@@ -206,20 +206,20 @@ namespace Models
     shared_ptr<string> name_ {};
     // The ID of the peer router interface.
     shared_ptr<string> oppositeInterfaceId_ {};
-    // The ID of the account to which the peer router interface belongs.
+    // The account ID of the peer router interface.
     shared_ptr<int64_t> oppositeInterfaceOwnerId_ {};
-    // The ID of the peer router.
+    // The ID of the peer vRouter.
     shared_ptr<string> oppositeRouterId_ {};
-    // The type of the router to which the peer router interface belongs. Valid values:
+    // The type of the vRouter to which the peer router interface belongs. Valid values:
     // 
     // - **VRouter**: vRouter.
     // 
-    // - **VBR** (default): Virtual Border Router.
+    // - **VBR** (default): Virtual Border Router (VBR).
     shared_ptr<string> oppositeRouterType_ {};
     shared_ptr<int64_t> ownerId_ {};
     // The region ID of the router interface.
     // 
-    // You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to query region IDs.
+    // You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to query the region ID.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};

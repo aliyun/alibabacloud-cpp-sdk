@@ -89,6 +89,10 @@
 #include <alibabacloud/models/AttachVbrToVpconnRequest.hpp>
 #include <alibabacloud/models/AttachVbrToVpconnResponseBody.hpp>
 #include <alibabacloud/models/AttachVbrToVpconnResponse.hpp>
+#include <alibabacloud/models/CalculateNatGatewayCapacityUnitsRequest.hpp>
+#include <alibabacloud/models/CalculateNatGatewayCapacityUnitsShrinkRequest.hpp>
+#include <alibabacloud/models/CalculateNatGatewayCapacityUnitsResponseBody.hpp>
+#include <alibabacloud/models/CalculateNatGatewayCapacityUnitsResponse.hpp>
 #include <alibabacloud/models/CancelCommonBandwidthPackageIpBandwidthRequest.hpp>
 #include <alibabacloud/models/CancelCommonBandwidthPackageIpBandwidthResponseBody.hpp>
 #include <alibabacloud/models/CancelCommonBandwidthPackageIpBandwidthResponse.hpp>
@@ -387,6 +391,9 @@
 #include <alibabacloud/models/DeleteNatIpCidrRequest.hpp>
 #include <alibabacloud/models/DeleteNatIpCidrResponseBody.hpp>
 #include <alibabacloud/models/DeleteNatIpCidrResponse.hpp>
+#include <alibabacloud/models/DeleteNatRateLimitRuleRequest.hpp>
+#include <alibabacloud/models/DeleteNatRateLimitRuleResponseBody.hpp>
+#include <alibabacloud/models/DeleteNatRateLimitRuleResponse.hpp>
 #include <alibabacloud/models/DeleteNetworkAclRequest.hpp>
 #include <alibabacloud/models/DeleteNetworkAclResponseBody.hpp>
 #include <alibabacloud/models/DeleteNetworkAclResponse.hpp>
@@ -576,6 +583,9 @@
 #include <alibabacloud/models/DescribeNatGatewayAssociateNetworkInterfacesRequest.hpp>
 #include <alibabacloud/models/DescribeNatGatewayAssociateNetworkInterfacesResponseBody.hpp>
 #include <alibabacloud/models/DescribeNatGatewayAssociateNetworkInterfacesResponse.hpp>
+#include <alibabacloud/models/DescribeNatGatewayCapacityReservationRequest.hpp>
+#include <alibabacloud/models/DescribeNatGatewayCapacityReservationResponseBody.hpp>
+#include <alibabacloud/models/DescribeNatGatewayCapacityReservationResponse.hpp>
 #include <alibabacloud/models/DescribeNatGatewaysRequest.hpp>
 #include <alibabacloud/models/DescribeNatGatewaysResponseBody.hpp>
 #include <alibabacloud/models/DescribeNatGatewaysResponse.hpp>
@@ -955,6 +965,10 @@
 #include <alibabacloud/models/ModifyNatGatewayAttributeShrinkRequest.hpp>
 #include <alibabacloud/models/ModifyNatGatewayAttributeResponseBody.hpp>
 #include <alibabacloud/models/ModifyNatGatewayAttributeResponse.hpp>
+#include <alibabacloud/models/ModifyNatGatewayCapacityReservationRequest.hpp>
+#include <alibabacloud/models/ModifyNatGatewayCapacityReservationShrinkRequest.hpp>
+#include <alibabacloud/models/ModifyNatGatewayCapacityReservationResponseBody.hpp>
+#include <alibabacloud/models/ModifyNatGatewayCapacityReservationResponse.hpp>
 #include <alibabacloud/models/ModifyNatGatewaySpecRequest.hpp>
 #include <alibabacloud/models/ModifyNatGatewaySpecResponseBody.hpp>
 #include <alibabacloud/models/ModifyNatGatewaySpecResponse.hpp>
@@ -964,6 +978,9 @@
 #include <alibabacloud/models/ModifyNatIpCidrAttributeRequest.hpp>
 #include <alibabacloud/models/ModifyNatIpCidrAttributeResponseBody.hpp>
 #include <alibabacloud/models/ModifyNatIpCidrAttributeResponse.hpp>
+#include <alibabacloud/models/ModifyNatRateLimitRuleRequest.hpp>
+#include <alibabacloud/models/ModifyNatRateLimitRuleResponseBody.hpp>
+#include <alibabacloud/models/ModifyNatRateLimitRuleResponse.hpp>
 #include <alibabacloud/models/ModifyNetworkAclAttributesRequest.hpp>
 #include <alibabacloud/models/ModifyNetworkAclAttributesResponseBody.hpp>
 #include <alibabacloud/models/ModifyNetworkAclAttributesResponse.hpp>

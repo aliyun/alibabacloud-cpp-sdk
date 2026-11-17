@@ -160,21 +160,21 @@ namespace Models
   protected:
     // The client token that is used to ensure the idempotence of the request.
     // 
-    // You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters.
+    // You can generate the parameter value on your client. Make sure that the token is unique among different requests. The client token can contain only ASCII characters.
     // 
-    // > If you do not specify this parameter, the system automatically uses the **RequestId** of the API request as the **ClientToken**. The **RequestId** may be different for each API request.
+    // > If you do not specify this parameter, the system automatically uses the **RequestId** of the API request as the **ClientToken**. The **RequestId** of each API request is different.
     shared_ptr<string> clientToken_ {};
     // The description of the gateway route table.
     // 
-    // The description must be 2 to 256 characters in length and must start with a letter or Chinese character. It cannot start with `http://` or `https://`.
+    // The description must be 2 to 256 characters in length, and must start with a letter or a Chinese character. It cannot start with `http://` or `https://`.
     shared_ptr<string> description_ {};
-    // The destination CIDR block of the route in the gateway route table.
+    // The destination CIDR block of the route entry in the gateway route table.
     // 
     // This parameter is required.
     shared_ptr<string> destinationCidrBlock_ {};
-    // Specifies whether to perform a dry run. Valid values:
-    // - **true**: performs a dry run without modifying the gateway route table. The system checks the required parameters, request format, and service limits. If the request fails the dry run, an error message is returned. If the request passes the dry run, the `DryRunOperation` error code is returned.
-    // - **false** (default): performs a dry run and sends the request. If the request passes the dry run, an HTTP 2xx status code is returned and the gateway route table is modified.
+    // Specifies whether to only precheck the request. Valid values:
+    // - **true**: prechecks the request without modifying the gateway route table. The system checks whether required parameters are specified, the request format is valid, and the service limits are met. If the request fails the precheck, the corresponding error is returned. If the request passes the precheck, the `DryRunOperation` error code is returned.
+    // - **false** (default): sends the request. If the request passes the precheck, an HTTP 2xx status code is returned and the gateway route table is modified.
     shared_ptr<bool> dryRun_ {};
     // The ID of the gateway route table that you want to modify.
     shared_ptr<string> gatewayRouteTableId_ {};
@@ -182,20 +182,20 @@ namespace Models
     shared_ptr<string> IPv4GatewayRouteTableId_ {};
     // The name of the gateway route table.
     // 
-    // The name must be 2 to 128 characters in length and must start with a letter or Chinese character. It can contain digits, periods (.), underscores (_), and hyphens (-).
+    // The name must be 2 to 128 characters in length, and must start with a letter or a Chinese character. It can contain digits, periods (.), underscores (_), and hyphens (-).
     shared_ptr<string> name_ {};
     // The instance ID of the next hop that you want to modify.
     // 
-    // - If **NextHopType** is set to **Instance**, set **NextHopId** to the ID of an ECS instance.
-    // - If **NextHopType** is set to **NetworkInterface**, set **NextHopId** to the ID of an elastic network interface controller (NIC) instance.
-    // - If **NextHopType** is set to **Local**, leave **NextHopId** empty, which indicates a local next hop.
+    // - If **NextHopType** is set to **Instance**, **NextHopId** is the ID of the ECS instance.
+    // - If **NextHopType** is set to **NetworkInterface**, **NextHopId** is the ID of the ENI.
+    // - If **NextHopType** is set to **Local**, **NextHopId** is empty, which indicates local.
     // 
-    // > If the next hop type of the route is **Instance** or **NetworkInterface** and you want to modify the next hop, you must first change **NextHopType** to **Local**, and then change **NextHopType** to **Instance** or **NetworkInterface** and specify a new **NextHopId**. You cannot directly change the next hop from one network interface controller (NIC) or ECS instance to another network interface controller (NIC) or ECS instance when the next hop type is network interface controller (NIC) or ECS instance.
+    // > If the next hop type of the route is **Instance** or **NetworkInterface** and you want to modify the next hop, you must first change **NextHopType** to **Local**, and then change **NextHopType** back to **Instance** or **NetworkInterface** before modifying the specific **NextHopId**. You cannot directly change the next hop from one ENI or ECS instance to another ENI or ECS instance.
     shared_ptr<string> nextHopId_ {};
     // The next hop type of the route that you want to modify. Valid values:
     // 
     // - **Instance**: ECS instance.
-    // - **NetworkInterface**: elastic network interface controller (NIC) instance.
+    // - **NetworkInterface**: elastic network interface (ENI).
     // 
     // - **Local**: local.
     // 
@@ -205,7 +205,7 @@ namespace Models
     shared_ptr<int64_t> ownerId_ {};
     // The region ID of the gateway route table that you want to modify.
     // 
-    // You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to query the most recent region list.
+    // You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to query the region ID.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};

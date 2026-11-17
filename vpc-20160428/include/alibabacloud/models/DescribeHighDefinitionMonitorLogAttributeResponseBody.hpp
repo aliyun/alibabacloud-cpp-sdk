@@ -86,13 +86,13 @@ namespace Models
   protected:
     // The instance ID for which high-precision second-level monitoring is queried.
     shared_ptr<string> instanceId_ {};
-    // The type of the instance for which high-precision second-level monitoring is queried. The value is **EIP**.
+    // The type of the instance for which high-precision second-level monitoring is queried. Valid value: **EIP**.
     shared_ptr<string> instanceType_ {};
-    // The name of the LogProject.
+    // The name of the Simple Log Service LogProject.
     shared_ptr<string> logProject_ {};
-    // The name of the LogStore.
+    // The name of the Simple Log Service Logstore.
     shared_ptr<string> logStore_ {};
-    // The request ID.
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
     // Indicates whether the call was successful.
     // 

@@ -146,7 +146,7 @@ namespace Models
       shared_ptr<string> natIpCidrId_ {};
       // The name of the NAT CIDR block.
       shared_ptr<string> natIpCidrName_ {};
-      // The status of the NAT CIDR block. The value is **Available**, which indicates that the NAT CIDR block is available.
+      // The status of the NAT CIDR block. Valid values: **Available**, which indicates that the NAT CIDR block is active.
       shared_ptr<string> natIpCidrStatus_ {};
     };
 
@@ -185,13 +185,13 @@ namespace Models
   protected:
     // The list of NAT CIDR blocks.
     shared_ptr<vector<ListNatIpCidrsResponseBody::NatIpCidrs>> natIpCidrs_ {};
-    // The pagination token that is used in the next request to retrieve a new page of results. Valid values:
-    // - If **NextToken** is empty, no subsequent requests exist.
-    // - If **NextToken** is returned, the value indicates the token for the next query.
+    // The token for the next query. Valid values:
+    // - If **NextToken** is empty, no next query is available.
+    // - If **NextToken** returns a value, the value indicates the token for the next query.
     shared_ptr<string> nextToken_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The total number of NAT CIDR block entries returned.
+    // The total number of NAT CIDR blocks returned.
     shared_ptr<string> totalCount_ {};
   };
 

@@ -359,7 +359,7 @@ namespace Models
 
   protected:
     shared_ptr<DescribeBgpPeersResponseBody::BgpPeers> bgpPeers_ {};
-    // The page number of the list.
+    // The page number.
     shared_ptr<int32_t> pageNumber_ {};
     // The number of entries per page in a paging query.
     shared_ptr<int32_t> pageSize_ {};

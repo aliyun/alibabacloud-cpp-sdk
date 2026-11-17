@@ -343,7 +343,7 @@ namespace Models
 
   protected:
     shared_ptr<DescribeIpv6GatewaysResponseBody::Ipv6Gateways> ipv6Gateways_ {};
-    // The current page number.
+    // The page number.
     shared_ptr<int32_t> pageNumber_ {};
     // The number of entries per page.
     shared_ptr<int32_t> pageSize_ {};

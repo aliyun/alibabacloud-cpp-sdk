@@ -118,15 +118,16 @@ namespace Models
     shared_ptr<string> bandwidthPackageId_ {};
     // The client token that is used to ensure the idempotence of the request.
     // 
-    // Generate a parameter value from your client to ensure uniqueness across different requests. ClientToken supports only ASCII characters.
+    // You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters.
     // 
-    // > If you do not specify this parameter, the system uses the **RequestId** of the API request as the **ClientToken**. The **RequestId** may vary for each API request.
+    // > If you do not specify this parameter, the system automatically uses the **RequestId** of the API request as the **ClientToken**. The **RequestId** of each API request may be different.
     shared_ptr<string> clientToken_ {};
-    // Specifies whether to perform a dry run without performing the actual operation.
+    // Specifies whether to perform a dry run without executing the actual request.
     shared_ptr<bool> dryRun_ {};
-    // The ID of the EIP. 
+    // The ID of the public IP address instance to be removed from the Internet Shared Bandwidth instance.
     // 
-    // You can call the [DescribeEipAddresses](https://www.alibabacloud.com/help/en/eip/developer-reference/api-vpc-2016-04-28-describeeipaddresses-eips) operation to query the EIP ID.
+    // - If IpType is set to **EIP**, specify the EIP ID. You can call the [DescribeEipAddresses](https://www.alibabacloud.com/help/en/eip/developer-reference/api-vpc-2016-04-28-describeeipaddresses-eips) operation to query the EIP ID.
+    // - If IpType is set to **VpcIpv6**, specify the IPv6 address ID of the VPC. You can call the DescribeIpv6Addresses operation to query the IPv6 address ID.
     // 
     // This parameter is required.
     shared_ptr<string> ipInstanceId_ {};

@@ -116,9 +116,13 @@ namespace Models
 
 
     protected:
-      // The tag key. You can specify up to 20 tag keys. The tag key cannot be an empty string.
+      // The tag key. You can enter up to 20 tag keys. If you specify this parameter, it cannot be an empty string.
+      // 
+      // A tag key can be up to 128 characters in length. It cannot start with `aliyun` or `acs:`, and cannot contain `http://` or `https://`.
       shared_ptr<string> key_ {};
-      // The tag value. You can specify up to 20 tag values. The tag value can be an empty string.
+      // The tag value. You can enter up to 20 tag values. If you specify this parameter, it can be an empty string.
+      // 
+      // A tag value can be up to 128 characters in length. It cannot start with `aliyun` or `acs:`, and cannot contain `http://` or `https://`.
       shared_ptr<string> value_ {};
     };
 
@@ -160,9 +164,9 @@ namespace Models
 
 
     protected:
-      // The filter key for querying resources. The value must be **CreationStartTime**, which specifies the start time when the resource was created.
+      // The filter key used when querying resources. Set the value to **CreationStartTime**, which specifies the start time of resource creation.
       shared_ptr<string> key_ {};
-      // The filter value for querying resources. Specify the value in UTC in the `YYYY-MM-DDThh:mmZ` format.
+      // The filter value used when querying resources. Specify the time in UTC in the `YYYY-MM-DDThh:mmZ` format.
       shared_ptr<string> value_ {};
     };
 
@@ -353,35 +357,84 @@ namespace Models
 
   protected:
     shared_ptr<vector<DescribeEipAddressesRequest::Filter>> filter_ {};
-    // The ID of the EIP instance to query.
+    // The ID of the EIP to query. 
+    // 
+    // You can enter up to 50 EIP instance IDs. Separate multiple instance IDs with commas (,).
+    // 
+    // > If you specify both **EipAddress** and **AllocationId**, you can enter up to 50 EIP instance IDs for **AllocationId** and up to 50 EIP addresses for **EipAddress**.
     shared_ptr<string> allocationId_ {};
-    // The instance ID of the cloud resource.
+    // The instance ID of the cloud service.
     shared_ptr<string> associatedInstanceId_ {};
-    // The type of the cloud resource instance to be associated. Valid values:
+    // The type of the cloud service instance to associate with. Valid values: 
+    // - **EcsInstance** (default): an ECS instance in a VPC.
+    // - **SlbInstance**: a CLB instance in a VPC.
+    // - **Nat**: a NAT gateway.
+    // - **HaVip**: a high-availability virtual IP address. 
+    // - **NetworkInterface**: a secondary elastic network interface (ENI).
+    // - **IpAddress**: an IP address.
+    // 
+    // > You can associate only one EIP with each ECS instance, CLB instance, high-availability virtual IP address, or IP address at a time. You can associate multiple EIPs with a NAT gateway. The number of EIPs that can be associated with a secondary ENI depends on the EIP association mode. For more information, see [Overview of EIPs](https://help.aliyun.com/document_detail/72125.html).
     shared_ptr<string> associatedInstanceType_ {};
     // The billing method of the EIP. Valid values:
+    // - **PostPaid**: pay-as-you-go.
+    // - **PrePaid**: subscription.
     shared_ptr<string> chargeType_ {};
-    // Specifies whether to perform only a dry run. Valid values:
+    // Specifies whether to only precheck the request. Valid values:
+    // 
+    // - **true**: sends a check request and does not query resources. The system checks whether required parameters are specified, the request format is valid, and service limits are met. If the request fails the check, the corresponding error is returned. If the request passes the check, the `DryRunOperation` error code is returned.
+    // 
+    // - **false** (default): sends a regular request. If the request passes the check, the HTTP 2xx status code is returned and the operation is performed.
     shared_ptr<bool> dryRun_ {};
     // The IP address of the EIP to query.
+    // 
+    // You can enter up to 50 EIP addresses. Separate multiple IP addresses with commas (,).
+    // 
+    // > If you specify both **EipAddress** and **AllocationId**, you can enter up to 50 EIP addresses for **EipAddress** and up to 50 EIP instance IDs for **AllocationId**.
     shared_ptr<string> eipAddress_ {};
     // The name of the EIP.
+    // 
+    // The name must be 1 to 128 characters in length, and must start with a letter or a Chinese character. It can contain digits, underscores (_), and hyphens (-).
     shared_ptr<string> eipName_ {};
     // The line type. Valid values:
+    // 
+    // - **BGP** (default): BGP (multi-ISP) line. BGP (multi-ISP) EIPs are supported in all regions.
+    // - **BGP_PRO**: BGP (multi-ISP) Pro line. BGP (multi-ISP) Pro EIPs are supported only in the China (Hong Kong), Singapore, Japan (Tokyo), Malaysia (Kuala Lumpur), Philippines (Manila), Indonesia (Jakarta), and Thailand (Bangkok) regions.
+    // 
+    // For more information about BGP (multi-ISP) and BGP (multi-ISP) Pro lines, see [EIP line types](https://help.aliyun.com/document_detail/32321.html).
+    // 
+    // If you are a whitelisted user of single-ISP bandwidth, you can also select the following types:
+    // - **ChinaTelecom**: China Telecom
+    // - **ChinaUnicom**: China Unicom
+    // - **ChinaMobile**: China Mobile
+    // - **ChinaTelecom_L2**: China Telecom L2
+    // - **ChinaUnicom_L2**: China Unicom L2
+    // - **ChinaMobile_L2**: China Mobile L2
+    // 
+    // If you are an Alibaba Finance Cloud user in the China (Hangzhou) region, this parameter is required. Set the value to **BGP_FinanceCloud**.
     shared_ptr<string> ISP_ {};
-    // Specifies whether to include subscription data that has not taken effect. Valid values:
+    // Specifies whether to include inactive subscription data. Valid values:
+    // 
+    // - **false** (default): does not include inactive subscription data.
+    // 
+    // - **true**: includes inactive subscription data.
     shared_ptr<bool> includeReservationData_ {};
     // The lock type. Valid values:
+    // 
+    // - **financial**: locked due to overdue payments.
+    // 
+    // - **security**: locked due to security reasons.
     shared_ptr<string> lockReason_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
-    // The page number of the list. Default value: **1**.
+    // The page number. Default value: **1**.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries per page in a paged query. Maximum value: **100**. Default value: **10**.
+    // The number of entries per page. Maximum value: **100**. Default value: **10**.
     shared_ptr<int32_t> pageSize_ {};
     // The ID of the IP address pool to which the EIP to query belongs.
     shared_ptr<string> publicIpAddressPoolId_ {};
     // The region ID of the EIP.
+    // 
+    // You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to query the region ID.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
@@ -390,12 +443,27 @@ namespace Models
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
     // Specifies whether Anti-DDoS (Enhanced) is enabled. Valid values:
+    // - **false**: disabled.
+    // - **true**: enabled.
     shared_ptr<bool> securityProtectionEnabled_ {};
-    // The instance ID of the contiguous EIP group.
+    // The instance ID of the contiguous EIP.
     shared_ptr<string> segmentInstanceId_ {};
     // Specifies whether the instance is a managed instance. Valid values:
+    // - **true**: The instance is a managed instance.
+    // - **false**: The instance is not a managed instance.
+    // 
+    // If you do not specify this parameter, all instances are queried by default.
     shared_ptr<bool> serviceManaged_ {};
     // The status of the EIP. Valid values:
+    // 
+    // - **Associating**: being associated.
+    // 
+    // - **Unassociating**: being disassociated.
+    // 
+    // - **InUse**: allocated.
+    // 
+    // - **Available**: available.
+    // - **Releasing**: being released.
     shared_ptr<string> status_ {};
     // The tags used to filter EIPs.
     shared_ptr<vector<DescribeEipAddressesRequest::Tag>> tag_ {};

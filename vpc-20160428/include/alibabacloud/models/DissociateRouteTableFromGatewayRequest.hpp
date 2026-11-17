@@ -121,33 +121,31 @@ namespace Models
 
 
   protected:
-    // The client token that is used to ensure the idempotence of the request.
+    // The client token that is used to ensure the idempotence of the request. You can use the client to generate the value, but you must make sure that the value is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length.
     // 
-    // The client generates the value. The value must be unique among different requests and cannot exceed 64 ASCII characters in length.
-    // 
-    // > If you do not specify this parameter, the system uses the **RequestId** of the API request as the **ClientToken**. The **RequestId** may vary for each API request.
+    // > If you do not specify this parameter, the system automatically uses the **RequestId** of the API request as the **ClientToken**. The **RequestId** of each API request may be different.
     shared_ptr<string> clientToken_ {};
-    // Specifies whether to perform a dry run. Valid values:
-    // - **true**: performs a dry run without disassociating the gateway route table from the IPv4 gateway instance. The system checks the required parameters, request format, and service limits. If the check fails, the corresponding error is returned. If the check succeeds, the `DryRunOperation` error code is returned.
-    // - **false** (default): performs a dry run and sends the request. If the check succeeds, an HTTP 2xx status code is returned and the gateway route table is disassociated from the IPv4 gateway instance.
+    // Specifies whether to perform only a dry run. Valid values:
+    // - **true**: sends a dry run request. The gateway route table is not dissociated from the IPv4 gateway instance. The system checks the required parameters, request format, and service limits. If the request fails the dry run, the corresponding error is returned. If the request passes the dry run, the `DryRunOperation` error code is returned.
+    // - **false** (default): sends a normal request. If the request passes the dry run, a 2xx HTTP status code is returned and the gateway route table is directly dissociated from the IPv4 gateway instance.
     shared_ptr<bool> dryRun_ {};
-    // The instance ID of the IPv4 gateway to disassociate.
+    // The instance ID of the IPv4 gateway to be dissociated.
     // 
     // This parameter is required.
     shared_ptr<string> gatewayId_ {};
-    // The type of the gateway instance to disassociate.
+    // The type of the gateway instance to be dissociated.
     shared_ptr<string> gatewayType_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
-    // The region ID of the gateway route table and IPv4 gateway instance to disassociate.
+    // The region ID of the gateway route table and the IPv4 gateway instance to be dissociated.
     // 
-    // You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to query the region ID.
+    // You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to obtain the region ID.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
-    // The ID of the gateway route table to disassociate.
+    // The ID of the gateway route table to be dissociated.
     // 
     // This parameter is required.
     shared_ptr<string> routeTableId_ {};

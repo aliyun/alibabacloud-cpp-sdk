@@ -153,48 +153,48 @@ namespace Models
     // 
     // The description must be 1 to 256 characters in length and cannot start with `http://` or `https://`.
     shared_ptr<string> description_ {};
-    // The IPv4 CIDR block of the route entry. IPv4 and IPv6 CIDR blocks are supported.
+    // The destination CIDR block of the route entry. Both IPv4 CIDR blocks and IPv6 CIDR blocks are supported.
     // > If the **RouteEntryId** parameter is not specified, the **DestinationCidrBlock** and **RouteTableId** parameters are required.
-    // > To change the IPv4 CIDR block of a route to a **prefix list**, you must specify the **RouteEntryId** parameter. The **DestinationCidrBlock** parameter does not support prefix list CIDR blocks or prefix list instance IDs.
+    // > To change the destination CIDR block of the routing entry to a **prefix list**, you must specify the **RouteEntryId** parameter. The **DestinationCidrBlock** parameter does not support prefix list CIDR blocks or prefix list instance IDs.
     shared_ptr<string> destinationCidrBlock_ {};
     // Specifies whether to perform a dry run. Valid values:
     // 
-    // **true**: performs a dry run without modifying the route. The system checks the AccessKey pair, the authorization of the Resource Access Management (RAM) user, and the required parameters. If the check fails, the corresponding error is returned. If the check succeeds, the `DryRunOperation` error code is returned.
+    // **true**: performs a dry run and does not modify the routing entry. The system checks whether your AccessKey pair is valid, whether the Resource Access Management (RAM) user is authorized, and whether the required parameters are specified. If the request fails the dry run, an error message is returned. If the request passes the dry run, the `DryRunOperation` error code is returned.
     // 
-    // **false** (default): sends a normal request. If the check succeeds, a 2xx HTTP status code is returned and the route is modified.
+    // **false** (default): sends a normal request. If the request passes the dry run, a 2xx HTTP status code is returned and the routing entry is modified.
     shared_ptr<bool> dryRun_ {};
-    // The instance ID of the new next hop of the route entry.
+    // The instance ID of the next hop for the new routing entry.
     shared_ptr<string> newNextHopId_ {};
-    // The new next hop type of the route entry. Valid values:
+    // The new next hop type of the routing entry. Valid values:
     // 
-    // - **Instance**: ECS instance.
+    // - **Instance**: an ECS instance.
     // 
-    // - **HaVip**: high-availability virtual IP address.  
+    // - **HaVip**: a high-availability virtual IP address.  
     // 
-    // - **RouterInterface**: vRouter interface.
+    // - **RouterInterface**: a vRouter interface.
     // 
-    // - **NetworkInterface**: elastic network interface (ENI).
+    // - **NetworkInterface**: an elastic network interface controller (NIC).
     // 
-    // - **VpnGateway**: VPN gateway.
+    // - **VpnGateway**: a VPN gateway.
     // 
-    // - **IPv6Gateway**: IPv6 gateway.
+    // - **IPv6Gateway**: an IPv6 gateway.
     // 
-    // - **NatGateway**: NAT gateway.
+    // - **NatGateway**: a NAT gateway.
     // 
-    // - **Attachment**: transit router.
+    // - **Attachment**: a transit router (TR).
     // 
-    // - **VpcPeer**: VPC peering connection.
-    // - **Ipv4Gateway**: IPv4 gateway.
-    // - **GatewayEndpoint**: gateway endpoint.
-    // - **Ecr**: Express Connect Router (ECR).
-    // - **GatewayLoadBalancerEndpoint**: Gateway Load Balancer endpoint (GWLBe).
-    // - **RouteTargetGroup**: route target group.
+    // - **VpcPeer**: a VPC peering connection.
+    // - **Ipv4Gateway**: an IPv4 gateway.
+    // - **GatewayEndpoint**: a gateway endpoint.
+    // - **Ecr**: an Express Connect Router (ECR).
+    // - **GatewayLoadBalancerEndpoint**: a Gateway Load Balancer endpoint (GWLBe).
+    // - **RouteTargetGroup**: a routing target group.
     shared_ptr<string> newNextHopType_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
     // The region ID of the route entry.
     // 
-    // You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to query the region ID.
+    // You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to query region IDs.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
@@ -206,7 +206,7 @@ namespace Models
     // 
     // The name must be 1 to 128 characters in length and cannot start with `http://` or `https://`.
     shared_ptr<string> routeEntryName_ {};
-    // The route table ID.
+    // The ID of the route table.
     shared_ptr<string> routeTableId_ {};
   };
 

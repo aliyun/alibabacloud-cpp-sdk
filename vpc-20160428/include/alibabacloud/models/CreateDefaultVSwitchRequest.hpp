@@ -105,15 +105,15 @@ namespace Models
   protected:
     // The client token that is used to ensure the idempotence of the request.
     // 
-    // You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters.
+    // You can use the client to generate the value, but you must make sure that the value is unique among different requests. The client token can contain only ASCII characters.
     // 
-    // > If you do not specify this parameter, the system automatically uses the **RequestId** of the API request as the **ClientToken**. The **RequestId** may be different for each API request.
+    // > If you do not specify this parameter, the system automatically uses the **RequestId** of the API request as the **ClientToken**. The **RequestId** of each API request is unique.
     shared_ptr<string> clientToken_ {};
     // The last 8 bits of the IPv6 CIDR block of the vSwitch. Valid values: **0** to **255**.
     shared_ptr<int32_t> ipv6CidrBlock_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
-    // The region ID of the default vSwitch that you want to create.
+    // The region ID of the default vSwitch to be created.
     // 
     // You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to query region IDs.
     // 
@@ -121,7 +121,7 @@ namespace Models
     shared_ptr<string> regionId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
-    // The zone ID of the default vSwitch that you want to create.
+    // The zone ID of the default vSwitch to be created.
     // 
     // You can call the [DescribeZones](https://help.aliyun.com/document_detail/36064.html) operation to query zone IDs.
     // 

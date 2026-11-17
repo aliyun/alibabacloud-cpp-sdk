@@ -116,26 +116,21 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> allocationId_ {};
-    // The end time of the data to retrieve. Specify the time in UTC in the ISO 8601 standard format: `YYYY-MM-DDThh:mm:ssZ`. For example, `2013-01-10T12:00:00Z` represents 20:00:00 (UTC+8) on January 10, 2013.
-    // 
-    // If the specified time is not on the minute, the end time is automatically rounded up to the next minute.
+    // The end time of the data query. Specify the time in the ISO 8601 standard in the `YYYY-MM-DDThh:mm:ssZ` format. The time must be in UTC. For example, 20:00:00 on January 10, 2013 (UTC+8) is specified as `2013-01-10T12:00:00Z`. If the specified time is not an exact minute, the next minute is automatically used as the end time.
     // 
     // This parameter is required.
     shared_ptr<string> endTime_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
-    // The duration of each monitoring data entry. Unit: seconds. Valid values: **60** (default), **300**, **900**, or **3600**.
-    // - If (**EndTime** – **StartTime**) / **Period** is less than or equal to 400, all monitoring data from the start time to the end time is returned.
-    // - If (**EndTime** – **StartTime**) / **Period** is greater than 400, monitoring data cannot be returned.
+    // The time interval of each monitoring data point. Unit: seconds. Valid values: **60** (default), **300**, **900**, and **3600**.
+    // - If the value of (**EndTime** - **StartTime**) / **Period** is less than or equal to 400, all monitoring data between the start time and the end time is returned.
+    // - If the value of (**EndTime** - **StartTime**) / **Period** is greater than 400, monitoring data cannot be returned.
     shared_ptr<int32_t> period_ {};
-    // The region ID of the EIP.
-    // You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to query region IDs.
+    // The region ID of the EIP. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to query region IDs.
     shared_ptr<string> regionId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
-    // The start time of the data to retrieve. Specify the time in UTC in the ISO 8601 standard format: `YYYY-MM-DDThh:mm:ssZ`. For example, `2013-01-10T12:00:00Z` represents 20:00:00 (UTC+8) on January 10, 2013.
-    // 
-    // If the specified time is not on the minute, the start time is automatically rounded up to the next minute.
+    // The start time of the data query. Specify the time in the ISO 8601 standard in the `YYYY-MM-DDThh:mm:ssZ` format. The time must be in UTC. For example, 20:00:00 on January 10, 2013 (UTC+8) is specified as `2013-01-10T12:00:00Z`. If the specified time is not an exact minute, the next minute is automatically used as the start time.
     // 
     // This parameter is required.
     shared_ptr<string> startTime_ {};

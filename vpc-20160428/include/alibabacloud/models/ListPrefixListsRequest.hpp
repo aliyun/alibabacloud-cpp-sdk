@@ -88,13 +88,13 @@ namespace Models
 
 
     protected:
-      // The tag key of the resource. You can specify up to 20 tag keys. The tag key cannot be an empty string.
+      // The tag key of the resource. You can specify up to 20 tag keys. If you specify this parameter, you cannot specify an empty string.
       // 
-      // A tag key can be up to 128 characters in length. It cannot start with `aliyun` or `acs:` and cannot contain `http://` or `https://`.
+      // A tag key can be up to 128 characters in length. It cannot start with `aliyun` or `acs:`, and cannot contain `http://` or `https://`.
       shared_ptr<string> key_ {};
-      // The tag value of the resource. You can specify up to 20 tag values. The tag value can be an empty string.
+      // The tag value of the resource. You can specify up to 20 tag values. If you specify this parameter, you can specify an empty string.
       // 
-      // The tag value can be up to 128 characters in length. It cannot start with `aliyun` or `acs:` and cannot contain `http://` or `https://`.
+      // A tag value can be up to 128 characters in length. It cannot start with `aliyun` or `acs:`, and cannot contain `http://` or `https://`.
       shared_ptr<string> value_ {};
     };
 
@@ -183,23 +183,23 @@ namespace Models
 
 
   protected:
-    // The number of entries per page for a paged query. Valid values: **1** to **100**. Default value: **20**.
+    // The number of entries to return on each page. Valid values: **1** to **100**. Default value: **20**.
     shared_ptr<int64_t> maxResults_ {};
-    // The pagination token. Valid values:
-    // - If this is the first request or no subsequent query exists, leave this parameter empty.
-    // - If a subsequent query exists, set this parameter to the NextToken value returned by the previous API call.
+    // The pagination token for the next query. Valid values:
+    // - For the first query or if no subsequent query is required, leave this parameter empty.
+    // - If a subsequent query is required, set the value to the NextToken value returned from the previous API call.
     shared_ptr<string> nextToken_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
-    // The IDs of the prefix lists to query. Valid values of **N**: **1** to **100**. You can query up to 100 prefix lists at a time.
+    // The IDs of the prefix lists. Valid values of **N**: **1** to **100**, which means you can query up to 100 prefix lists at a time.
     shared_ptr<vector<string>> prefixListIds_ {};
-    // The name of the prefix list to query.
+    // The name of the prefix list.
     // 
-    // The name must be 1 to 128 characters in length and cannot start with `http://` or `https://`.
+    // The name must be 1 to 128 characters in length, and cannot start with `http://` or `https://`.
     shared_ptr<string> prefixListName_ {};
-    // The ID of the region in which to query prefix lists.
+    // The region ID of the prefix list.
     // 
-    // You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to query the region ID.
+    // You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to query the most recent region list.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
@@ -207,7 +207,7 @@ namespace Models
     shared_ptr<string> resourceGroupId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
-    // The tags.
+    // The list of tags.
     shared_ptr<vector<ListPrefixListsRequest::Tags>> tags_ {};
   };
 

@@ -59,7 +59,7 @@ namespace Models
 
 
     protected:
-      // The ID of the order.
+      // The ID of the created order.
       shared_ptr<string> orderId_ {};
     };
 
@@ -82,7 +82,7 @@ namespace Models
 
 
   protected:
-    // The detailed information about the data.
+    // The data details.
     shared_ptr<CreatePhysicalConnectionOccupancyOrderResponseBody::Data> data_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

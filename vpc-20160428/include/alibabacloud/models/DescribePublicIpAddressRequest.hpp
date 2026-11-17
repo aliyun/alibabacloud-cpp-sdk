@@ -103,7 +103,7 @@ namespace Models
 
 
   protected:
-    // The version of the IP protocol. Valid values:
+    // The IP protocol version. Valid values:
     // 
     // - **ipv4** (default): IPv4.
     // 
@@ -118,7 +118,7 @@ namespace Models
     // Valid values: **1** to **100**. Default value: **100**.
     shared_ptr<int32_t> pageSize_ {};
     // The region to query.
-    // You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to obtain the region ID.
+    // You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to query region IDs.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};

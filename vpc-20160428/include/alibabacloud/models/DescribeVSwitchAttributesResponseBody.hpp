@@ -20,6 +20,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(Description, description_);
       DARABONBA_PTR_TO_JSON(EnabledIpv6, enabledIpv6_);
       DARABONBA_PTR_TO_JSON(Ipv6CidrBlock, ipv6CidrBlock_);
+      DARABONBA_PTR_TO_JSON(Ipv6Only, ipv6Only_);
       DARABONBA_PTR_TO_JSON(IsDefault, isDefault_);
       DARABONBA_PTR_TO_JSON(NetworkAclId, networkAclId_);
       DARABONBA_PTR_TO_JSON(OwnerId, ownerId_);
@@ -41,6 +42,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(Description, description_);
       DARABONBA_PTR_FROM_JSON(EnabledIpv6, enabledIpv6_);
       DARABONBA_PTR_FROM_JSON(Ipv6CidrBlock, ipv6CidrBlock_);
+      DARABONBA_PTR_FROM_JSON(Ipv6Only, ipv6Only_);
       DARABONBA_PTR_FROM_JSON(IsDefault, isDefault_);
       DARABONBA_PTR_FROM_JSON(NetworkAclId, networkAclId_);
       DARABONBA_PTR_FROM_JSON(OwnerId, ownerId_);
@@ -183,17 +185,17 @@ namespace Models
       shared_ptr<string> routeTableId_ {};
       // The type of the route table. Valid values:
       // 
-      // - **System**: system route table.
+      // - **System**: System route table.
       // 
-      // - **Custom**: custom route table.
+      // - **Custom**: Custom route table.
       shared_ptr<string> routeTableType_ {};
     };
 
     virtual bool empty() const override { return this->availableIpAddressCount_ == nullptr
         && this->cidrBlock_ == nullptr && this->creationTime_ == nullptr && this->description_ == nullptr && this->enabledIpv6_ == nullptr && this->ipv6CidrBlock_ == nullptr
-        && this->isDefault_ == nullptr && this->networkAclId_ == nullptr && this->ownerId_ == nullptr && this->requestId_ == nullptr && this->resourceGroupId_ == nullptr
-        && this->routeTable_ == nullptr && this->shareType_ == nullptr && this->status_ == nullptr && this->tags_ == nullptr && this->vSwitchId_ == nullptr
-        && this->vSwitchName_ == nullptr && this->vpcId_ == nullptr && this->zoneId_ == nullptr; };
+        && this->ipv6Only_ == nullptr && this->isDefault_ == nullptr && this->networkAclId_ == nullptr && this->ownerId_ == nullptr && this->requestId_ == nullptr
+        && this->resourceGroupId_ == nullptr && this->routeTable_ == nullptr && this->shareType_ == nullptr && this->status_ == nullptr && this->tags_ == nullptr
+        && this->vSwitchId_ == nullptr && this->vSwitchName_ == nullptr && this->vpcId_ == nullptr && this->zoneId_ == nullptr; };
     // availableIpAddressCount Field Functions 
     bool hasAvailableIpAddressCount() const { return this->availableIpAddressCount_ != nullptr;};
     void deleteAvailableIpAddressCount() { this->availableIpAddressCount_ = nullptr;};
@@ -234,6 +236,13 @@ namespace Models
     void deleteIpv6CidrBlock() { this->ipv6CidrBlock_ = nullptr;};
     inline string getIpv6CidrBlock() const { DARABONBA_PTR_GET_DEFAULT(ipv6CidrBlock_, "") };
     inline DescribeVSwitchAttributesResponseBody& setIpv6CidrBlock(string ipv6CidrBlock) { DARABONBA_PTR_SET_VALUE(ipv6CidrBlock_, ipv6CidrBlock) };
+
+
+    // ipv6Only Field Functions 
+    bool hasIpv6Only() const { return this->ipv6Only_ != nullptr;};
+    void deleteIpv6Only() { this->ipv6Only_ = nullptr;};
+    inline bool getIpv6Only() const { DARABONBA_PTR_GET_DEFAULT(ipv6Only_, false) };
+    inline DescribeVSwitchAttributesResponseBody& setIpv6Only(bool ipv6Only) { DARABONBA_PTR_SET_VALUE(ipv6Only_, ipv6Only) };
 
 
     // isDefault Field Functions 
@@ -334,46 +343,51 @@ namespace Models
   protected:
     // The active IP address count.
     shared_ptr<int64_t> availableIpAddressCount_ {};
-    // The private network address range of the vSwitch.
+    // The private endpoint range of the vSwitch.
     shared_ptr<string> cidrBlock_ {};
     // The time when the vSwitch was created.
     shared_ptr<string> creationTime_ {};
     // The description of the vSwitch.
     shared_ptr<string> description_ {};
-    // Indicates whether the IPv6 CIDR block is enabled for the vSwitch. Valid values:
-    // - **true**: enabled.
-    // - **false**: not enabled.
+    // Specifies whether the IPv6 CIDR block is enabled and configured for the vSwitch. Valid values:
+    // - **true**: Enabled.
+    // - **false**: Disabled.
     shared_ptr<bool> enabledIpv6_ {};
     // The IPv6 CIDR block of the vSwitch.
     shared_ptr<string> ipv6CidrBlock_ {};
-    // Indicates whether the vSwitch is the default vSwitch. Valid values:
+    // Indicates whether the vSwitch is an IPv6 single-stack vSwitch. Valid values:
+    // 
+    // - true: The vSwitch is an IPv6 single-stack vSwitch.
+    // - false: The vSwitch is not an IPv6 single-stack vSwitch.
+    shared_ptr<bool> ipv6Only_ {};
+    // Specifies whether the vSwitch is the default vSwitch. Valid values:
     // 
     // - **true**: The vSwitch is the default vSwitch.
     // - **false**: The vSwitch is not the default vSwitch.
     shared_ptr<bool> isDefault_ {};
     // The network ACL rules.
     shared_ptr<string> networkAclId_ {};
-    // The Alibaba Cloud account ID of the resource ownership.
+    // The Alibaba Cloud account ID of the resource owner.
     // 
-    // >Notice: This value is of the Long type. Precision loss may occur in certain programming languages. Use this value with caution.
+    // >Notice: This value is of the Long type and may cause precision loss in some programming languages. Use it with caution.
     shared_ptr<int64_t> ownerId_ {};
-    // The request ID.
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
-    // The resource group ID.
+    // The ID of the resource group.
     shared_ptr<string> resourceGroupId_ {};
     // The route table information of the vSwitch.
     shared_ptr<DescribeVSwitchAttributesResponseBody::RouteTable> routeTable_ {};
-    // The sharing type of the vSwitch.
+    // The share type of the vSwitch.
     // 
-    // - If the value is empty, the vSwitch is a private vSwitch.
+    // - If the value is empty, the vSwitch is a standard vSwitch.
     // - If the value is **Shared**, the vSwitch is a shared vSwitch.
-    // - If the value is **Sharing**, the vSwitch is being shared with other accounts.
+    // - If the value is **Sharing**, the vSwitch is being shared.
     shared_ptr<string> shareType_ {};
     // The status of the vSwitch. Valid values:
     // 
-    // - **Pending**: being configured. 
+    // - **Pending**: Configuring. 
     // 
-    // - **Available**: active.
+    // - **Available**: Available.
     shared_ptr<string> status_ {};
     shared_ptr<DescribeVSwitchAttributesResponseBody::Tags> tags_ {};
     // The ID of the vSwitch.

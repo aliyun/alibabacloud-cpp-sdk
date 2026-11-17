@@ -107,15 +107,17 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> bandwidthPackageId_ {};
-    // The description of the Internet Shared Bandwidth instance. The description must be 0 to 256 characters in length and cannot start with `http://` or `https://`.
+    // The description of the Internet Shared Bandwidth instance.  
+    // The description must be 0 to 256 characters in length and cannot start with `http://` or `https://`.
     shared_ptr<string> description_ {};
-    // The name of the Internet Shared Bandwidth instance. The name must be 0 to 128 characters in length and cannot start with `http://` or `https://`.
+    // The name of the Internet Shared Bandwidth instance. 
+    // The name must be 0 to 128 characters in length and cannot start with `http://` or `https://`.
     shared_ptr<string> name_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
-    // The region where the Internet Shared Bandwidth instance is located. 
+    // The region where the Internet Shared Bandwidth instance resides. 
     // 
-    // You can call [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) to obtain the region ID.
+    // You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to query the region ID.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};

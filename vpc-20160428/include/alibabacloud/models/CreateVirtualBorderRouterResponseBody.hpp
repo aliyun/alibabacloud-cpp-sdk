@@ -50,7 +50,7 @@ namespace Models
   protected:
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The instance ID of the VBR.
+    // The VBR instance ID.
     shared_ptr<string> vbrId_ {};
   };
 

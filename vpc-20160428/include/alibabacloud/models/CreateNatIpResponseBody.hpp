@@ -85,11 +85,11 @@ namespace Models
 
 
     protected:
-      // The IPv4 prefix in the NAT IP address list returned when an IPv4 prefix is created.
+      // The IPv4 prefix in the list of created NAT IP addresses when an IPv4 prefix is created.
       shared_ptr<string> ipv4Prefix_ {};
-      // The NAT IP address in the NAT IP address list returned when an IPv4 prefix is created.
+      // The NAT IP address in the list of created NAT IP addresses when an IPv4 prefix is created.
       shared_ptr<string> natIp_ {};
-      // The ID of the NAT IP address in the NAT IP address list returned when an IPv4 prefix is created.
+      // The ID of the NAT IP address in the list of created NAT IP addresses when an IPv4 prefix is created.
       shared_ptr<string> natIpId_ {};
     };
 
@@ -133,13 +133,13 @@ namespace Models
 
 
   protected:
-    // The IPv4 prefix returned by the legacy operation. This parameter is deprecated.
+    // **[Deprecated]** The Ipv4Prefix parameter returned by the legacy operation. This parameter is deprecated.
     shared_ptr<string> ipv4Prefix_ {};
-    // The NAT IP address that is created.
+    // The created NAT IP address.
     shared_ptr<string> natIp_ {};
-    // The instance ID of the NAT IP address that is created.
+    // The instance ID of the created NAT IP address.
     shared_ptr<string> natIpId_ {};
-    // The NAT IP address information returned after creation. When you create NAT IP addresses by using an IPv4 prefix, all NAT IP address information is returned. When you create a single NAT IP address, we recommend that you use this parameter to obtain the NAT IP address information.
+    // The NatIp parameter returned after a NAT IP address is created. If you use an IPv4 prefix to create NAT IP addresses, all NAT IP address information is returned. We recommend that you use this parameter to obtain NAT IP address information even when you create a single NAT IP address.
     shared_ptr<vector<CreateNatIpResponseBody::NatIps>> natIps_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

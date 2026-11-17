@@ -117,9 +117,7 @@ namespace Models
       protected:
         // The tag key of the resource.
         shared_ptr<string> key_ {};
-        // The tag value of the resource. You can specify up to 20 tag values. The tag value can be an empty string.
-        // 
-        // The tag value can be up to 128 characters in length and cannot start with `aliyun` or `acs:`. It cannot contain `http://` or `https://`.
+        // The tag value of the resource. You can specify up to 20 tag values. If you specify this parameter, you can enter an empty string. A tag value can be up to 128 characters in length. It cannot start with `aliyun` or `acs:`, and cannot contain `http://` or `https://`.
         shared_ptr<string> value_ {};
       };
 
@@ -188,19 +186,19 @@ namespace Models
 
 
       protected:
-        // The enable status of the route target group member. Valid values:
+        // The enablement status of the member in the route target group. Valid values:
         // 
         // - **Enable**: Enabled.
         // - **Disable**: Disabled.
         // 
-        // Only members in the Disable state can be modified to other instances. Members in the Enable state cannot be modified.
+        // Only members in the Disabled state can be changed to other instances. Members in the Enabled state cannot be modified.
         shared_ptr<string> enableStatus_ {};
-        // The health check status of the route target group member. Valid values:
+        // The health check status of the member in the route target group. Valid values:
         // 
         // - **Normal**: Normal.
         // - **Abnormal**: Abnormal.
         shared_ptr<string> healthCheckStatus_ {};
-        // The routing target group member instance ID.
+        // The member instance ID of the routing target group.
         shared_ptr<string> memberId_ {};
         // The member type of the route target group.
         // 
@@ -208,10 +206,10 @@ namespace Models
         // 
         // - **GatewayLoadBalancerEndpoint**
         shared_ptr<string> memberType_ {};
-        // The weight of the route target group member. Valid values:
+        // The weight of the member in the route target group. Valid values:
         // 
-        // - **100**: The member is the active instance.
-        // - **0**: The member is the standby instance.
+        // - **100**: The member is the primary instance.
+        // - **0**: The member is the secondary instance.
         // 
         // The weight can only be set during creation and cannot be modified.
         shared_ptr<int32_t> weight_ {};
@@ -304,19 +302,19 @@ namespace Models
     protected:
       // The configuration mode of the route target group. Valid values:
       // 
-      // - **Active-Standby**: active/standby mode.
+      // - **Active-Standby**: Active/standby mode.
       shared_ptr<string> configMode_ {};
-      // The time when the route target group was created.
+      // The time when the route target group was created. The time follows the ISO 8601 standard in the YYYY-MM-DDThh:mm:ssZ format. The time is displayed in UTC.
       shared_ptr<string> createTime_ {};
       // The region ID of the VPC to which the route target group belongs.
       // 
-      // You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to query the region ID.
+      // You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to query region IDs.
       shared_ptr<string> regionId_ {};
       // The ID of the resource group to which the route target group belongs.
       shared_ptr<string> resourceGroupId_ {};
       // The description of the route target group.
       shared_ptr<string> routeTargetGroupDescription_ {};
-      // The routing target group instance ID.
+      // The instance ID of the routing target group.
       shared_ptr<string> routeTargetGroupId_ {};
       // The name of the route target group.
       shared_ptr<string> routeTargetGroupName_ {};
@@ -324,18 +322,16 @@ namespace Models
       shared_ptr<vector<RouteTargetGroups::RouteTargetMemberList>> routeTargetMemberList_ {};
       // The status of the routing target group. Valid values:
       // 
-      // - **Recovering**: The active/standby switchback is in progress.
-      // - **Switched**: The active/standby switchover is complete.
-      // - **Available**: Available.
-      // - **Abnormal**: The standby instance has instance failures.
-      // - **Pending**: Being created.
-      // - **Switching**: The active/standby switchover is in progress.
-      // - **Deleting**: Being deleted.
+      // - **Recovering**: Switching back to the primary instance.
+      // - **Switched**: Primary/secondary switchover completed.
+      // - **Available**: active.
+      // - **Abnormal**: Secondary instance failures.
+      // - **Pending**: Creating.
+      // - **Switching**: Performing primary/secondary switchover.
+      // - **Deleting**: delete.
       // - **Unavailable**: Both primary and secondary instances have instance failures.
       shared_ptr<string> status_ {};
-      // The tag value of the resource. You can specify up to 20 tag values. The tag value can be an empty string.
-      // 
-      // The tag value can be up to 128 characters in length and cannot start with `aliyun` or `acs:`. It cannot contain `http://` or `https://`.
+      // The tag value of the resource. You can specify up to 20 tag values. If you specify this parameter, you can enter an empty string. A tag value can be up to 128 characters in length. It cannot start with `aliyun` or `acs:`, and cannot contain `http://` or `https://`.
       shared_ptr<vector<RouteTargetGroups::Tags>> tags_ {};
       // The ID of the VPC to which the route target group belongs.
       shared_ptr<string> vpcId_ {};
@@ -381,15 +377,15 @@ namespace Models
 
 
   protected:
-    // The number of entries per page.
+    // The number of entries returned per page.
     shared_ptr<int32_t> maxResults_ {};
-    // The pagination token that is used in the next request to retrieve a new page of results. If NextToken is empty, no next page exists. If a value is returned for NextToken, the value indicates the token for the next query.
+    // The token used to retrieve the next page of results. If NextToken is empty, no subsequent query is required. If NextToken is returned, the value indicates the token for the next query.
     shared_ptr<string> nextToken_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};
     // The list of route target groups.
     shared_ptr<vector<ListRouteTargetGroupsResponseBody::RouteTargetGroups>> routeTargetGroups_ {};
-    // The total number of entries returned.
+    // The total number of entries.
     shared_ptr<int32_t> totalCount_ {};
   };
 

@@ -66,15 +66,15 @@ namespace Models
 
 
   protected:
-    // The flow log ID.
+    // The ID of the flow log.
     shared_ptr<string> flowLogId_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
     // The ID of the resource group.
     shared_ptr<string> resourceGroupId_ {};
-    // Indicates whether the call is successful. Valid values:
+    // Indicates whether the call was successful. Valid values:
     // 
-    // - **true**: The call is successful.
+    // - **true**: The call was successful.
     // - **false**: The call failed.
     shared_ptr<string> success_ {};
   };

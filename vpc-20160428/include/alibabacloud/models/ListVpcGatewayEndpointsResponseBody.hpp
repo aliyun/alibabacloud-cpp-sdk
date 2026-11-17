@@ -206,36 +206,36 @@ namespace Models
 
 
     protected:
-      // The IDs of the route tables associated with the gateway endpoint.
+      // The IDs of the route tables associated with the VPC gateway endpoint.
       shared_ptr<vector<string>> associatedRouteTables_ {};
-      // The time when the gateway endpoint was created. The time is displayed in UTC in the YYYY-MM-DDThh:mm:ssZ format.
+      // The time when the VPC gateway endpoint was created. The time is displayed in UTC and follows the ISO 8601 standard in the YYYY-MM-DDThh:mm:ssZ format.
       shared_ptr<string> creationTime_ {};
-      // The description of the gateway endpoint.
+      // The description of the VPC gateway endpoint.
       shared_ptr<string> endpointDescription_ {};
-      // The endpoint instance ID of the gateway endpoint.
+      // The gateway endpoint instance ID.
       shared_ptr<string> endpointId_ {};
-      // The name of the gateway endpoint.
+      // The name of the VPC gateway endpoint.
       shared_ptr<string> endpointName_ {};
-      // The status of the gateway endpoint. Valid values:
+      // The status of the VPC gateway endpoint. Valid values:
       // 
-      // - **Creating**: being created.
-      // - **Created**: created and in a normal state.
-      // - **Modifying**: being modified.
-      // - **Associating**: being associated.
-      // - **Dissociating**: being disassociated.
-      // - **Deleting**: being deleted.
+      // - **Creating**: The endpoint is being created.
+      // - **Created**: The endpoint is created and in a normal state.
+      // - **Modifying**: The endpoint is being modified.
+      // - **Associating**: The endpoint is being associated.
+      // - **Dissociating**: The endpoint is being disassociated.
+      // - **Deleting**: The endpoint is being deleted.
       shared_ptr<string> endpointStatus_ {};
       // The access policy for the cloud service.
       // 
-      // For more information about the syntax and structure of access policies, see [Policy structure and syntax](https://help.aliyun.com/document_detail/93739.html).
+      // For more information about the syntax and structure of access policies, see [Policy syntax and structure](https://help.aliyun.com/document_detail/93739.html).
       shared_ptr<string> policyDocument_ {};
-      // The ID of the resource group to which the gateway endpoint belongs.
+      // The ID of the resource group to which the VPC gateway endpoint belongs.
       shared_ptr<string> resourceGroupId_ {};
-      // The service name of the endpoint service.
+      // The endpoint service name.
       shared_ptr<string> serviceName_ {};
       // The list of tags.
       shared_ptr<vector<Endpoints::Tags>> tags_ {};
-      // The ID of the VPC to which the gateway endpoint belongs.
+      // The ID of the VPC to which the VPC gateway endpoint belongs.
       shared_ptr<string> vpcId_ {};
     };
 
@@ -279,17 +279,17 @@ namespace Models
 
 
   protected:
-    // The list of gateway endpoints.
+    // The list of VPC gateway endpoints.
     shared_ptr<vector<ListVpcGatewayEndpointsResponseBody::Endpoints>> endpoints_ {};
-    // The number of entries per page for a paged query.
+    // The number of entries returned per page.
     shared_ptr<int64_t> maxResults_ {};
-    // Indicates whether a next query token is available. Valid values:
-    // - If **NextToken** is empty, no more results are available.
+    // The token for the next query. Valid values:
+    // - If **NextToken** is empty, no subsequent query is required.
     // - If **NextToken** is returned, the value indicates the token for the next query.
     shared_ptr<string> nextToken_ {};
-    // The request ID.
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
-    // The total number of entries returned.
+    // The total number of entries.
     shared_ptr<int64_t> totalCount_ {};
   };
 
