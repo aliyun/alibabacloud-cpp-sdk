@@ -37,6 +37,7 @@ namespace Models
     class Bills : public Darabonba::Model {
     public:
       friend void to_json(Darabonba::Json& j, const Bills& obj) { 
+        DARABONBA_PTR_TO_JSON(AgenticWaf, agenticWaf_);
         DARABONBA_PTR_TO_JSON(ElasticQpsSetValue, elasticQpsSetValue_);
         DARABONBA_PTR_TO_JSON(EndTime, endTime_);
         DARABONBA_PTR_TO_JSON(ExceedStatus, exceedStatus_);
@@ -53,6 +54,7 @@ namespace Models
         DARABONBA_PTR_TO_JSON(Type, type_);
       };
       friend void from_json(const Darabonba::Json& j, Bills& obj) { 
+        DARABONBA_PTR_FROM_JSON(AgenticWaf, agenticWaf_);
         DARABONBA_PTR_FROM_JSON(ElasticQpsSetValue, elasticQpsSetValue_);
         DARABONBA_PTR_FROM_JSON(EndTime, endTime_);
         DARABONBA_PTR_FROM_JSON(ExceedStatus, exceedStatus_);
@@ -79,10 +81,17 @@ namespace Models
       };
       virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
       virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-      virtual bool empty() const override { return this->elasticQpsSetValue_ == nullptr
-        && this->endTime_ == nullptr && this->exceedStatus_ == nullptr && this->extensionPlugin_ == nullptr && this->extensionPluginRequest_ == nullptr && this->maxQps_ == nullptr
-        && this->price_ == nullptr && this->qps_ == nullptr && this->qpsVersion_ == nullptr && this->riskControl_ == nullptr && this->riskTraffic_ == nullptr
-        && this->startTime_ == nullptr && this->total_ == nullptr && this->type_ == nullptr; };
+      virtual bool empty() const override { return this->agenticWaf_ == nullptr
+        && this->elasticQpsSetValue_ == nullptr && this->endTime_ == nullptr && this->exceedStatus_ == nullptr && this->extensionPlugin_ == nullptr && this->extensionPluginRequest_ == nullptr
+        && this->maxQps_ == nullptr && this->price_ == nullptr && this->qps_ == nullptr && this->qpsVersion_ == nullptr && this->riskControl_ == nullptr
+        && this->riskTraffic_ == nullptr && this->startTime_ == nullptr && this->total_ == nullptr && this->type_ == nullptr; };
+      // agenticWaf Field Functions 
+      bool hasAgenticWaf() const { return this->agenticWaf_ != nullptr;};
+      void deleteAgenticWaf() { this->agenticWaf_ = nullptr;};
+      inline bool getAgenticWaf() const { DARABONBA_PTR_GET_DEFAULT(agenticWaf_, false) };
+      inline Bills& setAgenticWaf(bool agenticWaf) { DARABONBA_PTR_SET_VALUE(agenticWaf_, agenticWaf) };
+
+
       // elasticQpsSetValue Field Functions 
       bool hasElasticQpsSetValue() const { return this->elasticQpsSetValue_ != nullptr;};
       void deleteElasticQpsSetValue() { this->elasticQpsSetValue_ = nullptr;};
@@ -184,40 +193,42 @@ namespace Models
 
 
     protected:
+      // Specifies whether Agentic WAF is activated.
+      shared_ptr<bool> agenticWaf_ {};
       // The burstable QPS specification of the WAF instance.
       shared_ptr<int64_t> elasticQpsSetValue_ {};
-      // The end time of the billing record. The value is a UNIX timestamp (UTC). Unit: seconds.
+      // The end time of the bill. The value is a UNIX timestamp in UTC. Unit: seconds.
       shared_ptr<int64_t> endTime_ {};
-      // The overuse status of the current period. Valid values:
-      // - **0**: Normal.
+      // The overuse status for the current period. Valid values:
+      // - **0**: normal.
       // - **1**: overused.
       // - **2**: sandboxed.
       shared_ptr<int32_t> exceedStatus_ {};
-      // Indicates whether the extension plug-in is enabled. Valid values:
-      // - **true**: The extension plug-in is enabled.
-      // - **false**: The extension plug-in is not enabled.
+      // Specifies whether the extension plug-in is enabled. Valid values:
+      // - **true**: enabled.
+      // - **false**: disabled.
       shared_ptr<bool> extensionPlugin_ {};
-      // The number of requests processed by the plug-in.
+      // The number of plug-in requests processed.
       shared_ptr<int64_t> extensionPluginRequest_ {};
-      // The maximum QPS during the current period.
+      // The maximum QPS for the current period.
       shared_ptr<int64_t> maxQps_ {};
-      // The unit price for burstable billing. Unit: CNY for the China site and USD for the international site.
+      // The unit price of elastic billing. Unit: CNY on the Chinese site and USD on the international site.
       shared_ptr<float> price_ {};
-      // The QPS extension specification of the WAF instance.
+      // The extended QPS specification of the WAF instance.
       shared_ptr<int64_t> qps_ {};
       // The QPS specification included in the WAF instance edition.
       shared_ptr<int64_t> qpsVersion_ {};
-      // Indicates whether risk identification is enabled. Valid values:
-      // - **true**: Risk identification is enabled.
-      // - **false**: Risk identification is not enabled.
+      // Specifies whether risk identification is enabled. Valid values:
+      // - **true**: enabled.
+      // - **false**: disabled.
       shared_ptr<bool> riskControl_ {};
       // The number of times risk identification is used.
       shared_ptr<int64_t> riskTraffic_ {};
-      // The start time of the billing record. The value is a UNIX timestamp (UTC). Unit: seconds.
+      // The start time of the bill. The value is a UNIX timestamp in UTC. Unit: seconds.
       shared_ptr<int64_t> startTime_ {};
-      // The total QPS that is billed.
+      // The total QPS to be billed.
       shared_ptr<int64_t> total_ {};
-      // The burstable billing type.
+      // The elastic billing type.
       shared_ptr<vector<string>> type_ {};
     };
 
@@ -247,11 +258,11 @@ namespace Models
 
 
   protected:
-    // The list of WAF burstable billing records.
+    // The list of elastic pay-as-you-go bills for the WAF instance.
     shared_ptr<vector<DescribePrepayDailyBillsResponseBody::Bills>> bills_ {};
-    // The request ID.
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
-    // The total number of entries returned.
+    // The total number of returned entries.
     shared_ptr<int64_t> totalCount_ {};
   };
 

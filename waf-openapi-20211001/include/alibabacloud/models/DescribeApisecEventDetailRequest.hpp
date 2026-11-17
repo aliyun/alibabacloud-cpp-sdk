@@ -95,23 +95,26 @@ namespace Models
 
   protected:
     // The ID of the hybrid cloud cluster.
-    // > This parameter applies only to hybrid cloud scenarios. You can call the [DescribeHybridCloudClusters](https://help.aliyun.com/document_detail/2849376.html) operation to query hybrid cloud cluster information.
+    // > This parameter applies only to hybrid cloud scenarios. You can call the [DescribeHybridCloudClusters](https://help.aliyun.com/document_detail/2849376.html) operation to obtain hybrid cloud cluster information.
     shared_ptr<string> clusterId_ {};
-    // The type of detailed information about the security event.
+    // The type of details for the security event.
     shared_ptr<string> detailType_ {};
     // The ID of the API security event.
     // 
     // This parameter is required.
     shared_ptr<string> eventId_ {};
-    // The dimension of the security event.
-    shared_ptr<string> eventScope_ {};
-    // Instance ID of the WAF instance.
+    // The scope of the security event. Valid values:
+    // - **ip**: IP security events. This is the default value.
     // 
-    // > You can call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query instance ID of the WAF instance.
+    // - **account**: account security events.
+    shared_ptr<string> eventScope_ {};
+    // The WAF instance ID.
+    // 
+    // > You can call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to view the current WAF instance ID.
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
-    // The region where the WAF instance is deployed. Valid values:
+    // The region where the WAF instance resides. Valid values:
     // 
     // - **cn-hangzhou**: the Chinese mainland.
     // 

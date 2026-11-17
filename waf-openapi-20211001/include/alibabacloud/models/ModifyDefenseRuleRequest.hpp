@@ -20,6 +20,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(RegionId, regionId_);
       DARABONBA_PTR_TO_JSON(Resource, resource_);
       DARABONBA_PTR_TO_JSON(ResourceManagerResourceGroupId, resourceManagerResourceGroupId_);
+      DARABONBA_PTR_TO_JSON(ResourceType, resourceType_);
       DARABONBA_PTR_TO_JSON(Rules, rules_);
       DARABONBA_PTR_TO_JSON(TemplateId, templateId_);
     };
@@ -31,6 +32,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(RegionId, regionId_);
       DARABONBA_PTR_FROM_JSON(Resource, resource_);
       DARABONBA_PTR_FROM_JSON(ResourceManagerResourceGroupId, resourceManagerResourceGroupId_);
+      DARABONBA_PTR_FROM_JSON(ResourceType, resourceType_);
       DARABONBA_PTR_FROM_JSON(Rules, rules_);
       DARABONBA_PTR_FROM_JSON(TemplateId, templateId_);
     };
@@ -47,7 +49,7 @@ namespace Models
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->defenseScene_ == nullptr
         && this->defenseType_ == nullptr && this->dryRun_ == nullptr && this->instanceId_ == nullptr && this->regionId_ == nullptr && this->resource_ == nullptr
-        && this->resourceManagerResourceGroupId_ == nullptr && this->rules_ == nullptr && this->templateId_ == nullptr; };
+        && this->resourceManagerResourceGroupId_ == nullptr && this->resourceType_ == nullptr && this->rules_ == nullptr && this->templateId_ == nullptr; };
     // defenseScene Field Functions 
     bool hasDefenseScene() const { return this->defenseScene_ != nullptr;};
     void deleteDefenseScene() { this->defenseScene_ = nullptr;};
@@ -97,6 +99,13 @@ namespace Models
     inline ModifyDefenseRuleRequest& setResourceManagerResourceGroupId(string resourceManagerResourceGroupId) { DARABONBA_PTR_SET_VALUE(resourceManagerResourceGroupId_, resourceManagerResourceGroupId) };
 
 
+    // resourceType Field Functions 
+    bool hasResourceType() const { return this->resourceType_ != nullptr;};
+    void deleteResourceType() { this->resourceType_ = nullptr;};
+    inline string getResourceType() const { DARABONBA_PTR_GET_DEFAULT(resourceType_, "") };
+    inline ModifyDefenseRuleRequest& setResourceType(string resourceType) { DARABONBA_PTR_SET_VALUE(resourceType_, resourceType) };
+
+
     // rules Field Functions 
     bool hasRules() const { return this->rules_ != nullptr;};
     void deleteRules() { this->rules_ = nullptr;};
@@ -112,36 +121,41 @@ namespace Models
 
 
   protected:
-    // The protection scenario to modify. For more information, see the **DefenseScene** parameter in [CreateDefenseRule](https://help.aliyun.com/document_detail/461421.html).
+    // The protection scenario to be modified. For more information, see the **DefenseScene** parameter in [CreateDefenseRule](https://help.aliyun.com/document_detail/461421.html).
     shared_ptr<string> defenseScene_ {};
     // The type of the protection rule.
     shared_ptr<string> defenseType_ {};
-    // Specifies whether to enable the dry run mode. If you do not specify this parameter, a normal request is sent. Valid values:
-    // - **true**: A dry run request is sent. The system checks whether the request meets the execution conditions without performing the specified operation. If the dry run fails, the corresponding error code is returned. If the dry run succeeds, the error code Defense.Control.DryRunOperation is returned.
-    // - **false**: A normal request is sent. The specified operation is performed after the request passes the check.
+    // Specifies whether to enable the dry run mode. If you do not specify this parameter, a normal request is initiated. Valid values:
+    // - **true**: initiates a dry run request. The system only checks whether the request meets the execution conditions and does not perform the operations specified in the request. If the dry run fails, the corresponding error code is returned. If the dry run succeeds, the error code Defense.Control.DryRunOperation is returned.
+    // - **false**: initiates a normal request. The system performs the operations specified in the request after the check succeeds.
     shared_ptr<bool> dryRun_ {};
     // Instance ID of the WAF instance.
     // 
-    // > You can call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query instance ID of the current WAF instance.
+    // > You can call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query instance ID of the WAF instance.
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
-    // The region where the WAF instance is deployed. Valid values:
+    // The region where the WAF instance resides. Valid values:
     // 
     // - **cn-hangzhou**: the Chinese mainland.
     // 
     // - **ap-southeast-1**: outside the Chinese mainland.
     shared_ptr<string> regionId_ {};
-    // The protected object associated with the rule to modify.
+    // The protected object to which the modified rule applies.
     // > This parameter is required only when **DefenseType** is set to **resource**.
     shared_ptr<string> resource_ {};
     // The ID of the Alibaba Cloud resource group.
     shared_ptr<string> resourceManagerResourceGroupId_ {};
-    // The details of the protection rule. The value is a string that is converted from a JSON object constructed by a series of parameters. When you configure this parameter, specify the rule ID and the protection rule configuration to modify. The following parameters are included:
+    // The protection target type. This applies to rules where **DefenseType** is set to **resource**. Valid values:
+    // 
+    // - **single** (default): Single protected object.
+    // - **group**: Protected object group.
+    shared_ptr<string> resourceType_ {};
+    // The details of the protection rule. The value is a JSON string that consists of multiple parameters. When you configure this parameter, you must specify the rule ID and set the configuration of the protection rule to be modified. The details include:
     // 
     // - **id**: Long | Required | The rule ID.
     // 
-    // - Protection rule configuration: Same as the **Rules** parameter of the **CreateDefenseRule** operation. For more information, see the **protection rule parameter description** in [CreateDefenseRule](https://help.aliyun.com/document_detail/461421.html).
+    // - Protection rule configuration: Same as the **Rules** parameter of the **CreateDefenseRule** operation. For more information, see the **Protection rule parameter description** in [CreateDefenseRule](https://help.aliyun.com/document_detail/461421.html).
     // 
     // This parameter is required.
     shared_ptr<string> rules_ {};

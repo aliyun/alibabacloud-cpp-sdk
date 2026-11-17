@@ -103,10 +103,10 @@ namespace Models
       shared_ptr<int64_t> eventLow_ {};
       // The number of medium-risk events.
       shared_ptr<int64_t> eventMedium_ {};
-      // The statistics time in UNIX timestamp format (UTC). Unit: seconds.
+      // **[Deprecated]** The statistical time. The time is a UNIX timestamp in UTC. Unit: seconds. Use the Timestamp parameter instead.
       // >Notice: This parameter is deprecated. Use the Timestamp parameter instead.
       shared_ptr<int64_t> timeStamp_ {};
-      // The statistics time in UNIX timestamp format (UTC). Unit: seconds.
+      // The statistical time. The time is a UNIX timestamp in UTC. Unit: seconds.
       shared_ptr<int64_t> timestamp_ {};
     };
 

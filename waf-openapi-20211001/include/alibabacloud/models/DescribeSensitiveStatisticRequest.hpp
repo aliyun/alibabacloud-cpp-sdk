@@ -112,37 +112,37 @@ namespace Models
 
 
   protected:
-    // The hybrid cloud cluster ID.
-    // > This parameter applies only to hybrid cloud scenarios. You can call [DescribeHybridCloudClusters](https://help.aliyun.com/document_detail/2849376.html) to obtain hybrid cloud cluster information.
+    // The ID of the hybrid cloud cluster.
+    // > This parameter applies only to hybrid cloud scenarios. You can call [DescribeHybridCloudClusters](https://help.aliyun.com/document_detail/2849376.html) to query the information about hybrid cloud clusters.
     shared_ptr<string> clusterId_ {};
-    // The end of the time range to query, in UNIX timestamp (UTC) format. Unit: seconds.
+    // The end time of the query. The value is a UNIX timestamp in UTC. Unit: seconds.
     // 
-    // > Only data within the last month can be queried. **StartTime** cannot be earlier than one month before the current time. The query fails if the value is out of the supported range.
-    // > This parameter is optional. Default value: the current time.
+    // > You can query only the data generated within the last month. The value of **StartTime** cannot be earlier than one month before the current time. If the value exceeds the supported range, the query fails.
+    // > This parameter is not required. Default value: the current time.
     shared_ptr<int64_t> endTime_ {};
     // The ID of the WAF instance.
-    // > You can call [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) to query the ID of the current WAF instance.
+    // > You can call [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) to query the ID of the WAF instance.
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
-    // The page number to return in a paged query. Default value: **1**, which indicates the first page.
+    // The page number of the page to return in a paged query. Default value: **1**, which indicates the first page.
     shared_ptr<int64_t> pageNumber_ {};
-    // The number of entries per page in a paged query. Default value: **10**, which indicates 10 entries per page.
+    // The number of entries to return on each page in a paged query. Default value: **10**, which indicates 10 entries per page.
     shared_ptr<int64_t> pageSize_ {};
-    // The region where the WAF instance is deployed. Valid values:
+    // The region where the WAF instance resides. Valid values:
     // 
     // - **cn-hangzhou**: the Chinese mainland.
     // 
     // - **ap-southeast-1**: outside the Chinese mainland.
     shared_ptr<string> regionId_ {};
-    // The Alibaba Cloud resource group ID.
+    // The ID of the Alibaba Cloud resource group.
     shared_ptr<string> resourceManagerResourceGroupId_ {};
-    // The beginning of the time range to query, in UNIX timestamp (UTC) format. Unit: seconds.
+    // The start time of the query. The value is a UNIX timestamp in UTC. Unit: seconds.
     // 
-    // > Only data within the last month can be queried. **StartTime** cannot be earlier than one month before the current time. The query fails if the value is out of the supported range.
-    // > This parameter is optional. Default value: one month before the current time.
+    // > You can query only the data generated within the last month. The value of **StartTime** cannot be earlier than one month before the current time. If the value exceeds the supported range, the query fails.
+    // > This parameter is not required. Default value: one month before the current time.
     shared_ptr<int64_t> startTime_ {};
-    // The type of data statistics. Valid values:
+    // The data statistics type. Valid values:
     // - **ip**: IP address statistics.
     // - **host**: domain name statistics.
     // - **sensitive_code**: sensitive data type statistics.

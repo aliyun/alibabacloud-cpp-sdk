@@ -96,17 +96,17 @@ namespace Models
   protected:
     // Instance ID of the WAF instance.
     // 
-    // > You can call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query instance ID of your WAF instance.
+    // > You can call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to view instance ID of your WAF instance.
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
     // The type of the bot rule label to query.
     shared_ptr<string> labelType_ {};
-    // The number of entries to return per paging in a paged query. Valid values: 1 to 200. Default value: 20.
+    // The number of entries to return per page in a paged query. This parameter is used for paging. Valid values: 1 to 200. Default value: 20.
     shared_ptr<int32_t> maxResults_ {};
-    // The pagination token for the next page. This parameter is returned only if a next page exists.
+    // The pagination token for the next page. This parameter is returned only when a next page exists.
     // 
-    // > If this parameter is returned, it indicates that there is a next page. You can use the returned **NextToken** as a request parameter to obtain the data of the next page until no value is returned, which indicates that all data is obtained.
+    // > If this parameter is returned, a next page exists. You can use the returned **NextToken** as a request parameter to obtain the next page of data. Repeat this process until no value is returned, which indicates that all data is retrieved.
     shared_ptr<string> nextToken_ {};
     // The region where the WAF instance resides. Valid values:
     // 

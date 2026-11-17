@@ -51,7 +51,7 @@ namespace Models
 
 
   protected:
-    // The request ID.
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
     // The list of used ports.
     shared_ptr<vector<int32_t>> usedPorts_ {};

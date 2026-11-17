@@ -87,9 +87,9 @@ namespace Models
     protected:
       // The address.
       shared_ptr<string> address_ {};
-      // The most recent modification time of the address. The value is a UNIX timestamp in milliseconds.
+      // The time when the address was last modified. The value is a UNIX timestamp in milliseconds.
       shared_ptr<int64_t> gmtModified_ {};
-      // The address book ID.
+      // The ID of the address book.
       shared_ptr<int64_t> ruleId_ {};
     };
 
@@ -135,14 +135,14 @@ namespace Models
   protected:
     // The list of addresses.
     shared_ptr<vector<DescribeAddressesResponseBody::AddressList>> addressList_ {};
-    // The number of entries per page for paging. Valid values: 1 to 500. Default value: 20.
+    // The number of entries to return per page in a paging query. Valid values: 1 to 500. Default value: 20.
     shared_ptr<int32_t> maxResults_ {};
-    // The pagination token for the next page. If a next page exists, this field contains a value.
-    // > If this parameter has a return value, a next page exists. You can pass the returned **NextToken** as a request parameter to retrieve the next page of data. Repeat this process until no value is returned, which indicates that all data has been retrieved.
+    // The pagination token for the next page. This field is returned only when a next page exists.
+    // > If this parameter returns a value, a next page exists. You can use the returned **NextToken** value as a request parameter to obtain the data on the next page until no value is returned, which indicates that all data is obtained.
     shared_ptr<string> nextToken_ {};
-    // The request ID.
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
-    // The total number of entries returned.
+    // The total number of returned entries.
     shared_ptr<int64_t> totalCount_ {};
   };
 

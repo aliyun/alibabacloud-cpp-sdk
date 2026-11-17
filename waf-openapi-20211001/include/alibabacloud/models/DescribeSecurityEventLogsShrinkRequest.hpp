@@ -84,28 +84,27 @@ namespace Models
 
 
   protected:
-    // The filter conditions. A logical AND relationship exists between multiple filter conditions.
+    // The query filter conditions. Multiple filter conditions are connected by the logical AND operator.
     // 
     // This parameter is required.
     shared_ptr<string> filterShrink_ {};
-    // The ID of the Web Application Firewall (WAF) instance.
+    // The ID of the WAF instance.
     // 
-    // > Call [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) to query the ID of the WAF instance.
+    // > You can call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query the ID of the current WAF instance.
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
-    // The page number to return for a paged query. The default value is **1**, which indicates the first page.
+    // The page number to return during paging in a paged query. Default value: **1**, which indicates the first page.
     // 
     // This parameter is required.
     shared_ptr<int64_t> pageNumber_ {};
-    // The number of entries to return on each page for a paged query. The maximum value is **100**.
+    // The number of entries per page for paging in a paged query. Maximum value: **100**.
     // 
     // This parameter is required.
     shared_ptr<int64_t> pageSize_ {};
-    // The region of the WAF instance. Valid values:
+    // The region where the WAF instance resides. Valid values:
     // 
     // - **cn-hangzhou**: the Chinese mainland.
-    // 
     // - **ap-southeast-1**: outside the Chinese mainland.
     shared_ptr<string> regionId_ {};
     // The ID of the Alibaba Cloud resource group.

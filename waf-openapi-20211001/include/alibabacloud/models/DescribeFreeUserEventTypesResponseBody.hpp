@@ -97,7 +97,7 @@ namespace Models
   protected:
     // The list of security event types for basic detection.
     shared_ptr<vector<DescribeFreeUserEventTypesResponseBody::Data>> data_ {};
-    // The request ID.
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
   };
 

@@ -95,17 +95,17 @@ namespace Models
 
   protected:
     // The ID of the hybrid cloud cluster.
-    // > This parameter applies only to hybrid cloud scenarios. You can call the [DescribeHybridCloudClusters](https://help.aliyun.com/document_detail/2849376.html) operation to obtain hybrid cloud cluster information.
+    // > This parameter applies only to hybrid cloud scenarios. You can call the [DescribeHybridCloudClusters](https://help.aliyun.com/document_detail/2849376.html) operation to obtain the hybrid cloud cluster information.
     // 
     // This parameter is required.
     shared_ptr<int64_t> clusterId_ {};
     // Instance ID of the WAF instance.
     // 
-    // > You can call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query instance ID of the current WAF instance.
+    // > You can call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query instance ID of the WAF instance.
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
-    // The region where the WAF instance is deployed. Valid values:
+    // The region where the WAF instance resides. Valid values:
     // 
     // - **cn-hangzhou**: the Chinese mainland.
     // 
@@ -113,25 +113,25 @@ namespace Models
     shared_ptr<string> regionId_ {};
     // The ID of the Alibaba Cloud resource group.
     shared_ptr<string> resourceManagerResourceGroupId_ {};
-    // The traffic redirection rule configuration.
+    // The traffic redirection rule configuration:
     // 
-    // > The mode options are mutually exclusive. You can select only one. If you change the mode, all traffic redirection rules under the original mode are cleared.
-    // - **check_mode**: the mode. Valid values:
-    //     - **all**: full traffic redirection.
-    //     - **part**: partial traffic redirection.
-    // - **type**: the rule matching type. Valid values:
-    //     - **exact**: exact match.
-    //     - **regex**: regular expression.
-    // - **substance**: the rule value.
+    // > The mode selections are mutually exclusive. You can select only one mode. If you change the mode, all traffic redirection rules under the original mode are cleared.
+    // - **check_mode**: the mode selection. Valid values:
+    //     - **all**: full traffic redirection
+    //     - **part**: partial traffic redirection
+    // - **type**: the rule match type. Valid values:
+    //     - **exact**: exact match
+    //     - **regex**: regular expression
+    // - **substance**: the rule value
     shared_ptr<string> ruleConfig_ {};
     // The rule status. Valid values:
-    // - **on**: enabled.
-    // - **off**: disabled.
+    // - **on**: Enabled.
+    // - **off**: Disabled.
     // 
     // This parameter is required.
     shared_ptr<string> ruleStatus_ {};
     // The rule type. Valid values:
-    // - **pullin**: cluster traffic redirection.
+    // - **pullin**: cluster traffic redirection
     // 
     // This parameter is required.
     shared_ptr<string> ruleType_ {};

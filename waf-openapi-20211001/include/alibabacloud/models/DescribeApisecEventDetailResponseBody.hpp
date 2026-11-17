@@ -156,36 +156,36 @@ namespace Models
     shared_ptr<string> attackCnt_ {};
     // The attacker list.
     shared_ptr<vector<string>> attackerList_ {};
-    // The detailed information about the security event. The value is a string converted from a JSON object constructed by a series of parameters.
+    // The details of the security event, which are converted into a string in JSON format constructed from a series of parameters.
     shared_ptr<string> detailValue_ {};
-    // The end time of the query. The value is a UNIX timestamp (UTC). Unit: seconds.
+    // The end time of the query. The time is a UNIX timestamp in UTC. Unit: seconds.
     shared_ptr<string> endTs_ {};
     // The ID of the API security event.
     shared_ptr<string> eventId_ {};
-    // The event level. Valid values:
-    // - **high**: high risk.
-    // - **medium**: medium risk.
-    // - **low**: low risk.
+    // The level of the event. Valid values:
+    // - **high**: high-risk.
+    // - **medium**: medium-risk.
+    // - **low**: low-risk.
     shared_ptr<string> eventLevel_ {};
-    // The dimension of the security event. Valid values:
-    // - **ip** (default): IP security event.
+    // The scope of the security event. Valid values:
+    // - **ip**: IP security events. This is the default value.
     // 
-    // - **account**: account security event.
+    // - **account**: account security events.
     shared_ptr<string> eventScope_ {};
-    // The event type.
-    // > You can call the [DescribeApisecRules](https://help.aliyun.com/document_detail/2859155.html) operation to query the supported event types.
+    // The type of the event.
+    // > You can call the [DescribeApisecRules](https://help.aliyun.com/document_detail/2859155.html) operation to obtain the supported event types.
     shared_ptr<string> eventTag_ {};
-    // The remarks.
+    // The note.
     shared_ptr<string> note_ {};
     // The origin of the event type. Valid values:
     // - **custom**: custom.
     // - **default**: built-in.
     shared_ptr<string> origin_ {};
-    // The request ID.
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
-    // The start time of the query. The value is a UNIX timestamp (UTC). Unit: seconds.
+    // The start time of the query. The time is a UNIX timestamp in UTC. Unit: seconds.
     shared_ptr<string> startTs_ {};
-    // The event status. Valid values:
+    // The status of the event. Valid values:
     // - **toBeConfirmed**: to be confirmed.
     // - **confirmed**: confirmed.
     // - **actioned**: handled.

@@ -92,11 +92,11 @@ namespace Models
     protected:
       // The total number of personal information records.
       shared_ptr<int64_t> infoCount_ {};
-      // The total number of personal information records transferred cross-border.
+      // The total number of outbound personal information records.
       shared_ptr<int64_t> infoOutboundCount_ {};
-      // The total number of sensitive information records transferred cross-border.
+      // The total number of outbound sensitive information records.
       shared_ptr<int64_t> sensitiveOutboundCount_ {};
-      // The time of the cross-border data transfer. The value is a UNIX timestamp (UTC). Unit: seconds.
+      // The time when the data is transferred outbound. The time is in the UNIX timestamp format (UTC). Unit: seconds.
       shared_ptr<int64_t> timestamp_ {};
     };
 
@@ -126,11 +126,11 @@ namespace Models
 
 
   protected:
-    // The list of cross-border data transfer information.
+    // The list of outbound data information.
     shared_ptr<vector<DescribeSensitiveOutboundTrendResponseBody::Data>> data_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The total number of entries returned.
+    // The total number of returned results.
     shared_ptr<int64_t> totalCount_ {};
   };
 

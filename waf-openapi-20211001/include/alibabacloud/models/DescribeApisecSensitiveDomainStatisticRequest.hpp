@@ -122,27 +122,27 @@ namespace Models
 
   protected:
     // The ID of the hybrid cloud cluster.
-    // > This parameter applies only to hybrid cloud scenarios. You can call [DescribeHybridCloudClusters](https://help.aliyun.com/document_detail/2849376.html) to obtain hybrid cloud cluster information.
+    // > This parameter applies only to hybrid cloud scenarios. You can call the [DescribeHybridCloudClusters](https://help.aliyun.com/document_detail/2849376.html) operation to obtain hybrid cloud cluster information.
     shared_ptr<string> clusterId_ {};
-    // The end time. This value is a UNIX timestamp (UTC) in milliseconds.
+    // The end time in the UNIX timestamp format. Unit: milliseconds.
     shared_ptr<int64_t> endTime_ {};
     // The ID of the WAF instance.
     // 
-    // > You can call [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) to query the ID of the current WAF instance.
+    // > You can call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query the ID of the current WAF instance.
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
-    // The sort order of the list. Valid values:
+    // The sorting order of the list. Valid values:
     // 
     // - asc: ascending order.
     // 
     // - desc: descending order.
     shared_ptr<string> orderWay_ {};
-    // The page number of the page to return in a paged query. Default value: **1**, which indicates the first page. For more information about paging, see the paging parameters.
+    // The page number. Default value: **1**, which indicates that the first page is returned.
     shared_ptr<int64_t> pageNumber_ {};
-    // The number of entries per page in a paged query. Default value: **5**, which indicates 5 entries per page. For more information about paging, see the paging parameters.
+    // The number of entries to return per page. Default value: **5**, which indicates that each page contains 5 entries.
     shared_ptr<int64_t> pageSize_ {};
-    // The region where the WAF instance is deployed. Valid values:
+    // The region where the WAF instance resides. Valid values:
     // 
     // - **cn-hangzhou**: the Chinese mainland.
     // 
@@ -150,13 +150,13 @@ namespace Models
     shared_ptr<string> regionId_ {};
     // The ID of the Alibaba Cloud resource group.
     shared_ptr<string> resourceManagerResourceGroupId_ {};
-    // The start time. This value is a UNIX timestamp (UTC) in milliseconds.
+    // The start time in the UNIX timestamp format. Unit: milliseconds.
     shared_ptr<int64_t> startTime_ {};
     // The type of sensitive data. Valid values:
     // 
-    // - request: request sensitive data.
+    // - request: sensitive data in requests.
     // 
-    // - response: response sensitive data.
+    // - response: sensitive data in responses.
     shared_ptr<string> type_ {};
   };
 

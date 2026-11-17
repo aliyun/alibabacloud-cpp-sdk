@@ -120,7 +120,7 @@ namespace Models
     protected:
       // The number of CPU cores.
       shared_ptr<int64_t> cpu_ {};
-      // The node name.
+      // The name of the node.
       shared_ptr<string> customName_ {};
       // The hostname.
       shared_ptr<string> hostName_ {};
@@ -162,7 +162,7 @@ namespace Models
   protected:
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The total number of entries returned.
+    // The total number of returned entries.
     shared_ptr<int64_t> totalCount_ {};
     // The list of unassigned machines in the hybrid cloud cluster.
     shared_ptr<vector<DescribeHybridCloudUnassignedMachinesResponseBody::UnassignedMachines>> unassignedMachines_ {};

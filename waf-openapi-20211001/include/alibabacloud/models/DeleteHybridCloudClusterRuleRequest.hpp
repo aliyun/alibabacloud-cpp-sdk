@@ -66,7 +66,7 @@ namespace Models
 
 
   protected:
-    // The resource ID of the cluster rule.
+    // The ID of the cluster rule resource.
     // 
     // This parameter is required.
     shared_ptr<string> clusterRuleResourceId_ {};
@@ -76,7 +76,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
-    // The region where the WAF instance is deployed. Valid values:
+    // The region where the WAF instance resides. Valid values:
     // 
     // - **cn-hangzhou**: the Chinese mainland.
     // 

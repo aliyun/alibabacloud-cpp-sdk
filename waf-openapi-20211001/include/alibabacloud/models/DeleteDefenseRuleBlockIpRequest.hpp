@@ -75,9 +75,8 @@ namespace Models
 
 
   protected:
-    // The ID of the Web Application Firewall (WAF) instance.
-    // 
-    // > Call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query the ID of the WAF instance.
+    // The ID of the WAF instance.
+    // > You can call [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) to query the ID of the WAF instance.
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
@@ -89,7 +88,7 @@ namespace Models
     shared_ptr<string> regionId_ {};
     // The ID of the Alibaba Cloud resource group.
     shared_ptr<string> resourceManagerResourceGroupId_ {};
-    // The ID of the scan protection rule for which you want to unblock an IP address.
+    // The ID of the scan protection rule for which you want to unblock the IP address.
     // 
     // This parameter is required.
     shared_ptr<int64_t> ruleId_ {};

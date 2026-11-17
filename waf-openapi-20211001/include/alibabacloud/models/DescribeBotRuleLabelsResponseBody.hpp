@@ -131,13 +131,13 @@ namespace Models
 
 
     protected:
-      // The bot behavior corresponding to the rule label.
+      // The bot behavior corresponding to the rule label. Valid values:
       // 
       // - **malicious**: malicious bots.
       // - **suspicious**: suspicious bots.
       // - **normal**: normal bots.
       shared_ptr<string> botBehavior_ {};
-      // The default action.
+      // The default action. Valid values:
       // 
       // - **block**: block.
       // - **monitor**: monitor.
@@ -148,14 +148,14 @@ namespace Models
       shared_ptr<string> defaultAction_ {};
       // The default configurations corresponding to the label.
       shared_ptr<string> defaultConfig_ {};
-      // The default status of the label rule.
+      // The default status of the label rule. Valid values:
       // 
       // - **1**: The rule is enabled.
       // - **0**: The rule is disabled.
       shared_ptr<int32_t> defaultStatus_ {};
       // The bot management rule label.
       shared_ptr<string> labelKey_ {};
-      // The status of the label.
+      // The status of the label. Valid values:
       // 
       // - **online**: online.
       // - **wait_offline**: pending offline.
@@ -164,7 +164,7 @@ namespace Models
       shared_ptr<string> labelType_ {};
       // The bot management protection scenarios to which the rule belongs. Multiple scenarios are separated by commas (,). Valid values:
       // 
-      // - **web**: the web protection scenario.
+      // - **web**: the Web protection scenario.
       // - **app**: the app protection scenario.
       // - **agentic_web**: the Agentic Web protection scenario.
       // - **agentic_app**: the Agentic App protection scenario.
@@ -211,11 +211,11 @@ namespace Models
 
 
   protected:
-    // The number of entries to return per paging in a paged query. Valid values: 1 to 200. Default value: 20.
+    // The number of entries to return per page in a paged query. This parameter is used for paging. Valid values: 1 to 200. Default value: 20.
     shared_ptr<int32_t> maxResults_ {};
-    // The pagination token for the next page. This parameter is returned only if a next page exists.
+    // The pagination token for the next page. This parameter is returned only when a next page exists.
     // 
-    // > If this parameter is returned, it indicates that there is a next page. You can use the returned **NextToken** as a request parameter to obtain the data of the next page until no value is returned, which indicates that all data is obtained.
+    // > If this parameter is returned, a next page exists. You can use the returned **NextToken** as a request parameter to obtain the next page of data. Repeat this process until no value is returned, which indicates that all data is retrieved.
     shared_ptr<string> nextToken_ {};
     // The ID of the request.
     shared_ptr<string> requestId_ {};

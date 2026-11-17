@@ -104,7 +104,7 @@ namespace Models
 
   protected:
     // The ID of the hybrid cloud cluster.
-    // > You can call the [DescribeHybridCloudClusters](https://help.aliyun.com/document_detail/2849376.html) operation and obtain the **Id** field value of the target hybrid cloud cluster from the **ClusterInfos** array in the response. If no cluster is available, call the [CreateHybridCloudCluster](https://help.aliyun.com/document_detail/2980286.html) operation to create a hybrid cloud cluster.
+    // > You can call the [DescribeHybridCloudClusters](https://help.aliyun.com/document_detail/2849376.html) operation to find the target hybrid cloud cluster from the **ClusterInfos** array in the returned result and obtain the value of its **Id** field. If no cluster is available, you can call the [CreateHybridCloudCluster](https://help.aliyun.com/document_detail/2980286.html) operation to create a hybrid cloud cluster.
     // 
     // This parameter is required.
     shared_ptr<int32_t> clusterId_ {};
@@ -118,11 +118,11 @@ namespace Models
     shared_ptr<string> instanceId_ {};
     // The IP address of the server.
     shared_ptr<string> ip_ {};
-    // The page number to return in a paged query. Default value: **1**. For more information about paging, see the PageSize parameter.
+    // The page number to return in a paging query. Default value: **1**.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries per page in a paged query. Default value: **10**, which indicates that each page contains 10 entries. For more information about paging, see the PageNumber parameter.
+    // The number of entries to return on each page in a paging query. Default value: **10**, which indicates that each page contains 10 entries.
     shared_ptr<int32_t> pageSize_ {};
-    // The region where the WAF instance is deployed. Valid values:
+    // The region where the WAF instance resides. Valid values:
     // 
     // - **cn-hangzhou**: the Chinese mainland.
     // 

@@ -95,9 +95,9 @@ namespace Models
 
 
       protected:
-        // The end time of the query. This is a UNIX timestamp. Unit: seconds. This value is the same as the \\`EndDate\\` request parameter.
+        // The end time used for the data query, represented by a UNIX timestamp in seconds. This value is the same as the EndDate parameter in the request.
         shared_ptr<int64_t> endDate_ {};
-        // The start time of the query. This is a UNIX timestamp. Unit: seconds. This value is the same as the \\`StartDate\\` request parameter.
+        // The start time used for the data query, represented by a UNIX timestamp in seconds. This value is the same as the StartDate parameter in the request.
         shared_ptr<int64_t> startDate_ {};
       };
 
@@ -127,7 +127,7 @@ namespace Models
 
 
     protected:
-      // The time granularity of each data point in the returned time series data. For example, "15m" indicates that each returned data point represents statistics for a 15-minute interval. For more information about the time granularity of the returned data, see the Time granularity of time series data points section.
+      // The statistical time granularity of each data point in the returned time series data. For example, "15m" indicates that each returned data point is the statistical data for every 15 minutes. For the time granularity of the returned data, see **Time granularity description of time series data points**.
       shared_ptr<string> aggregateInterval_ {};
       // The time range used for the query.
       shared_ptr<TimeSeriesMetaData::DateRange> dateRange_ {};
@@ -186,7 +186,7 @@ namespace Models
 
 
     protected:
-      // The content of the returned data. This is consistent with the \\`Metric\\` request parameter.
+      // The returned data content, which is consistent with the meaning of the Metric parameter in the request.
       shared_ptr<string> metric_ {};
       // The time series. Each point represents the start time of a time range.
       shared_ptr<vector<string>> timestamps_ {};
@@ -224,7 +224,7 @@ namespace Models
   protected:
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The returned time series data. The operation can return time series data for multiple values.
+    // The returned time series data. Time series data for multiple values is supported.
     shared_ptr<vector<DescribeSecurityEventTimeSeriesMetricResponseBody::SecurityEventTimeSeries>> securityEventTimeSeries_ {};
     // The metadata of the returned data.
     shared_ptr<DescribeSecurityEventTimeSeriesMetricResponseBody::TimeSeriesMetaData> timeSeriesMetaData_ {};

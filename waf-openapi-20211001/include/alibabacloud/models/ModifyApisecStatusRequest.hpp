@@ -85,8 +85,8 @@ namespace Models
 
   protected:
     // The API security status. Valid values: 
-    // - **1**: enabled.
-    // - **0**: disabled.
+    // - **1**: Enabled.
+    // - **0**: Disabled.
     // 
     // This parameter is required.
     shared_ptr<int32_t> apisecStatus_ {};
@@ -104,7 +104,7 @@ namespace Models
     shared_ptr<string> regionId_ {};
     // The name of the protected object group to which the protected object is added.
     shared_ptr<string> resourceGroups_ {};
-    // The Alibaba Cloud resource group ID.
+    // The ID of the Alibaba Cloud resource group.
     shared_ptr<string> resourceManagerResourceGroupId_ {};
     // The name of the protected object.
     shared_ptr<string> resources_ {};

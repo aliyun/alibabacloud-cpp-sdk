@@ -81,9 +81,9 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
-    // The region code.>Notice: This parameter is required when RegionType is set to region. The value is the code of the selected continent.</notice>
+    // The region code. <notice>This parameter is required when RegionType is set to region. The value is the code of the selected continent.</notice>
     shared_ptr<string> regionCode_ {};
-    // The region where the WAF instance is deployed. Valid values:
+    // The region where the WAF instance resides. Valid values:
     // 
     // - **cn-hangzhou**: the Chinese mainland.
     // 

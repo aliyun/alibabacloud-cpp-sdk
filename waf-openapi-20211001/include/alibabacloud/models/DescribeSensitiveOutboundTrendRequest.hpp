@@ -84,28 +84,27 @@ namespace Models
 
 
   protected:
-    // The hybrid cloud cluster ID.
-    // > This parameter applies only to hybrid cloud scenarios. You can call [DescribeHybridCloudClusters](https://help.aliyun.com/document_detail/2849376.html) to obtain hybrid cloud cluster information.
+    // The ID of the hybrid cloud cluster.
+    // > This parameter applies only to hybrid cloud scenarios. You can call [DescribeHybridCloudClusters](https://help.aliyun.com/document_detail/2849376.html) to obtain the hybrid cloud cluster information.
     shared_ptr<string> clusterId_ {};
-    // The end time of the query. Specify the value as a UNIX timestamp (UTC). Unit: seconds.
-    // 
-    // > Compliance review currently supports querying data only for the last 1 month, last 3 months, last 6 months, last 12 months, or from January 1 of the previous year to the present. Make sure the time range is valid.
+    // The end time of the query. The time is in the UNIX timestamp format (UTC). Unit: seconds.
+    // > Compliance audit currently supports querying data only for the last 1 month, last 3 months, last 6 months, last 12 months, or from January 1 of the previous year to the present. Make sure that the time range is valid.
     shared_ptr<int64_t> endTime_ {};
     // The ID of the WAF instance.
-    // > You can call [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) to query the ID of the current WAF instance.
+    // > You can call [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) to view the ID of the current WAF instance.
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
-    // The region where the WAF instance is deployed. Valid values:
+    // The region where the WAF instance resides. Valid values:
     // 
     // - **cn-hangzhou**: the Chinese mainland.
     // 
     // - **ap-southeast-1**: outside the Chinese mainland.
     shared_ptr<string> regionId_ {};
-    // The Alibaba Cloud resource group ID.
+    // The ID of the Alibaba Cloud resource group.
     shared_ptr<string> resourceManagerResourceGroupId_ {};
-    // The start time of the query. Specify the value as a UNIX timestamp (UTC). Unit: seconds.
-    // > Compliance review currently supports querying data only for the last 1 month, last 3 months, last 6 months, last 12 months, or from January 1 of the previous year to the present. Make sure the time range is valid.
+    // The start time of the query. The time is in the UNIX timestamp format (UTC). Unit: seconds.
+    // > Compliance audit currently supports querying data only for the last 1 month, last 3 months, last 6 months, last 12 months, or from January 1 of the previous year to the present. Make sure that the time range is valid.
     shared_ptr<int64_t> startTime_ {};
   };
 

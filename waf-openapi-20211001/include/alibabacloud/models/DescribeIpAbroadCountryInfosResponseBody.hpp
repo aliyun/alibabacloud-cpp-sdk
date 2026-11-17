@@ -146,7 +146,7 @@ namespace Models
       shared_ptr<string> country_ {};
       // The country name.
       shared_ptr<string> countryName_ {};
-      // The list of overseas region information.
+      // The list of regions outside China.
       shared_ptr<vector<AbroadInfos::Regions>> regions_ {};
     };
 
@@ -190,9 +190,9 @@ namespace Models
 
 
   protected:
-    // The list of overseas country information.
+    // The list of countries outside China.
     shared_ptr<vector<DescribeIpAbroadCountryInfosResponseBody::AbroadInfos>> abroadInfos_ {};
-    // The number of entries to return on each page for a paging query. Valid values: 1 to 500. Default value: 20.
+    // The number of entries to return on each page in a paging query. Valid values: 1 to 500. Default value: 20.
     shared_ptr<int32_t> maxResults_ {};
     // The pagination token for the next page.
     shared_ptr<string> nextToken_ {};

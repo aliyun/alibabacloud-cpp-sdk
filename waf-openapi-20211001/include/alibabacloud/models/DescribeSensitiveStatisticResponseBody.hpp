@@ -109,7 +109,7 @@ namespace Models
       shared_ptr<string> matchedHost_ {};
       // The sensitive data type.
       // 
-      // > You can call [DescribeApisecRules](https://help.aliyun.com/document_detail/2859155.html) to obtain the supported sensitive data types.
+      // > You can call [DescribeApisecRules](https://help.aliyun.com/document_detail/2859155.html) to query the supported sensitive data types.
       shared_ptr<string> sensitiveCode_ {};
     };
 
@@ -143,7 +143,7 @@ namespace Models
     shared_ptr<vector<DescribeSensitiveStatisticResponseBody::Data>> data_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The total number of entries returned.
+    // The total number of returned entries.
     shared_ptr<int64_t> totalCount_ {};
   };
 

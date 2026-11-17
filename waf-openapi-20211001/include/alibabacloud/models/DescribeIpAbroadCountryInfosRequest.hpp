@@ -103,13 +103,13 @@ namespace Models
 
 
   protected:
-    // The overseas region to query. You can perform a fuzzy match by using the region ID or the region name in Chinese or English.
+    // The region outside China to query. Fuzzy match is supported by region ID or region name in Chinese or English.
     shared_ptr<string> abroadRegion_ {};
-    // The overseas country to query. You can perform a fuzzy match by using the country ID or the country name in Chinese or English.
+    // The country outside China to query. Fuzzy match is supported by country ID or country name in Chinese or English.
     shared_ptr<string> country_ {};
     // Instance ID of the WAF instance.
     // 
-    // > You can call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query instance ID of the WAF instance.
+    // > You can call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query instance ID of the current WAF instance.
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
@@ -119,9 +119,9 @@ namespace Models
     // 
     // - **cn**: Simplified Chinese.
     shared_ptr<string> language_ {};
-    // The number of entries to return on each page for a paging query. Valid values: 1 to 500. Default value: 20.
+    // The number of entries to return on each page in a paging query. Valid values: 1 to 500. Default value: 20.
     shared_ptr<int32_t> maxResults_ {};
-    // The paging token that is used to query the next page. Set the value to the **NextToken** value returned from the previous API call. You do not need to specify this parameter for the first call.
+    // The pagination token for the next query. Set the value to the **NextToken** value returned from the previous API invoke. You do not need to specify this parameter for the first query.
     shared_ptr<string> nextToken_ {};
     // The region where the WAF instance resides. Valid values:
     // 

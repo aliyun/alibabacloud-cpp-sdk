@@ -127,7 +127,7 @@ namespace WafOpenapi20211001
       Models::CreateApiExportResponse createApiExport(const Models::CreateApiExportRequest &request);
 
       /**
-       * @summary Uploads an international certificate to WAF for CNAME-based access.
+       * @summary Uploads an international certificate for WAF CNAME access.
        *
        * @param request CreateCertsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -136,7 +136,7 @@ namespace WafOpenapi20211001
       Models::CreateCertsResponse createCertsWithOptions(const Models::CreateCertsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Uploads an international certificate to WAF for CNAME-based access.
+       * @summary Uploads an international certificate for WAF CNAME access.
        *
        * @param request CreateCertsRequest
        * @return CreateCertsResponse
@@ -222,7 +222,7 @@ namespace WafOpenapi20211001
       Models::CreateDefenseResourceGroupResponse createDefenseResourceGroup(const Models::CreateDefenseResourceGroupRequest &request);
 
       /**
-       * @summary Creates a Web core protection rule.
+       * @summary Creates a web core protection rule.
        *
        * @param request CreateDefenseRuleRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -231,7 +231,7 @@ namespace WafOpenapi20211001
       Models::CreateDefenseRuleResponse createDefenseRuleWithOptions(const Models::CreateDefenseRuleRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Creates a Web core protection rule.
+       * @summary Creates a web core protection rule.
        *
        * @param request CreateDefenseRuleRequest
        * @return CreateDefenseRuleResponse
@@ -256,11 +256,11 @@ namespace WafOpenapi20211001
       Models::CreateDefenseTemplateResponse createDefenseTemplate(const Models::CreateDefenseTemplateRequest &request);
 
       /**
-       * @summary Adds a domain name to a WAF instance for Website Config protection.
+       * @summary Adds a website config to a WAF instance for protection.
        *
-       * @description Before you call this operation, the domain name (**Domain**) must meet the following requirements.
-       * - **Domain ownership authentication**: If **AccessType** is set to **share** (CNAME access) or **hybrid_cloud_cname** (hybrid cloud CNAME access) with public cloud disaster recovery enabled, you must first complete domain ownership authentication. Invoke the [DescribeVerifyContent](https://help.aliyun.com/document_detail/2985193.html) operation to obtain domain verification information, configure a DNS TXT record or upload an HTTP verification file based on the response, and then invoke the [VerifyDomainOwner](https://help.aliyun.com/document_detail/2985192.html) operation to complete domain ownership authentication. When you invoke the [DescribeVerifyContent](https://help.aliyun.com/document_detail/2985193.html) and [VerifyDomainOwner](https://help.aliyun.com/document_detail/2985192.html) operations, use the **DomainName** parameter to specify the domain name. The **DescribeVerifyContent** operation also requires the **AccessOrigin** parameter to specify the access source. For valid values, refer to the metric description of the DescribeVerifyContent operation.
-       * - **ICP filing**: If **AccessType** is set to **share** (CNAME access) or **hybrid_cloud_cname** (hybrid cloud CNAME access) with public cloud disaster recovery enabled, and the domain name is added to Website Config in a region in the Chinese mainland, the domain name must have a valid ICP filing.
+       * @description Before you call this operation, the domain name (**Domain**) must meet the following requirements:
+       * - **Domain ownership authentication**: If **AccessType** is set to **share** (CNAME access) or **hybrid_cloud_cname** (hybrid cloud CNAME access) and public cloud disaster recovery is enabled, you must authenticate the ownership of the domain name first. Invoke the [DescribeVerifyContent](https://help.aliyun.com/document_detail/2985193.html) operation to obtain the domain name authentication information, configure a DNS TXT record or upload an HTTP authentication file based on the returned content, and then invoke the [VerifyDomainOwner](https://help.aliyun.com/document_detail/2985192.html) operation to authenticate the domain name ownership. When you invoke the [DescribeVerifyContent](https://help.aliyun.com/document_detail/2985193.html) and [VerifyDomainOwner](https://help.aliyun.com/document_detail/2985192.html) operations, you must use the **DomainName** parameter to specify the domain name. For the **DescribeVerifyContent** operation, you must also use the **AccessOrigin** parameter to specify the access source. For more information about the valid values, see the metric description of the DescribeVerifyContent operation.
+       * - **ICP filing**: If **AccessType** is set to **share** (CNAME access) or **hybrid_cloud_cname** (hybrid cloud CNAME access) and public cloud disaster recovery is enabled, and the website config is added to a region in the Chinese mainland, the domain name must have an ICP filing.
        *
        * @param tmpReq CreateDomainRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -269,11 +269,11 @@ namespace WafOpenapi20211001
       Models::CreateDomainResponse createDomainWithOptions(const Models::CreateDomainRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Adds a domain name to a WAF instance for Website Config protection.
+       * @summary Adds a website config to a WAF instance for protection.
        *
-       * @description Before you call this operation, the domain name (**Domain**) must meet the following requirements.
-       * - **Domain ownership authentication**: If **AccessType** is set to **share** (CNAME access) or **hybrid_cloud_cname** (hybrid cloud CNAME access) with public cloud disaster recovery enabled, you must first complete domain ownership authentication. Invoke the [DescribeVerifyContent](https://help.aliyun.com/document_detail/2985193.html) operation to obtain domain verification information, configure a DNS TXT record or upload an HTTP verification file based on the response, and then invoke the [VerifyDomainOwner](https://help.aliyun.com/document_detail/2985192.html) operation to complete domain ownership authentication. When you invoke the [DescribeVerifyContent](https://help.aliyun.com/document_detail/2985193.html) and [VerifyDomainOwner](https://help.aliyun.com/document_detail/2985192.html) operations, use the **DomainName** parameter to specify the domain name. The **DescribeVerifyContent** operation also requires the **AccessOrigin** parameter to specify the access source. For valid values, refer to the metric description of the DescribeVerifyContent operation.
-       * - **ICP filing**: If **AccessType** is set to **share** (CNAME access) or **hybrid_cloud_cname** (hybrid cloud CNAME access) with public cloud disaster recovery enabled, and the domain name is added to Website Config in a region in the Chinese mainland, the domain name must have a valid ICP filing.
+       * @description Before you call this operation, the domain name (**Domain**) must meet the following requirements:
+       * - **Domain ownership authentication**: If **AccessType** is set to **share** (CNAME access) or **hybrid_cloud_cname** (hybrid cloud CNAME access) and public cloud disaster recovery is enabled, you must authenticate the ownership of the domain name first. Invoke the [DescribeVerifyContent](https://help.aliyun.com/document_detail/2985193.html) operation to obtain the domain name authentication information, configure a DNS TXT record or upload an HTTP authentication file based on the returned content, and then invoke the [VerifyDomainOwner](https://help.aliyun.com/document_detail/2985192.html) operation to authenticate the domain name ownership. When you invoke the [DescribeVerifyContent](https://help.aliyun.com/document_detail/2985193.html) and [VerifyDomainOwner](https://help.aliyun.com/document_detail/2985192.html) operations, you must use the **DomainName** parameter to specify the domain name. For the **DescribeVerifyContent** operation, you must also use the **AccessOrigin** parameter to specify the access source. For more information about the valid values, see the metric description of the DescribeVerifyContent operation.
+       * - **ICP filing**: If **AccessType** is set to **share** (CNAME access) or **hybrid_cloud_cname** (hybrid cloud CNAME access) and public cloud disaster recovery is enabled, and the website config is added to a region in the Chinese mainland, the domain name must have an ICP filing.
        *
        * @param request CreateDomainRequest
        * @return CreateDomainResponse
@@ -281,7 +281,9 @@ namespace WafOpenapi20211001
       Models::CreateDomainResponse createDomain(const Models::CreateDomainRequest &request);
 
       /**
-       * @summary Creates a hybrid cloud Web Application Firewall (WAF) cluster.
+       * @summary Creates a hybrid cloud cluster.
+       *
+       * @description Before calling this operation, ensure that the hybrid cloud feature is enabled for the Web Application Firewall (WAF) instance. Specifically, when you call the DescribeInstance operation, the Details.HybridCloud parameter in the response must be true. If the feature is not enabled, upgrade the instance to a hybrid cloud-compatible version in the WAF console.
        *
        * @param request CreateHybridCloudClusterRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -290,7 +292,9 @@ namespace WafOpenapi20211001
       Models::CreateHybridCloudClusterResponse createHybridCloudClusterWithOptions(const Models::CreateHybridCloudClusterRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Creates a hybrid cloud Web Application Firewall (WAF) cluster.
+       * @summary Creates a hybrid cloud cluster.
+       *
+       * @description Before calling this operation, ensure that the hybrid cloud feature is enabled for the Web Application Firewall (WAF) instance. Specifically, when you call the DescribeInstance operation, the Details.HybridCloud parameter in the response must be true. If the feature is not enabled, upgrade the instance to a hybrid cloud-compatible version in the WAF console.
        *
        * @param request CreateHybridCloudClusterRequest
        * @return CreateHybridCloudClusterResponse
@@ -300,7 +304,7 @@ namespace WafOpenapi20211001
       /**
        * @summary Creates cluster rule information.
        *
-       * @description Before calling this operation, make sure that the hybrid cloud feature is enabled for the WAF instance. You can call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query instance details. If the Details.HybridCloud parameter in the response is true, the hybrid cloud feature is enabled. If the feature is not enabled, log on to the WAF console and upgrade the instance to enable the hybrid cloud feature.
+       * @description Before you call this operation, make sure that the hybrid cloud feature is enabled for the WAF instance. You can call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query the instance details. If the Details.HybridCloud response parameter is set to true, the hybrid cloud feature is enabled. If the feature is not enabled, log on to the WAF console and upgrade the instance to enable the hybrid cloud feature.
        *
        * @param request CreateHybridCloudClusterRuleRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -311,7 +315,7 @@ namespace WafOpenapi20211001
       /**
        * @summary Creates cluster rule information.
        *
-       * @description Before calling this operation, make sure that the hybrid cloud feature is enabled for the WAF instance. You can call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query instance details. If the Details.HybridCloud parameter in the response is true, the hybrid cloud feature is enabled. If the feature is not enabled, log on to the WAF console and upgrade the instance to enable the hybrid cloud feature.
+       * @description Before you call this operation, make sure that the hybrid cloud feature is enabled for the WAF instance. You can call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query the instance details. If the Details.HybridCloud response parameter is set to true, the hybrid cloud feature is enabled. If the feature is not enabled, log on to the WAF console and upgrade the instance to enable the hybrid cloud feature.
        *
        * @param request CreateHybridCloudClusterRuleRequest
        * @return CreateHybridCloudClusterRuleResponse
@@ -336,9 +340,9 @@ namespace WafOpenapi20211001
       Models::CreateHybridCloudGroupResponse createHybridCloudGroup(const Models::CreateHybridCloudGroupRequest &request);
 
       /**
-       * @summary Creates a log delivery configuration for hybrid cloud environments.
+       * @summary Creates a hybrid cloud log delivery configuration.
        *
-       * @description Before you call this operation, make sure that the WAF instance has hybrid cloud extension nodes purchased. You can call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query instance details. If the value of the Details.HybridCloudNodeExtend response parameter is greater than 0, hybrid cloud extension nodes have been purchased. If not, log on to the WAF console and upgrade the instance to purchase hybrid cloud extension nodes.
+       * @description Before you call this operation, ensure that you have purchased hybrid cloud extension nodes for your WAF instance. You can call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query the instance details. If the value of the Details.HybridCloudNodeExtend response parameter is greater than 0, hybrid cloud extension nodes are purchased. If no hybrid cloud extension nodes are purchased, you can log on to the WAF console and upgrade the instance to purchase hybrid cloud extension nodes.
        *
        * @param request CreateLogDeliveryConfigRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -347,9 +351,9 @@ namespace WafOpenapi20211001
       Models::CreateLogDeliveryConfigResponse createLogDeliveryConfigWithOptions(const Models::CreateLogDeliveryConfigRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Creates a log delivery configuration for hybrid cloud environments.
+       * @summary Creates a hybrid cloud log delivery configuration.
        *
-       * @description Before you call this operation, make sure that the WAF instance has hybrid cloud extension nodes purchased. You can call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query instance details. If the value of the Details.HybridCloudNodeExtend response parameter is greater than 0, hybrid cloud extension nodes have been purchased. If not, log on to the WAF console and upgrade the instance to purchase hybrid cloud extension nodes.
+       * @description Before you call this operation, ensure that you have purchased hybrid cloud extension nodes for your WAF instance. You can call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query the instance details. If the value of the Details.HybridCloudNodeExtend response parameter is greater than 0, hybrid cloud extension nodes are purchased. If no hybrid cloud extension nodes are purchased, you can log on to the WAF console and upgrade the instance to purchase hybrid cloud extension nodes.
        *
        * @param request CreateLogDeliveryConfigRequest
        * @return CreateLogDeliveryConfigResponse
@@ -399,7 +403,7 @@ namespace WafOpenapi20211001
       Models::CreateMemberAccountsResponse createMemberAccounts(const Models::CreateMemberAccountsRequest &request);
 
       /**
-       * @summary Starts a trial for a proof of concept (POC) feature.
+       * @summary Enables the POC feature trial.
        *
        * @param request CreatePocFunctionRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -408,7 +412,7 @@ namespace WafOpenapi20211001
       Models::CreatePocFunctionResponse createPocFunctionWithOptions(const Models::CreatePocFunctionRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Starts a trial for a proof of concept (POC) feature.
+       * @summary Enables the POC feature trial.
        *
        * @param request CreatePocFunctionRequest
        * @return CreatePocFunctionResponse
@@ -437,7 +441,7 @@ namespace WafOpenapi20211001
       Models::CreatePostpaidInstanceResponse createPostpaidInstance(const Models::CreatePostpaidInstanceRequest &request);
 
       /**
-       * @summary Uploads a China National Cryptographic Algorithm (SM) certificate for a domain that is added to WAF in CNAME mode.
+       * @summary Uploads a ShangMi certificate for WAF CNAME access.
        *
        * @param request CreateSM2CertRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -446,7 +450,7 @@ namespace WafOpenapi20211001
       Models::CreateSM2CertResponse createSM2CertWithOptions(const Models::CreateSM2CertRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Uploads a China National Cryptographic Algorithm (SM) certificate for a domain that is added to WAF in CNAME mode.
+       * @summary Uploads a ShangMi certificate for WAF CNAME access.
        *
        * @param request CreateSM2CertRequest
        * @return CreateSM2CertResponse
@@ -522,7 +526,7 @@ namespace WafOpenapi20211001
       Models::DeleteCloudResourceResponse deleteCloudResource(const Models::DeleteCloudResourceRequest &request);
 
       /**
-       * @summary Deletes the extended certificate for a resource onboarded in cloud native mode.
+       * @summary Deletes the extension certificate for cloud native mode.
        *
        * @param request DeleteCloudResourceExtensionCertRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -531,7 +535,7 @@ namespace WafOpenapi20211001
       Models::DeleteCloudResourceExtensionCertResponse deleteCloudResourceExtensionCertWithOptions(const Models::DeleteCloudResourceExtensionCertRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Deletes the extended certificate for a resource onboarded in cloud native mode.
+       * @summary Deletes the extension certificate for cloud native mode.
        *
        * @param request DeleteCloudResourceExtensionCertRequest
        * @return DeleteCloudResourceExtensionCertResponse
@@ -590,7 +594,7 @@ namespace WafOpenapi20211001
       Models::DeleteDefenseRuleResponse deleteDefenseRule(const Models::DeleteDefenseRuleRequest &request);
 
       /**
-       * @summary Unblocks an IP address that is blocked by the scan protection module.
+       * @summary Unblocks IP addresses blocked by scan protection.
        *
        * @param request DeleteDefenseRuleBlockIpRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -599,7 +603,7 @@ namespace WafOpenapi20211001
       Models::DeleteDefenseRuleBlockIpResponse deleteDefenseRuleBlockIpWithOptions(const Models::DeleteDefenseRuleBlockIpRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Unblocks an IP address that is blocked by the scan protection module.
+       * @summary Unblocks IP addresses blocked by scan protection.
        *
        * @param request DeleteDefenseRuleBlockIpRequest
        * @return DeleteDefenseRuleBlockIpResponse
@@ -643,7 +647,7 @@ namespace WafOpenapi20211001
       /**
        * @summary Deletes cluster rule information.
        *
-       * @description Before calling this operation, make sure that the hybrid cloud feature is enabled for the WAF instance. You can call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query instance details. If the returned parameter Details.HybridCloud is true, the hybrid cloud feature is enabled. If it is not enabled, log on to the WAF console and upgrade the instance to enable the hybrid cloud feature.
+       * @description Before calling this operation, ensure that the hybrid cloud feature is enabled for the WAF instance. You can call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query instance details. If the Details.HybridCloud response parameter is set to true, the hybrid cloud feature is enabled. If the feature is not enabled, log on to the WAF console and upgrade the instance to enable the hybrid cloud feature.
        *
        * @param request DeleteHybridCloudClusterRuleRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -654,7 +658,7 @@ namespace WafOpenapi20211001
       /**
        * @summary Deletes cluster rule information.
        *
-       * @description Before calling this operation, make sure that the hybrid cloud feature is enabled for the WAF instance. You can call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query instance details. If the returned parameter Details.HybridCloud is true, the hybrid cloud feature is enabled. If it is not enabled, log on to the WAF console and upgrade the instance to enable the hybrid cloud feature.
+       * @description Before calling this operation, ensure that the hybrid cloud feature is enabled for the WAF instance. You can call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query instance details. If the Details.HybridCloud response parameter is set to true, the hybrid cloud feature is enabled. If the feature is not enabled, log on to the WAF console and upgrade the instance to enable the hybrid cloud feature.
        *
        * @param request DeleteHybridCloudClusterRuleRequest
        * @return DeleteHybridCloudClusterRuleResponse
@@ -662,7 +666,7 @@ namespace WafOpenapi20211001
       Models::DeleteHybridCloudClusterRuleResponse deleteHybridCloudClusterRule(const Models::DeleteHybridCloudClusterRuleRequest &request);
 
       /**
-       * @summary Deletes a group.
+       * @summary Deletes group information.
        *
        * @param request DeleteHybridCloudGroupRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -671,7 +675,7 @@ namespace WafOpenapi20211001
       Models::DeleteHybridCloudGroupResponse deleteHybridCloudGroupWithOptions(const Models::DeleteHybridCloudGroupRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Deletes a group.
+       * @summary Deletes group information.
        *
        * @param request DeleteHybridCloudGroupRequest
        * @return DeleteHybridCloudGroupResponse
@@ -679,9 +683,9 @@ namespace WafOpenapi20211001
       Models::DeleteHybridCloudGroupResponse deleteHybridCloudGroup(const Models::DeleteHybridCloudGroupRequest &request);
 
       /**
-       * @summary Deletes a hybrid cloud log forwarding delivery configuration.
+       * @summary Deletes the outbound log delivery configuration for Hybrid Cloud.
        *
-       * @description Before calling this operation, make sure that the WAF instance has purchased hybrid cloud extension nodes. You can call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query instance details. If the returned parameter Details.HybridCloudNodeExtend is greater than 0, hybrid cloud extension nodes have been purchased. If not, log on to the WAF console and purchase hybrid cloud extension nodes by upgrading the instance.
+       * @description Before calling this operation, ensure that you have purchased hybrid cloud extension nodes for your WAF instance. You can call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query instance details. If the returned Details.HybridCloudNodeExtend parameter is greater than 0, hybrid cloud extension nodes are purchased. If not, log on to the WAF console and upgrade the instance to purchase hybrid cloud extension nodes.
        *
        * @param request DeleteLogDeliveryConfigRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -690,9 +694,9 @@ namespace WafOpenapi20211001
       Models::DeleteLogDeliveryConfigResponse deleteLogDeliveryConfigWithOptions(const Models::DeleteLogDeliveryConfigRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Deletes a hybrid cloud log forwarding delivery configuration.
+       * @summary Deletes the outbound log delivery configuration for Hybrid Cloud.
        *
-       * @description Before calling this operation, make sure that the WAF instance has purchased hybrid cloud extension nodes. You can call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query instance details. If the returned parameter Details.HybridCloudNodeExtend is greater than 0, hybrid cloud extension nodes have been purchased. If not, log on to the WAF console and purchase hybrid cloud extension nodes by upgrading the instance.
+       * @description Before calling this operation, ensure that you have purchased hybrid cloud extension nodes for your WAF instance. You can call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query instance details. If the returned Details.HybridCloudNodeExtend parameter is greater than 0, hybrid cloud extension nodes are purchased. If not, log on to the WAF console and upgrade the instance to purchase hybrid cloud extension nodes.
        *
        * @param request DeleteLogDeliveryConfigRequest
        * @return DeleteLogDeliveryConfigResponse
@@ -742,7 +746,7 @@ namespace WafOpenapi20211001
       Models::DeleteMemberAccountResponse deleteMemberAccount(const Models::DeleteMemberAccountRequest &request);
 
       /**
-       * @summary Queries abnormal cloud native mode resources.
+       * @summary Queries abnormal resources in cloud native mode.
        *
        * @param request DescribeAbnormalCloudResourcesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -751,12 +755,29 @@ namespace WafOpenapi20211001
       Models::DescribeAbnormalCloudResourcesResponse describeAbnormalCloudResourcesWithOptions(const Models::DescribeAbnormalCloudResourcesRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries abnormal cloud native mode resources.
+       * @summary Queries abnormal resources in cloud native mode.
        *
        * @param request DescribeAbnormalCloudResourcesRequest
        * @return DescribeAbnormalCloudResourcesResponse
        */
       Models::DescribeAbnormalCloudResourcesResponse describeAbnormalCloudResources(const Models::DescribeAbnormalCloudResourcesRequest &request);
+
+      /**
+       * @summary Queries the access configuration.
+       *
+       * @param request DescribeAccessConfigRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DescribeAccessConfigResponse
+       */
+      Models::DescribeAccessConfigResponse describeAccessConfigWithOptions(const Models::DescribeAccessConfigRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Queries the access configuration.
+       *
+       * @param request DescribeAccessConfigRequest
+       * @return DescribeAccessConfigResponse
+       */
+      Models::DescribeAccessConfigResponse describeAccessConfig(const Models::DescribeAccessConfigRequest &request);
 
       /**
        * @summary Queries whether the current user is a delegated administrator of WAF in the multi-account management feature.
@@ -776,7 +797,7 @@ namespace WafOpenapi20211001
       Models::DescribeAccountDelegatedStatusResponse describeAccountDelegatedStatus(const Models::DescribeAccountDelegatedStatusRequest &request);
 
       /**
-       * @summary Queries addresses in an address book by paging.
+       * @summary Queries the addresses in an address book by paging.
        *
        * @param request DescribeAddressesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -785,7 +806,7 @@ namespace WafOpenapi20211001
       Models::DescribeAddressesResponse describeAddressesWithOptions(const Models::DescribeAddressesRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries addresses in an address book by paging.
+       * @summary Queries the addresses in an address book by paging.
        *
        * @param request DescribeAddressesRequest
        * @return DescribeAddressesResponse
@@ -793,7 +814,175 @@ namespace WafOpenapi20211001
       Models::DescribeAddressesResponse describeAddresses(const Models::DescribeAddressesRequest &request);
 
       /**
-       * @summary Queries the alert banner information of a Web Application Firewall (WAF) instance.
+       * @summary Queries the details of an AI Engine event.
+       *
+       * @description Before calling this operation, ensure that the WAF instance is of the Agentic WAF edition. You can call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query instance details. If the returned Details.AgenticWaf parameter is true, the instance is of the Agentic WAF edition. If it is not supported, upgrade the instance to the Agentic WAF edition.
+       *
+       * @param request DescribeAiEngineEventRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DescribeAiEngineEventResponse
+       */
+      Models::DescribeAiEngineEventResponse describeAiEngineEventWithOptions(const Models::DescribeAiEngineEventRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Queries the details of an AI Engine event.
+       *
+       * @description Before calling this operation, ensure that the WAF instance is of the Agentic WAF edition. You can call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query instance details. If the returned Details.AgenticWaf parameter is true, the instance is of the Agentic WAF edition. If it is not supported, upgrade the instance to the Agentic WAF edition.
+       *
+       * @param request DescribeAiEngineEventRequest
+       * @return DescribeAiEngineEventResponse
+       */
+      Models::DescribeAiEngineEventResponse describeAiEngineEvent(const Models::DescribeAiEngineEventRequest &request);
+
+      /**
+       * @summary Queries the list of AI Engine event nodes.
+       *
+       * @description Before calling this operation, make sure that the WAF instance is of the Agentic WAF edition. You can call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query the instance details. If the returned Details.AgenticWaf parameter is set to true, the instance is of the Agentic WAF edition. If the instance does not support this edition, you can upgrade the instance to the Agentic WAF edition.
+       *
+       * @param request DescribeAiEngineEventNodesRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DescribeAiEngineEventNodesResponse
+       */
+      Models::DescribeAiEngineEventNodesResponse describeAiEngineEventNodesWithOptions(const Models::DescribeAiEngineEventNodesRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Queries the list of AI Engine event nodes.
+       *
+       * @description Before calling this operation, make sure that the WAF instance is of the Agentic WAF edition. You can call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query the instance details. If the returned Details.AgenticWaf parameter is set to true, the instance is of the Agentic WAF edition. If the instance does not support this edition, you can upgrade the instance to the Agentic WAF edition.
+       *
+       * @param request DescribeAiEngineEventNodesRequest
+       * @return DescribeAiEngineEventNodesResponse
+       */
+      Models::DescribeAiEngineEventNodesResponse describeAiEngineEventNodes(const Models::DescribeAiEngineEventNodesRequest &request);
+
+      /**
+       * @summary Queries the operation records of AI Engine events.
+       *
+       * @description Before you call this operation, make sure that the WAF instance is of the Agentic WAF edition. You can call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query the instance details. If the returned Details.AgenticWaf parameter is set to true, the instance is of the Agentic WAF edition. If the instance does not support this edition, you can upgrade the instance to the Agentic WAF edition.
+       *
+       * @param request DescribeAiEngineEventOperationsRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DescribeAiEngineEventOperationsResponse
+       */
+      Models::DescribeAiEngineEventOperationsResponse describeAiEngineEventOperationsWithOptions(const Models::DescribeAiEngineEventOperationsRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Queries the operation records of AI Engine events.
+       *
+       * @description Before you call this operation, make sure that the WAF instance is of the Agentic WAF edition. You can call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query the instance details. If the returned Details.AgenticWaf parameter is set to true, the instance is of the Agentic WAF edition. If the instance does not support this edition, you can upgrade the instance to the Agentic WAF edition.
+       *
+       * @param request DescribeAiEngineEventOperationsRequest
+       * @return DescribeAiEngineEventOperationsResponse
+       */
+      Models::DescribeAiEngineEventOperationsResponse describeAiEngineEventOperations(const Models::DescribeAiEngineEventOperationsRequest &request);
+
+      /**
+       * @summary Queries the AI Engine event trends.
+       *
+       * @description Before calling this operation, ensure that the WAF instance is of the Agentic WAF edition. You can call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query instance details. If the returned Details.AgenticWaf parameter is true, the instance is of the Agentic WAF edition. If not, upgrade the instance to the Agentic WAF edition.
+       *
+       * @param request DescribeAiEngineEventTrendsRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DescribeAiEngineEventTrendsResponse
+       */
+      Models::DescribeAiEngineEventTrendsResponse describeAiEngineEventTrendsWithOptions(const Models::DescribeAiEngineEventTrendsRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Queries the AI Engine event trends.
+       *
+       * @description Before calling this operation, ensure that the WAF instance is of the Agentic WAF edition. You can call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query instance details. If the returned Details.AgenticWaf parameter is true, the instance is of the Agentic WAF edition. If not, upgrade the instance to the Agentic WAF edition.
+       *
+       * @param request DescribeAiEngineEventTrendsRequest
+       * @return DescribeAiEngineEventTrendsResponse
+       */
+      Models::DescribeAiEngineEventTrendsResponse describeAiEngineEventTrends(const Models::DescribeAiEngineEventTrendsRequest &request);
+
+      /**
+       * @summary Queries the list of AI Engine events.
+       *
+       * @description Before calling this operation, make sure that the WAF instance is of the Agentic WAF edition. You can call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query the instance details. If the returned Details.AgenticWaf parameter is set to true, the instance is of the Agentic WAF edition. If the instance does not support this edition, upgrade the instance to the Agentic WAF edition.
+       *
+       * @param tmpReq DescribeAiEngineEventsRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DescribeAiEngineEventsResponse
+       */
+      Models::DescribeAiEngineEventsResponse describeAiEngineEventsWithOptions(const Models::DescribeAiEngineEventsRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Queries the list of AI Engine events.
+       *
+       * @description Before calling this operation, make sure that the WAF instance is of the Agentic WAF edition. You can call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query the instance details. If the returned Details.AgenticWaf parameter is set to true, the instance is of the Agentic WAF edition. If the instance does not support this edition, upgrade the instance to the Agentic WAF edition.
+       *
+       * @param request DescribeAiEngineEventsRequest
+       * @return DescribeAiEngineEventsResponse
+       */
+      Models::DescribeAiEngineEventsResponse describeAiEngineEvents(const Models::DescribeAiEngineEventsRequest &request);
+
+      /**
+       * @summary Queries the details of an AI Engine evidence request.
+       *
+       * @description Before calling this operation, make sure that the WAF instance is of the Agentic WAF edition. You can call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query the instance details. If the returned Details.AgenticWaf parameter is set to true, the instance is of the Agentic WAF edition. If the instance is not of this edition, upgrade the instance to the Agentic WAF edition.
+       *
+       * @param request DescribeAiEngineEvidenceRequestRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DescribeAiEngineEvidenceRequestResponse
+       */
+      Models::DescribeAiEngineEvidenceRequestResponse describeAiEngineEvidenceRequestWithOptions(const Models::DescribeAiEngineEvidenceRequestRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Queries the details of an AI Engine evidence request.
+       *
+       * @description Before calling this operation, make sure that the WAF instance is of the Agentic WAF edition. You can call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query the instance details. If the returned Details.AgenticWaf parameter is set to true, the instance is of the Agentic WAF edition. If the instance is not of this edition, upgrade the instance to the Agentic WAF edition.
+       *
+       * @param request DescribeAiEngineEvidenceRequestRequest
+       * @return DescribeAiEngineEvidenceRequestResponse
+       */
+      Models::DescribeAiEngineEvidenceRequestResponse describeAiEngineEvidenceRequest(const Models::DescribeAiEngineEvidenceRequestRequest &request);
+
+      /**
+       * @summary Queries the list of AI Engine evidence requests.
+       *
+       * @description Before you call this operation, make sure that the WAF instance is of the Agentic WAF edition. You can call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query the instance details. If the returned Details.AgenticWaf parameter is set to true, the instance is of the Agentic WAF edition. If the instance does not support this edition, you can upgrade the instance to the Agentic WAF edition.
+       *
+       * @param tmpReq DescribeAiEngineEvidenceRequestsRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DescribeAiEngineEvidenceRequestsResponse
+       */
+      Models::DescribeAiEngineEvidenceRequestsResponse describeAiEngineEvidenceRequestsWithOptions(const Models::DescribeAiEngineEvidenceRequestsRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Queries the list of AI Engine evidence requests.
+       *
+       * @description Before you call this operation, make sure that the WAF instance is of the Agentic WAF edition. You can call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query the instance details. If the returned Details.AgenticWaf parameter is set to true, the instance is of the Agentic WAF edition. If the instance does not support this edition, you can upgrade the instance to the Agentic WAF edition.
+       *
+       * @param request DescribeAiEngineEvidenceRequestsRequest
+       * @return DescribeAiEngineEvidenceRequestsResponse
+       */
+      Models::DescribeAiEngineEvidenceRequestsResponse describeAiEngineEvidenceRequests(const Models::DescribeAiEngineEvidenceRequestsRequest &request);
+
+      /**
+       * @summary Queries the AI Engine overview data.
+       *
+       * @description Before calling this operation, ensure that the WAF instance is of the Agentic WAF edition. You can call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query instance details. If the returned Details.AgenticWaf parameter is true, the instance is of the Agentic WAF edition. Otherwise, you can upgrade the instance to the Agentic WAF edition.
+       *
+       * @param request DescribeAiEngineOverviewRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DescribeAiEngineOverviewResponse
+       */
+      Models::DescribeAiEngineOverviewResponse describeAiEngineOverviewWithOptions(const Models::DescribeAiEngineOverviewRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Queries the AI Engine overview data.
+       *
+       * @description Before calling this operation, ensure that the WAF instance is of the Agentic WAF edition. You can call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query instance details. If the returned Details.AgenticWaf parameter is true, the instance is of the Agentic WAF edition. Otherwise, you can upgrade the instance to the Agentic WAF edition.
+       *
+       * @param request DescribeAiEngineOverviewRequest
+       * @return DescribeAiEngineOverviewResponse
+       */
+      Models::DescribeAiEngineOverviewResponse describeAiEngineOverview(const Models::DescribeAiEngineOverviewRequest &request);
+
+      /**
+       * @summary Queries alert banner information.
        *
        * @param request DescribeAlarmBannerRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -802,7 +991,7 @@ namespace WafOpenapi20211001
       Models::DescribeAlarmBannerResponse describeAlarmBannerWithOptions(const Models::DescribeAlarmBannerRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the alert banner information of a Web Application Firewall (WAF) instance.
+       * @summary Queries alert banner information.
        *
        * @param request DescribeAlarmBannerRequest
        * @return DescribeAlarmBannerResponse
@@ -878,7 +1067,7 @@ namespace WafOpenapi20211001
       Models::DescribeApisecAbnormalsResponse describeApisecAbnormals(const Models::DescribeApisecAbnormalsRequest &request);
 
       /**
-       * @summary Queries the list of API security assets.
+       * @summary Queries API security assets.
        *
        * @param request DescribeApisecApiResourcesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -887,7 +1076,7 @@ namespace WafOpenapi20211001
       Models::DescribeApisecApiResourcesResponse describeApisecApiResourcesWithOptions(const Models::DescribeApisecApiResourcesRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the list of API security assets.
+       * @summary Queries API security assets.
        *
        * @param request DescribeApisecApiResourcesRequest
        * @return DescribeApisecApiResourcesResponse
@@ -1065,7 +1254,7 @@ namespace WafOpenapi20211001
       Models::DescribeApisecRulesResponse describeApisecRules(const Models::DescribeApisecRulesRequest &request);
 
       /**
-       * @summary Queries statistics on data endpoints associated with API security sensitive data domains.
+       * @summary Queries the data domain statistics for API security sensitive data.
        *
        * @param request DescribeApisecSensitiveDomainStatisticRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1074,7 +1263,7 @@ namespace WafOpenapi20211001
       Models::DescribeApisecSensitiveDomainStatisticResponse describeApisecSensitiveDomainStatisticWithOptions(const Models::DescribeApisecSensitiveDomainStatisticRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries statistics on data endpoints associated with API security sensitive data domains.
+       * @summary Queries the data domain statistics for API security sensitive data.
        *
        * @param request DescribeApisecSensitiveDomainStatisticRequest
        * @return DescribeApisecSensitiveDomainStatisticResponse
@@ -1133,7 +1322,7 @@ namespace WafOpenapi20211001
       Models::DescribeApisecStatisticsResponse describeApisecStatistics(const Models::DescribeApisecStatisticsRequest &request);
 
       /**
-       * @summary Queries protection suggestions for API assets.
+       * @summary Queries the protection suggestions for API assets.
        *
        * @param request DescribeApisecSuggestionsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1142,7 +1331,7 @@ namespace WafOpenapi20211001
       Models::DescribeApisecSuggestionsResponse describeApisecSuggestionsWithOptions(const Models::DescribeApisecSuggestionsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries protection suggestions for API assets.
+       * @summary Queries the protection suggestions for API assets.
        *
        * @param request DescribeApisecSuggestionsRequest
        * @return DescribeApisecSuggestionsResponse
@@ -1167,7 +1356,7 @@ namespace WafOpenapi20211001
       Models::DescribeApisecUserOperationsResponse describeApisecUserOperations(const Models::DescribeApisecUserOperationsRequest &request);
 
       /**
-       * @summary Queries the change records of rule group rules by paging.
+       * @summary Queries the change records of rules in a rule library by using paging.
        *
        * @param request DescribeBaseRuleChangeLogRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1176,7 +1365,7 @@ namespace WafOpenapi20211001
       Models::DescribeBaseRuleChangeLogResponse describeBaseRuleChangeLogWithOptions(const Models::DescribeBaseRuleChangeLogRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the change records of rule group rules by paging.
+       * @summary Queries the change records of rules in a rule library by using paging.
        *
        * @param request DescribeBaseRuleChangeLogRequest
        * @return DescribeBaseRuleChangeLogResponse
@@ -1184,7 +1373,7 @@ namespace WafOpenapi20211001
       Models::DescribeBaseRuleChangeLogResponse describeBaseRuleChangeLog(const Models::DescribeBaseRuleChangeLogRequest &request);
 
       /**
-       * @summary Queries the system rules of Web core protection.
+       * @summary Queries the system rules for web core protection.
        *
        * @param request DescribeBaseSystemRulesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1193,7 +1382,7 @@ namespace WafOpenapi20211001
       Models::DescribeBaseSystemRulesResponse describeBaseSystemRulesWithOptions(const Models::DescribeBaseSystemRulesRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the system rules of Web core protection.
+       * @summary Queries the system rules for web core protection.
        *
        * @param request DescribeBaseSystemRulesRequest
        * @return DescribeBaseSystemRulesResponse
@@ -1218,7 +1407,7 @@ namespace WafOpenapi20211001
       Models::DescribeBotAppKeyResponse describeBotAppKey(const Models::DescribeBotAppKeyRequest &request);
 
       /**
-       * @summary Queries the bot management rule label information.
+       * @summary Queries the information about bot management rule labels.
        *
        * @param request DescribeBotRuleLabelsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1227,7 +1416,7 @@ namespace WafOpenapi20211001
       Models::DescribeBotRuleLabelsResponse describeBotRuleLabelsWithOptions(const Models::DescribeBotRuleLabelsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the bot management rule label information.
+       * @summary Queries the information about bot management rule labels.
        *
        * @param request DescribeBotRuleLabelsRequest
        * @return DescribeBotRuleLabelsResponse
@@ -1320,7 +1509,7 @@ namespace WafOpenapi20211001
       Models::DescribeCloudResourceAccessPortDetailsResponse describeCloudResourceAccessPortDetails(const Models::DescribeCloudResourceAccessPortDetailsRequest &request);
 
       /**
-       * @summary Queries the ports of cloud services added to Web Application Firewall (WAF). This operation is supported only for Elastic Compute Service (ECS) and Classic Load Balancer (CLB).
+       * @summary Queries the ports of cloud service instances that are added to WAF. Only ECS and CLB instances are supported.
        *
        * @param request DescribeCloudResourceAccessedPortsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1329,7 +1518,7 @@ namespace WafOpenapi20211001
       Models::DescribeCloudResourceAccessedPortsResponse describeCloudResourceAccessedPortsWithOptions(const Models::DescribeCloudResourceAccessedPortsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the ports of cloud services added to Web Application Firewall (WAF). This operation is supported only for Elastic Compute Service (ECS) and Classic Load Balancer (CLB).
+       * @summary Queries the ports of cloud service instances that are added to WAF. Only ECS and CLB instances are supported.
        *
        * @param request DescribeCloudResourceAccessedPortsRequest
        * @return DescribeCloudResourceAccessedPortsResponse
@@ -1337,7 +1526,7 @@ namespace WafOpenapi20211001
       Models::DescribeCloudResourceAccessedPortsResponse describeCloudResourceAccessedPorts(const Models::DescribeCloudResourceAccessedPortsRequest &request);
 
       /**
-       * @summary Queries the list of resources connected to WAF in cloud native mode.
+       * @summary Queries the list of resources onboarded to WAF in cloud native mode.
        *
        * @param request DescribeCloudResourceListRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1346,7 +1535,7 @@ namespace WafOpenapi20211001
       Models::DescribeCloudResourceListResponse describeCloudResourceListWithOptions(const Models::DescribeCloudResourceListRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the list of resources connected to WAF in cloud native mode.
+       * @summary Queries the list of resources onboarded to WAF in cloud native mode.
        *
        * @param request DescribeCloudResourceListRequest
        * @return DescribeCloudResourceListResponse
@@ -1630,9 +1819,9 @@ namespace WafOpenapi20211001
       Models::DescribeDefenseRuleResponse describeDefenseRule(const Models::DescribeDefenseRuleRequest &request);
 
       /**
-       * @summary Queries statistics of rules under a specified WAF protection module.
+       * @summary Queries the statistics of rules in a specified Web Application Firewall (WAF) protection module.
        *
-       * @description This operation supports querying rule statistics for protection templates under the new Bot Management (bot_manager) and new Web Core Protection (waf_base) scenarios.
+       * @description This operation queries the statistics of rules in protection templates for the new Bot Management (bot_manager) and new Web Core Protection (waf_base) scenarios.
        *
        * @param request DescribeDefenseRuleStatisticsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1641,9 +1830,9 @@ namespace WafOpenapi20211001
       Models::DescribeDefenseRuleStatisticsResponse describeDefenseRuleStatisticsWithOptions(const Models::DescribeDefenseRuleStatisticsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries statistics of rules under a specified WAF protection module.
+       * @summary Queries the statistics of rules in a specified Web Application Firewall (WAF) protection module.
        *
-       * @description This operation supports querying rule statistics for protection templates under the new Bot Management (bot_manager) and new Web Core Protection (waf_base) scenarios.
+       * @description This operation queries the statistics of rules in protection templates for the new Bot Management (bot_manager) and new Web Core Protection (waf_base) scenarios.
        *
        * @param request DescribeDefenseRuleStatisticsRequest
        * @return DescribeDefenseRuleStatisticsResponse
@@ -1668,7 +1857,7 @@ namespace WafOpenapi20211001
       Models::DescribeDefenseRulesResponse describeDefenseRules(const Models::DescribeDefenseRulesRequest &request);
 
       /**
-       * @summary Queries the protection configurations for a specific defense scenario.
+       * @summary Queries the protection settings for user protection scenarios.
        *
        * @param request DescribeDefenseSceneConfigRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1677,7 +1866,7 @@ namespace WafOpenapi20211001
       Models::DescribeDefenseSceneConfigResponse describeDefenseSceneConfigWithOptions(const Models::DescribeDefenseSceneConfigRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the protection configurations for a specific defense scenario.
+       * @summary Queries the protection settings for user protection scenarios.
        *
        * @param request DescribeDefenseSceneConfigRequest
        * @return DescribeDefenseSceneConfigResponse
@@ -1719,7 +1908,7 @@ namespace WafOpenapi20211001
       Models::DescribeDefenseTemplateValidGroupsResponse describeDefenseTemplateValidGroups(const Models::DescribeDefenseTemplateValidGroupsRequest &request);
 
       /**
-       * @summary Queries a paginated list of protected objects that are valid for a specified protection template.
+       * @summary Queries the list of protected objects pending to take effect for a protection template by using paging in a paged query.
        *
        * @param request DescribeDefenseTemplateValidResourcesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1728,7 +1917,7 @@ namespace WafOpenapi20211001
       Models::DescribeDefenseTemplateValidResourcesResponse describeDefenseTemplateValidResourcesWithOptions(const Models::DescribeDefenseTemplateValidResourcesRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries a paginated list of protected objects that are valid for a specified protection template.
+       * @summary Queries the list of protected objects pending to take effect for a protection template by using paging in a paged query.
        *
        * @param request DescribeDefenseTemplateValidResourcesRequest
        * @return DescribeDefenseTemplateValidResourcesResponse
@@ -1770,7 +1959,7 @@ namespace WafOpenapi20211001
       Models::DescribeDomainDNSRecordResponse describeDomainDNSRecord(const Models::DescribeDomainDNSRecordRequest &request);
 
       /**
-       * @summary Queries the details of a Website Config.
+       * @summary Queries the details of the website config.
        *
        * @param request DescribeDomainDetailRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1779,7 +1968,7 @@ namespace WafOpenapi20211001
       Models::DescribeDomainDetailResponse describeDomainDetailWithOptions(const Models::DescribeDomainDetailRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the details of a Website Config.
+       * @summary Queries the details of the website config.
        *
        * @param request DescribeDomainDetailRequest
        * @return DescribeDomainDetailResponse
@@ -1787,7 +1976,7 @@ namespace WafOpenapi20211001
       Models::DescribeDomainDetailResponse describeDomainDetail(const Models::DescribeDomainDetailRequest &request);
 
       /**
-       * @summary Queries all ports used by domain names of the current user. Only domain names with CNAME access and hybrid cloud CNAME domain names with public network disaster recovery enabled are included.
+       * @summary Queries the ports used by all domain names of a user, including only CNAME-accessed domain names and hybrid cloud CNAME domain names with public network disaster recovery enabled.
        *
        * @param request DescribeDomainUsedPortsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1796,7 +1985,7 @@ namespace WafOpenapi20211001
       Models::DescribeDomainUsedPortsResponse describeDomainUsedPortsWithOptions(const Models::DescribeDomainUsedPortsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries all ports used by domain names of the current user. Only domain names with CNAME access and hybrid cloud CNAME domain names with public network disaster recovery enabled are included.
+       * @summary Queries the ports used by all domain names of a user, including only CNAME-accessed domain names and hybrid cloud CNAME domain names with public network disaster recovery enabled.
        *
        * @param request DescribeDomainUsedPortsRequest
        * @return DescribeDomainUsedPortsResponse
@@ -1821,7 +2010,7 @@ namespace WafOpenapi20211001
       Models::DescribeDomainsResponse describeDomains(const Models::DescribeDomainsRequest &request);
 
       /**
-       * @summary Queries the daily bills of a pay-as-you-go WAF instance for the last 7 days.
+       * @summary Queries the daily bills of a pay-as-you-go Web Application Firewall (WAF) instance over the last seven days.
        *
        * @param request DescribeElasticBillsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1830,7 +2019,7 @@ namespace WafOpenapi20211001
       Models::DescribeElasticBillsResponse describeElasticBillsWithOptions(const Models::DescribeElasticBillsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the daily bills of a pay-as-you-go WAF instance for the last 7 days.
+       * @summary Queries the daily bills of a pay-as-you-go Web Application Firewall (WAF) instance over the last seven days.
        *
        * @param request DescribeElasticBillsRequest
        * @return DescribeElasticBillsResponse
@@ -1889,7 +2078,7 @@ namespace WafOpenapi20211001
       Models::DescribeFlowTopUrlResponse describeFlowTopUrl(const Models::DescribeFlowTopUrlRequest &request);
 
       /**
-       * @summary Queries the asset statistics information for basic API security detection.
+       * @summary Queries the asset statistics information for API security basic detection.
        *
        * @param request DescribeFreeUserAssetCountRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1898,7 +2087,7 @@ namespace WafOpenapi20211001
       Models::DescribeFreeUserAssetCountResponse describeFreeUserAssetCountWithOptions(const Models::DescribeFreeUserAssetCountRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the asset statistics information for basic API security detection.
+       * @summary Queries the asset statistics information for API security basic detection.
        *
        * @param request DescribeFreeUserAssetCountRequest
        * @return DescribeFreeUserAssetCountResponse
@@ -1906,7 +2095,7 @@ namespace WafOpenapi20211001
       Models::DescribeFreeUserAssetCountResponse describeFreeUserAssetCount(const Models::DescribeFreeUserAssetCountRequest &request);
 
       /**
-       * @summary Queries the security event statistics of API security basic detection.
+       * @summary Queries the statistics of security events for basic API security detection.
        *
        * @param request DescribeFreeUserEventCountRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1915,7 +2104,7 @@ namespace WafOpenapi20211001
       Models::DescribeFreeUserEventCountResponse describeFreeUserEventCountWithOptions(const Models::DescribeFreeUserEventCountRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the security event statistics of API security basic detection.
+       * @summary Queries the statistics of security events for basic API security detection.
        *
        * @param request DescribeFreeUserEventCountRequest
        * @return DescribeFreeUserEventCountResponse
@@ -1923,7 +2112,7 @@ namespace WafOpenapi20211001
       Models::DescribeFreeUserEventCountResponse describeFreeUserEventCount(const Models::DescribeFreeUserEventCountRequest &request);
 
       /**
-       * @summary Queries the security event types for basic API security detection.
+       * @summary Queries the security event types for API security basic detection.
        *
        * @param request DescribeFreeUserEventTypesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1932,7 +2121,7 @@ namespace WafOpenapi20211001
       Models::DescribeFreeUserEventTypesResponse describeFreeUserEventTypesWithOptions(const Models::DescribeFreeUserEventTypesRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the security event types for basic API security detection.
+       * @summary Queries the security event types for API security basic detection.
        *
        * @param request DescribeFreeUserEventTypesRequest
        * @return DescribeFreeUserEventTypesResponse
@@ -1940,7 +2129,7 @@ namespace WafOpenapi20211001
       Models::DescribeFreeUserEventTypesResponse describeFreeUserEventTypes(const Models::DescribeFreeUserEventTypesRequest &request);
 
       /**
-       * @summary Queries the list of security events detected by API security basic detection.
+       * @summary Queries the list of security events for API security basic detection.
        *
        * @param request DescribeFreeUserEventsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1949,7 +2138,7 @@ namespace WafOpenapi20211001
       Models::DescribeFreeUserEventsResponse describeFreeUserEventsWithOptions(const Models::DescribeFreeUserEventsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the list of security events detected by API security basic detection.
+       * @summary Queries the list of security events for API security basic detection.
        *
        * @param request DescribeFreeUserEventsRequest
        * @return DescribeFreeUserEventsResponse
@@ -2037,7 +2226,12 @@ namespace WafOpenapi20211001
       Models::DescribeHybridCloudClusterServersResponse describeHybridCloudClusterServers(const Models::DescribeHybridCloudClusterServersRequest &request);
 
       /**
-       * @summary Queries a list of hybrid cloud clusters.
+       * @summary Queries the hybrid cloud clusters.
+       *
+       * @description Queries the hybrid cloud clusters of a specified Web Application Firewall (WAF) instance. The response includes information such as the cluster name, cluster type, network access mode, HTTP and HTTPS ports, proxy gateway mode, and the number of protection nodes that can be added.
+       * ## Before you begin
+       * Before calling this operation, make sure that the hybrid cloud feature is enabled for the WAF instance. You can call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query the instance details. If the returned parameter Details.HybridCloud is true, the hybrid cloud feature is enabled. If the feature is not enabled, log on to the WAF console and upgrade the instance to enable the hybrid cloud feature.
+       * If you call this API operation when the hybrid cloud feature is not enabled, the error code Waf.HybridCloud.HybridCloudNotsupport is returned.
        *
        * @param request DescribeHybridCloudClustersRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2046,7 +2240,12 @@ namespace WafOpenapi20211001
       Models::DescribeHybridCloudClustersResponse describeHybridCloudClustersWithOptions(const Models::DescribeHybridCloudClustersRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries a list of hybrid cloud clusters.
+       * @summary Queries the hybrid cloud clusters.
+       *
+       * @description Queries the hybrid cloud clusters of a specified Web Application Firewall (WAF) instance. The response includes information such as the cluster name, cluster type, network access mode, HTTP and HTTPS ports, proxy gateway mode, and the number of protection nodes that can be added.
+       * ## Before you begin
+       * Before calling this operation, make sure that the hybrid cloud feature is enabled for the WAF instance. You can call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query the instance details. If the returned parameter Details.HybridCloud is true, the hybrid cloud feature is enabled. If the feature is not enabled, log on to the WAF console and upgrade the instance to enable the hybrid cloud feature.
+       * If you call this API operation when the hybrid cloud feature is not enabled, the error code Waf.HybridCloud.HybridCloudNotsupport is returned.
        *
        * @param request DescribeHybridCloudClustersRequest
        * @return DescribeHybridCloudClustersResponse
@@ -2096,7 +2295,10 @@ namespace WafOpenapi20211001
       Models::DescribeHybridCloudProcessMonitorResponse describeHybridCloudProcessMonitor(const Models::DescribeHybridCloudProcessMonitorRequest &request);
 
       /**
-       * @summary Queries the count of protectable nodes that can be added to a hybrid cloud cluster.
+       * @summary Retrieves the number of protection nodes that can be added to a hybrid cloud cluster.
+       *
+       * @description ## Before you begin
+       * Before you call this operation, make sure that the hybrid cloud feature is enabled for your WAF instance. You can call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query the instance details. If the returned parameter Details.HybridCloud is true, the hybrid cloud feature is enabled. If the feature is not enabled, log on to the WAF console and upgrade the instance to enable the hybrid cloud feature.
        *
        * @param request DescribeHybridCloudProtectableCountRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2105,7 +2307,10 @@ namespace WafOpenapi20211001
       Models::DescribeHybridCloudProtectableCountResponse describeHybridCloudProtectableCountWithOptions(const Models::DescribeHybridCloudProtectableCountRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the count of protectable nodes that can be added to a hybrid cloud cluster.
+       * @summary Retrieves the number of protection nodes that can be added to a hybrid cloud cluster.
+       *
+       * @description ## Before you begin
+       * Before you call this operation, make sure that the hybrid cloud feature is enabled for your WAF instance. You can call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query the instance details. If the returned parameter Details.HybridCloud is true, the hybrid cloud feature is enabled. If the feature is not enabled, log on to the WAF console and upgrade the instance to enable the hybrid cloud feature.
        *
        * @param request DescribeHybridCloudProtectableCountRequest
        * @return DescribeHybridCloudProtectableCountResponse
@@ -2168,9 +2373,9 @@ namespace WafOpenapi20211001
       Models::DescribeHybridCloudSdkServersResponse describeHybridCloudSdkServers(const Models::DescribeHybridCloudSdkServersRequest &request);
 
       /**
-       * @summary Queries the dictionary of region information supported by hybrid cloud, including ISPs, continents, and cities.
+       * @summary Queries the region information dictionary for ISPs, continents, and cities supported by Hybrid Cloud.
        *
-       * @description Before calling this operation, make sure that the hybrid cloud feature is enabled for the WAF instance. Call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query instance details. If the returned parameter Details.HybridCloud is true, the hybrid cloud feature is enabled. If it is not enabled, log on to the WAF console and upgrade the instance to enable the hybrid cloud feature.
+       * @description Before calling this operation, ensure that the Hybrid Cloud feature is enabled for the WAF instance. You can call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query instance details. If the returned Details.HybridCloud parameter is true, the Hybrid Cloud feature is enabled. If the feature is not enabled, log on to the WAF console and upgrade the instance to enable the Hybrid Cloud feature.
        *
        * @param request DescribeHybridCloudServerRegionsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2179,9 +2384,9 @@ namespace WafOpenapi20211001
       Models::DescribeHybridCloudServerRegionsResponse describeHybridCloudServerRegionsWithOptions(const Models::DescribeHybridCloudServerRegionsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the dictionary of region information supported by hybrid cloud, including ISPs, continents, and cities.
+       * @summary Queries the region information dictionary for ISPs, continents, and cities supported by Hybrid Cloud.
        *
-       * @description Before calling this operation, make sure that the hybrid cloud feature is enabled for the WAF instance. Call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query instance details. If the returned parameter Details.HybridCloud is true, the hybrid cloud feature is enabled. If it is not enabled, log on to the WAF console and upgrade the instance to enable the hybrid cloud feature.
+       * @description Before calling this operation, ensure that the Hybrid Cloud feature is enabled for the WAF instance. You can call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query instance details. If the returned Details.HybridCloud parameter is true, the Hybrid Cloud feature is enabled. If the feature is not enabled, log on to the WAF console and upgrade the instance to enable the Hybrid Cloud feature.
        *
        * @param request DescribeHybridCloudServerRegionsRequest
        * @return DescribeHybridCloudServerRegionsResponse
@@ -2191,7 +2396,7 @@ namespace WafOpenapi20211001
       /**
        * @summary Queries the access regions.
        *
-       * @description Before calling this operation, make sure that the hybrid cloud feature is enabled for the WAF instance. Call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query instance details. If the returned parameter Details.HybridCloud is true, the hybrid cloud feature is enabled. If the feature is not enabled, log on to the WAF console and upgrade the instance to enable the hybrid cloud feature.
+       * @description Before you call this operation, make sure that the hybrid cloud feature is enabled for the WAF instance. You can call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query the instance details. If the Details.HybridCloud response parameter is set to true, the hybrid cloud feature is enabled. If the feature is not enabled, log on to the WAF console and upgrade the instance to enable the hybrid cloud feature.
        *
        * @param request DescribeHybridCloudSupportRegionsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2202,7 +2407,7 @@ namespace WafOpenapi20211001
       /**
        * @summary Queries the access regions.
        *
-       * @description Before calling this operation, make sure that the hybrid cloud feature is enabled for the WAF instance. Call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query instance details. If the returned parameter Details.HybridCloud is true, the hybrid cloud feature is enabled. If the feature is not enabled, log on to the WAF console and upgrade the instance to enable the hybrid cloud feature.
+       * @description Before you call this operation, make sure that the hybrid cloud feature is enabled for the WAF instance. You can call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query the instance details. If the Details.HybridCloud response parameter is set to true, the hybrid cloud feature is enabled. If the feature is not enabled, log on to the WAF console and upgrade the instance to enable the hybrid cloud feature.
        *
        * @param request DescribeHybridCloudSupportRegionsRequest
        * @return DescribeHybridCloudSupportRegionsResponse
@@ -2212,7 +2417,7 @@ namespace WafOpenapi20211001
       /**
        * @summary Queries the list of unassigned servers in a hybrid cloud cluster.
        *
-       * @description Before calling this operation, make sure that the hybrid cloud feature is enabled for the WAF instance. Call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query instance details. If the Details.HybridCloud parameter in the response is true, the hybrid cloud feature is enabled. If the feature is not enabled, log on to the WAF console and upgrade the instance to enable the hybrid cloud feature.
+       * @description Before calling this operation, make sure that the hybrid cloud feature is enabled for the WAF instance. You can call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query the instance details. If the returned Details.HybridCloud parameter is set to true, the hybrid cloud feature is enabled. If the feature is not enabled, log on to the WAF console and upgrade the instance to enable the hybrid cloud feature.
        *
        * @param request DescribeHybridCloudUnassignedMachinesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2223,7 +2428,7 @@ namespace WafOpenapi20211001
       /**
        * @summary Queries the list of unassigned servers in a hybrid cloud cluster.
        *
-       * @description Before calling this operation, make sure that the hybrid cloud feature is enabled for the WAF instance. Call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query instance details. If the Details.HybridCloud parameter in the response is true, the hybrid cloud feature is enabled. If the feature is not enabled, log on to the WAF console and upgrade the instance to enable the hybrid cloud feature.
+       * @description Before calling this operation, make sure that the hybrid cloud feature is enabled for the WAF instance. You can call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query the instance details. If the returned Details.HybridCloud parameter is set to true, the hybrid cloud feature is enabled. If the feature is not enabled, log on to the WAF console and upgrade the instance to enable the hybrid cloud feature.
        *
        * @param request DescribeHybridCloudUnassignedMachinesRequest
        * @return DescribeHybridCloudUnassignedMachinesResponse
@@ -2231,7 +2436,7 @@ namespace WafOpenapi20211001
       Models::DescribeHybridCloudUnassignedMachinesResponse describeHybridCloudUnassignedMachines(const Models::DescribeHybridCloudUnassignedMachinesRequest &request);
 
       /**
-       * @summary Queries the list of unsupported ports for a hybrid cloud.
+       * @summary Queries the list of unavailable ports for hybrid cloud.
        *
        * @param request DescribeHybridCloudUnsupportPortsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2240,7 +2445,7 @@ namespace WafOpenapi20211001
       Models::DescribeHybridCloudUnsupportPortsResponse describeHybridCloudUnsupportPortsWithOptions(const Models::DescribeHybridCloudUnsupportPortsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the list of unsupported ports for a hybrid cloud.
+       * @summary Queries the list of unavailable ports for hybrid cloud.
        *
        * @param request DescribeHybridCloudUnsupportPortsRequest
        * @return DescribeHybridCloudUnsupportPortsResponse
@@ -2269,7 +2474,7 @@ namespace WafOpenapi20211001
       Models::DescribeHybridCloudUserResponse describeHybridCloudUser(const Models::DescribeHybridCloudUserRequest &request);
 
       /**
-       * @summary Retrieves the details of a WAF instance in the current Alibaba Cloud account.
+       * @summary Queries the details of the WAF instance in the current Alibaba Cloud account.
        *
        * @param request DescribeInstanceRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2278,7 +2483,7 @@ namespace WafOpenapi20211001
       Models::DescribeInstanceResponse describeInstanceWithOptions(const Models::DescribeInstanceRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Retrieves the details of a WAF instance in the current Alibaba Cloud account.
+       * @summary Queries the details of the WAF instance in the current Alibaba Cloud account.
        *
        * @param request DescribeInstanceRequest
        * @return DescribeInstanceResponse
@@ -2286,7 +2491,7 @@ namespace WafOpenapi20211001
       Models::DescribeInstanceResponse describeInstance(const Models::DescribeInstanceRequest &request);
 
       /**
-       * @summary Queries the countries and areas outside China supported by the Location Blacklist.
+       * @summary Queries the countries and areas outside China supported by IP Location Blacklist.
        *
        * @param request DescribeIpAbroadCountryInfosRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2295,7 +2500,7 @@ namespace WafOpenapi20211001
       Models::DescribeIpAbroadCountryInfosResponse describeIpAbroadCountryInfosWithOptions(const Models::DescribeIpAbroadCountryInfosRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the countries and areas outside China supported by the Location Blacklist.
+       * @summary Queries the countries and areas outside China supported by IP Location Blacklist.
        *
        * @param request DescribeIpAbroadCountryInfosRequest
        * @return DescribeIpAbroadCountryInfosResponse
@@ -2303,7 +2508,7 @@ namespace WafOpenapi20211001
       Models::DescribeIpAbroadCountryInfosResponse describeIpAbroadCountryInfos(const Models::DescribeIpAbroadCountryInfosRequest &request);
 
       /**
-       * @summary Queries a single log delivery configuration for a hybrid cloud.
+       * @summary Queries a single hybrid cloud log delivery configuration.
        *
        * @param request DescribeLogDeliveryConfigRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2312,7 +2517,7 @@ namespace WafOpenapi20211001
       Models::DescribeLogDeliveryConfigResponse describeLogDeliveryConfigWithOptions(const Models::DescribeLogDeliveryConfigRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries a single log delivery configuration for a hybrid cloud.
+       * @summary Queries a single hybrid cloud log delivery configuration.
        *
        * @param request DescribeLogDeliveryConfigRequest
        * @return DescribeLogDeliveryConfigResponse
@@ -2320,7 +2525,7 @@ namespace WafOpenapi20211001
       Models::DescribeLogDeliveryConfigResponse describeLogDeliveryConfig(const Models::DescribeLogDeliveryConfigRequest &request);
 
       /**
-       * @summary Queries all log delivery configurations of a Web Application Firewall (WAF) instance for hybrid cloud.
+       * @summary Queries all hybrid cloud log delivery configurations.
        *
        * @param request DescribeLogDeliveryConfigsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2329,7 +2534,7 @@ namespace WafOpenapi20211001
       Models::DescribeLogDeliveryConfigsResponse describeLogDeliveryConfigsWithOptions(const Models::DescribeLogDeliveryConfigsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries all log delivery configurations of a Web Application Firewall (WAF) instance for hybrid cloud.
+       * @summary Queries all hybrid cloud log delivery configurations.
        *
        * @param request DescribeLogDeliveryConfigsRequest
        * @return DescribeLogDeliveryConfigsResponse
@@ -2379,7 +2584,7 @@ namespace WafOpenapi20211001
       Models::DescribeMemberAccountsResponse describeMemberAccounts(const Models::DescribeMemberAccountsRequest &request);
 
       /**
-       * @summary Queries the time series statistics of all traffic, including malicious requests and normal service requests.
+       * @summary Queries the time-series statistics of all traffic, including malicious requests and normal service requests.
        *
        * @param tmpReq DescribeNetworkFlowTimeSeriesMetricRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2388,7 +2593,7 @@ namespace WafOpenapi20211001
       Models::DescribeNetworkFlowTimeSeriesMetricResponse describeNetworkFlowTimeSeriesMetricWithOptions(const Models::DescribeNetworkFlowTimeSeriesMetricRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the time series statistics of all traffic, including malicious requests and normal service requests.
+       * @summary Queries the time-series statistics of all traffic, including malicious requests and normal service requests.
        *
        * @param request DescribeNetworkFlowTimeSeriesMetricRequest
        * @return DescribeNetworkFlowTimeSeriesMetricResponse
@@ -2396,7 +2601,7 @@ namespace WafOpenapi20211001
       Models::DescribeNetworkFlowTimeSeriesMetricResponse describeNetworkFlowTimeSeriesMetric(const Models::DescribeNetworkFlowTimeSeriesMetricRequest &request);
 
       /**
-       * @summary Queries the top N statistics for all traffic that passes through Web Application Firewall (WAF), including malicious and normal service requests. The results are aggregated by different dimensions and sorted in descending order.
+       * @summary Queries the top statistics of all traffic aggregated and sorted by various dimensions, including malicious requests and normal service traffic.
        *
        * @param tmpReq DescribeNetworkFlowTopNMetricRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2405,7 +2610,7 @@ namespace WafOpenapi20211001
       Models::DescribeNetworkFlowTopNMetricResponse describeNetworkFlowTopNMetricWithOptions(const Models::DescribeNetworkFlowTopNMetricRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the top N statistics for all traffic that passes through Web Application Firewall (WAF), including malicious and normal service requests. The results are aggregated by different dimensions and sorted in descending order.
+       * @summary Queries the top statistics of all traffic aggregated and sorted by various dimensions, including malicious requests and normal service traffic.
        *
        * @param request DescribeNetworkFlowTopNMetricRequest
        * @return DescribeNetworkFlowTopNMetricResponse
@@ -2447,7 +2652,7 @@ namespace WafOpenapi20211001
       Models::DescribePeakTrendResponse describePeakTrend(const Models::DescribePeakTrendRequest &request);
 
       /**
-       * @summary Retrieves the enabled proof of concept (POC) feature trials.
+       * @summary Queries the details of enabled POC feature trials.
        *
        * @param request DescribePocFunctionsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2456,7 +2661,7 @@ namespace WafOpenapi20211001
       Models::DescribePocFunctionsResponse describePocFunctionsWithOptions(const Models::DescribePocFunctionsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Retrieves the enabled proof of concept (POC) feature trials.
+       * @summary Queries the details of enabled POC feature trials.
        *
        * @param request DescribePocFunctionsRequest
        * @return DescribePocFunctionsResponse
@@ -2481,7 +2686,7 @@ namespace WafOpenapi20211001
       Models::DescribePostpayBillsResponse describePostpayBills(const Models::DescribePostpayBillsRequest &request);
 
       /**
-       * @summary Queries the burstable pay-as-you-go billing details of a subscription WAF instance, such as burstable QPS.
+       * @summary Queries the elastic pay-as-you-go bills for an upfront WAF instance, such as burstable QPS.
        *
        * @param request DescribePrepayDailyBillsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2490,7 +2695,7 @@ namespace WafOpenapi20211001
       Models::DescribePrepayDailyBillsResponse describePrepayDailyBillsWithOptions(const Models::DescribePrepayDailyBillsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the burstable pay-as-you-go billing details of a subscription WAF instance, such as burstable QPS.
+       * @summary Queries the elastic pay-as-you-go bills for an upfront WAF instance, such as burstable QPS.
        *
        * @param request DescribePrepayDailyBillsRequest
        * @return DescribePrepayDailyBillsResponse
@@ -2825,12 +3030,12 @@ namespace WafOpenapi20211001
       Models::DescribeRuleHitsTopUrlResponse describeRuleHitsTopUrl(const Models::DescribeRuleHitsTopUrlRequest &request);
 
       /**
-       * @summary Queries the detailed logs of attack traffic. Each log entry contains the details of a request that matched a protection rule.
+       * @summary Queries the detailed logs of attack traffic. Each log entry contains detailed information about a matched request.
        *
-       * @description Attack traffic refers to requests that hit a rule and are identified as threats. The following three types of requests are not included:
-       * - Requests that hit a whitelist rule.
-       * - Requests that hit a bot rule whose action is set to Mark for Origin Fetch.
-       * - Requests that hit a rule whose action is set to Dynamic Token, Slider, Strict Slider, or JS Challenge, but are allowed because the user passed the verification.
+       * @description Attack traffic refers to requests with rule hits that are identified as risky. The following three types of data are not included:
+       * - Requests with rule hits on whitelist rules.
+       * - Requests that match bot rules but the rule action is set to back-to-origin mark.
+       * - Requests with rule hits where the rule action is set to dynamic token, slider, strict slider, or JavaScript authenticate, but users authenticate successfully and are allowed.
        *
        * @param tmpReq DescribeSecurityEventLogsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2839,12 +3044,12 @@ namespace WafOpenapi20211001
       Models::DescribeSecurityEventLogsResponse describeSecurityEventLogsWithOptions(const Models::DescribeSecurityEventLogsRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the detailed logs of attack traffic. Each log entry contains the details of a request that matched a protection rule.
+       * @summary Queries the detailed logs of attack traffic. Each log entry contains detailed information about a matched request.
        *
-       * @description Attack traffic refers to requests that hit a rule and are identified as threats. The following three types of requests are not included:
-       * - Requests that hit a whitelist rule.
-       * - Requests that hit a bot rule whose action is set to Mark for Origin Fetch.
-       * - Requests that hit a rule whose action is set to Dynamic Token, Slider, Strict Slider, or JS Challenge, but are allowed because the user passed the verification.
+       * @description Attack traffic refers to requests with rule hits that are identified as risky. The following three types of data are not included:
+       * - Requests with rule hits on whitelist rules.
+       * - Requests that match bot rules but the rule action is set to back-to-origin mark.
+       * - Requests with rule hits where the rule action is set to dynamic token, slider, strict slider, or JavaScript authenticate, but users authenticate successfully and are allowed.
        *
        * @param request DescribeSecurityEventLogsRequest
        * @return DescribeSecurityEventLogsResponse
@@ -2852,12 +3057,12 @@ namespace WafOpenapi20211001
       Models::DescribeSecurityEventLogsResponse describeSecurityEventLogs(const Models::DescribeSecurityEventLogsRequest &request);
 
       /**
-       * @summary Queries the time series data of attack traffic. Attack requests are requests that hit a rule and are identified as a threat.
+       * @summary Queries the time series data of attack traffic. Attack requests refer to requests that hit rules and are identified as risky.
        *
-       * @description Attack traffic refers to requests that hit a rule and are identified as a threat. The following data is excluded:
-       * - Requests that hit a whitelist rule.
-       * - Requests that hit a bot rule where the rule action is "Mark for origin fetch".
-       * - Requests that hit a rule with the action "Dynamic Token", "Slider", "Strict Slider", or "JS Challenge", but are allowed because the user passed the verification.
+       * @description Attack traffic refers to requests that hit rules and are identified as risky. The following three types of data are not included:
+       * - Requests that hit whitelist rules.
+       * - Requests that hit bot rules, but the rule action is back-to-origin mark.
+       * - Requests that hit rules and the rule action is set to dynamic token, slider CAPTCHA, strict slider CAPTCHA, or JavaScript authenticate, but the requests passed user verification and were allowed.
        *
        * @param tmpReq DescribeSecurityEventTimeSeriesMetricRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2866,12 +3071,12 @@ namespace WafOpenapi20211001
       Models::DescribeSecurityEventTimeSeriesMetricResponse describeSecurityEventTimeSeriesMetricWithOptions(const Models::DescribeSecurityEventTimeSeriesMetricRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the time series data of attack traffic. Attack requests are requests that hit a rule and are identified as a threat.
+       * @summary Queries the time series data of attack traffic. Attack requests refer to requests that hit rules and are identified as risky.
        *
-       * @description Attack traffic refers to requests that hit a rule and are identified as a threat. The following data is excluded:
-       * - Requests that hit a whitelist rule.
-       * - Requests that hit a bot rule where the rule action is "Mark for origin fetch".
-       * - Requests that hit a rule with the action "Dynamic Token", "Slider", "Strict Slider", or "JS Challenge", but are allowed because the user passed the verification.
+       * @description Attack traffic refers to requests that hit rules and are identified as risky. The following three types of data are not included:
+       * - Requests that hit whitelist rules.
+       * - Requests that hit bot rules, but the rule action is back-to-origin mark.
+       * - Requests that hit rules and the rule action is set to dynamic token, slider CAPTCHA, strict slider CAPTCHA, or JavaScript authenticate, but the requests passed user verification and were allowed.
        *
        * @param request DescribeSecurityEventTimeSeriesMetricRequest
        * @return DescribeSecurityEventTimeSeriesMetricResponse
@@ -2940,7 +3145,7 @@ namespace WafOpenapi20211001
       Models::DescribeSensitiveDetectionResultResponse describeSensitiveDetectionResult(const Models::DescribeSensitiveDetectionResultRequest &request);
 
       /**
-       * @summary Queries the distribution of cross-border traffic that contains personal information.
+       * @summary Queries the distribution of outbound traffic containing personal information.
        *
        * @param request DescribeSensitiveOutboundDistributionRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2949,7 +3154,7 @@ namespace WafOpenapi20211001
       Models::DescribeSensitiveOutboundDistributionResponse describeSensitiveOutboundDistributionWithOptions(const Models::DescribeSensitiveOutboundDistributionRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the distribution of cross-border traffic that contains personal information.
+       * @summary Queries the distribution of outbound traffic containing personal information.
        *
        * @param request DescribeSensitiveOutboundDistributionRequest
        * @return DescribeSensitiveOutboundDistributionResponse
@@ -2957,7 +3162,7 @@ namespace WafOpenapi20211001
       Models::DescribeSensitiveOutboundDistributionResponse describeSensitiveOutboundDistribution(const Models::DescribeSensitiveOutboundDistributionRequest &request);
 
       /**
-       * @summary Queries statistics about outbound transfers of personal information.
+       * @summary Queries the statistics on the types of outbound personal information.
        *
        * @param request DescribeSensitiveOutboundStatisticRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2966,7 +3171,7 @@ namespace WafOpenapi20211001
       Models::DescribeSensitiveOutboundStatisticResponse describeSensitiveOutboundStatisticWithOptions(const Models::DescribeSensitiveOutboundStatisticRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries statistics about outbound transfers of personal information.
+       * @summary Queries the statistics on the types of outbound personal information.
        *
        * @param request DescribeSensitiveOutboundStatisticRequest
        * @return DescribeSensitiveOutboundStatisticResponse
@@ -2974,7 +3179,7 @@ namespace WafOpenapi20211001
       Models::DescribeSensitiveOutboundStatisticResponse describeSensitiveOutboundStatistic(const Models::DescribeSensitiveOutboundStatisticRequest &request);
 
       /**
-       * @summary Queries the trend of cross-border transfer of personal information data.
+       * @summary Queries the trend of outbound personal information.
        *
        * @param request DescribeSensitiveOutboundTrendRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2983,7 +3188,7 @@ namespace WafOpenapi20211001
       Models::DescribeSensitiveOutboundTrendResponse describeSensitiveOutboundTrendWithOptions(const Models::DescribeSensitiveOutboundTrendRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the trend of cross-border transfer of personal information data.
+       * @summary Queries the trend of outbound personal information.
        *
        * @param request DescribeSensitiveOutboundTrendRequest
        * @return DescribeSensitiveOutboundTrendResponse
@@ -3008,7 +3213,7 @@ namespace WafOpenapi20211001
       Models::DescribeSensitiveRequestLogResponse describeSensitiveRequestLog(const Models::DescribeSensitiveRequestLogRequest &request);
 
       /**
-       * @summary Queries the results of sensitive data tracing.
+       * @summary Queries sensitive data tracing results.
        *
        * @param request DescribeSensitiveRequestsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3017,7 +3222,7 @@ namespace WafOpenapi20211001
       Models::DescribeSensitiveRequestsResponse describeSensitiveRequestsWithOptions(const Models::DescribeSensitiveRequestsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the results of sensitive data tracing.
+       * @summary Queries sensitive data tracing results.
        *
        * @param request DescribeSensitiveRequestsRequest
        * @return DescribeSensitiveRequestsResponse
@@ -3025,7 +3230,7 @@ namespace WafOpenapi20211001
       Models::DescribeSensitiveRequestsResponse describeSensitiveRequests(const Models::DescribeSensitiveRequestsRequest &request);
 
       /**
-       * @summary Queries the sensitive data statistics of tracing watermark audits.
+       * @summary Queries the sensitive data statistics for tracing audit.
        *
        * @param request DescribeSensitiveStatisticRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3034,7 +3239,7 @@ namespace WafOpenapi20211001
       Models::DescribeSensitiveStatisticResponse describeSensitiveStatisticWithOptions(const Models::DescribeSensitiveStatisticRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the sensitive data statistics of tracing watermark audits.
+       * @summary Queries the sensitive data statistics for tracing audit.
        *
        * @param request DescribeSensitiveStatisticRequest
        * @return DescribeSensitiveStatisticResponse
@@ -3127,7 +3332,7 @@ namespace WafOpenapi20211001
       Models::DescribeTemplateResourcesResponse describeTemplateResources(const Models::DescribeTemplateResourcesRequest &request);
 
       /**
-       * @summary Queries a paginated list of notable security events.
+       * @summary Queries the list of noteworthy security events by paging in a paged query.
        *
        * @param request DescribeThreatEventRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3136,7 +3341,7 @@ namespace WafOpenapi20211001
       Models::DescribeThreatEventResponse describeThreatEventWithOptions(const Models::DescribeThreatEventRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries a paginated list of notable security events.
+       * @summary Queries the list of noteworthy security events by paging in a paged query.
        *
        * @param request DescribeThreatEventRequest
        * @return DescribeThreatEventResponse
@@ -3144,7 +3349,7 @@ namespace WafOpenapi20211001
       Models::DescribeThreatEventResponse describeThreatEvent(const Models::DescribeThreatEventRequest &request);
 
       /**
-       * @summary Retrieves the details of a security event that requires attention.
+       * @summary Retrieves the details of noteworthy security events.
        *
        * @param request DescribeThreatEventDetailRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3153,7 +3358,7 @@ namespace WafOpenapi20211001
       Models::DescribeThreatEventDetailResponse describeThreatEventDetailWithOptions(const Models::DescribeThreatEventDetailRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Retrieves the details of a security event that requires attention.
+       * @summary Retrieves the details of noteworthy security events.
        *
        * @param request DescribeThreatEventDetailRequest
        * @return DescribeThreatEventDetailResponse
@@ -3246,7 +3451,7 @@ namespace WafOpenapi20211001
       Models::DescribeUserAssetResponse describeUserAsset(const Models::DescribeUserAssetRequest &request);
 
       /**
-       * @summary Queries the attack trend of API security.
+       * @summary Queries the trend of API security attacks.
        *
        * @param request DescribeUserEventTrendRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3255,7 +3460,7 @@ namespace WafOpenapi20211001
       Models::DescribeUserEventTrendResponse describeUserEventTrendWithOptions(const Models::DescribeUserEventTrendRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the attack trend of API security.
+       * @summary Queries the trend of API security attacks.
        *
        * @param request DescribeUserEventTrendRequest
        * @return DescribeUserEventTrendResponse
@@ -3420,7 +3625,7 @@ namespace WafOpenapi20211001
       Models::DescribeWafSourceIpSegmentResponse describeWafSourceIpSegment(const Models::DescribeWafSourceIpSegmentRequest &request);
 
       /**
-       * @summary Initializes a service-linked role for WAF.
+       * @summary Creates a service-linked role for WAF.
        *
        * @param request InitializeWafOperationRoleRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3429,7 +3634,7 @@ namespace WafOpenapi20211001
       Models::InitializeWafOperationRoleResponse initializeWafOperationRoleWithOptions(const Models::InitializeWafOperationRoleRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Initializes a service-linked role for WAF.
+       * @summary Creates a service-linked role for WAF.
        *
        * @param request InitializeWafOperationRoleRequest
        * @return InitializeWafOperationRoleResponse
@@ -3454,7 +3659,7 @@ namespace WafOpenapi20211001
       Models::ListTagKeysResponse listTagKeys(const Models::ListTagKeysRequest &request);
 
       /**
-       * @summary Queries the tags that are attached to a resource.
+       * @summary Queries the tags bound to resources.
        *
        * @param request ListTagResourcesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3463,7 +3668,7 @@ namespace WafOpenapi20211001
       Models::ListTagResourcesResponse listTagResourcesWithOptions(const Models::ListTagResourcesRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the tags that are attached to a resource.
+       * @summary Queries the tags bound to resources.
        *
        * @param request ListTagResourcesRequest
        * @return ListTagResourcesResponse
@@ -3486,6 +3691,44 @@ namespace WafOpenapi20211001
        * @return ListTagValuesResponse
        */
       Models::ListTagValuesResponse listTagValues(const Models::ListTagValuesRequest &request);
+
+      /**
+       * @summary Modifies the user provisioning configuration.
+       *
+       * @param request ModifyAccessConfigRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ModifyAccessConfigResponse
+       */
+      Models::ModifyAccessConfigResponse modifyAccessConfigWithOptions(const Models::ModifyAccessConfigRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Modifies the user provisioning configuration.
+       *
+       * @param request ModifyAccessConfigRequest
+       * @return ModifyAccessConfigResponse
+       */
+      Models::ModifyAccessConfigResponse modifyAccessConfig(const Models::ModifyAccessConfigRequest &request);
+
+      /**
+       * @summary Modifies the status of an AI Engine event.
+       *
+       * @description Before calling this operation, ensure that the WAF instance is of the Agentic WAF edition. You can call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query instance details. If the returned Details.AgenticWaf parameter is true, the instance is of the Agentic WAF edition. If not, upgrade the instance to the Agentic WAF edition.
+       *
+       * @param request ModifyAiEngineEventStatusRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ModifyAiEngineEventStatusResponse
+       */
+      Models::ModifyAiEngineEventStatusResponse modifyAiEngineEventStatusWithOptions(const Models::ModifyAiEngineEventStatusRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Modifies the status of an AI Engine event.
+       *
+       * @description Before calling this operation, ensure that the WAF instance is of the Agentic WAF edition. You can call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query instance details. If the returned Details.AgenticWaf parameter is true, the instance is of the Agentic WAF edition. If not, upgrade the instance to the Agentic WAF edition.
+       *
+       * @param request ModifyAiEngineEventStatusRequest
+       * @return ModifyAiEngineEventStatusResponse
+       */
+      Models::ModifyAiEngineEventStatusResponse modifyAiEngineEventStatus(const Models::ModifyAiEngineEventStatusRequest &request);
 
       /**
        * @summary Modifies the status of API security risks in batches.
@@ -3522,7 +3765,7 @@ namespace WafOpenapi20211001
       Models::ModifyApisecApiResourceResponse modifyApisecApiResource(const Models::ModifyApisecApiResourceRequest &request);
 
       /**
-       * @summary Modifies the statuses of multiple API security events in a batch.
+       * @summary Updates the status of multiple API security events.
        *
        * @param request ModifyApisecEventsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3531,7 +3774,7 @@ namespace WafOpenapi20211001
       Models::ModifyApisecEventsResponse modifyApisecEventsWithOptions(const Models::ModifyApisecEventsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Modifies the statuses of multiple API security events in a batch.
+       * @summary Updates the status of multiple API security events.
        *
        * @param request ModifyApisecEventsRequest
        * @return ModifyApisecEventsResponse
@@ -3570,11 +3813,11 @@ namespace WafOpenapi20211001
       /**
        * @summary Modifies the subscription status of API security logs.
        *
-       * @description Before you invoke this operation, make sure that you have created an API security log delivery configuration by invoking the [ModifyApisecLogDelivery](https://help.aliyun.com/document_detail/2932937.html) operation. If you have not created a delivery configuration, complete the following prerequisites:
-       * 1. Confirm that the API security feature is enabled. Invoke the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query the instance details. If the Details.AgenticApisec or Details.Apisec parameter in the response is true, the API security feature is enabled.
-       * 2. Confirm that WAF is authorized to access cloud resources. Invoke the [DescribeRoleAuthStatus](https://help.aliyun.com/document_detail/2990717.html) operation to query the authorization status. If WAF is not authorized, invoke the [InitializeWafOperationRole](https://help.aliyun.com/document_detail/2990727.html) operation to grant the authorization.
-       * 3. Invoke the [DescribeApisecSlsProjects](https://help.aliyun.com/document_detail/2932936.html) and [DescribeApisecSlsLogStores](https://help.aliyun.com/document_detail/2932935.html) operations to query active SLS projects and Logstores, and then invoke the [ModifyApisecLogDelivery](https://help.aliyun.com/document_detail/2932937.html) operation to create a delivery configuration.
-       * After you complete the preceding steps, invoke this operation to enable or disable the delivery status of API security logs.
+       * @description Before invoking this operation, ensure that you have created an API security log delivery configuration by invoking the [ModifyApisecLogDelivery](https://help.aliyun.com/document_detail/2932937.html) operation. If you have not created a delivery configuration, complete the following prerequisites:
+       * 1. Confirm that the API security feature is enabled. You can invoke the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query the instance details and check the relevant status. If the Details.AgenticApisec or Details.Apisec response parameter is set to true, the API security feature is enabled.
+       * 2. Confirm that WAF is authorized to access cloud resources. You can invoke the [DescribeRoleAuthStatus](https://help.aliyun.com/document_detail/2990717.html) operation to query the authorization status. If WAF is not authorized, invoke the [InitializeWafOperationRole](https://help.aliyun.com/document_detail/2990727.html) operation to grant the required permissions.
+       * 3. Invoke the [DescribeApisecSlsProjects](https://help.aliyun.com/document_detail/2932936.html) and [DescribeApisecSlsLogStores](https://help.aliyun.com/document_detail/2932935.html) operations to query active Simple Log Service projects and Logstores, and then invoke the [ModifyApisecLogDelivery](https://help.aliyun.com/document_detail/2932937.html) operation to create a delivery configuration.
+       * After completing these steps, invoke this operation to enable or disable the API security log delivery status.
        *
        * @param request ModifyApisecLogDeliveryStatusRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3585,11 +3828,11 @@ namespace WafOpenapi20211001
       /**
        * @summary Modifies the subscription status of API security logs.
        *
-       * @description Before you invoke this operation, make sure that you have created an API security log delivery configuration by invoking the [ModifyApisecLogDelivery](https://help.aliyun.com/document_detail/2932937.html) operation. If you have not created a delivery configuration, complete the following prerequisites:
-       * 1. Confirm that the API security feature is enabled. Invoke the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query the instance details. If the Details.AgenticApisec or Details.Apisec parameter in the response is true, the API security feature is enabled.
-       * 2. Confirm that WAF is authorized to access cloud resources. Invoke the [DescribeRoleAuthStatus](https://help.aliyun.com/document_detail/2990717.html) operation to query the authorization status. If WAF is not authorized, invoke the [InitializeWafOperationRole](https://help.aliyun.com/document_detail/2990727.html) operation to grant the authorization.
-       * 3. Invoke the [DescribeApisecSlsProjects](https://help.aliyun.com/document_detail/2932936.html) and [DescribeApisecSlsLogStores](https://help.aliyun.com/document_detail/2932935.html) operations to query active SLS projects and Logstores, and then invoke the [ModifyApisecLogDelivery](https://help.aliyun.com/document_detail/2932937.html) operation to create a delivery configuration.
-       * After you complete the preceding steps, invoke this operation to enable or disable the delivery status of API security logs.
+       * @description Before invoking this operation, ensure that you have created an API security log delivery configuration by invoking the [ModifyApisecLogDelivery](https://help.aliyun.com/document_detail/2932937.html) operation. If you have not created a delivery configuration, complete the following prerequisites:
+       * 1. Confirm that the API security feature is enabled. You can invoke the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query the instance details and check the relevant status. If the Details.AgenticApisec or Details.Apisec response parameter is set to true, the API security feature is enabled.
+       * 2. Confirm that WAF is authorized to access cloud resources. You can invoke the [DescribeRoleAuthStatus](https://help.aliyun.com/document_detail/2990717.html) operation to query the authorization status. If WAF is not authorized, invoke the [InitializeWafOperationRole](https://help.aliyun.com/document_detail/2990727.html) operation to grant the required permissions.
+       * 3. Invoke the [DescribeApisecSlsProjects](https://help.aliyun.com/document_detail/2932936.html) and [DescribeApisecSlsLogStores](https://help.aliyun.com/document_detail/2932935.html) operations to query active Simple Log Service projects and Logstores, and then invoke the [ModifyApisecLogDelivery](https://help.aliyun.com/document_detail/2932937.html) operation to create a delivery configuration.
+       * After completing these steps, invoke this operation to enable or disable the API security log delivery status.
        *
        * @param request ModifyApisecLogDeliveryStatusRequest
        * @return ModifyApisecLogDeliveryStatusResponse
@@ -3618,7 +3861,7 @@ namespace WafOpenapi20211001
       Models::ModifyApisecModuleStatusResponse modifyApisecModuleStatus(const Models::ModifyApisecModuleStatusRequest &request);
 
       /**
-       * @summary Modifies the status of protected objects or protected object groups for API security.
+       * @summary Modifies the status of API security protected objects or protected object groups.
        *
        * @param request ModifyApisecStatusRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3627,7 +3870,7 @@ namespace WafOpenapi20211001
       Models::ModifyApisecStatusResponse modifyApisecStatusWithOptions(const Models::ModifyApisecStatusRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Modifies the status of protected objects or protected object groups for API security.
+       * @summary Modifies the status of API security protected objects or protected object groups.
        *
        * @param request ModifyApisecStatusRequest
        * @return ModifyApisecStatusResponse
@@ -3796,7 +4039,7 @@ namespace WafOpenapi20211001
       Models::ModifyDefenseRuleStatusResponse modifyDefenseRuleStatus(const Models::ModifyDefenseRuleStatusRequest &request);
 
       /**
-       * @summary Modifies the mitigation settings for a protection scenario.
+       * @summary Modifies the protection settings for a defense scene.
        *
        * @param request ModifyDefenseSceneConfigRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3805,7 +4048,7 @@ namespace WafOpenapi20211001
       Models::ModifyDefenseSceneConfigResponse modifyDefenseSceneConfigWithOptions(const Models::ModifyDefenseSceneConfigRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Modifies the mitigation settings for a protection scenario.
+       * @summary Modifies the protection settings for a defense scene.
        *
        * @param request ModifyDefenseSceneConfigRequest
        * @return ModifyDefenseSceneConfigResponse
@@ -3847,7 +4090,7 @@ namespace WafOpenapi20211001
       Models::ModifyDefenseTemplateStatusResponse modifyDefenseTemplateStatus(const Models::ModifyDefenseTemplateStatusRequest &request);
 
       /**
-       * @summary Modifies a CNAME-based domain name.
+       * @summary Modifies a domain name added in CNAME mode.
        *
        * @param tmpReq ModifyDomainRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3856,7 +4099,7 @@ namespace WafOpenapi20211001
       Models::ModifyDomainResponse modifyDomainWithOptions(const Models::ModifyDomainRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Modifies a CNAME-based domain name.
+       * @summary Modifies a domain name added in CNAME mode.
        *
        * @param request ModifyDomainRequest
        * @return ModifyDomainResponse
@@ -3944,9 +4187,9 @@ namespace WafOpenapi20211001
       Models::ModifyHybridCloudClusterBypassStatusResponse modifyHybridCloudClusterBypassStatus(const Models::ModifyHybridCloudClusterBypassStatusRequest &request);
 
       /**
-       * @summary Modifies the rule information of a hybrid cloud cluster.
+       * @summary Modifies the information about a hybrid cloud cluster rule.
        *
-       * @description Before calling this operation, make sure that the hybrid cloud feature is enabled for the WAF instance. You can call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query instance details. If the Details.HybridCloud parameter in the response is true, the hybrid cloud feature is enabled. If the feature is not enabled, log on to the WAF console and upgrade the instance to enable the hybrid cloud feature.
+       * @description Before you call this operation, make sure that the hybrid cloud feature is enabled for the WAF instance. You can call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query the instance details. If the returned Details.HybridCloud parameter is set to true, the hybrid cloud feature is enabled. If the feature is not enabled, log on to the WAF console and upgrade the instance to enable the hybrid cloud feature.
        *
        * @param request ModifyHybridCloudClusterRuleRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3955,9 +4198,9 @@ namespace WafOpenapi20211001
       Models::ModifyHybridCloudClusterRuleResponse modifyHybridCloudClusterRuleWithOptions(const Models::ModifyHybridCloudClusterRuleRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Modifies the rule information of a hybrid cloud cluster.
+       * @summary Modifies the information about a hybrid cloud cluster rule.
        *
-       * @description Before calling this operation, make sure that the hybrid cloud feature is enabled for the WAF instance. You can call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query instance details. If the Details.HybridCloud parameter in the response is true, the hybrid cloud feature is enabled. If the feature is not enabled, log on to the WAF console and upgrade the instance to enable the hybrid cloud feature.
+       * @description Before you call this operation, make sure that the hybrid cloud feature is enabled for the WAF instance. You can call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query the instance details. If the returned Details.HybridCloud parameter is set to true, the hybrid cloud feature is enabled. If the feature is not enabled, log on to the WAF console and upgrade the instance to enable the hybrid cloud feature.
        *
        * @param request ModifyHybridCloudClusterRuleRequest
        * @return ModifyHybridCloudClusterRuleResponse
@@ -3986,7 +4229,7 @@ namespace WafOpenapi20211001
       Models::ModifyHybridCloudGroupResponse modifyHybridCloudGroup(const Models::ModifyHybridCloudGroupRequest &request);
 
       /**
-       * @summary Adds a node to a node group in a hybrid cloud cluster of a Web Application Firewall (WAF) instance.
+       * @summary Adds nodes to a cluster group.
        *
        * @param request ModifyHybridCloudGroupExpansionServerRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3995,7 +4238,7 @@ namespace WafOpenapi20211001
       Models::ModifyHybridCloudGroupExpansionServerResponse modifyHybridCloudGroupExpansionServerWithOptions(const Models::ModifyHybridCloudGroupExpansionServerRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Adds a node to a node group in a hybrid cloud cluster of a Web Application Firewall (WAF) instance.
+       * @summary Adds nodes to a cluster group.
        *
        * @param request ModifyHybridCloudGroupExpansionServerRequest
        * @return ModifyHybridCloudGroupExpansionServerResponse
@@ -4087,9 +4330,9 @@ namespace WafOpenapi20211001
       Models::ModifyLogDeliveryConfigResponse modifyLogDeliveryConfig(const Models::ModifyLogDeliveryConfigRequest &request);
 
       /**
-       * @summary Modifies the IP blacklist for a critical event protection scenario.
+       * @summary Modifies the IP blacklist for critical event protection.
        *
-       * @description Before calling this operation, make sure that the WAF instance supports critical event protection. Critical event protection requires a separate upgrade purchase. Call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query instance details. If the returned parameter Details.MajorProtection is true, the instance supports critical event protection. If not, upgrade the instance to enable critical event protection.
+       * @description Before you call this operation, make sure that the WAF instance supports critical event protection. Critical event protection must be purchased separately through an upgrade. You can call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query the instance details. If the returned Details.MajorProtection parameter is set to true, the instance supports critical event protection. If the instance does not support critical event protection, you can upgrade the instance to enable this feature.
        *
        * @param request ModifyMajorProtectionBlackIpRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -4098,9 +4341,9 @@ namespace WafOpenapi20211001
       Models::ModifyMajorProtectionBlackIpResponse modifyMajorProtectionBlackIpWithOptions(const Models::ModifyMajorProtectionBlackIpRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Modifies the IP blacklist for a critical event protection scenario.
+       * @summary Modifies the IP blacklist for critical event protection.
        *
-       * @description Before calling this operation, make sure that the WAF instance supports critical event protection. Critical event protection requires a separate upgrade purchase. Call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query instance details. If the returned parameter Details.MajorProtection is true, the instance supports critical event protection. If not, upgrade the instance to enable critical event protection.
+       * @description Before you call this operation, make sure that the WAF instance supports critical event protection. Critical event protection must be purchased separately through an upgrade. You can call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query the instance details. If the returned Details.MajorProtection parameter is set to true, the instance supports critical event protection. If the instance does not support critical event protection, you can upgrade the instance to enable this feature.
        *
        * @param request ModifyMajorProtectionBlackIpRequest
        * @return ModifyMajorProtectionBlackIpResponse
@@ -4279,7 +4522,7 @@ namespace WafOpenapi20211001
       Models::ReCreateCloudResourceResponse reCreateCloudResource(const Models::ReCreateCloudResourceRequest &request);
 
       /**
-       * @summary Releases a Web Application Firewall (WAF) 3.0 instance.
+       * @summary Releases a WAF 3.0 instance.
        *
        * @param request ReleaseInstanceRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -4288,7 +4531,7 @@ namespace WafOpenapi20211001
       Models::ReleaseInstanceResponse releaseInstanceWithOptions(const Models::ReleaseInstanceRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Releases a Web Application Firewall (WAF) 3.0 instance.
+       * @summary Releases a WAF 3.0 instance.
        *
        * @param request ReleaseInstanceRequest
        * @return ReleaseInstanceResponse
@@ -4351,7 +4594,7 @@ namespace WafOpenapi20211001
       Models::UntagResourcesResponse untagResources(const Models::UntagResourcesRequest &request);
 
       /**
-       * @summary Verifies that you own the specified domain name. Domain ownership must be verified before you can add a domain name to Web Application Firewall (WAF) by using CNAME access.
+       * @summary Verifies the ownership of a domain name.
        *
        * @param request VerifyDomainOwnerRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -4360,7 +4603,7 @@ namespace WafOpenapi20211001
       Models::VerifyDomainOwnerResponse verifyDomainOwnerWithOptions(const Models::VerifyDomainOwnerRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Verifies that you own the specified domain name. Domain ownership must be verified before you can add a domain name to Web Application Firewall (WAF) by using CNAME access.
+       * @summary Verifies the ownership of a domain name.
        *
        * @param request VerifyDomainOwnerRequest
        * @return VerifyDomainOwnerResponse

@@ -124,7 +124,7 @@ namespace Models
 
 
   protected:
-    // The token that is used to start the next query.
+    // The token used to start the next query.
     shared_ptr<string> nextToken_ {};
     // The region where the WAF instance resides. Valid values:
     // 
@@ -134,15 +134,15 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
-    // The resource ID. You can specify up to 50 entries.
+    // The resource IDs. You can specify up to 50 resource IDs.
     // 
     // > - This parameter is conditionally required. You must specify at least one ResourceId.N value. If ResourceType is set to ALIYUN::WAF::DEFENSERESOURCE, the value of ResourceId corresponds to the Resources[].Resource field returned by the [DescribeDefenseResources](https://help.aliyun.com/document_detail/461612.html) operation.
     shared_ptr<vector<string>> resourceId_ {};
-    // The resource type. Set the value to ALIYUN::WAF::DEFENSERESOURCE.
+    // The resource type. Valid values: ALIYUN::WAF::DEFENSERESOURCE.
     // 
     // This parameter is required.
     shared_ptr<string> resourceType_ {};
-    // The list of tags. You can specify up to 20 entries.
+    // The list of tags. You can specify up to 20 tags.
     shared_ptr<vector<ListTagResourcesRequest::Tag>> tag_ {};
   };
 

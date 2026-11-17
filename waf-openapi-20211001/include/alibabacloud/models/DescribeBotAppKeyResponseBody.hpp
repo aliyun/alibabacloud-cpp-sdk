@@ -48,9 +48,9 @@ namespace Models
 
 
   protected:
-    // The AppKey for bot management.
+    // The AppKey.
     shared_ptr<string> appKey_ {};
-    // The request ID.
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
   };
 

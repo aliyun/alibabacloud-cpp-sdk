@@ -17,7 +17,9 @@ namespace Models
       DARABONBA_PTR_TO_JSON(DryRun, dryRun_);
       DARABONBA_PTR_TO_JSON(InstanceId, instanceId_);
       DARABONBA_PTR_TO_JSON(RegionId, regionId_);
+      DARABONBA_PTR_TO_JSON(Resource, resource_);
       DARABONBA_PTR_TO_JSON(ResourceManagerResourceGroupId, resourceManagerResourceGroupId_);
+      DARABONBA_PTR_TO_JSON(ResourceType, resourceType_);
       DARABONBA_PTR_TO_JSON(RuleId, ruleId_);
       DARABONBA_PTR_TO_JSON(RuleStatus, ruleStatus_);
       DARABONBA_PTR_TO_JSON(TemplateId, templateId_);
@@ -27,7 +29,9 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(DryRun, dryRun_);
       DARABONBA_PTR_FROM_JSON(InstanceId, instanceId_);
       DARABONBA_PTR_FROM_JSON(RegionId, regionId_);
+      DARABONBA_PTR_FROM_JSON(Resource, resource_);
       DARABONBA_PTR_FROM_JSON(ResourceManagerResourceGroupId, resourceManagerResourceGroupId_);
+      DARABONBA_PTR_FROM_JSON(ResourceType, resourceType_);
       DARABONBA_PTR_FROM_JSON(RuleId, ruleId_);
       DARABONBA_PTR_FROM_JSON(RuleStatus, ruleStatus_);
       DARABONBA_PTR_FROM_JSON(TemplateId, templateId_);
@@ -44,8 +48,8 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->defenseType_ == nullptr
-        && this->dryRun_ == nullptr && this->instanceId_ == nullptr && this->regionId_ == nullptr && this->resourceManagerResourceGroupId_ == nullptr && this->ruleId_ == nullptr
-        && this->ruleStatus_ == nullptr && this->templateId_ == nullptr; };
+        && this->dryRun_ == nullptr && this->instanceId_ == nullptr && this->regionId_ == nullptr && this->resource_ == nullptr && this->resourceManagerResourceGroupId_ == nullptr
+        && this->resourceType_ == nullptr && this->ruleId_ == nullptr && this->ruleStatus_ == nullptr && this->templateId_ == nullptr; };
     // defenseType Field Functions 
     bool hasDefenseType() const { return this->defenseType_ != nullptr;};
     void deleteDefenseType() { this->defenseType_ = nullptr;};
@@ -74,11 +78,25 @@ namespace Models
     inline ModifyDefenseRuleStatusRequest& setRegionId(string regionId) { DARABONBA_PTR_SET_VALUE(regionId_, regionId) };
 
 
+    // resource Field Functions 
+    bool hasResource() const { return this->resource_ != nullptr;};
+    void deleteResource() { this->resource_ = nullptr;};
+    inline string getResource() const { DARABONBA_PTR_GET_DEFAULT(resource_, "") };
+    inline ModifyDefenseRuleStatusRequest& setResource(string resource) { DARABONBA_PTR_SET_VALUE(resource_, resource) };
+
+
     // resourceManagerResourceGroupId Field Functions 
     bool hasResourceManagerResourceGroupId() const { return this->resourceManagerResourceGroupId_ != nullptr;};
     void deleteResourceManagerResourceGroupId() { this->resourceManagerResourceGroupId_ = nullptr;};
     inline string getResourceManagerResourceGroupId() const { DARABONBA_PTR_GET_DEFAULT(resourceManagerResourceGroupId_, "") };
     inline ModifyDefenseRuleStatusRequest& setResourceManagerResourceGroupId(string resourceManagerResourceGroupId) { DARABONBA_PTR_SET_VALUE(resourceManagerResourceGroupId_, resourceManagerResourceGroupId) };
+
+
+    // resourceType Field Functions 
+    bool hasResourceType() const { return this->resourceType_ != nullptr;};
+    void deleteResourceType() { this->resourceType_ = nullptr;};
+    inline string getResourceType() const { DARABONBA_PTR_GET_DEFAULT(resourceType_, "") };
+    inline ModifyDefenseRuleStatusRequest& setResourceType(string resourceType) { DARABONBA_PTR_SET_VALUE(resourceType_, resourceType) };
 
 
     // ruleId Field Functions 
@@ -105,11 +123,11 @@ namespace Models
   protected:
     // The type of the protection rule.
     shared_ptr<string> defenseType_ {};
-    // Specifies whether to enable the dry run mode. If you do not specify this parameter, a normal request is sent. Valid values:
+    // Specifies whether to enable the dry run mode. If you do not specify this parameter, a normal request is initiated. Valid values:
     // 
-    // - **true**: A dry run request is sent. Only the request conditions are checked, and the specified operation is not performed. If the dry run fails, the corresponding error code is returned. If the dry run succeeds, the error code Defense.Control.DryRunOperation is returned.
+    // - **true**: initiates a dry run request. The system only checks whether the request meets the execution conditions and does not perform the operations specified in the request. If the dry run fails, the corresponding error code is returned. If the dry run succeeds, the error code Defense.Control.DryRunOperation is returned.
     // 
-    // - **false**: A normal request is sent. The specified operation is performed after the request passes the check.
+    // - **false**: initiates a normal request. If the check succeeds, the operations specified in the request are performed.
     shared_ptr<bool> dryRun_ {};
     // Instance ID of the WAF instance.
     // 
@@ -117,23 +135,30 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
-    // The region in which the WAF instance is deployed. Valid values:
+    // The region where the WAF instance resides. Valid values:
     // 
     // - **cn-hangzhou**: the Chinese mainland.
     // 
     // - **ap-southeast-1**: outside the Chinese mainland.
     shared_ptr<string> regionId_ {};
+    // The protection object or protection group. This parameter is used for protection rules whose **DefenseType** is **resource**. Specify the name of the protection object or protection group based on **ResourceType**.
+    shared_ptr<string> resource_ {};
     // The ID of the Alibaba Cloud resource group.
     shared_ptr<string> resourceManagerResourceGroupId_ {};
-    // The ID of the protection rule that you want to modify.
+    // The type of the protection target. This parameter is applicable to rules whose **DefenseType** is **resource**. Valid values:
     // 
-    // > You can call the [DescribeDefenseRules](https://help.aliyun.com/document_detail/461426.html) operation to query the protection rule ID. You can create a protection rule by calling the [CreateDefenseRule](https://help.aliyun.com/document_detail/461421.html) operation.
+    // - **single (default)**: single protection object.
+    // - **group**: protection group.
+    shared_ptr<string> resourceType_ {};
+    // The ID of the protection rule to be modified.
+    // 
+    // > You can call the [DescribeDefenseRules](https://help.aliyun.com/document_detail/461426.html) operation to query the ID of the protection rule. You can create a protection rule by calling the [CreateDefenseRule](https://help.aliyun.com/document_detail/461421.html) operation.
     // 
     // This parameter is required.
     shared_ptr<int64_t> ruleId_ {};
-    // The status of the protection rule that you want to modify. Valid values: 
-    // - **0**: disabled.  
-    // - **1**: enabled.
+    // The status of the protection rule to be modified. Valid values: 
+    // - **0**: disabled  
+    // - **1**: enabled
     // 
     // This parameter is required.
     shared_ptr<int32_t> ruleStatus_ {};

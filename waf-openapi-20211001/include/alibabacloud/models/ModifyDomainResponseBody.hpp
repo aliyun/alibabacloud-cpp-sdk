@@ -78,7 +78,7 @@ namespace Models
 
 
     protected:
-      // The CNAME assigned by WAF to the domain name.
+      // The CNAME address assigned by WAF to the domain name.
       shared_ptr<string> cname_ {};
       // The domain name to be modified.
       shared_ptr<string> domain_ {};

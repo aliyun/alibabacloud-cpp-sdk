@@ -157,39 +157,39 @@ namespace Models
       // - **lfilei**: local file inclusion (LFI).
       // - **protocol_violation**: protocol violation.
       // - **scanner_behavior**: scanner behavior.
-      // - **logic_flaw**: business logic bug.
-      // - **arbitrary_file_reading**: arbitrary file read.
+      // - **logic_flaw**: business logic flaw.
+      // - **arbitrary_file_reading**: arbitrary file reading.
       // - **arbitrary_file_download**: arbitrary file download.
-      // - **xxe**: XML external entity injection.
-      // - **csrf**: cross-site request forgery.
-      // - **crlf**: CRLF injection.
+      // - **xxe**: external entity injection.
+      // - **csrf**: cross-site request forgery (CSRF).
+      // - **crlf**: CRLF.
       // - **other**: other.
       shared_ptr<string> detectType_ {};
       // The risk level. Valid values:
       // 
-      // - **super_strict**: super strict.
+      // - **super_strict**: Super strict.
       // 
-      // - **strict**: strict.
+      // - **strict**: Strict.
       // 
-      // - **medium**: medium.
+      // - **medium**: Medium.
       // 
-      // - **loose**: loose.
+      // - **loose**: Loose.
       shared_ptr<string> riskLevel_ {};
-      // The rule action. Valid values:
+      // The action of the rule. Valid values:
       // 
       // - **block**: Block.
       // 
       // - **monitor**: Monitor.
       shared_ptr<string> ruleAction_ {};
-      // The rule ID.
+      // The ID of the rule.
       shared_ptr<int64_t> ruleId_ {};
       // The name of the protection rule.
       shared_ptr<string> ruleName_ {};
-      // The rule status. Valid values:
-      // - **1**: disabled.
-      // - **0**: enabled.
+      // The status of the rule. Valid values:
+      // - **1**: Disabled.
+      // - **0**: Enabled.
       shared_ptr<int32_t> ruleStatus_ {};
-      // The time when the rule was last updated. The value is a UNIX timestamp in milliseconds.
+      // The update time of the rule. The value is a UNIX timestamp in milliseconds.
       shared_ptr<int64_t> updateTime_ {};
     };
 
@@ -223,7 +223,7 @@ namespace Models
     shared_ptr<string> requestId_ {};
     // The list of system protection rules.
     shared_ptr<vector<DescribeBaseSystemRulesResponseBody::Rules>> rules_ {};
-    // The total number of entries returned.
+    // The total number of returned entries.
     shared_ptr<int64_t> totalCount_ {};
   };
 

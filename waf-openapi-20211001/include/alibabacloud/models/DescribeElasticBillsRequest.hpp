@@ -75,15 +75,15 @@ namespace Models
 
 
   protected:
-    // The WAF instance ID.
+    // Instance ID of the WAF instance.
     // 
-    // > You can call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query the ID of the current WAF instance.
+    // > You can call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query instance ID of the current WAF instance.
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
-    // The page number when using paging. Default value: **1**.
+    // The page number of the current page in paging. Default value: **1**.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries per page when using paging. Default value: **10**, which indicates that each page contains 10 entries.
+    // The number of entries to return on each page in paging. Default value: **10**, which indicates that each page contains 10 entries.
     shared_ptr<int32_t> pageSize_ {};
     // The region where the WAF instance resides. Valid values:
     // 
@@ -91,7 +91,7 @@ namespace Models
     // 
     // - **ap-southeast-1**: outside the Chinese mainland.
     shared_ptr<string> regionId_ {};
-    // The Alibaba Cloud resource group ID.
+    // The ID of the Alibaba Cloud resource group.
     shared_ptr<string> resourceManagerResourceGroupId_ {};
   };
 

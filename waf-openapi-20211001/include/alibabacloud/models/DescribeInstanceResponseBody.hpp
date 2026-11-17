@@ -54,6 +54,7 @@ namespace Models
       friend void to_json(Darabonba::Json& j, const Details& obj) { 
         DARABONBA_PTR_TO_JSON(AclRuleMaxIpCount, aclRuleMaxIpCount_);
         DARABONBA_PTR_TO_JSON(AgenticApisec, agenticApisec_);
+        DARABONBA_PTR_TO_JSON(AgenticWaf, agenticWaf_);
         DARABONBA_PTR_TO_JSON(AntiScan, antiScan_);
         DARABONBA_PTR_TO_JSON(AntiScanTemplateMaxCount, antiScanTemplateMaxCount_);
         DARABONBA_PTR_TO_JSON(Apisec, apisec_);
@@ -116,6 +117,7 @@ namespace Models
       friend void from_json(const Darabonba::Json& j, Details& obj) { 
         DARABONBA_PTR_FROM_JSON(AclRuleMaxIpCount, aclRuleMaxIpCount_);
         DARABONBA_PTR_FROM_JSON(AgenticApisec, agenticApisec_);
+        DARABONBA_PTR_FROM_JSON(AgenticWaf, agenticWaf_);
         DARABONBA_PTR_FROM_JSON(AntiScan, antiScan_);
         DARABONBA_PTR_FROM_JSON(AntiScanTemplateMaxCount, antiScanTemplateMaxCount_);
         DARABONBA_PTR_FROM_JSON(Apisec, apisec_);
@@ -187,18 +189,18 @@ namespace Models
       virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
       virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
       virtual bool empty() const override { return this->aclRuleMaxIpCount_ == nullptr
-        && this->agenticApisec_ == nullptr && this->antiScan_ == nullptr && this->antiScanTemplateMaxCount_ == nullptr && this->apisec_ == nullptr && this->backendMaxCount_ == nullptr
-        && this->baseWafGroup_ == nullptr && this->baseWafGroupRuleInTemplateMaxCount_ == nullptr && this->baseWafGroupRuleTemplateMaxCount_ == nullptr && this->bot_ == nullptr && this->botApp_ == nullptr
-        && this->botTemplateMaxCount_ == nullptr && this->botWeb_ == nullptr && this->cnameResourceMaxCount_ == nullptr && this->customResponse_ == nullptr && this->customResponseRuleInTemplateMaxCount_ == nullptr
-        && this->customResponseTemplateMaxCount_ == nullptr && this->customRule_ == nullptr && this->customRuleAction_ == nullptr && this->customRuleCondition_ == nullptr && this->customRuleInTemplateMaxCount_ == nullptr
-        && this->customRuleRatelimitor_ == nullptr && this->customRuleTemplateMaxCount_ == nullptr && this->defenseGroupMaxCount_ == nullptr && this->defenseObjectInGroupMaxCount_ == nullptr && this->defenseObjectInTemplateMaxCount_ == nullptr
-        && this->defenseObjectMaxCount_ == nullptr && this->dlp_ == nullptr && this->dlpRuleInTemplateMaxCount_ == nullptr && this->dlpTemplateMaxCount_ == nullptr && this->elasticQps_ == nullptr
-        && this->exclusiveIp_ == nullptr && this->extendQps_ == nullptr && this->freeQps_ == nullptr && this->gslb_ == nullptr && this->httpPorts_ == nullptr
-        && this->httpsPorts_ == nullptr && this->hybridCloud_ == nullptr && this->hybridCloudNodeExtend_ == nullptr && this->ipBlacklist_ == nullptr && this->ipBlacklistIpInRuleMaxCount_ == nullptr
-        && this->ipBlacklistRuleInTemplateMaxCount_ == nullptr && this->ipBlacklistTemplateMaxCount_ == nullptr && this->ipv6_ == nullptr && this->logService_ == nullptr && this->majorProtection_ == nullptr
-        && this->majorProtectionTemplateMaxCount_ == nullptr && this->qpsBillingCap_ == nullptr && this->resourceDirectory_ == nullptr && this->tamperproof_ == nullptr && this->tamperproofRuleInTemplateMaxCount_ == nullptr
-        && this->tamperproofTemplateMaxCount_ == nullptr && this->vastIpBlacklistInFileMaxCount_ == nullptr && this->vastIpBlacklistInOperationMaxCount_ == nullptr && this->vastIpBlacklistMaxCount_ == nullptr && this->whitelist_ == nullptr
-        && this->whitelistLogical_ == nullptr && this->whitelistRuleCondition_ == nullptr && this->whitelistRuleInTemplateMaxCount_ == nullptr && this->whitelistTemplateMaxCount_ == nullptr; };
+        && this->agenticApisec_ == nullptr && this->agenticWaf_ == nullptr && this->antiScan_ == nullptr && this->antiScanTemplateMaxCount_ == nullptr && this->apisec_ == nullptr
+        && this->backendMaxCount_ == nullptr && this->baseWafGroup_ == nullptr && this->baseWafGroupRuleInTemplateMaxCount_ == nullptr && this->baseWafGroupRuleTemplateMaxCount_ == nullptr && this->bot_ == nullptr
+        && this->botApp_ == nullptr && this->botTemplateMaxCount_ == nullptr && this->botWeb_ == nullptr && this->cnameResourceMaxCount_ == nullptr && this->customResponse_ == nullptr
+        && this->customResponseRuleInTemplateMaxCount_ == nullptr && this->customResponseTemplateMaxCount_ == nullptr && this->customRule_ == nullptr && this->customRuleAction_ == nullptr && this->customRuleCondition_ == nullptr
+        && this->customRuleInTemplateMaxCount_ == nullptr && this->customRuleRatelimitor_ == nullptr && this->customRuleTemplateMaxCount_ == nullptr && this->defenseGroupMaxCount_ == nullptr && this->defenseObjectInGroupMaxCount_ == nullptr
+        && this->defenseObjectInTemplateMaxCount_ == nullptr && this->defenseObjectMaxCount_ == nullptr && this->dlp_ == nullptr && this->dlpRuleInTemplateMaxCount_ == nullptr && this->dlpTemplateMaxCount_ == nullptr
+        && this->elasticQps_ == nullptr && this->exclusiveIp_ == nullptr && this->extendQps_ == nullptr && this->freeQps_ == nullptr && this->gslb_ == nullptr
+        && this->httpPorts_ == nullptr && this->httpsPorts_ == nullptr && this->hybridCloud_ == nullptr && this->hybridCloudNodeExtend_ == nullptr && this->ipBlacklist_ == nullptr
+        && this->ipBlacklistIpInRuleMaxCount_ == nullptr && this->ipBlacklistRuleInTemplateMaxCount_ == nullptr && this->ipBlacklistTemplateMaxCount_ == nullptr && this->ipv6_ == nullptr && this->logService_ == nullptr
+        && this->majorProtection_ == nullptr && this->majorProtectionTemplateMaxCount_ == nullptr && this->qpsBillingCap_ == nullptr && this->resourceDirectory_ == nullptr && this->tamperproof_ == nullptr
+        && this->tamperproofRuleInTemplateMaxCount_ == nullptr && this->tamperproofTemplateMaxCount_ == nullptr && this->vastIpBlacklistInFileMaxCount_ == nullptr && this->vastIpBlacklistInOperationMaxCount_ == nullptr && this->vastIpBlacklistMaxCount_ == nullptr
+        && this->whitelist_ == nullptr && this->whitelistLogical_ == nullptr && this->whitelistRuleCondition_ == nullptr && this->whitelistRuleInTemplateMaxCount_ == nullptr && this->whitelistTemplateMaxCount_ == nullptr; };
       // aclRuleMaxIpCount Field Functions 
       bool hasAclRuleMaxIpCount() const { return this->aclRuleMaxIpCount_ != nullptr;};
       void deleteAclRuleMaxIpCount() { this->aclRuleMaxIpCount_ = nullptr;};
@@ -211,6 +213,13 @@ namespace Models
       void deleteAgenticApisec() { this->agenticApisec_ = nullptr;};
       inline bool getAgenticApisec() const { DARABONBA_PTR_GET_DEFAULT(agenticApisec_, false) };
       inline Details& setAgenticApisec(bool agenticApisec) { DARABONBA_PTR_SET_VALUE(agenticApisec_, agenticApisec) };
+
+
+      // agenticWaf Field Functions 
+      bool hasAgenticWaf() const { return this->agenticWaf_ != nullptr;};
+      void deleteAgenticWaf() { this->agenticWaf_ = nullptr;};
+      inline bool getAgenticWaf() const { DARABONBA_PTR_GET_DEFAULT(agenticWaf_, false) };
+      inline Details& setAgenticWaf(bool agenticWaf) { DARABONBA_PTR_SET_VALUE(agenticWaf_, agenticWaf) };
 
 
       // antiScan Field Functions 
@@ -620,20 +629,24 @@ namespace Models
 
 
     protected:
-      // The maximum number of IP addresses that can be added to the match content. For more information about match content, refer to [Match condition description](https://help.aliyun.com/document_detail/374354.html).
+      // The maximum number of IP addresses that can be added to the match content. For more information about match content, see [Match condition description](https://help.aliyun.com/document_detail/374354.html).
       shared_ptr<int64_t> aclRuleMaxIpCount_ {};
-      // Indicates whether Agentic API security is enabled.
+      // Specifies whether the Agentic API security feature is enabled.
       shared_ptr<bool> agenticApisec_ {};
+      // Specifies whether the instance is an Agentic WAF edition.
+      shared_ptr<bool> agenticWaf_ {};
       // Specifies whether scan protection is supported. Valid values:
+      // - **true**: Supported.
+      // 
+      // - **false**: Not supported.
       shared_ptr<bool> antiScan_ {};
       // The maximum number of scan protection templates that can be configured.
       shared_ptr<int64_t> antiScanTemplateMaxCount_ {};
-      // Indicates whether API security is enabled.
+      // Specifies whether the API security feature is enabled.
       shared_ptr<bool> apisec_ {};
       // The maximum number of back-to-origin IP addresses that can be configured.
       shared_ptr<int64_t> backendMaxCount_ {};
       // Specifies whether basic protection rules are supported. Valid values:
-      // 
       // - **true**: Supported.
       // 
       // - **false**: Not supported.
@@ -643,25 +656,27 @@ namespace Models
       // The maximum number of basic protection rule templates that can be configured.
       shared_ptr<int64_t> baseWafGroupRuleTemplateMaxCount_ {};
       // Specifies whether bot management is supported. Valid values:
+      // - **true**: Supported.
+      // - **false**: Not supported.
       shared_ptr<bool> bot_ {};
-      // Indicates whether scenario-specific protection against app crawlers is supported. Valid values:
+      // Specifies whether scenario-specific anti-crawler protection for apps is supported. Valid values:
       // - **true**: Supported.
       // - **false**: Not supported.
       shared_ptr<string> botApp_ {};
       // The maximum number of bot management protection templates that can be configured.
       shared_ptr<int64_t> botTemplateMaxCount_ {};
-      // Specifies whether scenario-specific protection against web crawlers is supported. Valid values:
+      // Specifies whether scenario-specific anti-crawler protection for websites is supported. Valid values:
       // - **true**: Supported.
       // - **false**: Not supported.
       shared_ptr<string> botWeb_ {};
-      // The maximum number of CNAMEs that can be added.
+      // The maximum number of CNAME records that can be added.
       shared_ptr<int64_t> cnameResourceMaxCount_ {};
-      // Indicates whether custom responses are supported. Valid values:
+      // Specifies whether custom responses are supported. Valid values:
       // - **true**: Supported.
       // 
       // - **false**: Not supported.
       shared_ptr<bool> customResponse_ {};
-      // The maximum number of protection rules that a single custom response template can contain.
+      // The maximum number of protection rules that can be included in a single custom response template.
       shared_ptr<int64_t> customResponseRuleInTemplateMaxCount_ {};
       // The maximum number of custom response templates that can be configured.
       shared_ptr<int64_t> customResponseTemplateMaxCount_ {};
@@ -672,66 +687,78 @@ namespace Models
       shared_ptr<bool> customRule_ {};
       // The strings included in custom rules.
       shared_ptr<string> customRuleAction_ {};
-      // The match conditions for custom rules. For more information, refer to the parameter description of **custom rule (custom_acl) conditions** in [CreateDefenseRule](https://help.aliyun.com/document_detail/461421.html).
+      // The match conditions for custom rules. For more information, see the parameter description of **conditions** for **custom rules (custom_acl)** in [CreateDefenseRule](https://help.aliyun.com/document_detail/461421.html).
       shared_ptr<string> customRuleCondition_ {};
-      // The maximum number of protection rules that a single custom rule template can contain.
+      // The maximum number of protection rules that can be included in a single custom rule template.
       shared_ptr<int64_t> customRuleInTemplateMaxCount_ {};
-      // The rate limiting object for custom rules.
+      // The rate limiting objects for custom rules.
       shared_ptr<string> customRuleRatelimitor_ {};
       // The maximum number of custom rule templates that can be configured.
       shared_ptr<int64_t> customRuleTemplateMaxCount_ {};
       // The maximum number of protection groups that can be configured.
       shared_ptr<int64_t> defenseGroupMaxCount_ {};
-      // The maximum number of protection objects that a protection group can contain.
+      // The maximum number of protected objects that can be included in a protection group.
       shared_ptr<int64_t> defenseObjectInGroupMaxCount_ {};
-      // The maximum number of protection objects that can be associated with a single template.
+      // The maximum number of protected objects that can be associated with a single template.
       shared_ptr<int64_t> defenseObjectInTemplateMaxCount_ {};
-      // The maximum number of protection objects that can be configured.
+      // The maximum number of protected objects that can be configured.
       shared_ptr<int64_t> defenseObjectMaxCount_ {};
-      // Specifies whether data leak prevention is supported. Valid values:
+      // Specifies whether information leak prevention is supported. Valid values:
       // - **true**: Supported.
       // - **false**: Not supported.
       shared_ptr<bool> dlp_ {};
-      // The maximum number of protection rules that a single information leak prevention template can contain.
+      // The maximum number of protection rules that can be included in a single information leak prevention template.
       shared_ptr<int64_t> dlpRuleInTemplateMaxCount_ {};
       // The maximum number of information leak prevention templates that can be configured.
       shared_ptr<int64_t> dlpTemplateMaxCount_ {};
-      // The burstable QPS value for the subscription instance with pay-as-you-go billing for burstable capacity. For more information, see [WAF 3.0 editions](https://help.aliyun.com/document_detail/441231.html).
-      // > This parameter has no practical meaning for **pay-as-you-go** instances.
+      // The burstable pay-as-you-go QPS value for subscription instances. For more information, see [WAF 3.0 editions](https://help.aliyun.com/document_detail/441231.html).
+      // > This parameter is not applicable to **pay-as-you-go** instances.
       shared_ptr<int32_t> elasticQps_ {};
       // Specifies whether exclusive IP addresses are supported. Valid values:
+      // - **true**: Supported.
+      // 
+      // - **false**: Not supported.
       shared_ptr<bool> exclusiveIp_ {};
-      // The extended QPS value of the subscription instance. For more information, see [WAF 3.0 editions](https://help.aliyun.com/document_detail/441231.html).
+      // The extended QPS value for subscription instances. For more information, see [WAF 3.0 editions](https://help.aliyun.com/document_detail/441231.html).
       // > This parameter is not applicable to **pay-as-you-go** instances.
       shared_ptr<int32_t> extendQps_ {};
-      // The free QPS value included in the subscription plan. For more information, see [WAF 3.0 editions](https://help.aliyun.com/document_detail/441231.html).
+      // The free QPS value for subscription instances. For more information, see [WAF 3.0 editions](https://help.aliyun.com/document_detail/441231.html).
       // 
-      // > This parameter has no practical meaning for **pay-as-you-go** instances.
+      // > This parameter is not applicable to **pay-as-you-go** instances.
       shared_ptr<int32_t> freeQps_ {};
       // Specifies whether Global Server Load Balancing (GSLB) is supported. Valid values:
+      // - **true**: Supported.
+      // 
+      // - **false**: Not supported.
       shared_ptr<bool> gslb_ {};
-      // The available HTTP port range. For more information, refer to [Ports supported by WAF](https://help.aliyun.com/document_detail/385578.html).
+      // The available HTTP port range. For more information, see [Port ranges supported by WAF](https://help.aliyun.com/document_detail/385578.html).
       shared_ptr<string> httpPorts_ {};
-      // The available HTTPS port range. For more information, refer to [Ports supported by WAF](https://help.aliyun.com/document_detail/385578.html).
+      // The available HTTPS port range. For more information, see [Port ranges supported by WAF](https://help.aliyun.com/document_detail/385578.html).
       shared_ptr<string> httpsPorts_ {};
-      // Indicates whether hybrid cloud is enabled.
+      // Specifies whether the hybrid cloud feature is enabled.
       shared_ptr<bool> hybridCloud_ {};
-      // The number of hybrid cloud extended nodes.
+      // The number of extended nodes for the hybrid cloud.
       shared_ptr<int32_t> hybridCloudNodeExtend_ {};
-      // Indicates whether the IP blacklist is supported. Valid values:
+      // Specifies whether IP blacklist is supported. Valid values:
       // - **true**: Supported.
       // 
       // - **false**: Not supported.
       shared_ptr<bool> ipBlacklist_ {};
       // The maximum number of IP addresses that can be added to a blacklist rule.
       shared_ptr<int64_t> ipBlacklistIpInRuleMaxCount_ {};
-      // The maximum number of protection rules that a single blacklist template can contain.
+      // The maximum number of protection rules that can be included in a single blacklist template.
       shared_ptr<int64_t> ipBlacklistRuleInTemplateMaxCount_ {};
       // The maximum number of blacklist templates that can be configured.
       shared_ptr<int64_t> ipBlacklistTemplateMaxCount_ {};
       // Specifies whether IPv6 is supported. Valid values:
+      // - **true**: Supported.
+      // 
+      // - **false**: Not supported.
       shared_ptr<bool> ipv6_ {};
-      // Specifies whether the log service is supported. Valid values:
+      // Specifies whether Simple Log Service is supported. Valid values:
+      // - **true**: Supported.
+      // 
+      // - **false**: Not supported.
       shared_ptr<bool> logService_ {};
       // Specifies whether critical event protection is supported. Valid values:
       // - **true**: Supported.
@@ -740,34 +767,35 @@ namespace Models
       shared_ptr<bool> majorProtection_ {};
       // The maximum number of critical event protection templates that can be configured.
       shared_ptr<int64_t> majorProtectionTemplateMaxCount_ {};
-      // The QPS billing protection threshold for the pay-as-you-go edition. For more information, see [Traffic billing protection](https://help.aliyun.com/document_detail/2249021.html) for pay-as-you-go.
-      // > This parameter has no practical meaning for **subscription** instances.
+      // The QPS traffic billing protection threshold for pay-as-you-go instances. For more information, see [Traffic billing protection](https://help.aliyun.com/document_detail/2249021.html) for pay-as-you-go instances.
+      // > This parameter is not applicable to **subscription** instances.
       shared_ptr<int32_t> qpsBillingCap_ {};
-      // Indicates whether the multi-account management feature is supported.
+      // Specifies whether the multi-account management feature is supported.
       shared_ptr<bool> resourceDirectory_ {};
       // Specifies whether web tamper proofing is supported. Valid values:
+      // - **true**: Supported.
+      // - **false**: Not supported.
       shared_ptr<bool> tamperproof_ {};
-      // The maximum number of protection rules that a single web tamper proofing template can contain.
+      // The maximum number of protection rules that can be included in a single web tamper proofing template.
       shared_ptr<int64_t> tamperproofRuleInTemplateMaxCount_ {};
       // The maximum number of web tamper proofing protection templates that can be configured.
       shared_ptr<int64_t> tamperproofTemplateMaxCount_ {};
-      // The maximum number of IP addresses that can be imported to the IP blacklist in a single bulk import.
+      // The maximum number of IP addresses that can be imported to an IP blacklist in a single batch.
       shared_ptr<int64_t> vastIpBlacklistInFileMaxCount_ {};
-      // The maximum number of IP addresses that can be added to the IP blacklist in a single page operation.
+      // The maximum number of IP addresses that can be added to an IP blacklist in a single page operation.
       shared_ptr<int64_t> vastIpBlacklistInOperationMaxCount_ {};
-      // The maximum number of IP blacklist entries that a single user can configure.
+      // The maximum number of IP blacklists that can be configured per user.
       shared_ptr<int64_t> vastIpBlacklistMaxCount_ {};
-      // Specifies whether the IP whitelist is supported. Valid values:
-      // 
+      // Specifies whether IP address whitelists are supported. Valid values:
       // - **true**: Supported.
       // 
       // - **false**: Not supported.
       shared_ptr<bool> whitelist_ {};
-      // The logical operators for whitelist rules. For more information, refer to the parameter description of **whitelist rule (whitelist) conditions** in [CreateDefenseRule](https://help.aliyun.com/document_detail/461421.html).
+      // The logical operators for whitelist rules. For more information, see the parameter description of **conditions** for **whitelist rules** in [CreateDefenseRule](https://help.aliyun.com/document_detail/461421.html).
       shared_ptr<string> whitelistLogical_ {};
-      // The match fields for whitelist rules. For more information, refer to the parameter description of **whitelist rule (whitelist) conditions** in [CreateDefenseRule](https://help.aliyun.com/document_detail/461421.html).
+      // The match fields for whitelist rules. For more information, see the parameter description of **conditions** for **whitelist rules** in [CreateDefenseRule](https://help.aliyun.com/document_detail/461421.html).
       shared_ptr<string> whitelistRuleCondition_ {};
-      // The maximum number of protection rules that a single whitelist template can contain.
+      // The maximum number of protection rules that can be included in a single whitelist template.
       shared_ptr<int64_t> whitelistRuleInTemplateMaxCount_ {};
       // The maximum number of whitelist templates that can be configured.
       shared_ptr<int64_t> whitelistTemplateMaxCount_ {};
@@ -860,21 +888,27 @@ namespace Models
     shared_ptr<DescribeInstanceResponseBody::Details> details_ {};
     // The WAF edition.
     shared_ptr<string> edition_ {};
-    // The time when the instance expires. The value is a UNIX timestamp. Unit: milliseconds. Format: ms.
+    // The time when the instance expires. The value is a UNIX timestamp in the format of milliseconds.
     shared_ptr<int64_t> endTime_ {};
-    // Indicates whether the current instance has an overdue payment. Valid values:
+    // Specifies whether the instance has an overdue payment. Valid values:
+    // - **0**: Normal.
+    // - **1**: Overdue payment.
     shared_ptr<string> inDebt_ {};
     // The WAF instance ID.
     shared_ptr<string> instanceId_ {};
     // The billing method of the instance. Valid values:
+    // 
+    // - **POSTPAY**: Pay-as-you-go.
+    // 
+    // - **PREPAY**: Subscription.
     shared_ptr<string> payType_ {};
-    // The instance execution status. Valid values:
+    // The execution status of the instance. Valid values:
     // - **commodity_converting**: The commodity is being converted.
     // 
-    // - **commodity_convert_check_failed**: The commodity conversion check failed.
+    // - **commodity_convert_check_failed**: The commodity conversion verification failed.
     // 
     // - **commodity_convert_process_failed**: The commodity conversion failed.
-    // - **order_create_failed**: The order failed to be created.
+    // - **order_create_failed**: The order creation failed.
     // - **order_pending_payment**: The order is pending payment.
     shared_ptr<string> processStatus_ {};
     // The region where the WAF instance resides. Valid values:

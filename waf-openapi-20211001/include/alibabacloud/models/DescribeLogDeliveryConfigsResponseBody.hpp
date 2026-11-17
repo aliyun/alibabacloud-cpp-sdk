@@ -85,17 +85,16 @@ namespace Models
 
 
     protected:
-      // The details of the log delivery configuration, returned as a JSON string.
+      // The content of the delivery configuration. The content is a JSON string constructed from a series of parameters.
       // 
-      // > The structure of this parameter is the same as the **DeliveryDetail** request parameter of the [CreateLogDeliveryConfig](~~CreateLogDeliveryConfig~~) operation.
+      // > This parameter is the same as the **DeliveryDetail** request parameter of the [CreateLogDeliveryConfig](~~CreateLogDeliveryConfig~~) operation. For more information, see the **Delivery configuration content parameters** section of the [CreateLogDeliveryConfig](~~CreateLogDeliveryConfig~~) operation.
       shared_ptr<string> deliveryDetail_ {};
-      // The name of the log delivery configuration.
+      // The name of the delivery configuration.
       shared_ptr<string> deliveryName_ {};
-      // The type of the log delivery configuration. Valid values:
+      // The type of the delivery configuration. Valid values:
       // 
-      // - **syslog**: Log delivery to a syslog server.
-      // 
-      // - **kafka**: Log delivery to a Kafka cluster.
+      // - **syslog**: Delivers logs to a Syslog service.
+      // - **kafka**: Delivers logs to a Kafka service.
       shared_ptr<string> deliveryType_ {};
     };
 
@@ -139,17 +138,17 @@ namespace Models
 
 
   protected:
-    // The log delivery configurations.
+    // The delivery configuration information.
     shared_ptr<vector<DescribeLogDeliveryConfigsResponseBody::DeliveryConfigs>> deliveryConfigs_ {};
-    // The maximum number of entries returned per page.
+    // The number of entries to return per page during paging in a paged query. Valid values: 1 to 50. Default value: 20.
     shared_ptr<int32_t> maxResults_ {};
-    // The pagination token that is used in the next request to retrieve a new page of results.
+    // The pagination token for querying the next page. If a next page exists, this field returns a value.
     // 
-    // > If this parameter is not empty, more results are available. Use the value of **NextToken** in the next request to retrieve the next page of results. If the value is empty, all results have been returned.
+    // > If this parameter returns a value, it indicates that more pages exist. You can use the returned **NextToken** value as a request parameter to obtain the data on the next page. Repeat this process until no value is returned, which indicates that all data has been retrieved.
     shared_ptr<string> nextToken_ {};
     // The ID of the request.
     shared_ptr<string> requestId_ {};
-    // The total number of log delivery configurations returned.
+    // The total number of returned entries.
     shared_ptr<int32_t> totalCount_ {};
   };
 

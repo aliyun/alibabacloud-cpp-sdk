@@ -69,22 +69,15 @@ namespace Models
 
 
     protected:
-      // The reason why the verification failed.
-      // 
-      // - DnsTxtVerifyFailed: The DNS TXT record does not match.
-      // 
-      // - DnsServerError: The DNS server is abnormal.
-      // 
-      // - VerifyFileNotExist: The verification file does not exist.
-      // 
-      // - VerifyDomainNotAccess: Failed to access the domain name.
-      // 
-      // - FileContentVerifyFailed: The file content does not match.
+      // The reason for verification failure.
+      // * DnsTxtVerifyFailed: The DNS TXT record does not match.
+      // * DnsServerError: A DNS server error occurred.
+      // * VerifyFileNotExist: The verification file does not exist.
+      // * VerifyDomainNotAccess: Access to the domain name failed.
+      // * FileContentVerifyFailed: The file content does not match.
       shared_ptr<string> failCode_ {};
       // The verification result. Valid values:
-      // 
-      // - **true**: The verification is successful.
-      // 
+      // - **true**: The verification passed.
       // - **false**: The verification failed.
       shared_ptr<bool> result_ {};
     };

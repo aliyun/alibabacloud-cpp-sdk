@@ -156,18 +156,20 @@ namespace Models
     // 
     // - **hybrid_cloud_cname**: hybrid cloud CNAME access.
     // 
-    // > If the value is **share**, or if the value is **hybrid_cloud_cname** and public cloud disaster recovery is enabled, call the [DescribeVerifyContent](https://help.aliyun.com/document_detail/2985193.html) and [VerifyDomainOwner](https://help.aliyun.com/document_detail/2985192.html) operations to verify domain name ownership first. If the domain name is connected to a region in the Chinese mainland, ICP filing must also be completed.
+    // > If the value is **share**, or the value is **hybrid_cloud_cname** and public cloud disaster recovery is enabled, you must invoke the [DescribeVerifyContent](https://help.aliyun.com/document_detail/2985193.html) and [VerifyDomainOwner](https://help.aliyun.com/document_detail/2985192.html) operations to authenticate the domain name ownership first. If the website config is added to a region in the Chinese mainland, it must also have an ICP filing.
+    // >
+    // > If the value is **hybrid_cloud_cname** and public cloud disaster recovery is disabled, you do not need to authenticate the domain name ownership and can directly invoke this operation.
     shared_ptr<string> accessType_ {};
     // The domain name to query.
     // 
     // This parameter is required.
     shared_ptr<string> domain_ {};
     // The ID of the WAF instance.
-    // > You can call [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) to query the ID of the current WAF instance.
+    // > You can call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query the ID of the current WAF instance.
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
-    // The listening configuration.
+    // The listener configuration.
     // 
     // This parameter is required.
     shared_ptr<string> listenShrink_ {};
@@ -177,11 +179,15 @@ namespace Models
     shared_ptr<string> redirectShrink_ {};
     // The region where the WAF instance resides. Valid values:
     // 
+    // - **cn-hangzhou**: the Chinese mainland.
+    // 
+    // - **ap-southeast-1**: outside the Chinese mainland.
+    // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
     // The ID of the Alibaba Cloud resource group.
     shared_ptr<string> resourceManagerResourceGroupId_ {};
-    // The list of tags. You can specify up to 20 tags.
+    // The list of tags, which can contain up to 20 items.
     shared_ptr<vector<CreateDomainShrinkRequest::Tag>> tag_ {};
   };
 

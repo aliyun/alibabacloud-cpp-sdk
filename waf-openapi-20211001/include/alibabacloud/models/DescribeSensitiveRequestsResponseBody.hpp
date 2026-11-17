@@ -192,9 +192,9 @@ namespace Models
       shared_ptr<string> apiId_ {};
       // The IP address.
       shared_ptr<string> clientIP_ {};
-      // The assessment result. Valid values:
-      // - **leak**: a leak risk exists.
-      // - **none**: no leak risk exists.
+      // The evaluation result. Valid values:
+      // - **leak**: A leakage risk exists.
+      // - **none**: No leakage risk exists.
       shared_ptr<string> detectionResult_ {};
       // The number of events in the last 30 days.
       shared_ptr<int64_t> eventCount_ {};
@@ -236,7 +236,7 @@ namespace Models
     shared_ptr<vector<DescribeSensitiveRequestsResponseBody::Data>> data_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The total number of entries returned.
+    // The total number of returned entries.
     shared_ptr<int64_t> totalCount_ {};
   };
 

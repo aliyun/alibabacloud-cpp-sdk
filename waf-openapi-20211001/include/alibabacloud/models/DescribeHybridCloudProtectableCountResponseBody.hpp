@@ -48,7 +48,7 @@ namespace Models
 
 
   protected:
-    // The number of protectable nodes that can be added to the cluster.
+    // The number of protection nodes that can be added to the cluster.
     shared_ptr<int32_t> protectableCount_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

@@ -116,9 +116,9 @@ namespace Models
 
 
   protected:
-    // The security event information of basic detection.
+    // The information about security events detected by basic API security detection.
     shared_ptr<DescribeFreeUserEventCountResponseBody::Event> event_ {};
-    // The request ID.
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
   };
 

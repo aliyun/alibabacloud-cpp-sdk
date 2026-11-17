@@ -108,9 +108,9 @@ namespace Models
 
 
     protected:
-      // The time when the export task was created. The value is a UNIX timestamp (UTC). Unit: seconds.
+      // The time when the export task was created. The value is a UNIX timestamp in UTC. Unit: seconds.
       shared_ptr<int64_t> createTime_ {};
-      // The file name.
+      // The name of the file.
       shared_ptr<string> fileName_ {};
       // The download URL of the file.
       shared_ptr<string> fileUrl_ {};
@@ -122,15 +122,15 @@ namespace Models
       // 
       // - **exporting**: The export is in progress.
       // 
-      // - **completed**: The export is complete.
+      // - **completed**: The export succeeded.
       shared_ptr<string> status_ {};
       // The type of the export task. Valid values:
       // 
-      // - **apisec_api**: API asset task.
+      // - **apisec_api**: API asset task
       // 
-      // - **apisec_abnormal**: API risk task.
+      // - **apisec_abnormal**: API risk task
       // 
-      // - **apisec_event**: API security event task.
+      // - **apisec_event**: API security event task
       shared_ptr<string> type_ {};
     };
 
@@ -162,7 +162,7 @@ namespace Models
   protected:
     // The list of export tasks.
     shared_ptr<vector<DescribeApiExportsResponseBody::ApiExports>> apiExports_ {};
-    // The request ID.
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
     // The total number of entries returned.
     shared_ptr<int64_t> total_ {};

@@ -176,79 +176,64 @@ namespace Models
 
 
   protected:
-    // The network access mode of the cluster. Valid values:
-    // 
-    // - **internet**: access over the Internet.
-    // 
-    // - **vpc**: access over an Express Connect circuit.
+    // The network access mode. Valid values:
+    // - **internet**: Internet access.
+    // - **vpc**: Private network access over Express Connect.
     // 
     // This parameter is required.
     shared_ptr<string> accessMode_ {};
-    // The region for Express Connect circuit access. Valid values:
-    // 
+    // The region for Express Connect access. Valid values:
     // - **cn-hangzhou**: Hangzhou.
-    // 
-    // - **cn-beijing**: Beijing.
-    // 
+    // - **cn-beiijng**: Beijing.
     // - **cn-shanghai**: Shanghai.
     shared_ptr<string> accessRegion_ {};
-    // The name of the hybrid cloud cluster.
+    // The name of the cluster.
     // 
     // This parameter is required.
     shared_ptr<string> clusterName_ {};
-    // The listening ports for the HTTP protocol. Separate multiple ports with commas (,), such as **port1,port2,port3**.
+    // The list of available ports for the HTTP protocol. The value is a string. If multiple ports are specified, use the **port1,port2,port3** format.
     // 
     // This parameter is required.
     shared_ptr<string> httpPorts_ {};
-    // The listening ports for the HTTPS protocol. Separate multiple ports with commas (,), such as **port1,port2,port3**.
+    // The list of available ports for the HTTPS protocol. The value is a string. If multiple ports are specified, use the **port1,port2,port3** format.
     // 
     // This parameter is required.
     shared_ptr<string> httpsPorts_ {};
     // The ID of the WAF instance.
-    // 
-    // > Call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query the ID of the WAF instance.
+    // > You can call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query the ID of the current WAF instance.
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
-    // > This parameter is deprecated. It no longer returns meaningful data.
+    // > **[Deprecated]** This parameter is deprecated and no longer returns meaningful data.
     shared_ptr<string> logFieldsNotReturned_ {};
-    // The maximum number of protection nodes that can be added to the hybrid cloud cluster.
+    // The number of protection nodes that can be added to the cluster.
     // 
     // This parameter is required.
     shared_ptr<int32_t> protectionServerCount_ {};
-    // Indicates whether the proxy gateway is enabled for the cluster. Valid values:
-    // 
-    // - **on**: The proxy gateway is enabled.
-    // 
-    // - **off**: The proxy gateway is disabled.
+    // The proxy gateway mode. Valid values:
+    // - **on**: Enabled.
+    // - **off**: Disabled.
     shared_ptr<string> proxyStatus_ {};
-    // The type of the hybrid cloud cluster. Valid values:
-    // 
-    // - **cname**: reverse proxy cluster. Traffic is forwarded through CNAME resolution.
-    // 
-    // - **service**: transparent proxy cluster. Traffic is forwarded at the service level.
+    // The cluster type. Valid values:
+    // - **cname**: Reverse proxy cluster.
+    // - **service**: Service cluster.
     shared_ptr<string> proxyType_ {};
     // The region where the WAF instance resides. Valid values:
-    // 
-    // - **cn-hangzhou**: the Chinese mainland.
-    // 
-    // - **ap-southeast-1**: outside the Chinese mainland.
+    // - **cn-hangzhou**: The Chinese mainland.
+    // - **ap-southeast-1**: Outside the Chinese mainland.
     shared_ptr<string> regionId_ {};
-    // The description of the hybrid cloud cluster.
+    // The remark.
     shared_ptr<string> remark_ {};
     // The ID of the Alibaba Cloud resource group.
     shared_ptr<string> resourceManagerResourceGroupId_ {};
-    // The configuration of the bypass rule, in JSON format. This includes settings such as circuit breaker thresholds, request body size limits, and timeout values.
+    // The rule configuration.
     shared_ptr<string> ruleConfig_ {};
-    // Indicates whether manual bypass is enabled for the cluster. Valid values:
-    // 
-    // - **on**: Manual bypass is enabled.
-    // 
-    // - **off**: Manual bypass is disabled.
+    // The manual bypass status. Valid values:
+    // - **on**: Enabled.
+    // - **off**: Disabled.
     shared_ptr<string> ruleStatus_ {};
-    // The type of the bypass rule. Valid values:
-    // 
-    // - **bypass**: skips WAF security checks and allows traffic to pass through directly.
+    // The rule type. Valid values:
+    // - **bypass**: Skips security checks and directly allows traffic.
     shared_ptr<string> ruleType_ {};
   };
 

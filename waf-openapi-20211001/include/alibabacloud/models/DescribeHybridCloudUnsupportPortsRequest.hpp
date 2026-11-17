@@ -59,7 +59,7 @@ namespace Models
   protected:
     // The ID of the WAF instance.
     // 
-    // > Call [DescribeInstanceInfo](https://help.aliyun.com/document_detail/140857.html) to query the ID of your WAF instance.
+    // > You can call [DescribeInstanceInfo](https://help.aliyun.com/document_detail/140857.html) to query the ID of the WAF instance.
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};

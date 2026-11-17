@@ -77,31 +77,31 @@ namespace Models
   protected:
     // The log subscription type. Valid values:
     // 
-    // - **risk**: risk information.
-    // - **event**: attack event information.
-    // - **asset**: asset information.
+    // - **risk**: risk information
+    // - **event**: attack event information
+    // - **asset**: asset information
     // 
     // This parameter is required.
     shared_ptr<string> assertKey_ {};
     // Instance ID of the WAF instance.
     // 
-    // > You can call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query instance ID of the WAF instance.
+    // > You can call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query instance ID of the current WAF instance.
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
     // The region where the WAF instance resides. Valid values:
     // 
-    // - **cn-hangzhou**: the Chinese mainland.
+    // - **cn-hangzhou**: the Chinese mainland
     // 
-    // - **ap-southeast-1**: outside the Chinese mainland.
+    // - **ap-southeast-1**: outside the Chinese mainland
     shared_ptr<string> regionId_ {};
     // The ID of the Alibaba Cloud resource group.
     shared_ptr<string> resourceManagerResourceGroupId_ {};
-    // The enabling status of API security log subscribe. Valid values:
+    // The enabling status to subscribe to API security logs. Valid values:
     // 
-    // - **true**: subscribe is enabled.
+    // - **true**: enabled
     // 
-    // - **false**: subscribe is shutdown.
+    // - **false**: shutdown
     // 
     // This parameter is required.
     shared_ptr<bool> status_ {};

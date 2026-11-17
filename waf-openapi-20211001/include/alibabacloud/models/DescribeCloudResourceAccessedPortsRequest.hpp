@@ -66,17 +66,17 @@ namespace Models
 
 
   protected:
-    // The ID of the WAF instance.
+    // Instance ID of the WAF instance.
     // 
-    // > You can call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query the ID of the current WAF instance.
+    // > You can call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query instance ID of the WAF instance.
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
-    // The region ID of the WAF instance. Valid values:
+    // The region where the WAF instance resides. Valid values:
     // 
-    // - **cn-hangzhou**: The Chinese mainland.
+    // - **cn-hangzhou**: the Chinese mainland.
     // 
-    // - **ap-southeast-1**: Outside the Chinese mainland.
+    // - **ap-southeast-1**: outside the Chinese mainland.
     shared_ptr<string> regionId_ {};
     // The instance ID of the resource.
     // 

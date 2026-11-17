@@ -178,17 +178,17 @@ namespace Models
     // - **lfilei**: local file inclusion (LFI).
     // - **protocol_violation**: protocol violation.
     // - **scanner_behavior**: scanner behavior.
-    // - **logic_flaw**: business logic bug.
-    // - **arbitrary_file_reading**: arbitrary file read.
+    // - **logic_flaw**: business logic flaw.
+    // - **arbitrary_file_reading**: arbitrary file reading.
     // - **arbitrary_file_download**: arbitrary file download.
-    // - **xxe**: XML external entity injection.
-    // - **csrf**: cross-site request forgery.
-    // - **crlf**: CRLF injection.
+    // - **xxe**: external entity injection.
+    // - **csrf**: cross-site request forgery (CSRF).
+    // - **crlf**: CRLF.
     // - **other**: other.
     shared_ptr<string> detectType_ {};
     // The ID of the WAF instance.
     // 
-    // > You can call [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) to query the ID of the current WAF instance.
+    // > You can call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query the ID of the current WAF instance.
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
@@ -197,11 +197,11 @@ namespace Models
     // - **zh** (default): Chinese.
     // - **en**: English.
     shared_ptr<string> lang_ {};
-    // The page number to return in a paged query. Default value: **1**, which indicates the first page. This parameter is used for paging.
+    // The page number to return in a paged query. Default value: **1**, which indicates the first page.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries per page in a paged query. Default value: 100. This parameter is used for paging.
+    // The number of entries to return on each page in a paged query. Default value: 100, which indicates 100 entries per page.
     shared_ptr<int32_t> pageSize_ {};
-    // The region where the WAF instance is deployed. Valid values:
+    // The region where the WAF instance resides. Valid values:
     // 
     // - **cn-hangzhou**: the Chinese mainland.
     // 
@@ -211,15 +211,15 @@ namespace Models
     shared_ptr<string> resourceManagerResourceGroupId_ {};
     // The risk level. Valid values:
     // 
-    // - **super_strict**: super strict.
+    // - **super_strict**: Super strict.
     // 
-    // - **strict**: strict.
+    // - **strict**: Strict.
     // 
-    // - **medium**: medium.
+    // - **medium**: Medium.
     // 
-    // - **loose**: loose.
+    // - **loose**: Loose.
     shared_ptr<string> riskLevel_ {};
-    // The rule action. Valid values:
+    // The action of the rule. Valid values:
     // 
     // - **block**: Block.
     // 
@@ -227,19 +227,19 @@ namespace Models
     shared_ptr<string> ruleAction_ {};
     // The ID of the system protection rule to query.
     shared_ptr<int64_t> ruleId_ {};
-    // The list of system protection rule IDs to query.
+    // The IDs of the system protection rules to query.
     shared_ptr<vector<int64_t>> ruleIds_ {};
     // The name of the system protection rule.
     shared_ptr<string> ruleName_ {};
-    // The rule status. Valid values:
-    // - **1**: disabled.
-    // - **0**: enabled.
+    // The status of the rule. Valid values:
+    // - **1**: Disabled.
+    // - **0**: Enabled.
     shared_ptr<int32_t> ruleStatus_ {};
     // The ID of the protection template.
     // 
     // > 
-    // > - You can set this parameter to query the system protection rules in a specific Web core protection rule template. Settings apply to the specified template.
-    // > - If this parameter is left empty, the default configurations of system protection rules are queried.
+    // > - You can set this parameter to query the system protection rules in a specific web core protection rule template.
+    // > - If this parameter is left empty, the default configurations of the system protection rules are queried.
     shared_ptr<int64_t> templateId_ {};
   };
 

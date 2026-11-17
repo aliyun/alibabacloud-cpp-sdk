@@ -161,81 +161,60 @@ namespace Models
 
 
     protected:
-      // The time of the most recent attack. This value is a UNIX timestamp. Unit: milliseconds.
+      // The most recent attack time. The value is a UNIX timestamp in UTC. Unit: seconds.
       shared_ptr<int64_t> endTime_ {};
-      // The number of attacks that were blocked in the security event.
+      // The number of blocked attacks.
       shared_ptr<string> eventBlock_ {};
-      // The total number of attacks in the security event.
+      // The total number of attacks.
       shared_ptr<string> eventCnt_ {};
-      // The filter condition for viewing logs. The value is a JSON object in the string format.
+      // The filter condition for the log query feature. The value is a string converted from a **JSON** structure constructed with a series of parameters.
       shared_ptr<string> eventCondition_ {};
-      // The threat intelligence associated with the event. The value is a JSON array in the string format.
+      // The threat intelligence associated with the event. The value is a string converted from a **JSON** array.
       shared_ptr<string> eventIntelligence_ {};
       // The severity level of the event. Valid values:
       // 
-      // - **critical**: Critical severity.
-      // 
-      // - **high**: High severity.
-      // 
-      // - **medium**: Medium severity.
-      // 
-      // - **low**: Low severity.
+      // - **critical**: critical.
+      // - **high**: high.
+      // - **medium**: medium.
+      // - **low**: low.
       shared_ptr<string> eventLevel_ {};
-      // The source IP address of the attack.
-      // 
-      // > A security event may have multiple source IP addresses. This operation returns only one of them.
+      // The attack source IP addresses.
+      // > A security event may have multiple attack source IP addresses. This operation returns only one.
       shared_ptr<string> eventSrc_ {};
-      // The country of the source IP address of the attack.
+      // The country to which the attack source IP addresses belong.
       shared_ptr<string> eventSrcCountry_ {};
-      // The region of the source IP address of the attack.
+      // The region to which the attack source IP addresses belong.
       shared_ptr<string> eventSrcRegion_ {};
       // The security suggestion. Valid values:
       // 
-      // - **ProtectInterface**: The attack target appears to be a backend management address. If the address has specific access patterns, configure custom rules in the access control module to restrict access.
-      // 
-      // - **BlockArea**: Monitor the attack source region. If the attack source region is different from your normal business regions, configure a location blacklist or an IP address blacklist in the access control module to restrict access.
-      // 
-      // - **SwitchBlock**: The current protection rule is in Alert mode. To ensure business security, switch to Block mode. Before you switch, check for false positives.
-      // 
-      // - **FixBug**: Check the attack target for security vulnerabilities. If any vulnerabilities exist, fix them promptly to prevent exploitation.
-      // 
-      // - **SwitchStrict**: If it does not affect your normal business, change the policies of modules, such as protection rules and scan protection, to a stricter mode. Before you change the policies, check for false positives.
-      // 
-      // - **ProtectFile**: Check the target domain name for sensitive files or paths to prevent them from being detected and exploited.
-      // 
-      // - **BlockIP**: The source IP address has a high degree of maliciousness. Keep monitoring it. If it does not affect your normal business, use an IP address blacklist to block access from the malicious IP address.
-      // 
-      // - **KeepConcerned**: No threats are found. Continue to monitor the situation.
+      // - **ProtectInterface**: The Attack Target is suspected to be a backend management address. If the address has fixed access characteristics, configure custom rules in the access control module to restrict access.
+      // - **BlockArea**: Monitor the source region of the attack. If the attack source differs from the normal regional distribution of your service, configure Location Blacklist or IP blacklist rules in the access control module to restrict access.
+      // - **SwitchBlock**: The current rule protection is in alerting mode. To ensure service security, switch to block mode. Before switching, check for false positives.
+      // - **FixBug**: Check whether the Attack Target has a security vulnerability. If the security vulnerability exists, fix it promptly to prevent exploitation by attackers.
+      // - **SwitchStrict**: If normal service is not affected, adjust the policy of modules such as rule protection and scan protection to a stricter pattern. Before adjusting the policy, check for false positives.
+      // - **ProtectFile**: Check whether sensitive files or paths exist under the target domain name to prevent detection and exploitation by attackers.
+      // - **BlockIP**: The source IP address of the attack is highly malicious. Monitor the IP address. If normal service is not affected, block access from the malicious IP address by using an IP blacklist.
+      // - **KeepConcerned**: No risks are detected. Continue to monitor the event.
       shared_ptr<string> eventSuggest_ {};
       // The name of the event. Valid values:
       // 
-      // - **MultipleDomainDirscan**: A directory and file scan for multiple domain names.
-      // 
-      // - **SingleDomainDirscan**: A directory and file scan for a single domain name.
-      // 
-      // - **MultipleDomainWebscan**: A web vulnerability scan for multiple domain names.
-      // 
-      // - **SingleDomainWebscan**: A web vulnerability scan for a single domain name.
-      // 
-      // - **MultipleDomainWebattack**: A web vulnerability attack on multiple domain names.
-      // 
-      // - **SingleDomainWebattack**: A web vulnerability attack on a single domain name.
-      // 
-      // - **SingleURLWebattack**: A web vulnerability attack on a specific URL.
-      // 
-      // - **SingleURLSqlattack**: An SQL injection attack on a specific URL.
-      // 
-      // - **SingleURLXssattack**: A cross-site scripting (XSS) attack on a specific URL.
-      // 
-      // - **WebshellUpload**: An attempt to upload backdoor trojans.
-      // 
-      // - **RandomVulnTest**: A random web vulnerability probe.
+      // - **MultipleDomainDirscan**: directory and file scanning targeting multiple domain names
+      // - **SingleDomainDirscan**: directory and file scanning targeting a single domain name
+      // - **MultipleDomainWebscan**: web vulnerability scanning targeting multiple domain names
+      // - **SingleDomainWebscan**: web vulnerability scanning targeting a single domain name
+      // - **MultipleDomainWebattack**: web vulnerability attacks targeting multiple domain names
+      // - **SingleDomainWebattack**: web vulnerability attacks targeting a single domain name
+      // - **SingleURLWebattack**: web vulnerability attacks targeting a specific URL
+      // - **SingleURLSqlattack**: SQL injection attacks targeting a specific URL
+      // - **SingleURLXssattack**: XSS attacks targeting a specific URL
+      // - **WebshellUpload**: attack behavior attempting to upload backdoor trojans
+      // - **RandomVulnTest**: random web vulnerability detection behavior
       shared_ptr<string> eventTag_ {};
-      // Indicates whether the event is a persistent attack. Valid values:
+      // Indicates whether the attack event is a targeted persistent attack event. Valid values:
       // 
-      // - **0**: The event is not a persistent attack.
+      // - **0**: non-persistent attack.
       // 
-      // - **1**: The event is a persistent attack.
+      // - **1**: persistent attack.
       shared_ptr<int64_t> isPersistent_ {};
     };
 
@@ -258,7 +237,7 @@ namespace Models
 
 
   protected:
-    // The request ID.
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
     // The details of the security event.
     shared_ptr<DescribeThreatEventDetailResponseBody::ThreatEventDetail> threatEventDetail_ {};

@@ -103,19 +103,19 @@ namespace Models
 
 
   protected:
-    // The protection scenario of the protection template. For more information, see the valid values for the **DefenseScene** parameter in [CreateDefenseRule](https://help.aliyun.com/document_detail/461421.html) when **DefenseType** is set to **template**.
+    // The protection scene to query. For more information, see the valid values of the **DefenseScene** parameter in [CreateDefenseRule](https://help.aliyun.com/document_detail/461421.html) when the protection rule type **DefenseType** is set to **template**.
     // 
     // This parameter is required.
     shared_ptr<string> defenseScene_ {};
-    // The ID of the Web Application Firewall (WAF) instance.
+    // Instance ID of the WAF instance.
     // 
-    // > Call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query the ID of your WAF instance.
+    // > You can call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query instance ID of the current WAF instance.
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
-    // The number of the page to return. Default value: **1**.
+    // The page number of the current paging in a paged query. Default value: **1**.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries to return on each page. Default value: **20**.
+    // The Settings for the number of protected objects to return on each page of the paging in a paged query. Default value: **20**.
     shared_ptr<int32_t> pageSize_ {};
     // The region where the WAF instance resides. Valid values:
     // 
@@ -123,13 +123,14 @@ namespace Models
     // 
     // - **ap-southeast-1**: outside the Chinese mainland.
     shared_ptr<string> regionId_ {};
-    // The name of the protected object that you want to query. You can specify this parameter to filter the results.
+    // The protected object to query.
     shared_ptr<string> resource_ {};
     // The ID of the Alibaba Cloud resource group.
     shared_ptr<string> resourceManagerResourceGroupId_ {};
     // The ID of the protection template.
     // 
-    // > If you do not specify this parameter, the protected objects that can be associated with a new protection template for the specified protection scenario (**DefenseScene**) are returned.
+    // 
+    // > If you do not specify this parameter, you can query the list of protected objects to be associated when you create a template for the protection scene (**DefenseScene**).
     shared_ptr<int64_t> templateId_ {};
   };
 

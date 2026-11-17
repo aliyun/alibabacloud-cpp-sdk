@@ -110,14 +110,14 @@ namespace Models
       shared_ptr<string> apiFormat_ {};
       // The attack IP address.
       shared_ptr<string> attackIP_ {};
-      // The attack time. The value is a UNIX timestamp (UTC). Unit: seconds.
+      // The attack time, in the UNIX timestamp format (UTC). Unit: seconds.
       shared_ptr<int64_t> attackTime_ {};
       // The domain name to which the API operation belongs.
       shared_ptr<string> domain_ {};
       // The event level. Valid values:
-      // - **high**: high risk.
-      // - **medium**: medium risk.
-      // - **low**: low risk.
+      // - **high**: high-risk.
+      // - **medium**: medium-risk.
+      // - **low**: low-risk.
       shared_ptr<string> eventLevel_ {};
       // The event type.
       // > You can call the [DescribeApisecRules](https://help.aliyun.com/document_detail/2859155.html) operation to obtain the supported event types.
@@ -143,9 +143,9 @@ namespace Models
 
 
   protected:
-    // The list of security events detected by basic detection.
+    // The list of security events for basic detection.
     shared_ptr<vector<DescribeFreeUserEventsResponseBody::Event>> event_ {};
-    // The request ID.
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
   };
 

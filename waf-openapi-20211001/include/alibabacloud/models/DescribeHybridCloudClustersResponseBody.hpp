@@ -183,54 +183,48 @@ namespace Models
       // The network access mode. Valid values:
       // 
       // - **internet**: Internet access.
-      // 
-      // - **vpc**: leased line-based private network access.
+      // - **vpc**: Express Connect private network access.
       shared_ptr<string> accessMode_ {};
-      // The region where the leased line is connected. Valid values:
-      // 
-      // - **cn-hangzhou**: Hangzhou
-      // 
-      // - **cn-beijing**: Beijing
-      // 
-      // - **cn-shanghai**: Shanghai
+      // The Express Connect access region. Valid values:
+      // - **cn-hangzhou**: Hangzhou.
+      // - **cn-beiijng**: Beijing.
+      // - **cn-shanghai**: Shanghai.
       shared_ptr<string> accessRegion_ {};
       // The name of the cluster.
       shared_ptr<string> clusterName_ {};
       // The resource ID of the hybrid cloud cluster.
       shared_ptr<string> clusterResourceId_ {};
-      // The ports that use the HTTP protocol. The value is a string. If multiple ports are returned, they are separated by commas in the **port1,port2,port3** format.
+      // The list of HTTP ports. Separate multiple ports with commas (,). Example: port1,port2,port3.
       shared_ptr<string> httpPorts_ {};
-      // The ports that use the HTTPS protocol. The value is a string. If multiple ports are returned, they are separated by commas in the **port1,port2,port3** format.
+      // The list of HTTPS ports. Separate multiple ports with commas (,). Example: port1,port2,port3.
       shared_ptr<string> httpsPorts_ {};
-      // The cluster ID.
+      // The ID of the cluster.
       shared_ptr<int64_t> id_ {};
-      // The number of protection nodes that you can add to the cluster.
+      // The number of protection nodes that can be added to the cluster.
       shared_ptr<int32_t> protectionServerCount_ {};
-      // The status of the proxy. Valid values:
+      // The proxy gateway mode. Valid values:
       // 
-      // - **on**: enabled
-      // 
-      // - **off**: disabled
+      // - **on**: Enabled.
+      // - **off**: Disabled.
       shared_ptr<string> proxyStatus_ {};
-      // The type of the cluster. Valid values:
+      // The cluster type. Valid values:
       // 
-      // - **cname**: reverse proxy cluster
-      // 
-      // - **service**: service cluster
+      // - **cname**: Reverse proxy cluster.
+      // - **service**: Service cluster.
       shared_ptr<string> proxyType_ {};
       // The remarks.
       shared_ptr<string> remark_ {};
       // The rule configuration.
       shared_ptr<string> ruleConfig_ {};
-      // The status of the manual bypass setting. Valid values:
+      // The manual bypass status. Valid values:
       // 
-      // - **on**: enabled.
+      // - **on**: Enabled.
       // 
-      // - **off**: disabled.
+      // - **off**: Disabled.
       shared_ptr<string> ruleStatus_ {};
-      // The type of the rule. Valid values:
+      // The rule type. Valid values:
       // 
-      // - **bypass**: WAF does not perform security checks and allows traffic to pass through.
+      // - **bypass**: Skips security checks and directly allows requests.
       shared_ptr<string> ruleType_ {};
     };
 
@@ -255,7 +249,7 @@ namespace Models
   protected:
     // The list of clusters.
     shared_ptr<vector<DescribeHybridCloudClustersResponseBody::ClusterInfos>> clusterInfos_ {};
-    // The request ID.
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
   };
 
