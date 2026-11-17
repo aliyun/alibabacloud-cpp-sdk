@@ -38,7 +38,7 @@ namespace Models
 
 
   protected:
-    // The ID of the request, which can be used to trace the API call.
+    // The request ID, which can be used to locate the API call.
     shared_ptr<string> requestId_ {};
   };
 

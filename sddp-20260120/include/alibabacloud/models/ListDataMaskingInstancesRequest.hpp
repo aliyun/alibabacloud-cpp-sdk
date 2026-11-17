@@ -194,31 +194,40 @@ namespace Models
     shared_ptr<string> dbName_ {};
     // The type of the database engine. The value must be consistent with the EngineType of the target instance, such as MySQL or PostgreSQL.
     shared_ptr<string> engineType_ {};
-    // The database instance identity. You can obtain the identity from the Items[].InstanceId parameter in the response of the ListDataMaskingInstances operation.
+    // The database instance identity. You can obtain the value from the Items[].InstanceId parameter in the response of the ListDataMaskingInstances operation.
     shared_ptr<string> instanceId_ {};
-    // The language of the response description. Valid values: zh: Chinese. en: English.
+    // The language of the response description. Valid values:
+    // - zh: Chinese.
+    // - en: English.
     shared_ptr<string> lang_ {};
-    // The column encryption status filter. Valid values: NotEncrypted: not encrypted. Success: encrypted. Failed: encryption failed.
+    // The column encryption status filter. Valid values:
+    // - NotEncrypted: Unencrypted.
+    // - Success: Encrypted successfully.
+    // - Failed: Encryption failed.
     shared_ptr<string> maskingStatus_ {};
-    // The ID of the model tag. This parameter is used to filter data that matches the specified model tag.
+    // The ID of the model tag. This parameter is used to limit the data that matches the corresponding model tag.
     shared_ptr<string> modelTagId_ {};
     // The number of entries to return on each page. Keep other filter conditions consistent when querying the next page.
     shared_ptr<int32_t> pageSize_ {};
-    // The code of the cloud service. Column encryption supports RDS, POLARDB, and PolarDBX2. If you specify this parameter and ProductId at the same time, the values must match.
+    // The code of the cloud service. Column encryption supports RDS, PolarDB, and PolarDB-X 2.0. If this parameter is specified together with ProductId, the values must correspond to each other.
     shared_ptr<string> productCode_ {};
-    // The ID of the cloud service type. Valid values: 5: RDS. 8: POLARDB. 27: PolarDBX2. If you specify this parameter and ProductCode at the same time, the values must match.
+    // The ID of the cloud service type. Valid values:
+    // - 5: RDS.
+    // - 8: PolarDB.
+    // - 27: PolarDB-X 2.0.
+    // If this parameter is specified together with ProductCode, the values must correspond to each other.
     shared_ptr<int64_t> productId_ {};
-    // The list of cloud service type IDs. Separate multiple values with commas (,). In column encryption scenarios, the valid values are 5 (RDS), 8 (POLARDB), and 27 (PolarDBX2).
+    // The list of cloud service type IDs. Separate multiple values with commas (,). In column encryption scenarios, the valid values are 5 (RDS), 8 (PolarDB), and 27 (PolarDB-X 2.0).
     shared_ptr<string> productIds_ {};
-    // The ID of the sensitivity level. You can obtain the ID from the response of the ListRiskLevels operation.
+    // The ID of the sensitivity level. You can obtain the value from the response list of the ListRiskLevels operation.
     shared_ptr<int64_t> riskLevelId_ {};
-    // The list of sensitivity level IDs. Separate multiple values with commas (,). Select the values from the response of the ListRiskLevels operation that corresponds to the same TemplateId.
+    // The list of sensitivity level IDs. Separate multiple values with commas (,). Select the values from the response of the ListRiskLevels operation corresponding to the same TemplateId.
     shared_ptr<string> riskLevelIds_ {};
     // The name of the table. In PostgreSQL or Oracle scenarios, retain the schema.table format obtained from the table list.
     shared_ptr<string> tableName_ {};
-    // The ID of the data classification template. You can obtain the ID from the Items[].Id parameter in the response of the ListTemplates operation. The ID must be consistent with the selected sensitivity level and identification model.
+    // The ID of the data classification template. You can obtain the value from the Items[].Id parameter in the response of the ListTemplates operation. The value must be consistent with the selected sensitivity level and identification model.
     shared_ptr<int64_t> templateId_ {};
-    // The list of identification model IDs. Separate multiple values with commas (,). Select the values from the response of the ListIdentifyModels operation that corresponds to the same TemplateId.
+    // The list of identification model IDs. Separate multiple values with commas (,). Select the values from the response of the ListIdentifyModels operation corresponding to the same TemplateId.
     shared_ptr<string> templateRuleIds_ {};
   };
 

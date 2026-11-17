@@ -118,7 +118,7 @@ namespace Models
   protected:
     // The statistics on the number of encrypted columns.
     shared_ptr<GetDataMaskingColumnCountResponseBody::ColumnCount> columnCount_ {};
-    // The request ID, which can be used to locate the API call.
+    // The ID of the request, which can be used to locate the API call.
     shared_ptr<string> requestId_ {};
   };
 

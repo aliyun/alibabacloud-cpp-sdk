@@ -77,18 +77,18 @@ namespace Models
   protected:
     // The statistics scenario. Valid values:
     // - 41: Overview.
-    // - 42: Query data catalog statistics by product.
-    // - 43: Query region and template summaries by product.
+    // - 42: Data catalog statistics by product.
+    // - 43: Region and template summaries by product.
     shared_ptr<int32_t> countType_ {};
     // The language of the response description. Valid values:
     // - zh: Chinese.
     // - en: English.
     shared_ptr<string> lang_ {};
-    // The code of the cloud service. Column encryption supports RDS, POLARDB, and PolarDBX2. If ProductId is also specified, the two parameters must match.
+    // The cloud service code. Column encryption supports RDS, POLARDB, and PolarDBX2. If ProductId is also specified, the two parameters must match.
     shared_ptr<string> productCode_ {};
-    // The codes of multiple cloud services, separated by commas (,). This parameter is used when CountType is set to 43 and ProductCode is not specified. The results are aggregated by region and template.
+    // The codes of multiple cloud services, separated by commas. This parameter is used when CountType is set to 43 and ProductCode is not specified. The results are aggregated by region and template.
     shared_ptr<string> productCodeList_ {};
-    // The ID of the data classification template. You can obtain the ID from the Items[].Id parameter in the response of the ListTemplates operation. The template must be consistent with the selected sensitivity level and detection model.
+    // The ID of the data classification and grading template. You can obtain the ID from the Items[].Id parameter in the response of the ListTemplates operation. The template must be consistent with the selected sensitivity level and detection model.
     shared_ptr<int64_t> templateId_ {};
   };
 

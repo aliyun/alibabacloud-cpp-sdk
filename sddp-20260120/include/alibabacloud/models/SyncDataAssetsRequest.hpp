@@ -48,7 +48,7 @@ namespace Models
 
 
   protected:
-    // The language of the response. Valid values: zh: Chinese. en: English.
+    // The language of the response description. Valid values: zh: Chinese. en: English.
     shared_ptr<string> lang_ {};
     // The cloud product code. Column encryption supports RDS, POLARDB, and PolarDBX2. If ProductId is also specified, the two parameters must match.
     shared_ptr<string> productCode_ {};

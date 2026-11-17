@@ -75,13 +75,13 @@ namespace Models
 
 
   protected:
-    // The current page number, starting from 1.
+    // The current page number. Pages start from 1.
     shared_ptr<int32_t> currentPage_ {};
     // The reserved feature type parameter. This parameter is not used to filter results in the current query and is not required for column encryption calls.
     shared_ptr<int32_t> featureType_ {};
     // The language of the response description. Valid values: zh: Chinese. en: English.
     shared_ptr<string> lang_ {};
-    // The number of records returned per page. Keep other filter conditions consistent when querying the next page.
+    // The number of entries to return per page. Keep other filter conditions consistent when querying the next page.
     shared_ptr<int32_t> pageSize_ {};
     // The identifier of the compatible template query scenario. This parameter is not required for column encryption queries. The available templates are subject to the returned list. Do not rely on this parameter to determine whether general templates are included.
     shared_ptr<int32_t> usageScenario_ {};

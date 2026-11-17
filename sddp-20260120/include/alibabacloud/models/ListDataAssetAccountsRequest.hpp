@@ -121,30 +121,31 @@ namespace Models
 
 
   protected:
-    // The database account name. The system filters accounts by the exact account name.
+    // The database account name. Filters by the exact account name.
     shared_ptr<string> accountName_ {};
-    // The authentication database of the MongoDB account. This parameter is used to distinguish accounts with the same name in different authentication databases.
+    // The authentication database for MongoDB accounts. This is used to distinguish accounts with the same name in different authentication databases.
     shared_ptr<string> authDb_ {};
     // The column encryption access permissions. Valid values:
-    // - fullAccess: plaintext access
-    // - restrictedAccess: restricted access
-    // - noneAccess: decryption prohibited. This value applies only to ApsaraDB RDS for MySQL instances whose current effective key mode is client_key.
+    // - fullAccess: plaintext access.
+    // - restrictedAccess: restricted access.
+    // - noneAccess: decryption prohibited.
+    // The noneAccess value applies only to ApsaraDB RDS for MySQL instances whose current effective key pattern is client_key.
     shared_ptr<string> authRole_ {};
-    // The business scenario for the query. Set this parameter to DataMasking for the column encryption scenario. Note that the value is case-sensitive.
+    // The business scenario to query. Use DataMasking for the column encryption scenario. Note that the value is case-sensitive.
     shared_ptr<string> bizType_ {};
-    // The page number of the current page. Pages start from 1.
+    // The page number of the current query. Pages start from 1.
     shared_ptr<int32_t> currentPage_ {};
-    // The database instance ID. You can obtain this value from the Items[].InstanceId parameter in the response of the ListDataMaskingInstances operation.
+    // The database instance identity. You can obtain it from Items[].InstanceId in the response of ListDataMaskingInstances.
     shared_ptr<string> instanceId_ {};
-    // The language of the response message. Valid values:
-    // - zh: Chinese
-    // - en: English
+    // The language of the response description. Valid values:
+    // - zh: Chinese.
+    // - en: English.
     shared_ptr<string> lang_ {};
     // The number of entries to return on each page. Keep other filter conditions consistent when querying the next page.
     shared_ptr<int32_t> pageSize_ {};
-    // The cloud service code. Column encryption supports RDS, POLARDB, and PolarDBX2. If ProductId is also specified, the two parameters must match.
+    // The cloud service code. Column encryption supports RDS, POLARDB, and PolarDBX2. If ProductId is also specified, the two must match.
     shared_ptr<string> productCode_ {};
-    // The list of cloud service type IDs. Separate multiple values with commas (,). For the column encryption scenario, the valid values are 5 (RDS), 8 (POLARDB), and 27 (PolarDBX2).
+    // The list of cloud service type identifiers. Separate multiple values with commas (,). For the column encryption scenario, the values are 5 (RDS), 8 (POLARDB), and 27 (PolarDBX2).
     shared_ptr<string> productIds_ {};
   };
 

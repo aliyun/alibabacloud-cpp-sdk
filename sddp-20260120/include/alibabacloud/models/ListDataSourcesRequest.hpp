@@ -176,11 +176,7 @@ namespace Models
 
 
   protected:
-    // The connection status of the data source. Valid values:
-    // - UnConnected: Not connected.
-    // - Processing: Connecting.
-    // - Success: Connected.
-    // - Failed: Connection failed.
+    // The connection status of the data source. Valid values: UnConnected: not connected. Processing: connecting. Success: connected. Failed: connection failed.
     shared_ptr<string> connectStatus_ {};
     // The current page number. Pages start from 1.
     shared_ptr<int32_t> currentPage_ {};
@@ -197,21 +193,11 @@ namespace Models
     // - **PostgreSQL**
     // - **SQLServer**
     shared_ptr<string> engineType_ {};
-    // The status of the data source detection switch. Valid values:
-    // - Enable: Submitted for enabling.
-    // - Enabling: Enabling.
-    // - Enabled: Enabled.
-    // - EnableFailed: Enabling failed.
-    // - Disable: Submitted for disabling.
-    // - Disabling: Disabling.
-    // - Disabled: Disabled.
-    // - DisableFailed: Disabling failed.
+    // The status of the data source detection switch. Valid values: Enable: submitted for enabling. Enabling: enabling. Enabled: enabled. EnableFailed: enabling failed. Disable: submitted for disabling. Disabling: disabling. Disabled: disabled. DisableFailed: disabling failed.
     shared_ptr<string> identifyStatus_ {};
     // The database instance identity. You can obtain the value from the Items[].InstanceId parameter in the response of the ListDataMaskingInstances operation.
     shared_ptr<string> instanceId_ {};
-    // The language of the response message. Valid values:
-    // - zh: Chinese.
-    // - en: English.
+    // The language of the response description. Valid values: zh: Chinese. en: English.
     shared_ptr<string> lang_ {};
     // A reserved pagination parameter. The ListDataSources operation uses CurrentPage and PageSize for pagination. Omit this parameter when you call the operation.
     shared_ptr<int32_t> maxResults_ {};
@@ -219,11 +205,11 @@ namespace Models
     shared_ptr<string> nextToken_ {};
     // The number of entries to return on each page. Keep other filter conditions consistent when you query the next page.
     shared_ptr<int32_t> pageSize_ {};
-    // The port for the database connection.
+    // The database connection port.
     shared_ptr<int32_t> port_ {};
     // The code of the cloud service. Column encryption supports ApsaraDB RDS, PolarDB, and PolarDB-X 2.0. If this parameter is specified together with ProductId, the values must match.
     shared_ptr<string> productCode_ {};
-    // The identifier of the cloud service type. 5: ApsaraDB RDS; 8: PolarDB; 27: PolarDB-X 2.0. If this parameter is specified together with ProductCode, the values must match.
+    // The identifier of the cloud service type. 5: ApsaraDB RDS. 8: PolarDB. 27: PolarDB-X 2.0. If this parameter is specified together with ProductCode, the values must match.
     shared_ptr<int64_t> productId_ {};
     // The source IP address of the call.
     shared_ptr<string> sourceIp_ {};

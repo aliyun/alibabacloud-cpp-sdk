@@ -275,15 +275,21 @@ namespace Models
       shared_ptr<string> dbName_ {};
       // The type of the database engine.
       shared_ptr<string> engineType_ {};
-      // The business error code of the record or operation. It can be empty if no error occurs. Evaluate it together with ErrorMessage.
+      // The business error code for the record or operation. It can be empty if no error occurs. Evaluate it together with ErrorMessage.
       shared_ptr<string> errorCode_ {};
-      // The business error message of the record or operation.
+      // The business error message for the record or operation.
       shared_ptr<string> errorMessage_ {};
       // The ID of the column record.
       shared_ptr<string> id_ {};
       // The database instance identity.
       shared_ptr<string> instanceId_ {};
-      // The column encryption status. Valid values: NotEncrypted: not encrypted; Processing: processing; Success: encrypted successfully; Failed: encryption failed; Deleting: disabling; DeleteFailed: disabling failed.
+      // The column encryption status. Valid values:
+      // - NotEncrypted: Not encrypted.
+      // - Processing: Processing.
+      // - Success: Encryption succeeded.
+      // - Failed: Encryption failed.
+      // - Deleting: Disabling.
+      // - DeleteFailed: Disabling failed.
       shared_ptr<string> maskingStatus_ {};
       // The list of matched model tags.
       shared_ptr<vector<Items::ModelTags>> modelTags_ {};
@@ -291,7 +297,7 @@ namespace Models
       shared_ptr<string> name_ {};
       // The code of the cloud service.
       shared_ptr<string> productCode_ {};
-      // The ID of the cloud service type. Valid values: 5: RDS; 8: POLARDB; 27: PolarDBX2.
+      // The ID of the cloud service type. Valid values: 5 for RDS, 8 for POLARDB, and 27 for PolarDBX2.
       shared_ptr<int64_t> productId_ {};
       // The ID of the region where the asset is located.
       shared_ptr<string> regionId_ {};
@@ -353,7 +359,7 @@ namespace Models
     shared_ptr<vector<ListDataMaskingColumnsResponseBody::Items>> items_ {};
     // The number of records per page for the current query.
     shared_ptr<int32_t> pageSize_ {};
-    // The ID of the request. It can be used to locate the current API call.
+    // The ID of the request. You can use it to locate the API call.
     shared_ptr<string> requestId_ {};
     // The total number of records that meet the current statistics or query scope.
     shared_ptr<int32_t> totalCount_ {};

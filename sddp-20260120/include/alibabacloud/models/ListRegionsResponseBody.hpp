@@ -97,7 +97,7 @@ namespace Models
   protected:
     // The list of regions where the assets are located.
     shared_ptr<vector<ListRegionsResponseBody::RegionList>> regionList_ {};
-    // The request ID. You can use this ID to locate the API call.
+    // The request ID, which can be used to locate the API call.
     shared_ptr<string> requestId_ {};
   };
 

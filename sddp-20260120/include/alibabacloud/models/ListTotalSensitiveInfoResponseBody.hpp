@@ -125,9 +125,9 @@ namespace Models
     protected:
       // The number of data objects that hit the detection rule.
       shared_ptr<int64_t> ruleCount_ {};
-      // The ID of the hit detection rule.
+      // The ID of the matched detection rule.
       shared_ptr<int32_t> ruleId_ {};
-      // The name of the hit detection rule.
+      // The name of the matched detection rule.
       shared_ptr<string> ruleName_ {};
     };
 
@@ -237,9 +237,9 @@ namespace Models
       protected:
         // The number of data objects that hit the detection rule.
         shared_ptr<int64_t> ruleCount_ {};
-        // The ID of the hit detection rule.
+        // The ID of the matched detection rule.
         shared_ptr<int64_t> ruleId_ {};
-        // The name of the hit detection rule.
+        // The name of the matched detection rule.
         shared_ptr<string> ruleName_ {};
       };
 
@@ -290,11 +290,11 @@ namespace Models
 
 
       protected:
-        // The statistics date, represented by a UNIX timestamp in nanoseconds. The time corresponds to 00:00:00 of the day in the server time zone.
+        // The statistics date, represented as a UNIX timestamp in nanoseconds. The time corresponds to midnight of the current day in the server time zone.
         shared_ptr<int64_t> date_ {};
-        // The number of sensitive data objects within the current statistics scope.
+        // The number of sensitive data items within the current statistics scope.
         shared_ptr<int64_t> sensitiveCount_ {};
-        // The total number of data objects that meet the current statistics or query scope.
+        // The total number of items that meet the current statistics or query scope.
         shared_ptr<int64_t> totalCount_ {};
       };
 
@@ -450,45 +450,45 @@ namespace Models
     protected:
       // The list of statistics categorized by region, template, data type, or date.
       shared_ptr<vector<DataCountDOList::DataCountDOListItem>> dataCountDOList_ {};
-      // The statistics date, represented by a UNIX timestamp in nanoseconds. The time corresponds to 00:00:00 of the day in the server time zone.
+      // The statistics date, represented as a UNIX timestamp in nanoseconds. The time corresponds to midnight of the current day in the server time zone.
       shared_ptr<int64_t> date_ {};
       // The ID of the region where the asset resides.
       shared_ptr<string> regionId_ {};
-      // The list of quantities aggregated by detection rule.
+      // The list of aggregated counts by detection rule.
       shared_ptr<vector<DataCountDOList::RuleInfoList>> ruleInfoList_ {};
-      // The number of data objects at the S0 sensitivity level.
+      // The number of S0-level data objects.
       shared_ptr<int64_t> s0Count_ {};
-      // The number of data objects at the S10 sensitivity level.
+      // The number of S10-level data objects.
       shared_ptr<int64_t> s10Count_ {};
-      // The number of data objects at the S1 sensitivity level.
+      // The number of S1-level data objects.
       shared_ptr<int64_t> s1Count_ {};
-      // The number of data objects at the S2 sensitivity level.
+      // The number of S2-level data objects.
       shared_ptr<int64_t> s2Count_ {};
-      // The number of data objects at the S3 sensitivity level.
+      // The number of S3-level data objects.
       shared_ptr<int64_t> s3Count_ {};
-      // The number of data objects at the S4 sensitivity level.
+      // The number of S4-level data objects.
       shared_ptr<int64_t> s4Count_ {};
-      // The number of data objects at the S5 sensitivity level.
+      // The number of S5-level data objects.
       shared_ptr<int64_t> s5Count_ {};
-      // The number of data objects at the S6 sensitivity level.
+      // The number of S6-level data objects.
       shared_ptr<int64_t> s6Count_ {};
-      // The number of data objects at the S7 sensitivity level.
+      // The number of S7-level data objects.
       shared_ptr<int64_t> s7Count_ {};
-      // The number of data objects at the S8 sensitivity level.
+      // The number of S8-level data objects.
       shared_ptr<int64_t> s8Count_ {};
-      // The number of data objects at the S9 sensitivity level.
+      // The number of S9-level data objects.
       shared_ptr<int64_t> s9Count_ {};
-      // The number of sensitive data objects within the current statistics scope.
+      // The number of sensitive data items within the current statistics scope.
       shared_ptr<int64_t> sensitiveCount_ {};
       // The type of the statistics data. Valid values:
       // - 1: Structured data.
       // - 0: Unstructured data.
       shared_ptr<int32_t> structFlag_ {};
-      // The ID of the data classification template.
+      // The ID of the data classification and grading template.
       shared_ptr<int64_t> templateId_ {};
-      // The name of the data classification template.
+      // The name of the data classification and grading template.
       shared_ptr<string> templateName_ {};
-      // The total number of data objects that meet the current statistics or query scope.
+      // The total number of items that meet the current statistics or query scope.
       shared_ptr<int64_t> totalCount_ {};
     };
 
@@ -677,33 +677,33 @@ namespace Models
     shared_ptr<int64_t> dbCount_ {};
     // The total number of instances.
     shared_ptr<int64_t> instanceCount_ {};
-    // The request identity, which is active for locating the current API call when you invoke the API.
+    // The request ID, which is active and can be used to locate the API you invoke.
     shared_ptr<string> requestId_ {};
-    // The list of quantities aggregated by detection rule.
+    // The list of aggregated counts by detection rule.
     shared_ptr<vector<ListTotalSensitiveInfoResponseBody::RuleInfoList>> ruleInfoList_ {};
-    // The number of data objects at the S0 sensitivity level.
+    // The number of S0-level data objects.
     shared_ptr<int64_t> s0Count_ {};
-    // The number of data objects at the S10 sensitivity level.
+    // The number of S10-level data objects.
     shared_ptr<int64_t> s10Count_ {};
-    // The number of data objects at the S1 sensitivity level.
+    // The number of S1-level data objects.
     shared_ptr<int64_t> s1Count_ {};
-    // The number of data objects at the S2 sensitivity level.
+    // The number of S2-level data objects.
     shared_ptr<int64_t> s2Count_ {};
-    // The number of data objects at the S3 sensitivity level.
+    // The number of S3-level data objects.
     shared_ptr<int64_t> s3Count_ {};
-    // The number of data objects at the S4 sensitivity level.
+    // The number of S4-level data objects.
     shared_ptr<int64_t> s4Count_ {};
-    // The number of data objects at the S5 sensitivity level.
+    // The number of S5-level data objects.
     shared_ptr<int64_t> s5Count_ {};
-    // The number of data objects at the S6 sensitivity level.
+    // The number of S6-level data objects.
     shared_ptr<int64_t> s6Count_ {};
-    // The number of data objects at the S7 sensitivity level.
+    // The number of S7-level data objects.
     shared_ptr<int64_t> s7Count_ {};
-    // The number of data objects at the S8 sensitivity level.
+    // The number of S8-level data objects.
     shared_ptr<int64_t> s8Count_ {};
-    // The number of data objects at the S9 sensitivity level.
+    // The number of S9-level data objects.
     shared_ptr<int64_t> s9Count_ {};
-    // The number of sensitive data objects within the current statistics scope.
+    // The number of sensitive data items within the current statistics scope.
     shared_ptr<int64_t> sensitiveCount_ {};
     // The number of databases that contain sensitive data.
     shared_ptr<int64_t> sensitiveDbCount_ {};
@@ -711,11 +711,11 @@ namespace Models
     shared_ptr<int64_t> sensitiveInstanceCount_ {};
     // The size of sensitive unstructured data.
     shared_ptr<int64_t> sensitiveUnStructSize_ {};
-    // The number of child sensitive data objects, which is used for sensitive column statistics in structured data scenarios.
+    // The number of child sensitive data objects. This parameter is used for sensitive column statistics in structured data scenarios.
     shared_ptr<int64_t> subSensitiveCount_ {};
-    // The total number of child data objects, which is used for column-level statistics in structured data scenarios.
+    // The total number of child data objects. This parameter is used for column-level statistics in structured data scenarios.
     shared_ptr<int64_t> subTotalCount_ {};
-    // The total number of data objects that meet the current statistics or query scope.
+    // The total number of items that meet the current statistics or query scope.
     shared_ptr<int64_t> totalCount_ {};
     // The total size of unstructured data.
     shared_ptr<int64_t> unStructSize_ {};

@@ -232,9 +232,9 @@ namespace Models
 
 
     protected:
-      // The creation time of the data object. The value is a UNIX timestamp that represents the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
+      // The creation time of the data object. The value is a UNIX timestamp in milliseconds that represents the time elapsed since 00:00:00 UTC on January 1, 1970.
       shared_ptr<int64_t> creationTime_ {};
-      // The instance identity of the cloud instance.
+      // The cloud instance ID.
       shared_ptr<string> dataAssetSourceId_ {};
       // The name of the database.
       shared_ptr<string> dataSourceName_ {};
@@ -242,15 +242,15 @@ namespace Models
       shared_ptr<string> dataType_ {};
       // The type of the database engine.
       shared_ptr<string> engineType_ {};
-      // The instance identity of the cloud instance to which the column belongs. This is a compatible field.
+      // The cloud instance ID to which the column belongs. This is a compatible field.
       shared_ptr<string> instanceName_ {};
-      // The compatibility field for the column encryption status. To query the column encryption results, call ListDataMaskingColumns.
+      // The compatibility field for the column encryption status. To query column encryption results, call ListDataMaskingColumns.
       shared_ptr<int32_t> maskingStatus_ {};
       // The name of the data column.
       shared_ptr<string> name_ {};
       // The code of the cloud service.
       shared_ptr<string> productCode_ {};
-      // The ID of the region where the asset is located.
+      // The identifier of the region where the asset is located.
       shared_ptr<string> regionId_ {};
       // The identifier of the detection result correction record.
       shared_ptr<int64_t> revisionId_ {};
@@ -314,11 +314,11 @@ namespace Models
   protected:
     // The page number of the returned data.
     shared_ptr<int32_t> currentPage_ {};
-    // The list of records returned in the current query.
+    // The list of records returned for the current query.
     shared_ptr<vector<ListColumnsResponseBody::Items>> items_ {};
-    // The number of entries returned per page in the current query.
+    // The number of entries returned per page for the current query.
     shared_ptr<int32_t> pageSize_ {};
-    // The request ID. You can use the ID to locate this API call.
+    // The request ID, which can be used to locate this API invoke.
     shared_ptr<string> requestId_ {};
     // The total number of entries that meet the current statistics or query scope.
     shared_ptr<int32_t> totalCount_ {};

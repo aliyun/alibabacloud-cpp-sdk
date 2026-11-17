@@ -66,9 +66,9 @@ namespace Models
 
 
   protected:
-    // Specifies whether to filter regions by assets with auditing enabled. Valid values: true: Enabled. false: Disabled. If you do not specify this parameter, this filter condition is not applied.
+    // Specifies whether to filter regions based on assets for which auditing is enabled. Valid values: true: Auditing is enabled. false: Auditing is not enabled. If you do not specify this parameter, this condition is not used.
     shared_ptr<bool> audited_ {};
-    // Specifies whether to filter regions by assets with detection enabled. Valid values: true: Enabled. false: Disabled. If you do not specify this parameter, this filter condition is not applied.
+    // Specifies whether to filter regions based on assets for which detection is enabled. Valid values: true: Detection is enabled. false: Detection is not enabled. If you do not specify this parameter, this condition is not used.
     shared_ptr<bool> identified_ {};
     // The language of the response. Valid values: zh: Chinese. en: English.
     shared_ptr<string> lang_ {};

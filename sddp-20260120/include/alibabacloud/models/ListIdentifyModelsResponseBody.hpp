@@ -70,9 +70,9 @@ namespace Models
 
 
     protected:
-      // The ID of the recognition model.
+      // The ID of the detection model.
       shared_ptr<int64_t> id_ {};
-      // The name of the recognition model or rule.
+      // The name of the detection model or rule.
       shared_ptr<string> name_ {};
     };
 
@@ -95,9 +95,9 @@ namespace Models
 
 
   protected:
-    // The request ID, which is active for locating this API invoke.
+    // The request ID, which is active and can be used to locate the request when you invoke this API.
     shared_ptr<string> requestId_ {};
-    // The list of recognition models or rules.
+    // The list of detection models or rules.
     shared_ptr<vector<ListIdentifyModelsResponseBody::RuleList>> ruleList_ {};
   };
 

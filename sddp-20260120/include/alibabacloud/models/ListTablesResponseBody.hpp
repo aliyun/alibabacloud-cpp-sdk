@@ -144,7 +144,7 @@ namespace Models
         shared_ptr<int64_t> count_ {};
         // The name of the detection model or rule.
         shared_ptr<string> name_ {};
-        // The ID of the sensitivity level.
+        // The sensitivity level ID.
         shared_ptr<int64_t> riskLevelId_ {};
       };
 
@@ -269,21 +269,21 @@ namespace Models
     protected:
       // The description of the database table.
       shared_ptr<string> comment_ {};
-      // The time when the data object was created. The value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
+      // The creation time of the data object. The value is a UNIX timestamp in milliseconds since 1970-01-01 00:00:00 UTC.
       shared_ptr<int64_t> creationTime_ {};
       // The instance identity of the cloud instance.
       shared_ptr<string> dataAssetSourceId_ {};
-      // The name of the database.
+      // The database name.
       shared_ptr<string> dataSourceName_ {};
       // The description of the database instance.
       shared_ptr<string> instanceDescription_ {};
       // The name of the database table. Some engines return the name in the schema.table format.
       shared_ptr<string> name_ {};
-      // The ID of the Alibaba Cloud account that owns the database table.
+      // The cloud account ID of the database table owner.
       shared_ptr<string> owner_ {};
-      // The code of the cloud service.
+      // The cloud service code.
       shared_ptr<string> productCode_ {};
-      // The ID of the sensitivity level.
+      // The sensitivity level ID.
       shared_ptr<int64_t> riskLevelId_ {};
       // The name of the sensitivity level.
       shared_ptr<string> riskLevelName_ {};
@@ -291,13 +291,13 @@ namespace Models
       shared_ptr<vector<Items::RuleList>> ruleList_ {};
       // Indicates whether the data is detected as sensitive data.
       shared_ptr<bool> sensitive_ {};
-      // The number of sensitive data entries within the current statistical scope.
+      // The number of sensitive data entries within the current statistics scope.
       shared_ptr<int32_t> sensitiveCount_ {};
       // The proportion of sensitive data.
       shared_ptr<string> sensitiveRatio_ {};
       // The name of the tenant to which the data asset belongs.
       shared_ptr<string> tenantName_ {};
-      // The total number of entries that meet the current statistical or query scope.
+      // The total number of entries that meet the current statistics or query scope.
       shared_ptr<int32_t> totalCount_ {};
     };
 
@@ -365,7 +365,7 @@ namespace Models
   protected:
     // The page number of the returned data.
     shared_ptr<int32_t> currentPage_ {};
-    // The list of records returned by the query.
+    // The list of records returned for the current query.
     shared_ptr<vector<ListTablesResponseBody::Items>> items_ {};
     // The pagination cursor used for the current query.
     shared_ptr<string> marker_ {};
@@ -373,11 +373,11 @@ namespace Models
     shared_ptr<string> nextMarker_ {};
     // The number of entries returned per page for the current query.
     shared_ptr<int32_t> pageSize_ {};
-    // The ID of the request. You can use the ID to locate the API call.
+    // The request ID. You can use this ID to locate the API call.
     shared_ptr<string> requestId_ {};
-    // The total number of entries that meet the current statistical or query scope.
+    // The total number of entries that meet the current statistics or query scope.
     shared_ptr<int32_t> totalCount_ {};
-    // Indicates whether more pages exist. A value of true indicates that more data exists. A value of false indicates that no more data exists.
+    // Indicates whether subsequent pages exist. The string true indicates that more data is available, and false indicates that no more data is available.
     shared_ptr<string> truncated_ {};
   };
 

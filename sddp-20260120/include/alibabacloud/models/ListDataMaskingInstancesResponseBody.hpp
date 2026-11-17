@@ -41,6 +41,7 @@ namespace Models
     class Items : public Darabonba::Model {
     public:
       friend void to_json(Darabonba::Json& j, const Items& obj) { 
+        DARABONBA_PTR_TO_JSON(Description, description_);
         DARABONBA_PTR_TO_JSON(EncryptionAlgorithm, encryptionAlgorithm_);
         DARABONBA_PTR_TO_JSON(EncryptionKeyId, encryptionKeyId_);
         DARABONBA_PTR_TO_JSON(EngineType, engineType_);
@@ -52,6 +53,7 @@ namespace Models
         DARABONBA_PTR_TO_JSON(RegionName, regionName_);
       };
       friend void from_json(const Darabonba::Json& j, Items& obj) { 
+        DARABONBA_PTR_FROM_JSON(Description, description_);
         DARABONBA_PTR_FROM_JSON(EncryptionAlgorithm, encryptionAlgorithm_);
         DARABONBA_PTR_FROM_JSON(EncryptionKeyId, encryptionKeyId_);
         DARABONBA_PTR_FROM_JSON(EngineType, engineType_);
@@ -73,9 +75,16 @@ namespace Models
       };
       virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
       virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-      virtual bool empty() const override { return this->encryptionAlgorithm_ == nullptr
-        && this->encryptionKeyId_ == nullptr && this->engineType_ == nullptr && this->fullAccessAccountCount_ == nullptr && this->instanceId_ == nullptr && this->productCode_ == nullptr
-        && this->productId_ == nullptr && this->regionId_ == nullptr && this->regionName_ == nullptr; };
+      virtual bool empty() const override { return this->description_ == nullptr
+        && this->encryptionAlgorithm_ == nullptr && this->encryptionKeyId_ == nullptr && this->engineType_ == nullptr && this->fullAccessAccountCount_ == nullptr && this->instanceId_ == nullptr
+        && this->productCode_ == nullptr && this->productId_ == nullptr && this->regionId_ == nullptr && this->regionName_ == nullptr; };
+      // description Field Functions 
+      bool hasDescription() const { return this->description_ != nullptr;};
+      void deleteDescription() { this->description_ = nullptr;};
+      inline string getDescription() const { DARABONBA_PTR_GET_DEFAULT(description_, "") };
+      inline Items& setDescription(string description) { DARABONBA_PTR_SET_VALUE(description_, description) };
+
+
       // encryptionAlgorithm Field Functions 
       bool hasEncryptionAlgorithm() const { return this->encryptionAlgorithm_ != nullptr;};
       void deleteEncryptionAlgorithm() { this->encryptionAlgorithm_ = nullptr;};
@@ -140,6 +149,8 @@ namespace Models
 
 
     protected:
+      // The description of the instance.
+      shared_ptr<string> description_ {};
       // The current column encryption algorithm of the instance.
       shared_ptr<string> encryptionAlgorithm_ {};
       // The ID of the KMS key used by the instance. This parameter may not be returned in local key scenarios.
@@ -152,7 +163,7 @@ namespace Models
       shared_ptr<string> instanceId_ {};
       // The code of the cloud service.
       shared_ptr<string> productCode_ {};
-      // The ID of the cloud service type. Valid values: 5: RDS. 8: POLARDB. 27: PolarDBX2.
+      // The ID of the cloud service type. Valid values: 5 (RDS), 8 (PolarDB), and 27 (PolarDB-X 2.0).
       shared_ptr<int64_t> productId_ {};
       // The ID of the region where the asset is located.
       shared_ptr<string> regionId_ {};
@@ -202,11 +213,11 @@ namespace Models
   protected:
     // The page number of the returned data.
     shared_ptr<int32_t> currentPage_ {};
-    // The list of records returned by the current query.
+    // The list of records returned in this query.
     shared_ptr<vector<ListDataMaskingInstancesResponseBody::Items>> items_ {};
-    // The number of entries returned per page in the current query.
+    // The number of entries returned per page in this query.
     shared_ptr<int32_t> pageSize_ {};
-    // The request ID, which can be used to locate the current API call.
+    // The request ID. You can use the ID to locate this API call.
     shared_ptr<string> requestId_ {};
     // The total number of entries that meet the current statistics or query scope.
     shared_ptr<int32_t> totalCount_ {};

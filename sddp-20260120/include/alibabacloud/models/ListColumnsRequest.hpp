@@ -160,13 +160,13 @@ namespace Models
   protected:
     // The page number of the current query. Pages start from 1.
     shared_ptr<int32_t> currentPage_ {};
-    // The instance identity of the cloud database. Set this parameter to the InstanceId in the instance list.
+    // The cloud database instance ID. Set this parameter to the InstanceId in the instance list.
     shared_ptr<string> dataAssetSourceId_ {};
     // The name of the database. Set this parameter to the DbName returned by ListDataSources.
     shared_ptr<string> dataSourceName_ {};
     // The type of the database engine. This parameter must be consistent with the EngineType of the target instance, such as MySQL or PostgreSQL.
     shared_ptr<string> engineType_ {};
-    // The compatible parameter for the instance identity. DataAssetSourceId takes precedence. If both parameters are specified, DataAssetSourceId is used.
+    // The compatible parameter for the instance ID. DataAssetSourceId takes precedence. If both parameters are specified, DataAssetSourceId is used.
     shared_ptr<string> instanceName_ {};
     // The language of the response description. Valid values: zh: Chinese. en: English.
     shared_ptr<string> lang_ {};

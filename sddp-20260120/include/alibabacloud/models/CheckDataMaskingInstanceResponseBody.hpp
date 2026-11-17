@@ -57,11 +57,11 @@ namespace Models
 
 
   protected:
-    // The instance check result code. A value of Success indicates that the check is passed. For other values, refer to ErrorMessage for troubleshooting.
+    // The instance check result code. A value of Success indicates that the check is passed. For other values, handle them based on ErrorMessage.
     shared_ptr<string> errorCode_ {};
-    // The instance check result message. If the check fails, the specific cause is returned.
+    // The instance check result description. If the check fails, the specific cause is returned.
     shared_ptr<string> errorMessage_ {};
-    // The request ID. You can use the ID to locate this API call.
+    // The request ID. You can use this ID to locate the API call.
     shared_ptr<string> requestId_ {};
   };
 

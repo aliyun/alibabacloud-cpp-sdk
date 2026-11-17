@@ -87,11 +87,11 @@ namespace Models
 
 
     protected:
-      // The number of accounts with plaintext access (fullAccess).
+      // The number of accounts with fullAccess plaintext access.
       shared_ptr<int64_t> fullAccessCount_ {};
-      // The number of accounts prohibited from decryption (noneAccess).
+      // The number of accounts with noneAccess decryption prohibition.
       shared_ptr<int64_t> noneAccessCount_ {};
-      // The number of accounts with restricted access (restrictedAccess).
+      // The number of accounts with restrictedAccess restricted access.
       shared_ptr<int64_t> restrictedAccessCount_ {};
       // The total number of database accounts.
       shared_ptr<int64_t> totalCount_ {};
@@ -118,7 +118,7 @@ namespace Models
   protected:
     // The statistics on the number of account permissions for column encryption.
     shared_ptr<GetDataMaskingAccountCountResponseBody::AccountCount> accountCount_ {};
-    // The request ID, which can be used to locate the API call.
+    // The request ID, which can be used to locate this API call.
     shared_ptr<string> requestId_ {};
   };
 
