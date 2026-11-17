@@ -70,15 +70,15 @@ namespace Models
 
   protected:
     shared_ptr<map<string, string>> commonHeaders_ {};
-    // The instance access key. The key must belong to the Creative Agent instance being called. This key is different from the AccessKey Secret used for OpenAPI signing. Do not expose it publicly.
+    // The instance access key. It must belong to the Creative Agent instance being called. This key is different from the AccessKey Secret used for OpenAPI signatures. Do not disclose it.
     // 
     // This parameter is required.
     shared_ptr<string> xQIAgentApiKey_ {};
-    // The published Creative Agent instance ID. Must correspond to the X-QI-Agent-Api-Key.
+    // The published Creative Agent instance ID. It must correspond to X-QI-Agent-Api-Key.
     // 
     // This parameter is required.
     shared_ptr<string> xQIInstanceId_ {};
-    // The session identifier. Can be omitted for the first turn. Obtain it from the qi_session_id field in the SSE response and pass it back in subsequent turns. Use no more than 128 characters consisting of letters, digits, periods, underscores, colons, or hyphens.
+    // The session ID. You can omit it in the first turn. Obtain it from the qi_session_id field in the SSE response and pass it back in subsequent turns. Use letters, digits, periods, underscores, colons, or hyphens, with a maximum length of 128 characters.
     shared_ptr<string> xQISessionId_ {};
   };
 

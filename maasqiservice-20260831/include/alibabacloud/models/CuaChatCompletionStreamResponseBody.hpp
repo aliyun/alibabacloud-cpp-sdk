@@ -38,6 +38,7 @@ namespace Models
 
 
   protected:
+    // The POP gateway request ID for gateway tracking. It is not the qi_request_id of the agent and cannot replace reading the SSE body.
     shared_ptr<string> requestId_ {};
   };
 

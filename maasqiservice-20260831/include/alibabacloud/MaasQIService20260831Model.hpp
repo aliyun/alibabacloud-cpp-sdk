@@ -6,6 +6,12 @@
 #include <alibabacloud/models/AigcChatCompletionStreamRequest.hpp>
 #include <alibabacloud/models/AigcChatCompletionStreamResponseBody.hpp>
 #include <alibabacloud/models/AigcChatCompletionStreamResponse.hpp>
+#include <alibabacloud/models/CameraChatCompletionStreamHeaders.hpp>
+#include <alibabacloud/models/CameraChatCompletionStreamRequest.hpp>
+#include <alibabacloud/models/CameraChatCompletionStreamResponse.hpp>
+#include <alibabacloud/models/CameraConsoleDebugStreamHeaders.hpp>
+#include <alibabacloud/models/CameraConsoleDebugStreamRequest.hpp>
+#include <alibabacloud/models/CameraConsoleDebugStreamResponse.hpp>
 #include <alibabacloud/models/CuaChatCompletionStreamHeaders.hpp>
 #include <alibabacloud/models/CuaChatCompletionStreamRequest.hpp>
 #include <alibabacloud/models/CuaChatCompletionStreamResponseBody.hpp>

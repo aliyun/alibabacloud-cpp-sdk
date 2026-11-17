@@ -68,16 +68,19 @@ namespace Models
 
 
     protected:
+      // Specifies whether to return an independent usage event before the end marker. If set to true, an independent usage event is returned, and choices is an empty array.
       shared_ptr<bool> includeUsage_ {};
     };
 
     class Metadata : public Darabonba::Model {
     public:
       friend void to_json(Darabonba::Json& j, const Metadata& obj) { 
+        DARABONBA_PTR_TO_JSON(actionMode, actionMode_);
         DARABONBA_PTR_TO_JSON(screenHeight, screenHeight_);
         DARABONBA_PTR_TO_JSON(screenWidth, screenWidth_);
       };
       friend void from_json(const Darabonba::Json& j, Metadata& obj) { 
+        DARABONBA_PTR_FROM_JSON(actionMode, actionMode_);
         DARABONBA_PTR_FROM_JSON(screenHeight, screenHeight_);
         DARABONBA_PTR_FROM_JSON(screenWidth, screenWidth_);
       };
@@ -92,8 +95,15 @@ namespace Models
       };
       virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
       virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-      virtual bool empty() const override { return this->screenHeight_ == nullptr
-        && this->screenWidth_ == nullptr; };
+      virtual bool empty() const override { return this->actionMode_ == nullptr
+        && this->screenHeight_ == nullptr && this->screenWidth_ == nullptr; };
+      // actionMode Field Functions 
+      bool hasActionMode() const { return this->actionMode_ != nullptr;};
+      void deleteActionMode() { this->actionMode_ = nullptr;};
+      inline string getActionMode() const { DARABONBA_PTR_GET_DEFAULT(actionMode_, "") };
+      inline Metadata& setActionMode(string actionMode) { DARABONBA_PTR_SET_VALUE(actionMode_, actionMode) };
+
+
       // screenHeight Field Functions 
       bool hasScreenHeight() const { return this->screenHeight_ != nullptr;};
       void deleteScreenHeight() { this->screenHeight_ = nullptr;};
@@ -109,7 +119,11 @@ namespace Models
 
 
     protected:
+      // The action mode. Valid values: gui-only and gui+cli. This parameter is case-sensitive and fixed within a session, and is supplemented by subsequent service instructions.
+      shared_ptr<string> actionMode_ {};
+      // The pixel height of the uploaded screenshot. If provided, it must be a positive integer.
       shared_ptr<int32_t> screenHeight_ {};
+      // The pixel width of the uploaded screenshot. If provided, it must be a positive integer.
       shared_ptr<int32_t> screenWidth_ {};
     };
 
@@ -189,6 +203,8 @@ namespace Models
 
 
         protected:
+          // The accessible HTTP(S) URL or complete image data URL. HTTPS is recommended.
+          // 
           // This parameter is required.
           shared_ptr<string> url_ {};
         };
@@ -226,9 +242,14 @@ namespace Models
 
 
       protected:
+        // The compatibility field for input_image. It uses a complete Base64 image data URL. Raw Base64 without a prefix is not accepted.
         shared_ptr<string> imageData_ {};
+        // The screenshot reference. The URL object format is recommended. The backend is also compatible with the image_url string.
         shared_ptr<Content::ImageUrl> imageUrl_ {};
+        // The text content. In the first round, the user must provide a non-empty task objective. For the tool role, enter the actual execution result.
         shared_ptr<string> text_ {};
+        // The content type. For text, use text or input_text. For screenshots, use image_url or input_image.
+        // 
         // This parameter is required.
         shared_ptr<string> type_ {};
       };
@@ -259,10 +280,15 @@ namespace Models
 
 
     protected:
+      // The message content. The user role uses a multimodal array. The tool role supports an array of text items, a non-empty string, or an object to return execution results.
+      // 
       // This parameter is required.
       shared_ptr<vector<Messages::Content>> content_ {};
+      // The role of the message. Only user and tool are supported. Do not pass system, assistant, or complete history.
+      // 
       // This parameter is required.
       shared_ptr<string> role_ {};
+      // The tool call ID. This parameter is required when role is set to tool. It must be equal to the computer_use call ID returned in the previous step of the same session.
       shared_ptr<string> toolCallId_ {};
     };
 
@@ -319,13 +345,21 @@ namespace Models
 
 
   protected:
+    // The messages. In the first round, only one user message is allowed. In subsequent rounds, only one tool message followed by one user message is allowed. Exactly one screenshot is required for each step.
+    // 
     // This parameter is required.
     shared_ptr<vector<CuaChatCompletionStreamRequest::Messages>> messages_ {};
+    // The auxiliary information of the current screenshot and the running modes supported by the service instructions.
     shared_ptr<CuaChatCompletionStreamRequest::Metadata> metadata_ {};
+    // The model. This is a compatibility field. You can omit it or pass an empty string. The actual model is determined by the instance.
     shared_ptr<string> model_ {};
+    // Specifies whether to enable streaming. Set this parameter to true for this SSE API operation.
+    // 
     // This parameter is required.
     shared_ptr<bool> stream_ {};
+    // The SSE settings.
     shared_ptr<CuaChatCompletionStreamRequest::StreamOptions> streamOptions_ {};
+    // The tools. You can only omit this parameter or pass an empty array. CUA uses the fixed computer_use tool, and custom tools are not allowed.
     shared_ptr<vector<Darabonba::Json>> tools_ {};
   };
 

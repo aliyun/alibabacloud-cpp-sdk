@@ -66,7 +66,7 @@ namespace Models
 
 
     protected:
-      // The HTTP JSON key is include_usage. When set to true, an independent usage chunk is returned before the end marker. The choices field in this chunk is an empty array. Token usage does not represent the number of images or the final bill.
+      // The HTTP JSON key is include_usage. When set to true, an independent usage block is returned before the end marker, and its choices field is an empty array. Token usage does not represent the number of images or the final bill.
       shared_ptr<bool> includeUsage_ {};
     };
 
@@ -163,17 +163,17 @@ namespace Models
 
 
       protected:
-        // The guidance scale. Must be a finite number between 0 and 20.
+        // The guidance scale, which must be a finite number from 0 to 20.
         shared_ptr<double> guidanceScale_ {};
-        // The number of images to generate for this request. Must be an integer in the range of 1 to 6.
+        // The number of images to generate for the current request, which must be an integer from 1 to 6.
         shared_ptr<int64_t> n_ {};
-        // The negative prompt that describes content you do not want to appear in the result.
+        // The negative prompt, which is used to describe content that you do not want to appear in the results.
         shared_ptr<string> negativePrompt_ {};
-        // The number of model inference iterations. Must be an integer in the range of 1 to 200.
+        // The number of model inference iterations, which must be an integer from 1 to 200.
         shared_ptr<int64_t> numInferenceSteps_ {};
-        // The random seed. Must be an integer in the range of 0 to 2147483647.
+        // The random seed, which must be an integer from 0 to 2147483647.
         shared_ptr<int64_t> seed_ {};
-        // The output pixel dimensions, such as `1024*1024` or `1280*720`. The format `1024x1024` is also accepted. When specified, this value overrides the default canvas dimensions for this request. Use width and height values supported by the model.
+        // The output pixel size, such as 1024*1024 or 1280*720. 1024x1024 is also accepted. Specifying this parameter overrides the default aspect ratio size for the current request. Use the width and height supported by the model.
         shared_ptr<string> size_ {};
       };
 
@@ -188,7 +188,7 @@ namespace Models
 
 
     protected:
-      // The image parameters for this request. Only size, n, seed, negative_prompt, num_inference_steps, and guidance_scale are supported. Omitted fields use the default configurations. response_format is not supported.
+      // The image parameters for the current request. Only size, n, seed, negative_prompt, num_inference_steps, and guidance_scale are supported. Omitted fields use the default configurations. response_format is not supported.
       shared_ptr<Metadata::Parameters> parameters_ {};
     };
 
@@ -298,7 +298,7 @@ namespace Models
 
 
         protected:
-          // The publicly accessible HTTPS URL of the reference image, or a complete Base64 image Data URL (such as data:image/png;base64,...). Signed URLs must remain valid during request execution. Re-upload or update the link for expired or unauthorized images.
+          // The publicly accessible HTTPS URL of the reference image, or a complete Base64 image data URL (such as data:image/png;base64,...). Signed URLs must be valid during request execution. For expired or unauthorized images, you must re-upload them or update the links.
           shared_ptr<string> url_ {};
         };
 
@@ -337,13 +337,13 @@ namespace Models
 
 
       protected:
-        // The reference image when type is set to image_url. Supports HTTPS URLs or Base64 Data URLs.
+        // The reference image when type is image_url. HTTPS URLs or Base64 data URLs are supported.
         shared_ptr<Content::ImageUrl> imageUrl_ {};
-        // The generation or editing objective when type is set to text.
+        // The generation or editing objective when type is text.
         shared_ptr<string> text_ {};
         // The content part type: text, image_url, or video_url.
         shared_ptr<string> type_ {};
-        // The video input when type is set to video_url. Only accepted by the Creative Agent Dedicated edition Planner. The Creative Agent Lite edition rejects this type.
+        // The video input when type is video_url. Only the Planner of the dedicated edition of Creative Agent accepts it. The lite edition of Creative Agent rejects it.
         shared_ptr<Content::VideoUrl> videoUrl_ {};
       };
 
@@ -366,9 +366,9 @@ namespace Models
 
 
     protected:
-      // The message content. Can be text. A multimodal array can contain text, image_url, or video_url. The Creative Agent Lite edition performs image-to-image when a reference image is provided and text-to-image when no reference image is provided. It does not accept video.
+      // The message content. You can pass text. A multimodal array can contain text, image_url, or video_url. The lite edition of Creative Agent performs image-to-image generation when a reference image is provided and text-to-image generation when no reference image is provided. It does not accept videos.
       shared_ptr<vector<Messages::Content>> content_ {};
-      // The message role. Place the current generation objective in a user message. History can include user, assistant, and tool.
+      // The message role. Place the current generation objective in a user message. The history can include user, assistant, and tool messages.
       shared_ptr<string> role_ {};
     };
 
@@ -420,15 +420,15 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<vector<AigcChatCompletionStreamRequest::Messages>> messages_ {};
-    // The extended input for this image creation request. Use the parameters object to set generation parameters. Do not use this field to pass model addresses or keys.
+    // The extended input for the current image creation. Use the parameters object to set generation parameters. Do not use it to pass model addresses or keys.
     shared_ptr<AigcChatCompletionStreamRequest::Metadata> metadata_ {};
-    // A compatibility placeholder field. Can be omitted or set to an empty string. You cannot use this field to switch the model used by the instance. The model field in the response is an empty string.
+    // A compatibility placeholder field. You can omit it or pass an empty string. You cannot use this field to switch the model used by the instance. The model field in the response is an empty string.
     shared_ptr<string> model_ {};
-    // Specifies whether to use SSE streaming responses. This parameter must be set to true for this operation.
+    // Specifies whether to use SSE streaming responses. You must set this parameter to true for this operation.
     // 
     // This parameter is required.
     shared_ptr<bool> stream_ {};
-    // The HTTP JSON key is stream_options. Set include_usage to retrieve the token usage for this call.
+    // The HTTP JSON key is stream_options. Set include_usage to obtain the token usage for the current call.
     shared_ptr<AigcChatCompletionStreamRequest::StreamOptions> streamOptions_ {};
   };
 

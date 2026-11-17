@@ -295,13 +295,13 @@ namespace Models
     protected:
       // The compatible alias for available_apps, which is also an array of app name strings.
       shared_ptr<vector<string>> appList_ {};
-      // The supplementary list of application names for the Standard Edition of Mobile-Use Agent. The JSON field is available_apps. The newly passed list replaces the previous supplementary items, but the default applications are retained. An empty array does not clear the default applications. The Dedicated Edition of Mobile-Use Agent does not use this list.
+      // The supplementary list of application names for Mobile-Use Agent Standard Edition. The JSON field is available_apps. The newly passed list replaces the previous supplementary items, but the default applications are retained. An empty array does not clear the default applications. Mobile-Use Agent Exclusive Edition does not use this list.
       shared_ptr<vector<string>> availableApps_ {};
-      // The Mobile-Use Agent Harness receipt text for legacy clients. This cannot be passed at the same time as the preceding tool message. New clients should prioritize using [tool,user] messages.
+      // The Mobile-Use Agent Harness receipt text for legacy clients. It cannot be passed at the same time as the preceding tool message. New clients should prioritize using [tool,user] messages.
       shared_ptr<string> harnessMessage_ {};
-      // The screen height as a positive integer. For Base64 images, the width and height are parsed from the image itself. For URL images, this value is used for the runtime screen size.
+      // The positive integer for the screen height. For Base64 images, the width and height are parsed from the image itself. For URL images, this value is used for the runtime screen size.
       shared_ptr<int64_t> screenHeight_ {};
-      // The screen width as a positive integer. For Base64 images, the width and height are parsed from the image itself. For URL images, this value is used for the runtime screen size.
+      // The positive integer for the screen width. For Base64 images, the width and height are parsed from the image itself. For URL images, this value is used for the runtime screen size.
       shared_ptr<int64_t> screenWidth_ {};
     };
 
@@ -381,7 +381,7 @@ namespace Models
 
 
         protected:
-          // A publicly accessible HTTPS image URL or a Base64 image data URL. Each round of user messages must and can only contain one current screenshot. Expired or inaccessible image addresses are rejected.
+          // A publicly accessible HTTPS image URL or a Base64 image data URL. Each round of user messages must and can only contain one current screenshot. Expired or inaccessible image addresses will be rejected.
           shared_ptr<string> url_ {};
         };
 
@@ -418,13 +418,13 @@ namespace Models
 
 
       protected:
-        // The compatible inline image field for input_image. You can pass a Base64 data URL.
+        // The compatible inline image field for input_image. A Base64 data URL can be passed.
         shared_ptr<string> imageData_ {};
-        // The screenshot reference. Supports an image_url string or an object containing a url field. The object format is shown here.
+        // The screenshot reference. Supports an image_url string or an object containing a url. The object format is shown here.
         shared_ptr<Content::ImageUrl> imageUrl_ {};
         // The text content, which can describe the current operation objective or supplement the current page state.
         shared_ptr<string> text_ {};
-        // The type of the content item. Use text or input_text for text. Use image_url or input_image for screenshots.
+        // The content item type. Use text or input_text for text. Use image_url or input_image for screenshots.
         shared_ptr<string> type_ {};
       };
 
@@ -454,11 +454,11 @@ namespace Models
 
 
     protected:
-      // The message content. For a user message, use a content array that contains exactly one current screenshot and optionally attached task text. Screenshots support public HTTPS URLs or Base64 image data URLs. When role is set to tool, fill in the actual execution result of the previous action, which can be a non-empty string, object, or array.
+      // The message content. For a user message, use a content array that contains exactly one current screenshot and can be appended with task text. Screenshots support public HTTPS URLs or Base64 image data URLs. When role is tool, fill in the actual execution result of the previous action, which can be a non-empty string, object, or array.
       shared_ptr<vector<Messages::Content>> content_ {};
-      // The message role. The current input must end with a user message. If an execution receipt from the previous round exists, the preceding message must be a tool message.
+      // The message role. The current input must end with user. If there is an execution receipt from the previous round, the preceding message must be tool.
       shared_ptr<string> role_ {};
-      // Required when role is set to tool. References the tool_call ID from the previous Mobile-Use Agent response.
+      // Required when role is tool. References the tool_call ID from the previous Mobile-Use Agent response.
       shared_ptr<string> toolCallId_ {};
     };
 
@@ -500,9 +500,9 @@ namespace Models
 
 
     protected:
-      // chat_template_kwargs.enable_thinking: the request-level switch for model thinking, which overrides the default value with the same name. Enabling this switch does not cause the Mobile-Use Agent response to return reasoning_content.
+      // chat_template_kwargs.enable_thinking: the request-level model thinking switch, which overrides the default value with the same name. Enabling this switch does not cause the Mobile-Use Agent response to return reasoning_content.
       shared_ptr<bool> enableThinking_ {};
-      // Specifies whether to preserve the existing thinking context in subsequent rounds. This parameter is passed as-is according to the vLLM or Qwen chat_template_kwargs.
+      // Specifies whether to preserve the existing thinking context in subsequent rounds. This parameter is passed as-is according to vLLM or Qwen chat_template_kwargs.
       shared_ptr<bool> preserveThinking_ {};
     };
 
@@ -772,15 +772,15 @@ namespace Models
     shared_ptr<vector<int64_t>> allowedTokenIds_ {};
     // The list of words or strings that are banned from being generated.
     shared_ptr<vector<string>> badWords_ {};
-    // The vLLM or OpenAI-compatible template parameter object. The request values override the default values with the same names in the model and are passed as-is to the primary model of the Mobile-Use Agent.
+    // The vLLM or OpenAI-compatible template parameter object. The request values override the default values of the model with the same names and are passed as-is to the primary Mobile-Use Agent model.
     shared_ptr<GuiChatCompletionStreamRequest::ChatTemplateKwargs> chatTemplateKwargs_ {};
-    // The frequency penalty parameter, which is passed through to the primary model of the Mobile-Use Agent.
+    // The frequency penalty parameter, which is passed through to the primary Mobile-Use Agent model.
     shared_ptr<double> frequencyPenalty_ {};
     // Specifies whether to ignore the end-of-sequence (EOS) token and continue generation.
     shared_ptr<bool> ignoreEos_ {};
-    // Specifies whether to request the upstream to generate the reasoning field. The client-facing results of the Mobile-Use Agent do not directly expose internal thinking.
+    // Specifies whether to request the upstream to generate the reasoning field. The client-facing results of Mobile-Use Agent do not directly expose internal thinking.
     shared_ptr<bool> includeReasoning_ {};
-    // The model compatibility parameter. The JSON field is logprobs. Whether this parameter is accepted and takes effect depends on the model used by the instance. The current Mobile-Use Agent response does not provide token log probability details.
+    // The model compatibility parameter. The JSON field is logprobs. Whether it is accepted and takes effect depends on the model used by the instance. The current Mobile-Use Agent response does not provide token log probability details.
     shared_ptr<bool> logprobs_ {};
     // The OpenAI-compatible maximum number of completion tokens. If provided, the value must be greater than 0.
     shared_ptr<int64_t> maxCompletionTokens_ {};
@@ -802,7 +802,7 @@ namespace Models
     shared_ptr<string> model_ {};
     // Set this parameter to 1. Whether this parameter is accepted depends on the model. The current Mobile-Use Agent response does not return multiple candidate actions.
     shared_ptr<int64_t> n_ {};
-    // The model-compatible switch to invoke parallel tool calling. This parameter does not expand the set of Mobile-Use Agent actions active for this operation.
+    // Specifies whether to allow parallel tool invocations. This parameter is compatible with the model and is passed through to the primary model. It does not expand the set of Mobile-Use Agent actions active for this operation.
     shared_ptr<bool> parallelToolCalls_ {};
     // The presence penalty parameter, passed through to the Mobile-Use Agent primary model.
     shared_ptr<double> presencePenalty_ {};
@@ -812,13 +812,13 @@ namespace Models
     shared_ptr<string> reasoningEffort_ {};
     // The vLLM repetition penalty parameter.
     shared_ptr<double> repetitionPenalty_ {};
-    // The model-compatible structured output options. This parameter does not change the final Mobile-Use Agent tool calling structure when you invoke this operation. Avoid output constraint Settings that conflict with the action protocol.
+    // The model-compatible structured output options. This parameter does not change the final Mobile-Use Agent tool invocation structure of this operation. Avoid configuring settings that conflict with the action protocol.
     shared_ptr<GuiChatCompletionStreamRequest::ResponseFormat> responseFormat_ {};
     // The random seed.
     shared_ptr<int64_t> seed_ {};
     // Specifies whether to skip special tokens.
     shared_ptr<bool> skipSpecialTokens_ {};
-    // The stop sequences. This parameter is compatible with a single string or an array of strings. The array format is shown here.
+    // The stop sequences. This parameter accepts a single string or an array of strings. The array format is used here.
     shared_ptr<vector<string>> stop_ {};
     // The list of vLLM stop token IDs.
     shared_ptr<vector<int64_t>> stopTokenIds_ {};
@@ -830,7 +830,7 @@ namespace Models
     shared_ptr<GuiChatCompletionStreamRequest::StreamOptions> streamOptions_ {};
     // The vLLM structured output constraints.
     shared_ptr<GuiChatCompletionStreamRequest::StructuredOutputs> structuredOutputs_ {};
-    // The sampling temperature, which overrides the default value of the Mobile-Use Agent primary model.
+    // The sampling temperature, which overrides the default value of the Mobile-Use Agent primary model. Default value: 0.
     shared_ptr<double> temperature_ {};
     // The vLLM Top-K sampling parameter.
     shared_ptr<int64_t> topK_ {};

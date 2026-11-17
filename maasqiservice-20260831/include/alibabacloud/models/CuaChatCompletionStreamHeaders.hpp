@@ -17,12 +17,14 @@ namespace Models
       DARABONBA_PTR_TO_JSON(commonHeaders, commonHeaders_);
       DARABONBA_PTR_TO_JSON(X-QI-Agent-Api-Key, xQIAgentApiKey_);
       DARABONBA_PTR_TO_JSON(X-QI-Instance-Id, xQIInstanceId_);
+      DARABONBA_PTR_TO_JSON(X-QI-Request-Id, xQIRequestId_);
       DARABONBA_PTR_TO_JSON(X-QI-Session-Id, xQISessionId_);
     };
     friend void from_json(const Darabonba::Json& j, CuaChatCompletionStreamHeaders& obj) { 
       DARABONBA_PTR_FROM_JSON(commonHeaders, commonHeaders_);
       DARABONBA_PTR_FROM_JSON(X-QI-Agent-Api-Key, xQIAgentApiKey_);
       DARABONBA_PTR_FROM_JSON(X-QI-Instance-Id, xQIInstanceId_);
+      DARABONBA_PTR_FROM_JSON(X-QI-Request-Id, xQIRequestId_);
       DARABONBA_PTR_FROM_JSON(X-QI-Session-Id, xQISessionId_);
     };
     CuaChatCompletionStreamHeaders() = default ;
@@ -37,7 +39,7 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->commonHeaders_ == nullptr
-        && this->xQIAgentApiKey_ == nullptr && this->xQIInstanceId_ == nullptr && this->xQISessionId_ == nullptr; };
+        && this->xQIAgentApiKey_ == nullptr && this->xQIInstanceId_ == nullptr && this->xQIRequestId_ == nullptr && this->xQISessionId_ == nullptr; };
     // commonHeaders Field Functions 
     bool hasCommonHeaders() const { return this->commonHeaders_ != nullptr;};
     void deleteCommonHeaders() { this->commonHeaders_ = nullptr;};
@@ -61,6 +63,13 @@ namespace Models
     inline CuaChatCompletionStreamHeaders& setXQIInstanceId(string xQIInstanceId) { DARABONBA_PTR_SET_VALUE(xQIInstanceId_, xQIInstanceId) };
 
 
+    // xQIRequestId Field Functions 
+    bool hasXQIRequestId() const { return this->xQIRequestId_ != nullptr;};
+    void deleteXQIRequestId() { this->xQIRequestId_ = nullptr;};
+    inline string getXQIRequestId() const { DARABONBA_PTR_GET_DEFAULT(xQIRequestId_, "") };
+    inline CuaChatCompletionStreamHeaders& setXQIRequestId(string xQIRequestId) { DARABONBA_PTR_SET_VALUE(xQIRequestId_, xQIRequestId) };
+
+
     // xQISessionId Field Functions 
     bool hasXQISessionId() const { return this->xQISessionId_ != nullptr;};
     void deleteXQISessionId() { this->xQISessionId_ = nullptr;};
@@ -70,10 +79,17 @@ namespace Models
 
   protected:
     shared_ptr<map<string, string>> commonHeaders_ {};
+    // The instance access key, which must match the instance. According to the original documentation, you can pass the original qis_ key or the Bearer format. It cannot replace the POP AK signature.
+    // 
     // This parameter is required.
     shared_ptr<string> xQIAgentApiKey_ {};
+    // The ID of the target published CUA standard instance.
+    // 
     // This parameter is required.
     shared_ptr<string> xQIInstanceId_ {};
+    // The request ID. We recommend that you explicitly generate it. Reuse it for retries of the same step, and use a new ID for a new step.
+    shared_ptr<string> xQIRequestId_ {};
+    // The session ID. It can be omitted in the first round. In subsequent rounds, reuse the qi_session_id returned in the body.
     shared_ptr<string> xQISessionId_ {};
   };
 
