@@ -926,7 +926,7 @@ CreateAclCheckResponse Client::createAclCheck(const CreateAclCheckRequest &reque
 }
 
 /**
- * @summary Creates custom rules in batches under a specified application template. A maximum of 100 rules can be created at a time, and the total number of rules in the template cannot exceed 100.
+ * @summary Creates custom rules in batches for a specified application template. You can create up to 100 rules at a time, and the total number of rules in the template cannot exceed 100.
  *
  * @param tmpReq CreateApplicationCustomRulesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -967,7 +967,7 @@ CreateApplicationCustomRulesResponse Client::createApplicationCustomRulesWithOpt
 }
 
 /**
- * @summary Creates custom rules in batches under a specified application template. A maximum of 100 rules can be created at a time, and the total number of rules in the template cannot exceed 100.
+ * @summary Creates custom rules in batches for a specified application template. You can create up to 100 rules at a time, and the total number of rules in the template cannot exceed 100.
  *
  * @param request CreateApplicationCustomRulesRequest
  * @return CreateApplicationCustomRulesResponse
@@ -978,7 +978,7 @@ CreateApplicationCustomRulesResponse Client::createApplicationCustomRules(const 
 }
 
 /**
- * @summary Creates an application program template. The template is at user granularity and can be referenced by the access control policies of the Internet, NAT, and virtual private cloud (VPC) firewalls. Before creating a template, ensure that the application control feature is enabled and the number of templates does not exceed the quota of the instance specifications.
+ * @summary Creates an application program template. The template is at the user granularity and can be referenced by the access control policy for the Internet border, NAT, and virtual private cloud (VPC) firewalls. Before creating a template, ensure that the application program control feature is enabled and the number of templates does not exceed the quota for the instance specifications.
  *
  * @param tmpReq CreateApplicationTemplateRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1039,7 +1039,7 @@ CreateApplicationTemplateResponse Client::createApplicationTemplateWithOptions(c
 }
 
 /**
- * @summary Creates an application program template. The template is at user granularity and can be referenced by the access control policies of the Internet, NAT, and virtual private cloud (VPC) firewalls. Before creating a template, ensure that the application control feature is enabled and the number of templates does not exceed the quota of the instance specifications.
+ * @summary Creates an application program template. The template is at the user granularity and can be referenced by the access control policy for the Internet border, NAT, and virtual private cloud (VPC) firewalls. Before creating a template, ensure that the application program control feature is enabled and the number of templates does not exceed the quota for the instance specifications.
  *
  * @param request CreateApplicationTemplateRequest
  * @return CreateApplicationTemplateResponse
@@ -1563,6 +1563,10 @@ CreatePrivateDnsEndpointResponse Client::createPrivateDnsEndpoint(const CreatePr
 CreateSecurityProxyResponse Client::createSecurityProxyWithOptions(const CreateSecurityProxyRequest &request, const Darabonba::RuntimeOptions &runtime) {
   request.validate();
   json query = {};
+  if (!!request.hasBasicDefenseEnabled()) {
+    query["BasicDefenseEnabled"] = request.getBasicDefenseEnabled();
+  }
+
   if (!!request.hasFirewallServiceMode()) {
     query["FirewallServiceMode"] = request.getFirewallServiceMode();
   }
@@ -1583,8 +1587,20 @@ CreateSecurityProxyResponse Client::createSecurityProxyWithOptions(const CreateS
     query["Lang"] = request.getLang();
   }
 
+  if (!!request.hasMasterVSwitchCidr()) {
+    query["MasterVSwitchCidr"] = request.getMasterVSwitchCidr();
+  }
+
+  if (!!request.hasMasterZoneId()) {
+    query["MasterZoneId"] = request.getMasterZoneId();
+  }
+
   if (!!request.hasNatGatewayId()) {
     query["NatGatewayId"] = request.getNatGatewayId();
+  }
+
+  if (!!request.hasNatMode()) {
+    query["NatMode"] = request.getNatMode();
   }
 
   if (!!request.hasNatRouteEntryList()) {
@@ -1599,8 +1615,32 @@ CreateSecurityProxyResponse Client::createSecurityProxyWithOptions(const CreateS
     query["RegionNo"] = request.getRegionNo();
   }
 
+  if (!!request.hasRuleClass()) {
+    query["RuleClass"] = request.getRuleClass();
+  }
+
+  if (!!request.hasRunMode()) {
+    query["RunMode"] = request.getRunMode();
+  }
+
+  if (!!request.hasStandbyVSwitchCidr()) {
+    query["StandbyVSwitchCidr"] = request.getStandbyVSwitchCidr();
+  }
+
+  if (!!request.hasStandbyZoneId()) {
+    query["StandbyZoneId"] = request.getStandbyZoneId();
+  }
+
   if (!!request.hasStrictMode()) {
     query["StrictMode"] = request.getStrictMode();
+  }
+
+  if (!!request.hasThreatIntelEnabled()) {
+    query["ThreatIntelEnabled"] = request.getThreatIntelEnabled();
+  }
+
+  if (!!request.hasVirtualPatchEnabled()) {
+    query["VirtualPatchEnabled"] = request.getVirtualPatchEnabled();
   }
 
   if (!!request.hasVpcId()) {
@@ -1694,9 +1734,9 @@ CreateSlsLogDispatchResponse Client::createSlsLogDispatch(const CreateSlsLogDisp
 }
 
 /**
- * @summary Creates a VPC firewall for a transit router. Prerequisites: (1) Purchase Cloud Firewall is completed. (2) A Cloud Enterprise Network (CEN) instance is created and an Enterprise Edition transit router (TR) to forward traffic and manage routing is enabled. (3) TR synchronization to Cloud Firewall is completed.
+ * @summary Creates a VPC firewall for a transit router. Prerequisites: (1) Cloud Firewall is purchased. (2) A CEN instance is created and an Enterprise Edition transit router is enabled. (3) The TR is synchronized to Cloud Firewall.
  *
- * @description Creates a virtual private cloud (VPC) firewall for an Enterprise Edition transit router (TR). Before calling this operation, you must create a CEN instance and an Enterprise Edition transit router in the CEN console, and synchronize the transit router to Cloud Firewall. Then, call this operation by using the CEN ID, TransitRouterId, RegionNo, and RouteMode parameters.
+ * @description Creates a virtual private cloud (VPC) firewall for an Enterprise Edition transit router (TR). Before you call this operation, you must create a CEN instance and an Enterprise Edition transit router in the CEN console, and synchronize the TR to Cloud Firewall. Then, call this operation by specifying the CEN ID, TransitRouterId, RegionNo, and RouteMode parameters.
  *
  * @param request CreateTrFirewallV2Request
  * @param runtime runtime options for this request RuntimeOptions
@@ -1799,9 +1839,9 @@ CreateTrFirewallV2Response Client::createTrFirewallV2WithOptions(const CreateTrF
 }
 
 /**
- * @summary Creates a VPC firewall for a transit router. Prerequisites: (1) Purchase Cloud Firewall is completed. (2) A Cloud Enterprise Network (CEN) instance is created and an Enterprise Edition transit router (TR) to forward traffic and manage routing is enabled. (3) TR synchronization to Cloud Firewall is completed.
+ * @summary Creates a VPC firewall for a transit router. Prerequisites: (1) Cloud Firewall is purchased. (2) A CEN instance is created and an Enterprise Edition transit router is enabled. (3) The TR is synchronized to Cloud Firewall.
  *
- * @description Creates a virtual private cloud (VPC) firewall for an Enterprise Edition transit router (TR). Before calling this operation, you must create a CEN instance and an Enterprise Edition transit router in the CEN console, and synchronize the transit router to Cloud Firewall. Then, call this operation by using the CEN ID, TransitRouterId, RegionNo, and RouteMode parameters.
+ * @description Creates a virtual private cloud (VPC) firewall for an Enterprise Edition transit router (TR). Before you call this operation, you must create a CEN instance and an Enterprise Edition transit router in the CEN console, and synchronize the TR to Cloud Firewall. Then, call this operation by specifying the CEN ID, TransitRouterId, RegionNo, and RouteMode parameters.
  *
  * @param request CreateTrFirewallV2Request
  * @return CreateTrFirewallV2Response
@@ -2420,7 +2460,7 @@ CreateVpcFirewallTaskResponse Client::createVpcFirewallTask(const CreateVpcFirew
 }
 
 /**
- * @summary Creates web filtering rules in batches under a specified web filtering template. A maximum of 100 rules can be created at a time, and the total number of rules in the template after creation cannot exceed 100.
+ * @summary Creates web filtering rules in batches under a specified web filtering template. A maximum of 100 rules can be created at a time, and the total number of rules in the template after creation must not exceed 100.
  *
  * @param tmpReq CreateWebFilterRulesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2461,7 +2501,7 @@ CreateWebFilterRulesResponse Client::createWebFilterRulesWithOptions(const Creat
 }
 
 /**
- * @summary Creates web filtering rules in batches under a specified web filtering template. A maximum of 100 rules can be created at a time, and the total number of rules in the template after creation cannot exceed 100.
+ * @summary Creates web filtering rules in batches under a specified web filtering template. A maximum of 100 rules can be created at a time, and the total number of rules in the template after creation must not exceed 100.
  *
  * @param request CreateWebFilterRulesRequest
  * @return CreateWebFilterRulesResponse
@@ -2472,7 +2512,7 @@ CreateWebFilterRulesResponse Client::createWebFilterRules(const CreateWebFilterR
 }
 
 /**
- * @summary Creates a web filtering template. The template is at user granularity and can be referenced by access control policies of the Internet, NAT, and virtual private cloud (VPC) firewalls. Web filtering rules can be added to the template. Before creating a template, ensure that the web filtering feature is enabled and the number of templates does not exceed the instance quota.
+ * @summary Creates a web filtering template. The template is at the user granularity and can be referenced by access control policies of Internet, NAT, and virtual private cloud (VPC) firewalls. Web filtering rules can be added to the template. Before creating a template, ensure that the web filtering feature is enabled and the number of templates does not exceed the instance quota.
  *
  * @param request CreateWebFilterTemplateRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2511,7 +2551,7 @@ CreateWebFilterTemplateResponse Client::createWebFilterTemplateWithOptions(const
 }
 
 /**
- * @summary Creates a web filtering template. The template is at user granularity and can be referenced by access control policies of the Internet, NAT, and virtual private cloud (VPC) firewalls. Web filtering rules can be added to the template. Before creating a template, ensure that the web filtering feature is enabled and the number of templates does not exceed the instance quota.
+ * @summary Creates a web filtering template. The template is at the user granularity and can be referenced by access control policies of Internet, NAT, and virtual private cloud (VPC) firewalls. Web filtering rules can be added to the template. Before creating a template, ensure that the web filtering feature is enabled and the number of templates does not exceed the instance quota.
  *
  * @param request CreateWebFilterTemplateRequest
  * @return CreateWebFilterTemplateResponse
@@ -2686,7 +2726,7 @@ DeleteAddressBookResponse Client::deleteAddressBook(const DeleteAddressBookReque
 }
 
 /**
- * @summary 删除应用程序自定义规则
+ * @summary Deletes custom application rules in batches. You can delete up to 100 rules in a single request. This operation is idempotent. If none of the specified rule IDs exist, the operation still returns a success response.
  *
  * @param tmpReq DeleteApplicationCustomRulesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2723,7 +2763,7 @@ DeleteApplicationCustomRulesResponse Client::deleteApplicationCustomRulesWithOpt
 }
 
 /**
- * @summary 删除应用程序自定义规则
+ * @summary Deletes custom application rules in batches. You can delete up to 100 rules in a single request. This operation is idempotent. If none of the specified rule IDs exist, the operation still returns a success response.
  *
  * @param request DeleteApplicationCustomRulesRequest
  * @return DeleteApplicationCustomRulesResponse
@@ -2734,7 +2774,7 @@ DeleteApplicationCustomRulesResponse Client::deleteApplicationCustomRules(const 
 }
 
 /**
- * @summary 删除应用程序自定义模版
+ * @summary Deletes an application program template. You cannot delete a template if it contains custom application program rules or is referenced by an access control policy.
  *
  * @param request DeleteApplicationTemplateRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2765,7 +2805,7 @@ DeleteApplicationTemplateResponse Client::deleteApplicationTemplateWithOptions(c
 }
 
 /**
- * @summary 删除应用程序自定义模版
+ * @summary Deletes an application program template. You cannot delete a template if it contains custom application program rules or is referenced by an access control policy.
  *
  * @param request DeleteApplicationTemplateRequest
  * @return DeleteApplicationTemplateResponse
@@ -3106,7 +3146,7 @@ DeleteInstanceMembersResponse Client::deleteInstanceMembers(const DeleteInstance
 }
 
 /**
- * @summary Creates a private network association for an IPS.
+ * @summary Creates IPS private network association information.
  *
  * @param request DeleteIpsPrivateAssocRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3141,7 +3181,7 @@ DeleteIpsPrivateAssocResponse Client::deleteIpsPrivateAssocWithOptions(const Del
 }
 
 /**
- * @summary Creates a private network association for an IPS.
+ * @summary Creates IPS private network association information.
  *
  * @param request DeleteIpsPrivateAssocRequest
  * @return DeleteIpsPrivateAssocResponse
@@ -3742,7 +3782,7 @@ DeleteWebFilterRulesResponse Client::deleteWebFilterRules(const DeleteWebFilterR
 }
 
 /**
- * @summary Deletes a web filtering template. Deleting a template also deletes all web filtering rules in the template. A template cannot be deleted if it is referenced by an access control policy.
+ * @summary Deletes a web filtering template. Deleting a template also deletes all web filtering rules within the template. A template cannot be deleted if it is referenced by an access control policy.
  *
  * @param request DeleteWebFilterTemplateRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3773,7 +3813,7 @@ DeleteWebFilterTemplateResponse Client::deleteWebFilterTemplateWithOptions(const
 }
 
 /**
- * @summary Deletes a web filtering template. Deleting a template also deletes all web filtering rules in the template. A template cannot be deleted if it is referenced by an access control policy.
+ * @summary Deletes a web filtering template. Deleting a template also deletes all web filtering rules within the template. A template cannot be deleted if it is referenced by an access control policy.
  *
  * @param request DeleteWebFilterTemplateRequest
  * @return DeleteWebFilterTemplateResponse
@@ -4050,7 +4090,7 @@ DescribeAccessInstanceVpcListResponse Client::describeAccessInstanceVpcList(cons
 }
 
 /**
- * @summary Queries the available zones for synchronization nodes.
+ * @summary Queries the list of zones available for synchronization nodes.
  *
  * @param request DescribeAccessInstanceZoneListRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4077,7 +4117,7 @@ DescribeAccessInstanceZoneListResponse Client::describeAccessInstanceZoneListWit
 }
 
 /**
- * @summary Queries the available zones for synchronization nodes.
+ * @summary Queries the list of zones available for synchronization nodes.
  *
  * @param request DescribeAccessInstanceZoneListRequest
  * @return DescribeAccessInstanceZoneListResponse
@@ -4294,7 +4334,7 @@ DescribeAckClusterPodLabelsResponse Client::describeAckClusterPodLabels(const De
 }
 
 /**
- * @summary Queries a list of Alibaba Cloud Kubernetes container service (ACK) clusters that meet specified conditions, such as cluster type and specifications.
+ * @summary Queries a list of Alibaba Cloud Container Service for Kubernetes (ACK) clusters that meet specified conditions, such as cluster type and specifications.
  *
  * @param request DescribeAckClustersRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4353,7 +4393,7 @@ DescribeAckClustersResponse Client::describeAckClustersWithOptions(const Describ
 }
 
 /**
- * @summary Queries a list of Alibaba Cloud Kubernetes container service (ACK) clusters that meet specified conditions, such as cluster type and specifications.
+ * @summary Queries a list of Alibaba Cloud Container Service for Kubernetes (ACK) clusters that meet specified conditions, such as cluster type and specifications.
  *
  * @param request DescribeAckClustersRequest
  * @return DescribeAckClustersResponse
@@ -4596,8 +4636,8 @@ DescribeAclChecksResponse Client::describeAclChecks(const DescribeAclChecksReque
 /**
  * @summary Retrieves the total number of ACL configurations.
  *
- * @description ## QPS limits
- * The QPS limit for a single user calling this API operation is 10 queries per second. If the limit is exceeded, API calls are throttled, which may affect your business. Call this API operation at a reasonable rate.
+ * @description ## Rate limit
+ * The rate limit for this API operation is 10 queries per second (QPS) per user. Exceeding this limit triggers throttling, which may affect your services. Call this API operation at a reasonable frequency.
  *
  * @param request DescribeAclRuleCountRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4634,8 +4674,8 @@ DescribeAclRuleCountResponse Client::describeAclRuleCountWithOptions(const Descr
 /**
  * @summary Retrieves the total number of ACL configurations.
  *
- * @description ## QPS limits
- * The QPS limit for a single user calling this API operation is 10 queries per second. If the limit is exceeded, API calls are throttled, which may affect your business. Call this API operation at a reasonable rate.
+ * @description ## Rate limit
+ * The rate limit for this API operation is 10 queries per second (QPS) per user. Exceeding this limit triggers throttling, which may affect your services. Call this API operation at a reasonable frequency.
  *
  * @param request DescribeAclRuleCountRequest
  * @return DescribeAclRuleCountResponse
@@ -4648,8 +4688,8 @@ DescribeAclRuleCountResponse Client::describeAclRuleCount(const DescribeAclRuleC
 /**
  * @summary Retrieves the ACL whitelist.
  *
- * @description ## QPS limits
- * The QPS limit for a single user for this API operation is 10 calls per second. If the limit is exceeded, API calls are throttled, which may affect your services. Call this API operation at a reasonable rate.
+ * @description ## Rate limit
+ * The rate limit for a single user is 10 calls per second. If the limit is exceeded, API calls are throttled, which may affect your services. Make API calls at a reasonable rate.
  *
  * @param request DescribeAclWhitelistRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4686,8 +4726,8 @@ DescribeAclWhitelistResponse Client::describeAclWhitelistWithOptions(const Descr
 /**
  * @summary Retrieves the ACL whitelist.
  *
- * @description ## QPS limits
- * The QPS limit for a single user for this API operation is 10 calls per second. If the limit is exceeded, API calls are throttled, which may affect your services. Call this API operation at a reasonable rate.
+ * @description ## Rate limit
+ * The rate limit for a single user is 10 calls per second. If the limit is exceeded, API calls are throttled, which may affect your services. Make API calls at a reasonable rate.
  *
  * @param request DescribeAclWhitelistRequest
  * @return DescribeAclWhitelistResponse
@@ -4782,7 +4822,7 @@ DescribeAddressBookResponse Client::describeAddressBook(const DescribeAddressBoo
 }
 
 /**
- * @summary 查询应用程序统计
+ * @summary Queries the number of applications in the built-in application signature library, grouped by application category, risk level, and technology type. The statistics apply to the global built-in application library and are not limited by Alibaba Cloud accounts or time ranges.
  *
  * @param request DescribeApplicationStatisticsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4813,7 +4853,7 @@ DescribeApplicationStatisticsResponse Client::describeApplicationStatisticsWithO
 }
 
 /**
- * @summary 查询应用程序统计
+ * @summary Queries the number of applications in the built-in application signature library, grouped by application category, risk level, and technology type. The statistics apply to the global built-in application library and are not limited by Alibaba Cloud accounts or time ranges.
  *
  * @param request DescribeApplicationStatisticsRequest
  * @return DescribeApplicationStatisticsResponse
@@ -5034,11 +5074,11 @@ DescribeAssetStatisticResponse Client::describeAssetStatistic(const DescribeAsse
 }
 
 /**
- * @summary Queries the list of attack categories.
+ * @summary Queries the attack categories.
  *
- * @description This operation is typically used to perform a paged query for information about assets protected by Cloud Firewall by using paging.
- * ## QPS limits
- * The QPS limit per user for this operation is 10 requests per second. If the limit is exceeded, API calls are throttled, which may affect your services. Invoke the operation at a reasonable rate.
+ * @description This operation is typically used to perform paging queries on the information about assets protected by Cloud Firewall.
+ * ## QPS limit
+ * The queries per second (QPS) limit per user is 10. If the limit is exceeded, API calls are throttled, which may affect your services. Invoke the API at a reasonable rate.
  *
  * @param request DescribeAttackAppCategoryRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -5069,11 +5109,11 @@ DescribeAttackAppCategoryResponse Client::describeAttackAppCategoryWithOptions(c
 }
 
 /**
- * @summary Queries the list of attack categories.
+ * @summary Queries the attack categories.
  *
- * @description This operation is typically used to perform a paged query for information about assets protected by Cloud Firewall by using paging.
- * ## QPS limits
- * The QPS limit per user for this operation is 10 requests per second. If the limit is exceeded, API calls are throttled, which may affect your services. Invoke the operation at a reasonable rate.
+ * @description This operation is typically used to perform paging queries on the information about assets protected by Cloud Firewall.
+ * ## QPS limit
+ * The queries per second (QPS) limit per user is 10. If the limit is exceeded, API calls are throttled, which may affect your services. Invoke the API at a reasonable rate.
  *
  * @param request DescribeAttackAppCategoryRequest
  * @return DescribeAttackAppCategoryResponse
@@ -5184,10 +5224,10 @@ DescribeCfwRiskLevelSummaryResponse Client::describeCfwRiskLevelSummary(const De
 }
 
 /**
- * @summary Retrieves the authorization clearance information.
+ * @summary Retrieves the authorization information for clearing.
  *
  * @description ### QPS limits
- * The QPS limit per user for this API operation is 10 calls per second. If you exceed the limit, API calls are throttled, which may affect your services. Call this API operation at a reasonable frequency.
+ * The QPS limit per user for this API operation is 10 calls per second. If the limit is exceeded, API calls are throttled, which may affect your business. Call this API operation at a reasonable rate.
  *
  * @param runtime runtime options for this request RuntimeOptions
  * @return DescribeClearAuthInfoResponse
@@ -5209,10 +5249,10 @@ DescribeClearAuthInfoResponse Client::describeClearAuthInfoWithOptions(const Dar
 }
 
 /**
- * @summary Retrieves the authorization clearance information.
+ * @summary Retrieves the authorization information for clearing.
  *
  * @description ### QPS limits
- * The QPS limit per user for this API operation is 10 calls per second. If you exceed the limit, API calls are throttled, which may affect your services. Call this API operation at a reasonable frequency.
+ * The QPS limit per user for this API operation is 10 calls per second. If the limit is exceeded, API calls are throttled, which may affect your business. Call this API operation at a reasonable rate.
  *
  * @return DescribeClearAuthInfoResponse
  */
@@ -5222,7 +5262,7 @@ DescribeClearAuthInfoResponse Client::describeClearAuthInfo() {
 }
 
 /**
- * @summary Queries the Outbound IP Address list for outbound connections.
+ * @summary Queries the list of outbound IP addresses for outbound connections.
  *
  * @param request DescribeConfiguredDestinationIPRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -5293,7 +5333,7 @@ DescribeConfiguredDestinationIPResponse Client::describeConfiguredDestinationIPW
 }
 
 /**
- * @summary Queries the Outbound IP Address list for outbound connections.
+ * @summary Queries the list of outbound IP addresses for outbound connections.
  *
  * @param request DescribeConfiguredDestinationIPRequest
  * @return DescribeConfiguredDestinationIPResponse
@@ -5556,11 +5596,11 @@ DescribeCreatedNatFirewallResponse Client::describeCreatedNatFirewall(const Desc
 }
 
 /**
- * @summary Queries a list of member accounts.
+ * @summary Retrieves a list of member accounts.
  *
- * @description This operation queries information about the member accounts of Cloud Firewall.
- * ## QPS limits
- * This operation is limited to 10 queries per second (QPS) for each user. If you exceed this limit, API calls are throttled. Throttling may affect your business. We recommend that you call this operation at a reasonable rate.
+ * @description This operation is generally used to query information about Cloud Firewall member accounts.
+ * ## Rate limit
+ * The rate limit for this operation is 10 queries per second (QPS) per user. If the limit is exceeded, API calls are throttled, which may affect your services. Invoke this operation at a reasonable rate.
  *
  * @param runtime runtime options for this request RuntimeOptions
  * @return DescribeCtrlInstanceMemberAccountsResponse
@@ -5582,11 +5622,11 @@ DescribeCtrlInstanceMemberAccountsResponse Client::describeCtrlInstanceMemberAcc
 }
 
 /**
- * @summary Queries a list of member accounts.
+ * @summary Retrieves a list of member accounts.
  *
- * @description This operation queries information about the member accounts of Cloud Firewall.
- * ## QPS limits
- * This operation is limited to 10 queries per second (QPS) for each user. If you exceed this limit, API calls are throttled. Throttling may affect your business. We recommend that you call this operation at a reasonable rate.
+ * @description This operation is generally used to query information about Cloud Firewall member accounts.
+ * ## Rate limit
+ * The rate limit for this operation is 10 queries per second (QPS) per user. If the limit is exceeded, API calls are throttled, which may affect your services. Invoke this operation at a reasonable rate.
  *
  * @return DescribeCtrlInstanceMemberAccountsResponse
  */
@@ -5638,7 +5678,7 @@ DescribeDefaultIPSConfigResponse Client::describeDefaultIPSConfig(const Describe
 }
 
 /**
- * @summary Queries the list of access control lists (ACLs) for the DNS firewall.
+ * @summary Queries the DNS firewall ACL list.
  *
  * @param request DescribeDnsFirewallPolicyRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -5713,7 +5753,7 @@ DescribeDnsFirewallPolicyResponse Client::describeDnsFirewallPolicyWithOptions(c
 }
 
 /**
- * @summary Queries the list of access control lists (ACLs) for the DNS firewall.
+ * @summary Queries the DNS firewall ACL list.
  *
  * @param request DescribeDnsFirewallPolicyRequest
  * @return DescribeDnsFirewallPolicyResponse
@@ -5904,9 +5944,9 @@ DescribeDownloadTaskTypeResponse Client::describeDownloadTaskType(const Describe
 /**
  * @summary Queries the event logs of Cloud Firewall.
  *
- * @description Queries the event logs of Cloud Firewall. This operation supports five types of logs: application access control (app_ctl), web filtering (web_filter), TLS inspection (tls), intrusion prevention (ips), and threat intelligence (threat_intelligence). You can filter logs by time range, source IP address, destination IP address, URL, action, rule result, and attack type. Log details are returned in pages. StartTime and EndTime are UNIX timestamps in seconds. The time span for a single query cannot exceed 8 days. If FirewallType is not specified, the Internet Border firewall (InternetFirewall) is queried by default. To query the VPC firewall, set FirewallType to VpcFirewall.
- * ## QPS limits
- * The QPS limit per user is 10 calls per second. If you exceed the limit, API calls are throttled, which may affect your services. Make API calls at a reasonable frequency.
+ * @description Queries the event logs of Cloud Firewall. This operation supports five types of logs: application access control (app_ctl), web filtering (web_filter), TLS inspection (tls), intrusion prevention (ips), and threat intelligence (threat_intelligence). You can filter logs by time range, source IP address, destination IP address, URL, action, rule result, and attack type. Log details are returned with paging. StartTime and EndTime are UNIX timestamps in seconds. The time span of a single query cannot exceed 8 days. If FirewallType is not specified, the Internet Border firewall (InternetFirewall) is queried by default. To query the virtual private cloud (VPC) firewalls at the border, set FirewallType to VpcFirewall.
+ * ## QPS limit
+ * The QPS limit for a single user is 10 requests per second. If the limit is exceeded, the API invoke is throttled, which may affect your business. Make API calls at a reasonable rate.
  *
  * @param request DescribeEventLogRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -5951,6 +5991,10 @@ DescribeEventLogResponse Client::describeEventLogWithOptions(const DescribeEvent
     query["PageSize"] = request.getPageSize();
   }
 
+  if (!!request.hasRuleId()) {
+    query["RuleId"] = request.getRuleId();
+  }
+
   if (!!request.hasRuleResult()) {
     query["RuleResult"] = request.getRuleResult();
   }
@@ -5965,6 +6009,10 @@ DescribeEventLogResponse Client::describeEventLogWithOptions(const DescribeEvent
 
   if (!!request.hasSrcIP()) {
     query["SrcIP"] = request.getSrcIP();
+  }
+
+  if (!!request.hasSslHandshakeRes()) {
+    query["SslHandshakeRes"] = request.getSslHandshakeRes();
   }
 
   if (!!request.hasStartTime()) {
@@ -5991,9 +6039,9 @@ DescribeEventLogResponse Client::describeEventLogWithOptions(const DescribeEvent
 /**
  * @summary Queries the event logs of Cloud Firewall.
  *
- * @description Queries the event logs of Cloud Firewall. This operation supports five types of logs: application access control (app_ctl), web filtering (web_filter), TLS inspection (tls), intrusion prevention (ips), and threat intelligence (threat_intelligence). You can filter logs by time range, source IP address, destination IP address, URL, action, rule result, and attack type. Log details are returned in pages. StartTime and EndTime are UNIX timestamps in seconds. The time span for a single query cannot exceed 8 days. If FirewallType is not specified, the Internet Border firewall (InternetFirewall) is queried by default. To query the VPC firewall, set FirewallType to VpcFirewall.
- * ## QPS limits
- * The QPS limit per user is 10 calls per second. If you exceed the limit, API calls are throttled, which may affect your services. Make API calls at a reasonable frequency.
+ * @description Queries the event logs of Cloud Firewall. This operation supports five types of logs: application access control (app_ctl), web filtering (web_filter), TLS inspection (tls), intrusion prevention (ips), and threat intelligence (threat_intelligence). You can filter logs by time range, source IP address, destination IP address, URL, action, rule result, and attack type. Log details are returned with paging. StartTime and EndTime are UNIX timestamps in seconds. The time span of a single query cannot exceed 8 days. If FirewallType is not specified, the Internet Border firewall (InternetFirewall) is queried by default. To query the virtual private cloud (VPC) firewalls at the border, set FirewallType to VpcFirewall.
+ * ## QPS limit
+ * The QPS limit for a single user is 10 requests per second. If the limit is exceeded, the API invoke is throttled, which may affect your business. Make API calls at a reasonable rate.
  *
  * @param request DescribeEventLogRequest
  * @return DescribeEventLogResponse
@@ -6006,10 +6054,10 @@ DescribeEventLogResponse Client::describeEventLog(const DescribeEventLogRequest 
 /**
  * @deprecated OpenAPI DescribeFirewallDropStatistics is deprecated
  *
- * @summary Retrieves firewall DROP data statistics.
+ * @summary Retrieves firewall DROP statistics.
  *
- * @description ### QPS limit
- * The QPS limit per user for this API operation is 10 calls per second. If the limit is exceeded, API calls are throttled, which may affect your services. Call this API operation at a reasonable frequency.
+ * @description ### Rate limit
+ * The rate limit for this API operation is 10 calls per second per user. If the limit is exceeded, API calls are throttled, which may affect your services. Call this API operation at a reasonable frequency.
  *
  * @param runtime runtime options for this request RuntimeOptions
  * @return DescribeFirewallDropStatisticsResponse
@@ -6033,10 +6081,10 @@ DescribeFirewallDropStatisticsResponse Client::describeFirewallDropStatisticsWit
 /**
  * @deprecated OpenAPI DescribeFirewallDropStatistics is deprecated
  *
- * @summary Retrieves firewall DROP data statistics.
+ * @summary Retrieves firewall DROP statistics.
  *
- * @description ### QPS limit
- * The QPS limit per user for this API operation is 10 calls per second. If the limit is exceeded, API calls are throttled, which may affect your services. Call this API operation at a reasonable frequency.
+ * @description ### Rate limit
+ * The rate limit for this API operation is 10 calls per second per user. If the limit is exceeded, API calls are throttled, which may affect your services. Call this API operation at a reasonable frequency.
  *
  * @return DescribeFirewallDropStatisticsResponse
  */
@@ -6096,10 +6144,10 @@ DescribeFirewallDropTrendResponse Client::describeFirewallDropTrend(const Descri
 }
 
 /**
- * @summary Retrieves firewall tasks.
+ * @summary Retrieves a firewall task.
  *
  * @description ### QPS limit
- * The QPS limit for a single user is 10 calls per second. If the limit is exceeded, API calls are throttled, which may affect your services. Call this API operation at a reasonable frequency.
+ * The rate limit for this API operation is 10 calls per second per user. If the limit is exceeded, API calls are throttled, which may affect your services. Call this API operation at a reasonable rate.
  *
  * @param request DescribeFirewallTaskRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -6124,6 +6172,10 @@ DescribeFirewallTaskResponse Client::describeFirewallTaskWithOptions(const Descr
     query["TaskId"] = request.getTaskId();
   }
 
+  if (!!request.hasTaskName()) {
+    query["TaskName"] = request.getTaskName();
+  }
+
   if (!!request.hasTaskType()) {
     query["TaskType"] = request.getTaskType();
   }
@@ -6146,10 +6198,10 @@ DescribeFirewallTaskResponse Client::describeFirewallTaskWithOptions(const Descr
 }
 
 /**
- * @summary Retrieves firewall tasks.
+ * @summary Retrieves a firewall task.
  *
  * @description ### QPS limit
- * The QPS limit for a single user is 10 calls per second. If the limit is exceeded, API calls are throttled, which may affect your services. Call this API operation at a reasonable frequency.
+ * The rate limit for this API operation is 10 calls per second per user. If the limit is exceeded, API calls are throttled, which may affect your services. Call this API operation at a reasonable rate.
  *
  * @param request DescribeFirewallTaskRequest
  * @return DescribeFirewallTaskResponse
@@ -6210,10 +6262,10 @@ DescribeFirewallTrafficTrendResponse Client::describeFirewallTrafficTrend(const 
 }
 
 /**
- * @summary Retrieves the vSwitches created by the firewall.
+ * @summary Queries the vSwitches created by the firewall.
  *
- * @description ### Rate limit
- * The rate limit for this API operation is 10 queries per second (QPS) per user. If you exceed this limit, throttling is triggered, which may affect your services. Call this API operation at a reasonable frequency.
+ * @description ### QPS limit
+ * The QPS limit for a single user is 10 calls per second. If the limit is exceeded, API calls are throttled, which may affect your services. Call this API at a reasonable rate.
  *
  * @param request DescribeFirewallVSwitchRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -6276,10 +6328,10 @@ DescribeFirewallVSwitchResponse Client::describeFirewallVSwitchWithOptions(const
 }
 
 /**
- * @summary Retrieves the vSwitches created by the firewall.
+ * @summary Queries the vSwitches created by the firewall.
  *
- * @description ### Rate limit
- * The rate limit for this API operation is 10 queries per second (QPS) per user. If you exceed this limit, throttling is triggered, which may affect your services. Call this API operation at a reasonable frequency.
+ * @description ### QPS limit
+ * The QPS limit for a single user is 10 calls per second. If the limit is exceeded, API calls are throttled, which may affect your services. Call this API at a reasonable rate.
  *
  * @param request DescribeFirewallVSwitchRequest
  * @return DescribeFirewallVSwitchResponse
@@ -6403,6 +6455,10 @@ DescribeIPSRulesResponse Client::describeIPSRulesWithOptions(const DescribeIPSRu
 
   if (!!request.hasPageSize()) {
     query["PageSize"] = request.getPageSize();
+  }
+
+  if (!!request.hasProxyId()) {
+    query["ProxyId"] = request.getProxyId();
   }
 
   if (!!request.hasQueryModify()) {
@@ -7856,11 +7912,11 @@ DescribeInvadeEventNameListResponse Client::describeInvadeEventNameList(const De
 }
 
 /**
- * @summary Retrieves the raw payload of a vulnerability event.
+ * @summary Retrieves the original payload of a vulnerability event.
  *
- * @description Queries the raw packet payload of a specified intrusion event. You can locate a single event by using the event UUID (EventUuid) or filter events by public IP address, private IP address, asset instance ID, and time range. Both StartTime and EndTime are required and must be UNIX timestamps in seconds. The response includes the original payload text, the payload length (PayloadLen), and the start and end positions of the matched content in the highlight interval (HighlightStart and HighlightEnd) to help restore alert details.
- * ## Rate limit
- * The rate limit for this API operation is 10 calls per second per user. If the limit is exceeded, API calls are throttled, which may affect your services. Call this API operation at a reasonable rate.
+ * @description Queries the original packet payload of a specified intrusion event. You can locate a single event by using the event UUID (EventUuid) or filter events by public IP address, private IP address, asset instance ID, and time range. StartTime and EndTime are required and must be UNIX timestamps in seconds. The response includes the original payload, the payload length (PayloadLen), and the start and end positions of the matched content in the highlight interval (HighlightStart and HighlightEnd) to help restore alert details.
+ * ## QPS limit
+ * The QPS limit for a single user is 10 calls per second. If the limit is exceeded, API calls are throttled, which may affect your services. Make API calls at a reasonable rate.
  *
  * @param request DescribeInvadeEventPayloadRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -7923,11 +7979,11 @@ DescribeInvadeEventPayloadResponse Client::describeInvadeEventPayloadWithOptions
 }
 
 /**
- * @summary Retrieves the raw payload of a vulnerability event.
+ * @summary Retrieves the original payload of a vulnerability event.
  *
- * @description Queries the raw packet payload of a specified intrusion event. You can locate a single event by using the event UUID (EventUuid) or filter events by public IP address, private IP address, asset instance ID, and time range. Both StartTime and EndTime are required and must be UNIX timestamps in seconds. The response includes the original payload text, the payload length (PayloadLen), and the start and end positions of the matched content in the highlight interval (HighlightStart and HighlightEnd) to help restore alert details.
- * ## Rate limit
- * The rate limit for this API operation is 10 calls per second per user. If the limit is exceeded, API calls are throttled, which may affect your services. Call this API operation at a reasonable rate.
+ * @description Queries the original packet payload of a specified intrusion event. You can locate a single event by using the event UUID (EventUuid) or filter events by public IP address, private IP address, asset instance ID, and time range. StartTime and EndTime are required and must be UNIX timestamps in seconds. The response includes the original payload, the payload length (PayloadLen), and the start and end positions of the matched content in the highlight interval (HighlightStart and HighlightEnd) to help restore alert details.
+ * ## QPS limit
+ * The QPS limit for a single user is 10 calls per second. If the limit is exceeded, API calls are throttled, which may affect your services. Make API calls at a reasonable rate.
  *
  * @param request DescribeInvadeEventPayloadRequest
  * @return DescribeInvadeEventPayloadResponse
@@ -8464,7 +8520,7 @@ DescribeNatFirewallDropTrafficTrendResponse Client::describeNatFirewallDropTraff
 }
 
 /**
- * @summary Retrieves the details of NAT firewalls.
+ * @summary Queries the details of NAT firewalls.
  *
  * @param request DescribeNatFirewallListRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -8535,7 +8591,7 @@ DescribeNatFirewallListResponse Client::describeNatFirewallListWithOptions(const
 }
 
 /**
- * @summary Retrieves the details of NAT firewalls.
+ * @summary Queries the details of NAT firewalls.
  *
  * @param request DescribeNatFirewallListRequest
  * @return DescribeNatFirewallListResponse
@@ -8650,7 +8706,15 @@ DescribeNatFirewallPrecheckDetailResponse Client::describeNatFirewallPrecheckDet
  */
 DescribeNatFirewallQuotaResponse Client::describeNatFirewallQuotaWithOptions(const DescribeNatFirewallQuotaRequest &request, const Darabonba::RuntimeOptions &runtime) {
   request.validate();
-  map<string, string> query = Utils::Utils::query(request.toMap());
+  json query = {};
+  if (!!request.hasLang()) {
+    query["Lang"] = request.getLang();
+  }
+
+  if (!!request.hasSourceIp()) {
+    query["SourceIp"] = request.getSourceIp();
+  }
+
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
   }).get<map<string, map<string, string>>>());
@@ -8659,7 +8723,7 @@ DescribeNatFirewallQuotaResponse Client::describeNatFirewallQuotaWithOptions(con
     {"version" , "2017-12-07"},
     {"protocol" , "HTTPS"},
     {"pathname" , "/"},
-    {"method" , "GET"},
+    {"method" , "POST"},
     {"authType" , "AK"},
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
@@ -10942,11 +11006,11 @@ DescribeResourceTypeAutoEnableResponse Client::describeResourceTypeAutoEnable(co
 }
 
 /**
- * @summary Queries the detailed data of intrusion prevention events.
+ * @summary Retrieves the detailed data of intrusion prevention events.
  *
  * @description This operation queries and downloads detailed data of intrusion prevention events. Query 5 to 10 entries at a time. To prevent query timeouts, set the NoLocation parameter to true if IP geolocation information is not required.
  * ## QPS limits
- * The queries per second (QPS) limit for a single user is 10. If the limit is exceeded, API calls are throttled, which may affect your services. Call the API at a reasonable rate.
+ * The QPS limit per user for this operation is 10. If the limit is exceeded, API calls are throttled, which may affect your services. Call the operation at a reasonable frequency.
  *
  * @param request DescribeRiskEventGroupRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -11073,11 +11137,11 @@ DescribeRiskEventGroupResponse Client::describeRiskEventGroupWithOptions(const D
 }
 
 /**
- * @summary Queries the detailed data of intrusion prevention events.
+ * @summary Retrieves the detailed data of intrusion prevention events.
  *
  * @description This operation queries and downloads detailed data of intrusion prevention events. Query 5 to 10 entries at a time. To prevent query timeouts, set the NoLocation parameter to true if IP geolocation information is not required.
  * ## QPS limits
- * The queries per second (QPS) limit for a single user is 10. If the limit is exceeded, API calls are throttled, which may affect your services. Call the API at a reasonable rate.
+ * The QPS limit per user for this operation is 10. If the limit is exceeded, API calls are throttled, which may affect your services. Call the operation at a reasonable frequency.
  *
  * @param request DescribeRiskEventGroupRequest
  * @return DescribeRiskEventGroupResponse
@@ -12342,9 +12406,9 @@ DescribeTaskDispatchStatusResponse Client::describeTaskDispatchStatus(const Desc
 }
 
 /**
- * @summary Queries the threat intelligence configuration information.
+ * @summary Queries the information about threat intelligence configurations.
  *
- * @description This operation is generally used to perform a paged query on the information about access control policies of NAT firewalls.
+ * @description This operation is typically used to perform paging queries on the information about NAT firewall access control policies.
  *
  * @param runtime runtime options for this request RuntimeOptions
  * @return DescribeThreatIntelligenceSwitchResponse
@@ -12366,9 +12430,9 @@ DescribeThreatIntelligenceSwitchResponse Client::describeThreatIntelligenceSwitc
 }
 
 /**
- * @summary Queries the threat intelligence configuration information.
+ * @summary Queries the information about threat intelligence configurations.
  *
- * @description This operation is generally used to perform a paged query on the information about access control policies of NAT firewalls.
+ * @description This operation is typically used to perform paging queries on the information about NAT firewall access control policies.
  *
  * @return DescribeThreatIntelligenceSwitchResponse
  */
@@ -15385,7 +15449,7 @@ GetTlsInspectCertificateDownloadUrlResponse Client::getTlsInspectCertificateDown
 }
 
 /**
- * @summary 查询应用程序自定义规则列表
+ * @summary Performs a paged query to retrieve the list of custom rules under a specified application program template, sorted by priority in ascending order. Supports paging, fuzzy search by rule name, and filtering by rule ID, priority, action, and application ID.
  *
  * @param request ListApplicationCustomRulesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -15448,7 +15512,7 @@ ListApplicationCustomRulesResponse Client::listApplicationCustomRulesWithOptions
 }
 
 /**
- * @summary 查询应用程序自定义规则列表
+ * @summary Performs a paged query to retrieve the list of custom rules under a specified application program template, sorted by priority in ascending order. Supports paging, fuzzy search by rule name, and filtering by rule ID, priority, action, and application ID.
  *
  * @param request ListApplicationCustomRulesRequest
  * @return ListApplicationCustomRulesResponse
@@ -15459,7 +15523,7 @@ ListApplicationCustomRulesResponse Client::listApplicationCustomRules(const List
 }
 
 /**
- * @summary Performs a paged query to retrieve the application program templates under the current Alibaba Cloud account. The paging operation supports fuzzy search by template name and description, batch exact filtering by template IDs, and exact filtering by switch statuses and actions for unidentified applications.
+ * @summary Performs a paged query to retrieve the list of application program templates under the current Alibaba Cloud account. Supports paging, fuzzy search by template name and description, batch exact filtering by template ID, and exact filtering by switch statuses and actions for unrecognized applications.
  *
  * @param request ListApplicationTemplateRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -15522,7 +15586,7 @@ ListApplicationTemplateResponse Client::listApplicationTemplateWithOptions(const
 }
 
 /**
- * @summary Performs a paged query to retrieve the application program templates under the current Alibaba Cloud account. The paging operation supports fuzzy search by template name and description, batch exact filtering by template IDs, and exact filtering by switch statuses and actions for unidentified applications.
+ * @summary Performs a paged query to retrieve the list of application program templates under the current Alibaba Cloud account. Supports paging, fuzzy search by template name and description, batch exact filtering by template ID, and exact filtering by switch statuses and actions for unrecognized applications.
  *
  * @param request ListApplicationTemplateRequest
  * @return ListApplicationTemplateResponse
@@ -15533,7 +15597,7 @@ ListApplicationTemplateResponse Client::listApplicationTemplate(const ListApplic
 }
 
 /**
- * @summary 查询应用程序更新动态列表
+ * @summary Performs a paged query on the version update records of the built-in application signature library and returns the paging results in descending sequence of update time. Each record corresponds to an incremental update of the signature library and includes the list of application programs added or updated in this update.
  *
  * @param request ListApplicationUpdateDynamicsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -15572,7 +15636,7 @@ ListApplicationUpdateDynamicsResponse Client::listApplicationUpdateDynamicsWithO
 }
 
 /**
- * @summary 查询应用程序更新动态列表
+ * @summary Performs a paged query on the version update records of the built-in application signature library and returns the paging results in descending sequence of update time. Each record corresponds to an incremental update of the signature library and includes the list of application programs added or updated in this update.
  *
  * @param request ListApplicationUpdateDynamicsRequest
  * @return ListApplicationUpdateDynamicsResponse
@@ -15583,7 +15647,7 @@ ListApplicationUpdateDynamicsResponse Client::listApplicationUpdateDynamics(cons
 }
 
 /**
- * @summary Performs a paging query on the list of applications in the built-in application signature library. Supports fuzzy match by application name, description, technology type, category name, and group name, exact match by application ID and category ID, and filtering by risk level. The query targets the global built-in application library regardless of the Alibaba Cloud account.
+ * @summary Queries the applications in the built-in application signature library by using paging. Supports fuzzy match by application name, description, technology type, category name, and group name, exact filtering by application ID and category ID, and filtering by risk level. The query targets the global built-in application library regardless of the Alibaba Cloud account.
  *
  * @param request ListApplicationsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -15654,7 +15718,7 @@ ListApplicationsResponse Client::listApplicationsWithOptions(const ListApplicati
 }
 
 /**
- * @summary Performs a paging query on the list of applications in the built-in application signature library. Supports fuzzy match by application name, description, technology type, category name, and group name, exact match by application ID and category ID, and filtering by risk level. The query targets the global built-in application library regardless of the Alibaba Cloud account.
+ * @summary Queries the applications in the built-in application signature library by using paging. Supports fuzzy match by application name, description, technology type, category name, and group name, exact filtering by application ID and category ID, and filtering by risk level. The query targets the global built-in application library regardless of the Alibaba Cloud account.
  *
  * @param request ListApplicationsRequest
  * @return ListApplicationsResponse
@@ -15715,7 +15779,7 @@ ListTlsInspectCACertificatesResponse Client::listTlsInspectCACertificates(const 
 }
 
 /**
- * @summary Performs a paged query on the list of web filtering rules. Supports paging and exact filtering by web filtering template ID, rule ID, and rule action.
+ * @summary Performs a paged query on the web filtering rules. Supports paging and exact filtering by web filtering template ID, rule ID, and rule action.
  *
  * @param request ListWebFilterRulesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -15762,7 +15826,7 @@ ListWebFilterRulesResponse Client::listWebFilterRulesWithOptions(const ListWebFi
 }
 
 /**
- * @summary Performs a paged query on the list of web filtering rules. Supports paging and exact filtering by web filtering template ID, rule ID, and rule action.
+ * @summary Performs a paged query on the web filtering rules. Supports paging and exact filtering by web filtering template ID, rule ID, and rule action.
  *
  * @param request ListWebFilterRulesRequest
  * @return ListWebFilterRulesResponse
@@ -15773,7 +15837,7 @@ ListWebFilterRulesResponse Client::listWebFilterRules(const ListWebFilterRulesRe
 }
 
 /**
- * @summary 查询Web过滤模版列表
+ * @summary Queries the web filtering templates under the current Alibaba Cloud account by using paging. Supports fuzzy search by name and description, exact filtering by status, and batch exact filtering by template IDs.
  *
  * @param request ListWebFilterTemplatesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -15824,7 +15888,7 @@ ListWebFilterTemplatesResponse Client::listWebFilterTemplatesWithOptions(const L
 }
 
 /**
- * @summary 查询Web过滤模版列表
+ * @summary Queries the web filtering templates under the current Alibaba Cloud account by using paging. Supports fuzzy search by name and description, exact filtering by status, and batch exact filtering by template IDs.
  *
  * @param request ListWebFilterTemplatesRequest
  * @return ListWebFilterTemplatesResponse
@@ -16617,7 +16681,9 @@ ModifyIpsRulesResponse Client::modifyIpsRules(const ModifyIpsRulesRequest &reque
 }
 
 /**
- * @summary Resets IPS rules to default.
+ * @summary Restores IPS rules to default.
+ *
+ * @description Restores user-defined intrusion prevention system (IPS) rules to the system defaults by deleting user override records. After restoration, the rules follow the default values of the rule library. This operation uses the FirewallType parameter to determine the scope and input constraints:\\n- **InternetFirewall / VpcFirewall**: The scope is the entire account. RuleType is required. You must specify at least one of Rules or AttackApp.\\n- **NatFirewall**: The scope is a single NAT firewall instance specified by ProxyId. RuleType is optional. Both Rules and AttackApp are optional.\\nThe two branches handle an empty array for Rules differently. For the Internet or VPC firewall, passing [] is equivalent to restoring all rules of the specified RuleType. For the NAT firewall, passing [] returns a 400 ErrorParameters error. To restore all rules for a NAT firewall, do not pass the Rules parameter.
  *
  * @param request ModifyIpsRulesToDefaultRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -16640,6 +16706,10 @@ ModifyIpsRulesToDefaultResponse Client::modifyIpsRulesToDefaultWithOptions(const
 
   if (!!request.hasLang()) {
     query["Lang"] = request.getLang();
+  }
+
+  if (!!request.hasProxyId()) {
+    query["ProxyId"] = request.getProxyId();
   }
 
   if (!!request.hasRuleType()) {
@@ -16672,7 +16742,9 @@ ModifyIpsRulesToDefaultResponse Client::modifyIpsRulesToDefaultWithOptions(const
 }
 
 /**
- * @summary Resets IPS rules to default.
+ * @summary Restores IPS rules to default.
+ *
+ * @description Restores user-defined intrusion prevention system (IPS) rules to the system defaults by deleting user override records. After restoration, the rules follow the default values of the rule library. This operation uses the FirewallType parameter to determine the scope and input constraints:\\n- **InternetFirewall / VpcFirewall**: The scope is the entire account. RuleType is required. You must specify at least one of Rules or AttackApp.\\n- **NatFirewall**: The scope is a single NAT firewall instance specified by ProxyId. RuleType is optional. Both Rules and AttackApp are optional.\\nThe two branches handle an empty array for Rules differently. For the Internet or VPC firewall, passing [] is equivalent to restoring all rules of the specified RuleType. For the NAT firewall, passing [] returns a 400 ErrorParameters error. To restore all rules for a NAT firewall, do not pass the Rules parameter.
  *
  * @param request ModifyIpsRulesToDefaultRequest
  * @return ModifyIpsRulesToDefaultResponse
@@ -18932,8 +19004,16 @@ SwitchSecurityProxyResponse Client::switchSecurityProxyWithOptions(const SwitchS
     query["Lang"] = request.getLang();
   }
 
+  if (!!request.hasNatRouteEntryList()) {
+    query["NatRouteEntryList"] = request.getNatRouteEntryList();
+  }
+
   if (!!request.hasProxyId()) {
     query["ProxyId"] = request.getProxyId();
+  }
+
+  if (!!request.hasRouteAction()) {
+    query["RouteAction"] = request.getRouteAction();
   }
 
   if (!!request.hasSwitch()) {
@@ -19125,7 +19205,7 @@ UpdateAclCheckDetailStatusResponse Client::updateAclCheckDetailStatus(const Upda
 }
 
 /**
- * @summary Modifies multiple custom application rules in batches. You can modify up to 20 rules at a time. The template to which a rule belongs is determined by the rule ID, so you do not need to specify the template ID.
+ * @summary Modifies custom application rules in batches. You can modify up to 20 rules at a time. The template to which a rule belongs is queried based on the rule ID, so you do not need to specify the template ID.
  *
  * @param tmpReq UpdateApplicationCustomRulesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -19162,7 +19242,7 @@ UpdateApplicationCustomRulesResponse Client::updateApplicationCustomRulesWithOpt
 }
 
 /**
- * @summary Modifies multiple custom application rules in batches. You can modify up to 20 rules at a time. The template to which a rule belongs is determined by the rule ID, so you do not need to specify the template ID.
+ * @summary Modifies custom application rules in batches. You can modify up to 20 rules at a time. The template to which a rule belongs is queried based on the rule ID, so you do not need to specify the template ID.
  *
  * @param request UpdateApplicationCustomRulesRequest
  * @return UpdateApplicationCustomRulesResponse
@@ -19176,7 +19256,7 @@ UpdateApplicationCustomRulesResponse Client::updateApplicationCustomRules(const 
  * @summary Modifies the name, switch status, action for unidentified applications, or custom actions for built-in applications of an application template. The template ID must belong to the current Alibaba Cloud account.
  *
  * @description ## QPS limit
- * The QPS limit for a single user is 10 calls per second. If the limit is exceeded, API calls are throttled, which may affect your business. Call this API operation at a reasonable frequency.
+ * The queries per second (QPS) limit for a single user is 10 calls per second. If the limit is exceeded, API calls are throttled, which may affect your services. Make API calls at a reasonable rate.
  *
  * @param tmpReq UpdateApplicationTemplateRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -19252,7 +19332,7 @@ UpdateApplicationTemplateResponse Client::updateApplicationTemplateWithOptions(c
  * @summary Modifies the name, switch status, action for unidentified applications, or custom actions for built-in applications of an application template. The template ID must belong to the current Alibaba Cloud account.
  *
  * @description ## QPS limit
- * The QPS limit for a single user is 10 calls per second. If the limit is exceeded, API calls are throttled, which may affect your business. Call this API operation at a reasonable frequency.
+ * The queries per second (QPS) limit for a single user is 10 calls per second. If the limit is exceeded, API calls are throttled, which may affect your services. Make API calls at a reasonable rate.
  *
  * @param request UpdateApplicationTemplateRequest
  * @return UpdateApplicationTemplateResponse
@@ -19263,7 +19343,7 @@ UpdateApplicationTemplateResponse Client::updateApplicationTemplate(const Update
 }
 
 /**
- * @summary Enables the application control or web filtering feature for the current Alibaba Cloud account. This operation only supports enabling the feature. Disabling is not supported. This feature is not supported for Finance Cloud Free Edition or pay-as-you-go 1.0 instances.
+ * @summary Enables the application control or web filtering feature for the current Alibaba Cloud account. Only enabling is supported. This feature cannot be enabled for Finance Cloud Free Edition or pay-as-you-go 1.0 instances.
  *
  * @param request UpdateFirewallFeatureRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -19298,7 +19378,7 @@ UpdateFirewallFeatureResponse Client::updateFirewallFeatureWithOptions(const Upd
 }
 
 /**
- * @summary Enables the application control or web filtering feature for the current Alibaba Cloud account. This operation only supports enabling the feature. Disabling is not supported. This feature is not supported for Finance Cloud Free Edition or pay-as-you-go 1.0 instances.
+ * @summary Enables the application control or web filtering feature for the current Alibaba Cloud account. Only enabling is supported. This feature cannot be enabled for Finance Cloud Free Edition or pay-as-you-go 1.0 instances.
  *
  * @param request UpdateFirewallFeatureRequest
  * @return UpdateFirewallFeatureResponse
@@ -19513,7 +19593,7 @@ UpdateSecurityProxyResponse Client::updateSecurityProxy(const UpdateSecurityProx
 }
 
 /**
- * @summary Modifies the actions and match conditions of web filtering rules in batches. You can modify up to 20 rules at a time, and the rule IDs in the list must be unique.
+ * @summary Updates the actions and match conditions of web filtering rules in batches. You can update up to 20 rules at a time. The rule IDs in the list must be unique.
  *
  * @param tmpReq UpdateWebFilterRulesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -19550,7 +19630,7 @@ UpdateWebFilterRulesResponse Client::updateWebFilterRulesWithOptions(const Updat
 }
 
 /**
- * @summary Modifies the actions and match conditions of web filtering rules in batches. You can modify up to 20 rules at a time, and the rule IDs in the list must be unique.
+ * @summary Updates the actions and match conditions of web filtering rules in batches. You can update up to 20 rules at a time. The rule IDs in the list must be unique.
  *
  * @param request UpdateWebFilterRulesRequest
  * @return UpdateWebFilterRulesResponse

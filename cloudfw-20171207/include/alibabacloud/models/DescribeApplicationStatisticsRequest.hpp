@@ -38,6 +38,10 @@ namespace Models
 
 
   protected:
+    // The language of the response. Valid values:
+    // - **zh**: Chinese. This is the default value.
+    // - **en**: English.
+    // This parameter determines whether the category names and technology type names are returned in Chinese or English.
     shared_ptr<string> lang_ {};
   };
 

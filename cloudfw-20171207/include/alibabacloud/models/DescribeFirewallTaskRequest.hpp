@@ -16,12 +16,14 @@ namespace Models
       DARABONBA_PTR_TO_JSON(ChildInstanceId, childInstanceId_);
       DARABONBA_PTR_TO_JSON(Lang, lang_);
       DARABONBA_PTR_TO_JSON(TaskId, taskId_);
+      DARABONBA_PTR_TO_JSON(TaskName, taskName_);
       DARABONBA_PTR_TO_JSON(TaskType, taskType_);
     };
     friend void from_json(const Darabonba::Json& j, DescribeFirewallTaskRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(ChildInstanceId, childInstanceId_);
       DARABONBA_PTR_FROM_JSON(Lang, lang_);
       DARABONBA_PTR_FROM_JSON(TaskId, taskId_);
+      DARABONBA_PTR_FROM_JSON(TaskName, taskName_);
       DARABONBA_PTR_FROM_JSON(TaskType, taskType_);
     };
     DescribeFirewallTaskRequest() = default ;
@@ -36,7 +38,7 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->childInstanceId_ == nullptr
-        && this->lang_ == nullptr && this->taskId_ == nullptr && this->taskType_ == nullptr; };
+        && this->lang_ == nullptr && this->taskId_ == nullptr && this->taskName_ == nullptr && this->taskType_ == nullptr; };
     // childInstanceId Field Functions 
     bool hasChildInstanceId() const { return this->childInstanceId_ != nullptr;};
     void deleteChildInstanceId() { this->childInstanceId_ = nullptr;};
@@ -58,6 +60,13 @@ namespace Models
     inline DescribeFirewallTaskRequest& setTaskId(string taskId) { DARABONBA_PTR_SET_VALUE(taskId_, taskId) };
 
 
+    // taskName Field Functions 
+    bool hasTaskName() const { return this->taskName_ != nullptr;};
+    void deleteTaskName() { this->taskName_ = nullptr;};
+    inline string getTaskName() const { DARABONBA_PTR_GET_DEFAULT(taskName_, "") };
+    inline DescribeFirewallTaskRequest& setTaskName(string taskName) { DARABONBA_PTR_SET_VALUE(taskName_, taskName) };
+
+
     // taskType Field Functions 
     bool hasTaskType() const { return this->taskType_ != nullptr;};
     void deleteTaskType() { this->taskType_ = nullptr;};
@@ -75,6 +84,8 @@ namespace Models
     shared_ptr<string> lang_ {};
     // The ID of the task. You must specify at least one of TaskId and ChildInstanceId. If both are empty, the MissingParameter.TaskId (-360448, At least one of TaskId or ChildInstanceId is required.) error is returned.
     shared_ptr<string> taskId_ {};
+    // The action of the task, which is used to filter tasks by action. Valid values: init, open, close, delete, and change_route. This parameter takes effect only when TaskType is set to NAT. If TaskId is specified, this parameter is ignored. If this parameter is not specified, the most recently started task of the instance is retrieved, regardless of the action.
+    shared_ptr<string> taskName_ {};
     // The type of the task. Valid values:
     // 
     // - **NAT**: NAT firewall task

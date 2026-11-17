@@ -74,7 +74,9 @@ namespace Models
 
 
     protected:
+      // The number of applications of the technology type.
       shared_ptr<int64_t> applicationCount_ {};
+      // The name of the technology type. The name is returned in Chinese or English based on the Lang parameter.
       shared_ptr<string> technology_ {};
     };
 
@@ -116,7 +118,14 @@ namespace Models
 
 
     protected:
+      // The number of applications at the risk level.
       shared_ptr<int64_t> applicationCount_ {};
+      // The risk level. Valid values:
+      // - **Information**: Informational.
+      // - **Low**: Low.
+      // - **Medium**: Medium.
+      // - **High**: High.
+      // - **Critical**: Critical.
       shared_ptr<string> risk_ {};
     };
 
@@ -158,7 +167,9 @@ namespace Models
 
 
     protected:
+      // The number of applications in the application category.
       shared_ptr<int64_t> applicationCount_ {};
+      // The name of the application category. The name is returned in Chinese or English based on the Lang parameter.
       shared_ptr<string> categoryName_ {};
     };
 
@@ -199,9 +210,13 @@ namespace Models
 
 
   protected:
+    // The list of application counts grouped by application category.
     shared_ptr<vector<DescribeApplicationStatisticsResponseBody::CategoryList>> categoryList_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // The list of application counts grouped by risk level.
     shared_ptr<vector<DescribeApplicationStatisticsResponseBody::RiskList>> riskList_ {};
+    // The list of application counts grouped by technology type.
     shared_ptr<vector<DescribeApplicationStatisticsResponseBody::TechnologyList>> technologyList_ {};
   };
 

@@ -53,9 +53,9 @@ namespace Models
     // This parameter is required.
     shared_ptr<string> applicationTemplateId_ {};
     // The return scope for built-in application actions. Valid values:
-    // - **Custom**: Returns only applications for which users have customized actions. This is the default value.
-    // - **All**: Returns all built-in applications.
-    // The priority of action effectiveness is: user-customized > template default > application library default.
+    // - **Custom**: returns only applications whose actions have been customized by the user. This is the default value.
+    // - **All**: returns all built-in applications.
+    // The priority of action effectiveness is: user customization > template default > application library default.
     shared_ptr<string> builtInApplicationActionType_ {};
   };
 

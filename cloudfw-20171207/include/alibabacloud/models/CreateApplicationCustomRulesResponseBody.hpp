@@ -51,7 +51,7 @@ namespace Models
 
 
   protected:
-    // The list of IDs for the newly created custom rules for the application. The order of the IDs corresponds to the order of the Rules request parameter.
+    // The list of IDs for the newly created custom application rules. The order of the IDs corresponds to the order of the rules in the Rules request parameter.
     shared_ptr<vector<string>> applicationCustomRuleIds_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

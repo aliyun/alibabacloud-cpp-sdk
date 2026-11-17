@@ -59,7 +59,7 @@ namespace Models
   protected:
     // The language type.
     shared_ptr<string> lang_ {};
-    // The UID of the member accounts.
+    // The UID of member accounts.
     shared_ptr<int64_t> memberUid_ {};
     // The NAT gateway ID.
     shared_ptr<string> natGatewayId_ {};

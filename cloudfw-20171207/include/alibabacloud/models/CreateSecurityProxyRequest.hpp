@@ -14,32 +14,52 @@ namespace Models
   class CreateSecurityProxyRequest : public Darabonba::Model {
   public:
     friend void to_json(Darabonba::Json& j, const CreateSecurityProxyRequest& obj) { 
+      DARABONBA_PTR_TO_JSON(BasicDefenseEnabled, basicDefenseEnabled_);
       DARABONBA_PTR_TO_JSON(FirewallServiceMode, firewallServiceMode_);
       DARABONBA_PTR_TO_JSON(FirewallServiceZones, firewallServiceZones_);
       DARABONBA_PTR_TO_JSON(FirewallSwitch, firewallSwitch_);
       DARABONBA_PTR_TO_JSON(FwVswitchZoneId, fwVswitchZoneId_);
       DARABONBA_PTR_TO_JSON(Lang, lang_);
+      DARABONBA_PTR_TO_JSON(MasterVSwitchCidr, masterVSwitchCidr_);
+      DARABONBA_PTR_TO_JSON(MasterZoneId, masterZoneId_);
       DARABONBA_PTR_TO_JSON(NatGatewayId, natGatewayId_);
+      DARABONBA_PTR_TO_JSON(NatMode, natMode_);
       DARABONBA_PTR_TO_JSON(NatRouteEntryList, natRouteEntryList_);
       DARABONBA_PTR_TO_JSON(ProxyName, proxyName_);
       DARABONBA_PTR_TO_JSON(RegionNo, regionNo_);
+      DARABONBA_PTR_TO_JSON(RuleClass, ruleClass_);
+      DARABONBA_PTR_TO_JSON(RunMode, runMode_);
+      DARABONBA_PTR_TO_JSON(StandbyVSwitchCidr, standbyVSwitchCidr_);
+      DARABONBA_PTR_TO_JSON(StandbyZoneId, standbyZoneId_);
       DARABONBA_PTR_TO_JSON(StrictMode, strictMode_);
+      DARABONBA_PTR_TO_JSON(ThreatIntelEnabled, threatIntelEnabled_);
+      DARABONBA_PTR_TO_JSON(VirtualPatchEnabled, virtualPatchEnabled_);
       DARABONBA_PTR_TO_JSON(VpcId, vpcId_);
       DARABONBA_PTR_TO_JSON(VswitchAuto, vswitchAuto_);
       DARABONBA_PTR_TO_JSON(VswitchCidr, vswitchCidr_);
       DARABONBA_PTR_TO_JSON(VswitchId, vswitchId_);
     };
     friend void from_json(const Darabonba::Json& j, CreateSecurityProxyRequest& obj) { 
+      DARABONBA_PTR_FROM_JSON(BasicDefenseEnabled, basicDefenseEnabled_);
       DARABONBA_PTR_FROM_JSON(FirewallServiceMode, firewallServiceMode_);
       DARABONBA_PTR_FROM_JSON(FirewallServiceZones, firewallServiceZones_);
       DARABONBA_PTR_FROM_JSON(FirewallSwitch, firewallSwitch_);
       DARABONBA_PTR_FROM_JSON(FwVswitchZoneId, fwVswitchZoneId_);
       DARABONBA_PTR_FROM_JSON(Lang, lang_);
+      DARABONBA_PTR_FROM_JSON(MasterVSwitchCidr, masterVSwitchCidr_);
+      DARABONBA_PTR_FROM_JSON(MasterZoneId, masterZoneId_);
       DARABONBA_PTR_FROM_JSON(NatGatewayId, natGatewayId_);
+      DARABONBA_PTR_FROM_JSON(NatMode, natMode_);
       DARABONBA_PTR_FROM_JSON(NatRouteEntryList, natRouteEntryList_);
       DARABONBA_PTR_FROM_JSON(ProxyName, proxyName_);
       DARABONBA_PTR_FROM_JSON(RegionNo, regionNo_);
+      DARABONBA_PTR_FROM_JSON(RuleClass, ruleClass_);
+      DARABONBA_PTR_FROM_JSON(RunMode, runMode_);
+      DARABONBA_PTR_FROM_JSON(StandbyVSwitchCidr, standbyVSwitchCidr_);
+      DARABONBA_PTR_FROM_JSON(StandbyZoneId, standbyZoneId_);
       DARABONBA_PTR_FROM_JSON(StrictMode, strictMode_);
+      DARABONBA_PTR_FROM_JSON(ThreatIntelEnabled, threatIntelEnabled_);
+      DARABONBA_PTR_FROM_JSON(VirtualPatchEnabled, virtualPatchEnabled_);
       DARABONBA_PTR_FROM_JSON(VpcId, vpcId_);
       DARABONBA_PTR_FROM_JSON(VswitchAuto, vswitchAuto_);
       DARABONBA_PTR_FROM_JSON(VswitchCidr, vswitchCidr_);
@@ -116,7 +136,7 @@ namespace Models
       // 
       // This parameter is required.
       shared_ptr<string> destinationCidr_ {};
-      // The next hop address of the original NAT gateway.
+      // The next hop ID of the original NAT gateway.
       // 
       // This parameter is required.
       shared_ptr<string> nextHopId_ {};
@@ -124,16 +144,25 @@ namespace Models
       // 
       // This parameter is required.
       shared_ptr<string> nextHopType_ {};
-      // The route table to which the default route of the NAT gateway belongs.
+      // The ID of the route table to which the default route of the NAT gateway belongs.
       // 
       // This parameter is required.
       shared_ptr<string> routeTableId_ {};
     };
 
-    virtual bool empty() const override { return this->firewallServiceMode_ == nullptr
-        && this->firewallServiceZones_ == nullptr && this->firewallSwitch_ == nullptr && this->fwVswitchZoneId_ == nullptr && this->lang_ == nullptr && this->natGatewayId_ == nullptr
-        && this->natRouteEntryList_ == nullptr && this->proxyName_ == nullptr && this->regionNo_ == nullptr && this->strictMode_ == nullptr && this->vpcId_ == nullptr
+    virtual bool empty() const override { return this->basicDefenseEnabled_ == nullptr
+        && this->firewallServiceMode_ == nullptr && this->firewallServiceZones_ == nullptr && this->firewallSwitch_ == nullptr && this->fwVswitchZoneId_ == nullptr && this->lang_ == nullptr
+        && this->masterVSwitchCidr_ == nullptr && this->masterZoneId_ == nullptr && this->natGatewayId_ == nullptr && this->natMode_ == nullptr && this->natRouteEntryList_ == nullptr
+        && this->proxyName_ == nullptr && this->regionNo_ == nullptr && this->ruleClass_ == nullptr && this->runMode_ == nullptr && this->standbyVSwitchCidr_ == nullptr
+        && this->standbyZoneId_ == nullptr && this->strictMode_ == nullptr && this->threatIntelEnabled_ == nullptr && this->virtualPatchEnabled_ == nullptr && this->vpcId_ == nullptr
         && this->vswitchAuto_ == nullptr && this->vswitchCidr_ == nullptr && this->vswitchId_ == nullptr; };
+    // basicDefenseEnabled Field Functions 
+    bool hasBasicDefenseEnabled() const { return this->basicDefenseEnabled_ != nullptr;};
+    void deleteBasicDefenseEnabled() { this->basicDefenseEnabled_ = nullptr;};
+    inline string getBasicDefenseEnabled() const { DARABONBA_PTR_GET_DEFAULT(basicDefenseEnabled_, "") };
+    inline CreateSecurityProxyRequest& setBasicDefenseEnabled(string basicDefenseEnabled) { DARABONBA_PTR_SET_VALUE(basicDefenseEnabled_, basicDefenseEnabled) };
+
+
     // firewallServiceMode Field Functions 
     bool hasFirewallServiceMode() const { return this->firewallServiceMode_ != nullptr;};
     void deleteFirewallServiceMode() { this->firewallServiceMode_ = nullptr;};
@@ -171,11 +200,32 @@ namespace Models
     inline CreateSecurityProxyRequest& setLang(string lang) { DARABONBA_PTR_SET_VALUE(lang_, lang) };
 
 
+    // masterVSwitchCidr Field Functions 
+    bool hasMasterVSwitchCidr() const { return this->masterVSwitchCidr_ != nullptr;};
+    void deleteMasterVSwitchCidr() { this->masterVSwitchCidr_ = nullptr;};
+    inline string getMasterVSwitchCidr() const { DARABONBA_PTR_GET_DEFAULT(masterVSwitchCidr_, "") };
+    inline CreateSecurityProxyRequest& setMasterVSwitchCidr(string masterVSwitchCidr) { DARABONBA_PTR_SET_VALUE(masterVSwitchCidr_, masterVSwitchCidr) };
+
+
+    // masterZoneId Field Functions 
+    bool hasMasterZoneId() const { return this->masterZoneId_ != nullptr;};
+    void deleteMasterZoneId() { this->masterZoneId_ = nullptr;};
+    inline string getMasterZoneId() const { DARABONBA_PTR_GET_DEFAULT(masterZoneId_, "") };
+    inline CreateSecurityProxyRequest& setMasterZoneId(string masterZoneId) { DARABONBA_PTR_SET_VALUE(masterZoneId_, masterZoneId) };
+
+
     // natGatewayId Field Functions 
     bool hasNatGatewayId() const { return this->natGatewayId_ != nullptr;};
     void deleteNatGatewayId() { this->natGatewayId_ = nullptr;};
     inline string getNatGatewayId() const { DARABONBA_PTR_GET_DEFAULT(natGatewayId_, "") };
     inline CreateSecurityProxyRequest& setNatGatewayId(string natGatewayId) { DARABONBA_PTR_SET_VALUE(natGatewayId_, natGatewayId) };
+
+
+    // natMode Field Functions 
+    bool hasNatMode() const { return this->natMode_ != nullptr;};
+    void deleteNatMode() { this->natMode_ = nullptr;};
+    inline string getNatMode() const { DARABONBA_PTR_GET_DEFAULT(natMode_, "") };
+    inline CreateSecurityProxyRequest& setNatMode(string natMode) { DARABONBA_PTR_SET_VALUE(natMode_, natMode) };
 
 
     // natRouteEntryList Field Functions 
@@ -201,11 +251,53 @@ namespace Models
     inline CreateSecurityProxyRequest& setRegionNo(string regionNo) { DARABONBA_PTR_SET_VALUE(regionNo_, regionNo) };
 
 
+    // ruleClass Field Functions 
+    bool hasRuleClass() const { return this->ruleClass_ != nullptr;};
+    void deleteRuleClass() { this->ruleClass_ = nullptr;};
+    inline string getRuleClass() const { DARABONBA_PTR_GET_DEFAULT(ruleClass_, "") };
+    inline CreateSecurityProxyRequest& setRuleClass(string ruleClass) { DARABONBA_PTR_SET_VALUE(ruleClass_, ruleClass) };
+
+
+    // runMode Field Functions 
+    bool hasRunMode() const { return this->runMode_ != nullptr;};
+    void deleteRunMode() { this->runMode_ = nullptr;};
+    inline string getRunMode() const { DARABONBA_PTR_GET_DEFAULT(runMode_, "") };
+    inline CreateSecurityProxyRequest& setRunMode(string runMode) { DARABONBA_PTR_SET_VALUE(runMode_, runMode) };
+
+
+    // standbyVSwitchCidr Field Functions 
+    bool hasStandbyVSwitchCidr() const { return this->standbyVSwitchCidr_ != nullptr;};
+    void deleteStandbyVSwitchCidr() { this->standbyVSwitchCidr_ = nullptr;};
+    inline string getStandbyVSwitchCidr() const { DARABONBA_PTR_GET_DEFAULT(standbyVSwitchCidr_, "") };
+    inline CreateSecurityProxyRequest& setStandbyVSwitchCidr(string standbyVSwitchCidr) { DARABONBA_PTR_SET_VALUE(standbyVSwitchCidr_, standbyVSwitchCidr) };
+
+
+    // standbyZoneId Field Functions 
+    bool hasStandbyZoneId() const { return this->standbyZoneId_ != nullptr;};
+    void deleteStandbyZoneId() { this->standbyZoneId_ = nullptr;};
+    inline string getStandbyZoneId() const { DARABONBA_PTR_GET_DEFAULT(standbyZoneId_, "") };
+    inline CreateSecurityProxyRequest& setStandbyZoneId(string standbyZoneId) { DARABONBA_PTR_SET_VALUE(standbyZoneId_, standbyZoneId) };
+
+
     // strictMode Field Functions 
     bool hasStrictMode() const { return this->strictMode_ != nullptr;};
     void deleteStrictMode() { this->strictMode_ = nullptr;};
     inline int32_t getStrictMode() const { DARABONBA_PTR_GET_DEFAULT(strictMode_, 0) };
     inline CreateSecurityProxyRequest& setStrictMode(int32_t strictMode) { DARABONBA_PTR_SET_VALUE(strictMode_, strictMode) };
+
+
+    // threatIntelEnabled Field Functions 
+    bool hasThreatIntelEnabled() const { return this->threatIntelEnabled_ != nullptr;};
+    void deleteThreatIntelEnabled() { this->threatIntelEnabled_ = nullptr;};
+    inline string getThreatIntelEnabled() const { DARABONBA_PTR_GET_DEFAULT(threatIntelEnabled_, "") };
+    inline CreateSecurityProxyRequest& setThreatIntelEnabled(string threatIntelEnabled) { DARABONBA_PTR_SET_VALUE(threatIntelEnabled_, threatIntelEnabled) };
+
+
+    // virtualPatchEnabled Field Functions 
+    bool hasVirtualPatchEnabled() const { return this->virtualPatchEnabled_ != nullptr;};
+    void deleteVirtualPatchEnabled() { this->virtualPatchEnabled_ = nullptr;};
+    inline string getVirtualPatchEnabled() const { DARABONBA_PTR_GET_DEFAULT(virtualPatchEnabled_, "") };
+    inline CreateSecurityProxyRequest& setVirtualPatchEnabled(string virtualPatchEnabled) { DARABONBA_PTR_SET_VALUE(virtualPatchEnabled_, virtualPatchEnabled) };
 
 
     // vpcId Field Functions 
@@ -237,16 +329,22 @@ namespace Models
 
 
   protected:
+    // Specifies whether to enable the basic protection policies of the IPS. If this parameter is not specified, the system default (enabled) is used. Valid values:
+    // 
+    // - **0**: disabled.
+    // - **1**: enabled.
+    shared_ptr<string> basicDefenseEnabled_ {};
     // The deployment mode of the firewall service. Valid values:
     // 
-    // - PrimaryStandby: primary/secondary mode
-    // - MultiPrimary: active-active mode
+    // - **PrimaryStandby**: primary/secondary mode.
+    // - **MultiPrimary**: active-active mode.
     shared_ptr<string> firewallServiceMode_ {};
     // The list of zone IDs used by the firewall service.
     shared_ptr<vector<string>> firewallServiceZones_ {};
     // The security protection switch. Valid values:
-    // - **open**: enable
-    // - **close**: disable
+    // 
+    // - **open**: enabled.
+    // - **close**: disabled.
     shared_ptr<string> firewallSwitch_ {};
     // The zone of the firewall vSwitch.
     shared_ptr<string> fwVswitchZoneId_ {};
@@ -255,13 +353,17 @@ namespace Models
     // - **zh** (default): Chinese.
     // - **en**: English.
     shared_ptr<string> lang_ {};
+    // The vSwitch CIDR block of the GWLB endpoint (GWLBe) in the active zone. This parameter applies only to NAT firewalls that use the GWLB architecture. For the GWLB architecture, this parameter is required along with MasterZoneId, StandbyZoneId, and StandbyVSwitchCidr. If any of these parameters is missing, ErrorParameters is returned. The vSwitch is created by the firewall creation node based on this vSwitch CIDR block. This parameter is not read for the ENI architecture.
+    shared_ptr<string> masterVSwitchCidr_ {};
+    // The ID of the primary zone. This parameter applies only to NAT firewalls that use the GWLB architecture. For the GWLB architecture, this parameter is required along with MasterVSwitchCidr, StandbyZoneId, and StandbyVSwitchCidr. If any of these parameters is missing, ErrorParameters is returned. The value must be the same as the zone where the NAT gateway resides. This parameter is not read for the ENI architecture.
+    shared_ptr<string> masterZoneId_ {};
     // The ID of the NAT gateway.
     // 
     // This parameter is required.
     shared_ptr<string> natGatewayId_ {};
+    // The architecture type of the NAT firewall. Valid values: **eni** (traditional ENI architecture) and **gwlb** (new GWLB architecture). If this parameter is omitted or left empty, the firewall is created by using the ENI architecture, and no implicit selection is performed on the server side. You can obtain the recommended architecture from the response of the DescribeNatFirewallArchitecture operation and pass it back when you create the firewall.
+    shared_ptr<string> natMode_ {};
     // The list of routes to be switched for the NAT gateway.
-    // 
-    // This parameter is required.
     shared_ptr<vector<CreateSecurityProxyRequest::NatRouteEntryList>> natRouteEntryList_ {};
     // The name of the NAT firewall. The name must be 4 to 50 characters in length and can contain uppercase and lowercase letters, Chinese characters, digits, and underscores (_). It cannot start with an underscore.
     // 
@@ -273,19 +375,47 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> regionNo_ {};
+    // The level of the IPS rule group. This parameter is valid only in block mode. If this parameter is not specified, the system default (medium) is used. Valid values:
+    // 
+    // - **0**: none. The value is forced to 0 in monitor mode.
+    // - **1**: loose.
+    // - **2**: medium.
+    // - **3**: strict.
+    shared_ptr<string> ruleClass_ {};
+    // The IPS defense mode. This parameter is supported only by NAT firewalls that use the GWLB architecture. If this parameter is not specified, the system default (Block Mode) is used. Valid values:
+    // 
+    // - **0**: monitor mode. Only alerting is triggered, and traffic is not blocked.
+    // - **1**: Block Mode.
+    shared_ptr<string> runMode_ {};
+    // The vSwitch CIDR block of the GWLBe in the standby zone. This parameter applies only to NAT firewalls that use the GWLB architecture. For the GWLB architecture, this parameter is required along with MasterZoneId, MasterVSwitchCidr, and StandbyZoneId. If any of these parameters is missing, ErrorParameters is returned. The vSwitch is created by the firewall creation node based on this vSwitch CIDR block. This parameter is not read for the ENI architecture.
+    shared_ptr<string> standbyVSwitchCidr_ {};
+    // The ID of the secondary zone. This parameter applies only to NAT firewalls that use the GWLB architecture. For the GWLB architecture, this parameter is required along with MasterZoneId, MasterVSwitchCidr, and StandbyVSwitchCidr. If any of these parameters is missing, ErrorParameters is returned. The value cannot be the same as MasterZoneId. If they are the same, ErrorZoneIdInvalid is returned. This parameter is not read for the ENI architecture.
+    shared_ptr<string> standbyZoneId_ {};
     // Specifies whether to enable strict mode. Valid values:
     // 
-    // - 1: Enable strict mode.
-    // - 0: Disable strict mode.
+    // - **1**: enables strict mode.
+    // - **0**: disables strict mode.
     shared_ptr<int32_t> strictMode_ {};
-    // The VPC-connected instance ID.
+    // Specifies whether to enable the threat intelligence rules of the IPS. If this parameter is not specified, the system default (enabled) is used. Valid values:
+    // 
+    // - **0**: disabled.
+    // - **1**: enabled.
+    shared_ptr<string> threatIntelEnabled_ {};
+    // Specifies whether to enable the Virtual Patches of the IPS. If this parameter is not specified, the system default (enabled) is used. Valid values:
+    // 
+    // - **0**: disabled.
+    // - **1**: enabled.
+    shared_ptr<string> virtualPatchEnabled_ {};
+    // The instance ID of the VPC.
     // 
     // This parameter is required.
     shared_ptr<string> vpcId_ {};
     // Specifies whether to use the automatic mode for the vSwitch. Valid values:
+    // 
     // - **true**: automatic mode.
     // - **false**: manual mode.
-    // > Default value: true. If VswitchAuto is set to true, VswitchCidr is required and must be a valid CIDR block. If VswitchAuto is set to false, VswitchId is required.
+    // 
+    // > Default value: **true**. If VswitchAuto is set to true, VswitchCidr is required and must be a valid CIDR block. If VswitchAuto is set to false, VswitchId is required.
     shared_ptr<string> vswitchAuto_ {};
     // The CIDR block of the vSwitch. This parameter is required when the automatic mode is used for the vSwitch.
     shared_ptr<string> vswitchCidr_ {};

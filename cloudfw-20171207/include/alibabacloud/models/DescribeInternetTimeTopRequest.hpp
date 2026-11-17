@@ -177,11 +177,11 @@ namespace Models
     shared_ptr<string> IPType_ {};
     // The time interval.
     shared_ptr<int64_t> interval_ {};
-    // The language for receiving messages.
+    // The language of the response message.
     shared_ptr<string> lang_ {};
     // The maximum number of top entries to return. Default value: 50. Valid values: 1 to 50.
     shared_ptr<string> limit_ {};
-    // The public IP address of the NAT gateway. If you do not specify this parameter, all asset IP addresses are queried.
+    // The public IP address of the NAT gateway. If you leave this parameter empty, all asset IP addresses are queried.
     shared_ptr<string> natIP_ {};
     // The sort order.
     shared_ptr<string> order_ {};

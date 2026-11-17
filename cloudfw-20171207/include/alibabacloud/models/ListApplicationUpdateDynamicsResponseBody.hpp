@@ -99,7 +99,9 @@ namespace Models
 
 
       protected:
+        // The ID of the application in the built-in application signature library.
         shared_ptr<int64_t> applicationId_ {};
+        // The name of the application. The name is returned in Chinese or English based on the Lang parameter.
         shared_ptr<string> applicationName_ {};
       };
 
@@ -129,8 +131,11 @@ namespace Models
 
 
     protected:
+      // The list of applications added or updated in this update.
       shared_ptr<vector<Dynamics::Applications>> applications_ {};
+      // The update description. The description is returned in Chinese or English based on the Lang parameter.
       shared_ptr<string> dynamicInfo_ {};
+      // The time when the signature library was updated. The value is a UNIX timestamp in seconds.
       shared_ptr<int64_t> updateTime_ {};
     };
 
@@ -174,10 +179,15 @@ namespace Models
 
 
   protected:
+    // The list of update records for the application signature library, sorted in descending order of update time.
     shared_ptr<vector<ListApplicationUpdateDynamicsResponseBody::Dynamics>> dynamics_ {};
+    // The current page number.
     shared_ptr<int64_t> pageNo_ {};
+    // The number of entries per page.
     shared_ptr<int64_t> pageSize_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // The total number of update records that meet the filter conditions.
     shared_ptr<int64_t> totalCount_ {};
   };
 

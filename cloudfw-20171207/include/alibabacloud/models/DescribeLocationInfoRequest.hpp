@@ -59,7 +59,7 @@ namespace Models
   protected:
     // The language type.
     shared_ptr<string> lang_ {};
-    // The tracing code.
+    // The source code.
     // 
     // This parameter is required.
     shared_ptr<string> sourceCode_ {};

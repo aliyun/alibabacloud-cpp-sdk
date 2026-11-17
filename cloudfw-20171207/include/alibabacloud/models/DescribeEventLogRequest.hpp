@@ -21,10 +21,12 @@ namespace Models
       DARABONBA_PTR_TO_JSON(Lang, lang_);
       DARABONBA_PTR_TO_JSON(LogType, logType_);
       DARABONBA_PTR_TO_JSON(PageSize, pageSize_);
+      DARABONBA_PTR_TO_JSON(RuleId, ruleId_);
       DARABONBA_PTR_TO_JSON(RuleResult, ruleResult_);
       DARABONBA_PTR_TO_JSON(SourceCode, sourceCode_);
       DARABONBA_PTR_TO_JSON(SourceIp, sourceIp_);
       DARABONBA_PTR_TO_JSON(SrcIP, srcIP_);
+      DARABONBA_PTR_TO_JSON(SslHandshakeRes, sslHandshakeRes_);
       DARABONBA_PTR_TO_JSON(StartTime, startTime_);
     };
     friend void from_json(const Darabonba::Json& j, DescribeEventLogRequest& obj) { 
@@ -36,10 +38,12 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(Lang, lang_);
       DARABONBA_PTR_FROM_JSON(LogType, logType_);
       DARABONBA_PTR_FROM_JSON(PageSize, pageSize_);
+      DARABONBA_PTR_FROM_JSON(RuleId, ruleId_);
       DARABONBA_PTR_FROM_JSON(RuleResult, ruleResult_);
       DARABONBA_PTR_FROM_JSON(SourceCode, sourceCode_);
       DARABONBA_PTR_FROM_JSON(SourceIp, sourceIp_);
       DARABONBA_PTR_FROM_JSON(SrcIP, srcIP_);
+      DARABONBA_PTR_FROM_JSON(SslHandshakeRes, sslHandshakeRes_);
       DARABONBA_PTR_FROM_JSON(StartTime, startTime_);
     };
     DescribeEventLogRequest() = default ;
@@ -55,8 +59,8 @@ namespace Models
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->attackType_ == nullptr
         && this->currentPage_ == nullptr && this->dstIP_ == nullptr && this->endTime_ == nullptr && this->firewallType_ == nullptr && this->lang_ == nullptr
-        && this->logType_ == nullptr && this->pageSize_ == nullptr && this->ruleResult_ == nullptr && this->sourceCode_ == nullptr && this->sourceIp_ == nullptr
-        && this->srcIP_ == nullptr && this->startTime_ == nullptr; };
+        && this->logType_ == nullptr && this->pageSize_ == nullptr && this->ruleId_ == nullptr && this->ruleResult_ == nullptr && this->sourceCode_ == nullptr
+        && this->sourceIp_ == nullptr && this->srcIP_ == nullptr && this->sslHandshakeRes_ == nullptr && this->startTime_ == nullptr; };
     // attackType Field Functions 
     bool hasAttackType() const { return this->attackType_ != nullptr;};
     void deleteAttackType() { this->attackType_ = nullptr;};
@@ -113,6 +117,13 @@ namespace Models
     inline DescribeEventLogRequest& setPageSize(string pageSize) { DARABONBA_PTR_SET_VALUE(pageSize_, pageSize) };
 
 
+    // ruleId Field Functions 
+    bool hasRuleId() const { return this->ruleId_ != nullptr;};
+    void deleteRuleId() { this->ruleId_ = nullptr;};
+    inline string getRuleId() const { DARABONBA_PTR_GET_DEFAULT(ruleId_, "") };
+    inline DescribeEventLogRequest& setRuleId(string ruleId) { DARABONBA_PTR_SET_VALUE(ruleId_, ruleId) };
+
+
     // ruleResult Field Functions 
     bool hasRuleResult() const { return this->ruleResult_ != nullptr;};
     void deleteRuleResult() { this->ruleResult_ = nullptr;};
@@ -141,6 +152,13 @@ namespace Models
     inline DescribeEventLogRequest& setSrcIP(string srcIP) { DARABONBA_PTR_SET_VALUE(srcIP_, srcIP) };
 
 
+    // sslHandshakeRes Field Functions 
+    bool hasSslHandshakeRes() const { return this->sslHandshakeRes_ != nullptr;};
+    void deleteSslHandshakeRes() { this->sslHandshakeRes_ = nullptr;};
+    inline string getSslHandshakeRes() const { DARABONBA_PTR_GET_DEFAULT(sslHandshakeRes_, "") };
+    inline DescribeEventLogRequest& setSslHandshakeRes(string sslHandshakeRes) { DARABONBA_PTR_SET_VALUE(sslHandshakeRes_, sslHandshakeRes) };
+
+
     // startTime Field Functions 
     bool hasStartTime() const { return this->startTime_ != nullptr;};
     void deleteStartTime() { this->startTime_ = nullptr;};
@@ -151,22 +169,22 @@ namespace Models
   protected:
     // The attack type of the intrusion prevention event. Valid values:
     // - **1**: Abnormal connection.
-    // - **2**: Command execution.
-    // - **3**: Brute-force attack.
+    // - **2**: execute commands.
+    // - **3**: brute-force attacks.
     // - **4**: Scan.
     // - **5**: Other.
-    // - **6**: Information leakage.
+    // - **6**: Information leak.
     // - **7**: DoS attack.
     // - **8**: Overflow attack.
     // - **9**: Web attack.
-    // - **10**: Trojan or backdoor.
-    // - **11**: Virus or worm.
+    // - **10**: Trojan backdoor.
+    // - **11**: Virus and worm.
     // - **12**: Mining behavior.
     // - **13**: Reverse shell.
     // 
-    // > If this parameter is not specified, all attack types are queried.
+    // > If you do not specify the Settings for this parameter, events of all attack types are queried.
     shared_ptr<int64_t> attackType_ {};
-    // The page number for a paged query.
+    // The page number for paging in a paged query.
     shared_ptr<string> currentPage_ {};
     // The destination IP address to query. If you specify this parameter, the intrusion prevention events that involve this destination IP address are queried.
     shared_ptr<string> dstIP_ {};
@@ -175,17 +193,19 @@ namespace Models
     // This parameter is required.
     shared_ptr<string> endTime_ {};
     // The type of Cloud Firewall. Valid values:
-    // - **VpcFirewall**: virtual private cloud (VPC) firewalls.
+    // - **VpcFirewall**: virtual private cloud (VPC) firewalls at the border.
     // - **InternetFirewall** (default): the Internet Border firewall.
     shared_ptr<string> firewallType_ {};
     // The language for receiving messages.
     shared_ptr<string> lang_ {};
     // The log type.
     shared_ptr<string> logType_ {};
-    // The number of entries to return on each page.
+    // Specifies the number of results per page for a paginated query.
     // 
-    // Default value: **6**, which indicates that 6 entries are returned on each page. Maximum value: **10**.
+    // Default value: **6**, which indicates that 6 results are returned per page. Maximum value: **10**.
     shared_ptr<string> pageSize_ {};
+    // Filters event logs by rule hits. The value must be the same as the RuleId value in the response. If LogType is set to ips, pass the UUID of the IPS rule (the RuleUuid value returned by DescribeIPSRules) instead of the numeric format (font style) of the RuleId. If both RuleId and AttackType are specified, records that meet both conditions are returned. This parameter takes effect for ips, app_ctl, web_filter, and threat_intelligence. If LogType is set to tls and this parameter is specified, a parameter fault is returned. If no matching records are found, TotalCount is 0. If you do not specify this parameter, event logs are not filtered by rule hit.
+    shared_ptr<string> ruleId_ {};
     // The defense status of Cloud Firewall. Valid values:
     // - **1**: Alert.
     // - **2**: Block.
@@ -200,6 +220,8 @@ namespace Models
     shared_ptr<string> sourceIp_ {};
     // The source IP address to query. If you specify this parameter, the intrusion prevention events that involve this source IP address are queried.
     shared_ptr<string> srcIP_ {};
+    // Filters by the exact TLS handshake result. This parameter takes effect only when LogType is set to tls and is ignored for other types. Valid values: bypass, alert, and failed (handshake failure). If this parameter is not specified, records of the bypass, alert, and failed types are returned, and normal traffic with successful handshakes (success) is not returned.
+    shared_ptr<string> sslHandshakeRes_ {};
     // The start time of the query. The value is a UNIX timestamp in seconds.
     // 
     // This parameter is required.

@@ -111,12 +111,14 @@ namespace Models
           public:
             friend void to_json(Darabonba::Json& j, const NatRouteEntryList& obj) { 
               DARABONBA_PTR_TO_JSON(DestinationCidr, destinationCidr_);
+              DARABONBA_PTR_TO_JSON(DivertStatus, divertStatus_);
               DARABONBA_PTR_TO_JSON(NextHopId, nextHopId_);
               DARABONBA_PTR_TO_JSON(NextHopType, nextHopType_);
               DARABONBA_PTR_TO_JSON(RouteTableId, routeTableId_);
             };
             friend void from_json(const Darabonba::Json& j, NatRouteEntryList& obj) { 
               DARABONBA_PTR_FROM_JSON(DestinationCidr, destinationCidr_);
+              DARABONBA_PTR_FROM_JSON(DivertStatus, divertStatus_);
               DARABONBA_PTR_FROM_JSON(NextHopId, nextHopId_);
               DARABONBA_PTR_FROM_JSON(NextHopType, nextHopType_);
               DARABONBA_PTR_FROM_JSON(RouteTableId, routeTableId_);
@@ -133,12 +135,19 @@ namespace Models
             virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
             virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
             virtual bool empty() const override { return this->destinationCidr_ == nullptr
-        && this->nextHopId_ == nullptr && this->nextHopType_ == nullptr && this->routeTableId_ == nullptr; };
+        && this->divertStatus_ == nullptr && this->nextHopId_ == nullptr && this->nextHopType_ == nullptr && this->routeTableId_ == nullptr; };
             // destinationCidr Field Functions 
             bool hasDestinationCidr() const { return this->destinationCidr_ != nullptr;};
             void deleteDestinationCidr() { this->destinationCidr_ = nullptr;};
             inline string getDestinationCidr() const { DARABONBA_PTR_GET_DEFAULT(destinationCidr_, "") };
             inline NatRouteEntryList& setDestinationCidr(string destinationCidr) { DARABONBA_PTR_SET_VALUE(destinationCidr_, destinationCidr) };
+
+
+            // divertStatus Field Functions 
+            bool hasDivertStatus() const { return this->divertStatus_ != nullptr;};
+            void deleteDivertStatus() { this->divertStatus_ = nullptr;};
+            inline string getDivertStatus() const { DARABONBA_PTR_GET_DEFAULT(divertStatus_, "") };
+            inline NatRouteEntryList& setDivertStatus(string divertStatus) { DARABONBA_PTR_SET_VALUE(divertStatus_, divertStatus) };
 
 
             // nextHopId Field Functions 
@@ -165,11 +174,18 @@ namespace Models
           protected:
             // The destination CIDR block.
             shared_ptr<string> destinationCidr_ {};
+            // The current traffic redirection status of the route entry. Valid values:
+            // - diverted: Traffic is redirected to the firewall.
+            // - undiverted: Traffic is not redirected and still points to the NAT gateway.
+            // - diverting: Traffic redirection is in progress.
+            // - undiverting: Traffic redirection cancellation is in progress.
+            // - abnormal: Traffic redirection is abnormal.
+            shared_ptr<string> divertStatus_ {};
             // The next hop instance ID.
             shared_ptr<string> nextHopId_ {};
-            // The network type of the next hop.
+            // The next hop network type.
             shared_ptr<string> nextHopType_ {};
-            // The ID of the route table.
+            // The route table ID.
             shared_ptr<string> routeTableId_ {};
           };
 
@@ -267,13 +283,13 @@ namespace Models
       protected:
         // The IPv4 CIDR block of the VPC.
         shared_ptr<string> cidrBlock_ {};
-        // The UID of the member accounts.
+        // The UID of member accounts.
         shared_ptr<string> memberUid_ {};
         // The list of NAT gateways.
         shared_ptr<vector<VpcList::NatGateways>> natGateways_ {};
         // The VPC-connected instance ID.
         shared_ptr<string> vpcId_ {};
-        // The name of the VPC-connected instance.
+        // The VPC-connected instance name.
         shared_ptr<string> vpcName_ {};
       };
 

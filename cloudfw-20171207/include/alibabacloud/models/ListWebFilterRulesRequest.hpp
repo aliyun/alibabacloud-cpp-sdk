@@ -77,12 +77,12 @@ namespace Models
   protected:
     // The page number. Pages start from 1. Default value: 1.
     shared_ptr<int64_t> pageNo_ {};
-    // The number of entries per page. Valid values: integers greater than or equal to 1. Default value: 10.
+    // The number of entries per page. The value must be greater than or equal to 1. Default value: 10.
     shared_ptr<int64_t> pageSize_ {};
     // The rule action for exact matching. Valid values:
-    // - **Allow**: allows the traffic.
-    // - **Alert**: monitors the traffic.
-    // - **Deny**: blocks the traffic.
+    // - **Allow**: Allows the request.
+    // - **Alert**: Monitors the request.
+    // - **Deny**: Blocks the request.
     shared_ptr<string> ruleAction_ {};
     // The ID of the web filtering rule for exact matching.
     shared_ptr<string> webFilterRuleId_ {};

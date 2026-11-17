@@ -111,7 +111,7 @@ namespace Models
       shared_ptr<string> destinationISP_ {};
       // The destination region.
       shared_ptr<string> destinationRegion_ {};
-      // The operation time. The value is a UNIX timestamp accurate to seconds, such as 1672502400.
+      // The operation time. The value is a UNIX timestamp in seconds, such as 1672502400.
       shared_ptr<int32_t> operationTime_ {};
     };
 
@@ -155,7 +155,7 @@ namespace Models
 
 
   protected:
-    // The list of destinations returned.
+    // The returned list of destinations.
     shared_ptr<vector<DescribeConfiguredDestinationIPResponseBody::Destinations>> destinations_ {};
     // The page number of the current page.
     shared_ptr<int32_t> pageNo_ {};

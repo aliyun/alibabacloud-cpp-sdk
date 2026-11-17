@@ -83,7 +83,7 @@ namespace Models
     shared_ptr<int64_t> totalCount_ {};
     // The number of unprotected items.
     shared_ptr<int64_t> unprotectedCount_ {};
-    // The number of used quotas.
+    // The used count.
     shared_ptr<int64_t> usedCount_ {};
   };
 

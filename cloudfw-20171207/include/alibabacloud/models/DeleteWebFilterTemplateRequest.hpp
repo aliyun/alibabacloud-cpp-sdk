@@ -38,7 +38,7 @@ namespace Models
 
 
   protected:
-    // The ID of the web filtering template to be deleted. This parameter is required. If this parameter is empty, a parameter fault is returned. The template must exist in the current Alibaba Cloud account. A template cannot be deleted if it is referenced by an access control policy of the Internet border, NAT, or virtual private cloud (VPC) firewalls.
+    // The ID of the web filtering template to delete. This parameter is required. If you leave this parameter empty, a parameter fault is returned. The template must exist within the current Alibaba Cloud account. A template cannot be deleted if it is referenced by an access control policy of the Internet border, NAT firewalls, or virtual private cloud (VPC) firewalls.
     shared_ptr<string> webFilterTemplateId_ {};
   };
 

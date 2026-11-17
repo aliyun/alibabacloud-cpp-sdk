@@ -80,10 +80,10 @@ namespace Models
 
 
     protected:
-      // The action to take on the application. Valid values:
-      // - **Allow**: Allow.
-      // - **Alert**: Monitor.
-      // - **Deny**: Block.
+      // The action to perform on the application. Valid values:
+      // - **Allow**: Allows the traffic.
+      // - **Alert**: Monitors the traffic.
+      // - **Deny**: Blocks the traffic.
       shared_ptr<string> action_ {};
       // The ID of the application for which you want to configure a custom action. The application must exist in the built-in application signature library and the ID cannot be 0. You can call the ListApplications operation to query the ID.
       shared_ptr<int64_t> applicationId_ {};
@@ -144,34 +144,34 @@ namespace Models
 
 
   protected:
-    // The list of custom actions to configure for built-in applications. Application IDs in the list must be unique.
+    // The list of custom actions to configure for built-in applications. The application IDs in the list must be unique.
     shared_ptr<vector<CreateApplicationTemplateRequest::AddBuiltInApplicationCustomActions>> addBuiltInApplicationCustomActions_ {};
     // The name of the application template. The name must be 1 to 64 characters in length and can contain Chinese characters, letters, digits, hyphens (-), underscores (_), and periods (.). It cannot contain spaces or be empty.
     // 
     // This parameter is required.
     shared_ptr<string> applicationTemplateName_ {};
-    // The switch status of built-in application control. Valid values: **Enable**, which indicates that built-in application control is enabled. If you specify Disable, an error is returned.
+    // The switch status of built-in application control. Only **Enable** is supported, which indicates that built-in application control is enabled. If you pass Disable, an error is returned.
     // 
     // This parameter is required.
     shared_ptr<string> builtInApplicationStatus_ {};
     // The switch status of custom application rules. Valid values:
-    // - **Enable**: Enabled.
-    // - **Disable**: Disabled.
+    // - **Enable**: Enables the feature.
+    // - **Disable**: Disables the feature.
     // 
     // This parameter is required.
     shared_ptr<string> customRuleStatus_ {};
     // The description of the application template. The description can be up to 128 characters in length and can be empty.
     shared_ptr<string> description_ {};
-    // The master switch status of the application template. Valid values:
-    // - **Enable**: Enabled.
-    // - **Disable**: Disabled.
+    // The overall switch status of the application template. Valid values:
+    // - **Enable**: Enables the template.
+    // - **Disable**: Disables the template.
     // 
     // This parameter is required.
     shared_ptr<string> templateStatus_ {};
     // The action to take on unidentified applications. Valid values:
-    // - **Allow**: Allow.
-    // - **Alert**: Monitor.
-    // - **Deny**: Block.
+    // - **Allow**: Allows the traffic.
+    // - **Alert**: Monitors the traffic.
+    // - **Deny**: Blocks the traffic.
     // 
     // This parameter is required.
     shared_ptr<string> unknownAction_ {};

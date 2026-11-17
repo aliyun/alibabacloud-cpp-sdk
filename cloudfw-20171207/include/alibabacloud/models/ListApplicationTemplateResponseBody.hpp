@@ -215,34 +215,34 @@ namespace Models
 
 
     protected:
-      // The ID of the application template.
+      // The application template ID.
       shared_ptr<string> applicationTemplateId_ {};
       // The name of the application template.
       shared_ptr<string> applicationTemplateName_ {};
-      // The statistics on built-in applications in the template, categorized by the final effective action.
+      // The statistics on the number of built-in applications in the template, categorized by the final effective action.
       shared_ptr<ApplicationTemplates::BuiltInApplicationActionStatistics> builtInApplicationActionStatistics_ {};
       // The switch status of built-in application control. Valid values:
-      // - **Enable**: Enabled.
-      // - **Disable**: Disabled.
+      // - **Enable**: enabled
+      // - **Disable**: disabled
       shared_ptr<string> builtInApplicationStatus_ {};
       // The creation time of the application template. The value is a UNIX timestamp in seconds.
       shared_ptr<int64_t> createTime_ {};
       // The number of custom application rules under the template.
       shared_ptr<int64_t> customRuleCount_ {};
       // The switch status of custom application rules. Valid values:
-      // - **Enable**: Enabled.
-      // - **Disable**: Disabled.
+      // - **Enable**: enabled
+      // - **Disable**: disabled
       shared_ptr<string> customRuleStatus_ {};
       // The description of the application template.
       shared_ptr<string> description_ {};
-      // The overall switch status of the application template. Valid values:
-      // - **Enable**: Enabled.
-      // - **Disable**: Disabled.
+      // The master switch status of the application template. Valid values:
+      // - **Enable**: enabled
+      // - **Disable**: disabled
       shared_ptr<string> templateStatus_ {};
-      // The action for unidentified applications. Valid values:
-      // - **Allow**: Allow.
-      // - **Alert**: Monitor.
-      // - **Deny**: Block.
+      // The action for unrecognized applications. Valid values:
+      // - **Allow**: allow
+      // - **Alert**: monitor
+      // - **Deny**: block
       shared_ptr<string> unknownAction_ {};
       // The last modification time of the application template. The value is a UNIX timestamp in seconds.
       shared_ptr<int64_t> updateTime_ {};

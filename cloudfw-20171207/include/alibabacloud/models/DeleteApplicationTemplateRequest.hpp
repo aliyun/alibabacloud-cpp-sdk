@@ -38,6 +38,7 @@ namespace Models
 
 
   protected:
+    // The ID of the application program template to delete. This parameter is required. If you leave this parameter empty, a parameter fault is returned. The template must exist within the current Alibaba Cloud account. You cannot delete a template if it contains custom application program rules or is referenced by an access control policy of the Internet border, NAT, or virtual private cloud (VPC) firewalls.
     shared_ptr<string> applicationTemplateId_ {};
   };
 

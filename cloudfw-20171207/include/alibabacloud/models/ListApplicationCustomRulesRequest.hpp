@@ -112,15 +112,31 @@ namespace Models
 
 
   protected:
+    // The ID of the application custom rule. Exact match is supported.
     shared_ptr<string> applicationCustomRuleId_ {};
+    // The name of the custom rule. Fuzzy match is supported.
     shared_ptr<string> applicationCustomRuleName_ {};
+    // The ID of the application. This parameter is used to filter custom rules associated with the application. The application must exist in the built-in application signature library.
     shared_ptr<int64_t> applicationId_ {};
+    // The ID of the application template to query. This parameter is required. The template must exist within the current Alibaba Cloud account.
+    // 
     // This parameter is required.
     shared_ptr<string> applicationTemplateId_ {};
+    // The language of the returned information. Valid values:
+    // - **zh**: Chinese. This is the default value.
+    // - **en**: English.
+    // This parameter determines whether the returned application names are in Chinese or English.
     shared_ptr<string> lang_ {};
+    // The page number. Valid values: integers greater than or equal to 1. Default value: 1.
     shared_ptr<int64_t> pageNo_ {};
+    // The number of entries per page. Valid values: integers greater than or equal to 1. Default value: 10.
     shared_ptr<int64_t> pageSize_ {};
+    // The priority of the rule. Exact match is supported. Valid values: integers from 1 to 200.
     shared_ptr<int64_t> priority_ {};
+    // The action of the rule. Exact match is supported. Valid values:
+    // - **Allow**: allows the traffic.
+    // - **Alert**: monitors the traffic.
+    // - **Deny**: blocks the traffic.
     shared_ptr<string> ruleAction_ {};
   };
 

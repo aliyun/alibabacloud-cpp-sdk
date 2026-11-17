@@ -132,25 +132,25 @@ namespace Models
   protected:
     // The current page number.
     shared_ptr<string> currentPage_ {};
-    // The ID of the SLB instance. Fuzzy match is supported.
+    // The ID of the SLB instance. Fuzzy matching is supported.
     shared_ptr<string> instanceId_ {};
-    // The name of the SLB instance. Fuzzy match is supported.
+    // The name of the SLB instance. Fuzzy matching is supported.
     shared_ptr<string> instanceName_ {};
     // The protocol type.
     shared_ptr<string> ipProtocol_ {};
-    // The language of the response message.
+    // The language in which messages are received.
     shared_ptr<string> lang_ {};
     // The number of entries per page.
     shared_ptr<string> pageSize_ {};
     // The port.
     shared_ptr<string> port_ {};
-    // The public IP address. Fuzzy match is supported. If you do not specify this parameter, all public IP addresses are queried.
+    // The public IP address. Fuzzy matching is supported. If not specified, all public IP addresses are queried.
     shared_ptr<string> publicIp_ {};
-    // The region. If you do not specify this parameter, all regions are queried.
+    // The region. If not specified, all regions are queried.
     shared_ptr<string> regionNo_ {};
-    // The originating IP address of the requester.
+    // The source IP address of the client.
     shared_ptr<string> sourceIp_ {};
-    // The tag. If you do not specify this parameter, all tags are queried.
+    // The tag. If not specified, all tags are queried.
     shared_ptr<string> tag_ {};
   };
 

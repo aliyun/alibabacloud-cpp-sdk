@@ -96,17 +96,17 @@ namespace Models
   protected:
     // The number of inbound access control policies on the Internet border.
     shared_ptr<int32_t> internetInAclCount_ {};
-    // The number of outbound access control policies that are created for the Internet firewall on the Internet Border.
+    // The number of outbound access control policies that are created for the Internet firewall at the Internet Border.
     shared_ptr<int32_t> internetOutAclCount_ {};
-    // The number of inbound access control policies on the NAT border.>Notice: Deprecated field
+    // **[Deprecated]** The number of inbound access control policies on the NAT firewall.
     shared_ptr<int32_t> natInAclCount_ {};
-    // The number of outbound access control policies on the NAT border.
+    // The number of outbound access control policies on the NAT firewall.
     shared_ptr<int32_t> natOutAclCount_ {};
     // The ID of the request.
     shared_ptr<string> requestId_ {};
     // The total number of access control policies.
     shared_ptr<int32_t> totalAclCount_ {};
-    // The number of access control policies on the VPC border.
+    // The number of access control policies on the VPC firewall.
     shared_ptr<int32_t> vpcAclCount_ {};
   };
 

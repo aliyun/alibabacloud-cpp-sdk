@@ -194,7 +194,7 @@ namespace Models
 
 
     protected:
-      // The attacked application.
+      // The attack application.
       shared_ptr<string> attackApp_ {};
       // The attack type.
       shared_ptr<string> attackType_ {};
@@ -208,7 +208,7 @@ namespace Models
       shared_ptr<string> description_ {};
       // The supported engine mode.
       // 
-      // This value is valid only when DefaultMode is set to drop (Block). In other modes, this value is meaningless.
+      // This value takes effect only when DefaultMode is set to drop (Block). It is not applicable in other modes.
       shared_ptr<int32_t> ruleClass_ {};
       // The rule ID.
       shared_ptr<string> ruleId_ {};
@@ -216,11 +216,11 @@ namespace Models
       shared_ptr<int64_t> ruleLevel_ {};
       // The rule name.
       shared_ptr<string> ruleName_ {};
-      // The UUID of the rule.
+      // The rule UUID.
       shared_ptr<string> ruleUuid_ {};
-      // The timestamp when the rule was modified.
+      // The timestamp when the rule was updated.
       shared_ptr<int64_t> updateTime_ {};
-      // Specifies whether the rule is a custom rule.
+      // Indicates whether the rule is a custom rule.
       shared_ptr<string> userDefined_ {};
       // The user status.
       shared_ptr<int32_t> userStatus_ {};
@@ -295,7 +295,7 @@ namespace Models
 
 
   protected:
-    // The total number of rules with the block action.
+    // The total number of block rules.
     shared_ptr<int64_t> dropCount_ {};
     // The number of high-risk rules.
     shared_ptr<int64_t> highRiskCount_ {};

@@ -304,16 +304,16 @@ namespace Models
       shared_ptr<string> attackApp_ {};
       // The attack type of the intrusion prevention event. Valid values:
       // - **1**: Abnormal connection.
-      // - **2**: Command execution.
-      // - **3**: Brute-force attack.
+      // - **2**: execute commands.
+      // - **3**: brute-force attacks.
       // - **4**: Scan.
       // - **5**: Other.
-      // - **6**: Information leakage.
+      // - **6**: Information leak.
       // - **7**: DoS attack.
       // - **8**: Overflow attack.
       // - **9**: Web attack.
-      // - **10**: Trojan or backdoor.
-      // - **11**: Virus or worm.
+      // - **10**: Trojan backdoor.
+      // - **11**: Virus and worm.
       // - **12**: Mining behavior.
       // - **13**: Reverse shell.
       shared_ptr<int64_t> attackType_ {};
@@ -321,7 +321,7 @@ namespace Models
       // - **in**: Inbound.
       // - **out**: Outbound.
       shared_ptr<string> direction_ {};
-      // The queried destination IP address. This indicates that the intrusion prevention event involves this destination IP address.
+      // The destination IP address. This indicates that the intrusion prevention event involves this destination IP address.
       shared_ptr<string> dstIP_ {};
       // The destination port.
       shared_ptr<int32_t> dstPort_ {};
@@ -331,11 +331,11 @@ namespace Models
       shared_ptr<string> hitType_ {};
       // The protocol type.
       shared_ptr<string> ipProtocol_ {};
-      // The UID of the Cloud Firewall member account.
+      // The UID of the Cloud Firewall member accounts.
       shared_ptr<int64_t> memberUid_ {};
       // The ID of the protection rule for the intrusion prevention event.
       shared_ptr<string> ruleId_ {};
-      // The name of the rule.
+      // The rule name.
       shared_ptr<string> ruleName_ {};
       // The defense status. Valid values:
       // - **1**: Alert.
@@ -346,23 +346,23 @@ namespace Models
       // - **2**: Virtual Patches.
       // - **4**: Threat intelligence.
       shared_ptr<int64_t> ruleSource_ {};
-      // The SNI used when the TLS connection is established.
+      // The Server Name Indication (SNI) used when the TLS connection is established.
       shared_ptr<string> sni_ {};
-      // The queried source IP address. This indicates that the intrusion prevention event involves this source IP address.
+      // The source IP address. This indicates that the intrusion prevention event involves this source IP address.
       shared_ptr<string> srcIP_ {};
       // The source port.
       shared_ptr<int32_t> srcPort_ {};
-      // The cipher suite used for TLS handshake negotiation, such as TLS_AES_128_GCM_SHA256.
+      // The cipher suite negotiated during the TLS handshake, such as TLS_AES_128_GCM_SHA256.
       shared_ptr<string> sslCipher_ {};
       // The phase in which the TLS handshake fails, such as Certificate.
       shared_ptr<string> sslErrorIndex_ {};
       // The reason for the TLS handshake failure, such as BAD_PACKET_LENGTH.
       shared_ptr<string> sslErrorMsg_ {};
-      // The TLS handshake result. For example, success indicates that the handshake is successful.
+      // The TLS handshake result. For example, success indicates a successful handshake.
       shared_ptr<string> sslHandshakeRes_ {};
       // The TLS version, such as TLSv1.3.
       shared_ptr<string> sslProtocol_ {};
-      // The start time of the data. The value is a timestamp in seconds.
+      // The start time of the data. The value is a UNIX timestamp in seconds.
       shared_ptr<int64_t> startTime_ {};
       // The URL path.
       shared_ptr<string> url_ {};
@@ -399,7 +399,7 @@ namespace Models
 
 
   protected:
-    // The list of ISPs.
+    // The data list.
     shared_ptr<vector<DescribeEventLogResponseBody::DataList>> dataList_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

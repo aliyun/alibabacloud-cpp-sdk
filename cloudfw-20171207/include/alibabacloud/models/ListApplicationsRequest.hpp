@@ -157,7 +157,7 @@ namespace Models
     // - **Medium**: Medium.
     // - **High**: High.
     // - **Critical**: Critical.
-    // If an invalid value is specified, this filter condition is ignored.
+    // If an invalid value is passed, this filter condition is ignored.
     shared_ptr<string> risk_ {};
     // The technology type name. Fuzzy match is supported.
     shared_ptr<string> technology_ {};

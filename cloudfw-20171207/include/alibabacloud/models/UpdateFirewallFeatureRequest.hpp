@@ -49,12 +49,12 @@ namespace Models
 
   protected:
     // The name of the feature to enable. Valid values:
-    // - **ApplicationControl**: application control.
-    // - **WebFilter**: web filtering.
+    // - **ApplicationControl**: application control
+    // - **WebFilter**: web filtering
     // 
     // This parameter is required.
     shared_ptr<string> featureName_ {};
-    // The feature status. The only valid value is **Enable**, which enables the feature. If you specify Disable or any other value, an error is returned. This operation is idempotent if the feature is already enabled.
+    // The status of the feature. Only **Enable** is supported, which enables the feature. Specifying Disable or other values returns an error. This operation is idempotent if the feature is already enabled.
     // 
     // This parameter is required.
     shared_ptr<string> status_ {};

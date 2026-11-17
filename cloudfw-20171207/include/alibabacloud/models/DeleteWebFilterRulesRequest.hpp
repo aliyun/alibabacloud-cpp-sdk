@@ -41,7 +41,7 @@ namespace Models
 
 
   protected:
-    // The IDs of the web filtering rules to delete. You can specify up to 100 IDs in a single request. The IDs cannot be empty and must be unique.
+    // The list of web filtering rule IDs to delete. You can specify up to 100 IDs in a single request. The IDs cannot be empty and must be unique.
     // 
     // This parameter is required.
     shared_ptr<vector<string>> webFilterRuleIds_ {};

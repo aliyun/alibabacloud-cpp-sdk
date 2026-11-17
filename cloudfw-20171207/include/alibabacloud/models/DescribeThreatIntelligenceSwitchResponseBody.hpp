@@ -110,23 +110,23 @@ namespace Models
     protected:
       // The action of the rule. Valid values:
       // 
-      //  **alert**: monitor mode.
+      //  **alert**: Monitor.
       // 
-      //  **drop**: Block Mode.
+      //  **drop**: Block.
       shared_ptr<string> action_ {};
-      // The category description.
+      // The description of the category.
       shared_ptr<string> categoryDescribe_ {};
       // The ID of the threat intelligence category.
       shared_ptr<string> categoryId_ {};
-      // The category name.
+      // The name of the category.
       shared_ptr<string> categoryName_ {};
       // The ID of the parent threat intelligence category.
       shared_ptr<string> categoryParentId_ {};
-      // The enabling status. Valid values:
+      // The enable status. Valid values:
       // 
-      //  **1**: enabled.
+      //  **1**: Enabled.
       // 
-      //  **0**: disabled.
+      //  **0**: Disabled.
       shared_ptr<int64_t> enableStatus_ {};
     };
 
@@ -160,7 +160,7 @@ namespace Models
     shared_ptr<vector<DescribeThreatIntelligenceSwitchResponseBody::CategoryList>> categoryList_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The total number of entries returned.
+    // The total count.
     shared_ptr<int64_t> totalCount_ {};
   };
 

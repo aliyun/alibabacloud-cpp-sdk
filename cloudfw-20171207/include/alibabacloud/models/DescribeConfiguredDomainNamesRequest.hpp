@@ -103,7 +103,7 @@ namespace Models
 
 
   protected:
-    // The current page number.
+    // The page number of the current page.
     shared_ptr<string> currentPage_ {};
     // The traffic direction.
     // 
@@ -115,15 +115,15 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> groupName_ {};
-    // The language of the request and response messages.
+    // The language of the request and response.
     shared_ptr<string> lang_ {};
     // The number of entries per page.
     shared_ptr<string> pageSize_ {};
-    // The tracing code.
+    // The source code.
     // 
     // This parameter is required.
     shared_ptr<string> sourceCode_ {};
-    // The source IP address of the visitor.
+    // The source IP address of the requester.
     shared_ptr<string> sourceIp_ {};
   };
 

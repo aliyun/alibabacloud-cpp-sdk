@@ -121,38 +121,38 @@ namespace Models
 
 
   protected:
-    // The language of the response. Valid values:
+    // The language of the response message. Valid values:
     // 
-    // - **zh** (default): Chinese
-    // - **en**: English
+    // - **zh** (default): Chinese.
+    // - **en**: English.
     shared_ptr<string> lang_ {};
     // The UID of the member account of the current Alibaba Cloud account.
     shared_ptr<int64_t> memberUid_ {};
-    // The NAT gateway ID.
+    // The ID of the NAT gateway.
     shared_ptr<string> natGatewayId_ {};
     // The page number of the current page.
     shared_ptr<int64_t> pageNo_ {};
-    // The number of NAT firewalls to display on each page in a paged query.
+    // The number of NAT firewalls to return on each page in a paged query.
     // 
-    // Default value: **10**, which indicates that each page contains **10** results. Maximum value: **50**.
+    // Default value: **10**, which indicates that **10** results are returned per page. Maximum value: **50**.
     shared_ptr<int64_t> pageSize_ {};
-    // The NAT firewall ID.
+    // The ID of the NAT firewall.
     shared_ptr<string> proxyId_ {};
-    // The NAT firewall name. The name can contain uppercase and lowercase letters, Chinese characters, digits, and underscores (_). The name must be 4 to 50 characters in length and cannot start with an underscore.
+    // The name of the NAT firewall. The name can contain uppercase and lowercase letters, Chinese characters, digits, and underscores (_). It must be 4 to 50 characters in length and cannot start with an underscore.
     shared_ptr<string> proxyName_ {};
     // The region ID of the VPC.
     // 
     // > For more information about the regions supported by Cloud Firewall, see [Supported regions](https://help.aliyun.com/document_detail/195657.html).
     shared_ptr<string> regionNo_ {};
-    // The Cloud Firewall status. Valid values:
+    // The status of the NAT firewall. Valid values:
     // 
-    // - configuring: being created
-    // - deleting: being deleted
-    // - normal: normal
-    // - abnormal: abnormal
-    // - opening: being enabled
-    // - closing: being disabled
-    // - closed: disabled
+    // - configuring: Creating.
+    // - deleting: Deleting.
+    // - normal: Normal.
+    // - abnormal: Abnormal.
+    // - opening: Enabling.
+    // - closing: Disabling.
+    // - closed: Disabled.
     shared_ptr<string> status_ {};
     // The VPC-connected instance ID.
     shared_ptr<string> vpcId_ {};

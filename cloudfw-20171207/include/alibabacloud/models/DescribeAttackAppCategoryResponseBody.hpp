@@ -72,7 +72,7 @@ namespace Models
 
 
     protected:
-      // The list of attack applications.
+      // The attack applications.
       shared_ptr<vector<string>> attackApps_ {};
       // The name of the attack application category.
       shared_ptr<string> categoryName_ {};
@@ -97,7 +97,7 @@ namespace Models
 
 
   protected:
-    // The list of attack application categories.
+    // The attack application categories.
     shared_ptr<vector<DescribeAttackAppCategoryResponseBody::AppCategories>> appCategories_ {};
     // The ID of the request.
     shared_ptr<string> requestId_ {};

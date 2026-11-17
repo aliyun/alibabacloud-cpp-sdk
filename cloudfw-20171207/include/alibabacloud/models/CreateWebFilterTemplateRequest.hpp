@@ -59,13 +59,13 @@ namespace Models
   protected:
     // The description of the web filtering template. The description can be up to 128 characters in length and can be empty.
     shared_ptr<string> description_ {};
-    // The name of the web filtering template. The name must be 1 to 64 characters in length and can contain Chinese characters, letters, digits, hyphens (-), underscores (_), and periods (.). The name cannot contain spaces or be empty.
+    // The name of the web filtering template. The name must be 1 to 64 characters in length and can contain Chinese characters, letters, digits, hyphens (-), underscores (_), and periods (.). It cannot contain spaces or be empty.
     // 
     // This parameter is required.
     shared_ptr<string> name_ {};
     // The status of the web filtering template. Valid values:
-    // - **Enable**: Enabled.
-    // - **Disable**: Disabled.
+    // - **Enable**: enabled.
+    // - **Disable**: disabled.
     // 
     // This parameter is required.
     shared_ptr<string> status_ {};

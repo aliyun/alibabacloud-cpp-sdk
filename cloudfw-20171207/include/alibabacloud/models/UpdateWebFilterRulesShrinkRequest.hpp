@@ -38,7 +38,7 @@ namespace Models
 
 
   protected:
-    // The list of web filtering rules to be modified. You can specify up to 20 rules at a time, and the rule IDs in the list must be unique.
+    // The list of web filtering rules to be updated. You can specify up to 20 rules at a time. The rule IDs in the list must be unique.
     // 
     // This parameter is required.
     shared_ptr<string> rulesShrink_ {};

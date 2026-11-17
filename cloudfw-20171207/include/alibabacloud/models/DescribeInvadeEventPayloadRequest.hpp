@@ -109,11 +109,9 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> endTime_ {};
-    // The unique ID of the event.
+    // The UUID of the event.
     shared_ptr<string> eventUuid_ {};
-    // The language of the request and response. Valid values:
-    // - **zh**: Chinese
-    // - **en**: English
+    // The language of the request and response. Valid values: - **zh**: Chinese. - **en**: English.
     shared_ptr<string> lang_ {};
     // The private IP address of the asset where the intrusion event occurred.
     shared_ptr<string> privateIP_ {};

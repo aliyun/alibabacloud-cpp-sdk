@@ -87,11 +87,19 @@ namespace Models
 
 
   protected:
+    // The description of the web filtering template. Fuzzy match is supported.
     shared_ptr<string> description_ {};
+    // The name of the web filtering template. Fuzzy match is supported.
     shared_ptr<string> name_ {};
+    // The page number. Pages start from 1. Default value: 1.
     shared_ptr<int64_t> pageNo_ {};
+    // The number of entries per page. Valid values: 1 to 100. Default value: 10.
     shared_ptr<int64_t> pageSize_ {};
+    // The status of the web filtering template. Exact match is supported. Valid values:
+    // - **Enable**: Enabled.
+    // - **Disable**: Disabled.
     shared_ptr<string> status_ {};
+    // The IDs of the web filtering templates for batch exact matching. You can specify up to 100 template IDs.
     shared_ptr<vector<string>> webFilterTemplateIds_ {};
   };
 

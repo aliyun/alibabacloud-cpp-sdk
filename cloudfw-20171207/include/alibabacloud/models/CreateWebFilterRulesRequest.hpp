@@ -144,11 +144,11 @@ namespace Models
 
 
   protected:
-    // The list of web filtering rules. You can specify a maximum of 100 rules at a time, and the total number of rules in the template after creation cannot exceed 100.
+    // The list of web filtering rules. You can specify a maximum of 100 rules at a time, and the total number of rules in the template after creation must not exceed 100.
     // 
     // This parameter is required.
     shared_ptr<vector<CreateWebFilterRulesRequest::Rules>> rules_ {};
-    // The ID of the web filtering template to which the web filtering rules belong. The template must exist under the current Alibaba Cloud account.
+    // The ID of the web filtering template to which the web filtering rules belong. The template must exist within the current Alibaba Cloud account.
     // 
     // This parameter is required.
     shared_ptr<string> webFilterTemplateId_ {};

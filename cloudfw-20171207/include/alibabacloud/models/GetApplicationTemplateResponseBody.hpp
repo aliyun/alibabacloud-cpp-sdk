@@ -198,19 +198,19 @@ namespace Models
       shared_ptr<string> applicationTemplateName_ {};
       // The list of built-in application actions.
       shared_ptr<vector<ApplicationTemplate::BuiltInApplicationActions>> builtInApplicationActions_ {};
-      // The switch status of built-in application control. Valid values:
+      // The switch status for built-in application control. Valid values:
       // - **Enable**: Enabled.
       // - **Disable**: Disabled.
       shared_ptr<string> builtInApplicationStatus_ {};
       // The creation time of the application template. The value is a UNIX timestamp in seconds.
       shared_ptr<int64_t> createTime_ {};
-      // The switch status of custom application rules. Valid values:
+      // The switch status for custom application rules. Valid values:
       // - **Enable**: Enabled.
       // - **Disable**: Disabled.
       shared_ptr<string> customRuleStatus_ {};
       // The description of the application template.
       shared_ptr<string> description_ {};
-      // The master switch status of the application template. Valid values:
+      // The overall switch status of the application template. Valid values:
       // - **Enable**: Enabled.
       // - **Disable**: Disabled.
       shared_ptr<string> templateStatus_ {};
@@ -219,7 +219,7 @@ namespace Models
       // - **Alert**: Monitors the traffic.
       // - **Deny**: Blocks the traffic.
       shared_ptr<string> unknownAction_ {};
-      // The last modification time of the application template. The value is a UNIX timestamp in seconds.
+      // The last update time of the application template. The value is a UNIX timestamp in seconds.
       shared_ptr<int64_t> updateTime_ {};
     };
 

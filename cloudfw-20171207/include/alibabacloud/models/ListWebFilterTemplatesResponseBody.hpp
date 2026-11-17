@@ -114,8 +114,11 @@ namespace Models
 
 
       protected:
+        // The number of web filtering rules whose action is Alert in the template.
         shared_ptr<int64_t> alert_ {};
+        // The number of web filtering rules whose action is Allow in the template.
         shared_ptr<int64_t> allow_ {};
+        // The number of web filtering rules whose action is Deny in the template.
         shared_ptr<int64_t> deny_ {};
       };
 
@@ -166,11 +169,19 @@ namespace Models
 
 
     protected:
+      // The creation time of the web filtering template. The value is a UNIX timestamp in seconds.
       shared_ptr<int64_t> createTime_ {};
+      // The description of the web filtering template.
       shared_ptr<string> description_ {};
+      // The name of the web filtering template.
       shared_ptr<string> name_ {};
+      // The statistics on the number of web filtering rules in the template categorized by action.
       shared_ptr<WebFilterTemplates::RuleActionStatistics> ruleActionStatistics_ {};
+      // The status of the web filtering template. Valid values:
+      // - **Enable**: Enabled.
+      // - **Disable**: Disabled.
       shared_ptr<string> status_ {};
+      // The ID of the web filtering template.
       shared_ptr<string> webFilterTemplateId_ {};
     };
 
@@ -214,10 +225,15 @@ namespace Models
 
 
   protected:
+    // The current page number.
     shared_ptr<int64_t> pageNo_ {};
+    // The number of entries per page.
     shared_ptr<int64_t> pageSize_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // The total number of web filtering templates that meet the filter conditions.
     shared_ptr<int64_t> totalCount_ {};
+    // The list of web filtering templates.
     shared_ptr<vector<ListWebFilterTemplatesResponseBody::WebFilterTemplates>> webFilterTemplates_ {};
   };
 

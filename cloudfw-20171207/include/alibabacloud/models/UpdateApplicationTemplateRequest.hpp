@@ -74,7 +74,7 @@ namespace Models
 
 
     protected:
-      // The ID of the application for which you want to remove custom actions. The application must exist in the built-in application signature library.
+      // The ID of the application from which to remove custom actions. The application must exist in the built-in application signature library.
       shared_ptr<int64_t> applicationId_ {};
     };
 
@@ -121,7 +121,7 @@ namespace Models
       // - **Alert**: Monitor.
       // - **Deny**: Block.
       shared_ptr<string> action_ {};
-      // The ID of the application for which you want to configure custom actions. The application must exist in the built-in application signature library and the ID cannot be 0. You can call the ListApplications operation to query the ID.
+      // The ID of the application for which to set custom actions. The application must exist in the built-in application signature library and the ID cannot be 0. You can call the ListApplications operation to query the ID.
       shared_ptr<int64_t> applicationId_ {};
     };
 
@@ -204,7 +204,7 @@ namespace Models
     shared_ptr<string> applicationTemplateId_ {};
     // The name of the application template. The name must be 1 to 64 characters in length and can contain Chinese characters, letters, digits, hyphens (-), underscores (_), and periods (.). It cannot contain spaces. If this parameter is not specified or is left empty, the original value is retained.
     shared_ptr<string> applicationTemplateName_ {};
-    // The switch status of built-in application control. Only **Enable** is supported. If you specify Disable, an error is returned. If this parameter is not specified or is left empty, the original value is retained.
+    // The switch status of built-in application control. Valid values: only **Enable** is supported. If you specify Disable, an error is returned. If this parameter is not specified or is left empty, the original value is retained.
     shared_ptr<string> builtInApplicationStatus_ {};
     // The switch status of custom rules for applications. Valid values:
     // - **Enable**: Enabled.
@@ -213,9 +213,9 @@ namespace Models
     shared_ptr<string> customRuleStatus_ {};
     // The description of the application template. The description can be up to 128 characters in length. If this parameter is not specified, the original value is retained. If an empty string is specified, the description is cleared.
     shared_ptr<string> description_ {};
-    // The list of built-in applications for which you want to remove custom actions. After removal, these applications revert to the default actions of the template. The same application ID cannot appear in AddBuiltInApplicationCustomActions at the same time.
+    // The list of built-in applications from which to remove custom actions. After removal, these applications revert to the default actions of the template. The same application ID cannot appear in AddBuiltInApplicationCustomActions at the same time.
     shared_ptr<vector<UpdateApplicationTemplateRequest::RemoveBuiltInApplicationCustomActions>> removeBuiltInApplicationCustomActions_ {};
-    // The overall switch status of the application template. Valid values:
+    // The master switch status of the application template. Valid values:
     // - **Enable**: Enabled.
     // - **Disable**: Disabled.
     // If this parameter is not specified or is left empty, the original value is retained.

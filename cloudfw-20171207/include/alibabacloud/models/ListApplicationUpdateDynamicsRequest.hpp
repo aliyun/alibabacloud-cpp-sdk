@@ -57,8 +57,14 @@ namespace Models
 
 
   protected:
+    // The language of the returned information. Valid values:
+    // - **zh**: Chinese. This is the default value.
+    // - **en**: English.
+    // This parameter determines whether the update description and application name are returned in Chinese or English.
     shared_ptr<string> lang_ {};
+    // The page number. Pages start from 1. Default value: 1.
     shared_ptr<int64_t> pageNo_ {};
+    // The number of entries per page. The value must be greater than or equal to 1. Default value: 10.
     shared_ptr<int64_t> pageSize_ {};
   };
 

@@ -16,6 +16,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(AttackApp, attackApp_);
       DARABONBA_PTR_TO_JSON(FirewallType, firewallType_);
       DARABONBA_PTR_TO_JSON(Lang, lang_);
+      DARABONBA_PTR_TO_JSON(ProxyId, proxyId_);
       DARABONBA_PTR_TO_JSON(RuleType, ruleType_);
       DARABONBA_PTR_TO_JSON(Rules, rules_);
       DARABONBA_PTR_TO_JSON(SourceIp, sourceIp_);
@@ -24,6 +25,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(AttackApp, attackApp_);
       DARABONBA_PTR_FROM_JSON(FirewallType, firewallType_);
       DARABONBA_PTR_FROM_JSON(Lang, lang_);
+      DARABONBA_PTR_FROM_JSON(ProxyId, proxyId_);
       DARABONBA_PTR_FROM_JSON(RuleType, ruleType_);
       DARABONBA_PTR_FROM_JSON(Rules, rules_);
       DARABONBA_PTR_FROM_JSON(SourceIp, sourceIp_);
@@ -40,7 +42,8 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->attackApp_ == nullptr
-        && this->firewallType_ == nullptr && this->lang_ == nullptr && this->ruleType_ == nullptr && this->rules_ == nullptr && this->sourceIp_ == nullptr; };
+        && this->firewallType_ == nullptr && this->lang_ == nullptr && this->proxyId_ == nullptr && this->ruleType_ == nullptr && this->rules_ == nullptr
+        && this->sourceIp_ == nullptr; };
     // attackApp Field Functions 
     bool hasAttackApp() const { return this->attackApp_ != nullptr;};
     void deleteAttackApp() { this->attackApp_ = nullptr;};
@@ -60,6 +63,13 @@ namespace Models
     void deleteLang() { this->lang_ = nullptr;};
     inline string getLang() const { DARABONBA_PTR_GET_DEFAULT(lang_, "") };
     inline ModifyIpsRulesToDefaultRequest& setLang(string lang) { DARABONBA_PTR_SET_VALUE(lang_, lang) };
+
+
+    // proxyId Field Functions 
+    bool hasProxyId() const { return this->proxyId_ != nullptr;};
+    void deleteProxyId() { this->proxyId_ = nullptr;};
+    inline string getProxyId() const { DARABONBA_PTR_GET_DEFAULT(proxyId_, "") };
+    inline ModifyIpsRulesToDefaultRequest& setProxyId(string proxyId) { DARABONBA_PTR_SET_VALUE(proxyId_, proxyId) };
 
 
     // ruleType Field Functions 
@@ -86,25 +96,25 @@ namespace Models
   protected:
     // The attack application.
     shared_ptr<string> attackApp_ {};
-    // The type of the cloud firewall. Valid values:
-    // - **VpcFirewall**: virtual private cloud (VPC) firewalls.
-    // - **InternetFirewall** (default): the Internet border firewall.
+    // The Cloud Firewall type. Valid values:
+    // - **VpcFirewall**: virtual private cloud (VPC) firewall
+    // - **InternetFirewall** (default): the Internet firewall
     shared_ptr<string> firewallType_ {};
-    // The language of the content. Valid values:
+    // The language type. Valid values:
     // 
     // - **zh** (default): Chinese.
     // 
     // - **en**: English.
     shared_ptr<string> lang_ {};
+    // Instance ID of the NAT firewall instance. This parameter is required only when FirewallType is set to **NatFirewall**. In this case, the scope is the rules under this instance. This parameter is ignored for Internet and VPC firewalls. You can call the [ListNatFirewallIpsConfigs](https://help.aliyun.com/document_detail/2879296.html) operation to query instance ID.
+    shared_ptr<string> proxyId_ {};
     // The rule type. Valid values:
     // - **basicRule**
     // - **customize**
-    // 
-    // This parameter is required.
     shared_ptr<string> ruleType_ {};
-    // The rule list. Conditional requirement: when RuleType is set to customize, you must specify at least one of this parameter or AttackApp. If you specify only RuleType without Rules or AttackApp, the API returns ErrorParameters.
+    // The list of rules. This parameter is conditionally required: when RuleType is set to customize, you must specify at least one of this parameter or AttackApp. If you specify only RuleType without Rules or AttackApp, the API returns an ErrorParameters error.
     shared_ptr<string> rules_ {};
-    // The source IP address of the request.
+    // The source IP address of the requester.
     shared_ptr<string> sourceIp_ {};
   };
 

@@ -115,17 +115,17 @@ namespace Models
 
 
   protected:
-    // The IDs of the application templates for batch exact matching.
+    // The list of application template IDs for batch exact matching.
     shared_ptr<vector<string>> applicationTemplateIds_ {};
-    // The name of the application template for fuzzy matching.
+    // The application template name for fuzzy matching.
     shared_ptr<string> applicationTemplateName_ {};
     // The switch status of built-in application control for exact matching. Valid values:
-    // - **Enable**: Enabled.
-    // - **Disable**: Disabled.
+    // - **Enable**: enabled
+    // - **Disable**: disabled
     shared_ptr<string> builtInApplicationStatus_ {};
     // The switch status of custom application rules for exact matching. Valid values:
-    // - **Enable**: Enabled.
-    // - **Disable**: Disabled.
+    // - **Enable**: enabled
+    // - **Disable**: disabled
     shared_ptr<string> customRuleStatus_ {};
     // The description of the application template for fuzzy matching.
     shared_ptr<string> description_ {};
@@ -133,14 +133,14 @@ namespace Models
     shared_ptr<int64_t> pageNo_ {};
     // The number of entries per page. The value must be greater than or equal to 1. Default value: 10.
     shared_ptr<int64_t> pageSize_ {};
-    // The overall switch status of the application template for exact matching. Valid values:
-    // - **Enable**: Enabled.
-    // - **Disable**: Disabled.
+    // The master switch status of the application template for exact matching. Valid values:
+    // - **Enable**: enabled
+    // - **Disable**: disabled
     shared_ptr<string> templateStatus_ {};
-    // The action for unidentified applications for exact matching. Valid values:
-    // - **Allow**: Allow.
-    // - **Alert**: Monitor.
-    // - **Deny**: Block.
+    // The action for unrecognized applications for exact matching. Valid values:
+    // - **Allow**: allow
+    // - **Alert**: monitor
+    // - **Deny**: block
     shared_ptr<string> unknownAction_ {};
   };
 

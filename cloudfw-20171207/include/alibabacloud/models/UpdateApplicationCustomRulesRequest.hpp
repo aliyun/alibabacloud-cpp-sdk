@@ -108,20 +108,20 @@ namespace Models
 
 
     protected:
-      // The list of application IDs to be associated. You can specify up to 200 IDs. The IDs cannot be 0 and must exist in the built-in application signature library. The IDs must not overlap with those in RemoveApplicationIds. The combined list of added and removed IDs cannot be empty and cannot exceed 200.
+      // The list of application IDs to be associated. You can specify up to 200 IDs. The IDs cannot be 0 and must exist in the built-in application signature library. The IDs must not overlap with those in RemoveApplicationIds. The combined list cannot be empty and can contain up to 200 IDs.
       shared_ptr<vector<int64_t>> addApplicationIds_ {};
       // The ID of the custom application rule to be modified. The rule must exist within the current Alibaba Cloud account.
       shared_ptr<string> applicationCustomRuleId_ {};
-      // The name of the custom rule. The name can be up to 64 characters in length and can contain Chinese characters, English letters, digits, hyphens (-), underscores (_), and periods (.). If this parameter is not specified or is left empty, the original value is retained.
+      // The name of the custom rule. The name can be up to 64 characters in length and can contain Chinese characters, letters, digits, hyphens (-), underscores (_), and periods (.). If this parameter is not specified or is left empty, the original value is retained.
       shared_ptr<string> applicationCustomRuleName_ {};
-      // The priority of the rule. This parameter is required in actual calls. Valid values: integers from 1 to 200. A smaller value indicates a higher priority. Priorities must be unique within the same template. You can swap priorities by deleting and then re-inserting rules.
+      // The priority of the rule. This parameter is required. Valid values: integers from 1 to 200. A smaller value indicates a higher priority. Priorities must be unique within the same template. You can swap priorities by deleting and then re-inserting rules.
       shared_ptr<int64_t> priority_ {};
-      // The list of application IDs to be disassociated. You can specify up to 200 IDs. The IDs must not overlap with those in AddApplicationIds. The combined list of added and removed IDs cannot be empty and cannot exceed 200.
+      // The list of application IDs to be disassociated. You can specify up to 200 IDs. The IDs must not overlap with those in AddApplicationIds. The combined list cannot be empty and can contain up to 200 IDs.
       shared_ptr<vector<int64_t>> removeApplicationIds_ {};
-      // The action to perform after a rule is matched. This parameter is required in actual calls. Valid values:
-      // - **Allow**: Allows the traffic.
-      // - **Alert**: Monitors the traffic.
-      // - **Deny**: Blocks the traffic.
+      // The action to perform when the rule is matched. This parameter is required. Valid values:
+      // - **Allow**: allows the traffic.
+      // - **Alert**: monitors the traffic.
+      // - **Deny**: blocks the traffic.
       shared_ptr<string> ruleAction_ {};
     };
 

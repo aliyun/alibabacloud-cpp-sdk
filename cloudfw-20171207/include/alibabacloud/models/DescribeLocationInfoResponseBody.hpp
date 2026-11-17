@@ -275,9 +275,9 @@ namespace Models
     shared_ptr<vector<DescribeLocationInfoResponseBody::CnList>> cnList_ {};
     // The province and city information in the Chinese mainland.
     shared_ptr<vector<DescribeLocationInfoResponseBody::CnProvinceList>> cnProvinceList_ {};
-    // The number of regions outside the Chinese mainland.
+    // The number of regions outside China.
     shared_ptr<int32_t> overseasCount_ {};
-    // The list of regions outside the Chinese mainland.
+    // The list of regions outside China.
     shared_ptr<vector<DescribeLocationInfoResponseBody::OverseasList>> overseasList_ {};
     // The ID of the request.
     shared_ptr<string> requestId_ {};

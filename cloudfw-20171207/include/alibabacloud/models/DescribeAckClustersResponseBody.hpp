@@ -156,21 +156,21 @@ namespace Models
       // The specifications of the ACK cluster.
       shared_ptr<string> clusterSpec_ {};
       // The type of the ACK cluster. Valid values:
-      // - **ManagedKubernetes**: ACK managed clusters, including ACK managed clusters (Pro Edition and Basic Edition), ACK Serverless clusters (Pro Edition and Basic Edition), ACK Edge clusters (Pro Edition and Basic Edition), and ACK Lingjun clusters (Pro Edition).
-      // - **ExternalKubernetes**: registered cluster
-      // - **Kubernetes**: ACK dedicated cluster
+      // - **ManagedKubernetes**: managed ACK clusters, including ACK managed clusters (Pro Edition and Basic Edition), ACK Serverless clusters (Pro Edition and Basic Edition), ACK Edge clusters (Pro Edition and Basic Edition), and ACK Lingjun clusters (Pro Edition)
+      // - **ExternalKubernetes**: registered clusters
+      // - **Kubernetes**: dedicated ACK clusters
       shared_ptr<string> clusterType_ {};
-      // The Alibaba Cloud UID of the account to which the ACK cluster resources belong.
+      // The Alibaba Cloud account ID to which the ACK cluster resources belong.
       shared_ptr<string> memberUid_ {};
       // The network plug-in of the ACK cluster. Valid values:
-      // - **terway-eniip**: terway-eniip network plug-in
-      // - **Flannel**: flannel network plug-in
+      // - **terway-eniip**: the Terway-eniip network plug-in
+      // - **Flannel**: the Flannel network plug-in
       shared_ptr<string> network_ {};
-      // The subtype of the cluster. This parameter is valid only when ClusterType is set to ManagedKubernetes (ACK managed clusters). Valid values:
-      // - **Default**: ACK managed cluster, including ACK managed cluster Pro Edition and Basic Edition
-      // - **Serverless**: ACK Serverless cluster, including ACK Serverless cluster Pro Edition and Basic Edition
-      // - **Edge**: ACK Edge cluster, including ACK Edge cluster Pro Edition and Basic Edition
-      // - **Lingjun**: ACK Lingjun cluster, which provides only the Pro Edition
+      // When `ClusterType` is set to `ManagedKubernetes` (managed ACK clusters), this parameter indicates the subtype of the cluster. Valid values:
+      // - **Default**: ACK managed clusters, including ACK managed clusters Pro Edition and Basic Edition
+      // - **Serverless**: ACK Serverless clusters, including ACK Serverless clusters Pro Edition and Basic Edition
+      // - **Edge**: ACK Edge clusters, including ACK Edge clusters Pro Edition and Basic Edition
+      // - **Lingjun**: ACK Lingjun clusters, available only in Pro Edition
       shared_ptr<string> profile_ {};
       // The region ID of the ACK cluster.
       shared_ptr<string> regionId_ {};

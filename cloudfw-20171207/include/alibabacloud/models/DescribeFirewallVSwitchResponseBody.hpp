@@ -191,7 +191,7 @@ namespace Models
 
 
     protected:
-      // The number of available IP addresses.
+      // The available IP address count.
       shared_ptr<string> availableIpCount_ {};
       // The IPv4 CIDR block.
       shared_ptr<string> cidrBlock_ {};
@@ -199,15 +199,15 @@ namespace Models
       shared_ptr<string> firewallCount_ {};
       // The list of firewalls.
       shared_ptr<vector<VswitchList::FirewallList>> firewallList_ {};
-      // The UID of the member account.
+      // The UID of the member accounts.
       shared_ptr<string> memberUid_ {};
       // The region ID.
       shared_ptr<string> regionNo_ {};
       // The VPC-connected instance ID.
       shared_ptr<string> vpcId_ {};
-      // The ID of the vSwitch.
+      // The vSwitch ID.
       shared_ptr<string> vswitchId_ {};
-      // The name of the vSwitch.
+      // The vSwitch name.
       shared_ptr<string> vswitchName_ {};
       // The zone ID.
       shared_ptr<string> zoneId_ {};

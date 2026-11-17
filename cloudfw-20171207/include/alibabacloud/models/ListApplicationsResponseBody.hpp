@@ -269,7 +269,7 @@ namespace Models
     shared_ptr<vector<ListApplicationsResponseBody::Applications>> applications_ {};
     // The current page number.
     shared_ptr<int64_t> pageNo_ {};
-    // The current page size.
+    // The number of entries per page.
     shared_ptr<int64_t> pageSize_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

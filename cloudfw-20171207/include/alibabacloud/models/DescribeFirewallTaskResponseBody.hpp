@@ -104,7 +104,7 @@ namespace Models
     protected:
       // The task information.
       shared_ptr<string> stepInfo_ {};
-      // Creating Cloud Firewall security.
+      // Creates Cloud Firewall security.
       shared_ptr<string> stepName_ {};
       // The progress of the task step.
       shared_ptr<string> stepProgress_ {};

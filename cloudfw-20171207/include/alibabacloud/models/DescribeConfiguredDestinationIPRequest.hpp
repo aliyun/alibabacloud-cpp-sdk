@@ -121,7 +121,7 @@ namespace Models
 
 
   protected:
-    // The page number.
+    // The current page number.
     shared_ptr<string> currentPage_ {};
     // The destination IP address.
     shared_ptr<string> destinationIP_ {};
@@ -133,15 +133,15 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> direction_ {};
-    // The group name.
+    // The name of the group.
     // 
     // This parameter is required.
     shared_ptr<string> groupName_ {};
-    // The language for receiving messages.
+    // The language type for receiving messages.
     shared_ptr<string> lang_ {};
     // The number of entries per page.
     shared_ptr<string> pageSize_ {};
-    // The tracing code.
+    // The source code.
     // 
     // This parameter is required.
     shared_ptr<string> sourceCode_ {};

@@ -38,6 +38,8 @@ namespace Models
 
 
   protected:
+    // The list of IDs of the custom application rules to delete. You can specify up to 100 IDs in a single request. The IDs cannot be empty and must be unique.
+    // 
     // This parameter is required.
     shared_ptr<string> applicationCustomRuleIdsShrink_ {};
   };

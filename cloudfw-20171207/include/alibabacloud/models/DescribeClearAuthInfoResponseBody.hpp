@@ -59,7 +59,7 @@ namespace Models
   protected:
     // The expiration timestamp.
     shared_ptr<int32_t> endTime_ {};
-    // The number of remaining clearances.
+    // The number of remaining clearance operations.
     shared_ptr<int32_t> leftTimes_ {};
     // The ID of the request.
     shared_ptr<string> requestId_ {};

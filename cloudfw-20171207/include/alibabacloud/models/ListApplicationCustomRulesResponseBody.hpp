@@ -105,7 +105,9 @@ namespace Models
 
 
       protected:
+        // The ID of the application in the built-in application signature library.
         shared_ptr<int64_t> applicationId_ {};
+        // The name of the application. The name is returned in Chinese or English based on the Lang parameter.
         shared_ptr<string> applicationName_ {};
       };
 
@@ -156,11 +158,20 @@ namespace Models
 
 
     protected:
+      // The ID of the application custom rule.
       shared_ptr<string> applicationCustomRuleId_ {};
+      // The name of the custom rule.
       shared_ptr<string> applicationCustomRuleName_ {};
+      // The ID of the application template to which the rule belongs.
       shared_ptr<string> applicationTemplateId_ {};
+      // The list of applications associated with the rule.
       shared_ptr<vector<ApplicationCustomRules::Applications>> applications_ {};
+      // The priority of the rule. Valid values: integers from 1 to 200. A smaller value indicates a higher priority.
       shared_ptr<int64_t> priority_ {};
+      // The action performed after the rule is matched. Valid values:
+      // - **Allow**: allows the traffic.
+      // - **Alert**: monitors the traffic.
+      // - **Deny**: blocks the traffic.
       shared_ptr<string> ruleAction_ {};
     };
 
@@ -204,10 +215,15 @@ namespace Models
 
 
   protected:
+    // The list of application custom rules, sorted by priority in ascending order.
     shared_ptr<vector<ListApplicationCustomRulesResponseBody::ApplicationCustomRules>> applicationCustomRules_ {};
+    // The current page number.
     shared_ptr<int64_t> pageNo_ {};
+    // The number of entries per page.
     shared_ptr<int64_t> pageSize_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // The total number of application custom rules that meet the filter conditions.
     shared_ptr<int64_t> totalCount_ {};
   };
 

@@ -294,7 +294,7 @@ namespace Models
   protected:
     // The number of returned entries.
     shared_ptr<int32_t> dataCount_ {};
-    // The returned data list.
+    // The list of returned data.
     shared_ptr<vector<DescribeInternetTimeTopResponseBody::DataList>> dataList_ {};
     // The ID of the request.
     shared_ptr<string> requestId_ {};

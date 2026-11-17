@@ -93,7 +93,7 @@ namespace Models
       protected:
         // The type of the match condition. Only **URL** is supported, which indicates matching by URL.
         shared_ptr<string> key_ {};
-        // The URL to match. It cannot be empty and must not exceed 240 bytes in length (each Chinese character counts as 3 bytes). It must contain at least one forward slash (/), and the first segment must contain letters, digits, or Chinese characters. It cannot contain a protocol header, query parameters, or fragment identifiers. A single asterisk (*) indicates matching all URLs. When a wildcard is used, a maximum of one wildcard is allowed and it must end with /*. URLs within the same template must be unique.
+        // The URL to match. The value cannot be empty and must not exceed 240 bytes in length. Each Chinese character is counted as 3 bytes. The URL must contain at least one forward slash (/), and the first segment must contain letters, digits, or Chinese characters. The URL cannot contain a protocol header, query parameters, or fragment identifiers. A single asterisk (*) matches all URLs. If a wildcard is used, only one wildcard is allowed and it must end with /*. URLs within the same template must be unique.
         shared_ptr<string> values_ {};
       };
 
@@ -123,14 +123,14 @@ namespace Models
 
 
     protected:
-      // The list of match conditions for the rule. The list must contain exactly one condition. After the modification, URLs within the same template must be unique.
+      // The list of match conditions for the rule. The list must contain exactly one condition. After the update, URLs within the same template must be unique.
       shared_ptr<vector<Rules::Conditions>> conditions_ {};
       // The action to perform when the rule is matched. Valid values:
       // - **Allow**: allows the request.
       // - **Alert**: monitors the request.
       // - **Deny**: blocks the request.
       shared_ptr<string> ruleAction_ {};
-      // The ID of the web filtering rule to be modified. The rule must exist within the current Alibaba Cloud account.
+      // The ID of the web filtering rule to be updated. The rule must exist within the current Alibaba Cloud account.
       shared_ptr<string> webFilterRuleId_ {};
     };
 
@@ -145,7 +145,7 @@ namespace Models
 
 
   protected:
-    // The list of web filtering rules to be modified. You can specify up to 20 rules at a time, and the rule IDs in the list must be unique.
+    // The list of web filtering rules to be updated. You can specify up to 20 rules at a time. The rule IDs in the list must be unique.
     // 
     // This parameter is required.
     shared_ptr<vector<UpdateWebFilterRulesRequest::Rules>> rules_ {};

@@ -25,6 +25,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(Order, order_);
       DARABONBA_PTR_TO_JSON(PageNo, pageNo_);
       DARABONBA_PTR_TO_JSON(PageSize, pageSize_);
+      DARABONBA_PTR_TO_JSON(ProxyId, proxyId_);
       DARABONBA_PTR_TO_JSON(QueryModify, queryModify_);
       DARABONBA_PTR_TO_JSON(RuleAction, ruleAction_);
       DARABONBA_PTR_TO_JSON(RuleClass, ruleClass_);
@@ -48,6 +49,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(Order, order_);
       DARABONBA_PTR_FROM_JSON(PageNo, pageNo_);
       DARABONBA_PTR_FROM_JSON(PageSize, pageSize_);
+      DARABONBA_PTR_FROM_JSON(ProxyId, proxyId_);
       DARABONBA_PTR_FROM_JSON(QueryModify, queryModify_);
       DARABONBA_PTR_FROM_JSON(RuleAction, ruleAction_);
       DARABONBA_PTR_FROM_JSON(RuleClass, ruleClass_);
@@ -73,8 +75,9 @@ namespace Models
     virtual bool empty() const override { return this->attackApp_ == nullptr
         && this->attackAppCategory_ == nullptr && this->attackApps_ == nullptr && this->attackType_ == nullptr && this->cve_ == nullptr && this->defaultAction_ == nullptr
         && this->firewallType_ == nullptr && this->lang_ == nullptr && this->order_ == nullptr && this->pageNo_ == nullptr && this->pageSize_ == nullptr
-        && this->queryModify_ == nullptr && this->ruleAction_ == nullptr && this->ruleClass_ == nullptr && this->ruleId_ == nullptr && this->ruleLevel_ == nullptr
-        && this->ruleName_ == nullptr && this->ruleType_ == nullptr && this->sort_ == nullptr && this->sourceIp_ == nullptr && this->vpcFirewallId_ == nullptr; };
+        && this->proxyId_ == nullptr && this->queryModify_ == nullptr && this->ruleAction_ == nullptr && this->ruleClass_ == nullptr && this->ruleId_ == nullptr
+        && this->ruleLevel_ == nullptr && this->ruleName_ == nullptr && this->ruleType_ == nullptr && this->sort_ == nullptr && this->sourceIp_ == nullptr
+        && this->vpcFirewallId_ == nullptr; };
     // attackApp Field Functions 
     bool hasAttackApp() const { return this->attackApp_ != nullptr;};
     void deleteAttackApp() { this->attackApp_ = nullptr;};
@@ -156,6 +159,13 @@ namespace Models
     inline DescribeIPSRulesRequest& setPageSize(int64_t pageSize) { DARABONBA_PTR_SET_VALUE(pageSize_, pageSize) };
 
 
+    // proxyId Field Functions 
+    bool hasProxyId() const { return this->proxyId_ != nullptr;};
+    void deleteProxyId() { this->proxyId_ = nullptr;};
+    inline string getProxyId() const { DARABONBA_PTR_GET_DEFAULT(proxyId_, "") };
+    inline DescribeIPSRulesRequest& setProxyId(string proxyId) { DARABONBA_PTR_SET_VALUE(proxyId_, proxyId) };
+
+
     // queryModify Field Functions 
     bool hasQueryModify() const { return this->queryModify_ != nullptr;};
     void deleteQueryModify() { this->queryModify_ = nullptr;};
@@ -227,11 +237,11 @@ namespace Models
 
 
   protected:
-    // The attacked application.
+    // The attack application.
     shared_ptr<string> attackApp_ {};
-    // The list of categories of the attacked applications. Specify the value in the ["AttackAppCategory1","AttackAppCategory2"] format.
+    // The list of categories of the attacked applications, in the format of ["AttackAppCategory1","AttackAppCategory2"].
     shared_ptr<vector<string>> attackAppCategory_ {};
-    // The list of attacked applications.
+    // The list of attack applications.
     shared_ptr<vector<string>> attackApps_ {};
     // The attack application type.
     shared_ptr<string> attackType_ {};
@@ -253,6 +263,8 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<int64_t> pageSize_ {};
+    // The instance ID of the NAT firewall. This parameter is required only when FirewallType is set to **NatFirewall** and is mutually exclusive with VpcFirewallId. You can obtain the ID by calling the [ListNatFirewallIpsConfigs](https://help.aliyun.com/document_detail/2879296.html) operation.
+    shared_ptr<string> proxyId_ {};
     // Specifies whether the rule has been modified.
     shared_ptr<string> queryModify_ {};
     // The rule action.
@@ -271,9 +283,9 @@ namespace Models
     shared_ptr<string> ruleType_ {};
     // The sorting method.
     shared_ptr<string> sort_ {};
-    // The source IP address of the requester.
+    // The source IP address of the visitor.
     shared_ptr<string> sourceIp_ {};
-    // The instance ID of the virtual private cloud (VPC) firewalls.
+    // The instance ID of the virtual private cloud (VPC) border firewalls.
     shared_ptr<string> vpcFirewallId_ {};
   };
 

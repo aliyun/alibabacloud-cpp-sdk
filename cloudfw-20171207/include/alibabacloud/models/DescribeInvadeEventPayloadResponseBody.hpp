@@ -96,13 +96,13 @@ namespace Models
   protected:
     // The instance ID of the asset to which the event belongs.
     shared_ptr<string> assetsInstanceId_ {};
-    // The unique ID of the event.
+    // The UUID of the event.
     shared_ptr<string> eventUuid_ {};
     // The end position (character index) of the matched content in the payload.
     shared_ptr<int32_t> highlightEnd_ {};
     // The start position (character index) of the matched content in the payload.
     shared_ptr<int32_t> highlightStart_ {};
-    // The raw packet payload content of the intrusion event.
+    // The original packet payload of the intrusion event.
     shared_ptr<string> payload_ {};
     // The length of the payload in bytes.
     shared_ptr<int32_t> payloadLen_ {};

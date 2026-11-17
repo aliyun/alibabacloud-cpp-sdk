@@ -105,7 +105,7 @@ namespace Models
 
 
       protected:
-        // The type of the matching condition. Only **URL** is supported, which indicates matching by URL.
+        // The type of the match condition. Valid values: **URL**, which indicates matching by URL.
         shared_ptr<string> key_ {};
         // The URL to match. A single asterisk (*) matches all URLs. A value ending with /* indicates prefix wildcard matching.
         shared_ptr<string> values_ {};
@@ -158,14 +158,14 @@ namespace Models
 
 
     protected:
-      // The matching conditions of the rule. The list contains only one condition.
+      // The list of match conditions for the rule. The list contains only one condition.
       shared_ptr<vector<Rules::Conditions>> conditions_ {};
       // The time when the web filtering rule was created. The value is a UNIX timestamp in seconds.
       shared_ptr<int64_t> createTime_ {};
       // The action performed after the rule is matched. Valid values:
-      // - **Allow**: allows the traffic.
-      // - **Alert**: monitors the traffic.
-      // - **Deny**: blocks the traffic.
+      // - **Allow**: Allows the request.
+      // - **Alert**: Monitors the request.
+      // - **Deny**: Blocks the request.
       shared_ptr<string> ruleAction_ {};
       // The time when the web filtering rule was last modified. The value is a UNIX timestamp in seconds.
       shared_ptr<int64_t> updateTime_ {};
@@ -217,9 +217,9 @@ namespace Models
   protected:
     // The current page number.
     shared_ptr<int64_t> pageNo_ {};
-    // The current number of entries per page.
+    // The number of entries per page.
     shared_ptr<int64_t> pageSize_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
     // The list of web filtering rules.
     shared_ptr<vector<ListWebFilterRulesResponseBody::Rules>> rules_ {};

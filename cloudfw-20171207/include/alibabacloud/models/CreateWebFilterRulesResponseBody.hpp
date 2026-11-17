@@ -53,7 +53,7 @@ namespace Models
   protected:
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The list of IDs of the newly created web filtering rules. The order of the IDs corresponds to the order of the input Rules parameter.
+    // The list of IDs of the newly created web filtering rules. The order of the IDs corresponds one-to-one with the order of the input Rules parameter.
     shared_ptr<vector<string>> webFilterRuleIds_ {};
   };
 

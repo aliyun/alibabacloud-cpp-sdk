@@ -109,9 +109,9 @@ namespace Models
     shared_ptr<string> clusterName_ {};
     // The specifications of the ACK cluster.
     shared_ptr<string> clusterSpec_ {};
-    // The status of the connector instance for the ACK cluster.
+    // The instance status of the connector in the ACK cluster.
     shared_ptr<string> connectorStatus_ {};
-    // The Alibaba Cloud UID of the account to which the ACK cluster resources belong.
+    // The Alibaba Cloud account ID to which the ACK cluster resources belong.
     shared_ptr<string> memberUid_ {};
     // The page number.
     // 

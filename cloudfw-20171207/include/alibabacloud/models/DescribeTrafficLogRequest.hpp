@@ -416,7 +416,7 @@ namespace Models
 
 
   protected:
-    // The ID of the ACL pre-match rule.
+    // The ACL pre-match rule ID.
     shared_ptr<string> aclPreRuleId_ {};
     // The ACL pre-match status.
     shared_ptr<string> aclPreState_ {};
@@ -444,7 +444,7 @@ namespace Models
     shared_ptr<string> dstVpcId_ {};
     // The region of the destination VPC asset.
     shared_ptr<string> dstVpcRegionNo_ {};
-    // The end time. Specify the time in the UNIX timestamp format in seconds.
+    // The end time. Specify a UNIX timestamp in seconds.
     // 
     // This parameter is required.
     shared_ptr<string> endTime_ {};
@@ -458,28 +458,27 @@ namespace Models
     shared_ptr<string> ipVersion_ {};
     // The ISP.
     shared_ptr<string> isp_ {};
-    // The language of the received messages. Valid values:
+    // The language in which you want to receive messages. Valid values:
     // - **zh** (default): Chinese
     // - **en**: English
     shared_ptr<string> lang_ {};
     // The region of the source or destination IP address.
     shared_ptr<string> location_ {};
-    // The UID of the member accounts.
+    // The UID of the member account.
     shared_ptr<int64_t> memberUid_ {};
     // The NAT firewall ID.
     shared_ptr<string> natFirewallId_ {};
     // The NAT gateway ID.
     shared_ptr<string> natGatewayId_ {};
-    // The number of entries per page. The value cannot exceed 20.
+    // The number of entries per page. Maximum value: 20.
     shared_ptr<string> pageSize_ {};
-    // The query ID.
-    // If the query scope is too large, a query ID is returned. You can use the query ID for subsequent queries.
+    // The query ID. If the query scope is too large, a query ID is returned. You can use the query ID to perform subsequent queries.
     shared_ptr<string> queryId_ {};
     // The rule ID.
     shared_ptr<string> ruleId_ {};
-    // The rule action.
+    // The action performed by the rule.
     shared_ptr<string> ruleResult_ {};
-    // The rule source.
+    // The source of the rule.
     shared_ptr<string> ruleSource_ {};
     // The module that ultimately takes effect.
     shared_ptr<string> ruleSourceFinal_ {};
@@ -493,21 +492,21 @@ namespace Models
     shared_ptr<string> srcIP_ {};
     // The source port.
     shared_ptr<string> srcPort_ {};
-    // The source private IP address.
+    // The private IP address of the source.
     shared_ptr<string> srcPrivateIP_ {};
     // The source VPC ID.
     shared_ptr<string> srcVpcId_ {};
     // The region of the source VPC asset.
     shared_ptr<string> srcVpcRegionNo_ {};
-    // The start time. Specify the time in the UNIX timestamp format in seconds. Only data within the last 7 days can be queried. A single query covers a maximum of one day.
+    // The start time. Specify a UNIX timestamp in seconds. You can query data only from the last 7 days. We recommend that you specify a time range of no more than one day for a single query.
     // 
     // This parameter is required.
     shared_ptr<string> startTime_ {};
-    // The ID of the TLS inspection scope.
+    // The TLS inspection scope ID.
     shared_ptr<string> tlsScopeId_ {};
-    // The instance ID of the virtual private cloud (VPC) border firewall.
+    // The instance ID of the VPC border firewall.
     shared_ptr<string> vpcFirewallId_ {};
-    // The vulnerability level.
+    // The vulnerability severity.
     shared_ptr<string> vulLevel_ {};
   };
 

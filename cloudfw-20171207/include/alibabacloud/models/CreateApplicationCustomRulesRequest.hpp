@@ -90,13 +90,13 @@ namespace Models
 
 
     protected:
-      // The name of the custom rule. It cannot be empty and can be up to 64 characters in length. It supports Chinese characters, English letters, digits, hyphens (-), underscores (_), and half-width periods (.).
+      // The name of the custom rule. The name cannot be empty and can be up to 64 characters in length. It can contain Chinese characters, English letters, digits, hyphens (-), underscores (_), and periods (.).
       shared_ptr<string> applicationCustomRuleName_ {};
       // The list of application IDs associated with the rule. A single rule can be associated with 1 to 200 applications. The IDs cannot be 0, must be unique, and must exist in the built-in application signature library. You can call the ListApplications operation to query the IDs.
       shared_ptr<vector<int64_t>> applicationIds_ {};
       // The priority of the rule. Valid values: integers from 1 to 200. A smaller value indicates a higher priority. Priorities must be unique within the same batch and the same template.
       shared_ptr<int64_t> priority_ {};
-      // The action to perform when the rule is triggered. Valid values:
+      // The action to perform when the rule is matched. Valid values:
       // - **Allow**: allows the traffic.
       // - **Alert**: monitors the traffic.
       // - **Deny**: blocks the traffic.
@@ -126,7 +126,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> applicationTemplateId_ {};
-    // The list of custom rules for the application. You can pass up to 100 rules at a time, and the total number of rules in the template after creation cannot exceed 100.
+    // The list of custom rules for the application. You can specify up to 100 rules at a time, and the total number of rules in the template after creation must not exceed 100.
     // 
     // This parameter is required.
     shared_ptr<vector<CreateApplicationCustomRulesRequest::Rules>> rules_ {};
