@@ -94,15 +94,15 @@ namespace Models
 
 
   protected:
-    // The creation source types.
+    // The creation source type.
     shared_ptr<string> createFromTypes_ {};
-    // The deployment statuses of the MCP servers.
+    // The deployment status of the MCP server.
     shared_ptr<string> deployStatuses_ {};
     // The gateway ID.
     // 
     // This parameter is required.
     shared_ptr<string> gatewayId_ {};
-    // The keyword used to perform a fuzzy search for MCP servers by API name.
+    // The keyword used to perform a fuzzy search for MCP servers by name.
     shared_ptr<string> nameLike_ {};
     // The page number. Pages start from 1. Default value: 1.
     // 

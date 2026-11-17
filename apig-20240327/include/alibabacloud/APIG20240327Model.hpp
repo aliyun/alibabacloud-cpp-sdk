@@ -90,6 +90,7 @@
 #include <alibabacloud/models/ModelApiListApiInfoDeployCntMapValue.hpp>
 #include <alibabacloud/models/ModelApiListApiInfo.hpp>
 #include <alibabacloud/models/ModelSelection.hpp>
+#include <alibabacloud/models/ModelSelectionDelta.hpp>
 #include <alibabacloud/models/ParentResourceInfo.hpp>
 #include <alibabacloud/models/PluginClassInfo.hpp>
 #include <alibabacloud/models/PolicyClassInfo.hpp>

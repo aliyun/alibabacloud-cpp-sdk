@@ -39,12 +39,14 @@ namespace Models
     class Data : public Darabonba::Model {
     public:
       friend void to_json(Darabonba::Json& j, const Data& obj) { 
+        DARABONBA_PTR_TO_JSON(expirationSummary, expirationSummary_);
         DARABONBA_PTR_TO_JSON(items, items_);
         DARABONBA_PTR_TO_JSON(pageNumber, pageNumber_);
         DARABONBA_PTR_TO_JSON(pageSize, pageSize_);
         DARABONBA_PTR_TO_JSON(totalSize, totalSize_);
       };
       friend void from_json(const Darabonba::Json& j, Data& obj) { 
+        DARABONBA_PTR_FROM_JSON(expirationSummary, expirationSummary_);
         DARABONBA_PTR_FROM_JSON(items, items_);
         DARABONBA_PTR_FROM_JSON(pageNumber, pageNumber_);
         DARABONBA_PTR_FROM_JSON(pageSize, pageSize_);
@@ -69,6 +71,8 @@ namespace Models
           DARABONBA_PTR_TO_JSON(deployStatus, deployStatus_);
           DARABONBA_PTR_TO_JSON(description, description_);
           DARABONBA_PTR_TO_JSON(enable, enable_);
+          DARABONBA_PTR_TO_JSON(expireAt, expireAt_);
+          DARABONBA_PTR_TO_JSON(expireStatus, expireStatus_);
           DARABONBA_PTR_TO_JSON(name, name_);
           DARABONBA_PTR_TO_JSON(updateTimestamp, updateTimestamp_);
         };
@@ -78,6 +82,8 @@ namespace Models
           DARABONBA_PTR_FROM_JSON(deployStatus, deployStatus_);
           DARABONBA_PTR_FROM_JSON(description, description_);
           DARABONBA_PTR_FROM_JSON(enable, enable_);
+          DARABONBA_PTR_FROM_JSON(expireAt, expireAt_);
+          DARABONBA_PTR_FROM_JSON(expireStatus, expireStatus_);
           DARABONBA_PTR_FROM_JSON(name, name_);
           DARABONBA_PTR_FROM_JSON(updateTimestamp, updateTimestamp_);
         };
@@ -93,8 +99,8 @@ namespace Models
         virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
         virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
         virtual bool empty() const override { return this->consumerId_ == nullptr
-        && this->createTimestamp_ == nullptr && this->deployStatus_ == nullptr && this->description_ == nullptr && this->enable_ == nullptr && this->name_ == nullptr
-        && this->updateTimestamp_ == nullptr; };
+        && this->createTimestamp_ == nullptr && this->deployStatus_ == nullptr && this->description_ == nullptr && this->enable_ == nullptr && this->expireAt_ == nullptr
+        && this->expireStatus_ == nullptr && this->name_ == nullptr && this->updateTimestamp_ == nullptr; };
         // consumerId Field Functions 
         bool hasConsumerId() const { return this->consumerId_ != nullptr;};
         void deleteConsumerId() { this->consumerId_ = nullptr;};
@@ -130,6 +136,20 @@ namespace Models
         inline Items& setEnable(bool enable) { DARABONBA_PTR_SET_VALUE(enable_, enable) };
 
 
+        // expireAt Field Functions 
+        bool hasExpireAt() const { return this->expireAt_ != nullptr;};
+        void deleteExpireAt() { this->expireAt_ = nullptr;};
+        inline int64_t getExpireAt() const { DARABONBA_PTR_GET_DEFAULT(expireAt_, 0L) };
+        inline Items& setExpireAt(int64_t expireAt) { DARABONBA_PTR_SET_VALUE(expireAt_, expireAt) };
+
+
+        // expireStatus Field Functions 
+        bool hasExpireStatus() const { return this->expireStatus_ != nullptr;};
+        void deleteExpireStatus() { this->expireStatus_ = nullptr;};
+        inline string getExpireStatus() const { DARABONBA_PTR_GET_DEFAULT(expireStatus_, "") };
+        inline Items& setExpireStatus(string expireStatus) { DARABONBA_PTR_SET_VALUE(expireStatus_, expireStatus) };
+
+
         // name Field Functions 
         bool hasName() const { return this->name_ != nullptr;};
         void deleteName() { this->name_ = nullptr;};
@@ -153,16 +173,73 @@ namespace Models
         shared_ptr<string> deployStatus_ {};
         // The description.
         shared_ptr<string> description_ {};
-        // Indicates whether the consumer is enabled.
+        // Specifies whether the consumer is enabled.
         shared_ptr<bool> enable_ {};
+        // The expiration time of the consumer, in UTC UNIX seconds. A null value indicates that the consumer is permanently valid.
+        shared_ptr<int64_t> expireAt_ {};
+        // The validity status. Valid values: Permanent, InEffect, AboutToExpire, and Expired. The status is accurate to the second. A remaining time of exactly seven days is classified as AboutToExpire, and an exact expiration time is classified as Expired.
+        shared_ptr<string> expireStatus_ {};
         // The consumer name.
         shared_ptr<string> name_ {};
         // The update timestamp.
         shared_ptr<int64_t> updateTimestamp_ {};
       };
 
-      virtual bool empty() const override { return this->items_ == nullptr
-        && this->pageNumber_ == nullptr && this->pageSize_ == nullptr && this->totalSize_ == nullptr; };
+      class ExpirationSummary : public Darabonba::Model {
+      public:
+        friend void to_json(Darabonba::Json& j, const ExpirationSummary& obj) { 
+          DARABONBA_PTR_TO_JSON(aboutToExpire, aboutToExpire_);
+          DARABONBA_PTR_TO_JSON(expired, expired_);
+        };
+        friend void from_json(const Darabonba::Json& j, ExpirationSummary& obj) { 
+          DARABONBA_PTR_FROM_JSON(aboutToExpire, aboutToExpire_);
+          DARABONBA_PTR_FROM_JSON(expired, expired_);
+        };
+        ExpirationSummary() = default ;
+        ExpirationSummary(const ExpirationSummary &) = default ;
+        ExpirationSummary(ExpirationSummary &&) = default ;
+        ExpirationSummary(const Darabonba::Json & obj) { from_json(obj, *this); };
+        virtual ~ExpirationSummary() = default ;
+        ExpirationSummary& operator=(const ExpirationSummary &) = default ;
+        ExpirationSummary& operator=(ExpirationSummary &&) = default ;
+        virtual void validate() const override {
+        };
+        virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+        virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+        virtual bool empty() const override { return this->aboutToExpire_ == nullptr
+        && this->expired_ == nullptr; };
+        // aboutToExpire Field Functions 
+        bool hasAboutToExpire() const { return this->aboutToExpire_ != nullptr;};
+        void deleteAboutToExpire() { this->aboutToExpire_ = nullptr;};
+        inline int64_t getAboutToExpire() const { DARABONBA_PTR_GET_DEFAULT(aboutToExpire_, 0L) };
+        inline ExpirationSummary& setAboutToExpire(int64_t aboutToExpire) { DARABONBA_PTR_SET_VALUE(aboutToExpire_, aboutToExpire) };
+
+
+        // expired Field Functions 
+        bool hasExpired() const { return this->expired_ != nullptr;};
+        void deleteExpired() { this->expired_ = nullptr;};
+        inline int64_t getExpired() const { DARABONBA_PTR_GET_DEFAULT(expired_, 0L) };
+        inline ExpirationSummary& setExpired(int64_t expired) { DARABONBA_PTR_SET_VALUE(expired_, expired) };
+
+
+      protected:
+        // The number of unexpired consumers with a remaining validity period of no more than seven days, including those that are manually disabled.
+        shared_ptr<int64_t> aboutToExpire_ {};
+        // The number of expired consumers, including those that are manually disabled.
+        shared_ptr<int64_t> expired_ {};
+      };
+
+      virtual bool empty() const override { return this->expirationSummary_ == nullptr
+        && this->items_ == nullptr && this->pageNumber_ == nullptr && this->pageSize_ == nullptr && this->totalSize_ == nullptr; };
+      // expirationSummary Field Functions 
+      bool hasExpirationSummary() const { return this->expirationSummary_ != nullptr;};
+      void deleteExpirationSummary() { this->expirationSummary_ = nullptr;};
+      inline const Data::ExpirationSummary & getExpirationSummary() const { DARABONBA_PTR_GET_CONST(expirationSummary_, Data::ExpirationSummary) };
+      inline Data::ExpirationSummary getExpirationSummary() { DARABONBA_PTR_GET(expirationSummary_, Data::ExpirationSummary) };
+      inline Data& setExpirationSummary(const Data::ExpirationSummary & expirationSummary) { DARABONBA_PTR_SET_VALUE(expirationSummary_, expirationSummary) };
+      inline Data& setExpirationSummary(Data::ExpirationSummary && expirationSummary) { DARABONBA_PTR_SET_RVALUE(expirationSummary_, expirationSummary) };
+
+
       // items Field Functions 
       bool hasItems() const { return this->items_ != nullptr;};
       void deleteItems() { this->items_ = nullptr;};
@@ -194,7 +271,9 @@ namespace Models
 
 
     protected:
-      // The list of consumers.
+      // The expiration reminder count for all consumers under the same account and gateway type. This count is not affected by name filters, status filters, or pagination. This field is returned only when includeExpirationSummary is set to true.
+      shared_ptr<Data::ExpirationSummary> expirationSummary_ {};
+      // The list of consumer information.
       shared_ptr<vector<Data::Items>> items_ {};
       // The page number.
       shared_ptr<int32_t> pageNumber_ {};

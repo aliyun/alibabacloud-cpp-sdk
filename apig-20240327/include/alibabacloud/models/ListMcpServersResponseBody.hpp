@@ -78,6 +78,7 @@ namespace Models
           DARABONBA_PTR_TO_JSON(environmentId, environmentId_);
           DARABONBA_PTR_TO_JSON(exposedUriPath, exposedUriPath_);
           DARABONBA_PTR_TO_JSON(gatewayId, gatewayId_);
+          DARABONBA_PTR_TO_JSON(instructions, instructions_);
           DARABONBA_PTR_TO_JSON(match, match_);
           DARABONBA_PTR_TO_JSON(mcpServerConfig, mcpServerConfig_);
           DARABONBA_PTR_TO_JSON(mcpServerId, mcpServerId_);
@@ -101,6 +102,7 @@ namespace Models
           DARABONBA_PTR_FROM_JSON(environmentId, environmentId_);
           DARABONBA_PTR_FROM_JSON(exposedUriPath, exposedUriPath_);
           DARABONBA_PTR_FROM_JSON(gatewayId, gatewayId_);
+          DARABONBA_PTR_FROM_JSON(instructions, instructions_);
           DARABONBA_PTR_FROM_JSON(match, match_);
           DARABONBA_PTR_FROM_JSON(mcpServerConfig, mcpServerConfig_);
           DARABONBA_PTR_FROM_JSON(mcpServerId, mcpServerId_);
@@ -238,8 +240,9 @@ namespace Models
         virtual bool empty() const override { return this->apiId_ == nullptr
         && this->assembledSources_ == nullptr && this->backend_ == nullptr && this->createFromType_ == nullptr && this->deployStatus_ == nullptr && this->description_ == nullptr
         && this->domainIds_ == nullptr && this->domainInfos_ == nullptr && this->environmentId_ == nullptr && this->exposedUriPath_ == nullptr && this->gatewayId_ == nullptr
-        && this->match_ == nullptr && this->mcpServerConfig_ == nullptr && this->mcpServerId_ == nullptr && this->mcpServerPath_ == nullptr && this->mcpStatisticsEnable_ == nullptr
-        && this->nacosMcpSyncInfo_ == nullptr && this->name_ == nullptr && this->protocol_ == nullptr && this->routeId_ == nullptr && this->type_ == nullptr; };
+        && this->instructions_ == nullptr && this->match_ == nullptr && this->mcpServerConfig_ == nullptr && this->mcpServerId_ == nullptr && this->mcpServerPath_ == nullptr
+        && this->mcpStatisticsEnable_ == nullptr && this->nacosMcpSyncInfo_ == nullptr && this->name_ == nullptr && this->protocol_ == nullptr && this->routeId_ == nullptr
+        && this->type_ == nullptr; };
         // apiId Field Functions 
         bool hasApiId() const { return this->apiId_ != nullptr;};
         void deleteApiId() { this->apiId_ = nullptr;};
@@ -325,6 +328,13 @@ namespace Models
         inline Items& setGatewayId(string gatewayId) { DARABONBA_PTR_SET_VALUE(gatewayId_, gatewayId) };
 
 
+        // instructions Field Functions 
+        bool hasInstructions() const { return this->instructions_ != nullptr;};
+        void deleteInstructions() { this->instructions_ = nullptr;};
+        inline string getInstructions() const { DARABONBA_PTR_GET_DEFAULT(instructions_, "") };
+        inline Items& setInstructions(string instructions) { DARABONBA_PTR_SET_VALUE(instructions_, instructions) };
+
+
         // match Field Functions 
         bool hasMatch() const { return this->match_ != nullptr;};
         void deleteMatch() { this->match_ = nullptr;};
@@ -408,13 +418,13 @@ namespace Models
         shared_ptr<Backend> backend_ {};
         // The creation source type.
         // 
-        // ApiGatewayHttpToMCP: HTTP-to-MCP hosted by the gateway.
-        // ApiGatewayMcpHosting: Direct MCP proxy hosted by the gateway.
-        // ApiGatewayAssembly: MCP assembly by the gateway.
-        // NacosHttpToMCP: HTTP-to-MCP synchronized from Nacos and hosted by the gateway.
-        // NacosMcpHosting: Direct MCP proxy synchronized from Nacos and hosted by the gateway.
+        // ApiGatewayHttpToMCP: HTTP-to-MCP hosted by the gateway
+        // ApiGatewayMcpHosting: Direct MCP proxy hosted by the gateway
+        // ApiGatewayAssembly: MCP assembly by the gateway
+        // NacosHttpToMCP: HTTP-to-MCP synchronized from Nacos and hosted by the gateway
+        // NacosMcpHosting: Direct MCP proxy synchronized from Nacos and hosted by the gateway
         shared_ptr<string> createFromType_ {};
-        // The publish status of the API in the current environment.
+        // The deployment status of the API in the current environment.
         shared_ptr<string> deployStatus_ {};
         // The description.
         shared_ptr<string> description_ {};
@@ -428,7 +438,9 @@ namespace Models
         shared_ptr<string> exposedUriPath_ {};
         // The gateway instance ID.
         shared_ptr<string> gatewayId_ {};
-        // The route match rules.
+        // The MCP service instructions.
+        shared_ptr<string> instructions_ {};
+        // The route match rule.
         shared_ptr<HttpRouteMatch> match_ {};
         // The HTTP-to-MCP configuration.
         shared_ptr<string> mcpServerConfig_ {};
@@ -438,7 +450,7 @@ namespace Models
         shared_ptr<string> mcpServerPath_ {};
         // Specifies whether MCP observability is enabled. Default value: false.
         shared_ptr<bool> mcpStatisticsEnable_ {};
-        // The information about the MCP synchronized and hosted from Nacos.
+        // The Nacos-synchronized and hosted MCP information.
         shared_ptr<Items::NacosMcpSyncInfo> nacosMcpSyncInfo_ {};
         // The MCP server name.
         shared_ptr<string> name_ {};
@@ -483,7 +495,7 @@ namespace Models
 
 
     protected:
-      // The MCP server list information.
+      // The list of MCP servers.
       shared_ptr<vector<Data::Items>> items_ {};
       // The page number.
       shared_ptr<int32_t> pageNumber_ {};

@@ -1127,6 +1127,10 @@ CreateConsumerResponse Client::createConsumerWithOptions(const CreateConsumerReq
     body["enable"] = request.getEnable();
   }
 
+  if (!!request.hasExpireAt()) {
+    body["expireAt"] = request.getExpireAt();
+  }
+
   if (!!request.hasGatewayType()) {
     body["gatewayType"] = request.getGatewayType();
   }
@@ -2132,7 +2136,7 @@ CreateLogicalModelResponse Client::createLogicalModel(const CreateLogicalModelRe
 /**
  * @summary Creates a Model Context Protocol (MCP) server.
  *
- * @description Only sources of the **container service** type are allowed to update Ingress listener configurations.
+ * @description Only sources of the **Container Service** type are allowed to update Ingress listener configurations.
  *
  * @param request CreateMcpServerRequest
  * @param headers map
@@ -2172,6 +2176,10 @@ CreateMcpServerResponse Client::createMcpServerWithOptions(const CreateMcpServer
 
   if (!!request.hasGrayMcpServerConfigs()) {
     body["grayMcpServerConfigs"] = request.getGrayMcpServerConfigs();
+  }
+
+  if (!!request.hasInstructions()) {
+    body["instructions"] = request.getInstructions();
   }
 
   if (!!request.hasMatch()) {
@@ -2219,7 +2227,7 @@ CreateMcpServerResponse Client::createMcpServerWithOptions(const CreateMcpServer
 /**
  * @summary Creates a Model Context Protocol (MCP) server.
  *
- * @description Only sources of the **container service** type are allowed to update Ingress listener configurations.
+ * @description Only sources of the **Container Service** type are allowed to update Ingress listener configurations.
  *
  * @param request CreateMcpServerRequest
  * @return CreateMcpServerResponse
@@ -4991,7 +4999,7 @@ GetAiModelSourceEditImpactResponse Client::getAiModelSourceEditImpact(const stri
 }
 
 /**
- * @summary Queries AI models in a source.
+ * @summary Queries AI models in a model source.
  *
  * @param request GetAiModelSourceModelRequest
  * @param headers map
@@ -5018,7 +5026,7 @@ GetAiModelSourceModelResponse Client::getAiModelSourceModelWithOptions(const str
 }
 
 /**
- * @summary Queries AI models in a source.
+ * @summary Queries AI models in a model source.
  *
  * @param request GetAiModelSourceModelRequest
  * @return GetAiModelSourceModelResponse
@@ -8301,8 +8309,16 @@ ListConsumerQuotaRulesResponse Client::listConsumerQuotaRules(const string &cons
 ListConsumersResponse Client::listConsumersWithOptions(const ListConsumersRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
   request.validate();
   json query = {};
+  if (!!request.hasExpireStatus()) {
+    query["expireStatus"] = request.getExpireStatus();
+  }
+
   if (!!request.hasGatewayType()) {
     query["gatewayType"] = request.getGatewayType();
+  }
+
+  if (!!request.hasIncludeExpirationSummary()) {
+    query["includeExpirationSummary"] = request.getIncludeExpirationSummary();
   }
 
   if (!!request.hasNameLike()) {
@@ -8315,6 +8331,10 @@ ListConsumersResponse Client::listConsumersWithOptions(const ListConsumersReques
 
   if (!!request.hasPageSize()) {
     query["pageSize"] = request.getPageSize();
+  }
+
+  if (!!request.hasStatus()) {
+    query["status"] = request.getStatus();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -13072,6 +13092,10 @@ UpdateConsumerResponse Client::updateConsumerWithOptions(const string &consumerI
     body["apikeyIdentityConfig"] = request.getApikeyIdentityConfig();
   }
 
+  if (!!request.hasClearExpireAt()) {
+    body["clearExpireAt"] = request.getClearExpireAt();
+  }
+
   if (!!request.hasDescription()) {
     body["description"] = request.getDescription();
   }
@@ -13080,8 +13104,20 @@ UpdateConsumerResponse Client::updateConsumerWithOptions(const string &consumerI
     body["enable"] = request.getEnable();
   }
 
+  if (!!request.hasEnableAfterRenewal()) {
+    body["enableAfterRenewal"] = request.getEnableAfterRenewal();
+  }
+
+  if (!!request.hasExpireAt()) {
+    body["expireAt"] = request.getExpireAt();
+  }
+
   if (!!request.hasJwtIdentityConfig()) {
     body["jwtIdentityConfig"] = request.getJwtIdentityConfig();
+  }
+
+  if (!!request.hasRenew()) {
+    body["renew"] = request.getRenew();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -14107,7 +14143,7 @@ UpdateLogicalModelResponse Client::updateLogicalModel(const string &logicalModel
 /**
  * @summary Updates an MCP server.
  *
- * @description Only sources of the **Container Service** type are allowed to update the Ingress listener configurations.
+ * @description Only sources of the **Container Service** type are allowed to update the configurations of listening Ingresses.
  *
  * @param request UpdateMcpServerRequest
  * @param headers map
@@ -14143,6 +14179,10 @@ UpdateMcpServerResponse Client::updateMcpServerWithOptions(const string &mcpServ
 
   if (!!request.hasGrayMcpServerConfigs()) {
     body["grayMcpServerConfigs"] = request.getGrayMcpServerConfigs();
+  }
+
+  if (!!request.hasInstructions()) {
+    body["instructions"] = request.getInstructions();
   }
 
   if (!!request.hasMatch()) {
@@ -14186,7 +14226,7 @@ UpdateMcpServerResponse Client::updateMcpServerWithOptions(const string &mcpServ
 /**
  * @summary Updates an MCP server.
  *
- * @description Only sources of the **Container Service** type are allowed to update the Ingress listener configurations.
+ * @description Only sources of the **Container Service** type are allowed to update the configurations of listening Ingresses.
  *
  * @param request UpdateMcpServerRequest
  * @return UpdateMcpServerResponse
@@ -14307,6 +14347,10 @@ UpdateModelApiResponse Client::updateModelApiWithOptions(const string &httpApiId
 
   if (!!request.hasModelSelection()) {
     body["modelSelection"] = request.getModelSelection();
+  }
+
+  if (!!request.hasModelSelectionDelta()) {
+    body["modelSelectionDelta"] = request.getModelSelectionDelta();
   }
 
   if (!!request.hasName()) {

@@ -23,6 +23,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(exposedUriPath, exposedUriPath_);
       DARABONBA_PTR_TO_JSON(gatewayId, gatewayId_);
       DARABONBA_PTR_TO_JSON(grayMcpServerConfigs, grayMcpServerConfigs_);
+      DARABONBA_PTR_TO_JSON(instructions, instructions_);
       DARABONBA_PTR_TO_JSON(match, match_);
       DARABONBA_PTR_TO_JSON(mcpServerConfig, mcpServerConfig_);
       DARABONBA_PTR_TO_JSON(mcpStatisticsEnable, mcpStatisticsEnable_);
@@ -39,6 +40,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(exposedUriPath, exposedUriPath_);
       DARABONBA_PTR_FROM_JSON(gatewayId, gatewayId_);
       DARABONBA_PTR_FROM_JSON(grayMcpServerConfigs, grayMcpServerConfigs_);
+      DARABONBA_PTR_FROM_JSON(instructions, instructions_);
       DARABONBA_PTR_FROM_JSON(match, match_);
       DARABONBA_PTR_FROM_JSON(mcpServerConfig, mcpServerConfig_);
       DARABONBA_PTR_FROM_JSON(mcpStatisticsEnable, mcpStatisticsEnable_);
@@ -375,7 +377,7 @@ namespace Models
         // - HTTP.
         // - HTTPS.
         shared_ptr<string> protocol_ {};
-        // The service ID. This is the ID of a registered backend service under the gateway. You can obtain it by calling the ListServices API and specifying the gatewayId.
+        // The service ID. The serviceId is the ID of a registered backend service under the gateway. You can query it by calling the ListServices API and passing the gatewayId.
         shared_ptr<string> serviceId_ {};
         // The service version.
         shared_ptr<string> version_ {};
@@ -467,8 +469,8 @@ namespace Models
 
     virtual bool empty() const override { return this->assembledSources_ == nullptr
         && this->backendConfig_ == nullptr && this->createFromType_ == nullptr && this->description_ == nullptr && this->domainIds_ == nullptr && this->exposedUriPath_ == nullptr
-        && this->gatewayId_ == nullptr && this->grayMcpServerConfigs_ == nullptr && this->match_ == nullptr && this->mcpServerConfig_ == nullptr && this->mcpStatisticsEnable_ == nullptr
-        && this->name_ == nullptr && this->protocol_ == nullptr && this->type_ == nullptr; };
+        && this->gatewayId_ == nullptr && this->grayMcpServerConfigs_ == nullptr && this->instructions_ == nullptr && this->match_ == nullptr && this->mcpServerConfig_ == nullptr
+        && this->mcpStatisticsEnable_ == nullptr && this->name_ == nullptr && this->protocol_ == nullptr && this->type_ == nullptr; };
     // assembledSources Field Functions 
     bool hasAssembledSources() const { return this->assembledSources_ != nullptr;};
     void deleteAssembledSources() { this->assembledSources_ = nullptr;};
@@ -533,6 +535,13 @@ namespace Models
     inline CreateMcpServerRequest& setGrayMcpServerConfigs(vector<CreateMcpServerRequest::GrayMcpServerConfigs> && grayMcpServerConfigs) { DARABONBA_PTR_SET_RVALUE(grayMcpServerConfigs_, grayMcpServerConfigs) };
 
 
+    // instructions Field Functions 
+    bool hasInstructions() const { return this->instructions_ != nullptr;};
+    void deleteInstructions() { this->instructions_ = nullptr;};
+    inline string getInstructions() const { DARABONBA_PTR_GET_DEFAULT(instructions_, "") };
+    inline CreateMcpServerRequest& setInstructions(string instructions) { DARABONBA_PTR_SET_VALUE(instructions_, instructions) };
+
+
     // match Field Functions 
     bool hasMatch() const { return this->match_ != nullptr;};
     void deleteMatch() { this->match_ = nullptr;};
@@ -586,11 +595,11 @@ namespace Models
     shared_ptr<CreateMcpServerRequest::BackendConfig> backendConfig_ {};
     // The creation source type.
     // 
-    // ApiGatewayHttpToMCP API gateway-hosted HTTP-to-MCP conversion
-    // ApiGatewayProxyMcpHosting API gateway-hosted MCP direct proxy
-    // ApiGatewayAssembly API gateway MCP assembly
-    // NacosHttpToMCP API gateway-hosted Nacos-synchronized HTTP-to-MCP conversion
-    // NacosMcpHosting API gateway-hosted Nacos-synchronized MCP direct proxy.
+    // ApiGatewayHttpToMCP: Gateway-managed HTTP-to-MCP conversion.
+    // ApiGatewayProxyMcpHosting: Gateway-managed MCP direct proxy.
+    // ApiGatewayAssembly: Gateway MCP assembly.
+    // NacosHttpToMCP: Gateway-managed Nacos-synchronized HTTP-to-MCP conversion.
+    // NacosMcpHosting: Gateway-managed Nacos-synchronized MCP direct proxy.
     shared_ptr<string> createFromType_ {};
     // The description of the MCP server.
     shared_ptr<string> description_ {};
@@ -604,7 +613,9 @@ namespace Models
     shared_ptr<string> gatewayId_ {};
     // The canary release route configurations.
     shared_ptr<vector<CreateMcpServerRequest::GrayMcpServerConfigs>> grayMcpServerConfigs_ {};
-    // The route match rule. If the type is RealMCP, the match parameter is required and a route matching rule must be provided.
+    // The instructions for the MCP service.
+    shared_ptr<string> instructions_ {};
+    // The route match rule. When the type is RealMCP, the match parameter is required and you must provide a route matching rule.
     shared_ptr<HttpRouteMatch> match_ {};
     // The HTTP-to-MCP configuration.
     shared_ptr<CreateMcpServerRequest::McpServerConfig> mcpServerConfig_ {};
@@ -617,8 +628,7 @@ namespace Models
     // The protocol type. This parameter is required. You must explicitly specify the protocol type, such as HTTP, HTTPS, SSE, or StreamableHTTP. If this parameter is omitted, the API returns InvalidParameter.WithValue(400).
     shared_ptr<string> protocol_ {};
     // The type.
-    // 
-    // RealMCP: Standard MCP service
+    // RealMCP: Standard MCP service.
     // 
     // This parameter is required.
     shared_ptr<string> type_ {};

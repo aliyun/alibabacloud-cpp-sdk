@@ -657,7 +657,7 @@ namespace APIG20240327
       /**
        * @summary Creates a Model Context Protocol (MCP) server.
        *
-       * @description Only sources of the **container service** type are allowed to update Ingress listener configurations.
+       * @description Only sources of the **Container Service** type are allowed to update Ingress listener configurations.
        *
        * @param request CreateMcpServerRequest
        * @param headers map
@@ -669,7 +669,7 @@ namespace APIG20240327
       /**
        * @summary Creates a Model Context Protocol (MCP) server.
        *
-       * @description Only sources of the **container service** type are allowed to update Ingress listener configurations.
+       * @description Only sources of the **Container Service** type are allowed to update Ingress listener configurations.
        *
        * @param request CreateMcpServerRequest
        * @return CreateMcpServerResponse
@@ -1745,7 +1745,7 @@ namespace APIG20240327
       Models::GetAiModelSourceEditImpactResponse getAiModelSourceEditImpact(const string &modelSourceId, const Models::GetAiModelSourceEditImpactRequest &request);
 
       /**
-       * @summary Queries AI models in a source.
+       * @summary Queries AI models in a model source.
        *
        * @param request GetAiModelSourceModelRequest
        * @param headers map
@@ -1755,7 +1755,7 @@ namespace APIG20240327
       Models::GetAiModelSourceModelResponse getAiModelSourceModelWithOptions(const string &modelCardId, const Models::GetAiModelSourceModelRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries AI models in a source.
+       * @summary Queries AI models in a model source.
        *
        * @param request GetAiModelSourceModelRequest
        * @return GetAiModelSourceModelResponse
@@ -4897,7 +4897,7 @@ namespace APIG20240327
       /**
        * @summary Updates an MCP server.
        *
-       * @description Only sources of the **Container Service** type are allowed to update the Ingress listener configurations.
+       * @description Only sources of the **Container Service** type are allowed to update the configurations of listening Ingresses.
        *
        * @param request UpdateMcpServerRequest
        * @param headers map
@@ -4909,7 +4909,7 @@ namespace APIG20240327
       /**
        * @summary Updates an MCP server.
        *
-       * @description Only sources of the **Container Service** type are allowed to update the Ingress listener configurations.
+       * @description Only sources of the **Container Service** type are allowed to update the configurations of listening Ingresses.
        *
        * @param request UpdateMcpServerRequest
        * @return UpdateMcpServerResponse

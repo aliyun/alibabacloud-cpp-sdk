@@ -22,6 +22,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(domainIds, domainIds_);
       DARABONBA_PTR_TO_JSON(exposedUriPath, exposedUriPath_);
       DARABONBA_PTR_TO_JSON(grayMcpServerConfigs, grayMcpServerConfigs_);
+      DARABONBA_PTR_TO_JSON(instructions, instructions_);
       DARABONBA_PTR_TO_JSON(match, match_);
       DARABONBA_PTR_TO_JSON(mcpServerConfig, mcpServerConfig_);
       DARABONBA_PTR_TO_JSON(mcpStatisticsEnable, mcpStatisticsEnable_);
@@ -36,6 +37,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(domainIds, domainIds_);
       DARABONBA_PTR_FROM_JSON(exposedUriPath, exposedUriPath_);
       DARABONBA_PTR_FROM_JSON(grayMcpServerConfigs, grayMcpServerConfigs_);
+      DARABONBA_PTR_FROM_JSON(instructions, instructions_);
       DARABONBA_PTR_FROM_JSON(match, match_);
       DARABONBA_PTR_FROM_JSON(mcpServerConfig, mcpServerConfig_);
       DARABONBA_PTR_FROM_JSON(mcpStatisticsEnable, mcpStatisticsEnable_);
@@ -93,7 +95,7 @@ namespace Models
     protected:
       // The MCP server configurations. This parameter is mutually exclusive with swaggerConfig.
       shared_ptr<string> mcpServerSpec_ {};
-      // The Swagger document for HTTP-to-MCP, which must comply with the OpenAPI 3.0 specification.
+      // The Swagger document for HTTP-to-MCP. The document must comply with the OpenAPI 3.0 specification.
       shared_ptr<string> swaggerConfig_ {};
     };
 
@@ -208,7 +210,7 @@ namespace Models
         protected:
           // The service port.
           shared_ptr<int32_t> port_ {};
-          // The service protocol.
+          // The protocol.
           shared_ptr<string> protocol_ {};
           // The service ID.
           shared_ptr<string> serviceId_ {};
@@ -367,7 +369,7 @@ namespace Models
       protected:
         // The service port. Do not specify this parameter for dynamic ports.
         shared_ptr<int32_t> port_ {};
-        // The service protocol. Valid values:
+        // The protocol. Valid values:
         // - TCP.
         // - HTTP.
         // - DUBBO.
@@ -456,7 +458,7 @@ namespace Models
     protected:
       // MCP Server ID
       shared_ptr<string> mcpServerId_ {};
-      // The MCP server name.
+      // The name of the MCP server.
       shared_ptr<string> mcpServerName_ {};
       // The list of MCP tools.
       shared_ptr<vector<string>> tools_ {};
@@ -464,8 +466,8 @@ namespace Models
 
     virtual bool empty() const override { return this->assembledSources_ == nullptr
         && this->backendConfig_ == nullptr && this->createFromType_ == nullptr && this->description_ == nullptr && this->domainIds_ == nullptr && this->exposedUriPath_ == nullptr
-        && this->grayMcpServerConfigs_ == nullptr && this->match_ == nullptr && this->mcpServerConfig_ == nullptr && this->mcpStatisticsEnable_ == nullptr && this->protocol_ == nullptr
-        && this->type_ == nullptr; };
+        && this->grayMcpServerConfigs_ == nullptr && this->instructions_ == nullptr && this->match_ == nullptr && this->mcpServerConfig_ == nullptr && this->mcpStatisticsEnable_ == nullptr
+        && this->protocol_ == nullptr && this->type_ == nullptr; };
     // assembledSources Field Functions 
     bool hasAssembledSources() const { return this->assembledSources_ != nullptr;};
     void deleteAssembledSources() { this->assembledSources_ = nullptr;};
@@ -523,6 +525,13 @@ namespace Models
     inline UpdateMcpServerRequest& setGrayMcpServerConfigs(vector<UpdateMcpServerRequest::GrayMcpServerConfigs> && grayMcpServerConfigs) { DARABONBA_PTR_SET_RVALUE(grayMcpServerConfigs_, grayMcpServerConfigs) };
 
 
+    // instructions Field Functions 
+    bool hasInstructions() const { return this->instructions_ != nullptr;};
+    void deleteInstructions() { this->instructions_ = nullptr;};
+    inline string getInstructions() const { DARABONBA_PTR_GET_DEFAULT(instructions_, "") };
+    inline UpdateMcpServerRequest& setInstructions(string instructions) { DARABONBA_PTR_SET_VALUE(instructions_, instructions) };
+
+
     // match Field Functions 
     bool hasMatch() const { return this->match_ != nullptr;};
     void deleteMatch() { this->match_ = nullptr;};
@@ -568,12 +577,11 @@ namespace Models
     // The backend service configurations of the route. This parameter is conditionally required. If it is not provided, the API returns InvalidParameter.WithValue(400).
     shared_ptr<UpdateMcpServerRequest::BackendConfig> backendConfig_ {};
     // The creation source type. Valid values:
-    // 
-    // ApiGatewayHttpToMCP: API Gateway-managed HTTP-to-MCP.
-    // ApiGatewayProxyMcpHosting: API Gateway-managed MCP direct proxy.
-    // ApiGatewayAssembly: API Gateway MCP assembly.
-    // NacosHttpToMCP: API Gateway-managed Nacos-synchronized HTTP-to-MCP.
-    // NacosMcpHosting: API Gateway-managed Nacos-synchronized MCP direct proxy.
+    // - ApiGatewayHttpToMCP: API Gateway-managed HTTP-to-MCP
+    // - ApiGatewayProxyMcpHosting: API Gateway-managed direct MCP proxy
+    // - ApiGatewayAssembly: API Gateway MCP assembly
+    // - NacosHttpToMCP: API Gateway-managed Nacos-synchronized HTTP-to-MCP
+    // - NacosMcpHosting: API Gateway-managed Nacos-synchronized direct MCP proxy
     shared_ptr<string> createFromType_ {};
     // The description.
     shared_ptr<string> description_ {};
@@ -581,8 +589,10 @@ namespace Models
     shared_ptr<vector<string>> domainIds_ {};
     // The exposed URI path. This parameter is required when protocol is set to SSE or StreamableHTTP and type is set to RealMCP.
     shared_ptr<string> exposedUriPath_ {};
-    // The list of canary MCP server route configurations.
+    // The list of canary release MCP server route configurations.
     shared_ptr<vector<UpdateMcpServerRequest::GrayMcpServerConfigs>> grayMcpServerConfigs_ {};
+    // The MCP service description.
+    shared_ptr<string> instructions_ {};
     // The route match rules. This parameter is conditionally required. If it is not provided, the API returns InvalidParameter.IsEmpty(400).
     shared_ptr<HttpRouteMatch> match_ {};
     // The HTTP-to-MCP configurations.
@@ -590,10 +600,10 @@ namespace Models
     // Specifies whether to enable MCP observability. Default value: false.
     shared_ptr<bool> mcpStatisticsEnable_ {};
     // The protocol type. Valid values:
-    // HTTP: HTTP protocol.
-    // HTTPS: HTTPS protocol.
-    // SSE: Server-Sent Events protocol.
-    // StreamableHTTP: Streaming HTTP protocol.
+    // - HTTP: HTTP
+    // - HTTPS: HTTPS
+    // - SSE: Server-Sent Events
+    // - StreamableHTTP: Streamable HTTP
     // 
     // This parameter is required.
     shared_ptr<string> protocol_ {};

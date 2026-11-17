@@ -50,6 +50,8 @@ namespace Models
         DARABONBA_PTR_TO_JSON(deployStatus, deployStatus_);
         DARABONBA_PTR_TO_JSON(description, description_);
         DARABONBA_PTR_TO_JSON(enable, enable_);
+        DARABONBA_PTR_TO_JSON(expireAt, expireAt_);
+        DARABONBA_PTR_TO_JSON(expireStatus, expireStatus_);
         DARABONBA_PTR_TO_JSON(jwtIdentityConfig, jwtIdentityConfig_);
         DARABONBA_PTR_TO_JSON(name, name_);
         DARABONBA_PTR_TO_JSON(updateTimestamp, updateTimestamp_);
@@ -63,6 +65,8 @@ namespace Models
         DARABONBA_PTR_FROM_JSON(deployStatus, deployStatus_);
         DARABONBA_PTR_FROM_JSON(description, description_);
         DARABONBA_PTR_FROM_JSON(enable, enable_);
+        DARABONBA_PTR_FROM_JSON(expireAt, expireAt_);
+        DARABONBA_PTR_FROM_JSON(expireStatus, expireStatus_);
         DARABONBA_PTR_FROM_JSON(jwtIdentityConfig, jwtIdentityConfig_);
         DARABONBA_PTR_FROM_JSON(name, name_);
         DARABONBA_PTR_FROM_JSON(updateTimestamp, updateTimestamp_);
@@ -134,19 +138,20 @@ namespace Models
 
 
       protected:
-        // The consumer group ID.
+        // The ID of the consumer group.
         shared_ptr<string> consumerGroupId_ {};
-        // The consumer group description.
+        // The description of the consumer group.
         shared_ptr<string> description_ {};
-        // The time when the consumer joined the consumer group, represented as a UNIX timestamp in milliseconds.
+        // The time when the consumer joined the consumer group, as a Unix timestamp in milliseconds.
         shared_ptr<int64_t> joinTimestamp_ {};
-        // The consumer group name.
+        // The name of the consumer group.
         shared_ptr<string> name_ {};
       };
 
       virtual bool empty() const override { return this->akSkIdentityConfigs_ == nullptr
         && this->apiKeyIdentityConfig_ == nullptr && this->consumerGroups_ == nullptr && this->consumerId_ == nullptr && this->createTimestamp_ == nullptr && this->deployStatus_ == nullptr
-        && this->description_ == nullptr && this->enable_ == nullptr && this->jwtIdentityConfig_ == nullptr && this->name_ == nullptr && this->updateTimestamp_ == nullptr; };
+        && this->description_ == nullptr && this->enable_ == nullptr && this->expireAt_ == nullptr && this->expireStatus_ == nullptr && this->jwtIdentityConfig_ == nullptr
+        && this->name_ == nullptr && this->updateTimestamp_ == nullptr; };
       // akSkIdentityConfigs Field Functions 
       bool hasAkSkIdentityConfigs() const { return this->akSkIdentityConfigs_ != nullptr;};
       void deleteAkSkIdentityConfigs() { this->akSkIdentityConfigs_ = nullptr;};
@@ -209,6 +214,20 @@ namespace Models
       inline Data& setEnable(bool enable) { DARABONBA_PTR_SET_VALUE(enable_, enable) };
 
 
+      // expireAt Field Functions 
+      bool hasExpireAt() const { return this->expireAt_ != nullptr;};
+      void deleteExpireAt() { this->expireAt_ = nullptr;};
+      inline int64_t getExpireAt() const { DARABONBA_PTR_GET_DEFAULT(expireAt_, 0L) };
+      inline Data& setExpireAt(int64_t expireAt) { DARABONBA_PTR_SET_VALUE(expireAt_, expireAt) };
+
+
+      // expireStatus Field Functions 
+      bool hasExpireStatus() const { return this->expireStatus_ != nullptr;};
+      void deleteExpireStatus() { this->expireStatus_ = nullptr;};
+      inline string getExpireStatus() const { DARABONBA_PTR_GET_DEFAULT(expireStatus_, "") };
+      inline Data& setExpireStatus(string expireStatus) { DARABONBA_PTR_SET_VALUE(expireStatus_, expireStatus) };
+
+
       // jwtIdentityConfig Field Functions 
       bool hasJwtIdentityConfig() const { return this->jwtIdentityConfig_ != nullptr;};
       void deleteJwtIdentityConfig() { this->jwtIdentityConfig_ = nullptr;};
@@ -233,13 +252,13 @@ namespace Models
 
 
     protected:
-      // The AKSK identity authentication configuration.
+      // The AccessKey pair identity authentication configuration.
       shared_ptr<vector<AkSkIdentityConfig>> akSkIdentityConfigs_ {};
       // The API key identity authentication configuration.
       shared_ptr<ApiKeyIdentityConfig> apiKeyIdentityConfig_ {};
       // The list of consumer groups to which the consumer belongs.
       shared_ptr<vector<Data::ConsumerGroups>> consumerGroups_ {};
-      // The consumer ID.
+      // The ID of the consumer.
       shared_ptr<string> consumerId_ {};
       // The creation timestamp.
       shared_ptr<int64_t> createTimestamp_ {};
@@ -247,11 +266,15 @@ namespace Models
       shared_ptr<string> deployStatus_ {};
       // The description.
       shared_ptr<string> description_ {};
-      // Indicates whether the consumer is enabled.
+      // Specifies whether the consumer is enabled.
       shared_ptr<bool> enable_ {};
+      // The expiration time of the consumer in UTC Unix seconds. A null value indicates permanent validity and does not affect the enable or disable semantics of the enable parameter.
+      shared_ptr<int64_t> expireAt_ {};
+      // The validity status calculated based on the current time. Valid values: Permanent: permanently valid. InEffect: more than seven days remaining. AboutToExpire: more than zero and up to seven days remaining. Expired: the expiration time has been reached.
+      shared_ptr<string> expireStatus_ {};
       // The JWT identity authentication configuration.
       shared_ptr<JwtIdentityConfig> jwtIdentityConfig_ {};
-      // The consumer name.
+      // The name of the consumer.
       shared_ptr<string> name_ {};
       // The update timestamp.
       shared_ptr<int64_t> updateTimestamp_ {};

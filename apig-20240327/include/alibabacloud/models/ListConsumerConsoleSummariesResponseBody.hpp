@@ -199,11 +199,11 @@ namespace Models
 
 
         protected:
-          // The number of agent APIs that have authorizations configured.
+          // The number of agent APIs with configured authorizations.
           shared_ptr<int32_t> agentApis_ {};
-          // The number of MCP servers that have authorizations configured.
+          // The number of MCP servers with configured authorizations.
           shared_ptr<int32_t> mcpServers_ {};
-          // The number of model APIs that have authorizations configured.
+          // The number of model APIs with configured authorizations.
           shared_ptr<int32_t> modelApis_ {};
         };
 
@@ -421,15 +421,15 @@ namespace Models
 
 
       protected:
-        // Indicates whether the authorization scope of this resource includes all models.
+        // Indicates whether the authorization scope of the resource includes all models.
         shared_ptr<bool> allModels_ {};
         // The list of consumer groups that the consumer has joined.
         shared_ptr<vector<Items::ConsumerGroups>> consumerGroups_ {};
-        // The consumer ID returned by the create or query consumer API.
+        // The consumer ID returned by the create or query consumer API operation.
         shared_ptr<string> consumerId_ {};
         // The time when the consumer was created. The value is a UNIX timestamp in milliseconds.
         shared_ptr<int64_t> createTimestamp_ {};
-        // The summary of credential types and quantities for the consumer. The actual credential content is not returned.
+        // The summary of credential types and quantities for the consumer. The credential content is not returned.
         shared_ptr<vector<Items::Credentials>> credentials_ {};
         // The deployment status of the consumer configuration. An empty string is returned if no deployment status is available.
         shared_ptr<string> deployStatus_ {};
@@ -437,7 +437,7 @@ namespace Models
         shared_ptr<string> description_ {};
         // Indicates whether the consumer is enabled.
         shared_ptr<bool> enable_ {};
-        // The number of authorization configurations in the current gateway, counted by resource type.
+        // The number of authorization configurations in the current gateway, aggregated by resource type.
         shared_ptr<Items::LocalAccess> localAccess_ {};
         // The number of models.
         shared_ptr<int32_t> modelCount_ {};
@@ -566,15 +566,15 @@ namespace Models
     protected:
       // Indicates whether the query result is complete. A successful response returns a complete projection.
       shared_ptr<bool> complete_ {};
-      // The statistics of the complete consumer set in the local region. This value is not affected by the current pagination.
+      // The statistics of the complete consumer set in the local region, which are not affected by the current pagination.
       shared_ptr<Data::Counts> counts_ {};
       // The list of consumers returned on the current page.
       shared_ptr<vector<Data::Items>> items_ {};
-      // The maximum number of entries returned per page.
+      // The maximum number of entries returned on each page.
       shared_ptr<int32_t> maxResults_ {};
-      // The pagination token returned from the previous page. Do not specify this parameter when you query the first page.
+      // The pagination token returned from the previous page. Omit this parameter when querying the first page.
       shared_ptr<string> nextToken_ {};
-      // The total number of entries that match the current query conditions.
+      // The total number of records that match the current query conditions.
       shared_ptr<int64_t> totalCount_ {};
     };
 
@@ -611,7 +611,7 @@ namespace Models
 
 
   protected:
-    // The response status code. A value of Ok indicates success. If the call fails, a specific business error code is returned.
+    // The response status code. A value of Ok indicates a successful request. A specific business error code is returned for a failed request.
     shared_ptr<string> code_ {};
     // The business data returned for the consumer operation.
     shared_ptr<ListConsumerConsoleSummariesResponseBody::Data> data_ {};

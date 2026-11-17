@@ -75,19 +75,19 @@ namespace Models
 
 
   protected:
-    // The filter condition. Valid values: all, granted, and disabled. If this parameter is omitted, all is used.
+    // The filter condition. Valid values: all, granted, and disabled. Default value: all.
     shared_ptr<string> filter_ {};
-    // The target AI gateway instance ID. Consumer identities are shared across the region, and authorizations are isolated by instance.
+    // The target AI gateway instance ID. Consumer identities are shared across the region, while authorizations are isolated by instance.
     // 
     // This parameter is required.
     shared_ptr<string> gatewayId_ {};
-    // The maximum number of entries to return per page. Valid values: 1 to 100. This parameter is required. Token-based pagination is used instead of pageNumber and pageSize.
+    // The maximum number of entries to return on each page. Valid values: 1 to 100. This parameter is required. Token-based pagination is used instead of pageNumber and pageSize.
     // 
     // This parameter is required.
     shared_ptr<int32_t> maxResults_ {};
-    // The fuzzy search keyword for the consumer name. This parameter does not change the total counts.
+    // The keyword for fuzzy search by consumer name. This parameter does not affect the total count.
     shared_ptr<string> nameLike_ {};
-    // The pagination token returned from the previous page. Omit this parameter for the first page. For the last page, this value is empty or omitted.
+    // The pagination token returned from the previous page. Omit this parameter when querying the first page. An empty or omitted value indicates the last page.
     shared_ptr<string> nextToken_ {};
   };
 

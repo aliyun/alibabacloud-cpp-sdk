@@ -222,13 +222,13 @@ namespace Models
 
 
       protected:
-        // The number of credits per million input tokens that hit the cache. This must be a non-negative number. A value of 0 indicates that cached input is free.
+        // The number of credits per million input tokens that hit the cache. The value must be a non-negative number. A value of 0 indicates that cached input is free of charge.
         shared_ptr<float> cacheCost_ {};
-        // The number of credits per million input tokens. This must be a non-negative number. A value of 0 indicates that input is free.
+        // The number of credits per million input tokens. The value must be a non-negative number. A value of 0 indicates that the input is free of charge.
         shared_ptr<float> inputCost_ {};
-        // The number of credits per million output tokens. This must be a non-negative number. A value of 0 indicates that output is free.
+        // The number of credits per million output tokens. The value must be a non-negative number. A value of 0 indicates that the output is free of charge.
         shared_ptr<float> outputCost_ {};
-        // The pricing method. Currently, only fixed (fixed credit pricing) is supported.
+        // The pricing method. Valid values: fixed: fixed credit pricing.
         shared_ptr<string> type_ {};
       };
 
@@ -270,9 +270,9 @@ namespace Models
 
 
       protected:
-        // The call path for the model.
+        // The invocation path of the model.
         shared_ptr<string> path_ {};
-        // The protocol type used for the call path.
+        // The protocol type used by the invocation path.
         shared_ptr<string> type_ {};
       };
 
@@ -401,17 +401,17 @@ namespace Models
 
 
     protected:
-      // The protocols and call paths supported by the model.
+      // The protocols and invocation paths supported by the model.
       shared_ptr<vector<Data::AvailablePaths>> availablePaths_ {};
-      // The credit pricing configuration for the model.
+      // The credit pricing configuration of the model.
       shared_ptr<Data::Credit> credit_ {};
       // The set of capabilities declared by the model. The key is the capability name, and the value indicates whether the capability is supported.
       Darabonba::Json features_ {};
       // The ID of the AI gateway instance to which the resource belongs.
       shared_ptr<string> gatewayId_ {};
-      // The token limits and the input and output modality information of the model.
+      // The token limits and input and output modality information of the model.
       shared_ptr<Data::Meta> meta_ {};
-      // The model identifier. For standard models, use the source model card ID. For logical model entries, use the vm- prefix.
+      // The model identifier. Use the source model card ID for standard models and the vm- identifier for logical model entries.
       shared_ptr<string> modelCardId_ {};
       // The actual model name used by the upstream service.
       shared_ptr<string> modelName_ {};
@@ -421,17 +421,17 @@ namespace Models
       shared_ptr<string> modelSourceId_ {};
       // The display name of the model source.
       shared_ptr<string> modelSourceName_ {};
-      // The current version of the model source to which the model belongs.
+      // The current version of the associated model source.
       shared_ptr<int64_t> modelSourceVersion_ {};
-      // The synchronization status of the model pricing configuration. A value of Pending indicates that the current version is not synchronized, and a value of Ready indicates that it is synchronized.
+      // The synchronization status of the model pricing configuration. A value of Pending indicates that the current version is not synchronized. A value of Ready indicates that the current version is synchronized.
       shared_ptr<string> pricingStatus_ {};
-      // The ID of the actual AI service that is bound to the model source.
+      // The ID of the AI service bound to the model source.
       shared_ptr<string> serviceId_ {};
-      // The source of the model asset. A value of user indicates a user model, and a value of builtin indicates a built-in system model.
+      // The source of the model asset. A value of user indicates a user-defined model, and a value of builtin indicates a system built-in model.
       shared_ptr<string> source_ {};
-      // The time of the last business update. The time is in RFC 3339 format and the UTC time zone.
+      // The time of the last business update. The time is in RFC 3339 format and in the UTC time zone.
       shared_ptr<string> updateTime_ {};
-      // The current version of the object. This version is used for conditional validation during update or delete operations.
+      // The current version of the object. This version is used for conditional validation during updates or deletions.
       shared_ptr<int64_t> version_ {};
     };
 
@@ -468,13 +468,13 @@ namespace Models
 
 
   protected:
-    // The response status code. A value of Ok indicates success, and a specific business error code indicates failure.
+    // The response status code. The value is Ok for successful requests and a specific business error code for failed requests.
     shared_ptr<string> code_ {};
-    // The business result returned by the in-source model operation.
+    // The business result returned by the model source operation.
     shared_ptr<GetAiModelSourceModelResponseBody::Data> data_ {};
-    // The response message that describes the result of the request.
+    // The response message that indicates the result of the request.
     shared_ptr<string> message_ {};
-    // The request ID. This ID is generated by the system to trace the call.
+    // The request ID generated by the system to trace the call.
     shared_ptr<string> requestId_ {};
   };
 

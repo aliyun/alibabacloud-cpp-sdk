@@ -4,6 +4,7 @@
 #include <darabonba/Core.hpp>
 #include <vector>
 #include <alibabacloud/models/ModelSelection.hpp>
+#include <alibabacloud/models/ModelSelectionDelta.hpp>
 #include <alibabacloud/models/ModelApiPolicyConfig.hpp>
 using namespace std;
 using json = nlohmann::json;
@@ -23,6 +24,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(enableAuth, enableAuth_);
       DARABONBA_PTR_TO_JSON(firstByteTimeout, firstByteTimeout_);
       DARABONBA_PTR_TO_JSON(modelSelection, modelSelection_);
+      DARABONBA_PTR_TO_JSON(modelSelectionDelta, modelSelectionDelta_);
       DARABONBA_PTR_TO_JSON(name, name_);
       DARABONBA_PTR_TO_JSON(policyConfigs, policyConfigs_);
     };
@@ -34,6 +36,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(enableAuth, enableAuth_);
       DARABONBA_PTR_FROM_JSON(firstByteTimeout, firstByteTimeout_);
       DARABONBA_PTR_FROM_JSON(modelSelection, modelSelection_);
+      DARABONBA_PTR_FROM_JSON(modelSelectionDelta, modelSelectionDelta_);
       DARABONBA_PTR_FROM_JSON(name, name_);
       DARABONBA_PTR_FROM_JSON(policyConfigs, policyConfigs_);
     };
@@ -50,7 +53,7 @@ namespace Models
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->basePath_ == nullptr
         && this->description_ == nullptr && this->directSupplyFallbackEnabled_ == nullptr && this->domainIds_ == nullptr && this->enableAuth_ == nullptr && this->firstByteTimeout_ == nullptr
-        && this->modelSelection_ == nullptr && this->name_ == nullptr && this->policyConfigs_ == nullptr; };
+        && this->modelSelection_ == nullptr && this->modelSelectionDelta_ == nullptr && this->name_ == nullptr && this->policyConfigs_ == nullptr; };
     // basePath Field Functions 
     bool hasBasePath() const { return this->basePath_ != nullptr;};
     void deleteBasePath() { this->basePath_ = nullptr;};
@@ -104,6 +107,15 @@ namespace Models
     inline UpdateModelApiRequest& setModelSelection(ModelSelection && modelSelection) { DARABONBA_PTR_SET_RVALUE(modelSelection_, modelSelection) };
 
 
+    // modelSelectionDelta Field Functions 
+    bool hasModelSelectionDelta() const { return this->modelSelectionDelta_ != nullptr;};
+    void deleteModelSelectionDelta() { this->modelSelectionDelta_ = nullptr;};
+    inline const ModelSelectionDelta & getModelSelectionDelta() const { DARABONBA_PTR_GET_CONST(modelSelectionDelta_, ModelSelectionDelta) };
+    inline ModelSelectionDelta getModelSelectionDelta() { DARABONBA_PTR_GET(modelSelectionDelta_, ModelSelectionDelta) };
+    inline UpdateModelApiRequest& setModelSelectionDelta(const ModelSelectionDelta & modelSelectionDelta) { DARABONBA_PTR_SET_VALUE(modelSelectionDelta_, modelSelectionDelta) };
+    inline UpdateModelApiRequest& setModelSelectionDelta(ModelSelectionDelta && modelSelectionDelta) { DARABONBA_PTR_SET_RVALUE(modelSelectionDelta_, modelSelectionDelta) };
+
+
     // name Field Functions 
     bool hasName() const { return this->name_ != nullptr;};
     void deleteName() { this->name_ = nullptr;};
@@ -135,6 +147,8 @@ namespace Models
     shared_ptr<int32_t> firstByteTimeout_ {};
     // The model selection. This parameter is required during creation. If omitted during an update, the original value is retained. When submitted, the entire selection is replaced.
     shared_ptr<ModelSelection> modelSelection_ {};
+    // Supported only by the new version of ModelAPI in minimalist mode: merges the actual source model IDs added to or removed from the model source in this request into the latest selection within the lock. This parameter is mutually exclusive with modelSelection and cannot be null or an empty delta. The standard update and publish process applies.
+    shared_ptr<ModelSelectionDelta> modelSelectionDelta_ {};
     // The name of the model API. If omitted or set to null, the original value is retained. When submitted, the value is trimmed of leading and trailing whitespace, must be non-empty, contain a maximum of 128 UTF-8 bytes, and cannot contain @ or /. Renaming the API does not change the API ID or access prefix.
     shared_ptr<string> name_ {};
     // The configurations for AI request logs and AI security protection. If omitted during an update, the original values are retained. When submitted, the inline policies of both types are entirely replaced. An empty array clears both types. Independent token quotas are not affected.
