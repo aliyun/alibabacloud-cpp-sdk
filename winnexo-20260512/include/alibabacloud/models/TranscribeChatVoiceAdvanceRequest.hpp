@@ -78,7 +78,7 @@ namespace Models
     // The content type of the file. Valid values:
     // - **image**: Image.
     // - **document**: General document.
-    // - **alidoc**: Alibaba Cloud document.
+    // - **alidoc**: AliDoc.
     // - **text**: Text.
     // - **video**: Video.
     // - **audio**: Audio.
@@ -87,15 +87,15 @@ namespace Models
     // - **link**: Shortcut.
     // - **other**: Other.
     shared_ptr<string> contentType_ {};
-    // 标准 Base64 音频内容，不含 data URI 前缀，与 FileUrl 二选一
+    // The standard Base64-encoded audio content, excluding the data URI prefix. This parameter and FileUrl are mutually exclusive.
     shared_ptr<string> fileContentBase64_ {};
-    // The full path name of the file.
+    // The full path and name of the file.
     // 
     // This parameter is required.
     shared_ptr<string> fileName_ {};
     // The publicly accessible URL of the attachment.
     shared_ptr<Darabonba::IStream> fileUrlObject_ {};
-    // The ID of the tenant for which the operation takes effect.
+    // The ID of the tenant.
     shared_ptr<string> tenantId_ {};
   };
 

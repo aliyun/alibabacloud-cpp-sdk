@@ -149,31 +149,31 @@ namespace Models
 
 
   protected:
-    // 业务状态码：成功为 200，失败沿现有 OpenAPI/POP 错误合同返回；转换是否整体完成须同时检查 status
+    // The response status code.
     shared_ptr<string> code_ {};
-    // 转换 ID，查询及恢复过程中保持不变
+    // The session conversion record ID.
     shared_ptr<string> conversionId_ {};
-    // 固定快照中转换的完整 direct 问答轮数，不受发送接口 directMaxHistoryRounds 限制
+    // The number of converted conversation turns.
     shared_ptr<int32_t> convertedRounds_ {};
-    // 转换历史范围，固定为 direct；不包含普通 work 历史
+    // The scope of the converted historical messages.
     shared_ptr<string> historyScope_ {};
-    // 错误描述，成功时为空
+    // The response message.
     shared_ptr<string> message_ {};
-    // 请求追踪 ID
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // 是否允许继续原转换；false 表示不另起执行，仍允许用同一源 sessionId 查询。重试或继续始终复用同一转换、目标及快照
+    // Specifies whether retries are supported.
     shared_ptr<bool> retryable_ {};
-    // 冻结快照对应的源 direct 历史 epoch
+    // The source session version identifier.
     shared_ptr<int64_t> sourceEpoch_ {};
-    // 源会话 ID，与请求 sessionId 一致
+    // The source session ID.
     shared_ptr<string> sourceSessionId_ {};
-    // 转换状态：processing 表示处理中；succeeded 表示模型导入、目标登记、展示投影及两侧就绪均完成。失败按 OpenAPI/POP 错误合同处理，不能仅凭 HTTP 200 判断转换成功
+    // The conversion status.
     shared_ptr<string> status_ {};
-    // 新的 work 目标会话 ID，与源 ID 不同；processing 时可能返回预分配 ID，仅 succeeded 后可使用；重复查询或恢复复用原目标
+    // The target work session ID.
     shared_ptr<string> targetSessionId_ {};
-    // 冻结快照包含的最后一个 direct 轮次序号；源会话后续轮次不自动加入目标
+    // The cutoff message sequence number for the conversion.
     shared_ptr<int64_t> throughSequence_ {};
-    // 目标会话的工作模式，固定为 work
+    // The work session mode.
     shared_ptr<string> workMode_ {};
   };
 

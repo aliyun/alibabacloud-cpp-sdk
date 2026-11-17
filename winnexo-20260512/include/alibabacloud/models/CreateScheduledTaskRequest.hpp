@@ -167,10 +167,10 @@ namespace Models
       protected:
         // The notification method. Valid values:
         // 
-        // - **hdm_alarm_sms**: SMS.
+        // - **hdm_alarm_sms**: Text message.
         // - **dingtalk**: DingTalk chatbot.
-        // - **hdm_alarm_sms_and_email**: SMS and email.
-        // - **hdm_alarm_sms,dingtalk**: SMS and DingTalk chatbot.
+        // - **hdm_alarm_sms_and_email**: Text message and email.
+        // - **hdm_alarm_sms,dingtalk**: Text message and DingTalk chatbot.
         shared_ptr<string> channelType_ {};
         // The scope of the push content. Default value: all_replies.
         shared_ptr<string> contentScope_ {};
@@ -178,21 +178,18 @@ namespace Models
         shared_ptr<string> deliveryMethod_ {};
         // Specifies whether the credential is enabled. Valid values:
         // 
-        // - true: Enabled. 
+        // - true: Enabled.
         // - false: Disabled.
         shared_ptr<bool> enabled_ {};
         // The file format, such as Excel or CSV.
         shared_ptr<string> fileFormat_ {};
         // The name of the digital employee (the name of the operating object, optional).
         shared_ptr<string> operatingObjectName_ {};
-        // The type of the file recipient. Valid values:
+        // The type of the file receiver. Valid values:
         // 
         // - 0: Private chat.
-        // 
         // - 1: Group chat.
-        // 
         // - 2: DingTalk Drive.
-        // 
         // - 3: Document.
         shared_ptr<string> receiverType_ {};
       };
@@ -244,21 +241,17 @@ namespace Models
       // - zh_CN: Chinese. This is the default value.
       // - en_US: English.
       shared_ptr<string> language_ {};
-      // The list of task push channels. If the list is empty or no channel is enabled, no push is performed.
+      // The list of task push channels. If this parameter is empty or no channel is enabled, no push is performed.
       shared_ptr<vector<TriggerConfig::PushConfig>> pushConfig_ {};
       // The time zone.
       shared_ptr<string> timezone_ {};
-      // - Trigger mode
-      //  
-      //   1: Manual trigger
-      //    
-      //   2: Scheduled trigger 
+      // The trigger mode. Valid values:
       // 
-      //   3: Code commit trigger
-      //  
-      //   5: Pipeline trigger
-      // 
-      //   6: Webhook trigger
+      // - 1: Manual trigger.
+      // - 2: Scheduled trigger.
+      // - 3: Code commit trigger.
+      // - 5: Pipeline trigger.
+      // - 6: WEBHOOK trigger.
       shared_ptr<string> triggerMode_ {};
     };
 
@@ -461,9 +454,8 @@ namespace Models
         shared_ptr<string> name_ {};
         // The object ID. Pass the project task ID.
         // 
-        // - For internal enterprise applications, call the [Create a project task](https://open.dingtalk.com/document/orgapp-server/create-a-project-task) API operation to obtain the taskId.
-        // 
-        // - For third-party enterprise applications, call the [Create a project task](https://open.dingtalk.com/document/isvapp-server/create-a-project-task) API operation to obtain the taskId.
+        // - For internal enterprise applications, call the [Create a project task](https://open.dingtalk.com/document/orgapp-server/create-a-project-task) API to obtain the taskId.
+        // - For third-party enterprise applications, call the [Create a project task](https://open.dingtalk.com/document/isvapp-server/create-a-project-task) API to obtain the taskId.
         shared_ptr<string> objectId_ {};
         // The relationship type. Valid values:
         // - crm_customer: Enterprise customer.
@@ -604,11 +596,11 @@ namespace Models
     protected:
       // The card callback content.
       shared_ptr<string> content_ {};
-      // Specifies whether the feature is enabled.
+      // Specifies whether to enable the feature.
       shared_ptr<bool> enabled_ {};
       // The name.
       shared_ptr<string> name_ {};
-      // The ID of the recommended item, which can be a **feedId** or a mini-app ID.
+      // The ID of the recommended item. The value can be a **feedId** or a mini-app ID.
       shared_ptr<string> objectId_ {};
       // The saved customer type.
       shared_ptr<string> objectType_ {};
@@ -710,15 +702,14 @@ namespace Models
       shared_ptr<string> name_ {};
       // The object ID. Pass the project task ID.
       // 
-      // - For internal enterprise applications, call the [Create a project task](https://open.dingtalk.com/document/orgapp-server/create-a-project-task) API operation to obtain the taskId.
-      // 
-      // - For third-party enterprise applications, call the [Create a project task](https://open.dingtalk.com/document/isvapp-server/create-a-project-task) API operation to obtain the taskId.
+      // - For internal enterprise applications, call the [Create a project task](https://open.dingtalk.com/document/orgapp-server/create-a-project-task) API to obtain the taskId.
+      // - For third-party enterprise applications, call the [Create a project task](https://open.dingtalk.com/document/isvapp-server/create-a-project-task) API to obtain the taskId.
       shared_ptr<string> objectId_ {};
       // The object type. Set the value to task, which indicates a project task.
       shared_ptr<string> objectType_ {};
       // The skill code. This parameter has a value when type is set to skill.
       shared_ptr<string> skillCode_ {};
-      // The HTTP API type. Valid values: Http (standard HTTP API), Rest (RESTful API), WebSocket (WebSocket API), HttpIngress (HTTP API accessed through Ingress), LLM (large language model API), and Agent (agent API).
+      // The HTTP API type. Valid values: Http (common HTTP API), Rest (RESTful API), WebSocket (WebSocket API), HttpIngress (HTTP API accessed through Ingress), LLM (large language model API), and Agent (agent API).
       shared_ptr<string> type_ {};
     };
 
@@ -830,29 +821,29 @@ namespace Models
 
 
   protected:
-    // The ID of the collaboration group to which the task belongs, such as cg_101. If this parameter is passed, a group space task is created, and the caller must be a valid group member. If this parameter is empty, a personal task is created.
+    // The ID of the associated collaboration group (such as cg_101). If this parameter is passed, a group space task is created, and the caller must be a valid group member. If this parameter is empty, a personal task is created.
     shared_ptr<string> collaborationGroupId_ {};
     // The description of the to-do card type.
     shared_ptr<vector<CreateScheduledTaskRequest::Description>> description_ {};
-    // The name of the current effective digital employee. This parameter is empty if it is not configured.
+    // The name of the currently effective digital employee. This parameter is empty if it is not configured.
     shared_ptr<vector<string>> digitalEmployeeName_ {};
     // Specifies whether public access is allowed.
     shared_ptr<bool> isOpen_ {};
-    // The large language model used by the assistant. The default value is empty, which indicates that DingTalk automatically selects the model.
+    // The large model used by the assistant. The default value is empty, which indicates that DingTalk automatically selects the model.
     shared_ptr<string> model_ {};
     // The name.
     // 
     // This parameter is required.
     shared_ptr<string> name_ {};
-    // 输出会话模式，默认 NEW_CONVERSATION
+    // The output conversation mode. Default value: NEW_CONVERSATION.
     shared_ptr<string> outputMode_ {};
     // The site ID.
     shared_ptr<vector<CreateScheduledTaskRequest::Segments>> segments_ {};
     // The task details.
     shared_ptr<CreateScheduledTaskRequest::TaskDetail> taskDetail_ {};
-    // The effective tenant ID.
+    // The ID of the effective tenant.
     shared_ptr<string> tenantId_ {};
-    // The trigger configuration of the scheduled task. The triggerMode parameter supports manual (manual trigger) and scheduled (scheduled trigger). If scheduled is used, the cron parameter must be specified. The timezone and language parameters are injected by the server, and the client does not need to pass them. The pushConfig parameter is the list of task push channels. If the list is empty or no channel is enabled, no push is performed.
+    // The trigger configuration of the scheduled task. triggerMode supports manual (manual trigger) and scheduled (scheduled trigger). If scheduled is used, cron must be specified. timezone and language are injected by the server, and the client does not need to pass them. pushConfig is the list of task push channels. If it is empty or no channel is enabled, no push is performed.
     shared_ptr<CreateScheduledTaskRequest::TriggerConfig> triggerConfig_ {};
     // The visibility scope of the group task. Valid values: PRIVATE (visible only to the creator and group owner), COLLABORATIVE (visible to specified collaboration members), and PUBLIC (visible to all group members). If this parameter is not passed for a group task, the default value is PRIVATE. This field is ignored for personal tasks.
     shared_ptr<string> visibility_ {};

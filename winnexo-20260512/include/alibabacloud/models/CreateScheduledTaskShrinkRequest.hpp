@@ -149,29 +149,29 @@ namespace Models
 
 
   protected:
-    // The ID of the collaboration group to which the task belongs, such as cg_101. If this parameter is passed, a group space task is created, and the caller must be a valid group member. If this parameter is empty, a personal task is created.
+    // The ID of the associated collaboration group (such as cg_101). If this parameter is passed, a group space task is created, and the caller must be a valid group member. If this parameter is empty, a personal task is created.
     shared_ptr<string> collaborationGroupId_ {};
     // The description of the to-do card type.
     shared_ptr<string> descriptionShrink_ {};
-    // The name of the current effective digital employee. This parameter is empty if it is not configured.
+    // The name of the currently effective digital employee. This parameter is empty if it is not configured.
     shared_ptr<string> digitalEmployeeNameShrink_ {};
     // Specifies whether public access is allowed.
     shared_ptr<bool> isOpen_ {};
-    // The large language model used by the assistant. The default value is empty, which indicates that DingTalk automatically selects the model.
+    // The large model used by the assistant. The default value is empty, which indicates that DingTalk automatically selects the model.
     shared_ptr<string> model_ {};
     // The name.
     // 
     // This parameter is required.
     shared_ptr<string> name_ {};
-    // 输出会话模式，默认 NEW_CONVERSATION
+    // The output conversation mode. Default value: NEW_CONVERSATION.
     shared_ptr<string> outputMode_ {};
     // The site ID.
     shared_ptr<string> segmentsShrink_ {};
     // The task details.
     shared_ptr<string> taskDetailShrink_ {};
-    // The effective tenant ID.
+    // The ID of the effective tenant.
     shared_ptr<string> tenantId_ {};
-    // The trigger configuration of the scheduled task. The triggerMode parameter supports manual (manual trigger) and scheduled (scheduled trigger). If scheduled is used, the cron parameter must be specified. The timezone and language parameters are injected by the server, and the client does not need to pass them. The pushConfig parameter is the list of task push channels. If the list is empty or no channel is enabled, no push is performed.
+    // The trigger configuration of the scheduled task. triggerMode supports manual (manual trigger) and scheduled (scheduled trigger). If scheduled is used, cron must be specified. timezone and language are injected by the server, and the client does not need to pass them. pushConfig is the list of task push channels. If it is empty or no channel is enabled, no push is performed.
     shared_ptr<string> triggerConfigShrink_ {};
     // The visibility scope of the group task. Valid values: PRIVATE (visible only to the creator and group owner), COLLABORATIVE (visible to specified collaboration members), and PUBLIC (visible to all group members). If this parameter is not passed for a group task, the default value is PRIVATE. This field is ignored for personal tasks.
     shared_ptr<string> visibility_ {};

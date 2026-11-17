@@ -140,29 +140,29 @@ namespace Models
 
 
   protected:
-    // The business ID used for exact filtering. The length is 1 to 128 characters. This value is derived from file registration or the businessId of associated workflow instances.
+    // The business ID used for exact filtering. The length is 1 to 128 characters. This ID is derived from file registrations or the businessId of associated workflow instances.
     shared_ptr<string> bizId_ {};
-    // The collaboration workspace ID. The length is 1 to 64 characters. If this parameter is not provided, the personal outputs of the current user are queried. If provided, the real-time permissions of workspace members and source resources are verified.
+    // The ID of the collaboration workspace. The length is 1 to 64 characters. This parameter is optional. If not specified, the personal outputs of the current user are queried. If specified, the real-time permissions of the workspace members and source resources are verified.
     shared_ptr<string> collaborationGroupId_ {};
-    // The output item type: ppt, html, document, picture, slides, video, audio, email, or others.
+    // The output detail type. Valid values: ppt, html, document, picture, slides, video, audio, email, and others.
     shared_ptr<string> itemType_ {};
     // The keyword used to match the output title or detail name.
     shared_ptr<string> keyword_ {};
-    // The name of the digital employee. Filters results by name.
+    // The name of the digital employee (operating object). Filters results by name.
     shared_ptr<string> operatingObjectName_ {};
     // The page number. Pages start from 1. Default value: 1.
     shared_ptr<int64_t> page_ {};
-    // The number of items per page. Valid values: 1 to 100. Default value: 20.
+    // The number of entries per page. Valid values: 1 to 100. Default value: 20.
     shared_ptr<int64_t> pageSize_ {};
     // The session ID used for exact filtering. The length is 1 to 128 characters. This parameter applies to regular sessions, skill sessions, and the executionId of task executions.
     shared_ptr<string> sessionId_ {};
     // Specifies whether to display only the outputs and output details that have sharing enabled.
     shared_ptr<bool> sharedOnly_ {};
-    // The tags used for exact filtering. All specified tags must match simultaneously. You can specify up to 20 tags. Each tag must be a non-empty string of 1 to 128 characters. Tags are derived from file registration or the variables.tags of associated instances.
+    // The tags used for exact filtering. All specified tags must match simultaneously. You can specify up to 20 tags. Each tag must be a non-empty string of 1 to 128 characters. Tags are derived from file registrations or the variables.tags of associated instances.
     shared_ptr<string> tagsShrink_ {};
-    // 按本次执行 ID 精确筛选产出
+    // The ID of the current execution used to exactly filter outputs.
     shared_ptr<string> taskExecutionId_ {};
-    // The tenant ID. This is a common parameter. If omitted, the default tenant of the caller is used. The identity and tenant permissions are determined by the gateway and backend authentication.
+    // The tenant ID. This is a common parameter. If not specified, the default tenant of the caller is used. The identity and tenant permissions are determined by the gateway and backend authentication.
     shared_ptr<string> tenantId_ {};
   };
 

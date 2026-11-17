@@ -254,7 +254,7 @@ namespace Models
           shared_ptr<string> description_ {};
           // The file name.
           shared_ptr<string> name_ {};
-          // The file download link. For versioned files, it is bound to the published version and content revision at the time of query. The link has a validity period. If it expires, query the list again to obtain a new link.
+          // The file download URL. For versioned files, it is bound to the published version and content revision at the time of query. The URL has a time-to-live (TTL). If it expires, query the list again to obtain a new URL.
           shared_ptr<string> path_ {};
           // The file type, such as .pdf or .md.
           shared_ptr<string> type_ {};
@@ -446,9 +446,9 @@ namespace Models
       protected:
         // The creation time of the output detail. The backend datetime value is serialized into an ISO 8601 string, and the time zone information is returned with the original value.
         shared_ptr<string> createTime_ {};
-        // The email information. This field is available only when the item type is email.
+        // The email information. This field is present when the item type is email.
         shared_ptr<OutputItems::EmailInfo> emailInfo_ {};
-        // The file information. This field is available only when the item type is file.
+        // The file information. This field is present when the item type is file.
         shared_ptr<OutputItems::FileInfo> fileInfo_ {};
         // The creation time of the output or detail. The backend datetime value is serialized into an ISO 8601 string, and the time zone information is returned with the original value.
         shared_ptr<string> gmtCreate_ {};
@@ -464,9 +464,9 @@ namespace Models
         shared_ptr<string> messageId_ {};
         // The output detail ID.
         shared_ptr<string> outputItemId_ {};
-        // Indicates whether sharing is enabled.
+        // Specifies whether sharing is enabled.
         shared_ptr<bool> shareEnabled_ {};
-        // The share token. This field is present when sharing is enabled and can be used to access the public share preview API.
+        // The share token, which is present when sharing is enabled and can be used to access the public share preview API.
         shared_ptr<string> shareToken_ {};
         // The skill output ID.
         shared_ptr<string> skillOutputId_ {};
@@ -567,7 +567,7 @@ namespace Models
       shared_ptr<string> gmtModified_ {};
       // The output name.
       shared_ptr<string> name_ {};
-      // The name of the digital worker (operating object).
+      // The name of the digital employee (operating object).
       shared_ptr<string> operatingObjectName_ {};
       // The output ID.
       shared_ptr<string> outputId_ {};

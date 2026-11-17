@@ -70,9 +70,9 @@ namespace Models
     shared_ptr<string> code_ {};
     // The description of the status code.
     shared_ptr<string> message_ {};
-    // The request ID.
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
-    // The recognized text content.
+    // The batch text to be translated.
     shared_ptr<string> text_ {};
   };
 

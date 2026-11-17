@@ -165,19 +165,19 @@ namespace Models
 
 
       protected:
-        // The push channel type.
+        // The push channel.
         shared_ptr<string> channelType_ {};
-        // The scope of push content. Default value: all_replies.
+        // The scope of the push content. Default value: all_replies.
         shared_ptr<string> contentScope_ {};
-        // The push method. Default value: channel_bot.
+        // The delivery method. Default value: channel_bot.
         shared_ptr<string> deliveryMethod_ {};
-        // Specifies whether to push to this channel. Default value: false.
+        // Specifies whether to push notifications to the channel. Default value: false.
         shared_ptr<bool> enabled_ {};
-        // The format for pushing output files. Default value: file.
+        // The push format for output files. Default value: file.
         shared_ptr<string> fileFormat_ {};
-        // The digital human to which the sending bot belongs. This parameter is required and cannot be empty.
+        // The digital employee to which the sending bot belongs. This parameter is required and cannot be empty.
         shared_ptr<string> operatingObjectName_ {};
-        // The receiver type. Currently only self is supported.
+        // The recipient. Only self is supported.
         shared_ptr<string> receiverType_ {};
       };
 
@@ -221,13 +221,13 @@ namespace Models
 
 
     protected:
-      // The cron expression. Required when trigger_mode is set to scheduled. Example: \\"00 09 * * *\\".
+      // The cron expression. This parameter is required when trigger_mode is set to scheduled. Example: 00 09 * * *.
       shared_ptr<string> cron_ {};
-      // The language, such as zh-CN or en-US. Automatically injected by the server.
+      // The language, such as zh-CN or en-US. This parameter is automatically injected by the server.
       shared_ptr<string> language_ {};
-      // The list of push channels for the task. No push notifications are sent if the list is empty or no channel is enabled.
+      // The list of task push channels. If the list is empty or no channel is enabled, no push notification is sent.
       shared_ptr<vector<TriggerConfig::PushConfig>> pushConfig_ {};
-      // The time zone, such as Asia/Shanghai. Automatically injected by the server.
+      // The time zone, such as Asia/Shanghai. This parameter is automatically injected by the server.
       shared_ptr<string> timezone_ {};
       // The trigger mode. Valid values: manual and scheduled.
       // 
@@ -366,7 +366,7 @@ namespace Models
 
 
       protected:
-        // The semantic attributes (JSON string) used for filtering during semantic retrieval.
+        // The semantic attributes in JSON string format. This parameter is used for filtering during semantic retrieval.
         shared_ptr<string> attributes_ {};
         // The semantic entity name, such as customer or opportunity.
         shared_ptr<string> entity_ {};
@@ -432,7 +432,7 @@ namespace Models
         shared_ptr<string> mentionType_ {};
         // The file name.
         shared_ptr<string> name_ {};
-        // The object ID. This parameter has a value when an object is mentioned using @.
+        // The object ID. This parameter has a value when the object is specified by using the @ symbol.
         shared_ptr<string> objectId_ {};
         // The object type, such as customer or company.
         shared_ptr<string> objectType_ {};
@@ -481,7 +481,7 @@ namespace Models
       shared_ptr<vector<TaskDetail::RelatedSemantics>> relatedSemantics_ {};
       // The related skills.
       shared_ptr<vector<TaskDetail::RelatedSkills>> relatedSkills_ {};
-      // The task understanding description polished by the LLM.
+      // The task understanding description refined by the large language model (LLM).
       shared_ptr<string> taskUnderstand_ {};
     };
 
@@ -569,9 +569,9 @@ namespace Models
 
 
     protected:
-      // The text content. Required when type is set to text.
+      // The text content. This parameter is required when type is set to text.
       shared_ptr<string> content_ {};
-      // The feature switch. Optional when type is set to web_search.
+      // Specifies whether the feature is enabled. This parameter is optional when type is set to web_search.
       shared_ptr<bool> enabled_ {};
       // The file name.
       shared_ptr<string> name_ {};
@@ -671,9 +671,9 @@ namespace Models
 
 
     protected:
-      // The text content. Required when type is set to text.
+      // The text content. This parameter is required when type is set to text.
       shared_ptr<string> content_ {};
-      // The feature switch. Optional when type is set to web_search.
+      // Specifies whether the feature is enabled. This parameter is optional when type is set to web_search.
       shared_ptr<bool> enabled_ {};
       // The file name.
       shared_ptr<string> name_ {};
@@ -797,17 +797,17 @@ namespace Models
 
 
   protected:
-    // The description information.
+    // The description.
     shared_ptr<vector<UpdateScheduledTaskRequest::Description>> description_ {};
-    // The list of digital human names.
+    // The list of digital employee names.
     shared_ptr<vector<string>> digitalEmployeeName_ {};
-    // Specifies whether the task is publicly accessible.
+    // Specifies whether public access is enabled.
     shared_ptr<bool> isOpen_ {};
-    // The execution model tier. If not specified, the model tier is not updated.
+    // The execution model tier. If this parameter is not specified, the model tier is not updated.
     shared_ptr<string> model_ {};
     // The file name.
     shared_ptr<string> name_ {};
-    // 输出会话模式，省略时保留当前配置
+    // The output conversation mode. If this parameter is omitted, the current configuration is retained.
     shared_ptr<string> outputMode_ {};
     // The segments.
     shared_ptr<vector<UpdateScheduledTaskRequest::Segments>> segments_ {};
@@ -817,13 +817,13 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> taskId_ {};
-    // The tenant ID. This is a common parameter. If not specified, the default tenant of the caller is used.
+    // The tenant ID. This is a common parameter. If this parameter is not specified, the default tenant of the caller is used.
     shared_ptr<string> tenantId_ {};
-    // The trigger configuration. The configuration varies depending on the trigger type.
+    // The trigger configuration. The configuration varies based on the trigger type.
     shared_ptr<UpdateScheduledTaskRequest::TriggerConfig> triggerConfig_ {};
-    // The visibility scope for group tasks. Valid values: PRIVATE (visible only to the creator and group owner), COLLABORATIVE (visible to specified collaborators), and PUBLIC (visible to all group members). If not specified, the visibility is not updated. This parameter is ignored for personal tasks.
+    // The visibility scope adjustment for group tasks. Valid values: PRIVATE (visible only to the creator and group owner), COLLABORATIVE (visible to specified collaborators), and PUBLIC (visible to all group members). If this parameter is not specified, the visibility scope is not updated. This field is ignored for personal tasks.
     shared_ptr<string> visibility_ {};
-    // The full replacement list of collaborator member user IDs. This parameter takes effect only when visibility is set to COLLABORATIVE. The list is cleared when switching away from the COLLABORATIVE tier. A maximum of 1000 members are supported. If not specified, the member list is not updated. The task creator and group creator do not need to be included because they are covered by the authentication layer. This parameter is ignored for personal tasks.
+    // The full replacement list of collaborators. This parameter takes effect only when visibility is set to COLLABORATIVE. When the visibility is changed from COLLABORATIVE to another value, the list is cleared. A maximum of 1,000 members are supported. If this parameter is not specified, the members are not updated. You do not need to specify the task creator and group creator because they are covered by the authentication layer. This field is ignored for personal tasks.
     shared_ptr<vector<string>> visibleMemberUserIds_ {};
   };
 

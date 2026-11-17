@@ -66,17 +66,17 @@ namespace Models
 
 
   protected:
-    // 文件 MIME 类型（可选，不传时按 application/octet-stream 处理）
+    // The MIME type of the file.
     shared_ptr<string> contentType_ {};
-    // 标准 Base64 文件内容，不含 data URI 前缀
+    // The Base64-encoded string of the file content.
     // 
     // This parameter is required.
     shared_ptr<string> fileContentBase64_ {};
-    // 原始文件名（含后缀）
+    // The file name.
     // 
     // This parameter is required.
     shared_ptr<string> fileName_ {};
-    // 租户ID，公共参数，缺省时使用调用方默认租户
+    // The tenant ID.
     shared_ptr<string> tenantId_ {};
   };
 

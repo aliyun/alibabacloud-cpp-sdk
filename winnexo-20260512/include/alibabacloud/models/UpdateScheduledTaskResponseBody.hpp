@@ -75,15 +75,15 @@ namespace Models
 
 
   protected:
-    // The business status code. A value of 200 indicates success. A failure returns a backend error code (ERR.* or InvalidParameter.*).
+    // The business status code. A value of 200 indicates success. A value of a backend error code such as ERR.* or InvalidParameter.* indicates failure.
     shared_ptr<string> code_ {};
-    // The error description. Empty when the request is successful.
+    // The error message. This parameter is empty when the request is successful.
     shared_ptr<string> message_ {};
-    // The request trace ID.
+    // The request tracking ID.
     shared_ptr<string> requestId_ {};
-    // The task ID (echoed back).
+    // The task ID.
     shared_ptr<string> taskId_ {};
-    // Indicates whether an actual update was made.
+    // Specifies whether an actual update is performed.
     shared_ptr<bool> updated_ {};
   };
 
