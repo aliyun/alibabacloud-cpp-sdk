@@ -90,9 +90,9 @@ namespace Models
 
 
     protected:
-      // Custom variables defined by the customer. The value is a JSON object that contains up to 10 properties. The name and value of each property are defined by the customer.
+      // The custom variables defined by the customer. The format is a JSON object. The object can contain up to 10 properties, and the name and value of each property are defined by the customer.
       shared_ptr<string> customVariables_ {};
-      // The phone number of the contact.
+      // The contact number.
       shared_ptr<string> phoneNumber_ {};
       // The priority.
       shared_ptr<int32_t> priority_ {};

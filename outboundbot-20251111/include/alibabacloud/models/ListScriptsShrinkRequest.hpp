@@ -103,11 +103,11 @@ namespace Models
 
 
   protected:
-    // The chatbot builder type.
+    // The bot builder type.
     shared_ptr<string> builderType_ {};
     // The instance ID.
     shared_ptr<string> instanceId_ {};
-    // The script name.
+    // The scenario name.
     shared_ptr<string> name_ {};
     // The NLU engine type.
     shared_ptr<string> nluEngine_ {};
@@ -115,9 +115,9 @@ namespace Models
     shared_ptr<int32_t> pageNumber_ {};
     // The number of entries per page.
     shared_ptr<int32_t> pageSize_ {};
-    // Specifies whether to return only published scripts.
+    // Specifies whether to return only published scenarios.
     shared_ptr<bool> publishOnly_ {};
-    // The list of script IDs.
+    // The list of scenario IDs.
     shared_ptr<string> scriptIdsShrink_ {};
   };
 

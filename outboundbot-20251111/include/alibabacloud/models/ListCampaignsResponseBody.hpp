@@ -291,13 +291,13 @@ namespace Models
         shared_ptr<int32_t> casesConnected_ {};
         // The number of uncompleted cases.
         shared_ptr<int32_t> casesUncompleted_ {};
-        // The number of cases that were attempted but not completed.
+        // The number of attempted but uncompleted cases.
         shared_ptr<int32_t> casesUncompletedAfterAttempted_ {};
         // The completion rate.
         shared_ptr<double> completedRate_ {};
-        // The time when the campaign was created.
+        // The creation time.
         shared_ptr<int64_t> createdTime_ {};
-        // The fixed number of concurrent calls.
+        // The fixed concurrency.
         shared_ptr<int32_t> fixedQuota_ {};
         // The maximum number of retries.
         shared_ptr<int32_t> maxAttemptCount_ {};
@@ -309,7 +309,7 @@ namespace Models
         shared_ptr<int64_t> plannedEndTime_ {};
         // The planned start time.
         shared_ptr<int64_t> plannedStartTime_ {};
-        // Indicates whether the campaign continues to run until the planned end time after all contacts have been called.
+        // Specifies whether to continue running the campaign until the end time when all contacts have been called.
         shared_ptr<bool> runUntilEndTime_ {};
         // The IVR flow ID.
         shared_ptr<string> scriptId_ {};
@@ -317,9 +317,9 @@ namespace Models
         shared_ptr<string> state_ {};
         // The total number of cases.
         shared_ptr<int32_t> totalCases_ {};
-        // The time when the campaign was last updated.
+        // The update time.
         shared_ptr<int64_t> updatedTime_ {};
-        // The weight of the campaign.
+        // The campaign weight.
         shared_ptr<int32_t> weight_ {};
       };
 
@@ -360,9 +360,9 @@ namespace Models
       shared_ptr<vector<Data::List>> list_ {};
       // The page number.
       shared_ptr<int32_t> pageNumber_ {};
-      // The number of entries per page.
+      // The number of items per page.
       shared_ptr<int32_t> pageSize_ {};
-      // The total number of records.
+      // The total count.
       shared_ptr<int32_t> totalCount_ {};
     };
 
@@ -425,7 +425,7 @@ namespace Models
   protected:
     // The result code.
     shared_ptr<string> code_ {};
-    // The paged query result.
+    // The paged query results.
     shared_ptr<ListCampaignsResponseBody::Data> data_ {};
     // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
@@ -435,7 +435,7 @@ namespace Models
     shared_ptr<vector<string>> params_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request was successful.
+    // Indicates whether the request is successful.
     shared_ptr<bool> success_ {};
   };
 

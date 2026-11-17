@@ -205,40 +205,40 @@ namespace Models
 
   protected:
     // The call execution order. Default value: MIN_ATTEMPT_FIRST. Valid values:
-    // - PRIORITY_FIRST: prioritize by priority.
-    // - MIN_ATTEMPT_FIRST: prioritize by minimum attempt count.
+    // - PRIORITY_FIRST: Prioritize by priority.
+    // - MIN_ATTEMPT_FIRST: Prioritize by the number of attempts.
     shared_ptr<string> attemptOrder_ {};
-    // The callable time range for the task. The value is a JSON object that contains two properties: beginTime and EndTime.
+    // The callable time period for the task, formatted as a JSON object that contains two properties: beginTime and EndTime.
     // 
     // This parameter is required.
     shared_ptr<string> callableTime_ {};
-    // The task contact list, which is an OSS object key obtained through the GenerateFileUploadParams operation. You can also leave this parameter empty and append contacts later through the AppendCases operation.
+    // The task contact list. This is the key of an OSS object, which can be obtained by calling the GenerateFileUploadParams operation. You can also leave this parameter empty and add contacts later by calling the AppendCases operation.
     shared_ptr<string> caseFileKey_ {};
-    // The contact list. You can also leave this parameter empty and append contacts later through the AppendCases operation.
+    // The contact list. You can also leave this parameter empty and add contacts later by calling the AppendCases operation.
     shared_ptr<string> casesShrink_ {};
-    // The dialing timeout period, in seconds. Default value: 25.
+    // The outbound call timeout in seconds. Default value: 25.
     shared_ptr<int32_t> dialingTimeoutSeconds_ {};
     // The task end time.
     // 
     // This parameter is required.
     shared_ptr<int64_t> endTime_ {};
-    // The minimum concurrency for the task. A value of 0 indicates no guaranteed minimum, and resources are allocated by weight.
+    // The minimum concurrency. This is the minimum concurrency set for the task. A value of 0 indicates that no baseline is set, and resources are allocated based on weights.
     // 
-    // If multiple campaigns have a minimum concurrency configured:
+    // If multiple campaigns have the minimum concurrency set:
     // 
-    // - If the total concurrency is less than the instance total concurrency, the minimum concurrency of each task is satisfied first, and the remaining resources are allocated proportionally by weight.
+    // - If the total concurrency is less than the total concurrency of the instance, the minimum concurrency of each task is prioritized, and the excess resources are allocated proportionally based on weights.
     // 
-    // - If the total concurrency exceeds the instance total concurrency, the minimum concurrency no longer serves as a guaranteed minimum but is used as a weight factor in the calculation.
+    // - If the total concurrency is greater than the total concurrency of the instance, the minimum concurrency no longer serves as a baseline, but participates in the calculation as a weight factor.
     shared_ptr<int32_t> fixedQuota_ {};
     // The flash SMS parameters.
     shared_ptr<string> flashSmsParameters_ {};
-    // Specifies whether to restrict outbound calls on holidays.
+    // Specifies whether to prohibit outbound calls on holidays.
     shared_ptr<bool> holidayRestricted_ {};
     // The instance ID.
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
-    // The maximum number of attempts. This specifies the maximum number of times a number is called when the call fails.
+    // The maximum number of attempts, which specifies the maximum number of times to call a number when a call fails.
     // 
     // This parameter is required.
     shared_ptr<int32_t> maxAttemptCount_ {};
@@ -250,15 +250,15 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> name_ {};
-    // The list of caller numbers for the outbound call task.
+    // The list of calling numbers for the outbound task.
     shared_ptr<string> numbersShrink_ {};
-    // The list of redial restriction conditions. If not specified, no restrictions are applied. Valid values:
+    // The list of restrictions for outbound call attempts. If this parameter is not specified, no restrictions are applied. Valid values:
     // - CALLEE_NOT_EXISTS: Do not call nonexistent numbers.
-    // - OUT_OF_SERVICE: Do not call numbers that are out of service.
+    // - OUT_OF_SERVICE: Do not call suspended numbers.
     shared_ptr<string> redialRestrictions_ {};
-    // Specifies whether to keep the scheduling state until the campaign end time after all contacts are called. Default value: false. Valid values:
-    // - true: The task remains in the scheduling state, and you can continue to append contacts.
-    // - false: The task changes to completed, and you cannot append contacts.
+    // Specifies whether to maintain the scheduling state until the campaign end time after all contacts are called. Default value: false. Valid values:
+    // - true: The task remains in the scheduling state, and you can continue to add contacts.
+    // - false: The task changes to the completed state, and you cannot add contacts.
     shared_ptr<bool> runUntilEndTime_ {};
     // The scenario ID.
     // 
@@ -268,7 +268,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<int64_t> startTime_ {};
-    // The weight. The value is an integer in the range of 0 to 100. A larger value indicates more concurrency allocated during scheduling.
+    // The weight, which is an integer ranging from 0 to 100. A larger value indicates that more concurrency is allocated during scheduling.
     shared_ptr<int32_t> weight_ {};
   };
 

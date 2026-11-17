@@ -48,7 +48,7 @@ namespace Models
 
 
   protected:
-    // The outbound call task ID.
+    // The outbound campaign ID.
     // 
     // This parameter is required.
     shared_ptr<string> campaignId_ {};

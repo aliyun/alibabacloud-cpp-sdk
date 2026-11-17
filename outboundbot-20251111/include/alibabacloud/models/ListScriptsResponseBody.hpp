@@ -215,7 +215,7 @@ namespace Models
 
 
       protected:
-        // The chatbot builder type.
+        // The bot builder type.
         shared_ptr<string> builderType_ {};
         // The chatbot instance ID.
         shared_ptr<string> chatbotId_ {};
@@ -233,13 +233,13 @@ namespace Models
         shared_ptr<string> nluAccessType_ {};
         // The NLU engine type.
         shared_ptr<string> nluEngine_ {};
-        // The phone number bound to the script.
+        // The phone number bound to the scenario.
         shared_ptr<string> number_ {};
         // The published version ID.
         shared_ptr<string> publishedVersionId_ {};
-        // The script ID.
+        // The scenario ID.
         shared_ptr<string> scriptId_ {};
-        // The script status.
+        // The scenario status.
         shared_ptr<string> status_ {};
         // The update time, in milliseconds.
         shared_ptr<int64_t> updatedTime_ {};
@@ -282,7 +282,7 @@ namespace Models
       shared_ptr<int32_t> pageNumber_ {};
       // The number of entries per page.
       shared_ptr<int32_t> pageSize_ {};
-      // The list of scripts.
+      // The data list.
       shared_ptr<vector<Data::Scripts>> scripts_ {};
       // The total number of entries that meet the conditions.
       shared_ptr<int32_t> totalCount_ {};
@@ -357,7 +357,7 @@ namespace Models
     shared_ptr<vector<string>> params_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the call was successful.
+    // Indicates whether the call is successful.
     shared_ptr<bool> success_ {};
   };
 

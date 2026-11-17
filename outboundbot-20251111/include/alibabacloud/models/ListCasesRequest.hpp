@@ -272,13 +272,13 @@ namespace Models
     shared_ptr<string> campaignId_ {};
     // Specifies whether the case is completed.
     shared_ptr<bool> caseCompleted_ {};
-    // The list of case IDs.
+    // The case IDs.
     shared_ptr<vector<string>> caseIds_ {};
-    // The list of disposition codes.
+    // The disposition codes.
     shared_ptr<vector<string>> dispositionCodes_ {};
-    // The list of disposition reasons.
+    // The disposition reasons.
     shared_ptr<vector<string>> dispositionReasons_ {};
-    // Specifies whether it is a draft version.
+    // Specifies whether the version is a draft.
     shared_ptr<bool> draftVersion_ {};
     // The end time.
     shared_ptr<int64_t> endTime_ {};
@@ -314,7 +314,7 @@ namespace Models
     shared_ptr<string> scriptId_ {};
     // The start time.
     shared_ptr<int64_t> startTime_ {};
-    // The list of case statuses.
+    // The case states.
     shared_ptr<vector<string>> states_ {};
   };
 

@@ -145,19 +145,19 @@ namespace Models
         shared_ptr<string> accessProfile_ {};
         // The flash SMS configuration ID.
         shared_ptr<string> accessProfileId_ {};
-        // The creation time, in millisecond-level timestamp.
+        // The creation time. The value is a UNIX timestamp in milliseconds.
         shared_ptr<int64_t> createdTime_ {};
-        // The provider ID. Valid values:\\
-        // Uincall: Beijing Youyin Communication Co., Ltd.\\
-        // ChuangLan: Beijing ChuangLan Cloud Intelligence Information Co., Ltd.\\
-        // ChinaMobile: China Mobile.\\
-        // ShangHaiTianNan: Shanghai Tiannan.\\
-        // HeDao: Galexis.\\
-        // DySms: Alibaba Communication.
+        // The provider ID. Valid values:
+        // - Uincall: Beijing Uincall Communication Co., Ltd.
+        // - ChuangLan: Beijing Chuanglan Cloud Intelligence Information Technology Co., Ltd.
+        // - ChinaMobile: China Mobile
+        // - ShangHaiTianNan: Shanghai Tiannan
+        // - HeDao: Hedaokesi
+        // - DySms: Alibaba Cloud Communications
         shared_ptr<string> providerId_ {};
         // The provider name.
         shared_ptr<string> providerName_ {};
-        // The update time, in millisecond-level timestamp.
+        // The update time. The value is a UNIX timestamp in milliseconds.
         shared_ptr<int64_t> updatedTime_ {};
       };
 
@@ -194,13 +194,13 @@ namespace Models
 
 
     protected:
-      // The data list.
+      // The list of flash SMS access profiles.
       shared_ptr<vector<Data::FlashSmsAccessProfiles>> flashSmsAccessProfiles_ {};
-      // The page number, starting from 1.
+      // The page number. Pages start from 1.
       shared_ptr<int32_t> pageNumber_ {};
-      // The number of records per page.
+      // The number of entries per page.
       shared_ptr<int32_t> pageSize_ {};
-      // The total number of records that match the conditions.
+      // The total number of entries that meet the query conditions.
       shared_ptr<int32_t> totalCount_ {};
     };
 

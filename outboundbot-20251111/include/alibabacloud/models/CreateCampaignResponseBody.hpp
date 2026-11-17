@@ -97,19 +97,19 @@ namespace Models
 
 
   protected:
-    // The status code of the operation.
+    // The API status code.
     shared_ptr<string> code_ {};
     // The returned data, which is the task ID.
     shared_ptr<string> data_ {};
     // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
-    // The message returned by the operation.
+    // The message returned by the API.
     shared_ptr<string> message_ {};
     // The variable values in the error message.
     shared_ptr<vector<string>> params_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request was successful.
+    // Indicates whether the request is successful.
     shared_ptr<bool> success_ {};
   };
 

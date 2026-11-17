@@ -48,11 +48,11 @@ namespace Models
 
 
   protected:
-    // The ID of the campaign.
+    // The task ID.
     // 
     // This parameter is required.
     shared_ptr<string> campaignId_ {};
-    // The outbound robot instance ID.
+    // The outbound instance ID.
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};

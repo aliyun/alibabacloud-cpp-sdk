@@ -278,13 +278,13 @@ namespace Models
       shared_ptr<int32_t> casesConnected_ {};
       // The number of uncompleted cases.
       shared_ptr<int32_t> casesUncompleted_ {};
-      // The number of cases that were attempted but not completed.
+      // The number of attempted but uncompleted cases.
       shared_ptr<int32_t> casesUncompletedAfterAttempted_ {};
       // The completion rate.
       shared_ptr<double> completedRate_ {};
-      // The time when the campaign was created.
+      // The creation time.
       shared_ptr<int64_t> createdTime_ {};
-      // The fixed number of concurrent calls.
+      // The fixed concurrency.
       shared_ptr<int32_t> fixedQuota_ {};
       // The maximum number of retries.
       shared_ptr<int32_t> maxAttemptCount_ {};
@@ -292,21 +292,21 @@ namespace Models
       shared_ptr<int32_t> minAttemptInterval_ {};
       // The name of the campaign.
       shared_ptr<string> name_ {};
-      // The list of caller numbers.
+      // The list of calling numbers.
       shared_ptr<vector<string>> numbers_ {};
       // The planned end time.
       shared_ptr<int64_t> plannedEndTime_ {};
       // The planned start time.
       shared_ptr<int64_t> plannedStartTime_ {};
-      // Indicates whether the campaign continues to run until the planned end time after all contacts have been called.
+      // Specifies whether to continue running the campaign until the end time after all contacts have been called.
       shared_ptr<bool> runUntilEndTime_ {};
       // The scenario ID.
       shared_ptr<string> scriptId_ {};
-      // The state of the campaign.
+      // The status of the campaign.
       shared_ptr<string> state_ {};
       // The total number of cases.
       shared_ptr<int32_t> totalCases_ {};
-      // The time when the campaign was last updated.
+      // The update time.
       shared_ptr<int64_t> updatedTime_ {};
       // The weight of the campaign.
       shared_ptr<int32_t> weight_ {};
@@ -381,7 +381,7 @@ namespace Models
     shared_ptr<vector<string>> params_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request was successful.
+    // Indicates whether the request is successful.
     shared_ptr<bool> success_ {};
   };
 

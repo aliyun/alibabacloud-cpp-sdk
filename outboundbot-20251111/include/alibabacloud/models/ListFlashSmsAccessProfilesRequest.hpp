@@ -59,9 +59,9 @@ namespace Models
   protected:
     // The instance ID.
     shared_ptr<string> instanceId_ {};
-    // The page number, starting from 1.
+    // The page number. Pages start from 1.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of records per page.
+    // The number of entries per page.
     shared_ptr<int32_t> pageSize_ {};
   };
 

@@ -311,15 +311,15 @@ namespace Models
 
 
       protected:
-        // The assistant answer.
+        // The assistant response.
         shared_ptr<string> answer_ {};
-        // Indicates whether the transcript is a backchannel response.
+        // Indicates whether it is a backchannel.
         shared_ptr<bool> backchannels_ {};
-        // The begin time.
+        // The start time.
         shared_ptr<int64_t> beginTime_ {};
-        // The list of control parameters.
+        // The control parameter list.
         shared_ptr<string> controlParamsList_ {};
-        // The end time of the call.
+        // The call end time.
         shared_ptr<int64_t> endTime_ {};
         // The event time.
         shared_ptr<int64_t> eventTime_ {};
@@ -327,15 +327,17 @@ namespace Models
         shared_ptr<string> extras_ {};
         // The number of input tokens.
         shared_ptr<int32_t> inputTokens_ {};
-        // Indicates whether the response was interrupted.
+        // Indicates whether it was interrupted.
         shared_ptr<bool> interrupted_ {};
-        // Indicates whether the transcript is from the legacy version.
+        // Indicates whether it is a legacy version.
         shared_ptr<bool> legacy_ {};
         // The model.
         shared_ptr<string> model_ {};
         // The number of output tokens.
         shared_ptr<int32_t> outputTokens_ {};
+        // The playback status.
         shared_ptr<string> playbackStatus_ {};
+        // The played content.
         shared_ptr<string> playedAnswer_ {};
         // The played text.
         shared_ptr<string> playedWords_ {};
@@ -429,9 +431,9 @@ namespace Models
 
 
       protected:
-        // The set of preset values for the label.
+        // The candidate values for the label.
         shared_ptr<vector<string>> candidateValues_ {};
-        // Indicates whether the label has been collected.
+        // Indicates whether the label is collected.
         shared_ptr<bool> collected_ {};
         // The label description.
         shared_ptr<string> description_ {};
@@ -439,7 +441,7 @@ namespace Models
         shared_ptr<string> matchedValue_ {};
         // The label name.
         shared_ptr<string> name_ {};
-        // Indicates whether the label is a system label.
+        // The system label.
         shared_ptr<bool> system_ {};
       };
 
@@ -597,9 +599,9 @@ namespace Models
       shared_ptr<string> accessChannelId_ {};
       // The access channel type.
       shared_ptr<string> accessChannelType_ {};
-      // The callee number.
+      // The called number.
       shared_ptr<string> callee_ {};
-      // The caller number.
+      // The calling number.
       shared_ptr<string> caller_ {};
       // The case ID.
       shared_ptr<string> caseId_ {};
@@ -607,25 +609,25 @@ namespace Models
       shared_ptr<string> dispositionCode_ {};
       // The disposition reason.
       shared_ptr<string> dispositionReason_ {};
-      // Indicates whether this is a draft version.
+      // Indicates whether it is a draft version.
       shared_ptr<bool> draftVersion_ {};
       // The total duration.
       shared_ptr<int64_t> duration_ {};
-      // The end time of the call.
+      // The call end time.
       shared_ptr<int64_t> endTime_ {};
-      // The list of labels.
+      // The label list.
       shared_ptr<vector<Data::Labels>> labels_ {};
-      // The party that initiated the hang-up.
+      // The hang-up initiator.
       shared_ptr<string> releaseInitiator_ {};
       // The call session ID.
       shared_ptr<string> sessionId_ {};
-      // The start time of the call.
+      // The call start time.
       shared_ptr<int64_t> startTime_ {};
       // The talk time.
       shared_ptr<int64_t> talkTime_ {};
       // The number of conversation turns.
       shared_ptr<int64_t> talkTurns_ {};
-      // Indicates whether the task was completed.
+      // Indicates whether the task is completed.
       shared_ptr<bool> taskCompleted_ {};
       // The conversation transcripts.
       shared_ptr<vector<Data::Transcripts>> transcripts_ {};
@@ -704,7 +706,7 @@ namespace Models
     shared_ptr<vector<string>> params_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request was successful.
+    // Indicates whether the request is successful.
     shared_ptr<bool> success_ {};
   };
 

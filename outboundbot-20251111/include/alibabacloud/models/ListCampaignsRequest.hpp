@@ -116,17 +116,17 @@ namespace Models
     shared_ptr<string> actualStartTimeFrom_ {};
     // The latest actual start time.
     shared_ptr<string> actualStartTimeTo_ {};
-    // The instance ID of the outbound robot.
+    // The outbound instance ID.
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
-    // The name of the campaign.
+    // The name of the task.
     shared_ptr<string> name_ {};
     // The page number.
     // 
     // This parameter is required.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries per page.
+    // The number of items per page.
     // 
     // This parameter is required.
     shared_ptr<int32_t> pageSize_ {};
@@ -134,7 +134,7 @@ namespace Models
     shared_ptr<string> plannedStartTimeFrom_ {};
     // The latest planned start time.
     shared_ptr<string> plannedStartTimeTo_ {};
-    // The status of the campaign.
+    // The status of the task.
     shared_ptr<string> state_ {};
   };
 

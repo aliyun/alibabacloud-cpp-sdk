@@ -48,7 +48,7 @@ namespace Models
 
 
   protected:
-    // The ID of the campaign.
+    // The ID of the task.
     // 
     // This parameter is required.
     shared_ptr<string> campaignId_ {};

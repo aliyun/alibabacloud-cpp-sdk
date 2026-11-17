@@ -2,12 +2,15 @@
 #include <alibabacloud/OutboundBot20251111.hpp>
 #include <alibabacloud/Utils.hpp>
 #include <alibabacloud/Openapi.hpp>
+#include <alibabacloud/gateway/POP.hpp>
 #include <map>
 #include <darabonba/Runtime.hpp>
 using namespace std;
 using namespace Darabonba;
 using json = nlohmann::json;
+using namespace AlibabaCloud::Gateway;
 using namespace AlibabaCloud::OpenApi;
+using namespace AlibabaCloud::OpenApi::Models;
 using OpenApiClient = AlibabaCloud::OpenApi::Client;
 using namespace AlibabaCloud::OpenApi::Utils::Models;
 using namespace AlibabaCloud::OutboundBot20251111::Models;
@@ -17,6 +20,9 @@ namespace OutboundBot20251111
 {
 
 AlibabaCloud::OutboundBot20251111::Client::Client(Config &config): OpenApiClient(config){
+  this->_productId = "OutboundBot";
+  shared_ptr<POP> gatewayClient = make_shared<POP>();
+  this->_spi = gatewayClient;
   this->_endpointRule = "regional";
   checkConfig(config);
   this->_endpoint = getEndpoint("outboundbot", _regionId, _endpointRule, _network, _suffix, _endpointMap, _endpoint);
@@ -36,7 +42,7 @@ string Client::getEndpoint(const string &productId, const string &regionId, cons
 }
 
 /**
- * @summary Terminates an outbound call campaign.
+ * @summary Stops an outbound campaign.
  *
  * @description ****
  *
@@ -73,7 +79,7 @@ AbortCampaignResponse Client::abortCampaignWithOptions(const AbortCampaignReques
 }
 
 /**
- * @summary Terminates an outbound call campaign.
+ * @summary Stops an outbound campaign.
  *
  * @description ****
  *
@@ -86,7 +92,7 @@ AbortCampaignResponse Client::abortCampaign(const AbortCampaignRequest &request)
 }
 
 /**
- * @summary Stops an outbound call case.
+ * @summary Terminates outbound call cases.
  *
  * @description ****
  *
@@ -133,7 +139,7 @@ AbortCasesResponse Client::abortCasesWithOptions(const AbortCasesRequest &tmpReq
 }
 
 /**
- * @summary Stops an outbound call case.
+ * @summary Terminates outbound call cases.
  *
  * @description ****
  *
@@ -146,7 +152,7 @@ AbortCasesResponse Client::abortCases(const AbortCasesRequest &request) {
 }
 
 /**
- * @summary Appends contacts to an outbound call campaign.
+ * @summary Appends outbound call cases.
  *
  * @description ****
  *
@@ -195,7 +201,7 @@ AppendCasesResponse Client::appendCasesWithOptions(const AppendCasesRequest &tmp
 }
 
 /**
- * @summary Appends contacts to an outbound call campaign.
+ * @summary Appends outbound call cases.
  *
  * @description ****
  *
@@ -208,7 +214,401 @@ AppendCasesResponse Client::appendCases(const AppendCasesRequest &request) {
 }
 
 /**
- * @summary Creates an outbound call campaign.
+ * @summary Creates a text conversation session for a specified instance and scenario, and streams the initial reply from the robot.
+ *
+ * @description Creates a text conversation session for a specified instance and scenario, and streams the initial reply from the robot. An available scenario version must exist before you call this operation. Use DraftVersion to select the draft or published version, and use VendorParams to pass the accompanying variables required by the scenario. The response uses Server-Sent Events (SSE), and each data event carries a business response object. Save the returned SessionId for subsequent Dialogue and EndSession calls. A StreamEnd value of true indicates that the current response stream has ended, but the session remains active. The resource identifiers, phone numbers, and authentication credentials in the examples are masked or placeholder values. Use actual resources and service return values in production calls.
+ *
+ * @param request BeginSessionRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return BeginSessionResponse
+ */
+FutureGenerator<BeginSessionResponse> Client::beginSessionWithSSE(const BeginSessionRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasDraftVersion()) {
+    query["DraftVersion"] = request.getDraftVersion();
+  }
+
+  if (!!request.hasInstanceId()) {
+    query["InstanceId"] = request.getInstanceId();
+  }
+
+  if (!!request.hasScriptId()) {
+    query["ScriptId"] = request.getScriptId();
+  }
+
+  if (!!request.hasVendorParams()) {
+    query["VendorParams"] = request.getVendorParams();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "BeginSession"},
+    {"version" , "2025-11-11"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  FutureGenerator<SSEResponse> sseResp = callSSEApi(params, req, runtime);
+  for (SSEResponse resp : sseResp) {
+    if (!!resp.hasEvent() && !!resp.getEvent().hasData()) {
+      json data = json(json::parse(resp.getEvent().getData()));
+json       __retrun = json(json({
+        {"statusCode" , resp.getStatusCode()},
+        {"headers" , resp.getHeaders()},
+        {"id" , resp.getEvent().getId()},
+        {"event" , resp.getEvent().getEvent()},
+        {"body" , data}
+      })).get<BeginSessionResponse>();
+return Darabonba::FutureGenerator<json>(__retrun);
+    }
+
+  }
+}
+
+/**
+ * @summary Creates a text conversation session for a specified instance and scenario, and streams the initial reply from the robot.
+ *
+ * @description Creates a text conversation session for a specified instance and scenario, and streams the initial reply from the robot. An available scenario version must exist before you call this operation. Use DraftVersion to select the draft or published version, and use VendorParams to pass the accompanying variables required by the scenario. The response uses Server-Sent Events (SSE), and each data event carries a business response object. Save the returned SessionId for subsequent Dialogue and EndSession calls. A StreamEnd value of true indicates that the current response stream has ended, but the session remains active. The resource identifiers, phone numbers, and authentication credentials in the examples are masked or placeholder values. Use actual resources and service return values in production calls.
+ *
+ * @param request BeginSessionRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return BeginSessionResponse
+ */
+BeginSessionResponse Client::beginSessionWithOptions(const BeginSessionRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasDraftVersion()) {
+    query["DraftVersion"] = request.getDraftVersion();
+  }
+
+  if (!!request.hasInstanceId()) {
+    query["InstanceId"] = request.getInstanceId();
+  }
+
+  if (!!request.hasScriptId()) {
+    query["ScriptId"] = request.getScriptId();
+  }
+
+  if (!!request.hasVendorParams()) {
+    query["VendorParams"] = request.getVendorParams();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "BeginSession"},
+    {"version" , "2025-11-11"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<BeginSessionResponse>();
+}
+
+/**
+ * @summary Creates a text conversation session for a specified instance and scenario, and streams the initial reply from the robot.
+ *
+ * @description Creates a text conversation session for a specified instance and scenario, and streams the initial reply from the robot. An available scenario version must exist before you call this operation. Use DraftVersion to select the draft or published version, and use VendorParams to pass the accompanying variables required by the scenario. The response uses Server-Sent Events (SSE), and each data event carries a business response object. Save the returned SessionId for subsequent Dialogue and EndSession calls. A StreamEnd value of true indicates that the current response stream has ended, but the session remains active. The resource identifiers, phone numbers, and authentication credentials in the examples are masked or placeholder values. Use actual resources and service return values in production calls.
+ *
+ * @param request BeginSessionRequest
+ * @return BeginSessionResponse
+ */
+BeginSessionResponse Client::beginSession(const BeginSessionRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return beginSessionWithOptions(request, runtime);
+}
+
+/**
+ * @summary Initiates a trial session.
+ *
+ * @description Creates a trial text session in a specified instance and scenario by using the VisitorToken from a trial link, and returns the first-round reply in Server-Sent Events (SSE) format. The service verifies the channel and expiration time corresponding to the token, and then starts the session based on the tenant to which the channel belongs. The token does not replace the business parameters of the scenario and instance. Save the returned SessionId for subsequent calls to TrialDialogue to send user input, and call EndTrialSession to end the session. StreamEnd=true only indicates that the streaming response for the current round has ended. The resource identifiers, numbers, and authentication credentials in the examples are desensitized or placeholder values. Use actual resources and service return values for actual calls.
+ *
+ * @param request BeginTrialSessionRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return BeginTrialSessionResponse
+ */
+FutureGenerator<BeginTrialSessionResponse> Client::beginTrialSessionWithSSE(const BeginTrialSessionRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasDraftVersion()) {
+    query["DraftVersion"] = request.getDraftVersion();
+  }
+
+  if (!!request.hasInstanceId()) {
+    query["InstanceId"] = request.getInstanceId();
+  }
+
+  if (!!request.hasScriptId()) {
+    query["ScriptId"] = request.getScriptId();
+  }
+
+  if (!!request.hasVendorParams()) {
+    query["VendorParams"] = request.getVendorParams();
+  }
+
+  if (!!request.hasVisitorToken()) {
+    query["VisitorToken"] = request.getVisitorToken();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "BeginTrialSession"},
+    {"version" , "2025-11-11"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  FutureGenerator<SSEResponse> sseResp = callSSEApi(params, req, runtime);
+  for (SSEResponse resp : sseResp) {
+    if (!!resp.hasEvent() && !!resp.getEvent().hasData()) {
+      json data = json(json::parse(resp.getEvent().getData()));
+json       __retrun = json(json({
+        {"statusCode" , resp.getStatusCode()},
+        {"headers" , resp.getHeaders()},
+        {"id" , resp.getEvent().getId()},
+        {"event" , resp.getEvent().getEvent()},
+        {"body" , data}
+      })).get<BeginTrialSessionResponse>();
+return Darabonba::FutureGenerator<json>(__retrun);
+    }
+
+  }
+}
+
+/**
+ * @summary Initiates a trial session.
+ *
+ * @description Creates a trial text session in a specified instance and scenario by using the VisitorToken from a trial link, and returns the first-round reply in Server-Sent Events (SSE) format. The service verifies the channel and expiration time corresponding to the token, and then starts the session based on the tenant to which the channel belongs. The token does not replace the business parameters of the scenario and instance. Save the returned SessionId for subsequent calls to TrialDialogue to send user input, and call EndTrialSession to end the session. StreamEnd=true only indicates that the streaming response for the current round has ended. The resource identifiers, numbers, and authentication credentials in the examples are desensitized or placeholder values. Use actual resources and service return values for actual calls.
+ *
+ * @param request BeginTrialSessionRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return BeginTrialSessionResponse
+ */
+BeginTrialSessionResponse Client::beginTrialSessionWithOptions(const BeginTrialSessionRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasDraftVersion()) {
+    query["DraftVersion"] = request.getDraftVersion();
+  }
+
+  if (!!request.hasInstanceId()) {
+    query["InstanceId"] = request.getInstanceId();
+  }
+
+  if (!!request.hasScriptId()) {
+    query["ScriptId"] = request.getScriptId();
+  }
+
+  if (!!request.hasVendorParams()) {
+    query["VendorParams"] = request.getVendorParams();
+  }
+
+  if (!!request.hasVisitorToken()) {
+    query["VisitorToken"] = request.getVisitorToken();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "BeginTrialSession"},
+    {"version" , "2025-11-11"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<BeginTrialSessionResponse>();
+}
+
+/**
+ * @summary Initiates a trial session.
+ *
+ * @description Creates a trial text session in a specified instance and scenario by using the VisitorToken from a trial link, and returns the first-round reply in Server-Sent Events (SSE) format. The service verifies the channel and expiration time corresponding to the token, and then starts the session based on the tenant to which the channel belongs. The token does not replace the business parameters of the scenario and instance. Save the returned SessionId for subsequent calls to TrialDialogue to send user input, and call EndTrialSession to end the session. StreamEnd=true only indicates that the streaming response for the current round has ended. The resource identifiers, numbers, and authentication credentials in the examples are desensitized or placeholder values. Use actual resources and service return values for actual calls.
+ *
+ * @param request BeginTrialSessionRequest
+ * @return BeginTrialSessionResponse
+ */
+BeginTrialSessionResponse Client::beginTrialSession(const BeginTrialSessionRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return beginTrialSessionWithOptions(request, runtime);
+}
+
+/**
+ * @summary Initiates a trial call.
+ *
+ * @description Initiates a trial web voice call for a specified scenario by using the VisitorToken of a trial link. The service verifies the token, the associated channel, and the validity period, and then delegates the web call service to bridge the web voice channel and the robot channel. The DeviceId must be consistent with the data channel device identifier of the trial client. After the call is initiated, use the returned ChannelId, ServerUrl, and Token to connect to the voice channel. If the data event channel of the trial client is required, you can call GetTrialDataChannelCredential with the same DeviceId. The web voice connection token and the data channel username and password are not the same set of credentials. The resource identifiers, numbers, and authentication credentials in the examples are desensitized or placeholder values. Use actual resources and service return values for actual calls.
+ *
+ * @param request BridgeTrialWebCallRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return BridgeTrialWebCallResponse
+ */
+BridgeTrialWebCallResponse Client::bridgeTrialWebCallWithOptions(const BridgeTrialWebCallRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasCaller()) {
+    query["Caller"] = request.getCaller();
+  }
+
+  if (!!request.hasDeviceId()) {
+    query["DeviceId"] = request.getDeviceId();
+  }
+
+  if (!!request.hasDraftVersion()) {
+    query["DraftVersion"] = request.getDraftVersion();
+  }
+
+  if (!!request.hasInstanceId()) {
+    query["InstanceId"] = request.getInstanceId();
+  }
+
+  if (!!request.hasSampleRate()) {
+    query["SampleRate"] = request.getSampleRate();
+  }
+
+  if (!!request.hasScriptId()) {
+    query["ScriptId"] = request.getScriptId();
+  }
+
+  if (!!request.hasTags()) {
+    query["Tags"] = request.getTags();
+  }
+
+  if (!!request.hasTimeoutSeconds()) {
+    query["TimeoutSeconds"] = request.getTimeoutSeconds();
+  }
+
+  if (!!request.hasVisitorToken()) {
+    query["VisitorToken"] = request.getVisitorToken();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "BridgeTrialWebCall"},
+    {"version" , "2025-11-11"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<BridgeTrialWebCallResponse>();
+}
+
+/**
+ * @summary Initiates a trial call.
+ *
+ * @description Initiates a trial web voice call for a specified scenario by using the VisitorToken of a trial link. The service verifies the token, the associated channel, and the validity period, and then delegates the web call service to bridge the web voice channel and the robot channel. The DeviceId must be consistent with the data channel device identifier of the trial client. After the call is initiated, use the returned ChannelId, ServerUrl, and Token to connect to the voice channel. If the data event channel of the trial client is required, you can call GetTrialDataChannelCredential with the same DeviceId. The web voice connection token and the data channel username and password are not the same set of credentials. The resource identifiers, numbers, and authentication credentials in the examples are desensitized or placeholder values. Use actual resources and service return values for actual calls.
+ *
+ * @param request BridgeTrialWebCallRequest
+ * @return BridgeTrialWebCallResponse
+ */
+BridgeTrialWebCallResponse Client::bridgeTrialWebCall(const BridgeTrialWebCallRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return bridgeTrialWebCallWithOptions(request, runtime);
+}
+
+/**
+ * @summary Initiates a call.
+ *
+ * @description Initiates a web voice call for a specified instance and scenario by bridging the web voice channel and the robot SIP channel through an RTC gateway. Pass information such as DeviceId, audio sampling rate, and scenario version in the request. TimeoutSeconds specifies the timeout for unanswered calls, defaults to 60 seconds, and does not indicate the maximum duration of an answered call. Upon success, returns the connection context such as SessionId, ChannelId, ServerUrl, and Token. The client must use the returned address and valid credentials to establish the web voice connection. This operation initiates a web interactive voice response instead of dialing a real phone number specified by Number. Resource identity, numbers, and authentication credentials in the examples are masked or placeholder values. Use actual resources and service return values when you invoke the operation.
+ *
+ * @param request BridgeWebCallRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return BridgeWebCallResponse
+ */
+BridgeWebCallResponse Client::bridgeWebCallWithOptions(const BridgeWebCallRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasCaller()) {
+    query["Caller"] = request.getCaller();
+  }
+
+  if (!!request.hasDeviceId()) {
+    query["DeviceId"] = request.getDeviceId();
+  }
+
+  if (!!request.hasDraftVersion()) {
+    query["DraftVersion"] = request.getDraftVersion();
+  }
+
+  if (!!request.hasInstanceId()) {
+    query["InstanceId"] = request.getInstanceId();
+  }
+
+  if (!!request.hasSampleRate()) {
+    query["SampleRate"] = request.getSampleRate();
+  }
+
+  if (!!request.hasScriptId()) {
+    query["ScriptId"] = request.getScriptId();
+  }
+
+  if (!!request.hasTags()) {
+    query["Tags"] = request.getTags();
+  }
+
+  if (!!request.hasTimeoutSeconds()) {
+    query["TimeoutSeconds"] = request.getTimeoutSeconds();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "BridgeWebCall"},
+    {"version" , "2025-11-11"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<BridgeWebCallResponse>();
+}
+
+/**
+ * @summary Initiates a call.
+ *
+ * @description Initiates a web voice call for a specified instance and scenario by bridging the web voice channel and the robot SIP channel through an RTC gateway. Pass information such as DeviceId, audio sampling rate, and scenario version in the request. TimeoutSeconds specifies the timeout for unanswered calls, defaults to 60 seconds, and does not indicate the maximum duration of an answered call. Upon success, returns the connection context such as SessionId, ChannelId, ServerUrl, and Token. The client must use the returned address and valid credentials to establish the web voice connection. This operation initiates a web interactive voice response instead of dialing a real phone number specified by Number. Resource identity, numbers, and authentication credentials in the examples are masked or placeholder values. Use actual resources and service return values when you invoke the operation.
+ *
+ * @param request BridgeWebCallRequest
+ * @return BridgeWebCallResponse
+ */
+BridgeWebCallResponse Client::bridgeWebCall(const BridgeWebCallRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return bridgeWebCallWithOptions(request, runtime);
+}
+
+/**
+ * @summary Creates an outbound campaign.
  *
  * @description ****
  *
@@ -325,7 +725,7 @@ CreateCampaignResponse Client::createCampaignWithOptions(const CreateCampaignReq
 }
 
 /**
- * @summary Creates an outbound call campaign.
+ * @summary Creates an outbound campaign.
  *
  * @description ****
  *
@@ -498,6 +898,62 @@ CreateInstanceResponse Client::createInstance(const CreateInstanceRequest &reque
 }
 
 /**
+ * @summary Creates a language model access configuration.
+ *
+ * @description Creates a language model access configuration for a specified instance.
+ *
+ * @param tmpReq CreateLlmAccessProfileRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CreateLlmAccessProfileResponse
+ */
+CreateLlmAccessProfileResponse Client::createLlmAccessProfileWithOptions(const CreateLlmAccessProfileRequest &tmpReq, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  CreateLlmAccessProfileShrinkRequest request = CreateLlmAccessProfileShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasProfile()) {
+    request.setProfileShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getProfile(), "Profile", "json"));
+  }
+
+  json body = {};
+  if (!!request.hasInstanceId()) {
+    body["InstanceId"] = request.getInstanceId();
+  }
+
+  if (!!request.hasProfileShrink()) {
+    body["Profile"] = request.getProfileShrink();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"body" , Utils::Utils::parseToMap(body)}
+  }).get<map<string, json>>());
+  Params params = Params(json({
+    {"action" , "CreateLlmAccessProfile"},
+    {"version" , "2025-11-11"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CreateLlmAccessProfileResponse>();
+}
+
+/**
+ * @summary Creates a language model access configuration.
+ *
+ * @description Creates a language model access configuration for a specified instance.
+ *
+ * @param request CreateLlmAccessProfileRequest
+ * @return CreateLlmAccessProfileResponse
+ */
+CreateLlmAccessProfileResponse Client::createLlmAccessProfile(const CreateLlmAccessProfileRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return createLlmAccessProfileWithOptions(request, runtime);
+}
+
+/**
  * @summary Creates an instance.
  *
  * @param tmpReq CreateOutboundCallRestrictionRequest
@@ -608,7 +1064,7 @@ CreateScriptResponse Client::createScript(const CreateScriptRequest &request) {
 }
 
 /**
- * @summary Creates a scenario configuration.
+ * @summary Creates a script configuration.
  *
  * @param tmpReq CreateScriptVersionRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -689,7 +1145,7 @@ CreateScriptVersionResponse Client::createScriptVersionWithOptions(const CreateS
 }
 
 /**
- * @summary Creates a scenario configuration.
+ * @summary Creates a script configuration.
  *
  * @param request CreateScriptVersionRequest
  * @return CreateScriptVersionResponse
@@ -802,6 +1258,60 @@ DeleteCloneVoiceResponse Client::deleteCloneVoice(const DeleteCloneVoiceRequest 
 }
 
 /**
+ * @summary Deletes a tenant number.
+ *
+ * @description Deletes a tenant number.
+ *
+ * @param request DeleteCorpNumberRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DeleteCorpNumberResponse
+ */
+DeleteCorpNumberResponse Client::deleteCorpNumberWithOptions(const DeleteCorpNumberRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasForce()) {
+    body["Force"] = request.getForce();
+  }
+
+  if (!!request.hasNumber()) {
+    body["Number"] = request.getNumber();
+  }
+
+  if (!!request.hasTenantId()) {
+    body["TenantId"] = request.getTenantId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"body" , Utils::Utils::parseToMap(body)}
+  }).get<map<string, json>>());
+  Params params = Params(json({
+    {"action" , "DeleteCorpNumber"},
+    {"version" , "2025-11-11"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DeleteCorpNumberResponse>();
+}
+
+/**
+ * @summary Deletes a tenant number.
+ *
+ * @description Deletes a tenant number.
+ *
+ * @param request DeleteCorpNumberRequest
+ * @return DeleteCorpNumberResponse
+ */
+DeleteCorpNumberResponse Client::deleteCorpNumber(const DeleteCorpNumberRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return deleteCorpNumberWithOptions(request, runtime);
+}
+
+/**
  * @summary Deletes a flash message configuration.
  *
  * @param request DeleteFlashSmsAccessProfileRequest
@@ -887,6 +1397,118 @@ DeleteInstanceResponse Client::deleteInstanceWithOptions(const DeleteInstanceReq
 DeleteInstanceResponse Client::deleteInstance(const DeleteInstanceRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return deleteInstanceWithOptions(request, runtime);
+}
+
+/**
+ * @summary Deletes the language model access configuration.
+ *
+ * @description Deletes the language model access configuration for a specified instance.
+ *
+ * @param request DeleteLlmAccessProfileRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DeleteLlmAccessProfileResponse
+ */
+DeleteLlmAccessProfileResponse Client::deleteLlmAccessProfileWithOptions(const DeleteLlmAccessProfileRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasAccessProfileId()) {
+    body["AccessProfileId"] = request.getAccessProfileId();
+  }
+
+  if (!!request.hasInstanceId()) {
+    body["InstanceId"] = request.getInstanceId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"body" , Utils::Utils::parseToMap(body)}
+  }).get<map<string, json>>());
+  Params params = Params(json({
+    {"action" , "DeleteLlmAccessProfile"},
+    {"version" , "2025-11-11"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DeleteLlmAccessProfileResponse>();
+}
+
+/**
+ * @summary Deletes the language model access configuration.
+ *
+ * @description Deletes the language model access configuration for a specified instance.
+ *
+ * @param request DeleteLlmAccessProfileRequest
+ * @return DeleteLlmAccessProfileResponse
+ */
+DeleteLlmAccessProfileResponse Client::deleteLlmAccessProfile(const DeleteLlmAccessProfileRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return deleteLlmAccessProfileWithOptions(request, runtime);
+}
+
+/**
+ * @summary Deletes the numbers of an instance.
+ *
+ * @description Deletes the numbers of a specified instance.
+ *
+ * @param tmpReq DeleteNumbersRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DeleteNumbersResponse
+ */
+DeleteNumbersResponse Client::deleteNumbersWithOptions(const DeleteNumbersRequest &tmpReq, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  DeleteNumbersShrinkRequest request = DeleteNumbersShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasNumbers()) {
+    request.setNumbersShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getNumbers(), "Numbers", "json"));
+  }
+
+  json query = {};
+  if (!!request.hasInstanceId()) {
+    query["InstanceId"] = request.getInstanceId();
+  }
+
+  json body = {};
+  if (!!request.hasNumbersShrink()) {
+    body["Numbers"] = request.getNumbersShrink();
+  }
+
+  if (!!request.hasTenantId()) {
+    body["TenantId"] = request.getTenantId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "DeleteNumbers"},
+    {"version" , "2025-11-11"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DeleteNumbersResponse>();
+}
+
+/**
+ * @summary Deletes the numbers of an instance.
+ *
+ * @description Deletes the numbers of a specified instance.
+ *
+ * @param request DeleteNumbersRequest
+ * @return DeleteNumbersResponse
+ */
+DeleteNumbersResponse Client::deleteNumbers(const DeleteNumbersRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return deleteNumbersWithOptions(request, runtime);
 }
 
 /**
@@ -1034,6 +1656,131 @@ DeleteVoiceAccessProfileResponse Client::deleteVoiceAccessProfile(const DeleteVo
 }
 
 /**
+ * @summary Initiates a session.
+ *
+ * @description Sends a round of user input to a text session created by BeginSession and returns the robot reply and control instructions in Server-Sent Events (SSE) format. The InstanceId, ScriptId, and SessionId must be consistent with those used when the session was initiated. The SessionId must use the value returned by the session initiation operation. The conversation cannot continue if the session context does not exist. Utterance is used for plain text input, and Extras is used to pass structured events such as key presses and silence. You can call this operation multiple times in succession. StreamId identifies the reply round, and StreamEnd=true indicates that the output of the current round has ended. Call EndSession after the entire interaction is completed. The resource identifiers, numbers, and authentication credentials in the examples are desensitized or placeholder values. Use actual resources and service return values for actual calls.
+ *
+ * @param request DialogueRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DialogueResponse
+ */
+FutureGenerator<DialogueResponse> Client::dialogueWithSSE(const DialogueRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasExtras()) {
+    query["Extras"] = request.getExtras();
+  }
+
+  if (!!request.hasInstanceId()) {
+    query["InstanceId"] = request.getInstanceId();
+  }
+
+  if (!!request.hasScriptId()) {
+    query["ScriptId"] = request.getScriptId();
+  }
+
+  if (!!request.hasSessionId()) {
+    query["SessionId"] = request.getSessionId();
+  }
+
+  if (!!request.hasUtterance()) {
+    query["Utterance"] = request.getUtterance();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "Dialogue"},
+    {"version" , "2025-11-11"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  FutureGenerator<SSEResponse> sseResp = callSSEApi(params, req, runtime);
+  for (SSEResponse resp : sseResp) {
+    if (!!resp.hasEvent() && !!resp.getEvent().hasData()) {
+      json data = json(json::parse(resp.getEvent().getData()));
+json       __retrun = json(json({
+        {"statusCode" , resp.getStatusCode()},
+        {"headers" , resp.getHeaders()},
+        {"id" , resp.getEvent().getId()},
+        {"event" , resp.getEvent().getEvent()},
+        {"body" , data}
+      })).get<DialogueResponse>();
+return Darabonba::FutureGenerator<json>(__retrun);
+    }
+
+  }
+}
+
+/**
+ * @summary Initiates a session.
+ *
+ * @description Sends a round of user input to a text session created by BeginSession and returns the robot reply and control instructions in Server-Sent Events (SSE) format. The InstanceId, ScriptId, and SessionId must be consistent with those used when the session was initiated. The SessionId must use the value returned by the session initiation operation. The conversation cannot continue if the session context does not exist. Utterance is used for plain text input, and Extras is used to pass structured events such as key presses and silence. You can call this operation multiple times in succession. StreamId identifies the reply round, and StreamEnd=true indicates that the output of the current round has ended. Call EndSession after the entire interaction is completed. The resource identifiers, numbers, and authentication credentials in the examples are desensitized or placeholder values. Use actual resources and service return values for actual calls.
+ *
+ * @param request DialogueRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DialogueResponse
+ */
+DialogueResponse Client::dialogueWithOptions(const DialogueRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasExtras()) {
+    query["Extras"] = request.getExtras();
+  }
+
+  if (!!request.hasInstanceId()) {
+    query["InstanceId"] = request.getInstanceId();
+  }
+
+  if (!!request.hasScriptId()) {
+    query["ScriptId"] = request.getScriptId();
+  }
+
+  if (!!request.hasSessionId()) {
+    query["SessionId"] = request.getSessionId();
+  }
+
+  if (!!request.hasUtterance()) {
+    query["Utterance"] = request.getUtterance();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "Dialogue"},
+    {"version" , "2025-11-11"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DialogueResponse>();
+}
+
+/**
+ * @summary Initiates a session.
+ *
+ * @description Sends a round of user input to a text session created by BeginSession and returns the robot reply and control instructions in Server-Sent Events (SSE) format. The InstanceId, ScriptId, and SessionId must be consistent with those used when the session was initiated. The SessionId must use the value returned by the session initiation operation. The conversation cannot continue if the session context does not exist. Utterance is used for plain text input, and Extras is used to pass structured events such as key presses and silence. You can call this operation multiple times in succession. StreamId identifies the reply round, and StreamEnd=true indicates that the output of the current round has ended. Call EndSession after the entire interaction is completed. The resource identifiers, numbers, and authentication credentials in the examples are desensitized or placeholder values. Use actual resources and service return values for actual calls.
+ *
+ * @param request DialogueRequest
+ * @return DialogueResponse
+ */
+DialogueResponse Client::dialogue(const DialogueRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return dialogueWithOptions(request, runtime);
+}
+
+/**
  * @summary Disables message subscription.
  *
  * @param request DisableSubscriptionRequest
@@ -1076,7 +1823,119 @@ DisableSubscriptionResponse Client::disableSubscription(const DisableSubscriptio
 }
 
 /**
- * @summary Retrieves the details of a call session.
+ * @summary Ends a session.
+ *
+ * @description Ends a text session created by BeginSession, notifies the dialog engine to end the interaction, and clears the text session state. The InstanceId, ScriptId, and SessionId must match those used when the session was started. The Data field in the response returns the SessionId of the ended session. If the text session no longer exists due to prolonged inactivity or cache expiration, the current implementation still returns the SessionId without reporting a session not found error. This operation is used to conclude a text session and is not intended for hanging up web voice or actual phone calls. The resource identifiers, phone numbers, and authentication credentials in the examples are masked or placeholder values. Use actual resources and service return values for real calls.
+ *
+ * @param request EndSessionRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return EndSessionResponse
+ */
+EndSessionResponse Client::endSessionWithOptions(const EndSessionRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasInstanceId()) {
+    query["InstanceId"] = request.getInstanceId();
+  }
+
+  if (!!request.hasScriptId()) {
+    query["ScriptId"] = request.getScriptId();
+  }
+
+  if (!!request.hasSessionId()) {
+    query["SessionId"] = request.getSessionId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "EndSession"},
+    {"version" , "2025-11-11"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<EndSessionResponse>();
+}
+
+/**
+ * @summary Ends a session.
+ *
+ * @description Ends a text session created by BeginSession, notifies the dialog engine to end the interaction, and clears the text session state. The InstanceId, ScriptId, and SessionId must match those used when the session was started. The Data field in the response returns the SessionId of the ended session. If the text session no longer exists due to prolonged inactivity or cache expiration, the current implementation still returns the SessionId without reporting a session not found error. This operation is used to conclude a text session and is not intended for hanging up web voice or actual phone calls. The resource identifiers, phone numbers, and authentication credentials in the examples are masked or placeholder values. Use actual resources and service return values for real calls.
+ *
+ * @param request EndSessionRequest
+ * @return EndSessionResponse
+ */
+EndSessionResponse Client::endSession(const EndSessionRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return endSessionWithOptions(request, runtime);
+}
+
+/**
+ * @summary Ends a trial session.
+ *
+ * @description Ends a trial text session created by BeginTrialSession by using a valid VisitorToken from a trial link. The service first validates the token and then delegates the request to the text session termination service. The InstanceId, ScriptId, and SessionId must maintain session persistence consistent with those of the trial session. The returned Data is the SessionId of the ended session. If the text session context has expired, the termination service can still return the SessionId, but the validation will be marked as failed if the trial token itself is invalid or expired. This operation is not used to hang up web voice calls. The resource identity, numbers, and authentication credentials in the examples are desensitized or placeholder values. Use actual resources and service return values when you invoke the operation.
+ *
+ * @param request EndTrialSessionRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return EndTrialSessionResponse
+ */
+EndTrialSessionResponse Client::endTrialSessionWithOptions(const EndTrialSessionRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasInstanceId()) {
+    query["InstanceId"] = request.getInstanceId();
+  }
+
+  if (!!request.hasScriptId()) {
+    query["ScriptId"] = request.getScriptId();
+  }
+
+  if (!!request.hasSessionId()) {
+    query["SessionId"] = request.getSessionId();
+  }
+
+  if (!!request.hasVisitorToken()) {
+    query["VisitorToken"] = request.getVisitorToken();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "EndTrialSession"},
+    {"version" , "2025-11-11"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<EndTrialSessionResponse>();
+}
+
+/**
+ * @summary Ends a trial session.
+ *
+ * @description Ends a trial text session created by BeginTrialSession by using a valid VisitorToken from a trial link. The service first validates the token and then delegates the request to the text session termination service. The InstanceId, ScriptId, and SessionId must maintain session persistence consistent with those of the trial session. The returned Data is the SessionId of the ended session. If the text session context has expired, the termination service can still return the SessionId, but the validation will be marked as failed if the trial token itself is invalid or expired. This operation is not used to hang up web voice calls. The resource identity, numbers, and authentication credentials in the examples are desensitized or placeholder values. Use actual resources and service return values when you invoke the operation.
+ *
+ * @param request EndTrialSessionRequest
+ * @return EndTrialSessionResponse
+ */
+EndTrialSessionResponse Client::endTrialSession(const EndTrialSessionRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return endTrialSessionWithOptions(request, runtime);
+}
+
+/**
+ * @summary Retrieves the call details.
  *
  * @description ****
  *
@@ -1117,7 +1976,7 @@ GetCallDetailRecordResponse Client::getCallDetailRecordWithOptions(const GetCall
 }
 
 /**
- * @summary Retrieves the details of a call session.
+ * @summary Retrieves the call details.
  *
  * @description ****
  *
@@ -1227,6 +2086,56 @@ GetCaseDetailResponse Client::getCaseDetailWithOptions(const GetCaseDetailReques
 GetCaseDetailResponse Client::getCaseDetail(const GetCaseDetailRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return getCaseDetailWithOptions(request, runtime);
+}
+
+/**
+ * @summary Retrieves voice conversation parameters.
+ *
+ * @description Retrieves temporary connection credentials for the client data channel of a specified InstanceId and DeviceId. Requests are verified based on the current POP authentication and instance permission configurations. DeviceId cannot be empty. Unlike GetTrialDataChannelCredential, this operation does not use the VisitorToken for trial links. The client must use the actual Topic, ClientId, Endpoint, UserName, and Password returned to connect to and subscribe to the data channel, and must not infer the address, topic, or authentication information. The same client must keep the DeviceId consistent when initiating BridgeWebCall or MakePilotCall. This operation only retrieves data channel credentials and does not create text sessions, initiate phone calls, or establish web voice channels. The username and password for the data channel are not the same set of credentials as the token returned for web calls. The protocol, the unit of ExpirationTime, and field mappings are subject to the actual RTC gateway deployment version and return conventions. The resource identifiers, numbers, and authentication credentials in the examples are desensitized or placeholder values. Use actual resources and service return values for actual calls.
+ *
+ * @param request GetDataChannelCredentialRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetDataChannelCredentialResponse
+ */
+GetDataChannelCredentialResponse Client::getDataChannelCredentialWithOptions(const GetDataChannelCredentialRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasDeviceId()) {
+    query["DeviceId"] = request.getDeviceId();
+  }
+
+  if (!!request.hasInstanceId()) {
+    query["InstanceId"] = request.getInstanceId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "GetDataChannelCredential"},
+    {"version" , "2025-11-11"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetDataChannelCredentialResponse>();
+}
+
+/**
+ * @summary Retrieves voice conversation parameters.
+ *
+ * @description Retrieves temporary connection credentials for the client data channel of a specified InstanceId and DeviceId. Requests are verified based on the current POP authentication and instance permission configurations. DeviceId cannot be empty. Unlike GetTrialDataChannelCredential, this operation does not use the VisitorToken for trial links. The client must use the actual Topic, ClientId, Endpoint, UserName, and Password returned to connect to and subscribe to the data channel, and must not infer the address, topic, or authentication information. The same client must keep the DeviceId consistent when initiating BridgeWebCall or MakePilotCall. This operation only retrieves data channel credentials and does not create text sessions, initiate phone calls, or establish web voice channels. The username and password for the data channel are not the same set of credentials as the token returned for web calls. The protocol, the unit of ExpirationTime, and field mappings are subject to the actual RTC gateway deployment version and return conventions. The resource identifiers, numbers, and authentication credentials in the examples are desensitized or placeholder values. Use actual resources and service return values for actual calls.
+ *
+ * @param request GetDataChannelCredentialRequest
+ * @return GetDataChannelCredentialResponse
+ */
+GetDataChannelCredentialResponse Client::getDataChannelCredential(const GetDataChannelCredentialRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return getDataChannelCredentialWithOptions(request, runtime);
 }
 
 /**
@@ -1406,7 +2315,153 @@ GetSubscriptionResponse Client::getSubscription(const GetSubscriptionRequest &re
 }
 
 /**
- * @summary Retrieves the list of outbound call campaigns.
+ * @summary Retrieves the trial channel.
+ *
+ * @description Retrieves the corresponding trial access channel and the list of available trial scenarios based on the VisitorToken in a trial link. The service verifies whether the token exists, whether it can locate the channel, and whether it has expired. Upon success, it returns information such as the instance to which the channel belongs, the channel type, display configurations, validity period, and scenario configurations. This operation can be used as an initialization step for the trial page: first read the returned instance and scenarios, and then call the corresponding trial text or web voice operation. This operation does not create a text session or initiate a voice call. The resource identifiers, numbers, and authentication credentials in the examples are desensitized or placeholder values. Use actual resources and service return values for actual calls.
+ *
+ * @param request GetTrialAccessChannelRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetTrialAccessChannelResponse
+ */
+GetTrialAccessChannelResponse Client::getTrialAccessChannelWithOptions(const GetTrialAccessChannelRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasProductCode()) {
+    query["ProductCode"] = request.getProductCode();
+  }
+
+  if (!!request.hasVisitorToken()) {
+    query["VisitorToken"] = request.getVisitorToken();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "GetTrialAccessChannel"},
+    {"version" , "2025-11-11"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetTrialAccessChannelResponse>();
+}
+
+/**
+ * @summary Retrieves the trial channel.
+ *
+ * @description Retrieves the corresponding trial access channel and the list of available trial scenarios based on the VisitorToken in a trial link. The service verifies whether the token exists, whether it can locate the channel, and whether it has expired. Upon success, it returns information such as the instance to which the channel belongs, the channel type, display configurations, validity period, and scenario configurations. This operation can be used as an initialization step for the trial page: first read the returned instance and scenarios, and then call the corresponding trial text or web voice operation. This operation does not create a text session or initiate a voice call. The resource identifiers, numbers, and authentication credentials in the examples are desensitized or placeholder values. Use actual resources and service return values for actual calls.
+ *
+ * @param request GetTrialAccessChannelRequest
+ * @return GetTrialAccessChannelResponse
+ */
+GetTrialAccessChannelResponse Client::getTrialAccessChannel(const GetTrialAccessChannelRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return getTrialAccessChannelWithOptions(request, runtime);
+}
+
+/**
+ * @summary Retrieves the parameters for a trial voice conversation.
+ *
+ * @description Retrieves temporary connection credentials for the client data channel for a specified InstanceId and DeviceId by using a valid VisitorToken from a trial link. The response includes information such as Topic, ClientId, Endpoint, UserName, Password, and expiration time. The client must use the actual values returned by the service to connect to and subscribe to the data channel, and must not concatenate addresses, topics, or authentication information. The DeviceId must be consistent with the BridgeTrialWebCall request from the same client. This operation only retrieves data channel credentials and does not initiate text sessions or establish web voice calls. The credential protocol and expiration time unit are subject to the conventions returned by the actual RTC gateway. The resource identifiers, numbers, and authentication credentials in the examples are desensitized or placeholder values. Use actual resources and service return values for actual calls.
+ *
+ * @param request GetTrialDataChannelCredentialRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetTrialDataChannelCredentialResponse
+ */
+GetTrialDataChannelCredentialResponse Client::getTrialDataChannelCredentialWithOptions(const GetTrialDataChannelCredentialRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasDeviceId()) {
+    query["DeviceId"] = request.getDeviceId();
+  }
+
+  if (!!request.hasInstanceId()) {
+    query["InstanceId"] = request.getInstanceId();
+  }
+
+  if (!!request.hasVisitorToken()) {
+    query["VisitorToken"] = request.getVisitorToken();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "GetTrialDataChannelCredential"},
+    {"version" , "2025-11-11"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetTrialDataChannelCredentialResponse>();
+}
+
+/**
+ * @summary Retrieves the parameters for a trial voice conversation.
+ *
+ * @description Retrieves temporary connection credentials for the client data channel for a specified InstanceId and DeviceId by using a valid VisitorToken from a trial link. The response includes information such as Topic, ClientId, Endpoint, UserName, Password, and expiration time. The client must use the actual values returned by the service to connect to and subscribe to the data channel, and must not concatenate addresses, topics, or authentication information. The DeviceId must be consistent with the BridgeTrialWebCall request from the same client. This operation only retrieves data channel credentials and does not initiate text sessions or establish web voice calls. The credential protocol and expiration time unit are subject to the conventions returned by the actual RTC gateway. The resource identifiers, numbers, and authentication credentials in the examples are desensitized or placeholder values. Use actual resources and service return values for actual calls.
+ *
+ * @param request GetTrialDataChannelCredentialRequest
+ * @return GetTrialDataChannelCredentialResponse
+ */
+GetTrialDataChannelCredentialResponse Client::getTrialDataChannelCredential(const GetTrialDataChannelCredentialRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return getTrialDataChannelCredentialWithOptions(request, runtime);
+}
+
+/**
+ * @summary Retrieves the list of ASR models.
+ *
+ * @param request ListAsrModelsRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListAsrModelsResponse
+ */
+ListAsrModelsResponse Client::listAsrModelsWithOptions(const ListAsrModelsRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasInstanceId()) {
+    body["InstanceId"] = request.getInstanceId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"body" , Utils::Utils::parseToMap(body)}
+  }).get<map<string, json>>());
+  Params params = Params(json({
+    {"action" , "ListAsrModels"},
+    {"version" , "2025-11-11"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListAsrModelsResponse>();
+}
+
+/**
+ * @summary Retrieves the list of ASR models.
+ *
+ * @param request ListAsrModelsRequest
+ * @return ListAsrModelsResponse
+ */
+ListAsrModelsResponse Client::listAsrModels(const ListAsrModelsRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return listAsrModelsWithOptions(request, runtime);
+}
+
+/**
+ * @summary Queries a list of outbound campaigns.
  *
  * @description ****
  *
@@ -1471,7 +2526,7 @@ ListCampaignsResponse Client::listCampaignsWithOptions(const ListCampaignsReques
 }
 
 /**
- * @summary Retrieves the list of outbound call campaigns.
+ * @summary Queries a list of outbound campaigns.
  *
  * @description ****
  *
@@ -1744,6 +2799,68 @@ ListCloneVoicesResponse Client::listCloneVoices(const ListCloneVoicesRequest &re
 }
 
 /**
+ * @summary Queries the list of tenant numbers.
+ *
+ * @description Queries the list of tenant numbers.
+ *
+ * @param request ListCorpNumbersRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListCorpNumbersResponse
+ */
+ListCorpNumbersResponse Client::listCorpNumbersWithOptions(const ListCorpNumbersRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasNumber()) {
+    body["Number"] = request.getNumber();
+  }
+
+  if (!!request.hasPageNumber()) {
+    body["PageNumber"] = request.getPageNumber();
+  }
+
+  if (!!request.hasPageSize()) {
+    body["PageSize"] = request.getPageSize();
+  }
+
+  if (!!request.hasSipTrunkId()) {
+    body["SipTrunkId"] = request.getSipTrunkId();
+  }
+
+  if (!!request.hasTenantId()) {
+    body["TenantId"] = request.getTenantId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"body" , Utils::Utils::parseToMap(body)}
+  }).get<map<string, json>>());
+  Params params = Params(json({
+    {"action" , "ListCorpNumbers"},
+    {"version" , "2025-11-11"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListCorpNumbersResponse>();
+}
+
+/**
+ * @summary Queries the list of tenant numbers.
+ *
+ * @description Queries the list of tenant numbers.
+ *
+ * @param request ListCorpNumbersRequest
+ * @return ListCorpNumbersResponse
+ */
+ListCorpNumbersResponse Client::listCorpNumbers(const ListCorpNumbersRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return listCorpNumbersWithOptions(request, runtime);
+}
+
+/**
  * @summary Retrieves the list of flash SMS configurations.
  *
  * @param request ListFlashSmsAccessProfilesRequest
@@ -1890,6 +3007,56 @@ ListFlashSmsTemplatesResponse Client::listFlashSmsTemplates(const ListFlashSmsTe
 }
 
 /**
+ * @summary Queries the instances bound to a number.
+ *
+ * @description Queries the binding information between a number and instances.
+ *
+ * @param request ListInstanceBindingsOfNumberRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListInstanceBindingsOfNumberResponse
+ */
+ListInstanceBindingsOfNumberResponse Client::listInstanceBindingsOfNumberWithOptions(const ListInstanceBindingsOfNumberRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasNumber()) {
+    body["Number"] = request.getNumber();
+  }
+
+  if (!!request.hasTenantId()) {
+    body["TenantId"] = request.getTenantId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"body" , Utils::Utils::parseToMap(body)}
+  }).get<map<string, json>>());
+  Params params = Params(json({
+    {"action" , "ListInstanceBindingsOfNumber"},
+    {"version" , "2025-11-11"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListInstanceBindingsOfNumberResponse>();
+}
+
+/**
+ * @summary Queries the instances bound to a number.
+ *
+ * @description Queries the binding information between a number and instances.
+ *
+ * @param request ListInstanceBindingsOfNumberRequest
+ * @return ListInstanceBindingsOfNumberResponse
+ */
+ListInstanceBindingsOfNumberResponse Client::listInstanceBindingsOfNumber(const ListInstanceBindingsOfNumberRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return listInstanceBindingsOfNumberWithOptions(request, runtime);
+}
+
+/**
  * @summary Retrieves instance details.
  *
  * @param request ListInstancesRequest
@@ -1937,6 +3104,176 @@ ListInstancesResponse Client::listInstancesWithOptions(const ListInstancesReques
 ListInstancesResponse Client::listInstances(const ListInstancesRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return listInstancesWithOptions(request, runtime);
+}
+
+/**
+ * @summary Queries the language model access configurations.
+ *
+ * @description Queries the list of language model access configurations of a specified instance by paging.
+ *
+ * @param request ListLlmAccessProfilesRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListLlmAccessProfilesResponse
+ */
+ListLlmAccessProfilesResponse Client::listLlmAccessProfilesWithOptions(const ListLlmAccessProfilesRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasInstanceId()) {
+    body["InstanceId"] = request.getInstanceId();
+  }
+
+  if (!!request.hasPageNumber()) {
+    body["PageNumber"] = request.getPageNumber();
+  }
+
+  if (!!request.hasPageSize()) {
+    body["PageSize"] = request.getPageSize();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"body" , Utils::Utils::parseToMap(body)}
+  }).get<map<string, json>>());
+  Params params = Params(json({
+    {"action" , "ListLlmAccessProfiles"},
+    {"version" , "2025-11-11"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListLlmAccessProfilesResponse>();
+}
+
+/**
+ * @summary Queries the language model access configurations.
+ *
+ * @description Queries the list of language model access configurations of a specified instance by paging.
+ *
+ * @param request ListLlmAccessProfilesRequest
+ * @return ListLlmAccessProfilesResponse
+ */
+ListLlmAccessProfilesResponse Client::listLlmAccessProfiles(const ListLlmAccessProfilesRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return listLlmAccessProfilesWithOptions(request, runtime);
+}
+
+/**
+ * @summary Queries the list of numbers bound to an instance.
+ *
+ * @description Queries the binding information between an instance and numbers.
+ *
+ * @param request ListNumberBindingsOfInstanceRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListNumberBindingsOfInstanceResponse
+ */
+ListNumberBindingsOfInstanceResponse Client::listNumberBindingsOfInstanceWithOptions(const ListNumberBindingsOfInstanceRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasInstanceId()) {
+    body["InstanceId"] = request.getInstanceId();
+  }
+
+  if (!!request.hasTenantId()) {
+    body["TenantId"] = request.getTenantId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"body" , Utils::Utils::parseToMap(body)}
+  }).get<map<string, json>>());
+  Params params = Params(json({
+    {"action" , "ListNumberBindingsOfInstance"},
+    {"version" , "2025-11-11"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListNumberBindingsOfInstanceResponse>();
+}
+
+/**
+ * @summary Queries the list of numbers bound to an instance.
+ *
+ * @description Queries the binding information between an instance and numbers.
+ *
+ * @param request ListNumberBindingsOfInstanceRequest
+ * @return ListNumberBindingsOfInstanceResponse
+ */
+ListNumberBindingsOfInstanceResponse Client::listNumberBindingsOfInstance(const ListNumberBindingsOfInstanceRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return listNumberBindingsOfInstanceWithOptions(request, runtime);
+}
+
+/**
+ * @summary Queries the phone numbers of an instance.
+ *
+ * @description Queries the phone numbers of a specified instance.
+ *
+ * @param request ListNumbersRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListNumbersResponse
+ */
+ListNumbersResponse Client::listNumbersWithOptions(const ListNumbersRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasInstanceId()) {
+    body["InstanceId"] = request.getInstanceId();
+  }
+
+  if (!!request.hasNumber()) {
+    body["Number"] = request.getNumber();
+  }
+
+  if (!!request.hasPageNumber()) {
+    body["PageNumber"] = request.getPageNumber();
+  }
+
+  if (!!request.hasPageSize()) {
+    body["PageSize"] = request.getPageSize();
+  }
+
+  if (!!request.hasSipTrunkId()) {
+    body["SipTrunkId"] = request.getSipTrunkId();
+  }
+
+  if (!!request.hasTenantId()) {
+    body["TenantId"] = request.getTenantId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"body" , Utils::Utils::parseToMap(body)}
+  }).get<map<string, json>>());
+  Params params = Params(json({
+    {"action" , "ListNumbers"},
+    {"version" , "2025-11-11"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListNumbersResponse>();
+}
+
+/**
+ * @summary Queries the phone numbers of an instance.
+ *
+ * @description Queries the phone numbers of a specified instance.
+ *
+ * @param request ListNumbersRequest
+ * @return ListNumbersResponse
+ */
+ListNumbersResponse Client::listNumbers(const ListNumbersRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return listNumbersWithOptions(request, runtime);
 }
 
 /**
@@ -2116,7 +3453,7 @@ ListScriptsResponse Client::listScripts(const ListScriptsRequest &request) {
 }
 
 /**
- * @summary Retrieves the list of scenarios associated with a flow by flow ID.
+ * @summary Retrieves a list of scenarios based on the flow ID.
  *
  * @param request ListScriptsByFlowRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2151,7 +3488,7 @@ ListScriptsByFlowResponse Client::listScriptsByFlowWithOptions(const ListScripts
 }
 
 /**
- * @summary Retrieves the list of scenarios associated with a flow by flow ID.
+ * @summary Retrieves a list of scenarios based on the flow ID.
  *
  * @param request ListScriptsByFlowRequest
  * @return ListScriptsByFlowResponse
@@ -2262,7 +3599,81 @@ ListVoiceAccessProfilesResponse Client::listVoiceAccessProfiles(const ListVoiceA
 }
 
 /**
- * @summary Pauses an outbound call campaign.
+ * @summary Initiates an outbound call.
+ *
+ * @description Initiates an outbound call test to the real phone number corresponding to Number by using the specified instance and scenario. Before calling this operation, you must obtain an SMS verification code for the OutboundCallTest scenario for the called number and pass it in VerificationCode. The service verifies the code and initiates the call by using the outbound caller ID configured on the platform. DeviceId is used to bind the client data stream to the current call. CallVariables passes call variables in JSON object format, and Tags passes attached data. Upon success, a SessionId with the test- prefix is returned to associate with the current call. A successful API response does not indicate that the called party has answered or that the conversation has ended. Test only authorized numbers. The resource identifiers, numbers, and authentication credentials in the examples are desensitized or placeholder values. Use real resources and service return values for actual calls.
+ *
+ * @param request MakePilotCallRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return MakePilotCallResponse
+ */
+MakePilotCallResponse Client::makePilotCallWithOptions(const MakePilotCallRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasCallVariables()) {
+    query["CallVariables"] = request.getCallVariables();
+  }
+
+  if (!!request.hasDeviceId()) {
+    query["DeviceId"] = request.getDeviceId();
+  }
+
+  if (!!request.hasDraftVersion()) {
+    query["DraftVersion"] = request.getDraftVersion();
+  }
+
+  if (!!request.hasInstanceId()) {
+    query["InstanceId"] = request.getInstanceId();
+  }
+
+  if (!!request.hasNumber()) {
+    query["Number"] = request.getNumber();
+  }
+
+  if (!!request.hasScriptId()) {
+    query["ScriptId"] = request.getScriptId();
+  }
+
+  if (!!request.hasTags()) {
+    query["Tags"] = request.getTags();
+  }
+
+  if (!!request.hasVerificationCode()) {
+    query["VerificationCode"] = request.getVerificationCode();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "MakePilotCall"},
+    {"version" , "2025-11-11"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<MakePilotCallResponse>();
+}
+
+/**
+ * @summary Initiates an outbound call.
+ *
+ * @description Initiates an outbound call test to the real phone number corresponding to Number by using the specified instance and scenario. Before calling this operation, you must obtain an SMS verification code for the OutboundCallTest scenario for the called number and pass it in VerificationCode. The service verifies the code and initiates the call by using the outbound caller ID configured on the platform. DeviceId is used to bind the client data stream to the current call. CallVariables passes call variables in JSON object format, and Tags passes attached data. Upon success, a SessionId with the test- prefix is returned to associate with the current call. A successful API response does not indicate that the called party has answered or that the conversation has ended. Test only authorized numbers. The resource identifiers, numbers, and authentication credentials in the examples are desensitized or placeholder values. Use real resources and service return values for actual calls.
+ *
+ * @param request MakePilotCallRequest
+ * @return MakePilotCallResponse
+ */
+MakePilotCallResponse Client::makePilotCall(const MakePilotCallRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return makePilotCallWithOptions(request, runtime);
+}
+
+/**
+ * @summary Pauses an outbound campaign.
  *
  * @param request PauseCampaignRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2297,7 +3708,7 @@ PauseCampaignResponse Client::pauseCampaignWithOptions(const PauseCampaignReques
 }
 
 /**
- * @summary Pauses an outbound call campaign.
+ * @summary Pauses an outbound campaign.
  *
  * @param request PauseCampaignRequest
  * @return PauseCampaignResponse
@@ -2408,7 +3819,7 @@ ResumeCampaignResponse Client::resumeCampaign(const ResumeCampaignRequest &reque
 }
 
 /**
- * @summary Submits an outbound call campaign.
+ * @summary Submits an outbound campaign.
  *
  * @description ****
  *
@@ -2445,7 +3856,7 @@ SubmitCampaignResponse Client::submitCampaignWithOptions(const SubmitCampaignReq
 }
 
 /**
- * @summary Submits an outbound call campaign.
+ * @summary Submits an outbound campaign.
  *
  * @description ****
  *
@@ -2455,6 +3866,139 @@ SubmitCampaignResponse Client::submitCampaignWithOptions(const SubmitCampaignReq
 SubmitCampaignResponse Client::submitCampaign(const SubmitCampaignRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return submitCampaignWithOptions(request, runtime);
+}
+
+/**
+ * @summary Sends a user input to a trial text conversation.
+ *
+ * @description Sends a round of user input to a trial text conversation created by BeginTrialSession and returns the robot reply in Server-Sent Events (SSE) format. Use the same InstanceId, ScriptId, SessionId, and experience link VisitorToken as those used to start the trial conversation. The service validates the token and its expiration time on each call. Utterance is plain text input, and Extras is a JSON array string of structured events such as key presses and silence. StreamEnd=true only ends the response stream for the current turn. Call EndTrialSession when the entire experience ends. The resource identifiers, numbers, and authentication credentials in the examples are desensitized or placeholder values. Use actual resources and service return values for actual calls.
+ *
+ * @param request TrialDialogueRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return TrialDialogueResponse
+ */
+FutureGenerator<TrialDialogueResponse> Client::trialDialogueWithSSE(const TrialDialogueRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasExtras()) {
+    query["Extras"] = request.getExtras();
+  }
+
+  if (!!request.hasInstanceId()) {
+    query["InstanceId"] = request.getInstanceId();
+  }
+
+  if (!!request.hasScriptId()) {
+    query["ScriptId"] = request.getScriptId();
+  }
+
+  if (!!request.hasSessionId()) {
+    query["SessionId"] = request.getSessionId();
+  }
+
+  if (!!request.hasUtterance()) {
+    query["Utterance"] = request.getUtterance();
+  }
+
+  if (!!request.hasVisitorToken()) {
+    query["VisitorToken"] = request.getVisitorToken();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "TrialDialogue"},
+    {"version" , "2025-11-11"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  FutureGenerator<SSEResponse> sseResp = callSSEApi(params, req, runtime);
+  for (SSEResponse resp : sseResp) {
+    if (!!resp.hasEvent() && !!resp.getEvent().hasData()) {
+      json data = json(json::parse(resp.getEvent().getData()));
+json       __retrun = json(json({
+        {"statusCode" , resp.getStatusCode()},
+        {"headers" , resp.getHeaders()},
+        {"id" , resp.getEvent().getId()},
+        {"event" , resp.getEvent().getEvent()},
+        {"body" , data}
+      })).get<TrialDialogueResponse>();
+return Darabonba::FutureGenerator<json>(__retrun);
+    }
+
+  }
+}
+
+/**
+ * @summary Sends a user input to a trial text conversation.
+ *
+ * @description Sends a round of user input to a trial text conversation created by BeginTrialSession and returns the robot reply in Server-Sent Events (SSE) format. Use the same InstanceId, ScriptId, SessionId, and experience link VisitorToken as those used to start the trial conversation. The service validates the token and its expiration time on each call. Utterance is plain text input, and Extras is a JSON array string of structured events such as key presses and silence. StreamEnd=true only ends the response stream for the current turn. Call EndTrialSession when the entire experience ends. The resource identifiers, numbers, and authentication credentials in the examples are desensitized or placeholder values. Use actual resources and service return values for actual calls.
+ *
+ * @param request TrialDialogueRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return TrialDialogueResponse
+ */
+TrialDialogueResponse Client::trialDialogueWithOptions(const TrialDialogueRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasExtras()) {
+    query["Extras"] = request.getExtras();
+  }
+
+  if (!!request.hasInstanceId()) {
+    query["InstanceId"] = request.getInstanceId();
+  }
+
+  if (!!request.hasScriptId()) {
+    query["ScriptId"] = request.getScriptId();
+  }
+
+  if (!!request.hasSessionId()) {
+    query["SessionId"] = request.getSessionId();
+  }
+
+  if (!!request.hasUtterance()) {
+    query["Utterance"] = request.getUtterance();
+  }
+
+  if (!!request.hasVisitorToken()) {
+    query["VisitorToken"] = request.getVisitorToken();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "TrialDialogue"},
+    {"version" , "2025-11-11"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<TrialDialogueResponse>();
+}
+
+/**
+ * @summary Sends a user input to a trial text conversation.
+ *
+ * @description Sends a round of user input to a trial text conversation created by BeginTrialSession and returns the robot reply in Server-Sent Events (SSE) format. Use the same InstanceId, ScriptId, SessionId, and experience link VisitorToken as those used to start the trial conversation. The service validates the token and its expiration time on each call. Utterance is plain text input, and Extras is a JSON array string of structured events such as key presses and silence. StreamEnd=true only ends the response stream for the current turn. Call EndTrialSession when the entire experience ends. The resource identifiers, numbers, and authentication credentials in the examples are desensitized or placeholder values. Use actual resources and service return values for actual calls.
+ *
+ * @param request TrialDialogueRequest
+ * @return TrialDialogueResponse
+ */
+TrialDialogueResponse Client::trialDialogue(const TrialDialogueRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return trialDialogueWithOptions(request, runtime);
 }
 
 /**
@@ -2619,6 +4163,186 @@ UpdateInstanceResponse Client::updateInstanceWithOptions(const UpdateInstanceReq
 UpdateInstanceResponse Client::updateInstance(const UpdateInstanceRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return updateInstanceWithOptions(request, runtime);
+}
+
+/**
+ * @summary Updates the instances bound to a number.
+ *
+ * @description Updates the binding between a number and instances.
+ *
+ * @param tmpReq UpdateInstanceBindingsOfNumberRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return UpdateInstanceBindingsOfNumberResponse
+ */
+UpdateInstanceBindingsOfNumberResponse Client::updateInstanceBindingsOfNumberWithOptions(const UpdateInstanceBindingsOfNumberRequest &tmpReq, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  UpdateInstanceBindingsOfNumberShrinkRequest request = UpdateInstanceBindingsOfNumberShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasInstanceIds()) {
+    request.setInstanceIdsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getInstanceIds(), "InstanceIds", "json"));
+  }
+
+  json body = {};
+  if (!!request.hasInstanceIdsShrink()) {
+    body["InstanceIds"] = request.getInstanceIdsShrink();
+  }
+
+  if (!!request.hasNumber()) {
+    body["Number"] = request.getNumber();
+  }
+
+  if (!!request.hasTenantId()) {
+    body["TenantId"] = request.getTenantId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"body" , Utils::Utils::parseToMap(body)}
+  }).get<map<string, json>>());
+  Params params = Params(json({
+    {"action" , "UpdateInstanceBindingsOfNumber"},
+    {"version" , "2025-11-11"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<UpdateInstanceBindingsOfNumberResponse>();
+}
+
+/**
+ * @summary Updates the instances bound to a number.
+ *
+ * @description Updates the binding between a number and instances.
+ *
+ * @param request UpdateInstanceBindingsOfNumberRequest
+ * @return UpdateInstanceBindingsOfNumberResponse
+ */
+UpdateInstanceBindingsOfNumberResponse Client::updateInstanceBindingsOfNumber(const UpdateInstanceBindingsOfNumberRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return updateInstanceBindingsOfNumberWithOptions(request, runtime);
+}
+
+/**
+ * @summary Updates the language model access configuration.
+ *
+ * @description Updates the language model access configuration for a specified instance.
+ *
+ * @param tmpReq UpdateLlmAccessProfileRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return UpdateLlmAccessProfileResponse
+ */
+UpdateLlmAccessProfileResponse Client::updateLlmAccessProfileWithOptions(const UpdateLlmAccessProfileRequest &tmpReq, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  UpdateLlmAccessProfileShrinkRequest request = UpdateLlmAccessProfileShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasProfile()) {
+    request.setProfileShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getProfile(), "Profile", "json"));
+  }
+
+  json body = {};
+  if (!!request.hasAccessProfileId()) {
+    body["AccessProfileId"] = request.getAccessProfileId();
+  }
+
+  if (!!request.hasInstanceId()) {
+    body["InstanceId"] = request.getInstanceId();
+  }
+
+  if (!!request.hasProfileShrink()) {
+    body["Profile"] = request.getProfileShrink();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"body" , Utils::Utils::parseToMap(body)}
+  }).get<map<string, json>>());
+  Params params = Params(json({
+    {"action" , "UpdateLlmAccessProfile"},
+    {"version" , "2025-11-11"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<UpdateLlmAccessProfileResponse>();
+}
+
+/**
+ * @summary Updates the language model access configuration.
+ *
+ * @description Updates the language model access configuration for a specified instance.
+ *
+ * @param request UpdateLlmAccessProfileRequest
+ * @return UpdateLlmAccessProfileResponse
+ */
+UpdateLlmAccessProfileResponse Client::updateLlmAccessProfile(const UpdateLlmAccessProfileRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return updateLlmAccessProfileWithOptions(request, runtime);
+}
+
+/**
+ * @summary Updates the phone numbers bound to an instance.
+ *
+ * @description Updates the binding relationship between an instance and phone numbers.
+ *
+ * @param tmpReq UpdateNumberBindingsOfInstanceRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return UpdateNumberBindingsOfInstanceResponse
+ */
+UpdateNumberBindingsOfInstanceResponse Client::updateNumberBindingsOfInstanceWithOptions(const UpdateNumberBindingsOfInstanceRequest &tmpReq, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  UpdateNumberBindingsOfInstanceShrinkRequest request = UpdateNumberBindingsOfInstanceShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasNumbers()) {
+    request.setNumbersShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getNumbers(), "Numbers", "json"));
+  }
+
+  json body = {};
+  if (!!request.hasInstanceId()) {
+    body["InstanceId"] = request.getInstanceId();
+  }
+
+  if (!!request.hasNumbersShrink()) {
+    body["Numbers"] = request.getNumbersShrink();
+  }
+
+  if (!!request.hasTenantId()) {
+    body["TenantId"] = request.getTenantId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"body" , Utils::Utils::parseToMap(body)}
+  }).get<map<string, json>>());
+  Params params = Params(json({
+    {"action" , "UpdateNumberBindingsOfInstance"},
+    {"version" , "2025-11-11"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<UpdateNumberBindingsOfInstanceResponse>();
+}
+
+/**
+ * @summary Updates the phone numbers bound to an instance.
+ *
+ * @description Updates the binding relationship between an instance and phone numbers.
+ *
+ * @param request UpdateNumberBindingsOfInstanceRequest
+ * @return UpdateNumberBindingsOfInstanceResponse
+ */
+UpdateNumberBindingsOfInstanceResponse Client::updateNumberBindingsOfInstance(const UpdateNumberBindingsOfInstanceRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return updateNumberBindingsOfInstanceWithOptions(request, runtime);
 }
 
 /**

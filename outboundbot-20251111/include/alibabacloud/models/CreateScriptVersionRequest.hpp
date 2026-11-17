@@ -107,7 +107,7 @@ namespace Models
 
 
       protected:
-        // The third-party speech configuration ID. This parameter is required when you use a third-party ASR service such as Doubao or iFLYTEK.
+        // The ID of the third-party speech configuration. This is required when you use third-party ASR services such as Doubao or iFlytek.
         shared_ptr<string> accessProfileId_ {};
       };
 
@@ -228,9 +228,9 @@ namespace Models
     protected:
       // The ASR correction dictionary.
       shared_ptr<vector<TranscriberConfig::CorrectionRules>> correctionRules_ {};
-      // The custom language model ID for ASR.
+      // The ID of the custom language model for ASR.
       shared_ptr<string> customizationId_ {};
-      // The silence detection threshold. When the silence between speech segments exceeds the specified number of milliseconds, sentence segmentation is triggered (Voice Activity Detection, or VAD).
+      // The silence detection timeout. A sentence break is triggered when the pause exceeds the specified number of milliseconds. This is also known as voice activity detection (VAD).
       shared_ptr<int32_t> endSilenceTimeout_ {};
       // The ASR model.
       shared_ptr<string> model_ {};
@@ -240,13 +240,9 @@ namespace Models
       shared_ptr<string> nlsAccessType_ {};
       // The ASR engine.
       shared_ptr<string> nlsEngine_ {};
-      // The noise threshold. Valid values: -100 to 100.
-      // 
-      // A value closer to -100 increases the probability that noise is classified as speech.
-      // 
-      // A value closer to +100 increases the probability that speech is classified as noise.
+      // The noise threshold. Valid values: -100 to 100. A value closer to -100 indicates a higher probability that noise is recognized as speech. A value closer to 100 indicates a higher probability that speech is recognized as noise.
       shared_ptr<int32_t> speechNoiseThreshold_ {};
-      // The hot word list ID. You can obtain this ID from the hot word management page.
+      // The ID of the hot word table. You can obtain the ID from the hot word management page.
       shared_ptr<string> vocabularyId_ {};
     };
 
@@ -323,9 +319,9 @@ namespace Models
 
 
       protected:
-        // The commonly mispronounced character or word.
+        // The easily confused character or word.
         shared_ptr<string> pattern_ {};
-        // The homophonic character or word.
+        // The homophone character or word.
         shared_ptr<string> replacement_ {};
       };
 
@@ -357,7 +353,7 @@ namespace Models
 
 
       protected:
-        // The third-party speech configuration ID. This parameter is required when you use a third-party ASR service such as Doubao or iFLYTEK.
+        // The ID of the third-party speech configuration. This is required when you use third-party ASR services such as Doubao or iFlytek.
         shared_ptr<string> accessProfileId_ {};
       };
 
@@ -440,21 +436,15 @@ namespace Models
       shared_ptr<string> nlsAccessType_ {};
       // The TTS engine.
       shared_ptr<string> nlsEngine_ {};
-      // The pitch rate.\\
-      // Valid values: -500 to 500.\\
-      // Default value: 0.
+      // The pitch. Valid values: -500 to 500. Default value: 0.
       shared_ptr<int32_t> pitchRate_ {};
       // The TTS correction dictionary.
       shared_ptr<vector<SynthesizerConfig::PronRules>> pronRules_ {};
-      // The speech rate.\\
-      // Valid values: -500 to 500.\\
-      // Default value: 0.
+      // The speech rate. Valid values: -500 to 500. Default value: 0.
       shared_ptr<int32_t> speechRate_ {};
       // The voice.
       shared_ptr<string> voice_ {};
-      // The volume.\\
-      // Valid values: 0 to 100.\\
-      // Default value: 50.
+      // The volume. Valid values: 0 to 100. Default value: 50.
       shared_ptr<int32_t> volume_ {};
     };
 
@@ -521,7 +511,7 @@ namespace Models
 
 
       protected:
-        // The third-party dialogue model configuration ID.
+        // The ID of the third-party dialog model configuration.
         shared_ptr<string> accessProfileId_ {};
       };
 
@@ -590,20 +580,15 @@ namespace Models
 
 
       protected:
-        // The function service ID.\\
-        // This parameter is required when NluEngine is set to FUNCTION for the current scenario.
+        // The function service ID. This parameter is required when NluEngine is set to FUNCTION for the current script.
         shared_ptr<string> functionId_ {};
-        // The function service name.\\
-        // This parameter is required when NluEngine is set to FUNCTION for the current scenario.
+        // The function service name. This parameter is required when NluEngine is set to FUNCTION for the current script.
         shared_ptr<string> functionName_ {};
-        // The function trigger name.\\
-        // This parameter is required when NluEngine is set to FUNCTION for the current scenario.
+        // The function trigger name. This parameter is required when NluEngine is set to FUNCTION for the current script.
         shared_ptr<string> httpTriggerName_ {};
-        // The function trigger URL.\\
-        // This parameter is required when NluEngine is set to FUNCTION for the current scenario.
+        // The function trigger URL. This parameter is required when NluEngine is set to FUNCTION for the current script.
         shared_ptr<string> httpTriggerUrl_ {};
-        // The region where the function service resides.\\
-        // This parameter is required when NluEngine is set to FUNCTION for the current scenario.
+        // The region where the function service resides. This parameter is required when NluEngine is set to FUNCTION for the current script.
         shared_ptr<string> regionId_ {};
       };
 
@@ -645,9 +630,9 @@ namespace Models
 
 
       protected:
-        // The prompt in JSON format.
+        // The prompt JSON.
         shared_ptr<string> promptsJson_ {};
-        // The scenario template ID.
+        // The script template ID.
         shared_ptr<string> scriptProfileTemplateId_ {};
       };
 
@@ -724,25 +709,21 @@ namespace Models
 
 
     protected:
-      // The AgentKey of the chatbot.\\
-      // This parameter is required when NluEngine is set to BEEBOT for the current scenario.
+      // The AgentKey of the chatbot. This parameter is required when NluEngine is set to BEEBOT for the current script.
       shared_ptr<string> agentKey_ {};
-      // The dialogue agent configuration.
+      // The dialog agent configuration.
       shared_ptr<ScriptProfile::AgentProfile> agentProfile_ {};
-      // The chatbot type.\\
-      // This parameter is required when NluEngine is set to BEEBOT for the current scenario.
+      // The chatbot type. This parameter is required when NluEngine is set to BEEBOT for the current script.
       shared_ptr<string> builderType_ {};
-      // The chatbot ID.\\
-      // This parameter is required when NluEngine is set to BEEBOT for the current scenario.
+      // The chatbot ID. This parameter is required when NluEngine is set to BEEBOT for the current script.
       shared_ptr<string> chatbotId_ {};
       // The Function Compute configuration.
       shared_ptr<ScriptProfile::FunctionMeta> functionMeta_ {};
-      // The dialogue model.\\
-      // This parameter is required when NluEngine is set to PROMPTS for the current scenario.
+      // The dialog model. This parameter is required when NluEngine is set to PROMPTS for the current script.
       shared_ptr<string> model_ {};
       // The associated configuration.
       shared_ptr<ScriptProfile::NluAccessProfile> nluAccessProfile_ {};
-      // The dialogue model invocation method.
+      // The dialog model invocation method.
       shared_ptr<string> nluAccessType_ {};
       // Specifies whether the model is an Omni model.
       shared_ptr<bool> omniModel_ {};
@@ -892,12 +873,12 @@ namespace Models
 
 
       protected:
-        // The model generation prompt.
+        // The prompt for AI-generated transition phrases.
         shared_ptr<string> aiPhrasePrompt_ {};
         // The list of fixed transition phrases.
         shared_ptr<vector<string>> fixedPhraseList_ {};
-        // The transition phrase generation method. Valid values:
-        // - aiGenerated: Model-generated.
+        // The method for generating transition phrases. Valid values:\\
+        // - aiGenerated: AI-generated.\\
         // - fixedPhrase: Fixed phrase.
         shared_ptr<string> phraseSource_ {};
         // Specifies whether to enable transition phrases.
@@ -957,7 +938,7 @@ namespace Models
 
 
         protected:
-          // The action to execute during consecutive silence.
+          // The action to perform during consecutive silences.
           shared_ptr<string> type_ {};
         };
 
@@ -994,13 +975,15 @@ namespace Models
 
 
       protected:
-        // The list of actions to execute during consecutive silence.
+        // The list of actions to perform during consecutive silences.
         shared_ptr<vector<SilenceDetectionConfig::FallbackControlParamsList>> fallbackControlParamsList_ {};
-        // The number of consecutive silence turns before hang-up. This parameter takes effect only when NluEngine is set to PROMPTS.
+        // The maximum number of consecutive silence turns before hanging up. This parameter takes effect only when NluEngine is set to PROMPTS.
         shared_ptr<int32_t> maxRepeats_ {};
         // The silence prompt.
         shared_ptr<string> prompt_ {};
-        // The silence timeout period in milliseconds. When the user remains silent beyond the specified value, the silence timeout script is played. Valid range: 2000 to 10000.
+        // The silence timeout in milliseconds.\\
+        // If the user remains silent beyond this value, the silence timeout prompt is played.\\
+        // Valid values: 2000 to 10000.
         shared_ptr<int32_t> timeout_ {};
       };
 
@@ -1085,17 +1068,17 @@ namespace Models
 
 
         protected:
-          // The closing statement played when the turn limit is reached and the hang-up is executed.
+          // The closing statement played when the conversation is ended due to reaching the turn limit.
           shared_ptr<string> closingStatement_ {};
           // The list of custom interception keywords.
           shared_ptr<vector<string>> keywords_ {};
-          // Valid values:
-          // - TurnLimit: Maximum interaction turn limit check.
-          // - IntelligentVoiceAssistant: Voice assistant.
-          // - InteractiveVoiceResponse: Extension number transfer.
+          // The trigger type. Valid values:\\
+          // - TurnLimit: Maximum interaction turns.\\
+          // - IntelligentVoiceAssistant: Intelligent voice assistant.\\
+          // - InteractiveVoiceResponse: Extension transfer.\\
           // - KeyWords: Custom interception.
           shared_ptr<string> triggerType_ {};
-          // The hang-up is executed when the number of interaction turns exceeds the specified value. Valid range: 0 to 100. A value of 0 indicates that the turn-limit hang-up is disabled.
+          // The maximum number of interaction turns before hanging up. Valid values: 0 to 100. A value of 0 indicates that the turn limit is disabled.
           shared_ptr<int32_t> turnLimit_ {};
         };
 
@@ -1125,11 +1108,11 @@ namespace Models
 
 
       protected:
-        // Specifies whether barge-in is supported during the delayed hang-up waiting period.
+        // Specifies whether barge-in is supported during the delay before hanging up.
         shared_ptr<bool> bargeInEnabled_ {};
-        // The delay in seconds after the hang-up script finishes playing before the hang-up action is executed. Valid range: 0 to 5.
+        // The delay in seconds before hanging up after the hang-up prompt is played. Valid values: 0 to 5.
         shared_ptr<int32_t> delay_ {};
-        // The special case interception rules.
+        // The special case interception configuration.
         shared_ptr<vector<EndConversationConfig::Triggers>> triggers_ {};
       };
 
@@ -1180,11 +1163,11 @@ namespace Models
 
 
       protected:
-        // Specifies whether barge-in is supported during the closing statement.
+        // Specifies whether barge-in is supported for the closing remark.
         shared_ptr<bool> closingBargeInEnabled_ {};
         // Specifies whether barge-in is supported during the conversation.
         shared_ptr<bool> globalBargeInEnabled_ {};
-        // Specifies whether barge-in is supported during the opening statement.
+        // Specifies whether barge-in is supported for the opening remark.
         shared_ptr<bool> openingBargeInEnabled_ {};
       };
 
@@ -1245,9 +1228,9 @@ namespace Models
       shared_ptr<string> backgroundMusicId_ {};
       // The barge-in configuration.
       shared_ptr<InteractionConfig::BargeInConfig> bargeInConfig_ {};
-      // The hang-up configuration.
+      // The end conversation configuration.
       shared_ptr<InteractionConfig::EndConversationConfig> endConversationConfig_ {};
-      // The delay before audio playback after the call is connected. Unit: milliseconds.
+      // The delay in milliseconds before playing the initial greeting after the call is connected.
       shared_ptr<int32_t> initialGreetingDelayMilliseconds_ {};
       // The silence detection configuration.
       shared_ptr<InteractionConfig::SilenceDetectionConfig> silenceDetectionConfig_ {};
@@ -1331,15 +1314,15 @@ namespace Models
     shared_ptr<CreateScriptVersionRequest::InteractionConfig> interactionConfig_ {};
     // The label configurations.
     shared_ptr<vector<CreateScriptVersionRequest::LabelConfigs>> labelConfigs_ {};
-    // The scenario ID.
+    // The script ID.
     shared_ptr<string> scriptId_ {};
-    // The dialogue capability configuration.
+    // The dialog capability configuration.
     shared_ptr<CreateScriptVersionRequest::ScriptProfile> scriptProfile_ {};
     // The source version ID.
     shared_ptr<string> sourceVersionId_ {};
-    // The Text-to-Speech (TTS) configuration.
+    // The TTS configuration.
     shared_ptr<CreateScriptVersionRequest::SynthesizerConfig> synthesizerConfig_ {};
-    // The Automatic Speech Recognition (ASR) configuration.
+    // The ASR configuration.
     shared_ptr<CreateScriptVersionRequest::TranscriberConfig> transcriberConfig_ {};
   };
 

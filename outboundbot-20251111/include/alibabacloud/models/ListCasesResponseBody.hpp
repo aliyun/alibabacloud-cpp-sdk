@@ -208,17 +208,17 @@ namespace Models
 
 
         protected:
-          // The candidate values of the label.
+          // The candidate values for the label.
           shared_ptr<vector<string>> candidateValues_ {};
-          // Indicates whether the label is collected.
+          // Indicates whether it is collected.
           shared_ptr<bool> collected_ {};
-          // The description of the label.
+          // The label description.
           shared_ptr<string> description_ {};
           // The matched value of the label.
           shared_ptr<string> matchedValue_ {};
-          // The name of the label.
+          // The label name.
           shared_ptr<string> name_ {};
-          // Indicates whether the label is a system label.
+          // The system label.
           shared_ptr<bool> system_ {};
         };
 
@@ -399,7 +399,7 @@ namespace Models
 
 
       protected:
-        // The number of call attempts.
+        // The number of attempts.
         shared_ptr<int32_t> attemptedCount_ {};
         // The caller number.
         shared_ptr<string> callerNumber_ {};
@@ -423,7 +423,7 @@ namespace Models
         shared_ptr<string> instanceId_ {};
         // The list of labels.
         shared_ptr<vector<List::Labels>> labels_ {};
-        // The time of the last call attempt.
+        // The time of the last attempt.
         shared_ptr<int64_t> lastAttemptedTime_ {};
         // The called number.
         shared_ptr<string> phoneNumber_ {};
@@ -437,15 +437,15 @@ namespace Models
         shared_ptr<int64_t> ringingTime_ {};
         // The script ID.
         shared_ptr<string> scriptId_ {};
-        // The name of the script.
+        // The script name.
         shared_ptr<string> scriptName_ {};
         // The session ID of the last call.
         shared_ptr<string> sessionId_ {};
-        // The case status.
+        // The case state.
         shared_ptr<string> state_ {};
-        // The call duration.
+        // The talk time.
         shared_ptr<int64_t> talkTime_ {};
-        // The number of dialogue turns.
+        // The number of conversation turns.
         shared_ptr<int32_t> talkTurns_ {};
       };
 
@@ -482,7 +482,7 @@ namespace Models
 
 
     protected:
-      // The case list.
+      // The list of cases.
       shared_ptr<vector<Data::List>> list_ {};
       // The current page number.
       shared_ptr<int32_t> pageNumber_ {};
@@ -557,7 +557,7 @@ namespace Models
     shared_ptr<int32_t> httpStatusCode_ {};
     // The error message.
     shared_ptr<string> message_ {};
-    // The pass-through parameter.
+    // The pass-through parameters.
     shared_ptr<vector<string>> params_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

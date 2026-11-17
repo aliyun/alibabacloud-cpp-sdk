@@ -99,17 +99,17 @@ namespace Models
   protected:
     // The result code.
     shared_ptr<string> code_ {};
-    // Indicates whether the operation was successful.
+    // Indicates whether the operation is successful.
     shared_ptr<bool> data_ {};
     // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
     // The error message.
     shared_ptr<string> message_ {};
-    // The list of error message parameters.
+    // The list of parameters in the error message.
     shared_ptr<vector<string>> params_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request was successful.
+    // Indicates whether the request is successful.
     shared_ptr<bool> success_ {};
   };
 

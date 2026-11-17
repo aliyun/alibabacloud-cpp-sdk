@@ -109,15 +109,15 @@ namespace Models
     shared_ptr<string> interactionConfigShrink_ {};
     // The label configurations.
     shared_ptr<string> labelConfigsShrink_ {};
-    // The scenario ID.
+    // The script ID.
     shared_ptr<string> scriptId_ {};
-    // The dialogue capability configuration.
+    // The dialog capability configuration.
     shared_ptr<string> scriptProfileShrink_ {};
     // The source version ID.
     shared_ptr<string> sourceVersionId_ {};
-    // The Text-to-Speech (TTS) configuration.
+    // The TTS configuration.
     shared_ptr<string> synthesizerConfigShrink_ {};
-    // The Automatic Speech Recognition (ASR) configuration.
+    // The ASR configuration.
     shared_ptr<string> transcriberConfigShrink_ {};
   };
 
