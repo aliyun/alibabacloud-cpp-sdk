@@ -107,13 +107,13 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<int64_t> currentPage_ {};
-    // The face library code.
+    // The face group code.
     // 
     // This parameter is required.
     shared_ptr<string> faceGroupCode_ {};
     // The face ID.
     shared_ptr<string> faceId_ {};
-    // The maximum number of entries per page for a paginated query.
+    // The maximum number of entries per page for paging.
     shared_ptr<int32_t> maxResults_ {};
     // The merchant user ID.
     shared_ptr<string> merchantUserId_ {};

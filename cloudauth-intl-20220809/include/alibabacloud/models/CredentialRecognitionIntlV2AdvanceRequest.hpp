@@ -140,50 +140,54 @@ namespace Models
 
 
   protected:
-    // The field validation rule configuration, in JSON string format.
+    // The field validation rule configuration. The value is a JSON string.
     shared_ptr<string> checkRuleConfig_ {};
-    // The Base64-encoded image. If you choose to pass in the image by using IdOcrPictureBase64 (Base64-encoded photo), check the photo size and do not pass in an excessively large photo.
+    // The Base64-encoded image. If you choose to pass the photo by using IdOcrPictureBase64, check the photo size and do not pass excessively large photos.
     shared_ptr<string> credentialOcrPictureBase64_ {};
     // The image file stream.
     shared_ptr<Darabonba::IStream> credentialOcrPictureFileObject_ {};
-    // The URL of the image. The URL must be a publicly accessible HTTP or HTTPS link.
+    // The image URL. The URL must be a publicly accessible HTTP or HTTPS link.
     shared_ptr<string> credentialOcrPictureUrl_ {};
     // The credential type. Valid values:
-    // 
-    // - 01: transaction credential (including electronic bill images for water, electricity, gas, credit cards, and other types)
+    // - 01: transaction receipt, including electronic bills for utilities and credit cards
     // - 02: vehicle registration certificate
     // - 03: transfer transaction record
-    // - 04: POA address proof
+    // - 04: proof of address (POA)
     // 
     // This parameter is required.
     shared_ptr<string> docType_ {};
-    // The input material type. Valid values:
-    // 
-    // - IMAGE (default): image
+    // The material input type. Valid values:
+    // - IMAGE: image
     // - PDF: PDF format
+    // Default value: IMAGE.
     shared_ptr<string> fileInputType_ {};
     // Specifies whether to enable tampering detection. Valid values:
-    // - true: Enabled.
-    // - false: Disabled.
+    // - true: enables tampering detection.
+    // - false: disables tampering detection.
     // 
     // This parameter is required.
     shared_ptr<string> fraudCheck_ {};
-    // Specifies whether to enable quality detection. Valid values: Y (enabled) and N (disabled).
+    // Specifies whether to enable quality detection. Valid values:
+    // - Y: enables quality detection.
+    // - N: disables quality detection.
     shared_ptr<string> idQuality_ {};
     // The extraction type. Valid values:
-    // 
-    // - 0101: electronic bill address and name module (extracts address and name modules through intelligent analysis)
+    // - 0101: electronic bill address and name module, which extracts the address and name module through intelligent analysis
     // - 0201: Thailand vehicle registration certificate
-    // - 0301: transfer transaction amount information
+    // - 0301: transfer transaction record amount information
     // - 0401: POA credential extraction information
     // 
     // This parameter is required.
     shared_ptr<string> ocrArea_ {};
-    // Specifies whether to enable translation. Valid values: 0 (disabled) and 1 (enabled).
+    // Specifies whether to enable translation. Valid values:
+    // - 0: disables translation.
+    // - 1: enables translation.
     shared_ptr<string> ocrTranslation_ {};
-    // Specifies whether to enable OCR result normalization. Valid values: 0 (disabled) and 1 (enabled).
+    // Specifies whether to enable OCR result standardization. Valid values:
+    // - 0: disables OCR result standardization.
+    // - 1: enables OCR result standardization.
     shared_ptr<string> ocrValueStandard_ {};
-    // The product solution to use. Set the value to CREDENTIAL_RECOGNITION.
+    // The product solution to be integrated. Valid value: CREDENTIAL_RECOGNITION.
     // 
     // This parameter is required.
     shared_ptr<string> productCode_ {};

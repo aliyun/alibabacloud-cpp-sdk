@@ -94,21 +94,20 @@ namespace Models
 
 
     protected:
-      // The risk result:
-      // 
-      // - **0**: Low risk
-      // - **1**: High risk
-      // - **2**: Suspicious
+      // The risk result. Valid values:
+      // - **0**: low risk.
+      // - **1**: high risk.
+      // - **2**: suspicious.
       shared_ptr<string> result_ {};
       // The risk score map.
       shared_ptr<map<string, string>> riskScore_ {};
-      // The risk labels. Multiple labels are separated by commas (,), including:
-      // 
-      // - SuspectDeepForgery: Suspected deep forgery
-      // - SuspectPSFace: Suspected face synthesis attack
-      // - SuspectTemple: Suspected template attack
-      // - SuspectRemake: Suspected presentation attack
+      // The risk tags. Multiple tags are separated by commas (,). Valid values:
+      // - SuspectDeepForgery: suspected deepfake.
+      // - SuspectPSFace: suspected synthetic attack.
+      // - SuspectTemple: suspected template attack.
+      // - SuspectRemake: suspected presentation attack.
       shared_ptr<string> riskTag_ {};
+      // The unique identifier of the authentication request.
       shared_ptr<string> transactionId_ {};
     };
 
@@ -145,13 +144,13 @@ namespace Models
 
 
   protected:
-    // The response code.
+    // The return code.
     shared_ptr<string> code_ {};
-    // The response message.
+    // The return message.
     shared_ptr<string> message_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The returned result information.
+    // The result information.
     shared_ptr<DeepfakeDetectIntlStreamResponseBody::ResultObject> resultObject_ {};
   };
 

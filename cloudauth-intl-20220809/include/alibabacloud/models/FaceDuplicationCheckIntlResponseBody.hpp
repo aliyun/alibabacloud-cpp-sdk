@@ -196,6 +196,7 @@ namespace Models
 
 
       protected:
+        // The attribute detection result of the main face, returned as a string. The result includes information such as gender, glasses, hat, mask, tattoo, smoking, other people, environment, expression, and age.
         shared_ptr<string> faceAttributeInfo_ {};
         // The overall quality score.
         shared_ptr<double> faceQualityScore_ {};
@@ -207,10 +208,15 @@ namespace Models
         shared_ptr<double> occlusionScore_ {};
         // The sharpness score.
         shared_ptr<double> sharpnessScore_ {};
+        // The overall quality score of the retained face image. Valid values: 0 to 100. A higher score indicates better quality.
         shared_ptr<double> targetFaceQualityScore_ {};
+        // The illumination score of the retained face image. Valid values: 0 to 100. A higher score indicates better quality.
         shared_ptr<double> targetIlluminationScore_ {};
+        // The key area occlusion score of the retained face image. Valid values: 0 to 100. A higher score indicates better quality.
         shared_ptr<double> targetKaOcclusionScore_ {};
+        // The occlusion score of the retained face image. Valid values: 0 to 100. A higher score indicates better quality.
         shared_ptr<double> targetOcclusionScore_ {};
+        // The sharpness score of the retained face image. Valid values: 0 to 100. A higher score indicates better quality.
         shared_ptr<double> targetSharpnessScore_ {};
       };
 
@@ -305,35 +311,35 @@ namespace Models
 
 
     protected:
-      // The face ID and UserID retrieved from the face library when a duplicate face is detected.
+      // The face ID and user ID retrieved from the face library when a duplicate face is detected.
       shared_ptr<string> duplicateFace_ {};
-      // The related result information.
+      // The extended face information.
       shared_ptr<Result::ExtFaceInfo> extFaceInfo_ {};
-      // The predicted reference age of the face. The prediction may fail and the value may not be returned.
+      // The predicted reference age of the face. This parameter may not be returned if the prediction fails.
       shared_ptr<string> faceAge_ {};
-      // Indicates whether the captured face involves a liveness attack. Valid values: Y (attack detected) and N (no attack detected). This field is returned only when passive liveness detection is enabled.
+      // Specifies whether the collected face involves a liveness attack. Valid values: Y (attack) and N (no attack). This parameter is returned only when passive liveness detection is enabled.
       shared_ptr<string> faceAttack_ {};
-      // The probability of a liveness attack on the face. The value ranges from 0 to 100. This field is returned only when passive liveness detection is enabled.
+      // The probability of a liveness attack detected by passive liveness detection. Valid values: 0 to 100. This parameter is returned only when passive liveness detection is enabled.
       shared_ptr<string> faceAttackScore_ {};
-      // The 1:1 comparison score returned when the verification mode is 1 or 2. The score ranges from 0 to 100.
+      // The 1:1 verification comparison score returned when the verification mode is 1 or 2. The score ranges from 0 to 100.
       shared_ptr<string> faceComparisonScore_ {};
-      // The predicted gender of the face image. The prediction may fail and the value may not be returned. Valid values:
-      // - M: male.
-      // - F: female.
+      // The predicted gender of the face image. This parameter may not be returned if the prediction fails. Valid values:
+      // - M: Male.
+      // - F: Female.
       shared_ptr<string> faceGender_ {};
-      // The final verification result. Valid values:
-      // - Y: passed.
-      // - N: not passed.
+      // The final authentication result. Valid values:
+      // - Y: Passed.
+      // - N: Failed.
       shared_ptr<string> facePassed_ {};
-      // The corresponding FACEID returned only when the customer has enabled automatic registration and the face is successfully registered.
+      // The face ID returned only when automatic registration is configured by the customer and the face is successfully registered.
       shared_ptr<string> faceRegistrationId_ {};
       // The face registration result. Valid values: 
-      // - 0: failed. 
-      // - 1: succeeded.
+      // - 0: Failed. 
+      // - 1: Succeeded.
       shared_ptr<int32_t> faceRegistrationResult_ {};
-      // The verification result description. For more information, refer to the ResultObject.SubCode error code description.
+      // The description of the authentication result. For more information, see the ResultObject.SubCode error code description.
       shared_ptr<string> subCode_ {};
-      // The unique identifier of the verification request.
+      // The unique identifier of the authentication request.
       shared_ptr<string> transactionId_ {};
     };
 
@@ -370,13 +376,13 @@ namespace Models
 
 
   protected:
-    // The response code.
+    // The return code.
     shared_ptr<string> code_ {};
-    // The response message.
+    // The return message.
     shared_ptr<string> message_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};
-    // The response result.
+    // The return result.
     shared_ptr<FaceDuplicationCheckIntlResponseBody::Result> result_ {};
   };
 

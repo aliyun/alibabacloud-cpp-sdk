@@ -77,14 +77,14 @@ namespace Models
   protected:
     // The business type. Valid values:
     // - INVOKE_STATISTICS
-    // - INVOKE_RECORD.
+    // - INVOKE_RECORD
     shared_ptr<string> bizType_ {};
     // The query code.
     shared_ptr<string> code_ {};
     // The download mode. Valid values:
     // 
-    // - **async**: asynchronous
-    // - **sync**: synchronous.
+    // - **async**: Asynchronous.
+    // - **sync**: Synchronous.
     shared_ptr<string> downloadMode_ {};
     // The parameters for the export and download query task.
     shared_ptr<string> param_ {};

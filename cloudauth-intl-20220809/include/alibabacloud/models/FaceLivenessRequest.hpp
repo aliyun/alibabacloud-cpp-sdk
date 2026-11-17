@@ -121,33 +121,32 @@ namespace Models
 
 
   protected:
-    // Specifies whether to allow cropping. Default value: F. Valid values:
-    // 
-    // - T: enabled.
-    // - F: disabled. (Default)
+    // Specifies whether to allow cropping. Valid values:
+    // - T: Cropping is allowed.
+    // - F: Cropping is not allowed. Default value: F.
     shared_ptr<string> crop_ {};
+    // The face attribute check.
     shared_ptr<string> faceAttributeCheck_ {};
-    // The Base64-encoded face photo.
+    // The Base64-encoded string of the photo.
     // 
     // Note:
-    // - If you use FacePictureBase64 (Base64-encoded photo) to pass in the face photo, check the photo size and do not pass in an excessively large photo.
+    // - If you use the FacePictureBase64 parameter to pass the face photo, check the photo size and do not pass photos that are too large.
     shared_ptr<string> facePictureBase64_ {};
     // The URL of the face photo.
     shared_ptr<string> facePictureUrl_ {};
-    // Specifies whether to output the face quality score. Default value: F. Valid values:
-    // - T: enabled.
-    // - F: disabled. (Default)
+    // Specifies whether to output the face quality score. Valid values:
+    // - T: The detection is required.
+    // - F: The detection is not required. Default value: F.
     shared_ptr<string> faceQuality_ {};
     // The face quality check.
     shared_ptr<string> faceQualityCheck_ {};
-    // The merchant-defined unique business ID used for subsequent troubleshooting. The value can contain letters and digits with a maximum length of 32 characters. Ensure that the value is unique.
+    // The custom unique business identifier on the merchant side, used for subsequent troubleshooting. It supports a combination of letters and digits, with a maximum length of 32 characters. Ensure that the value is unique.
     shared_ptr<string> merchantBizId_ {};
-    // The merchant user ID or another identifier that can be used to identify a specific user, such as a phone number or email address. We strongly recommend that you desensitize the value of the userId field before passing it in, for example, by hashing the value.
+    // The merchant user ID or another identifier used to identify a specific user, such as a phone number or email address. Desensitize the value of the userId field in advance, such as by hashing the value.
     shared_ptr<string> merchantUserId_ {};
-    // Specifies whether to perform occlusion detection. Default value: F. Valid values:
-    // 
-    // - T: enabled.
-    // - F: disabled. (Default)
+    // Specifies whether to perform occlusion detection. Valid values:
+    // - T: Occlusion detection is required.
+    // - F: Occlusion detection is not required. Default value: F.
     shared_ptr<string> occlusion_ {};
     // The product code.
     shared_ptr<string> productCode_ {};

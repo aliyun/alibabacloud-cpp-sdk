@@ -196,21 +196,27 @@ namespace Models
 
 
       protected:
+        // The attribute detection result of the main face, returned as a string. The result includes information such as gender, glasses, hat, mask, tattoo, smoking, other people, environment, expression, and age.
         shared_ptr<string> faceAttributeInfo_ {};
-        // The liveness face quality score. Value range: 0 to 100. A higher value indicates better quality.
+        // The quality score of the live face. Valid values: 0 to 100. A higher value indicates better quality.
         shared_ptr<double> faceQualityScore_ {};
-        // The algorithm score for illumination as a sub-dimension of quality assessment. Value range: 0 to 100. A higher value indicates better quality.
+        // The algorithm score for illumination, which is a sub-dimension of quality judgment. Valid values: 0 to 100. A higher value indicates better quality.
         shared_ptr<double> illuminationScore_ {};
-        // The algorithm score for key area occlusion as a sub-dimension of quality assessment. Value range: 0 to 100. A higher value indicates better quality.
+        // The algorithm score for key area occlusion, which is a sub-dimension of quality judgment. Valid values: 0 to 100. A higher value indicates better quality.
         shared_ptr<double> kaOcclusionScore_ {};
-        // The algorithm score for occlusion as a sub-dimension of quality assessment. Value range: 0 to 100. A higher value indicates better quality.
+        // The algorithm score for occlusion, which is a sub-dimension of quality judgment. Valid values: 0 to 100. A higher value indicates better quality.
         shared_ptr<double> occlusionScore_ {};
-        // The image sharpness score as a sub-dimension of quality assessment. Value range: 0 to 100. A higher value indicates better quality.
+        // The image sharpness score, which is a sub-dimension of quality judgment. Valid values: 0 to 100. A higher value indicates better quality.
         shared_ptr<double> sharpnessScore_ {};
+        // The comprehensive quality score of the reference face image. Valid values: 0 to 100. A higher value indicates better quality.
         shared_ptr<double> targetFaceQualityScore_ {};
+        // The illumination score of the reference face image. Valid values: 0 to 100. A higher value indicates better quality.
         shared_ptr<double> targetIlluminationScore_ {};
+        // The key area occlusion score of the reference face image. Valid values: 0 to 100. A higher value indicates better quality.
         shared_ptr<double> targetKaOcclusionScore_ {};
+        // The occlusion score of the reference face image. Valid values: 0 to 100. A higher value indicates better quality.
         shared_ptr<double> targetOcclusionScore_ {};
+        // The sharpness score of the reference face image. Valid values: 0 to 100. A higher value indicates better quality.
         shared_ptr<double> targetSharpnessScore_ {};
       };
 
@@ -305,31 +311,31 @@ namespace Models
 
 
     protected:
-      // The face ID, user ID, and comparison score of the corresponding face in the face library when a duplicate face is found during retrieval.
+      // The face ID, user ID, and comparison score of the duplicate face in the face library when a duplicate face is retrieved.
       shared_ptr<string> duplicateFace_ {};
       // The additional face result information.
       shared_ptr<Result::ExtFaceInfo> extFaceInfo_ {};
-      // The predicted reference age of the face. Prediction may fail and the value may not be returned in some cases.
+      // The predicted reference age of the face. This parameter may not be returned if the prediction fails.
       shared_ptr<int64_t> faceAge_ {};
-      // Indicates whether the captured face involves a liveness attack. Valid values:
+      // Indicates whether the collected face involves a liveness attack. Valid values:
       // - Y: attack detected.
       // - N: no attack detected.
-      // 
-      // Returned when passive liveness detection is enabled.
+      // This parameter is returned only when passive liveness detection is enabled.
       shared_ptr<string> faceAttack_ {};
-      // The probability of a passive liveness detection attack on the face. Value range: 0 to 100. Returned when passive liveness detection is enabled.
+      // The probability of a liveness attack detected by passive liveness detection. Valid values: 0 to 100.
+      // This parameter is returned only when passive liveness detection is enabled.
       shared_ptr<double> faceAttackScore_ {};
-      // The comparison score between the submitted face image and the reference face image during verification. Value range: 0 to 100.
+      // The comparison score between the submitted face photo and the reference face image during authentication. Valid values: 0 to 100.
       shared_ptr<double> faceComparisonScore_ {};
-      // The predicted gender of the face image. Prediction may fail and the value may not be returned in some cases. Valid values:
+      // The predicted gender of the face image. This parameter may not be returned if the prediction fails. Valid values:
       // - M: male.
       // - F: female.
       shared_ptr<string> faceGender_ {};
-      // The final verification result. Valid values:
+      // The final authentication result. Valid values:
       // - Y: passed.
-      // - N: not passed.
+      // - N: failed.
       shared_ptr<string> facePassed_ {};
-      // The corresponding FACEID returned only when the customer has enabled automatic registration and the face is registered successfully.
+      // The FACEID returned when face registration succeeds. This parameter is returned only when automatic registration is enabled by the customer.
       shared_ptr<string> faceRegistrationId_ {};
       // The face registration result. Valid values: 
       // - 0: failed. 
@@ -337,7 +343,7 @@ namespace Models
       shared_ptr<int64_t> faceRegistrationResult_ {};
       // The sub-result code.
       shared_ptr<string> subCode_ {};
-      // The unique identifier of the verification request.
+      // The unique identifier of the authentication request.
       shared_ptr<string> transactionId_ {};
     };
 
@@ -374,13 +380,13 @@ namespace Models
 
 
   protected:
-    // The return code.
+    // The response code.
     shared_ptr<string> code_ {};
-    // The return message.
+    // The response message.
     shared_ptr<string> message_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};
-    // The returned result.
+    // The response result.
     shared_ptr<FaceVerifyIntlResponseBody::Result> result_ {};
   };
 

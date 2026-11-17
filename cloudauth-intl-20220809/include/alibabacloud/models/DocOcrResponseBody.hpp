@@ -91,10 +91,9 @@ namespace Models
 
 
     protected:
-      // The card and certificate recognition result. This parameter is returned only when the API response is successful.
+      // The recognition result of the ID card or certificate. This parameter is returned only when the API response is successful.
       shared_ptr<string> extIdInfo_ {};
       // Indicates whether the authentication is passed. Valid values:
-      // 
       // - Y: Passed.
       // - N: Not passed.
       shared_ptr<string> passed_ {};
@@ -143,7 +142,7 @@ namespace Models
     shared_ptr<string> message_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};
-    // The returned result.
+    // The return result.
     shared_ptr<DocOcrResponseBody::Result> result_ {};
   };
 

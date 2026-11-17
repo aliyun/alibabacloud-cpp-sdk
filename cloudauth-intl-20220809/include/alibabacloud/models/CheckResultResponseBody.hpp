@@ -137,7 +137,7 @@ namespace Models
 
 
     protected:
-      // The verification result.
+      // The authentication result.
       shared_ptr<string> ekycResult_ {};
       // The extended basic information.
       shared_ptr<string> extBasicInfo_ {};
@@ -145,18 +145,17 @@ namespace Models
       shared_ptr<string> extFaceInfo_ {};
       // The ID information.
       shared_ptr<string> extIdInfo_ {};
-      // The extended information, in JSON string format.
+      // The extended information, which is a JSON string.
       shared_ptr<string> extInfo_ {};
       // The risk information.
       shared_ptr<string> extRiskInfo_ {};
-      // The data source verification details are described as follows (using the Indonesian data source as an example):
-      // - **govId, fullName, dob**: A comparison score equal to 1.0 indicates a complete match with the official data source. A score lower than 1.0 indicates a mismatch. 
-      // - **selfiePhoto**: A comparison score greater than 0.8 indicates a match with the official data source. A score equal to or lower than 0.8 indicates a mismatch. 
+      // The detailed verification results of the data source. The following descriptions use the Indonesian data source as an example:
+      // - **govId, fullName, dob**: A comparison score of 1.0 indicates an exact match with the official data source information. A score lower than 1.0 indicates a mismatch. 
+      // - **selfiePhoto**: A comparison score greater than 0.8 indicates a match with the official data source information. A score lower than or equal to 0.8 indicates a mismatch. 
       // - **liveness**: A score higher than 0.95 indicates a liveness detection risk. 
       // - **imgManipulationScore**: A score higher than 0.95 indicates an image tampering risk.
       shared_ptr<string> extSourceInfo_ {};
-      // Indicates whether the verification is passed. Valid values:
-      // 
+      // Specifies whether the authentication is passed. Valid values:
       // - Y: Passed.
       // - N: Not passed.
       shared_ptr<string> passed_ {};
@@ -203,7 +202,7 @@ namespace Models
     shared_ptr<string> message_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};
-    // The returned result.
+    // The return result.
     shared_ptr<CheckResultResponseBody::Result> result_ {};
   };
 

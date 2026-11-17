@@ -100,18 +100,17 @@ namespace Models
 
 
     protected:
-      // The ID card and certificate recognition result.
+      // The recognition result of the ID card or certificate.
       shared_ptr<string> extCardInfo_ {};
       // The additional result information.
       shared_ptr<string> extIdInfo_ {};
       // Indicates whether the authentication is passed. Valid values:
-      // 
       // - Y: Passed.
       // - N: Not passed.
       shared_ptr<string> passed_ {};
       // The sub-result code.
       shared_ptr<string> subCode_ {};
-      // The unique ID of the authentication request.
+      // The unique identifier of the authentication request.
       shared_ptr<string> transactionId_ {};
     };
 
@@ -154,7 +153,7 @@ namespace Models
     shared_ptr<string> message_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};
-    // The returned result.
+    // The response result.
     shared_ptr<CardOcrResponseBody::Result> result_ {};
   };
 

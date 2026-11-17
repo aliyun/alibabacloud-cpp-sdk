@@ -100,15 +100,15 @@ namespace Models
 
 
     protected:
-      // The comparison score between A and B. Value range: 0 to 1.
+      // The comparison score between A and B. Valid values: 0 to 1.
       shared_ptr<double> faceComparisonScoreA2B_ {};
-      // The comparison score between B and C. Value range: 0 to 1.
+      // The comparison score between B and C. Valid values: 0 to 1.
       shared_ptr<double> faceComparisonScoreB2C_ {};
-      // The comparison score between C and A. Value range: 0 to 1.
+      // The comparison score between C and A. Valid values: 0 to 1.
       shared_ptr<double> faceComparisonScoreC2A_ {};
       // The final verification result. Valid values:
       // - Y: Passed.
-      // - N: Not passed.
+      // - N: Failed.
       shared_ptr<string> facePassed_ {};
       // The unique identifier of the verification request.
       shared_ptr<string> transactionId_ {};
@@ -153,7 +153,7 @@ namespace Models
     shared_ptr<string> message_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};
-    // The returned result.
+    // The return result.
     shared_ptr<FaceCrossCompareIntlResponseBody::Result> result_ {};
   };
 

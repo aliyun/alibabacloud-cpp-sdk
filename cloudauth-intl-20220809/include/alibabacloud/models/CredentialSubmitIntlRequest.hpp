@@ -149,20 +149,20 @@ namespace Models
 
 
   protected:
-    // The field validation rule configuration in JSON string format.
+    // The field validation rule configuration, which is a JSON string.
     shared_ptr<string> checkRuleConfig_ {};
-    // The Base64-encoded image. If you use this method to submit a photo, check the photo size and do not submit an excessively large photo.
+    // The Base64-encoded image. If you choose this method to upload the image, check the image size and do not upload an excessively large image.
     shared_ptr<string> credentialOcrPictureBase64_ {};
-    // The URL of the image. The URL must be a publicly accessible HTTP or HTTPS link.
+    // The image URL, which must be a publicly accessible HTTP or HTTPS link.
     shared_ptr<string> credentialOcrPictureUrl_ {};
     // The credential type. Valid values:
-    // - 02: vehicle registration certificate.
+    // - 02: Vehicle registration certificate.
     // 
     // This parameter is required.
     shared_ptr<string> docType_ {};
-    // The input file type. Valid values:
+    // The material input type. Valid values:
     // 
-    // - IMAGE (default): image.
+    // - IMAGE: Image. This is the default value.
     // 
     // - PDF: PDF format.
     shared_ptr<string> fileInputType_ {};
@@ -172,11 +172,9 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> fraudCheck_ {};
-    // Specifies whether to enable quality detection. Valid values:
-    // - Y: Enabled.
-    // - N: Disabled.
+    // Specifies whether to enable quality detection. Valid values: Y: Enabled. N: Disabled.
     shared_ptr<string> idQuality_ {};
-    // The custom business unique identifier on the merchant side, used for subsequent troubleshooting. The value can be a combination of letters and digits with a maximum length of 32 characters. Ensure that the value is unique.
+    // The custom unique business identifier on the merchant side, which is used for subsequent troubleshooting. The identifier can be up to 32 characters in length and can contain letters and digits. Make sure that the identifier is unique.
     // 
     // This parameter is required.
     shared_ptr<string> merchantBizId_ {};
@@ -186,19 +184,15 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> ocrArea_ {};
-    // Specifies whether to enable translation. Valid values:
-    // - 0: Disabled.
-    // - 1: Enabled.
+    // Specifies whether to enable translation. Valid values: 0: Disabled. 1: Enabled.
     shared_ptr<string> ocrTranslation_ {};
-    // Specifies whether to enable OCR result standardization. Valid values:
-    // - 0: Disabled.
-    // - 1: Enabled.
+    // Specifies whether to enable OCR result standardization. Valid values: 0: Disabled. 1: Enabled.
     shared_ptr<string> ocrValueStandard_ {};
-    // The product solution to use. Set this parameter to CREDENTIAL_RECOGNITION.
+    // The product solution to be integrated. Valid value: CREDENTIAL_RECOGNITION.
     // 
     // This parameter is required.
     shared_ptr<string> productCode_ {};
-    // The custom authentication scenario ID. You can use this scenario ID to query related records in the console. The value can be a combination of letters, digits, or underscores with a maximum length of 10 characters.
+    // The custom authentication scene ID, which is used to query related records in the console. The ID can be up to 10 characters in length and can contain letters, digits, and underscores (_).
     // 
     // This parameter is required.
     shared_ptr<string> sceneCode_ {};

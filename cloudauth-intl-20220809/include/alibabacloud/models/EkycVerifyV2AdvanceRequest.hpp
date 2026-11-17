@@ -186,53 +186,51 @@ namespace Models
 
 
   protected:
-    // Specifies whether to enable authoritative identity verification. Currently, this parameter applies only to second-generation mainland China ID cards.
+    // Specifies whether to enable authoritative identity verification. This feature applies only to second-generation ID cards in mainland China.
     shared_ptr<string> authorize_ {};
-    // Specifies whether cropping is allowed. By default, cropping is not allowed. Valid values:
+    // Specifies whether to allow cropping. Default value: F. Valid values:
     // 
-    // - T: Detection is required.
-    // - F: Detection is required (default value: F).
+    // - T: Allowed.
+    // - F: Not allowed (default).
     shared_ptr<string> crop_ {};
-    // The real name of the user. When Authorize=\\"T\\" and the document type is a mainland China ID card, you must provide at least one of the following: key document information (DocName, DocNo) or document images (IdOcrPictureBase64/URL). Note: Supports a combination of Chinese characters with a minimum length of 1 character. No special characters are allowed, except for the middle dot (·) used in ethnic minority names.
+    // The real name of the user. If Authorize is set to T and the document type is a mainland China ID card, you must provide at least one of the following: key document information (DocName and DocNo) or document images (IdOcrPictureBase64 or URL). Note: The value must contain one or more Chinese characters and no special characters, except for the middle dot (·) used in ethnic minority names.
     shared_ptr<string> docName_ {};
-    // The document number of the user. When Authorize=\\"T\\" and the document type is a mainland China ID card, you must provide at least one of the following: key document information (DocName, DocNo) or document images (IdOcrPictureBase64/URL). Note: Supports a combination of letters and numbers with a length of 18 characters.
+    // The document number of the user. If Authorize is set to T and the document type is a mainland China ID card, you must provide at least one of the following: key document information (DocName and DocNo) or document images (IdOcrPictureBase64 or URL). Note: The value must be an 18-character combination of letters and digits.
     shared_ptr<string> docNo_ {};
     // The document type.
     shared_ptr<string> docType_ {};
-    // The Base64-encoded face image.
+    // The Base64-encoded facial image. Notes:
     // 
-    // Note:
-    // 
-    // - If you choose this method to pass in the face image, check the photo size and do not pass in an excessively large photo.
-    // - Specify one of the following parameters: FacePictureBase64, FacePictureUrl, or FacePictureFile.
+    // - If you use this method to pass the facial image, check the image size and do not upload oversized images.
+    // - Specify only one of FacePictureBase64, FacePictureUrl, and FacePictureFile.
     shared_ptr<string> facePictureBase64_ {};
-    // The file stream of the face photo.
+    // The file stream of the facial image.
     shared_ptr<Darabonba::IStream> facePictureFileObject_ {};
-    // The URL of the face photo.
+    // The URL of the facial image.
     shared_ptr<string> facePictureUrl_ {};
-    // Specifies whether to enable face quality detection.
+    // Specifies whether to enable facial quality check.
     shared_ptr<string> faceQualityCheck_ {};
-    // The Base64-encoded identity document image. Note:
+    // The Base64-encoded image of the document. Notes:
     // 
-    // - If you choose this method to pass in the document image, check the photo size and do not pass in an excessively large photo.
-    // - Specify one of the following parameters: IdOcrPictureBase64, IdOcrPictureUrl, or IdOcrPictureFile.
+    // - If you use this method to pass the document image, check the image size and do not upload oversized images.
+    // - Specify only one of IdOcrPictureBase64, IdOcrPictureUrl, and IdOcrPictureFile.
     shared_ptr<string> idOcrPictureBase64_ {};
-    // The file stream of the front side of the identity document image.
+    // The file stream of the front image of the document.
     shared_ptr<Darabonba::IStream> idOcrPictureFileObject_ {};
-    // The URL of the front side of the identity document image.
+    // The URL of the front image of the document.
     shared_ptr<string> idOcrPictureUrl_ {};
     // Specifies whether to enable document anti-spoofing.
     shared_ptr<string> idSpoof_ {};
-    // The custom OCR quality detection threshold mode. Valid values:
+    // The custom OCR quality check threshold mode. Valid values:
     // 
-    // - 0: system default.
-    // - 1: strict mode.
-    // - 2: loose mode.
-    // - 3 (default): quality detection disabled.
+    // - 0: System default.
+    // - 1: Strict mode.
+    // - 2: Loose mode.
+    // - 3: Quality check disabled (default).
     shared_ptr<string> idThreshold_ {};
-    // A custom business unique identifier defined by the merchant, used for subsequent issue tracking and troubleshooting. Supports a combination of letters and numbers up to 32 characters in length. Ensure that this value is unique.
+    // The custom unique business identifier on the merchant side, used for subsequent troubleshooting. The value must be a unique combination of up to 32 letters and digits.
     shared_ptr<string> merchantBizId_ {};
-    // A custom user ID or other identifier that can identify a specific user, such as a phone number or email address. We strongly recommend that you desensitize the value of this field in advance, for example, by hashing the value.
+    // The custom user ID or other identifier that identifies a specific user, such as a mobile phone number or email address. Desensitize the value of this field in advance, such as by hashing the value.
     shared_ptr<string> merchantUserId_ {};
     // The product code.
     shared_ptr<string> productCode_ {};

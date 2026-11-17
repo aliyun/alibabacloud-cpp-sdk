@@ -75,8 +75,7 @@ namespace Models
     protected:
       // The face result information.
       shared_ptr<string> extFaceInfo_ {};
-      // Indicates whether the verification is passed. Valid values:
-      // 
+      // Indicates whether the authentication passed. Valid values:
       // - Y: Passed.
       // - N: Not passed.
       shared_ptr<string> passed_ {};
@@ -121,7 +120,7 @@ namespace Models
     shared_ptr<string> message_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};
-    // The returned result.
+    // The return result.
     shared_ptr<AddFaceRecordResponseBody::Result> result_ {};
   };
 

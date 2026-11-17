@@ -73,9 +73,7 @@ namespace Models
 
 
     protected:
-      // The deletion result. Valid values:
-      // - Y: The deletion was successful.
-      // - N: The deletion failed.
+      // The deletion result. Valid values: Y: The deletion succeeded. N: The deletion failed.
       shared_ptr<string> deleteResult_ {};
       // The unique identifier of the authentication request.
       shared_ptr<string> transactionId_ {};
@@ -116,9 +114,9 @@ namespace Models
   protected:
     // The return code.
     shared_ptr<string> code_ {};
-    // The return message.
+    // The returned message.
     shared_ptr<string> message_ {};
-    // The request ID.
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
     // The returned result.
     shared_ptr<DeleteVerifyResultResponseBody::Result> result_ {};

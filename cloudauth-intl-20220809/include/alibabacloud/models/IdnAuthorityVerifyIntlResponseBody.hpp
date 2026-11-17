@@ -91,15 +91,15 @@ namespace Models
 
 
     protected:
-      // The detailed verification results from the data source are described as follows (using the Indonesian data source as an example):
-      // - **govId, fullName, dob**: A comparison score equal to 1.0 indicates a complete match with the official data source. A score lower than 1.0 indicates a mismatch. 
-      // - **selfiePhoto**: A comparison score greater than 0.8 indicates a match with the official data source. A score equal to or lower than 0.8 indicates a mismatch. 
+      // The detailed verification results of the data source. The following descriptions use the Indonesian data source as an example:
+      // - **govId, fullName, dob**: A comparison score of 1.0 indicates that the information is completely consistent with the official data source. A score lower than 1.0 indicates inconsistency. 
+      // - **selfiePhoto**: A comparison score greater than 0.8 indicates that the information is consistent with the official data source. A score lower than or equal to 0.8 indicates inconsistency. 
       // - **liveness**: A score higher than 0.95 indicates a liveness detection risk. 
       // - **imgManipulationScore**: A score higher than 0.95 indicates an image tampering risk.
       shared_ptr<string> extSourceInfo_ {};
       // Indicates whether the verification is passed. Valid values:
-      // - Y: passed.
-      // - N: not passed.
+      // - Y: Passed.
+      // - N: Not passed.
       shared_ptr<string> passed_ {};
       // The sub-result code.
       shared_ptr<string> subCode_ {};
@@ -146,7 +146,7 @@ namespace Models
     shared_ptr<string> message_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};
-    // The returned result.
+    // The response result.
     shared_ptr<IdnAuthorityVerifyIntlResponseBody::Result> result_ {};
   };
 

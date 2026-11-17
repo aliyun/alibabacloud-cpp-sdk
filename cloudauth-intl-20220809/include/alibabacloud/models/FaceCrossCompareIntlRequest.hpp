@@ -131,33 +131,33 @@ namespace Models
 
   protected:
     // The comparison mode. Valid values:
-    // - 0: chain comparison (default). A:B and B:C.
-    // - 1: circular comparison. A:B, B:C, and C:A.
+    // - 0: chained comparison (default). A to B and B to C.
+    // - 1: circular comparison. A to B, B to C, and C to A.
     shared_ptr<string> compareModel_ {};
-    // The face matching threshold. This parameter is reserved by the system and does not support custom values.
+    // The face matching threshold. This parameter is reserved for the system and does not support custom values.
     shared_ptr<string> faceVerifyThreshold_ {};
-    // The custom unique business identifier, used for subsequent troubleshooting. The value is a combination of letters and digits with a length of 32 characters. Ensure that the value is unique.
+    // The custom unique business identifier used for subsequent troubleshooting. It supports a combination of up to 32 letters and digits. Make sure that the value is unique.
     // 
     // This parameter is required.
     shared_ptr<string> merchantBizId_ {};
-    // The product solution to use. Valid values:
+    // The product solution to integrate. Valid values:
     // FACE_CROSS_COMPARE.
     // 
     // This parameter is required.
     shared_ptr<string> productCode_ {};
     // The custom business scenario ID.
     shared_ptr<string> sceneCode_ {};
-    // The Base64-encoded face photo.
+    // The Base64-encoded facial photo.
     shared_ptr<string> sourceAFacePicture_ {};
-    // The URL of the face photo. The URL must be a publicly accessible HTTP or HTTPS link.
+    // The URL of the facial image. The URL must be a publicly accessible HTTP or HTTPS link.
     shared_ptr<string> sourceAFacePictureUrl_ {};
-    // The Base64-encoded face photo.
+    // The Base64-encoded facial photo.
     shared_ptr<string> sourceBFacePicture_ {};
-    // The URL of the face photo. The URL must be a publicly accessible HTTP or HTTPS link.
+    // The URL of the facial image. The URL must be a publicly accessible HTTP or HTTPS link.
     shared_ptr<string> sourceBFacePictureUrl_ {};
-    // The Base64-encoded face photo.
+    // The Base64-encoded facial photo.
     shared_ptr<string> sourceCFacePicture_ {};
-    // The URL of the face photo. The URL must be a publicly accessible HTTP or HTTPS link.
+    // The URL of the facial image. The URL must be a publicly accessible HTTP or HTTPS link.
     shared_ptr<string> sourceCFacePictureUrl_ {};
   };
 

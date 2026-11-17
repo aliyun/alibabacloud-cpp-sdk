@@ -73,11 +73,9 @@ namespace Models
 
 
     protected:
-      // The deletion result. Valid values:
-      // - Y: Succeeded.
-      // - N: Failed.
+      // The deletion result. Valid values: Y: The deletion succeeded. N: The deletion failed.
       shared_ptr<string> deleted_ {};
-      // The list of face group codes from which the face data was actually deleted (comma-separated). This parameter is returned with all deleted group codes when FaceGroupCode is not specified.
+      // The list of codes of the face groups from which the face data was actually deleted, separated by commas. If FaceGroupCode is not specified, the codes of all face groups from which the data was deleted are returned.
       shared_ptr<string> deletedGroupCodes_ {};
     };
 
@@ -116,11 +114,11 @@ namespace Models
   protected:
     // The return code.
     shared_ptr<string> code_ {};
-    // The response message.
+    // The returned message.
     shared_ptr<string> message_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};
-    // The response result.
+    // The returned result.
     shared_ptr<DeleteFaceRecordV2ResponseBody::Result> result_ {};
   };
 

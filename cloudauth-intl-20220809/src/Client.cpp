@@ -2,6 +2,7 @@
 #include <alibabacloud/CloudauthIntl20220809.hpp>
 #include <alibabacloud/Utils.hpp>
 #include <alibabacloud/Openapi.hpp>
+#include <alibabacloud/gateway/POP.hpp>
 #include <darabonba/Runtime.hpp>
 #include <darabonba/policy/Retry.hpp>
 #include <darabonba/Exception.hpp>
@@ -16,6 +17,7 @@ using namespace std;
 using namespace Darabonba;
 using json = nlohmann::json;
 using namespace Darabonba::Http;
+using namespace AlibabaCloud::Gateway;
 using namespace AlibabaCloud::OpenApi;
 using namespace AlibabaCloud::OpenApi::Exceptions;
 using namespace AlibabaCloud::Credentials::Models;
@@ -28,6 +30,9 @@ namespace CloudauthIntl20220809
 {
 
 AlibabaCloud::CloudauthIntl20220809::Client::Client(AlibabaCloud::OpenApi::Utils::Models::Config &config): OpenApiClient(config){
+  this->_productId = "Cloudauth-intl";
+  shared_ptr<POP> gatewayClient = make_shared<POP>();
+  this->_spi = gatewayClient;
   this->_endpointRule = "regional";
   checkConfig(config);
   this->_endpoint = getEndpoint("cloudauth-intl", _regionId, _endpointRule, _network, _suffix, _endpointMap, _endpoint);
@@ -128,7 +133,7 @@ string Client::getEndpoint(const string &productId, const string &regionId, cons
 }
 
 /**
- * @summary Adds a face image to a specified face library.
+ * @summary Adds a face image to a specified face group.
  *
  * @param request AddFaceRecordRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -183,7 +188,7 @@ AddFaceRecordResponse Client::addFaceRecordWithOptions(const AddFaceRecordReques
 }
 
 /**
- * @summary Adds a face image to a specified face library.
+ * @summary Adds a face image to a specified face group.
  *
  * @param request AddFaceRecordRequest
  * @return AddFaceRecordResponse
@@ -280,9 +285,9 @@ AddFaceRecordResponse Client::addFaceRecordAdvance(const AddFaceRecordAdvanceReq
 }
 
 /**
- * @summary Compares the similarity of two addresses.
+ * @summary Compares the similarity of addresses.
  *
- * @description Compares two addresses for consistency by using address standardization.
+ * @description Standardizes and compares two addresses to check for consistency.
  *
  * @param request AddressCompareIntlRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -325,9 +330,9 @@ AddressCompareIntlResponse Client::addressCompareIntlWithOptions(const AddressCo
 }
 
 /**
- * @summary Compares the similarity of two addresses.
+ * @summary Compares the similarity of addresses.
  *
- * @description Compares two addresses for consistency by using address standardization.
+ * @description Standardizes and compares two addresses to check for consistency.
  *
  * @param request AddressCompareIntlRequest
  * @return AddressCompareIntlResponse
@@ -340,9 +345,9 @@ AddressCompareIntlResponse Client::addressCompareIntl(const AddressCompareIntlRe
 /**
  * @deprecated OpenAPI AddressVerifyIntl is deprecated, please use Cloudauth-intl::2022-08-09::AddressVerifyV2Intl instead.
  *
- * @summary Verifies whether a specified address belongs to a user\\"s residential address based on telecommunications service provider capabilities, using a phone number and an address (or coordinates).
+ * @summary Verifies whether a provided address belongs to the regular residence of a user based on carrier capabilities by using a mobile phone number and an address or coordinates.
  *
- * @description Verifies whether a specified address belongs to a user\\"s residential address based on telecommunications service provider capabilities, using a phone number and an address (or coordinates).
+ * @description Verifies whether a provided address belongs to the regular residence of a user based on carrier capabilities by using a mobile phone number and an address or coordinates.
  *
  * @param request AddressVerifyIntlRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -415,9 +420,9 @@ AddressVerifyIntlResponse Client::addressVerifyIntlWithOptions(const AddressVeri
 /**
  * @deprecated OpenAPI AddressVerifyIntl is deprecated, please use Cloudauth-intl::2022-08-09::AddressVerifyV2Intl instead.
  *
- * @summary Verifies whether a specified address belongs to a user\\"s residential address based on telecommunications service provider capabilities, using a phone number and an address (or coordinates).
+ * @summary Verifies whether a provided address belongs to the regular residence of a user based on carrier capabilities by using a mobile phone number and an address or coordinates.
  *
- * @description Verifies whether a specified address belongs to a user\\"s residential address based on telecommunications service provider capabilities, using a phone number and an address (or coordinates).
+ * @description Verifies whether a provided address belongs to the regular residence of a user based on carrier capabilities by using a mobile phone number and an address or coordinates.
  *
  * @param request AddressVerifyIntlRequest
  * @return AddressVerifyIntlResponse
@@ -490,9 +495,9 @@ AddressVerifyV2IntlResponse Client::addressVerifyV2Intl(const AddressVerifyV2Int
 }
 
 /**
- * @summary Provides bank card element verification (two-element, three-element, and four-element) API operations.
+ * @summary Provides the API operation for bank card elements, including two-element, three-element, and four-element bank card information.
  *
- * @description Verifies bank card elements, including two-element verification (name + bank card number), three-element verification (name + ID card number + bank card number), and four-element verification (name + ID card number + phone number + bank card number) for consistency.
+ * @description Verifies bank card information, including two-element verification (name and bank card number), three-element verification (name, ID card number, and bank card number), and four-element verification (name, ID card number, mobile phone number, and bank card number).
  *
  * @param request BankMetaVerifyIntlRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -555,9 +560,9 @@ BankMetaVerifyIntlResponse Client::bankMetaVerifyIntlWithOptions(const BankMetaV
 }
 
 /**
- * @summary Provides bank card element verification (two-element, three-element, and four-element) API operations.
+ * @summary Provides the API operation for bank card elements, including two-element, three-element, and four-element bank card information.
  *
- * @description Verifies bank card elements, including two-element verification (name + bank card number), three-element verification (name + ID card number + bank card number), and four-element verification (name + ID card number + phone number + bank card number) for consistency.
+ * @description Verifies bank card information, including two-element verification (name and bank card number), three-element verification (name, ID card number, and bank card number), and four-element verification (name, ID card number, mobile phone number, and bank card number).
  *
  * @param request BankMetaVerifyIntlRequest
  * @return BankMetaVerifyIntlResponse
@@ -570,7 +575,7 @@ BankMetaVerifyIntlResponse Client::bankMetaVerifyIntl(const BankMetaVerifyIntlRe
 /**
  * @deprecated OpenAPI CardOcr is deprecated, please use Cloudauth-intl::2022-08-09::DocOcr instead.
  *
- * @summary Provides server-side ID card and certificate OCR capabilities.
+ * @summary Performs OCR on ID cards and certificates through a server-side API.
  *
  * @param request CardOcrRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -637,7 +642,7 @@ CardOcrResponse Client::cardOcrWithOptions(const CardOcrRequest &request, const 
 /**
  * @deprecated OpenAPI CardOcr is deprecated, please use Cloudauth-intl::2022-08-09::DocOcr instead.
  *
- * @summary Provides server-side ID card and certificate OCR capabilities.
+ * @summary Performs OCR on ID cards and certificates through a server-side API.
  *
  * @param request CardOcrRequest
  * @return CardOcrResponse
@@ -648,7 +653,7 @@ CardOcrResponse Client::cardOcr(const CardOcrRequest &request) {
 }
 
 /**
- * @summary Queries the verification result.
+ * @summary Queries the detailed results of an authentication transaction. This API operation is part of the SDK integration solution and must be used in conjunction with the client SDK. Calling this operation alone cannot complete identity verification. (Product solutions: eKYC_PRO, eKYC, eKYC_NDI, FACE_IDU, FACE_VERIFY, FACE_LIVENESS_PRO, and ID_OCR_PRO). After the client completes authentication, your server calls this operation by using the TransactionId to query Alibaba Cloud for the detailed results of the authentication. This operation only queries the results and does not trigger or perform verification.
  *
  * @param request CheckResultRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -695,7 +700,7 @@ CheckResultResponse Client::checkResultWithOptions(const CheckResultRequest &req
 }
 
 /**
- * @summary Queries the verification result.
+ * @summary Queries the detailed results of an authentication transaction. This API operation is part of the SDK integration solution and must be used in conjunction with the client SDK. Calling this operation alone cannot complete identity verification. (Product solutions: eKYC_PRO, eKYC, eKYC_NDI, FACE_IDU, FACE_VERIFY, FACE_LIVENESS_PRO, and ID_OCR_PRO). After the client completes authentication, your server calls this operation by using the TransactionId to query Alibaba Cloud for the detailed results of the authentication. This operation only queries the results and does not trigger or perform verification.
  *
  * @param request CheckResultRequest
  * @return CheckResultResponse
@@ -706,7 +711,7 @@ CheckResultResponse Client::checkResult(const CheckResultRequest &request) {
 }
 
 /**
- * @summary Authentication log query.
+ * @summary Queries the authentication log query.
  *
  * @param request CheckVerifyLogRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -741,7 +746,7 @@ CheckVerifyLogResponse Client::checkVerifyLogWithOptions(const CheckVerifyLogReq
 }
 
 /**
- * @summary Authentication log query.
+ * @summary Queries the authentication log query.
  *
  * @param request CheckVerifyLogRequest
  * @return CheckVerifyLogResponse
@@ -752,9 +757,9 @@ CheckVerifyLogResponse Client::checkVerifyLog(const CheckVerifyLogRequest &reque
 }
 
 /**
- * @summary Queries the credential recognition result.
+ * @summary Queries the credential recognition results.
  *
- * @description After you obtain the TransactionId, you can call this operation on the server side to retrieve the corresponding authentication result.
+ * @description After you obtain the TransactionId, you can call this operation on the server to retrieve the corresponding authentication results.
  *
  * @param request CredentialGetResultIntlRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -785,9 +790,9 @@ CredentialGetResultIntlResponse Client::credentialGetResultIntlWithOptions(const
 }
 
 /**
- * @summary Queries the credential recognition result.
+ * @summary Queries the credential recognition results.
  *
- * @description After you obtain the TransactionId, you can call this operation on the server side to retrieve the corresponding authentication result.
+ * @description After you obtain the TransactionId, you can call this operation on the server to retrieve the corresponding authentication results.
  *
  * @param request CredentialGetResultIntlRequest
  * @return CredentialGetResultIntlResponse
@@ -798,9 +803,9 @@ CredentialGetResultIntlResponse Client::credentialGetResultIntl(const Credential
 }
 
 /**
- * @summary An API operation that uploads a credential image, such as a utility bill or credit card statement, and uses Qwen-VL to intelligently fetch the billing address and name.
+ * @summary Uploads credential images, including utility bills and credit card statements, and uses Qwen-VL to intelligently fetch billing addresses and names through this API operation.
  *
- * @description Uses AI technology to detect whether a credential (such as a water, electricity, gas, or credit card electronic bill) has been forged, and extracts key information from the credential.
+ * @description Uses AI technology to detect whether credential documents, such as electronic utility bills and credit card statements, are forged, and extracts key information from the documents.
  *
  * @param request CredentialRecognitionIntlRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -873,9 +878,9 @@ CredentialRecognitionIntlResponse Client::credentialRecognitionIntlWithOptions(c
 }
 
 /**
- * @summary An API operation that uploads a credential image, such as a utility bill or credit card statement, and uses Qwen-VL to intelligently fetch the billing address and name.
+ * @summary Uploads credential images, including utility bills and credit card statements, and uses Qwen-VL to intelligently fetch billing addresses and names through this API operation.
  *
- * @description Uses AI technology to detect whether a credential (such as a water, electricity, gas, or credit card electronic bill) has been forged, and extracts key information from the credential.
+ * @description Uses AI technology to detect whether credential documents, such as electronic utility bills and credit card statements, are forged, and extracts key information from the documents.
  *
  * @param request CredentialRecognitionIntlRequest
  * @return CredentialRecognitionIntlResponse
@@ -886,9 +891,9 @@ CredentialRecognitionIntlResponse Client::credentialRecognitionIntl(const Creden
 }
 
 /**
- * @summary An API operation that uploads a credential image, such as a utility bill or credit card statement, and uses Qwen-VL to intelligently fetch the billing address and name.
+ * @summary Provides an API operation to upload credential images, such as utility bills and credit card statements, and uses Qwen-VL to intelligently fetch the billing address and name.
  *
- * @description Uses AI technology to detect whether a credential (such as a water, electricity, gas, or credit card electronic bill) is forged, and extracts key information from the credential.
+ * @description Uses AI technology to detect whether credentials, such as electronic utility bills and credit card statements, are forged, and extracts key information from the credentials.
  *
  * @param request CredentialRecognitionIntlV2Request
  * @param runtime runtime options for this request RuntimeOptions
@@ -965,9 +970,9 @@ CredentialRecognitionIntlV2Response Client::credentialRecognitionIntlV2WithOptio
 }
 
 /**
- * @summary An API operation that uploads a credential image, such as a utility bill or credit card statement, and uses Qwen-VL to intelligently fetch the billing address and name.
+ * @summary Provides an API operation to upload credential images, such as utility bills and credit card statements, and uses Qwen-VL to intelligently fetch the billing address and name.
  *
- * @description Uses AI technology to detect whether a credential (such as a water, electricity, gas, or credit card electronic bill) is forged, and extracts key information from the credential.
+ * @description Uses AI technology to detect whether credentials, such as electronic utility bills and credit card statements, are forged, and extracts key information from the credentials.
  *
  * @param request CredentialRecognitionIntlV2Request
  * @return CredentialRecognitionIntlV2Response
@@ -1066,7 +1071,7 @@ CredentialRecognitionIntlV2Response Client::credentialRecognitionIntlV2Advance(c
 /**
  * @summary Submits credential recognition information.
  *
- * @description Initializes the credential recognition OCR operation and retrieves a transactionId through this operation.
+ * @description Initializes the credential recognition OCR process and retrieves a transaction ID.
  *
  * @param request CredentialSubmitIntlRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1149,7 +1154,7 @@ CredentialSubmitIntlResponse Client::credentialSubmitIntlWithOptions(const Crede
 /**
  * @summary Submits credential recognition information.
  *
- * @description Initializes the credential recognition OCR operation and retrieves a transactionId through this operation.
+ * @description Initializes the credential recognition OCR process and retrieves a transaction ID.
  *
  * @param request CredentialSubmitIntlRequest
  * @return CredentialSubmitIntlResponse
@@ -1160,9 +1165,9 @@ CredentialSubmitIntlResponse Client::credentialSubmitIntl(const CredentialSubmit
 }
 
 /**
- * @summary Submits a credential recognition request.
+ * @summary Submits credential recognition information.
  *
- * @description Initializes the credential recognition OCR operation. Call this operation to obtain a transactionId.
+ * @description Initializes the credential recognition OCR operation to obtain a transactionId.
  *
  * @param request CredentialSubmitIntlV2Request
  * @param runtime runtime options for this request RuntimeOptions
@@ -1247,9 +1252,9 @@ CredentialSubmitIntlV2Response Client::credentialSubmitIntlV2WithOptions(const C
 }
 
 /**
- * @summary Submits a credential recognition request.
+ * @summary Submits credential recognition information.
  *
- * @description Initializes the credential recognition OCR operation. Call this operation to obtain a transactionId.
+ * @description Initializes the credential recognition OCR operation to obtain a transactionId.
  *
  * @param request CredentialSubmitIntlV2Request
  * @return CredentialSubmitIntlV2Response
@@ -1346,9 +1351,9 @@ CredentialSubmitIntlV2Response Client::credentialSubmitIntlV2Advance(const Crede
 }
 
 /**
- * @summary Provides the API operation for the credential verification service. This operation uses a large language model to detect image tampering, forgery, and image quality issues in submitted credential images.
+ * @summary Detects image tampering, forgery, and quality issues in credential images by using large models for the credential verification API operation.
  *
- * @description Submits credential image information, performs image quality, tampering, and forgery detection, and returns the detection results.
+ * @description Submits credential image information to detect image quality, tampering, and forgery, and returns the detection results.
  *
  * @param request CredentialVerifyIntlRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1397,9 +1402,9 @@ CredentialVerifyIntlResponse Client::credentialVerifyIntlWithOptions(const Crede
 }
 
 /**
- * @summary Provides the API operation for the credential verification service. This operation uses a large language model to detect image tampering, forgery, and image quality issues in submitted credential images.
+ * @summary Detects image tampering, forgery, and quality issues in credential images by using large models for the credential verification API operation.
  *
- * @description Submits credential image information, performs image quality, tampering, and forgery detection, and returns the detection results.
+ * @description Submits credential image information to detect image quality, tampering, and forgery, and returns the detection results.
  *
  * @param request CredentialVerifyIntlRequest
  * @return CredentialVerifyIntlResponse
@@ -1496,9 +1501,9 @@ CredentialVerifyIntlResponse Client::credentialVerifyIntlAdvance(const Credentia
 }
 
 /**
- * @summary Detects deepfake risks in facial images.
+ * @summary Provides the API for the face deepfake detection service.
  *
- * @description Submits a facial image and uses algorithms to detect potential deepfake risks. This operation covers risk scenarios such as AIGC-generated faces, deep forgery face swaps, template faces, and recaptured faces. It returns risk labels and confidence scores.
+ * @description Accepts face images and uses algorithms to detect deepfake risks. Covers risk scenarios such as AIGC-generated faces, deepfake face swaps, template faces, and recaptured faces, and outputs risk tags and confidence scores.
  *
  * @param request DeepfakeDetectIntlRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1551,9 +1556,9 @@ DeepfakeDetectIntlResponse Client::deepfakeDetectIntlWithOptions(const DeepfakeD
 }
 
 /**
- * @summary Detects deepfake risks in facial images.
+ * @summary Provides the API for the face deepfake detection service.
  *
- * @description Submits a facial image and uses algorithms to detect potential deepfake risks. This operation covers risk scenarios such as AIGC-generated faces, deep forgery face swaps, template faces, and recaptured faces. It returns risk labels and confidence scores.
+ * @description Accepts face images and uses algorithms to detect deepfake risks. Covers risk scenarios such as AIGC-generated faces, deepfake face swaps, template faces, and recaptured faces, and outputs risk tags and confidence scores.
  *
  * @param request DeepfakeDetectIntlRequest
  * @return DeepfakeDetectIntlResponse
@@ -1564,9 +1569,9 @@ DeepfakeDetectIntlResponse Client::deepfakeDetectIntl(const DeepfakeDetectIntlRe
 }
 
 /**
- * @summary ID Verification provides face deepfake detection capabilities, which can be integrated independently through API calls.
+ * @summary Provides face deepfake detection capabilities for ID Verification, which can be integrated independently through API operations.
  *
- * @description Submit a face image to detect deepfake risks through algorithms. This covers risk scenarios such as AIGC-generated faces, deep forgery face swaps, template faces, and re-captured faces, and outputs risk labels and confidence scores.
+ * @description Detects deepfake risks in face images by using algorithms. Covers risk scenarios such as AI-generated content (AIGC) faces, deepfake face swaps, template faces, and recaptured faces, and outputs risk tags and confidence levels.
  *
  * @param request DeepfakeDetectIntlStreamRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1621,9 +1626,9 @@ DeepfakeDetectIntlStreamResponse Client::deepfakeDetectIntlStreamWithOptions(con
 }
 
 /**
- * @summary ID Verification provides face deepfake detection capabilities, which can be integrated independently through API calls.
+ * @summary Provides face deepfake detection capabilities for ID Verification, which can be integrated independently through API operations.
  *
- * @description Submit a face image to detect deepfake risks through algorithms. This covers risk scenarios such as AIGC-generated faces, deep forgery face swaps, template faces, and re-captured faces, and outputs risk labels and confidence scores.
+ * @description Detects deepfake risks in face images by using algorithms. Covers risk scenarios such as AI-generated content (AIGC) faces, deepfake face swaps, template faces, and recaptured faces, and outputs risk tags and confidence levels.
  *
  * @param request DeepfakeDetectIntlStreamRequest
  * @return DeepfakeDetectIntlStreamResponse
@@ -1762,7 +1767,7 @@ DeleteFaceGroupResponse Client::deleteFaceGroup(const DeleteFaceGroupRequest &re
 }
 
 /**
- * @summary Deletes a face record.
+ * @summary Deletes face records.
  *
  * @param request DeleteFaceRecordRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1793,7 +1798,7 @@ DeleteFaceRecordResponse Client::deleteFaceRecordWithOptions(const DeleteFaceRec
 }
 
 /**
- * @summary Deletes a face record.
+ * @summary Deletes face records.
  *
  * @param request DeleteFaceRecordRequest
  * @return DeleteFaceRecordResponse
@@ -1850,7 +1855,7 @@ DeleteFaceRecordV2Response Client::deleteFaceRecordV2(const DeleteFaceRecordV2Re
 }
 
 /**
- * @summary Deletes data related to a user authentication record.
+ * @summary Deletes data related to user authentication records.
  *
  * @param request DeleteVerifyResultRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1889,7 +1894,7 @@ DeleteVerifyResultResponse Client::deleteVerifyResultWithOptions(const DeleteVer
 }
 
 /**
- * @summary Deletes data related to a user authentication record.
+ * @summary Deletes data related to user authentication records.
  *
  * @param request DeleteVerifyResultRequest
  * @return DeleteVerifyResultResponse
@@ -1900,7 +1905,7 @@ DeleteVerifyResultResponse Client::deleteVerifyResult(const DeleteVerifyResultRe
 }
 
 /**
- * @summary Provides server-side card and certificate OCR capabilities.
+ * @summary Performs server-side OCR for ID cards and certificates.
  *
  * @param request DocOcrRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1973,7 +1978,7 @@ DocOcrResponse Client::docOcrWithOptions(const DocOcrRequest &request, const Dar
 }
 
 /**
- * @summary Provides server-side card and certificate OCR capabilities.
+ * @summary Performs server-side OCR for ID cards and certificates.
  *
  * @param request DocOcrRequest
  * @return DocOcrResponse
@@ -1984,7 +1989,7 @@ DocOcrResponse Client::docOcr(const DocOcrRequest &request) {
 }
 
 /**
- * @summary Recognizes global identity documents through OCR.
+ * @summary Recognizes global identity documents by using OCR.
  *
  * @param request DocOcrMaxRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2073,7 +2078,7 @@ DocOcrMaxResponse Client::docOcrMaxWithOptions(const DocOcrMaxRequest &request, 
 }
 
 /**
- * @summary Recognizes global identity documents through OCR.
+ * @summary Recognizes global identity documents by using OCR.
  *
  * @param request DocOcrMaxRequest
  * @return DocOcrMaxResponse
@@ -2084,7 +2089,7 @@ DocOcrMaxResponse Client::docOcrMax(const DocOcrMaxRequest &request) {
 }
 
 /**
- * @summary Recognizes identity documents worldwide through OCR.
+ * @summary Recognizes global ID documents by using OCR.
  *
  * @param request DocOcrMaxV2Request
  * @param runtime runtime options for this request RuntimeOptions
@@ -2169,7 +2174,7 @@ DocOcrMaxV2Response Client::docOcrMaxV2WithOptions(const DocOcrMaxV2Request &req
 }
 
 /**
- * @summary Recognizes identity documents worldwide through OCR.
+ * @summary Recognizes global ID documents by using OCR.
  *
  * @param request DocOcrMaxV2Request
  * @return DocOcrMaxV2Response
@@ -2266,7 +2271,7 @@ DocOcrMaxV2Response Client::docOcrMaxV2Advance(const DocOcrMaxV2AdvanceRequest &
 }
 
 /**
- * @summary Provides server-side card and certificate OCR capabilities.
+ * @summary Performs server-side optical character recognition (OCR) on ID cards.
  *
  * @param request DocOcrV2Request
  * @param runtime runtime options for this request RuntimeOptions
@@ -2343,7 +2348,7 @@ DocOcrV2Response Client::docOcrV2WithOptions(const DocOcrV2Request &request, con
 }
 
 /**
- * @summary Provides server-side card and certificate OCR capabilities.
+ * @summary Performs server-side optical character recognition (OCR) on ID cards.
  *
  * @param request DocOcrV2Request
  * @return DocOcrV2Response
@@ -2440,7 +2445,7 @@ DocOcrV2Response Client::docOcrV2Advance(const DocOcrV2AdvanceRequest &request, 
 }
 
 /**
- * @summary Downloads verification task records.
+ * @summary Downloads a verification task.
  *
  * @param request DownloadVerifyRecordIntlRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2487,7 +2492,7 @@ DownloadVerifyRecordIntlResponse Client::downloadVerifyRecordIntlWithOptions(con
 }
 
 /**
- * @summary Downloads verification task records.
+ * @summary Downloads a verification task.
  *
  * @param request DownloadVerifyRecordIntlRequest
  * @return DownloadVerifyRecordIntlResponse
@@ -2598,7 +2603,7 @@ EkycVerifyResponse Client::ekycVerify(const EkycVerifyRequest &request) {
 }
 
 /**
- * @summary Provides a server-side-only API for the eKYC solution.
+ * @summary Provides a server-side API for the eKYC solution.
  *
  * @param request EkycVerifyV2Request
  * @param runtime runtime options for this request RuntimeOptions
@@ -2695,7 +2700,7 @@ EkycVerifyV2Response Client::ekycVerifyV2WithOptions(const EkycVerifyV2Request &
 }
 
 /**
- * @summary Provides a server-side-only API for the eKYC solution.
+ * @summary Provides a server-side API for the eKYC solution.
  *
  * @param request EkycVerifyV2Request
  * @return EkycVerifyV2Response
@@ -2815,7 +2820,7 @@ EkycVerifyV2Response Client::ekycVerifyV2Advance(const EkycVerifyV2AdvanceReques
 }
 
 /**
- * @summary Uses facial recognition technology to compare and verify two input face images, returning the face comparison result and similarity score.
+ * @summary Compares and verifies two input face images by using face recognition technology, and returns the face comparison result and similarity score.
  *
  * @param request FaceCompareRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2872,7 +2877,7 @@ FaceCompareResponse Client::faceCompareWithOptions(const FaceCompareRequest &req
 }
 
 /**
- * @summary Uses facial recognition technology to compare and verify two input face images, returning the face comparison result and similarity score.
+ * @summary Compares and verifies two input face images by using face recognition technology, and returns the face comparison result and similarity score.
  *
  * @param request FaceCompareRequest
  * @return FaceCompareResponse
@@ -2883,7 +2888,7 @@ FaceCompareResponse Client::faceCompare(const FaceCompareRequest &request) {
 }
 
 /**
- * @summary Compares two face images using face recognition technology and returns the comparison result and similarity score.
+ * @summary Compares and verifies two input face images by using face recognition technology, and returns the face comparison result and similarity score.
  *
  * @param request FaceCompareV2Request
  * @param runtime runtime options for this request RuntimeOptions
@@ -2948,7 +2953,7 @@ FaceCompareV2Response Client::faceCompareV2WithOptions(const FaceCompareV2Reques
 }
 
 /**
- * @summary Compares two face images using face recognition technology and returns the comparison result and similarity score.
+ * @summary Compares and verifies two input face images by using face recognition technology, and returns the face comparison result and similarity score.
  *
  * @param request FaceCompareV2Request
  * @return FaceCompareV2Response
@@ -3152,7 +3157,7 @@ FaceCrossCompareIntlResponse Client::faceCrossCompareIntl(const FaceCrossCompare
 }
 
 /**
- * @summary Performs server-side liveness detection and face duplication check (FaceDuplicationCheckIntl) for scenarios where SDK integration is not feasible. Submits face images through the API to verify whether the user is a real person, compare the face against a retained face image for identity verification, search face libraries to determine whether the face already exists, and automatically register the face to a specified face library after successful verification.
+ * @summary Detects duplicate faces in scenarios where SDK integration is unavailable. This operation uses the API to pass face images and provides the following capabilities: verifying whether the user is a real person, comparing the face with a retained face for identity verification, searching a face library to check for existence, and automatically registering the face to a specified face library after successful verification.
  *
  * @param request FaceDuplicationCheckIntlRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3257,7 +3262,7 @@ FaceDuplicationCheckIntlResponse Client::faceDuplicationCheckIntlWithOptions(con
 }
 
 /**
- * @summary Performs server-side liveness detection and face duplication check (FaceDuplicationCheckIntl) for scenarios where SDK integration is not feasible. Submits face images through the API to verify whether the user is a real person, compare the face against a retained face image for identity verification, search face libraries to determine whether the face already exists, and automatically register the face to a specified face library after successful verification.
+ * @summary Detects duplicate faces in scenarios where SDK integration is unavailable. This operation uses the API to pass face images and provides the following capabilities: verifying whether the user is a real person, comparing the face with a retained face for identity verification, searching a face library to check for existence, and automatically registering the face to a specified face library after successful verification.
  *
  * @param request FaceDuplicationCheckIntlRequest
  * @return FaceDuplicationCheckIntlResponse
@@ -3268,7 +3273,7 @@ FaceDuplicationCheckIntlResponse Client::faceDuplicationCheckIntl(const FaceDupl
 }
 
 /**
- * @summary Provides the server-side API for international Face Guard.
+ * @summary Calls the server-side API of Face Guard International.
  *
  * @param request FaceGuardRiskRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3315,7 +3320,7 @@ FaceGuardRiskResponse Client::faceGuardRiskWithOptions(const FaceGuardRiskReques
 }
 
 /**
- * @summary Provides the server-side API for international Face Guard.
+ * @summary Calls the server-side API of Face Guard International.
  *
  * @param request FaceGuardRiskRequest
  * @return FaceGuardRiskResponse
@@ -3326,7 +3331,7 @@ FaceGuardRiskResponse Client::faceGuardRisk(const FaceGuardRiskRequest &request)
 }
 
 /**
- * @summary Provides the server-side API for passive liveness detection.
+ * @summary Performs server-side passive liveness detection.
  *
  * @param request FaceLivenessRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3395,7 +3400,7 @@ FaceLivenessResponse Client::faceLivenessWithOptions(const FaceLivenessRequest &
 }
 
 /**
- * @summary Provides the server-side API for passive liveness detection.
+ * @summary Performs server-side passive liveness detection.
  *
  * @param request FaceLivenessRequest
  * @return FaceLivenessResponse
@@ -3406,7 +3411,7 @@ FaceLivenessResponse Client::faceLiveness(const FaceLivenessRequest &request) {
 }
 
 /**
- * @summary Detects whether a face in an image is from a real person by using the API operation. This service combines the Qwen-VL large model for in-depth forgery risk detection to determine face liveness.
+ * @summary Performs liveness detection on a pre-captured face image passed through an API operation, and uses the Qwen-VL large model to detect forgery risks and determine whether the face belongs to a real person.
  *
  * @description Calls the FaceLivenessV2 operation to perform liveness detection on a face image.
  *
@@ -3469,7 +3474,7 @@ FaceLivenessV2Response Client::faceLivenessV2WithOptions(const FaceLivenessV2Req
 }
 
 /**
- * @summary Detects whether a face in an image is from a real person by using the API operation. This service combines the Qwen-VL large model for in-depth forgery risk detection to determine face liveness.
+ * @summary Performs liveness detection on a pre-captured face image passed through an API operation, and uses the Qwen-VL large model to detect forgery risks and determine whether the face belongs to a real person.
  *
  * @description Calls the FaceLivenessV2 operation to perform liveness detection on a face image.
  *
@@ -3568,9 +3573,9 @@ FaceLivenessV2Response Client::faceLivenessV2Advance(const FaceLivenessV2Advance
 }
 
 /**
- * @summary Performs real face detection by receiving pre-captured face images through the API operation. The algorithm primarily identifies whether a face is a screen replay or printed photo type of basic render liveness attack, and supports comparison with another face image to authenticate whether they belong to the same person.
+ * @summary Detects real faces by using pre-obtained face images passed through the API operation. The algorithm primarily identifies basic render liveness attacks such as screen recaptures and printed photos, and supports face comparison to authenticate whether two images belong to the same person.
  *
- * @description Calls the FaceVerifyIntl operation to perform liveness detection on face images.
+ * @description Calls the FaceVerifyIntl API operation to perform liveness detection on face images.
  *
  * @param request FaceVerifyIntlRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3667,9 +3672,9 @@ FaceVerifyIntlResponse Client::faceVerifyIntlWithOptions(const FaceVerifyIntlReq
 }
 
 /**
- * @summary Performs real face detection by receiving pre-captured face images through the API operation. The algorithm primarily identifies whether a face is a screen replay or printed photo type of basic render liveness attack, and supports comparison with another face image to authenticate whether they belong to the same person.
+ * @summary Detects real faces by using pre-obtained face images passed through the API operation. The algorithm primarily identifies basic render liveness attacks such as screen recaptures and printed photos, and supports face comparison to authenticate whether two images belong to the same person.
  *
- * @description Calls the FaceVerifyIntl operation to perform liveness detection on face images.
+ * @description Calls the FaceVerifyIntl API operation to perform liveness detection on face images.
  *
  * @param request FaceVerifyIntlRequest
  * @return FaceVerifyIntlResponse
@@ -3847,7 +3852,7 @@ FraudResultCallBackResponse Client::fraudResultCallBack(const FraudResultCallBac
 }
 
 /**
- * @summary Verifies the validity period of an identity document as a two-factor authentication element.
+ * @summary Verifies the validity period of the two identity elements.
  *
  * @param request Id2MetaPeriodVerifyIntlRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3910,7 +3915,7 @@ Id2MetaPeriodVerifyIntlResponse Client::id2MetaPeriodVerifyIntlWithOptions(const
 }
 
 /**
- * @summary Verifies the validity period of an identity document as a two-factor authentication element.
+ * @summary Verifies the validity period of the two identity elements.
  *
  * @param request Id2MetaPeriodVerifyIntlRequest
  * @return Id2MetaPeriodVerifyIntlResponse
@@ -3921,7 +3926,7 @@ Id2MetaPeriodVerifyIntlResponse Client::id2MetaPeriodVerifyIntl(const Id2MetaPer
 }
 
 /**
- * @summary Verifies the authenticity and consistency of a name and ID card number against an authoritative data source.
+ * @summary Verifies the authenticity and consistency of a name and an ID card number through an authoritative data source.
  *
  * @param request Id2MetaVerifyIntlRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3964,7 +3969,7 @@ Id2MetaVerifyIntlResponse Client::id2MetaVerifyIntlWithOptions(const Id2MetaVeri
 }
 
 /**
- * @summary Verifies the authenticity and consistency of a name and ID card number against an authoritative data source.
+ * @summary Verifies the authenticity and consistency of a name and an ID card number through an authoritative data source.
  *
  * @param request Id2MetaVerifyIntlRequest
  * @return Id2MetaVerifyIntlResponse
@@ -3975,7 +3980,7 @@ Id2MetaVerifyIntlResponse Client::id2MetaVerifyIntl(const Id2MetaVerifyIntlReque
 }
 
 /**
- * @summary Verifies the identity of an Indonesian user by calling the authoritative source API in a standalone business scenario.
+ * @summary Verifies the identity of Indonesian users by directly calling the authoritative source API in independent business scenarios.
  *
  * @param request IdnAuthorityVerifyIntlRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4056,7 +4061,7 @@ IdnAuthorityVerifyIntlResponse Client::idnAuthorityVerifyIntlWithOptions(const I
 }
 
 /**
- * @summary Verifies the identity of an Indonesian user by calling the authoritative source API in a standalone business scenario.
+ * @summary Verifies the identity of Indonesian users by directly calling the authoritative source API in independent business scenarios.
  *
  * @param request IdnAuthorityVerifyIntlRequest
  * @return IdnAuthorityVerifyIntlResponse
@@ -4153,7 +4158,7 @@ IdnAuthorityVerifyIntlResponse Client::idnAuthorityVerifyIntlAdvance(const IdnAu
 }
 
 /**
- * @summary Initializes an authentication process.
+ * @summary Initializes the authentication process.
  *
  * @param tmpReq InitializeRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4278,6 +4283,10 @@ InitializeResponse Client::initializeWithOptions(const InitializeRequest &tmpReq
 
   if (!!request.hasIdThreshold()) {
     query["IdThreshold"] = request.getIdThreshold();
+  }
+
+  if (!!request.hasIsForceFaceCentered()) {
+    query["IsForceFaceCentered"] = request.getIsForceFaceCentered();
   }
 
   if (!!request.hasLanguageConfig()) {
@@ -4428,7 +4437,7 @@ InitializeResponse Client::initializeWithOptions(const InitializeRequest &tmpReq
 }
 
 /**
- * @summary Initializes an authentication process.
+ * @summary Initializes the authentication process.
  *
  * @param request InitializeRequest
  * @return InitializeResponse
@@ -4439,7 +4448,7 @@ InitializeResponse Client::initialize(const InitializeRequest &request) {
 }
 
 /**
- * @summary Initializes an authentication session.
+ * @summary Creates an authentication session for SDK integration. This operation must be used in conjunction with a client SDK and cannot complete identity verification if called independently. Supported product editions include eKYC_PRO, eKYC, eKYC_NDI, FACE_IDU, FACE_VERIFY, FACE_LIVENESS_PRO, and ID_OCR_PRO. Before the client initiates authentication, your server calls this operation to create an authentication session and returns a TransactionId. You must deliver this TransactionId to the client to launch the SDK and complete the authentication. This operation only creates the session and does not perform verification.
  *
  * @param tmpReq InitializeV2Request
  * @param runtime runtime options for this request RuntimeOptions
@@ -4568,6 +4577,10 @@ InitializeV2Response Client::initializeV2WithOptions(const InitializeV2Request &
 
   if (!!request.hasIdThreshold()) {
     query["IdThreshold"] = request.getIdThreshold();
+  }
+
+  if (!!request.hasIsForceFaceCentered()) {
+    query["IsForceFaceCentered"] = request.getIsForceFaceCentered();
   }
 
   if (!!request.hasLanguageConfig()) {
@@ -4722,7 +4735,7 @@ InitializeV2Response Client::initializeV2WithOptions(const InitializeV2Request &
 }
 
 /**
- * @summary Initializes an authentication session.
+ * @summary Creates an authentication session for SDK integration. This operation must be used in conjunction with a client SDK and cannot complete identity verification if called independently. Supported product editions include eKYC_PRO, eKYC, eKYC_NDI, FACE_IDU, FACE_VERIFY, FACE_LIVENESS_PRO, and ID_OCR_PRO. Before the client initiates authentication, your server calls this operation to create an authentication session and returns a TransactionId. You must deliver this TransactionId to the client to launch the SDK and complete the authentication. This operation only creates the session and does not perform verification.
  *
  * @param request InitializeV2Request
  * @return InitializeV2Response
@@ -4842,9 +4855,9 @@ InitializeV2Response Client::initializeV2Advance(const InitializeV2AdvanceReques
 }
 
 /**
- * @summary Configures client connection keep-alive settings.
+ * @summary Maintains client connections.
  *
- * @description Configures client connection keep-alive settings.
+ * @description Maintains client connections.
  *
  * @param runtime runtime options for this request RuntimeOptions
  * @return KeepaliveIntlResponse
@@ -4866,9 +4879,9 @@ KeepaliveIntlResponse Client::keepaliveIntlWithOptions(const Darabonba::RuntimeO
 }
 
 /**
- * @summary Configures client connection keep-alive settings.
+ * @summary Maintains client connections.
  *
- * @description Configures client connection keep-alive settings.
+ * @description Maintains client connections.
  *
  * @return KeepaliveIntlResponse
  */
@@ -4878,9 +4891,9 @@ KeepaliveIntlResponse Client::keepaliveIntl() {
 }
 
 /**
- * @summary Verifies the identity of a phone number owner by using two-factor authentication.
+ * @summary Verifies the mobile phone number and name.
  *
- * @description Pass in a phone number and name to verify their authenticity and consistency through an authoritative data source. Before using this operation, make sure that you fully understand the billing method and pricing of the two-factor phone number verification service.
+ * @description Verifies the authenticity and consistency of a mobile phone number and name against authoritative data sources. Before using this API operation, make sure that you fully understand the billing method and pricing of the mobile phone number and name verification service.
  *
  * @param request Mobile2MetaVerifyIntlRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4923,9 +4936,9 @@ Mobile2MetaVerifyIntlResponse Client::mobile2MetaVerifyIntlWithOptions(const Mob
 }
 
 /**
- * @summary Verifies the identity of a phone number owner by using two-factor authentication.
+ * @summary Verifies the mobile phone number and name.
  *
- * @description Pass in a phone number and name to verify their authenticity and consistency through an authoritative data source. Before using this operation, make sure that you fully understand the billing method and pricing of the two-factor phone number verification service.
+ * @description Verifies the authenticity and consistency of a mobile phone number and name against authoritative data sources. Before using this API operation, make sure that you fully understand the billing method and pricing of the mobile phone number and name verification service.
  *
  * @param request Mobile2MetaVerifyIntlRequest
  * @return Mobile2MetaVerifyIntlResponse
@@ -4936,7 +4949,7 @@ Mobile2MetaVerifyIntlResponse Client::mobile2MetaVerifyIntl(const Mobile2MetaVer
 }
 
 /**
- * @summary Verifies the authenticity and consistency of a phone number, name, and ID card number against an authoritative data source. If the information is inconsistent, returns the reason for the inconsistency.
+ * @summary Verifies the authenticity and consistency of a mobile phone number, name, and ID card number through authoritative data sources, and returns the cause of inconsistency if they do not match.
  *
  * @param request Mobile3MetaVerifyIntlRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4983,7 +4996,7 @@ Mobile3MetaVerifyIntlResponse Client::mobile3MetaVerifyIntlWithOptions(const Mob
 }
 
 /**
- * @summary Verifies the authenticity and consistency of a phone number, name, and ID card number against an authoritative data source. If the information is inconsistent, returns the reason for the inconsistency.
+ * @summary Verifies the authenticity and consistency of a mobile phone number, name, and ID card number through authoritative data sources, and returns the cause of inconsistency if they do not match.
  *
  * @param request Mobile3MetaVerifyIntlRequest
  * @return Mobile3MetaVerifyIntlResponse
@@ -4994,7 +5007,7 @@ Mobile3MetaVerifyIntlResponse Client::mobile3MetaVerifyIntl(const Mobile3MetaVer
 }
 
 /**
- * @summary Modifies a face library.
+ * @summary Updates a face library.
  *
  * @param request ModifyFaceGroupRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -5033,7 +5046,7 @@ ModifyFaceGroupResponse Client::modifyFaceGroupWithOptions(const ModifyFaceGroup
 }
 
 /**
- * @summary Modifies a face library.
+ * @summary Updates a face library.
  *
  * @param request ModifyFaceGroupRequest
  * @return ModifyFaceGroupResponse
@@ -5044,7 +5057,7 @@ ModifyFaceGroupResponse Client::modifyFaceGroup(const ModifyFaceGroupRequest &re
 }
 
 /**
- * @summary Edits a face record.
+ * @summary Modifies a face record.
  *
  * @param request ModifyFaceRecordRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -5079,7 +5092,7 @@ ModifyFaceRecordResponse Client::modifyFaceRecordWithOptions(const ModifyFaceRec
 }
 
 /**
- * @summary Edits a face record.
+ * @summary Modifies a face record.
  *
  * @param request ModifyFaceRecordRequest
  * @return ModifyFaceRecordResponse
@@ -5264,7 +5277,7 @@ TempAccessTokenIntlResponse Client::tempAccessTokenIntl(const TempAccessTokenInt
 }
 
 /**
- * @summary Retrieves a temporary URL for a file.
+ * @summary Retrieves the temporary URL of a file.
  *
  * @param request TempOssUrlIntlRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -5295,7 +5308,7 @@ TempOssUrlIntlResponse Client::tempOssUrlIntlWithOptions(const TempOssUrlIntlReq
 }
 
 /**
- * @summary Retrieves a temporary URL for a file.
+ * @summary Retrieves the temporary URL of a file.
  *
  * @param request TempOssUrlIntlRequest
  * @return TempOssUrlIntlResponse

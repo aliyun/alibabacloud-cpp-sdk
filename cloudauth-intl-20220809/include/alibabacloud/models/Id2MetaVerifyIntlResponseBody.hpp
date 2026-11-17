@@ -66,7 +66,7 @@ namespace Models
       // The verification result code. Valid values:
       // - 1: Consistent.
       // - 2: Inconsistent.
-      // - 3: No record found.
+      // - 3: Not found.
       shared_ptr<string> bizCode_ {};
     };
 
@@ -109,7 +109,7 @@ namespace Models
     shared_ptr<string> message_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The verification result.
+    // The return result.
     shared_ptr<Id2MetaVerifyIntlResponseBody::Result> result_ {};
   };
 

@@ -73,7 +73,7 @@ namespace Models
 
 
     protected:
-      // The task ID. This parameter is returned in asynchronous mode. Use QueryDownloadTaskIntl to download the exported file.
+      // The task ID. This parameter is returned in asynchronous mode. You can subsequently call QueryDownloadTaskIntl to download the exported file.
       shared_ptr<string> downloadTaskId_ {};
       // The download URL of the exported file.
       shared_ptr<string> url_ {};

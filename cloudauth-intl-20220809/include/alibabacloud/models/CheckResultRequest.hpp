@@ -78,14 +78,14 @@ namespace Models
     // The additional information to return.
     shared_ptr<string> extraImageControlList_ {};
     // Specifies whether to return images. Valid values:
-    // - Y: Return images.
-    // - N: Do not return images.
+    // - Y: Returns images.
+    // - N: Does not return images.
     shared_ptr<string> isReturnImage_ {};
-    // The merchant-defined unique business ID used for subsequent troubleshooting. The value can be a combination of letters and digits with a maximum length of 32 characters. Ensure that the value is unique.
+    // The custom unique business identifier on the merchant side, which is used for subsequent troubleshooting. It supports a combination of letters and digits, with a maximum length of 32 characters. Make sure that the identifier is unique.
     shared_ptr<string> merchantBizId_ {};
-    // Specifies whether to return the anti-spoofing detection result.
+    // Specifies whether to return the anti-spoofing detection results.
     shared_ptr<string> returnFiveCategorySpoofResult_ {};
-    // The verification ID.
+    // The authentication ID.
     shared_ptr<string> transactionId_ {};
   };
 

@@ -44,6 +44,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(IdFaceQuality, idFaceQuality_);
       DARABONBA_PTR_TO_JSON(IdSpoof, idSpoof_);
       DARABONBA_PTR_TO_JSON(IdThreshold, idThreshold_);
+      DARABONBA_PTR_TO_JSON(IsForceFaceCentered, isForceFaceCentered_);
       DARABONBA_PTR_TO_JSON(LanguageConfig, languageConfig_);
       DARABONBA_PTR_TO_JSON(MRTDInput, MRTDInput_);
       DARABONBA_PTR_TO_JSON(MerchantBizId, merchantBizId_);
@@ -108,6 +109,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(IdFaceQuality, idFaceQuality_);
       DARABONBA_PTR_FROM_JSON(IdSpoof, idSpoof_);
       DARABONBA_PTR_FROM_JSON(IdThreshold, idThreshold_);
+      DARABONBA_PTR_FROM_JSON(IsForceFaceCentered, isForceFaceCentered_);
       DARABONBA_PTR_FROM_JSON(LanguageConfig, languageConfig_);
       DARABONBA_PTR_FROM_JSON(MRTDInput, MRTDInput_);
       DARABONBA_PTR_FROM_JSON(MerchantBizId, merchantBizId_);
@@ -158,14 +160,14 @@ namespace Models
         && this->docNo_ == nullptr && this->docPageConfig_ == nullptr && this->docScanMode_ == nullptr && this->docType_ == nullptr && this->docVideo_ == nullptr
         && this->documentNumber_ == nullptr && this->editOcrResult_ == nullptr && this->email_ == nullptr && this->experienceCode_ == nullptr && this->faceAttributeCheck_ == nullptr
         && this->faceGroupCodes_ == nullptr && this->facePictureBase64_ == nullptr && this->facePictureFileObject_ == nullptr && this->facePictureUrl_ == nullptr && this->faceRegisterGroupCode_ == nullptr
-        && this->faceVerifyThreshold_ == nullptr && this->idFaceQuality_ == nullptr && this->idSpoof_ == nullptr && this->idThreshold_ == nullptr && this->languageConfig_ == nullptr
-        && this->MRTDInput_ == nullptr && this->merchantBizId_ == nullptr && this->merchantUserId_ == nullptr && this->metaInfo_ == nullptr && this->mobile_ == nullptr
-        && this->model_ == nullptr && this->needMultiFaceCheck_ == nullptr && this->ocr_ == nullptr && this->ocrValueStandard_ == nullptr && this->pages_ == nullptr
-        && this->procedurePriority_ == nullptr && this->productCode_ == nullptr && this->productFlow_ == nullptr && this->returnFaces_ == nullptr && this->returnUrl_ == nullptr
-        && this->saveFacePicture_ == nullptr && this->sceneCode_ == nullptr && this->securityLevel_ == nullptr && this->showAlbumIcon_ == nullptr && this->showGuidePage_ == nullptr
-        && this->showOcrResult_ == nullptr && this->styleConfig_ == nullptr && this->targetFacePicture_ == nullptr && this->targetFacePictureFileObject_ == nullptr && this->targetFacePictureUrl_ == nullptr
-        && this->templateConfig_ == nullptr && this->templateRanCount_ == nullptr && this->templateType_ == nullptr && this->updateFaceIfUserExists_ == nullptr && this->useNFC_ == nullptr
-        && this->verifyModel_ == nullptr; };
+        && this->faceVerifyThreshold_ == nullptr && this->idFaceQuality_ == nullptr && this->idSpoof_ == nullptr && this->idThreshold_ == nullptr && this->isForceFaceCentered_ == nullptr
+        && this->languageConfig_ == nullptr && this->MRTDInput_ == nullptr && this->merchantBizId_ == nullptr && this->merchantUserId_ == nullptr && this->metaInfo_ == nullptr
+        && this->mobile_ == nullptr && this->model_ == nullptr && this->needMultiFaceCheck_ == nullptr && this->ocr_ == nullptr && this->ocrValueStandard_ == nullptr
+        && this->pages_ == nullptr && this->procedurePriority_ == nullptr && this->productCode_ == nullptr && this->productFlow_ == nullptr && this->returnFaces_ == nullptr
+        && this->returnUrl_ == nullptr && this->saveFacePicture_ == nullptr && this->sceneCode_ == nullptr && this->securityLevel_ == nullptr && this->showAlbumIcon_ == nullptr
+        && this->showGuidePage_ == nullptr && this->showOcrResult_ == nullptr && this->styleConfig_ == nullptr && this->targetFacePicture_ == nullptr && this->targetFacePictureFileObject_ == nullptr
+        && this->targetFacePictureUrl_ == nullptr && this->templateConfig_ == nullptr && this->templateRanCount_ == nullptr && this->templateType_ == nullptr && this->updateFaceIfUserExists_ == nullptr
+        && this->useNFC_ == nullptr && this->verifyModel_ == nullptr; };
     // appQualityCheck Field Functions 
     bool hasAppQualityCheck() const { return this->appQualityCheck_ != nullptr;};
     void deleteAppQualityCheck() { this->appQualityCheck_ = nullptr;};
@@ -376,6 +378,13 @@ namespace Models
     void deleteIdThreshold() { this->idThreshold_ = nullptr;};
     inline string getIdThreshold() const { DARABONBA_PTR_GET_DEFAULT(idThreshold_, "") };
     inline InitializeV2AdvanceRequest& setIdThreshold(string idThreshold) { DARABONBA_PTR_SET_VALUE(idThreshold_, idThreshold) };
+
+
+    // isForceFaceCentered Field Functions 
+    bool hasIsForceFaceCentered() const { return this->isForceFaceCentered_ != nullptr;};
+    void deleteIsForceFaceCentered() { this->isForceFaceCentered_ = nullptr;};
+    inline string getIsForceFaceCentered() const { DARABONBA_PTR_GET_DEFAULT(isForceFaceCentered_, "") };
+    inline InitializeV2AdvanceRequest& setIsForceFaceCentered(string isForceFaceCentered) { DARABONBA_PTR_SET_VALUE(isForceFaceCentered_, isForceFaceCentered) };
 
 
     // languageConfig Field Functions 
@@ -603,180 +612,237 @@ namespace Models
 
 
   protected:
-    // <warning>This feature is not supported by the **Web SDK**. To use this feature, refer to the App SDK integration.</warning>
+    // <warning>This feature is not supported by the **Web SDK**. To use this feature, refer to the App SDK integration guide.</warning>
     // 
     // Specifies whether to enable strict face quality detection. Valid values:
-    // - Y: Enabled. This is the default value.
-    // - N: Not enabled.
+    // - Y: Enable. This is the default value.
+    // - N: Disable.
     shared_ptr<string> appQualityCheck_ {};
-    // Specifies whether to enable authoritative identity verification. Currently, this applies only to second-generation ID cards in the Chinese mainland. This is an input parameter for the IDV product.
+    // Specifies whether to enable authoritative identity verification. This feature currently applies only to second-generation ID cards in the Chinese mainland. This parameter is applicable to IDV products.
     shared_ptr<string> authorize_ {};
+    // The automatic document page classification configuration. This parameter takes effect only when DocType is set to a country or region code. You can specify the pages to collect based on the specific document type code. For documents that are not configured, only the front side is collected.
     shared_ptr<string> autoDocPageConfig_ {};
     // Specifies whether to enable automatic registration.
     shared_ptr<string> autoRegistration_ {};
-    // The security token used for anti-replay and anti-tampering verification. If this parameter is passed in, the CallbackToken field is displayed in the callback URL.
+    // The security token used for anti-replay and anti-tampering verification. If you specify this parameter, the CallbackToken field is displayed in the callback URL.
     shared_ptr<string> callbackToken_ {};
-    // The callback URL for the authentication result notification. The callback request method is GET by default, and the callback URL must start with https. After the authentication is complete, the platform calls back this URL and automatically appends the transactionId, passed, and subcode fields.
+    // The callback URL for authentication result notifications. The default callback request method is GET, and the callback URL must start with https. After the authentication is completed, the platform calls this URL and automatically appends the transactionId, passed, and subcode fields.
     shared_ptr<string> callbackUrl_ {};
-    // Specifies whether to enable the adaptive color-changing window frame.
+    // Specifies whether to enable the adaptive color-changing window border. Valid values:
+    // - **Y**: Enable.
+    // - **N**: Disable.
     shared_ptr<string> chameleonFrameEnable_ {};
-    // Specifies whether to enable cropping. This is an input parameter for the IDV product.
+    // Specifies whether to crop the image. This parameter is applicable to IDV products.
     shared_ptr<string> crop_ {};
-    // The date of birth on the document.
+    // The date of birth on the document, in the YYMMDD format (6 digits). This parameter is required when **MRTDInput** is set to **2**.
     shared_ptr<string> dateOfBirth_ {};
-    // The expiration date on the document.
+    // The expiration date on the document, in the YYMMDD format (6 digits). This parameter is required when **MRTDInput** is set to **2**.
     shared_ptr<string> dateOfExpiry_ {};
     // The real name of the user.
     shared_ptr<string> docName_ {};
     // The document number of the user.
     shared_ptr<string> docNo_ {};
-    // The custom configuration for whether to collect additional pages.
+    // The custom configuration passed by the customer to specify whether to collect more pages.
     shared_ptr<vector<string>> docPageConfig_ {};
-    // The document capture photo mode.
+    // The photo capture mode for document collection. Valid values:
+    // 
+    // - manual: Manual capture.
+    // - auto: Automatic capture. This is the default value.
     shared_ptr<string> docScanMode_ {};
-    // The document type.
-    // >For the eKYC_PRO and ID_OCR_MAX solutions, see the official documentation at https://www.alibabacloud.com/help/zh/ekyc/latest/certificate-code-table?spm=a2c63.p38356.help-menu-445633.d_2_8_2_0.279147abwKAWbr
+    // The document type. 
+    // > For the eKYC_PRO and ID_OCR_MAX editions, see the official documentation: https://www.alibabacloud.com/help/zh/ekyc/latest/certificate-code-table?spm=a2c63.p38356.help-menu-445633.d_2_8_2_0.279147abwKAWbr
     // 
-    // >For the ID_OCR, eKYC, and eKYC_MIN solutions, see the document type list in the official documentation at https://www.alibabacloud.com/help/zh/ekyc/latest/gnhekqy05ni51m4c?spm=a2c63.p38356.help-menu-445633.d_2_3_1_0_0_0.6243244777KoZ7
+    // > For the ID_OCR, eKYC, and eYKC_MIN editions, see the document type list in the official documentation: https://www.alibabacloud.com/help/zh/ekyc/latest/gnhekqy05ni51m4c?spm=a2c63.p38356.help-menu-445633.d_2_3_1_0_0_0.6243244777KoZ7
     shared_ptr<string> docType_ {};
-    // Specifies whether to collect a verification video.
+    // Specifies whether to store a video as evidence. Valid values:
     // 
-    // - N: No verification video is collected. This is the default value.
+    // - N: No. This is the default value.
     // 
-    // - Y: A short video (1 to 2 seconds) of the user\\"s face verification process is collected during authentication and returned through the query operation.
+    // - Y: Yes. During the authentication process, a video of the user\\"s face scanning process (a 1- to 2-second video file) is collected and returned through the query operation.
     // 
-    // > Because video files are large, the system discards video files when the network is unstable to prioritize the transmission of images required for authentication.
+    // > Because video files are large, the system discards the video file when the network is unstable to prioritize the transmission of images required for authentication.
     shared_ptr<string> docVideo_ {};
-    // The document number.
+    // The document number. This parameter is required when **MRTDInput** is set to **2**.
     shared_ptr<string> documentNumber_ {};
-    // Specifies whether the recognition result page is editable during the document OCR recognition step:
+    // Specifies whether the recognition result page is editable during the document OCR stage. Valid values:
+    // 
+    // - **0**: Not editable.
+    // 
+    // - **1**: Editable. This is the default value.
     shared_ptr<string> editOcrResult_ {};
     // The Indonesian email address. This field takes effect only when Authorize is set to T.
+    // 
+    // > Note
+    // > This field is required only when the Indonesian data source is enabled.
     shared_ptr<string> email_ {};
     // The experience code.
     shared_ptr<string> experienceCode_ {};
+    // Specifies whether to return additional face attribute information. Valid values: N: Do not return. This is the default value. Y: Return. The result is located in Result.ExtFaceInfo.FaceAttributeInfo.
     shared_ptr<string> faceAttributeCheck_ {};
-    // The face libraries to compare against.
+    // The face databases for comparison.
     shared_ptr<string> faceGroupCodes_ {};
-    // The Base64-encoded face photo. If you use FacePictureBase64 to pass in the face photo, check the photo size and do not pass in an excessively large photo.
+    // The Base64-encoded string of the photo. If you choose to pass the face photo by using FacePictureBase64, check the photo size and do not pass an excessively large photo.
     shared_ptr<string> facePictureBase64_ {};
     // The file stream of the face photo.
     shared_ptr<Darabonba::IStream> facePictureFileObject_ {};
     // The URL of the face photo. The URL must be a publicly accessible HTTP or HTTPS link.
     shared_ptr<string> facePictureUrl_ {};
-    // The face registration library.
+    // The face database for registration.
     shared_ptr<string> faceRegisterGroupCode_ {};
-    // The face verification threshold.
+    // The threshold for face verification.
     shared_ptr<string> faceVerifyThreshold_ {};
-    // The face image quality. This is an input parameter for the IDV product.
+    // The quality of the face image. This parameter is applicable to IDV products.
     shared_ptr<string> idFaceQuality_ {};
-    // Specifies whether to enable document anti-spoofing detection. This is an input parameter for the IDV product.
+    // Specifies whether to enable document anti-spoofing detection. This parameter is applicable to IDV products.
     shared_ptr<string> idSpoof_ {};
-    // The custom OCR quality detection threshold mode:
+    // The custom threshold mode for OCR quality detection. Valid values:
+    // 
+    // - 0: System default.
+    // - 1: Strict mode.
+    // - 2: Loose mode.
+    // - 3: Disable quality detection. This is the default value.
     shared_ptr<string> idThreshold_ {};
-    // The language configuration. This is an input parameter for the IDV product.
+    // The forced centering configuration. Specifies whether to intercept the request when an off-center face is detected on the terminal. Valid values:
+    // 
+    // - Y: Intercept. The client prompts the user to scan their face again.
+    // - N: Do not intercept. This is the default value. The system extracts the largest face from the face scanning screen and sends it to the server for security detection.
+    shared_ptr<string> isForceFaceCentered_ {};
+    // The language configuration. This parameter is applicable to IDV products.
     shared_ptr<string> languageConfig_ {};
-    // The source of the MRTD verification parameter input. This parameter is required to decrypt information when reading document chip data via NFC.
+    // The input source of the MRTD verification parameter. This parameter is required to decrypt information when NFC reads the document chip information. Valid values:
     // 
-    // - **0**: user input
+    // - **0**: User input.
     // 
-    // - **1**: OCR reading
+    // - **1**: OCR reading.
     // 
-    // - **2**: API input
+    // - **2**: API input.
     shared_ptr<string> MRTDInput_ {};
-    // The merchant-defined unique business ID used for subsequent troubleshooting. The value supports a combination of letters and numbers with a maximum length of 32 characters. Ensure that the value is unique.
+    // The custom unique business identifier on the merchant side, which is used for subsequent troubleshooting. It supports a combination of letters and digits, with a maximum length of 32 characters. Make sure that the value is unique.
     shared_ptr<string> merchantBizId_ {};
-    // The custom user ID, or another identifier that can identify a specific user, such as a phone number or email address. We strongly recommend that you hash or otherwise de-identify this value before passing it in.
+    // Your custom user ID or another identifier that can identify a specific user, such as a mobile phone number or an email address. We strongly recommend that you desensitize the value of this field in advance, for example, by hashing the value.
     shared_ptr<string> merchantUserId_ {};
-    // The Metainfo environment parameter, which must be obtained through the client SDK.
+    // The Metainfo environment parameter, which must be obtained by using the client SDK.
     shared_ptr<string> metaInfo_ {};
-    // The Indonesian phone number. The format must start with +62 followed by 9 to 11 digits. This field takes effect only when Authorize is set to T.
+    // The Indonesian phone number. The format must be verified. It must start with +62 followed by 9 to 11 digits. This field takes effect only when Authorize is set to T.
+    // 
+    // > 
+    // > - This field is required only when the Indonesian data source is enabled.
     shared_ptr<string> mobile_ {};
-    // The type of liveness detection to perform.
+    // The type of liveness detection to perform. Valid values:
     // 
-    // - **LIVENESS** (default): Blink-based liveness detection.
+    // - **LIVENESS**: Liveness detection based on blinking. This is the default value.
     // 
-    // - **PHOTINUS_LIVENESS**: Dual detection that combines blink-based liveness detection and colorful light liveness detection.
+    // - **PHOTINUS_LIVENESS**: Dual liveness detection based on blinking and photinus.
     // 
     // > 
     // > - For supported SDK versions, see [SDK release notes](https://www.alibabacloud.com/help/zh/ekyc/latest/sdk-publishing-record?spm=a2c63.p38356.0.i99).
-    // > - Colorful light dual detection is not supported on PCs.
+    // > - Dual liveness detection based on photinus is not supported on PCs.
     shared_ptr<string> model_ {};
+    // Specifies whether to intercept the request when multiple faces are detected on the terminal. Valid values:
+    // 
+    // - Y: Intercept. The client prompts the user to scan their face again.
+    // - N: Do not intercept. This is the default value. The system extracts the largest face from the face scanning screen and sends it to the server for security detection.
     shared_ptr<string> needMultiFaceCheck_ {};
-    // Specifies whether to enable OCR. This is an input parameter for the IDV product.
+    // Specifies whether to enable OCR. This parameter is applicable to IDV products.
     shared_ptr<string> ocr_ {};
-    // Specifies whether to additionally return OCR recognition results in a standardized format:
+    // Specifies whether to return additional standardized OCR recognition fields. Valid values:
+    // 
+    // - 0: No. This is the default value.
+    // - 1: Yes.
     shared_ptr<string> ocrValueStandard_ {};
-    // The configuration for capture pages. Separate multiple pages with commas (,). Valid values:
+    // The configuration of the pages to collect. Separate multiple pages with commas (,). Valid values:
+    // - **01**: The portrait side of the document.
     // 
-    // - **01**: the portrait side of the identity document.
+    // - **01,02**: The portrait and back sides of the document.
     // 
-    // - **01,02**: the portrait side and back side of the identity document.
-    // 
-    // > When this parameter is set to 01,02, only China identity cards and Vietnam identity cards are supported.
+    // > If you set this parameter to 01,02, only Chinese ID cards and Vietnamese ID cards are supported.
     shared_ptr<string> pages_ {};
-    // Specifies whether to allow a degraded processing method when compatibility issues occur during mobile H5 authentication.
+    // Specifies whether to allow degraded processing when compatibility issues occur during mobile H5 authentication. Valid values:
     // 
-    // - **url (default)**: Degradation is supported. The page displays the authentication URL, and the user can copy the URL to open it or switch browsers to continue authentication.
+    // - **url**: Allow degradation. This is the default value. The page displays the authentication URL, and the user can copy the URL to open it or switch browsers to continue the authentication.
     // 
-    // - **keep**: Degradation is not supported. The error reason is directly returned, and the authentication process ends.
+    // - **keep**: Do not allow degradation. The system directly returns the error cause and ends the authentication process.
     // 
     // 
     // > 
-    // > - This parameter is not supported on PC.
-    // > - If the business scenario involves completing authentication within a webpage embedded in an app, set this parameter to keep to disallow URL degradation.
+    // > - This switch is not supported on PCs.
+    // > - If the business scenario involves completing authentication in an embedded web page within an app, we recommend that you set this parameter to keep to disable URL degradation.
     shared_ptr<string> procedurePriority_ {};
-    // The product plan to use.
+    // The product edition to integrate. 
     // 
-    // >**Note** For more information, see the official documentation: https://www.alibabacloud.com/help/zh/ekyc/latest/product-introduction?spm=a2c63.p38356.0.i1
+    // > Note: For more information, see the official documentation: https://www.alibabacloud.com/help/zh/ekyc/latest/product-introduction?spm=a2c63.p38356.0.i1
     shared_ptr<string> productCode_ {};
-    // Specifies the order of document and face verification steps. Valid values:
+    // The sequence of document and face verification. Valid values:
     // 
-    // - DOC_FACE: Document first, then face. This is the default value.
-    // - FACE_DOC: Face first, then document.
+    // - DOC_FACE: Document verification followed by face verification. This is the default value.
+    // - FACE_DOC: Face verification followed by document verification.
     // 
-    // >**Note**: This parameter is required only when ProductCode is set to KYC_GLOBAL.
+    // > Note: This parameter is required only when ProductCode is set to KYC_GLOBAL.
     shared_ptr<string> productFlow_ {};
-    // The number of duplicate faces to return.
+    // The number of duplicate faces returned.
     shared_ptr<string> returnFaces_ {};
     // The client-side callback URL.
     shared_ptr<string> returnUrl_ {};
     // Specifies whether to save the face photo.
     shared_ptr<string> saveFacePicture_ {};
-    // The scene code. This is an input parameter for the IDV product.
+    // The scene code. This parameter is applicable to IDV products.
     shared_ptr<string> sceneCode_ {};
-    // The mode that represents different security levels of the authentication process. Valid values:
+    // The pattern that represents different security levels of the authentication flow. Valid values:
     // 
-    // - 01: Normal mode (default).
-    // - 02: Safe mode. A relatively strict mode that can be used for high-risk scenarios (input parameter for IDV products).
+    // - 01: Normal pattern. This is the default value.
+    // - 02: safe mode. This is a relatively strict pattern that is active in high-risk scenarios. This parameter is applicable to IDV products.
     shared_ptr<string> securityLevel_ {};
-    // Specifies whether to display the album upload entry during the document OCR recognition step:
+    // Specifies whether to display the album upload entry during the document OCR stage. Valid values:
+    // 
+    // - **1**: Display. This is the default value.
+    // 
+    // - **0**: Do not display.
     shared_ptr<string> showAlbumIcon_ {};
-    // Specifies whether to display the guide page:
+    // Specifies whether to display the guide page. Valid values:
+    // 
+    // - **1**: Display. This is the default value.
+    // 
+    // - **0**: Do not display.
     shared_ptr<string> showGuidePage_ {};
-    // Specifies whether to display the recognition result page during the document OCR recognition step:
+    // Specifies whether to display the recognition result page during the document OCR stage. Valid values:
+    // 
+    // - **1**: Display. This is the default value.
+    // 
+    // - **0**: Do not display.
     shared_ptr<string> showOcrResult_ {};
-    // The custom UI configuration. Convert your custom UI configuration to a JSON string based on the configuration template, and pass it in through this parameter. For more information, see [IDV UI style customization](https://www.alibabacloud.com/help/zh/ekyc/latest/idv-kyc-custom-skin?spm=a2c63.p38356.0.i60).
+    // The custom UI configuration. Convert your custom UI configuration into a JSON string based on the configuration template, and pass it through this operation. For more information, see [Customize IDV UI styles](https://www.alibabacloud.com/help/zh/ekyc/latest/idv-kyc-custom-skin?spm=a2c63.p38356.0.i60).
     shared_ptr<string> styleConfig_ {};
-    // The Base64-encoded face photo.
+    // The Base64-encoded string of the portrait photo.
     shared_ptr<string> targetFacePicture_ {};
-    // The file stream of the reference face photo.
+    // The file stream of the base face image.
     shared_ptr<Darabonba::IStream> targetFacePictureFileObject_ {};
-    // The URL of the face photo. The URL must be a publicly accessible HTTP or HTTPS link.
+    // The URL of the portrait photo. The URL must be a publicly accessible HTTP or HTTPS link.
     shared_ptr<string> targetFacePictureUrl_ {};
-    // The custom action pool configuration for liveness detection.
+    // The custom action pool configuration for liveness detection. This parameter is required when Model is set to TEMPLATE.
+    // Configuration rules: Separate multiple action codes with commas (,). Best Practices: We recommend that you include at least one frontal face action (such as blinking) and keep the total number of actions to a maximum of 3.
+    // Action code lookup table:
+    // 
+    // - Blink: 01
+    // - Open Mouth: 02
+    // - Shake Head Left: 03
+    // - Shake Head Right: 04
+    // - Move Farther: 05
+    // - Move Closer: 06
+    // - Photinus: 07
     shared_ptr<string> templateConfig_ {};
-    // The number of actions to randomly select from TemplateConfig.
+    // **[Deprecated]** The random mode is no longer recommended. This field is deprecated.
     shared_ptr<string> templateRanCount_ {};
-    // The execution order of liveness detection actions in TemplateConfig.
+    // The execution sequence of liveness detection actions in TemplateConfig. This parameter is required when Model is set to TEMPLATE. Valid values:
+    // 
+    // - Seq: Execute from left to right in the sequence configured in TemplateConfig.
     shared_ptr<string> templateType_ {};
-    // Specifies whether to overwrite the existing face with the current face when the MerchantUserId already exists during automatic registration. Valid values: Y (overwrite) and N (do not overwrite and return a message indicating that the UserId already exists).
+    // Specifies whether to overwrite the existing face with the current face if MerchantUserId already exists during automatic registration. Valid values: Y: Overwrite. N: Do not overwrite and return a message indicating that the UserId already exists.
     shared_ptr<string> updateFaceIfUserExists_ {};
-    // When **DocType** is set to 01000000 (global passport), specifies whether to enable NFC verification.
-    // - **Y**: Enable NFC verification.
-    // - **N**: Disable NFC verification.
+    // Specifies whether to enable NFC verification when **DocType** is set to 01000000 (global passport). Valid values:
+    // - **Y**: Enable.
+    // - **N**: Disable.
     shared_ptr<string> useNFC_ {};
-    // The verification type.
+    // The type of verification.
     shared_ptr<string> verifyModel_ {};
   };
 

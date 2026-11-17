@@ -79,10 +79,11 @@ namespace Models
     shared_ptr<string> bizId_ {};
     // The device token obtained through the Face Guard SDK.
     shared_ptr<string> deviceToken_ {};
-    // The custom unique business identifier on the merchant side, used for subsequent troubleshooting. It supports a combination of letters and digits, with a maximum length of 32 characters. Ensure that the value is unique.
+    // The custom unique business identifier on the merchant side, used for subsequent troubleshooting. It supports a combination of letters and digits and can be up to 32 characters in length. Ensure that the value is unique.
     shared_ptr<string> merchantBizId_ {};
-    // The product code. Set the value to FACE_GUARD.
+    // The product code. Valid values: FACE_GUARD and FACE_GUARD_PRO.
     shared_ptr<string> productCode_ {};
+    // The type of the risk scenario detected by Device Assistant.
     shared_ptr<string> type_ {};
   };
 

@@ -82,13 +82,13 @@ namespace Models
 
 
     protected:
-      // The recognized key information, in JSON format.
+      // The recognized key information in JSON format.
       shared_ptr<string> extIdInfo_ {};
       // The description of the authentication result.
       shared_ptr<string> subCode_ {};
       // The extraction result. Valid values:
-      // - S: Succeeded.
-      // - F: Failed.
+      // - S: success.
+      // - F: failure.
       shared_ptr<string> success_ {};
     };
 

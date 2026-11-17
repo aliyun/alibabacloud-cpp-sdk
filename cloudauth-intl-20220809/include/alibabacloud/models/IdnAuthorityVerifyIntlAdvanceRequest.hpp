@@ -165,11 +165,11 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> idNumber_ {};
-    // The merchant-side custom business unique identifier, which is used for subsequent troubleshooting. The value can be a combination of letters and digits with a maximum length of 32 characters. Ensure that the value is unique.
+    // The custom unique business identifier on the merchant side, which is used for subsequent troubleshooting. The value can be up to 32 characters in length and can contain letters and digits. Make sure that the value is unique.
     // 
     // This parameter is required.
     shared_ptr<string> merchantBizId_ {};
-    // The custom user ID, or another identifier that can identify a specific user, such as a phone number or email address. We strongly recommend that you desensitize the value of this field in advance, for example, by hashing the value.
+    // The custom user ID or other identifier that identifies a specific user, such as a mobile phone number or email address. Desensitize the value of this field in advance, such as by hashing the value.
     // 
     // This parameter is required.
     shared_ptr<string> merchantUserId_ {};
@@ -177,22 +177,22 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> mobile_ {};
-    // The product solution to use. Set the value to IDN_META.
+    // The product solution to be integrated. Valid value: IDN_META.
     // 
     // This parameter is required.
     shared_ptr<string> productCode_ {};
-    // The custom authentication scenario ID. You can use this scenario ID to query related records in the console. The value can be a combination of letters, digits, or underscores with a maximum length of 10 characters.
+    // The custom authentication scenario ID, which is used to query related records by entering this scenario ID in the console later. The value can be up to 10 characters in length and can contain letters, digits, and underscores.
     shared_ptr<string> sceneCode_ {};
-    // The Base64-encoded facial photo.
+    // The Base64-encoded portrait photo.
     // 
-    // > **Note**
+    // Note
     // 
-    // - If you use this method to pass the ID photo, check the photo size and do not pass an excessively large photo.
-    // - Specify one of the following parameters: SourceFacePicture, SourceFacePictureUrl, or SourceFacePictureFile.
+    // - If you choose this method to pass the ID photo, check the photo size and do not pass oversized photos.
+    // - Specify only one of the following parameters: SourceFacePicture, SourceFacePictureUrl, and SourceFacePictureFile.
     shared_ptr<string> sourceFacePicture_ {};
-    // The file stream of the facial photo.
+    // The file stream of the portrait photo.
     shared_ptr<Darabonba::IStream> sourceFacePictureFileObject_ {};
-    // The URL of the facial photo. The URL must be a publicly accessible HTTP or HTTPS link.
+    // The URL of the portrait photo. The URL must be a publicly accessible HTTP or HTTPS link.
     shared_ptr<string> sourceFacePictureUrl_ {};
     // This parameter is required.
     shared_ptr<string> timestamp_ {};

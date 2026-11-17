@@ -109,15 +109,15 @@ namespace Models
 
 
     protected:
-      // The AccessKeyId of the temporary credential for file upload.
+      // The AccessKey ID of the temporary credential for file upload.
       shared_ptr<string> accessKeyId_ {};
-      // The temporary authorization secret.
+      // The AccessKey Secret of the temporary credential.
       shared_ptr<string> accessKeySecret_ {};
-      // The bucket name.
+      // The name of the bucket.
       shared_ptr<string> bucketName_ {};
       // The file name prefix.
       shared_ptr<string> fileNamePrefix_ {};
-      // OssEndPoint。
+      // The OSS endpoint.
       shared_ptr<string> ossEndPoint_ {};
       // The security token of the temporary credential for file upload.
       shared_ptr<string> securityToken_ {};
@@ -158,9 +158,9 @@ namespace Models
   protected:
     // The return code.
     shared_ptr<string> code_ {};
-    // The response data.
+    // The returned result.
     shared_ptr<TempAccessTokenIntlResponseBody::Data> data_ {};
-    // The response message.
+    // The returned message.
     shared_ptr<string> message_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};

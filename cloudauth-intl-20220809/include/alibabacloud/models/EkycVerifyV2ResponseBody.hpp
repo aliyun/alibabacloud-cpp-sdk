@@ -100,15 +100,18 @@ namespace Models
 
 
     protected:
-      // The face result information.
+      // The facial result information.
       shared_ptr<string> extFaceInfo_ {};
-      // The identity document recognition result. Returned only when the API response is successful.
+      // The document recognition result. This parameter is returned only when the API response is successful.
       shared_ptr<string> extIdInfo_ {};
-      // Indicates whether the verification passed. A value of Y indicates passed, and a value of N indicates not passed.
+      // Indicates whether the verification is passed. Valid values:
+      // 
+      // - Y: Passed.
+      // - N: Not passed.
       shared_ptr<string> passed_ {};
       // The sub-result code.
       shared_ptr<string> subCode_ {};
-      // The unique identifier of the verification request.
+      // The unique identifier of the authentication request.
       shared_ptr<string> transactionId_ {};
     };
 

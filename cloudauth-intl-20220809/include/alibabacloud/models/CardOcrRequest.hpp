@@ -112,29 +112,29 @@ namespace Models
 
 
   protected:
-    // The document type.
+    // The type of the ID card or certificate.
     shared_ptr<string> docType_ {};
-    // Specifies whether to perform face quality detection on the ID document. Valid values:
-    // - T: Perform face quality detection.
-    // - F: Do not perform face quality detection. This is the default value.
+    // Specifies whether to perform face quality detection for the ID card or certificate. Valid values:
+    // - T: Performs face quality detection.
+    // - F: Does not perform face quality detection. This is the default value.
     shared_ptr<string> idFaceQuality_ {};
-    // The Base64-encoded image of the front side of the ID document. The value is a Base64 encoding of the image.
+    // The Base64 encoding of the image of the front side of the ID card or certificate.
     shared_ptr<string> idOcrPictureBase64_ {};
-    // The URL of the front-side image of the ID document.
+    // The URL of the image of the front side of the ID card or certificate.
     shared_ptr<string> idOcrPictureUrl_ {};
-    // The merchant-defined unique business ID used for subsequent troubleshooting. The value can be a combination of letters and digits with a maximum length of 32 characters. Ensure that the value is unique.
+    // The custom unique business identifier on the merchant side, which is used for subsequent troubleshooting. It supports a combination of letters and digits, with a maximum length of 32 characters. Make sure that the identifier is unique.
     shared_ptr<string> merchantBizId_ {};
-    // The merchant user ID or another identifier that can be used to identify a specific user, such as a phone number or email address. We strongly recommend that you pre-desensitize the value of the userId field, for example, by hashing the value.
+    // The merchant user ID or another identifier that can be used to identify a specific user, such as a mobile phone number or an email address. Desensitize the value of the userId field in advance, such as by hashing the value.
     shared_ptr<string> merchantUserId_ {};
-    // Specifies whether to perform OCR on the ID document. Valid values:
-    // - T: Perform OCR on the ID document. This is the default value.
-    // - F: Do not perform OCR.
+    // Specifies whether to perform OCR on the ID card or certificate. Valid values:
+    // - T: Performs OCR on the ID card or certificate. This is the default value.
+    // - F: Does not perform OCR.
     shared_ptr<string> ocr_ {};
     // The product code.
     shared_ptr<string> productCode_ {};
     // Specifies whether to enable anti-spoofing detection. Valid values:
-    // - T: Enable anti-spoofing detection.
-    // - F: Disable anti-spoofing detection. This is the default value.
+    // - T: Enables anti-spoofing detection.
+    // - F: Disables anti-spoofing detection. This is the default value.
     shared_ptr<string> spoof_ {};
   };
 

@@ -66,20 +66,20 @@ namespace Models
 
 
   protected:
-    // The country name. Valid values:
-    // - China.
+    // The country name.
+    // - China
     // 
     // This parameter is required.
     shared_ptr<string> defaultCountry_ {};
-    // ADD_VERIFY.
+    // ADD_VERIFY
     // 
     // This parameter is required.
     shared_ptr<string> productCode_ {};
-    // Address 1.
+    // The first address.
     // 
     // This parameter is required.
     shared_ptr<string> text1_ {};
-    // Address 2.
+    // The second address.
     // 
     // This parameter is required.
     shared_ptr<string> text2_ {};

@@ -48,9 +48,9 @@ namespace Models
 
 
   protected:
-    // The merchant-side custom business unique identifier, used for subsequent troubleshooting. The value supports a combination of letters and numbers with a maximum length of 32 characters. Ensure that the value is unique.
+    // The custom unique business identifier on the merchant side, which is used for subsequent troubleshooting. It supports a combination of letters and digits and can be up to 32 characters in length. Make sure that the value is unique.
     shared_ptr<string> merchantBizId_ {};
-    // The unique identifier of the entire authentication process. Obtain this value by calling the Initialize operation.
+    // The unique identifier of the entire authentication process. You must call the Initialize operation to obtain this value.
     shared_ptr<string> transactionId_ {};
   };
 

@@ -48,11 +48,11 @@ namespace Models
 
 
   protected:
-    // The face library code.
+    // The face group code.
     // 
     // This parameter is required.
     shared_ptr<string> faceGroupCode_ {};
-    // The OSS information of the image.
+    // The image OSS information.
     // 
     // This parameter is required.
     shared_ptr<string> imgOssInfos_ {};

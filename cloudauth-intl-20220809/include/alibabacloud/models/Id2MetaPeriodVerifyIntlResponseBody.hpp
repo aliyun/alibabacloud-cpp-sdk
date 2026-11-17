@@ -75,11 +75,11 @@ namespace Models
     protected:
       // The final authentication result. Valid values:
       // 
-      // *  Y: Passed.
+      // * Y: Passed.
       // 
-      // * N: Not passed.
+      // * N: Failed.
       shared_ptr<string> passed_ {};
-      // The description of the authentication result. For more information, see the ResultObject.SubCode error code description.
+      // The description of the authentication result. For more information, see ResultObject.SubCode error codes.
       shared_ptr<string> subCode_ {};
     };
 
@@ -116,7 +116,7 @@ namespace Models
 
 
   protected:
-    // The response code. For more information about response codes, see the description of response codes and messages.
+    // The return code. For more information about return codes, see Return codes and messages.
     shared_ptr<string> code_ {};
     // The response message of the request.
     shared_ptr<string> message_ {};

@@ -70,7 +70,7 @@ namespace Models
     shared_ptr<string> code_ {};
     // The result.
     shared_ptr<int32_t> data_ {};
-    // The response message.
+    // The return message.
     shared_ptr<string> message_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};

@@ -68,7 +68,7 @@ namespace Models
   protected:
     // The return code.
     shared_ptr<string> code_ {};
-    // The returned result.
+    // The return result.
     shared_ptr<int32_t> data_ {};
     // The return message.
     shared_ptr<string> message_ {};

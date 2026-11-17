@@ -130,36 +130,33 @@ namespace Models
 
 
   protected:
-    // Specifies the side of the certificate to distinguish between the national emblem side and the portrait side. If this parameter is not specified, the portrait side is used by default. Valid values:
-    // 
-    // - OCR_ID_FACE (default): portrait side
-    // 
-    // - OCR_ID_NATIONAL_EMBLEM: national emblem side.
+    // Specifies the side of the certificate, which can be the national emblem side or the portrait side. If you do not specify this parameter, the portrait side is used by default. Valid values:
+    // - OCR_ID_FACE: The portrait side. Default value.
+    // - OCR_ID_NATIONAL_EMBLEM: The national emblem side.
     shared_ptr<string> cardSide_ {};
     // The certificate type.
     shared_ptr<string> docType_ {};
-    // Specifies whether to perform certificate face quality detection. Valid values:
+    // Specifies whether to perform face quality detection on the certificate. Valid values:
     // - T: Detection is required.
-    // - F: Detection is not required. (Default value: F).
+    // - F: Detection is not required. Default value: F.
     shared_ptr<string> idFaceQuality_ {};
-    // The Base64-encoded card or certificate image.
+    // The Base64-encoded image of the ID card or certificate.
     // 
-    // If you use IdOcrPictureBase64 (Base64-encoded photo) to submit the certificate photo, check the photo size and do not submit an excessively large photo.
+    // If you choose to pass the certificate photo by using the IdOcrPictureBase64 (Base64-encoded photo) method, check the photo size and do not pass oversized photos.
     shared_ptr<string> idOcrPictureBase64_ {};
-    // The URL of the front side of the certificate image.
+    // The URL of the front image of the certificate.
     shared_ptr<string> idOcrPictureUrl_ {};
-    // The custom OCR quality detection threshold mode. Valid values:
-    // 
-    // - 0: system default
-    // - 1: strict mode
-    // - 2: loose mode
-    // - 3 (default): quality detection disabled.
+    // The custom threshold mode for OCR quality detection. Valid values:
+    // - 0: System default.
+    // - 1: Strict mode.
+    // - 2: Loose mode.
+    // - 3: Quality detection is disabled. Default value: 3.
     shared_ptr<string> idThreshold_ {};
-    // The custom business unique identifier on the merchant side, used for subsequent issue tracking and troubleshooting. The value can be a combination of letters and digits with a maximum length of 32 characters. Ensure that the value is unique.
+    // The custom unique business identifier on the merchant side, which is used for subsequent troubleshooting. It supports a combination of letters and digits, with a maximum length of 32 characters. Make sure that the identifier is unique.
     shared_ptr<string> merchantBizId_ {};
-    // The custom user ID in the business. Ensure that the value is unique.
+    // The custom user ID in the business. Make sure that the ID is unique.
     shared_ptr<string> merchantUserId_ {};
-    // Specifies whether to perform certificate OCR. Valid values:
+    // Specifies whether to perform OCR on the certificate. Valid values:
     // - T: OCR is required.
     // - F: OCR is not required.
     shared_ptr<string> ocr_ {};

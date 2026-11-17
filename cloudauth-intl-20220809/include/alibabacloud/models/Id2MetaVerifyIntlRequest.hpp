@@ -66,16 +66,16 @@ namespace Models
 
 
   protected:
-    // The ID card number (in plaintext).
+    // The ID card number in plaintext.
     shared_ptr<string> identifyNum_ {};
     // The parameter type. Valid values:
     // 
-    // - normal: original value (plaintext).
-    // - Note: Due to authoritative data source restrictions, two-factor identity verification does not support MD5 encryption.
+    // - normal: The original value in plaintext.
+    // - Note: Due to the limitations of the authoritative data source, two-element identity verification does not support the MD5 encryption method.
     shared_ptr<string> paramType_ {};
-    // The product solution code. Set this parameter to ID_2META.
+    // The product solution. Fixed value: ID_2META.
     shared_ptr<string> productCode_ {};
-    // The name (in plaintext).
+    // The name in plaintext.
     shared_ptr<string> userName_ {};
   };
 

@@ -181,15 +181,15 @@ namespace Models
         shared_ptr<double> occlusionScore_ {};
         // The sharpness score.
         shared_ptr<double> sharpnessScore_ {};
-        // The overall quality score of the target reference face image.
+        // The overall quality score of the reference face image.
         shared_ptr<double> targetFaceQualityScore_ {};
-        // The illumination score of the target reference face image.
+        // The illumination score of the reference face image.
         shared_ptr<double> targetIlluminationScore_ {};
-        // The key area occlusion score of the target reference face image.
+        // The key area occlusion score of the reference face image.
         shared_ptr<double> targetKaOcclusionScore_ {};
-        // The occlusion score of the target reference face image.
+        // The occlusion score of the reference face image.
         shared_ptr<double> targetOcclusionScore_ {};
-        // The sharpness score of the target reference face image.
+        // The sharpness score of the reference face image.
         shared_ptr<double> targetSharpnessScore_ {};
       };
 
@@ -228,14 +228,15 @@ namespace Models
     protected:
       // The related result information.
       shared_ptr<Result::ExtFaceInfo> extFaceInfo_ {};
-      // The comparison score between the submitted face photo and the target reference face image during verification. Value range: 0 to 100.
+      // The comparison score between the submitted face photo and the reference face photo during the authentication process. Valid values: 0 to 100.
       shared_ptr<double> faceComparisonScore_ {};
-      // Indicates whether the verification passed.
+      // Indicates whether the authentication is passed.
       // 
+      // Valid values:
       // - Y: Passed.
       // - N: Not passed.
       shared_ptr<string> passed_ {};
-      // The unique identifier of the verification request.
+      // The unique identifier of the authentication request.
       shared_ptr<string> transactionId_ {};
     };
 
@@ -272,15 +273,15 @@ namespace Models
 
 
   protected:
-    // The response code.
+    // The return code.
     // 
-    // 200: success. Other values: error codes. For more information, see error codes.
+    // 200: Success. Other values: Error codes. For more information, see Error codes.
     shared_ptr<string> code_ {};
-    // The response message.
+    // The return message.
     shared_ptr<string> message_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};
-    // The returned result.
+    // The return result.
     shared_ptr<FaceCompareV2ResponseBody::Result> result_ {};
   };
 

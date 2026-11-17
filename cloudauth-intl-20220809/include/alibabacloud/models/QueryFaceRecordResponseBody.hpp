@@ -212,17 +212,17 @@ namespace Models
 
 
   protected:
-    // The response code.
+    // The return code.
     shared_ptr<string> code_ {};
     // The current page number.
     shared_ptr<int64_t> currentPage_ {};
-    // The list of returned records.
+    // The list of returned items.
     shared_ptr<vector<QueryFaceRecordResponseBody::Items>> items_ {};
     // The maximum number of entries per page.
     shared_ptr<int32_t> maxResults_ {};
-    // The response message.
+    // The return message.
     shared_ptr<string> message_ {};
-    // The token for the next query.
+    // The token used to start the next query.
     shared_ptr<string> nextToken_ {};
     // The number of entries per page.
     shared_ptr<int32_t> pageSize_ {};

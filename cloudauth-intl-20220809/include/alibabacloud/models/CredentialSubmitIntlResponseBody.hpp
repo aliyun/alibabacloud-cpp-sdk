@@ -102,11 +102,11 @@ namespace Models
   protected:
     // The return code.
     shared_ptr<string> code_ {};
-    // The response message.
+    // The return message.
     shared_ptr<string> message_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};
-    // The returned result.
+    // The return result.
     shared_ptr<CredentialSubmitIntlResponseBody::Result> result_ {};
   };
 

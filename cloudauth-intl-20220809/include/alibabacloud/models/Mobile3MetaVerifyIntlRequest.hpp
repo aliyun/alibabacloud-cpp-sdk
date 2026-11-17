@@ -77,25 +77,25 @@ namespace Models
   protected:
     // The ID card number.
     // 
-    // - If ParamType is set to normal, enter the plaintext value.
-    // - If ParamType is set to md5, enter a 32-character lowercase MD5 string.
+    // - If paramType is set to normal, enter the plaintext.
+    // - If paramType is set to md5, enter a 32-character lowercase MD5 string.
     shared_ptr<string> identifyNum_ {};
-    // The phone number.
+    // The mobile phone number.
     // 
-    // - If ParamType is set to normal, enter the plaintext value.
-    // - If ParamType is set to md5, enter a 32-character lowercase MD5 string.
+    // - If paramType is set to normal, enter the plaintext.
+    // - If paramType is set to md5, enter a 32-character lowercase MD5 string.
     shared_ptr<string> mobile_ {};
     // The parameter type. Valid values:
     // 
-    // - normal: not encrypted
+    // - normal: Unencrypted.
     // - md5: MD5-encrypted.
     shared_ptr<string> paramType_ {};
-    // The product solution code. Fixed value: MOBILE_3META.
+    // The product solution to be accessed. Set the value to MOBILE_3META.
     shared_ptr<string> productCode_ {};
     // The name.
     // 
-    // - If ParamType is set to normal, enter the plaintext value.
-    // - If ParamType is set to md5, enter a 32-character lowercase MD5 string.
+    // - If paramType is set to normal, enter the plaintext.
+    // - If paramType is set to md5, enter a 32-character lowercase MD5 string.
     shared_ptr<string> userName_ {};
   };
 

@@ -194,11 +194,11 @@ namespace Models
     shared_ptr<string> code_ {};
     // The current page number.
     shared_ptr<int64_t> currentPage_ {};
-    // The list of returned entries.
+    // The list of returned items.
     shared_ptr<vector<QueryFaceGroupResponseBody::Items>> items_ {};
-    // The number of entries per page in a paged query.
+    // The number of entries per page during paging.
     shared_ptr<int32_t> maxResults_ {};
-    // The return message.
+    // The returned message.
     shared_ptr<string> message_ {};
     // The token for the next query.
     shared_ptr<string> nextToken_ {};

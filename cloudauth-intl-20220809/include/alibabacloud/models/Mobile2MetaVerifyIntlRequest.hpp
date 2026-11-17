@@ -66,28 +66,28 @@ namespace Models
 
 
   protected:
-    // The phone number.
+    // The mobile phone number.
     // 
-    // - If ParamType is set to normal, pass in the phone number in plaintext.
-    // - If ParamType is set to md5, pass in the phone number in ciphertext as a 32-character lowercase MD5 string.
+    // - If paramType is set to normal, enter the plaintext mobile phone number.
+    // - If paramType is set to md5, enter the ciphertext mobile phone number, which is a 32-character lowercase MD5 string.
     // 
     // This parameter is required.
     shared_ptr<string> mobile_ {};
     // The parameter type. Valid values:
     // 
-    // - normal: not encrypted
-    // - md5: MD5-encrypted.
+    // - normal: no encryption
+    // - md5: MD5 encryption
     // 
     // This parameter is required.
     shared_ptr<string> paramType_ {};
-    // The product code. Set this parameter to MOBILE_2META.
+    // The product code. Set the value to MOBILE_2META.
     // 
     // This parameter is required.
     shared_ptr<string> productCode_ {};
-    // The name. Valid values:
+    // The name.
     // 
-    // - If ParamType is set to normal, pass in the name in plaintext.
-    // - If ParamType is set to md5, pass in the name in ciphertext as a 32-character lowercase MD5 string.
+    // - If paramType is set to normal, enter the plaintext name.
+    // - If paramType is set to md5, enter the ciphertext name, which is a 32-character lowercase MD5 string.
     // 
     // This parameter is required.
     shared_ptr<string> userName_ {};

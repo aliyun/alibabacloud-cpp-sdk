@@ -130,47 +130,45 @@ namespace Models
 
 
   protected:
-    // The field check rule configuration, in JSON string format.
+    // The field validation rule configuration. The value is a JSON string.
     shared_ptr<string> checkRuleConfig_ {};
-    // The Base64-encoded image. If you choose to pass in the image by using IdOcrPictureBase64 (Base64-encoded photo), check the photo size and do not pass in an excessively large photo.
+    // The Base64-encoded image. If you use the IdOcrPictureBase64 parameter to pass the Base64-encoded photo, check the photo size and do not pass oversized photos.
     shared_ptr<string> credentialOcrPictureBase64_ {};
     // The URL of the image. The URL must be a publicly accessible HTTP or HTTPS link.
     shared_ptr<string> credentialOcrPictureUrl_ {};
     // The credential type. Valid values:
-    // - 01: transaction credential (including electronic bill images for water, electricity, gas, credit card, and other types)
+    // - 01: transaction credentials, including electronic bills for utilities such as water, electricity, and gas, as well as credit card statements.
     // 
     // This parameter is required.
     shared_ptr<string> docType_ {};
-    // The input file type. Valid values:
-    // 
-    // - IMAGE (default): image.
-    // 
+    // The material input type. Valid values:
+    // - IMAGE: image. This is the default value.
     // - PDF: PDF format.
     shared_ptr<string> fileInputType_ {};
     // Specifies whether to enable tampering detection. Valid values:
-    // - true: Enabled.
-    // - false: Disabled.
+    // - true: enabled.
+    // - false: disabled.
     // 
     // This parameter is required.
     shared_ptr<string> fraudCheck_ {};
-    // Specifies whether to enable quality detection. Valid values:
-    // - Y: Enabled.
-    // - N: Disabled.
+    // Specifies whether to enable the quality check. Valid values:
+    // - Y: enabled.
+    // - N: disabled.
     shared_ptr<string> idQuality_ {};
     // The extraction type. Valid values:
-    // - 0101: electronic bill address and name module (extracts the address and name module through intelligent analysis)
+    // - 0101: electronic bill address and name module. The address and name are extracted through intelligent analysis.
     // 
     // This parameter is required.
     shared_ptr<string> ocrArea_ {};
     // Specifies whether to enable translation. Valid values:
-    // - 0: Disabled.
-    // - 1: Enabled.
+    // - 0: disabled.
+    // - 1: enabled.
     shared_ptr<string> ocrTranslation_ {};
-    // Specifies whether to enable OCR result normalization. Valid values:
-    // - 0: Disabled.
-    // - 1: Enabled.
+    // Specifies whether to enable OCR result standardization. Valid values:
+    // - 0: disabled.
+    // - 1: enabled.
     shared_ptr<string> ocrValueStandard_ {};
-    // The product solution to use. Set the value to CREDENTIAL_RECOGNITION.
+    // The product solution to be integrated. Valid value: CREDENTIAL_RECOGNITION.
     // 
     // This parameter is required.
     shared_ptr<string> productCode_ {};

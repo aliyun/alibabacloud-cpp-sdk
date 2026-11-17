@@ -57,7 +57,7 @@ namespace Models
 
 
   protected:
-    // Specifies whether the deletion depends on the query operation.
+    // Specifies whether to rely on the query API when deleting data.
     shared_ptr<string> deleteAfterQuery_ {};
     // The type of data to delete.
     shared_ptr<string> deleteType_ {};
