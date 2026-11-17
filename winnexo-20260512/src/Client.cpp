@@ -5380,6 +5380,124 @@ DeleteWorkflowTemplateVersionResponse Client::deleteWorkflowTemplateVersion(cons
 }
 
 /**
+ * @summary Disables session sharing.
+ *
+ * @description Idempotently disables session sharing owned by the current calling user. Existing share links become invalid immediately.
+ *
+ * @param request DisableConversationShareRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DisableConversationShareResponse
+ */
+DisableConversationShareResponse Client::disableConversationShareWithOptions(const DisableConversationShareRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasTenantId()) {
+    query["tenantId"] = request.getTenantId();
+  }
+
+  json body = {};
+  if (!!request.hasSessionId()) {
+    body["sessionId"] = request.getSessionId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "DisableConversationShare"},
+    {"version" , "2026-05-12"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/openapi/disableConversationShare")},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DisableConversationShareResponse>();
+}
+
+/**
+ * @summary Disables session sharing.
+ *
+ * @description Idempotently disables session sharing owned by the current calling user. Existing share links become invalid immediately.
+ *
+ * @param request DisableConversationShareRequest
+ * @return DisableConversationShareResponse
+ */
+DisableConversationShareResponse Client::disableConversationShare(const DisableConversationShareRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return disableConversationShareWithOptions(request, headers, runtime);
+}
+
+/**
+ * @summary Disables sharing for output item details.
+ *
+ * @description Idempotently disables sharing for output item details owned by the current calling user, and immediately invalidates previous sharing links. You can locate the target by outputItemId, or precisely by sessionId and outputItemName.
+ *
+ * @param request DisableOutputItemShareRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DisableOutputItemShareResponse
+ */
+DisableOutputItemShareResponse Client::disableOutputItemShareWithOptions(const DisableOutputItemShareRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasTenantId()) {
+    query["tenantId"] = request.getTenantId();
+  }
+
+  json body = {};
+  if (!!request.hasOutputItemId()) {
+    body["outputItemId"] = request.getOutputItemId();
+  }
+
+  if (!!request.hasOutputItemName()) {
+    body["outputItemName"] = request.getOutputItemName();
+  }
+
+  if (!!request.hasSessionId()) {
+    body["sessionId"] = request.getSessionId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "DisableOutputItemShare"},
+    {"version" , "2026-05-12"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/openapi/disableOutputItemShare")},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DisableOutputItemShareResponse>();
+}
+
+/**
+ * @summary Disables sharing for output item details.
+ *
+ * @description Idempotently disables sharing for output item details owned by the current calling user, and immediately invalidates previous sharing links. You can locate the target by outputItemId, or precisely by sessionId and outputItemName.
+ *
+ * @param request DisableOutputItemShareRequest
+ * @return DisableOutputItemShareResponse
+ */
+DisableOutputItemShareResponse Client::disableOutputItemShare(const DisableOutputItemShareRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return disableOutputItemShareWithOptions(request, headers, runtime);
+}
+
+/**
  * @summary Disables an API token.
  *
  * @description Disables the INSTANCE token of a user.
@@ -5444,6 +5562,168 @@ DisableTokenResponse Client::disableToken(const DisableTokenRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   map<string, string> headers = {};
   return disableTokenWithOptions(request, headers, runtime);
+}
+
+/**
+ * @summary Enables session sharing and retrieves the sharing link.
+ *
+ * @description Enables sharing for a session owned by the current calling user and returns the sharing link. The first time sharing is enabled, a snapshot of the currently shareable messages is taken. Subsequent enabling retains the original link.
+ *
+ * @param tmpReq EnableConversationShareRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return EnableConversationShareResponse
+ */
+EnableConversationShareResponse Client::enableConversationShareWithOptions(const EnableConversationShareRequest &tmpReq, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  EnableConversationShareShrinkRequest request = EnableConversationShareShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasShareUserGroupIds()) {
+    request.setShareUserGroupIdsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getShareUserGroupIds(), "shareUserGroupIds", "json"));
+  }
+
+  if (!!tmpReq.hasShareUserIds()) {
+    request.setShareUserIdsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getShareUserIds(), "shareUserIds", "json"));
+  }
+
+  json query = {};
+  if (!!request.hasTenantId()) {
+    query["tenantId"] = request.getTenantId();
+  }
+
+  json body = {};
+  if (!!request.hasSessionId()) {
+    body["sessionId"] = request.getSessionId();
+  }
+
+  if (!!request.hasShareAccessType()) {
+    body["shareAccessType"] = request.getShareAccessType();
+  }
+
+  if (!!request.hasShareUserGroupIdsShrink()) {
+    body["shareUserGroupIds"] = request.getShareUserGroupIdsShrink();
+  }
+
+  if (!!request.hasShareUserIdsShrink()) {
+    body["shareUserIds"] = request.getShareUserIdsShrink();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "EnableConversationShare"},
+    {"version" , "2026-05-12"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/openapi/enableConversationShare")},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<EnableConversationShareResponse>();
+}
+
+/**
+ * @summary Enables session sharing and retrieves the sharing link.
+ *
+ * @description Enables sharing for a session owned by the current calling user and returns the sharing link. The first time sharing is enabled, a snapshot of the currently shareable messages is taken. Subsequent enabling retains the original link.
+ *
+ * @param request EnableConversationShareRequest
+ * @return EnableConversationShareResponse
+ */
+EnableConversationShareResponse Client::enableConversationShare(const EnableConversationShareRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return enableConversationShareWithOptions(request, headers, runtime);
+}
+
+/**
+ * @summary Enables sharing for an output item and retrieves the share link.
+ *
+ * @description Enables sharing for an output item owned by the current caller and returns the share link. You can locate the output item by outputItemId, or precisely locate it by sessionId and outputItemName. If both methods are provided, outputItemId takes precedence.
+ *
+ * @param tmpReq EnableOutputItemShareRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return EnableOutputItemShareResponse
+ */
+EnableOutputItemShareResponse Client::enableOutputItemShareWithOptions(const EnableOutputItemShareRequest &tmpReq, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  EnableOutputItemShareShrinkRequest request = EnableOutputItemShareShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasShareUserGroupIds()) {
+    request.setShareUserGroupIdsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getShareUserGroupIds(), "shareUserGroupIds", "json"));
+  }
+
+  if (!!tmpReq.hasShareUserIds()) {
+    request.setShareUserIdsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getShareUserIds(), "shareUserIds", "json"));
+  }
+
+  json query = {};
+  if (!!request.hasTenantId()) {
+    query["tenantId"] = request.getTenantId();
+  }
+
+  json body = {};
+  if (!!request.hasOutputItemId()) {
+    body["outputItemId"] = request.getOutputItemId();
+  }
+
+  if (!!request.hasOutputItemName()) {
+    body["outputItemName"] = request.getOutputItemName();
+  }
+
+  if (!!request.hasSessionId()) {
+    body["sessionId"] = request.getSessionId();
+  }
+
+  if (!!request.hasShareAccessType()) {
+    body["shareAccessType"] = request.getShareAccessType();
+  }
+
+  if (!!request.hasShareUserGroupIdsShrink()) {
+    body["shareUserGroupIds"] = request.getShareUserGroupIdsShrink();
+  }
+
+  if (!!request.hasShareUserIdsShrink()) {
+    body["shareUserIds"] = request.getShareUserIdsShrink();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "EnableOutputItemShare"},
+    {"version" , "2026-05-12"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/openapi/enableOutputItemShare")},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<EnableOutputItemShareResponse>();
+}
+
+/**
+ * @summary Enables sharing for an output item and retrieves the share link.
+ *
+ * @description Enables sharing for an output item owned by the current caller and returns the share link. You can locate the output item by outputItemId, or precisely locate it by sessionId and outputItemName. If both methods are provided, outputItemId takes precedence.
+ *
+ * @param request EnableOutputItemShareRequest
+ * @return EnableOutputItemShareResponse
+ */
+EnableOutputItemShareResponse Client::enableOutputItemShare(const EnableOutputItemShareRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return enableOutputItemShareWithOptions(request, headers, runtime);
 }
 
 /**
@@ -9155,6 +9435,73 @@ ListBillingResponse Client::listBilling(const ListBillingRequest &request) {
 }
 
 /**
+ * @summary Reads group chat text and multimedia content in message order.
+ *
+ * @description Reads the connected DingTalk, AliDing, or WeCom group chat sources, and paginates the results in ascending order by send time and message record ID. Each message includes the original text, as well as document content, image descriptions, or audio and video transcriptions arranged in the order they appear in the message. The caller must have read permissions for the source. Reading does not trigger attachment parsing. Pagination provides a real-time view, and historical backfilling may change pagination positions. Attachment content is retrieved from the Document Agent. For unparsed items, the API returns found=false and the local processing status. Upstream failures return errors.
+ *
+ * @param request ListChatMessageContentsRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListChatMessageContentsResponse
+ */
+ListChatMessageContentsResponse Client::listChatMessageContentsWithOptions(const ListChatMessageContentsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasTenantId()) {
+    query["tenantId"] = request.getTenantId();
+  }
+
+  json body = {};
+  if (!!request.hasMaxCharsPerAttachment()) {
+    body["maxCharsPerAttachment"] = request.getMaxCharsPerAttachment();
+  }
+
+  if (!!request.hasPage()) {
+    body["page"] = request.getPage();
+  }
+
+  if (!!request.hasPageSize()) {
+    body["pageSize"] = request.getPageSize();
+  }
+
+  if (!!request.hasSourceId()) {
+    body["sourceId"] = request.getSourceId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "ListChatMessageContents"},
+    {"version" , "2026-05-12"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/openapi/listChatMessageContents")},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListChatMessageContentsResponse>();
+}
+
+/**
+ * @summary Reads group chat text and multimedia content in message order.
+ *
+ * @description Reads the connected DingTalk, AliDing, or WeCom group chat sources, and paginates the results in ascending order by send time and message record ID. Each message includes the original text, as well as document content, image descriptions, or audio and video transcriptions arranged in the order they appear in the message. The caller must have read permissions for the source. Reading does not trigger attachment parsing. Pagination provides a real-time view, and historical backfilling may change pagination positions. Attachment content is retrieved from the Document Agent. For unparsed items, the API returns found=false and the local processing status. Upstream failures return errors.
+ *
+ * @param request ListChatMessageContentsRequest
+ * @return ListChatMessageContentsResponse
+ */
+ListChatMessageContentsResponse Client::listChatMessageContents(const ListChatMessageContentsRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return listChatMessageContentsWithOptions(request, headers, runtime);
+}
+
+/**
  * @summary Lists chat sessions of the current user in reverse chronological order by creation time.
  *
  * @description ## Operation description
@@ -12081,6 +12428,65 @@ PreviewKnowledgeBaseSourceResponse Client::previewKnowledgeBaseSource(const Prev
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   map<string, string> headers = {};
   return previewKnowledgeBaseSourceWithOptions(request, headers, runtime);
+}
+
+/**
+ * @summary Previews an output file or a non-file output.
+ *
+ * @description Previews the output that the current calling user has permission to access based on the output item ID. This operation supports managed versions, archived history, unversioned history, and non-file outputs such as emails and slide decks. If a short-term preview or download URL is returned, you must call the operation again after the URL expires.
+ *
+ * @param request PreviewOutputFileRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return PreviewOutputFileResponse
+ */
+PreviewOutputFileResponse Client::previewOutputFileWithOptions(const PreviewOutputFileRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasTenantId()) {
+    query["tenantId"] = request.getTenantId();
+  }
+
+  json body = {};
+  if (!!request.hasOutputItemId()) {
+    body["outputItemId"] = request.getOutputItemId();
+  }
+
+  if (!!request.hasVersionId()) {
+    body["versionId"] = request.getVersionId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "PreviewOutputFile"},
+    {"version" , "2026-05-12"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/openapi/previewOutputFile")},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<PreviewOutputFileResponse>();
+}
+
+/**
+ * @summary Previews an output file or a non-file output.
+ *
+ * @description Previews the output that the current calling user has permission to access based on the output item ID. This operation supports managed versions, archived history, unversioned history, and non-file outputs such as emails and slide decks. If a short-term preview or download URL is returned, you must call the operation again after the URL expires.
+ *
+ * @param request PreviewOutputFileRequest
+ * @return PreviewOutputFileResponse
+ */
+PreviewOutputFileResponse Client::previewOutputFile(const PreviewOutputFileRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return previewOutputFileWithOptions(request, headers, runtime);
 }
 
 /**
@@ -17294,6 +17700,103 @@ UpdateScheduledTaskResponse Client::updateScheduledTask(const UpdateScheduledTas
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   map<string, string> headers = {};
   return updateScheduledTaskWithOptions(request, headers, runtime);
+}
+
+/**
+ * @summary Updates the sharing status, scope, or output link.
+ *
+ * @description Updates the sharing status and scope of a session or output item. Only output items support refreshing the sharing link. For session targets, use sessionId. For output targets, use outputItemId or a combination of sessionId and outputItemName.
+ *
+ * @param tmpReq UpdateShareRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return UpdateShareResponse
+ */
+UpdateShareResponse Client::updateShareWithOptions(const UpdateShareRequest &tmpReq, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  UpdateShareShrinkRequest request = UpdateShareShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasShareUserGroupIds()) {
+    request.setShareUserGroupIdsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getShareUserGroupIds(), "shareUserGroupIds", "json"));
+  }
+
+  if (!!tmpReq.hasShareUserIds()) {
+    request.setShareUserIdsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getShareUserIds(), "shareUserIds", "json"));
+  }
+
+  json query = {};
+  if (!!request.hasTenantId()) {
+    query["tenantId"] = request.getTenantId();
+  }
+
+  json body = {};
+  if (!!request.hasOutputItemId()) {
+    body["outputItemId"] = request.getOutputItemId();
+  }
+
+  if (!!request.hasOutputItemName()) {
+    body["outputItemName"] = request.getOutputItemName();
+  }
+
+  if (!!request.hasRefreshShareLink()) {
+    body["refreshShareLink"] = request.getRefreshShareLink();
+  }
+
+  if (!!request.hasSessionId()) {
+    body["sessionId"] = request.getSessionId();
+  }
+
+  if (!!request.hasShareAccessType()) {
+    body["shareAccessType"] = request.getShareAccessType();
+  }
+
+  if (!!request.hasShareEnabled()) {
+    body["shareEnabled"] = request.getShareEnabled();
+  }
+
+  if (!!request.hasShareUserGroupIdsShrink()) {
+    body["shareUserGroupIds"] = request.getShareUserGroupIdsShrink();
+  }
+
+  if (!!request.hasShareUserIdsShrink()) {
+    body["shareUserIds"] = request.getShareUserIdsShrink();
+  }
+
+  if (!!request.hasTargetType()) {
+    body["targetType"] = request.getTargetType();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "UpdateShare"},
+    {"version" , "2026-05-12"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/openapi/updateShare")},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<UpdateShareResponse>();
+}
+
+/**
+ * @summary Updates the sharing status, scope, or output link.
+ *
+ * @description Updates the sharing status and scope of a session or output item. Only output items support refreshing the sharing link. For session targets, use sessionId. For output targets, use outputItemId or a combination of sessionId and outputItemName.
+ *
+ * @param request UpdateShareRequest
+ * @return UpdateShareResponse
+ */
+UpdateShareResponse Client::updateShare(const UpdateShareRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return updateShareWithOptions(request, headers, runtime);
 }
 
 /**

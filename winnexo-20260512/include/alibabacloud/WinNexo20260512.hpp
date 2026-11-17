@@ -1822,6 +1822,50 @@ namespace WinNexo20260512
       Models::DeleteWorkflowTemplateVersionResponse deleteWorkflowTemplateVersion(const Models::DeleteWorkflowTemplateVersionRequest &request);
 
       /**
+       * @summary Disables session sharing.
+       *
+       * @description Idempotently disables session sharing owned by the current calling user. Existing share links become invalid immediately.
+       *
+       * @param request DisableConversationShareRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DisableConversationShareResponse
+       */
+      Models::DisableConversationShareResponse disableConversationShareWithOptions(const Models::DisableConversationShareRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Disables session sharing.
+       *
+       * @description Idempotently disables session sharing owned by the current calling user. Existing share links become invalid immediately.
+       *
+       * @param request DisableConversationShareRequest
+       * @return DisableConversationShareResponse
+       */
+      Models::DisableConversationShareResponse disableConversationShare(const Models::DisableConversationShareRequest &request);
+
+      /**
+       * @summary Disables sharing for output item details.
+       *
+       * @description Idempotently disables sharing for output item details owned by the current calling user, and immediately invalidates previous sharing links. You can locate the target by outputItemId, or precisely by sessionId and outputItemName.
+       *
+       * @param request DisableOutputItemShareRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DisableOutputItemShareResponse
+       */
+      Models::DisableOutputItemShareResponse disableOutputItemShareWithOptions(const Models::DisableOutputItemShareRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Disables sharing for output item details.
+       *
+       * @description Idempotently disables sharing for output item details owned by the current calling user, and immediately invalidates previous sharing links. You can locate the target by outputItemId, or precisely by sessionId and outputItemName.
+       *
+       * @param request DisableOutputItemShareRequest
+       * @return DisableOutputItemShareResponse
+       */
+      Models::DisableOutputItemShareResponse disableOutputItemShare(const Models::DisableOutputItemShareRequest &request);
+
+      /**
        * @summary Disables an API token.
        *
        * @description Disables the INSTANCE token of a user.
@@ -1854,6 +1898,50 @@ namespace WinNexo20260512
        * @return DisableTokenResponse
        */
       Models::DisableTokenResponse disableToken(const Models::DisableTokenRequest &request);
+
+      /**
+       * @summary Enables session sharing and retrieves the sharing link.
+       *
+       * @description Enables sharing for a session owned by the current calling user and returns the sharing link. The first time sharing is enabled, a snapshot of the currently shareable messages is taken. Subsequent enabling retains the original link.
+       *
+       * @param tmpReq EnableConversationShareRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return EnableConversationShareResponse
+       */
+      Models::EnableConversationShareResponse enableConversationShareWithOptions(const Models::EnableConversationShareRequest &tmpReq, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Enables session sharing and retrieves the sharing link.
+       *
+       * @description Enables sharing for a session owned by the current calling user and returns the sharing link. The first time sharing is enabled, a snapshot of the currently shareable messages is taken. Subsequent enabling retains the original link.
+       *
+       * @param request EnableConversationShareRequest
+       * @return EnableConversationShareResponse
+       */
+      Models::EnableConversationShareResponse enableConversationShare(const Models::EnableConversationShareRequest &request);
+
+      /**
+       * @summary Enables sharing for an output item and retrieves the share link.
+       *
+       * @description Enables sharing for an output item owned by the current caller and returns the share link. You can locate the output item by outputItemId, or precisely locate it by sessionId and outputItemName. If both methods are provided, outputItemId takes precedence.
+       *
+       * @param tmpReq EnableOutputItemShareRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return EnableOutputItemShareResponse
+       */
+      Models::EnableOutputItemShareResponse enableOutputItemShareWithOptions(const Models::EnableOutputItemShareRequest &tmpReq, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Enables sharing for an output item and retrieves the share link.
+       *
+       * @description Enables sharing for an output item owned by the current caller and returns the share link. You can locate the output item by outputItemId, or precisely locate it by sessionId and outputItemName. If both methods are provided, outputItemId takes precedence.
+       *
+       * @param request EnableOutputItemShareRequest
+       * @return EnableOutputItemShareResponse
+       */
+      Models::EnableOutputItemShareResponse enableOutputItemShare(const Models::EnableOutputItemShareRequest &request);
 
       /**
        * @summary Enables an API token.
@@ -3382,6 +3470,28 @@ namespace WinNexo20260512
       Models::ListBillingResponse listBilling(const Models::ListBillingRequest &request);
 
       /**
+       * @summary Reads group chat text and multimedia content in message order.
+       *
+       * @description Reads the connected DingTalk, AliDing, or WeCom group chat sources, and paginates the results in ascending order by send time and message record ID. Each message includes the original text, as well as document content, image descriptions, or audio and video transcriptions arranged in the order they appear in the message. The caller must have read permissions for the source. Reading does not trigger attachment parsing. Pagination provides a real-time view, and historical backfilling may change pagination positions. Attachment content is retrieved from the Document Agent. For unparsed items, the API returns found=false and the local processing status. Upstream failures return errors.
+       *
+       * @param request ListChatMessageContentsRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListChatMessageContentsResponse
+       */
+      Models::ListChatMessageContentsResponse listChatMessageContentsWithOptions(const Models::ListChatMessageContentsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Reads group chat text and multimedia content in message order.
+       *
+       * @description Reads the connected DingTalk, AliDing, or WeCom group chat sources, and paginates the results in ascending order by send time and message record ID. Each message includes the original text, as well as document content, image descriptions, or audio and video transcriptions arranged in the order they appear in the message. The caller must have read permissions for the source. Reading does not trigger attachment parsing. Pagination provides a real-time view, and historical backfilling may change pagination positions. Attachment content is retrieved from the Document Agent. For unparsed items, the API returns found=false and the local processing status. Upstream failures return errors.
+       *
+       * @param request ListChatMessageContentsRequest
+       * @return ListChatMessageContentsResponse
+       */
+      Models::ListChatMessageContentsResponse listChatMessageContents(const Models::ListChatMessageContentsRequest &request);
+
+      /**
        * @summary Lists chat sessions of the current user in reverse chronological order by creation time.
        *
        * @description ## Operation description
@@ -4436,6 +4546,28 @@ namespace WinNexo20260512
        * @return PreviewKnowledgeBaseSourceResponse
        */
       Models::PreviewKnowledgeBaseSourceResponse previewKnowledgeBaseSource(const Models::PreviewKnowledgeBaseSourceRequest &request);
+
+      /**
+       * @summary Previews an output file or a non-file output.
+       *
+       * @description Previews the output that the current calling user has permission to access based on the output item ID. This operation supports managed versions, archived history, unversioned history, and non-file outputs such as emails and slide decks. If a short-term preview or download URL is returned, you must call the operation again after the URL expires.
+       *
+       * @param request PreviewOutputFileRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return PreviewOutputFileResponse
+       */
+      Models::PreviewOutputFileResponse previewOutputFileWithOptions(const Models::PreviewOutputFileRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Previews an output file or a non-file output.
+       *
+       * @description Previews the output that the current calling user has permission to access based on the output item ID. This operation supports managed versions, archived history, unversioned history, and non-file outputs such as emails and slide decks. If a short-term preview or download URL is returned, you must call the operation again after the URL expires.
+       *
+       * @param request PreviewOutputFileRequest
+       * @return PreviewOutputFileResponse
+       */
+      Models::PreviewOutputFileResponse previewOutputFile(const Models::PreviewOutputFileRequest &request);
 
       /**
        * @summary Allows a user to preview specified knowledge content in their personal directory.
@@ -6338,6 +6470,28 @@ namespace WinNexo20260512
        * @return UpdateScheduledTaskResponse
        */
       Models::UpdateScheduledTaskResponse updateScheduledTask(const Models::UpdateScheduledTaskRequest &request);
+
+      /**
+       * @summary Updates the sharing status, scope, or output link.
+       *
+       * @description Updates the sharing status and scope of a session or output item. Only output items support refreshing the sharing link. For session targets, use sessionId. For output targets, use outputItemId or a combination of sessionId and outputItemName.
+       *
+       * @param tmpReq UpdateShareRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return UpdateShareResponse
+       */
+      Models::UpdateShareResponse updateShareWithOptions(const Models::UpdateShareRequest &tmpReq, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Updates the sharing status, scope, or output link.
+       *
+       * @description Updates the sharing status and scope of a session or output item. Only output items support refreshing the sharing link. For session targets, use sessionId. For output targets, use outputItemId or a combination of sessionId and outputItemName.
+       *
+       * @param request UpdateShareRequest
+       * @return UpdateShareResponse
+       */
+      Models::UpdateShareResponse updateShare(const Models::UpdateShareRequest &request);
 
       /**
        * @summary Updates the content of an editable data source within a tenant and triggers re-parsing.
