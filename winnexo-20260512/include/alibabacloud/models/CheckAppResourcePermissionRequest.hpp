@@ -98,7 +98,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> permission_ {};
-    // The dot-separated resource key. The first segment is the APP application key.
+    // The dot-separated resource key. The first segment is the application key.
     // 
     // This parameter is required.
     shared_ptr<string> resourceKey_ {};
@@ -110,7 +110,7 @@ namespace Models
     shared_ptr<string> resourceType_ {};
     // The ID of the target platform user.
     shared_ptr<int64_t> targetUserId_ {};
-    // The ID of the tenant to which the target user belongs. This parameter is required for cross-tenant targets.
+    // The tenant to which the target user belongs. This parameter is required for cross-tenant targets.
     shared_ptr<string> targetUserTenantId_ {};
     // The tenant ID. This is a common parameter. If not specified, the default tenant of the caller is used.
     shared_ptr<string> tenantId_ {};

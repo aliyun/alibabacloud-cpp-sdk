@@ -187,17 +187,17 @@ namespace Models
 
 
       protected:
-        // The Ray Job ID.
+        // The ID of the Ray job.
         shared_ptr<string> submissionId_ {};
-        // The user ID of the submitter.
+        // The user ID of the timesheet submitter.
         shared_ptr<int64_t> submitterId_ {};
-        // The submitter name.
+        // The name of the submitter.
         shared_ptr<string> submitterName_ {};
-        // The target directory ID.
+        // The ID of the target directory.
         shared_ptr<string> targetDirectoryId_ {};
-        // The target directory name.
+        // The name of the target directory.
         shared_ptr<string> targetDirectoryName_ {};
-        // The root directory ID of the target enterprise knowledge base.
+        // The ID of the root directory of the target enterprise knowledge base.
         shared_ptr<string> targetKbRootDirectoryId_ {};
         // The name of the target enterprise knowledge base.
         shared_ptr<string> targetKbRootDirectoryName_ {};
@@ -378,7 +378,7 @@ namespace Models
       shared_ptr<string> directoryType_ {};
       // The creation time.
       shared_ptr<int64_t> gmtCreate_ {};
-      // The last modification time.
+      // The last update time.
       shared_ptr<int64_t> gmtModified_ {};
       // The item ID.
       shared_ptr<string> itemId_ {};
@@ -392,7 +392,7 @@ namespace Models
       shared_ptr<string> name_ {};
       // The object bindings.
       shared_ptr<vector<Darabonba::Json>> objectBindings_ {};
-      // The visibility mode of the knowledge base to digital employees.
+      // The visibility mode of the knowledge base for digital employees.
       shared_ptr<string> ooVisibilityMode_ {};
       // Indicates whether the item is read-only.
       shared_ptr<bool> readOnly_ {};
@@ -400,15 +400,15 @@ namespace Models
       shared_ptr<vector<Items::ShareInfos>> shareInfos_ {};
       // Indicates whether shared access is allowed.
       shared_ptr<bool> shared_ {};
-      // The number of resources in FAILED status. Returned only when listing top-level KB directories.
+      // The number of resources in the FAILED state. This parameter is returned only when the top-level directory list of the knowledge base is queried.
       shared_ptr<int64_t> sourceFailedCount_ {};
-      // The knowledge base affiliation type. Valid values: aliding_kb_doc (DingTalk knowledge base document), normal (common knowledge).
+      // The ownership type of the knowledge base. Valid values: aliding_kb_doc (DingTalk knowledge base document) and normal (common knowledge).
       shared_ptr<string> sourceKind_ {};
-      // The number of resources in READY status. Returned only when listing top-level KB directories.
+      // The number of resources in the READY state. This parameter is returned only when the top-level directory list of the knowledge base is queried.
       shared_ptr<int64_t> sourceReadyCount_ {};
-      // The resource status. This field has a value only when itemType is resource.
+      // The resource status. This parameter has a value only when itemType is set to resource.
       shared_ptr<string> sourceStatus_ {};
-      // The total number of resources under the directory and its subdirectories. Returned only when listing top-level KB directories.
+      // The total number of resources in the directory and its subdirectories. This parameter is returned only when the top-level directory list of the knowledge base is queried.
       shared_ptr<int64_t> sourceTotalCount_ {};
       // The data source type.
       shared_ptr<string> sourceType_ {};
@@ -475,9 +475,9 @@ namespace Models
     shared_ptr<vector<ListUserVisibleKnowledgeBaseContentsResponseBody::Items>> items_ {};
     // The status code description.
     shared_ptr<string> message_ {};
-    // The page number. Default value: 1. Pages start from page 1.
+    // The page number. Default value: 1. The pages start from page 1.
     shared_ptr<int64_t> page_ {};
-    // The page size.
+    // The number of entries per page.
     shared_ptr<int64_t> pageSize_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

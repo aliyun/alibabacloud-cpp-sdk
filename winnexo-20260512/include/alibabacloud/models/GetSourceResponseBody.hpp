@@ -156,19 +156,19 @@ namespace Models
 
 
     protected:
-      // The completion time, in milliseconds.
+      // The completion time in milliseconds.
       shared_ptr<string> completionTime_ {};
       // The file name, including the file name extension.
       shared_ptr<string> fileName_ {};
-      // The file record ID (optional). This value corresponds to settings.file_record_id.
+      // The ID of the file record. This field is optional and corresponds to settings.file_record_id.
       shared_ptr<string> fileRecordId_ {};
-      // The file type. Valid values:
-      // - **file**: file.
-      // - **folder**: folder.
+      // The file type.
+      // - **file**: File.
+      // - **folder**: Folder.
       shared_ptr<string> fileType_ {};
-      // The session analysis result in OSS URL format. The URL expires after one hour.
+      // The result of the session analysis in the form of an OSS URL. The URL expires in one hour.
       shared_ptr<string> ossUrl_ {};
-      // The DocumentAgent semantic ID.
+      // The semantic ID of DocumentAgent.
       shared_ptr<string> semanticsId_ {};
     };
 
@@ -223,7 +223,7 @@ namespace Models
       shared_ptr<string> graphName_ {};
       // The ID of the recommended item. The value can be a **feedId** or a mini-app ID.
       shared_ptr<string> objectId_ {};
-      // The object type, such as customer. This field has a value when type is set to mention.
+      // The object type, such as customer. This field has a value only when the type is mention.
       shared_ptr<string> objectType_ {};
     };
 
@@ -434,13 +434,13 @@ namespace Models
   protected:
     // The error code.
     shared_ptr<string> code_ {};
-    // The completion time, in milliseconds.
+    // The completion time in milliseconds.
     shared_ptr<string> completionTime_ {};
     // The description of the to-do card type.
     shared_ptr<string> description_ {};
     // The creation time.
     shared_ptr<string> gmtCreate_ {};
-    // The last modification time.
+    // The last update time.
     shared_ptr<string> gmtModified_ {};
     // Indicates whether notes exist.
     shared_ptr<bool> hasNotes_ {};
@@ -450,39 +450,37 @@ namespace Models
     shared_ptr<bool> hasStructuredTables_ {};
     // Indicates whether unstructured documents exist.
     shared_ptr<bool> hasUnstructuredDocs_ {};
-    // The status code description.
+    // The description of the status code.
     shared_ptr<string> message_ {};
     // The username.
     shared_ptr<string> name_ {};
-    // The meeting notes content (optional). The notes are used for auxiliary analysis.
+    // The content of the meeting notes. This field is optional and is used for auxiliary analysis.
     shared_ptr<string> notes_ {};
     // The object bindings.
     shared_ptr<vector<GetSourceResponseBody::ObjectBindings>> objectBindings_ {};
     // The ID of the associated variable.
     shared_ptr<string> objectId_ {};
-    // The object type, such as customer. This field has a value when type is set to mention.
+    // The object type, such as customer. This field has a value only when the type is mention.
     shared_ptr<string> objectType_ {};
-    // The name of the digital employee (operating object name, optional).
+    // The name of the digital employee. This field is optional and represents the name of the operations object.
     shared_ptr<string> operatingObjectName_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The task scope.
+    // The scope of the task.
     shared_ptr<string> scope_ {};
-    // The user card information settings.
+    // The datasource config. This field is returned only when includeDetails is set to true. The specific fields vary based on the data source type.
     Darabonba::Json settings_ {};
-    // The skill output ID. This ID is included when the output is saved as a resource.
+    // The ID of the skill output. This field is included when the output is saved as a resource.
     shared_ptr<string> skillOutputId_ {};
-    // The data source ID.
+    // The ID of the data source.
     shared_ptr<string> sourceId_ {};
-    // The knowledge base (KB) ownership type. Valid values:
-    // - aliding_kb_doc: DingTalk knowledge base document.
-    // - normal: standard knowledge.
+    // The ownership type of the knowledge base. Valid values: aliding_kb_doc (Alibaba DingTalk knowledge base document) and normal (common knowledge).
     shared_ptr<string> sourceKind_ {};
-    // The resource tags (optional). The value is a JSON string list, such as ["tagA","tagB"].
+    // The resource tags. This field is optional and is a JSON string list, such as ["tagA","tagB"].
     shared_ptr<string> sourceTags_ {};
     // The resource type.
     shared_ptr<string> sourceType_ {};
-    // The final message status.
+    // The final status of the message.
     shared_ptr<string> status_ {};
     // The list of structured tables.
     shared_ptr<vector<string>> structuredTables_ {};

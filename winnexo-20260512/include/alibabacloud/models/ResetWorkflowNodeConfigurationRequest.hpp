@@ -75,23 +75,23 @@ namespace Models
 
 
   protected:
-    // 协作空间ID
+    // The collaboration workspace ID.
     // 
     // This parameter is required.
     shared_ptr<string> collaborationGroupId_ {};
-    // 读取接口返回的configVersion；非负整数；版本冲突须刷新
+    // The configuration version returned by the read API. This must be a non-negative integer. Refresh the data if a version conflict occurs.
     // 
     // This parameter is required.
     shared_ptr<int64_t> expectedVersion_ {};
-    // 当前物理计划ID（planId）
+    // The current physical plan ID.
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
-    // 业务节点key（nodeKey）
+    // The business node key.
     // 
     // This parameter is required.
     shared_ptr<string> nodeId_ {};
-    // 租户ID；缺省使用调用方默认租户
+    // The tenant ID. If not specified, the default tenant of the caller is used.
     shared_ptr<string> tenantId_ {};
   };
 

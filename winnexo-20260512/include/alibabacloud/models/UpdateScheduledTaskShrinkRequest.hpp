@@ -18,6 +18,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(isOpen, isOpen_);
       DARABONBA_PTR_TO_JSON(model, model_);
       DARABONBA_PTR_TO_JSON(name, name_);
+      DARABONBA_PTR_TO_JSON(outputMode, outputMode_);
       DARABONBA_PTR_TO_JSON(segments, segmentsShrink_);
       DARABONBA_PTR_TO_JSON(taskDetail, taskDetailShrink_);
       DARABONBA_PTR_TO_JSON(taskId, taskId_);
@@ -32,6 +33,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(isOpen, isOpen_);
       DARABONBA_PTR_FROM_JSON(model, model_);
       DARABONBA_PTR_FROM_JSON(name, name_);
+      DARABONBA_PTR_FROM_JSON(outputMode, outputMode_);
       DARABONBA_PTR_FROM_JSON(segments, segmentsShrink_);
       DARABONBA_PTR_FROM_JSON(taskDetail, taskDetailShrink_);
       DARABONBA_PTR_FROM_JSON(taskId, taskId_);
@@ -52,9 +54,9 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->descriptionShrink_ == nullptr
-        && this->digitalEmployeeNameShrink_ == nullptr && this->isOpen_ == nullptr && this->model_ == nullptr && this->name_ == nullptr && this->segmentsShrink_ == nullptr
-        && this->taskDetailShrink_ == nullptr && this->taskId_ == nullptr && this->tenantId_ == nullptr && this->triggerConfigShrink_ == nullptr && this->visibility_ == nullptr
-        && this->visibleMemberUserIdsShrink_ == nullptr; };
+        && this->digitalEmployeeNameShrink_ == nullptr && this->isOpen_ == nullptr && this->model_ == nullptr && this->name_ == nullptr && this->outputMode_ == nullptr
+        && this->segmentsShrink_ == nullptr && this->taskDetailShrink_ == nullptr && this->taskId_ == nullptr && this->tenantId_ == nullptr && this->triggerConfigShrink_ == nullptr
+        && this->visibility_ == nullptr && this->visibleMemberUserIdsShrink_ == nullptr; };
     // descriptionShrink Field Functions 
     bool hasDescriptionShrink() const { return this->descriptionShrink_ != nullptr;};
     void deleteDescriptionShrink() { this->descriptionShrink_ = nullptr;};
@@ -88,6 +90,13 @@ namespace Models
     void deleteName() { this->name_ = nullptr;};
     inline string getName() const { DARABONBA_PTR_GET_DEFAULT(name_, "") };
     inline UpdateScheduledTaskShrinkRequest& setName(string name) { DARABONBA_PTR_SET_VALUE(name_, name) };
+
+
+    // outputMode Field Functions 
+    bool hasOutputMode() const { return this->outputMode_ != nullptr;};
+    void deleteOutputMode() { this->outputMode_ = nullptr;};
+    inline string getOutputMode() const { DARABONBA_PTR_GET_DEFAULT(outputMode_, "") };
+    inline UpdateScheduledTaskShrinkRequest& setOutputMode(string outputMode) { DARABONBA_PTR_SET_VALUE(outputMode_, outputMode) };
 
 
     // segmentsShrink Field Functions 
@@ -150,6 +159,8 @@ namespace Models
     shared_ptr<string> model_ {};
     // The file name.
     shared_ptr<string> name_ {};
+    // 输出会话模式，省略时保留当前配置
+    shared_ptr<string> outputMode_ {};
     // The segments.
     shared_ptr<string> segmentsShrink_ {};
     // The task details.

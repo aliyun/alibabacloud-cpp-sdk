@@ -68,7 +68,7 @@ namespace Models
   protected:
     // The status code.
     shared_ptr<string> code_ {};
-    // The description of the status code.
+    // The status code description.
     shared_ptr<string> message_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

@@ -144,7 +144,7 @@ namespace Models
     // The creation time.
     shared_ptr<string> gmtCreate_ {};
     // Indicates whether the account is activated. Valid values:
-    //  - **true**: Activated.
+    // - **true**: Activated.
     // - **false**: Not activated.
     shared_ptr<bool> isActive_ {};
     // The last logon time.
@@ -153,11 +153,11 @@ namespace Models
     shared_ptr<string> message_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The list of system role codes. The list performs a full replacement and must contain at least one role. Valid values: SUPER_ADMIN, SYSTEM_ADMIN, SEMANTIC_ADMIN, SKILL_ADMIN, KB_ADMIN, AGENT_ADMIN, and APPLICATION_USER.
+    // The list of new system role codes. This list fully replaces the existing roles and must contain at least one role. Valid values: SUPER_ADMIN, SYSTEM_ADMIN, SEMANTIC_ADMIN, SKILL_ADMIN, KB_ADMIN, AGENT_ADMIN, and APPLICATION_USER.
     shared_ptr<vector<string>> roleCodes_ {};
-    // The list of user group IDs to which the user belongs.
+    // The list of IDs of the user groups to which the user belongs.
     shared_ptr<vector<string>> userGroupIds_ {};
-    // The WINNEXO platform user ID.
+    // The user ID on the WINNEXO platform.
     shared_ptr<string> wnUserId_ {};
   };
 

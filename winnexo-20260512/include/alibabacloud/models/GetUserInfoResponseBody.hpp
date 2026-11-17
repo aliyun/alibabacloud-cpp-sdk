@@ -131,9 +131,9 @@ namespace Models
       // The tenant name.
       shared_ptr<string> tenantName_ {};
       // The tenant type. Valid values:
-      // - user: individual.
-      // - org: enterprise.
-      // - group: group.
+      // - user: individual
+      // - org: enterprise
+      // - group: group
       shared_ptr<string> tenantType_ {};
     };
 
@@ -285,7 +285,7 @@ namespace Models
 
 
   protected:
-    // The profile picture URL.
+    // The avatar URL.
     shared_ptr<string> avatar_ {};
     // The error code.
     shared_ptr<string> code_ {};
@@ -293,7 +293,7 @@ namespace Models
     shared_ptr<string> crmType_ {};
     // Indicates whether the user is an enterprise administrator.
     shared_ptr<bool> isAdmin_ {};
-    // Indicates whether the current logon tenant is a system tenant (tenantId=10000).
+    // Indicates whether the currently logged-on tenant is the system tenant (tenantId=10000).
     shared_ptr<bool> isSystemTenant_ {};
     // The language preference.
     shared_ptr<string> languagePreference_ {};
@@ -301,9 +301,9 @@ namespace Models
     shared_ptr<string> message_ {};
     // The username.
     shared_ptr<string> name_ {};
-    // The user service description. The value can be up to 1000 characters in length.
+    // The user service description. Maximum length: 1,000 characters.
     shared_ptr<string> offering_ {};
-    // The parsed result of the user service description in JSON format.
+    // The parsing result of the user service in JSON format.
     shared_ptr<string> parsedOffering_ {};
     // The user role.
     shared_ptr<string> profileRole_ {};
@@ -311,7 +311,7 @@ namespace Models
     shared_ptr<string> profileRoleInfo_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The user self-introduction. The value can be up to 1000 characters in length.
+    // The user self-introduction. Maximum length: 1,000 characters.
     shared_ptr<string> selfIntroduction_ {};
     // The effective tenant ID.
     shared_ptr<int64_t> tenantId_ {};
@@ -320,9 +320,9 @@ namespace Models
     // The current tenant name.
     shared_ptr<string> tenantName_ {};
     // The tenant type. Valid values:
-    // - user: individual.
-    // - org: enterprise.
-    // - group: group.
+    // - user: individual
+    // - org: enterprise
+    // - group: group
     shared_ptr<string> tenantType_ {};
     // The user code.
     shared_ptr<string> userCode_ {};

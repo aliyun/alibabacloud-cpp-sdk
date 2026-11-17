@@ -14,12 +14,14 @@ namespace Models
   public:
     friend void to_json(Darabonba::Json& j, const TranscribeChatVoiceRequest& obj) { 
       DARABONBA_PTR_TO_JSON(contentType, contentType_);
+      DARABONBA_PTR_TO_JSON(fileContentBase64, fileContentBase64_);
       DARABONBA_PTR_TO_JSON(fileName, fileName_);
       DARABONBA_PTR_TO_JSON(fileUrl, fileUrl_);
       DARABONBA_PTR_TO_JSON(tenantId, tenantId_);
     };
     friend void from_json(const Darabonba::Json& j, TranscribeChatVoiceRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(contentType, contentType_);
+      DARABONBA_PTR_FROM_JSON(fileContentBase64, fileContentBase64_);
       DARABONBA_PTR_FROM_JSON(fileName, fileName_);
       DARABONBA_PTR_FROM_JSON(fileUrl, fileUrl_);
       DARABONBA_PTR_FROM_JSON(tenantId, tenantId_);
@@ -36,12 +38,19 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->contentType_ == nullptr
-        && this->fileName_ == nullptr && this->fileUrl_ == nullptr && this->tenantId_ == nullptr; };
+        && this->fileContentBase64_ == nullptr && this->fileName_ == nullptr && this->fileUrl_ == nullptr && this->tenantId_ == nullptr; };
     // contentType Field Functions 
     bool hasContentType() const { return this->contentType_ != nullptr;};
     void deleteContentType() { this->contentType_ = nullptr;};
     inline string getContentType() const { DARABONBA_PTR_GET_DEFAULT(contentType_, "") };
     inline TranscribeChatVoiceRequest& setContentType(string contentType) { DARABONBA_PTR_SET_VALUE(contentType_, contentType) };
+
+
+    // fileContentBase64 Field Functions 
+    bool hasFileContentBase64() const { return this->fileContentBase64_ != nullptr;};
+    void deleteFileContentBase64() { this->fileContentBase64_ = nullptr;};
+    inline string getFileContentBase64() const { DARABONBA_PTR_GET_DEFAULT(fileContentBase64_, "") };
+    inline TranscribeChatVoiceRequest& setFileContentBase64(string fileContentBase64) { DARABONBA_PTR_SET_VALUE(fileContentBase64_, fileContentBase64) };
 
 
     // fileName Field Functions 
@@ -78,13 +87,13 @@ namespace Models
     // - **link**: Shortcut.
     // - **other**: Other.
     shared_ptr<string> contentType_ {};
+    // 标准 Base64 音频内容，不含 data URI 前缀，与 FileUrl 二选一
+    shared_ptr<string> fileContentBase64_ {};
     // The full path name of the file.
     // 
     // This parameter is required.
     shared_ptr<string> fileName_ {};
     // The publicly accessible URL of the attachment.
-    // 
-    // This parameter is required.
     shared_ptr<string> fileUrl_ {};
     // The ID of the tenant for which the operation takes effect.
     shared_ptr<string> tenantId_ {};

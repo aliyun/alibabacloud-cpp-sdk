@@ -66,15 +66,15 @@ namespace Models
 
 
   protected:
-    // 协作空间ID
+    // The ID of the collaboration workspace.
     // 
     // This parameter is required.
     shared_ptr<string> collaborationGroupId_ {};
-    // 可选节点key；传入后只返回该节点当前轮次的总结
+    // The node key.
     shared_ptr<string> nodeKey_ {};
-    // 租户ID；缺省使用调用方默认租户
+    // The tenant ID. If not specified, the default tenant of the caller is used.
     shared_ptr<string> tenantId_ {};
-    // 工作项ID
+    // The ID of the work item.
     // 
     // This parameter is required.
     shared_ptr<string> workItemId_ {};

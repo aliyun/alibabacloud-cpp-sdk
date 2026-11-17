@@ -15,12 +15,16 @@ namespace Models
     friend void to_json(Darabonba::Json& j, const SendChatMessageShrinkRequest& obj) { 
       DARABONBA_PTR_TO_JSON(content, content_);
       DARABONBA_PTR_TO_JSON(contentType, contentType_);
+      DARABONBA_PTR_TO_JSON(contextItems, contextItemsShrink_);
       DARABONBA_PTR_TO_JSON(digitalEmployeeName, digitalEmployeeNameShrink_);
       DARABONBA_PTR_TO_JSON(directChat, directChat_);
+      DARABONBA_ANY_TO_JSON(directMaxHistoryRounds, directMaxHistoryRounds_);
       DARABONBA_PTR_TO_JSON(enableWebSearch, enableWebSearch_);
       DARABONBA_PTR_TO_JSON(files, filesShrink_);
+      DARABONBA_PTR_TO_JSON(locale, locale_);
       DARABONBA_PTR_TO_JSON(model, model_);
       DARABONBA_PTR_TO_JSON(reuseLastSession, reuseLastSession_);
+      DARABONBA_PTR_TO_JSON(segments, segmentsShrink_);
       DARABONBA_PTR_TO_JSON(sessionId, sessionId_);
       DARABONBA_PTR_TO_JSON(stream, stream_);
       DARABONBA_PTR_TO_JSON(taskExecution, taskExecutionShrink_);
@@ -30,12 +34,16 @@ namespace Models
     friend void from_json(const Darabonba::Json& j, SendChatMessageShrinkRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(content, content_);
       DARABONBA_PTR_FROM_JSON(contentType, contentType_);
+      DARABONBA_PTR_FROM_JSON(contextItems, contextItemsShrink_);
       DARABONBA_PTR_FROM_JSON(digitalEmployeeName, digitalEmployeeNameShrink_);
       DARABONBA_PTR_FROM_JSON(directChat, directChat_);
+      DARABONBA_ANY_FROM_JSON(directMaxHistoryRounds, directMaxHistoryRounds_);
       DARABONBA_PTR_FROM_JSON(enableWebSearch, enableWebSearch_);
       DARABONBA_PTR_FROM_JSON(files, filesShrink_);
+      DARABONBA_PTR_FROM_JSON(locale, locale_);
       DARABONBA_PTR_FROM_JSON(model, model_);
       DARABONBA_PTR_FROM_JSON(reuseLastSession, reuseLastSession_);
+      DARABONBA_PTR_FROM_JSON(segments, segmentsShrink_);
       DARABONBA_PTR_FROM_JSON(sessionId, sessionId_);
       DARABONBA_PTR_FROM_JSON(stream, stream_);
       DARABONBA_PTR_FROM_JSON(taskExecution, taskExecutionShrink_);
@@ -54,9 +62,10 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->content_ == nullptr
-        && this->contentType_ == nullptr && this->digitalEmployeeNameShrink_ == nullptr && this->directChat_ == nullptr && this->enableWebSearch_ == nullptr && this->filesShrink_ == nullptr
-        && this->model_ == nullptr && this->reuseLastSession_ == nullptr && this->sessionId_ == nullptr && this->stream_ == nullptr && this->taskExecutionShrink_ == nullptr
-        && this->tenantId_ == nullptr && this->workMode_ == nullptr; };
+        && this->contentType_ == nullptr && this->contextItemsShrink_ == nullptr && this->digitalEmployeeNameShrink_ == nullptr && this->directChat_ == nullptr && this->directMaxHistoryRounds_ == nullptr
+        && this->enableWebSearch_ == nullptr && this->filesShrink_ == nullptr && this->locale_ == nullptr && this->model_ == nullptr && this->reuseLastSession_ == nullptr
+        && this->segmentsShrink_ == nullptr && this->sessionId_ == nullptr && this->stream_ == nullptr && this->taskExecutionShrink_ == nullptr && this->tenantId_ == nullptr
+        && this->workMode_ == nullptr; };
     // content Field Functions 
     bool hasContent() const { return this->content_ != nullptr;};
     void deleteContent() { this->content_ = nullptr;};
@@ -69,6 +78,13 @@ namespace Models
     void deleteContentType() { this->contentType_ = nullptr;};
     inline string getContentType() const { DARABONBA_PTR_GET_DEFAULT(contentType_, "") };
     inline SendChatMessageShrinkRequest& setContentType(string contentType) { DARABONBA_PTR_SET_VALUE(contentType_, contentType) };
+
+
+    // contextItemsShrink Field Functions 
+    bool hasContextItemsShrink() const { return this->contextItemsShrink_ != nullptr;};
+    void deleteContextItemsShrink() { this->contextItemsShrink_ = nullptr;};
+    inline string getContextItemsShrink() const { DARABONBA_PTR_GET_DEFAULT(contextItemsShrink_, "") };
+    inline SendChatMessageShrinkRequest& setContextItemsShrink(string contextItemsShrink) { DARABONBA_PTR_SET_VALUE(contextItemsShrink_, contextItemsShrink) };
 
 
     // digitalEmployeeNameShrink Field Functions 
@@ -85,6 +101,15 @@ namespace Models
     inline SendChatMessageShrinkRequest& setDirectChat(bool directChat) { DARABONBA_PTR_SET_VALUE(directChat_, directChat) };
 
 
+    // directMaxHistoryRounds Field Functions 
+    bool hasDirectMaxHistoryRounds() const { return this->directMaxHistoryRounds_ != nullptr;};
+    void deleteDirectMaxHistoryRounds() { this->directMaxHistoryRounds_ = nullptr;};
+    inline     const Darabonba::Json & getDirectMaxHistoryRounds() const { DARABONBA_GET(directMaxHistoryRounds_) };
+    Darabonba::Json & getDirectMaxHistoryRounds() { DARABONBA_GET(directMaxHistoryRounds_) };
+    inline SendChatMessageShrinkRequest& setDirectMaxHistoryRounds(const Darabonba::Json & directMaxHistoryRounds) { DARABONBA_SET_VALUE(directMaxHistoryRounds_, directMaxHistoryRounds) };
+    inline SendChatMessageShrinkRequest& setDirectMaxHistoryRounds(Darabonba::Json && directMaxHistoryRounds) { DARABONBA_SET_RVALUE(directMaxHistoryRounds_, directMaxHistoryRounds) };
+
+
     // enableWebSearch Field Functions 
     bool hasEnableWebSearch() const { return this->enableWebSearch_ != nullptr;};
     void deleteEnableWebSearch() { this->enableWebSearch_ = nullptr;};
@@ -99,6 +124,13 @@ namespace Models
     inline SendChatMessageShrinkRequest& setFilesShrink(string filesShrink) { DARABONBA_PTR_SET_VALUE(filesShrink_, filesShrink) };
 
 
+    // locale Field Functions 
+    bool hasLocale() const { return this->locale_ != nullptr;};
+    void deleteLocale() { this->locale_ = nullptr;};
+    inline string getLocale() const { DARABONBA_PTR_GET_DEFAULT(locale_, "") };
+    inline SendChatMessageShrinkRequest& setLocale(string locale) { DARABONBA_PTR_SET_VALUE(locale_, locale) };
+
+
     // model Field Functions 
     bool hasModel() const { return this->model_ != nullptr;};
     void deleteModel() { this->model_ = nullptr;};
@@ -111,6 +143,13 @@ namespace Models
     void deleteReuseLastSession() { this->reuseLastSession_ = nullptr;};
     inline bool getReuseLastSession() const { DARABONBA_PTR_GET_DEFAULT(reuseLastSession_, false) };
     inline SendChatMessageShrinkRequest& setReuseLastSession(bool reuseLastSession) { DARABONBA_PTR_SET_VALUE(reuseLastSession_, reuseLastSession) };
+
+
+    // segmentsShrink Field Functions 
+    bool hasSegmentsShrink() const { return this->segmentsShrink_ != nullptr;};
+    void deleteSegmentsShrink() { this->segmentsShrink_ = nullptr;};
+    inline string getSegmentsShrink() const { DARABONBA_PTR_GET_DEFAULT(segmentsShrink_, "") };
+    inline SendChatMessageShrinkRequest& setSegmentsShrink(string segmentsShrink) { DARABONBA_PTR_SET_VALUE(segmentsShrink_, segmentsShrink) };
 
 
     // sessionId Field Functions 
@@ -155,18 +194,26 @@ namespace Models
     shared_ptr<string> content_ {};
     // The message type. Valid values: Text and Markdown.
     shared_ptr<string> contentType_ {};
+    // 作为本轮上下文引用的消息或文件条目
+    shared_ptr<string> contextItemsShrink_ {};
     // The list of digital employee names. For compatibility with the legacy format, a single string can be passed.
     shared_ptr<string> digitalEmployeeNameShrink_ {};
     // Specifies whether to enable the direct connection mode. If this parameter is set to true, the regular scenario routing is skipped and the direct connection conversation scenario is directly entered.
     shared_ptr<bool> directChat_ {};
+    // 本轮携带的最近完整 direct 问答轮数，不含本轮输入。仅 workMode=direct 或 directChat=true 时生效。有效值为 0–100 的 JSON 整数，省略时由后端按 0 处理，不携带历史但仍保存当前轮。null、布尔值、字符串、小数及越界值按原 direct 路径处理，网关保留原始值供后端判定。work/ask 忽略此字段。该参数不限制转换为 work 时的历史范围
+    Darabonba::Json directMaxHistoryRounds_ {};
     // Specifies whether to enable web search. Default value: false. In the task execution scenario where taskExecution is passed, the task configuration prevails.
     shared_ptr<bool> enableWebSearch_ {};
     // The list of file references. Each item is an object, and the fileId parameter is required, which is returned by uploadChatFile.
     shared_ptr<string> filesShrink_ {};
+    // 本轮语言，可选 zh-CN、en-US，用于接口错误文案并透传给 CodeAgent；省略时沿用当前语言行为，不修改用户设置
+    shared_ptr<string> locale_ {};
     // The abstract model tier. Valid values: quick, standard, and flagship. If this parameter is not specified, standard is used for new sessions, and the current tier is used for existing sessions.
     shared_ptr<string> model_ {};
     // Specifies whether to reuse the most recent session under the digital employee when sessionId is not passed, which applies to CLI scenarios. Default value: false, which indicates that a new session is created.
     shared_ptr<bool> reuseLastSession_ {};
+    // 消息中的结构化片段，例如会话或对象提及
+    shared_ptr<string> segmentsShrink_ {};
     // The session ID.
     shared_ptr<string> sessionId_ {};
     // Specifies whether to enable streaming output.

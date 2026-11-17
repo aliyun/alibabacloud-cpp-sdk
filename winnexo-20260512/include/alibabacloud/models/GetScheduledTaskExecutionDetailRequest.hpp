@@ -48,7 +48,7 @@ namespace Models
 
 
   protected:
-    // The execution record ID.
+    // The ID of the execution record.
     // 
     // This parameter is required.
     shared_ptr<string> executionId_ {};

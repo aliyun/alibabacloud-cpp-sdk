@@ -85,20 +85,24 @@ namespace Models
       public:
         friend void to_json(Darabonba::Json& j, const Timeline& obj) { 
           DARABONBA_PTR_TO_JSON(actualTime, actualTime_);
+          DARABONBA_PTR_TO_JSON(conversationId, conversationId_);
           DARABONBA_PTR_TO_JSON(displayName, displayName_);
           DARABONBA_PTR_TO_JSON(errorMessage, errorMessage_);
           DARABONBA_PTR_TO_JSON(executionId, executionId_);
           DARABONBA_PTR_TO_JSON(isExpired, isExpired_);
+          DARABONBA_PTR_TO_JSON(messageId, messageId_);
           DARABONBA_PTR_TO_JSON(outputContent, outputContent_);
           DARABONBA_PTR_TO_JSON(scheduledTime, scheduledTime_);
           DARABONBA_PTR_TO_JSON(status, status_);
         };
         friend void from_json(const Darabonba::Json& j, Timeline& obj) { 
           DARABONBA_PTR_FROM_JSON(actualTime, actualTime_);
+          DARABONBA_PTR_FROM_JSON(conversationId, conversationId_);
           DARABONBA_PTR_FROM_JSON(displayName, displayName_);
           DARABONBA_PTR_FROM_JSON(errorMessage, errorMessage_);
           DARABONBA_PTR_FROM_JSON(executionId, executionId_);
           DARABONBA_PTR_FROM_JSON(isExpired, isExpired_);
+          DARABONBA_PTR_FROM_JSON(messageId, messageId_);
           DARABONBA_PTR_FROM_JSON(outputContent, outputContent_);
           DARABONBA_PTR_FROM_JSON(scheduledTime, scheduledTime_);
           DARABONBA_PTR_FROM_JSON(status, status_);
@@ -115,13 +119,20 @@ namespace Models
         virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
         virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
         virtual bool empty() const override { return this->actualTime_ == nullptr
-        && this->displayName_ == nullptr && this->errorMessage_ == nullptr && this->executionId_ == nullptr && this->isExpired_ == nullptr && this->outputContent_ == nullptr
-        && this->scheduledTime_ == nullptr && this->status_ == nullptr; };
+        && this->conversationId_ == nullptr && this->displayName_ == nullptr && this->errorMessage_ == nullptr && this->executionId_ == nullptr && this->isExpired_ == nullptr
+        && this->messageId_ == nullptr && this->outputContent_ == nullptr && this->scheduledTime_ == nullptr && this->status_ == nullptr; };
         // actualTime Field Functions 
         bool hasActualTime() const { return this->actualTime_ != nullptr;};
         void deleteActualTime() { this->actualTime_ = nullptr;};
         inline string getActualTime() const { DARABONBA_PTR_GET_DEFAULT(actualTime_, "") };
         inline Timeline& setActualTime(string actualTime) { DARABONBA_PTR_SET_VALUE(actualTime_, actualTime) };
+
+
+        // conversationId Field Functions 
+        bool hasConversationId() const { return this->conversationId_ != nullptr;};
+        void deleteConversationId() { this->conversationId_ = nullptr;};
+        inline string getConversationId() const { DARABONBA_PTR_GET_DEFAULT(conversationId_, "") };
+        inline Timeline& setConversationId(string conversationId) { DARABONBA_PTR_SET_VALUE(conversationId_, conversationId) };
 
 
         // displayName Field Functions 
@@ -152,6 +163,13 @@ namespace Models
         inline Timeline& setIsExpired(bool isExpired) { DARABONBA_PTR_SET_VALUE(isExpired_, isExpired) };
 
 
+        // messageId Field Functions 
+        bool hasMessageId() const { return this->messageId_ != nullptr;};
+        void deleteMessageId() { this->messageId_ = nullptr;};
+        inline string getMessageId() const { DARABONBA_PTR_GET_DEFAULT(messageId_, "") };
+        inline Timeline& setMessageId(string messageId) { DARABONBA_PTR_SET_VALUE(messageId_, messageId) };
+
+
         // outputContent Field Functions 
         bool hasOutputContent() const { return this->outputContent_ != nullptr;};
         void deleteOutputContent() { this->outputContent_ = nullptr;};
@@ -176,6 +194,8 @@ namespace Models
       protected:
         // The actual working hours in hours.
         shared_ptr<string> actualTime_ {};
+        // 本次任务执行使用的真实会话 ID
+        shared_ptr<string> conversationId_ {};
         // The name of the schedule location.
         shared_ptr<string> displayName_ {};
         // The error message.
@@ -184,6 +204,8 @@ namespace Models
         shared_ptr<string> executionId_ {};
         // The time zone.
         shared_ptr<bool> isExpired_ {};
+        // 本次任务执行生成的结果消息 ID
+        shared_ptr<string> messageId_ {};
         // The execution output content (history records only).
         shared_ptr<string> outputContent_ {};
         // The timed scheduling time.

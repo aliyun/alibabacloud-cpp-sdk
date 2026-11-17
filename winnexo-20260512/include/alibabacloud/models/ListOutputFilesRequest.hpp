@@ -24,6 +24,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(sessionId, sessionId_);
       DARABONBA_PTR_TO_JSON(sharedOnly, sharedOnly_);
       DARABONBA_PTR_TO_JSON(tags, tags_);
+      DARABONBA_PTR_TO_JSON(taskExecutionId, taskExecutionId_);
       DARABONBA_PTR_TO_JSON(tenantId, tenantId_);
     };
     friend void from_json(const Darabonba::Json& j, ListOutputFilesRequest& obj) { 
@@ -37,6 +38,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(sessionId, sessionId_);
       DARABONBA_PTR_FROM_JSON(sharedOnly, sharedOnly_);
       DARABONBA_PTR_FROM_JSON(tags, tags_);
+      DARABONBA_PTR_FROM_JSON(taskExecutionId, taskExecutionId_);
       DARABONBA_PTR_FROM_JSON(tenantId, tenantId_);
     };
     ListOutputFilesRequest() = default ;
@@ -52,7 +54,8 @@ namespace Models
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->bizId_ == nullptr
         && this->collaborationGroupId_ == nullptr && this->itemType_ == nullptr && this->keyword_ == nullptr && this->operatingObjectName_ == nullptr && this->page_ == nullptr
-        && this->pageSize_ == nullptr && this->sessionId_ == nullptr && this->sharedOnly_ == nullptr && this->tags_ == nullptr && this->tenantId_ == nullptr; };
+        && this->pageSize_ == nullptr && this->sessionId_ == nullptr && this->sharedOnly_ == nullptr && this->tags_ == nullptr && this->taskExecutionId_ == nullptr
+        && this->tenantId_ == nullptr; };
     // bizId Field Functions 
     bool hasBizId() const { return this->bizId_ != nullptr;};
     void deleteBizId() { this->bizId_ = nullptr;};
@@ -125,6 +128,13 @@ namespace Models
     inline ListOutputFilesRequest& setTags(vector<string> && tags) { DARABONBA_PTR_SET_RVALUE(tags_, tags) };
 
 
+    // taskExecutionId Field Functions 
+    bool hasTaskExecutionId() const { return this->taskExecutionId_ != nullptr;};
+    void deleteTaskExecutionId() { this->taskExecutionId_ = nullptr;};
+    inline string getTaskExecutionId() const { DARABONBA_PTR_GET_DEFAULT(taskExecutionId_, "") };
+    inline ListOutputFilesRequest& setTaskExecutionId(string taskExecutionId) { DARABONBA_PTR_SET_VALUE(taskExecutionId_, taskExecutionId) };
+
+
     // tenantId Field Functions 
     bool hasTenantId() const { return this->tenantId_ != nullptr;};
     void deleteTenantId() { this->tenantId_ = nullptr;};
@@ -133,15 +143,15 @@ namespace Models
 
 
   protected:
-    // The business ID used for exact filtering. The length is 1 to 128 characters. This ID is derived from file registrations or the businessId of associated workflow instances.
+    // The business ID used for exact filtering. The length is 1 to 128 characters. This value is derived from file registration or the businessId of associated workflow instances.
     shared_ptr<string> bizId_ {};
-    // The ID of the collaboration workspace. The length is 1 to 64 characters. This parameter is optional. If not specified, the personal outputs of the current user are queried. If specified, the real-time permissions of the workspace members and source resources are verified.
+    // The collaboration workspace ID. The length is 1 to 64 characters. If this parameter is not provided, the personal outputs of the current user are queried. If provided, the real-time permissions of workspace members and source resources are verified.
     shared_ptr<string> collaborationGroupId_ {};
-    // The output item type. Valid values: ppt, html, document, picture, slides, video, audio, email, and others.
+    // The output item type: ppt, html, document, picture, slides, video, audio, email, or others.
     shared_ptr<string> itemType_ {};
     // The keyword used to match the output title or detail name.
     shared_ptr<string> keyword_ {};
-    // The name of the digital employee (operating object). Filters results by name.
+    // The name of the digital employee. Filters results by name.
     shared_ptr<string> operatingObjectName_ {};
     // The page number. Pages start from 1. Default value: 1.
     shared_ptr<int64_t> page_ {};
@@ -151,9 +161,11 @@ namespace Models
     shared_ptr<string> sessionId_ {};
     // Specifies whether to display only the outputs and output details that have sharing enabled.
     shared_ptr<bool> sharedOnly_ {};
-    // The tags used for exact filtering. All specified tags must match simultaneously. You can specify up to 20 tags. Each tag must be a non-empty string of 1 to 128 characters. Tags are derived from file registrations or the variables.tags of associated instances.
+    // The tags used for exact filtering. All specified tags must match simultaneously. You can specify up to 20 tags. Each tag must be a non-empty string of 1 to 128 characters. Tags are derived from file registration or the variables.tags of associated instances.
     shared_ptr<vector<string>> tags_ {};
-    // The tenant ID. This is a common parameter. If not specified, the default tenant of the caller is used. The identity and tenant permissions are determined by the gateway and backend authentication.
+    // 按本次执行 ID 精确筛选产出
+    shared_ptr<string> taskExecutionId_ {};
+    // The tenant ID. This is a common parameter. If omitted, the default tenant of the caller is used. The identity and tenant permissions are determined by the gateway and backend authentication.
     shared_ptr<string> tenantId_ {};
   };
 

@@ -16,12 +16,16 @@ namespace Models
     friend void to_json(Darabonba::Json& j, const SendAsyncChatMessageRequest& obj) { 
       DARABONBA_PTR_TO_JSON(content, content_);
       DARABONBA_PTR_TO_JSON(contentType, contentType_);
+      DARABONBA_PTR_TO_JSON(contextItems, contextItems_);
       DARABONBA_PTR_TO_JSON(digitalEmployeeName, digitalEmployeeName_);
       DARABONBA_PTR_TO_JSON(directChat, directChat_);
+      DARABONBA_ANY_TO_JSON(directMaxHistoryRounds, directMaxHistoryRounds_);
       DARABONBA_PTR_TO_JSON(enableWebSearch, enableWebSearch_);
       DARABONBA_PTR_TO_JSON(files, files_);
+      DARABONBA_PTR_TO_JSON(locale, locale_);
       DARABONBA_PTR_TO_JSON(model, model_);
       DARABONBA_PTR_TO_JSON(reuseLastSession, reuseLastSession_);
+      DARABONBA_PTR_TO_JSON(segments, segments_);
       DARABONBA_PTR_TO_JSON(sessionId, sessionId_);
       DARABONBA_PTR_TO_JSON(stream, stream_);
       DARABONBA_PTR_TO_JSON(taskExecution, taskExecution_);
@@ -31,12 +35,16 @@ namespace Models
     friend void from_json(const Darabonba::Json& j, SendAsyncChatMessageRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(content, content_);
       DARABONBA_PTR_FROM_JSON(contentType, contentType_);
+      DARABONBA_PTR_FROM_JSON(contextItems, contextItems_);
       DARABONBA_PTR_FROM_JSON(digitalEmployeeName, digitalEmployeeName_);
       DARABONBA_PTR_FROM_JSON(directChat, directChat_);
+      DARABONBA_ANY_FROM_JSON(directMaxHistoryRounds, directMaxHistoryRounds_);
       DARABONBA_PTR_FROM_JSON(enableWebSearch, enableWebSearch_);
       DARABONBA_PTR_FROM_JSON(files, files_);
+      DARABONBA_PTR_FROM_JSON(locale, locale_);
       DARABONBA_PTR_FROM_JSON(model, model_);
       DARABONBA_PTR_FROM_JSON(reuseLastSession, reuseLastSession_);
+      DARABONBA_PTR_FROM_JSON(segments, segments_);
       DARABONBA_PTR_FROM_JSON(sessionId, sessionId_);
       DARABONBA_PTR_FROM_JSON(stream, stream_);
       DARABONBA_PTR_FROM_JSON(taskExecution, taskExecution_);
@@ -193,6 +201,106 @@ namespace Models
       shared_ptr<string> userId_ {};
     };
 
+    class Segments : public Darabonba::Model {
+    public:
+      friend void to_json(Darabonba::Json& j, const Segments& obj) { 
+        DARABONBA_PTR_TO_JSON(content, content_);
+        DARABONBA_PTR_TO_JSON(mentionType, mentionType_);
+        DARABONBA_PTR_TO_JSON(name, name_);
+        DARABONBA_PTR_TO_JSON(objectId, objectId_);
+        DARABONBA_PTR_TO_JSON(objectType, objectType_);
+        DARABONBA_PTR_TO_JSON(sessionType, sessionType_);
+        DARABONBA_PTR_TO_JSON(type, type_);
+      };
+      friend void from_json(const Darabonba::Json& j, Segments& obj) { 
+        DARABONBA_PTR_FROM_JSON(content, content_);
+        DARABONBA_PTR_FROM_JSON(mentionType, mentionType_);
+        DARABONBA_PTR_FROM_JSON(name, name_);
+        DARABONBA_PTR_FROM_JSON(objectId, objectId_);
+        DARABONBA_PTR_FROM_JSON(objectType, objectType_);
+        DARABONBA_PTR_FROM_JSON(sessionType, sessionType_);
+        DARABONBA_PTR_FROM_JSON(type, type_);
+      };
+      Segments() = default ;
+      Segments(const Segments &) = default ;
+      Segments(Segments &&) = default ;
+      Segments(const Darabonba::Json & obj) { from_json(obj, *this); };
+      virtual ~Segments() = default ;
+      Segments& operator=(const Segments &) = default ;
+      Segments& operator=(Segments &&) = default ;
+      virtual void validate() const override {
+      };
+      virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+      virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+      virtual bool empty() const override { return this->content_ == nullptr
+        && this->mentionType_ == nullptr && this->name_ == nullptr && this->objectId_ == nullptr && this->objectType_ == nullptr && this->sessionType_ == nullptr
+        && this->type_ == nullptr; };
+      // content Field Functions 
+      bool hasContent() const { return this->content_ != nullptr;};
+      void deleteContent() { this->content_ = nullptr;};
+      inline string getContent() const { DARABONBA_PTR_GET_DEFAULT(content_, "") };
+      inline Segments& setContent(string content) { DARABONBA_PTR_SET_VALUE(content_, content) };
+
+
+      // mentionType Field Functions 
+      bool hasMentionType() const { return this->mentionType_ != nullptr;};
+      void deleteMentionType() { this->mentionType_ = nullptr;};
+      inline string getMentionType() const { DARABONBA_PTR_GET_DEFAULT(mentionType_, "") };
+      inline Segments& setMentionType(string mentionType) { DARABONBA_PTR_SET_VALUE(mentionType_, mentionType) };
+
+
+      // name Field Functions 
+      bool hasName() const { return this->name_ != nullptr;};
+      void deleteName() { this->name_ = nullptr;};
+      inline string getName() const { DARABONBA_PTR_GET_DEFAULT(name_, "") };
+      inline Segments& setName(string name) { DARABONBA_PTR_SET_VALUE(name_, name) };
+
+
+      // objectId Field Functions 
+      bool hasObjectId() const { return this->objectId_ != nullptr;};
+      void deleteObjectId() { this->objectId_ = nullptr;};
+      inline string getObjectId() const { DARABONBA_PTR_GET_DEFAULT(objectId_, "") };
+      inline Segments& setObjectId(string objectId) { DARABONBA_PTR_SET_VALUE(objectId_, objectId) };
+
+
+      // objectType Field Functions 
+      bool hasObjectType() const { return this->objectType_ != nullptr;};
+      void deleteObjectType() { this->objectType_ = nullptr;};
+      inline string getObjectType() const { DARABONBA_PTR_GET_DEFAULT(objectType_, "") };
+      inline Segments& setObjectType(string objectType) { DARABONBA_PTR_SET_VALUE(objectType_, objectType) };
+
+
+      // sessionType Field Functions 
+      bool hasSessionType() const { return this->sessionType_ != nullptr;};
+      void deleteSessionType() { this->sessionType_ = nullptr;};
+      inline string getSessionType() const { DARABONBA_PTR_GET_DEFAULT(sessionType_, "") };
+      inline Segments& setSessionType(string sessionType) { DARABONBA_PTR_SET_VALUE(sessionType_, sessionType) };
+
+
+      // type Field Functions 
+      bool hasType() const { return this->type_ != nullptr;};
+      void deleteType() { this->type_ = nullptr;};
+      inline string getType() const { DARABONBA_PTR_GET_DEFAULT(type_, "") };
+      inline Segments& setType(string type) { DARABONBA_PTR_SET_VALUE(type_, type) };
+
+
+    protected:
+      // 片段展示内容
+      shared_ptr<string> content_ {};
+      // 提及对象类别
+      shared_ptr<string> mentionType_ {};
+      // 被引用对象名称
+      shared_ptr<string> name_ {};
+      // 被引用对象 ID
+      shared_ptr<string> objectId_ {};
+      // 被引用对象类型
+      shared_ptr<string> objectType_ {};
+      // 会话类型
+      shared_ptr<string> sessionType_ {};
+      // 片段类型
+      shared_ptr<string> type_ {};
+    };
+
     class Files : public Darabonba::Model {
     public:
       friend void to_json(Darabonba::Json& j, const Files& obj) { 
@@ -239,10 +347,201 @@ namespace Models
       shared_ptr<string> type_ {};
     };
 
+    class ContextItems : public Darabonba::Model {
+    public:
+      friend void to_json(Darabonba::Json& j, const ContextItems& obj) { 
+        DARABONBA_PTR_TO_JSON(annotation, annotation_);
+        DARABONBA_PTR_TO_JSON(annotationFiles, annotationFiles_);
+        DARABONBA_PTR_TO_JSON(content, content_);
+        DARABONBA_PTR_TO_JSON(fileId, fileId_);
+        DARABONBA_PTR_TO_JSON(fileName, fileName_);
+        DARABONBA_PTR_TO_JSON(fileType, fileType_);
+        DARABONBA_PTR_TO_JSON(messageId, messageId_);
+        DARABONBA_PTR_TO_JSON(senderName, senderName_);
+        DARABONBA_PTR_TO_JSON(type, type_);
+      };
+      friend void from_json(const Darabonba::Json& j, ContextItems& obj) { 
+        DARABONBA_PTR_FROM_JSON(annotation, annotation_);
+        DARABONBA_PTR_FROM_JSON(annotationFiles, annotationFiles_);
+        DARABONBA_PTR_FROM_JSON(content, content_);
+        DARABONBA_PTR_FROM_JSON(fileId, fileId_);
+        DARABONBA_PTR_FROM_JSON(fileName, fileName_);
+        DARABONBA_PTR_FROM_JSON(fileType, fileType_);
+        DARABONBA_PTR_FROM_JSON(messageId, messageId_);
+        DARABONBA_PTR_FROM_JSON(senderName, senderName_);
+        DARABONBA_PTR_FROM_JSON(type, type_);
+      };
+      ContextItems() = default ;
+      ContextItems(const ContextItems &) = default ;
+      ContextItems(ContextItems &&) = default ;
+      ContextItems(const Darabonba::Json & obj) { from_json(obj, *this); };
+      virtual ~ContextItems() = default ;
+      ContextItems& operator=(const ContextItems &) = default ;
+      ContextItems& operator=(ContextItems &&) = default ;
+      virtual void validate() const override {
+      };
+      virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+      virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+      class AnnotationFiles : public Darabonba::Model {
+      public:
+        friend void to_json(Darabonba::Json& j, const AnnotationFiles& obj) { 
+          DARABONBA_PTR_TO_JSON(fileName, fileName_);
+          DARABONBA_PTR_TO_JSON(filePublicUrl, filePublicUrl_);
+          DARABONBA_PTR_TO_JSON(fileRecordId, fileRecordId_);
+          DARABONBA_PTR_TO_JSON(fileUrl, fileUrl_);
+        };
+        friend void from_json(const Darabonba::Json& j, AnnotationFiles& obj) { 
+          DARABONBA_PTR_FROM_JSON(fileName, fileName_);
+          DARABONBA_PTR_FROM_JSON(filePublicUrl, filePublicUrl_);
+          DARABONBA_PTR_FROM_JSON(fileRecordId, fileRecordId_);
+          DARABONBA_PTR_FROM_JSON(fileUrl, fileUrl_);
+        };
+        AnnotationFiles() = default ;
+        AnnotationFiles(const AnnotationFiles &) = default ;
+        AnnotationFiles(AnnotationFiles &&) = default ;
+        AnnotationFiles(const Darabonba::Json & obj) { from_json(obj, *this); };
+        virtual ~AnnotationFiles() = default ;
+        AnnotationFiles& operator=(const AnnotationFiles &) = default ;
+        AnnotationFiles& operator=(AnnotationFiles &&) = default ;
+        virtual void validate() const override {
+        };
+        virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+        virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+        virtual bool empty() const override { return this->fileName_ == nullptr
+        && this->filePublicUrl_ == nullptr && this->fileRecordId_ == nullptr && this->fileUrl_ == nullptr; };
+        // fileName Field Functions 
+        bool hasFileName() const { return this->fileName_ != nullptr;};
+        void deleteFileName() { this->fileName_ = nullptr;};
+        inline string getFileName() const { DARABONBA_PTR_GET_DEFAULT(fileName_, "") };
+        inline AnnotationFiles& setFileName(string fileName) { DARABONBA_PTR_SET_VALUE(fileName_, fileName) };
+
+
+        // filePublicUrl Field Functions 
+        bool hasFilePublicUrl() const { return this->filePublicUrl_ != nullptr;};
+        void deleteFilePublicUrl() { this->filePublicUrl_ = nullptr;};
+        inline string getFilePublicUrl() const { DARABONBA_PTR_GET_DEFAULT(filePublicUrl_, "") };
+        inline AnnotationFiles& setFilePublicUrl(string filePublicUrl) { DARABONBA_PTR_SET_VALUE(filePublicUrl_, filePublicUrl) };
+
+
+        // fileRecordId Field Functions 
+        bool hasFileRecordId() const { return this->fileRecordId_ != nullptr;};
+        void deleteFileRecordId() { this->fileRecordId_ = nullptr;};
+        inline string getFileRecordId() const { DARABONBA_PTR_GET_DEFAULT(fileRecordId_, "") };
+        inline AnnotationFiles& setFileRecordId(string fileRecordId) { DARABONBA_PTR_SET_VALUE(fileRecordId_, fileRecordId) };
+
+
+        // fileUrl Field Functions 
+        bool hasFileUrl() const { return this->fileUrl_ != nullptr;};
+        void deleteFileUrl() { this->fileUrl_ = nullptr;};
+        inline string getFileUrl() const { DARABONBA_PTR_GET_DEFAULT(fileUrl_, "") };
+        inline AnnotationFiles& setFileUrl(string fileUrl) { DARABONBA_PTR_SET_VALUE(fileUrl_, fileUrl) };
+
+
+      protected:
+        // 文件名称
+        shared_ptr<string> fileName_ {};
+        // 文件公开访问地址
+        shared_ptr<string> filePublicUrl_ {};
+        // 文件记录 ID
+        shared_ptr<string> fileRecordId_ {};
+        // 文件内部访问地址
+        shared_ptr<string> fileUrl_ {};
+      };
+
+      virtual bool empty() const override { return this->annotation_ == nullptr
+        && this->annotationFiles_ == nullptr && this->content_ == nullptr && this->fileId_ == nullptr && this->fileName_ == nullptr && this->fileType_ == nullptr
+        && this->messageId_ == nullptr && this->senderName_ == nullptr && this->type_ == nullptr; };
+      // annotation Field Functions 
+      bool hasAnnotation() const { return this->annotation_ != nullptr;};
+      void deleteAnnotation() { this->annotation_ = nullptr;};
+      inline string getAnnotation() const { DARABONBA_PTR_GET_DEFAULT(annotation_, "") };
+      inline ContextItems& setAnnotation(string annotation) { DARABONBA_PTR_SET_VALUE(annotation_, annotation) };
+
+
+      // annotationFiles Field Functions 
+      bool hasAnnotationFiles() const { return this->annotationFiles_ != nullptr;};
+      void deleteAnnotationFiles() { this->annotationFiles_ = nullptr;};
+      inline const vector<ContextItems::AnnotationFiles> & getAnnotationFiles() const { DARABONBA_PTR_GET_CONST(annotationFiles_, vector<ContextItems::AnnotationFiles>) };
+      inline vector<ContextItems::AnnotationFiles> getAnnotationFiles() { DARABONBA_PTR_GET(annotationFiles_, vector<ContextItems::AnnotationFiles>) };
+      inline ContextItems& setAnnotationFiles(const vector<ContextItems::AnnotationFiles> & annotationFiles) { DARABONBA_PTR_SET_VALUE(annotationFiles_, annotationFiles) };
+      inline ContextItems& setAnnotationFiles(vector<ContextItems::AnnotationFiles> && annotationFiles) { DARABONBA_PTR_SET_RVALUE(annotationFiles_, annotationFiles) };
+
+
+      // content Field Functions 
+      bool hasContent() const { return this->content_ != nullptr;};
+      void deleteContent() { this->content_ = nullptr;};
+      inline string getContent() const { DARABONBA_PTR_GET_DEFAULT(content_, "") };
+      inline ContextItems& setContent(string content) { DARABONBA_PTR_SET_VALUE(content_, content) };
+
+
+      // fileId Field Functions 
+      bool hasFileId() const { return this->fileId_ != nullptr;};
+      void deleteFileId() { this->fileId_ = nullptr;};
+      inline string getFileId() const { DARABONBA_PTR_GET_DEFAULT(fileId_, "") };
+      inline ContextItems& setFileId(string fileId) { DARABONBA_PTR_SET_VALUE(fileId_, fileId) };
+
+
+      // fileName Field Functions 
+      bool hasFileName() const { return this->fileName_ != nullptr;};
+      void deleteFileName() { this->fileName_ = nullptr;};
+      inline string getFileName() const { DARABONBA_PTR_GET_DEFAULT(fileName_, "") };
+      inline ContextItems& setFileName(string fileName) { DARABONBA_PTR_SET_VALUE(fileName_, fileName) };
+
+
+      // fileType Field Functions 
+      bool hasFileType() const { return this->fileType_ != nullptr;};
+      void deleteFileType() { this->fileType_ = nullptr;};
+      inline string getFileType() const { DARABONBA_PTR_GET_DEFAULT(fileType_, "") };
+      inline ContextItems& setFileType(string fileType) { DARABONBA_PTR_SET_VALUE(fileType_, fileType) };
+
+
+      // messageId Field Functions 
+      bool hasMessageId() const { return this->messageId_ != nullptr;};
+      void deleteMessageId() { this->messageId_ = nullptr;};
+      inline string getMessageId() const { DARABONBA_PTR_GET_DEFAULT(messageId_, "") };
+      inline ContextItems& setMessageId(string messageId) { DARABONBA_PTR_SET_VALUE(messageId_, messageId) };
+
+
+      // senderName Field Functions 
+      bool hasSenderName() const { return this->senderName_ != nullptr;};
+      void deleteSenderName() { this->senderName_ = nullptr;};
+      inline string getSenderName() const { DARABONBA_PTR_GET_DEFAULT(senderName_, "") };
+      inline ContextItems& setSenderName(string senderName) { DARABONBA_PTR_SET_VALUE(senderName_, senderName) };
+
+
+      // type Field Functions 
+      bool hasType() const { return this->type_ != nullptr;};
+      void deleteType() { this->type_ = nullptr;};
+      inline string getType() const { DARABONBA_PTR_GET_DEFAULT(type_, "") };
+      inline ContextItems& setType(string type) { DARABONBA_PTR_SET_VALUE(type_, type) };
+
+
+    protected:
+      // 用户对引用内容的批注
+      shared_ptr<string> annotation_ {};
+      // 批注关联的文件列表
+      shared_ptr<vector<ContextItems::AnnotationFiles>> annotationFiles_ {};
+      // 被引用内容正文
+      shared_ptr<string> content_ {};
+      // 被引用文件 ID
+      shared_ptr<string> fileId_ {};
+      // 被引用文件名称
+      shared_ptr<string> fileName_ {};
+      // 被引用文件类型
+      shared_ptr<string> fileType_ {};
+      // 被引用消息 ID
+      shared_ptr<string> messageId_ {};
+      // 消息发送者名称
+      shared_ptr<string> senderName_ {};
+      // 上下文条目类型
+      shared_ptr<string> type_ {};
+    };
+
     virtual bool empty() const override { return this->content_ == nullptr
-        && this->contentType_ == nullptr && this->digitalEmployeeName_ == nullptr && this->directChat_ == nullptr && this->enableWebSearch_ == nullptr && this->files_ == nullptr
-        && this->model_ == nullptr && this->reuseLastSession_ == nullptr && this->sessionId_ == nullptr && this->stream_ == nullptr && this->taskExecution_ == nullptr
-        && this->tenantId_ == nullptr && this->workMode_ == nullptr; };
+        && this->contentType_ == nullptr && this->contextItems_ == nullptr && this->digitalEmployeeName_ == nullptr && this->directChat_ == nullptr && this->directMaxHistoryRounds_ == nullptr
+        && this->enableWebSearch_ == nullptr && this->files_ == nullptr && this->locale_ == nullptr && this->model_ == nullptr && this->reuseLastSession_ == nullptr
+        && this->segments_ == nullptr && this->sessionId_ == nullptr && this->stream_ == nullptr && this->taskExecution_ == nullptr && this->tenantId_ == nullptr
+        && this->workMode_ == nullptr; };
     // content Field Functions 
     bool hasContent() const { return this->content_ != nullptr;};
     void deleteContent() { this->content_ = nullptr;};
@@ -255,6 +554,15 @@ namespace Models
     void deleteContentType() { this->contentType_ = nullptr;};
     inline string getContentType() const { DARABONBA_PTR_GET_DEFAULT(contentType_, "") };
     inline SendAsyncChatMessageRequest& setContentType(string contentType) { DARABONBA_PTR_SET_VALUE(contentType_, contentType) };
+
+
+    // contextItems Field Functions 
+    bool hasContextItems() const { return this->contextItems_ != nullptr;};
+    void deleteContextItems() { this->contextItems_ = nullptr;};
+    inline const vector<SendAsyncChatMessageRequest::ContextItems> & getContextItems() const { DARABONBA_PTR_GET_CONST(contextItems_, vector<SendAsyncChatMessageRequest::ContextItems>) };
+    inline vector<SendAsyncChatMessageRequest::ContextItems> getContextItems() { DARABONBA_PTR_GET(contextItems_, vector<SendAsyncChatMessageRequest::ContextItems>) };
+    inline SendAsyncChatMessageRequest& setContextItems(const vector<SendAsyncChatMessageRequest::ContextItems> & contextItems) { DARABONBA_PTR_SET_VALUE(contextItems_, contextItems) };
+    inline SendAsyncChatMessageRequest& setContextItems(vector<SendAsyncChatMessageRequest::ContextItems> && contextItems) { DARABONBA_PTR_SET_RVALUE(contextItems_, contextItems) };
 
 
     // digitalEmployeeName Field Functions 
@@ -273,6 +581,15 @@ namespace Models
     inline SendAsyncChatMessageRequest& setDirectChat(bool directChat) { DARABONBA_PTR_SET_VALUE(directChat_, directChat) };
 
 
+    // directMaxHistoryRounds Field Functions 
+    bool hasDirectMaxHistoryRounds() const { return this->directMaxHistoryRounds_ != nullptr;};
+    void deleteDirectMaxHistoryRounds() { this->directMaxHistoryRounds_ = nullptr;};
+    inline     const Darabonba::Json & getDirectMaxHistoryRounds() const { DARABONBA_GET(directMaxHistoryRounds_) };
+    Darabonba::Json & getDirectMaxHistoryRounds() { DARABONBA_GET(directMaxHistoryRounds_) };
+    inline SendAsyncChatMessageRequest& setDirectMaxHistoryRounds(const Darabonba::Json & directMaxHistoryRounds) { DARABONBA_SET_VALUE(directMaxHistoryRounds_, directMaxHistoryRounds) };
+    inline SendAsyncChatMessageRequest& setDirectMaxHistoryRounds(Darabonba::Json && directMaxHistoryRounds) { DARABONBA_SET_RVALUE(directMaxHistoryRounds_, directMaxHistoryRounds) };
+
+
     // enableWebSearch Field Functions 
     bool hasEnableWebSearch() const { return this->enableWebSearch_ != nullptr;};
     void deleteEnableWebSearch() { this->enableWebSearch_ = nullptr;};
@@ -289,6 +606,13 @@ namespace Models
     inline SendAsyncChatMessageRequest& setFiles(vector<SendAsyncChatMessageRequest::Files> && files) { DARABONBA_PTR_SET_RVALUE(files_, files) };
 
 
+    // locale Field Functions 
+    bool hasLocale() const { return this->locale_ != nullptr;};
+    void deleteLocale() { this->locale_ = nullptr;};
+    inline string getLocale() const { DARABONBA_PTR_GET_DEFAULT(locale_, "") };
+    inline SendAsyncChatMessageRequest& setLocale(string locale) { DARABONBA_PTR_SET_VALUE(locale_, locale) };
+
+
     // model Field Functions 
     bool hasModel() const { return this->model_ != nullptr;};
     void deleteModel() { this->model_ = nullptr;};
@@ -301,6 +625,15 @@ namespace Models
     void deleteReuseLastSession() { this->reuseLastSession_ = nullptr;};
     inline bool getReuseLastSession() const { DARABONBA_PTR_GET_DEFAULT(reuseLastSession_, false) };
     inline SendAsyncChatMessageRequest& setReuseLastSession(bool reuseLastSession) { DARABONBA_PTR_SET_VALUE(reuseLastSession_, reuseLastSession) };
+
+
+    // segments Field Functions 
+    bool hasSegments() const { return this->segments_ != nullptr;};
+    void deleteSegments() { this->segments_ = nullptr;};
+    inline const vector<SendAsyncChatMessageRequest::Segments> & getSegments() const { DARABONBA_PTR_GET_CONST(segments_, vector<SendAsyncChatMessageRequest::Segments>) };
+    inline vector<SendAsyncChatMessageRequest::Segments> getSegments() { DARABONBA_PTR_GET(segments_, vector<SendAsyncChatMessageRequest::Segments>) };
+    inline SendAsyncChatMessageRequest& setSegments(const vector<SendAsyncChatMessageRequest::Segments> & segments) { DARABONBA_PTR_SET_VALUE(segments_, segments) };
+    inline SendAsyncChatMessageRequest& setSegments(vector<SendAsyncChatMessageRequest::Segments> && segments) { DARABONBA_PTR_SET_RVALUE(segments_, segments) };
 
 
     // sessionId Field Functions 
@@ -347,18 +680,26 @@ namespace Models
     shared_ptr<string> content_ {};
     // The message type. Valid values: Text and Markdown.
     shared_ptr<string> contentType_ {};
+    // 作为本轮上下文引用的消息或文件条目
+    shared_ptr<vector<SendAsyncChatMessageRequest::ContextItems>> contextItems_ {};
     // The list of digital employee names. For compatibility with the legacy format, a single string can also be passed.
     shared_ptr<vector<string>> digitalEmployeeName_ {};
     // Specifies whether to enable direct connection mode. If set to true, regular scenario routing is skipped and the direct conversation scenario is used.
     shared_ptr<bool> directChat_ {};
+    // 本轮携带的最近完整 direct 问答轮数，不含本轮输入。仅 workMode=direct 或 directChat=true 时生效。有效值为 0–100 的 JSON 整数，省略时由后端按 0 处理，不携带历史但仍保存当前轮。null、布尔值、字符串、小数及越界值按原 direct 路径处理，网关保留原始值供后端判定。work/ask 忽略此字段。该参数不限制转换为 work 时的历史范围
+    Darabonba::Json directMaxHistoryRounds_ {};
     // Specifies whether to enable web search. Default value: false. In the task execution scenario where taskExecution is passed, the task configuration prevails.
     shared_ptr<bool> enableWebSearch_ {};
     // The list of file references. Each item is an object, and the fileId parameter is required. The fileId is returned by the uploadChatFile operation.
     shared_ptr<vector<SendAsyncChatMessageRequest::Files>> files_ {};
+    // 本轮语言，可选 zh-CN、en-US，用于接口错误文案并透传给 CodeAgent；省略时沿用当前语言行为，不修改用户设置
+    shared_ptr<string> locale_ {};
     // The abstract model tier. Valid values: quick, standard, and flagship. If not specified, standard is used for new sessions, and the current tier is retained for existing sessions.
     shared_ptr<string> model_ {};
     // Specifies whether to reuse the most recent session under the digital employee when sessionId is not specified. This is typically used in CLI scenarios. Default value: false, which means a new session is created.
     shared_ptr<bool> reuseLastSession_ {};
+    // 消息中的结构化片段，例如会话或对象提及
+    shared_ptr<vector<SendAsyncChatMessageRequest::Segments>> segments_ {};
     // The session ID. If not specified, a new session is created.
     shared_ptr<string> sessionId_ {};
     // Specifies whether to use streaming generation. This operation always generates backend content in streaming mode and writes it to the message stream. The value of this parameter does not change the response structure.

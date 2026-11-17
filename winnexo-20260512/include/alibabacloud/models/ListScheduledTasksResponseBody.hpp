@@ -68,6 +68,7 @@ namespace Models
         DARABONBA_PTR_TO_JSON(isOpen, isOpen_);
         DARABONBA_PTR_TO_JSON(model, model_);
         DARABONBA_PTR_TO_JSON(name, name_);
+        DARABONBA_PTR_TO_JSON(outputMode, outputMode_);
         DARABONBA_PTR_TO_JSON(status, status_);
         DARABONBA_PTR_TO_JSON(taskId, taskId_);
         DARABONBA_PTR_TO_JSON(triggerType, triggerType_);
@@ -92,6 +93,7 @@ namespace Models
         DARABONBA_PTR_FROM_JSON(isOpen, isOpen_);
         DARABONBA_PTR_FROM_JSON(model, model_);
         DARABONBA_PTR_FROM_JSON(name, name_);
+        DARABONBA_PTR_FROM_JSON(outputMode, outputMode_);
         DARABONBA_PTR_FROM_JSON(status, status_);
         DARABONBA_PTR_FROM_JSON(taskId, taskId_);
         DARABONBA_PTR_FROM_JSON(triggerType, triggerType_);
@@ -113,8 +115,8 @@ namespace Models
         && this->canDelete_ == nullptr && this->canEdit_ == nullptr && this->canExecute_ == nullptr && this->canToggle_ == nullptr && this->collaborationGroupId_ == nullptr
         && this->creator_ == nullptr && this->creatorName_ == nullptr && this->cronExpression_ == nullptr && this->description_ == nullptr && this->digitalEmployeeName_ == nullptr
         && this->executionCount_ == nullptr && this->gmtCreate_ == nullptr && this->gmtModified_ == nullptr && this->isOpen_ == nullptr && this->model_ == nullptr
-        && this->name_ == nullptr && this->status_ == nullptr && this->taskId_ == nullptr && this->triggerType_ == nullptr && this->visibility_ == nullptr
-        && this->visibleMemberUserIds_ == nullptr; };
+        && this->name_ == nullptr && this->outputMode_ == nullptr && this->status_ == nullptr && this->taskId_ == nullptr && this->triggerType_ == nullptr
+        && this->visibility_ == nullptr && this->visibleMemberUserIds_ == nullptr; };
       // abnormalReason Field Functions 
       bool hasAbnormalReason() const { return this->abnormalReason_ != nullptr;};
       void deleteAbnormalReason() { this->abnormalReason_ = nullptr;};
@@ -236,6 +238,13 @@ namespace Models
       inline Items& setName(string name) { DARABONBA_PTR_SET_VALUE(name_, name) };
 
 
+      // outputMode Field Functions 
+      bool hasOutputMode() const { return this->outputMode_ != nullptr;};
+      void deleteOutputMode() { this->outputMode_ = nullptr;};
+      inline string getOutputMode() const { DARABONBA_PTR_GET_DEFAULT(outputMode_, "") };
+      inline Items& setOutputMode(string outputMode) { DARABONBA_PTR_SET_VALUE(outputMode_, outputMode) };
+
+
       // status Field Functions 
       bool hasStatus() const { return this->status_ != nullptr;};
       void deleteStatus() { this->status_ = nullptr;};
@@ -274,17 +283,17 @@ namespace Models
 
 
     protected:
-      // The reason for the exception. This parameter has a value only when status is abnormal.
+      // The cause of the exception. This field has a value only when status is abnormal.
       shared_ptr<string> abnormalReason_ {};
-      // Indicates whether the current caller can delete the task. Only the task creator and group owner can delete the task. For personal tasks, this value is always true.
+      // Indicates whether the current caller can delete the task. This is valid only for the task creator and group owner. For personal tasks, the value is always true.
       shared_ptr<bool> canDelete_ {};
       // Indicates whether the course can be edited or deleted.
       shared_ptr<bool> canEdit_ {};
-      // Indicates whether the current caller can immediately execute the task. A task is executable if it is visible to the caller, except for abnormal tasks which return false. For personal tasks, this value is always true.
+      // Indicates whether the current caller can immediately execute the task. Visible means operable. For abnormal tasks, the value is false. For personal tasks, the value is always true.
       shared_ptr<bool> canExecute_ {};
-      // Indicates whether the current caller can start or stop the task. Only the task creator and group owner can toggle the task. Abnormal tasks return false. For personal tasks, this value is always true.
+      // Indicates whether the current caller can start or stop the task. This is valid only for the task creator and group owner. For abnormal tasks, the value is false. For personal tasks, the value is always true.
       shared_ptr<bool> canToggle_ {};
-      // The ID of the collaboration group (such as cg_101). If specified, a group task is created (the caller must be a valid group member). If left empty, a personal task is created.
+      // The ID of the collaboration group to which the task belongs, such as cg_101. If this parameter is specified, a group space task is created, and the caller must be a valid group member. If this parameter is left empty, a personal task is created.
       shared_ptr<string> collaborationGroupId_ {};
       // The creator.
       shared_ptr<string> creator_ {};
@@ -300,28 +309,25 @@ namespace Models
       shared_ptr<int64_t> executionCount_ {};
       // The creation time.
       shared_ptr<string> gmtCreate_ {};
-      // The last modification time.
+      // The last update time.
       shared_ptr<string> gmtModified_ {};
       // Indicates whether public access is enabled.
       shared_ptr<bool> isOpen_ {};
-      // The execution model tier. If not specified, the value is not updated.
+      // The execution model tier. If this parameter is not specified, the model tier is not updated.
       shared_ptr<string> model_ {};
       // The name.
       shared_ptr<string> name_ {};
-      // The task status. Running is returned upon submission.
+      // The task output session mode.
+      shared_ptr<string> outputMode_ {};
+      // The task status. Running is returned immediately after submission.
       shared_ptr<string> status_ {};
       // The task ID.
       shared_ptr<string> taskId_ {};
       // The type of the trigger.
       shared_ptr<string> triggerType_ {};
-      // The visibility scope of the group task. Valid values:
-      // - PRIVATE: visible only to the creator and group owner.
-      // - COLLABORATIVE: visible to specified collaborators.
-      // - PUBLIC: visible to all group members.
-      // 
-      // If not specified for a group task, the default value is PRIVATE. This parameter is ignored for personal tasks.
+      // The visibility scope of the group task. Valid values: PRIVATE (visible only to the creator and group owner), COLLABORATIVE (visible to specified collaboration members), and PUBLIC (visible to all group members). Default value for group tasks: PRIVATE. This field is ignored for personal tasks.
       shared_ptr<string> visibility_ {};
-      // The list of collaborator members, excluding the task creator and group creator whose access is governed by the authentication layer. This parameter is returned only for group tasks. An empty list is returned for PRIVATE and PUBLIC visibility.
+      // The list of collaboration members, excluding the task creator and group creator, which are covered by the authentication layer. This field is returned only for group tasks. An empty list is returned for PRIVATE or PUBLIC visibility scopes.
       shared_ptr<vector<string>> visibleMemberUserIds_ {};
     };
 
@@ -403,21 +409,19 @@ namespace Models
   protected:
     // The status code.
     shared_ptr<string> code_ {};
-    // Indicates whether more data is available. Valid values:
-    // - true: More data is available.
-    // - false: No more data is available.
+    // Indicates whether more data is available. Valid values: true (yes) and false (no).
     shared_ptr<bool> hasMore_ {};
     // The list of skill cards.
     shared_ptr<vector<ListScheduledTasksResponseBody::Items>> items_ {};
-    // The maximum number of entries to return in this request.
+    // The maximum number of records to return for this request.
     shared_ptr<int32_t> maxResults_ {};
-    // The status code description.
+    // The description of the status code.
     shared_ptr<string> message_ {};
-    // The pagination token.
+    // The pagination cursor.
     shared_ptr<string> nextToken_ {};
-    // The page number. Default value: 1.
+    // The specified page number. Default value: 1.
     shared_ptr<int64_t> page_ {};
-    // The number of entries per page.
+    // The number of records per page.
     shared_ptr<int64_t> pageSize_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

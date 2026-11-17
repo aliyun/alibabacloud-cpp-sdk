@@ -17,6 +17,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(code, code_);
       DARABONBA_PTR_TO_JSON(completedAt, completedAt_);
       DARABONBA_PTR_TO_JSON(content, content_);
+      DARABONBA_PTR_TO_JSON(conversationId, conversationId_);
       DARABONBA_PTR_TO_JSON(creator, creator_);
       DARABONBA_PTR_TO_JSON(digitalEmployeeName, digitalEmployeeName_);
       DARABONBA_PTR_TO_JSON(errorMessage, errorMessage_);
@@ -24,6 +25,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(files, files_);
       DARABONBA_PTR_TO_JSON(gmtCreate, gmtCreate_);
       DARABONBA_PTR_TO_JSON(message, message_);
+      DARABONBA_PTR_TO_JSON(messageId, messageId_);
       DARABONBA_PTR_TO_JSON(metadata, metadata_);
       DARABONBA_PTR_TO_JSON(outputContent, outputContent_);
       DARABONBA_PTR_TO_JSON(pushResult, pushResult_);
@@ -41,6 +43,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(code, code_);
       DARABONBA_PTR_FROM_JSON(completedAt, completedAt_);
       DARABONBA_PTR_FROM_JSON(content, content_);
+      DARABONBA_PTR_FROM_JSON(conversationId, conversationId_);
       DARABONBA_PTR_FROM_JSON(creator, creator_);
       DARABONBA_PTR_FROM_JSON(digitalEmployeeName, digitalEmployeeName_);
       DARABONBA_PTR_FROM_JSON(errorMessage, errorMessage_);
@@ -48,6 +51,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(files, files_);
       DARABONBA_PTR_FROM_JSON(gmtCreate, gmtCreate_);
       DARABONBA_PTR_FROM_JSON(message, message_);
+      DARABONBA_PTR_FROM_JSON(messageId, messageId_);
       DARABONBA_PTR_FROM_JSON(metadata, metadata_);
       DARABONBA_PTR_FROM_JSON(outputContent, outputContent_);
       DARABONBA_PTR_FROM_JSON(pushResult, pushResult_);
@@ -195,11 +199,11 @@ namespace Models
     };
 
     virtual bool empty() const override { return this->code_ == nullptr
-        && this->completedAt_ == nullptr && this->content_ == nullptr && this->creator_ == nullptr && this->digitalEmployeeName_ == nullptr && this->errorMessage_ == nullptr
-        && this->executionId_ == nullptr && this->files_ == nullptr && this->gmtCreate_ == nullptr && this->message_ == nullptr && this->metadata_ == nullptr
-        && this->outputContent_ == nullptr && this->pushResult_ == nullptr && this->requestId_ == nullptr && this->skillCodes_ == nullptr && this->startedAt_ == nullptr
-        && this->status_ == nullptr && this->taskId_ == nullptr && this->title_ == nullptr && this->triggerInfo_ == nullptr && this->triggerType_ == nullptr
-        && this->visibility_ == nullptr; };
+        && this->completedAt_ == nullptr && this->content_ == nullptr && this->conversationId_ == nullptr && this->creator_ == nullptr && this->digitalEmployeeName_ == nullptr
+        && this->errorMessage_ == nullptr && this->executionId_ == nullptr && this->files_ == nullptr && this->gmtCreate_ == nullptr && this->message_ == nullptr
+        && this->messageId_ == nullptr && this->metadata_ == nullptr && this->outputContent_ == nullptr && this->pushResult_ == nullptr && this->requestId_ == nullptr
+        && this->skillCodes_ == nullptr && this->startedAt_ == nullptr && this->status_ == nullptr && this->taskId_ == nullptr && this->title_ == nullptr
+        && this->triggerInfo_ == nullptr && this->triggerType_ == nullptr && this->visibility_ == nullptr; };
     // code Field Functions 
     bool hasCode() const { return this->code_ != nullptr;};
     void deleteCode() { this->code_ = nullptr;};
@@ -219,6 +223,13 @@ namespace Models
     void deleteContent() { this->content_ = nullptr;};
     inline string getContent() const { DARABONBA_PTR_GET_DEFAULT(content_, "") };
     inline GetScheduledTaskExecutionDetailResponseBody& setContent(string content) { DARABONBA_PTR_SET_VALUE(content_, content) };
+
+
+    // conversationId Field Functions 
+    bool hasConversationId() const { return this->conversationId_ != nullptr;};
+    void deleteConversationId() { this->conversationId_ = nullptr;};
+    inline string getConversationId() const { DARABONBA_PTR_GET_DEFAULT(conversationId_, "") };
+    inline GetScheduledTaskExecutionDetailResponseBody& setConversationId(string conversationId) { DARABONBA_PTR_SET_VALUE(conversationId_, conversationId) };
 
 
     // creator Field Functions 
@@ -272,6 +283,13 @@ namespace Models
     void deleteMessage() { this->message_ = nullptr;};
     inline string getMessage() const { DARABONBA_PTR_GET_DEFAULT(message_, "") };
     inline GetScheduledTaskExecutionDetailResponseBody& setMessage(string message) { DARABONBA_PTR_SET_VALUE(message_, message) };
+
+
+    // messageId Field Functions 
+    bool hasMessageId() const { return this->messageId_ != nullptr;};
+    void deleteMessageId() { this->messageId_ = nullptr;};
+    inline string getMessageId() const { DARABONBA_PTR_GET_DEFAULT(messageId_, "") };
+    inline GetScheduledTaskExecutionDetailResponseBody& setMessageId(string messageId) { DARABONBA_PTR_SET_VALUE(messageId_, messageId) };
 
 
     // metadata Field Functions 
@@ -367,10 +385,12 @@ namespace Models
   protected:
     // The status code.
     shared_ptr<string> code_ {};
-    // The completion time in ISO 8601 format.
+    // The completion time (ISO 8601).
     shared_ptr<string> completedAt_ {};
-    // The full execution content.
+    // The complete execution content.
     shared_ptr<string> content_ {};
+    // The ID of the actual session used for this task execution.
+    shared_ptr<string> conversationId_ {};
     // The creator.
     shared_ptr<string> creator_ {};
     // The list of digital employee names.
@@ -381,33 +401,35 @@ namespace Models
     shared_ptr<string> executionId_ {};
     // The list of output files.
     shared_ptr<vector<GetScheduledTaskExecutionDetailResponseBody::Files>> files_ {};
-    // The creation time in ISO 8601 format.
+    // The creation time (ISO 8601).
     shared_ptr<string> gmtCreate_ {};
     // The description of the status code.
     shared_ptr<string> message_ {};
+    // The ID of the result message generated by this task execution.
+    shared_ptr<string> messageId_ {};
     // The extended metadata.
     shared_ptr<GetScheduledTaskExecutionDetailResponseBody::Metadata> metadata_ {};
     // The structured output content.
     shared_ptr<string> outputContent_ {};
     // The push status of the execution result.
     shared_ptr<string> pushResult_ {};
-    // The request ID.
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
     // The list of associated skill codes.
     shared_ptr<vector<string>> skillCodes_ {};
-    // The start time in ISO 8601 format.
+    // The start time (ISO 8601).
     shared_ptr<string> startedAt_ {};
     // The execution status.
     shared_ptr<string> status_ {};
     // The task ID.
     shared_ptr<string> taskId_ {};
-    // The execution result title.
+    // The title of the execution result.
     shared_ptr<string> title_ {};
     // The trigger information.
     shared_ptr<GetScheduledTaskExecutionDetailResponseBody::TriggerInfo> triggerInfo_ {};
     // The trigger type.
     shared_ptr<string> triggerType_ {};
-    // The visibility scope of the execution record, which is always the same as the visibility scope of the associated task. Valid values: PRIVATE, COLLABORATIVE, and PUBLIC. This value is empty for personal task executions.
+    // The visibility scope of the execution record.
     shared_ptr<string> visibility_ {};
   };
 

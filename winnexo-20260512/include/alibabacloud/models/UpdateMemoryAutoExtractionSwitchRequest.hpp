@@ -75,15 +75,17 @@ namespace Models
 
 
   protected:
-    // Specifies whether to synchronously clear the automatically collected memories. This parameter can be used regardless of whether the feature is enabled or disabled.
+    // Specifies whether to synchronously clear the automatically collected memory. This parameter can be used when enabling or disabling the feature.
     shared_ptr<bool> clearExisting_ {};
     // Specifies whether to enable automatic memory collection.
     // 
     // This parameter is required.
     shared_ptr<bool> enabled_ {};
-    // The collaborative workspace ID. This parameter is required when ownerType is set to group.
+    // The ID of the collaboration workspace. This parameter is required when ownerType is set to group.
     shared_ptr<string> groupId_ {};
-    // The owner type. A value of user indicates personal memories of the authenticated user. A value of group indicates memories of a specified collaborative workspace.
+    // The owner type. Valid values:
+    // - user: the personal memory of the authenticated user
+    // - group: the memory of the specified collaboration workspace
     shared_ptr<string> ownerType_ {};
     // The tenant ID. This is a common parameter. If not specified, the default tenant of the caller is used.
     shared_ptr<string> tenantId_ {};

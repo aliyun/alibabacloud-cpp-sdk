@@ -68,7 +68,7 @@ namespace Models
   protected:
     // The business status code. A value of 200 indicates success.
     shared_ptr<string> code_ {};
-    // The complete content of the manual memory after it is saved. If the memory is successfully cleared, an empty string is returned.
+    // The complete content of the manual memory after it is saved. If the memory is cleared, this value is an empty string.
     shared_ptr<string> content_ {};
     // The error description.
     shared_ptr<string> message_ {};

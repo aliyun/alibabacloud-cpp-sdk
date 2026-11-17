@@ -19,6 +19,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(isOpen, isOpen_);
       DARABONBA_PTR_TO_JSON(model, model_);
       DARABONBA_PTR_TO_JSON(name, name_);
+      DARABONBA_PTR_TO_JSON(outputMode, outputMode_);
       DARABONBA_PTR_TO_JSON(segments, segments_);
       DARABONBA_PTR_TO_JSON(taskDetail, taskDetail_);
       DARABONBA_PTR_TO_JSON(taskId, taskId_);
@@ -33,6 +34,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(isOpen, isOpen_);
       DARABONBA_PTR_FROM_JSON(model, model_);
       DARABONBA_PTR_FROM_JSON(name, name_);
+      DARABONBA_PTR_FROM_JSON(outputMode, outputMode_);
       DARABONBA_PTR_FROM_JSON(segments, segments_);
       DARABONBA_PTR_FROM_JSON(taskDetail, taskDetail_);
       DARABONBA_PTR_FROM_JSON(taskId, taskId_);
@@ -688,9 +690,9 @@ namespace Models
     };
 
     virtual bool empty() const override { return this->description_ == nullptr
-        && this->digitalEmployeeName_ == nullptr && this->isOpen_ == nullptr && this->model_ == nullptr && this->name_ == nullptr && this->segments_ == nullptr
-        && this->taskDetail_ == nullptr && this->taskId_ == nullptr && this->tenantId_ == nullptr && this->triggerConfig_ == nullptr && this->visibility_ == nullptr
-        && this->visibleMemberUserIds_ == nullptr; };
+        && this->digitalEmployeeName_ == nullptr && this->isOpen_ == nullptr && this->model_ == nullptr && this->name_ == nullptr && this->outputMode_ == nullptr
+        && this->segments_ == nullptr && this->taskDetail_ == nullptr && this->taskId_ == nullptr && this->tenantId_ == nullptr && this->triggerConfig_ == nullptr
+        && this->visibility_ == nullptr && this->visibleMemberUserIds_ == nullptr; };
     // description Field Functions 
     bool hasDescription() const { return this->description_ != nullptr;};
     void deleteDescription() { this->description_ = nullptr;};
@@ -728,6 +730,13 @@ namespace Models
     void deleteName() { this->name_ = nullptr;};
     inline string getName() const { DARABONBA_PTR_GET_DEFAULT(name_, "") };
     inline UpdateScheduledTaskRequest& setName(string name) { DARABONBA_PTR_SET_VALUE(name_, name) };
+
+
+    // outputMode Field Functions 
+    bool hasOutputMode() const { return this->outputMode_ != nullptr;};
+    void deleteOutputMode() { this->outputMode_ = nullptr;};
+    inline string getOutputMode() const { DARABONBA_PTR_GET_DEFAULT(outputMode_, "") };
+    inline UpdateScheduledTaskRequest& setOutputMode(string outputMode) { DARABONBA_PTR_SET_VALUE(outputMode_, outputMode) };
 
 
     // segments Field Functions 
@@ -798,6 +807,8 @@ namespace Models
     shared_ptr<string> model_ {};
     // The file name.
     shared_ptr<string> name_ {};
+    // 输出会话模式，省略时保留当前配置
+    shared_ptr<string> outputMode_ {};
     // The segments.
     shared_ptr<vector<UpdateScheduledTaskRequest::Segments>> segments_ {};
     // The task details.

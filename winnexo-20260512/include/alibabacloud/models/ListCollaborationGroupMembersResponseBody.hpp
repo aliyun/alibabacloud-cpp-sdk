@@ -98,13 +98,13 @@ namespace Models
 
 
     protected:
-      // 成员显示名称；未设置时为空。
+      // The display name. This field is empty if the display name is not set.
       shared_ptr<string> displayName_ {};
-      // 租户账号是否启用。本接口只返回有效且账号启用的成员，值为true；不代表HR在职状态。
+      // The enabling status of the tenant account. Only active members are returned, so this value is always true. This field does not indicate the HR employment status.
       shared_ptr<bool> isActive_ {};
-      // 成员在空间内的角色：ADMIN为管理员，MEMBER为普通成员。
+      // The role of the workspace member.
       shared_ptr<string> role_ {};
-      // 平台用户ID，字符串形式，可用作转交待办的目标用户ID。
+      // The platform user ID.
       shared_ptr<string> userId_ {};
     };
 
@@ -163,19 +163,19 @@ namespace Models
 
 
   protected:
-    // 公共业务状态码，由后端Code字段映射；错误时用于识别失败原因。
+    // The common business status code.
     shared_ptr<string> code_ {};
-    // 当前页记录列表；没有匹配记录时返回空数组。
+    // The list of entries on the current page.
     shared_ptr<vector<ListCollaborationGroupMembersResponseBody::Items>> items_ {};
-    // 公共错误说明，由后端Message字段映射；错误时描述失败原因。
+    // The common error description.
     shared_ptr<string> message_ {};
-    // 当前返回页的页码，从1开始。
+    // The current page number.
     shared_ptr<int64_t> page_ {};
-    // 当前分页设置的每页记录数。
+    // The page size.
     shared_ptr<int64_t> pageSize_ {};
-    // 请求追踪ID，由后端RequestId字段映射，用于排查调用失败。
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // 满足查询条件的记录总数，不是当前页记录数。
+    // The total number of records after filtering.
     shared_ptr<int64_t> total_ {};
   };
 

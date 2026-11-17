@@ -134,14 +134,13 @@ namespace Models
       shared_ptr<string> displayName_ {};
       // The creation time.
       shared_ptr<string> gmtCreate_ {};
-      // Indicates whether the account is activated:
-      // 
+      // Specifies whether the account is activated. Valid values:
       // - 1: Activated.
       // - 0: Not activated.
       shared_ptr<bool> isActive_ {};
       // The last logon time.
       shared_ptr<string> lastLoginTime_ {};
-      // The list of new system role codes (full replacement, at least one role must be included). Valid values: SUPER_ADMIN / SYSTEM_ADMIN / SEMANTIC_ADMIN / SKILL_ADMIN / KB_ADMIN / AGENT_ADMIN / APPLICATION_USER.
+      // The list of new system role codes. This is a full replacement and must contain at least one role. Valid values: SUPER_ADMIN, SYSTEM_ADMIN, SEMANTIC_ADMIN, SKILL_ADMIN, KB_ADMIN, AGENT_ADMIN, and APPLICATION_USER.
       shared_ptr<vector<string>> roleCodes_ {};
       // The user ID.
       shared_ptr<int64_t> userId_ {};
@@ -206,7 +205,7 @@ namespace Models
     shared_ptr<string> code_ {};
     // The user information.
     shared_ptr<vector<ListUsersResponseBody::Items>> items_ {};
-    // The description of the status code.
+    // The status code description.
     shared_ptr<string> message_ {};
     // The current page number.
     shared_ptr<int64_t> page_ {};
@@ -214,7 +213,7 @@ namespace Models
     shared_ptr<int64_t> pageSize_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The total number of data entries in the project.
+    // The total number of data processing tasks in the project.
     shared_ptr<int64_t> total_ {};
   };
 

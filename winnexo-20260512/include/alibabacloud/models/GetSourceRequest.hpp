@@ -57,7 +57,7 @@ namespace Models
 
 
   protected:
-    // Specifies whether to return large detail fields (settings / notes / structuredTables / unstructuredDocs). Default value: False. When set to False, only metadata is returned.
+    // Specifies whether to return large detail fields (settings, notes, structuredTables, and unstructuredDocs). Default value: false. Only metadata is returned.
     shared_ptr<bool> includeDetails_ {};
     // The primary ID of the resource.
     // 

@@ -19,6 +19,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(isOpen, isOpen_);
       DARABONBA_PTR_TO_JSON(model, model_);
       DARABONBA_PTR_TO_JSON(name, name_);
+      DARABONBA_PTR_TO_JSON(outputMode, outputMode_);
       DARABONBA_PTR_TO_JSON(segments, segmentsShrink_);
       DARABONBA_PTR_TO_JSON(taskDetail, taskDetailShrink_);
       DARABONBA_PTR_TO_JSON(tenantId, tenantId_);
@@ -33,6 +34,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(isOpen, isOpen_);
       DARABONBA_PTR_FROM_JSON(model, model_);
       DARABONBA_PTR_FROM_JSON(name, name_);
+      DARABONBA_PTR_FROM_JSON(outputMode, outputMode_);
       DARABONBA_PTR_FROM_JSON(segments, segmentsShrink_);
       DARABONBA_PTR_FROM_JSON(taskDetail, taskDetailShrink_);
       DARABONBA_PTR_FROM_JSON(tenantId, tenantId_);
@@ -53,8 +55,8 @@ namespace Models
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->collaborationGroupId_ == nullptr
         && this->descriptionShrink_ == nullptr && this->digitalEmployeeNameShrink_ == nullptr && this->isOpen_ == nullptr && this->model_ == nullptr && this->name_ == nullptr
-        && this->segmentsShrink_ == nullptr && this->taskDetailShrink_ == nullptr && this->tenantId_ == nullptr && this->triggerConfigShrink_ == nullptr && this->visibility_ == nullptr
-        && this->visibleMemberUserIdsShrink_ == nullptr; };
+        && this->outputMode_ == nullptr && this->segmentsShrink_ == nullptr && this->taskDetailShrink_ == nullptr && this->tenantId_ == nullptr && this->triggerConfigShrink_ == nullptr
+        && this->visibility_ == nullptr && this->visibleMemberUserIdsShrink_ == nullptr; };
     // collaborationGroupId Field Functions 
     bool hasCollaborationGroupId() const { return this->collaborationGroupId_ != nullptr;};
     void deleteCollaborationGroupId() { this->collaborationGroupId_ = nullptr;};
@@ -95,6 +97,13 @@ namespace Models
     void deleteName() { this->name_ = nullptr;};
     inline string getName() const { DARABONBA_PTR_GET_DEFAULT(name_, "") };
     inline CreateScheduledTaskShrinkRequest& setName(string name) { DARABONBA_PTR_SET_VALUE(name_, name) };
+
+
+    // outputMode Field Functions 
+    bool hasOutputMode() const { return this->outputMode_ != nullptr;};
+    void deleteOutputMode() { this->outputMode_ = nullptr;};
+    inline string getOutputMode() const { DARABONBA_PTR_GET_DEFAULT(outputMode_, "") };
+    inline CreateScheduledTaskShrinkRequest& setOutputMode(string outputMode) { DARABONBA_PTR_SET_VALUE(outputMode_, outputMode) };
 
 
     // segmentsShrink Field Functions 
@@ -140,40 +149,33 @@ namespace Models
 
 
   protected:
-    // The ID of the collaboration group (such as cg_101). If specified, a group space task is created (the caller must be a valid group member). If empty, a personal task is created.
+    // The ID of the collaboration group to which the task belongs, such as cg_101. If this parameter is passed, a group space task is created, and the caller must be a valid group member. If this parameter is empty, a personal task is created.
     shared_ptr<string> collaborationGroupId_ {};
     // The description of the to-do card type.
     shared_ptr<string> descriptionShrink_ {};
-    // The name of the current effective digital employee. This parameter is empty if not configured.
+    // The name of the current effective digital employee. This parameter is empty if it is not configured.
     shared_ptr<string> digitalEmployeeNameShrink_ {};
-    // Specifies whether public access is enabled.
+    // Specifies whether public access is allowed.
     shared_ptr<bool> isOpen_ {};
-    // The large model used by the assistant. An empty value indicates that DingTalk automatically selects the model.
+    // The large language model used by the assistant. The default value is empty, which indicates that DingTalk automatically selects the model.
     shared_ptr<string> model_ {};
     // The name.
     // 
     // This parameter is required.
     shared_ptr<string> name_ {};
+    // 输出会话模式，默认 NEW_CONVERSATION
+    shared_ptr<string> outputMode_ {};
     // The site ID.
     shared_ptr<string> segmentsShrink_ {};
     // The task details.
     shared_ptr<string> taskDetailShrink_ {};
-    // The ID of the effective tenant.
+    // The effective tenant ID.
     shared_ptr<string> tenantId_ {};
-    // The trigger configuration. The configuration varies depending on the trigger type. For the specific format, refer to the following data structures:
-    // 
-    //   - OSS trigger: See [OSSTriggerConfig](https://help.aliyun.com/document_detail/415697.html).
-    //   - Simple Log Service trigger: See [LogTriggerConfig](https://help.aliyun.com/document_detail/415694.html).
-    //   - Time trigger: See [TimeTriggerConfig](https://help.aliyun.com/document_detail/415712.html).
-    //   - HTTP trigger: See [HTTPTriggerConfig](https://help.aliyun.com/document_detail/415685.html).
-    //   - Tablestore trigger: You only need to specify the complete **SourceArn** parameter. No additional configuration is required. Set the value to an empty object {}.
-    //   - CDN event trigger: See [CDNEventsTriggerConfig](https://help.aliyun.com/document_detail/415674.html).
-    //   - MNS topic trigger: See [MnsTopicTriggerConfig](https://help.aliyun.com/document_detail/415695.html).
-    //   - EventBridge trigger: See [EventBridgeTriggerConfig](https://help.aliyun.com/document_detail/2508622.html).
+    // The trigger configuration of the scheduled task. The triggerMode parameter supports manual (manual trigger) and scheduled (scheduled trigger). If scheduled is used, the cron parameter must be specified. The timezone and language parameters are injected by the server, and the client does not need to pass them. The pushConfig parameter is the list of task push channels. If the list is empty or no channel is enabled, no push is performed.
     shared_ptr<string> triggerConfigShrink_ {};
-    // The visibility scope of the group task. Valid values: PRIVATE (visible only to the creator and group owner), COLLABORATIVE (visible to specified collaborators), and PUBLIC (visible to all group members). Default value for group tasks: PRIVATE. This parameter is ignored for personal tasks.
+    // The visibility scope of the group task. Valid values: PRIVATE (visible only to the creator and group owner), COLLABORATIVE (visible to specified collaboration members), and PUBLIC (visible to all group members). If this parameter is not passed for a group task, the default value is PRIVATE. This field is ignored for personal tasks.
     shared_ptr<string> visibility_ {};
-    // The list of collaborator user IDs. This parameter takes effect only when visibility is set to COLLABORATIVE. It is ignored for other visibility levels. A maximum of 1000 IDs are supported. The task creator and group creator do not need to be included (covered by the authentication layer). This parameter is ignored for personal tasks.
+    // The list of user IDs of collaboration members. This parameter takes effect only when visibility is set to COLLABORATIVE and is ignored for other values. A maximum of 1,000 user IDs can be specified. You do not need to pass the IDs of the task creator and group creator because they are covered by the authentication layer. This field is ignored for personal tasks.
     shared_ptr<string> visibleMemberUserIdsShrink_ {};
   };
 

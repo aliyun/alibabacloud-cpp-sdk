@@ -94,17 +94,17 @@ namespace Models
 
 
   protected:
-    // Indicates whether the target user has the permission on the resource.
+    // Indicates whether the target user has the specified permission on the resource.
     shared_ptr<bool> allowed_ {};
     // The business status code. A value of 200 indicates success.
     shared_ptr<string> code_ {};
-    // The error description. This field is empty if the request is successful.
+    // The error description. This field is empty when the request is successful.
     shared_ptr<string> message_ {};
     // The target permission.
     shared_ptr<string> permission_ {};
-    // The request trace ID.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // The dot-separated resource key. The first segment is the APP application key.
+    // The dot-separated resource key. The first segment is the application key.
     shared_ptr<string> resourceKey_ {};
     // The resource type. Set the value to APP_RESOURCE.
     shared_ptr<string> resourceType_ {};

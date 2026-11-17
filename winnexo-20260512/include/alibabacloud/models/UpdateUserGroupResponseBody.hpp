@@ -68,13 +68,13 @@ namespace Models
 
 
   protected:
-    // The business status code. A value of 200 indicates success.
+    // The error code.
     shared_ptr<string> code_ {};
-    // The error description. This value is empty when the request is successful.
+    // The status code description.
     shared_ptr<string> message_ {};
-    // The request trace ID.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // The updated user group information.
+    // The updated user group.
     Darabonba::Json userGroup_ {};
   };
 

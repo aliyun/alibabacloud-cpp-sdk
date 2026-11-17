@@ -115,30 +115,25 @@ namespace Models
 
 
   protected:
-    // The ID of the collaboration group (such as cg_101). If specified, a group task is created (the caller must be a valid group member). If left empty, a personal task is created.
+    // The ID of the collaboration group to which the task belongs, such as cg_101. If this parameter is specified, a group space task is created, and the caller must be a valid group member. If this parameter is left empty, a personal task is created.
     shared_ptr<string> collaborationGroupId_ {};
-    // Specifies whether to return only tasks created by the caller. This parameter takes effect only in the group dimension. In the personal dimension, only the caller\\"s own tasks are always returned. If not specified, no filtering is applied.
+    // Specifies whether to view only tasks created by yourself. This parameter takes effect only at the group level (at the personal level, tasks are always your own). If this parameter is not specified, no filtering is applied.
     shared_ptr<bool> creatorOnly_ {};
-    // The keyword of the rule name, used for fuzzy match.
+    // The keyword in the rule name for fuzzy matching.
     shared_ptr<string> keyword_ {};
-    // The maximum number of entries to return in this request.
+    // The maximum number of records to return for this request.
     shared_ptr<int32_t> maxResults_ {};
-    // The pagination token for the next page.
+    // The pagination token used to retrieve the next page.
     shared_ptr<string> nextToken_ {};
-    // The page number. Default value: 1.
+    // The page number for pagination. Default value: 1.
     shared_ptr<int64_t> page_ {};
-    // The number of entries per page.
+    // The number of entries to return per page.
     // 
     // > The maximum number of entries per page is 30.
     shared_ptr<int64_t> pageSize_ {};
-    // The ID of the effective tenant.
+    // The effective tenant ID.
     shared_ptr<string> tenantId_ {};
-    // Filters by visibility. Valid values:
-    // - PRIVATE: visible only to the creator and group owner.
-    // - COLLABORATIVE: visible to specified collaborators.
-    // - PUBLIC: visible to all group members.
-    // 
-    // If not specified or an empty list is passed, no filtering is applied. This parameter takes effect only in the group dimension (when collaborationGroupId is specified) and is ignored in the personal dimension.
+    // Filters tasks by visibility scope. Multiple values can be selected. Valid values: PRIVATE (visible only to the creator and group owner), COLLABORATIVE (visible to specified collaboration members), and PUBLIC (visible to all group members). If this parameter is not specified or an empty list is passed, no filtering is applied. This parameter takes effect only at the group level (when collaborationGroupId is specified) and is ignored at the personal level.
     shared_ptr<vector<string>> visibilities_ {};
   };
 

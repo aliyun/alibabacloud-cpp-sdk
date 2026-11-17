@@ -98,13 +98,13 @@ namespace Models
 
 
     protected:
-      // 协作空间ID，可用于查询空间成员、查询节点详情及预览对话文件。
+      // The ID of the collaboration space.
       shared_ptr<string> collaborationGroupId_ {};
-      // 当前调用用户在空间内的角色：ADMIN为管理员，MEMBER为普通成员。
+      // The role of the current user in the space.
       shared_ptr<string> currentUserRole_ {};
-      // 协作空间显示名称。
+      // The name of the space.
       shared_ptr<string> name_ {};
-      // 协作空间状态，当前接口只返回ACTIVE。
+      // The status of the space. Currently, only ACTIVE is returned.
       shared_ptr<string> status_ {};
     };
 
@@ -163,19 +163,19 @@ namespace Models
 
 
   protected:
-    // 公共业务状态码，由后端Code字段映射；错误时用于识别失败原因。
+    // The common business status code.
     shared_ptr<string> code_ {};
-    // 当前页记录列表；没有匹配记录时返回空数组。
+    // The list of items on the current page.
     shared_ptr<vector<ListCollaborationGroupsResponseBody::Items>> items_ {};
-    // 公共错误说明，由后端Message字段映射；错误时描述失败原因。
+    // The common error message.
     shared_ptr<string> message_ {};
-    // 当前返回页的页码，从1开始。
+    // The current page number.
     shared_ptr<int64_t> page_ {};
-    // 当前分页设置的每页记录数。
+    // The page size.
     shared_ptr<int64_t> pageSize_ {};
-    // 请求追踪ID，由后端RequestId字段映射，用于排查调用失败。
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // 满足查询条件的有效空间总数，不是当前页记录数。
+    // The total number of filtered records.
     shared_ptr<int64_t> total_ {};
   };
 

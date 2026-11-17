@@ -66,13 +66,15 @@ namespace Models
 
 
   protected:
-    // The complete content of profile.md. An empty string indicates that the memory is cleared. This field is required, but an empty value is allowed.
+    // The complete content of profile.md. An empty string indicates that the memory is cleared. This field must be provided, but an empty value is allowed.
     // 
     // This parameter is required.
     shared_ptr<string> content_ {};
     // The workspace ID. This parameter is required when ownerType is set to group.
     shared_ptr<string> groupId_ {};
-    // The owner type. A value of user indicates the personal memory of the authenticated user. A value of group indicates the memory of a specified workspace.
+    // The owner type. Valid values:
+    // - user: the personal memory of the authenticated user.
+    // - group: the memory of the specified workspace.
     shared_ptr<string> ownerType_ {};
     // The tenant ID. This is a common parameter. If this parameter is not specified, the default tenant of the caller is used.
     shared_ptr<string> tenantId_ {};

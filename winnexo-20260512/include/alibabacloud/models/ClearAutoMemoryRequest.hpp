@@ -66,15 +66,13 @@ namespace Models
 
 
   protected:
-    // The workspace ID. This parameter is required when ownerType is set to group.
+    // The collaboration workspace ID. This parameter is required when ownerType is set to group.
     shared_ptr<string> groupId_ {};
-    // The owner type. Valid values:
-    // - user: the personal memory of the authenticated user.
-    // - group: the memory of a specified workspace.
+    // The owner type. Valid values: user: the personal memory of the authenticated user; group: the memory of the specified collaboration workspace.
     shared_ptr<string> ownerType_ {};
     // The tenant ID. This is a common parameter. If not specified, the default tenant of the caller is used.
     shared_ptr<string> tenantId_ {};
-    // The memory type. Valid values: user, feedback, reference, project, and all. A value of all does not clear manual memory.
+    // The memory type. Valid values: user, feedback, reference, project, or all. The value all does not clear manual memory.
     // 
     // This parameter is required.
     shared_ptr<string> type_ {};

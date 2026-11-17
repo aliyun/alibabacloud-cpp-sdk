@@ -75,11 +75,11 @@ namespace Models
 
 
   protected:
-    // The number of automatic memory files cleared in this synchronous operation. The value is 0 if no files are cleared or no memories are available to be cleared.
+    // The number of automatic memory files cleared in this synchronous operation. The value is 0 if no files are cleared or no memory is available to be cleared.
     shared_ptr<int64_t> clearedCount_ {};
     // The business status code. A value of 200 indicates success.
     shared_ptr<string> code_ {};
-    // The updated status of the automatic memory collection toggle. A value of true indicates that the feature is enabled, and a value of false indicates that the feature is disabled.
+    // The updated status of the automatic memory collection switch. A value of true indicates that the feature is enabled, and false indicates that it is disabled.
     shared_ptr<bool> enabled_ {};
     // The error description.
     shared_ptr<string> message_ {};

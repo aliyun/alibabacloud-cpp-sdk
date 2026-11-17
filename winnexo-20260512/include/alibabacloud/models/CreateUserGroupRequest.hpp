@@ -68,9 +68,9 @@ namespace Models
   protected:
     // The description of the user group.
     shared_ptr<string> description_ {};
-    // The ID of the parent user group. If this parameter is not specified, a root node is created.
+    // The ID of the parent user group. If this parameter is not specified, the user group is created under the root node.
     shared_ptr<string> parentId_ {};
-    // The tenant ID. This is a common parameter. If not specified, the default tenant of the caller is used.
+    // The tenant ID. This is a common parameter that can be explicitly passed by using the `--tenant-id` option in winnexo-cli.
     shared_ptr<string> tenantId_ {};
     // The name of the user group. The name must be unique under the same parent node.
     // 

@@ -40,6 +40,9 @@
 #include <alibabacloud/models/CloseWorkflowTodosRequest.hpp>
 #include <alibabacloud/models/CloseWorkflowTodosResponseBody.hpp>
 #include <alibabacloud/models/CloseWorkflowTodosResponse.hpp>
+#include <alibabacloud/models/ConvertDirectConversationToWorkRequest.hpp>
+#include <alibabacloud/models/ConvertDirectConversationToWorkResponseBody.hpp>
+#include <alibabacloud/models/ConvertDirectConversationToWorkResponse.hpp>
 #include <alibabacloud/models/CountTodosRequest.hpp>
 #include <alibabacloud/models/CountTodosResponseBody.hpp>
 #include <alibabacloud/models/CountTodosResponse.hpp>
@@ -273,6 +276,9 @@
 #include <alibabacloud/models/GetNodeDetailRequest.hpp>
 #include <alibabacloud/models/GetNodeDetailResponseBody.hpp>
 #include <alibabacloud/models/GetNodeDetailResponse.hpp>
+#include <alibabacloud/models/GetScheduledTaskConversationRecordsRequest.hpp>
+#include <alibabacloud/models/GetScheduledTaskConversationRecordsResponseBody.hpp>
+#include <alibabacloud/models/GetScheduledTaskConversationRecordsResponse.hpp>
 #include <alibabacloud/models/GetScheduledTaskExecutionDetailRequest.hpp>
 #include <alibabacloud/models/GetScheduledTaskExecutionDetailResponseBody.hpp>
 #include <alibabacloud/models/GetScheduledTaskExecutionDetailResponse.hpp>
@@ -444,6 +450,10 @@
 #include <alibabacloud/models/ListSkillsShrinkRequest.hpp>
 #include <alibabacloud/models/ListSkillsResponseBody.hpp>
 #include <alibabacloud/models/ListSkillsResponse.hpp>
+#include <alibabacloud/models/ListSourceUsageStatisticsRequest.hpp>
+#include <alibabacloud/models/ListSourceUsageStatisticsShrinkRequest.hpp>
+#include <alibabacloud/models/ListSourceUsageStatisticsResponseBody.hpp>
+#include <alibabacloud/models/ListSourceUsageStatisticsResponse.hpp>
 #include <alibabacloud/models/ListTenantDirectoryRequest.hpp>
 #include <alibabacloud/models/ListTenantDirectoryResponseBody.hpp>
 #include <alibabacloud/models/ListTenantDirectoryResponse.hpp>
@@ -523,6 +533,14 @@
 #include <alibabacloud/models/QuerySemanticKnowledgeRequest.hpp>
 #include <alibabacloud/models/QuerySemanticKnowledgeResponseBody.hpp>
 #include <alibabacloud/models/QuerySemanticKnowledgeResponse.hpp>
+#include <alibabacloud/models/QuerySourceUsageSummaryRequest.hpp>
+#include <alibabacloud/models/QuerySourceUsageSummaryShrinkRequest.hpp>
+#include <alibabacloud/models/QuerySourceUsageSummaryResponseBody.hpp>
+#include <alibabacloud/models/QuerySourceUsageSummaryResponse.hpp>
+#include <alibabacloud/models/QuerySourceUsageTrendRequest.hpp>
+#include <alibabacloud/models/QuerySourceUsageTrendShrinkRequest.hpp>
+#include <alibabacloud/models/QuerySourceUsageTrendResponseBody.hpp>
+#include <alibabacloud/models/QuerySourceUsageTrendResponse.hpp>
 #include <alibabacloud/models/QuerySyncResultRequest.hpp>
 #include <alibabacloud/models/QuerySyncResultResponseBody.hpp>
 #include <alibabacloud/models/QuerySyncResultResponse.hpp>
@@ -750,5 +768,8 @@
 #include <alibabacloud/models/UploadChatFileAdvanceRequest.hpp>
 #include <alibabacloud/models/UploadChatFileResponseBody.hpp>
 #include <alibabacloud/models/UploadChatFileResponse.hpp>
+#include <alibabacloud/models/UploadChatFileByBase64Request.hpp>
+#include <alibabacloud/models/UploadChatFileByBase64ResponseBody.hpp>
+#include <alibabacloud/models/UploadChatFileByBase64Response.hpp>
 
 #endif

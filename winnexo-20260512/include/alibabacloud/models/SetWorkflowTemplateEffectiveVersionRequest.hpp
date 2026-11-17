@@ -76,7 +76,7 @@ namespace Models
     shared_ptr<string> templateId_ {};
     // The tenant ID. This is a common parameter. If not specified, the default tenant of the caller is used.
     shared_ptr<string> tenantId_ {};
-    // The version number of the returned content.
+    // The version number to which the returned content belongs.
     // 
     // This parameter is required.
     shared_ptr<string> version_ {};

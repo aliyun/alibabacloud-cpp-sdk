@@ -20,6 +20,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(isOpen, isOpen_);
       DARABONBA_PTR_TO_JSON(model, model_);
       DARABONBA_PTR_TO_JSON(name, name_);
+      DARABONBA_PTR_TO_JSON(outputMode, outputMode_);
       DARABONBA_PTR_TO_JSON(segments, segments_);
       DARABONBA_PTR_TO_JSON(taskDetail, taskDetail_);
       DARABONBA_PTR_TO_JSON(tenantId, tenantId_);
@@ -34,6 +35,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(isOpen, isOpen_);
       DARABONBA_PTR_FROM_JSON(model, model_);
       DARABONBA_PTR_FROM_JSON(name, name_);
+      DARABONBA_PTR_FROM_JSON(outputMode, outputMode_);
       DARABONBA_PTR_FROM_JSON(segments, segments_);
       DARABONBA_PTR_FROM_JSON(taskDetail, taskDetail_);
       DARABONBA_PTR_FROM_JSON(tenantId, tenantId_);
@@ -170,22 +172,22 @@ namespace Models
         // - **hdm_alarm_sms_and_email**: SMS and email.
         // - **hdm_alarm_sms,dingtalk**: SMS and DingTalk chatbot.
         shared_ptr<string> channelType_ {};
-        // The push content scope. Default value: all_replies.
+        // The scope of the push content. Default value: all_replies.
         shared_ptr<string> contentScope_ {};
         // The push method. Default value: channel_bot.
         shared_ptr<string> deliveryMethod_ {};
         // Specifies whether the credential is enabled. Valid values:
         // 
-        // - true: Enabled.
+        // - true: Enabled. 
         // - false: Disabled.
         shared_ptr<bool> enabled_ {};
-        // The file format. Valid values: Excel and CSV.
+        // The file format, such as Excel or CSV.
         shared_ptr<string> fileFormat_ {};
-        // The digital employee name (operating object name, optional).
+        // The name of the digital employee (the name of the operating object, optional).
         shared_ptr<string> operatingObjectName_ {};
-        // The file receiver type. Valid values:
+        // The type of the file recipient. Valid values:
         // 
-        // - 0: One-on-one chat.
+        // - 0: Private chat.
         // 
         // - 1: Group chat.
         // 
@@ -235,18 +237,18 @@ namespace Models
 
 
     protected:
-      // The periodic training information in cron syntax (Minutes Hours DayofMonth Month DayofWeek). An empty value indicates that periodic training is not performed (default). In DayofWeek, 0 indicates Sunday.
+      // The periodic training information. The cron syntax is used (Minutes Hours DayofMonth Month DayofWeek). If this parameter is empty, periodic training is not performed, which is the default value. In DayofWeek, 0 indicates Sunday.
       shared_ptr<string> cron_ {};
       // The language. Valid values:
       // 
-      // - zh_CN: Chinese (default)
-      // - en_US: English
+      // - zh_CN: Chinese. This is the default value.
+      // - en_US: English.
       shared_ptr<string> language_ {};
-      // The list of task push channels. No push is performed if the list is empty or no channel is enabled.
+      // The list of task push channels. If the list is empty or no channel is enabled, no push is performed.
       shared_ptr<vector<TriggerConfig::PushConfig>> pushConfig_ {};
       // The time zone.
       shared_ptr<string> timezone_ {};
-      // The trigger mode.
+      // - Trigger mode
       //  
       //   1: Manual trigger
       //    
@@ -256,7 +258,7 @@ namespace Models
       //  
       //   5: Pipeline trigger
       // 
-      //   6: WEBHOOK trigger
+      //   6: Webhook trigger
       shared_ptr<string> triggerMode_ {};
     };
 
@@ -459,13 +461,13 @@ namespace Models
         shared_ptr<string> name_ {};
         // The object ID. Pass the project task ID.
         // 
-        // - For internal enterprise applications, use the taskId obtained by calling the [Create a project task](https://open.dingtalk.com/document/orgapp-server/create-a-project-task) operation.
+        // - For internal enterprise applications, call the [Create a project task](https://open.dingtalk.com/document/orgapp-server/create-a-project-task) API operation to obtain the taskId.
         // 
-        // - For third-party enterprise applications, use the taskId obtained by calling the [Create a project task](https://open.dingtalk.com/document/isvapp-server/create-a-project-task) operation.
+        // - For third-party enterprise applications, call the [Create a project task](https://open.dingtalk.com/document/isvapp-server/create-a-project-task) API operation to obtain the taskId.
         shared_ptr<string> objectId_ {};
         // The relationship type. Valid values:
-        // - crm_customer: enterprise customer.
-        // - crm_customer_personal: individual customer.
+        // - crm_customer: Enterprise customer.
+        // - crm_customer_personal: Individual customer.
         shared_ptr<string> objectType_ {};
       };
 
@@ -506,11 +508,11 @@ namespace Models
 
 
     protected:
-      // The related objects.
+      // The associated objects.
       shared_ptr<vector<TaskDetail::RelatedObjects>> relatedObjects_ {};
-      // The related semantics.
+      // The associated semantics.
       shared_ptr<vector<TaskDetail::RelatedSemantics>> relatedSemantics_ {};
-      // The related skills.
+      // The associated skills.
       shared_ptr<vector<TaskDetail::RelatedSkills>> relatedSkills_ {};
       // The task understanding description polished by the LLM.
       shared_ptr<string> taskUnderstand_ {};
@@ -602,17 +604,17 @@ namespace Models
     protected:
       // The card callback content.
       shared_ptr<string> content_ {};
-      // Specifies whether to enable this feature.
+      // Specifies whether the feature is enabled.
       shared_ptr<bool> enabled_ {};
       // The name.
       shared_ptr<string> name_ {};
-      // The ID of the recommended item, which can be a **feedId** or a micro-application ID.
+      // The ID of the recommended item, which can be a **feedId** or a mini-app ID.
       shared_ptr<string> objectId_ {};
-      // The customer type to save.
+      // The saved customer type.
       shared_ptr<string> objectType_ {};
       // The skill code. This parameter has a value when type is set to skill.
       shared_ptr<string> skillCode_ {};
-      // The billing type. Only fixed is supported.
+      // The billing type. Currently, only fixed is supported.
       shared_ptr<string> type_ {};
     };
 
@@ -702,28 +704,28 @@ namespace Models
     protected:
       // The streaming output message.
       shared_ptr<string> content_ {};
-      // Specifies whether the throttling rule is enabled. A value of true indicates enabled, and a value of false indicates disabled.
+      // Specifies whether the throttling rule is enabled. A value of true indicates that the rule is enabled, and a value of false indicates that the rule is disabled.
       shared_ptr<bool> enabled_ {};
       // The name.
       shared_ptr<string> name_ {};
       // The object ID. Pass the project task ID.
       // 
-      // - For internal enterprise applications, use the taskId obtained by calling the [Create a project task](https://open.dingtalk.com/document/orgapp-server/create-a-project-task) operation.
+      // - For internal enterprise applications, call the [Create a project task](https://open.dingtalk.com/document/orgapp-server/create-a-project-task) API operation to obtain the taskId.
       // 
-      // - For third-party enterprise applications, use the taskId obtained by calling the [Create a project task](https://open.dingtalk.com/document/isvapp-server/create-a-project-task) operation.
+      // - For third-party enterprise applications, call the [Create a project task](https://open.dingtalk.com/document/isvapp-server/create-a-project-task) API operation to obtain the taskId.
       shared_ptr<string> objectId_ {};
-      // The object type. Fixed value: task, indicating a project task.
+      // The object type. Set the value to task, which indicates a project task.
       shared_ptr<string> objectType_ {};
       // The skill code. This parameter has a value when type is set to skill.
       shared_ptr<string> skillCode_ {};
-      // The HTTP API type. Valid values: Http (standard HTTP API), Rest (RESTful API), WebSocket (WebSocket API), HttpIngress (HTTP API accessed through Ingress), LLM (large language model API), and Agent (Agent proxy API).
+      // The HTTP API type. Valid values: Http (standard HTTP API), Rest (RESTful API), WebSocket (WebSocket API), HttpIngress (HTTP API accessed through Ingress), LLM (large language model API), and Agent (agent API).
       shared_ptr<string> type_ {};
     };
 
     virtual bool empty() const override { return this->collaborationGroupId_ == nullptr
         && this->description_ == nullptr && this->digitalEmployeeName_ == nullptr && this->isOpen_ == nullptr && this->model_ == nullptr && this->name_ == nullptr
-        && this->segments_ == nullptr && this->taskDetail_ == nullptr && this->tenantId_ == nullptr && this->triggerConfig_ == nullptr && this->visibility_ == nullptr
-        && this->visibleMemberUserIds_ == nullptr; };
+        && this->outputMode_ == nullptr && this->segments_ == nullptr && this->taskDetail_ == nullptr && this->tenantId_ == nullptr && this->triggerConfig_ == nullptr
+        && this->visibility_ == nullptr && this->visibleMemberUserIds_ == nullptr; };
     // collaborationGroupId Field Functions 
     bool hasCollaborationGroupId() const { return this->collaborationGroupId_ != nullptr;};
     void deleteCollaborationGroupId() { this->collaborationGroupId_ = nullptr;};
@@ -768,6 +770,13 @@ namespace Models
     void deleteName() { this->name_ = nullptr;};
     inline string getName() const { DARABONBA_PTR_GET_DEFAULT(name_, "") };
     inline CreateScheduledTaskRequest& setName(string name) { DARABONBA_PTR_SET_VALUE(name_, name) };
+
+
+    // outputMode Field Functions 
+    bool hasOutputMode() const { return this->outputMode_ != nullptr;};
+    void deleteOutputMode() { this->outputMode_ = nullptr;};
+    inline string getOutputMode() const { DARABONBA_PTR_GET_DEFAULT(outputMode_, "") };
+    inline CreateScheduledTaskRequest& setOutputMode(string outputMode) { DARABONBA_PTR_SET_VALUE(outputMode_, outputMode) };
 
 
     // segments Field Functions 
@@ -821,40 +830,33 @@ namespace Models
 
 
   protected:
-    // The ID of the collaboration group (such as cg_101). If specified, a group space task is created (the caller must be a valid group member). If empty, a personal task is created.
+    // The ID of the collaboration group to which the task belongs, such as cg_101. If this parameter is passed, a group space task is created, and the caller must be a valid group member. If this parameter is empty, a personal task is created.
     shared_ptr<string> collaborationGroupId_ {};
     // The description of the to-do card type.
     shared_ptr<vector<CreateScheduledTaskRequest::Description>> description_ {};
-    // The name of the current effective digital employee. This parameter is empty if not configured.
+    // The name of the current effective digital employee. This parameter is empty if it is not configured.
     shared_ptr<vector<string>> digitalEmployeeName_ {};
-    // Specifies whether public access is enabled.
+    // Specifies whether public access is allowed.
     shared_ptr<bool> isOpen_ {};
-    // The large model used by the assistant. An empty value indicates that DingTalk automatically selects the model.
+    // The large language model used by the assistant. The default value is empty, which indicates that DingTalk automatically selects the model.
     shared_ptr<string> model_ {};
     // The name.
     // 
     // This parameter is required.
     shared_ptr<string> name_ {};
+    // 输出会话模式，默认 NEW_CONVERSATION
+    shared_ptr<string> outputMode_ {};
     // The site ID.
     shared_ptr<vector<CreateScheduledTaskRequest::Segments>> segments_ {};
     // The task details.
     shared_ptr<CreateScheduledTaskRequest::TaskDetail> taskDetail_ {};
-    // The ID of the effective tenant.
+    // The effective tenant ID.
     shared_ptr<string> tenantId_ {};
-    // The trigger configuration. The configuration varies depending on the trigger type. For the specific format, refer to the following data structures:
-    // 
-    //   - OSS trigger: See [OSSTriggerConfig](https://help.aliyun.com/document_detail/415697.html).
-    //   - Simple Log Service trigger: See [LogTriggerConfig](https://help.aliyun.com/document_detail/415694.html).
-    //   - Time trigger: See [TimeTriggerConfig](https://help.aliyun.com/document_detail/415712.html).
-    //   - HTTP trigger: See [HTTPTriggerConfig](https://help.aliyun.com/document_detail/415685.html).
-    //   - Tablestore trigger: You only need to specify the complete **SourceArn** parameter. No additional configuration is required. Set the value to an empty object {}.
-    //   - CDN event trigger: See [CDNEventsTriggerConfig](https://help.aliyun.com/document_detail/415674.html).
-    //   - MNS topic trigger: See [MnsTopicTriggerConfig](https://help.aliyun.com/document_detail/415695.html).
-    //   - EventBridge trigger: See [EventBridgeTriggerConfig](https://help.aliyun.com/document_detail/2508622.html).
+    // The trigger configuration of the scheduled task. The triggerMode parameter supports manual (manual trigger) and scheduled (scheduled trigger). If scheduled is used, the cron parameter must be specified. The timezone and language parameters are injected by the server, and the client does not need to pass them. The pushConfig parameter is the list of task push channels. If the list is empty or no channel is enabled, no push is performed.
     shared_ptr<CreateScheduledTaskRequest::TriggerConfig> triggerConfig_ {};
-    // The visibility scope of the group task. Valid values: PRIVATE (visible only to the creator and group owner), COLLABORATIVE (visible to specified collaborators), and PUBLIC (visible to all group members). Default value for group tasks: PRIVATE. This parameter is ignored for personal tasks.
+    // The visibility scope of the group task. Valid values: PRIVATE (visible only to the creator and group owner), COLLABORATIVE (visible to specified collaboration members), and PUBLIC (visible to all group members). If this parameter is not passed for a group task, the default value is PRIVATE. This field is ignored for personal tasks.
     shared_ptr<string> visibility_ {};
-    // The list of collaborator user IDs. This parameter takes effect only when visibility is set to COLLABORATIVE. It is ignored for other visibility levels. A maximum of 1000 IDs are supported. The task creator and group creator do not need to be included (covered by the authentication layer). This parameter is ignored for personal tasks.
+    // The list of user IDs of collaboration members. This parameter takes effect only when visibility is set to COLLABORATIVE and is ignored for other values. A maximum of 1,000 user IDs can be specified. You do not need to pass the IDs of the task creator and group creator because they are covered by the authentication layer. This field is ignored for personal tasks.
     shared_ptr<vector<string>> visibleMemberUserIds_ {};
   };
 

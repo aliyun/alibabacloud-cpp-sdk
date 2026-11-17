@@ -188,25 +188,27 @@ namespace Models
     protected:
       // The model tier.
       shared_ptr<string> modelMode_ {};
-      // The name of the step. This parameter can be left empty for a draft, but is required when the template is submitted.
+      // The step name. This field can be left empty for a draft and is required upon submission.
       shared_ptr<string> name_ {};
       // The name of the agent owner.
       shared_ptr<string> ownerAgentName_ {};
-      // The type of the owner. Valid values: MEMBER (manual) and AGENT (agent).
+      // The owner type. Valid values:
+      // - MEMBER: Human.
+      // - AGENT: Agent.
       shared_ptr<string> ownerType_ {};
-      // The user ID of the manual owner.
+      // The user ID of the human owner.
       shared_ptr<int64_t> ownerUserId_ {};
-      // 是否人工审核产出物，默认关闭；仅数字员工可开启，审核待办自动发负责人
+      // Specifies whether to manually review deliverables. By default, this feature is disabled. It can only be enabled for digital workers, and review tasks are automatically sent to the owner.
       shared_ptr<bool> reviewOutput_ {};
-      // The list of user IDs of the reviewers.
+      // The list of reviewer user IDs.
       shared_ptr<vector<int64_t>> reviewerUserIds_ {};
-      // The order of the step.
+      // The step order.
       shared_ptr<int64_t> sortOrder_ {};
       // The display text derived from ordered segments. Fixed titles are not added, and the text is not stored independently.
       shared_ptr<string> specification_ {};
-      // The array of ordered segments. This parameter supports text, mention, skill, app, files, and web_search, and retains reference identities and order.
+      // The array of ordered segments. Supported types include text, mention, skill, app, files, and web_search. Reference identities and order are preserved.
       shared_ptr<vector<Darabonba::Json>> specificationJson_ {};
-      // The ID of the step.
+      // The step ID.
       shared_ptr<string> stepId_ {};
     };
 
@@ -345,35 +347,37 @@ namespace Models
     shared_ptr<string> code_ {};
     // The user ID of the creator.
     shared_ptr<int64_t> createdByUserId_ {};
-    // The description of the template.
+    // The template description.
     shared_ptr<string> description_ {};
-    // 节点依赖边；每项包含from/to，引用稳定stepId
+    // The node dependency edges. Each item contains a from and to field, referencing stable step IDs.
     shared_ptr<vector<Darabonba::Json>> edges_ {};
-    // The current effective version number of the template. An empty value indicates that only a draft exists and the template cannot be used for work items.
+    // The current effective version number of the template. An empty value indicates that only a draft exists and it cannot be used for work items.
     shared_ptr<string> effectiveVersion_ {};
     // The creation time in ISO 8601 format.
     shared_ptr<string> gmtCreate_ {};
     // The modification time in ISO 8601 format.
     shared_ptr<string> gmtModified_ {};
-    // 可选画布布局，按stepId索引；只影响展示，不决定依赖
+    // The optional canvas layout, indexed by step ID. This field only affects the display and does not determine dependencies.
     Darabonba::Json layout_ {};
     // The error description.
     shared_ptr<string> message_ {};
-    // The name of the step. This parameter can be left empty for a draft, but is required when the template is submitted.
+    // The step name. This field can be left empty for a draft and is required upon submission.
     shared_ptr<string> name_ {};
     // The request tracking ID.
     shared_ptr<string> requestId_ {};
-    // 模板结构版本，当前为2，与业务版本vN独立
+    // The schema version of the template. The current value is 2, which is independent of the business version vN.
     shared_ptr<int64_t> schemaVersion_ {};
     // The ordered steps.
     shared_ptr<vector<CreateWorkflowTemplateDraftVersionResponseBody::Steps>> steps_ {};
-    // The ID of the template.
+    // The template ID.
     shared_ptr<string> templateId_ {};
     // The version number to which the returned content belongs.
     shared_ptr<string> version_ {};
-    // The change description of the version. An empty value indicates that no description is provided.
+    // The change description for this version. An empty value indicates that no description is provided.
     shared_ptr<string> versionDescription_ {};
-    // The version status. Valid values: DRAFT (draft) and SUBMITTED (submitted).
+    // The version status. Valid values:
+    // - DRAFT: Draft.
+    // - SUBMITTED: Submitted.
     shared_ptr<string> versionStatus_ {};
   };
 

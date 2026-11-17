@@ -59,7 +59,7 @@ namespace Models
   protected:
     // The collaboration workspace ID. This parameter is required when ownerType is set to group.
     shared_ptr<string> groupId_ {};
-    // The owner type. A value of user indicates the personal memory of the authenticated user, and a value of group indicates the memory of the specified collaboration workspace.
+    // The owner type. A value of user indicates the personal memory of the authenticated user. A value of group indicates the memory of the specified collaboration workspace.
     shared_ptr<string> ownerType_ {};
     // The tenant ID. This is a common parameter. If not specified, the default tenant of the caller is used.
     shared_ptr<string> tenantId_ {};

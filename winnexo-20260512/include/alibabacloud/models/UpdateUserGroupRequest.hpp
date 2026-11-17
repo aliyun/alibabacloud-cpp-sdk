@@ -84,19 +84,19 @@ namespace Models
 
 
   protected:
-    // The new description of the user group. If not specified, the description is not modified.
+    // The new description of the user group. If this parameter is not specified, the description is not modified.
     shared_ptr<string> description_ {};
-    // Specifies whether to move the user group to the root node. This parameter cannot be set together with parentId.
+    // Specifies whether to move the user group to the root node. This parameter cannot be set at the same time as a non-null parentId.
     shared_ptr<bool> moveToRoot_ {};
-    // The ID of the new parent user group. If not specified, the user group is not moved.
+    // The ID of the new parent user group. If this parameter is not specified, the user group is not moved. If it is explicitly set to null, the user group is moved to the root node.
     shared_ptr<string> parentId_ {};
-    // The tenant ID. This is a common parameter. If not specified, the default tenant of the caller is used.
+    // The tenant ID. This is a common parameter. In winnexo-cli, it is explicitly passed by using --tenant-id.
     shared_ptr<string> tenantId_ {};
     // The ID of the target user group.
     // 
     // This parameter is required.
     shared_ptr<string> userGroupId_ {};
-    // The new name of the user group. If not specified, the name is not modified.
+    // The new name of the user group. If this parameter is not specified, the name is not modified.
     shared_ptr<string> userGroupName_ {};
   };
 

@@ -163,13 +163,11 @@ namespace Models
       shared_ptr<string> description_ {};
       // The current effective version number. An empty value indicates that only a draft exists and the template cannot be used for work items.
       shared_ptr<string> effectiveVersion_ {};
-      // The time of the last modification. The time follows the ISO 8601 standard.
+      // The last modification time in ISO 8601 format.
       shared_ptr<string> gmtModified_ {};
       // The latest version number.
       shared_ptr<string> latestVersion_ {};
-      // The status of the latest version. Valid values:
-      // - DRAFT: Draft. Unsubmitted edits exist.
-      // - SUBMITTED: Submitted.
+      // The status of the latest version. Valid values: DRAFT (draft, indicating unsubmitted edits exist) and SUBMITTED (submitted).
       shared_ptr<string> latestVersionStatus_ {};
       // The name of the template.
       shared_ptr<string> name_ {};
@@ -265,19 +263,19 @@ namespace Models
     shared_ptr<bool> hasMore_ {};
     // The list of template summaries on the current page.
     shared_ptr<vector<ListWorkflowTemplatesResponseBody::Items>> items_ {};
-    // The effective maximum number of entries to return per page for the current request.
+    // The effective maximum number of entries to return per page in the current request.
     shared_ptr<int64_t> maxResults_ {};
     // The error message.
     shared_ptr<string> message_ {};
-    // The pagination token for the next page. An empty string indicates that no more data exists.
+    // The pagination token for the next page. An empty string is returned if no more data exists.
     shared_ptr<string> nextToken_ {};
     // The current page number.
     shared_ptr<int64_t> page_ {};
     // The effective number of entries per page.
     shared_ptr<int64_t> pageSize_ {};
-    // The request tracking ID.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // The total number of visible items under the filter conditions.
+    // The total number of entries that match the filter conditions.
     shared_ptr<int64_t> total_ {};
   };
 

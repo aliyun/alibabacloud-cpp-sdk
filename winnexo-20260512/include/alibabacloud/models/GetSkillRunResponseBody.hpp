@@ -201,11 +201,11 @@ namespace Models
     shared_ptr<string> errorCode_ {};
     // The error description. This parameter is returned only when the status is Failed.
     shared_ptr<string> errorMessage_ {};
-    // The task end time in ISO 8601 format. This parameter has a value only when the task is in a desired state (Succeeded, Failed, or Cancelled).
+    // The task end time in ISO 8601 format. This parameter has a value only when the task reaches a terminal state (Succeeded, Failed, or Cancelled).
     shared_ptr<string> finishedAt_ {};
-    // The execution log list. This parameter is returned only when IncludeLogs is set to true.
+    // The list of execution logs. This parameter is returned only when IncludeLogs is set to true.
     shared_ptr<vector<Darabonba::Json>> logs_ {};
-    // The description of the status code.
+    // The status code description.
     shared_ptr<string> message_ {};
     // The progress percentage. This parameter is meaningful only when the status is Running.
     shared_ptr<int64_t> progress_ {};
@@ -213,15 +213,15 @@ namespace Models
     shared_ptr<string> progressMessage_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The execution result. This parameter is returned only when the status is Succeeded. It contains a content list.
+    // The execution result. This parameter is returned only when the status is Succeeded and includes a list of content blocks.
     Darabonba::Json result_ {};
-    // The asynchronous task ID.
+    // The ID of the asynchronous task.
     shared_ptr<string> runId_ {};
     // The skill code.
     shared_ptr<string> skillCode_ {};
     // The skill name.
     shared_ptr<string> skillName_ {};
-    // The task execution start time in ISO 8601 format.
+    // The task start time in ISO 8601 format.
     shared_ptr<string> startedAt_ {};
     // The execution status. Valid values: Running, Succeeded, Failed, and Cancelled.
     shared_ptr<string> status_ {};

@@ -94,23 +94,23 @@ namespace Models
 
 
   protected:
-    // The list of Alibaba Cloud account IDs.
+    // The list of cloud account IDs.
     shared_ptr<string> accountIdsShrink_ {};
-    // Specifies whether the account is activated.
-    //  - **true**: Activated.
+    // Specifies whether the account is activated. Valid values:
+    // - **true**: Activated.
     // - **false**: Not activated.
     shared_ptr<bool> isActive_ {};
-    // The keyword for searching products. Fuzzy match is supported.
+    // The keyword for product search. Fuzzy match is supported.
     shared_ptr<string> keyword_ {};
     // The page number.
     shared_ptr<int64_t> page_ {};
-    // The number of entries per page.
+    // The number of entries to return per page.
     // 
     // > The maximum number of entries per page is 30.
     shared_ptr<int64_t> pageSize_ {};
-    // The list of new system role codes (full replacement, at least one role must be included). Valid values: SUPER_ADMIN / SYSTEM_ADMIN / SEMANTIC_ADMIN / SKILL_ADMIN / KB_ADMIN / AGENT_ADMIN / APPLICATION_USER.
+    // The list of new system role codes. This is a full replacement and must contain at least one role. Valid values: SUPER_ADMIN, SYSTEM_ADMIN, SEMANTIC_ADMIN, SKILL_ADMIN, KB_ADMIN, AGENT_ADMIN, and APPLICATION_USER.
     shared_ptr<string> roleCodesShrink_ {};
-    // The tenant ID. This is a common parameter. The winnexo-cli passes this parameter explicitly by using --tenant-id.
+    // The tenant ID. This is a common parameter. winnexo-cli explicitly passes this parameter by using --tenant-id.
     shared_ptr<string> tenantId_ {};
   };
 

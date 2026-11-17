@@ -189,23 +189,23 @@ namespace Models
       shared_ptr<string> description_ {};
       // The creation time.
       shared_ptr<int64_t> gmtCreate_ {};
-      // The last modification time.
+      // The last update time.
       shared_ptr<int64_t> gmtModified_ {};
-      // The signing record ID.
+      // The ID of the signing record.
       shared_ptr<string> itemId_ {};
-      // The data type (group, user, or role).
+      // The data type, such as group, user, or role.
       shared_ptr<string> itemType_ {};
       // The name.
       shared_ptr<string> name_ {};
       // The object bindings.
       shared_ptr<vector<Darabonba::Json>> objectBindings_ {};
-      // The number of resources with the FAILED status. This field is returned only when the top-level directory list of the knowledge base is queried.
+      // The number of resources in the FAILED state. This parameter is returned only when the top-level directory list of the knowledge base is queried.
       shared_ptr<int64_t> sourceFailedCount_ {};
-      // The number of resources with the READY status. This field is returned only when the top-level directory list of the knowledge base is queried.
+      // The number of resources in the READY state. This parameter is returned only when the top-level directory list of the knowledge base is queried.
       shared_ptr<int64_t> sourceReadyCount_ {};
-      // The resource status. This field has a value only when itemType is set to resource.
+      // The resource status. This parameter has a value only when itemType is set to resource.
       shared_ptr<string> sourceStatus_ {};
-      // The total number of resources in the directory and its subdirectories. This field is returned only when the top-level directory list of the knowledge base is queried.
+      // The total number of resources in the directory and its subdirectories. This parameter is returned only when the top-level directory list of the knowledge base is queried.
       shared_ptr<int64_t> sourceTotalCount_ {};
       // The data source type.
       shared_ptr<string> sourceType_ {};
@@ -270,7 +270,7 @@ namespace Models
     shared_ptr<string> code_ {};
     // The file information.
     shared_ptr<vector<ListTenantDirectoryResponseBody::Items>> items_ {};
-    // The description of the status code.
+    // The status code description.
     shared_ptr<string> message_ {};
     // The page number. Default value: 1. Minimum value: 1. Maximum value: 200.
     shared_ptr<int64_t> page_ {};

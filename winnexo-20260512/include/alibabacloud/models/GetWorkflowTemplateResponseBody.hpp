@@ -192,13 +192,11 @@ namespace Models
       shared_ptr<string> name_ {};
       // The name of the agent owner.
       shared_ptr<string> ownerAgentName_ {};
-      // The owner type. Valid values:
-      // - MEMBER: Human.
-      // - AGENT: Agent.
+      // The owner type. Valid values: MEMBER: Human. AGENT: Agent.
       shared_ptr<string> ownerType_ {};
       // The user ID of the human owner.
       shared_ptr<int64_t> ownerUserId_ {};
-      // 是否人工审核产出物，默认关闭；仅数字员工可开启，审核待办自动发负责人
+      // Specifies whether the output is manually reviewed. Default value: false. This feature can only be enabled for digital workers, and review to-do items are automatically sent to the owner.
       shared_ptr<bool> reviewOutput_ {};
       // The list of user IDs of the reviewers.
       shared_ptr<vector<int64_t>> reviewerUserIds_ {};
@@ -206,7 +204,7 @@ namespace Models
       shared_ptr<int64_t> sortOrder_ {};
       // The processing instructions for the step.
       shared_ptr<string> specification_ {};
-      // The array of structured segments for the step instructions. Supported types include text, mention, skill, app, files, and web_search. The fields and nested attachments of each segment are preserved exactly as returned by the backend.
+      // The structured segment array for the step instructions. Supports text, mention, skill, app, files, and web_search. The fields and nested attachments of each segment are preserved as returned by the backend.
       shared_ptr<vector<Darabonba::Json>> specificationJson_ {};
       // The ID of the step.
       shared_ptr<string> stepId_ {};
@@ -349,23 +347,23 @@ namespace Models
     shared_ptr<int64_t> createdByUserId_ {};
     // The description of the template.
     shared_ptr<string> description_ {};
-    // 节点依赖边；每项包含from/to，引用稳定stepId；显式空数组表示没有依赖
+    // The node dependency edges. Each item contains from and to fields that reference stable step IDs. An explicit empty array indicates no dependencies.
     shared_ptr<vector<Darabonba::Json>> edges_ {};
-    // The current effective version number of the template. An empty value indicates that only a draft exists and it cannot be used for work items.
+    // The current effective version number of the template. An empty value indicates that only a draft exists and the template cannot be used for work items.
     shared_ptr<string> effectiveVersion_ {};
     // The creation time in ISO 8601 format.
     shared_ptr<string> gmtCreate_ {};
     // The modification time in ISO 8601 format.
     shared_ptr<string> gmtModified_ {};
-    // 可选画布布局，按stepId索引；只影响展示，不决定依赖
+    // The optional canvas layout, indexed by step ID. This only affects the display and does not determine dependencies.
     Darabonba::Json layout_ {};
     // The error message.
     shared_ptr<string> message_ {};
     // The name of the template.
     shared_ptr<string> name_ {};
-    // The request ID.
+    // The request tracking ID.
     shared_ptr<string> requestId_ {};
-    // 模板结构版本，当前为2，与业务版本vN独立
+    // The schema version of the template. The current value is 2, which is independent of the business version vN.
     shared_ptr<int64_t> schemaVersion_ {};
     // The ordered steps.
     shared_ptr<vector<GetWorkflowTemplateResponseBody::Steps>> steps_ {};
@@ -375,9 +373,7 @@ namespace Models
     shared_ptr<string> version_ {};
     // The version description.
     shared_ptr<string> versionDescription_ {};
-    // The version status. Valid values:
-    // - DRAFT: Draft.
-    // - SUBMITTED: Submitted.
+    // The version status. Valid values: DRAFT: Draft. SUBMITTED: Submitted.
     shared_ptr<string> versionStatus_ {};
   };
 

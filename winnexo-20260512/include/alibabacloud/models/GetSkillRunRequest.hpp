@@ -57,13 +57,13 @@ namespace Models
 
 
   protected:
-    // Specifies whether to include execution logs. Default value: false. Enable this parameter only for troubleshooting.
+    // Specifies whether to include execution logs. Default value: false. Enable this only when troubleshooting issues.
     shared_ptr<bool> includeLogs_ {};
     // The evaluation run ID.
     // 
     // This parameter is required.
     shared_ptr<string> runId_ {};
-    // The tenant ID to which the task belongs.
+    // The ID of the tenant to which the task belongs.
     shared_ptr<string> tenantId_ {};
   };
 

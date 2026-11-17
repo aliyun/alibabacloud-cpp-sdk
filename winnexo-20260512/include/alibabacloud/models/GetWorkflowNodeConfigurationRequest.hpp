@@ -66,19 +66,19 @@ namespace Models
 
 
   protected:
-    // 协作空间ID
+    // The ID of the collaboration workspace.
     // 
     // This parameter is required.
     shared_ptr<string> collaborationGroupId_ {};
-    // 当前物理计划ID（planId）
+    // The ID of the current physical plan (planId).
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
-    // 业务节点key（nodeKey）
+    // The key of the business node (nodeKey).
     // 
     // This parameter is required.
     shared_ptr<string> nodeId_ {};
-    // 租户ID；缺省使用调用方默认租户
+    // The tenant ID. If not specified, the default tenant of the caller is used.
     shared_ptr<string> tenantId_ {};
   };
 

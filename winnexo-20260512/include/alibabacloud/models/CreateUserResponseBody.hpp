@@ -98,7 +98,7 @@ namespace Models
     shared_ptr<string> accountId_ {};
     // The error code.
     shared_ptr<string> code_ {};
-    // The cluster name.
+    // The display name.
     shared_ptr<string> displayName_ {};
     // Indicates whether the user is newly created. A value of false indicates that an existing user is added to the tenant.
     shared_ptr<bool> isNewUser_ {};
@@ -106,7 +106,7 @@ namespace Models
     shared_ptr<string> message_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The WINNEXO platform user ID.
+    // The user ID in the WINNEXO platform.
     shared_ptr<string> wnUserId_ {};
   };
 

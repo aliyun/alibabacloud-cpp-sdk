@@ -106,27 +106,27 @@ namespace Models
 
   protected:
     // The write action. Valid values:
-    // - SAVE: Saves the template as a draft. The changes do not take effect. Node names and assignees can be left empty.
-    // - SUBMIT: Requires complete nodes. Saves and submits the template as the only effective version.
+    // - SAVE: Saves the template as a draft without taking effect, allowing node names and executors to be left empty.
+    // - SUBMIT: Requires complete nodes, and saves and submits the template as the only effective version.
     // Default value: SUBMIT.
     shared_ptr<string> action_ {};
-    // The ID of the collaboration workspace.
+    // The collaboration workspace ID.
     // 
     // This parameter is required.
     shared_ptr<string> collaborationGroupId_ {};
-    // The complete JSON definition of the template. This overwrites the existing definition.
+    // The complete JSON definition of the template for full overwriting.
     // 
     // This parameter is required.
     Darabonba::Json definition_ {};
-    // The submitted version number on which the new version is based. This parameter is mutually exclusive with version. If you do not specify this parameter, the current effective version is used.
+    // The submitted version number on which the new version is based. This parameter is mutually exclusive with version. If not specified, the system falls back to the current effective version.
     shared_ptr<string> sourceVersion_ {};
-    // The ID of the template.
+    // The template ID.
     // 
     // This parameter is required.
     shared_ptr<string> templateId_ {};
     // The tenant ID. This is a common parameter. If not specified, the default tenant of the caller is used.
     shared_ptr<string> tenantId_ {};
-    // The version number to which the content belongs.
+    // The version number to which the returned content belongs.
     shared_ptr<string> version_ {};
     // The change description for this version. An empty value indicates that no description is provided.
     shared_ptr<string> versionDescription_ {};

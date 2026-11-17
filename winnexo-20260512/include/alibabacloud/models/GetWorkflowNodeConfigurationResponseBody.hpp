@@ -123,9 +123,9 @@ namespace Models
 
 
       protected:
-        // USER 为正整数平台用户ID字符串；AGENT 为空间数字员工技术名称
+        // The ID of the executor. If the type is USER, this is a positive integer string representing the platform user ID. If the type is AGENT, this is the technical name of the digital employee in the workspace.
         shared_ptr<string> id_ {};
-        // USER 真人、AGENT 数字员工或历史 SYSTEM 系统执行人；SYSTEM仅用于响应
+        // The type of the executor. Valid values: USER for a real person, AGENT for a digital employee, and SYSTEM for a legacy system executor. The SYSTEM value is used only in responses.
         shared_ptr<string> type_ {};
       };
 
@@ -157,11 +157,11 @@ namespace Models
 
 
     protected:
-      // 覆盖执行主体；null为默认
+      // The override executor. A null value indicates that the default is used.
       shared_ptr<Overrides::Executor> executor_ {};
-      // 覆盖模型运行档；null为默认
+      // The override model runtime profile. A null value indicates that the default is used.
       shared_ptr<string> model_ {};
-      // 覆盖负责人ID列表；null为默认
+      // The list of override responsible user IDs. A null value indicates that the default is used.
       shared_ptr<vector<int64_t>> responsibleUserIds_ {};
     };
 
@@ -203,9 +203,9 @@ namespace Models
 
 
     protected:
-      // USER 为正整数平台用户ID字符串；AGENT 为空间数字员工技术名称
+      // The ID of the executor. If the type is USER, this is a positive integer string representing the platform user ID. If the type is AGENT, this is the technical name of the digital employee in the workspace.
       shared_ptr<string> id_ {};
-      // USER 真人、AGENT 数字员工或历史 SYSTEM 系统执行人；SYSTEM仅用于响应
+      // The type of the executor. Valid values: USER for a real person, AGENT for a digital employee, and SYSTEM for a legacy system executor. The SYSTEM value is used only in responses.
       shared_ptr<string> type_ {};
     };
 
@@ -247,9 +247,9 @@ namespace Models
 
 
     protected:
-      // USER 为正整数平台用户ID字符串；AGENT 为空间数字员工技术名称
+      // The ID of the executor. If the type is USER, this is a positive integer string representing the platform user ID. If the type is AGENT, this is the technical name of the digital employee in the workspace.
       shared_ptr<string> id_ {};
-      // USER 真人、AGENT 数字员工或历史 SYSTEM 系统执行人；SYSTEM仅用于响应
+      // The type of the executor. Valid values: USER for a real person, AGENT for a digital employee, and SYSTEM for a legacy system executor. The SYSTEM value is used only in responses.
       shared_ptr<string> type_ {};
     };
 
@@ -388,39 +388,39 @@ namespace Models
 
 
   protected:
-    // 当前用户是否可编辑此节点
+    // Indicates whether the current user can edit this node.
     shared_ptr<bool> canEdit_ {};
-    // 公共业务状态码
+    // The common business status code.
     shared_ptr<string> code_ {};
-    // 配置版本；更新或恢复时作为expectedVersion
+    // The configuration version. It is used as the expectedVersion when updating or restoring the configuration.
     shared_ptr<int64_t> configVersion_ {};
-    // 模板默认执行主体
+    // The default executor of the template.
     shared_ptr<GetWorkflowNodeConfigurationResponseBody::DefaultExecutor> defaultExecutor_ {};
-    // 模板默认模型运行档
+    // The default model runtime profile of the template.
     shared_ptr<string> defaultModel_ {};
-    // 模板默认负责人用户ID列表
+    // The list of user IDs for the default responsible users of the template.
     shared_ptr<vector<string>> defaultResponsibleUserIds_ {};
-    // 当前生效的执行主体
+    // The currently effective executor.
     shared_ptr<GetWorkflowNodeConfigurationResponseBody::EffectiveExecutor> effectiveExecutor_ {};
-    // 当前生效的模型运行档
+    // The currently effective model runtime profile.
     shared_ptr<string> effectiveModel_ {};
-    // 当前生效的负责人用户ID列表
+    // The list of user IDs for the currently effective responsible users.
     shared_ptr<vector<string>> effectiveResponsibleUserIds_ {};
-    // 当前物理计划ID
+    // The ID of the current physical plan.
     shared_ptr<string> instanceId_ {};
-    // 公共错误描述
+    // The common error description.
     shared_ptr<string> message_ {};
-    // 业务节点key
+    // The key of the business node.
     shared_ptr<string> nodeId_ {};
-    // 实例覆盖值；字段为null时使用模板默认值
+    // The override values for the instance. If a field is null, the default value of the template is used.
     shared_ptr<GetWorkflowNodeConfigurationResponseBody::Overrides> overrides_ {};
-    // 请求追踪ID
+    // The request tracking ID.
     shared_ptr<string> requestId_ {};
-    // 状态刷新游标，不能作为配置版本
+    // The state refresh cursor. This cannot be used as a configuration version.
     shared_ptr<int64_t> stateVersion_ {};
-    // 最后配置更新时间ISO8601；从未更新时为空
+    // The time when the configuration was last updated, in ISO 8601 format. This field is empty if the configuration has never been updated.
     shared_ptr<string> updatedAt_ {};
-    // 最后更新配置的平台用户ID；从未更新时为空
+    // The platform user ID of the user who last updated the configuration. This field is empty if the configuration has never been updated.
     shared_ptr<int64_t> updatedBy_ {};
   };
 

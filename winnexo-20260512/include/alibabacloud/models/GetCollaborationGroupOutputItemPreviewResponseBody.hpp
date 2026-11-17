@@ -130,27 +130,27 @@ namespace Models
 
 
   protected:
-    // 公共业务状态码，由后端Code字段映射；错误时用于识别失败原因。
+    // The common business status code.
     shared_ptr<string> code_ {};
-    // 可直接展示的文本正文或预览提示；不提供正文的文件类型可为空。
+    // The text content or preview prompt. This field can be empty.
     shared_ptr<string> content_ {};
-    // 是否降级为下载。true时应展示下载入口，不要按在线文档预览器处理。
+    // Indicates whether the preview is downgraded to a download preview.
     shared_ptr<bool> degraded_ {};
-    // 短期签名下载地址；普通文件有效期3600秒，邮件正文可为空。过期后重新调用本接口。示例仅展示URL格式，不包含真实签名。
+    // The short-term signed download URL. This field can be empty. If the URL expires, call this operation again.
     shared_ptr<string> downloadUrl_ {};
-    // 文件扩展名，不含点；无扩展名时可为空。
+    // The file name extension. This field can be empty.
     shared_ptr<string> fileExt_ {};
-    // 文件名，包含扩展名；无文件名时可为空。
+    // The file name. This field can be empty.
     shared_ptr<string> fileName_ {};
-    // 对话生成文件的产出明细ID。取GetNodeDetail返回的artifacts中ref.kind为USER_OUTPUT_ITEM的ref.id；不是artifactId。
+    // The output detail ID.
     shared_ptr<string> itemId_ {};
-    // 公共错误说明，由后端Message字段映射；错误时描述失败原因。
+    // The common error description.
     shared_ptr<string> message_ {};
-    // 预览方式，例如CONTENT为文本正文，HTML为网页，IMAGE为图片，AUDIO为音频，VIDEO为视频，OSS_IMM为文档预览。
+    // The preview type.
     shared_ptr<string> previewType_ {};
-    // 短期预览地址；正文可直接展示时可为空。地址过期后重新调用本接口。示例仅展示URL格式，不是可访问凭证。
+    // The short-term preview URL. This field can be empty.
     shared_ptr<string> previewUrl_ {};
-    // 请求追踪ID，由后端RequestId字段映射，用于排查调用失败。
+    // The request tracking ID.
     shared_ptr<string> requestId_ {};
   };
 

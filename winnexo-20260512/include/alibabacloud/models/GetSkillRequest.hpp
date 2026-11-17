@@ -75,15 +75,15 @@ namespace Models
 
 
   protected:
-    // Specifies whether to return the complete file tree. Default value: False. This avoids large responses.
+    // Specifies whether to return the complete file tree. Default value: false. This prevents large response payloads.
     shared_ptr<bool> includeSkillFiles_ {};
     // The skill code. This parameter has a value when type is set to skill.
     shared_ptr<string> skillCode_ {};
-    // The skill name.
+    // The name of the skill.
     shared_ptr<string> skillName_ {};
     // The ID of the tenant to which the task belongs.
     shared_ptr<string> tenantId_ {};
-    // The view mode. Valid values: draft (draft/editing view) and published (published view, default).
+    // The view mode. Valid values: draft (draft or edit view) and published (published view, default).
     shared_ptr<string> viewMode_ {};
   };
 

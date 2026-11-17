@@ -94,19 +94,19 @@ namespace Models
 
 
   protected:
-    // 公共业务状态码；成功为200，失败为后端错误码。
+    // The business status code. A value of 200 indicates success. Other values indicate backend error codes.
     shared_ptr<string> code_ {};
-    // 公共状态说明；成功时为success，失败时描述具体原因。
+    // The error description. This parameter is empty if the request is successful.
     shared_ptr<string> message_ {};
-    // 本轮助手消息ID；回复在后台异步生成，取得该ID不表示AI已开始或已完成回复。
+    // The ID of the assistant message. The reply is generated asynchronously in the background.
     shared_ptr<string> messageId_ {};
-    // 请求追踪ID，可用于定位本次调用及排查失败原因。
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // 本次消息发送到的已有话题会话ID，不是新建会话ID。
+    // The ID of the existing topic session.
     shared_ptr<string> sessionId_ {};
-    // 本次提交的用户消息ID。
+    // The ID of the user message.
     shared_ptr<string> userMessageId_ {};
-    // 请求传入的工作项ID；仅传conversationId时返回legacy-topic:<conversationId>形式的兼容ID。
+    // The work item ID in the request. If only conversationId is specified, a compatible ID in the legacy-topic:<conversationId> format is returned.
     shared_ptr<string> workItemId_ {};
   };
 

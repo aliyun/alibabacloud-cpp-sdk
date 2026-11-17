@@ -82,11 +82,11 @@ namespace Models
 
 
     protected:
-      // USER 为正整数平台用户ID字符串；AGENT 为空间数字员工技术名称
+      // The executor ID. If the type is USER, the value is a string representing a positive integer platform user ID. If the type is AGENT, the value is the technical name of the digital worker in the workspace.
       // 
       // This parameter is required.
       shared_ptr<string> id_ {};
-      // USER 真人或 AGENT 数字员工
+      // The executor type. Valid values: USER (a human user) and AGENT (a digital worker).
       // 
       // This parameter is required.
       shared_ptr<string> type_ {};
@@ -156,29 +156,29 @@ namespace Models
 
 
   protected:
-    // 协作空间ID
+    // The ID of the collaboration workspace.
     // 
     // This parameter is required.
     shared_ptr<string> collaborationGroupId_ {};
-    // 节点执行人；省略保持，null恢复默认；与负责人、模型至少修改一项
+    // The executor of the node. If this parameter is omitted, the current value is retained. If this parameter is set to null, the default value is restored. You must modify at least one of the owner, model, or executor.
     shared_ptr<UpdateWorkflowNodeConfigurationRequest::Executor> executor_ {};
-    // 读取接口返回的configVersion；非负整数；版本冲突须刷新
+    // The configuration version returned by the read operation. The value must be a non-negative integer. If a version conflict occurs, you must refresh the version.
     // 
     // This parameter is required.
     shared_ptr<int64_t> expectedVersion_ {};
-    // 当前物理计划ID（planId）
+    // The ID of the current physical plan.
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
-    // 模型模式；quick归一化standard；省略保持，null恢复默认
+    // The model mode. The quick value is normalized to standard. If this parameter is omitted, the current value is retained. If this parameter is set to null, the default value is restored.
     shared_ptr<string> model_ {};
-    // 业务节点key（nodeKey）
+    // The key of the business node.
     // 
     // This parameter is required.
     shared_ptr<string> nodeId_ {};
-    // 节点负责人用户ID列表，非空正整数数组；省略保持，null恢复默认
+    // The list of user IDs for the node owners. The value must be a non-empty array of positive integers. If this parameter is omitted, the current value is retained. If this parameter is set to null, the default value is restored.
     shared_ptr<vector<int64_t>> responsibleUserIds_ {};
-    // 租户ID；缺省使用调用方默认租户
+    // The tenant ID. If not specified, the default tenant of the caller is used.
     shared_ptr<string> tenantId_ {};
   };
 

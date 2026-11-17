@@ -84,23 +84,23 @@ namespace Models
 
 
   protected:
-    // 空间内数字员工技术名称，1–5 个，不可重复
+    // The technical names of the selected digital workers.
     // 
     // This parameter is required.
     shared_ptr<string> agentNamesShrink_ {};
-    // 协作空间 ID；调用者须为有效成员
+    // The ID of the collaboration workspace to which the work item belongs.
     // 
     // This parameter is required.
     shared_ptr<string> collaborationGroupId_ {};
-    // 协作档至少一个创建人以外的有效空间成员；最多 1000 人；私密和公开档忽略；创建人始终加入
+    // The actual members of the topic, including the creator. For public topics, members of the entire workspace are not enumerated.
     shared_ptr<string> memberUserIdsShrink_ {};
-    // 租户ID，公共参数；缺省时使用调用方默认租户
+    // The tenant ID. This is a common parameter. If this parameter is not specified, the default tenant of the caller is used.
     shared_ptr<string> tenantId_ {};
-    // 自由探索工作项标题，去首尾空格后 1–200 字符
+    // The title of the work item.
     // 
     // This parameter is required.
     shared_ptr<string> title_ {};
-    // 可见范围：PRIVATE 私密；COLLABORATIVE 指定成员协作；PUBLIC 空间内公开
+    // The actual visibility scope. Valid values: PRIVATE, COLLABORATIVE, and PUBLIC.
     shared_ptr<string> visibility_ {};
   };
 

@@ -94,21 +94,21 @@ namespace Models
 
 
   protected:
-    // The folder ID.
+    // The directory ID.
     shared_ptr<string> directoryId_ {};
     // The current page number.
     shared_ptr<int64_t> page_ {};
     // The number of entries per page. Default value: 100. Maximum value: 500.
     shared_ptr<int64_t> pageSize_ {};
-    // The field by which the results are sorted. Valid values:
+    // The field by which to sort the returned results. Valid values:
     // 
-    // - event_time: the event creation time.
-    // - event_execute_start_time: the event execution time.
-    // - event_execute_finish_time: the event completion time.
+    // - event_time: the time when the event was created.
+    // - event_execute_start_time: the time when the event execution started.
+    // - event_execute_finish_time: the time when the event execution finished.
     shared_ptr<string> sortField_ {};
-    // The sort order. This parameter takes effect only when sortBy is specified. Valid values: ASC and DESC (case-insensitive).
+    // The sort order. This parameter takes effect only when the sort field is specified. Valid values: ASC and DESC (case-insensitive).
     shared_ptr<string> sortOrder_ {};
-    // The list of source types.
+    // The list of service source types.
     shared_ptr<string> sourceTypes_ {};
     // The tenant ID. This is a common parameter. If not specified, the default tenant of the caller is used.
     shared_ptr<string> tenantId_ {};
