@@ -145,13 +145,13 @@ namespace Models
 
 
       protected:
-        // The change type.
+        // The type of the change.
         shared_ptr<string> changeType_ {};
         // The commit time. The value is a UNIX timestamp in milliseconds.
         shared_ptr<int64_t> commitTime_ {};
-        // The submitter.
+        // The committer.
         shared_ptr<string> commitUser_ {};
-        // The candidate object ID.
+        // The ID of the candidate object.
         shared_ptr<string> objectId_ {};
         // The name of the candidate object.
         shared_ptr<string> objectName_ {};
@@ -201,11 +201,11 @@ namespace Models
 
 
     protected:
-      // The list of candidate objects in the source workspace that are available for cross-workspace deployment.
+      // The list of candidate objects in the source workspace that can be used for cross-workspace deployment.
       shared_ptr<vector<Data::DeploymentCandidates>> deploymentCandidates_ {};
       // The page number.
       shared_ptr<int32_t> pageNumber_ {};
-      // The number of entries per page.
+      // The number of items per page.
       shared_ptr<int32_t> pageSize_ {};
       // The request ID.
       shared_ptr<string> requestId_ {};
@@ -241,7 +241,7 @@ namespace Models
   protected:
     // The response data.
     shared_ptr<ListCrossProjectDeploymentCandidatesResponseBody::Data> data_ {};
-    // The request ID. You can use the ID to locate and troubleshoot the API call.
+    // The request ID, which is used to locate and troubleshoot the API call.
     shared_ptr<string> requestId_ {};
     // Indicates whether the request is successful.
     shared_ptr<bool> success_ {};

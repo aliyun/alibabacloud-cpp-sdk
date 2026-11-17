@@ -53,7 +53,7 @@ namespace Models
   protected:
     // The comment.
     shared_ptr<string> comment_ {};
-    // The list of task instance IDs.
+    // The list of node instance IDs.
     shared_ptr<vector<int64_t>> ids_ {};
   };
 

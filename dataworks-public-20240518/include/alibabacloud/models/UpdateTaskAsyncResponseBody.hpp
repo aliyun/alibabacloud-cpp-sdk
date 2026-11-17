@@ -48,9 +48,9 @@ namespace Models
 
 
   protected:
-    // The operation ID, used to retrieve the result of the asynchronous node update. You can obtain this value from the `UpdateTaskAsync` operation.
+    // The operation ID, which is used to query the result of the asynchronous node update. You can obtain this ID from the `UpdateTaskAsync` operation.
     shared_ptr<string> operationId_ {};
-    // The unique ID of this request. If an error occurs, you can use this ID to troubleshoot the issue.
+    // The unique ID of the request. If an error occurs, you can use this ID to troubleshoot the issue.
     shared_ptr<string> requestId_ {};
   };
 

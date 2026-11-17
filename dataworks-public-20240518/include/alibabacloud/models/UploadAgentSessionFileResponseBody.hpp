@@ -137,8 +137,11 @@ namespace Models
 
 
         protected:
+          // The expiration time of the current upload signature in ISO 8601 UTC string format. The trailing Z indicates UTC, and fractional seconds may be included. The signature is valid for 5 minutes. Signature expiration does not indicate that the staged object has been deleted.
           shared_ptr<string> expiresAt_ {};
+          // All signed request headers that must be included in the PUT request. The names and values must be used exactly as provided. This includes Content-Type, Content-MD5, Content-Length, x-oss-object-acl, and x-oss-forbid-overwrite.
           shared_ptr<map<string, string>> headers_ {};
+          // The complete signed HTTPS PUT URL returned by prepare, which must be used exactly as provided for the upload. The example displayed for this field does not contain a valid signature. The actual request must use the complete signed URL returned by the current prepare call.
           shared_ptr<string> url_ {};
         };
 
@@ -189,11 +192,17 @@ namespace Models
 
 
       protected:
+        // The attachment identifier.
         shared_ptr<string> id_ {};
+        // The original file name.
         shared_ptr<string> name_ {};
+        // The relative path in the session working directory.
         shared_ptr<string> relativePath_ {};
+        // The time-limited object storage signature returned by prepare.
         shared_ptr<Result::Signature> signature_ {};
+        // The number of file bytes saved in the instance.
         shared_ptr<int64_t> size_ {};
+        // The staged upload identifier issued by prepare.
         shared_ptr<string> uploadId_ {};
       };
 
@@ -255,9 +264,13 @@ namespace Models
 
 
       protected:
+        // The JSON-RPC error code.
         shared_ptr<int32_t> code_ {};
+        // The optional additional error information. The content depends on the error type.
         Darabonba::Json data_ {};
+        // The business error code.
         shared_ptr<string> errorCode_ {};
+        // The error message.
         shared_ptr<string> message_ {};
       };
 
@@ -303,10 +316,15 @@ namespace Models
 
 
     protected:
+      // The JSON-RPC fault message. This field is not returned on success.
       shared_ptr<JsonRpcResponse::Error> error_ {};
+      // The JSON-RPC correlation identifier for the current request, which is passed by the caller and returned as is.
       shared_ptr<string> id_ {};
+      // The JSON-RPC protocol version.
       shared_ptr<string> jsonrpc_ {};
+      // Issues the staged upload URL or returns the attachment information after writing to the instance.
       shared_ptr<JsonRpcResponse::Result> result_ {};
+      // The response time as a UNIX timestamp in milliseconds.
       shared_ptr<int64_t> timestamp_ {};
     };
 
@@ -329,7 +347,9 @@ namespace Models
 
 
   protected:
+    // The JSON-RPC response. Returns Result on success and Error on protocol errors.
     shared_ptr<UploadAgentSessionFileResponseBody::JsonRpcResponse> jsonRpcResponse_ {};
+    // The server correlation ID for the current request. You can provide this value for troubleshooting.
     shared_ptr<string> requestId_ {};
   };
 

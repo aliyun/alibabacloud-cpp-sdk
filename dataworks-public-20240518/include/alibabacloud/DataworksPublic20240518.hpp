@@ -22,7 +22,7 @@ namespace DataworksPublic20240518
       string getEndpoint(const string &productId, const string &regionId, const string &endpointRule, const string &network, const string &suffix, const map<string, string> &endpointMap, const string &endpoint);
 
       /**
-       * @summary Terminates a cross-workspace deployment pipeline run.
+       * @summary Stops the cross-workspace deployment pipeline.
        *
        * @param request AbolishCrossProjectPipelineRunRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -31,7 +31,7 @@ namespace DataworksPublic20240518
       Models::AbolishCrossProjectPipelineRunResponse abolishCrossProjectPipelineRunWithOptions(const Models::AbolishCrossProjectPipelineRunRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Terminates a cross-workspace deployment pipeline run.
+       * @summary Stops the cross-workspace deployment pipeline.
        *
        * @param request AbolishCrossProjectPipelineRunRequest
        * @return AbolishCrossProjectPipelineRunResponse
@@ -79,6 +79,27 @@ namespace DataworksPublic20240518
        * @return AddEntityIntoMetaCollectionResponse
        */
       Models::AddEntityIntoMetaCollectionResponse addEntityIntoMetaCollection(const Models::AddEntityIntoMetaCollectionRequest &request);
+
+      /**
+       * @summary Adds an administrator to a specified knowledge base.
+       *
+       * @description Adds an administrator. Only the owner or an administrator of the knowledge base can perform this operation. The caller and tenant are determined by the POP authentication context.
+       *
+       * @param request AddKnowledgeBaseAdministratorRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return AddKnowledgeBaseAdministratorResponse
+       */
+      Models::AddKnowledgeBaseAdministratorResponse addKnowledgeBaseAdministratorWithOptions(const Models::AddKnowledgeBaseAdministratorRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Adds an administrator to a specified knowledge base.
+       *
+       * @description Adds an administrator. Only the owner or an administrator of the knowledge base can perform this operation. The caller and tenant are determined by the POP authentication context.
+       *
+       * @param request AddKnowledgeBaseAdministratorRequest
+       * @return AddKnowledgeBaseAdministratorResponse
+       */
+      Models::AddKnowledgeBaseAdministratorResponse addKnowledgeBaseAdministrator(const Models::AddKnowledgeBaseAdministratorRequest &request);
 
       /**
        * @summary Submits an application for access permissions to specific resources.
@@ -631,7 +652,7 @@ namespace DataworksPublic20240518
       /**
        * @summary Creates a cross-workspace deployment pipeline.
        *
-       * @description Creates and solidifies a cross-project deployment pipeline. The ObjectIds parameter must contain exactly one top-level object ID from the source project. Sub-objects of composite objects such as workflows are automatically included by the system. Passing multiple objects causes parameter validation to fail. You can call the ListCrossProjectDeploymentCandidates operation to query candidate objects. After the pipeline is created, call the ExecCrossProjectPipelineRun operation to execute the deployment, and call the GetCrossProjectPipelineRun operation to query the status.
+       * @description Creates and finalizes a cross-workspace deployment pipeline. The ObjectIds parameter must contain one and only one top-level object ID from the source workspace. Sub-objects of composite objects such as workflows are automatically included by the system. Passing multiple objects causes parameter validation to fail. You can call ListCrossProjectDeploymentCandidates to query candidate objects. After creation, call ExecCrossProjectPipelineRun to execute the deployment, and call GetCrossProjectPipelineRun to query the status.
        *
        * @param tmpReq CreateCrossProjectPipelineRunRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -642,7 +663,7 @@ namespace DataworksPublic20240518
       /**
        * @summary Creates a cross-workspace deployment pipeline.
        *
-       * @description Creates and solidifies a cross-project deployment pipeline. The ObjectIds parameter must contain exactly one top-level object ID from the source project. Sub-objects of composite objects such as workflows are automatically included by the system. Passing multiple objects causes parameter validation to fail. You can call the ListCrossProjectDeploymentCandidates operation to query candidate objects. After the pipeline is created, call the ExecCrossProjectPipelineRun operation to execute the deployment, and call the GetCrossProjectPipelineRun operation to query the status.
+       * @description Creates and finalizes a cross-workspace deployment pipeline. The ObjectIds parameter must contain one and only one top-level object ID from the source workspace. Sub-objects of composite objects such as workflows are automatically included by the system. Passing multiple objects causes parameter validation to fail. You can call ListCrossProjectDeploymentCandidates to query candidate objects. After creation, call ExecCrossProjectPipelineRun to execute the deployment, and call GetCrossProjectPipelineRun to query the status.
        *
        * @param request CreateCrossProjectPipelineRunRequest
        * @return CreateCrossProjectPipelineRunResponse
@@ -1097,6 +1118,132 @@ namespace DataworksPublic20240518
        * @return CreateImageResponse
        */
       Models::CreateImageResponse createImage(const Models::CreateImageRequest &request);
+
+      /**
+       * @summary Creates a knowledge base and returns the knowledge base ID, name, ownership, and the access role of the current caller. This operation does not automatically add sources, build knowledge, or generate retrieval results. You can continue to configure knowledge sources and build tasks. The tenant and owner of the knowledge base are determined by the current caller identity. You do not need to specify a workspace or resource group.
+       *
+       * @description Creates a knowledge base. The tenant and caller identity are determined by the POP authentication context.
+       *
+       * @param request CreateKnowledgeBaseRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CreateKnowledgeBaseResponse
+       */
+      Models::CreateKnowledgeBaseResponse createKnowledgeBaseWithOptions(const Models::CreateKnowledgeBaseRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Creates a knowledge base and returns the knowledge base ID, name, ownership, and the access role of the current caller. This operation does not automatically add sources, build knowledge, or generate retrieval results. You can continue to configure knowledge sources and build tasks. The tenant and owner of the knowledge base are determined by the current caller identity. You do not need to specify a workspace or resource group.
+       *
+       * @description Creates a knowledge base. The tenant and caller identity are determined by the POP authentication context.
+       *
+       * @param request CreateKnowledgeBaseRequest
+       * @return CreateKnowledgeBaseResponse
+       */
+      Models::CreateKnowledgeBaseResponse createKnowledgeBase(const Models::CreateKnowledgeBaseRequest &request);
+
+      /**
+       * @summary Creates a repeatable knowledge build task and configures the input scope, trigger mode, and runtime resources.
+       *
+       * @description Creates a knowledge base build task. The tenant and caller identities are determined by the POP authentication context.
+       *
+       * @param tmpReq CreateKnowledgeBaseBuildTaskRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CreateKnowledgeBaseBuildTaskResponse
+       */
+      Models::CreateKnowledgeBaseBuildTaskResponse createKnowledgeBaseBuildTaskWithOptions(const Models::CreateKnowledgeBaseBuildTaskRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Creates a repeatable knowledge build task and configures the input scope, trigger mode, and runtime resources.
+       *
+       * @description Creates a knowledge base build task. The tenant and caller identities are determined by the POP authentication context.
+       *
+       * @param request CreateKnowledgeBaseBuildTaskRequest
+       * @return CreateKnowledgeBaseBuildTaskResponse
+       */
+      Models::CreateKnowledgeBaseBuildTaskResponse createKnowledgeBaseBuildTask(const Models::CreateKnowledgeBaseBuildTaskRequest &request);
+
+      /**
+       * @summary Creates a build instance based on the current configuration of a specified task, and freezes the input and runtime configurations for this execution.
+       *
+       * @description Creates a knowledge base build task instance. The tenant and caller identities are determined by the POP authentication context.
+       *
+       * @param request CreateKnowledgeBaseBuildTaskInstanceRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CreateKnowledgeBaseBuildTaskInstanceResponse
+       */
+      Models::CreateKnowledgeBaseBuildTaskInstanceResponse createKnowledgeBaseBuildTaskInstanceWithOptions(const Models::CreateKnowledgeBaseBuildTaskInstanceRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Creates a build instance based on the current configuration of a specified task, and freezes the input and runtime configurations for this execution.
+       *
+       * @description Creates a knowledge base build task instance. The tenant and caller identities are determined by the POP authentication context.
+       *
+       * @param request CreateKnowledgeBaseBuildTaskInstanceRequest
+       * @return CreateKnowledgeBaseBuildTaskInstanceResponse
+       */
+      Models::CreateKnowledgeBaseBuildTaskInstanceResponse createKnowledgeBaseBuildTaskInstance(const Models::CreateKnowledgeBaseBuildTaskInstanceRequest &request);
+
+      /**
+       * @summary Creates a document object in a knowledge base by using the document body or an uploaded file.
+       *
+       * @description Creates a knowledge object. The tenant and caller identities are determined by the POP authentication context.
+       *
+       * @param tmpReq CreateKnowledgeObjectRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CreateKnowledgeObjectResponse
+       */
+      Models::CreateKnowledgeObjectResponse createKnowledgeObjectWithOptions(const Models::CreateKnowledgeObjectRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Creates a document object in a knowledge base by using the document body or an uploaded file.
+       *
+       * @description Creates a knowledge object. The tenant and caller identities are determined by the POP authentication context.
+       *
+       * @param request CreateKnowledgeObjectRequest
+       * @return CreateKnowledgeObjectResponse
+       */
+      Models::CreateKnowledgeObjectResponse createKnowledgeObject(const Models::CreateKnowledgeObjectRequest &request);
+
+      /**
+       * @summary Requests a file upload session and a temporary direct upload URL without creating a knowledge object or starting a build.
+       *
+       * @description Creates an upload session for a knowledge object. The tenant and caller identities are determined by the POP authentication context.
+       *
+       * @param request CreateKnowledgeObjectUploadRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CreateKnowledgeObjectUploadResponse
+       */
+      Models::CreateKnowledgeObjectUploadResponse createKnowledgeObjectUploadWithOptions(const Models::CreateKnowledgeObjectUploadRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Requests a file upload session and a temporary direct upload URL without creating a knowledge object or starting a build.
+       *
+       * @description Creates an upload session for a knowledge object. The tenant and caller identities are determined by the POP authentication context.
+       *
+       * @param request CreateKnowledgeObjectUploadRequest
+       * @return CreateKnowledgeObjectUploadResponse
+       */
+      Models::CreateKnowledgeObjectUploadResponse createKnowledgeObjectUpload(const Models::CreateKnowledgeObjectUploadRequest &request);
+
+      /**
+       * @summary Registers projects, data sources, or external document sources that can be referenced by a knowledge base.
+       *
+       * @description Manages knowledge sources for a knowledge base. The identity is determined by the POP context, and credentials are not returned in query responses.
+       *
+       * @param tmpReq CreateKnowledgeSourceRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CreateKnowledgeSourceResponse
+       */
+      Models::CreateKnowledgeSourceResponse createKnowledgeSourceWithOptions(const Models::CreateKnowledgeSourceRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Registers projects, data sources, or external document sources that can be referenced by a knowledge base.
+       *
+       * @description Manages knowledge sources for a knowledge base. The identity is determined by the POP context, and credentials are not returned in query responses.
+       *
+       * @param request CreateKnowledgeSourceRequest
+       * @return CreateKnowledgeSourceResponse
+       */
+      Models::CreateKnowledgeSourceResponse createKnowledgeSource(const Models::CreateKnowledgeSourceRequest &request);
 
       /**
        * @summary Registers a data lineage relationship in DataWorks Data Map. You can use this operation to establish lineage relationships between metadata entities managed by DataWorks, including table-to-table, column-to-column, table-to-column, and dataset-to-table scenarios. You can also establish lineage relationships between managed entities and custom entity objects registered by users. This operation is compatible with non-managed custom objects, but this approach is no longer recommended. Before calling this operation, make sure that the managed entities involved in the lineage registration already exist on the DataWorks platform.
@@ -1975,6 +2122,8 @@ namespace DataworksPublic20240518
       /**
        * @summary Deletes a data quality monitoring rule.
        *
+       * @description 需要购买DataWorks基础版及以上版本才能使用
+       *
        * @param request DeleteDataQualityRuleRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return DeleteDataQualityRuleResponse
@@ -1983,6 +2132,8 @@ namespace DataworksPublic20240518
 
       /**
        * @summary Deletes a data quality monitoring rule.
+       *
+       * @description 需要购买DataWorks基础版及以上版本才能使用
        *
        * @param request DeleteDataQualityRuleRequest
        * @return DeleteDataQualityRuleResponse
@@ -2225,6 +2376,90 @@ namespace DataworksPublic20240518
        * @return DeleteImageResponse
        */
       Models::DeleteImageResponse deleteImage(const Models::DeleteImageRequest &request);
+
+      /**
+       * @summary Deletes a specified knowledge base and returns the deleted status upon success.
+       *
+       * @description Deletes a knowledge base. The tenant and caller identities are determined by the POP authentication context.
+       *
+       * @param request DeleteKnowledgeBaseRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DeleteKnowledgeBaseResponse
+       */
+      Models::DeleteKnowledgeBaseResponse deleteKnowledgeBaseWithOptions(const Models::DeleteKnowledgeBaseRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Deletes a specified knowledge base and returns the deleted status upon success.
+       *
+       * @description Deletes a knowledge base. The tenant and caller identities are determined by the POP authentication context.
+       *
+       * @param request DeleteKnowledgeBaseRequest
+       * @return DeleteKnowledgeBaseResponse
+       */
+      Models::DeleteKnowledgeBaseResponse deleteKnowledgeBase(const Models::DeleteKnowledgeBaseRequest &request);
+
+      /**
+       * @summary Deletes a specified knowledge base build task.
+       *
+       * @description Deletes a knowledge base build task. The tenant and caller identities are determined by the POP authentication context.
+       *
+       * @param request DeleteKnowledgeBaseBuildTaskRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DeleteKnowledgeBaseBuildTaskResponse
+       */
+      Models::DeleteKnowledgeBaseBuildTaskResponse deleteKnowledgeBaseBuildTaskWithOptions(const Models::DeleteKnowledgeBaseBuildTaskRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Deletes a specified knowledge base build task.
+       *
+       * @description Deletes a knowledge base build task. The tenant and caller identities are determined by the POP authentication context.
+       *
+       * @param request DeleteKnowledgeBaseBuildTaskRequest
+       * @return DeleteKnowledgeBaseBuildTaskResponse
+       */
+      Models::DeleteKnowledgeBaseBuildTaskResponse deleteKnowledgeBaseBuildTask(const Models::DeleteKnowledgeBaseBuildTaskRequest &request);
+
+      /**
+       * @summary Removes a document object from a knowledge base or archives a semantic model object.
+       *
+       * @description Deletes a knowledge object. The tenant and caller identities are determined by the POP authentication context.
+       *
+       * @param request DeleteKnowledgeObjectRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DeleteKnowledgeObjectResponse
+       */
+      Models::DeleteKnowledgeObjectResponse deleteKnowledgeObjectWithOptions(const Models::DeleteKnowledgeObjectRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Removes a document object from a knowledge base or archives a semantic model object.
+       *
+       * @description Deletes a knowledge object. The tenant and caller identities are determined by the POP authentication context.
+       *
+       * @param request DeleteKnowledgeObjectRequest
+       * @return DeleteKnowledgeObjectResponse
+       */
+      Models::DeleteKnowledgeObjectResponse deleteKnowledgeObject(const Models::DeleteKnowledgeObjectRequest &request);
+
+      /**
+       * @summary Deletes a knowledge source from a specified knowledge base.
+       *
+       * @description Manages knowledge sources in a knowledge base. The identity is determined by the POP context, and credentials are not returned in the response.
+       *
+       * @param request DeleteKnowledgeSourceRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DeleteKnowledgeSourceResponse
+       */
+      Models::DeleteKnowledgeSourceResponse deleteKnowledgeSourceWithOptions(const Models::DeleteKnowledgeSourceRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Deletes a knowledge source from a specified knowledge base.
+       *
+       * @description Manages knowledge sources in a knowledge base. The identity is determined by the POP context, and credentials are not returned in the response.
+       *
+       * @param request DeleteKnowledgeSourceRequest
+       * @return DeleteKnowledgeSourceResponse
+       */
+      Models::DeleteKnowledgeSourceResponse deleteKnowledgeSource(const Models::DeleteKnowledgeSourceRequest &request);
 
       /**
        * @summary Deletes a specified data lineage relationship from DataWorks Data Map.
@@ -4052,6 +4287,90 @@ namespace DataworksPublic20240518
       Models::GetKnowledgeBaseResponse getKnowledgeBase(const Models::GetKnowledgeBaseRequest &request);
 
       /**
+       * @summary Retrieves the current configuration of a specified knowledge base build task.
+       *
+       * @description Reads a knowledge base build task or instance. The tenant and caller identity are determined by the POP authentication context.
+       *
+       * @param request GetKnowledgeBaseBuildTaskRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetKnowledgeBaseBuildTaskResponse
+       */
+      Models::GetKnowledgeBaseBuildTaskResponse getKnowledgeBaseBuildTaskWithOptions(const Models::GetKnowledgeBaseBuildTaskRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Retrieves the current configuration of a specified knowledge base build task.
+       *
+       * @description Reads a knowledge base build task or instance. The tenant and caller identity are determined by the POP authentication context.
+       *
+       * @param request GetKnowledgeBaseBuildTaskRequest
+       * @return GetKnowledgeBaseBuildTaskResponse
+       */
+      Models::GetKnowledgeBaseBuildTaskResponse getKnowledgeBaseBuildTask(const Models::GetKnowledgeBaseBuildTaskRequest &request);
+
+      /**
+       * @summary Retrieves the execution status, input and configuration snapshots, and failure details for a build.
+       *
+       * @description Retrieves a knowledge base build task or instance. The tenant and caller identities are determined by the POP authentication context.
+       *
+       * @param request GetKnowledgeBaseBuildTaskInstanceRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetKnowledgeBaseBuildTaskInstanceResponse
+       */
+      Models::GetKnowledgeBaseBuildTaskInstanceResponse getKnowledgeBaseBuildTaskInstanceWithOptions(const Models::GetKnowledgeBaseBuildTaskInstanceRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Retrieves the execution status, input and configuration snapshots, and failure details for a build.
+       *
+       * @description Retrieves a knowledge base build task or instance. The tenant and caller identities are determined by the POP authentication context.
+       *
+       * @param request GetKnowledgeBaseBuildTaskInstanceRequest
+       * @return GetKnowledgeBaseBuildTaskInstanceResponse
+       */
+      Models::GetKnowledgeBaseBuildTaskInstanceResponse getKnowledgeBaseBuildTaskInstance(const Models::GetKnowledgeBaseBuildTaskInstanceRequest &request);
+
+      /**
+       * @summary Retrieves the original artifact information and temporary download URL of a successful build.
+       *
+       * @description Retrieves the temporary download link for the original artifact package of a successful build instance. The model YAML is obtained through the knowledge object API and is not included in the TGZ result of this API.
+       *
+       * @param request GetKnowledgeBaseBuildTaskResultRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetKnowledgeBaseBuildTaskResultResponse
+       */
+      Models::GetKnowledgeBaseBuildTaskResultResponse getKnowledgeBaseBuildTaskResultWithOptions(const Models::GetKnowledgeBaseBuildTaskResultRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Retrieves the original artifact information and temporary download URL of a successful build.
+       *
+       * @description Retrieves the temporary download link for the original artifact package of a successful build instance. The model YAML is obtained through the knowledge object API and is not included in the TGZ result of this API.
+       *
+       * @param request GetKnowledgeBaseBuildTaskResultRequest
+       * @return GetKnowledgeBaseBuildTaskResultResponse
+       */
+      Models::GetKnowledgeBaseBuildTaskResultResponse getKnowledgeBaseBuildTaskResult(const Models::GetKnowledgeBaseBuildTaskResultRequest &request);
+
+      /**
+       * @summary Retrieves the current content and available download URLs of a document or semantic model.
+       *
+       * @description Retrieves a knowledge object. The tenant and caller identities are determined by the POP authentication context.
+       *
+       * @param request GetKnowledgeObjectRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetKnowledgeObjectResponse
+       */
+      Models::GetKnowledgeObjectResponse getKnowledgeObjectWithOptions(const Models::GetKnowledgeObjectRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Retrieves the current content and available download URLs of a document or semantic model.
+       *
+       * @description Retrieves a knowledge object. The tenant and caller identities are determined by the POP authentication context.
+       *
+       * @param request GetKnowledgeObjectRequest
+       * @return GetKnowledgeObjectResponse
+       */
+      Models::GetKnowledgeObjectResponse getKnowledgeObject(const Models::GetKnowledgeObjectRequest &request);
+
+      /**
        * @summary Retrieves the current details of a single knowledge point, supporting local graphs, topic pages, and knowledge content.
        *
        * @description Retrieves the current details of a knowledge point. GRAPH returns a one-hop local graph centered on the specified node. WIKI and KNOWLEDGE_CONTENT return readable content.
@@ -4071,6 +4390,27 @@ namespace DataworksPublic20240518
        * @return GetKnowledgePointResponse
        */
       Models::GetKnowledgePointResponse getKnowledgePoint(const Models::GetKnowledgePointRequest &request);
+
+      /**
+       * @summary Retrieves the current configuration of a knowledge source without returning connector credentials.
+       *
+       * @description Manages knowledge sources for a knowledge base. The identity is determined by the POP context, and credentials are not returned in the query response.
+       *
+       * @param request GetKnowledgeSourceRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetKnowledgeSourceResponse
+       */
+      Models::GetKnowledgeSourceResponse getKnowledgeSourceWithOptions(const Models::GetKnowledgeSourceRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Retrieves the current configuration of a knowledge source without returning connector credentials.
+       *
+       * @description Manages knowledge sources for a knowledge base. The identity is determined by the POP context, and credentials are not returned in the query response.
+       *
+       * @param request GetKnowledgeSourceRequest
+       * @return GetKnowledgeSourceResponse
+       */
+      Models::GetKnowledgeSourceResponse getKnowledgeSource(const Models::GetKnowledgeSourceRequest &request);
 
       /**
        * @summary Retrieves the details of a specified lineage relationship in DataWorks Data Map.
@@ -4823,6 +5163,27 @@ namespace DataworksPublic20240518
       Models::GetWorkflowInstanceResponse getWorkflowInstance(const Models::GetWorkflowInstanceRequest &request);
 
       /**
+       * @summary Grants a specified user retrieval access to a knowledge base.
+       *
+       * @description Grants retrieval permissions to a user. Only the knowledge base owner or administrator can perform this operation. The caller and tenant are determined by the POP authentication context.
+       *
+       * @param request GrantKnowledgeBaseRetrievalRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GrantKnowledgeBaseRetrievalResponse
+       */
+      Models::GrantKnowledgeBaseRetrievalResponse grantKnowledgeBaseRetrievalWithOptions(const Models::GrantKnowledgeBaseRetrievalRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Grants a specified user retrieval access to a knowledge base.
+       *
+       * @description Grants retrieval permissions to a user. Only the knowledge base owner or administrator can perform this operation. The caller and tenant are determined by the POP authentication context.
+       *
+       * @param request GrantKnowledgeBaseRetrievalRequest
+       * @return GrantKnowledgeBaseRetrievalResponse
+       */
+      Models::GrantKnowledgeBaseRetrievalResponse grantKnowledgeBaseRetrieval(const Models::GrantKnowledgeBaseRetrievalRequest &request);
+
+      /**
        * @summary Assigns roles to members in a workspace.
        *
        * @description You must purchase DataWorks Basic Edition or a higher edition to use this operation.
@@ -5307,7 +5668,7 @@ namespace DataworksPublic20240518
       Models::ListCrawlersResponse listCrawlers(const Models::ListCrawlersRequest &request);
 
       /**
-       * @summary Queries cross-workspace deployment candidates.
+       * @summary Queries candidate objects for cross-workspace deployment.
        *
        * @param request ListCrossProjectDeploymentCandidatesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -5316,7 +5677,7 @@ namespace DataworksPublic20240518
       Models::ListCrossProjectDeploymentCandidatesResponse listCrossProjectDeploymentCandidatesWithOptions(const Models::ListCrossProjectDeploymentCandidatesRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries cross-workspace deployment candidates.
+       * @summary Queries candidate objects for cross-workspace deployment.
        *
        * @param request ListCrossProjectDeploymentCandidatesRequest
        * @return ListCrossProjectDeploymentCandidatesResponse
@@ -6139,7 +6500,91 @@ namespace DataworksPublic20240518
       Models::ListImagesResponse listImages(const Models::ListImagesRequest &request);
 
       /**
-       * @summary Queries the knowledge bases that the current caller has permission to view in a specified region by using paging.
+       * @summary Lists administrators of a specified knowledge base with pagination.
+       *
+       * @description Lists the administrators. Only the owner or administrators of the knowledge base can perform this operation. The caller and tenant are determined by the POP authentication context.
+       *
+       * @param request ListKnowledgeBaseAdministratorsRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListKnowledgeBaseAdministratorsResponse
+       */
+      Models::ListKnowledgeBaseAdministratorsResponse listKnowledgeBaseAdministratorsWithOptions(const Models::ListKnowledgeBaseAdministratorsRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Lists administrators of a specified knowledge base with pagination.
+       *
+       * @description Lists the administrators. Only the owner or administrators of the knowledge base can perform this operation. The caller and tenant are determined by the POP authentication context.
+       *
+       * @param request ListKnowledgeBaseAdministratorsRequest
+       * @return ListKnowledgeBaseAdministratorsResponse
+       */
+      Models::ListKnowledgeBaseAdministratorsResponse listKnowledgeBaseAdministrators(const Models::ListKnowledgeBaseAdministratorsRequest &request);
+
+      /**
+       * @summary Lists knowledge base build task instances and their run statuses with pagination.
+       *
+       * @description Reads knowledge base build tasks or instances. The tenant and caller identities are determined by the POP authentication context.
+       *
+       * @param request ListKnowledgeBaseBuildTaskInstancesRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListKnowledgeBaseBuildTaskInstancesResponse
+       */
+      Models::ListKnowledgeBaseBuildTaskInstancesResponse listKnowledgeBaseBuildTaskInstancesWithOptions(const Models::ListKnowledgeBaseBuildTaskInstancesRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Lists knowledge base build task instances and their run statuses with pagination.
+       *
+       * @description Reads knowledge base build tasks or instances. The tenant and caller identities are determined by the POP authentication context.
+       *
+       * @param request ListKnowledgeBaseBuildTaskInstancesRequest
+       * @return ListKnowledgeBaseBuildTaskInstancesResponse
+       */
+      Models::ListKnowledgeBaseBuildTaskInstancesResponse listKnowledgeBaseBuildTaskInstances(const Models::ListKnowledgeBaseBuildTaskInstancesRequest &request);
+
+      /**
+       * @summary Lists the build tasks for a specified knowledge base with pagination.
+       *
+       * @description Reads knowledge base build tasks or instances. The tenant and caller identities are determined by the POP authentication context.
+       *
+       * @param request ListKnowledgeBaseBuildTasksRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListKnowledgeBaseBuildTasksResponse
+       */
+      Models::ListKnowledgeBaseBuildTasksResponse listKnowledgeBaseBuildTasksWithOptions(const Models::ListKnowledgeBaseBuildTasksRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Lists the build tasks for a specified knowledge base with pagination.
+       *
+       * @description Reads knowledge base build tasks or instances. The tenant and caller identities are determined by the POP authentication context.
+       *
+       * @param request ListKnowledgeBaseBuildTasksRequest
+       * @return ListKnowledgeBaseBuildTasksResponse
+       */
+      Models::ListKnowledgeBaseBuildTasksResponse listKnowledgeBaseBuildTasks(const Models::ListKnowledgeBaseBuildTasksRequest &request);
+
+      /**
+       * @summary Lists retrieval grants for a specified knowledge base with pagination.
+       *
+       * @description Lists user retrieval authorizations. Only the knowledge base owner or administrator can perform this operation. The caller and tenant are determined by the POP authentication context.
+       *
+       * @param request ListKnowledgeBaseRetrievalGrantsRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListKnowledgeBaseRetrievalGrantsResponse
+       */
+      Models::ListKnowledgeBaseRetrievalGrantsResponse listKnowledgeBaseRetrievalGrantsWithOptions(const Models::ListKnowledgeBaseRetrievalGrantsRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Lists retrieval grants for a specified knowledge base with pagination.
+       *
+       * @description Lists user retrieval authorizations. Only the knowledge base owner or administrator can perform this operation. The caller and tenant are determined by the POP authentication context.
+       *
+       * @param request ListKnowledgeBaseRetrievalGrantsRequest
+       * @return ListKnowledgeBaseRetrievalGrantsResponse
+       */
+      Models::ListKnowledgeBaseRetrievalGrantsResponse listKnowledgeBaseRetrievalGrants(const Models::ListKnowledgeBaseRetrievalGrantsRequest &request);
+
+      /**
+       * @summary Lists the knowledge bases that the current caller can view in the specified region, with pagination.
        *
        * @description Lists knowledge bases. The tenant and caller identities are determined by the POP authentication context.
        *
@@ -6150,7 +6595,7 @@ namespace DataworksPublic20240518
       Models::ListKnowledgeBasesResponse listKnowledgeBasesWithOptions(const Models::ListKnowledgeBasesRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the knowledge bases that the current caller has permission to view in a specified region by using paging.
+       * @summary Lists the knowledge bases that the current caller can view in the specified region, with pagination.
        *
        * @description Lists knowledge bases. The tenant and caller identities are determined by the POP authentication context.
        *
@@ -6158,6 +6603,27 @@ namespace DataworksPublic20240518
        * @return ListKnowledgeBasesResponse
        */
       Models::ListKnowledgeBasesResponse listKnowledgeBases(const Models::ListKnowledgeBasesRequest &request);
+
+      /**
+       * @summary Lists knowledge objects in a knowledge base with pagination.
+       *
+       * @description Lists knowledge objects. The tenant and caller identities are determined by the POP authentication context.
+       *
+       * @param request ListKnowledgeObjectsRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListKnowledgeObjectsResponse
+       */
+      Models::ListKnowledgeObjectsResponse listKnowledgeObjectsWithOptions(const Models::ListKnowledgeObjectsRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Lists knowledge objects in a knowledge base with pagination.
+       *
+       * @description Lists knowledge objects. The tenant and caller identities are determined by the POP authentication context.
+       *
+       * @param request ListKnowledgeObjectsRequest
+       * @return ListKnowledgeObjectsResponse
+       */
+      Models::ListKnowledgeObjectsResponse listKnowledgeObjects(const Models::ListKnowledgeObjectsRequest &request);
 
       /**
        * @summary Lists knowledge points in a knowledge base by type with pagination.
@@ -6179,6 +6645,27 @@ namespace DataworksPublic20240518
        * @return ListKnowledgePointsResponse
        */
       Models::ListKnowledgePointsResponse listKnowledgePoints(const Models::ListKnowledgePointsRequest &request);
+
+      /**
+       * @summary Lists the registered knowledge sources for a specified knowledge base with pagination.
+       *
+       * @description Manages knowledge sources in a knowledge base. The identity is determined by the POP context, and credentials are not returned in the query response.
+       *
+       * @param request ListKnowledgeSourcesRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListKnowledgeSourcesResponse
+       */
+      Models::ListKnowledgeSourcesResponse listKnowledgeSourcesWithOptions(const Models::ListKnowledgeSourcesRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Lists the registered knowledge sources for a specified knowledge base with pagination.
+       *
+       * @description Manages knowledge sources in a knowledge base. The identity is determined by the POP context, and credentials are not returned in the query response.
+       *
+       * @param request ListKnowledgeSourcesRequest
+       * @return ListKnowledgeSourcesResponse
+       */
+      Models::ListKnowledgeSourcesResponse listKnowledgeSources(const Models::ListKnowledgeSourcesRequest &request);
 
       /**
        * @summary Queries the list of data lineage relationships between two given entities (such as tables, fields, or OSS files) in DataWorks Data Map.
@@ -7512,7 +7999,28 @@ namespace DataworksPublic20240518
       Models::RemoveEntityFromMetaCollectionResponse removeEntityFromMetaCollection(const Models::RemoveEntityFromMetaCollectionRequest &request);
 
       /**
-       * @summary Removes multiple upstream dependencies of a node instance in batches.
+       * @summary Removes an administrator from a specified knowledge base.
+       *
+       * @description Removes an administrator. Only the owner or an administrator of the knowledge base can perform this operation. The caller and tenant are determined by the POP authentication context.
+       *
+       * @param request RemoveKnowledgeBaseAdministratorRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return RemoveKnowledgeBaseAdministratorResponse
+       */
+      Models::RemoveKnowledgeBaseAdministratorResponse removeKnowledgeBaseAdministratorWithOptions(const Models::RemoveKnowledgeBaseAdministratorRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Removes an administrator from a specified knowledge base.
+       *
+       * @description Removes an administrator. Only the owner or an administrator of the knowledge base can perform this operation. The caller and tenant are determined by the POP authentication context.
+       *
+       * @param request RemoveKnowledgeBaseAdministratorRequest
+       * @return RemoveKnowledgeBaseAdministratorResponse
+       */
+      Models::RemoveKnowledgeBaseAdministratorResponse removeKnowledgeBaseAdministrator(const Models::RemoveKnowledgeBaseAdministratorRequest &request);
+
+      /**
+       * @summary Removes multiple upstream dependencies from a node instance in a single call.
        *
        * @description You must purchase DataWorks Basic Edition or a later edition to use this operation.
        *
@@ -7523,7 +8031,7 @@ namespace DataworksPublic20240518
       Models::RemoveTaskInstanceDependenciesResponse removeTaskInstanceDependenciesWithOptions(const Models::RemoveTaskInstanceDependenciesRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Removes multiple upstream dependencies of a node instance in batches.
+       * @summary Removes multiple upstream dependencies from a node instance in a single call.
        *
        * @description You must purchase DataWorks Basic Edition or a later edition to use this operation.
        *
@@ -7702,6 +8210,48 @@ namespace DataworksPublic20240518
       Models::RetrieveKnowledgePointsResponse retrieveKnowledgePoints(const Models::RetrieveKnowledgePointsRequest &request);
 
       /**
+       * @summary Retries a specified build instance using the original frozen input and configuration.
+       *
+       * @description Retries a knowledge base build task instance. The tenant and caller identity are determined by the POP authentication context.
+       *
+       * @param request RetryKnowledgeBaseBuildTaskInstanceRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return RetryKnowledgeBaseBuildTaskInstanceResponse
+       */
+      Models::RetryKnowledgeBaseBuildTaskInstanceResponse retryKnowledgeBaseBuildTaskInstanceWithOptions(const Models::RetryKnowledgeBaseBuildTaskInstanceRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Retries a specified build instance using the original frozen input and configuration.
+       *
+       * @description Retries a knowledge base build task instance. The tenant and caller identity are determined by the POP authentication context.
+       *
+       * @param request RetryKnowledgeBaseBuildTaskInstanceRequest
+       * @return RetryKnowledgeBaseBuildTaskInstanceResponse
+       */
+      Models::RetryKnowledgeBaseBuildTaskInstanceResponse retryKnowledgeBaseBuildTaskInstance(const Models::RetryKnowledgeBaseBuildTaskInstanceRequest &request);
+
+      /**
+       * @summary Revokes a specified user’s retrieval access to a knowledge base.
+       *
+       * @description Revokes user retrieval permissions. Only the knowledge base owner or administrator can perform this operation. The caller and tenant are determined by the POP authentication context.
+       *
+       * @param request RevokeKnowledgeBaseRetrievalRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return RevokeKnowledgeBaseRetrievalResponse
+       */
+      Models::RevokeKnowledgeBaseRetrievalResponse revokeKnowledgeBaseRetrievalWithOptions(const Models::RevokeKnowledgeBaseRetrievalRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Revokes a specified user’s retrieval access to a knowledge base.
+       *
+       * @description Revokes user retrieval permissions. Only the knowledge base owner or administrator can perform this operation. The caller and tenant are determined by the POP authentication context.
+       *
+       * @param request RevokeKnowledgeBaseRetrievalRequest
+       * @return RevokeKnowledgeBaseRetrievalResponse
+       */
+      Models::RevokeKnowledgeBaseRetrievalResponse revokeKnowledgeBaseRetrieval(const Models::RevokeKnowledgeBaseRetrievalRequest &request);
+
+      /**
        * @summary Revokes roles from a workspace member.
        *
        * @description DataWorks Basic Edition or a more advanced edition is required to use this operation.
@@ -7870,9 +8420,9 @@ namespace DataworksPublic20240518
       Models::RunSemanticJobResponse runSemanticJob(const Models::RunSemanticJobRequest &request);
 
       /**
-       * @summary Marks multiple task instances as successful.
+       * @summary Marks multiple node instances as successful.
        *
-       * @description You must purchase DataWorks Basic Edition or higher to use this operation.
+       * @description You must purchase DataWorks Basic Edition or later to use this operation.
        *
        * @param tmpReq SetSuccessTaskInstancesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -7881,9 +8431,9 @@ namespace DataworksPublic20240518
       Models::SetSuccessTaskInstancesResponse setSuccessTaskInstancesWithOptions(const Models::SetSuccessTaskInstancesRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Marks multiple task instances as successful.
+       * @summary Marks multiple node instances as successful.
        *
-       * @description You must purchase DataWorks Basic Edition or higher to use this operation.
+       * @description You must purchase DataWorks Basic Edition or later to use this operation.
        *
        * @param request SetSuccessTaskInstancesRequest
        * @return SetSuccessTaskInstancesResponse
@@ -8012,6 +8562,27 @@ namespace DataworksPublic20240518
        * @return StopDIJobResponse
        */
       Models::StopDIJobResponse stopDIJob(const Models::StopDIJobRequest &request);
+
+      /**
+       * @summary Requests that a specified build task instance stop and returns its current status.
+       *
+       * @description Stops a knowledge base build task instance. The tenant and caller identities are determined by the POP authentication context.
+       *
+       * @param request StopKnowledgeBaseBuildTaskInstanceRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return StopKnowledgeBaseBuildTaskInstanceResponse
+       */
+      Models::StopKnowledgeBaseBuildTaskInstanceResponse stopKnowledgeBaseBuildTaskInstanceWithOptions(const Models::StopKnowledgeBaseBuildTaskInstanceRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Requests that a specified build task instance stop and returns its current status.
+       *
+       * @description Stops a knowledge base build task instance. The tenant and caller identities are determined by the POP authentication context.
+       *
+       * @param request StopKnowledgeBaseBuildTaskInstanceRequest
+       * @return StopKnowledgeBaseBuildTaskInstanceResponse
+       */
+      Models::StopKnowledgeBaseBuildTaskInstanceResponse stopKnowledgeBaseBuildTaskInstance(const Models::StopKnowledgeBaseBuildTaskInstanceRequest &request);
 
       /**
        * @summary Withdraws or terminates a specified process instance.
@@ -8878,6 +9449,90 @@ namespace DataworksPublic20240518
       Models::UpdateImageResponse updateImage(const Models::UpdateImageRequest &request);
 
       /**
+       * @summary Updates the editable information of a knowledge base.
+       *
+       * @description Updates a knowledge base. The tenant and caller identities are determined by the POP authentication context.
+       *
+       * @param request UpdateKnowledgeBaseRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return UpdateKnowledgeBaseResponse
+       */
+      Models::UpdateKnowledgeBaseResponse updateKnowledgeBaseWithOptions(const Models::UpdateKnowledgeBaseRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Updates the editable information of a knowledge base.
+       *
+       * @description Updates a knowledge base. The tenant and caller identities are determined by the POP authentication context.
+       *
+       * @param request UpdateKnowledgeBaseRequest
+       * @return UpdateKnowledgeBaseResponse
+       */
+      Models::UpdateKnowledgeBaseResponse updateKnowledgeBase(const Models::UpdateKnowledgeBaseRequest &request);
+
+      /**
+       * @summary Updates the configuration of a knowledge base build task without changing the input and configuration snapshots of created instances.
+       *
+       * @description Updates a knowledge base build task. The tenant and caller identities are determined by the POP authentication context.
+       *
+       * @param tmpReq UpdateKnowledgeBaseBuildTaskRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return UpdateKnowledgeBaseBuildTaskResponse
+       */
+      Models::UpdateKnowledgeBaseBuildTaskResponse updateKnowledgeBaseBuildTaskWithOptions(const Models::UpdateKnowledgeBaseBuildTaskRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Updates the configuration of a knowledge base build task without changing the input and configuration snapshots of created instances.
+       *
+       * @description Updates a knowledge base build task. The tenant and caller identities are determined by the POP authentication context.
+       *
+       * @param request UpdateKnowledgeBaseBuildTaskRequest
+       * @return UpdateKnowledgeBaseBuildTaskResponse
+       */
+      Models::UpdateKnowledgeBaseBuildTaskResponse updateKnowledgeBaseBuildTask(const Models::UpdateKnowledgeBaseBuildTaskRequest &request);
+
+      /**
+       * @summary Updates the name, description, or content of a document or semantic model.
+       *
+       * @description Updates a knowledge object. The tenant and caller identities are determined by the POP authentication context.
+       *
+       * @param tmpReq UpdateKnowledgeObjectRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return UpdateKnowledgeObjectResponse
+       */
+      Models::UpdateKnowledgeObjectResponse updateKnowledgeObjectWithOptions(const Models::UpdateKnowledgeObjectRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Updates the name, description, or content of a document or semantic model.
+       *
+       * @description Updates a knowledge object. The tenant and caller identities are determined by the POP authentication context.
+       *
+       * @param request UpdateKnowledgeObjectRequest
+       * @return UpdateKnowledgeObjectResponse
+       */
+      Models::UpdateKnowledgeObjectResponse updateKnowledgeObject(const Models::UpdateKnowledgeObjectRequest &request);
+
+      /**
+       * @summary Updates the name, description, or supported connector configuration of a knowledge source.
+       *
+       * @description Manages knowledge sources in a knowledge base. The identity is determined by the POP context, and credentials are not returned in the response.
+       *
+       * @param tmpReq UpdateKnowledgeSourceRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return UpdateKnowledgeSourceResponse
+       */
+      Models::UpdateKnowledgeSourceResponse updateKnowledgeSourceWithOptions(const Models::UpdateKnowledgeSourceRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Updates the name, description, or supported connector configuration of a knowledge source.
+       *
+       * @description Manages knowledge sources in a knowledge base. The identity is determined by the POP context, and credentials are not returned in the response.
+       *
+       * @param request UpdateKnowledgeSourceRequest
+       * @return UpdateKnowledgeSourceResponse
+       */
+      Models::UpdateKnowledgeSourceResponse updateKnowledgeSource(const Models::UpdateKnowledgeSourceRequest &request);
+
+      /**
        * @summary Updates an MCP server.
        *
        * @description ## Request description
@@ -9247,13 +9902,13 @@ namespace DataworksPublic20240518
       Models::UpdateTaskResponse updateTask(const Models::UpdateTaskRequest &request);
 
       /**
-       * @summary Asynchronously updates a specified node and syncs the changes to Data Studio as a new saved version.
+       * @summary Asynchronously updates a specified node and syncs the updates to Data Studio to generate a new saved version.
        *
-       * @description ## Operation description
-       * - This API is asynchronous. Use the `GetUpdateTaskResult` operation to poll for the update result.
-       * - This API updates the information of a specified node, including but not limited to the node name, description, and owner.
-       * - Changes are synchronized to Data Studio, and Data Studio creates a new saved version.
-       * - Supports settings for the node trigger method, runtime environment configuration, dependencies, and other detailed parameters.
+       * @description ## Request description
+       * - This API operation is asynchronous. You must call the `GetUpdateTaskResult` operation to poll the update result.
+       * - This API operation is used to update the information of a specified node, including but not limited to the node name, description, and owner.
+       * - The modifications are synced to Data Studio, and a new saved version is generated in Data Studio.
+       * - You can set detailed parameters such as the trigger mode, runtime environment configuration, and dependencies of the node.
        *
        * @param tmpReq UpdateTaskAsyncRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -9262,13 +9917,13 @@ namespace DataworksPublic20240518
       Models::UpdateTaskAsyncResponse updateTaskAsyncWithOptions(const Models::UpdateTaskAsyncRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Asynchronously updates a specified node and syncs the changes to Data Studio as a new saved version.
+       * @summary Asynchronously updates a specified node and syncs the updates to Data Studio to generate a new saved version.
        *
-       * @description ## Operation description
-       * - This API is asynchronous. Use the `GetUpdateTaskResult` operation to poll for the update result.
-       * - This API updates the information of a specified node, including but not limited to the node name, description, and owner.
-       * - Changes are synchronized to Data Studio, and Data Studio creates a new saved version.
-       * - Supports settings for the node trigger method, runtime environment configuration, dependencies, and other detailed parameters.
+       * @description ## Request description
+       * - This API operation is asynchronous. You must call the `GetUpdateTaskResult` operation to poll the update result.
+       * - This API operation is used to update the information of a specified node, including but not limited to the node name, description, and owner.
+       * - The modifications are synced to Data Studio, and a new saved version is generated in Data Studio.
+       * - You can set detailed parameters such as the trigger mode, runtime environment configuration, and dependencies of the node.
        *
        * @param request UpdateTaskAsyncRequest
        * @return UpdateTaskAsyncResponse
@@ -9358,9 +10013,19 @@ namespace DataworksPublic20240518
       Models::UpdateWorkflowDefinitionResponse updateWorkflowDefinition(const Models::UpdateWorkflowDefinitionRequest &request);
 
       /**
-       * @summary 上传 Agent 会话附件
+       * @summary Issues a file upload URL for an agent session and confirms that the file has been written to the session instance for use in later messages. This operation is available during a canary release. Before calling it, make sure the canary release is enabled for your account and the target region.
        *
-       * @description 将文件通过 OSS 上传到当前账号有权访问的 Agent 会话。先用 prepare 获取 5 分钟公网 PUT 签名，上传原始字节后用 complete 确认，由会话 runtime 下载、校验并写入工作目录。UploadMode 必填，不接受 ContentBase64。须同时检查 POP/BFF 外层错误与 JsonRpcResponse.Error。
+       * @description This API operation is available only when the canary release feature is enabled. Before calling this operation, ensure that the canary release feature is enabled for the current account and the target region.
+       * Uploads a local file to an agent session that the current caller has access to, and references the file in the conversation. The size of a single file ranges from 1 byte to 10,485,760 bytes (10 MiB). The caller must have access permissions to the target session and the dataworks:UploadAgentSessionFile permission.
+       * Call sequence.
+       * 1. Use the SessionId of an existing session, set UploadMode to prepare, and pass the original file name, the byte count Size, and the 32-character lowercase hexadecimal ContentMd5 of the original bytes. The prepare step returns UploadId and Signature, issuing only the upload URL without starting a cold session instance.
+       * 2. Within the validity period of the signature, send an HTTP PUT request to Signature.Url with the original file bytes as the request body, using all the request headers returned in Signature.Headers. The URL and request headers must be used exactly as provided. The ContentMd5 parameter is in hexadecimal format, while the Content-MD5 signature header is Base64-encoded. The two are not interchangeable. The signature is valid for 5 minutes. For the exact expiration time, see ExpiresAt.
+       * 3. After the PUT request succeeds, set UploadMode to complete, pass the UploadId returned by prepare, and keep SessionId, Name, Size, and ContentMd5 consistent. The server resumes the session, and the runtime within the instance downloads the staged object, verifies the size and MD5, writes it to the working directory, and returns Id, Name, RelativePath, and Size. Repeated complete calls use the same UploadId. The same attachment receipt is returned only when the existing file content is identical.
+       * 4. Call PromptAgentSession, add a content block with Type set to resource_link, Name set to the original file name, and Uri set to dataagent-attachment: followed by RelativePath in Params.Prompt, and send it along with the text content block. The backend resolves the reference to the working directory of the session based on the current authenticated session.
+       * For the sample file sample.csv, the original bytes are hello followed by a line feed, Size is 6, and ContentMd5 is b1946ac92492d2347c6235b4d2611184. The SessionId example session and the upload identifier examples are used only to illustrate the parameter structure. Actual calls must use a created session and the values returned by prepare. The Signature.Url example is used only to illustrate the format. The actual PUT request must use the complete signed URL returned by the current prepare call.
+       * Error handling.
+       * You must check the outer POP/BFF failures, JsonRpcResponse.Error, and the expected result fields simultaneously. Missing upload stages or size limit exceedances may result in an HTTP 400 response from the gateway, such as MissingUploadMode or InvalidSize. Business rejections such as object not found or metadata mismatch return an HTTP 400 response with a general Code 400 in the public POP, and the Message retains the actual business code, such as SESSION_ATTACHMENT_OBJECT_MISMATCH. Dependency failures, HTTP 5xx errors, timeouts, and unknown execution results must not be treated as parameter rejections or successful uploads, and automatic write retries must not be performed. When the result is unknown, retain the original upload metadata and UploadId, and verify the result first.
+       * This API operation does not accept ContentBase64. Signature expiration only invalidates the upload authorization and does not indicate that the staged object has been deleted. This description does not guarantee an automatic cleanup cycle for the object.
        *
        * @param tmpReq UploadAgentSessionFileRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -9369,9 +10034,19 @@ namespace DataworksPublic20240518
       Models::UploadAgentSessionFileResponse uploadAgentSessionFileWithOptions(const Models::UploadAgentSessionFileRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 上传 Agent 会话附件
+       * @summary Issues a file upload URL for an agent session and confirms that the file has been written to the session instance for use in later messages. This operation is available during a canary release. Before calling it, make sure the canary release is enabled for your account and the target region.
        *
-       * @description 将文件通过 OSS 上传到当前账号有权访问的 Agent 会话。先用 prepare 获取 5 分钟公网 PUT 签名，上传原始字节后用 complete 确认，由会话 runtime 下载、校验并写入工作目录。UploadMode 必填，不接受 ContentBase64。须同时检查 POP/BFF 外层错误与 JsonRpcResponse.Error。
+       * @description This API operation is available only when the canary release feature is enabled. Before calling this operation, ensure that the canary release feature is enabled for the current account and the target region.
+       * Uploads a local file to an agent session that the current caller has access to, and references the file in the conversation. The size of a single file ranges from 1 byte to 10,485,760 bytes (10 MiB). The caller must have access permissions to the target session and the dataworks:UploadAgentSessionFile permission.
+       * Call sequence.
+       * 1. Use the SessionId of an existing session, set UploadMode to prepare, and pass the original file name, the byte count Size, and the 32-character lowercase hexadecimal ContentMd5 of the original bytes. The prepare step returns UploadId and Signature, issuing only the upload URL without starting a cold session instance.
+       * 2. Within the validity period of the signature, send an HTTP PUT request to Signature.Url with the original file bytes as the request body, using all the request headers returned in Signature.Headers. The URL and request headers must be used exactly as provided. The ContentMd5 parameter is in hexadecimal format, while the Content-MD5 signature header is Base64-encoded. The two are not interchangeable. The signature is valid for 5 minutes. For the exact expiration time, see ExpiresAt.
+       * 3. After the PUT request succeeds, set UploadMode to complete, pass the UploadId returned by prepare, and keep SessionId, Name, Size, and ContentMd5 consistent. The server resumes the session, and the runtime within the instance downloads the staged object, verifies the size and MD5, writes it to the working directory, and returns Id, Name, RelativePath, and Size. Repeated complete calls use the same UploadId. The same attachment receipt is returned only when the existing file content is identical.
+       * 4. Call PromptAgentSession, add a content block with Type set to resource_link, Name set to the original file name, and Uri set to dataagent-attachment: followed by RelativePath in Params.Prompt, and send it along with the text content block. The backend resolves the reference to the working directory of the session based on the current authenticated session.
+       * For the sample file sample.csv, the original bytes are hello followed by a line feed, Size is 6, and ContentMd5 is b1946ac92492d2347c6235b4d2611184. The SessionId example session and the upload identifier examples are used only to illustrate the parameter structure. Actual calls must use a created session and the values returned by prepare. The Signature.Url example is used only to illustrate the format. The actual PUT request must use the complete signed URL returned by the current prepare call.
+       * Error handling.
+       * You must check the outer POP/BFF failures, JsonRpcResponse.Error, and the expected result fields simultaneously. Missing upload stages or size limit exceedances may result in an HTTP 400 response from the gateway, such as MissingUploadMode or InvalidSize. Business rejections such as object not found or metadata mismatch return an HTTP 400 response with a general Code 400 in the public POP, and the Message retains the actual business code, such as SESSION_ATTACHMENT_OBJECT_MISMATCH. Dependency failures, HTTP 5xx errors, timeouts, and unknown execution results must not be treated as parameter rejections or successful uploads, and automatic write retries must not be performed. When the result is unknown, retain the original upload metadata and UploadId, and verify the result first.
+       * This API operation does not accept ContentBase64. Signature expiration only invalidates the upload authorization and does not indicate that the staged object has been deleted. This description does not guarantee an automatic cleanup cycle for the object.
        *
        * @param request UploadAgentSessionFileRequest
        * @return UploadAgentSessionFileResponse

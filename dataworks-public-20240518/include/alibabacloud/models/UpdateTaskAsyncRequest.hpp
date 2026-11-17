@@ -140,28 +140,25 @@ namespace Models
 
 
     protected:
-      // The cron expression. This parameter takes effect when Type is set to Scheduler.
+      // The cron expression. This parameter takes effect when the Type parameter is set to Scheduler.
       shared_ptr<string> cron_ {};
-      // The scheduling cycle type. This parameter takes effect when Type is set to Scheduler and the cron expression specifies a timed scheduling at a specific hour. Default value: Daily. Valid values:
-      // 
-      // 
-      // 
-      // 
-      // - Daily: daily scheduling.
-      // - NotDaily: hourly scheduling.
+      // The cycle type. This parameter takes effect when Type is set to Scheduler and the cron expression specifies scheduling at a specific hour. Valid values:
+      // - Daily: Specifies daily scheduling.
+      // - NotDaily: Specifies hourly scheduling.
+      // Default value: Daily.
       shared_ptr<string> cycleType_ {};
-      // The time when the periodic trigger expires. This parameter takes effect when Type is set to Scheduler. The format is `yyyy-mm-dd hh:mm:ss`.
+      // The expiration time of the periodic trigger. This parameter takes effect when the type parameter is set to Scheduler. The format is `yyyy-mm-dd hh:mm:ss`.
       shared_ptr<string> endTime_ {};
-      // The run mode when the trigger fires. This parameter takes effect when Type is set to Scheduler. Valid values:
+      // The running mode when the node is triggered. This parameter takes effect when the type parameter is set to Scheduler. Valid values:
       // - Pause: paused.
       // - Skip: dry run.
-      // - Normal: normal run.
+      // - Normal: normal running.
       shared_ptr<string> recurrence_ {};
-      // The time at which the scheduled trigger takes effect. This parameter takes effect when Type is set to Scheduler. The format is `yyyy-mm-dd hh:mm:ss`.
+      // The start time of the recurring trigger. This parameter takes effect when the type parameter is set to Scheduler. The format is `yyyy-mm-dd hh:mm:ss`.
       shared_ptr<string> startTime_ {};
       // The trigger type. Valid values:
-      // - Scheduler: scheduled periodic trigger.
-      // - Manual: manual trigger.
+      // - Scheduler: triggered by a scheduling cycle.
+      // - Manual: manually triggered.
       shared_ptr<string> type_ {};
     };
 
@@ -249,7 +246,7 @@ namespace Models
 
 
     protected:
-      // The script content.
+      // The content of the script.
       shared_ptr<string> content_ {};
       // The list of script parameters.
       shared_ptr<string> parameters_ {};
@@ -302,11 +299,11 @@ namespace Models
 
 
     protected:
-      // The CU consumption for the node runtime configuration.
+      // The number of compute units (CUs) consumed by the node runtime configuration.
       shared_ptr<string> cu_ {};
-      // The image ID for the node runtime configuration.
+      // The image ID of the node runtime configuration.
       shared_ptr<string> image_ {};
-      // The identifier of the schedule resource group for the node runtime configuration.
+      // The identifier of the scheduling resource group for the node runtime configuration.
       shared_ptr<string> resourceGroupId_ {};
     };
 
@@ -378,17 +375,17 @@ namespace Models
 
 
       protected:
-        // The variable name.
+        // The name of the variable.
         shared_ptr<string> name_ {};
-        // The variable type. Valid values:
+        // The type. Valid values:
         // - Constant: constant.
-        // - PassThrough: output of a pass-through parameter node.
-        // - System: system variable.
+        // - PassThrough: output of a parameter node.
+        // - System: variable.
         // - NodeOutput: script output.
         // 
         // This parameter is required.
         shared_ptr<string> type_ {};
-        // The variable value.
+        // The value of the variable.
         shared_ptr<string> value_ {};
       };
 
@@ -517,17 +514,17 @@ namespace Models
 
 
       protected:
-        // The variable name.
+        // The name of the variable.
         shared_ptr<string> name_ {};
-        // The variable type. Valid values:
+        // The type. Valid values:
         // - Constant: constant.
-        // - PassThrough: output of a pass-through parameter node.
-        // - System: system variable.
+        // - PassThrough: output of a parameter node.
+        // - System: variable.
         // - NodeOutput: script output.
         // 
         // This parameter is required.
         shared_ptr<string> type_ {};
-        // The variable value.
+        // The value of the variable.
         shared_ptr<string> value_ {};
       };
 
@@ -601,9 +598,9 @@ namespace Models
       // 
       // This parameter is required.
       shared_ptr<string> type_ {};
-      // The output identifier of the upstream node. This field is returned for same-cycle dependencies when the input content is configured.
+      // The output identifier of the upstream node. This field is returned when the dependency is a same-cycle dependency and the input content is set.
       shared_ptr<string> upstreamOutput_ {};
-      // The ID of the upstream node. This field is returned for cross-cycle dependencies on other nodes and for same-cycle dependencies when no input content is configured. It is not returned in other cases.
+      // The ID of the upstream node. This field is returned when the dependency is `CrossCycleDependsOnOtherNode` or `Normal` and the input content is not set. It is not returned in other cases.
       shared_ptr<int64_t> upstreamTaskId_ {};
     };
 
@@ -635,7 +632,7 @@ namespace Models
 
 
     protected:
-      // The data source name.
+      // The name of the data source.
       shared_ptr<string> name_ {};
     };
 
@@ -794,7 +791,7 @@ namespace Models
 
 
   protected:
-    // The client unique code of the node, used to uniquely identify a node. This code is used for asynchronous processing and idempotence. If you do not specify this parameter when creating a node, the system automatically generates a value and binds it to the resource ID. If you specify this parameter when updating or deleting a resource, the value must match the client unique code used when the resource was created.
+    // The client unique code of the node, which is used to uniquely identify a node. This parameter is used to implement asynchronous processing and idempotence. If you do not specify this parameter when you create a node, the system automatically generates one. This code is uniquely bound to the resource ID. If you specify this parameter when you update or delete a resource, it must be the same as the client unique code used when the resource was created.
     shared_ptr<string> clientUniqueCode_ {};
     // The associated data source information.
     shared_ptr<UpdateTaskAsyncRequest::DataSource> dataSource_ {};
@@ -803,8 +800,8 @@ namespace Models
     // The description.
     shared_ptr<string> description_ {};
     // The project environment. Valid values:
-    // - Prod: production
-    // - Dev: development
+    // - Prod: production.
+    // - Dev: development.
     shared_ptr<string> envType_ {};
     // The node ID.
     // 
@@ -813,37 +810,33 @@ namespace Models
     // The input information.
     shared_ptr<UpdateTaskAsyncRequest::Inputs> inputs_ {};
     // The instance generation mode. Valid values:
-    // - T+1: generates instances the next day.
-    // - Immediately: generates instances immediately. Note: only periodic instances whose scheduled time is more than 10 minutes after the node publish time are generated normally. During the full-to-instance conversion period (22:00–24:00), real-time instance conversion is not supported. You can submit and publish nodes, but new nodes are not automatically converted to instances.
+    // - T+1: generates instances on the next day.
+    // - Immediately: generates instances immediately. Note: Periodic instances are generated normally only if the scheduled time of the node is at least 10 minutes after the node is published. Real-time instance generation is not supported during the full instance generation period (22:00 to 24:00). You can submit and publish nodes, but new nodes are not automatically converted into instances.
     shared_ptr<string> instanceMode_ {};
     // The name.
     shared_ptr<string> name_ {};
     // The output information.
     shared_ptr<UpdateTaskAsyncRequest::Outputs> outputs_ {};
-    // The account ID of the node owner. You can log on to the [DataWorks console](https://workbench.data.aliyun.com/console) and hover over the profile picture in the upper-right corner of the top navigation bar to view the account ID. If this parameter is left empty, the Alibaba Cloud account ID of the caller is used by default.
+    // The Alibaba Cloud account ID of the node owner. You can log on to the [DataWorks console](https://workbench.data.aliyun.com/console) and move the mouse over the profile picture in the upper-right corner of the top menu bar to view the account ID. If this parameter is left empty, the Alibaba Cloud account ID of the invoker is used by default.
     shared_ptr<string> owner_ {};
     // The retry time interval, in milliseconds. The value cannot exceed 1800000.
     shared_ptr<int32_t> rerunInterval_ {};
-    // The configuration that specifies whether the node can be rerun. Valid values:
-    // 
-    // 
-    // 
-    // 
-    // - AllDenied: the node cannot be rerun regardless of whether it succeeds or fails.
-    // - FailureAllowed: the node can be rerun only if it fails.
-    // - AllAllowed: the node can be rerun regardless of whether it succeeds or fails.
+    // Specifies whether the node can be rerun. Valid values:
+    // - AllDenied: The node cannot be rerun regardless of whether it succeeds or fails.
+    // - FailureAllowed: The node can be rerun only if it fails.
+    // - AllAllowed: The node can be rerun regardless of whether it succeeds or fails.
     shared_ptr<string> rerunMode_ {};
-    // The number of retries. This parameter takes effect only when the node is configured to allow reruns.
+    // The number of retries. This parameter takes effect when the node is configured to be rerunnable.
     shared_ptr<int32_t> rerunTimes_ {};
     // The runtime environment configuration, such as the resource group information.
     shared_ptr<UpdateTaskAsyncRequest::RuntimeResource> runtimeResource_ {};
-    // The runtime script information.
+    // The information about the script to be run.
     shared_ptr<UpdateTaskAsyncRequest::Script> script_ {};
-    // The list of data asset tags to attach.
+    // The list of data asset tags to be bound.
     shared_ptr<vector<UpdateTaskAsyncRequest::Tags>> tags_ {};
     // The timeout period defined in the scheduling configuration.
     shared_ptr<int32_t> timeout_ {};
-    // The trigger method of the node.
+    // The trigger mode of the node.
     shared_ptr<UpdateTaskAsyncRequest::Trigger> trigger_ {};
   };
 

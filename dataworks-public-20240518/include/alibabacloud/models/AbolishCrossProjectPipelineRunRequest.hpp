@@ -57,7 +57,7 @@ namespace Models
 
 
   protected:
-    // The ID of the cross-workspace deployment pipeline run.
+    // The ID of the cross-workspace deployment pipeline.
     // 
     // This parameter is required.
     shared_ptr<string> pipelineRunId_ {};
@@ -65,7 +65,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<int64_t> projectId_ {};
-    // The reason for terminating the pipeline run.
+    // The reason for stopping the pipeline.
     shared_ptr<string> reason_ {};
   };
 

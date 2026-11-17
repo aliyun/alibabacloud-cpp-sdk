@@ -107,15 +107,26 @@ namespace Models
 
 
     protected:
+      // The MD5 hash of the original bytes in 32-character lowercase hexadecimal format. This parameter is required for both prepare and complete, and the values must be consistent.
+      // 
       // This parameter is required.
       shared_ptr<string> contentMd5_ {};
+      // The original file name. The maximum length is 255 bytes in UTF-8 encoding.
+      // 
       // This parameter is required.
       shared_ptr<string> name_ {};
+      // The ID of the target agent session.
+      // 
       // This parameter is required.
       shared_ptr<string> sessionId_ {};
+      // The number of original bytes. Valid values: 1 to 10485760 (10 MiB). This parameter is required for both prepare and complete, and the values must be consistent.
+      // 
       // This parameter is required.
       shared_ptr<int64_t> size_ {};
+      // The upload identifier returned by prepare. This parameter is required when UploadMode is set to complete.
       shared_ptr<string> uploadId_ {};
+      // The required upload stage. The prepare step issues a public OSS PUT URL without starting a cold session instance. The complete step resumes the session and allows the runtime to download the file.
+      // 
       // This parameter is required.
       shared_ptr<string> uploadMode_ {};
     };
@@ -146,8 +157,12 @@ namespace Models
 
 
   protected:
+    // The JSON-RPC correlation identifier for the current request. The Id in the response returns this value as is to correlate the request and response.
     shared_ptr<string> id_ {};
+    // The JSON-RPC protocol version. The example uses 2.0.
     shared_ptr<string> jsonrpc_ {};
+    // The parameter object for the upload stage. The prepare step issues the upload URL, and the complete step confirms that the file has been written to the target session instance.
+    // 
     // This parameter is required.
     shared_ptr<UploadAgentSessionFileRequest::Params> params_ {};
   };

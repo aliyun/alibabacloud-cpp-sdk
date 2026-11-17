@@ -260,13 +260,13 @@ namespace Models
 
 
   protected:
-    // The business error code. This field is omitted when the request is successful. If the request fails, the common error response protocol is followed.
+    // The business error code. This field may be omitted if the request succeeds. If the request fails, the common error response protocol applies.
     shared_ptr<string> code_ {};
     // The list of knowledge bases on the current page and the cursor for the next page.
     shared_ptr<ListKnowledgeBasesResponseBody::Data> data_ {};
     // The maximum number of knowledge bases to return per page. Valid values: 1 to 100.
     shared_ptr<int32_t> maxResults_ {};
-    // The readable description of the business error. This field is omitted when the request is successful. Provide the RequestId along with this message when troubleshooting failures.
+    // A human-readable description of the business error. This field may be omitted if the request succeeds. Provide the RequestId when troubleshooting failures.
     shared_ptr<string> message_ {};
     // The unique identifier of the request, which can be used to troubleshoot issues.
     shared_ptr<string> requestId_ {};

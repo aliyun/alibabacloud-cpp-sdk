@@ -172,7 +172,7 @@ namespace Models
 
 
       protected:
-        // The change type.
+        // The type of the change.
         shared_ptr<string> changeType_ {};
         // The error code.
         shared_ptr<string> errorCode_ {};
@@ -180,13 +180,13 @@ namespace Models
         shared_ptr<string> errorMessage_ {};
         // Indicates whether the object is a root object.
         shared_ptr<bool> isRoot_ {};
-        // The ID of the deployment object.
+        // The ID of the object to deploy.
         shared_ptr<string> objectId_ {};
-        // The name of the deployment object.
+        // The name of the object to deploy.
         shared_ptr<string> objectName_ {};
-        // The deployment object type.
+        // The type of the object to deploy.
         shared_ptr<string> objectType_ {};
-        // The version of the deployment object.
+        // The version of the object to deploy.
         shared_ptr<string> objectVersion_ {};
         // The ID of the parent object.
         shared_ptr<string> parentObjectId_ {};
@@ -238,7 +238,7 @@ namespace Models
       shared_ptr<int32_t> pageNumber_ {};
       // The number of items per page.
       shared_ptr<int32_t> pageSize_ {};
-      // The list of publish items for the root object and its child objects in the cross-workspace publish pipeline.
+      // The list of deployment items for the root object and its child objects snapshotted in the cross-workspace deployment pipeline.
       shared_ptr<vector<Data::PipelineRunItems>> pipelineRunItems_ {};
       // The request ID.
       shared_ptr<string> requestId_ {};
@@ -272,9 +272,9 @@ namespace Models
 
 
   protected:
-    // The response data.
+    // The business response.
     shared_ptr<ListCrossProjectPipelineRunItemsResponseBody::Data> data_ {};
-    // The request ID used to locate and troubleshoot the API call.
+    // The request ID, which is used to locate and troubleshoot the API call.
     shared_ptr<string> requestId_ {};
     // Indicates whether the request is successful.
     shared_ptr<bool> success_ {};

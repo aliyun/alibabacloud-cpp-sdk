@@ -130,27 +130,27 @@ namespace Models
 
 
   protected:
-    // The change type.
+    // The type of the change.
     shared_ptr<string> changeType_ {};
-    // The start of the commit time range. The value is a UNIX timestamp in milliseconds.
+    // The start time of the commit. The value is a UNIX timestamp in milliseconds.
     shared_ptr<int64_t> commitTimeFrom_ {};
-    // The end of the commit time range. The value is a UNIX timestamp in milliseconds.
+    // The end time of the commit. The value is a UNIX timestamp in milliseconds.
     shared_ptr<int64_t> commitTimeTo_ {};
-    // The submitter.
+    // The committer.
     shared_ptr<string> commitUser_ {};
-    // The cross-workspace deployment environment ID.
+    // The ID of the cross-workspace deployment environment.
     // 
     // This parameter is required.
     shared_ptr<int64_t> deploymentEnvironmentId_ {};
     // The search keyword.
     shared_ptr<string> keyword_ {};
-    // The candidate object ID.
+    // The ID of the candidate object.
     shared_ptr<string> objectId_ {};
     // The candidate object type.
     shared_ptr<string> objectType_ {};
     // The page number.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries per page.
+    // The number of items per page.
     shared_ptr<int32_t> pageSize_ {};
     // The workspace ID.
     // 

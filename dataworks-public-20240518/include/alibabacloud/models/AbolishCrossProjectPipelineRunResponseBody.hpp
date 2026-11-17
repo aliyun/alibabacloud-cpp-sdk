@@ -93,7 +93,7 @@ namespace Models
   protected:
     // The business response.
     shared_ptr<AbolishCrossProjectPipelineRunResponseBody::Data> data_ {};
-    // The request ID, which is used to locate and troubleshoot the API call.
+    // The request ID that is used to locate and troubleshoot the API call.
     shared_ptr<string> requestId_ {};
     // Indicates whether the request is successful.
     shared_ptr<bool> success_ {};
