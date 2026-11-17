@@ -128,33 +128,33 @@ namespace Models
 
 
   protected:
-    // Filters results by the business platform to which the agent belongs. If this parameter is omitted, no restriction is applied to the business platform.
+    // Filters by the business platform to which the Agent belongs. If omitted, no restriction is applied to the business platform.
     shared_ptr<string> agentPlatform_ {};
-    // Filters results by agent provider. If this parameter is omitted, the system queries providers that support memory management. `JVSCopilot` is not supported for memory management in this API operation.
+    // Filters by Agent provider. If omitted, queries providers that support memory management. `JVSCopilot` is not supported for memory management in this operation.
     shared_ptr<string> agentProvider_ {};
-    // Filters results by business type code. If this parameter is omitted, no restriction is applied to the business type.
+    // Filters by business type code. If omitted, no restriction is applied to the business type.
     shared_ptr<int32_t> bizType_ {};
-    // The list of end user IDs to be included in the query results. Exact matching is applied. Maximum value: 200.
+    // The list of end user IDs to include in the query results. Exact match is applied. You can specify up to 200 IDs.
     shared_ptr<vector<string>> endUserIds_ {};
-    // The list of end user IDs to be excluded from the query results. Maximum value: 200. When used together with EndUserIds, these users are removed from the inclusion scope.
+    // The list of end user IDs to exclude from the query results. You can specify up to 200 IDs. If used together with EndUserIds, these users are excluded from the inclusion scope.
     shared_ptr<vector<string>> excludedEndUserIds_ {};
-    // Filters results by the memory switch configured for the instance.
+    // Filters by the memory switch configured for the instance.
     // - `ENABLED`: The instance memory switch is turned on.
     // - `DISABLED`: The instance memory switch is turned off.
-    // If both values are passed, instances matching either status are returned.
+    // If both values are specified, instances matching either status are returned.
     shared_ptr<vector<string>> memoryStatuses_ {};
     // The page number. Pages start from 1. If this parameter is not specified or is set to 0, the first page is queried.
     shared_ptr<int32_t> pageNumber_ {};
     // The number of entries per page. Maximum value: 100. Default value: 100.
     shared_ptr<int32_t> pageSize_ {};
-    // The keyword used for inclusion matching. Use SearchType to specify the search field. If this parameter is left empty, no keyword filtering is applied.
+    // The keyword used for inclusion matching. Specify the search field by using SearchType. If left empty, no keyword filtering is applied.
     shared_ptr<string> searchKeyword_ {};
-    // The scope of the keyword search. Default value: `ALL`.
-    // - `ALL`: Searches resource IDs, resource names, runtime IDs, and end user IDs.
-    // - `RESOURCE_ID`: Searches resource IDs.
-    // - `RESOURCE_NAME`: Searches resource names.
-    // - `RUNTIME_ID`: Searches runtime IDs.
-    // - `END_USER_ID`: Searches end user IDs.
+    // The search scope for the keyword. Default value: `ALL`.
+    // - `ALL`: Searches the resource ID, resource name, runtime ID, and end user ID.
+    // - `RESOURCE_ID`: Searches the resource ID.
+    // - `RESOURCE_NAME`: Searches the resource name.
+    // - `RUNTIME_ID`: Searches the runtime ID.
+    // - `END_USER_ID`: Searches the end user ID.
     shared_ptr<string> searchType_ {};
   };
 

@@ -110,7 +110,7 @@ namespace Models
 
 
     protected:
-      // The identity of the authorized user to be granted authorization.
+      // Authorized user identifier of authorized user to be authorized.
       shared_ptr<string> endUserId_ {};
     };
 
@@ -144,10 +144,11 @@ namespace Models
     protected:
       // The account type of the authorized user.
       // 
-      // - `simple`: convenience account.
+      // Valid values:
+      // - `simple`: Convenience account.
       // - `ad`: AD domain account.
       // 
-      // The account type must match the account types of the user and the office network.
+      // The account type must match the user and office network account types.
       shared_ptr<string> type_ {};
     };
 
@@ -296,10 +297,11 @@ namespace Models
 
 
       protected:
-        // The size of the user data roaming disk, in GB.
+        // The disk size for user data roaming, in GB.
         shared_ptr<int64_t> userProfileSize_ {};
         // Specifies whether to enable user data roaming.
         // 
+        // Valid values:
         // - `true`: Enables user data roaming.
         // - `false`: Disables user data roaming.
         // 
@@ -352,10 +354,11 @@ namespace Models
     protected:
       // Specifies whether to skip the user authorization check when connecting to the application.
       // 
+      // Valid values:
       // - `true`: Skips the check.
       // - `false`: Performs the check.
       // 
-      // If `SecurityPolicy` is configured but this field is omitted, the user authorization check is performed.
+      // If you configure SecurityPolicy but omit this field, the user authorization check is performed.
       // 
       // **Note:** This field cannot be used to skip OpenAPI authentication and RAM permission verification.
       shared_ptr<bool> skipUserAuthCheck_ {};
@@ -448,6 +451,7 @@ namespace Models
       protected:
         // The watermark switch. The value is case-insensitive.
         // 
+        // Valid values:
         // - `ON`: Enables the watermark.
         // - `OFF`: Disables the watermark.
         // 
@@ -455,9 +459,10 @@ namespace Models
         shared_ptr<string> watermarkSwitch_ {};
         // The list of watermark content types.
         // 
-        // - `EndUserId`: the user identifier.
-        // - `InstanceGroupId`: the delivery group identifier.
-        // - `ClientTime`: the current time of the client.
+        // Valid values:
+        // - `EndUserId`: The user identifier.
+        // - `InstanceGroupId`: The delivery group identifier.
+        // - `ClientTime`: The current client time.
         // 
         // Use the watermark types supported by the browser and the client.
         shared_ptr<vector<string>> watermarkTypes_ {};
@@ -680,114 +685,103 @@ namespace Models
 
 
       protected:
-        // The clipboard transfer direction. The value is case-insensitive.
-        // 
-        // - `off`: Disables bidirectional transfer.
+        // The clipboard transfer direction. The value is not case-sensitive. Valid values:
+        // - `off`: Bidirectional transfer is prohibited.
         // - `read`: Allows copy and paste from the local PC to the cloud browser.
         // - `write`: Allows copy and paste from the cloud browser to the local PC.
-        // - `readwrite`: Allows bidirectional transfer.
+        // - `readwrite`: Bidirectional transfer is allowed.
         shared_ptr<string> clipboard_ {};
         // The clipboard size limit for inbound transfer from the local PC to the cloud browser.
         // 
-        // **Value limits:** The value ranges from 1 to 102400, and the unit is specified by ClipboardSizeUnit.
+        // **Value limits:** The value ranges from 1 to 102400. The unit is specified by ClipboardSizeUnit.
         // 
-        // This value range does not change with unit conversion.
+        // The value range remains unchanged regardless of the unit.
         shared_ptr<int32_t> clipboardReadLimit_ {};
-        // The clipboard control granularity.
-        // 
+        // The clipboard control granularity. Valid values:
         // - `global`: Unified control.
         // - `grained`: Separate control for text, rich text, and files.
         shared_ptr<string> clipboardScope_ {};
-        // The clipboard size unit.
-        // 
+        // The clipboard size unit. Valid values:
         // - `B`: Bytes.
         // - `KB`: 1024 bytes.
         shared_ptr<string> clipboardSizeUnit_ {};
         // The clipboard size limit for outbound transfer from the cloud browser to the local PC.
         // 
-        // **Value limits:** The value ranges from 1 to 102400, and the unit is specified by ClipboardSizeUnit.
+        // **Value limits:** The value ranges from 1 to 102400. The unit is specified by ClipboardSizeUnit.
         // 
-        // This value range does not change with unit conversion.
+        // The value range remains unchanged regardless of the unit.
         shared_ptr<int32_t> clipboardWriteLimit_ {};
-        // The clipboard transfer direction. The value is case-insensitive.
-        // 
-        // - `off`: Disables bidirectional transfer.
+        // The clipboard transfer direction. The value is not case-sensitive. Valid values:
+        // - `off`: Bidirectional transfer is prohibited.
         // - `read`: Allows copy and paste from the local PC to the cloud browser.
         // - `write`: Allows copy and paste from the cloud browser to the local PC.
-        // - `readwrite`: Allows bidirectional transfer.
+        // - `readwrite`: Bidirectional transfer is allowed.
         shared_ptr<string> fileClipboard_ {};
-        // The clipboard transfer direction. The value is case-insensitive.
-        // 
-        // - `off`: Disables bidirectional transfer.
+        // The clipboard transfer direction. The value is not case-sensitive. Valid values:
+        // - `off`: Bidirectional transfer is prohibited.
         // - `read`: Allows copy and paste from the local PC to the cloud browser.
         // - `write`: Allows copy and paste from the cloud browser to the local PC.
-        // - `readwrite`: Allows bidirectional transfer.
+        // - `readwrite`: Bidirectional transfer is allowed.
         shared_ptr<string> richTextClipboard_ {};
-        // The rich text clipboard size limit.
+        // The clipboard size limit for rich text.
         // 
-        // **Value limits:** The value ranges from 1 to 204800, and the unit is specified by RichTextClipboardSizeUnit.
+        // **Value limits:** The value ranges from 1 to 204800. The unit is specified by RichTextClipboardSizeUnit.
         // 
-        // This value range does not change with unit conversion.
+        // The value range remains unchanged regardless of the unit.
         shared_ptr<int32_t> richTextClipboardLimit_ {};
-        // The clipboard size limit for inbound transfer from the local PC to the cloud browser.
+        // The clipboard size limit for inbound rich text transfer from the local PC to the cloud browser.
         // 
-        // **Value limits:** The value ranges from 1 to 204800, and the unit is specified by RichTextClipboardReadSizeUnit.
+        // **Value limits:** The value ranges from 1 to 204800. The unit is specified by RichTextClipboardReadSizeUnit.
         // 
-        // This value range does not change with unit conversion.
+        // The value range remains unchanged regardless of the unit.
         shared_ptr<int32_t> richTextClipboardReadLimit_ {};
-        // The clipboard size unit.
-        // 
+        // The clipboard size unit. Valid values:
         // - `B`: Bytes.
         // - `KB`: 1024 bytes.
         // 
         // **Default value:** `KB`.
         shared_ptr<string> richTextClipboardReadSizeUnit_ {};
-        // The clipboard size unit.
-        // 
+        // The clipboard size unit. Valid values:
         // - `B`: Bytes.
         // - `KB`: 1024 bytes.
         shared_ptr<string> richTextClipboardSizeUnit_ {};
-        // The clipboard size limit for outbound transfer from the cloud browser to the local PC.
+        // The clipboard size limit for outbound rich text transfer from the cloud browser to the local PC.
         // 
-        // **Value limits:** The value ranges from 1 to 204800, and the unit is specified by RichTextClipboardWriteSizeUnit.
+        // **Value limits:** The value ranges from 1 to 204800. The unit is specified by RichTextClipboardWriteSizeUnit.
         // 
-        // This value range does not change with unit conversion.
+        // The value range remains unchanged regardless of the unit.
         shared_ptr<int32_t> richTextClipboardWriteLimit_ {};
-        // The clipboard size unit.
-        // 
+        // The clipboard size unit. Valid values:
         // - `B`: Bytes.
         // - `KB`: 1024 bytes.
         // 
         // **Default value:** `KB`.
         shared_ptr<string> richTextClipboardWriteSizeUnit_ {};
-        // The clipboard transfer direction. The value is case-insensitive.
-        // 
-        // - `off`: Disables bidirectional transfer.
+        // The clipboard transfer direction. The value is not case-sensitive. Valid values:
+        // - `off`: Bidirectional transfer is prohibited.
         // - `read`: Allows copy and paste from the local PC to the cloud browser.
         // - `write`: Allows copy and paste from the cloud browser to the local PC.
-        // - `readwrite`: Allows bidirectional transfer.
+        // - `readwrite`: Bidirectional transfer is allowed.
         shared_ptr<string> textClipboard_ {};
-        // The clipboard size limit for inbound transfer from the local PC to the cloud browser.
+        // The clipboard size limit for inbound text transfer from the local PC to the cloud browser.
         // 
-        // **Value limits:** The value ranges from 1 to 102400, and the unit is specified by TextClipboardReadSizeUnit.
+        // **Value limits:** The value ranges from 1 to 102400. The unit is specified by TextClipboardReadSizeUnit.
         // 
-        // This value range does not change with unit conversion.
+        // The value range remains unchanged regardless of the unit.
         shared_ptr<int32_t> textClipboardReadLimit_ {};
-        // The clipboard size unit.
-        // 
+        // The clipboard size unit. Valid values:
         // - `B`: Bytes.
         // - `KB`: 1024 bytes.
         // 
         // **Default value:** `KB`.
         shared_ptr<string> textClipboardReadSizeUnit_ {};
-        // The clipboard size limit for outbound transfer from the cloud browser to the local PC.
+        // The clipboard size limit for outbound text transfer from the cloud browser to the local PC.
         // 
-        // **Value limits:** The value ranges from 1 to 102400, and the unit is specified by TextClipboardWriteSizeUnit.
+        // **Value limits:** The value ranges from 1 to 102400. The unit is specified by TextClipboardWriteSizeUnit.
         // 
-        // This value range does not change with unit conversion.
+        // The value range remains unchanged regardless of the unit.
         shared_ptr<int32_t> textClipboardWriteLimit_ {};
-        // The clipboard size unit.
-        // 
+        // The clipboard size unit. Valid values:
         // - `B`: Bytes.
         // - `KB`: 1024 bytes.
         // 
@@ -888,7 +882,7 @@ namespace Models
       protected:
         // The source CIDR block of the client that is allowed to access the cloud browser. Use the CIDR format.
         shared_ptr<string> cidrIp_ {};
-        // The description of the IP address whitelist rule for client access.
+        // The description of the client access IP address whitelist rule.
         shared_ptr<string> description_ {};
       };
 
@@ -1010,52 +1004,49 @@ namespace Models
       // - `on`: enables screen capture prevention.
       // - `off`: disables screen capture prevention.
       shared_ptr<string> appContentProtection_ {};
-      // The IP address whitelist for client access, which is used to restrict the source IP addresses of clients that can access the cloud browser.
+      // The client access IP address whitelist, which is used to restrict the source IP addresses of clients that can access the cloud browser.
       shared_ptr<vector<Policy::AuthorizeAccessPolicyRules>> authorizeAccessPolicyRules_ {};
-      // The access control list for clients.
+      // The client access control list.
       shared_ptr<vector<Policy::ClientTypes>> clientTypes_ {};
-      // Sets the clipboard transfer direction, content type, and size limits. read indicates transfer from the local PC to the cloud browser, and write indicates transfer from the cloud browser to the local PC.
+      // Sets the clipboard transfer direction, content types, and size limits. The value `read` indicates transfer from the local PC to the cloud browser, and `write` indicates transfer from the cloud browser to the local PC.
       shared_ptr<Policy::ClipboardPolicy> clipboardPolicy_ {};
-      // The data retention policy for sessions after disconnection.
+      // The session data retention policy after disconnection. Valid values:
+      // - `customTime`: Retains the session based on the session data retention policy. Custom durations through `DisconnectKeepSessionTime` are not supported.
+      // - `persistent`: The session is not subject to automatic release based on the disconnection duration.
       // 
-      // - `customTime`: Retains the session based on the data retention policy. Custom durations through `DisconnectKeepSessionTime` are not supported.
-      // - `persistent`: The session is not automatically released based on the disconnection duration.
-      // 
-      // **Note:** `persistent` is still affected by authorization and other release policies.
+      // **Note:** The `persistent` value is still subject to authorization and other release policies.
       shared_ptr<string> disconnectKeepSession_ {};
       // Not supported. Leave this parameter empty.
       shared_ptr<int32_t> disconnectKeepSessionTime_ {};
-      // The floating ball file manager switch.
-      // 
+      // Specifies whether to enable the file manager floating button. Valid values:
       // - `on`: Enabled.
       // - `off`: Disabled.
       // 
       // **Default value:** `off`.
       shared_ptr<string> fileManager_ {};
-      // The file transfer policy for the web client.
-      // 
-      // - `off`: Disables transfer.
-      // - `upload`: Allows upload only.
-      // - `download`: Allows download only.
-      // - `full`: Allows upload and download.
+      // The file transfer policy for the web client. Valid values:
+      // - `off`: Prohibits file transfer.
+      // - `upload`: Allows only uploads.
+      // - `download`: Allows only downloads.
+      // - `full`: Allows both uploads and downloads.
       // 
       // Configure this parameter in conjunction with the clipboard policy.
       shared_ptr<string> html5FileTransfer_ {};
-      // The cloud browser dual-screen switch.
+      // Specifies whether to enable the dual-screen mode for the cloud browser. Valid values:
+      // - `on`: Enables dual-screen mode.
+      // - `off`: Disables dual-screen mode.
       shared_ptr<string> multiScreen_ {};
-      // The automatic disconnection switch for inactivity. The value is case-insensitive.
-      // 
+      // Specifies whether to automatically disconnect the session after a period of inactivity. The value is not case-sensitive. Valid values:
       // - `on`: Enabled.
       // - `off`: Disabled.
       // 
-      // When enabled, use `NoOperationDisconnectTime` to set the wait time.
+      // When enabled, use `NoOperationDisconnectTime` to set the idle timeout.
       shared_ptr<string> noOperationDisconnect_ {};
-      // The wait time in seconds before disconnection is triggered due to user inactivity.
+      // The idle timeout in seconds before the session is automatically disconnected.
       // 
-      // **Conditions:** When `NoOperationDisconnect` is enabled, you must specify a value greater than 0.
+      // **Prerequisites:** When `NoOperationDisconnect` is enabled, you must specify a value greater than 0.
       shared_ptr<int32_t> noOperationDisconnectTime_ {};
-      // The policy version. The value is case-insensitive.
-      // 
+      // The policy version. The value is not case-sensitive. Valid values:
       // - `DEFAULT`: Legacy policy.
       // - `CENTER`: Centralized policy.
       // 
@@ -1118,11 +1109,11 @@ namespace Models
       // 
       // You do not need to specify this parameter.
       shared_ptr<int32_t> nodeAmount_ {};
-      // The node specifications identity.
+      // The identity of the node specifications.
       // 
       // You do not need to specify this parameter.
       shared_ptr<string> nodeInstanceType_ {};
-      // The node scaling strategy.
+      // The node scaling policy.
       // 
       // You do not need to specify this parameter.
       shared_ptr<string> strategyType_ {};
@@ -1232,27 +1223,27 @@ namespace Models
       // The website access restriction mode.
       // 
       // - `ALLOW_ALL`: allows access to all domain names.
-      // - `ALLOW_LIST`: allows access only to websites in the whitelist.
+      // - `ALLOW_LIST`: allows access only to websites in the list.
       shared_ptr<string> accessRestriction_ {};
-      // The ID of the created office network. The office network must belong to the current account and reside in the target region specified by BizRegionId. You can view the office network ID on the Office Networks page in the Elastic Desktop Service Enterprise Edition console, or call the DescribeOfficeSites operation of Elastic Desktop Service Enterprise Edition to query the ID.
+      // The identifier of the created office network. The office network must belong to the current account and the target region specified by BizRegionId. You can view the office network ID on the Network & Storage > Office Networks page in the Wuying Workspace Enterprise Edition console, or call the DescribeOfficeSites operation of Wuying Workspace Enterprise Edition to query it.
       shared_ptr<string> officeSiteId_ {};
       // The list of websites that are allowed for access. This parameter is used in `ALLOW_LIST` mode.
       // 
       // **Limits:**
       // 
-      // - You can specify up to 20 URLs directly. To specify more than 20 URLs, use RestrictedURLsFilePath to import the URLs from a file.
-      // - This parameter cannot be specified together with RestrictedURLsFilePath.
-      // - The URLs in the list must be unique.
+      // - You can specify up to 20 URLs directly. To specify more than 20 URLs, use `RestrictedURLsFilePath` to import them from a file.
+      // - This parameter cannot be specified together with `RestrictedURLsFilePath`.
+      // - URLs in the list cannot be duplicated.
       shared_ptr<vector<Network::RestrictedURLs>> restrictedURLs_ {};
-      // The path of the uploaded website whitelist file. This parameter is used in `ALLOW_LIST` mode.
+      // The path of the uploaded website allowlist file. This parameter is used in `ALLOW_LIST` mode.
       // 
-      // If you need to specify more than 20 URLs, import the URLs from a file. By default, you can configure up to 1,000 URLs.
+      // To specify more than 20 URLs, import them from a file. By default, you can configure up to 1,000 URLs.
       // 
-      // This parameter cannot be specified together with RestrictedURLs.
+      // This parameter cannot be specified together with `RestrictedURLs`.
       shared_ptr<string> restrictedURLsFilePath_ {};
-      // The list of vSwitch IDs.
+      // The list of vSwitch identifiers.
       // 
-      // **Usage condition:** This parameter is required only when you use a custom office network. Do not specify this parameter for other types of office networks.
+      // **Conditions:** This parameter is required only when a custom office network is used. Do not specify this parameter for other types of office networks.
       // 
       // Select vSwitches that match the target business region and the custom office network.
       shared_ptr<vector<string>> vSwitchIds_ {};
@@ -1338,7 +1329,7 @@ namespace Models
         // 
         // This parameter is required.
         shared_ptr<string> bookmarkName_ {};
-        // The URL of the bookmark. This parameter is required when you create a bookmark. The length cannot exceed 1024 characters after leading and trailing spaces are removed.
+        // The URL of the bookmark. This parameter is required when you create a bookmark. The length cannot exceed 1,024 characters after leading and trailing spaces are removed.
         // 
         // This parameter is required.
         shared_ptr<string> bookmarkURL_ {};
@@ -1386,9 +1377,9 @@ namespace Models
     protected:
       // The list of browser bookmarks.
       // 
-      // **Limits:** This parameter cannot be specified together with a non-empty `BookmarksFilePath`, and bookmark URLs cannot be duplicated.
+      // **Limits:** This parameter cannot be specified together with a non-empty BookmarksFilePath, and bookmark URLs cannot be duplicated.
       shared_ptr<vector<BrowserConfig::Bookmarks>> bookmarks_ {};
-      // The path of the uploaded bookmark file. This parameter cannot be specified together with a non-empty `Bookmarks` parameter.
+      // The path of the uploaded bookmark file. This parameter cannot be specified together with a non-empty Bookmarks parameter.
       // 
       // **File format:** A CSV file without a header. Specify the following four columns in order:
       // 
@@ -1402,7 +1393,7 @@ namespace Models
       // - Fields are separated by commas. Field content cannot contain commas or line breaks, and quote escaping is not supported.
       // - The file path must belong to the upload directory specified for the current account and cannot contain `..`.
       shared_ptr<string> bookmarksFilePath_ {};
-      // The browser startup parameters. For example, `--incognito` indicates that an incognito window is used.
+      // The browser startup parameters. For example, `--incognito` specifies that an incognito window is used.
       shared_ptr<string> browserParam_ {};
       // Specifies whether to synchronize cookies.
       shared_ptr<bool> cookiesSync_ {};
@@ -1629,12 +1620,13 @@ namespace Models
 
 
   protected:
-    // The package ID.
+    // The package identifier.
     // 
     // You do not need to specify this parameter.
     shared_ptr<string> appPackageType_ {};
     // Specifies whether to send notification emails for authorization and deauthorization.
     // 
+    // Valid values:
     // - `true`: Sends notification emails.
     // - `false`: Does not send notification emails.
     shared_ptr<bool> authNotificationEnabled_ {};
@@ -1646,7 +1638,7 @@ namespace Models
     // 
     // You do not need to specify this parameter.
     shared_ptr<bool> autoRenew_ {};
-    // The ID of the business region. This parameter is required.
+    // The business region identifier. This parameter is required.
     // 
     // This parameter is required.
     shared_ptr<string> bizRegionId_ {};
@@ -1654,13 +1646,13 @@ namespace Models
     shared_ptr<CreateBrowserInstanceGroupRequest::BrowserConfig> browserConfig_ {};
     // The resource billing method.
     // 
-    // **For MAU scenarios:** Set this parameter to `AppInstance`, which indicates billing by instance resource.
+    // **For MAU scenarios:** Set this parameter to `AppInstance`, which indicates billing by instance resources.
     shared_ptr<string> chargeResourceMode_ {};
     // The billing method.
     // 
     // **For MAU scenarios:** Set this parameter to `PostPaid`, which indicates pay-as-you-go.
     shared_ptr<string> chargeType_ {};
-    // The name of the cloud browser group. This parameter is required. It is used to distinguish different browser groups in business management scenarios.
+    // The name of the cloud browser group. This parameter cannot be empty. It is used to distinguish different browser groups in business management scenarios.
     // 
     // This parameter is required.
     shared_ptr<string> cloudBrowserName_ {};
@@ -1668,15 +1660,15 @@ namespace Models
     // 
     // If this parameter is omitted, the default image available for the account is used. If no default image is available, the creation may fail.
     // 
-    // **Usage condition:** When `CookiesSync` is enabled, explicitly specify an image that supports cookie synchronization.
+    // **Usage condition:** When CookiesSync is enabled, explicitly specify an image that supports cookie synchronization.
     shared_ptr<string> imageId_ {};
     // The instance type identifier. Select an instance type that matches the target region, operating system, and inventory conditions.
     // 
     // If this parameter is omitted, the default instance type is used.
     shared_ptr<string> instanceType_ {};
-    // The capacity configuration for the MAU billing scenario.
+    // The capacity configuration for MAU billing scenarios.
     shared_ptr<int32_t> maxAmount_ {};
-    // The configurations of the office network and website access restrictions. The selected office network must belong to the current account and reside in the region specified by BizRegionId.
+    // The configurations for the office network and website access restrictions. The selected office network must belong to the current account and be located in the region specified by `BizRegionId`.
     shared_ptr<CreateBrowserInstanceGroupRequest::Network> network_ {};
     // The node pool configuration.
     // 
@@ -1684,43 +1676,43 @@ namespace Models
     shared_ptr<CreateBrowserInstanceGroupRequest::NodePool> nodePool_ {};
     // The operating system type. This parameter is required.
     // 
-    // Only `Windows` is supported. Other operating systems are not supported.
+    // Only Windows is supported. Other operating systems are not supported.
     shared_ptr<string> osType_ {};
-    // The number of subscription periods.
+    // The number of billing cycles for the purchase.
     // 
     // You do not need to specify this parameter.
     shared_ptr<int32_t> period_ {};
-    // The unit of the subscription period.
+    // The unit of the billing cycle for the purchase.
     // 
     // You do not need to specify this parameter.
     shared_ptr<string> periodUnit_ {};
-    // The configurations of clipboard, video, watermark, session, and client access policies.
+    // The configurations for clipboard, video, watermark, session, and client access policies.
     shared_ptr<CreateBrowserInstanceGroupRequest::Policy> policy_ {};
-    // The promotion ID, which is used to specify the promotional offer applied to the order.
+    // The promotion identifier, which is used to specify the promotional offer applied to the order.
     // 
-    // The applicability and specific discounts are subject to the promotion rules. You do not need to specify this parameter if no promotional offer is applied.
+    // Applicability and specific discounts are subject to the promotion rules. You do not need to specify this parameter if no promotional offer is applied.
     shared_ptr<string> promotionId_ {};
-    // The connection security policy of the browser group.
+    // The connection security policy for the browser group.
     shared_ptr<CreateBrowserInstanceGroupRequest::SecurityPolicy> securityPolicy_ {};
-    // The user data storage configuration of the browser group.
+    // The user data storage configuration for the browser group.
     shared_ptr<CreateBrowserInstanceGroupRequest::StoragePolicy> storagePolicy_ {};
     // The billing sub-type.
     // 
-    // **You must explicitly set this parameter to `mau`, which indicates billing by monthly active users.** Omitting this parameter does not enable MAU billing.
+    // **You must explicitly set this parameter to `mau`, which indicates billing by monthly active users.** Omitting this field does not enable MAU billing.
     shared_ptr<string> subPayType_ {};
     // Not supported. Leave this parameter empty.
     shared_ptr<vector<CreateBrowserInstanceGroupRequest::Tag>> tag_ {};
     // Not supported. Leave this parameter empty.
     shared_ptr<vector<CreateBrowserInstanceGroupRequest::Timers>> timers_ {};
-    // The list of authorized user group IDs. You can specify up to 10 user group IDs. The user groups must belong to the current account and match the account type of the office network.
+    // The list of authorized user group IDs. You can specify up to 10 user group IDs. The user groups must belong to the current account and match the office network account type.
     // 
-    // **Limits:** This parameter cannot be specified together with a non-empty `Users` parameter.
+    // **Limits:** This parameter cannot be specified together with a non-empty Users parameter.
     shared_ptr<vector<string>> userGroupIds_ {};
     // The authorized user account information. The information must match the user and office network types.
     shared_ptr<CreateBrowserInstanceGroupRequest::UserInfo> userInfo_ {};
-    // The list of authorized users. You can specify up to 200 users. The users must be created in advance and match the account type.
+    // The list of authorized users. You can specify up to 200 users. Users must be created in advance and match the account type.
     // 
-    // **Limit:** This parameter cannot be specified together with a non-empty UserGroupIds parameter.
+    // **Limits:** This parameter cannot be specified together with a non-empty `UserGroupIds` parameter.
     shared_ptr<vector<CreateBrowserInstanceGroupRequest::Users>> users_ {};
   };
 

@@ -71,7 +71,7 @@ namespace Models
     protected:
       // The ID of the newly created cloud browser group. The return of this ID does not indicate that the resource is ready.
       shared_ptr<string> browserInstanceGroupId_ {};
-      // The ID of the order generated for this creation.
+      // The order ID generated for this creation.
       shared_ptr<string> orderId_ {};
     };
 
@@ -94,7 +94,7 @@ namespace Models
 
 
   protected:
-    // The creation result of the cloud browser group, including the resource ID and the order ID.
+    // The creation result of the cloud browser group, including the resource ID and order ID.
     shared_ptr<CreateBrowserInstanceGroupResponseBody::BrowserInstanceGroupModel> browserInstanceGroupModel_ {};
     // The unique ID of the request, which can be used for troubleshooting.
     shared_ptr<string> requestId_ {};

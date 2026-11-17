@@ -68,11 +68,11 @@ namespace Models
   protected:
     // This parameter is not enabled. Do not specify this parameter. The current API operation queries tenant configurations by provider, business platform, and business type. The example is used to illustrate the field status.
     shared_ptr<string> agentInstanceId_ {};
-    // The business platform to which the agent belongs. Specify the platform corresponding to the tenant memory configuration, such as `ENTERPRISE` for the enterprise platform.
+    // The business platform to which the agent belongs. Specify the platform corresponding to the tenant memory configuration, such as the enterprise platform `ENTERPRISE`.
     shared_ptr<string> agentPlatform_ {};
     // The agent provider. This parameter is used together with AgentPlatform and BizType to locate the memory configuration. You must use a configured business combination.
     shared_ptr<string> agentProvider_ {};
-    // The business type code. This parameter is used together with the provider and business platform. Common values include `1` for Enterprise Edition, `10` for Personal Edition, and `20` for Commercial Edition.
+    // The business type code. This parameter is used together with the provider and business platform. Common values include `1` (Enterprise Edition), `10` (Personal Edition), and `20` (Commercial Edition).
     shared_ptr<int32_t> bizType_ {};
   };
 

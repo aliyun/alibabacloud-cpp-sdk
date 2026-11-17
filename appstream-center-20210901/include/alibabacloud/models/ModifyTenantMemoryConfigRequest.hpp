@@ -66,19 +66,19 @@ namespace Models
 
 
   protected:
-    // The business platform to which the agent belongs. Specify the platform that corresponds to the tenant memory configuration, such as `ENTERPRISE` for the enterprise platform.
+    // The business platform to which the agent belongs. Specify the platform that corresponds to the tenant memory configuration, such as the enterprise platform `ENTERPRISE`.
     // 
     // This parameter is required.
     shared_ptr<string> agentPlatform_ {};
-    // The agent provider. This parameter is used together with AgentPlatform and BizType to locate the memory configuration. You must use a configured business combination.
+    // The agent provider. Used together with AgentPlatform and BizType to locate the memory configuration. A configured business combination must be used.
     // 
     // This parameter is required.
     shared_ptr<string> agentProvider_ {};
-    // The business type code. This parameter is used together with the provider and business platform. Common values include `1` (Enterprise Edition), `10` (Personal Edition), and `20` (Commercial Edition).
+    // The business type code. Used together with the provider and business platform. Common values include `1` (Enterprise Edition), `10` (Personal Edition), and `20` (Commercial Edition).
     // 
     // This parameter is required.
     shared_ptr<int32_t> bizType_ {};
-    // Specifies whether the memory feature for the business combination is enabled. A value of `true` enables the feature, and `false` disables the feature. If this parameter is omitted, the current setting is retained.
+    // Specifies whether to enable the memory feature for the business combination. A value of `true` enables the feature, and `false` disables it. If this parameter is omitted, the current status is retained.
     shared_ptr<bool> enabled_ {};
   };
 

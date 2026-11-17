@@ -1,3 +1,16 @@
+2026-11-17 Version: 5.15.0
+- Support API BatchConfigRuntimeChannel.
+- Support API DescribeSlsDeliveryConfig.
+- Support API GetRuntimeChannelQrCodeDetail.
+- Support API ListCommandInvocationResults.
+- Support API ModifyWuyingServerSpec.
+- Support API ResizeWuyingServerDisk.
+- Support API RunAppInstanceCommand.
+- Support API SendRuntimeQrCodeConfigChannelMessage.
+- Update API DescribeEvents: add request parameters EndUserIds.
+- Update API RestartWuyingServer: add request parameters EnableRestartRetry.
+
+
 2026-11-14 Version: 5.14.0
 - Support API ClearAgentInstanceMemory.
 - Support API DescribeUserProfilePathRules.

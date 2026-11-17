@@ -124,13 +124,13 @@ namespace Models
     shared_ptr<string> cloudBrowserName_ {};
     // The maximum resource count. This parameter takes effect for the pay-as-you-go billing method based on monthly active users.
     shared_ptr<int32_t> maxAmount_ {};
-    // The network configurations.
+    // The network configuration.
     shared_ptr<string> networkShrink_ {};
     // The access policy.
     shared_ptr<string> policyShrink_ {};
-    // The storage-related policy.
+    // The storage-related policies.
     shared_ptr<string> storagePolicyShrink_ {};
-    // The timer.
+    // The timers.
     shared_ptr<string> timersShrink_ {};
   };
 

@@ -2,6 +2,7 @@
 #ifndef ALIBABACLOUD_MODELS_DESCRIBEEVENTSREQUEST_HPP_
 #define ALIBABACLOUD_MODELS_DESCRIBEEVENTSREQUEST_HPP_
 #include <darabonba/Core.hpp>
+#include <vector>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud
@@ -18,6 +19,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(AppInstanceId, appInstanceId_);
       DARABONBA_PTR_TO_JSON(BizRegionId, bizRegionId_);
       DARABONBA_PTR_TO_JSON(EndTime, endTime_);
+      DARABONBA_PTR_TO_JSON(EndUserIds, endUserIds_);
       DARABONBA_PTR_TO_JSON(EventId, eventId_);
       DARABONBA_PTR_TO_JSON(EventType, eventType_);
       DARABONBA_PTR_TO_JSON(MaxResults, maxResults_);
@@ -36,6 +38,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(AppInstanceId, appInstanceId_);
       DARABONBA_PTR_FROM_JSON(BizRegionId, bizRegionId_);
       DARABONBA_PTR_FROM_JSON(EndTime, endTime_);
+      DARABONBA_PTR_FROM_JSON(EndUserIds, endUserIds_);
       DARABONBA_PTR_FROM_JSON(EventId, eventId_);
       DARABONBA_PTR_FROM_JSON(EventType, eventType_);
       DARABONBA_PTR_FROM_JSON(MaxResults, maxResults_);
@@ -60,9 +63,10 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->appInstanceGroupId_ == nullptr
-        && this->appInstanceGroupName_ == nullptr && this->appInstanceId_ == nullptr && this->bizRegionId_ == nullptr && this->endTime_ == nullptr && this->eventId_ == nullptr
-        && this->eventType_ == nullptr && this->maxResults_ == nullptr && this->memberEniIp_ == nullptr && this->nextToken_ == nullptr && this->officeSiteId_ == nullptr
-        && this->pageNumber_ == nullptr && this->pageSize_ == nullptr && this->productType_ == nullptr && this->startTime_ == nullptr && this->userId_ == nullptr; };
+        && this->appInstanceGroupName_ == nullptr && this->appInstanceId_ == nullptr && this->bizRegionId_ == nullptr && this->endTime_ == nullptr && this->endUserIds_ == nullptr
+        && this->eventId_ == nullptr && this->eventType_ == nullptr && this->maxResults_ == nullptr && this->memberEniIp_ == nullptr && this->nextToken_ == nullptr
+        && this->officeSiteId_ == nullptr && this->pageNumber_ == nullptr && this->pageSize_ == nullptr && this->productType_ == nullptr && this->startTime_ == nullptr
+        && this->userId_ == nullptr; };
     // appInstanceGroupId Field Functions 
     bool hasAppInstanceGroupId() const { return this->appInstanceGroupId_ != nullptr;};
     void deleteAppInstanceGroupId() { this->appInstanceGroupId_ = nullptr;};
@@ -96,6 +100,15 @@ namespace Models
     void deleteEndTime() { this->endTime_ = nullptr;};
     inline string getEndTime() const { DARABONBA_PTR_GET_DEFAULT(endTime_, "") };
     inline DescribeEventsRequest& setEndTime(string endTime) { DARABONBA_PTR_SET_VALUE(endTime_, endTime) };
+
+
+    // endUserIds Field Functions 
+    bool hasEndUserIds() const { return this->endUserIds_ != nullptr;};
+    void deleteEndUserIds() { this->endUserIds_ = nullptr;};
+    inline const vector<string> & getEndUserIds() const { DARABONBA_PTR_GET_CONST(endUserIds_, vector<string>) };
+    inline vector<string> getEndUserIds() { DARABONBA_PTR_GET(endUserIds_, vector<string>) };
+    inline DescribeEventsRequest& setEndUserIds(const vector<string> & endUserIds) { DARABONBA_PTR_SET_VALUE(endUserIds_, endUserIds) };
+    inline DescribeEventsRequest& setEndUserIds(vector<string> && endUserIds) { DARABONBA_PTR_SET_RVALUE(endUserIds_, endUserIds) };
 
 
     // eventId Field Functions 
@@ -176,37 +189,39 @@ namespace Models
 
 
   protected:
-    // The delivery group ID, which is used to filter events of the delivery group. If this parameter is not specified, events are not filtered by delivery group. You can call the [ListAppInstanceGroup](~~ListAppInstanceGroup~~) operation to obtain the ID.
+    // The app instance group ID. This parameter is used to filter app instance group events. If this parameter is not specified, events are not filtered by app instance group. You can call the [ListAppInstanceGroup](~~ListAppInstanceGroup~~) operation to obtain the ID.
     shared_ptr<string> appInstanceGroupId_ {};
-    // The delivery group name. If the name contains only letters, digits, underscores, or hyphens, events are filtered by name prefix. If the name contains spaces or other special characters, events are filtered by the exact value. If this parameter is not specified, events are not filtered by name.
+    // The delivery group name. If the name contains only letters, digits, underscores, or hyphens, events are filtered by name prefix. If the name contains spaces or other special characters, events are filtered by the exact value. If you do not specify this parameter, events are not filtered by name.
     shared_ptr<string> appInstanceGroupName_ {};
-    // The application instance ID, which is used to filter events associated with the instance. If this parameter is not specified, events are not filtered by application instance. To obtain this value, first call the [ListAppInstanceGroup](~~ListAppInstanceGroup~~) operation to obtain the delivery group ID, and then use the ID as `AppInstanceGroupId` to call the [ListAppInstances](~~ListAppInstances~~) operation.
+    // The ID of the application instance. This parameter is used to filter events associated with the instance. If this parameter is not specified, events are not filtered by application instance. To obtain this value, call [ListAppInstanceGroup](~~ListAppInstanceGroup~~) to obtain the app instance group ID, and then specify the ID as `AppInstanceGroupId` when calling [ListAppInstances](~~ListAppInstances~~).
     shared_ptr<string> appInstanceId_ {};
-    // The business region ID of the event, which is used to filter events. If this parameter is not specified, events are not filtered by business region. You can call the [ListRegions](~~ListRegions~~) operation to obtain the ID.
+    // The business region ID of the event, which is used for exact filtering. If you do not specify this parameter, events are not filtered by business region. You can call the [ListRegions](~~ListRegions~~) operation to obtain the ID.
     shared_ptr<string> bizRegionId_ {};
     // The end time of the query. **Required**. The format is the same as `StartTime`. We recommend that you always include the time zone offset. The query includes this time, and the end time cannot be earlier than `StartTime`. A time range later than the call time does not generate future events.
     // 
     // This parameter is required.
     shared_ptr<string> endTime_ {};
-    // The event ID, which is used to query a single event. If this parameter is not specified, events are not filtered by event ID.
+    // The optional list of user IDs. If you specify multiple user IDs, events are filtered by using the OR logic. If you specify both `EndUserIds` and `UserId`, the intersection is used. If you do not specify this parameter, the original query is retained. If you specify an empty list or a list that contains only blank user IDs, an empty result is returned. The caller must convert usernames or display names to user IDs before calling this operation.
+    shared_ptr<vector<string>> endUserIds_ {};
+    // The event ID, which is used to query a single event. If you do not specify this parameter, events are not filtered by event ID.
     shared_ptr<string> eventId_ {};
-    // The event type identifier, which is used to filter events. Different products may generate different event types. This operation does not restrict the value to a fixed enumeration. You should use the `EventList.EventType` value obtained from previous queries as the filter value.
+    // The event type identifier, which is used to filter events. Different products may generate different event types. This operation does not restrict the values to a fixed enumeration. You should use the `EventList.EventType` values obtained from previous queries as filter values.
     shared_ptr<string> eventType_ {};
-    // A compatibility field. The current version does not read this parameter. Use `PageSize` to control the number of records on each page.
+    // The compatibility field. The current version does not read this parameter. Use `PageSize` to control the number of records on each page.
     shared_ptr<int32_t> maxResults_ {};
-    // The private IP address of the member elastic network interface (ENI) of the cloud resource, which is used to filter related events. If this parameter is not specified, events are not filtered by IP address.
+    // The private IP address of the member elastic network interface (ENI) of the cloud resource, which is used to filter related events. If you do not specify this parameter, events are not filtered by IP address.
     shared_ptr<string> memberEniIp_ {};
-    // A compatibility field. The current version does not read this parameter and does not support token-based pagination. Use `PageNumber`.
+    // The compatibility field. The current version does not read this parameter and does not support token-based pagination. Use `PageNumber`.
     shared_ptr<string> nextToken_ {};
-    // The office network ID, which is used to filter events generated within the office network. If this parameter is not specified, events are not filtered by office network.
+    // The office network ID, which is used to filter events generated within the office network. If you do not specify this parameter, events are not filtered by office network.
     shared_ptr<string> officeSiteId_ {};
-    // The page number to query. Pages start from 1. Default value: 1. This parameter is used together with `PageSize`.
+    // The page number to query. Pages start from `1`. Default value: 1. This parameter is used together with `PageSize`.
     shared_ptr<int32_t> pageNumber_ {};
     // The number of events to return on each page. Default value: 10. The current operation does not declare a fixed upper limit. We recommend that you set this parameter to a reasonable positive integer based on your actual needs.
     shared_ptr<int32_t> pageSize_ {};
-    // The product type. The value is case-insensitive. If you specify an unsupported value, the request fails. If this parameter is not specified, events are not filtered by product type. Only the following public product values are supported:
+    // The product type. Values are not case-sensitive. If you specify an unsupported value, the request fails. If you do not specify this parameter, events are not filtered by product type. Valid values:
     // 
-    // - `CloudApp`: Wuying Cloud Application.
+    // - `CloudApp`: Wuying Cloud App.
     // - `CloudBrowser`: Cloud Browser.
     // - `WuyingServer`: Enterprise Edition workstation.
     // - `WuyingWorkstation`: Personal Edition Linggou container workstation.
@@ -215,11 +230,11 @@ namespace Models
     // - `AndroidCloud`: Cloud Phone.
     // - `AIAgent`: AgentBay (AI agent).
     shared_ptr<string> productType_ {};
-    // The start time of the query. **Required**. Use the ISO 8601 format: `yyyy-MM-dd\\"T\\"HH:mm:ss`. You can include three-digit milliseconds and use `Z` or `±HH:mm` to specify the time zone. We recommend that you always include the time zone offset. The query includes this time, and the start time must be earlier than or equal to `EndTime`. The service only retains and retrieves events that occurred within 30 days before the call time.
+    // The start time of the query. **Required**. Specify the time in the ISO 8601 format: `yyyy-MM-dd\\"T\\"HH:mm:ss`. You can include three-digit milliseconds and use `Z` or `±HH:mm` to specify the time zone. We recommend that you always include the time zone offset. The query includes this time, and the start time must be earlier than or equal to `EndTime`. The service only retains and retrieves events that occurred within 30 days before the call time.
     // 
     // This parameter is required.
     shared_ptr<string> startTime_ {};
-    // The end user ID, which is used to filter events generated by the user. If this parameter is not specified, events are not filtered by user.
+    // The end user ID, which is used to filter events generated by the user. If you do not specify this parameter, events are not filtered by user.
     shared_ptr<string> userId_ {};
   };
 

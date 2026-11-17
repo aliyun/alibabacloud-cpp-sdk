@@ -135,8 +135,8 @@ namespace Models
           // The exception path relative to BlackPath.Path.
           shared_ptr<string> path_ {};
           // The path type. Valid values:
-          // - file: File.
-          // - folder: Folder.
+          // - `file`: File.
+          // - `folder`: Folder.
           shared_ptr<string> type_ {};
         };
 
@@ -181,8 +181,8 @@ namespace Models
           // The excluded path relative to the user profile directory.
           shared_ptr<string> path_ {};
           // The path type. Valid values:
-          // - file: File.
-          // - folder: Folder.
+          // - `file`: File.
+          // - `folder`: Folder.
           shared_ptr<string> type_ {};
         };
 
@@ -207,9 +207,9 @@ namespace Models
 
 
       protected:
-        // The file or directory excluded from user data roaming.
+        // The file or directory excluded from user profile roaming.
         shared_ptr<Rules::BlackPath> blackPath_ {};
-        // The list of files or directories that still participate in user data roaming under the excluded directories.
+        // The list of files or directories that still participate in user profile roaming under the excluded directories.
         shared_ptr<vector<Rules::WhitePaths>> whitePaths_ {};
       };
 
@@ -289,31 +289,27 @@ namespace Models
 
 
     protected:
-      // The ID of the app instance group to which the rule applies. When querying set rules, this is the ID of the primary app instance group.
+      // The app instance group ID corresponding to the rule. When querying set rules, this is the primary app instance group ID.
       shared_ptr<string> appInstanceGroupId_ {};
-      // The ID of the app instance group set to which the rule applies. This parameter is returned when querying set rules.
+      // The app instance group set ID corresponding to the rule. This is returned when querying set rules.
       shared_ptr<string> appInstanceGroupSetId_ {};
-      // The ID of the user data roaming storage domain bound to the app instance group. This parameter may be omitted if no domain is bound.
+      // The user profile roaming storage domain ID bound to the app instance group. This field may be omitted if no domain is bound.
       shared_ptr<string> domainId_ {};
-      // This field is not enabled. The current query result does not provide the file system ID. The example is used to illustrate the field status.
+      // Not enabled. The current query result does not provide the file system ID. The example is used to illustrate the field status.
       shared_ptr<string> fileSystemId_ {};
-      // Specifies whether user data roaming is enabled. Valid values:
-      // - true: Enabled.
-      // - false: Disabled.
+      // The user profile roaming switch. A value of `true` indicates that the feature is enabled, and a value of `false` indicates that the feature is disabled.
       shared_ptr<bool> profileFollowSwitch_ {};
-      // The remote storage path for user data roaming. If the app instance group is not separately configured with this path, the app instance group ID is returned.
+      // The remote storage path for user profile roaming. If this path is not separately configured for the app instance group, the app instance group ID is returned.
       shared_ptr<string> remoteStoragePath_ {};
       // The path rule type. Valid values:
-      // - Default: Queries the system default rules. Both target IDs can be omitted.
-      // - AppInstanceGroup: Queries the rules of an app instance group or an app instance group set.
+      // - `Default`: Queries system default rules. Both target IDs can be omitted.
+      // - `AppInstanceGroup`: Queries the rules of an app instance group or an app instance group set.
       shared_ptr<string> ruleType_ {};
-      // The list of user data roaming path rules.
+      // The list of user profile roaming path rules.
       shared_ptr<vector<Data::Rules>> rules_ {};
-      // The storage quota for user data roaming, in GB. This parameter may be omitted if it is not configured.
+      // The storage quota for user profile roaming, in GB. This field may be omitted if it is not configured.
       shared_ptr<int64_t> userProfileSize_ {};
-      // Specifies whether user data roaming is enabled. The value is the same as ProfileFollowSwitch. Valid values:
-      // - true: Enabled.
-      // - false: Disabled.
+      // The user profile roaming switch. The value is the same as ProfileFollowSwitch. A value of `true` indicates that the feature is enabled, and a value of `false` indicates that the feature is disabled.
       shared_ptr<bool> userProfileSwitch_ {};
     };
 
@@ -352,7 +348,7 @@ namespace Models
   protected:
     // The error code returned when the request fails.
     shared_ptr<string> code_ {};
-    // The path rules and user data roaming configurations.
+    // The path rules and user profile roaming configurations.
     shared_ptr<DescribeUserProfilePathRulesResponseBody::Data> data_ {};
     // The error message returned when the request fails.
     shared_ptr<string> message_ {};

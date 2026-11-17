@@ -14,10 +14,12 @@ namespace Models
   class RestartWuyingServerRequest : public Darabonba::Model {
   public:
     friend void to_json(Darabonba::Json& j, const RestartWuyingServerRequest& obj) { 
+      DARABONBA_PTR_TO_JSON(EnableRestartRetry, enableRestartRetry_);
       DARABONBA_PTR_TO_JSON(ProductType, productType_);
       DARABONBA_PTR_TO_JSON(WuyingServerIdList, wuyingServerIdList_);
     };
     friend void from_json(const Darabonba::Json& j, RestartWuyingServerRequest& obj) { 
+      DARABONBA_PTR_FROM_JSON(EnableRestartRetry, enableRestartRetry_);
       DARABONBA_PTR_FROM_JSON(ProductType, productType_);
       DARABONBA_PTR_FROM_JSON(WuyingServerIdList, wuyingServerIdList_);
     };
@@ -32,8 +34,15 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { return this->productType_ == nullptr
-        && this->wuyingServerIdList_ == nullptr; };
+    virtual bool empty() const override { return this->enableRestartRetry_ == nullptr
+        && this->productType_ == nullptr && this->wuyingServerIdList_ == nullptr; };
+    // enableRestartRetry Field Functions 
+    bool hasEnableRestartRetry() const { return this->enableRestartRetry_ != nullptr;};
+    void deleteEnableRestartRetry() { this->enableRestartRetry_ = nullptr;};
+    inline bool getEnableRestartRetry() const { DARABONBA_PTR_GET_DEFAULT(enableRestartRetry_, false) };
+    inline RestartWuyingServerRequest& setEnableRestartRetry(bool enableRestartRetry) { DARABONBA_PTR_SET_VALUE(enableRestartRetry_, enableRestartRetry) };
+
+
     // productType Field Functions 
     bool hasProductType() const { return this->productType_ != nullptr;};
     void deleteProductType() { this->productType_ = nullptr;};
@@ -51,6 +60,8 @@ namespace Models
 
 
   protected:
+    // Specifies whether to enable the restart retry feature.
+    shared_ptr<bool> enableRestartRetry_ {};
     // The product type.
     shared_ptr<string> productType_ {};
     // The list of workstation IDs.

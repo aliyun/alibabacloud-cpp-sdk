@@ -61,7 +61,7 @@ namespace Models
     shared_ptr<string> code_ {};
     // The error message returned when the request fails.
     shared_ptr<string> message_ {};
-    // The unique identifier of the request, which can be used for troubleshooting.
+    // The unique identifier of the request. You can use the ID to troubleshoot issues.
     shared_ptr<string> requestId_ {};
   };
 

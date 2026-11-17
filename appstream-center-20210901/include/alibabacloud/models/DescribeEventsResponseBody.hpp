@@ -153,11 +153,11 @@ namespace Models
 
 
     protected:
-      // The ID of the delivery group associated with the event. This field may be empty if the event is not associated with a delivery group.
+      // The delivery group ID associated with the event. This field may be empty if the event is not associated with a delivery group.
       shared_ptr<string> appInstanceGroupId_ {};
-      // The name of the delivery group associated with the event. This field may be empty if the event is not associated with a delivery group.
+      // The delivery group name associated with the event. This field may be empty if the event is not associated with a delivery group.
       shared_ptr<string> appInstanceGroupName_ {};
-      // The event detail text. The content varies with `EventType` and may be empty. For example, a session release event may return JSON text that describes the release reason.
+      // The event detail text. The content varies with `EventType` and may be empty. For example, a session release event may return a JSON text that describes the release cause.
       shared_ptr<string> detailInfo_ {};
       // The unique identifier of the event.
       shared_ptr<string> eventId_ {};
@@ -167,11 +167,11 @@ namespace Models
       shared_ptr<string> memberEniIp_ {};
       // The time when the event occurred. Format: `yyyy-MM-dd HH:mm:ss`. Time zone: UTC+8 (Asia/Shanghai).
       shared_ptr<string> occurredTime_ {};
-      // The ID of the office network associated with the event. This field may be empty if it is not applicable.
+      // The office network ID associated with the event. This field may be empty if it is not applicable.
       shared_ptr<string> officeSiteId_ {};
-      // The product type to which the event belongs. This field is an open string and may be extended as supported event sources expand. Callers should not restrict the value to the products currently listed in the `ProductType` request parameter.
+      // The product type to which the event belongs. This field is an open string and may be extended as supported event sources increase. The caller should not restrict the values to the products currently listed in the `ProductType` request parameter.
       shared_ptr<string> productType_ {};
-      // The ID of the end user who generated the event. This field may be empty if the event is not associated with an end user.
+      // The end user ID that generated the event. This field may be empty if the event is not associated with an end user.
       shared_ptr<string> userId_ {};
     };
 
@@ -232,17 +232,17 @@ namespace Models
   protected:
     // The list of events on the current page, returned in descending order of the event log time.
     shared_ptr<vector<DescribeEventsResponseBody::EventList>> eventList_ {};
-    // A compatibility field. The current version does not set this field. Do not rely on its value.
+    // The compatibility field. The current version does not set this field. Do not rely on its value.
     shared_ptr<int32_t> maxResults_ {};
-    // A compatibility field. The current version does not generate a next page token. Do not use this field for pagination.
+    // The compatibility field. The current version does not generate a next page token. Do not use this field for pagination.
     shared_ptr<string> nextToken_ {};
     // The page number corresponding to the current response.
     shared_ptr<int32_t> pageNumber_ {};
     // The number of events per page used in the current response.
     shared_ptr<int32_t> pageSize_ {};
-    // The unique identifier of the request, which can be used to troubleshoot request issues.
+    // The unique identifier of the request, which can be used to troubleshoot the request.
     shared_ptr<string> requestId_ {};
-    // The total number of events that meet all filter conditions within the 30-day retrievable window. Unit: records.
+    // The total number of events that meet all filter conditions within the retrievable window of the last 30 days. Unit: events.
     shared_ptr<int32_t> totalCount_ {};
   };
 

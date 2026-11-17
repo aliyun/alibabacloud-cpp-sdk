@@ -152,7 +152,7 @@ namespace Models
 
 
     protected:
-      // The user roaming-related policy.
+      // The user roaming-related policies.
       shared_ptr<StoragePolicy::UserProfile> userProfile_ {};
     };
 
@@ -321,7 +321,7 @@ namespace Models
 
 
       protected:
-        // The IPv4 address or CIDR block to be revoked.
+        // The IPv4 addresses or CIDR blocks to be revoked.
         shared_ptr<string> cidrIp_ {};
         // The description of the access IP address whitelist rule to be revoked.
         shared_ptr<string> description_ {};
@@ -514,13 +514,13 @@ namespace Models
       protected:
         // The clipboard policy.
         shared_ptr<string> clipboard_ {};
-        // The read length limit for the clipboard.
+        // The clipboard read length limit.
         shared_ptr<int32_t> clipboardReadLimit_ {};
         // The clipboard control scope.
         shared_ptr<string> clipboardScope_ {};
         // The clipboard size unit.
         shared_ptr<string> clipboardSizeUnit_ {};
-        // The write length limit for the clipboard.
+        // The clipboard write length limit.
         shared_ptr<int32_t> clipboardWriteLimit_ {};
         // The file clipboard policy.
         shared_ptr<string> fileClipboard_ {};
@@ -528,25 +528,25 @@ namespace Models
         shared_ptr<string> richTextClipboard_ {};
         // The rich text clipboard limit.
         shared_ptr<int32_t> richTextClipboardLimit_ {};
-        // The outbound size limit for rich text in the clipboard.
+        // The rich text clipboard read limit.
         shared_ptr<int32_t> richTextClipboardReadLimit_ {};
-        // The outbound size unit for rich text in the clipboard.
+        // The rich text clipboard read size unit.
         shared_ptr<string> richTextClipboardReadSizeUnit_ {};
         // The rich text clipboard size unit.
         shared_ptr<string> richTextClipboardSizeUnit_ {};
-        // The inbound size limit for rich text in the clipboard.
+        // The rich text clipboard write limit.
         shared_ptr<int32_t> richTextClipboardWriteLimit_ {};
-        // The inbound size unit for rich text in the clipboard.
+        // The rich text clipboard write size unit.
         shared_ptr<string> richTextClipboardWriteSizeUnit_ {};
         // The text clipboard policy.
         shared_ptr<string> textClipboard_ {};
-        // The outbound size limit for text in the clipboard.
+        // The text clipboard read limit.
         shared_ptr<int32_t> textClipboardReadLimit_ {};
-        // The outbound size unit for text in the clipboard.
+        // The text clipboard read size unit.
         shared_ptr<string> textClipboardReadSizeUnit_ {};
-        // The inbound size limit for text in the clipboard.
+        // The text clipboard write limit.
         shared_ptr<int32_t> textClipboardWriteLimit_ {};
-        // The inbound size unit for text in the clipboard.
+        // The text clipboard write size unit.
         shared_ptr<string> textClipboardWriteSizeUnit_ {};
       };
 
@@ -588,7 +588,7 @@ namespace Models
 
 
       protected:
-        // The type of the client.
+        // The client type.
         shared_ptr<string> clientType_ {};
         // The status.
         shared_ptr<string> status_ {};
@@ -769,31 +769,34 @@ namespace Models
     protected:
       // Specifies whether to enable screen capture prevention.
       shared_ptr<string> appContentProtection_ {};
-      // The server-side access IP address whitelist.
+      // The server access IP address whitelist.
       shared_ptr<vector<Policy::AuthorizeAccessPolicyRules>> authorizeAccessPolicyRules_ {};
-      // The client type control for logon.
+      // The logon client type control settings.
       shared_ptr<vector<Policy::ClientTypes>> clientTypes_ {};
       // The clipboard policies.
       shared_ptr<Policy::ClipboardPolicy> clipboardPolicy_ {};
-      // The data retention policy upon disconnection.
+      // The data retention policy after disconnection.
       shared_ptr<string> disconnectKeepSession_ {};
-      // The session retention duration upon disconnection.
+      // The session retention duration after disconnection.
       shared_ptr<int32_t> disconnectKeepSessionTime_ {};
-      // The switch for the file manager in the floating button.
+      // The floating button file manager switch.
       shared_ptr<string> fileManager_ {};
-      // The file transfer policy for the web client.
+      // The web client file transfer policy.
       shared_ptr<string> html5FileTransfer_ {};
-      // The dual-screen switch for the cloud browser.
+      // The cloud browser dual-screen switch.
+      // 
+      // - `on`: Enables the dual-screen feature.
+      // - `off`: Disables the dual-screen feature.
       shared_ptr<string> multiScreen_ {};
-      // The policy for disconnecting upon inactivity.
+      // The disconnect on inactivity policy.
       shared_ptr<string> noOperationDisconnect_ {};
-      // The inactivity disconnect time, in seconds.
+      // The inactivity disconnect time in seconds.
       shared_ptr<int32_t> noOperationDisconnectTime_ {};
       // The policy ID.
       shared_ptr<string> policyId_ {};
       // The policy version.
       shared_ptr<string> policyVersion_ {};
-      // The server access IP address whitelist to be revoked.
+      // The server access IP address whitelists to be revoked.
       shared_ptr<vector<Policy::RevokeAccessPolicyRules>> revokeAccessPolicyRules_ {};
       // The video policy.
       shared_ptr<Policy::VideoPolicy> videoPolicy_ {};
@@ -864,7 +867,7 @@ namespace Models
 
 
       protected:
-        // The ID of the domain name configuration. This parameter is required only when you modify the configuration.
+        // The domain name configuration ID. Required only when modifying an existing configuration.
         shared_ptr<string> restrictedURLId_ {};
         // The domain name.
         shared_ptr<string> URL_ {};
@@ -905,13 +908,13 @@ namespace Models
 
 
     protected:
-      // The type of access restriction.
+      // The access restriction type.
       shared_ptr<string> accessRestriction_ {};
       // The list of domain names to remove.
       shared_ptr<vector<string>> removeRestrictedURLIds_ {};
-      // The restricted domain name configurations.
+      // The restricted domain name configuration.
       shared_ptr<vector<Network::RestrictedURLs>> restrictedURLs_ {};
-      // The file path for network restricted URLs.
+      // The network restricted URL file path.
       shared_ptr<string> restrictedURLsFilePath_ {};
     };
 
@@ -1166,13 +1169,13 @@ namespace Models
     shared_ptr<string> cloudBrowserName_ {};
     // The maximum resource count. This parameter takes effect for the pay-as-you-go billing method based on monthly active users.
     shared_ptr<int32_t> maxAmount_ {};
-    // The network configurations.
+    // The network configuration.
     shared_ptr<ModifyBrowserInstanceGroupRequest::Network> network_ {};
     // The access policy.
     shared_ptr<ModifyBrowserInstanceGroupRequest::Policy> policy_ {};
-    // The storage-related policy.
+    // The storage-related policies.
     shared_ptr<ModifyBrowserInstanceGroupRequest::StoragePolicy> storagePolicy_ {};
-    // The timer.
+    // The timers.
     shared_ptr<vector<ModifyBrowserInstanceGroupRequest::Timers>> timers_ {};
   };
 

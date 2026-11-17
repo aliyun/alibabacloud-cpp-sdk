@@ -97,7 +97,7 @@ namespace Models
       protected:
         // The code of the skipped model.
         shared_ptr<string> llmCode_ {};
-        // The reason why the model configuration item was skipped.
+        // The reason why the item is skipped.
         shared_ptr<string> reason_ {};
       };
 
@@ -140,9 +140,9 @@ namespace Models
       shared_ptr<vector<string>> llmTemplateIds_ {};
       // The list of skipped model configuration items.
       shared_ptr<vector<Data::SkippedItems>> skippedItems_ {};
-      // The number of successfully created model templates.
+      // The number of successfully created items.
       shared_ptr<int32_t> successCount_ {};
-      // The total number of requested model templates.
+      // The total number of requested items.
       shared_ptr<int32_t> totalCount_ {};
     };
 

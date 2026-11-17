@@ -129,9 +129,9 @@ namespace Models
 
 
       protected:
-        // The ID of the organization.
+        // The organization ID.
         shared_ptr<string> orgId_ {};
-        // The name of the organization.
+        // The organization name.
         shared_ptr<string> orgName_ {};
       };
 
@@ -173,9 +173,9 @@ namespace Models
 
 
       protected:
-        // The ID of the user group.
+        // The user group ID.
         shared_ptr<string> groupId_ {};
-        // The name of the user group.
+        // The user group name.
         shared_ptr<string> groupName_ {};
       };
 
@@ -315,46 +315,46 @@ namespace Models
 
 
     protected:
-      // The ID of the agent instance, which can be used to configure the instance memory switch or clear the instance memory.
+      // The Agent instance ID, which can be used to set the instance memory switch or clear the instance memory.
       shared_ptr<string> agentInstanceId_ {};
-      // The instance lifetime and epoch status of the agent instance.
-      // - `UNDEPLOYED`: No deployment.
-      // - `DEPLOYING`: Deployment in progress.
-      // - `DEPLOYED`: Deployment completed.
+      // The lifecycle status of the agent instance.
+      // - `UNDEPLOYED`: Undeployed.
+      // - `DEPLOYING`: Deploying.
+      // - `DEPLOYED`: Deployed.
       // - `STARTING`: Starting.
       // - `RUNNING`: Running.
       // - `STOPPING`: Stopping.
       // - `STOPPED`: Stopped.
-      // - `UNAVAILABLE`: Not active.
+      // - `UNAVAILABLE`: Unavailable.
       // - `FAILED`: Failed.
-      // - `UPGRADING`: Upgrade in progress.
-      // - `REBUILDING`: Reset in progress.
+      // - `UPGRADING`: Upgrading.
+      // - `REBUILDING`: Resetting.
       // - `DELETING`: Deleting.
       // - `DELETED`: Deleted.
       shared_ptr<string> agentInstanceStatus_ {};
-      // The business platform to which the agent belongs.
+      // The business platform to which the Agent belongs.
       shared_ptr<string> agentPlatform_ {};
-      // The provider of the agent.
+      // The Agent provider.
       shared_ptr<string> agentProvider_ {};
       // The number of undeleted memory backups for the instance.
       shared_ptr<int32_t> backupCount_ {};
       // The ID of the end user to which the instance belongs.
       shared_ptr<string> endUserId_ {};
-      // The time of the last memory update. The time is returned in the YYYY-MM-DDThh:mm:ss format, with optional fractional seconds. The time value uses the default time zone of the server, and the string does not include a time zone offset. This field is omitted if the last update time is unavailable.
+      // The time of the last memory update. The time is returned in the YYYY-MM-DDThh:mm:ss format, which may include fractional seconds. The time value uses the default time zone of the server, and the string does not contain a time zone offset. This field is omitted if the last update time is unavailable.
       shared_ptr<string> lastMemoryUpdatedAt_ {};
-      // The time of the latest backup. The time is returned in the YYYY-MM-DDThh:mm:ss format, with optional fractional seconds. The time value uses the default time zone of the server, and the string does not include a time zone offset. This field is omitted if the backup time is unavailable.
+      // The time of the latest backup. The time is returned in the YYYY-MM-DDThh:mm:ss format, which may include fractional seconds. The time value uses the default time zone of the server, and the string does not contain a time zone offset. This field is omitted if the backup time is unavailable.
       shared_ptr<string> latestBackupAt_ {};
       // The number of memory entries for the instance. This field may be omitted if statistics are unavailable.
       shared_ptr<int64_t> memoryCount_ {};
       // The memory switch configured for the instance, returned as a string. A value of `true` indicates that the switch is turned on. A value of `false` indicates that the switch is turned off.
       shared_ptr<string> memoryEnabled_ {};
-      // The ID of the region where the runtime environment is located.
+      // The ID of the region where the runtime is located.
       shared_ptr<string> regionId_ {};
       // The ID of the resource associated with the instance.
       shared_ptr<string> resourceId_ {};
       // The runtime ID of the instance.
       shared_ptr<string> runtimeId_ {};
-      // The name of the runtime environment. The name of the associated resource is returned first. If the resource name is unavailable, the instance name is returned.
+      // The runtime name. The associated resource name is returned in preference. If the resource name is unavailable, the instance name is returned.
       shared_ptr<string> runtimeName_ {};
       // The list of user groups to which the end user belongs.
       shared_ptr<vector<Data::UserGroups>> userGroups_ {};
@@ -406,7 +406,7 @@ namespace Models
 
 
   protected:
-    // The memory configurations and statistics information of the agent instances on the current page.
+    // The memory configurations and statistics information of agent instances on the current page.
     shared_ptr<vector<ListAgentInstanceMemoryResponseBody::Data>> data_ {};
     // The current page number. Pages start from 1.
     shared_ptr<int32_t> pageNumber_ {};

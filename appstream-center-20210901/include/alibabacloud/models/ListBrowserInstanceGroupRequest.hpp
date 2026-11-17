@@ -92,9 +92,9 @@ namespace Models
 
 
     protected:
-      // The tag key. Do not specify this parameter in customer-facing scenarios.
+      // The tag key. Do not specify this parameter in current customer-facing scenarios.
       shared_ptr<string> key_ {};
-      // The tag value. Do not specify this parameter in customer-facing scenarios.
+      // The tag value. Do not specify this parameter in current customer-facing scenarios.
       shared_ptr<string> value_ {};
     };
 
@@ -202,38 +202,37 @@ namespace Models
 
 
   protected:
-    // The ID of the browser group set. This parameter is used to query the valid members of the set by exact match.
+    // The browser group set ID. This parameter is used to query the valid members of the set by exact match.
     shared_ptr<string> appInstanceGroupSetId_ {};
     // Filters browser groups by business region.
     shared_ptr<string> bizRegionId_ {};
-    // The ID of the cloud browser group. This parameter is used for exact match.
+    // The cloud browser group ID, which is used for exact match queries.
     shared_ptr<string> browserInstanceGroupId_ {};
-    // The name of the browser group. Fuzzy match is supported.
+    // The browser group name. Fuzzy match is supported.
     shared_ptr<string> browserInstanceGroupName_ {};
-    // Filters by browser group name or ID by using partial match.
+    // Filters browser groups by name or ID by using a contains match.
     shared_ptr<string> cloudBrowserName_ {};
-    // Excludes browser groups that are authorized to the specified user groups.
+    // Excludes browser groups that are authorized for the specified user groups.
     shared_ptr<vector<string>> excludedUserGroupIds_ {};
     // Filters browser groups by the ID of the office network to which they belong.
     shared_ptr<string> officeSiteId_ {};
-    // The page number. Pages start from page 1.
+    // The page number. Pages start from 1.
     shared_ptr<int32_t> pageNumber_ {};
     // The number of entries to return on each page.
     shared_ptr<int32_t> pageSize_ {};
-    // Filters by browser group status.
+    // Filters browser groups by status.
     // 
     // **Limit:** You can specify only one status at a time.
     shared_ptr<vector<string>> status_ {};
-    // The tag filter parameter. This parameter is not supported in customer-facing scenarios. Do not specify this parameter.
+    // The tag filtering parameter. This parameter is not supported in current customer-facing scenarios. Do not specify this parameter.
     shared_ptr<vector<ListBrowserInstanceGroupRequest::Tag>> tag_ {};
-    // Filters by the version of the browser. Valid values:
-    // 
+    // Filters browser groups by the version of the browser. Valid values:
     // - `Basic`: Basic Edition.
     // - `Pro`: Premium Edition.
     // 
     // Use `Pro` when you query MAU browser groups.
     shared_ptr<string> tier_ {};
-    // Filters by the IDs of authorized user groups.
+    // Filters browser groups by authorized user group ID.
     shared_ptr<vector<string>> userGroupIds_ {};
   };
 
