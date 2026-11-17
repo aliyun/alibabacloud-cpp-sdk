@@ -48,9 +48,9 @@ namespace Models
 
 
   protected:
-    // The ARN of the behavior.
+    // The action ARN.
     shared_ptr<string> actionArn_ {};
-    // The ARN of the principal.
+    // The principal ARN.
     shared_ptr<string> principalArn_ {};
   };
 

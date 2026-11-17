@@ -97,17 +97,17 @@ namespace Models
 
 
   protected:
-    // A token to ensure the idempotency of the request.
+    // The idempotency token.
     shared_ptr<string> clientToken_ {};
-    // The name of the network service.
+    // The name.
     shared_ptr<string> name_ {};
-    // The ID of the security group.
+    // The security group ID.
     shared_ptr<string> securityGroupId_ {};
-    // The type of the network service.
+    // The type.
     shared_ptr<string> type_ {};
-    // The ID of the VPC.
+    // The VPC ID.
     shared_ptr<string> vpcId_ {};
-    // A list of vSwitch IDs.
+    // The list of vSwitch IDs.
     shared_ptr<vector<string>> vswitchIds_ {};
     // The region ID.
     shared_ptr<string> regionId_ {};

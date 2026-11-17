@@ -199,60 +199,63 @@ namespace Models
 
 
   protected:
+    // The business ID of the Spark task template.
     shared_ptr<string> bizId_ {};
-    // Creator UID.
+    // The creator UID.
     // 
     // This parameter is required.
     shared_ptr<int64_t> creator_ {};
-    // Spark engine display version.
+    // The display version of the Spark engine.
     shared_ptr<string> displaySparkVersion_ {};
-    // Whether to enable the fusion switch.
+    // Specifies whether Fusion is enabled.
     shared_ptr<bool> fusion_ {};
-    // Creation time.
+    // The creation time.
     // 
     // This parameter is required.
     shared_ptr<string> gmtCreated_ {};
-    // Last modified time.
+    // The last updated time.
     // 
     // This parameter is required.
     shared_ptr<string> gmtModified_ {};
+    // Specifies whether the template is the default template.
     shared_ptr<bool> isDefault_ {};
-    // Last modifier UID.
+    // The last updater UID.
     // 
     // This parameter is required.
     shared_ptr<int64_t> modifier_ {};
+    // The template name.
     shared_ptr<string> name_ {};
     // Spark Conf
     shared_ptr<vector<SparkConf>> sparkConf_ {};
-    // Spark Driver cores.
+    // The number of Spark driver cores.
     // 
     // This parameter is required.
     shared_ptr<int32_t> sparkDriverCores_ {};
-    // Spark Driver memory.
+    // The Spark driver memory.
     // 
     // This parameter is required.
     shared_ptr<int64_t> sparkDriverMemory_ {};
-    // Spark Executor cores.
+    // The number of Spark executor cores.
     // 
     // This parameter is required.
     shared_ptr<int32_t> sparkExecutorCores_ {};
-    // Spark Executor memory.
+    // The Spark executor memory.
     // 
     // This parameter is required.
     shared_ptr<int64_t> sparkExecutorMemory_ {};
-    // Spark log level.
+    // The Spark log level.
     // 
     // This parameter is required.
     shared_ptr<string> sparkLogLevel_ {};
-    // Spark log path.
+    // The Spark log path.
     // 
     // This parameter is required.
     shared_ptr<string> sparkLogPath_ {};
-    // Spark internal release version.
+    // The Spark internal release version.
     // 
     // This parameter is required.
     shared_ptr<string> sparkVersion_ {};
-    // Template type.
+    // The templatetype.
     shared_ptr<string> templateType_ {};
   };
 

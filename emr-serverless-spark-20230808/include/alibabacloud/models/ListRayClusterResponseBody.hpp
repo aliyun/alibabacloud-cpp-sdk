@@ -199,17 +199,17 @@ namespace Models
         shared_ptr<string> gpuSpec_ {};
         // The name of the worker group.
         shared_ptr<string> groupName_ {};
-        // The maximum number of workers when auto scaling is enabled.
+        // The maximum number of worker nodes when auto-scaling is enabled.
         shared_ptr<int32_t> maxReplica_ {};
-        // The memory size, in GiB.
+        // The memory size. Unit: Gi.
         shared_ptr<string> memory_ {};
-        // The minimum number of workers when auto scaling is enabled.
+        // The minimum number of worker nodes when auto-scaling is enabled.
         shared_ptr<int32_t> minReplica_ {};
-        // The name of the queue.
+        // The queue name.
         shared_ptr<string> queueName_ {};
         // The number of nodes.
         shared_ptr<int32_t> replica_ {};
-        // The type of the worker.
+        // The worker type.
         shared_ptr<string> workerType_ {};
       };
 
@@ -299,15 +299,15 @@ namespace Models
       protected:
         // The number of CPU cores.
         shared_ptr<string> cpu_ {};
-        // Specifies whether auto scaling is enabled for worker nodes.
+        // Specifies whether auto-scaling is enabled for worker nodes.
         shared_ptr<bool> enableAutoScaling_ {};
         // The GPU instance type.
         shared_ptr<string> gpuSpec_ {};
-        // The idle timeout for worker nodes, in seconds.
+        // The idle timeout for worker nodes.
         shared_ptr<int32_t> idleTimeoutSeconds_ {};
-        // The memory size, in GiB.
+        // The memory size. Unit: Gi.
         shared_ptr<string> memory_ {};
-        // The name of the queue.
+        // The queue name.
         shared_ptr<string> queueName_ {};
         // The number of nodes.
         shared_ptr<int32_t> replica_ {};
@@ -482,9 +482,9 @@ namespace Models
       shared_ptr<string> dashboardUrl_ {};
       // The description.
       shared_ptr<string> description_ {};
-      // The Ray DPI engine version.
+      // The Ray engine version.
       shared_ptr<string> displayReleaseVersion_ {};
-      // The internal gRPC endpoint. You can also use the domain name to submit Ray jobs.
+      // The gRPC endpoint on the internal network. The domain name can also be used to submit Ray jobs.
       shared_ptr<string> grpcEndpoint_ {};
       // The head node information of the Ray cluster.
       shared_ptr<RayClusters::HeadSpec> headSpec_ {};
@@ -502,7 +502,7 @@ namespace Models
       shared_ptr<string> modifierName_ {};
       // The name of the Ray cluster.
       shared_ptr<string> name_ {};
-      // The network connectivity name.
+      // The network connection name.
       shared_ptr<string> networkServiceName_ {};
       // The start time. The value is a UNIX timestamp in milliseconds.
       shared_ptr<int64_t> startTime_ {};
@@ -515,7 +515,7 @@ namespace Models
       shared_ptr<string> state_ {};
       // The Alibaba Cloud account ID.
       shared_ptr<string> userId_ {};
-      // The worker information of the Ray cluster.
+      // The worker node information of the Ray cluster.
       shared_ptr<vector<RayClusters::WorkerSpec>> workerSpec_ {};
     };
 
@@ -538,7 +538,7 @@ namespace Models
 
 
   protected:
-    // The list of Ray clusters.
+    // The Ray clusters.
     shared_ptr<vector<ListRayClusterResponseBody::RayClusters>> rayClusters_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

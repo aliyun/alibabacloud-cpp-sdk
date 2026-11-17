@@ -21,6 +21,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(enablePublic, enablePublic_);
       DARABONBA_PTR_TO_JSON(environmentId, environmentId_);
       DARABONBA_PTR_TO_JSON(fusion, fusion_);
+      DARABONBA_PTR_TO_JSON(livyReleaseVersion, livyReleaseVersion_);
       DARABONBA_PTR_TO_JSON(livyServerConf, livyServerConf_);
       DARABONBA_PTR_TO_JSON(livyVersion, livyVersion_);
       DARABONBA_PTR_TO_JSON(memoryLimit, memoryLimit_);
@@ -39,6 +40,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(enablePublic, enablePublic_);
       DARABONBA_PTR_FROM_JSON(environmentId, environmentId_);
       DARABONBA_PTR_FROM_JSON(fusion, fusion_);
+      DARABONBA_PTR_FROM_JSON(livyReleaseVersion, livyReleaseVersion_);
       DARABONBA_PTR_FROM_JSON(livyServerConf, livyServerConf_);
       DARABONBA_PTR_FROM_JSON(livyVersion, livyVersion_);
       DARABONBA_PTR_FROM_JSON(memoryLimit, memoryLimit_);
@@ -97,13 +99,11 @@ namespace Models
 
 
     protected:
-      // Specifies whether to automatically stop the Livy Gateway.
-      // 
+      // Specifies whether to automatically stop the gateway. Valid values:
       // - true: Yes.
-      // 
       // - false: No.
       shared_ptr<bool> enable_ {};
-      // The number of minutes after which the Livy Gateway is automatically stopped if it is idle.
+      // The number of idle minutes after which the Livy gateway is automatically stopped.
       shared_ptr<int64_t> idleTimeoutMinutes_ {};
     };
 
@@ -135,18 +135,17 @@ namespace Models
 
 
     protected:
-      // Specifies whether to automatically start the Livy Gateway after it is created.
-      // 
+      // Specifies whether to automatically start the gateway after creation. Valid values:
       // - true: Yes.
-      // 
       // - false: No.
       shared_ptr<bool> enable_ {};
     };
 
     virtual bool empty() const override { return this->authType_ == nullptr
         && this->autoStartConfiguration_ == nullptr && this->autoStopConfiguration_ == nullptr && this->cpuLimit_ == nullptr && this->displayReleaseVersion_ == nullptr && this->enablePublic_ == nullptr
-        && this->environmentId_ == nullptr && this->fusion_ == nullptr && this->livyServerConf_ == nullptr && this->livyVersion_ == nullptr && this->memoryLimit_ == nullptr
-        && this->name_ == nullptr && this->networkName_ == nullptr && this->queueName_ == nullptr && this->releaseVersion_ == nullptr && this->regionId_ == nullptr; };
+        && this->environmentId_ == nullptr && this->fusion_ == nullptr && this->livyReleaseVersion_ == nullptr && this->livyServerConf_ == nullptr && this->livyVersion_ == nullptr
+        && this->memoryLimit_ == nullptr && this->name_ == nullptr && this->networkName_ == nullptr && this->queueName_ == nullptr && this->releaseVersion_ == nullptr
+        && this->regionId_ == nullptr; };
     // authType Field Functions 
     bool hasAuthType() const { return this->authType_ != nullptr;};
     void deleteAuthType() { this->authType_ = nullptr;};
@@ -205,6 +204,13 @@ namespace Models
     void deleteFusion() { this->fusion_ = nullptr;};
     inline bool getFusion() const { DARABONBA_PTR_GET_DEFAULT(fusion_, false) };
     inline CreateLivyComputeRequest& setFusion(bool fusion) { DARABONBA_PTR_SET_VALUE(fusion_, fusion) };
+
+
+    // livyReleaseVersion Field Functions 
+    bool hasLivyReleaseVersion() const { return this->livyReleaseVersion_ != nullptr;};
+    void deleteLivyReleaseVersion() { this->livyReleaseVersion_ = nullptr;};
+    inline string getLivyReleaseVersion() const { DARABONBA_PTR_GET_DEFAULT(livyReleaseVersion_, "") };
+    inline CreateLivyComputeRequest& setLivyReleaseVersion(string livyReleaseVersion) { DARABONBA_PTR_SET_VALUE(livyReleaseVersion_, livyReleaseVersion) };
 
 
     // livyServerConf Field Functions 
@@ -266,41 +272,46 @@ namespace Models
   protected:
     // The authentication method.
     shared_ptr<string> authType_ {};
-    // The automatic startup configuration.
+    // The auto-start configuration.
     shared_ptr<CreateLivyComputeRequest::AutoStartConfiguration> autoStartConfiguration_ {};
-    // The automatic stop configuration.
+    // The auto-stop configuration.
     shared_ptr<CreateLivyComputeRequest::AutoStopConfiguration> autoStopConfiguration_ {};
-    // The number of CPU cores for the Livy server.
+    // The number of CPU cores for the Livy server. Valid values:
+    // - 1
+    // - 2
+    // - 4
     shared_ptr<string> cpuLimit_ {};
-    // The version number of the Spark engine.
+    // The Spark DPI engine version number.
     shared_ptr<string> displayReleaseVersion_ {};
-    // Specifies whether to enable the public endpoint.
+    // The status of the public endpoint switch.
     shared_ptr<bool> enablePublic_ {};
-    // The ID of the runtime environment.
+    // The runtime environment ID.
     shared_ptr<string> environmentId_ {};
-    // Specifies whether to enable acceleration with the Fusion engine.
+    // Specifies whether to enable Fusion engine acceleration.
     shared_ptr<bool> fusion_ {};
-    // The configuration of the Livy Gateway. This parameter is in JSON format and supports the following files:
+    // The Livy DPI engine version. This is a new parameter used to override the original livyVersion parameter.
+    shared_ptr<string> livyReleaseVersion_ {};
+    // The Livy gateway configuration in JSON format. The following files are supported:
     // 
     // - sparkDefaultsConf
-    // 
     // - sparkBlackListConf
-    // 
     // - livyConf
-    // 
     // - livyClientConf
     shared_ptr<string> livyServerConf_ {};
     // The Livy version.
     shared_ptr<string> livyVersion_ {};
-    // The memory size of the Livy server.
+    // The memory size of the Livy server. Valid values:
+    // - 4Gi
+    // - 8Gi
+    // - 16Gi
     shared_ptr<string> memoryLimit_ {};
-    // The name of the Livy Gateway.
+    // The name of the Livy gateway.
     shared_ptr<string> name_ {};
-    // The name of the network connection.
+    // The name of the network connectivity.
     shared_ptr<string> networkName_ {};
     // The name of the submission queue.
     shared_ptr<string> queueName_ {};
-    // The version number of the Spark engine. This parameter is deprecated. Use displayReleaseVersion instead.
+    // **[Deprecated]** The Spark DPI engine version number. Use displayReleaseVersion instead.
     shared_ptr<string> releaseVersion_ {};
     // The region ID.
     shared_ptr<string> regionId_ {};

@@ -145,7 +145,7 @@ namespace Models
         shared_ptr<string> createdby_ {};
         // The expiration time. The value is a UNIX timestamp in milliseconds.
         shared_ptr<int64_t> expireTime_ {};
-        // The time when the token was last used. The value is a UNIX timestamp in milliseconds.
+        // The last used time. The value is a UNIX timestamp in milliseconds.
         shared_ptr<int64_t> lastUsedTime_ {};
         // The token name.
         shared_ptr<string> name_ {};
@@ -203,7 +203,7 @@ namespace Models
 
 
   protected:
-    // The return code of the request. A value of 1000000 indicates that the request was successful. Other values indicate that the request failed. For details about the error cause, see the message.
+    // The response code. A value of 1000000 indicates a successful request, while other values indicate a failed request. For details about the error cause, see the message.
     shared_ptr<string> code_ {};
     // The response data.
     shared_ptr<ListLivyComputeTokenResponseBody::Data> data_ {};

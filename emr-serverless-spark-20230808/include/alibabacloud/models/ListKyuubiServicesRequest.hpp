@@ -38,7 +38,7 @@ namespace Models
 
 
   protected:
-    // The Kyuubi Gateway token.
+    // The token of the Kyuubi Gateway.
     shared_ptr<string> token_ {};
   };
 

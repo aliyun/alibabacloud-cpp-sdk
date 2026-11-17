@@ -71,11 +71,11 @@ namespace Models
     protected:
       // The ID of the Spark application submitted by Kyuubi.
       shared_ptr<string> applicationId_ {};
-      // Indicates whether the request was successful.
+      // Indicates whether the request is successful. Valid values:
       // 
-      // - true: The request was successful.
+      // - true: Successful.
       // 
-      // - false: The request failed.
+      // - false: Failed.
       shared_ptr<bool> success_ {};
     };
 

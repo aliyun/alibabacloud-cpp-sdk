@@ -173,7 +173,7 @@ namespace Models
     shared_ptr<string> runtimeQueue_ {};
     // The version hash code.
     shared_ptr<string> versionHashCode_ {};
-    // The workflow definition version number.
+    // The version number of the workflow definition.
     shared_ptr<int32_t> versionNumber_ {};
   };
 

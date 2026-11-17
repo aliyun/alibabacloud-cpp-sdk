@@ -141,22 +141,22 @@ namespace Models
 
 
   protected:
-    // The maximum number of records to return in a single request.
+    // The maximum number of results to return in a single request.
     shared_ptr<int32_t> maxResults_ {};
-    // The name of the workspace. Fuzzy search by workspace name is supported.
+    // The name of the workspace. Fuzzy search is supported.
     shared_ptr<string> name_ {};
-    // The token that indicates the position from which to start reading.
+    // The pagination token that specifies the starting position for the query.
     shared_ptr<string> nextToken_ {};
     // The region ID.
     shared_ptr<string> regionId_ {};
     // The resource group ID.
     shared_ptr<string> resourceGroupId_ {};
     // The state of the workspace. Valid values:
-    // - Starting: The workspace is starting.
-    // - Running: The workspace is running.
-    // - Stopping: The workspace is stopping.
-    // - Stopped: The workspace is stopped.
-    // - Error: The workspace failed.
+    // - Starting: Starting.
+    // - Running: Running.
+    // - Stopping: Stopping.
+    // - Stopped: Stopped.
+    // - Error: Failed.
     shared_ptr<string> state_ {};
     // The list of tags used to filter workspaces.
     shared_ptr<vector<ListWorkspacesRequest::Tag>> tag_ {};

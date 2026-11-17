@@ -79,7 +79,7 @@ namespace Models
     shared_ptr<string> executorType_ {};
     // The maximum number of records to return in a single request.
     shared_ptr<int32_t> maxResults_ {};
-    // The token for the next page of results.
+    // The next token.
     shared_ptr<string> nextToken_ {};
     // The region ID.
     shared_ptr<string> regionId_ {};

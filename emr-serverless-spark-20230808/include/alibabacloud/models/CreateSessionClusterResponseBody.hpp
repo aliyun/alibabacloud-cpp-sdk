@@ -50,7 +50,7 @@ namespace Models
   protected:
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The session ID.
+    // The ID of the session.
     shared_ptr<string> sessionClusterId_ {};
   };
 

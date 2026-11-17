@@ -338,9 +338,13 @@ namespace Models
 
 
         protected:
+          // The parameter direction. Valid values: IN (input) and OUT (output).
           shared_ptr<string> direct_ {};
+          // The parameter name.
           shared_ptr<string> prop_ {};
+          // The data type of the parameter.
           shared_ptr<string> type_ {};
+          // The parameter value.
           shared_ptr<string> value_ {};
         };
 
@@ -471,6 +475,7 @@ namespace Models
         shared_ptr<string> environmentId_ {};
         // Specifies whether to enable Fusion engine acceleration.
         shared_ptr<bool> fusion_ {};
+        // The list of local parameters for the task.
         shared_ptr<vector<TaskParams::LocalParams>> localParams_ {};
         // The resource queue for running the Spark task.
         // 
@@ -488,9 +493,9 @@ namespace Models
         shared_ptr<int64_t> sparkExecutorMemory_ {};
         // The Spark log level.
         shared_ptr<string> sparkLogLevel_ {};
-        // The path to the task logs of the Spark node.
+        // The task logs path for the Spark node.
         shared_ptr<string> sparkLogPath_ {};
-        // The database engine version of the Spark DPI engine.
+        // The Spark DPI engine database engine version.
         shared_ptr<string> sparkVersion_ {};
         // The data development task ID.
         // 
@@ -743,9 +748,13 @@ namespace Models
 
 
     protected:
+      // The parameter direction. Valid values: IN (input) and OUT (output).
       shared_ptr<string> direct_ {};
+      // The parameter name.
       shared_ptr<string> prop_ {};
+      // The data type of the parameter.
       shared_ptr<string> type_ {};
+      // The parameter value.
       shared_ptr<string> value_ {};
     };
 
@@ -894,6 +903,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> executionType_ {};
+    // The list of global parameters for the workflow.
     shared_ptr<vector<CreateProcessDefinitionWithScheduleRequest::GlobalParams>> globalParams_ {};
     // The workflow name.
     // 
@@ -913,7 +923,7 @@ namespace Models
     shared_ptr<int32_t> retryTimes_ {};
     // The Alibaba Cloud UID of the execution user.
     shared_ptr<string> runAs_ {};
-    // The scheduling structure.
+    // The schedule structure.
     shared_ptr<CreateProcessDefinitionWithScheduleRequest::Schedule> schedule_ {};
     // The tags.
     shared_ptr<map<string, string>> tags_ {};

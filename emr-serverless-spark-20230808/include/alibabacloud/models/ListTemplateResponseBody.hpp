@@ -90,23 +90,23 @@ namespace Models
   protected:
     // The data list.
     shared_ptr<vector<Template>> data_ {};
-    // - If the value of success is false, an error code is returned.
-    // 
-    // - If the value of success is true, this parameter is empty.
+    // - If success is false, the business error code is returned.
+    //  
+    // - If success is true, null is returned.
     shared_ptr<string> errorCode_ {};
-    // - If the value of success is false, an error message is returned.
+    // - If success is false, the business error message is returned.
     // 
-    // - If the value of success is true, this parameter is empty.
+    // - If success is true, null is returned.
     shared_ptr<string> errorMessage_ {};
     // The HTTP status code.
     shared_ptr<string> httpStatusCode_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request was successful.
+    // Indicates whether the request is successful.
     // 
-    // - true: The request was successful.
+    // - true: Successful.
     // 
-    // - false: The request failed.
+    // - false: Failed.
     shared_ptr<bool> success_ {};
   };
 

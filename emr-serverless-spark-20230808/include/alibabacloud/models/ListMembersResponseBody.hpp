@@ -167,7 +167,7 @@ namespace Models
         protected:
           // The ARN of the action.
           shared_ptr<string> actionArn_ {};
-          // The name of the action.
+          // The name of the permission.
           shared_ptr<string> actionName_ {};
           // The list of dependencies for the action.
           shared_ptr<vector<string>> dependencies_ {};
@@ -298,7 +298,7 @@ namespace Models
       protected:
         // The ARN of the action.
         shared_ptr<string> actionArn_ {};
-        // The name of the action.
+        // The name of the permission.
         shared_ptr<string> actionName_ {};
         // The list of dependencies for the action.
         shared_ptr<vector<string>> dependencies_ {};
@@ -378,13 +378,13 @@ namespace Models
       shared_ptr<string> createTime_ {};
       // The display name of the user.
       shared_ptr<string> displayName_ {};
-      // The ARN of the member.
+      // The ARN of the user.
       shared_ptr<string> memberArn_ {};
       // The list of roles in the workspace.
       shared_ptr<vector<Members::Roles>> roles_ {};
       // The username.
       shared_ptr<string> userName_ {};
-      // The type of the user. Valid values:
+      // The user type.
       // - ROLE
       // - MEMBER
       shared_ptr<string> userType_ {};
@@ -432,13 +432,13 @@ namespace Models
 
 
   protected:
-    // The maximum number of records to return per request.
+    // The maximum number of records to return in a single request.
     shared_ptr<int32_t> maxResults_ {};
     // The list of members.
     shared_ptr<vector<ListMembersResponseBody::Members>> members_ {};
     // The pagination token for the next page.
     shared_ptr<string> nextToken_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
     // The total number of records.
     shared_ptr<int32_t> totalCount_ {};

@@ -126,13 +126,13 @@ namespace Models
       protected:
         // The number of CPU cores requested by the job.
         shared_ptr<string> cpuCores_ {};
-        // The number of CUs consumed by the job.
+        // The CUs consumed by the job.
         shared_ptr<string> cu_ {};
         // The job ID.
         shared_ptr<string> jobId_ {};
         // The job type.
         shared_ptr<string> jobType_ {};
-        // The amount of memory requested by the job.
+        // The memory requested by the job.
         shared_ptr<string> memoryGiB_ {};
       };
 
@@ -176,13 +176,13 @@ namespace Models
 
 
     protected:
-      // The list of jobs.
+      // The job list.
       shared_ptr<vector<QueueTopJobs::Jobs>> jobs_ {};
       // The maximum number of records returned in a single request.
       shared_ptr<string> maxResults_ {};
-      // The name of the queue.
+      // The queue name.
       shared_ptr<string> queueName_ {};
-      // The total number of CUs consumed by the queue.
+      // The total CUs consumed by the queue.
       shared_ptr<string> totalCu_ {};
       // The total number of jobs in the queue.
       shared_ptr<int32_t> totalJobCount_ {};

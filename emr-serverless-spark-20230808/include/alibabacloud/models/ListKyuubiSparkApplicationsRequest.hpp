@@ -26,6 +26,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(sort, sort_);
       DARABONBA_PTR_TO_JSON(startTime, startTime_);
       DARABONBA_PTR_TO_JSON(states, states_);
+      DARABONBA_PTR_TO_JSON(userName, userName_);
     };
     friend void from_json(const Darabonba::Json& j, ListKyuubiSparkApplicationsRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(applicationId, applicationId_);
@@ -40,6 +41,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(sort, sort_);
       DARABONBA_PTR_FROM_JSON(startTime, startTime_);
       DARABONBA_PTR_FROM_JSON(states, states_);
+      DARABONBA_PTR_FROM_JSON(userName, userName_);
     };
     ListKyuubiSparkApplicationsRequest() = default ;
     ListKyuubiSparkApplicationsRequest(const ListKyuubiSparkApplicationsRequest &) = default ;
@@ -143,7 +145,7 @@ namespace Models
     virtual bool empty() const override { return this->applicationId_ == nullptr
         && this->applicationName_ == nullptr && this->endTime_ == nullptr && this->latestSqlStatementStatuses_ == nullptr && this->maxResults_ == nullptr && this->minDuration_ == nullptr
         && this->nextToken_ == nullptr && this->orderBy_ == nullptr && this->resourceQueueId_ == nullptr && this->sort_ == nullptr && this->startTime_ == nullptr
-        && this->states_ == nullptr; };
+        && this->states_ == nullptr && this->userName_ == nullptr; };
     // applicationId Field Functions 
     bool hasApplicationId() const { return this->applicationId_ != nullptr;};
     void deleteApplicationId() { this->applicationId_ = nullptr;};
@@ -234,6 +236,13 @@ namespace Models
     inline ListKyuubiSparkApplicationsRequest& setStates(string states) { DARABONBA_PTR_SET_VALUE(states_, states) };
 
 
+    // userName Field Functions 
+    bool hasUserName() const { return this->userName_ != nullptr;};
+    void deleteUserName() { this->userName_ = nullptr;};
+    inline string getUserName() const { DARABONBA_PTR_GET_DEFAULT(userName_, "") };
+    inline ListKyuubiSparkApplicationsRequest& setUserName(string userName) { DARABONBA_PTR_SET_VALUE(userName_, userName) };
+
+
   protected:
     // The ID of the Spark application submitted by Kyuubi, used for search.
     shared_ptr<string> applicationId_ {};
@@ -241,9 +250,9 @@ namespace Models
     shared_ptr<string> applicationName_ {};
     // The end time range of the task.
     shared_ptr<ListKyuubiSparkApplicationsRequest::EndTime> endTime_ {};
-    // The list of statuses of the latest SQL statement used for filtering.
+    // The list of statuses of the most recent SQL statement used for filtering.
     shared_ptr<string> latestSqlStatementStatuses_ {};
-    // The maximum number of records to retrieve at a time.
+    // The maximum number of records to return in a single request.
     shared_ptr<int32_t> maxResults_ {};
     // The minimum execution duration of the application, in milliseconds.
     shared_ptr<int64_t> minDuration_ {};
@@ -253,12 +262,14 @@ namespace Models
     shared_ptr<vector<string>> orderBy_ {};
     // The resource queue ID used to filter Spark applications.
     shared_ptr<string> resourceQueueId_ {};
-    // The sort order. A value of asc indicates ascending order, and desc indicates descending order.
+    // The sort order. asc indicates ascending order, and desc indicates descending order.
     shared_ptr<string> sort_ {};
     // The start time range of the task.
     shared_ptr<ListKyuubiSparkApplicationsRequest::StartTime> startTime_ {};
-    // The list of Spark application states used for filtering.
+    // The list of Spark application statuses used for filtering.
     shared_ptr<string> states_ {};
+    // The username.
+    shared_ptr<string> userName_ {};
   };
 
   } // namespace Models

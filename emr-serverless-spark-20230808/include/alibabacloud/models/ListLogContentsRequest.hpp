@@ -66,13 +66,13 @@ namespace Models
 
 
   protected:
-    // Full path of the file.
+    // The full path of the file.
     shared_ptr<string> fileName_ {};
-    // Length of the log.
+    // The length of the log.
     shared_ptr<int32_t> length_ {};
-    // Start line for query.
+    // The starting line of the query.
     shared_ptr<int32_t> offset_ {};
-    // Region ID.
+    // The region ID.
     shared_ptr<string> regionId_ {};
   };
 

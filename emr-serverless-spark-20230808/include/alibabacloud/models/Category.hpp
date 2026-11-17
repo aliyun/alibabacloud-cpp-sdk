@@ -103,23 +103,23 @@ namespace Models
 
 
   protected:
-    // The folder ID.
+    // The ID of the folder.
     // 
     // This parameter is required.
     shared_ptr<string> bizId_ {};
-    // The ID of the user who creates the folder.
+    // The UID of the creator.
     // 
     // This parameter is required.
     shared_ptr<int64_t> creator_ {};
-    // The time when the folder was created.
+    // The creation time.
     // 
     // This parameter is required.
     shared_ptr<string> gmtCreated_ {};
-    // The time when the folder was last updated.
+    // The last updated time.
     // 
     // This parameter is required.
     shared_ptr<string> gmtModified_ {};
-    // The ID of the user who last modifies the folder.
+    // The UID of the last updater.
     // 
     // This parameter is required.
     shared_ptr<int64_t> modifier_ {};
@@ -127,7 +127,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> name_ {};
-    // The parent folder ID.
+    // The ID of the parent folder.
     shared_ptr<string> parentBizId_ {};
     // The type of the folder.
     // 

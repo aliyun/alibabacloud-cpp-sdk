@@ -55,6 +55,7 @@ namespace Models
       public:
         friend void to_json(Darabonba::Json& j, const KyuubiServices& obj) { 
           DARABONBA_PTR_TO_JSON(computeInstance, computeInstance_);
+          DARABONBA_PTR_TO_JSON(configRefreshRequired, configRefreshRequired_);
           DARABONBA_PTR_TO_JSON(createTime, createTime_);
           DARABONBA_PTR_TO_JSON(creator, creator_);
           DARABONBA_PTR_TO_JSON(innerEndpoint, innerEndpoint_);
@@ -73,6 +74,7 @@ namespace Models
         };
         friend void from_json(const Darabonba::Json& j, KyuubiServices& obj) { 
           DARABONBA_PTR_FROM_JSON(computeInstance, computeInstance_);
+          DARABONBA_PTR_FROM_JSON(configRefreshRequired, configRefreshRequired_);
           DARABONBA_PTR_FROM_JSON(createTime, createTime_);
           DARABONBA_PTR_FROM_JSON(creator, creator_);
           DARABONBA_PTR_FROM_JSON(innerEndpoint, innerEndpoint_);
@@ -101,14 +103,22 @@ namespace Models
         virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
         virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
         virtual bool empty() const override { return this->computeInstance_ == nullptr
-        && this->createTime_ == nullptr && this->creator_ == nullptr && this->innerEndpoint_ == nullptr && this->kyuubiConfigs_ == nullptr && this->kyuubiReleaseVersion_ == nullptr
-        && this->kyuubiServiceId_ == nullptr && this->name_ == nullptr && this->publicEndpoint_ == nullptr && this->queue_ == nullptr && this->releaseVersion_ == nullptr
-        && this->replica_ == nullptr && this->sparkConfigs_ == nullptr && this->startTime_ == nullptr && this->state_ == nullptr && this->webUi_ == nullptr; };
+        && this->configRefreshRequired_ == nullptr && this->createTime_ == nullptr && this->creator_ == nullptr && this->innerEndpoint_ == nullptr && this->kyuubiConfigs_ == nullptr
+        && this->kyuubiReleaseVersion_ == nullptr && this->kyuubiServiceId_ == nullptr && this->name_ == nullptr && this->publicEndpoint_ == nullptr && this->queue_ == nullptr
+        && this->releaseVersion_ == nullptr && this->replica_ == nullptr && this->sparkConfigs_ == nullptr && this->startTime_ == nullptr && this->state_ == nullptr
+        && this->webUi_ == nullptr; };
         // computeInstance Field Functions 
         bool hasComputeInstance() const { return this->computeInstance_ != nullptr;};
         void deleteComputeInstance() { this->computeInstance_ = nullptr;};
         inline string getComputeInstance() const { DARABONBA_PTR_GET_DEFAULT(computeInstance_, "") };
         inline KyuubiServices& setComputeInstance(string computeInstance) { DARABONBA_PTR_SET_VALUE(computeInstance_, computeInstance) };
+
+
+        // configRefreshRequired Field Functions 
+        bool hasConfigRefreshRequired() const { return this->configRefreshRequired_ != nullptr;};
+        void deleteConfigRefreshRequired() { this->configRefreshRequired_ = nullptr;};
+        inline bool getConfigRefreshRequired() const { DARABONBA_PTR_GET_DEFAULT(configRefreshRequired_, false) };
+        inline KyuubiServices& setConfigRefreshRequired(bool configRefreshRequired) { DARABONBA_PTR_SET_VALUE(configRefreshRequired_, configRefreshRequired) };
 
 
         // createTime Field Functions 
@@ -217,35 +227,37 @@ namespace Models
 
 
       protected:
-        // The instance specifications of the Kyuubi server.
+        // The instance type of the KyuubiServer.
         shared_ptr<string> computeInstance_ {};
-        // The creation time. The time is in UTC and follows the ISO 8601 standard.
+        // Indicates whether the Kyuubi configuration needs to be updated.
+        shared_ptr<bool> configRefreshRequired_ {};
+        // The creation time. The time is in UTC and follows the ISO 8601 format.
         shared_ptr<string> createTime_ {};
         // The UID of the creator.
         shared_ptr<string> creator_ {};
         // The internal domain name.
         shared_ptr<string> innerEndpoint_ {};
-        // The Kyuubi server configurations.
+        // The KyuubiServer configurations.
         shared_ptr<string> kyuubiConfigs_ {};
-        // The version of the Kyuubi server.
+        // The version of the KyuubiServer.
         shared_ptr<string> kyuubiReleaseVersion_ {};
         // The KyuubiServer ID.
         shared_ptr<string> kyuubiServiceId_ {};
-        // The name of the Kyuubi server.
+        // The name of the KyuubiServer.
         shared_ptr<string> name_ {};
         // The public domain name.
         shared_ptr<string> publicEndpoint_ {};
         // The name of the queue.
         shared_ptr<string> queue_ {};
-        // The Spark DPI engine version.
+        // The database engine version number of the Spark DPI engine.
         shared_ptr<string> releaseVersion_ {};
-        // The number of replicas of the Kyuubi server.
+        // The number of replicas for the KyuubiServer.
         shared_ptr<int32_t> replica_ {};
-        // The default configurations for the Kyuubi server to start a Spark application.
+        // The default configurations for KyuubiServer to start Spark applications.
         shared_ptr<string> sparkConfigs_ {};
-        // The most recent start time of the Kyuubi server. The format is YYYY-MM-DD HH:mm:ss.
+        // The most recent start time of the KyuubiServer. The time is formatted as YYYY-MM-DD HH:mm:ss.
         shared_ptr<string> startTime_ {};
-        // The state of the Kyuubi server.
+        // The state of the KyuubiServer.
         shared_ptr<string> state_ {};
         // The WebUI of the Kyuubi Gateway.
         shared_ptr<string> webUi_ {};
@@ -262,7 +274,7 @@ namespace Models
 
 
     protected:
-      // The list of Kyuubi servers.
+      // The list of KyuubiServers.
       shared_ptr<vector<Data::KyuubiServices>> kyuubiServices_ {};
     };
 
@@ -285,7 +297,7 @@ namespace Models
 
 
   protected:
-    // The response data.
+    // The returned data.
     shared_ptr<ListKyuubiServicesResponseBody::Data> data_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

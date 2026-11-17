@@ -107,7 +107,7 @@ namespace Models
 
 
       protected:
-        // Specifies whether auto-expiration is enabled.
+        // Indicates whether automatic expiration is enabled.
         shared_ptr<bool> enable_ {};
         // The expiration period in days.
         shared_ptr<int32_t> expireDays_ {};
@@ -203,14 +203,15 @@ namespace Models
       shared_ptr<int64_t> expireTime_ {};
       // The last used time. The value is a UNIX timestamp in milliseconds.
       shared_ptr<int64_t> lastUsedTime_ {};
-      // The list of authorized user ARNs.
+      // The list of ARNs of authorized users.
       shared_ptr<vector<string>> memberArns_ {};
       // The token name.
       shared_ptr<string> name_ {};
+      // The list of Spark roles associated with the token.
       shared_ptr<vector<string>> sparkRole_ {};
       // The masked token.
       shared_ptr<string> token_ {};
-      // Token ID。
+      // The token ID.
       shared_ptr<string> tokenId_ {};
     };
 

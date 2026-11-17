@@ -195,14 +195,15 @@ namespace Models
 
 
   protected:
-    // The alert email address.
+    // The email address for alert notifications.
     shared_ptr<string> alertEmailAddress_ {};
     // The workflow description.
     shared_ptr<string> description_ {};
-    // The execution policy.
+    // The execution strategy.
     // 
     // This parameter is required.
     shared_ptr<string> executionType_ {};
+    // The list of global parameters for the workflow.
     shared_ptr<string> globalParamsShrink_ {};
     // The workflow name.
     // 
@@ -224,21 +225,21 @@ namespace Models
     shared_ptr<int32_t> retryTimes_ {};
     // The execution user.
     shared_ptr<string> runAs_ {};
-    // The scheduling structure.
+    // The schedule structure.
     shared_ptr<string> scheduleShrink_ {};
     // The tags.
     shared_ptr<string> tagsShrink_ {};
-    // The JSON array of node definitions, which contains the description information of all nodes in the workflow.
+    // The JSON array of task definitions, which contains the description of all tasks in the workflow.
     // 
     // This parameter is required.
     shared_ptr<string> taskDefinitionJsonShrink_ {};
-    // The concurrency of workflow node execution.
+    // The concurrency level for workflow node execution.
     shared_ptr<int32_t> taskParallelism_ {};
-    // The JSON array of node dependencies, which contains the dependencies among all nodes in the workflow. preTaskCode is the upstream node ID, and postTaskCode is the downstream node ID. Each node must have a unique ID. If a node does not have an upstream node, you must add a dependency with preTaskCode set to 0.
+    // The JSON array of task dependencies, which contains the dependencies among all tasks in the workflow. preTaskCode specifies the upstream task ID, and postTaskCode specifies the downstream task ID. Each task must have a unique ID. If a task node does not have an upstream task, you must add a dependency with preTaskCode set to 0.
     // 
     // This parameter is required.
     shared_ptr<string> taskRelationJsonShrink_ {};
-    // The default timeout for workflow execution.
+    // The default timeout period for workflow execution.
     shared_ptr<int32_t> timeout_ {};
   };
 

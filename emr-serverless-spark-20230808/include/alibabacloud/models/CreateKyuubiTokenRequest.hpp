@@ -78,9 +78,9 @@ namespace Models
 
 
     protected:
-      // Specifies whether the token automatically expires.
+      // Specifies whether automatic expiration is enabled.
       shared_ptr<bool> enable_ {};
-      // The expiration period in days.
+      // The expiration time in days.
       shared_ptr<int32_t> expireDays_ {};
     };
 
@@ -135,14 +135,15 @@ namespace Models
 
 
   protected:
-    // The automatic expiration settings.
+    // The auto-expiration configuration struct.
     shared_ptr<CreateKyuubiTokenRequest::AutoExpireConfiguration> autoExpireConfiguration_ {};
-    // The list of ARNs of authorized users.
+    // The list of ARNs for authorized users.
     shared_ptr<vector<string>> memberArns_ {};
     // The token name.
     shared_ptr<string> name_ {};
+    // The list of Spark roles associated with the token.
     shared_ptr<vector<string>> sparkRole_ {};
-    // The token content. The token must be 32 characters long and contain only lowercase letters and digits.
+    // The token content, which must be 32 characters in length and contain only lowercase letters and digits.
     shared_ptr<string> token_ {};
     // The region ID.
     shared_ptr<string> regionId_ {};

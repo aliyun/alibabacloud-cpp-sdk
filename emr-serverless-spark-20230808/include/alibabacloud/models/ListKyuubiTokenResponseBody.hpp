@@ -168,7 +168,7 @@ namespace Models
 
 
       protected:
-        // The list of RAM user names of authorized users.
+        // The list of names of Resource Access Management (RAM) users of authorized users.
         shared_ptr<vector<string>> accountNames_ {};
         // The creation time. The value is a UNIX timestamp in milliseconds.
         shared_ptr<int64_t> createTime_ {};
@@ -176,12 +176,13 @@ namespace Models
         shared_ptr<string> createdBy_ {};
         // The expiration time. The value is a UNIX timestamp in milliseconds.
         shared_ptr<int64_t> expireTime_ {};
-        // The last usage time. The value is a UNIX timestamp in milliseconds.
+        // The last used time. The value is a UNIX timestamp in milliseconds.
         shared_ptr<int64_t> lastUsedTime_ {};
         // The list of ARNs of authorized users.
         shared_ptr<vector<string>> memberArns_ {};
         // The token name.
         shared_ptr<string> name_ {};
+        // The list of Spark roles associated with the token.
         shared_ptr<vector<string>> sparkRole_ {};
         // The masked token.
         shared_ptr<string> token_ {};

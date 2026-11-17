@@ -44,6 +44,7 @@ namespace Models
         DARABONBA_PTR_TO_JSON(duration, duration_);
         DARABONBA_PTR_TO_JSON(endTime, endTime_);
         DARABONBA_PTR_TO_JSON(failReason, failReason_);
+        DARABONBA_PTR_TO_JSON(features, features_);
         DARABONBA_PTR_TO_JSON(gpuSpec, gpuSpec_);
         DARABONBA_PTR_TO_JSON(ipWhiteList, ipWhiteList_);
         DARABONBA_PTR_TO_JSON(paymentDurationUnit, paymentDurationUnit_);
@@ -74,6 +75,7 @@ namespace Models
         DARABONBA_PTR_FROM_JSON(duration, duration_);
         DARABONBA_PTR_FROM_JSON(endTime, endTime_);
         DARABONBA_PTR_FROM_JSON(failReason, failReason_);
+        DARABONBA_PTR_FROM_JSON(features, features_);
         DARABONBA_PTR_FROM_JSON(gpuSpec, gpuSpec_);
         DARABONBA_PTR_FROM_JSON(ipWhiteList, ipWhiteList_);
         DARABONBA_PTR_FROM_JSON(paymentDurationUnit, paymentDurationUnit_);
@@ -143,7 +145,7 @@ namespace Models
 
 
       protected:
-        // The tag keys.
+        // The tag key.
         shared_ptr<string> tagKey_ {};
         // The tag value.
         shared_ptr<string> tagValue_ {};
@@ -366,7 +368,7 @@ namespace Models
         shared_ptr<int64_t> gpuMemorySize_ {};
         // The number of GPU instances.
         shared_ptr<int32_t> gpuNum_ {};
-        // The GPU instance type.
+        // The GPU model.
         shared_ptr<string> gpuSpec_ {};
         // The instance ID.
         shared_ptr<string> instanceId_ {};
@@ -486,8 +488,7 @@ namespace Models
       protected:
         // The amount of resources currently allocated.
         shared_ptr<string> allocatedResource_ {};
-        // Specifies whether auto-renewal is enabled for the resource.
-        // 
+        // Specifies whether auto-renewal is enabled for the resource. Valid values:
         // - true: Auto-renewal is enabled. The resource is automatically renewed upon expiration.
         // - false: Auto-renewal is disabled. The resource is stopped upon expiration.
         shared_ptr<bool> autoRenewal_ {};
@@ -507,13 +508,45 @@ namespace Models
         shared_ptr<string> usedResource_ {};
       };
 
+      class Features : public Darabonba::Model {
+      public:
+        friend void to_json(Darabonba::Json& j, const Features& obj) { 
+          DARABONBA_PTR_TO_JSON(fineGrainedAuthz, fineGrainedAuthz_);
+        };
+        friend void from_json(const Darabonba::Json& j, Features& obj) { 
+          DARABONBA_PTR_FROM_JSON(fineGrainedAuthz, fineGrainedAuthz_);
+        };
+        Features() = default ;
+        Features(const Features &) = default ;
+        Features(Features &&) = default ;
+        Features(const Darabonba::Json & obj) { from_json(obj, *this); };
+        virtual ~Features() = default ;
+        Features& operator=(const Features &) = default ;
+        Features& operator=(Features &&) = default ;
+        virtual void validate() const override {
+        };
+        virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+        virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+        virtual bool empty() const override { return this->fineGrainedAuthz_ == nullptr; };
+        // fineGrainedAuthz Field Functions 
+        bool hasFineGrainedAuthz() const { return this->fineGrainedAuthz_ != nullptr;};
+        void deleteFineGrainedAuthz() { this->fineGrainedAuthz_ = nullptr;};
+        inline bool getFineGrainedAuthz() const { DARABONBA_PTR_GET_DEFAULT(fineGrainedAuthz_, false) };
+        inline Features& setFineGrainedAuthz(bool fineGrainedAuthz) { DARABONBA_PTR_SET_VALUE(fineGrainedAuthz_, fineGrainedAuthz) };
+
+
+      protected:
+        // Specifies whether fine-grained permissions are enabled for the workspace.
+        shared_ptr<bool> fineGrainedAuthz_ {};
+      };
+
       virtual bool empty() const override { return this->autoRenew_ == nullptr
         && this->autoRenewPeriod_ == nullptr && this->autoRenewPeriodUnit_ == nullptr && this->createTime_ == nullptr && this->dlfCatalogId_ == nullptr && this->dlfType_ == nullptr
-        && this->duration_ == nullptr && this->endTime_ == nullptr && this->failReason_ == nullptr && this->gpuSpec_ == nullptr && this->ipWhiteList_ == nullptr
-        && this->paymentDurationUnit_ == nullptr && this->paymentStatus_ == nullptr && this->paymentType_ == nullptr && this->prePaidQuota_ == nullptr && this->prePaidQuotaGpu_ == nullptr
-        && this->ramRoleName_ == nullptr && this->regionId_ == nullptr && this->releaseType_ == nullptr && this->resourceGroupId_ == nullptr && this->resourceOwnerId_ == nullptr
-        && this->resourceSpec_ == nullptr && this->stateChangeReason_ == nullptr && this->storage_ == nullptr && this->tags_ == nullptr && this->workspaceId_ == nullptr
-        && this->workspaceName_ == nullptr && this->workspaceStatus_ == nullptr; };
+        && this->duration_ == nullptr && this->endTime_ == nullptr && this->failReason_ == nullptr && this->features_ == nullptr && this->gpuSpec_ == nullptr
+        && this->ipWhiteList_ == nullptr && this->paymentDurationUnit_ == nullptr && this->paymentStatus_ == nullptr && this->paymentType_ == nullptr && this->prePaidQuota_ == nullptr
+        && this->prePaidQuotaGpu_ == nullptr && this->ramRoleName_ == nullptr && this->regionId_ == nullptr && this->releaseType_ == nullptr && this->resourceGroupId_ == nullptr
+        && this->resourceOwnerId_ == nullptr && this->resourceSpec_ == nullptr && this->stateChangeReason_ == nullptr && this->storage_ == nullptr && this->tags_ == nullptr
+        && this->workspaceId_ == nullptr && this->workspaceName_ == nullptr && this->workspaceStatus_ == nullptr; };
       // autoRenew Field Functions 
       bool hasAutoRenew() const { return this->autoRenew_ != nullptr;};
       void deleteAutoRenew() { this->autoRenew_ = nullptr;};
@@ -575,6 +608,15 @@ namespace Models
       void deleteFailReason() { this->failReason_ = nullptr;};
       inline string getFailReason() const { DARABONBA_PTR_GET_DEFAULT(failReason_, "") };
       inline Workspace& setFailReason(string failReason) { DARABONBA_PTR_SET_VALUE(failReason_, failReason) };
+
+
+      // features Field Functions 
+      bool hasFeatures() const { return this->features_ != nullptr;};
+      void deleteFeatures() { this->features_ = nullptr;};
+      inline const Workspace::Features & getFeatures() const { DARABONBA_PTR_GET_CONST(features_, Workspace::Features) };
+      inline Workspace::Features getFeatures() { DARABONBA_PTR_GET(features_, Workspace::Features) };
+      inline Workspace& setFeatures(const Workspace::Features & features) { DARABONBA_PTR_SET_VALUE(features_, features) };
+      inline Workspace& setFeatures(Workspace::Features && features) { DARABONBA_PTR_SET_RVALUE(features_, features) };
 
 
       // gpuSpec Field Functions 
@@ -723,29 +765,31 @@ namespace Models
 
 
     protected:
-      // Specifies whether auto-renewal is enabled. This parameter is required for subscription workspaces.
+      // Specifies whether to enable auto-renewal. This parameter is required for subscription resources.
       shared_ptr<bool> autoRenew_ {};
-      // The auto-renewal period. This parameter is required for subscription workspaces.
+      // The auto-renewal duration. This parameter is required for subscription resources.
       shared_ptr<int32_t> autoRenewPeriod_ {};
-      // The auto-renewal cycle. This parameter is required for subscription workspaces.
+      // The auto-renewal cycle. This parameter is required for subscription resources.
       shared_ptr<string> autoRenewPeriodUnit_ {};
       // The time when the workspace was created. The value is a UNIX timestamp in milliseconds.
       shared_ptr<int64_t> createTime_ {};
       // The DLF catalog information.
       shared_ptr<string> dlfCatalogId_ {};
-      // The bound DLF type.
+      // The type of the associated DLF.
       shared_ptr<string> dlfType_ {};
-      // The subscription duration. This parameter is required for subscription workspaces.
+      // The duration of the subscription period. This parameter is required for subscription resources.
       shared_ptr<int32_t> duration_ {};
-      // The time when the workspace is released.
+      // The time when the workspace was released.
       shared_ptr<int64_t> endTime_ {};
       // The reason for the failure.
       shared_ptr<string> failReason_ {};
+      // The features of the workspace.
+      shared_ptr<Workspace::Features> features_ {};
       // The list of GPU instance types.
       shared_ptr<vector<string>> gpuSpec_ {};
       // The IP whitelist of the workspace.
       shared_ptr<vector<string>> ipWhiteList_ {};
-      // The unit of the subscription period. This parameter is required for subscription workspaces.
+      // The unit of the subscription period. This parameter is required for subscription resources.
       shared_ptr<string> paymentDurationUnit_ {};
       // The payment status.
       shared_ptr<string> paymentStatus_ {};
@@ -753,31 +797,31 @@ namespace Models
       shared_ptr<string> paymentType_ {};
       // The information about the subscription resource quota.
       shared_ptr<Workspace::PrePaidQuota> prePaidQuota_ {};
-      // The list of GPU subscription quotas.
+      // The list of GPU subscriptions.
       shared_ptr<vector<Workspace::PrePaidQuotaGpu>> prePaidQuotaGpu_ {};
       // The name of the RAM role used to execute Spark jobs.
       shared_ptr<string> ramRoleName_ {};
       // The region ID.
       shared_ptr<string> regionId_ {};
-      // The reason why the workspace is released.
+      // The reason for the workspace release.
       shared_ptr<string> releaseType_ {};
-      // The resource group ID.
+      // The ID of the resource group.
       shared_ptr<string> resourceGroupId_ {};
-      // The UID of the user who created the workspace.
+      // The UID of the creator.
       shared_ptr<string> resourceOwnerId_ {};
-      // The resource specifications.
+      // The resource specification.
       shared_ptr<string> resourceSpec_ {};
       // The information about the workspace status change.
       shared_ptr<Workspace::StateChangeReason> stateChangeReason_ {};
       // The OSS path.
       shared_ptr<string> storage_ {};
-      // The tag keys.
+      // The tag key.
       shared_ptr<vector<Workspace::Tags>> tags_ {};
       // The workspace ID.
       shared_ptr<string> workspaceId_ {};
-      // The workspace name.
+      // The name of the workspace.
       shared_ptr<string> workspaceName_ {};
-      // The workspace status.
+      // The status of the workspace.
       shared_ptr<string> workspaceStatus_ {};
     };
 
@@ -800,7 +844,7 @@ namespace Models
 
 
   protected:
-    // The request ID.
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
     // The workspace object.
     shared_ptr<GetWorkspaceResponseBody::Workspace> workspace_ {};

@@ -26,6 +26,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(ossBucket, ossBucket_);
       DARABONBA_PTR_TO_JSON(paymentDurationUnit, paymentDurationUnit_);
       DARABONBA_PTR_TO_JSON(paymentType, paymentType_);
+      DARABONBA_PTR_TO_JSON(promotionOptionNo, promotionOptionNo_);
       DARABONBA_PTR_TO_JSON(ramRoleName, ramRoleName_);
       DARABONBA_PTR_TO_JSON(releaseType, releaseType_);
       DARABONBA_PTR_TO_JSON(resourceGroupId, resourceGroupId_);
@@ -47,6 +48,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(ossBucket, ossBucket_);
       DARABONBA_PTR_FROM_JSON(paymentDurationUnit, paymentDurationUnit_);
       DARABONBA_PTR_FROM_JSON(paymentType, paymentType_);
+      DARABONBA_PTR_FROM_JSON(promotionOptionNo, promotionOptionNo_);
       DARABONBA_PTR_FROM_JSON(ramRoleName, ramRoleName_);
       DARABONBA_PTR_FROM_JSON(releaseType, releaseType_);
       DARABONBA_PTR_FROM_JSON(resourceGroupId, resourceGroupId_);
@@ -148,17 +150,17 @@ namespace Models
 
 
     protected:
-      // The resource quota for the workspace.
+      // The maximum resource limit for the workspace.
       shared_ptr<string> cu_ {};
-      // The GPU resource quota for the workspace.
+      // The number of GPUs.
       shared_ptr<int32_t> gpu_ {};
     };
 
     virtual bool empty() const override { return this->autoRenew_ == nullptr
         && this->autoRenewPeriod_ == nullptr && this->autoRenewPeriodUnit_ == nullptr && this->autoStartSessionCluster_ == nullptr && this->clientToken_ == nullptr && this->dlfCatalogId_ == nullptr
         && this->dlfType_ == nullptr && this->duration_ == nullptr && this->gpuSpec_ == nullptr && this->ossBucket_ == nullptr && this->paymentDurationUnit_ == nullptr
-        && this->paymentType_ == nullptr && this->ramRoleName_ == nullptr && this->releaseType_ == nullptr && this->resourceGroupId_ == nullptr && this->resourceSpec_ == nullptr
-        && this->tag_ == nullptr && this->workspaceName_ == nullptr && this->regionId_ == nullptr; };
+        && this->paymentType_ == nullptr && this->promotionOptionNo_ == nullptr && this->ramRoleName_ == nullptr && this->releaseType_ == nullptr && this->resourceGroupId_ == nullptr
+        && this->resourceSpec_ == nullptr && this->tag_ == nullptr && this->workspaceName_ == nullptr && this->regionId_ == nullptr; };
     // autoRenew Field Functions 
     bool hasAutoRenew() const { return this->autoRenew_ != nullptr;};
     void deleteAutoRenew() { this->autoRenew_ = nullptr;};
@@ -245,6 +247,13 @@ namespace Models
     inline CreateWorkspaceRequest& setPaymentType(string paymentType) { DARABONBA_PTR_SET_VALUE(paymentType_, paymentType) };
 
 
+    // promotionOptionNo Field Functions 
+    bool hasPromotionOptionNo() const { return this->promotionOptionNo_ != nullptr;};
+    void deletePromotionOptionNo() { this->promotionOptionNo_ = nullptr;};
+    inline string getPromotionOptionNo() const { DARABONBA_PTR_GET_DEFAULT(promotionOptionNo_, "") };
+    inline CreateWorkspaceRequest& setPromotionOptionNo(string promotionOptionNo) { DARABONBA_PTR_SET_VALUE(promotionOptionNo_, promotionOptionNo) };
+
+
     // ramRoleName Field Functions 
     bool hasRamRoleName() const { return this->ramRoleName_ != nullptr;};
     void deleteRamRoleName() { this->ramRoleName_ = nullptr;};
@@ -299,45 +308,46 @@ namespace Models
 
 
   protected:
-    // Specifies whether to enable auto-renewal. This parameter is required if you set `paymentType` to `Pre`.
+    // Specifies whether to enable auto-renewal. This parameter is required when the paymentType parameter is set to Pre.
     shared_ptr<string> autoRenew_ {};
-    // The auto-renewal duration. This parameter is required if `autoRenew` is set to `true`.
+    // The auto-renewal duration. This parameter is required when the paymentType parameter is set to Pre.
     shared_ptr<string> autoRenewPeriod_ {};
-    // The unit of the auto-renewal duration. This parameter is required if `autoRenew` is set to `true`.
+    // The auto-renewal cycle. This parameter is required when the paymentType parameter is set to Pre.
     shared_ptr<string> autoRenewPeriodUnit_ {};
-    // Specifies whether to automatically start a session cluster when the workspace is created.
+    // Specifies whether to automatically start a session.
     shared_ptr<bool> autoStartSessionCluster_ {};
-    // A token that ensures the idempotency of the request.
+    // The client token used to ensure the idempotence of the request.
     shared_ptr<string> clientToken_ {};
-    // The DLF Catalog ID.
+    // The DLF catalog information.
     shared_ptr<string> dlfCatalogId_ {};
-    // The DLF type.
+    // The DLF binding type.
     shared_ptr<string> dlfType_ {};
-    // The subscription duration. This parameter is required if you set `paymentType` to `Pre`.
+    // The number of subscription periods. This parameter is required when the paymentType parameter is set to Pre.
     shared_ptr<string> duration_ {};
-    // The specifications for the GPU resources.
+    // The list of GPU instance types.
     shared_ptr<vector<string>> gpuSpec_ {};
-    // The OSS bucket for the workspace. The path must be in the `oss://<bucket-name>/` format.
+    // The OSS bucket.
     shared_ptr<string> ossBucket_ {};
-    // The unit of the subscription duration. This parameter is required if you set `paymentType` to `Pre`.
+    // The unit of the subscription period.
     shared_ptr<string> paymentDurationUnit_ {};
-    // The billing method. Valid values:
+    // The billing method of the instance. Valid values:
     // 
-    // - `PayAsYouGo`: pay-as-you-go
-    // 
-    // - `Pre`: subscription
+    // - PayAsYouGo: pay-as-you-go
+    // - Pre: subscription
     shared_ptr<string> paymentType_ {};
-    // The name of the RAM role used to run Spark jobs.
+    // Supported only for subscription instances. Use the voucher option ID returned by the price inquiry API. To not use a voucher, pass youhuiquan_promotion_option_id_for_blank. If this parameter is omitted, the previous calling behavior is maintained.
+    shared_ptr<string> promotionOptionNo_ {};
+    // The name of the RAM role used to execute Spark jobs.
     shared_ptr<string> ramRoleName_ {};
     // The release type.
     shared_ptr<string> releaseType_ {};
-    // The resource group ID.
+    // The ID of the resource group.
     shared_ptr<string> resourceGroupId_ {};
     // The resource specifications.
     shared_ptr<CreateWorkspaceRequest::ResourceSpec> resourceSpec_ {};
-    // The tags to add to the workspace.
+    // The list of tags.
     shared_ptr<vector<CreateWorkspaceRequest::Tag>> tag_ {};
-    // The workspace name.
+    // The name of the workspace.
     shared_ptr<string> workspaceName_ {};
     // The region ID.
     shared_ptr<string> regionId_ {};

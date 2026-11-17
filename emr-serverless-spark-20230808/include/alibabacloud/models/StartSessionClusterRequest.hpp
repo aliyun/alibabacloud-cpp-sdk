@@ -59,7 +59,7 @@ namespace Models
   protected:
     // The queue name.
     shared_ptr<string> queueName_ {};
-    // The session cluster ID.
+    // The session ID.
     shared_ptr<string> sessionClusterId_ {};
     // The region ID.
     shared_ptr<string> regionId_ {};

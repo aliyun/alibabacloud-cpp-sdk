@@ -81,7 +81,7 @@ namespace Models
 
 
       protected:
-        // Log line content.
+        // The content of the log line.
         shared_ptr<string> lineContent_ {};
       };
 
@@ -104,9 +104,9 @@ namespace Models
 
 
     protected:
-      // List of log line contents.
+      // The list of log lines.
       shared_ptr<vector<ListLogContent::Contents>> contents_ {};
-      // Total number of log lines.
+      // The total number of log lines.
       shared_ptr<int64_t> totalLength_ {};
     };
 
@@ -129,7 +129,7 @@ namespace Models
 
 
   protected:
-    // Log content.
+    // The log content.
     shared_ptr<ListLogContentsResponseBody::ListLogContent> listLogContent_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

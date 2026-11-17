@@ -104,11 +104,11 @@ namespace Models
 
 
     protected:
-      // The maximum workspace resource capacity.
+      // The resource limit of the workspace.
       shared_ptr<int64_t> cu_ {};
       // The number of GPUs.
       shared_ptr<int32_t> gpu_ {};
-      // The number of GPU machines. This parameter is valid only for subscription instances.
+      // The number of GPU machines. This parameter is valid only when the billing method is set to subscription.
       shared_ptr<int32_t> gpuMachineNum_ {};
       // The maximum number of CUs.
       shared_ptr<int64_t> maxCu_ {};
@@ -194,24 +194,24 @@ namespace Models
   protected:
     // The description.
     shared_ptr<string> description_ {};
-    // The list of GPU models.
+    // The list of GPU instance types.
     shared_ptr<vector<string>> gpuSpec_ {};
-    // The Ray cluster instance ID.
+    // The instance ID of the Ray cluster.
     shared_ptr<string> instanceId_ {};
     // The billing method of the instance. Valid values:
     // 
-    // - PayAsYouGo: pay-as-you-go
-    // - Pre: subscription
+    // - PayAsYouGo: pay-as-you-go.
+    // - Pre: subscription.
     shared_ptr<string> paymentType_ {};
-    // Indicates whether resource prefetch is enabled.
+    // Specifies whether resource prefetch is enabled.
     shared_ptr<bool> preheat_ {};
-    // The queue type. Valid values: CPU and GPU.
+    // The queue type, such as CPU or GPU.
     shared_ptr<string> queueCategory_ {};
     // The resource specifications.
     shared_ptr<CreateWorkspaceQueueRequest::ResourceSpec> resourceSpec_ {};
-    // The workspace ID.
+    // The ID of the workspace.
     shared_ptr<string> workspaceId_ {};
-    // The workspace queue name.
+    // The name of the workspace queue.
     shared_ptr<string> workspaceQueueName_ {};
     // The region ID.
     shared_ptr<string> regionId_ {};

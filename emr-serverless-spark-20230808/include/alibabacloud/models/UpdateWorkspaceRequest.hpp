@@ -57,6 +57,7 @@ namespace Models
         DARABONBA_PTR_TO_JSON(clientToken, clientToken_);
         DARABONBA_PTR_TO_JSON(duration, duration_);
         DARABONBA_PTR_TO_JSON(paymentDurationUnit, paymentDurationUnit_);
+        DARABONBA_PTR_TO_JSON(promotionOptionNo, promotionOptionNo_);
         DARABONBA_PTR_TO_JSON(queue, queue_);
       };
       friend void from_json(const Darabonba::Json& j, Subscription& obj) { 
@@ -66,6 +67,7 @@ namespace Models
         DARABONBA_PTR_FROM_JSON(clientToken, clientToken_);
         DARABONBA_PTR_FROM_JSON(duration, duration_);
         DARABONBA_PTR_FROM_JSON(paymentDurationUnit, paymentDurationUnit_);
+        DARABONBA_PTR_FROM_JSON(promotionOptionNo, promotionOptionNo_);
         DARABONBA_PTR_FROM_JSON(queue, queue_);
       };
       Subscription() = default ;
@@ -81,7 +83,7 @@ namespace Models
       virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
       virtual bool empty() const override { return this->autoRenew_ == nullptr
         && this->autoRenewPeriod_ == nullptr && this->autoRenewPeriodUnit_ == nullptr && this->clientToken_ == nullptr && this->duration_ == nullptr && this->paymentDurationUnit_ == nullptr
-        && this->queue_ == nullptr; };
+        && this->promotionOptionNo_ == nullptr && this->queue_ == nullptr; };
       // autoRenew Field Functions 
       bool hasAutoRenew() const { return this->autoRenew_ != nullptr;};
       void deleteAutoRenew() { this->autoRenew_ = nullptr;};
@@ -124,6 +126,13 @@ namespace Models
       inline Subscription& setPaymentDurationUnit(string paymentDurationUnit) { DARABONBA_PTR_SET_VALUE(paymentDurationUnit_, paymentDurationUnit) };
 
 
+      // promotionOptionNo Field Functions 
+      bool hasPromotionOptionNo() const { return this->promotionOptionNo_ != nullptr;};
+      void deletePromotionOptionNo() { this->promotionOptionNo_ = nullptr;};
+      inline string getPromotionOptionNo() const { DARABONBA_PTR_GET_DEFAULT(promotionOptionNo_, "") };
+      inline Subscription& setPromotionOptionNo(string promotionOptionNo) { DARABONBA_PTR_SET_VALUE(promotionOptionNo_, promotionOptionNo) };
+
+
       // queue Field Functions 
       bool hasQueue() const { return this->queue_ != nullptr;};
       void deleteQueue() { this->queue_ = nullptr;};
@@ -138,15 +147,17 @@ namespace Models
       shared_ptr<string> autoRenew_ {};
       // The auto-renewal period. This parameter is required for the subscription billing method.
       shared_ptr<string> autoRenewPeriod_ {};
-      // The auto-renewal cycle. This parameter is required for the subscription billing method.
+      // The auto-renewal epoch. This parameter is required for the subscription billing method.
       shared_ptr<string> autoRenewPeriodUnit_ {};
-      // The client token for idempotency verification.
+      // The client token for idempotence verification.
       shared_ptr<string> clientToken_ {};
       // The number of subscription periods. This parameter is required for the subscription billing method.
       shared_ptr<string> duration_ {};
       // The subscription period unit.
       shared_ptr<string> paymentDurationUnit_ {};
-      // The list of running queues to be switched.
+      // Supported only when you switch the billing method of CUs from pay-as-you-go to subscription. Use the voucher option ID returned by the price inquiry API. To not use a voucher, set this parameter to youhuiquan_promotion_option_id_for_blank. If you omit this parameter, the previous call behavior is retained.
+      shared_ptr<string> promotionOptionNo_ {};
+      // The list of running queues to be converted.
       shared_ptr<vector<string>> queue_ {};
     };
 
@@ -160,6 +171,7 @@ namespace Models
         DARABONBA_PTR_TO_JSON(instanceTypeId, instanceTypeId_);
         DARABONBA_PTR_TO_JSON(operation, operation_);
         DARABONBA_PTR_TO_JSON(paymentDurationUnit, paymentDurationUnit_);
+        DARABONBA_PTR_TO_JSON(promotionOptionNo, promotionOptionNo_);
       };
       friend void from_json(const Darabonba::Json& j, GpuSubscription& obj) { 
         DARABONBA_PTR_FROM_JSON(autoRenew, autoRenew_);
@@ -169,6 +181,7 @@ namespace Models
         DARABONBA_PTR_FROM_JSON(instanceTypeId, instanceTypeId_);
         DARABONBA_PTR_FROM_JSON(operation, operation_);
         DARABONBA_PTR_FROM_JSON(paymentDurationUnit, paymentDurationUnit_);
+        DARABONBA_PTR_FROM_JSON(promotionOptionNo, promotionOptionNo_);
       };
       GpuSubscription() = default ;
       GpuSubscription(const GpuSubscription &) = default ;
@@ -183,7 +196,7 @@ namespace Models
       virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
       virtual bool empty() const override { return this->autoRenew_ == nullptr
         && this->duration_ == nullptr && this->gpuMachineNum_ == nullptr && this->instanceId_ == nullptr && this->instanceTypeId_ == nullptr && this->operation_ == nullptr
-        && this->paymentDurationUnit_ == nullptr; };
+        && this->paymentDurationUnit_ == nullptr && this->promotionOptionNo_ == nullptr; };
       // autoRenew Field Functions 
       bool hasAutoRenew() const { return this->autoRenew_ != nullptr;};
       void deleteAutoRenew() { this->autoRenew_ = nullptr;};
@@ -233,6 +246,13 @@ namespace Models
       inline GpuSubscription& setPaymentDurationUnit(string paymentDurationUnit) { DARABONBA_PTR_SET_VALUE(paymentDurationUnit_, paymentDurationUnit) };
 
 
+      // promotionOptionNo Field Functions 
+      bool hasPromotionOptionNo() const { return this->promotionOptionNo_ != nullptr;};
+      void deletePromotionOptionNo() { this->promotionOptionNo_ = nullptr;};
+      inline string getPromotionOptionNo() const { DARABONBA_PTR_GET_DEFAULT(promotionOptionNo_, "") };
+      inline GpuSubscription& setPromotionOptionNo(string promotionOptionNo) { DARABONBA_PTR_SET_VALUE(promotionOptionNo_, promotionOptionNo) };
+
+
     protected:
       // Specifies whether to enable auto-renewal.
       shared_ptr<bool> autoRenew_ {};
@@ -244,10 +264,12 @@ namespace Models
       shared_ptr<string> instanceId_ {};
       // The GPU instance type.
       shared_ptr<string> instanceTypeId_ {};
-      // The operation type. Valid values: BUY and UPGRADE. BUY indicates a new purchase, and UPGRADE indicates an upgrade. If you set this parameter to UPGRADE, you must specify the orderId parameter. Default value: BUY.
+      // The operation type. Valid values: BUY and UPGRADE. BUY indicates a new purchase. UPGRADE indicates an upgrade. If you set this parameter to UPGRADE, you must specify the orderId parameter. Default value: BUY.
       shared_ptr<string> operation_ {};
       // The subscription period unit.
       shared_ptr<string> paymentDurationUnit_ {};
+      // Supported only for new GPU subscription purchases (BUY). Not supported for upgrades (UPGRADE). Use the voucher option ID returned by the price inquiry API. To not use a voucher, set this parameter to youhuiquan_promotion_option_id_for_blank. If you omit this parameter, the previous call behavior is retained.
+      shared_ptr<string> promotionOptionNo_ {};
     };
 
     virtual bool empty() const override { return this->cu_ == nullptr
@@ -332,7 +354,7 @@ namespace Models
 
 
   protected:
-    // The resource limit of the workspace.
+    // The resource limit for the workspace.
     shared_ptr<int32_t> cu_ {};
     // The number of GPUs.
     shared_ptr<int32_t> gpu_ {};
@@ -340,7 +362,7 @@ namespace Models
     shared_ptr<vector<string>> gpuSpec_ {};
     // The GPU subscription information.
     shared_ptr<UpdateWorkspaceRequest::GpuSubscription> gpuSubscription_ {};
-    // The workspace IP address whitelist.
+    // The IP address whitelist of the workspace.
     shared_ptr<vector<string>> ipWhiteList_ {};
     // The resource group ID.
     shared_ptr<string> resourceGroupId_ {};

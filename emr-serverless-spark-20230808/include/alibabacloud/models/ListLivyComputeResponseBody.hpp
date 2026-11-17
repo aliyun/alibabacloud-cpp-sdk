@@ -161,9 +161,9 @@ namespace Models
         shared_ptr<string> computeId_ {};
         // The name of the creator.
         shared_ptr<string> createdBy_ {};
-        // The public network connection endpoint.
+        // The public endpoint.
         shared_ptr<string> endpoint_ {};
-        // The internal network connection endpoint.
+        // The internal network endpoint.
         shared_ptr<string> endpointInner_ {};
         // The creation time.
         shared_ptr<int64_t> gmtCreate_ {};
@@ -225,7 +225,7 @@ namespace Models
 
 
   protected:
-    // The return code of the request. A value of 1000000 indicates that the request is successful. Other values indicate that the request failed. For specific error details, see the message.
+    // The response code. A value of 1000000 indicates a successful request, whereas other values indicate a failed request. For detailed error causes, refer to the message.
     shared_ptr<string> code_ {};
     // The response data.
     shared_ptr<ListLivyComputeResponseBody::Data> data_ {};

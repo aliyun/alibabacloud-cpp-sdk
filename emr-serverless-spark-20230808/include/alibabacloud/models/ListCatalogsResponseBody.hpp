@@ -154,22 +154,23 @@ namespace Models
 
 
     protected:
+      // alias
       shared_ptr<string> alias_ {};
-      // The ID of the data catalog.
+      // The data catalog ID.
       shared_ptr<string> catalogId_ {};
-      // The provider of the data catalog.
+      // The data catalog type.
       shared_ptr<string> catalogProvider_ {};
-      // Indicates whether this is the default data catalog.
+      // Indicates whether the data catalog is the default data catalog.
       shared_ptr<string> catalogType_ {};
-      // The environment types.
+      // The environment type.
       shared_ptr<vector<string>> environments_ {};
-      // Extra information.
+      // The extra information.
       shared_ptr<map<string, string>> extras_ {};
-      // The time when the resource was created.
+      // The creation time.
       shared_ptr<int64_t> gmtCreate_ {};
-      // The time when the resource was last updated.
+      // The update time.
       shared_ptr<int64_t> gmtModified_ {};
-      // The ID of the resource owner.
+      // The resource owner ID.
       shared_ptr<string> resourceOwnerId_ {};
       // The workspace ID.
       shared_ptr<string> workspaceId_ {};
@@ -217,13 +218,13 @@ namespace Models
   protected:
     // The data catalogs.
     shared_ptr<vector<ListCatalogsResponseBody::Catalogs>> catalogs_ {};
-    // The maximum number of entries to return on each page.
+    // The maximum number of records to return per request.
     shared_ptr<int32_t> maxResults_ {};
-    // The token to retrieve the next page of results.
+    // The next page token.
     shared_ptr<string> nextToken_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The total number of entries.
+    // The total number of records.
     shared_ptr<int32_t> totalCount_ {};
   };
 

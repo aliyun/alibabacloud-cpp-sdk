@@ -57,6 +57,7 @@ namespace Models
         DARABONBA_PTR_TO_JSON(startTime, startTime_);
         DARABONBA_PTR_TO_JSON(state, state_);
         DARABONBA_PTR_TO_JSON(tags, tags_);
+        DARABONBA_PTR_TO_JSON(userName, userName_);
         DARABONBA_PTR_TO_JSON(vcoreSeconds, vcoreSeconds_);
         DARABONBA_PTR_TO_JSON(webUI, webUI_);
       };
@@ -75,6 +76,7 @@ namespace Models
         DARABONBA_PTR_FROM_JSON(startTime, startTime_);
         DARABONBA_PTR_FROM_JSON(state, state_);
         DARABONBA_PTR_FROM_JSON(tags, tags_);
+        DARABONBA_PTR_FROM_JSON(userName, userName_);
         DARABONBA_PTR_FROM_JSON(vcoreSeconds, vcoreSeconds_);
         DARABONBA_PTR_FROM_JSON(webUI, webUI_);
       };
@@ -92,7 +94,8 @@ namespace Models
       virtual bool empty() const override { return this->applicationId_ == nullptr
         && this->applicationName_ == nullptr && this->cuHours_ == nullptr && this->endTime_ == nullptr && this->exitReason_ == nullptr && this->kyuubiServiceId_ == nullptr
         && this->latestSqlStatementStatus_ == nullptr && this->mbSeconds_ == nullptr && this->priority_ == nullptr && this->resourceQueueId_ == nullptr && this->runLog_ == nullptr
-        && this->startTime_ == nullptr && this->state_ == nullptr && this->tags_ == nullptr && this->vcoreSeconds_ == nullptr && this->webUI_ == nullptr; };
+        && this->startTime_ == nullptr && this->state_ == nullptr && this->tags_ == nullptr && this->userName_ == nullptr && this->vcoreSeconds_ == nullptr
+        && this->webUI_ == nullptr; };
       // applicationId Field Functions 
       bool hasApplicationId() const { return this->applicationId_ != nullptr;};
       void deleteApplicationId() { this->applicationId_ = nullptr;};
@@ -195,6 +198,13 @@ namespace Models
       inline Applications& setTags(vector<Tag> && tags) { DARABONBA_PTR_SET_RVALUE(tags_, tags) };
 
 
+      // userName Field Functions 
+      bool hasUserName() const { return this->userName_ != nullptr;};
+      void deleteUserName() { this->userName_ = nullptr;};
+      inline string getUserName() const { DARABONBA_PTR_GET_DEFAULT(userName_, "") };
+      inline Applications& setUserName(string userName) { DARABONBA_PTR_SET_VALUE(userName_, userName) };
+
+
       // vcoreSeconds Field Functions 
       bool hasVcoreSeconds() const { return this->vcoreSeconds_ != nullptr;};
       void deleteVcoreSeconds() { this->vcoreSeconds_ = nullptr;};
@@ -214,34 +224,36 @@ namespace Models
       shared_ptr<string> applicationId_ {};
       // The name of the Spark application submitted by Kyuubi.
       shared_ptr<string> applicationName_ {};
-      // The number of compute units (CUs) consumed during the task execution. This value is an estimate. The actual value is subject to the bill.
+      // The number of compute units (CUs) consumed during the task runtime. This value is an estimate. The final value is subject to the bill.
       shared_ptr<double> cuHours_ {};
-      // The end time of the task. The format is YYYY-MM-DD HH:mm:ss.
+      // The end time of the task. Format: YYYY-MM-DD HH:mm:ss.
       shared_ptr<string> endTime_ {};
       // The exit reason of the application.
       shared_ptr<string> exitReason_ {};
       // The ID of the Kyuubi service that submitted the Spark application.
       shared_ptr<string> kyuubiServiceId_ {};
-      // The execution status of the latest SQL statement in the application.
+      // The execution status of the most recent SQL statement in the application.
       shared_ptr<string> latestSqlStatementStatus_ {};
-      // The total memory allocated to the task multiplied by the task execution duration in seconds.
+      // The total memory allocated to the task multiplied by the number of seconds the task has run.
       shared_ptr<int64_t> mbSeconds_ {};
       // The priority of the Spark application.
       shared_ptr<string> priority_ {};
-      // The name of the resource queue in which the Spark task runs.
+      // The name of the resource queue where the Spark task runs.
       shared_ptr<string> resourceQueueId_ {};
       // The application log.
       shared_ptr<RunLog> runLog_ {};
-      // The start time of the task. The format is YYYY-MM-DD HH:mm:ss.
+      // The start time of the task. Format: YYYY-MM-DD HH:mm:ss.
       shared_ptr<string> startTime_ {};
-      // The state of the Spark application. Valid values:
-      // - STARTING: The application is starting.
-      // - RUNNING: The application is running.
-      // - TERMINATED: The application is terminated.
+      // The status of the Spark application. Valid values:
+      // - STARTING: Starting.
+      // - RUNNING: Running.
+      // - TERMINATED: Terminated.
       shared_ptr<string> state_ {};
       // The list of tags for the Spark application.
       shared_ptr<vector<Tag>> tags_ {};
-      // The total number of vcores allocated to the task multiplied by the task execution duration in seconds.
+      // The username.
+      shared_ptr<string> userName_ {};
+      // The total vcores allocated to the task multiplied by the number of seconds the task has run.
       shared_ptr<int64_t> vcoreSeconds_ {};
       // The URL of the Spark application UI.
       shared_ptr<string> webUI_ {};
@@ -289,7 +301,7 @@ namespace Models
   protected:
     // The list of application details.
     shared_ptr<vector<ListKyuubiSparkApplicationsResponseBody::Applications>> applications_ {};
-    // The maximum number of records to retrieve at a time.
+    // The maximum number of records to return in a single request.
     shared_ptr<int32_t> maxResults_ {};
     // The token for the next page.
     shared_ptr<string> nextToken_ {};

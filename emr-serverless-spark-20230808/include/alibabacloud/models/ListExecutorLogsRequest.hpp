@@ -68,7 +68,7 @@ namespace Models
   protected:
     // The log type.
     shared_ptr<string> logType_ {};
-    // The maximum number of records to return in a single request.
+    // The maximum number of records to retrieve at a time.
     shared_ptr<int32_t> maxResults_ {};
     // The next token.
     shared_ptr<string> nextToken_ {};

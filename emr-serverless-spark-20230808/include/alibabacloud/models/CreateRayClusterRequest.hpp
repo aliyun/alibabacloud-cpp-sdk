@@ -16,20 +16,26 @@ namespace Models
     friend void to_json(Darabonba::Json& j, const CreateRayClusterRequest& obj) { 
       DARABONBA_PTR_TO_JSON(description, description_);
       DARABONBA_PTR_TO_JSON(displayReleaseVersion, displayReleaseVersion_);
+      DARABONBA_PTR_TO_JSON(enableMetricsUpload, enableMetricsUpload_);
       DARABONBA_PTR_TO_JSON(extraParam, extraParam_);
       DARABONBA_PTR_TO_JSON(headSpec, headSpec_);
       DARABONBA_PTR_TO_JSON(name, name_);
       DARABONBA_PTR_TO_JSON(networkServiceName, networkServiceName_);
+      DARABONBA_PTR_TO_JSON(slsLogStore, slsLogStore_);
+      DARABONBA_PTR_TO_JSON(slsProject, slsProject_);
       DARABONBA_PTR_TO_JSON(volumeIds, volumeIds_);
       DARABONBA_PTR_TO_JSON(workerSpec, workerSpec_);
     };
     friend void from_json(const Darabonba::Json& j, CreateRayClusterRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(description, description_);
       DARABONBA_PTR_FROM_JSON(displayReleaseVersion, displayReleaseVersion_);
+      DARABONBA_PTR_FROM_JSON(enableMetricsUpload, enableMetricsUpload_);
       DARABONBA_PTR_FROM_JSON(extraParam, extraParam_);
       DARABONBA_PTR_FROM_JSON(headSpec, headSpec_);
       DARABONBA_PTR_FROM_JSON(name, name_);
       DARABONBA_PTR_FROM_JSON(networkServiceName, networkServiceName_);
+      DARABONBA_PTR_FROM_JSON(slsLogStore, slsLogStore_);
+      DARABONBA_PTR_FROM_JSON(slsProject, slsProject_);
       DARABONBA_PTR_FROM_JSON(volumeIds, volumeIds_);
       DARABONBA_PTR_FROM_JSON(workerSpec, workerSpec_);
     };
@@ -50,6 +56,7 @@ namespace Models
         DARABONBA_PTR_TO_JSON(cpu, cpu_);
         DARABONBA_PTR_TO_JSON(displayReleaseVersion, displayReleaseVersion_);
         DARABONBA_PTR_TO_JSON(env, env_);
+        DARABONBA_PTR_TO_JSON(gpuDriverVersion, gpuDriverVersion_);
         DARABONBA_PTR_TO_JSON(gpuSpec, gpuSpec_);
         DARABONBA_PTR_TO_JSON(groupName, groupName_);
         DARABONBA_PTR_TO_JSON(maxReplica, maxReplica_);
@@ -64,6 +71,7 @@ namespace Models
         DARABONBA_PTR_FROM_JSON(cpu, cpu_);
         DARABONBA_PTR_FROM_JSON(displayReleaseVersion, displayReleaseVersion_);
         DARABONBA_PTR_FROM_JSON(env, env_);
+        DARABONBA_PTR_FROM_JSON(gpuDriverVersion, gpuDriverVersion_);
         DARABONBA_PTR_FROM_JSON(gpuSpec, gpuSpec_);
         DARABONBA_PTR_FROM_JSON(groupName, groupName_);
         DARABONBA_PTR_FROM_JSON(maxReplica, maxReplica_);
@@ -86,9 +94,9 @@ namespace Models
       virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
       virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
       virtual bool empty() const override { return this->cpu_ == nullptr
-        && this->displayReleaseVersion_ == nullptr && this->env_ == nullptr && this->gpuSpec_ == nullptr && this->groupName_ == nullptr && this->maxReplica_ == nullptr
-        && this->memory_ == nullptr && this->minReplica_ == nullptr && this->queueName_ == nullptr && this->rayStartParams_ == nullptr && this->replica_ == nullptr
-        && this->workerType_ == nullptr; };
+        && this->displayReleaseVersion_ == nullptr && this->env_ == nullptr && this->gpuDriverVersion_ == nullptr && this->gpuSpec_ == nullptr && this->groupName_ == nullptr
+        && this->maxReplica_ == nullptr && this->memory_ == nullptr && this->minReplica_ == nullptr && this->queueName_ == nullptr && this->rayStartParams_ == nullptr
+        && this->replica_ == nullptr && this->workerType_ == nullptr; };
       // cpu Field Functions 
       bool hasCpu() const { return this->cpu_ != nullptr;};
       void deleteCpu() { this->cpu_ = nullptr;};
@@ -108,6 +116,13 @@ namespace Models
       void deleteEnv() { this->env_ = nullptr;};
       inline string getEnv() const { DARABONBA_PTR_GET_DEFAULT(env_, "") };
       inline WorkerSpec& setEnv(string env) { DARABONBA_PTR_SET_VALUE(env_, env) };
+
+
+      // gpuDriverVersion Field Functions 
+      bool hasGpuDriverVersion() const { return this->gpuDriverVersion_ != nullptr;};
+      void deleteGpuDriverVersion() { this->gpuDriverVersion_ = nullptr;};
+      inline string getGpuDriverVersion() const { DARABONBA_PTR_GET_DEFAULT(gpuDriverVersion_, "") };
+      inline WorkerSpec& setGpuDriverVersion(string gpuDriverVersion) { DARABONBA_PTR_SET_VALUE(gpuDriverVersion_, gpuDriverVersion) };
 
 
       // gpuSpec Field Functions 
@@ -176,23 +191,25 @@ namespace Models
     protected:
       // The number of CPU cores.
       shared_ptr<string> cpu_ {};
-      // The engine version. If this parameter is not specified, the value is the same as that of the head node.
+      // The engine name. If you do not specify this parameter, it is the same as that of the head node.
       shared_ptr<string> displayReleaseVersion_ {};
       // The environment variables.
       shared_ptr<string> env_ {};
-      // The GPU model.
+      // The GPU driver version.
+      shared_ptr<string> gpuDriverVersion_ {};
+      // The GPU instance type.
       shared_ptr<string> gpuSpec_ {};
-      // The worker group name.
+      // The name of the worker group.
       shared_ptr<string> groupName_ {};
-      // The maximum number of workers after automatic scaling is enabled. Minimum value: 1.
+      // The maximum number of workers after auto-scaling is enabled. Minimum value: 1.
       shared_ptr<int32_t> maxReplica_ {};
-      // The memory size. Unit: Gi.
+      // The memory size. Unit: GiB.
       shared_ptr<string> memory_ {};
-      // The minimum number of workers after automatic scaling is enabled. Minimum value: 1. The value must be less than or equal to maxReplica.
+      // The minimum number of workers after auto-scaling is enabled. Minimum value: 1. The value must be less than or equal to maxReplica.
       shared_ptr<int32_t> minReplica_ {};
-      // The queue name.
+      // The name of the queue.
       shared_ptr<string> queueName_ {};
-      // The Ray node startup parameters.
+      // The startup parameters for the Ray node.
       shared_ptr<string> rayStartParams_ {};
       // The number of workers. Minimum value: 1.
       shared_ptr<int32_t> replica_ {};
@@ -209,6 +226,7 @@ namespace Models
         DARABONBA_PTR_TO_JSON(env, env_);
         DARABONBA_PTR_TO_JSON(gftConfig, gftConfig_);
         DARABONBA_PTR_TO_JSON(gftEnabled, gftEnabled_);
+        DARABONBA_PTR_TO_JSON(gpuDriverVersion, gpuDriverVersion_);
         DARABONBA_PTR_TO_JSON(gpuSpec, gpuSpec_);
         DARABONBA_PTR_TO_JSON(idleTimeoutSeconds, idleTimeoutSeconds_);
         DARABONBA_PTR_TO_JSON(memory, memory_);
@@ -222,6 +240,7 @@ namespace Models
         DARABONBA_PTR_FROM_JSON(env, env_);
         DARABONBA_PTR_FROM_JSON(gftConfig, gftConfig_);
         DARABONBA_PTR_FROM_JSON(gftEnabled, gftEnabled_);
+        DARABONBA_PTR_FROM_JSON(gpuDriverVersion, gpuDriverVersion_);
         DARABONBA_PTR_FROM_JSON(gpuSpec, gpuSpec_);
         DARABONBA_PTR_FROM_JSON(idleTimeoutSeconds, idleTimeoutSeconds_);
         DARABONBA_PTR_FROM_JSON(memory, memory_);
@@ -296,7 +315,8 @@ namespace Models
 
       virtual bool empty() const override { return this->cpu_ == nullptr
         && this->displayReleaseVersion_ == nullptr && this->enableAutoScaling_ == nullptr && this->env_ == nullptr && this->gftConfig_ == nullptr && this->gftEnabled_ == nullptr
-        && this->gpuSpec_ == nullptr && this->idleTimeoutSeconds_ == nullptr && this->memory_ == nullptr && this->queueName_ == nullptr && this->rayStartParams_ == nullptr; };
+        && this->gpuDriverVersion_ == nullptr && this->gpuSpec_ == nullptr && this->idleTimeoutSeconds_ == nullptr && this->memory_ == nullptr && this->queueName_ == nullptr
+        && this->rayStartParams_ == nullptr; };
       // cpu Field Functions 
       bool hasCpu() const { return this->cpu_ != nullptr;};
       void deleteCpu() { this->cpu_ = nullptr;};
@@ -341,6 +361,13 @@ namespace Models
       inline HeadSpec& setGftEnabled(bool gftEnabled) { DARABONBA_PTR_SET_VALUE(gftEnabled_, gftEnabled) };
 
 
+      // gpuDriverVersion Field Functions 
+      bool hasGpuDriverVersion() const { return this->gpuDriverVersion_ != nullptr;};
+      void deleteGpuDriverVersion() { this->gpuDriverVersion_ = nullptr;};
+      inline string getGpuDriverVersion() const { DARABONBA_PTR_GET_DEFAULT(gpuDriverVersion_, "") };
+      inline HeadSpec& setGpuDriverVersion(string gpuDriverVersion) { DARABONBA_PTR_SET_VALUE(gpuDriverVersion_, gpuDriverVersion) };
+
+
       // gpuSpec Field Functions 
       bool hasGpuSpec() const { return this->gpuSpec_ != nullptr;};
       void deleteGpuSpec() { this->gpuSpec_ = nullptr;};
@@ -379,31 +406,33 @@ namespace Models
     protected:
       // The number of CPU cores.
       shared_ptr<string> cpu_ {};
-      // The Ray DPI engine version.
+      // The Ray database engine version.
       shared_ptr<string> displayReleaseVersion_ {};
-      // Specifies whether to enable automatic scaling for workers.
+      // Specifies whether to enable auto-scaling for worker nodes.
       shared_ptr<bool> enableAutoScaling_ {};
       // The environment variables.
       shared_ptr<string> env_ {};
-      // The GCS Fault Tolerance configuration.
+      // The GCS fault tolerance configuration.
       shared_ptr<HeadSpec::GftConfig> gftConfig_ {};
-      // Specifies whether to enable GCS Fault Tolerance.
+      // Specifies whether to enable Global Control Store (GCS) fault tolerance.
       shared_ptr<bool> gftEnabled_ {};
-      // The GPU model.
+      // The GPU driver version.
+      shared_ptr<string> gpuDriverVersion_ {};
+      // The GPU instance type.
       shared_ptr<string> gpuSpec_ {};
-      // The idle timeout period of workers after automatic scaling is enabled.
+      // The idle timeout for worker nodes after auto-scaling is enabled.
       shared_ptr<int32_t> idleTimeoutSeconds_ {};
-      // The memory size. Unit: Gi.
+      // The memory size. Unit: GiB.
       shared_ptr<string> memory_ {};
-      // The queue name.
+      // The name of the queue.
       shared_ptr<string> queueName_ {};
-      // The Ray node startup parameters.
+      // The startup parameters for the Ray node.
       shared_ptr<string> rayStartParams_ {};
     };
 
     virtual bool empty() const override { return this->description_ == nullptr
-        && this->displayReleaseVersion_ == nullptr && this->extraParam_ == nullptr && this->headSpec_ == nullptr && this->name_ == nullptr && this->networkServiceName_ == nullptr
-        && this->volumeIds_ == nullptr && this->workerSpec_ == nullptr; };
+        && this->displayReleaseVersion_ == nullptr && this->enableMetricsUpload_ == nullptr && this->extraParam_ == nullptr && this->headSpec_ == nullptr && this->name_ == nullptr
+        && this->networkServiceName_ == nullptr && this->slsLogStore_ == nullptr && this->slsProject_ == nullptr && this->volumeIds_ == nullptr && this->workerSpec_ == nullptr; };
     // description Field Functions 
     bool hasDescription() const { return this->description_ != nullptr;};
     void deleteDescription() { this->description_ = nullptr;};
@@ -416,6 +445,13 @@ namespace Models
     void deleteDisplayReleaseVersion() { this->displayReleaseVersion_ = nullptr;};
     inline string getDisplayReleaseVersion() const { DARABONBA_PTR_GET_DEFAULT(displayReleaseVersion_, "") };
     inline CreateRayClusterRequest& setDisplayReleaseVersion(string displayReleaseVersion) { DARABONBA_PTR_SET_VALUE(displayReleaseVersion_, displayReleaseVersion) };
+
+
+    // enableMetricsUpload Field Functions 
+    bool hasEnableMetricsUpload() const { return this->enableMetricsUpload_ != nullptr;};
+    void deleteEnableMetricsUpload() { this->enableMetricsUpload_ = nullptr;};
+    inline bool getEnableMetricsUpload() const { DARABONBA_PTR_GET_DEFAULT(enableMetricsUpload_, false) };
+    inline CreateRayClusterRequest& setEnableMetricsUpload(bool enableMetricsUpload) { DARABONBA_PTR_SET_VALUE(enableMetricsUpload_, enableMetricsUpload) };
 
 
     // extraParam Field Functions 
@@ -448,6 +484,20 @@ namespace Models
     inline CreateRayClusterRequest& setNetworkServiceName(string networkServiceName) { DARABONBA_PTR_SET_VALUE(networkServiceName_, networkServiceName) };
 
 
+    // slsLogStore Field Functions 
+    bool hasSlsLogStore() const { return this->slsLogStore_ != nullptr;};
+    void deleteSlsLogStore() { this->slsLogStore_ = nullptr;};
+    inline string getSlsLogStore() const { DARABONBA_PTR_GET_DEFAULT(slsLogStore_, "") };
+    inline CreateRayClusterRequest& setSlsLogStore(string slsLogStore) { DARABONBA_PTR_SET_VALUE(slsLogStore_, slsLogStore) };
+
+
+    // slsProject Field Functions 
+    bool hasSlsProject() const { return this->slsProject_ != nullptr;};
+    void deleteSlsProject() { this->slsProject_ = nullptr;};
+    inline string getSlsProject() const { DARABONBA_PTR_GET_DEFAULT(slsProject_, "") };
+    inline CreateRayClusterRequest& setSlsProject(string slsProject) { DARABONBA_PTR_SET_VALUE(slsProject_, slsProject) };
+
+
     // volumeIds Field Functions 
     bool hasVolumeIds() const { return this->volumeIds_ != nullptr;};
     void deleteVolumeIds() { this->volumeIds_ = nullptr;};
@@ -469,19 +519,25 @@ namespace Models
   protected:
     // The description.
     shared_ptr<string> description_ {};
-    // The Ray DPI engine version.
+    // The Ray database engine version.
     shared_ptr<string> displayReleaseVersion_ {};
+    // Specifies whether to upload metrics.
+    shared_ptr<bool> enableMetricsUpload_ {};
     // The extra parameters. The value must be in JSON format.
     shared_ptr<string> extraParam_ {};
-    // The parameters of the Ray cluster head node.
+    // The head node parameters of the Ray cluster.
     shared_ptr<CreateRayClusterRequest::HeadSpec> headSpec_ {};
     // The name of the Ray cluster. The name must be 1 to 64 characters in length.
     shared_ptr<string> name_ {};
-    // The network connectivity name.
+    // The name of the network connectivity.
     shared_ptr<string> networkServiceName_ {};
-    // The list of managed directory IDs to mount.
+    // The SLS Logstore for uploading metrics.
+    shared_ptr<string> slsLogStore_ {};
+    // The SLS project for uploading metrics.
+    shared_ptr<string> slsProject_ {};
+    // The IDs of the managed directories to mount.
     shared_ptr<vector<string>> volumeIds_ {};
-    // The parameters of the Ray cluster worker nodes. A maximum of 50 groups are supported.
+    // The worker node parameters of the Ray cluster. You can configure up to 50 groups.
     shared_ptr<vector<CreateRayClusterRequest::WorkerSpec>> workerSpec_ {};
   };
 

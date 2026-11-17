@@ -50,6 +50,7 @@ namespace Models
         DARABONBA_PTR_TO_JSON(duration, duration_);
         DARABONBA_PTR_TO_JSON(endTime, endTime_);
         DARABONBA_PTR_TO_JSON(failReason, failReason_);
+        DARABONBA_PTR_TO_JSON(features, features_);
         DARABONBA_PTR_TO_JSON(gpuSpec, gpuSpec_);
         DARABONBA_PTR_TO_JSON(ipWhiteList, ipWhiteList_);
         DARABONBA_PTR_TO_JSON(paymentDurationUnit, paymentDurationUnit_);
@@ -78,6 +79,7 @@ namespace Models
         DARABONBA_PTR_FROM_JSON(duration, duration_);
         DARABONBA_PTR_FROM_JSON(endTime, endTime_);
         DARABONBA_PTR_FROM_JSON(failReason, failReason_);
+        DARABONBA_PTR_FROM_JSON(features, features_);
         DARABONBA_PTR_FROM_JSON(gpuSpec, gpuSpec_);
         DARABONBA_PTR_FROM_JSON(ipWhiteList, ipWhiteList_);
         DARABONBA_PTR_FROM_JSON(paymentDurationUnit, paymentDurationUnit_);
@@ -511,12 +513,45 @@ namespace Models
         shared_ptr<string> usedResource_ {};
       };
 
+      class Features : public Darabonba::Model {
+      public:
+        friend void to_json(Darabonba::Json& j, const Features& obj) { 
+          DARABONBA_PTR_TO_JSON(fineGrainedAuthz, fineGrainedAuthz_);
+        };
+        friend void from_json(const Darabonba::Json& j, Features& obj) { 
+          DARABONBA_PTR_FROM_JSON(fineGrainedAuthz, fineGrainedAuthz_);
+        };
+        Features() = default ;
+        Features(const Features &) = default ;
+        Features(Features &&) = default ;
+        Features(const Darabonba::Json & obj) { from_json(obj, *this); };
+        virtual ~Features() = default ;
+        Features& operator=(const Features &) = default ;
+        Features& operator=(Features &&) = default ;
+        virtual void validate() const override {
+        };
+        virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+        virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+        virtual bool empty() const override { return this->fineGrainedAuthz_ == nullptr; };
+        // fineGrainedAuthz Field Functions 
+        bool hasFineGrainedAuthz() const { return this->fineGrainedAuthz_ != nullptr;};
+        void deleteFineGrainedAuthz() { this->fineGrainedAuthz_ = nullptr;};
+        inline bool getFineGrainedAuthz() const { DARABONBA_PTR_GET_DEFAULT(fineGrainedAuthz_, false) };
+        inline Features& setFineGrainedAuthz(bool fineGrainedAuthz) { DARABONBA_PTR_SET_VALUE(fineGrainedAuthz_, fineGrainedAuthz) };
+
+
+      protected:
+        // Indicates whether fine-grained access control is enabled for the workspace.
+        shared_ptr<bool> fineGrainedAuthz_ {};
+      };
+
       virtual bool empty() const override { return this->autoRenew_ == nullptr
         && this->autoRenewPeriod_ == nullptr && this->autoRenewPeriodUnit_ == nullptr && this->createTime_ == nullptr && this->dlfCatalogId_ == nullptr && this->dlfType_ == nullptr
-        && this->duration_ == nullptr && this->endTime_ == nullptr && this->failReason_ == nullptr && this->gpuSpec_ == nullptr && this->ipWhiteList_ == nullptr
-        && this->paymentDurationUnit_ == nullptr && this->paymentStatus_ == nullptr && this->paymentType_ == nullptr && this->prePaidQuota_ == nullptr && this->prePaidQuotaGpu_ == nullptr
-        && this->regionId_ == nullptr && this->releaseType_ == nullptr && this->resourceGroupId_ == nullptr && this->resourceSpec_ == nullptr && this->stateChangeReason_ == nullptr
-        && this->storage_ == nullptr && this->tags_ == nullptr && this->workspaceId_ == nullptr && this->workspaceName_ == nullptr && this->workspaceStatus_ == nullptr; };
+        && this->duration_ == nullptr && this->endTime_ == nullptr && this->failReason_ == nullptr && this->features_ == nullptr && this->gpuSpec_ == nullptr
+        && this->ipWhiteList_ == nullptr && this->paymentDurationUnit_ == nullptr && this->paymentStatus_ == nullptr && this->paymentType_ == nullptr && this->prePaidQuota_ == nullptr
+        && this->prePaidQuotaGpu_ == nullptr && this->regionId_ == nullptr && this->releaseType_ == nullptr && this->resourceGroupId_ == nullptr && this->resourceSpec_ == nullptr
+        && this->stateChangeReason_ == nullptr && this->storage_ == nullptr && this->tags_ == nullptr && this->workspaceId_ == nullptr && this->workspaceName_ == nullptr
+        && this->workspaceStatus_ == nullptr; };
       // autoRenew Field Functions 
       bool hasAutoRenew() const { return this->autoRenew_ != nullptr;};
       void deleteAutoRenew() { this->autoRenew_ = nullptr;};
@@ -578,6 +613,15 @@ namespace Models
       void deleteFailReason() { this->failReason_ = nullptr;};
       inline string getFailReason() const { DARABONBA_PTR_GET_DEFAULT(failReason_, "") };
       inline Workspaces& setFailReason(string failReason) { DARABONBA_PTR_SET_VALUE(failReason_, failReason) };
+
+
+      // features Field Functions 
+      bool hasFeatures() const { return this->features_ != nullptr;};
+      void deleteFeatures() { this->features_ = nullptr;};
+      inline const Workspaces::Features & getFeatures() const { DARABONBA_PTR_GET_CONST(features_, Workspaces::Features) };
+      inline Workspaces::Features getFeatures() { DARABONBA_PTR_GET(features_, Workspaces::Features) };
+      inline Workspaces& setFeatures(const Workspaces::Features & features) { DARABONBA_PTR_SET_VALUE(features_, features) };
+      inline Workspaces& setFeatures(Workspaces::Features && features) { DARABONBA_PTR_SET_RVALUE(features_, features) };
 
 
       // gpuSpec Field Functions 
@@ -712,11 +756,11 @@ namespace Models
 
 
     protected:
-      // Specifies whether to enable auto-renewal. This parameter is required for subscription resources.
+      // Specifies whether to enable auto-renewal. This parameter is required for the subscription billing method.
       shared_ptr<bool> autoRenew_ {};
-      // The auto-renewal duration. This parameter is required for subscription resources.
+      // The auto-renewal duration. This parameter is required for the subscription billing method.
       shared_ptr<int32_t> autoRenewPeriod_ {};
-      // The auto-renewal epoch. This parameter is required for subscription resources.
+      // The auto-renewal epoch. This parameter is required for the subscription billing method.
       shared_ptr<string> autoRenewPeriodUnit_ {};
       // The time when the workspace was created. The value is a UNIX timestamp in milliseconds.
       shared_ptr<int64_t> createTime_ {};
@@ -724,17 +768,19 @@ namespace Models
       shared_ptr<string> dlfCatalogId_ {};
       // The type of the associated DLF.
       shared_ptr<string> dlfType_ {};
-      // The duration of the subscription. This parameter is required for subscription resources.
+      // The duration of the subscription period. This parameter is required for the subscription billing method.
       shared_ptr<int32_t> duration_ {};
       // The time when the workspace was released. The value is a UNIX timestamp in milliseconds.
       shared_ptr<int64_t> endTime_ {};
       // The reason for the failure.
       shared_ptr<string> failReason_ {};
-      // The list of GPU models.
+      // The workspace features.
+      shared_ptr<Workspaces::Features> features_ {};
+      // The list of GPU instance types.
       shared_ptr<vector<string>> gpuSpec_ {};
-      // The IP whitelist of the workspace.
+      // The workspace IP whitelist.
       shared_ptr<vector<string>> ipWhiteList_ {};
-      // The unit of the subscription period. This parameter is required for subscription resources.
+      // The unit of the subscription period. This parameter is required for the subscription billing method.
       shared_ptr<string> paymentDurationUnit_ {};
       // The payment status.
       shared_ptr<string> paymentStatus_ {};
@@ -806,9 +852,9 @@ namespace Models
 
 
   protected:
-    // The maximum number of records to return in a single request.
+    // The maximum number of results to return in a single request.
     shared_ptr<int32_t> maxResults_ {};
-    // The next token.
+    // The token for the next page.
     shared_ptr<string> nextToken_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

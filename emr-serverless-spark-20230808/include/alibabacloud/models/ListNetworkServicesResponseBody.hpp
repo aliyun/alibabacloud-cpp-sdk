@@ -111,9 +111,9 @@ namespace Models
 
 
       protected:
-        // This parameter is deprecated.
+        // The deprecated parameter.
         shared_ptr<string> code_ {};
-        // This parameter is deprecated.
+        // The deprecated parameter.
         shared_ptr<string> message_ {};
       };
 
@@ -181,21 +181,21 @@ namespace Models
 
 
     protected:
-      // This parameter is deprecated.
+      // The deprecated parameter.
       shared_ptr<string> name_ {};
-      // This parameter is deprecated.
+      // The deprecated parameter.
       shared_ptr<string> networkServiceId_ {};
-      // This parameter is deprecated.
+      // The deprecated parameter.
       shared_ptr<string> state_ {};
-      // This parameter is deprecated.
+      // The deprecated parameter.
       shared_ptr<Queues::StateChangeReason> stateChangeReason_ {};
-      // This parameter is deprecated.
+      // The deprecated parameter.
       shared_ptr<string> type_ {};
-      // This parameter is deprecated.
+      // The deprecated parameter.
       shared_ptr<string> vpcId_ {};
-      // This parameter is deprecated.
+      // The deprecated parameter.
       shared_ptr<vector<string>> vswitchIds_ {};
-      // This parameter is deprecated.
+      // The deprecated parameter.
       shared_ptr<string> workspaceId_ {};
     };
 
@@ -272,7 +272,7 @@ namespace Models
       protected:
         // The status code.
         shared_ptr<string> code_ {};
-        // The message that provides details about the state change.
+        // The response message.
         shared_ptr<string> message_ {};
       };
 
@@ -340,21 +340,21 @@ namespace Models
 
 
     protected:
-      // The name of the network connection.
+      // The name of the network connectivity.
       shared_ptr<string> name_ {};
-      // The ID of the network connection.
+      // The network connectivity ID.
       shared_ptr<string> networkServiceId_ {};
-      // The state of the network connection.
+      // The state.
       shared_ptr<string> state_ {};
       // The reason for the state change.
       shared_ptr<NetworkServices::StateChangeReason> stateChangeReason_ {};
-      // The type of the network connection.
+      // The type.
       shared_ptr<string> type_ {};
       // The VPC ID.
       shared_ptr<string> vpcId_ {};
       // The list of vSwitch IDs.
       shared_ptr<vector<string>> vswitchIds_ {};
-      // The ID of the workspace.
+      // The workspace ID.
       shared_ptr<string> workspaceId_ {};
     };
 
@@ -407,17 +407,17 @@ namespace Models
 
 
   protected:
-    // The maximum number of entries to return on each page.
+    // The maximum number of records returned per request.
     shared_ptr<int32_t> maxResults_ {};
-    // A list of network connections.
+    // The list of network connectivity.
     shared_ptr<vector<ListNetworkServicesResponseBody::NetworkServices>> networkServices_ {};
-    // The pagination token that is used in the next request to retrieve a new page of results. If this parameter is empty, all results have been returned.
+    // The next page token.
     shared_ptr<string> nextToken_ {};
-    // This parameter is deprecated.
+    // The deprecated parameter.
     shared_ptr<vector<ListNetworkServicesResponseBody::Queues>> queues_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The total number of entries.
+    // The total number of records.
     shared_ptr<int32_t> totalCount_ {};
   };
 

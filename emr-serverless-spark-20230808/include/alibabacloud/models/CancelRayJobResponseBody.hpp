@@ -50,7 +50,7 @@ namespace Models
   protected:
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the cancellation is successfully triggered.
+    // Indicates whether the cancellation was successfully triggered.
     shared_ptr<bool> success_ {};
   };
 

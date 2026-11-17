@@ -100,9 +100,9 @@ namespace Models
 
 
     protected:
-      // The resource upper limit of the workspace queue.
+      // The resource limit for the workspace queue.
       shared_ptr<int64_t> cu_ {};
-      // The number of GPU cards.
+      // The number of GPUs.
       shared_ptr<int32_t> gpu_ {};
       // The number of GPU machines.
       shared_ptr<int32_t> gpuMachineNum_ {};
@@ -178,12 +178,12 @@ namespace Models
   protected:
     // The description.
     shared_ptr<string> description_ {};
-    // The environment type of the queue.
+    // The queue environment type.
     shared_ptr<vector<string>> environments_ {};
-    // The list of GPU models.
+    // The list of GPU instance types.
     shared_ptr<vector<string>> gpuSpec_ {};
     shared_ptr<string> instanceId_ {};
-    // The resource quota.
+    // The resource specifications.
     shared_ptr<EditWorkspaceQueueRequest::ResourceSpec> resourceSpec_ {};
     // The workspace ID.
     shared_ptr<string> workspaceId_ {};

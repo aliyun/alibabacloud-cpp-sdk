@@ -112,7 +112,9 @@ namespace Models
 
 
     protected:
+      // The used bandwidth.
       shared_ptr<int64_t> bandWidth_ {};
+      // The used storage capacity.
       shared_ptr<int64_t> storage_ {};
     };
 
@@ -154,7 +156,9 @@ namespace Models
 
 
     protected:
+      // The tag key.
       shared_ptr<string> key_ {};
+      // The tag value.
       shared_ptr<string> value_ {};
     };
 
@@ -223,10 +227,15 @@ namespace Models
 
 
     protected:
+      // The data catalog ID.
       shared_ptr<string> catalogId_ {};
+      // The data catalog provider.
       shared_ptr<string> catalogProvider_ {};
+      // The database name.
       shared_ptr<string> database_ {};
+      // The data table name.
       shared_ptr<string> table_ {};
+      // The workspace ID.
       shared_ptr<string> workspaceId_ {};
     };
 
@@ -277,8 +286,11 @@ namespace Models
 
 
     protected:
+      // The bandwidth.
       shared_ptr<int64_t> bandWidth_ {};
+      // Specifies whether high availability is enabled.
       shared_ptr<bool> ha_ {};
+      // The physical storage.
       shared_ptr<int64_t> storage_ {};
     };
 
@@ -320,7 +332,9 @@ namespace Models
 
 
     protected:
+      // The content of the configuration file.
       shared_ptr<string> content_ {};
+      // The name of the configuration file.
       shared_ptr<string> name_ {};
     };
 
@@ -362,7 +376,9 @@ namespace Models
 
 
     protected:
+      // The name of the cache set.
       shared_ptr<string> name_ {};
+      // The path of the cache set.
       shared_ptr<string> path_ {};
     };
 
@@ -548,28 +564,49 @@ namespace Models
 
 
   protected:
+    // The associated workspaces.
     shared_ptr<vector<string>> bindedWorkspaces_ {};
+    // The cache cluster ID.
     shared_ptr<string> cacheClusterId_ {};
+    // The cache cluster name.
     shared_ptr<string> cacheClusterName_ {};
+    // The list of cache sets associated with the cache cluster.
     shared_ptr<vector<CacheCluster::Cachesets>> cachesets_ {};
+    // The cache cluster ID.
     shared_ptr<string> clusterId_ {};
     shared_ptr<string> configuration_ {};
+    // The list of configuration files for the cache cluster.
     shared_ptr<vector<CacheCluster::Configurations>> configurations_ {};
+    // The creation time.
     shared_ptr<string> createTime_ {};
+    // The creator UID.
     shared_ptr<string> creator_ {};
     shared_ptr<string> extra_ {};
+    // The creation time. The value is a UNIX timestamp in milliseconds.
     shared_ptr<int64_t> gmtCreated_ {};
+    // The modification time. The value is a UNIX timestamp in milliseconds.
     shared_ptr<int64_t> gmtModified_ {};
+    // The modifier UID.
     shared_ptr<string> modifier_ {};
+    // The cache cluster name.
     shared_ptr<string> name_ {};
+    // The billing method.
     shared_ptr<string> paymentType_ {};
+    // The region ID.
     shared_ptr<string> regionId_ {};
+    // The resource group ID.
     shared_ptr<string> resourceGroupId_ {};
+    // The cache cluster specifications.
     shared_ptr<CacheCluster::ResourceSpec> resourceSpec_ {};
+    // The cache cluster status.
     shared_ptr<string> state_ {};
+    // The list of data tables associated with the cache cluster.
     shared_ptr<vector<CacheCluster::Tables>> tables_ {};
+    // The list of tags for the cache cluster.
     shared_ptr<vector<CacheCluster::Tags>> tags_ {};
+    // The resource specifications used by the cache cluster.
     shared_ptr<CacheCluster::UsedResourceSpec> usedResourceSpec_ {};
+    // The cache cluster version.
     shared_ptr<string> version_ {};
   };
 

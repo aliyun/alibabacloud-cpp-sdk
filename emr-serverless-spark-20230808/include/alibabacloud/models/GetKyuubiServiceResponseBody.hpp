@@ -35,6 +35,7 @@ namespace Models
     public:
       friend void to_json(Darabonba::Json& j, const Data& obj) { 
         DARABONBA_PTR_TO_JSON(computeInstance, computeInstance_);
+        DARABONBA_PTR_TO_JSON(configRefreshRequired, configRefreshRequired_);
         DARABONBA_PTR_TO_JSON(createTime, createTime_);
         DARABONBA_PTR_TO_JSON(creator, creator_);
         DARABONBA_PTR_TO_JSON(innerEndpoint, innerEndpoint_);
@@ -45,6 +46,7 @@ namespace Models
         DARABONBA_PTR_TO_JSON(publicEndpoint, publicEndpoint_);
         DARABONBA_PTR_TO_JSON(publicEndpointEnabled, publicEndpointEnabled_);
         DARABONBA_PTR_TO_JSON(queue, queue_);
+        DARABONBA_PTR_TO_JSON(readyReplicas, readyReplicas_);
         DARABONBA_PTR_TO_JSON(releaseVersion, releaseVersion_);
         DARABONBA_PTR_TO_JSON(replica, replica_);
         DARABONBA_PTR_TO_JSON(sparkConfigs, sparkConfigs_);
@@ -53,6 +55,7 @@ namespace Models
       };
       friend void from_json(const Darabonba::Json& j, Data& obj) { 
         DARABONBA_PTR_FROM_JSON(computeInstance, computeInstance_);
+        DARABONBA_PTR_FROM_JSON(configRefreshRequired, configRefreshRequired_);
         DARABONBA_PTR_FROM_JSON(createTime, createTime_);
         DARABONBA_PTR_FROM_JSON(creator, creator_);
         DARABONBA_PTR_FROM_JSON(innerEndpoint, innerEndpoint_);
@@ -63,6 +66,7 @@ namespace Models
         DARABONBA_PTR_FROM_JSON(publicEndpoint, publicEndpoint_);
         DARABONBA_PTR_FROM_JSON(publicEndpointEnabled, publicEndpointEnabled_);
         DARABONBA_PTR_FROM_JSON(queue, queue_);
+        DARABONBA_PTR_FROM_JSON(readyReplicas, readyReplicas_);
         DARABONBA_PTR_FROM_JSON(releaseVersion, releaseVersion_);
         DARABONBA_PTR_FROM_JSON(replica, replica_);
         DARABONBA_PTR_FROM_JSON(sparkConfigs, sparkConfigs_);
@@ -81,14 +85,22 @@ namespace Models
       virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
       virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
       virtual bool empty() const override { return this->computeInstance_ == nullptr
-        && this->createTime_ == nullptr && this->creator_ == nullptr && this->innerEndpoint_ == nullptr && this->kyuubiConfigs_ == nullptr && this->kyuubiReleaseVersion_ == nullptr
-        && this->kyuubiServiceId_ == nullptr && this->name_ == nullptr && this->publicEndpoint_ == nullptr && this->publicEndpointEnabled_ == nullptr && this->queue_ == nullptr
-        && this->releaseVersion_ == nullptr && this->replica_ == nullptr && this->sparkConfigs_ == nullptr && this->startTime_ == nullptr && this->state_ == nullptr; };
+        && this->configRefreshRequired_ == nullptr && this->createTime_ == nullptr && this->creator_ == nullptr && this->innerEndpoint_ == nullptr && this->kyuubiConfigs_ == nullptr
+        && this->kyuubiReleaseVersion_ == nullptr && this->kyuubiServiceId_ == nullptr && this->name_ == nullptr && this->publicEndpoint_ == nullptr && this->publicEndpointEnabled_ == nullptr
+        && this->queue_ == nullptr && this->readyReplicas_ == nullptr && this->releaseVersion_ == nullptr && this->replica_ == nullptr && this->sparkConfigs_ == nullptr
+        && this->startTime_ == nullptr && this->state_ == nullptr; };
       // computeInstance Field Functions 
       bool hasComputeInstance() const { return this->computeInstance_ != nullptr;};
       void deleteComputeInstance() { this->computeInstance_ = nullptr;};
       inline string getComputeInstance() const { DARABONBA_PTR_GET_DEFAULT(computeInstance_, "") };
       inline Data& setComputeInstance(string computeInstance) { DARABONBA_PTR_SET_VALUE(computeInstance_, computeInstance) };
+
+
+      // configRefreshRequired Field Functions 
+      bool hasConfigRefreshRequired() const { return this->configRefreshRequired_ != nullptr;};
+      void deleteConfigRefreshRequired() { this->configRefreshRequired_ = nullptr;};
+      inline bool getConfigRefreshRequired() const { DARABONBA_PTR_GET_DEFAULT(configRefreshRequired_, false) };
+      inline Data& setConfigRefreshRequired(bool configRefreshRequired) { DARABONBA_PTR_SET_VALUE(configRefreshRequired_, configRefreshRequired) };
 
 
       // createTime Field Functions 
@@ -161,6 +173,13 @@ namespace Models
       inline Data& setQueue(string queue) { DARABONBA_PTR_SET_VALUE(queue_, queue) };
 
 
+      // readyReplicas Field Functions 
+      bool hasReadyReplicas() const { return this->readyReplicas_ != nullptr;};
+      void deleteReadyReplicas() { this->readyReplicas_ = nullptr;};
+      inline int32_t getReadyReplicas() const { DARABONBA_PTR_GET_DEFAULT(readyReplicas_, 0) };
+      inline Data& setReadyReplicas(int32_t readyReplicas) { DARABONBA_PTR_SET_VALUE(readyReplicas_, readyReplicas) };
+
+
       // releaseVersion Field Functions 
       bool hasReleaseVersion() const { return this->releaseVersion_ != nullptr;};
       void deleteReleaseVersion() { this->releaseVersion_ = nullptr;};
@@ -199,35 +218,39 @@ namespace Models
     protected:
       // The Kyuubi service specifications.
       shared_ptr<string> computeInstance_ {};
+      // Indicates whether the Kyuubi configuration needs to be updated.
+      shared_ptr<bool> configRefreshRequired_ {};
       // The creation time. The value is a UNIX timestamp in milliseconds.
       shared_ptr<string> createTime_ {};
       // The UID of the creator.
       shared_ptr<string> creator_ {};
-      // The internal network domain name.
+      // The internal domain name.
       shared_ptr<string> innerEndpoint_ {};
-      // The Kyuubi service configuration.
+      // The Kyuubi service configurations.
       shared_ptr<string> kyuubiConfigs_ {};
       // The Kyuubi service DPI engine version.
       shared_ptr<string> kyuubiReleaseVersion_ {};
-      // Kyuubi Service ID。
+      // The Kyuubi service ID.
       shared_ptr<string> kyuubiServiceId_ {};
       // The Kyuubi service name.
       shared_ptr<string> name_ {};
       // The public domain name.
       shared_ptr<string> publicEndpoint_ {};
-      // Specifies whether public network access is enabled.
+      // Indicates whether public network access is enabled.
       shared_ptr<bool> publicEndpointEnabled_ {};
       // The queue name.
       shared_ptr<string> queue_ {};
+      // The ready Kyuubi instances.
+      shared_ptr<int32_t> readyReplicas_ {};
       // The Spark DPI engine version.
       shared_ptr<string> releaseVersion_ {};
-      // The number of replicas enabled for high availability.
+      // The number of high availability replicas.
       shared_ptr<int32_t> replica_ {};
-      // The Spark configuration.
+      // The Spark configurations.
       shared_ptr<string> sparkConfigs_ {};
       // The start time. The value is a UNIX timestamp in milliseconds.
       shared_ptr<string> startTime_ {};
-      // The Kyuubi service status.
+      // The Kyuubi service state.
       shared_ptr<string> state_ {};
     };
 

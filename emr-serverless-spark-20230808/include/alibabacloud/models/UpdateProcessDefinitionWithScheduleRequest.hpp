@@ -130,23 +130,23 @@ namespace Models
 
 
     protected:
-      // The name of the node topology relationship. Set this parameter to the workflow name.
+      // The name of the task topology relationship. Set this parameter to the workflow name.
       // 
       // This parameter is required.
       shared_ptr<string> name_ {};
-      // The downstream node ID.
+      // The downstream task ID.
       // 
       // This parameter is required.
       shared_ptr<int64_t> postTaskCode_ {};
-      // The downstream node version.
+      // The downstream task version.
       // 
       // This parameter is required.
       shared_ptr<int32_t> postTaskVersion_ {};
-      // The upstream node ID.
+      // The upstream task ID.
       // 
       // This parameter is required.
       shared_ptr<int64_t> preTaskCode_ {};
-      // The upstream node version.
+      // The upstream task version.
       // 
       // This parameter is required.
       shared_ptr<int32_t> preTaskVersion_ {};
@@ -340,9 +340,13 @@ namespace Models
 
 
         protected:
+          // The parameter direction. Valid values: IN (input) and OUT (output).
           shared_ptr<string> direct_ {};
+          // The parameter name.
           shared_ptr<string> prop_ {};
+          // The data type of the parameter.
           shared_ptr<string> type_ {};
+          // The parameter value.
           shared_ptr<string> value_ {};
         };
 
@@ -473,28 +477,29 @@ namespace Models
         shared_ptr<string> environmentId_ {};
         // Specifies whether to enable Fusion engine acceleration.
         shared_ptr<bool> fusion_ {};
+        // The list of local parameters for the task.
         shared_ptr<vector<TaskParams::LocalParams>> localParams_ {};
-        // The name of the queue for running the node.
+        // The name of the queue used to run the task.
         // 
         // This parameter is required.
         shared_ptr<string> resourceQueueId_ {};
-        // The Spark node configuration.
+        // The Spark task configurations.
         shared_ptr<vector<TaskParams::SparkConf>> sparkConf_ {};
         // The number of cores for the Spark driver.
         shared_ptr<int32_t> sparkDriverCores_ {};
-        // The memory for the Spark driver.
+        // The memory size for the Spark driver.
         shared_ptr<int64_t> sparkDriverMemory_ {};
         // The number of cores for the Spark executor.
         shared_ptr<int32_t> sparkExecutorCores_ {};
-        // The memory for the Spark executor.
+        // The memory size for the Spark executor.
         shared_ptr<int64_t> sparkExecutorMemory_ {};
         // The Spark log level.
         shared_ptr<string> sparkLogLevel_ {};
-        // The log path of the Spark node.
+        // The log path for the Spark node.
         shared_ptr<string> sparkLogPath_ {};
         // The Spark engine version.
         shared_ptr<string> sparkVersion_ {};
-        // The data development node ID.
+        // The data development task ID.
         // 
         // This parameter is required.
         shared_ptr<string> taskBizId_ {};
@@ -591,27 +596,27 @@ namespace Models
 
 
     protected:
-      // The alert email address.
+      // The email address for alert notifications.
       shared_ptr<string> alertEmailAddress_ {};
-      // The node definition ID.
+      // The task definition ID.
       // 
       // This parameter is required.
       shared_ptr<int64_t> code_ {};
-      // The node definition description.
+      // The task definition description.
       shared_ptr<string> description_ {};
-      // Specifies whether to enable alerts for node failures.
+      // Specifies whether to enable alerts for task failures.
       shared_ptr<bool> failAlertEnable_ {};
-      // The number of retries after a node fails.
+      // The number of retries allowed after a task failure.
       shared_ptr<int32_t> failRetryTimes_ {};
-      // The node name.
+      // The task name.
       // 
       // This parameter is required.
       shared_ptr<string> name_ {};
-      // Specifies whether to enable alerts for node startup.
+      // Specifies whether to enable alerts for task startup.
       shared_ptr<bool> startAlertEnable_ {};
       // The tags.
       shared_ptr<map<string, string>> tags_ {};
-      // The node definition parameters.
+      // The task definition parameters.
       // 
       // This parameter is required.
       shared_ptr<TaskDefinitionJson::TaskParams> taskParams_ {};
@@ -619,7 +624,7 @@ namespace Models
       // 
       // This parameter is required.
       shared_ptr<string> taskType_ {};
-      // The default timeout for node execution.
+      // The default timeout period for task execution.
       shared_ptr<int32_t> timeout_ {};
     };
 
@@ -679,7 +684,7 @@ namespace Models
 
 
     protected:
-      // The cron expression for scheduling.
+      // The cron expression for the schedule.
       shared_ptr<string> crontab_ {};
       // The end time of the schedule. Format: YYYY-MM-DD HH:mm:ss.
       shared_ptr<string> endTime_ {};
@@ -745,9 +750,13 @@ namespace Models
 
 
     protected:
+      // The parameter direction. Valid values: IN (input) and OUT (output).
       shared_ptr<string> direct_ {};
+      // The parameter name.
       shared_ptr<string> prop_ {};
+      // The data type of the parameter.
       shared_ptr<string> type_ {};
+      // The parameter value.
       shared_ptr<string> value_ {};
     };
 
@@ -893,14 +902,15 @@ namespace Models
 
 
   protected:
-    // The alert email address.
+    // The email address for alert notifications.
     shared_ptr<string> alertEmailAddress_ {};
     // The workflow description.
     shared_ptr<string> description_ {};
-    // The execution policy.
+    // The execution strategy.
     // 
     // This parameter is required.
     shared_ptr<string> executionType_ {};
+    // The list of global parameters for the workflow.
     shared_ptr<vector<UpdateProcessDefinitionWithScheduleRequest::GlobalParams>> globalParams_ {};
     // The workflow name.
     // 
@@ -922,21 +932,21 @@ namespace Models
     shared_ptr<int32_t> retryTimes_ {};
     // The execution user.
     shared_ptr<string> runAs_ {};
-    // The scheduling structure.
+    // The schedule structure.
     shared_ptr<UpdateProcessDefinitionWithScheduleRequest::Schedule> schedule_ {};
     // The tags.
     shared_ptr<map<string, string>> tags_ {};
-    // The JSON array of node definitions, which contains the description information of all nodes in the workflow.
+    // The JSON array of task definitions, which contains the description of all tasks in the workflow.
     // 
     // This parameter is required.
     shared_ptr<vector<UpdateProcessDefinitionWithScheduleRequest::TaskDefinitionJson>> taskDefinitionJson_ {};
-    // The concurrency of workflow node execution.
+    // The concurrency level for workflow node execution.
     shared_ptr<int32_t> taskParallelism_ {};
-    // The JSON array of node dependencies, which contains the dependencies among all nodes in the workflow. preTaskCode is the upstream node ID, and postTaskCode is the downstream node ID. Each node must have a unique ID. If a node does not have an upstream node, you must add a dependency with preTaskCode set to 0.
+    // The JSON array of task dependencies, which contains the dependencies among all tasks in the workflow. preTaskCode specifies the upstream task ID, and postTaskCode specifies the downstream task ID. Each task must have a unique ID. If a task node does not have an upstream task, you must add a dependency with preTaskCode set to 0.
     // 
     // This parameter is required.
     shared_ptr<vector<UpdateProcessDefinitionWithScheduleRequest::TaskRelationJson>> taskRelationJson_ {};
-    // The default timeout for workflow execution.
+    // The default timeout period for workflow execution.
     shared_ptr<int32_t> timeout_ {};
   };
 

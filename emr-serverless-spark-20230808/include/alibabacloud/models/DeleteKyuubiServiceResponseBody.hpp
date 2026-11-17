@@ -50,7 +50,7 @@ namespace Models
 
 
   protected:
-    // The returned data.
+    // The returned result.
     Darabonba::Json data_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

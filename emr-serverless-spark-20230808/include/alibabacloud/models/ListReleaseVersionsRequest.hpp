@@ -86,12 +86,13 @@ namespace Models
   protected:
     // The region ID.
     shared_ptr<string> regionId_ {};
-    // The version type.
+    // The release type.
     shared_ptr<string> releaseType_ {};
     // The Serverless Spark version.
     shared_ptr<string> releaseVersion_ {};
     // The version status.
     shared_ptr<string> releaseVersionStatus_ {};
+    // Filters available versions by service type. Valid values: kyuubi and ray.
     shared_ptr<string> serviceFilter_ {};
     // The workspace ID.
     shared_ptr<string> workspaceId_ {};

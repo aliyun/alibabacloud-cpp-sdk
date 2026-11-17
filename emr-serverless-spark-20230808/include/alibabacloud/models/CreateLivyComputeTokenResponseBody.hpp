@@ -100,7 +100,7 @@ namespace Models
 
 
   protected:
-    // The response code. A value of 1000000 indicates that the request was successful. Other values indicate that the request failed. See the message parameter for error details.
+    // The response code. A value of 1000000 indicates that the request is successful. Any other value indicates that the request failed. For more information about the error cause, see the message.
     shared_ptr<string> code_ {};
     // The returned data.
     shared_ptr<CreateLivyComputeTokenResponseBody::Data> data_ {};

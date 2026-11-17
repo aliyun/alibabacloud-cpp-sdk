@@ -66,13 +66,13 @@ namespace Models
 
 
   protected:
-    // The path of the startup file.
+    // The path to the startup file.
     shared_ptr<string> driverStartup_ {};
-    // The path of the stderr file.
+    // The path to the stderr file.
     shared_ptr<string> driverStdError_ {};
-    // The path of the stdout file.
+    // The path to the stdout file.
     shared_ptr<string> driverStdOut_ {};
-    // The path of the syslog file.
+    // The path to the syslog file.
     shared_ptr<string> driverSyslog_ {};
   };
 

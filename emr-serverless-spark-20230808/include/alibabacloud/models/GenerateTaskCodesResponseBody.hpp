@@ -97,7 +97,7 @@ namespace Models
 
 
   protected:
-    // The error code.
+    // The error code of the request.
     shared_ptr<int32_t> code_ {};
     // The returned data.
     shared_ptr<vector<int64_t>> data_ {};
@@ -105,11 +105,11 @@ namespace Models
     shared_ptr<bool> failed_ {};
     // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
-    // The error message.
+    // The detailed description corresponding to the request error code.
     shared_ptr<string> msg_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request was successful.
+    // Indicates whether the request is successful.
     shared_ptr<bool> success_ {};
   };
 

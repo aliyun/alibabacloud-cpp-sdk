@@ -55,6 +55,7 @@ namespace Models
         DARABONBA_PTR_TO_JSON(displayReleaseVersion, displayReleaseVersion_);
         DARABONBA_PTR_TO_JSON(endTime, endTime_);
         DARABONBA_PTR_TO_JSON(executionTimeoutSeconds, executionTimeoutSeconds_);
+        DARABONBA_PTR_TO_JSON(firstReportTime, firstReportTime_);
         DARABONBA_PTR_TO_JSON(fusion, fusion_);
         DARABONBA_PTR_TO_JSON(jobDriver, jobDriver_);
         DARABONBA_PTR_TO_JSON(jobRunId, jobRunId_);
@@ -64,6 +65,8 @@ namespace Models
         DARABONBA_PTR_TO_JSON(priority, priority_);
         DARABONBA_PTR_TO_JSON(releaseVersion, releaseVersion_);
         DARABONBA_PTR_TO_JSON(resourceQueueId, resourceQueueId_);
+        DARABONBA_PTR_TO_JSON(resourceStartupDurationMs, resourceStartupDurationMs_);
+        DARABONBA_PTR_TO_JSON(runDurationMs, runDurationMs_);
         DARABONBA_PTR_TO_JSON(state, state_);
         DARABONBA_PTR_TO_JSON(stateChangeReason, stateChangeReason_);
         DARABONBA_PTR_TO_JSON(submitTime, submitTime_);
@@ -80,6 +83,7 @@ namespace Models
         DARABONBA_PTR_FROM_JSON(displayReleaseVersion, displayReleaseVersion_);
         DARABONBA_PTR_FROM_JSON(endTime, endTime_);
         DARABONBA_PTR_FROM_JSON(executionTimeoutSeconds, executionTimeoutSeconds_);
+        DARABONBA_PTR_FROM_JSON(firstReportTime, firstReportTime_);
         DARABONBA_PTR_FROM_JSON(fusion, fusion_);
         DARABONBA_PTR_FROM_JSON(jobDriver, jobDriver_);
         DARABONBA_PTR_FROM_JSON(jobRunId, jobRunId_);
@@ -89,6 +93,8 @@ namespace Models
         DARABONBA_PTR_FROM_JSON(priority, priority_);
         DARABONBA_PTR_FROM_JSON(releaseVersion, releaseVersion_);
         DARABONBA_PTR_FROM_JSON(resourceQueueId, resourceQueueId_);
+        DARABONBA_PTR_FROM_JSON(resourceStartupDurationMs, resourceStartupDurationMs_);
+        DARABONBA_PTR_FROM_JSON(runDurationMs, runDurationMs_);
         DARABONBA_PTR_FROM_JSON(state, state_);
         DARABONBA_PTR_FROM_JSON(stateChangeReason, stateChangeReason_);
         DARABONBA_PTR_FROM_JSON(submitTime, submitTime_);
@@ -188,10 +194,10 @@ namespace Models
 
       virtual bool empty() const override { return this->codeType_ == nullptr
         && this->configurationOverrides_ == nullptr && this->creator_ == nullptr && this->cuHours_ == nullptr && this->displayReleaseVersion_ == nullptr && this->endTime_ == nullptr
-        && this->executionTimeoutSeconds_ == nullptr && this->fusion_ == nullptr && this->jobDriver_ == nullptr && this->jobRunId_ == nullptr && this->log_ == nullptr
-        && this->mbSeconds_ == nullptr && this->name_ == nullptr && this->priority_ == nullptr && this->releaseVersion_ == nullptr && this->resourceQueueId_ == nullptr
-        && this->state_ == nullptr && this->stateChangeReason_ == nullptr && this->submitTime_ == nullptr && this->tags_ == nullptr && this->vcoreSeconds_ == nullptr
-        && this->webUI_ == nullptr && this->workspaceId_ == nullptr; };
+        && this->executionTimeoutSeconds_ == nullptr && this->firstReportTime_ == nullptr && this->fusion_ == nullptr && this->jobDriver_ == nullptr && this->jobRunId_ == nullptr
+        && this->log_ == nullptr && this->mbSeconds_ == nullptr && this->name_ == nullptr && this->priority_ == nullptr && this->releaseVersion_ == nullptr
+        && this->resourceQueueId_ == nullptr && this->resourceStartupDurationMs_ == nullptr && this->runDurationMs_ == nullptr && this->state_ == nullptr && this->stateChangeReason_ == nullptr
+        && this->submitTime_ == nullptr && this->tags_ == nullptr && this->vcoreSeconds_ == nullptr && this->webUI_ == nullptr && this->workspaceId_ == nullptr; };
       // codeType Field Functions 
       bool hasCodeType() const { return this->codeType_ != nullptr;};
       void deleteCodeType() { this->codeType_ = nullptr;};
@@ -241,6 +247,13 @@ namespace Models
       void deleteExecutionTimeoutSeconds() { this->executionTimeoutSeconds_ = nullptr;};
       inline int32_t getExecutionTimeoutSeconds() const { DARABONBA_PTR_GET_DEFAULT(executionTimeoutSeconds_, 0) };
       inline JobRuns& setExecutionTimeoutSeconds(int32_t executionTimeoutSeconds) { DARABONBA_PTR_SET_VALUE(executionTimeoutSeconds_, executionTimeoutSeconds) };
+
+
+      // firstReportTime Field Functions 
+      bool hasFirstReportTime() const { return this->firstReportTime_ != nullptr;};
+      void deleteFirstReportTime() { this->firstReportTime_ = nullptr;};
+      inline int64_t getFirstReportTime() const { DARABONBA_PTR_GET_DEFAULT(firstReportTime_, 0L) };
+      inline JobRuns& setFirstReportTime(int64_t firstReportTime) { DARABONBA_PTR_SET_VALUE(firstReportTime_, firstReportTime) };
 
 
       // fusion Field Functions 
@@ -310,6 +323,20 @@ namespace Models
       inline JobRuns& setResourceQueueId(string resourceQueueId) { DARABONBA_PTR_SET_VALUE(resourceQueueId_, resourceQueueId) };
 
 
+      // resourceStartupDurationMs Field Functions 
+      bool hasResourceStartupDurationMs() const { return this->resourceStartupDurationMs_ != nullptr;};
+      void deleteResourceStartupDurationMs() { this->resourceStartupDurationMs_ = nullptr;};
+      inline int64_t getResourceStartupDurationMs() const { DARABONBA_PTR_GET_DEFAULT(resourceStartupDurationMs_, 0L) };
+      inline JobRuns& setResourceStartupDurationMs(int64_t resourceStartupDurationMs) { DARABONBA_PTR_SET_VALUE(resourceStartupDurationMs_, resourceStartupDurationMs) };
+
+
+      // runDurationMs Field Functions 
+      bool hasRunDurationMs() const { return this->runDurationMs_ != nullptr;};
+      void deleteRunDurationMs() { this->runDurationMs_ = nullptr;};
+      inline int64_t getRunDurationMs() const { DARABONBA_PTR_GET_DEFAULT(runDurationMs_, 0L) };
+      inline JobRuns& setRunDurationMs(int64_t runDurationMs) { DARABONBA_PTR_SET_VALUE(runDurationMs_, runDurationMs) };
+
+
       // state Field Functions 
       bool hasState() const { return this->state_ != nullptr;};
       void deleteState() { this->state_ = nullptr;};
@@ -372,21 +399,23 @@ namespace Models
       // 
       // PYTHON.
       shared_ptr<string> codeType_ {};
-      // The advanced Spark configurations. This parameter is not returned by the List operation.
+      // The advanced Spark configurations. This parameter is not returned by the list operation.
       shared_ptr<JobRuns::ConfigurationOverrides> configurationOverrides_ {};
       // The UID of the user who created the job.
       shared_ptr<string> creator_ {};
-      // The number of compute units (CUs) consumed during the job run. This value is an estimate and the final value is subject to the bill.
+      // The number of compute units (CUs) consumed during the job run. This value is an estimate. The actual value is subject to the bill.
       shared_ptr<double> cuHours_ {};
-      // The Spark DPI engine version of the running job.
+      // The Spark engine version used to run the node.
       shared_ptr<string> displayReleaseVersion_ {};
       // The time when the job ended. The value is a UNIX timestamp in milliseconds.
       shared_ptr<int64_t> endTime_ {};
       // The execution timeout period.
       shared_ptr<int32_t> executionTimeoutSeconds_ {};
+      // The timestamp in milliseconds when the resources are ready, which is the first report time. If the first report time is empty, the job report time is used. If both are empty, null is returned.
+      shared_ptr<int64_t> firstReportTime_ {};
       // Specifies whether Fusion engine acceleration is enabled.
       shared_ptr<bool> fusion_ {};
-      // The information about the Spark driver. This parameter is not returned by the List operation.
+      // The information about the Spark driver. This parameter is not returned by the list operation.
       shared_ptr<JobDriver> jobDriver_ {};
       // The ID of the job run.
       shared_ptr<string> jobRunId_ {};
@@ -398,10 +427,14 @@ namespace Models
       shared_ptr<string> name_ {};
       // The priority of the Spark job.
       shared_ptr<string> priority_ {};
-      // The Spark DPI engine version of the running job.
+      // The Spark engine version used to run the node.
       shared_ptr<string> releaseVersion_ {};
       // The name of the resource queue in which the Spark job runs.
       shared_ptr<string> resourceQueueId_ {};
+      // The resource startup duration in milliseconds. It is calculated by subtracting the first submission time from the resource ready time. If the first submission time or the resource ready time is missing, or if the calculation result is negative, null is returned instead of 0.
+      shared_ptr<int64_t> resourceStartupDurationMs_ {};
+      // The job run duration in milliseconds. It is calculated by subtracting the resource ready time from the job end time. If the job has not ended, the current time is used. If the resource ready time is missing, or if the calculation result is negative, null is returned instead of 0.
+      shared_ptr<int64_t> runDurationMs_ {};
       // The states of the job runs.
       shared_ptr<string> state_ {};
       // The reason for the state change.
@@ -471,7 +504,7 @@ namespace Models
     shared_ptr<map<string, string>> aggregations_ {};
     // The list of Spark job runs.
     shared_ptr<vector<ListJobRunsResponseBody::JobRuns>> jobRuns_ {};
-    // The maximum number of records returned for the request.
+    // The maximum number of records returned for the current request.
     shared_ptr<int32_t> maxResults_ {};
     // The position of the data read.
     shared_ptr<string> nextToken_ {};

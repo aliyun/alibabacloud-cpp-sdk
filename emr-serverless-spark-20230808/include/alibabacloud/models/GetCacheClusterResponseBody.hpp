@@ -51,7 +51,7 @@ namespace Models
 
 
   protected:
-    // The list of Cache clusters.
+    // The list of cache clusters.
     shared_ptr<CacheCluster> cacheClusters_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};

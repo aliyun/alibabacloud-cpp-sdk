@@ -59,9 +59,9 @@ namespace Models
   protected:
     // The full path of the file.
     shared_ptr<string> fileName_ {};
-    // The maximum number of records to return for a single request.
+    // The maximum number of records to retrieve at a time.
     shared_ptr<int32_t> maxResults_ {};
-    // The token that specifies the position from which to start reading the results.
+    // The token that indicates the starting position for reading.
     shared_ptr<string> nextToken_ {};
   };
 

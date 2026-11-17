@@ -39,7 +39,7 @@ namespace EmrServerlessSpark20230808
       Models::ActivateAICenterResponse activateAICenter(const string &workspaceId, const Models::ActivateAICenterRequest &request);
 
       /**
-       * @summary Adds a Resource Access Management (RAM) user or a RAM role to a workspace as a member.
+       * @summary Invokes AddMembers to add Resource Access Management (RAM) users or RAM roles to a workspace as new members.
        *
        * @param request AddMembersRequest
        * @param headers map
@@ -49,7 +49,7 @@ namespace EmrServerlessSpark20230808
       Models::AddMembersResponse addMembersWithOptions(const Models::AddMembersRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Adds a Resource Access Management (RAM) user or a RAM role to a workspace as a member.
+       * @summary Invokes AddMembers to add Resource Access Management (RAM) users or RAM roles to a workspace as new members.
        *
        * @param request AddMembersRequest
        * @return AddMembersResponse
@@ -57,7 +57,7 @@ namespace EmrServerlessSpark20230808
       Models::AddMembersResponse addMembers(const Models::AddMembersRequest &request);
 
       /**
-       * @summary Terminates a Spark job.
+       * @summary Terminates a running Spark job.
        *
        * @param request CancelJobRunRequest
        * @param headers map
@@ -67,7 +67,7 @@ namespace EmrServerlessSpark20230808
       Models::CancelJobRunResponse cancelJobRunWithOptions(const string &workspaceId, const string &jobRunId, const Models::CancelJobRunRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Terminates a Spark job.
+       * @summary Terminates a running Spark job.
        *
        * @param request CancelJobRunRequest
        * @return CancelJobRunResponse
@@ -75,7 +75,7 @@ namespace EmrServerlessSpark20230808
       Models::CancelJobRunResponse cancelJobRun(const string &workspaceId, const string &jobRunId, const Models::CancelJobRunRequest &request);
 
       /**
-       * @summary Cancels a Kyuubi Spark application.
+       * @summary Cancels a Spark application submitted by Kyuubi.
        *
        * @param request CancelKyuubiSparkApplicationRequest
        * @param headers map
@@ -85,7 +85,7 @@ namespace EmrServerlessSpark20230808
       Models::CancelKyuubiSparkApplicationResponse cancelKyuubiSparkApplicationWithOptions(const string &workspaceId, const string &kyuubiServiceId, const string &applicationId, const Models::CancelKyuubiSparkApplicationRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Cancels a Kyuubi Spark application.
+       * @summary Cancels a Spark application submitted by Kyuubi.
        *
        * @param request CancelKyuubiSparkApplicationRequest
        * @return CancelKyuubiSparkApplicationResponse
@@ -93,7 +93,7 @@ namespace EmrServerlessSpark20230808
       Models::CancelKyuubiSparkApplicationResponse cancelKyuubiSparkApplication(const string &workspaceId, const string &kyuubiServiceId, const string &applicationId, const Models::CancelKyuubiSparkApplicationRequest &request);
 
       /**
-       * @summary Stops a RayJob.
+       * @summary Stops a Ray job.
        *
        * @param request CancelRayJobRequest
        * @param headers map
@@ -103,7 +103,7 @@ namespace EmrServerlessSpark20230808
       Models::CancelRayJobResponse cancelRayJobWithOptions(const string &workspaceId, const string &submissionId, const Models::CancelRayJobRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Stops a RayJob.
+       * @summary Stops a Ray job.
        *
        * @param request CancelRayJobRequest
        * @return CancelRayJobResponse
@@ -111,7 +111,7 @@ namespace EmrServerlessSpark20230808
       Models::CancelRayJobResponse cancelRayJob(const string &workspaceId, const string &submissionId, const Models::CancelRayJobRequest &request);
 
       /**
-       * @summary Moves an instance to a different resource group.
+       * @summary Updates the resource group of an instance.
        *
        * @param request ChangeResourceGroupRequest
        * @param headers map
@@ -121,7 +121,7 @@ namespace EmrServerlessSpark20230808
       Models::ChangeResourceGroupResponse changeResourceGroupWithOptions(const Models::ChangeResourceGroupRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Moves an instance to a different resource group.
+       * @summary Updates the resource group of an instance.
        *
        * @param request ChangeResourceGroupRequest
        * @return ChangeResourceGroupResponse
@@ -129,7 +129,7 @@ namespace EmrServerlessSpark20230808
       Models::ChangeResourceGroupResponse changeResourceGroup(const Models::ChangeResourceGroupRequest &request);
 
       /**
-       * @summary Creates a Kyuubi gateway.
+       * @summary Creates a Kyuubi Gateway.
        *
        * @param request CreateKyuubiServiceRequest
        * @param headers map
@@ -139,7 +139,7 @@ namespace EmrServerlessSpark20230808
       Models::CreateKyuubiServiceResponse createKyuubiServiceWithOptions(const string &workspaceId, const Models::CreateKyuubiServiceRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Creates a Kyuubi gateway.
+       * @summary Creates a Kyuubi Gateway.
        *
        * @param request CreateKyuubiServiceRequest
        * @return CreateKyuubiServiceResponse
@@ -183,7 +183,7 @@ namespace EmrServerlessSpark20230808
       Models::CreateLivyComputeResponse createLivyCompute(const string &workspaceBizId, const Models::CreateLivyComputeRequest &request);
 
       /**
-       * @summary Creates a token for a Livy Gateway.
+       * @summary Creates a token for Livy Gateway.
        *
        * @param request CreateLivyComputeTokenRequest
        * @param headers map
@@ -193,7 +193,7 @@ namespace EmrServerlessSpark20230808
       Models::CreateLivyComputeTokenResponse createLivyComputeTokenWithOptions(const string &workspaceBizId, const string &livyComputeId, const Models::CreateLivyComputeTokenRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Creates a token for a Livy Gateway.
+       * @summary Creates a token for Livy Gateway.
        *
        * @param request CreateLivyComputeTokenRequest
        * @return CreateLivyComputeTokenResponse
@@ -201,7 +201,7 @@ namespace EmrServerlessSpark20230808
       Models::CreateLivyComputeTokenResponse createLivyComputeToken(const string &workspaceBizId, const string &livyComputeId, const Models::CreateLivyComputeTokenRequest &request);
 
       /**
-       * @summary Creates a network service.
+       * @summary Creates network connectivity.
        *
        * @param request CreateNetworkServiceRequest
        * @param headers map
@@ -211,7 +211,7 @@ namespace EmrServerlessSpark20230808
       Models::CreateNetworkServiceResponse createNetworkServiceWithOptions(const string &workspaceId, const Models::CreateNetworkServiceRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Creates a network service.
+       * @summary Creates network connectivity.
        *
        * @param request CreateNetworkServiceRequest
        * @return CreateNetworkServiceResponse
@@ -273,7 +273,7 @@ namespace EmrServerlessSpark20230808
       Models::CreateSessionClusterResponse createSessionCluster(const string &workspaceId, const Models::CreateSessionClusterRequest &request);
 
       /**
-       * @summary Creates an SQL query.
+       * @summary Creates a SQL query.
        *
        * @param request CreateSqlStatementRequest
        * @param headers map
@@ -283,7 +283,7 @@ namespace EmrServerlessSpark20230808
       Models::CreateSqlStatementResponse createSqlStatementWithOptions(const string &workspaceId, const Models::CreateSqlStatementRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Creates an SQL query.
+       * @summary Creates a SQL query.
        *
        * @param request CreateSqlStatementRequest
        * @return CreateSqlStatementResponse
@@ -343,7 +343,7 @@ namespace EmrServerlessSpark20230808
       Models::DeleteKyuubiServiceResponse deleteKyuubiService(const string &workspaceId, const string &kyuubiServiceId);
 
       /**
-       * @summary Deletes a Kyuubi Gateway authentication token.
+       * @summary Deletes the Kyuubi Gateway authentication token.
        *
        * @param request DeleteKyuubiTokenRequest
        * @param headers map
@@ -353,7 +353,7 @@ namespace EmrServerlessSpark20230808
       Models::DeleteKyuubiTokenResponse deleteKyuubiTokenWithOptions(const string &workspaceId, const string &kyuubiServiceId, const string &tokenId, const Models::DeleteKyuubiTokenRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Deletes a Kyuubi Gateway authentication token.
+       * @summary Deletes the Kyuubi Gateway authentication token.
        *
        * @param request DeleteKyuubiTokenRequest
        * @return DeleteKyuubiTokenResponse
@@ -379,7 +379,7 @@ namespace EmrServerlessSpark20230808
       Models::DeleteLivyComputeResponse deleteLivyCompute(const string &workspaceBizId, const string &livyComputeId, const Models::DeleteLivyComputeRequest &request);
 
       /**
-       * @summary Deletes a token for a Livy Gateway.
+       * @summary Deletes a Livy Gateway token.
        *
        * @param request DeleteLivyComputeTokenRequest
        * @param headers map
@@ -389,7 +389,7 @@ namespace EmrServerlessSpark20230808
       Models::DeleteLivyComputeTokenResponse deleteLivyComputeTokenWithOptions(const string &workspaceBizId, const string &livyComputeId, const string &tokenId, const Models::DeleteLivyComputeTokenRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Deletes a token for a Livy Gateway.
+       * @summary Deletes a Livy Gateway token.
        *
        * @param request DeleteLivyComputeTokenRequest
        * @return DeleteLivyComputeTokenResponse
@@ -431,7 +431,7 @@ namespace EmrServerlessSpark20230808
       Models::DeleteWorkspaceQueueResponse deleteWorkspaceQueue(const string &workspaceId, const string &workspaceQueueName, const Models::DeleteWorkspaceQueueRequest &request);
 
       /**
-       * @summary Edits a workspace queue.
+       * @summary Modifies a workspace queue.
        *
        * @param request EditWorkspaceQueueRequest
        * @param headers map
@@ -441,7 +441,7 @@ namespace EmrServerlessSpark20230808
       Models::EditWorkspaceQueueResponse editWorkspaceQueueWithOptions(const Models::EditWorkspaceQueueRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Edits a workspace queue.
+       * @summary Modifies a workspace queue.
        *
        * @param request EditWorkspaceQueueRequest
        * @return EditWorkspaceQueueResponse
@@ -449,7 +449,7 @@ namespace EmrServerlessSpark20230808
       Models::EditWorkspaceQueueResponse editWorkspaceQueue(const Models::EditWorkspaceQueueRequest &request);
 
       /**
-       * @summary Publishes a workflow and its scheduling configuration.
+       * @summary Publishes a workflow and its schedule.
        *
        * @param request GenerateTaskCodesRequest
        * @param headers map
@@ -459,7 +459,7 @@ namespace EmrServerlessSpark20230808
       Models::GenerateTaskCodesResponse generateTaskCodesWithOptions(const string &bizId, const Models::GenerateTaskCodesRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Publishes a workflow and its scheduling configuration.
+       * @summary Publishes a workflow and its schedule.
        *
        * @param request GenerateTaskCodesRequest
        * @return GenerateTaskCodesResponse
@@ -485,7 +485,7 @@ namespace EmrServerlessSpark20230808
       Models::GetAICenterStateResponse getAICenterState(const string &workspaceId, const Models::GetAICenterStateRequest &request);
 
       /**
-       * @summary Retrieves the details of a Cache cluster.
+       * @summary Retrieves the details of a cache cluster.
        *
        * @param request GetCacheClusterRequest
        * @param headers map
@@ -495,7 +495,7 @@ namespace EmrServerlessSpark20230808
       Models::GetCacheClusterResponse getCacheClusterWithOptions(const string &cacheClusterId, const Models::GetCacheClusterRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Retrieves the details of a Cache cluster.
+       * @summary Retrieves the details of a cache cluster.
        *
        * @param request GetCacheClusterRequest
        * @return GetCacheClusterResponse
@@ -503,7 +503,7 @@ namespace EmrServerlessSpark20230808
       Models::GetCacheClusterResponse getCacheCluster(const string &cacheClusterId, const Models::GetCacheClusterRequest &request);
 
       /**
-       * @summary Queries the number of CU-hours consumed by a queue during a specified cycle.
+       * @summary Retrieves the CU hours of a workspace queue.
        *
        * @param request GetCuHoursRequest
        * @param headers map
@@ -513,7 +513,7 @@ namespace EmrServerlessSpark20230808
       Models::GetCuHoursResponse getCuHoursWithOptions(const string &workspaceId, const string &queue, const Models::GetCuHoursRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the number of CU-hours consumed by a queue during a specified cycle.
+       * @summary Retrieves the CU hours of a workspace queue.
        *
        * @param request GetCuHoursRequest
        * @return GetCuHoursResponse
@@ -539,7 +539,7 @@ namespace EmrServerlessSpark20230808
       Models::GetDoctorApplicationResponse getDoctorApplication(const string &workspaceId, const string &runId, const Models::GetDoctorApplicationRequest &request);
 
       /**
-       * @summary Retrieves the details of a Spark job run by calling GetJobRun.
+       * @summary Retrieves the details of a job run.
        *
        * @param request GetJobRunRequest
        * @param headers map
@@ -549,7 +549,7 @@ namespace EmrServerlessSpark20230808
       Models::GetJobRunResponse getJobRunWithOptions(const string &workspaceId, const string &jobRunId, const Models::GetJobRunRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Retrieves the details of a Spark job run by calling GetJobRun.
+       * @summary Retrieves the details of a job run.
        *
        * @param request GetJobRunRequest
        * @return GetJobRunResponse
@@ -557,7 +557,7 @@ namespace EmrServerlessSpark20230808
       Models::GetJobRunResponse getJobRun(const string &workspaceId, const string &jobRunId, const Models::GetJobRunRequest &request);
 
       /**
-       * @summary Retrieves a Kyuubi Gateway.
+       * @summary Retrieves the Kyuubi Gateway.
        *
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
@@ -566,7 +566,7 @@ namespace EmrServerlessSpark20230808
       Models::GetKyuubiServiceResponse getKyuubiServiceWithOptions(const string &workspaceId, const string &kyuubiServiceId, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Retrieves a Kyuubi Gateway.
+       * @summary Retrieves the Kyuubi Gateway.
        *
        * @return GetKyuubiServiceResponse
        */
@@ -591,7 +591,7 @@ namespace EmrServerlessSpark20230808
       Models::GetKyuubiTokenResponse getKyuubiToken(const string &workspaceId, const string &kyuubiServiceId, const string &tokenId, const Models::GetKyuubiTokenRequest &request);
 
       /**
-       * @summary Retrieves the Livy Gateway information.
+       * @summary Retrieves the details of a Livy gateway.
        *
        * @param request GetLivyComputeRequest
        * @param headers map
@@ -601,7 +601,7 @@ namespace EmrServerlessSpark20230808
       Models::GetLivyComputeResponse getLivyComputeWithOptions(const string &workspaceBizId, const string &livyComputeId, const Models::GetLivyComputeRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Retrieves the Livy Gateway information.
+       * @summary Retrieves the details of a Livy gateway.
        *
        * @param request GetLivyComputeRequest
        * @return GetLivyComputeResponse
@@ -609,7 +609,7 @@ namespace EmrServerlessSpark20230808
       Models::GetLivyComputeResponse getLivyCompute(const string &workspaceBizId, const string &livyComputeId, const Models::GetLivyComputeRequest &request);
 
       /**
-       * @summary Retrieves the token for a Livy Gateway.
+       * @summary Retrieves the token for the Livy Gateway.
        *
        * @param request GetLivyComputeTokenRequest
        * @param headers map
@@ -619,7 +619,7 @@ namespace EmrServerlessSpark20230808
       Models::GetLivyComputeTokenResponse getLivyComputeTokenWithOptions(const string &workspaceBizId, const string &livyComputeId, const string &tokenId, const Models::GetLivyComputeTokenRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Retrieves the token for a Livy Gateway.
+       * @summary Retrieves the token for the Livy Gateway.
        *
        * @param request GetLivyComputeTokenRequest
        * @return GetLivyComputeTokenResponse
@@ -679,7 +679,7 @@ namespace EmrServerlessSpark20230808
       Models::GetRayLogResponse getRayLog(const string &workspaceId, const string &instanceId, const Models::GetRayLogRequest &request);
 
       /**
-       * @summary Retrieves the configuration of a Spark job.
+       * @summary Retrieves the configuration of a Spark task.
        *
        * @param request GetRunConfigurationRequest
        * @param headers map
@@ -689,7 +689,7 @@ namespace EmrServerlessSpark20230808
       Models::GetRunConfigurationResponse getRunConfigurationWithOptions(const string &workspaceId, const string &runId, const Models::GetRunConfigurationRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Retrieves the configuration of a Spark job.
+       * @summary Retrieves the configuration of a Spark task.
        *
        * @param request GetRunConfigurationRequest
        * @return GetRunConfigurationResponse
@@ -769,7 +769,7 @@ namespace EmrServerlessSpark20230808
       Models::GetWorkspaceResponse getWorkspace(const string &workspaceId, const Models::GetWorkspaceRequest &request);
 
       /**
-       * @summary Assigns a specified role to users.
+       * @summary Grants the specified role permissions to users.
        *
        * @param request GrantRoleToUsersRequest
        * @param headers map
@@ -779,7 +779,7 @@ namespace EmrServerlessSpark20230808
       Models::GrantRoleToUsersResponse grantRoleToUsersWithOptions(const Models::GrantRoleToUsersRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Assigns a specified role to users.
+       * @summary Grants the specified role permissions to users.
        *
        * @param request GrantRoleToUsersRequest
        * @return GrantRoleToUsersResponse
@@ -787,7 +787,7 @@ namespace EmrServerlessSpark20230808
       Models::GrantRoleToUsersResponse grantRoleToUsers(const Models::GrantRoleToUsersRequest &request);
 
       /**
-       * @summary View the list of data catalogs
+       * @summary Queries the list of data catalogs.
        *
        * @param request ListCatalogsRequest
        * @param headers map
@@ -797,7 +797,7 @@ namespace EmrServerlessSpark20230808
       Models::ListCatalogsResponse listCatalogsWithOptions(const string &workspaceId, const Models::ListCatalogsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary View the list of data catalogs
+       * @summary Queries the list of data catalogs.
        *
        * @param request ListCatalogsRequest
        * @return ListCatalogsResponse
@@ -841,7 +841,7 @@ namespace EmrServerlessSpark20230808
       Models::ListJobExecutorsResponse listJobExecutors(const string &workspaceId, const string &jobRunId, const Models::ListJobExecutorsRequest &request);
 
       /**
-       * @summary Lists Spark job runs.
+       * @summary Retrieves a list of Spark job runs.
        *
        * @param tmpReq ListJobRunsRequest
        * @param headers map
@@ -851,7 +851,7 @@ namespace EmrServerlessSpark20230808
       Models::ListJobRunsResponse listJobRunsWithOptions(const string &workspaceId, const Models::ListJobRunsRequest &tmpReq, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Lists Spark job runs.
+       * @summary Retrieves a list of Spark job runs.
        *
        * @param request ListJobRunsRequest
        * @return ListJobRunsResponse
@@ -877,7 +877,7 @@ namespace EmrServerlessSpark20230808
       Models::ListKyuubiServicesResponse listKyuubiServices(const string &workspaceId, const Models::ListKyuubiServicesRequest &request);
 
       /**
-       * @summary Queries the Spark applications submitted by Kyuubi.
+       * @summary Retrieves a list of Spark applications submitted by Kyuubi.
        *
        * @param tmpReq ListKyuubiSparkApplicationsRequest
        * @param headers map
@@ -887,7 +887,7 @@ namespace EmrServerlessSpark20230808
       Models::ListKyuubiSparkApplicationsResponse listKyuubiSparkApplicationsWithOptions(const string &workspaceId, const string &kyuubiServiceId, const Models::ListKyuubiSparkApplicationsRequest &tmpReq, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the Spark applications submitted by Kyuubi.
+       * @summary Retrieves a list of Spark applications submitted by Kyuubi.
        *
        * @param request ListKyuubiSparkApplicationsRequest
        * @return ListKyuubiSparkApplicationsResponse
@@ -895,7 +895,7 @@ namespace EmrServerlessSpark20230808
       Models::ListKyuubiSparkApplicationsResponse listKyuubiSparkApplications(const string &workspaceId, const string &kyuubiServiceId, const Models::ListKyuubiSparkApplicationsRequest &request);
 
       /**
-       * @summary Lists the Kyuubi Server authentication tokens.
+       * @summary Lists the authentication tokens for Kyuubi Server.
        *
        * @param request ListKyuubiTokenRequest
        * @param headers map
@@ -905,7 +905,7 @@ namespace EmrServerlessSpark20230808
       Models::ListKyuubiTokenResponse listKyuubiTokenWithOptions(const string &workspaceId, const string &kyuubiServiceId, const Models::ListKyuubiTokenRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Lists the Kyuubi Server authentication tokens.
+       * @summary Lists the authentication tokens for Kyuubi Server.
        *
        * @param request ListKyuubiTokenRequest
        * @return ListKyuubiTokenResponse
@@ -931,7 +931,7 @@ namespace EmrServerlessSpark20230808
       Models::ListLivyComputeResponse listLivyCompute(const string &workspaceBizId, const Models::ListLivyComputeRequest &request);
 
       /**
-       * @summary Retrieves the historical sessions of a Livy Gateway.
+       * @summary Retrieves the historical sessions of a Livy gateway.
        *
        * @param request ListLivyComputeSessionsRequest
        * @param headers map
@@ -941,7 +941,7 @@ namespace EmrServerlessSpark20230808
       Models::ListLivyComputeSessionsResponse listLivyComputeSessionsWithOptions(const string &workspaceId, const string &livyComputeId, const Models::ListLivyComputeSessionsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Retrieves the historical sessions of a Livy Gateway.
+       * @summary Retrieves the historical sessions of a Livy gateway.
        *
        * @param request ListLivyComputeSessionsRequest
        * @return ListLivyComputeSessionsResponse
@@ -949,7 +949,7 @@ namespace EmrServerlessSpark20230808
       Models::ListLivyComputeSessionsResponse listLivyComputeSessions(const string &workspaceId, const string &livyComputeId, const Models::ListLivyComputeSessionsRequest &request);
 
       /**
-       * @summary Lists the tokens of a Livy gateway.
+       * @summary Lists the tokens of Livy Gateway.
        *
        * @param request ListLivyComputeTokenRequest
        * @param headers map
@@ -959,7 +959,7 @@ namespace EmrServerlessSpark20230808
       Models::ListLivyComputeTokenResponse listLivyComputeTokenWithOptions(const string &workspaceBizId, const string &livyComputeId, const Models::ListLivyComputeTokenRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Lists the tokens of a Livy gateway.
+       * @summary Lists the tokens of Livy Gateway.
        *
        * @param request ListLivyComputeTokenRequest
        * @return ListLivyComputeTokenResponse
@@ -967,7 +967,7 @@ namespace EmrServerlessSpark20230808
       Models::ListLivyComputeTokenResponse listLivyComputeToken(const string &workspaceBizId, const string &livyComputeId, const Models::ListLivyComputeTokenRequest &request);
 
       /**
-       * @summary Get Log Content
+       * @summary Retrieves the log content.
        *
        * @param request ListLogContentsRequest
        * @param headers map
@@ -977,7 +977,7 @@ namespace EmrServerlessSpark20230808
       Models::ListLogContentsResponse listLogContentsWithOptions(const string &workspaceId, const Models::ListLogContentsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Get Log Content
+       * @summary Retrieves the log content.
        *
        * @param request ListLogContentsRequest
        * @return ListLogContentsResponse
@@ -985,7 +985,7 @@ namespace EmrServerlessSpark20230808
       Models::ListLogContentsResponse listLogContents(const string &workspaceId, const Models::ListLogContentsRequest &request);
 
       /**
-       * @summary Queries the list of members in a workspace.
+       * @summary Queries the members of a workspace.
        *
        * @param request ListMembersRequest
        * @param headers map
@@ -995,7 +995,7 @@ namespace EmrServerlessSpark20230808
       Models::ListMembersResponse listMembersWithOptions(const string &workspaceId, const Models::ListMembersRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the list of members in a workspace.
+       * @summary Queries the members of a workspace.
        *
        * @param request ListMembersRequest
        * @return ListMembersResponse
@@ -1003,7 +1003,7 @@ namespace EmrServerlessSpark20230808
       Models::ListMembersResponse listMembers(const string &workspaceId, const Models::ListMembersRequest &request);
 
       /**
-       * @summary Lists network connections.
+       * @summary Retrieves a list of network connectivity.
        *
        * @param request ListNetworkServicesRequest
        * @param headers map
@@ -1013,7 +1013,7 @@ namespace EmrServerlessSpark20230808
       Models::ListNetworkServicesResponse listNetworkServicesWithOptions(const string &workspaceId, const Models::ListNetworkServicesRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Lists network connections.
+       * @summary Retrieves a list of network connectivity.
        *
        * @param request ListNetworkServicesRequest
        * @return ListNetworkServicesResponse
@@ -1093,6 +1093,24 @@ namespace EmrServerlessSpark20230808
       Models::ListRayLogsResponse listRayLogs(const string &workspaceId, const string &instanceId, const Models::ListRayLogsRequest &request);
 
       /**
+       * @summary Retrieves the list of available regions.
+       *
+       * @param request ListRegionsRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListRegionsResponse
+       */
+      Models::ListRegionsResponse listRegionsWithOptions(const Models::ListRegionsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Retrieves the list of available regions.
+       *
+       * @param request ListRegionsRequest
+       * @return ListRegionsResponse
+       */
+      Models::ListRegionsResponse listRegions(const Models::ListRegionsRequest &request);
+
+      /**
        * @summary Retrieves a list of release versions.
        *
        * @param request ListReleaseVersionsRequest
@@ -1129,7 +1147,7 @@ namespace EmrServerlessSpark20230808
       Models::ListSessionClustersResponse listSessionClusters(const string &workspaceId, const Models::ListSessionClustersRequest &request);
 
       /**
-       * @summary Retrieves the execution results of an SQL statement.
+       * @summary Retrieves the content of SQL statements.
        *
        * @param request ListSqlStatementContentsRequest
        * @param headers map
@@ -1139,7 +1157,7 @@ namespace EmrServerlessSpark20230808
       Models::ListSqlStatementContentsResponse listSqlStatementContentsWithOptions(const string &workspaceId, const Models::ListSqlStatementContentsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Retrieves the execution results of an SQL statement.
+       * @summary Retrieves the content of SQL statements.
        *
        * @param request ListSqlStatementContentsRequest
        * @return ListSqlStatementContentsResponse
@@ -1147,7 +1165,7 @@ namespace EmrServerlessSpark20230808
       Models::ListSqlStatementContentsResponse listSqlStatementContents(const string &workspaceId, const Models::ListSqlStatementContentsRequest &request);
 
       /**
-       * @summary Lists job templates.
+       * @summary Retrieves a list of task templates.
        *
        * @param request ListTemplateRequest
        * @param headers map
@@ -1157,7 +1175,7 @@ namespace EmrServerlessSpark20230808
       Models::ListTemplateResponse listTemplateWithOptions(const string &workspaceBizId, const Models::ListTemplateRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Lists job templates.
+       * @summary Retrieves a list of task templates.
        *
        * @param request ListTemplateRequest
        * @return ListTemplateResponse
@@ -1219,7 +1237,7 @@ namespace EmrServerlessSpark20230808
       Models::QueryApmGrafanaDataResponse queryApmGrafanaData(const Models::QueryApmGrafanaDataRequest &request);
 
       /**
-       * @summary Refreshes the token for a Livy Gateway.
+       * @summary Updates the token of a Livy gateway.
        *
        * @param request RefreshLivyComputeTokenRequest
        * @param headers map
@@ -1229,7 +1247,7 @@ namespace EmrServerlessSpark20230808
       Models::RefreshLivyComputeTokenResponse refreshLivyComputeTokenWithOptions(const string &workspaceBizId, const string &livyComputeId, const string &tokenId, const Models::RefreshLivyComputeTokenRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Refreshes the token for a Livy Gateway.
+       * @summary Updates the token of a Livy gateway.
        *
        * @param request RefreshLivyComputeTokenRequest
        * @return RefreshLivyComputeTokenResponse
@@ -1237,7 +1255,7 @@ namespace EmrServerlessSpark20230808
       Models::RefreshLivyComputeTokenResponse refreshLivyComputeToken(const string &workspaceBizId, const string &livyComputeId, const string &tokenId, const Models::RefreshLivyComputeTokenRequest &request);
 
       /**
-       * @summary Start CacheCluster
+       * @summary Starts a cache cluster.
        *
        * @param request StartCacheClusterRequest
        * @param headers map
@@ -1247,7 +1265,7 @@ namespace EmrServerlessSpark20230808
       Models::StartCacheClusterResponse startCacheClusterWithOptions(const string &cacheClusterId, const Models::StartCacheClusterRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Start CacheCluster
+       * @summary Starts a cache cluster.
        *
        * @param request StartCacheClusterRequest
        * @return StartCacheClusterResponse
@@ -1255,7 +1273,7 @@ namespace EmrServerlessSpark20230808
       Models::StartCacheClusterResponse startCacheCluster(const string &cacheClusterId, const Models::StartCacheClusterRequest &request);
 
       /**
-       * @summary Starts a Spark Job.
+       * @summary Starts a Spark job.
        *
        * @param request StartJobRunRequest
        * @param headers map
@@ -1265,7 +1283,7 @@ namespace EmrServerlessSpark20230808
       Models::StartJobRunResponse startJobRunWithOptions(const string &workspaceId, const Models::StartJobRunRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Starts a Spark Job.
+       * @summary Starts a Spark job.
        *
        * @param request StartJobRunRequest
        * @return StartJobRunResponse
@@ -1273,7 +1291,7 @@ namespace EmrServerlessSpark20230808
       Models::StartJobRunResponse startJobRun(const string &workspaceId, const Models::StartJobRunRequest &request);
 
       /**
-       * @summary Starts the Kyuubi Gateway.
+       * @summary Starts Kyuubi Gateway.
        *
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
@@ -1282,14 +1300,14 @@ namespace EmrServerlessSpark20230808
       Models::StartKyuubiServiceResponse startKyuubiServiceWithOptions(const string &workspaceId, const string &kyuubiServiceId, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Starts the Kyuubi Gateway.
+       * @summary Starts Kyuubi Gateway.
        *
        * @return StartKyuubiServiceResponse
        */
       Models::StartKyuubiServiceResponse startKyuubiService(const string &workspaceId, const string &kyuubiServiceId);
 
       /**
-       * @summary Starts a Livy gateway.
+       * @summary Starts Livy Gateway.
        *
        * @param request StartLivyComputeRequest
        * @param headers map
@@ -1299,7 +1317,7 @@ namespace EmrServerlessSpark20230808
       Models::StartLivyComputeResponse startLivyComputeWithOptions(const string &workspaceBizId, const string &livyComputeId, const Models::StartLivyComputeRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Starts a Livy gateway.
+       * @summary Starts Livy Gateway.
        *
        * @param request StartLivyComputeRequest
        * @return StartLivyComputeResponse
@@ -1361,7 +1379,7 @@ namespace EmrServerlessSpark20230808
       Models::StartSessionClusterResponse startSessionCluster(const string &workspaceId, const Models::StartSessionClusterRequest &request);
 
       /**
-       * @summary Stops a CacheCluster.
+       * @summary Stops a cache cluster.
        *
        * @param request StopCacheClusterRequest
        * @param headers map
@@ -1371,7 +1389,7 @@ namespace EmrServerlessSpark20230808
       Models::StopCacheClusterResponse stopCacheClusterWithOptions(const string &cacheClusterId, const Models::StopCacheClusterRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Stops a CacheCluster.
+       * @summary Stops a cache cluster.
        *
        * @param request StopCacheClusterRequest
        * @return StopCacheClusterResponse
@@ -1379,7 +1397,7 @@ namespace EmrServerlessSpark20230808
       Models::StopCacheClusterResponse stopCacheCluster(const string &cacheClusterId, const Models::StopCacheClusterRequest &request);
 
       /**
-       * @summary Stops a Kyuubi Gateway.
+       * @summary Stops Kyuubi Gateway.
        *
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
@@ -1388,14 +1406,14 @@ namespace EmrServerlessSpark20230808
       Models::StopKyuubiServiceResponse stopKyuubiServiceWithOptions(const string &workspaceId, const string &kyuubiServiceId, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Stops a Kyuubi Gateway.
+       * @summary Stops Kyuubi Gateway.
        *
        * @return StopKyuubiServiceResponse
        */
       Models::StopKyuubiServiceResponse stopKyuubiService(const string &workspaceId, const string &kyuubiServiceId);
 
       /**
-       * @summary Stops a Livy Gateway.
+       * @summary Stops the Livy Gateway.
        *
        * @param request StopLivyComputeRequest
        * @param headers map
@@ -1405,7 +1423,7 @@ namespace EmrServerlessSpark20230808
       Models::StopLivyComputeResponse stopLivyComputeWithOptions(const string &workspaceBizId, const string &livyComputeId, const Models::StopLivyComputeRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Stops a Livy Gateway.
+       * @summary Stops the Livy Gateway.
        *
        * @param request StopLivyComputeRequest
        * @return StopLivyComputeResponse
@@ -1431,7 +1449,7 @@ namespace EmrServerlessSpark20230808
       Models::StopRayClusterResponse stopRayCluster(const string &workspaceId, const string &clusterId, const Models::StopRayClusterRequest &request);
 
       /**
-       * @summary Stops a session.
+       * @summary Stops a session cluster.
        *
        * @param request StopSessionClusterRequest
        * @param headers map
@@ -1441,7 +1459,7 @@ namespace EmrServerlessSpark20230808
       Models::StopSessionClusterResponse stopSessionClusterWithOptions(const string &workspaceId, const Models::StopSessionClusterRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Stops a session.
+       * @summary Stops a session cluster.
        *
        * @param request StopSessionClusterRequest
        * @return StopSessionClusterResponse
@@ -1485,7 +1503,7 @@ namespace EmrServerlessSpark20230808
       Models::TerminateSqlStatementResponse terminateSqlStatement(const string &workspaceId, const string &statementId, const Models::TerminateSqlStatementRequest &request);
 
       /**
-       * @summary Updates a Kyuubi Gateway.
+       * @summary Updates Kyuubi Gateway.
        *
        * @param request UpdateKyuubiServiceRequest
        * @param headers map
@@ -1495,7 +1513,7 @@ namespace EmrServerlessSpark20230808
       Models::UpdateKyuubiServiceResponse updateKyuubiServiceWithOptions(const string &workspaceId, const string &kyuubiServiceId, const Models::UpdateKyuubiServiceRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Updates a Kyuubi Gateway.
+       * @summary Updates Kyuubi Gateway.
        *
        * @param request UpdateKyuubiServiceRequest
        * @return UpdateKyuubiServiceResponse
@@ -1503,7 +1521,7 @@ namespace EmrServerlessSpark20230808
       Models::UpdateKyuubiServiceResponse updateKyuubiService(const string &workspaceId, const string &kyuubiServiceId, const Models::UpdateKyuubiServiceRequest &request);
 
       /**
-       * @summary Updates a Kyuubi Gateway authentication token.
+       * @summary Updates the authentication token for Kyuubi Gateway.
        *
        * @param request UpdateKyuubiTokenRequest
        * @param headers map
@@ -1513,7 +1531,7 @@ namespace EmrServerlessSpark20230808
       Models::UpdateKyuubiTokenResponse updateKyuubiTokenWithOptions(const string &workspaceId, const string &kyuubiServiceId, const string &tokenId, const Models::UpdateKyuubiTokenRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Updates a Kyuubi Gateway authentication token.
+       * @summary Updates the authentication token for Kyuubi Gateway.
        *
        * @param request UpdateKyuubiTokenRequest
        * @return UpdateKyuubiTokenResponse
@@ -1521,7 +1539,7 @@ namespace EmrServerlessSpark20230808
       Models::UpdateKyuubiTokenResponse updateKyuubiToken(const string &workspaceId, const string &kyuubiServiceId, const string &tokenId, const Models::UpdateKyuubiTokenRequest &request);
 
       /**
-       * @summary Updates a Livy Gateway.
+       * @summary Updates a Livy gateway.
        *
        * @param request UpdateLivyComputeRequest
        * @param headers map
@@ -1531,7 +1549,7 @@ namespace EmrServerlessSpark20230808
       Models::UpdateLivyComputeResponse updateLivyComputeWithOptions(const string &workspaceBizId, const string &livyComputeId, const Models::UpdateLivyComputeRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Updates a Livy Gateway.
+       * @summary Updates a Livy gateway.
        *
        * @param request UpdateLivyComputeRequest
        * @return UpdateLivyComputeResponse
@@ -1539,7 +1557,7 @@ namespace EmrServerlessSpark20230808
       Models::UpdateLivyComputeResponse updateLivyCompute(const string &workspaceBizId, const string &livyComputeId, const Models::UpdateLivyComputeRequest &request);
 
       /**
-       * @summary Updates the workflow definition and timed scheduling.
+       * @summary Updates a workflow definition and scheduling.
        *
        * @param tmpReq UpdateProcessDefinitionWithScheduleRequest
        * @param headers map
@@ -1549,7 +1567,7 @@ namespace EmrServerlessSpark20230808
       Models::UpdateProcessDefinitionWithScheduleResponse updateProcessDefinitionWithScheduleWithOptions(const string &bizId, const string &code, const Models::UpdateProcessDefinitionWithScheduleRequest &tmpReq, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Updates the workflow definition and timed scheduling.
+       * @summary Updates a workflow definition and scheduling.
        *
        * @param request UpdateProcessDefinitionWithScheduleRequest
        * @return UpdateProcessDefinitionWithScheduleResponse

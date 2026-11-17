@@ -173,7 +173,7 @@ namespace Models
 
 
     protected:
-      // The ID of the Livy Gateway.
+      // The ID of the Livy gateway.
       shared_ptr<string> computeId_ {};
       // The creation time. The value is a UNIX timestamp in milliseconds.
       shared_ptr<int64_t> createTime_ {};
@@ -183,13 +183,13 @@ namespace Models
       shared_ptr<int64_t> endTime_ {};
       // The runtime information.
       shared_ptr<string> info_ {};
-      // The total amount of memory allocated to the job multiplied by the number of seconds the job has run.
+      // The total amount of memory allocated to the job multiplied by the running time of the job in seconds.
       shared_ptr<int64_t> mbSeconds_ {};
       // The session name.
       shared_ptr<string> name_ {};
       // The queue name.
       shared_ptr<string> queue_ {};
-      // The ID of the Livy Gateway session.
+      // The ID of the Livy gateway session.
       shared_ptr<string> sessionId_ {};
       // The Spark job configuration.
       shared_ptr<string> sparkConf_ {};
@@ -198,11 +198,11 @@ namespace Models
       // - running: Running.
       // - terminating: Terminating.
       // - terminated: Terminated.
-      // - error: Error.
+      // - error: Failed.
       shared_ptr<string> state_ {};
-      // The total number of vcores allocated to the job multiplied by the number of seconds the job has run.
+      // The total number of vcores allocated to the job multiplied by the running time of the job in seconds.
       shared_ptr<int64_t> vcoreSeconds_ {};
-      // The web UI address of the session.
+      // The web UI URL of the session.
       shared_ptr<string> webUI_ {};
     };
 

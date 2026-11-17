@@ -144,9 +144,9 @@ namespace Models
 
 
     protected:
-      // The end time of the time range. The value is a UNIX timestamp in milliseconds.
+      // The end of the time range. The value is a UNIX timestamp in milliseconds.
       shared_ptr<int64_t> endTime_ {};
-      // The start time of the time range. The value is a UNIX timestamp in milliseconds.
+      // The start of the time range. The value is a UNIX timestamp in milliseconds.
       shared_ptr<int64_t> startTime_ {};
     };
 
@@ -188,9 +188,9 @@ namespace Models
 
 
     protected:
-      // The end time of the time range. The value is a UNIX timestamp in milliseconds.
+      // The end of the time range. The value is a UNIX timestamp in milliseconds.
       shared_ptr<int64_t> endTime_ {};
-      // The start time of the time range. The value is a UNIX timestamp in milliseconds.
+      // The start of the time range. The value is a UNIX timestamp in milliseconds.
       shared_ptr<int64_t> startTime_ {};
     };
 
@@ -335,19 +335,19 @@ namespace Models
     shared_ptr<ListJobRunsRequest::EndTime> endTime_ {};
     // Specifies whether to aggregate and return statistical results by job run state.
     shared_ptr<bool> groupByState_ {};
-    // Specifies whether the job run is a workflow job.
+    // Specifies whether the job is a workflow job.
     shared_ptr<string> isWorkflow_ {};
-    // The ID of the streaming job deployment.
+    // The ID of the job for the streaming job deployment.
     shared_ptr<string> jobRunDeploymentId_ {};
     // The ID of the job run.
     shared_ptr<string> jobRunId_ {};
-    // The maximum number of entries to return in a single call. The maximum value is 100.
+    // The maximum number of records to retrieve per request. The maximum value is 100.
     shared_ptr<int32_t> maxResults_ {};
     // The minimum execution duration of the job run, in milliseconds.
     shared_ptr<int64_t> minDuration_ {};
     // The name of the job.
     shared_ptr<string> name_ {};
-    // The pagination token that specifies the starting position for the query.
+    // The token that marks the position to start reading.
     shared_ptr<string> nextToken_ {};
     // The region ID.
     shared_ptr<string> regionId_ {};

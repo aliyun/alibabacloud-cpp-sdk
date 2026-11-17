@@ -21,6 +21,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(dashboardUrl, dashboardUrl_);
       DARABONBA_PTR_TO_JSON(description, description_);
       DARABONBA_PTR_TO_JSON(displayReleaseVersion, displayReleaseVersion_);
+      DARABONBA_PTR_TO_JSON(enableMetricsUpload, enableMetricsUpload_);
       DARABONBA_PTR_TO_JSON(extraParam, extraParam_);
       DARABONBA_PTR_TO_JSON(grpcEndpoint, grpcEndpoint_);
       DARABONBA_PTR_TO_JSON(headSpec, headSpec_);
@@ -36,6 +37,8 @@ namespace Models
       DARABONBA_PTR_TO_JSON(name, name_);
       DARABONBA_PTR_TO_JSON(networkServiceName, networkServiceName_);
       DARABONBA_PTR_TO_JSON(requestId, requestId_);
+      DARABONBA_PTR_TO_JSON(slsLogStore, slsLogStore_);
+      DARABONBA_PTR_TO_JSON(slsProject, slsProject_);
       DARABONBA_PTR_TO_JSON(startTime, startTime_);
       DARABONBA_PTR_TO_JSON(state, state_);
       DARABONBA_PTR_TO_JSON(submitToken, submitToken_);
@@ -51,6 +54,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(dashboardUrl, dashboardUrl_);
       DARABONBA_PTR_FROM_JSON(description, description_);
       DARABONBA_PTR_FROM_JSON(displayReleaseVersion, displayReleaseVersion_);
+      DARABONBA_PTR_FROM_JSON(enableMetricsUpload, enableMetricsUpload_);
       DARABONBA_PTR_FROM_JSON(extraParam, extraParam_);
       DARABONBA_PTR_FROM_JSON(grpcEndpoint, grpcEndpoint_);
       DARABONBA_PTR_FROM_JSON(headSpec, headSpec_);
@@ -66,6 +70,8 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(name, name_);
       DARABONBA_PTR_FROM_JSON(networkServiceName, networkServiceName_);
       DARABONBA_PTR_FROM_JSON(requestId, requestId_);
+      DARABONBA_PTR_FROM_JSON(slsLogStore, slsLogStore_);
+      DARABONBA_PTR_FROM_JSON(slsProject, slsProject_);
       DARABONBA_PTR_FROM_JSON(startTime, startTime_);
       DARABONBA_PTR_FROM_JSON(state, state_);
       DARABONBA_PTR_FROM_JSON(submitToken, submitToken_);
@@ -90,8 +96,10 @@ namespace Models
         DARABONBA_PTR_TO_JSON(cpu, cpu_);
         DARABONBA_PTR_TO_JSON(displayReleaseVersion, displayReleaseVersion_);
         DARABONBA_PTR_TO_JSON(env, env_);
+        DARABONBA_PTR_TO_JSON(gpuDriverVersion, gpuDriverVersion_);
         DARABONBA_PTR_TO_JSON(gpuSpec, gpuSpec_);
         DARABONBA_PTR_TO_JSON(groupName, groupName_);
+        DARABONBA_PTR_TO_JSON(kubernetesGroupName, kubernetesGroupName_);
         DARABONBA_PTR_TO_JSON(maxReplica, maxReplica_);
         DARABONBA_PTR_TO_JSON(memory, memory_);
         DARABONBA_PTR_TO_JSON(minReplica, minReplica_);
@@ -104,8 +112,10 @@ namespace Models
         DARABONBA_PTR_FROM_JSON(cpu, cpu_);
         DARABONBA_PTR_FROM_JSON(displayReleaseVersion, displayReleaseVersion_);
         DARABONBA_PTR_FROM_JSON(env, env_);
+        DARABONBA_PTR_FROM_JSON(gpuDriverVersion, gpuDriverVersion_);
         DARABONBA_PTR_FROM_JSON(gpuSpec, gpuSpec_);
         DARABONBA_PTR_FROM_JSON(groupName, groupName_);
+        DARABONBA_PTR_FROM_JSON(kubernetesGroupName, kubernetesGroupName_);
         DARABONBA_PTR_FROM_JSON(maxReplica, maxReplica_);
         DARABONBA_PTR_FROM_JSON(memory, memory_);
         DARABONBA_PTR_FROM_JSON(minReplica, minReplica_);
@@ -126,9 +136,9 @@ namespace Models
       virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
       virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
       virtual bool empty() const override { return this->cpu_ == nullptr
-        && this->displayReleaseVersion_ == nullptr && this->env_ == nullptr && this->gpuSpec_ == nullptr && this->groupName_ == nullptr && this->maxReplica_ == nullptr
-        && this->memory_ == nullptr && this->minReplica_ == nullptr && this->queueName_ == nullptr && this->rayStartParams_ == nullptr && this->replica_ == nullptr
-        && this->workerType_ == nullptr; };
+        && this->displayReleaseVersion_ == nullptr && this->env_ == nullptr && this->gpuDriverVersion_ == nullptr && this->gpuSpec_ == nullptr && this->groupName_ == nullptr
+        && this->kubernetesGroupName_ == nullptr && this->maxReplica_ == nullptr && this->memory_ == nullptr && this->minReplica_ == nullptr && this->queueName_ == nullptr
+        && this->rayStartParams_ == nullptr && this->replica_ == nullptr && this->workerType_ == nullptr; };
       // cpu Field Functions 
       bool hasCpu() const { return this->cpu_ != nullptr;};
       void deleteCpu() { this->cpu_ = nullptr;};
@@ -150,6 +160,13 @@ namespace Models
       inline WorkerSpec& setEnv(string env) { DARABONBA_PTR_SET_VALUE(env_, env) };
 
 
+      // gpuDriverVersion Field Functions 
+      bool hasGpuDriverVersion() const { return this->gpuDriverVersion_ != nullptr;};
+      void deleteGpuDriverVersion() { this->gpuDriverVersion_ = nullptr;};
+      inline string getGpuDriverVersion() const { DARABONBA_PTR_GET_DEFAULT(gpuDriverVersion_, "") };
+      inline WorkerSpec& setGpuDriverVersion(string gpuDriverVersion) { DARABONBA_PTR_SET_VALUE(gpuDriverVersion_, gpuDriverVersion) };
+
+
       // gpuSpec Field Functions 
       bool hasGpuSpec() const { return this->gpuSpec_ != nullptr;};
       void deleteGpuSpec() { this->gpuSpec_ = nullptr;};
@@ -162,6 +179,13 @@ namespace Models
       void deleteGroupName() { this->groupName_ = nullptr;};
       inline string getGroupName() const { DARABONBA_PTR_GET_DEFAULT(groupName_, "") };
       inline WorkerSpec& setGroupName(string groupName) { DARABONBA_PTR_SET_VALUE(groupName_, groupName) };
+
+
+      // kubernetesGroupName Field Functions 
+      bool hasKubernetesGroupName() const { return this->kubernetesGroupName_ != nullptr;};
+      void deleteKubernetesGroupName() { this->kubernetesGroupName_ = nullptr;};
+      inline string getKubernetesGroupName() const { DARABONBA_PTR_GET_DEFAULT(kubernetesGroupName_, "") };
+      inline WorkerSpec& setKubernetesGroupName(string kubernetesGroupName) { DARABONBA_PTR_SET_VALUE(kubernetesGroupName_, kubernetesGroupName) };
 
 
       // maxReplica Field Functions 
@@ -216,21 +240,25 @@ namespace Models
     protected:
       // The number of CPU cores.
       shared_ptr<string> cpu_ {};
-      // The database engine version.
+      // The DPI engine version.
       shared_ptr<string> displayReleaseVersion_ {};
-      // The Ray environment variables.
+      // The environment variables for Ray.
       shared_ptr<string> env_ {};
+      // The GPU driver type.
+      shared_ptr<string> gpuDriverVersion_ {};
       // The GPU instance type.
       shared_ptr<string> gpuSpec_ {};
       // The worker node group name.
       shared_ptr<string> groupName_ {};
-      // The maximum number of workers.
+      // The actual group name in Kubernetes.
+      shared_ptr<string> kubernetesGroupName_ {};
+      // The maximum number of worker nodes.
       shared_ptr<int32_t> maxReplica_ {};
-      // The memory size, in GiB.
+      // The memory size. Unit: GiB.
       shared_ptr<string> memory_ {};
-      // The minimum number of workers.
+      // The minimum number of worker nodes.
       shared_ptr<int32_t> minReplica_ {};
-      // The queue name.
+      // The name of the queue.
       shared_ptr<string> queueName_ {};
       // The Ray startup parameters.
       shared_ptr<string> rayStartParams_ {};
@@ -360,19 +388,19 @@ namespace Models
 
 
     protected:
-      // The main container exit code.
+      // The primary container exit code.
       shared_ptr<int32_t> containerExitCode_ {};
-      // The main container state.
+      // The primary container state.
       shared_ptr<string> containerState_ {};
-      // The main container state information.
+      // The primary container status message.
       shared_ptr<string> containerStateMessage_ {};
-      // The main container information.
+      // The primary container information.
       shared_ptr<string> containerStateReason_ {};
       // The creation time. The value is a UNIX timestamp in milliseconds.
       shared_ptr<int64_t> createTime_ {};
       // The node ID.
       shared_ptr<string> instanceId_ {};
-      // The node pod state information.
+      // The node pod status message.
       shared_ptr<string> message_ {};
       // The node pod state.
       shared_ptr<string> phase_ {};
@@ -393,6 +421,7 @@ namespace Models
         DARABONBA_PTR_TO_JSON(env, env_);
         DARABONBA_PTR_TO_JSON(gftConfig, gftConfig_);
         DARABONBA_PTR_TO_JSON(gftEnabled, gftEnabled_);
+        DARABONBA_PTR_TO_JSON(gpuDriverVersion, gpuDriverVersion_);
         DARABONBA_PTR_TO_JSON(gpuSpec, gpuSpec_);
         DARABONBA_PTR_TO_JSON(idleTimeoutSeconds, idleTimeoutSeconds_);
         DARABONBA_PTR_TO_JSON(memory, memory_);
@@ -407,6 +436,7 @@ namespace Models
         DARABONBA_PTR_FROM_JSON(env, env_);
         DARABONBA_PTR_FROM_JSON(gftConfig, gftConfig_);
         DARABONBA_PTR_FROM_JSON(gftEnabled, gftEnabled_);
+        DARABONBA_PTR_FROM_JSON(gpuDriverVersion, gpuDriverVersion_);
         DARABONBA_PTR_FROM_JSON(gpuSpec, gpuSpec_);
         DARABONBA_PTR_FROM_JSON(idleTimeoutSeconds, idleTimeoutSeconds_);
         DARABONBA_PTR_FROM_JSON(memory, memory_);
@@ -474,7 +504,7 @@ namespace Models
       protected:
         // The Redis password.
         shared_ptr<string> redisPassword_ {};
-        // The Redis address.
+        // The Redis endpoint.
         shared_ptr<string> redisUrl_ {};
         // The Redis username.
         shared_ptr<string> redisUsername_ {};
@@ -482,8 +512,8 @@ namespace Models
 
       virtual bool empty() const override { return this->cpu_ == nullptr
         && this->displayReleaseVersion_ == nullptr && this->enableAutoScaling_ == nullptr && this->env_ == nullptr && this->gftConfig_ == nullptr && this->gftEnabled_ == nullptr
-        && this->gpuSpec_ == nullptr && this->idleTimeoutSeconds_ == nullptr && this->memory_ == nullptr && this->queueName_ == nullptr && this->rayStartParams_ == nullptr
-        && this->replica_ == nullptr; };
+        && this->gpuDriverVersion_ == nullptr && this->gpuSpec_ == nullptr && this->idleTimeoutSeconds_ == nullptr && this->memory_ == nullptr && this->queueName_ == nullptr
+        && this->rayStartParams_ == nullptr && this->replica_ == nullptr; };
       // cpu Field Functions 
       bool hasCpu() const { return this->cpu_ != nullptr;};
       void deleteCpu() { this->cpu_ = nullptr;};
@@ -526,6 +556,13 @@ namespace Models
       void deleteGftEnabled() { this->gftEnabled_ = nullptr;};
       inline bool getGftEnabled() const { DARABONBA_PTR_GET_DEFAULT(gftEnabled_, false) };
       inline HeadSpec& setGftEnabled(bool gftEnabled) { DARABONBA_PTR_SET_VALUE(gftEnabled_, gftEnabled) };
+
+
+      // gpuDriverVersion Field Functions 
+      bool hasGpuDriverVersion() const { return this->gpuDriverVersion_ != nullptr;};
+      void deleteGpuDriverVersion() { this->gpuDriverVersion_ = nullptr;};
+      inline string getGpuDriverVersion() const { DARABONBA_PTR_GET_DEFAULT(gpuDriverVersion_, "") };
+      inline HeadSpec& setGpuDriverVersion(string gpuDriverVersion) { DARABONBA_PTR_SET_VALUE(gpuDriverVersion_, gpuDriverVersion) };
 
 
       // gpuSpec Field Functions 
@@ -575,21 +612,23 @@ namespace Models
       shared_ptr<string> cpu_ {};
       // The Ray DPI engine version.
       shared_ptr<string> displayReleaseVersion_ {};
-      // Indicates whether auto scaling is enabled for worker nodes.
+      // Specifies whether auto-scaling is enabled for worker nodes.
       shared_ptr<bool> enableAutoScaling_ {};
       // The environment variables.
       shared_ptr<string> env_ {};
-      // The GCS Fault Tolerance configuration.
+      // The GCS fault tolerance configuration.
       shared_ptr<HeadSpec::GftConfig> gftConfig_ {};
-      // Indicates whether GCS Fault Tolerance is enabled.
+      // Specifies whether GCS fault tolerance is enabled.
       shared_ptr<bool> gftEnabled_ {};
+      // The GPU driver version.
+      shared_ptr<string> gpuDriverVersion_ {};
       // The GPU instance type.
       shared_ptr<string> gpuSpec_ {};
-      // The idle timeout period for worker nodes after auto scaling is enabled.
+      // The idle timeout period for worker nodes when auto-scaling is enabled.
       shared_ptr<int32_t> idleTimeoutSeconds_ {};
-      // The memory size, in GiB.
+      // The memory size. Unit: GiB.
       shared_ptr<string> memory_ {};
-      // The queue name.
+      // The name of the queue.
       shared_ptr<string> queueName_ {};
       // The Ray startup parameters.
       shared_ptr<string> rayStartParams_ {};
@@ -599,11 +638,11 @@ namespace Models
 
     virtual bool empty() const override { return this->clusterId_ == nullptr
         && this->createTime_ == nullptr && this->creator_ == nullptr && this->creatorName_ == nullptr && this->dashboardUrl_ == nullptr && this->description_ == nullptr
-        && this->displayReleaseVersion_ == nullptr && this->extraParam_ == nullptr && this->grpcEndpoint_ == nullptr && this->headSpec_ == nullptr && this->instanceId_ == nullptr
-        && this->instances_ == nullptr && this->jobUrl_ == nullptr && this->jobUrlInner_ == nullptr && this->message_ == nullptr && this->modified_ == nullptr
-        && this->modifiedTime_ == nullptr && this->modifier_ == nullptr && this->modifierName_ == nullptr && this->name_ == nullptr && this->networkServiceName_ == nullptr
-        && this->requestId_ == nullptr && this->startTime_ == nullptr && this->state_ == nullptr && this->submitToken_ == nullptr && this->userId_ == nullptr
-        && this->volumeIds_ == nullptr && this->workerSpec_ == nullptr; };
+        && this->displayReleaseVersion_ == nullptr && this->enableMetricsUpload_ == nullptr && this->extraParam_ == nullptr && this->grpcEndpoint_ == nullptr && this->headSpec_ == nullptr
+        && this->instanceId_ == nullptr && this->instances_ == nullptr && this->jobUrl_ == nullptr && this->jobUrlInner_ == nullptr && this->message_ == nullptr
+        && this->modified_ == nullptr && this->modifiedTime_ == nullptr && this->modifier_ == nullptr && this->modifierName_ == nullptr && this->name_ == nullptr
+        && this->networkServiceName_ == nullptr && this->requestId_ == nullptr && this->slsLogStore_ == nullptr && this->slsProject_ == nullptr && this->startTime_ == nullptr
+        && this->state_ == nullptr && this->submitToken_ == nullptr && this->userId_ == nullptr && this->volumeIds_ == nullptr && this->workerSpec_ == nullptr; };
     // clusterId Field Functions 
     bool hasClusterId() const { return this->clusterId_ != nullptr;};
     void deleteClusterId() { this->clusterId_ = nullptr;};
@@ -651,6 +690,13 @@ namespace Models
     void deleteDisplayReleaseVersion() { this->displayReleaseVersion_ = nullptr;};
     inline string getDisplayReleaseVersion() const { DARABONBA_PTR_GET_DEFAULT(displayReleaseVersion_, "") };
     inline GetRayClusterResponseBody& setDisplayReleaseVersion(string displayReleaseVersion) { DARABONBA_PTR_SET_VALUE(displayReleaseVersion_, displayReleaseVersion) };
+
+
+    // enableMetricsUpload Field Functions 
+    bool hasEnableMetricsUpload() const { return this->enableMetricsUpload_ != nullptr;};
+    void deleteEnableMetricsUpload() { this->enableMetricsUpload_ = nullptr;};
+    inline bool getEnableMetricsUpload() const { DARABONBA_PTR_GET_DEFAULT(enableMetricsUpload_, false) };
+    inline GetRayClusterResponseBody& setEnableMetricsUpload(bool enableMetricsUpload) { DARABONBA_PTR_SET_VALUE(enableMetricsUpload_, enableMetricsUpload) };
 
 
     // extraParam Field Functions 
@@ -762,6 +808,20 @@ namespace Models
     inline GetRayClusterResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
+    // slsLogStore Field Functions 
+    bool hasSlsLogStore() const { return this->slsLogStore_ != nullptr;};
+    void deleteSlsLogStore() { this->slsLogStore_ = nullptr;};
+    inline string getSlsLogStore() const { DARABONBA_PTR_GET_DEFAULT(slsLogStore_, "") };
+    inline GetRayClusterResponseBody& setSlsLogStore(string slsLogStore) { DARABONBA_PTR_SET_VALUE(slsLogStore_, slsLogStore) };
+
+
+    // slsProject Field Functions 
+    bool hasSlsProject() const { return this->slsProject_ != nullptr;};
+    void deleteSlsProject() { this->slsProject_ = nullptr;};
+    inline string getSlsProject() const { DARABONBA_PTR_GET_DEFAULT(slsProject_, "") };
+    inline GetRayClusterResponseBody& setSlsProject(string slsProject) { DARABONBA_PTR_SET_VALUE(slsProject_, slsProject) };
+
+
     // startTime Field Functions 
     bool hasStartTime() const { return this->startTime_ != nullptr;};
     void deleteStartTime() { this->startTime_ = nullptr;};
@@ -809,11 +869,11 @@ namespace Models
 
 
   protected:
-    // The Ray cluster ID.
+    // The ID of the Ray cluster.
     shared_ptr<string> clusterId_ {};
     // The creation time. The value is a UNIX timestamp in milliseconds.
     shared_ptr<int64_t> createTime_ {};
-    // The UID of the user who created the cluster.
+    // The user ID of the cluster creator.
     shared_ptr<string> creator_ {};
     // The nickname of the creator.
     shared_ptr<string> creatorName_ {};
@@ -823,46 +883,52 @@ namespace Models
     shared_ptr<string> description_ {};
     // The Ray DPI engine version.
     shared_ptr<string> displayReleaseVersion_ {};
-    // The additional parameters in JSON format.
+    // Specifies whether to upload metrics.
+    shared_ptr<bool> enableMetricsUpload_ {};
+    // The extra parameters in JSON format.
     shared_ptr<string> extraParam_ {};
-    // The gRPC endpoint (internal network). The domain name in the endpoint can also be used to submit Ray jobs.
+    // The internal gRPC endpoint. The domain name in the endpoint can also be used to submit Ray jobs.
     shared_ptr<string> grpcEndpoint_ {};
-    // The Ray cluster head node parameters.
+    // The head node parameters of the Ray cluster.
     shared_ptr<GetRayClusterResponseBody::HeadSpec> headSpec_ {};
-    // The Ray cluster node IDs.
+    // The IDs of the nodes in the Ray cluster.
     shared_ptr<string> instanceId_ {};
-    // The Ray cluster node IDs.
+    // The IDs of the nodes in the Ray cluster.
     shared_ptr<vector<GetRayClusterResponseBody::Instances>> instances_ {};
-    // The public address for submitting Ray jobs.
+    // The public endpoint for submitting Ray jobs.
     shared_ptr<string> jobUrl_ {};
-    // The internal network address for submitting Ray jobs.
+    // The internal URL for submitting Ray jobs.
     shared_ptr<string> jobUrlInner_ {};
-    // The error message when the status is Error.
+    // The error message returned when the status is Error.
     shared_ptr<string> message_ {};
-    // Indicates whether the configuration has been modified.
+    // Specifies whether the configuration has been modified.
     shared_ptr<bool> modified_ {};
     // The update time. The value is a UNIX timestamp in milliseconds.
     shared_ptr<int64_t> modifiedTime_ {};
-    // The UID of the user who last updated the cluster.
+    // The user ID of the cluster updater.
     shared_ptr<string> modifier_ {};
-    // The nickname of the modifier.
+    // The nickname of the updater.
     shared_ptr<string> modifierName_ {};
-    // The Ray cluster name.
+    // The name of the Ray cluster.
     shared_ptr<string> name_ {};
     // The network connectivity name.
     shared_ptr<string> networkServiceName_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
+    // The Logstore for uploading metrics. The Logstore must be a Metricstore.
+    shared_ptr<string> slsLogStore_ {};
+    // The Simple Log Service (SLS) project for uploading metrics.
+    shared_ptr<string> slsProject_ {};
     // The start time. The value is a UNIX timestamp in milliseconds.
     shared_ptr<int64_t> startTime_ {};
     // The session status. Valid values:
-    // - Starting: starting.
-    // - Running: running.
-    // - Stopping: stopping.
-    // - Stopped: stopped.
-    // - Error: failed.
+    // - Starting: The session is starting.
+    // - Running: The session is running.
+    // - Stopping: The session is stopping.
+    // - Stopped: The session is stopped.
+    // - Error: The session has failed.
     shared_ptr<string> state_ {};
-    // The authentication token for submitting Ray jobs. Include this token in the request header as "ray-token": "token".
+    // The authentication token for submitting Ray jobs. You must include this token in the request header in the following format: "ray-token": "token".
     shared_ptr<string> submitToken_ {};
     // The Alibaba Cloud account ID of the creator.
     shared_ptr<string> userId_ {};

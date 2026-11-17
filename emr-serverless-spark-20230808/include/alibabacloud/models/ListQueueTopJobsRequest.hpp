@@ -50,7 +50,7 @@ namespace Models
   protected:
     // The region ID.
     shared_ptr<string> regionId_ {};
-    // The maximum number of jobs to return. The maximum value is 10.
+    // The maximum number of jobs to return. Maximum value: 10.
     shared_ptr<int32_t> topN_ {};
   };
 

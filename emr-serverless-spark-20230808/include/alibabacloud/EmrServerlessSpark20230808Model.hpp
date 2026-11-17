@@ -4,6 +4,10 @@
 #include <darabonba/Core.hpp>
 #include <alibabacloud/models/Credential.hpp>
 #include <alibabacloud/models/Artifact.hpp>
+#include <alibabacloud/models/ResourceSpec.hpp>
+#include <alibabacloud/models/BatchEditQueueSpec.hpp>
+#include <alibabacloud/models/BatchEditWorkspaceQueuesBody.hpp>
+#include <alibabacloud/models/BatchEditWorkspaceQueuesReceipt.hpp>
 #include <alibabacloud/models/CacheCluster.hpp>
 #include <alibabacloud/models/Category.hpp>
 #include <alibabacloud/models/Configuration.hpp>
@@ -201,6 +205,9 @@
 #include <alibabacloud/models/ListRayLogsRequest.hpp>
 #include <alibabacloud/models/ListRayLogsResponseBody.hpp>
 #include <alibabacloud/models/ListRayLogsResponse.hpp>
+#include <alibabacloud/models/ListRegionsRequest.hpp>
+#include <alibabacloud/models/ListRegionsResponseBody.hpp>
+#include <alibabacloud/models/ListRegionsResponse.hpp>
 #include <alibabacloud/models/ListReleaseVersionsRequest.hpp>
 #include <alibabacloud/models/ListReleaseVersionsResponseBody.hpp>
 #include <alibabacloud/models/ListReleaseVersionsResponse.hpp>

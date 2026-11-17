@@ -44,6 +44,7 @@ namespace Models
         DARABONBA_PTR_TO_JSON(communityVersion, communityVersion_);
         DARABONBA_PTR_TO_JSON(cpuArchitectures, cpuArchitectures_);
         DARABONBA_PTR_TO_JSON(displayReleaseVersion, displayReleaseVersion_);
+        DARABONBA_PTR_TO_JSON(flameGraphEnabled, flameGraphEnabled_);
         DARABONBA_PTR_TO_JSON(fusion, fusion_);
         DARABONBA_PTR_TO_JSON(gmtCreate, gmtCreate_);
         DARABONBA_PTR_TO_JSON(iaasType, iaasType_);
@@ -57,6 +58,7 @@ namespace Models
         DARABONBA_PTR_FROM_JSON(communityVersion, communityVersion_);
         DARABONBA_PTR_FROM_JSON(cpuArchitectures, cpuArchitectures_);
         DARABONBA_PTR_FROM_JSON(displayReleaseVersion, displayReleaseVersion_);
+        DARABONBA_PTR_FROM_JSON(flameGraphEnabled, flameGraphEnabled_);
         DARABONBA_PTR_FROM_JSON(fusion, fusion_);
         DARABONBA_PTR_FROM_JSON(gmtCreate, gmtCreate_);
         DARABONBA_PTR_FROM_JSON(iaasType, iaasType_);
@@ -78,8 +80,9 @@ namespace Models
       virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
       virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
       virtual bool empty() const override { return this->communityVersion_ == nullptr
-        && this->cpuArchitectures_ == nullptr && this->displayReleaseVersion_ == nullptr && this->fusion_ == nullptr && this->gmtCreate_ == nullptr && this->iaasType_ == nullptr
-        && this->isCustom_ == nullptr && this->releaseVersion_ == nullptr && this->scalaVersion_ == nullptr && this->state_ == nullptr && this->type_ == nullptr; };
+        && this->cpuArchitectures_ == nullptr && this->displayReleaseVersion_ == nullptr && this->flameGraphEnabled_ == nullptr && this->fusion_ == nullptr && this->gmtCreate_ == nullptr
+        && this->iaasType_ == nullptr && this->isCustom_ == nullptr && this->releaseVersion_ == nullptr && this->scalaVersion_ == nullptr && this->state_ == nullptr
+        && this->type_ == nullptr; };
       // communityVersion Field Functions 
       bool hasCommunityVersion() const { return this->communityVersion_ != nullptr;};
       void deleteCommunityVersion() { this->communityVersion_ = nullptr;};
@@ -101,6 +104,13 @@ namespace Models
       void deleteDisplayReleaseVersion() { this->displayReleaseVersion_ = nullptr;};
       inline string getDisplayReleaseVersion() const { DARABONBA_PTR_GET_DEFAULT(displayReleaseVersion_, "") };
       inline ReleaseVersions& setDisplayReleaseVersion(string displayReleaseVersion) { DARABONBA_PTR_SET_VALUE(displayReleaseVersion_, displayReleaseVersion) };
+
+
+      // flameGraphEnabled Field Functions 
+      bool hasFlameGraphEnabled() const { return this->flameGraphEnabled_ != nullptr;};
+      void deleteFlameGraphEnabled() { this->flameGraphEnabled_ = nullptr;};
+      inline bool getFlameGraphEnabled() const { DARABONBA_PTR_GET_DEFAULT(flameGraphEnabled_, false) };
+      inline ReleaseVersions& setFlameGraphEnabled(bool flameGraphEnabled) { DARABONBA_PTR_SET_VALUE(flameGraphEnabled_, flameGraphEnabled) };
 
 
       // fusion Field Functions 
@@ -166,13 +176,15 @@ namespace Models
       shared_ptr<vector<string>> cpuArchitectures_ {};
       // The version number.
       shared_ptr<string> displayReleaseVersion_ {};
+      // Indicates whether the release version supports flame graphs. This is determined by checking if the fenix version metadata contains flame-graph.
+      shared_ptr<bool> flameGraphEnabled_ {};
       // Indicates whether Fusion engine acceleration is enabled.
       shared_ptr<bool> fusion_ {};
       // The creation time.
       shared_ptr<int64_t> gmtCreate_ {};
       // The IaaS layer type.
       shared_ptr<string> iaasType_ {};
-      // Indicates whether the version is a custom image.
+      // Indicates whether the image is a custom image.
       shared_ptr<bool> isCustom_ {};
       // The version number.
       shared_ptr<string> releaseVersion_ {};
@@ -180,7 +192,7 @@ namespace Models
       shared_ptr<string> scalaVersion_ {};
       // The version status.
       shared_ptr<string> state_ {};
-      // The version type.
+      // The release type.
       shared_ptr<string> type_ {};
     };
 
@@ -226,9 +238,9 @@ namespace Models
   protected:
     // The maximum number of records returned per request.
     shared_ptr<int32_t> maxResults_ {};
-    // The token for the next page.
+    // The next token.
     shared_ptr<string> nextToken_ {};
-    // The list of versions.
+    // The list of release versions.
     shared_ptr<vector<ListReleaseVersionsResponseBody::ReleaseVersions>> releaseVersions_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

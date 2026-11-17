@@ -196,6 +196,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> executionType_ {};
+    // The list of global parameters for the workflow.
     shared_ptr<string> globalParamsShrink_ {};
     // The workflow name.
     // 
@@ -215,7 +216,7 @@ namespace Models
     shared_ptr<int32_t> retryTimes_ {};
     // The Alibaba Cloud UID of the execution user.
     shared_ptr<string> runAs_ {};
-    // The scheduling structure.
+    // The schedule structure.
     shared_ptr<string> scheduleShrink_ {};
     // The tags.
     shared_ptr<string> tagsShrink_ {};

@@ -103,7 +103,7 @@ namespace Models
 
 
     protected:
-      // The full file path.
+      // The full path of the file.
       shared_ptr<string> fileName_ {};
       // The file size.
       shared_ptr<int64_t> fileSize_ {};
@@ -155,9 +155,9 @@ namespace Models
 
 
   protected:
-    // The retrieved logs, sorted in contextual order. This parameter is empty if no contextual logs are found in the log query based on the specified starting log.
+    // The retrieved logs, sorted in contextual order. This parameter is empty if no contextual logs are found based on the specified starting log query.
     shared_ptr<vector<ListExecutorLogsResponseBody::Logs>> logs_ {};
-    // The maximum number of records to return in a single request.
+    // The maximum number of records to retrieve at a time.
     shared_ptr<int32_t> maxResults_ {};
     // The next token.
     shared_ptr<string> nextToken_ {};

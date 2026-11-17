@@ -148,7 +148,7 @@ namespace Models
     shared_ptr<string> failed_ {};
     // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
-    // The detailed description corresponding to the request code.
+    // The detailed description corresponding to the return code.
     shared_ptr<string> msg_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

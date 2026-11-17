@@ -235,21 +235,21 @@ namespace Models
 
 
     protected:
-      // The email address for alert notifications.
+      // The alert email address.
       shared_ptr<string> alertEmailAddress_ {};
       // The workspace ID.
       shared_ptr<string> bizId_ {};
-      // The workflow definition ID.
+      // The ID of the workflow definition.
       shared_ptr<string> code_ {};
-      // The creation time of the workflow definition. The time is in UTC and follows the ISO 8601 standard.
+      // The creation time of the workflow definition. The time is in UTC and follows the ISO 8601 format.
       shared_ptr<string> createTime_ {};
-      // The cron expression for scheduling.
+      // The cron expression for the schedule.
       shared_ptr<string> crontab_ {};
-      // The node definition description.
+      // The task definition description.
       shared_ptr<string> description_ {};
-      // The end time of the task time range. The value is a UNIX timestamp in milliseconds.
+      // The end time of the task time range. The time is a UNIX timestamp in milliseconds.
       shared_ptr<string> endTime_ {};
-      // The execution policy.
+      // The execution strategy.
       shared_ptr<string> executionType_ {};
       // The workflow definition number.
       shared_ptr<string> id_ {};
@@ -259,11 +259,11 @@ namespace Models
       shared_ptr<string> projectName_ {};
       // The online status of the workflow.
       shared_ptr<string> releaseState_ {};
-      // The start time of the scheduling.
+      // The start time of the schedule.
       shared_ptr<string> startTime_ {};
       // The time zone ID.
       shared_ptr<string> timezoneId_ {};
-      // The update time of the workflow definition. The time is in UTC and follows the ISO 8601 standard.
+      // The update time of the workflow definition. The time is in UTC and follows the ISO 8601 format.
       shared_ptr<string> updateTime_ {};
       // The ID of the scheduling user.
       shared_ptr<string> userId_ {};
@@ -330,15 +330,15 @@ namespace Models
 
 
   protected:
-    // The return code from the API backend.
+    // The return code of the API backend.
     shared_ptr<int32_t> code_ {};
-    // The returned data.
+    // The response data.
     shared_ptr<UpdateProcessDefinitionWithScheduleResponseBody::Data> data_ {};
     // The number of failures.
     shared_ptr<string> failed_ {};
     // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
-    // The detailed description corresponding to the request code.
+    // The detailed description for the request code.
     shared_ptr<string> msg_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};

@@ -93,10 +93,10 @@ namespace Models
 
     protected:
       // Specifies whether to allow automatic stop. Valid values:
-      // - true: Allowed.
-      // - false: Not allowed.
+      // - true: Yes.
+      // - false: No.
       shared_ptr<bool> enable_ {};
-      // The number of idle minutes after which the session is automatically stopped.
+      // The number of idle minutes before the session is automatically stopped.
       shared_ptr<int32_t> idleTimeoutMinutes_ {};
     };
 
@@ -128,9 +128,9 @@ namespace Models
 
 
     protected:
-      // Specifies whether to enable automatic startup. Valid values:
-      // - true: Enabled.
-      // - false: Disabled.
+      // Specifies whether to enable auto-start. Valid values:
+      // - true: Yes.
+      // - false: No.
       shared_ptr<bool> enable_ {};
     };
 
@@ -181,7 +181,7 @@ namespace Models
 
 
     protected:
-      // The configuration file name.
+      // The name of the configuration file.
       shared_ptr<string> configFileName_ {};
       // The Spark Conf key.
       shared_ptr<string> configItemKey_ {};
@@ -293,31 +293,31 @@ namespace Models
   protected:
     // The Spark application configurations.
     shared_ptr<vector<CreateSessionClusterRequest::ApplicationConfigs>> applicationConfigs_ {};
-    // Specifies whether to enable automatic startup. Valid values:
-    // - true: Enabled.
-    // - false: Disabled.
+    // Specifies whether to enable auto-start. Valid values:
+    // - true: Yes.
+    // - false: No.
     shared_ptr<CreateSessionClusterRequest::AutoStartConfiguration> autoStartConfiguration_ {};
-    // The automatic stop configuration.
+    // The auto-stop configuration.
     shared_ptr<CreateSessionClusterRequest::AutoStopConfiguration> autoStopConfiguration_ {};
-    // The client token that is used to ensure the idempotence of the request.
+    // The client token used to ensure request idempotence.
     shared_ptr<string> clientToken_ {};
     // The version displayed in the console.
     shared_ptr<string> displayReleaseVersion_ {};
-    // The Python environment ID. This parameter takes effect only for Notebook sessions.
+    // The ID of the Python environment. This parameter takes effect only for Notebook sessions.
     shared_ptr<string> envId_ {};
     // Specifies whether to enable Fusion engine acceleration.
     shared_ptr<bool> fusion_ {};
     // The session type. Valid values:
     // - SQL: SQL session.
-    // - NOTEBOOK: NOTEBOOK session.
+    // - NOTEBOOK: Notebook session.
     shared_ptr<string> kind_ {};
-    // The node name.
+    // The name of the task.
     shared_ptr<string> name_ {};
-    // Specifies whether to enable the public network access endpoint.
+    // Specifies whether public network access is enabled for the endpoint.
     shared_ptr<bool> publicEndpointEnabled_ {};
-    // The queue name.
+    // The name of the queue.
     shared_ptr<string> queueName_ {};
-    // The Spark DPI engine version number.
+    // The version number of the Spark DPI engine.
     shared_ptr<string> releaseVersion_ {};
     // The region ID.
     shared_ptr<string> regionId_ {};

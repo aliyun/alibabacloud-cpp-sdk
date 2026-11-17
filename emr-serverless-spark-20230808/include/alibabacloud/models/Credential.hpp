@@ -94,18 +94,32 @@ namespace Models
 
 
   protected:
+    // sts ak
+    // 
     // This parameter is required.
     shared_ptr<string> accessId_ {};
+    // The OSS path.
+    // 
     // This parameter is required.
     shared_ptr<string> dir_ {};
+    // The timeout period.
+    // 
     // This parameter is required.
     shared_ptr<string> expire_ {};
+    // The OSS domain name.
+    // 
     // This parameter is required.
     shared_ptr<string> host_ {};
+    // The OSS access policy.
+    // 
     // This parameter is required.
     shared_ptr<string> policy_ {};
+    // sts token
+    // 
     // This parameter is required.
     shared_ptr<string> securityToken_ {};
+    // The OSS access signature.
+    // 
     // This parameter is required.
     shared_ptr<string> signature_ {};
   };

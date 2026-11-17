@@ -50,9 +50,11 @@ namespace Models
         DARABONBA_PTR_TO_JSON(environmentId, environmentId_);
         DARABONBA_PTR_TO_JSON(fusion, fusion_);
         DARABONBA_PTR_TO_JSON(gmtCreate, gmtCreate_);
+        DARABONBA_PTR_TO_JSON(livyReleaseVersion, livyReleaseVersion_);
         DARABONBA_PTR_TO_JSON(livyServerConf, livyServerConf_);
         DARABONBA_PTR_TO_JSON(livyVersion, livyVersion_);
         DARABONBA_PTR_TO_JSON(memoryLimit, memoryLimit_);
+        DARABONBA_PTR_TO_JSON(meta, meta_);
         DARABONBA_PTR_TO_JSON(name, name_);
         DARABONBA_PTR_TO_JSON(networkName, networkName_);
         DARABONBA_PTR_TO_JSON(queueName, queueName_);
@@ -74,9 +76,11 @@ namespace Models
         DARABONBA_PTR_FROM_JSON(environmentId, environmentId_);
         DARABONBA_PTR_FROM_JSON(fusion, fusion_);
         DARABONBA_PTR_FROM_JSON(gmtCreate, gmtCreate_);
+        DARABONBA_PTR_FROM_JSON(livyReleaseVersion, livyReleaseVersion_);
         DARABONBA_PTR_FROM_JSON(livyServerConf, livyServerConf_);
         DARABONBA_PTR_FROM_JSON(livyVersion, livyVersion_);
         DARABONBA_PTR_FROM_JSON(memoryLimit, memoryLimit_);
+        DARABONBA_PTR_FROM_JSON(meta, meta_);
         DARABONBA_PTR_FROM_JSON(name, name_);
         DARABONBA_PTR_FROM_JSON(networkName, networkName_);
         DARABONBA_PTR_FROM_JSON(queueName, queueName_);
@@ -134,20 +138,20 @@ namespace Models
 
 
       protected:
-        // Specifies whether to automatically start after creation. Valid values:
+        // Specifies whether to automatically start the gateway after it is created.
         // - true: Yes.
         // - false: No.
         shared_ptr<bool> enable_ {};
-        // The number of idle minutes after which the Livy Gateway automatically stops.
+        // The idle timeout in minutes after which the Livy gateway is automatically stopped.
         shared_ptr<int64_t> idleTimeoutMinutes_ {};
       };
 
       virtual bool empty() const override { return this->authType_ == nullptr
         && this->autoStopConfiguration_ == nullptr && this->computeId_ == nullptr && this->cpuLimit_ == nullptr && this->createdBy_ == nullptr && this->displayReleaseVersion_ == nullptr
         && this->enablePublic_ == nullptr && this->endpoint_ == nullptr && this->endpointInner_ == nullptr && this->environmentId_ == nullptr && this->fusion_ == nullptr
-        && this->gmtCreate_ == nullptr && this->livyServerConf_ == nullptr && this->livyVersion_ == nullptr && this->memoryLimit_ == nullptr && this->name_ == nullptr
-        && this->networkName_ == nullptr && this->queueName_ == nullptr && this->ramUserId_ == nullptr && this->releaseVersion_ == nullptr && this->startTime_ == nullptr
-        && this->status_ == nullptr; };
+        && this->gmtCreate_ == nullptr && this->livyReleaseVersion_ == nullptr && this->livyServerConf_ == nullptr && this->livyVersion_ == nullptr && this->memoryLimit_ == nullptr
+        && this->meta_ == nullptr && this->name_ == nullptr && this->networkName_ == nullptr && this->queueName_ == nullptr && this->ramUserId_ == nullptr
+        && this->releaseVersion_ == nullptr && this->startTime_ == nullptr && this->status_ == nullptr; };
       // authType Field Functions 
       bool hasAuthType() const { return this->authType_ != nullptr;};
       void deleteAuthType() { this->authType_ = nullptr;};
@@ -234,6 +238,13 @@ namespace Models
       inline Data& setGmtCreate(int64_t gmtCreate) { DARABONBA_PTR_SET_VALUE(gmtCreate_, gmtCreate) };
 
 
+      // livyReleaseVersion Field Functions 
+      bool hasLivyReleaseVersion() const { return this->livyReleaseVersion_ != nullptr;};
+      void deleteLivyReleaseVersion() { this->livyReleaseVersion_ = nullptr;};
+      inline string getLivyReleaseVersion() const { DARABONBA_PTR_GET_DEFAULT(livyReleaseVersion_, "") };
+      inline Data& setLivyReleaseVersion(string livyReleaseVersion) { DARABONBA_PTR_SET_VALUE(livyReleaseVersion_, livyReleaseVersion) };
+
+
       // livyServerConf Field Functions 
       bool hasLivyServerConf() const { return this->livyServerConf_ != nullptr;};
       void deleteLivyServerConf() { this->livyServerConf_ = nullptr;};
@@ -253,6 +264,13 @@ namespace Models
       void deleteMemoryLimit() { this->memoryLimit_ = nullptr;};
       inline string getMemoryLimit() const { DARABONBA_PTR_GET_DEFAULT(memoryLimit_, "") };
       inline Data& setMemoryLimit(string memoryLimit) { DARABONBA_PTR_SET_VALUE(memoryLimit_, memoryLimit) };
+
+
+      // meta Field Functions 
+      bool hasMeta() const { return this->meta_ != nullptr;};
+      void deleteMeta() { this->meta_ = nullptr;};
+      inline string getMeta() const { DARABONBA_PTR_GET_DEFAULT(meta_, "") };
+      inline Data& setMeta(string meta) { DARABONBA_PTR_SET_VALUE(meta_, meta) };
 
 
       // name Field Functions 
@@ -309,22 +327,22 @@ namespace Models
       shared_ptr<string> authType_ {};
       // The auto-stop configuration.
       shared_ptr<Data::AutoStopConfiguration> autoStopConfiguration_ {};
-      // The ID of the Livy Gateway.
+      // The ID of the Livy gateway.
       shared_ptr<string> computeId_ {};
-      // The number of CPU cores for the Livy Server. Valid values:
+      // The number of CPU cores for the Livy server. Valid values:
       // - 1
       // - 2
       // - 4
       shared_ptr<string> cpuLimit_ {};
       // The name of the creator.
       shared_ptr<string> createdBy_ {};
-      // The Spark DPI engine version number.
+      // The Spark engine version.
       shared_ptr<string> displayReleaseVersion_ {};
-      // The status of the public network address switch.
+      // The enabling status of the public endpoint.
       shared_ptr<bool> enablePublic_ {};
-      // The public network connection address.
+      // The public endpoint.
       shared_ptr<string> endpoint_ {};
-      // The internal network connection address.
+      // The internal endpoint.
       shared_ptr<string> endpointInner_ {};
       // The runtime environment ID.
       shared_ptr<string> environmentId_ {};
@@ -332,7 +350,9 @@ namespace Models
       shared_ptr<bool> fusion_ {};
       // The creation time.
       shared_ptr<int64_t> gmtCreate_ {};
-      // The Livy Gateway configuration in JSON format. The following files are supported:
+      // The Livy engine version. This is a new parameter that replaces livyVersion.
+      shared_ptr<string> livyReleaseVersion_ {};
+      // The Livy gateway configuration in JSON format. The following files are supported:
       // 
       // - sparkDefaultsConf
       // - sparkBlackListConf
@@ -341,20 +361,22 @@ namespace Models
       shared_ptr<string> livyServerConf_ {};
       // The Livy version.
       shared_ptr<string> livyVersion_ {};
-      // The memory size of the Livy Server. Valid values:
+      // The memory size of the Livy server. Valid values:
       // - 4Gi
       // - 8Gi
       // - 16Gi
       shared_ptr<string> memoryLimit_ {};
+      // The Livy engine version information.
+      shared_ptr<string> meta_ {};
       // The name.
       shared_ptr<string> name_ {};
-      // The network connectivity name.
+      // The network connection name.
       shared_ptr<string> networkName_ {};
       // The queue name.
       shared_ptr<string> queueName_ {};
       // The ID of the creator.
       shared_ptr<string> ramUserId_ {};
-      // The Spark DPI engine version number. This field is deprecated. Use displayReleaseVersion instead.
+      // **[Deprecated]** The Spark engine version. Use displayReleaseVersion instead.
       shared_ptr<string> releaseVersion_ {};
       // The start time. The value is a UNIX timestamp in milliseconds.
       shared_ptr<int64_t> startTime_ {};
@@ -395,9 +417,9 @@ namespace Models
 
 
   protected:
-    // The return code of the request. The value 1000000 indicates that the request succeeded. Other values indicate that the request failed. For details about the error, see the message field.
+    // The response code. A value of 1000000 indicates that the request is successful. Any other value indicates that the request failed. For more information about the cause of the failure, see the message field.
     shared_ptr<string> code_ {};
-    // The returned result.
+    // The returned data.
     shared_ptr<GetLivyComputeResponseBody::Data> data_ {};
     // The error message.
     shared_ptr<string> message_ {};

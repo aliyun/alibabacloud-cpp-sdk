@@ -247,9 +247,9 @@ namespace Models
 
 
   protected:
-    // The idempotence token.
+    // The client token for idempotency.
     shared_ptr<string> clientToken_ {};
-    // The job type. Valid values:
+    // The type of the job. Valid values:
     // 
     // - SQL
     // 
@@ -257,23 +257,23 @@ namespace Models
     // 
     // - PYTHON
     shared_ptr<string> codeType_ {};
-    // The advanced Spark configurations.
+    // The advanced configurations for Spark.
     shared_ptr<StartJobRunRequest::ConfigurationOverrides> configurationOverrides_ {};
-    // The version that is displayed in the console.
+    // The version displayed in the console.
     shared_ptr<string> displayReleaseVersion_ {};
     // The timeout period for the job.
     shared_ptr<int32_t> executionTimeoutSeconds_ {};
-    // Specifies whether to enable the Fusion engine for acceleration.
+    // Specifies whether to enable Fusion engine acceleration.
     shared_ptr<bool> fusion_ {};
     // The information about the Spark driver.
     shared_ptr<JobDriver> jobDriver_ {};
-    // The job ID.
+    // The ID of the job.
     shared_ptr<string> jobId_ {};
-    // The job name.
+    // The name of the job.
     shared_ptr<string> name_ {};
-    // The version of the Spark engine.
+    // The version number of the Spark engine.
     shared_ptr<string> releaseVersion_ {};
-    // The resource queue on which the Spark job runs.
+    // The resource queue in which the Spark job runs.
     shared_ptr<string> resourceQueueId_ {};
     // The list of job tags.
     shared_ptr<vector<Tag>> tags_ {};

@@ -14,26 +14,32 @@ namespace Models
   public:
     friend void to_json(Darabonba::Json& j, const UpdateKyuubiServiceRequest& obj) { 
       DARABONBA_PTR_TO_JSON(computeInstance, computeInstance_);
+      DARABONBA_PTR_TO_JSON(expectedReplica, expectedReplica_);
       DARABONBA_PTR_TO_JSON(kyuubiConfigs, kyuubiConfigs_);
       DARABONBA_PTR_TO_JSON(kyuubiReleaseVersion, kyuubiReleaseVersion_);
       DARABONBA_PTR_TO_JSON(name, name_);
       DARABONBA_PTR_TO_JSON(publicEndpointEnabled, publicEndpointEnabled_);
       DARABONBA_PTR_TO_JSON(queue, queue_);
+      DARABONBA_PTR_TO_JSON(refresh, refresh_);
       DARABONBA_PTR_TO_JSON(releaseVersion, releaseVersion_);
       DARABONBA_PTR_TO_JSON(replica, replica_);
       DARABONBA_PTR_TO_JSON(restart, restart_);
+      DARABONBA_PTR_TO_JSON(scale, scale_);
       DARABONBA_PTR_TO_JSON(sparkConfigs, sparkConfigs_);
     };
     friend void from_json(const Darabonba::Json& j, UpdateKyuubiServiceRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(computeInstance, computeInstance_);
+      DARABONBA_PTR_FROM_JSON(expectedReplica, expectedReplica_);
       DARABONBA_PTR_FROM_JSON(kyuubiConfigs, kyuubiConfigs_);
       DARABONBA_PTR_FROM_JSON(kyuubiReleaseVersion, kyuubiReleaseVersion_);
       DARABONBA_PTR_FROM_JSON(name, name_);
       DARABONBA_PTR_FROM_JSON(publicEndpointEnabled, publicEndpointEnabled_);
       DARABONBA_PTR_FROM_JSON(queue, queue_);
+      DARABONBA_PTR_FROM_JSON(refresh, refresh_);
       DARABONBA_PTR_FROM_JSON(releaseVersion, releaseVersion_);
       DARABONBA_PTR_FROM_JSON(replica, replica_);
       DARABONBA_PTR_FROM_JSON(restart, restart_);
+      DARABONBA_PTR_FROM_JSON(scale, scale_);
       DARABONBA_PTR_FROM_JSON(sparkConfigs, sparkConfigs_);
     };
     UpdateKyuubiServiceRequest() = default ;
@@ -48,13 +54,21 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->computeInstance_ == nullptr
-        && this->kyuubiConfigs_ == nullptr && this->kyuubiReleaseVersion_ == nullptr && this->name_ == nullptr && this->publicEndpointEnabled_ == nullptr && this->queue_ == nullptr
-        && this->releaseVersion_ == nullptr && this->replica_ == nullptr && this->restart_ == nullptr && this->sparkConfigs_ == nullptr; };
+        && this->expectedReplica_ == nullptr && this->kyuubiConfigs_ == nullptr && this->kyuubiReleaseVersion_ == nullptr && this->name_ == nullptr && this->publicEndpointEnabled_ == nullptr
+        && this->queue_ == nullptr && this->refresh_ == nullptr && this->releaseVersion_ == nullptr && this->replica_ == nullptr && this->restart_ == nullptr
+        && this->scale_ == nullptr && this->sparkConfigs_ == nullptr; };
     // computeInstance Field Functions 
     bool hasComputeInstance() const { return this->computeInstance_ != nullptr;};
     void deleteComputeInstance() { this->computeInstance_ = nullptr;};
     inline string getComputeInstance() const { DARABONBA_PTR_GET_DEFAULT(computeInstance_, "") };
     inline UpdateKyuubiServiceRequest& setComputeInstance(string computeInstance) { DARABONBA_PTR_SET_VALUE(computeInstance_, computeInstance) };
+
+
+    // expectedReplica Field Functions 
+    bool hasExpectedReplica() const { return this->expectedReplica_ != nullptr;};
+    void deleteExpectedReplica() { this->expectedReplica_ = nullptr;};
+    inline int32_t getExpectedReplica() const { DARABONBA_PTR_GET_DEFAULT(expectedReplica_, 0) };
+    inline UpdateKyuubiServiceRequest& setExpectedReplica(int32_t expectedReplica) { DARABONBA_PTR_SET_VALUE(expectedReplica_, expectedReplica) };
 
 
     // kyuubiConfigs Field Functions 
@@ -92,6 +106,13 @@ namespace Models
     inline UpdateKyuubiServiceRequest& setQueue(string queue) { DARABONBA_PTR_SET_VALUE(queue_, queue) };
 
 
+    // refresh Field Functions 
+    bool hasRefresh() const { return this->refresh_ != nullptr;};
+    void deleteRefresh() { this->refresh_ = nullptr;};
+    inline bool getRefresh() const { DARABONBA_PTR_GET_DEFAULT(refresh_, false) };
+    inline UpdateKyuubiServiceRequest& setRefresh(bool refresh) { DARABONBA_PTR_SET_VALUE(refresh_, refresh) };
+
+
     // releaseVersion Field Functions 
     bool hasReleaseVersion() const { return this->releaseVersion_ != nullptr;};
     void deleteReleaseVersion() { this->releaseVersion_ = nullptr;};
@@ -113,6 +134,13 @@ namespace Models
     inline UpdateKyuubiServiceRequest& setRestart(bool restart) { DARABONBA_PTR_SET_VALUE(restart_, restart) };
 
 
+    // scale Field Functions 
+    bool hasScale() const { return this->scale_ != nullptr;};
+    void deleteScale() { this->scale_ = nullptr;};
+    inline bool getScale() const { DARABONBA_PTR_GET_DEFAULT(scale_, false) };
+    inline UpdateKyuubiServiceRequest& setScale(bool scale) { DARABONBA_PTR_SET_VALUE(scale_, scale) };
+
+
     // sparkConfigs Field Functions 
     bool hasSparkConfigs() const { return this->sparkConfigs_ != nullptr;};
     void deleteSparkConfigs() { this->sparkConfigs_ = nullptr;};
@@ -123,23 +151,29 @@ namespace Models
   protected:
     // The specifications of the Kyuubi service.
     shared_ptr<string> computeInstance_ {};
-    // The Kyuubi service configuration.
+    // The expected number of instances.
+    shared_ptr<int32_t> expectedReplica_ {};
+    // The Kyuubi service configurations.
     shared_ptr<string> kyuubiConfigs_ {};
-    // The Kyuubi service engine version.
+    // The Kyuubi service DPI engine version.
     shared_ptr<string> kyuubiReleaseVersion_ {};
     // The name.
     shared_ptr<string> name_ {};
     // Specifies whether to enable public network access.
     shared_ptr<bool> publicEndpointEnabled_ {};
-    // The queue in which the Kyuubi service runs.
+    // The running queue for the Kyuubi service.
     shared_ptr<string> queue_ {};
-    // The version of the Spark engine.
+    // Specifies whether to update the configurations.
+    shared_ptr<bool> refresh_ {};
+    // The Spark DPI engine version number.
     shared_ptr<string> releaseVersion_ {};
-    // The number of replicas for high availability (HA).
+    // The number of replicas enabled for high availability.
     shared_ptr<int32_t> replica_ {};
-    // Specifies whether to restart the service.
+    // Specifies whether to restart.
     shared_ptr<bool> restart_ {};
-    // The Spark configuration.
+    // Specifies whether to update the number of replicas.
+    shared_ptr<bool> scale_ {};
+    // The Spark configurations.
     shared_ptr<string> sparkConfigs_ {};
   };
 

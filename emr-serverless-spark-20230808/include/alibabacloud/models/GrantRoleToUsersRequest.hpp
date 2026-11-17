@@ -60,9 +60,9 @@ namespace Models
 
 
   protected:
-    // The Alibaba Cloud Resource Name (ARN) of the RAM role.
+    // The ARN of the role.
     shared_ptr<string> roleArn_ {};
-    // The user ARNs.
+    // The list of user ARNs.
     shared_ptr<vector<string>> userArns_ {};
     // The region ID.
     shared_ptr<string> regionId_ {};

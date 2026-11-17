@@ -57,7 +57,7 @@ namespace Models
 
 
   protected:
-    // The response code. A value of 1000000 indicates a successful request. Other values indicate a failed request. For error details, see the message parameter.
+    // The response code. A value of 1000000 indicates that the request was successful. Any other value indicates that the request failed. For details about the error, see the message.
     shared_ptr<string> code_ {};
     // The error message.
     shared_ptr<string> message_ {};

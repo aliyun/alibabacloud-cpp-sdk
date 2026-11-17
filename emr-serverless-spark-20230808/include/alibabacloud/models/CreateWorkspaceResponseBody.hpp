@@ -57,11 +57,11 @@ namespace Models
 
 
   protected:
-    // The operation ID.
+    // The ID of the operation flow.
     shared_ptr<string> operationId_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The workspace ID.
+    // The ID of the workspace.
     shared_ptr<string> workspaceId_ {};
   };
 

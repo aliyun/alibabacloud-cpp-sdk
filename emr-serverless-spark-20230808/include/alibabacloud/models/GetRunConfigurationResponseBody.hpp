@@ -147,11 +147,11 @@ namespace Models
 
 
       protected:
-        // The name of the application configuration file.
+        // The application configuration file name.
         shared_ptr<string> configFileName_ {};
-        // The key of the configuration item.
+        // The configuration item key.
         shared_ptr<string> configItemKey_ {};
-        // The value of the configuration item.
+        // The configuration item value.
         shared_ptr<string> configItemValue_ {};
       };
 
